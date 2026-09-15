@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineObj.h"
 #include "guild.h"
 #include "authorization.h"
@@ -29,7 +29,7 @@ void CMover::SetRenderPartsEffect( int nParts )
 
 	if( IsActiveMover() )
 	{
-		pItemElem = GetEquipItem( nParts );	// ì˜¤ë¥¸ìª½ ë¬´ê¸°ì—
+		pItemElem = GetEquipItem( nParts );	// ¿À¸¥ÂÊ ¹«±â¿¡
 		if( pItemElem )
 			pItemProp = pItemElem->GetProp();
 	} 
@@ -42,23 +42,23 @@ void CMover::SetRenderPartsEffect( int nParts )
 	
 	if( pItemProp )
 	{
-		if( pItemProp->nReflect > 0 )	// ë¦¬í”Œë ‰íŠ¸ê°€ ê±¸ë ¤ìˆìœ¼ë©´
+		if( pItemProp->nReflect > 0 )	// ¸®ÇÃ·ºÆ®°¡ °É·ÁÀÖÀ¸¸é
 		{
-			pModel->SetEffect( nParts, XE_REFLECT );	// ë¦¬í”Œë ‰íŠ¸ ì˜µì…˜ìœ¼ë¡œ ë Œë”.
+			pModel->SetEffect( nParts, XE_REFLECT );	// ¸®ÇÃ·ºÆ® ¿É¼ÇÀ¸·Î ·»´õ.
 
 			if( nParts == PARTS_RWEAPON && pItemProp->dwItemKind3 == IK3_YOYO )
-				pModel->SetEffect( PARTS_LWEAPON, XE_REFLECT );	// ë¦¬í”Œë ‰íŠ¸ ì˜µì…˜ìœ¼ë¡œ ë Œë”.
+				pModel->SetEffect( PARTS_LWEAPON, XE_REFLECT );	// ¸®ÇÃ·ºÆ® ¿É¼ÇÀ¸·Î ·»´õ.
 		}
 		
 		BOOL bExec = FALSE;
 		
 		switch( pItemProp->dwSfxElemental )
 		{
-		case ELEMENTAL_FIRE:	pModel->SetEffect( nParts, XE_ITEM_FIRE | (5 << 24) );	bExec = TRUE; break; // ë¶ˆ íƒ€ëŠ” ì˜µì…˜.
-		case ELEMENTAL_ELEC:	pModel->SetEffect( nParts, XE_ITEM_ELEC | (0 << 24) );	bExec = TRUE; break; // ì „ê¸° ì˜µì…˜.
-		case ELEMENTAL_WATER:	pModel->SetEffect( nParts, XE_ITEM_WATER | (5 << 24));	bExec = TRUE; break; // ë¬¼ ì˜µì…˜
-		case ELEMENTAL_WIND:	pModel->SetEffect( nParts, XE_ITEM_WIND  | (5 << 24));	bExec = TRUE; break; // ë°”ëŒ ì˜µì…˜
-		case ELEMENTAL_EARTH:	pModel->SetEffect( nParts, XE_ITEM_EARTH | (5 << 24));	bExec = TRUE; break;// ë•… ì˜µì…˜
+		case ELEMENTAL_FIRE:	pModel->SetEffect( nParts, XE_ITEM_FIRE | (5 << 24) );	bExec = TRUE; break; // ºÒ Å¸´Â ¿É¼Ç.
+		case ELEMENTAL_ELEC:	pModel->SetEffect( nParts, XE_ITEM_ELEC | (0 << 24) );	bExec = TRUE; break; // Àü±â ¿É¼Ç.
+		case ELEMENTAL_WATER:	pModel->SetEffect( nParts, XE_ITEM_WATER | (5 << 24));	bExec = TRUE; break; // ¹° ¿É¼Ç
+		case ELEMENTAL_WIND:	pModel->SetEffect( nParts, XE_ITEM_WIND  | (5 << 24));	bExec = TRUE; break; // ¹Ù¶÷ ¿É¼Ç
+		case ELEMENTAL_EARTH:	pModel->SetEffect( nParts, XE_ITEM_EARTH | (5 << 24));	bExec = TRUE; break;// ¶¥ ¿É¼Ç
 			break;
 		}
 		
@@ -84,7 +84,7 @@ void CMover::SetRenderPartsEffect( int nParts )
 			if( nAttrLevel > 10 )
 				nAttrLevel = 10;
 #endif // __EXT_ENCHANT
-			if( nAttr && (nAttrLevel > 10 || nAttrLevel < 0) )	// ì†ì„±ì€ ìˆëŠ”ë° ì†ì„±ë ˆë²¨ê°’ì´ ì´ìƒí• ë•Œ.
+			if( nAttr && (nAttrLevel > 10 || nAttrLevel < 0) )	// ¼Ó¼ºÀº ÀÖ´Âµ¥ ¼Ó¼º·¹º§°ªÀÌ ÀÌ»óÇÒ¶§.
 			{
 				LPCTSTR szErr = Error( "m_nResistAbilityOption=%d %s", nAttrLevel, GetName() );
 				ADDERRORMSG( szErr );
@@ -142,7 +142,7 @@ void CMover::SetRenderPartsEffect( int nParts )
 			if( nEffLevel >= 0 )
 #ifdef __CSC_ENCHANT_EFFECT_2
 #else //__CSC_ENCHANT_EFFECT_2
-			if( nEffLevel >= 1 )	// ì†ì„±ì œë ¨ë ˆë²¨ 1,2,3ì€ ì´í™íŠ¸ ì—†ìŒ.
+			if( nEffLevel >= 1 )	// ¼Ó¼ºÁ¦·Ã·¹º§ 1,2,3Àº ÀÌÆåÆ® ¾øÀ½.
 #endif //__CSC_ENCHANT_EFFECT_2
 			{
 				nEffLevel <<= 24;
@@ -167,7 +167,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	MoverProp *pMoverProp = GetProp();
 	if( pMoverProp == NULL )
 	{
-		LPCTSTR szErr = Error( "CMover::Render : í”„ë¡œí¼í‹° ëª»ì½ìŒ %s", GetName() );
+		LPCTSTR szErr = Error( "CMover::Render : ÇÁ·ÎÆÛÆ¼ ¸øÀĞÀ½ %s", GetName() );
 		ADDERRORMSG( szErr );
 	}
 #ifdef _DEBUG
@@ -187,7 +187,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 #ifdef __CLIENT		
 	if( IsActiveMover() && m_pActMover->IsFly() )
 	{
-//		if( g_Neuz.m_camera.m_fZoom < 1.0f )		// ê°€ê¹Œì´ í™•ëŒ€ëì„ë• ì•ˆë³´ì´ê²Œ í•˜ì.
+//		if( g_Neuz.m_camera.m_fZoom < 1.0f )		// °¡±îÀÌ È®´ëµÆÀ»¶© ¾Èº¸ÀÌ°Ô ÇÏÀÚ.
 //			return;
 	}
 
@@ -244,11 +244,11 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	D3DXMATRIX  mWorld;
 
 /*	
-	mWorld = m_matWorld;		// ì´í›„ë¶€í„°ëŠ” m_matWorldë¥¼ ì“°ì§€ë§ê³  matWorldë¥¼ ì“°ì 
+	mWorld = m_matWorld;		// ÀÌÈÄºÎÅÍ´Â m_matWorld¸¦ ¾²Áö¸»°í matWorld¸¦ ¾²ÀÚ 
 
 	if( IsPlayer() )
-		mWorld._42 += 0.07f;		// êµ¬ë‘ì˜ í ë†’ì´ë§Œí¼ ì˜¬ë ¤ì¤Œ.
-	// ì¢Œí‘œ ì´ë™ 
+		mWorld._42 += 0.07f;		// ±¸µÎÀÇ Èú ³ôÀÌ¸¸Å­ ¿Ã·ÁÁÜ.
+	// ÁÂÇ¥ ÀÌµ¿ 
 */
  #ifdef __CLIENT
 	if( IsPlayer() )
@@ -258,10 +258,10 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	}
 //	if( IsUpdateMatrix() )
 	{
-		UpdateMatrix();		// í´ë¼ì—ì„  ë§¤íŠ¸ë¦­ìŠ¤ ê°±ì‹ ì„ ë Œë”ì—ì„œ í•œë‹¤. ì„œë²„ì—ì„  Processì—ì„œ í•œë‹¤.
+		UpdateMatrix();		// Å¬¶ó¿¡¼± ¸ÅÆ®¸¯½º °»½ÅÀ» ·»´õ¿¡¼­ ÇÑ´Ù. ¼­¹ö¿¡¼± Process¿¡¼­ ÇÑ´Ù.
 	}
  #endif
-	mWorld = m_matWorld;		// ì´í›„ë¶€í„°ëŠ” m_matWorldë¥¼ ì“°ì§€ë§ê³  matWorldë¥¼ ì“°ì 
+	mWorld = m_matWorld;		// ÀÌÈÄºÎÅÍ´Â m_matWorld¸¦ ¾²Áö¸»°í matWorld¸¦ ¾²ÀÚ 
 
 #ifdef __CLIENT
 	switch( GetIndex() )
@@ -276,15 +276,15 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	}
 #endif
 	
-	// í‹°ë‚˜ ìŠ¤ì¼€ì¼ ì¡°ì •...
+	// Æ¼³ª ½ºÄÉÀÏ Á¶Á¤...
 	if( GetIndex() == MI_MASA_TINA )
 	{
 		ResetScale();
 		D3DXMatrixScaling(&m_matScale, GetScale().x, GetScale().y, GetScale().z );
 	}
 
-	// ë§ìœ¼ë©´ í”ë“¤ë¦¬ëŠ” ì²˜ë¦¬.
-	if( IsNPC() && m_nDmgCnt > 0 && pMoverProp->dwClass != RANK_SUPER )		// ë³´ìŠ¤ëª¹ì€ í”ë“¤ë¦¬ì§€ ì•ŠìŒ.
+	// ¸ÂÀ¸¸é Èçµé¸®´Â Ã³¸®.
+	if( IsNPC() && m_nDmgCnt > 0 && pMoverProp->dwClass != RANK_SUPER )		// º¸½º¸÷Àº Èçµé¸®Áö ¾ÊÀ½.
 	{
 		{
 			D3DXMATRIX matDmg;
@@ -311,7 +311,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 	if( IsActiveMover() )
 	{
-		pItemElem = GetEquipItem( PARTS_RWEAPON );	// ì˜¤ë¥¸ìª½ ë¬´ê¸°ì—
+		pItemElem = GetEquipItem( PARTS_RWEAPON );	// ¿À¸¥ÂÊ ¹«±â¿¡
 		if( pItemElem )
 			pItemProp = pItemElem->GetProp();
 	} 
@@ -322,7 +322,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			pItemProp = prj.GetItemProp( dwItemID );
 	}
 
-	// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ì˜ ì´í™íŠ¸ ì„¸íŒ….
+	// µé°íÀÖ´Â ¹«±âÀÇ ÀÌÆåÆ® ¼¼ÆÃ.
 	SetRenderPartsEffect( PARTS_RWEAPON );
 	SetRenderPartsEffect( PARTS_LWEAPON );
 #ifdef __NEW_WEAPON_GLOW
@@ -331,21 +331,21 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 	if( IsActiveMover() )
 	{
-		pItemElem = GetEquipItem( PARTS_SHIELD );	// ë°©íŒ¨ì—
+		pItemElem = GetEquipItem( PARTS_SHIELD );	// ¹æÆĞ¿¡
 		if( pItemElem )
 			pItemProp = pItemElem->GetProp();
 	} else
 	{
-		DWORD dwItemID	= m_aEquipInfo[PARTS_SHIELD].dwId;	// activemover ê°€ ì•„ë‹Œë†ˆì€ ê°€ìƒì•„ì´í…œìœ¼ë¡œ êº¼ë‚¸ë‹¤.
+		DWORD dwItemID	= m_aEquipInfo[PARTS_SHIELD].dwId;	// activemover °¡ ¾Æ´Ñ³ğÀº °¡»ó¾ÆÀÌÅÛÀ¸·Î ²¨³½´Ù.
 		if( dwItemID != NULL_ID )
 			pItemProp = prj.GetItemProp( dwItemID );
 	}
 	if( pItemProp )
 	{
-		if( pItemProp->nReflect > 0 )	// ë¦¬í”Œë ‰íŠ¸ê°€ ê±¸ë ¤ìˆìœ¼ë©´
-			pModel->SetEffect( PARTS_SHIELD, XE_REFLECT );	// ë¦¬í”Œë ‰íŠ¸ ì˜µì…˜ìœ¼ë¡œ ë Œë”.
+		if( pItemProp->nReflect > 0 )	// ¸®ÇÃ·ºÆ®°¡ °É·ÁÀÖÀ¸¸é
+			pModel->SetEffect( PARTS_SHIELD, XE_REFLECT );	// ¸®ÇÃ·ºÆ® ¿É¼ÇÀ¸·Î ·»´õ.
 	}
-	// ë§í†  í…ìŠ¤ì³ ìˆìœ¼ë©´ ì§€ì •.
+	// ¸ÁÅä ÅØ½ºÃÄ ÀÖÀ¸¸é ÁöÁ¤.
 	pModel->SetExtTexture( m_pCloakTexture );
 
 	if( pModel )
@@ -385,10 +385,10 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			}
 			m_pModel->SetGroup( nLevel );
 		} else
-			m_pModel->SetGroup( 2 );		// ê·¸ë¦¼ì ì°ì„ë• ê°€ì¥ ë‚®ì€ ë‹¨ê³„ë¡œ ì°ì.
+			m_pModel->SetGroup( 2 );		// ±×¸²ÀÚ ÂïÀ»¶© °¡Àå ³·Àº ´Ü°è·Î ÂïÀÚ.
 	}
 
-	if( pModel->m_pModelElem->m_nTextureEx > 0 )		// í™•ì¥í…ìŠ¤ì³ ì“°ëŠ”ë„˜ì¸ê°€?
+	if( pModel->m_pModelElem->m_nTextureEx > 0 )		// È®ÀåÅØ½ºÃÄ ¾²´Â³ÑÀÎ°¡?
 		pModel->SetTextureEx( pModel->m_pModelElem->m_nTextureEx );
 	else
 		pModel->SetTextureEx( 0 );
@@ -396,7 +396,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 #ifdef __CLIENT
 	if( IsActiveMover() )
 	{
-		// í—¬ë©§ì´ ë¨¸ë¦¬ì¹´ë½ ë‚ ë ¤ì•¼í•˜ëŠ”ê²ƒì´ëƒ?  // ì¸ë²¤ì´ ìˆëŠ” ê²½ìš° 
+		// Çï¸äÀÌ ¸Ó¸®Ä«¶ô ³¯·Á¾ßÇÏ´Â°ÍÀÌ³Ä?  // ÀÎº¥ÀÌ ÀÖ´Â °æ¿ì 
 		CItemElem* pItemElem	= GetEquipItem( PARTS_CAP );
 		O3D_ELEMENT* pElement   = NULL;
 		
@@ -408,7 +408,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 				pElement = ((CModelObject*)m_pModel)->SetEffect(pItemProp->dwBasePartsIgnore, XE_HIDE);
 			}
 			
-			// ì™¸íˆ¬ì˜ìƒì„ ì…ì—ˆì„ê²½ìš° ë¨¸ë¦¬ë‚ ë¦´ê²ƒì¸ê°€ì˜ ê¸°ì¤€ì„ ì™¸íˆ¬ ëª¨ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤
+			// ¿ÜÅõÀÇ»óÀ» ÀÔ¾úÀ»°æ¿ì ¸Ó¸®³¯¸±°ÍÀÎ°¡ÀÇ ±âÁØÀ» ¿ÜÅõ ¸ğÀÚ¸¦ ±âÁØÀ¸·Î ¹Ù²Û´Ù
 			CItemElem* pItemElemOvercoat	= GetEquipItem( PARTS_HAT );
 						
 			if( pItemElemOvercoat )
@@ -433,7 +433,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		}
 		else
 		{
-			// ì™¸íˆ¬ì˜ìƒì„ ì…ì—ˆì„ê²½ìš° ë¨¸ë¦¬ë‚ ë¦´ê²ƒì¸ê°€ì˜ ê¸°ì¤€ì„ ì™¸íˆ¬ ëª¨ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤
+			// ¿ÜÅõÀÇ»óÀ» ÀÔ¾úÀ»°æ¿ì ¸Ó¸®³¯¸±°ÍÀÎ°¡ÀÇ ±âÁØÀ» ¿ÜÅõ ¸ğÀÚ¸¦ ±âÁØÀ¸·Î ¹Ù²Û´Ù
 			CItemElem* pItemElemOvercoat	= GetEquipItem( PARTS_HAT );
 			
 			if( pItemElemOvercoat )
@@ -454,7 +454,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	}
 	else
 	{
-		// í—¬ë©§ì´ ë¨¸ë¦¬ì¹´ë½ ë‚ ë ¤ì•¼í•˜ëŠ”ê²ƒì´ëƒ?  // ì¸ë²¤ì´ ì—†ëŠ”ê²½ìš°
+		// Çï¸äÀÌ ¸Ó¸®Ä«¶ô ³¯·Á¾ßÇÏ´Â°ÍÀÌ³Ä?  // ÀÎº¥ÀÌ ¾ø´Â°æ¿ì
 		DWORD dwId	= m_aEquipInfo[PARTS_CAP].dwId;
 		O3D_ELEMENT*	pElement = NULL;
 		
@@ -467,7 +467,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 				pElement = pModel->SetEffect(pItemProp->dwBasePartsIgnore, XE_HIDE);
 			}
 			
-			// ì™¸íˆ¬ì˜ìƒì„ ì…ì—ˆì„ê²½ìš° ë¨¸ë¦¬ë‚ ë¦´ê²ƒì¸ê°€ì˜ ê¸°ì¤€ì„ ì™¸íˆ¬ ëª¨ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤
+			// ¿ÜÅõÀÇ»óÀ» ÀÔ¾úÀ»°æ¿ì ¸Ó¸®³¯¸±°ÍÀÎ°¡ÀÇ ±âÁØÀ» ¿ÜÅõ ¸ğÀÚ¸¦ ±âÁØÀ¸·Î ¹Ù²Û´Ù
 			dwId	= m_aEquipInfo[PARTS_HAT].dwId;
 			if( dwId != NULL_ID )
 			{
@@ -491,7 +491,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		}
 		else
 		{
-			// ì™¸íˆ¬ì˜ìƒì„ ì…ì—ˆì„ê²½ìš° ë¨¸ë¦¬ë‚ ë¦´ê²ƒì¸ê°€ì˜ ê¸°ì¤€ì„ ì™¸íˆ¬ ëª¨ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤
+			// ¿ÜÅõÀÇ»óÀ» ÀÔ¾úÀ»°æ¿ì ¸Ó¸®³¯¸±°ÍÀÎ°¡ÀÇ ±âÁØÀ» ¿ÜÅõ ¸ğÀÚ¸¦ ±âÁØÀ¸·Î ¹Ù²Û´Ù
 			dwId	= m_aEquipInfo[PARTS_HAT].dwId;
 			if( dwId != NULL_ID )
 			{
@@ -517,20 +517,20 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	}
 #endif //__CLIENT
 	
-		if( IsMode( TRANSPARENT_MODE ) )		// íˆ¬ëª…ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ ë Œë”.
+		if( IsMode( TRANSPARENT_MODE ) )		// Åõ¸í»óÅÂ°¡ ¾Æ´Ò¶§¸¸ ·»´õ.
 		{
-			if( g_eLocal.GetState( EVE_SCHOOL ) == 1 &&		// í•™êµ ëŒ€í•­ì „ ì„œë²„ì— ì ‘ì†,
-				g_eLocal.GetState( EVE_SCHOOL_BATTLE ) < SBS_START &&	// ëŒ€í•­ì „ ì‹œì‘ ì´ì „,
-				!IsAuthHigher( AUTH_GAMEMASTER ) )	// ì¼ë°˜ ì‚¬ìš©ì,
+			if( g_eLocal.GetState( EVE_SCHOOL ) == 1 &&		// ÇĞ±³ ´ëÇ×Àü ¼­¹ö¿¡ Á¢¼Ó,
+				g_eLocal.GetState( EVE_SCHOOL_BATTLE ) < SBS_START &&	// ´ëÇ×Àü ½ÃÀÛ ÀÌÀü,
+				!IsAuthHigher( AUTH_GAMEMASTER ) )	// ÀÏ¹İ »ç¿ëÀÚ,
 			{
 				m_pModel->Render( pd3dDevice, &mWorld ); 
 			}
 			else
 			{
 				m_pModel->SetBlendFactor( 80 );
-				if( IsActiveMover() ||		// ìê¸°ìì‹ ì€ ë°˜íˆ¬ëª…ìœ¼ë¡œ ì¶œë ¥ ...í˜¹ì€
-					(IsActiveMover() == FALSE && g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER )) )		// íƒ€ì¸ì¸ë° í”Œë ˆì´ì–´ê°€ ê²œë§ˆë©´.
-					m_pModel->Render( pd3dDevice, &mWorld );		// ë°˜íˆ¬ëª…ìœ¼ë¡œ ì¶œë ¥
+				if( IsActiveMover() ||		// ÀÚ±âÀÚ½ÅÀº ¹İÅõ¸íÀ¸·Î Ãâ·Â ...È¤Àº
+					(IsActiveMover() == FALSE && g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER )) )		// Å¸ÀÎÀÎµ¥ ÇÃ·¹ÀÌ¾î°¡ °×¸¶¸é.
+					m_pModel->Render( pd3dDevice, &mWorld );		// ¹İÅõ¸íÀ¸·Î Ãâ·Â
 				m_pModel->SetBlendFactor( 255 );
 			}
 		}
@@ -554,7 +554,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 #endif //__YSMOOTH_OBJ
 			
 			m_pModel->SetBlendFactor(m_wBlendFactor);
-			m_pModel->Render( pd3dDevice, &mWorld );	// ì¼ë°˜ ìƒíƒœ ì¶œë ¥
+			m_pModel->Render( pd3dDevice, &mWorld );	// ÀÏ¹İ »óÅÂ Ãâ·Â
 		}
 
 
@@ -568,7 +568,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_ONE );
 		}
 
-		if( IsMode( TRANSPARENT_MODE ) == 0 )		// íˆ¬ëª…ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ ë Œë”.
+		if( IsMode( TRANSPARENT_MODE ) == 0 )		// Åõ¸í»óÅÂ°¡ ¾Æ´Ò¶§¸¸ ·»´õ.
 		{
 			if( m_pModel->m_nNoEffect == 0 )
 			{
@@ -591,7 +591,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			m_pRide->Render( pd3dDevice, &mWorld );
 	}
 #else
-	if( IsMode( TRANSPARENT_MODE ) == 0 )		// íˆ¬ëª…ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ ë Œë”.
+	if( IsMode( TRANSPARENT_MODE ) == 0 )		// Åõ¸í»óÅÂ°¡ ¾Æ´Ò¶§¸¸ ·»´õ.
 	{
 		D3DXMATRIX mRide = m_matWorld;
 
@@ -599,11 +599,11 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		{
 			m_pRide->m_nNoEffect = m_pModel->m_nNoEffect;
 			//D3DXMATRIX mRide = m_matWorld;
-			ItemProp* pRideProp = prj.GetItemProp( m_dwRideItemIdx );		// í˜„ì¬ íƒ€ê³ ìˆëŠ” íƒˆê²ƒì˜ í”„ë¡œí¼í‹°.
+			ItemProp* pRideProp = prj.GetItemProp( m_dwRideItemIdx );		// ÇöÀç Å¸°íÀÖ´Â Å»°ÍÀÇ ÇÁ·ÎÆÛÆ¼.
 
 			if( pRideProp && pRideProp->dwItemKind3 == IK3_STICK )
 			{
-				if( pModel->GetMatrixBone(0) )	// ë¹—ìë£¨ëŠ” ë£¨íŠ¸ ë³¸ì— ì—°ê²°ì‹œí‚´.
+				if( pModel->GetMatrixBone(0) )	// ºøÀÚ·ç´Â ·çÆ® º»¿¡ ¿¬°á½ÃÅ´.
 				{
 					D3DXMATRIX mBoundY;
 					D3DXMatrixTranslation( &mBoundY, 0, pModel->GetMatrixBone(0)->_42, 0 );
@@ -613,8 +613,8 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 #if __VER >= 14 // __WING_ITEM
 			if( pRideProp && pRideProp->dwItemKind3 == IK3_WING )
 			{
-				static const int SPINE1_BONE = 4;	// ëª¸ ë¶€ê·¼ ì²™ì¶”(ë‚ ê°œì˜ ì›€ì§ì„ì€ ìºë¦­í„° ëª¸ì˜ ì›€ì§ì„ì„ ë”°ë¥¸ë‹¤)
-				static const int SPINE2_BONE = 5;	// ëª© ë¶€ê·¼ ì²™ì¶”(ë‚ ê°œê°€ ëª¸ì˜ ì›€ì§ì„ì„ ë”°ë¥´ë”ë¼ë„ ìœ„ì¹˜ëŠ” ëª© ë¶€ê·¼ì— ë¶™ì¸ë‹¤)
+				static const int SPINE1_BONE = 4;	// ¸ö ºÎ±Ù Ã´Ãß(³¯°³ÀÇ ¿òÁ÷ÀÓÀº Ä³¸¯ÅÍ ¸öÀÇ ¿òÁ÷ÀÓÀ» µû¸¥´Ù)
+				static const int SPINE2_BONE = 5;	// ¸ñ ºÎ±Ù Ã´Ãß(³¯°³°¡ ¸öÀÇ ¿òÁ÷ÀÓÀ» µû¸£´õ¶óµµ À§Ä¡´Â ¸ñ ºÎ±Ù¿¡ ºÙÀÎ´Ù)
 				D3DXMATRIX* pmatSpine1Bone = pModel->GetMatrixBone( SPINE1_BONE );
 				D3DXMATRIX* pmatSpine2Bone = pModel->GetMatrixBone( SPINE2_BONE );
 				if( pmatSpine1Bone && pmatSpine2Bone )
@@ -630,7 +630,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 					D3DXMatrixMultiply( &matEvent, &matRotation, &matEvent );
 					D3DXMatrixMultiply( &matEvent, &matEvent, pmatSpine1Bone );
 
-					// ê¹ƒí„¸ ë‚ ê°œì— ëŒ€í•´ì„œë§Œ ì„ì‹œ ìœ„ì¹˜ ë³´ì • (ì¶”í›„ ë°˜ë“œì‹œ ëª¨ë“  ë‚ ê°œê°€ else ìª½ ì½”ë“œë¡œ í†µì¼ë˜ì–´ì•¼ í•¨)
+					// ±êÅĞ ³¯°³¿¡ ´ëÇØ¼­¸¸ ÀÓ½Ã À§Ä¡ º¸Á¤ (ÃßÈÄ ¹İµå½Ã ¸ğµç ³¯°³°¡ else ÂÊ ÄÚµå·Î ÅëÀÏµÇ¾î¾ß ÇÔ)
 					if( pRideProp && ( pRideProp->dwID == II_RID_RID_WIN_FEATHER01 || pRideProp->dwID == II_RID_RID_WIN_FEATHER02 ) )
 					{
 						matEvent._41 = pmatSpine2Bone->_41;
@@ -655,7 +655,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			m_pRide->m_nNoEffect = 0;
 
 #ifdef __CLIENT
-			// ì¼ë³¸íŒì€ ì¼íšŒìš©ì´ ì•„ë‹ˆë‹¤...ë‚˜ë¨¸ì§€êµ­ê°€ëŠ” ì¼íšŒìš©~
+			// ÀÏº»ÆÇÀº ÀÏÈ¸¿ëÀÌ ¾Æ´Ï´Ù...³ª¸ÓÁö±¹°¡´Â ÀÏÈ¸¿ë~
 			if( pRideProp && pRideProp->dwID == II_RID_RID_BOR_LADOLF || pRideProp->dwID == II_RID_RID_BOR_JLADOLF
 #if __VER >= 9
 				|| pRideProp->dwID == II_RID_RID_BOR_JLADOLF_S || pRideProp->dwID == II_RID_RID_BOR_LADOLF_S
@@ -678,7 +678,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 				FLOAT fAngH  = GetAngleX();
 				AngleToVector( &vLocal, fAngXZ, -fAngH-10.0f, 1.4f );
 
-				// ë‚ ê¸° ì‹œì‘ - ê°€ì†ì¤‘
+				// ³¯±â ½ÃÀÛ - °¡¼ÓÁß
 				if( m_pActMover->GetStateFlag() & OBJSTAF_ACC )
 				{
 					if( m_dwLadolfFlag == 0 )
@@ -720,7 +720,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 #endif
 
 #ifdef __CLIENT
-	// ë¹„í–‰ì¤‘ ì „ë°© xxê°ë„ ì´ë‚´ì— ë“¤ì–´ì˜¤ëŠ”ê²ƒì€ TABìœ¼ë¡œ ìë™ íƒ€ê²ŸíŒ….
+	// ºñÇàÁß Àü¹æ xx°¢µµ ÀÌ³»¿¡ µé¾î¿À´Â°ÍÀº TABÀ¸·Î ÀÚµ¿ Å¸°ÙÆÃ.
 #if __VER >= 8 //__CSC_VER8_5
 	if(m_pAngelFlag && m_pAngel != NULL)
 	{
@@ -741,11 +741,11 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	
 	if( /*IsPlayer() &&*/ IsActiveMover() == FALSE && g_pPlayer->m_pActMover->IsFly() )
 	{
-		if( GetProp()->bKillable == 1 && GetProp()->dwFlying == 1 )		// ì£½ì´ëŠ”ê²Œ ê°€ëŠ¥í•œë„˜ / ë¹„í–‰ëª¹ ë§Œ íƒ€ê²Ÿìœ¼ë¡œ ì¡íŒë‹¤. 
+		if( GetProp()->bKillable == 1 && GetProp()->dwFlying == 1 )		// Á×ÀÌ´Â°Ô °¡´ÉÇÑ³Ñ / ºñÇà¸÷ ¸¸ Å¸°ÙÀ¸·Î ÀâÈù´Ù. 
 		{
-			D3DXVECTOR3	vCamera = g_Neuz.m_camera.m_vLookAt - g_Neuz.m_camera.GetPos();			// ì¹´ë©”ë¼ê°€ ë³´ëŠ” ì •ë©´ë²¡í„°
-			D3DXVECTOR3 vObj	= GetPos() - g_Neuz.m_camera.GetPos();	// ì¹´ë©”ë¼ì—ì„œ thisì˜¤ë¸Œì íŠ¸ì˜ ë²¡í„°.
-			D3DXVec3Normalize( &vCamera, &vCamera );		// ë…¸ë§ë¼ì´ì¦ˆ.
+			D3DXVECTOR3	vCamera = g_Neuz.m_camera.m_vLookAt - g_Neuz.m_camera.GetPos();			// Ä«¸Ş¶ó°¡ º¸´Â Á¤¸éº¤ÅÍ
+			D3DXVECTOR3 vObj	= GetPos() - g_Neuz.m_camera.GetPos();	// Ä«¸Ş¶ó¿¡¼­ this¿ÀºêÁ§Æ®ÀÇ º¤ÅÍ.
+			D3DXVec3Normalize( &vCamera, &vCamera );		// ³ë¸»¶óÀÌÁî.
 			D3DXVec3Normalize( &vObj, &vObj );
 			FLOAT fDot = D3DXVec3Dot( &vCamera, &vObj );
 			if( fDot > cosf(D3DXToRadian(15.0f)) )
@@ -759,7 +759,7 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		}
 	}
 	
-	// ë¬´ë²„ì— ê¸°ë³¸ì ìœ¼ë¡œ ë‹¬ë ¤ìˆëŠ” ì´í™íŠ¸. - ì´ê±´ ì£½ì„ë•Œê¹Œì§€ ì•ˆì—†ì–´ì§„ë‹¤.
+	// ¹«¹ö¿¡ ±âº»ÀûÀ¸·Î ´Ş·ÁÀÖ´Â ÀÌÆåÆ®. - ÀÌ°Ç Á×À»¶§±îÁö ¾È¾ø¾îÁø´Ù.
 	if( (m_dwFlag & MVRF_EFFECT1) == 0 )
 	{
 		CSfx *pSfx = NULL;
@@ -803,11 +803,11 @@ void CMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	
 }
 
-// ì´ê²ƒì´ í˜¸ì¶œë ë•ŒëŠ” ë°”ë¡œ ì´ì „ì— CMover::Render()ê°€ í˜¸ì¶œë˜ì–´ì•¼ í•œë‹¤.
+// ÀÌ°ÍÀÌ È£ÃâµÉ¶§´Â ¹Ù·Î ÀÌÀü¿¡ CMover::Render()°¡ È£ÃâµÇ¾î¾ß ÇÑ´Ù.
 void CMover::RenderPartsEffect( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 #ifdef __NEW_WEAPON_GLOW
-	if( IsMode( TRANSPARENT_MODE ) )		// íˆ¬ëª…ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ ë Œë”.
+	if( IsMode( TRANSPARENT_MODE ) )		// Åõ¸í»óÅÂ°¡ ¾Æ´Ò¶§¸¸ ·»´õ.
 		return;
 
 	if( !IsVisible() || IsCull() )
@@ -924,7 +924,7 @@ void CMover::RenderPartsEffect( LPDIRECT3DDEVICE9 pd3dDevice )
 	}
 #endif
 
-	if( IsMode( TRANSPARENT_MODE ) )		// íˆ¬ëª…ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ ë Œë”.
+	if( IsMode( TRANSPARENT_MODE ) )		// Åõ¸í»óÅÂ°¡ ¾Æ´Ò¶§¸¸ ·»´õ.
 		return;
 
 	if( !IsVisible() || IsCull() )
@@ -950,7 +950,7 @@ void CMover::RenderPartsEffect( LPDIRECT3DDEVICE9 pd3dDevice )
 
 	if( IsActiveMover() )
 	{
-		pItemElem = GetEquipItem( PARTS_RWEAPON );	// ì˜¤ë¥¸ìª½ ë¬´ê¸°ì—
+		pItemElem = GetEquipItem( PARTS_RWEAPON );	// ¿À¸¥ÂÊ ¹«±â¿¡
 		if( pItemElem )
 			pItemProp = pItemElem->GetProp();
 	} else
@@ -962,23 +962,23 @@ void CMover::RenderPartsEffect( LPDIRECT3DDEVICE9 pd3dDevice )
 	
 	if( IsActiveMover() )
 	{
-		pItemElem = GetEquipItem( PARTS_SHIELD );	// ë°©íŒ¨ì—
+		pItemElem = GetEquipItem( PARTS_SHIELD );	// ¹æÆĞ¿¡
 		if( pItemElem )
 			pItemProp = pItemElem->GetProp();
 	} else
 	{
-		DWORD dwItemID = m_aEquipInfo[PARTS_SHIELD].dwId;	// activemover ê°€ ì•„ë‹Œë†ˆì€ ê°€ìƒì•„ì´í…œìœ¼ë¡œ êº¼ë‚¸ë‹¤.
+		DWORD dwItemID = m_aEquipInfo[PARTS_SHIELD].dwId;	// activemover °¡ ¾Æ´Ñ³ğÀº °¡»ó¾ÆÀÌÅÛÀ¸·Î ²¨³½´Ù.
 		if( dwItemID != NULL_ID )
 			pItemProp = prj.GetItemProp( dwItemID );
 	}
 	if( pItemProp )
 	{
-		if( pItemProp->nReflect > 0 )	// ë¦¬í”Œë ‰íŠ¸ê°€ ê±¸ë ¤ìˆìœ¼ë©´
-			((CModelObject*)m_pModel)->SetEffect( PARTS_SHIELD, XE_REFLECT );	// ë¦¬í”Œë ‰íŠ¸ ì˜µì…˜ìœ¼ë¡œ ë Œë”.
+		if( pItemProp->nReflect > 0 )	// ¸®ÇÃ·ºÆ®°¡ °É·ÁÀÖÀ¸¸é
+			((CModelObject*)m_pModel)->SetEffect( PARTS_SHIELD, XE_REFLECT );	// ¸®ÇÃ·ºÆ® ¿É¼ÇÀ¸·Î ·»´õ.
 	}
 	
 	m_pModel->SetGroup( 0 );
-	if( IsMode( TRANSPARENT_MODE ) == 0 )		// íˆ¬ëª…ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ ë Œë”.
+	if( IsMode( TRANSPARENT_MODE ) == 0 )		// Åõ¸í»óÅÂ°¡ ¾Æ´Ò¶§¸¸ ·»´õ.
 	{
 		if( pItemProp )
 		{
@@ -1036,7 +1036,7 @@ void CMover::RenderPartsEffect( LPDIRECT3DDEVICE9 pd3dDevice )
 // nValue ( 1,2,3,4 )
 void CMover::RenderGauge( LPDIRECT3DDEVICE9 pd3dDevice, int nValue )
 {
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
     D3DVIEWPORT9 vp;
 	const BOUND_BOX* pBB = m_pModel->GetBBVector();
@@ -1085,7 +1085,7 @@ void CMover::RenderGauge( LPDIRECT3DDEVICE9 pd3dDevice, int nValue )
 		case 1:
 			g_Neuz.m_TextureGauge[1].RenderScal(&(g_Neuz.m_2DRender), p, y, 0.8f, 0.55f);
 			break;
-		case 0:		// ê·¸ë¦¬ì§€ ì•ŠëŠ”ë‹¤.
+		case 0:		// ±×¸®Áö ¾Ê´Â´Ù.
 			break;
 		default:
 			ASSERT( 0 );
@@ -1098,7 +1098,7 @@ void CMover::RenderGauge( LPDIRECT3DDEVICE9 pd3dDevice, int nValue )
 }
 
 
-// ë¹„í–‰ì‹œ í„°ë³´ê·¸ë˜í”„
+// ºñÇà½Ã ÅÍº¸±×·¡ÇÁ
 void CMover::RenderTurboGauge( LPDIRECT3DDEVICE9 pd3dDevice, DWORD nColor, int nValue, int nMaxValue )
 {
 	if( IsMode( TRANSPARENT_MODE ) )
@@ -1107,7 +1107,7 @@ void CMover::RenderTurboGauge( LPDIRECT3DDEVICE9 pd3dDevice, DWORD nColor, int n
 		return;
 	//	pd3dDevice->SetRenderState( D3DRS_ZFUNC, D3DCMP_LESSEQUAL);
 	
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
     D3DVIEWPORT9 vp;
 	const BOUND_BOX* pBB = m_pModel->GetBBVector();
@@ -1134,12 +1134,12 @@ void CMover::RenderTurboGauge( LPDIRECT3DDEVICE9 pd3dDevice, DWORD nColor, int n
 	
 //	vOut.y -= 40;
 	
-	CPoint point( (LONG)( vOut.x - 80 / 2 ), (LONG)( vOut.y - 40 - 3 ) );		// ê²Œì´ì§€ width 100
+	CPoint point( (LONG)( vOut.x - 80 / 2 ), (LONG)( vOut.y - 40 - 3 ) );		// °ÔÀÌÁö width 100
 	CPoint p = CPoint( point.x - 2, point.y - 2 );
 
 	MakeEven( p.x );
 	
-	g_Neuz.m_TextureTurboGauge[0].RenderScal(&(g_Neuz.m_2DRender), p, 200, 0.8f, 0.55f);		// ê²Œì´ì§€ë°” í…Œë‘ë¦¬(ì™€ê¾¸?)
+	g_Neuz.m_TextureTurboGauge[0].RenderScal(&(g_Neuz.m_2DRender), p, 200, 0.8f, 0.55f);		// °ÔÀÌÁö¹Ù Å×µÎ¸®(¿Í²Ù?)
 	
 	//int nHitWidth = nValue * nGaugeWidth / nMaxValue;
 	
@@ -1167,7 +1167,7 @@ void CMover::RenderTurboGauge( LPDIRECT3DDEVICE9 pd3dDevice, DWORD nColor, int n
 	g_Neuz.m_2DRender.TextOut( p.x + 128, p.y, nValue, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
 #endif
 
-	// ì†ë„ í‘œì‹œ.
+	// ¼Óµµ Ç¥½Ã.
 
 	extern int g_nFlySpeed;
 	char szBuff[64];
@@ -1184,7 +1184,7 @@ void CMover::RenderTurboGauge( LPDIRECT3DDEVICE9 pd3dDevice, DWORD nColor, int n
 		&GetWorld()->m_pCamera->m_matView, &matWorld);
 	
 
-	// ìˆ«ìí°íŠ¸ ì°ê¸°.
+	// ¼ıÀÚÆùÆ® Âï±â.
 	p.x = (LONG)( vOut.x + 30 );
 	p.y = (LONG)( vOut.y + 0 );
 
@@ -1193,12 +1193,12 @@ void CMover::RenderTurboGauge( LPDIRECT3DDEVICE9 pd3dDevice, DWORD nColor, int n
 	for( i = 0; i < nLen; i ++ )
 	{
 		nIdx = szBuff[i] - '0';
-		g_WndMng.m_pWndWorld->m_texFontDigital.GetAt(nIdx)->Render( &g_Neuz.m_2DRender, p );		// ìˆ˜í‰ ê²Œì´ì§€.
+		g_WndMng.m_pWndWorld->m_texFontDigital.GetAt(nIdx)->Render( &g_Neuz.m_2DRender, p );		// ¼öÆò °ÔÀÌÁö.
 		p.x += 16;
 		
 	}
 
-	g_WndMng.m_pWndWorld->m_texFontDigital.GetAt(10)->Render( &g_Neuz.m_2DRender, p );		// ìˆ˜í‰ ê²Œì´ì§€.
+	g_WndMng.m_pWndWorld->m_texFontDigital.GetAt(10)->Render( &g_Neuz.m_2DRender, p );		// ¼öÆò °ÔÀÌÁö.
 	
 	
 }
@@ -1213,7 +1213,7 @@ void CMover::RenderQuestEmoticon( LPDIRECT3DDEVICE9 pd3dDevice )
 
 	if( lpCharacter == NULL ) return;
 
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
     D3DVIEWPORT9 vp;
 	const BOUND_BOX* pBB = m_pModel->GetBBVector();
@@ -1269,7 +1269,7 @@ void CMover::RenderChrState(LPDIRECT3DDEVICE9 pd3dDevice)
 	{
 		if( IsCull() == FALSE )
 		{
-			// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+			// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 			D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
 			D3DVIEWPORT9 vp;
 			const BOUND_BOX* pBB;
@@ -1355,7 +1355,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			else
 				dwNewColor = COLOR_PLAYER;							
 		}
-		// ëª…ì„±ì— ë”°ë¥¸ ìƒ‰í‘œì‹œ.
+		// ¸í¼º¿¡ µû¸¥ »öÇ¥½Ã.
 #if __VER >= 13 // __HONORABLE_TITLE
 		if( IsChaotic() )
 			dwColor = prj.m_PKSetting.dwChaoColor;
@@ -1413,10 +1413,10 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 #endif
 	}
 
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos, vPosHeight;
 
-	//ì†Œí™˜ìˆ˜ë§Œ GetScrPosë¡œ ìœ„ì¹˜ë¥¼ êµ¬í•œë‹¤.
+	//¼ÒÈ¯¼ö¸¸ GetScrPos·Î À§Ä¡¸¦ ±¸ÇÑ´Ù.
 	MoverProp* pMoverProp = GetProp();
 	if( pMoverProp && ( pMoverProp->dwAI == AII_PET || pMoverProp->dwAI == AII_EGG ) )
 		vPos = GetScrPos();
@@ -1452,7 +1452,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 	point.y -= 20;
 	point.x -= 3;
 	
-	// íŠ¹ìˆ˜ ìºë¦­í„° ì´ë¦„ ì¶œë ¥ 
+	// Æ¯¼ö Ä³¸¯ÅÍ ÀÌ¸§ Ãâ·Â 
 	if( m_dwAuthorization >= AUTH_GAMEMASTER )
 	{
 		if( ( GetIndex() == MI_CROWNIBLIS || GetIndex() == MI_CROWNSHADE || GetIndex() == MI_CROWNBUBBLE ) )
@@ -1489,9 +1489,9 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 	if( IsPlayer() )
 	{
 #if __VER >= 8 // __S8_PK
-		if( dwColor == prj.m_PKSetting.dwGeneralColor )		// í•‘í¬ìƒ‰ì´ë‚˜ ì¹´ì˜¤ìƒ‰ì´ë©´ ë°”ë€Œì§€ ì•Šê²Œ í•˜ì
+		if( dwColor == prj.m_PKSetting.dwGeneralColor )		// ÇÎÅ©»öÀÌ³ª Ä«¿À»öÀÌ¸é ¹Ù²îÁö ¾Ê°Ô ÇÏÀÚ
 #endif // __VER >= 8 // __S8_PK
-		if( g_Party.FindMember( m_idPlayer ) != -1 )		// íŒŒí‹°ë©¤ë²„ë©´ ìƒ‰ê¹” ë‹¤ë¥´ê²Œ í‘œì‹œ.
+		if( g_Party.FindMember( m_idPlayer ) != -1 )		// ÆÄÆ¼¸â¹ö¸é »ö±ò ´Ù¸£°Ô Ç¥½Ã.
 			dwColor = COLOR_PARTY;
 		
 		if( bOtherColor )
@@ -1502,7 +1502,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 		if( IsMode( EVENT_OLDBOY_MODE ) )
 		{
 			int nWidth = pFont->GetTextExtent( szName ).cx;
-			pFont->DrawText( (FLOAT)( point.x+nWidth ), (FLOAT)( point.y ), D3DCOLOR_XRGB( 0, 200, 0 ), " â˜…" );
+			pFont->DrawText( (FLOAT)( point.x+nWidth ), (FLOAT)( point.y ), D3DCOLOR_XRGB( 0, 200, 0 ), " ¡Ú" );
 		}
 	}
 	else
@@ -1536,7 +1536,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			}
 			else
 			{
-				if( m_bActiveAttack )	// ì„ ê³µ ëª¬ìŠ¤í„°ëŠ” ê¹œë¹¡ê±°ë¦°ë‹¤.
+				if( m_bActiveAttack )	// ¼±°ø ¸ó½ºÅÍ´Â ±ôºı°Å¸°´Ù.
 				{
 					pFont->DrawText( (FLOAT)( point.x ), (FLOAT)( point.y ), 0xffff0000, szName );						
 				} else
@@ -1546,7 +1546,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			}
 		}
 	}
-	// í”Œë ˆì´ì–´ê°€ ê²œë§ˆë©´ ë””ë²„ê¹… ì •ë³´ë¥¼ ë³´ì—¬ì¤€ë‹¤.
+	// ÇÃ·¹ÀÌ¾î°¡ °×¸¶¸é µğ¹ö±ë Á¤º¸¸¦ º¸¿©ÁØ´Ù.
 	if( GetWorld()->m_bViewIdState )
 	{
 		char szBuff[256];
@@ -1560,20 +1560,20 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 	}
 /*#ifdef __XUZHU
 	if( GetAdjParam( DST_CHRSTATE ) & CHS_STUN )
-		pFont->DrawText( point.x, point.y - 20, dwColor, "ìŠ¤í„´" );
+		pFont->DrawText( point.x, point.y - 20, dwColor, "½ºÅÏ" );
 	if( GetAdjParam( DST_CHRSTATE ) & CHS_POISON )
-		pFont->DrawText( point.x + 40, point.y - 20, dwColor, "ë…" );
+		pFont->DrawText( point.x + 40, point.y - 20, dwColor, "µ¶" );
 	if( GetAdjParam( DST_CHRSTATE ) & CHS_DARK )
-		pFont->DrawText( point.x + 80, point.y - 20, dwColor, "ì•”í‘" );
+		pFont->DrawText( point.x + 80, point.y - 20, dwColor, "¾ÏÈæ" );
 	if( GetAdjParam( DST_CHRSTATE ) & CHS_BLEEDING )
-		pFont->DrawText( point.x + 100, point.y - 20, dwColor, "ì¶œí˜ˆ" );
+		pFont->DrawText( point.x + 100, point.y - 20, dwColor, "ÃâÇ÷" );
 #endif // */
 	
 // Render Guild Name & Logo
 	CGuild* pGuild = GetGuild();	
 
 	BOOL bSkip = FALSE;
-	// ìš´ì˜ìì´ê³  ë³€ì‹ ì¤‘ì´ë©´ ê¸¸ë“œëª…ê³¼ ë¡œê³ ë¥¼ ì•ˆê·¸ë¦°ë‹¤.
+	// ¿î¿µÀÚÀÌ°í º¯½ÅÁßÀÌ¸é ±æµå¸í°ú ·Î°í¸¦ ¾È±×¸°´Ù.
 	if( IsAuthHigher( AUTH_GAMEMASTER ) == TRUE )
 	{
 		if( HasBuffByIk3(IK3_TEXT_DISGUISE) )
@@ -1581,7 +1581,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 	}
 	
 #if __VER >= 10 // __CSC_VER9_1
-	//ì „ìŠ¹ ë° ì˜ì›… ì•„ì´ì½˜ í‘œì‹œ ì¶”ê°€.
+	//Àü½Â ¹× ¿µ¿õ ¾ÆÀÌÄÜ Ç¥½Ã Ãß°¡.
 	point.x = (LONG)( vOut.x );
 	point.y = (LONG)( vOut.y );
 	MakeEven( point.x );
@@ -1611,9 +1611,9 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 		else
 			point.x += cs1.cx / 2;
 	
-		if(checkhero == LEGEND_CLASS_MASTER && m_nLevel >= 60 && m_nLevel <= 120) //ì „ìŠ¹ì„ í–ˆì„ ê²½ìš°.
+		if(checkhero == LEGEND_CLASS_MASTER && m_nLevel >= 60 && m_nLevel <= 120) //Àü½ÂÀ» ÇßÀ» °æ¿ì.
 		{
-			if(/*m_nLevel >= 60 && */m_nLevel < 70) //Level Downë  ê²½ìš°ë¥¼ ìƒê°í•´ì„œ ì£¼ì„ì²˜ë¦¬.
+			if(/*m_nLevel >= 60 && */m_nLevel < 70) //Level DownµÉ °æ¿ì¸¦ »ı°¢ÇØ¼­ ÁÖ¼®Ã³¸®.
 			//	strPath = MakePath( DIR_ICON, "icon_Expert1.dds");
 				pTexture = g_Neuz.m_pMasterIcon[0];
 			else if(m_nLevel >= 70 && m_nLevel < 80)
@@ -1639,7 +1639,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 				pTexture->Render( &g_Neuz.m_2DRender, point );
 			}
 		}
-		else if(checkhero == LEGEND_CLASS_HERO) //ì˜ì›…ì¼ ê²½ìš°.
+		else if(checkhero == LEGEND_CLASS_HERO) //¿µ¿õÀÏ °æ¿ì.
 		{
 			//strPath = MakePath( DIR_ICON, "icon_Hero.dds");
 			//pTexture = CWndBase::m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, strPath, 0xffff00ff );
@@ -1651,7 +1651,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			}
 		}
 #ifdef __3RD_LEGEND16
-		else if(checkhero == LEGEND_CLASS_LEGENDHERO) //ì˜ì›…ì¼ ê²½ìš°.
+		else if(checkhero == LEGEND_CLASS_LEGENDHERO) //¿µ¿õÀÏ °æ¿ì.
 		{
 			pTexture = g_Neuz.m_pHeroIcon;
 			if(pTexture != NULL)
@@ -1681,7 +1681,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 #endif // __VER < 8 // __S8_PK
 
 		CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );				
-		// ê¸¸ë“œë§ˆìŠ¤í„°ë©´ ê¸¸ë“œëª…ì„ ë…¸ë€ìƒ‰ìœ¼ë¡œ ì¶œë ¥
+		// ±æµå¸¶½ºÅÍ¸é ±æµå¸íÀ» ³ë¶õ»öÀ¸·Î Ãâ·Â
 		dwColor = COLOR_PLAYER;
 		if( pGuild->IsMaster(m_idPlayer))
 			dwColor = COLOR_GUILDMASTER;
@@ -1689,7 +1689,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 		if( bOtherColor )
 			dwColor = dwNewColor;
 
-		// ê¸¸ë“œì»´ë±ƒì´ ì—´ë¦°ìƒíƒœì´ë©´ì„œ ë””íœë”ëŠ” ë¶„í™ìƒ‰ìœ¼ë¡œ ì¶œë ¥
+		// ±æµåÄÄ¹îÀÌ ¿­¸°»óÅÂÀÌ¸é¼­ µğÆæ´õ´Â ºĞÈ«»öÀ¸·Î Ãâ·Â
 		if( g_GuildCombatMng.m_nGCState >= CGuildCombat::MAINTENANCE_STATE )
 		{
 			if( pWndWorld && pWndWorld->GetGCStatusDefender(m_idPlayer) != -1 )
@@ -1698,12 +1698,12 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			}		
 		}
 
-		// ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ í‘œì‹œ - ìš°ìŠ¹ê¸¸ë“œì´ê³  ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ë©´ ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ë§Œ í‘œì‹œ
-		// ìš°ìŠ¹ ê¸¸ë“œëŠ” ê¸¸ë“œë¡œê³  ì•ì— í‘œì‹œí•´ì¤Œ
+		// º£½ºÆ® ÇÃ·¹ÀÌ¾î Ç¥½Ã - ¿ì½Â±æµåÀÌ°í º£½ºÆ® ÇÃ·¹ÀÌ¾î¸é º£½ºÆ® ÇÃ·¹ÀÌ¾î¸¸ Ç¥½Ã
+		// ¿ì½Â ±æµå´Â ±æµå·Î°í ¾Õ¿¡ Ç¥½ÃÇØÁÜ
 		BOOL bRenderCombatBestLogo = FALSE;		
 		BOOL bRenderCombatWinLogo  = FALSE;
 
-		// ê¸¸ë“œëŒ€ì „ì´ ì—´ë¦¬ì§€ ì•Šì•˜ì„ë•Œë§Œ ì¶œë ¥í•´ì¤Œ
+		// ±æµå´ëÀüÀÌ ¿­¸®Áö ¾Ê¾ÒÀ»¶§¸¸ Ãâ·ÂÇØÁÜ
 		if( g_GuildCombatMng.m_nState == CGuildCombat::CLOSE_STATE )
 		{
 			if( g_GuildCombatMng.m_uBestPlayer == m_idPlayer )
@@ -1759,7 +1759,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 		}
 		else
 		{
-			// ê¸¸ë“œë¡œê³ ê°€ ì„¤ì •ì•ˆëœ ìƒíƒœì´ì§€ë§Œ ìš°ìŠ¹í•œ ê¸¸ë“œì¼ê²½ìš°
+			// ±æµå·Î°í°¡ ¼³Á¤¾ÈµÈ »óÅÂÀÌÁö¸¸ ¿ì½ÂÇÑ ±æµåÀÏ°æ¿ì
 			if( bRenderCombatBestLogo || bRenderCombatWinLogo )
 			{
 				D3DDEVICE->SetRenderState( D3DRS_DESTBLEND ,D3DBLEND_INVSRCALPHA );
@@ -1794,21 +1794,21 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 
 		if( IsPlayer() && !IsActiveMover() && g_Neuz.m_NeuzEnemy.IsPKing( GetId() ) )
 		{
-			if( (m_dwFlag & MVRF_WARMARK) == 0 )	// ì „ìŸë§ˆí¬ê°€ ì•„ì§ ì•ˆë– ìˆëŠ” ìƒíƒœë©´
+			if( (m_dwFlag & MVRF_WARMARK) == 0 )	// ÀüÀï¸¶Å©°¡ ¾ÆÁ÷ ¾È¶°ÀÖ´Â »óÅÂ¸é
 			{
-				RenderFlag( ENEMY_PK );		// ìƒì„± ì „íˆ¬ SFX
+				RenderFlag( ENEMY_PK );		// »ı¼º ÀüÅõ SFX
 			}
 		}
 		else
 #ifdef __CLIENT
-		// ê¸¸ë“œì „ì‹œì— ë¨¸ë¦¬ìœ„ì— ëœ¨ëŠ” ì „íˆ¬ë§ˆí¬
-		if( g_eLocal.GetState( EVE_GUILDWAR ) == 1 )		// ê¸¸ë“œì „ ê°€ëŠ¥í•œ ì„œë²„ì¸ê°€.
+		// ±æµåÀü½Ã¿¡ ¸Ó¸®À§¿¡ ¶ß´Â ÀüÅõ¸¶Å©
+		if( g_eLocal.GetState( EVE_GUILDWAR ) == 1 )		// ±æµåÀü °¡´ÉÇÑ ¼­¹öÀÎ°¡.
 		{
-			if( m_idWar && g_pPlayer->m_idWar == m_idWar )	// ë‚˜ë‘ ê°™ì€ ì „ìŸì— ì°¸ê°€ì¤‘ì¸ ë†ˆì¸ê°€.
+			if( m_idWar && g_pPlayer->m_idWar == m_idWar )	// ³ª¶û °°Àº ÀüÀï¿¡ Âü°¡ÁßÀÎ ³ğÀÎ°¡.
 			{
-				if( m_idGuild != g_pPlayer->m_idGuild )		// ë‚˜ë‘ ë‹¤ë¥¸ê¸¸ë“œì¸ê°€(ë™ë§¹ì¸ê²½ìš°ëŠ” ì´ê±¸ë¡œ ì•ˆëœë‹¤.)
+				if( m_idGuild != g_pPlayer->m_idGuild )		// ³ª¶û ´Ù¸¥±æµåÀÎ°¡(µ¿¸ÍÀÎ°æ¿ì´Â ÀÌ°É·Î ¾ÈµÈ´Ù.)
 				{
-					if( (m_dwFlag & MVRF_WARMARK) == 0 )	// ì „ìŸë§ˆí¬ê°€ ì•„ì§ ì•ˆë– ìˆëŠ” ìƒíƒœë©´
+					if( (m_dwFlag & MVRF_WARMARK) == 0 )	// ÀüÀï¸¶Å©°¡ ¾ÆÁ÷ ¾È¶°ÀÖ´Â »óÅÂ¸é
 					{
 						RenderFlag( ENEMY_WAR );
 					}
@@ -1819,10 +1819,10 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 	}
 }
 
-// ì „íˆ¬êµì „ì¤‘ì¸ ìƒíƒœ í‘œì‹œ
+// ÀüÅõ±³ÀüÁßÀÎ »óÅÂ Ç¥½Ã
 void CMover::RenderFlag( int nType )
 {
-	// ê²°íˆ¬ìƒëŒ€ë¼ëŠ” sfxë¥¼ ë¨¸ë¦¬ìœ„ì— ë„ì›Œì¤Œ.
+	// °áÅõ»ó´ë¶ó´Â sfx¸¦ ¸Ó¸®À§¿¡ ¶ç¿öÁÜ.
 	CSfx *pSfx = CreateSfx( D3DDEVICE, XI_GEN_PVP_FLAG01, GetPos(), GetId(), D3DXVECTOR3(0,0,0), NULL_ID, -1 );
 	if( pSfx )
 	{
@@ -1849,7 +1849,7 @@ void CMover::RenderHP(LPDIRECT3DDEVICE9 pd3dDevice)
 	if( g_WorldMng()->m_bViewHP == FALSE )
 		return;
 
-	// ìš´ì˜ìì´ê³  ë³€ì‹ ì¤‘ì´ë©´ HPë°” ì•ˆê·¸ë¦°ë‹¤.
+	// ¿î¿µÀÚÀÌ°í º¯½ÅÁßÀÌ¸é HP¹Ù ¾È±×¸°´Ù.
 	if( IsAuthHigher( AUTH_GAMEMASTER ) == TRUE )
 	{
 		if( IsPlayer() && HasBuffByIk3(IK3_TEXT_DISGUISE) )
@@ -1862,11 +1862,11 @@ void CMover::RenderHP(LPDIRECT3DDEVICE9 pd3dDevice)
 #endif // __QUIZ
 	
 	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos, vPosHeight;
 	D3DVIEWPORT9 vp;
 
-	//ì†Œí™˜ìˆ˜ë§Œ GetScrPosë¡œ ìœ„ì¹˜ë¥¼ êµ¬í•œë‹¤.
+	//¼ÒÈ¯¼ö¸¸ GetScrPos·Î À§Ä¡¸¦ ±¸ÇÑ´Ù.
 	MoverProp* pMoverProp = GetProp();
 	if( pMoverProp && ( pMoverProp->dwAI == AII_PET || pMoverProp->dwAI == AII_EGG ) )
 		vPos = GetScrPos();
@@ -1954,7 +1954,7 @@ void CMover::RenderCltGauge(LPDIRECT3DDEVICE9 pd3dDevice)
 	if( g_Option.m_nOtherPlayerName == FALSE && !IsActiveMover() && IsPlayer() )
 		return;
 
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos, vPosHeight;
 	D3DVIEWPORT9 vp;
 
@@ -2009,7 +2009,7 @@ void CMover::RenderAngelStatus(LPDIRECT3DDEVICE9 pd3dDevice)
 		return;
 	
 	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos, vPosHeight;
 	vPos = m_AngelPos;
 	D3DVIEWPORT9 vp;
@@ -2088,7 +2088,7 @@ void CMover::RenderCasting(LPDIRECT3DDEVICE9 pd3dDevice)
 		return;
 	
 	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
 	D3DVIEWPORT9 vp;
 	const BOUND_BOX* pBB = m_pModel->GetBBVector();
@@ -2151,7 +2151,7 @@ void CMover::RenderCtrlCasting(LPDIRECT3DDEVICE9 pd3dDevice)
 		return;
 	
 	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
 	D3DVIEWPORT9 vp;
 	const BOUND_BOX* pBB = m_pModel->GetBBVector();
@@ -2204,7 +2204,7 @@ void CMover::RenderCtrlCasting(LPDIRECT3DDEVICE9 pd3dDevice)
 	}
 }
 
-#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 void CMover::RenderSkillCasting(LPDIRECT3DDEVICE9 pd3dDevice)
 {
 //	if( g_pPlayer->IsStateMode( STATE_BASEMOTION_MODE ) == FALSE )
@@ -2225,7 +2225,7 @@ void CMover::RenderSkillCasting(LPDIRECT3DDEVICE9 pd3dDevice)
 
 	
 	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
-	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 	D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
 	D3DVIEWPORT9 vp;
 	const BOUND_BOX* pBB = m_pModel->GetBBVector();
@@ -2277,7 +2277,7 @@ void CMover::RenderSkillCasting(LPDIRECT3DDEVICE9 pd3dDevice)
 		g_Neuz.m_TextureCastingGauge[1].Render(&(g_Neuz.m_2DRender), p, p2, 255, 0.8f, 0.55f);		
 	}
 }
-#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 
 
 void CMover::RenderPVPCount(LPDIRECT3DDEVICE9 pd3dDevice)

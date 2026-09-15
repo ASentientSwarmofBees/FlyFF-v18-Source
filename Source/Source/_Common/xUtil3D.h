@@ -1,11 +1,11 @@
-ï»¿#ifndef	__XUTIL3D_H__
+#ifndef	__XUTIL3D_H__
 #define	__XUTIL3D_H__
 
 void QuaternionRotationToYPW( const D3DXQUATERNION& qRot, D3DXVECTOR3& vYPW );
 
 void	SetBB( D3DXVECTOR3 *pBBVList, const D3DXVECTOR3 &vMin, const D3DXVECTOR3 &vMax );
 
-// AABBê°„ì˜ ì¶©ëŒê²€ì¶œ
+// AABB°£ÀÇ Ãæµ¹°ËÃâ
 int		IsTouchAABB( const D3DXVECTOR3 &vMin1, const D3DXVECTOR3 &vMax1,  
 					 const D3DXVECTOR3 &vMin2, const D3DXVECTOR3 &vMax2 );
 
@@ -42,14 +42,14 @@ inline void AngleToVectorXZ( D3DXVECTOR3 *vDelta, float fAngXZ, float fSpeed )
 	vDelta->y = 0;
 }
 
-// XZí‰ë©´ì˜ ê°ë„ì™€ ë†’ì´ìª½ ê°ë„ë¥¼ í•œêº¼ë²ˆì— êµ¬í•¨.
+// XZÆò¸éÀÇ °¢µµ¿Í ³ôÀÌÂÊ °¢µµ¸¦ ÇÑ²¨¹ø¿¡ ±¸ÇÔ.
 inline void xGetDegree( float *pfAngXZ, float *pfAngH, const D3DXVECTOR3 &vDist )
 {
 	D3DXVECTOR3 vDistXZ = vDist;
 	vDistXZ.y = 0;
-	FLOAT fAngXZ = D3DXToDegree( (FLOAT)atan2( vDist.x, -vDist.z ) );		// ìš°ì„  XZí‰ë©´ì˜ ê°ë„ë¥¼ ë¨¼ì € êµ¬í•¨
-	FLOAT fLenXZ = D3DXVec3Length( &vDistXZ );						// yì¢Œí‘œë¥¼ ë¬´ì‹œí•œ XZí‰ë©´ì—ì„œì˜ ê¸¸ì´ë¥¼ êµ¬í•¨.
-	FLOAT fAngH  = D3DXToDegree( (FLOAT)atan2( fLenXZ, vDist.y ) );		// XZí‰ë©´ì˜ ê¸¸ì´ì™€ yë†’ì´ê°„ì˜ ê°ë„ë¥¼ êµ¬í•¨.
+	FLOAT fAngXZ = D3DXToDegree( (FLOAT)atan2( vDist.x, -vDist.z ) );		// ¿ì¼± XZÆò¸éÀÇ °¢µµ¸¦ ¸ÕÀú ±¸ÇÔ
+	FLOAT fLenXZ = D3DXVec3Length( &vDistXZ );						// yÁÂÇ¥¸¦ ¹«½ÃÇÑ XZÆò¸é¿¡¼­ÀÇ ±æÀÌ¸¦ ±¸ÇÔ.
+	FLOAT fAngH  = D3DXToDegree( (FLOAT)atan2( fLenXZ, vDist.y ) );		// XZÆò¸éÀÇ ±æÀÌ¿Í y³ôÀÌ°£ÀÇ °¢µµ¸¦ ±¸ÇÔ.
 	fAngH -= 90.0f;
 	
 	*pfAngXZ = fAngXZ;
@@ -57,7 +57,7 @@ inline void xGetDegree( float *pfAngXZ, float *pfAngH, const D3DXVECTOR3 &vDist 
 }
 
 
-//ì„ ë¶„ í´ë˜ìŠ¤ (ì–‘ ëì ì€ Origin-Extent*Direction, Origin+Extent*Direction ) 
+//¼±ºĞ Å¬·¡½º (¾ç ³¡Á¡Àº Origin-Extent*Direction, Origin+Extent*Direction ) 
 class Segment3
 {
 public:
@@ -83,7 +83,7 @@ bool IntrSegment3Box3_Test( const Segment3& rkSegment, const BBOX& rkBox );
 
 
 #if 0
-// Rayì™€ AABBê°„ì˜ ì¶©ëŒê²€ì¶œ
+// Ray¿Í AABB°£ÀÇ Ãæµ¹°ËÃâ
 BOOL	IsTouchRayAABB( const D3DXVECTOR3 &vRayOrig, const D3DXVECTOR3 &vRayDir, 
 					    const D3DXVECTOR3 &vBoxOrig, const D3DXVECTOR3 &vBoxSize );
 BOOL	IsTouchRayAABB2( const D3DXVECTOR3& vRayOrig, const D3DXVECTOR3& vRayDir, 
@@ -104,13 +104,13 @@ void	CalcRay( D3DXVECTOR3 *pvRayOrig, D3DXVECTOR3 *pvRayDir,
 void	CalcFaceNormal( D3DXVECTOR3 *pNormal, const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, const D3DXVECTOR3 &v3 );
 void	CalcFaceUnitNormal( D3DXVECTOR3 *pNormal, const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, const D3DXVECTOR3 &v3 );
 
-// XZí‰ë©´ìƒì—ì„œì˜ ì›ì ì„ ê¸°ì¤€ìœ¼ë¡œ í•œ ë²¡í„°ì˜ ê°ë„
+// XZÆò¸é»ó¿¡¼­ÀÇ ¿øÁ¡À» ±âÁØÀ¸·Î ÇÑ º¤ÅÍÀÇ °¢µµ
 inline FLOAT xGetDegreeXZ( float x, float z )
 {
 	return D3DXToDegree( (FLOAT)atan2( x, -z ) );
 }
 
-// XZí‰ë©´ì˜ ë²¡í„°ê¸¸ì´ì™€ yì¢Œí‘œê°„ì˜ ê°ë„.
+// XZÆò¸éÀÇ º¤ÅÍ±æÀÌ¿Í yÁÂÇ¥°£ÀÇ °¢µµ.
 inline FLOAT xGetDegreeH( float fLenXZ, float y )
 {
 	return D3DXToDegree( (FLOAT)atan2( fLenXZ, y ) );

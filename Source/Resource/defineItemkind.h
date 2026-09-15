@@ -1,95 +1,95 @@
-ï»¿#ifndef __DEFINE_ITEMKIND
+#ifndef __DEFINE_ITEMKIND
 #define __DEFINE_ITEMKIND
 
-// IK_2ëŠ” íƒ­ì˜ ì˜ë¯¸ì ì¸ êµ¬ë¶„, IK_3ì€ ì•„ì´í…œ ìƒì„±ì— ì‚¬ìš©
+// IK_2´Â ÅÇÀÇ ÀÇ¹ÌÀûÀÎ ±¸ºÐ, IK_3Àº ¾ÆÀÌÅÛ »ý¼º¿¡ »ç¿ë
 
 ////////////////////////////////////////////////////////////////////////////
-// 1ì°¨ êµ¬ë¶„ 
+// 1Â÷ ±¸ºÐ 
 //////////////////////////////////////////////////////////////////////////
-#define IK1_GOLD					0	// ëˆ<-
-#define IK1_WEAPON					1	// ì•„ì´í…œ<-
-#define IK1_ARMOR					2	// ì•„ì´í…œ<-
-#define IK1_GENERAL					3	// ì•„ì´í…œ<-
-#define IK1_RIDE					4	// ì•„ì´í…œ<-
+#define IK1_GOLD					0	// µ·<-
+#define IK1_WEAPON					1	// ¾ÆÀÌÅÛ<-
+#define IK1_ARMOR					2	// ¾ÆÀÌÅÛ<-
+#define IK1_GENERAL					3	// ¾ÆÀÌÅÛ<-
+#define IK1_RIDE					4	// ¾ÆÀÌÅÛ<-
 #define IK1_SYSTEM					5	// <-
-#define IK1_CHARGED					6	// ìƒìš©í™” ì•„ì´í…œ ì—¬ë¶€ íŒë‹¨.
-#define IK1_HOUSING					7	// í•˜ìš°ì§•
+#define IK1_CHARGED					6	// »ó¿ëÈ­ ¾ÆÀÌÅÛ ¿©ºÎ ÆÇ´Ü.
+#define IK1_HOUSING					7	// ÇÏ¿ìÂ¡
 
-#define IK1_EFFECT					8	// ë²„í”„ ìƒì„± í›„ íš¨ê³¼ ë°œë™
+#define IK1_EFFECT					8	// ¹öÇÁ »ý¼º ÈÄ È¿°ú ¹ßµ¿
 
-#define IK1_ACTIVE					9	// ë²„í”„ ìƒì„± ì—†ì´ íš¨ê³¼ ë°œë™
-#define IK1_PASSIVE					10	// ì§ì ‘ ì‚¬ìš© ë¶ˆê°€, UI ìŠ¬ë¡¯ì— ë„£ì–´ì•¼ ë°œë™
-#define IK1_ACTIVEUI				11	// ì•„ì´í…œ ì‚¬ìš© ì‹œ UI ì°½ í˜¸ì¶œë¨
+#define IK1_ACTIVE					9	// ¹öÇÁ »ý¼º ¾øÀÌ È¿°ú ¹ßµ¿
+#define IK1_PASSIVE					10	// Á÷Á¢ »ç¿ë ºÒ°¡, UI ½½·Ô¿¡ ³Ö¾î¾ß ¹ßµ¿
+#define IK1_ACTIVEUI				11	// ¾ÆÀÌÅÛ »ç¿ë ½Ã UI Ã¢ È£ÃâµÊ
 
 ////////////////////////////////////////////////////////////////////////////
-// 2ì°¨ êµ¬ë¶„ 
+// 2Â÷ ±¸ºÐ 
 //////////////////////////////////////////////////////////////////////////
-#define IK2_GOLD                   0 // ëˆ<-
-#define IK2_WEAPON_HAND            1 // ë‹¨ê±°ë¦¬<-
-#define IK2_WEAPON_DIRECT          2 // ë‹¨ê±°ë¦¬<-
-#define IK2_WEAPON_MAGIC           3 // ë§ˆë²•<-
-#define IK2_ARMOR                  7 // ë°©ì–´êµ¬(ê°‘ì˜·, ë°©íŒ¨)<-
-#define IK2_ARMORETC               8 // ì£¼ë³€ ë°©ì–´êµ¬(ê±´í‹€ë › ë“±ë“±)<-
-#define IK2_CLOTH                  9 // ì˜ìƒ(ì¼ë°˜ ì˜ìƒë“¤)<-
-#define IK2_CLOTHETC              10 // ì£¼ë³€ ì˜ìƒ(ê±´í‹€ë › ë“±ë“±)<-
-#define IK2_REFRESHER             11 // í–¥ìˆ˜ í˜•íƒœ<-
-#define IK2_POTION                12 // ë¬¼ë³‘ í˜•íƒœ<-
-#define IK2_JEWELRY               13 // ìž¥ì‹ êµ¬<-
-#define IK2_FOOD                  14 // ìŒì‹<-
-#define IK2_MAGIC                 15 // ë§ˆë²•ë¬¼í’ˆ<-
-#define IK2_GEM                   16 // ë³´ì„<-
-#define IK2_MATERIAL              17 // ìž¬ì¡° ìž¬ë£Œ<-
-#define IK2_TOOLS                 18 // ë„êµ¬<-
-#define IK2_SYSTEM                19 // ì‹œìŠ¤í…œì— ì‚¬ìš©<-
-#define IK2_RIDING                20 // ì†Œí˜• ë¹„í–‰ì²´<-
-#define IK2_MOB                   21 // <-ëª¬ìŠ¤í„°ì—ê²Œ ì‚¬ìš©ë˜ëŠ” ì•„ì´í…œ
+#define IK2_GOLD                   0 // µ·<-
+#define IK2_WEAPON_HAND            1 // ´Ü°Å¸®<-
+#define IK2_WEAPON_DIRECT          2 // ´Ü°Å¸®<-
+#define IK2_WEAPON_MAGIC           3 // ¸¶¹ý<-
+#define IK2_ARMOR                  7 // ¹æ¾î±¸(°©¿Ê, ¹æÆÐ)<-
+#define IK2_ARMORETC               8 // ÁÖº¯ ¹æ¾î±¸(°ÇÆ²·¿ µîµî)<-
+#define IK2_CLOTH                  9 // ÀÇ»ó(ÀÏ¹Ý ÀÇ»óµé)<-
+#define IK2_CLOTHETC              10 // ÁÖº¯ ÀÇ»ó(°ÇÆ²·¿ µîµî)<-
+#define IK2_REFRESHER             11 // Çâ¼ö ÇüÅÂ<-
+#define IK2_POTION                12 // ¹°º´ ÇüÅÂ<-
+#define IK2_JEWELRY               13 // Àå½Å±¸<-
+#define IK2_FOOD                  14 // À½½Ä<-
+#define IK2_MAGIC                 15 // ¸¶¹ý¹°Ç°<-
+#define IK2_GEM                   16 // º¸¼®<-
+#define IK2_MATERIAL              17 // ÀçÁ¶ Àç·á<-
+#define IK2_TOOLS                 18 // µµ±¸<-
+#define IK2_SYSTEM                19 // ½Ã½ºÅÛ¿¡ »ç¿ë<-
+#define IK2_RIDING                20 // ¼ÒÇü ºñÇàÃ¼<-
+#define IK2_MOB                   21 // <-¸ó½ºÅÍ¿¡°Ô »ç¿ëµÇ´Â ¾ÆÀÌÅÛ
 #define IK2_BLINKWING             22 //<-
-#define IK2_AIRFUEL               23 // ë¹„í–‰ì²´ ì—°ë£Œë“¤<-
-#define IK2_CHARM                 24 // í¬ìŠ¤í„°
-#define IK2_BULLET                25 // ë°œì‚¬ì²´
-#define IK2_TEXT                  26 // ë¬¸ì„œ
-#define IK2_GMTEXT				  27 // GMëª…ë ¹
-#define IK2_GENERAL				  28 // ìž¥êµ°ì•„ì´í…œ...ì´ ì•„ë‹ˆê³  ê± êµ¬ë¶„í• ê±° ì—†ì„ë•Œ ì´ê±° ì”€ -_-;;;;
-#define	IK2_BUFF					29	// ë²„í”„ ì•„ì´í…œ
+#define IK2_AIRFUEL               23 // ºñÇàÃ¼ ¿¬·áµé<-
+#define IK2_CHARM                 24 // Æ÷½ºÅÍ
+#define IK2_BULLET                25 // ¹ß»çÃ¼
+#define IK2_TEXT                  26 // ¹®¼­
+#define IK2_GMTEXT				  27 // GM¸í·É
+#define IK2_GENERAL				  28 // Àå±º¾ÆÀÌÅÛ...ÀÌ ¾Æ´Ï°í °Á ±¸ºÐÇÒ°Å ¾øÀ»¶§ ÀÌ°Å ¾¸ -_-;;;;
+#define	IK2_BUFF					29	// ¹öÇÁ ¾ÆÀÌÅÛ
 #define	IK2_WARP				30
 #define IK2_SKILL				31
-#define IK2_CLOTHWIG			32	// ë¨¸ë¦¬ì˜ìƒ(ê°€ë°œ)
-#define	IK2_BUFF2		33	// ë²„í”„ ì•„ì´í…œ - ë§Œë£Œ ì‹œê°„
-#define IK2_FURNITURE		34	// í•˜ìš°ì§• - ê°€êµ¬
-#define IK2_PAPERING		35	// í•˜ìš°ì§• - ë„ë°°
-#define	IK2_TOCASH		36	// í¼ë‹ˆ ì½”ì¸
-#define	IK2_BUFF_TOGIFT		37	// ë²„í”„ ì™„ë£Œ í›„ ì•„ì´í…œ ì§€ê¸‰
-#define	IK2_GUILDHOUSE_FURNITURE		38 //ê¸¸ë“œí•˜ìš°ìŠ¤ ê°€êµ¬
-#define	IK2_GUILDHOUSE_NPC		39 //ê¸¸ë“œí•˜ìš°ìŠ¤ NPC
-#define IK2_GUILDHOUSE_PAPERING 40 //ê¸¸ë“œí•˜ìš°ìŠ¤ ë„ë°°
-#define	IK2_GUILDHOUES_COMEBACK	41 //ê¸¸ë“œí•˜ìš°ìŠ¤ ê·€í™˜ ì£¼ë¬¸ì„œ
+#define IK2_CLOTHWIG			32	// ¸Ó¸®ÀÇ»ó(°¡¹ß)
+#define	IK2_BUFF2		33	// ¹öÇÁ ¾ÆÀÌÅÛ - ¸¸·á ½Ã°£
+#define IK2_FURNITURE		34	// ÇÏ¿ìÂ¡ - °¡±¸
+#define IK2_PAPERING		35	// ÇÏ¿ìÂ¡ - µµ¹è
+#define	IK2_TOCASH		36	// ÆÛ´Ï ÄÚÀÎ
+#define	IK2_BUFF_TOGIFT		37	// ¹öÇÁ ¿Ï·á ÈÄ ¾ÆÀÌÅÛ Áö±Þ
+#define	IK2_GUILDHOUSE_FURNITURE		38 //±æµåÇÏ¿ì½º °¡±¸
+#define	IK2_GUILDHOUSE_NPC		39 //±æµåÇÏ¿ì½º NPC
+#define IK2_GUILDHOUSE_PAPERING 40 //±æµåÇÏ¿ì½º µµ¹è
+#define	IK2_GUILDHOUES_COMEBACK	41 //±æµåÇÏ¿ì½º ±ÍÈ¯ ÁÖ¹®¼­
 
-#define IK2_KEEP					42	// IK1_EFFECT - ì‹œê°„ ë§Œë£Œ ì‹œ ë²„í”„ ì œê±°
-#define IK2_ONCE					43	// IK1_EFFECT - ì‚¬ìš© ì‹œ ë²„í”„ ì œê±°
+#define IK2_KEEP					42	// IK1_EFFECT - ½Ã°£ ¸¸·á ½Ã ¹öÇÁ Á¦°Å
+#define IK2_ONCE					43	// IK1_EFFECT - »ç¿ë ½Ã ¹öÇÁ Á¦°Å
 
-#define	IK2_TELEPORTMAP				44	// í…”ë ˆí¬íŠ¸ì§€ë„ ì•„ì´í…œ
-#define	IK2_BARUNA					45	// ë°”ë£¨ë‚˜ ê´€ë ¨ ì•„ì´í…œ
+#define	IK2_TELEPORTMAP				44	// ÅÚ·¹Æ÷Æ®Áöµµ ¾ÆÀÌÅÛ
+#define	IK2_BARUNA					45	// ¹Ù·ç³ª °ü·Ã ¾ÆÀÌÅÛ
 
-#define	IK2_DECREASE				46	// ëŠ¥ë ¥(ì˜µì…˜) ê°ì†Œ ì•„ì´í…œ
-#define	IK2_RANDOMOPTION			47	// ëŠ¥ë ¥ì¹˜(ì˜µì…˜) ëžœë¤ ë¶€ì—¬ ì•„ì´í…œ
-#define	IK2_RESET					48	// ëŠ¥ë ¥ì¹˜(ì˜µì…˜) ì´ˆê¸°í™” ì•„ì´í…œ
-#define	IK2_COLOSSEUM				49	// ì½œë¡œì„¸ì›€ ì•„ì´í…œ
+#define	IK2_DECREASE				46	// ´É·Â(¿É¼Ç) °¨¼Ò ¾ÆÀÌÅÛ
+#define	IK2_RANDOMOPTION			47	// ´É·ÂÄ¡(¿É¼Ç) ·£´ý ºÎ¿© ¾ÆÀÌÅÛ
+#define	IK2_RESET					48	// ´É·ÂÄ¡(¿É¼Ç) ÃÊ±âÈ­ ¾ÆÀÌÅÛ
+#define	IK2_COLOSSEUM				49	// ÄÝ·Î¼¼¿ò ¾ÆÀÌÅÛ
 
-#define	IK2_ENCHANT					50	// ì œë ¨ ê´€ë ¨ ì•„ì´í…œ
-#define	IK2_INCREASE				51	// ëŠ¥ë ¥(ì˜µì…˜) ì¦ê°€ ì•„ì´í…œ
-#define	IK2_UPGRADE					52	// ì•„ì´í…œ ì—…ê·¸ë ˆì´ë“œ ê¸°ëŠ¥
-#define	IK2_MAPOPEN					53	// ì§€ë„ ì˜¤í”ˆ ì•„ì´í…œ
-#define	IK2_COSTUMESYSTEM			54	// ì½”ìŠ¤íŠ¬ ì‹œìŠ¤í…œ ì•„ì´í…œ
+#define	IK2_ENCHANT					50	// Á¦·Ã °ü·Ã ¾ÆÀÌÅÛ
+#define	IK2_INCREASE				51	// ´É·Â(¿É¼Ç) Áõ°¡ ¾ÆÀÌÅÛ
+#define	IK2_UPGRADE					52	// ¾ÆÀÌÅÛ ¾÷±×·¹ÀÌµå ±â´É
+#define	IK2_MAPOPEN					53	// Áöµµ ¿ÀÇÂ ¾ÆÀÌÅÛ
+#define	IK2_COSTUMESYSTEM			54	// ÄÚ½ºÆ¬ ½Ã½ºÅÛ ¾ÆÀÌÅÛ
 
-#define	IK2_TREASURE				55	// ë³´ë¬¼ìƒìž ì‹œìŠ¤í…œ ì•„ì´í…œ
+#define	IK2_TREASURE				55	// º¸¹°»óÀÚ ½Ã½ºÅÛ ¾ÆÀÌÅÛ
 
 
 
 ////////////////////////////////////////////////////////////////////////////
-// 3ì°¨ êµ¬ë¶„ 
+// 3Â÷ ±¸ºÐ 
 //////////////////////////////////////////////////////////////////////////
 #define IK3_GOLD                   0 //<-
-// ë¬´ê¸°ì— ê´€ë ¨ëœ ê²ƒ (IK_WEAPON ì†Œì†)
+// ¹«±â¿¡ °ü·ÃµÈ °Í (IK_WEAPON ¼Ò¼Ó)
 #define IK3_HAND                   1 //<-
 #define IK3_SWD                    2 //<-
 #define IK3_AXE                    3 //<-
@@ -97,66 +97,66 @@
 #define IK3_KNUCKLEHAMMER          5 //<-
 #define IK3_WAND                   6 //<-
 #define IK3_STAFF                  7 //<-
-#define IK3_THSWD                  8 // ì–‘ì† ì†Œë“œ
-#define IK3_THAXE                  9 // ì–‘ì† ì—‘ìŠ¤
-#define IK3_VIRTUAL               10 //<-ëª¬ìŠ¤í„°ê°€ ì‚¬ìš©í•˜ëŠ” ê°€ìƒ ì•„ì´í…œ
-#define IK3_YOYO                  11 //ìš”ìš”
-#define IK3_BOW                   12 //í™œ
-#define IK3_YOBO				  13 //ìš”ìš”ì™€ í™œì„ ë™ì‹œì— ì‚¬ìš©
-#define IK3_CROSSBOW              14 //í¬ë¡œìŠ¤ë³´ìš°
+#define IK3_THSWD                  8 // ¾ç¼Õ ¼Òµå
+#define IK3_THAXE                  9 // ¾ç¼Õ ¿¢½º
+#define IK3_VIRTUAL               10 //<-¸ó½ºÅÍ°¡ »ç¿ëÇÏ´Â °¡»ó ¾ÆÀÌÅÛ
+#define IK3_YOYO                  11 //¿ä¿ä
+#define IK3_BOW                   12 //È°
+#define IK3_YOBO				  13 //¿ä¿ä¿Í È°À» µ¿½Ã¿¡ »ç¿ë
+#define IK3_CROSSBOW              14 //Å©·Î½ºº¸¿ì
 
-// ë°©ì–´êµ¬ì— ê´€ë ¨ëœ ê²ƒ (IK_ARMOR ì†Œì†)
-#define IK3_SHIELD                16 // ë°©íŒ¨<-
-#define IK3_HELMET                17 // ë¨¸ë¦¬ ë³´í˜¸ ë°©ì–´êµ¬<-
-#define IK3_SUIT                  18 // ìƒì²´(í†µì§œ) ë³´í˜¸ ë°©ì–´êµ¬<-
-#define IK3_GAUNTLET              19 // ì† ë³´í˜¸ ë°©ì–´êµ¬<-
-#define IK3_BOOTS                 20 // ë°œ ë³´í˜¸ ë°©ì–´êµ¬<-
+// ¹æ¾î±¸¿¡ °ü·ÃµÈ °Í (IK_ARMOR ¼Ò¼Ó)
+#define IK3_SHIELD                16 // ¹æÆÐ<-
+#define IK3_HELMET                17 // ¸Ó¸® º¸È£ ¹æ¾î±¸<-
+#define IK3_SUIT                  18 // »óÃ¼(ÅëÂ¥) º¸È£ ¹æ¾î±¸<-
+#define IK3_GAUNTLET              19 // ¼Õ º¸È£ ¹æ¾î±¸<-
+#define IK3_BOOTS                 20 // ¹ß º¸È£ ¹æ¾î±¸<-
 
-// ì˜ìƒì— ê´€ë ¨ëœ ê²ƒ (IK2_CLOTH ì†Œì†)
-#define IK3_HAT                   21 // ëª¨ìž ì˜ìƒ<-
-#define IK3_MASK                  22 // ì‹ ë°œ ì˜ìƒ<-
-#define IK3_SHOES                 23 // ì‹ ë°œ ì˜ìƒ<-
-#define IK3_CLOAK                 24 // ë§í†  ì˜ìƒ<-
-#define IK3_CLOTH                 57 // ì˜·
-#define IK3_GLOVE                 58 // ìž¥ê°‘
+// ÀÇ»ó¿¡ °ü·ÃµÈ °Í (IK2_CLOTH ¼Ò¼Ó)
+#define IK3_HAT                   21 // ¸ðÀÚ ÀÇ»ó<-
+#define IK3_MASK                  22 // ½Å¹ß ÀÇ»ó<-
+#define IK3_SHOES                 23 // ½Å¹ß ÀÇ»ó<-
+#define IK3_CLOAK                 24 // ¸ÁÅä ÀÇ»ó<-
+#define IK3_CLOTH                 57 // ¿Ê
+#define IK3_GLOVE                 58 // Àå°©
 
-// ì¼ë°˜ ì•„ì´í…œë“¤
-#define IK3_REFRESHER             25 // ì •ì‹ ë ¥ ì¹˜ë£Œ<-
-#define IK3_POTION                26 // ê°ì¢… ë¬¼ë³‘<-
-#define IK3_EARRING               27 // ê·€ê±¸ì´<-
-#define IK3_NECKLACE              28 // ëª©ê±¸ì´<-
-#define IK3_RING                  29 // ë°˜ì§€<-
-#define IK3_INSTANT               30 // ì¦‰ì„ìœ¼ë¡œ ë¨¹ì„ìˆ˜ ìžˆê²Œ ë§Œë“¤ì–´ì§„ ìŒì‹<-
-#define IK3_COOKING               31 // ìš”ë¦¬ëœ ìŒì‹(ìŒì‹)<-
-#define IK3_ICECEARM              32 // ë§Œë“¤ì–´ì§„ ì•„ì´ìŠ¤í¬ë¦¼2<-
-#define IK3_PILL                  59 // ì˜ì–‘ ë³´ì¡° ì•Œì•½
-#define IK3_MAGICTRICK            33 // ê°ì¢… ë§ˆë²•ìš©í’ˆ<-
-#define IK3_GEM                   34 // ê·¸ëƒ¥ ë³´ì„<-
-#define IK3_DRINK                 35 // í™œë ¥ì œ<-
-#define IK3_COLLECTER		      36 // ì½œë ‰í„°<-
-#define IK3_ELECARD		          37 // ì†ì„± ì¹´ë“œ<-
-#define IK3_DICE		          38 // íŒŒì›Œ ì£¼ì‚¬ìœ„<-
-#define IK3_SUPSTONE		      39 // ë³´ì¡°ì„<-
+// ÀÏ¹Ý ¾ÆÀÌÅÛµé
+#define IK3_REFRESHER             25 // Á¤½Å·Â Ä¡·á<-
+#define IK3_POTION                26 // °¢Á¾ ¹°º´<-
+#define IK3_EARRING               27 // ±Í°ÉÀÌ<-
+#define IK3_NECKLACE              28 // ¸ñ°ÉÀÌ<-
+#define IK3_RING                  29 // ¹ÝÁö<-
+#define IK3_INSTANT               30 // Áï¼®À¸·Î ¸ÔÀ»¼ö ÀÖ°Ô ¸¸µé¾îÁø À½½Ä<-
+#define IK3_COOKING               31 // ¿ä¸®µÈ À½½Ä(À½½Ä)<-
+#define IK3_ICECEARM              32 // ¸¸µé¾îÁø ¾ÆÀÌ½ºÅ©¸²2<-
+#define IK3_PILL                  59 // ¿µ¾ç º¸Á¶ ¾Ë¾à
+#define IK3_MAGICTRICK            33 // °¢Á¾ ¸¶¹ý¿ëÇ°<-
+#define IK3_GEM                   34 // ±×³É º¸¼®<-
+#define IK3_DRINK                 35 // È°·ÂÁ¦<-
+#define IK3_COLLECTER		      36 // ÄÝ·ºÅÍ<-
+#define IK3_ELECARD		          37 // ¼Ó¼º Ä«µå<-
+#define IK3_DICE		          38 // ÆÄ¿ö ÁÖ»çÀ§<-
+#define IK3_SUPSTONE		      39 // º¸Á¶¼®<-
  
-// íƒˆê²ƒ
-#define IK3_BOARD                 40 // ë³´ë“œ í˜•íƒœì˜ íƒˆ ê²ƒ(ì†ì‚¬ìš©ê°€ëŠ¥)<-
-#define IK3_STICK                 41 // ì˜¬ë¼ íƒ€ëŠ” ê²ƒ(ì†ì‚¬ìš©ë¶ˆëŠ¥)<-
-#define IK3_EVENTMAIN             42 // <-ì´ë²¤íŠ¸ìš© ì•„ì´í…œ  ì§€ê¸‰ìžë™, íŒë§¤, íŠ¸ë ˆì´ë“œ, íƒ€ìž„ì¤ê¸° ë¶ˆê°€
-#define IK3_QUEST                 43 // í€˜ìŠ¤íŠ¸ìš© ì•„ì´í…œ<-
-#define IK3_MAP                   44 // í€˜ìŠ¤íŠ¸ìš© ì•„ì´í…œ<-
-#define IK3_BLINKWING             45 // í€˜ìŠ¤íŠ¸ìš© ì•„ì´í…œ<-
-#define IK3_EVENTSUB              46 // <-ì´ë²¤íŠ¸ìš© ì•„ì´í…œ  ì§€ê¸‰ìžë™, ì¼ë°˜ì•„ì´í…œê³¼ ë™ì¼
-#define IK3_TOWNBLINKWING         47 // <-ë§ˆì„ë¡œë§Œ ëŒì•„ê°€ê²Œ ë˜ëŠ” ë¸”ë§í¬ìœ™
+// Å»°Í
+#define IK3_BOARD                 40 // º¸µå ÇüÅÂÀÇ Å» °Í(¼Õ»ç¿ë°¡´É)<-
+#define IK3_STICK                 41 // ¿Ã¶ó Å¸´Â °Í(¼Õ»ç¿ëºÒ´É)<-
+#define IK3_EVENTMAIN             42 // <-ÀÌº¥Æ®¿ë ¾ÆÀÌÅÛ  Áö±ÞÀÚµ¿, ÆÇ¸Å, Æ®·¹ÀÌµå, Å¸ÀÓÁÝ±â ºÒ°¡
+#define IK3_QUEST                 43 // Äù½ºÆ®¿ë ¾ÆÀÌÅÛ<-
+#define IK3_MAP                   44 // Äù½ºÆ®¿ë ¾ÆÀÌÅÛ<-
+#define IK3_BLINKWING             45 // Äù½ºÆ®¿ë ¾ÆÀÌÅÛ<-
+#define IK3_EVENTSUB              46 // <-ÀÌº¥Æ®¿ë ¾ÆÀÌÅÛ  Áö±ÞÀÚµ¿, ÀÏ¹Ý¾ÆÀÌÅÛ°ú µ¿ÀÏ
+#define IK3_TOWNBLINKWING         47 // <-¸¶À»·Î¸¸ µ¹¾Æ°¡°Ô µÇ´Â ºí¸µÅ©À®
 
-//ìœ ëŸ½ ì‹ ê·œ ìžë™ì°¨
-#define IK3_CAR					86		// ìžë™ì°¨
+//À¯·´ ½Å±Ô ÀÚµ¿Â÷
+#define IK3_CAR					86		// ÀÚµ¿Â÷
 
 
-//ë¹„í–‰ì²´ ì•„ì´í…œ2
-#define IK3_ACCEL		         48 // ê°€ì† ì—°ë£Œ ì•„ì´í…œ<-
-#define IK3_DELETE		         49 // <-dwItemkind3ê°€ ì´ê²ƒìœ¼ë¡œ ì„¤ì •ë˜ë©´ ìºë¦­í„°ê°€ ë¡œë”©ë  ë•Œ ìžë™ìœ¼ë¡œ ì§€ìš´ë‹¤.
+//ºñÇàÃ¼ ¾ÆÀÌÅÛ2
+#define IK3_ACCEL		         48 // °¡¼Ó ¿¬·á ¾ÆÀÌÅÛ<-
+#define IK3_DELETE		         49 // <-dwItemkind3°¡ ÀÌ°ÍÀ¸·Î ¼³Á¤µÇ¸é Ä³¸¯ÅÍ°¡ ·ÎµùµÉ ¶§ ÀÚµ¿À¸·Î Áö¿î´Ù.
 
-//ìƒìš©í™” ì•„ì´í…œ
+//»ó¿ëÈ­ ¾ÆÀÌÅÛ
 #define IK3_SCROLL		        50 //<-
 #define IK3_ENCHANTWEAPON		51
 #define IK3_CFLIGHT		        52
@@ -167,17 +167,17 @@
 #define IK3_ARROW		        60
 
 
-//ì†Œì¼“ ì¹´ë“œ ì™€ í”¼ì–´ì‹± ì£¼ì‚¬ìœ„
+//¼ÒÄÏ Ä«µå ¿Í ÇÇ¾î½Ì ÁÖ»çÀ§
 #define IK3_PIERDICE			61
 #define IK3_SOCKETCARD			62
 #define IK3_SOCKETCARD2			63
 
-//ë¬¸ì„œ êµ¬ë¶„
-#define IK3_TEXT_BOOK          	70 // ë¬¸ì„œ
-#define IK3_TEXT_SCROLL	       	71 // ë¬¸ì„œ
-#define IK3_TEXT_LETTER        	72 // ë¬¸ì„œ
+//¹®¼­ ±¸ºÐ
+#define IK3_TEXT_BOOK          	70 // ¹®¼­
+#define IK3_TEXT_SCROLL	       	71 // ¹®¼­
+#define IK3_TEXT_LETTER        	72 // ¹®¼­
 
-//ìš´ì˜ìž ëª…ë ¹ ì•„ì´í…œí™”
+//¿î¿µÀÚ ¸í·É ¾ÆÀÌÅÛÈ­
 #define	IK3_TEXT_UNDYING		80
 #define	IK3_TEXT_DISGUISE		81
 #define IK3_TEXT_INVISIBLE		82
@@ -186,62 +186,62 @@
 // BINDS
 #define	IK3_BINDS				84
 
-// ëª¬ìŠ¤í„° ì†Œí™˜
+// ¸ó½ºÅÍ ¼ÒÈ¯
 #define IK3_CREATE_MONSTER		85
 
 
 
-#define IK3_POTION_BUFF_STR		90		// ë²„í”„ ë¬¼ì•½
-#define IK3_POTION_BUFF_DEX		91		// ë²„í”„ ë¬¼ì•½
-#define IK3_POTION_BUFF_INT		92		// ë²„í”„ ë¬¼ì•½
-#define IK3_POTION_BUFF_STA		93		// ë²„í”„ ë¬¼ì•½
-#define IK3_POTION_BUFF_DEFENSE	94		// ë²„í”„ ë¬¼ì•½
+#define IK3_POTION_BUFF_STR		90		// ¹öÇÁ ¹°¾à
+#define IK3_POTION_BUFF_DEX		91		// ¹öÇÁ ¹°¾à
+#define IK3_POTION_BUFF_INT		92		// ¹öÇÁ ¹°¾à
+#define IK3_POTION_BUFF_STA		93		// ¹öÇÁ ¹°¾à
+#define IK3_POTION_BUFF_DEFENSE	94		// ¹öÇÁ ¹°¾à
 
-#define IK3_ANGEL_BUFF					95		// ì—”ì ¤ ë²„í”„
+#define IK3_ANGEL_BUFF					95		// ¿£Á© ¹öÇÁ
 
 // PET
-#define IK3_PET							100		// íŽ«ì†Œí™˜ ì•„ì´í…œ
-#define IK3_RANDOM_SCROLL		101		// ëžœë¤ ìŠ¤í´ë¡¤
+#define IK3_PET							100		// Æê¼ÒÈ¯ ¾ÆÀÌÅÛ
+#define IK3_RANDOM_SCROLL		101		// ·£´ý ½ºÅ¬·Ñ
 
-#define IK3_ULTIMATE			102		// ì–¼í„°ë©‹ ì›¨í° ë³´ì„
+#define IK3_ULTIMATE			102		// ¾óÅÍ¸Ú ¿þÆù º¸¼®
 
 #define	IK3_LINK				104
 // General
-#define IK3_GENERAL			118		// ì•„ë¬´ êµ¬ë¶„ì´ ì—†ëŠ” ì¼ë°˜.
+#define IK3_GENERAL			118		// ¾Æ¹« ±¸ºÐÀÌ ¾ø´Â ÀÏ¹Ý.
 
 #define IK3_ENCHANT			119
 
-#define IK3_EGG					120		// ì„±ìž¥ íŽ«
+#define IK3_EGG					120		// ¼ºÀå Æê
 #define	IK3_FEED				121
 
-#define	IK3_TICKET					122		// ìž…ìž¥ê¶Œ
-#define	IK3_POCKET					123		// ì£¼ë¨¸ë‹ˆ
+#define	IK3_TICKET					122		// ÀÔÀå±Ç
+#define	IK3_POCKET					123		// ÁÖ¸Ó´Ï
 
-#define IK3_BED							124		// í•˜ìš°ì§• - ê°€êµ¬ - ì¹¨ëŒ€
-#define IK3_SOFA							125		// í•˜ìš°ì§• - ê°€êµ¬ - ì†ŒíŒŒ
-#define IK3_WARDROBE				126		// í•˜ìš°ì§• - ê°€êµ¬ - ì˜·ìž¥
-#define IK3_CLOSET						127		// í•˜ìš°ì§• - ê°€êµ¬ - í™”ìž¥ëŒ€
-#define IK3_TABLE						128		// í•˜ìš°ì§• - ê°€êµ¬ - íƒìž
-#define IK3_CABINET					129		// í•˜ìš°ì§• - ê°€êµ¬ - ìž¥ì‹ìž¥
-#define IK3_PROPS						130		// í•˜ìš°ì§• - ê°€êµ¬ - ì†Œí’ˆ
-#define IK3_WALLPAPER				131		// í•˜ìš°ì§• - ë„ë°° - ë²½ì§€
-#define IK3_CARPET						132		// í•˜ìš°ì§• - ë„ë°° - ìž¥íŒ
-#define	IK3_COUPLE_BUFF			133		// ì»¤í”Œ íš¨ê³¼
-#define	IK3_FUNNYCOIN				134		// í¼ë‹ˆ ì½”ì¸
-#define	IK3_FLOWER					135		// ê²¹ì¹¨ ë°©ì§€ë¥¼ ìœ„í•œ ì•„ì´í…œ. ê°™ì€ ì¢…ë¥˜ ì‚¬ìš© ì•ˆë¨
-#define IK3_BALLOON					136		// í’ì„ 
-#define IK3_WING							137		// ë‚ ê°œ
+#define IK3_BED							124		// ÇÏ¿ìÂ¡ - °¡±¸ - Ä§´ë
+#define IK3_SOFA							125		// ÇÏ¿ìÂ¡ - °¡±¸ - ¼ÒÆÄ
+#define IK3_WARDROBE				126		// ÇÏ¿ìÂ¡ - °¡±¸ - ¿ÊÀå
+#define IK3_CLOSET						127		// ÇÏ¿ìÂ¡ - °¡±¸ - È­Àå´ë
+#define IK3_TABLE						128		// ÇÏ¿ìÂ¡ - °¡±¸ - Å¹ÀÚ
+#define IK3_CABINET					129		// ÇÏ¿ìÂ¡ - °¡±¸ - Àå½ÄÀå
+#define IK3_PROPS						130		// ÇÏ¿ìÂ¡ - °¡±¸ - ¼ÒÇ°
+#define IK3_WALLPAPER				131		// ÇÏ¿ìÂ¡ - µµ¹è - º®Áö
+#define IK3_CARPET						132		// ÇÏ¿ìÂ¡ - µµ¹è - ÀåÆÇ
+#define	IK3_COUPLE_BUFF			133		// Ä¿ÇÃ È¿°ú
+#define	IK3_FUNNYCOIN				134		// ÆÛ´Ï ÄÚÀÎ
+#define	IK3_FLOWER					135		// °ãÄ§ ¹æÁö¸¦ À§ÇÑ ¾ÆÀÌÅÛ. °°Àº Á¾·ù »ç¿ë ¾ÈµÊ
+#define IK3_BALLOON					136		// Ç³¼±
+#define IK3_WING							137		// ³¯°³
 
-#define IK3_VIS							138		// ë¹„ìŠ¤
+#define IK3_VIS							138		// ºñ½º
 #define	IK3_TS_BUFF					139
 
-#define IK3_TELEPORTER				140 //ê¸¸ë“œí•˜ìš°ìŠ¤ í…”ë ˆí¬í„°
-#define IK3_REST							141	//íœ´ì‹ì˜ ê¸°ìš´
-#define	IK3_DESK						142	// í•˜ìš°ì§• - ê°€êµ¬ - ì±…ìƒ
-#define	IK3_CHAIR						143	// í•˜ìš°ì§• - ê°€êµ¬ - ì˜ìž
-#define	IK3_CASE						144	// í•˜ìš°ì§• - ê°€êµ¬ - ì±…ìž¥
-#define	IK3_BATH						145	// í•˜ìš°ì§• - ê°€êµ¬ - ìš•ì¡°
-#define	IK3_DRAWER					146	// í•˜ìš°ì§• - ê°€êµ¬ - í˜‘íƒ
+#define IK3_TELEPORTER				140 //±æµåÇÏ¿ì½º ÅÚ·¹Æ÷ÅÍ
+#define IK3_REST							141	//ÈÞ½ÄÀÇ ±â¿î
+#define	IK3_DESK						142	// ÇÏ¿ìÂ¡ - °¡±¸ - Ã¥»ó
+#define	IK3_CHAIR						143	// ÇÏ¿ìÂ¡ - °¡±¸ - ÀÇÀÚ
+#define	IK3_CASE						144	// ÇÏ¿ìÂ¡ - °¡±¸ - Ã¥Àå
+#define	IK3_BATH						145	// ÇÏ¿ìÂ¡ - °¡±¸ - ¿åÁ¶
+#define	IK3_DRAWER					146	// ÇÏ¿ìÂ¡ - °¡±¸ - ÇùÅ¹
 
 #define	IK3_CRYSTAL					147
 #define IK3_KEY							148
@@ -252,136 +252,136 @@
 #define IK3_SHILDBARUNA 			152
 
 //#define IK3_ENCHANTPET		153				//
-#define IK3_SUMMON_NPC							153			//NPC ì†Œí™˜ ì•„ì´í…œ
+#define IK3_SUMMON_NPC							153			//NPC ¼ÒÈ¯ ¾ÆÀÌÅÛ
 
-//3ì°¨ ë°”ë£¨ë‚˜ ì œë ¨ ê´€ë ¨ ì•„ì´í…œ
-#define IK3_OPERCID					154 // ì˜¤í¼ì‹œë“œ
-#define IK3_OPER							155 // ì˜¤í¼
-#define IK3_CID							156 // ì‹œë“œ
-#define IK3_OPERCRYSTAL			157 // ì˜¤í¼ ê²°ì •ì²´
-#define IK3_CIDCRYSTAL				158 // ì‹œë“œ ê²°ì •ì²´
-#define IK3_OPERMIX					159 // ì˜¤í¼ ìœµí•©ì œ
-#define IK3_CIDMIX						160 // ì‹œë“œ ìœµí•©ì œ
-#define IK3_MEAL							161 // ë°”ë¥¨ì˜ ê°€ë£¨
-#define IK3_EXTRACT					162 // ì¶”ì¶œ ë„êµ¬
-//ìƒìš©í™” ë¶„ë¥˜
-#define IK3_BARUNA		        163 //ë°”ë£¨ë‚˜ 8ì›” 19ì¼ ì¶”ê°€ ìœ  ì¹˜í›ˆ
-
-
-#define IK3_EXP_RATE						164	// íšë“ ê²½í—˜ì¹˜ ì¦ê°€
-#define IK3_GENERAL_ENCHANT_RATE			165 // ì¼ë°˜ ì œë ¨ í™•ë¥  ì¦ê°€
-#define IK3_GEN_ATT_ENCHANT_RATE			166 // ì¼ë°˜ & ì†ì„± ì œë ¨ í™•ë¥  ì¦ê°€
-#define IK3_GENERAL_WEAPON_ENCHANT_RATE		167 // ì¼ë°˜ ë¬´ê¸° ì œë ¨ í™•ë¥  ì¦ê°€
-#define IK3_ULTIMATE_UPGRADE_RATE			168 // ì–¼í„°ë©‹ ë¬´ê¸° ì—…ê¸€ í™•ë¥  ì¦ê°€
-#define IK3_RESET_BIND						169 // ê·€ì† ì†ì„± í•´ì œ
-#define IK3_BARUNA_PROTECTION				170 // ë°”ë£¨ë‚˜ì˜ ì œë ¨ ì‹œ ë°”ë£¨ë‚˜ ì•„ì´í…œ ë³´í˜¸
-#define IK3_BARUNA_PROTECTION_KEEP			171 // ë°”ë£¨ë‚˜ì˜ ì œë ¨ ì‹œ ë°”ë£¨ë‚˜ ì•„ì´í…œ ë³´í˜¸ ë° ì œë ¨ìˆ˜ì¹˜ í•˜ë½ ë°©ì§€
+//3Â÷ ¹Ù·ç³ª Á¦·Ã °ü·Ã ¾ÆÀÌÅÛ
+#define IK3_OPERCID					154 // ¿ÀÆÛ½Ãµå
+#define IK3_OPER							155 // ¿ÀÆÛ
+#define IK3_CID							156 // ½Ãµå
+#define IK3_OPERCRYSTAL			157 // ¿ÀÆÛ °áÁ¤Ã¼
+#define IK3_CIDCRYSTAL				158 // ½Ãµå °áÁ¤Ã¼
+#define IK3_OPERMIX					159 // ¿ÀÆÛ À¶ÇÕÁ¦
+#define IK3_CIDMIX						160 // ½Ãµå À¶ÇÕÁ¦
+#define IK3_MEAL							161 // ¹Ù·ýÀÇ °¡·ç
+#define IK3_EXTRACT					162 // ÃßÃâ µµ±¸
+//»ó¿ëÈ­ ºÐ·ù
+#define IK3_BARUNA		        163 //¹Ù·ç³ª 8¿ù 19ÀÏ Ãß°¡ À¯ Ä¡ÈÆ
 
 
-#define IK3_BARUNAWEA_PIERCE_RUNE				172 // ë°”ë£¨ë‚˜ì˜ í”¼ì–´ì‹± ì‹œ í•„ìš”í•œ ê³ ëŒ€ ë¬¸ìžì„
-#define IK3_BARUNAAMO_PIERCE_RUNE				173 // ë°”ë£¨ë‚˜ì˜ í”¼ì–´ì‹± ì‹œ í•„ìš”í•œ ê³ ëŒ€ ë¬¸ìžì„
-#define IK3_BARUNA_PROTECTION_RUNE			174 // ë°”ë£¨ë‚˜ì˜ í”¼ì–´ì‹± ì‹œ ê³ ëŒ€ ë¬¸ìžì„ íŒŒê´´ ë°©ì§€
-#define IK3_BARUNA_PIERCE_RATE				175 // ë°”ë£¨ë‚˜ì˜ í”¼ì–´ì‹± ì‹œ í™•ë¥  ì¦ê°€
-
-#define IK3_COLOSSEUM_BOSS_RATE				176 // ì½œë¡œì„¸ì›€ ì§„ë³´ìŠ¤ ì¶œí˜„ í™•ë¥  ì¦ê°€
-#define IK3_COLOSSEUM_RETRY					177 // ì½œë¡œì„¸ì›€ ìž¬ì‹œë„ ê°€ëŠ¥
-
-//ì½”ìŠ¤íŠ¬ í•©ì„± íŒŒê´´ ë°©ì§€ ì•„ì´í…œ
-#define IK3_COSTUME_DEFENDER					178 // ì½œë¡œì„¸ì›€ ìž¬ì‹œë„ ê°€ëŠ¥
-
-//ìœ ë£Œ ì§€ë„ ì‹œìŠ¤í…œ ê´€ë ¨ íšƒë¶ˆ 2ì¢… (ì§€ì—­/ë˜ì „)
-#define IK3_MAPOPEN_AREA					179 // ì½œë¡œì„¸ì›€ ìž¬ì‹œë„ ê°€ëŠ¥
-#define IK3_MAPOPEN_DUNGEON					180 // ì½œë¡œì„¸ì›€ ìž¬ì‹œë„ ê°€ëŠ¥
+#define IK3_EXP_RATE						164	// È¹µæ °æÇèÄ¡ Áõ°¡
+#define IK3_GENERAL_ENCHANT_RATE			165 // ÀÏ¹Ý Á¦·Ã È®·ü Áõ°¡
+#define IK3_GEN_ATT_ENCHANT_RATE			166 // ÀÏ¹Ý & ¼Ó¼º Á¦·Ã È®·ü Áõ°¡
+#define IK3_GENERAL_WEAPON_ENCHANT_RATE		167 // ÀÏ¹Ý ¹«±â Á¦·Ã È®·ü Áõ°¡
+#define IK3_ULTIMATE_UPGRADE_RATE			168 // ¾óÅÍ¸Ú ¹«±â ¾÷±Û È®·ü Áõ°¡
+#define IK3_RESET_BIND						169 // ±Í¼Ó ¼Ó¼º ÇØÁ¦
+#define IK3_BARUNA_PROTECTION				170 // ¹Ù·ç³ªÀÇ Á¦·Ã ½Ã ¹Ù·ç³ª ¾ÆÀÌÅÛ º¸È£
+#define IK3_BARUNA_PROTECTION_KEEP			171 // ¹Ù·ç³ªÀÇ Á¦·Ã ½Ã ¹Ù·ç³ª ¾ÆÀÌÅÛ º¸È£ ¹× Á¦·Ã¼öÄ¡ ÇÏ¶ô ¹æÁö
 
 
-#define	IK3_TELEPORTMAP_BASIC				181	// í…”ë ˆí¬íŠ¸ì§€ë„ ì¼ë°˜í˜•
-#define	IK3_TELEPORTMAP_USER				182	// í…”ë ˆí¬íŠ¸ì§€ë„ ìœ ì € ë“±ë¡í˜•
+#define IK3_BARUNAWEA_PIERCE_RUNE				172 // ¹Ù·ç³ªÀÇ ÇÇ¾î½Ì ½Ã ÇÊ¿äÇÑ °í´ë ¹®ÀÚ¼®
+#define IK3_BARUNAAMO_PIERCE_RUNE				173 // ¹Ù·ç³ªÀÇ ÇÇ¾î½Ì ½Ã ÇÊ¿äÇÑ °í´ë ¹®ÀÚ¼®
+#define IK3_BARUNA_PROTECTION_RUNE			174 // ¹Ù·ç³ªÀÇ ÇÇ¾î½Ì ½Ã °í´ë ¹®ÀÚ¼® ÆÄ±« ¹æÁö
+#define IK3_BARUNA_PIERCE_RATE				175 // ¹Ù·ç³ªÀÇ ÇÇ¾î½Ì ½Ã È®·ü Áõ°¡
 
-#define IK3_GENERAL_RANDOMOPTION_GEN		183	// ì¼ë°˜ ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
-#define IK3_GENERAL_RANDOMOPTION_INIT		184	// ì¼ë°˜ ê°ì„± ì·¨ì†Œì˜ ë‘ë£¨ë§ˆë¦¬
-#define IK3_GENERAL_RANDOMOPTION_SAFE		185	// ì¼ë°˜ ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+#define IK3_COLOSSEUM_BOSS_RATE				176 // ÄÝ·Î¼¼¿ò Áøº¸½º ÃâÇö È®·ü Áõ°¡
+#define IK3_COLOSSEUM_RETRY					177 // ÄÝ·Î¼¼¿ò Àç½Ãµµ °¡´É
 
-#define IK3_SYSTEMPET_RANDOMOPTION_GEN		186	// ë¦¬ì–´íŽ« ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
-#define IK3_SYSTEMPET_RANDOMOPTION_INIT		187	// ë¦¬ì–´íŽ« ê°ì„± ì·¨ì†Œì˜ ë‘ë£¨ë§ˆë¦¬
+//ÄÚ½ºÆ¬ ÇÕ¼º ÆÄ±« ¹æÁö ¾ÆÀÌÅÛ
+#define IK3_COSTUME_DEFENDER					178 // ÄÝ·Î¼¼¿ò Àç½Ãµµ °¡´É
 
-#define IK3_COSTUME_RANDOMOPTION_GEN		188	// ì—¬ì‹ ì˜ ì¶•ë³µ
+//À¯·á Áöµµ ½Ã½ºÅÛ °ü·Ã È¶ºÒ 2Á¾ (Áö¿ª/´øÀü)
+#define IK3_MAPOPEN_AREA					179 // ÄÝ·Î¼¼¿ò Àç½Ãµµ °¡´É
+#define IK3_MAPOPEN_DUNGEON					180 // ÄÝ·Î¼¼¿ò Àç½Ãµµ °¡´É
 
-#define IK3_EATPET_RANDOMOPTION_GEN			189	// í”½ì—…íŽ« ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
 
-#define IK3_DECREASE_EQUIP_LEVEL			190	// ì•„ì´í…œ ì°©ìš© ë ˆë²¨ í•˜ë½
+#define	IK3_TELEPORTMAP_BASIC				181	// ÅÚ·¹Æ÷Æ®Áöµµ ÀÏ¹ÝÇü
+#define	IK3_TELEPORTMAP_USER				182	// ÅÚ·¹Æ÷Æ®Áöµµ À¯Àú µî·ÏÇü
 
-#define IK3_BARUNA_RANDOMOPTION_INIT		191	// ë°”ë£¨ë‚˜ ê°ì„± ì·¨ì†Œì˜ ë‘ë£¨ë§ˆë¦¬
+#define IK3_GENERAL_RANDOMOPTION_GEN		183	// ÀÏ¹Ý °¢¼ºÀÇ µÎ·ç¸¶¸®
+#define IK3_GENERAL_RANDOMOPTION_INIT		184	// ÀÏ¹Ý °¢¼º Ãë¼ÒÀÇ µÎ·ç¸¶¸®
+#define IK3_GENERAL_RANDOMOPTION_SAFE		185	// ÀÏ¹Ý °¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 
-#define IK3_BARUNA_ELE_PROPTECTION			192 // ë°”ë£¨ë‚˜ì˜ ì€ì´
-#define IK3_BARUNA_ELE_PROPTECTION_KEEP		193	// ì¶•ë³µë°›ì€ ë°”ë£¨ë‚˜ì˜ ì€ì´
-#define IK3_BARUNA_ELE_PROP_INCREASE		194	// ì›ì†Œ í™œë ¥ì œ
-#define IK3_ELEORB							195	// ì†ì„±ì˜¤ë¸Œ
+#define IK3_SYSTEMPET_RANDOMOPTION_GEN		186	// ¸®¾îÆê °¢¼ºÀÇ µÎ·ç¸¶¸®
+#define IK3_SYSTEMPET_RANDOMOPTION_INIT		187	// ¸®¾îÆê °¢¼º Ãë¼ÒÀÇ µÎ·ç¸¶¸®
 
-#define IK3_EQUIP_LEVEL							196	// ìž¥ë¹„ ë ˆë²¨
-#define IK3_GENERAL_GEN							197	// ì¼ë°˜ ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
-#define IK3_GENERAL_INIT						198	// ì¼ë°˜ ê°ì„± ì·¨ì†Œ
-#define IK3_COSTUME_GEN							199	// ì—¬ì‹ ì˜ ì¶•ë³µ
-#define IK3_EATPET_GEN							200	// í”½ì—…íŽ« ê°ì„± ê°ì„± ë‘ë£¨ë§ˆë¦¬
-#define IK3_SYSTEMPET_GEN						201	// ë¦¬ì–´íŽ« ê°ì„± ë‘ë£¨ë§ˆë¦¬
-#define IK3_SYSTEMPET_INIT						202	// ë¦¬ì–´íŽ« ê°ì„± ì·¨ì†Œ
-#define IK3_SMELT_PROTECTION					203	// ì œë ¨ ë³´í˜¸
-#define IK3_SMELT_PROTECTION_KEEP				204	// ì•„ì´í…œ ë³´í˜¸ ë° ì œë ¨ìˆ˜ì¹˜ í•˜ë½ ë°©ì§€
-#define IK3_WEA_PIERCE_RUNE						205	// ë¬´ê¸° ì „ìš© í”¼ì–´ì‹± ë¬¸ìžì„
-#define IK3_AMO_PIERCE_RUNE						206	// ë°©ì–´êµ¬ ì „ìš© í”¼ì–´ì‹± ë¬¸ìžì„
-#define IK3_PIERCE_PROTECTION					207	// í”¼ì–´ì‹± ë³´í˜¸ ì•„ì´í…œ
-#define IK3_PIERCE_RATE							208	// í”¼ì–´ì‹± í™•ë¥  ì•„ì´í…œ
-#define IK3_BOSS_RATE							209	// ë³´ìŠ¤ í™•ë¥  ì¦ê°€
-#define IK3_RETRY								210	// ìž¬ë„ì „
-#define IK3_DUNGEON								211	// ìœ ë£Œì§€ë„ (ë˜ì „ìš©)
+#define IK3_COSTUME_RANDOMOPTION_GEN		188	// ¿©½ÅÀÇ Ãàº¹
 
-#define IK3_BOX								212	// ë³´ë¬¼ìƒìž ì‹œìŠ¤í…œ ìƒìž
-#define IK3_BOXOPEN							213	// ë³´ë¬¼ìƒìž ì‹œìŠ¤í…œ ì—´ì‡ 
+#define IK3_EATPET_RANDOMOPTION_GEN			189	// ÇÈ¾÷Æê °¢¼ºÀÇ µÎ·ç¸¶¸®
 
-#define IK3_SERVERMOVE							214	// ìºë¦­í„° ì„œë²„ ì´ë™
+#define IK3_DECREASE_EQUIP_LEVEL			190	// ¾ÆÀÌÅÛ Âø¿ë ·¹º§ ÇÏ¶ô
 
-#define IK3_TRADEREGISTERITEM							215	// ìž¥ì¸ì˜ ê³„ì•½ì„œ// ê±°ëž˜ ì¤‘ê°œìš© ìºì‹œ ì•„ì´í…œ
+#define IK3_BARUNA_RANDOMOPTION_INIT		191	// ¹Ù·ç³ª °¢¼º Ãë¼ÒÀÇ µÎ·ç¸¶¸®
 
-#define IK3_SAVEPOTION							216	// ì²´ë ¥ íšŒë³µ í•­ì•„ë¦¬ ì•„ì´í…œ
-#define IK3_ELLDINKEY							217	// ì²´ë ¥ íšŒë³µ í•­ì•„ë¦¬ í¬ìž¥ í•´ì œ ì•„ì´í…œ
-#define IK3_FOODELLDIN							218	// ì²´ë ¥ íšŒë³µ í•­ì•„ë¦¬ ì „ìš© ë¬¼ì•½
+#define IK3_BARUNA_ELE_PROPTECTION			192 // ¹Ù·ç³ªÀÇ ÀºÃÑ
+#define IK3_BARUNA_ELE_PROPTECTION_KEEP		193	// Ãàº¹¹ÞÀº ¹Ù·ç³ªÀÇ ÀºÃÑ
+#define IK3_BARUNA_ELE_PROP_INCREASE		194	// ¿ø¼Ò È°·ÂÁ¦
+#define IK3_ELEORB							195	// ¼Ó¼º¿Àºê
 
-#define MAX_ITEM_KIND3						219	// ItemKind3 ì´ ê°œìˆ˜
+#define IK3_EQUIP_LEVEL							196	// Àåºñ ·¹º§
+#define IK3_GENERAL_GEN							197	// ÀÏ¹Ý °¢¼ºÀÇ µÎ·ç¸¶¸®
+#define IK3_GENERAL_INIT						198	// ÀÏ¹Ý °¢¼º Ãë¼Ò
+#define IK3_COSTUME_GEN							199	// ¿©½ÅÀÇ Ãàº¹
+#define IK3_EATPET_GEN							200	// ÇÈ¾÷Æê °¢¼º °¢¼º µÎ·ç¸¶¸®
+#define IK3_SYSTEMPET_GEN						201	// ¸®¾îÆê °¢¼º µÎ·ç¸¶¸®
+#define IK3_SYSTEMPET_INIT						202	// ¸®¾îÆê °¢¼º Ãë¼Ò
+#define IK3_SMELT_PROTECTION					203	// Á¦·Ã º¸È£
+#define IK3_SMELT_PROTECTION_KEEP				204	// ¾ÆÀÌÅÛ º¸È£ ¹× Á¦·Ã¼öÄ¡ ÇÏ¶ô ¹æÁö
+#define IK3_WEA_PIERCE_RUNE						205	// ¹«±â Àü¿ë ÇÇ¾î½Ì ¹®ÀÚ¼®
+#define IK3_AMO_PIERCE_RUNE						206	// ¹æ¾î±¸ Àü¿ë ÇÇ¾î½Ì ¹®ÀÚ¼®
+#define IK3_PIERCE_PROTECTION					207	// ÇÇ¾î½Ì º¸È£ ¾ÆÀÌÅÛ
+#define IK3_PIERCE_RATE							208	// ÇÇ¾î½Ì È®·ü ¾ÆÀÌÅÛ
+#define IK3_BOSS_RATE							209	// º¸½º È®·ü Áõ°¡
+#define IK3_RETRY								210	// ÀçµµÀü
+#define IK3_DUNGEON								211	// À¯·áÁöµµ (´øÀü¿ë)
+
+#define IK3_BOX								212	// º¸¹°»óÀÚ ½Ã½ºÅÛ »óÀÚ
+#define IK3_BOXOPEN							213	// º¸¹°»óÀÚ ½Ã½ºÅÛ ¿­¼è
+
+#define IK3_SERVERMOVE							214	// Ä³¸¯ÅÍ ¼­¹ö ÀÌµ¿
+
+#define IK3_TRADEREGISTERITEM							215	// ÀåÀÎÀÇ °è¾à¼­// °Å·¡ Áß°³¿ë Ä³½Ã ¾ÆÀÌÅÛ
+
+#define IK3_SAVEPOTION							216	// Ã¼·Â È¸º¹ Ç×¾Æ¸® ¾ÆÀÌÅÛ
+#define IK3_ELLDINKEY							217	// Ã¼·Â È¸º¹ Ç×¾Æ¸® Æ÷Àå ÇØÁ¦ ¾ÆÀÌÅÛ
+#define IK3_FOODELLDIN							218	// Ã¼·Â È¸º¹ Ç×¾Æ¸® Àü¿ë ¹°¾à
+
+#define MAX_ITEM_KIND3						219	// ItemKind3 ÃÑ °³¼ö
 
 
 
 
 #define MAX_UNIQUE_SIZE				400
 
-// ì»¨íŠ¸ë¡¤ ì˜¤ë¸Œì íŠ¸ Kind
-#define CK1_CHEST				0    // <-ë³´ë¬¼ìƒìž
-#define CK1_DOOR				1    // <-ë¬¸
-#define CK1_TRIGGER				2    // ë™ìž‘ ì˜¤ë¸Œì íŠ¸
-#define CK1_HOUSING				3    // í•˜ìš°ì§• ê°€êµ¬ ì»¨íŠ¸ë¡¤
-#define	CK1_GUILD_HOUSE				4    // ê¸¸ë“œ ê°€êµ¬ ì»¨íŠ¸ë¡¤
+// ÄÁÆ®·Ñ ¿ÀºêÁ§Æ® Kind
+#define CK1_CHEST				0    // <-º¸¹°»óÀÚ
+#define CK1_DOOR				1    // <-¹®
+#define CK1_TRIGGER				2    // µ¿ÀÛ ¿ÀºêÁ§Æ®
+#define CK1_HOUSING				3    // ÇÏ¿ìÂ¡ °¡±¸ ÄÁÆ®·Ñ
+#define	CK1_GUILD_HOUSE				4    // ±æµå °¡±¸ ÄÁÆ®·Ñ
 
-#define CK2_FADE				1    // ì‚¬ë¼ì§€ëŠ” ì»¨íŠ¸ë¡¤
-#define CK2_KEEP				2    // ì—†ì–´ì§€ì§€ ì•ŠëŠ” ì»¨íŠ¸ë¡¤
+#define CK2_FADE				1    // »ç¶óÁö´Â ÄÁÆ®·Ñ
+#define CK2_KEEP				2    // ¾ø¾îÁöÁö ¾Ê´Â ÄÁÆ®·Ñ
 
-#define CK3_FULL				1    // í’€ì—ë‹ˆë©”ì´ì…˜
-#define CK3_HALF				2    // 1/2 ì—ë‹ˆë©”ì´ì…˜
+#define CK3_FULL				1    // Ç®¿¡´Ï¸ÞÀÌ¼Ç
+#define CK3_HALF				2    // 1/2 ¿¡´Ï¸ÞÀÌ¼Ç
 
 
-//--------------------------- ë“±ê¸‰ start----------------------------------//
+//--------------------------- µî±Þ start----------------------------------//
 #define PET_VIS					1	// VisPet\
 
-#define WEAPON_GENERAL			0	// ì¼ë°˜ ë¬´ê¸°
-#define WEAPON_UNIQUE			1	// ìœ ë‹ˆí¬ ë¬´ê¸°
-#define WEAPON_ULTIMATE			2	// ì–¼í„°ë©‹ ë¬´ê¸°
+#define WEAPON_GENERAL			0	// ÀÏ¹Ý ¹«±â
+#define WEAPON_UNIQUE			1	// À¯´ÏÅ© ¹«±â
+#define WEAPON_ULTIMATE			2	// ¾óÅÍ¸Ú ¹«±â
 
-#define ARMOR_SET				3	// ì„¸íŠ¸ ë°©ì–´êµ¬
+#define ARMOR_SET				3	// ¼¼Æ® ¹æ¾î±¸
 
-#define BARUNA_D			4	// ë°”ë£¨ë‚˜ ë¬´ê¸° Dë“±ê¸‰
-#define BARUNA_C			5	// ë°”ë£¨ë‚˜ ë¬´ê¸° Cë“±ê¸‰
-#define BARUNA_B			6	// ë°”ë£¨ë‚˜ ë¬´ê¸° Bë“±ê¸‰
-#define BARUNA_A			7	// ë°”ë£¨ë‚˜ ë¬´ê¸° Aë“±ê¸‰
-#define BARUNA_S			8	// ë°”ë£¨ë‚˜ ë¬´ê¸° Së“±ê¸‰
+#define BARUNA_D			4	// ¹Ù·ç³ª ¹«±â Dµî±Þ
+#define BARUNA_C			5	// ¹Ù·ç³ª ¹«±â Cµî±Þ
+#define BARUNA_B			6	// ¹Ù·ç³ª ¹«±â Bµî±Þ
+#define BARUNA_A			7	// ¹Ù·ç³ª ¹«±â Aµî±Þ
+#define BARUNA_S			8	// ¹Ù·ç³ª ¹«±â Sµî±Þ
 
-//--------------------------- ë“±ê¸‰ end----------------------------------//
+//--------------------------- µî±Þ end----------------------------------//
 
 
 

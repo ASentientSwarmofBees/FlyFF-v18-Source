@@ -1,4 +1,4 @@
-ï»¿// DlgOption.cpp : implementation file
+// DlgOption.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -236,15 +236,15 @@ BOOL CDlgOption::OnInitDialog()
 	}
 
 #if __CURRENT_LANG == LANG_KOR
-	m_cbRes.InsertString( -1, "800x600(ì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1024x768(ì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1280x1024(ì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1400x1050(ì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1280x720(Wì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1280x768(Wì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1280x800(Wì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1360x768(Wì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1440x900(Wì°½ëª¨ë“œ)" );
+	m_cbRes.InsertString( -1, "800x600(Ã¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1024x768(Ã¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1280x1024(Ã¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1400x1050(Ã¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1280x720(WÃ¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1280x768(WÃ¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1280x800(WÃ¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1360x768(WÃ¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1440x900(WÃ¢¸ğµå)" );
 #else // __CURRENT_LANG == LANG_KOR
 	m_cbRes.InsertString( -1, "800x600 (Window)" );
 	m_cbRes.InsertString( -1, "1024x768 (Window)" );
@@ -296,9 +296,9 @@ BOOL CDlgOption::OnInitDialog()
 	m_cbRes.InsertString( -1, "1024x768" );
 	m_cbRes.InsertString( -1, "1280x1024" );
 #if (__CURRENT_LANG == LANG_KOR)
-	m_cbRes.InsertString( -1, "800x600(ì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1024x768(ì°½ëª¨ë“œ)" );
-	m_cbRes.InsertString( -1, "1280x1024(ì°½ëª¨ë“œ)" );
+	m_cbRes.InsertString( -1, "800x600(Ã¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1024x768(Ã¢¸ğµå)" );
+	m_cbRes.InsertString( -1, "1280x1024(Ã¢¸ğµå)" );
 #elif (__CURRENT_LANG == LANG_GER  || __CURRENT_LANG == LANG_FRA)
 	m_cbRes.InsertString( -1, "800x600(Window)" );
 	m_cbRes.InsertString( -1, "1024x768(Window)" );
@@ -386,7 +386,7 @@ BOOL CDlgOption::OnInitDialog()
 			pWnd->SetFont( &m_font, FALSE );
 	}
 
-	UpdateData(FALSE);		// ë³€ìˆ˜ì—ì„œ ì»¨íŠ¸ë¡¤ë¡œ.
+	UpdateData(FALSE);		// º¯¼ö¿¡¼­ ÄÁÆ®·Ñ·Î.
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
@@ -567,7 +567,7 @@ void CDlgOption::OnOK()
 	}
 	m_bStartFullScreen = (nCurSel < 3);
 #endif //__CSC_VER9_RESOLUTION
-	UpdateData(TRUE);	// ì»¨íŠ¸ë¡¤ì—ì„œ ë³€ìˆ˜.
+	UpdateData(TRUE);	// ÄÁÆ®·Ñ¿¡¼­ º¯¼ö.
 	CDialog::OnOK();
 }
 

@@ -1,4 +1,4 @@
-﻿// Certifiier.cpp : Defines the entry point for the application.
+// Certifiier.cpp : Defines the entry point for the application.
 #include "stdafx.h"
 #ifdef IDC_STATIC
 #undef IDC_STATIC

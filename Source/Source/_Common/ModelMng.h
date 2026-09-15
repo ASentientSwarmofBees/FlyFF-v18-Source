@@ -1,4 +1,4 @@
-ï»¿#if !defined(AFX_MODELMNG_H__25FE7788_56AD_4D50_8D9E_E69C969DE0F9__INCLUDED_)
+#if !defined(AFX_MODELMNG_H__25FE7788_56AD_4D50_8D9E_E69C969DE0F9__INCLUDED_)
 #define AFX_MODELMNG_H__25FE7788_56AD_4D50_8D9E_E69C969DE0F9__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -17,15 +17,15 @@ typedef struct tagMODELELEM
 	DWORD m_dwModelType;
 	TCHAR m_szPart[48]; 
 	FLOAT m_fScale;
-	LPDIRECT3DTEXTURE9 m_pTexture;	// 4ë°”ì´íŠ¸ ì •ë ¬ì„ ìœ„í•´ì„œ ì˜®ê¹€.-xuzhu-
-	int m_nTextureEx;			// í…ìŠ¤ì³ ì…‹ ë²ˆí˜¸ 0 ~ 7
+	LPDIRECT3DTEXTURE9 m_pTexture;	// 4¹ÙÀÌÆ® Á¤·ÄÀ» À§ÇØ¼­ ¿Å±è.-xuzhu-
+	int m_nTextureEx;			// ÅØ½ºÃÄ ¼Â ¹øÈ£ 0 ~ 7
 
 	BYTE  m_bMark;
 	BYTE  m_bFly      : 1;
 	BYTE  m_dwDistant : 2;
-	BYTE  m_bPick     : 1; // ìºë¦­í„° ì´ë™ì‹œ ë§ˆìš°ìŠ¤ í”¼í‚¹ì— ê±¸ë¦¬ëŠ” ì˜¤ë¸Œì íŠ¸ì¸ê°€?
+	BYTE  m_bPick     : 1; // Ä³¸¯ÅÍ ÀÌµ¿½Ã ¸¶¿ì½º ÇÇÅ·¿¡ °É¸®´Â ¿ÀºêÁ§Æ®ÀÎ°¡?
 	BYTE  m_bUsed     : 1;
-	BYTE  m_bTrans    : 1; // ìºë¦­í„°ë¥¼ ê°€ë¦´ ì‹œ ë°˜íˆ¬ëª…ì´ ë˜ëŠ” ì˜¤ë¸Œì íŠ¸ì¸ê°€?
+	BYTE  m_bTrans    : 1; // Ä³¸¯ÅÍ¸¦ °¡¸± ½Ã ¹ÝÅõ¸íÀÌ µÇ´Â ¿ÀºêÁ§Æ®ÀÎ°¡?
 	BYTE  m_bShadow   : 1;
 	BYTE  m_bReserved : 1;
 	BYTE m_bRenderFlag : 1;
@@ -74,7 +74,7 @@ public:
 
 	BOOL LoadScript( LPCTSTR lpszFileName );
 
-	// dx ì´ˆê¸°í™” ê´€ë ¨ 
+	// dx ÃÊ±âÈ­ °ü·Ã 
 	HRESULT InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice );
 	HRESULT RestoreDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice);
 	HRESULT InvalidateDeviceObjects();

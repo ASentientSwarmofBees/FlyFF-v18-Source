@@ -1,4 +1,4 @@
-﻿
+
 //Rijndael.cpp
 
 #include <cstring>

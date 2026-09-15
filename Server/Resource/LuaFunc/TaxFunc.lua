@@ -1,22 +1,22 @@
-ï»¿tOccupationShopItem = {}
+tOccupationShopItem = {}
 -------------------------------------------------------------
---- ì„¸ìœ¨ ë³€ê²½ ì‹œê°„ ì²´í¬ í•¨ìˆ˜ --------------------------------
+--- ¼¼À² º¯°æ ½Ã°£ Ã¼Å© ÇÔ¼ö --------------------------------
 -------------------------------------------------------------
-function CheckChangeTime( strDate )	-- strDate ëŠ” ê°€ìž¥ ìµœê·¼ì— ì„¸ìœ¨ì´ ì ìš©ëœ ì‹œê°„
+function CheckChangeTime( strDate )	-- strDate ´Â °¡Àå ÃÖ±Ù¿¡ ¼¼À²ÀÌ Àû¿ëµÈ ½Ã°£
 	local strNowDate = os.date("%a %H:%M")
-	local nNowDate = tonumber( GetNowDate() )	-- í˜„ìž¬ ë‚ ì§œ ë° ì‹œê°„ 
-	local nNextDate = tonumber( GetNextDate( strDate ) ) -- ë‹¤ìŒ ì ìš©ë  ë‚ ì§œ ë° ì‹œê°„ 
+	local nNowDate = tonumber( GetNowDate() )	-- ÇöÀç ³¯Â¥ ¹× ½Ã°£ 
+	local nNextDate = tonumber( GetNextDate( strDate ) ) -- ´ÙÀ½ Àû¿ëµÉ ³¯Â¥ ¹× ½Ã°£ 
 			
-	if( ChangeTaxTime == strNowDate ) then	-- ChangeTaxTimeì— ì„¤ì •í•œ ì‹œê°„ì´ë©´ ë³€ê²½
+	if( ChangeTaxTime == strNowDate ) then	-- ChangeTaxTime¿¡ ¼³Á¤ÇÑ ½Ã°£ÀÌ¸é º¯°æ
 		return true, tostring( nNowDate )
-	elseif( nNowDate >= nNextDate  ) then	-- ë‹¤ìŒ ì ìš©í•  ì‹œê°„ì´ ì§€ë‚¬ìœ¼ë©´ ë³€ê²½
-		return true, tostring( nNowDate )	-- (ChangeTaxTimeì— êµ°ì£¼ê°€ ì•„ì§ ì„¤ì •ë˜ì§€ ì•Šì€ ê²½ìš°)
+	elseif( nNowDate >= nNextDate  ) then	-- ´ÙÀ½ Àû¿ëÇÒ ½Ã°£ÀÌ Áö³µÀ¸¸é º¯°æ
+		return true, tostring( nNowDate )	-- (ChangeTaxTime¿¡ ±ºÁÖ°¡ ¾ÆÁ÷ ¼³Á¤µÇÁö ¾ÊÀº °æ¿ì)
 	end
 	
 	return false, tostring( nNowDate )
 end
 
-function CheckPayTime()	-- ì„¸ê¸ˆ ì§€ê¸‰ì‹œê°„
+function CheckPayTime()	-- ¼¼±Ý Áö±Þ½Ã°£
 	if( PayTime == os.date("%H:%M") ) then
 		return true
 	end
@@ -28,7 +28,7 @@ function GetNowDate()
 end
 
 ----------------------------------------------------------------
--- ì—¬ê¸°ë¶€í„°ëŠ” luaì—ì„œë§Œ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜ ------------------
+-- ¿©±âºÎÅÍ´Â lua¿¡¼­¸¸ »ç¿ëÇÏ´Â ÇÔ¼ö ------------------
 ----------------------------------------------------------------
 function GetNextDate( strDate )
 	local nYear = tonumber( string.sub( strDate, 1, 4 ) )
@@ -37,7 +37,7 @@ function GetNextDate( strDate )
 	
 	local nWDay, nHour, nMin = GetCheckTime()
 	
-	-- ë‹¤ìŒ ì ìš©ë  ë‚ ì§œë¥¼ êµ¬í•œë‹¤.(strDateë¡œ ë¶€í„° ë‹¤ìŒ ì„¤ì • ì‹œê°„)
+	-- ´ÙÀ½ Àû¿ëµÉ ³¯Â¥¸¦ ±¸ÇÑ´Ù.(strDate·Î ºÎÅÍ ´ÙÀ½ ¼³Á¤ ½Ã°£)
 	local temp = os.date( "*t", os.time{year=nYear, month=nMonth, day=nDay, hour=nHour, min=nMin} )
 	if( temp.wday >= nWDay ) then
 		temp.day = temp.day + ( 7 - ( temp.wday - nWDay ) )

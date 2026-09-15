@@ -1,4 +1,4 @@
-ï»¿// WndArcane.h: interface for the CWndNeuz class.
+// WndArcane.h: interface for the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -60,7 +60,7 @@ public:
 
 //friend CWndCapture;
 };
-// Control í…ŒìŠ¤íŠ¸ ìœˆë„ 
+// Control Å×½ºÆ® À©µµ 
 
 class CWndControlTest : public CWndNeuz
 {

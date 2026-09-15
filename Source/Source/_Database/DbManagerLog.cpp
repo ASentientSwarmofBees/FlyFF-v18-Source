@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -42,9 +42,9 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	// ì´ê³³ì´ Database serverì˜ í•¸ë“¤ëŸ¬ ë¶€ë¶„ì´ë¼ë©´, 
-	//	ACTION + ìºë¦­í„°1 + ìºë¦­í„°2 + ìž¥ì†Œ + ì‹œë“œ1 + ì‹œë“œ2 + ìž”ì•¡1 + ìž”ì•¡2 +
-	//	ì•„ì´í…œê°œìˆ˜1 + ì•„ì´í…œê°œìˆ˜2 + ( ì•„ì´í…œê³ ìœ ë²ˆí˜¸ + ì•„ì´í…œì´ë¦„ + ê°œìˆ˜ )1 + .... + ( ì•„ì´í…œê³ ìœ ë²ˆí˜¸ + ì•„ì´í…œì´ë¦„ + ê°œìˆ˜ )2 + .....
+	// ÀÌ°÷ÀÌ Database serverÀÇ ÇÚµé·¯ ºÎºÐÀÌ¶ó¸é, 
+	//	ACTION + Ä³¸¯ÅÍ1 + Ä³¸¯ÅÍ2 + Àå¼Ò + ½Ãµå1 + ½Ãµå2 + ÀÜ¾×1 + ÀÜ¾×2 +
+	//	¾ÆÀÌÅÛ°³¼ö1 + ¾ÆÀÌÅÛ°³¼ö2 + ( ¾ÆÀÌÅÛ°íÀ¯¹øÈ£ + ¾ÆÀÌÅÛÀÌ¸§ + °³¼ö )1 + .... + ( ¾ÆÀÌÅÛ°íÀ¯¹øÈ£ + ¾ÆÀÌÅÛÀÌ¸§ + °³¼ö )2 + .....
 	char chAction[2];
 	char lpszPlayer1[36], lpszPlayer2[36], lpszItemText[36];
 	arRead.ReadString( chAction, 2 );
@@ -73,7 +73,7 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 	case 'T':
 		{
 			int nTradeID	= GetTradeNo();
-			// 0. tblTradeLog. íŠ¸ë ˆì´ë“œ ë‹¨ìœ„ì— ëŒ€í•œ ì €ìž¥ìž…ë‹ˆë‹¤. (TradeID, ì‹œê°„, ìž¥ì†Œê°€ ì €ìž¥ë©ë‹ˆë‹¤)
+			// 0. tblTradeLog. Æ®·¹ÀÌµå ´ÜÀ§¿¡ ´ëÇÑ ÀúÀåÀÔ´Ï´Ù. (TradeID, ½Ã°£, Àå¼Ò°¡ ÀúÀåµË´Ï´Ù)
 			call_uspLoggingTrade( qry, 0, nTradeID, dwWorldID );
 			arRead >> iReMainder1 >> iReMainder2;
 			u_long idPlayer1, idPlayer2;
@@ -84,7 +84,7 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 			char lpAddr2[100]	= { 0, };
 			arRead.ReadString( lpAddr1, 100 );
 			arRead.ReadString( lpAddr2, 100 );
-			// 1. tblTradeDetailLog. íŠ¸ë ˆì´ë“œì˜ ì‚¬ëžŒë³„ ì •ë³´ìž…ë‹ˆë‹¤. (idPlayer, IP ë“±)
+			// 1. tblTradeDetailLog. Æ®·¹ÀÌµåÀÇ »ç¶÷º° Á¤º¸ÀÔ´Ï´Ù. (idPlayer, IP µî)
 			call_uspLoggingTrade( qry, 1, nTradeID, 0, idPlayer1, iSeed1, lpAddr1, nLevel1, nJob1 );
 			call_uspLoggingTrade( qry, 1, nTradeID, 0, idPlayer2, iSeed2, lpAddr2, nLevel2, nJob2 );
 			u_long uSize1, uSize2;
@@ -182,7 +182,7 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 					FreeRequest( lpDbOverlappedPlus );
 					return;
 				}
-				// 2. tblTradeItemLog. íŠ¸ë ˆì´ë“œ ëŒ€ìƒ ì•„ì´í…œ ì •ë³´ìž…ë‹ˆë‹¤. (ItemIndex, SerialNo ì™¸)
+				// 2. tblTradeItemLog. Æ®·¹ÀÌµå ´ë»ó ¾ÆÀÌÅÛ Á¤º¸ÀÔ´Ï´Ù. (ItemIndex, SerialNo ¿Ü)
 #if __VER >= 11 // __SYS_IDENTIFY
 				call_uspLoggingTrade( qry, 2, nTradeID, 0, idPlayer2, 0, "", 0, 0, dwItemId, iSerialNumber, nItemNum, nAbilityOption, nItemResist, nResistAbilityOption, aLogItem.m_iRandomOptItemId );
 #else	// __SYS_IDENTIFY
@@ -280,7 +280,7 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 					FreeRequest( lpDbOverlappedPlus );
 					return;
 				}
-				// 2. tblTradeItemLog. íŠ¸ë ˆì´ë“œ ëŒ€ìƒ ì•„ì´í…œ ì •ë³´ìž…ë‹ˆë‹¤. (ItemIndex, SerialNo ì™¸)
+				// 2. tblTradeItemLog. Æ®·¹ÀÌµå ´ë»ó ¾ÆÀÌÅÛ Á¤º¸ÀÔ´Ï´Ù. (ItemIndex, SerialNo ¿Ü)
 #if __VER >= 11 // __SYS_IDENTIFY
 				call_uspLoggingTrade( qry, 2, nTradeID, 0, idPlayer1, 0, "", 0, 0, dwItemId, iSerialNumber, nItemNum, nAbilityOption, nItemResist, nResistAbilityOption, aLogItem.m_iRandomOptItemId );
 #else	// __SYS_IDENTIFY
@@ -340,7 +340,7 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 			memset( lpszItemText, 0, sizeof( lpszItemText ) );
 			SERIALNUMBER	ItemNo;
 			DWORD nItemNum = 0;
-			int nNegudo = 0; // ë‚´êµ¬ë„
+			int nNegudo = 0; // ³»±¸µµ
 			int nMaxNegudo	= 0; 
 			int	  nAbilityOption = 0;
 			DWORD dwGold_1 = 0;
@@ -444,14 +444,14 @@ void CDbManager::LogPlayDeath(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPl
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	char		cPlay[MAX_PLAYER] = { 0, };					// ìºë¦­í„° ì•„ì´ë””
-	int			iServer_No;							// ì„œë²„ ë²ˆí˜¸
-	DWORD		dWorld_No;							// ì›”ë“œ ë²ˆí˜¸
-	D3DXVECTOR3	Pos;								// ì¢Œí‘œ
-	int			iLevel;								// ë ˆë²¨
-	int			iAttackDmg;							// ìµœëŒ€ê³µê²©ë ¥
-	int			iMaxHP;								// ìµœëŒ€ HP
-	char		cMurder[64] = { 0, };				// ì‚´ì¸ìž (ëª¬ìŠ¤í„°ë‚˜ ìºë¦­, íŠ¸ë¦­)
+	char		cPlay[MAX_PLAYER] = { 0, };					// Ä³¸¯ÅÍ ¾ÆÀÌµð
+	int			iServer_No;							// ¼­¹ö ¹øÈ£
+	DWORD		dWorld_No;							// ¿ùµå ¹øÈ£
+	D3DXVECTOR3	Pos;								// ÁÂÇ¥
+	int			iLevel;								// ·¹º§
+	int			iAttackDmg;							// ÃÖ´ë°ø°Ý·Â
+	int			iMaxHP;								// ÃÖ´ë HP
+	char		cMurder[64] = { 0, };				// »ìÀÎÀÚ (¸ó½ºÅÍ³ª Ä³¸¯, Æ®¸¯)
 	u_long		uidPlayer;
 
 
@@ -468,16 +468,16 @@ void CDbManager::LogPlayDeath(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPl
 	
 	char szQuery[QUERY_SIZE]	= { 0,};
 
-	//	mulcom	BEGIN100407	LOG_STR L2 cMurder quotation mark ì œê±°
+	//	mulcom	BEGIN100407	LOG_STR L2 cMurder quotation mark Á¦°Å
 	//DBQryLog( szQuery, "L2", uidPlayer, iServer_No, 0, iLevel, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'A', dWorld_No, cMurder, Pos.x, Pos.y, Pos.z, iAttackDmg, iMaxHP );
 	CString	strMurderName	= cMurder;
 	strMurderName.Replace( "'", " " );
 
 	DBQryLog( szQuery, "L2", uidPlayer, iServer_No, 0, iLevel, 0, 0, 0,
 		0, 0, 0, 0, 0, 0, 'A', dWorld_No, strMurderName.GetBuffer(), Pos.x, Pos.y, Pos.z, iAttackDmg, iMaxHP );
-	//	mulcom	BEGIN100407	LOG_STR L2 cMurder quotation mark ì œê±°
+	//	mulcom	BEGIN100407	LOG_STR L2 cMurder quotation mark Á¦°Å
 
-	/// ë ˆë²¨ì„ ì¶”ê°€í•´ì•¼í•¨
+	/// ·¹º§À» Ãß°¡ÇØ¾ßÇÔ
 	if ( FALSE == qry->Exec( szQuery ) )
 	{
 		WriteLog( "%s, %d\t%d", __FILE__, __LINE__, uidPlayer );
@@ -493,20 +493,20 @@ void CDbManager::LogLevelUp(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	char		cPlay[17] = {0,};					// ìºë¦­í„° ì•„ì´ë””
-	int			iServer_No;							// ì„œë²„ ë²ˆí˜¸
-	int			iLevel;								// ìºë¦­í„° ë ˆë²¨
-	int			iPlayJob;							// ì§ì—…_No
-	int			iJobLevel;							// ì§ì—… ë ˆë²¨
-	int			iStr;								// íž˜
-	int			iDex;								// ë¯¼ì²©
-	int			iInt;								// ì§€ëŠ¥
-	int			iSta;								// ì²´ë ¥
-	int			iGP;								// GP(ì„±ìž¥í¬ì¸íŠ¸)
-	int			iLP;								// LP(êµìœ¡í¬ì¸íŠ¸)
-	EXPINTEGER	iExp1;								// Exp(ê²½í—˜ì¹˜)
-	int			iFlightLevel;						// ë¹„í–‰ë ˆë²¨
-	char		cAction;							// í–‰ë™( ëª¬ìŠ¤í„°ë¥¼ ì£½ì—¬ì„œ ë ™ì—…ì„ í•˜ì—¬ì˜€ëŠ”ì§€, í€˜ìŠ¤íŠ¸ë¥¼ ì´ìš©í•˜ì—¬ ë ™ì—…ì„ í•˜ì˜€ëŠ”ì§€ë¥¼ ë‚˜íƒ€ëƒ„
+	char		cPlay[17] = {0,};					// Ä³¸¯ÅÍ ¾ÆÀÌµð
+	int			iServer_No;							// ¼­¹ö ¹øÈ£
+	int			iLevel;								// Ä³¸¯ÅÍ ·¹º§
+	int			iPlayJob;							// Á÷¾÷_No
+	int			iJobLevel;							// Á÷¾÷ ·¹º§
+	int			iStr;								// Èû
+	int			iDex;								// ¹ÎÃ¸
+	int			iInt;								// Áö´É
+	int			iSta;								// Ã¼·Â
+	int			iGP;								// GP(¼ºÀåÆ÷ÀÎÆ®)
+	int			iLP;								// LP(±³À°Æ÷ÀÎÆ®)
+	EXPINTEGER	iExp1;								// Exp(°æÇèÄ¡)
+	int			iFlightLevel;						// ºñÇà·¹º§
+	char		cAction;							// Çàµ¿( ¸ó½ºÅÍ¸¦ Á×¿©¼­ ·¾¾÷À» ÇÏ¿©¿´´ÂÁö, Äù½ºÆ®¸¦ ÀÌ¿ëÇÏ¿© ·¾¾÷À» ÇÏ¿´´ÂÁö¸¦ ³ªÅ¸³¿
 	u_long		uidPlayer;							
 	DWORD		dwGold;
 	DWORD		dwPlayerTime;	
@@ -532,35 +532,35 @@ void CDbManager::LogLevelUp(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus
 	arRead >> uidPlayer;
 	switch( iAction )
 	{
-	case 1:					// ë ˆë²¨ ì—…
+	case 1:					// ·¹º§ ¾÷
 		cAction = 'L';
 		break;
-	case 2:					// ìŠ¤íƒ¯ ì—…
+	case 2:					// ½ºÅÈ ¾÷
 		cAction = 'S';
 		break;
-	case 3:					// ìž¡(ì§ì—…)ë ˆë²¨ ì—…
+	case 3:					// Àâ(Á÷¾÷)·¹º§ ¾÷
 		cAction = 'J';
 		break;
-	case 4:					// ì „ì§
+	case 4:					// ÀüÁ÷
 		cAction = 'C';
 		break;
-	case 5:					// ê²½í—˜ì¹˜ ë ™ 5ì´ìƒ 20%ë‹¨ìœ„
+	case 5:					// °æÇèÄ¡ ·¾ 5ÀÌ»ó 20%´ÜÀ§
 		cAction = 'E';
 		break;
 	case 6:
-		cAction = 'D';		// ê²½í—˜ì¹˜ ë‹¤ìš´ì‹œ ë ™ë”°
+		cAction = 'D';		// °æÇèÄ¡ ´Ù¿î½Ã ·¾µû
 		break;
 	case 7:
-		cAction = 'M';		// ê²½í—˜ì¹˜ ë‹¤ìš´
+		cAction = 'M';		// °æÇèÄ¡ ´Ù¿î
 		break;
 	case 8:
-		cAction = '1';		// ë¡œë“œë¼ì´íŠ¸
+		cAction = '1';		// ·Îµå¶óÀÌÆ®
 		break;
 	case 9:
-		cAction = '2';		// ë¡œë“œìŠ¤íƒ€
+		cAction = '2';		// ·Îµå½ºÅ¸
 		break;
 	case 10:
-		cAction = '3';		// ëˆ„êµ°ê°€ê°€ ë¶€í™œì„ í•´ì£¼ì—ˆë”°
+		cAction = '3';		// ´©±º°¡°¡ ºÎÈ°À» ÇØÁÖ¾úµû
 		break;		
 	default:
 		{
@@ -587,7 +587,7 @@ void CDbManager::LogServerDeath(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlapped
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	int			iServer_No;							// ì„œë²„ ë²ˆí˜¸
+	int			iServer_No;							// ¼­¹ö ¹øÈ£
 	SYSTEMTIME	siStart;
 		
 	iServer_No	= g_appInfo.dwSys;
@@ -611,12 +611,12 @@ void CDbManager::LogServerDeath(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlapped
 
 	FreeRequest( lpDbOverlappedPlus );
 }
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ÞÀÎ
 void	CDbManager::LogGetHonorTime(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	int			iServer_No;							// ì„œë²„ ë²ˆí˜¸
+	int			iServer_No;							// ¼­¹ö ¹øÈ£
 	u_long		uidPlayer;
 	int			nGetHonor;
 	
@@ -639,17 +639,17 @@ void	CDbManager::LogGetHonorTime(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappe
 //	qry->Clear();
 	FreeRequest( lpDbOverlappedPlus );;
 }
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ÞÀÎ
 void CDbManager::LogUniqueItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	int			iServer_No;							// ì„œë²„ ë²ˆí˜¸
-	char		cCrateMan[17] = {0,};				// ìƒì„±ìž
-	int			iWorld;								// ì›”ë“œë²ˆí˜¸
-	D3DXVECTOR3	Pos;								// ì¢Œí‘œ
-	char		cUniqueName[51] = {0,};				// ì•„ì´í…œ ëª…
-	int			cItemAddLevel;						// ì•„ì´í…œ ì¶”ê°€ë ˆë²¨
+	int			iServer_No;							// ¼­¹ö ¹øÈ£
+	char		cCrateMan[17] = {0,};				// »ý¼ºÀÚ
+	int			iWorld;								// ¿ùµå¹øÈ£
+	D3DXVECTOR3	Pos;								// ÁÂÇ¥
+	char		cUniqueName[51] = {0,};				// ¾ÆÀÌÅÛ ¸í
+	int			cItemAddLevel;						// ¾ÆÀÌÅÛ Ãß°¡·¹º§
 	u_long		uidPlayer;
 	
 	iServer_No	= g_appInfo.dwSys;
@@ -678,7 +678,7 @@ void CDbManager::LogQuest(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 	char cName[17] = {0,};
 	int iServer_No;
 	int nQuest;
-	CTime		tQuest	= CTime::GetCurrentTime();	// ë‚ ì§œ
+	CTime		tQuest	= CTime::GetCurrentTime();	// ³¯Â¥
 	u_long	uidPlayer;
 	
 	iServer_No	= g_appInfo.dwSys;
@@ -692,7 +692,7 @@ void CDbManager::LogQuest(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 	char szQuery[QUERY_SIZE]	= { 0,};
 
 //	qry->Clear();
-	if( Action == 1 ) // í€˜ìŠ¤íŠ¸ ì‹œìž‘
+	if( Action == 1 ) // Äù½ºÆ® ½ÃÀÛ
 	{
 		DBQryLog( szQuery, "L6", uidPlayer, iServer_No, 0, 0, 0, 0, 0, 
 			0, 0, 0, 0, 0, 0, 'C', 0, '\0', 0.0f, 0.0f, 0.0f, 0, 0, 0,
@@ -707,7 +707,7 @@ void CDbManager::LogQuest(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 
 //		qry->Clear();
 	}
-	else	// í€˜ìŠ¤íŠ¸ ì™„ë£Œ
+	else	// Äù½ºÆ® ¿Ï·á
 	{
 		DBQryLog( szQuery, "L7", uidPlayer, iServer_No, 0, 0, 0, 0, 0, 
 			0, 0, 0, 0, 0, 0, 'A', 0, '\0', 0.0f, 0.0f, 0.0f, 0, 0, 0,
@@ -969,14 +969,14 @@ void CDbManager::LogSkillPoint( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlap
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 	
-	u_long			uidPlayer;						// í”Œë ˆì´ì–´ ì•„ì´ë””
-	int				nAction;						// í–‰ë™
-	EXPINTEGER		nSkillExp = 0;						// ìŠ¤í‚¬ê²½í—˜ì¹˜
+	u_long			uidPlayer;						// ÇÃ·¹ÀÌ¾î ¾ÆÀÌµð
+	int				nAction;						// Çàµ¿
+	EXPINTEGER		nSkillExp = 0;						// ½ºÅ³°æÇèÄ¡
 	int				nSkillPoint;					// SP
-	int				nSkillLevel = 0;					// ì§€ê¸ˆê¹Œì§€ ì˜¬ë¦° ìŠ¤í‚¬ë ˆë²¨
-	DWORD			dwSkillID;						// ìŠ¤í‚¬ ì•„ì´ë””
-	DWORD			dwLevel;						// ìœ„ìŠ¤í‚¬ì— ëŒ€í•œ ë ˆë²¨
-	int				nPoint;							// ì‚¬ìš©í•œ ìŠ¤í‚¬ í¬ì¸íŠ¸
+	int				nSkillLevel = 0;					// Áö±Ý±îÁö ¿Ã¸° ½ºÅ³·¹º§
+	DWORD			dwSkillID;						// ½ºÅ³ ¾ÆÀÌµð
+	DWORD			dwLevel;						// À§½ºÅ³¿¡ ´ëÇÑ ·¹º§
+	int				nPoint;							// »ç¿ëÇÑ ½ºÅ³ Æ÷ÀÎÆ®
 	
 	arRead >> nAction;
 	arRead >> uidPlayer;

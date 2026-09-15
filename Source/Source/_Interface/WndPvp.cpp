@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndPvp.h"
@@ -67,10 +67,10 @@ void CWndPvp::OnInitialUpdate()
 	Move( point );
 	
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndPvp::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PVP, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -97,7 +97,7 @@ BOOL CWndPvp::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// PVPì •ë³´
+// PVPÁ¤º¸
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -219,7 +219,7 @@ BOOL CWndPvpBase::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 			{
 				if( nID != g_pPlayer->GetJob() )
 				{
-					//"ìžì‹ ì˜ ì§ì—…ë§Œ ì˜¬ë¦´ìˆ˜ ìžˆìŠµë‹ˆë‹¤"
+					//"ÀÚ½ÅÀÇ Á÷¾÷¸¸ ¿Ã¸±¼ö ÀÖ½À´Ï´Ù"
 					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0037) ) );
 				}
 				if( m_fWaitingConfirm == FALSE ) 
@@ -229,8 +229,8 @@ BOOL CWndPvpBase::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				}
 				break;
 			}
-		case 10: // ì „ì§ 
-			// ë°©ëž‘ìžì˜ ë ˆë²¨ì´ 15ì´ìƒì¸ê²ƒì„ ì°¾ìŒ
+		case 10: // ÀüÁ÷ 
+			// ¹æ¶ûÀÚÀÇ ·¹º§ÀÌ 15ÀÌ»óÀÎ°ÍÀ» Ã£À½
 			if( g_pPlayer->GetLevel() >= MAX_JOB_LEVEL )
 			{
 				SAFE_DELETE(m_pWndChangeJob);

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #include "eveschool.h"
 #ifdef __WORLDSERVER
@@ -425,7 +425,7 @@ void CGuildCombat::SelectPlayerClear( u_long uidGuild )
 #endif // __S_BUG_GC
 }
 
-// ì°¸ê°€ ì‹ ì²­
+// Âü°¡ ½ÅÃ»
 void CGuildCombat::JoinGuildCombat( u_long idGuild, DWORD dwPenya, BOOL bRequest )
 {
 #ifdef __S_BUG_GC
@@ -464,7 +464,7 @@ void CGuildCombat::JoinGuildCombat( u_long idGuild, DWORD dwPenya, BOOL bRequest
 
 	SetRequestRanking();
 }
-// ì°¸ê°€ íƒˆí‡´
+// Âü°¡ Å»Åğ
 void CGuildCombat::OutGuildCombat( u_long idGuild )
 {
 	if( !g_eLocal.GetState( EVE_GUILDCOMBAT ) )
@@ -472,7 +472,7 @@ void CGuildCombat::OutGuildCombat( u_long idGuild )
 	
 #ifdef __S_BUG_GC
 	__GuildCombatMember* pGCMember = FindGuildCombatMember( idGuild );
-	if( pGCMember != NULL ) // ì·¨ì†Œì‹œ ë°”ë¡œ ìš°í¸í•¨ìœ¼ë¡œ ì§€ê¸‰
+	if( pGCMember != NULL ) // Ãë¼Ò½Ã ¹Ù·Î ¿ìÆíÇÔÀ¸·Î Áö±Ş
 	{
 		CGuild* pGuild = g_GuildMng.GetGuild( idGuild );
 		if( pGuild && pGCMember->bRequest )
@@ -493,7 +493,7 @@ void CGuildCombat::OutGuildCombat( u_long idGuild )
 	{
 		__GuildCombatMember* pGCMember = it->second;
 
-		// ì·¨ì†Œì‹œ ë°”ë¡œ ìš°í¸í•¨ìœ¼ë¡œ ì§€ê¸‰
+		// Ãë¼Ò½Ã ¹Ù·Î ¿ìÆíÇÔÀ¸·Î Áö±Ş
 		CGuild* pGuild = g_GuildMng.GetGuild( idGuild );
 		if( pGuild && pGCMember->bRequest )
 		{
@@ -511,7 +511,7 @@ void CGuildCombat::OutGuildCombat( u_long idGuild )
 	SetRequestRanking();
 }
 
-// ì°¸ê°€í•œ ê¸¸ë“œê°€ ì „íˆ¬ì— ì°¸ê°€í•  ìœ ì €ë¥¼ ì„ íƒ
+// Âü°¡ÇÑ ±æµå°¡ ÀüÅõ¿¡ Âü°¡ÇÒ À¯Àú¸¦ ¼±ÅÃ
 void CGuildCombat::AddSelectPlayer( u_long idGuild, u_long uidPlayer )
 {
 #ifdef __S_BUG_GC
@@ -612,13 +612,13 @@ void CGuildCombat::OutWar( CUser* pUser, CUser* pLeader, BOOL bLogOut )
 	__GuildCombatMember* pGCMember = FindGuildCombatMember( pUser->m_idGuild );
 	if( pGCMember != NULL )
 	{
-		// ë¨¼ì € ë‹¤ë¥¸ ìœ ì €ë¥¼ ì°¾ìŒ
+		// ¸ÕÀú ´Ù¸¥ À¯Àú¸¦ Ã£À½
 		SetPlayerChange( pUser, pLeader );
-		// ë””íœë”ê°€ ë¡œê·¸ì•„ì›ƒì¤‘ì´ë©´ ë‹¤ë¥¸ ì¶œì „ìê°€ ìë™ìœ¼ë¡œ ë””íœë”ê°€ ë¨
+		// µğÆæ´õ°¡ ·Î±×¾Æ¿ôÁßÀÌ¸é ´Ù¸¥ ÃâÀüÀÚ°¡ ÀÚµ¿À¸·Î µğÆæ´õ°¡ µÊ
 
 		if( bLogOut )
 		{
-			if( pUser->m_idPlayer == pGCMember->m_uidDefender )	// ë””íœë” ê²€ì‚¬
+			if( pUser->m_idPlayer == pGCMember->m_uidDefender )	// µğÆæ´õ °Ë»ç
 			{
 				CGuild* pGuild = g_GuildMng.GetGuild( pUser->m_idGuild  );
 				if( pGuild )
@@ -645,21 +645,21 @@ void CGuildCombat::OutWar( CUser* pUser, CUser* pLeader, BOOL bLogOut )
 						pGCMember->m_uidDefender = pJoinPlayer4->uidPlayer;
 					}
 				}
-			}	// if( pUser->m_idPlayer == pGCMember->m_uidDefender )	// ë””íœë” ê²€ì‚¬
+			}	// if( pUser->m_idPlayer == pGCMember->m_uidDefender )	// µğÆæ´õ °Ë»ç
 		}	// if( bLogOut )
 	}
 #else __S_BUG_GC
 	map<u_long, __GuildCombatMember*>::iterator it = m_GuildCombatMem.find( pUser->m_idGuild );
 	if( it != m_GuildCombatMem.end() )
 	{
-		// ë¨¼ì € ë‹¤ë¥¸ ìœ ì €ë¥¼ ì°¾ìŒ
+		// ¸ÕÀú ´Ù¸¥ À¯Àú¸¦ Ã£À½
 		SetPlayerChange( pUser, pLeader );
-		// ë””íœë”ê°€ ë¡œê·¸ì•„ì›ƒì¤‘ì´ë©´ ë‹¤ë¥¸ ì¶œì „ìê°€ ìë™ìœ¼ë¡œ ë””íœë”ê°€ ë¨
+		// µğÆæ´õ°¡ ·Î±×¾Æ¿ôÁßÀÌ¸é ´Ù¸¥ ÃâÀüÀÚ°¡ ÀÚµ¿À¸·Î µğÆæ´õ°¡ µÊ
 
 		if( bLogOut )
 		{
 			__GuildCombatMember* pGCMember	= it->second;
-			if( pUser->m_idPlayer == pGCMember->m_uidDefender )	// ë””íœë” ê²€ì‚¬
+			if( pUser->m_idPlayer == pGCMember->m_uidDefender )	// µğÆæ´õ °Ë»ç
 			{
 				CGuild* pGuild = g_GuildMng.GetGuild( pUser->m_idGuild  );
 				if( pGuild )
@@ -686,14 +686,14 @@ void CGuildCombat::OutWar( CUser* pUser, CUser* pLeader, BOOL bLogOut )
 						pGCMember->m_uidDefender = pJoinPlayer4->uidPlayer;
 					}
 				}
-			}	// if( pUser->m_idPlayer == pGCMember->m_uidDefender )	// ë””íœë” ê²€ì‚¬
+			}	// if( pUser->m_idPlayer == pGCMember->m_uidDefender )	// µğÆæ´õ °Ë»ç
 		}	// if( bLogOut )
 	}
 #endif // __S_BUG_GC
 	g_UserMng.AddGCGuildStatus( pUser->m_idGuild );
 	g_UserMng.AddGCWarPlayerlist();
 
-	// ì¤‘ê°„ì— ê²Œì„ ì¤‘ë‹¨í•´ë„ ë˜ëŠ”ì§€ ê²€ì‚¬
+	// Áß°£¿¡ °ÔÀÓ Áß´ÜÇØµµ µÇ´ÂÁö °Ë»ç
 	UserOutGuildCombatResult( pUser );
 }
 void CGuildCombat::JoinObserver( CUser* pUser )
@@ -704,14 +704,14 @@ void CGuildCombat::JoinObserver( CUser* pUser )
 		return;
 	}
 	
-	// ë²„í”„ ì—†ì• ê¸°
+	// ¹öÇÁ ¾ø¾Ö±â
 	pUser->RemoveCommonBuffs();
 	g_UserMng.AddRemoveAllSkillInfluence( pUser );
 	((CMover*)pUser)->REPLACE( g_uIdofMulti, WI_WORLD_GUILDWAR, D3DXVECTOR3( 1361.6f, 0.0f, 1273.3f ), REPLACE_NORMAL, nDefaultLayer );
 	pUser->m_vtInfo.SetOther( NULL );
-	// ê¸¸ë“œëŒ€ì „ì— ì˜¤ì‹ ê±¸ í™˜ì˜í•©ë‹ˆë‹¤.
+	// ±æµå´ëÀü¿¡ ¿À½Å°É È¯¿µÇÕ´Ï´Ù.
 	pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_WELCOME) );
-	// ê´€ì „ì ëª¨ë“œë¡œ ì…ì¥í•˜ì…¨ìŠµë‹ˆë‹¤.
+	// °üÀüÀÚ ¸ğµå·Î ÀÔÀåÇÏ¼Ì½À´Ï´Ù.
 	pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_ZOOM_USE) );
 
 	if( m_nGCState <= ENTER_STATE )
@@ -725,7 +725,7 @@ void CGuildCombat::JoinObserver( CUser* pUser )
 		if( ENTER_STATE <= m_nGCState && m_nGCState <= WAR_CLOSE_STATE )
 			g_DPCoreClient.SendGCRemoveParty( pUser->GetPartyId(), pUser->m_idPlayer );
 #else // __IMPROVE_SYSTEM_VER15
-		// ì°¸ê°€ì ë“¤ì€ íŒŒí‹° í•´ì œ
+		// Âü°¡ÀÚ µéÀº ÆÄÆ¼ ÇØÁ¦
 		if( m_nGCState == ENTER_STATE )
 		{
 			g_DPCoreClient.SendGCRemoveParty( pUser->GetPartyId(), pUser->m_idPlayer );
@@ -818,15 +818,15 @@ void CGuildCombat::GuildCombatRequest( CUser* pUser, DWORD dwPenya )
 	CGuild* pGuild	= g_GuildMng.GetGuild( pUser->m_idGuild );
 	if( pGuild && pGuild->IsMaster( pUser->m_idPlayer ) )
 	{
-		// ì‹œê°„ ê²€ì‚¬ ( ì›” ~ ê¸ˆ )
-		//ê¸¸ë“œëŒ€ì „ì¤‘ì—ëŠ” ì‹ ì²­í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+		// ½Ã°£ °Ë»ç ( ¿ù ~ ±İ )
+		//±æµå´ëÀüÁß¿¡´Â ½ÅÃ»ÇÒ ¼ö ¾ø½À´Ï´Ù.
 		if( m_nState != CGuildCombat::CLOSE_STATE )
 		{
 			pUser->AddDiagText( prj.GetText(TID_GAME_GUILDCOMBAT_REQUESTEND) );
 			return;
 		}
 
-		// ê¸¸ë“œë ˆë²¨ m_nGuildLevelì˜ ê°’ ì´ìƒì¸ì§€ ê²€ì‚¬
+		// ±æµå·¹º§ m_nGuildLevelÀÇ °ª ÀÌ»óÀÎÁö °Ë»ç
 		if( pGuild->m_nLevel < m_nGuildLevel )
 		{
 			CString strMsg;
@@ -835,7 +835,7 @@ void CGuildCombat::GuildCombatRequest( CUser* pUser, DWORD dwPenya )
 			return;
 		}
 
-		// ê¸°ì¡´ì— ì‹ ì²­ í•œ í˜ëƒ
+		// ±âÁ¸¿¡ ½ÅÃ» ÇÑ Æä³Ä
 		DWORD dwExistingPenya = 0;
 #ifdef __S_BUG_GC
 		__GuildCombatMember* pGCMember = FindGuildCombatMember( pUser->m_idGuild );
@@ -850,11 +850,11 @@ void CGuildCombat::GuildCombatRequest( CUser* pUser, DWORD dwPenya )
 		}
 #endif // __S_BUG_GC
 
-		// INT_MAXê°’ì— ë„˜ì§€ ì•Šì•„ì•¼ í•œë‹¤
+		// INT_MAX°ª¿¡ ³ÑÁö ¾Ê¾Æ¾ß ÇÑ´Ù
 		if( dwPenya > INT_MAX )
 			return;
 
-		// ê¸°ë³¸ í˜ëƒ(m_nJoinPenya) ë³´ë‹¤ ë” ë§ì´ ê°€ì§€ê³  ìˆëŠ”ì§€ í™•ì¸
+		// ±âº» Æä³Ä(m_nJoinPenya) º¸´Ù ´õ ¸¹ÀÌ °¡Áö°í ÀÖ´ÂÁö È®ÀÎ
 		if( (int)( dwPenya ) < m_nJoinPanya )
 		{
 			CString strMsg;
@@ -864,7 +864,7 @@ void CGuildCombat::GuildCombatRequest( CUser* pUser, DWORD dwPenya )
 			return;
 		}
 		
-		// ì „ì— ì‹ ì²­í•œ í˜ëƒ ë³´ë‹¤ ë” ë§ì•„ì•¼ í•œë‹¤.
+		// Àü¿¡ ½ÅÃ»ÇÑ Æä³Ä º¸´Ù ´õ ¸¹¾Æ¾ß ÇÑ´Ù.
 		if( dwPenya <= dwExistingPenya )
 		{
 			CString strMsg;
@@ -874,7 +874,7 @@ void CGuildCombat::GuildCombatRequest( CUser* pUser, DWORD dwPenya )
 		}
 
 
-		// ì‹ ì²­í•œ í˜ëƒê°€ ê°€ì§€ê³  ìˆëŠ”ì§€ í™•ì¸
+		// ½ÅÃ»ÇÑ Æä³Ä°¡ °¡Áö°í ÀÖ´ÂÁö È®ÀÎ
 		if( pUser->GetGold() < (int)( (dwPenya-dwExistingPenya) ) )
 		{
 			pUser->AddDiagText( prj.GetText( TID_GAME_GUILDCOMBAT_REQUEST_NOTPENYA ) );
@@ -898,7 +898,7 @@ void CGuildCombat::GuildCombatRequest( CUser* pUser, DWORD dwPenya )
 	}
 	else
 	{
-		//ê¸¸ë“œê°€ ì—†ê±°ë‚˜ ê¸¸ë“œì¥ì´ ì•„ë‹™ë‹ˆë‹¤.
+		//±æµå°¡ ¾ø°Å³ª ±æµåÀåÀÌ ¾Æ´Õ´Ï´Ù.
 		pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_GUILD_LEADER) );
 	}
 }
@@ -908,7 +908,7 @@ void CGuildCombat::GuildCombatCancel( CUser* pUser )
 	CGuild* pGuild	= g_GuildMng.GetGuild( pUser->m_idGuild );
 	if( pGuild && pGuild->IsMaster( pUser->m_idPlayer ) )
 	{
-		// ì‹œê°„ ê²€ì‚¬ ( ì›” ~ ê¸ˆ )
+		// ½Ã°£ °Ë»ç ( ¿ù ~ ±İ )
 #ifdef __S_BUG_GC
 		__GuildCombatMember* pGCMember = FindGuildCombatMember( pUser->m_idGuild );
 		if( pGCMember != NULL )
@@ -917,7 +917,7 @@ void CGuildCombat::GuildCombatCancel( CUser* pUser )
 			{
 				if( m_nState != CGuildCombat::CLOSE_STATE )
 				{
-					pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_USE));	// ì§€ê¸ˆì€ ê¸¸ë“œëŒ€ì „ì¤‘ì—ëŠ” ê¸¸ë“œëŒ€ì „ íƒˆí‡´ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+					pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_USE));	// Áö±İÀº ±æµå´ëÀüÁß¿¡´Â ±æµå´ëÀü Å»Åğ¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù
 					return;
 				}
 				g_dpDBClient.SendOutGuildCombat( pUser->m_idGuild );
@@ -937,7 +937,7 @@ void CGuildCombat::GuildCombatCancel( CUser* pUser )
 			{
 				if( m_nState != CGuildCombat::CLOSE_STATE )
 				{
-					pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_USE));	// ì§€ê¸ˆì€ ê¸¸ë“œëŒ€ì „ì¤‘ì—ëŠ” ê¸¸ë“œëŒ€ì „ íƒˆí‡´ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+					pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_USE));	// Áö±İÀº ±æµå´ëÀüÁß¿¡´Â ±æµå´ëÀü Å»Åğ¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù
 					return;
 				}
 				g_dpDBClient.SendOutGuildCombat( pUser->m_idGuild );
@@ -950,17 +950,17 @@ void CGuildCombat::GuildCombatCancel( CUser* pUser )
 #endif // __S_BUG_GC
 		else
 		{
-			//ê¸¸ë“œëŒ€ì „ ì‹ ì²­ì„ í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+			//±æµå´ëÀü ½ÅÃ»À» ÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
 			pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_NOTAPP) );
 		}
 	}
 	else
 	{
-		//ê¸¸ë“œê°€ ì—†ê±°ë‚˜ ê¸¸ë“œì¥ì´ ì•„ë‹™ë‹ˆë‹¤.
+		//±æµå°¡ ¾ø°Å³ª ±æµåÀåÀÌ ¾Æ´Õ´Ï´Ù.
 		pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_GUILD_LEADER) );
 	}
 }
-// ì¤‘ê°„ì— ìºë¦­í„°ê°€ ì£½ê±°ë‚˜ ë¡œê·¸ì•„ì›ƒì‹œì— ìŠ¹ë¦¬ê¸¸ë“œê°€ ë‚˜ì˜¤ë©´ ëŒ€ì „ ì¢…ë£Œ
+// Áß°£¿¡ Ä³¸¯ÅÍ°¡ Á×°Å³ª ·Î±×¾Æ¿ô½Ã¿¡ ½Â¸®±æµå°¡ ³ª¿À¸é ´ëÀü Á¾·á
 void CGuildCombat::UserOutGuildCombatResult( CUser* pUser )
 {
 	int nCount = 0;
@@ -971,12 +971,12 @@ void CGuildCombat::UserOutGuildCombatResult( CUser* pUser )
 		for( int veci = 0 ; veci < (int)( pGCMember->vecGCSelectMember.size() ) ; ++veci )
 		{
 			__JOINPLAYER* pJoinPlayer = pGCMember->vecGCSelectMember[veci];
-			// ìƒëª…ì´ ìˆëŠ” ìºë¦­ì´ ìˆìœ¼ë©´ ê²€ì‚¬ ì•ˆí•´ë„ ë¨.
+			// »ı¸íÀÌ ÀÖ´Â Ä³¸¯ÀÌ ÀÖÀ¸¸é °Ë»ç ¾ÈÇØµµ µÊ.
 			if( 0 < pJoinPlayer->nlife )
 				return;
 		}
 
-		// ë‹¤ë¥¸ê¸¸ë“œì˜ ìƒíƒœ íŒŒì•…( ê¸¸ë“œì˜ ì „íˆ¬ì‘ 1ê°œì´ìƒì¸ì§€ ê²€ì‚¬ 1ê°œì˜ ê¸¸ë“œë§Œ ë‚˜ì˜¤ë©´ ê²Œì„ ì¢…ë£Œ )
+		// ´Ù¸¥±æµåÀÇ »óÅÂ ÆÄ¾Ç( ±æµåÀÇ ÀüÅõÀÛ 1°³ÀÌ»óÀÎÁö °Ë»ç 1°³ÀÇ ±æµå¸¸ ³ª¿À¸é °ÔÀÓ Á¾·á )
 		for( int nVeci = 0 ; nVeci < (int)( vecRequestRanking.size() ) ; ++nVeci )
 		{
 			if( nVeci >= m_nMaxGuild )
@@ -1000,13 +1000,13 @@ void CGuildCombat::UserOutGuildCombatResult( CUser* pUser )
 						++nCount;
 						if( nCount == 2 )
 						{
-							return; // 2ê°œ ì´ìƒì´ë¯€ë¡œ ê³„ì† ì§„í–‰
+							return; // 2°³ ÀÌ»óÀÌ¹Ç·Î °è¼Ó ÁøÇà
 						}
 					}
 				}
 			}
 		}
-		// ê¸¸ë“œê°€ í•˜ë‚˜ë°–ì— ì—†ìœ¼ë¯€ë¡œ ê²Œì„ ì¢…ë£Œ
+		// ±æµå°¡ ÇÏ³ª¹Û¿¡ ¾øÀ¸¹Ç·Î °ÔÀÓ Á¾·á
 		if( nCount == 1 )
 			m_nStopWar = 1;
 	}
@@ -1018,12 +1018,12 @@ void CGuildCombat::UserOutGuildCombatResult( CUser* pUser )
 		for( int veci = 0 ; veci < pGCMember->vecGCSelectMember.size() ; ++veci )
 		{
 			__JOINPLAYER* pJoinPlayer = pGCMember->vecGCSelectMember[veci];
-			// ìƒëª…ì´ ìˆëŠ” ìºë¦­ì´ ìˆìœ¼ë©´ ê²€ì‚¬ ì•ˆí•´ë„ ë¨.
+			// »ı¸íÀÌ ÀÖ´Â Ä³¸¯ÀÌ ÀÖÀ¸¸é °Ë»ç ¾ÈÇØµµ µÊ.
 			if( 0 < pJoinPlayer->nlife )
 				return;
 		}
 
-		// ë‹¤ë¥¸ê¸¸ë“œì˜ ìƒíƒœ íŒŒì•…( ê¸¸ë“œì˜ ì „íˆ¬ì‘ 1ê°œì´ìƒì¸ì§€ ê²€ì‚¬ 1ê°œì˜ ê¸¸ë“œë§Œ ë‚˜ì˜¤ë©´ ê²Œì„ ì¢…ë£Œ )
+		// ´Ù¸¥±æµåÀÇ »óÅÂ ÆÄ¾Ç( ±æµåÀÇ ÀüÅõÀÛ 1°³ÀÌ»óÀÎÁö °Ë»ç 1°³ÀÇ ±æµå¸¸ ³ª¿À¸é °ÔÀÓ Á¾·á )
 		for( int nVeci = 0 ; nVeci < vecRequestRanking.size() ; ++nVeci )
 		{
 			if( nVeci >= m_nMaxGuild )
@@ -1048,13 +1048,13 @@ void CGuildCombat::UserOutGuildCombatResult( CUser* pUser )
 						++nCount;
 						if( nCount == 2 )
 						{
-							return; // 2ê°œ ì´ìƒì´ë¯€ë¡œ ê³„ì† ì§„í–‰
+							return; // 2°³ ÀÌ»óÀÌ¹Ç·Î °è¼Ó ÁøÇà
 						}
 					}
 				}
 			}
 		}
-		// ê¸¸ë“œê°€ í•˜ë‚˜ë°–ì— ì—†ìœ¼ë¯€ë¡œ ê²Œì„ ì¢…ë£Œ
+		// ±æµå°¡ ÇÏ³ª¹Û¿¡ ¾øÀ¸¹Ç·Î °ÔÀÓ Á¾·á
 		if( nCount == 1 )
 			m_nStopWar = 1;
 	}
@@ -1067,7 +1067,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 	vecSameidGuildWin.clear();
 	int nMaxPoint = -1;
 
-	// ìµœê³  ì ìˆ˜ë¥¼ ê°€ì§€ê³  ì˜´( ìµœê³  ì ìˆ˜ê°€ ê³µë™ìœ¼ë¡œ ê°€ì§€ê³  ìˆìœ¼ë©´ vecSameidGuildWinì— ë„£ìŒ )
+	// ÃÖ°í Á¡¼ö¸¦ °¡Áö°í ¿È( ÃÖ°í Á¡¼ö°¡ °øµ¿À¸·Î °¡Áö°í ÀÖÀ¸¸é vecSameidGuildWin¿¡ ³ÖÀ½ )
 	for( int nVeci = 0 ; nVeci < (int)( vecRequestRanking.size() ) ; ++nVeci )
 	{
 		if( nVeci >= m_nMaxGuild )
@@ -1085,7 +1085,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 				nPoint += pJoinPlayer->nPoint + pJoinPlayer->nlife;
 			}
 			pGCMember->nGuildPoint = nPoint;
-			// ìˆœìœ„ ë°”ë€œ
+			// ¼øÀ§ ¹Ù²ñ
 			if( nMaxPoint < nPoint )
 			{
 				nMaxPoint = nPoint;
@@ -1109,7 +1109,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 				nPoint += pJoinPlayer->nPoint + pJoinPlayer->nlife;
 			}
 			pGCMember->nGuildPoint = nPoint;
-			// ìˆœìœ„ ë°”ë€œ
+			// ¼øÀ§ ¹Ù²ñ
 			if( nMaxPoint < nPoint )
 			{
 				nMaxPoint = nPoint;
@@ -1124,7 +1124,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 #endif // __S_BUG_GC
 	}
 
-	// ê³µë™ìš°ìŠ¹ì´ ìˆìœ¼ë©´ ë¶€í™œê¸°íšŒì˜ í•©ì˜ ê°’ì´ ê°€ì¥ í° ê¸¸ë“œ ìŠ¹ë¦¬
+	// °øµ¿¿ì½ÂÀÌ ÀÖÀ¸¸é ºÎÈ°±âÈ¸ÀÇ ÇÕÀÇ °ªÀÌ °¡Àå Å« ±æµå ½Â¸®
 	int nMaxLife = 0;
 	if( 1 < vecSameidGuildWin.size() )
 	{
@@ -1143,7 +1143,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 					nLife += pJoinPlayer->nlife;
 				}
 				
-				// ìˆœìœ„ ë°”ë€œ
+				// ¼øÀ§ ¹Ù²ñ
 				if( nMaxLife < nLife )
 				{
 					nMaxLife = nLife;
@@ -1166,7 +1166,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 					nLife += pJoinPlayer->nlife;
 				}
 				
-				// ìˆœìœ„ ë°”ë€œ
+				// ¼øÀ§ ¹Ù²ñ
 				if( nMaxLife < nLife )
 				{
 					nMaxLife = nLife;
@@ -1183,7 +1183,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 		vecSameidGuildWin = vecSameidGuildWinTmp;
 	}
 
-	// ê³µë™ìš°ìŠ¹ì´ ìˆìœ¼ë©´ ìƒëª…ì´ ìˆëŠ” ìœ ì €ì˜ í‰ê· ë ˆë²¨ì´ í° ê¸¸ë“œ ìŠ¹ë¦¬
+	// °øµ¿¿ì½ÂÀÌ ÀÖÀ¸¸é »ı¸íÀÌ ÀÖ´Â À¯ÀúÀÇ Æò±Õ·¹º§ÀÌ Å« ±æµå ½Â¸®
 	float fMaxAvgLv = 0.0f;
 	if( 1 < vecSameidGuildWin.size() )
 	{
@@ -1217,7 +1217,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 					fAvgLv = (float)( nSubLevel / nValidObjCount );
 				}
 				
-				// ìˆœìœ„ ë°”ë€œ
+				// ¼øÀ§ ¹Ù²ñ
 				if( fMaxAvgLv < fAvgLv )
 				{
 					fMaxAvgLv = fAvgLv;
@@ -1253,7 +1253,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 					fAvgLv = nSubLevel / nValidObjCount;
 				}
 				
-				// ìˆœìœ„ ë°”ë€œ
+				// ¼øÀ§ ¹Ù²ñ
 				if( fMaxAvgLv < fAvgLv )
 				{
 					fMaxAvgLv = fAvgLv;
@@ -1273,7 +1273,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 	char str[512] = {0,};
 	CString strPrizeMsg;
 
-	// ê± ë§¨ì²˜ìŒ ê¸¸ë“œê°€ ìš°ìŠ¹( ê³µë™ìš°ìŠ¹ì´ì–´ë„.. )
+	// °Á ¸ÇÃ³À½ ±æµå°¡ ¿ì½Â( °øµ¿¿ì½ÂÀÌ¾îµµ.. )
 	if( 0 < vecSameidGuildWin.size() )
 	{
 		CGuild* pGuild	= g_GuildMng.GetGuild( vecSameidGuildWin[0] );
@@ -1285,7 +1285,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 				g_DPCoreClient.SendPlayMusic( WI_WORLD_GUILDWAR, BGM_IN_FITUP );
 			}
 			
-			// ì—°ìŠ¹ ê³„ì‚°
+			// ¿¬½Â °è»ê
 			if( m_uWinGuildId == vecSameidGuildWin[0] )
 				++m_nWinGuildCount;
 			else
@@ -1300,7 +1300,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 			int nBufWinGuildCount = m_nWinGuildCount;
 			if( m_nMaxGCSendItem < m_nWinGuildCount )
 				nBufWinGuildCount = m_nMaxGCSendItem;
-			// ì—°ìŠ¹ ì•„ì´í…œ ì£¼ê¸°
+			// ¿¬½Â ¾ÆÀÌÅÛ ÁÖ±â
 			CString strGuildMsg;
 #if __VER < 11 // __GUILDCOMBATCHIP
 			strGuildMsg.Format( prj.GetText(TID_GAME_GUILDCOMBAT_PRIZEMSG), pGuild->m_szGuild, m_nWinGuildCount );
@@ -1313,7 +1313,7 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 				if( vecGCSendItem[si].nWinCount != nBufWinGuildCount )
 					continue;
 
-				// ê¸¸ë“œì°½ê³ ì— ë„£ê¸°
+				// ±æµåÃ¢°í¿¡ ³Ö±â
 				CItemElem itemElem;
 				itemElem.m_dwItemId = vecGCSendItem[si].dwItemId;
 				itemElem.m_nItemNum	= vecGCSendItem[si].nItemNum;
@@ -1352,12 +1352,12 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 			if( 0 )//g_eLocal.GetState( 500 ) == 1 )
 			{
 				CItemElem itemElem1;
-				itemElem1.m_dwItemId	= II_SYS_SYS_SCR_BXSCRACH;	// ìŠ¤í¬ë˜ì¹˜
+				itemElem1.m_dwItemId	= II_SYS_SYS_SCR_BXSCRACH;	// ½ºÅ©·¡Ä¡
 				itemElem1.m_nItemNum	= 1;
 
 				CItemElem aItemElem[3];
 				int nItemSize	= 0;
-				CTime t	= CTime::GetCurrentTime() + CTimeSpan( 14, 0, 0, 0 );	// 2ì£¼ ì‚¬ìš© ê°€ëŠ¥
+				CTime t	= CTime::GetCurrentTime() + CTimeSpan( 14, 0, 0, 0 );	// 2ÁÖ »ç¿ë °¡´É
 				DWORD dwKeepTime	= t.GetTime();
 				if( m_nWinGuildCount == 1 )
 				{
@@ -1456,7 +1456,7 @@ void CGuildCombat::GuildCombatResultRanking()
 	{
 		if( i >= m_nMaxGuild )
 			break;
-		// ìˆœìœ„ë³„ë¡œ ì •ë ¬
+		// ¼øÀ§º°·Î Á¤·Ä
 		for( int j=0; j<(int)( vecGCRanking.size()-1-i ); j++ )
 		{
 			__REQUESTGUILD RequestGuild1 = vecGCRanking[j];
@@ -1470,14 +1470,14 @@ void CGuildCombat::GuildCombatResultRanking()
 				return;
 			}
 
-			// ì ìˆ˜ê°€ ë§ì€ ê¸¸ë“œê°€ ë†’ì€ ìˆœìœ„
+			// Á¡¼ö°¡ ¸¹Àº ±æµå°¡ ³ôÀº ¼øÀ§
 			if( pGCMember1->nGuildPoint < pGCMember2->nGuildPoint )
 			{
 				__REQUESTGUILD temp = vecGCRanking[j];
 				vecGCRanking[j] = vecGCRanking[j+1];
 				vecGCRanking[j+1] = temp;
 			}
-			// ì ìˆ˜ê°€ ê°™ì„ ë•Œ ìƒëª…ì´ ë§ì€ìª½ì´ ë†’ì€ ìˆœìœ„
+			// Á¡¼ö°¡ °°À» ¶§ »ı¸íÀÌ ¸¹ÀºÂÊÀÌ ³ôÀº ¼øÀ§
 			else if( pGCMember1->nGuildPoint == pGCMember2->nGuildPoint )
 			{
 				int nLife1=0, nLife2=0;
@@ -1500,7 +1500,7 @@ void CGuildCombat::GuildCombatResultRanking()
 					vecGCRanking[j] = vecGCRanking[j+1];
 					vecGCRanking[j+1] = temp;
 				}
-				// ìƒëª…ë„ ê°™ì„ ë•Œ ìƒëª…ì´ ë‚¨ì€ ê¸¸ë“œì›ë“¤ì˜ í‰ê· ë ˆë²¨ì´ ë†’ì€ ê¸¸ë“œ
+				// »ı¸íµµ °°À» ¶§ »ı¸íÀÌ ³²Àº ±æµå¿øµéÀÇ Æò±Õ·¹º§ÀÌ ³ôÀº ±æµå
 				else if( nLife1 == nLife2 )
 				{
 					int nLevel=0, nCount = 0;
@@ -1547,12 +1547,12 @@ void CGuildCombat::GuildCombatResultRanking()
 						vecGCRanking[j] = vecGCRanking[j+1];
 						vecGCRanking[j+1] = temp;
 					}
-				} //if ìƒëª…
-			} //if ì ìˆ˜
+				} //if »ı¸í
+			} //if Á¡¼ö
 		} //for j
 	} //for i
 
-	// ì•„ì´í…œ(ë ˆë“œì¹©) ì§€ê¸‰
+	// ¾ÆÀÌÅÛ(·¹µåÄ¨) Áö±Ş
 	for( int i=0; i<(int)( vecGCRanking.size() ); i++ )
 	{
 		if( i >= 3 ) break;
@@ -1570,13 +1570,13 @@ void CGuildCombat::GuildCombatResultRanking()
 		float fChipNum = m_nJoinPanya * vecGCRanking.size() * 0.9f * 0.00001f * 0.1f;
 		switch( i )
 		{
-			case 0 :	// 1ìœ„ 
+			case 0 :	// 1À§ 
 				fChipNum *= 0.7f;
 				break;
-			case 1 :	// 2ìœ„
+			case 1 :	// 2À§
 				fChipNum *= 0.2f;
 				break;
-			case 2 :	// 3ìœ„
+			case 2 :	// 3À§
 				fChipNum *= 0.1f;
 				break;
 		}
@@ -1602,7 +1602,7 @@ void CGuildCombat::GuildCombatResultRanking()
 			if( IsValidObj( pUsertmp ) )
 			{
 				aLogItem.SendName = pUsertmp->GetName();
-				// ì•„ì´í…œ ì§€ê¸‰
+				// ¾ÆÀÌÅÛ Áö±Ş
 				itemElem.SetSerialNumber();
 				if( pUsertmp->CreateItem( &itemElem ) )
 				{
@@ -1620,7 +1620,7 @@ void CGuildCombat::GuildCombatResultRanking()
 				aLogItem.Gold2	= cbChip + itemElem.m_nItemNum;
 				aLogItem.Gold_1 = itemElem.m_nItemNum;
 				g_DPSrvr.OnLogItem( aLogItem, &itemElem, itemElem.m_nItemNum );
-				TRACE( "GC REDCHIP - %s, %dìœ„, %s : %dê°œ\n", pUsertmp->GetName(), i+1, itemElem.GetProp()->szName, itemElem.m_nItemNum );
+				TRACE( "GC REDCHIP - %s, %dÀ§, %s : %d°³\n", pUsertmp->GetName(), i+1, itemElem.GetProp()->szName, itemElem.m_nItemNum );
 			}
 		}
 	}
@@ -1685,7 +1685,7 @@ void CGuildCombat::SetNpc( void )
 
 void CGuildCombat::GuildCombatOpen( void )
 {
-	// ê¸¸ë“œì „ìŸ ì„œë²„ì— ìˆëŠ” ëª¨ë“  ìºë¦­í„°ë“¤ì„ ëª¨ë‘ ë‚˜ê°€ê²Œí•¨..
+	// ±æµåÀüÀï ¼­¹ö¿¡ ÀÖ´Â ¸ğµç Ä³¸¯ÅÍµéÀ» ¸ğµÎ ³ª°¡°ÔÇÔ..
 	if( m_nState != CLOSE_STATE )
 		return;
 
@@ -1890,8 +1890,8 @@ u_long CGuildCombat::GetDefender( u_long uidGuild )
 u_long CGuildCombat::GetBestPlayer( u_long* dwGetGuildId, int* nGetPoint )
 {
 	u_long uBestPlayer = 0;
-	map<u_long, int> mapSame;	// ë™ì ì ë°œìƒì‹œ ì²˜ë¦¬í•˜ê¸° ìœ„í•œ playerId
-	// í¬ì¸íŠ¸ ê²€ì‚¬
+	map<u_long, int> mapSame;	// µ¿Á¡ÀÚ ¹ß»ı½Ã Ã³¸®ÇÏ±â À§ÇÑ playerId
+	// Æ÷ÀÎÆ® °Ë»ç
 	BOOL bResult = FALSE;
 	int nMaxPoint = -1;
 	for( int nVeci = 0 ; nVeci < (int)( vecRequestRanking.size() ) ; ++nVeci )
@@ -1949,8 +1949,8 @@ u_long CGuildCombat::GetBestPlayer( u_long* dwGetGuildId, int* nGetPoint )
 #endif // __S_BUG_GC
 	}
 
-	// ë ˆë²¨ & ê²½í—˜ì¹˜ ê²€ì‚¬
-#ifdef __S_BUG_GC	// ë™ì ì ì²˜ë¦¬ ë²„ê·¸ ìˆ˜ì • chipi 080218
+	// ·¹º§ & °æÇèÄ¡ °Ë»ç
+#ifdef __S_BUG_GC	// µ¿Á¡ÀÚ Ã³¸® ¹ö±× ¼öÁ¤ chipi 080218
 	int nMinLevel = 0x7fffffff;
 	EXPINTEGER nMinExp = (EXPINTEGER)0x7fffffffffffffff;
 #else // __S_BUG_GC
@@ -1973,7 +1973,7 @@ u_long CGuildCombat::GetBestPlayer( u_long* dwGetGuildId, int* nGetPoint )
 				for( int veci = 0 ; veci < (int)( pGCMember->vecGCSelectMember.size() ) ; ++veci )
 				{
 					__JOINPLAYER* pJoinPlayer = pGCMember->vecGCSelectMember[veci];
-					// ìµœê³  ì ìˆ˜ì˜ ë™ì ìê°€ ì•„ë‹Œ ê²½ìš° continue
+					// ÃÖ°í Á¡¼öÀÇ µ¿Á¡ÀÚ°¡ ¾Æ´Ñ °æ¿ì continue
 					if( !pJoinPlayer || mapSame.find( pJoinPlayer->uidPlayer ) == mapSame.end() )
 						continue;
 					
@@ -2047,10 +2047,10 @@ u_long CGuildCombat::GetBestPlayer( u_long* dwGetGuildId, int* nGetPoint )
 	return uBestPlayer;
 }
 
-// ì§€ê¸ˆê¹Œì§€ì˜ ì´ ìƒê¸ˆ
+// Áö±İ±îÁöÀÇ ÃÑ »ó±İ
 __int64 CGuildCombat::GetPrizePenya( int nFlag )
 {
-	// ìƒê¸ˆì— í¬í•¨í•  ê¸¸ë“œë“¤..
+	// »ó±İ¿¡ Æ÷ÇÔÇÒ ±æµåµé..
 	__int64 nPrizePenya = 0;
 	for( int veci = 0 ; veci < (int)( vecRequestRanking.size() ) ; ++veci )
 	{
@@ -2075,7 +2075,7 @@ __int64 CGuildCombat::GetPrizePenya( int nFlag )
 
 	return nResult;
 }
-// ê¸¸ë“œì˜ ì‹ ì²­í•œ Penya
+// ±æµåÀÇ ½ÅÃ»ÇÑ Penya
 DWORD CGuildCombat::GetRequstPenya( u_long uidGuild )
 {
 	DWORD dwRequestPenya = 0;
@@ -2093,7 +2093,7 @@ DWORD CGuildCombat::GetRequstPenya( u_long uidGuild )
 #endif // __S_BUG_GC
 	return dwRequestPenya;
 }
-// ì§€ê¸ˆë¶€í„° ë‹¤ìŒ ëŒ€ì „ì´ ì‹œì‘ë  ë‚¨ì€ì‹œê°„
+// Áö±İºÎÅÍ ´ÙÀ½ ´ëÀüÀÌ ½ÃÀÛµÉ ³²Àº½Ã°£
 CTime CGuildCombat::GetNextGuildCobmatTime()
 {
 	CTime tCurrentTime = CTime::GetCurrentTime();
@@ -2186,7 +2186,7 @@ void CGuildCombat::GuildCombatEnter( CUser* pUser )
 	}
 	else if( m_nState == COMPLET_CLOSE_STATE )
 	{
-		// ì•„ë¬´ë„ ëª»ë“¤ì–´ì˜´.. ì§€ê¸ˆì€ ë‹«í˜€ìˆëŠ” ìƒíƒœ
+		// ¾Æ¹«µµ ¸øµé¾î¿È.. Áö±İÀº ´İÇôÀÖ´Â »óÅÂ
 		pUser->AddText( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_OPEN) );
 		bJoin = FALSE;
 	}
@@ -2203,18 +2203,18 @@ void CGuildCombat::GuildCombatEnter( CUser* pUser )
 		}
 	}
 }
-// ì „ìŸ ì¤€ë¹„ ì‹œê°„
+// ÀüÀï ÁØºñ ½Ã°£
 void CGuildCombat::SetMaintenance()
 {
 	CString strMsgMaster = prj.GetText( TID_GAME_GUILDCOMBAT_JOIN_MSG_MASTER );
 	CString strMsgDefender = prj.GetText( TID_GAME_GUILDCOMBAT_JOIN_MSG_DEFENDER );
 	CString strMsgGeneral = prj.GetText( TID_GAME_GUILDCOMBAT_JOIN_MSG_GENERAL );
 	
-	BOOL bWinGuild_Continue = FALSE;		// ìš”ë²ˆê²Œì„ì´ ì·¨ì†Œ ë˜ì—ˆë‹¤ë©´ ì—°ìŠ¹ì„ ì—°ì¥ ì—¬ë¶€
+	BOOL bWinGuild_Continue = FALSE;		// ¿ä¹ø°ÔÀÓÀÌ Ãë¼Ò µÇ¾ú´Ù¸é ¿¬½ÂÀ» ¿¬Àå ¿©ºÎ
 	int nCount = 0;
 	for( int nVeci = 0 ; nVeci < (int)( vecRequestRanking.size() ) ; ++nVeci )
 	{
-		// ìµœëŒ€ë¡œ ë“¤ì–´ê°ˆìˆ˜ ìˆëŠ” ê¸¸ë“œë§Œ ë“¤ë§Œ ì°¸ì—¬ê°€ëŠ¥
+		// ÃÖ´ë·Î µé¾î°¥¼ö ÀÖ´Â ±æµå¸¸ µé¸¸ Âü¿©°¡´É
 		if( nVeci >= m_nMaxGuild )
 			break;
 
@@ -2285,7 +2285,7 @@ void CGuildCombat::SetMaintenance()
 					}
 				}
 #else // __IMPROVE_SYSTEM_VER15
-				// ë©”ì„¸ì§€ ì²˜ë¦¬
+				// ¸Ş¼¼Áö Ã³¸®
 				CMover* pLeader = NULL;
 				for( int veci = 0; veci < pGCMember->vecGCSelectMember.size() ; ++veci )
 				{
@@ -2359,7 +2359,7 @@ void CGuildCombat::SetMaintenance()
 
 				g_UserMng.AddGCGuildStatus( ita->first );
 
-				// ë©”ì„¸ì§€ ì²˜ë¦¬
+				// ¸Ş¼¼Áö Ã³¸®
 				CMover* pLeader = NULL;
 				for( int veci = 0; veci < pGCMember->vecGCSelectMember.size() ; ++veci )
 				{
@@ -2389,16 +2389,16 @@ void CGuildCombat::SetMaintenance()
 #endif // __S_BUG_GC
 	}
 
-	// ì°¸ê°€í•œ ê¸¸ë“œê°€ 2ê°œ ì´ìƒì¼ë•Œë§Œ ê¸¸ë“œëŒ€ì „ì´ ì‹œì‘í•˜ê²Œí•¨.
+	// Âü°¡ÇÑ ±æµå°¡ 2°³ ÀÌ»óÀÏ¶§¸¸ ±æµå´ëÀüÀÌ ½ÃÀÛÇÏ°ÔÇÔ.
 #if __VER >= 8 // __GUILDCOMBAT_85
 	if( nCount < m_nMinGuild )
 #else // __VER >= 8
 	if( nCount < 2 )
 #endif // __VER >= 8
 	{
-		// ì‹œì‘ì´ ì•ˆë˜ì—ˆì„ë•Œ
-		// ì—°ìŠ¹í•œ ê¸¸ë“œê°€ ì°¸ê°€í•˜ê³  ìˆìœ¼ë©´ ìŠ¹ìˆ˜ ì´ì–´ê°
-		// ì°¸ê°€í•˜ì§€ ì•Šì•˜ìœ¼ë©´ ìŠ¹ìˆ˜ ì—†ì–´ì§( ìŠ¹ë¦¬í•œ ê¸¸ë“œê°€ ì—†ìŒ )
+		// ½ÃÀÛÀÌ ¾ÈµÇ¾úÀ»¶§
+		// ¿¬½ÂÇÑ ±æµå°¡ Âü°¡ÇÏ°í ÀÖÀ¸¸é ½Â¼ö ÀÌ¾î°¨
+		// Âü°¡ÇÏÁö ¾Ê¾ÒÀ¸¸é ½Â¼ö ¾ø¾îÁü( ½Â¸®ÇÑ ±æµå°¡ ¾øÀ½ )
 		if( bWinGuild_Continue == FALSE )
 		{
 			g_dpDBClient.SendGuildcombatContinue( m_nGuildCombatIndex-1, m_uWinGuildId, 0 );
@@ -2425,7 +2425,7 @@ void CGuildCombat::SetEnter()
 
 	for( int nVeci = 0 ; nVeci < (int)( vecRequestRanking.size() ) ; ++nVeci )
 	{
-		// ìµœëŒ€ë¡œ ë“¤ì–´ê°ˆìˆ˜ ìˆëŠ” ê¸¸ë“œë§Œ ë“¤ë§Œ ì°¸ì—¬ê°€ëŠ¥
+		// ÃÖ´ë·Î µé¾î°¥¼ö ÀÖ´Â ±æµå¸¸ µé¸¸ Âü¿©°¡´É
 		if( nVeci >= m_nMaxGuild )
 			break;
 		
@@ -2464,7 +2464,7 @@ void CGuildCombat::SetEnter()
 #endif // __S_BUG_GC
 	}
 }
-// ëŒ€ì „ ì‹œì‘
+// ´ëÀü ½ÃÀÛ
 void CGuildCombat::SetGuildCombatStart()
 {
 	__GuildCombatMember* pGuildCombatMem;
@@ -2537,7 +2537,7 @@ void CGuildCombat::SetGuildCombatStart()
 #endif // __S_BUG_GC
 	}
 }
-// ì „ìŸ ì¢…ë£Œ
+// ÀüÀï Á¾·á
 void CGuildCombat::SetGuildCombatClose( BOOL bGM )
 {
 	if( m_nState == CLOSE_STATE )
@@ -2589,7 +2589,7 @@ void CGuildCombat::SetGuildCombatClose( BOOL bGM )
 #endif // __S_BUG_GC
 	}
 
-	// ê¸¸ë“œ ë¶€í™œ í¬ì¸íŠ¸ ì–»ì€ íšë“ ì£¼ê¸°
+	// ±æµå ºÎÈ° Æ÷ÀÎÆ® ¾òÀº È¹µæ ÁÖ±â
 	for( int nVeci = 0 ; nVeci < (int)( vecRequestRanking.size() ) ; ++nVeci )
 	{
 		if( nVeci >= m_nMaxGuild )
@@ -2657,7 +2657,7 @@ void CGuildCombat::SetGuildCombatClose( BOOL bGM )
 	}
 	g_UserMng.AddGCGuildPrecedence();
 }
-// ì „ìŸ ì¢…ë£Œí›„ ê²°ê³¼ê°’
+// ÀüÀï Á¾·áÈÄ °á°ú°ª
 void CGuildCombat::SetGuildCombatCloseWait( BOOL bGM )
 {
 	if( m_nState == CLOSE_STATE )
@@ -2676,7 +2676,7 @@ void CGuildCombat::SetGuildCombatCloseWait( BOOL bGM )
 #endif // __GUILDCOMBATCHIP
 	}	
 }
-// ì‹ ì²­í•œ ê¸¸ë“œì¤‘ì— ì¶œì „í• ìˆ˜ ìˆëŠ” ê¸¸ë“œì¸ì§€?
+// ½ÅÃ»ÇÑ ±æµåÁß¿¡ ÃâÀüÇÒ¼ö ÀÖ´Â ±æµåÀÎÁö?
 BOOL CGuildCombat::IsRequestWarGuild( u_long uidGuild, BOOL bAll )
 {
 	for( int veci = 0 ; veci < (int)( vecRequestRanking.size() ) ; ++veci )
@@ -2694,7 +2694,7 @@ BOOL CGuildCombat::IsRequestWarGuild( u_long uidGuild, BOOL bAll )
 	return FALSE;
 }
 
-// ì°¸ê°€í•œ ì„ ìˆ˜ì¸ì§€?
+// Âü°¡ÇÑ ¼±¼öÀÎÁö?
 BOOL CGuildCombat::IsSelectPlayer( CUser* pUser )
 {
 	__GuildCombatMember* pGuildCombatMem;
@@ -2763,7 +2763,7 @@ void CGuildCombat::Process()
 
 		if( __AutoOpen[ctime.GetDayOfWeek()-1].bUseing )
 		{
-			// ìŠ¤í‚µ ë  ìˆ˜ ìˆìœ¼ë¯€ë¡œ ìˆ˜ì •ì„ í•„ìš”ë¡œ í•¨
+			// ½ºÅµ µÉ ¼ö ÀÖÀ¸¹Ç·Î ¼öÁ¤À» ÇÊ¿ä·Î ÇÔ
 			if( __AutoOpen[ctime.GetDayOfWeek()-1].nHour == ctime.GetHour() &&
 				__AutoOpen[ctime.GetDayOfWeek()-1].nMinute == ctime.GetMinute() && m_bMutex == FALSE )
 			{
@@ -2876,32 +2876,32 @@ void CGuildCombat::ProcessCommand()
 #endif	// __LAYER_1015
 			else if( GuildCombatProcess[m_nProcessGo].dwCommand == MAINTENANCE_STATE )
 			{
-				// ì „ìŸ ì¤€ë¹„ ì‹œì‘
+				// ÀüÀï ÁØºñ ½ÃÀÛ
 				SetMaintenance();
 			}
 			else if( GuildCombatProcess[m_nProcessGo].dwCommand == ENTER_STATE )
 			{
-				// ë“¤ì–´ì˜¬ìˆ˜ ìˆëŠ” ìƒíƒœ
+				// µé¾î¿Ã¼ö ÀÖ´Â »óÅÂ
 				SetEnter();
 			}
 			else if( GuildCombatProcess[m_nProcessGo].dwCommand == WAR_WAR_STATE )
 			{
-				// ì „ìŸ ì‹œì‘ 
+				// ÀüÀï ½ÃÀÛ 
 				SetGuildCombatStart();
 			}
 			else if( GuildCombatProcess[m_nProcessGo].dwCommand == WAR_CLOSE_STATE )
 			{
-				// ì „ìŸ ì¢…ë£Œ
+				// ÀüÀï Á¾·á
 				SetGuildCombatClose();
 			}
 			else if( GuildCombatProcess[m_nProcessGo].dwCommand == WAR_CLOSE_WAIT_STATE )
 			{
-				// ì „ìŸ ì¢…ë£Œí›„ ê²°ê³¼ê°’ ë‚˜ì˜¤ê¸° ëŒ€ê¸°
+				// ÀüÀï Á¾·áÈÄ °á°ú°ª ³ª¿À±â ´ë±â
 				SetGuildCombatCloseWait();
 			}
 			else if( GuildCombatProcess[m_nProcessGo].dwCommand == WAR_TELEPORT_STATE )
 			{
-				// ì „ìŸ ì¢…ë£Œí›„ í…”ë ˆí¬íŠ¸
+				// ÀüÀï Á¾·áÈÄ ÅÚ·¹Æ÷Æ®
 				GuildCombatCloseTeleport();
 			}
 		}
@@ -2990,7 +2990,7 @@ BOOL CGuildCombat::LoadScript( LPCSTR lpszFileName )
 			{
 				if( nAutoOpenCnt >= 7 )
 				{
-					Error( "CGuildCombat::LoadScript() ìë™ ì‹œì‘ ì„¤ì • ê°¯ìˆ˜ê°€ ë„˜ìŒ!!" );
+					Error( "CGuildCombat::LoadScript() ÀÚµ¿ ½ÃÀÛ ¼³Á¤ °¹¼ö°¡ ³ÑÀ½!!" );
 					return FALSE;
 				}
 
@@ -3035,7 +3035,7 @@ BOOL CGuildCombat::LoadScript( LPCSTR lpszFileName )
 			{
 				if( nAutoOpenCnt >= 7 )
 				{
-					Error( "CGuildCombat::LoadScript() ìë™ ì‹œì‘ ì„¤ì • ê°¯ìˆ˜ê°€ ë„˜ìŒ!!" );
+					Error( "CGuildCombat::LoadScript() ÀÚµ¿ ½ÃÀÛ ¼³Á¤ °¹¼ö°¡ ³ÑÀ½!!" );
 					return FALSE;
 				}
 				
@@ -3136,7 +3136,7 @@ BOOL CGuildCombat::LoadScript( LPCSTR lpszFileName )
 			DWORD dwItemId = CScript::GetDefineNum( s.Token );
 			if( dwItemId == -1 )
 			{
-				Error( "CGuildCombat::LoadScript() ì•„ì´í…œì´ ì—†ëŠ”ê²ƒì„ ì„¤ì •í–ˆìŒ" );
+				Error( "CGuildCombat::LoadScript() ¾ÆÀÌÅÛÀÌ ¾ø´Â°ÍÀ» ¼³Á¤ÇßÀ½" );
 				return FALSE;
 			}
 			int nItemNum = s.GetNumber();
@@ -3294,7 +3294,7 @@ void CGuildCombat::SetPlayerChange( CUser* pUser, CUser* pLeader )
 			__JOINPLAYER* pJoinPlayer	= pGCMember->vecGCSelectMember[i];
 			if( pJoinPlayer->uidPlayer == pUser->m_idPlayer )
 			{
-				// ëŒ€ê¸°ì—´ì— ì¡´ì¬ í•˜ëŠ”  pUserëŠ” ì „íˆ¬ì™€ ë¬´ê´€í•˜ë¯€ë¡œ ë¬´ì‹œ
+				// ´ë±â¿­¿¡ Á¸Àç ÇÏ´Â  pUser´Â ÀüÅõ¿Í ¹«°üÇÏ¹Ç·Î ¹«½Ã
 				for( list<__JOINPLAYER*>::iterator i1 = pGCMember->lspFifo.begin(); i1 != pGCMember->lspFifo.end(); ++i1 )
 				{
 					if( pJoinPlayer == *i1 )
@@ -3349,7 +3349,7 @@ void CGuildCombat::SetPlayerChange( CUser* pUser, CUser* pLeader )
 			__JOINPLAYER* pJoinPlayer	= pGCMember->vecGCSelectMember[i];
 			if( pJoinPlayer->uidPlayer == pUser->m_idPlayer )
 			{
-				// ëŒ€ê¸°ì—´ì— ì¡´ì¬ í•˜ëŠ”  pUserëŠ” ì „íˆ¬ì™€ ë¬´ê´€í•˜ë¯€ë¡œ ë¬´ì‹œ
+				// ´ë±â¿­¿¡ Á¸Àç ÇÏ´Â  pUser´Â ÀüÅõ¿Í ¹«°üÇÏ¹Ç·Î ¹«½Ã
 				for( list<__JOINPLAYER*>::iterator i1 = pGCMember->lspFifo.begin(); i1 != pGCMember->lspFifo.end(); ++i1 )
 				{
 					if( pJoinPlayer == *i1 )
@@ -3398,7 +3398,7 @@ void CGuildCombat::SetPlayerChange( CUser* pUser, CUser* pLeader )
 }
 void CGuildCombat::GetPoint( CUser* pAttacker, CUser* pDefender )
 {
-	// ì„ íƒí•œ ë„˜ë“¤ ê°€ì§€ê³  ì˜¤ê¸°
+	// ¼±ÅÃÇÑ ³Ñµé °¡Áö°í ¿À±â
 	BOOL bMaster = FALSE;
 	BOOL bDefender = FALSE;
 	BOOL bLastLife = FALSE;
@@ -3502,16 +3502,16 @@ void CGuildCombat::GetPoint( CUser* pAttacker, CUser* pDefender )
 	}	
 #endif // __S_BUG_GC
 
-	// ì´ì „ê³¼ ë‹¤ë¥¸ ê¸¸ë“œì›ì„ Kill í–ˆì„ ê²½ìš°
+	// ÀÌÀü°ú ´Ù¸¥ ±æµå¿øÀ» Kill ÇßÀ» °æ¿ì
 	if( bKillDiffernceGuild )
 		++nGetPoint;
-	// ê¸¸ë“œë§ˆìŠ¤í„°ê°€ ì  ê¸¸ë“œì›ì„ Kill í–ˆì„ ê²½ìš°
+	// ±æµå¸¶½ºÅÍ°¡ Àû ±æµå¿øÀ» Kill ÇßÀ» °æ¿ì
 	if( bMaster )
 		++nGetPoint;
-	// ë””íœë”ë¥¼ Kill í–ˆì„ ê²½ìš°
+	// µğÆæ´õ¸¦ Kill ÇßÀ» °æ¿ì
 	if( bDefender )
 		++nGetPoint;
-	// ë¶€í™œí¬ì¸íŠ¸ 0ì¼ ë•Œ Kill í–ˆì„ ê²½ìš°
+	// ºÎÈ°Æ÷ÀÎÆ® 0ÀÏ ¶§ Kill ÇßÀ» °æ¿ì
 	if( bLastLife )
 		++nGetPoint;
 
@@ -3601,16 +3601,16 @@ void CGuildCombat::SerializeGCWarPlayerList( CAr & ar )
 						}
 					}
 				
-					if( bFind )	// ëŒ€ê¸°ì¤‘
+					if( bFind )	// ´ë±âÁß
 					{
 						ar << (int)0;
 					}
-					else // ì „íˆ¬ì
+					else // ÀüÅõÀÚ
 					{
 						ar << (int)1;
 					}
 				}
-				else // ëŒ€ê¸°ì¤‘
+				else // ´ë±âÁß
 				{
 					ar << (int)0;
 				}
@@ -3642,16 +3642,16 @@ void CGuildCombat::SerializeGCWarPlayerList( CAr & ar )
 						}
 					}
 				
-					if( bFind )	// ëŒ€ê¸°ì¤‘
+					if( bFind )	// ´ë±âÁß
 					{
 						ar << (int)0;
 					}
-					else // ì „íˆ¬ì
+					else // ÀüÅõÀÚ
 					{
 						ar << (int)1;
 					}
 				}
-				else // ëŒ€ê¸°ì¤‘
+				else // ´ë±âÁß
 				{
 					ar << (int)0;
 				}

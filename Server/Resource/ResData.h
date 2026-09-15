@@ -1,4 +1,4 @@
-﻿#ifndef __RESOURCE_H
+#ifndef __RESOURCE_H
 #define __RESORUCE_H
 
 // Applet Id

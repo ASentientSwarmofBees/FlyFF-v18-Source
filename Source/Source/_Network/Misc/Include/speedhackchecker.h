@@ -1,4 +1,4 @@
-﻿#ifndef __SPEEDHACKCHECKER_H__
+#ifndef __SPEEDHACKCHECKER_H__
 #define	__SPEEDHACKCHECKER_H__
 
 #include "dpmng.h"

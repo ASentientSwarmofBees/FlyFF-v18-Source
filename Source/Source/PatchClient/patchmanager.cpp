@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "PatchManager.h"
 #include "BetaPatchClientDlg.h"
 
@@ -26,7 +26,7 @@ CPatchManager::~CPatchManager()
 void CPatchManager::SetCurrentLocalDirectory()
 {
 	ZeroMemory( m_szCurrentDirectory, sizeof( m_szCurrentDirectory ) );
-	GetCurrentDirectory( sizeof( m_szCurrentDirectory ), m_szCurrentDirectory );// í˜„ì¬ ë””ë ‰í† ë¦¬ ì–»ìŒ
+	GetCurrentDirectory( sizeof( m_szCurrentDirectory ), m_szCurrentDirectory );// ÇöÀç µğ·ºÅä¸® ¾òÀ½
 }
 
 void CPatchManager::CheckFiles()
@@ -40,12 +40,12 @@ void CPatchManager::CheckFiles()
 	{
 		info = ( *it );
 
-		if( info.bDir )				// ë””ë ‰í† ë¦¬ì´ë©´
+		if( info.bDir )				// µğ·ºÅä¸®ÀÌ¸é
 		{	
 			CreateDirectory( info.szPath, NULL );
 			it = m_files.erase( it );
 		}
-		else						// íŒŒì¼ì´ë©´ 
+		else						// ÆÄÀÏÀÌ¸é 
 		{
 			if( IsSameFile( info ) )	
 				it = m_files.erase( it );
@@ -72,14 +72,14 @@ bool CPatchManager::IsSameFile( FILE_INFO& info )
 	BOOL bOK = ::GetFileAttributesEx( info.szPath, GetFileExInfoStandard, &attribute );
 	if( bOK )
 	{							
-		if( info.nFileSize == attribute.nFileSizeLow )	//  íŒŒì¼ í¬ê¸° ê°™ê³ 
+		if( info.nFileSize == attribute.nFileSizeLow )	//  ÆÄÀÏ Å©±â °°°í
 		{					
-			// GMTë‹¨ìœ„ë¡œ ë¹„êµí•œë‹¤.
+			// GMT´ÜÀ§·Î ºñ±³ÇÑ´Ù.
 			SYSTEMTIME	stServer, stClient;
 			FileTimeToSystemTime( &info.ft, &stServer );
 			FileTimeToSystemTime( &attribute.ftLastWriteTime, &stClient );
 
-			// ì‹œê°ì´ ì¼ì¹˜í•  ë•Œ
+			// ½Ã°¢ÀÌ ÀÏÄ¡ÇÒ ¶§
 			CTime timeServer( (int)stServer.wYear, (int)stServer.wMonth, (int)stServer.wDay,
 				              (int)stServer.wHour, (int)stServer.wMinute, (int)stServer.wSecond );
 
@@ -87,7 +87,7 @@ bool CPatchManager::IsSameFile( FILE_INFO& info )
 				              (int)stClient.wHour, (int)stClient.wMinute, (int)stClient.wSecond );
 
 			time_t nTimeGap = static_cast< time_t >( timeServer.GetTime() - timeClient.GetTime() );
-			if( abs(nTimeGap) <= 60*3 )	// 3ë¶„ ì´í•˜ì˜ ì°¨ì´ëŠ” ë¬´ì‹œ 
+			if( abs(nTimeGap) <= 60*3 )	// 3ºĞ ÀÌÇÏÀÇ Â÷ÀÌ´Â ¹«½Ã 
 				return true;
 		}
 	}
@@ -166,7 +166,7 @@ MAKEPATCHLIST_RESULT CPatchManager::MakePatchList( int nVersion )
 					nHour += 12;
 				
 				sprintf( szFile, "%s\\%s", szDir, szBuffer + 39 );
-				szFile[ strlen(szFile) - 1 ] = 0;					// line feed ì œê±° 
+				szFile[ strlen(szFile) - 1 ] = 0;					// line feed Á¦°Å 
 
 				sysTime.wYear   = (WORD)nYY;
 				sysTime.wMonth  = (WORD)nMM;

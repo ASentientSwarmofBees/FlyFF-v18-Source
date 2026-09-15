@@ -1,47 +1,47 @@
-ï»¿/*
+/*
  06.04.07 -xuzhu-
- ì¼ë°˜ì ì¸ ì•„ì´í…œ ìŠµë“ì˜ ê¸°ë³¸ ì •ì±… ë³€ê²½.
- 1.ì¼ë°˜ì ì¸ ë¬´ê¸°/ë°©ì–´êµ¬ì˜ ê¸°ë³¸ìž¥ë¹„ë“¤ì€ ëª¨ë“  ëª¬ìŠ¤í„°ì—ê²Œì„œ ë“œëžë˜ê²Œ ë³€ê²½ë˜ì—ˆë‹¤.
- 2.ë–¨ì–´ì§€ëŠ” ë¬´ê¸°/ë°©ì–´êµ¬ì˜ ë ˆë²¨ì€ ëª¬ìŠ¤í„°ë ˆë²¨ë³´ë‹¤ 2~5ë ˆë²¨ ë‚®ì€ ì•„ì´í…œì´ ë“œëžë˜ë„ë¡ í•˜ì˜€ë‹¤.
- 3.ìœ ë‹ˆí¬ê¸‰ì˜ ë¬´ê¸°ëŠ” í¬ë°•í•œ í™•ë¥ ë¡œ ì›”ë“œë“œëžìœ¼ë¡œë„ êµ¬í•  ìˆ˜ ìžˆì§€ë§Œ íŠ¹ì • ëª¬ìŠ¤í„°ì—ê²Œì„œ êµ¬í•  í™•ë¥ ì´ ë” ë†’ê²Œ í•œë‹¤.
- .DropKindì˜ nMinUniq, nMaxUniqì˜ íŒŒë¼ë©”í„°ëŠ” ë”ì´ìƒ ì‚¬ìš©ë˜ì§€ ì•Šê²Œ ë°”ê¾¸ì—ˆë‹¤.
- .ì„œë²„ì—ì„œ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì½ì„ë•Œ ë¬´ì¡°ê±´ pPropMover->dwLevel - 2 ~ -5ë²”ìœ„ë¡œ ì„¤ì •ë˜ê²Œ ë°”ê¾¸ì—ˆë‹¤.
- .ì´ëŠ” ì¼ë°˜ì ìœ¼ë¡œ ëª¬ìŠ¤í„°ë“¤ì´ ìž¥ë¹„ë¥¼ ë“œëží• ë•Œ ëª¹ë ˆë²¨ë³´ë‹¤ 2~5ë ˆë²¨ ë‚®ì€ í…œì´ ë“œëžë˜ê²Œ í•˜ì—¬
- .ë‚®ì€í…œìœ¼ë¡œ ì‚¬ëƒ¥ì€ ê°€ëŠ¥í•˜ê²Œ ë°œëž€ìŠ¤ë¥¼ ì„¤ì •í•˜ê³ , ëˆì´ ìžˆë‹¤ë©´ ë” ì¢‹ì€ ì•„ì´í…œì„ ì‚¬ì„œ ì‚¬ëƒ¥í•  ìˆ˜ ìžˆë„ë¡ í–ˆë‹¤.
+ ÀÏ¹ÝÀûÀÎ ¾ÆÀÌÅÛ ½ÀµæÀÇ ±âº» Á¤Ã¥ º¯°æ.
+ 1.ÀÏ¹ÝÀûÀÎ ¹«±â/¹æ¾î±¸ÀÇ ±âº»ÀåºñµéÀº ¸ðµç ¸ó½ºÅÍ¿¡°Ô¼­ µå¶øµÇ°Ô º¯°æµÇ¾ú´Ù.
+ 2.¶³¾îÁö´Â ¹«±â/¹æ¾î±¸ÀÇ ·¹º§Àº ¸ó½ºÅÍ·¹º§º¸´Ù 2~5·¹º§ ³·Àº ¾ÆÀÌÅÛÀÌ µå¶øµÇµµ·Ï ÇÏ¿´´Ù.
+ 3.À¯´ÏÅ©±ÞÀÇ ¹«±â´Â Èñ¹ÚÇÑ È®·ü·Î ¿ùµåµå¶øÀ¸·Îµµ ±¸ÇÒ ¼ö ÀÖÁö¸¸ Æ¯Á¤ ¸ó½ºÅÍ¿¡°Ô¼­ ±¸ÇÒ È®·üÀÌ ´õ ³ô°Ô ÇÑ´Ù.
+ .DropKindÀÇ nMinUniq, nMaxUniqÀÇ ÆÄ¶ó¸ÞÅÍ´Â ´õÀÌ»ó »ç¿ëµÇÁö ¾Ê°Ô ¹Ù²Ù¾ú´Ù.
+ .¼­¹ö¿¡¼­ ½ºÅ©¸³Æ®¸¦ ÀÐÀ»¶§ ¹«Á¶°Ç pPropMover->dwLevel - 2 ~ -5¹üÀ§·Î ¼³Á¤µÇ°Ô ¹Ù²Ù¾ú´Ù.
+ .ÀÌ´Â ÀÏ¹ÝÀûÀ¸·Î ¸ó½ºÅÍµéÀÌ Àåºñ¸¦ µå¶øÇÒ¶§ ¸÷·¹º§º¸´Ù 2~5·¹º§ ³·Àº ÅÛÀÌ µå¶øµÇ°Ô ÇÏ¿©
+ .³·ÀºÅÛÀ¸·Î »ç³ÉÀº °¡´ÉÇÏ°Ô ¹ß¶õ½º¸¦ ¼³Á¤ÇÏ°í, µ·ÀÌ ÀÖ´Ù¸é ´õ ÁÁÀº ¾ÆÀÌÅÛÀ» »ç¼­ »ç³ÉÇÒ ¼ö ÀÖµµ·Ï Çß´Ù.
 */
-//DropKind(ì•„ì´í…œ 3ì°¨ ë¶„ë¥˜, ë ˆì–´ë“±ê¸‰ìµœì†Œê°’, ë ˆì–´ë“±ê¸‰ìµœëŒ€ê°’)	
-//DropKindì€ ê²Œìž„ì— ì¡´ìž¬í•˜ëŠ” ì•„ì´í…œ ë¶„ë¥˜ì˜ ë ˆì–´ë“±ê¸‰ êµ¬ê°„ì— í•´ë‹¹ë˜ëŠ” ì•„ì´í…œì„ ëžœë¤í•˜ê²Œ ë“œë¡­ ì‹œí‚¬ë•Œ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
+//DropKind(¾ÆÀÌÅÛ 3Â÷ ºÐ·ù, ·¹¾îµî±ÞÃÖ¼Ò°ª, ·¹¾îµî±ÞÃÖ´ë°ª)	
+//DropKindÀº °ÔÀÓ¿¡ Á¸ÀçÇÏ´Â ¾ÆÀÌÅÛ ºÐ·ùÀÇ ·¹¾îµî±Þ ±¸°£¿¡ ÇØ´çµÇ´Â ¾ÆÀÌÅÛÀ» ·£´ýÇÏ°Ô µå·Ó ½ÃÅ³¶§ »ç¿ëÇÏ´Â ÇÔ¼öÀÌ´Ù.
 //EX) DropKind(IK3_SWD, 1, 6);
 
 /*
-ì•„ì´í…œ ë°œìƒ íŒì • O -> ë°œìƒ ìµœëŒ€ ê°œìˆ˜ì— ì˜í•œ ì•„ì´í…œ ë°œìƒ, 25% ëˆ
-		 X -> ì•„ì´í…œ ì—†ì´ 100% ëˆ
+¾ÆÀÌÅÛ ¹ß»ý ÆÇÁ¤ O -> ¹ß»ý ÃÖ´ë °³¼ö¿¡ ÀÇÇÑ ¾ÆÀÌÅÛ ¹ß»ý, 25% µ·
+		 X -> ¾ÆÀÌÅÛ ¾øÀÌ 100% µ·
 
-DropItem()ì˜ ìµœëŒ€ëŸ‰ì€ 32ê°œì´ë¯€ë¡œ í•¨ìˆ˜ë¥¼ ê·¸ ì´ìƒ ë„£ì§€ ì•Šë„ë¡ í•œë‹¤.
-- DropEvenitemì€ Dropitemì˜ ê°œìˆ˜ì— ì¢…ì†ë°›ìŒ
-DropKind()ì˜ ìµœëŒ€ëŸ‰ì€ 64ê°œì´ë¯€ë¡œ í•¨ìˆ˜ë¥¼ ê·¸ ì´ìƒ ë„£ì§€ ì•Šë„ë¡ í•œë‹¤.
-DropQuestItem()ì˜ ìµœëŒ€ëŸ‰ì€ 16ê°œìž„
+DropItem()ÀÇ ÃÖ´ë·®Àº 32°³ÀÌ¹Ç·Î ÇÔ¼ö¸¦ ±× ÀÌ»ó ³ÖÁö ¾Êµµ·Ï ÇÑ´Ù.
+- DropEvenitemÀº DropitemÀÇ °³¼ö¿¡ Á¾¼Ó¹ÞÀ½
+DropKind()ÀÇ ÃÖ´ë·®Àº 64°³ÀÌ¹Ç·Î ÇÔ¼ö¸¦ ±× ÀÌ»ó ³ÖÁö ¾Êµµ·Ï ÇÑ´Ù.
+DropQuestItem()ÀÇ ÃÖ´ë·®Àº 16°³ÀÓ
 
 MVI_MONSTER
 {
-	Maxitem = ë°œìƒ ìµœëŒ€ ê°œìˆ˜;
-	DropItem(íŠ¹ì •ì•„ì´í…œì¸ë±ìŠ¤, 3000000000(30ì–µ)ì˜ í™•ë¥ , ì•„ì´í…œì¶”ê°€ë ˆë²¨, ìƒì„± ê°¯ìˆ˜);
-	ìƒì„±í™•ë¥ ì´ ë‚®ì€ ê²ƒì„ ì œì¼ ìƒìœ„ë¡œ ë‘ì–´ ìƒì„±í™•ë¥ ì´ ì ì€ ì•„ì´í…œì€ ë¬´ì¡°ê±´ ë°œìƒê°œìˆ˜ì—
-	ìš°ì„ ì ìœ¼ë¡œ í¬í•¨ë˜ë„ë¡ í•œë‹¤.
+	Maxitem = ¹ß»ý ÃÖ´ë °³¼ö;
+	DropItem(Æ¯Á¤¾ÆÀÌÅÛÀÎµ¦½º, 3000000000(30¾ï)ÀÇ È®·ü, ¾ÆÀÌÅÛÃß°¡·¹º§, »ý¼º °¹¼ö);
+	»ý¼ºÈ®·üÀÌ ³·Àº °ÍÀ» Á¦ÀÏ »óÀ§·Î µÎ¾î »ý¼ºÈ®·üÀÌ ÀûÀº ¾ÆÀÌÅÛÀº ¹«Á¶°Ç ¹ß»ý°³¼ö¿¡
+	¿ì¼±ÀûÀ¸·Î Æ÷ÇÔµÇµµ·Ï ÇÑ´Ù.
 	DropGold(Min, Max);
-	QuestItem(ì–´ë–¤ í€˜ìŠ¤íŠ¸ì¸ê°€, í€˜ìŠ¤íŠ¸ ìƒíƒœ, í€˜ìŠ¤íŠ¸ìš©ìœ¼ë¡œ ì§€ê¸‰ë˜ëŠ” ì•„ì´í…œ, í™•ë¥ , ì§€ê¸‰ê°¯ìˆ˜ );
+	QuestItem(¾î¶² Äù½ºÆ®ÀÎ°¡, Äù½ºÆ® »óÅÂ, Äù½ºÆ®¿ëÀ¸·Î Áö±ÞµÇ´Â ¾ÆÀÌÅÛ, È®·ü, Áö±Þ°¹¼ö );
 	
-	m_dwAttackMoveDelay = 0; // ì´ë™ì‹œ ë”œë ˆì´(ë°€ë¦¬ì„¸ì»¨ë“œ)
-	m_dwRunawayDelay = 1000; // ë„ë§ê°ˆ ë•Œ ë”œë ˆì´(ë°€ë¦¬ì„¸ì»¨ë“œ)
-	SetRunAway( HP(percent) );//, NPC Index(0ì´ë©´ í•¼í¼ ì—†ìŒ), ê°¯ìˆ˜(0ì€ ëª½ë•…) );
-	í˜„ìž¬ hp, í•¼í¼ ëª¬ìŠ¤í„° index, ë„ì›€ ìš”ì²­í•  ëª¬ìŠ¤í„° ìˆ˜(0 ì£¼ë³€ì— ê²€ìƒ‰ë˜ëŠ” ë†ˆ ëª¨ë‘)
-	ë§Œì•½ ë„ì›€ ìš”ì²­í•  ëª¬ìŠ¤í„°ê°€ í•„ìš” ì—†ë‹¤ë©´ indexë¥¼ 0ìœ¼ë¡œ
-	SetCallHelper( HP(Percent), NPC(Index), ê°¯ìˆ˜(0ì´ë©´ ëª½ë•…), bParty(TRUE,FALSE, ê³µê²© ëŒ€ìƒìžë¥¼ í•´ë‹¹ í”Œë ˆì´ì–´ì˜ íŒŒí‹° ë§´ë²„ë¡œ ì„¤ì •) ); 
-	m_nAttackFirstRange = 10; // ì„ ê³µ ëª¹ì´ ì„ ê³µí•˜ê¸° ìœ„í•œ ìŠ¤ìº” ë²”ìœ„. ë¯¸í„° ë‹¨ìœ„, 
-				// 1. 100ì´ìƒ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ. ì„ ê³µ ëª¹ì˜ ì‹œì•¼ ë¿ë§Œì´ ì•„ë‹Œ
-				// 2. ë™ì¡± ì¸ì‹ì„ í•˜ëŠ” ëª¬ìŠ¤í„°ì˜ í—¬í¼ ì¸ì‹ ë²”ìœ„ì—ë„ í¬í•¨ë¨. 
-				// 3. ê¸°ë³¸ì€ 10ìœ¼ë¡œ í•˜ë©° 10ì´ìƒ ì„¤ì •í• ë• í”„ë¡œê·¸ëž¨íŒ€ê³¼ ìƒì˜. 
-				// 4. 10ì´ìƒ ë²”ìœ„ëŠ” AIê°€ AII_AGGRO_NORMALì¼ ê²½ìš°ì—ë§Œ ì ìš© ê°€ëŠ¥. (ë‹¤ë¥¸ AI ì¼ ê²½ìš° í”„ë¡œê·¸ëž¨íŒ€ê³¼ ìƒì˜)
+	m_dwAttackMoveDelay = 0; // ÀÌµ¿½Ã µô·¹ÀÌ(¹Ð¸®¼¼ÄÁµå)
+	m_dwRunawayDelay = 1000; // µµ¸Á°¥ ¶§ µô·¹ÀÌ(¹Ð¸®¼¼ÄÁµå)
+	SetRunAway( HP(percent) );//, NPC Index(0ÀÌ¸é ÇÛÆÛ ¾øÀ½), °¹¼ö(0Àº ¸ù¶¥) );
+	ÇöÀç hp, ÇÛÆÛ ¸ó½ºÅÍ index, µµ¿ò ¿äÃ»ÇÒ ¸ó½ºÅÍ ¼ö(0 ÁÖº¯¿¡ °Ë»öµÇ´Â ³ð ¸ðµÎ)
+	¸¸¾à µµ¿ò ¿äÃ»ÇÒ ¸ó½ºÅÍ°¡ ÇÊ¿ä ¾ø´Ù¸é index¸¦ 0À¸·Î
+	SetCallHelper( HP(Percent), NPC(Index), °¹¼ö(0ÀÌ¸é ¸ù¶¥), bParty(TRUE,FALSE, °ø°Ý ´ë»óÀÚ¸¦ ÇØ´ç ÇÃ·¹ÀÌ¾îÀÇ ÆÄÆ¼ ¸É¹ö·Î ¼³Á¤) ); 
+	m_nAttackFirstRange = 10; // ¼±°ø ¸÷ÀÌ ¼±°øÇÏ±â À§ÇÑ ½ºÄµ ¹üÀ§. ¹ÌÅÍ ´ÜÀ§, 
+				// 1. 100ÀÌ»ó »ç¿ëÇÒ ¼ö ¾øÀ½. ¼±°ø ¸÷ÀÇ ½Ã¾ß »Ó¸¸ÀÌ ¾Æ´Ñ
+				// 2. µ¿Á· ÀÎ½ÄÀ» ÇÏ´Â ¸ó½ºÅÍÀÇ ÇïÆÛ ÀÎ½Ä ¹üÀ§¿¡µµ Æ÷ÇÔµÊ. 
+				// 3. ±âº»Àº 10À¸·Î ÇÏ¸ç 10ÀÌ»ó ¼³Á¤ÇÒ¶© ÇÁ·Î±×·¥ÆÀ°ú »óÀÇ. 
+				// 4. 10ÀÌ»ó ¹üÀ§´Â AI°¡ AII_AGGRO_NORMALÀÏ °æ¿ì¿¡¸¸ Àû¿ë °¡´É. (´Ù¸¥ AI ÀÏ °æ¿ì ÇÁ·Î±×·¥ÆÀ°ú »óÀÇ)
 }
 
 AI
@@ -49,19 +49,19 @@ AI
     Scan jon (jobNum) range (num) quest (QuestID) item (ItemID) chao (100,101) s
     Attack (%) cunning (Hi,sam,low)                B
     Recovery (%) (%) (%) (u/m/a)                   B
-    Summon (%) (num) (MoverID) B  // 20ì´ˆë§ˆë‹¤ í•œë²ˆì”© (%)í™•ë¥ ë¡œ ì†Œí™˜ì‹œë„. MoverIDë¥¼ numë§ˆë¦¬ ìƒì„±.
+    Summon (%) (num) (MoverID) B  // 20ÃÊ¸¶´Ù ÇÑ¹ø¾¿ (%)È®·ü·Î ¼ÒÈ¯½Ãµµ. MoverID¸¦ num¸¶¸® »ý¼º.
     Rangeattack (X)                                B 
     Keeprangeattack (Range)                        B  
-    Evade (%)                                      B // ìž…ë ¥í•œ ìˆ˜ì¹˜ ê°’ì— ëª¬ìŠ¤í„°ì˜ HPê°€ ë„ë‹¬í–ˆì„ ë•Œ ë„ë§ê°„ë‹¤.
+    Evade (%)                                      B // ÀÔ·ÂÇÑ ¼öÄ¡ °ª¿¡ ¸ó½ºÅÍÀÇ HP°¡ µµ´ÞÇßÀ» ¶§ µµ¸Á°£´Ù.
     Helper   (freq) (sr) (num) (mtype)             B
     Berserk  (hp) (%)                              B
-    Randomtarget  ì œì¼ë¨¼ì € ì“°ì´ëŠ” ê²½ìš° ì‚¬ìš©        B 
+    Randomtarget  Á¦ÀÏ¸ÕÀú ¾²ÀÌ´Â °æ¿ì »ç¿ë        B 
     teleport (freq) (X,Y or 1~5) (mana) (batt)     M
     Loot     (d) (X,Y) (code) (?)                  M
        
 }
 
-ìˆ«ìž 		í™•ë¥ 		1ê°œê°€ ë–¨ì–´ì§ˆë•Œ ëª¬ìŠ¤í„°ìˆ˜
+¼ýÀÚ 		È®·ü		1°³°¡ ¶³¾îÁú¶§ ¸ó½ºÅÍ¼ö
 9375		0.0003125%	320000
 18750		0.000625%	160000
 37500		0.00125%	80000
@@ -174,8 +174,8 @@ MI_AIBATT4
 	DropKind(IK3_BOOTS, 1, 6);
 	DropKind(IK3_SHIELD, 1, 6);
 	
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -305,8 +305,8 @@ MI_MUSHPANG4
 	DropKind(IK3_BOOTS, 3, 8);
 	DropKind(IK3_SHIELD, 3, 8);
 	
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -583,8 +583,8 @@ MI_PUKEPUKE4
 	DropItem(II_ARM_ARM_SHI_LIGHT, 30000000, 0, 1);
 	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 30000000, 1, 1);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -739,8 +739,8 @@ MI_PEAKYTURTLE4
 	DropKind(IK3_BOOTS, 6, 13);
 	DropKind(IK3_SHIELD, 6, 13);
 	
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -1038,8 +1038,8 @@ MI_DORIDOMA4
 	DropKind(IK3_BOOTS, 9, 16);
 	DropKind(IK3_SHIELD, 9, 16);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -1214,8 +1214,8 @@ MI_LAWOLF4
 	DropKind(IK3_BOW, 11, 18);
 	DropKind(IK3_YOYO, 11, 18);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -1408,8 +1408,8 @@ MI_FEFERN4
 	DropItem(II_GEN_FOO_ICE_STRAWBERRYSHAKE, 600000001, 0, 1);
 	DropItem(II_GEN_FOO_ICE_STRAWBERRYSHAKE, 600000001, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -1521,7 +1521,7 @@ MI_NYANGNYANG3
 {
 	Maxitem = 2;
 	DropGold(28, 41);
-//	DropItem(II_ARM_ARM_SHI_FURY, 83320, 0, 1);   // world dropìœ¼ë¡œ ë°”ê¿ˆ
+//	DropItem(II_ARM_ARM_SHI_FURY, 83320, 0, 1);   // world dropÀ¸·Î ¹Ù²Þ
 	DropKind(IK3_SWD, 15, 19);
 	DropKind(IK3_AXE, 15, 19);
 	DropKind(IK3_CHEERSTICK, 15, 19);
@@ -1584,8 +1584,8 @@ MI_NYANGNYANG4
 	DropKind(IK3_BOW, 15, 22);
 	DropKind(IK3_YOYO, 15, 22);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -1768,8 +1768,8 @@ MI_BANG4
 	DropKind(IK3_BOW, 17, 24);
 	DropKind(IK3_YOYO, 17, 24);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -1946,8 +1946,8 @@ MI_WAGSAAC4
 	DropKind(IK3_BOW, 19, 26);
 	DropKind(IK3_YOYO, 19, 26);
 	
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -2125,8 +2125,8 @@ MI_MIA4
 	DropKind(IK3_BOW, 21, 28);
 	DropKind(IK3_YOYO, 21, 28);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -2498,8 +2498,8 @@ MI_MRPUMPKIN4
 	DropKind(IK3_BOW, 23, 30);
 	DropKind(IK3_YOYO, 23, 30);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -2671,8 +2671,8 @@ MI_REDMANTIS4
 	DropKind(IK3_BOW, 25, 32);
 	DropKind(IK3_YOYO, 25, 32);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -2864,8 +2864,8 @@ MI_JACKTHEHAMMER4
 	DropKind(IK3_BOW, 27, 34);
 	DropKind(IK3_YOYO, 27, 34);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -3063,8 +3063,8 @@ MI_GIGGLEBOX4
 	DropKind(IK3_BOW, 29, 36);
 	DropKind(IK3_YOYO, 29, 36);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -3259,8 +3259,8 @@ MI_ROCKMUSCLE4
 	DropKind(IK3_BOW, 31, 38);
 	DropKind(IK3_YOYO, 31, 38);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -3308,141 +3308,141 @@ MI_BIGMUSCLE
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 7500000, 0, 1);
 
-	DropItem(II_GEN_GEM_GEM_TWINKLESTONE, 1800000000, 0, 1);	//	ë¹›ë‚˜ì„
-	DropItem(II_GEN_GEM_GEM_FORFORM, 1800000000, 0, 1);		//	í¬í¼ê°€ë£¨
-	DropItem(II_GEN_GEM_GEM_PALIN, 1800000000, 0, 1);		//	íŒ”ë¦°
-	DropItem(II_GEN_GEM_GEM_CHUPIM, 1800000000, 0, 1);		//	ì¸„í•Œ
-	DropItem(II_GEN_GEM_GEM_PEAKYRIND, 1800000000, 0, 1);		//	í”¼í‚¤ë¼ì¸ë“œ
-	DropItem(II_GEN_GEM_GEM_MOP, 1800000000, 0, 1);			//	ëª¨í”„
-	DropItem(II_GEN_GEM_GEM_POPORAM, 1800000000, 0, 1);		//	í¬í¬ëžŒ
-	DropItem(II_GEN_GEM_GEM_SLAIN, 1800000000, 0, 1);		//	ìŠ¬ë ˆì¸
-	DropItem(II_GEN_GEM_GEM_TARINROOT, 1800000000, 0, 1);		//	íƒ€ë¦°ë¿Œë¦¬
-	DropItem(II_GEN_GEM_GEM_STARSTONE, 1800000000, 0, 1);		//	ë³„ì„
-	DropItem(II_GEN_GEM_GEM_GOLDENWING, 1800000000, 0, 1);		//	í™©ê¸ˆë‚ ê°œ
-	DropItem(II_GEN_GEM_GEM_BLUEHONEY, 1800000000, 0, 1);		//	ë¸”ë£¨í—ˆë‹ˆ
-	DropItem(II_GEN_GEM_GEM_MIADOLL, 1800000000, 0, 1);		//	ë¯¸ì•„ì˜ ì¸í˜•
-	DropItem(II_GEN_GEM_GEM_FURIOUSMATCH, 1800000000, 0, 1);	//	ì—´í™”ì„±ëƒ¥
-	DropItem(II_GEN_GEM_GEM_CARDRIN, 1800000000, 0, 1);		//	ì¹´ë“œë¦°
-	DropItem(II_GEN_GEM_GEM_HAMMARBLE, 1800000000, 0, 1);		//	í–„ë§ˆë¸”
-	DropItem(II_GEN_GEM_GEM_GIGGLANDE, 1800000000, 0, 1);		//	ê¸°ê¸€ë ë“œ
-	DropItem(II_GEN_GEM_GEM_MOONSTONE, 1800000000, 0, 1);		//	ì›”ìž¥ì„
-	DropItem(II_GEN_GEM_GEM_BOBAND, 1800000000, 0, 1);		//	ë³´ìš°ë°´ë“œ
-	DropItem(II_GEN_GEM_GEM_DUMBLING, 1800000000, 0, 1);		//	ë¤ë¸”ë§
+	DropItem(II_GEN_GEM_GEM_TWINKLESTONE, 1800000000, 0, 1);	//	ºû³ª¼®
+	DropItem(II_GEN_GEM_GEM_FORFORM, 1800000000, 0, 1);		//	Æ÷Æû°¡·ç
+	DropItem(II_GEN_GEM_GEM_PALIN, 1800000000, 0, 1);		//	ÆÈ¸°
+	DropItem(II_GEN_GEM_GEM_CHUPIM, 1800000000, 0, 1);		//	ÃòÇË
+	DropItem(II_GEN_GEM_GEM_PEAKYRIND, 1800000000, 0, 1);		//	ÇÇÅ°¶óÀÎµå
+	DropItem(II_GEN_GEM_GEM_MOP, 1800000000, 0, 1);			//	¸ðÇÁ
+	DropItem(II_GEN_GEM_GEM_POPORAM, 1800000000, 0, 1);		//	Æ÷Æ÷¶÷
+	DropItem(II_GEN_GEM_GEM_SLAIN, 1800000000, 0, 1);		//	½½·¹ÀÎ
+	DropItem(II_GEN_GEM_GEM_TARINROOT, 1800000000, 0, 1);		//	Å¸¸°»Ñ¸®
+	DropItem(II_GEN_GEM_GEM_STARSTONE, 1800000000, 0, 1);		//	º°¼®
+	DropItem(II_GEN_GEM_GEM_GOLDENWING, 1800000000, 0, 1);		//	È²±Ý³¯°³
+	DropItem(II_GEN_GEM_GEM_BLUEHONEY, 1800000000, 0, 1);		//	ºí·çÇã´Ï
+	DropItem(II_GEN_GEM_GEM_MIADOLL, 1800000000, 0, 1);		//	¹Ì¾ÆÀÇ ÀÎÇü
+	DropItem(II_GEN_GEM_GEM_FURIOUSMATCH, 1800000000, 0, 1);	//	¿­È­¼º³É
+	DropItem(II_GEN_GEM_GEM_CARDRIN, 1800000000, 0, 1);		//	Ä«µå¸°
+	DropItem(II_GEN_GEM_GEM_HAMMARBLE, 1800000000, 0, 1);		//	ÇÜ¸¶ºí
+	DropItem(II_GEN_GEM_GEM_GIGGLANDE, 1800000000, 0, 1);		//	±â±Û·Àµå
+	DropItem(II_GEN_GEM_GEM_MOONSTONE, 1800000000, 0, 1);		//	¿ùÀå¼®
+	DropItem(II_GEN_GEM_GEM_BOBAND, 1800000000, 0, 1);		//	º¸¿ì¹êµå
+	DropItem(II_GEN_GEM_GEM_DUMBLING, 1800000000, 0, 1);		//	´ýºí¸µ
 
 
-	DropItem(II_GEN_MAT_ELE_CANDLE, 15000000, 0, 1);		//	ìº”ë“¤ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RAIN, 15000000, 0, 1);			//	ë ˆì¸ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_BREEZE, 15000000, 0, 1);		//	ë¸Œë¦¬ì¦ˆ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_SPARK, 14500000, 0, 1);		        //	ìŠ¤íŒŒí¬ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_FLAME, 14500000, 0, 1);		        //	í† ì¹˜ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RIVER, 14500000, 0, 1);			//	ë ˆì´í¬ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 14500000, 0, 1);		//	ë³¼í…Œì´ì§€ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_DESERT, 14500000, 0, 1);	        	//	ìŠ¤í†¤ ì¹´ë“œ
+	DropItem(II_GEN_MAT_ELE_CANDLE, 15000000, 0, 1);		//	Äµµé Ä«µå
+	DropItem(II_GEN_MAT_ELE_RAIN, 15000000, 0, 1);			//	·¹ÀÎ Ä«µå
+	DropItem(II_GEN_MAT_ELE_BREEZE, 15000000, 0, 1);		//	ºê¸®Áî Ä«µå
+	DropItem(II_GEN_MAT_ELE_SPARK, 14500000, 0, 1);		        //	½ºÆÄÅ© Ä«µå
+	DropItem(II_GEN_MAT_ELE_FLAME, 14500000, 0, 1);		        //	ÅäÄ¡ Ä«µå
+	DropItem(II_GEN_MAT_ELE_RIVER, 14500000, 0, 1);			//	·¹ÀÌÅ© Ä«µå
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 14500000, 0, 1);		//	º¼Å×ÀÌÁö Ä«µå
+	DropItem(II_GEN_MAT_ELE_DESERT, 14500000, 0, 1);	        	//	½ºÅæ Ä«µå
 
-	DropItem(II_WEA_SWO_OUTLAW, 50000000, 0, 1);	        	//	ì•„ì›ƒë¡œì†Œë“œ
-	DropItem(II_WEA_SWO_FAIRSLENDER, 45000000, 0, 1);		//	íŽ˜ì–´ìŠ¬ëžœë”ì†Œë“œ
-	DropItem(II_WEA_SWO_TAO, 35000000, 0, 1);       		//	íƒ€ì˜¤ì†Œë“œ(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_WAN_EPI, 50000000, 0, 1);			//	ì—í”¼ì™„ë“œ
-	DropItem(II_WEA_WAN_NIZ, 45000000, 0, 1);			//	ë‹ˆì¦ˆì™„ë“œ
-	DropItem(II_WEA_WAN_KALIS, 35000000, 0, 1);		        //	ì¹¼ë¦¬ìŠ¤ì™„ë“œ(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_CHEE_HUEY, 50000000, 0, 1);	        	//	íœ´ì´ìŠ¤í‹±
-	DropItem(II_WEA_CHEE_KUDOS, 45000000, 0, 1);			//	íë„ìŠ¤ìŠ¤í‹±
-	DropItem(II_WEA_CHEE_SAINT, 35000000, 0, 1);	         	//	ì„¸ì¸íŠ¸ìŠ¤í‹±(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_AXE_BRONZE, 50000000, 0, 1);			//	ë¸Œë¡ ì¦ˆì—‘ìŠ¤
-	DropItem(II_WEA_AXE_GRANG, 45000000, 0, 1);			//	ê·¸ëž‘ì—‘ìŠ¤
-	DropItem(II_WEA_AXE_PROEM, 35000000, 0, 1);	         	//      í”„ë¡œì— ì—‘ìŠ¤(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_STA_INNER, 50000000, 0, 1);			//	ì¸ë„ˆìŠ¤íƒœí”„
-	DropItem(II_WEA_STA_HERALD, 45000000, 0, 1);			//	í•´ëŸ´ë“œìŠ¤íƒœí”„
-	DropItem(II_WEA_STA_SIGN, 35000000, 0, 1);			//	ì‹¸ì¸ìŠ¤íƒœí”„(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_KNU_TWIT, 50000000, 0, 1);			//	íŠ¸ìœ—ë„ˆí´
-	DropItem(II_WEA_KNU_XENO, 45000000, 0, 1);			//	ì œë…¸ë„ˆí´
-	DropItem(II_WEA_KNU_TALIN, 35000000, 0, 1);			//	íƒˆë¦°ë„ˆí´(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_YOY_CLIENT, 50000000, 0, 1);			//	í´ë¼ì´ì–¸íŠ¸
-	DropItem(II_WEA_YOY_TENSU, 45000000, 0, 1);	       		//	í…ìˆ˜
-	DropItem(II_WEA_YOY_DICEIN, 35000000, 0, 1);			//	ë””ì„¸ì¸(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_BOW_STIENG, 50000000, 0, 1);			//	ìŠ¤í‹°ì—¥ì–´ë³´ìš°
-	DropItem(II_WEA_BOW_CLASEM, 45000000, 0, 1);	       		//	í´ë ˆì„¸ë¯¸íŠ¸ë³´ìš°(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_BOW_CRISTI, 35000000, 0, 1);			//	í¬ë¦¬ìŠ¤í‹°ì•„ë³´ìš°
+	DropItem(II_WEA_SWO_OUTLAW, 50000000, 0, 1);	        	//	¾Æ¿ô·Î¼Òµå
+	DropItem(II_WEA_SWO_FAIRSLENDER, 45000000, 0, 1);		//	Æä¾î½½·£´õ¼Òµå
+	DropItem(II_WEA_SWO_TAO, 35000000, 0, 1);       		//	Å¸¿À¼Òµå(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_WAN_EPI, 50000000, 0, 1);			//	¿¡ÇÇ¿Ïµå
+	DropItem(II_WEA_WAN_NIZ, 45000000, 0, 1);			//	´ÏÁî¿Ïµå
+	DropItem(II_WEA_WAN_KALIS, 35000000, 0, 1);		        //	Ä®¸®½º¿Ïµå(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_CHEE_HUEY, 50000000, 0, 1);	        	//	ÈÞÀÌ½ºÆ½
+	DropItem(II_WEA_CHEE_KUDOS, 45000000, 0, 1);			//	Å¥µµ½º½ºÆ½
+	DropItem(II_WEA_CHEE_SAINT, 35000000, 0, 1);	         	//	¼¼ÀÎÆ®½ºÆ½(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_AXE_BRONZE, 50000000, 0, 1);			//	ºê·ÐÁî¿¢½º
+	DropItem(II_WEA_AXE_GRANG, 45000000, 0, 1);			//	±×¶û¿¢½º
+	DropItem(II_WEA_AXE_PROEM, 35000000, 0, 1);	         	//      ÇÁ·Î¿¥¿¢½º(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_STA_INNER, 50000000, 0, 1);			//	ÀÎ³Ê½ºÅÂÇÁ
+	DropItem(II_WEA_STA_HERALD, 45000000, 0, 1);			//	ÇØ·²µå½ºÅÂÇÁ
+	DropItem(II_WEA_STA_SIGN, 35000000, 0, 1);			//	½ÎÀÎ½ºÅÂÇÁ(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_KNU_TWIT, 50000000, 0, 1);			//	Æ®À­³ÊÅ¬
+	DropItem(II_WEA_KNU_XENO, 45000000, 0, 1);			//	Á¦³ë³ÊÅ¬
+	DropItem(II_WEA_KNU_TALIN, 35000000, 0, 1);			//	Å»¸°³ÊÅ¬(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_YOY_CLIENT, 50000000, 0, 1);			//	Å¬¶óÀÌ¾ðÆ®
+	DropItem(II_WEA_YOY_TENSU, 45000000, 0, 1);	       		//	ÅÙ¼ö
+	DropItem(II_WEA_YOY_DICEIN, 35000000, 0, 1);			//	µð¼¼ÀÎ(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_BOW_STIENG, 50000000, 0, 1);			//	½ºÆ¼¿¨¾îº¸¿ì
+	DropItem(II_WEA_BOW_CLASEM, 45000000, 0, 1);	       		//	Å¬·¹¼¼¹ÌÆ®º¸¿ì(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_BOW_CRISTI, 35000000, 0, 1);			//	Å©¸®½ºÆ¼¾Æº¸¿ì
 
-	DropItem(II_ARM_M_MER_HELMET0101, 70000000, 0, 1);		//	ë¯¸í‹± í—¬ë©§
-	DropItem(II_ARM_M_MER_SUIT0101, 60000000, 0, 1);		//	ë¯¸í‹± ìŠˆíŠ¸
-	DropItem(II_ARM_M_MER_GAUNTLET0101, 70000000, 0, 1);		//	ë¯¸í‹± ê±´í‹€ë ›
-	DropItem(II_ARM_M_MER_BOOTS0101, 70000000, 0, 1);		//	ë¯¸í‹± ë¶€ì¸ 
-	DropItem(II_ARM_M_MER_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_BOOTS0201, 80000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_HELMET0101, 70000000, 0, 1);		//	ìŠ¤ìœ„í”„íŠ¸ í—¬ë©§
-	DropItem(II_ARM_F_MER_SUIT0101, 60000000, 0, 1);		//	ìŠ¤ìœ„í”„íŠ¸ ìŠˆíŠ¸
-	DropItem(II_ARM_F_MER_GAUNTLET0101, 80000000, 0, 1);		//	ìŠ¤ìœ„í”„íŠ¸ ê±´í‹€ë ›
-	DropItem(II_ARM_F_MER_BOOTS0101, 70000000, 0, 1);		//	ìŠ¤ìœ„í”„íŠ¸ ë¶€ì¸ 
-	DropItem(II_ARM_F_MER_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_BOOTS0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_HELMET0101, 70000000, 0, 1);		//	ë‹¤ì´ìŠ¤ í—¬ë©§
-	DropItem(II_ARM_M_MAG_SUIT0101, 60000000, 0, 1);		//	ë‹¤ì´ìŠ¤ ìŠˆíŠ¸
-	DropItem(II_ARM_M_MAG_GAUNTLET0101, 70000000, 0, 1);		//	ë‹¤ì´ìŠ¤ ê±´í‹€ë ›
-	DropItem(II_ARM_M_MAG_BOOTS0101, 70000000, 0, 1);		//	ë‹¤ì´ìŠ¤ ë¶€ì¸ 
-	DropItem(II_ARM_M_MAG_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_BOOTS0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_HELMET0101, 70000000, 0, 1);		//	ë£©ìŠ¤ í—¬ë©§
-	DropItem(II_ARM_F_MAG_SUIT0101, 60000000, 0, 1);		//	ë£©ìŠ¤ ìŠˆíŠ¸
-	DropItem(II_ARM_F_MAG_GAUNTLET0101, 70000000, 0, 1);		//	ë£©ìŠ¤ ê±´í‹€ë ›
-	DropItem(II_ARM_F_MAG_BOOTS0101, 70000000, 0, 1);		//	ë£©ìŠ¤ ë¶€ì¸ 
-	DropItem(II_ARM_F_MAG_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_BOOTS0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_SUIT0101, 60000000, 0, 1);		//	ë¸Œë¦¬ì¦ˆ ìŠˆíŠ¸
-	DropItem(II_ARM_M_ASS_GAUNTLET0101, 70000000, 0, 1);		//	ë¸Œë¦¬ì¦ˆ ê±´í‹€ë ›
-	DropItem(II_ARM_M_ASS_BOOTS0101, 70000000, 0, 1);		//	ë¸Œë¦¬ì¦ˆ ë¶€ì¸ 
-	DropItem(II_ARM_M_ASS_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_BOOTS0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_HELMET0101, 70000000, 0, 1);		//	í”Œë¡œëž„ í—¬ë©§
-	DropItem(II_ARM_F_ASS_SUIT0101, 60000000, 0, 1);		//	í”Œë¡œëž„ ìŠˆíŠ¸
-	DropItem(II_ARM_F_ASS_GAUNTLET0101, 70000000, 0, 1);		//	í”Œë¡œëž„ ê±´í‹€ë ›
-	DropItem(II_ARM_F_ASS_BOOTS0101, 70000000, 0, 1);		//	í”Œë¡œëž„ ë¶€ì¸ 
-	DropItem(II_ARM_F_ASS_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_BOOTS0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_HELMET0101, 70000000, 0, 1);		//	ì‹œë„ˆ í—¬ë©§
-	DropItem(II_ARM_M_ACR_SUIT0101, 60000000, 0, 1);		//	ì‹œë„ˆ ìŠˆíŠ¸
-	DropItem(II_ARM_M_ACR_GAUNTLET0101, 70000000, 0, 1);		//	ì‹œë„ˆ ê±´í‹€ë ›
-	DropItem(II_ARM_M_ACR_BOOTS0101, 70000000, 0, 1);		//	ì‹œë„ˆ ë¶€ì¸ 
-	DropItem(II_ARM_M_ACR_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_BOOTS0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_HELMET0101, 70000000, 0, 1);		//	ì‹œì•ˆí†  í—¬ë©§
-	DropItem(II_ARM_F_ACR_SUIT0101, 60000000, 0, 1);		//	ì‹œì•ˆí†  ìŠˆíŠ¸
-	DropItem(II_ARM_F_ACR_GAUNTLET0101, 70000000, 0, 1);		//	ì‹œì•ˆí†  ê±´í‹€ë ›
-	DropItem(II_ARM_F_ACR_BOOTS0101, 70000000, 0, 1);		//	ì‹œì•ˆí†  ë¶€ì¸ 
-        DropItem(II_ARM_F_ACR_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_BOOTS0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+	DropItem(II_ARM_M_MER_HELMET0101, 70000000, 0, 1);		//	¹ÌÆ½ Çï¸ä
+	DropItem(II_ARM_M_MER_SUIT0101, 60000000, 0, 1);		//	¹ÌÆ½ ½´Æ®
+	DropItem(II_ARM_M_MER_GAUNTLET0101, 70000000, 0, 1);		//	¹ÌÆ½ °ÇÆ²·¿
+	DropItem(II_ARM_M_MER_BOOTS0101, 70000000, 0, 1);		//	¹ÌÆ½ ºÎÃ÷
+	DropItem(II_ARM_M_MER_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_BOOTS0201, 80000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_HELMET0101, 70000000, 0, 1);		//	½ºÀ§ÇÁÆ® Çï¸ä
+	DropItem(II_ARM_F_MER_SUIT0101, 60000000, 0, 1);		//	½ºÀ§ÇÁÆ® ½´Æ®
+	DropItem(II_ARM_F_MER_GAUNTLET0101, 80000000, 0, 1);		//	½ºÀ§ÇÁÆ® °ÇÆ²·¿
+	DropItem(II_ARM_F_MER_BOOTS0101, 70000000, 0, 1);		//	½ºÀ§ÇÁÆ® ºÎÃ÷
+	DropItem(II_ARM_F_MER_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_BOOTS0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_HELMET0101, 70000000, 0, 1);		//	´ÙÀÌ½º Çï¸ä
+	DropItem(II_ARM_M_MAG_SUIT0101, 60000000, 0, 1);		//	´ÙÀÌ½º ½´Æ®
+	DropItem(II_ARM_M_MAG_GAUNTLET0101, 70000000, 0, 1);		//	´ÙÀÌ½º °ÇÆ²·¿
+	DropItem(II_ARM_M_MAG_BOOTS0101, 70000000, 0, 1);		//	´ÙÀÌ½º ºÎÃ÷
+	DropItem(II_ARM_M_MAG_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_BOOTS0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_HELMET0101, 70000000, 0, 1);		//	·è½º Çï¸ä
+	DropItem(II_ARM_F_MAG_SUIT0101, 60000000, 0, 1);		//	·è½º ½´Æ®
+	DropItem(II_ARM_F_MAG_GAUNTLET0101, 70000000, 0, 1);		//	·è½º °ÇÆ²·¿
+	DropItem(II_ARM_F_MAG_BOOTS0101, 70000000, 0, 1);		//	·è½º ºÎÃ÷
+	DropItem(II_ARM_F_MAG_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_BOOTS0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_SUIT0101, 60000000, 0, 1);		//	ºê¸®Áî ½´Æ®
+	DropItem(II_ARM_M_ASS_GAUNTLET0101, 70000000, 0, 1);		//	ºê¸®Áî °ÇÆ²·¿
+	DropItem(II_ARM_M_ASS_BOOTS0101, 70000000, 0, 1);		//	ºê¸®Áî ºÎÃ÷
+	DropItem(II_ARM_M_ASS_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_BOOTS0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_HELMET0101, 70000000, 0, 1);		//	ÇÃ·Î¶ö Çï¸ä
+	DropItem(II_ARM_F_ASS_SUIT0101, 60000000, 0, 1);		//	ÇÃ·Î¶ö ½´Æ®
+	DropItem(II_ARM_F_ASS_GAUNTLET0101, 70000000, 0, 1);		//	ÇÃ·Î¶ö °ÇÆ²·¿
+	DropItem(II_ARM_F_ASS_BOOTS0101, 70000000, 0, 1);		//	ÇÃ·Î¶ö ºÎÃ÷
+	DropItem(II_ARM_F_ASS_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_BOOTS0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_HELMET0101, 70000000, 0, 1);		//	½Ã³Ê Çï¸ä
+	DropItem(II_ARM_M_ACR_SUIT0101, 60000000, 0, 1);		//	½Ã³Ê ½´Æ®
+	DropItem(II_ARM_M_ACR_GAUNTLET0101, 70000000, 0, 1);		//	½Ã³Ê °ÇÆ²·¿
+	DropItem(II_ARM_M_ACR_BOOTS0101, 70000000, 0, 1);		//	½Ã³Ê ºÎÃ÷
+	DropItem(II_ARM_M_ACR_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_BOOTS0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_HELMET0101, 70000000, 0, 1);		//	½Ã¾ÈÅä Çï¸ä
+	DropItem(II_ARM_F_ACR_SUIT0101, 60000000, 0, 1);		//	½Ã¾ÈÅä ½´Æ®
+	DropItem(II_ARM_F_ACR_GAUNTLET0101, 70000000, 0, 1);		//	½Ã¾ÈÅä °ÇÆ²·¿
+	DropItem(II_ARM_F_ACR_BOOTS0101, 70000000, 0, 1);		//	½Ã¾ÈÅä ºÎÃ÷
+        DropItem(II_ARM_F_ACR_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_BOOTS0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
 
-	DropItem(II_ARM_ARM_SHI_SPARKLE, 20000000, 0, 1);		//	ìŠ¤íŒŒí´ ì‹¤ë“œ
-	DropItem(II_ARM_ARM_SHI_SHURAIN, 15000000, 0, 1);	        //	ìŠˆë ˆì¸ ì‹¤ë“œ(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+	DropItem(II_ARM_ARM_SHI_SPARKLE, 20000000, 0, 1);		//	½ºÆÄÅ¬ ½Çµå
+	DropItem(II_ARM_ARM_SHI_SHURAIN, 15000000, 0, 1);	        //	½´·¹ÀÎ ½Çµå(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
 
-	DropItem(II_GEN_FOO_COO_BARBECUE, 3000000000, 0, 1);		//	ë°”ë² í
-	DropItem(II_GEN_FOO_COO_SEAFOODPANCAKE, 3000000000, 0, 1);	//	í•´ë¬¼íŒŒì „
-	DropItem(II_GEN_FOO_ICE_PINEAPPLECONE, 3000000000, 0, 1);	//	íŒŒì¸ì• í”Œì½˜
-	DropItem(II_GEN_FOO_ICE_BANANAJUJUBAR, 3000000000, 0, 1);	//	ë°”ë‚˜ë‚˜ì­ˆì­ˆë°”
-	DropItem(II_GEN_REF_REF_SECOND, 3000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 2ê¸‰
-	DropItem(II_GEN_REF_REF_THIRD, 30000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 3ê¸‰
-	DropItem(II_GEN_REF_REF_FOUTH, 3000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 4ê¸‰
-	DropItem(II_GEN_POT_DRI_VITAL200, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 200
-	DropItem(II_GEN_POT_DRI_VITAL300, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 300
-	DropItem(II_GEN_POT_DRI_VITAL400, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 400
-	DropItem(II_GEN_POT_POT_CUREDISEASE, 3000000000, 0, 1);		//	ì§ˆë³‘ì¹˜ë£Œì•½
-	DropItem(II_GEN_POT_POT_ANTIDOTE, 3000000000, 0, 1);		//	í•´ë…ì•½
+	DropItem(II_GEN_FOO_COO_BARBECUE, 3000000000, 0, 1);		//	¹Ùº£Å¥
+	DropItem(II_GEN_FOO_COO_SEAFOODPANCAKE, 3000000000, 0, 1);	//	ÇØ¹°ÆÄÀü
+	DropItem(II_GEN_FOO_ICE_PINEAPPLECONE, 3000000000, 0, 1);	//	ÆÄÀÎ¾ÖÇÃÄÜ
+	DropItem(II_GEN_FOO_ICE_BANANAJUJUBAR, 3000000000, 0, 1);	//	¹Ù³ª³ªÂÞÂÞ¹Ù
+	DropItem(II_GEN_REF_REF_SECOND, 3000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 2±Þ
+	DropItem(II_GEN_REF_REF_THIRD, 30000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 3±Þ
+	DropItem(II_GEN_REF_REF_FOUTH, 3000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 4±Þ
+	DropItem(II_GEN_POT_DRI_VITAL200, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 200
+	DropItem(II_GEN_POT_DRI_VITAL300, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 300
+	DropItem(II_GEN_POT_DRI_VITAL400, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 400
+	DropItem(II_GEN_POT_POT_CUREDISEASE, 3000000000, 0, 1);		//	Áúº´Ä¡·á¾à
+	DropItem(II_GEN_POT_POT_ANTIDOTE, 3000000000, 0, 1);		//	ÇØµ¶¾à
 
 
 	m_nAttackFirstRange = 10;
@@ -3623,8 +3623,8 @@ MI_HOBO4
 	DropKind(IK3_BOW, 33, 40);
 	DropKind(IK3_YOYO, 33, 40);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -3817,8 +3817,8 @@ MI_DUMBBULL4
 	DropKind(IK3_BOW, 35, 42);
 	DropKind(IK3_YOYO, 35, 42);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -4019,8 +4019,8 @@ MI_TOTEMIA4
 	DropKind(IK3_BOW, 37, 44);
 	DropKind(IK3_YOYO, 37, 44);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -4199,8 +4199,8 @@ MI_CARDPUPPET4
 	DropItem(II_GEN_JEW_RIN_STRRING, 30000000, 3, 1);
 	DropItem(II_GEN_JEW_RIN_INTRING, 30000000, 3, 1);
 	
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -4511,8 +4511,8 @@ MI_TOMBSTONEBEARER4
 	DropKind(IK3_BOW, 41, 48);
 	DropKind(IK3_YOYO, 41, 48);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -4710,8 +4710,8 @@ MI_BASQUE4
 	DropKind(IK3_BOW, 43, 50);
 	DropKind(IK3_YOYO, 43, 50);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -4898,8 +4898,8 @@ MI_PRANKSTER4
 	DropItem(II_WEA_KNU_PAIPOL, 10000000, 0, 1);
 	DropItem(II_WEA_AXE_DRAKHAN, 10000000, 0, 1);
 	
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -5114,8 +5114,8 @@ MI_WHEELEM4
 	DropKind(IK3_BOW, 47, 54);
 	DropKind(IK3_YOYO, 47, 54);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -5302,8 +5302,8 @@ MI_LEYENA4
 	DropItem(II_GEN_JEW_RIN_DEXRING, 30000000, 4, 1);
 	DropItem(II_GEN_JEW_RIN_STARING, 30000000, 4, 1);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -5513,8 +5513,8 @@ MI_STEAMWALKER4
 	DropKind(IK3_BOW, 51, 58);
 	DropKind(IK3_YOYO, 51, 58);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -5723,8 +5723,8 @@ MI_STEELKNIGHT4
 	DropKind(IK3_BOW, 53, 60);
 	DropKind(IK3_YOYO, 53, 60);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -5937,8 +5937,8 @@ MI_NUTTYWHEEL4
 	DropKind(IK3_BOW, 55, 62);
 	DropKind(IK3_YOYO, 55, 62);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -5979,7 +5979,7 @@ MI_NUTTYWHEEL4
 
 }
 
-MI_DRILLER1    // ì—¬ê¸°ì„œë¶€í„° 59ë ˆë²¨ìž„.
+MI_DRILLER1    // ¿©±â¼­ºÎÅÍ 59·¹º§ÀÓ.
 {
 	Maxitem = 2;
 	DropGold(53, 77);
@@ -6134,8 +6134,8 @@ MI_DRILLER4
 	DropKind(IK3_BOW, 57, 64);
 	DropKind(IK3_YOYO, 57, 64);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -6338,8 +6338,8 @@ MI_VOLT4
 	DropKind(IK3_BOW, 59, 66);
 	DropKind(IK3_YOYO, 59, 66);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -6538,8 +6538,8 @@ MI_ELDERGUARD4
 	DropKind(IK3_BOW, 61, 68);
 	DropKind(IK3_YOYO, 61, 68);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -6742,8 +6742,8 @@ MI_GARBAGEPIDER4
 	DropKind(IK3_BOW, 63, 70);
 	DropKind(IK3_YOYO, 63, 70);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -6943,8 +6943,8 @@ MI_CRANEMACHINERY4
 	DropKind(IK3_BOW, 65, 72);
 	DropKind(IK3_YOYO, 65, 72);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -7078,8 +7078,8 @@ MI_MOTHBEE4
 	DropItem(II_GEN_JEW_EAR_ATTEARRING, 30000000, 0, 1);
 	DropItem(II_GEN_JEW_EAR_DEFEARRING, 30000000, 0, 1);	
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -7202,8 +7202,8 @@ MI_FLBYRIGEN4
 	DropItem(II_GEN_JEW_EAR_ATTEARRING, 30000000, 2, 1);
 	DropItem(II_GEN_JEW_EAR_DEFEARRING, 30000000, 7, 1);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -7330,8 +7330,8 @@ MI_ROCKEPELLER4
 	DropItem(II_GEN_JEW_EAR_ATTEARRING, 30000000, 3, 1);
 	DropItem(II_GEN_JEW_EAR_DEFEARRING, 30000000, 9, 1);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 75000000, 0, 1); //ì†ì„± ì¹´ë“œ3 2.5%
-	DropItem(II_GEN_MAT_ELE_FLAME, 150000000, 0, 1); //ì†ì„± ì¹´ë“œ2 5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 75000000, 0, 1); //¼Ó¼º Ä«µå3 2.5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 150000000, 0, 1); //¼Ó¼º Ä«µå2 5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -7380,7 +7380,7 @@ MI_GURUCATCHER
 	Maxitem = 0;
 }
 
-//ì‹œì¼ë¼ì¹´
+//½ÃÀÏ¶óÄ«
 MI_SYLIACA1
 {
 	Maxitem = 2;
@@ -7559,8 +7559,8 @@ MI_SYLIACA4
 	DropKind(IK3_BOW, 67, 74);
 	DropKind(IK3_YOYO, 67, 74);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -7602,7 +7602,7 @@ MI_SYLIACA4
 
 }
 
-//ê·¸ë¦¬ëª½
+//±×¸®¸ù
 MI_GREEMONG1
 {
 	Maxitem = 2;
@@ -7784,8 +7784,8 @@ MI_GREEMONG4
 	DropKind(IK3_BOW, 69, 75);
 	DropKind(IK3_YOYO, 69, 75);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -7824,7 +7824,7 @@ MI_GREEMONG4
    	}               
 }
 
-//ìºë¦¬ì•„ë´„
+//Ä³¸®¾Æº½
 MI_CARRIERBOMB1
 {
 	Maxitem = 2;
@@ -7995,8 +7995,8 @@ MI_CARRIERBOMB4
 	DropKind(IK3_BOW, 73, 79);
 	DropKind(IK3_YOYO, 73, 79);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_GEM_GEM_BOMBTIMER, 1000000000, 0, 1);
 	DropItem(II_GEN_GEM_GEM_BOMBTIMER, 1000000000, 0, 1);
@@ -8033,7 +8033,7 @@ MI_CARRIERBOMB4
 
 }
 
-//ë¼ì´ì ¬
+//¶óÀÌÁª
 MI_RISEM1
 {
 
@@ -8200,8 +8200,8 @@ MI_RISEM4
 	DropKind(IK3_BOW, 57, 64);
 	DropKind(IK3_YOYO, 57, 64);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -8243,7 +8243,7 @@ MI_RISEM4
    	}               
 }
 
-//ë‚™í„°ë¹„í´
+//³«ÅÍºñÅ¬
 MI_NUCTUVEHICLE1
 {
 	Maxitem = 2;
@@ -8417,8 +8417,8 @@ MI_NUCTUVEHICLE4
 	DropKind(IK3_BOW, 55, 62);
 	DropKind(IK3_YOYO, 55, 62);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -8463,7 +8463,7 @@ MI_NUCTUVEHICLE4
 
 }
 
-//ìž ë¹„ê±°
+//Àáºñ°Å
 MI_ZOMBIGER1
 {
 	Maxitem = 2;
@@ -8631,8 +8631,8 @@ MI_ZOMBIGER4
 	DropKind(IK3_BOW, 56, 63);
 	DropKind(IK3_YOYO, 56, 63);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -8674,7 +8674,7 @@ MI_ZOMBIGER4
    	}               
 }
 
-//ê·¹ë‹¨ ì‚¬ëƒ¥ìš© ëª¬ìŠ¤í„°
+//±Ø´Ü »ç³É¿ë ¸ó½ºÅÍ
 
 MI_FLYBAT1
 {
@@ -8838,8 +8838,8 @@ MI_FLYBAT4
 	DropKind(IK3_BOW, 19, 26);
 	DropKind(IK3_YOYO, 19, 26);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -9040,8 +9040,8 @@ MI_BUCROW4
 	DropKind(IK3_BOW, 31, 38);
 	DropKind(IK3_YOYO, 31, 38);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -9252,8 +9252,8 @@ MI_SCOPICON4
 	DropKind(IK3_BOW, 41, 48);
 	DropKind(IK3_YOYO, 41, 48);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -9467,8 +9467,8 @@ MI_TRANGFOMA4
 	DropKind(IK3_BOW, 49, 56);
 	DropKind(IK3_YOYO, 49, 56);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -9536,7 +9536,7 @@ MI_CLOCKWORK1
 
 	
         DropItem(II_ARM_ARM_SHI_RUKENSHIA, 300000000, 0, 1);         
-        DropItem(II_ARM_ARM_SHI_TOEFFIN, 300000000, 0, 1); //(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+        DropItem(II_ARM_ARM_SHI_TOEFFIN, 300000000, 0, 1); //(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
         DropItem(II_ARM_ARM_SHI_TOEFFIN, 300000000, 0, 1);            
         DropItem(II_ARM_ARM_SHI_CATEPO, 300000000, 0, 1); 
 
@@ -9607,9 +9607,9 @@ MI_CLOCKWORK1
 }
 
 
-// ë‹¤ì½˜ì„¸ì…˜3ìš© ëª¬ìŠ¤í„° ì•„ì´í…œ ë¦¬ìŠ¤í°
+// ´ÙÄÜ¼¼¼Ç3¿ë ¸ó½ºÅÍ ¾ÆÀÌÅÛ ¸®½ºÆù
 
-MI_GRRR1	// ê·¸ë¥´ë¦‰
+MI_GRRR1	// ±×¸£¸ª
 {
 	Maxitem = 2;
 	DropGold(81, 118);
@@ -9778,8 +9778,8 @@ MI_GRRR4
 	DropKind(IK3_THSWD, 80, 95);
 	DropKind(IK3_THAXE, 80, 95);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -9830,148 +9830,148 @@ MI_KRRR
 	DropItem(II_GEN_MAT_ORICHALCUM01, 7500000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 28880000, 0, 1);
 
-        DropItem(II_GEN_GEM_GEM_POPORAM, 1800000000, 0, 1);		//	í¬í¬ëžŒ
-	DropItem(II_GEN_GEM_GEM_SLAIN, 1800000000, 0, 1);		//	ìŠ¬ë ˆì¸
-	DropItem(II_GEN_GEM_GEM_TARINROOT, 1800000000, 0, 1);		//	íƒ€ë¦°ë¿Œë¦¬
-	DropItem(II_GEN_GEM_GEM_STARSTONE, 1800000000, 0, 1);		//	ë³„ì„
-	DropItem(II_GEN_GEM_GEM_GOLDENWING, 1800000000, 0, 1);		//	í™©ê¸ˆë‚ ê°œ
-	DropItem(II_GEN_GEM_GEM_BLUEHONEY, 1800000000, 0, 1);		//	ë¸”ë£¨í—ˆë‹ˆ
-	DropItem(II_GEN_GEM_GEM_MIADOLL, 1800000000, 0, 1);		//	ë¯¸ì•„ì˜ ì¸í˜•
-	DropItem(II_GEN_GEM_GEM_FURIOUSMATCH, 1800000000, 0, 1);	//	ì—´í™”ì„±ëƒ¥
-	DropItem(II_GEN_GEM_GEM_CARDRIN, 1800000000, 0, 1);		//	ì¹´ë“œë¦°
-	DropItem(II_GEN_GEM_GEM_HAMMARBLE, 1800000000, 0, 1);		//	í–„ë§ˆë¸”
-	DropItem(II_GEN_GEM_GEM_GIGGLANDE, 1800000000, 0, 1);		//	ê¸°ê¸€ë ë“œ
-	DropItem(II_GEN_GEM_GEM_MOONSTONE, 1800000000, 0, 1);		//	ì›”ìž¥ì„
-	DropItem(II_GEN_GEM_GEM_BOBAND, 1800000000, 0, 1);		//	ë³´ìš°ë°´ë“œ
-	DropItem(II_GEN_GEM_GEM_DUMBLING, 1800000000, 0, 1);		//	ë¤ë¸”ë§
-	DropItem(II_GEN_GEM_GEM_KALIN, 1800000000, 0, 1);		//	ì¹¼ë¦°ë¸Œë¡œì°Œ
-	DropItem(II_GEN_GEM_GEM_CLOCKHEART, 1800000000, 0, 1);		//	í´ëŸ­í•˜íŠ¸
-	DropItem(II_GEN_GEM_GEM_TOMBMARBLE, 1800000000, 0, 1);		//	íˆ¼ë§ˆë¸”
-	DropItem(II_GEN_GEM_GEM_GOLDENFIST, 1800000000, 0, 1);		//	í™©ê¸ˆì£¼ë¨¹
-	DropItem(II_GEN_GEM_GEM_ORBRIN, 1800000000, 0, 1);		//	ì˜¤ë¸Œë¦°
-	DropItem(II_GEN_GEM_GEM_GOLDENCUP, 1800000000, 0, 1);		//	í™©ê¸ˆì»µ
+        DropItem(II_GEN_GEM_GEM_POPORAM, 1800000000, 0, 1);		//	Æ÷Æ÷¶÷
+	DropItem(II_GEN_GEM_GEM_SLAIN, 1800000000, 0, 1);		//	½½·¹ÀÎ
+	DropItem(II_GEN_GEM_GEM_TARINROOT, 1800000000, 0, 1);		//	Å¸¸°»Ñ¸®
+	DropItem(II_GEN_GEM_GEM_STARSTONE, 1800000000, 0, 1);		//	º°¼®
+	DropItem(II_GEN_GEM_GEM_GOLDENWING, 1800000000, 0, 1);		//	È²±Ý³¯°³
+	DropItem(II_GEN_GEM_GEM_BLUEHONEY, 1800000000, 0, 1);		//	ºí·çÇã´Ï
+	DropItem(II_GEN_GEM_GEM_MIADOLL, 1800000000, 0, 1);		//	¹Ì¾ÆÀÇ ÀÎÇü
+	DropItem(II_GEN_GEM_GEM_FURIOUSMATCH, 1800000000, 0, 1);	//	¿­È­¼º³É
+	DropItem(II_GEN_GEM_GEM_CARDRIN, 1800000000, 0, 1);		//	Ä«µå¸°
+	DropItem(II_GEN_GEM_GEM_HAMMARBLE, 1800000000, 0, 1);		//	ÇÜ¸¶ºí
+	DropItem(II_GEN_GEM_GEM_GIGGLANDE, 1800000000, 0, 1);		//	±â±Û·Àµå
+	DropItem(II_GEN_GEM_GEM_MOONSTONE, 1800000000, 0, 1);		//	¿ùÀå¼®
+	DropItem(II_GEN_GEM_GEM_BOBAND, 1800000000, 0, 1);		//	º¸¿ì¹êµå
+	DropItem(II_GEN_GEM_GEM_DUMBLING, 1800000000, 0, 1);		//	´ýºí¸µ
+	DropItem(II_GEN_GEM_GEM_KALIN, 1800000000, 0, 1);		//	Ä®¸°ºê·ÎÂî
+	DropItem(II_GEN_GEM_GEM_CLOCKHEART, 1800000000, 0, 1);		//	Å¬·°ÇÏÆ®
+	DropItem(II_GEN_GEM_GEM_TOMBMARBLE, 1800000000, 0, 1);		//	Åù¸¶ºí
+	DropItem(II_GEN_GEM_GEM_GOLDENFIST, 1800000000, 0, 1);		//	È²±ÝÁÖ¸Ô
+	DropItem(II_GEN_GEM_GEM_ORBRIN, 1800000000, 0, 1);		//	¿Àºê¸°
+	DropItem(II_GEN_GEM_GEM_GOLDENCUP, 1800000000, 0, 1);		//	È²±ÝÄÅ
 
-	DropItem(II_GEN_MAT_ELE_CANDLE, 14000000, 0, 1);		//	ìº”ë“¤ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RAIN, 14000000, 0, 1);			//	ë ˆì¸ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_BREEZE, 14000000, 0, 1);		//	ë¸Œë¦¬ì¦ˆ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_SPARK, 14000000, 0, 1);		        //	ìŠ¤íŒŒí¬ ì¹´ë“œ
-        DropItem(II_GEN_MAT_ELE_SAND, 14000000, 0, 1);                  //      ìŒ˜ë“œ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_FLAME, 10000000, 0, 1);		        //	í† ì¹˜ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RIVER, 10000000, 0, 1);			//	ë ˆì´í¬ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 10000000, 0, 1);		//	ë³¼í…Œì´ì§€ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_DESERT, 10000000, 0, 1);		        //	ìŠ¤í†¤ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_CYCLON, 10000000, 0, 1);			//	ê²Œì¼ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_FLAME, 5000000, 0, 1);		        //	í”Œë ˆìž„ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RIVER, 5000000, 0, 1);		        //	ë¦¬ë²„ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 5000000, 0, 1);		//	ì œë„ˆë ˆì´í„° ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_DESERT, 5000000, 0, 1);			//	ë°ì €íŠ¸ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_CYCLON, 5000000, 0, 1);			//	ì‹¸ì´í´ë¡  ì¹´ë“œ
+	DropItem(II_GEN_MAT_ELE_CANDLE, 14000000, 0, 1);		//	Äµµé Ä«µå
+	DropItem(II_GEN_MAT_ELE_RAIN, 14000000, 0, 1);			//	·¹ÀÎ Ä«µå
+	DropItem(II_GEN_MAT_ELE_BREEZE, 14000000, 0, 1);		//	ºê¸®Áî Ä«µå
+	DropItem(II_GEN_MAT_ELE_SPARK, 14000000, 0, 1);		        //	½ºÆÄÅ© Ä«µå
+        DropItem(II_GEN_MAT_ELE_SAND, 14000000, 0, 1);                  //      ½Úµå Ä«µå
+	DropItem(II_GEN_MAT_ELE_FLAME, 10000000, 0, 1);		        //	ÅäÄ¡ Ä«µå
+	DropItem(II_GEN_MAT_ELE_RIVER, 10000000, 0, 1);			//	·¹ÀÌÅ© Ä«µå
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 10000000, 0, 1);		//	º¼Å×ÀÌÁö Ä«µå
+	DropItem(II_GEN_MAT_ELE_DESERT, 10000000, 0, 1);		        //	½ºÅæ Ä«µå
+	DropItem(II_GEN_MAT_ELE_CYCLON, 10000000, 0, 1);			//	°ÔÀÏ Ä«µå
+	DropItem(II_GEN_MAT_ELE_FLAME, 5000000, 0, 1);		        //	ÇÃ·¹ÀÓ Ä«µå
+	DropItem(II_GEN_MAT_ELE_RIVER, 5000000, 0, 1);		        //	¸®¹ö Ä«µå
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 5000000, 0, 1);		//	Á¦³Ê·¹ÀÌÅÍ Ä«µå
+	DropItem(II_GEN_MAT_ELE_DESERT, 5000000, 0, 1);			//	µ¥ÀúÆ® Ä«µå
+	DropItem(II_GEN_MAT_ELE_CYCLON, 5000000, 0, 1);			//	½ÎÀÌÅ¬·Ð Ä«µå
 
-	DropItem(II_WEA_SWO_CLIP, 50000000, 0, 1);			//	í´ë¦½ì†Œë“œ
-	DropItem(II_WEA_SWO_TAO, 45000000, 0, 1);			//	íƒ€ì˜¤ì†Œë“œ
-	DropItem(II_WEA_SWO_SEPAL, 35000000, 0, 1);			//	ì„¸íŽ„ì†Œë“œ(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_WAN_RUBY, 50000000, 0, 1);			//	ë£¨ë¹„ì™„ë“œ
-	DropItem(II_WEA_WAN_KALIS, 45000000, 0, 1);			//	ì¹¼ë¦¬ìŠ¤ì™„ë“œ
-	DropItem(II_WEA_WAN_POLY, 35000000, 0, 1);			//	í´ë¦¬ì™„ë“œ(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_CHEE_SAYRAM, 50000000, 0, 1);			//	ì„¸ì´ëžŒìŠ¤í‹±
-	DropItem(II_WEA_CHEE_SAINT, 45000000, 0, 1);			//	ì„¸ì¸íŠ¸ìŠ¤í‹±
-	DropItem(II_WEA_CHEE_FLURY, 35000000, 0, 1);			//	í”ŒëŸ¬ë¦¬ìŠ¤í‹±(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_AXE_DRONE, 50000000, 0, 1);			//	ë“œë¡ ì—‘ìŠ¤
-	DropItem(II_WEA_AXE_PROEM, 45000000, 0, 1);			//	í”„ë¡œì— ì—‘ìŠ¤
-	DropItem(II_WEA_AXE_CORIN, 35000000, 0, 1);			//	ì½”ë¦°ì—‘ìŠ¤(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_STA_ADDSELF, 50000000, 0, 1);			//	ì• ë“œì…€í”„ìŠ¤íƒœí”„
-	DropItem(II_WEA_STA_SIGN, 45000000, 0, 1);			//	ì‹¸ì¸ìŠ¤íƒœí”„
-	DropItem(II_WEA_STA_IGNIS, 35000000, 0, 1);			//	ì´ê·¸ë‹ˆìŠ¤ìŠ¤íŒ¨í”„(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_KNU_SIDE, 50000000, 0, 1);			//	ì‚¬ì´ë“œë„ˆí´
-	DropItem(II_WEA_KNU_TALIN, 45000000, 0, 1);			//	íƒˆë¦°ë„ˆí´
-	DropItem(II_WEA_KNU_RIGOR, 35000000, 0, 1);			//	ë¦¬ê±°ë„ˆí´(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_YOY_EMPORE, 50000000, 0, 1);			//	ì— í¬ëŸ¬
-	DropItem(II_WEA_YOY_DICEIN, 45000000, 0, 1);			//	ë””ì„¸ì¸
-	DropItem(II_WEA_YOY_MIRAGL, 35000000, 0, 1);			//      ë¯¸ë¼ì¦(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_BOW_REDIAN, 50000000, 0, 1);			//	ë ˆë””ì•„ë„ˆ ë³´ìš°
-        DropItem(II_WEA_BOW_CRISTI, 45000000, 0, 1);			//	í¬ë¦¬ìŠ¤í‹°ì•„ ë³´ìš°
-	DropItem(II_WEA_BOW_IRUN  , 35000000, 0, 1);			//	ì•„ì´ë£¬ë³´ìš°
+	DropItem(II_WEA_SWO_CLIP, 50000000, 0, 1);			//	Å¬¸³¼Òµå
+	DropItem(II_WEA_SWO_TAO, 45000000, 0, 1);			//	Å¸¿À¼Òµå
+	DropItem(II_WEA_SWO_SEPAL, 35000000, 0, 1);			//	¼¼ÆÞ¼Òµå(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_WAN_RUBY, 50000000, 0, 1);			//	·çºñ¿Ïµå
+	DropItem(II_WEA_WAN_KALIS, 45000000, 0, 1);			//	Ä®¸®½º¿Ïµå
+	DropItem(II_WEA_WAN_POLY, 35000000, 0, 1);			//	Æú¸®¿Ïµå(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_CHEE_SAYRAM, 50000000, 0, 1);			//	¼¼ÀÌ¶÷½ºÆ½
+	DropItem(II_WEA_CHEE_SAINT, 45000000, 0, 1);			//	¼¼ÀÎÆ®½ºÆ½
+	DropItem(II_WEA_CHEE_FLURY, 35000000, 0, 1);			//	ÇÃ·¯¸®½ºÆ½(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_AXE_DRONE, 50000000, 0, 1);			//	µå·Ð¿¢½º
+	DropItem(II_WEA_AXE_PROEM, 45000000, 0, 1);			//	ÇÁ·Î¿¥¿¢½º
+	DropItem(II_WEA_AXE_CORIN, 35000000, 0, 1);			//	ÄÚ¸°¿¢½º(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_STA_ADDSELF, 50000000, 0, 1);			//	¾Öµå¼¿ÇÁ½ºÅÂÇÁ
+	DropItem(II_WEA_STA_SIGN, 45000000, 0, 1);			//	½ÎÀÎ½ºÅÂÇÁ
+	DropItem(II_WEA_STA_IGNIS, 35000000, 0, 1);			//	ÀÌ±×´Ï½º½ºÆÐÇÁ(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_KNU_SIDE, 50000000, 0, 1);			//	»çÀÌµå³ÊÅ¬
+	DropItem(II_WEA_KNU_TALIN, 45000000, 0, 1);			//	Å»¸°³ÊÅ¬
+	DropItem(II_WEA_KNU_RIGOR, 35000000, 0, 1);			//	¸®°Å³ÊÅ¬(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_YOY_EMPORE, 50000000, 0, 1);			//	¿¥Æ÷·¯
+	DropItem(II_WEA_YOY_DICEIN, 45000000, 0, 1);			//	µð¼¼ÀÎ
+	DropItem(II_WEA_YOY_MIRAGL, 35000000, 0, 1);			//      ¹Ì¶óÁñ(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_BOW_REDIAN, 50000000, 0, 1);			//	·¹µð¾Æ³Ê º¸¿ì
+        DropItem(II_WEA_BOW_CRISTI, 45000000, 0, 1);			//	Å©¸®½ºÆ¼¾Æ º¸¿ì
+	DropItem(II_WEA_BOW_IRUN  , 35000000, 0, 1);			//	¾ÆÀÌ·éº¸¿ì
 
-	DropItem(II_ARM_M_MER_HELMET0201, 70000000, 0, 1);		//	í¬ì¸ˆ í—¬ë©§
-	DropItem(II_ARM_M_MER_SUIT0201, 60000000, 0, 1);		//	í¬ì¸ˆ ìŠˆíŠ¸
-	DropItem(II_ARM_M_MER_GAUNTLET0201, 70000000, 0, 1);		//	í¬ì¸ˆ ê±´í‹€ë ›
-	DropItem(II_ARM_M_MER_BOOTS0201, 70000000, 0, 1);		//	í¬ì¸ˆ ë¶€ì¸ 
-	DropItem(II_ARM_M_MER_HELMET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_SUIT0301, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_GAUNTLET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_BOOTS0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_HELMET0201, 70000000, 0, 1);		//	í¬ìŠ¤ í—¬ë©§
-	DropItem(II_ARM_F_MER_SUIT0201, 60000000, 0, 1);		//	í¬ìŠ¤ ìŠˆíŠ¸
-	DropItem(II_ARM_F_MER_GAUNTLET0201, 70000000, 0, 1);		//	í¬ìŠ¤ ê±´í‹€ë ›
-	DropItem(II_ARM_F_MER_BOOTS0201, 70000000, 0, 1);		//	í¬ìŠ¤ ë¶€ì¸ 
-	DropItem(II_ARM_F_MER_HELMET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_SUIT0301, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_GAUNTLET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_BOOTS0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_HELMET0201, 70000000, 0, 1);		//	ê²Œì¼ í—¬ë©§
-	DropItem(II_ARM_M_ASS_SUIT0201, 60000000, 0, 1);		//	ê²Œì¼ ìŠˆíŠ¸
-	DropItem(II_ARM_M_ASS_GAUNTLET0201, 70000000, 0, 1);		//	ê²Œì¼ ê±´í‹€ë ›
-	DropItem(II_ARM_M_ASS_BOOTS0201, 70000000, 0, 1);		//	ê²Œì¼ ë¶€ì¸ 
-	DropItem(II_ARM_M_ASS_HELMET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_SUIT0301, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_GAUNTLET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_BOOTS0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_HELMET0201, 70000000, 0, 1);		//	ì•„ì´ë¦¬ìŠ¤ í—¬ë©§
-	DropItem(II_ARM_F_ASS_SUIT0201, 60000000, 0, 1);		//	ì•„ì´ë¦¬ìŠ¤ ìŠˆíŠ¸
-	DropItem(II_ARM_F_ASS_GAUNTLET0201, 70000000, 0, 1);		//	ì•„ì´ë¦¬ìŠ¤ ê±´í‹€ë ›
-	DropItem(II_ARM_F_ASS_BOOTS0201, 70000000, 0, 1);		//	ì•„ì´ë¦¬ìŠ¤ ë¶€ì¸ 
-	DropItem(II_ARM_F_ASS_HELMET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_SUIT0301, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_GAUNTLET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_BOOTS0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_HELMET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_SUIT0201, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_GAUNTLET0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_BOOTS0201, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_HELMET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_SUIT0301, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_GAUNTLET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_BOOTS0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_HELMET0201, 70000000, 0, 1);		//	ë°”ì¸ë””ì—‘ í—¬ë©§
-	DropItem(II_ARM_F_ACR_SUIT0201, 60000000, 0, 1);		//	ë°”ì¸ë””ì—‘ ìŠˆíŠ¸
-	DropItem(II_ARM_F_ACR_GAUNTLET0201, 70000000, 0, 1);		//	ë°”ì¸ë””ì—‘ ê±´í‹€ë ›
-	DropItem(II_ARM_F_ACR_BOOTS0201, 70000000, 0, 1);		//	ë°”ì¸ë””ì—‘ ë¶€ì¸ 
-	DropItem(II_ARM_F_ACR_HELMET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_SUIT0301, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_GAUNTLET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_BOOTS0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_HELMET0201, 70000000, 0, 1);		//	ì…”í”Œ í—¬ë©§
-	DropItem(II_ARM_M_MAG_SUIT0201, 60000000, 0, 1);		//	ì…”í”Œ ìŠˆíŠ¸
-	DropItem(II_ARM_M_MAG_GAUNTLET0201, 70000000, 0, 1);		//	ì…”í”Œ ê±´í‹€ë ›
-	DropItem(II_ARM_M_MAG_BOOTS0201, 70000000, 0, 1);		//	ì…”í”Œ ë¶€ì¸ 
-	DropItem(II_ARM_M_MAG_HELMET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_SUIT0301, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_GAUNTLET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_BOOTS0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_HELMET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_SUIT0301, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_GAUNTLET0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_BOOTS0301, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_HELMET0201, 70000000, 0, 1);		//	ì œì´ í—¬ë©§
-	DropItem(II_ARM_F_MAG_SUIT0201, 60000000, 0, 1);		//	ì œì´ ìŠˆíŠ¸
-	DropItem(II_ARM_F_MAG_GAUNTLET0201, 70000000, 0, 1);		//	ì œì´ ê±´í‹€ë ›
-	DropItem(II_ARM_F_MAG_BOOTS0201, 70000000, 0, 1);		//	ì œì´ ë¶€ì¸ 
+	DropItem(II_ARM_M_MER_HELMET0201, 70000000, 0, 1);		//	Æ÷Ãó Çï¸ä
+	DropItem(II_ARM_M_MER_SUIT0201, 60000000, 0, 1);		//	Æ÷Ãó ½´Æ®
+	DropItem(II_ARM_M_MER_GAUNTLET0201, 70000000, 0, 1);		//	Æ÷Ãó °ÇÆ²·¿
+	DropItem(II_ARM_M_MER_BOOTS0201, 70000000, 0, 1);		//	Æ÷Ãó ºÎÃ÷
+	DropItem(II_ARM_M_MER_HELMET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_SUIT0301, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_GAUNTLET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_BOOTS0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_HELMET0201, 70000000, 0, 1);		//	Æ÷½º Çï¸ä
+	DropItem(II_ARM_F_MER_SUIT0201, 60000000, 0, 1);		//	Æ÷½º ½´Æ®
+	DropItem(II_ARM_F_MER_GAUNTLET0201, 70000000, 0, 1);		//	Æ÷½º °ÇÆ²·¿
+	DropItem(II_ARM_F_MER_BOOTS0201, 70000000, 0, 1);		//	Æ÷½º ºÎÃ÷
+	DropItem(II_ARM_F_MER_HELMET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_SUIT0301, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_GAUNTLET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_BOOTS0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_HELMET0201, 70000000, 0, 1);		//	°ÔÀÏ Çï¸ä
+	DropItem(II_ARM_M_ASS_SUIT0201, 60000000, 0, 1);		//	°ÔÀÏ ½´Æ®
+	DropItem(II_ARM_M_ASS_GAUNTLET0201, 70000000, 0, 1);		//	°ÔÀÏ °ÇÆ²·¿
+	DropItem(II_ARM_M_ASS_BOOTS0201, 70000000, 0, 1);		//	°ÔÀÏ ºÎÃ÷
+	DropItem(II_ARM_M_ASS_HELMET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_SUIT0301, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_GAUNTLET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_BOOTS0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_HELMET0201, 70000000, 0, 1);		//	¾ÆÀÌ¸®½º Çï¸ä
+	DropItem(II_ARM_F_ASS_SUIT0201, 60000000, 0, 1);		//	¾ÆÀÌ¸®½º ½´Æ®
+	DropItem(II_ARM_F_ASS_GAUNTLET0201, 70000000, 0, 1);		//	¾ÆÀÌ¸®½º °ÇÆ²·¿
+	DropItem(II_ARM_F_ASS_BOOTS0201, 70000000, 0, 1);		//	¾ÆÀÌ¸®½º ºÎÃ÷
+	DropItem(II_ARM_F_ASS_HELMET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_SUIT0301, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_GAUNTLET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_BOOTS0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_HELMET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_SUIT0201, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_GAUNTLET0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_BOOTS0201, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_HELMET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_SUIT0301, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_GAUNTLET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_BOOTS0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_HELMET0201, 70000000, 0, 1);		//	¹ÙÀÎµð¿¢ Çï¸ä
+	DropItem(II_ARM_F_ACR_SUIT0201, 60000000, 0, 1);		//	¹ÙÀÎµð¿¢ ½´Æ®
+	DropItem(II_ARM_F_ACR_GAUNTLET0201, 70000000, 0, 1);		//	¹ÙÀÎµð¿¢ °ÇÆ²·¿
+	DropItem(II_ARM_F_ACR_BOOTS0201, 70000000, 0, 1);		//	¹ÙÀÎµð¿¢ ºÎÃ÷
+	DropItem(II_ARM_F_ACR_HELMET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_SUIT0301, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_GAUNTLET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_BOOTS0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_HELMET0201, 70000000, 0, 1);		//	¼ÅÇÃ Çï¸ä
+	DropItem(II_ARM_M_MAG_SUIT0201, 60000000, 0, 1);		//	¼ÅÇÃ ½´Æ®
+	DropItem(II_ARM_M_MAG_GAUNTLET0201, 70000000, 0, 1);		//	¼ÅÇÃ °ÇÆ²·¿
+	DropItem(II_ARM_M_MAG_BOOTS0201, 70000000, 0, 1);		//	¼ÅÇÃ ºÎÃ÷
+	DropItem(II_ARM_M_MAG_HELMET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_SUIT0301, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_GAUNTLET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_BOOTS0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_HELMET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_SUIT0301, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_GAUNTLET0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_BOOTS0301, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_HELMET0201, 70000000, 0, 1);		//	Á¦ÀÌ Çï¸ä
+	DropItem(II_ARM_F_MAG_SUIT0201, 60000000, 0, 1);		//	Á¦ÀÌ ½´Æ®
+	DropItem(II_ARM_F_MAG_GAUNTLET0201, 70000000, 0, 1);		//	Á¦ÀÌ °ÇÆ²·¿
+	DropItem(II_ARM_F_MAG_BOOTS0201, 70000000, 0, 1);		//	Á¦ÀÌ ºÎÃ÷
 
-	DropItem(II_ARM_ARM_SHI_GYRO, 20000000, 0, 1);		        //	ìžì´ë¡œ ì‹¤ë“œ(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_ARM_SHI_GYRO, 15000000, 0, 1);		        //	ìžì´ë¡œ ì‹¤ë“œ
+	DropItem(II_ARM_ARM_SHI_GYRO, 20000000, 0, 1);		        //	ÀÚÀÌ·Î ½Çµå(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_ARM_SHI_GYRO, 15000000, 0, 1);		        //	ÀÚÀÌ·Î ½Çµå
 
-	DropItem(II_GEN_FOO_INS_BREAD, 3000000000, 0, 1);		//	ì‹ë¹µ
-	DropItem(II_GEN_FOO_ICE_FRUITJUICE, 3000000000, 0, 1);		//	ê³¼ì¼ì£¼ìŠ¤
-	DropItem(II_GEN_FOO_COO_FISHSOUP, 3000000000, 0, 1);		//	ìƒì„ ìŠ¤í”„
-	DropItem(II_GEN_FOO_COO_SAUSAGECASSEROLE, 3000000000, 0, 1);	//	ì†Œì‹œì§€ì „ê³¨
-	DropItem(II_GEN_REF_REF_FOUTH, 3000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 4ê¸‰
-	DropItem(II_GEN_REF_REF_FIFTH, 3000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 5ê¸‰
-	DropItem(II_GEN_REF_REF_SIXTH, 3000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 6ê¸‰
-	DropItem(II_GEN_POT_DRI_VITAL400, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 400
-	DropItem(II_GEN_POT_DRI_VITAL500, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 500
-	DropItem(II_GEN_POT_DRI_VITAL600, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 600
-	DropItem(II_GEN_POT_POT_ANTIDOTE, 3000000000, 0, 1);		//	í•´ë…ì•½
-	DropItem(II_GEN_POT_POT_CUREDISEASE, 3000000000, 0, 1);		//	ì§ˆë³‘ì¹˜ë£Œì•½
+	DropItem(II_GEN_FOO_INS_BREAD, 3000000000, 0, 1);		//	½Ä»§
+	DropItem(II_GEN_FOO_ICE_FRUITJUICE, 3000000000, 0, 1);		//	°úÀÏÁÖ½º
+	DropItem(II_GEN_FOO_COO_FISHSOUP, 3000000000, 0, 1);		//	»ý¼±½ºÇÁ
+	DropItem(II_GEN_FOO_COO_SAUSAGECASSEROLE, 3000000000, 0, 1);	//	¼Ò½ÃÁöÀü°ñ
+	DropItem(II_GEN_REF_REF_FOUTH, 3000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 4±Þ
+	DropItem(II_GEN_REF_REF_FIFTH, 3000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 5±Þ
+	DropItem(II_GEN_REF_REF_SIXTH, 3000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 6±Þ
+	DropItem(II_GEN_POT_DRI_VITAL400, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 400
+	DropItem(II_GEN_POT_DRI_VITAL500, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 500
+	DropItem(II_GEN_POT_DRI_VITAL600, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 600
+	DropItem(II_GEN_POT_POT_ANTIDOTE, 3000000000, 0, 1);		//	ÇØµ¶¾à
+	DropItem(II_GEN_POT_POT_CUREDISEASE, 3000000000, 0, 1);		//	Áúº´Ä¡·á¾à
 
 	m_nAttackFirstRange = 10;
 	
@@ -10004,148 +10004,148 @@ MI_MUSHMOOT
 	DropItem(II_GEN_MAT_ORICHALCUM01, 7500000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 28880000, 0, 1);
 
-	DropItem(II_GEN_GEM_GEM_BLUEHONEY, 1800000000, 0, 1);		//	ë¸”ë£¨í—ˆë‹ˆ
-	DropItem(II_GEN_GEM_GEM_MIADOLL, 1800000000, 0, 1);		//	ë¯¸ì•„ì˜ ì¸í˜•
-	DropItem(II_GEN_GEM_GEM_FURIOUSMATCH, 1800000000, 0, 1);	//	ì—´í™”ì„±ëƒ¥
-	DropItem(II_GEN_GEM_GEM_CARDRIN, 1800000000, 0, 1);		//	ì¹´ë“œë¦°
-	DropItem(II_GEN_GEM_GEM_HAMMARBLE, 1800000000, 0, 1);		//	í–„ë§ˆë¸”
-	DropItem(II_GEN_GEM_GEM_GIGGLANDE, 1800000000, 0, 1);		//	ê¸°ê¸€ë ë“œ
-	DropItem(II_GEN_GEM_GEM_MOONSTONE, 1800000000, 0, 1);		//	ì›”ìž¥ì„
-	DropItem(II_GEN_GEM_GEM_BOBAND, 1800000000, 0, 1);		//	ë³´ìš°ë°´ë“œ
-	DropItem(II_GEN_GEM_GEM_DUMBLING, 1800000000, 0, 1);		//	ë¤ë¸”ë§
-	DropItem(II_GEN_GEM_GEM_KALIN, 1800000000, 0, 1);		//	ì¹¼ë¦°ë¸Œë¡œì°Œ
-	DropItem(II_GEN_GEM_GEM_CLOCKHEART, 1800000000, 0, 1);		//	í´ëŸ­í•˜íŠ¸
-	DropItem(II_GEN_GEM_GEM_TOMBMARBLE, 1800000000, 0, 1);		//	íˆ¼ë§ˆë¸”
-	DropItem(II_GEN_GEM_GEM_GOLDENFIST, 1800000000, 0, 1);		//	í™©ê¸ˆì£¼ë¨¹
-	DropItem(II_GEN_GEM_GEM_ORBRIN, 1800000000, 0, 1);		//	ì˜¤ë¸Œë¦°
-	DropItem(II_GEN_GEM_GEM_GOLDENCUP, 1800000000, 0, 1);		//	í™©ê¸ˆì»µ
-	DropItem(II_GEN_GEM_GEM_TOMA, 1800000000, 0, 1);		//	í† ë§ˆ
-	DropItem(II_GEN_GEM_GEM_STEAMTEAR, 1800000000, 0, 1);		//	ìŠ¤íŒ€í‹°ì–´
-	DropItem(II_GEN_GEM_GEM_KNIGHTLER, 1800000000, 0, 1);		//	ë‚˜ì´í‹€ëŸ¬
-	DropItem(II_GEN_GEM_GEM_WHEESHOE, 1800000000, 0, 1);		//	íœ ìŠˆ
-	DropItem(II_GEN_GEM_GEM_DROIL, 1800000000, 0, 1);		//	ë“œë¡œì¼
+	DropItem(II_GEN_GEM_GEM_BLUEHONEY, 1800000000, 0, 1);		//	ºí·çÇã´Ï
+	DropItem(II_GEN_GEM_GEM_MIADOLL, 1800000000, 0, 1);		//	¹Ì¾ÆÀÇ ÀÎÇü
+	DropItem(II_GEN_GEM_GEM_FURIOUSMATCH, 1800000000, 0, 1);	//	¿­È­¼º³É
+	DropItem(II_GEN_GEM_GEM_CARDRIN, 1800000000, 0, 1);		//	Ä«µå¸°
+	DropItem(II_GEN_GEM_GEM_HAMMARBLE, 1800000000, 0, 1);		//	ÇÜ¸¶ºí
+	DropItem(II_GEN_GEM_GEM_GIGGLANDE, 1800000000, 0, 1);		//	±â±Û·Àµå
+	DropItem(II_GEN_GEM_GEM_MOONSTONE, 1800000000, 0, 1);		//	¿ùÀå¼®
+	DropItem(II_GEN_GEM_GEM_BOBAND, 1800000000, 0, 1);		//	º¸¿ì¹êµå
+	DropItem(II_GEN_GEM_GEM_DUMBLING, 1800000000, 0, 1);		//	´ýºí¸µ
+	DropItem(II_GEN_GEM_GEM_KALIN, 1800000000, 0, 1);		//	Ä®¸°ºê·ÎÂî
+	DropItem(II_GEN_GEM_GEM_CLOCKHEART, 1800000000, 0, 1);		//	Å¬·°ÇÏÆ®
+	DropItem(II_GEN_GEM_GEM_TOMBMARBLE, 1800000000, 0, 1);		//	Åù¸¶ºí
+	DropItem(II_GEN_GEM_GEM_GOLDENFIST, 1800000000, 0, 1);		//	È²±ÝÁÖ¸Ô
+	DropItem(II_GEN_GEM_GEM_ORBRIN, 1800000000, 0, 1);		//	¿Àºê¸°
+	DropItem(II_GEN_GEM_GEM_GOLDENCUP, 1800000000, 0, 1);		//	È²±ÝÄÅ
+	DropItem(II_GEN_GEM_GEM_TOMA, 1800000000, 0, 1);		//	Åä¸¶
+	DropItem(II_GEN_GEM_GEM_STEAMTEAR, 1800000000, 0, 1);		//	½ºÆÀÆ¼¾î
+	DropItem(II_GEN_GEM_GEM_KNIGHTLER, 1800000000, 0, 1);		//	³ªÀÌÆ²·¯
+	DropItem(II_GEN_GEM_GEM_WHEESHOE, 1800000000, 0, 1);		//	ÈÙ½´
+	DropItem(II_GEN_GEM_GEM_DROIL, 1800000000, 0, 1);		//	µå·ÎÀÏ
 
-	DropItem(II_GEN_MAT_ELE_CANDLE, 15000000, 0, 1);		//	ìº”ë“¤ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RAIN, 15000000, 0, 1);			//	ë ˆì¸ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_BREEZE, 15000000, 0, 1);		//	ë¸Œë¦¬ì¦ˆ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_SPARK, 15000000, 0, 1);		        //	ìŠ¤íŒŒí¬ ì¹´ë“œ
-        DropItem(II_GEN_MAT_ELE_SAND, 15000000, 0, 1);                  //      ìŒ˜ë“œ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_FLAME, 13000000, 0, 1);		        //	í† ì¹˜ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RIVER, 13000000, 0, 1);			//	ë ˆì´í¬ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 13000000, 0, 1);		//	ë³¼í…Œì´ì§€ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_DESERT, 13000000, 0, 1);		        //	ìŠ¤í†¤ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_CYCLON, 13000000, 0, 1);			//	ê²Œì¼ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_FLAME, 10000000, 0, 1);		        //	í”Œë ˆìž„ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RIVER, 10000000, 0, 1);		        //	ë¦¬ë²„ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 10000000, 0, 1);		//	ì œë„ˆë ˆì´í„° ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_DESERT, 10000000, 0, 1);		//	ë°ì €íŠ¸ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_CYCLON, 10000000, 0, 1);		//	ì‹¸ì´í´ë¡  ì¹´ë“œ
+	DropItem(II_GEN_MAT_ELE_CANDLE, 15000000, 0, 1);		//	Äµµé Ä«µå
+	DropItem(II_GEN_MAT_ELE_RAIN, 15000000, 0, 1);			//	·¹ÀÎ Ä«µå
+	DropItem(II_GEN_MAT_ELE_BREEZE, 15000000, 0, 1);		//	ºê¸®Áî Ä«µå
+	DropItem(II_GEN_MAT_ELE_SPARK, 15000000, 0, 1);		        //	½ºÆÄÅ© Ä«µå
+        DropItem(II_GEN_MAT_ELE_SAND, 15000000, 0, 1);                  //      ½Úµå Ä«µå
+	DropItem(II_GEN_MAT_ELE_FLAME, 13000000, 0, 1);		        //	ÅäÄ¡ Ä«µå
+	DropItem(II_GEN_MAT_ELE_RIVER, 13000000, 0, 1);			//	·¹ÀÌÅ© Ä«µå
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 13000000, 0, 1);		//	º¼Å×ÀÌÁö Ä«µå
+	DropItem(II_GEN_MAT_ELE_DESERT, 13000000, 0, 1);		        //	½ºÅæ Ä«µå
+	DropItem(II_GEN_MAT_ELE_CYCLON, 13000000, 0, 1);			//	°ÔÀÏ Ä«µå
+	DropItem(II_GEN_MAT_ELE_FLAME, 10000000, 0, 1);		        //	ÇÃ·¹ÀÓ Ä«µå
+	DropItem(II_GEN_MAT_ELE_RIVER, 10000000, 0, 1);		        //	¸®¹ö Ä«µå
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 10000000, 0, 1);		//	Á¦³Ê·¹ÀÌÅÍ Ä«µå
+	DropItem(II_GEN_MAT_ELE_DESERT, 10000000, 0, 1);		//	µ¥ÀúÆ® Ä«µå
+	DropItem(II_GEN_MAT_ELE_CYCLON, 10000000, 0, 1);		//	½ÎÀÌÅ¬·Ð Ä«µå
 
-	DropItem(II_WEA_SWO_CYLOS, 50000000, 0, 1);			//	ì‹¤ë¡œìŠ¤ì†Œë“œ
-	DropItem(II_WEA_SWO_INVADER, 45000000, 0, 1);			//	ì¸ë² ì´ë”ì†Œë“œ
-	DropItem(II_WEA_SWO_STITCH, 35000000, 0, 1);		        //      ìŠ¤í‹°ì¹˜ì†Œë“œ
-	DropItem(II_WEA_WAN_MEKERHILL, 50000000, 0, 1);		        //	ë©”ì»¤ížì™„ë“œ
-	DropItem(II_WEA_WAN_NAZ, 45000000, 0, 1);			//	ë‚˜ì¦ˆì™„ë“œ
-	DropItem(II_WEA_WAN_ZEREM, 35000000, 0, 1);		        //      ì œë ˜ì™„ë“œ
-	DropItem(II_WEA_CHEE_NINEGALE, 50000000, 0, 1);	         	//	ë‚˜ì¸ê²Œì¼ìŠ¤í‹±
-	DropItem(II_WEA_CHEE_MIRTH, 45000000, 0, 1);			//	ë¨¸ì“°ìŠ¤í‹±
-	DropItem(II_WEA_CHEE_SIZZLE, 35000000, 0, 1);		        //      ì‹œì¦ìŠ¤í‹±
-	DropItem(II_WEA_AXE_CROW, 50000000, 0, 1);			//	í¬ë¡œìš°ì—‘ìŠ¤
-	DropItem(II_WEA_AXE_RAPTOR, 45000000, 0, 1);			//	ëž©í„°ì—‘ìŠ¤
-	DropItem(II_WEA_AXE_BERK, 35000000, 0, 1);		        //      ë²„í¬ì—‘ìŠ¤
-	DropItem(II_WEA_STA_TEBA, 50000000, 0, 1);			//	í…Œë°”ìŠ¤íƒœí”„
-	DropItem(II_WEA_STA_SLINE, 45000000, 0, 1);			//	ìŠ¬ë¼ì¸ìŠ¤íƒœí”„
-	DropItem(II_WEA_STA_STARWHEEL, 35000000, 0, 1);		        //      ìŠ¤íƒ€íœ ìŠ¤íƒœí”„
-	DropItem(II_WEA_KNU_RAMPART, 50000000, 0, 1);			//	ëž¨íŒŒíŠ¸ë„ˆí´
-	DropItem(II_WEA_KNU_REVENANT, 45000000, 0, 1);			//	ë ˆë²„ë„ŒíŠ¸ë„ˆí´
-	DropItem(II_WEA_KNU_MARVEL, 35000000, 0, 1);		        //      ë§ˆë²¨ë„ˆí´
-	DropItem(II_WEA_YOY_RIDENE, 50000000, 0, 1);			//	ë¼ì´ë°ë„ˆ
-	DropItem(II_WEA_YOY_FIREE, 45000000, 0, 1);			//	íŒŒì´ì–´ë¦¬
-	DropItem(II_WEA_YOY_IMMOTE, 35000000, 0, 1);		        //      ì´ëª¨íŠ¸
-	DropItem(II_WEA_BOW_REFOME, 50000000, 0, 1);			//      ë ˆí¬ë©”í‹°ë³´ìš°
-	DropItem(II_WEA_BOW_CURUSI, 45000000, 0, 1);			//      í¬ë£¨ì € ë³´ìš°(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_WEA_BOW_SIGGER, 35000000, 0, 1);		        //      ì‹œì €ì¦ˆë³´ìš°
+	DropItem(II_WEA_SWO_CYLOS, 50000000, 0, 1);			//	½Ç·Î½º¼Òµå
+	DropItem(II_WEA_SWO_INVADER, 45000000, 0, 1);			//	ÀÎº£ÀÌ´õ¼Òµå
+	DropItem(II_WEA_SWO_STITCH, 35000000, 0, 1);		        //      ½ºÆ¼Ä¡¼Òµå
+	DropItem(II_WEA_WAN_MEKERHILL, 50000000, 0, 1);		        //	¸ÞÄ¿Èú¿Ïµå
+	DropItem(II_WEA_WAN_NAZ, 45000000, 0, 1);			//	³ªÁî¿Ïµå
+	DropItem(II_WEA_WAN_ZEREM, 35000000, 0, 1);		        //      Á¦·½¿Ïµå
+	DropItem(II_WEA_CHEE_NINEGALE, 50000000, 0, 1);	         	//	³ªÀÎ°ÔÀÏ½ºÆ½
+	DropItem(II_WEA_CHEE_MIRTH, 45000000, 0, 1);			//	¸Ó¾²½ºÆ½
+	DropItem(II_WEA_CHEE_SIZZLE, 35000000, 0, 1);		        //      ½ÃÁñ½ºÆ½
+	DropItem(II_WEA_AXE_CROW, 50000000, 0, 1);			//	Å©·Î¿ì¿¢½º
+	DropItem(II_WEA_AXE_RAPTOR, 45000000, 0, 1);			//	·¦ÅÍ¿¢½º
+	DropItem(II_WEA_AXE_BERK, 35000000, 0, 1);		        //      ¹öÅ©¿¢½º
+	DropItem(II_WEA_STA_TEBA, 50000000, 0, 1);			//	Å×¹Ù½ºÅÂÇÁ
+	DropItem(II_WEA_STA_SLINE, 45000000, 0, 1);			//	½½¶óÀÎ½ºÅÂÇÁ
+	DropItem(II_WEA_STA_STARWHEEL, 35000000, 0, 1);		        //      ½ºÅ¸ÈÙ½ºÅÂÇÁ
+	DropItem(II_WEA_KNU_RAMPART, 50000000, 0, 1);			//	·¥ÆÄÆ®³ÊÅ¬
+	DropItem(II_WEA_KNU_REVENANT, 45000000, 0, 1);			//	·¹¹ö³ÍÆ®³ÊÅ¬
+	DropItem(II_WEA_KNU_MARVEL, 35000000, 0, 1);		        //      ¸¶º§³ÊÅ¬
+	DropItem(II_WEA_YOY_RIDENE, 50000000, 0, 1);			//	¶óÀÌµ¥³Ê
+	DropItem(II_WEA_YOY_FIREE, 45000000, 0, 1);			//	ÆÄÀÌ¾î¸®
+	DropItem(II_WEA_YOY_IMMOTE, 35000000, 0, 1);		        //      ÀÌ¸ðÆ®
+	DropItem(II_WEA_BOW_REFOME, 50000000, 0, 1);			//      ·¹Æ÷¸ÞÆ¼º¸¿ì
+	DropItem(II_WEA_BOW_CURUSI, 45000000, 0, 1);			//      Å©·çÀú º¸¿ì(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_WEA_BOW_SIGGER, 35000000, 0, 1);		        //      ½ÃÀúÁîº¸¿ì
 
-	DropItem(II_ARM_M_MER_HELMET0301, 70000000, 0, 1);		//	ë°œëŸ¬ í—¬ë©§
-	DropItem(II_ARM_M_MER_SUIT0301, 60000000, 0, 1);		//	ë°œëŸ¬ ìŠˆíŠ¸
-	DropItem(II_ARM_M_MER_GAUNTLET0301, 70000000, 0, 1);		//	ë°œëŸ¬ ê±´í‹€ë ›
-	DropItem(II_ARM_M_MER_BOOTS0301, 70000000, 0, 1);		//	ë°œëŸ¬ ë¶€ì¸ 
-	DropItem(II_ARM_M_MER_HELMET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_SUIT0401, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_GAUNTLET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MER_BOOTS0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_HELMET0301, 70000000, 0, 1);		//	ê·¸ë ˆì´ìŠ¤ í—¬ë©§
-	DropItem(II_ARM_F_MER_SUIT0301, 60000000, 0, 1);		//	ê·¸ë ˆì´ìŠ¤ ìŠˆíŠ¸
-	DropItem(II_ARM_F_MER_GAUNTLET0301, 70000000, 0, 1);		//	ê·¸ë ˆì´ìŠ¤ ê±´í‹€ë ›
-	DropItem(II_ARM_F_MER_BOOTS0301, 70000000, 0, 1);		//	ê·¸ë ˆì´ìŠ¤ ë¶€ì¸ 
-	DropItem(II_ARM_F_MER_HELMET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_SUIT0401, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_GAUNTLET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MER_BOOTS0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_HELMET0301, 70000000, 0, 1);		//	ì½”ë§ í—¬ë©§
-	DropItem(II_ARM_M_MAG_SUIT0301, 60000000, 0, 1);		//	ì½”ë§ ìŠˆíŠ¸
-	DropItem(II_ARM_M_MAG_GAUNTLET0301, 70000000, 0, 1);		//	ì½”ë§ ê±´í‹€ë ›
-	DropItem(II_ARM_M_MAG_BOOTS0301, 70000000, 0, 1);		//	ì½”ë§ ë¶€ì¸ 
-	DropItem(II_ARM_M_MAG_HELMET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_SUIT0401, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_GAUNTLET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_MAG_BOOTS0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_HELMET0301, 70000000, 0, 1);		//	ë§ˆë¸” í—¬ë©§
-	DropItem(II_ARM_F_MAG_SUIT0301, 60000000, 0, 1);		//	ë§ˆë¸” ìŠˆíŠ¸
-	DropItem(II_ARM_F_MAG_GAUNTLET0301, 70000000, 0, 1);		//	ë§ˆë¸” ê±´í‹€ë ›
-	DropItem(II_ARM_F_MAG_BOOTS0301, 70000000, 0, 1);		//	ë§ˆë¸” ë¶€ì¸ 
-	DropItem(II_ARM_F_MAG_HELMET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_SUIT0401, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_MAG_GAUNTLET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-        DropItem(II_ARM_F_MAG_BOOTS0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+	DropItem(II_ARM_M_MER_HELMET0301, 70000000, 0, 1);		//	¹ß·¯ Çï¸ä
+	DropItem(II_ARM_M_MER_SUIT0301, 60000000, 0, 1);		//	¹ß·¯ ½´Æ®
+	DropItem(II_ARM_M_MER_GAUNTLET0301, 70000000, 0, 1);		//	¹ß·¯ °ÇÆ²·¿
+	DropItem(II_ARM_M_MER_BOOTS0301, 70000000, 0, 1);		//	¹ß·¯ ºÎÃ÷
+	DropItem(II_ARM_M_MER_HELMET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_SUIT0401, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_GAUNTLET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MER_BOOTS0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_HELMET0301, 70000000, 0, 1);		//	±×·¹ÀÌ½º Çï¸ä
+	DropItem(II_ARM_F_MER_SUIT0301, 60000000, 0, 1);		//	±×·¹ÀÌ½º ½´Æ®
+	DropItem(II_ARM_F_MER_GAUNTLET0301, 70000000, 0, 1);		//	±×·¹ÀÌ½º °ÇÆ²·¿
+	DropItem(II_ARM_F_MER_BOOTS0301, 70000000, 0, 1);		//	±×·¹ÀÌ½º ºÎÃ÷
+	DropItem(II_ARM_F_MER_HELMET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_SUIT0401, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_GAUNTLET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MER_BOOTS0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_HELMET0301, 70000000, 0, 1);		//	ÄÚ¸µ Çï¸ä
+	DropItem(II_ARM_M_MAG_SUIT0301, 60000000, 0, 1);		//	ÄÚ¸µ ½´Æ®
+	DropItem(II_ARM_M_MAG_GAUNTLET0301, 70000000, 0, 1);		//	ÄÚ¸µ °ÇÆ²·¿
+	DropItem(II_ARM_M_MAG_BOOTS0301, 70000000, 0, 1);		//	ÄÚ¸µ ºÎÃ÷
+	DropItem(II_ARM_M_MAG_HELMET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_SUIT0401, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_GAUNTLET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_MAG_BOOTS0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_HELMET0301, 70000000, 0, 1);		//	¸¶ºí Çï¸ä
+	DropItem(II_ARM_F_MAG_SUIT0301, 60000000, 0, 1);		//	¸¶ºí ½´Æ®
+	DropItem(II_ARM_F_MAG_GAUNTLET0301, 70000000, 0, 1);		//	¸¶ºí °ÇÆ²·¿
+	DropItem(II_ARM_F_MAG_BOOTS0301, 70000000, 0, 1);		//	¸¶ºí ºÎÃ÷
+	DropItem(II_ARM_F_MAG_HELMET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_SUIT0401, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_MAG_GAUNTLET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+        DropItem(II_ARM_F_MAG_BOOTS0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
 	DropItem(II_ARM_M_ASS_HELMET0301, 70000000, 0, 1);		//	
 	DropItem(II_ARM_M_ASS_SUIT0301, 60000000, 0, 1);		//	
 	DropItem(II_ARM_M_ASS_GAUNTLET0301, 70000000, 0, 1);		//	
 	DropItem(II_ARM_M_ASS_BOOTS0301, 70000000, 0, 1);		//	
-	DropItem(II_ARM_M_ASS_HELMET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_SUIT0401, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_GAUNTLET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ASS_BOOTS0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+	DropItem(II_ARM_M_ASS_HELMET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_SUIT0401, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_GAUNTLET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ASS_BOOTS0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
 	DropItem(II_ARM_F_ASS_HELMET0301, 70000000, 0, 1);		//	
 	DropItem(II_ARM_F_ASS_SUIT0301, 60000000, 0, 1);		//	
 	DropItem(II_ARM_F_ASS_GAUNTLET0301, 70000000, 0, 1);		//	
 	DropItem(II_ARM_F_ASS_BOOTS0301, 70000000, 0, 1);		//	
-	DropItem(II_ARM_F_ASS_HELMET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_SUIT0401, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_GAUNTLET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ASS_BOOTS0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+	DropItem(II_ARM_F_ASS_HELMET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_SUIT0401, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_GAUNTLET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ASS_BOOTS0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
 	DropItem(II_ARM_M_ACR_HELMET0301, 70000000, 0, 1);		//	
 	DropItem(II_ARM_M_ACR_SUIT0301, 60000000, 0, 1);		//	
 	DropItem(II_ARM_M_ACR_GAUNTLET0301, 70000000, 0, 1);		//	
 	DropItem(II_ARM_M_ACR_BOOTS0301, 70000000, 0, 1);		//	
-	DropItem(II_ARM_M_ACR_HELMET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_SUIT0401, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_GAUNTLET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_M_ACR_BOOTS0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+	DropItem(II_ARM_M_ACR_HELMET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_SUIT0401, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_GAUNTLET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_M_ACR_BOOTS0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
 	DropItem(II_ARM_F_ACR_HELMET0301, 70000000, 0, 1);		//	
 	DropItem(II_ARM_F_ACR_SUIT0301, 60000000, 0, 1);		//	
 	DropItem(II_ARM_F_ACR_GAUNTLET0301, 70000000, 0, 1);		//	
 	DropItem(II_ARM_F_ACR_BOOTS0301, 70000000, 0, 1);		//	
-	DropItem(II_ARM_F_ACR_HELMET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_SUIT0401, 60000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_GAUNTLET0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
-	DropItem(II_ARM_F_ACR_BOOTS0401, 70000000, 0, 1);		//	(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+	DropItem(II_ARM_F_ACR_HELMET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_SUIT0401, 60000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_GAUNTLET0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
+	DropItem(II_ARM_F_ACR_BOOTS0401, 70000000, 0, 1);		//	(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
 
-	DropItem(II_ARM_ARM_SHI_VORTEX, 20000000, 0, 1);	        //	ë³´í…ìŠ¤ ì‹¤ë“œ
-	DropItem(II_ARM_ARM_SHI_PLUS, 15000000, 0, 1);		        //	í”ŒëŸ¬ìŠ¤ ì‹¤ë“œ(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+	DropItem(II_ARM_ARM_SHI_VORTEX, 20000000, 0, 1);	        //	º¸ÅØ½º ½Çµå
+	DropItem(II_ARM_ARM_SHI_PLUS, 15000000, 0, 1);		        //	ÇÃ·¯½º ½Çµå(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
 
-	DropItem(II_GEN_FOO_COO_FISHSTEW, 3000000000, 0, 1);		//	ìƒì„ ìŠ¤íŠœ
-	DropItem(II_GEN_FOO_ICE_FRUITPARFAIT, 3000000000, 0, 1);	//	ê³¼ì¼íŒŒë¥´íŽ˜
-	DropItem(II_GEN_FOO_INS_HODDUK, 3000000000, 0, 1);		//	í˜¸ë–¡
-	DropItem(II_GEN_FOO_INS_KIMBAP, 3000000000, 0, 1);		//	ê¹€ë°¥
-	DropItem(II_GEN_REF_REF_FOUTH, 3000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 4ê¸‰
-	DropItem(II_GEN_REF_REF_FIFTH, 3000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 5ê¸‰
-	DropItem(II_GEN_REF_REF_SIXTH, 3000000000, 0, 1);		//	ë¦¬í”„ë ˆì…” 6ê¸‰
-	DropItem(II_GEN_POT_DRI_VITAL500, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 500
-	DropItem(II_GEN_POT_DRI_VITAL600, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 600
-	DropItem(II_GEN_POT_DRI_VITAL700, 3000000000, 0, 1);		//	í™œë ¥ë“œë§í¬ 700
-	DropItem(II_GEN_POT_POT_ANTIDOTE, 3000000000, 0, 1);		//	í•´ë…ì•½
-	DropItem(II_GEN_POT_POT_CUREDISEASE, 3000000000, 0, 1);		//	ì§ˆë³‘ì¹˜ë£Œì•½
+	DropItem(II_GEN_FOO_COO_FISHSTEW, 3000000000, 0, 1);		//	»ý¼±½ºÆ©
+	DropItem(II_GEN_FOO_ICE_FRUITPARFAIT, 3000000000, 0, 1);	//	°úÀÏÆÄ¸£Æä
+	DropItem(II_GEN_FOO_INS_HODDUK, 3000000000, 0, 1);		//	È£¶±
+	DropItem(II_GEN_FOO_INS_KIMBAP, 3000000000, 0, 1);		//	±è¹ä
+	DropItem(II_GEN_REF_REF_FOUTH, 3000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 4±Þ
+	DropItem(II_GEN_REF_REF_FIFTH, 3000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 5±Þ
+	DropItem(II_GEN_REF_REF_SIXTH, 3000000000, 0, 1);		//	¸®ÇÁ·¹¼Å 6±Þ
+	DropItem(II_GEN_POT_DRI_VITAL500, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 500
+	DropItem(II_GEN_POT_DRI_VITAL600, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 600
+	DropItem(II_GEN_POT_DRI_VITAL700, 3000000000, 0, 1);		//	È°·Âµå¸µÅ© 700
+	DropItem(II_GEN_POT_POT_ANTIDOTE, 3000000000, 0, 1);		//	ÇØµ¶¾à
+	DropItem(II_GEN_POT_POT_CUREDISEASE, 3000000000, 0, 1);		//	Áúº´Ä¡·á¾à
 
 	m_nAttackFirstRange = 10;
 	
@@ -10195,7 +10195,7 @@ MI_SMALL_MUSHPOIE
 }
 
 
-MI_DUMP1	//ë¤í”„
+MI_DUMP1	//´ýÇÁ
 {
 	Maxitem = 2;
 	DropGold(84, 122);
@@ -10362,8 +10362,8 @@ MI_DUMP4
 	DropKind(IK3_THSWD, 80, 95);
 	DropKind(IK3_THAXE, 80, 95);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -10576,8 +10576,8 @@ MI_NAUTREPY4
 	DropKind(IK3_THSWD, 70, 76);
 	DropKind(IK3_THAXE, 70, 76);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -10790,8 +10790,8 @@ MI_BOO4
 	DropKind(IK3_THSWD, 70, 81);
 	DropKind(IK3_THAXE, 70, 81);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -11003,8 +11003,8 @@ MI_HOPPRE4
 	DropKind(IK3_THSWD, 71, 81);
 	DropKind(IK3_THAXE, 71, 81);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -11226,8 +11226,8 @@ MI_MUSHPOIE4
 	DropItem(II_GEN_FOO_ICE_ICECREAMCAKE, 600000001, 0, 1);
 	DropItem(II_GEN_FOO_ICE_ICECREAMCAKE, 600000001, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -11423,8 +11423,8 @@ MI_IREN4
 	DropKind(IK3_THSWD, 73, 89);
 	DropKind(IK3_THAXE, 73, 89);
 	
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -11634,8 +11634,8 @@ MI_WATANGKA4
 	DropKind(IK3_THSWD, 73, 92);
 	DropKind(IK3_THAXE, 73, 92);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -11844,8 +11844,8 @@ MI_ANTIQUERY4
 	DropKind(IK3_THSWD, 80, 95);
 	DropKind(IK3_THAXE, 80, 95);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -12051,8 +12051,8 @@ MI_LUIA4
 	DropKind(IK3_THSWD, 80, 95);
 	DropKind(IK3_THAXE, 80, 95);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -12262,8 +12262,8 @@ MI_GONGURY4
 	DropKind(IK3_THSWD, 90, 101);
 	DropKind(IK3_THAXE, 90, 101);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -12471,8 +12471,8 @@ MI_SHUHAMMA4
 	DropKind(IK3_THSWD, 80, 101);
 	DropKind(IK3_THAXE, 80, 101);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -12678,8 +12678,8 @@ MI_KERN4
 	DropKind(IK3_THSWD, 90, 104);
 	DropKind(IK3_THAXE, 90, 104);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -12889,8 +12889,8 @@ MI_GLAPHAN4
 	DropKind(IK3_THSWD, 95, 104);
 	DropKind(IK3_THAXE, 95, 104);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -12932,8 +12932,8 @@ MI_GLAPHAN4
 
 }
 
-//ì‹ ê·œ ìƒìœ„ë ˆë²¨ ëª¬ìŠ¤í„°
-MI_KIMERADON1	//í‚¤ë©”ë¼ëˆ
+//½Å±Ô »óÀ§·¹º§ ¸ó½ºÅÍ
+MI_KIMERADON1	//Å°¸Þ¶óµ·
 {
 	Maxitem = 2;
 	DropGold(88, 128);
@@ -13128,8 +13128,8 @@ MI_KIMERADON5
 	DropKind(IK3_THSWD, 90, 101);
 	DropKind(IK3_THAXE, 90, 101);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -13165,7 +13165,7 @@ MI_KIMERADON5
    	}               
 }
 
-MI_BEARNUCKY1	// ë² ì–´ë„ˆí‚¤
+MI_BEARNUCKY1	// º£¾î³ÊÅ°
 {
 	Maxitem = 2;
 	DropGold(92, 134);
@@ -13360,8 +13360,8 @@ MI_BEARNUCKY5
 	DropKind(IK3_THSWD, 80, 101);
 	DropKind(IK3_THAXE, 80, 101);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -13397,7 +13397,7 @@ MI_BEARNUCKY5
    	}               
 }
 
-MI_MUFFRIN1	//ë¨¸í‘¸ë¦°
+MI_MUFFRIN1	//¸ÓÇª¸°
 {
 	Maxitem = 2;
 	DropGold(97, 141);
@@ -13592,8 +13592,8 @@ MI_MUFFRIN6
 	DropKind(IK3_THSWD, 90, 104);
 	DropKind(IK3_THAXE, 90, 104);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -13824,8 +13824,8 @@ MI_POPCRANK5
 	DropKind(IK3_THSWD, 95, 104);
 	DropKind(IK3_THAXE, 95, 104);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -13862,7 +13862,7 @@ MI_POPCRANK5
 }
 
 
-//ë˜ì „ìš© ëª¬ìŠ¤í„°
+//´øÀü¿ë ¸ó½ºÅÍ
 MI_DUFEFERN1
 {
 	Maxitem = 2;
@@ -13881,8 +13881,8 @@ MI_DUFEFERN1
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_RIVER, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 7500000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -13930,8 +13930,8 @@ MI_DUFEFERN2
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 7500000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -13980,8 +13980,8 @@ MI_DUFEFERN3
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_RIVER, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 	
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -14035,8 +14035,8 @@ MI_DUNYANGNYANG1
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -14081,8 +14081,8 @@ MI_DUNYANGNYANG2
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 	
-	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -14131,8 +14131,8 @@ MI_DUNYANGNYANG3
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -14180,8 +14180,8 @@ MI_DUBANG1
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -14228,8 +14228,8 @@ MI_DUBANG2
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -14276,8 +14276,8 @@ MI_DUBANG3
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_DESERT, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -14330,8 +14330,8 @@ MI_WORMVEDUQUE
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 	
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -14383,8 +14383,8 @@ MI_SERUSURIEL
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -14437,8 +14437,8 @@ MI_VICEVEDUQUE
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_RIVER, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -14469,7 +14469,7 @@ MI_VICEVEDUQUE
    	}               
 
 }
-//í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„° ì„¤ì •
+//Äù½ºÆ® ¸ó½ºÅÍ ¼³Á¤
 MI_GUARDMON1
 {
 
@@ -14788,7 +14788,7 @@ MI_KYNSY
    	}   
 }
 
-//ì¼ë°˜ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°	
+//ÀÏ¹Ý Äù½ºÆ® ¸ó½ºÅÍ	
 MI_RBANG1
 {
 
@@ -14933,7 +14933,7 @@ MI_CLOCKS
    	}   
 }
 
-//ì‹œë‚˜ë¦¬ì˜¤ í€˜ìŠ¤íŠ¸(2ì°¨) ëª¬ìŠ¤í„°	
+//½Ã³ª¸®¿À Äù½ºÆ®(2Â÷) ¸ó½ºÅÍ	
 MI_VIOLMAGICION
 {
 
@@ -15030,7 +15030,7 @@ MI_EMERALDMANTIS
    	}   
 }
 
-//ì¼ë°˜ í€˜ìŠ¤íŠ¸(ë³´ìŠ¤Mob) ëª¬ìŠ¤í„°	
+//ÀÏ¹Ý Äù½ºÆ®(º¸½ºMob) ¸ó½ºÅÍ	
 MI_ORGANIGOR
 {
 
@@ -15103,7 +15103,7 @@ MI_HADESEOR
    	}   
 }
 
-//P.K ê´€ë ¨ ê²½ë¹„ë³‘ ë° ëª¬ìŠ¤í„° ì„¸íŒ…
+//P.K °ü·Ã °æºñº´ ¹× ¸ó½ºÅÍ ¼¼ÆÃ
 
 MI_MaEw_GUARDIAN01
 {
@@ -15731,7 +15731,7 @@ MI_ANTTURTLE
    	}               
 }
 
-//ë°ì¹´ë„¤ìŠ¤ ë˜ì „ê´€ë ¨ ëª¬ìŠ¤í„°
+//µ¥Ä«³×½º ´øÀü°ü·Ã ¸ó½ºÅÍ
 MI_DU_DKKEAKOON1
 {
 
@@ -15751,8 +15751,8 @@ MI_DU_DKKEAKOON1
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 	
-	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -15800,8 +15800,8 @@ MI_DU_DKKEAKOON2
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3250000, 0, 1);
@@ -15852,8 +15852,8 @@ MI_DU_DKKEAKOON3
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -15901,8 +15901,8 @@ MI_DU_DKKEAKOON4
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -15949,8 +15949,8 @@ MI_DU_DKKEAKOON5
 
 
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -15998,8 +15998,8 @@ MI_DU_DKKEAKOON6
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -16047,8 +16047,8 @@ MI_DU_DKKEAKOON7
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_DESERT, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -16096,8 +16096,8 @@ MI_DU_DKKEAKOON8
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_RIVER, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -16143,8 +16143,8 @@ MI_DU_DKKEAKOON9
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -16189,8 +16189,8 @@ MI_DU_DKKEAKOON10
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -16239,8 +16239,8 @@ MI_DU_DKKEAKOON11
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -16333,8 +16333,8 @@ MI_DU_DKROACHFL1
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -16379,8 +16379,8 @@ MI_DU_DKROACHFL2
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
 
@@ -16427,8 +16427,8 @@ MI_DU_DKROACHFL3
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -16476,8 +16476,8 @@ MI_DU_DKROACHFL4
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -16609,8 +16609,8 @@ MI_DU_DKTRILLIPY1
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_DESERT, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -16659,8 +16659,8 @@ MI_DU_DKTRILLIPY2
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_DESERT, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -16706,8 +16706,8 @@ MI_DU_DKTRILLIPY3
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 	
-	DropItem(II_GEN_MAT_ELE_CYCLON, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -16756,8 +16756,8 @@ MI_DU_DKTRILLIPY4
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -16803,8 +16803,8 @@ MI_DU_DKTRILLIPY5
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //ì†ì„± ì¹´ë“œ3 0.025%
-	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.05%
+	DropItem(II_GEN_MAT_ELE_FLAME, 2812500, 0, 1); //¼Ó¼º Ä«µå3 0.025%
+	DropItem(II_GEN_MAT_ELE_FLAME, 3750000, 0, 1); //¼Ó¼º Ä«µå2 0.05%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3000000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 3050000, 0, 1);
@@ -16851,8 +16851,8 @@ MI_DU_DKTRILLIPY6
 	DropKind(IK3_BOW, 6, 6);
 	DropKind(IK3_YOYO, 6, 6);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.25%
-	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 7500000, 0, 1); //¼Ó¼º Ä«µå3 0.25%
+	DropItem(II_GEN_MAT_ELE_FLAME, 15000000, 0, 1); //¼Ó¼º Ä«µå2 0.5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 11262500, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 920000, 0, 1);
@@ -17411,7 +17411,7 @@ MI_DU_METEONYKER2
 		}
 	}
 }
-// ì´ë²¤íŠ¸ìš© ëª¬ìŠ¤í„° ì„¸íŒ…
+// ÀÌº¥Æ®¿ë ¸ó½ºÅÍ ¼¼ÆÃ
 MI_DEMIAN5
 {
 	Maxitem = 16;
@@ -17467,7 +17467,7 @@ MI_MUFFRIN5
 	m_nAttackFirstRange = 8;
 }
 
-// ë¯¸êµ­ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°
+// ¹Ì±¹ ÀÌº¥Æ® ¸ó½ºÅÍ
 
 MI_LOADCLOCKWORK
 {
@@ -17526,7 +17526,7 @@ MI_LOADCLOCKWORK
 	DropItem(II_ARM_F_MER_SET01HELMET, 140000000, 0, 1);
 	DropItem(II_ARM_F_ASS_SET01HELMET, 140000000, 0, 1);
         DropItem(II_ARM_ARM_SHI_RUKENSHIA, 500000000, 0, 1);         
-        DropItem(II_ARM_ARM_SHI_TOEFFIN, 500000000, 0, 1);	//(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+        DropItem(II_ARM_ARM_SHI_TOEFFIN, 500000000, 0, 1);	//(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
         DropItem(II_ARM_ARM_SHI_TOEFFIN, 500000000, 0, 1);            
         DropItem(II_ARM_ARM_SHI_CATEPO, 500000000, 0, 1);
 	DropItem(II_GEN_JEW_EAR_ATTEARRING, 1500000000, 12, 1);
@@ -17755,7 +17755,7 @@ MI_GLYPHAXZ
 }
 
 
-//ì´ë¸”ë¦¬ìŠ¤ì˜ ì‚¬ì› ëª¬ìŠ¤í„°
+//ÀÌºí¸®½ºÀÇ »ç¿ø ¸ó½ºÅÍ
 
 MI_IBLCRASHER
 {
@@ -18166,42 +18166,42 @@ MI_IBLBOXTER
         DropItem(II_WEA_YOY_IBLLINESS, 500000, 0, 1);
         DropItem(II_ARM_ARM_SHI_CONTRA, 500000, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_CANDLE, 3000000, 0, 1);		//	ìº”ë“¤ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RAIN, 3000000, 0, 1);			//	ë ˆì¸ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_BREEZE, 3000000, 0, 1);		//	ë¸Œë¦¬ì¦ˆ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_SPARK, 3000000, 0, 1);		        //	ìŠ¤íŒŒí¬ ì¹´ë“œ
-        DropItem(II_GEN_MAT_ELE_SAND, 3000000, 0, 1);                  //      ìŒ˜ë“œ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_FLAME, 3000000, 0, 1);		        //	í† ì¹˜ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RIVER, 3000000, 0, 1);			//	ë ˆì´í¬ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3000000, 0, 1);		//	ë³¼í…Œì´ì§€ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_DESERT, 3000000, 0, 1);		        //	ìŠ¤í†¤ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3000000, 0, 1);			//	ê²Œì¼ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_FLAME, 2000000, 0, 1);		        //	í”Œë ˆìž„ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_RIVER, 2000000, 0, 1);		        //	ë¦¬ë²„ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 2000000, 0, 1);		//	ì œë„ˆë ˆì´í„° ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_DESERT, 2000000, 0, 1);			//	ë°ì €íŠ¸ ì¹´ë“œ
-	DropItem(II_GEN_MAT_ELE_CYCLON, 2000000, 0, 1);			//	ì‹¸ì´í´ë¡  ì¹´ë“œ
+	DropItem(II_GEN_MAT_ELE_CANDLE, 3000000, 0, 1);		//	Äµµé Ä«µå
+	DropItem(II_GEN_MAT_ELE_RAIN, 3000000, 0, 1);			//	·¹ÀÎ Ä«µå
+	DropItem(II_GEN_MAT_ELE_BREEZE, 3000000, 0, 1);		//	ºê¸®Áî Ä«µå
+	DropItem(II_GEN_MAT_ELE_SPARK, 3000000, 0, 1);		        //	½ºÆÄÅ© Ä«µå
+        DropItem(II_GEN_MAT_ELE_SAND, 3000000, 0, 1);                  //      ½Úµå Ä«µå
+	DropItem(II_GEN_MAT_ELE_FLAME, 3000000, 0, 1);		        //	ÅäÄ¡ Ä«µå
+	DropItem(II_GEN_MAT_ELE_RIVER, 3000000, 0, 1);			//	·¹ÀÌÅ© Ä«µå
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3000000, 0, 1);		//	º¼Å×ÀÌÁö Ä«µå
+	DropItem(II_GEN_MAT_ELE_DESERT, 3000000, 0, 1);		        //	½ºÅæ Ä«µå
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3000000, 0, 1);			//	°ÔÀÏ Ä«µå
+	DropItem(II_GEN_MAT_ELE_FLAME, 2000000, 0, 1);		        //	ÇÃ·¹ÀÓ Ä«µå
+	DropItem(II_GEN_MAT_ELE_RIVER, 2000000, 0, 1);		        //	¸®¹ö Ä«µå
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 2000000, 0, 1);		//	Á¦³Ê·¹ÀÌÅÍ Ä«µå
+	DropItem(II_GEN_MAT_ELE_DESERT, 2000000, 0, 1);			//	µ¥ÀúÆ® Ä«µå
+	DropItem(II_GEN_MAT_ELE_CYCLON, 2000000, 0, 1);			//	½ÎÀÌÅ¬·Ð Ä«µå
 
-        DropItem(II_GEN_GEM_GEM_POPORAM, 100000000, 0, 1);		//	í¬í¬ëžŒ
-	DropItem(II_GEN_GEM_GEM_SLAIN, 100000000, 0, 1);		//	ìŠ¬ë ˆì¸
-	DropItem(II_GEN_GEM_GEM_TARINROOT, 100000000, 0, 1);		//	íƒ€ë¦°ë¿Œë¦¬
-	DropItem(II_GEN_GEM_GEM_STARSTONE, 100000000, 0, 1);		//	ë³„ì„
-	DropItem(II_GEN_GEM_GEM_GOLDENWING, 100000000, 0, 1);		//	í™©ê¸ˆë‚ ê°œ
-	DropItem(II_GEN_GEM_GEM_BLUEHONEY, 100000000, 0, 1);		//	ë¸”ë£¨í—ˆë‹ˆ
-	DropItem(II_GEN_GEM_GEM_MIADOLL, 100000000, 0, 1);		//	ë¯¸ì•„ì˜ ì¸í˜•
-	DropItem(II_GEN_GEM_GEM_FURIOUSMATCH, 100000000, 0, 1);	        //	ì—´í™”ì„±ëƒ¥
-	DropItem(II_GEN_GEM_GEM_CARDRIN, 100000000, 0, 1);		//	ì¹´ë“œë¦°
-	DropItem(II_GEN_GEM_GEM_HAMMARBLE, 100000000, 0, 1);		//	í–„ë§ˆë¸”
-	DropItem(II_GEN_GEM_GEM_GIGGLANDE, 100000000, 0, 1);		//	ê¸°ê¸€ë ë“œ
-	DropItem(II_GEN_GEM_GEM_MOONSTONE, 100000000, 0, 1);		//	ì›”ìž¥ì„
-	DropItem(II_GEN_GEM_GEM_BOBAND, 100000000, 0, 1);		//	ë³´ìš°ë°´ë“œ
-	DropItem(II_GEN_GEM_GEM_DUMBLING, 100000000, 0, 1);		//	ë¤ë¸”ë§
-	DropItem(II_GEN_GEM_GEM_KALIN, 100000000, 0, 1);		//	ì¹¼ë¦°ë¸Œë¡œì°Œ
-	DropItem(II_GEN_GEM_GEM_CLOCKHEART, 100000000, 0, 1);		//	í´ëŸ­í•˜íŠ¸
-	DropItem(II_GEN_GEM_GEM_TOMBMARBLE, 100000000, 0, 1);		//	íˆ¼ë§ˆë¸”
-	DropItem(II_GEN_GEM_GEM_GOLDENFIST, 100000000, 0, 1);		//	í™©ê¸ˆì£¼ë¨¹
-	DropItem(II_GEN_GEM_GEM_ORBRIN, 100000000, 0, 1);		//	ì˜¤ë¸Œë¦°
-	DropItem(II_GEN_GEM_GEM_GOLDENCUP, 100000000, 0, 1);		//	í™©ê¸ˆì»µ
+        DropItem(II_GEN_GEM_GEM_POPORAM, 100000000, 0, 1);		//	Æ÷Æ÷¶÷
+	DropItem(II_GEN_GEM_GEM_SLAIN, 100000000, 0, 1);		//	½½·¹ÀÎ
+	DropItem(II_GEN_GEM_GEM_TARINROOT, 100000000, 0, 1);		//	Å¸¸°»Ñ¸®
+	DropItem(II_GEN_GEM_GEM_STARSTONE, 100000000, 0, 1);		//	º°¼®
+	DropItem(II_GEN_GEM_GEM_GOLDENWING, 100000000, 0, 1);		//	È²±Ý³¯°³
+	DropItem(II_GEN_GEM_GEM_BLUEHONEY, 100000000, 0, 1);		//	ºí·çÇã´Ï
+	DropItem(II_GEN_GEM_GEM_MIADOLL, 100000000, 0, 1);		//	¹Ì¾ÆÀÇ ÀÎÇü
+	DropItem(II_GEN_GEM_GEM_FURIOUSMATCH, 100000000, 0, 1);	        //	¿­È­¼º³É
+	DropItem(II_GEN_GEM_GEM_CARDRIN, 100000000, 0, 1);		//	Ä«µå¸°
+	DropItem(II_GEN_GEM_GEM_HAMMARBLE, 100000000, 0, 1);		//	ÇÜ¸¶ºí
+	DropItem(II_GEN_GEM_GEM_GIGGLANDE, 100000000, 0, 1);		//	±â±Û·Àµå
+	DropItem(II_GEN_GEM_GEM_MOONSTONE, 100000000, 0, 1);		//	¿ùÀå¼®
+	DropItem(II_GEN_GEM_GEM_BOBAND, 100000000, 0, 1);		//	º¸¿ì¹êµå
+	DropItem(II_GEN_GEM_GEM_DUMBLING, 100000000, 0, 1);		//	´ýºí¸µ
+	DropItem(II_GEN_GEM_GEM_KALIN, 100000000, 0, 1);		//	Ä®¸°ºê·ÎÂî
+	DropItem(II_GEN_GEM_GEM_CLOCKHEART, 100000000, 0, 1);		//	Å¬·°ÇÏÆ®
+	DropItem(II_GEN_GEM_GEM_TOMBMARBLE, 100000000, 0, 1);		//	Åù¸¶ºí
+	DropItem(II_GEN_GEM_GEM_GOLDENFIST, 100000000, 0, 1);		//	È²±ÝÁÖ¸Ô
+	DropItem(II_GEN_GEM_GEM_ORBRIN, 100000000, 0, 1);		//	¿Àºê¸°
+	DropItem(II_GEN_GEM_GEM_GOLDENCUP, 100000000, 0, 1);		//	È²±ÝÄÅ
 
 	m_nAttackFirstRange = 10;
 
@@ -19111,7 +19111,7 @@ MI_EVENT04
    	}               
 }
 
-//12ì°¨ ë²„ì „ ì¶”ê°€ ëª¬ìŠ¤í„°(ìž„ì‹œë²„ì „)
+//12Â÷ ¹öÀü Ãß°¡ ¸ó½ºÅÍ(ÀÓ½Ã¹öÀü)
 MI_CAITSITH01
 {
 	Maxitem = 2;
@@ -19208,8 +19208,8 @@ MI_CAITSITH04
 	DropKind(IK3_BOW, 61, 68);
 	DropKind(IK3_YOYO, 61, 68);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -19397,8 +19397,8 @@ MI_HARPY04
 	DropKind(IK3_THSWD, 70, 76);
 	DropKind(IK3_THAXE, 70, 76);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -19587,8 +19587,8 @@ MI_POLEVIK04
 	DropKind(IK3_THSWD, 71, 81);
 	DropKind(IK3_THAXE, 71, 81);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -19777,8 +19777,8 @@ MI_ABRAXAS04
 	DropKind(IK3_THSWD, 73, 89);
 	DropKind(IK3_THAXE, 73, 89);
 	
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -19967,8 +19967,8 @@ MI_HAG04
 	DropKind(IK3_THSWD, 80, 95);
 	DropKind(IK3_THAXE, 80, 95);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -20157,8 +20157,8 @@ MI_THOTH04
 	DropKind(IK3_THSWD, 90, 101);
 	DropKind(IK3_THAXE, 90, 101);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -20349,8 +20349,8 @@ MI_KHNEMU04
 	DropKind(IK3_THSWD, 90, 104);
 	DropKind(IK3_THAXE, 90, 104);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -20539,30 +20539,30 @@ MI_DANTALIAN04
 	DropItem(II_GEN_MAT_ORICHALCUM01, 2455000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1256000, 0, 1);
 
-	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 1500000, 0, -1, 5, 18); //ê³ ì–´ë„¤í´ë¦¬ìŠ¤+1
-	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 1500000, 0, -1, 5, 18); //ë©˜íƒˆë„¤í´ë¦¬ìŠ¤+1
-	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 1500000, 1, -1, 5, 18); //íŽ˜ì´ì…˜ë„¤í´ë¦¬ìŠ¤+1
-	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 1500000, 1, -1, 19, 26); //ê³ ì–´ë„¤í´ë¦¬ìŠ¤+2
-	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 1500000, 3, -1, 19, 26); //ë©˜íƒˆë„¤í´ë¦¬ìŠ¤+2
-	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 1500000, 4, -1, 19, 26); //íŽ˜ì´ì…˜ë„¤í´ë¦¬ìŠ¤+2
-	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 1500000, 3, -1, 27, 36); //ê³ ì–´ë„¤í´ë¦¬ìŠ¤+3
-	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 1500000, 7, -1, 27, 36); //ë©˜íƒˆë„¤í´ë¦¬ìŠ¤+3
-	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 1500000, 7, -1, 19, 26); //íŽ˜ì´ì…˜ë„¤í´ë¦¬ìŠ¤+3
-	DropItem(II_GEN_JEW_RIN_DEXRING, 3000000, 3, 1); // ì–´ë ‰ë§+3
-	DropItem(II_GEN_JEW_RIN_STARING, 3000000, 3, 1); // ìŠ¤íƒ¬ë§+3
-	DropItem(II_GEN_JEW_RIN_DEXRING, 2500000, 4, 1); // ì–´ë ‰ë§+4
-	DropItem(II_GEN_JEW_RIN_STARING, 2500000, 4, 1); // ìŠ¤íƒ¬ë§+4
+	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 1500000, 0, -1, 5, 18); //°í¾î³×Å¬¸®½º+1
+	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 1500000, 0, -1, 5, 18); //¸àÅ»³×Å¬¸®½º+1
+	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 1500000, 1, -1, 5, 18); //ÆäÀÌ¼Ç³×Å¬¸®½º+1
+	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 1500000, 1, -1, 19, 26); //°í¾î³×Å¬¸®½º+2
+	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 1500000, 3, -1, 19, 26); //¸àÅ»³×Å¬¸®½º+2
+	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 1500000, 4, -1, 19, 26); //ÆäÀÌ¼Ç³×Å¬¸®½º+2
+	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 1500000, 3, -1, 27, 36); //°í¾î³×Å¬¸®½º+3
+	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 1500000, 7, -1, 27, 36); //¸àÅ»³×Å¬¸®½º+3
+	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 1500000, 7, -1, 19, 26); //ÆäÀÌ¼Ç³×Å¬¸®½º+3
+	DropItem(II_GEN_JEW_RIN_DEXRING, 3000000, 3, 1); // ¾î·º¸µ+3
+	DropItem(II_GEN_JEW_RIN_STARING, 3000000, 3, 1); // ½ºÅÆ¸µ+3
+	DropItem(II_GEN_JEW_RIN_DEXRING, 2500000, 4, 1); // ¾î·º¸µ+4
+	DropItem(II_GEN_JEW_RIN_STARING, 2500000, 4, 1); // ½ºÅÆ¸µ+4
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_POT_DRI_VITAL800,  110000000, 0, 1);
 	DropItem(II_GEN_REF_REF_EIGHTH, 420000000, 0, 1);
@@ -20747,24 +20747,24 @@ MI_GANESA04
 	DropItem(II_GEN_MAT_ORICHALCUM01, 2455000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1256000, 0, 1);
 
-	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 3000000, 4, -1, 19, 26); //ê³ ì–´ë„¤í´ë¦¬ìŠ¤+4
-	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 3000000, 11, -1, 19, 26); //ë©˜íƒˆë„¤í´ë¦¬ìŠ¤+4
-	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 3000000, 11, -1, 19, 26); //íŽ˜ì´ì…˜ë„¤í´ë¦¬ìŠ¤+4
-	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 1000000, 5, -1, 19, 26); //ê³ ì–´ë„¤í´ë¦¬ìŠ¤+5
-	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 1000000, 15, -1, 19, 26); //ë©˜íƒˆë„¤í´ë¦¬ìŠ¤+5
-	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 1000000, 14, -1, 19, 26); //íŽ˜ì´ì…˜ë„¤í´ë¦¬ìŠ¤+5
-	DropItem(II_GEN_JEW_NEC_HPNECKLACE,  500000, 6, -1, 19, 26); //ê³ ì–´ë„¤í´ë¦¬ìŠ¤+6
-	DropItem(II_GEN_JEW_NEC_MPNECKLACE,  500000, 15, -1, 19, 26); //ë©˜íƒˆë„¤í´ë¦¬ìŠ¤+6
-	DropItem(II_GEN_JEW_NEC_FPNECKLACE,  500000, 19, -1, 19, 26); //íŽ˜ì´ì…˜ë„¤í´ë¦¬ìŠ¤+6
+	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 3000000, 4, -1, 19, 26); //°í¾î³×Å¬¸®½º+4
+	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 3000000, 11, -1, 19, 26); //¸àÅ»³×Å¬¸®½º+4
+	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 3000000, 11, -1, 19, 26); //ÆäÀÌ¼Ç³×Å¬¸®½º+4
+	DropItem(II_GEN_JEW_NEC_HPNECKLACE, 1000000, 5, -1, 19, 26); //°í¾î³×Å¬¸®½º+5
+	DropItem(II_GEN_JEW_NEC_MPNECKLACE, 1000000, 15, -1, 19, 26); //¸àÅ»³×Å¬¸®½º+5
+	DropItem(II_GEN_JEW_NEC_FPNECKLACE, 1000000, 14, -1, 19, 26); //ÆäÀÌ¼Ç³×Å¬¸®½º+5
+	DropItem(II_GEN_JEW_NEC_HPNECKLACE,  500000, 6, -1, 19, 26); //°í¾î³×Å¬¸®½º+6
+	DropItem(II_GEN_JEW_NEC_MPNECKLACE,  500000, 15, -1, 19, 26); //¸àÅ»³×Å¬¸®½º+6
+	DropItem(II_GEN_JEW_NEC_FPNECKLACE,  500000, 19, -1, 19, 26); //ÆäÀÌ¼Ç³×Å¬¸®½º+6
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -20967,25 +20967,25 @@ MI_ASURA04
 	DropItem(II_GEN_JEW_RIN_DEXRING,  500000, 6, 1);
 	DropItem(II_GEN_JEW_RIN_STARING,  500000, 6, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -22811,25 +22811,25 @@ MI_Crohell04
 	DropItem(II_GEN_MAT_ORICHALCUM01, 2455000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1256000, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -23027,25 +23027,25 @@ MI_Frinker04
 	DropItem(II_GEN_MAT_ORICHALCUM01, 2455000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1256000, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -23243,16 +23243,16 @@ MI_Toadrin04
 	DropItem(II_GEN_MAT_ORICHALCUM01, 2455000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1256000, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_POT_DRI_VITAL800,  110000000, 0, 1);
 	DropItem(II_GEN_REF_REF_EIGHTH, 420000000, 0, 1);
@@ -23453,10 +23453,10 @@ MI_Hatsalra04
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -23655,16 +23655,16 @@ MI_Berken04
 	DropItem(II_GEN_MAT_ORICHALCUM01, 2455000, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1256000, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_POT_DRI_VITAL800,  110000000, 0, 1);
 	DropItem(II_GEN_REF_REF_EIGHTH, 420000000, 0, 1);
@@ -23863,25 +23863,25 @@ MI_PRICKANT04
 	DropItem(II_GEN_GEM_GEM_ANTEGG, 200000000, 0, 1);
 	
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -24079,25 +24079,25 @@ MI_CRIPESCENTIPEDE04
 	DropItem(II_GEN_MAT_MOONSTONE, 1256000, 0, 1);
 	DropItem(II_GEN_GEM_GEM_OILLEG, 200000000, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -24295,25 +24295,25 @@ MI_MAULMOUSE04
 	DropItem(II_GEN_MAT_MOONSTONE, 1256000, 0, 1);
 	DropItem(II_GEN_GEM_GEM_NICECHEESE, 200000000, 0, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -24690,25 +24690,25 @@ MI_PRICKANT04_1
 	DropItem(II_GEN_JEW_RIN_DEXRING,  500000, 6, 1);
 	DropItem(II_GEN_JEW_RIN_STARING,  500000, 6, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -24921,25 +24921,25 @@ MI_CRIPESCENTIPEDE04_1
 	DropItem(II_GEN_JEW_RIN_DEXRING,  500000, 6, 1);
 	DropItem(II_GEN_JEW_RIN_STARING,  500000, 6, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -25153,25 +25153,25 @@ MI_MAULMOUSE04_1
 	DropItem(II_GEN_JEW_RIN_DEXRING,  500000, 6, 1);
 	DropItem(II_GEN_JEW_RIN_STARING,  500000, 6, 1);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ3 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
-	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//ì†ì„± ì¹´ë“œ2
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_FLAME, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_RIVER, 		2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_CYCLON, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_DESERT, 	2000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå3 
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 	5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_RIVER, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_FLAME, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_CYCLON, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
+	DropItem(II_GEN_MAT_ELE_DESERT, 		5000000, 0, -1, 20, 130 ); 	//¼Ó¼º Ä«µå2
 
 	DropItem(II_GEN_MAT_ELE_CANDLE,		 200000, 0, -1, 20, 49 ); 	//HP2% 
 	DropItem(II_GEN_MAT_ELE_MAGMA,		 100000, 0, -1, 50, 79 ); 	//HP4% 
 	DropItem(II_GEN_MAT_ELE_RAIN,		 200000, 0, -1, 20, 49 ); 	//MP2%
 	DropItem(II_GEN_MAT_ELE_FLOOD,		 100000, 0, -1, 50, 79 ); 	//MP4%
-	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//ê³µê²©ë ¥2%
-	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//ê³µê²©ë ¥4%
-	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//ë°©ì–´ë ¥2%
-	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//ë°©ì–´ë ¥4%
+	DropItem(II_GEN_MAT_ELE_SPARK,		 200000, 0, -1, 20, 49 ); 	//°ø°Ý·Â2%
+	DropItem(II_GEN_MAT_ELE_THUNDER,	 100000, 0, -1, 50, 79 ); 	//°ø°Ý·Â4%
+	DropItem(II_GEN_MAT_ELE_SAND,		 200000, 0, -1, 20, 49 ); 	//¹æ¾î·Â2%
+	DropItem(II_GEN_MAT_ELE_MOUNTAIN,	 100000, 0, -1, 50, 79 ); 	//¹æ¾î·Â4%
 	DropItem(II_GEN_MAT_ELE_BREEZE,		 200000, 0, -1, 20, 49 ); 	//FP2%
 	DropItem(II_GEN_MAT_ELE_STORM,		 100000, 0, -1, 50, 79 ); 	//FP4%
 
@@ -25412,7 +25412,7 @@ MI_MOCOMOCHI1
    	}                
 }
 
-//15ì°¨ ëª¬ìŠ¤í„°
+//15Â÷ ¸ó½ºÅÍ
 MI_SKELWOLF
 {
 	Maxitem = 2;
@@ -27324,7 +27324,7 @@ MI_TUTTLEKING01
 
 
 
-//16ì°¨ ì¹´ì¼ë£¬ ì´ˆì›
+//16Â÷ Ä«ÀÏ·é ÃÊ¿ø
 
 
 MI_PUPPETWOLF
@@ -27782,7 +27782,7 @@ MI_DUMBBULL5
 }
 
 
-//16ì°¨ ë² ížˆëª¨ìŠ¤
+//16Â÷ º£È÷¸ð½º
 
 MI_STATUE
 {
@@ -28245,7 +28245,7 @@ MI_TGLUIA01
 }
 
 
-//17ì°¨ ëª¬ìŠ¤í„°
+//17Â÷ ¸ó½ºÅÍ
 
 MI_RUGALHEAT01
 {
@@ -28769,10 +28769,10 @@ MI_BASILISK
 }
 
 
-//17ì°¨ ì¸ë˜
+//17Â÷ ÀÎ´ø
 
 
-MI_KALGASKUMA01  //ì§€í•˜ì˜ ë§ë ¹ ì¿ ë§ˆ
+MI_KALGASKUMA01  //ÁöÇÏÀÇ ¸Á·É Äí¸¶
 {
 	Maxitem = 2;
 	DropGold(224, 305);
@@ -28821,7 +28821,7 @@ MI_KALGASKUMA01  //ì§€í•˜ì˜ ë§ë ¹ ì¿ ë§ˆ
 }
 
 
-MI_KALGASRIMA01		//ì§€í•˜ì˜ ë§ë ¹ ë¦¬ë§ˆ
+MI_KALGASRIMA01		//ÁöÇÏÀÇ ¸Á·É ¸®¸¶
 {
 	Maxitem = 2;
 	DropGold(224, 305);
@@ -28872,7 +28872,7 @@ MI_KALGASRIMA01		//ì§€í•˜ì˜ ë§ë ¹ ë¦¬ë§ˆ
 }
 
 
-MI_KALGASBABY01		//ë² ì´ë¹„ ì¹´ë¥´ê³ 
+MI_KALGASBABY01		//º£ÀÌºñ Ä«¸£°í
 {
 	Maxitem = 2;
 	DropGold(224, 305);
@@ -28922,7 +28922,7 @@ MI_KALGASBABY01		//ë² ì´ë¹„ ì¹´ë¥´ê³ 
 }
 
 
-MI_KALGASFLY01		//í”Œë¼ì´ ì¹´ë¥´ê³ 
+MI_KALGASFLY01		//ÇÃ¶óÀÌ Ä«¸£°í
 {
 	Maxitem = 2;
 	DropGold(224, 305);
@@ -28973,7 +28973,7 @@ MI_KALGASFLY01		//í”Œë¼ì´ ì¹´ë¥´ê³ 
 }
 
 
-MI_KALGASLESSER01		//ë ˆì„œ ì¹¼ê°€ìŠ¤
+MI_KALGASLESSER01		//·¹¼­ Ä®°¡½º
 {
 	Maxitem = 2;
 	DropGold(224, 305);
@@ -29024,7 +29024,7 @@ MI_KALGASLESSER01		//ë ˆì„œ ì¹¼ê°€ìŠ¤
 }
 
 
-MI_KALGASAKIN01		//ì—í‚¨
+MI_KALGASAKIN01		//¿¡Å²
 {
 	Maxitem = 2;
 	DropGold(224, 305);
@@ -29101,7 +29101,7 @@ MI_KALGASAKIN01		//ì—í‚¨
 }
 
 
-MI_KALGASBALT01		//ë°œíŠ¸
+MI_KALGASBALT01		//¹ßÆ®
 {
 	Maxitem = 2;
 	DropGold(224, 305);
@@ -29176,7 +29176,7 @@ MI_KALGASBALT01		//ë°œíŠ¸
    	}               
 }
 
-MI_KALGASBOSS		//ì¹¼ê°€ìŠ¤
+MI_KALGASBOSS		//Ä®°¡½º
 {
 	Maxitem = 8;
 	DropGold(1976000, 2432000);
@@ -29360,7 +29360,7 @@ MI_KALGASBOSS		//ì¹¼ê°€ìŠ¤
 
 
 
-MI_KALGASSTELE01			//ì—í‚¨ ì„ìƒ
+MI_KALGASSTELE01			//¿¡Å² ¼®»ó
 {
 	AI
 	{
@@ -29379,7 +29379,7 @@ MI_KALGASSTELE01			//ì—í‚¨ ì„ìƒ
 
 
 
-MI_KALGASSTELE02			//ë°œíŠ¸ ì„ìƒ
+MI_KALGASSTELE02			//¹ßÆ® ¼®»ó
 {
 	AI
 	{
@@ -29397,7 +29397,7 @@ MI_KALGASSTELE02			//ë°œíŠ¸ ì„ìƒ
 
 
 
-MI_KALGASEGG01			// ì¹¼ê°€ìŠ¤ ì•Œ
+MI_KALGASEGG01			// Ä®°¡½º ¾Ë
 {
 	AI
 	{
@@ -29414,7 +29414,7 @@ MI_KALGASEGG01			// ì¹¼ê°€ìŠ¤ ì•Œ
 }
 
 
-MI_COLOBANG // ê±°ëŒ€ë±…
+MI_COLOBANG // °Å´ë¹ð
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -29441,8 +29441,8 @@ MI_COLOBANG // ê±°ëŒ€ë±…
 	DropKind(IK3_BOW, 17, 24);
 	DropKind(IK3_YOYO, 17, 24);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29481,7 +29481,7 @@ MI_COLOBANG // ê±°ëŒ€ë±…
    	}               
 }
 
-MI_COLOWAGJAK // ê±°ëŒ€ ì™€ê·¸ìž‘
+MI_COLOWAGJAK // °Å´ë ¿Í±×ÀÛ
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -29500,8 +29500,8 @@ MI_COLOWAGJAK // ê±°ëŒ€ ì™€ê·¸ìž‘
 	DropKind(IK3_BOW, 19, 26);
 	DropKind(IK3_YOYO, 19, 26);
 	
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29533,7 +29533,7 @@ MI_COLOWAGJAK // ê±°ëŒ€ ì™€ê·¸ìž‘
    	}               
 }
 
-MI_COLOREDMANTIS // ê±°ëŒ€ ë ˆë“œë§¨í‹°ìŠ¤
+MI_COLOREDMANTIS // °Å´ë ·¹µå¸ÇÆ¼½º
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -29552,8 +29552,8 @@ MI_COLOREDMANTIS // ê±°ëŒ€ ë ˆë“œë§¨í‹°ìŠ¤
 	DropKind(IK3_BOW, 25, 32);
 	DropKind(IK3_YOYO, 25, 32);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29589,7 +29589,7 @@ MI_COLOREDMANTIS // ê±°ëŒ€ ë ˆë“œë§¨í‹°ìŠ¤
    	}               
 }
 
-MI_COLOJACKTHEHAMMER // ê±°ëŒ€ ìž­ë”í•´ë¨¸
+MI_COLOJACKTHEHAMMER // °Å´ë Àè´õÇØ¸Ó
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -29612,8 +29612,8 @@ MI_COLOJACKTHEHAMMER // ê±°ëŒ€ ìž­ë”í•´ë¨¸
 	DropKind(IK3_BOW, 27, 34);
 	DropKind(IK3_YOYO, 27, 34);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29653,7 +29653,7 @@ MI_COLOJACKTHEHAMMER // ê±°ëŒ€ ìž­ë”í•´ë¨¸
    	}               
 }
 
-MI_COLOBERKRO // ê±°ëŒ€ ë²„í¬ë¡œ
+MI_COLOBERKRO // °Å´ë ¹öÅ©·Î
 {
 	Maxitem = 8;
 	DropGold(200000 , 300000);
@@ -29674,8 +29674,8 @@ MI_COLOBERKRO // ê±°ëŒ€ ë²„í¬ë¡œ
 	DropKind(IK3_BOW, 31, 38);
 	DropKind(IK3_YOYO, 31, 38);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29719,7 +29719,7 @@ MI_COLOBERKRO // ê±°ëŒ€ ë²„í¬ë¡œ
    	}               
 }
 
-MI_COLOHOWBOW // ê±°ëŒ€ í˜¸ìš°ë³´ìš°
+MI_COLOHOWBOW // °Å´ë È£¿ìº¸¿ì
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -29738,8 +29738,8 @@ MI_COLOHOWBOW // ê±°ëŒ€ í˜¸ìš°ë³´ìš°
 	DropKind(IK3_BOW, 33, 40);
 	DropKind(IK3_YOYO, 33, 40);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29779,7 +29779,7 @@ MI_COLOHOWBOW // ê±°ëŒ€ í˜¸ìš°ë³´ìš°
    	}               
 }
 
-MI_COLOROKEPELER // ê±°ëŒ€ ë¡œì¼€íŽ ëŸ¬
+MI_COLOROKEPELER // °Å´ë ·ÎÄÉÆç·¯
 {
 	Maxitem = 2;
 	DropGold(200000 , 300000);
@@ -29787,8 +29787,8 @@ MI_COLOROKEPELER // ê±°ëŒ€ ë¡œì¼€íŽ ëŸ¬
 	DropItem(II_GEN_JEW_EAR_ATTEARRING, 30000000, 3, 1);
 	DropItem(II_GEN_JEW_EAR_DEFEARRING, 30000000, 9, 1);
 
-	DropItem(II_GEN_MAT_ELE_FLAME, 75000000, 0, 1); //ì†ì„± ì¹´ë“œ3 2.5%
-	DropItem(II_GEN_MAT_ELE_FLAME, 150000000, 0, 1); //ì†ì„± ì¹´ë“œ2 5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 75000000, 0, 1); //¼Ó¼º Ä«µå3 2.5%
+	DropItem(II_GEN_MAT_ELE_FLAME, 150000000, 0, 1); //¼Ó¼º Ä«µå2 5%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29817,7 +29817,7 @@ MI_COLOROKEPELER // ê±°ëŒ€ ë¡œì¼€íŽ ëŸ¬
 
 }
 
-MI_COLOSTIMEWORK // ê±°ëŒ€ ìŠ¤íŒ€ì›Œì»¤
+MI_COLOSTIMEWORK // °Å´ë ½ºÆÀ¿öÄ¿
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -29836,8 +29836,8 @@ MI_COLOSTIMEWORK // ê±°ëŒ€ ìŠ¤íŒ€ì›Œì»¤
 	DropKind(IK3_BOW, 51, 58);
 	DropKind(IK3_YOYO, 51, 58);
 
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_GENERATOR, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29881,7 +29881,7 @@ MI_COLOSTIMEWORK // ê±°ëŒ€ ìŠ¤íŒ€ì›Œì»¤
 
 }
 
-MI_COLOGRREUNG // ê±°ëŒ€ ê·¸ë¥´ë¦‰
+MI_COLOGRREUNG // °Å´ë ±×¸£¸ª
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -29916,8 +29916,8 @@ MI_COLOGRREUNG // ê±°ëŒ€ ê·¸ë¥´ë¦‰
 	DropKind(IK3_THSWD, 80, 95);
 	DropKind(IK3_THAXE, 80, 95);
 
-	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_RIVER, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_RIVER, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -29961,7 +29961,7 @@ MI_COLOGRREUNG // ê±°ëŒ€ ê·¸ë¥´ë¦‰
    	}               
 }
 
-MI_COLOGRIMONG // ê±°ëŒ€ ê·¸ë¦¬ëª½
+MI_COLOGRIMONG // °Å´ë ±×¸®¸ù
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -29996,8 +29996,8 @@ MI_COLOGRIMONG // ê±°ëŒ€ ê·¸ë¦¬ëª½
 	DropKind(IK3_BOW, 69, 75);
 	DropKind(IK3_YOYO, 69, 75);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -30036,7 +30036,7 @@ MI_COLOGRIMONG // ê±°ëŒ€ ê·¸ë¦¬ëª½
    	}               
 }
 
-MI_COLOLUIA // ê±°ëŒ€ ë£¨ì´ì•„
+MI_COLOLUIA // °Å´ë ·çÀÌ¾Æ
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -30071,8 +30071,8 @@ MI_COLOLUIA // ê±°ëŒ€ ë£¨ì´ì•„
 	DropKind(IK3_THSWD, 80, 95);
 	DropKind(IK3_THAXE, 80, 95);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -30114,7 +30114,7 @@ MI_COLOLUIA // ê±°ëŒ€ ë£¨ì´ì•„
 
 }
 
-MI_COLOGONGRI // ê±°ëŒ€ ê³µê·¸ë¦¬
+MI_COLOGONGRI // °Å´ë °ø±×¸®
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -30149,8 +30149,8 @@ MI_COLOGONGRI // ê±°ëŒ€ ê³µê·¸ë¦¬
 	DropKind(IK3_THSWD, 90, 101);
 	DropKind(IK3_THAXE, 90, 101);
 
-	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_CYCLON, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -30191,7 +30191,7 @@ MI_COLOGONGRI // ê±°ëŒ€ ê³µê·¸ë¦¬
 
 }
 
-MI_COLOKEREUN // ê±°ëŒ€ ì¼€ë¥¸
+MI_COLOKEREUN // °Å´ë ÄÉ¸¥
 {
 	Maxitem = 5;
 	DropGold(200000 , 300000);
@@ -30226,8 +30226,8 @@ MI_COLOKEREUN // ê±°ëŒ€ ì¼€ë¥¸
 	DropKind(IK3_THSWD, 90, 104);
 	DropKind(IK3_THAXE, 90, 104);
 
-	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //ì†ì„± ì¹´ë“œ3 0.125%
-	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //ì†ì„± ì¹´ë“œ2 0.25%
+	DropItem(II_GEN_MAT_ELE_DESERT, 3750000, 0, 1); //¼Ó¼º Ä«µå3 0.125%
+	DropItem(II_GEN_MAT_ELE_DESERT, 7500000, 0, 1); //¼Ó¼º Ä«µå2 0.25%
 
 	DropItem(II_GEN_MAT_ORICHALCUM01, 3006250, 0, 1);
 	DropItem(II_GEN_MAT_MOONSTONE, 1560000, 0, 1);
@@ -30269,7 +30269,7 @@ MI_COLOKEREUN // ê±°ëŒ€ ì¼€ë¥¸
 
 }
 
-MI_COLOMATEONIKER // ë©”í…Œì˜¤ë‹ˆì»¤
+MI_COLOMATEONIKER // ¸ÞÅ×¿À´ÏÄ¿
 {
 	Maxitem = 3;
 	DropGold(200000 , 300000);
@@ -30327,7 +30327,7 @@ MI_COLOMATEONIKER // ë©”í…Œì˜¤ë‹ˆì»¤
 
 }
 
-MI_COLOCYCLOPSX // ì‹¸ì´í´ë¡­ìŠ¤ X
+MI_COLOCYCLOPSX // ½ÎÀÌÅ¬·Ó½º X
 {
 	Maxitem = 3;
 	DropGold(200000 , 300000);
@@ -30382,7 +30382,7 @@ MI_COLOCYCLOPSX // ì‹¸ì´í´ë¡­ìŠ¤ X
 
 }
 
-MI_COLODIEOPNIS // ì£½ìŒì˜ ì •ë ¹ ì˜µë‹ˆìŠ¤
+MI_COLODIEOPNIS // Á×À½ÀÇ Á¤·É ¿É´Ï½º
 {
 	Maxitem = 2;
 	DropGold(200000 , 300000);
@@ -30427,7 +30427,7 @@ MI_COLODIEOPNIS // ì£½ìŒì˜ ì •ë ¹ ì˜µë‹ˆìŠ¤
    	}               
 }
 
-MI_COLORACCOUN // ê±°ëŒ€ ë¼ì¿¤
+MI_COLORACCOUN // °Å´ë ¶óÄï
 {
 	Maxitem = 2;
 	DropGold(2000000 , 3000000);
@@ -30468,7 +30468,7 @@ MI_COLORACCOUN // ê±°ëŒ€ ë¼ì¿¤
    	}               
 }
 
-MI_COLOMATEONIKER01 // ë¶ˆì˜ ë©”í…Œì˜¤ë‹ˆì»¤
+MI_COLOMATEONIKER01 // ºÒÀÇ ¸ÞÅ×¿À´ÏÄ¿
 {
 	Maxitem = 10;
 	DropGold(100000 , 200000);
@@ -30856,7 +30856,7 @@ MI_COLOMATEONIKER01 // ë¶ˆì˜ ë©”í…Œì˜¤ë‹ˆì»¤
 	}
 }
 
-MI_COLOCLOCKWORK // í´ë½ì›Œí¬
+MI_COLOCLOCKWORK // Å¬¶ô¿öÅ©
 {
 	Maxitem = 8;
 		DropGold(2000000 , 3000000);
@@ -30882,7 +30882,7 @@ MI_COLOCLOCKWORK // í´ë½ì›Œí¬
 
 	
         DropItem(II_ARM_ARM_SHI_RUKENSHIA, 300000000, 0, 1);         
-        DropItem(II_ARM_ARM_SHI_TOEFFIN, 300000000, 0, 1); //(ì•„ì´í…œ í†µí•©ìœ¼ë¡œ ë³€ê²½ë¨)
+        DropItem(II_ARM_ARM_SHI_TOEFFIN, 300000000, 0, 1); //(¾ÆÀÌÅÛ ÅëÇÕÀ¸·Î º¯°æµÊ)
         DropItem(II_ARM_ARM_SHI_TOEFFIN, 300000000, 0, 1);            
         DropItem(II_ARM_ARM_SHI_CATEPO, 300000000, 0, 1); 
 
@@ -30952,7 +30952,7 @@ MI_COLOCLOCKWORK // í´ë½ì›Œí¬
 
 }
 
-MI_COLOBIGFOOT // ì•…ë ¹ì˜ ë¹…í’‹
+MI_COLOBIGFOOT // ¾Ç·ÉÀÇ ºòÇ²
 {
 	Maxitem = 4;
 	DropGold(2000000 , 3000000);
@@ -31038,7 +31038,7 @@ MI_COLOBIGFOOT // ì•…ë ¹ì˜ ë¹…í’‹
    	}               
 }
 
-MI_COLOLUCIFER // ë£¨ì‹œí¼
+MI_COLOLUCIFER // ·ç½ÃÆÛ
 {
 	Maxitem = 10;
 	DropGold(2000000 , 3000000);
@@ -31080,7 +31080,7 @@ MI_COLOLUCIFER // ë£¨ì‹œí¼
    	}               
 }
 
-MI_COLOLYCANOS // ì£½ìŒì˜ ë¼ì´ì¹´ë…¸ìŠ¤
+MI_COLOLYCANOS // Á×À½ÀÇ ¶óÀÌÄ«³ë½º
 {
 	Maxitem = 4;
 	DropGold(2000000 , 3000000);
@@ -31135,7 +31135,7 @@ MI_COLOLYCANOS // ì£½ìŒì˜ ë¼ì´ì¹´ë…¸ìŠ¤
    	}                
 }
 
-MI_COLOSOULVAMPAIN // ì˜í˜¼ì˜ ë±€íŒŒì¸
+MI_COLOSOULVAMPAIN // ¿µÈ¥ÀÇ ¹ìÆÄÀÎ
 {
 	Maxitem = 6;
 	DropGold(2000000 , 3000000);
@@ -31241,7 +31241,7 @@ MI_COLOSOULVAMPAIN // ì˜í˜¼ì˜ ë±€íŒŒì¸
    	}                
 }
 
-MI_COLOSKELGENERAL // ìŠ¤ì¼ˆíŠ¼ ì œë„ˆëŸ´
+MI_COLOSKELGENERAL // ½ºÄÌÆ° Á¦³Ê·²
 {
 	Maxitem = 8;
 	DropGold(2000000 , 3000000);
@@ -31359,7 +31359,7 @@ MI_COLOSKELGENERAL // ìŠ¤ì¼ˆíŠ¼ ì œë„ˆëŸ´
    	}                
 }
 
-MI_COLOSKELDEVIL // ìŠ¤ì¼ˆíŠ¼ ë°ë¹Œ
+MI_COLOSKELDEVIL // ½ºÄÌÆ° µ¥ºô
 {
 	Maxitem = 8;
 	DropGold(2000000 , 3000000);
@@ -31530,7 +31530,7 @@ MI_COLOSKELDEVIL // ìŠ¤ì¼ˆíŠ¼ ë°ë¹Œ
    	}                
 }
 
-MI_COLOTUTTLEKING // í„°í‹€í‚¹
+MI_COLOTUTTLEKING // ÅÍÆ²Å·
 {
 	Maxitem = 4;
 	DropGold(2000000 , 3000000);
@@ -31605,7 +31605,7 @@ MI_COLOTUTTLEKING // í„°í‹€í‚¹
    	}               
 }
 
-MI_COLORYCANBARGA // ë¼ì´ì¹¸ ë°”ë¥´ê°€
+MI_COLORYCANBARGA // ¶óÀÌÄ­ ¹Ù¸£°¡
 {
 	Maxitem = 7;
 	DropGold(2000000 , 3000000);
@@ -31692,7 +31692,7 @@ MI_COLORYCANBARGA // ë¼ì´ì¹¸ ë°”ë¥´ê°€
    	}               
 }
 
-MI_COLOANGRYBEHEMOTH // ë¶„ë…¸í•œ ë² ížˆëª¨ìŠ¤
+MI_COLOANGRYBEHEMOTH // ºÐ³ëÇÑ º£È÷¸ð½º
 {
 	Maxitem = 10;
 	DropGold(2000000 , 3000000);
@@ -31794,7 +31794,7 @@ MI_COLOANGRYBEHEMOTH // ë¶„ë…¸í•œ ë² ížˆëª¨ìŠ¤
    	}               
 }
 
-MI_COLOBASILISK // ë°”ì‹¤ë¦¬ìŠ¤í¬
+MI_COLOBASILISK // ¹Ù½Ç¸®½ºÅ©
 {
 	Maxitem = 8;
 	DropGold(2000000 , 3000000);
@@ -31904,7 +31904,7 @@ MI_COLOBASILISK // ë°”ì‹¤ë¦¬ìŠ¤í¬
    	}                
 }
 
-MI_COLOKALGAS		//ì¹¼ê°€ìŠ¤
+MI_COLOKALGAS		//Ä®°¡½º
 {
 	Maxitem = 8;
 	DropGold(2000000 , 3000000);
@@ -32081,7 +32081,7 @@ MI_COLOKALGAS		//ì¹¼ê°€ìŠ¤
    	}                
 }
 
-MI_COLOBANG_1 // ê±°ëŒ€ë±…
+MI_COLOBANG_1 // °Å´ë¹ð
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32114,7 +32114,7 @@ MI_COLOBANG_1 // ê±°ëŒ€ë±…
    	}               
 }
 
-MI_COLOWAGJAK_1 // ê±°ëŒ€ ì™€ê·¸ìž‘
+MI_COLOWAGJAK_1 // °Å´ë ¿Í±×ÀÛ
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32146,7 +32146,7 @@ MI_COLOWAGJAK_1 // ê±°ëŒ€ ì™€ê·¸ìž‘
    	}               
 }
 
-MI_COLOREDMANTIS_1 // ê±°ëŒ€ ë ˆë“œë§¨í‹°ìŠ¤
+MI_COLOREDMANTIS_1 // °Å´ë ·¹µå¸ÇÆ¼½º
 {
 	Maxitem = 5;
 
@@ -32175,7 +32175,7 @@ MI_COLOREDMANTIS_1 // ê±°ëŒ€ ë ˆë“œë§¨í‹°ìŠ¤
    	}               
 }
 
-MI_COLOJACKTHEHAMMER_1 // ê±°ëŒ€ ìž­ë”í•´ë¨¸
+MI_COLOJACKTHEHAMMER_1 // °Å´ë Àè´õÇØ¸Ó
 {
 	Maxitem = 5;
 
@@ -32209,7 +32209,7 @@ MI_COLOJACKTHEHAMMER_1 // ê±°ëŒ€ ìž­ë”í•´ë¨¸
    	}               
 }
 
-MI_COLOBERKRO_1 // ê±°ëŒ€ ë²„í¬ë¡œ
+MI_COLOBERKRO_1 // °Å´ë ¹öÅ©·Î
 {
 	Maxitem = 8;
 
@@ -32244,7 +32244,7 @@ MI_COLOBERKRO_1 // ê±°ëŒ€ ë²„í¬ë¡œ
    	}               
 }
 
-MI_COLOHOWBOW_1 // ê±°ëŒ€ í˜¸ìš°ë³´ìš°
+MI_COLOHOWBOW_1 // °Å´ë È£¿ìº¸¿ì
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32276,7 +32276,7 @@ MI_COLOHOWBOW_1 // ê±°ëŒ€ í˜¸ìš°ë³´ìš°
    	}               
 }
 
-MI_COLOROKEPELER_1 // ê±°ëŒ€ ë¡œì¼€íŽ ëŸ¬
+MI_COLOROKEPELER_1 // °Å´ë ·ÎÄÉÆç·¯
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32308,7 +32308,7 @@ MI_COLOROKEPELER_1 // ê±°ëŒ€ ë¡œì¼€íŽ ëŸ¬
 
 }
 
-MI_COLOSTIMEWORK_1 // ê±°ëŒ€ ìŠ¤íŒ€ì›Œì»¤
+MI_COLOSTIMEWORK_1 // °Å´ë ½ºÆÀ¿öÄ¿
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32344,7 +32344,7 @@ MI_COLOSTIMEWORK_1 // ê±°ëŒ€ ìŠ¤íŒ€ì›Œì»¤
 
 }
 
-MI_COLOGRREUNG_1 // ê±°ëŒ€ ê·¸ë¥´ë¦‰
+MI_COLOGRREUNG_1 // °Å´ë ±×¸£¸ª
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32379,7 +32379,7 @@ MI_COLOGRREUNG_1 // ê±°ëŒ€ ê·¸ë¥´ë¦‰
    	}               
 }
 
-MI_COLOGRIMONG_1 // ê±°ëŒ€ ê·¸ë¦¬ëª½
+MI_COLOGRIMONG_1 // °Å´ë ±×¸®¸ù
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32409,7 +32409,7 @@ MI_COLOGRIMONG_1 // ê±°ëŒ€ ê·¸ë¦¬ëª½
    	}               
 }
 
-MI_COLOLUIA_1 // ê±°ëŒ€ ë£¨ì´ì•„
+MI_COLOLUIA_1 // °Å´ë ·çÀÌ¾Æ
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32443,7 +32443,7 @@ MI_COLOLUIA_1 // ê±°ëŒ€ ë£¨ì´ì•„
 
 }
 
-MI_COLOGONGRI_1 // ê±°ëŒ€ ê³µê·¸ë¦¬
+MI_COLOGONGRI_1 // °Å´ë °ø±×¸®
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32476,7 +32476,7 @@ MI_COLOGONGRI_1 // ê±°ëŒ€ ê³µê·¸ë¦¬
 
 }
 
-MI_COLOKEREUN_1 // ê±°ëŒ€ ì¼€ë¥¸
+MI_COLOKEREUN_1 // °Å´ë ÄÉ¸¥
 {
 	Maxitem = 5;
 	DropGold(100000 , 200000);
@@ -32510,7 +32510,7 @@ MI_COLOKEREUN_1 // ê±°ëŒ€ ì¼€ë¥¸
 
 }
 
-MI_COLOMATEONIKER_1 // ë©”í…Œì˜¤ë‹ˆì»¤
+MI_COLOMATEONIKER_1 // ¸ÞÅ×¿À´ÏÄ¿
 {
 	Maxitem = 5;
         DropGold(100000 , 200000);
@@ -32541,7 +32541,7 @@ MI_COLOMATEONIKER_1 // ë©”í…Œì˜¤ë‹ˆì»¤
 
 }
 
-MI_COLOCYCLOPSX_1 // ì‹¸ì´í´ë¡­ìŠ¤ X
+MI_COLOCYCLOPSX_1 // ½ÎÀÌÅ¬·Ó½º X
 {
 	Maxitem = 5;
         DDropGold(100000 , 200000);
@@ -32570,7 +32570,7 @@ MI_COLOCYCLOPSX_1 // ì‹¸ì´í´ë¡­ìŠ¤ X
 
 }
 
-MI_COLODIEOPNIS_1 // ì£½ìŒì˜ ì •ë ¹ ì˜µë‹ˆìŠ¤
+MI_COLODIEOPNIS_1 // Á×À½ÀÇ Á¤·É ¿É´Ï½º
 {
 	Maxitem = 10;
 	DropGold(1000000 , 2000000);
@@ -32611,7 +32611,7 @@ MI_COLODIEOPNIS_1 // ì£½ìŒì˜ ì •ë ¹ ì˜µë‹ˆìŠ¤
    	}               
 }
 
-MI_COLORACCOUN_1 // ê±°ëŒ€ ë¼ì¿¤
+MI_COLORACCOUN_1 // °Å´ë ¶óÄï
 {
 	Maxitem = 10;
 	DropGold(1000000 , 2000000);
@@ -32651,7 +32651,7 @@ MI_COLORACCOUN_1 // ê±°ëŒ€ ë¼ì¿¤
    	}               
 }
 
-MI_COLOMATEONIKER01_1 // ë¶ˆì˜ ë©”í…Œì˜¤ë‹ˆì»¤
+MI_COLOMATEONIKER01_1 // ºÒÀÇ ¸ÞÅ×¿À´ÏÄ¿
 {
 	Maxitem = 10;
    	DropGold(100000, 200000);
@@ -32682,7 +32682,7 @@ MI_COLOMATEONIKER01_1 // ë¶ˆì˜ ë©”í…Œì˜¤ë‹ˆì»¤
 	}
 }
 
-MI_COLOCLOCKWORK_1 // í´ë½ì›Œí¬
+MI_COLOCLOCKWORK_1 // Å¬¶ô¿öÅ©
 {
 	Maxitem = 10;
 
@@ -32727,7 +32727,7 @@ MI_COLOCLOCKWORK_1 // í´ë½ì›Œí¬
 
 }
 
-MI_COLOBIGFOOT_1 // ì•…ë ¹ì˜ ë¹…í’‹
+MI_COLOBIGFOOT_1 // ¾Ç·ÉÀÇ ºòÇ²
 {
 	Maxitem = 10;
 
@@ -32775,7 +32775,7 @@ MI_COLOBIGFOOT_1 // ì•…ë ¹ì˜ ë¹…í’‹
    	}               
 }
 
-MI_COLOLUCIFER_1 // ë£¨ì‹œí¼
+MI_COLOLUCIFER_1 // ·ç½ÃÆÛ
 {
 	Maxitem = 10;
         	DropGold(1000000 , 2000000);
@@ -32823,7 +32823,7 @@ MI_COLOLUCIFER_1 // ë£¨ì‹œí¼
    	}               
 }
 
-MI_COLOLYCANOS_1 // ì£½ìŒì˜ ë¼ì´ì¹´ë…¸ìŠ¤
+MI_COLOLYCANOS_1 // Á×À½ÀÇ ¶óÀÌÄ«³ë½º
 {
 	Maxitem = 10;
 		DropGold(1000000 , 2000000);
@@ -32869,7 +32869,7 @@ MI_COLOLYCANOS_1 // ì£½ìŒì˜ ë¼ì´ì¹´ë…¸ìŠ¤
    	}                
 }
 
-MI_COLOSOULVAMPAIN_1 // ì˜í˜¼ì˜ ë±€íŒŒì¸
+MI_COLOSOULVAMPAIN_1 // ¿µÈ¥ÀÇ ¹ìÆÄÀÎ
 {
 	Maxitem = 10;
 	DropGold(1000000 , 2000000);
@@ -32916,7 +32916,7 @@ MI_COLOSOULVAMPAIN_1 // ì˜í˜¼ì˜ ë±€íŒŒì¸
    	}                
 }
 
-MI_COLOSKELGENERAL_1 // ìŠ¤ì¼ˆíŠ¼ ì œë„ˆëŸ´
+MI_COLOSKELGENERAL_1 // ½ºÄÌÆ° Á¦³Ê·²
 {
 	Maxitem = 10;
 	DropGold(1000000 , 2000000);
@@ -32962,7 +32962,7 @@ MI_COLOSKELGENERAL_1 // ìŠ¤ì¼ˆíŠ¼ ì œë„ˆëŸ´
    	}                
 }
 
-MI_COLOSKELDEVIL_1 // ìŠ¤ì¼ˆíŠ¼ ë°ë¹Œ
+MI_COLOSKELDEVIL_1 // ½ºÄÌÆ° µ¥ºô
 {
 	Maxitem = 10;
 	DropGold(1000000 , 2000000);
@@ -33010,7 +33010,7 @@ MI_COLOSKELDEVIL_1 // ìŠ¤ì¼ˆíŠ¼ ë°ë¹Œ
    	}                
 }
 
-MI_COLOTUTTLEKING_1 // í„°í‹€í‚¹
+MI_COLOTUTTLEKING_1 // ÅÍÆ²Å·
 {
 	Maxitem = 10;
 
@@ -33058,7 +33058,7 @@ MI_COLOTUTTLEKING_1 // í„°í‹€í‚¹
    	}               
 }
 
-MI_COLORYCANBARGA_1 // ë¼ì´ì¹¸ ë°”ë¥´ê°€
+MI_COLORYCANBARGA_1 // ¶óÀÌÄ­ ¹Ù¸£°¡
 {
 	Maxitem = 10;
 	
@@ -33107,7 +33107,7 @@ MI_COLORYCANBARGA_1 // ë¼ì´ì¹¸ ë°”ë¥´ê°€
    	}               
 }
 
-MI_COLOANGRYBEHEMOTH_1 // ë¶„ë…¸í•œ ë² ížˆëª¨ìŠ¤
+MI_COLOANGRYBEHEMOTH_1 // ºÐ³ëÇÑ º£È÷¸ð½º
 {
 	Maxitem = 10;
 	
@@ -33156,7 +33156,7 @@ MI_COLOANGRYBEHEMOTH_1 // ë¶„ë…¸í•œ ë² ížˆëª¨ìŠ¤
    	}               
 }
 
-MI_COLOBASILISK_1 // ë°”ì‹¤ë¦¬ìŠ¤í¬
+MI_COLOBASILISK_1 // ¹Ù½Ç¸®½ºÅ©
 {
 	Maxitem = 10;
 	DropGold(1000000 , 2000000);
@@ -33204,7 +33204,7 @@ MI_COLOBASILISK_1 // ë°”ì‹¤ë¦¬ìŠ¤í¬
    	}                
 }
 
-MI_COLOKALGAS_1 // ì•½ê°„ ë¶€ì¡±í•œ ì½œë¡œì„¸ì›€ ì •ì˜ˆ ë‚ ì¹´ë¡œìš´ ì†¡ê³³ë‹ˆì˜ ì¹¼ê°€ìŠ¤
+MI_COLOKALGAS_1 // ¾à°£ ºÎÁ·ÇÑ ÄÝ·Î¼¼¿ò Á¤¿¹ ³¯Ä«·Î¿î ¼Û°÷´ÏÀÇ Ä®°¡½º
 
 {
 	Maxitem = 10;
@@ -33568,7 +33568,7 @@ MI_LOVETHIEF
 }
 
 
-//ì´ ì´í•˜ëŠ” ì‚¬ìš©í•˜ì§€ ì•ŠìŒ. ì¶”ê°€ ìž‘ì—…ì€ ë°”ë¡œ ìœ„ì—ì„œ ë¶€í„°..
+//ÀÌ ÀÌÇÏ´Â »ç¿ëÇÏÁö ¾ÊÀ½. Ãß°¡ ÀÛ¾÷Àº ¹Ù·Î À§¿¡¼­ ºÎÅÍ..
 MI_PUKEPUKE5
 {
 	Maxitem = 2;
@@ -35855,7 +35855,7 @@ MI_HERNKRAKEN01_1
    	}                					
 }						
 
-MI_EVENT_FWCMONSTER		//ì•„ë ˆë‚˜ ì‚¬ì‹  ëª¬ìŠ¤í„°				
+MI_EVENT_FWCMONSTER		//¾Æ·¹³ª »ç½Å ¸ó½ºÅÍ				
 {						
 	m_nAttackFirstRange = 10;					
 	AI					

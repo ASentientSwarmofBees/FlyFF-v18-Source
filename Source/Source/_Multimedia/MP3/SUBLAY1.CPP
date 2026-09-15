@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  @(#) subband_layer_1.cc 1.7, last edit: 6/15/94 16:51:49
  *  @(#) Copyright (C) 1993, 1994 Tobias Bading (bading@cs.tu-berlin.de)
  *  @(#) Berlin University of Technology

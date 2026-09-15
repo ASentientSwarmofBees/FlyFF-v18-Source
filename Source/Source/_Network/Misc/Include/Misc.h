@@ -1,4 +1,4 @@
-Ôªø#ifndef __MISC_H__
+#ifndef __MISC_H__
 #define	__MISC_H__
 
 #ifdef __TRAFIC_1218
@@ -29,17 +29,17 @@ typedef	struct	tagSERVER_DESC
 }
 SERVER_DESC, *LPSERVER_DESC;
 
-// Ï™ΩÏßÄ Í∏∞Îä•Í¥ÄÎ†® Ïä§Ìä∏Îü≠Ï≥ê 
+// ¬ ¡ˆ ±‚¥…∞¸∑√ Ω∫∆Æ∑∞√ƒ 
 struct TAG_ENTRY
 {
-	u_long		idFrom;				// ÎàÑÍ∞Ä 
-	DWORD		dwDate;				// Ïñ∏Ï†ú 
-	char		szString[256];		// Ï™ΩÏßÄ ÎÇ¥Ïö© 
+	u_long		idFrom;				// ¥©∞° 
+	DWORD		dwDate;				// æ¡¶ 
+	char		szString[256];		// ¬ ¡ˆ ≥ªøÎ 
 };
 
-const int MAX_TAGS = 20;			// ÏµúÎåÄ Ï™ΩÏßÄ Ï†ÄÏû•Ïπò 
+const int MAX_TAGS = 20;			// √÷¥Î ¬ ¡ˆ ¿˙¿Âƒ° 
 
-// Í∏∏Îìú Ïä§ÌÉØ enum
+// ±ÊµÂ Ω∫≈» enum
 enum GUILD_STAT
 {
 	GUILD_STAT_LOGO,
@@ -50,26 +50,26 @@ enum GUILD_STAT
 
 const int WANTED_MSG_MAX = 20;
 
-// Ìè¨ÏÉÅÍ∏à Ìï≠Î™© 
+// ∆˜ªÛ±› «◊∏Ò 
 struct WANTED_ENTRY
 {
-	char		szPlayer[64];						// ÌòÑÏÉÅÎ≤î Ïù¥Î¶Ñ 
-	long		nEnd;								// ÎßàÍ∞êÏùº 
-	__int64		nGold;								// ÌòÑÏÉÅÍ∏àÏï° 
-	char		szMsg[WANTED_MSG_MAX + 1];			// Ïã≠ÏûêÌèâ 
+	char		szPlayer[64];						// «ˆªÛπ¸ ¿Ã∏ß 
+	long		nEnd;								// ∏∂∞®¿œ 
+	__int64		nGold;								// «ˆªÛ±›æ◊ 
+	char		szMsg[WANTED_MSG_MAX + 1];			// Ω ¿⁄∆Ú 
 };
 
 
-#if __VER >= 11 // __MA_VER11_04	// Í∏∏Îìú Ï∞ΩÍ≥† Î°úÍ∑∏ Í∏∞Îä• world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ±ÊµÂ √¢∞Ì ∑Œ±◊ ±‚¥… world,database,neuz
 const int GUILDBANKLOGVIEW_MAX = 100;
 
 struct __GUILDBANKLOG_ENTRY
 {
-	char		szPlayer[42];						// ÏºÄÎ¶≠ÌÑ∞ Ïù¥Î¶Ñ 
-	long		nDate;								// ÎÇ†Ïßú 
-	long		nItemID;								// ÏïÑÏù¥ÌÖúÏïÑÏù¥Îîî,Îèà
-	long		nItemAbilityOption;								// ÏïÑÏù¥ÌÖúÏïÑÏù¥Îîî,Îèà
-	long		nItemCount;								// ÏïÑÏù¥ÌÖúÏà´Ïûê
+	char		szPlayer[42];						// ƒ…∏Ø≈Õ ¿Ã∏ß 
+	long		nDate;								// ≥Ø¬• 
+	long		nItemID;								// æ∆¿Ã≈€æ∆¿Ãµ,µ∑
+	long		nItemAbilityOption;								// æ∆¿Ã≈€æ∆¿Ãµ,µ∑
+	long		nItemCount;								// æ∆¿Ã≈€º˝¿⁄
 	__GUILDBANKLOG_ENTRY()
 	{
 		*szPlayer		= '\0';
@@ -79,13 +79,13 @@ struct __GUILDBANKLOG_ENTRY
 		nItemCount = 0;
 	};
 };
-#endif //__MA_VER11_04	// Í∏∏Îìú Ï∞ΩÍ≥† Î°úÍ∑∏ Í∏∞Îä• world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÏºÄÎ¶≠ÌÑ∞ Î¥âÏù∏ Í±∞Îûò Í∏∞Îä• world,database,neuz
+#endif //__MA_VER11_04	// ±ÊµÂ √¢∞Ì ∑Œ±◊ ±‚¥… world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ƒ…∏Ø≈Õ ∫¿¿Œ ∞≈∑° ±‚¥… world,database,neuz
 const int SEALCHAR_MAX = 3;
 
 struct __SEALCHAR_ENTRY
 {
-	char		szPlayer[42];						// ÏºÄÎ¶≠ÌÑ∞ Ïù¥Î¶Ñ 
+	char		szPlayer[42];						// ƒ…∏Ø≈Õ ¿Ã∏ß 
 	u_long		idPlayer;							//  
 	long		nPlayerSlot;								//
 	__SEALCHAR_ENTRY()
@@ -95,7 +95,7 @@ struct __SEALCHAR_ENTRY
 		nPlayerSlot = 0;	
 	};
 };
-#endif // __MA_VER11_05	// ÏºÄÎ¶≠ÌÑ∞ Î¥âÏù∏ Í±∞Îûò Í∏∞Îä• world,database,neuz
+#endif // __MA_VER11_05	// ƒ…∏Ø≈Õ ∫¿¿Œ ∞≈∑° ±‚¥… world,database,neuz
 
 
 #ifdef __TRAFIC_1218

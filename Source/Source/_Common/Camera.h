@@ -1,4 +1,4 @@
-ï»¿#ifndef __CAMERA_H
+#ifndef __CAMERA_H
 #define __CAMERA_H
 
 class CWorld;
@@ -15,26 +15,26 @@ class CCamera
 {
 //protected:
 public:
-	D3DXVECTOR3    m_vPos        ; // ì¹´ë©”ë¼ê°€ ìžˆëŠ” ìœ„ì¹˜ 
-	//D3DXVECTOR3    m_vPos2       ; // ì¹´ë©”ë¼ê°€ ìžˆëŠ” ìœ„ì¹˜ 2
+	D3DXVECTOR3    m_vPos        ; // Ä«¸Þ¶ó°¡ ÀÖ´Â À§Ä¡ 
+	//D3DXVECTOR3    m_vPos2       ; // Ä«¸Þ¶ó°¡ ÀÖ´Â À§Ä¡ 2
 
-	D3DXMATRIX     m_matView     ; // View í–‰ë ¬ ì €ìž¥ 
-	D3DXMATRIX     m_matInvView  ; // View ì—­í–‰ë ¬ ì €ìž¥ 
+	D3DXMATRIX     m_matView     ; // View Çà·Ä ÀúÀå 
+	D3DXMATRIX     m_matInvView  ; // View ¿ªÇà·Ä ÀúÀå 
 
-	D3DXVECTOR3    m_vLookAt     ; // ì¹´ë©”ë¼ê°€ ë³´ëŠ” ë°©í–¥
+	D3DXVECTOR3    m_vLookAt     ; // Ä«¸Þ¶ó°¡ º¸´Â ¹æÇâ
 
-	D3DXVECTOR3    m_vPosDest    ; // ì¹´ë©”ë¼ ì´ë™ ëª©í‘œ
-	D3DXVECTOR3    m_vLookAtDest ; // ì¹´ë©”ë¼ ë³´ëŠ” ìœ„ì¹˜ ì´ë™ ëª©í‘œ 
+	D3DXVECTOR3    m_vPosDest    ; // Ä«¸Þ¶ó ÀÌµ¿ ¸ñÇ¥
+	D3DXVECTOR3    m_vLookAtDest ; // Ä«¸Þ¶ó º¸´Â À§Ä¡ ÀÌµ¿ ¸ñÇ¥ 
 
-	D3DXVECTOR3    m_vOffset     ; // ìºë¦­í„° ìœ„ì¹˜ì—ì„œ ì¹´ë©”ë¼ ìƒëŒ€ ìœ„ì¹˜
-	D3DXVECTOR3    m_vOffsetDest ; // ìºë¦­í„° ìœ„ì¹˜ì—ì„œ ì¹´ë©”ë¼ ìƒëŒ€ ìœ„ì¹˜ ì´ë™ ëª©í‘œ
+	D3DXVECTOR3    m_vOffset     ; // Ä³¸¯ÅÍ À§Ä¡¿¡¼­ Ä«¸Þ¶ó »ó´ë À§Ä¡
+	D3DXVECTOR3    m_vOffsetDest ; // Ä³¸¯ÅÍ À§Ä¡¿¡¼­ Ä«¸Þ¶ó »ó´ë À§Ä¡ ÀÌµ¿ ¸ñÇ¥
 
 	DWORD          m_dwCamStyle  ;
-	FLOAT m_fRotx,m_fRoty; // ë§ˆìš°ìŠ¤ ì¡°ìž‘ì— ì˜í•œ x,yì¶• íšŒì „ê°’ì˜ ëª©í‘œì 
-	FLOAT m_fCurRotx,m_fCurRoty; // í˜„ìž¬ ë§ˆìš°ìŠ¤ ì¡°ìž‘ì— ì˜í•œ x,yì¶• íšŒì „ê°’. ì„œì„œížˆ ëª©í‘œê°’ì— ê°€ê¹Œì™€ì§„ë‹¤.
+	FLOAT m_fRotx,m_fRoty; // ¸¶¿ì½º Á¶ÀÛ¿¡ ÀÇÇÑ x,yÃà È¸Àü°ªÀÇ ¸ñÇ¥Á¡
+	FLOAT m_fCurRotx,m_fCurRoty; // ÇöÀç ¸¶¿ì½º Á¶ÀÛ¿¡ ÀÇÇÑ x,yÃà È¸Àü°ª. ¼­¼­È÷ ¸ñÇ¥°ª¿¡ °¡±î¿ÍÁø´Ù.
 	
 	int		m_nQuakeSec;
-	float	m_fQuakeSize;		// ì§„ë™í¬ê¸°. ì§„ë™í­ì„ ë„£ëŠ”ë‹¤. 1.0fëŠ” 1ë¯¸í„°í­ìœ¼ë¡œ í”ë“¤ë¦°ë‹¤.
+	float	m_fQuakeSize;		// Áøµ¿Å©±â. Áøµ¿ÆøÀ» ³Ö´Â´Ù. 1.0f´Â 1¹ÌÅÍÆøÀ¸·Î Èçµé¸°´Ù.
 
 	CCamera();
 
@@ -85,8 +85,8 @@ public:
 class CFlyCamera : public CCamera
 {
 	BOOL m_bLock;
-	FLOAT	m_fAngle;		// ì¹´ë©”ë¼ê°€ ë³´ëŠ” ì¢Œ/ìš° ë°©í–¥.
-	FLOAT	m_fAngleY;		// ì¹´ë©”ë¼ê°€ ë³´ëŠ” ìœ„/ì•„ëž˜ ë°©í–¥
+	FLOAT	m_fAngle;		// Ä«¸Þ¶ó°¡ º¸´Â ÁÂ/¿ì ¹æÇâ.
+	FLOAT	m_fAngleY;		// Ä«¸Þ¶ó°¡ º¸´Â À§/¾Æ·¡ ¹æÇâ
 	
 public:
 	CObj* pObjTarget;

@@ -1,4 +1,4 @@
-ï»¿#if __VER >= 11 // __GUILD_COMBAT_1TO1
+#if __VER >= 11 // __GUILD_COMBAT_1TO1
 
 #ifndef __WNDGUILDCOMBAT1TO1__H
 #define __WNDGUILDCOMBAT1TO1__H
@@ -10,10 +10,10 @@
 class CWndGuildCombat1to1Selection : public CWndNeuz
 {
 protected:	
-	multimap<int, CGuildMember*>	m_mapSelectPlayer;   // ì •ë ¬ëœ ê¸¸ë“œì› ë¦¬ìŠ¤íŠ¸
+	multimap<int, CGuildMember*>	m_mapSelectPlayer;   // Á¤·ÄµÈ ±æµå¿ø ¸®½ºÆ®
 
-	vector<u_long>					m_vecGuildList   ;   // ê¸¸ë“œì› ë¦¬ìŠ¤íŠ¸
-	vector<u_long>					m_vecSelectPlayer;   // ì°¸ê°€ì ë¦¬ìŠ¤íŠ¸
+	vector<u_long>					m_vecGuildList   ;   // ±æµå¿ø ¸®½ºÆ®
+	vector<u_long>					m_vecSelectPlayer;   // Âü°¡ÀÚ ¸®½ºÆ®
 
 //	u_long							m_uidDefender;
 //	CTexture						m_TexDefender;
@@ -60,7 +60,7 @@ protected:
 	DWORD			m_dwBackupGold;
 	
 public:
-	int				m_nCombatType; // 0 : ê¸¸ë“œëŒ€ì „ , 1 : 1:1ê¸¸ë“œëŒ€ì „
+	int				m_nCombatType; // 0 : ±æµå´ëÀü , 1 : 1:1±æµå´ëÀü
 
 public: 
 	CWndGuildCombat1to1Offer(int nCombatType);

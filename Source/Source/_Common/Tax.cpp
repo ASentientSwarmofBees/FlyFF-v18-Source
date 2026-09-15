@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "tax.h"
 
 #if __VER >= 12 // __TAX
@@ -26,10 +26,10 @@ CTax::CTax(void)
 	m_nMinTaxRate = 0;
 	m_nMaxTaxRate = 0;
 	
-	m_mapTaxInfo.insert( make_pair(CONT_EAST, new __TAXINFO) );		// ë™ë¶€ ì ë ¹ ê¸¸ë“œ - ì…ì¥ë£Œë„ í¬í•¨
+	m_mapTaxInfo.insert( make_pair(CONT_EAST, new __TAXINFO) );		// µ¿ºÎ Á¡·É ±æµå - ÀÔÀå·áµµ Æ÷ÇÔ
 	m_mapTaxInfo.find( CONT_EAST )->second->mapTaxDetail.insert( make_pair( TAX_ADMISSION, new __TAXDETAIL ) ); 
-	m_mapTaxInfo.insert( make_pair(CONT_WEST, new __TAXINFO) );		// ì„œë¶€ ì ë ¹ ê¸¸ë“œ
-	m_mapTaxInfo.insert( make_pair(CONT_ALL, new __TAXINFO) );		// êµ°ì£¼ - ì…ì¥ë£Œë„ í¬í•¨
+	m_mapTaxInfo.insert( make_pair(CONT_WEST, new __TAXINFO) );		// ¼­ºÎ Á¡·É ±æµå
+	m_mapTaxInfo.insert( make_pair(CONT_ALL, new __TAXINFO) );		// ±ºÁÖ - ÀÔÀå·áµµ Æ÷ÇÔ
 	m_mapTaxInfo.find( CONT_ALL )->second->mapTaxDetail.insert( make_pair( TAX_ADMISSION, new __TAXDETAIL ) );
 
 #ifdef __DBSERVER
@@ -40,8 +40,8 @@ CTax::CTax(void)
 	m_nDBSaveCount = 1;
 //	m_strChangedDate.clear();
 
-	// DBController thread ìƒì„±
-	if( !m_taxDBController.CreateDbHandler( MIN(1) ) )	// 1ë¶„ì— í•œë²ˆ OnTimer()ë¥¼ callí•œë‹¤.
+	// DBController thread »ı¼º
+	if( !m_taxDBController.CreateDbHandler( MIN(1) ) )	// 1ºĞ¿¡ ÇÑ¹ø OnTimer()¸¦ callÇÑ´Ù.
 		Error( "CTax - m_Controller.CreateDbHandler()" );
 #endif // __DBSERVER
 }
@@ -80,13 +80,13 @@ CTax* CTax::GetInstance( void )
 	return &sTax;
 }
 
-__TAXINFO* CTax::GetTaxInfo( BYTE nContinent )	// í•´ë‹¹ ëŒ€ë¥™ì˜ ì„¸ìœ¨ ì •ë³´
+__TAXINFO* CTax::GetTaxInfo( BYTE nContinent )	// ÇØ´ç ´ë·úÀÇ ¼¼À² Á¤º¸
 {
 	if( m_mapTaxInfo.find( nContinent ) != m_mapTaxInfo.end() )
 		return m_mapTaxInfo.find( nContinent )->second;
 #ifndef __CLIENT
 	else
-		Error( "CTax::GetTaxInfo() - ì˜ëª»ëœ ëŒ€ë¥™ì •ë³´ %x", nContinent );
+		Error( "CTax::GetTaxInfo() - Àß¸øµÈ ´ë·úÁ¤º¸ %x", nContinent );
 #endif // __CLIENT
 
 	return NULL;
@@ -98,7 +98,7 @@ BYTE CTax::GetContinent( CMover* pMover )
 	return CContinent::GetInstance()->GetArea( pMover );
 }
 
-float CTax::GetSalesTaxRate( BYTE nContinent )	// í•´ë‹¹ ëŒ€ë¥™ì˜ íŒë§¤ ì„¸ìœ¨
+float CTax::GetSalesTaxRate( BYTE nContinent )	// ÇØ´ç ´ë·úÀÇ ÆÇ¸Å ¼¼À²
 {
 	if( nContinent == CONT_NODATA )
 		return 0.0f;
@@ -118,7 +118,7 @@ float CTax::GetSalesTaxRate( CMover* pMover )
 	return GetSalesTaxRate( nContinent );
 }
 
-float CTax::GetPurchaseTaxRate( BYTE nContinent )	// í•´ë‹¹ ëŒ€ë¥™ì˜ êµ¬ë§¤ ì„¸ìœ¨
+float CTax::GetPurchaseTaxRate( BYTE nContinent )	// ÇØ´ç ´ë·úÀÇ ±¸¸Å ¼¼À²
 {
 	if( nContinent == CONT_NODATA )
 		return 0.0f;
@@ -138,7 +138,7 @@ float CTax::GetPurchaseTaxRate( CMover* pMover )
 	return GetPurchaseTaxRate( nContinent );
 }
 
-// ì„¸ìœ¨ì ìš©ì´ ê°€ëŠ¥í•œ ì•„ì´í…œì¸ê°€?
+// ¼¼À²Àû¿ëÀÌ °¡´ÉÇÑ ¾ÆÀÌÅÛÀÎ°¡?
 BOOL CTax::IsApplyTaxRate( CMover* pMover, CItemElem* pItemElem )
 {
 	if( !CContinent::IsValidObj( pMover ) || GetContinent( pMover ) == CONT_NODATA || !pItemElem )
@@ -149,10 +149,10 @@ BOOL CTax::IsApplyTaxRate( CMover* pMover, CItemElem* pItemElem )
 	
 	switch( pItemElem->m_dwItemId )
 	{
-		case II_SYS_SYS_SCR_PERIN :			// í˜ë¦°
-		case II_CHP_RED :					// ë ˆë“œì¹©
-		case II_SYS_SYS_SCR_AWAKE :			// ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
-		case II_SYS_SYS_SCR_PETAWAKE :		// ë¦¬ì–´í« ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
+		case II_SYS_SYS_SCR_PERIN :			// Æä¸°
+		case II_CHP_RED :					// ·¹µåÄ¨
+		case II_SYS_SYS_SCR_AWAKE :			// °¢¼ºÀÇ µÎ·ç¸¶¸®
+		case II_SYS_SYS_SCR_PETAWAKE :		// ¸®¾îÆê °¢¼ºÀÇ µÎ·ç¸¶¸®
 			return FALSE;
 	}
 
@@ -198,29 +198,29 @@ void CTax::LoadScript()
 
 void CTax::CheckChangeTime( BOOL bPay, BOOL bGameMaster )
 {
-	// ì„¸ìœ¨ ë³€ê²½ ì‹œê°„ì„ ê²€ì‚¬í•´ì„œ ì„¸ìœ¨ì„ ë³€ê²½í•œë‹¤.
-	// bPayê°€ FALSEì¸ê²½ìš° ì§€ê¸‰ë˜ì§€ ì•Šì€ ê²½ìš°ì´ë¯€ë¡œ ë³€ê²½ì „ì— ì§€ê¸‰í•œë‹¤.
-	// bGameMasterì˜ ê¸°ë³¸ê°’ì€ FALSEì´ë‚˜ GMì´ ê°•ì œë¡œ ë‹¤ìŒ ì„¸ìœ¨ì„ ì ìš©í•  ê²½ìš° ì‹œê°„ì— ê´€ê³„ì—†ì´ ë³€ê²½í•œë‹¤.
+	// ¼¼À² º¯°æ ½Ã°£À» °Ë»çÇØ¼­ ¼¼À²À» º¯°æÇÑ´Ù.
+	// bPay°¡ FALSEÀÎ°æ¿ì Áö±ŞµÇÁö ¾ÊÀº °æ¿ìÀÌ¹Ç·Î º¯°æÀü¿¡ Áö±ŞÇÑ´Ù.
+	// bGameMasterÀÇ ±âº»°ªÀº FALSEÀÌ³ª GMÀÌ °­Á¦·Î ´ÙÀ½ ¼¼À²À» Àû¿ëÇÒ °æ¿ì ½Ã°£¿¡ °ü°è¾øÀÌ º¯°æÇÑ´Ù.
 	
-	// êµ°ì£¼ê°€ ì„ ì¶œë˜ëŠ” ì£¼(2ì£¼ì¼ì— í•œë²ˆ)ì¸ê²½ìš°...
+	// ±ºÁÖ°¡ ¼±ÃâµÇ´Â ÁÖ(2ÁÖÀÏ¿¡ ÇÑ¹ø)ÀÎ°æ¿ì...
 	IElection* pElection	= CTLord::Instance()->GetElection();
-	if( pElection->GetState() == IElection::ELECTION_STATE::eVote ) // íˆ¬í‘œì¤‘ì¸ ìƒíƒœ
-		return;	// ì•„ì§ êµ°ì£¼ê°€ ì„ ì¶œì´ ë˜ì§€ ì•Šì•˜ìœ¼ë¯€ë¡œ ë‹¤ìŒ TimeOutë•Œ ë‹¤ì‹œ ê²€ì‚¬í•œë‹¤.
+	if( pElection->GetState() == IElection::ELECTION_STATE::eVote ) // ÅõÇ¥ÁßÀÎ »óÅÂ
+		return;	// ¾ÆÁ÷ ±ºÁÖ°¡ ¼±ÃâÀÌ µÇÁö ¾Ê¾ÒÀ¸¹Ç·Î ´ÙÀ½ TimeOut¶§ ´Ù½Ã °Ë»çÇÑ´Ù.
 	
 	if( m_Lua.GetLuaFunction( "CheckChangeTime" ) )
 	{
 		m_Lua.PushString( m_strChangedDate.c_str() );
 		m_Lua.CallLuaFunction( 1, 2 );
-		if( m_Lua.ToBool( -2 ) || bGameMaster )		// ì„¸ìœ¨ì´ ë³€ê²½ë  ì‹œê°„ì´ë©´...
+		if( m_Lua.ToBool( -2 ) || bGameMaster )		// ¼¼À²ÀÌ º¯°æµÉ ½Ã°£ÀÌ¸é...
 		{
-			// ì„­ë‹¤ ë“±ì˜ ì´ìœ ë¡œ ì§€ê¸‰ì´ ì´ë£¨ì–´ì§€ì§€ ì•Šì€ê²½ìš° ë¨¼ì € ì§€ê¸‰í•œë‹¤.
+			// ¼·´Ù µîÀÇ ÀÌÀ¯·Î Áö±ŞÀÌ ÀÌ·ç¾îÁöÁö ¾ÊÀº°æ¿ì ¸ÕÀú Áö±ŞÇÑ´Ù.
 			if( !bPay )
 				m_taxDBController.PostRequest( QUERY_TAX_PAY, 0, 0, 0 );
 
-			// í˜„ì¬ ë˜ëŠ” ìƒˆë¡œ ì„ ì¶œëœ êµ°ì£¼ë¥¼ ì„¤ì •í•œë‹¤.
+			// ÇöÀç ¶Ç´Â »õ·Î ¼±ÃâµÈ ±ºÁÖ¸¦ ¼³Á¤ÇÑ´Ù.
 			m_taxDBController.PostRequest( QUERY_TAX_SETNEXT_LORD, 0, 0, CTLord::Instance()->Get() );			
 			
-			// ë³€ê²½ ì‹œê°„ì„ í˜„ì¬ ì‹œê°„ìœ¼ë¡œ ì„¤ì •í•˜ê³  ë³€ê²½ëœ ì„¸ìœ¨ì„ ì ìš©í•œë‹¤.
+			// º¯°æ ½Ã°£À» ÇöÀç ½Ã°£À¸·Î ¼³Á¤ÇÏ°í º¯°æµÈ ¼¼À²À» Àû¿ëÇÑ´Ù.
 			m_strChangedDate = m_Lua.ToString( -1 );
 			m_taxDBController.PostRequest( QUERY_TAX_CHANGENEXT, 0, 0, 0 );
 		}
@@ -228,34 +228,34 @@ void CTax::CheckChangeTime( BOOL bPay, BOOL bGameMaster )
 	m_Lua.Pop(0);
 }
 
-void CTax::SetChangeNextTax()	// ë³€ê²½ë  ì„¸ìœ¨ì„ ì ìš©
+void CTax::SetChangeNextTax()	// º¯°æµÉ ¼¼À²À» Àû¿ë
 {
-	//ê° ëŒ€ë¥™ë³„ ì ë ¹ê¸¸ë“œ(CONT_ëŒ€ë¥™)ì™€ êµ°ì£¼(CONT_ALL)ë¥¼ ëª¨ë‘ í¬í•¨í•œë‹¤.
+	//°¢ ´ë·úº° Á¡·É±æµå(CONT_´ë·ú)¿Í ±ºÁÖ(CONT_ALL)¸¦ ¸ğµÎ Æ÷ÇÔÇÑ´Ù.
 	for( TAXINFOMAP::iterator it=m_mapTaxInfo.begin(); it!=m_mapTaxInfo.end(); it++ )
 	{
 		__TAXINFO* taxInfo = it->second;
 		taxInfo->dwId = taxInfo->dwNextId;
-		taxInfo->dwNextId = NULL_ID; // ë‹¤ìŒ ì£¼ ì´ˆê¸°í™”
+		taxInfo->dwNextId = NULL_ID; // ´ÙÀ½ ÁÖ ÃÊ±âÈ­
 		
 		if( taxInfo->bSetTaxRate )
 		{
-			if( it->first != CONT_ALL )		// êµ°ì£¼ëŠ” ì„¸ìœ¨ê³¼ ê´€ê³„ì—†ë‹¤.
+			if( it->first != CONT_ALL )		// ±ºÁÖ´Â ¼¼À²°ú °ü°è¾ø´Ù.
 			{
 				taxInfo->mapTaxDetail.find( TAX_SALES )->second->nTaxRate = taxInfo->mapTaxDetail.find( TAX_SALES )->second->nNextTaxRate;
 				taxInfo->mapTaxDetail.find( TAX_PURCHASE )->second->nTaxRate = taxInfo->mapTaxDetail.find( TAX_PURCHASE )->second->nNextTaxRate;
 			}
 		}
-		else	// ì„¸ìœ¨ ë³€ê²½ì„ í•˜ì§€ ì•Šì•˜ì„ ê²½ìš° ê¸°ë³¸ ì„¸ìœ¨ë¡œ ì„¤ì •
+		else	// ¼¼À² º¯°æÀ» ÇÏÁö ¾Ê¾ÒÀ» °æ¿ì ±âº» ¼¼À²·Î ¼³Á¤
 		{
-			taxInfo->bSetTaxRate = TRUE;	// ë”ì´ìƒ ì„¸ìœ¨ ì„¤ì • ì°½ì´ ì•ˆëœ¨ë„ë¡ ì„¤ì •í•œ ê²ƒìœ¼ë¡œ ë§Œë“ ë‹¤.
-			if( it->first != CONT_ALL )		// êµ°ì£¼ëŠ” ì„¸ìœ¨ê³¼ ê´€ê³„ì—†ë‹¤.
+			taxInfo->bSetTaxRate = TRUE;	// ´õÀÌ»ó ¼¼À² ¼³Á¤ Ã¢ÀÌ ¾È¶ßµµ·Ï ¼³Á¤ÇÑ °ÍÀ¸·Î ¸¸µç´Ù.
+			if( it->first != CONT_ALL )		// ±ºÁÖ´Â ¼¼À²°ú °ü°è¾ø´Ù.
 			{
 				taxInfo->mapTaxDetail.find( TAX_SALES )->second->nTaxRate = m_nMinTaxRate;
 				taxInfo->mapTaxDetail.find( TAX_PURCHASE )->second->nTaxRate = m_nMinTaxRate;
 			}
 		}
 		
-		// ì„¸ê¸ˆì„ ëª¨ë‘ ì´ˆê¸°í™” í•œë‹¤.
+		// ¼¼±İÀ» ¸ğµÎ ÃÊ±âÈ­ ÇÑ´Ù.
 		for( TAXDETAILMAP::iterator it2=taxInfo->mapTaxDetail.begin(); it2!=taxInfo->mapTaxDetail.end(); it2++ )
 		{
 			__TAXDETAIL* taxDetail = it2->second;
@@ -267,11 +267,11 @@ void CTax::SetChangeNextTax()	// ë³€ê²½ë  ì„¸ìœ¨ì„ ì ìš©
 	}
 }
 
-BOOL CTax::CheckPayTime()	// ë‹¹ì¼ ì„¸ê¸ˆ ìˆ˜ì…ê¸ˆì„ ìš°í¸ìœ¼ë¡œ ë³´ë‚¸ë‹¤.
+BOOL CTax::CheckPayTime()	// ´çÀÏ ¼¼±İ ¼öÀÔ±İÀ» ¿ìÆíÀ¸·Î º¸³½´Ù.
 {
-	// ì§€ê¸‰ì‹œê°„ ê²€ì‚¬ -	ì§€ê¸‰ ì‹œê°„ì€ "ì‹œ:ë¶„"ì´ ë°˜ë“œì‹œ ì¼ì¹˜í•´ì•¼ í•œë‹¤.(ì„­ë‹¤ ë“±ì˜ ì´ìœ ë¡œ ì¶©ë¶„íˆ ì‹¤íŒ¨í•  ìˆ˜ ìˆë‹¤)
-	//					ë§Œì•½ ì‹œê°„ì´ ì§€ë‚˜ì„œ ì§€ê¸‰ì´ ì•ˆëœê²½ìš° ë‹¤ìŒë‚  ë‹¤ì‹œ ê²€ì‚¬í•´ì„œ ê°™ì´ ì§€ê¸‰í•œë‹¤.
-	//					ë‹¤ìŒ ì„¸ìœ¨ë¡œ ë³€ê²½í•  ì‹œê°„ì´ë©´ bPayë¥¼ ì°¸ì¡°í•˜ì—¬ FALSEì¸ ê²½ìš° ë³€ê²½ì „ì— ì§€ê¸‰í•œë‹¤.
+	// Áö±Ş½Ã°£ °Ë»ç -	Áö±Ş ½Ã°£Àº "½Ã:ºĞ"ÀÌ ¹İµå½Ã ÀÏÄ¡ÇØ¾ß ÇÑ´Ù.(¼·´Ù µîÀÇ ÀÌÀ¯·Î ÃæºĞÈ÷ ½ÇÆĞÇÒ ¼ö ÀÖ´Ù)
+	//					¸¸¾à ½Ã°£ÀÌ Áö³ª¼­ Áö±ŞÀÌ ¾ÈµÈ°æ¿ì ´ÙÀ½³¯ ´Ù½Ã °Ë»çÇØ¼­ °°ÀÌ Áö±ŞÇÑ´Ù.
+	//					´ÙÀ½ ¼¼À²·Î º¯°æÇÒ ½Ã°£ÀÌ¸é bPay¸¦ ÂüÁ¶ÇÏ¿© FALSEÀÎ °æ¿ì º¯°æÀü¿¡ Áö±ŞÇÑ´Ù.
 	BOOL bPay = FALSE;
 	if( m_Lua.GetLuaFunction( "CheckPayTime" ) )
 	{
@@ -287,20 +287,20 @@ BOOL CTax::CheckPayTime()	// ë‹¹ì¼ ì„¸ê¸ˆ ìˆ˜ì…ê¸ˆì„ ìš°í¸ìœ¼ë¡œ ë³´ë‚¸ë‹¤.
 	return bPay;
 }
 
-float CTax::GetEarningRate( BYTE nCont, BYTE nTaxKind )	// ê° ì„¸ê¸ˆì— ëŒ€í•´ êµ°ì£¼ì™€ ì ë ¹ê¸¸ë“œì˜ ìˆ˜ìµë¥ 
+float CTax::GetEarningRate( BYTE nCont, BYTE nTaxKind )	// °¢ ¼¼±İ¿¡ ´ëÇØ ±ºÁÖ¿Í Á¡·É±æµåÀÇ ¼öÀÍ·ü
 {
 	int nEarningRate = 0;
 	switch( nTaxKind )
 	{
-	case TAX_ADMISSION :	// ì…ì¥ë£Œ
-		if( nCont == CONT_ALL )		// êµ°ì£¼ì¸ ê²½ìš°
+	case TAX_ADMISSION :	// ÀÔÀå·á
+		if( nCont == CONT_ALL )		// ±ºÁÖÀÎ °æ¿ì
 			nEarningRate = m_nAdmissionLordRate;
 		else
 			nEarningRate = m_nAdmissionSecretRoomRate;
 		break;
 
 	default :
-		if( nCont == CONT_ALL )		// êµ°ì£¼ì¸ ê²½ìš°
+		if( nCont == CONT_ALL )		// ±ºÁÖÀÎ °æ¿ì
 			nEarningRate = m_nTaxLordRate;
 		else
 			nEarningRate = m_nTaxSecretRoomRate;
@@ -316,7 +316,7 @@ void CTax::LoadTaxInfo( DWORD dpId )
 }
 #endif // __DBSERVER
 
-void CTax::SetNextSecretRoomGuild( BYTE nCont, DWORD dwGuildId )	// ë‹´ì£¼ ì ë ¹ê¸¸ë“œ ì„¤ì •
+void CTax::SetNextSecretRoomGuild( BYTE nCont, DWORD dwGuildId )	// ´ãÁÖ Á¡·É±æµå ¼³Á¤
 {
 #ifdef __WORLDSERVER
 	g_dpDBClient.SendSecretRoomWinGuild( nCont, dwGuildId );
@@ -327,18 +327,18 @@ void CTax::SetNextSecretRoomGuild( BYTE nCont, DWORD dwGuildId )	// ë‹´ì£¼ ì ë 
 	if( !taxInfo )
 		return;
 
-	if( dwGuildId == NULL_ID )	// ì ë ¹ê¸¸ë“œê°€ ì—†ëŠ” ê²½ìš° ì„¸ìœ¨ì„ ì„¤ì •í•œ ê²ƒìœ¼ë¡œ í•œë‹¤.
+	if( dwGuildId == NULL_ID )	// Á¡·É±æµå°¡ ¾ø´Â °æ¿ì ¼¼À²À» ¼³Á¤ÇÑ °ÍÀ¸·Î ÇÑ´Ù.
 		taxInfo->bSetTaxRate = TRUE;
 	else
 		taxInfo->bSetTaxRate = FALSE;
-	// ë‹¤ìŒ IDë“±ë¡ ë° ì„¸ìœ¨ ì´ˆê¸°í™”
+	// ´ÙÀ½ IDµî·Ï ¹× ¼¼À² ÃÊ±âÈ­
 	taxInfo->dwNextId = dwGuildId;
 	for( TAXDETAILMAP::iterator it=taxInfo->mapTaxDetail.begin(); it!=taxInfo->mapTaxDetail.end(); it++ )
 		it->second->nNextTaxRate = 0;
 #endif // __DBSERVER
 }
 
-void CTax::SetNextLord( DWORD dwIdPlayer )	// ë‹¤ìŒ êµ°ì£¼ ì„¤ì •
+void CTax::SetNextLord( DWORD dwIdPlayer )	// ´ÙÀ½ ±ºÁÖ ¼³Á¤
 {
 #ifdef __WORLDSERVER
 	g_dpDBClient.SendLord( dwIdPlayer );
@@ -350,19 +350,19 @@ void CTax::SetNextLord( DWORD dwIdPlayer )	// ë‹¤ìŒ êµ°ì£¼ ì„¤ì •
 		return;
 	
 	taxInfo->bSetTaxRate = TRUE;
-	// ë‹¤ìŒ IDë“±ë¡ ë° ì„¸ìœ¨ ì´ˆê¸°í™”
+	// ´ÙÀ½ IDµî·Ï ¹× ¼¼À² ÃÊ±âÈ­
 	taxInfo->dwNextId = dwIdPlayer;
 	for( TAXDETAILMAP::iterator it=taxInfo->mapTaxDetail.begin(); it!=taxInfo->mapTaxDetail.end(); it++ )
-		it->second->nNextTaxRate = 0; // êµ°ì£¼ëŠ” ì„¸ìœ¨ì´ ë¬´ì˜ë¯¸ í•˜ì§€ë§Œ ì´ˆê¸°í™”...
+		it->second->nNextTaxRate = 0; // ±ºÁÖ´Â ¼¼À²ÀÌ ¹«ÀÇ¹Ì ÇÏÁö¸¸ ÃÊ±âÈ­...
 #endif // __DBSERVER
 }
 
-void CTax::SetNextTaxRate( BYTE nCont, int nSalesTaxRate, int nPurchaseTaxRate )	// ë‹¤ìŒ ì„¸ìœ¨ì„ ì ìš©í•œë‹¤.
+void CTax::SetNextTaxRate( BYTE nCont, int nSalesTaxRate, int nPurchaseTaxRate )	// ´ÙÀ½ ¼¼À²À» Àû¿ëÇÑ´Ù.
 {
 #ifdef __WORLDSERVER
 	if( nSalesTaxRate < m_nMinTaxRate || nSalesTaxRate > m_nMaxTaxRate
 		|| nPurchaseTaxRate < m_nMinTaxRate || nPurchaseTaxRate > m_nMaxTaxRate )
-		return;	// ìµœì†Œ, ìµœëŒ€ ë²”ìœ„ ë²—ì–´ë‚˜ë©´ ê·¸ëƒ¥ ë¦¬í„´...
+		return;	// ÃÖ¼Ò, ÃÖ´ë ¹üÀ§ ¹ş¾î³ª¸é ±×³É ¸®ÅÏ...
 
 	g_dpDBClient.SendTaxRate( nCont, nSalesTaxRate, nPurchaseTaxRate );
 #endif // __WORLDSERVER
@@ -377,18 +377,18 @@ void CTax::SetNextTaxRate( BYTE nCont, int nSalesTaxRate, int nPurchaseTaxRate )
 #endif // __DBSERVER
 }
 
-void CTax::SetApplyTaxRateNow()		// GMëª…ë ¹ìœ¼ë¡œ ì„¸ìœ¨ ë³€ê²½ì„ í•  ê²½ìš°
+void CTax::SetApplyTaxRateNow()		// GM¸í·ÉÀ¸·Î ¼¼À² º¯°æÀ» ÇÒ °æ¿ì
 {
 #ifdef __WORLDSERVER
 	g_dpDBClient.SendApplyTaxRateNow();
 #endif // __WORLDSERVER
 #ifdef __DBSERVER
 	//m_taxDBController.PostRequest( QUERY_TAX_CHANGENEXT, 0, 0, 0 );
-	CheckChangeTime( FALSE, TRUE );	// FALSE - ì§€ê¸‰ì´ ì•ˆë˜ì—ˆê³ , TRUE - GMëª…ë ¹ìœ¼ë¡œ ê°•ì œ ì„¸ìœ¨ ë³€ê²½í•œë‹¤.
+	CheckChangeTime( FALSE, TRUE );	// FALSE - Áö±ŞÀÌ ¾ÈµÇ¾ú°í, TRUE - GM¸í·ÉÀ¸·Î °­Á¦ ¼¼À² º¯°æÇÑ´Ù.
 #endif // __DBSERVER
 }
 
-void CTax::Serialize( CAr & ar )	// ì„¸ìœ¨ì— í•„ìš”í•œ ëª¨ë“  ì •ë³´ë¥¼ ì „ì†¡í•œë‹¤.
+void CTax::Serialize( CAr & ar )	// ¼¼À²¿¡ ÇÊ¿äÇÑ ¸ğµç Á¤º¸¸¦ Àü¼ÛÇÑ´Ù.
 {
 	if( ar.IsStoring() )
 	{
@@ -440,7 +440,7 @@ void CTax::Serialize( CAr & ar )	// ì„¸ìœ¨ì— í•„ìš”í•œ ëª¨ë“  ì •ë³´ë¥¼ ì „ì†¡í
 	}
 }
 
-BOOL CTax::AddTax( BYTE nCont, int nTax, BYTE nTaxKind )	// íŒë§¤, êµ¬ë§¤, ì…ì¥ë£Œì— ëŒ€í•œ ì„¸ê¸ˆì„ ì ë¦½í•œë‹¤.
+BOOL CTax::AddTax( BYTE nCont, int nTax, BYTE nTaxKind )	// ÆÇ¸Å, ±¸¸Å, ÀÔÀå·á¿¡ ´ëÇÑ ¼¼±İÀ» Àû¸³ÇÑ´Ù.
 {
 	BOOL bUpdateToDB = FALSE;
 #ifdef __WORLDSERVER
@@ -473,7 +473,7 @@ BOOL CTax::AddTax( BYTE nCont, int nTax, BYTE nTaxKind )	// íŒë§¤, êµ¬ë§¤, ì…ì
 					taxDetail->nTaxPerin += nTaxTemp/PERIN_VALUE;
 					taxDetail->nTaxGold = nTaxTemp%PERIN_VALUE;
 				}
-				// m_nDBSaveCountê±´ì´ ì±„ì›Œì§€ì§€ ì•Šìœ¼ë©´ DBì— ì €ì¥í•˜ì§€ ì•ŠëŠ”ë‹¤.
+				// m_nDBSaveCount°ÇÀÌ Ã¤¿öÁöÁö ¾ÊÀ¸¸é DB¿¡ ÀúÀåÇÏÁö ¾Ê´Â´Ù.
 				if( (taxDetail->nTaxCount % m_nDBSaveCount) == 0 )
 					bUpdateToDB = TRUE;
 			}
@@ -484,7 +484,7 @@ BOOL CTax::AddTax( BYTE nCont, int nTax, BYTE nTaxKind )	// íŒë§¤, êµ¬ë§¤, ì…ì
 }
 
 #ifdef __WORLDSERVER
-void CTax::SendSetTaxRateOpenWnd( BYTE nCont, DWORD dwGuildId )		// ì ë ¹ê¸¸ë“œì—ê²Œ ì„¸ìœ¨ ì •ë³´ì°½ì„ ì—´ë„ë¡ í•œë‹¤.
+void CTax::SendSetTaxRateOpenWnd( BYTE nCont, DWORD dwGuildId )		// Á¡·É±æµå¿¡°Ô ¼¼À² Á¤º¸Ã¢À» ¿­µµ·Ï ÇÑ´Ù.
 {
 	CGuild* pGuild = g_GuildMng.GetGuild( dwGuildId );
 	if( pGuild )
@@ -495,7 +495,7 @@ void CTax::SendSetTaxRateOpenWnd( BYTE nCont, DWORD dwGuildId )		// ì ë ¹ê¸¸ë“œ
 	}
 }
 
-void CTax::SendNoSetTaxRateOpenWnd( CUser* pUser )	// ì„¸ìœ¨ ì„¤ì •ì„ í•˜ì§€ ì•Šì€ê²½ìš° ì ‘ì†ì‹œ ì„¸ìœ¨ ì„¤ì •ì°½ì„ ì—´ë„ë¡...
+void CTax::SendNoSetTaxRateOpenWnd( CUser* pUser )	// ¼¼À² ¼³Á¤À» ÇÏÁö ¾ÊÀº°æ¿ì Á¢¼Ó½Ã ¼¼À² ¼³Á¤Ã¢À» ¿­µµ·Ï...
 {
 	CGuild* pGuild = pUser->GetGuild();
 	if( pGuild )
@@ -560,7 +560,7 @@ void CTaxDBController::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey 
 	{
 		case QUERY_TAX_LOAD :
 			{
-				if( !m_bLoadTaxInfo )	// DBì—ì„œ ë¡œë”©ì€ í•œë²ˆë§Œ...
+				if( !m_bLoadTaxInfo )	// DB¿¡¼­ ·ÎµùÀº ÇÑ¹ø¸¸...
 				{
 					LoadTaxInfo();
 					m_bLoadTaxInfo = TRUE;
@@ -572,15 +572,15 @@ void CTaxDBController::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey 
 		case QUERY_TAX_PAY :	
 			{
 				PayTaxToPost();
-				UpdateAllToDB(); // ëª¨ë“  ëŒ€ë¥™ì˜ ì„¸ê¸ˆ ì •ë³´ë¥¼ ì €ì¥í•œë‹¤.
+				UpdateAllToDB(); // ¸ğµç ´ë·úÀÇ ¼¼±İ Á¤º¸¸¦ ÀúÀåÇÑ´Ù.
 			}
 			break;
 		
 		case QUERY_TAX_CHANGENEXT :
 			{
 				CTax::GetInstance()->SetChangeNextTax();
-				CDPTrans::GetInstance()->SendTaxInfo( DPID_ALLPLAYERS, FALSE, TRUE ); // WorldServerë¡œ ì „ì†¡
-				InsertToDB();		// ë³€ê²½ëœ ì •ë³´ë¥¼ DBì— ì¶”ê°€ 
+				CDPTrans::GetInstance()->SendTaxInfo( DPID_ALLPLAYERS, FALSE, TRUE ); // WorldServer·Î Àü¼Û
+				InsertToDB();		// º¯°æµÈ Á¤º¸¸¦ DB¿¡ Ãß°¡ 
 			}
 			break;
 
@@ -732,16 +732,16 @@ void CTaxDBController::LoadTaxInfo()
 	CQuery* pQuery = GetQueryObject();
 
 	char szQuery[QUERY_SIZE] = {0,};
-	// ì¸ë±ìŠ¤ ì–»ì–´ì˜¤ê¸°
+	// ÀÎµ¦½º ¾ò¾î¿À±â
 	sprintf( szQuery, "TAX_INFO_STR 'S1', '%02d', 0, 0, '0', '0', 0, '0'", g_appInfo.dwSys );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
 	if( pQuery->Fetch() )
 		m_nTimes = pQuery->GetInt( "nTimes" );
 	
-	if( m_nTimes <= 0 ) // DBì— ì•„ë¬´ê²ƒë„ ì €ì¥ë˜ì§€ ì•Šì€ê²½ìš°
+	if( m_nTimes <= 0 ) // DB¿¡ ¾Æ¹«°Íµµ ÀúÀåµÇÁö ¾ÊÀº°æ¿ì
 	{
-		// í˜„ì¬ ì‹œê°„ì„ ê°€ì ¸ì˜¨ë‹¤.
+		// ÇöÀç ½Ã°£À» °¡Á®¿Â´Ù.
 		if( tax->m_Lua.GetLuaFunction( "GetNowDate" ) )
 		{
 			tax->m_Lua.CallLuaFunction( 0, 1 );
@@ -749,13 +749,13 @@ void CTaxDBController::LoadTaxInfo()
 		}
 		tax->m_Lua.Pop(0);
 
-		InsertToDB();	// dummyê°’(ì´ˆê¸°ê°’)ì„ insert í•œë‹¤.
+		InsertToDB();	// dummy°ª(ÃÊ±â°ª)À» insert ÇÑ´Ù.
 		return;
 	}
 
 	for( TAXINFOMAP::iterator it=tax->m_mapTaxInfo.begin(); it!=tax->m_mapTaxInfo.end(); it++ )
 	{
-		// DBì— ì €ì¥ëœ rowê°€ ìˆìœ¼ë©´ ì •ë³´ë¥¼ ì½ì–´ì˜¨ë‹¤.
+		// DB¿¡ ÀúÀåµÈ row°¡ ÀÖÀ¸¸é Á¤º¸¸¦ ÀĞ¾î¿Â´Ù.
 		BYTE nContinent = it->first;
 		__TAXINFO* taxInfo = it->second;
 		
@@ -773,7 +773,7 @@ void CTaxDBController::LoadTaxInfo()
 			tax->m_strChangedDate = szDate;
 		}
 	
-		// ìƒì„¸ ì •ë³´
+		// »ó¼¼ Á¤º¸
 		sprintf( szQuery, "TAX_DETAIL_STR 'S2', '%02d', %d, %d, 0, 0, 0, 0, 0, 0", g_appInfo.dwSys, m_nTimes, nContinent );
 		if( pQuery->Exec( szQuery ) == FALSE )
 		{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }

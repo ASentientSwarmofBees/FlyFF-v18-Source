@@ -1,4 +1,4 @@
-﻿#ifndef __WNDPIERCING__H
+#ifndef __WNDPIERCING__H
 #define __WNDPIERCING__H
 
 class CPiercingMessageBox : public CWndMessageBox

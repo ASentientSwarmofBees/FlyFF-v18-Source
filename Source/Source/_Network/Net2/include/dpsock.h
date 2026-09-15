@@ -1,4 +1,4 @@
-ï»¿#ifndef __DPSOCK_H__
+#ifndef __DPSOCK_H__
 #define __DPSOCK_H__
 
 #pragma once
@@ -163,8 +163,8 @@ BOOL CDPSock<T>::CreateIoWorker( u_long uIoWorker )
 	{
 		HANDLE hThread;
 		
-		// åº·
-		// ì´ ë¶€ë¶„ì´ ì›ë³¸ ë¶€ë¶„ ìˆ˜ì • ë•Œ ëˆ„ë½. í˜„ì¬ ë¬¸ì œ ìˆìœ¼ë¯€ë¡œ ì„ì‹œë¡œ uIoWorker = 1ë¡œ ì„¤ì •í•˜ì˜€ë‹¤.
+		// Ë¬
+		// ÀÌ ºÎºĞÀÌ ¿øº» ºÎºĞ ¼öÁ¤ ¶§ ´©¶ô. ÇöÀç ¹®Á¦ ÀÖÀ¸¹Ç·Î ÀÓ½Ã·Î uIoWorker = 1·Î ¼³Á¤ÇÏ¿´´Ù.
 		m_uIoWorker	= uIoWorker;
 		if( ( m_hCompletionPort = CreateIoCompletionPort( INVALID_HANDLE_VALUE, NULL, 0, 0 ) ) == (HANDLE)NULL )
 			return FALSE;

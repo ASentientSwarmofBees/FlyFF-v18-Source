@@ -1,4 +1,4 @@
-ï»¿// WndBase.cpp: implementation of the CWndBase class.
+// WndBase.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -97,7 +97,7 @@ void CWndSkillCtrl::InitItem( int nJob, int nJob_, LPSKILL apSkill )
 	m_pFocusItem = NULL;
 	m_nJob = nJob;
 	
-	// ì†ŒìŠ¤ ì•„ì´í…œì„ ì…ë ¥
+	// ¼Ò½º ¾ÆÀÌÅÛÀ» ÀÔ·Â
 	for( int i = 0; i < MAX_SKILL_JOB; i++ ) 
 	{
 		LPSKILL lpSkill;
@@ -163,9 +163,9 @@ BOOL CWndSkillCtrl::CheckSkill( int i )
 		return NULL;
 	int nJobLevel = g_pPlayer->m_aJobLv[g_pPlayer->GetJob()];
 	DWORD dwReqDislLV = pSkill->GetProp()->dwReqDisLV;
-	// ë‚´ê°€ ìµìŠ¤í¼íŠ¸ì¼ ê²½ìš° ê·¸ ì´ì „ ì§ì—…( JTYPE_JOB )ì˜ ìŠ¤í‚¬ì€ ìµìŠ¤í¼íŠ¸ ìŠ¤í‚¬ ë ˆë²¨ ì œí•œì—
-	// ê±¸ë ¤ ì¼ë¶€ë§Œ ì¶œë ¥ëœë‹¤ ê·¸ê²ƒì„ ë§‰ê¸° ìœ„í•´ ì§ì—… íƒ€ì…ì„ êµ¬í•´ ê·¸ ì´ì „ ìŠ¤í‚¬ì€ ê°•ì œë¡œ
-	// ì¶œë ¥í•˜ë„ë¡ í–ˆë‹¤.
+	// ³»°¡ ÀÍ½ºÆÛÆ®ÀÏ °æ¿ì ±× ÀÌÀü Á÷¾÷( JTYPE_JOB )ÀÇ ½ºÅ³Àº ÀÍ½ºÆÛÆ® ½ºÅ³ ·¹º§ Á¦ÇÑ¿¡
+	// °É·Á ÀÏºÎ¸¸ Ãâ·ÂµÈ´Ù ±×°ÍÀ» ¸·±â À§ÇØ Á÷¾÷ Å¸ÀÔÀ» ±¸ÇØ ±× ÀÌÀü ½ºÅ³Àº °­Á¦·Î
+	// Ãâ·ÂÇÏµµ·Ï Çß´Ù.
 	if( g_pPlayer->IsJobType( JTYPE_BASE ) )
 	{
 		if( dwReqDislLV > nJobLevel )
@@ -232,7 +232,7 @@ void CWndSkillCtrl::OnDraw( C2DRender* p2DRender )
 
 	CPoint pt( 3, 3 );
 
-	// ë¦¬í¬íŠ¸ ì¶œë ¥ 
+	// ¸®Æ÷Æ® Ãâ·Â 
 	if( 1 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
 		pt.y -= ( m_nFontHeight + 3 ) * m_wndScrollBar.GetScrollPos();
@@ -255,7 +255,7 @@ void CWndSkillCtrl::OnDraw( C2DRender* p2DRender )
 
 			if( dwSkill != NULL_ID )
 			{
-				// ê²Œì´ì§€ ì¶œë ¥ 
+				// °ÔÀÌÁö Ãâ·Â 
 				int ax = 10;
 				int ay = 5;
 				rect.SetRect( x + 50 + ax, pt.y + 20 + ay, x + nWidth - 10, pt.y + 30 + ay ); 
@@ -271,7 +271,7 @@ void CWndSkillCtrl::OnDraw( C2DRender* p2DRender )
 				}
 				
 				rect.SetRect( x + 3, pt.y + 6, x + 3 + 32, pt.y + 6 + 32 ); 
-				// ìŠ¤í‚¬ ì•„ì´ì½˜ ì¶œë ¥ 
+				// ½ºÅ³ ¾ÆÀÌÄÜ Ãâ·Â 
 				if( m_atexSkill[ i ] )
 				{
 					if( CheckSkill( i ) )
@@ -279,14 +279,14 @@ void CWndSkillCtrl::OnDraw( C2DRender* p2DRender )
 					else
 						m_atexSkill[ i ]->Render(  p2DRender, rect.TopLeft(), 64 );
 				}	
-				// ìŠ¤í‚¬ ë ˆë²¨ ì¶œë ¥ 
+				// ½ºÅ³ ·¹º§ Ãâ·Â 
 				TCHAR szNum[ 32 ]; 
 #ifdef __SKILL0517
 				sprintf( szNum, "Lv%2d", g_pPlayer->GetSkillLevel( pSkill ) );
 #else	// __SKILL0517
 				sprintf( szNum, "Lv%2d", pSkill->dwLevel );
 #endif	// __SKILL0517
-				SIZE size = p2DRender->m_pFont->GetTextExtent( szNum ); // ë ˆë²¨ í°íŠ¸ì˜ ì‚¬ì´ì¦ˆ ì½ê¸° 
+				SIZE size = p2DRender->m_pFont->GetTextExtent( szNum ); // ·¹º§ ÆùÆ®ÀÇ »çÀÌÁî ÀĞ±â 
 				p2DRender->TextOut( rect.left + 50 - size.cx + ax / 2, rect.top + 30 - size.cy, szNum, dwColor );
 
 				if( pSkill->dwLevel >= pSkillProp->dwExpertMax )
@@ -294,7 +294,7 @@ void CWndSkillCtrl::OnDraw( C2DRender* p2DRender )
 					p2DRender->TextOut( rect.left + 83 - size.cx + ax / 2, rect.top + 30 - size.cy, "Master", 0xffff0000 );
 				}
 				
-				// ìŠ¤í‚¬ëª… ì¶œë ¥ 
+				// ½ºÅ³¸í Ãâ·Â 
 				p2DRender->TextOut( x + 60 + ax / 2, pt.y + 5 + ay, pSkillProp->szName, dwColor ); 
 			}
 			pt.y += m_nFontHeight + 3;
@@ -333,7 +333,7 @@ void CWndSkillCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 	CRect rect;
 	CRect rectstop;
 
-	// ë¦¬í¬íŠ¸  
+	// ¸®Æ÷Æ®  
 	if( 1 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
 		pt.y -= (m_nFontHeight + 3) * m_wndScrollBar.GetScrollPos();
@@ -357,7 +357,7 @@ void CWndSkillCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 					}
 					if( m_pFocusItem == &m_apSkill[ i ] )
 					{
-						// ë¶€ëª¨ê°€ ì°¨ì¼ë“œ ìœˆë„ê°€ ì•„ë‹ˆì–´ì•¼ OnCommand ë©”ì‹œì§€ë¥¼ ë°›ëŠ”ë‹¤.
+						// ºÎ¸ğ°¡ Â÷ÀÏµå À©µµ°¡ ¾Æ´Ï¾î¾ß OnCommand ¸Ş½ÃÁö¸¦ ¹Ş´Â´Ù.
 						CWndBase* pWnd = m_pParentWnd;
 						pWnd->OnChildNotify( WNM_SELCHANGE, m_nIdWnd, (LRESULT*)m_pFocusItem ); 
 						return;
@@ -385,7 +385,7 @@ void CWndSkillCtrl::OnMouseMove(UINT nFlags, CPoint point)
 		m_GlobalShortcut.m_dwType  = 0;//m_nJob;//(DWORD)pItemElem;//->m_dwItemId;
 		m_GlobalShortcut.m_dwIndex = dwSkill;//m_nCurSelect;//(DWORD)pItemElem;//->m_dwItemId;
 		m_GlobalShortcut.m_dwData = 0;//pItemElem->m_dwObjId;//(DWORD)pItemElem;
-		m_GlobalShortcut.m_dwId       = m_nCurSelect; // ì»¬ëŸ°íŠ¸ ì…€ë ‰íŠ¸ê°€ ê³§ IDë‚˜ ë§ˆì°¬ê°€ì§€ì„.
+		m_GlobalShortcut.m_dwId       = m_nCurSelect; // ÄÃ·±Æ® ¼¿·ºÆ®°¡ °ğ ID³ª ¸¶Âù°¡ÁöÀÓ.
 		m_GlobalShortcut.m_pTexture = m_atexSkill[ m_nCurSelect ];//L;//pItemElem->m_pTexture;
 		_tcscpy( m_GlobalShortcut.m_szString, pSkillProp->szName);
 	}
@@ -423,12 +423,12 @@ BOOL CWndSkillCtrl::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 }
 void CWndSkillCtrl::OnLButtonDblClk( UINT nFlags, CPoint point )
 {
-	// í´ë¡œì¦ˆ ë² íƒ€ìš© ì„ì‹œ ì½”ë“œ
-	// ìŠ¤í‚¬ì°½ì—ì„œ ë”ë¸”í´ë¦­í•˜ë©´ ìë™ìœ¼ë¡œ ìŠ¤í‚¬ë°”ì— ë“±ë¡ëœë‹¤.
+	// Å¬·ÎÁî º£Å¸¿ë ÀÓ½Ã ÄÚµå
+	// ½ºÅ³Ã¢¿¡¼­ ´õºíÅ¬¸¯ÇÏ¸é ÀÚµ¿À¸·Î ½ºÅ³¹Ù¿¡ µî·ÏµÈ´Ù.
 	CPoint pt( 3, 3 );
 	CRect rect;
 
-	// ë¦¬í¬íŠ¸ ì¶œë ¥ 
+	// ¸®Æ÷Æ® Ãâ·Â 
 	if( 1 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
 		pt.y -= (m_nFontHeight + 3) * m_wndScrollBar.GetScrollPos();
@@ -447,7 +447,7 @@ void CWndSkillCtrl::OnLButtonDblClk( UINT nFlags, CPoint point )
 					m_pFocusItem = &m_apSkill[ i ];//pSkillProp;
 					m_rect = rect;
 					CWndTaskBar* pTaskBar = g_WndMng.m_pWndTaskBar;
-					if( pTaskBar->m_nExecute == 0 )		// ìŠ¤í‚¬íê°€ ì‚¬ìš©ë˜ì§€ ì•Šì„ë•Œë§Œ ë“±ë¡ë¨.
+					if( pTaskBar->m_nExecute == 0 )		// ½ºÅ³Å¥°¡ »ç¿ëµÇÁö ¾ÊÀ»¶§¸¸ µî·ÏµÊ.
 						pTaskBar->SetSkillQueue( pTaskBar->m_nCurQueueNum, pSkillProp->dwItemJob, i, m_atexSkill[i] );
 				
 					break;
@@ -466,7 +466,7 @@ void CWndSkillCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 	CRect rect;
 	CRect rectstop;
 
-	// ë¦¬í¬íŠ¸ ì¶œë ¥ 
+	// ¸®Æ÷Æ® Ãâ·Â 
 	if( 1 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
 		pt.y -= (m_nFontHeight + 3) * m_wndScrollBar.GetScrollPos();
@@ -522,7 +522,7 @@ void CWndSkillCtrl::SetWndRect( CRect rectWnd, BOOL bOnSize )
 		{
 			int nPage = GetClientRect().Height() / (m_nFontHeight + 3);
 			int nRange = GetMaxSkill();//m_pItemContainer->m_dwIndexNum;// - nPage;
-			m_rectClient.right -= 15; // ìŠ¤í¬ë¡¤ ë°”ê°€ ë³´ì´ë©´ 
+			m_rectClient.right -= 15; // ½ºÅ©·Ñ ¹Ù°¡ º¸ÀÌ¸é 
 		}
 	}
 	if( bOnSize )

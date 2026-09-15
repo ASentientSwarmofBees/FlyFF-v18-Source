@@ -1,4 +1,4 @@
-ï»¿#ifndef __VERSION_COMMON_H__
+#ifndef __VERSION_COMMON_H__
 #define __VERSION_COMMON_H__
 #define	__VER	18
 #define __MAINSERVER
@@ -6,10 +6,10 @@
 	#define __INTERNALSERVER
 #endif
 
-#define		__SERVER				// í´ë¼ì´ì–¸íŠ¸ ì „ìš©ì½”ë“œë¥¼ ë¹Œë“œí•˜ì§€ ì•Šê¸° ìœ„í•œ define
+#define		__SERVER				// Å¬¶óÀÌ¾ğÆ® Àü¿ëÄÚµå¸¦ ºôµåÇÏÁö ¾Ê±â À§ÇÑ define
 #define		__DOS1101
 #define		__CRC
-#define		__SO1014				// ì†Œì¼“ ì˜ˆì™¸ ì²˜ë¦¬( ìºì‰¬, ì¸ì¦, ë¡œê·¸ì¸ )
+#define		__SO1014				// ¼ÒÄÏ ¿¹¿Ü Ã³¸®( Ä³½¬, ÀÎÁõ, ·Î±×ÀÎ )
 #define		__PROTOCOL0910
 #define		__PROTOCOL1021
 #define		__VERIFYNETLIB
@@ -24,18 +24,18 @@
 #endif // __VC100
 #endif
 
-// 15ì°¨
-//	#define		__2ND_PASSWORD_SYSTEM			// ë¡œê·¸ì¸ ì‹œ 2ì°¨ ë¹„ë°€ë²ˆí˜¸ ì…ë ¥
+// 15Â÷
+//	#define		__2ND_PASSWORD_SYSTEM			// ·Î±×ÀÎ ½Ã 2Â÷ ºñ¹Ğ¹øÈ£ ÀÔ·Â
 
-#if	  defined(__INTERNALSERVER)	// ë‚´ë¶€ ì‚¬ë¬´ì‹¤ í…ŒìŠ¤íŠ¸ì„œë²„ 
-
-
-#elif defined(__TESTSERVER)		// ì™¸ë¶€ ìœ ì € í…ŒìŠ¤íŠ¸ì„œë²„
+#if	  defined(__INTERNALSERVER)	// ³»ºÎ »ç¹«½Ç Å×½ºÆ®¼­¹ö 
 
 
-#elif defined(__MAINSERVER)		// ì™¸ë¶€ ë³¸ì„­
+#elif defined(__TESTSERVER)		// ¿ÜºÎ À¯Àú Å×½ºÆ®¼­¹ö
 
-#endif	// end - ì„œë²„ì¢…ë¥˜ë³„ define 
+
+#elif defined(__MAINSERVER)		// ¿ÜºÎ º»¼·
+
+#endif	// end - ¼­¹öÁ¾·ùº° define 
 
 
 #endif

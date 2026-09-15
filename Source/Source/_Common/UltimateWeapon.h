@@ -1,4 +1,4 @@
-ï»¿// UltimateWeapon.h: interface for the CUltimateWeapon class.
+// UltimateWeapon.h: interface for the CUltimateWeapon class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -88,10 +88,10 @@ public:
 #ifdef __WORLDSERVER
 	map<int, __MAKEGEMPROB> m_mapMakeGemProb;	
 	map<int, int>			m_mapUltimateProb;
-	int						m_nSetGemProb;		// ë³´ì„í•©ì„± í™•ë¥ 
-	int						m_nRemoveGemProb;	// ë³´ì„ì œê±° í™•ë¥ 
-	int						m_nGen2UniProb;		// ì¼ë°˜->ìœ ë‹ˆí¬
-	int						m_nUni2UltiProb;	// ìœ ë‹ˆí¬->ì–¼í„°ë©‹
+	int						m_nSetGemProb;		// º¸¼®ÇÕ¼º È®·ü
+	int						m_nRemoveGemProb;	// º¸¼®Á¦°Å È®·ü
+	int						m_nGen2UniProb;		// ÀÏ¹Ý->À¯´ÏÅ©
+	int						m_nUni2UltiProb;	// À¯´ÏÅ©->¾óÅÍ¸Ú
 #endif // __WORLDSERVER
 };
 #endif // __ULTIMATE

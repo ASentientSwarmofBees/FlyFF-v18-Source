@@ -1,4 +1,4 @@
-﻿#ifndef	__GRAPHIC3D_H__
+#ifndef	__GRAPHIC3D_H__
 #define	__GRAPHIC3D_H__
 
 

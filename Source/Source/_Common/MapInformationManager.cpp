@@ -1,4 +1,4 @@
-О╩©#include "StdAfx.h"
+#include "StdAfx.h"
 #ifdef __IMPROVE_MAP_SYSTEM
 #ifdef __CLIENT
 #include "MapInformationManager.h"
@@ -146,7 +146,7 @@ BOOL CMapInformationManager::InsertUserMarkPositionInfo( const CString& strName,
 	if( static_cast< int >( m_UserMarkPositionInfoList.size() ) >= USER_MARK_MAX_SIZE )
 	{
 		g_WndMng.PutString( 
-			_T( "К█■ Л²╢Л┐│ Л°└Л╧≤ К⌠╠К║²Л²└ М∙═ Л┬≤ Л≈├Л┼╣К▀┬К▀╓. Й╦╟Л║╢Л≈░ К⌠╠К║²К░° Л°└Л╧≤К╔╪ Л═∙К╕╛М∙≤Л▀═ М⌡└ К▀╓Л▀° К⌠╠К║²М∙≤Л└╦Л ■ " ), 
+			_T( "╢У юл╩С ю╖д║ ╣Н╥ою╩ гр ╪Ж ╬Ь╫ю╢о╢ы. ╠Ба╦©║ ╣Н╥о╣х ю╖д║╦╕ а╓╦╝го╫е хд ╢ы╫ц ╣Н╥ого╪╪©Д " ), 
 			NULL, 
 			0xffff0000 );
 

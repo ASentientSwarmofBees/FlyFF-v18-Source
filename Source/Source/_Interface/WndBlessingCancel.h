@@ -1,4 +1,4 @@
-﻿#ifndef __WNDBLESSINGCANCEL__H
+#ifndef __WNDBLESSINGCANCEL__H
 #define __WNDBLESSINGCANCEL__H
 #if __VER >= 11 // __SYS_IDENTIFY
 class CWndBlessingCancel : public CWndNeuz 

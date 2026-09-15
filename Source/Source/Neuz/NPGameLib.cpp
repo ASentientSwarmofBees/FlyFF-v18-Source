@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "timer.h"
 #include "NPGameLib4.h"
 
@@ -34,7 +34,7 @@ void PreInitNProtect()
 		}
 		else
 		{
-			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "125.5.127.16" ) == 0 )	// í…ŒìŠ¤íŠ¸
+			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "125.5.127.16" ) == 0 )	// Å×½ºÆ®
 				g_szNPGKey	= "FlyffPHTest";
 			else
 				g_szNPGKey = "FlyffPH";
@@ -42,22 +42,22 @@ void PreInitNProtect()
 		break;
 #endif // __NO_SUB_LANG
 	case LANG_JAP:
-		g_szNPGKey = "FlyffJP";		// ì•„ì§ ì‚¬ìš©í•˜ì§€ ì•Šê³  ìˆë‹¤.
+		g_szNPGKey = "FlyffJP";		// ¾ÆÁ÷ »ç¿ëÇÏÁö ¾Ê°í ÀÖ´Ù.
 		break;
 	case LANG_CHI:
 	case LANG_TWN:
 		{
-			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "210.242.174.100" ) == 0 )		// í…ŒìŠ¤íŠ¸
+			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "210.242.174.100" ) == 0 )		// Å×½ºÆ®
 				g_szNPGKey = "FlyffTWTest";
-			else	// ì •ì‹
+			else	// Á¤½Ä
 				g_szNPGKey = "FlyffTW";
 		}
 		break;
 	case LANG_HK:
 		{
-			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "203.174.49.231" ) == 0 )		// ì •ì‹ ì„œë²„
+			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "203.174.49.231" ) == 0 )		// Á¤½Ä ¼­¹ö
 				g_szNPGKey = "FlyffHK";
-			else	// í…ŒìŠ¤íŠ¸ ì„œë²„
+			else	// Å×½ºÆ® ¼­¹ö
 				g_szNPGKey = "FlyffHKTest";
 		}
 		break;
@@ -66,33 +66,33 @@ void PreInitNProtect()
 		break;
 	case LANG_GER:
 		{
-			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "195.59.138.10" ) == 0 )		// ì •ì‹ ì„œë²„
+			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "195.59.138.10" ) == 0 )		// Á¤½Ä ¼­¹ö
 				g_szNPGKey = "FlyffEU";
-			else	// í…ŒìŠ¤íŠ¸ ì„œë²„
+			else	// Å×½ºÆ® ¼­¹ö
 				g_szNPGKey = "FlyffEUTest";
 		}
 		break;
 	case LANG_SPA:
 		{
-		//	mulcom	BEGIN100419 ìŠ¤í˜ë‹ˆì‹œ ë²„ì „ NPGKey ì„¤ì •.
+		//	mulcom	BEGIN100419 ½ºÆä´Ï½Ã ¹öÀü NPGKey ¼³Á¤.
 //			g_szNPGKey = "FlyffSP";
 			g_szNPGKey = "FlyffES";
-		//	mulcom	END100419	ìŠ¤í˜ë‹ˆì‹œ ë²„ì „ NPGKey ì„¤ì •.
+		//	mulcom	END100419	½ºÆä´Ï½Ã ¹öÀü NPGKey ¼³Á¤.
 		}
 		break;
 	case LANG_POR:
 		{
-			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "204.2.134.191" ) == 0 )		// ì •ì‹ ì„œë²„
+			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "204.2.134.191" ) == 0 )		// Á¤½Ä ¼­¹ö
 				g_szNPGKey = "FlyffBR";
-			else	// í…ŒìŠ¤íŠ¸ ì„œë²„
+			else	// Å×½ºÆ® ¼­¹ö
 				g_szNPGKey = "FlyffBRTest";
 		}
 		break;
 	case LANG_FRE:
 		{
-			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "195.59.138.5" ) == 0 )		// ì •ì‹ ì„œë²„
+			if( lstrcmp( g_Neuz.m_lpCertifierAddr, "195.59.138.5" ) == 0 )		// Á¤½Ä ¼­¹ö
 				g_szNPGKey = "FlyffEU";
-			else	// í…ŒìŠ¤íŠ¸ ì„œë²„
+			else	// Å×½ºÆ® ¼­¹ö
 				g_szNPGKey = "FlyffEUTest";
 		}
 		break;

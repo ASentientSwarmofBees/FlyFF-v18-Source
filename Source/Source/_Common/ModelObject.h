@@ -1,4 +1,4 @@
-ï»¿#ifndef		__MODELOBJECT_H__
+#ifndef		__MODELOBJECT_H__
 #define		__MODELOBJECT_H__
 
 #include "Object3D.h"
@@ -10,7 +10,7 @@
 #include <boost/shared_ptr.hpp>
 #endif //__ATTACH_MODEL
 
-#define		MAX_SF_SLERP		3		// í‚¤ì™€í‚¤ ì‚¬ì´ë¥¼ ëª‡ë‹¨ê³„ë¡œ ë³´ê°„í•  ê²ƒì¸ê°€
+#define		MAX_SF_SLERP		3		// Å°¿ÍÅ° »çÀÌ¸¦ ¸î´Ü°è·Î º¸°£ÇÒ °ÍÀÎ°¡
 #define		MAX_SF_SWDFORCE		512
 #define		MAX_SF_SPLINE		4696
 
@@ -26,8 +26,8 @@ class CSwordForce
 public:
 	int		m_nMaxVertex;
 	int		m_nMaxSpline;
-	int		m_nMaxDraw;			// ìŠ¤í”Œë¼ì¸ ë¦¬ìŠ¤íŠ¸ì¤‘ì— ê·¸ë¦´ ë¦¬ìŠ¤íŠ¸
-	DWORD	m_dwColor;			// ê²€ê´‘ìƒ‰.
+	int		m_nMaxDraw;			// ½ºÇÃ¶óÀÎ ¸®½ºÆ®Áß¿¡ ±×¸± ¸®½ºÆ®
+	DWORD	m_dwColor;			// °Ë±¤»ö.
 	FVF_SWDFORCE	m_aList[ MAX_SF_SWDFORCE ];
 	FVF_SWDFORCE	m_aList2[ MAX_SF_SWDFORCE ];
 	FVF_SWDFORCE	m_aSpline[ MAX_SF_SPLINE ];
@@ -65,34 +65,34 @@ public:
 };
 
 //
-// ê°ì²´ë¥¼ êµ¬ì„±í•˜ëŠ” o3dë“¤.  Elementë¼ ì¹­í•˜ì.
+// °´Ã¼¸¦ ±¸¼ºÇÏ´Â o3dµé.  Element¶ó ÄªÇÏÀÚ.
 //
 struct O3D_ELEMENT
 {
 	int				m_nParentIdx;
 	CObject3D		*m_pObject3D;
-	D3DXMATRIX		m_mLocalTM;				// m_pParentë¡œë¶€í„°ì˜ LocalTM. ë¶€ëª¨ê°€ ì„ì˜ë¡œ ë°”ë€”ìˆ˜ ìˆê¸°ë•œì— ë”°ë¡œ ê°€ì§.
-	D3DXMATRIX		m_mLocalRH;				// ì˜¤ë¥¸ì†ì— ì¥ëŠ” ë¬´ê¸°ì˜ ë¡œì»¬ë§¤íŠ¸ë¦­ìŠ¤
-	D3DXMATRIX		m_mLocalLH;				// ì™¼ì†ì— ì¥ëŠ” ë¬´ê¸°ì˜ ë¡œì»¬ë§¤íŠ¸ë¦­ìŠ¤
-	D3DXMATRIX		m_mLocalShield;			// ë°©íŒ¨ìœ„ì¹˜ì— ëŒ€í•œ ë¡œì»¬ "
-	D3DXMATRIX		m_mLocalKnuckle;		// ë„ˆí´ìœ„ì¹˜ì— ëŒ€í•œ ë¡œì»¬ "
+	D3DXMATRIX		m_mLocalTM;				// m_pParent·ÎºÎÅÍÀÇ LocalTM. ºÎ¸ğ°¡ ÀÓÀÇ·Î ¹Ù²ğ¼ö ÀÖ±â¶«¿¡ µû·Î °¡Áü.
+	D3DXMATRIX		m_mLocalRH;				// ¿À¸¥¼Õ¿¡ Áã´Â ¹«±âÀÇ ·ÎÄÃ¸ÅÆ®¸¯½º
+	D3DXMATRIX		m_mLocalLH;				// ¿Ş¼Õ¿¡ Áã´Â ¹«±âÀÇ ·ÎÄÃ¸ÅÆ®¸¯½º
+	D3DXMATRIX		m_mLocalShield;			// ¹æÆĞÀ§Ä¡¿¡ ´ëÇÑ ·ÎÄÃ "
+	D3DXMATRIX		m_mLocalKnuckle;		// ³ÊÅ¬À§Ä¡¿¡ ´ëÇÑ ·ÎÄÃ "
 
-	// CModelObjectì—ì„œ ë…ìì ìœ¼ë¡œ ê°€ì§€ê³  ìˆëŠ” m_ppd3d_VBëŠ” 
-	// ìŠ¤í‚¤ë‹ ì˜¤ë¸Œì íŠ¸ì˜ ì²˜ë¦¬ë¥¼ ìœ„í•œ ë…ë¦½ì ì¸ ë²„í…ìŠ¤ë²„í¼ ê³µê°„ì´ë‹¤.  
-	// CObject3Dê°€ ë¡œë”©ë˜ë©´ì„œ ì´ê²ƒì´ í”¼ì§€í¬ ì •ë³´ë¥¼ ê°€ì§€ê³  ìˆë‹¤ë©´
-	// CObject3Dë‚´ì˜ m_ppd3d_VBì— ë²„í…ìŠ¤ ë²„í¼ë¥¼ ìƒì„± í•˜ì§€ ì•Šê³ .
-	// ê·¸ ìƒìœ„ ë‹¤ì´ë‚˜ë¯¹ë ˆë²¨ì¸ CModelObjectì— m_ppd3d_VBì— ë²„í…ìŠ¤ ë²„í¼ë¥¼ ìƒì„±í•˜ê³  ë§¤ í”„ë ˆì„ ì´ê³³ì— ë°ì´íƒ€ ê°±ì‹ ì„ í•œë‹¤.
-	// ë²„í…ìŠ¤ì •ë³´ê°€ ë“¤ì–´ìˆëŠ” ë©”ëª¨ë¦¬ ë²„í¼ëŠ” í•­ìƒ CObject3Dì—ë§Œ ê°–ê³  ìˆê³ (read onlyë¡œ)
-	// ìŠ¤íƒœí‹± ì˜¤ë¸Œì íŠ¸ì¸ê°€ ë‹¤ì´ë‚˜ë¯¹ ì˜¤ë¸Œì íŠ¸ì¸ê°€ì— ë”°ë¼ì„œ ë²„í…ìŠ¤ ë²„í¼ëŠ” CObject3Dì— ê°–ê³  ìˆê±°ë‚˜ CModelObjectì— ê°–ê³  ìˆê²Œ ëœë‹¤.
+	// CModelObject¿¡¼­ µ¶ÀÚÀûÀ¸·Î °¡Áö°í ÀÖ´Â m_ppd3d_VB´Â 
+	// ½ºÅ°´× ¿ÀºêÁ§Æ®ÀÇ Ã³¸®¸¦ À§ÇÑ µ¶¸³ÀûÀÎ ¹öÅØ½º¹öÆÛ °ø°£ÀÌ´Ù.  
+	// CObject3D°¡ ·ÎµùµÇ¸é¼­ ÀÌ°ÍÀÌ ÇÇÁöÅ© Á¤º¸¸¦ °¡Áö°í ÀÖ´Ù¸é
+	// CObject3D³»ÀÇ m_ppd3d_VB¿¡ ¹öÅØ½º ¹öÆÛ¸¦ »ı¼º ÇÏÁö ¾Ê°í.
+	// ±× »óÀ§ ´ÙÀÌ³ª¹Í·¹º§ÀÎ CModelObject¿¡ m_ppd3d_VB¿¡ ¹öÅØ½º ¹öÆÛ¸¦ »ı¼ºÇÏ°í ¸Å ÇÁ·¹ÀÓ ÀÌ°÷¿¡ µ¥ÀÌÅ¸ °»½ÅÀ» ÇÑ´Ù.
+	// ¹öÅØ½ºÁ¤º¸°¡ µé¾îÀÖ´Â ¸Ş¸ğ¸® ¹öÆÛ´Â Ç×»ó CObject3D¿¡¸¸ °®°í ÀÖ°í(read only·Î)
+	// ½ºÅÂÆ½ ¿ÀºêÁ§Æ®ÀÎ°¡ ´ÙÀÌ³ª¹Í ¿ÀºêÁ§Æ®ÀÎ°¡¿¡ µû¶ó¼­ ¹öÅØ½º ¹öÆÛ´Â CObject3D¿¡ °®°í ÀÖ°Å³ª CModelObject¿¡ °®°í ÀÖ°Ô µÈ´Ù.
 	// 
-	LPDIRECT3DVERTEXBUFFER9		*m_ppd3d_VB;	// ë²„í¼ í’€ - ì§€ìš¸ë• ì´ê²ƒë§Œ ë‚ ë¦¬ë©´ ëœë‹¤ .
-	LPDIRECT3DVERTEXBUFFER9		*m_ppd3d_VB1;	// ìŠ¤í‚¨ì˜¤ë¸Œì íŠ¸ë¥¼ ìœ„í•œ ë…ìì ì¸ ë²„í…ìŠ¤ë²„í¼ m_pObject3D->m_nMaxObjectë§Œí¼ ìƒì„±ëœë‹¤. - ì§ì ‘ ì§€ì›Œì„  ì•ˆëœë‹¤.
+	LPDIRECT3DVERTEXBUFFER9		*m_ppd3d_VB;	// ¹öÆÛ Ç® - Áö¿ï¶© ÀÌ°Í¸¸ ³¯¸®¸é µÈ´Ù .
+	LPDIRECT3DVERTEXBUFFER9		*m_ppd3d_VB1;	// ½ºÅ²¿ÀºêÁ§Æ®¸¦ À§ÇÑ µ¶ÀÚÀûÀÎ ¹öÅØ½º¹öÆÛ m_pObject3D->m_nMaxObject¸¸Å­ »ı¼ºµÈ´Ù. - Á÷Á¢ Áö¿ö¼± ¾ÈµÈ´Ù.
 	LPDIRECT3DVERTEXBUFFER9		*m_ppd3d_VB2;	// LOD2
 	LPDIRECT3DVERTEXBUFFER9		*m_ppd3d_VB3;	// LOD3
-	LPDIRECT3DVERTEXBUFFER9		*m_ppd3d_VBSel;	// í˜„ì¬ ì„ íƒëœ ë²„í¼
-	LPDIRECT3DTEXTURE9			m_pTextureEx;	// ì¶”ê°€ í…ìŠ¤ì³.(ë©€í‹°í…ìŠ¤ì³ë¡œ ì˜·ì„ ë§ì…íë•Œ ì“´ë‹¤.) í…ìŠ¤ì³ìŠ¤í…Œì´ì§€1ë²ˆì— ë“¤ì–´ê°„ë‹¤.
-	MATERIAL					m_Mtrl;			// mesì— í¬í•¨ëœ í…ìŠ¤ì³ì´ì™¸ì— í…ìŠ¤ì³ë¥¼ ë”°ë¡œ ì“¸ë•Œ.  ì—¬ê¸°ì— ê°’ì´ ì—†ë‹¤ë©´ ë””í´íŠ¸ê²ƒì„ ì“´ë‹¤.
-	int							m_nEffect;		// ê° íŒŒì¸ ì˜ ì™¸ë¶€ì§€ì • ì´í™íŠ¸ ì„¤ì •.
+	LPDIRECT3DVERTEXBUFFER9		*m_ppd3d_VBSel;	// ÇöÀç ¼±ÅÃµÈ ¹öÆÛ
+	LPDIRECT3DTEXTURE9			m_pTextureEx;	// Ãß°¡ ÅØ½ºÃÄ.(¸ÖÆ¼ÅØ½ºÃÄ·Î ¿ÊÀ» µ¡ÀÔÈú¶§ ¾´´Ù.) ÅØ½ºÃÄ½ºÅ×ÀÌÁö1¹ø¿¡ µé¾î°£´Ù.
+	MATERIAL					m_Mtrl;			// mes¿¡ Æ÷ÇÔµÈ ÅØ½ºÃÄÀÌ¿Ü¿¡ ÅØ½ºÃÄ¸¦ µû·Î ¾µ¶§.  ¿©±â¿¡ °ªÀÌ ¾ø´Ù¸é µğÆúÆ®°ÍÀ» ¾´´Ù.
+	int							m_nEffect;		// °¢ ÆÄÃ÷ÀÇ ¿ÜºÎÁöÁ¤ ÀÌÆåÆ® ¼³Á¤.
 	int							m_nPartsIdx;
 };
 
@@ -104,43 +104,43 @@ typedef	boost::shared_ptr<CModelObject>	SpModelObject;
 typedef	map<int, SpModelObject> MapSpModelObject;
 #endif //__ATTACH_MODEL
 
-// ì• ë‹ˆë©”ì´ì…˜ ê°œì²´. ê²Œì„ë‚´ ì˜¤ë¸Œì íŠ¸ì˜ ìµœì†Œë‹¨ìœ„.
-// ëª¨ì…˜ì´ ì—¬ê¸°ì— í¬í•¨ë˜ì–´ ìˆê¸°ë•Œë¬¸ì— ë°”ì´í˜ë“œë“  ì¼ë°˜ì´ë“  ì• ë‹ˆë©”ì´ì…˜ì„ ì‹œí‚¨ë‹¤ë©´
-// ë°˜ë“œì‹œ ì´ê²ƒìœ¼ë¡œ ìƒì„±ì‹œì¼œì„œ ì“¸ê²ƒ.
-// ë…ìì ì¸ ì›”ë“œì¢Œí‘œë¥¼ ê°€ì§„ë‹¤.
+// ¾Ö´Ï¸ŞÀÌ¼Ç °³Ã¼. °ÔÀÓ³» ¿ÀºêÁ§Æ®ÀÇ ÃÖ¼Ò´ÜÀ§.
+// ¸ğ¼ÇÀÌ ¿©±â¿¡ Æ÷ÇÔµÇ¾î ÀÖ±â¶§¹®¿¡ ¹ÙÀÌÆäµåµç ÀÏ¹İÀÌµç ¾Ö´Ï¸ŞÀÌ¼ÇÀ» ½ÃÅ²´Ù¸é
+// ¹İµå½Ã ÀÌ°ÍÀ¸·Î »ı¼º½ÃÄÑ¼­ ¾µ°Í.
+// µ¶ÀÚÀûÀÎ ¿ùµåÁÂÇ¥¸¦ °¡Áø´Ù.
 class CModelObject : public CModel
 {
 public:
-	BOOL				m_bMotionBlending;				// ëª¨ì…˜ ë¸”ë Œë”© í”Œë˜ê·¸
-	float				m_fBlendWeight;					// ëª¨ì…˜íŠ¸ëœì§€ì…˜ì˜ ê°€ì¤‘ì¹˜ 0.0ì—ì„œ 1.0ê¹Œì§€ ë˜ë©´ ëë‚œë‹¤.
-	D3DXMATRIX			*m_pBaseBoneInv;				// InverseTM - destroyí•˜ì§€ ë§ê²ƒ
-	BOOL				m_bCollObj;						// ì¶©ëŒë©”ì‹œë¥¼ í¬í•¨í•˜ê³  ìˆëŠ”ê°€?
-	LPDIRECT3DTEXTURE9	m_pCloakTexture;				// ì™¸ë¶€ ì§€ì • ë§í†  í…ìŠ¤ì³ 
-	O3D_ELEMENT			m_Element[ MAX_ELEMENT ];		// ê°ì²´ë¥¼ êµ¬ì„±í•˜ëŠ” o3dë“¤.  Elementë¼ ì¹­í•˜ì.
+	BOOL				m_bMotionBlending;				// ¸ğ¼Ç ºí·»µù ÇÃ·¡±×
+	float				m_fBlendWeight;					// ¸ğ¼ÇÆ®·£Áö¼ÇÀÇ °¡ÁßÄ¡ 0.0¿¡¼­ 1.0±îÁö µÇ¸é ³¡³­´Ù.
+	D3DXMATRIX			*m_pBaseBoneInv;				// InverseTM - destroyÇÏÁö ¸»°Í
+	BOOL				m_bCollObj;						// Ãæµ¹¸Ş½Ã¸¦ Æ÷ÇÔÇÏ°í ÀÖ´Â°¡?
+	LPDIRECT3DTEXTURE9	m_pCloakTexture;				// ¿ÜºÎ ÁöÁ¤ ¸ÁÅä ÅØ½ºÃÄ 
+	O3D_ELEMENT			m_Element[ MAX_ELEMENT ];		// °´Ã¼¸¦ ±¸¼ºÇÏ´Â o3dµé.  Element¶ó ÄªÇÏÀÚ.
 #if __VER >= 9 // __Y_ADV_ENCHANT_EFFECT
 	int					m_nEffectCount;
 #endif //__Y_ADV_ENCHANT_EFFECT
 	
 public:
 	// Bone / animation
-	// ì›ë˜ Motionì€ Elementì•ˆì— ìˆì–´ì•¼ ë§ëŠ”ê²ƒì´ì§€ë§Œ ë¬¸ì œë¥¼ ê°„ëµí™” í•˜ê¸° ìœ„í•´ì„œ 
-	// CModelObjectë¡œ ë¹¼ëƒˆë‹¤.  1ë¼ˆëŒ€ në©”ì‰¬ êµ¬ì¡°ê°€ ë” ì´í•´í•˜ê¸°ê°€ ì‰½ê¸° ë•Œë¬¸ì´ë‹¤.
-	CBones				*m_pBone;						// ë¼ˆëŒ€ í´ë˜ìŠ¤ - ì´ê²ƒì„ ì§ì ‘ íŒŒê´´ì‹œí‚¤ë©´ ì•ˆëœë‹¤.
-	CMotion				*m_pMotionOld;					// ì´ì „ ëª¨ì…˜
-	CMotion				*m_pMotion;						// í˜„ì¬ ë¡œë”©ëœ ëª¨ì…˜ í¬ì¸í„° - ì§ì ‘ íŒŒê´´ì‹œí‚¤ë©´ ì•ˆëœë‹¤.
-	CSwordForce			*m_pForce;						// ê²€ê´‘
-	CSwordForce			*m_pForce2;						// ê²€ê´‘-ì™¼ì†
-	int					m_nFrameOld;					// ì´ì „ë™ì‘ì˜ í”„ë ˆì„ë²ˆí˜¸
-	D3DXMATRIX			*m_mUpdateBone;					// ë¼ˆëŒ€ì˜ ì• ë‹ˆë©”ì´ì…˜ ê³„ì‚°í›„ ë³€í™˜ëœ ë§¤íŠ¸ë¦­ìŠ¤ - ë¼ˆëŒ€ ê°¯ìˆ˜ë§Œí¼ ìƒì„±ë¨ - ë¼ˆëŒ€ê°€ ì—†ëŠ” ì˜¤ë¸Œì íŠ¸ëŠ” ì´ê²ƒì„ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ.
-	CPartsEffect		*m_pPartsEffect;				// íŒŒì¸ ì— ë¶™ëŠ” ì´í™íŠ¸.
-	CPartsEffect		*m_pPartsEffect2;				// ì™¼ì† ë¬´ê¸°ì— ë¶™ëŠ” ì´í™íŠ¸.
+	// ¿ø·¡ MotionÀº Element¾È¿¡ ÀÖ¾î¾ß ¸Â´Â°ÍÀÌÁö¸¸ ¹®Á¦¸¦ °£·«È­ ÇÏ±â À§ÇØ¼­ 
+	// CModelObject·Î »©³Â´Ù.  1»À´ë n¸Ş½¬ ±¸Á¶°¡ ´õ ÀÌÇØÇÏ±â°¡ ½±±â ¶§¹®ÀÌ´Ù.
+	CBones				*m_pBone;						// »À´ë Å¬·¡½º - ÀÌ°ÍÀ» Á÷Á¢ ÆÄ±«½ÃÅ°¸é ¾ÈµÈ´Ù.
+	CMotion				*m_pMotionOld;					// ÀÌÀü ¸ğ¼Ç
+	CMotion				*m_pMotion;						// ÇöÀç ·ÎµùµÈ ¸ğ¼Ç Æ÷ÀÎÅÍ - Á÷Á¢ ÆÄ±«½ÃÅ°¸é ¾ÈµÈ´Ù.
+	CSwordForce			*m_pForce;						// °Ë±¤
+	CSwordForce			*m_pForce2;						// °Ë±¤-¿Ş¼Õ
+	int					m_nFrameOld;					// ÀÌÀüµ¿ÀÛÀÇ ÇÁ·¹ÀÓ¹øÈ£
+	D3DXMATRIX			*m_mUpdateBone;					// »À´ëÀÇ ¾Ö´Ï¸ŞÀÌ¼Ç °è»êÈÄ º¯È¯µÈ ¸ÅÆ®¸¯½º - »À´ë °¹¼ö¸¸Å­ »ı¼ºµÊ - »À´ë°¡ ¾ø´Â ¿ÀºêÁ§Æ®´Â ÀÌ°ÍÀ» »ç¿ëÇÏÁö ¾ÊÀ½.
+	CPartsEffect		*m_pPartsEffect;				// ÆÄÃ÷¿¡ ºÙ´Â ÀÌÆåÆ®.
+	CPartsEffect		*m_pPartsEffect2;				// ¿Ş¼Õ ¹«±â¿¡ ºÙ´Â ÀÌÆåÆ®.
 #ifdef __NEW_WEAPON_GLOW
 	CPartsEffect		*m_pm_pPartsEffectRegular[2];
 	CPartsEffect		*m_pm_pPartsEffectElement[2];
 #endif // __NEW_WEAPON_GLOW	
 #if __VER >= 9 // __Y_ADV_ENCHANT_EFFECT
-	CPartsEffect		*m_pPartsEffect1_Detail;				// íŒŒì¸ ì— ë¶™ëŠ” ì´í™íŠ¸.
-	CPartsEffect		*m_pPartsEffect2_Detail;				// ì™¼ì† ë¬´ê¸°ì— ë¶™ëŠ” ì´í™íŠ¸.
+	CPartsEffect		*m_pPartsEffect1_Detail;				// ÆÄÃ÷¿¡ ºÙ´Â ÀÌÆåÆ®.
+	CPartsEffect		*m_pPartsEffect2_Detail;				// ¿Ş¼Õ ¹«±â¿¡ ºÙ´Â ÀÌÆåÆ®.
 #endif //__Y_ADV_ENCHANT_EFFECT
 
 	D3DXVECTOR3			m_vForce1, m_vForce2;
@@ -163,7 +163,7 @@ public:
 	CModelObject();
 	virtual ~CModelObject();
 
-	void				CreateForce( int nParts );		// ê²€ê´‘í´ë˜ìŠ¤ ìƒì„±
+	void				CreateForce( int nParts );		// °Ë±¤Å¬·¡½º »ı¼º
 	int					GetRHandIdx( void ) { return m_pBone->m_nRHandIdx; }
 	int					GetLHandIdx( void ) { return m_pBone->m_nLHandIdx; }
 	int					GetRArmIdx( void ) { return m_pBone->m_nRArmIdx; }
@@ -205,7 +205,7 @@ public:
 		return -1; 
 	}
 	
-	CObject3D	*GetObject3D( void ) { return m_Element[0].m_pObject3D; }		// ì´ê²ƒì€ ë‹¨ì¼ë©”ì‰¬ì—ë§Œ ì“´ë‹¤.
+	CObject3D	*GetObject3D( void ) { return m_Element[0].m_pObject3D; }		// ÀÌ°ÍÀº ´ÜÀÏ¸Ş½¬¿¡¸¸ ¾´´Ù.
 
 	CObject3D	*GetObject3D( int nNum ) 
 	{ 
@@ -223,7 +223,7 @@ public:
 		
 	int		MovePart( int nDstPart, int nSrcPart );
 	void	SetMotionBlending( BOOL bFlag = TRUE );
-	void	TakeOffParts( int nParts );		// ì¥ì°©í•´ì œí• ë•Œ ì“´ë‹¤.
+	void	TakeOffParts( int nParts );		// ÀåÂøÇØÁ¦ÇÒ¶§ ¾´´Ù.
 	void	SetGroup( int nNum ) 
 	{
 		if( nNum < 0 || nNum >= MAX_GROUP )
@@ -237,13 +237,13 @@ public:
 			if( m_Element[i].m_pObject3D )	
 			{
 				if( m_Element[i].m_pObject3D->m_bLOD == 0 )		
-					m_Element[i].m_pObject3D->SetLOD( 0 );		// LODë°ì´íƒ€ê°€ ì—†ë‹¤ë©´ í•­ìƒ Highë ˆë²¨ë¡œë§Œ..
+					m_Element[i].m_pObject3D->SetLOD( 0 );		// LODµ¥ÀÌÅ¸°¡ ¾ø´Ù¸é Ç×»ó High·¹º§·Î¸¸..
 				else
 				{
 					m_Element[i].m_pObject3D->SetLOD( nNum );
 					switch( nNum )
 					{
-					case 0:		m_Element[i].m_ppd3d_VBSel = m_Element[i].m_ppd3d_VB1;	break;		// lodê°€ ì„ íƒë ë•Œë§ˆë‹¤ ë²„í¼ í¬ì¸í„°ë¥¼ ìŠ¤ìœ„ì¹­ í•´ì¤Œ.
+					case 0:		m_Element[i].m_ppd3d_VBSel = m_Element[i].m_ppd3d_VB1;	break;		// lod°¡ ¼±ÅÃµÉ¶§¸¶´Ù ¹öÆÛ Æ÷ÀÎÅÍ¸¦ ½ºÀ§Äª ÇØÁÜ.
 					case 1:		m_Element[i].m_ppd3d_VBSel = m_Element[i].m_ppd3d_VB2;	break;
 					case 2:		m_Element[i].m_ppd3d_VBSel = m_Element[i].m_ppd3d_VB3;	break;
 					}
@@ -252,7 +252,7 @@ public:
 			}
 		}
 	}		// Set LOD Group
-	// ê° íŒŒì¸ ì˜ ë Œë”ë§ ì´í™íŠ¸ë¥¼ ì™¸ë¶€ì—ì„œ ì§€ì •í• ë•Œ ì“´ë‹¤.	XE_??? ì‹œë¦¬ì¦ˆë¥¼ ì¡°í•©í•´ì„œ ì“°ì.
+	// °¢ ÆÄÃ÷ÀÇ ·»´õ¸µ ÀÌÆåÆ®¸¦ ¿ÜºÎ¿¡¼­ ÁöÁ¤ÇÒ¶§ ¾´´Ù.	XE_??? ½Ã¸®Áî¸¦ Á¶ÇÕÇØ¼­ ¾²ÀÚ.
 	O3D_ELEMENT*	SetEffect( int nParts, int nEffect ) 
 	{ 
 		if( GetParts(nParts) )
@@ -271,10 +271,10 @@ public:
 		}
 		return NULL;
 	} 
-	void	SetTextureEx( int nNumEx )		// ëª‡ë²ˆ í…ìŠ¤ì³ ì…‹ì„ ì“°ëŠëƒ
+	void	SetTextureEx( int nNumEx )		// ¸î¹ø ÅØ½ºÃÄ ¼ÂÀ» ¾²´À³Ä
 	{
 		
-		m_Element[0].m_pObject3D->SetTextureEx( nNumEx );		// ëª¬ìŠ¤í„°ëŠ” [0]í•˜ë‚˜ë§Œ ì“´ë‹¤ê³  ê°€ì •í•˜ê³  í•˜ì.
+		m_Element[0].m_pObject3D->SetTextureEx( nNumEx );		// ¸ó½ºÅÍ´Â [0]ÇÏ³ª¸¸ ¾´´Ù°í °¡Á¤ÇÏ°í ÇÏÀÚ.
 	}
 
 	
@@ -286,8 +286,8 @@ public:
 			return m_pMotion->IsAttrHit( m_fFrameOld, m_fFrameCurrent ); 
 		else
 			return GetObject3D()->IsAttrHit( m_fFrameCurrent );
-	}	// í˜„ì¬ í”„ë ˆì„ì— íƒ€ê²©ì†ì„±ì´ ìˆëŠ”ê°€?
-	DWORD	IsAttrHit( float fNumFrm ) { return m_pMotion->IsAttrHit( m_fFrameOld, fNumFrm ); }	// nNumFrmí”„ë ˆì„ì— íƒ€ê²©ì†ì„±ì´ ìˆëŠ”ê°€?
+	}	// ÇöÀç ÇÁ·¹ÀÓ¿¡ Å¸°İ¼Ó¼ºÀÌ ÀÖ´Â°¡?
+	DWORD	IsAttrHit( float fNumFrm ) { return m_pMotion->IsAttrHit( m_fFrameOld, fNumFrm ); }	// nNumFrmÇÁ·¹ÀÓ¿¡ Å¸°İ¼Ó¼ºÀÌ ÀÖ´Â°¡?
 	MOTION_ATTR *IsAttrSound( void ) 
 	{ 
 		if( m_pMotion == NULL )
@@ -296,11 +296,11 @@ public:
 			ADDERRORMSG( szErr );
 		}
 		return m_pMotion->IsAttrSound( m_fFrameOld, m_fFrameCurrent ); 
-	}	// í˜„ì¬ í”„ë ˆì„ì— ì‚¬ìš´ë“œì†ì„±ì´ ìˆëŠ”ê°€?
+	}	// ÇöÀç ÇÁ·¹ÀÓ¿¡ »ç¿îµå¼Ó¼ºÀÌ ÀÖ´Â°¡?
 	MOTION_ATTR *IsAttrSound( float fNumFrm ) 
 	{ 
-		if( m_pMotion)	//gmpbigsun: m_pMotionì´ NULLì¸ê²½ìš° shit ..
-			return m_pMotion->IsAttrSound( m_fFrameOld, fNumFrm ); 	// nNumFrmí”„ë ˆì„ì— ì‚¬ìš´ë“œì†ì„±ì´ ìˆëŠ”ê°€?	
+		if( m_pMotion)	//gmpbigsun: m_pMotionÀÌ NULLÀÎ°æ¿ì shit ..
+			return m_pMotion->IsAttrSound( m_fFrameOld, fNumFrm ); 	// nNumFrmÇÁ·¹ÀÓ¿¡ »ç¿îµå¼Ó¼ºÀÌ ÀÖ´Â°¡?	
 		return NULL;
 	}
 	DWORD	IsAttrQuake( float fNumFrm ) { return m_pMotion->IsAttrQuake( m_fFrameOld, fNumFrm ); }
@@ -308,15 +308,15 @@ public:
 	void	SetAttr( float fNumFrm, DWORD dwAttr ) { m_pMotion->SetAttr( fNumFrm, dwAttr ); }
 	void	UpdateMatrixBone( void )
 	{
-		if( m_pMotion )		// í˜„ì¬ í”„ë ˆì„ì˜ ëª¨ì…˜ì— ëŒ€í•œ ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ê°±ì‹ ì‹œí‚´.
+		if( m_pMotion )		// ÇöÀç ÇÁ·¹ÀÓÀÇ ¸ğ¼Ç¿¡ ´ëÇÑ ¸ÅÆ®¸¯½º¸¦ °»½Å½ÃÅ´.
 			m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );	
 	}
-	void	GetEventPos( D3DXVECTOR3 *pOut, int nIdx = 0 )		// ì—…ë°ì´íŠ¸ëœ ë³¸ì˜ ê¸°ì¤€ìœ¼ë¡œ ê³„ì‚°ëœ ì´ë²¤íŠ¸ì¢Œí‘œ.
+	void	GetEventPos( D3DXVECTOR3 *pOut, int nIdx = 0 )		// ¾÷µ¥ÀÌÆ®µÈ º»ÀÇ ±âÁØÀ¸·Î °è»êµÈ ÀÌº¥Æ®ÁÂÇ¥.
 	{ 
 		if( m_pBone == NULL )	return;
 		if( m_mUpdateBone == NULL )	return;
 		D3DXVec3TransformCoord( pOut, &m_pBone->m_vEvent[nIdx], &m_mUpdateBone[ m_pBone->m_nEventParentIdx[nIdx] ] );
-		// ê³±í•œ ê²°ê³¼ì¸ pOutì€ ë¡œì»¬ê¸°ì¤€ì´ë¯€ë¡œ ìµœì¢… m_mWorldì™€ ê³±í•´ì¤˜ì•¼ í•œë‹¤.
+		// °öÇÑ °á°úÀÎ pOutÀº ·ÎÄÃ±âÁØÀÌ¹Ç·Î ÃÖÁ¾ m_mWorld¿Í °öÇØÁà¾ß ÇÑ´Ù.
 		// vFinal = pOut * m_mWorld;
 	}
 	D3DXMATRIX *GetMatrixBone( int nBoneIdx )
@@ -363,12 +363,12 @@ public:
 #endif
 
 #if __VER >= 15 // __GUILD_HOUSE
-	int LoadClonedElement( LPCTSTR szFileName );		//gmpbigsun:ë³µì œë³¸ ìƒì„± 
+	int LoadClonedElement( LPCTSTR szFileName );		//gmpbigsun:º¹Á¦º» »ı¼º 
 #endif
 
 #endif //__WORLDSERVER
 
-	void	MakeSWDForce( int nParts, DWORD dwItemKind3, BOOL bSlow = FALSE, DWORD dwColor = D3DCOLOR_ARGB(255,120,120,230), float fSpeed = 1.0f );		// m_pMotionì˜ ê²€ê´‘ì„ ìƒì„±
+	void	MakeSWDForce( int nParts, DWORD dwItemKind3, BOOL bSlow = FALSE, DWORD dwColor = D3DCOLOR_ARGB(255,120,120,230), float fSpeed = 1.0f );		// m_pMotionÀÇ °Ë±¤À» »ı¼º
 	void	FrameMove( D3DXVECTOR3 *pvSndPos = NULL, float fSpeed = 1.0f );
 
 	// collision detect
@@ -389,7 +389,7 @@ public:
 			if( pElem->m_pObject3D )
 			{
 				if( m_pBone )
-					pElem->m_pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );	// ì™¸ì¥ë³¸ì´ ìˆë‹¤ë©´ ê·¸ê²ƒì„ ë„˜ê²¨ì¤€ë‹¤.
+					pElem->m_pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );	// ¿ÜÀåº»ÀÌ ÀÖ´Ù¸é ±×°ÍÀ» ³Ñ°ÜÁØ´Ù.
 				if( pTri = pElem->m_pObject3D->IntersectRayTri( vRayOrig, vRayDir, mWorld, pvIntersect, pfDist, bColl ) )
 					return pTri;
 			}
@@ -400,7 +400,7 @@ public:
 	BOOL	IsTouchOBB_Line( const D3DXVECTOR3 &vStart, const D3DXVECTOR3 &vEnd, const D3DXMATRIX &mWorld, D3DXVECTOR3* pvIntersect, BOOL bNeedCollObject = TRUE )
 	{ 
 		CObject3D *pObj = m_Element[0].m_pObject3D;
-		if( pObj->m_CollObject.m_Type == GMT_ERROR && bNeedCollObject )	// ì¶©ëŒë©”ì‹œê°€ ì—†ìœ¼ë©´ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
+		if( pObj->m_CollObject.m_Type == GMT_ERROR && bNeedCollObject )	// Ãæµ¹¸Ş½Ã°¡ ¾øÀ¸¸é °Ë»çÇÏÁö ¾ÊÀ½.
 			return FALSE;
 		
 		return ::IsTouchOBB_Line( m_vMin, m_vMax, mWorld, vStart, vEnd, pvIntersect );
@@ -415,15 +415,15 @@ public:
 	BOOL CModelObject::GetPosBone( D3DXVECTOR3* pOut, const char* bonename );
 #endif
 
-	// ë””ë°”ì´ìŠ¤ ì´ˆê¸°í™” ë° ì‚­ì œ 
+	// µğ¹ÙÀÌ½º ÃÊ±âÈ­ ¹× »èÁ¦ 
 	HRESULT InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice );
 	HRESULT RestoreDeviceObjects();
 	HRESULT InvalidateDeviceObjects();
 	HRESULT DeleteDeviceObjects();
 };
 
-extern BOOL		g_bUsableVS;			// í•˜ë“œì›¨ì–´ ë²„í…ìŠ¤ ì‰ì´ë”(1.1)ë¥¼ ì“¸ìˆ˜ ìˆëŠ”ê°€.
-extern DWORD	g_dwUsablePS_Level;		// í•˜ë“œì›¨ì„œ í”½ì…€ì‰ì´ë” ë²„ì „ ì²´í¬ 2.0ì´í•˜ëŠ” 2 
+extern BOOL		g_bUsableVS;			// ÇÏµå¿ş¾î ¹öÅØ½º ½¦ÀÌ´õ(1.1)¸¦ ¾µ¼ö ÀÖ´Â°¡.
+extern DWORD	g_dwUsablePS_Level;		// ÇÏµå¿ş¼­ ÇÈ¼¿½¦ÀÌ´õ ¹öÀü Ã¼Å© 2.0ÀÌÇÏ´Â 2 
 
 
 #endif // MODELOBJECT

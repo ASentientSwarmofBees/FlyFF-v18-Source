@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "npchecker.h"
 
 CNpcChecker::CNpcChecker()

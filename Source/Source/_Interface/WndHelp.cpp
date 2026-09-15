@@ -1,11 +1,11 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "AppDefine.h"
 #include "WndHelp.h"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ë„ì›€ë§
+// µµ¿ò¸»
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,7 +64,7 @@ void CWndHelp::OnInitialUpdate()
 	//m_wndText.Create( 0, rect, this, 10 );
 	//rect = m_wndText.GetClientRect();
 
-	//m_wndText.m_string.SetString( _T("ë‚˜ëŠ”\n ìë‘ìŠ¤ëŸ¬ìš´\n íƒœê·¹ê¸° ì•ì— ì¡°êµ­ê³¼ ë¯¼ì¡±ì˜ ë¬´ê¶í•œ ì˜ê´‘ì„ ìœ„í•˜ì—¬ ëª¸ê³¼ ë§ˆìŒì„ ë°”ì³ ì¶©ì„±ì„ ë‹¤í•  ê²ƒì„ êµ³ê²Œ ë‹¤ì§í•©ë‹ˆë‹¤.\n í• ë ë£¨ì•¼ ") );
+	//m_wndText.m_string.SetString( _T("³ª´Â\n ÀÚ¶û½º·¯¿î\n ÅÂ±Ø±â ¾Õ¿¡ Á¶±¹°ú ¹ÎÁ·ÀÇ ¹«±ÃÇÑ ¿µ±¤À» À§ÇÏ¿© ¸ö°ú ¸¶À½À» ¹ÙÃÄ Ãæ¼ºÀ» ´ÙÇÒ °ÍÀ» ±»°Ô ´ÙÁüÇÕ´Ï´Ù.\n ÇÒ·¤·ç¾ß ") );
 	//m_wndText.m_string.Reset( m_pFont, &rect );
 	MoveParentCenter();
 
@@ -91,14 +91,14 @@ BOOL CWndHelp::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 		case 1: // wnd2
 			g_WndMng.OpenCharacter();
 			break;
-		case 2: // ì±— 
+		case 2: // Ãª 
 			g_WndMng.OpenChat();
 			break;
 		case 3:
 			g_clientMsg.PutMessage(&g_Neuz.m_2DRender,0xffffffff,"fuck");
 			break;
 		case 9:
-			g_WndMng.OpenCustomBox("ì¢…ë£Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?",new CWndExitBox);
+			g_WndMng.OpenCustomBox("Á¾·áÇÏ½Ã°Ú½À´Ï±î?",new CWndExitBox);
 			break;
 	}
 	*/
@@ -183,7 +183,7 @@ BOOL CWndHelp::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ë„ì›€ë§
+// µµ¿ò¸»
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -249,7 +249,7 @@ void CWndHelpFAQ::OnInitialUpdate()
 	//m_wndText.Create( 0, rect, this, 10 );
 	//rect = m_wndText.GetClientRect();
 
-	//m_wndText.m_string.SetString( _T("ë‚˜ëŠ”\n ìë‘ìŠ¤ëŸ¬ìš´\n íƒœê·¹ê¸° ì•ì— ì¡°êµ­ê³¼ ë¯¼ì¡±ì˜ ë¬´ê¶í•œ ì˜ê´‘ì„ ìœ„í•˜ì—¬ ëª¸ê³¼ ë§ˆìŒì„ ë°”ì³ ì¶©ì„±ì„ ë‹¤í•  ê²ƒì„ êµ³ê²Œ ë‹¤ì§í•©ë‹ˆë‹¤.\n í• ë ë£¨ì•¼ ") );
+	//m_wndText.m_string.SetString( _T("³ª´Â\n ÀÚ¶û½º·¯¿î\n ÅÂ±Ø±â ¾Õ¿¡ Á¶±¹°ú ¹ÎÁ·ÀÇ ¹«±ÃÇÑ ¿µ±¤À» À§ÇÏ¿© ¸ö°ú ¸¶À½À» ¹ÙÃÄ Ãæ¼ºÀ» ´ÙÇÒ °ÍÀ» ±»°Ô ´ÙÁüÇÕ´Ï´Ù.\n ÇÒ·¤·ç¾ß ") );
 	//m_wndText.m_string.Reset( m_pFont, &rect );
 
 	//pWndTreeCtrl->m_nFontColor = 0xff000000;
@@ -279,14 +279,14 @@ BOOL CWndHelpFAQ::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 		case 1: // wnd2
 			g_WndMng.OpenCharacter();
 			break;
-		case 2: // ì±— 
+		case 2: // Ãª 
 			g_WndMng.OpenChat();
 			break;
 		case 3:
 			g_clientMsg.PutMessage(&g_Neuz.m_2DRender,0xffffffff,"fuck");
 			break;
 		case 9:
-			g_WndMng.OpenCustomBox("ì¢…ë£Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?",new CWndExitBox);
+			g_WndMng.OpenCustomBox("Á¾·áÇÏ½Ã°Ú½À´Ï±î?",new CWndExitBox);
 			break;
 	}
 	*/
@@ -428,7 +428,7 @@ BOOL CWndHelp::Initialize(CWndBase* pWndParent)
 	};
 	if(IsOpenWnd())
 		return FALSE;
-	m_strTitle = "ë„ì›€ë§";
+	m_strTitle = "µµ¿ò¸»";
 	Create(WBS_MOVE|WBS_SOUND,CRect(100,100,230,230),g_pWndMgr,WID_HELP,g_pWndMgr->m_pSprWndDialog1,CSize(13,9),tileTable);
 	if(g_pFieldWnd) MoveRectCenter(RECT_FIELD);
 	else MoveRectCenter(RECT_CLIENT);
@@ -436,8 +436,8 @@ BOOL CWndHelp::Initialize(CWndBase* pWndParent)
 }
 void CWndHelp::OnInitialUpdate()
 {
-	m_wndButton.Create("í™•ì¸",WBS_SPRITE,CRect(0,0,0,0),this,1002,m_pSprPack,9);
-	// ë§ˆì§€ë§‰ nSprIdxë¥¼ -1ë¡œ ë„£ëŠ” ê²ƒì€ m_pSprPackì˜ ì„¸íŒ…ì€ í•„ìš”í•˜ì§€ë§Œ ì¶œë ¥ì€ í•˜ì§€ ë§ì•„ì•¼ í•˜ê¸° ë•Œë¬¸ì´ë‹¤.
+	m_wndButton.Create("È®ÀÎ",WBS_SPRITE,CRect(0,0,0,0),this,1002,m_pSprPack,9);
+	// ¸¶Áö¸· nSprIdx¸¦ -1·Î ³Ö´Â °ÍÀº m_pSprPackÀÇ ¼¼ÆÃÀº ÇÊ¿äÇÏÁö¸¸ Ãâ·ÂÀº ÇÏÁö ¸»¾Æ¾ß ÇÏ±â ¶§¹®ÀÌ´Ù.
 	CRect rect = GetClientRect();
 	m_wndViewCtrl.Create(WBS_CHILD,CRect(40,60,210,rect.bottom-55),this,1005,m_pSprPack,-1);//m_pSprPack,16);
 	m_wndViewCtrl.SetFont(&g_pMainFrame->m_fontStatus);
@@ -589,27 +589,27 @@ void CWndHelpInstant::OnDraw( C2DRender* p2DRender )
 void CWndHelpInstant::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 
 
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	pWndText->SetString( prj.GetHelp( m_strHelpKey ) );
 	
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndHelpInstant::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_HELP_INSTANT, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndHelpInstant::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -639,7 +639,7 @@ BOOL CWndHelpInstant::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 #ifdef __HELP_BUG_FIX
 		Destroy();
 #else //__HELP_BUG_FIX
-		// í—¬í”„ ì´ì¤‘ìƒì„± ë°©ì§€
+		// ÇïÇÁ ÀÌÁß»ı¼º ¹æÁö
 		vector<CString>::iterator where = find(g_vecHelpInsKey.begin(), g_vecHelpInsKey.end(), m_strHelpKey );
 
 		if(where != g_vecHelpInsKey.end())

@@ -1,4 +1,4 @@
-ï»¿#ifndef __DEFINE_JOB
+#ifndef __DEFINE_JOB
 #define __DEFINE_JOB
 
 #define JTYPE_BASE   0
@@ -38,28 +38,28 @@
 
 #define MAX_MONSTER_LEVEL			160	
 
-#define MAX_GENERAL_LEVEL			120			// ì¼ë°˜, ë§ˆìŠ¤í„° ìºë¦­ ìµœê³  ë ˆë²¨
+#define MAX_GENERAL_LEVEL			120			// ÀÏ¹İ, ¸¶½ºÅÍ Ä³¸¯ ÃÖ°í ·¹º§
 
 #ifdef __3RD_LEGEND16
 
-#define MAX_LEGEND_LEVEL			130			// íˆì–´ë¡œ ìºë¦­ ìµœê³  ë ˆë²¨
+#define MAX_LEGEND_LEVEL			130			// È÷¾î·Î Ä³¸¯ ÃÖ°í ·¹º§
 
 #if __VER >= 17
 
-#define MAX_3RD_LEGEND_LEVEL		150			// 3ì°¨ ì „ì§ ìºë¦­ ìµœê³  ë ˆë²¨ ( 139 -> 150 í™•ì¥ )
-#define MAX_CHARACTER_LEVEL			150			// ê¸°ì¡´ MAX_LEVEL ì„ ëŒ€ì²´..ìºë¦­í„°ê°€ ê°€ì§ˆ ìˆ˜ ìˆëŠ” ìµœê³  ë ˆë²¨.. ( 139 -> 150 í™•ì¥ )
+#define MAX_3RD_LEGEND_LEVEL		150			// 3Â÷ ÀüÁ÷ Ä³¸¯ ÃÖ°í ·¹º§ ( 139 -> 150 È®Àå )
+#define MAX_CHARACTER_LEVEL			150			// ±âÁ¸ MAX_LEVEL À» ´ëÃ¼..Ä³¸¯ÅÍ°¡ °¡Áú ¼ö ÀÖ´Â ÃÖ°í ·¹º§.. ( 139 -> 150 È®Àå )
 
 #else // __VER >= 17
 
-#define MAX_3RD_LEGEND_LEVEL		139			// 3ì°¨ ì „ì§ ìºë¦­ ìµœê³  ë ˆë²¨
-#define MAX_CHARACTER_LEVEL			139			// ê¸°ì¡´ MAX_LEVEL ì„ ëŒ€ì²´..ìºë¦­í„°ê°€ ê°€ì§ˆ ìˆ˜ ìˆëŠ” ìµœê³  ë ˆë²¨..
+#define MAX_3RD_LEGEND_LEVEL		139			// 3Â÷ ÀüÁ÷ Ä³¸¯ ÃÖ°í ·¹º§
+#define MAX_CHARACTER_LEVEL			139			// ±âÁ¸ MAX_LEVEL À» ´ëÃ¼..Ä³¸¯ÅÍ°¡ °¡Áú ¼ö ÀÖ´Â ÃÖ°í ·¹º§..
 
 #endif // __VER >= 17
 
 #else // __3RD_LEGEND16
 
 #define MAX_LEGEND_LEVEL			129
-#define MAX_CHARACTER_LEVEL			129			// ê¸°ì¡´ MAX_LEVEL ì„ ëŒ€ì²´..ìºë¦­í„°ê°€ ê°€ì§ˆ ìˆ˜ ìˆëŠ” ìµœê³  ë ˆë²¨..
+#define MAX_CHARACTER_LEVEL			129			// ±âÁ¸ MAX_LEVEL À» ´ëÃ¼..Ä³¸¯ÅÍ°¡ °¡Áú ¼ö ÀÖ´Â ÃÖ°í ·¹º§..
 
 #endif // __3RD_LEGEND16
 
@@ -67,15 +67,15 @@
 
 
 //-------------------------------------------------------
-// ì§ì—… ë²ˆí˜¸ë¥¼ ë§ˆìŒëŒ€ë¡œ ë°”ê¾¸ë©´ ì•ˆë©ë‹ˆë‹¤.
-// ë°”ê¾¸ê³  ì‹¶ìœ¼ì‹œë©´ seghope ìƒë‹´ì„.. ã…‹ã…‹
+// Á÷¾÷ ¹øÈ£¸¦ ¸¶À½´ë·Î ¹Ù²Ù¸é ¾ÈµË´Ï´Ù.
+// ¹Ù²Ù°í ½ÍÀ¸½Ã¸é seghope »ó´ãÀ».. ¤»¤»
 //-------------------------------------------------------
 // Job
 #define JOB_VAGRANT                 0 
 #define MAX_JOBBASE                 1
   
 // Expert
-#define JOB_MERCENARY               1 // ê¸°ë³¸ ì§ì—…ë“¤
+#define JOB_MERCENARY               1 // ±âº» Á÷¾÷µé
 #define JOB_ACROBAT                 2
 #define JOB_ASSIST                  3
 #define JOB_MAGICIAN                4
@@ -119,7 +119,7 @@
 
 #ifdef __3RD_LEGEND16
 
-// 3ì°¨ ì§ì—…
+// 3Â÷ Á÷¾÷
 #define	JOB_LORDTEMPLER_HERO	32
 #define JOB_STORMBLADE_HERO		33
 #define JOB_WINDLURKER_HERO		34
@@ -138,7 +138,7 @@
 
 //
 
-#if __VER >= 10    //#ifdef 	__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10    //#ifdef 	__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 
 #ifdef __3RD_LEGEND16
 
@@ -150,9 +150,9 @@
 
 #endif // __3RD_LEGEND16
 
-#else //__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#else //__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 #define MAX_JOB                      16
-#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 
 #define JOB_ALL					MAX_JOB
 //-------------------------------------------------------
@@ -166,20 +166,20 @@
 #define DIS_YOYO                    5 //
 #define DIS_RIFLE                   6 //
 #define DIS_MARIONETTE              7 //
-#define DIS_BOW			    32 // ìƒˆë¡œ ì¶”ê°€ëœ ê²ƒ
-#define DIS_CROSSBOW		33 // í¬ë¡œìŠ¤ë³´ìš° 3ì°¨ì§ì—…
+#define DIS_BOW			    32 // »õ·Î Ãß°¡µÈ °Í
+#define DIS_CROSSBOW		33 // Å©·Î½ºº¸¿ì 3Â÷Á÷¾÷
 
-#define DIS_MAGICBARUNA 		34 //3ì°¨ ì „ì§ ìƒˆë¡œìš´ ë³´ì¡° ë¬´ê¸°
-#define DIS_ZEMBARUNA 			35 //3ì°¨ ì „ì§ ìƒˆë¡œìš´ ë³´ì¡° ë¬´ê¸°
-#define DIS_SHILDBARUNA 		36 //3ì°¨ ì „ì§ ìƒˆë¡œìš´ ë³´ì¡° ë¬´ê¸°
+#define DIS_MAGICBARUNA 		34 //3Â÷ ÀüÁ÷ »õ·Î¿î º¸Á¶ ¹«±â
+#define DIS_ZEMBARUNA 			35 //3Â÷ ÀüÁ÷ »õ·Î¿î º¸Á¶ ¹«±â
+#define DIS_SHILDBARUNA 		36 //3Â÷ ÀüÁ÷ »õ·Î¿î º¸Á¶ ¹«±â
 
 
-// ë°©ì–´ê¸°ìˆ êµ°
+// ¹æ¾î±â¼ú±º
 #define DIS_SHIELD                  8 //
 #define DIS_DANCE                   9 //
 #define DIS_ACROBATIC              10 //
-#define DIS_SUPPORT                23 //ë¨¸ì„œë„ˆë¦¬ìš© ë³´ì¡°ìŠ¤í‚¬
-// ë§ˆë²•ì—°ê³„ ê¸°ìˆ êµ°   
+#define DIS_SUPPORT                23 //¸Ó¼­³Ê¸®¿ë º¸Á¶½ºÅ³
+// ¸¶¹ı¿¬°è ±â¼ú±º   
 #define DIS_HEAL                   11 //
 #define DIS_CHEER                  12 //
 #define DIS_ACTING                 13 //
@@ -189,7 +189,7 @@
 #define DIS_WATER                  17 //
 #define DIS_EARTH                  18 //
 #define DIS_ELECTRICITY            24 //
-// íŠ¹ìˆ˜ ê¸°ìˆ     
+// Æ¯¼ö ±â¼ú    
 #define DIS_STRINGDANCE            19 //
 #define DIS_GIGAPUPPET             20 //
 #define DIS_KNUCKLE                21 //
@@ -207,18 +207,18 @@
 
 
 
-// ê·¹ë‹¨ ì†Œì†
-#define TRO_MASTER                  0 // ë‹¨ì¥
-#define TRO_MEMBERE                 1 // ë©¤ë²„
+// ±Ø´Ü ¼Ò¼Ó
+#define TRO_MASTER                  0 // ´ÜÀå
+#define TRO_MEMBERE                 1 // ¸â¹ö
 
-// ê¸¸ë“œì†Œì†
-#define GUD_MASTER                  0 // ë§ˆìŠ¤í„°
-#define GUD_KINGPIN                 1 // í‚¹í•€
-#define GUD_CAPTAIN                 2 // ìº¡í‹´
-#define GUD_SUPPORTER               3 // ì„œí¬í„°
-#define GUD_ROOKIE                  4 // ë£¨í‚¤
+// ±æµå¼Ò¼Ó
+#define GUD_MASTER                  0 // ¸¶½ºÅÍ
+#define GUD_KINGPIN                 1 // Å·ÇÉ
+#define GUD_CAPTAIN                 2 // Ä¸Æ¾
+#define GUD_SUPPORTER               3 // ¼­Æ÷ÅÍ
+#define GUD_ROOKIE                  4 // ·çÅ°
 
-// ì¼ë°˜ ê¸°ìˆ  ì¢…ë¥˜.... ìºë¦­í„° ë‚´ë¶€ì— ì €ì¥ë˜ì§€ ì•ŠìŒ
+// ÀÏ¹İ ±â¼ú Á¾·ù.... Ä³¸¯ÅÍ ³»ºÎ¿¡ ÀúÀåµÇÁö ¾ÊÀ½
 #endif
 /*
 #ifndef __DEFINE_JOB
@@ -236,12 +236,12 @@
 #define MAX_PRO_LEVEL               30
 
 // Job
-#define JOB_MERCENARY               0 // ê¸°ë³¸ ì§ì—…ë“¤
+#define JOB_MERCENARY               0 // ±âº» Á÷¾÷µé
 #define JOB_ACROBAT                 1
 #define JOB_ASSIST                  2
 #define JOB_MAGICIAN                3
 #define JOB_ENGINEER                4
-#define JOB_VAGRANT                 5 // ë”ë¯¸ ì§ì—…
+#define JOB_VAGRANT                 5 // ´õ¹Ì Á÷¾÷
 #define MAX_JOBBASE                 5
   
 // Expert
@@ -258,16 +258,16 @@
 #define MAX_EXPERT                  15
 
 // Professional
-#define JOB_KNIGHT                  16 // ë¬´ì˜ˆê°€ ì „ë¬¸ì§
+#define JOB_KNIGHT                  16 // ¹«¿¹°¡ Àü¹®Á÷
 #define JOB_BABARIAN                17
 #define JOB_DANCER                  18
-#define JOB_JESTER                  19 // í¼í¬ë¨¸ ì „ë¬¸ì§
+#define JOB_JESTER                  19 // ÆÛÆ÷¸Ó Àü¹®Á÷
 #define JOB_STARGAZER               20
 #define JOB_ACCOUNTER               21
-#define JOB_RAIDEN                  22 // ì¸í„°ì„¸ì„œ ì „ë¬¸ì§
+#define JOB_RAIDEN                  22 // ÀÎÅÍ¼¼¼­ Àü¹®Á÷
 #define JOB_OVERCASTER              23
 #define JOB_DOPPLER                 24
-#define JOB_STRINGMASTER            25 // ì­ë°•ìŠ¤ ì „ë¬¸ì§
+#define JOB_STRINGMASTER            25 // Àè¹Ú½º Àü¹®Á÷
 #define MAX_PROFESSIONAL            26 
 #define MAX_JOB                     26 
 
@@ -284,12 +284,12 @@
 #define DIS_THROWING                8 //
 #define DIS_PISTOL                  9 //
 #define DIS_RIFLE                  10 //
-// ë°©ì–´ê¸°ìˆ êµ°
+// ¹æ¾î±â¼ú±º
 #define DIS_SHIELD                 11 //
 #define DIS_PARRY                  12 //
 #define DIS_ACROBAT                13 //
 
-// ë§ˆë²•ì—°ê³„ ê¸°ìˆ êµ°   
+// ¸¶¹ı¿¬°è ±â¼ú±º   
 #define DIS_DIVINEPOWER            14 //
 #define DIS_HEAL                   15 //
 #define DIS_ASTROLOGY              16 //
@@ -299,7 +299,7 @@
 #define DIS_DARK                   20 //
 #define DIS_WATER                  21 //
 #define DIS_EARTH                  22 //
-// íŠ¹ìˆ˜ ê¸°ìˆ     
+// Æ¯¼ö ±â¼ú    
 #define DIS_CHEER                  23 //
 #define DIS_PROPERTIES             24 //
 #define DIS_TAMING                 25 //
@@ -309,6 +309,6 @@
 #define DIS_MARIONETTE             29 //
 #define DIS_STRINGDANCE            30 //
 
-// ì¼ë°˜ ê¸°ìˆ  ì¢…ë¥˜.... ìºë¦­í„° ë‚´ë¶€ì— ì €ì¥ë˜ì§€ ì•ŠìŒ
+// ÀÏ¹İ ±â¼ú Á¾·ù.... Ä³¸¯ÅÍ ³»ºÎ¿¡ ÀúÀåµÇÁö ¾ÊÀ½
 #endif
 */

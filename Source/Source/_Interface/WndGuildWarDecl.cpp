@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "ResData.h"
 #include "WndGuildWarDecl.h"
 #include "dpclient.h"
@@ -6,11 +6,11 @@
 extern	CDPClient	g_DPlay;
 
 /****************************************************
-  WndId : APP_GUILD_WAR - ê¸¸ë“œì „ì„ ì–¸ì°½
+  WndId : APP_GUILD_WAR - ±æµåÀü¼±¾ðÃ¢
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
-  CtrlId : WIDC_STATIC1 - ìƒëŒ€ê¸¸ë“œ
-  CtrlId : WIDC_STATIC2 - ëŒ€ì „íŽ˜ëƒ
+  CtrlId : WIDC_STATIC1 - »ó´ë±æµå
+  CtrlId : WIDC_STATIC2 - ´ëÀüÆä³Ä
   CtrlId : WIDC_EDIT1 - 
   CtrlId : WIDC_EDIT2 - 
 ****************************************************/
@@ -28,29 +28,29 @@ void CWndGuildWarDecl::OnDraw( C2DRender* p2DRender )
 void CWndGuildWarDecl::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
-	CWndEdit *pWndName = (CWndEdit *)GetDlgItem( WIDC_EDIT1 );	// ìƒëŒ€ê¸¸ë“œëª….
-	CWndEdit *pWndPenya = (CWndEdit *)GetDlgItem( WIDC_EDIT2 );	// ì „ìŸìžê¸ˆ.
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	CWndEdit *pWndName = (CWndEdit *)GetDlgItem( WIDC_EDIT1 );	// »ó´ë±æµå¸í.
+	CWndEdit *pWndPenya = (CWndEdit *)GetDlgItem( WIDC_EDIT2 );	// ÀüÀïÀÚ±Ý.
 
 	pWndName->SetTabStop( TRUE );
 	pWndPenya->SetTabStop( TRUE );
 	pWndName->SetFocus();
 	
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildWarDecl::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_WAR, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndGuildWarDecl::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 

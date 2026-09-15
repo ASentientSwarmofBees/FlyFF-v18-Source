@@ -1,9 +1,9 @@
-ï»¿--[[
-m_nMaxCreateNum 	= n		-- ìµœëŒ€ ìƒì„± ëª¬ìŠ¤í„° ê°¯ìˆ˜
---	 ì•„ì´í…œID,  ìë™ì†Œë©¸ì‹œê°„
+--[[
+m_nMaxCreateNum 	= n		-- ÃÖ´ë »ı¼º ¸ó½ºÅÍ °¹¼ö
+--	 ¾ÆÀÌÅÛID,  ÀÚµ¿¼Ò¸ê½Ã°£
 AddItem( strItemId, dwKeepTime )	-- dwKeepTime -> SEC( n ) or MIN( n )
 --{
---		    ëª¬ìŠ¤í„°ID,	  ìƒì„±í™•ë¥ 
+--		    ¸ó½ºÅÍID,	  »ı¼ºÈ®·ü
 	AddMonster( strMonsterId, nProbability )
 	...
 --}

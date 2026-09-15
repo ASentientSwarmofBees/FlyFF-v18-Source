@@ -1,4 +1,4 @@
-﻿#ifndef __CHATTING_H__
+#ifndef __CHATTING_H__
 #define	__CHATTING_H__
 
 #include "mempooler.h"

@@ -1,4 +1,4 @@
-ï»¿// UltimateWeapon.cpp: implementation of the CUltimateWeapon class.
+// UltimateWeapon.cpp: implementation of the CUltimateWeapon class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -84,7 +84,7 @@ BOOL CUltimateWeapon::Load_GemAbility()
 				MakeGemItem.dwItemID = CScript::GetDefineNum( s.Token );
 				if( MakeGemItem.dwItemID == (DWORD)-1 )		// cr
 				{
-					Error( "UltimateWeapon::Load_UltimateWeapon() ì•„ì´í…œì´ ì—†ëŠ”ê²ƒì„ ì„¤ì •í–ˆìŒ" );
+					Error( "UltimateWeapon::Load_UltimateWeapon() ¾ÆÀÌÅÛÀÌ ¾ø´Â°ÍÀ» ¼³Á¤ÇßÀ½" );
 					return FALSE;
 				}
 				MakeGemItem.nMinLevel = s.GetNumber();
@@ -99,7 +99,7 @@ BOOL CUltimateWeapon::Load_GemAbility()
 	return TRUE;
 }
 
-// ì•„ì´í…œ ì°©ìš© ë ˆë²¨ì— ë”°ë¥¸ ë³´ì„ ì¢…ë¥˜
+// ¾ÆÀÌÅÛ Âø¿ë ·¹º§¿¡ µû¸¥ º¸¼® Á¾·ù
 DWORD CUltimateWeapon::GetGemKind( DWORD dwLimitLevel )
 {
 	for( DWORD i=0; i<m_vecMakeGemItem.size(); i++ )
@@ -168,7 +168,7 @@ BOOL CUltimateWeapon::Load_UltimateWeapon()
 	return TRUE;
 }
 
-// ë³´ì„ í•©ì„±ì‹œ ë¶€ì—¬ ë˜ëŠ” ëŠ¥ë ¥(ëŠ¥ë ¥)
+// º¸¼® ÇÕ¼º½Ã ºÎ¿© µÇ´Â ´É·Â(´É·Â)
 DWORD CUltimateWeapon::GetGemAbilityKindRandom( DWORD dwGemItemid )
 {
 	if( m_vecGemAbilityKind.empty() == TRUE )
@@ -184,37 +184,37 @@ DWORD CUltimateWeapon::GetGemAbilityKindRandom( DWORD dwGemItemid )
 	return NULL_ID;
 }
 
-// ë³´ì„ ìƒì„± - ë¬´ê¸° ì•„ì´í…œ íŒŒê´´
+// º¸¼® »ı¼º - ¹«±â ¾ÆÀÌÅÛ ÆÄ±«
 int CUltimateWeapon::MakeGem( CUser* pUser, OBJID objItemId, int & nNum )
 {
 	CItemElem* pItemElem	= pUser->m_Inventory.GetAtId( objItemId );
 	if( !IsUsableItem( pItemElem ) )
 		return ULTIMATE_CANCEL;
-	// ë¬´ê¸°ê°€ ì•„ë‹ ë•Œ
+	// ¹«±â°¡ ¾Æ´Ò ¶§
 	if( pItemElem->GetProp()->dwItemKind1 != IK1_WEAPON )
 	{
 #ifdef __INTERNALSERVER
-		pUser->AddText( "ë¬´ê¸°ê°€ ì•„ë‹˜." );
+		pUser->AddText( "¹«±â°¡ ¾Æ´Ô." );
 #endif // __INTERNALSERVER
 		return ULTIMATE_CANCEL;
 	}
-	// ì¼ë°˜ë¬´ê¸°ë‚˜ ìœ ë‹ˆí¬ ì•„ì´í…œì´ ì•„ë‹ ë•Œ
+	// ÀÏ¹İ¹«±â³ª À¯´ÏÅ© ¾ÆÀÌÅÛÀÌ ¾Æ´Ò ¶§
 	if(	pItemElem->GetProp()->dwReferStat1 != WEAPON_GENERAL &&
 		pItemElem->GetProp()->dwReferStat1 != WEAPON_UNIQUE )
 	{
 #ifdef __INTERNALSERVER
-	pUser->AddText( "dwReferStat1 ê°’ì´ WEAPON_GENERAL, WEAPON_UNIQUE ê°€ ì•„ë‹˜." );
+	pUser->AddText( "dwReferStat1 °ªÀÌ WEAPON_GENERAL, WEAPON_UNIQUE °¡ ¾Æ´Ô." );
 #endif // __INTERNALSERVER
 		return ULTIMATE_CANCEL;
 	}
 	
-	// ì¥ì°©ë˜ì–´ ìˆìœ¼ë©´ ì·¨ì†Œ
+	// ÀåÂøµÇ¾î ÀÖÀ¸¸é Ãë¼Ò
 	if( pUser->m_Inventory.IsEquip( objItemId ) )
 	{
 		pUser->AddDefinedText( TID_GAME_ULTIMATE_ISEQUIP , "" );
 		return ULTIMATE_CANCEL;
 	}
-	// ë ˆë²¨ì— í•´ë‹¹í•˜ëŠ” ë³´ì„ 
+	// ·¹º§¿¡ ÇØ´çÇÏ´Â º¸¼® 
 	DWORD dwItemId = GetGemKind( pItemElem->GetProp()->dwLimitLevel1 );
 	if( dwItemId == NULL_ID )
 		return ULTIMATE_CANCEL;
@@ -232,14 +232,14 @@ int CUltimateWeapon::MakeGem( CUser* pUser, OBJID objItemId, int & nNum )
 		dwProb = it->second.dwUniqueProb;
 		nItemNum = it->second.nUniqueNum;
 	}
-	// ì¸ë²¤í† ë¦¬ê°€ ë¶€ì¡±í•  ë•Œ - ì·¨ì†Œ
+	// ÀÎº¥Åä¸®°¡ ºÎÁ·ÇÒ ¶§ - Ãë¼Ò
 	CItemElem itemElemTemp;
 	itemElemTemp.m_dwItemId = dwItemId;
 	ItemProp* pItemprop = itemElemTemp.GetProp();
 	if( !pItemprop )
 		return ULTIMATE_CANCEL;
 
-	// ë¬´ê¸°ë¥¼ ì‚­ì œë˜ì„œ 1ì¹¸ì´ ìƒê¸°ë¯€ë¡œ 2ì¹¸ì´ìƒ ì¼ë•Œë§Œ ê²€ì‚¬
+	// ¹«±â¸¦ »èÁ¦µÇ¼­ 1Ä­ÀÌ »ı±â¹Ç·Î 2Ä­ÀÌ»ó ÀÏ¶§¸¸ °Ë»ç
 	if( (DWORD)( nItemNum ) > pItemprop->dwPackMax 
 		&& pUser->m_Inventory.IsFull( &itemElemTemp, pItemprop, (short)( nItemNum - pItemprop->dwPackMax ) ) )
 		return ULTIMATE_INVENTORY;
@@ -274,7 +274,7 @@ int CUltimateWeapon::MakeGem( CUser* pUser, OBJID objItemId, int & nNum )
 	return ULTIMATE_FAILED;
 }
 
-// ë¬´ê¸°ì— ë³´ì„ í•©ì„±
+// ¹«±â¿¡ º¸¼® ÇÕ¼º
 int CUltimateWeapon::SetGem( CUser* pUser, OBJID objItemId, OBJID objGemItemId )
 {
 	CItemElem* pItemElem	= pUser->m_Inventory.GetAtId( objItemId );
@@ -282,12 +282,12 @@ int CUltimateWeapon::SetGem( CUser* pUser, OBJID objItemId, OBJID objGemItemId )
 	if( !IsUsableItem( pItemElem ) || !IsUsableItem( pGemItemElem ) )
 		return ULTIMATE_CANCEL;
 
-	// ì–¼í„°ë©‹ ì›¨í°ì´ ì•„ë‹ ë•Œ
+	// ¾óÅÍ¸Ú ¿şÆùÀÌ ¾Æ´Ò ¶§
 	if( pItemElem->GetProp()->dwReferStat1 != WEAPON_ULTIMATE )
 		return ULTIMATE_ISNOTULTIMATE;
 
 
-	// ì¥ì°©ë˜ì–´ ìˆìœ¼ë©´ ì¤‘ë‹¨
+	// ÀåÂøµÇ¾î ÀÖÀ¸¸é Áß´Ü
 	if( pUser->m_Inventory.IsEquip( objItemId ) )
 	{
 		pUser->AddDefinedText( TID_GAME_ULTIMATE_ISEQUIP , "" );
@@ -304,7 +304,7 @@ int CUltimateWeapon::SetGem( CUser* pUser, OBJID objItemId, OBJID objGemItemId )
 #endif // __EXT_PIERCING
 			break;
 		
-	// ë¹ˆê³³ì´ ì—†ìœ¼ë©´ ì¤‘ë‹¨
+	// ºó°÷ÀÌ ¾øÀ¸¸é Áß´Ü
 #if __VER >= 12 // __EXT_PIERCING
 	if( nCount == pItemElem->GetUltimatePiercingSize() )
 #else //__EXT_PIERCING
@@ -319,7 +319,7 @@ int CUltimateWeapon::SetGem( CUser* pUser, OBJID objItemId, OBJID objGemItemId )
 	if( dwSetItemId == NULL_ID )
 		return ULTIMATE_CANCEL;
 	
-	// ë³´ì„ ì‚­ì œ
+	// º¸¼® »èÁ¦
 	LogItemInfo aLogItem;
 	aLogItem.Action = "-";
 	aLogItem.SendName = pUser->GetName();
@@ -332,7 +332,7 @@ int CUltimateWeapon::SetGem( CUser* pUser, OBJID objItemId, OBJID objGemItemId )
 	int nRandom = xRandom( 1000000 );
 	if( nRandom < m_nSetGemProb )
 	{
-		// ë³´ì„ í•©ì„±
+		// º¸¼® ÇÕ¼º
 #if __VER >= 12 // __EXT_PIERCING
 		pUser->UpdateItem( (BYTE)( pItemElem->m_dwObjId ), UI_ULTIMATE_PIERCING, MAKELONG( nCount, dwSetItemId ) );
 #else // __EXT_PIERCING
@@ -347,7 +347,7 @@ int CUltimateWeapon::SetGem( CUser* pUser, OBJID objItemId, OBJID objGemItemId )
 	return ULTIMATE_FAILED;
 }
 
-// ë¬´ê¸°ì— ë§ˆì§€ë§‰ìœ¼ë¡œ í•©ì„±ëœ ë³´ì„ ì œê±°
+// ¹«±â¿¡ ¸¶Áö¸·À¸·Î ÇÕ¼ºµÈ º¸¼® Á¦°Å
 int CUltimateWeapon::RemoveGem( CUser* pUser, OBJID objItemId, OBJID objItemGem )
 {
 	CItemElem* pItemElem	= pUser->m_Inventory.GetAtId( objItemId );
@@ -358,7 +358,7 @@ int CUltimateWeapon::RemoveGem( CUser* pUser, OBJID objItemId, OBJID objItemGem 
 	if( pItemElem->GetProp()->dwReferStat1 != WEAPON_ULTIMATE )
 		return ULTIMATE_ISNOTULTIMATE;
 	
-	// í•©ì„±ëœ ë³´ì„ì´ ì—†ì„ ë•Œ X
+	// ÇÕ¼ºµÈ º¸¼®ÀÌ ¾øÀ» ¶§ X
 #if __VER >= 12 // __EXT_PIERCING
 	if( pItemElem->GetUltimatePiercingItem( 0 ) == 0 )
 #else // __EXT_PIERCING
@@ -370,14 +370,14 @@ int CUltimateWeapon::RemoveGem( CUser* pUser, OBJID objItemId, OBJID objItemGem 
 		&& pItemElemGem->m_dwItemId != II_GEN_MAT_MOONSTONE_1 )
 		return ULTIMATE_CANCEL;
  
-	// ì¥ì°© ë˜ì–´ ìˆì„ ë•Œ X
+	// ÀåÂø µÇ¾î ÀÖÀ» ¶§ X
 	if( pUser->m_Inventory.IsEquip( objItemId ) )
 	{
 		pUser->AddDefinedText( TID_GAME_ULTIMATE_ISEQUIP , "" );
 		return ULTIMATE_CANCEL;
 	}	
 
-	// ë¬¸ìŠ¤í†¤ ì‚­ì œ
+	// ¹®½ºÅæ »èÁ¦
 	LogItemInfo aLogItem;
 	aLogItem.Action = "-";
 	aLogItem.SendName = pUser->GetName();
@@ -390,7 +390,7 @@ int CUltimateWeapon::RemoveGem( CUser* pUser, OBJID objItemId, OBJID objItemGem 
 	int nRandom = xRandom( 1000000 );
 	if( nRandom < m_nRemoveGemProb )
 	{
-		// ì„±ê³µì‹œ - ë³´ì„ ì œê±°
+		// ¼º°ø½Ã - º¸¼® Á¦°Å
 #if __VER >= 12 // __EXT_PIERCING
 		for( int i=pItemElem->GetUltimatePiercingSize()-1; i>=0; i-- )
 		{
@@ -416,7 +416,7 @@ int CUltimateWeapon::RemoveGem( CUser* pUser, OBJID objItemId, OBJID objItemGem 
 	return ULTIMATE_FAILED;
 }
 
-// ë¹›ë‚˜ëŠ” ì˜¤ë¦¬ì¹¼ì¿° ìƒì„± - ì˜¤ë¦¬ì¹¼ì¿° 5ê°œ, ë¬¸ìŠ¤í†¤ 5ê°œ í•©ì„±
+// ºû³ª´Â ¿À¸®Ä®Äñ »ı¼º - ¿À¸®Ä®Äñ 5°³, ¹®½ºÅæ 5°³ ÇÕ¼º
 int CUltimateWeapon::MakeItem( CUser* pUser, OBJID* objItemId )
 {
 	map<OBJID, int> mapObjId1;
@@ -475,7 +475,7 @@ int CUltimateWeapon::MakeItem( CUser* pUser, OBJID* objItemId )
 	if( nItemCount != 5 )
 		return ULTIMATE_CANCEL;
 	
-	//ì¸ë²¤í† ë¦¬ê°€ ë¶€ì¡±í•  ë•Œ - ì·¨ì†Œ
+	//ÀÎº¥Åä¸®°¡ ºÎÁ·ÇÒ ¶§ - Ãë¼Ò
 	CItemElem itemElemTemp;
 	itemElemTemp.m_dwItemId = II_GEN_MAT_ORICHALCUM02;
 	if( !itemElemTemp.GetProp() || pUser->m_Inventory.IsFull( &itemElemTemp, itemElemTemp.GetProp(), 1 ) )
@@ -515,7 +515,7 @@ int CUltimateWeapon::MakeItem( CUser* pUser, OBJID* objItemId )
 	return ULTIMATE_SUCCESS;
 }
 
-// ë¬´ê¸°ë³€í™˜(ì¼ë°˜->ìœ ë‹ˆí¬, ìœ ë‹ˆí¬->ì–¼í„°ë©‹)
+// ¹«±âº¯È¯(ÀÏ¹İ->À¯´ÏÅ©, À¯´ÏÅ©->¾óÅÍ¸Ú)
 int CUltimateWeapon::TransWeapon( CUser* pUser, OBJID objItem, OBJID objGem1, OBJID objGem2 )
 {
 	CItemElem* pItemElemWeapon	= pUser->m_Inventory.GetAtId( objItem );
@@ -526,37 +526,37 @@ int CUltimateWeapon::TransWeapon( CUser* pUser, OBJID objItem, OBJID objGem1, OB
 		|| IsUsableItem( pItemElemGem2 ) == FALSE )
 		return ULTIMATE_CANCEL;
 	
-	// ì¥ì°©í•˜ê³  ìˆìœ¼ë©´ ì·¨ì†Œ
+	// ÀåÂøÇÏ°í ÀÖÀ¸¸é Ãë¼Ò
 	if( pUser->m_Inventory.IsEquip( objItem ) )
 	{
 		pUser->AddDefinedText( TID_GAME_ULTIMATE_ISEQUIP , "" );
 		return ULTIMATE_CANCEL;
 	}
 		
-	// ë¬´ê¸°ê°€ ì•„ë‹ˆë©´ ì·¨ì†Œ
+	// ¹«±â°¡ ¾Æ´Ï¸é Ãë¼Ò
 	if( pItemElemWeapon->GetProp()->dwItemKind1 != IK1_WEAPON )
 	{
 #ifdef __INTERNALSERVER
-		pUser->AddText( "ë¬´ê¸°ê°€ ì•„ë‹˜." );
+		pUser->AddText( "¹«±â°¡ ¾Æ´Ô." );
 #endif // __INTERNALSERVER
 		return ULTIMATE_CANCEL;
 	}
 
-	// íƒ€ê²Ÿ ID ê°€ ì—†ì„ ë•Œ
+	// Å¸°Ù ID °¡ ¾øÀ» ¶§
 	if( pItemElemWeapon->GetProp()->dwReferTarget1 == NULL_ID )
 	{
 #ifdef __INTERNALSERVER
-		pUser->AddText( "dwReferTarget1 ì— ë³€í™˜ë  ì•„ì´í…œ IDê°€ ì—†ìŒ." );
+		pUser->AddText( "dwReferTarget1 ¿¡ º¯È¯µÉ ¾ÆÀÌÅÛ ID°¡ ¾øÀ½." );
 #endif // __INTERNALSERVER
 		return ULTIMATE_CANCEL;	
 	}
 	
-	// ì¼ë°˜, ìœ ë‹ˆí¬ ì•„ì´í…œì´ ì•„ë‹ ë•Œ
+	// ÀÏ¹İ, À¯´ÏÅ© ¾ÆÀÌÅÛÀÌ ¾Æ´Ò ¶§
 	if( pItemElemWeapon->GetProp()->dwReferStat1 != WEAPON_GENERAL &&
 		  pItemElemWeapon->GetProp()->dwReferStat1 != WEAPON_UNIQUE )
 	{
 #ifdef __INTERNALSERVER
-		pUser->AddText( "dwReferStat1 ê°’ì´ WEAPON_GENERAL, WEAPON_UNIQUE ê°€ ì•„ë‹˜." );
+		pUser->AddText( "dwReferStat1 °ªÀÌ WEAPON_GENERAL, WEAPON_UNIQUE °¡ ¾Æ´Ô." );
 #endif // __INTERNALSERVER
 		return ULTIMATE_CANCEL;
 	}
@@ -575,8 +575,8 @@ int CUltimateWeapon::TransWeapon( CUser* pUser, OBJID objItem, OBJID objGem1, OB
 		nProb = m_nUni2UltiProb;
 		strTemp = "ULTIMATE_";
 	}
-	// propItem.txt -> dwReferTarget2(ì°¸ì¡°íƒ€ê²Ÿ2)ì— ê°’ì´ ë³€í™˜ í™•ë¥ ì´ ëœë‹¤.
-	// ê°’ì´ ì—†ìœ¼ë©´ Ultimate_UltimateWeapon.txtì— ì •ì˜ëœ ê°’ì´ ë³€í™˜ í™•ë¥ ì´ ëœë‹¤.
+	// propItem.txt -> dwReferTarget2(ÂüÁ¶Å¸°Ù2)¿¡ °ªÀÌ º¯È¯ È®·üÀÌ µÈ´Ù.
+	// °ªÀÌ ¾øÀ¸¸é Ultimate_UltimateWeapon.txt¿¡ Á¤ÀÇµÈ °ªÀÌ º¯È¯ È®·üÀÌ µÈ´Ù.
 	if( pItemElemWeapon->GetProp()->dwReferTarget2 != NULL_ID )
 		nProb = pItemElemWeapon->GetProp()->dwReferTarget2;
 	
@@ -647,7 +647,7 @@ int CUltimateWeapon::TransWeapon( CUser* pUser, OBJID objItem, OBJID objGem1, OB
 			return ULTIMATE_SUCCESS;
 		}
 	}
-	else //ì‹¤íŒ¨
+	else //½ÇÆĞ
 	{
 		if( !bSmelprot3 )
 		{
@@ -669,7 +669,7 @@ int CUltimateWeapon::TransWeapon( CUser* pUser, OBJID objItem, OBJID objGem1, OB
 	return ULTIMATE_FAILED;
 }
 
-// ì–¼í„°ë©‹ ì›¨í° ì œë ¨
+// ¾óÅÍ¸Ú ¿şÆù Á¦·Ã
 int CUltimateWeapon::EnchantWeapon( CUser* pUser, OBJID objItem, OBJID objItemGem )
 {
 	CItemElem* pItemElemWeapon	= pUser->m_Inventory.GetAtId( objItem );
@@ -677,12 +677,12 @@ int CUltimateWeapon::EnchantWeapon( CUser* pUser, OBJID objItem, OBJID objItemGe
 	if( IsUsableItem( pItemElemWeapon ) == FALSE || IsUsableItem( pItemElemGem ) == FALSE )
 		return ULTIMATE_CANCEL;
 
-	//ì–¼í„°ë©‹ ì›¨í°ì´ ì•„ë‹ˆê±°ë‚˜ ë¹›ë‚˜ëŠ” ì˜¤ë¦¬ì¹¼ì¿°ì´ ì•„ë‹ˆë©´ ì·¨ì†Œ
+	//¾óÅÍ¸Ú ¿şÆùÀÌ ¾Æ´Ï°Å³ª ºû³ª´Â ¿À¸®Ä®ÄñÀÌ ¾Æ´Ï¸é Ãë¼Ò
 	if( pItemElemWeapon->GetProp()->dwReferStat1 != WEAPON_ULTIMATE ||
 		pItemElemGem->m_dwItemId != II_GEN_MAT_ORICHALCUM02 )
 		return ULTIMATE_ISNOTULTIMATE;
 
-	// ì¥ì°©í•˜ê³  ìˆìœ¼ë©´ ì·¨ì†Œ
+	// ÀåÂøÇÏ°í ÀÖÀ¸¸é Ãë¼Ò
 	if( pUser->m_Inventory.IsEquip( objItem ) )
 	{
 		pUser->AddDefinedText( TID_GAME_ULTIMATE_ISEQUIP , "" );
@@ -707,7 +707,7 @@ int CUltimateWeapon::EnchantWeapon( CUser* pUser, OBJID objItem, OBJID objItemGe
 			g_dpDBClient.SendLogSMItemUse( "2", pUser, NULL, pItemProp );
 	}
 	
-	//ë³´ì„ ì†Œì§„
+	//º¸¼® ¼ÒÁø
 	LogItemInfo aLogItem;
 	aLogItem.Action = "-";
 	aLogItem.SendName = pUser->GetName();
@@ -737,12 +737,12 @@ int CUltimateWeapon::EnchantWeapon( CUser* pUser, OBJID objItem, OBJID objItemGe
 	}
 	else
 	{
-		if( bSmelprot3 )	// ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬(ìµœìƒê¸‰) ì‚¬ìš©ì‹œ
+		if( bSmelprot3 )	// º¸È£ÀÇ µÎ·ç¸¶¸®(ÃÖ»ó±Ş) »ç¿ë½Ã
 		{
 			aLogItem.RecvName = "ULTIMATE_ENCHANT_PROTECT";
 			g_DPSrvr.OnLogItem( aLogItem, pItemElemWeapon );
 		}
-		else	// ì–¼í„°ë©‹ ì›¨í° íŒŒê´´
+		else	// ¾óÅÍ¸Ú ¿şÆù ÆÄ±«
 		{
 			aLogItem.RecvName = "ULTIMATE_ENCHANT_FAILED";
 			g_DPSrvr.OnLogItem( aLogItem, pItemElemWeapon, 1 );
@@ -756,21 +756,21 @@ int CUltimateWeapon::EnchantWeapon( CUser* pUser, OBJID objItem, OBJID objItemGe
 #if __VER >= 14 // __SMELT_SAFETY
 BYTE CUltimateWeapon::SmeltSafetyUltimate( CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial, CItemElem* pItemProtScr )
 {
-	//	ì–¼í„°ë©‹ì›¨í°ì´ ì•„ë‹ˆë©´ ë¦¬í„´
+	//	¾óÅÍ¸Ú¿şÆùÀÌ ¾Æ´Ï¸é ¸®ÅÏ
 	if( pItemMain->GetProp()->dwReferStat1 != WEAPON_ULTIMATE )
 	{
 		//pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
 		return 0;
 	}
 
-	//	ìµœìƒê¸‰ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ê°€ ì•„ë‹ˆë©´ ë¦¬í„´
+	//	ÃÖ»ó±Ş º¸È£ÀÇ µÎ·ç¸¶¸®°¡ ¾Æ´Ï¸é ¸®ÅÏ
 	if( pItemProtScr->GetProp()->dwID != II_SYS_SYS_SCR_SMELPROT3)
 	{
 		//pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
 		return 0;
 	}
 
-	//	ì œë ¨ìˆ˜ì¹˜ê°€ maxì¹˜ë¥¼ ë„˜ì—ˆì„ë•Œ ë¦¬í„´
+	//	Á¦·Ã¼öÄ¡°¡ maxÄ¡¸¦ ³Ñ¾úÀ»¶§ ¸®ÅÏ
 	if( pItemMain->GetAbilityOption() >= 10 )
 	{
 		//pUser->AddDefinedText( TID_UPGRADE_MAXOVER );
@@ -786,10 +786,10 @@ BYTE CUltimateWeapon::SmeltSafetyUltimate( CUser* pUser, CItemElem* pItemMain, C
 	aLogItem.Gold = pUser->GetGold();
 	aLogItem.Gold2 = pUser->GetGold();
 	
-	// ì œë ¨ì•„í…œ ì‚­ì œ - ì„±ê³µì´ë˜, ì‹¤íŒ¨ë˜...
+	// Á¦·Ã¾ÆÅÛ »èÁ¦ - ¼º°øÀÌ´ø, ½ÇÆĞ´ø...
 	g_DPSrvr.OnLogItem( aLogItem, pItemMaterial, pItemMaterial->m_nItemNum );
 	pUser->RemoveItem( (BYTE)( pItemMaterial->m_dwObjId ), 1 );
-	//	ë‘ë£¨ë§ˆë¦¬ ë¡œê·¸ë‚¨ê¸¸ê²ƒ
+	//	µÎ·ç¸¶¸® ·Î±×³²±æ°Í
 	ItemProp* pItemProp = pItemProtScr->GetProp();
 	if( pItemProp )
 	{
@@ -798,14 +798,14 @@ BYTE CUltimateWeapon::SmeltSafetyUltimate( CUser* pUser, CItemElem* pItemMain, C
 	}
 	pUser->RemoveItem( (BYTE)( pItemProtScr->m_dwObjId ), 1 );
 
-	// ì œë ¨ í™•ë¥ 
+	// Á¦·Ã È®·ü
 	map<int, int>::iterator it = m_mapUltimateProb.find( pItemMain->GetAbilityOption() + 1 );
 	if( it == m_mapUltimateProb.end() )
 		return 0;
 	
 	if( (int)( xRandom( 1000000 ) ) > it->second )
 	{
-		// ì‹¤íŒ¨
+		// ½ÇÆĞ
 		pUser->AddPlaySound( SND_INF_UPGRADEFAIL );
 		if( ( pUser->IsMode( TRANSPARENT_MODE ) ) == 0 )
 			g_UserMng.AddCreateSfxObj( ( CMover * )pUser, XI_INT_FAIL, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z );
@@ -817,7 +817,7 @@ BYTE CUltimateWeapon::SmeltSafetyUltimate( CUser* pUser, CItemElem* pItemMain, C
 	}
 	else
 	{
-		// ì„±ê³µ
+		// ¼º°ø
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );		
 		if((pUser->IsMode( TRANSPARENT_MODE ) ) == 0 )
 			g_UserMng.AddCreateSfxObj( ( CMover * )pUser, XI_INT_SUCCESS, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z );
@@ -836,7 +836,7 @@ BYTE CUltimateWeapon::SmeltSafetyUltimate( CUser* pUser, CItemElem* pItemMain, C
 #endif // __SMELT_SAFETY
 #endif // __WORLDSERVER
 
-// ë³´ì„ í•©ì„± í›„ ëŠ¥ë ¥ì¹˜ ì ìš©
+// º¸¼® ÇÕ¼º ÈÄ ´É·ÂÄ¡ Àû¿ë
 void CUltimateWeapon::SetDestParamUltimate( CMover* pMover, CItemElem* pItemElem, BOOL bEquip, DWORD dwParts )
 {
 	
@@ -853,7 +853,7 @@ void CUltimateWeapon::SetDestParamUltimate( CMover* pMover, CItemElem* pItemElem
 	}
 }
 
-// í•©ì„±ëœ ë³´ì„ë“¤ì˜ ì¢…ë¥˜ ë° ëŠ¥ë ¥
+// ÇÕ¼ºµÈ º¸¼®µéÀÇ Á¾·ù ¹× ´É·Â
 map<int, int> CUltimateWeapon::GetDestParamUltimate( CItemElem* pItemElem )
 {
 	map<int, int> mapDst;  
@@ -898,7 +898,7 @@ map<int, int> CUltimateWeapon::GetDestParamUltimate( CItemElem* pItemElem )
 	return mapDst;
 }
 
-// í•©ì„±ëœ ë³´ì„ì˜ ì¢…ë¥˜ì™€ ê°¯ìˆ˜ì— ë”°ë¥¸ ëŠ¥ë ¥ì¹˜
+// ÇÕ¼ºµÈ º¸¼®ÀÇ Á¾·ù¿Í °¹¼ö¿¡ µû¸¥ ´É·ÂÄ¡
 int CUltimateWeapon::GetDST( DWORD dwItemId, int nItemNum, int nDSTInfo )
 {
 	int nResultDST = 0;

@@ -1,48 +1,48 @@
-ï»¿#ifndef	__BONE_H__
+#ifndef	__BONE_H__
 #define	__BONE_H__
 
 #include <d3dx9.h>
 #include "file.h"
 
-#define		MAX_VS_BONE		28		// VSì—ì„œ ìµœëŒ€ì‚¬ìš©ê°€ëŠ¥í•œ ë¼ˆëŒ€ë ˆì§€ìŠ¤í„°ì˜ ê°œìˆ˜.
+#define		MAX_VS_BONE		28		// VS¿¡¼­ ÃÖ´ë»ç¿ë°¡´ÉÇÑ »À´ë·¹Áö½ºÅÍÀÇ °³¼ö.
 
 struct BONE;
 struct BONE
 {
-	BONE		*m_pParent;			// ìƒìœ„ ë¶€ëª¨ ë…¸ë“œ
+	BONE		*m_pParent;			// »óÀ§ ºÎ¸ğ ³ëµå
 
-//	int			m_nID;				// ê³„ì¸µìˆœì„œ ëŒ€ë¡œ ë¶€ì—¬ëœ ë²ˆí˜¸ - ì–´ì°¨í”¼ í•„ìš”ì—†ì„ê±° ê°™ë‹¤.
-	int			m_nParentIdx;		// ë¶€ëª¨ ì¸ë±ìŠ¤
-	char		m_szName[32];		// * ìŠ¤íŠ¸ë§í˜•íƒœì˜ ë…¸ë“œ ì´ë¦„
-	D3DXMATRIX		m_mTM;		// aseì›ë³¸ TM
-	D3DXMATRIX		m_mInverseTM;	// * ë¯¸ë¦¬ ë³€í™˜ëœ ì¸ë²„ìŠ¤TM 
-	D3DXMATRIX		m_mLocalTM;	// * ë¯¸ë¦¬ë³€í™˜ëœ ë¡œì»¬ TM
+//	int			m_nID;				// °èÃş¼ø¼­ ´ë·Î ºÎ¿©µÈ ¹øÈ£ - ¾îÂ÷ÇÇ ÇÊ¿ä¾øÀ»°Å °°´Ù.
+	int			m_nParentIdx;		// ºÎ¸ğ ÀÎµ¦½º
+	char		m_szName[32];		// * ½ºÆ®¸µÇüÅÂÀÇ ³ëµå ÀÌ¸§
+	D3DXMATRIX		m_mTM;		// ase¿øº» TM
+	D3DXMATRIX		m_mInverseTM;	// * ¹Ì¸® º¯È¯µÈ ÀÎ¹ö½ºTM 
+	D3DXMATRIX		m_mLocalTM;	// * ¹Ì¸®º¯È¯µÈ ·ÎÄÃ TM
 };
 
 #define MAX_MDL_EVENT		8	// #event xx
 
 //
-// ë³¸ì…‹íŠ¸ì˜ êµ¬ì¡°
+// º»¼ÂÆ®ÀÇ ±¸Á¶
 class CBones
 {
 public:
-	int		m_nID;				// ë³¸ì˜ ê³ ìœ  ID(íŒŒì¼ë‚´ì— ìˆë‹¤)
-	char	m_szName[64];		// ë³¸ì˜ íŒŒì¼ëª… - ë‚˜ì¤‘ì— ì´ê±´ ë¹ ì§„ë‹¤.
-	int		m_nMaxBone;			// ë¼ˆëŒ€ ê°¯ìˆ˜
-	BONE	*m_pBones;			// ë¼ˆëŒ€ ë¦¬ìŠ¤íŠ¸
-	int		m_bSendVS;			// ë³¸ê°œìˆ˜ê°€ MAX_VS_BONEë³´ë‹¤ ì ì€ì§€...
+	int		m_nID;				// º»ÀÇ °íÀ¯ ID(ÆÄÀÏ³»¿¡ ÀÖ´Ù)
+	char	m_szName[64];		// º»ÀÇ ÆÄÀÏ¸í - ³ªÁß¿¡ ÀÌ°Ç ºüÁø´Ù.
+	int		m_nMaxBone;			// »À´ë °¹¼ö
+	BONE	*m_pBones;			// »À´ë ¸®½ºÆ®
+	int		m_bSendVS;			// º»°³¼ö°¡ MAX_VS_BONEº¸´Ù ÀûÀºÁö...
 
-	D3DXMATRIX	m_mLocalRH;		// ì˜¤ë¥¸ì† ë¬´ê¸°ì˜ RHandë¡œë¶€í„°ì˜ ìƒëŒ€TM
-	D3DXMATRIX	m_mLocalLH;		// ì˜¤ë¥¸ì† ë¬´ê¸°ì˜ LHandë¡œë¶€í„°ì˜ ìƒëŒ€TM
-	D3DXMATRIX	m_mLocalShield;	// ë°©íŒ¨ì˜ LForeArmìœ¼ë¡œë¶€í„°ì˜ ìƒëŒ€TM
-	D3DXMATRIX	m_mLocalKnuckle;	// ë„ˆí´.
-	int		m_nRHandIdx;		// ì˜¤ë¥¸ì† ì¸ë±ìŠ¤
-	int		m_nLHandIdx;		// ì™¼ì† ì¸ë±ìŠ¤
-	int		m_nRArmIdx;			// ì˜¤ë¥¸ì† íŒ”ëš
-	int		m_nLArmIdx;			// ì™¼ì† íŒ”ëš ì¸ë±ìŠ¤.
+	D3DXMATRIX	m_mLocalRH;		// ¿À¸¥¼Õ ¹«±âÀÇ RHand·ÎºÎÅÍÀÇ »ó´ëTM
+	D3DXMATRIX	m_mLocalLH;		// ¿À¸¥¼Õ ¹«±âÀÇ LHand·ÎºÎÅÍÀÇ »ó´ëTM
+	D3DXMATRIX	m_mLocalShield;	// ¹æÆĞÀÇ LForeArmÀ¸·ÎºÎÅÍÀÇ »ó´ëTM
+	D3DXMATRIX	m_mLocalKnuckle;	// ³ÊÅ¬.
+	int		m_nRHandIdx;		// ¿À¸¥¼Õ ÀÎµ¦½º
+	int		m_nLHandIdx;		// ¿Ş¼Õ ÀÎµ¦½º
+	int		m_nRArmIdx;			// ¿À¸¥¼Õ ÆÈ¶Ò
+	int		m_nLArmIdx;			// ¿Ş¼Õ ÆÈ¶Ò ÀÎµ¦½º.
 	D3DXVECTOR3	m_vEvent[MAX_MDL_EVENT];	
-//	BONE	*m_pEventParent[MAX_MDL_EVENT];	// ì´ë²¤íŠ¸ ì¢Œí‘œë“¤ ë¶€ëª¨
-	int		m_nEventParentIdx[MAX_MDL_EVENT];	// ì´ë²¤íŠ¸ì¢Œí‘œë“¤ ë¶€ëª¨ì¸ë±ìŠ¤.
+//	BONE	*m_pEventParent[MAX_MDL_EVENT];	// ÀÌº¥Æ® ÁÂÇ¥µé ºÎ¸ğ
+	int		m_nEventParentIdx[MAX_MDL_EVENT];	// ÀÌº¥Æ®ÁÂÇ¥µé ºÎ¸ğÀÎµ¦½º.
 	
 private:
 	void Init( void );
@@ -52,10 +52,10 @@ public:
 	CBones();
 	~CBones();
 
-//	BONE	*FindBone( int nID );								// nIDê°’ì„ ê°€ì§€ëŠ” ë³¸ì„ ì°¾ìŒ
+//	BONE	*FindBone( int nID );								// nID°ªÀ» °¡Áö´Â º»À» Ã£À½
 	BONE	*GetBone( int nIdx ) { return &m_pBones[ nIdx ]; }
 
-	int		LoadBone( LPCTSTR szFileName );		// ì‹¤ì œë¡œ ë³¸ íŒŒì¼ì„ ì½ìŒ
+	int		LoadBone( LPCTSTR szFileName );		// ½ÇÁ¦·Î º» ÆÄÀÏÀ» ÀĞÀ½
 };
 
 
@@ -70,8 +70,8 @@ public:
 #if __VER >= 12 // __LEAK_0827
 	map<string, CBones*>	m_mapBones;
 #else	// __LEAK_0827
-	int			m_nSize;							// ê´€ë¦¬ìê°€ ë¡œë”©í•´ì„œ ê°€ì§€ê³  ìˆëŠ” ë³¸ì˜ ì‚¬ì´ì¦ˆê°€ ì–¼ë§ˆë‚˜ ë˜ëŠ”ê°€.
-	int			m_nMax;								// ê°¯ìˆ˜
+	int			m_nSize;							// °ü¸®ÀÚ°¡ ·ÎµùÇØ¼­ °¡Áö°í ÀÖ´Â º»ÀÇ »çÀÌÁî°¡ ¾ó¸¶³ª µÇ´Â°¡.
+	int			m_nMax;								// °¹¼ö
 	CBones *m_pBonesAry[ MAX_BONES ];
 #endif	// __LEAK_0827
 
@@ -85,7 +85,7 @@ public:
 	void	Init( void );
 	void	Destroy( void );
 
-	CBones *LoadBone( LPCTSTR szFileName );									// BoneíŒŒì¼ì„ ì½ì–´ì„œ ë©”ëª¨ë¦¬ì— ì ì¬ì‹œí‚¨ë‹¤.
+	CBones *LoadBone( LPCTSTR szFileName );									// BoneÆÄÀÏÀ» ÀĞ¾î¼­ ¸Ş¸ğ¸®¿¡ ÀûÀç½ÃÅ²´Ù.
 
 };
 
@@ -102,9 +102,9 @@ extern CBonesMng		g_BonesMng;
 ////////////////
 ////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-#define		MA_HIT			(0x00000001)		// íƒ€ì 
-#define		MA_SOUND		(0x00000002)		// ì†Œë¦¬
-#define		MA_QUAKE		(0x00000004)		// ì§€ì§„.
+#define		MA_HIT			(0x00000001)		// Å¸Á¡
+#define		MA_SOUND		(0x00000002)		// ¼Ò¸®
+#define		MA_QUAKE		(0x00000004)		// ÁöÁø.
 struct TM_ANIMATION
 {
 //	D3DXMATRIX			m_mAniTM;
@@ -112,37 +112,37 @@ struct TM_ANIMATION
 	D3DXVECTOR3			m_vPos;
 };
 
-// ëª¨ì…˜ì€ ë³¸ê³¼ ë°€ì ‘í•œ ê´€ê³„ê°€ ìˆë‹¤.  ë³¸ê³¼ í¬ê¸°ê°€ ê°™ê³ , ê°™ì€ ë³¸ì—ì„œ ë‚˜ì˜¨ ëª¨ì…˜ì´ ì•„ë‹ˆë©´ ì˜¤ë™ì‘ í•  ìˆ˜ê°€ìˆë‹¤.
-// ìºë¦­í„° ë™ì‘í•˜ë‚˜ì— ëŒ€í•œ í´ë˜ìŠ¤
+// ¸ğ¼ÇÀº º»°ú ¹ĞÁ¢ÇÑ °ü°è°¡ ÀÖ´Ù.  º»°ú Å©±â°¡ °°°í, °°Àº º»¿¡¼­ ³ª¿Â ¸ğ¼ÇÀÌ ¾Æ´Ï¸é ¿Àµ¿ÀÛ ÇÒ ¼ö°¡ÀÖ´Ù.
+// Ä³¸¯ÅÍ µ¿ÀÛÇÏ³ª¿¡ ´ëÇÑ Å¬·¡½º
 struct	BONE_FRAME
 {
 	TM_ANIMATION	*m_pFrame;
 	D3DXMATRIX		m_mLocalTM;
 };
 
-// ê° í”„ë ˆì„ì˜ ì†ì„±ë“¤
+// °¢ ÇÁ·¹ÀÓÀÇ ¼Ó¼ºµé
 struct	MOTION_ATTR
 {
 	DWORD	m_dwAttr;
 //	char	m_szFileName[32];
-	int		m_nSndID;		// ì‚¬ìš´ë“œ ë¦¬ì†ŒìŠ¤ ì•„ì´ë””
-	float	m_fFrame;		// ì†Œìˆ«ì  ë‹¨ìœ„ì˜ ì •í™•í•œ í”„ë ˆì„ ë²ˆí˜¸ 
+	int		m_nSndID;		// »ç¿îµå ¸®¼Ò½º ¾ÆÀÌµğ
+	float	m_fFrame;		// ¼Ò¼ıÁ¡ ´ÜÀ§ÀÇ Á¤È®ÇÑ ÇÁ·¹ÀÓ ¹øÈ£ 
 };
 
 class CMotion
 {
 private:
-	TM_ANIMATION	*m_pMotion;			// ë¼ˆëŒ€ìˆœì„œëŒ€ë¡œ ê°ê°ì˜ ì• ë‹ˆë©”ì´ì…˜ì´ ë“¤ì–´ìˆë‹¤.  ì• ë‹ˆê°€ ì—†ëŠ” ë¼ˆëŒ€ëŠ” LocalTMë§Œ ìˆë‹¤.
-	MOTION_ATTR		*m_pAttr;			// í”„ë ˆì„í¬ê¸°ë§Œí¼ í• ë‹¹.  ê° í”„ë ˆì„ì†ì„±.
-	int		m_nMaxFrame;				// ëª¨ì…˜ í”„ë ˆì„ìˆ˜
+	TM_ANIMATION	*m_pMotion;			// »À´ë¼ø¼­´ë·Î °¢°¢ÀÇ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ µé¾îÀÖ´Ù.  ¾Ö´Ï°¡ ¾ø´Â »À´ë´Â LocalTM¸¸ ÀÖ´Ù.
+	MOTION_ATTR		*m_pAttr;			// ÇÁ·¹ÀÓÅ©±â¸¸Å­ ÇÒ´ç.  °¢ ÇÁ·¹ÀÓ¼Ó¼º.
+	int		m_nMaxFrame;				// ¸ğ¼Ç ÇÁ·¹ÀÓ¼ö
 public:
-	int		m_nID;						// ëª¨ì…˜ì˜ ê³ ìœ  ID(íŒŒì¼ë‚´ì— ìˆë‹¤)
-	char	m_szName[64];				// ëª¨ì…˜ íŒŒì¼ëª… - ë‚˜ì¤‘ì— ì´ê±´ ë¹ ì§„ë‹¤.
+	int		m_nID;						// ¸ğ¼ÇÀÇ °íÀ¯ ID(ÆÄÀÏ³»¿¡ ÀÖ´Ù)
+	char	m_szName[64];				// ¸ğ¼Ç ÆÄÀÏ¸í - ³ªÁß¿¡ ÀÌ°Ç ºüÁø´Ù.
 	float	m_fPerSlerp;				//
-	int		m_nMaxBone;					// ì´ê²ƒì€ ì–´ë””ê¹Œì§€ë‚˜ í™•ì¸ìš© ë³€ìˆ˜ì¼ë¿ì´ë‹¤.  ì‹¤ì œ ë³¸ì˜ ê°¯ìˆ˜ê°€ í•„ìš”í•˜ë‹¤ë©´ CBoneì—ì„œ ì½ì–´ì•¼ í•œë‹¤.
-	D3DXVECTOR3	m_vPivot;				// 0,0,0(ë°œ)ê¸°ì¤€ì—ì„œ ê³¨ë°˜(ë£¨íŠ¸)ì˜ ì¢Œí‘œ.  0ë²ˆí‚¤ì˜ ì¢Œí‘œì™€ ê°™ë‹¤.
-	BONE_FRAME	*m_pBoneFrame;		// ë¼ˆëŒ€ê°¯ìˆ˜ ë§Œí¼ í• ë‹¹. ë¡œë”©ì´ ëë‚œí›„ ì‚¬ìš©í•˜ê¸° ì¢‹ë„ë¡ í¬ì¸í„°ë¥¼ ì¬ë°°ì¹˜í•œë‹¤.  í”„ë ˆì„ì´ ì—†ëŠ”ê³³ì€ NULL
-	BONE		*m_pBoneInfo;		// ë¼ˆëŒ€êµ¬ì„±ì •ë³´
+	int		m_nMaxBone;					// ÀÌ°ÍÀº ¾îµğ±îÁö³ª È®ÀÎ¿ë º¯¼öÀÏ»ÓÀÌ´Ù.  ½ÇÁ¦ º»ÀÇ °¹¼ö°¡ ÇÊ¿äÇÏ´Ù¸é CBone¿¡¼­ ÀĞ¾î¾ß ÇÑ´Ù.
+	D3DXVECTOR3	m_vPivot;				// 0,0,0(¹ß)±âÁØ¿¡¼­ °ñ¹İ(·çÆ®)ÀÇ ÁÂÇ¥.  0¹øÅ°ÀÇ ÁÂÇ¥¿Í °°´Ù.
+	BONE_FRAME	*m_pBoneFrame;		// »À´ë°¹¼ö ¸¸Å­ ÇÒ´ç. ·ÎµùÀÌ ³¡³­ÈÄ »ç¿ëÇÏ±â ÁÁµµ·Ï Æ÷ÀÎÅÍ¸¦ Àç¹èÄ¡ÇÑ´Ù.  ÇÁ·¹ÀÓÀÌ ¾ø´Â°÷Àº NULL
+	BONE		*m_pBoneInfo;		// »À´ë±¸¼ºÁ¤º¸
 	int		m_nMaxEvent;
 	D3DXVECTOR3	m_vEvent[4];
 	D3DXVECTOR3		*m_pPath;			// path
@@ -163,7 +163,7 @@ public:
 	{ 
 		MOTION_ATTR		*pAttr = &m_pAttr[ (int)fNumFrm ];
 		if( pAttr->m_dwAttr & MA_HIT )
-			if( fOldFrm < pAttr->m_fFrame && pAttr->m_fFrame <= fNumFrm )	// ì´ì „ í”„ë ˆì„ì´ë‘ í˜„ì¬ í”„ë ˆì„ ì‚¬ì´ì— íƒ€ì ì´ ë“¤ì–´ìˆì—ˆëŠ”ê°€.
+			if( fOldFrm < pAttr->m_fFrame && pAttr->m_fFrame <= fNumFrm )	// ÀÌÀü ÇÁ·¹ÀÓÀÌ¶û ÇöÀç ÇÁ·¹ÀÓ »çÀÌ¿¡ Å¸Á¡ÀÌ µé¾îÀÖ¾ú´Â°¡.
 				return pAttr->m_dwAttr;
 			return 0;
 	}
@@ -171,7 +171,7 @@ public:
 	{ 
 		MOTION_ATTR		*pAttr = &m_pAttr[ (int)fNumFrm ];
 		if( pAttr->m_dwAttr & MA_SOUND )
-			if( fOldFrm < pAttr->m_fFrame && pAttr->m_fFrame <= fNumFrm )	// ì´ì „ í”„ë ˆì„ì´ë‘ í˜„ì¬ í”„ë ˆì„ ì‚¬ì´ì— íƒ€ì ì´ ë“¤ì–´ìˆì—ˆëŠ”ê°€.
+			if( fOldFrm < pAttr->m_fFrame && pAttr->m_fFrame <= fNumFrm )	// ÀÌÀü ÇÁ·¹ÀÓÀÌ¶û ÇöÀç ÇÁ·¹ÀÓ »çÀÌ¿¡ Å¸Á¡ÀÌ µé¾îÀÖ¾ú´Â°¡.
 				return pAttr;
 			return NULL;
 	}
@@ -179,7 +179,7 @@ public:
 	{ 
 		MOTION_ATTR		*pAttr = &m_pAttr[ (int)fNumFrm ];
 		if( pAttr->m_dwAttr & MA_QUAKE )
-			if( fOldFrm < pAttr->m_fFrame && pAttr->m_fFrame <= fNumFrm )	// ì´ì „ í”„ë ˆì„ì´ë‘ í˜„ì¬ í”„ë ˆì„ ì‚¬ì´ì— íƒ€ì ì´ ë“¤ì–´ìˆì—ˆëŠ”ê°€.
+			if( fOldFrm < pAttr->m_fFrame && pAttr->m_fFrame <= fNumFrm )	// ÀÌÀü ÇÁ·¹ÀÓÀÌ¶û ÇöÀç ÇÁ·¹ÀÓ »çÀÌ¿¡ Å¸Á¡ÀÌ µé¾îÀÖ¾ú´Â°¡.
 				return pAttr->m_dwAttr;
 			return 0;
 	}
@@ -192,7 +192,7 @@ public:
 	TM_ANIMATION*	GetFrame( int nNumFrm ) { return &m_pMotion[nNumFrm]; }
 	int		GetMaxFrame( void ) { return m_nMaxFrame; }
 
-	int		LoadMotion( LPCTSTR strFileName );			// íŒŒì¼ì—ì„œ ëª¨ì…˜íŒŒì¼ì„ ì½ìŒ
+	int		LoadMotion( LPCTSTR strFileName );			// ÆÄÀÏ¿¡¼­ ¸ğ¼ÇÆÄÀÏÀ» ÀĞÀ½
 	void	ReadTM( CResFile *file, int nNumBone, int nNumFrame );
 
 	void	AnimateBone( D3DXMATRIX *pmUpdateBone, CMotion *pMotionOld, float fFrameCurrent, int nNextFrame, int nFrameOld, BOOL bMotionTrans, float fBlendWeight );
@@ -213,8 +213,8 @@ public:
 #else	// __LEAK_0827
 	int		m_nSize;
 	int		m_nMax;
-	int		m_nCachePos;				// ìºì‹œ í ì¸ë±ìŠ¤
-	CMotion		*m_pCache[ MAX_MOTION_CACHE ];			// ìµœê·¼ì— ì½ì€ ë™ì‘ì˜ í¬ì¸í„°ë¥¼ ê°€ì§€ê³  ìˆìŒ
+	int		m_nCachePos;				// Ä³½Ã Å¥ ÀÎµ¦½º
+	CMotion		*m_pCache[ MAX_MOTION_CACHE ];			// ÃÖ±Ù¿¡ ÀĞÀº µ¿ÀÛÀÇ Æ÷ÀÎÅÍ¸¦ °¡Áö°í ÀÖÀ½
 	CMotion		*m_pMotionAry[ MAX_MOTION ];
 #endif	// __LEAK_0827
 	
@@ -224,7 +224,7 @@ public:
 	void	Init( void );
 	void	Destroy( void );
 
-	CMotion	*LoadMotion( LPCTSTR strFileName );			// ë™ì‘ì„ ë©”ëª¨ë¦¬ì— ì ì¬í•œë‹¤.  ì¤‘ë³µí•´ì„œ ì˜¬ë¦¬ì§€ ì•ŠëŠ”ë‹¤.
+	CMotion	*LoadMotion( LPCTSTR strFileName );			// µ¿ÀÛÀ» ¸Ş¸ğ¸®¿¡ ÀûÀçÇÑ´Ù.  Áßº¹ÇØ¼­ ¿Ã¸®Áö ¾Ê´Â´Ù.
 };
 
 extern CMotionMng		g_MotionMng;

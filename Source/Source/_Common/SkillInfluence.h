@@ -1,11 +1,11 @@
-ï»¿#ifndef __SKILLINFLUENCE_H__
+#ifndef __SKILLINFLUENCE_H__
 #define	__SKILLINFLUENCE_H__
 
 #define	BUFF_ITEM	0
 #define	BUFF_SKILL	1
 #define	BUFF_PET	2
 #define	BUFF_ITEM2	3
-#define	BUFF_EQUIP	4	// ìž¥ì°©ë¥˜ ì•„ì´í…œì— íŠ¹ì • DST(DST_GIFTBOX)ì— ëŒ€í•´ ë²„í”„ ì•„ì´ì½˜ë§Œ ì¶œë ¥
+#define	BUFF_EQUIP	4	// ÀåÂø·ù ¾ÆÀÌÅÛ¿¡ Æ¯Á¤ DST(DST_GIFTBOX)¿¡ ´ëÇØ ¹öÇÁ ¾ÆÀÌÄÜ¸¸ Ãâ·Â
 #define	BUFF_NULL_ID	(WORD)0xFFFF
 #define	MAX_SKILLINFLUENCE	64
 #define	MAX_SKILLBUFF_COUNT	64
@@ -16,14 +16,14 @@
 
 typedef	struct	tagSKILLINFLUENCE
 {
-	WORD	wType;			// 0:ì•„ì´í…œ 1:ìŠ¤í‚¬ 2:ê¸°íƒ€?
-	WORD	wID;			// ì•„ì´í…œì´ë‚˜ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹° ID
-	DWORD	dwLevel;		// ìŠ¤í‚¬ ë ˆë²¨ - ì €ìž¥
-	DWORD	tmCount;		// ë‚¨ì€ ì‹œê°„(ì¹´ìš´íŠ¸).  - ì €ìž¥
-	DWORD	tmTime;			// ì‹œìž‘ íƒ€ì´ë¨¸.
-	BOOL	bEffect;		// ì§€ì†íš¨ê³¼ì´íŽ™íŠ¸ë¥¼ ê°€ì§€ê³  ìžˆì„ë•Œ ê·¸ê²ƒì´ ë¡œë”©ëëŠ”ì§€.. FALSEë©´ ë¡œë”©í•´ì•¼í•œë‹¤.
+	WORD	wType;			// 0:¾ÆÀÌÅÛ 1:½ºÅ³ 2:±âÅ¸?
+	WORD	wID;			// ¾ÆÀÌÅÛÀÌ³ª ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼ ID
+	DWORD	dwLevel;		// ½ºÅ³ ·¹º§ - ÀúÀå
+	DWORD	tmCount;		// ³²Àº ½Ã°£(Ä«¿îÆ®).  - ÀúÀå
+	DWORD	tmTime;			// ½ÃÀÛ Å¸ÀÌ¸Ó.
+	BOOL	bEffect;		// Áö¼ÓÈ¿°úÀÌÆåÆ®¸¦ °¡Áö°í ÀÖÀ»¶§ ±×°ÍÀÌ ·ÎµùµÆ´ÂÁö.. FALSE¸é ·ÎµùÇØ¾ßÇÑ´Ù.
 #ifdef __PVPDEBUFSKILL
-	DWORD	dwAttackerID;	// ìŠ¤í‚¬ ì‹œì „ìž ID
+	DWORD	dwAttackerID;	// ½ºÅ³ ½ÃÀüÀÚ ID
 #endif // __PVPDEBUFSKILL
 }
 
@@ -34,7 +34,7 @@ class CSkillInfluence
 {
 private:
 #if __VER < 8 //__CSC_VER8_3
-	SKILLINFLUENCE *m_pEmptyNode;	// ë¹„ì–´ìžˆëŠ” ê³µê°„ì˜ ì¸ë±ìŠ¤.
+	SKILLINFLUENCE *m_pEmptyNode;	// ºñ¾îÀÖ´Â °ø°£ÀÇ ÀÎµ¦½º.
 #endif //__CSC_VER8_3
 	CMover* m_pMover;
 //	CRIT_SEC	m_AddRemoveLock;
@@ -49,16 +49,16 @@ public:
 #endif // __PVPDEBUFSKILL
 	BOOL	RemoveSkillInfluence( WORD wType, WORD wID );
 	BOOL	RemoveSkillInfluenceState( DWORD dwChrState );
-#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
 	BOOL	RemoveSkillInfluenceDestParam( DWORD dwDestParam );
-#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
 
 	BOOL    RemoveAllSkillInfluence();
 	BOOL	RemoveAllSkillDebuff( void );
 	BOOL	RemoveAllSkillBuff( void );
-#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 	BOOL	RemoveAllBuff( void );
-#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
+#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 	BOOL	RemoveOneSkillBuff( void );
 	
 		
@@ -89,7 +89,7 @@ public:
 #if !( defined( __CORESERVER ) || defined( __DBSERVER ) ) 
 	void	Process( void );
 #endif // #if !( defined( __CORESERVER ) || defined( __DBSERVER ) ) 
-	void	Reset( void );		// í´ë¼ë¡œ ë²„í”„ì •ë³´ë¥¼ ë‹¤ì‹œ ê°±ì‹ í•˜ë„ë¡ íƒ€ì´ë¨¸ë¥¼ í´ë¦¬ì–´ ì‹œí‚´.
+	void	Reset( void );		// Å¬¶ó·Î ¹öÇÁÁ¤º¸¸¦ ´Ù½Ã °»½ÅÇÏµµ·Ï Å¸ÀÌ¸Ó¸¦ Å¬¸®¾î ½ÃÅ´.
 	BOOL	HasSkill( WORD wType, WORD wID );
 
 #if __VER >= 9	// __PET_0410
@@ -133,7 +133,7 @@ inline SKILLINFLUENCE* CSkillInfluence::Find( WORD wType, WORD wID )
 	while( i-- )
 	{
 		pNode = pList++;
-		if( pNode->wType == wType && pNode->wID == wID )	// ê°™ì€ê±¸ ì°¾ìŒ.
+		if( pNode->wType == wType && pNode->wID == wID )	// °°Àº°É Ã£À½.
 			return pNode;
 	}
 
@@ -172,7 +172,7 @@ inline LPSKILLINFLUENCE CSkillInfluence::Get( int nIdx )
 {
 	if( nIdx < 0 || nIdx >= MAX_SKILLINFLUENCE )
 	{
-		Error( "SKILLINFLUENCE::Get() : ë²”ìœ„ë¥¼ ë„˜ì–´ì„¬ %d", nIdx );
+		Error( "SKILLINFLUENCE::Get() : ¹üÀ§¸¦ ³Ñ¾î¼¶ %d", nIdx );
 		return( NULL );
 	}
 
@@ -188,7 +188,7 @@ inline void CSkillInfluence::Remove( SKILLINFLUENCE *pNode )
 	pNode->tmTime = 0;
 	pNode->tmCount = 0;
 #if __VER < 8 //__CSC_VER8_3
-	m_pEmptyNode = pNode;		// ì§€ìš´ ë…¸ë“œëŠ” ë¹„ì–´ìžˆìœ¼ë¯€ë¡œ ê·¸ê²ƒì„ ë°›ì•„ë‘ .
+	m_pEmptyNode = pNode;		// Áö¿î ³ëµå´Â ºñ¾îÀÖÀ¸¹Ç·Î ±×°ÍÀ» ¹Þ¾ÆµÒ.
 #endif //__CSC_VER8_3
 }
 

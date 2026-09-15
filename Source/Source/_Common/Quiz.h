@@ -1,4 +1,4 @@
-ï»¿// Quiz.h: interface for the CQuiz class.
+// Quiz.h: interface for the CQuiz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -41,11 +41,11 @@ private:
 public:
 	typedef struct _QUIZLIST
 	{
-		int		nQuizId;		// í€´ì¦ˆì˜ id
-		CString	strQuestion;	// í€´ì¦ˆ ë¬¸ì œ
-		int		nCorrect;		// í€´ì¦ˆ ì •ë‹µ
-		int		nItemId;		// ì •ë‹µì„ ë§ì·„ì„ ê²½ìš° ì§€ê¸‰í•  ì•„ì´í…œ id
-		int		nItemNum;		// ì•„ì´í…œ ê°œìˆ˜
+		int		nQuizId;		// ÄûÁîÀÇ id
+		CString	strQuestion;	// ÄûÁî ¹®Á¦
+		int		nCorrect;		// ÄûÁî Á¤´ä
+		int		nItemId;		// Á¤´äÀ» ¸ÂÃèÀ» °æ¿ì Áö±ŞÇÒ ¾ÆÀÌÅÛ id
+		int		nItemNum;		// ¾ÆÀÌÅÛ °³¼ö
 		
 		void Serialize( CAr & ar )
 		{
@@ -118,24 +118,24 @@ private:
 private:
 	BOOL			m_bAuto;						// GM or Auto
 	BOOL			m_bRun;
-	DWORD			m_dwEntranceTime;				// ì…ì¥ ì‹œê°„
+	DWORD			m_dwEntranceTime;				// ÀÔÀå ½Ã°£
 	
 public:
-	int				m_nQuizSize;					// í€´ì¦ˆ ë¬¸ì œ ìˆ˜
-	VEC_QUIZLIST	m_vecQuizList;					// í€´ì¦ˆ ë¦¬ìŠ¤íŠ¸
+	int				m_nQuizSize;					// ÄûÁî ¹®Á¦ ¼ö
+	VEC_QUIZLIST	m_vecQuizList;					// ÄûÁî ¸®½ºÆ®
 #endif // defined(__DBSERVER) || defined(__WORLDSERVER)
 	
 #if defined(__CLIENT) || defined(__WORLDSERVER)
 private:
-	int				m_nState;						// ì§„í–‰ ìƒíƒœ
+	int				m_nState;						// ÁøÇà »óÅÂ
 	
 	typedef struct _QUIZDATA
 	{
-		D3DXVECTOR3		vQuizZonePos;				// í€´ì¦ˆ ì¡´ ì¢Œí‘œ
-		D3DXVECTOR3		vWatchingZonePos;			// ëŒ€ê¸° ì¡´ ì¢Œí‘œ
-		D3DXVECTOR3		aExamplePos[MAX_EXAMPLE];	// ë¬¸ì œ ë³´ê¸° ì¢Œí‘œ
-		CRect			aExampleRect[MAX_EXAMPLE];	// ë¬¸ì œ ë³´ê¸° êµ¬ì—­
-		CRect			QuizEventRect;				// í€´ì¦ˆ ì´ë²¤íŠ¸ ì¡´ êµ¬ì—­
+		D3DXVECTOR3		vQuizZonePos;				// ÄûÁî Á¸ ÁÂÇ¥
+		D3DXVECTOR3		vWatchingZonePos;			// ´ë±â Á¸ ÁÂÇ¥
+		D3DXVECTOR3		aExamplePos[MAX_EXAMPLE];	// ¹®Á¦ º¸±â ÁÂÇ¥
+		CRect			aExampleRect[MAX_EXAMPLE];	// ¹®Á¦ º¸±â ±¸¿ª
+		CRect			QuizEventRect;				// ÄûÁî ÀÌº¥Æ® Á¸ ±¸¿ª
 	} QUIZDATA;
 	
 public:
@@ -155,16 +155,16 @@ private:
 	};
 
 	BOOL			m_bSelectLog;
-	int				m_nChannel;						// ì§„í–‰ ì±„ë„
-	int				m_nQuizCount;					// í’€ì´í•œ ë¬¸ì œ ìˆ˜
-	DWORD			m_dwWaitTime;					// ëŒ€ê¸° ì‹œê°„
-	DWORD			m_dwQuestionTime;				// ë¬¸ì œ í’€ì´ ì‹œê°„
-	DWORD			m_dwAnswerTime;					// ì •ë‹µ ê³µê°œ ì‹œê°„
-	DWORD			m_dwWatchingZoneOpenTime;		// ëŒ€ê¸°ì¡´ ê°œë°© ì‹œê°„
-	DWORD			m_dwCloseWaitTime;				// í€´ì¦ˆ ì´ë²¤íŠ¸ ì¢…ë£Œ ëŒ€ê¸° ì‹œê°„
+	int				m_nChannel;						// ÁøÇà Ã¤³Î
+	int				m_nQuizCount;					// Ç®ÀÌÇÑ ¹®Á¦ ¼ö
+	DWORD			m_dwWaitTime;					// ´ë±â ½Ã°£
+	DWORD			m_dwQuestionTime;				// ¹®Á¦ Ç®ÀÌ ½Ã°£
+	DWORD			m_dwAnswerTime;					// Á¤´ä °ø°³ ½Ã°£
+	DWORD			m_dwWatchingZoneOpenTime;		// ´ë±âÁ¸ °³¹æ ½Ã°£
+	DWORD			m_dwCloseWaitTime;				// ÄûÁî ÀÌº¥Æ® Á¾·á ´ë±â ½Ã°£
 	DWORD			m_dwNextTime;
-	DWORD			m_dwPrizeItemId;				// ì§€ê¸‰ ìƒí’ˆ ì•„ì´í…œ ID
-	int				m_nPrizeItemNum;				// ì§€ê¸‰ ìƒí’ˆ ì•„ì´í…œ ê°¯ìˆ˜
+	DWORD			m_dwPrizeItemId;				// Áö±Ş »óÇ° ¾ÆÀÌÅÛ ID
+	int				m_nPrizeItemNum;				// Áö±Ş »óÇ° ¾ÆÀÌÅÛ °¹¼ö
 
 	QUIZNPC			m_sNPC;
 #endif // __WORLDSERVER

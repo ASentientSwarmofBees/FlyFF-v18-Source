@@ -1,4 +1,4 @@
-﻿#include "StdAfx.h"
+#include "StdAfx.h"
 #ifdef __IMPROVE_MAP_SYSTEM
 #ifdef __CLIENT
 #include "WndUserMarkNameChanger.h"
@@ -59,7 +59,7 @@ BOOL CWndUserMarkNameChanger::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 			CString strChangedName = pWndEditNameChanger->GetString();
 			if( strChangedName == _T( "" ) )
 			{
-				strChangedName = _T( "위치" );
+				strChangedName = _T( "��ġ" );
 			}
 			pUserMarkPositionInfo->SetName( strChangedName );
 

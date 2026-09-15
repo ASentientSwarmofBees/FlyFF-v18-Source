@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #ifdef __WORLDSERVER
 #include "partyquest.h"
@@ -37,7 +37,7 @@ void CPartyQuestProcessor::Process()
 			if( !pProp )
 				continue;
 
-			// ì œí•œ ì‹œê°„ ì§€ë‚¬ë‹¤...
+			// Á¦ÇÑ ½Ã°£ Áö³µ´Ù...
 			if( pElem->dwEndTime < dwTickCount )
 			{
 				switch( pElem->nProcess )
@@ -96,7 +96,7 @@ void CPartyQuestProcessor::Process()
 				}
 			}
 			else
-			// ì•„ì§ ì—´ì‹œë¯¸ ì¡ê³ ìˆëŠ”ì¤‘ì´ë‹¤~
+			// ¾ÆÁ÷ ¿­½Ã¹Ì Àâ°íÀÖ´ÂÁßÀÌ´Ù~
 			{
 				switch( pElem->nProcess )
 				{
@@ -303,10 +303,10 @@ void CPartyQuestProcessor::SetPartyQuest( int nQuestId, int nState, int ns, int 
 	pElem->objidWormon	= objidWormon;
 	pElem->nCount	= 0;
 
-	// ìœ ì €ì—ê²Œ ê³µëµì‹œê°„ì„ ë„˜ê²¨ì¤€ë‹¤...
+	// À¯Àú¿¡°Ô °ø·«½Ã°£À» ³Ñ°ÜÁØ´Ù...
 	SendQuestLimitTime( PQP_WORMON, MIN( 60 ), idParty );
 
-	// íŒŒí‹°í€˜ìŠ¤íŠ¸ì‹œì‘ì‹œ ì •ë³´ë¥¼ íŒŒì¼ì— ê¸°ë¡í•œë‹¤.
+	// ÆÄÆ¼Äù½ºÆ®½ÃÀÛ½Ã Á¤º¸¸¦ ÆÄÀÏ¿¡ ±â·ÏÇÑ´Ù.
 	CString strFileName = "StartPartyQuestInfo.txt";
 	CString strQuestInfo;
 	CString strMemberName;

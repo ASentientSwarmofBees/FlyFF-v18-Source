@@ -1,4 +1,4 @@
-ï»¿// WndBase.cpp: implementation of the CWndBase class.
+// WndBase.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -107,7 +107,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 		BOOL bReturn = FALSE;
 		memset( m_nServerCount, 0, sizeof( m_nServerCount ) );
 
-		// ë¨¼ì € ì¶œë ¥í•´ì•¼ ë ê²ƒì„ ì¶”ë ¤ëƒ„
+		// ¸ÕÀú Ãâ·ÂÇØ¾ß µÉ°ÍÀ» Ãß·Á³¿
 		for( ; iter != pGuild->m_mapPMember.end() ; ++iter )
 		{
 			CGuildMember * pGuildMember = (CGuildMember*)iter->second;
@@ -115,13 +115,13 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 			PlayerData* pPlayerData		= CPlayerDataCenter::GetInstance()->GetPlayerData( pGuildMember->m_idPlayer );
 			if( pPlayerData->data.uLogin == 0 )
 #else	// __SYS_PLAYER_DATA
-			if( pGuildMember->m_nMultiNo == 100 || pGuildMember->m_nLogin == 0 ) // ë¡œê·¸ì˜¤í”„ì¸ê²ƒì€ ë‚˜ì¤‘ì— ì¶œë ¥í•´ì•¼ ë˜ë¯€ë¡œ ëª¨ì•„ë‘ 
+			if( pGuildMember->m_nMultiNo == 100 || pGuildMember->m_nLogin == 0 ) // ·Î±×¿ÀÇÁÀÎ°ÍÀº ³ªÁß¿¡ Ãâ·ÂÇØ¾ß µÇ¹Ç·Î ¸ğ¾ÆµÒ
 #endif	// __SYS_PLAYER_DATA
 			{
 				m_uServerPlayerId[10][m_nServerCount[10]] = pGuildMember->m_idPlayer ;
 				++m_nServerCount[10];
 			}
-			else	// ë¨¼ì € ì¶œë ¥í•´ì•¼ ë ê²ƒ ëª¨ì•„ë‘  // ë©€í‹°ì„œë²„ ë³„ë¡œ ëª¨ì•„ë‘ 
+			else	// ¸ÕÀú Ãâ·ÂÇØ¾ß µÉ°Í ¸ğ¾ÆµÒ // ¸ÖÆ¼¼­¹ö º°·Î ¸ğ¾ÆµÒ
 			{
 #if __VER >= 11 // __SYS_PLAYER_DATA
 				m_uServerPlayerId[pPlayerData->data.uLogin-1][m_nServerCount[pPlayerData->data.uLogin-1]] = pGuildMember->m_idPlayer;
@@ -133,7 +133,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 			}
 		}
 
-		// ë‚˜ì˜ ë©€í‹°ì„œë²„ ë¨¼ì € ì¶œë ¥
+		// ³ªÀÇ ¸ÖÆ¼¼­¹ö ¸ÕÀú Ãâ·Â
 		for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] && i < nMax; ++j, ++i )
 		{
 			u_long uGuildMemberId = m_uServerPlayerId[g_Neuz.m_uIdofMulti-1][j];
@@ -152,7 +152,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 
 			if( szMember )
 			{
-				// ìƒíƒœì— ë”°ë¼ ìƒ‰ ë³€ê²½
+				// »óÅÂ¿¡ µû¶ó »ö º¯°æ
 				DWORD dwColor = 0xff000000;
 				if( i == m_nCurSelect )
 					dwColor = 0xff6060ff; 
@@ -162,9 +162,9 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 				CRect rect( x, pt.y, x + nWidth, pt.y + m_nFontHeight );
 				rect.SetRect( x + 3, pt.y + 6, x + 3 + 32, pt.y + 6 + 32 ); 
 				
-				p2DRender->TextOut( x + 40, pt.y + 3, szMember, dwColor );	// ì´ë¦„ ì¶œë ¥
+				p2DRender->TextOut( x + 40, pt.y + 3, szMember, dwColor );	// ÀÌ¸§ Ãâ·Â
 
-				// ì§ì—…ê³¼ ì„±ë³„ ì•„ì´í…œ ìƒì„±
+				// Á÷¾÷°ú ¼ºº° ¾ÆÀÌÅÛ »ı¼º
 				if( MAX_EXPERT <= nJob )
 				{
 #if __VER >= 10 // __LEGEND
@@ -185,7 +185,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 				{
 					pWndWorld->m_texMsgIcon.MakeVertex( p2DRender, CPoint( 2, pt.y ), 12 + nJob + ( 6 * dwSex ), &pVertices, 0xffffffff );
 				}
-				// ë©€í‹° ì„œë²„ ì•„ì´í…œ ìƒì„±
+				// ¸ÖÆ¼ ¼­¹ö ¾ÆÀÌÅÛ »ı¼º
 #if __VER >= 11 // __SYS_PLAYER_DATA
 				pWndWorld->m_texMsgIcon.MakeVertex( p2DRender, CPoint( 21, pt.y ), 38 + pPlayerData->data.uLogin, &pVertices, 0xffffffff );
 #else	// __SYS_PLAYER_DATA
@@ -199,7 +199,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 		}
 
 
-		// ë‹¤ë¥¸ ì„œë²„ ì¶œë ¥
+		// ´Ù¸¥ ¼­¹ö Ãâ·Â
 		for( int j = 0 ; j < 11 ; ++j )
 		{
 			if( j == g_Neuz.m_uIdofMulti -1 )
@@ -224,7 +224,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 
 				if( szMember )
 				{
-					// ìƒíƒœì— ë”°ë¼ ìƒ‰ ë³€ê²½
+					// »óÅÂ¿¡ µû¶ó »ö º¯°æ
 					DWORD dwColor = 0xff000000;
 					if( j == m_nCurSelect )
 						dwColor = 0xff6060ff; 
@@ -238,7 +238,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 					
 					if( j == 10 )	// OFFLINE
 					{
-						// ì§ì—…ê³¼ ì„±ë³„ ì•„ì´í…œ ìƒì„±
+						// Á÷¾÷°ú ¼ºº° ¾ÆÀÌÅÛ »ı¼º
 						if( MAX_EXPERT <= nJob )
 						{
 #if __VER >= 10 // __LEGEND
@@ -262,7 +262,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 					}
 					else
 					{
-						// ì§ì—…ê³¼ ì„±ë³„ ì•„ì´í…œ ìƒì„±
+						// Á÷¾÷°ú ¼ºº° ¾ÆÀÌÅÛ »ı¼º
 						if( MAX_EXPERT <= nJob )
 						{
 #if __VER >= 10 // __LEGEND
@@ -283,7 +283,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 						{
 							pWndWorld->m_texMsgIcon.MakeVertex( p2DRender, CPoint( 2, pt.y ), 12 + nJob + ( 6 * dwSex ), &pVertices, 0xffffffff );
 						}
-						// ë©€í‹° ì„œë²„ ì•„ì´í…œ ìƒì„±
+						// ¸ÖÆ¼ ¼­¹ö ¾ÆÀÌÅÛ »ı¼º
 #if __VER >= 11 // __SYS_PLAYER_DATA
 						pWndWorld->m_texMsgIcon.MakeVertex( p2DRender, CPoint( 21, pt.y ), 38 + pPlayerData->data.uLogin, &pVertices, 0xffffffff );
 #else	// __SYS_PLAYER_DATA
@@ -464,7 +464,7 @@ void CWndGuildCtrl::OnLButtonDblClk( UINT nFlags, CPoint point )
 			else
 			{
 				CString szMessage;
-				szMessage = prj.GetText(TID_GAME_MSGSELFSENDERROR);                               //szMessage += "ìì‹ ì—ê²ŒëŠ” ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŒ";
+				szMessage = prj.GetText(TID_GAME_MSGSELFSENDERROR);                               //szMessage += "ÀÚ½Å¿¡°Ô´Â ¸Ş¼¼Áö¸¦ º¸³¾¼ö ¾øÀ½";
 				g_WndMng.PutString( szMessage, NULL, prj.GetTextColor(TID_GAME_MSGSELFSENDERROR) );
 			}
 		}

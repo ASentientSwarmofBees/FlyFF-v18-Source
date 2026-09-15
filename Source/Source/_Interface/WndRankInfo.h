@@ -1,4 +1,4 @@
-ï»¿#ifndef __WNDRANKINFO__H
+#ifndef __WNDRANKINFO__H
 #define __WNDRANKINFO__H
 
 class CWndRankInfoTabLevel : public CWndNeuz 
@@ -7,8 +7,8 @@ public:
 	CWndRankInfoTabLevel(); 
 	~CWndRankInfoTabLevel(); 
 	
-	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
-	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
+	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
+	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
 	
 	virtual BOOL OnMouseWheel( UINT nFlags, short zDelta, CPoint pt );
 	virtual void OnMouseMove(UINT nFlags, CPoint point );
@@ -30,8 +30,8 @@ public:
 	CWndRankInfoTabPlayTime(); 
 	~CWndRankInfoTabPlayTime(); 
 
-	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
-	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
+	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
+	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
 
 	virtual BOOL OnMouseWheel( UINT nFlags, short zDelta, CPoint pt );
 	virtual void OnMouseMove(UINT nFlags, CPoint point );

@@ -1,4 +1,4 @@
-ï»¿#ifndef __CFileIO_H
+#ifndef __CFileIO_H
 #define __CFileIO_H
 
 #include <TCHAR.H>
@@ -58,9 +58,9 @@ public:
 		bool m_bResouceInFile;
 		char m_szFileName[_MAX_FNAME];
 		DWORD m_nFileSize;
-		DWORD m_nFileBeginPosition; // ì‹œì‘ ìœ„ì¹˜
-		DWORD m_nFileCurrentPosition; // í˜„ì¬ ìœ„ì¹˜
-		DWORD m_nFileEndPosition; // ë ìœ„ì¹˜
+		DWORD m_nFileBeginPosition; // ½ÃÀÛ À§Ä¡
+		DWORD m_nFileCurrentPosition; // ÇöÀç À§Ä¡
+		DWORD m_nFileEndPosition; // ³¡ À§Ä¡
 		bool m_bEncryption;
 		BYTE m_byEncryptionKey;
 		static void AddResource( TCHAR* lpResName );
@@ -110,7 +110,7 @@ public:
 		static void FreeResource();
 	};
 #else
-	// í´ë¼ì´ì–¸íŠ¸ê°€ ì•„ë‹ˆë©´ 
+	// Å¬¶óÀÌ¾ğÆ®°¡ ¾Æ´Ï¸é 
 	#define CResFile CFileIO
 #endif
 

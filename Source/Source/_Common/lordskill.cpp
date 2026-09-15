@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 
 #if __VER >= 12 // __LORD
 
@@ -201,7 +201,7 @@ int CLordSkillComponentExecutable::IsExecutable( CUser* pUser, const char* szTar
 			if( fLengthSq > GetRange() * GetRange() )
 				return TID_GAME_LORD_SKILL_USE_E008;
 		}
-		// 12-2 康	- 일반화 대상
+		// 12-2 ˬ	- �Ϲ�ȭ ���
 		if( GetId() == LI_RAGE && pTarget->IsAuthHigher( AUTH_GAMEMASTER ) )
 			return TID_GAME_LORD_SKILL_USE_E004;
 	}

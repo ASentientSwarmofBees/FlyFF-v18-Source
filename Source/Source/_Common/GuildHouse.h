@@ -1,4 +1,4 @@
-ï»¿// GuildHouse.h: interface for the CGuildHouse class.
+// GuildHouse.h: interface for the CGuildHouse class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -22,20 +22,20 @@ enum
 	GUILDHOUSE_PCKTTYPE_EXPIRED,
 };
 
-static const int	BUY_MIN_MEMBERSIZE		= 12;			// ê¸¸ë“œí•˜ìš°ìŠ¤ êµ¬ì… ìµœì†Œ ê¸¸ë“œì› ìˆ˜ 
-static const int	BUY_MIN_LEVEL			= 3;			// ê¸¸ë“œí•˜ìš°ìŠ¤ êµ¬ì… ìµœì†Œ ê¸¸ë“œ ë ˆë²¨
-static const int	BUY_PENYA				= 100000000;	// ê¸¸ë“œí•˜ìš°ìŠ¤ êµ¬ì… í˜ëƒ
-static const int	MAX_LISTUP_NUM			= 200;			// ìµœëŒ€ ListUp ê°œìˆ˜
+static const int	BUY_MIN_MEMBERSIZE		= 12;			// ±æµåÇÏ¿ì½º ±¸ÀÔ ÃÖ¼Ò ±æµå¿ø ¼ö 
+static const int	BUY_MIN_LEVEL			= 3;			// ±æµåÇÏ¿ì½º ±¸ÀÔ ÃÖ¼Ò ±æµå ·¹º§
+static const int	BUY_PENYA				= 100000000;	// ±æµåÇÏ¿ì½º ±¸ÀÔ Æä³Ä
+static const int	MAX_LISTUP_NUM			= 200;			// ÃÖ´ë ListUp °³¼ö
 
-static const int	UPKEEP_DAY_TIME			= 60 * 60 * 24;	// 1ì¼ ìœ ì§€ ì‹œê°„
-static const int	MAX_UPKEEP_DAY			= 35;			// ìµœëŒ€ ìœ ì§€ ê¸°ê°„
-static const int	UPKEEP_DAY_PENYA_SMALL	= 2400000;		// ì†Œí˜•ê¸¸ë“œí•˜ìš°ìŠ¤ 1ì¼ ìœ ì§€ë¹„
-static const int	UPKEEP_DAY_PENYA_MIDDLE	= 24000000;		// ì¤‘í˜•ê¸¸ë“œí•˜ìš°ìŠ¤ 1ì¼ ìœ ì§€ë¹„
+static const int	UPKEEP_DAY_TIME			= 60 * 60 * 24;	// 1ÀÏ À¯Áö ½Ã°£
+static const int	MAX_UPKEEP_DAY			= 35;			// ÃÖ´ë À¯Áö ±â°£
+static const int	UPKEEP_DAY_PENYA_SMALL	= 2400000;		// ¼ÒÇü±æµåÇÏ¿ì½º 1ÀÏ À¯Áöºñ
+static const int	UPKEEP_DAY_PENYA_MIDDLE	= 24000000;		// ÁßÇü±æµåÇÏ¿ì½º 1ÀÏ À¯Áöºñ
 
-static const int	MAX_REST_POINT			= 1000000;		// íœ´ì‹ê²Œì´ì§€ì˜ ìµœëŒ€ê°’
-static const int	REST_POINT_INC			= 10000;		// íœ´ì‹ê²Œì´ì§€ì˜ Tick ë‹¹ ì¦ê°€ê°’(ë¡œê·¸ì¸ ìƒíƒœ)
-static const int	REST_POINT_LOGOUT_INC	= 2500;			// íœ´ì‹ê²Œì´ì§€ì˜ Tick ë‹¹ ì¦ê°€ê°’(ë¡œê·¸ì•„ì›ƒ ìƒíƒœ)
-static const int	REST_POINT_TICK			= 60 * 4;		// íœ´ì‹ê²Œì´ì§€ ì¦ê°€ Tick(sec)
+static const int	MAX_REST_POINT			= 1000000;		// ÈŞ½Ä°ÔÀÌÁöÀÇ ÃÖ´ë°ª
+static const int	REST_POINT_INC			= 10000;		// ÈŞ½Ä°ÔÀÌÁöÀÇ Tick ´ç Áõ°¡°ª(·Î±×ÀÎ »óÅÂ)
+static const int	REST_POINT_LOGOUT_INC	= 2500;			// ÈŞ½Ä°ÔÀÌÁöÀÇ Tick ´ç Áõ°¡°ª(·Î±×¾Æ¿ô »óÅÂ)
+static const int	REST_POINT_TICK			= 60 * 4;		// ÈŞ½Ä°ÔÀÌÁö Áõ°¡ Tick(sec)
 
 
 #ifdef __GUILD_HOUSE_MIDDLE
@@ -60,12 +60,12 @@ class CGuildHouseBase
 public:
 	struct GuildHouse_Furniture_Info
 	{
-		DWORD		dwItemId;		// ì•„ì´í…œ ID
-		BOOL		bSetup;			// ì„¤ì¹˜ì—¬ë¶€
-		D3DXVECTOR3	vPos;			// ì„¤ì¹˜ìœ„ì¹˜
-		float		fAngle;			// ì„¤ì¹˜ê°ë„
-		OBJID		objId;			// ì„¤ì¹˜ëœ ê°€êµ¬ì˜ ì»¨íŠ¸ë¡¤ID(ì œê±°ì‹œ í•„ìš”)
-		time_t		tKeepTime;		// ê¸°ê°„(ì§€ì†ì‹œê°„)
+		DWORD		dwItemId;		// ¾ÆÀÌÅÛ ID
+		BOOL		bSetup;			// ¼³Ä¡¿©ºÎ
+		D3DXVECTOR3	vPos;			// ¼³Ä¡À§Ä¡
+		float		fAngle;			// ¼³Ä¡°¢µµ
+		OBJID		objId;			// ¼³Ä¡µÈ °¡±¸ÀÇ ÄÁÆ®·ÑID(Á¦°Å½Ã ÇÊ¿ä)
+		time_t		tKeepTime;		// ±â°£(Áö¼Ó½Ã°£)
 #ifdef __DBSERVER
 		int			nSeqNum;
 #endif // __DBSERVER
@@ -122,17 +122,17 @@ public:
 	int		FindIndex( OBJID objID_ );
 	void	ApplyEFTexture( );
 
-	//gmpbigsun: ì•„ë˜í•¨ìˆ˜ë“¤ì€ ì½˜íŠ¸ë¡¤ì„ ì„ íƒí•¨ì— ìˆì–´ì„œ íŒì—…ë©”ë‰´ë¥¼ ë„ìš¸ìˆ˜ ì—†ëŠ” ( ìë™ìœ¼ë¡œ ì„œë²„ì—ì„œ íƒ€ê²Ÿì„ í´ë¦¬ì–´ì‹œí‚´ ) ì´ìœ ë¡œ ì¡´ì¬í•¨ 
+	//gmpbigsun: ¾Æ·¡ÇÔ¼öµéÀº ÄÜÆ®·ÑÀ» ¼±ÅÃÇÔ¿¡ ÀÖ¾î¼­ ÆË¾÷¸Ş´º¸¦ ¶ç¿ï¼ö ¾ø´Â ( ÀÚµ¿À¸·Î ¼­¹ö¿¡¼­ Å¸°ÙÀ» Å¬¸®¾î½ÃÅ´ ) ÀÌÀ¯·Î Á¸ÀçÇÔ 
 	void	Setup( const HOUSING_ITEM& kInfo );
 	void	Reset( const HOUSING_ITEM& kInfo );
 	void	Remove( );
-	void	Reset( );	// í¸ì§‘ê¸° ìš”ì²­ -> ëª¨ë“œì €ì¥ -> ì‹¤ì œ íŒ¨í‚·ì „ì†¡ Resetí˜¸ì¶œ 
-	int		GetMode( )	{ return m_iMode; }				// ì„ íƒëœ Objì—ê²Œ ì˜ˆì•½ëœ í–‰ë™ ( ì„¤ì¹˜, ì¬ì„¤ì¹˜, í•´ì œ )
+	void	Reset( );	// ÆíÁı±â ¿äÃ» -> ¸ğµåÀúÀå -> ½ÇÁ¦ ÆĞÅ¶Àü¼Û ResetÈ£Ãâ 
+	int		GetMode( )	{ return m_iMode; }				// ¼±ÅÃµÈ Obj¿¡°Ô ¿¹¾àµÈ Çàµ¿ ( ¼³Ä¡, Àç¼³Ä¡, ÇØÁ¦ )
 
-	DWORD	m_dwSelectedObjID;		//ì„ íƒëœ CCtrl ObjID
+	DWORD	m_dwSelectedObjID;		//¼±ÅÃµÈ CCtrl ObjID
 	int		m_iMode;
-	int		m_nExtraExp;			//íœ´ì‹ê²½í—˜ì¹˜ ( í´ë¼ ë³´ê´€ìš© )
-	int		m_nWndDeployingIndex;	//í´ë¼ í˜„ì¬ ì„¤ì¹˜, ì¬ì„¤ì¹˜ì¤‘ì¸ ë…€ì„ì˜ Index
+	int		m_nExtraExp;			//ÈŞ½Ä°æÇèÄ¡ ( Å¬¶ó º¸°ü¿ë )
+	int		m_nWndDeployingIndex;	//Å¬¶ó ÇöÀç ¼³Ä¡, Àç¼³Ä¡ÁßÀÎ ³à¼®ÀÇ Index
 
 public :
 	void	SetFurnitureChannel( BOOL bSetFurnitureChannel )	{ m_bSetFurnitureChannel = bSetFurnitureChannel; }
@@ -253,9 +253,9 @@ private:
 
 
 
-/*	15ì°¨ í˜„ì¬ - ê¸°íšì´ ì „í˜€ ì—†ì–´ì„œ ì‚¬ì „ ì‘ì—…ë„ ëª»í•œë‹¤.
-				ì´í›„ ì‘ì—…ìëŠ” CGuildHouseMiddleì„ ì°¸ê³ í•˜ê¸° ë°”ë€ë‹¤. 
-				CGuildHouseMng::MakeGuildHouse() í•¨ìˆ˜ë„ ë³€ê²½ ë°”ëŒ.
+/*	15Â÷ ÇöÀç - ±âÈ¹ÀÌ ÀüÇô ¾ø¾î¼­ »çÀü ÀÛ¾÷µµ ¸øÇÑ´Ù.
+				ÀÌÈÄ ÀÛ¾÷ÀÚ´Â CGuildHouseMiddleÀ» Âü°íÇÏ±â ¹Ù¶õ´Ù. 
+				CGuildHouseMng::MakeGuildHouse() ÇÔ¼öµµ º¯°æ ¹Ù¶÷.
 				- chipi -
 //////////////////////////////////////////////////////////////////////
 // CGuildHouseBig : CGuildBase

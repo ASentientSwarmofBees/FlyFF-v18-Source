@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "..\_Network\Objects\Obj.h"
 
 #pragma warning ( disable : 4355 )
@@ -191,17 +191,17 @@ CMover::CMover()
 	m_idGuild	= 0;
 	m_idWar	= 0;
 #if __VER >= 8 // __S8_PK
-	m_dwPKTime			= 0;			/// í•‘í¬ ìƒíƒœ ì‹œê°„
-	m_nPKValue			= 0;			/// PK ìˆ˜ì¹˜
-	m_dwPKPropensity	= 0;			/// PK ì„±í–¥
-	m_dwPKExp			= 0;			/// PK ì„±í–¥ ìŠµë“ ê²½í—˜ì¹˜
+	m_dwPKTime			= 0;			/// ÇÎÅ© »óÅÂ ½Ã°£
+	m_nPKValue			= 0;			/// PK ¼öÄ¡
+	m_dwPKPropensity	= 0;			/// PK ¼ºÇâ
+	m_dwPKExp			= 0;			/// PK ¼ºÇâ ½Àµæ °æÇèÄ¡
 #else // __VER >= 8 // __S8_PK
 	m_nNumKill			= 0;
 	m_nSlaughter		= 0;
 #endif // __VER >= 8 // __S8_PK
 #if __VER >= 8 //__CSC_VER8_5
-	m_nAngelExp			= 0;			/// ì—”ì ¤ ê²½í—˜ì¹˜
-	m_nAngelLevel		= 0;			/// ì—”ì ¤ Level
+	m_nAngelExp			= 0;			/// ¿£Á© °æÇèÄ¡
+	m_nAngelLevel		= 0;			/// ¿£Á© Level
 #endif // __CSC_VER8_5
 	m_nFame		= 0;
 	m_idMurderer	= 0;
@@ -240,7 +240,7 @@ CMover::CMover()
 #endif	// __DBSERVER
 
 #ifdef __SKILL_0205
-	memset( m_abUpdateSkill, 0, sizeof(m_abUpdateSkill)  );		// ì¿¼ë¦¬ ì‹¤í–‰í•´ì•¼í•˜ëŠ”ê°€?
+	memset( m_abUpdateSkill, 0, sizeof(m_abUpdateSkill)  );		// Äõ¸® ½ÇÇàÇØ¾ßÇÏ´Â°¡?
 #endif	// __SKILL_0205
 
 #if __VER >= 9	// __PET_0410
@@ -262,10 +262,10 @@ CMover::CMover()
 #ifdef __JEFF_9_20
 	m_dwMute	= 0;
 #endif	// __JEFF_9_20
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
-	m_nHonor = -1;					// ë‹¬ì¸ì„ íƒ 
-	memset( m_aHonorTitle, 0, sizeof( int ) * MAX_HONOR_TITLE );// ë‹¬ì¸ìˆ˜ì¹˜
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ÞÀÎ
+	m_nHonor = -1;					// ´ÞÀÎ¼±ÅÃ 
+	memset( m_aHonorTitle, 0, sizeof( int ) * MAX_HONOR_TITLE );// ´ÞÀÎ¼öÄ¡
+#endif	// __HONORABLE_TITLE			// ´ÞÀÎ
 #if __VER >= 14 // __PCBANG
 	m_dwPCBangClass = 0;
 #endif // __PCBANG
@@ -507,7 +507,7 @@ BOOL CMover::NormalizePlayerData()
 	return TRUE;
 }
 #if !defined(__CORESERVER)
-// IK3ë¡œ ì‚­ì œí•˜ê¸° ì˜ˆ) IK3_CLOAK
+// IK3·Î »èÁ¦ÇÏ±â ¿¹) IK3_CLOAK
 BOOL CMover::RemoveItemIK3()
 {
 	int	nSize	= m_Inventory.m_dwItemMax;
@@ -543,7 +543,7 @@ BOOL CMover::RemoveItemIK3()
 				{
 					if( m_Inventory.IsEquip( pItemElem->m_dwObjId ) )		
 					{
-						if( m_Inventory.UnEquip( pItemProp->dwParts ) ) // ìž¥ë¹„ í•´ì œ
+						if( m_Inventory.UnEquip( pItemProp->dwParts ) ) // Àåºñ ÇØÁ¦
 						{
 							m_aEquipInfo[pItemProp->dwParts].dwId	= NULL_ID;
 							m_Inventory.RemoveAt( pItemElem->m_dwObjIndex );
@@ -615,15 +615,15 @@ int CMover::InitSkillExp()
 #endif // __CONV_SKILL_11_MONTH_JOB1
 
 #if __VER >= 12 // __EXT_PIERCING
-// bSizeëŠ” í”¼ì–´ì‹± ì‚¬ì´ì¦ˆë¥¼ ëŠ˜ë¦´ ìˆ˜ ìžˆëŠ”ì§€ ê²€ì‚¬í•  ë•Œ TRUEê°’ì„ setting í•œë‹¤.
-// bSizeë¥¼ TRUEë¡œ í•  ê²½ìš° dwTagetItemKind3ëŠ” NULL_IDë¡œ í•œë‹¤.
+// bSize´Â ÇÇ¾î½Ì »çÀÌÁî¸¦ ´Ã¸± ¼ö ÀÖ´ÂÁö °Ë»çÇÒ ¶§ TRUE°ªÀ» setting ÇÑ´Ù.
+// bSize¸¦ TRUE·Î ÇÒ °æ¿ì dwTagetItemKind3´Â NULL_ID·Î ÇÑ´Ù.
 BOOL CItemElem::IsPierceAble( DWORD dwTargetItemKind3, BOOL bSize )
 {
 	if( !GetProp() )
 		return FALSE;
 
 	int nPiercedSize = GetPiercingSize();
-	if( bSize ) // í”¼ì–´ì‹± ì‚¬ì´ì¦ˆë¥¼ ëŠ˜ë¦¬ëŠ” ê²½ìš°
+	if( bSize ) // ÇÇ¾î½Ì »çÀÌÁî¸¦ ´Ã¸®´Â °æ¿ì
 		nPiercedSize++;
 
 	if( GetProp()->dwItemKind3 == IK3_SUIT )
@@ -706,7 +706,7 @@ BOOL CItemElem::IsInvalid( void )
 	ItemProp* pProp	= GetProp();
 	if( !pProp )
 		return TRUE;
-	// ì•Œì´ ì•„ë‹Œ íŽ«ì´ íŽ« ì •ë³´ê°€ ì—†ìœ¼ë©´ ì œê±° ëŒ€ìƒ ì´ë‹¤.
+	// ¾ËÀÌ ¾Æ´Ñ ÆêÀÌ Æê Á¤º¸°¡ ¾øÀ¸¸é Á¦°Å ´ë»ó ÀÌ´Ù.
 	if( pProp->dwItemKind3 == IK3_EGG && m_dwItemId != II_PET_EGG )
 	{
 		if( m_pPet == NULL )
@@ -879,10 +879,10 @@ void CMover::Copy( CMover * pMover, BOOL bAll )
 #ifdef __JEFF_9_20
 		m_dwMute	= pMover->m_dwMute;
 #endif	// __JEFF_9_20
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ÞÀÎ
 		m_nHonor	= pMover->m_nHonor;
 		memcpy( m_aHonorTitle, pMover->m_aHonorTitle, sizeof(int) * MAX_HONOR_TITLE );
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ÞÀÎ
 
 #if __VER >= 15 // __GUILD_HOUSE
 	m_nRestPoint = pMover->m_nRestPoint;

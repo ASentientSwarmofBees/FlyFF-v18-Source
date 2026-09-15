@@ -1,4 +1,4 @@
-ï»¿// QuizDBCtrl.h: interface for the CQuizDBCtrl class.
+// QuizDBCtrl.h: interface for the CQuizDBCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -67,7 +67,7 @@ private:
 	void		PostPrizeItem( u_long idPlayer, DWORD dwItemId, int nItemNum );
 
 
-	int		m_nQuizEventId;						// í€´ì¦ˆ ì´ë²¤íŠ¸ íšŒì°¨
+	int		m_nQuizEventId;						// ÄûÁî ÀÌº¥Æ® È¸Â÷
 	DWORD	m_dwQuizSendTick;
 
 	map<DPID, WORLDDATA>	m_mapWorldData;

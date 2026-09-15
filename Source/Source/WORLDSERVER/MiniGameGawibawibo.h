@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include "minigamebase.h"
@@ -18,7 +18,7 @@ private:
 	int m_nDrawProb;
 	int m_nLostProb;
 	
-	int m_nWinCount;	// ì—°ìŠ¹
+	int m_nWinCount;	// ¿¬½Â
 };
 
 #endif // __RAINBOW_RACE

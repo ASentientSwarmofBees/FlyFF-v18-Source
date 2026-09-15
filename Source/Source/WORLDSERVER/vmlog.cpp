@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "vmlog.h"
 #include "ar.h"
 #include "buffer.h"

@@ -1,4 +1,4 @@
-ï»¿// UserTaskBar.h: interface for the CUserTaskBar class.
+// UserTaskBar.h: interface for the CUserTaskBar class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -23,7 +23,7 @@ public:
 	SHORTCUT	m_aSlotItem  [ MAX_SLOT_ITEM_COUNT ][ MAX_SLOT_ITEM   ]; // 1 ~ 0(10)
 	SHORTCUT	m_aSlotQueue [ MAX_SLOT_QUEUE  ];
 	int			m_nActionPoint;
-	int			m_nUsedSkillQueue;	// -1:ì‹¤í–‰ì¤‘ì´ì§€ ì•ŠìŒ 0~4:í˜„ì¬ ì‹¤í–‰ì¤‘ì¸ ìŠ¤í‚¬í ì¸ë±ìŠ¤.
+	int			m_nUsedSkillQueue;	// -1:½ÇÇàÁßÀÌÁö ¾ÊÀ½ 0~4:ÇöÀç ½ÇÇàÁßÀÎ ½ºÅ³Å¥ ÀÎµ¦½º.
 
 public:
 	void	Serialize(CAr &ar);

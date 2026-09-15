@@ -1,4 +1,4 @@
-ï»¿#b#cff0000ff Confession#nb#nc
+#b#cff0000ff Confession#nb#nc
 You need the power of Angel for your confession.
 The angel will decrease your crime(PK) if you increase their EXP.
 
@@ -12,4 +12,4 @@ Higher classed Angel decreases your crime with low EXP.
 * Green Angel : 30% based on the character level
 * White Angel : 10% based on the character level
 
-â€» Possibility for each Angel is shown in the right side of Angel Window.
+¡Ø Possibility for each Angel is shown in the right side of Angel Window.

@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "mover.h"
 
 BOOL CMover::HasBuff( WORD wType, WORD wId )

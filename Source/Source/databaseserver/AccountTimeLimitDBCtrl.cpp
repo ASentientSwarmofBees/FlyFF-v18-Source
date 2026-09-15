@@ -1,4 +1,4 @@
-ï»¿// AccountTimeLimitDBCtrl.cpp: implementation of the CAccountTimeLimitDBCtrl class.
+// AccountTimeLimitDBCtrl.cpp: implementation of the CAccountTimeLimitDBCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -42,16 +42,16 @@ void CAccountTimeLimitDBCtrl::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwComplet
 			{
 				if( pQuery->Fetch() )
 				{
-					nPlayTime = pQuery->GetInt( "PlayTime" ) * SEC( 1 );	// ì´ˆë‹¨ìœ„ë¥¼ msë‹¨ìœ„ë¡œ ë³€í™˜
+					nPlayTime = pQuery->GetInt( "PlayTime" ) * SEC( 1 );	// ÃÊ´ÜÀ§¸¦ ms´ÜÀ§·Î º¯È¯
 					DWORD dwLastPlayDate	= static_cast<DWORD>( pQuery->GetInt( "PlayDate" ) );
 					int nYear = dwLastPlayDate/10000;	dwLastPlayDate%=10000;
 					int nMonth = dwLastPlayDate/100;	dwLastPlayDate%=100;
 					int nDay = dwLastPlayDate;
-					CTime time( nYear, nMonth, nDay+1, 0, 0, 0 );	// í•˜ë£¨ë¥¼ ë”í•œ ê°’ì´ ë” ì‘ìœ¼ë©´ ì´ˆê¸°í™”..
+					CTime time( nYear, nMonth, nDay+1, 0, 0, 0 );	// ÇÏ·ç¸¦ ´õÇÑ °ªÀÌ ´õ ÀÛÀ¸¸é ÃÊ±âÈ­..
 					if( time < CTime::GetCurrentTime() )
 						nPlayTime = 0;
 					
-					if( !prj.m_EventLua.IsTimeLimit() )		// ë£¨ì•„ì´ë²¤íŠ¸ ìŠ¤í¬ë¦½íŠ¸ì— ë² íŠ¸ë‚¨ ì œí•œ ì—¬ë¶€ ì„¤ì •
+					if( !prj.m_EventLua.IsTimeLimit() )		// ·ç¾ÆÀÌº¥Æ® ½ºÅ©¸³Æ®¿¡ º£Æ®³² Á¦ÇÑ ¿©ºÎ ¼³Á¤
 						nPlayTime = 0;
 				}
 			}
@@ -69,7 +69,7 @@ void CAccountTimeLimitDBCtrl::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwComplet
 
 			ar.ReadString( szAccount, MAX_ACCOUNT );
 			ar >> nPlayTime;
-			nPlayTime /= SEC( 1 );	// ms ë‹¨ìœ„ë¥¼ ì´ˆë‹¨ìœ„ë¡œ ë³€í™˜
+			nPlayTime /= SEC( 1 );	// ms ´ÜÀ§¸¦ ÃÊ´ÜÀ§·Î º¯È¯
 
 			CTime time = CTime::GetCurrentTime();
 			DWORD dwLastDate = (time.GetYear()*10000) + (time.GetMonth()*100) + time.GetDay();

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"  
+#include "stdafx.h"  
 #include "defineObj.h"
 #include "region.h"
 #include "WorldMng.h"
@@ -100,7 +100,7 @@ BOOL CWorld::OpenWorld( LPCTSTR lpszFileName, BOOL bDir )
 		{
 			m_nPKMode = script.GetNumber();
 #if __VER <= 8
-			// 8ì°¨ ë²„ì „ ì´í•˜ì—ì„œëŠ” RA_PKë¥¼ RA_PENALTY_PKë¡œ ë³€ê²½
+			// 8Â÷ ¹öÀü ÀÌÇÏ¿¡¼­´Â RA_PK¸¦ RA_PENALTY_PK·Î º¯°æ
 			if( m_nPKMode & RA_PK )
 			{
 				m_nPKMode	&= ~RA_PK;
@@ -130,8 +130,8 @@ BOOL CWorld::OpenWorld( LPCTSTR lpszFileName, BOOL bDir )
 			m_fFogDensity    = script.GetFloat();
 			
 			#ifdef __YENV			
-			s_fFogStart      = m_fFogStartValue;	// ì…°ì´ë” ë„˜ê¸°ê¸°ìš©
-			s_fFogEnd        = m_fFogEndValue;		// ì…°ì´ë” ë„˜ê¸°ê¸°ìš©
+			s_fFogStart      = m_fFogStartValue;	// ¼ÎÀÌ´õ ³Ñ±â±â¿ë
+			s_fFogEnd        = m_fFogEndValue;		// ¼ÎÀÌ´õ ³Ñ±â±â¿ë
 			#endif //__YENV
 		#endif //__CLIENT
 		}			
@@ -219,13 +219,13 @@ BOOL CWorld::OpenWorld( LPCTSTR lpszFileName, BOOL bDir )
 	m_nVisibilityLand	= (int)( m_fFarPlane / ( MAP_SIZE * MPU ) );
 #endif
 
-#if __VER >= 15 // __DYNAMIC_MPU					// gmpbigsun:ì—¬ê¸°ì„œ ìµœì´ˆ MPUë¥¼ ë³€ê²½, ì´ê³³ì—ì„œ MPUê°’ì„ OLD_MPUë¡œ ì„¤ì •í•˜ë©´ 4ë¡œ ê³ ì •ë˜ì–´ ì˜ˆì „ê³¼ ê°™ìŒ.
-	m_iMPU = g_MPU;						// __DYNAMIC_MPUê°€ ì„¤ì •ëœ ê²½ìš° ".wld"íŒŒì¼ì—ì„œ ì½ì€ MPUê°’ì„ ì‚¬ìš©í•œë‹¤.!!!!!!!!!!!!!!!!!!!!!!!!
+#if __VER >= 15 // __DYNAMIC_MPU					// gmpbigsun:¿©±â¼­ ÃÖÃÊ MPU¸¦ º¯°æ, ÀÌ°÷¿¡¼­ MPU°ªÀ» OLD_MPU·Î ¼³Á¤ÇÏ¸é 4·Î °íÁ¤µÇ¾î ¿¹Àü°ú °°À½.
+	m_iMPU = g_MPU;						// __DYNAMIC_MPU°¡ ¼³Á¤µÈ °æ¿ì ".wld"ÆÄÀÏ¿¡¼­ ÀĞÀº MPU°ªÀ» »ç¿ëÇÑ´Ù.!!!!!!!!!!!!!!!!!!!!!!!!
 #else
 	m_iMPU = OLD_MPU;
 #endif
 
-	// íŒŒì¼ëª… ë³´ê´€ 
+	// ÆÄÀÏ¸í º¸°ü 
 	_splitpath( szPathName, drive, dir, name, ext );
 	strcpy( m_szFilePath, dir );
 	strcpy( m_szFileName, name );
@@ -234,8 +234,8 @@ BOOL CWorld::OpenWorld( LPCTSTR lpszFileName, BOOL bDir )
 #ifdef __WORLDSERVER
 	_tcscpy( m_lpszWorld, m_szFileName );
 
-	int nView = 1;								// ì‹œì•¼ 1 = 64ë¯¸í„° 
-	if( m_dwWorldID == WI_WORLD_GUILDWAR )	// ê¸¸ë“œëŒ€ì „ ë§µì€ ì‹œì•¼ 2ë°° 
+	int nView = 1;								// ½Ã¾ß 1 = 64¹ÌÅÍ 
+	if( m_dwWorldID == WI_WORLD_GUILDWAR )	// ±æµå´ëÀü ¸ÊÀº ½Ã¾ß 2¹è 
 		nView = 2;
 
 #if __VER >= 15 // __GUILD_HOUSE
@@ -292,7 +292,7 @@ void CWorld::DeleteLayerControls( int nLayer )
 
 #endif	// __LAYER_1021
 
-// ë™ì  ì˜¤ë¸Œì íŠ¸ ìŠ¤í¬ë¦½íŠ¸ ë¡œë“œ
+// µ¿Àû ¿ÀºêÁ§Æ® ½ºÅ©¸³Æ® ·Îµå
 #ifdef __LAYER_1021
 BOOL CWorld::LoadObject( int nLayer )
 #else	// __LAYER_1021
@@ -342,7 +342,7 @@ BOOL CWorld::LoadObject()
 	
 	// __XSHIPBUS
 #ifdef __IAOBJ0622	
-	if( GetID() == WI_WORLD_MADRIGAL )	// ë§ˆë“œë¦¬ê°ˆ ì½ì„ë•Œ í…ŒìŠ¤íŠ¸ë¹„ê³µì •ë„ìš°ê¸°
+	if( GetID() == WI_WORLD_MADRIGAL )	// ¸¶µå¸®°¥ ÀĞÀ»¶§ Å×½ºÆ®ºñ°øÁ¤¶ç¿ì±â
 	{
 		CObj *pObj	= CreateObj( D3DDEVICE, OT_SHIP, 4 );
 		D3DXVECTOR3 vPos = D3DXVECTOR3( 6997.2f, 124.2f, 3243.7f );
@@ -381,7 +381,7 @@ BOOL CWorld::LoadObject()
 }
 #endif // __WORLDSERVER
 
-// ì €ì¥ í¬ë§·ì„ ì‹¤ì œ ìŠ¤íŠ¸ë§ìœ¼ë¡œ ë³€í™˜ 
+// ÀúÀå Æ÷¸ËÀ» ½ÇÁ¦ ½ºÆ®¸µÀ¸·Î º¯È¯ 
 void RegionDesc_SaveFormatToString( wchar_t* pwszDesc )
 {
 	wchar_t* pwszSrc = pwszDesc;
@@ -395,7 +395,7 @@ void RegionDesc_SaveFormatToString( wchar_t* pwszDesc )
 		pwszSrc++;
 	}
 }
-// ì‹¤ì œ ìŠ¤íŠ¸ë§ì„ ì €ì¥ í¬ë§·ìœ¼ë¡œ ë³€ê²½ 
+// ½ÇÁ¦ ½ºÆ®¸µÀ» ÀúÀå Æ÷¸ËÀ¸·Î º¯°æ 
 void RegionDesc_StringToSaveFormat( wchar_t* pwszDesc )
 {
 	wchar_t* pwszSrc = pwszDesc;
@@ -527,7 +527,7 @@ BOOL CWorld::ReadRegion( CScript& s )
 		pRe->m_dwAttribute &= ~RA_FIGHT;
 
 #if __VER <= 8
-	// 8ì°¨ ë²„ì „ ì´í•˜ì—ì„œëŠ” RA_PKë¥¼ RA_PENALTY_PKë¡œ ë³€ê²½
+	// 8Â÷ ¹öÀü ÀÌÇÏ¿¡¼­´Â RA_PK¸¦ RA_PENALTY_PK·Î º¯°æ
 	if( pRe->m_dwAttribute & RA_PK )
 	{
 		pRe->m_dwAttribute	&= ~RA_PK;
@@ -612,8 +612,8 @@ BOOL CWorld::ReadRespawn( CScript& s )
 #ifdef __WORLDSERVER
 		if( pMoverProp )
 		{
-			// PKì„œë²„ê°€ ì•„ë‹ˆë©´ ê°€ë“œë¥¼ skipí•œë‹¤.
-			if( ::GetLanguage() != LANG_KOR )	// í•œêµ­ì˜ ê²½ìš° skipí•˜ì§€ ì•ŠëŠ”ë‹¤.
+			// PK¼­¹ö°¡ ¾Æ´Ï¸é °¡µå¸¦ skipÇÑ´Ù.
+			if( ::GetLanguage() != LANG_KOR )	// ÇÑ±¹ÀÇ °æ¿ì skipÇÏÁö ¾Ê´Â´Ù.
 				if( pMoverProp->dwClass == RANK_GUARD && g_eLocal.GetState( EVE_PK ) == FALSE ) 
 					return TRUE;
 			
@@ -958,7 +958,7 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 	int x, z;
 	WorldPosToLand( vPos, x, z );
 
-	// ëœë“œ ì´ë™ì´ ì—†ë‹¤. ë¦¬í„´. 
+	// ·£µå ÀÌµ¿ÀÌ ¾ø´Ù. ¸®ÅÏ. 
 	if( x == m_nCharLandPosX && z == m_nCharLandPosZ )
 		return FALSE;
 
@@ -974,7 +974,7 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 				CLandscape* pLand = m_apLand[ i * m_nLandWidth + j];
 				if( pLand == NULL )
 				{
-					//! gmpbigsun : pLandëŠ” í• ë‹¹ì´ ì´ë¯¸ ëë‚œ ë…€ì„ì´ë‹¤ ì™œ ì§€ìš°ì§€ ì•Šì•˜ë‚˜;;;
+					//! gmpbigsun : pLand´Â ÇÒ´çÀÌ ÀÌ¹Ì ³¡³­ ³à¼®ÀÌ´Ù ¿Ö Áö¿ìÁö ¾Ê¾Ò³ª;;;
 					// delete pLand;
 
 					strLandTemp.Format( "%s%s%02d-%02d.lnd", m_szFilePath, strLandName, j , i );
@@ -1001,11 +1001,11 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 
 	if( bEraseOldLand )
 	{
-		// í˜„ì¬ ë³´ì´ì§€ ì•ŠëŠ” ëœë“œëŠ” íŒŒê´´ ì½ì„ ë•ŒëŠ” 3*3ì„ ì½ê³ , íŒŒê´´ëŠ” í˜„ì¬ ìœ„ì¹˜ì—ì„œ 4*4ë¥¼ ë²—ì–´ë‚œ ê²ƒë“¤.
-		// ë§Œì•½ íŒŒê´´í•  ë•Œ 3*3ë¥¼ ë²—ì–´ë‚œ ê²ƒì„ íŒŒê´´í•˜ë©´ ìºë¦­í„°ëŠ” ì¡°ê¸ˆë§Œ ì›€ì§ì—¬ë„ ì¬ë¡œë”©ì„ í•˜ê²Œ ë ì§€ ëª¨ë¥´ê¸° ë•Œë¬¸ì´ë‹¤.
-		// ì¦‰, 3*3ì„ ë²—ì–´ë‚œ ê²ƒì„ íŒŒê´´í•˜ê²Œ ë˜ë©´ ëŠ˜ 3*3 ì •ë„ê°€ ë¡œë”©ì„ ìœ ì§€í•˜ê²Œ ë˜ëŠ”ë°, 
-		// ê·¸ë ‡ê²Œ ë˜ë©´ ë¡œë”© ë¹ˆë„ê°€ ì¦ì•„ì ¸ ì†ë„ê°€ ëŠë ¤ì§€ê²Œ ë˜ëŠ” ê²ƒì´ë‹¤. ë¡œë”© ë°ì´íƒ€ë¥¼ ìœ ì§€í•˜ëŠ” ê²ƒì€
-		// 4*4ë¡œ í•˜ì—¬ ë¡œë”© ë¹ˆë„ë¥¼ ë‚®ì¶˜ë‹¤.
+		// ÇöÀç º¸ÀÌÁö ¾Ê´Â ·£µå´Â ÆÄ±« ÀĞÀ» ¶§´Â 3*3À» ÀĞ°í, ÆÄ±«´Â ÇöÀç À§Ä¡¿¡¼­ 4*4¸¦ ¹ş¾î³­ °Íµé.
+		// ¸¸¾à ÆÄ±«ÇÒ ¶§ 3*3¸¦ ¹ş¾î³­ °ÍÀ» ÆÄ±«ÇÏ¸é Ä³¸¯ÅÍ´Â Á¶±İ¸¸ ¿òÁ÷¿©µµ Àç·ÎµùÀ» ÇÏ°Ô µÉÁö ¸ğ¸£±â ¶§¹®ÀÌ´Ù.
+		// Áï, 3*3À» ¹ş¾î³­ °ÍÀ» ÆÄ±«ÇÏ°Ô µÇ¸é ´Ã 3*3 Á¤µµ°¡ ·ÎµùÀ» À¯ÁöÇÏ°Ô µÇ´Âµ¥, 
+		// ±×·¸°Ô µÇ¸é ·Îµù ºóµµ°¡ Àæ¾ÆÁ® ¼Óµµ°¡ ´À·ÁÁö°Ô µÇ´Â °ÍÀÌ´Ù. ·Îµù µ¥ÀÌÅ¸¸¦ À¯ÁöÇÏ´Â °ÍÀº
+		// 4*4·Î ÇÏ¿© ·Îµù ºóµµ¸¦ ³·Ãá´Ù.
 		CRect rect( x - m_nVisibilityLand - 1, z - m_nVisibilityLand - 1, x + m_nVisibilityLand + 2, z + m_nVisibilityLand + 2 );
 		for( int i = 0; i < m_nLandHeight; i++ )
 		{
@@ -1028,8 +1028,8 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 				
 			}			
 		}
-		// ì‚¬ìš©í•˜ì§€ ì•ŠëŠ” ëª¨ë¸ì„ íŒŒê´´í•œë‹¤.
-		// ì •ì ì¸ê²ƒë§Œ ì´ë¦¬ë¡œ ë“¤ì–´ì™€ì•¼ í•œë‹¤. ë™ì ì¸ê²ƒ(ìŠ¤í‚¤ë‹ì„ ì“°ëŠ”ê²ƒ)ì´ ì—¬ê¸°ì„œ íŒŒê´´ë˜ë©´ ì•ˆëœë‹¤.
+		// »ç¿ëÇÏÁö ¾Ê´Â ¸ğµ¨À» ÆÄ±«ÇÑ´Ù.
+		// Á¤ÀûÀÎ°Í¸¸ ÀÌ¸®·Î µé¾î¿Í¾ß ÇÑ´Ù. µ¿ÀûÀÎ°Í(½ºÅ°´×À» ¾²´Â°Í)ÀÌ ¿©±â¼­ ÆÄ±«µÇ¸é ¾ÈµÈ´Ù.
 		for( MapStrToPtrItor itor = prj.m_modelMng.m_mapFileToMesh.begin(); itor != prj.m_modelMng.m_mapFileToMesh.end(); /*itor++*/ )
 		{
 			CModel* pModel = ( CModel* )(*itor).second;
@@ -1055,7 +1055,7 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 
 /*
 #ifdef __IVERSION_NODARKON
-				// xê°€ 11 ì´í•˜ë©´ ì™„ì „íˆ ê°ˆ ìˆ˜ ì—†ë„ë¡ í•˜ì.
+				// x°¡ 11 ÀÌÇÏ¸é ¿ÏÀüÈ÷ °¥ ¼ö ¾øµµ·Ï ÇÏÀÚ.
 				if( x <= 11 || ( x == 12 && y == 9 ) || ( x == 12 && y == 8 ) )
 				{
 					for( int i = 0; i < ( MAP_SIZE + 1 ) * ( MAP_SIZE + 1 ); i++ )
@@ -1075,7 +1075,7 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 						aHeightMap[ i ] += HGT_NOMOVE;
 					}
 				}
-				if( x == 12 && y == 7 ) // ëŒ€ê°ì„  
+				if( x == 12 && y == 7 ) // ´ë°¢¼± 
 				{
 					int x2max = 0;
 					for( int y2  = 0; y2 < ( MAP_SIZE + 1 ); y2++ )
@@ -1120,7 +1120,7 @@ BOOL CWorld::IsUsableDYO( CObj* pObj )
 				if( g_eLocal.GetState( EVE_PK ) == FALSE )
 					return FALSE;
 			}
-			// ê¸¸ë“œ ëŒ€ì „
+			// ±æµå ´ëÀü
 			if( stricmp( pCharacter->m_szKey, "MaFl_GuildWar" ) == 0
 					|| stricmp( pCharacter->m_szKey, "MaFl_Donaris" ) == 0 )
 			{
@@ -1152,7 +1152,7 @@ BOOL CWorld::IsUsableDYO( CObj* pObj )
 			}
 
 			// don't load designer & artist in taiwan & japan
-			// ì¼ë³¸, ëŒ€ë§Œì—ì„œ ì œì™¸
+			// ÀÏº», ´ë¸¸¿¡¼­ Á¦¿Ü
 			if( ::GetLanguage() == LANG_TWN || ::GetLanguage() == LANG_HK )// || ::GetLanguage() == LANG_JAP )
 			{
 				if( stricmp( pCharacter->m_szKey, "MaFl_HairShop" ) == 0
@@ -1160,7 +1160,7 @@ BOOL CWorld::IsUsableDYO( CObj* pObj )
 					return FALSE;
 			}
 
-			// 13ì°¨ ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ - ì§„í–‰ ì±„ë„ì—ì„œë§Œ í‘œì‹œí•˜ê²Œ...
+			// 13Â÷ ·¹ÀÎº¸¿ì ·¹ÀÌ½º - ÁøÇà Ã¤³Î¿¡¼­¸¸ Ç¥½ÃÇÏ°Ô...
 			if( stricmp( pCharacter->m_szKey, "MaFl_RainbowStart" ) == 0 )
 			{
 				if( g_eLocal.GetState( EVE_RAINBOWRACE ) == FALSE )
@@ -1176,7 +1176,7 @@ BOOL CWorld::IsUsableDYO( CObj* pObj )
 	return TRUE;
 }
 
-// íŠ¹ì • êµ­ê°€ë§Œ ì¶œë ¥í•˜ë„ë¡ ìŠ¤í¬ë¦½íŠ¸ì—ì„œ ì„¤ì •[character.inc - SetLang(LANG_...)]
+// Æ¯Á¤ ±¹°¡¸¸ Ãâ·ÂÇÏµµ·Ï ½ºÅ©¸³Æ®¿¡¼­ ¼³Á¤[character.inc - SetLang(LANG_...)]
 #ifdef __CHIPI_DYO
 BOOL CWorld::IsUsableDYO2( LPCHARACTER pCharacter )
 {

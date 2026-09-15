@@ -1,28 +1,28 @@
-ï»¿#ifndef __MESSENGER_H__
+#ifndef __MESSENGER_H__
 #define	__MESSENGER_H__
 
 #include "Ar.h"
 
-#define FRS_ONLINE		0	// ê¸°ë³¸ : ê²Œì„ì¤‘ 
-#define FRS_OFFLINE		1	// ìë™ : ë¡œê·¸ì˜¤í”„
-#define FRS_BLOCK	2	// ì„¤ì • : ì°¨ë‹¨ 
-#define FRS_ABSENT	3	// ì„¤ì • : ìë¦¬ë¹„ì›€
-#define FRS_HARDPLAY	4	// ì„¤ì • : ì—´ë©ì¤‘ 
-#define FRS_EAT		5	// ì„¤ì • : ì‹ì‚¬ì¤‘ 
-#define FRS_REST	6	// ì„¤ì • : íœ´ì‹ì¤‘
-#define FRS_MOVE	7	// ì„¤ì • : ì´ë™ì¤‘ 
-#define FRS_DIE		8	// ìë™ : ì‚¬ë§ 
-#define FRS_DANGER		9	// ìë™ : ìœ„í—˜
+#define FRS_ONLINE		0	// ±âº» : °ÔÀÓÁß 
+#define FRS_OFFLINE		1	// ÀÚµ¿ : ·Î±×¿ÀÇÁ
+#define FRS_BLOCK	2	// ¼³Á¤ : Â÷´Ü 
+#define FRS_ABSENT	3	// ¼³Á¤ : ÀÚ¸®ºñ¿ò
+#define FRS_HARDPLAY	4	// ¼³Á¤ : ¿­·¦Áß 
+#define FRS_EAT		5	// ¼³Á¤ : ½Ä»çÁß 
+#define FRS_REST	6	// ¼³Á¤ : ÈŞ½ÄÁß
+#define FRS_MOVE	7	// ¼³Á¤ : ÀÌµ¿Áß 
+#define FRS_DIE		8	// ÀÚµ¿ : »ç¸Á 
+#define FRS_DANGER		9	// ÀÚµ¿ : À§Çè
 #define FRS_OFFLINEBLOCK	10
-#define	FRS_AUTOABSENT		11	// ìë™ : ìë™ ìë¦¬ë¹„ì›€	
-#define MAX_FRIENDSTAT		12	// ë§¥ìŠ¤ê°’
+#define	FRS_AUTOABSENT		11	// ÀÚµ¿ : ÀÚµ¿ ÀÚ¸®ºñ¿ò	
+#define MAX_FRIENDSTAT		12	// ¸Æ½º°ª
 
-#define MAX_FRIEND		200 // ë§¥ìŠ¤ê°’ ì¹œêµ¬ ë“±ë¡ íšŸìˆ˜
+#define MAX_FRIEND		200 // ¸Æ½º°ª Ä£±¸ µî·Ï È½¼ö
 
 typedef struct tagFRIEND
 {
-	BOOL bGroup;	// TRUEì´ë©´ ê·¸ë£¹, ì•„ë‹ˆë©´ ìœ ì € 
-	DWORD dwState;	// ìƒíƒœ 0 ì´ë©´ ì •ìƒ, 1ì´ë©´ disconnect, 2ì´ë©´ ìë¦¬ ë¹„ì›€.....
+	BOOL bGroup;	// TRUEÀÌ¸é ±×·ì, ¾Æ´Ï¸é À¯Àú 
+	DWORD dwState;	// »óÅÂ 0 ÀÌ¸é Á¤»ó, 1ÀÌ¸é disconnect, 2ÀÌ¸é ÀÚ¸® ºñ¿ò.....
 	DWORD dwUserId;
 #if __VER < 11 // __SYS_PLAYER_DATA
 	BYTE  nSex;
@@ -56,8 +56,8 @@ typedef	map< u_long, FRIEND*>	C2FriendPtr;
 class CMessenger
 {
 public:
-	C2FriendPtr m_aFriend; // ë‚´ê°€ ë“±ë¡í•œ ìœ ì €ë“¤( ì¹œêµ¬ ë“±ë¡ )
-	C2FriendPtr m_adifferntFriend; // ë‚˜ë¥¼ ë“±ë¡í•œ ìœ ì €ë“¤
+	C2FriendPtr m_aFriend; // ³»°¡ µî·ÏÇÑ À¯Àúµé( Ä£±¸ µî·Ï )
+	C2FriendPtr m_adifferntFriend; // ³ª¸¦ µî·ÏÇÑ À¯Àúµé
 	DWORD		m_dwMyState;
 
 public:

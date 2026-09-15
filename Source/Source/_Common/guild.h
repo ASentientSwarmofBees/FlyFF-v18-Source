@@ -1,4 +1,4 @@
-ï»¿#ifndef __GUILD_H__
+#ifndef __GUILD_H__
 #define	__GUILD_H__
 
 #include "mempooler.h"
@@ -14,7 +14,7 @@
 #include "guildquest.h"
 
 ////////////////////////////////////////////////////////////////////////////////
-// ê¸¸ë“œê´€ë ¨ ìƒìˆ˜ 
+// ±æµå°ü·Ã »ó¼ö 
 ////////////////////////////////////////////////////////////////////////////////
 
 const int MAX_GM_ALIAS			= 48;
@@ -22,12 +22,12 @@ const int MAX_GM_LEVEL			= 5;
 const int MAX_GM_SIZE			= 128;
 const int MAX_SQL_G_NAME		= 16;
 const int MAX_G_NAME			= 48;
-const int MAX_BYTE_NOTICE		= 128;		// ê¸¸ë“œê³µì§€ì‚¬í•­ ë²„í¼ ìµœëŒ€ê¸¸ì´ 
-const int MAX_GUILD_LEVEL		= 50;		// ê¸¸ë“œ ìµœëŒ€ë ˆë²¨ 	
-const int MAX_BYTE_VOTETITLE	= 26;		// íˆ¬í‘œ ì œëª© ë²„í¼ ìµœëŒ€ ê¸¸ì´ 
-const int MAX_BYTE_VOTEQUESTION	= 171;		// íˆ¬í‘œ ë‚´ìš© ë²„í¼ ìµœëŒ€ ê¸¸ì´ 
-const int MAX_BYTE_VOTESELECT   = 21;		// íˆ¬í‘œ ì„ íƒì‚¬í•­ ë²„í¼ ìµœëŒ€ ê¸¸ì´ 
-const int MAX_VOTE_ENTRY		= 20;		// ê¸¸ë“œê°€ íˆ¬í‘œë¥¼ ìµœëŒ€ ëª‡ê°œ ê°€ì§€ê³  ìˆëŠ”ê°€
+const int MAX_BYTE_NOTICE		= 128;		// ±æµå°øÁö»çÇ× ¹öÆÛ ÃÖ´ë±æÀÌ 
+const int MAX_GUILD_LEVEL		= 50;		// ±æµå ÃÖ´ë·¹º§ 	
+const int MAX_BYTE_VOTETITLE	= 26;		// ÅõÇ¥ Á¦¸ñ ¹öÆÛ ÃÖ´ë ±æÀÌ 
+const int MAX_BYTE_VOTEQUESTION	= 171;		// ÅõÇ¥ ³»¿ë ¹öÆÛ ÃÖ´ë ±æÀÌ 
+const int MAX_BYTE_VOTESELECT   = 21;		// ÅõÇ¥ ¼±ÅÃ»çÇ× ¹öÆÛ ÃÖ´ë ±æÀÌ 
+const int MAX_VOTE_ENTRY		= 20;		// ±æµå°¡ ÅõÇ¥¸¦ ÃÖ´ë ¸î°³ °¡Áö°í ÀÖ´Â°¡
 
 #define GM_MASTER 1
 #define GM_KINGPIN 5
@@ -59,17 +59,17 @@ typedef struct _SGuildMsgHeader
 		DWORD		HeadA;			//
 		struct 
 		{
-			WORD	HeadASub;		//	ê¸¸ë“œ ì•„ì´ë””
-			WORD	HeadAMain;		//	ì—…ë°ì´íŠ¸ë  ì´ íƒ€ì… ê°¯ìˆ˜
+			WORD	HeadASub;		//	±æµå ¾ÆÀÌµğ
+			WORD	HeadAMain;		//	¾÷µ¥ÀÌÆ®µÉ ÃÑ Å¸ÀÔ °¹¼ö
 		};
 	};
 
 	union
 	{
-		DWORD		HeadB;			//	ì—…ë°ì´íŠ¸ íƒ€ì…
+		DWORD		HeadB;			//	¾÷µ¥ÀÌÆ® Å¸ÀÔ
 		struct 
 		{
-			WORD	HeadBSub;		//	ìš©ë„ì— ë§ê²Œ ìª¼ê°œ ì“´ë‹¤.
+			WORD	HeadBSub;		//	¿ëµµ¿¡ ¸Â°Ô ÂÉ°³ ¾´´Ù.
 			WORD	HeadBMain;
 		};
 	};
@@ -77,30 +77,30 @@ typedef struct _SGuildMsgHeader
 }GUILD_MSG_HEADER, *LPGUILD_MSG_HEADER;
 
 ////////////////////////////////////////////////////////////////////////////////
-//íˆ¬í‘œ ê´€ë ¨ 
+//ÅõÇ¥ °ü·Ã 
 ////////////////////////////////////////////////////////////////////////////////
 
 struct VOTE_INSERTED_INFO
 {
-	u_long  idGuild;									// ê¸¸ë“œID
-	u_long	idVote;										// íˆ¬í‘œID
-	char    szTitle[MAX_BYTE_VOTETITLE];				// ì œëª© 
-	char	szQuestion[MAX_BYTE_VOTEQUESTION];			// íˆ¬í‘œì§ˆë¬¸ë‚´ìš© 
-	char	szSelections[4][MAX_BYTE_VOTESELECT];		// ì„ íƒë¬¸ì¥ 
+	u_long  idGuild;									// ±æµåID
+	u_long	idVote;										// ÅõÇ¥ID
+	char    szTitle[MAX_BYTE_VOTETITLE];				// Á¦¸ñ 
+	char	szQuestion[MAX_BYTE_VOTEQUESTION];			// ÅõÇ¥Áú¹®³»¿ë 
+	char	szSelections[4][MAX_BYTE_VOTESELECT];		// ¼±ÅÃ¹®Àå 
 };
 
 extern CAr&  operator<<(CAr& ar, VOTE_INSERTED_INFO& info);
 extern CAr&  operator>>(CAr& ar, VOTE_INSERTED_INFO& info);
 
 
-// ê¸¸ë“œ íˆ¬í‘œì˜ ì„ íƒ  
+// ±æµå ÅõÇ¥ÀÇ ¼±ÅÃ  
 struct GUILD_VOTE_SELECT
 {
-	char szString[MAX_BYTE_VOTESELECT];		// ì„ íƒë¬¸ì¥ 
-	BYTE cbCount;							// ì„ íƒcount
+	char szString[MAX_BYTE_VOTESELECT];		// ¼±ÅÃ¹®Àå 
+	BYTE cbCount;							// ¼±ÅÃcount
 };
 
-// ê¸¸ë“œ íˆ¬í‘œ 
+// ±æµå ÅõÇ¥ 
 class CGuildVote
 {
 public:
@@ -119,36 +119,36 @@ public:
 
 private:
 	u_long	m_idVote;								// ID
-	bool	m_bCompleted;							// ì™„ë£Œìƒíƒœ : true, ì§„í–‰ì¤‘: false
-	char    m_szTitle[MAX_BYTE_VOTETITLE];			// ì œëª© 
-	char	m_szQuestion[MAX_BYTE_VOTEQUESTION];	// íˆ¬í‘œì§ˆë¬¸ë‚´ìš© 
-	GUILD_VOTE_SELECT	m_selects[4];				// ì„ íƒ 
+	bool	m_bCompleted;							// ¿Ï·á»óÅÂ : true, ÁøÇàÁß: false
+	char    m_szTitle[MAX_BYTE_VOTETITLE];			// Á¦¸ñ 
+	char	m_szQuestion[MAX_BYTE_VOTEQUESTION];	// ÅõÇ¥Áú¹®³»¿ë 
+	GUILD_VOTE_SELECT	m_selects[4];				// ¼±ÅÃ 
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-//CONTRIBUTION_CHANGED_INFO ê´€ë ¨ 
+//CONTRIBUTION_CHANGED_INFO °ü·Ã 
 ////////////////////////////////////////////////////////////////////////////////
 struct CONTRIBUTION_CHANGED_INFO
 {
-	u_long idGuild;					// ê³µí—Œì •ë³´ê°€ ë³€ê²½ëœ ë³€ê²½ëœ ê¸¸ë“œid
-	u_long idPlayer;				// ê³µí—Œí•œ í”Œë ˆì´ì–´ 
-	DWORD dwPxpCount, dwPenya;		// í”Œë ˆì´ì–´ê°€ ê³µí—Œí•œ pxpíšŸìˆ˜, í˜ëƒ 
-	DWORD dwGuildPxpCount, dwGuildPenya;	// ê³µí—Œì— ì˜í•´ ë³€ê²½ëœ ê¸¸ë“œ pxpíšŸìˆ˜, í˜ëƒ 
-	WORD nGuildLevel;						// ê¸¸ë“œë ˆë²¨ 
+	u_long idGuild;					// °øÇåÁ¤º¸°¡ º¯°æµÈ º¯°æµÈ ±æµåid
+	u_long idPlayer;				// °øÇåÇÑ ÇÃ·¹ÀÌ¾î 
+	DWORD dwPxpCount, dwPenya;		// ÇÃ·¹ÀÌ¾î°¡ °øÇåÇÑ pxpÈ½¼ö, Æä³Ä 
+	DWORD dwGuildPxpCount, dwGuildPenya;	// °øÇå¿¡ ÀÇÇØ º¯°æµÈ ±æµå pxpÈ½¼ö, Æä³Ä 
+	WORD nGuildLevel;						// ±æµå·¹º§ 
 };
 
 extern CAr&  operator<<(CAr& ar, CONTRIBUTION_CHANGED_INFO& info);
 extern CAr&  operator>>(CAr& ar, CONTRIBUTION_CHANGED_INFO& info);
 
 ////////////////////////////////////////////////////////////////////////////////
-//CGuildTable ê´€ë ¨ 
+//CGuildTable °ü·Ã 
 ////////////////////////////////////////////////////////////////////////////////
 
 struct GUILD_TABLE_ENTRY
 {
-	DWORD	dwPxpCount;		// í•„ìš”ê³µí—Œë„ 
-	DWORD	dwPenya;		// í•„ìš”í˜ëƒ 
-	WORD	nMaxMember;		// ìµœëŒ€ì¸ì› 
+	DWORD	dwPxpCount;		// ÇÊ¿ä°øÇåµµ 
+	DWORD	dwPenya;		// ÇÊ¿äÆä³Ä 
+	WORD	nMaxMember;		// ÃÖ´ëÀÎ¿ø 
 };
 
 class CGuildTable
@@ -169,34 +169,34 @@ public:
 private:
 	CGuildTable();
 	GUILD_TABLE_ENTRY	m_table[MAX_GUILD_LEVEL];
-	int					m_nCount;					// m_tableì— ì‹¤ì œ ë°ì´íƒ€ìˆ˜ 
+	int					m_nCount;					// m_table¿¡ ½ÇÁ¦ µ¥ÀÌÅ¸¼ö 
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-//CGuildMember ê´€ë ¨ 
+//CGuildMember °ü·Ã 
 ////////////////////////////////////////////////////////////////////////////////
 
 class CGuildMember
 {
 public:
 	u_long	m_idPlayer;						// Player ID
-	int		m_nPay;							// ì›”ê¸‰
-	int		m_nGiveGold;					// ê¸¸ë“œì— ê¸°ë¶€í•œ í˜ëƒ
-	DWORD	m_dwGivePxpCount;				// ê¸¸ë“œì— ê¸°ë¶€í•œ PXPíšŸìˆ˜( ìŠ¤í‚¬ ê²½í—˜ì¹˜ )
-	short	m_nWin;							// ë¬´ì—‡ì„ ì´ê²¼ì§€?
-	short	m_nLose;						// ë¬´ì—‡ì„ ì¡Œì„ê¹Œë‚˜?
+	int		m_nPay;							// ¿ù±Ş
+	int		m_nGiveGold;					// ±æµå¿¡ ±âºÎÇÑ Æä³Ä
+	DWORD	m_dwGivePxpCount;				// ±æµå¿¡ ±âºÎÇÑ PXPÈ½¼ö( ½ºÅ³ °æÇèÄ¡ )
+	short	m_nWin;							// ¹«¾ùÀ» ÀÌ°åÁö?
+	short	m_nLose;						// ¹«¾ùÀ» Á³À»±î³ª?
 	char	m_szAlias[MAX_GM_ALIAS];	
-	BYTE	m_nMemberLv;					// ë‚˜ì˜ ì§€ìœ„
+	BYTE	m_nMemberLv;					// ³ªÀÇ ÁöÀ§
 #if __VER < 11 // __SYS_PLAYER_DATA
-	DWORD	m_dwSex;						// ì„±ë³„
-	LONG	m_nJob;							// ì§ì—…
-	LONG	m_nLevel;						// ë ˆë²¨
-	BYTE	m_nLogin;						// ë¡œê·¸ì¸ ìƒíƒœ( 1 ) / ë¡œê·¸ ì•„ì›ƒ( 0 )
-	BYTE	m_nMultiNo;						// ë©€í‹° ë²ˆí˜¸
+	DWORD	m_dwSex;						// ¼ºº°
+	LONG	m_nJob;							// Á÷¾÷
+	LONG	m_nLevel;						// ·¹º§
+	BYTE	m_nLogin;						// ·Î±×ÀÎ »óÅÂ( 1 ) / ·Î±× ¾Æ¿ô( 0 )
+	BYTE	m_nMultiNo;						// ¸ÖÆ¼ ¹øÈ£
 #endif	// __SYS_PLAYER_DATA
-	u_long  m_idSelectedVote;				// ì„ íƒí•œ íˆ¬í‘œID
-	int		m_nSurrender;	// í•­ë³µ íšŒìˆ˜
-	int		m_nClass;						// ë“±ê¸‰ A, B, C
+	u_long  m_idSelectedVote;				// ¼±ÅÃÇÑ ÅõÇ¥ID
+	int		m_nSurrender;	// Ç×º¹ È¸¼ö
+	int		m_nClass;						// µî±Ş A, B, C
 
 public:
 //	Constructions
@@ -223,19 +223,19 @@ public:
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-//CGuild ê´€ë ¨ 
+//CGuild °ü·Ã 
 ////////////////////////////////////////////////////////////////////////////////
 
-// ê³µí—ŒíŒë‹¨ê²°ê³¼ 
+// °øÇåÆÇ´Ü°á°ú 
 enum CONTRIBUTION_RESULT						
 {
-	CONTRIBUTION_OK,							// ê³µí—Œê°€ëŠ¥ 
-	CONTRIBUTION_FAIL_MAXLEVEL,					// ê³µí—Œë¶ˆê°€ - ìµœê³  ë ˆë²¨ 
-	CONTRIBUTION_FAIL_GUILD_OVERFLOW_PXP,		// ê³µí—Œë¶ˆê°€ - ê¸¸ë“œ PXP overflow
-	CONTRIBUTION_FAIL_GUILD_OVERFLOW_PENYA,		// ê³µí—Œë¶ˆê°€ - ê¸¸ë“œ Penya overflow
-	CONTRIBUTION_FAIL_INVALID_CONDITION,		// ê³µí—Œë¶ˆê°€ - 
-	CONTRIBUTION_FAIL_OVERFLOW_PXP,				// ê³µí—Œë¶ˆê°€ - ê³µí—Œí•œ PXP overflow
-	CONTRIBUTION_FAIL_OVERFLOW_PENYA			// ê³µí—Œë¶ˆê°€ - ê³µí—Œí•œ Penya overflow
+	CONTRIBUTION_OK,							// °øÇå°¡´É 
+	CONTRIBUTION_FAIL_MAXLEVEL,					// °øÇåºÒ°¡ - ÃÖ°í ·¹º§ 
+	CONTRIBUTION_FAIL_GUILD_OVERFLOW_PXP,		// °øÇåºÒ°¡ - ±æµå PXP overflow
+	CONTRIBUTION_FAIL_GUILD_OVERFLOW_PENYA,		// °øÇåºÒ°¡ - ±æµå Penya overflow
+	CONTRIBUTION_FAIL_INVALID_CONDITION,		// °øÇåºÒ°¡ - 
+	CONTRIBUTION_FAIL_OVERFLOW_PXP,				// °øÇåºÒ°¡ - °øÇåÇÑ PXP overflow
+	CONTRIBUTION_FAIL_OVERFLOW_PENYA			// °øÇåºÒ°¡ - °øÇåÇÑ Penya overflow
 };
 
 #define	GF_WARTIME		(DWORD)0x00000001
@@ -266,25 +266,25 @@ class CGuild
 public:
 	u_long	m_idGuild;							// Guild ID
 	char	m_szGuild[MAX_G_NAME];				// Guild Name
-	map<u_long, CGuildMember*>	m_mapPMember;	// íšŒì›ë“¤
-	u_long	m_idMaster;							// ê¸¸ë“œì¥ ID
+	map<u_long, CGuildMember*>	m_mapPMember;	// È¸¿øµé
+	u_long	m_idMaster;							// ±æµåÀå ID
 	int		m_nLevel;							// Guild Level
-	DWORD	m_adwPower[MAX_GM_LEVEL];			// ê¶Œí•œ ì„¤ì •ê°’
-	DWORD	m_adwPenya[MAX_GM_LEVEL];			// í˜ëƒ ì„¤ì •ê°’
-	BOOL	m_bActive;							// í™œë™ì¤‘? ì¤‘ì§€ì¤‘? ê²€ì‚¬í•˜ëŠ”ê±´ê°€?
-	DWORD   m_dwLogo;							// ë¡œê³  ì´ë¯¸ì§€ ë²ˆí˜¸
-	DWORD   m_dwContributionPxp;				// ê³µí—Œëœ PXP
-	char	m_szNotice[MAX_BYTE_NOTICE];		// ê³µì§€ì‚¬í•­
-	DWORD	m_dwFlag;							// ê¸¸ë“œ ë¹„ê³ 
-	BOOL	m_bSendPay;							// ê¸¸ë“œ ì›”ê¸‰ì„ ì¤¬ëŠ”ì§€ í™•ì¸
+	DWORD	m_adwPower[MAX_GM_LEVEL];			// ±ÇÇÑ ¼³Á¤°ª
+	DWORD	m_adwPenya[MAX_GM_LEVEL];			// Æä³Ä ¼³Á¤°ª
+	BOOL	m_bActive;							// È°µ¿Áß? ÁßÁöÁß? °Ë»çÇÏ´Â°Ç°¡?
+	DWORD   m_dwLogo;							// ·Î°í ÀÌ¹ÌÁö ¹øÈ£
+	DWORD   m_dwContributionPxp;				// °øÇåµÈ PXP
+	char	m_szNotice[MAX_BYTE_NOTICE];		// °øÁö»çÇ×
+	DWORD	m_dwFlag;							// ±æµå ºñ°í
+	BOOL	m_bSendPay;							// ±æµå ¿ù±ŞÀ» Áá´ÂÁö È®ÀÎ
 	
 #if !defined( __CORESERVER)
-	CItemContainer<CItemElem>	m_GuildBank;	// ê¸¸ë“œ ì°½ê³ 
+	CItemContainer<CItemElem>	m_GuildBank;	// ±æµå Ã¢°í
 #endif
-	DWORD						m_nGoldGuild;	// ê¸¸ë“œ ì°½ê³  í˜ëƒ / ê³µí—Œëœ í˜ëƒ
+	DWORD						m_nGoldGuild;	// ±æµå Ã¢°í Æä³Ä / °øÇåµÈ Æä³Ä
 
-	list <CGuildVote*>			m_votes;		// íˆ¬í‘œë°ì´íƒ€ë“¤ 
-	u_long	m_idEnemyGuild;						// ì „ìŸì¤‘ì¸ ì ëŒ€ê¸¸ë“œ
+	list <CGuildVote*>			m_votes;		// ÅõÇ¥µ¥ÀÌÅ¸µé 
+	u_long	m_idEnemyGuild;						// ÀüÀïÁßÀÎ Àû´ë±æµå
 	int		m_nWinPoint;
 	int		m_nWin;
 	int		m_nLose;
@@ -321,12 +321,12 @@ public:
 	CGuildVote* FindVote( u_long idVote );
 	bool	ModifyVote( u_long idVote, BYTE cbOperation, BYTE cbExtra );
 		
-	//	ê¸¸ë“œ ì°½ê³ ì—ì„œ í˜ëƒë¥¼ ê°€ì ¸ì˜¬ìˆ˜ ìˆëŠ”ì§€ í™•ì¸
+	//	±æµå Ã¢°í¿¡¼­ Æä³Ä¸¦ °¡Á®¿Ã¼ö ÀÖ´ÂÁö È®ÀÎ
 	BOOL	IsGetPenya( u_long idPlayer )	{	return m_adwPower[GetMember(idPlayer)->m_nMemberLv] & PF_PENYA; }
-	//	ê¸¸ë“œ ì°½ê³ ì—ì„œ ì•„ì´í…œì„ ê°€ì ¸ì˜¬ìˆ˜ ìˆëŠ”ì§€ í™•ì¸
+	//	±æµå Ã¢°í¿¡¼­ ¾ÆÀÌÅÛÀ» °¡Á®¿Ã¼ö ÀÖ´ÂÁö È®ÀÎ
 	BOOL	IsGetItem( u_long idPlayer )	{	return m_adwPower[GetMember(idPlayer)->m_nMemberLv] & PF_ITEM; }
 	
-	// ê¶Œí•œ ê²€ì‚¬
+	// ±ÇÇÑ °Ë»ç
 	BOOL	IsCmdCap( int nMemberLv, DWORD dwPower )	{	return( ( m_adwPower[nMemberLv] & dwPower )? TRUE: FALSE );	}
 
 #if __VER >= 15 // __GUILD_HOUSE
@@ -376,7 +376,7 @@ public:
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-//CGuildMng ê´€ë ¨ 
+//CGuildMng °ü·Ã 
 ////////////////////////////////////////////////////////////////////////////////
 
 class CPlayer;
@@ -385,8 +385,8 @@ class CGuildMng
 {
 public:
 	u_long	m_id;								// load
-	map<u_long, CGuild*>	m_mapPGuild;		// Guild IDë¥¼ ì´ìš©í•˜ì—¬ ê¸¸ë“œ ì–»ìŒ
-	map<string, CGuild*>	m_mapPGuild2;		// Guild Nameë¥¼ ì´ìš©í•˜ì—¬ ê¸¸ë“œ ì–»ìŒ
+	map<u_long, CGuild*>	m_mapPGuild;		// Guild ID¸¦ ÀÌ¿ëÇÏ¿© ±æµå ¾òÀ½
+	map<string, CGuild*>	m_mapPGuild2;		// Guild Name¸¦ ÀÌ¿ëÇÏ¿© ±æµå ¾òÀ½
 #if !defined(__WORLDSERVER) && !defined(__CLIENT)
 	CRIT_SEC	m_AddRemoveLock;
 #endif
@@ -435,21 +435,21 @@ class CGuildRank
 {
 public:
 	/*
-	 *	R1 : ìµœê°•ê¸¸ë“œ
-	 *	R2 : ìµœë‹¤ìŠ¹
-	 *	R3 : ìµœë‹¤íŒ¨
-	 *	R4 : ìµœë‹¤í•­ë³µíŒ¨
-	 *	R5 : ìµœê³ ê²°ì†ë ¥
-	 *	R6 : ìµœê³ ìê¸ˆ
-	 *	R7 : í‰ê· ê³ ë ™
-	 *	R8 : ìµœëŒ€í”Œë ˆì´
+	 *	R1 : ÃÖ°­±æµå
+	 *	R2 : ÃÖ´Ù½Â
+	 *	R3 : ÃÖ´ÙÆĞ
+	 *	R4 : ÃÖ´ÙÇ×º¹ÆĞ
+	 *	R5 : ÃÖ°í°á¼Ó·Â
+	 *	R6 : ÃÖ°íÀÚ±İ
+	 *	R7 : Æò±Õ°í·¾
+	 *	R8 : ÃÖ´ëÇÃ·¹ÀÌ
 	 */
 	enum RANKING
 	{
 		R1, R2, R3, R4, R5, R6, R7, R8, RANK_END
 	};
 
-	// ë­í¬ ì •ë³´ êµ¬ì¡°ì²´
+	// ·©Å© Á¤º¸ ±¸Á¶Ã¼
 	typedef struct _SGuildRanking
 	{
 		int			m_dwLogo;
@@ -481,7 +481,7 @@ public:
 	static CGuildRank* Instance();
 #ifdef __DBSERVER
 	/*	
-	 *	TRANS ì„œë²„ì¼ë•Œì—ë§Œ Rankí•¨ìˆ˜ë¥¼ Call í• ìˆ˜ ìˆë‹¤.
+	 *	TRANS ¼­¹öÀÏ¶§¿¡¸¸ RankÇÔ¼ö¸¦ Call ÇÒ¼ö ÀÖ´Ù.
 	 */
 	BOOL GetRanking(CQuery* pQuery, LPCTSTR p_strQuery)
 	{
@@ -537,7 +537,7 @@ public:
 		sprintf(const_cast<char*>(p_strQuery), "MAKE_RANKING_STR '%d'", g_appInfo.dwSys );
 		if( FALSE == pQuery->Exec( p_strQuery ) )
 		{
-			Error( "CDbManager::RankingDBUpdate (%s) ì‹¤íŒ¨", p_strQuery );
+			Error( "CDbManager::RankingDBUpdate (%s) ½ÇÆĞ", p_strQuery );
 			m_Lock.Leave( theLineFile );
 			return FALSE;
 		}

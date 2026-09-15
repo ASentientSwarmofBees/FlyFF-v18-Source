@@ -1,4 +1,4 @@
-ï»¿// stdafx.h : include file for standard system include files,
+// stdafx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -126,9 +126,9 @@ extern	CGameTimer	g_GameTimer;
 extern	CFlyffEvent	g_eLocal;
 extern ADDSMMODE	g_AddSMMode;
 extern	ULONG		g_uKey;
-extern DWORD		g_tmCurrent;		// ì „ì—­ìœ¼ë¡œ ì‚¬ìš©í•  í˜„ìž¬ ì‹œê°„.
-extern int			g_nProcessCnt;	// í”„ë¡œì„¸ìŠ¤ë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜.
-extern int			g_nRenderCnt;	// ë Œë”í™”ë©´ë•Œë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜
+extern DWORD		g_tmCurrent;		// Àü¿ªÀ¸·Î »ç¿ëÇÒ ÇöÀç ½Ã°£.
+extern int			g_nProcessCnt;	// ÇÁ·Î¼¼½º¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö.
+extern int			g_nRenderCnt;	// ·»´õÈ­¸é¶§¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö
 
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
 #include "GuildCombat1to1.h"

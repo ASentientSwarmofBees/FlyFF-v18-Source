@@ -1,4 +1,4 @@
-﻿#ifndef __DPACCOUNTCLIENT_H__
+#ifndef __DPACCOUNTCLIENT_H__
 #define	__DPACCCOUNTCLIENT_H__
 
 #include "dpmng.h"

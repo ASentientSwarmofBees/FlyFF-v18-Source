@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "dos2.h"
 
 CDos2::CDos2()

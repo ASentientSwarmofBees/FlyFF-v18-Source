@@ -1,4 +1,4 @@
-Ôªø#ifndef __WNDSEALCHAR__H
+#ifndef __WNDSEALCHAR__H
 #define __WNDSEALCHAR__H
 
 class CWndSealChar : public CWndNeuz 
@@ -21,9 +21,9 @@ public:
 class CWndSealCharSelect : public CWndNeuz 
 { 
 public: 
-	char	m_szSrc1[ MAX_NAME ];	// Ïù¥Î¶Ñ
+	char	m_szSrc1[ MAX_NAME ];	// ¿Ã∏ß
 	OBJID	m_idSrc1;
-	char	m_szSrc2[ MAX_NAME ];	// Ïù¥Î¶Ñ
+	char	m_szSrc2[ MAX_NAME ];	// ¿Ã∏ß
 	OBJID	m_idSrc2;
 	LONG	m_lPlayerSlot1;
 	LONG	m_lPlayerSlot2;
@@ -46,7 +46,7 @@ public:
 class CWndSealCharSend : public CWndNeuz 
 { 
 public: 
-	char	m_szSrc1[ MAX_NAME ];	// Ïù¥Î¶Ñ
+	char	m_szSrc1[ MAX_NAME ];	// ¿Ã∏ß
 	OBJID	m_idSrc1;
 	
 	CWndSealCharSend(); 
@@ -66,7 +66,7 @@ public:
 class CWndSealCharSet : public CWndNeuz 
 { 
 public: 
-	char	m_szSrc1[ MAX_NAME ];	// Ïù¥Î¶Ñ
+	char	m_szSrc1[ MAX_NAME ];	// ¿Ã∏ß
 	OBJID	m_idSrc1;
 	DWORD	m_dwData;
 

@@ -1,4 +1,4 @@
-﻿#ifndef __WNDCOLOSSEUM__H
+#ifndef __WNDCOLOSSEUM__H
 #define __WNDCOLOSSEUM__H
 
 #ifdef	__COLOSSEUM

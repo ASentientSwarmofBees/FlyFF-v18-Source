@@ -1,4 +1,4 @@
-﻿#ifndef __WNDTEXT__H
+#ifndef __WNDTEXT__H
 #define __WNDTEXT__H
 
 class CWndTextQuest : public CWndMessageBox

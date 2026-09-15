@@ -1,4 +1,4 @@
-ï»¿// ImeView.cpp : implementation file
+// ImeView.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -10,7 +10,7 @@
 ///////////////////////////////////////////////////////////////////
 // class CIMEMgr
 // Remark:
-//	IME ì˜ ìƒíƒœë¥¼ ê´€ë¦¬í•œë‹¤.
+//	IME ÀÇ »óÅÂ¸¦ °ü¸®ÇÑ´Ù.
 //   
 ///////////////////////////////////////////////////////////////////
 CIMEMgr	g_imeMgr;
@@ -856,8 +856,8 @@ bool CIMEMgr::IsUs()
 ///////////////////////////////////////////////////////////////////
 // class CWndCandList
 // Remark:
-//   ì¼ë³¸ì–´ë‚˜ ì¤‘êµ­ì–´ëŠ” ìž…ë ¥ ì´í›„ ìœ ì‚¬ì–´ ë¦¬ìŠ¤íŠ¸ë¥¼ í†µí•´ ë‹¨ì–´ë¥¼ ê³ ë¥¸ë‹¤.
-//   CWndCandListëŠ” ê·¸ ìœ ì‚¬ì–´ë¥¼ ì„ íƒí•  ìˆ˜ ìžˆê²Œí•˜ëŠ” íŒì—… ìœˆë„ë‹¤.
+//   ÀÏº»¾î³ª Áß±¹¾î´Â ÀÔ·Â ÀÌÈÄ À¯»ç¾î ¸®½ºÆ®¸¦ ÅëÇØ ´Ü¾î¸¦ °í¸¥´Ù.
+//   CWndCandList´Â ±× À¯»ç¾î¸¦ ¼±ÅÃÇÒ ¼ö ÀÖ°ÔÇÏ´Â ÆË¾÷ À©µµ´Ù.
 //
 ///////////////////////////////////////////////////////////////////
 CWndCandList::CWndCandList() 
@@ -893,15 +893,15 @@ void CWndCandList::UpdateCandList( CPoint windowPos )
 	{
 		m_nPageStart = nPageStart; 
 		g_imeMgr.NotifyIME( m_hWnd, NI_SETCANDIDATE_PAGESTART, 0, nPageStart );
-		// ImmNotifeIMEë¥¼ í•˜ê²Œ ë˜ë©´ ë‹¤ì‹œ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥¸ë‹¤. ê·¸ë ‡ê²Œ ë˜ë©´ ìœ„ì— ResetContentë¥¼ ì‹¤í–‰í•˜ê²Œ ë˜ë¯€ë¡œ
-		// ìŠ¤í¬ë¡¤ í¬ì§€ì…˜ì´ ë‹¤ì‹œ ë¦¬ì…‹ëœë‹¤. ì´ ë¶€ë¶„ì´ ë§¨ ë§ˆì§€ë§‰ì— ì‹¤í–‰ë˜ë¯€ë¡œ ì—¬ê¸°ì„œ ìŠ¤í¬ë¡¤ í¬ì§€ì…˜ì„ ì„¸íŒ…í•´ì•¼í•œë‹¤.
+		// ImmNotifeIME¸¦ ÇÏ°Ô µÇ¸é ´Ù½Ã ÀÌ ÇÔ¼ö¸¦ ºÎ¸¥´Ù. ±×·¸°Ô µÇ¸é À§¿¡ ResetContent¸¦ ½ÇÇàÇÏ°Ô µÇ¹Ç·Î
+		// ½ºÅ©·Ñ Æ÷Áö¼ÇÀÌ ´Ù½Ã ¸®¼ÂµÈ´Ù. ÀÌ ºÎºÐÀÌ ¸Ç ¸¶Áö¸·¿¡ ½ÇÇàµÇ¹Ç·Î ¿©±â¼­ ½ºÅ©·Ñ Æ÷Áö¼ÇÀ» ¼¼ÆÃÇØ¾ßÇÑ´Ù.
 		m_wndScrollBar.SetScrollPos( nPageStart );
 		m_nScrollPos = nPageStart;
 		return;
 	}
-	// ë¦¬ì…‹ì„ í•˜ë©´ ìŠ¤í¬ë¡¤ í¬ì§€ì…˜ì´ ì´ˆê¸°í™” ëœë‹¤. 
-	// ìŠ¤í¬ë¡¤ ë°”ë¥¼ ëˆŒëŸ¬ì„œ ìŠ¤í¬ë¡¤ ìœ„ì¹˜ê°€ ì¡°ì ˆëœ ìƒíƒœë¼ë©´ ì´ˆê¸°í™”ê°€ ë˜ë©´
-	// ì•ˆë˜ê¸° ë•Œë¬¸ì— í˜„ìž¬ ìŠ¤í¬ë¡¤ í¬ì§€ì…˜ì„ ì €ìž¥í•´ ë‘”ë‹¤.
+	// ¸®¼ÂÀ» ÇÏ¸é ½ºÅ©·Ñ Æ÷Áö¼ÇÀÌ ÃÊ±âÈ­ µÈ´Ù. 
+	// ½ºÅ©·Ñ ¹Ù¸¦ ´­·¯¼­ ½ºÅ©·Ñ À§Ä¡°¡ Á¶ÀýµÈ »óÅÂ¶ó¸é ÃÊ±âÈ­°¡ µÇ¸é
+	// ¾ÈµÇ±â ¶§¹®¿¡ ÇöÀç ½ºÅ©·Ñ Æ÷Áö¼ÇÀ» ÀúÀåÇØ µÐ´Ù.
 	int nScrollPos = m_wndScrollBar.GetScrollPos();
 	ResetContent();
 
@@ -932,14 +932,14 @@ void CWndCandList::UpdateCandList( CPoint windowPos )
 	AdjustWndBase();
 	RestoreDeviceObjects();
 	
-	// 9ê°œì˜ ë°°ìˆ˜ë¡œ ê°¯ìˆ˜ë¥¼ ì±„ìš´ë‹¤.
+	// 9°³ÀÇ ¹è¼ö·Î °¹¼ö¸¦ Ã¤¿î´Ù.
 	int nDiv2 = 9 - ( candidateList.dwCount % 9 );
 	if( nDiv2 < 9 )
 	{
 		for( int i = 0; i < nDiv2; i++ )
 			AddString( "" );
 	}
-	// ìŠ¤í¬ë¡¤ í¬ì§€ì…˜ì„ ë³µì›í•œë‹¤.
+	// ½ºÅ©·Ñ Æ÷Áö¼ÇÀ» º¹¿øÇÑ´Ù.
 	m_wndScrollBar.SetScrollPos( nScrollPos );
 	SetCurSel( candidateList.dwSelection );
 }
@@ -983,7 +983,7 @@ void CWndCandList::OnInitialUpdate()
 	if( nNum < 5 ) nNum = 5;
 	SetWndRect( CRect( 0, 0, 150, nNum * ( GetFontHeight() + 3 ) + 8 ) );
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndCandList::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 	SetTitle( _T( "World" ) );
@@ -991,27 +991,27 @@ BOOL CWndCandList::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ )
 	CWndBase::Create( WBS_TOPMOST, rect, pWndParent, APP_COMMAND );
 	AdjustWndBase();
 	RestoreDeviceObjects();
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return TRUE;
 } 
 void CWndCandList::OnLButtonUp( UINT nFlags, CPoint point ) 
 { 
 	CWndListBox::OnLButtonUp( nFlags, point );
-	// í´ë¦­í–ˆì„ ê²½ìš° ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ì˜ í˜„ìž¬ ì…€ë ‰íŠ¸ëœ ê²ƒì„ Imeì—ê²Œ ì„ íƒí–ˆë‹¤ê³  ì•Œë¦°ë‹¤.
+	// Å¬¸¯ÇßÀ» °æ¿ì ¸®½ºÆ®¹Ú½ºÀÇ ÇöÀç ¼¿·ºÆ®µÈ °ÍÀ» Ime¿¡°Ô ¼±ÅÃÇß´Ù°í ¾Ë¸°´Ù.
 	g_imeMgr.NotifyIME( m_hWnd, NI_SELECTCANDIDATESTR,0,GetCurSel());
-	// ì„ íƒ ì´í›„ ìœ ì‚¬ì–´ ë¦¬ìŠ¤íŠ¸ë¥¼ ë‹«ìœ¼ë¼ê³  Imeì•Œë¦°ë‹¤.
+	// ¼±ÅÃ ÀÌÈÄ À¯»ç¾î ¸®½ºÆ®¸¦ ´ÝÀ¸¶ó°í Ime¾Ë¸°´Ù.
 	m_pParentWnd->PostMessage( WM_CLOSECANDIDATE );
 } 
 void CWndCandList::OnKillFocus(CWndBase* pNewWnd)
 {
-	// ë§ˆìš°ìŠ¤ ì»¤ì„œë¡œ ë‹¤ë¥¸ ì°½ì„ í´ë¦­í•˜ê±°ë‚˜ í¬ì»¤ìŠ¤ë¥¼ ë³€ê²½í–ˆì„ ê²½ìš° ë‹¨ì–´ ì¡°í•©ì„ ì™„ë£Œí•œë‹¤.
-	// ì™„ë£Œ ì¡°ê±´ì€ pNewWndê°€ NULLì´ ì•„ë‹ˆì–´ì•¼í•œë‹¤. (NULLì¼ ë•ŒëŠ” ì°½ì´ íŒŒê´´ë  ë•Œ ì™¸ì—ëŠ” ì—†ë‹¤.)
-	// ì¦‰, í¬ì»¤ìŠ¤ê°€ ë‹¤ë¥¸ ì°½ìœ¼ë¡œ ë³€ê²½ë  ë•Œë§Œ ì¡°í•©ì„ ì™„ê²°í•˜ëŠ” ê²ƒì´ë‹¤.
-	// ê·¸ë¦¬ê³  í˜„ìž¬ì°½ì˜ í”„ë ˆìž„ìœˆë„ì™€ ìƒˆìœˆë„ì˜ í”„ë ˆìž„ìœˆë„ê°€ ë‹¤ë¥´ë©´ í¬ì»¤ìŠ¤ê°€ ì´ì „ëœ ê²ƒìœ¼ë¡œ ê°„ì£¼í•œë‹¤.
+	// ¸¶¿ì½º Ä¿¼­·Î ´Ù¸¥ Ã¢À» Å¬¸¯ÇÏ°Å³ª Æ÷Ä¿½º¸¦ º¯°æÇßÀ» °æ¿ì ´Ü¾î Á¶ÇÕÀ» ¿Ï·áÇÑ´Ù.
+	// ¿Ï·á Á¶°ÇÀº pNewWnd°¡ NULLÀÌ ¾Æ´Ï¾î¾ßÇÑ´Ù. (NULLÀÏ ¶§´Â Ã¢ÀÌ ÆÄ±«µÉ ¶§ ¿Ü¿¡´Â ¾ø´Ù.)
+	// Áï, Æ÷Ä¿½º°¡ ´Ù¸¥ Ã¢À¸·Î º¯°æµÉ ¶§¸¸ Á¶ÇÕÀ» ¿Ï°áÇÏ´Â °ÍÀÌ´Ù.
+	// ±×¸®°í ÇöÀçÃ¢ÀÇ ÇÁ·¹ÀÓÀ©µµ¿Í »õÀ©µµÀÇ ÇÁ·¹ÀÓÀ©µµ°¡ ´Ù¸£¸é Æ÷Ä¿½º°¡ ÀÌÀüµÈ °ÍÀ¸·Î °£ÁÖÇÑ´Ù.
 	if( pNewWnd && pNewWnd != m_pParentWnd->GetParentWnd() )
 	{
-		// ë‹¨ì–´ ì¡°í•©ì„ ì™„ë£Œí•˜ë¼ëŠ” ë§¤ì‹œì§€ë¥¼ Imeì—ê²Œ ë³´ë‚¸ë‹¤.
-		// ë³´í†µ ì™„ë£ŒëŠ” ìœ ì‚¬ì–´ ì°½ì´ ì—´ë ¤ ìžˆìœ¼ë©´ ë‹«ìœ¼ë©´ì„œ ì™„ë£Œí•˜ê³  ì—´ë¦¬ ìžˆì§€ ì•Šìœ¼ë©´ ê·¸ëƒ¥ ì™„ë£Œí•œë‹¤.
+		// ´Ü¾î Á¶ÇÕÀ» ¿Ï·áÇÏ¶ó´Â ¸Å½ÃÁö¸¦ Ime¿¡°Ô º¸³½´Ù.
+		// º¸Åë ¿Ï·á´Â À¯»ç¾î Ã¢ÀÌ ¿­·Á ÀÖÀ¸¸é ´ÝÀ¸¸é¼­ ¿Ï·áÇÏ°í ¿­¸® ÀÖÁö ¾ÊÀ¸¸é ±×³É ¿Ï·áÇÑ´Ù.
 		g_imeMgr.CompleteComposition(m_hWnd);
 	}
 }
@@ -1095,7 +1095,7 @@ void CWndHCandList::OnDraw( C2DRender* p2DRender )
 ///////////////////////////////////////////////////////////////////////////////
 // class CReadingList
 // 
-// CandidateList ì™€ í¡ì‚¬í•œ ReadingList ì´ë‹¤.
+// CandidateList ¿Í Èí»çÇÑ ReadingList ÀÌ´Ù.
 ///////////////////////////////////////////////////////////////////////////////
 void CReadingList::UpdateReading(CPoint windowPos)
 {
@@ -1192,7 +1192,7 @@ CWndEdit::CWndEdit()
 {
 	m_pFont = NULL;
 
-	m_bEnableModeChange = FALSE; // í•œì˜ ì „í™˜ ê°€ëŠ¥í•œê°€?
+	m_bEnableModeChange = FALSE; // ÇÑ¿µ ÀüÈ¯ °¡´ÉÇÑ°¡?
 
 	// override
 	m_bCaretVisible = TRUE;
@@ -1222,7 +1222,7 @@ CWndEdit::~CWndEdit()
 	SAFE_DELETE( m_pWndHCandList );
 	SAFE_DELETE( m_pWndReadingList );
 }
-// ì°½ì„ ìƒì„±í•œë‹¤.
+// Ã¢À» »ý¼ºÇÑ´Ù.
 BOOL CWndEdit::Create(HWND hwnd,DWORD dwStyle,const RECT& rect,CWndBase* pParentWnd,UINT nID)
 {
 	if(hwnd) m_hWnd = hwnd;
@@ -1265,7 +1265,7 @@ void CWndEdit::OnSetFocus(CWndBase* pOldWnd)
 	if( IsWndStyle( EBS_READONLY ) == TRUE )
 		return;
 #endif // __IMPROVE_QUEST_INTERFACE
-	// Editì°½ì— í¬ì»¤ìŠ¤ê°€ ì˜¬ ê²½ìš° ëˆŒë¦° ì´ë™í‚¤ì— ëŒ€í•œ í•´ì œë¥¼ í•˜ìž.
+	// EditÃ¢¿¡ Æ÷Ä¿½º°¡ ¿Ã °æ¿ì ´­¸° ÀÌµ¿Å°¿¡ ´ëÇÑ ÇØÁ¦¸¦ ÇÏÀÚ.
 	g_bKeyTable[g_Neuz.Key.chUp] = FALSE;
 	g_bKeyTable[g_Neuz.Key.chLeft] = FALSE;
 	g_bKeyTable['S'] = FALSE;
@@ -1292,8 +1292,8 @@ void CWndEdit::OnSetFocus(CWndBase* pOldWnd)
 		g_imeMgr.InputLangChange(m_hWnd, hkl);
 		Empty();
 	}
-	// ìž…ë ¥ ì™„ë£Œí•  ë•Œ m_stringBackì„ ì œëŒ€ë¡œ ì§€ìš°ë©´ ì—¬ê¸°ì„œëŠ” ì•ˆí•´ë„ ëœë‹¤.
-	// ì—¬ê¸°ì„œí•˜ê²Œ ë˜ë©´ ìž…ë ¥ì¤‘ì¸ ìŠ¤íŠ¸ë§ì´ ì‚¬ë¼ì§ˆ ìˆ˜ë„ ìžˆë‹¤.
+	// ÀÔ·Â ¿Ï·áÇÒ ¶§ m_stringBackÀ» Á¦´ë·Î Áö¿ì¸é ¿©±â¼­´Â ¾ÈÇØµµ µÈ´Ù.
+	// ¿©±â¼­ÇÏ°Ô µÇ¸é ÀÔ·ÂÁßÀÎ ½ºÆ®¸µÀÌ »ç¶óÁú ¼öµµ ÀÖ´Ù.
 	//m_stringBack.Empty();
 
 	CWndText::OnSetFocus( pOldWnd );
@@ -1340,20 +1340,20 @@ BOOL CWndEdit::OnSetCursor( CWndBase* pWndBase, UINT nHitTest, UINT message )
 #endif // __IMPROVE_QUEST_INTERFACE
 	return TRUE;
 }
-// ë§ˆìš°ìŠ¤ ì™¼ìª½ ë²„íŠ¼ì„ ì—ë””íŠ¸ ì°½ì— ëˆ„ë¥´ë©´ ì¡°í•©ì´ ì™„ë£Œëœë‹¤.
-// ì´ëŠ” ì¡°í•©ì‹œ ë‹¤ë¥¸ ì˜¤ë™ìž‘ì„ ë°©ì§€í•˜ê¸° ìœ„í•´ í´ë¦­í•˜ë©´ ë¬´ì¡°ê±´ ì¡°í•©ì„ ì™„ë£Œí•˜ê²Œ í•œ ê²ƒì´ë‹¤.
+// ¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» ¿¡µðÆ® Ã¢¿¡ ´©¸£¸é Á¶ÇÕÀÌ ¿Ï·áµÈ´Ù.
+// ÀÌ´Â Á¶ÇÕ½Ã ´Ù¸¥ ¿Àµ¿ÀÛÀ» ¹æÁöÇÏ±â À§ÇØ Å¬¸¯ÇÏ¸é ¹«Á¶°Ç Á¶ÇÕÀ» ¿Ï·áÇÏ°Ô ÇÑ °ÍÀÌ´Ù.
 void CWndEdit::OnLButtonDown( UINT nFlags, CPoint point )
 {
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 	if( IsWndStyle( EBS_READONLY ) == TRUE )
 		return;
 #endif // __IMPROVE_QUEST_INTERFACE
-	// ì¡°í•© ì™„ë£Œ ë§¤ì§€ì‹œë¥¼ imeì—ê²Œ ë³´ë‚¸ë‹¤.
+	// Á¶ÇÕ ¿Ï·á ¸ÅÁö½Ã¸¦ ime¿¡°Ô º¸³½´Ù.
 	g_imeMgr.CompleteComposition(m_hWnd);
 	CWndText::OnLButtonDown( nFlags, point );
 }
 // CWndText overide
-// ìºëŸ¿ì„ ê·¸ë¦°ë‹¤. êµ­ê°€ë§ˆë‹¤ ìºëŸ¿ëª¨ì–‘ì´ ë‹¤ë¥¼ ìˆ˜ ìžˆë‹¤. í•œê¸€ì€ ë°•ìŠ¤ í˜•íƒœì˜ ìºëŸ¿ëª¨ì–‘ì´ë‹¤.
+// Ä³·µÀ» ±×¸°´Ù. ±¹°¡¸¶´Ù Ä³·µ¸ð¾çÀÌ ´Ù¸¦ ¼ö ÀÖ´Ù. ÇÑ±ÛÀº ¹Ú½º ÇüÅÂÀÇ Ä³·µ¸ð¾çÀÌ´Ù.
 void CWndEdit::DrawCaret(C2DRender* p2DRender)
 {
 	if( m_bCaretVisible )
@@ -1410,7 +1410,7 @@ void CWndEdit::OnKeyEnd()
 
 		if( (int)( m_dwOffset ) < m_string.GetLength() || chr == '\n' )
 		{
-			if( IsDBCSLeadByte( chr ) && IsDBCSLeadByte( chr2 ) ) // KS í•œê¸€?
+			if( IsDBCSLeadByte( chr ) && IsDBCSLeadByte( chr2 ) ) // KS ÇÑ±Û?
 			{
 				if( m_dwOffset > 1 ) m_dwOffset -= 2;
 			}
@@ -1565,11 +1565,11 @@ BOOL CWndEdit::IsYouMessage(UINT msg,WPARAM wparam, LPARAM lparam)
 	switch( msg )
 	{ 
 /*
-	case WM_INPUTLANGCHANGE:       // í‚¤ë³´ë“œ ë ˆì´ì•„ì›ƒì´ ë°”ë€ŒëŠ” ê²½ìš° IMEë¥¼ ì´ˆê¸°í™”      
+	case WM_INPUTLANGCHANGE:       // Å°º¸µå ·¹ÀÌ¾Æ¿ôÀÌ ¹Ù²î´Â °æ¿ì IME¸¦ ÃÊ±âÈ­      
 		OnInputLangChange(wparam, lparam);
 		return TRUE;
 */
-    case WM_INPUTLANGCHANGE:       // í‚¤ë³´ë“œ ë ˆì´ì•„ì›ƒì´ ë°”ë€ŒëŠ” ê²½ìš° IMEë¥¼ ì´ˆê¸°í™”      
+    case WM_INPUTLANGCHANGE:       // Å°º¸µå ·¹ÀÌ¾Æ¿ôÀÌ ¹Ù²î´Â °æ¿ì IME¸¦ ÃÊ±âÈ­      
 		{
 			if( PRIMARYLANGID((WORD)lparam) != LANG_ENGLISH) 
 				OnInputLangChange(wparam,lparam);
@@ -1578,18 +1578,18 @@ BOOL CWndEdit::IsYouMessage(UINT msg,WPARAM wparam, LPARAM lparam)
 			
 			return TRUE;
 		}
-	case WM_IME_STARTCOMPOSITION:     // ê¸€ìž ì¡°í•©ì˜ ì‹œìž‘. WM_IME_COMPOSITION ë©”ì‹œì§€ë¥¼           // ë°›ì„ ì¤€ë¹„ë¥¼ í•œë‹¤. 
+	case WM_IME_STARTCOMPOSITION:     // ±ÛÀÚ Á¶ÇÕÀÇ ½ÃÀÛ. WM_IME_COMPOSITION ¸Þ½ÃÁö¸¦           // ¹ÞÀ» ÁØºñ¸¦ ÇÑ´Ù. 
 		OnIMEStartComposition(wparam,lparam);
 		return TRUE;    
-	case WM_IME_COMPOSITION:          // í˜„ìž¬ ì¡°í•©ì¤‘ì¸ ë¬¸ìžì—´ì´ë‚˜ ì™„ì„±ëœ ë¬¸ìžì—´ì„ ì–»ì–´ì„œ í™”ë©´ ì¶œë ¥ 
+	case WM_IME_COMPOSITION:          // ÇöÀç Á¶ÇÕÁßÀÎ ¹®ÀÚ¿­ÀÌ³ª ¿Ï¼ºµÈ ¹®ÀÚ¿­À» ¾ò¾î¼­ È­¸é Ãâ·Â 
 		OnIMEComposition(wparam,lparam);
 		return TRUE;    
-	case WM_IME_ENDCOMPOSITION:          // ê¸€ìž ì¡°í•©ì˜ ë. ì¡°í•©ëœ ë¬¸ìžì—´ ì²˜ë¦¬ë¥¼ ëë‚¸ë‹¤          break; 
+	case WM_IME_ENDCOMPOSITION:          // ±ÛÀÚ Á¶ÇÕÀÇ ³¡. Á¶ÇÕµÈ ¹®ÀÚ¿­ Ã³¸®¸¦ ³¡³½´Ù          break; 
 		HideReading();
 		OnIMEEndComposition(wparam,lparam);
 		TRACE( "WM_IME_ENDCOMPOSITION\n" );
 		return TRUE;    
-	case WM_IME_SETCONTEXT:						// ê¸€ìž ì¡°í•© ìœˆë„ìš°ì™€ í•œìž ë³€í™˜ ìœˆë„ìš°ë¥¼ í‘œì‹œí•˜ì§€ ì•Šê²Œ ë°”ê¿ˆ
+	case WM_IME_SETCONTEXT:						// ±ÛÀÚ Á¶ÇÕ À©µµ¿ì¿Í ÇÑÀÚ º¯È¯ À©µµ¿ì¸¦ Ç¥½ÃÇÏÁö ¾Ê°Ô ¹Ù²Þ
 		OnIMESetContext(wparam,lparam);
 		return TRUE;     
 	case WM_IME_NOTIFY:        
@@ -1719,23 +1719,23 @@ BOOL CWndEdit::IsYouMessage(UINT msg,WPARAM wparam, LPARAM lparam)
 	}
 	return FALSE;
 }
-// ì•ŒíŒŒë²³ ëª¨ë“œë¡œ ë³€ê²½í•œë‹¤. ëª¨ë“œ í”Œë ‰ì´ ìžˆìœ¼ë¯€ë¡œ ìƒíƒœë¥¼ ì•Œìˆ˜ ìžˆë‹¤.
-// ëª¨ë“œë¥¼ ì•Œê³  ìžˆì–´ì•¼ imeì´ ë¦¬ì…‹í›„ì— ë‹¤ì‹œ ëª¨ë“œë¥¼ ë³µì›í•  ìˆ˜ ìžˆë‹¤.
+// ¾ËÆÄºª ¸ðµå·Î º¯°æÇÑ´Ù. ¸ðµå ÇÃ·ºÀÌ ÀÖÀ¸¹Ç·Î »óÅÂ¸¦ ¾Ë¼ö ÀÖ´Ù.
+// ¸ðµå¸¦ ¾Ë°í ÀÖ¾î¾ß imeÀÌ ¸®¼ÂÈÄ¿¡ ´Ù½Ã ¸ðµå¸¦ º¹¿øÇÒ ¼ö ÀÖ´Ù.
 void CWndEdit::SetAlphaNumericMode()
 {
 	m_bImeNativeMode = FALSE;
 	SetAlphaNumeric();
 }
-// êµ­ê°€ ëª¨ë“œë¡œ ë³€ê²½í•œë‹¤. ëª¨ë“œ í”Œë ‰ì´ ìžˆìœ¼ë¯€ë¡œ ìƒíƒœë¥¼ ì•Œìˆ˜ ìžˆë‹¤.
-// ëª¨ë“œë¥¼ ì•Œê³  ìžˆì–´ì•¼ imeì´ ë¦¬ì…‹í›„ì— ë‹¤ì‹œ ëª¨ë“œë¥¼ ë³µì›í•  ìˆ˜ ìžˆë‹¤.
+// ±¹°¡ ¸ðµå·Î º¯°æÇÑ´Ù. ¸ðµå ÇÃ·ºÀÌ ÀÖÀ¸¹Ç·Î »óÅÂ¸¦ ¾Ë¼ö ÀÖ´Ù.
+// ¸ðµå¸¦ ¾Ë°í ÀÖ¾î¾ß imeÀÌ ¸®¼ÂÈÄ¿¡ ´Ù½Ã ¸ðµå¸¦ º¹¿øÇÒ ¼ö ÀÖ´Ù.
 void CWndEdit::SetNativeMode()
 {
 	m_bImeNativeMode = TRUE;
 	SetNative();
 }
-// ime ì–¸ì–´ ë³€ê²½ ì—¬ë¶€ë¥¼ ì„¸íŒ…í•œë‹¤.
-// íŠ¹ì • ì–¸ì–´ë¡œ ìœ ì§€í•˜ê²Œ í•˜ëŠ” ê¸°ëŠ¥ì„ í•œë‹¤.
-// ì˜ë¬¸ì—ì„œ í•œê¸€ë¡œ ë³€ê²½í•˜ì§€ ëª»í•˜ê²Œ í•œë‹¤ë˜ê°€..
+// ime ¾ð¾î º¯°æ ¿©ºÎ¸¦ ¼¼ÆÃÇÑ´Ù.
+// Æ¯Á¤ ¾ð¾î·Î À¯ÁöÇÏ°Ô ÇÏ´Â ±â´ÉÀ» ÇÑ´Ù.
+// ¿µ¹®¿¡¼­ ÇÑ±Û·Î º¯°æÇÏÁö ¸øÇÏ°Ô ÇÑ´Ù´ø°¡..
 void CWndEdit::EnableModeChange( BOOL bEnable )
 {
 	if( bEnable )
@@ -1757,13 +1757,13 @@ void CWndEdit::EnableModeChange( BOOL bEnable )
 }
 ///////////////////////////////////////////////////////////////
 // public static
-// ì•ŒíŒŒë²³ ìƒíƒœë¡œ ë³€ê²½í•œë‹¤. 
+// ¾ËÆÄºª »óÅÂ·Î º¯°æÇÑ´Ù. 
 void CWndEdit::SetAlphaNumeric()
 {
 	g_imeMgr.SetOpenStatus(m_hWnd, FALSE);
 }
 
-// í˜„ìž¬ ê¸°ë³¸ìœ¼ë¡œ ì„¸íŒ…ëœ êµ­ê°€ ì–¸ì–´ ìƒíƒœë¡œ ë³€ê²½í•œë‹¤.
+// ÇöÀç ±âº»À¸·Î ¼¼ÆÃµÈ ±¹°¡ ¾ð¾î »óÅÂ·Î º¯°æÇÑ´Ù.
 void CWndEdit::SetNative()
 {
 	g_imeMgr.SetOpenStatus(m_hWnd, TRUE);
@@ -1896,10 +1896,10 @@ LONG CWndEdit::OnIMEControl(WPARAM dwCommand, LPARAM dwData)
 // WM_CHAR
 void CWndEdit::OnChar_(UINT nChar)
 {
-// ì˜ë¬¸ìžë¥¼ ìž…ë ¥í•  ë•Œ, ì±„íŒ… ì°½ì˜ ê°€ë¡œ í¬ê¸°ë¥¼ ë„˜ê¸°ì§€ ëª»í•˜ëŠ” ë¬¸ì œ ìˆ˜ì • - 2009/11/05
+// ¿µ¹®ÀÚ¸¦ ÀÔ·ÂÇÒ ¶§, Ã¤ÆÃ Ã¢ÀÇ °¡·Î Å©±â¸¦ ³Ñ±âÁö ¸øÇÏ´Â ¹®Á¦ ¼öÁ¤ - 2009/11/05
 // 	if( !IsWndStyle( EBS_AUTOHSCROLL ) && !IsWndStyle( EBS_AUTOVSCROLL ) )
 // 	{
-// 		CString strTemp = m_string + (CHAR)nChar; // ê¸¸ì´ë¥¼ í™•ì¸í•˜ê¸° ìœ„í•´ì„œ ì¼ë‹¨ ë’¤ì— strì„ ì¶”ê°€í•œë‹¤.
+// 		CString strTemp = m_string + (CHAR)nChar; // ±æÀÌ¸¦ È®ÀÎÇÏ±â À§ÇØ¼­ ÀÏ´Ü µÚ¿¡ strÀ» Ãß°¡ÇÑ´Ù.
 // 		if( m_pFont->GetTextExtent( strTemp ).cx >= GetClientRect().Width() )
 // 			return;
 // 	}
@@ -1907,7 +1907,7 @@ void CWndEdit::OnChar_(UINT nChar)
 
 	if( ( nChar == 8 ) || ( nChar == 27 )) // backspace
 	{
-		if(PRIMARYLANGID(g_imeMgr.m_hkl) == LANG_CHINESE && SUBLANGID(g_imeMgr.m_langId) == SUBLANG_CHINESE_TRADITIONAL) //í™ì½© Quick IMEê´€ë ¨ m_stringBackê°±ì‹ 
+		if(PRIMARYLANGID(g_imeMgr.m_hkl) == LANG_CHINESE && SUBLANGID(g_imeMgr.m_langId) == SUBLANG_CHINESE_TRADITIONAL) //È«Äá Quick IME°ü·Ã m_stringBack°»½Å
 			m_stringBack = m_string;
 		
 		return;
@@ -1955,7 +1955,7 @@ void CWndEdit::OnChar_(UINT nChar)
 	{
 		DeleteBlock();
 
-		// ì½˜íŠ¸ë¡¤ ë¬¸ìžë©´ ë¦¬í„´ 
+		// ÄÜÆ®·Ñ ¹®ÀÚ¸é ¸®ÅÏ 
 		if( iscntrl( nChar ) )
 			return;
 
@@ -1978,7 +1978,7 @@ void CWndEdit::OnChar_(UINT nChar)
 		m_string.Insert( m_dwOffset, nChar, EDIT_COLOR, 0, g_imeMgr.m_codePage );
 		m_dwOffset++;
 
-		if(PRIMARYLANGID(g_imeMgr.m_hkl) == LANG_CHINESE && SUBLANGID(g_imeMgr.m_langId) == SUBLANG_CHINESE_TRADITIONAL && isgraph(nChar)) //í™ì½© Quick IMEê´€ë ¨ m_stringBackê°±ì‹ 
+		if(PRIMARYLANGID(g_imeMgr.m_hkl) == LANG_CHINESE && SUBLANGID(g_imeMgr.m_langId) == SUBLANG_CHINESE_TRADITIONAL && isgraph(nChar)) //È«Äá Quick IME°ü·Ã m_stringBack°»½Å
 			m_stringBack = m_string;
 		
 		m_pParentWnd->OnChildNotify( EN_CHANGE, m_nIdWnd, (LRESULT*)this ); 

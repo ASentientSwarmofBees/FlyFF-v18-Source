@@ -1,4 +1,4 @@
-ï»¿// GuildHouseDBCtrl.cpp: implementation of the CGuildHouseDBCtrl class.
+// GuildHouseDBCtrl.cpp: implementation of the CGuildHouseDBCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -119,12 +119,12 @@ void CGuildHouseDBCtrl::CreateGuildHouse( CAr & ar, DPID dpId )
 		CGuildHouseBase* pGuildHouse = GuildHouseMng->MakeGuildHouse( dwGuildId, WI_GUILDHOUSE_SMALL );
 		if( pGuildHouse )
 		{
-			pGuildHouse->SetUpkeeptime( time_null() + ( UPKEEP_DAY_TIME * 7 ) );	// ê¸°ë³¸ ìœ ì§€ê¸°ê°„ì„ ì œê³µí•œë‹¤.
-			if( pQuery->Execute( "usp_GuildHouse_Insert '%02d', '%06d', %d, %d", g_appInfo.dwSys, dwGuildId, WI_GUILDHOUSE_SMALL, pGuildHouse->GetUpkeepTime() ) // DBì— ì¶”ê°€ ì„±ê³µ
+			pGuildHouse->SetUpkeeptime( time_null() + ( UPKEEP_DAY_TIME * 7 ) );	// ±âº» À¯Áö±â°£À» Á¦°øÇÑ´Ù.
+			if( pQuery->Execute( "usp_GuildHouse_Insert '%02d', '%06d', %d, %d", g_appInfo.dwSys, dwGuildId, WI_GUILDHOUSE_SMALL, pGuildHouse->GetUpkeepTime() ) // DB¿¡ Ãß°¡ ¼º°ø
 				&& GuildHouseMng->AddGuildHouse( dwGuildId, pGuildHouse ) )
 			{
 				arCreate << TRUE;
-				dpId = DPID_ALLPLAYERS;	// ëª¨ë“  ì›”ë“œ ì„œë²„ë¡œ ì „ì†¡í•œë‹¤.
+				dpId = DPID_ALLPLAYERS;	// ¸ðµç ¿ùµå ¼­¹ö·Î Àü¼ÛÇÑ´Ù.
 				GH_Fntr_Info gfi( II_GHOU_FUR_NPC_TELEPORTER, TRUE, pGuildHouse->GetTeleporterPos(), 0.0f, ( UPKEEP_DAY_TIME * 7 ) );
 				if( ExcuteQuery( dwGuildId, pGuildHouse, GUILDHOUSE_PCKTTYPE_LISTUP, gfi, NULL_ID ) )
 					pGuildHouse->OnGuildHousePacket( GUILDHOUSE_PCKTTYPE_LISTUP, gfi, NULL_ID );

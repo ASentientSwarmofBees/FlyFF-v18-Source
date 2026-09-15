@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "clientMsg.h"
 #include "timer.h"
 

@@ -1,13 +1,13 @@
-ï»¿// number ì‚½ì… ì´ë¯¸ì§€ ê°œìˆ˜
-// serialize ì—°ì†ìœ¼ë¡œ ì´ë¯¸ì§€ ì‚½ì…(width hight StartPosition-X StartPosition-Y, center_x, center_y)
-// pos ë‹¨ì¼ë¡œ ì´ë¯¸ì§€ ì‚½ì… (width hight StartPosition-X StartPosition-Y)
+// number »ğÀÔ ÀÌ¹ÌÁö °³¼ö
+// serialize ¿¬¼ÓÀ¸·Î ÀÌ¹ÌÁö »ğÀÔ(width hight StartPosition-X StartPosition-Y, center_x, center_y)
+// pos ´ÜÀÏ·Î ÀÌ¹ÌÁö »ğÀÔ (width hight StartPosition-X StartPosition-Y)
 number 49
 texture "icon\icon_PlayerData.dds" 0xffff00ff
 
-serialize 7  32 32  1   1 0 0  // í° ìƒíƒœ ì•„ì´ì½˜
-serialize 7  16 16  1  33 0 0  // ì‘ì€ ìƒíƒœ ì•„ì´ì½˜
-serialize 5  16 16  1  49 0 0  // 1ì°¨ì§ì—… ì•„ì´ì½˜
-serialize 8  16 16  1  65 0 0  // 2ì°¨ì§ì—… ì•„ì´ì½˜
-serialize 7  16 16  1  81 0 0  // ë§ˆìŠ¤í„°, ì˜ì›… ì•„ì´ì½˜
-serialize 10 16 16  1  97 0 0  // ì„œë²„ ì±„ë„ ì•„ì´ì½˜
-serialize 5  16 16  1 113 0 0  // ê¸¸ë“œë‚´ ìºë¦­í„° ë“±ê¸‰
+serialize 7  32 32  1   1 0 0  // Å« »óÅÂ ¾ÆÀÌÄÜ
+serialize 7  16 16  1  33 0 0  // ÀÛÀº »óÅÂ ¾ÆÀÌÄÜ
+serialize 5  16 16  1  49 0 0  // 1Â÷Á÷¾÷ ¾ÆÀÌÄÜ
+serialize 8  16 16  1  65 0 0  // 2Â÷Á÷¾÷ ¾ÆÀÌÄÜ
+serialize 7  16 16  1  81 0 0  // ¸¶½ºÅÍ, ¿µ¿õ ¾ÆÀÌÄÜ
+serialize 10 16 16  1  97 0 0  // ¼­¹ö Ã¤³Î ¾ÆÀÌÄÜ
+serialize 5  16 16  1 113 0 0  // ±æµå³» Ä³¸¯ÅÍ µî±Ş

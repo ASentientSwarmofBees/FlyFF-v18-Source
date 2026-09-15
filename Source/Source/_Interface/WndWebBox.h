@@ -1,4 +1,4 @@
-﻿// WndWebBox.h: interface for the CWndWebBox class.
+// WndWebBox.h: interface for the CWndWebBox class.
 //
 //////////////////////////////////////////////////////////////////////
 

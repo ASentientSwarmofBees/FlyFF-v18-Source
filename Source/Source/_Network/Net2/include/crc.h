@@ -1,11 +1,11 @@
-ï»¿#ifndef CRYPTOPP_CRC32_H
+#ifndef CRYPTOPP_CRC32_H
 #define CRYPTOPP_CRC32_H
 
 typedef unsigned int word32;
 typedef unsigned char byte;
 const word32 CRC32_NEGL = 0xffffffffL;
 
-//ì¸í…” ê³„ì—´ì˜ CPUëŠ” ë¦¬í‹€ì¸ë””ì–¸ 
+//ÀÎÅÚ °è¿­ÀÇ CPU´Â ¸®Æ²ÀÎµğ¾ğ 
 #define IS_LITTLE_ENDIAN 
 
 #ifdef IS_LITTLE_ENDIAN

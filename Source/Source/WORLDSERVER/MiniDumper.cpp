@@ -1,4 +1,4 @@
-ï»¿//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 /// \file MiniDumper.cpp
 /// \author excel96
 /// \date 2003.11.18
@@ -23,13 +23,13 @@ typedef BOOL (WINAPI *MINIDUMPWRITEDUMP)(
     CONST PMINIDUMP_CALLBACK_INFORMATION CallbackParam
     );
 
-/// ë¤í”„ ë ˆë²¨.
+/// ´ıÇÁ ·¹º§.
 static DumpLevel s_DumpLevel			   = DUMP_LEVEL_0;
-/// ë¤í”„ íŒŒì¼ ì´ë¦„ì—ë‹¤ê°€ ë¤í”„ íŒŒì¼ì´ ìƒì„±ëœ ë‚ ì§œë¥¼ ì§‘ì–´ë„£ëŠ”ê°€ì˜ ì—¬ë¶€.
+/// ´ıÇÁ ÆÄÀÏ ÀÌ¸§¿¡´Ù°¡ ´ıÇÁ ÆÄÀÏÀÌ »ı¼ºµÈ ³¯Â¥¸¦ Áı¾î³Ö´Â°¡ÀÇ ¿©ºÎ.
 static bool		s_bAddTimeStamp            = true;
-/// ë¤í”„ íŒŒì¼ ì´ë¦„ ë¬¸ìì—´.
+/// ´ıÇÁ ÆÄÀÏ ÀÌ¸§ ¹®ÀÚ¿­.
 static TCHAR	s_szAppName[_MAX_PATH]     = {0,};
-/// ë¤í”„ íŒŒì¼ ì´ë¦„ ë¬¸ìì—´.
+/// ´ıÇÁ ÆÄÀÏ ÀÌ¸§ ¹®ÀÚ¿­.
 TCHAR			s_szFaultReason[1024*16]   = {0,};
 
 static LPCTSTR GetFaultReason(struct _EXCEPTION_POINTERS* pExPtrs);
@@ -56,7 +56,7 @@ void filelog( LPVOID, LPCTSTR lpszFormat, ... )
 }
 
 //////////////////////////////////////////////////////////////////////////////
-///ì˜ˆì™¸ì— ëŒ€í•œ ì •ë³´ë¥¼ ë°›ì•„ì„œ, ë¯¸ë‹ˆ ë¤í”„ íŒŒì¼ì„ ìƒì„±í•œë‹¤. 
+///¿¹¿Ü¿¡ ´ëÇÑ Á¤º¸¸¦ ¹Ş¾Æ¼­, ¹Ì´Ï ´ıÇÁ ÆÄÀÏÀ» »ı¼ºÇÑ´Ù. 
 //////////////////////////////////////////////////////////////////////////////
 LONG WINAPI TopLevelFilter(struct _EXCEPTION_POINTERS* pExPtr)
 {
@@ -65,9 +65,9 @@ LONG WINAPI TopLevelFilter(struct _EXCEPTION_POINTERS* pExPtr)
     TCHAR   szDbgHelpPath[_MAX_PATH] = {0, };
     TCHAR   szDumpPath[MAX_PATH * 2] = {0,};
 
-    // ë¨¼ì € ì‹¤í–‰ íŒŒì¼ì´ ìˆëŠ” ë””ë ‰í† ë¦¬ì—ì„œ DBGHELP.DLLì„ ë¡œë“œí•´ ë³¸ë‹¤.
-    // Windows 2000 ì˜ System32 ë””ë ‰í† ë¦¬ì— ìˆëŠ” DBGHELP.DLL íŒŒì¼ì€ ë²„ì „ì´ 
-    // ì˜¤ë˜ëœ ê²ƒì¼ ìˆ˜ ìˆê¸° ë•Œë¬¸ì´ë‹¤. (ìµœì†Œ 5.1.2600.0 ì´ìƒì´ì–´ì•¼ í•œë‹¤.)
+    // ¸ÕÀú ½ÇÇà ÆÄÀÏÀÌ ÀÖ´Â µğ·ºÅä¸®¿¡¼­ DBGHELP.DLLÀ» ·ÎµåÇØ º»´Ù.
+    // Windows 2000 ÀÇ System32 µğ·ºÅä¸®¿¡ ÀÖ´Â DBGHELP.DLL ÆÄÀÏÀº ¹öÀüÀÌ 
+    // ¿À·¡µÈ °ÍÀÏ ¼ö ÀÖ±â ¶§¹®ÀÌ´Ù. (ÃÖ¼Ò 5.1.2600.0 ÀÌ»óÀÌ¾î¾ß ÇÑ´Ù.)
     if (::GetModuleFileName(NULL, szDbgHelpPath, _MAX_PATH))
     {
         LPTSTR pSlash = ::strrchr(szDbgHelpPath, '\\');
@@ -78,21 +78,21 @@ LONG WINAPI TopLevelFilter(struct _EXCEPTION_POINTERS* pExPtr)
         }
     }
 
-    // í˜„ì¬ ë””ë ‰í† ë¦¬ì— ì—†ë‹¤ë©´, ì•„ë¬´ ë²„ì „ì´ë‚˜ ë¡œë“œí•œë‹¤.
+    // ÇöÀç µğ·ºÅä¸®¿¡ ¾ø´Ù¸é, ¾Æ¹« ¹öÀüÀÌ³ª ·ÎµåÇÑ´Ù.
     if (hDLL == NULL) hDLL = ::LoadLibrary("DBGHELP.DLL");
 
-    // DBGHELP.DLLì„ ì°¾ì„ ìˆ˜ ì—†ë‹¤ë©´ ë” ì´ìƒ ì§„í–‰í•  ìˆ˜ ì—†ë‹¤.
+    // DBGHELP.DLLÀ» Ã£À» ¼ö ¾ø´Ù¸é ´õ ÀÌ»ó ÁøÇàÇÒ ¼ö ¾ø´Ù.
     if (hDLL == NULL)
     {
         filelog(NULL, "DBGHELP.DLL not found");
         return retval;
     }
 
-    // DLL ë‚´ë¶€ì—ì„œ MiniDumpWriteDump APIë¥¼ ì°¾ëŠ”ë‹¤.
+    // DLL ³»ºÎ¿¡¼­ MiniDumpWriteDump API¸¦ Ã£´Â´Ù.
     MINIDUMPWRITEDUMP pfnMiniDumpWriteDump = 
         (MINIDUMPWRITEDUMP)::GetProcAddress(hDLL, "MiniDumpWriteDump");
 
-    // ë¯¸ë‹ˆë¤í”„ í•¨ìˆ˜ë¥¼ ì°¾ì„ ìˆ˜ ì—†ë‹¤ë©´ ë” ì´ìƒ ì§„í–‰í•  ìˆ˜ ì—†ë‹¤.
+    // ¹Ì´Ï´ıÇÁ ÇÔ¼ö¸¦ Ã£À» ¼ö ¾ø´Ù¸é ´õ ÀÌ»ó ÁøÇàÇÒ ¼ö ¾ø´Ù.
     if (pfnMiniDumpWriteDump == NULL)
     {
         filelog(NULL, "DBGHELP.DLL too old");
@@ -101,30 +101,30 @@ LONG WINAPI TopLevelFilter(struct _EXCEPTION_POINTERS* pExPtr)
 
     if (s_bAddTimeStamp)
     {
-        // í˜„ì¬ ì‹œê°„ì„ ì–»ì–´ì˜¨ë‹¤.
+        // ÇöÀç ½Ã°£À» ¾ò¾î¿Â´Ù.
         SYSTEMTIME t;
         ::GetLocalTime(&t);
 
-        // ì‹œê°„ ë¬¸ìì—´ì„ ì¤€ë¹„í•œë‹¤.
+        // ½Ã°£ ¹®ÀÚ¿­À» ÁØºñÇÑ´Ù.
         TCHAR szTail[_MAX_PATH];
         _snprintf(szTail, _MAX_PATH-1, 
             " %04d-%02d-%02d %02d-%02d-%02d",
             t.wYear, t.wMonth, t.wDay, t.wHour, t.wMinute, t.wSecond);
 
-        // ë¤í”„ íŒŒì¼ ì´ë¦„ += ì‹œê°„ ë¬¸ìì—´
+        // ´ıÇÁ ÆÄÀÏ ÀÌ¸§ += ½Ã°£ ¹®ÀÚ¿­
         ::lstrcat(szDumpPath, s_szAppName);
         ::lstrcat(szDumpPath, szTail);
     }
 
-    // ë¤í”„ íŒŒì¼ ì´ë¦„ += í™•ì¥ì
+    // ´ıÇÁ ÆÄÀÏ ÀÌ¸§ += È®ÀåÀÚ
     ::lstrcat(szDumpPath, ".dmp");
 
-    // íŒŒì¼ì„ ìƒì„±í•œë‹¤.
+    // ÆÄÀÏÀ» »ı¼ºÇÑ´Ù.
     HANDLE hFile = ::CreateFile(
         szDumpPath, GENERIC_WRITE, FILE_SHARE_WRITE, NULL, 
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 
-    // íŒŒì¼ì„ ìƒì„±í•  ìˆ˜ ì—†ë‹¤ë©´ ë” ì´ìƒ ì§„í–‰í•  ìˆ˜ ì—†ë‹¤.
+    // ÆÄÀÏÀ» »ı¼ºÇÒ ¼ö ¾ø´Ù¸é ´õ ÀÌ»ó ÁøÇàÇÒ ¼ö ¾ø´Ù.
     if (hFile == INVALID_HANDLE_VALUE)
     {
         filelog(NULL, "Failed to create dump file '%s'", szDumpPath);
@@ -137,7 +137,7 @@ LONG WINAPI TopLevelFilter(struct _EXCEPTION_POINTERS* pExPtr)
     ExceptionParam.ExceptionPointers = pExPtr;
     ExceptionParam.ClientPointers = FALSE;
 
-    // ì˜µì…˜ì— ë”°ë¼ ë¤í”„ íŒŒì¼ì„ ìƒì„±í•œë‹¤. 
+    // ¿É¼Ç¿¡ µû¶ó ´ıÇÁ ÆÄÀÏÀ» »ı¼ºÇÑ´Ù. 
     BOOL bResult = FALSE;
     switch (s_DumpLevel)
     {
@@ -163,7 +163,7 @@ LONG WINAPI TopLevelFilter(struct _EXCEPTION_POINTERS* pExPtr)
             break;
     }
 
-    // ë¤í”„ íŒŒì¼ ìƒì„± ê²°ê³¼ë¥¼ ë¡œê·¸ íŒŒì¼ì—ë‹¤ ê¸°ë¡í•œë‹¤.
+    // ´ıÇÁ ÆÄÀÏ »ı¼º °á°ú¸¦ ·Î±× ÆÄÀÏ¿¡´Ù ±â·ÏÇÑ´Ù.
     if (bResult)
     {
         TCHAR szMessage[8192] = {0,};
@@ -191,7 +191,7 @@ LPCTSTR GetFaultReason(struct _EXCEPTION_POINTERS* pExPtrs)
     if (::IsBadReadPtr(pExPtrs, sizeof(EXCEPTION_POINTERS))) 
         return "BAD EXCEPTION POINTERS";
 
-    // ê°„ë‹¨í•œ ì—ëŸ¬ ì½”ë“œë¼ë©´ ê·¸ëƒ¥ ë³€í™˜í•  ìˆ˜ ìˆë‹¤.
+    // °£´ÜÇÑ ¿¡·¯ ÄÚµå¶ó¸é ±×³É º¯È¯ÇÒ ¼ö ÀÖ´Ù.
     switch (pExPtrs->ExceptionRecord->ExceptionCode)
     {
         case EXCEPTION_ACCESS_VIOLATION:         return "EXCEPTION_ACCESS_VIOLATION";
@@ -221,7 +221,7 @@ LPCTSTR GetFaultReason(struct _EXCEPTION_POINTERS* pExPtrs)
             break;
     }
 
-    // ë­”ê°€ ì¢€ ë” ë³µì¡í•œ ì—ëŸ¬ë¼ë©´...
+    // ¹º°¡ Á» ´õ º¹ÀâÇÑ ¿¡·¯¶ó¸é...
     lstrcpy(s_szFaultReason, "Unknown"); 
     ::FormatMessage(
         FORMAT_MESSAGE_FROM_HMODULE | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -239,15 +239,15 @@ void InitDumper( DumpLevel level )
 {
     s_DumpLevel     = level;
 
-    // ëª¨ë“ˆ ê²½ë¡œë¥¼ ì•Œì•„ë‚¸ë‹¤.
+    // ¸ğµâ °æ·Î¸¦ ¾Ë¾Æ³½´Ù.
     TCHAR szFilename[_MAX_PATH];
     ::GetModuleFileName(NULL, szFilename, _MAX_PATH);
 
-    // í™•ì¥ìë¥¼ ì œê±°í•œ ëª¨ë“ˆ ê²½ë¡œë¥¼ ì¤€ë¹„í•´ë‘ê³ ...
+    // È®ÀåÀÚ¸¦ Á¦°ÅÇÑ ¸ğµâ °æ·Î¸¦ ÁØºñÇØµÎ°í...
     TCHAR* dot = strrchr(szFilename, '.');
     ::lstrcpyn(s_szAppName, szFilename, (int)(dot - szFilename + 1));
 
-    // ì˜ˆì™¸ ì²˜ë¦¬ í•¸ë“¤ëŸ¬ë¥¼ ì„¤ì •í•œë‹¤.
+    // ¿¹¿Ü Ã³¸® ÇÚµé·¯¸¦ ¼³Á¤ÇÑ´Ù.
     ::SetUnhandledExceptionFilter(TopLevelFilter);
 }
 

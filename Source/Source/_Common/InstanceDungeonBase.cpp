@@ -1,4 +1,4 @@
-Ôªø// InstanceDungeonBase.cpp: implementation of the CInstanceDungeonBase class.
+// InstanceDungeonBase.cpp: implementation of the CInstanceDungeonBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -47,7 +47,7 @@ void CInstanceDungeonBase::SerializeAllInfo( CAr & ar )
 {
 	if( ar.IsStoring() )
 	{
-		// ÎçòÏ†Ñ Ï†ïÎ≥¥
+		// ¥¯¿¸ ¡§∫∏
 		ar << m_mapID.size();
 		for( MAP_IDBASE::iterator itMap=m_mapID.begin(); itMap!=m_mapID.end(); itMap++ )
 		{
@@ -59,7 +59,7 @@ void CInstanceDungeonBase::SerializeAllInfo( CAr & ar )
 				(*itVec).Serialize( ar );
 		}
 		
-		// ÌîåÎ†àÏù¥Ïñ¥ Ïø®ÌÉÄÏûÑ Ï†ïÎ≥¥
+		// «√∑π¿ÃæÓ ƒ≈∏¿” ¡§∫∏
 		ar << m_mapCTInfo.size();
 		for( MAP_CTINFO::iterator it=m_mapCTInfo.begin(); it!=m_mapCTInfo.end(); it++)
 		{
@@ -73,7 +73,7 @@ void CInstanceDungeonBase::SerializeAllInfo( CAr & ar )
 	}
 	else
 	{
-		// ÎçòÏ†Ñ Ï†ïÎ≥¥
+		// ¥¯¿¸ ¡§∫∏
 		m_mapID.clear();
 		size_t nSizeMap;
 		ar >> nSizeMap;
@@ -89,7 +89,7 @@ void CInstanceDungeonBase::SerializeAllInfo( CAr & ar )
 			}
 		}
 		
-		// ÌîåÎ†àÏù¥Ïñ¥ Ïø®ÌÉÄÏûÑ Ï†ïÎ≥¥
+		// «√∑π¿ÃæÓ ƒ≈∏¿” ¡§∫∏
 		m_mapCTInfo.clear();
 		ar >> nSizeMap;
 		for( DWORD i=0; i<nSizeMap; i++ )
@@ -182,7 +182,7 @@ BOOL CInstanceDungeonBase::CreateDungeon( ID_INFO ID_Info, DWORD dwDungeonId )
 		m_mapID.insert( MAP_IDBASE::value_type( dwDungeonId, vecTemp ) );
 	}
 
-	return CreateDungeonLayer( ID_Info, dwDungeonId );	// Ìï¥Îãπ ÎçòÏ†Ñ Î†àÏù¥Ïñ¥ ÏÉùÏÑ±
+	return CreateDungeonLayer( ID_Info, dwDungeonId );	// «ÿ¥Á ¥¯¿¸ ∑π¿ÃæÓ ª˝º∫
 }
 
 BOOL CInstanceDungeonBase::DestroyDungeon( ID_INFO ID_Info, DWORD dwDungeonId )
@@ -194,7 +194,7 @@ BOOL CInstanceDungeonBase::DestroyDungeon( ID_INFO ID_Info, DWORD dwDungeonId )
 		{
 			if( (*itVec).dwWorldId == ID_Info.dwWorldId )
 			{
-				if( !DestroyDungeonLayer( ID_Info, dwDungeonId ) )	// Ìï¥Îãπ ÎçòÏ†Ñ Î†àÏù¥Ïñ¥ ÌååÍ¥¥ 
+				if( !DestroyDungeonLayer( ID_Info, dwDungeonId ) )	// «ÿ¥Á ¥¯¿¸ ∑π¿ÃæÓ ∆ƒ±´ 
 					return FALSE;
 
 				it->second.erase( itVec );
@@ -221,7 +221,7 @@ void CInstanceDungeonBase::DestroyAllDungeonByDungeonID( DWORD dwDungeonId )
 		vecTemp.assign( pvecTemp->begin(), pvecTemp->end() );
 		for( VEC_IDINFO::iterator itVec=vecTemp.begin(); itVec!=vecTemp.end(); itVec++ )
 #ifdef __CORESERVER
-			DestroyDungeon( (*itVec), dwDungeonId );		// 090525 ÌòÑÏû¨ÍπåÏßÄ ÏÇ¨Ïö©Ìï† Ïùº ÏóÜÎã§^^
+			DestroyDungeon( (*itVec), dwDungeonId );		// 090525 «ˆ¿Á±Ó¡ˆ ªÁøÎ«“ ¿œ æ¯¥Ÿ^^
 #endif // __CORESERVER
 #ifdef __WORLDSERVER
 			CInstanceDungeonHelper::GetInstance()->SendInstanceDungeonDestroy( GetType(), dwDungeonId, (*itVec) );
@@ -246,7 +246,7 @@ void CInstanceDungeonBase::DestroyAllDungeonByMultiKey( ULONG uMultiKey )
 		DestroyDungeon( vecpairTemp[i].first, vecpairTemp[i].second );
 #endif // __CORESERVER
 #ifdef __WORLDSERVER
-		// 090525 ÌòÑÏû¨ÍπåÏßÄ ÏÇ¨Ïö©Ìï† Ïùº ÏóÜÎã§^^
+		// 090525 «ˆ¿Á±Ó¡ˆ ªÁøÎ«“ ¿œ æ¯¥Ÿ^^
 		CInstanceDungeonHelper::GetInstance()->SendInstanceDungeonDestroy( GetType(), vecpairTemp[i].second, vecpairTemp[i].first );
 #endif // __WORLDSERVER
 }
@@ -412,7 +412,7 @@ void CInstanceDungeonBase::LoadScript( const char* szFilename )
 			it->second.mapTeleportPos.insert( map<int, D3DXVECTOR3>::value_type( nState, vPos ) );
 			Lua.Pop( 1 );
 		}
-		Lua.Pop( 1 ); // tTeleport Ïä§ÌÉùÏóêÏÑú Ï†úÍ±∞
+		Lua.Pop( 1 ); // tTeleport Ω∫≈√ø°º≠ ¡¶∞≈
 		
 		Lua.GetField( -1, "tMonster" );
 		Lua.PushNil();
@@ -432,7 +432,7 @@ void CInstanceDungeonBase::LoadScript( const char* szFilename )
 
 			Lua.Pop( 1 );
 		}
-		Lua.Pop( 1 ); // tMonster Ïä§ÌÉùÏóêÏÑú Ï†úÍ±∞
+		Lua.Pop( 1 ); // tMonster Ω∫≈√ø°º≠ ¡¶∞≈
 
 		CInstanceDungeonHelper::GetInstance()->SetDungeonType( dwWorldId, GetType() );
 
@@ -485,7 +485,7 @@ void CInstanceDungeonBase::SetNextState( ID_INFO* pInfo, DWORD dwDungeonId )
 		if( pInfo->nKillCount >= GetObjCount( pInfo->dwWorldId, dwDungeonId ) )
 			SetNextState( pInfo, dwDungeonId );
 	}
-	else if( pInfo )	// ÎçòÏ†Ñ ÌÅ¥Î¶¨Ïñ¥ Î°úÍ∑∏(Ï∂îÌõÑ ÏÇ≠Ï†ú ÏòàÏ†ï)
+	else if( pInfo )	// ¥¯¿¸ ≈¨∏ÆæÓ ∑Œ±◊(√ﬂ»ƒ ªË¡¶ øπ¡§)
 	{
 		g_dpDBClient.SendLogInstanceDungeon( dwDungeonId, pInfo->dwWorldId, g_uIdofMulti, GetType(), 'C' );
 		//OUTPUTDEBUGSTRING( "Instance Dungeon Clear - Party : %07d,\tWorld : %d", dwDungeonId, pInfo->dwWorldId );
@@ -628,13 +628,13 @@ BOOL CInstanceDungeonBase::TeleportToDungeon( CUser* pUser, DWORD dwWorldId, DWO
 	if( !CheckClassLevel( pUser, dwWorldId ) )
 		return FALSE;
 
-#if __VER >= 14 // __INSTANCE_DUNGEON	// Ïù∏Îçò ÎÇ¥ ÎòêÎäî ÏûÖÏû•Ïãú Î≥ÄÏã†Íµ¨ ÏÇ¨Ïö© Í∏àÏßÄ
+#if __VER >= 14 // __INSTANCE_DUNGEON	// ¿Œ¥¯ ≥ª ∂«¥¬ ¿‘¿ÂΩ√ ∫ØΩ≈±∏ ªÁøÎ ±›¡ˆ
 	if( pUser->HasBuffByIk3( IK3_TEXT_DISGUISE ) )
 	{
 		pUser->AddDefinedText( TID_GAME_INSTANCE_DISGUISE02 );	
 		return FALSE;
 	}
-#endif // __INSTANCE_DUNGEON	// Ïù∏Îçò ÎÇ¥ ÎòêÎäî ÏûÖÏû•Ïãú Î≥ÄÏã†Íµ¨ ÏÇ¨Ïö© Í∏àÏßÄ
+#endif // __INSTANCE_DUNGEON	// ¿Œ¥¯ ≥ª ∂«¥¬ ¿‘¿ÂΩ√ ∫ØΩ≈±∏ ªÁøÎ ±›¡ˆ
 
 	CWorld* pWorld = g_WorldMng.GetWorld( dwWorldId );
 	if( !pWorld )
@@ -657,9 +657,9 @@ BOOL CInstanceDungeonBase::TeleportToDungeon( CUser* pUser, DWORD dwWorldId, DWO
 	}
 
 	ID_INFO* pInfo = GetDungeonInfo( dwDungeonId, dwWorldId );
-	if( pInfo )	// Ìï¥Îãπ ÎçòÏ†ÑÏù¥ Ï°¥Ïû¨ÌïòÎ©¥ Ï±ÑÎÑê Í≤ÄÏÇ¨...
+	if( pInfo )	// «ÿ¥Á ¥¯¿¸¿Ã ¡∏¿Á«œ∏È √§≥Œ ∞ÀªÁ...
 	{
-		if( pInfo->uMultiKey != g_uKey )	// Ìï¥Îãπ Ï±ÑÎÑêÏóê ÏÉùÏÑ±Îêú ÎçòÏ†ÑÏù¥ ÏïÑÎãàÎ©¥ ÏûÖÏû• Î∂àÍ∞Ä
+		if( pInfo->uMultiKey != g_uKey )	// «ÿ¥Á √§≥Œø° ª˝º∫µ» ¥¯¿¸¿Ã æ∆¥œ∏È ¿‘¿Â ∫“∞°
 		{
 			pUser->AddDefinedText( TID_GAME_INSTANCE_CHANNEL );
 			return FALSE;
@@ -683,7 +683,7 @@ BOOL CInstanceDungeonBase::TeleportToDungeon( CUser* pUser, DWORD dwWorldId, DWO
 			vPos += D3DXVECTOR3( (float)( nRandx ), (float)( 0 ), (float)( nRandz ) );
 			pUser->REPLACE( g_uIdofMulti, dwWorldId, vPos, REPLACE_NORMAL, static_cast<int>( dwDungeonId ) );
 			IncreasePlayerCount( static_cast<DWORD>( pUser->m_idparty ), dwWorldId );
-			if( !pCT_Info || pCT_Info->dwDungeonId != dwDungeonId )	// 090813 ÎçòÏ†ÑÏù¥ Ïú†ÏßÄÎêòÍ≥† ÏûàÎäî ÏÉÅÌÉúÏóêÏÑúÏùò Ïû¨ÏûÖÏû•ÏùÄ setÌïòÏßÄ ÏïäÏùå 
+			if( !pCT_Info || pCT_Info->dwDungeonId != dwDungeonId )	// 090813 ¥¯¿¸¿Ã ¿Ø¡ˆµ«∞Ì ¿÷¥¬ ªÛ≈¬ø°º≠¿« ¿Á¿‘¿Â¿∫ set«œ¡ˆ æ ¿Ω 
 				CInstanceDungeonHelper::GetInstance()->SendInstanceDungeonSetCoolTimeInfo( g_uKey, GetType(), pUser->m_idPlayer, COOLTIME_INFO( dwWorldId, dwDungeonId, ( GetCoolTime( dwWorldId ) + GetTickCount() ) ) );
 			
 			return TRUE;
@@ -691,7 +691,7 @@ BOOL CInstanceDungeonBase::TeleportToDungeon( CUser* pUser, DWORD dwWorldId, DWO
 		else
 			return FALSE;
 	}
-	else	// Ìï¥Îãπ ÎçòÏ†ÑÏù¥ Ï°¥Ïû¨ÌïòÏßÄ ÏïäÏúºÎ©¥ CoreServerÎ°ú ÏÉùÏÑ± Ìï† Í≤ÉÏùÑ ÏöîÏ≤≠ ÌïúÎã§.
+	else	// «ÿ¥Á ¥¯¿¸¿Ã ¡∏¿Á«œ¡ˆ æ ¿∏∏È CoreServer∑Œ ª˝º∫ «“ ∞Õ¿ª ø‰√ª «—¥Ÿ.
 	{
 		if( CInstanceDungeonHelper::GetInstance()->m_nIDLayerNum < m_nMaxInstanceDungeon )
 			CInstanceDungeonHelper::GetInstance()->SendInstanceDungeonCreate( GetType(), dwDungeonId, ID_INFO( dwWorldId, g_uKey ) );
@@ -1008,7 +1008,7 @@ BOOL CInstanceDungeonHelper::LeaveDungeon( CUser* pUser, DWORD dwWorldId )
 	return FALSE;
 }
 
-// OnJoin()ÏóêÏÑúÎßå dwWorldId Ïóê Í∞íÏù¥ Ï°¥Ïû¨ÌïúÎã§. Ìï¥Îãπ ÎçòÏ†ÑÏóêÏÑú ÏûÖÏû• Ï∫êÎ¶≠ÌÑ∞ÏàòÎ•º Ï¶ùÍ∞ÄÏãúÌÇ§ÏßÄ ÏïäÍ≥† Í∞ïÌá¥ÏãúÌÇ§Í∏∞ÏúÑÌï¥ ÏûÖÏû• Ï∫êÎ¶≠ÌÑ∞ÏàòÎ•º ÎØ∏Î¶¨ Ï¶ùÍ∞ÄÏãúÌÇ®Îã§.
+// OnJoin()ø°º≠∏∏ dwWorldId ø° ∞™¿Ã ¡∏¿Á«—¥Ÿ. «ÿ¥Á ¥¯¿¸ø°º≠ ¿‘¿Â ƒ≥∏Ø≈Õºˆ∏¶ ¡ı∞°Ω√≈∞¡ˆ æ ∞Ì ∞≠≈Ω√≈∞±‚¿ß«ÿ ¿‘¿Â ƒ≥∏Ø≈Õºˆ∏¶ πÃ∏Æ ¡ı∞°Ω√≈≤¥Ÿ.
 void CInstanceDungeonHelper::GoOut( CUser* pUser )
 {
 	pUser->REPLACE( g_uIdofMulti, pUser->m_idMarkingWorld, pUser->m_vMarkingPos, REPLACE_FORCE, nDefaultLayer );

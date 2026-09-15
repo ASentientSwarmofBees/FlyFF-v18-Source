@@ -1,9 +1,9 @@
-Ôªø#ifndef __HOTKEY_H
+#ifndef __HOTKEY_H
 #define __HOTKEY_H
 
 #define HOTKEY_MAX 2000
 
-// Í∏∞Îä• Ï†ïÏùò 
+// ±‚¥… ¡§¿« 
 
 #define FUNC_USE1        1
 #define FUNC_USE2        2

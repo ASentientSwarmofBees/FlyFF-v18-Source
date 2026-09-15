@@ -1,7 +1,7 @@
-ï»¿// number ì‚½ì… ì´ë¯¸ì§€ ê°œìˆ˜
-// serialize ì—°ì†ìœ¼ë¡œ ì´ë¯¸ì§€ ì‚½ì…(ì—°ì†ëœ ì´ë¯¸ì§€ ê°¯ìˆ˜, width hight StartPosition-X StartPosition-Y, center_x, center_y)
-// pos ë‹¨ì¼ë¡œ ì´ë¯¸ì§€ ì‚½ì… (width hight StartPosition-X StartPosition-Y)
-// texture í†µ í…ìŠ¤ì³ì— ëŒ€í•œ ë°ì´í„°	( texture "í…ìŠ¤ì³ì˜ ë¦¬ì†ŒìŠ¤ë¡œ ë¶€í„° ê²½ë¡œë° íŒŒì¼ëª…" ColorKey)
+// number »ğÀÔ ÀÌ¹ÌÁö °³¼ö
+// serialize ¿¬¼ÓÀ¸·Î ÀÌ¹ÌÁö »ğÀÔ(¿¬¼ÓµÈ ÀÌ¹ÌÁö °¹¼ö, width hight StartPosition-X StartPosition-Y, center_x, center_y)
+// pos ´ÜÀÏ·Î ÀÌ¹ÌÁö »ğÀÔ (width hight StartPosition-X StartPosition-Y)
+// texture Åë ÅØ½ºÃÄ¿¡ ´ëÇÑ µ¥ÀÌÅÍ	( texture "ÅØ½ºÃÄÀÇ ¸®¼Ò½º·Î ºÎÅÍ °æ·Î¹× ÆÄÀÏ¸í" ColorKey)
 number 4
 texture "Theme\ImgNavPos.tga" 0x00000000
-serialize 4  32  32  0  0  16 16  // ë„¤ë¹„ê²Œì´í„°ì—ì„œ ìœ ì €ê°€ ì°ì€ ìœ„ì¹˜ë¥¼ í‘œì‹œ
+serialize 4  32  32  0  0  16 16  // ³×ºñ°ÔÀÌÅÍ¿¡¼­ À¯Àú°¡ ÂïÀº À§Ä¡¸¦ Ç¥½Ã

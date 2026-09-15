@@ -1,4 +1,4 @@
-ï»¿// Sfx.h: interface for the CSfx class.
+// Sfx.h: interface for the CSfx class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -31,9 +31,9 @@
 class CSfxObj 
 {
 public:
-	D3DXVECTOR3		m_vPos  ; // ì˜¤ë¸Œì íŠ¸ ì¢Œí‘œ 
-	FLOAT			m_fAngle; // ì˜¤ë¸Œì íŠ¸ ê°ë„ 
-	D3DXVECTOR3		m_vScale; // ì˜¤ë¸Œì íŠ¸ ì‚¬ì´ì¦ˆ 
+	D3DXVECTOR3		m_vPos  ; // ¿ÀºêÁ§Æ® ÁÂÇ¥ 
+	FLOAT			m_fAngle; // ¿ÀºêÁ§Æ® °¢µµ 
+	D3DXVECTOR3		m_vScale; // ¿ÀºêÁ§Æ® »çÀÌÁî 
 	CModel*         m_pModel;
 	BOOL            m_bDelete;
 	//DWORD           m_dwIndex;
@@ -53,7 +53,7 @@ enum PARTICLEACCELTYPE
 	PARTICLEACCELTYPE_FACTOR,
 	PARTICLEACCELTYPE_VECTOR,
 };
-// íŒŒí‹°í´ ë‚±ê°œ 
+// ÆÄÆ¼Å¬ ³¹°³ 
 class CSfxParticle: public CSfxObj
 {
 public:
@@ -61,15 +61,15 @@ public:
 
 	WORD m_nFrame;
 
-	WORD m_nAppear; // ë‚˜íƒ€ë‚˜ëŠ” ì‹œê°„(í”„ë ˆìž„)
-	WORD m_nKeep; // ìœ ì§€ì‹œê°„(í”„ë ˆìž„)
-	WORD m_nDisappear; // ì‚¬ë¼ì§€ëŠ” ì‹œê°„(í”„ë ˆìž„)
+	WORD m_nAppear; // ³ªÅ¸³ª´Â ½Ã°£(ÇÁ·¹ÀÓ)
+	WORD m_nKeep; // À¯Áö½Ã°£(ÇÁ·¹ÀÓ)
+	WORD m_nDisappear; // »ç¶óÁö´Â ½Ã°£(ÇÁ·¹ÀÓ)
 
-	D3DXVECTOR3 m_vDirection; // ì›€ì§ì´ëŠ” ë°©í–¥
+	D3DXVECTOR3 m_vDirection; // ¿òÁ÷ÀÌ´Â ¹æÇâ
 
-	PARTICLEACCELTYPE m_nAccelType; // ê°€ì†ë„ íƒ€ìž…
-	D3DXVECTOR3 m_vAccel;  // ê°€ì†ë„ ë²¡í„°
-	FLOAT m_fAccel;  // í˜„ìž¬ì†ë„ì— ê³±í•˜ëŠ” ê°€ì†ë„
+	PARTICLEACCELTYPE m_nAccelType; // °¡¼Óµµ Å¸ÀÔ
+	D3DXVECTOR3 m_vAccel;  // °¡¼Óµµ º¤ÅÍ
+	FLOAT m_fAccel;  // ÇöÀç¼Óµµ¿¡ °öÇÏ´Â °¡¼Óµµ
 
 	CSfxParticle(WORD nAppear,WORD nKeep,WORD nDisappear,D3DXVECTOR3 vPos,D3DXVECTOR3 vDirection,PARTICLEACCELTYPE nAccelType,D3DXVECTOR3 vAccel,FLOAT fAccel);
 	virtual ~CSfxParticle();
@@ -78,7 +78,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 #endif	// __WORLDSERVER
 };
-// íŒŒí‹°í´ ë§¤ë‹ˆì ¸ ì˜¤ë¸Œì íŠ¸ 
+// ÆÄÆ¼Å¬ ¸Å´ÏÁ® ¿ÀºêÁ§Æ® 
 class CSfxParticleMng : public CSfxObj
 {
 public:
@@ -97,9 +97,9 @@ public:
 class CSfxJetParticleMng: public CSfxParticleMng
 {
 public:
-	WORD m_nAppear; // ë‚˜íƒ€ë‚˜ëŠ” ì‹œê°„(í”„ë ˆìž„)
-	WORD m_nKeep; // ìœ ì§€ì‹œê°„(í”„ë ˆìž„)
-	WORD m_nDisappear; // ì‚¬ë¼ì§€ëŠ” ì‹œê°„(í”„ë ˆìž„)
+	WORD m_nAppear; // ³ªÅ¸³ª´Â ½Ã°£(ÇÁ·¹ÀÓ)
+	WORD m_nKeep; // À¯Áö½Ã°£(ÇÁ·¹ÀÓ)
+	WORD m_nDisappear; // »ç¶óÁö´Â ½Ã°£(ÇÁ·¹ÀÓ)
 	DWORD m_nMinSpeed;
 	DWORD m_nMaxSpeed;
 	DWORD m_nMinYSpeed;
@@ -116,12 +116,12 @@ public:
 };
 
 
-// ë¹Œë³´ë“œ 
+// ºôº¸µå 
 class CSfxBill : public CSfxObj
 {
 
 };
-// ë§¤ì‰¬ 
+// ¸Å½¬ 
 class CSfxMesh : public CSfxObj
 {
 public:
@@ -132,7 +132,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 #endif
 };
-// ì „ì²´ ê´€ë¦¬ìž ëª¨ë¸ 
+// ÀüÃ¼ °ü¸®ÀÚ ¸ðµ¨ 
 class CModelSfx : public CModel
 {
 public:

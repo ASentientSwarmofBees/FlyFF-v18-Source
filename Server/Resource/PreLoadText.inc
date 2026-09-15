@@ -1,6 +1,6 @@
-ï»¿// COMMON - ì„œë²„,í´ë¼ ê³µìš©
-// SERVER - ì„œë²„ì—ì„œë§Œ ì‚¬ìš©
-// CLIENT - í´ë¼ì—ì„œë§Œ ì‚¬ìš©
+// COMMON - ¼­¹ö,Å¬¶ó °ø¿ë
+// SERVER - ¼­¹ö¿¡¼­¸¸ »ç¿ë
+// CLIENT - Å¬¶ó¿¡¼­¸¸ »ç¿ë
 
 COMMON	"character.txt.txt"
 COMMON	"character-etc.txt.txt"
@@ -62,16 +62,16 @@ CLIENT	"World\WdHeaven06_1\wdheaven06_1.txt.txt"
 CLIENT	"World\WdCisland\WdCisland.txt.txt"
 CLIENT	"World\DuOminous\duominous.txt.txt"
 CLIENT	"World\DuOminous_1\duominous_1.txt.txt"
-CLIENT	"World\WdGuildhousesmall\WdGuildhousesmall.txt.txt"		// ì†Œí˜• ê¸¸ë“œí•˜ìš°ìŠ¤
-CLIENT	"World\WdGuildhousemiddle\WdGuildhousemiddle.txt.txt"	// ì¤‘í˜• ê¸¸ë“œí•˜ìš°ìŠ¤
-CLIENT	"World\WdGuildhouselarge\WdGuildhouselarge.txt.txt"		// ëŒ€í˜• ê¸¸ë“œí•˜ìš°ìŠ¤
-CLIENT	"World\DuDreadfulCave\DuDreadfulCave.txt.txt"			// ì¶”ê°€ ì¸ë˜(ë“œë˜ë“œí’€ ì¼€ì´ë¸Œ)
-CLIENT	"World\DuRustia\DuRustia.txt.txt"						// ì¶”ê°€ ì¸ë˜(ëŸ¬ìŠ¤í‹°ì•„ ì¼ë°˜)
-CLIENT	"World\DuRustia_1\DuRustia_1.txt.txt"					// ì¶”ê°€ ì¸ë˜(ëŸ¬ìŠ¤í‹°ì•„ ë§ˆìŠ¤í„°)
-CLIENT	"World\WdRartesia\WdRartesia.txt.txt"			// 16ì°¨ ë¼ë¥´í…Œì‹œì•„
-CLIENT	"World\DuBehamah\DuBehamah.txt.txt"				// 16ì°¨ ë² íˆëª¨ìŠ¤ ì‹ ì „
-CLIENT	"World\DuKalgas\DuKalgas.txt.txt"				// 17ì°¨ ì¹¼ê°€ìŠ¤
-CLIENT	"World\WdColosseum\WdColosseum.txt.txt"			// 17ì°¨ ì½œë¡œì„¸ì›€
+CLIENT	"World\WdGuildhousesmall\WdGuildhousesmall.txt.txt"		// ¼ÒÇü ±æµåÇÏ¿ì½º
+CLIENT	"World\WdGuildhousemiddle\WdGuildhousemiddle.txt.txt"	// ÁßÇü ±æµåÇÏ¿ì½º
+CLIENT	"World\WdGuildhouselarge\WdGuildhouselarge.txt.txt"		// ´ëÇü ±æµåÇÏ¿ì½º
+CLIENT	"World\DuDreadfulCave\DuDreadfulCave.txt.txt"			// Ãß°¡ ÀÎ´ø(µå·¡µåÇ® ÄÉÀÌºê)
+CLIENT	"World\DuRustia\DuRustia.txt.txt"						// Ãß°¡ ÀÎ´ø(·¯½ºÆ¼¾Æ ÀÏ¹İ)
+CLIENT	"World\DuRustia_1\DuRustia_1.txt.txt"					// Ãß°¡ ÀÎ´ø(·¯½ºÆ¼¾Æ ¸¶½ºÅÍ)
+CLIENT	"World\WdRartesia\WdRartesia.txt.txt"			// 16Â÷ ¶ó¸£Å×½Ã¾Æ
+CLIENT	"World\DuBehamah\DuBehamah.txt.txt"				// 16Â÷ º£È÷¸ğ½º ½ÅÀü
+CLIENT	"World\DuKalgas\DuKalgas.txt.txt"				// 17Â÷ Ä®°¡½º
+CLIENT	"World\WdColosseum\WdColosseum.txt.txt"			// 17Â÷ Äİ·Î¼¼¿ò
 CLIENT	"World\DuUpresia\DuUpresia.txt.txt"
 CLIENT	"World\DuUpresia_1\DuUpresia_1.txt.txt"
 CLIENT	"World\DuSanpres\DuSanpres.txt.txt"

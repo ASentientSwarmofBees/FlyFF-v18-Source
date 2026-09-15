@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndFriendConFirm.h"
@@ -36,17 +36,17 @@ void CWndFriendConFirm::OnDraw( C2DRender* p2DRender )
 	//	CWndStatic* pWndStatic;
 	//	pWndStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC1 );
 	CString strTemp;
-	strTemp.Format(_T( prj.GetText(TID_DIAG_0071) ),m_szLeaderName); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
-//	strTemp.Format(_T("%s ë‹˜ì´ ì¹œêµ¬ ì¶”ê°€ ìš”ì²­ì´ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤. ìŠ¹ë‚™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?"),m_szLeaderName); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
+	strTemp.Format(_T( prj.GetText(TID_DIAG_0071) ),m_szLeaderName); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+//	strTemp.Format(_T("%s ´ÔÀÌ Ä£±¸ Ãß°¡ ¿äÃ»ÀÌ µé¾î¿Ô½À´Ï´Ù. ½Â³«ÇÏ½Ã°Ú½À´Ï±î?"),m_szLeaderName); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
 	pWndText->SetString( strTemp );
 } 
 void CWndFriendConFirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	/*
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
@@ -59,14 +59,14 @@ void CWndFriendConFirm::OnInitialUpdate()
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
 	Move( point );
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndFriendConFirm::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_FRIEND_CONFIRM, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndFriendConFirm::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -93,28 +93,28 @@ BOOL CWndFriendConFirm::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 { 
 	if( nID == WIDC_YES ) 
 	{
-		// ì—¬ê¸°ë‹¤ê°€ ìŠ¹ë½í•˜ëŠ” ì²˜ë¦¬ ì¶”ê°€í•˜ì‹œì˜¤
+		// ¿©±â´Ù°¡ ½Â¶ôÇÏ´Â Ã³¸® Ãß°¡ÇÏ½Ã¿À
 		g_DPlay.SendAddFriend( m_uLeader, m_nLeaderJob, m_nLeaderSex );
-		Destroy();	// ìˆ˜ë™íŒŒê´´ë¡œ ë°”ê¿ˆ. -xuzhu- 09/16
+		Destroy();	// ¼öµ¿ÆÄ±«·Î ¹Ù²Ş. -xuzhu- 09/16
 	}
 	else 
 	if( nID == WIDC_NO )
 	{
-		// ì—¬ê¸°ë‹¤ê°€ ê±°ë¶€í•˜ëŠ” ì²˜ë¦¬ ì¶”ê°€í•˜ì‹œì˜¤
+		// ¿©±â´Ù°¡ °ÅºÎÇÏ´Â Ã³¸® Ãß°¡ÇÏ½Ã¿À
 		g_DPlay.SendFriendCancel( m_uLeader, m_uMember );
-		Destroy();	// ìˆ˜ë™íŒŒê´´ë¡œ ë°”ê¿ˆ. -xuzhu- 09/16
+		Destroy();	// ¼öµ¿ÆÄ±«·Î ¹Ù²Ş. -xuzhu- 09/16
 	}
 	
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
 } 
 
 /****************************************************
-  WndId : APP_ADDFRIEND - ì¹œêµ¬ ì¶”ê°€
-  CtrlId : WIDC_STATIC1 - ì¶”ê°€í•  ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”
+  WndId : APP_ADDFRIEND - Ä£±¸ Ãß°¡
+  CtrlId : WIDC_STATIC1 - Ãß°¡ÇÒ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä
   CtrlId : WIDC_EDIT1 - 
-  CtrlId : WIDC_STATIC2 - ì´  ë¦„ :
-  CtrlId : WIDC_OK - í™•ì¸
-  CtrlId : WIDC_CANCEL - ì·¨ì†Œ
+  CtrlId : WIDC_STATIC2 - ÀÌ  ¸§ :
+  CtrlId : WIDC_OK - È®ÀÎ
+  CtrlId : WIDC_CANCEL - Ãë¼Ò
 ****************************************************/
 
 CWndAddFriend::CWndAddFriend() 
@@ -129,26 +129,26 @@ void CWndAddFriend::OnDraw( C2DRender* p2DRender )
 void CWndAddFriend::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
 	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	pWndEdit->SetFocus();
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndAddFriend::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDFRIEND, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndAddFriend::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -184,12 +184,12 @@ BOOL CWndAddFriend::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			{
 				if( g_pPlayer->GetWorld() && g_pPlayer->GetWorld()->GetID() == WI_WORLD_GUILDWAR )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT_CANNOT_FRIENDADD ) );	// "ìˆ˜ì •í•´ì•¼í•¨ : ê¸¸ë“œëŒ€ì „ì¥ì—ëŠ” ì¹œêµ¬ì¶”ê°€ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤" );
+					g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT_CANNOT_FRIENDADD ) );	// "¼öÁ¤ÇØ¾ßÇÔ : ±æµå´ëÀüÀå¿¡´Â Ä£±¸Ãß°¡¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù" );
 				}
 				else
 				{
 					g_DPlay.SendAddFriendNameReqest( szAddName );
-					//g_WndMng.PutString( "ë©”ì‹ ì € ì¶”ê°€ ìš”ì²­ì¤‘ì…ë‹ˆë‹¤. ì ì‹œë§Œ ê¸°ë‹¤ë ¤ì£¼ì„¸ìš”", NULL, 0xffff0000 );
+					//g_WndMng.PutString( "¸Ş½ÅÀú Ãß°¡ ¿äÃ»ÁßÀÔ´Ï´Ù. Àá½Ã¸¸ ±â´Ù·ÁÁÖ¼¼¿ä", NULL, 0xffff0000 );
 					CString str;
 					str.Format( prj.GetText(TID_GAME_MSGINVATE), szAddName );
 					g_WndMng.PutString( str, NULL, prj.GetTextColor(TID_GAME_MSGINVATE) );
@@ -200,22 +200,22 @@ BOOL CWndAddFriend::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			{
 				pWndEdit->SetString("");
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0056) ) );
-//				g_WndMng.OpenMessageBox( "ìê¸° ìì‹ ì€ ì¶”ê°€í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”." );
+//				g_WndMng.OpenMessageBox( "ÀÚ±â ÀÚ½ÅÀº Ãß°¡ÇÒ¼ö ¾ø½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä." );
 			}			
 		}
 		else
 		{
 			pWndEdit->SetString("");
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0057) ) );
-//			g_WndMng.OpenMessageBox( "ì´ë¦„ì´ ë„ˆë¬´ ê¹ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”." );
+//			g_WndMng.OpenMessageBox( "ÀÌ¸§ÀÌ ³Ê¹« ±é´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä." );
 		}
-		// ì—¬ê¸°ë‹¤ê°€ ìŠ¹ë½í•˜ëŠ” ì²˜ë¦¬ ì¶”ê°€í•˜ì‹œì˜¤
+		// ¿©±â´Ù°¡ ½Â¶ôÇÏ´Â Ã³¸® Ãß°¡ÇÏ½Ã¿À
 //		g_DPlay.SendAddFriend( m_uLeader, m_nLeaderSex );
 	}
 	else 
 	if( nID == WIDC_CANCEL )
 	{
-		// ì—¬ê¸°ë‹¤ê°€ ê±°ë¶€í•˜ëŠ” ì²˜ë¦¬ ì¶”ê°€í•˜ì‹œì˜¤
+		// ¿©±â´Ù°¡ °ÅºÎÇÏ´Â Ã³¸® Ãß°¡ÇÏ½Ã¿À
 //		g_DPlay.SendFriendCancel( m_uLeader, m_uMember );
 		Destroy( );
 	}

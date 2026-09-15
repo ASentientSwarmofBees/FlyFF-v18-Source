@@ -1,4 +1,4 @@
-﻿// Cloth.cpp: implementation of the CCloth class.
+// Cloth.cpp: implementation of the CCloth class.
 //
 //////////////////////////////////////////////////////////////////////
 

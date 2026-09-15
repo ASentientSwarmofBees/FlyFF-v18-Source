@@ -1,4 +1,4 @@
-﻿#ifndef __DBCONTROLLER_H__
+#ifndef __DBCONTROLLER_H__
 #define	__DBCONTROLLER_H__
 
 

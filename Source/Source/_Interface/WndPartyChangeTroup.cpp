@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndPartyChangeTroup.h"
@@ -15,9 +15,9 @@ extern	CParty g_Party;
 
 
 /****************************************************
-  WndId : APP_CHANGETROUP - ê·¹ë‹¨ ë³€ê²½
-  CtrlId : WIDC_STATIC1 - ìˆœíšŒê·¹ë‹¨ìœ¼ë¡œ ë³€ê²½í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
-  CtrlId : WIDC_STATIC2 - ê·¹ë‹¨ëª… : 
+  WndId : APP_CHANGETROUP - ±Ø´Ü º¯°æ
+  CtrlId : WIDC_STATIC1 - ¼øÈ¸±Ø´ÜÀ¸·Î º¯°æÇÏ½Ã°Ú½À´Ï±î?
+  CtrlId : WIDC_STATIC2 - ±Ø´Ü¸í : 
   CtrlId : WIDC_EDIT1 - 
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
@@ -35,7 +35,7 @@ void CWndPartyChangeName::OnDraw( C2DRender* p2DRender )
 void CWndPartyChangeName::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 
 	if( 0 == strlen( g_pPlayer->m_szPartyName ) )
 	{
@@ -46,12 +46,12 @@ void CWndPartyChangeName::OnInitialUpdate()
 		strcpy( m_sParty, g_pPlayer->m_szPartyName );
 	}
 
-	//sprintf( m_sParty, "ìˆœíšŒê·¹ë‹¨" );
+	//sprintf( m_sParty, "¼øÈ¸±Ø´Ü" );
 	
 	CWndEdit *pEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	pEdit->SetString( m_sParty );
 	
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -59,10 +59,10 @@ void CWndPartyChangeName::OnInitialUpdate()
 	MoveParentCenter();
 } 
 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndPartyChangeName::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PARTYCHANGENAME, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndPartyChangeName::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -103,14 +103,14 @@ BOOL CWndPartyChangeName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 #else	// __RULE_0615
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0011) ) );
 #endif	// __RULE_0615
-//				g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— 3ê¸€ì ì´ìƒ, 16ê¸€ì ì´í•˜ë¡œ ì…ë ¥ ì…ë ¥í•˜ì‹­ì‹œì˜¤." ) );
+//				g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ 3±ÛÀÚ ÀÌ»ó, 16±ÛÀÚ ÀÌÇÏ·Î ÀÔ·Â ÀÔ·ÂÇÏ½Ê½Ã¿À." ) );
 				return TRUE;
 			}
 			else
 			if( IsDBCSLeadByte( c ) == FALSE && isdigit2( c ) ) 
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0012) ) );
-//				g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— ì²«ê¸€ìë¥¼ ìˆ«ìë¡œ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤." ) );
+//				g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ Ã¹±ÛÀÚ¸¦ ¼ıÀÚ·Î »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù." ) );
 				return TRUE;
 			}
 			else
@@ -119,7 +119,7 @@ BOOL CWndPartyChangeName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 				for( int i = 0; i < PartyName.GetLength(); i++ )
 				{
 					c = PartyName[ i ];
-					// ìˆ«ìë‚˜ ì•ŒíŒŒë²³ì´ ì•„ë‹ ê²½ìš°ëŠ” ì˜ì‹¬í•˜ì.
+					// ¼ıÀÚ³ª ¾ËÆÄºªÀÌ ¾Æ´Ò °æ¿ì´Â ÀÇ½ÉÇÏÀÚ.
 					if( IsDBCSLeadByte( c ) == TRUE ) 
 					{
 						CHAR c2 = PartyName[ ++i ];
@@ -129,7 +129,7 @@ BOOL CWndPartyChangeName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 							if( IsHangul( word ) == FALSE ) 
 							{
 								g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0014) ) );
-//								g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— í•œìë‚˜ íŠ¹ìˆ˜ ë¬¸ìë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤." ) );
+//								g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ ÇÑÀÚ³ª Æ¯¼ö ¹®ÀÚ¸¦ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù." ) );
 								return TRUE;
 							}
 						}
@@ -139,9 +139,9 @@ BOOL CWndPartyChangeName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 					{
 						if( !IsCyrillic( c ) && ( isalnum( c ) == FALSE || iscntrl( c ) )  )
 						{
-							// íŠ¹ìˆ˜ ë¬¸ìë„ ì•„ë‹ˆë‹¤ (ì¦‰ ì½˜íŠ¸ë¡¤ ë˜ëŠ” !@#$%^&**()... ë¬¸ìì„)
+							// Æ¯¼ö ¹®ÀÚµµ ¾Æ´Ï´Ù (Áï ÄÜÆ®·Ñ ¶Ç´Â !@#$%^&**()... ¹®ÀÚÀÓ)
 							g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0013) ) );
-//							g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— ì½˜íŠ¸ë¡¤ì´ë‚˜ ìŠ¤í˜ì´ìŠ¤, íŠ¹ìˆ˜ ë¬¸ìë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤." ) );
+//							g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ ÄÜÆ®·ÑÀÌ³ª ½ºÆäÀÌ½º, Æ¯¼ö ¹®ÀÚ¸¦ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù." ) );
 							return TRUE;
 						}
 					}
@@ -171,7 +171,7 @@ BOOL CWndPartyChangeName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 		}
 		else
 		{
-			// "ëª…ì¹­ì— 3ê¸€ì ì´ìƒ, 16ê¸€ì ì´í•˜ë¡œ ì…ë ¥ ì…ë ¥í•˜ì‹­ì‹œì˜¤."
+			// "¸íÄª¿¡ 3±ÛÀÚ ÀÌ»ó, 16±ÛÀÚ ÀÌÇÏ·Î ÀÔ·Â ÀÔ·ÂÇÏ½Ê½Ã¿À."
 #ifdef __RULE_0615
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_RULE_0) ) );
 #else	// __RULE_0615
@@ -183,11 +183,11 @@ BOOL CWndPartyChangeName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 	else if( nID == WIDC_CANCEL )
 	{
 		Destroy();
-//		g_WndMng.OpenMessageBox( _T( "ìˆœíšŒê·¹ë‹¨ ëª…ì¹­ì„ ì •í•´ì•¼ í•©ë‹ˆë‹¤." ) );
+//		g_WndMng.OpenMessageBox( _T( "¼øÈ¸±Ø´Ü ¸íÄªÀ» Á¤ÇØ¾ß ÇÕ´Ï´Ù." ) );
 	}
 /*	else if( nID == WTBID_CLOSE )
 	{
-		g_WndMng.OpenMessageBox( _T( "ìˆœíšŒê·¹ë‹¨ ëª…ì¹­ì„ ì •í•´ì•¼ í•©ë‹ˆë‹¤." ) );
+		g_WndMng.OpenMessageBox( _T( "¼øÈ¸±Ø´Ü ¸íÄªÀ» Á¤ÇØ¾ß ÇÕ´Ï´Ù." ) );
 //		SAFE_DELETE( g_WndMng.m_pWndPartyChangeName );
 //		g_WndMng.m_pWndPartyChangeName = new CWndPartyChangeName;
 //		g_WndMng.m_pWndPartyChangeName->Initialize( );	
@@ -216,19 +216,19 @@ void CWndPartyChangeTroup::OnDraw( C2DRender* p2DRender )
 void CWndPartyChangeTroup::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndPartyChangeTroup::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CHANGETROUP, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -267,10 +267,10 @@ BOOL CWndPartyChangeTroup::OnChildNotify( UINT message, UINT nID, LRESULT* pLRes
 } 
 
 //------------------------------------------------------------------------------------------------
-// ê·¹ë‹¨ íƒˆí‡´ì‹œ ë‹¤ì‹œ í™•ì¸ ì°½
+// ±Ø´Ü Å»Åğ½Ã ´Ù½Ã È®ÀÎ Ã¢
 //------------------------------------------------------------------------------------------------
 /****************************************************
-WndId : APP_PARTYLEAVE_CONFIRM - íŒŒí‹°íƒˆí‡´í™•ì¸
+WndId : APP_PARTYLEAVE_CONFIRM - ÆÄÆ¼Å»ÅğÈ®ÀÎ
 CtrlId : WIDC_EDIT1 - 
 CtrlId : WIDC_YES - Yes
 CtrlId : WIDC_NO - Button
@@ -289,12 +289,12 @@ void CWndPartyLeaveConfirm::SetLeaveId( u_long uidPlayer )
 	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	if( g_pPlayer->m_idPlayer == uLeaveId )
 	{
-		// ë‚´ ìì‹ ì´ íƒˆí‡´
+		// ³» ÀÚ½ÅÀÌ Å»Åğ
 		pWndEdit->SetString( prj.GetText( TID_DIAG_0084 ) );
 	}
 	else
 	{
-		// ë‹¨ì¥ì´ ì„ íƒí•˜ì—¬ íƒˆí‡´
+		// ´ÜÀåÀÌ ¼±ÅÃÇÏ¿© Å»Åğ
 		pWndEdit->SetString( prj.GetText( TID_DIAG_0085 ) );
 	}
 	pWndEdit->EnableWindow( FALSE );
@@ -305,23 +305,23 @@ void CWndPartyLeaveConfirm::OnDraw( C2DRender* p2DRender )
 void CWndPartyLeaveConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndPartyLeaveConfirm::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PARTYLEAVE_CONFIRM, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndPartyLeaveConfirm::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -346,7 +346,7 @@ void CWndPartyLeaveConfirm::OnLButtonDown( UINT nFlags, CPoint point )
 } 
 BOOL CWndPartyLeaveConfirm::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
 { 
-	if( nID == WIDC_NO || nID == WTBID_CLOSE ) // ì·¨ì†Œ 
+	if( nID == WIDC_NO || nID == WTBID_CLOSE ) // Ãë¼Ò 
 	{
 		Destroy( TRUE );
 	}

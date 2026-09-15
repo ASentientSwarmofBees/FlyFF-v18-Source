@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineSound.h"
 #include "defineText.h"
 #include "resdata.h"
@@ -65,7 +65,7 @@ enum
 // GLOBAL FUNCTION
 //////////////////////////////////////////////////////////////////////////
 
-// ê³µì† ê°€ì¤‘ì¹˜ë¥¼ êµ¬í•œë‹¤. n - ê°€ì¤‘ì¹˜ë¥¼ êµ¬í•˜ê¸° ìœ„í•œ ì¤‘ê°„ ê³„ì‚°ê°’ 
+// °ø¼Ó °¡ÁßÄ¡¸¦ ±¸ÇÑ´Ù. n - °¡ÁßÄ¡¸¦ ±¸ÇÏ±â À§ÇÑ Áß°£ °è»ê°ª 
 float GetAttackSpeedPlusValue( int n )
 {
 	const int MAX_ATTACK_SPEED_PLUSVALUE = 18;
@@ -84,7 +84,7 @@ float GetAttackSpeedPlusValue( int n )
 	return fPlusValue[nIndex];
 }
 
-// ì¶©ì „ë ˆë²¨ì— ì˜í•œ ê³µê²©ë ¥ ì¦í­ê°’ì„ ì–»ëŠ”ë‹¤.
+// ÃæÀü·¹º§¿¡ ÀÇÇÑ °ø°İ·Â ÁõÆø°ªÀ» ¾ò´Â´Ù.
 float GetChargeMultiplier( int nLevel )
 {
 	//TRACE("GetChargeMultiplier(%d)\n", nLevel );
@@ -97,7 +97,7 @@ float GetChargeMultiplier( int nLevel )
 	return 1.0f;
 }
 
-// ì¶©ì „ë ˆë²¨( nLevel )ì— ì˜í•œ ì™„ë“œê³µê²©ë ¥ ì¦í­ê°’ì„ ì–»ëŠ”ë‹¤.
+// ÃæÀü·¹º§( nLevel )¿¡ ÀÇÇÑ ¿Ïµå°ø°İ·Â ÁõÆø°ªÀ» ¾ò´Â´Ù.
 float GetWandATKMultiplier( int nLevel )
 {
 	switch( nLevel )  
@@ -116,11 +116,11 @@ float GetWandATKMultiplier( int nLevel )
 //////////////////////////////////////////////////////////////////////////
 int GetWeaponPlusDamage( int nDamage, BOOL bRandom, ItemProp* pItemProp , int nOption )
 {
-	return 0; // ë°©ì–´ë ¥ ë¬´ì‹œê°€ ì•„ë‹ˆë¼ ê³µê²©ë ¥ì„ ë†’ì´ëŠ” ë°©í–¥ìœ¼ë¡œ ìˆ˜ì •ë˜ì—ˆìŒ 
+	return 0; // ¹æ¾î·Â ¹«½Ã°¡ ¾Æ´Ï¶ó °ø°İ·ÂÀ» ³ôÀÌ´Â ¹æÇâÀ¸·Î ¼öÁ¤µÇ¾úÀ½ 
 }
 
 
-// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ì˜ ì˜µì…˜ì— ì˜í•œ ì¶”ê°€ ë°ë¯¸ì§€ë¥¼ êµ¬í•œë‹¤. ( bRandom = TRUE )
+// µé°íÀÖ´Â ¹«±âÀÇ ¿É¼Ç¿¡ ÀÇÇÑ Ãß°¡ µ¥¹ÌÁö¸¦ ±¸ÇÑ´Ù. ( bRandom = TRUE )
 int CMover::GetWeaponPlusDamage( int nDamage, BOOL bRandom )
 {
 	int nPlus = 0;
@@ -137,22 +137,22 @@ int CMover::GetWeaponPlusDamage( int nDamage, BOOL bRandom )
 	return nPlus;
 }
 
-// ê³µê²©ì— ì˜í•´ì„œ ë‚ ì•„ê°ˆ ìˆ˜ ìˆëŠ”ê°€?
+// °ø°İ¿¡ ÀÇÇØ¼­ ³¯¾Æ°¥ ¼ö ÀÖ´Â°¡?
 BOOL CMover::CanFlyByAttack()
 {
 	if( IsFlyingNPC() || m_pActMover->IsFly() )
 		return FALSE;
 
 	BOOL bFly = FALSE;
-	if( (m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) == 0 )	// ë°ë¯¸ì§€í”Œë¼ì‰ ë™ì•ˆì—” ì¶”ê°€ë¡œ ë‚ ì•„ê°€ì§€ ì•ŠëŠ”ë‹¤.
+	if( (m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) == 0 )	// µ¥¹ÌÁöÇÃ¶óÀ× µ¿¾È¿£ Ãß°¡·Î ³¯¾Æ°¡Áö ¾Ê´Â´Ù.
 	{
 		MoverProp* pProp = GetProp();
-		if( pProp->dwClass != RANK_SUPER && pProp->dwClass != RANK_MATERIAL && pProp->dwClass != RANK_MIDBOSS )	// ìŠˆí¼/ìì› ëª¬ìŠ¤í„°ëŠ” ë‚ ì•„ê°€ì§€ ì•ŠìŒ.
+		if( pProp->dwClass != RANK_SUPER && pProp->dwClass != RANK_MATERIAL && pProp->dwClass != RANK_MIDBOSS )	// ½´ÆÛ/ÀÚ¿ø ¸ó½ºÅÍ´Â ³¯¾Æ°¡Áö ¾ÊÀ½.
 			bFly = TRUE;
 	}
 	return bFly;
 }
-// ê³µì†ì„ êµ¬í•œë‹¤.
+// °ø¼ÓÀ» ±¸ÇÑ´Ù.
 float CMover::GetAttackSpeed()
 {
 	float fSpeed = 1.0f;
@@ -165,8 +165,8 @@ float CMover::GetAttackSpeed()
 	JobProp* pProperty = prj.GetJobProp( GetJob() ); 
 	ASSERT( pProperty );
 
-	// A = int( ìºë¦­í„°ì˜ ê³µì† + ( ë¬´ê¸°ì˜ ê³µì† * ( 4 * ë±ìŠ¤ + ( ë ˆë²¨ / 8 ) ) ) - 3 )
-	// ê³µê²©ì†ë„ = ( ( 50 / 200 - A ) / 2 ) + ê°€ì¤‘ì¹˜ 
+	// A = int( Ä³¸¯ÅÍÀÇ °ø¼Ó + ( ¹«±âÀÇ °ø¼Ó * ( 4 * µ¦½º + ( ·¹º§ / 8 ) ) ) - 3 )
+	// °ø°İ¼Óµµ = ( ( 50 / 200 - A ) / 2 ) + °¡ÁßÄ¡ 
 	int A = int( pProperty->fAttackSpeed + ( fItem * ( 4.0f * GetDex() + GetLevel() / 8.0f ) ) - 3.0f );
 //	TRACE( "A =%d\n", A );
 	if( 187.5f <= A )
@@ -208,9 +208,9 @@ int CMover::GetCastingTime( int nCastingTime )
 	return nTime;
 }
 
-// ì•„ì´í…œì—ì˜í•œ ë°©ì–´ë ¥ ì–»ê¸° 
-// bRandom: TRUE  - random ê°’ìœ¼ë¡œ ì–»ê¸° 
-//          FALSE - í‰ê· ê°’ìœ¼ë¡œ defenseê°’ ì–»ê¸° 
+// ¾ÆÀÌÅÛ¿¡ÀÇÇÑ ¹æ¾î·Â ¾ò±â 
+// bRandom: TRUE  - random °ªÀ¸·Î ¾ò±â 
+//          FALSE - Æò±Õ°ªÀ¸·Î defense°ª ¾ò±â 
 int CMover::GetDefenseByItem( BOOL bRandom )
 {
 	int nValue = m_nDefenseMax - m_nDefenseMin;
@@ -226,7 +226,7 @@ int	CMover::GetShowDefense( BOOL bRandom )
 	memset( &info, 0x00, sizeof(info) );
 	info.dwAtkFlags = AF_GENERIC;
 
-	return CalcDefense( &info, FALSE );   // FALSE - ë°©ì–´ ìµœëŒ€/ìµœì†Œì˜ í‰ê· ê°’ì„ ì–»ê² ë‹¤.      
+	return CalcDefense( &info, FALSE );   // FALSE - ¹æ¾î ÃÖ´ë/ÃÖ¼ÒÀÇ Æò±Õ°ªÀ» ¾ò°Ú´Ù.      
 }
 
 // Hit rating
@@ -280,7 +280,7 @@ BOOL CMover::GetAttackResult( CMover* pDefender, DWORD dwOption )
 	return ( (int)( xRandom( 100 ) ) < nHitRate );
 }
 
-// ë¬´ê¸°ì˜ ì¶”ê°€ ê³µê²©ë ¥ë¥¼ êµ¬í•œë‹¤.
+// ¹«±âÀÇ Ãß°¡ °ø°İ·Â¸¦ ±¸ÇÑ´Ù.
 int CMover::GetPlusWeaponATK( DWORD dwWeaponType )
 {
 	int nATK = 0;
@@ -295,14 +295,14 @@ int CMover::GetPlusWeaponATK( DWORD dwWeaponType )
 	case WT_MELEE_KNUCKLE:
 		nATK = GetParam( DST_KNUCKLE_DMG, 0 );		
 		break;
-	case WT_MELEE_YOYO:				// ìš”ìš” 
+	case WT_MELEE_YOYO:				// ¿ä¿ä 
 		nATK = GetParam( DST_YOY_DMG, 0 );		
 		break;
-	case WT_RANGE_BOW:				// ë³´ìš° 
+	case WT_RANGE_BOW:				// º¸¿ì 
 		nATK = GetParam( DST_BOW_DMG, 0 );		
 		break;
 	}
-#if __VER >= 10 // __LEGEND		//10ì°¨ ì „ìŠ¹ ë§ˆìŠ¤í„°ìŠ¤í‚¬
+#if __VER >= 10 // __LEGEND		//10Â÷ Àü½Â ¸¶½ºÅÍ½ºÅ³
 	if(IsDualWeapon() == TRUE )
 		nATK += GetParam( DST_ONEHANDMASTER_DMG, 0 );
 	else
@@ -312,10 +312,10 @@ int CMover::GetPlusWeaponATK( DWORD dwWeaponType )
 		case WT_MELEE_KNUCKLE:
 			nATK += GetParam( DST_KNUCKLEMASTER_DMG, 0 );
 			break;
-		case WT_MELEE_YOYO:				// ìš”ìš” 
+		case WT_MELEE_YOYO:				// ¿ä¿ä 
 			nATK += GetParam( DST_YOYOMASTER_DMG, 0 );
 			break;
-		case WT_RANGE_BOW:				// ë³´ìš° 
+		case WT_RANGE_BOW:				// º¸¿ì 
 			nATK += GetParam( DST_BOWMASTER_DMG, 0 );
 			break;
 		case WT_MELEE_SWD:	
@@ -324,14 +324,14 @@ int CMover::GetPlusWeaponATK( DWORD dwWeaponType )
 			break;
 		}
 	}
-#endif //__LEGEND		//10ì°¨ ì „ìŠ¹ ë§ˆìŠ¤í„°ìŠ¤í‚¬
+#endif //__LEGEND		//10Â÷ Àü½Â ¸¶½ºÅÍ½ºÅ³
 
 	return nATK;
 }
 
 
 
-// ì§ì—…ì— ë”°ë¥¸ factorë¥¼ êµ¬í•œë‹¤.
+// Á÷¾÷¿¡ µû¸¥ factor¸¦ ±¸ÇÑ´Ù.
 float CMover::GetJobPropFactor( JOB_PROP_TYPE type )
 {
 	if( IsPlayer() == FALSE )
@@ -360,14 +360,14 @@ float CMover::GetJobPropFactor( JOB_PROP_TYPE type )
 		return pProperty->fBlocking;
 	case JOB_PROP_CRITICAL:
 		return pProperty->fCritical;	
-	// TODO ë‚˜ë¨¸ì§€ 
+	// TODO ³ª¸ÓÁö 
 	default:
 		ASSERT( 0 );
 		return 1.0f;
 	}
 }
 
-// ë¬´ê¸°ì˜ ê³µê²©ë ¥ë¥¼ êµ¬í•œë‹¤.
+// ¹«±âÀÇ °ø°İ·Â¸¦ ±¸ÇÑ´Ù.
 int CMover::GetWeaponATK( DWORD dwWeaponType )
 {
 	int nATK = 0;
@@ -403,12 +403,12 @@ int CMover::GetWeaponATK( DWORD dwWeaponType )
 		break;
 	}
 
-	nATK += GetPlusWeaponATK( dwWeaponType );	// ë¬´ê¸°ì˜ ì¶”ê°€ ê³µê²©ë ¥ë¥¼ êµ¬í•œë‹¤.
+	nATK += GetPlusWeaponATK( dwWeaponType );	// ¹«±âÀÇ Ãß°¡ °ø°İ·Â¸¦ ±¸ÇÑ´Ù.
 	return nATK;
 }
 
 
-// ê³µê²©ë ¥Min,Maxë¥¼ êµ¬í•œë‹¤.
+// °ø°İ·ÂMin,Max¸¦ ±¸ÇÑ´Ù.
 void CMover::GetHitMinMax( int* pnMin, int* pnMax, ATTACK_INFO *pInfo )
 {
 	int nParts = PARTS_RWEAPON;
@@ -477,7 +477,7 @@ void CMover::GetHitMinMax( int* pnMin, int* pnMax, ATTACK_INFO *pInfo )
 				dwAtk = dwValue;
 		}
 	
-		if( dwAtk != NULL_ID )		// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ê°€ ìˆì„ë• ê·¸ ë¬´ê¸°ì˜ min,max ê°’ê¹Œì§€ ë”í•œë‹¤.
+		if( dwAtk != NULL_ID )		// µé°íÀÖ´Â ¹«±â°¡ ÀÖÀ»¶© ±× ¹«±âÀÇ min,max °ª±îÁö ´õÇÑ´Ù.
 		{
 			ItemProp* pItemProp = prj.GetItemProp( dwAtk );
 			if( pItemProp )
@@ -489,7 +489,7 @@ void CMover::GetHitMinMax( int* pnMin, int* pnMax, ATTACK_INFO *pInfo )
 	}
 }
 
-// ë°©ì–´ë ¥ì¦í­ê°’ì„ ì–»ëŠ”ë‹¤.    thisëŠ” ë°©ì–´ì
+// ¹æ¾î·ÂÁõÆø°ªÀ» ¾ò´Â´Ù.    this´Â ¹æ¾îÀÚ
 float CMover::GetDEFMultiplier( ATTACK_INFO* pInfo )
 {
 	float fFactor = 1.0f;
@@ -500,17 +500,17 @@ float CMover::GetDEFMultiplier( ATTACK_INFO* pInfo )
 	#endif //	__S1108_BACK_END_SYSTEM
 	}
 
-	// ì•„ë¨¸ í˜ë„ˆíŠ¸ë ˆì´íŠ¸ëŠ” ë§ëŠ”ìˆœê°„ ë°©ì–´ë ¥ì„ 50%ë¡œ ê³„ì‚°.
+	// ¾Æ¸Ó Æä³ÊÆ®·¹ÀÌÆ®´Â ¸Â´Â¼ø°£ ¹æ¾î·ÂÀ» 50%·Î °è»ê.
 	if( pInfo->GetSkill() == SI_BLD_DOUBLE_ARMORPENETRATE )	
 		fFactor *= 0.5f;
 
-//	fFactor		*= (  ( 100.0f + (float)GetParam( DST_ADJDEF_RATE, 0 ) ) / 100.0f ) ;		// ìµœì¢… ë°˜í™˜ëœ ë°©ì–´ë ¥ ê°’ì— ë°©ì–´ë ¥ ìƒìŠ¹ ë¹„ìœ¨ì„ ê³±í•œë‹¤.
-	fFactor		*= (  1.0f + (float)GetParam( DST_ADJDEF_RATE, 0 ) / 100.0f ) ;		// ìµœì¢… ë°˜í™˜ëœ ë°©ì–´ë ¥ ê°’ì— ë°©ì–´ë ¥ ìƒìŠ¹ ë¹„ìœ¨ì„ ê³±í•œë‹¤.
+//	fFactor		*= (  ( 100.0f + (float)GetParam( DST_ADJDEF_RATE, 0 ) ) / 100.0f ) ;		// ÃÖÁ¾ ¹İÈ¯µÈ ¹æ¾î·Â °ª¿¡ ¹æ¾î·Â »ó½Â ºñÀ²À» °öÇÑ´Ù.
+	fFactor		*= (  1.0f + (float)GetParam( DST_ADJDEF_RATE, 0 ) / 100.0f ) ;		// ÃÖÁ¾ ¹İÈ¯µÈ ¹æ¾î·Â °ª¿¡ ¹æ¾î·Â »ó½Â ºñÀ²À» °öÇÑ´Ù.
 
 	return fFactor;
 }
 
-// ë°©ì–´ë ¥ì„ ê³„ì‚°í•œë‹¤.
+// ¹æ¾î·ÂÀ» °è»êÇÑ´Ù.
 int CMover::CalcDefense( ATTACK_INFO* pInfo, BOOL bRandom )
 {
 	int nDefense = CalcDefenseCore( pInfo->pAttacker, pInfo->dwAtkFlags, bRandom );
@@ -522,7 +522,7 @@ int CMover::CalcDefense( ATTACK_INFO* pInfo, BOOL bRandom )
 	return nDefense;
 }
 
-// ëª¬ìŠ¤í„° ë°©ì–´ë ¥ì„ ê³„ì‚°í•œë‹¤. ( genericê³¼ magicskillì€ ê³„ì‚°ë¨ )
+// ¸ó½ºÅÍ ¹æ¾î·ÂÀ» °è»êÇÑ´Ù. ( generic°ú magicskillÀº °è»êµÊ )
 int CMover::CalcDefenseNPC( CMover* pAttacker, DWORD dwAtkFlags )
 {
 	float	fDefense = 0.0f;
@@ -541,11 +541,11 @@ int CMover::CalcDefenseNPC( CMover* pAttacker, DWORD dwAtkFlags )
 	return (int)fDefense;
 }
 
-// í”Œë ˆì´ì–´ ë°©ì–´ë ¥ì„ ê³„ì‚°í•œë‹¤. ( generic, magicskillì€ ìƒìœ„ì—ì„œ ê³„ì‚°ë¨ )
+// ÇÃ·¹ÀÌ¾î ¹æ¾î·ÂÀ» °è»êÇÑ´Ù. ( generic, magicskillÀº »óÀ§¿¡¼­ °è»êµÊ )
 int CMover::CalcDefensePlayer( CMover* pAttacker, DWORD dwAtkFlags )
 {	
 	int nDefense = 0;
-	if( pAttacker->IsPlayer() )		// í”Œë ˆì´ì–´ ê³µê²© 
+	if( pAttacker->IsPlayer() )		// ÇÃ·¹ÀÌ¾î °ø°İ 
 	{			
 		if( dwAtkFlags & AF_MAGIC )  
 		{
@@ -557,7 +557,7 @@ int CMover::CalcDefensePlayer( CMover* pAttacker, DWORD dwAtkFlags )
 			nDefense = (int)( (float(nDEF * 2.3f ) + (float(GetLevel()+(GetSta()/2)+GetDex()) / 2.8f ) - 4 + GetLevel() * 2 ) );
 		}
 	}
-	else							// ëª¹ê³µê²©
+	else							// ¸÷°ø°İ
 	{		
 		nDefense =(int)(  ((GetDefenseByItem() / 4 + GetParam( DST_ADJDEF, 0 )) + 
 			(float(GetLevel()+(GetSta()/2)+GetDex()) / 2.8f ) - 4 + GetLevel() * 2 ) );
@@ -569,10 +569,10 @@ int CMover::CalcDefensePlayer( CMover* pAttacker, DWORD dwAtkFlags )
 	return nDefense;
 }
 
-// CalcDefenseì—ì„œ í˜¸ì¶œë˜ëŠ” subí•¨ìˆ˜ 
+// CalcDefense¿¡¼­ È£ÃâµÇ´Â subÇÔ¼ö 
 int CMover::CalcDefenseCore( CMover* pAttacker, DWORD dwAtkFlags, BOOL bRandom )
 {
-	if( dwAtkFlags & AF_MAGICSKILL )		// ì˜ˆì™¸ì²˜ë¦¬:ì†ì„± ë§¤ì§ìŠ¤í‚¬ì˜ ë°©ì–´ë ¥ì„ êµ¬í•œë‹¤.
+	if( dwAtkFlags & AF_MAGICSKILL )		// ¿¹¿ÜÃ³¸®:¼Ó¼º ¸ÅÁ÷½ºÅ³ÀÇ ¹æ¾î·ÂÀ» ±¸ÇÑ´Ù.
 		return GetResistMagic();
 
 	BOOL bGeneric = (dwAtkFlags & AF_GENERIC);
@@ -589,8 +589,8 @@ int CMover::CalcDefenseCore( CMover* pAttacker, DWORD dwAtkFlags, BOOL bRandom )
 			fFactor = pProperty->fFactorDef;
 		}
 		int nDefense = (int)( ((((GetLevel()*2) + (GetSta()/2)) / 2.8f ) - 4) + ((GetSta()-14) * fFactor) );
-		nDefense += (GetDefenseByItem( bRandom ) / 4);	// ì•„ì´í…œì— ì˜í•œ ë””íœìŠ¤   
-		nDefense += GetParam( DST_ADJDEF, 0 );	// ë””íœìŠ¤ ìˆ˜ì •ì¹˜ê°€ ìˆë‹¤ë©´ ê·¸ê²ƒì„ ë”í•¨.
+		nDefense += (GetDefenseByItem( bRandom ) / 4);	// ¾ÆÀÌÅÛ¿¡ ÀÇÇÑ µğÆæ½º   
+		nDefense += GetParam( DST_ADJDEF, 0 );	// µğÆæ½º ¼öÁ¤Ä¡°¡ ÀÖ´Ù¸é ±×°ÍÀ» ´õÇÔ.
 #ifdef __JEFF_11
 		if( nDefense < 0 )
 			nDefense	= 0;
@@ -611,7 +611,7 @@ int CMover::GetCriticalProb( void )
 	int nProb;
 	nProb = (GetDex() / 10);
 	nProb	= (int)( nProb *  GetJobPropFactor( JOB_PROP_CRITICAL ) );
-	nProb = GetParam( DST_CHR_CHANCECRITICAL, nProb );	// í¬ë¦¬í‹°ì»¬ í™•ë¥ ì„ ë†’ì—¬ì£¼ëŠ” ìŠ¤í‚¬ê´€ë ¨ 
+	nProb = GetParam( DST_CHR_CHANCECRITICAL, nProb );	// Å©¸®Æ¼ÄÃ È®·üÀ» ³ô¿©ÁÖ´Â ½ºÅ³°ü·Ã 
 #ifdef __JEFF_11
 	if( nProb < 0 )
 		nProb	= 0;
@@ -619,7 +619,7 @@ int CMover::GetCriticalProb( void )
 	
 	if( IsPlayer() )
 	{
-		if( m_idparty && (m_dwFlag & MVRF_CRITICAL) )	// íŒŒí‹° && 1íšŒ í¬ë¦¬í‹°ì»¬ ë°œë™?
+		if( m_idparty && (m_dwFlag & MVRF_CRITICAL) )	// ÆÄÆ¼ && 1È¸ Å©¸®Æ¼ÄÃ ¹ßµ¿?
 		{
 #ifdef __WORLDSERVER
 			CParty* pParty = g_PartyMng.GetParty( m_idparty );
@@ -633,11 +633,11 @@ int CMover::GetCriticalProb( void )
 		}
 
 #if __VER < 9 // __S_9_ADD
-		if( IsAfterDeath() )							// ì£½ìŒ ì´í›„ ìƒíƒœë¼ë©´?
+		if( IsAfterDeath() )							// Á×À½ ÀÌÈÄ »óÅÂ¶ó¸é?
 			nProb += CRITICAL_AFTER_DEATH;
 		
 		int nHitPercent = GetHitPointPercent( 100 );
-		if( nHitPercent < CRITICAL_BERSERK_HP )			// HPê°€ MAXëŒ€ë¹„ 30% ë¯¸ë§Œ? 
+		if( nHitPercent < CRITICAL_BERSERK_HP )			// HP°¡ MAX´ëºñ 30% ¹Ì¸¸? 
 		{
 			// CRITICAL_BERSERK_HP : nHitPercent = CRITICAL_BERSERK_PROB : x
 			// 30 : 15 = 20 : x
@@ -653,21 +653,21 @@ int CMover::GetCriticalProb( void )
 int CMover::CalcLinkAttackDamage( int nDamage )
 {
 	int nAdd = 0;
-	if( IsPlayer() && m_idparty && nDamage > 0 ) // ë‚´ê°€ íŒŒí‹°ì— ì°¸ì—¬ ì—¬ë¶€
+	if( IsPlayer() && m_idparty && nDamage > 0 ) // ³»°¡ ÆÄÆ¼¿¡ Âü¿© ¿©ºÎ
 	{
 		CParty* pParty = g_PartyMng.GetParty( m_idparty );
 		if( pParty && pParty->IsMember( m_idPlayer ) )
 		{
-			// ìˆœíšŒê·¹ë‹¨ì´ë©° ë§í¬ì–´íƒì¤‘ì´ë©° ë‹¨ì¥ë§Œ ë°ë¯¸ì§€ë¥¼ ë†’ì—¬ì¤€ë‹¤
+			// ¼øÈ¸±Ø´ÜÀÌ¸ç ¸µÅ©¾îÅÃÁßÀÌ¸ç ´ÜÀå¸¸ µ¥¹ÌÁö¸¦ ³ô¿©ÁØ´Ù
 			if( pParty->m_nKindTroup == 1 && pParty->m_nModeTime[PARTY_LINKATTACK_MODE] && pParty->IsLeader( m_idPlayer ) )
 			{
-				int nJoinMember = 0; // ì°¸ì—¬í•œ ë‹¨ì›ìˆ˜
+				int nJoinMember = 0; // Âü¿©ÇÑ ´Ü¿ø¼ö
 				CUser* pLeader = (CUser*)this;
 				CUser* pMemberUser;
 				
 				float fDist;
 				D3DXVECTOR3	vDist;
-#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 				if( pParty->m_nModeTime[PARTY_PARSKILL_MODE] )
 				{
 					nJoinMember = pParty->m_nSizeofMember;
@@ -683,14 +683,14 @@ int CMover::CalcLinkAttackDamage( int nDamage )
 								&& ( pLeader->m_idSetTarget != NULL_ID && pMemberUser->m_idSetTarget != NULL_ID ) )
 							{
 								vDist = pMemberUser->GetPos() - GetPos();
-								fDist = D3DXVec3LengthSq( &vDist );		// ì•„ì´í…œ ì¤ëŠ”ì‚¬ëŒê³¼ ë©¤ë²„ê°„ì˜ ê±°ë¦¬.
-								if( fDist < 255.0f * 255.0f )		// xxë¯¸í„°ë³´ë‹¤ ì‘ìœ¼ë©´
-									nJoinMember++; // ì°¸ì—¬í•œ ë‹¨ì›ìˆ˜										
+								fDist = D3DXVec3LengthSq( &vDist );		// ¾ÆÀÌÅÛ Áİ´Â»ç¶÷°ú ¸â¹ö°£ÀÇ °Å¸®.
+								if( fDist < 255.0f * 255.0f )		// xx¹ÌÅÍº¸´Ù ÀÛÀ¸¸é
+									nJoinMember++; // Âü¿©ÇÑ ´Ü¿ø¼ö										
 							}
 						}
 					}
 				}
-#else	//__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+#else	//__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 				for( int i = 0 ; i < pParty->m_nSizeofMember ; i++ )
 				{
 					pMemberUser = g_UserMng.GetUserByPlayerID( pParty->m_aMember[i].m_uPlayerId );
@@ -699,19 +699,19 @@ int CMover::CalcLinkAttackDamage( int nDamage )
 						if( pLeader->m_idSetTarget == pMemberUser->m_idSetTarget
 							&& ( pLeader->m_idSetTarget != NULL_ID && pMemberUser->m_idSetTarget != NULL_ID ) )
 						{
-							if( pLeader->IsSMMode( SM_PARTYSKILL1 ) || pLeader->IsSMMode( SM_PARTYSKILL15 ) || pLeader->IsSMMode( SM_PARTYSKILL30 ) )	// ì—¬ê¸°ì„œ ìœ ë£Œ ì•„ì´í…œ ì‚¬ìš©ì¤‘ì¸ì§€ í™•ì¸
-								nJoinMember++; // ì°¸ì—¬í•œ ë‹¨ì›ìˆ˜										
+							if( pLeader->IsSMMode( SM_PARTYSKILL1 ) || pLeader->IsSMMode( SM_PARTYSKILL15 ) || pLeader->IsSMMode( SM_PARTYSKILL30 ) )	// ¿©±â¼­ À¯·á ¾ÆÀÌÅÛ »ç¿ëÁßÀÎÁö È®ÀÎ
+								nJoinMember++; // Âü¿©ÇÑ ´Ü¿ø¼ö										
 							else
 							{
 								vDist = pMemberUser->GetPos() - GetPos();
-								fDist = D3DXVec3LengthSq( &vDist );		// ì•„ì´í…œ ì¤ëŠ”ì‚¬ëŒê³¼ ë©¤ë²„ê°„ì˜ ê±°ë¦¬.
-								if( fDist < 255.0f * 255.0f )		// xxë¯¸í„°ë³´ë‹¤ ì‘ìœ¼ë©´
-									nJoinMember++; // ì°¸ì—¬í•œ ë‹¨ì›ìˆ˜										
+								fDist = D3DXVec3LengthSq( &vDist );		// ¾ÆÀÌÅÛ Áİ´Â»ç¶÷°ú ¸â¹ö°£ÀÇ °Å¸®.
+								if( fDist < 255.0f * 255.0f )		// xx¹ÌÅÍº¸´Ù ÀÛÀ¸¸é
+									nJoinMember++; // Âü¿©ÇÑ ´Ü¿ø¼ö										
 							}
 						}
 					}
 				}
-#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 				nAdd = ( nDamage * nJoinMember / 10 ); 
 			}
 		}
@@ -719,10 +719,10 @@ int CMover::CalcLinkAttackDamage( int nDamage )
 	return nAdd;
 }
 
-// í¬ë¦¬í‹°ì»¬ ê³µê²©ì¸ê°€?
+// Å©¸®Æ¼ÄÃ °ø°İÀÎ°¡?
 BOOL CMover::IsCriticalAttack( CMover* pDefender, DWORD dwAtkFlags )
 {
-	if( IsSkillAttack( dwAtkFlags ) )	// ìŠ¤í‚¬ì´ë©´ critical ì—†ìŒ 
+	if( IsSkillAttack( dwAtkFlags ) )	// ½ºÅ³ÀÌ¸é critical ¾øÀ½ 
 		return FALSE;
 
 	return ( (int)( xRandom(100) ) < GetCriticalProb() );		
@@ -734,9 +734,9 @@ float CMover::GetBlockFactor( CMover* pAttacker, ATTACK_INFO* pInfo )
 	{
 		int r = xRandom( 80 );
 		if( r <= 5 )
-			return 1.0f;	// Blocking ì‹¤íŒ¨
+			return 1.0f;	// Blocking ½ÇÆĞ
 		if( r >= 75 )
-			return 0.1f;	// 10ìœ¼ë¡œ ë‚˜ëˆˆë‹¤.
+			return 0.1f;	// 10À¸·Î ³ª´«´Ù.
 
 		float fBlockA = GetLevel() / ( (GetLevel()+pAttacker->GetLevel())*15.0f );
 		float fBlockB = (GetDex()+pAttacker->GetDex()+2) * ( (GetDex()-pAttacker->GetDex()) / 800.0f );
@@ -746,33 +746,33 @@ float CMover::GetBlockFactor( CMover* pAttacker, ATTACK_INFO* pInfo )
 		if( fAdd < 0.0f )
 			fAdd = 0.0f;
 		
-		if( pInfo->IsRangeAttack() )	// ì›ê±°ë¦¬í‰íƒ€ì¼ë•ŒëŠ” 
-			fAdd += GetParam( DST_BLOCK_RANGE, 0 );		// ì›ê±°ë¦¬ë¸”ëŸ­ìœ¨ ë³´ì •ì¹˜ë¥¼ ê°€ì ¸ë‹¤ ì”€
+		if( pInfo->IsRangeAttack() )	// ¿ø°Å¸®ÆòÅ¸ÀÏ¶§´Â 
+			fAdd += GetParam( DST_BLOCK_RANGE, 0 );		// ¿ø°Å¸®ºí·°À² º¸Á¤Ä¡¸¦ °¡Á®´Ù ¾¸
 		else
-			fAdd += GetParam( DST_BLOCK_MELEE, 0 );		// ì›ê±°ë¦¬ê°€ ì•„ë‹ë• ê·¼ê±°ë¦¬ ë¸”ëŸ­ìœ¨ë³´ì •ì¹˜ë¥¼ ê°€ì ¸ë‹¤ ì”€
+			fAdd += GetParam( DST_BLOCK_MELEE, 0 );		// ¿ø°Å¸®°¡ ¾Æ´Ò¶© ±Ù°Å¸® ºí·°À²º¸Á¤Ä¡¸¦ °¡Á®´Ù ¾¸
 		
 		int nBR = (int)( ( GetDex() / 8.0f ) * GetJobPropFactor( JOB_PROP_BLOCKING ) + fAdd );
 		if( nBR < 0 )
 			nBR = 0; 
 
-		if ( nBR > r )		// Rì´ 6 ~ 74ì‚¬ì´ì˜ ê°’ì´ë©´ ->  BR > Rì¸ ê²½ìš° Blocking ì„±ê³µ
+		if ( nBR > r )		// RÀÌ 6 ~ 74»çÀÌÀÇ °ªÀÌ¸é ->  BR > RÀÎ °æ¿ì Blocking ¼º°ø
 			return 0.0f;
 	}
 	else
 	{
 		int r = xRandom( 100 );
 	
-		if( r <= 5 )			// Rì´ 0 ~ 5ì˜ ê°’ì´ë©´ Blocking ì‹¤íŒ¨
+		if( r <= 5 )			// RÀÌ 0 ~ 5ÀÇ °ªÀÌ¸é Blocking ½ÇÆĞ
 			return 1.0f;
-		if( r >= 95 )			// Rì´ 95 ~ 100ì˜ ê°’ì´ë©´ Blocking ì„±ê³µ
+		if( r >= 95 )			// RÀÌ 95 ~ 100ÀÇ °ªÀÌ¸é Blocking ¼º°ø
 			return 0.1f;
 
 		int	nBR = (int)( ( GetParrying() - GetLevel() ) * 0.5f );  // GetParrying == ER
 		if( nBR < 0 )
 			nBR = 0; 
 
-		if ( nBR > r )		// Rì´ 6 ~ 94ì‚¬ì´ì˜ ê°’ì´ë©´ ->  BR > Rì¸ ê²½ìš° Blocking ì„±ê³µ
-			return 0.2f;	// 5ë¡œ ë‚˜ëˆˆë‹¤.
+		if ( nBR > r )		// RÀÌ 6 ~ 94»çÀÌÀÇ °ªÀÌ¸é ->  BR > RÀÎ °æ¿ì Blocking ¼º°ø
+			return 0.2f;	// 5·Î ³ª´«´Ù.
 	}
 	return 1.0f;
 }
@@ -781,19 +781,19 @@ BOOL CMover::IsBlocking( CMover* pAttacker )
 {
 	int r = xRandom( 100 );
 	
-	if( r <= 5 )			// Rì´ 0 ~ 5ì˜ ê°’ì´ë©´ Blocking ì‹¤íŒ¨
+	if( r <= 5 )			// RÀÌ 0 ~ 5ÀÇ °ªÀÌ¸é Blocking ½ÇÆĞ
 		return FALSE;
-	if( r >= 95 )			// Rì´ 95 ~ 100ì˜ ê°’ì´ë©´ Blocking ì„±ê³µ
+	if( r >= 95 )			// RÀÌ 95 ~ 100ÀÇ °ªÀÌ¸é Blocking ¼º°ø
 		return TRUE;
 
-	//ëª¬ìŠ¤í„° Br = (ëª¬ìŠ¤í„°ER - ëª¬ìŠ¤í„°LV)*0.5
-	//í”Œë ˆì´ì–´ BR = ((ìºë¦­í„°Dex - 30) / (2 * Lv)) + (â‘  + â‘¡)
+	//¸ó½ºÅÍ Br = (¸ó½ºÅÍER - ¸ó½ºÅÍLV)*0.5
+	//ÇÃ·¹ÀÌ¾î BR = ((Ä³¸¯ÅÍDex - 30) / (2 * Lv)) + (¨ç + ¨è)
 	int nBR = 0;
 
 	if( IsPlayer() )
 	{
-		// â‘  : ë°©íŒ¨ì˜ ë¸”ë¡ ìˆ˜ì¹˜
-		// â‘¡ : ì•„ì´í…œê³¼ ìŠ¤í‚¬ ì¶”ê°€ì¹˜ì˜ í•©(ì •ìˆ˜, ì•„ì´í…œì— ë¸”ë¡í‚¹ ê°’ì´ ì •ìˆ˜ë¡œ ë”í•´ì§„ë‹¤.)
+		// ¨ç : ¹æÆĞÀÇ ºí·Ï ¼öÄ¡
+		// ¨è : ¾ÆÀÌÅÛ°ú ½ºÅ³ Ãß°¡Ä¡ÀÇ ÇÕ(Á¤¼ö, ¾ÆÀÌÅÛ¿¡ ºí·ÏÅ· °ªÀÌ Á¤¼ö·Î ´õÇØÁø´Ù.)
 		CItemElem* pShield = GetEquipItem( PARTS_SHIELD );	
 		if( pShield )
 		{
@@ -801,7 +801,7 @@ BOOL CMover::IsBlocking( CMover* pAttacker )
 			ItemProp* pProp = pShield->GetProp();
 			nBR += pProp->dwblockRating;
 
-			//ìµœì†Œ 2ì—ì„œ ìµœëŒ€65 ì‚¬ì´ì˜ ê°’ì„ ê°€ì§„ë‹¤
+			//ÃÖ¼Ò 2¿¡¼­ ÃÖ´ë65 »çÀÌÀÇ °ªÀ» °¡Áø´Ù
 			if( nBR < 2 )
 				nBR = 2;
 			else if( nBR > 65 )
@@ -817,14 +817,14 @@ BOOL CMover::IsBlocking( CMover* pAttacker )
 			nBR = 0; 
 	}
 
-	return ( nBR > r );		// Rì´ 6 ~ 94ì‚¬ì´ì˜ ê°’ì´ë©´ ->  BR > Rì¸ ê²½ìš° Blocking ì„±ê³µ
+	return ( nBR > r );		// RÀÌ 6 ~ 94»çÀÌÀÇ °ªÀÌ¸é ->  BR > RÀÎ °æ¿ì Blocking ¼º°ø
 }
 
 // this -> attacker
-// ìŠ¤í”¼ë¦¿ë°¤(SI_PSY_PSY_SPRITBOMB) 
-// ìì‹ ì˜ MPê°€ 90% ì´ìƒ ì¼ê²½ìš° ê³µê²©ë ¥ì˜ 1.5ë°°
-// ìì‹ ì˜ MPê°€ 50% ì´ìƒì¼ê²½ìš° ê³µê²©ë ¥ì˜ 1.2ë°°
-// ìì‹ ì˜ MPê°€ 50% ë¯¸ë§Œì¼ ê²½ìš° ê¸°ë³¸ ë°ë¯¸ì§€
+// ½ºÇÇ¸´¹ã(SI_PSY_PSY_SPRITBOMB) 
+// ÀÚ½ÅÀÇ MP°¡ 90% ÀÌ»ó ÀÏ°æ¿ì °ø°İ·ÂÀÇ 1.5¹è
+// ÀÚ½ÅÀÇ MP°¡ 50% ÀÌ»óÀÏ°æ¿ì °ø°İ·ÂÀÇ 1.2¹è
+// ÀÚ½ÅÀÇ MP°¡ 50% ¹Ì¸¸ÀÏ °æ¿ì ±âº» µ¥¹ÌÁö
 float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 {
 	float factor = 1.0f;
@@ -836,7 +836,7 @@ float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 
 	if( nSkill )
 	{
-		pSkillProp	= prj.GetSkillProp( nSkill );		// ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹°êº¼ëƒ„
+		pSkillProp	= prj.GetSkillProp( nSkill );		// ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼²¨³¿
 		if( pSkillProp )
 		{
 			pAddSkillProp	= prj.GetAddSkillProp( pSkillProp->dwSubDefine, pInfo->GetSkillLevel() );
@@ -847,19 +847,19 @@ float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 				if( pInfo->pAttacker->IsPlayer() && pInfo->pDefender->IsPlayer() )
 					dwProbability	= pAddSkillProp->nProbabilityPVP;
 #endif	// __SKILL_0706
-				if( pAddSkillProp->nSkillCount > 0 )	//  ë°œì‚¬ì²´ ê°œìˆ˜ê°€ ìˆëŠ”ê±´
-					factor	/= (float)pAddSkillProp->nSkillCount;	// ë°œì‚¬ì²´ ê°œìˆ˜ë§Œí¼ ë°ë¯¸ì§€ë¥¼ ë‚˜ëˆ ì„œ ì¤Œ.
+				if( pAddSkillProp->nSkillCount > 0 )	//  ¹ß»çÃ¼ °³¼ö°¡ ÀÖ´Â°Ç
+					factor	/= (float)pAddSkillProp->nSkillCount;	// ¹ß»çÃ¼ °³¼ö¸¸Å­ µ¥¹ÌÁö¸¦ ³ª´²¼­ ÁÜ.
 			}
 		}
 	}
 
-	// ì‹¸ì´ëŸ°íŠ¸ìƒ·ì´ë©´ ë°ë¯¸ì§€ 2ë°°, ë‹¤í¬ì¼ë£¨ì ¼ìƒíƒœì´ë©´ í•´ì œí•œë‹¤.
+	// ½ÎÀÌ·±Æ®¼¦ÀÌ¸é µ¥¹ÌÁö 2¹è, ´ÙÅ©ÀÏ·çÁ¯»óÅÂÀÌ¸é ÇØÁ¦ÇÑ´Ù.
 	if( HasBuff( BUFF_SKILL, SI_ACR_SUP_DARKILLUSION ) )
 	{
 		switch( nSkill )
 		{
-		case SI_JST_YOYO_BACKSTAB:   //ìµœëŒ€ 2ë°°
-		case SI_JST_YOYO_VATALSTAB:  //ìµœëŒ€ 4ë°°
+		case SI_JST_YOYO_BACKSTAB:   //ÃÖ´ë 2¹è
+		case SI_JST_YOYO_VATALSTAB:  //ÃÖ´ë 4¹è
 		case SI_ACR_BOW_SILENTSHOT:
 			{
 				factor *= 1.4f;
@@ -878,7 +878,7 @@ float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 		if( xRandom( 100 ) < dwProbability )
 			factor = 4.0f; // Tom: factor 4 is way better, else the shot just suxx!
 		break;		
-	case SI_ACR_BOW_JUNKBOW:		// ì—‰í„°ë¦¬ í™”ì‚´ì€ í™•ë¥ ë¡œ ë°ë¯¸ì§€ë¥¼ ì¤€ë‹¤.
+	case SI_ACR_BOW_JUNKBOW:		// ¾ûÅÍ¸® È­»ìÀº È®·ü·Î µ¥¹ÌÁö¸¦ ÁØ´Ù.
 		if( xRandom( 100 ) > dwProbability )
 			factor = 0.0f;
 		break;		
@@ -901,7 +901,7 @@ float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 		factor = factor * 1.5f * (fPercent / 100.0f);
 	}
 
-	if( IsNPC() )	// ë²„ì„œì»¤AIê°€ ìˆë‹¤.
+	if( IsNPC() )	// ¹ö¼­Ä¿AI°¡ ÀÖ´Ù.
 	{
 		int nBerserkHP = GetProp()->m_nBerserkHP;
 		if( nBerserkHP > 0 && GetHitPointPercent( 100 ) <= nBerserkHP )
@@ -909,20 +909,20 @@ float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 	}
 	else
 	{
-		if( pInfo->pDefender->IsPlayer() )		// í”Œë ˆì´ì–´ì™€ í”Œë ˆì´ì–´ì˜ ê³µê²©ì€ ë°ë¯¸ì§€ ê°ì†Œ 
+		if( pInfo->pDefender->IsPlayer() )		// ÇÃ·¹ÀÌ¾î¿Í ÇÃ·¹ÀÌ¾îÀÇ °ø°İÀº µ¥¹ÌÁö °¨¼Ò 
 			factor *= 0.60f;
 
-		if( pInfo->nParts == PARTS_LWEAPON )	// ì™¼ì†ì€ ê³µê²©ë ¥ì´ 75í”„ë¡œë¡œ 
+		if( pInfo->nParts == PARTS_LWEAPON )	// ¿Ş¼ÕÀº °ø°İ·ÂÀÌ 75ÇÁ·Î·Î 
 			factor *= 0.75f;
 	}
 
 	if( pInfo->pAttacker->IsPlayer() )
-		if( pInfo->pDefender->GetAdjParam( DST_CHRSTATE ) & CHS_DOUBLE )		// ë”ë¸”ë°ë¯¸ì§€ ìƒíƒœ ê±¸ë ¸ë‹¤
+		if( pInfo->pDefender->GetAdjParam( DST_CHRSTATE ) & CHS_DOUBLE )		// ´õºíµ¥¹ÌÁö »óÅÂ °É·È´Ù
 			factor *= 2.0f;
 
 	int nDelta = pInfo->pDefender->GetLevel() - pInfo->pAttacker->GetLevel(); 	
 
-	// ì˜ˆì™¸ì²˜ë¦¬: í´ë½ì›Œí¬ì™€ ê²½ë¹„ë³‘ì€ ë ˆë²¨ì°¨ í˜ë„í‹° skip
+	// ¿¹¿ÜÃ³¸®: Å¬¶ô¿öÅ©¿Í °æºñº´Àº ·¹º§Â÷ Æä³ÎÆ¼ skip
 	if( pInfo->pAttacker->IsNPC() )
 	{
 		DWORD dwClass = pInfo->pAttacker->GetProp()->dwClass;
@@ -930,7 +930,7 @@ float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 		{
 		case RANK_GUARD:
 		case RANK_SUPER:
-//		case RANK_MIDBOSS:		ì¤‘ê°„ë³´ìŠ¤ë“¤ì€ ë ˆë²¨ì°¨ í˜ë„í‹°ê°€ ìˆëŠ”ê²Œ ë§ì§€ ì•Šë‚˜ ì‹¶ë‹¤.
+//		case RANK_MIDBOSS:		Áß°£º¸½ºµéÀº ·¹º§Â÷ Æä³ÎÆ¼°¡ ÀÖ´Â°Ô ¸ÂÁö ¾Ê³ª ½Í´Ù.
 			nDelta = 0;
 			break;
 		}
@@ -949,7 +949,7 @@ float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 			factor *= (float)cos( radian );
 		}
 #else //__PVPDEMAGE0608	//	9th PVP DEMAGE edit 
-		if( pInfo->pAttacker->IsPlayer() && pInfo->pDefender->IsPlayer()/* && GetWorld()->GetID() == WI_WORLD_GUILDWAR */)	// ê¸¸ë“œëŒ€ì „ë§µì¸ê°€? && PVPì¸ê°€?
+		if( pInfo->pAttacker->IsPlayer() && pInfo->pDefender->IsPlayer()/* && GetWorld()->GetID() == WI_WORLD_GUILDWAR */)	// ±æµå´ëÀü¸ÊÀÎ°¡? && PVPÀÎ°¡?
 		{
 			nDelta = min( nDelta, 25 ); 
 			factor *= 25.0f / (25.0f + nDelta*2);
@@ -973,19 +973,19 @@ float CMover::GetDamageMultiplier( ATTACK_INFO* pInfo )
 
 
 
-// ì¼ë°˜(AF_MAGICSKILLë¥¼ ì œì™¸í•œ) ì†ì„±ë°ë¯¸ì§€ë¥¼ ê³„ì‚°í•œë‹¤.
+// ÀÏ¹İ(AF_MAGICSKILL¸¦ Á¦¿ÜÇÑ) ¼Ó¼ºµ¥¹ÌÁö¸¦ °è»êÇÑ´Ù.
 int CMover::CalcPropDamage( CMover* pDefender, DWORD dwAtkFlags )
 {
 	int nAdd = 0;
 	SAI79::ePropType type = SAI79::NO_PROP;
 	int nATK = 0;
 
-	if( IsNPC() )	// ê³µê²©ìê°€ NPCì¼ ê²½ìš°	
+	if( IsNPC() )	// °ø°İÀÚ°¡ NPCÀÏ °æ¿ì	
 	{			
 		type = GetProp()->eElementType;
 		nATK = GetProp()->wElementAtk; 
 	}
-	else		    // ê³µê²©ìê°€ í”Œë ˆì´ì–´ì¼ ê²½ìš°
+	else		    // °ø°İÀÚ°¡ ÇÃ·¹ÀÌ¾îÀÏ °æ¿ì
 	{		
 		CItemElem* pItemElem = GetWeaponItem();
 		if( pItemElem && pItemElem->m_bItemResist != SAI79::NO_PROP )
@@ -1013,7 +1013,7 @@ int CMover::CalcPropDamage( CMover* pDefender, DWORD dwAtkFlags )
 		}
 	}
 
-	if( type != SAI79::NO_PROP )	// ì†ì„±ê³µê²© ?
+	if( type != SAI79::NO_PROP )	// ¼Ó¼º°ø°İ ?
 	{
 		nAdd = (int)( nATK  * (1.0f - pDefender->GetResist(type)) );
 	}
@@ -1021,15 +1021,15 @@ int CMover::CalcPropDamage( CMover* pDefender, DWORD dwAtkFlags )
 }
 
 
-// AF_MAGICSKILL ì†ì„±ë°ë¯¸ì§€ë¥¼ ê³„ì‚°í•œë‹¤.
+// AF_MAGICSKILL ¼Ó¼ºµ¥¹ÌÁö¸¦ °è»êÇÑ´Ù.
 int CMover::GetMagicSkillPower( ATTACK_INFO* pInfo )
 {
 	CMover* pDefender = pInfo->pDefender; 
 	int nSkill = pInfo->GetSkill();
 	int nATK = GetMeleeSkillPower( pInfo );
-	nATK = GetParam( DST_ADDMAGIC, nATK );		// ì¶”ê°€ë§ˆë²•ë ¥ ìˆ˜ì •ì¹˜.
+	nATK = GetParam( DST_ADDMAGIC, nATK );		// Ãß°¡¸¶¹ı·Â ¼öÁ¤Ä¡.
 
-	ItemProp* pSkillProp = prj.GetSkillProp( nSkill );		// ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹°êº¼ëƒ„
+	ItemProp* pSkillProp = prj.GetSkillProp( nSkill );		// ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼²¨³¿
 	if( !pSkillProp )
 		return nATK;
 
@@ -1067,12 +1067,12 @@ float CMover::GetMagicSkillFactor( CMover* pDefender, SAI79::ePropType skillType
 	SAI79::ePropType itemType;
 	CItemElem* pWeapon	= GetWeaponItem();
 	if( pWeapon && pWeapon->m_bItemResist != SAI79::NO_PROP )
-		itemType = (SAI79::ePropType)pWeapon->m_bItemResist;	// ì œë ¨ì†ì„± 
+		itemType = (SAI79::ePropType)pWeapon->m_bItemResist;	// Á¦·Ã¼Ó¼º 
 	else
 	{
 		ItemProp* pItemProp = GetActiveHandItemProp();
 		if( pItemProp ) 
-			itemType = pItemProp->eItemType;					// ì•„ì´í…œ ì†ì„±
+			itemType = pItemProp->eItemType;					// ¾ÆÀÌÅÛ ¼Ó¼º
 		else
 			return 1.0f;
 	}
@@ -1120,7 +1120,7 @@ int CMover::PostCalcMagicSkill( int nATK, ATTACK_INFO* pInfo )
 
 	int nDEF = pDefender->CalcDefense( pInfo );
 #if __VER >= 10    // 	__LEGEND
-	if( pInfo->dwAtkFlags & AF_MAGICSKILL )		// ì˜ˆì™¸ì²˜ë¦¬:ì†ì„± ë§¤ì§ìŠ¤í‚¬ì˜ ë°©ì–´ë ¥ì„ êµ¬í•œë‹¤.
+	if( pInfo->dwAtkFlags & AF_MAGICSKILL )		// ¿¹¿ÜÃ³¸®:¼Ó¼º ¸ÅÁ÷½ºÅ³ÀÇ ¹æ¾î·ÂÀ» ±¸ÇÑ´Ù.
 		nATK = nATK - nATK * pDefender->GetParam( DST_RESIST_MAGIC_RATE, 0 ) / 100 ;
 #endif	//__LEGEND
 	a = ( nATK-nDEF ) * (1.0f - pDefender->GetResist(skillType) );
@@ -1128,12 +1128,12 @@ int CMover::PostCalcMagicSkill( int nATK, ATTACK_INFO* pInfo )
 	return	( (int)( (int)a*GetMagicSkillFactor( pDefender, skillType ) ) );
 }
 
-// ìˆœìˆ˜ê³µê²©ë ¥ì„ ì¦í­í•œë‹¤.
+// ¼ø¼ö°ø°İ·ÂÀ» ÁõÆøÇÑ´Ù.
 float CMover::GetATKMultiplier( CMover* pDefender, DWORD dwAtkFlags )
 {
 	float fMultiplier = 1.0f;
 
-	int nParam = GetParam( DST_ATKPOWER_RATE, 0 );		// ê³µê²©ë ¥ ì¦ê°€ ìˆ˜ì •ì¹˜
+	int nParam = GetParam( DST_ATKPOWER_RATE, 0 );		// °ø°İ·Â Áõ°¡ ¼öÁ¤Ä¡
 	FLOAT fRate = 1.0f + (nParam / 100.0f);
 	fMultiplier *= fRate;
 
@@ -1166,7 +1166,7 @@ float CMover::GetATKMultiplier( CMover* pDefender, DWORD dwAtkFlags )
 	return fMultiplier;
 }
 
-// ì†ì„±ì˜ ê³µê²© ì¶”ê°€í¼ì„¼íŠ¸ë¥¼êµ¬í•œë‹¤.
+// ¼Ó¼ºÀÇ °ø°İ Ãß°¡ÆÛ¼¾Æ®¸¦±¸ÇÑ´Ù.
 int CMover::GetPropATKPlus( int nParts )
 {
 	int nPlusATK = 0;
@@ -1185,7 +1185,7 @@ int CMover::GetPropATKPlus( int nParts )
 	return nPlusATK;
 }
 
-// ì†ì„±ì˜ ë°©ì–´ ì¶”ê°€í¼ì„¼íŠ¸ë¥¼êµ¬í•œë‹¤.
+// ¼Ó¼ºÀÇ ¹æ¾î Ãß°¡ÆÛ¼¾Æ®¸¦±¸ÇÑ´Ù.
 int CMover::GetPropDEFPlus()
 {
 	int nPlusDEF = 0;
@@ -1194,15 +1194,15 @@ int CMover::GetPropDEFPlus()
 	return nPlusDEF;
 }
 
-// GetHitPowerí•¨ìˆ˜ì—ì„œ ì‚¬ìš©í•  ATK, DEFì˜ ì¦ê° Factorë¥¼ êµ¬í•œë‹¤.
+// GetHitPowerÇÔ¼ö¿¡¼­ »ç¿ëÇÒ ATK, DEFÀÇ Áõ°¨ Factor¸¦ ±¸ÇÑ´Ù.
 void CMover::GetDamagePropertyFactor( CMover* pDefender, int* pnATKFactor, int* pnDEFFactor, int nParts )
 {
 #if __VER >= 14 // __EXT_ATTRIBUTE
-	*pnATKFactor = 10000;	// 14ì°¨ ë¶€í„°ëŠ” n/10000 factorë¡œ ë³€ê²½
-	*pnDEFFactor = 10000;	// 14ì°¨ ë¶€í„°ëŠ” n/10000 factorë¡œ ë³€ê²½
+	*pnATKFactor = 10000;	// 14Â÷ ºÎÅÍ´Â n/10000 factor·Î º¯°æ
+	*pnDEFFactor = 10000;	// 14Â÷ ºÎÅÍ´Â n/10000 factor·Î º¯°æ
 #else // __EXT_ATTRIBUTE
-	*pnATKFactor = 100;		// ì†ì„± ì ìš©ì´ ì—†ìœ¼ë©´ ATKë¥¼ 100% ê·¸ëŒ€ë¡œ ì‚¬ìš© 
-	*pnDEFFactor = 100;		// ì†ì„± ì ìš©ì´ ì—†ìœ¼ë©´ DEFë¥¼ 100% ê·¸ëŒ€ë¡œ ì‚¬ìš© 
+	*pnATKFactor = 100;		// ¼Ó¼º Àû¿ëÀÌ ¾øÀ¸¸é ATK¸¦ 100% ±×´ë·Î »ç¿ë 
+	*pnDEFFactor = 100;		// ¼Ó¼º Àû¿ëÀÌ ¾øÀ¸¸é DEF¸¦ 100% ±×´ë·Î »ç¿ë 
 #endif // __EXT_ATTRIBUTE
 
 	SAI79::ePropType atkType, defType; 
@@ -1246,7 +1246,7 @@ void CMover::GetDamagePropertyFactor( CMover* pDefender, int* pnATKFactor, int* 
 
 	if( pDefender->IsPlayer() )
 	{
-		CItemElem* pItemElem = pDefender->GetEquipItem( PARTS_UPPER_BODY );	//ìŠˆíŠ¸ì˜ ì†ì„±ì„ êµ¬í•œë‹¤.
+		CItemElem* pItemElem = pDefender->GetEquipItem( PARTS_UPPER_BODY );	//½´Æ®ÀÇ ¼Ó¼ºÀ» ±¸ÇÑ´Ù.
 		if( pItemElem )
 		{
 			defType = (SAI79::ePropType)pItemElem->m_bItemResist;
@@ -1271,14 +1271,14 @@ void CMover::GetDamagePropertyFactor( CMover* pDefender, int* pnATKFactor, int* 
 		return;
 #endif // __EXT_ATTRIBUTE
 
-	// ì†ì„±ENUMì„ ì¸ë±ìŠ¤ë¡œ ê°–ëŠ” í…Œì´ë¸” 
+	// ¼Ó¼ºENUMÀ» ÀÎµ¦½º·Î °®´Â Å×ÀÌºí 
 	static int table[SAI79::END_PROP][SAI79::END_PROP] = {
-		{0, 0, 0, 0, 0, 0}, // ì†ì„±ì—†ìŒ 
-		{0, 1, 2, 0, 3, 0},	// ë¶ˆ   ì†ì„±
-		{0, 3, 1, 2, 0, 0},	// ë¬¼   ì†ì„±
-		{0, 0, 3, 1, 0, 2},	// ì „ê¸° ì†ì„±
-		{0, 2, 0, 0, 1, 3},	// ë°”ëŒ ì†ì„±
-		{0, 0, 0, 3, 2, 1}	// ë•…   ì†ì„±			
+		{0, 0, 0, 0, 0, 0}, // ¼Ó¼º¾øÀ½ 
+		{0, 1, 2, 0, 3, 0},	// ºÒ   ¼Ó¼º
+		{0, 3, 1, 2, 0, 0},	// ¹°   ¼Ó¼º
+		{0, 0, 3, 1, 0, 2},	// Àü±â ¼Ó¼º
+		{0, 2, 0, 0, 1, 3},	// ¹Ù¶÷ ¼Ó¼º
+		{0, 0, 0, 3, 2, 1}	// ¶¥   ¼Ó¼º			
 	};
 
 	int result = table[ atkType ][ defType ];
@@ -1286,32 +1286,32 @@ void CMover::GetDamagePropertyFactor( CMover* pDefender, int* pnATKFactor, int* 
 	int nFactor = 0, nLevel = 0;
 	switch( result )
 	{
-		case 0 : // ìƒì„± ì—†ìŒ
-		case 1 : // ê°™ìŒ
+		case 0 : // »ó¼º ¾øÀ½
+		case 1 : // °°À½
 			{
 				if( atkLevel > 0 && defLevel == 0 )
 					nFactor += CItemUpgrade::GetInstance()->GetAttributeDamageFactor( atkLevel );
 				else if( atkLevel == 0 && defLevel > 0 )
-					nFactor -= CItemUpgrade::GetInstance()->GetAttributeDefenseFactor( defLevel - 3 );	// ë°©ì–´ë ¥
+					nFactor -= CItemUpgrade::GetInstance()->GetAttributeDefenseFactor( defLevel - 3 );	// ¹æ¾î·Â
 				else if( atkLevel > 0 && defLevel > 0 )
 					nLevel = atkLevel - defLevel;
 				break;
 			}
 
-		case 2 : // ë°©ì–´ì ìš°ì„±
+		case 2 : // ¹æ¾îÀÚ ¿ì¼º
 				nLevel = ( atkLevel - 5 ) - defLevel;
 				break;
 		
-		case 3 : // ê³µê²©ì ìš°ì„±
+		case 3 : // °ø°İÀÚ ¿ì¼º
 				nLevel = atkLevel - ( defLevel > 5 ? defLevel - 5 : 0 );
 				if( nLevel > 0 )
-					nFactor += CItemUpgrade::GetInstance()->GetAttributeAddAtkDmgFactor( nLevel ); // ì†ì„±ê´€ê³„ ë³´ì •ì¹˜
+					nFactor += CItemUpgrade::GetInstance()->GetAttributeAddAtkDmgFactor( nLevel ); // ¼Ó¼º°ü°è º¸Á¤Ä¡
 				break;
 	}
 	
 	if( nLevel != 0 )
 		nFactor += ( nLevel > 0 )	?	CItemUpgrade::GetInstance()->GetAttributeDamageFactor( nLevel )
-									:	-( CItemUpgrade::GetInstance()->GetAttributeDefenseFactor( -nLevel ) );	// ë°©ì–´ë ¥
+									:	-( CItemUpgrade::GetInstance()->GetAttributeDefenseFactor( -nLevel ) );	// ¹æ¾î·Â
 	*pnATKFactor += nFactor;
 	*pnDEFFactor += nFactor;
 #else // __EXT_ATTRIBUTE	
@@ -1323,7 +1323,7 @@ void CMover::GetDamagePropertyFactor( CMover* pDefender, int* pnATKFactor, int* 
 			*pnATKFactor = 0;
 #endif // __EXT_ENCHANT
 		break;
-	case 2:				//ê³µê²©ì ì—´ì„±
+	case 2:				//°ø°İÀÚ ¿­¼º
 #if __VER >= 13 // __EXT_ENCHANT
 		*pnATKFactor -= CItemUpgrade::GetInstance()->GetAttributeDamageFactor( defLevel );
 		*pnDEFFactor -= CItemUpgrade::GetInstance()->GetAttributeDamageFactor( defLevel );
@@ -1332,7 +1332,7 @@ void CMover::GetDamagePropertyFactor( CMover* pDefender, int* pnATKFactor, int* 
 		*pnDEFFactor += (defLevel + 5 + nPlusDEF );
 #endif // __EXT_ENCHANT
 		break;
-	case 3:				//ê³µê²©ì ìš°ì„± 
+	case 3:				//°ø°İÀÚ ¿ì¼º 
 #if __VER >= 13 // __EXT_ENCHANT
 		*pnATKFactor += CItemUpgrade::GetInstance()->GetAttributeDamageFactor( atkLevel );
 		*pnDEFFactor += CItemUpgrade::GetInstance()->GetAttributeDamageFactor( atkLevel );
@@ -1345,7 +1345,7 @@ void CMover::GetDamagePropertyFactor( CMover* pDefender, int* pnATKFactor, int* 
 #endif // __EXT_ATTRIBUTE
 }
 
-// ì¼ë°˜ ê³µê²© ë°ë¯¸ì§€ë¥¼ êµ¬í•œë‹¤.
+// ÀÏ¹İ °ø°İ µ¥¹ÌÁö¸¦ ±¸ÇÑ´Ù.
 int CMover::GetHitPower( ATTACK_INFO* pInfo  )
 {
 	int nMin, nMax, nATKFactor, nATK;
@@ -1386,7 +1386,7 @@ int CMover::GetHitPower( ATTACK_INFO* pInfo  )
 
 #if __VER >= 9		// 	__FLYBYATTACK0608	//	9th FlyByAttack edit
 		BOOL bFlyByAttack = xRandom(100) < 15;
-		ItemProp* pItemProp = GetActiveHandItemProp();			//ìš”ìš”ê³µê²©ì´ë‚˜ ë°˜ì‚¬ë¥˜ëŠ” ë‚ ë¦¬ì§€ ì•ŠìŒ 
+		ItemProp* pItemProp = GetActiveHandItemProp();			//¿ä¿ä°ø°İÀÌ³ª ¹İ»ç·ù´Â ³¯¸®Áö ¾ÊÀ½ 
 		if( pItemProp && pItemProp->dwWeaponType == WT_MELEE_YOYO || (pInfo->dwAtkFlags & AF_FORCE) )
 			bFlyByAttack = FALSE;
 		if(pInfo->pDefender->IsPlayer() )
@@ -1396,7 +1396,7 @@ int CMover::GetHitPower( ATTACK_INFO* pInfo  )
 			pInfo->dwAtkFlags |= AF_FLYING;
 #else //__FLYBYATTACK0608	//	9th FlyByAttack edit
 		BOOL bFlyByAttack = xRandom(100) < 30;
-		ItemProp* pItemProp = GetActiveHandItemProp();			//ìš”ìš”ê³µê²©ì´ë‚˜ ë°˜ì‚¬ë¥˜ëŠ” ë‚ ë¦¬ì§€ ì•ŠìŒ 
+		ItemProp* pItemProp = GetActiveHandItemProp();			//¿ä¿ä°ø°İÀÌ³ª ¹İ»ç·ù´Â ³¯¸®Áö ¾ÊÀ½ 
 		if( pItemProp && pItemProp->dwWeaponType == WT_MELEE_YOYO || (pInfo->dwAtkFlags & AF_FORCE) )
 			bFlyByAttack = FALSE;
 		if( pInfo->pDefender->CanFlyByAttack() && bFlyByAttack )
@@ -1404,14 +1404,14 @@ int CMover::GetHitPower( ATTACK_INFO* pInfo  )
 #endif	//__FLYBYATTACK0608	//	9th FlyByAttack edit
 	}		
 
-	nATK = xRandom( nMin, nMax );						// ê³µê²©ë ¥ì— ëœë¤ì ìš©  
+	nATK = xRandom( nMin, nMax );						// °ø°İ·Â¿¡ ·£´ıÀû¿ë  
 #if __VER >= 14 // __EXT_ATTRIBUTE
-	nATK = MulDiv( nATK, nATKFactor, 10000 );				// 14ì°¨ ë¶€í„°ëŠ” n/10000 ê°’ìœ¼ë¡œ ë³€ê²½
+	nATK = MulDiv( nATK, nATKFactor, 10000 );				// 14Â÷ ºÎÅÍ´Â n/10000 °ªÀ¸·Î º¯°æ
 #else // __EXT_ATTRIBUTE
-	nATK = MulDiv( nATK, nATKFactor, 100 );				// ì†ì„± ìƒì„±ì—ì˜í•œ íŒ©í„°ë¥¼ ê³±í•œë‹¤. nATKFactor 0-100ì‚¬ì´ì˜ í¼ì„¼íŠ¸ê°’  
+	nATK = MulDiv( nATK, nATKFactor, 100 );				// ¼Ó¼º »ó¼º¿¡ÀÇÇÑ ÆÑÅÍ¸¦ °öÇÑ´Ù. nATKFactor 0-100»çÀÌÀÇ ÆÛ¼¾Æ®°ª  
 #endif // __EXT_ATTRIBUTE
-	if( pInfo->IsRangeAttack() )						// í”Œë ˆì´ì–´ì˜ ì›ê±°ë¦¬ ê³µê²©ì˜ ê²½ìš° 
-		nATK	= (int)( nATK * GetChargeMultiplier( pInfo->GetChargeLevel() ) );		// ì¶©ì „ë ˆë²¨ì— ì˜í•œ ì¦í­ì²˜ë¦¬ 
+	if( pInfo->IsRangeAttack() )						// ÇÃ·¹ÀÌ¾îÀÇ ¿ø°Å¸® °ø°İÀÇ °æ¿ì 
+		nATK	= (int)( nATK * GetChargeMultiplier( pInfo->GetChargeLevel() ) );		// ÃæÀü·¹º§¿¡ ÀÇÇÑ ÁõÆøÃ³¸® 
 
 //	TRACE("nMin:%d nMax:%d nATK:%d nATKFactor:%d\n", nMin, nMax, nATK, nATKFactor ); 
 	return nATK;
@@ -1421,7 +1421,7 @@ int CMover::PostCalcGeneric( int nATK, ATTACK_INFO* pInfo )
 {
 	int nDEF = pInfo->pDefender->CalcDefense( pInfo );  
 #if __VER >= 14 // __EXT_ATTRIBUTE
-	nDEF = MulDiv( nDEF, pInfo->nDEFFactor, 10000 );	// 14ì°¨ë¶€í„° n/10000ìœ¼ë¡œ ë³€ê²½
+	nDEF = MulDiv( nDEF, pInfo->nDEFFactor, 10000 );	// 14Â÷ºÎÅÍ n/10000À¸·Î º¯°æ
 #else // __EXT_ATTRIBUTE
 	nDEF = MulDiv( nDEF, pInfo->nDEFFactor, 100 );
 #endif // __EXT_ATTRIBUTE
@@ -1441,14 +1441,14 @@ int CMover::PostCalcGeneric( int nATK, ATTACK_INFO* pInfo )
 		nDamage = 0;
 	}
 
-	// NPCì˜ ê²½ìš° ìµœì†Œ ë°ë¯¸ì§€ê°€ ë“¤ì–´ê°€ê²Œ í•œë‹¤.
+	// NPCÀÇ °æ¿ì ÃÖ¼Ò µ¥¹ÌÁö°¡ µé¾î°¡°Ô ÇÑ´Ù.
 	if( pInfo->pAttacker->IsNPC() && pInfo->pDefender->IsPlayer() )	
 	{
-		int nMin = (int)( max( 0, nATK * 0.1f ) );	// ëª¬ìŠ¤í„° ê³µê²©ë ¥ì˜ 10% ë°ë¯¸ì§€ê°€ ë¬´ì¡°ê±´ ë“¤ì–´ê°ˆ ìˆ˜ ìˆê²Œ í•´ ì¤€ë‹¤.
+		int nMin = (int)( max( 0, nATK * 0.1f ) );	// ¸ó½ºÅÍ °ø°İ·ÂÀÇ 10% µ¥¹ÌÁö°¡ ¹«Á¶°Ç µé¾î°¥ ¼ö ÀÖ°Ô ÇØ ÁØ´Ù.
 		nDamage = max( nDamage, nMin );
 	}
 
-	nDamage += GetWeaponPlusDamage( nDamage );	// ì¸ì²¸íŠ¸ ì˜µì…˜ ë°ë¯¸ì§€( ë°©ì–´ë ¥ ë¬´ê´€ ) 
+	nDamage += GetWeaponPlusDamage( nDamage );	// ÀÎÃ¾Æ® ¿É¼Ç µ¥¹ÌÁö( ¹æ¾î·Â ¹«°ü ) 
 	if( nDamage == 0 )
 	{
 		pInfo->dwAtkFlags &= ~AF_CRITICAL;
@@ -1461,9 +1461,9 @@ int	CMover::GetMeleeSkillPower( ATTACK_INFO* pInfo )
 {
 	int nSkill = pInfo->GetSkill();
 	int nSkillLv = pInfo->GetSkillLevel();
-	//int(ë¬´ê¸°ì˜AbilityMinMax * (ê¸°ìˆ ì˜AbilityMinMax + 10) / 6 + ë¬´ê¸°ì˜AbilityMinMax)
-	ItemProp* pItemProp = GetActiveHandItemProp();			// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
-	ItemProp* pSkillProp = prj.GetSkillProp( nSkill );		// ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹°êº¼ëƒ„
+	//int(¹«±âÀÇAbilityMinMax * (±â¼úÀÇAbilityMinMax + 10) / 6 + ¹«±âÀÇAbilityMinMax)
+	ItemProp* pItemProp = GetActiveHandItemProp();			// µé°íÀÖ´Â ¹«±âÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
+	ItemProp* pSkillProp = prj.GetSkillProp( nSkill );		// ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼²¨³¿
 	if( !pItemProp || !pSkillProp )
 	{
 		Error( "CMover::GetMeleeSkillPower() - nSkill : %d, Name : %s, Item : %d",
@@ -1474,7 +1474,7 @@ int	CMover::GetMeleeSkillPower( ATTACK_INFO* pInfo )
 	if( !pAddSkillProp )
 		return 1;
 
-	CItemElem *pWeapon = GetWeaponItem();		// ì†ì—ë“  ì•„ì´í…œì˜ í¬ì¸í„°.
+	CItemElem *pWeapon = GetWeaponItem();		// ¼Õ¿¡µç ¾ÆÀÌÅÛÀÇ Æ÷ÀÎÅÍ.
 	int nMin, nMax;
 	GetItemATKPower( &nMin, &nMax, pItemProp, pWeapon ); 
 
@@ -1540,12 +1540,12 @@ int	CMover::GetMeleeSkillPower( ATTACK_INFO* pInfo )
 }
 
 //
-// ì™„ë“œ(ë§¤ì§)ê³µê²© ë°ë¯¸ì§€ê³„ì‚°.
+// ¿Ïµå(¸ÅÁ÷)°ø°İ µ¥¹ÌÁö°è»ê.
 //
 int CMover::GetMagicHitPower( int nChargeLevel )
 {
-	ItemProp* pItemProp = GetActiveHandItemProp();			// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
-	CItemElem *pWeapon = GetWeaponItem();		// ì†ì—ë“  ì•„ì´í…œì˜ í¬ì¸í„°.
+	ItemProp* pItemProp = GetActiveHandItemProp();			// µé°íÀÖ´Â ¹«±âÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
+	CItemElem *pWeapon = GetWeaponItem();		// ¼Õ¿¡µç ¾ÆÀÌÅÛÀÇ Æ÷ÀÎÅÍ.
 
 	int nMin, nMax;
 	GetItemATKPower( &nMin, &nMax, pItemProp, pWeapon ); 
@@ -1564,9 +1564,9 @@ int CMover::GetMagicHitPower( int nChargeLevel )
 
 
 
-// ë””íœìŠ¤, í˜ë¦¬, í¬ë¦¬í‹°ì»¬ì„ ì ìš©í•œë‹¤.
-// nATK : ê³µê²©ìì˜ ê³µê²©ë ¥
-// nDamage : ìµœì¢… ë°ë¯¸ì§€ = ê³µê²©ë ¥ - ë°©ì–´ë ¥
+// µğÆæ½º, Æä¸®, Å©¸®Æ¼ÄÃÀ» Àû¿ëÇÑ´Ù.
+// nATK : °ø°İÀÚÀÇ °ø°İ·Â
+// nDamage : ÃÖÁ¾ µ¥¹ÌÁö = °ø°İ·Â - ¹æ¾î·Â
 int CMover::ApplyDPC( int nATK, ATTACK_INFO* pInfo )
 {	
 	int nDamage;
@@ -1581,14 +1581,14 @@ int CMover::ApplyDPC( int nATK, ATTACK_INFO* pInfo )
 	if( nDamage < 0 )	
 		nDamage = 0;
 
-	// í¬ë¦¬í‹°ì»¬ ì²˜ë¦¬.
+	// Å©¸®Æ¼ÄÃ Ã³¸®.
 	if( pInfo->pAttacker->IsCriticalAttack( this, pInfo->dwAtkFlags ) )		
 	{
 		pInfo->dwAtkFlags |= AF_CRITICAL;
 
-		int nChargeLevel = pInfo->GetChargeLevel();		// ì™„ë“œì¶©ì „ëŸ‰	
+		int nChargeLevel = pInfo->GetChargeLevel();		// ¿ÏµåÃæÀü·®	
 		if( (pInfo->pAttacker->m_pActMover->GetState() & OBJSTA_ATK4) || 
-			nChargeLevel == MAX_CHARGE_LEVEL )	// 4íŒ¨í„´ê³µê²©ì— ë°œìƒí•œ í¬ë¦¬í‹°ì»¬.
+			nChargeLevel == MAX_CHARGE_LEVEL )	// 4ÆĞÅÏ°ø°İ¿¡ ¹ß»ıÇÑ Å©¸®Æ¼ÄÃ.
 		{
 			nDamage = (int)(nDamage * 2.6f);
 			if( CanFlyByAttack() && xRandom(100) < 50 )
@@ -1642,35 +1642,35 @@ void CMover::ReSetDuelTime( CMover* pAttacker, CMover* pDefender )
 	}
 }
 
-// ê³µê²©ìê°€ ë³€ê²½ë˜ë©´ ê²½í—˜ì¹˜ ì§€ê¸‰ë¥ ì„ ë³€ê²½
+// °ø°İÀÚ°¡ º¯°æµÇ¸é °æÇèÄ¡ Áö±Ş·üÀ» º¯°æ
 void CMover::ChangeExpRatio( CMover* pAttacker, CMover* pDefender )
 {
 	BOOL bDiffer = FALSE;
-	if( pDefender->m_idAttacker != pAttacker->GetId() )	// ê³µê²©ìê°€ ë³€ê²½ë˜ë©´?
+	if( pDefender->m_idAttacker != pAttacker->GetId() )	// °ø°İÀÚ°¡ º¯°æµÇ¸é?
 	{
-		if( pAttacker->m_idparty )	// ë‚  ì¹œë†ˆì´ íŒŒí‹°ê°€ ìˆëŠ”ê°€.
+		if( pAttacker->m_idparty )	// ³¯ Ä£³ğÀÌ ÆÄÆ¼°¡ ÀÖ´Â°¡.
 		{
 			CMover *pLastAttacker = prj.GetMover( pDefender->m_idAttacker );
-			if( IsValidObj( (CObj*)pLastAttacker ) && pLastAttacker->m_idparty != pAttacker->m_idparty )	// ë‹¤ë¥¸íŒŒí‹°ê°€ ì³¤ìœ¼ë©´ ì§€ê¸‰ë¥  ë°”ê¿ˆ.
+			if( IsValidObj( (CObj*)pLastAttacker ) && pLastAttacker->m_idparty != pAttacker->m_idparty )	// ´Ù¸¥ÆÄÆ¼°¡ ÃÆÀ¸¸é Áö±Ş·ü ¹Ù²Ş.
 				bDiffer = TRUE;
 		} else
-			bDiffer = TRUE;			// ë‚  ë§ˆì§€ë§‰ìœ¼ë¡œ ì³¤ë˜ë†ˆì´ íŒŒí‹°ê°€ ì—†ìœ¼ë©´ ì§€ê¸‰ë¥  ë°”ê¿ˆ.
+			bDiffer = TRUE;			// ³¯ ¸¶Áö¸·À¸·Î ÃÆ´ø³ğÀÌ ÆÄÆ¼°¡ ¾øÀ¸¸é Áö±Ş·ü ¹Ù²Ş.
 	}
 	
-	if( bDiffer )	// ë‹¤ë¥¸ ìƒëŒ€(íŒŒí‹°ë„ ë‹¤ë¥¸)ê°€ ì³¤ìœ¼ë©´ ì§€ê¸‰ë¥ ì„ ë³€ê²½ 
+	if( bDiffer )	// ´Ù¸¥ »ó´ë(ÆÄÆ¼µµ ´Ù¸¥)°¡ ÃÆÀ¸¸é Áö±Ş·üÀ» º¯°æ 
 	{
-		if( pDefender->GetProp()->dwClass != RANK_SUPER )		// ë³´ìŠ¤ëª¹ì¼ê²½ìš° ì´ ì ìš©ì„ ë°›ì§€ ì•ŠìŒ.
+		if( pDefender->GetProp()->dwClass != RANK_SUPER )		// º¸½º¸÷ÀÏ°æ¿ì ÀÌ Àû¿ëÀ» ¹ŞÁö ¾ÊÀ½.
 			pDefender->m_fExpRatio = (float)pDefender->GetHitPoint() / pDefender->GetMaxHitPoint();
 	}
 }
 
-// ìŠ¤í‚¬ì´ë‚˜ ë¬¼ë¦¬ì  ê³µê²©ì„ ë‹¹í•  ê²½ìš° 
+// ½ºÅ³ÀÌ³ª ¹°¸®Àû °ø°İÀ» ´çÇÒ °æ¿ì 
 void CMover::OnAttacked( CMover* pAttacker, int nDamage, BOOL bTarget, int nReflect )
 {
 	CMover* pDefender = this;
 	if( pDefender == pAttacker )
 	{
-//		ASSERT( FALSE );	// ì¼ë‹¨ í˜„ ê¸°íšì—ì„œ ìì‹ ì„ ê³µê²©í•˜ëŠ” ê²½ìš°ëŠ” ì—†ë‹¤. 
+//		ASSERT( FALSE );	// ÀÏ´Ü Çö ±âÈ¹¿¡¼­ ÀÚ½ÅÀ» °ø°İÇÏ´Â °æ¿ì´Â ¾ø´Ù. 
 		return;
 	}
 
@@ -1685,7 +1685,7 @@ void CMover::OnAttacked( CMover* pAttacker, int nDamage, BOOL bTarget, int nRefl
 		)
 		bAddEnemy = FALSE;
 	
-	if( bAddEnemy )		// TODO_raiders: HITTYPE_PKì™€ HITTYPE_GENERICì¸ ê²½ìš°ë¡œ ìˆ˜ì •í•´ì•¼ í•¨  
+	if( bAddEnemy )		// TODO_raiders: HITTYPE_PK¿Í HITTYPE_GENERICÀÎ °æ¿ì·Î ¼öÁ¤ÇØ¾ß ÇÔ  
 	{
 		dwLast = pDefender->AddEnemy( pAttacker->GetId(), nDamage );
 		pAttacker->AddEnemy( pDefender->GetId(), 0 );
@@ -1714,11 +1714,11 @@ void CMover::OnAttacked( CMover* pAttacker, int nDamage, BOOL bTarget, int nRefl
 				pAttacker->SetPKPink( GetTickCount() + SEC(prj.m_PKSetting.nGeneralAttack) );
 			g_UserMng.AddPKPink( pAttacker, 1 );
 #else // __VER >= 8 // __S8_PK
-			// PKì„¸ì…˜ì„ ì‹œì‘í•˜ê¸° ìœ„í•´ì„œ í”Œë ˆì´ì–´ê°„ì˜ ì ëŒ€ê´€ê³„ ì‹œì‘ì„ ë³´ë‚¸ë‹¤.
+			// PK¼¼¼ÇÀ» ½ÃÀÛÇÏ±â À§ÇØ¼­ ÇÃ·¹ÀÌ¾î°£ÀÇ Àû´ë°ü°è ½ÃÀÛÀ» º¸³½´Ù.
 			((CUser*)pAttacker)->UpdatePlayerEnemy( ADD_PLAYER_ENEMY, pDefender->GetId() );
 			((CUser*)pDefender)->UpdatePlayerEnemy( ADD_PLAYER_ENEMY, pAttacker->GetId() );
-			// ì²« PKì‹œë„ì´ë©´ ìŠ¬ë¡œí„° í¬ì¸íŠ¸ë¥¼ ê°ì†Œí•œë‹¤. 
-			if( dwLast == 0 || (GetTickCount() - dwLast) > MIN(1) )		//ì²«íƒ€ or ì„¸ì…˜ì´ 1ë¶„ì„ ì§€ë‚¬ëŠ”ê°€?
+			// Ã¹ PK½ÃµµÀÌ¸é ½½·ÎÅÍ Æ÷ÀÎÆ®¸¦ °¨¼ÒÇÑ´Ù. 
+			if( dwLast == 0 || (GetTickCount() - dwLast) > MIN(1) )		//Ã¹Å¸ or ¼¼¼ÇÀÌ 1ºĞÀ» Áö³µ´Â°¡?
 			{
 				pAttacker->ChangeSlaughter( CHANGE_SLAUGHTER_ATTACK, pDefender );
 			}
@@ -1732,24 +1732,24 @@ void CMover::OnAttacked( CMover* pAttacker, int nDamage, BOOL bTarget, int nRefl
 
 	if( pAttacker->IsPlayer() && pDefender->IsNPC() )		
 	{
-		if( pDefender->m_idAttacker != NULL_ID )			// ëˆ„êµ°ê°€ê°€ í•œë²ˆ ì¹œê±´ê°€?
+		if( pDefender->m_idAttacker != NULL_ID )			// ´©±º°¡°¡ ÇÑ¹ø Ä£°Ç°¡?
 		{
 			if( nDamage > 0 )
 				ChangeExpRatio( pAttacker, pDefender );		 
 		}
 		else
 		{
-			((CUser *)pAttacker)->AddCorrReq( pDefender );	// ê³µê²©ììœ ì €ì—ê²Œ ëª¹ ì¢Œí‘œí•œë²ˆ ë³´ì •.
+			((CUser *)pAttacker)->AddCorrReq( pDefender );	// °ø°İÀÚÀ¯Àú¿¡°Ô ¸÷ ÁÂÇ¥ÇÑ¹ø º¸Á¤.
 		}
-		pDefender->m_idAttacker = pAttacker->GetId();		// í”¼ê²©ìëŠ” ê³µê²©ìë¥¼ ê¸°ì–µ 
+		pDefender->m_idAttacker = pAttacker->GetId();		// ÇÇ°İÀÚ´Â °ø°İÀÚ¸¦ ±â¾ï 
 	}
-	pAttacker->m_idLastHitMover = pDefender->GetId();		// PKì‹œ ì•„ì´í…œ ê¶Œë¦¬ì²˜ë¦¬ë¥¼ ìœ„í•´ì„œ ê¸°ì–µí•´ë‘  ( NPPì—ì„œ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ )
+	pAttacker->m_idLastHitMover = pDefender->GetId();		// PK½Ã ¾ÆÀÌÅÛ ±Ç¸®Ã³¸®¸¦ À§ÇØ¼­ ±â¾ïÇØµÒ ( NPP¿¡¼­ »ç¿ëÇÏÁö ¾ÊÀ½ )
 }
 
 
 
-// ì¢‹ì€ ë²„í”„ì¼ë•Œë§Œ ì—¬ê¸° ë“¤ì–´ì˜´
-// return HITTYPE_GENERICì´ë©´ ì•ˆë“œëŸ¬ê°
+// ÁÁÀº ¹öÇÁÀÏ¶§¸¸ ¿©±â µé¾î¿È
+// return HITTYPE_GENERICÀÌ¸é ¾Èµå·¯°¨
 #if __VER >= 8 // __S8_PK
 HITTYPE	CMover::GetHitType2( CMover* pMover, BOOL bTarget, BOOL bGood )
 #else // __VER >= 8 // __S8_PK
@@ -1758,19 +1758,19 @@ HITTYPE	CMover::GetHitType2( CMover* pMover, BOOL bTarget )
 {
 	if( !IsValidObj( (CObj*)this ) || !IsValidObj( (CObj*)pMover ) )
 		return HITTYPE_GENERIC;
-	if( IsDie() || pMover->IsDie() )					// ì£½ì€ìƒíƒœ
+	if( IsDie() || pMover->IsDie() )					// Á×Àº»óÅÂ
 		return HITTYPE_FAIL;
-	if( m_nDead || pMover->m_nDead )					// ì£½ì€í›„ ë¬´ì ìƒíƒœ
+	if( m_nDead || pMover->m_nDead )					// Á×ÀºÈÄ ¹«Àû»óÅÂ
 		return HITTYPE_GENERIC;
 
 	if( IsPlayer() && pMover->IsPlayer() )
 	{
-#if __VER < 8 // 8ì°¨ ë“€ì–¼ 061226 ma
+#if __VER < 8 // 8Â÷ µà¾ó 061226 ma
 		if( !g_eLocal.GetState( EVE_18 ) )
 			return HITTYPE_FAIL;
-#endif // __VER >= 8 // 8ì°¨ ë“€ì–¼ 061226 ma
+#endif // __VER >= 8 // 8Â÷ µà¾ó 061226 ma
 
-		if( m_pActMover->IsFly() || pMover->m_pActMover->IsFly() )	// ê³µì¤‘ì— ìˆìœ¼ë©´ ë¶ˆê°€ 
+		if( m_pActMover->IsFly() || pMover->m_pActMover->IsFly() )	// °øÁß¿¡ ÀÖÀ¸¸é ºÒ°¡ 
 			return HITTYPE_FAIL;
 		if( IsPVPTarget( pMover ) )
 			return HITTYPE_PVP;
@@ -1788,7 +1788,7 @@ HITTYPE	CMover::GetHitType2( CMover* pMover, BOOL bTarget )
 		if( g_eLocal.GetState( EVE_PK ) )
 		{
 #if __VER >= 8 // __S8_PK
-			if( bGood )		// ì„ í•œ ë§ˆë²•ì´ë©´ ëª¨ë‘ ë“¤ì–´ê°€ê²Œ í•˜ì
+			if( bGood )		// ¼±ÇÑ ¸¶¹ıÀÌ¸é ¸ğµÎ µé¾î°¡°Ô ÇÏÀÚ
 				return HITTYPE_FAIL;
 			else if( GetLevel() <= prj.m_PKSetting.nLimitLevel || pMover->GetLevel() <= prj.m_PKSetting.nLimitLevel )
 				return HITTYPE_FAIL;
@@ -1796,7 +1796,7 @@ HITTYPE	CMover::GetHitType2( CMover* pMover, BOOL bTarget )
 #else // __VER >= 8 // __S8_PK
 			DWORD dwLast;										
 			GetEnemyHit( pMover->GetId(), &dwLast );
-			if( dwLast == 0 || (GetTickCount() - dwLast) > MIN(1) )		//PKì„¸ì…˜ ê²€ì‚¬ 
+			if( dwLast == 0 || (GetTickCount() - dwLast) > MIN(1) )		//PK¼¼¼Ç °Ë»ç 
 				return HITTYPE_FAIL;
 			else
 				return HITTYPE_PK;		
@@ -1809,23 +1809,23 @@ HITTYPE	CMover::GetHitType2( CMover* pMover, BOOL bTarget )
 	}
 	else
 	{
-		return HITTYPE_GENERIC;		// NPCì—ê²ŒëŠ” ì¢‹ì€ ë²„í”„ë¥¼ ì¤„ìˆ˜ ì—†ë‹¤.
+		return HITTYPE_GENERIC;		// NPC¿¡°Ô´Â ÁÁÀº ¹öÇÁ¸¦ ÁÙ¼ö ¾ø´Ù.
 	}
 }
 
-// this - ê³µê²©ì, pMover - ë°©ì–´ì  
+// this - °ø°İÀÚ, pMover - ¹æ¾îÀÚ  
 HITTYPE	CMover::GetHitType( CMover* pMover, BOOL bTarget, int nReflect )
 {
 	if( !IsValidObj( (CObj*)this ) || !IsValidObj( (CObj*)pMover ) )
 		return HITTYPE_FAIL;
-	if( IsDie() || pMover->IsDie() )					// ì£½ì€ìƒíƒœ
+	if( IsDie() || pMover->IsDie() )					// Á×Àº»óÅÂ
 		return HITTYPE_FAIL;
-	if( m_nDead || pMover->m_nDead )					// ì£½ì€í›„ ë¬´ì ìƒíƒœ
+	if( m_nDead || pMover->m_nDead )					// Á×ÀºÈÄ ¹«Àû»óÅÂ
 		return HITTYPE_FAIL;
 
 #if __VER >= 9	//__AI_0509
-	// ìê¸° ìì‹ ì„ ê³µê²©í•˜ëŠ” ê²½ìš°ê°€ ì•„ë‹˜
-	// ë””ë²„í”„ ìƒíƒœì—ì„œ ì¬ë¡œê·¸ì¸ í•˜ë©´ ê³µê²©ì ëŒ€ì‹  ìì‹ ì´ ê³µê²©ìë¡œ ì„¤ì •ë¨.
+	// ÀÚ±â ÀÚ½ÅÀ» °ø°İÇÏ´Â °æ¿ì°¡ ¾Æ´Ô
+	// µğ¹öÇÁ »óÅÂ¿¡¼­ Àç·Î±×ÀÎ ÇÏ¸é °ø°İÀÚ ´ë½Å ÀÚ½ÅÀÌ °ø°İÀÚ·Î ¼³Á¤µÊ.
 	if( this == pMover )	
 		return HITTYPE_GENERIC;
 #endif	// __AI_0509
@@ -1835,12 +1835,12 @@ HITTYPE	CMover::GetHitType( CMover* pMover, BOOL bTarget, int nReflect )
 		if( IsGuildCombatTarget( pMover ) )
 			return HITTYPE_GUILDCOMBAT;
 
-#if __VER < 8 // 8ì°¨ ë“€ì–¼ 061226 ma
+#if __VER < 8 // 8Â÷ µà¾ó 061226 ma
 		if( !g_eLocal.GetState( EVE_18 ) )
 			return HITTYPE_FAIL;
-#endif // __VER >= 8 // 8ì°¨ ë“€ì–¼ 061226 ma		
+#endif // __VER >= 8 // 8Â÷ µà¾ó 061226 ma		
 
-		if( m_pActMover->IsFly() || pMover->m_pActMover->IsFly() )	// ê³µì¤‘ì— ìˆìœ¼ë©´ ë¶ˆê°€ 
+		if( m_pActMover->IsFly() || pMover->m_pActMover->IsFly() )	// °øÁß¿¡ ÀÖÀ¸¸é ºÒ°¡ 
 			return HITTYPE_FAIL;
 		if( IsPVPTarget( pMover ) )
 			return HITTYPE_PVP;
@@ -1867,7 +1867,7 @@ HITTYPE	CMover::GetHitType( CMover* pMover, BOOL bTarget, int nReflect )
 
 		if( IsBaseJob() || pMover->IsBaseJob() )
 			return HITTYPE_FAIL;
-		if( g_eLocal.GetState( EVE_GUILDWAR ) )			// ê¸¸ë“œì „ ìƒíƒœì—ì„œëŠ” PKë¶ˆê°€ 
+		if( g_eLocal.GetState( EVE_GUILDWAR ) )			// ±æµåÀü »óÅÂ¿¡¼­´Â PKºÒ°¡ 
 		{
 			if( m_idWar > 0 || pMover->m_idWar > 0 )	
 				return HITTYPE_FAIL;
@@ -1879,17 +1879,17 @@ HITTYPE	CMover::GetHitType( CMover* pMover, BOOL bTarget, int nReflect )
 			if( GetLevel() <= prj.m_PKSetting.nLimitLevel || pMover->GetLevel() <= prj.m_PKSetting.nLimitLevel )
 				return HITTYPE_FAIL;
 #else // __VER >= 8 // __S8_PK
-			if( pMover->IsChaotic() )						// ì¹´ì˜¤        - PKê°€ëŠ¥ 
+			if( pMover->IsChaotic() )						// Ä«¿À        - PK°¡´É 
 				return HITTYPE_PK;
-			if( GetTickCount() >= m_dwPKTargetLimit )		// PKì„ ê³µë¶ˆê°€ì‹œê°„ë™ì•ˆì—ëŠ” ì„ ê³µì´ ì•ˆë¨  
+			if( GetTickCount() >= m_dwPKTargetLimit )		// PK¼±°øºÒ°¡½Ã°£µ¿¾È¿¡´Â ¼±°øÀÌ ¾ÈµÊ  
 			{
-				if( bTarget )								// íƒ€ì¼“ìœ ì €    - PKê°€ëŠ¥ 
+				if( bTarget )								// Å¸ÄÏÀ¯Àú    - PK°¡´É 
 					return HITTYPE_PK;
 			}
 			
 			DWORD dwLast;										
 			GetEnemyHit( pMover->GetId(), &dwLast );
-			if( dwLast == 0 || (GetTickCount() - dwLast) > MIN(1) )		//PKì„¸ì…˜ ê²€ì‚¬ 
+			if( dwLast == 0 || (GetTickCount() - dwLast) > MIN(1) )		//PK¼¼¼Ç °Ë»ç 
 				return HITTYPE_FAIL;
 #endif // __VER >= 8 // __S8_PK
 			return HITTYPE_PK;
@@ -1901,18 +1901,18 @@ HITTYPE	CMover::GetHitType( CMover* pMover, BOOL bTarget, int nReflect )
 	}
 	else
 	{
-		if( IsNPC() && GetProp()->dwClass == RANK_GUARD )			// ì˜ˆì™¸ì²˜ë¦¬: ê²½ë¹„ë³‘ì€ ê³µì¤‘ì— ìˆëŠ” ë…€ì„ë„ ê³µê²©ê°€ëŠ¥ 
+		if( IsNPC() && GetProp()->dwClass == RANK_GUARD )			// ¿¹¿ÜÃ³¸®: °æºñº´Àº °øÁß¿¡ ÀÖ´Â ³à¼®µµ °ø°İ°¡´É 
 			return HITTYPE_GENERIC;
 	
-		if( pMover->IsNPC() && IsAttackAbleNPC( pMover ) == FALSE )	// bKillable, IsPeaceful, RANK_GUARDë¥¼ ê²€ì‚¬ 
+		if( pMover->IsNPC() && IsAttackAbleNPC( pMover ) == FALSE )	// bKillable, IsPeaceful, RANK_GUARD¸¦ °Ë»ç 
 			return HITTYPE_FAIL;
 
-		//TODO: IsFly()ë¡œ í†µí•© 
+		//TODO: IsFly()·Î ÅëÇÕ 
 		bool bAttackerFly = ( IsNPC() && IsFlyingNPC() ) || ( IsPlayer() && IsFly() );
 		bool bDefenderFly = ( pMover->IsNPC() && pMover->IsFlyingNPC() ) || ( pMover->IsPlayer() && pMover->IsFly() );
 
 
-#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
+#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
 	
 		if( bAttackerFly != bDefenderFly && bAttackerFly )
 			return HITTYPE_FAIL;
@@ -2004,14 +2004,14 @@ BOOL CMover::IsGuildCombatTarget( CMover* pMover )
 	return TRUE;
 }
 
-// ë§ëŠ” ëª¨ì…˜ì„ ì·¨í•œë‹¤.
+// ¸Â´Â ¸ğ¼ÇÀ» ÃëÇÑ´Ù.
 void CMover::SetDamagedMotion( CMover* pAttacker, DWORD dwAtkFlags )
 {
-	if((m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL))			// ë°ë¯¸ì§€í”Œë¼ì‰ì´ ì•„ë‹ë•Œë§Œ ì•„ë˜ ì²˜ë¦¬.
+	if((m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL))			// µ¥¹ÌÁöÇÃ¶óÀ×ÀÌ ¾Æ´Ò¶§¸¸ ¾Æ·¡ Ã³¸®.
 		return;
 
 	m_pActMover->ResetState( OBJSTA_JUMP_ALL );
-	if( dwAtkFlags & AF_FLYING )									// ë§ê³  ë‚ ì•„ê°€ì•¼ í•˜ëŠ”ê°€?
+	if( dwAtkFlags & AF_FLYING )									// ¸Â°í ³¯¾Æ°¡¾ß ÇÏ´Â°¡?
 	{
 		if( (m_pActMover->GetState() != OBJSTA_STUN) )
 		{			
@@ -2019,8 +2019,8 @@ void CMover::SetDamagedMotion( CMover* pAttacker, DWORD dwAtkFlags )
 			SetMotion( MTI_DMGFLY, ANILOOP_CONT );
 			if( pAttacker )
 			{ 
-				pAttacker->SendActMsg( OBJMSG_STOP );					// í”Œë¼ì‰ë‹¤ìš´ì´ ì¼ì–´ë‚¬ì„ë•Œ ì–´íƒœì»¤ëŠ” ì¼ë‹¨ ì„¸ìš°ì.
-				m_pActMover->DoDamageFly( pAttacker->GetAngle(), 145.0f, 0.18f );	// ì–´íƒœì»¤ê°€ ë³´ëŠ”ìª½ìœ¼ë¡œ ë‚ ë ¤ë³´ëƒ„.
+				pAttacker->SendActMsg( OBJMSG_STOP );					// ÇÃ¶óÀ×´Ù¿îÀÌ ÀÏ¾î³µÀ»¶§ ¾îÅÂÄ¿´Â ÀÏ´Ü ¼¼¿ìÀÚ.
+				m_pActMover->DoDamageFly( pAttacker->GetAngle(), 145.0f, 0.18f );	// ¾îÅÂÄ¿°¡ º¸´ÂÂÊÀ¸·Î ³¯·Áº¸³¿.
 			}
 		}
 	} 
@@ -2033,13 +2033,13 @@ void CMover::SetDamagedMotion( CMover* pAttacker, DWORD dwAtkFlags )
 	if( m_pActMover->GetCastingEndTick() > dwTmpTick && ( nTmpSkillID == SI_KNT_HERO_DRAWING || nTmpSkillID == SI_RIG_HERO_RETURN ) )
 	{
 		m_pActMover->SetCastingEndTick(0);
-		m_pActMover->ClearState();				// ìƒíƒœ í´ë¦¬ì–´í•˜ê³  ë‹¤ì‹œ ë§ì¶¤.
+		m_pActMover->ClearState();				// »óÅÂ Å¬¸®¾îÇÏ°í ´Ù½Ã ¸ÂÃã.
 	}
 #endif  //#if __VER >= 10 // __LEGEND
 
-	if( m_pActMover->IsActJump() || m_pActMover->IsActAttack() )	// ì í”„ì¤‘ or ê³µê²©ì¤‘ ì—” ë°ë¯¸ì§€ ëª¨ì…˜ ì•ˆëƒ„.
+	if( m_pActMover->IsActJump() || m_pActMover->IsActAttack() )	// Á¡ÇÁÁß or °ø°İÁß ¿£ µ¥¹ÌÁö ¸ğ¼Ç ¾È³¿.
 		return;
-	if( m_pActMover->IsAction() )		// ì¼ë°˜ì•¡ì…˜ ì¤‘ì´ë©´ ë°ë¯¸ì§€ ëª¨ì…˜ ì•ˆëƒ„.
+	if( m_pActMover->IsAction() )		// ÀÏ¹İ¾×¼Ç ÁßÀÌ¸é µ¥¹ÌÁö ¸ğ¼Ç ¾È³¿.
 		return;
 
 	m_dwMotion = -1;
@@ -2056,12 +2056,12 @@ void CMover::SetDamagedMotion( CMover* pAttacker, DWORD dwAtkFlags )
 }
 
 
-// ì•„ì´í…œì˜ íš¨ëŠ¥ ê³±í•˜ê¸° íŒ©í„°ë¥¼ êµ¬í•œë‹¤.
+// ¾ÆÀÌÅÛÀÇ È¿´É °öÇÏ±â ÆÑÅÍ¸¦ ±¸ÇÑ´Ù.
 float CMover::GetItemMultiplier( CItemElem* pItemElem )
 {
 #if __VER < 8 // __S8_PK
 	if( IsChaotic() == FALSE && (pItemElem->GetProp()->nEvildoing < 0) )
-		return 0.0f;	// ì„ í•œìê°€ ì¹´ì˜¤ ì•„ì´í…œì„ ì‚¬ìš©í•˜ë©´ íš¨ëŠ¥ì´ ì—†ë‹¤.
+		return 0.0f;	// ¼±ÇÑÀÚ°¡ Ä«¿À ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ¸é È¿´ÉÀÌ ¾ø´Ù.
 #endif // __VER < 8 // __S8_PK
 
 	if( pItemElem->IsFlag( CItemElem::expired ) )
@@ -2076,7 +2076,7 @@ float CMover::GetItemMultiplier( CItemElem* pItemElem )
 	float fValue = CMover::GetItemEnduranceInfluence( ( pItemElem->m_nHitPoint * 100 ) / pItemProp->dwEndurance );
 #endif // __REMOVE_ENDURANCE
 	
-	// åº· - 2007-08-27
+	// Ë¬ - 2007-08-27
 	int nOption		= pItemElem->GetAbilityOption();
 	if( pItemProp->dwReferStat1 == WEAPON_ULTIMATE )
 		nOption	= 10;
@@ -2085,7 +2085,7 @@ float CMover::GetItemMultiplier( CItemElem* pItemElem )
 	{
 		int nValue = prj.GetExpUpItem( pItemProp->dwItemKind3, nOption );
 		nValue += 100;
-		fValue = fValue * nValue / 100.0f;		// ì œë ¨ìˆ˜ì¹˜ê°€ ê³±í•´ì§„ë‹¤.
+		fValue = fValue * nValue / 100.0f;		// Á¦·Ã¼öÄ¡°¡ °öÇØÁø´Ù.
 	}
 	return fValue;
 }
@@ -2097,7 +2097,7 @@ void CMover::GetItemATKPower( int *pnMin, int *pnMax, ItemProp* pItemProp, CItem
 	nAdd = nOption = 0;
 
 	if( pWeapon )
-		nOption = pWeapon->GetAbilityOption();	// ì œë ¨ìˆ˜ì¹˜ 
+		nOption = pWeapon->GetAbilityOption();	// Á¦·Ã¼öÄ¡ 
 
 	if( nOption > 0 )
 		nAdd = (int)( pow( (float)( nOption ), 1.5f ) );
@@ -2166,7 +2166,7 @@ void CMover::OnAttackSFX( OBJID	idTarget, int nMagicPower, DWORD dwSkill, int nD
 #endif // __VER >= 8 // __S8_PK
 {
 #ifdef __WORLDSERVER
-//	if( dwSkill == SI_MAG_FIRE_HOTAIR )		// åº·	// 06-10-23
+//	if( dwSkill == SI_MAG_FIRE_HOTAIR )		// Ë¬	// 06-10-23
 //		return;
 
 #if __VER >= 8 // __S8_PK
@@ -2254,7 +2254,7 @@ BOOL AttackBySFX( CMover* pAttacker, SFXHIT_INFO & info )
 	if( pTarget->IsLive() == FALSE )
 		return FALSE;
 
-	//ëª¬ìŠ¤í„°ê°€ ì›ê±°ë¦¬ ë°œì‚¬ì²´ë¥¼ ê²½ìš°ë„ ê³µê²©ì„±ê³µë¥ ì„ ì ìš©í•˜ì—¬ ê³„ì‚°í•œë‹¤.
+	//¸ó½ºÅÍ°¡ ¿ø°Å¸® ¹ß»çÃ¼¸¦ °æ¿ìµµ °ø°İ¼º°ø·üÀ» Àû¿ëÇÏ¿© °è»êÇÑ´Ù.
 	if( info.dwAtkFlags & AF_GENERIC )
 	{						
 		if( pAttacker->GetAttackResult( pTarget, 0 ) == FALSE )
@@ -2266,8 +2266,8 @@ BOOL AttackBySFX( CMover* pAttacker, SFXHIT_INFO & info )
 
 	if( IsSkillAttack( info.dwAtkFlags ) )
 	{
-		// ìŠ¤í‚¬ íš¨ê³¼ë¥¼ ì ìš©.(ë‚´ë¶€ì— ë°ë¯¸ì§€ë„ í¬í•¨ë˜ì–´ ìˆë‹¤)
-		LPSKILL pSkill = pAttacker->GetSkill( info.dwSkill );		// ê³µê²©ìì˜ ìŠ¤í‚¬ë ˆë²¨ì„ ì•Œê¸° ìœ„í•´...
+		// ½ºÅ³ È¿°ú¸¦ Àû¿ë.(³»ºÎ¿¡ µ¥¹ÌÁöµµ Æ÷ÇÔµÇ¾î ÀÖ´Ù)
+		LPSKILL pSkill = pAttacker->GetSkill( info.dwSkill );		// °ø°İÀÚÀÇ ½ºÅ³·¹º§À» ¾Ë±â À§ÇØ...
 		if( pSkill )
 		{
 			ItemProp *pSkillProp;
@@ -2285,15 +2285,15 @@ BOOL AttackBySFX( CMover* pAttacker, SFXHIT_INFO & info )
 #endif // __VER >= 8 // __S8_PK
 		} 
 		else
-			Error( "OnSfxHit : skill=%dë¥¼ ê°€ì§€ì§€ ì•ŠìŒ", info.dwSkill );
+			Error( "OnSfxHit : skill=%d¸¦ °¡ÁöÁö ¾ÊÀ½", info.dwSkill );
 	} 
 	else
 		pTarget->m_pActMover->SendDamage( info.dwAtkFlags, pAttacker->GetId(), nParam );
 
-	if( info.fDmgPower )	// ë°€ë¦¬ëŠ” ì†ì„±ì´ ìˆëŠ”ê±°ë©´.
+	if( info.fDmgPower )	// ¹Ğ¸®´Â ¼Ó¼ºÀÌ ÀÖ´Â°Å¸é.
 		AngleToVectorXZ( &pTarget->m_pActMover->m_vDeltaE, info.fDmgAngle, info.fDmgPower );   
 
-	if( pTarget->IsLive() == FALSE )	// ìœ„ ê³µê²©ì˜ ê²°ê³¼ë¡œ ëŒ€ìƒì´ ì‚¬ë§ í•˜ì˜€ë‹¤.
+	if( pTarget->IsLive() == FALSE )	// À§ °ø°İÀÇ °á°ú·Î ´ë»óÀÌ »ç¸Á ÇÏ¿´´Ù.
 		return FALSE;
 
 	return TRUE;

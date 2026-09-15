@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "Sfx.h"
 
 
@@ -240,7 +240,7 @@ CLandscape::CLandscape()
 	m_nWaterVertexNum = 0;
 	m_bVisible=TRUE;
 
-	//	ë²„í…ìŠ¤ë²„í¼ë¥¼ ê·¸ë¦¼ì˜ ì¢…ë¥˜ë§ˆë‹¤ ë§Œë“¤ì–´ì¤€ë‹¤. WATERVERTEXBUFFER, * LPWATERVB newë¥¼ í•˜ë¼ëŠ” ë§ì´ë‹¤.
+	//	¹öÅØ½º¹öÆÛ¸¦ ±×¸²ÀÇ Á¾·ù¸¶´Ù ¸¸µé¾îÁØ´Ù. WATERVERTEXBUFFER, * LPWATERVB new¸¦ ÇÏ¶ó´Â ¸»ÀÌ´Ù.
 	m_pWaterVB = new WATERVERTEXBUFFER[ prj.m_terrainMng.m_nWaterFrame ];
 	for ( int loop = 0 ; loop < prj.m_terrainMng.m_nWaterFrame ; loop++ )
 		ZeroMemory( &m_pWaterVB[ loop ], sizeof( WATERVERTEXBUFFER ) );
@@ -275,7 +275,7 @@ CLandscape::~CLandscape()
 {
 	FreeTerrain();
 	SAFE_DELETE_ARRAY( m_pWaterVB );
-	// ì˜¤ë¸Œì íŠ¸ íŒŒê´´ 
+	// ¿ÀºêÁ§Æ® ÆÄ±« 
 	for( int i = 0; i < MAX_OBJARRAY; i++)
 	{
 		CObj** apObject = m_apObject[ i ];
@@ -301,7 +301,7 @@ CLandscape::~CLandscape()
 }
 
 //
-// ë””ë°”ì´ìŠ¤ ê´€ë ¨
+// µğ¹ÙÀÌ½º °ü·Ã
 //
 HRESULT CLandscape::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice, CWorld* pWorld )
 {
@@ -347,7 +347,7 @@ HRESULT CLandscape::RestoreDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice)
 				apObject[ j ]->m_pModel->RestoreDeviceObjects();
 		}
 	}
-	// ë¬¼ ë²„í…ìŠ¤ ë²„í¼ ë§Œë“¤ê¸° 
+	// ¹° ¹öÅØ½º ¹öÆÛ ¸¸µé±â 
 	MakeWaterVertexBuffer();
 	MakeHgtAttrVertexBuffer();
 	MakeLandAttrVertexBuffer();
@@ -357,11 +357,11 @@ HRESULT CLandscape::RestoreDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice)
 HRESULT CLandscape::MakeWaterVertexBuffer()
 {
 #ifdef __FULLWORLD 
-	return S_OK;	// ë¬¼,êµ¬ë¦„,ë†’ì´ì†ì„±,ìœ„ì¹˜ì •ë³´ì˜ ë²„í…ìŠ¤ë¥¼ ë§Œë“¤ì§€ ì•ŠëŠ”ë‹¤.
+	return S_OK;	// ¹°,±¸¸§,³ôÀÌ¼Ó¼º,À§Ä¡Á¤º¸ÀÇ ¹öÅØ½º¸¦ ¸¸µéÁö ¾Ê´Â´Ù.
 #endif
 	SAFE_RELEASE( m_pWaterVertexBuffer );
 	SAFE_RELEASE( m_pCloudVertexBuffer );
-	// ë¬¼ ë²„í…ìŠ¤ ë²„í¼ ë§Œë“¤ê¸° 
+	// ¹° ¹öÅØ½º ¹öÆÛ ¸¸µé±â 
 	WATERVERTEX* pVerticesCloud;
 	m_nWaterVertexNum = 0;
 	m_nCloudVertexNum = 0;
@@ -611,8 +611,8 @@ HRESULT CLandscape::InvalidateDeviceObjects()
 		SAFE_RELEASE( m_pWaterVB[ loop ].pVB );
 
 	
-	// ë§¤ëª¨ë¦¬í’€ì´ defaultì´ë¯€ë¡œ ë¹„ë””ì˜¤ë©”ëª¨ë¦¬ì— ì¡íŒë‹¤. ë”°ë¼ì„œ 
-	// InvalidateDeviceObjectsì—ì„œ íŒŒê´´í•´ì•¼í•œë‹¤.
+	// ¸Å¸ğ¸®Ç®ÀÌ defaultÀÌ¹Ç·Î ºñµğ¿À¸Ş¸ğ¸®¿¡ ÀâÈù´Ù. µû¶ó¼­ 
+	// InvalidateDeviceObjects¿¡¼­ ÆÄ±«ÇØ¾ßÇÑ´Ù.
 	//SAFE_RELEASE( m_texMiniMap.m_pTexture );
 	for( int i = 0; i < MAX_OBJARRAY; i++)
 	{
@@ -646,7 +646,7 @@ HRESULT CLandscape::DeleteDeviceObjects()
 }
 
 //
-// ë†’ì´ ë§µ ì´ˆê¸°í™” ë“±
+// ³ôÀÌ ¸Ê ÃÊ±âÈ­ µî
 //
 void CLandscape::FreeTerrain()
 {
@@ -683,7 +683,7 @@ void CLandscape::ResetTerrain(DWORD dwInitHeight, BYTE* pHeightMap)
 
 
 //
-// ë Œë” ê´€ë ¨
+// ·»´õ °ü·Ã
 //
 void CLandscape::SetVertices()
 {
@@ -947,7 +947,7 @@ HRESULT CLandscape::RenderWater( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pd3dDevice->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_SRCALPHA );
 	m_pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
 */
-	// ëœë” ì›Œí„° 
+	// ·£´õ ¿öÅÍ 
 /*
 	int nDivWater1 = m_nWaterFrame / 4;
 	int nDivWater2 = m_nWaterFrame % 4;
@@ -973,7 +973,7 @@ HRESULT CLandscape::RenderWater( LPDIRECT3DDEVICE9 pd3dDevice )
 	
 	m_pd3dDevice->SetVertexShader( NULL );
 	m_pd3dDevice->SetFVF ( D3DFVF_WATERVERTEX ); 
-	//	ì´ ë²„í…ìŠ¤ ë²„í¼ë¥¼ ì—¬ëŸ¬ê°œë¥¼ ë§Œë“¤ì–´ì„œ ë¿Œë¦´ìˆ˜ ìˆë„ë¡ ë§Œë“¤ì–´ ì£¼ì–´ì•¼ í•œë‹¤.
+	//	ÀÌ ¹öÅØ½º ¹öÆÛ¸¦ ¿©·¯°³¸¦ ¸¸µé¾î¼­ »Ñ¸±¼ö ÀÖµµ·Ï ¸¸µé¾î ÁÖ¾î¾ß ÇÑ´Ù.
 
 	for ( int i = 0 ; i < prj.m_terrainMng.m_nWaterFrame ; i++)
     {
@@ -988,7 +988,7 @@ HRESULT CLandscape::RenderWater( LPDIRECT3DDEVICE9 pd3dDevice )
 		if(prj.m_terrainMng.m_fWaterFrame[i] >= static_cast<FLOAT>(prj.m_terrainMng.m_pWaterIndexList[i].ListCnt))
 			prj.m_terrainMng.m_fWaterFrame[i] = static_cast<FLOAT>(prj.m_terrainMng.m_pWaterIndexList[i].ListCnt - 1);
 
-		//gmpbigsun : í•¨ìˆ˜ë¶„í•´í•¨, ë°°ì—´ ì¸ë±ìŠ¤ê°€ 0ë³´ë‹¤ ì‘ì€ê²½ìš°ê°€ ë°œìƒí•  ê²½ìš° ì•ˆì „ì¡°ì¹˜ 
+		//gmpbigsun : ÇÔ¼öºĞÇØÇÔ, ¹è¿­ ÀÎµ¦½º°¡ 0º¸´Ù ÀÛÀº°æ¿ì°¡ ¹ß»ıÇÒ °æ¿ì ¾ÈÀüÁ¶Ä¡ 
 		int a = static_cast<int>(prj.m_terrainMng.m_fWaterFrame[i]);
 		if( a > -1 )
 		{
@@ -1015,7 +1015,7 @@ HRESULT CLandscape::RenderWater( LPDIRECT3DDEVICE9 pd3dDevice )
 	
 /*
 	pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, D3DCOLOR_ARGB( 255, 0, 0, 0 ) );
-	// ì‹œê°„ì— ë”°ë¼ í•˜ëŠ˜ í…ìŠ¤ì³ë¥¼ ìì—°ìŠ¤ëŸ½ê²Œ ë°”ê¿”ì¹˜ê¸°í•œë‹¤.
+	// ½Ã°£¿¡ µû¶ó ÇÏ´Ã ÅØ½ºÃÄ¸¦ ÀÚ¿¬½º·´°Ô ¹Ù²ãÄ¡±âÇÑ´Ù.
 	if(g_GameTimer.m_nHour<6) {
 		pd3dDevice->SetTexture( 0, m_pSkyBoxTexture3);
 		pd3dDevice->DrawPrimitive( D3DPT_TRIANGLESTRIP, 0, 56);
@@ -1033,7 +1033,7 @@ HRESULT CLandscape::RenderWater( LPDIRECT3DDEVICE9 pd3dDevice )
 #endif // __CLOUD_ANIMATION_BUG
 	if( m_nCloudVertexNum )
 	{
-		// ëœë” êµ¬ë¦„ 
+		// ·£´õ ±¸¸§ 
 		m_pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
 		m_pd3dDevice->SetRenderState( D3DRS_ZENABLE, TRUE );
 
@@ -1074,7 +1074,7 @@ HRESULT CLandscape::RenderWater( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 //
-// ì»¬ë§ ê´€ë ¨
+// ÄÃ¸µ °ü·Ã
 //
 void CLandscape::CalculateBound()
 {
@@ -1274,7 +1274,7 @@ BOOL CLandscape::LoadLandscape( LPCTSTR lpszFileName, int xx, int yy )
 
 	int xLand, yLand;
 	file.Read( &m_dwVersion, sizeof( DWORD) );
-	// 1 ë²„ì ¼ì¼ ë•ŒëŠ” ì‚¬ì´ì¦ˆ ì½ì–´ì•¼í•¨
+	// 1 ¹öÁ¯ÀÏ ¶§´Â »çÀÌÁî ÀĞ¾î¾ßÇÔ
 	if( m_dwVersion >= 1 )
 	{
 		file.Read( &xLand, sizeof( xLand ) );
@@ -1283,7 +1283,7 @@ BOOL CLandscape::LoadLandscape( LPCTSTR lpszFileName, int xx, int yy )
 	file.Read( m_pHeightMap, sizeof( FLOAT ), ( MAP_SIZE + 1 ) * ( MAP_SIZE + 1 ) );
 
 	file.Read( m_aWaterHeight, sizeof( WATERHEIGHT ), NUM_PATCHES_PER_SIDE * NUM_PATCHES_PER_SIDE );
-	// 2 ë²„ì ¼ì¼ ë•ŒëŠ” ì§€ì—­ë§µ ì½ì–´ì•¼í•¨
+	// 2 ¹öÁ¯ÀÏ ¶§´Â Áö¿ª¸Ê ÀĞ¾î¾ßÇÔ
 	if( m_dwVersion >= 2 )
 	{
 		file.Read( m_aLandAttr, sizeof( BYTE ), NUM_PATCHES_PER_SIDE * NUM_PATCHES_PER_SIDE );
@@ -1325,7 +1325,7 @@ BOOL CLandscape::LoadLandscape( LPCTSTR lpszFileName, int xx, int yy )
 #endif	//!__16BITLIGHT
 		pLayer->m_pLightMap->UnlockRect(0);
 	}
-	// í•´ë‹¹ ë ˆì´ì–´ì— ì¡´ì¬í•˜ëŠ” í…ìŠ¤ì¶°ê°€ ì—†ì„ ì‹œì—ëŠ” ì‚­ì œ 
+	// ÇØ´ç ·¹ÀÌ¾î¿¡ Á¸ÀçÇÏ´Â ÅØ½ºÃç°¡ ¾øÀ» ½Ã¿¡´Â »èÁ¦ 
 	for( int j = 0; j < nLayer; j++ )  
 	{
 		CLandLayer* pLayer = (CLandLayer*)m_aLayer.GetAt( j );
@@ -1418,7 +1418,7 @@ BOOL CLandscape::LoadLandscape( LPCTSTR lpszFileName, int xx, int yy )
 			}
 		}
 	}
-	// MiniMap ë§Œë“¤ê¸° 
+	// MiniMap ¸¸µé±â 
 	CString strDDSName = lpszFileName;
 	strDDSName = strDDSName.Left( strDDSName.GetLength() - 3 );
 	strDDSName += "dds";
@@ -1461,7 +1461,7 @@ BOOL CLandscape::InsertObjLink( CObj* pObj )
 
 			if( pObj->m_pNext || pObj->m_pPrev )
 			{
-				TRACE("í—‰ InsertObjWorld ìƒˆë¡œ ì¶”ê°€ëœ ì˜¤ë¸Œì íŠ¸ê°€ Nextì™€ Prevì— ê°’ì´ ìˆë„¤?? Type = %d \n", pObj->GetType());
+				TRACE("Çä InsertObjWorld »õ·Î Ãß°¡µÈ ¿ÀºêÁ§Æ®°¡ Next¿Í Prev¿¡ °ªÀÌ ÀÖ³×?? Type = %d \n", pObj->GetType());
 			}
 			pBegObj->InsNextNode(pObj);
 		}
@@ -1470,13 +1470,13 @@ BOOL CLandscape::InsertObjLink( CObj* pObj )
 			aObjLinkMap[nPos] = pObj;
 			if( pObj->m_pNext || pObj->m_pPrev )
 			{
-				TRACE("í—‰ InsertObjWorld ìƒˆë¡œ ì¶”ê°€ëœ ì˜¤ë¸Œì íŠ¸ê°€ Nextì™€ Prevì— ê°’ì´ ìˆë„¤?? Type = %d \n", pObj->GetType());
+				TRACE("Çä InsertObjWorld »õ·Î Ãß°¡µÈ ¿ÀºêÁ§Æ®°¡ Next¿Í Prev¿¡ °ªÀÌ ÀÖ³×?? Type = %d \n", pObj->GetType());
 			}
 		}
 	}
 	else
 	{
-		TRACE("í—‰ InsObjInFldì—ì„œ ë²”ìœ„ë¥¼ ë²—ì–´ë‚œê²Œ ì¶”ê°€ë˜ë ¤ê³  í•˜ë„¤?\n");
+		TRACE("Çä InsObjInFld¿¡¼­ ¹üÀ§¸¦ ¹ş¾î³­°Ô Ãß°¡µÇ·Á°í ÇÏ³×?\n");
 		return FALSE;
 	}
 	return TRUE;

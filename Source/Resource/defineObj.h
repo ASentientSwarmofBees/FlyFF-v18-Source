@@ -1,4 +1,4 @@
-ï»¿#ifndef __DEFINE_OBJ										
+#ifndef __DEFINE_OBJ										
 #define __DEFINE_OBJ										
 										
 // obj										
@@ -88,7 +88,7 @@
 #define	CI_GHOU_FUR_WAL_BASIC01					102				
 										
 #define	CI_CRYSTAL_REST01						103			
-//ë¡œì–„ ìš°ë“  ê°€êµ¬ 1ì¼										
+//·Î¾â ¿ìµç °¡±¸ 1ÀÏ										
 #define	CI_GHOU_FUR_SOF_ROYAL01_01					104				
 #define	CI_GHOU_FUR_WAR_ROYAL01_01					105				
 #define	CI_GHOU_FUR_DRA_ROYAL01_01					106				
@@ -102,7 +102,7 @@
 #define	CI_GHOU_FUR_CAR_ROYAL01_01					114				
 #define	CI_GHOU_FUR_WAL_ROYAL01_01					115				
 										
-//ë¡œì–„ í™”ì´íŠ¸ë‹ ê°€êµ¬ 1ì¼										
+//·Î¾â È­ÀÌÆ®´× °¡±¸ 1ÀÏ										
 #define	CI_GHOU_FUR_SOF_ROYAL02_01					116				
 #define	CI_GHOU_FUR_WAR_ROYAL02_01					117				
 #define	CI_GHOU_FUR_DRA_ROYAL02_01					118				
@@ -116,7 +116,7 @@
 #define	CI_GHOU_FUR_CAR_ROYAL02_01					126				
 #define	CI_GHOU_FUR_WAL_ROYAL02_01					127				
 										
-//ë¡œì–„ ìš°ë“  ê°€êµ¬ 7ì¼										
+//·Î¾â ¿ìµç °¡±¸ 7ÀÏ										
 #define	CI_GHOU_FUR_SOF_ROYAL01_07					128				
 #define	CI_GHOU_FUR_WAR_ROYAL01_07					129				
 #define	CI_GHOU_FUR_DRA_ROYAL01_07					130				
@@ -130,7 +130,7 @@
 #define	CI_GHOU_FUR_CAR_ROYAL01_07					138				
 #define	CI_GHOU_FUR_WAL_ROYAL01_07					139				
 										
-//ë¡œì–„ í™”ì´íŠ¸ë‹ ê°€êµ¬ 7ì¼										
+//·Î¾â È­ÀÌÆ®´× °¡±¸ 7ÀÏ										
 #define	CI_GHOU_FUR_SOF_ROYAL02_07					140				
 #define	CI_GHOU_FUR_WAR_ROYAL02_07					141				
 #define	CI_GHOU_FUR_DRA_ROYAL02_07					142				
@@ -144,7 +144,7 @@
 #define	CI_GHOU_FUR_CAR_ROYAL02_07					150				
 #define	CI_GHOU_FUR_WAL_ROYAL02_07					151				
 										
-//ì¤‘í˜• ê¸¸ë“œí•˜ìš°ìŠ¤ ì¤‘ê°„ë¬¸										
+//ÁßÇü ±æµåÇÏ¿ì½º Áß°£¹®										
 #define	CI_MIDDLE_GUILDHOUSE_DOOR_01					152				
 #define	CI_MIDDLE_GUILDHOUSE_DOOR_02					153				
 #define	CI_MIDDLE_GUILDHOUSE_DOOR_03					154		
@@ -231,9 +231,9 @@
 #define XI_ITEM_WAND_ATK4                       103										
 #define XI_ITEM_COLLECT                         104										
 										
-//Flight(ë¹„í–‰ ì•„ì´í…œ íšë“ ëŒ€ì²´ìž)										
+//Flight(ºñÇà ¾ÆÀÌÅÛ È¹µæ ´ëÃ¼ÀÚ)										
 #define XI_FLIGHT_PROXITOR			105							
-//ìƒìš©í™” ì•„ì´í…œ ìƒíƒœë³€í™”í˜• íš¨ê³¼										
+//»ó¿ëÈ­ ¾ÆÀÌÅÛ »óÅÂº¯È­Çü È¿°ú										
 #define XI_SYS_REMOVE01				106						
 #define XI_SYS_EXPAN01				107						
 #define XI_SYS_EXCHAN01				108						
@@ -599,7 +599,7 @@
 #define XI_SKILL_RAG_SUP_NATURE02		578								
 #define XI_SKILL_RAG_BOW_TRIPLESHOT03		579								
 										
-//ì•„í¬ë¡œë±ƒ ìš”ìš” ë‚ ë¼ê°€ëŠ” ì´íŽ™íŠ¸										
+//¾ÆÅ©·Î¹î ¿ä¿ä ³¯¶ó°¡´Â ÀÌÆåÆ®										
 #define XI_ITEM_YOYO_ATK2			582							
 #define XI_ITEM_YOYO_ATK3			583							
 #define XI_ITEM_YOYO_ATK4			584							
@@ -622,13 +622,13 @@
 #define XI_ITEM_YOYO_ATK21			601							
 #define XI_ITEM_YOYO_ATK22			602							
 										
-//ì• ë¡œìš° ë ˆì¸ ì¶”ê°€ ì´íŽ™íŠ¸										
+//¾Ö·Î¿ì ·¹ÀÎ Ãß°¡ ÀÌÆåÆ®										
 #define XI_SKILL_RAG_BOW_ARROWRAIN		603								
 #define XI_SKILL_RAG_BOW_ARROWRAIN01		604								
 										
-//3ì°¨ ì „ì§ í´ëž˜ìŠ¤ ìŠ¤í‚¬										
+//3Â÷ ÀüÁ÷ Å¬·¡½º ½ºÅ³										
 										
-//ë¡œë“œí…œí”ŒëŸ¬										
+//·ÎµåÅÛÇÃ·¯										
 #define XI_SKILL_LORDK_TEMPLARPULLING01			1223							
 #define XI_SKILL_LORDK_TEMPLARPULLING02			1224							
 #define XI_SKILL_LORDK_TEMPLARPULLING03			1225							
@@ -644,7 +644,7 @@
 #define XI_SKILL_LORDK_SCOPESTRIKE01			1235							
 #define XI_SKILL_LORDK_SCOPESTRIKE02			1236							
 										
-//ìŠ¤í†°ë¸”ë ˆì´ë“œ										
+//½ºÅèºí·¹ÀÌµå										
 #define XI_SKILL_STORM_CROSSOFBLOOD01			1237							
 #define XI_SKILL_STORM_CROSSOFBLOOD02			1238							
 #define XI_SKILL_STORM_STORMBLASTE01			1239							
@@ -659,14 +659,14 @@
 #define XI_SKILL_STORM_POWERINCREASE01			1248							
 #define XI_SKILL_STORM_POWERINCREASE02			1249							
 										
-//ìœˆë“œëŸ¬ì»¤										
+//À©µå·¯Ä¿										
 #define XI_SKILL_WINDL_MADHURRICANE01			1250							
 #define XI_SKILL_WINDL_EVASIONINCREASE01		1251								
 #define XI_SKILL_WINDL_CONTROLINCREASE01		1252								
 #define XI_SKILL_WINDL_COUNTERBACK01			1253							
 #define XI_SKILL_WINDL_COUNTERBACK02			1254							
 										
-//í¬ëž™ìŠˆí„°										
+//Å©·¢½´ÅÍ										
 #define XI_SKILL_CRACK_CONTROL01				1255						
 #define XI_SKILL_CRACK_HWAKEYE01				1256						
 #define XI_SKILL_CRACK_HWAKEYE02				1257						
@@ -676,7 +676,7 @@
 #define XI_SKILL_CRACK_RANGESTRIKE03			1261							
 #define XI_SKILL_CRACK_RANGESTRIKE04			1262							
 										
-//í”Œë¡œë¦¬ìŠ¤íŠ¸										
+//ÇÃ·Î¸®½ºÆ®										
 #define XI_SKILL_FLO_PLAYEROFTHEREVIVAL01		1263								
 #define XI_SKILL_FLO_PLAYEROFTHEREVIVAL02		1264								
 #define XI_SKILL_FLO_BLESSEDSTEP01				1265						
@@ -690,7 +690,7 @@
 #define XI_SKILL_FLO_FETTERS01					1273					
 #define XI_SKILL_FLO_FETTERS02					1274					
 										
-//í¬ìŠ¤ë§ˆìŠ¤í„°										
+//Æ÷½º¸¶½ºÅÍ										
 #define XI_SKILL_FORCEM_AURORAOFTHERAGE01		1275								
 #define XI_SKILL_FORCEM_AURORAOFTHERAGE02		1276								
 #define XI_SKILL_FORCEM_AURORAOFTHETENACITY01	1277									
@@ -700,7 +700,7 @@
 #define XI_SKILL_FORCEM_AURORAOFTHEMAD01		1281								
 #define XI_SKILL_FORCEM_AURORAOFTHEMAD02		1282								
 										
-//ë©˜íƒˆë¦¬ìŠ¤íŠ¸										
+//¸àÅ»¸®½ºÆ®										
 #define XI_SKILL_MENT_DARKNESSSCREAM01			1283							
 #define XI_SKILL_MENT_DARKNESSSCREAM02			1284							
 #define XI_SKILL_MENT_DARKNESSSCREAM03			1285							
@@ -710,7 +710,7 @@
 #define XI_SKILL_MENT_DEFENDERDECREASE01		1289								
 #define XI_SKILL_MENT_SPEEDDECREASE01			1290							
 										
-//ì—˜ë¦¬ë©˜íƒˆë¡œë“œ										
+//¿¤¸®¸àÅ»·Îµå										
 #define XI_SKILL_ELE_THUNDERBOLTS01				1291						
 #define XI_SKILL_ELE_FINALSPEAR01				1292						
 #define XI_SKILL_ELE_FINALSPEAR02				1293						
@@ -782,13 +782,13 @@
 #define XI_NAT_MAGICBOMB01					1090					
 #define XI_NAT_MAGICBOMB02					1091					
 #define XI_NAT_MAGICBOMB03					1092					
-//ìƒìš©í™” ì•„ì´í…œ ê´€ìƒí˜• íš¨ê³¼										
+//»ó¿ëÈ­ ¾ÆÀÌÅÛ °ü»óÇü È¿°ú										
 #define XI_NAT_ROCKET01			1093							
 #define XI_NAT_HEART01			1094							
 #define XI_NAT_WINGANGEL01                   1095										
 #define XI_NAT_WASTART01		1096								
 #define XI_NAT_TWISTER01	1097									
-//ë°œë Œíƒ€ì¸ ì´ë²¤íŠ¸ìš© íš¨ê³¼										
+//¹ß·»Å¸ÀÎ ÀÌº¥Æ®¿ë È¿°ú										
 #define XI_NAT_CUPITSTART01		1098								
 #define XI_NAT_ROCKET02				1099						
 										
@@ -824,19 +824,19 @@
 #define XI_NPCSP1RANBALL                     1616										
 #define XI_NPCSP1RANBOOM                     1617										
 #define XI_NPCSP1RANSPARK                    1618										
-//ë¼ì´ì ¬ ë§ˆë²•ì§„ ì´íŽ™íŠ¸										
+//¶óÀÌÁª ¸¶¹ýÁø ÀÌÆåÆ®										
 #define XI_NPCRISEMSIGN			1619							
 										
 #define XI_GEN_PVP_FLAG01                    1700										
 										
-//2ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ íš¨ê³¼										
+//2Â÷ ÀüÁ÷ Äù½ºÆ® È¿°ú										
 #define XI_SYS_HEROMARK01                    1701 										
 #define XI_SYS_HEROMARK02		1702								
 #define XI_SYS_HEROMARK03                    1703										
 #define XI_SYS_HEROMARK04                    1704										
 #define XI_SYS_HEROMARK05                    1705										
 #define XI_SYS_HEROMARK06                    1706										
-//ë°ì¹´ë„¤ìŠ¤ ë˜ì „ìš© ì»¨íŠ¸ë¡¤ëŸ¬ ì´íŽ™íŠ¸										
+//µ¥Ä«³×½º ´øÀü¿ë ÄÁÆ®·Ñ·¯ ÀÌÆåÆ®										
 #define XI_CTR_EGGEFFECT1                    1707										
 #define XI_CTR_EGGEFFECT2                    1708										
 #define XI_CTR_EGGEFFECT3                    1709										
@@ -845,15 +845,15 @@
 #define XI_CTR_EGGEFFECT6                    1712										
 #define XI_CTR_EGGEFFECT7                    1713										
 										
-//ì¸ì²¸íŠ¸ìš© ì´íŽ™íŠ¸										
+//ÀÎÃ¾Æ®¿ë ÀÌÆåÆ®										
 #define XI_INT_SUCCESS			1714							
 #define XI_INT_FAIL			1715							
 #define XI_INT_INCHANT			1716							
-//ì‘ì› ê´€ë ¨ ì´íŽ™íŠ¸										
+//ÀÀ¿ø °ü·Ã ÀÌÆåÆ®										
 #define XI_CHEERSENDEFFECT			1717							
 #define XI_CHEERRECEIVEEFFECT			1718							
 										
-//ì„¸íŠ¸ ì•„ì´í…œ íš¨ê³¼										
+//¼¼Æ® ¾ÆÀÌÅÛ È¿°ú										
 #define XI_GEN_ITEM_SETITEM03		1719								
 #define XI_GEN_ITEM_SETITEM04		1720								
 #define XI_GEN_ITEM_SETITEM05		1721								
@@ -898,8 +898,8 @@
 #define XI_GEN_POSION					1752					
 										
 										
-// ì¸ì²¸íŠ¸ ì´íŒ©íŠ¸ í–¥ìƒ ë²„ì „										
-// ì¼ë°˜, ìœ ë‹ˆí¬"""										
+// ÀÎÃ¾Æ® ÀÌÆÑÆ® Çâ»ó ¹öÀü										
+// ÀÏ¹Ý, À¯´ÏÅ©"""										
 #define XI_NAT_FIRE01_ADV						1753				
 #define XI_NAT_FIRE02_ADV						1754				
 #define XI_NAT_FIRE03_ADV						1755				
@@ -956,7 +956,7 @@
 #define XI_NAT_ELEC010_ADV						1802				
 										
 										
-// ì–¼í„°ë©‹										
+// ¾óÅÍ¸Ú										
 #define XI_NAT_FIRE01_ADV_AL						1803				
 #define XI_NAT_FIRE02_ADV_AL						1804				
 #define XI_NAT_FIRE03_ADV_AL						1805				
@@ -1012,7 +1012,7 @@
 #define XI_NAT_ELEC09_ADV_AL						1851				
 #define XI_NAT_ELEC010_ADV_AL						1852				
 										
-// ë¬´ì†ì„±										
+// ¹«¼Ó¼º										
 #define XI_NAT_NONE01_ADV						1853				
 #define XI_NAT_NONE02_ADV						1854				
 #define XI_NAT_NONE03_ADV						1855				
@@ -1024,10 +1024,10 @@
 #define XI_NAT_NONE09_ADV						1861				
 #define XI_NAT_NONE010_ADV						1862				
 										
-// ë©”í…Œì˜¤ë‹ˆì»¤ 										
+// ¸ÞÅ×¿À´ÏÄ¿ 										
 #define XI_NPCMETEONYKER              				1863						
 										
-// ë§ˆìŠ¤í„° ìŠ¤í‚¬										
+// ¸¶½ºÅÍ ½ºÅ³										
 #define XI_SKILL_BLD_MASTER_ONEHANDMASTER01				1864						
 #define XI_SKILL_BLD_MASTER_ONEHANDMASTER02				1865						
 #define XI_SKILL_KNT_MASTER_TWOHANDMASTER01				1866						
@@ -1045,7 +1045,7 @@
 #define XI_SKILL_RIG_MASTER_BLESSING01					1878					
 #define XI_SKILL_RIG_MASTER_BLESSING02					1879					
 										
-// ì˜ì›… ìŠ¤í‚¬										
+// ¿µ¿õ ½ºÅ³										
 #define XI_SKILL_BLD_HERO_DEFENCE01					1880					
 #define XI_SKILL_BLD_HERO_DEFENCE02					1881					
 #define XI_SKILL_KNT_HERO_DRAWING01					1882					
@@ -1067,7 +1067,7 @@
 #define	XI_GEN_HEAVENFIRE01						1896			
 #define	XI_GEN_HEAVENLIGHT01						1897			
 										
-// êµ°ì£¼ ìŠ¤í‚¬ ì´íŽ™íŠ¸										
+// ±ºÁÖ ½ºÅ³ ÀÌÆåÆ®										
 #define	XI_SKILL_LORD1A							1898		
 #define	XI_SKILL_LORD1B							1899		
 #define	XI_SKILL_LORD2A							1900		
@@ -1090,7 +1090,7 @@
 #define	XI_BUFFPET_GRADE2						1915			
 #define	XI_BUFFPET_GRADE3						1916			
 										
-//í€´ì¦ˆ ì •ë‹µ ì´íŽ™íŠ¸										
+//ÄûÁî Á¤´ä ÀÌÆåÆ®										
 #define	XI_QUIZCORRECTANSWER				1917					
 										
 #define	XI_NAT_HEART02						1918			
@@ -1116,7 +1116,7 @@
 #define	XI_BEHEBOSS01						1934			
 #define	XI_BEHEBOSS02						1935			
 										
-//16ì°¨ ëª¬ìŠ¤í„° ìŠ¤í‚¬										
+//16Â÷ ¸ó½ºÅÍ ½ºÅ³										
 #define	XI_MON_RYBARGA_ATK1						1936			
 #define	XI_MON_RYBARGA_ATK2						1937			
 #define	XI_MON_RYBARGA_ATK3						1938			
@@ -1124,40 +1124,40 @@
 #define	XI_MON_BEHEMOTH_ATK2					1940				
 #define	XI_MON_BEHEMOTH_ATK3					1941				
 										
-//ë°”í•˜ë¼ ì‚¬ë§‰ ì˜¤ë¸Œì íŠ¸										
+//¹ÙÇÏ¶ó »ç¸· ¿ÀºêÁ§Æ®										
 #define	XI_BAHARA_WIND01						1942			
 #define	XI_BAHARA_KALGASS01						1943			
 										
-//ì¹¼ê°€ìŠ¤ ë™êµ´ ì˜¤ë¸Œì íŠ¸										
+//Ä®°¡½º µ¿±¼ ¿ÀºêÁ§Æ®										
 #define	XI_BAHARA_KALGASSLIGHT01				1944					
 										
-//ë¯¸êµ­ 5ì£¼ë…„ ê¸°ë… í­ì£½										
+//¹Ì±¹ 5ÁÖ³â ±â³ä ÆøÁ×										
 #define	XI_NAT_ROCKET03				1945					
 										
-//ë°”ë£¨ë‚˜ í”¼ì–´ì‹± ê³ ëŒ€ ë¬¸ìžì„ ì´íŽ™íŠ¸										
+//¹Ù·ç³ª ÇÇ¾î½Ì °í´ë ¹®ÀÚ¼® ÀÌÆåÆ®										
 #define	XI_SKILL_BARUNA_WEA_HPRUNE				1946					
 #define	XI_SKILL_BARUNA_WEA_FPRUNE				1947					
 #define	XI_SKILL_BARUNA_WEA_MPRUNE				1948					
 #define	XI_SKILL_BARUNA_WEA_DEATHRUNE			1949						
 										
-//ëŸ¬ì‹œì•„ 1ì£¼ë…„ ê¸°ë… í­ì£½										
+//·¯½Ã¾Æ 1ÁÖ³â ±â³ä ÆøÁ×										
 #define	XI_NAT_ROCKET04						1950			
 										
-//í—¤ë¥´ë„¤ì˜¤ìŠ¤ í™˜ê²½ ì´íŽ™íŠ¸										
+//Çì¸£³×¿À½º È¯°æ ÀÌÆåÆ®										
 #define	XI_HERNEOS_BUBBLES01				1951					
 #define	XI_HERNEOS_BUBBLES02				1952					
 #define	XI_HERNEOS_PT01				1953					
 #define	XI_HERNEOS_FOG01				1954					
 										
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í•œì†ê²€-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -ÇÑ¼Õ°Ë-(ÀÏ¹Ý)										
 #define	XI_WEA_SWORD01				1955					
 #define	XI_WEA_SWORD02				1956					
 #define	XI_WEA_SWORD03				1957					
 #define	XI_WEA_SWORD04				1958					
 #define	XI_WEA_SWORD05				1959					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í•œì†ê²€-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -ÇÑ¼Õ°Ë-(¼Ó¼º)										
 #define	XI_WEA_SWORDFIRE01				1960					
 #define	XI_WEA_SWORDFIRE02				1961					
 #define	XI_WEA_SWORDFIRE03				1962					
@@ -1184,14 +1184,14 @@
 #define	XI_WEA_SWORDEARTH04				1983					
 #define	XI_WEA_SWORDEARTH05				1984					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ì–‘ì†ê²€-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¾ç¼Õ°Ë-(ÀÏ¹Ý)										
 #define	XI_WEA_TWOSWORD01				1985					
 #define	XI_WEA_TWOSWORD02				1986					
 #define	XI_WEA_TWOSWORD03				1987					
 #define	XI_WEA_TWOSWORD04				1988					
 #define	XI_WEA_TWOSWORD05				1989					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ì–‘ì†ê²€-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¾ç¼Õ°Ë-(¼Ó¼º)										
 #define	XI_WEA_TWOSWORDFIRE01				1990					
 #define	XI_WEA_TWOSWORDFIRE02				1991					
 #define	XI_WEA_TWOSWORDFIRE03				1992					
@@ -1218,14 +1218,14 @@
 #define	XI_WEA_TWOSWORDEARTH04				2013					
 #define	XI_WEA_TWOSWORDEARTH05				2014					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í•œì†ë„ë¼-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -ÇÑ¼Õµµ³¢-(ÀÏ¹Ý)										
 #define	XI_WEA_AXE01				2015					
 #define	XI_WEA_AXE02				2016					
 #define	XI_WEA_AXE03				2017					
 #define	XI_WEA_AXE04				2018					
 #define	XI_WEA_AXE05				2019					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í•œì†ë„ë¼-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -ÇÑ¼Õµµ³¢-(¼Ó¼º)										
 #define	XI_WEA_AXEFIRE01				2020					
 #define	XI_WEA_AXEFIRE02				2021					
 #define	XI_WEA_AXEFIRE03				2022					
@@ -1252,14 +1252,14 @@
 #define	XI_WEA_AXEEARTH04				2043					
 #define	XI_WEA_AXEEARTH05				2044					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ì–‘ì†ë„ë¼-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¾ç¼Õµµ³¢-(ÀÏ¹Ý)										
 #define	XI_WEA_TWOAXE01				2045					
 #define	XI_WEA_TWOAXE02				2046					
 #define	XI_WEA_TWOAXE03				2047					
 #define	XI_WEA_TWOAXE04				2048					
 #define	XI_WEA_TWOAXE05				2049					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ì–‘ì†ë„ë¼-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¾ç¼Õµµ³¢-(¼Ó¼º)										
 #define	XI_WEA_TWOAXEFIRE01				2050					
 #define	XI_WEA_TWOAXEFIRE02				2051					
 #define	XI_WEA_TWOAXEFIRE03				2052					
@@ -1286,14 +1286,14 @@
 #define	XI_WEA_TWOAXEEARTH04				2073					
 #define	XI_WEA_TWOAXEEARTH05				2074					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ìš”ìš”-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¿ä¿ä-(ÀÏ¹Ý)										
 #define	XI_WEA_YOYO01				2075					
 #define	XI_WEA_YOYO02				2076					
 #define	XI_WEA_YOYO03				2077					
 #define	XI_WEA_YOYO04				2078					
 #define	XI_WEA_YOYO05				2079					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ìš”ìš”-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¿ä¿ä-(¼Ó¼º)										
 #define	XI_WEA_YOYOFIRE01				2080					
 #define	XI_WEA_YOYOFIRE02				2081					
 #define	XI_WEA_YOYOFIRE03				2082					
@@ -1320,14 +1320,14 @@
 #define	XI_WEA_YOYOEARTH04				2103					
 #define	XI_WEA_YOYOEARTH05				2104					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ë„ˆí´-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -³ÊÅ¬-(ÀÏ¹Ý)										
 #define	XI_WEA_KNUCK01				2105					
 #define	XI_WEA_KNUCK02				2106					
 #define	XI_WEA_KNUCK03				2107					
 #define	XI_WEA_KNUCK04				2108					
 #define	XI_WEA_KNUCK05				2109					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ë„ˆí´-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -³ÊÅ¬-(¼Ó¼º)										
 #define	XI_WEA_KNUCKFIRE01				2110					
 #define	XI_WEA_KNUCKFIRE02				2111					
 #define	XI_WEA_KNUCKFIRE03				2112					
@@ -1354,14 +1354,14 @@
 #define	XI_WEA_KNUCKEARTH04				2133					
 #define	XI_WEA_KNUCKEARTH05				2134					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ìŠ¤í‹±-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -½ºÆ½-(ÀÏ¹Ý)										
 #define	XI_WEA_STICK01				2135					
 #define	XI_WEA_STICK02				2136					
 #define	XI_WEA_STICK03				2137					
 #define	XI_WEA_STICK04				2138					
 #define	XI_WEA_STICK05				2139					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ìŠ¤í‹±-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -½ºÆ½-(¼Ó¼º)										
 #define	XI_WEA_STICKFIRE01				2140					
 #define	XI_WEA_STICKFIRE02				2141					
 #define	XI_WEA_STICKFIRE03				2142					
@@ -1388,14 +1388,14 @@
 #define	XI_WEA_STICKEARTH04				2163					
 #define	XI_WEA_STICKEARTH05				2164					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ìŠ¤íƒœí”„-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -½ºÅÂÇÁ-(ÀÏ¹Ý)										
 #define	XI_WEA_STAFF01				2165					
 #define	XI_WEA_STAFF02				2166					
 #define	XI_WEA_STAFF03				2167					
 #define	XI_WEA_STAFF04				2168					
 #define	XI_WEA_STAFF05				2169					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ìŠ¤íƒœí”„-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -½ºÅÂÇÁ-(¼Ó¼º)										
 #define	XI_WEA_STAFFFIRE01				2170					
 #define	XI_WEA_STAFFFIRE02				2171					
 #define	XI_WEA_STAFFFIRE03				2172					
@@ -1422,14 +1422,14 @@
 #define	XI_WEA_STAFFEARTH04				2193					
 #define	XI_WEA_STAFFEARTH05				2194					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í¬ë¡œìŠ¤ë³´ìš°-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -Å©·Î½ºº¸¿ì-(ÀÏ¹Ý)										
 #define	XI_WEA_CROSSBOW01				2195					
 #define	XI_WEA_CROSSBOW02				2196					
 #define	XI_WEA_CROSSBOW03				2197					
 #define	XI_WEA_CROSSBOW04				2198					
 #define	XI_WEA_CROSSBOW05				2199					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í¬ë¡œìŠ¤ë³´ìš°-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -Å©·Î½ºº¸¿ì-(¼Ó¼º)										
 #define	XI_WEA_CROSSBOWFIRE01				2200					
 #define	XI_WEA_CROSSBOWFIRE02				2201					
 #define	XI_WEA_CROSSBOWFIRE03				2202					
@@ -1456,14 +1456,14 @@
 #define	XI_WEA_CROSSBOWEARTH04				2223					
 #define	XI_WEA_CROSSBOWEARTH05				2224					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í™œ-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -È°-(ÀÏ¹Ý)										
 #define	XI_WEA_BOW01				2225					
 #define	XI_WEA_BOW02				2226					
 #define	XI_WEA_BOW03				2227					
 #define	XI_WEA_BOW04				2228					
 #define	XI_WEA_BOW05				2229					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í™œ-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -È°-(¼Ó¼º)										
 #define	XI_WEA_BOWFIRE01				2230					
 #define	XI_WEA_BOWFIRE02				2231					
 #define	XI_WEA_BOWFIRE03				2232					
@@ -1490,14 +1490,14 @@
 #define	XI_WEA_BOWEARTH04				2253					
 #define	XI_WEA_BOWEARTH05				2254					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í¬ìŠ¤ìž¼-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -Æ÷½ºÀë-(ÀÏ¹Ý)										
 #define	XI_WEA_FORCEZEM01				2255					
 #define	XI_WEA_FORCEZEM02				2256					
 #define	XI_WEA_FORCEZEM03				2257					
 #define	XI_WEA_FORCEZEM04				2258					
 #define	XI_WEA_FORCEZEM05				2259					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -í¬ìŠ¤ìž¼-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -Æ÷½ºÀë-(¼Ó¼º)										
 #define	XI_WEA_FORCEZEMFIRE01				2260					
 #define	XI_WEA_FORCEZEMFIRE02				2261					
 #define	XI_WEA_FORCEZEMFIRE03				2262					
@@ -1524,14 +1524,14 @@
 #define	XI_WEA_FORCEZEMEARTH04				2283					
 #define	XI_WEA_FORCEZEMEARTH05				2284					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ë²•ì„œ-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¹ý¼­-(ÀÏ¹Ý)										
 #define	XI_WEA_MAGICBOOK01				2285					
 #define	XI_WEA_MAGICBOOK02				2286					
 #define	XI_WEA_MAGICBOOK03				2287					
 #define	XI_WEA_MAGICBOOK04				2288					
 #define	XI_WEA_MAGICBOOK05				2289					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ë²•ì„œ-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¹ý¼­-(¼Ó¼º)										
 #define	XI_WEA_MAGICBOOKFIRE01				2290					
 #define	XI_WEA_MAGICBOOKFIRE02				2291					
 #define	XI_WEA_MAGICBOOKFIRE03				2292					
@@ -1558,14 +1558,14 @@
 #define	XI_WEA_MAGICBOOKEARTH04				2313					
 #define	XI_WEA_MAGICBOOKEARTH05				2314					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ì™„ë“œ-(ì¼ë°˜)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¿Ïµå-(ÀÏ¹Ý)										
 #define	XI_WEA_WAND01				2315					
 #define	XI_WEA_WAND02				2316					
 #define	XI_WEA_WAND03				2317					
 #define	XI_WEA_WAND04				2318					
 #define	XI_WEA_WAND05				2319					
 										
-// 17ì°¨ ì´íŽ™íŠ¸ ê°œì„  -ì™„ë“œ-(ì†ì„±)										
+// 17Â÷ ÀÌÆåÆ® °³¼± -¿Ïµå-(¼Ó¼º)										
 #define	XI_WEA_WANDFIRE01				2320					
 #define	XI_WEA_WANDFIRE02				2321					
 #define	XI_WEA_WANDFIRE03				2322					
@@ -1592,10 +1592,10 @@
 #define	XI_WEA_WANDEARTH04				2343					
 #define	XI_WEA_WANDEARTH05				2344					
 
-//ëŒ€ë§Œ ì‹ ê·œ ë¹„í–‰ì²´ ì´íŽ™íŠ¸
+//´ë¸¸ ½Å±Ô ºñÇàÃ¼ ÀÌÆåÆ®
 #define	XI_RID_BIKESMOKE				2345										
 
-//í€¸ì—”íƒ€ë‹ˆìŠ¤ ì´íŽ™íŠ¸
+//Äý¿£Å¸´Ï½º ÀÌÆåÆ®
 #define	XI_SKILL_QUEEN_1					2346
 #define	XI_SKILL_HARPINEES_1			2347
 #define	XI_SKILL_QUEEN_2					2348
@@ -1603,7 +1603,7 @@
 #define XI_SKILL_KRAKEN_1				2350
 #define XI_SKILL_KRAKEN_2				2351
 
-//ëŒ€ë§Œ 5ì£¼ë…„ ê¸°ë… í­ì£½
+//´ë¸¸ 5ÁÖ³â ±â³ä ÆøÁ×
 #define XI_NAT_ROCKET05				2352
 
 
@@ -1763,9 +1763,9 @@
 #define MI_MUSHPANG2                          97										
 #define MI_MUSHPANG3                          98										
 #define MI_MUSHPANG4                          99										
-#define MI_PUKEPUKE5                         100 //ë…ë„ì´ë²¤íŠ¸ìš© ëª¬ìŠ¤í„°										
-#define MI_BANG5                             101 //ë…ë„ì´ë²¤íŠ¸ìš© ëª¬ìŠ¤í„°										
-#define MI_ROCKMUSCLE5                       102 //ë…ë„ì´ë²¤íŠ¸ìš© ëª¬ìŠ¤í„°										
+#define MI_PUKEPUKE5                         100 //µ¶µµÀÌº¥Æ®¿ë ¸ó½ºÅÍ										
+#define MI_BANG5                             101 //µ¶µµÀÌº¥Æ®¿ë ¸ó½ºÅÍ										
+#define MI_ROCKMUSCLE5                       102 //µ¶µµÀÌº¥Æ®¿ë ¸ó½ºÅÍ										
 #define MI_TOTEMIA1                          103										
 #define MI_TOTEMIA2                          104										
 #define MI_TOTEMIA3                          105										
@@ -1777,7 +1777,7 @@
 #define MI_AIBATT5                           111										
 										
 										
-//ì„¸ì¸íŠ¸ëª¨ë‹ ì‹ ê·œ ëª¬ìŠ¤í„°										
+//¼¼ÀÎÆ®¸ð´× ½Å±Ô ¸ó½ºÅÍ										
 #define MI_VOLT1                             112										
 #define MI_VOLT2                             113										
 #define MI_VOLT3                             114										
@@ -1816,34 +1816,34 @@
 #define MI_BUKETFOOT3                        192										
 #define MI_BUKETFOOT4                        193										
 										
-#define MI_DEMIAN5                           196 // 050628 ëª¬ìŠ¤í„°ìŠµê²©ì´ë²¤íŠ¸ìš© ë“œëžì œí•œ ì—†ìŒ										
-#define MI_KEAKOON5                          197 // 050628 ëª¬ìŠ¤í„°ìŠµê²©ì´ë²¤íŠ¸ìš© ë“œëžì œí•œ ì—†ìŒ										
-#define MI_MUFFRIN5                          198 // 050628 ëª¬ìŠ¤í„°ìŠµê²©ì´ë²¤íŠ¸ìš© ë“œëžì œí•œ ì—†ìŒ										
+#define MI_DEMIAN5                           196 // 050628 ¸ó½ºÅÍ½À°ÝÀÌº¥Æ®¿ë µå¶øÁ¦ÇÑ ¾øÀ½										
+#define MI_KEAKOON5                          197 // 050628 ¸ó½ºÅÍ½À°ÝÀÌº¥Æ®¿ë µå¶øÁ¦ÇÑ ¾øÀ½										
+#define MI_MUFFRIN5                          198 // 050628 ¸ó½ºÅÍ½À°ÝÀÌº¥Æ®¿ë µå¶øÁ¦ÇÑ ¾øÀ½										
 #define MI_MRPUMPKIN5                        199										
 #define MI_INFO_PENG                         200										
 #define MI_DWARPET                           201										
-#define MI_DWARPETMAS                        202 // ìš´ì˜ìž NPC - ë§ˆìŠ¤í„° ë“œì›ŒíŽ«										
-#define MI_CROWNIBLIS                        203 // ìš´ì˜ìž NPC - ì´ë¸”ë¦¬ìŠ¤										
-#define MI_CROWNSHADE                        204 // ìš´ì˜ìž NPC - ì´ë¸”ë¦¬ìŠ¤										
-#define MI_CROWNBUBBLE                       205 // ìš´ì˜ìž NPC - ì´ë¸”ë¦¬ìŠ¤										
+#define MI_DWARPETMAS                        202 // ¿î¿µÀÚ NPC - ¸¶½ºÅÍ µå¿öÆê										
+#define MI_CROWNIBLIS                        203 // ¿î¿µÀÚ NPC - ÀÌºí¸®½º										
+#define MI_CROWNSHADE                        204 // ¿î¿µÀÚ NPC - ÀÌºí¸®½º										
+#define MI_CROWNBUBBLE                       205 // ¿î¿µÀÚ NPC - ÀÌºí¸®½º										
 #define MI_ZOMBIGER5                         206										
 										
 										
-// í”Œë¼ë¦¬ìŠ¤ NPC										
+// ÇÃ¶ó¸®½º NPC										
 #define MI_MAFL_LOSHA                        210										
 #define MI_MAFL_BOBOKU                       211										
 #define MI_MAFL_JURIA                        212										
 #define MI_MAFL_LUI                          213										
 #define MI_MAFL_MARCHE                       214										
 										
-// ì„¸ì¸íŠ¸ëª¨ë‹ ì¶”ê°€ NPC										
+// ¼¼ÀÎÆ®¸ð´× Ãß°¡ NPC										
 #define MI_MASA_BULROX                       215										
 #define MI_MASA_TINA                         216										
 #define MI_MASA_KARIN                        217										
 #define MI_MASA_MARTIN                       218										
 #define MI_MASA_BILL                         219										
 										
-// ë‹¤ì½˜ NPC										
+// ´ÙÄÜ NPC										
 #define MI_NPC_RHINE			220							
 #define MI_NPC_STIMA			221							
 #define MI_NPC_PHACHAM			222							
@@ -1857,15 +1857,15 @@
 #define MI_MADA_ESHYLOP			230							
 #define MI_MADA_REMINE	  		231							
 										
-// ì˜ë¢°ì†Œ NPC										
+// ÀÇ·Ú¼Ò NPC										
 #define MI_MADA_UNKNOWN               232										
 #define MI_MADA_AGENT                 233										
 										
-//2ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ NPC										
+//2Â÷ ÀüÁ÷ Äù½ºÆ® NPC										
 #define MI_MADA_GUARDIAN             	234									
 #define MI_MAMA_ANCIMYS	              	235								
 										
-//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì´ë²¤íŠ¸ìš© NPC										
+//Å©¸®½º¸¶½º ÀÌº¥Æ®¿ë NPC										
 #define MI_MAFL_SANTA	              	236								
 #define MI_MAFL_PRIST	 				237					
 #define MI_NPC_CHEETOS						238				
@@ -1917,10 +1917,10 @@
 #define MI_CRANEMACHINERY2                   517										
 #define MI_CRANEMACHINERY3                   518										
 #define MI_CRANEMACHINERY4                   519										
-#define MI_POPCRANK1                         520	//í° íŒí¬ëž­í¬									
-#define MI_POPCRANK2                         521	//ë‚˜ì´íŠ¸ íŒí¬ëž­í¬									
-#define MI_POPCRANK3                         522	//ë£¨í¬ íŒí¬ëž­í¬									
-#define MI_POPCRANK4                         523	//ë¹„ìˆ íŒí¬ëž­í¬									
+#define MI_POPCRANK1                         520	//Æù ÆËÅ©·©Å©									
+#define MI_POPCRANK2                         521	//³ªÀÌÆ® ÆËÅ©·©Å©									
+#define MI_POPCRANK3                         522	//·çÅ© ÆËÅ©·©Å©									
+#define MI_POPCRANK4                         523	//ºñ¼ó ÆËÅ©·©Å©									
 #define MI_PEAKYTURTLE1                      524										
 #define MI_PEAKYTURTLE2                      525										
 #define MI_PEAKYTURTLE3                      526										
@@ -1954,13 +1954,13 @@
 #define MI_JACKTHEHAMMER3                    554										
 #define MI_JACKTHEHAMMER4                    555										
 										
-//ìžì›ëª¬ìŠ¤í„°										
+//ÀÚ¿ø¸ó½ºÅÍ										
 #define MI_MINECATCHER               	556									
 #define MI_ERONSCATCHER               	557									
 #define MI_KRASECCATCHER               	558									
 #define MI_GURUCATCHER               	559									
 										
-//ë‹¤ì½˜ 2 ëª¬ìŠ¤í„°										
+//´ÙÄÜ 2 ¸ó½ºÅÍ										
 #define MI_NUCTUVEHICLE1	560									
 #define MI_NUCTUVEHICLE2	561									
 #define MI_NUCTUVEHICLE3	562									
@@ -1978,7 +1978,7 @@
 #define MI_ZOMBIGER3		575								
 #define MI_ZOMBIGER4		576								
 										
-//ì¶”ê°€ ê·¹ë‹¨ ì‚¬ëƒ¥ìš© ëª¬ìŠ¤í„° 										
+//Ãß°¡ ±Ø´Ü »ç³É¿ë ¸ó½ºÅÍ 										
 #define MI_FLYBAT1		577								
 #define MI_FLYBAT2		578								
 #define MI_FLYBAT3		579								
@@ -2038,10 +2038,10 @@
 #define MI_MUSHPOIE2          631										
 #define MI_MUSHPOIE3          632										
 #define MI_MUSHPOIE4          633										
-#define MI_MUFFRIN1           634	//ë¬´ì¹¨ìž¥ ë¨¸í‘¸ë¦°									
-#define MI_MUFFRIN2           635	//ì¡°ë¦¼ìž¥ ë¨¸í‘¸ë¦°									
-#define MI_MUFFRIN3           636	//ë³¶ìŒìž¥ ë¨¸í‘¸ë¦°									
-#define MI_MUFFRIN4           637	//íŠ€ê¹€ìž¥ ë¨¸í‘¸ë¦°									
+#define MI_MUFFRIN1           634	//¹«Ä§Àå ¸ÓÇª¸°									
+#define MI_MUFFRIN2           635	//Á¶¸²Àå ¸ÓÇª¸°									
+#define MI_MUFFRIN3           636	//ººÀ½Àå ¸ÓÇª¸°									
+#define MI_MUFFRIN4           637	//Æ¢±èÀå ¸ÓÇª¸°									
 #define MI_HOPPRE1            638										
 #define MI_HOPPRE2            639										
 #define MI_HOPPRE3            640										
@@ -2059,7 +2059,7 @@
 #define MI_KERN3              652										
 #define MI_KERN4              653										
 										
-//ë˜ì „ìš© ëª¬ìŠ¤í„°										
+//´øÀü¿ë ¸ó½ºÅÍ										
 #define MI_DUFEFERN1                            654										
 #define MI_DUFEFERN2                            655										
 #define MI_DUFEFERN3                            656										
@@ -2072,19 +2072,19 @@
 										
 										
 										
-//2ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°										
+//2Â÷ ÀüÁ÷ Äù½ºÆ® ¸ó½ºÅÍ										
 #define MI_GUARDMON1         663										
 										
-//í”Œë¼ë¦¬ìŠ¤ ë˜ì „ ë³´ìŠ¤ ëª¬ìŠ¤í„°										
+//ÇÃ¶ó¸®½º ´øÀü º¸½º ¸ó½ºÅÍ										
 #define MI_WORMVEDUQUE                              664										
 #define MI_SERUSURIEL                               665										
 #define MI_VICEVEDUQUE                              666										
-//ê²½ë¹„ë³‘ npc										
+//°æºñº´ npc										
 #define MI_GUARDIAN                                 667										
 #define MI_CHAOGUARDIAN                             668										
 #define MI_NPC_REWARD					 		669			
 										
-//p.kì¡´ìš© ëª¬ìŠ¤í„°										
+//p.kÁ¸¿ë ¸ó½ºÅÍ										
 #define MI_PK_WAGSAAC					 		670			
 #define MI_PK_MRPUMPKIN					 		671			
 #define MI_PK_GIGGLEBOX 					 		672			
@@ -2103,15 +2103,15 @@
 #define MI_PK_SHUHAMMA 				 		685				
 #define MI_PK_GLAPHAN				 		686				
 										
-//1ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ Mob										
+//1Â÷ ÀüÁ÷ Äù½ºÆ® Mob										
 #define MI_SHURAITURE		687	     			    				
 										
-//2ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ Mob										
+//2Â÷ ÀüÁ÷ Äù½ºÆ® Mob										
 #define MI_REN		688								
 #define MI_SISIF	689									
 #define MI_RUBO		690								
 										
-//ë°ì¹´ë„¤ìŠ¤ ë˜ì „ìš© í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„° 										
+//µ¥Ä«³×½º ´øÀü¿ë Äù½ºÆ® ¸ó½ºÅÍ 										
 #define MI_DU_DKKEAKOON1					 		691			
 #define MI_DU_DKKEAKOON2					 		692			
 #define MI_DU_DKKEAKOON3					 		693			
@@ -2176,109 +2176,109 @@
 #define	MI_PET_TURTLE								748	
 										
 #define MI_PET_LASTINDEX							749			
-// íŽ« 749ê¹Œì§€ ì‚¬ìš©. í•˜ë‹¨ì— íŽ« ì¶”ê°€										
+// Æê 749±îÁö »ç¿ë. ÇÏ´Ü¿¡ Æê Ãß°¡										
 										
-//í€˜ìŠ¤íŠ¸(ë³€ê²½) ëª¬ìŠ¤í„° ë° NPC										
-#define MI_CHANER	750	//ë¨¸ì„œë„ˆë¦¬ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°								
-#define MI_BABARI	751	//ì–´ì‹œìŠ¤íŠ¸ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°								
-#define MI_SEIDO	752	//ë§¤ì§€ì…˜ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°								
+//Äù½ºÆ®(º¯°æ) ¸ó½ºÅÍ ¹× NPC										
+#define MI_CHANER	750	//¸Ó¼­³Ê¸® Äù½ºÆ® ¸ó½ºÅÍ								
+#define MI_BABARI	751	//¾î½Ã½ºÆ® Äù½ºÆ® ¸ó½ºÅÍ								
+#define MI_SEIDO	752	//¸ÅÁö¼Ç Äù½ºÆ® ¸ó½ºÅÍ								
 										
-//ë©”í…Œì˜¤ë‹ˆì»¤ 3ì¢… ì¶”ê°€										
+//¸ÞÅ×¿À´ÏÄ¿ 3Á¾ Ãß°¡										
 #define MI_DU_METEONYKER2							753			
 #define MI_DU_METEONYKER3							754			
 #define MI_DU_METEONYKER4							755			
 										
 										
-//ì¼ë°˜ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„° ë° NPC										
-#define MI_RBANG1	800	//ë¶‰ì€ ë±… ë„ì ë‹¨ì›								
-//ì‹œë‚˜ë¦¬ì˜¤ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°(2ì°¨)										
-#define MI_VIOLMAGICION	811	//ìžìƒ‰ì˜ ë§ˆë²•ë‹¨ì›								
-#define MI_VIOLMAGICION2 812	//ìžìƒ‰ì˜ ë§ˆë²• ê·¹ë‹¨ìž¥									
-//ì¼ë°˜ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°(ë³´ìŠ¤Mob)										
-#define MI_ORGANIGOR 	813	//ì˜¤ë¥´ê°€ë‹ˆê±°								
-#define MI_GANGARD 	814	//ê°„ê°€ë“œ 								
-#define MI_HADESEOR 	815	//í•˜ë°ì„œ								
+//ÀÏ¹Ý Äù½ºÆ® ¸ó½ºÅÍ ¹× NPC										
+#define MI_RBANG1	800	//ºÓÀº ¹ð µµÀû´Ü¿ø								
+//½Ã³ª¸®¿À Äù½ºÆ® ¸ó½ºÅÍ(2Â÷)										
+#define MI_VIOLMAGICION	811	//ÀÚ»öÀÇ ¸¶¹ý´Ü¿ø								
+#define MI_VIOLMAGICION2 812	//ÀÚ»öÀÇ ¸¶¹ý ±Ø´ÜÀå									
+//ÀÏ¹Ý Äù½ºÆ® ¸ó½ºÅÍ(º¸½ºMob)										
+#define MI_ORGANIGOR 	813	//¿À¸£°¡´Ï°Å								
+#define MI_GANGARD 	814	//°£°¡µå 								
+#define MI_HADESEOR 	815	//ÇÏµ¥¼­								
 										
-//ì‹œë‚˜ë¦¬ì˜¤ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°(2ì°¨)										
-#define MI_VIOLMAGICION3 816	//ìžìƒ‰ì˜ ë§ˆë²• ëŒ€ê·¹ë‹¨ìž¥									
-//ì¼ë°˜ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°										
-#define MI_RBANG2	817	//ë¶‰ì€ ë±… ë„ì ë‘ëª©								
-#define MI_LORDBANG	818	//ë¡œë“œ ë±…								
+//½Ã³ª¸®¿À Äù½ºÆ® ¸ó½ºÅÍ(2Â÷)										
+#define MI_VIOLMAGICION3 816	//ÀÚ»öÀÇ ¸¶¹ý ´ë±Ø´ÜÀå									
+//ÀÏ¹Ý Äù½ºÆ® ¸ó½ºÅÍ										
+#define MI_RBANG2	817	//ºÓÀº ¹ð µµÀûµÎ¸ñ								
+#define MI_LORDBANG	818	//·Îµå ¹ð								
 										
-// ë³´ìŠ¤ëª¬ìŠ¤í„° ì¼ë°˜ëª¹ë“¤										
+// º¸½º¸ó½ºÅÍ ÀÏ¹Ý¸÷µé										
 #define MI_HAMMERKICK	819									
 #define	MI_ANTTURTLE    820									
 										
-//ì¼ë°˜ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°										
-#define MI_EMERALDMANTIS 821	//ì—ë¨¸ëž„ë“œë§¨í‹°ìŠ¤									
+//ÀÏ¹Ý Äù½ºÆ® ¸ó½ºÅÍ										
+#define MI_EMERALDMANTIS 821	//¿¡¸Ó¶öµå¸ÇÆ¼½º									
 										
-//ë¯¸êµ­ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°										
-#define MI_LOADCLOCKWORK    822  // ê¸°ì´ˆëª¨ë¸ : Clockwork										
-#define MI_BRIGADIER        823  // ê¸°ì´ˆëª¨ë¸ : Bang										
-#define MI_LIEUTENANT       824  // ê¸°ì´ˆëª¨ë¸ : RedMantis										
-#define MI_SPIKETAIL        825  // ê¸°ì´ˆëª¨ë¸ : Flbyrigen										
-#define MI_GLYPHAXZ         826  // ê¸°ì´ˆëª¨ë¸ : Kimeradon										
+//¹Ì±¹ ÀÌº¥Æ® ¸ó½ºÅÍ										
+#define MI_LOADCLOCKWORK    822  // ±âÃÊ¸ðµ¨ : Clockwork										
+#define MI_BRIGADIER        823  // ±âÃÊ¸ðµ¨ : Bang										
+#define MI_LIEUTENANT       824  // ±âÃÊ¸ðµ¨ : RedMantis										
+#define MI_SPIKETAIL        825  // ±âÃÊ¸ðµ¨ : Flbyrigen										
+#define MI_GLYPHAXZ         826  // ±âÃÊ¸ðµ¨ : Kimeradon										
 										
-//ìŠ¤í† ë¦¬ í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°										
-#define MI_LBHANOYAN	827	//ë¡œë“œ ë±… í•˜ë…¸ì–€								
+//½ºÅä¸® Äù½ºÆ® ¸ó½ºÅÍ										
+#define MI_LBHANOYAN	827	//·Îµå ¹ð ÇÏ³ë¾á								
 										
-//105~119ë ˆë²¨ ëª¬ìŠ¤í„°										
-#define MI_KIMERADON1	828	//ë³‘ì‚¬ í‚¤ë©”ë¼ëˆ								
-#define MI_KIMERADON2	829	//ë¶„ëŒ€ìž¥ í‚¤ë©”ë¼ëˆ								
-#define MI_KIMERADON3	830	//ì†ŒëŒ€ìž¥ í‚¤ë©”ë¼ëˆ								
-#define MI_KIMERADON4	831	//ëŒ€ëŒ€ìž¥ í‚¤ë©”ë¼ëˆ								
-#define MI_KIMERADON5	832	//ì—°ëŒ€ìž¥ í‚¤ë©”ë¼ëˆ								
-#define MI_BEARNUCKY1	833	//ì´ë³‘ ë² ì–´ë„ˆí‚¤								
-#define MI_BEARNUCKY2	834	//ì¼ë³‘ ë² ì–´ë„ˆí‚¤								
-#define MI_BEARNUCKY3	835	//ìƒë³‘ ë² ì–´ë„ˆí‚¤								
-#define MI_BEARNUCKY4	836	//ë³‘ìž¥ ë² ì–´ë„ˆí‚¤								
-#define MI_BEARNUCKY5	837	//ì†Œìœ„ ë² ì–´ë„ˆí‚¤								
-#define MI_MUFFRIN6	838	//ì·¨ì‚¬ë°˜ìž¥ ë¨¸í‘¸ë¦°								
-#define MI_POPCRANK5	839	//í€¸ íŒí¬ëž­í¬								
+//105~119·¹º§ ¸ó½ºÅÍ										
+#define MI_KIMERADON1	828	//º´»ç Å°¸Þ¶óµ·								
+#define MI_KIMERADON2	829	//ºÐ´ëÀå Å°¸Þ¶óµ·								
+#define MI_KIMERADON3	830	//¼Ò´ëÀå Å°¸Þ¶óµ·								
+#define MI_KIMERADON4	831	//´ë´ëÀå Å°¸Þ¶óµ·								
+#define MI_KIMERADON5	832	//¿¬´ëÀå Å°¸Þ¶óµ·								
+#define MI_BEARNUCKY1	833	//ÀÌº´ º£¾î³ÊÅ°								
+#define MI_BEARNUCKY2	834	//ÀÏº´ º£¾î³ÊÅ°								
+#define MI_BEARNUCKY3	835	//»óº´ º£¾î³ÊÅ°								
+#define MI_BEARNUCKY4	836	//º´Àå º£¾î³ÊÅ°								
+#define MI_BEARNUCKY5	837	//¼ÒÀ§ º£¾î³ÊÅ°								
+#define MI_MUFFRIN6	838	//Ãë»ç¹ÝÀå ¸ÓÇª¸°								
+#define MI_POPCRANK5	839	//Äý ÆËÅ©·©Å©								
 										
-//í€˜ìŠ¤íŠ¸ ëª¬ìŠ¤í„°										
-#define MI_MOMYORN	840	//ì–´ë¯¸ ìš”ë¥¸								
-#define MI_KIDLER	841	//í‚¤ë“¤ëŸ¬								
-#define MI_SHAKALPION	842	//ì‚¬ì¹¼í”¼ì–¸								
-#define MI_HOIREN	843	//í˜¸ì•„ë Œ								
-#define MI_HUNTERX	844	//í—Œí„°X								
-#define MI_KYNSY	845	//í‚¨ì‚¬ì´								
-#define MI_CLOCKS	846	//í´ë½ìŠ¤								
+//Äù½ºÆ® ¸ó½ºÅÍ										
+#define MI_MOMYORN	840	//¾î¹Ì ¿ä¸¥								
+#define MI_KIDLER	841	//Å°µé·¯								
+#define MI_SHAKALPION	842	//»çÄ®ÇÇ¾ð								
+#define MI_HOIREN	843	//È£¾Æ·»								
+#define MI_HUNTERX	844	//ÇåÅÍX								
+#define MI_KYNSY	845	//Å²»çÀÌ								
+#define MI_CLOCKS	846	//Å¬¶ô½º								
 										
-//ì´ë¸”ë¦¬ìŠ¤ì˜ ì‚¬ì› ëª¬ìŠ¤í„°										
-#define MI_IBLCRASHER   855	//ì´ë¸”í¬ëž˜ì…”									
-#define MI_IBLPOISONER  856	//ì´ë¸”í¬ì´ì¦ˆë„ˆ									
-#define MI_IBLWRECKER   857	//ì´ë¸”ë ‰ì»¤									
-#define MI_IBLDOZER     858	//ì´ë¸”ë„ì ¸									
-#define MI_IBLPUPPET	859	//ì´ë¸”í¼íŽ«								
-#define MI_IBLTAKER	860	//ì´ë¸”í…Œì´ì»¤								
+//ÀÌºí¸®½ºÀÇ »ç¿ø ¸ó½ºÅÍ										
+#define MI_IBLCRASHER   855	//ÀÌºíÅ©·¡¼Å									
+#define MI_IBLPOISONER  856	//ÀÌºíÆ÷ÀÌÁî³Ê									
+#define MI_IBLWRECKER   857	//ÀÌºí·ºÄ¿									
+#define MI_IBLDOZER     858	//ÀÌºíµµÁ®									
+#define MI_IBLPUPPET	859	//ÀÌºíÆÛÆê								
+#define MI_IBLTAKER	860	//ÀÌºíÅ×ÀÌÄ¿								
 										
-#define MI_IBLGUARDER	861	//ì´ë¸”ê°€ë”								
-#define MI_IBLQUAKER    862	//ì´ë¸”í€˜ì´ì»¤									
-#define MI_IBLMUCILAGER 863	//ì´ë¸”ë®¤ì„¤ë¦¬ì ¸									
-#define MI_IBLLINESS    864	//ì´ë¸”ë¼ë„¤ìŠ¤									
+#define MI_IBLGUARDER	861	//ÀÌºí°¡´õ								
+#define MI_IBLQUAKER    862	//ÀÌºíÄùÀÌÄ¿									
+#define MI_IBLMUCILAGER 863	//ÀÌºí¹Â¼³¸®Á®									
+#define MI_IBLLINESS    864	//ÀÌºí¶ó³×½º									
 										
-#define MI_IBLREDOTEM   865	//ì´ë¸”ë ˆë“œì˜¤í…œ									
-#define MI_IBLBLACKOTEM 866	//ì´ë¸”ë¸”ëž™ì˜¤í…œ									
-#define MI_IBLBOXTER    867	//ì´ë¸”ë°•ìŠ¤í„°									
-#define MI_IBLDANDISHER 868	//ì´ë¸”ëŒ„ë””ì…”									
+#define MI_IBLREDOTEM   865	//ÀÌºí·¹µå¿ÀÅÛ									
+#define MI_IBLBLACKOTEM 866	//ÀÌºíºí·¢¿ÀÅÛ									
+#define MI_IBLBOXTER    867	//ÀÌºí¹Ú½ºÅÍ									
+#define MI_IBLDANDISHER 868	//ÀÌºí´íµð¼Å									
 										
-//ì—”ì ¤(PKìš©)										
-#define MI_ANGELRED     869 //ë ˆë“œì—”ì ¤										
-#define MI_ANGELBLUE    870 //ë¸”ë£¨ì—”ì ¤										
-#define MI_ANGELGREEN   871 //ê·¸ë¦°ì—”ì ¤										
-#define MI_ANGELWHITE   872 //í™”ì´íŠ¸ì—”ì ¤										
+//¿£Á©(PK¿ë)										
+#define MI_ANGELRED     869 //·¹µå¿£Á©										
+#define MI_ANGELBLUE    870 //ºí·ç¿£Á©										
+#define MI_ANGELGREEN   871 //±×¸°¿£Á©										
+#define MI_ANGELWHITE   872 //È­ÀÌÆ®¿£Á©										
 										
-#define MI_POSTBOX   873 //ìš°ì²´í†µ 										
+#define MI_POSTBOX   873 //¿ìÃ¼Åë 										
 										
-//ì‚¬ì´í´ë¡­ìŠ¤ X										
+//»çÀÌÅ¬·Ó½º X										
 #define MI_CYCLOPSX  874										
 										
-//ì˜ë¬¸ì˜ ë¡œë¸Œ ì‚¬ë‚´, ì†Œë…€"""										
+//ÀÇ¹®ÀÇ ·Îºê »ç³», ¼Ò³à"""										
 #define MI_MADA_REDROBEMAN  875										
 #define MI_MADA_REDROBEGIRL  876										
 										
-//9ì°¨ ì¶”ê°€ NPC 										
+//9Â÷ Ãß°¡ NPC 										
 #define MI_NPC_DEALER		877								
 #define MI_NPC_HAIR			878							
 #define MI_NPC_MAKEUP		879								
@@ -2287,7 +2287,7 @@
 #define MI_NPC_MISSFLYFF	882									
 #define MI_NPC_MRFLYFF		883								
 										
-//ì‹œìŠ¤í…œíŽ« ì¶”ê°€										
+//½Ã½ºÅÛÆê Ãß°¡										
 #define	MI_PET_WHITETIGER01_2						884			
 #define	MI_PET_BARBARYLION01_2						885			
 #define	MI_PET_RABBIT02_2							886		
@@ -2296,8 +2296,8 @@
 #define	MI_PET_NINEFOX01_2							889		
 #define	MI_PET_EAGLE01_2							890		
 										
-#define	MI_NPC_PRIEST							891 //ì°¸íšŒì˜ ì‚¬ì œ		
-#define	MI_NPC_MISTBOY							892 //ë¯¸ìŠ¤í„°ë¦¬ ì†Œë…„		
+#define	MI_NPC_PRIEST							891 //ÂüÈ¸ÀÇ »çÁ¦		
+#define	MI_NPC_MISTBOY							892 //¹Ì½ºÅÍ¸® ¼Ò³â		
 										
 #define MI_PET_CHICKEN					893					
 #define MI_PET_COW						894				
@@ -2316,7 +2316,7 @@
 #define MI_NPC_AUGOO02		907								
 #define MI_NPC_SADKING01 	908									
 #define MI_NPC_SADKING02	909									
-#define MI_NPC_WAFORU		910 //ì™€í¬ë£¨								
+#define MI_NPC_WAFORU		910 //¿ÍÆ÷·ç								
 #define MI_NPC_MAMMOTH01 	911									
 #define MI_NPC_MAMMOTH02  	912									
 #define MI_NPC_COLLECT  	913									
@@ -2328,7 +2328,7 @@
 #define MI_EVENT03			919							
 #define MI_EVENT04			920							
 #define MI_NPC_TARGET		921								
-// 12ì°¨ ë²„ì „ ì¶”ê°€ ëª¬ìŠ¤í„°										
+// 12Â÷ ¹öÀü Ãß°¡ ¸ó½ºÅÍ										
 #define MI_HARPY01			922							
 #define MI_HARPY02			923							
 #define MI_HARPY03			924							
@@ -2408,7 +2408,7 @@
 #define MI_NPC_SECRETARY	983									
 #define MI_NPC_SNOWGIRL		984								
 										
-// ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ NPC 										
+// ·¹ÀÎº¸¿ì ·¹ÀÌ½º NPC 										
 #define	MI_NPC_RAINBOWNPC01	985								
 #define	MI_NPC_RAINBOWNPC02	986								
 #define	MI_NPC_RAINBOWNPC03 	987								
@@ -2418,7 +2418,7 @@
 #define	MI_NPC_RAINBOWNPC07 	991								
 #define	MI_NPC_RAINBOWSTART 	992								
 										
-// 13ì°¨ ì‹ ê·œ ëª¬ìŠ¤í„°										
+// 13Â÷ ½Å±Ô ¸ó½ºÅÍ										
 #define	MI_KINGSTER01		993							
 #define	MI_KINGSTER02		994							
 #define	MI_KINGSTER03		995							
@@ -2457,7 +2457,7 @@
 										
 #define	MI_NPC_MINIDOOR01	1020								
 										
-// ê¸°ì¡´ NPC ëª¨ë¸ ë³€ê²½										
+// ±âÁ¸ NPC ¸ðµ¨ º¯°æ										
 #define MI_MAFL_PATROL          1021										
 #define MI_MAFL_GUILDWAR01      1022										
 #define MI_MAFL_GUILDWAR02      1023										
@@ -2483,7 +2483,7 @@
 #define MI_PET_TAIGA02		1040								
 #define MI_PET_TAIGA03		1041								
 										
-// 14ì°¨ ì‹ ê·œ ëª¬ìŠ¤í„°										
+// 14Â÷ ½Å±Ô ¸ó½ºÅÍ										
 #define	MI_Crohell01		1042							
 #define	MI_Crohell02		1043							
 #define	MI_Crohell03		1044							
@@ -2561,7 +2561,7 @@
 #define	MI_NPC_SELIA		1104							
 #define	MI_NPC_ICINIS		1105							
 										
-//15ì°¨ ëª¬ìŠ¤í„° 1ì°¨ë¶„										
+//15Â÷ ¸ó½ºÅÍ 1Â÷ºÐ										
 #define	MI_SKELWOLF		1106							
 #define	MI_SKELSWORD		1107							
 #define	MI_SKELSPEAR		1108							
@@ -2625,7 +2625,7 @@
 #define	MI_PET_WHITERABBIT		1155							
 #define	MI_PET_WHITETIGER02		1156							
 										
-//16ì°¨ ìœ ë£Œì§€ì—­ ë¼ë¥´í…Œì‹œì•„ ëª¬ìŠ¤í„°										
+//16Â÷ À¯·áÁö¿ª ¶ó¸£Å×½Ã¾Æ ¸ó½ºÅÍ										
 										
 #define	MI_RABBITGUARDER01		1157							
 #define	MI_TUTTLESWORDER01		1158							
@@ -2642,7 +2642,7 @@
 #define	MI_PET_DANCER			1167						
 #define	MI_CLOCKWORKBUTLER01	1168								
 										
-// 16ì°¨ ë² ížˆëª¨ìŠ¤ ì‹ ì „										
+// 16Â÷ º£È÷¸ð½º ½ÅÀü										
 										
 #define	MI_STATUE				1169					
 #define	MI_SPIRITTULA			1170						
@@ -2653,7 +2653,7 @@
 #define	MI_BEHEMOTH				1175					
 #define	MI_BEHESTATUE01			1210						
 										
-// 16ì°¨ ì¹´ì¼ë£¬ ì´ˆì›										
+// 16Â÷ Ä«ÀÏ·é ÃÊ¿ø										
 										
 #define	MI_PUPPETWOLF			1176						
 #define	MI_RYSENTRY				1177					
@@ -2666,7 +2666,7 @@
 #define	MI_NPCBULLSFESTIVAL		1183							
 #define	MI_DUMBBULL5			1184						
 										
-// 16ì°¨ ì—˜ë¦¬ìš´ NPC										
+// 16Â÷ ¿¤¸®¿î NPC										
 										
 #define	MI_MaEw_RUIDAN			1185						
 #define	MI_MaEw_HUNTRANG		1186							
@@ -2702,52 +2702,52 @@
 #define	MI_MaEw_GUARDIAN02		1219							
 										
 										
-//ê°€ì‹œê¼¬ë¦¬ ë“œëž˜ê³¤										
-#define MI_SPAINDRAGON01         1209  // ë¯¸êµ­ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°										
+//°¡½Ã²¿¸® µå·¡°ï										
+#define MI_SPAINDRAGON01         1209  // ¹Ì±¹ ÀÌº¥Æ® ¸ó½ºÅÍ										
 										
-#define	MI_MaFl_ROMINA			1211 // ë¯¸êµ­ ë ˆë²¨ì—… ì´ë²¤íŠ¸						
+#define	MI_MaFl_ROMINA			1211 // ¹Ì±¹ ·¹º§¾÷ ÀÌº¥Æ®						
 										
 										
-//ì œë ¨ì •ë ¹										
+//Á¦·ÃÁ¤·É										
 #define	MI_PET_SMELTPIYO		1220							
 #define	MI_PET_SMELTUDI			1221						
-//ì•„ì´í…œë©”ë‹ˆì•„ ì‹ ê·œìœ ì € ì§€ê¸‰ìš© ì–‘ìš°ë¦¬ ì œìž‘										
-#define	MI_PET_SHEEP1			1222 // ë³´ì†¡ë³´ì†¡í•œ ì–‘ ìš°ë¦¬						
+//¾ÆÀÌÅÛ¸Þ´Ï¾Æ ½Å±ÔÀ¯Àú Áö±Þ¿ë ¾ç¿ì¸® Á¦ÀÛ										
+#define	MI_PET_SHEEP1			1222 // º¸¼Ûº¸¼ÛÇÑ ¾ç ¿ì¸®						
 										
-//ì œë ¨ í€˜ìŠ¤íŠ¸										
+//Á¦·Ã Äù½ºÆ®										
 #define	MI_PET_SMELTUDI01		1274							
 										
 										
-//ì í•‘ ì´ë²¤íŠ¸										
+//Á¡ÇÎ ÀÌº¥Æ®										
 #define	MI_MaEw_MEWRANG			1275						
 										
-//ë¶„ì‹ ì‚¬ë°”										
+//ºÐ½Å»ç¹Ù										
 #define	MI_MIA5					1276				
 #define	MI_CARDPUPPET5			1277						
 #define	MI_RANGDA05				1278					
-//í”¼ëƒíƒ€										
+//ÇÇ³ÄÅ¸										
 #define	MI_PINATA					1279				
 										
-//NPC ë°ë¯¸ì•ˆ										
+//NPC µ¥¹Ì¾È										
 #define	MI_NPCDEMIAN					1280				
 										
-//ëŒ€ë§Œ ì¹´ë©œë ˆì˜¨ íŽ«										
+//´ë¸¸ Ä«¸á·¹¿Â Æê										
 #define	MI_PET_CHAMELEON					1281				
 										
-//ì²œì‚¬ ì•…ë§ˆ NPC										
+//Ãµ»ç ¾Ç¸¶ NPC										
 #define	MI_LIGHT					1282				
 #define	MI_DARK					1283				
 										
-//ê¸¸ë“œí•˜ìš°ìŠ¤ê´€ë¦¬ì¸										
+//±æµåÇÏ¿ì½º°ü¸®ÀÎ										
 #define	MI_MaSa_ROA					1284				
 #define	MI_MaEw_TROY					1285				
-//í”Œë¼ë¦¬ìŠ¤ê¸¸ë“œí•˜ìš°ìŠ¤ë„ì–´										
+//ÇÃ¶ó¸®½º±æµåÇÏ¿ì½ºµµ¾î										
 #define	MI_MaFl_GUILDHOUSE_DOOR_01					1286				
 #define	MI_MaFl_GUILDHOUSE_DOOR_02					1287				
 #define	MI_MaFl_GUILDHOUSE_DOOR_03					1288				
 #define	MI_MaFl_GUILDHOUSE_DOOR_04					1289				
 #define	MI_MaFl_GUILDHOUSE_DOOR_05					1290				
-//ì„¸ì¸ì‹œí‹°ê¸¸ë“œí•˜ìš°ìŠ¤ë„ì–´										
+//¼¼ÀÎ½ÃÆ¼±æµåÇÏ¿ì½ºµµ¾î										
 #define	MI_MaSa_GUILDHOUSE_DOOR_01					1291				
 #define	MI_MaSa_GUILDHOUSE_DOOR_02					1292				
 #define	MI_MaSa_GUILDHOUSE_DOOR_03					1293				
@@ -2757,22 +2757,22 @@
 #define	MI_MaSa_GUILDHOUSE_DOOR_07					1297				
 #define	MI_MaSa_GUILDHOUSE_DOOR_08					1298				
 #define	MI_MaSa_GUILDHOUSE_DOOR_09					1299				
-//ì—˜ë¦¬ìš´ê¸¸ë“œí•˜ìš°ìŠ¤ë„ì–´										
+//¿¤¸®¿î±æµåÇÏ¿ì½ºµµ¾î										
 #define	MI_MaEw_GUILDHOUSE_DOOR_01					1300				
 #define	MI_MaEw_GUILDHOUSE_DOOR_02					1301				
 #define	MI_MaEw_GUILDHOUSE_DOOR_03					1302				
 										
-//í• ë¡œìœˆ ë¡œë©”ë¡œ/í”„ëž‘ì¼€ìŠˆíƒ€ì¸										
+//ÇÒ·ÎÀ© ·Î¸Þ·Î/ÇÁ¶ûÄÉ½´Å¸ÀÎ										
 #define	MI_NPC_ROMERO						1303			
 #define	MI_NPC_FRANKENSTEIN					1304				
 										
-//í”Œë¼ë¦¬ìŠ¤ê¸¸ë“œí•˜ìš°ìŠ¤í‘œì§€íŒ										
+//ÇÃ¶ó¸®½º±æµåÇÏ¿ì½ºÇ¥ÁöÆÇ										
 #define	MI_MaFl_GUILDHOUSE_NOTICE_01					1305				
 #define	MI_MaFl_GUILDHOUSE_NOTICE_02					1306				
 #define	MI_MaFl_GUILDHOUSE_NOTICE_03					1307				
 #define	MI_MaFl_GUILDHOUSE_NOTICE_04					1308				
 #define	MI_MaFl_GUILDHOUSE_NOTICE_05					1309				
-//ì„¸ì¸ì‹œí‹°ê¸¸ë“œí•˜ìš°ìŠ¤í‘œì§€íŒ										
+//¼¼ÀÎ½ÃÆ¼±æµåÇÏ¿ì½ºÇ¥ÁöÆÇ										
 #define	MI_MaSa_GUILDHOUSE_NOTICE_01					1310				
 #define	MI_MaSa_GUILDHOUSE_NOTICE_02					1311				
 #define	MI_MaSa_GUILDHOUSE_NOTICE_03					1312				
@@ -2782,49 +2782,49 @@
 #define	MI_MaSa_GUILDHOUSE_NOTICE_07					1316				
 #define	MI_MaSa_GUILDHOUSE_NOTICE_08					1317				
 #define	MI_MaSa_GUILDHOUSE_NOTICE_09					1318				
-//ì—˜ë¦¬ìš´ê¸¸ë“œí•˜ìš°ìŠ¤í‘œì§€íŒ										
+//¿¤¸®¿î±æµåÇÏ¿ì½ºÇ¥ÁöÆÇ										
 #define	MI_MaEw_GUILDHOUSE_NOTICE_01					1319				
 #define	MI_MaEw_GUILDHOUSE_NOTICE_02					1320				
 #define	MI_MaEw_GUILDHOUSE_NOTICE_03					1321				
 										
-//ë²„í”„íŒŒì•™										
+//¹öÇÁÆÄ¾Ó										
 #define	MI_BUFFPONG					1322				
 										
-//ì¢€ë¹„ ëª¬ìŠ¤í„° ì‚½ìž…										
+//Á»ºñ ¸ó½ºÅÍ »ðÀÔ										
 #define	MI_MZOMBIE					1323				
 #define	MI_FZOMBIE					1324				
-//ë²„í”„íŒŒì•™										
+//¹öÇÁÆÄ¾Ó										
 #define	MI_PET_LITTLEZOMBIE					1325				
-//ê¸¸ë“œí•˜ìš°ìŠ¤ í‡´ìž¥ ë¬¸ ì‚½ìž…										
+//±æµåÇÏ¿ì½º ÅðÀå ¹® »ðÀÔ										
 #define	MI_GUILD_DOOR					1326				
 										
-//í• ë¡œìœˆ ë¸Œë£©										
+//ÇÒ·ÎÀ© ºê·è										
 #define	MI_NPC_BROOKS					1327				
 //ATMA										
 #define	MI_NPC_ATMA					1328				
-//ì¼ë³¸ êµí™˜ NPC										
+//ÀÏº» ±³È¯ NPC										
 #define	MI_NPC_JAPCHANGE					1329				
 										
-//ì¢€ë¹„ ëª¬ìŠ¤í„° ì‚½ìž…										
+//Á»ºñ ¸ó½ºÅÍ »ðÀÔ										
 #define	MI_NMZOMBIE					1330				
 #define	MI_NFZOMBIE					1331				
-//ê¸¸ë“œ í•˜ìš°ìŠ¤ ì¤‘ê°„ ë¬¸										
+//±æµå ÇÏ¿ì½º Áß°£ ¹®										
 #define	MI_MIDDLE_GUILDHOUSE_DOOR_01					1332				
 #define	MI_MIDDLE_GUILDHOUSE_DOOR_02					1333				
 #define	MI_MIDDLE_GUILDHOUSE_DOOR_03					1334				
 										
-//ë¯¸êµ­ ì¶”ìˆ˜ê°ì‚¬ì ˆ ë£¨ì´ì•„										
+//¹Ì±¹ Ãß¼ö°¨»çÀý ·çÀÌ¾Æ										
 #define MI_TGLUIA01              1335										
 										
-//ë¶‰ì€ ë²„í”„íŒ¡ íŽ«										
+//ºÓÀº ¹öÇÁÆÎ Æê										
 #define MI_PET_REDPAANG          1336										
 										
-//17ì°¨ ì‹œë‚˜ë¦¬ì˜¤ NPc										
+//17Â÷ ½Ã³ª¸®¿À NPc										
 #define MI_MaEw_RUKAS			1337							
 #define MI_MaEw_PiINANOCO		1338								
 #define MI_MaEw_RAUNDAS			1339							
 										
-//17ì°¨ ë°”í•˜ë¼ ì‚¬ë§‰ ëª¬ìŠ¤í„°										
+//17Â÷ ¹ÙÇÏ¶ó »ç¸· ¸ó½ºÅÍ										
 #define MI_BASILISK				1340						
 #define MI_RUGALHEAT01			1341							
 #define MI_RUGALHEAT02			1342							
@@ -2839,15 +2839,15 @@
 #define MI_KALGASKUMA01			1351							
 #define MI_KALGASLESSER01		1352								
 #define MI_KALGASRIMA01			1353							
-#define MI_KALGASBOSS			1354 //ì¹¼ê°€ìŠ¤-ë³´ìŠ¤							
+#define MI_KALGASBOSS			1354 //Ä®°¡½º-º¸½º							
 #define MI_RUGALKUM				1355						
 #define MI_RUGALWIN				1356						
 										
-//17ì°¨ ì‹œë‚˜ë¦¬ì˜¤ NPc										
+//17Â÷ ½Ã³ª¸®¿À NPc										
 #define MI_MaEw_IDELRUNA		1357								
 #define MI_MaEw_GIGAKA			1358							
 										
-//ì½œë¡¯ì„¸ì›€ ì €ë ™ ëª¬ìŠ¤í„° [ì§„ë³´ìŠ¤]										
+//ÄÝ·Ô¼¼¿ò Àú·¾ ¸ó½ºÅÍ [Áøº¸½º]										
 #define MI_COLOBANG					1359					
 #define MI_COLOWAGJAK				1360						
 #define MI_COLOREDMANTIS			1361							
@@ -2864,7 +2864,7 @@
 #define MI_COLOMATEONIKER			1372							
 #define MI_COLOCYCLOPSX				1373						
 										
-//ì½œë¡¯ì„¸ì›€ ê³ ë ™ ëª¬ìŠ¤í„° [ì§„ë³´ìŠ¤]										
+//ÄÝ·Ô¼¼¿ò °í·¾ ¸ó½ºÅÍ [Áøº¸½º]										
 #define MI_COLODIEOPNIS					1374					
 #define MI_COLORACCOUN					1375					
 #define MI_COLOMATEONIKER01				1376						
@@ -2881,10 +2881,10 @@
 #define MI_COLOKALGAS					1387					
 #define MI_COLOSKELDEVIL				1388						
 										
-//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì´ë²¤íŠ¸ ë²„í”„ íŽ«										
+//Å©¸®½º¸¶½º ÀÌº¥Æ® ¹öÇÁ Æê										
 #define MI_PET_REDSNOWMAN				1389						
 										
-//ì½œë¡¯ì„¸ì›€ ì €ë ™ ëª¬ìŠ¤í„° [ê°€ë³´ìŠ¤]										
+//ÄÝ·Ô¼¼¿ò Àú·¾ ¸ó½ºÅÍ [°¡º¸½º]										
 #define MI_COLOBANG_1						1391				
 #define MI_COLOWAGJAK_1						1392				
 #define MI_COLOREDMANTIS_1					1393					
@@ -2901,7 +2901,7 @@
 #define MI_COLOMATEONIKER_1					1404					
 #define MI_COLOCYCLOPSX_1					1405					
 										
-//ì½œë¡¯ì„¸ì›€ ê³ ë ™ ëª¬ìŠ¤í„° [ê°€ë³´ìŠ¤]										
+//ÄÝ·Ô¼¼¿ò °í·¾ ¸ó½ºÅÍ [°¡º¸½º]										
 #define MI_COLODIEOPNIS_1					1406					
 #define MI_COLORACCOUN_1					1407					
 #define MI_COLOMATEONIKER01_1				1408						
@@ -2918,30 +2918,30 @@
 #define MI_COLOKALGAS_1						1419				
 #define MI_COLOSKELDEVIL_1					1420					
 										
-// 17ì°¨ ì¸ë˜ ì„ìƒ 3ì¢…										
+// 17Â÷ ÀÎ´ø ¼®»ó 3Á¾										
 #define MI_KALGASEGG01						1421				
 #define MI_KALGASSTELE01					1422					
 #define MI_KALGASSTELE02					1423					
 										
-// ë¯¸êµ­ 5ì£¼ë…„ ê¸°ë… ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°										
+// ¹Ì±¹ 5ÁÖ³â ±â³ä ÀÌº¥Æ® ¸ó½ºÅÍ										
 #define MI_BURR								1424		
 #define MI_SAPHYRYAN						1425				
 #define MI_GRAYEARL							1426			
 										
-// í¬ë¦¬ìŠ¤ë§ˆìŠ¤ íŽ«										
+// Å©¸®½º¸¶½º Æê										
 #define MI_PET_SNOWMAN01					1427					
 #define MI_PET_CHRISTMASFAIRY				1428						
 #define MI_PET_CHRISTMASDEER				1429						
 										
-// êµ­ë‚´ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°										
+// ±¹³» Å©¸®½º¸¶½º ÀÌº¥Æ® ¸ó½ºÅÍ										
 #define MI_EVEROCKEPELLER					1430					
 #define MI_EVEMOTHBEE						1431				
 										
-//17ì°¨ ë³´ìŠ¤ëª¬ìŠ¤í„°										
+//17Â÷ º¸½º¸ó½ºÅÍ										
 #define MI_GPOTATO01						1432				
 #define MI_GPOTATO02						1436				
 										
-//17ì°¨ ì—…ë°ì´íŠ¸ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„° íŽ«										
+//17Â÷ ¾÷µ¥ÀÌÆ® ÀÌº¥Æ® ¸ó½ºÅÍ Æê										
 #define MI_EVEKALGASBABY					1433					
 #define MI_PET_KIMPD						1434				
 										
@@ -2950,22 +2950,22 @@
 #define MI_PET_SMELTCOBI					1438					
 #define MI_PET_SMELTPIERCE					1439					
 										
-//í•´ì™¸ ë°œë Œíƒ€ì¸ë°ì´ ëª¬ìŠ¤í„°										
+//ÇØ¿Ü ¹ß·»Å¸ÀÎµ¥ÀÌ ¸ó½ºÅÍ										
 #define MI_LOVETHIEF						1440				
 										
-//ì‹ ë…„ í† ë¼ íŽ«										
+//½Å³â Åä³¢ Æê										
 #define MI_PET_NEWYEARRABBIT				1441						
 										
-//í˜‘ë™ê¸°ë¶€ NPC										
+//Çùµ¿±âºÎ NPC										
 #define MI_MAFL_DONATION					1442					
 										
-//ì¤‘êµ­ ë¦¬ì†ŒìŠ¤ íŽ«										
+//Áß±¹ ¸®¼Ò½º Æê										
 #define MI_PET_DEVILTOY						1443	
 
-//ê·€ì—¬ìš´ í…Œë”” ë² ì–´ íŽ«
+//±Í¿©¿î Å×µð º£¾î Æê
 #define MI_PET_TADDYBEAR					1444
 
-//18ì°¨ ì‚°í”„ë ˆìŠ¤í˜¸ 
+//18Â÷ »êÇÁ·¹½ºÈ£ 
 #define MI_SHIPHARPINEES			1445	
 #define MI_SHIPMOUGUS				1446
 #define MI_SHIPWINGMOUGUS			1447
@@ -2975,7 +2975,7 @@
 #define MI_SHIPBLUEHARPY			1451
 #define MI_SHIPHIPPOGRIPH			1452
 
-//18ì°¨ ìœ í”„ë ˆì‹œì•„
+//18Â÷ À¯ÇÁ·¹½Ã¾Æ
 #define MI_DREAMFLAME01				1453
 #define MI_DREAMRAPRA01				1454
 #define MI_DREAMOLDRUT01			1455
@@ -2984,7 +2984,7 @@
 #define MI_DREAMNIGHTMIST01			1458
 #define MI_DREAMQEEN01				1459
 
-//18ì°¨ í—¤ë¥´ë„¤ì˜¤ìŠ¤
+//18Â÷ Çì¸£³×¿À½º
 #define MI_HERNSHARK01				1460
 #define MI_HERNMERMAN01				1461
 #define MI_HERNMERMAID01			1462
@@ -2994,7 +2994,7 @@
 #define MI_HERNSIREN01				1466
 #define MI_HERNKRAKEN01				1467
 
-//18ì°¨ ì‚°í”„ë ˆìŠ¤í˜¸ (ê³ ë ™)
+//18Â÷ »êÇÁ·¹½ºÈ£ (°í·¾)
 #define MI_SHIPHARPINEES_1			1468	
 #define MI_SHIPMOUGUS_1				1469
 #define MI_SHIPWINGMOUGUS_1			1470
@@ -3004,7 +3004,7 @@
 #define MI_SHIPBLUEHARPY_1			1474
 #define MI_SHIPHIPPOGRIPH_1			1475
 
-//18ì°¨ ìœ í”„ë ˆì‹œì•„ (ê³ ë ™)
+//18Â÷ À¯ÇÁ·¹½Ã¾Æ (°í·¾)
 #define MI_DREAMFLAME01_1			1476
 #define MI_DREAMRAPRA01_1			1477
 #define MI_DREAMOLDRUT01_1			1478
@@ -3013,7 +3013,7 @@
 #define MI_DREAMNIGHTMIST01_1		1481
 #define MI_DREAMQEEN01_1			1482
 
-//18ì°¨ í—¤ë¥´ë„¤ì˜¤ìŠ¤ (ê³ ë ™)
+//18Â÷ Çì¸£³×¿À½º (°í·¾)
 #define MI_HERNSHARK01_1			1483
 #define MI_HERNMERMAN01_1			1484
 #define MI_HERNMERMAID01_1			1485
@@ -3023,19 +3023,19 @@
 #define MI_HERNSIREN01_1			1489
 #define MI_HERNKRAKEN01_1			1490
 
-//2ê¸‰ ì¼ë°˜ í…”ë ˆí¬í„°
+//2±Þ ÀÏ¹Ý ÅÚ·¹Æ÷ÅÍ
 #define MI_MAFL_TELEPORTER_2		1491
 
-//18ì°¨ ì‚°í”„ë ˆìŠ¤ npc
+//18Â÷ »êÇÁ·¹½º npc
 #define MI_MASP_SANPRES				1492
 
-//18ì°¨ í—¤ë¥´ë„¤ì˜¤ìŠ¤ npc
+//18Â÷ Çì¸£³×¿À½º npc
 #define MI_MAHE_RAELRA				1493
 
-//18ì°¨ ìœ í”„ë ˆì‹œì•„ npc
+//18Â÷ À¯ÇÁ·¹½Ã¾Æ npc
 #define MI_NPC_FLAME				1494
 
-//18ì°¨ í€˜ìŠ¤íŠ¸ npc
+//18Â÷ Äù½ºÆ® npc
 #define MI_NPC_REONAN				1495
 #define MI_NPC_AINHER				1496
 #define MI_NPC_ELLAIN				1497
@@ -3046,28 +3046,28 @@
 #define MI_NPC_REODOS				1502
 #define MI_NPC_ZORO					1503
 
-//ì´ë²¤íŠ¸ ì•„ë ˆë‚˜ íˆ¬ëª…ë²½									
+//ÀÌº¥Æ® ¾Æ·¹³ª Åõ¸íº®									
 #define	CI_FWC_EVENTARENA_WALL		1504
 
-//ì´ë²¤íŠ¸ ì•„ë ˆë‚˜ ì‚¬ì‹  ëª¬ìŠ¤í„°
+//ÀÌº¥Æ® ¾Æ·¹³ª »ç½Å ¸ó½ºÅÍ
 #define MI_EVENT_FWCMONSTER			1505
 
-//í•´ì™¸ ê°ìž íŽ«
+//ÇØ¿Ü °¨ÀÚ Æê
 #define MI_PET_GPOTATO				1506			
 
-//ì´ë²¤íŠ¸ ì•„ë ˆë‚˜ ìž…ìž¥ NPC
+//ÀÌº¥Æ® ¾Æ·¹³ª ÀÔÀå NPC
 #define MI_NPC_FWCENTER				1507
 
-//ê·€ì—¬ìš´ ë² ì´ë¹„ ì¹´ë¥´ê³  ìš°ë¦¬
+//±Í¿©¿î º£ÀÌºñ Ä«¸£°í ¿ì¸®
 #define MI_PET_BABYKARGO			1508	
 
-//18ì°¨ í€˜ìŠ¤íŠ¸ npc ì¶”ê°€
+//18Â÷ Äù½ºÆ® npc Ãß°¡
 #define	MI_NPC_DRICO				1509
 
-//ëŸ¬ì‹œì•„ ë§ˆíŠ¸ë¡œì‹œì¹´ ìš°ë¦¬
+//·¯½Ã¾Æ ¸¶Æ®·Î½ÃÄ« ¿ì¸®
 #define MI_PET_MATRYOSHKA			1510	
 
-//ê±°ëž˜ ì¤‘ê°œì†Œ NPC
+//°Å·¡ Áß°³¼Ò NPC
 #define MI_NPC_SHAIN				1511	
 #define MI_NPC_RANGPANG				1512
 #define MI_NPC_PONEANG				1513
@@ -3082,20 +3082,20 @@
 #define MI_NPC_MONEYJOBA			1522
 #define MI_NPC_GIVEMONEY			1523
 
-//ê°€ì„ì´ë²¤íŠ¸ ë‚˜ë­‡ìžŽ ëª¨ì•„ì˜¤ê¸°
+//°¡À»ÀÌº¥Æ® ³ª¹µÀÙ ¸ð¾Æ¿À±â
 #define MI_NPC_MAPLE			1524
 
-//ëŒ€ë§Œ 5ì£¼ë…„ ì´ë²¤íŠ¸ 
+//´ë¸¸ 5ÁÖ³â ÀÌº¥Æ® 
 #define MI_CHAMELEON_GREEN			1525
 #define MI_CHAMELEON_BLUE			1526
 #define MI_CHAMELEON_YELLOW			1527
 #define MI_CHAMELEON_RED			1528
 
-//ì¼ë³¸ ë‹¬ë§žì´ ì´ë²¤íŠ¸ NPC
+//ÀÏº» ´Þ¸ÂÀÌ ÀÌº¥Æ® NPC
 #define MI_MAFL_TIFA                 1529
 
-// ê°’ì´ 2000ì´ ë˜ëŠ” ìˆœê°„ í”„ë¡œê·¸ëž˜ë¨¸ì—ê²Œ í†µë³´ ë°”ëžë‹ˆë‹¤.	// åº·									
-// 13ì°¨ ê°œë°œ í•˜ë©´ì„œ 1000ì—ì„œ 2000ìœ¼ë¡œ í™•ìž¥í•¨(ê°•í˜„ë¯¼ ì±…ìž„)										
+// °ªÀÌ 2000ÀÌ µÇ´Â ¼ø°£ ÇÁ·Î±×·¡¸Ó¿¡°Ô Åëº¸ ¹Ù¶ø´Ï´Ù.	// Ë¬									
+// 13Â÷ °³¹ß ÇÏ¸é¼­ 1000¿¡¼­ 2000À¸·Î È®ÀåÇÔ(°­Çö¹Î Ã¥ÀÓ)										
 // MAX_PROPMOVER	1000									
 										
 // Region										

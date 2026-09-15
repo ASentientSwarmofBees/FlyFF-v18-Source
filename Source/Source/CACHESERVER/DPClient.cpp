@@ -1,8 +1,8 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
-#ifdef __MA_VER11_07	// cache ì„œë²„ì—ì„œ loginserverë¡œ ìœ ì €ì ‘ì†ëŠë‚Œì„ ì•Œë ¤ì£¼ëŠ” ë¶€ë¶„
+#ifdef __MA_VER11_07	// cache ¼­¹ö¿¡¼­ loginserver·Î À¯ÀúÁ¢¼Ó²÷³¦À» ¾Ë·ÁÁÖ´Â ºÎºĞ
 #include "DPCoreClient.h"
-#endif // __MA_VER11_07	// cache ì„œë²„ì—ì„œ loginserverë¡œ ìœ ì €ì ‘ì†ëŠë‚Œì„ ì•Œë ¤ì£¼ëŠ” ë¶€ë¶„
+#endif // __MA_VER11_07	// cache ¼­¹ö¿¡¼­ loginserver·Î À¯ÀúÁ¢¼Ó²÷³¦À» ¾Ë·ÁÁÖ´Â ºÎºĞ
 
 #include "DPCacheSrvr.h"
 #include "DPClient.h"
@@ -17,9 +17,9 @@
 #include "crashstatus.h"
 #endif	// __CRASH_0404
 
-#ifdef __MA_VER11_07	// cache ì„œë²„ì—ì„œ loginserverë¡œ ìœ ì €ì ‘ì†ëŠë‚Œì„ ì•Œë ¤ì£¼ëŠ” ë¶€ë¶„
+#ifdef __MA_VER11_07	// cache ¼­¹ö¿¡¼­ loginserver·Î À¯ÀúÁ¢¼Ó²÷³¦À» ¾Ë·ÁÁÖ´Â ºÎºĞ
 extern	CDPCoreClient	g_DPCoreClient;
-#endif // __MA_VER11_07	// cache ì„œë²„ì—ì„œ loginserverë¡œ ìœ ì €ì ‘ì†ëŠë‚Œì„ ì•Œë ¤ì£¼ëŠ” ë¶€ë¶„
+#endif // __MA_VER11_07	// cache ¼­¹ö¿¡¼­ loginserver·Î À¯ÀúÁ¢¼Ó²÷³¦À» ¾Ë·ÁÁÖ´Â ºÎºĞ
 
 extern	CDPCacheSrvr		g_DPCacheSrvr;
 extern	CMyTrace	g_MyTrace;
@@ -119,17 +119,17 @@ void CDPClient::OnQueryDestroyPlayer( CAr & ar, DPID dpid, LPVOID lpBuffer, u_lo
 	CPlayer* pPlayer	= CPlayerMng::Instance()->GetPlayerBySerial( dwSerial );
 	if( pPlayer )
 	{
-		// ì„±ê³µì ìœ¼ë¡œ ì°¾ì•˜ìœ¼ë‹ˆê¹Œ ì ‘ì†ì„ ëŠëŠ”ë‹¤. 
-		g_DPCacheSrvr.DestroyPlayer( pPlayer->GetNetworkId() );	// ì†Œì¼“ì—°ê²°ì´ ëŠê¸°ê³ , PACKETTYPE_LEAVEê°€ ì›”ë“œì„œë²„ë¡œ ê°„ë‹¤.
-#ifdef __MA_VER11_07	// cache ì„œë²„ì—ì„œ loginserverë¡œ ìœ ì €ì ‘ì†ëŠë‚Œì„ ì•Œë ¤ì£¼ëŠ” ë¶€ë¶„
-		g_DPCoreClient.SendDestroyPlayer( pPlayer );// coresvrë¥¼ í†µí•´ loginsvr ì—ë„ ëŠë‚Œì„ ì•Œë ¤ì¤€ë‹¤
-#endif // __MA_VER11_07	// cache ì„œë²„ì—ì„œ loginserverë¡œ ìœ ì €ì ‘ì†ëŠë‚Œì„ ì•Œë ¤ì£¼ëŠ” ë¶€ë¶„
+		// ¼º°øÀûÀ¸·Î Ã£¾ÒÀ¸´Ï±î Á¢¼ÓÀ» ²÷´Â´Ù. 
+		g_DPCacheSrvr.DestroyPlayer( pPlayer->GetNetworkId() );	// ¼ÒÄÏ¿¬°áÀÌ ²÷±â°í, PACKETTYPE_LEAVE°¡ ¿ùµå¼­¹ö·Î °£´Ù.
+#ifdef __MA_VER11_07	// cache ¼­¹ö¿¡¼­ loginserver·Î À¯ÀúÁ¢¼Ó²÷³¦À» ¾Ë·ÁÁÖ´Â ºÎºĞ
+		g_DPCoreClient.SendDestroyPlayer( pPlayer );// coresvr¸¦ ÅëÇØ loginsvr ¿¡µµ ²÷³¦À» ¾Ë·ÁÁØ´Ù
+#endif // __MA_VER11_07	// cache ¼­¹ö¿¡¼­ loginserver·Î À¯ÀúÁ¢¼Ó²÷³¦À» ¾Ë·ÁÁÖ´Â ºÎºĞ
 		return;	
 	}
 
 	WriteError( "OnQueryDestroyPlayer - idPlayer:%d GetPlayer return NULL.", idPlayer );
 
-	// ì°¾ì§€ ëª»í•´ë„, ëŠì—ˆë‹¤ê³  ì•Œë ¤ì¤€ë‹¤.
+	// Ã£Áö ¸øÇØµµ, ²÷¾ú´Ù°í ¾Ë·ÁÁØ´Ù.
 	BEFORESENDSOLE( out, PACKETTYPE_LEAVE, DPID_UNKNOWN );
 	out << idPlayer;
 	LPBYTE lpBuf = out.GetBuffer( &nBufSize );

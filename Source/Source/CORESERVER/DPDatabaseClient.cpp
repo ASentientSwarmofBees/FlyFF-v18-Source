@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "player.h"
 #include "dpcachesrvr.h"
 #include "DPCoreSrvr.h"
@@ -57,7 +57,7 @@ void CDPDatabaseClient::SysMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSiz
 	{
 		case DPSYS_CREATEPLAYERORGROUP:
 			#if !defined(__INTERNALSERVER )
-				SendCTWanted( CT_WANTED_REQ_LIST, 0, 0, time(NULL), "" );  // ë¦¬ìŠ¤íŠ¸ ìš”ì²­ 
+				SendCTWanted( CT_WANTED_REQ_LIST, 0, 0, time(NULL), "" );  // ¸®½ºÆ® ¿äÃ» 
 			#endif 
 			break;
 		case DPSYS_DESTROYPLAYERORGROUP:
@@ -258,7 +258,7 @@ void CDPDatabaseClient::OnGlobalData( CAr & ar )
 	ar.Read( (void*)g_PartyMng.m_aExpParty, sizeof(g_PartyMng.m_aExpParty) );
 	
 #if defined(__INTERNALSERVER )	
-	OnTCList( ar );		//í˜„ìƒê¸ˆ ë¦¬ìŠ¤íŠ¸ë¥¼ ì–»ëŠ”ë‹¤.
+	OnTCList( ar );		//Çö»ó±İ ¸®½ºÆ®¸¦ ¾ò´Â´Ù.
 #endif // __INTERNALSERVER
 	
 	extern DWORD   g_dwId;
@@ -309,7 +309,7 @@ void CDPDatabaseClient::OnAddVoteResult( CAr & ar )
 			pGuild->AddVote( info );
 	}
 
-	g_dpCoreSrvr.SendAddVoteResult( info );		// ëª¨ë“  ì›”ë“œì„œë²„ì— ì•Œë¦°ë‹¤.
+	g_dpCoreSrvr.SendAddVoteResult( info );		// ¸ğµç ¿ùµå¼­¹ö¿¡ ¾Ë¸°´Ù.
 }
 
 void CDPDatabaseClient::SendAddVote( u_long idGuild, const char* szTitle, const char* szQuestion, char szSelections[4][MAX_BYTE_VOTESELECT] )
@@ -353,7 +353,7 @@ void CDPDatabaseClient::SendCastVote( u_long idVote, BYTE cbSelection )
 #ifdef __GUILDRANK
 void CDPDatabaseClient::OnUpdateGuildRankFinish( CAr & ar )
 {
-	// ê¸¸ë“œ ë­í¬ ì •ë³´ë¥¼ ì‹œë¦¬ì–¼ë¼ì´ì¦ˆ í•œë‹¤.
+	// ±æµå ·©Å© Á¤º¸¸¦ ½Ã¸®¾ó¶óÀÌÁî ÇÑ´Ù.
 	CGuildRank* pGuildRank = CGuildRank::Instance();
 	pGuildRank->Serialize( ar );
 
@@ -468,7 +468,7 @@ void CDPDatabaseClient::SendServerEnable( u_long uKey, long lEnable )
 }
 #endif	// __SERVERLIST0911
 
-// í˜„ìƒê¸ˆì‹œìŠ¤í…œ ê´€ë ¨ ìš”ì²­ 
+// Çö»ó±İ½Ã½ºÅÛ °ü·Ã ¿äÃ» 
 void CDPDatabaseClient::SendCTWanted( BYTE byReqType, u_long idPlayer, int nGold, long nEnd, LPCTSTR szMsg )
 {
 	BEFORESEND( ar, PACKETTYPE_CT_WANTED );
@@ -480,7 +480,7 @@ void CDPDatabaseClient::SendCTWanted( BYTE byReqType, u_long idPlayer, int nGold
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// í˜„ìƒê¸ˆ ë¦¬ìŠ¤íŠ¸ 
+// Çö»ó±İ ¸®½ºÆ® 
 void CDPDatabaseClient::OnTCList( CAr & ar )
 {
 	CWantedList& wantedList = CWantedList::GetInstance();

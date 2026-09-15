@@ -1,4 +1,4 @@
-ï»¿//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // File: D3DFont.cpp
 //
 // Desc: Texture-based font class
@@ -86,7 +86,7 @@ HRESULT CD3DFontAPI::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 	DWORD dwBlue  = ( m_dwBgColor & 0x000000ff ) >> 4;
 	m_dwBgColor = ( dwRed << 8 ) | ( dwGreen << 4 ) | dwBlue;
 	
-	// DWORD colorì„ WORD colorë¡œ ë³€í™˜ 
+	// DWORD colorÀ» WORD color·Î º¯È¯ 
 	dwRed   = ( m_dwColor & 0x00ff0000 ) >> ( 16 + 4 );
 	dwGreen = ( m_dwColor & 0x0000ff00 ) >> ( 8 + 4 );
 	dwBlue  = ( m_dwColor & 0x000000ff ) >> 4;
@@ -103,7 +103,7 @@ HRESULT CD3DFontAPI::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 	int nH = m_dwFontHeight;
 
 	//CString strError;
-	//strError.Format( "CD3DFontAPI::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice ) : ìƒì„± ì§ì „\n" );
+	//strError.Format( "CD3DFontAPI::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice ) : »ý¼º Á÷Àü\n" );
 	//ADDERRORMSG( strError );
 
     nHeight = -nH * nLogPixelsY / 72;
@@ -120,7 +120,7 @@ HRESULT CD3DFontAPI::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 		m_strFontName,              // pFaceName
 		&m_pFont);              // ppFont
 
-	//strError.Format( "CD3DFontAPI::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice ) : ìƒì„± í›„ m_pFont %p ", m_pFont );
+	//strError.Format( "CD3DFontAPI::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice ) : »ý¼º ÈÄ m_pFont %p ", m_pFont );
 	//ADDERRORMSG( strError );
 
 	/*
@@ -139,13 +139,13 @@ HRESULT CD3DFontAPI::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
     if( FAILED( hr = D3DXCreateSprite( m_pd3dDevice, &m_pD3DXSprite ) ) )
         return hr;
 
-	//strError.Format( "D3DXCreateSprite : ìƒì„± í›„ m_pD3DXSprite %p ", m_pD3DXSprite );
+	//strError.Format( "D3DXCreateSprite : »ý¼º ÈÄ m_pD3DXSprite %p ", m_pD3DXSprite );
 	//ADDERRORMSG( strError );
 
-	GetTextExtentPoint32(  m_pFont->GetDC(), "í™œ", 2, &m_sizeBitmap );
+	GetTextExtentPoint32(  m_pFont->GetDC(), "È°", 2, &m_sizeBitmap );
 	m_dwMaxHeight = m_sizeBitmap.cy;//+ ( m_nOutLine * 2 );
 
-	//strError.Format( "GetTextExtentPoint32 : ì´í›„" );
+	//strError.Format( "GetTextExtentPoint32 : ÀÌÈÄ" );
 	//ADDERRORMSG( strError );
 	
 	return S_OK;
@@ -313,7 +313,7 @@ HRESULT CD3DFontAPI::DrawText( FLOAT sx, FLOAT sy, FLOAT fXScale, FLOAT fYScale,
 	g = ((dwColor>>4) & 0x0f)  / 16.f;
 	b = ((dwColor) & 0x0f)     / 16.f;
 */
-	// ìœ„ì— ê²ƒì´ ARGBê°’ì´ ì ìš©ì´ ì•ˆë˜ì–´ ì•„ëž˜ ê²ƒìœ¼ë¡œ ë°”ê¿¨ìŒ.
+	// À§¿¡ °ÍÀÌ ARGB°ªÀÌ Àû¿ëÀÌ ¾ÈµÇ¾î ¾Æ·¡ °ÍÀ¸·Î ¹Ù²åÀ½.
 	a = ((dwColor>>24) & 0xff) / 255.f;
 	r = ((dwColor>>16) & 0xff) / 255.f;
 	g = ((dwColor>>8) & 0xff)  / 255.f;
@@ -434,14 +434,14 @@ struct FONT_DATA {
 	const char*	faceNT;
 	const char*	face9x;
 } g_fontData[] = {
-	{ HANGUL_CHARSET,		949,	"Gulim",		"êµ´ë¦¼" },
+	{ HANGUL_CHARSET,		949,	"Gulim",		"±¼¸²" },
 	{ ANSI_CHARSET,			1252,	"Arial",	"Arial" },
 //	{ ANSI_CHARSET,			1252,	"Arial Black",	"Arial Black" },
-	{ SHIFTJIS_CHARSET,		932,	"MS Gothic",	"êµƒêµ êµŠê¸•ê¸˜ê¸žê¸" },
-	{ CHINESEBIG5_CHARSET,	950,	"MingLiU",		"ê¾„â¿í†±" },     //ëŒ€ë§Œì–´
-//	{ GB2312_CHARSET,		936,	"SimSun",		"èŠ¥ç«Ÿ" },       //ì¤‘êµ­ì–´
+	{ SHIFTJIS_CHARSET,		932,	"MS Gothic",	"‚l‚r ‚oƒSƒVƒbƒN" },
+	{ CHINESEBIG5_CHARSET,	950,	"MingLiU",		"²Ó©úÅé" },     //´ë¸¸¾î
+//	{ GB2312_CHARSET,		936,	"SimSun",		"ËÎÌå" },       //Áß±¹¾î
 	{ THAI_CHARSET,			874,	"Microsoft Sans Serif",		"Microsoft Sans Serif" },
-	{ CHINESEBIG5_CHARSET,	950,	"MingLiU",		"ê¾„â¿í†±" },     //ëŒ€ë§Œì–´
+	{ CHINESEBIG5_CHARSET,	950,	"MingLiU",		"²Ó©úÅé" },     //´ë¸¸¾î
 	///	{ THAI_CHARSET,			874,	"Tahoma",		"Tahoma" },
 };
 #endif	// __LANG_1013
@@ -624,9 +624,9 @@ HRESULT CD3DFont::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 	if( ::GetLanguage() == LANG_USA )
 		GetTextExtentPoint32(  m_hDC, "W", 2, &m_sizeBitmap );
 	else if(::GetLanguage() == LANG_VTN)
-		GetTextExtentPoint32(  m_hDC, "í™œ", 2, &m_sizeBitmap );
+		GetTextExtentPoint32(  m_hDC, "È°", 2, &m_sizeBitmap );
 	else
-		GetTextExtentPoint32(  m_hDC, "ê°€", 2, &m_sizeBitmap );
+		GetTextExtentPoint32(  m_hDC, "°¡", 2, &m_sizeBitmap );
 
 	m_sizeBitmap.cy +=2;
 
@@ -652,19 +652,19 @@ HRESULT CD3DFont::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
     SetBkColor(   m_hDC, 0x00000000 );
     SetTextAlign( m_hDC, TA_TOP );
 
-	// DWORD colorì„ WORD colorë¡œ ë³€í™˜ 
+	// DWORD colorÀ» WORD color·Î º¯È¯ 
 	DWORD dwRed   = ( m_dwBgColor & 0x00ff0000 ) >> ( 16 + 4 );
 	DWORD dwGreen = ( m_dwBgColor & 0x0000ff00 ) >> ( 8 + 4 );
 	DWORD dwBlue  = ( m_dwBgColor & 0x000000ff ) >> 4;
 	m_dwBgColor = ( dwRed << 8 ) | ( dwGreen << 4 ) | dwBlue;
 	
-	// DWORD colorì„ WORD colorë¡œ ë³€í™˜ 
+	// DWORD colorÀ» WORD color·Î º¯È¯ 
 	dwRed   = ( m_dwColor & 0x00ff0000 ) >> ( 16 + 4 );
 	dwGreen = ( m_dwColor & 0x0000ff00 ) >> ( 8 + 4 );
 	dwBlue  = ( m_dwColor & 0x000000ff ) >> 4;
 	m_dwColor = ( dwRed << 8 ) | ( dwGreen << 4 ) | dwBlue;
 	
-	// í…ìŠ¤ì¶° í•œìž¥ ë§Œë“¤ì–´ ë†“ê¸° 
+	// ÅØ½ºÃç ÇÑÀå ¸¸µé¾î ³õ±â 
 	m_pCurTexture = CreateTexture();
 
 	m_apTexture.Add( m_pCurTexture  );
@@ -681,7 +681,7 @@ LPDIRECT3DTEXTURE9 CD3DFont::CreateTexture()
 	WORD* pDstRow = (WORD*)d3dlr.pBits;
 	int nLength = m_dwTexWidth * m_dwTexHeight;
 	for( int i = 0; i < nLength; i++ )
-		*pDstRow++ = (WORD)m_dwBgColor;			//gmpbigsun : ì´ë¯¸ ë³€í™˜ì´ ë˜ì–´ìžˆìŒ DWORD->WORD (::InitDeviceObjects)
+		*pDstRow++ = (WORD)m_dwBgColor;			//gmpbigsun : ÀÌ¹Ì º¯È¯ÀÌ µÇ¾îÀÖÀ½ DWORD->WORD (::InitDeviceObjects)
 	lpTexture->UnlockRect( 0 );
 	return lpTexture;
 }
@@ -836,8 +836,8 @@ HRESULT CD3DFont::DeleteDeviceObjects()
 
     return S_OK;
 }
-// í…Œì´ë¸”ì— 0xfëŠ” ë„£ì§€ ë§ê²ƒ.fëŠ” ì²´í¬ ë²”ìœ„ì—ì„œ ë²—ì–´ë‚˜ëŠ” ê°’ì´ë‹¤.
-// fëŠ” ê¸°ë³¸ í°íŠ¸ë§Œì´ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤!!
+// Å×ÀÌºí¿¡ 0xf´Â ³ÖÁö ¸»°Í.f´Â Ã¼Å© ¹üÀ§¿¡¼­ ¹þ¾î³ª´Â °ªÀÌ´Ù.
+// f´Â ±âº» ÆùÆ®¸¸ÀÌ »ç¿ëÇÒ ¼ö ÀÖ´Ù!!
 static DWORD g_adwOutLine1[ 9 ] = 
 {
 	0x0, 0xe, 0x0,
@@ -936,7 +936,7 @@ void CD3DFont::CopyToTexture( LPDIRECT3DTEXTURE9 pTex, CSize size, DWORD dwBgCol
     HRESULT hr = pTex->LockRect( 0, &d3dlr, NULL, 0 );
 	if( hr == D3DERR_INVALIDCALL )
 	{
-		ADDERRORMSG( "CD3Dfont::CopyToTexture Lockì‹¤íŒ¨" );
+		ADDERRORMSG( "CD3Dfont::CopyToTexture Lock½ÇÆÐ" );
 		return;
 	}
     BYTE* pDstRow = (BYTE*)d3dlr.pBits;
@@ -949,7 +949,7 @@ void CD3DFont::CopyToTexture( LPDIRECT3DTEXTURE9 pTex, CSize size, DWORD dwBgCol
 	nDstOffset = ( ( m_nCurY + m_nOutLine ) * d3dlr.Pitch + ( ( m_nCurX + m_nOutLine ) * 2 ) );
 	pDstRow = &pDstRow[ nDstOffset ] ;//d3dlr.Pitch;
 
-	// DWORD colorì„ WORD colorë¡œ ë³€í™˜ 
+	// DWORD colorÀ» WORD color·Î º¯È¯ 
 	DWORD dwRed   = ( dwBgColor & 0x00ff0000 ) >> ( 16 + 4 );
 	DWORD dwGreen = ( dwBgColor & 0x0000ff00 ) >> ( 8 + 4 );
 	DWORD dwBlue  = ( dwBgColor & 0x000000ff ) >> 4;
@@ -992,7 +992,7 @@ void CD3DFont::CopyToTexture( LPDIRECT3DTEXTURE9 pTex, CSize size, DWORD dwBgCol
 FONTTEX* CD3DFont::GetFontTex(const char* begin, const char* end, WORD wCodePage )
 {
 	int len = end-begin;
-	// ì¢†ê°™ì€ íƒœêµ­ì–´
+	// Á¿°°Àº ÅÂ±¹¾î
 	if( wCodePage == 874)
 	{
 		if( (BYTE)*end == 0xd3 )
@@ -1023,7 +1023,7 @@ FONTTEX* CD3DFont::GetFontTex(const char* begin, const char* end, WORD wCodePage
 	{
 		m_nCurX = 0;
 		m_nCurY += m_dwMaxHeight;
-		// í°íŠ¸ê°€ í…ìŠ¤ì¶°ë¥¼ ì´ˆê³¼í–ˆë‹¤. ë‹¤ìŒ í…ìŠ¤ì¶° ì¤€ë¹„ 
+		// ÆùÆ®°¡ ÅØ½ºÃç¸¦ ÃÊ°úÇß´Ù. ´ÙÀ½ ÅØ½ºÃç ÁØºñ 
 		if( m_nCurY + m_dwMaxHeight > m_dwTexWidth ) 
 		{
 			m_nCurY = 0;
@@ -1040,9 +1040,9 @@ FONTTEX* CD3DFont::GetFontTex(const char* begin, const char* end, WORD wCodePage
 	// Clear Font Buffer
 	ZeroMemory( m_pBitmapBits, m_sizeBitmap.cy * m_sizeBitmap.cx * sizeof( DWORD ) ); 
 
-	// Fontë¥¼ ì„ íƒí•œë‹¤
+	// Font¸¦ ¼±ÅÃÇÑ´Ù
 	SelectObject(m_hDC, GetFont(wCodePage));
-	// í˜„ìž¬ ì„ íƒëœ í…ìŠ¤ì¶°ì— ì“´ë‹¤.
+	// ÇöÀç ¼±ÅÃµÈ ÅØ½ºÃç¿¡ ¾´´Ù.
     SIZE size;
 	GetTextExtentPoint32( m_hDC, begin, end-begin, &size );
 	ExtTextOut( m_hDC, 0, 0, ETO_OPAQUE, NULL, begin, len, NULL );
@@ -1050,7 +1050,7 @@ FONTTEX* CD3DFont::GetFontTex(const char* begin, const char* end, WORD wCodePage
 	CopyToTexture( m_pCurTexture, size,0x008080ff );
 
 	
-	// ê¸°ë¡í•œë‹¤.
+	// ±â·ÏÇÑ´Ù.
 	lpFontTex->pTexture = m_pCurTexture;
 	lpFontTex->tx1 = ( ( FLOAT )( m_nCurX ) ) / m_dwTexWidth ;
 	lpFontTex->ty1 = ( ( FLOAT )( m_nCurY ) ) / m_dwTexHeight;
@@ -1626,7 +1626,7 @@ HRESULT CD3DFontAPIVTN::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 		DWORD dwBlue  = ( m_dwBgColor & 0x000000ff ) >> 4;
 		m_dwBgColor = ( dwRed << 8 ) | ( dwGreen << 4 ) | dwBlue;
 		
-		// DWORD colorì„ WORD colorë¡œ ë³€í™˜ 
+		// DWORD colorÀ» WORD color·Î º¯È¯ 
 		dwRed   = ( m_dwColor & 0x00ff0000 ) >> ( 16 + 4 );
 		dwGreen = ( m_dwColor & 0x0000ff00 ) >> ( 8 + 4 );
 		dwBlue  = ( m_dwColor & 0x000000ff ) >> 4;

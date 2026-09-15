@@ -1,4 +1,4 @@
-﻿#ifndef __WNDREPAIRITEM__H
+#ifndef __WNDREPAIRITEM__H
 #define __WNDREPAIRITEM__H
 
 #include "WndRepairItemCtrl.h"

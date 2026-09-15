@@ -1,4 +1,4 @@
-Ôªø#ifndef __SMC_H
+#ifndef __SMC_H
 #define __SMC_H
 
 #include "scanner.h"
@@ -51,7 +51,7 @@ struct FuncType
 
 ////////////////////////////////////////////////////////////////////////////////
 // 
-// Parsor : Í≥ÑÏÇ∞Í∏∞
+// Parsor : ∞ËªÍ±‚
 //
 class CParser : public CScanner
 {
@@ -103,7 +103,7 @@ struct FuncInfo
 class CTimer;
 ////////////////////////////////////////////////////////////////////////////////
 //
-// CScript : Ïù∏ÌÑ∞ÌîÑÎ¶¨ÌÑ∞
+// CScript : ¿Œ≈Õ«¡∏Æ≈Õ
 //
 class CScript : public CParser
 {
@@ -114,7 +114,7 @@ public:
 	enum  { INTERPRITER, COMPILER };
 
 protected:
-	BOOL		process;					// 0 : Ïù∏ÌÑ∞ÌîÑÎ¶¨Ìä∏, 1 : Ïª¥ÌååÏùº 
+	BOOL		process;					// 0 : ¿Œ≈Õ«¡∏Æ∆Æ, 1 : ƒƒ∆ƒ¿œ 
 	BOOL		m_bMarkInDefine;
 	CHAR*		m_pOldProg; 
 
@@ -129,7 +129,7 @@ protected:
 	LblType     labelTable   [45			 ];
 	FuncInfo    callStack    [NUM_FUNC	     ];
 	int			functos   ; // index to top of function call stack
-	int			answerCnt ; // answer Ïπ¥Ïö¥ÌÑ∞
+	int			answerCnt ; // answer ƒ´øÓ≈Õ
 	int			lvartos   ; // index into local variable stack
 	int			labeltos  ; // index into local label table
 	int			retValue  ; // function return value

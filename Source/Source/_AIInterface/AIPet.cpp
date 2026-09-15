@@ -1,4 +1,4 @@
-ï»¿// AIPet.cpp : 
+// AIPet.cpp : 
 //
 
 #include "stdafx.h"
@@ -62,13 +62,13 @@ void CAIPet::Init( void )
 	m_nState	= PETSTATE_IDLE;
 #if __VER >= 12 // __PET_0519
 	m_dwSkillId		= NULL_ID;	// 
-	m_idPetItem		= NULL_ID;	// ë¨¹íŽ« ì•„ì´í…œ
+	m_idPetItem		= NULL_ID;	// ¸ÔÆê ¾ÆÀÌÅÛ
 #endif	// __PET_0519
 }
 
 void CAIPet::Destroy( void )
 {
-	// ì—¬ê¸°ë‹¤ íŒŒê´´ì½”ë“œë¥¼ ë„£ì„ê²ƒ.
+	// ¿©±â´Ù ÆÄ±«ÄÚµå¸¦ ³ÖÀ»°Í.
 
 
 	Init();
@@ -79,7 +79,7 @@ void CAIPet::InitAI()
 	PostAIMsg( AIMSG_SETSTATE, STATE_IDLE ); 
 }
 
-// vDstìª½ìœ¼ë¡œ ì´ë™.
+// vDstÂÊÀ¸·Î ÀÌµ¿.
 void CAIPet::MoveToDst(	D3DXVECTOR3 vDst )
 {
 	CMover* pMover = GetMover();
@@ -90,18 +90,18 @@ void CAIPet::MoveToDst(	D3DXVECTOR3 vDst )
 	
 }
 
-// idTargetìª½ìœ¼ë¡œ ì´ë™.
+// idTargetÂÊÀ¸·Î ÀÌµ¿.
 void CAIPet::MoveToDst(	OBJID idTarget )
 {
 	CMover* pMover = GetMover();
 	if( pMover->GetDestId() == idTarget )
 		return;
-	pMover->SetDestObj( idTarget ); // ëª©í‘œë¥¼ ìž¬ì„¤ì •í•´ì¤€ë‹¤.
+	pMover->SetDestObj( idTarget ); // ¸ñÇ¥¸¦ Àç¼³Á¤ÇØÁØ´Ù.
 	g_UserMng.AddMoverSetDestObj( (CMover*)pMover, idTarget );
 }
 
 
-// ê·¼ì²˜ì˜ ì•„ì´í…œì„ ì§‘ìœ¼ëŸ¬ ê°„ë‹¤.
+// ±ÙÃ³ÀÇ ¾ÆÀÌÅÛÀ» ÁýÀ¸·¯ °£´Ù.
 BOOL CAIPet::SubItemLoot( void )
 {
 	CMover* pMover = GetMover();
@@ -117,31 +117,31 @@ BOOL CAIPet::SubItemLoot( void )
 
 	vDist = pOwner->GetPos() - pMover->GetPos();
 	fDistSq = D3DXVec3LengthSq( &vDist );
-	if( fDistSq > 32.0f * 32.0f )	// ì£¼ì¸ë‹˜ê³¼ì˜ ê±°ë¦¬ê°€ 32ë¯¸í„°ê°€ ë„˜ìœ¼ë©´ ì•„ì´í…œ ì•ˆì§‘ëŠ”ë‹¤.
+	if( fDistSq > 32.0f * 32.0f )	// ÁÖÀÎ´Ô°úÀÇ °Å¸®°¡ 32¹ÌÅÍ°¡ ³ÑÀ¸¸é ¾ÆÀÌÅÛ ¾ÈÁý´Â´Ù.
 		return FALSE;
 
 	if( pOwner && pOwner->IsFly() )
 		return FALSE;
 		
-	// ê·¼ì²˜ì˜ ì•„ì´í…œì„ ê²€ìƒ‰í•¨. - ì£¼ì¸ë‹˜êº¼ë§Œ ê²€ìƒ‰í•´ì•¼í• ë“¯...
+	// ±ÙÃ³ÀÇ ¾ÆÀÌÅÛÀ» °Ë»öÇÔ. - ÁÖÀÎ´Ô²¨¸¸ °Ë»öÇØ¾ßÇÒµí...
 	FOR_LINKMAP( pWorld, vPos, pObj, nRange, CObj::linkDynamic, pMover->GetLayer() )
 	{
-		if( pObj->GetType() == OT_ITEM )	// ì•„í…œë§Œ ê²€ìƒ‰
+		if( pObj->GetType() == OT_ITEM )	// ¾ÆÅÛ¸¸ °Ë»ö
 		{
 			CItem *pItem = (CItem *)pObj;
 			ItemProp* pItemProp	= pItem->GetProp();
-			// ì´ê±¸ ë”°ë¡œ ë„£ì€ì´ìœ ëŠ” StateIdle ARRIVALì—ì„œ DoLoot()í•˜ê³  ë‚œì§í›„ì— ë‹¤ì‹œ SubItemLoot()ì„ í˜¸ì¶œí–ˆì„ë•Œ
-			// Lootí•œ ì•„ì´í…œì´ ì•„ì§ ì•ˆì§€ì›Œì ¸ì„œ ì—¬ê¸°ì„œ ë˜ ê²€ìƒ‰ì´ ë˜ë”ë¼ê³ .. ê·¸ëž˜ì„œ ì¤‘ë³µë˜ëŠ” ì•„ì´í…œì€ ê²€ìƒ‰ ì•ˆë˜ê²Œ ê³ ì³ë´¤ë‹¤.
+			// ÀÌ°É µû·Î ³ÖÀºÀÌÀ¯´Â StateIdle ARRIVAL¿¡¼­ DoLoot()ÇÏ°í ³­Á÷ÈÄ¿¡ ´Ù½Ã SubItemLoot()À» È£ÃâÇßÀ»¶§
+			// LootÇÑ ¾ÆÀÌÅÛÀÌ ¾ÆÁ÷ ¾ÈÁö¿öÁ®¼­ ¿©±â¼­ ¶Ç °Ë»öÀÌ µÇ´õ¶ó°í.. ±×·¡¼­ Áßº¹µÇ´Â ¾ÆÀÌÅÛÀº °Ë»ö ¾ÈµÇ°Ô °íÃÄºÃ´Ù.
 //			if( pItem->GetId() != m_idLootItem )		
 			if( pItem->IsDelete() == FALSE )
 			{
 				if( pItemProp )
 				{
-					if( pOwner->IsLoot( pItem, TRUE ) )	// ë£¨íŒ…ë˜ëŠ”ì•„ì´í…œì¸ì§€ ê²€ì‚¬í•¨.
+					if( pOwner->IsLoot( pItem, TRUE ) )	// ·çÆÃµÇ´Â¾ÆÀÌÅÛÀÎÁö °Ë»çÇÔ.
 					{
 						vDist = pObj->GetPos() - pMover->GetPos();
-						fDistSq = D3DXVec3LengthSq( &vDist );		// ê±°ë¦¬ êµ¬í•¨.
-						if( fDistSq < 15 * 15 && fDistSq < fMinDist )	// 10ë¯¸í„° ì´ë‚´ê³ ... ê°€ìž¥ ê±°ë¦¬ê°€ ê°€ê¹Œìš´ ì•„í…œì„ ì°¾ìŒ.
+						fDistSq = D3DXVec3LengthSq( &vDist );		// °Å¸® ±¸ÇÔ.
+						if( fDistSq < 15 * 15 && fDistSq < fMinDist )	// 10¹ÌÅÍ ÀÌ³»°í... °¡Àå °Å¸®°¡ °¡±î¿î ¾ÆÅÛÀ» Ã£À½.
 							pMinObj = pObj;
 					}
 				}
@@ -161,7 +161,7 @@ BOOL CAIPet::SubItemLoot( void )
 		// if exists...
 		if( IsValidObj(pCtrl) )
 		{
-				MoveToDst( pMinObj->GetPos() );		// ëª©í‘œìª½ìœ¼ë¡œ ì´ë™.
+				MoveToDst( pMinObj->GetPos() );		// ¸ñÇ¥ÂÊÀ¸·Î ÀÌµ¿.
 				m_idLootItem = dwIdLootItem;
 				m_bLootMove = TRUE;
 		}
@@ -183,16 +183,16 @@ BOOL CAIPet::MoveProcessIdle( const AIMSG & msg )
 	MoverProp *pProp = pMover->GetProp();
 
 
-	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
+	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 
 	if( NotOwnedPetInactivated() )
 		return FALSE;
 	
-	if( m_bLootMove == FALSE )	// ë£¨íŒ…í•˜ëŸ¬ ê°ˆë• ì•„ëž˜ ì²˜ë¦¬ë¥¼ í•˜ë©´ ì•ˆë˜ê¸‹ì œ...
+	if( m_bLootMove == FALSE )	// ·çÆÃÇÏ·¯ °¥¶© ¾Æ·¡ Ã³¸®¸¦ ÇÏ¸é ¾ÈµÇ±ßÁ¦...
 	{
-		// ì£¼ì¸ë‹˜ê³¼ì˜ ê±°ë¦¬ê°€ ë©€ì–´ì§€ë©´ ì£¼ì¸ë‹˜ìª½ìœ¼ë¡œ ë‹¬ë ¤ê°„ë‹¤.
+		// ÁÖÀÎ´Ô°úÀÇ °Å¸®°¡ ¸Ö¾îÁö¸é ÁÖÀÎ´ÔÂÊÀ¸·Î ´Þ·Á°£´Ù.
 		if( m_nState == PETSTATE_IDLE )
 		{
 			D3DXVECTOR3 vDist = pOwner->GetPos() - pMover->GetPos();
@@ -205,15 +205,15 @@ BOOL CAIPet::MoveProcessIdle( const AIMSG & msg )
 		} else
 		if( m_nState == PETSTATE_TRACE )
 		{
-			if( pOwner->IsRangeObj( pMover, 0 ) == TRUE )		// ì£¼ì¸ë‹˜ ê³ìœ¼ë¡œ ë‹¤ê°€ê°”ë‹¤.
+			if( pOwner->IsRangeObj( pMover, 0 ) == TRUE )		// ÁÖÀÎ´Ô °çÀ¸·Î ´Ù°¡°¬´Ù.
 			{
-				m_nState = PETSTATE_IDLE;			// ëŒ€ê¸°ìƒíƒœë¡œ ì „í™˜
-				pMover->SendActMsg( OBJMSG_STOP );	// ëª¨ì…˜ ì •ì§€
-				pMover->ClearDest();				// ì´ë™ëª©í‘œ í´ë¦¬ì–´.
+				m_nState = PETSTATE_IDLE;			// ´ë±â»óÅÂ·Î ÀüÈ¯
+				pMover->SendActMsg( OBJMSG_STOP );	// ¸ð¼Ç Á¤Áö
+				pMover->ClearDest();				// ÀÌµ¿¸ñÇ¥ Å¬¸®¾î.
 			}
-			if( pMover->IsEmptyDest() )			// ì•Œìˆ˜ì—†ëŠ” ì´ìœ ë¡œ ì¸í•´ ì´ë™í•˜ì§€ ì•Šê³  ì œìžë¦¬ ìžˆìœ¼ë©´ .
+			if( pMover->IsEmptyDest() )			// ¾Ë¼ö¾ø´Â ÀÌÀ¯·Î ÀÎÇØ ÀÌµ¿ÇÏÁö ¾Ê°í Á¦ÀÚ¸® ÀÖÀ¸¸é .
 			{
-				m_bLootMove = FALSE;			// ì§‘ìœ¼ëŸ¬ ê°€ë˜ê±° ì·¨ì†Œ.
+				m_bLootMove = FALSE;			// ÁýÀ¸·¯ °¡´ø°Å Ãë¼Ò.
 				m_idLootItem = NULL_ID;
 				m_nState = PETSTATE_IDLE;
 			}
@@ -221,31 +221,31 @@ BOOL CAIPet::MoveProcessIdle( const AIMSG & msg )
 		}
 	}
 
-	// ì•„ì´í…œ ìŠ¤ìº”/ë£¨íŒ…
+	// ¾ÆÀÌÅÛ ½ºÄµ/·çÆÃ
 	{
 		{
-			if( (pMover->GetCount() & 15) == 0 )		// ê°€ë”ì”© ì£¼ë³€ì„ ìŠ¤ìº”í•´ì„œ... ì„œë²„ë‹ˆê¹Œ 15ê°€ 1ì´ˆ
+			if( (pMover->GetCount() & 15) == 0 )		// °¡²û¾¿ ÁÖº¯À» ½ºÄµÇØ¼­... ¼­¹ö´Ï±î 15°¡ 1ÃÊ
 			{	
-				if( m_bLootMove == FALSE )		// ë£¨íŒ…í•˜ëŸ¬ ê°€ê³  ìžˆì„ë•Œ ë˜ ì²´í¬í•˜ë©´ ì•ˆë’˜
-					if( SubItemLoot() )		// ì•„ì´í…œì„ ë£¨íŒ…í•¨.
-						m_nState = PETSTATE_IDLE;	// ë£¨íŒ…ì‹œìž‘í–ˆìœ¼ë©´ ëŒ€ê¸°ìƒíƒœë¡œ ë°”ê¿”ì•¼í•¨.
+				if( m_bLootMove == FALSE )		// ·çÆÃÇÏ·¯ °¡°í ÀÖÀ»¶§ ¶Ç Ã¼Å©ÇÏ¸é ¾ÈŠ•
+					if( SubItemLoot() )		// ¾ÆÀÌÅÛÀ» ·çÆÃÇÔ.
+						m_nState = PETSTATE_IDLE;	// ·çÆÃ½ÃÀÛÇßÀ¸¸é ´ë±â»óÅÂ·Î ¹Ù²ã¾ßÇÔ.
 			}
 		}
 
 		if( m_bLootMove == TRUE )
 		{
-			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìžˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
-			if( IsInvalidObj(pCtrl) )		// ì•„ì´í…œ ì§‘ìœ¼ëŸ¬ ì´ë™ì¤‘ì— ì•„í…œì´ ì—†ì–´ì§€ë©´
+			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
+			if( IsInvalidObj(pCtrl) )		// ¾ÆÀÌÅÛ ÁýÀ¸·¯ ÀÌµ¿Áß¿¡ ¾ÆÅÛÀÌ ¾ø¾îÁö¸é
 			{
-				MoveToDst( pMover->GetPos() );	// ì œìžë¦¬ì— ì„¬.
+				MoveToDst( pMover->GetPos() );	// Á¦ÀÚ¸®¿¡ ¼¶.
 				m_bLootMove = FALSE;
 				m_idLootItem = NULL_ID;
 				m_nState = PETSTATE_IDLE;
 			} else
 			{
-				if( pMover->IsEmptyDest() )			// ì•Œìˆ˜ì—†ëŠ” ì´ìœ ë¡œ ì¸í•´ ì´ë™í•˜ì§€ ì•Šê³  ì œìžë¦¬ ìžˆìœ¼ë©´ .
+				if( pMover->IsEmptyDest() )			// ¾Ë¼ö¾ø´Â ÀÌÀ¯·Î ÀÎÇØ ÀÌµ¿ÇÏÁö ¾Ê°í Á¦ÀÚ¸® ÀÖÀ¸¸é .
 				{
-					m_bLootMove = FALSE;			// ì§‘ìœ¼ëŸ¬ ê°€ë˜ê±° ì·¨ì†Œ.
+					m_bLootMove = FALSE;			// ÁýÀ¸·¯ °¡´ø°Å Ãë¼Ò.
 					m_idLootItem = NULL_ID;
 					m_nState = PETSTATE_IDLE;
 				}
@@ -287,38 +287,38 @@ BOOL CAIPet::StateIdle( const AIMSG & msg )
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_ARRIVAL )
 		{
-			if( m_bLootMove )	// ì•„ì´í…œ ë£¨íŒ…ëª¨ë“œì˜€ìŒ.
+			if( m_bLootMove )	// ¾ÆÀÌÅÛ ·çÆÃ¸ðµå¿´À½.
 			{
 				CMover *pOwner = prj.GetMover( m_idOwner );
 				if( IsValidObj(pOwner) )
 				{
 					BOOL bSuccess = FALSE;
-					CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìžˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
+					CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
 					if( IsValidObj(pCtrl) )
 					{
 						CItem *pItem = (CItem *)pCtrl;
 						D3DXVECTOR3 vDist = pCtrl->GetPos() - pMover->GetPos();
 						FLOAT fDistSq = D3DXVec3LengthSq( &vDist );
-						if( fDistSq < 5.0f * 5.0f )		// ë„ì°©í•´ì„œ ê±°ë¦¬ ê²€ì‚¬ í•œë²ˆë” í•´ì„œ 
+						if( fDistSq < 5.0f * 5.0f )		// µµÂøÇØ¼­ °Å¸® °Ë»ç ÇÑ¹ø´õ ÇØ¼­ 
 						{
 							if( pItem->IsDelete() )
 								return TRUE;
 							CItemElem* pItemElem = (CItemElem *)pItem->m_pItemBase;
 							ItemProp *pItemProp = pItem->GetProp();
-							// ì£¼ì¸ì´ ì•„ì´í…œì„ ì¤ëŠ”ê²ƒê³¼ ê°™ì€ íš¨ê³¼ë¥¼ ëƒ„.
+							// ÁÖÀÎÀÌ ¾ÆÀÌÅÛÀ» ÁÝ´Â°Í°ú °°Àº È¿°ú¸¦ ³¿.
 							bSuccess = pOwner->DoLoot( pItem );
 						}
 					}
 					if( bSuccess )
 					{
-						if( SubItemLoot() == FALSE )		// ì•„ì´í…œì§‘ê³  ì£¼ìœ„ë¥¼ í•œë²ˆë” ìŠ¤ìº”í•´ì„œ ë¨¹ì„ê±° ìžˆìœ¼ë©´ ë‹¤ì‹œê°€ê³  ì—†ìœ¼ë©´ ì£¼ì¸ì—ê²Œ ëŒì•„ê°„ë‹¤.
+						if( SubItemLoot() == FALSE )		// ¾ÆÀÌÅÛÁý°í ÁÖÀ§¸¦ ÇÑ¹ø´õ ½ºÄµÇØ¼­ ¸ÔÀ»°Å ÀÖÀ¸¸é ´Ù½Ã°¡°í ¾øÀ¸¸é ÁÖÀÎ¿¡°Ô µ¹¾Æ°£´Ù.
 						{
-							m_bLootMove = FALSE;		// thisê°€ ì•„ì´í…œ ì§‘ëŠ”ì¤‘ì´ë¼ëŠ”ê±° í•´ì œ.
+							m_bLootMove = FALSE;		// this°¡ ¾ÆÀÌÅÛ Áý´ÂÁßÀÌ¶ó´Â°Å ÇØÁ¦.
 							m_idLootItem = NULL_ID;
 						}
 					} else
 					{
-						m_bLootMove = FALSE;		// thisê°€ ì•„ì´í…œ ì§‘ëŠ”ì¤‘ì´ë¼ëŠ”ê±° í•´ì œ.
+						m_bLootMove = FALSE;		// this°¡ ¾ÆÀÌÅÛ Áý´ÂÁßÀÌ¶ó´Â°Å ÇØÁ¦.
 						m_idLootItem = NULL_ID;
 					}
 				}
@@ -348,7 +348,7 @@ BOOL CAIPet::MoveProcessRage( const AIMSG & msg )
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 	
-	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
+	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 
@@ -367,7 +367,7 @@ BOOL CAIPet::StateRage( const AIMSG & msg )
 	OnMessage( AIMSG_INIT ) 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_INIT_TARGETCLEAR )		// íƒ€ê²Ÿì„ í´ë¦¬ì–´í•˜ê³  ëŒ€ê¸°ëª¨ë“œë¡œ ëŒì•„ê°.
+	OnMessage( AIMSG_INIT_TARGETCLEAR )		// Å¸°ÙÀ» Å¬¸®¾îÇÏ°í ´ë±â¸ðµå·Î µ¹¾Æ°¨.
 		
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_PROCESS ) 
@@ -425,15 +425,15 @@ BOOL CAIPet::NotOwnedPetInactivated( void )
 
 #if __VER >= 12 // __PET_0519
 void CAIPet::SetItem( CMover* pPlayer, CItemElem* pItem )
-{	// ì‚¬ìš©ìžì—ê²Œ ë¨¹íŽ« ê°ì„± íš¨ê³¼ ì ìš©
+{	// »ç¿ëÀÚ¿¡°Ô ¸ÔÆê °¢¼º È¿°ú Àû¿ë
 	m_idPetItem		= pItem->m_dwObjId;
 	pPlayer->SetDestParamRandomOptExtension( pItem );
-	SetSkill( pPlayer, pItem->GetProp() );		// í˜„ìž¬ ì‚¬ìš© ì˜ˆ ì—†ìŒ
-																		// ìœ¤ìƒì´ ì´ì „ ìž‘ì—… ë¶€ë¶„ì„ ë¦¬íŒ©í† ë§í•˜ë©´ì„œ ì´ê³³ìœ¼ë¡œ ì´ë™ ì‹œí‚´
+	SetSkill( pPlayer, pItem->GetProp() );		// ÇöÀç »ç¿ë ¿¹ ¾øÀ½
+																		// À±»óÀÌ ÀÌÀü ÀÛ¾÷ ºÎºÐÀ» ¸®ÆÑÅä¸µÇÏ¸é¼­ ÀÌ°÷À¸·Î ÀÌµ¿ ½ÃÅ´
 }
 
 void CAIPet::SetSkill( CMover* pPlayer, ItemProp* Prop )
-{	// í˜„ìž¬ ì‚¬ìš© ì˜ˆ ì—†ìŒ
+{	// ÇöÀç »ç¿ë ¿¹ ¾øÀ½
 	if( Prop->dwActiveSkill != NULL_ID )
 	{
 		SetSkillId( Prop->dwActiveSkill );
@@ -442,7 +442,7 @@ void CAIPet::SetSkill( CMover* pPlayer, ItemProp* Prop )
 }
 
 void CAIPet::ResetItem( void )
-{	// ì£¼ì¸ìœ¼ë¡œë¶€í„° ë¨¹íŽ« ê°ì„± íš¨ê³¼ ì œê±°
+{	// ÁÖÀÎÀ¸·ÎºÎÅÍ ¸ÔÆê °¢¼º È¿°ú Á¦°Å
 	CMover* pPlayer		= prj.GetMover( m_idOwner );
 	if( IsValidObj( pPlayer ) )
 	{
@@ -450,14 +450,14 @@ void CAIPet::ResetItem( void )
 		if( pItem && pItem->IsEatPet() )
 		{
 			pPlayer->ResetDestParamRandomOptExtension( pItem );
-			ResetSkill( pPlayer );	// ì‚¬ìš© ì˜ˆ ì—†ìŒ
+			ResetSkill( pPlayer );	// »ç¿ë ¿¹ ¾øÀ½
 		}
 	}
 	m_idPetItem		= NULL_ID;
 }
 
 void CAIPet::ResetSkill( CMover* pPlayer )
-{	// ì‚¬ìš© ì˜ˆ ì—†ìŒ
+{	// »ç¿ë ¿¹ ¾øÀ½
 	if( GetSkillId() != NULL_ID && pPlayer->HasBuff( BUFF_SKILL, (WORD)( GetSkillId() ) ) )
 		pPlayer->RemoveBuff( BUFF_SKILL, (WORD)( GetSkillId() ) );
 }

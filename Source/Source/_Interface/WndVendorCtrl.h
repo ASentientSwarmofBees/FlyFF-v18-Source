@@ -1,4 +1,4 @@
-﻿#ifndef __WNDVENDORCTRL_H__
+#ifndef __WNDVENDORCTRL_H__
 #define	__WNDVENDORCTRL_H__
 
 #pragma	once

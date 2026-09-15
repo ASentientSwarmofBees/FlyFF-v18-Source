@@ -1,31 +1,31 @@
-ï»¿#ifndef __AIMETEONYKER_H__
+#ifndef __AIMETEONYKER_H__
 #define	__AIMETEONYKER_H__
 
 class CAIMeteonyker : public CAIInterface
 {
-//	0. ê¸°ë³¸ ê³µê²©
+//	0. ±âº» °ø°Ý
 	OBJID	m_dwIdTarget;
 	u_long	m_uParty;
-//	1. 30ì´ˆ ë™ì•ˆ ìžì‹ ì—ê²Œ ê°€ìž¥ í° í”¼í•´ë¥¼ ì¤€ ì‚¬ìš©ìž ìƒ‰ì 
-//	Mvr_Meteonyker_dmg3.anië¡œ ê³µê²©
-//	í”¼í•´ëŸ‰ 5000-20000
-	int		m_cbRetaliation;					// 30ì´ˆ ì¹´ìš´íŠ¸
-	map<OBJID, int>	m_mapDamage;	// ëˆ„ì  í”¼í•´
-	void	AddDamage( OBJID idAttacker, int nDamage );	// í”¼í•´ ëˆ„ì 
-	void	ResetDamage( void );	// ì´ˆê¸°í™” GetDealer í›„
-	OBJID	GetDealer( void );	// ì‚´ì•„ìžˆëŠ” ì•Šì€ ë”œëŸ¬ ì¤‘
+//	1. 30ÃÊ µ¿¾È ÀÚ½Å¿¡°Ô °¡Àå Å« ÇÇÇØ¸¦ ÁØ »ç¿ëÀÚ »öÀû
+//	Mvr_Meteonyker_dmg3.ani·Î °ø°Ý
+//	ÇÇÇØ·® 5000-20000
+	int		m_cbRetaliation;					// 30ÃÊ Ä«¿îÆ®
+	map<OBJID, int>	m_mapDamage;	// ´©Àû ÇÇÇØ
+	void	AddDamage( OBJID idAttacker, int nDamage );	// ÇÇÇØ ´©Àû
+	void	ResetDamage( void );	// ÃÊ±âÈ­ GetDealer ÈÄ
+	OBJID	GetDealer( void );	// »ì¾ÆÀÖ´Â ¾ÊÀº µô·¯ Áß
 	BOOL	ProcessRetaliation( void );
-// 1. ë§¤ ê³µê²© ì‹œ 5%ì˜ í™•ë¥ ë¡œ ë°œë™.
-// 30m ë²”ìœ„ ë‚´ì˜ ëª¨ë“  ìºë¦­í„°ë¥¼ ì†Œí™˜í•˜ì—¬ ê³µê²©í•œë‹¤.
+// 1. ¸Å °ø°Ý ½Ã 5%ÀÇ È®·ü·Î ¹ßµ¿.
+// 30m ¹üÀ§ ³»ÀÇ ¸ðµç Ä³¸¯ÅÍ¸¦ ¼ÒÈ¯ÇÏ¿© °ø°ÝÇÑ´Ù.
 	BOOL	ProcessSummon( BOOL bUnconditional = FALSE );
-//	3. ë©”í…Œì˜¤ë‹ˆì»¤R ìžì‹ ì˜ HPê°€ 20%ê°€ ì´í•˜ê°€ ë˜ì—ˆì„ ì‹œ ë¶€í„° ë§¤ ê³µê²© ì‹œ 2% í™•ë¥ ë¡œ ë°œë™ëœë‹¤.								
-//	WdVolcaneRed ë§µì— ì¡´ìž¬í•˜ëŠ” ëª¨ë“  ìºë¦­í„°ì—ê²Œ ë°ë¯¸ì§€ë¥¼ ì£¼ë©°, 'í™”ìƒ'ì— ê±¸ë¦¬ê²Œ í•œë‹¤.
-//	í™”ìƒ(ë””ë²„í”„)	ëŒ€ìƒì€ í‹±ë‹¹ 500ì˜ ë°ë¯¸ì§€ë¥¼ 120ì´ˆ ë™ì•ˆ ìž…ê²Œ ëœë‹¤.
+//	3. ¸ÞÅ×¿À´ÏÄ¿R ÀÚ½ÅÀÇ HP°¡ 20%°¡ ÀÌÇÏ°¡ µÇ¾úÀ» ½Ã ºÎÅÍ ¸Å °ø°Ý ½Ã 2% È®·ü·Î ¹ßµ¿µÈ´Ù.								
+//	WdVolcaneRed ¸Ê¿¡ Á¸ÀçÇÏ´Â ¸ðµç Ä³¸¯ÅÍ¿¡°Ô µ¥¹ÌÁö¸¦ ÁÖ¸ç, 'È­»ó'¿¡ °É¸®°Ô ÇÑ´Ù.
+//	È­»ó(µð¹öÇÁ)	´ë»óÀº Æ½´ç 500ÀÇ µ¥¹ÌÁö¸¦ 120ÃÊ µ¿¾È ÀÔ°Ô µÈ´Ù.
 	BOOL	ProcessBurn( BOOL bUnconditional = FALSE );
-//	4. ìžì‹ ì˜ HPê°€ 30%ì´í•˜ê°€ ë˜ì—ˆì„ ì‹œ 1íšŒì— í•œí•´ HPë¥¼ 50% íšŒë³µ í•œë‹¤.
+//	4. ÀÚ½ÅÀÇ HP°¡ 30%ÀÌÇÏ°¡ µÇ¾úÀ» ½Ã 1È¸¿¡ ÇÑÇØ HP¸¦ 50% È¸º¹ ÇÑ´Ù.
 //	BOOL	m_bHeal;
 
-//	5. ë³€ê²½	// 20ë²ˆì§¸ ê³µê²© ë§ˆë‹¤ 'ê´‘ê²© ê³µê²©' or 'ìŠ¤íŽ˜ì…œ ê³µê²©'ì´ ë°œë™ë¨
+//	5. º¯°æ	// 20¹øÂ° °ø°Ý ¸¶´Ù '±¤°Ý °ø°Ý' or '½ºÆä¼È °ø°Ý'ÀÌ ¹ßµ¿µÊ
 	int		m_cbAttack;
 	int		m_nSPAttackType;
 	BOOL	ProcessSPAttack( void );
@@ -33,7 +33,7 @@ class CAIMeteonyker : public CAIInterface
 	BOOL	ProcessHeal( void );
 	time_t	m_tmRecovery;
 	void	ProcessRecovery( void );
-//	5. ìžì‹ ì˜ HPê°€ 2%ê°€ ë˜ì—ˆì„ ì‹œ ëª¨ë“  ê³µê²©ë ¥ 2ë°° ì¦ê°€
+//	5. ÀÚ½ÅÀÇ HP°¡ 2%°¡ µÇ¾úÀ» ½Ã ¸ðµç °ø°Ý·Â 2¹è Áõ°¡
 	DWORD	m_dwHPOld;
 	BOOL	m_bCritical;
 	time_t	m_tmAttackDelay;

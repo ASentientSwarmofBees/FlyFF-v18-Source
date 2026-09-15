@@ -1,7 +1,7 @@
-ï»¿// number ì‚½ì… ì´ë¯¸ì§€ ê°œìˆ˜
-// serialize ì—°ì†ìœ¼ë¡œ ì´ë¯¸ì§€ ì‚½ì…(num width hight StartPosition-X StartPosition-Y, center_x, center_y)
-// pos ë‹¨ì¼ë¡œ ì´ë¯¸ì§€ ì‚½ì… (width hight StartPosition-X StartPosition-Y)
+// number »ğÀÔ ÀÌ¹ÌÁö °³¼ö
+// serialize ¿¬¼ÓÀ¸·Î ÀÌ¹ÌÁö »ğÀÔ(num width hight StartPosition-X StartPosition-Y, center_x, center_y)
+// pos ´ÜÀÏ·Î ÀÌ¹ÌÁö »ğÀÔ (width hight StartPosition-X StartPosition-Y)
 MULTI_LANGUAGE
 number 9
 texture "texDialogEmoticon.dds" 0xffff00ff
-serialize 9 32 32  0   0 0 0 // í° ì§ì—… ì•„ì´ì½˜ 
+serialize 9 32 32  0   0 0 0 // Å« Á÷¾÷ ¾ÆÀÌÄÜ 

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "resData.h"
 #include "WndAwakening.h"
 #include "DPClient.h"
@@ -12,14 +12,14 @@
 extern CDPClient g_DPlay;
 
 /****************************************************
-  WndId : APP_AWAKENING - ì•„ì´í…œ ê°ì„± ì°½
+  WndId : APP_AWAKENING - ¾ÆÀÌÅÛ °¢¼º Ã¢
   CtrlId : WIDC_TEXT1 - 
   CtrlId : WIDC_STATIC1 - 
   CtrlId : WIDC_BUTTON1 - Button
 ****************************************************/
 #if __VER >= 11 // __SYS_IDENTIFY
 
-// gmpbigsun ( 10_04_05 ) : CWndAwakening classëŠ” í˜„ì¬ ì“°ì´ì§€ ì•ŠìŒ
+// gmpbigsun ( 10_04_05 ) : CWndAwakening class´Â ÇöÀç ¾²ÀÌÁö ¾ÊÀ½
 CWndAwakening::CWndAwakening() 
 {
 	m_pItemElem  = NULL;
@@ -63,7 +63,7 @@ void CWndAwakening::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 	
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CWndButton* pButton = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
 
 	if(::GetLanguage() == LANG_FRE)
@@ -74,21 +74,21 @@ void CWndAwakening::OnInitialUpdate()
 
 	SetDescription();
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndAwakening::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_AWAKENING, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWnd::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -130,14 +130,14 @@ BOOL CWndAwakening::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 	if( nID == WIDC_BUTTON1 )
 	{
-		//ì„œë²„ë¡œ ì‹œì‘ì„ ì•Œë¦°ë‹¤.
+		//¼­¹ö·Î ½ÃÀÛÀ» ¾Ë¸°´Ù.
 		if(m_pItemElem != NULL)
 		{
 			CWndButton* pButton;
 			pButton = (CWndButton*)GetDlgItem( WIDC_BUTTON1 );
 			pButton->EnableWindow(FALSE);
 
-			// ì„œë²„ì— ì²˜ë¦¬ ìš”ì²­í•˜ëŠ” í•¨ìˆ˜ í˜¸ì¶œí•´ì•¼í•¨
+			// ¼­¹ö¿¡ Ã³¸® ¿äÃ»ÇÏ´Â ÇÔ¼ö È£ÃâÇØ¾ßÇÔ
 			if(m_pItemElem)
 			{
 				g_DPlay.SendAwakening(m_pItemElem->m_dwObjId);
@@ -174,14 +174,14 @@ BOOL CWndAwakening::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	int nRandomOptionKind	= g_xRandomOptionProperty->GetRandomOptionKind( pTempElem );
 	if( nRandomOptionKind  != CRandomOptionProperty::eAwakening )
 	{
-		// ì ì ˆí•œ ëŒ€ìƒì´ ì•„ë‹™ë‹ˆë‹¤.
+		// ÀûÀıÇÑ ´ë»óÀÌ ¾Æ´Õ´Ï´Ù.
 		//g_WndMng.PutString( prj.GetText( TID_GAME_INVALID_TARGET_ITEM ), NULL, prj.GetTextColor( TID_GAME_INVALID_TARGET_ITEM  ) );
 		g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_INVALID_TARGET_ITEM ) );
 		return FALSE;
 	}
 	if( g_xRandomOptionProperty->GetRandomOptionSize( pTempElem->GetRandomOptItemId() ) > 0 )
 	{
-		// ì´ë¯¸ ê°ì„±ëœ ì•„ì´í…œì…ë‹ˆë‹¤.
+		// ÀÌ¹Ì °¢¼ºµÈ ¾ÆÀÌÅÛÀÔ´Ï´Ù.
 		//g_WndMng.PutString( prj.GetText( TID_GAME_AWAKE_OR_BLESSEDNESS01 ), NULL, prj.GetTextColor( TID_GAME_AWAKE_OR_BLESSEDNESS01  ) );
 		g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_AWAKE_OR_BLESSEDNESS01 ) );
 		return FALSE;
@@ -244,10 +244,10 @@ CWndSelectAwakeCase::~CWndSelectAwakeCase( )
 {
 	DeleteDeviceObjects();
 }
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndSelectAwakeCase::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_AWAKE_SELECTCASE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -255,9 +255,9 @@ void CWndSelectAwakeCase::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 	
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -284,20 +284,20 @@ BOOL CWndSelectAwakeCase::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 	if( nID == WIDC_BUTTON1 )
 	{
 		g_DPlay.SendSelectedAwakeningValue( m_byObjID, m_dwSerialNum, _AWAKE_OLD_VALUE );
-		g_WndMng.PutString( GETTEXT( TID_GAME_REGARDLESS_USE03 ) );	//ì„ íƒë¨
+		g_WndMng.PutString( GETTEXT( TID_GAME_REGARDLESS_USE03 ) );	//¼±ÅÃµÊ
 		Destroy();
 	}
 	else if( nID == WIDC_BUTTON2 )
 	{
 		g_DPlay.SendSelectedAwakeningValue( m_byObjID, m_dwSerialNum, _AWAKE_NEW_VALUE );
-		g_WndMng.PutString( GETTEXT( TID_GAME_REGARDLESS_USE03 ) );	//ì„ íƒë¨
+		g_WndMng.PutString( GETTEXT( TID_GAME_REGARDLESS_USE03 ) );	//¼±ÅÃµÊ
 		Destroy();
 	}
 
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
 } 
 
-const static DWORD AWAKE_KEEP_TIME = 60000;	//60ì´ˆ
+const static DWORD AWAKE_KEEP_TIME = 60000;	//60ÃÊ
 
 BOOL CWndSelectAwakeCase::process()
 {
@@ -321,10 +321,10 @@ void CWndSelectAwakeCase::OnDraw( C2DRender* p2DRender )
 
 	if( m_dwDeltaTime > AWAKE_KEEP_TIME )
 	{
-		//ì œí•œì‹œê°„ì´ ì§€ë‚˜ë©´ í˜„ì¬ì˜µì…˜ìœ¼ë¡œ ìš”ì²­ 
+		//Á¦ÇÑ½Ã°£ÀÌ Áö³ª¸é ÇöÀç¿É¼ÇÀ¸·Î ¿äÃ» 
 		g_DPlay.SendSelectedAwakeningValue( m_byObjID, m_dwSerialNum, _AWAKE_OLD_VALUE );
 
-		g_WndMng.PutString( GETTEXT( TID_GAME_REGARDLESS_USE02 ) );	//ì„ íƒì‹œê°„ ì´ˆê³¼
+		g_WndMng.PutString( GETTEXT( TID_GAME_REGARDLESS_USE02 ) );	//¼±ÅÃ½Ã°£ ÃÊ°ú
 		
 		m_dwDeltaTime = 0;
 		Destroy();
@@ -341,8 +341,8 @@ void CWndSelectAwakeCase::OnDraw( C2DRender* p2DRender )
 	rect.left += 14;
 	rect.top += 174;
 
-	// ì‹œê°„ / 100 * 360(ì´ê¸¸ì´) / 600 (ì´ì‹œê°„)
-	rect.right = LONG(( rect.left + (AWAKE_KEEP_TIME - m_dwDeltaTime) / 100 ) * 0.6f) ;		//ê·€ì°®ìœ¼ë‹ˆ ê± ë°”ì˜ ê¸¸ì´ë¥¼ ìµœëŒ€ì´ˆë¡œ...
+	// ½Ã°£ / 100 * 360(ÃÑ±æÀÌ) / 600 (ÃÑ½Ã°£)
+	rect.right = LONG(( rect.left + (AWAKE_KEEP_TIME - m_dwDeltaTime) / 100 ) * 0.6f) ;		//±ÍÂúÀ¸´Ï °Á ¹ÙÀÇ ±æÀÌ¸¦ ÃÖ´ëÃÊ·Î...
 	rect.bottom = rect.top + 20;
 
 //	if( m_pTexGuage )
@@ -362,7 +362,7 @@ extern BOOL IsDst_Rate( int nDstParam );
 extern char *FindDstString( int nDstParam );
 void CWndSelectAwakeCase::OutputOptionString( C2DRender* p2DRender, CItemElem* pItemElem, BOOL bNew )
 {
-	// ì˜µì…˜ ë¬¸ìì—´ ê·¸ë¦¬ê¸°
+	// ¿É¼Ç ¹®ÀÚ¿­ ±×¸®±â
 	if( !pItemElem )
 		return;
 
@@ -395,7 +395,7 @@ void CWndSelectAwakeCase::OutputOptionString( C2DRender* p2DRender, CItemElem* p
 			str.Format( "\n%s %c%d", FindDstString( nDst ), ( nAdj > 0? '+': '-' ), ::abs( nAdj ) );
 		}
 
-		//ê± í•œì¤„í•œì¤„ì”© ì°ì
+		//°Á ÇÑÁÙÇÑÁÙ¾¿ ÂïÀÚ
 		if( bNew )
 			p2DRender->TextOut( 70, 92 + i * 20, str, 0xff000000 );
 		else p2DRender->TextOut( 70, 20 + i * 20, str, 0xff000000 );
@@ -404,7 +404,7 @@ void CWndSelectAwakeCase::OutputOptionString( C2DRender* p2DRender, CItemElem* p
 
 void CWndSelectAwakeCase::SetData( BYTE byObjID, DWORD dwSerialNum, __int64 n64NewOption ) 
 { 
-	//serverë¡œ ì „ì†¡í•  ë°ì´í„°ë¥¼ ìœ ì§€í•˜ê³ , ì•„ì´í…œ Indexë¥¼ ë½‘ì•„ì„œ ì•„ì´ì½˜ì„ ê·¸ë ¤ì¤„ ì¤€ë¹„
+	//server·Î Àü¼ÛÇÒ µ¥ÀÌÅÍ¸¦ À¯ÁöÇÏ°í, ¾ÆÀÌÅÛ Index¸¦ »Ì¾Æ¼­ ¾ÆÀÌÄÜÀ» ±×·ÁÁÙ ÁØºñ
 	m_byObjID = byObjID;
 	m_dwSerialNum = dwSerialNum;
 	m_n64NewOption = n64NewOption; 

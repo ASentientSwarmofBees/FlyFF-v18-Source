@@ -1,4 +1,4 @@
-ï»¿// PCBang.cpp: implementation of the CPCBang class.
+// PCBang.cpp: implementation of the CPCBang class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -144,7 +144,7 @@ void CPCBang::SetPCBangPlayer( CUser* pUser, DWORD dwPCBangClass )
 	}
 
 	CPCBangInfo* pPI = GetPCBangInfo( pUser->m_idPlayer );
-	if( pPI )	// ì ‘ì†í•´ì œ í•œì§€ 10ë¶„ì´ ì•ˆì§€ë‚œ ë†ˆì´ë©´...
+	if( pPI )	// Á¢¼ÓÇØÁ¦ ÇÑÁö 10ºÐÀÌ ¾ÈÁö³­ ³ðÀÌ¸é...
 	{
 		pPI->SetDisconnect( 0 );
 		pUser->AddPCBangInfo( pPI );

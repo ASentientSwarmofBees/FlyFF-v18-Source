@@ -1,4 +1,4 @@
-Ôªø#ifndef __COLLECTINGWND__H
+#ifndef __COLLECTINGWND__H
 #define __COLLECTINGWND__H
 
 class CCollectingWnd : public CWndNeuz 
@@ -9,7 +9,7 @@ public:
 
 	bool		m_bIsCollecting;
 	
-	CModelObject	*m_pModel; // ÏΩúÎ†âÌÑ∞ Î™®Îç∏
+	CModelObject	*m_pModel; // ƒ›∑∫≈Õ ∏µ®
 	int				m_nDisplay;
 	CItemElem		*m_pElem;
 	D3DXMATRIX		m_matModel;

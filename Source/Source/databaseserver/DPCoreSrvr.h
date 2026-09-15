@@ -1,4 +1,4 @@
-﻿#ifndef __DPCORESRVR_H__
+#ifndef __DPCORESRVR_H__
 #define __DPCORESRVR_H__
 
 #pragma once

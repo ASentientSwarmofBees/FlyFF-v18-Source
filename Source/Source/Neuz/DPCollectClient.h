@@ -1,4 +1,4 @@
-﻿// DPCollectClient.h: interface for the CDPCollectClient class.
+// DPCollectClient.h: interface for the CDPCollectClient class.
 //
 //////////////////////////////////////////////////////////////////////
 

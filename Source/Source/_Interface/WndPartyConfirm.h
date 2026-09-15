@@ -1,4 +1,4 @@
-﻿#ifndef __WNDPARTYCONFIRM__H
+#ifndef __WNDPARTYCONFIRM__H
 #define __WNDPARTYCONFIRM__H
 
 class CWndPartyConfirm : public CWndNeuz 

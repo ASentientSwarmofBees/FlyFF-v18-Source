@@ -1,4 +1,4 @@
-ï»¿#ifndef __CMNHDR_H__
+#ifndef __CMNHDR_H__
 #define __CMNHDR_H__
 
 //#define FD_SETSIZE	1024
@@ -12,7 +12,7 @@
 extern	time_t	g_tCurrent;
 #endif // ( __WORLDSERVER || __CLIENT )
 
-#include "profile.h"		// í”„ë¡œíŒŒì¼ëŸ¬
+#include "profile.h"		// ÇÁ·ÎÆÄÀÏ·¯
 
 #pragma warning( disable:4001 )	// nonstandard extension 'single line comment' was used
 #pragma warning( disable:4100 )	// unreferenced formal parameter
@@ -87,7 +87,7 @@ inline BOOL IsPrime( u_long n )
 
 typedef	DWORD	SERIALNUMBER;
 
-// ',', '/', '\0' ì„ ë§Œë‚ ë•Œê¹Œì§€ ê°’ì„ ë¦¬í„´í•˜ê³  ì»¤ì„œëŠ” ë‹¤ìŒ...
+// ',', '/', '\0' À» ¸¸³¯¶§±îÁö °ªÀ» ¸®ÅÏÇÏ°í Ä¿¼­´Â ´ÙÀ½...
 inline int GetIntFromStr(char *pBuf, int *pLocation)
 {
 	char strTemp[50];
@@ -140,8 +140,8 @@ inline	__int64 GetInt64PaFromStr( char *pBuf, int *pLocation )
 }
 #endif	// __SYS_IDENTIFY
 
-// ',', '\0' ì„ ë§Œë‚ ë•Œê¹Œì§€ ê°’ì„ ë¦¬í„´í•˜ê³  ì»¤ì„œëŠ” ë‹¤ìŒ...
-// '/' ë¥¼ ë§Œë‚˜ë©´ ê°’ì„ ë¦¬í„´í•˜ê³  ì»¤ì„œëŠ” í˜„ì¬('/')...
+// ',', '\0' À» ¸¸³¯¶§±îÁö °ªÀ» ¸®ÅÏÇÏ°í Ä¿¼­´Â ´ÙÀ½...
+// '/' ¸¦ ¸¸³ª¸é °ªÀ» ¸®ÅÏÇÏ°í Ä¿¼­´Â ÇöÀç('/')...
 inline int GetIntPaFromStr(char *pBuf, int *pLocation )
 {
 	char strTemp[50];
@@ -490,8 +490,8 @@ extern	void RemoveCRLF( char* szString );
 #define	theLineFile
 
 #if defined (__WORLDSERVER) || defined(__CLIENT) || defined(__CORESERVER) || defined(__DBSERVER)
-// SMì•½ì :: ã…‹ã…‹ ì‘ˆ ë¯¸ë” ë¨¸ë‹ˆ~ ã…‹ã„·ã…‹ã„·
-// ì ìš©í•  ì‹œê°„ì„ ì •í•´ì•¼í•¨, ì¶”ê°€ë˜ë©´ _ADDSMMODE ë„ ì¶”ê°€ë˜ì•¼í•¨
+// SM¾àÀÚ :: ¤»¤» ¾¤ ¹Ì´õ ¸Ó´Ï~ ¤»¤§¤»¤§
+// Àû¿ëÇÒ ½Ã°£À» Á¤ÇØ¾ßÇÔ, Ãß°¡µÇ¸é _ADDSMMODE µµ Ãß°¡µÇ¾ßÇÔ
 enum 
 {	
 	SM_BANK15, SM_BANK30, SM_PARTYSKILL15, SM_PARTYSKILL30, SM_SHOUT15, SM_SHOUT30, 
@@ -505,7 +505,7 @@ enum
 
 
 #if defined (__WORLDSERVER) || defined(__CLIENT)
-// ì ˆëŒ€ì‹œê°„ : TRUE, ì¹´ìš´íŠ¸ : FALSE
+// Àı´ë½Ã°£ : TRUE, Ä«¿îÆ® : FALSE
 typedef struct _ADDSMMODE
 {
 	BOOL bSMModetime[SM_MAX];
@@ -577,7 +577,7 @@ ADDSMMODE, *PADDSMMODE;
 #define UNDEFINED_NEEDVIS	4
 #endif // __PETVIS
 
-typedef	struct	_LogItemInfo	// ItemLogì“°ì„
+typedef	struct	_LogItemInfo	// ItemLog¾²ÀÓ
 {
 	LPCTSTR Action;
 	LPCTSTR SendName;

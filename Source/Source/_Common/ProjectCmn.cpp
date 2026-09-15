@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "lang.h"
 #ifdef __LANG_1013
 #include "langman.h"
@@ -115,8 +115,8 @@ BOOL CProject::LoadPropMover( LPCTSTR lpszFileName )
 	if( scanner.Load( lpszFileName, FALSE ) == FALSE )
 	{
 #ifdef __CLIENT
-		MessageBox( g_Neuz.GetSafeHwnd(), "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Mover", "í”„ë¦¬í”„", MB_OK );
-		ADDERRORMSG( "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Mover" );
+		MessageBox( g_Neuz.GetSafeHwnd(), "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Mover", "ÇÁ¸®ÇÁ", MB_OK );
+		ADDERRORMSG( "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Mover" );
 #endif //__CLIENT
 		return FALSE;
 	}
@@ -137,15 +137,15 @@ BOOL CProject::LoadPropMover( LPCTSTR lpszFileName )
 		if( i == 0 )
 			continue;
 
-		if( i<0 || i>=MAX_PROPMOVER )		// ë²”ìœ„ì²´í¬ 
+		if( i<0 || i>=MAX_PROPMOVER )		// ¹üÀ§Ã¼Å© 
 		{
 			Error( "too many mover property or invalid id:%d FILE:%s\n", i, lpszFileName );
 			return FALSE;
 		}
 
-		if( !checker.insert( i ).second )	// idì¤‘ë³µì²´í¬ 
+		if( !checker.insert( i ).second )	// idÁßº¹Ã¼Å© 
 		{
-			Error( "Last read:%s, ID:%d is duplicated. ì»¬ëŸ¼ì´ ë°€ë ¤ë„ ì´ëŸ°ì—ëŸ¬ê°€ ë‚œë‹¤. FILE:%s\n", szLastName, i, lpszFileName );
+			Error( "Last read:%s, ID:%d is duplicated. ÄÃ·³ÀÌ ¹Ğ·Áµµ ÀÌ·±¿¡·¯°¡ ³­´Ù. FILE:%s\n", szLastName, i, lpszFileName );
 			return FALSE;
 		}
 
@@ -177,7 +177,7 @@ BOOL CProject::LoadPropMover( LPCTSTR lpszFileName )
 		pProperty->bIfParts				= scanner.GetNumber();
 
 		if( pProperty->bIfParts == NULL_ID )
-			Error( "LoadPropMover : bIfPartsì—” -1ì„ ë„£ìœ¼ë©´ ì•ˆëœë‹¤. %s \r\nì»¬ëŸ¼ì´ ë°€ë ¸ê±°ë‚˜ ì›Œí‚¹í´ë”ë¥¼ ì˜ëª»ì§€ì •í–ˆì„ìˆ˜ë„ìˆìŒ ", pProperty->szName );
+			Error( "LoadPropMover : bIfParts¿£ -1À» ³ÖÀ¸¸é ¾ÈµÈ´Ù. %s \r\nÄÃ·³ÀÌ ¹Ğ·È°Å³ª ¿öÅ·Æú´õ¸¦ Àß¸øÁöÁ¤ÇßÀ»¼öµµÀÖÀ½ ", pProperty->szName );
 
 		pProperty->nChaotic				= scanner.GetNumber();
 #ifdef __S1108_BACK_END_SYSTEM
@@ -193,7 +193,7 @@ BOOL CProject::LoadPropMover( LPCTSTR lpszFileName )
 		pProperty->dwAtk3				= scanner.GetNumber();
 		pProperty->dwAtk4				= scanner.GetNumber();
 #if __VER >= 9	//__AI_0509
-		pProperty->fFrame	= scanner.GetFloat();	// -1ì´ë©´ ê°€ì¤‘ì¹˜ ì˜í–¥ ì—†ìŒ. 1.0 ê¸°ë³¸ ê°’
+		pProperty->fFrame	= scanner.GetFloat();	// -1ÀÌ¸é °¡ÁßÄ¡ ¿µÇâ ¾øÀ½. 1.0 ±âº» °ª
 		if( abs( -1.0F  - pProperty->fFrame ) < 0.000001F )
 			pProperty->fFrame	= 1.0F;
 		pProperty->dwOrthograde	= scanner.GetNumber();
@@ -217,8 +217,8 @@ BOOL CProject::LoadPropMover( LPCTSTR lpszFileName )
 		pProperty->nHardness			= scanner.GetNumber();
 		pProperty->dwAdjAtkDelay		= scanner.GetNumber();
 		
-		pProperty->eElementType			= static_cast<SAI79::ePropType>(scanner.GetNumber());	// ì •ìˆ˜íƒ€ì…ê³¼ enum	íƒ€ì…ì´ í‹€ë ¤ì„œ íƒ€ì… ë³€í™˜ì„ í—ˆìš©í•¨.
-		pProperty->wElementAtk			= static_cast<short>(scanner.GetNumber());				// ì •ìˆ˜íƒ€ì…ê³¼ short	íƒ€ì…ì´ í‹€ë ¤ì„œ íƒ€ì… ë³€í™˜ì„ í—ˆìš©í•¨.
+		pProperty->eElementType			= static_cast<SAI79::ePropType>(scanner.GetNumber());	// Á¤¼öÅ¸ÀÔ°ú enum	Å¸ÀÔÀÌ Æ²·Á¼­ Å¸ÀÔ º¯È¯À» Çã¿ëÇÔ.
+		pProperty->wElementAtk			= static_cast<short>(scanner.GetNumber());				// Á¤¼öÅ¸ÀÔ°ú short	Å¸ÀÔÀÌ Æ²·Á¼­ Å¸ÀÔ º¯È¯À» Çã¿ëÇÔ.
 
 		pProperty->dwHideLevel			= scanner.GetNumber();
 		pProperty->fSpeed				= scanner.GetFloat();
@@ -531,7 +531,7 @@ BOOL CProject::LoadPropItem( LPCTSTR lpszFileName, CFixedArray< ItemProp >* apOb
 
 	#ifdef __WORLDSERVER
 		#ifdef __INTERNALSERVER
-			prop.nLog = -1;		// ê°œë°œì„­ì—ì„  ì´ê±° ë¬´ì‹œ.
+			prop.nLog = -1;		// °³¹ß¼·¿¡¼± ÀÌ°Å ¹«½Ã.
 		#endif
 		if( g_eLocal.GetState( EVE_SCHOOL ) )
 		{
@@ -819,7 +819,7 @@ BOOL CProject::LoadPropItem( LPCTSTR lpszFileName, CFixedArray< ItemProp >* apOb
 
 	#ifdef __WORLDSERVER
 		#ifdef __INTERNALSERVER
-			prop.nLog = -1;		// ê°œë°œì„­ì—ì„  ì´ê±° ë¬´ì‹œ.
+			prop.nLog = -1;		// °³¹ß¼·¿¡¼± ÀÌ°Å ¹«½Ã.
 		#endif
 		if( g_eLocal.GetState( EVE_SCHOOL ) )
 		{
@@ -896,7 +896,7 @@ BOOL CProject::LoadText( LPCTSTR lpszFileName )
 			#ifdef _DEBUG
 			if( strArray.GetSize() > (int)( dwId ) )
 				if( strArray.GetAt( dwId ).IsEmpty() == FALSE )
-					Error( "CProject::LoadText : ê°™ì€ ì•„ì´ë”” ì¡´ì¬ %d - %s", dwId, str );						
+					Error( "CProject::LoadText : °°Àº ¾ÆÀÌµğ Á¸Àç %d - %s", dwId, str );						
 			#endif	// _DEBUG	
 			strArray.SetAtGrow( dwId, str );
 			colorArray.SetAtGrow( dwId, dwColor );
@@ -1010,12 +1010,12 @@ void CProject::LoadStrings()
 		, "World\\DuOminous_1\\duominous_1.txt.txt"
 #endif // __INSTANCE_DUNGEON
 #if __VER >= 15 // __GUILD_HOUSE
-		, "World\\WdGuildhousesmall\\WdGuildhousesmall.txt.txt"		// ì†Œí˜• ê¸¸ë“œí•˜ìš°ìŠ¤
-		, "World\\WdGuildhousemiddle\\WdGuildhousemiddle.txt.txt"	// ì¤‘í˜• ê¸¸ë“œí•˜ìš°ìŠ¤
-		, "World\\WdGuildhouselarge\\WdGuildhouselarge.txt.txt"		// ëŒ€í˜• ê¸¸ë“œí•˜ìš°ìŠ¤
-		, "World\\DuDreadfulCave\\DuDreadfulCave.txt.txt"			// ì¶”ê°€ ì¸ë˜(ë“œë˜ë“œí’€ ì¼€ì´ë¸Œ)
-		, "World\\DuRustia\\DuRustia.txt.txt"						// ì¶”ê°€ ì¸ë˜(ëŸ¬ìŠ¤í‹°ì•„ ì¼ë°˜)
-		, "World\\DuRustia_1\\DuRustia_1.txt.txt"					// ì¶”ê°€ ì¸ë˜(ëŸ¬ìŠ¤í‹°ì•„ ë§ˆìŠ¤í„°)
+		, "World\\WdGuildhousesmall\\WdGuildhousesmall.txt.txt"		// ¼ÒÇü ±æµåÇÏ¿ì½º
+		, "World\\WdGuildhousemiddle\\WdGuildhousemiddle.txt.txt"	// ÁßÇü ±æµåÇÏ¿ì½º
+		, "World\\WdGuildhouselarge\\WdGuildhouselarge.txt.txt"		// ´ëÇü ±æµåÇÏ¿ì½º
+		, "World\\DuDreadfulCave\\DuDreadfulCave.txt.txt"			// Ãß°¡ ÀÎ´ø(µå·¡µåÇ® ÄÉÀÌºê)
+		, "World\\DuRustia\\DuRustia.txt.txt"						// Ãß°¡ ÀÎ´ø(·¯½ºÆ¼¾Æ ÀÏ¹İ)
+		, "World\\DuRustia_1\\DuRustia_1.txt.txt"					// Ãß°¡ ÀÎ´ø(·¯½ºÆ¼¾Æ ¸¶½ºÅÍ)
 #endif // __GUILD_HOUSE
 #ifdef __IMPROVE_MAP_SYSTEM
 		, "propMapComboBoxData.txt.txt"
@@ -1201,7 +1201,7 @@ BOOL	CProject::IsAllowedLetter( LPCSTR szName, BOOL bVendor )
 	set<char>* ptr		= &m_sAllowedLetter;
 #endif	// __VENDOR_1106
 
-	if( !ptr->size() )	// ê·œì¹™ì´ ì—†ìœ¼ë©´ ë¬´ì‹œ
+	if( !ptr->size() )	// ±ÔÄ¢ÀÌ ¾øÀ¸¸é ¹«½Ã
 		return TRUE;
 
 	int nLen	= lstrlen( szName );
@@ -1236,7 +1236,7 @@ void	CProject::Formalize( LPSTR szName )
 			{
 //				if( ::GetLanguage() == LANG_ENG && ::GetSubLanguage() == LANG_SUB_PHP )
 //					break;
-				_strlwr( szName );	// ì†Œë¬¸ìë¡œ ë³€ê²½
+				_strlwr( szName );	// ¼Ò¹®ÀÚ·Î º¯°æ
 				char szBuffer[2];
 				szBuffer[0]	= szName[0];
 				szBuffer[1]	= '\0';

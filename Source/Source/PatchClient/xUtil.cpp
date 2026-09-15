@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include <direct.h>
 #include "xUtil.h"
 ////////////////////////////////////////////////////////////////////////////////////
@@ -13,8 +13,8 @@ int				g_nMaxTri = 0;
 static BOOL		g_bShowMsgBox	= TRUE;
 LARGE_INTEGER	g_llFreq;
 DWORD			g_next;
-char			g_szWorkDir[256];		// ì›Œí‚¹í´ë”
-char			g_szExeDir[256];		// ì‹¤í–‰íŒŒì¼ ê²½ë¡œ
+char			g_szWorkDir[256];		// ¿öÅ·Æú´õ
+char			g_szExeDir[256];		// ½ÇÇàÆÄÀÏ °æ·Î
 OSTYPE			g_osVersion = WINDOWS_UNKNOWN;
 
 static int		g_nLanguage = -1; // LANG_KOR;
@@ -32,7 +32,7 @@ static BOOL		g_b2ndPassWord = FALSE;
 DWORD	xRand( void )
 {
 	g_next = g_next * 1103515245 + 12345;// + nRandomSeed[ i++ ];
-	return g_next;	// ì–µë‹¨ìœ„ í™•ë¥ ì´ í•„ìš”í•´ì„œë°”ê¿ˆ.
+	return g_next;	// ¾ï´ÜÀ§ È®·üÀÌ ÇÊ¿äÇØ¼­¹Ù²Þ.
 }
 
 DWORD xRandom( DWORD num )
@@ -74,7 +74,7 @@ LPCTSTR Error( LPCTSTR strFormat, ... )
 	if( n > 0 )
 	{
 		#if defined(_DEBUG)
-			if( g_bShowMsgBox && MessageBox( NULL, szBuff, "ì˜¤ë¥˜", MB_OKCANCEL) == IDCANCEL )
+			if( g_bShowMsgBox && MessageBox( NULL, szBuff, "¿À·ù", MB_OKCANCEL) == IDCANCEL )
 				g_bShowMsgBox	= FALSE;		
 		#else
 			SYSTEMTIME time;
@@ -84,7 +84,7 @@ LPCTSTR Error( LPCTSTR strFormat, ... )
 				time.wHour, time.wMinute, time.wSecond, 
 				szBuff );		
 			
-			DEBUGOUT2( szStr );	// íŒŒì¼ë¡œ ì“°ê¸° 	
+			DEBUGOUT2( szStr );	// ÆÄÀÏ·Î ¾²±â 	
 		#endif
 	}
 	else
@@ -105,7 +105,7 @@ LPCTSTR Error( LPCTSTR strFormat, ... )
 	if( n > 0 )
 	{
 #if defined(_DEBUG) && defined(__XUZHU)
-		if( g_bShowMsgBox && MessageBox( NULL, szBuff, "ì˜¤ë¥˜", MB_OKCANCEL) == IDCANCEL )
+		if( g_bShowMsgBox && MessageBox( NULL, szBuff, "¿À·ù", MB_OKCANCEL) == IDCANCEL )
 			g_bShowMsgBox	= FALSE;		
 #endif
 		char szStr[8192];
@@ -125,24 +125,24 @@ LPCTSTR Error( LPCTSTR strFormat, ... )
 
 
 
-// íŒŒì¼íƒ€ì´í‹€ê³¼ í™•ìž¥ìžë¥¼ ë¦¬í„´  ex) test.wri
+// ÆÄÀÏÅ¸ÀÌÆ²°ú È®ÀåÀÚ¸¦ ¸®ÅÏ  ex) test.wri
 /*
 LPCTSTR		GetFileName( LPCTSTR szSrc )
 {
 	int		len, i;
 
-	// íŒŒì¼ëª…ë§Œ ì¶”ì¶œ.
+	// ÆÄÀÏ¸í¸¸ ÃßÃâ.
 	memset( _szTempBuff, 0, 256 );
-	len = strlen( szSrc );		// í’€ë„¤ìž„ ê¸¸ì´ ì½ìŒ
+	len = strlen( szSrc );		// Ç®³×ÀÓ ±æÀÌ ÀÐÀ½
 	i = len;
 	while( i-- )
-	{	// ìŠ¤íŠ¸ë§ ë’¤ì—ì„œ ë¶€í„° í›‘ìœ¼ë©° \ê°€ ë‚˜ì˜¤ëŠ”ê³³ì„ ì°¾ëŠ”ë‹¤.
+	{	// ½ºÆ®¸µ µÚ¿¡¼­ ºÎÅÍ ÈÈÀ¸¸ç \°¡ ³ª¿À´Â°÷À» Ã£´Â´Ù.
 		if( szSrc[i] == '\\' )
 		{
-			strcpy( _szTempBuff, szSrc + i + 1 );	// \ê°€ ë‚˜ì˜¨ ë‹¤ìŒ ì¹¸ë¶€í„° íŒŒì¼ëª…ìœ¼ë¡œ ì”€
+			strcpy( _szTempBuff, szSrc + i + 1 );	// \°¡ ³ª¿Â ´ÙÀ½ Ä­ºÎÅÍ ÆÄÀÏ¸íÀ¸·Î ¾¸
 			break;
 		}
-		if( i == 0 )		// ëê¹Œì§€ ê²€ìƒ‰í–ˆëŠ”ë°ë„ \ê°€ ë‚˜ì˜¤ì§€ ì•Šì•˜ìœ¼ë©´ ê·¸ëŒ€ë¡œ ì”€
+		if( i == 0 )		// ³¡±îÁö °Ë»öÇß´Âµ¥µµ \°¡ ³ª¿ÀÁö ¾Ê¾ÒÀ¸¸é ±×´ë·Î ¾¸
 			strcpy( _szTempBuff, szSrc );
 	}
 
@@ -152,21 +152,21 @@ LPCTSTR		GetFileName( LPCTSTR szSrc )
 void	GetFileName( LPCTSTR szSrc, LPTSTR szFileName )
 {
 	int	len, i;
-	// íŒŒì¼ëª…ë§Œ ì¶”ì¶œ.
-	i	= len	= strlen( szSrc );		// í’€ë„¤ìž„ ê¸¸ì´ ì½ìŒ
+	// ÆÄÀÏ¸í¸¸ ÃßÃâ.
+	i	= len	= strlen( szSrc );		// Ç®³×ÀÓ ±æÀÌ ÀÐÀ½
 	while( i-- )
-	{	// ìŠ¤íŠ¸ë§ ë’¤ì—ì„œ ë¶€í„° í›‘ìœ¼ë©° \ê°€ ë‚˜ì˜¤ëŠ”ê³³ì„ ì°¾ëŠ”ë‹¤.
+	{	// ½ºÆ®¸µ µÚ¿¡¼­ ºÎÅÍ ÈÈÀ¸¸ç \°¡ ³ª¿À´Â°÷À» Ã£´Â´Ù.
 		if( szSrc[i] == '\\' )
 		{
-			lstrcpy( szFileName, szSrc + i + 1 );	// \ê°€ ë‚˜ì˜¨ ë‹¤ìŒ ì¹¸ë¶€í„° íŒŒì¼ëª…ìœ¼ë¡œ ì”€
+			lstrcpy( szFileName, szSrc + i + 1 );	// \°¡ ³ª¿Â ´ÙÀ½ Ä­ºÎÅÍ ÆÄÀÏ¸íÀ¸·Î ¾¸
 			break;
 		}
-		if( i == 0 )		// ëê¹Œì§€ ê²€ìƒ‰í–ˆëŠ”ë°ë„ \ê°€ ë‚˜ì˜¤ì§€ ì•Šì•˜ìœ¼ë©´ ê·¸ëŒ€ë¡œ ì”€
+		if( i == 0 )		// ³¡±îÁö °Ë»öÇß´Âµ¥µµ \°¡ ³ª¿ÀÁö ¾Ê¾ÒÀ¸¸é ±×´ë·Î ¾¸
 			lstrcpy( szFileName, szSrc );
 	}
 }
 
-// íŒŒì¼íƒ€ì´í‹€ë§Œ ìž„ì‹œë²„í¼ì— ì €ìž¥	ex) test
+// ÆÄÀÏÅ¸ÀÌÆ²¸¸ ÀÓ½Ã¹öÆÛ¿¡ ÀúÀå	ex) test
 /*
 LPCTSTR		GetFileTitle( LPCTSTR szSrc )
 {
@@ -174,12 +174,12 @@ LPCTSTR		GetFileTitle( LPCTSTR szSrc )
 	LPCTSTR	szName;
 	char	buff[256];
 
-	szName = GetFileName( szSrc );		// íŒ¨ìŠ¤ëŠ” ë–¼ë„¤ê³  íŒŒì¼ëª…ì˜ ì‹œìž‘ í¬ì¸í„°ë¥¼ ë¦¬í„´
+	szName = GetFileName( szSrc );		// ÆÐ½º´Â ¶¼³×°í ÆÄÀÏ¸íÀÇ ½ÃÀÛ Æ÷ÀÎÅÍ¸¦ ¸®ÅÏ
 	strcpy( buff, szName );
 	szSrc = buff;		// xuzhu.txt
 
-	// íŒŒì¼ëª…ë§Œ ì¶”ì¶œ.
-	len = strlen( szSrc );		// í’€ë„¤ìž„ ê¸¸ì´ ì½ìŒ
+	// ÆÄÀÏ¸í¸¸ ÃßÃâ.
+	len = strlen( szSrc );		// Ç®³×ÀÓ ±æÀÌ ÀÐÀ½
 	for( i = 0; i < len; i ++ )
 	{
 		if( szSrc[i] == '.' )	break;
@@ -193,10 +193,10 @@ LPCTSTR		GetFileTitle( LPCTSTR szSrc )
 void	GetFileTitle( LPCTSTR szSrc, LPTSTR szFileTitle )
 {
 	int		len, i;
-	GetFileName( szSrc, szFileTitle );		// íŒ¨ìŠ¤ ë¶„ë¦¬
+	GetFileName( szSrc, szFileTitle );		// ÆÐ½º ºÐ¸®
 
-	// íŒŒì¼ëª… ì¶”ì¶œ.
-	len	= strlen( szFileTitle );	// í’€ë„¤ìž„ ê¸¸ì´ ì½ìŒ
+	// ÆÄÀÏ¸í ÃßÃâ.
+	len	= strlen( szFileTitle );	// Ç®³×ÀÓ ±æÀÌ ÀÐÀ½
 	for( i = 0; i < len; i ++ )
 	{
 		if( szFileTitle[i] == '.' )
@@ -206,22 +206,22 @@ void	GetFileTitle( LPCTSTR szSrc, LPTSTR szFileTitle )
 }
 
 
-// í™•ìž¥ìžë§Œ ë¦¬í„´.
+// È®ÀåÀÚ¸¸ ¸®ÅÏ.
 /*
 LPCTSTR		GetFileExt( LPCTSTR szSrc )
 {
 	int		len, i;
 	
-	// íŒŒì¼ëª…ë§Œ ì¶”ì¶œ.
+	// ÆÄÀÏ¸í¸¸ ÃßÃâ.
 	
 	memset( _szTempBuff, 0, sizeof(_szTempBuff) );
-	len = strlen( szSrc );		// í’€ë„¤ìž„ ê¸¸ì´ ì½ìŒ
+	len = strlen( szSrc );		// Ç®³×ÀÓ ±æÀÌ ÀÐÀ½
 	i = len;
 	while( i-- )
-	{	// ìŠ¤íŠ¸ë§ ë’¤ì—ì„œ ë¶€í„° í›‘ìœ¼ë©° .ì´ ë‚˜ì˜¤ëŠ”ê³³ì„ ì°¾ëŠ”ë‹¤.
+	{	// ½ºÆ®¸µ µÚ¿¡¼­ ºÎÅÍ ÈÈÀ¸¸ç .ÀÌ ³ª¿À´Â°÷À» Ã£´Â´Ù.
 		if( szSrc[i] == '.' )
 		{
-			strcpy( _szTempBuff, szSrc + i + 1 );	// .ê°€ ë‚˜ì˜¨ ë‹¤ìŒ ì¹¸ë¶€í„° í™•ìž¥ìžë¡œ ì”€
+			strcpy( _szTempBuff, szSrc + i + 1 );	// .°¡ ³ª¿Â ´ÙÀ½ Ä­ºÎÅÍ È®ÀåÀÚ·Î ¾¸
 			break;
 		}
 	}
@@ -232,31 +232,31 @@ LPCTSTR		GetFileExt( LPCTSTR szSrc )
 void	GetFileExt( LPCTSTR szSrc, LPTSTR szFileExt )
 {
 	int		len, i;
-	len	= strlen( szSrc );		// í’€ë„¤ìž„ ê¸¸ì´ ì½ìŒ
+	len	= strlen( szSrc );		// Ç®³×ÀÓ ±æÀÌ ÀÐÀ½
 	i	= len;
 	while( i-- )
-	{	// ìŠ¤íŠ¸ë§ ë’¤ì—ì„œ ë¶€í„° í›‘ìœ¼ë©° .ì´ ë‚˜ì˜¤ëŠ”ê³³ì„ ì°¾ëŠ”ë‹¤.
+	{	// ½ºÆ®¸µ µÚ¿¡¼­ ºÎÅÍ ÈÈÀ¸¸ç .ÀÌ ³ª¿À´Â°÷À» Ã£´Â´Ù.
 		if( szSrc[i] == '.' )
 		{
-			lstrcpy( szFileExt, szSrc + i + 1 );	// .ê°€ ë‚˜ì˜¨ ë‹¤ìŒ ì¹¸ë¶€í„° í™•ìž¥ìžë¡œ ì”€
+			lstrcpy( szFileExt, szSrc + i + 1 );	// .°¡ ³ª¿Â ´ÙÀ½ Ä­ºÎÅÍ È®ÀåÀÚ·Î ¾¸
 			break;
 		}
 	}
 }
 
-// í’€ë„¤ìž„ì—ì„œ íŒ¨ìŠ¤ ë¶€ë¶„ë§Œ ë¦¬í„´í•¨
+// Ç®³×ÀÓ¿¡¼­ ÆÐ½º ºÎºÐ¸¸ ¸®ÅÏÇÔ
 /*
 LPCTSTR		GetFilePath( LPCTSTR szSrc )
 {
-	int len = strlen( szSrc );		// í’€ë„¤ìž„ ê¸¸ì´êµ¬í•¨
+	int len = strlen( szSrc );		// Ç®³×ÀÓ ±æÀÌ±¸ÇÔ
 
-	// ë§ˆì§€ë§‰ \ì°¾ìŒ
+	// ¸¶Áö¸· \Ã£À½
 	for( int i = len-1; i >= 0; i -- )
 	{
 		if( szSrc[i] == '\\' )
 			break;
 	}
-	strncpy( _szTempBuff, szSrc, i+1 );		// íŒ¨ìŠ¤ ë¶€ë¶„ë§Œ ì¹´í”¼
+	strncpy( _szTempBuff, szSrc, i+1 );		// ÆÐ½º ºÎºÐ¸¸ Ä«ÇÇ
 	_szTempBuff[i+1] = '\0';
 	return _szTempBuff;
 }
@@ -264,20 +264,20 @@ LPCTSTR		GetFilePath( LPCTSTR szSrc )
 
 void	GetFilePath( LPCTSTR szSrc, LPTSTR szFilePath )
 {
-	int len	= strlen( szSrc );	// í’€ë„¤ìž„ ê¸¸ì´êµ¬í•¨
+	int len	= strlen( szSrc );	// Ç®³×ÀÓ ±æÀÌ±¸ÇÔ
 	int i;
-	// ë§ˆì§€ë§‰ \ì°¾ìŒ
+	// ¸¶Áö¸· \Ã£À½
 	for( i = len-1; i >= 0; i -- )
 	{
 		if( szSrc[i] == '\\' )
 			break;
 	}
-	strncpy( szFilePath, szSrc, i+1 );		// íŒ¨ìŠ¤ ë¶€ë¶„ë§Œ ì¹´í”¼
+	strncpy( szFilePath, szSrc, i+1 );		// ÆÐ½º ºÎºÐ¸¸ Ä«ÇÇ
 	szFilePath[i+1] = '\0';
 }
 
 
-//CPU ì •ë³´ë¥¼ ë‚˜íƒ€ë‚¸ë‹¤.
+//CPU Á¤º¸¸¦ ³ªÅ¸³½´Ù.
 #ifdef __CLIENT
 static	char	_szTempBuff[256];
 LPCTSTR GetCPUInfo( void ) 

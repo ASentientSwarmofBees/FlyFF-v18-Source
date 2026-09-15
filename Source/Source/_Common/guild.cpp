@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 
 
@@ -87,7 +87,7 @@ CGuildVote::~CGuildVote()
 {
 }
 
-// VOTE_INSERTED_INFO êµ¬ì¡°ì²´ë¥¼ ì´ìš©í•´ì„œ ì´ˆê¸°í™”í•˜ê¸° 
+// VOTE_INSERTED_INFO ±¸Á¶Ã¼¸¦ ÀÌ¿ëÇØ¼­ ÃÊ±âÈ­ÇÏ±â 
 void CGuildVote::Init( const VOTE_INSERTED_INFO& info, bool bCompleted, BYTE* cbCounts )
 {
 	m_idVote = info.idVote;						
@@ -104,7 +104,7 @@ void CGuildVote::Init( const VOTE_INSERTED_INFO& info, bool bCompleted, BYTE* cb
 	}
 }
 
-// íˆ¬í‘œí•˜ê¸° 
+// ÅõÇ¥ÇÏ±â 
 void CGuildVote::Cast( BYTE cbSelect )
 {
 	ASSERT( cbSelect < 4 );
@@ -158,7 +158,7 @@ CGuildTable::~CGuildTable()
 {
 }
 
-// arì— ì½ê¸°, ì“°ê¸° - databaseì„œë²„ì—ì„œ coreì„œë²„ì— socketì„ í†µí•´ì„œ ë³´ë‚´ê¸° ìœ„í•´ì„œ 
+// ar¿¡ ÀĞ±â, ¾²±â - database¼­¹ö¿¡¼­ core¼­¹ö¿¡ socketÀ» ÅëÇØ¼­ º¸³»±â À§ÇØ¼­ 
 void CGuildTable::Serialize( CAr & ar )
 {
 	if( ar.IsStoring() )
@@ -183,7 +183,7 @@ void CGuildTable::Serialize( CAr & ar )
 	}
 }
 
-// ìŠ¤í¬ë¦½íŠ¸ íŒŒì¼ì—ì„œ ì½ê¸° 
+// ½ºÅ©¸³Æ® ÆÄÀÏ¿¡¼­ ÀĞ±â 
 BOOL CGuildTable::ReadBlock( CScript & script )
 {
 	script.GetToken(); // { 
@@ -204,21 +204,21 @@ BOOL CGuildTable::ReadBlock( CScript & script )
 	return TRUE;
 }
 
-// ë ˆë²¨ì—…ì— í•„ìš”í•œ PXPê³µí—ŒíšŸìˆ˜  
+// ·¹º§¾÷¿¡ ÇÊ¿äÇÑ PXP°øÇåÈ½¼ö  
 DWORD CGuildTable::GetPxpCount(WORD nLevel) const
 {
 	ASSERT( 1 <= nLevel && nLevel <= m_nCount );
 	return m_table[nLevel - 1].dwPxpCount;
 }
 
-// ë ˆë²¨ì—…ì— í•„ìš”í•œ í˜ëƒ 
+// ·¹º§¾÷¿¡ ÇÊ¿äÇÑ Æä³Ä 
 DWORD CGuildTable::GetPenya(WORD nLevel) const 
 {
 	ASSERT( 1 <= nLevel && nLevel <= m_nCount );
 	return m_table[nLevel - 1].dwPenya;
 }
 
-// ìµœëŒ€ì¸ì›ìˆ˜ 
+// ÃÖ´ëÀÎ¿ø¼ö 
 WORD CGuildTable::GetMaxMemeber(WORD nLevel) const
 {
 	ASSERT( 1 <= nLevel && nLevel <= m_nCount );
@@ -419,9 +419,9 @@ void CGuild::Serialize( CAr & ar, BOOL bDesc )
 		{
 			ar.Write( m_adwPower, sizeof(m_adwPower) );
 			ar.Write( m_adwPenya, sizeof(m_adwPenya) );
-			ar.WriteString( m_szNotice );	// ê³µì§€ì‚¬í•­ 
-			ar << m_dwContributionPxp;		// ê³µí—Œëœ PXP
-			ar << m_nLevel;					// ë ˆë²¨ 
+			ar.WriteString( m_szNotice );	// °øÁö»çÇ× 
+			ar << m_dwContributionPxp;		// °øÇåµÈ PXP
+			ar << m_nLevel;					// ·¹º§ 
 			ar << m_idEnemyGuild;
 			ar << (short)GetSize();
 			for( map<u_long, CGuildMember*>::iterator i = m_mapPMember.begin(); i != m_mapPMember.end(); ++i )
@@ -448,9 +448,9 @@ void CGuild::Serialize( CAr & ar, BOOL bDesc )
 		{
 			ar.Read( m_adwPower, sizeof(m_adwPower) );
 			ar.Read( m_adwPenya, sizeof(m_adwPenya) );
-			ar.ReadString( m_szNotice, MAX_BYTE_NOTICE );	// ê³µì§€ì‚¬í•­ 
-			ar >> m_dwContributionPxp;		// ê³µí—Œëœ PXP
-			ar >> m_nLevel;					// ë ˆë²¨ 
+			ar.ReadString( m_szNotice, MAX_BYTE_NOTICE );	// °øÁö»çÇ× 
+			ar >> m_dwContributionPxp;		// °øÇåµÈ PXP
+			ar >> m_nLevel;					// ·¹º§ 
 			ar >> m_idEnemyGuild;
 
 			short i, nSize	= 0;
@@ -515,7 +515,7 @@ int	CGuild::GetMaxMemberSize( void )
 
 BOOL CGuild::SetLogo( DWORD dwLogo )
 {
-	if( m_dwLogo )		// ë¡œê³ ëŠ” í•œë²ˆë§Œ settingê°€ëŠ¥ 
+	if( m_dwLogo )		// ·Î°í´Â ÇÑ¹ø¸¸ setting°¡´É 
 		return FALSE;
 
 	m_dwLogo = dwLogo;
@@ -529,7 +529,7 @@ void CGuild::SetContribution( CONTRIBUTION_CHANGED_INFO& info )
 	m_dwContributionPxp	= info.dwGuildPxpCount;
 
 	CGuildMember* pMember = GetMember( info.idPlayer );
-	if( pMember == NULL )	// ë©¤ë²„ íƒˆí‡´?
+	if( pMember == NULL )	// ¸â¹ö Å»Åğ?
 	{
 		TRACE("CGuild::SetContribution - Guild[%d] idPlayer[%d] not found \n", m_idGuild, info.idPlayer );
 		return;
@@ -541,7 +541,7 @@ void CGuild::SetContribution( CONTRIBUTION_CHANGED_INFO& info )
 void CGuild::DecrementMemberContribution( u_long idPlayer, DWORD dwPenya, DWORD dwPxpCount )
 {
 	CGuildMember* pMember = GetMember( idPlayer );
-	if( pMember == NULL )	// ë©¤ë²„ íƒˆí‡´?
+	if( pMember == NULL )	// ¸â¹ö Å»Åğ?
 	{
 		TRACE("CGuild::SetContribution - Guild[%d] idPlayer[%d] not found \n", m_idGuild, idPlayer );
 		return;
@@ -550,10 +550,10 @@ void CGuild::DecrementMemberContribution( u_long idPlayer, DWORD dwPenya, DWORD 
 	pMember->m_nGiveGold -= (int)dwPenya;
 }
 
-//ê³µí—Œê°€ëŠ¥í•œê°€?
+//°øÇå°¡´ÉÇÑ°¡?
 CONTRIBUTION_RESULT CGuild::CanContribute( DWORD dwPxp, DWORD dwPenya, u_long idPlayer )
 {
-	if( dwPxp > 0 && m_nLevel >= CGuildTable::GetInstance().GetMaxLevel() )  // pxpë§Œ ìµœëŒ€ë ˆë²¨ì—ì„œ ì²´í¬ 
+	if( dwPxp > 0 && m_nLevel >= CGuildTable::GetInstance().GetMaxLevel() )  // pxp¸¸ ÃÖ´ë·¹º§¿¡¼­ Ã¼Å© 
 		return CONTRIBUTION_FAIL_MAXLEVEL;
 
 	if( m_dwContributionPxp + dwPxp < m_dwContributionPxp )  
@@ -578,7 +578,7 @@ CONTRIBUTION_RESULT CGuild::CanContribute( DWORD dwPxp, DWORD dwPenya, u_long id
 	return CONTRIBUTION_OK;
 }
 
-// ê³µí—Œí•˜ê¸° (COREì„œë²„ë§Œ ì‚¬ìš©í•œë‹¤.)
+// °øÇåÇÏ±â (CORE¼­¹ö¸¸ »ç¿ëÇÑ´Ù.)
 BOOL CGuild::AddContribution( DWORD dwPxp, DWORD dwPenya, u_long idPlayer )
 {
 	if( CanContribute( dwPxp, dwPenya, idPlayer) != CONTRIBUTION_OK )
@@ -613,7 +613,7 @@ void CGuild::SetNotice( const char* szNotice )
 	m_szNotice[MAX_BYTE_NOTICE-1] = '\0';
 }
 
-// íˆ¬í‘œì‚½ì… 
+// ÅõÇ¥»ğÀÔ 
 void CGuild::AddVote( const VOTE_INSERTED_INFO& info, bool bCompleted, BYTE* cbCounts )
 {
 	if( m_votes.size() >= MAX_VOTE_ENTRY )
@@ -627,7 +627,7 @@ void CGuild::AddVote( const VOTE_INSERTED_INFO& info, bool bCompleted, BYTE* cbC
 	m_votes.push_back( pVote );
 }
 
-// íˆ¬í‘œ ì°¾ê¸° 
+// ÅõÇ¥ Ã£±â 
 CGuildVote* CGuild::FindVote( u_long idVote )
 {
 	list <CGuildVote*>::iterator it = m_votes.begin();
@@ -639,7 +639,7 @@ CGuildVote* CGuild::FindVote( u_long idVote )
 	return NULL;
 }
 
-// idVoteíˆ¬í‘œì˜ ë°ì´íƒ€ë¥¼ ë³€ê²½í•˜ê¸° 
+// idVoteÅõÇ¥ÀÇ µ¥ÀÌÅ¸¸¦ º¯°æÇÏ±â 
 bool CGuild::ModifyVote( u_long idVote, BYTE cbOperation, BYTE cbExtra )
 {
 	CGuildVote* pVote = FindVote( idVote );
@@ -808,7 +808,7 @@ void CGuildMng::Serialize( CAr & ar, BOOL bDesc )
 		for( map<u_long, CGuild*>::iterator i = m_mapPGuild.begin(); i != m_mapPGuild.end(); ++i )
 			( i->second )->Serialize( ar, bDesc );
 		
-		// ê¸¸ë“œë­í¬ ì •ë³´ ë¡œë“œ
+		// ±æµå·©Å© Á¤º¸ ·Îµå
 #ifdef __GUILDRANK
 		CGuildRank::Instance()->Serialize( ar );
 #endif
@@ -830,7 +830,7 @@ void CGuildMng::Serialize( CAr & ar, BOOL bDesc )
 				m_mapPGuild2.insert( map<string, CGuild*>::value_type( pGuild->m_szGuild, pGuild ) );
 		}
 
-		// ê¸¸ë“œë­í¬ ì •ë³´  ì“°ê¸°
+		// ±æµå·©Å© Á¤º¸  ¾²±â
 #ifdef __GUILDRANK
 		CGuildRank::Instance()->Serialize( ar );
 #endif
@@ -845,16 +845,16 @@ void CGuildMng::AddConnection( CPlayer* pPlayer )
 	CGuild* pGuild	= GetGuild( pPlayer->m_idGuild );
 	if( !pGuild || !pGuild->IsMember( pPlayer->uKey ) )
 	{
-		// ê¸¸ë“œì— ì¶”ê°€ ë˜ì–´ ìˆì§€ ì•Šë‹¤
+		// ±æµå¿¡ Ãß°¡ µÇ¾î ÀÖÁö ¾Ê´Ù
 		pPlayer->m_idGuild	= 0;
 	}
 	else
 	{
 		if( pGuild->GetSize() > MAX_GM_SIZE )
 			return;
-		// ê¸¸ë“œì— ì¶”ê°€ ë˜ì–´ ìˆìŒ
-		// ë‚´ê°€ ë“¤ì–´ì™”ìœ¼ë¯€ë¡œ ê¸¸ë“œì›ë“¤ì—ê²Œ ë¡œê·¸ì¸ ìƒíƒœì™€ ë‚˜ì˜ ë©€í‹°ë²ˆí˜¸ë¥¼ ì£¼ì–´ì•¼ í•œë‹¤
-		// ë‚˜ì—ê²ŒëŠ” ê¸¸ë“œì›ë“¤ì˜ ë¡œê·¸ì¸ ìƒíƒœì™€ ë©€í‹°ë²ˆí˜¸ë¥¼ ì£¼ì–´ì•¼ í•œë‹¤.
+		// ±æµå¿¡ Ãß°¡ µÇ¾î ÀÖÀ½
+		// ³»°¡ µé¾î¿ÔÀ¸¹Ç·Î ±æµå¿øµé¿¡°Ô ·Î±×ÀÎ »óÅÂ¿Í ³ªÀÇ ¸ÖÆ¼¹øÈ£¸¦ ÁÖ¾î¾ß ÇÑ´Ù
+		// ³ª¿¡°Ô´Â ±æµå¿øµéÀÇ ·Î±×ÀÎ »óÅÂ¿Í ¸ÖÆ¼¹øÈ£¸¦ ÁÖ¾î¾ß ÇÑ´Ù.
 		int nMaxLogin = 0;
 		u_long uLoginPlayerId[MAX_GM_SIZE];
 		u_long uLoginGuildMulti[MAX_GM_SIZE];
@@ -886,7 +886,7 @@ void CGuildMng::RemoveConnection( CPlayer* pPlayer )
 	CGuild* pGuild	= GetGuild( pPlayer->m_idGuild );
 	if( pGuild )
 	{
-		// ë‚´ê°€ ë‚˜ê°€ë¯€ë¡œ ê¸¸ë“œì›ë“¤ì—ê²Œ ë¡œê·¸ì•„ì›ƒ ìƒíƒœ
+		// ³»°¡ ³ª°¡¹Ç·Î ±æµå¿øµé¿¡°Ô ·Î±×¾Æ¿ô »óÅÂ
 		CGuildMember* pMember;
 		CPlayer* pSendPlayer;
 		for( map<u_long, CGuildMember*>::iterator i = pGuild->m_mapPMember.begin();
@@ -896,7 +896,7 @@ void CGuildMng::RemoveConnection( CPlayer* pPlayer )
 			if( pMember->m_idPlayer != pPlayer->uKey )
 			{
 				pSendPlayer	= g_PlayerMng.GetPlayer( pMember->m_idPlayer );
-				// í´ë¼ë“¤ì—ê²Œ í†µë³´
+				// Å¬¶óµé¿¡°Ô Åëº¸
 				if( pSendPlayer )
 					g_DPCacheSrvr.SendGuildMemberLogin( pSendPlayer, 0, pPlayer->uKey, 100 );
 			}
@@ -1032,7 +1032,7 @@ void CGuild::Replace( DWORD dwWorldId, D3DXVECTOR3 & vPos, BOOL bMasterAround )
 			if( pMaster && !pMaster->IsNearPC( pUser->GetId() ) )
 				continue;
 
-			if( GetQuest( QUEST_WARMON_LV1 ) != NULL ) // í´ë½ì›Œí¬ í€˜ìŠ¤íŠ¸ë©´ ë¹„í–‰ í•´ì œ
+			if( GetQuest( QUEST_WARMON_LV1 ) != NULL ) // Å¬¶ô¿öÅ© Äù½ºÆ®¸é ºñÇà ÇØÁ¦
 				pUser->UnequipRide();
 			pUser->REPLACE( g_uIdofMulti, dwWorldId, vPos, REPLACE_NORMAL, nTempLayer );
 		}

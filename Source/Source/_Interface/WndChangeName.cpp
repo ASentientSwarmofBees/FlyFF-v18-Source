@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "resData.h"
 #include "WndChangeName.h"
 #include "dpclient.h"
@@ -217,7 +217,7 @@ BOOL CWndChangePetName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0020) ) );
 			return TRUE;
 		}
-		// í« ì´ë¦„ì„ ë°”ê¾¸ë„ë¡ ìš”ì²­í•˜ëŠ” í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œë‹¤
+		// Æê ÀÌ¸§À» ¹Ù²Ùµµ·Ï ¿äÃ»ÇÏ´Â ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù
 		 g_DPlay.SendDoUseItemInput(m_dwId, (LPSTR)(LPCSTR)string);
 		Destroy();
 	}

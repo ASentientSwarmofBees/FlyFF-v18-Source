@@ -1,4 +1,4 @@
-ÔªøtEvent = {}
+tEvent = {}
 tNotice = {}
 bNotice = false
 
@@ -307,10 +307,10 @@ function GetItem( nTickCount, nLevel )
 					tReturn[nCount].ItemNum = nRandom
 					tItem[j].Skip = nRandom - 1
 					nCount = nCount + 1
-					TRACE( "Event.lua : GetItem() - Drop - "..tItem[j].ItemId..", "..nRandom.."Í∞ú, Skip:"..tItem[j].Skip.." ÏãúÍ∞ÑÎåÄ:"..(nHour-1).." ~ "..nHour )
+					TRACE( "Event.lua : GetItem() - Drop - "..tItem[j].ItemId..", "..nRandom.."∞≥, Skip:"..tItem[j].Skip.." Ω√∞£¥Î:"..(nHour-1).." ~ "..nHour )
 				else
 					tItem[j].Skip = tItem[j].Skip - 1
-					TRACE( "Event.lua : GetItem() - Skip - "..tItem[j].ItemId..", ÎÇ®ÏùÄ Skip:"..tItem[j].Skip.." ÏãúÍ∞ÑÎåÄ:"..(nHour-1).." ~ "..nHour )
+					TRACE( "Event.lua : GetItem() - Skip - "..tItem[j].ItemId..", ≥≤¿∫ Skip:"..tItem[j].Skip.." Ω√∞£¥Î:"..(nHour-1).." ~ "..nHour )
 				end
 			end
 		end

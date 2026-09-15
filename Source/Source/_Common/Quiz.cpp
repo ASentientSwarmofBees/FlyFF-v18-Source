@@ -1,4 +1,4 @@
-ï»¿// Quiz.cpp: implementation of the CQuiz class.
+// Quiz.cpp: implementation of the CQuiz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -208,14 +208,14 @@ int CQuiz::EntranceQuizEvent( CUser* pUser )
 	
 	else if( m_nState == QE_OPEN || m_nState == QE_WATCHINGZONE_OPEN )
 	{
-		// í€´ì¦ˆ ì¡´ ì…ì¥
+		// ÄûÁî Á¸ ÀÔÀå
 		if( !TeleportToQuizEvent( pUser, ZONE_QUIZ ) )
 			g_dpDBClient.SendQuizEventEntrance( pUser->m_idPlayer, g_uIdofMulti );
 		return 0;
 	}
 	else
 	{
-		// ëŒ€ê¸° ì¡´ ì…ì¥
+		// ´ë±â Á¸ ÀÔÀå
 		if( !TeleportToQuizEvent( pUser, ZONE_WATCHING ) )
 			g_dpDBClient.SendQuizEventEntrance( pUser->m_idPlayer, g_uIdofMulti );
 		return 0;
@@ -300,7 +300,7 @@ void CQuiz::Process()
 	switch( m_nState )
 	{
 	case QE_CLOSE:
-		// í€´ì¦ˆ ì´ë²¤íŠ¸ ì¢…ë£Œ. ëª¨ë“  ìœ ì € ë°–ìœ¼ë¡œ ì´ë™
+		// ÄûÁî ÀÌº¥Æ® Á¾·á. ¸ğµç À¯Àú ¹ÛÀ¸·Î ÀÌµ¿
 		if( dwTick > GetNextTime() )
 			CloseQuizEvent();
 
@@ -351,7 +351,7 @@ void CQuiz::Process()
 		break;
 
 	case QE_QUESTION:
-		// ë¬¸ì œ ì¶œì œ
+		// ¹®Á¦ ÃâÁ¦
 		if( dwTick > GetNextTime() )
 		{
 			// UI
@@ -377,10 +377,10 @@ void CQuiz::Process()
 		break;
 		
 	case QE_CORRECT_ANSWER:
-		// ì •ë‹µ ê³µê°œ
+		// Á¤´ä °ø°³
 		if( dwTick > GetNextTime() )
 		{
-/*			// ìœ ì € ì´ë™ ë¶ˆê°€ - object
+/*			// À¯Àú ÀÌµ¿ ºÒ°¡ - object
 			DWORD dwId	= NULL;
 			
 			if( GetType() == TYPE_OX )
@@ -412,11 +412,11 @@ void CQuiz::Process()
 					pWorld->ADDOBJ( m_pHObj, TRUE, nDefaultLayer );
 			}*/
 
-			// ë¬¸ì œ í’€ì´ ì¢…ë£Œ ë©”ì„¸ì§€
+			// ¹®Á¦ Ç®ÀÌ Á¾·á ¸Ş¼¼Áö
 			CString str_Message;
 			str_Message.Format( prj.GetText( TID_GAME_QUIZ_END_SOLVE_QUESTION ), m_nQuizCount );
 
-			// ì •ë‹µ ë©”ì„¸ì§€
+			// Á¤´ä ¸Ş¼¼Áö
 			CString strMessage;
 			if( GetType() == TYPE_OX )
 			{
@@ -454,7 +454,7 @@ void CQuiz::Process()
 	case QE_DROP_OUT:
 		if( dwTick > GetNextTime() )
 		{
-			// íƒˆë½ì ëŒ€ê¸°ì¡´ìœ¼ë¡œ ì´ë™
+			// Å»¶ôÀÚ ´ë±âÁ¸À¸·Î ÀÌµ¿
 			DropOutWrongUser( (*it).nQuizId, (*it).nCorrect );
 			m_vecQuizList.erase( it );
 		}
@@ -463,7 +463,7 @@ void CQuiz::Process()
 		
 	case QE_CLOSE_WAIT:
 		{
-			// ë¬¸ì œê°€ ìš”êµ¬ì¹˜ ë³´ë‹¤ ë§ì´ ë‚¨ì•„ìˆì„ ì‹œ ëŒ€ê¸°ì¡´ ê°œë°©
+			// ¹®Á¦°¡ ¿ä±¸Ä¡ º¸´Ù ¸¹ÀÌ ³²¾ÆÀÖÀ» ½Ã ´ë±âÁ¸ °³¹æ
 			if( m_vecQuizList.size() > REMAIN_QUIZ )
 			{
 				CWorld* pWorld = g_WorldMng.GetWorld( WI_WORLD_QUIZ );
@@ -485,7 +485,7 @@ void CQuiz::Process()
 				m_nQuizCount = 0;
 				g_dpDBClient.SendQuizEventState( QE_WATCHINGZONE_OPEN, g_uIdofMulti );
 			}
-			// ë¬¸ì œê°€ ìš”êµ¬ì¹˜ ë³´ë‹¤ ì ì„ ì‹œ í€´ì¦ˆ ì´ë²¤íŠ¸ ì¢…ë£Œ
+			// ¹®Á¦°¡ ¿ä±¸Ä¡ º¸´Ù ÀûÀ» ½Ã ÄûÁî ÀÌº¥Æ® Á¾·á
 			else
 			{
 				g_DPCoreClient.SendQuizSystemMessage( TID_GAME_QUIZ_CLOSING, TRUE, g_uIdofMulti );
@@ -498,7 +498,7 @@ void CQuiz::Process()
 		break;
 
 	case QE_WATCHINGZONE_OPEN:
-		// ëŒ€ê¸°ì¡´ ê°œë°©
+		// ´ë±âÁ¸ °³¹æ
 		if( dwTick > GetNextTime() )
 		{
 			BOOL bAble = FALSE;
@@ -558,8 +558,8 @@ void CQuiz::DropOutWrongUser( int nQuizId, int nCorrect, int nItemId, int nItemN
 				if( PtInCorrectZoneRect( static_cast<CUser*>( pWorld->m_apObject[i] ), nCorrect ) )
 				{
 					++nCorrectUser;
-					// 091014 - mirchang : ì‹œìŠ¤í…œ ë¶€í•˜ ë°œìƒ ê°€ëŠ¥ì„±ì´ ìˆì–´ ë³´ë¥˜
-					//if( nItemId > 0 )	// Item Idê°€ ìˆì„ì‹œ ì •ë‹µìì—ê²Œ í•´ë‹¹ ì•„ì´í…œ ì§€ê¸‰
+					// 091014 - mirchang : ½Ã½ºÅÛ ºÎÇÏ ¹ß»ı °¡´É¼ºÀÌ ÀÖ¾î º¸·ù
+					//if( nItemId > 0 )	// Item Id°¡ ÀÖÀ»½Ã Á¤´äÀÚ¿¡°Ô ÇØ´ç ¾ÆÀÌÅÛ Áö±Ş
 					//	g_dpDBClient.SendPostPrizeItem( static_cast<CUser*>( pWorld->m_apObject[i] )->m_idPlayer, nItemId, nItemNum );
 				}
 			}
@@ -567,14 +567,14 @@ void CQuiz::DropOutWrongUser( int nQuizId, int nCorrect, int nItemId, int nItemN
 		if( nCorrectUser <= LIMIT_USER_COUNT )
 			m_bSelectLog = TRUE;
 	}
-	// ì •ë‹µì ìˆ˜ê°€ 2ëª… ì´ìƒì´ê³  ë¬¸ì œê°€ ë‚¨ì•„ìˆìœ¼ë©´ ë¬¸ì œ í’€ì´ ë‹¨ê³„ë¡œ ì´ë™
+	// Á¤´äÀÚ ¼ö°¡ 2¸í ÀÌ»óÀÌ°í ¹®Á¦°¡ ³²¾ÆÀÖÀ¸¸é ¹®Á¦ Ç®ÀÌ ´Ü°è·Î ÀÌµ¿
 	if( nCorrectUser > 1 && m_vecQuizList.size() > 1 )
 	{
 		SetNextTime( GetTickCount() + m_dwWaitTime );
 		SetState( QE_QUESTION );
 		g_dpDBClient.SendQuizEventState( QE_QUESTION, g_uIdofMulti );
 	}
-	// ìš°ìŠ¹ì ìƒê¸ˆ ì§€ê¸‰ í›„ ì§„í–‰ ì—¬ë¶€ íŒë‹¨
+	// ¿ì½ÂÀÚ »ó±İ Áö±Ş ÈÄ ÁøÇà ¿©ºÎ ÆÇ´Ü
 	else
 	{
 		CString strMessage;
@@ -586,7 +586,7 @@ void CQuiz::DropOutWrongUser( int nQuizId, int nCorrect, int nItemId, int nItemN
 				if( IsInQuizEventPlayer( pWorld, nDefaultLayer, i ) )
 				{
 					static_cast<CUser*>( pWorld->m_apObject[i] )->AddQuizEventMessage( strMessage, QE_CLOSE_WAIT );
-					// ìŠ¤í¬ë¦½íŠ¸ì— ì •í•´ì§„ ì•„ì´í…œ ì§€ê¸‰
+					// ½ºÅ©¸³Æ®¿¡ Á¤ÇØÁø ¾ÆÀÌÅÛ Áö±Ş
 					if( PtInCorrectZoneRect( static_cast<CUser*>( pWorld->m_apObject[i] ), nCorrect ) )
 						g_dpDBClient.SendPostPrizeItem( static_cast<CUser*>( pWorld->m_apObject[i] )->m_idPlayer, m_dwPrizeItemId, m_nPrizeItemNum );
 				}
@@ -595,7 +595,7 @@ void CQuiz::DropOutWrongUser( int nQuizId, int nCorrect, int nItemId, int nItemN
 		}
 		SetState( QE_CLOSE_WAIT );
 	}
-/*	// ìœ ì € ì´ë™ ê°€ëŠ¥ - object
+/*	// À¯Àú ÀÌµ¿ °¡´É - object
 	pWorld->DeleteObj( m_pVObj );
 	m_pVObj = NULL;
 	if( GetType() == TYPE_4C )
@@ -616,7 +616,7 @@ BOOL CQuiz::PtInCorrectZoneRect( CUser* pUser, int nCorrect )
 		return TRUE;
 	else
 	{
-		// í€´ì¦ˆì¡´ì— ìˆëŠ” ì˜¤ë‹µìëŠ” ëŒ€ê¸°ì¡´ìœ¼ë¡œ ì´ë™
+		// ÄûÁîÁ¸¿¡ ÀÖ´Â ¿À´äÀÚ´Â ´ë±âÁ¸À¸·Î ÀÌµ¿
 		if( GetZoneType( pUser ) == ZONE_QUIZ )
 			TeleportToQuizEvent( pUser, ZONE_WATCHING );
 	}
@@ -684,13 +684,13 @@ void CQuiz::InitQuizData( int nType )
 	
 	if( nType == TYPE_OX )
 	{
-		m_sQuizData.vQuizZonePos = D3DXVECTOR3( 800.0f, 100.0f, 752.0f );				// í€´ì¦ˆì¡´ ì¢Œí‘œ
-		m_sQuizData.vWatchingZonePos = D3DXVECTOR3( 798.747f, 100.0f, 705.266f );		// ëŒ€ê¸°ì¡´ ì¢Œí‘œ
-		m_sQuizData.aExamplePos[0] = D3DXVECTOR3( 783.500f, 100.0f, 752.0f );			// O ì¢Œí‘œ
-		m_sQuizData.aExamplePos[1] = D3DXVECTOR3( 816.500f, 100.0f, 752.0f );			// X ì¢Œí‘œ
-		m_sQuizData.aExampleRect[0] = CRect( 768, 736, 799, 768 );						// O êµ¬ì—­
-		m_sQuizData.aExampleRect[1] = CRect( 801, 736, 832, 768 );						// X êµ¬ì—­
-		m_sQuizData.QuizEventRect = CRect( 768, 736, 832, 768 );						// í€´ì¦ˆì¡´ êµ¬ì—­
+		m_sQuizData.vQuizZonePos = D3DXVECTOR3( 800.0f, 100.0f, 752.0f );				// ÄûÁîÁ¸ ÁÂÇ¥
+		m_sQuizData.vWatchingZonePos = D3DXVECTOR3( 798.747f, 100.0f, 705.266f );		// ´ë±âÁ¸ ÁÂÇ¥
+		m_sQuizData.aExamplePos[0] = D3DXVECTOR3( 783.500f, 100.0f, 752.0f );			// O ÁÂÇ¥
+		m_sQuizData.aExamplePos[1] = D3DXVECTOR3( 816.500f, 100.0f, 752.0f );			// X ÁÂÇ¥
+		m_sQuizData.aExampleRect[0] = CRect( 768, 736, 799, 768 );						// O ±¸¿ª
+		m_sQuizData.aExampleRect[1] = CRect( 801, 736, 832, 768 );						// X ±¸¿ª
+		m_sQuizData.QuizEventRect = CRect( 768, 736, 832, 768 );						// ÄûÁîÁ¸ ±¸¿ª
 	}
 	
 	else if( nType == TYPE_4C )

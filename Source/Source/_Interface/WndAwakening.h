@@ -1,4 +1,4 @@
-ï»¿#ifndef __WND__H
+#ifndef __WND__H
 #define __WND__H
 
 #if __VER >= 11 // __SYS_IDENTIFY
@@ -34,7 +34,7 @@ public:
 #ifdef __PROTECT_AWAKE
 class CWndSelectAwakeCase : public CWndNeuz
 {
-	// ê°ì„± ë³´í˜¸ ì„ íƒì°½ ( ë‘ê°€ì§€ì¤‘ì— í•˜ë‚˜ ê³ ë¦„ < ê°ì„±ì „, ê°ì„±í›„ > 0
+	// °¢¼º º¸È£ ¼±ÅÃÃ¢ ( µÎ°¡ÁöÁß¿¡ ÇÏ³ª °í¸§ < °¢¼ºÀü, °¢¼ºÈÄ > 0
 public:
 
 	CWndSelectAwakeCase( );

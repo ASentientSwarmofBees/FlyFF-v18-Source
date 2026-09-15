@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "defineSkill.h"
 #include "defineSound.h"
@@ -137,7 +137,7 @@ int GetWeakDST( BYTE type )
 	return DST_RESIST_FIRE;
 }
 
-// ë¨¸ë¦¬ì¹´ë½ ëª¨ì–‘ê³¼ ìƒ‰ ë°”ê¾¸ê¸°  
+// ¸Ó¸®Ä«¶ô ¸ğ¾ç°ú »ö ¹Ù²Ù±â  
 void CMover::SetHair( int nHair )
 {
 	if( nHair >= 0 && nHair < MAX_HAIR )
@@ -220,7 +220,7 @@ void CMover::SetHairColor( DWORD dwHairColor )
 	m_dwHairColor = D3DCOLOR_COLORVALUE( m_fHairColorR, m_fHairColorG, m_fHairColorB, 1.0f );
 }
 
-// í‘œì • ë°”ê¾¸ê¸° 
+// Ç¥Á¤ ¹Ù²Ù±â 
 void CMover::SetHead( int nHead )
 {
 	if( nHead < MAX_HEAD )
@@ -245,8 +245,8 @@ void CMover::SetSkinSet( int nSkinSet )
 }
 
 
-// ì´ í•¨ìˆ˜ëŠ” ì „ì²´ ì˜ìƒì„ ìƒˆë¡œ ì™„ì„±í•˜ë„ë¡ í•œë‹¤.
-// ë³´í†µ ì´ í•¨ìˆ˜ëŠ” ì²˜ìŒì— ìºë¦­í„°ë¥¼ ìƒì„±í•  ë•Œ í•œë²ˆ í˜¸ì¶œí•œë‹¤.
+// ÀÌ ÇÔ¼ö´Â ÀüÃ¼ ÀÇ»óÀ» »õ·Î ¿Ï¼ºÇÏµµ·Ï ÇÑ´Ù.
+// º¸Åë ÀÌ ÇÔ¼ö´Â Ã³À½¿¡ Ä³¸¯ÅÍ¸¦ »ı¼ºÇÒ ¶§ ÇÑ¹ø È£ÃâÇÑ´Ù.
 void CMover::UpdateParts( BOOL bFakeParts )
 {
 	UpdateParts( GetSex(), m_dwSkinSet, m_dwFace, m_dwHairMesh, m_dwHeadMesh, 
@@ -284,7 +284,7 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 		ADDERRORMSG( szErr );
 		return;
 	}
-	// ê¸°ë³¸ ë¶€ìœ„(ì†ì‚´, í—¤ì–´, ë“±ë“±)ì„ ì„¸íŒ…í•œë‹¤.
+	// ±âº» ºÎÀ§(¼Ó»ì, Çì¾î, µîµî)À» ¼¼ÆÃÇÑ´Ù.
 	//LPSKINSET lpSkinset = prj.m_PartsMng.GetSkinSet( nSex, nSkinSet );
 	//LPCTSTR lpHair = prj.m_PartsMng.GetHairMeshName( nSex, nHairMesh );
 	TCHAR lpszTemp[ 64 ];
@@ -297,7 +297,7 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 		_stprintf( lpszTemp, PARTSMESH_HEAD( nSex ), nHeadMesh + 1 );
 		pModel->LoadElement( lpszTemp, PARTS_HEAD );
 	}
-	// ë¨¼ì € ìµìŠ¤í¬ë£¨ì‹œë¸Œ ì˜¤ë¸Œì íŠ¸ë¥¼ TakeOffí•œë‹¤.
+	// ¸ÕÀú ÀÍ½ºÅ©·ç½Ãºê ¿ÀºêÁ§Æ®¸¦ TakeOffÇÑ´Ù.
 	BOOL abExclusiveParts[ MAX_HUMAN_PARTS ];
 	ZeroMemory( abExclusiveParts, sizeof( abExclusiveParts ) );
 	for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
@@ -307,7 +307,7 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 		DWORD dwParts = -1;
 		CItemElem* pItemElem = NULL;
 		ItemProp* pItemProp = NULL;
-		// í”„ë¡œí¼í‹° êº¼ëƒ„
+		// ÇÁ·ÎÆÛÆ¼ ²¨³¿
 		pItemProp = GetInventoryProp( pEquipInfo, pInventory, i );
 		if( pItemProp )
 		{
@@ -324,14 +324,14 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 			}
 		}
 
-		// ìµìŠ¤í´ë£¨ì‹œë¸Œê°€ ìˆì„ë•Œ
+		// ÀÍ½ºÅ¬·ç½Ãºê°¡ ÀÖÀ»¶§
 		if( pItemProp && pItemProp->dwExclusive != NULL_ID )
 		{
-			pModel->TakeOffParts( pItemProp->dwExclusive );	// ìµìŠ¤í´ë£¨ì‹œë¸Œë¥¼ ì œê±°
-			abExclusiveParts[ pItemProp->dwExclusive ] = TRUE;		// ìµìŠ¤í´ë£¨ì‹œë¸Œ ëœë„˜ì„ ê¸°ì–µ.
+			pModel->TakeOffParts( pItemProp->dwExclusive );	// ÀÍ½ºÅ¬·ç½Ãºê¸¦ Á¦°Å
+			abExclusiveParts[ pItemProp->dwExclusive ] = TRUE;		// ÀÍ½ºÅ¬·ç½Ãºê µÈ³ÑÀ» ±â¾ï.
 		}
 	}
-	// ì¥ì°©ë¶€ìœ„ë¥¼ ì„¸íŒ…í•œë‹¤.
+	// ÀåÂøºÎÀ§¸¦ ¼¼ÆÃÇÑ´Ù.
 	for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
 	{
 		if( i == PARTS_HAIR || i == PARTS_HEAD  )//|| i == PARTS_CAP || i == PARTS_HAND || i == PARTS_FOOT )
@@ -358,7 +358,7 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 		}
 		TCHAR szPartsName[ 32 ];
 
-		// ê° íŒŒì¸ ì˜ o3dë¥¼ ë¡œë”©.
+		// °¢ ÆÄÃ÷ÀÇ o3d¸¦ ·Îµù.
 		if( pItemProp )
 		{
 			if( pItemProp->bPartsFile == TRUE )
@@ -378,7 +378,7 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 			switch( i )
 			{
 			case PARTS_RWEAPON: 
-				// ë³€ì‹  ìºë¦­í„°ëŠ” ì¥ì°© ë¬´ê¸°ë¥¼ ë³¼ ìˆ˜ ì—†ê²Œ í•˜ì(íŒŒì¸  ì¥ì°©ë§Œ ëª»í•¨. ìˆ˜ì¹˜ ê³„ì‚°ì€ ì ìš©ë¨)
+				// º¯½Å Ä³¸¯ÅÍ´Â ÀåÂø ¹«±â¸¦ º¼ ¼ö ¾ø°Ô ÇÏÀÚ(ÆÄÃ÷ ÀåÂø¸¸ ¸øÇÔ. ¼öÄ¡ °è»êÀº Àû¿ëµÊ)
 				if( pItemProp && ( pMover == NULL || ( pMover && pMover->IsDisguise() == FALSE ) ) )
 				{
 					switch( pItemProp->dwItemKind3 )
@@ -408,7 +408,7 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 					pModel->TakeOffParts( i );
 				break;
 			case PARTS_LWEAPON: 
-				// ë³€ì‹  ìºë¦­í„°ëŠ” ì¥ì°© ë¬´ê¸°ë¥¼ ë³¼ ìˆ˜ ì—†ê²Œ í•˜ì(íŒŒì¸  ì¥ì°©ë§Œ ëª»í•¨. ìˆ˜ì¹˜ ê³„ì‚°ì€ ì ìš©ë¨)
+				// º¯½Å Ä³¸¯ÅÍ´Â ÀåÂø ¹«±â¸¦ º¼ ¼ö ¾ø°Ô ÇÏÀÚ(ÆÄÃ÷ ÀåÂø¸¸ ¸øÇÔ. ¼öÄ¡ °è»êÀº Àû¿ëµÊ)
 				if( pItemProp && ( pMover == NULL || ( pMover && pMover->IsDisguise() == FALSE ) ) )
 				{
 					((CModelObject*)pModel)->SetParent( PARTS_LWEAPON, ((CModelObject*)pModel)->GetLHandIdx() );
@@ -417,7 +417,7 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 					pModel->TakeOffParts( i );
 				break;
 			case PARTS_SHIELD: 
-				// ë³€ì‹  ìºë¦­í„°ëŠ” ì¥ì°© ë¬´ê¸°ë¥¼ ë³¼ ìˆ˜ ì—†ê²Œ í•˜ì(íŒŒì¸  ì¥ì°©ë§Œ ëª»í•¨. ìˆ˜ì¹˜ ê³„ì‚°ì€ ì ìš©ë¨)
+				// º¯½Å Ä³¸¯ÅÍ´Â ÀåÂø ¹«±â¸¦ º¼ ¼ö ¾ø°Ô ÇÏÀÚ(ÆÄÃ÷ ÀåÂø¸¸ ¸øÇÔ. ¼öÄ¡ °è»êÀº Àû¿ëµÊ)
 				if( pItemProp && ( pMover == NULL || ( pMover && pMover->IsDisguise() == FALSE ) ) )
 					((CModelObject*)pModel)->SetParent( PARTS_SHIELD, ((CModelObject*)pModel)->GetLArmIdx() );
 				else 
@@ -454,8 +454,8 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 		}
 	}
 } 
-// ì¥ë¹„ë¥¼ ì¥ì°©í•œë‹¤. ì—¬ê¸°ì„œ ì˜ìƒ êµì²´ ì‘ì—…ì„ í•´ì¤€ë‹¤.
-// nOptionì€ Fakeì•„ì´í…œ ì¥ì°©ë•Œë§Œ ì“°ì¸ë‹¤. - xuzhu -
+// Àåºñ¸¦ ÀåÂøÇÑ´Ù. ¿©±â¼­ ÀÇ»ó ±³Ã¼ ÀÛ¾÷À» ÇØÁØ´Ù.
+// nOptionÀº Fake¾ÆÀÌÅÛ ÀåÂø¶§¸¸ ¾²ÀÎ´Ù. - xuzhu -
 BOOL CMover::DoEquip( int nSex, int nSkinSet, 
 					  CItemElem* pItemElem, int nPart, const EQUIP_INFO & rEquipInfo, CItemContainer< CItemElem  >* pInventory, 
 					  PEQUIP_INFO pEquipInfo, CModelObject* pModel, BOOL bEquip, CMover *pMover ) 
@@ -474,7 +474,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 		return FALSE;
 #endif// __SECURITY_FIXES
 
-	// ë°˜ì§€/ê·€ê±¸ì´ ë²—ì„ë•Œ ì²˜ë¦¬.
+	// ¹İÁö/±Í°ÉÀÌ ¹şÀ»¶§ Ã³¸®.
 	if( !bEquip )
 	{
 		if( dwParts == PARTS_RING1 || dwParts == PARTS_EARRING1 )
@@ -489,66 +489,66 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 			}
 		}
 	}
-	// ìŒì¹¼(ì´ë„ë¥˜) ì²˜ë¦¬.
-	if( pItemProp && pItemProp->dwHanded == HD_ONE && pItemProp->dwParts == PARTS_RWEAPON )	// ì›í•¸ë“œ ë¬´ê¸°ë¥¼ ì°¨ë ¤ê³  í•˜ëŠ”ê°€?
+	// ½ÖÄ®(ÀÌµµ·ù) Ã³¸®.
+	if( pItemProp && pItemProp->dwHanded == HD_ONE && pItemProp->dwParts == PARTS_RWEAPON )	// ¿øÇÚµå ¹«±â¸¦ Â÷·Á°í ÇÏ´Â°¡?
 	{
 		if( bEquip )
 		{
-			// ë””í´íŠ¸ëŠ” ì¥ì°©ìœ„ì¹˜ ì˜¤ë¥¸ì†
-			// ì™¼ì†ì— ë¬´ê¸°ê°€ ê°€ì•¼í•˜ëŠ” ìƒí™©ì„ ê²€ì‚¬
+			// µğÆúÆ®´Â ÀåÂøÀ§Ä¡ ¿À¸¥¼Õ
+			// ¿Ş¼Õ¿¡ ¹«±â°¡ °¡¾ßÇÏ´Â »óÈ²À» °Ë»ç
 			ItemProp *pProp = pMover->GetEquipItemProp( pInventory, pEquipInfo, PARTS_RWEAPON );
 #ifdef __3RD_LEGEND16
 			if( pMover->GetJob() == JOB_BLADE || pMover->GetJob() == JOB_BLADE_MASTER || pMover->GetJob() == JOB_BLADE_HERO || pMover->GetJob() == JOB_STORMBLADE_HERO )
 #else // __3RD_LEGEND16
-#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
-			if( pMover->GetJob() == JOB_BLADE || pMover->GetJob() == JOB_BLADE_MASTER || pMover->GetJob() == JOB_BLADE_HERO )	// ìŒì¹¼ì†ì„±
-#else //__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
-			if( pMover->GetJob() == JOB_BLADE )	// ìŒì¹¼ì†ì„±
-#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+			if( pMover->GetJob() == JOB_BLADE || pMover->GetJob() == JOB_BLADE_MASTER || pMover->GetJob() == JOB_BLADE_HERO )	// ½ÖÄ®¼Ó¼º
+#else //__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+			if( pMover->GetJob() == JOB_BLADE )	// ½ÖÄ®¼Ó¼º
+#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 #endif // __3RD_LEGEND16
 			{
 				if( pItemProp->dwID != II_WEA_KNU_ISHOFIST )
 				{
-					if( pProp && pProp->dwHanded == HD_ONE )	// ì˜¤ë¥¸ì†ì— ë¬´ê¸°ê°€ ìˆëƒ? ê·¸ ë¬´ê¸°ê°€ ì›í•¸ë“œëƒ
+					if( pProp && pProp->dwHanded == HD_ONE )	// ¿À¸¥¼Õ¿¡ ¹«±â°¡ ÀÖ³Ä? ±× ¹«±â°¡ ¿øÇÚµå³Ä
 					{
-						if( pMover->GetEquipItemProp( pInventory, pEquipInfo, PARTS_SHIELD ) == NULL )	//ì™¼ì†ì— ë°©íŒ¨ì—†ëƒ?
-							dwParts = PARTS_LWEAPON;		// ì¥ì°©ìœ„ì¹˜ë¥¼ ì™¼ì†ìœ¼ë¡œ ë°”ê¿ˆ
+						if( pMover->GetEquipItemProp( pInventory, pEquipInfo, PARTS_SHIELD ) == NULL )	//¿Ş¼Õ¿¡ ¹æÆĞ¾ø³Ä?
+							dwParts = PARTS_LWEAPON;		// ÀåÂøÀ§Ä¡¸¦ ¿Ş¼ÕÀ¸·Î ¹Ù²Ş
 					} 
 				}
 			}
 
-			if( pProp && pProp->dwItemKind3 == IK3_YOYO )		// ì˜¤ë¥¸ì†ì— ë¬´ê¸°ê°€ ìš”ìš”ì˜€ìœ¼ë©´
-				pModel->TakeOffParts( PARTS_LWEAPON );			// ì™¼ì†ì— ìš”ìš”ëª¨ë¸ë„ ì‚­ì œí•¨. ì˜¤ë¥¸ì†ëª¨ë¸ì€ ë°‘ì—ì„œ ìë™ìœ¼ë¡œ 
+			if( pProp && pProp->dwItemKind3 == IK3_YOYO )		// ¿À¸¥¼Õ¿¡ ¹«±â°¡ ¿ä¿ä¿´À¸¸é
+				pModel->TakeOffParts( PARTS_LWEAPON );			// ¿Ş¼Õ¿¡ ¿ä¿ä¸ğµ¨µµ »èÁ¦ÇÔ. ¿À¸¥¼Õ¸ğµ¨Àº ¹Ø¿¡¼­ ÀÚµ¿À¸·Î 
 			
 		} 
 		else
 		{
-			// í•´ì œì‹œë„.
-			if( nPart >= 0  )		// íŒŒì¸ ë¥¼ ì§ì ‘ ì§€ì •í–ˆì„ë•Œë§Œ
-				dwParts = nPart;	// í•´ì œí•˜ë¼ê³  í•œ ë¶€ìœ„ë¥¼ í•´ì œì‹œí‚¨ë‹¤.
+			// ÇØÁ¦½Ãµµ.
+			if( nPart >= 0  )		// ÆÄÃ÷¸¦ Á÷Á¢ ÁöÁ¤ÇßÀ»¶§¸¸
+				dwParts = nPart;	// ÇØÁ¦ÇÏ¶ó°í ÇÑ ºÎÀ§¸¦ ÇØÁ¦½ÃÅ²´Ù.
 		}
-	} // ìŒì¹¼ ì²˜ë¦¬.
+	} // ½ÖÄ® Ã³¸®.
 	
-#ifndef __WORLDSERVER	// <<<< ì›”ë“œì—ì„œ ì²˜ë¦¬ì•ˆí•˜ë©´ ë©”ëª¨ë¦¬ ë¦¬í¬ ë‚˜ì§€ ì•Šë‚˜? -xuzhu-
+#ifndef __WORLDSERVER	// <<<< ¿ùµå¿¡¼­ Ã³¸®¾ÈÇÏ¸é ¸Ş¸ğ¸® ¸®Å© ³ªÁö ¾Ê³ª? -xuzhu-
 	((CModelObject*)pModel)->TakeOffParts( dwParts );	
 #endif
 
-	if( pItemProp && pItemProp->dwItemKind3 == IK3_YOYO )	// ë²—ìœ¼ë ¤ë˜ ë¬´ê¸°ê°€ ìš”ìš”ì˜€ìœ¼ë©´
-		pModel->TakeOffParts( PARTS_LWEAPON );		// ì™¼ì†ì— ìˆë˜ ìš”ìš”ëª¨ë¸ë„ ì—†ì• ì¤€ë‹¤.
+	if( pItemProp && pItemProp->dwItemKind3 == IK3_YOYO )	// ¹şÀ¸·Á´ø ¹«±â°¡ ¿ä¿ä¿´À¸¸é
+		pModel->TakeOffParts( PARTS_LWEAPON );		// ¿Ş¼Õ¿¡ ÀÖ´ø ¿ä¿ä¸ğµ¨µµ ¾ø¾ÖÁØ´Ù.
 
-	if( bEquip )	// ì¥ì°©í•˜ë ¤ í• ë•Œë§Œ...
+	if( bEquip )	// ÀåÂøÇÏ·Á ÇÒ¶§¸¸...
 	{
 		ItemProp *pHandItemProp	= NULL;
 		ItemProp *pLHandItemProp = NULL;
 
-		// ë“¤ê³ ìˆëŠ” ë¬´ê¸° í”„ë¡œí¼í‹° êº¼ëƒ„.
-		pHandItemProp = pMover->GetEquipItemProp( pInventory, pEquipInfo, PARTS_RWEAPON );		// ì˜¤ë¥¸ì† ë¬´ê¸° í”„ë¡œí¼í‹°.
-		pLHandItemProp = pMover->GetEquipItemProp( pInventory, pEquipInfo, PARTS_LWEAPON );		// ì™¼ì† ë¬´ê¸° í”„ë¡œí¼í‹°.
+		// µé°íÀÖ´Â ¹«±â ÇÁ·ÎÆÛÆ¼ ²¨³¿.
+		pHandItemProp = pMover->GetEquipItemProp( pInventory, pEquipInfo, PARTS_RWEAPON );		// ¿À¸¥¼Õ ¹«±â ÇÁ·ÎÆÛÆ¼.
+		pLHandItemProp = pMover->GetEquipItemProp( pInventory, pEquipInfo, PARTS_LWEAPON );		// ¿Ş¼Õ ¹«±â ÇÁ·ÎÆÛÆ¼.
 		
-		// ì¡°ê±´ê²€ì‚¬.
-		if( pItemProp->dwItemKind3 == IK3_SHIELD )	// ë°©íŒ¨ë¥˜ë¥¼ ì°©ìš©í•˜ë ¤ í–ˆì„ë•Œ
+		// Á¶°Ç°Ë»ç.
+		if( pItemProp->dwItemKind3 == IK3_SHIELD )	// ¹æÆĞ·ù¸¦ Âø¿ëÇÏ·Á ÇßÀ»¶§
 		{
-			if( pHandItemProp && pHandItemProp->dwHanded == HD_TWO )		// ì†ì— ì¥ê³  ìˆëŠ”ê²Œ íˆ¬í•¸ë“œë©´.
+			if( pHandItemProp && pHandItemProp->dwHanded == HD_TWO )		// ¼Õ¿¡ Áã°í ÀÖ´Â°Ô ÅõÇÚµå¸é.
 			{
 				if( pInventory )
 				{
@@ -556,7 +556,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 					if( pInventory->UnEquip( PARTS_RWEAPON ) == FALSE )	
 						return FALSE;
 #ifdef __WORLDSERVER
-					// íˆ¬í•¸ë“œ ë¬´ê¸°ë²—ê¹€
+					// ÅõÇÚµå ¹«±â¹ş±è
 					if( pItemElemOld )
 					{
 						ItemProp *pOldItemProp = pItemElemOld->GetProp();
@@ -575,11 +575,11 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 						pEquipInfo[PARTS_RWEAPON].dwId	= NULL_ID;
 				}
 				pModel->TakeOffParts( PARTS_RWEAPON );
-				if( pHandItemProp->dwItemKind3 == IK3_YOYO )	// ë“¤ê³  ìˆë˜ ë¬´ê¸°ê°€ ìš”ìš”ì˜€ìœ¼ë©´
-					pModel->TakeOffParts( PARTS_LWEAPON );		// ì™¼ì†ì— ìˆë˜ ìš”ìš”ëª¨ë¸ë„ ì—†ì• ì¤€ë‹¤.
+				if( pHandItemProp->dwItemKind3 == IK3_YOYO )	// µé°í ÀÖ´ø ¹«±â°¡ ¿ä¿ä¿´À¸¸é
+					pModel->TakeOffParts( PARTS_LWEAPON );		// ¿Ş¼Õ¿¡ ÀÖ´ø ¿ä¿ä¸ğµ¨µµ ¾ø¾ÖÁØ´Ù.
 			}
 			else
-			if( pLHandItemProp && pLHandItemProp->dwParts == PARTS_RWEAPON )	// ì™¼ì†ì— ë¬´ê¸°ê°€ ì¥ì–´ì ¸ìˆìœ¼ë©´. ì™¼ì†ì— ë“œëŠ” ë¬´ê¸°ë„ PARTSì´ë¦„ì€ ëª¨ë‘ RWEAPONì´ë‹¤.
+			if( pLHandItemProp && pLHandItemProp->dwParts == PARTS_RWEAPON )	// ¿Ş¼Õ¿¡ ¹«±â°¡ Áã¾îÁ®ÀÖÀ¸¸é. ¿Ş¼Õ¿¡ µå´Â ¹«±âµµ PARTSÀÌ¸§Àº ¸ğµÎ RWEAPONÀÌ´Ù.
 			{
 				if( pInventory )
 				{
@@ -587,13 +587,13 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 					if( pInventory->UnEquip( PARTS_LWEAPON ) == FALSE )	
 						return FALSE;
 #ifdef __WORLDSERVER
-					// ì™¼ì† ë¬´ê¸°ë²—ê¹€
+					// ¿Ş¼Õ ¹«±â¹ş±è
 					if( pItemElemOld )
 					{
 						ItemProp *pOldItemProp = pItemElemOld->GetProp();
-#ifndef 	__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
+#ifndef 	__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
 						pMover->ResetDestParamEquip( pOldItemProp, pItemElemOld );
-#endif	//__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
+#endif	//__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
 						g_UserMng.AddDoEquip( pMover, PARTS_LWEAPON, pItemElemOld, FALSE );
 					}
 #endif // worldserver
@@ -608,19 +608,19 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 				pModel->TakeOffParts( PARTS_LWEAPON );
 			}
 		} // IK3_SHIELD
-		if( pItemProp->dwHanded == HD_TWO )		// ì¥ì°©í•˜ë ¤ëŠ” ë¬´ê¸°ê°€ íˆ¬í•¸ë“œ ì˜€ì„ë•Œ
+		if( pItemProp->dwHanded == HD_TWO )		// ÀåÂøÇÏ·Á´Â ¹«±â°¡ ÅõÇÚµå ¿´À»¶§
 		{
-			if( pHandItemProp && pHandItemProp->dwItemKind3 == IK3_YOYO )	// ë“¤ê³  ìˆë˜ ë¬´ê¸°ê°€ ìš”ìš”ì˜€ìœ¼ë©´
-				pModel->TakeOffParts( PARTS_LWEAPON );		// ì™¼ì†ì— ìˆë˜ ìš”ìš”ëª¨ë¸ë„ ì—†ì• ì¤€ë‹¤.
+			if( pHandItemProp && pHandItemProp->dwItemKind3 == IK3_YOYO )	// µé°í ÀÖ´ø ¹«±â°¡ ¿ä¿ä¿´À¸¸é
+				pModel->TakeOffParts( PARTS_LWEAPON );		// ¿Ş¼Õ¿¡ ÀÖ´ø ¿ä¿ä¸ğµ¨µµ ¾ø¾ÖÁØ´Ù.
 			if( pInventory == NULL )
 			{
-				if( pEquipInfo[PARTS_SHIELD].dwId != NULL_ID )		// ë°©íŒ¨ê°€ ìˆì—ˆëŠ”ê°€ ê²€ì‚¬í•´ì„œ ìˆìœ¼ë©´ ë²—ê¹€.
+				if( pEquipInfo[PARTS_SHIELD].dwId != NULL_ID )		// ¹æÆĞ°¡ ÀÖ¾ú´Â°¡ °Ë»çÇØ¼­ ÀÖÀ¸¸é ¹ş±è.
 				{
 					pModel->TakeOffParts( PARTS_SHIELD );
 					if( pEquipInfo )
 						pEquipInfo[PARTS_SHIELD].dwId	= NULL_ID;
 				}
-				if( pEquipInfo[PARTS_RWEAPON].dwId != NULL_ID )		// ë¬´ê¸°ê°€ ìˆì—ˆëŠ”ê°€ ê²€ì‚¬í•´ì„œ ë²—ê¹€.
+				if( pEquipInfo[PARTS_RWEAPON].dwId != NULL_ID )		// ¹«±â°¡ ÀÖ¾ú´Â°¡ °Ë»çÇØ¼­ ¹ş±è.
 				{
 					pModel->TakeOffParts( PARTS_RWEAPON );
 					if( pEquipInfo )
@@ -632,10 +632,10 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 				CItemElem *pItemElemOld = pInventory->GetEquip( PARTS_SHIELD );
 				if( pItemElemOld )
 				{
-					if( pInventory->UnEquip( PARTS_SHIELD ) == FALSE )	// ë°©íŒ¨ ë²—ê¹€
-						return FALSE;	// ì¸ë²¤ì´ ê½‰ì°¨ë©´ ê± ì·¨ì†Œ
+					if( pInventory->UnEquip( PARTS_SHIELD ) == FALSE )	// ¹æÆĞ ¹ş±è
+						return FALSE;	// ÀÎº¥ÀÌ ²ËÂ÷¸é °Á Ãë¼Ò
 #ifdef __WORLDSERVER
-					if( pItemElemOld )	// ê¸°ì¡´ì¥ë¹„ê°€ ìˆì—ˆë‹¤ë©´
+					if( pItemElemOld )	// ±âÁ¸Àåºñ°¡ ÀÖ¾ú´Ù¸é
 					{
 						ItemProp *pOldItemProp = pItemElemOld->GetProp();
 						pMover->ResetDestParamEquip( pOldItemProp, pItemElemOld );
@@ -650,10 +650,10 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 				pItemElemOld = pInventory->GetEquip( PARTS_RWEAPON );
 				if( pInventory->GetEquip( PARTS_RWEAPON ) )
 				{
-					if( pInventory->UnEquip( PARTS_RWEAPON ) == FALSE )	// ë¬´ê¸°ë²—ê¹€
-						return FALSE;	// ì¸ë²¤ì´ ê½‰ì°¨ë©´ ê± ì·¨ì†Œ
+					if( pInventory->UnEquip( PARTS_RWEAPON ) == FALSE )	// ¹«±â¹ş±è
+						return FALSE;	// ÀÎº¥ÀÌ ²ËÂ÷¸é °Á Ãë¼Ò
 #ifdef __WORLDSERVER
-					if( pItemElemOld )	// ê¸°ì¡´ì¥ë¹„ê°€ ìˆì—ˆë‹¤ë©´
+					if( pItemElemOld )	// ±âÁ¸Àåºñ°¡ ÀÖ¾ú´Ù¸é
 					{
 						ItemProp *pOldItemProp = pItemElemOld->GetProp();
 						pMover->ResetDestParamEquip( pOldItemProp, pItemElemOld );
@@ -675,20 +675,20 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 	{
 		if( pInventory == NULL )
 		{
-			// ìµìŠ¤í¬ë£¨ì‹œë¸Œ ì•„ì´í…œ ì œê±° 
+			// ÀÍ½ºÅ©·ç½Ãºê ¾ÆÀÌÅÛ Á¦°Å 
 			if( pItemProp->dwExclusive != NULL_ID )
 			{
 				pModel->TakeOffParts( pItemProp->dwExclusive );
 				if( pEquipInfo )
 					pEquipInfo[pItemProp->dwExclusive].dwId		= NULL_ID;
 			}
-			// í˜ì´í¬ ì¥ì°© 
+			// ÆäÀÌÅ© ÀåÂø 
 			if( pEquipInfo )
 				memcpy( &pEquipInfo[dwParts], &rEquipInfo, sizeof(EQUIP_INFO) );
 		}
 		else
 		{
-			// ìµìŠ¤í¬ë£¨ì‹œë¸Œ ì•„ì´í…œ ì œê±° 
+			// ÀÍ½ºÅ©·ç½Ãºê ¾ÆÀÌÅÛ Á¦°Å 
 			if( pItemProp->dwExclusive != NULL_ID )
 			{
 				CItemElem* pExclusive	= pInventory->GetEquip( pItemProp->dwExclusive );
@@ -707,7 +707,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 
 			}
 
-			// ê¸°ì¡´ ì¥ë¹„ ì œê±° 
+			// ±âÁ¸ Àåºñ Á¦°Å 
 			if( dwParts == PARTS_RING1 || dwParts == PARTS_EARRING1 )
 			{
 				DWORD dwElem1 = NULL_ID, dwElem2 = NULL_ID;
@@ -725,11 +725,11 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 					return FALSE;
 #ifdef __WORLDSERVER
 				ItemProp *pOldItemProp = pItemElemOld->GetProp();
-#ifdef 	__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
+#ifdef 	__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
 				if(dwParts != PARTS_LWEAPON )
-#endif	//__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
+#endif	//__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
 					pMover->ResetDestParamEquip( pOldItemProp, pItemElemOld );					
-				if( pItemElemOld->m_nResistSMItemId != 0 )	// ìœ ë£Œí™” ì•„ì´í…œì´ ì…‘íŒ…ë˜ì–´ ìˆë‹¤ë©´
+				if( pItemElemOld->m_nResistSMItemId != 0 )	// À¯·áÈ­ ¾ÆÀÌÅÛÀÌ ™VÆÃµÇ¾î ÀÖ´Ù¸é
 					((CUser* )pMover)->DoSMItemUnEquip( pItemElemOld, dwParts );
 #if __VER >= 9 // __ULTIMATE
 				prj.m_UltimateWeapon.SetDestParamUltimate( pMover, pItemElemOld, FALSE, dwParts );
@@ -737,7 +737,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 #endif // worldserver
 				
 			}
-			// ìƒˆ ì¥ë¹„ ì¥ì°© 
+			// »õ Àåºñ ÀåÂø 
 			if( TRUE == pInventory->DoEquip( dwIndex, /*MAX_INVENTORY +*/ dwParts ) )
 			{
 				if( pEquipInfo )
@@ -747,7 +747,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 				}
 
 #ifdef __WORLDSERVER
-				if( pItemElem && pItemElem->m_nResistSMItemId != 0 ) // ìœ ë£Œí™” ì•„ì´í…œì´ ì…‘íŒ…ë˜ì–´ ìˆë‹¤ë©´
+				if( pItemElem && pItemElem->m_nResistSMItemId != 0 ) // À¯·áÈ­ ¾ÆÀÌÅÛÀÌ ™VÆÃµÇ¾î ÀÖ´Ù¸é
 				{
 					((CUser* )pMover)->DoSMItemEquip( pItemElem, dwParts );
 				}
@@ -773,7 +773,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 		switch( dwParts )
 		{
 		case PARTS_RWEAPON: 
-			// ë³€ì‹  ìºë¦­í„°ëŠ” ì¥ì°© ë¬´ê¸°ë¥¼ ë³¼ ìˆ˜ ì—†ê²Œ í•˜ì(íŒŒì¸  ì¥ì°©ë§Œ ëª»í•¨. ìˆ˜ì¹˜ ê³„ì‚°ì€ ì ìš©ë¨)
+			// º¯½Å Ä³¸¯ÅÍ´Â ÀåÂø ¹«±â¸¦ º¼ ¼ö ¾ø°Ô ÇÏÀÚ(ÆÄÃ÷ ÀåÂø¸¸ ¸øÇÔ. ¼öÄ¡ °è»êÀº Àû¿ëµÊ)
 			if( pMover == NULL || ( pMover && pMover->IsDisguise() == FALSE ) )
 			{
 				((CModelObject*)pModel)->LoadElement( szPartsName, dwParts );
@@ -800,7 +800,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 			}
 			break;
 		case PARTS_LWEAPON: 
-			// ë³€ì‹  ìºë¦­í„°ëŠ” ì¥ì°© ë¬´ê¸°ë¥¼ ë³¼ ìˆ˜ ì—†ê²Œ í•˜ì(íŒŒì¸  ì¥ì°©ë§Œ ëª»í•¨. ìˆ˜ì¹˜ ê³„ì‚°ì€ ì ìš©ë¨)
+			// º¯½Å Ä³¸¯ÅÍ´Â ÀåÂø ¹«±â¸¦ º¼ ¼ö ¾ø°Ô ÇÏÀÚ(ÆÄÃ÷ ÀåÂø¸¸ ¸øÇÔ. ¼öÄ¡ °è»êÀº Àû¿ëµÊ)
 			if( pMover == NULL || ( pMover && pMover->IsDisguise() == FALSE ) )
 			{
 				((CModelObject*)pModel)->LoadElement( szPartsName, dwParts );
@@ -808,7 +808,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 			}
 			break;
 		case PARTS_SHIELD: 
-			// ë³€ì‹  ìºë¦­í„°ëŠ” ì¥ì°© ë¬´ê¸°ë¥¼ ë³¼ ìˆ˜ ì—†ê²Œ í•˜ì(íŒŒì¸  ì¥ì°©ë§Œ ëª»í•¨. ìˆ˜ì¹˜ ê³„ì‚°ì€ ì ìš©ë¨)
+			// º¯½Å Ä³¸¯ÅÍ´Â ÀåÂø ¹«±â¸¦ º¼ ¼ö ¾ø°Ô ÇÏÀÚ(ÆÄÃ÷ ÀåÂø¸¸ ¸øÇÔ. ¼öÄ¡ °è»êÀº Àû¿ëµÊ)
 			if( pMover == NULL || ( pMover && pMover->IsDisguise() == FALSE ) )
 			{
 				((CModelObject*)pModel)->LoadElement( szPartsName, dwParts );
@@ -849,9 +849,9 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 #endif //__CLIENT
 		
 #endif // not WorldServer
-	} // ì¥ì°©.
+	} // ÀåÂø.
 	else
-	// íƒˆì°©.
+	// Å»Âø.
 	{
 		if( bIfParts )
 		{
@@ -909,7 +909,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 #if __VER >= 9 // __ULTIMATE
 			prj.m_UltimateWeapon.SetDestParamUltimate( pMover, pItemElem, FALSE, dwParts );
 #endif // __ULTIMATE
-			if( pItemElem && pItemElem->m_nResistSMItemId != 0 )	// ìœ ë£Œí™” ì•„ì´í…œì´ ì…‘íŒ…ë˜ì–´ ìˆë‹¤ë©´
+			if( pItemElem && pItemElem->m_nResistSMItemId != 0 )	// À¯·áÈ­ ¾ÆÀÌÅÛÀÌ ™VÆÃµÇ¾î ÀÖ´Ù¸é
 			{
 				((CUser* )pMover)->DoSMItemUnEquip( pItemElem, dwParts );
 			}
@@ -955,21 +955,21 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 #endif //__BS_FIXED_EQUIPMOTION
 #endif //__CLIENT
 
-	} // íƒˆì°©
+	} // Å»Âø
 
 
-	// ë²—ê¸¸ë•Œ
+	// ¹ş±æ¶§
 	if( bEquip == FALSE )
 	{
-		// ìœ„ì—ì„œ ì˜¤ë¥¸ì† ë¬´ê¸°ë¥¼ í•´ì œ í–ˆì—ˆë‹¤. 
+		// À§¿¡¼­ ¿À¸¥¼Õ ¹«±â¸¦ ÇØÁ¦ Çß¾ú´Ù. 
 		if( nPart == PARTS_RWEAPON )
 		{
 			if( pInventory )
 			{
 				CItemElem* pItemLeft = pInventory->GetEquip( PARTS_LWEAPON );
-				if( pItemLeft )	// ì™¼ì†ì— ë¬´ê¸°ê°€ ë‚¨ì•„ìˆë‹¤.
+				if( pItemLeft )	// ¿Ş¼Õ¿¡ ¹«±â°¡ ³²¾ÆÀÖ´Ù.
 				{
-					//ì˜¤ë¥¸ì†ìœ¼ë¡œ ì˜®ê²¨ì¤Œ.
+					//¿À¸¥¼ÕÀ¸·Î ¿Å°ÜÁÜ.
 					#ifdef __WORLDSERVER
 					if( pMover->IsSMMode( SM_RESIST_ATTACK_LEFT ) )
 					{
@@ -1056,7 +1056,7 @@ BOOL CMover::DoEquip( int nSex, int nSkinSet,
 
 #if 0
 //{{AFX
-// static DoEquipì˜ ìƒˆë²„ì „.
+// static DoEquipÀÇ »õ¹öÀü.
 BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CItemContainer< CItemElem  >* pInventory, 
 					  LPDWORD padwEquipment, CModelObject* pModel, BOOL bEquip, CMover *pMover ) 
 {
@@ -1069,7 +1069,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 	if( dwParts == NULL_ID )
 		return FALSE;
 
-	// ë°˜ì§€/ê·€ê±¸ì´ ë²—ì„ë•Œ ì²˜ë¦¬.
+	// ¹İÁö/±Í°ÉÀÌ ¹şÀ»¶§ Ã³¸®.
 	if( !bEquip )
 	{
 		if( dwParts == PARTS_RING1 || dwParts == PARTS_EARRING1 )
@@ -1087,29 +1087,29 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 
 	if( bEquip )
 	{
-		// ìŒì¹¼(ì´ë„ë¥˜) ì²˜ë¦¬.
-		if( pItemProp && pItemProp->dwHanded == HD_ONE && pItemProp->dwParts == PARTS_RWEAPON )	// ì›í•¸ë“œ ë¬´ê¸°ë¥¼ ì°¨ë ¤ê³  í•˜ëŠ”ê°€?
+		// ½ÖÄ®(ÀÌµµ·ù) Ã³¸®.
+		if( pItemProp && pItemProp->dwHanded == HD_ONE && pItemProp->dwParts == PARTS_RWEAPON )	// ¿øÇÚµå ¹«±â¸¦ Â÷·Á°í ÇÏ´Â°¡?
 		{
-			// ë””í´íŠ¸ëŠ” ì¥ì°©ìœ„ì¹˜ ì˜¤ë¥¸ì†
+			// µğÆúÆ®´Â ÀåÂøÀ§Ä¡ ¿À¸¥¼Õ
  #ifdef __XUZHU
-			//if( ì§ì—…ì´ ë¸”ë ˆì´ë“œëƒ? )	// ìŒì¹¼ì†ì„±
+			//if( Á÷¾÷ÀÌ ºí·¹ÀÌµå³Ä? )	// ½ÖÄ®¼Ó¼º
  #else
-			if( 0 /*ì§ì—…ì´ ë¸”ë ˆì´ë“œëƒ?*/ )	// ìŒì¹¼ì†ì„±
+			if( 0 /*Á÷¾÷ÀÌ ºí·¹ÀÌµå³Ä?*/ )	// ½ÖÄ®¼Ó¼º
  #endif
 			{
-				if( pMover->GetEquipItemProp( bFake, PARTS_RWEAPON ) )	// ì˜¤ë¥¸ì†ì— ë¬´ê¸°ê°€ ìˆëƒ?
+				if( pMover->GetEquipItemProp( bFake, PARTS_RWEAPON ) )	// ¿À¸¥¼Õ¿¡ ¹«±â°¡ ÀÖ³Ä?
 				{
-					if( pMover->GetEquipItemProp( bFake, PARTS_SHIELD ) == NULL )	//ì™¼ì†ì— ë°©íŒ¨ì—†ëƒ?
-						dwParts = PARTS_LWEAPON;		// ì¥ì°©ìœ„ì¹˜ë¥¼ ì™¼ì†ìœ¼ë¡œ ë°”ê¿ˆ
+					if( pMover->GetEquipItemProp( bFake, PARTS_SHIELD ) == NULL )	//¿Ş¼Õ¿¡ ¹æÆĞ¾ø³Ä?
+						dwParts = PARTS_LWEAPON;		// ÀåÂøÀ§Ä¡¸¦ ¿Ş¼ÕÀ¸·Î ¹Ù²Ş
 				} 
 			}
 		}
 	} else
 	{
-		// í•´ì œ.
+		// ÇØÁ¦.
 		CItemElem *pLHandElem = pInventory->Get&Equip( PARTS_LWEAPON );
-		if( pItemElem == pLHandElem )	// ì™¼ì†ì— ì¥ì°©í•œ ê²ƒê³¼ í•´ì œí•˜ë ¤ê³  ìš”ì²­í•œ ì•„ì´í…œì´ ê°™ì„ë•Œ.
-			dwParts = PARTS_LWEAPON;	// íŒŒì¸  ì´ë¦„ì„ ì´ê±¸ë¡œ ë°”ê¿”ì£¼ì.
+		if( pItemElem == pLHandElem )	// ¿Ş¼Õ¿¡ ÀåÂøÇÑ °Í°ú ÇØÁ¦ÇÏ·Á°í ¿äÃ»ÇÑ ¾ÆÀÌÅÛÀÌ °°À»¶§.
+			dwParts = PARTS_LWEAPON;	// ÆÄÃ÷ ÀÌ¸§À» ÀÌ°É·Î ¹Ù²ãÁÖÀÚ.
 	}
 
 	
@@ -1117,12 +1117,12 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 	((CModelObject*)pModel)->TakeOffParts( dwParts );
 #endif
 
-	if( bEquip )	// ì¥ì°©í•˜ë ¤ í• ë•Œë§Œ...
+	if( bEquip )	// ÀåÂøÇÏ·Á ÇÒ¶§¸¸...
 	{
 		ItemProp *pHandItemProp	= NULL;
 		ItemProp *pLHandItemProp = NULL;
 
-		// ë“¤ê³ ìˆëŠ” ë¬´ê¸° í”„ë¡œí¼í‹° êº¼ëƒ„.
+		// µé°íÀÖ´Â ¹«±â ÇÁ·ÎÆÛÆ¼ ²¨³¿.
 		if( pInventory == NULL )
 		{
 			if( padwEquipment[PARTS_RWEAPON] != NULL_ID )
@@ -1145,14 +1145,14 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 				pLHandItemProp = pItemElem->GetProp();
 		}
 		
-		// ì¡°ê±´ê²€ì‚¬.
-		if( pItemProp->dwItemKind3 == IK3_SHIELD )	// ë°©íŒ¨ë¥˜ë¥¼ ì°©ìš©í•˜ë ¤ í–ˆì„ë•Œ
+		// Á¶°Ç°Ë»ç.
+		if( pItemProp->dwItemKind3 == IK3_SHIELD )	// ¹æÆĞ·ù¸¦ Âø¿ëÇÏ·Á ÇßÀ»¶§
 		{
 			if( pHandItemProp )
 			{
-				if( pHandItemProp->dwHanded == HD_TWO )		// ì†ì— ì¥ê³  ìˆëŠ”ê²Œ íˆ¬í•¸ë“œë©´.
+				if( pHandItemProp->dwHanded == HD_TWO )		// ¼Õ¿¡ Áã°í ÀÖ´Â°Ô ÅõÇÚµå¸é.
 				{
-//					pModel->TakeOffParts( PARTS_RWEAPON );	// ì‹¤íŒ¨í•  ìˆ˜ ìˆìœ¼ë¯€ë¡œ ì•„ë˜ë¡œ ì´ë™
+//					pModel->TakeOffParts( PARTS_RWEAPON );	// ½ÇÆĞÇÒ ¼ö ÀÖÀ¸¹Ç·Î ¾Æ·¡·Î ÀÌµ¿
 					if( pInventory )
 					{
 						CItemElem *pItemElemOld = pInventory->GetEquip( PARTS_RWEAPON );
@@ -1160,7 +1160,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 							return FALSE;
 //							ASSERT( 0 );
 #ifdef __WORLDSERVER
-						// íˆ¬í•¸ë“œ ë¬´ê¸°ë²—ê¹€
+						// ÅõÇÚµå ¹«±â¹ş±è
 						if( pItemElemOld )
 						{
 							ItemProp *pOldItemProp = pItemElemOld->GetProp();
@@ -1177,7 +1177,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 					pModel->TakeOffParts( PARTS_RWEAPON );
 				}
 				else
-				if( pLHandItemProp && pLHandItemProp->dwParts == PARTS_RWEAPON )	// ì™¼ì†ì— ë¬´ê¸°ê°€ ì¥ì–´ì ¸ìˆìœ¼ë©´. ì™¼ì†ì— ë“œëŠ” ë¬´ê¸°ë„ PARTSì´ë¦„ì€ ëª¨ë‘ RWEAPONì´ë‹¤.
+				if( pLHandItemProp && pLHandItemProp->dwParts == PARTS_RWEAPON )	// ¿Ş¼Õ¿¡ ¹«±â°¡ Áã¾îÁ®ÀÖÀ¸¸é. ¿Ş¼Õ¿¡ µå´Â ¹«±âµµ PARTSÀÌ¸§Àº ¸ğµÎ RWEAPONÀÌ´Ù.
 				{
 					if( pInventory )
 					{
@@ -1185,7 +1185,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 						if( pInventory->UnEquip( PARTS_LWEAPON ) == FALSE )	
 							return FALSE;
  #ifdef __WORLDSERVER
-						// ì™¼ì† ë¬´ê¸°ë²—ê¹€
+						// ¿Ş¼Õ ¹«±â¹ş±è
 						if( pItemElemOld )
 						{
 							ItemProp *pOldItemProp = pItemElemOld->GetProp();
@@ -1204,17 +1204,17 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 				}
 			}
 		}
-		if( pItemProp->dwHanded == HD_TWO )		// ì¥ì°©í•˜ë ¤ëŠ” ë¬´ê¸°ê°€ íˆ¬í•¸ë“œ ì˜€ì„ë•Œ
+		if( pItemProp->dwHanded == HD_TWO )		// ÀåÂøÇÏ·Á´Â ¹«±â°¡ ÅõÇÚµå ¿´À»¶§
 		{
 			if( pInventory == NULL )
 			{
-				if( padwEquipment[ PARTS_SHIELD ] != NULL_ID )		// ë°©íŒ¨ê°€ ìˆì—ˆëŠ”ê°€ ê²€ì‚¬í•´ì„œ ìˆìœ¼ë©´ ë²—ê¹€.
+				if( padwEquipment[ PARTS_SHIELD ] != NULL_ID )		// ¹æÆĞ°¡ ÀÖ¾ú´Â°¡ °Ë»çÇØ¼­ ÀÖÀ¸¸é ¹ş±è.
 				{
 					pModel->TakeOffParts( PARTS_SHIELD );
 					if( padwEquipment )
 						padwEquipment[ PARTS_SHIELD ] = NULL_ID;
 				}
-				if( padwEquipment[ PARTS_RWEAPON ] != NULL_ID )		// ë¬´ê¸°ê°€ ìˆì—ˆëŠ”ê°€ ê²€ì‚¬í•´ì„œ ë²—ê¹€.
+				if( padwEquipment[ PARTS_RWEAPON ] != NULL_ID )		// ¹«±â°¡ ÀÖ¾ú´Â°¡ °Ë»çÇØ¼­ ¹ş±è.
 				{
 					pModel->TakeOffParts( PARTS_RWEAPON );
 					if( padwEquipment )
@@ -1226,10 +1226,10 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 				CItemElem *pItemElemOld = pInventory->GetEquip( PARTS_SHIELD );
 				if( pItemElemOld )
 				{
-					if( pInventory->UnEquip( PARTS_SHIELD ) == FALSE )	// ë°©íŒ¨ ë²—ê¹€
-						return FALSE;	// ì¸ë²¤ì´ ê½‰ì°¨ë©´ ê± ì·¨ì†Œ
+					if( pInventory->UnEquip( PARTS_SHIELD ) == FALSE )	// ¹æÆĞ ¹ş±è
+						return FALSE;	// ÀÎº¥ÀÌ ²ËÂ÷¸é °Á Ãë¼Ò
 #ifdef __WORLDSERVER
-					if( pItemElemOld )	// ê¸°ì¡´ì¥ë¹„ê°€ ìˆì—ˆë‹¤ë©´
+					if( pItemElemOld )	// ±âÁ¸Àåºñ°¡ ÀÖ¾ú´Ù¸é
 					{
 						ItemProp *pOldItemProp = pItemElemOld->GetProp();
 						
@@ -1245,10 +1245,10 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 				pItemElemOld = pInventory->GetEquip( PARTS_RWEAPON );
 				if( pInventory->GetEquip( PARTS_RWEAPON ) )
 				{
-					if( pInventory->UnEquip( PARTS_RWEAPON ) == FALSE )	// ë¬´ê¸°ë²—ê¹€
-						return FALSE;	// ì¸ë²¤ì´ ê½‰ì°¨ë©´ ê± ì·¨ì†Œ
+					if( pInventory->UnEquip( PARTS_RWEAPON ) == FALSE )	// ¹«±â¹ş±è
+						return FALSE;	// ÀÎº¥ÀÌ ²ËÂ÷¸é °Á Ãë¼Ò
 #ifdef __WORLDSERVER
-					if( pItemElemOld )	// ê¸°ì¡´ì¥ë¹„ê°€ ìˆì—ˆë‹¤ë©´
+					if( pItemElemOld )	// ±âÁ¸Àåºñ°¡ ÀÖ¾ú´Ù¸é
 					{
 						ItemProp *pOldItemProp = pItemElemOld->GetProp();
 						
@@ -1268,14 +1268,14 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 	{
 		if( pInventory == NULL )
 		{
-			// ìµìŠ¤í¬ë£¨ì‹œë¸Œ ì•„ì´í…œ ì œê±° 
+			// ÀÍ½ºÅ©·ç½Ãºê ¾ÆÀÌÅÛ Á¦°Å 
 			if( pItemProp->dwExclusive != NULL_ID )
 			{
 				pModel->TakeOffParts( pItemProp->dwExclusive );
 				if( padwEquipment )
 					padwEquipment[ pItemProp->dwExclusive ] = NULL_ID;
 			}
-			// í˜ì´í¬ ì¥ì°© 
+			// ÆäÀÌÅ© ÀåÂø 
 			if( padwEquipment )
 			{
 				padwEquipment[ dwParts ] = dwItemIndex;
@@ -1283,7 +1283,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 		}
 		else
 		{
-			// ìµìŠ¤í¬ë£¨ì‹œë¸Œ ì•„ì´í…œ ì œê±° 
+			// ÀÍ½ºÅ©·ç½Ãºê ¾ÆÀÌÅÛ Á¦°Å 
 			if( pItemProp->dwExclusive != NULL_ID )
 			{
 				//if( pInventory->GetAt( MAX_INVENTORY + pItemProp->dwExclusive ) )
@@ -1294,7 +1294,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 //						ASSERT( 0 );
 				pModel->TakeOffParts( pItemProp->dwExclusive );
 			}
-			// ê¸°ì¡´ ì¥ë¹„ ì œê±° 
+			// ±âÁ¸ Àåºñ Á¦°Å 
 			//if( pInventory->GetAt( MAX_INVENTORY + dwParts ) )
 			if( bEquip )
 			{
@@ -1318,7 +1318,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 				if( pInventory->UnEquip( dwParts ) == FALSE )
 					return FALSE;
 #ifdef __WORLDSERVER
-				if( pItemElemOld )	// ê¸°ì¡´ì¥ë¹„ê°€ ìˆì—ˆë‹¤ë©´
+				if( pItemElemOld )	// ±âÁ¸Àåºñ°¡ ÀÖ¾ú´Ù¸é
 				{
 					ItemProp *pOldItemProp = pItemElemOld->GetProp();
 
@@ -1327,7 +1327,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 #endif // worldserver
 				
 			}
-			// ìƒˆ ì¥ë¹„ ì¥ì°© 
+			// »õ Àåºñ ÀåÂø 
 			if( TRUE == pInventory->DoEquip( dwIndex, /*MAX_INVENTORY +*/ dwParts ) )
 			{
 				if( padwEquipment )
@@ -1402,9 +1402,9 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 			break;
 		}
 #endif // not WorldServer
-	} // ì¥ì°©.
+	} // ÀåÂø.
 	else
-	// íƒˆì°©.
+	// Å»Âø.
 	{
 		if( bIfParts )
 		{
@@ -1475,14 +1475,14 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, DWORD dwItemIndex, int nOption, CIte
 			}
 		}
 #endif
-	} // íƒˆì°©
+	} // Å»Âø
 	return TRUE;
 }
 //}}AFX
 #endif // 0
 
 
-// ì¥ì°© ê°€ëŠ¥í•œê°€ë¥¼ ê²€ì‚¬.
+// ÀåÂø °¡´ÉÇÑ°¡¸¦ °Ë»ç.
 #if __VER >= 11 // __SYS_IDENTIFY
 BOOL CMover::IsEquipAble( CItemElem* pItem,BOOL bIgnoreLevel )
 #else	// __SYS_IDENTIFY
@@ -1495,7 +1495,7 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 	ItemProp* pItemProp	= pItem->GetProp();
 	OBJID dwObjid	= pItem->m_dwObjId;
 #endif	// __SYS_IDENTIFY
-	// ë¹—ìë£¨ë¥˜ ê²€ì‚¬.
+	// ºøÀÚ·ç·ù °Ë»ç.
 	if( pItemProp->dwParts == PARTS_RIDE )
 	{
 		int nLimitLv = pItemProp->dwFlightLimit;
@@ -1511,11 +1511,11 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 		{
 			int nAttr	= pWorld->GetHeightAttribute( GetPos().x, GetPos().z );
 			
-			if( GetFlightLv() < nLimitLv )		// ë¹„í–‰ë ˆë²¨ì´ ì•ˆë˜ë©´ ëª»íƒ„ë‹¤.
+			if( GetFlightLv() < nLimitLv )		// ºñÇà·¹º§ÀÌ ¾ÈµÇ¸é ¸øÅº´Ù.
 			{
 #ifdef __WORLDSERVER
 				if( TRUE == IsPlayer() )
-					( (CUser*)this )->AddDefinedText( TID_GAME_USEAIRCRAFT, "" );	// ì ì‹œë§Œ ê¸°ë‹¤ë ¤ì£¼ì„¸ìš”.
+					( (CUser*)this )->AddDefinedText( TID_GAME_USEAIRCRAFT, "" );	// Àá½Ã¸¸ ±â´Ù·ÁÁÖ¼¼¿ä.
 #else // __WORLDSERVER
 				g_WndMng.PutString( prj.GetText( TID_GAME_USEAIRCRAFT ), NULL, prj.GetTextColor( TID_GAME_USEAIRCRAFT ) );
 #endif // __WORLDSERVER
@@ -1525,7 +1525,7 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 			if( !pWorld->m_bFly )
 			{
 #ifdef __WORLDSERVER
-				( (CUser*)this )->AddDefinedText( TID_ERROR_NOFLY, "" );	// ë¹„í–‰ê¸ˆì§€êµ¬ì—­ì…ë‹ˆë‹¤.
+				( (CUser*)this )->AddDefinedText( TID_ERROR_NOFLY, "" );	// ºñÇà±İÁö±¸¿ªÀÔ´Ï´Ù.
 #else // __WORLDSERVER
 				g_WndMng.PutString( prj.GetText( TID_ERROR_NOFLY ), NULL, prj.GetTextColor( TID_ERROR_NOFLY ) );
 #endif // __WORLDSERVER
@@ -1535,15 +1535,15 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 			if( HasBuffByIk3( IK3_TEXT_DISGUISE ) )
 			{
 #ifdef __WORLDSERVER
-				( (CUser*)this )->AddDefinedText( TID_QUEST_DISQUISE_NOTFLY, "" );	// ë³€ì‹ ì¤‘ì—ëŠ” ë¹„í–‰ì„ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+				( (CUser*)this )->AddDefinedText( TID_QUEST_DISQUISE_NOTFLY, "" );	// º¯½ÅÁß¿¡´Â ºñÇàÀ» ÇÒ¼ö ¾ø½À´Ï´Ù
 #else // __WORLDSERVER
 				g_WndMng.PutString( prj.GetText( TID_QUEST_DISQUISE_NOTFLY ), NULL, prj.GetTextColor( TID_QUEST_DISQUISE_NOTFLY ) );
 #endif // __WORLDSERVER
 				return FALSE;
 			}
 			
-			// ì¥ì°© ì´ì „ì— ê²€ì‚¬í•˜ì—¬ì•¼ í•œë‹¤.
-			if( nAttr == HATTR_NOFLY )		// ë¹„í–‰ê¸ˆì§€êµ¬ì—­ì—ì„  ëª»íƒ„ë‹¤.
+			// ÀåÂø ÀÌÀü¿¡ °Ë»çÇÏ¿©¾ß ÇÑ´Ù.
+			if( nAttr == HATTR_NOFLY )		// ºñÇà±İÁö±¸¿ª¿¡¼± ¸øÅº´Ù.
 				return FALSE;
 			
 		#ifdef __WORLDSERVER
@@ -1568,7 +1568,7 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 
 #if __VER >= 9	// __PET_0410
 #ifdef __WORLDSERVER
-		if( HasActivatedEatPet() || HasActivatedSystemPet() )	// í«ì´ ì†Œí™˜ëœ ìƒíƒœë¼ë©´ ë¹„í–‰ ë¶ˆê°€
+		if( HasActivatedEatPet() || HasActivatedSystemPet() )	// ÆêÀÌ ¼ÒÈ¯µÈ »óÅÂ¶ó¸é ºñÇà ºÒ°¡
 		{
 			( (CUser*)this )->AddDefinedText( TID_GAME_CANNOT_FLY_WITH_PET );
 			return FALSE;
@@ -1577,9 +1577,9 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 #endif	// __PET_0410
 	}
 
-	// ë¬´ê¸°ë¥˜ê°€ ì•„ë‹Œê²ƒ(ë°©ì–´êµ¬)ëŠ” ì„±ë³„ì„ í™•ì¸í•œë‹¤.
+	// ¹«±â·ù°¡ ¾Æ´Ñ°Í(¹æ¾î±¸)´Â ¼ºº°À» È®ÀÎÇÑ´Ù.
 	{
-		// ì„±ë³„ í™•ì¸( ë¬´ê¸°ëŠ” ë¹ ì§ )
+		// ¼ºº° È®ÀÎ( ¹«±â´Â ºüÁü )
 		if( pItemProp->dwItemSex != NULL_ID && pItemProp->dwItemSex != GetSex() )
 		{
 #ifdef __WORLDSERVER
@@ -1587,10 +1587,10 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 				( (CUser*)this )->AddDefinedText( TID_GAME_WRONGSEX, "\"%s\"", pItemProp->szName );
 #endif	// __WORLDSERVER
 			return FALSE;
-		} // ì„±ë³„
-	}// ë¬´ê¸°
+		} // ¼ºº°
+	}// ¹«±â
 	
-	// ë°©ì–´êµ¬ ì…ì„ë•Œ ì§ì—…í™•ì¸.
+	// ¹æ¾î±¸ ÀÔÀ»¶§ Á÷¾÷È®ÀÎ.
 	if( pItemProp->dwItemKind1 != IK1_WEAPON )
 	{
 		if( pItemProp->dwItemJob != NULL_ID && FALSE == IsInteriorityJob( pItemProp->dwItemJob ) ) {
@@ -1602,10 +1602,10 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 		}
 	}
 
-	// ì•„ì´í…œ í•„ìš”ì§ì—…ê²€ì‚¬.
-	if( pItemProp->dwItemKind1 == IK1_WEAPON )		// ë¬´ê¸°ë¥˜ë¥¼ ì¥ì°©í•˜ë ¤í• ë•Œ
+	// ¾ÆÀÌÅÛ ÇÊ¿äÁ÷¾÷°Ë»ç.
+	if( pItemProp->dwItemKind1 == IK1_WEAPON )		// ¹«±â·ù¸¦ ÀåÂøÇÏ·ÁÇÒ¶§
 	{
-		if( pItemProp->dwItemJob != NULL_ID && FALSE == IsInteriorityJob( pItemProp->dwItemJob ) )	// ì•„ì´í…œì— í•„ìš”ì§ì—…ì´ ì§€ì •ë˜ì–´ ìˆê³ 
+		if( pItemProp->dwItemJob != NULL_ID && FALSE == IsInteriorityJob( pItemProp->dwItemJob ) )	// ¾ÆÀÌÅÛ¿¡ ÇÊ¿äÁ÷¾÷ÀÌ ÁöÁ¤µÇ¾î ÀÖ°í
 		{
 #ifdef __WORLDSERVER
 			if( TRUE == IsPlayer() )
@@ -1618,21 +1618,21 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 	if( !g_eLocal.GetState( EVE_SCHOOL ) && !bIgnoreLevel )
 	{
 
-		// ì•„ì´í…œ í•„ìš”ë ˆë²¨ ê²€ì‚¬.
-		if( pItemProp->dwLimitLevel1 != 0xffffffff )	// í•„ìš”ë ˆë²¨ì´ ì§€ì •ë˜ì–´ ìˆê³ 
+		// ¾ÆÀÌÅÛ ÇÊ¿ä·¹º§ °Ë»ç.
+		if( pItemProp->dwLimitLevel1 != 0xffffffff )	// ÇÊ¿ä·¹º§ÀÌ ÁöÁ¤µÇ¾î ÀÖ°í
 		{
 #if __VER >= 14 // __NEW_ITEM_LIMIT_LEVEL
-			if( pItem->IsLimitLevel( this ) )	// ë ˆë²¨ì´ ì•ˆë˜ë©´ ëª»ì°¸.
+			if( pItem->IsLimitLevel( this ) )	// ·¹º§ÀÌ ¾ÈµÇ¸é ¸øÂü.
 #else // __NEW_ITEM_LIMIT_LEVEL
-#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 #if __VER >= 11 // __SYS_IDENTIFY
-			if( m_nLevel < pItem->GetLimitLevel() && !IsMaster() && !IsHero()  )	// ë ˆë²¨ì´ ì•ˆë˜ë©´ ëª»ì°¸.				
+			if( m_nLevel < pItem->GetLimitLevel() && !IsMaster() && !IsHero()  )	// ·¹º§ÀÌ ¾ÈµÇ¸é ¸øÂü.				
 #else	// __SYS_IDENTIFY
-			if( ( m_nLevel < pItemProp->dwLimitLevel1 ) && !IsMaster() && !IsHero()  )	// ë ˆë²¨ì´ ì•ˆë˜ë©´ ëª»ì°¸.				
+			if( ( m_nLevel < pItemProp->dwLimitLevel1 ) && !IsMaster() && !IsHero()  )	// ·¹º§ÀÌ ¾ÈµÇ¸é ¸øÂü.				
 #endif	// __SYS_IDENTIFY
-#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
-			if( m_nLevel < pItemProp->dwLimitLevel1 )	// ì•„ì´í…œì„ ì°° ë ˆë²¨ì´ ì•ˆë˜ì—ˆìœ¼ë©´ ëª»ì°¸.
-#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+			if( m_nLevel < pItemProp->dwLimitLevel1 )	// ¾ÆÀÌÅÛÀ» Âû ·¹º§ÀÌ ¾ÈµÇ¾úÀ¸¸é ¸øÂü.
+#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 #endif // __NEW_ITEM_LIMIT_LEVEL
 			{
 #	ifdef __WORLDSERVER
@@ -1648,23 +1648,23 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 				return FALSE;
 			}
 		}
-		// ë³´ì„ë¥˜ë¥¼ ì¥ì°©
+		// º¸¼®·ù¸¦ ÀåÂø
 		if( pItemProp->dwItemKind2 == IK2_JEWELRY )
 		{
-			if( pItemProp->dwLimitLevel1 != 0xffffffff )	// ì œí•œë ˆë²¨ì´ ê±¸ë ¤ìˆê³ 
+			if( pItemProp->dwLimitLevel1 != 0xffffffff )	// Á¦ÇÑ·¹º§ÀÌ °É·ÁÀÖ°í
 			{
 #if __VER >= 14 // __NEW_ITEM_LIMIT_LEVEL
-				if( pItem->IsLimitLevel( this ) )	// ë ˆë²¨ì´ ì•ˆë˜ë©´ ëª»ì°¸.
+				if( pItem->IsLimitLevel( this ) )	// ·¹º§ÀÌ ¾ÈµÇ¸é ¸øÂü.
 #else // __NEW_ITEM_LIMIT_LEVEL
-#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 #if __VER >= 11 // __SYS_IDENTIFY
-				if( m_nLevel < pItem->GetLimitLevel() && !IsMaster() && !IsHero()  )	// ë ˆë²¨ì´ ì•ˆë˜ë©´ ëª»ì°¸.				
+				if( m_nLevel < pItem->GetLimitLevel() && !IsMaster() && !IsHero()  )	// ·¹º§ÀÌ ¾ÈµÇ¸é ¸øÂü.				
 #else	// __SYS_IDENTIFY
-				if( ( m_nLevel < pItemProp->dwLimitLevel1 ) && !IsMaster() && !IsHero()  )	// ë ˆë²¨ì´ ì•ˆë˜ë©´ ëª»ì°¸.				
+				if( ( m_nLevel < pItemProp->dwLimitLevel1 ) && !IsMaster() && !IsHero()  )	// ·¹º§ÀÌ ¾ÈµÇ¸é ¸øÂü.				
 #endif	// __SYS_IDENTIFY
-#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
-				if( m_nLevel < pItemProp->dwLimitLevel1 )	// ë ˆë²¨ì´ ì•ˆë˜ë©´ ëª»ì°¸.
-#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+				if( m_nLevel < pItemProp->dwLimitLevel1 )	// ·¹º§ÀÌ ¾ÈµÇ¸é ¸øÂü.
+#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 #endif // __NEW_ITEM_LIMIT_LEVEL
 				{
 #	ifdef __WORLDSERVER
@@ -1684,12 +1684,12 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 
 	}
 #if __VER < 8 // __S8_PK
-	//ì¹´ì˜¤ìš© ì•„ì´í…œì„ ì„ í•œìê°€ ì¥ì°©í•  ìˆ˜ ì—†ë‹¤.
+	//Ä«¿À¿ë ¾ÆÀÌÅÛÀ» ¼±ÇÑÀÚ°¡ ÀåÂøÇÒ ¼ö ¾ø´Ù.
 	if( (pItemProp->nEvildoing < 0) && IsChaotic() == FALSE )
 	{
 	#ifdef __WORLDSERVER
 		if( IsPlayer() )
-			( (CUser*)this )->AddDefinedText( TID_PK_ITEM_MESSAGE1 , "" );	// ì¹´ì˜¤ ì•„ì´í…œì€ ì¹´ì˜¤ìƒíƒœì—ì„œë§Œ...
+			( (CUser*)this )->AddDefinedText( TID_PK_ITEM_MESSAGE1 , "" );	// Ä«¿À ¾ÆÀÌÅÛÀº Ä«¿À»óÅÂ¿¡¼­¸¸...
 	#endif	// __WORLDSERVER
 			
 		return FALSE;
@@ -1698,12 +1698,12 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 
 	ItemProp *pHandItemProp	= NULL;
 	
-	// ë“¤ê³ ìˆëŠ” ë¬´ê¸° í”„ë¡œí¼í‹° êº¼ëƒ„.
+	// µé°íÀÖ´Â ¹«±â ÇÁ·ÎÆÛÆ¼ ²¨³¿.
 	CItemElem *pItemElem = m_Inventory.GetEquip( PARTS_RWEAPON );		
 	if( pItemElem )
 		pHandItemProp = pItemElem->GetProp();
 
-	// í™”ì‚´ì„ ì°©ìš©í•˜ë ¤ í–ˆì„ë•Œ ë³´ìš°ì¼ë•Œë§Œ ì°©ìš©ë¼ì•¼ í•¨
+	// È­»ìÀ» Âø¿ëÇÏ·Á ÇßÀ»¶§ º¸¿ìÀÏ¶§¸¸ Âø¿ëµÅ¾ß ÇÔ
 #ifdef __CROSSBOW
 	if( pItemProp->dwItemKind3 == IK3_ARROW && ( pHandItemProp == NULL || ( pHandItemProp->dwItemKind3 != IK3_BOW && pHandItemProp->dwItemKind3 != IK3_CROSSBOW ) ))
 		return FALSE;		
@@ -1718,18 +1718,18 @@ BOOL CMover::IsEquipAble( ItemProp *pItemProp, OBJID dwObjid ,BOOL bIgnoreLevel 
 
 //
 //
-// pItemElemì´ ë²—ëŠ”ê²Œ ê°€ëŠ¥í•œê°€ë¥¼ ê²€ì‚¬.
+// pItemElemÀÌ ¹ş´Â°Ô °¡´ÉÇÑ°¡¸¦ °Ë»ç.
 BOOL CMover::IsUnEquipAble( ItemProp *pItemProp )
 {
 	if( pItemProp->dwParts == PARTS_RIDE )
 	{
-		if( m_pActMover->IsSit() )	// ë¹—ìë£¨ëŠ” ì•‰ì€ ìƒíƒœì—ì„œëŠ” íƒˆì°© ê¸ˆì§€
+		if( m_pActMover->IsSit() )	// ºøÀÚ·ç´Â ¾ÉÀº »óÅÂ¿¡¼­´Â Å»Âø ±İÁö
 			return FALSE;
 
-		if( GetWorld() )	// RedoEquipì—ì„œ ë¶ˆë €ì„ë•Œ NULLì¸ê²½ìš° ìˆìŒ. NULLì´ë©´ ê± ë²—ê¹€
+		if( GetWorld() )	// RedoEquip¿¡¼­ ºÒ·¶À»¶§ NULLÀÎ°æ¿ì ÀÖÀ½. NULLÀÌ¸é °Á ¹ş±è
 		{
-			int nAttr = GetWorld()->GetHeightAttribute( GetPos().x, GetPos().z );		// ì´ë™í•  ìœ„ì¹˜ì˜ ì†ì„± ì½ìŒ.
-			// ë¹„í–‰ê¸ˆì§€ or ê±·ê¸°ê¸ˆì§€ or ì´ë™ê¸ˆì§€ ì§€ì—­ì—ì„œ ëŠ” ëª»ë‚´ë¦¼.
+			int nAttr = GetWorld()->GetHeightAttribute( GetPos().x, GetPos().z );		// ÀÌµ¿ÇÒ À§Ä¡ÀÇ ¼Ó¼º ÀĞÀ½.
+			// ºñÇà±İÁö or °È±â±İÁö or ÀÌµ¿±İÁö Áö¿ª¿¡¼­ ´Â ¸ø³»¸².
 			if( (nAttr == HATTR_NOFLY || nAttr == HATTR_NOWALK || nAttr == HATTR_NOMOVE ) )		
 				return FALSE;
 		}
@@ -1743,12 +1743,12 @@ BOOL CMover::IsUnEquipAble( ItemProp *pItemProp )
 
 //
 //
-// ì •ìƒì ì¸ ì•„ì´í…œ ì¥ì°©, íƒˆì°© 
+// Á¤»óÀûÀÎ ¾ÆÀÌÅÛ ÀåÂø, Å»Âø 
 BOOL CMover::DoEquip( CItemElem* pItemElem, BOOL bEquip, int nPart )
 {
 	ItemProp* pItemProp = pItemElem->GetProp();
 	
-	if( IsDie() )	// ì£½ì€ ìƒíƒœì—ì„œëŠ” ì¥/íƒˆì°© ê¸ˆì§€
+	if( IsDie() )	// Á×Àº »óÅÂ¿¡¼­´Â Àå/Å»Âø ±İÁö
 	{
 		return FALSE;
 	}
@@ -1785,10 +1785,10 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, BOOL bEquip, int nPart )
 #ifndef __CLIENT
 	if( bEquip )
 	{
-#ifdef 	__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
+#ifdef 	__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
 		if( (pItemElem->m_dwObjIndex - m_Inventory.GetSize() ) != PARTS_LWEAPON  )	// equiped item
-#endif	//__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
-			SetDestParamEquip( pItemProp, pItemElem );		// ì¥ì°©í•œ ì¥ë¹„ì˜ DestParamì„¤ì •
+#endif	//__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
+			SetDestParamEquip( pItemProp, pItemElem );		// ÀåÂøÇÑ ÀåºñÀÇ DestParam¼³Á¤
 #if __VER >= 14 // __EQUIP_BIND
 		if( ( pItemProp->dwFlag & IP_FLAG_EQUIP_BIND ) && !pItemElem->IsFlag( CItemElem::binds ) )
 		{
@@ -1801,10 +1801,10 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, BOOL bEquip, int nPart )
 	else
 	if( bEquip == FALSE )
 	{
-#ifdef 	__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
+#ifdef 	__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
 		if( (pItemElem->m_dwObjIndex - m_Inventory.GetSize() ) != PARTS_LWEAPON  )	// equiped item
-#endif	//__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
-			ResetDestParamEquip( pItemProp, pItemElem );	// í•´ì œí•˜ëŠ” ì¥ë¹„ì˜ DestParamë¦¬ì…‹
+#endif	//__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
+			ResetDestParamEquip( pItemProp, pItemElem );	// ÇØÁ¦ÇÏ´Â ÀåºñÀÇ DestParam¸®¼Â
 		
 		if( pItemProp->dwItemKind1 == IK1_WEAPON ) 
 		{
@@ -1845,12 +1845,12 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, BOOL bEquip, int nPart )
 		memset( &m_CorrAction, 0, sizeof(CORR_ACTION) );
 	}
 
-	// ë§í†  ì…ì„ë•Œ ì²˜ë¦¬.
+	// ¸ÁÅä ÀÔÀ»¶§ Ã³¸®.
 	if( bEquip )
 	{
-		if( pItemProp->dwID == II_ARM_S_CLO_CLO_BLANK )		// ê¸¸ë“œì „ìš© ë¯¼ì§œ ë§í† .
+		if( pItemProp->dwID == II_ARM_S_CLO_CLO_BLANK )		// ±æµåÀü¿ë ¹ÎÂ¥ ¸ÁÅä.
 		{
-			m_idGuildCloak = pItemElem->m_idGuild;			// ë§í† ì— ë°•í˜€ìˆë˜ ê¸¸ë“œì•„ì´ë””ë¥¼ ë°›ìŒ.
+			m_idGuildCloak = pItemElem->m_idGuild;			// ¸ÁÅä¿¡ ¹ÚÇôÀÖ´ø ±æµå¾ÆÀÌµğ¸¦ ¹ŞÀ½.
 #ifdef __XCLOAK
 			m_pCloakTexture = g_GuildTexture.LoadGuildTexture( pItemElem->m_idGuild );
 #endif
@@ -1859,7 +1859,7 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, BOOL bEquip, int nPart )
 		{
 #ifdef __XCLOAK
 			m_pCloakTexture = NULL;
-			m_idGuildCloak = 0;			// ë§í† ì— ë°•í˜€ìˆë˜ ê¸¸ë“œì•„ì´ë””ë¥¼ ë°›ìŒ.
+			m_idGuildCloak = 0;			// ¸ÁÅä¿¡ ¹ÚÇôÀÖ´ø ±æµå¾ÆÀÌµğ¸¦ ¹ŞÀ½.
 #endif
 		}
 	}
@@ -1872,8 +1872,8 @@ BOOL CMover::DoEquip( CItemElem* pItemElem, BOOL bEquip, int nPart )
 
 
 #ifdef __CLIENT
-// ì¥ì°©ì‹œ dwItemIndexë§Œì„ ì‚¬ìš©í•˜ëŠ” ì´ MethodëŠ” Fake ì•„ì´í…œì„ ìœ„í•´ ì‚¬ìš© 
-// pModelì— ê°’ì´ ìˆëŠ” ê²½ìš°ëŠ” ì¢€ íŠ¹ë³„í•œ ê²½ìš°ë‹¤. ê·¸ ê²½ìš°ëŠ” ì¥ì°©/íƒˆì°© í›„ì—ë„ ë‚´ë¶€ ì¥ì°©ì— ê´€í•œ ì„¸íŒ…ì— ë³€ê²½ì´ ì—†ê²Œ ëœë‹¤.
+// ÀåÂø½Ã dwItemIndex¸¸À» »ç¿ëÇÏ´Â ÀÌ Method´Â Fake ¾ÆÀÌÅÛÀ» À§ÇØ »ç¿ë 
+// pModel¿¡ °ªÀÌ ÀÖ´Â °æ¿ì´Â Á» Æ¯º°ÇÑ °æ¿ì´Ù. ±× °æ¿ì´Â ÀåÂø/Å»Âø ÈÄ¿¡µµ ³»ºÎ ÀåÂø¿¡ °üÇÑ ¼¼ÆÃ¿¡ º¯°æÀÌ ¾ø°Ô µÈ´Ù.
 BOOL CMover::DoFakeEquip( const EQUIP_INFO & rEquipInfo, BOOL bEquip, int nPart, CModelObject* pModel )
 {
 	BOOL bResult;
@@ -1920,10 +1920,10 @@ BOOL CMover::DoFakeEquip( const EQUIP_INFO & rEquipInfo, BOOL bEquip, int nPart,
 			ClearDest();
 		}
 	}
-	// ë§í†  ì…ì„ë•Œ ì²˜ë¦¬.
+	// ¸ÁÅä ÀÔÀ»¶§ Ã³¸®.
 	if( bEquip )
 	{
-		if( pProp->dwID == II_ARM_S_CLO_CLO_BLANK )		// ê¸¸ë“œì „ìš© ë¯¼ì§œ ë§í† .
+		if( pProp->dwID == II_ARM_S_CLO_CLO_BLANK )		// ±æµåÀü¿ë ¹ÎÂ¥ ¸ÁÅä.
 		{
 #ifdef __XCLOAK
 			m_pCloakTexture = g_GuildTexture.LoadGuildTexture( m_idGuildCloak );
@@ -1946,7 +1946,7 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 	ItemProp* pItemProp	= NULL;
 	BOOL bEquip;
 
-	// ì¥ì°©ë  ì•„ì´í…œì˜ ì„  ì²˜ë¦¬ 
+	// ÀåÂøµÉ ¾ÆÀÌÅÛÀÇ ¼± Ã³¸® 
 	for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
 	{
 		bEquip	= fFakeParts? ( m_aEquipInfo[i].dwId != NULL_ID ) : ( m_Inventory.GetEquip( i ) != NULL );
@@ -1954,8 +1954,8 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 		{
 			pItemElem = NULL;			pItemProp = NULL;
 			
-			// ì¥ì°©ëœ ì•„ì´í…œì˜ í”„ë¡œí¼í‹° êº¼ëƒ„.
-			if( !fFakeParts )	// ì§„ì§œ ì¥ë¹„ëƒ.
+			// ÀåÂøµÈ ¾ÆÀÌÅÛÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿.
+			if( !fFakeParts )	// ÁøÂ¥ Àåºñ³Ä.
 			{
 				pItemElem	= m_Inventory.GetEquip( i );
 				if( NULL != pItemElem )
@@ -1991,27 +1991,27 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 				
 			if( ( pItemProp != NULL && pItemProp->dwID > 0 && 
 				( pItemProp->dwParts == i || pItemProp->dwPartsub == i || 
-				  (pItemProp->dwParts == PARTS_RWEAPON && i == PARTS_LWEAPON) )		// RWEAPONì€ LWEAPONê³¼ ê°™ì€ê²ƒìœ¼ë¡œ ì¹œë‹¤.
+				  (pItemProp->dwParts == PARTS_RWEAPON && i == PARTS_LWEAPON) )		// RWEAPONÀº LWEAPON°ú °°Àº°ÍÀ¸·Î Ä£´Ù.
 				) &&
 				( fFakeParts || m_Inventory.IsEquip( pItemElem->m_dwObjId ) ) )
 			{
-				// ë¹—ìë£¨ë¥¼ ì¥ì°©í• ê»€ë°
+				// ºøÀÚ·ç¸¦ ÀåÂøÇÒ²«µ¥
 				if( i == PARTS_RIDE )
 				{
-					if( FALSE == m_pActMover->IsFly() )	// ë¹„í–‰ì¤‘ì´ ì•„ë‹ˆë©´
+					if( FALSE == m_pActMover->IsFly() )	// ºñÇàÁßÀÌ ¾Æ´Ï¸é
 					{
 //						WriteLog( "RedoEquip(): OBJSTAF_FLY" );
-						SendActMsg( OBJMSG_MODE_FLY, pItemProp->dwID, 0, 1 );	// ë¹„í–‰ëª¨ë“œë¡œ ì „í™˜
+						SendActMsg( OBJMSG_MODE_FLY, pItemProp->dwID, 0, 1 );	// ºñÇà¸ğµå·Î ÀüÈ¯
 					}
-					if( m_dwRideItemIdx == 0 )	// ë¹—ìë£¨ IDê°€ ì—†ìœ¼ë©´
+					if( m_dwRideItemIdx == 0 )	// ºøÀÚ·ç ID°¡ ¾øÀ¸¸é
 					{
 //						WriteLog( "RedoEquip(): m_dwRideItemIdx	= pItemProp->dwID" );
-						m_dwRideItemIdx	= pItemProp->dwID;	// ê°’ ë³´ì •.
+						m_dwRideItemIdx	= pItemProp->dwID;	// °ª º¸Á¤.
 					}
 				} 
-				if( pItemProp->dwID == II_ARM_S_CLO_CLO_BLANK )		// ê¸¸ë“œì „ìš© ë¯¼ì§œ ë§í† .
+				if( pItemProp->dwID == II_ARM_S_CLO_CLO_BLANK )		// ±æµåÀü¿ë ¹ÎÂ¥ ¸ÁÅä.
 				{
-					if( pItemElem )		// ì„œë²„ / í´ë¼(ì•¡í‹°ë¸Œë¬´ë²„)
+					if( pItemElem )		// ¼­¹ö / Å¬¶ó(¾×Æ¼ºê¹«¹ö)
 						m_idGuildCloak = pItemElem->m_idGuild;
  #ifdef __XCLOAK
 					m_pCloakTexture = g_GuildTexture.LoadGuildTexture( m_idGuildCloak );
@@ -2022,9 +2022,9 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 
 				if( bDestParam )
 				{
-#ifdef 	__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
+#ifdef 	__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
 					if( i != PARTS_LWEAPON )	// equiped item
-#endif	//__BLADELWEAPON0608	//	9th ë¸”ë ˆì´ë“œ ì–‘ì†ì— ë¬´ê¸°ë¥¼ ì°©ìš© ì‹œ ì¶”ê°€ ì˜µì…˜ì€ ì˜¤ë¥¸ì†ì— ë“¤ê³  ìˆëŠ” ë¬´ê¸°ì˜ ê²ƒë§Œ ì ìš©ì´ ë˜ë„ë¡ ìˆ˜ì •
+#endif	//__BLADELWEAPON0608	//	9th ºí·¹ÀÌµå ¾ç¼Õ¿¡ ¹«±â¸¦ Âø¿ë ½Ã Ãß°¡ ¿É¼ÇÀº ¿À¸¥¼Õ¿¡ µé°í ÀÖ´Â ¹«±âÀÇ °Í¸¸ Àû¿ëÀÌ µÇµµ·Ï ¼öÁ¤
 						SetDestParamEquip( pItemProp, pItemElem, TRUE );
 #if __VER >= 9 // __ULTIMATE
 					if( i == PARTS_RWEAPON )
@@ -2039,18 +2039,18 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 			}
 		}
 		else 
-		{	// ì¥ì°©ë ê²Œ ì—†ìŒ.
-			if( i == PARTS_RIDE )	// ë¹—ìë£¨ê°€ ì¥ì°©ë˜ì–´ ìˆì§€ ì•Šì€ë°
+		{	// ÀåÂøµÉ°Ô ¾øÀ½.
+			if( i == PARTS_RIDE )	// ºøÀÚ·ç°¡ ÀåÂøµÇ¾î ÀÖÁö ¾ÊÀºµ¥
 			{
-				if( m_pActMover->IsFly() )	// ë¹„í–‰ì¤‘ì´ë‹¤.
+				if( m_pActMover->IsFly() )	// ºñÇàÁßÀÌ´Ù.
 				{
 //					WriteLog( "RedoEquip(): OBJSTAF_GROUND" );
-					SendActMsg( OBJMSG_MODE_GROUND, 0, 0, 1 );	// ê·¸ëŸ¬ë©´ ì§€ìƒëª¨ë“œë¡œ ë³€í™˜ ì‹œì¼œì•¼ì§€.
+					SendActMsg( OBJMSG_MODE_GROUND, 0, 0, 1 );	// ±×·¯¸é Áö»ó¸ğµå·Î º¯È¯ ½ÃÄÑ¾ßÁö.
 				}
-				if( m_dwRideItemIdx != 0 )		// ë¹—ìë£¨ ì¸ë±ìŠ¤ë„ 0ì´ì–´ì•¼ í•˜ëŠ”ë° ë­”ê°€ ìˆë‹¤.
+				if( m_dwRideItemIdx != 0 )		// ºøÀÚ·ç ÀÎµ¦½ºµµ 0ÀÌ¾î¾ß ÇÏ´Âµ¥ ¹º°¡ ÀÖ´Ù.
 				{
 //					WriteLog( "RedoEquip(): m_dwRideItemIdx	= 0" );
-					m_dwRideItemIdx		= 0;	// ê·¸ëŸ¬ë©´ 0ìœ¼ë¡œ í´ë¦¬ì–´.
+					m_dwRideItemIdx		= 0;	// ±×·¯¸é 0À¸·Î Å¬¸®¾î.
 				}
 				if( m_Inventory.GetEquip( i ) )
 				{
@@ -2062,7 +2062,7 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 	}
 
 
-	pItemElem	= m_Inventory.GetEquip( PARTS_RWEAPON );		// ìœ„ì— ë£¨í”„ì—ì„œ ëª¨ë“ íŒŒì¸ ë¥¼ ì´ë ‡ê²Œ ì¼ê´„ì ìœ¼ë¡œ ë„£ì–´ë„ ë ë“¯ ì‹¶ë‹¤.
+	pItemElem	= m_Inventory.GetEquip( PARTS_RWEAPON );		// À§¿¡ ·çÇÁ¿¡¼­ ¸ğµçÆÄÃ÷¸¦ ÀÌ·¸°Ô ÀÏ°ıÀûÀ¸·Î ³Ö¾îµµ µÉµí ½Í´Ù.
 	if( pItemElem )
 	{
 		m_aEquipInfo[PARTS_RWEAPON].nOption	= pItemElem->GetAttrOption();
@@ -2073,11 +2073,11 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 		m_aEquipInfo[PARTS_LWEAPON].nOption	= pItemElem->GetAttrOption();
 	}
 
-	// ì•„ì´í…œì´ ì‹¤ì œ ì¥ì°©.
+	// ¾ÆÀÌÅÛÀÌ ½ÇÁ¦ ÀåÂø.
 	UpdateParts( fFakeParts );
 
 #ifdef __WORLDSERVER
-	InvalidEquipOff( fFakeParts );		// ì¥ì°©ë˜ì–´ì„¤ ì•ˆë  ì¥ë¹„ê°€ ì¥ì°©ë˜ì–´ ìˆë‹¤ë©´ ë²—ê¹€
+	InvalidEquipOff( fFakeParts );		// ÀåÂøµÇ¾î¼³ ¾ÈµÉ Àåºñ°¡ ÀåÂøµÇ¾î ÀÖ´Ù¸é ¹ş±è
 #endif
 
 	if( bDestParam )
@@ -2091,7 +2091,7 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 	}
 }
 
-// ì¥ì°©ë˜ì–´ì„¤ ì•ˆë  ì¥ë¹„ê°€ ì¥ì°©ë˜ì–´ ìˆë‹¤ë©´ ë²—ê¹€
+// ÀåÂøµÇ¾î¼³ ¾ÈµÉ Àåºñ°¡ ÀåÂøµÇ¾î ÀÖ´Ù¸é ¹ş±è
 int	CMover::InvalidEquipOff( BOOL bFakeParts )
 {
 	CItemElem* pItemElem = NULL;
@@ -2103,8 +2103,8 @@ int	CMover::InvalidEquipOff( BOOL bFakeParts )
 		pItemElem = NULL;		
 		pItemProp = NULL;
 
-		// ì¥ì°©ëœ ì•„ì´í…œì˜ í”„ë¡œí¼í‹° êº¼ëƒ„.
-		if( bFakeParts )	// Fake ì¥ë¹„
+		// ÀåÂøµÈ ¾ÆÀÌÅÛÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿.
+		if( bFakeParts )	// Fake Àåºñ
 		{
 			if( m_aEquipInfo[i].dwId	== NULL_ID )	continue;
 			pItemProp	= prj.GetItemProp( m_aEquipInfo[i].dwId );
@@ -2117,24 +2117,24 @@ int	CMover::InvalidEquipOff( BOOL bFakeParts )
 		}
 
 		if( pItemProp == NULL )	
-			continue;	// í”„ë¡œí¼í‹° ì—†ìœ¼ë©´ ì‹¤íŒ¨.
+			continue;	// ÇÁ·ÎÆÛÆ¼ ¾øÀ¸¸é ½ÇÆĞ.
 
 #if __VER >= 8 // __S8_PK
 #if __VER >= 11 // __SYS_IDENTIFY
-		if( IsEquipAble( pItemElem,TRUE ) == FALSE )	// ì¥ì°©í•  ìˆ˜ ì—†ëŠ” ì•„ì´í…œì´ë‹¤.
+		if( IsEquipAble( pItemElem,TRUE ) == FALSE )	// ÀåÂøÇÒ ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÌ´Ù.
 #else	// __SYS_IDENTIFY
-		if( IsEquipAble( pItemProp, pItemElem->m_dwObjId, TRUE ) == FALSE )	// ì¥ì°©í•  ìˆ˜ ì—†ëŠ” ì•„ì´í…œì´ë‹¤.
+		if( IsEquipAble( pItemProp, pItemElem->m_dwObjId, TRUE ) == FALSE )	// ÀåÂøÇÒ ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÌ´Ù.
 #endif	// __SYS_IDENTIFY
 #else	// __S8_PK
-		if( IsEquipAble( pItemProp, pItemElem->m_dwObjId) == FALSE )	// ì¥ì°©í•  ìˆ˜ ì—†ëŠ” ì•„ì´í…œì´ë‹¤.
+		if( IsEquipAble( pItemProp, pItemElem->m_dwObjId) == FALSE )	// ÀåÂøÇÒ ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÌ´Ù.
 #endif	// __S8_PK
 		{
 			if( pItemElem )
 			{
-				if( DoEquip( pItemElem, FALSE ) == FALSE )		// ë²—ê¹€.
+				if( DoEquip( pItemElem, FALSE ) == FALSE )		// ¹ş±è.
 				{
 				#ifdef __WORLDSERVER
-					// ë²—ê¸°ëŠ”ë° ì‹¤íŒ¨í•¨. ì¸ë²¤ì´ ê½‰ì°¼ë‹¤ê±°ë‚˜ ê¸°íƒ€ë“±ë“± ì´ìœ 
+					// ¹ş±â´Âµ¥ ½ÇÆĞÇÔ. ÀÎº¥ÀÌ ²ËÃ¡´Ù°Å³ª ±âÅ¸µîµî ÀÌÀ¯
 					#ifndef _DEBUG
 						//Error( "Invalid Equipment Removed : %s", GetName() );
 					#endif
@@ -2165,9 +2165,9 @@ void CMover::SetDestParamEquip( ItemProp* pItemProp, CItemElem* pItemElem, BOOL 
 		SetDestParam( 2, pItemProp );
 #endif	// __PROP_0827
 	
-	// ì›ì†Œë³„ ì†ì„±ì´ ë¶™ì€ ì•„ì´í…œì¼ê²½ìš° ì„¸íŒ…í•¨.
+	// ¿ø¼Òº° ¼Ó¼ºÀÌ ºÙÀº ¾ÆÀÌÅÛÀÏ°æ¿ì ¼¼ÆÃÇÔ.
 	
-	// ë°©ì–´êµ¬ì´ê³  ì†ì„±ì˜µì…˜ê°’ì´ ìˆìœ¼ë©´...
+	// ¹æ¾î±¸ÀÌ°í ¼Ó¼º¿É¼Ç°ªÀÌ ÀÖÀ¸¸é...
 	if( pItemElem && pItemElem->m_nResistAbilityOption && pItemElem->GetProp()->dwItemKind1 == IK1_ARMOR )
 	{
 		if( pItemElem->m_bItemResist != SAI79::NO_PROP )
@@ -2195,7 +2195,7 @@ void CMover::SetDestParamEquip( ItemProp* pItemProp, CItemElem* pItemElem, BOOL 
 
 #if __VER >= 11 // __SYS_COLLECTING
 	CAccessoryProperty* pProperty	= CAccessoryProperty::GetInstance();
-	if( pItemElem && pItemElem->IsAccessory() )		// ì•¡ì„¸ì„œë¦¬
+	if( pItemElem && pItemElem->IsAccessory() )		// ¾×¼¼¼­¸®
 	{
 		vector<SINGLE_DST>* pDst	= pProperty->GetDst( pItemElem->m_dwItemId, pItemElem->GetAbilityOption() );
 		for( DWORD i = 0; i < pDst->size(); i++ )
@@ -2288,7 +2288,7 @@ void CMover::ResetDestParamEquip( ItemProp* pItemProp, CItemElem* pItemElem )
 	{
 #if __VER >= 11 // __SYS_COLLECTING
 		CAccessoryProperty* pProperty	= CAccessoryProperty::GetInstance();
-		if( pItemElem->IsAccessory() )		// ì•¡ì„¸ì„œë¦¬
+		if( pItemElem->IsAccessory() )		// ¾×¼¼¼­¸®
 		{
 			vector<SINGLE_DST>* pDst	= pProperty->GetDst( pItemElem->m_dwItemId, pItemElem->GetAbilityOption() );
 			for( DWORD i = 0; i < pDst->size(); i++ )
@@ -2315,7 +2315,7 @@ void CMover::ResetDestParamEquip( ItemProp* pItemProp, CItemElem* pItemElem )
 }
 
 
-// ëˆíšë“ 	
+// µ·È¹µæ 	
 void CMover::PickupGold( int nGold, BOOL bDropMob )
 {
 	ASSERT( nGold > 0 );
@@ -2327,11 +2327,11 @@ void CMover::PickupGold( int nGold, BOOL bDropMob )
 
 #ifdef __WORLDSERVER
 	CParty *pParty	= g_PartyMng.GetParty( m_idparty );
-	if( pParty && pParty->IsMember( m_idPlayer ) && bDropMob )	// íŒŒí‹°ê°€ ìˆê³  ëª¹ì´ ë–¨êµ° ëˆë§Œ ë¶„ë°°ëœë‹¤.
+	if( pParty && pParty->IsMember( m_idPlayer ) && bDropMob )	// ÆÄÆ¼°¡ ÀÖ°í ¸÷ÀÌ ¶³±º µ·¸¸ ºĞ¹èµÈ´Ù.
 	{
-		// íŒŒí‹°ê°€ ìˆëŠ” ìƒíƒœì—ì„œ ëˆì„ ì§‘ìœ¼ë ¤ë©´ ëˆì´ ë¶„ë°°ëœë‹¤.
-		// ëª¬ìŠ¤í„°ê°€ ë“œë¡­í•œëˆë§Œ ë¶„ë°°ë˜ì–´ì•¼ í•œë‹¤.
-		int nNumInsideMember = 1;		// ëˆ ì¤ëŠ”ì‚¬ëŒ ì¤‘ì‹¬ìœ¼ë¡œ ë°˜ê²½ xxë¯¸í„° ì´ë‚´ìˆëŠ”ì‚¬ëŒì´ ëª‡ëª…ì´ë‚˜ ë˜ëŠ”ì§€ ê²€ì‚¬. 
+		// ÆÄÆ¼°¡ ÀÖ´Â »óÅÂ¿¡¼­ µ·À» ÁıÀ¸·Á¸é µ·ÀÌ ºĞ¹èµÈ´Ù.
+		// ¸ó½ºÅÍ°¡ µå·ÓÇÑµ·¸¸ ºĞ¹èµÇ¾î¾ß ÇÑ´Ù.
+		int nNumInsideMember = 1;		// µ· Áİ´Â»ç¶÷ Áß½ÉÀ¸·Î ¹İ°æ xx¹ÌÅÍ ÀÌ³»ÀÖ´Â»ç¶÷ÀÌ ¸î¸íÀÌ³ª µÇ´ÂÁö °Ë»ç. 
 		CUser *pListMember[MAX_PTMEMBER_SIZE];
 		int	nMaxListMember = 0;
 		CUser* pMember	= NULL;
@@ -2339,7 +2339,7 @@ void CMover::PickupGold( int nGold, BOOL bDropMob )
 //		float fDist;
 		D3DXVECTOR3	vDist;
 
-		// ëˆì¤ëŠ”ì‚¬ëŒ ë°˜ê²½ì•ˆì— ë“œëŠ” ë©¤ë²„ë“¤ë§Œ ì¶”ë ¤ë‚¸ë‹¤.
+		// µ·Áİ´Â»ç¶÷ ¹İ°æ¾È¿¡ µå´Â ¸â¹öµé¸¸ Ãß·Á³½´Ù.
 		memset( pListMember, 0, sizeof(pListMember) );
 		for( i = 0; i < pParty->m_nSizeofMember; i++ )
 		{
@@ -2348,22 +2348,22 @@ void CMover::PickupGold( int nGold, BOOL bDropMob )
 			if( IsValidObj( pMember ) )
 			{
 				vDist = pMember->GetPos() - GetPos();
-				fDist = D3DXVec3LengthSq( &vDist );		// ëˆ ì¤ëŠ”ì‚¬ëŒê³¼ ë©¤ë²„ê°„ì˜ ê±°ë¦¬.
-				if( fDist < 32.0f * 32.0f )				// xxë¯¸í„°ë³´ë‹¤ ì‘ìœ¼ë©´
+				fDist = D3DXVec3LengthSq( &vDist );		// µ· Áİ´Â»ç¶÷°ú ¸â¹ö°£ÀÇ °Å¸®.
+				if( fDist < 32.0f * 32.0f )				// xx¹ÌÅÍº¸´Ù ÀÛÀ¸¸é
 				{
 					pListMember[ nMaxListMember++ ] = pMember;
 				}
 			}
-			*/ //2009.01.21 // ë°˜ê²½ ê²€ì‚¬ì— ë ˆì´ì–´ ì¶”ê°€
+			*/ //2009.01.21 // ¹İ°æ °Ë»ç¿¡ ·¹ÀÌ¾î Ãß°¡
 			if( IsValidArea( pMember, 32.0f ) )
 				pListMember[ nMaxListMember++ ] = pMember;
 		}
 
 		if( nMaxListMember > 0 )
 		{
-			int nShare = nGold / nMaxListMember;		// ë©¤ë²„ ê°ê°ì˜ ëª«
-			int nRest  = nGold % nMaxListMember;		// ë‚˜ëˆ„ê³ ë‚œ í›„ ë‚˜ë¨¸ì§€.
-			if( nShare )	// ëª«ì´ ìˆì„ë•Œ.
+			int nShare = nGold / nMaxListMember;		// ¸â¹ö °¢°¢ÀÇ ¸ò
+			int nRest  = nGold % nMaxListMember;		// ³ª´©°í³­ ÈÄ ³ª¸ÓÁö.
+			if( nShare )	// ¸òÀÌ ÀÖÀ»¶§.
 			{
 				for( i = 0; i < nMaxListMember; i++ )
 				{
@@ -2372,7 +2372,7 @@ void CMover::PickupGold( int nGold, BOOL bDropMob )
 				}
 			}
 
-			// ë‚˜ë¨¸ì§€ëŠ” ëœë¤ìœ¼ë¡œ í•œì‚¬ëŒì´ ê°€ì§.
+			// ³ª¸ÓÁö´Â ·£´ıÀ¸·Î ÇÑ»ç¶÷ÀÌ °¡Áü.
 			if( nRest )
 			{
 				pMember = pListMember[ random(nMaxListMember) ];	
@@ -2395,7 +2395,7 @@ void CMover::PickupGold( int nGold, BOOL bDropMob )
 	else
 #endif // WORLDSERVER	
 	{
-		// íŒŒí‹° ì—†ì„ë•Œ
+		// ÆÄÆ¼ ¾øÀ»¶§
 		PickupGoldCore( nGold );
 	}
 }
@@ -2430,7 +2430,7 @@ void CMover::PickupGoldCore( int nGold )
 
 
 #ifdef __WORLDSERVER
-// ëˆì„ ë•…ì— ë–¨êµ°ë‹¤.  bPK - PKë‹¹í•œ ê²½ìš° 
+// µ·À» ¶¥¿¡ ¶³±º´Ù.  bPK - PK´çÇÑ °æ¿ì 
 CItem* CMover::DropGold( DWORD dwGold, const D3DXVECTOR3& vPos, BOOL bPK )
 {
 	if( IsDropableState( bPK ) == FALSE )
@@ -2446,7 +2446,7 @@ CItem* CMover::DropGold( DWORD dwGold, const D3DXVECTOR3& vPos, BOOL bPK )
 			LogItemInfo aLogItem;
 			aLogItem.Action = "D";
 			aLogItem.SendName = GetName();
-			aLogItem.RecvName = "GROUND";	// ë•…ì— ë²„ë¦°ê²ƒ
+			aLogItem.RecvName = "GROUND";	// ¶¥¿¡ ¹ö¸°°Í
 			aLogItem.WorldId = pWorld->GetID();
 			aLogItem.Gold = GetGold();
 			aLogItem.Gold2 = GetGold() - nGold;
@@ -2469,8 +2469,8 @@ CItem* CMover::DropGold( DWORD dwGold, const D3DXVECTOR3& vPos, BOOL bPK )
 		else
 			pItemElem->m_dwItemId	= II_GOLD_SEED4;
 
-		pItemElem->m_nItemNum	= (short)nGold;				// __NPP_050308 ì´í›„ì—ëŠ” ì‚¬ìš©í•˜ì§€ ì•Šì„ ê²ƒ
-		pItemElem->m_nHitPoint  = nGold;					// intí˜•ìœ¼ë¡œ ëˆì„ ë²„ë¦¬ê²Œ í•˜ê¸° ìœ„í•´ì„œ ì´ ë³€ìˆ˜ë¥¼ ì‚¬ìš© 
+		pItemElem->m_nItemNum	= (short)nGold;				// __NPP_050308 ÀÌÈÄ¿¡´Â »ç¿ëÇÏÁö ¾ÊÀ» °Í
+		pItemElem->m_nHitPoint  = nGold;					// intÇüÀ¸·Î µ·À» ¹ö¸®°Ô ÇÏ±â À§ÇØ¼­ ÀÌ º¯¼ö¸¦ »ç¿ë 
 
 		CItem* pItem	= new CItem;
 		pItem->m_pItemBase	= pItemElem;
@@ -2565,10 +2565,10 @@ BOOL CMover::GetEquipFlag( int nParts, BYTE* pbyFlag )
 #endif	// __CLIENT
 
 
-// ì¥ë¹„ë¥¼ ì¥/íƒˆì°©í•œë‹¤.
-// pItemElem - ì¥ì°©/íƒˆì°© í•  ì•„ì´í…œ
-// bEquip - TRUE ì¥ì°©
-// nPart - íŒŒì¸ ë²ˆí˜¸ 
+// Àåºñ¸¦ Àå/Å»ÂøÇÑ´Ù.
+// pItemElem - ÀåÂø/Å»Âø ÇÒ ¾ÆÀÌÅÛ
+// bEquip - TRUE ÀåÂø
+// nPart - ÆÄÃ÷¹øÈ£ 
 void CMover::EquipItem( CItemElem *pItemElem, BOOL bEquip, int nPart )
 {
 	if( m_pActMover && m_pActMover->IsActAttack() )
@@ -2585,20 +2585,20 @@ void CMover::EquipItem( CItemElem *pItemElem, BOOL bEquip, int nPart )
 	}
 }
 
-// íƒˆ ê²ƒì—ì„œ ë‚´ë¦°ë‹¤.
+// Å» °Í¿¡¼­ ³»¸°´Ù.
 void CMover::UnequipRide()
 {
 	if( IsPlayer() )
 	{
 		CItemElem* pItemElem = GetEquipItem( PARTS_RIDE );
 		if( pItemElem )
-			EquipItem( pItemElem, FALSE, -1 );	// -1 íŒŒì¸ ë²ˆí˜¸ 
+			EquipItem( pItemElem, FALSE, -1 );	// -1 ÆÄÃ÷¹øÈ£ 
 	}
 }
 
 
-// ì¥ë¹„ì•„ì´í…œì„ ì‚¬ìš©í•œë‹¤.( ì¥ì°© -> íƒˆì°©, íƒˆì°© -> ì¥ì°© )
-// ì£¼ì˜: pItemElemì€ IsUsableItemìœ¼ë¡œ ê²€ì‚¬ëœ ìƒíƒœë¼ê³  ê°€ì •í•œë‹¤.
+// Àåºñ¾ÆÀÌÅÛÀ» »ç¿ëÇÑ´Ù.( ÀåÂø -> Å»Âø, Å»Âø -> ÀåÂø )
+// ÁÖÀÇ: pItemElemÀº IsUsableItemÀ¸·Î °Ë»çµÈ »óÅÂ¶ó°í °¡Á¤ÇÑ´Ù.
 BOOL CMover::DoUseEquipmentItem( CItemElem* pItemElem, DWORD dwId, int nPart )
 { 
 #ifdef __WORLDSERVER
@@ -2606,7 +2606,7 @@ BOOL CMover::DoUseEquipmentItem( CItemElem* pItemElem, DWORD dwId, int nPart )
 	if( bEquip && IsItemRedyTime( pItemElem->GetProp(), pItemElem->m_dwObjId, TRUE ) == FALSE )
 		return FALSE;
 
-	// chipi_090731 - í´ë¼ì´ì–¸íŠ¸ ë³€ì¡°ì‹œ ë¬¸ì œ ë°œìƒ
+	// chipi_090731 - Å¬¶óÀÌ¾ğÆ® º¯Á¶½Ã ¹®Á¦ ¹ß»ı
 	ItemProp* pItemProp = pItemElem->GetProp();
 	if( !pItemProp )
 		return FALSE;
@@ -2617,7 +2617,7 @@ BOOL CMover::DoUseEquipmentItem( CItemElem* pItemElem, DWORD dwId, int nPart )
 		if( !pTempElem || pTempElem->GetProp()->dwParts != pItemProp->dwParts )
 			return FALSE;
 	}
-	// END chipi_090731 - í´ë¼ì´ì–¸íŠ¸ ë³€ì¡°ì‹œ ë¬¸ì œ ë°œìƒ
+	// END chipi_090731 - Å¬¶óÀÌ¾ğÆ® º¯Á¶½Ã ¹®Á¦ ¹ß»ı
 
 	EquipItem( pItemElem, bEquip, nPart );
 #endif // __WORLDSERVER

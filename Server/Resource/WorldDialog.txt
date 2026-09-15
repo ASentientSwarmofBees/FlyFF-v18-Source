@@ -1,4 +1,4 @@
-Ôªø#auto
+#auto
 #init
 #addKey
 #yesQuest
@@ -1066,7 +1066,7 @@ I am a priest who worships the goddess Lysis. You are trying to draw stronger po
 Wouldn't you like to get a treasure chest?
 normal speech bubble
 I am the Hostess who is running the Prepaid Card event.\nTo celebrate the opening of our prepaid cards in Target and Staples, we are running an event!
-Here is how the event works :\nBuy a gPotato prepaid card at Target or Staples.  Go to our website and redeem the prepaid card for gPotatoes. At the end of the redemption process, choose a bonus item.  A special gift box will be delivered to your inventory!\nOnce you get the gift box, come back to me, and tell me you wish to ‚ÄúRedeem Gift‚Äù.  I will then help you open your gift box, giving you a special bonus item!
+Here is how the event works :\nBuy a gPotato prepaid card at Target or Staples.  Go to our website and redeem the prepaid card for gPotatoes. At the end of the redemption process, choose a bonus item.  A special gift box will be delivered to your inventory!\nOnce you get the gift box, come back to me, and tell me you wish to °∞Redeem Gift°±.  I will then help you open your gift box, giving you a special bonus item!
 farewell speech bubble
 What can I do for the weaver...
 I recently went to a festival with a weaver. It was fun to be able to sell various foods. But a sad thing happened before I could even enjoy it...
@@ -1236,7 +1236,7 @@ My name is Radian, a smelting expert who boasts the skills to make weapons more 
 Please listen again next time~ We will develop new technology to make more powerful weapons~
 When it comes to love, it doesn't just apply to love. Thinking of your family, friends, and colleagues is also part of love, so keep that in mind.
 I can feel it... Affection revolves around this town
-I am the rumored cupid god‚ô™
+I am the rumored cupid god¢‹
 ardu
 Happy new year everyone
 Do you have a Wansonubi coupon? come to me!

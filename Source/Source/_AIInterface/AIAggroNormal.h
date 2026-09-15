@@ -1,4 +1,4 @@
-ï»¿#ifndef __AI_AGGRO_NORMAL_H
+#ifndef __AI_AGGRO_NORMAL_H
 #define __AI_AGGRO_NORMAL_H
 
 #include "mempooler.h"
@@ -11,13 +11,13 @@ protected:
 	DWORD 			m_tmMove;
 	DWORD			m_tmAttackDelay;
 	DWORD			m_tmAttack;		
-	DWORD			m_tmSummon;					// ì†Œí™˜ íƒ€ì´ë¨¸.
-	DWORD			m_tmHelp;					// ë„ì›€ ìš”ì²­ íƒ€ì´ë¨¸.
-	DWORD			m_tmReturnToBegin;			// ë¦¬ì  ì§€ì ìœ¼ë¡œ ëŒì•„ê°€ëŠ” ì‹œê°„ì¸¡ì •.
+	DWORD			m_tmSummon;					// ¼ÒÈ¯ Å¸ÀÌ¸Ó.
+	DWORD			m_tmHelp;					// µµ¿ò ¿äÃ» Å¸ÀÌ¸Ó.
+	DWORD			m_tmReturnToBegin;			// ¸®Á¨ÁöÁ¡À¸·Î µ¹¾Æ°¡´Â ½Ã°£ÃøÁ¤.
 
 	D3DXVECTOR3		m_vPosBegin;
 	D3DXVECTOR3		m_vDestPos;
-	D3DXVECTOR3		m_vOldPos;					// ì´ì „ í”„ë ˆì„ ì¢Œí‘œ
+	D3DXVECTOR3		m_vOldPos;					// ÀÌÀü ÇÁ·¹ÀÓ ÁÂÇ¥
 
 #if __VER >= 9	//__AI_0509
 	D3DXVECTOR3		m_vPosDamage;
@@ -31,17 +31,17 @@ protected:
 	BOOL			m_bTargetNoMovePos;
 	BOOL			m_bFirstRunaway;
 	BOOL			m_bCallHelper;
-	BOOL			m_bRangeAttack;				// ë ˆì¸ì§€ ì–´íƒì´ëƒ ì•„ë‹ˆëƒ.
-	BOOL			m_bLootMove;				// ë£¨íŒ…í•˜ëŸ¬ ê°€ëŠ”ì¤‘.
+	BOOL			m_bRangeAttack;				// ·¹ÀÎÁö ¾îÅÃÀÌ³Ä ¾Æ´Ï³Ä.
+	BOOL			m_bLootMove;				// ·çÆÃÇÏ·¯ °¡´ÂÁß.
 
 	DWORD			m_dwIdTarget;
 	DWORD			m_dwAtkMethod;
 #if __VER >= 12 // __NEW_SUMMON_RULE
-	vector<OBJID>	m_vecIdSummon;					// ì†Œí™˜ëœ ëª¬ìŠ¤í„°ëŠ” ì•„ì´ë””ê°€ ì±„ì›Œì§„ë‹¤.
+	vector<OBJID>	m_vecIdSummon;					// ¼ÒÈ¯µÈ ¸ó½ºÅÍ´Â ¾ÆÀÌµğ°¡ Ã¤¿öÁø´Ù.
 #else // __NEW_SUMMON_RULE
-	OBJID			m_idSummon[ MAX_SUMMON ];	// ì†Œí™˜ëœ ëª¬ìŠ¤í„°ëŠ” ì•„ì´ë””ê°€ ì±„ì›Œì§„ë‹¤.
+	OBJID			m_idSummon[ MAX_SUMMON ];	// ¼ÒÈ¯µÈ ¸ó½ºÅÍ´Â ¾ÆÀÌµğ°¡ Ã¤¿öÁø´Ù.
 #endif // __NEW_SUMMON_RULE
-	DWORD			m_idLootItem;				// ë£¨íŒ…í•  ì•„ì´í…œ.
+	DWORD			m_idLootItem;				// ·çÆÃÇÒ ¾ÆÀÌÅÛ.
 
 	DWORD			GetAtkMethod_Near();
 	DWORD			GetAtkMethod_Far();
@@ -58,7 +58,7 @@ protected:
 	BOOL			IsEndStop();
 	BOOL			IsMove() { return GetMover()->m_pActMover->IsMove(); }
 	BOOL			IsInRange( D3DXVECTOR3& vDistant, FLOAT fRange );
-	int				SelectAttackType( CMover *pTarget );	// AIì— ë”°ë¥¸ ê³µê²©ë°©ì‹ì„ ì„ íƒ.
+	int				SelectAttackType( CMover *pTarget );	// AI¿¡ µû¸¥ °ø°İ¹æ½ÄÀ» ¼±ÅÃ.
 	BOOL			MoveProcessIdle( const AIMSG & msg );
 	BOOL			MoveProcessRage( const AIMSG & msg );
 	BOOL			SubAttackChance( const AIMSG & msg, CMover *pTarget );

@@ -1,11 +1,11 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "resData.h"
 #include "WndTutorial.h"
 
 
 #if __VER >= 12 // __MOD_TUTORIAL
 /****************************************************
-  WndId : APP_TUTORIAL_VIEW - íŠœí† ë¦¬ì–¼
+  WndId : APP_TUTORIAL_VIEW - Æ©Åä¸®¾ó
   CtrlId : WIDC_TREE1 - 
   CtrlId : WIDC_TEXT1 - 
   CtrlId : WIDC_TEXT2 - 
@@ -34,27 +34,27 @@ void CWndTutorial::OnDraw( C2DRender* p2DRender )
 void CWndTutorial::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
 	DWORD dwRight = m_rectClient.Width() * 50 / 100;
 
 	LoadTutorial( MakePath( DIR_CLIENT,  _T( "tutorial.inc" ) ) );
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	// CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	// CRect rectWindow = GetWindowRect();
 	// CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	// Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndTutorial::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_TUTORIAL_VIEW, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndTutorial::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -114,8 +114,8 @@ BOOL CWndTutorial::LoadTutorial(LPCTSTR lpszFileName)
 	m_mapTutorial.clear();
 
 	// {
-	//	ì œëª©(ë¬¸ìì—´)
-	//	ë‚´ìš©(ë¬¸ìì—´)
+	//	Á¦¸ñ(¹®ÀÚ¿­)
+	//	³»¿ë(¹®ÀÚ¿­)
 	// }
 	while( s.tok != FINISHED )
 	{
@@ -127,7 +127,7 @@ BOOL CWndTutorial::LoadTutorial(LPCTSTR lpszFileName)
 		m_mapTutorial.insert(map<int, TUTORIAL_STRING>::value_type(nIndex, temp));
 		s.GetToken();	// }
 
-		// ì™„ë£Œí•œ ë ˆë²¨ê¹Œì§€ë§Œ ì¶”ê°€í•œë‹¤
+		// ¿Ï·áÇÑ ·¹º§±îÁö¸¸ Ãß°¡ÇÑ´Ù
 		if(g_Option.m_nTutorialLv >= nIndex + 1)
 		{
 			CWndListBox* pWndListBox	= (CWndListBox*)GetDlgItem( WIDC_LIST1 );

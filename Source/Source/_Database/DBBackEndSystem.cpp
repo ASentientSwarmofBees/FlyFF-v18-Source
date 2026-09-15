@@ -1,4 +1,4 @@
-Ôªø#include "StdAfx.h"
+#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -54,7 +54,7 @@ void CDbManager::BackSystem( void )
 	char chBackEndSystemChatTime[15];
 	int	nChatCount;
 	int nCount = 0;
-	while( WaitForSingleObject( hHandle, 5000 ) == WAIT_TIMEOUT && bComplete == TRUE )	// 10Ï¥à	= 1000 * 10 //1000 * 60 * 5
+	while( WaitForSingleObject( hHandle, 5000 ) == WAIT_TIMEOUT && bComplete == TRUE )	// 10√ 	= 1000 * 10 //1000 * 60 * 5
 	{
 		CTime timeCurr	= CTime::GetCurrentTime();
 		bComplete = FALSE;
@@ -186,7 +186,7 @@ BOOL CDbManager::GetBaseGameSetting( CQuery* pQuery, char * lpstrTime )
 		nResult = pQuery->GetInt( "bResult" );
 		ZeroMemory( chBufName, sizeof( chBufName ) );
 		pQuery->GetStr( "szName", chBufName );
-		if( nResult == 1)	// Ï∂îÍ∞Ä
+		if( nResult == 1)	// √ﬂ∞°
 		{
 			nBufValue = pQuery->GetInt( "rate" );
 			if( strcmp( chBufName, "Exp" ) == 0 )
@@ -324,7 +324,7 @@ void CDbManager::GetMonsterRespawnSetting( CQuery* pQuery, int& nRemoveMaxRespaw
 	{
 		nResult = pQuery->GetInt( "bResult" );
 		MonsterRespawn.nRespawnIndex = pQuery->GetInt( "Num" );
-		if( nResult == 1)	// Ï∂îÍ∞Ä
+		if( nResult == 1)	// √ﬂ∞°
 		{
 			pQuery->GetStr( "Name", MonsterRespawn.szMonsterName );
 			MonsterRespawn.vPos.x = (float)( pQuery->GetInt( "Pos_x" ) );
@@ -337,7 +337,7 @@ void CDbManager::GetMonsterRespawnSetting( CQuery* pQuery, int& nRemoveMaxRespaw
 				
 			AddMonsterRespawn( MonsterRespawn );
 		}
-		else		// ÏÇ≠Ï†ú
+		else		// ªË¡¶
 		{
 			if( aRemoveRespawn != NULL )
 			{
@@ -368,7 +368,7 @@ void CDbManager::GetMonsterPropSetting( CQuery* pQuery, char* lpstrTime )
 	{
 		nResult = pQuery->GetInt( "bResult" );
 		pQuery->GetStr( "MonName", MonsterProp.szMonsterName);
-		if( nResult == 1)	// Ï∂îÍ∞Ä
+		if( nResult == 1)	// √ﬂ∞°
 		{
 			MonsterProp.nHitPoint = pQuery->GetInt( "HitPoint" );
 			MonsterProp.nAttackPower = pQuery->GetInt( "AttackPower" );
@@ -379,7 +379,7 @@ void CDbManager::GetMonsterPropSetting( CQuery* pQuery, char* lpstrTime )
 
 			AddMonsterProp( MonsterProp );
 		}
-		else		// ÏÇ≠Ï†ú
+		else		// ªË¡¶
 		{
 			if( lpstrTime != '\0' )
 			{

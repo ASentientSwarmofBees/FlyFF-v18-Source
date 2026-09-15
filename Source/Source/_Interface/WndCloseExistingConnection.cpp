@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndCloseExistingConnection.h"
@@ -40,7 +40,7 @@ void CWndCloseExistingConnection::OnInitialUpdate()
 
 	m_wndText.Create( WBS_NODRAWFRAME, rect, this, 0 );
 	m_wndText.SetString( _T( prj.GetText(TID_DIAG_0065) ), 0xff000000 );//prj.GetTextColor(TID_DIAG_0065) );
-	//m_wndText.SetString( _T( "ì ‘ì†ì¤‘ì¸ ê³„ì •ìž…ë‹ˆë‹¤. ê¸°ì¡´ ì ‘ì†ì„ í•´ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?" ), 0xff000000 );
+	//m_wndText.SetString( _T( "Á¢¼ÓÁßÀÎ °èÁ¤ÀÔ´Ï´Ù. ±âÁ¸ Á¢¼ÓÀ» ÇØÁ¦ÇÏ½Ã°Ú½À´Ï±î?" ), 0xff000000 );
 	m_wndText.ResetString();
 
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();

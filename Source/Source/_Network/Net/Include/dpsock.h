@@ -1,4 +1,4 @@
-﻿#ifndef __DPSOCK_H__
+#ifndef __DPSOCK_H__
 #define __DPSOCK_H__
 
 #pragma once

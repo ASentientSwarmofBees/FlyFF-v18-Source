@@ -1,4 +1,4 @@
-﻿#ifndef __WNDREPAIRITEMCTRL_H__
+#ifndef __WNDREPAIRITEMCTRL_H__
 #define	__WNDREPAIRITEMCTRL_H__
 
 #pragma	once

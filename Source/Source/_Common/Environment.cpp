@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "Environment.h"
 
 #ifdef __CORESERVER
@@ -184,7 +184,7 @@ UINT CEnvironment::_Worker( LPVOID pParam )
 void CEnvironment::Worker( void )
 {
 	HANDLE hHandle	= m_hCloseWorker;
-	while( WaitForSingleObject( hHandle, 60000 ) == WAIT_TIMEOUT )	// 10ì´ˆ	= 1000 * 10 //1000 * 60 * 5 = 60000
+	while( WaitForSingleObject( hHandle, 60000 ) == WAIT_TIMEOUT )	// 10ÃÊ	= 1000 * 10 //1000 * 60 * 5 = 60000
 	{
 		if( m_Authority )
 		{
@@ -248,7 +248,7 @@ void CEnvironment::Worker( void )
 #ifdef __JAPAN_SAKURA
 			CTime timeCurr	= CTime::GetCurrentTime();
 			int nMonth = timeCurr.GetMonth();
-			if( nMonth >= 6 && nMonth <= 8 ) // 6 ~ 8 - ë¹„
+			if( nMonth >= 6 && nMonth <= 8 ) // 6 ~ 8 - ºñ
 			{
 				if( m_tRainTime.IsTimeOut() )
 				{
@@ -270,7 +270,7 @@ void CEnvironment::Worker( void )
 					}
 				}
 			}
-			else // 3 ~ 5 - ë²šê½ƒ, 9 ~ 11 - ë‹¨í’, 12,1,2 - ëˆˆ
+			else // 3 ~ 5 - º¢²É, 9 ~ 11 - ´ÜÇ³, 12,1,2 - ´«
 			{
 				if( m_tSnowTime.IsTimeOut() )
 				{
@@ -296,22 +296,22 @@ void CEnvironment::Worker( void )
 //			CString strMessage;
 			
 			int nMonth = timeCurr.GetMonth();
-			if( 1 == nMonth || 2 == nMonth || 12 == nMonth ) // ëˆˆë‚´ë¦¬ëŠ” ë‹¬ 12ì›” 1ì›” 2ì›”  íŽ„íŽ„~~ ëˆˆì´ì˜µë‹ˆë‹¤. í•˜ëŠ˜ì—ì„œ ëˆˆì´ì˜µë‹ˆë‹¤.
+			if( 1 == nMonth || 2 == nMonth || 12 == nMonth ) // ´«³»¸®´Â ´Þ 12¿ù 1¿ù 2¿ù  ÆÞÆÞ~~ ´«ÀÌ¿É´Ï´Ù. ÇÏ´Ã¿¡¼­ ´«ÀÌ¿É´Ï´Ù.
 			{
 				if( m_tSnowTime.IsTimeOut() )
 				{
 					BOOL bSnowBuf = m_bSnow;
-					if( random(1440) < 5 ) // 1ë¶„ì— í•œë²ˆì”© ê²€ì‚¬ 1440 = 60ë¶„ * 24ì‹œê°„
+					if( random(1440) < 5 ) // 1ºÐ¿¡ ÇÑ¹ø¾¿ °Ë»ç 1440 = 60ºÐ * 24½Ã°£
 					{
 						m_tSnowTime.Reset();
 						m_bSnow = TRUE;
-//						strMessage.Format( "%02dì›”%02dì¼ %02d:%02d:%02d\të¹„ê°€ ì£¼ë¥´ë¥µ ì£¼ë¥´ë¥µ~~", 
+//						strMessage.Format( "%02d¿ù%02dÀÏ %02d:%02d:%02d\tºñ°¡ ÁÖ¸£¸¤ ÁÖ¸£¸¤~~", 
 //							timeCurr.GetMonth(), timeCurr.GetDay(), timeCurr.GetHour(), timeCurr.GetMinute(), timeCurr.GetSecond() );
 					}
 					else
 					{
 						m_bSnow = FALSE;
-//						strMessage.Format( "%02dì›”%02dì¼ %02d:%02d:%02d\të¹„ê°€ ë©ˆì¶¤ìƒíƒœ", 
+//						strMessage.Format( "%02d¿ù%02dÀÏ %02d:%02d:%02d\tºñ°¡ ¸ØÃã»óÅÂ", 
 //							timeCurr.GetMonth(), timeCurr.GetDay(), timeCurr.GetHour(), timeCurr.GetMinute(), timeCurr.GetSecond() );
 					}
 					
@@ -325,23 +325,23 @@ void CEnvironment::Worker( void )
 					g_dpCoreSrvr.SendEnvironmentSnow( m_bSnow );
 */				}
 			}
-			else	// ë¹„ê°€ ë‚´ë¦¬ë„¤~~ ë¹„ë‘ë‚´ë¦¬ëŠ”ë° ë§‰ê±¸ë¦¬ í•œìž”~~ ^^;
+			else	// ºñ°¡ ³»¸®³×~~ ºñµÎ³»¸®´Âµ¥ ¸·°É¸® ÇÑÀÜ~~ ^^;
 			{
 				if( m_tRainTime.IsTimeOut() )
 				{
 					BOOL bRainBuf = m_bRain;
 
-					if( random(1440) < 5 ) // 1ë¶„ì— í•œë²ˆì”© ê²€ì‚¬ 1440 = 60ë¶„ * 24ì‹œê°„
+					if( random(1440) < 5 ) // 1ºÐ¿¡ ÇÑ¹ø¾¿ °Ë»ç 1440 = 60ºÐ * 24½Ã°£
 					{
 						m_tRainTime.Reset();
 						m_bRain = TRUE;
-//						strMessage.Format( "%02dì›”%02dì¼ %02d:%02d:%02d\tëˆˆì´ íŽ„íŽ„~~", 
+//						strMessage.Format( "%02d¿ù%02dÀÏ %02d:%02d:%02d\t´«ÀÌ ÆÞÆÞ~~", 
 //							timeCurr.GetMonth(), timeCurr.GetDay(), timeCurr.GetHour(), timeCurr.GetMinute(), timeCurr.GetSecond() );
 					}
 					else
 					{
 						m_bRain = FALSE;
-//						strMessage.Format( "%02dì›”%02dì¼ %02d:%02d:%02d\tëˆˆì´ ë©ˆì¶¤ìƒíƒœ", 
+//						strMessage.Format( "%02d¿ù%02dÀÏ %02d:%02d:%02d\t´«ÀÌ ¸ØÃã»óÅÂ", 
 //							timeCurr.GetMonth(), timeCurr.GetDay(), timeCurr.GetHour(), timeCurr.GetMinute(), timeCurr.GetSecond() );
 					}
 					

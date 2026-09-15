@@ -1,13 +1,13 @@
-ï»¿#ifndef __LORD_SKILL_EXECUTABLE_H__
+#ifndef __LORD_SKILL_EXECUTABLE_H__
 #define	__LORD_SKILL_EXECUTABLE_H__
 
 #include "lordskill.h"
 
-// êµ°ì£¼ ìŠ¤í‚¬
-// íŠ¸ëžœìŠ¤ ì„œë²„ì—ì„œ ì‚¬ìš©
-// íš¨ê³¼ ì ìš© ì²˜ë¦¬ ì•„ë‹˜
-// ìž¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ì— ë”°ë¼ ì„±ê³µ ì—¬ë¶€ íŒë‹¨
-// ì„  ì¿¼ë¦¬ í›„ ì ìš©
+// ±ºÁÖ ½ºÅ³
+// Æ®·£½º ¼­¹ö¿¡¼­ »ç¿ë
+// È¿°ú Àû¿ë Ã³¸® ¾Æ´Ô
+// Àç»ç¿ë ´ë±â ½Ã°£¿¡ µû¶ó ¼º°ø ¿©ºÎ ÆÇ´Ü
+// ¼± Äõ¸® ÈÄ Àû¿ë
 class CLordSkillComponentODBC
 	: public CLordSkillComponentExecutable
 {

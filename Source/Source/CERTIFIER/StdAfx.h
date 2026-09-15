@@ -1,4 +1,4 @@
-ï»¿// stdafx.h : include file for standard system include files,
+// stdafx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -60,9 +60,9 @@ extern	BOOL	g_fInternal;
 
 
 //////////////////////////////////////////////////////////////////////////
-//	mulcom	BEGIN100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”.
+//	mulcom	BEGIN100218	ÆÐ½º¿öµå ¾ÏÈ£È­.
 #include "../_Common/Rijndael.h"
-//	mulcom	END100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”.
+//	mulcom	END100218	ÆÐ½º¿öµå ¾ÏÈ£È­.
 //////////////////////////////////////////////////////////////////////////
 
 

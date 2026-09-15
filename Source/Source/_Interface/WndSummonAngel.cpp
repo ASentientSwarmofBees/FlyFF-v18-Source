@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndManager.h"
@@ -124,7 +124,7 @@ void CWndSummonAngel::OnDraw( C2DRender* p2DRender )
 void CWndSummonAngel::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	//Ctrl Initialize.
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 
@@ -198,10 +198,10 @@ void CWndSummonAngel::SetQuestText( CHAR* szChar )
 	}
 }
 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndSummonAngel::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SUMMON_ANGEL, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -324,7 +324,7 @@ void CWndSummonAngel::SetDie(CItemElem* pItemElem)
 				
 				if(extslotcount > 0 && usableitemnum > 0)
 				{
-					if(extslotcount > usableitemnum) //ë‚¨ì€ Slotê³¼ ì‚¬ìš©ê°€ëŠ¥í•œ Itemê°¯ ìˆ˜ë¥¼ íŒŒì•…í•˜ì—¬ í•œë²ˆì— ë„£ì„ ê°¯ ìˆ˜ë¥¼ ì§€ì •.
+					if(extslotcount > usableitemnum) //³²Àº Slot°ú »ç¿ë°¡´ÉÇÑ Item°¹ ¼ö¸¦ ÆÄ¾ÇÇÏ¿© ÇÑ¹ø¿¡ ³ÖÀ» °¹ ¼ö¸¦ ÁöÁ¤.
 						insertnum = usableitemnum;
 					else
 						insertnum = extslotcount;
@@ -535,22 +535,22 @@ void CWndSummonAngel::SummonAngel()
 	{
 		if(m_CreateAngel.Compare("WHITEANGEL") == 0)
 		{
-			strCommand.Format( "/ci %s", "\"í™”ì´íŠ¸ì—”ì ¤\"" );
+			strCommand.Format( "/ci %s", "\"È­ÀÌÆ®¿£Á©\"" );
 			g_DPlay.SendChat( strCommand );
 		}
 		else if(m_CreateAngel.Compare("GREENANGEL") == 0)
 		{
-			strCommand.Format( "/ci %s", "\"ê·¸ë¦°ì—”ì ¤\"" );
+			strCommand.Format( "/ci %s", "\"±×¸°¿£Á©\"" );
 			g_DPlay.SendChat( strCommand );
 		}
 		else if(m_CreateAngel.Compare("BLUEANGEL") == 0)
 		{
-			strCommand.Format( "/ci %s", "\"ë¸”ë£¨ì—”ì ¤\"" );
+			strCommand.Format( "/ci %s", "\"ºí·ç¿£Á©\"" );
 			g_DPlay.SendChat( strCommand );
 		}
 		else if(m_CreateAngel.Compare("REDANGEL") == 0)
 		{
-			strCommand.Format( "/ci %s", "\"ë ˆë“œì—”ì ¤\"" );
+			strCommand.Format( "/ci %s", "\"·¹µå¿£Á©\"" );
 			g_DPlay.SendChat( strCommand );
 		}
 

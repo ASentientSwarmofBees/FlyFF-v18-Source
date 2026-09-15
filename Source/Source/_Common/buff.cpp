@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #ifdef __BUFF_1107
 
@@ -64,8 +64,8 @@ DWORD IBuff::GetRemain()
 		return 0;
 	
 	DWORD dwElapsedTime = ::timeGetTime() - GetInst();
-	if( dwElapsedTime > GetTotal() )	// ë‚¨ì€ ì‹œê°„ì€ ì´ ë²„í”„ ì‹œê°„ë³´ë‹¤ í´ ìˆ˜ ì—†ë‹¤.
-		return 0;						// ì‹¤ì œë¡œ ë²„í”„ ì œê±°ëŠ” ì‹œê°„ ë§Œë£Œ í›„ ë‹¤ìŒ í”„ë¡œì„¸ìŠ¤ì—ì„œ í•˜ê¸° ë•Œë¬¸ì— ë°œìƒ ê°€ëŠ¥í•˜ë‹¤.
+	if( dwElapsedTime > GetTotal() )	// ³²Àº ½Ã°£Àº ÃÑ ¹öÇÁ ½Ã°£º¸´Ù Å¬ ¼ö ¾ø´Ù.
+		return 0;						// ½ÇÁ¦·Î ¹öÇÁ Á¦°Å´Â ½Ã°£ ¸¸·á ÈÄ ´ÙÀ½ ÇÁ·Î¼¼½º¿¡¼­ ÇÏ±â ¶§¹®¿¡ ¹ß»ý °¡´ÉÇÏ´Ù.
 
 	return GetTotal() - dwElapsedTime;
 }
@@ -203,9 +203,9 @@ void IBuff::CreateSFX( CMover* pMover )
 	ItemProp* pProp	= GetProp();
 	if( pProp && !HasSFX() )
 	{
-		FLOAT fSkillTime	= (float)GetTotal() / 1000.0F;	// ì´ˆë‹¨ìœ„
+		FLOAT fSkillTime	= (float)GetTotal() / 1000.0F;	// ÃÊ´ÜÀ§
 		SetSFX();
-		// ì§€ì† íš¨ê³¼: dwSfxObj4
+		// Áö¼Ó È¿°ú: dwSfxObj4
 		if( pProp->dwSfxObj4 != NULL_ID )
 		{
 			if( GetTotal() == 0 )
@@ -773,7 +773,7 @@ BOOL CBuffMgr::AddBuff( IBuff* pBuff )
 void CBuffMgr::RemoveBuff( IBuff* pBuff, BOOL bFake )
 {
 	ASSERT( pBuff );
-	if( !pBuff->GetRemove() )	// pBuffì— ëŒ€í•˜ì—¬ RemoveBuffì˜ ìµœì´ˆ í˜¸ì¶œ ì‹œ Release í˜¸ì¶œ
+	if( !pBuff->GetRemove() )	// pBuff¿¡ ´ëÇÏ¿© RemoveBuffÀÇ ÃÖÃÊ È£Ãâ ½Ã Release È£Ãâ
 		pBuff->Release( this );
 #ifdef __WORLDSERVER
 	if( bFake )
@@ -865,7 +865,7 @@ void CBuffMgr::RemoveBuffs( DWORD dwFlags, DWORD dwParam )
 		if(
 			( ( dwFlags & RBF_UNCONDITIONAL )
 #if __VER >= 13 // __HOUSING
-				&& !pBuff->IsIk1( IK1_HOUSING )	// í•˜ìš°ì§• ë²„í”„ëŠ” "ë²„í”„í•´ì œ" ëª…ë ¹ìœ¼ë¡œ ì‚­ì œ ì•ˆë¨.
+				&& !pBuff->IsIk1( IK1_HOUSING )	// ÇÏ¿ìÂ¡ ¹öÇÁ´Â "¹öÇÁÇØÁ¦" ¸í·ÉÀ¸·Î »èÁ¦ ¾ÈµÊ.
 #endif // __HOUSING	
 			)
 			|| ( ( dwFlags & RBF_COMMON ) && GetMover() && pBuff->IsCommon() )

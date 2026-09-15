@@ -1,4 +1,4 @@
-﻿#ifndef __MEMPOOLER__
+#ifndef __MEMPOOLER__
 #define __MEMPOOLER__
 
 #pragma	once
@@ -95,9 +95,9 @@ public:
 				m_nAllocCount--;
 			}
 
-			//	mulcom	BEGIN100422	메모리풀 초기화
+			//	mulcom	BEGIN100422	�޸�Ǯ �ʱ�ȭ
 			::memset( lpMem, 0, sizeof(T) );
-			//	mulcom	END100422	메모리풀 초기화
+			//	mulcom	END100422	�޸�Ǯ �ʱ�ȭ
 
 			LeaveCriticalSection( &m_cs );
 

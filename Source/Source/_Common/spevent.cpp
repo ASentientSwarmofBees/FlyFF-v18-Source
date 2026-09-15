@@ -310,7 +310,7 @@ BOOL CEventGeneric::LoadScript( LPCSTR lpFilename )
 					DWORD dwIndex	= s.GetNumber();
 					int nMax	= s.GetNumber();
 					float fRatio	= s.GetFloat();
-					DWORD dwInterval	= 86400000 / nMax;	// 86400000	= 1일
+					DWORD dwInterval	= 86400000 / nMax;	// 86400000	= 1ÀÏ
 					AddSpawn( pEvent->nId, dwType, dwIndex, nMax, fRatio, dwInterval );
 					s.GetToken();	// }
 #else	// __WORLDSERVER
@@ -473,7 +473,7 @@ BOOL CEventGeneric::Run( void )
 	{
 		PEVENT_GENERIC pEvent	= *i;
 		BOOL bEvent	= ( t >= pEvent->tStart && t < pEvent->tEnd );
-		// 康
+		// Ë¬
 		char lpOutputString[512]	= { 0, };
 		sprintf( lpOutputString, "m_dwFlag=0x%08x, nId=%d, tStart=%d, tEnd=%d, t=%d, nFlag=%d", m_dwFlag, pEvent->nId, pEvent->tStart, pEvent->tEnd, time_null(), pEvent->nFlag );
 		OutputDebugString( lpOutputString );
@@ -520,11 +520,11 @@ LONG CEventGeneric::GetEventElapsed( void )
 
 void CEventGeneric::CallTheRoll( void )
 {
-	PEVENT_GENERIC pEvent	= GetEvent( 531 );	// 이벤트가 등록되어 있지 않으면
+	PEVENT_GENERIC pEvent	= GetEvent( 531 );	// ÀÌº¥Æ®°¡ µî·ÏµÇ¾î ÀÖÁö ¾ÊÀ¸¸é
 	if( !pEvent )
 		return;
 
-	if( g_eLocal.GetState( 531 ) == 0 )	// 이벤트 기간이 아니면
+	if( g_eLocal.GetState( 531 ) == 0 )	// ÀÌº¥Æ® ±â°£ÀÌ ¾Æ´Ï¸é
 		return;
 
 	int nElapsed	= (int)GetEventElapsed();
@@ -587,7 +587,7 @@ void CEventGeneric::Spawn( void )
 						ItemProp* pItemProp	= pItemElem->GetProp();
 						pItemElem->m_nHitPoint	= pItemProp->dwEndurance;
 						pItemElem->SetSerialNumber();
-						( (CItem*)pObj )->m_dwDropTime	= g_tmCurrent + MIN( 1440 );	// 24시간 유지
+						( (CItem*)pObj )->m_dwDropTime	= g_tmCurrent + MIN( 1440 );	// 24½Ã°£ À¯Áö
 						( (CItem*)pObj )->m_pItemBase	= pItemElem;
 						pObj->SetPos( v );
 //#ifdef _DEBUG
@@ -600,7 +600,7 @@ void CEventGeneric::Spawn( void )
 					}
 					else
 					{
-						// 몬스터와 컨트롤 스폰은 이 후 추가 예정
+						// ¸ó½ºÅÍ¿Í ÄÁÆ®·Ñ ½ºÆùÀº ÀÌ ÈÄ Ãß°¡ ¿¹Á¤
 						SAFE_DELETE( pObj );
 					}
 				}	// pWorld

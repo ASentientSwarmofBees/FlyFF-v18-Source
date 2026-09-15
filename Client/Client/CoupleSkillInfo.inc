@@ -1,4 +1,4 @@
-ï»¿#b#cff0000ff Couple Skill Info.#nb#nc
+#b#cff0000ff Couple Skill Info.#nb#nc
 * Skills are automatically acquired after reaching certain skill level
 * Acquired skills will be automatically activated when connected with partner in same channel
 
@@ -21,4 +21,4 @@
  - Level1 : Drop Rate+5%
              (Couple Level21 needed)
 
-#b#cffff0000â€» Breaking up with partner will reset the couple skill to Level 0.#nb#nc
+#b#cffff0000¡Ø Breaking up with partner will reset the couple skill to Level 0.#nb#nc

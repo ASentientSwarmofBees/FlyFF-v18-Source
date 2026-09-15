@@ -1,8 +1,8 @@
-ï»¿// number ì‚½ì… ì´ë¯¸ì§€ ê°œìˆ˜
-// serialize ì—°ì†ìœ¼ë¡œ ì´ë¯¸ì§€ ì‚½ì…(width hight StartPosition-X StartPosition-Y, center_x, center_y)
-// pos ë‹¨ì¼ë¡œ ì´ë¯¸ì§€ ì‚½ì… (width hight StartPosition-X StartPosition-Y)
+// number »ğÀÔ ÀÌ¹ÌÁö °³¼ö
+// serialize ¿¬¼ÓÀ¸·Î ÀÌ¹ÌÁö »ğÀÔ(width hight StartPosition-X StartPosition-Y, center_x, center_y)
+// pos ´ÜÀÏ·Î ÀÌ¹ÌÁö »ğÀÔ (width hight StartPosition-X StartPosition-Y)
 number 15
 texture "icon\icon_QuestEmoticon.dds" 0xffff00ff
-serialize 5 32 32  0   0 0 0 // ì¼ë°˜ í€˜ìŠ¤íŠ¸ ì•„ì´ì½˜ (ë…¸ë‘)
-serialize 5 32 32  0   32 0 0 // ì¼ë°˜ í€˜ìŠ¤íŠ¸ ì•„ì´ì½˜ (ì—°ë‘)
-serialize 5 32 32  0   64 0 0 // ì¼ë°˜ í€˜ìŠ¤íŠ¸ ì•„ì´ì½˜ (ë¹¨ê°•)
+serialize 5 32 32  0   0 0 0 // ÀÏ¹İ Äù½ºÆ® ¾ÆÀÌÄÜ (³ë¶û)
+serialize 5 32 32  0   32 0 0 // ÀÏ¹İ Äù½ºÆ® ¾ÆÀÌÄÜ (¿¬µÎ)
+serialize 5 32 32  0   64 0 0 // ÀÏ¹İ Äù½ºÆ® ¾ÆÀÌÄÜ (»¡°­)

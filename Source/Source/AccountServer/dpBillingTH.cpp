@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "account.h"
 #include "dpsrvr.h"
 #include "DPBillingTH.h"
@@ -79,12 +79,12 @@ void CDPBillingTH::UserMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize, D
 	}
 }
 
-// ê³¼ê¸ˆì •ë³´ REQ
+// °ú±İÁ¤º¸ REQ
 void CDPBillingTH::ReqBillingInfo( LPCTSTR lpszUserID, LPCTSTR lpszUserIP, DWORD dwSession )
 {
 	OutputDebugString("REQ_BILLINGINFO\n");
 
-	char cbUserID[MAX_ID_LENGTH];	// NULLë¡œ ëë‚˜ì§€ ì•ŠëŠ”ë‹¤.
+	char cbUserID[MAX_ID_LENGTH];	// NULL·Î ³¡³ªÁö ¾Ê´Â´Ù.
 	char cbUserIP[MAX_IP_LENGTH];
 
 //	char* p;
@@ -107,27 +107,27 @@ void CDPBillingTH::ReqBillingInfo( LPCTSTR lpszUserID, LPCTSTR lpszUserIP, DWORD
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 /*
-0 : ì •ì•¡ì œ ìœ ì €, 1: ì¢…ëŸ‰ì œ ìœ ì €
-100 : ëª¨ë“  ì²˜ë¦¬ê°€ ì‹œìŠ¤í…œ ì—ëŸ¬ì—†ì´ ì²˜ë¦¬ë˜ì—ˆìœ¼ë©° ticketì´ ì—†ëŠ” ê²ƒìœ¼ë¡œ íŒë‹¨ë¨
-101 : DBì²˜ë¦¬ì—ì„œ errorë°œìƒ
-102 : DBì²˜ë¦¬ì™¸ì˜ ä»–ì—ëŸ¬ë°œìƒ
+0 : Á¤¾×Á¦ À¯Àú, 1: Á¾·®Á¦ À¯Àú
+100 : ¸ğµç Ã³¸®°¡ ½Ã½ºÅÛ ¿¡·¯¾øÀÌ Ã³¸®µÇ¾úÀ¸¸ç ticketÀÌ ¾ø´Â °ÍÀ¸·Î ÆÇ´ÜµÊ
+101 : DBÃ³¸®¿¡¼­ error¹ß»ı
+102 : DBÃ³¸®¿ÜÀÇ öâ¿¡·¯¹ß»ı
 */
 BILLING_RETURN GetResult( long lData )
 {
 	BILLING_RETURN result;
 	switch( lData )
 	{
-	case 0:		// ì •ì•¡ì œìœ ì €
-	case 1:		// ì¢…ëŸ‰ì œìœ ì € 
+	case 0:		// Á¤¾×Á¦À¯Àú
+	case 1:		// Á¾·®Á¦À¯Àú 
 		result = SUCCESS;
 		break;
-	case 100:	// ëª¨ë“  ì²˜ë¦¬ê°€ ì‹œìŠ¤í…œ ì—ëŸ¬ì—†ì´ ì²˜ë¦¬ë˜ì—ˆìœ¼ë©° ticketì´ ì—†ëŠ” ê²ƒìœ¼ë¡œ íŒë‹¨ë¨
+	case 100:	// ¸ğµç Ã³¸®°¡ ½Ã½ºÅÛ ¿¡·¯¾øÀÌ Ã³¸®µÇ¾úÀ¸¸ç ticketÀÌ ¾ø´Â °ÍÀ¸·Î ÆÇ´ÜµÊ
 		result = BILLING_INFO_FAILED;
 		break;
-	case 101:	// ë””ë¹„ì—ëŸ¬ 
+	case 101:	// µğºñ¿¡·¯ 
 		result = DATABASE_ERROR;
 		break;
-	case 102:	// ê¸°íƒ€ì—ëŸ¬ 
+	case 102:	// ±âÅ¸¿¡·¯ 
 	default:
 		result = OTHER_ERROR;
 		break;
@@ -135,7 +135,7 @@ BILLING_RETURN GetResult( long lData )
 	return result;
 }
 /*
-// chStringë°°ì—´ì•ˆì— 0x20ì„ ì œê±°í•˜ì—¬ì„œ NULLë¡œ ëë‚˜ëŠ” ë¬¸ìì—´ë¡œ ë§Œë“ ë‹¤.
+// chString¹è¿­¾È¿¡ 0x20À» Á¦°ÅÇÏ¿©¼­ NULL·Î ³¡³ª´Â ¹®ÀÚ¿­·Î ¸¸µç´Ù.
 void TrimSpace( char* chString, int nMax )
 {
 	for( int i=0; i<nMax; ++i )
@@ -148,11 +148,11 @@ void TrimSpace( char* chString, int nMax )
 */
 
 enum {
-	ALIVE_TRUE,	// í”Œë ˆì´ ì¤‘	 
-	ALIVE_FALSE	//í”Œë ˆì´ ì¤‘ ì•„ë‹˜
+	ALIVE_TRUE,	// ÇÃ·¹ÀÌ Áß	 
+	ALIVE_FALSE	//ÇÃ·¹ÀÌ Áß ¾Æ´Ô
 };
 
-// íŠ¹ì •ìœ ì €ê°€ í”Œë ˆì´ ì¤‘ì¸ì§€ë¥¼ billing agent(í˜ì´ë ˆí„° ë¹Œë§ì„œë²„)ê°€ ë¬»ëŠ”ë‹¤.
+// Æ¯Á¤À¯Àú°¡ ÇÃ·¹ÀÌ ÁßÀÎÁö¸¦ billing agent(ÆäÀÌ·¹ÅÍ ºô¸µ¼­¹ö)°¡ ¹¯´Â´Ù.
 void CDPBillingTH::ReqIsAlive( CAr & ar, DPID dpid )
 {
 	char	szAccount[MAX_ID_LENGTH+1];
@@ -194,7 +194,7 @@ void CDPBillingTH::ReqIsAlive( CAr & ar, DPID dpid )
 	}
 }
 
-// ê³¼ê¸ˆì •ë³´ì˜ ACK
+// °ú±İÁ¤º¸ÀÇ ACK
 void CDPBillingTH::AckBillingInfo( CAr & ar, DPID dpid )
 {
 	char	szAccount[MAX_ID_LENGTH+1];
@@ -206,7 +206,7 @@ void CDPBillingTH::AckBillingInfo( CAr & ar, DPID dpid )
 	ar >> dwSession;
 	ar >> lRemain;
 
-	lData	  = ntohl( lData );		// í˜¸ìŠ¤íŠ¸ ë°”ì´ ì˜¤ë”ë¡œ ë³€í™˜í•œë‹¤.
+	lData	  = ntohl( lData );		// È£½ºÆ® ¹ÙÀÌ ¿À´õ·Î º¯È¯ÇÑ´Ù.
 	dwSession = (DWORD)ntohl( dwSession );	
 	lRemain	  = ntohl( lRemain );	
 
@@ -224,7 +224,7 @@ void CDPBillingTH::AckBillingInfo( CAr & ar, DPID dpid )
 	CTime tmOverDays( 0 );
 	if( result == SUCCESS )
 	{
-		if( lRemain > 0 )		// TODO: 30ì´ˆ ì´í•˜ë¡œ ë‚¨ì€ ìœ ì €ëŠ” cancel
+		if( lRemain > 0 )		// TODO: 30ÃÊ ÀÌÇÏ·Î ³²Àº À¯Àú´Â cancel
 			tmOverDays = time( NULL ) + lRemain;  // == CTime::GetCurrentTime() + CTimeSpan( lRemain ) ;	
 		else
 			result = TIME_OVER;
@@ -234,7 +234,7 @@ void CDPBillingTH::AckBillingInfo( CAr & ar, DPID dpid )
 	info.szAccount = szAccount;
 	info.dwKey = dwSession;
 	info.lResult = result;
-	info.pTimeOverDays = &tmOverDays;	// tmOverDaysëŠ” lResultê°€ SUCCESSì¸ ê²½ìš°ì—ë§Œ ì„¤ì •ë˜ë©´ ëœë‹¤.
+	info.pTimeOverDays = &tmOverDays;	// tmOverDays´Â lResult°¡ SUCCESSÀÎ °æ¿ì¿¡¸¸ ¼³Á¤µÇ¸é µÈ´Ù.
 	
 	g_AccountMng.SendBillingResult( &info );
 }

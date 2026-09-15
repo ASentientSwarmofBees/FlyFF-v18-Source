@@ -1,4 +1,4 @@
-﻿#ifndef __OBJMAP_H__
+#ifndef __OBJMAP_H__
 #define __OBJMAP_H__
 
 #pragma once

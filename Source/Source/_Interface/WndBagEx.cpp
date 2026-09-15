@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "resData.h"
 #include "WndBagEx.h"
 
@@ -13,7 +13,7 @@
 extern	CDPClient	g_DPlay;
 
 /****************************************************
-  WndId : APP_BAG_EX - íœ´ëŒ€ ê°€ë°©
+  WndId : APP_BAG_EX - ÈÞ´ë °¡¹æ
   CtrlId : WIDC_EXBAG1 - 
   CtrlId : WIDC_EXBAG2 - 
   CtrlId : WIDC_TABCTRL3 - TabCtrl
@@ -43,7 +43,7 @@ void CWndBagEx::InitItem( void )
 	{
 		m_wndItemCtrl[0].InitItem( g_pPlayer->m_Pocket.GetPocket(0), APP_CANCEL_BLESSING );
 	}
-	// ê°€ë°©ì´ í™œì„±í™” ë¼ìžˆëŠ”ì§€ í™•ì¸
+	// °¡¹æÀÌ È°¼ºÈ­ µÅÀÖ´ÂÁö È®ÀÎ
 	if(g_pPlayer->m_Pocket.IsAvailable(1)) 
 	{
 		m_bUse[0] = TRUE;
@@ -84,7 +84,7 @@ void CWndBagEx::OnDraw( C2DRender* p2DRender )
 		{
 			m_wndItemCtrl[0].InitItem( g_pPlayer->m_Pocket.GetPocket(0), APP_CANCEL_BLESSING );
 		}
-		// ê°€ë°©ì´ í™œì„±í™” ë¼ìžˆëŠ”ì§€ í™•ì¸
+		// °¡¹æÀÌ È°¼ºÈ­ µÅÀÖ´ÂÁö È®ÀÎ
 		if(g_pPlayer->m_Pocket.IsAvailable(1)) 
 		{
 			m_bUse[0] = TRUE;
@@ -123,7 +123,7 @@ void CWndBagEx::OnDraw( C2DRender* p2DRender )
 void CWndBagEx::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CWndTabCtrl* pTab0 = (CWndTabCtrl*) GetDlgItem( WIDC_BASIC );
 	CWndTabCtrl* pTab1 = (CWndTabCtrl*) GetDlgItem( WIDC_EXBAG1 );
 	CWndTabCtrl* pTab2 = (CWndTabCtrl*) GetDlgItem( WIDC_EXBAG2 );
@@ -138,7 +138,7 @@ void CWndBagEx::OnInitialUpdate()
 		return;
 	}
 
-	// ê°€ë°©ì´ í™œì„±í™” ë¼ìžˆëŠ”ì§€ í™•ì¸
+	// °¡¹æÀÌ È°¼ºÈ­ µÅÀÖ´ÂÁö È®ÀÎ
 	if(g_pPlayer->m_Pocket.IsAvailable(1)) m_bUse[0] = TRUE;
 	else								   m_bUse[0] = FALSE;
 	if(g_pPlayer->m_Pocket.IsAvailable(2)) m_bUse[1] = TRUE;
@@ -156,7 +156,7 @@ void CWndBagEx::OnInitialUpdate()
 	WTCITEM tabTabItem;
 	
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_GAME_ITEM);//"ì•„ì´í…œ";
+	tabTabItem.pszText = prj.GetText(TID_GAME_ITEM);//"¾ÆÀÌÅÛ";
 	tabTabItem.pWndBase = &m_wndItemCtrl[0];
 	pTab0->InsertItem( 0, &tabTabItem );
 
@@ -174,21 +174,21 @@ void CWndBagEx::OnInitialUpdate()
 	m_pTexIco	= m_textureMng.AddTexture( m_pApp->m_pd3dDevice,  MakePath( DIR_THEME, "Itm_SysSysScrBagBag01.bmp" ), 0xffff00ff );;
 	m_pTexIco_empty = m_textureMng.AddTexture( m_pApp->m_pd3dDevice,  MakePath( DIR_THEME, "Itm_SysSysScrBagBag02.bmp" ), 0xffff00ff );;
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndBagEx::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_BAG_EX, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndBagEx::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -227,20 +227,20 @@ BOOL CWndBagEx::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	if( !pItemProp )
 		return FALSE;
 
-	// ê°€ë°©1 
+	// °¡¹æ1 
 	if( DrawRect.PtInRect( point ) )
 	{
 		if( pItemProp->dwItemKind3 == IK3_POCKET )
 		{
 			if(m_bUse[0]) 
 			{
-				// ê°€ë°©ì´ ì´ë¯¸ ì‚¬ìš©ì¤‘ì´ë©´ ì•ˆë‚´ë©”ì‹œì§€ ì²˜ë¦¬
+				// °¡¹æÀÌ ÀÌ¹Ì »ç¿ëÁßÀÌ¸é ¾È³»¸Þ½ÃÁö Ã³¸®
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_GAME_ALREADY_USE) ) );
 				return FALSE;
 			}
 			else
 			{
-				// íœ´ëŒ€ê°€ë°© ì‚¬ìš©ê¶Œì´ë©´ 
+				// ÈÞ´ë°¡¹æ »ç¿ë±ÇÀÌ¸é 
 				g_DPlay.SendAvailPocket(1, pTempElem->m_dwObjId);
 			}	return TRUE;
 		}
@@ -250,20 +250,20 @@ BOOL CWndBagEx::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	lpWndCtrl = GetWndCtrl( WIDC_ICO_BAG2 );
 	DrawRect  = lpWndCtrl->rect;
 	
-	// ê°€ë°©2
+	// °¡¹æ2
 	if( DrawRect.PtInRect( point ) )
 	{
 		if( pItemProp->dwItemKind3 == IK3_POCKET )
 		{
 			if(m_bUse[1]) 
 			{
-				// ê°€ë°©ì´ ì´ë¯¸ ì‚¬ìš©ì¤‘ì´ë©´ ì•ˆë‚´ë©”ì‹œì§€ ì²˜ë¦¬
+				// °¡¹æÀÌ ÀÌ¹Ì »ç¿ëÁßÀÌ¸é ¾È³»¸Þ½ÃÁö Ã³¸®
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_GAME_ALREADY_USE) ) );
 				return FALSE;
 			}
 			else
 			{
-				// íœ´ëŒ€ê°€ë°© ì‚¬ìš©ê¶Œì´ë©´ 
+				// ÈÞ´ë°¡¹æ »ç¿ë±ÇÀÌ¸é 
 				g_DPlay.SendAvailPocket(2, pTempElem->m_dwObjId);
 				return TRUE;
 			}
@@ -277,10 +277,10 @@ BOOL CWndBagEx::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 void CWndBagEx::OnMouseWndSurface( CPoint point )
 {
 
-	LPWNDCTRL	lpWndCtrl 	= GetWndCtrl( WIDC_ICO_BAG1 );		//ê°€ë°©ì•„ì´ì½˜ 1
+	LPWNDCTRL	lpWndCtrl 	= GetWndCtrl( WIDC_ICO_BAG1 );		//°¡¹æ¾ÆÀÌÄÜ 1
 	CRect		DrawRect	= lpWndCtrl->rect;
 
-	// ê°€ë°©1 
+	// °¡¹æ1 
 	if( DrawRect.PtInRect( point ) )
 	{
 		CPoint point2 = point;
@@ -291,7 +291,7 @@ void CWndBagEx::OnMouseWndSurface( CPoint point )
 		
 		if(m_bUse[0])
 		{
-			// ì‚¬ìš©í•˜ë©´ ì‹œê°„ì„ ë³´ì—¬ì¤€ë‹¤
+			// »ç¿ëÇÏ¸é ½Ã°£À» º¸¿©ÁØ´Ù
 			time_t nRemain = (g_pPlayer->m_Pocket.GetPocket(1))->GetExpirationDate() - time(NULL);
 			/*
 			int nHour = (int)(nRemain / 3600);
@@ -305,7 +305,7 @@ void CWndBagEx::OnMouseWndSurface( CPoint point )
 		}
 		else
 		{
-			// ì‚¬ìš©í•˜ì§€ ì•Šìœ¼ë©´ ì•ˆë‚´ë¬¸êµ¬ë¡œ
+			// »ç¿ëÇÏÁö ¾ÊÀ¸¸é ¾È³»¹®±¸·Î
 			strText = prj.GetText(TID_TOOLTIP_BAG_INFO);
 		}
 		g_toolTip.PutToolTip( 100000, strText, DrawRect, point2 );
@@ -315,7 +315,7 @@ void CWndBagEx::OnMouseWndSurface( CPoint point )
 	lpWndCtrl = GetWndCtrl( WIDC_ICO_BAG2 );
 	DrawRect  = lpWndCtrl->rect;
 
-	// ê°€ë°©2
+	// °¡¹æ2
 	if( DrawRect.PtInRect( point ) )
 	{
 		CPoint point2 = point;
@@ -325,7 +325,7 @@ void CWndBagEx::OnMouseWndSurface( CPoint point )
 		ClientToScreen( &DrawRect );
 		if(m_bUse[1])
 		{
-			// ì‚¬ìš©í•˜ë©´ ì‹œê°„ì„ ë³´ì—¬ì¤€ë‹¤
+			// »ç¿ëÇÏ¸é ½Ã°£À» º¸¿©ÁØ´Ù
 			time_t nRemain = (g_pPlayer->m_Pocket.GetPocket(2))->GetExpirationDate() - time(NULL);
 			/*
 			int nHour = (int)(nRemain / 3600);
@@ -339,7 +339,7 @@ void CWndBagEx::OnMouseWndSurface( CPoint point )
 		}
 		else
 		{
-			// ì‚¬ìš©í•˜ì§€ ì•Šìœ¼ë©´ ì•ˆë‚´ë¬¸êµ¬ë¡œ
+			// »ç¿ëÇÏÁö ¾ÊÀ¸¸é ¾È³»¹®±¸·Î
 			strText = prj.GetText(TID_TOOLTIP_BAG_INFO);
 		}
 		g_toolTip.PutToolTip( 100000, strText, DrawRect, point2 );
@@ -390,7 +390,7 @@ BOOL CWndBagEx::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					UINT SelectCount = pWndItemCtrl->GetSelectedCount();
 					if( SelectCount != 1)
 					{
-						//g_WndMng.PutString( "ìž¥ì°© ë˜ì–´ ìžˆëŠ”ê²ƒì€ ë„£ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤", NULL, 0xffffff00 );
+						//g_WndMng.PutString( "ÀåÂø µÇ¾î ÀÖ´Â°ÍÀº ³ÖÀ»¼ö ¾ø½À´Ï´Ù", NULL, 0xffffff00 );
 						g_WndMng.PutString( prj.GetText(TID_GAME_EQUIPPUT), NULL, prj.GetTextColor( TID_GAME_EQUIPPUT ) );
 						
 					}
@@ -404,7 +404,7 @@ BOOL CWndBagEx::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 						CItemElem* itemElem = (CItemElem*)lpShortcut->m_dwData;
 						if( itemElem->GetProp()->dwItemKind3 == IK3_QUEST )
 						{
-							// í€˜ìŠ¤íŠ¸ ì•„ì´í…œì€ íœ´ëŒ€ ê°€ë°©ìœ¼ë¡œ ì˜®ê¸¸ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+							// Äù½ºÆ® ¾ÆÀÌÅÛÀº ÈÞ´ë °¡¹æÀ¸·Î ¿Å±æ ¼ö ¾ø½À´Ï´Ù.
 							g_WndMng.PutString( prj.GetText( TID_GAME_ERROR_DONT_MOVE_QUEST_ITEM_TO_BAG_EX ), NULL, prj.GetTextColor( TID_GAME_ERROR_DONT_MOVE_QUEST_ITEM_TO_BAG_EX ) );
 						}
 						else
@@ -424,8 +424,8 @@ BOOL CWndBagEx::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 									g_WndMng.m_pWndTradeGold->MoveParentCenter();
 									CWndStatic* pStatic	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_STATIC );
 									CWndStatic* pStaticCount	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_CONTROL1 );
-									CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"ëª‡ê°œë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
-									CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " ê°¯ìˆ˜ : ";
+									CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"¸î°³¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
+									CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " °¹¼ö : ";
 									pStatic->m_strTitle = strMain;
 									pStaticCount->m_strTitle = strCount;
 								}
@@ -464,7 +464,7 @@ BOOL CWndBagEx::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					UINT SelectCount = pWndItemCtrl->GetSelectedCount();
 					if( SelectCount != 1)
 					{
-						//g_WndMng.PutString( "ìž¥ì°© ë˜ì–´ ìžˆëŠ”ê²ƒì€ ë„£ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤", NULL, 0xffffff00 );
+						//g_WndMng.PutString( "ÀåÂø µÇ¾î ÀÖ´Â°ÍÀº ³ÖÀ»¼ö ¾ø½À´Ï´Ù", NULL, 0xffffff00 );
 						g_WndMng.PutString( prj.GetText(TID_GAME_EQUIPPUT), NULL, prj.GetTextColor( TID_GAME_EQUIPPUT ) );
 						
 					}
@@ -490,8 +490,8 @@ BOOL CWndBagEx::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 							g_WndMng.m_pWndTradeGold->MoveParentCenter();
 							CWndStatic* pStatic	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_STATIC );
 							CWndStatic* pStaticCount	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_CONTROL1 );
-							CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"ëª‡ê°œë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
-							CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " ê°¯ìˆ˜ : ";
+							CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"¸î°³¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
+							CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " °¹¼ö : ";
 							pStatic->m_strTitle = strMain;
 							pStaticCount->m_strTitle = strCount;
 						}
@@ -514,7 +514,7 @@ BOOL CWndBagEx::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				break;
 			case WTBID_REPORT:
 				break;
-			case WTBID_CLOSE: // ì¢…ë£Œ
+			case WTBID_CLOSE: // Á¾·á
 				break;
 		}
 	}	

@@ -1,4 +1,4 @@
-ï»¿#ifndef __EVE_SCHOOL_H__
+#ifndef __EVE_SCHOOL_H__
 #define	__EVE_SCHOOL_H__
 
 #include "guild.h"
@@ -81,13 +81,13 @@ public:
 	};
 	struct __JOINPLAYER
 	{
-		u_long	uidPlayer;		// ìºë¦­í„° ì•„ì´ë””
-		int		nlife;			// ë‚¨ì€ ìƒëª…
-//		BOOL	bEntry;			// ì°¸ê°€ ìœ /ë¬´
-		int		nPoint;			// í¬ì¸íŠ¸
-		int		uKillidGuild;	// ì „ì— ì£½ì¸ ê¸¸ë“œ
-		int		nMap;			// ëŒ€ì „ í…”ë ˆí¬íŠ¸ ë§µ
-		DWORD	dwTelTime;		// ëŒ€ì „ í…”ë ˆí¬íŠ¸ ì‹œê°„
+		u_long	uidPlayer;		// Ä³¸¯ÅÍ ¾ÆÀÌµğ
+		int		nlife;			// ³²Àº »ı¸í
+//		BOOL	bEntry;			// Âü°¡ À¯/¹«
+		int		nPoint;			// Æ÷ÀÎÆ®
+		int		uKillidGuild;	// Àü¿¡ Á×ÀÎ ±æµå
+		int		nMap;			// ´ëÀü ÅÚ·¹Æ÷Æ® ¸Ê
+		DWORD	dwTelTime;		// ´ëÀü ÅÚ·¹Æ÷Æ® ½Ã°£
 		__JOINPLAYER()
 		{
 			uidPlayer	= 0;
@@ -115,16 +115,16 @@ public:
 #ifdef __S_BUG_GC
 		u_long	uGuildId;
 #endif // __S_BUG_GC
-		vector<__JOINPLAYER*> vecGCSelectMember;	// ëŒ€ì „ì— ì„ íƒëœ ë©¤ë²„ ì •ë³´
-//		set<u_long> GuildCombatJoinMember;		// ê¸¸ë“œì „ì— ì°¸ê°€í•œë©¤ë²„
-//		set<u_long> GuildCombatOutMember;		// ì°¸ê°€í–ˆëŠ”ë° ì£½ì—ˆë˜ê°€ ë‚˜ê°„ ë©¤ë²„
-//		FLOAT fAvgLevel;		// í‰ê·  ë ˆë²¨
-		DWORD dwPenya;			// ì°¸ê°€ë¹„
-		BOOL  bRequest;			// ì°¸ê°€ ìœ /ë¬´
-		u_long	m_uidDefender;	// ë””íœë”
-		int	  nJoinCount;		// ì°¸ê°€ ì¹´ìš´í„°
-		int	  nWarCount;		// ì „íˆ¬ ì¸ì›ìˆ˜
-		int   nGuildPoint;		// ê¸¸ë“œ í¬ì¸íŠ¸
+		vector<__JOINPLAYER*> vecGCSelectMember;	// ´ëÀü¿¡ ¼±ÅÃµÈ ¸â¹ö Á¤º¸
+//		set<u_long> GuildCombatJoinMember;		// ±æµåÀü¿¡ Âü°¡ÇÑ¸â¹ö
+//		set<u_long> GuildCombatOutMember;		// Âü°¡Çß´Âµ¥ Á×¾ú´ø°¡ ³ª°£ ¸â¹ö
+//		FLOAT fAvgLevel;		// Æò±Õ ·¹º§
+		DWORD dwPenya;			// Âü°¡ºñ
+		BOOL  bRequest;			// Âü°¡ À¯/¹«
+		u_long	m_uidDefender;	// µğÆæ´õ
+		int	  nJoinCount;		// Âü°¡ Ä«¿îÅÍ
+		int	  nWarCount;		// ÀüÅõ ÀÎ¿ø¼ö
+		int   nGuildPoint;		// ±æµå Æ÷ÀÎÆ®
 		list<__JOINPLAYER*>	lspFifo;
 
 		void Clear()
@@ -160,17 +160,17 @@ public:
 	};
 	struct __GCRESULTVALUEGUILD
 	{
-		int	nCombatID;			// ê¸¸ë“œëŒ€ì „ ì•„ì´ë””
-		u_long uidGuild;		// ê¸¸ë“œ ì•„ì´ë””
-		__int64 nReturnCombatFee;	// ëŒë ¤ë°›ì„ ì°¸ì—¬ê¸ˆ
-		__int64 nReward;				// ë³´ìƒê¸ˆ
+		int	nCombatID;			// ±æµå´ëÀü ¾ÆÀÌµğ
+		u_long uidGuild;		// ±æµå ¾ÆÀÌµğ
+		__int64 nReturnCombatFee;	// µ¹·Á¹ŞÀ» Âü¿©±İ
+		__int64 nReward;				// º¸»ó±İ
 	};
 	struct __GCRESULTVALUEPLAYER
 	{
-		int nCombatID;			// ê¸¸ë“œëŒ€ì „ ì•„ì´ë””
-		u_long uidGuild;		// ê¸¸ë“œ ì•„ì´ë””
-		u_long uidPlayer;		// í”Œë ˆì´ì–´ ì•„ì´ë””
-		__int64 nReward;			// ë³´ìƒê¸ˆ
+		int nCombatID;			// ±æµå´ëÀü ¾ÆÀÌµğ
+		u_long uidGuild;		// ±æµå ¾ÆÀÌµğ
+		u_long uidPlayer;		// ÇÃ·¹ÀÌ¾î ¾ÆÀÌµğ
+		__int64 nReward;			// º¸»ó±İ
 	};
 	struct __GCGETPOINT
 	{
@@ -217,40 +217,40 @@ public:
 	int		m_nProcessGo;
 	int	 	m_nProcessCount[ 25 ];
 	__GuildCombatProcess GuildCombatProcess[250];
-	int		m_nStopWar;	// 1ì´ë©´ ì¤‘ê°„ì— ì¢…ë£Œ, 2ì´ë©´ ìš´ì˜ìê°€ ì¢…ë£Œ
+	int		m_nStopWar;	// 1ÀÌ¸é Áß°£¿¡ Á¾·á, 2ÀÌ¸é ¿î¿µÀÚ°¡ Á¾·á
 
-	int		m_nJoinPanya;		// ëŒ€ì „ì— ì°¸ê°€í• ìˆ˜ ìˆëŠ” ê¸°ë³¸ Penya
-	int		m_nGuildLevel;		// ëŒ€ì „ì— ì°¸ê°€í• ìˆ˜ ìˆëŠ” ìµœì†Œ ê¸¸ë“œë ˆë²¨
+	int		m_nJoinPanya;		// ´ëÀü¿¡ Âü°¡ÇÒ¼ö ÀÖ´Â ±âº» Penya
+	int		m_nGuildLevel;		// ´ëÀü¿¡ Âü°¡ÇÒ¼ö ÀÖ´Â ÃÖ¼Ò ±æµå·¹º§
 #if __VER >= 8 // __GUILDCOMBAT_85
-	int		m_nMinGuild;		// ìµœì†Œ ì „ìŸì„ í• ìˆ˜ ìˆëŠ” ê¸¸ë“œ ê°œìˆ˜(ìµœì†Œ ì°¸ì—¬ ê¸¸ë“œ ì¡°ê±´ì´ ë˜ì•¼ ê¸¸ë“œ ëŒ€ì „ì´ ì‹œì‘í•¨)
+	int		m_nMinGuild;		// ÃÖ¼Ò ÀüÀïÀ» ÇÒ¼ö ÀÖ´Â ±æµå °³¼ö(ÃÖ¼Ò Âü¿© ±æµå Á¶°ÇÀÌ µÇ¾ß ±æµå ´ëÀüÀÌ ½ÃÀÛÇÔ)
 	int		m_nMaxGCSendItem;
 #endif // __VER >= 8 
-	int		m_nMaxGuild;		// ëŒ€ì „ì— ì°¸ê°€í• ìˆ˜ ìˆëŠ” ê¸¸ë“œ
-	int		m_nMaxJoinMember;	// ëŒ€ì „ì— ì°¸ê°€í• ìˆ˜ ìˆëŠ” ìµœëŒ€ ìœ ì €
-	int		m_nMaxPlayerLife;	// ëŒ€ì „ì— ì°¸ê°€í•œ ìœ ì €ì˜ ìµœëŒ€ ìƒëª…
-	int		m_nMaxWarPlayer;	// ìµœëŒ€ ì„ ë°œëŒ€ ìœ ì €
-	int		m_nMaxMapTime;		// ëŒ€ì „ ìœ„ì¹˜ ì„¤ì • ì‹œê°„
-	int		m_nMaxGuildPercent;	// ëŒ€ì „ê¸¸ë“œ ìƒê¸ˆ í¼ì„¼íŠ¸
-	int		m_nMaxPlayerPercent;// ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ í¼ì„¼íŠ¸ 
-	int		m_nRequestCanclePercent;	// ì°¸ê°€ì‹ ì²­ì‹œ ì·¨ì†Œí•œ ê¸¸ë“œì—ê²Œ ëŒë ¤ì¤„ í¼ì„¼íŠ¸
-	int		m_nNotRequestPercent;		// ì°¸ê°€ì‹œ ì…ì°°ì´ ì•ˆëœê¸¸ë“œì—ê²Œ ëŒë ¤ì¤„ í¼ì„¼íŠ¸
-	int		m_nItemPenya;				// ëŒ€ì „ ìƒí’ˆ ì•„ì´í…œ ê°€ê²©(ìš©ë§í† ?)
-	BOOL    m_bMutex;					// ê¸¸ë“œëŒ€ì „ ì˜¤í”ˆ í•œë²ˆë§Œ...
-	BOOL    m_bMutexMsg;					// ê¸¸ë“œëŒ€ì „ ì˜¤í”ˆ í•œë²ˆë§Œ...
+	int		m_nMaxGuild;		// ´ëÀü¿¡ Âü°¡ÇÒ¼ö ÀÖ´Â ±æµå
+	int		m_nMaxJoinMember;	// ´ëÀü¿¡ Âü°¡ÇÒ¼ö ÀÖ´Â ÃÖ´ë À¯Àú
+	int		m_nMaxPlayerLife;	// ´ëÀü¿¡ Âü°¡ÇÑ À¯ÀúÀÇ ÃÖ´ë »ı¸í
+	int		m_nMaxWarPlayer;	// ÃÖ´ë ¼±¹ß´ë À¯Àú
+	int		m_nMaxMapTime;		// ´ëÀü À§Ä¡ ¼³Á¤ ½Ã°£
+	int		m_nMaxGuildPercent;	// ´ëÀü±æµå »ó±İ ÆÛ¼¾Æ®
+	int		m_nMaxPlayerPercent;// º£½ºÆ® ÇÃ·¹ÀÌ¾î ÆÛ¼¾Æ® 
+	int		m_nRequestCanclePercent;	// Âü°¡½ÅÃ»½Ã Ãë¼ÒÇÑ ±æµå¿¡°Ô µ¹·ÁÁÙ ÆÛ¼¾Æ®
+	int		m_nNotRequestPercent;		// Âü°¡½Ã ÀÔÂûÀÌ ¾ÈµÈ±æµå¿¡°Ô µ¹·ÁÁÙ ÆÛ¼¾Æ®
+	int		m_nItemPenya;				// ´ëÀü »óÇ° ¾ÆÀÌÅÛ °¡°İ(¿ë¸ÁÅä?)
+	BOOL    m_bMutex;					// ±æµå´ëÀü ¿ÀÇÂ ÇÑ¹ø¸¸...
+	BOOL    m_bMutexMsg;					// ±æµå´ëÀü ¿ÀÇÂ ÇÑ¹ø¸¸...
 	CTimer   m_ctrMutexOut;
 #if __VER >= 8 // __GUILDCOMBAT_85
 	vector< CString > m_vecstrGuildMsg;
 	vector<__GCSENDITEM>	vecGCSendItem;
 #endif // __VER >= 8 
 	
-	vector<__REQUESTGUILD>	vecRequestRanking;	// ì°¸ê°€ ìˆœìœ„
-	vector<__GCRESULTVALUEGUILD>			m_GCResultValueGuild;		// ê¸¸ë“œëŒ€ì „ ê²°ê³¼ê°’
-	vector<__GCRESULTVALUEPLAYER>			m_GCResultValuePlayer;		// ê¸¸ë“œëŒ€ì „ ê²°ê³¼ê°’
+	vector<__REQUESTGUILD>	vecRequestRanking;	// Âü°¡ ¼øÀ§
+	vector<__GCRESULTVALUEGUILD>			m_GCResultValueGuild;		// ±æµå´ëÀü °á°ú°ª
+	vector<__GCRESULTVALUEPLAYER>			m_GCResultValuePlayer;		// ±æµå´ëÀü °á°ú°ª
 #endif // __WORLDSERVER
-	int		m_nState;		// ê¸¸ë“œì›Œ ìƒíƒœ
-	int		m_nGCState;	// ì „íˆ¬ ì¤‘ì¼ ë•Œì˜ ìƒíƒœ
+	int		m_nState;		// ±æµå¿ö »óÅÂ
+	int		m_nGCState;	// ÀüÅõ ÁßÀÏ ¶§ÀÇ »óÅÂ
 #ifdef __CLIENT
-	BOOL	m_bRequest;	// ì‹ ì²­ ìœ ë¬´
+	BOOL	m_bRequest;	// ½ÅÃ» À¯¹«
 	BOOL	IsRequest( void ) { return m_bRequest; };
 #endif // __CLIENT
 public:

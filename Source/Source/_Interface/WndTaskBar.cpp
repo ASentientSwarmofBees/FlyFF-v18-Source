@@ -1,4 +1,4 @@
-ï»¿// WndArcane.cpp: implementation of the CWndNeuz class.
+// WndArcane.cpp: implementation of the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -24,7 +24,7 @@ _ERROR_STATE g_Error_State;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ì‘ì—… ìœˆë„ 
+// ÀÛ¾÷ À©µµ 
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ void CWndShortcut::OnMouseMove(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// í€µ ë¦¬ìŠ¤íŠ¸ 
+// Äü ¸®½ºÆ® 
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +95,7 @@ CWndQuickList::~CWndQuickList()
 void CWndQuickList::OnDraw( C2DRender* p2DRender ) 
 {
 	CWndTaskBar* pWndTaskBar = (CWndTaskBar*)m_pParentWnd;
-	// ì•„ì´í…œ ì•„ì´ì½˜ ì¶œë ¥ 
+	// ¾ÆÀÌÅÛ ¾ÆÀÌÄÜ Ãâ·Â 
 	CPoint point = CPoint( 0, 0);//POINT_ITEM;
 	for( int y = 0; y < 4; y++ )
 	{
@@ -139,15 +139,15 @@ void CWndQuickList::OnInitialUpdate()
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndQuickList::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_QUICKLIST, 0, CPoint( 0, 0 ), pWndParent );
 	
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndQuickList::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -255,7 +255,7 @@ void CWndTaskBar::Serialize( CAr & ar )
 		ar << nCount;
 		for( int i = 0; i < MAX_SLOT_APPLET; i++ )
 		{
-			if( m_aSlotApplet[i].m_dwShortcut == SHORTCUT_NONE )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
+			if( m_aSlotApplet[i].m_dwShortcut == SHORTCUT_NONE )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
 			{
 				ar << i;
 				ar << m_aSlotApplet[i].m_dwShortcut <<	m_aSlotApplet[i].m_dwId << m_aSlotApplet[i].m_dwType;
@@ -276,7 +276,7 @@ void CWndTaskBar::Serialize( CAr & ar )
 		{
 			for( int j = 0; j < MAX_SLOT_ITEM; j++ )
 			{
-				if( m_aSlotItem[i][j].m_dwShortcut == SHORTCUT_NONE )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
+				if( m_aSlotItem[i][j].m_dwShortcut == SHORTCUT_NONE )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
 				{
 					ar << i << j;
 					ar << m_aSlotItem[i][j].m_dwShortcut <<	m_aSlotItem[i][j].m_dwId << m_aSlotItem[i][j].m_dwType;
@@ -296,7 +296,7 @@ void CWndTaskBar::Serialize( CAr & ar )
 		ar << nCount;
 		for( int i = 0; i < MAX_SLOT_QUEUE; i++ )
 		{
-			if( m_aSlotQueue[i].m_dwShortcut == SHORTCUT_NONE )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
+			if( m_aSlotQueue[i].m_dwShortcut == SHORTCUT_NONE )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
 			{
 				ar << i;
 				ar << m_aSlotQueue[i].m_dwShortcut << m_aSlotQueue[i].m_dwId << m_aSlotQueue[i].m_dwType;
@@ -346,7 +346,7 @@ void CWndTaskBar::Serialize( CAr & ar )
 				if( g_pPlayer )
 				{
 					CItemBase* pItemBase	= g_pPlayer->GetItemId( m_aSlotApplet[nIndex].m_dwId );
-					if( pItemBase && pItemBase->GetProp()->dwPackMax > 1 )	// ë³‘í•© ê°€ëŠ¥í•œ ì•„ì´í…œì´ë©´?
+					if( pItemBase && pItemBase->GetProp()->dwPackMax > 1 )	// º´ÇÕ °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ¸é?
 						m_aSlotApplet[nIndex].m_dwItemId	= pItemBase->m_dwItemId;
 				}
 			}
@@ -369,7 +369,7 @@ void CWndTaskBar::Serialize( CAr & ar )
 				if( g_pPlayer )
 				{
 					CItemBase* pItemBase	= g_pPlayer->GetItemId( m_aSlotItem[nIndex][nIndex2].m_dwId );
-					if( pItemBase && pItemBase->GetProp()->dwPackMax > 1 )	// ë³‘í•© ê°€ëŠ¥í•œ ì•„ì´í…œì´ë©´?
+					if( pItemBase && pItemBase->GetProp()->dwPackMax > 1 )	// º´ÇÕ °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ¸é?
 						m_aSlotItem[nIndex][nIndex2].m_dwItemId	= pItemBase->m_dwItemId;
 				}
 			}
@@ -442,7 +442,7 @@ void CWndTaskBar::SetTaskBarTexture( LPSHORTCUT pShortcut )
 	else if ( pShortcut->m_dwShortcut == SHORTCUT_MOTION )
 	{
 		MotionProp* pMotionProp = prj.GetMotionProp( pShortcut->m_dwId );
-		if(pMotionProp)			//061206 ma	8ì°¨ì— ë“¤ì–´ê°ˆ ëª¨ì…˜ê´€ë¦¬ë¥¼ ìœ„í•´ ë²„ì „ ì¶”ê°€	propMotion.txt
+		if(pMotionProp)			//061206 ma	8Â÷¿¡ µé¾î°¥ ¸ğ¼Ç°ü¸®¸¦ À§ÇØ ¹öÀü Ãß°¡	propMotion.txt
 		{
 			pMotionProp->pTexture = m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, pMotionProp->szIconName ), 0xffff00ff );
 			pShortcut->m_pTexture = pMotionProp->pTexture;
@@ -470,13 +470,13 @@ void CWndTaskBar::SetTaskBarTexture( LPSHORTCUT pShortcut )
 }
 
 /*
-* ì•¡ì…˜ í¬ì¸íŠ¸
-. ì•¡ì…˜ í¬ì¸íŠ¸ ë³€ìˆ˜ CWndTaskBar::m_nActionPoint
-. ìŠ¤í‚¬ë°”ì— ë°˜íˆ¬ëª… ì‚¬ê°í˜• ê·¸ë¦¬ê¸°
-. ì•¡ì…˜í¬ì¸íŠ¸ ì‹œë¦¬ì–¼ë¼ì´ì¦ˆ
-. íŒ¨í„´ê³µê²©ì˜ 2ë²ˆì§¸ ê³µê²©ì„ ì‚¬ìš©ì‹œì—ëŠ” ì•¡ì…˜í¬ì¸íŠ¸ ì¦ê°€ 1ì ì”© - 100ì´ í•œê³„
-. ì•¡ì…˜ í¬ì¸íŠ¸ì— ë”°ë¥¸ ì‰ì´ë“œ ê·¸ë¦¬ê¸° - ëˆ„ì í¬ì¸íŠ¸ì—ë”°ë¼ ë‹¤ë¥´ë‹¤.
-. ìŠ¤í‚¬ì‚¬ìš©ì‹œ ë‹¨ê³„ë³„ë¡œ ì•¡ì…˜í¬ì¸íŠ¸ ì†Œëª¨ëŸ‰ ë‹¤ë¥´ê²Œ.
+* ¾×¼Ç Æ÷ÀÎÆ®
+. ¾×¼Ç Æ÷ÀÎÆ® º¯¼ö CWndTaskBar::m_nActionPoint
+. ½ºÅ³¹Ù¿¡ ¹İÅõ¸í »ç°¢Çü ±×¸®±â
+. ¾×¼ÇÆ÷ÀÎÆ® ½Ã¸®¾ó¶óÀÌÁî
+. ÆĞÅÏ°ø°İÀÇ 2¹øÂ° °ø°İÀ» »ç¿ë½Ã¿¡´Â ¾×¼ÇÆ÷ÀÎÆ® Áõ°¡ 1Á¡¾¿ - 100ÀÌ ÇÑ°è
+. ¾×¼Ç Æ÷ÀÎÆ®¿¡ µû¸¥ ½¦ÀÌµå ±×¸®±â - ´©ÀûÆ÷ÀÎÆ®¿¡µû¶ó ´Ù¸£´Ù.
+. ½ºÅ³»ç¿ë½Ã ´Ü°èº°·Î ¾×¼ÇÆ÷ÀÎÆ® ¼Ò¸ğ·® ´Ù¸£°Ô.
 
 */
 
@@ -628,7 +628,7 @@ void CWndTaskBar::PutTooTip( LPSHORTCUT pShortcut, CPoint point, CRect* pRect )
 	if( pShortcut->m_dwShortcut == SHORTCUT_MOTION )
 	{
 		MotionProp* pMotionProp = prj.GetMotionProp( pShortcut->m_dwId );
-		if(!pMotionProp)		//061206 ma	8ì°¨ì— ë“¤ì–´ê°ˆ ëª¨ì…˜ê´€ë¦¬ë¥¼ ìœ„í•´ ë²„ì „ ì¶”ê°€	propMotion.txt
+		if(!pMotionProp)		//061206 ma	8Â÷¿¡ µé¾î°¥ ¸ğ¼Ç°ü¸®¸¦ À§ÇØ ¹öÀü Ãß°¡	propMotion.txt
 			return;
 
 		CString string;
@@ -647,7 +647,7 @@ void CWndTaskBar::PutTooTip( LPSHORTCUT pShortcut, CPoint point, CRect* pRect )
 
 				if( g_pPlayer->m_nCheerPoint < MAX_CHEERPOINT )
 				{
-					CTimeSpan ct( ((g_pPlayer->m_dwTickCheer - GetTickCount()) / 1000) );		// ë‚¨ì€ì‹œê°„ì„ ì´ˆë‹¨ìœ„ë¡œ ë³€í™˜í•´ì„œ ë„˜ê²¨ì¤Œ
+					CTimeSpan ct( ((g_pPlayer->m_dwTickCheer - GetTickCount()) / 1000) );		// ³²Àº½Ã°£À» ÃÊ´ÜÀ§·Î º¯È¯ÇØ¼­ ³Ñ°ÜÁÜ
 
 					if( ct.GetMinutes() <= 0 )
 					{
@@ -759,7 +759,7 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 		rectSkillQueue.SetRect( 0, rect.Height() - 32 * 4 - 6, rect.Width(), rect.Height() );
 	}
 
-	// ë“œë˜ê·¸ í•˜ì´ë¼ì´íŠ¸ ìŠ¬ë¡¯ í‘œì‹œ
+	// µå·¡±× ÇÏÀÌ¶óÀÌÆ® ½½·Ô Ç¥½Ã
 	if( m_GlobalShortcut.IsEmpty() == FALSE )
 	{
 		DWORD dwColor;
@@ -802,7 +802,7 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 				{
 					DWORD dwSkill = g_pPlayer->GetSkill( 0, m_GlobalShortcut.m_dwId )->dwSkill;
 					DWORD dwComboStyleSrc = prj.GetSkillProp( dwSkill )->dwComboStyle;
-					if( dwComboStyleSrc == CT_STEP  || dwComboStyleSrc == CT_GENERAL  )		// ìŠ¤í…ì´ë‚˜ ì œë„¤ëŸ´ì´ë©´ í•©ê²©
+					if( dwComboStyleSrc == CT_STEP  || dwComboStyleSrc == CT_GENERAL  )		// ½ºÅÜÀÌ³ª Á¦³×·²ÀÌ¸é ÇÕ°İ
 						p2DRender->RenderFillRect( rectItem, dwColor );		
 					p2DRender->RenderFillRect( rectSkill, dwColor );
 				}
@@ -812,7 +812,7 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 		}		
 	}
 
-	// ì• í”Œë › ì•„ì´ì½˜ ì¶œë ¥
+	// ¾ÖÇÃ·¿ ¾ÆÀÌÄÜ Ãâ·Â
 	CPoint point = POINT_APPLET;
 	for( int i = 0; i < m_nMaxSlotApplet; i++ )
 	{
@@ -842,10 +842,10 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 					DWORD dwGroup = g_pPlayer->m_cooltimeMgr.GetGroup( pItemElem->GetProp() );
 					if( dwGroup )
 					{
-						DWORD dwEnd = g_pPlayer->m_cooltimeMgr.GetTime( dwGroup );		// ì´ë²¤íŠ¸ ì¢…ë£Œ ì‹œê° 
+						DWORD dwEnd = g_pPlayer->m_cooltimeMgr.GetTime( dwGroup );		// ÀÌº¥Æ® Á¾·á ½Ã°¢ 
 						if( dwEnd != 0 && dwEnd > dwCur )  
 						{
-							DWORD dwBase = g_pPlayer->m_cooltimeMgr.GetBase( dwGroup );	// ì´ë²¤íŠ¸ ì‹œì‘ ì‹œê° 
+							DWORD dwBase = g_pPlayer->m_cooltimeMgr.GetBase( dwGroup );	// ÀÌº¥Æ® ½ÃÀÛ ½Ã°¢ 
 							RenderRadar( p2DRender, point, dwCur - dwBase, dwEnd - dwBase );
 						}
 					}
@@ -854,10 +854,10 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 				{
 #if __VER >= 8	// __JEFF_VER_8
 					ItemProp* pItemProp	= prj.GetItemProp( lpShortcut->m_dwItemId );
-					if( pItemProp && pItemProp->dwPackMax > 1 )	// ë³‘í•© ê°€ëŠ¥í•œ ì•„ì´í…œì´ë©´?
+					if( pItemProp && pItemProp->dwPackMax > 1 )	// º´ÇÕ °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ¸é?
 					{
 						DWORD dwId	= g_pPlayer->m_Inventory.Find( lpShortcut->m_dwItemId );
-						if( dwId != NULL_ID )	// ê°™ì€ ì¢…ë¥˜ì˜ ì•„ì´í…œì´ ìˆë‹¤ë©´?
+						if( dwId != NULL_ID )	// °°Àº Á¾·ùÀÇ ¾ÆÀÌÅÛÀÌ ÀÖ´Ù¸é?
 						{
 							lpShortcut->m_dwId	= dwId;
 							g_DPlay.SendAddAppletTaskBar( i, lpShortcut );
@@ -889,7 +889,7 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 					DRAW_HOTKEY( p2DRender, ptHotkey, pAppletFunc->m_cHotkey );
 				}
 			}
-			else if( lpShortcut->m_dwShortcut == SHORTCUT_SKILL && lpShortcut->m_dwType != 2 ) //ê·¹ë‹¨ìŠ¤í‚¬ì€ ì¿¨íƒ€ì„ ê´€ë ¨ Renderë¥¼ í•˜ì§€ ì•ŠëŠ”ë‹¤.
+			else if( lpShortcut->m_dwShortcut == SHORTCUT_SKILL && lpShortcut->m_dwType != 2 ) //±Ø´Ü½ºÅ³Àº ÄğÅ¸ÀÓ °ü·Ã Render¸¦ ÇÏÁö ¾Ê´Â´Ù.
 			{
 				RenderCollTime( point, lpShortcut->m_dwId, p2DRender );
 			}
@@ -922,7 +922,7 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 		}
 		point += CPoint( ICON_SIZE, 0 );
 	}
-	// ì•„ì´í…œ ì•„ì´ì½˜ ì¶œë ¥ 
+	// ¾ÆÀÌÅÛ ¾ÆÀÌÄÜ Ãâ·Â 
 	point = POINT_ITEM;
 	for( int i = 0; i < MAX_SLOT_ITEM; i++ )
 	{
@@ -954,15 +954,15 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 				DWORD dwGroup = g_pPlayer->m_cooltimeMgr.GetGroup( pItemElem->GetProp() );
 				if( dwGroup )
 				{
-					DWORD dwEnd = g_pPlayer->m_cooltimeMgr.GetTime( dwGroup );		// ì´ë²¤íŠ¸ ì¢…ë£Œ ì‹œê° 
+					DWORD dwEnd = g_pPlayer->m_cooltimeMgr.GetTime( dwGroup );		// ÀÌº¥Æ® Á¾·á ½Ã°¢ 
 					if( dwEnd != 0 && dwEnd > dwCur )
 					{
-						DWORD dwBase = g_pPlayer->m_cooltimeMgr.GetBase( dwGroup );	// ì´ë²¤íŠ¸ ì‹œì‘ ì‹œê° 
+						DWORD dwBase = g_pPlayer->m_cooltimeMgr.GetBase( dwGroup );	// ÀÌº¥Æ® ½ÃÀÛ ½Ã°¢ 
 						RenderRadar( p2DRender, point, dwCur - dwBase, dwEnd - dwBase );
 					}
 				}
 			} 
-			else if( lpShortcut->m_dwShortcut == SHORTCUT_SKILL && lpShortcut->m_dwType != 2 ) //ê·¹ë‹¨ìŠ¤í‚¬ì€ ì¿¨íƒ€ì„ ê´€ë ¨ Renderë¥¼ í•˜ì§€ ì•ŠëŠ”ë‹¤.
+			else if( lpShortcut->m_dwShortcut == SHORTCUT_SKILL && lpShortcut->m_dwType != 2 ) //±Ø´Ü½ºÅ³Àº ÄğÅ¸ÀÓ °ü·Ã Render¸¦ ÇÏÁö ¾Ê´Â´Ù.
 			{
 				RenderCollTime( point, lpShortcut->m_dwId, p2DRender );
 			}
@@ -995,7 +995,7 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 
 				
 		}
-		// hotkey ì¶œë ¥ 
+		// hotkey Ãâ·Â 
 		CHAR cHotkey = ( i == 9 ) ? '0' : '1' + i;
 		CPoint ptHotkey( point.x + 8, point.y - 9 );
 		//DRAW_HOTKEY( p2DRender, ptHotkey, cHotkey );
@@ -1005,7 +1005,7 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 	point = CPoint( POINT_QUEUE_X - ICON_SIZE - 5, POINT_QUEUE_Y );
 	p2DRender->RenderTexture( point, m_pTexture );
 
-	// ìŠ¤í‚¬ í 
+	// ½ºÅ³ Å¥ 
 	point = POINT_QUEUE;
 	//p2DRender->TextOut( point.x - 5, point.y - 16, "ACTION SLOT" );
 	for( int i = 0; i < m_nCurQueueNum; i++ )
@@ -1028,16 +1028,16 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 	
 	if( !( g_pPlayer->IsSMMode( SM_ACTPOINT ) ) )
 	{
-	#define LV2MAXAP	10		// 2ë‹¨ê³„ ìŠ¤í‚¬ì´ ë‹¤ì°¨ëŠ”ë° í•„ìš”í•œ action point
+	#define LV2MAXAP	10		// 2´Ü°è ½ºÅ³ÀÌ ´ÙÂ÷´Âµ¥ ÇÊ¿äÇÑ action point
 	#define LV3MAXAP	25		
 	#define LV4MAXAP	50
 	#define LV5MAXAP	100
 
 		point = POINT_QUEUE;
-		point.x += SKILL_SIZE;	// ìŠ¤í‚¬ 2ë²ˆì§¸ì¹¸ë¶€í„° ì‰ì´ë“œëœë‹¤.
+		point.x += SKILL_SIZE;	// ½ºÅ³ 2¹øÂ°Ä­ºÎÅÍ ½¦ÀÌµåµÈ´Ù.
 		{
-			int nAP2Size;	// ì•¡ì…˜í¬ì¸íŠ¸ë¥¼ í•˜ì´ë¼ì´íŠ¸ì–‘ìœ¼ë¡œ ë³€í™˜í•œê°’.
-			if( m_nActionPoint >= LV4MAXAP )	// LV4MAXAPë¥¼ ë„˜ì–´ì„œë©´ 5ë‹¨ê³„ ì‹œì‘.
+			int nAP2Size;	// ¾×¼ÇÆ÷ÀÎÆ®¸¦ ÇÏÀÌ¶óÀÌÆ®¾çÀ¸·Î º¯È¯ÇÑ°ª.
+			if( m_nActionPoint >= LV4MAXAP )	// LV4MAXAP¸¦ ³Ñ¾î¼­¸é 5´Ü°è ½ÃÀÛ.
 				nAP2Size = (SKILL_SIZE * 3) + (((m_nActionPoint - LV4MAXAP) * SKILL_SIZE) / (LV5MAXAP - LV4MAXAP));
 			else if( m_nActionPoint >= LV3MAXAP )
 				nAP2Size = (SKILL_SIZE * 2) + (((m_nActionPoint - LV3MAXAP) * SKILL_SIZE) / (LV4MAXAP - LV3MAXAP));
@@ -1107,10 +1107,10 @@ void CWndTaskBar::UpdateItem()
 				{
 #if __VER >= 8	// __JEFF_VER_8
 					ItemProp* pItemProp	= prj.GetItemProp( lpShortcut->m_dwItemId );
-					if( pItemProp && pItemProp->dwPackMax > 1 )	// ë³‘í•© ê°€ëŠ¥í•œ ì•„ì´í…œì´ë©´?
+					if( pItemProp && pItemProp->dwPackMax > 1 )	// º´ÇÕ °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ¸é?
 					{
 						DWORD dwId	= g_pPlayer->m_Inventory.Find( lpShortcut->m_dwItemId );
-						if( dwId != NULL_ID )	// ê°™ì€ ì¢…ë¥˜ì˜ ì•„ì´í…œì´ ìˆë‹¤ë©´?
+						if( dwId != NULL_ID )	// °°Àº Á¾·ùÀÇ ¾ÆÀÌÅÛÀÌ ÀÖ´Ù¸é?
 						{
 							lpShortcut->m_dwId	= dwId;
 							g_DPlay.SendAddItemTaskBar( m_nSlotIndex, i, lpShortcut );
@@ -1185,7 +1185,7 @@ void CWndTaskBar::OnInitialUpdate()
 	m_texPack.LoadScript( m_pApp->m_pd3dDevice, MakePath( DIR_THEME, "hotkey.inc" ) );
 
 	m_menuShortcut.CreateMenu( this );	
-	m_menuShortcut.AppendMenu( 0, 0 ,_T( "ì‚­ì œ" ) );
+	m_menuShortcut.AppendMenu( 0, 0 ,_T( "»èÁ¦" ) );
 
 	m_pTexture = m_textureMng.AddTexture( g_Neuz.m_pd3dDevice,  MakePath( DIR_ICON, "icon_ActionSkill.dds" ), 0xffff00ff );
 	m_aSlotSkill.m_dwShortcut = SHORTCUT_SKILLFUN;
@@ -1252,7 +1252,7 @@ BOOL CWndTaskBar::Initialize(CWndBase* pWndParent,DWORD dwWndId)
 //	rect.bottom = CLIENT_HEIGHT;
 	//m_strMessage = lpszMessage;
 	//m_dwType = nType;
-	//SetTitle("ë©”ì§€ì‹œ ìœˆë„");
+	//SetTitle("¸ŞÁö½Ã À©µµ");
 //	return CWndBase::Create( 0 | /*WBS_MODAL|*/ WBS_MANAGER | WBS_SOUND | WBS_NOFRAME, rect, &g_WndMng, APP_TASKBAR );
 	BOOL bResult;
 	if( g_Option.m_nResWidth == 800 )
@@ -1342,7 +1342,7 @@ BOOL CWndTaskBar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 	{
 		/*
 		LPSHORTCUT pShortcut = (LPSHORTCUT) pLResult;
-		if( pShortcut && pShortcut->m_dwData == 2 ) // ìŠ¤í‚¬ í ë²„íŠ¼ì˜ ì•„ì´ë””ëŠ” 1000 ì´ìƒ 
+		if( pShortcut && pShortcut->m_dwData == 2 ) // ½ºÅ³ Å¥ ¹öÆ°ÀÇ ¾ÆÀÌµğ´Â 1000 ÀÌ»ó 
 		{
 			SetSkillQueue( nID - 1000, pShortcut->m_dwShortcut, pShortcut->m_dwType, pShortcut->m_dwId, pShortcut->m_dwData, pShortcut->m_pTexture );
 		}
@@ -1439,7 +1439,7 @@ void CWndTaskBar::OnSize(UINT nType, int cx, int cy)
 }
 void CWndTaskBar::RemoveSkillQueue( int nIndex, BOOL bSend )
 {
-	if( m_nExecute )	return;		// ìŠ¤í‚¬í ì‹¤í–‰ì¤‘ì—” ë¹¼ì§€ì§€ë„ ì•ŠëŠ”ë‹¤.
+	if( m_nExecute )	return;		// ½ºÅ³Å¥ ½ÇÇàÁß¿£ »©ÁöÁöµµ ¾Ê´Â´Ù.
 BACK:
 	if( !m_aSlotQueue[ nIndex ].IsEmpty() )
 	{
@@ -1461,7 +1461,7 @@ BACK:
 	}
 	if( bSend )
 		g_DPlay.SendSkillTaskBar( );
-	// ìŠ¤í‚¬ì„ ì§€ìš°ëŠ” ê³³ ì„œë²„ë¡œ ë³´ë‚´ì•¼í•¨.	
+	// ½ºÅ³À» Áö¿ì´Â °÷ ¼­¹ö·Î º¸³»¾ßÇÔ.	
 
 }
 void CWndTaskBar::OnRButtonUp( UINT nFlags, CPoint point )
@@ -1474,7 +1474,7 @@ void CWndTaskBar::OnRButtonUp( UINT nFlags, CPoint point )
 		if( FALSE == m_aSlotApplet[ point.x ].IsEmpty() )
 		{
 			m_aSlotApplet[ point.x ].Empty();			
-			g_DPlay.SendRemoveAppletTaskBar( (BYTE)( point.x ) );		// ì•„ì´í…œ ì‚­ì œ ì„œë²„ë¡œ ì „ì†¡
+			g_DPlay.SendRemoveAppletTaskBar( (BYTE)( point.x ) );		// ¾ÆÀÌÅÛ »èÁ¦ ¼­¹ö·Î Àü¼Û
 		}
 	}
 	rect = RECT_ITEM;
@@ -1486,7 +1486,7 @@ void CWndTaskBar::OnRButtonUp( UINT nFlags, CPoint point )
 		if( FALSE == m_paSlotItem[ point.x ].IsEmpty() )
 		{
 			m_paSlotItem[ point.x ].Empty();
-			g_DPlay.SendRemoveItemTaskBar( (BYTE)( m_nSlotIndex ), (BYTE)( point.x ) );	// ì•„ì´í…œ ì‚­ì œ ì„œë²„ë¡œ ì „ì†¡			
+			g_DPlay.SendRemoveItemTaskBar( (BYTE)( m_nSlotIndex ), (BYTE)( point.x ) );	// ¾ÆÀÌÅÛ »èÁ¦ ¼­¹ö·Î Àü¼Û			
 		}
 
 	}
@@ -1508,7 +1508,7 @@ BOOL CWndTaskBar::SetShortcut( int nIndex, DWORD dwShortcut, DWORD dwType, DWORD
 
 	//pShortcut = m_aSlotApplet[ nIndex ];
 #if __VER >= 11 // __CSC_VER11_5
-	// Chat Shortcut 10ê°œë¡œ ì œí•œ
+	// Chat Shortcut 10°³·Î Á¦ÇÑ
 	if(dwShortcut == SHORTCUT_CHAT)
 	{
 		int nchatshortcut = 0;
@@ -1574,7 +1574,7 @@ BOOL CWndTaskBar::SetShortcut( int nIndex, DWORD dwShortcut, DWORD dwType, DWORD
 		if( dwShortcut == SHORTCUT_MOTION ) 
 		{
 			MotionProp* pMotionProp = prj.GetMotionProp( dwId );
-			if(pMotionProp)		//061206 ma	8ì°¨ì— ë“¤ì–´ê°ˆ ëª¨ì…˜ê´€ë¦¬ë¥¼ ìœ„í•´ ë²„ì „ ì¶”ê°€	propMotion.txt
+			if(pMotionProp)		//061206 ma	8Â÷¿¡ µé¾î°¥ ¸ğ¼Ç°ü¸®¸¦ À§ÇØ ¹öÀü Ãß°¡	propMotion.txt
 			{
 				pMotionProp->pTexture = m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, pMotionProp->szIconName ), 0xffff00ff );
 				pShortcut->m_pTexture = pMotionProp->pTexture;
@@ -1626,7 +1626,7 @@ BOOL CWndTaskBar::SetShortcut( int nIndex, DWORD dwShortcut, DWORD dwType, DWORD
 	if( dwShortcut == SHORTCUT_ITEM )
 	{
 		CItemBase* pItemBase	= g_pPlayer->GetItemId( dwId );
-		if( pShortcut && pItemBase && pItemBase->GetProp()->dwPackMax > 1 )	// ë³‘í•© ê°€ëŠ¥í•œ ì•„ì´í…œì´ë©´?
+		if( pShortcut && pItemBase && pItemBase->GetProp()->dwPackMax > 1 )	// º´ÇÕ °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ¸é?
 			pShortcut->m_dwItemId	= pItemBase->m_dwItemId;
 	}
 #endif	// __JEFF_VER_8
@@ -1662,124 +1662,124 @@ BOOL CWndTaskBar::CheckAddSkill( int nSkillStyleSrc, int nQueueDest  )
 	FINISH -> START, CIRCLE
 	*/
 	DWORD dwComboStyleSrc = nSkillStyleSrc;
-	if( nQueueDest == 0 )		// ì²«ì¹¸ì— ë„£ìœ¼ë ¤ ì‹œë„ í–ˆì„ê²½ìš°
+	if( nQueueDest == 0 )		// Ã¹Ä­¿¡ ³ÖÀ¸·Á ½Ãµµ ÇßÀ»°æ¿ì
 	{
 		/*
-		if( ì´ë¯¸ ìŠ¤í‚¬ì°½ì— ë“±ë¡ë˜ì–´ ìˆë‹¤ )
+		if( ÀÌ¹Ì ½ºÅ³Ã¢¿¡ µî·ÏµÇ¾î ÀÖ´Ù )
 		{
-			if( ì‚½ì…í•˜ë ¤ëŠ”ê²Œ CT_GENERALì¸ê°€ )
-				if( ì´ë¯¸ ì‚½ì…ë˜ì–´ ìˆëŠ”ê²Œ CT_GENERALì¸ê°€ )
+			if( »ğÀÔÇÏ·Á´Â°Ô CT_GENERALÀÎ°¡ )
+				if( ÀÌ¹Ì »ğÀÔµÇ¾î ÀÖ´Â°Ô CT_GENERALÀÎ°¡ )
 				return TRUE;
-			return FALSE;		// CT_GENERALì´ì™¸ì˜ ê²ƒì„ ì²«ì¹¸ì— ì‚½ì…í•˜ë ¤ë©´ ëª¨ë‘ ì‹¤íŒ¨.
+			return FALSE;		// CT_GENERALÀÌ¿ÜÀÇ °ÍÀ» Ã¹Ä­¿¡ »ğÀÔÇÏ·Á¸é ¸ğµÎ ½ÇÆĞ.
 		} else
 		{
-			// ì•„ë¬´ê²ƒë„ ë“±ë¡ë˜ì–´ ìˆì§€ ì•Šë‹¤.
-			// ìŠ¤í…, ì œë„¤ëŸ´ë§Œ í•©ê²©.
+			// ¾Æ¹«°Íµµ µî·ÏµÇ¾î ÀÖÁö ¾Ê´Ù.
+			// ½ºÅÜ, Á¦³×·²¸¸ ÇÕ°İ.
 			if( dwComboStyleSrc == CT_STEP  || dwComboStyleSrc == CT_GENERAL  ) 
 				return TRUE;
-			return FALSE;	// ê·¸ì™¸ì—” ëª¨ë‘ ë¶ˆí•©ê²©.
+			return FALSE;	// ±×¿Ü¿£ ¸ğµÎ ºÒÇÕ°İ.
 		}
 		 */
-		if( m_nCurQueueNum == 0 )		// ë¹„ì–´ìˆë‹¤
+		if( m_nCurQueueNum == 0 )		// ºñ¾îÀÖ´Ù
 		{
-			if( dwComboStyleSrc == CT_STEP  || dwComboStyleSrc == CT_GENERAL  )		// ìŠ¤í…ì´ë‚˜ ì œë„¤ëŸ´ì´ë©´ í•©ê²©
+			if( dwComboStyleSrc == CT_STEP  || dwComboStyleSrc == CT_GENERAL  )		// ½ºÅÜÀÌ³ª Á¦³×·²ÀÌ¸é ÇÕ°İ
 				return TRUE;
 			return	FALSE;
 		} else
-		// ë­”ê°€ ìˆë‹¤.
+		// ¹º°¡ ÀÖ´Ù.
 		{
 			DWORD dwComboStyleDest;
 			DWORD dwSkill = g_pPlayer->GetSkill( 0, m_aSlotQueue[ nQueueDest ].m_dwId )->dwSkill;
-				//m_aSlotQueue[ nQueueDest ].m_dwId;	// ë„£ìœ¼ë ¤ëŠ” ì¹¸ì˜ ìŠ¤í‚¬
+				//m_aSlotQueue[ nQueueDest ].m_dwId;	// ³ÖÀ¸·Á´Â Ä­ÀÇ ½ºÅ³
 			if( dwSkill )
-				dwComboStyleDest = prj.GetSkillProp( dwSkill )->dwComboStyle;		// ê·¸ì¹¸ì˜ ìŠ¤íƒ€ì¼
+				dwComboStyleDest = prj.GetSkillProp( dwSkill )->dwComboStyle;		// ±×Ä­ÀÇ ½ºÅ¸ÀÏ
 			else 
 				dwComboStyleDest = 0;
-			if( dwComboStyleSrc == CT_GENERAL && dwComboStyleDest == CT_GENERAL )	// ì´ë¯¸ìˆëŠ”ê²ƒë„ ì œë„¤ëŸ´ì´ê³  ì‚½ì…í•˜ë ¤ëŠ”ê²ƒë„ ì œë„¤ëŸ´ì´ë©´ í•©ê²©
+			if( dwComboStyleSrc == CT_GENERAL && dwComboStyleDest == CT_GENERAL )	// ÀÌ¹ÌÀÖ´Â°Íµµ Á¦³×·²ÀÌ°í »ğÀÔÇÏ·Á´Â°Íµµ Á¦³×·²ÀÌ¸é ÇÕ°İ
 				return TRUE;
-			return FALSE;	// ê·¸ì™¸ëŠ” ëª¨ë‘ ì²«ì¹¸ì— ì‚½ì…í•  ìˆ˜ ì—†ìŒ.
+			return FALSE;	// ±×¿Ü´Â ¸ğµÎ Ã¹Ä­¿¡ »ğÀÔÇÒ ¼ö ¾øÀ½.
 		}
 	}
 	else
-	if( nQueueDest == 4 )		// ë§ˆì§€ë§‰ì¹¸ì— ë„£ìœ¼ë ¤ê³  í–ˆì„ê²½ìš°
+	if( nQueueDest == 4 )		// ¸¶Áö¸·Ä­¿¡ ³ÖÀ¸·Á°í ÇßÀ»°æ¿ì
 	{
-		if( dwComboStyleSrc == CT_STEP )	// ìŠ¤í…ì€ ì²«ì¹¸ì´ ì•„ë‹ˆë©´ ë¬´ì¡°ê±´ ëª»ë„£ëŠ”ë‹¤.
+		if( dwComboStyleSrc == CT_STEP )	// ½ºÅÜÀº Ã¹Ä­ÀÌ ¾Æ´Ï¸é ¹«Á¶°Ç ¸ø³Ö´Â´Ù.
 			return FALSE;
 		DWORD dwSkill = g_pPlayer->GetSkill( 0, m_aSlotQueue[ nQueueDest - 1 ].m_dwId )->dwSkill;
-			//m_aSlotQueue[ nQueueDest - 1 ].m_dwId;	// ë„£ìœ¼ë ¤ëŠ” ì¹¸ì˜ ì•ì—ìˆëŠ” ìŠ¤í‚¬
+			//m_aSlotQueue[ nQueueDest - 1 ].m_dwId;	// ³ÖÀ¸·Á´Â Ä­ÀÇ ¾Õ¿¡ÀÖ´Â ½ºÅ³
 		DWORD dwComboStylePrev;
 		if( dwSkill )
-			dwComboStylePrev = prj.GetSkillProp( dwSkill )->dwComboStyle;		// ì•ì¹¸ì˜ ìŠ¤íƒ€ì¼
+			dwComboStylePrev = prj.GetSkillProp( dwSkill )->dwComboStyle;		// ¾ÕÄ­ÀÇ ½ºÅ¸ÀÏ
 		else
 			dwComboStylePrev = 0;
-		if( dwComboStylePrev == CT_FINISH )		// ì• ìŠ¤í‚¬ì´ í”¼ë‹ˆì‰¬ë©´ ë”ì´ìƒ ë„£ì„ ìˆ˜ ì—†ë‹¤.
+		if( dwComboStylePrev == CT_FINISH )		// ¾Õ ½ºÅ³ÀÌ ÇÇ´Ï½¬¸é ´õÀÌ»ó ³ÖÀ» ¼ö ¾ø´Ù.
 			return FALSE;
-		// ì„œí´ê¸°ìˆ ì„ ë„£ìœ¼ë ¤í•˜ê³  ì•ì¹¸ì— ì œë„¤ëŸ´ì´ë©´ ëª»ë„£ìŒ.
+		// ¼­Å¬±â¼úÀ» ³ÖÀ¸·ÁÇÏ°í ¾ÕÄ­¿¡ Á¦³×·²ÀÌ¸é ¸ø³ÖÀ½.
 		if( dwComboStyleSrc == CT_CIRCLE && dwComboStylePrev == CT_GENERAL )
 			return FALSE;
-		// í”¼ë‹ˆì‰¬(ì•”ë†ˆ)ë¥¼ ë„£ìœ¼ë ¤í•˜ê³  ì•ì¹¸ì— ì œë„¤ëŸ´ì´ë©´ ëª»ë„£ìŒ.
+		// ÇÇ´Ï½¬(¾Ï³ğ)¸¦ ³ÖÀ¸·ÁÇÏ°í ¾ÕÄ­¿¡ Á¦³×·²ÀÌ¸é ¸ø³ÖÀ½.
 		if( dwComboStyleSrc == CT_FINISH && dwComboStylePrev == CT_GENERAL )
 			return FALSE;
-		// ì œë„¤ëŸ´ì„ ë„£ìœ¼ë ¤í•˜ê³  ì•ì¹¸ì´ ì œë„¤ëŸ´ì´ ì•„ë‹ˆë©´ ëª»ë„£ìŒ.
+		// Á¦³×·²À» ³ÖÀ¸·ÁÇÏ°í ¾ÕÄ­ÀÌ Á¦³×·²ÀÌ ¾Æ´Ï¸é ¸ø³ÖÀ½.
 		if( dwComboStyleSrc == CT_GENERAL && dwComboStylePrev != CT_GENERAL )
 			return FALSE;
 		
-		return TRUE;	// ê·¸ì™¸ëŠ” ëª¨ë‘ í•©ê²©
+		return TRUE;	// ±×¿Ü´Â ¸ğµÎ ÇÕ°İ
 	}
 	else
-	// ê·¸ì™¸ ì¤‘ê°„ì— ë„£ìœ¼ë ¤ í•œê²½ìš°.
+	// ±×¿Ü Áß°£¿¡ ³ÖÀ¸·Á ÇÑ°æ¿ì.
 	{
-		// ë‘˜ì§¸ì¹¸ ì´ìƒë¶€í„° ë„£ìœ¼ë ¤ê³  í–ˆì„ë•Œ ì²˜ë¦¬.
-		if( dwComboStyleSrc == CT_STEP )	// ìŠ¤í…ì€ ì²«ì¹¸ì´ ì•„ë‹ˆë©´ ë¬´ì¡°ê±´ ëª»ë„£ëŠ”ë‹¤.
+		// µÑÂ°Ä­ ÀÌ»óºÎÅÍ ³ÖÀ¸·Á°í ÇßÀ»¶§ Ã³¸®.
+		if( dwComboStyleSrc == CT_STEP )	// ½ºÅÜÀº Ã¹Ä­ÀÌ ¾Æ´Ï¸é ¹«Á¶°Ç ¸ø³Ö´Â´Ù.
 			return FALSE;
 		DWORD dwComboStylePrev;
 		DWORD dwComboStyleDest;
 		DWORD dwSkill = g_pPlayer->GetSkill( 0, m_aSlotQueue[ nQueueDest - 1 ].m_dwId )->dwSkill;
-			//m_aSlotQueue[ nQueueDest - 1 ].m_dwId;	// ë„£ìœ¼ë ¤ëŠ” ì¹¸ì˜ ì•ì—ìˆëŠ” ìŠ¤í‚¬
+			//m_aSlotQueue[ nQueueDest - 1 ].m_dwId;	// ³ÖÀ¸·Á´Â Ä­ÀÇ ¾Õ¿¡ÀÖ´Â ½ºÅ³
 		if( dwSkill )
-			dwComboStylePrev = prj.GetSkillProp( dwSkill )->dwComboStyle;		// ì•ì¹¸ì˜ ìŠ¤íƒ€ì¼
+			dwComboStylePrev = prj.GetSkillProp( dwSkill )->dwComboStyle;		// ¾ÕÄ­ÀÇ ½ºÅ¸ÀÏ
 		else
 			dwComboStylePrev = 0;
 		dwSkill = g_pPlayer->GetSkill( 0, m_aSlotQueue[ nQueueDest ].m_dwId )->dwSkill;
-		//dwSkill = m_aSlotQueue[ nQueueDest ].m_dwId;	// ë„£ìœ¼ë ¤ëŠ” ì¹¸ì˜ ìŠ¤í‚¬
+		//dwSkill = m_aSlotQueue[ nQueueDest ].m_dwId;	// ³ÖÀ¸·Á´Â Ä­ÀÇ ½ºÅ³
 		if( dwSkill )
-			dwComboStyleDest = prj.GetSkillProp( dwSkill )->dwComboStyle;		// ê·¸ì¹¸ì˜ ìŠ¤íƒ€ì¼
+			dwComboStyleDest = prj.GetSkillProp( dwSkill )->dwComboStyle;		// ±×Ä­ÀÇ ½ºÅ¸ÀÏ
 		else
 			dwComboStyleDest = 0;
-		if( dwComboStylePrev == CT_FINISH )		// ì• ìŠ¤í‚¬ì´ í”¼ë‹ˆì‰¬ë©´ ë”ì´ìƒ ë„£ì„ ìˆ˜ ì—†ë‹¤.
+		if( dwComboStylePrev == CT_FINISH )		// ¾Õ ½ºÅ³ÀÌ ÇÇ´Ï½¬¸é ´õÀÌ»ó ³ÖÀ» ¼ö ¾ø´Ù.
 			return FALSE;
-		// ì„œí´ê¸°ìˆ ì„ ë„£ìœ¼ë ¤í•˜ê³  ì•ì¹¸ì— ì œë„¤ëŸ´ì´ë©´ ëª»ë„£ìŒ.
+		// ¼­Å¬±â¼úÀ» ³ÖÀ¸·ÁÇÏ°í ¾ÕÄ­¿¡ Á¦³×·²ÀÌ¸é ¸ø³ÖÀ½.
 		if( dwComboStyleSrc == CT_CIRCLE && dwComboStylePrev == CT_GENERAL )
 			return FALSE;
-		// í”¼ë‹ˆì‰¬(ì•”ë†ˆ)ë¥¼ ë„£ìœ¼ë ¤í•˜ê³  ì•ì¹¸ì— ì œë„¤ëŸ´ì´ë©´ ëª»ë„£ìŒ.
+		// ÇÇ´Ï½¬(¾Ï³ğ)¸¦ ³ÖÀ¸·ÁÇÏ°í ¾ÕÄ­¿¡ Á¦³×·²ÀÌ¸é ¸ø³ÖÀ½.
 		if( dwComboStyleSrc == CT_FINISH && dwComboStylePrev == CT_GENERAL )
 			return FALSE;
-		// í”¼ë‹ˆì‰¬ë¥¼ ë„£ìœ¼ë ¤í•˜ê³  ê·¸ì¹¸ì— ì„œí´ì´ë©´ ëª»ë„£ìŒ.
+		// ÇÇ´Ï½¬¸¦ ³ÖÀ¸·ÁÇÏ°í ±×Ä­¿¡ ¼­Å¬ÀÌ¸é ¸ø³ÖÀ½.
 		if( dwComboStyleSrc == CT_FINISH && dwComboStyleDest == CT_CIRCLE )
 			return FALSE;
-		// í”¼ë‹ˆì‰¬ë¥¼ ë„£ìœ¼ë ¤í•˜ê³  ê·¸ì¹¸ì— í”¼ë‹ˆì‰¬ì´ë©´ ëª»ë„£ìŒ.
+		// ÇÇ´Ï½¬¸¦ ³ÖÀ¸·ÁÇÏ°í ±×Ä­¿¡ ÇÇ´Ï½¬ÀÌ¸é ¸ø³ÖÀ½.
 		if( dwComboStyleSrc == CT_FINISH && dwComboStyleDest == CT_FINISH )
 			return FALSE;
-		// ì œë„¤ëŸ´ì„ ë„£ìœ¼ë ¤í•˜ê³  
+		// Á¦³×·²À» ³ÖÀ¸·ÁÇÏ°í 
 		if( dwComboStyleSrc == CT_GENERAL )
 		{
-			if( dwComboStylePrev != CT_GENERAL )	// ì•ì¹¸ì´ ì œë„¤ëŸ´ì´ ì•„ë‹ˆë©´ ëª»ë„£ìŒ.
+			if( dwComboStylePrev != CT_GENERAL )	// ¾ÕÄ­ÀÌ Á¦³×·²ÀÌ ¾Æ´Ï¸é ¸ø³ÖÀ½.
 				return FALSE;
-			if( dwComboStyleDest != CT_GENERAL && m_nCurQueueNum > nQueueDest )	// ê·¸ì¹¸ì´ ì œë„¤ëŸ´ì´ ì•„ë‹ˆë©´ ëª»ë„£ëŠ”ë° ë§¨ ëì´ë©´ ë„£ì„ìˆ˜ ìˆë‹¤.
+			if( dwComboStyleDest != CT_GENERAL && m_nCurQueueNum > nQueueDest )	// ±×Ä­ÀÌ Á¦³×·²ÀÌ ¾Æ´Ï¸é ¸ø³Ö´Âµ¥ ¸Ç ³¡ÀÌ¸é ³ÖÀ»¼ö ÀÖ´Ù.
 					return FALSE;
 		}
 		
-		return TRUE;	// ê·¸ ì™¸ëŠ” ëª¨ë‘ í•©ê²©
+		return TRUE;	// ±× ¿Ü´Â ¸ğµÎ ÇÕ°İ
 	}
 	return FALSE;
 }
 BOOL CWndTaskBar::SetSkillQueue( int nIndex, DWORD dwType, DWORD dwId, CTexture* pTexture )
 {
-	if( m_nExecute )		return FALSE;		// ìŠ¤í‚¬í ì‹¤í–‰ì¤‘ì—” ë“±ë¡ ì•ˆë¨.
+	if( m_nExecute )		return FALSE;		// ½ºÅ³Å¥ ½ÇÇàÁß¿£ µî·Ï ¾ÈµÊ.
 	if( m_nCurQueueNum >= 5 )
 		return FALSE;
 
-	// m_nCurQueueNum ë³´ë‹¤ ì‘ì€ ìŠ¬ë¡¯ì— ë¹„ì–´ìˆëŠ”ê²Œ ìˆë‹¤ë©´ ì˜¤ë¥˜ ìƒíƒœë‹¤. í´ë¦¬ì–´í•˜ì.
+	// m_nCurQueueNum º¸´Ù ÀÛÀº ½½·Ô¿¡ ºñ¾îÀÖ´Â°Ô ÀÖ´Ù¸é ¿À·ù »óÅÂ´Ù. Å¬¸®¾îÇÏÀÚ.
 	for( int i = 0; i < m_nCurQueueNum; i++ )
 	{
 		if( m_aSlotQueue[ i ].IsEmpty() )
@@ -1807,9 +1807,9 @@ BOOL CWndTaskBar::SetSkillQueue( int nIndex, DWORD dwType, DWORD dwId, CTexture*
 #if __VER >= 9	// __SKILL_0706
 	AddSkillProp* pAddSkillProp	= prj.GetAddSkillProp( pSkillProp->dwSubDefine, dwLevel );
 	ASSERT( pAddSkillProp );
-	if( (int)pAddSkillProp->dwCooldown > 0 )	//  ì¿¨íƒ€ì„ìˆëŠ” ìŠ¤í‚¬ì€ ì•¡ì…˜ìŠ¬ë¡¯ì— ëª»ë“¤ì–´ê°
+	if( (int)pAddSkillProp->dwCooldown > 0 )	//  ÄğÅ¸ÀÓÀÖ´Â ½ºÅ³Àº ¾×¼Ç½½·Ô¿¡ ¸øµé¾î°¨
 #else	// __SKILL_0705
-	if( (int)(pSkillProp->dwSkillReady) > 0 )	//  ì¿¨íƒ€ì„ìˆëŠ” ìŠ¤í‚¬ì€ ì•¡ì…˜ìŠ¬ë¡¯ì— ëª»ë“¤ì–´ê°
+	if( (int)(pSkillProp->dwSkillReady) > 0 )	//  ÄğÅ¸ÀÓÀÖ´Â ½ºÅ³Àº ¾×¼Ç½½·Ô¿¡ ¸øµé¾î°¨
 #endif	// __SKILL_0705
 	{
 		CString str;
@@ -1820,9 +1820,9 @@ BOOL CWndTaskBar::SetSkillQueue( int nIndex, DWORD dwType, DWORD dwId, CTexture*
 
 //	DWORD dwComboStyleDest;
 //	ItemProp* pItemProp1, * pItemProp2,* pItemProp3; 
-	if( nIndex < m_nCurQueueNum ) // insert		// nIndexëŠ” ì„¸íŒ…í•  ì¹¸ì˜ ì¸ë±ìŠ¤
+	if( nIndex < m_nCurQueueNum ) // insert		// nIndex´Â ¼¼ÆÃÇÒ Ä­ÀÇ ÀÎµ¦½º
 	{
-		if( !CheckAddSkill( dwComboStyleSrc, nIndex ) )		// Srcë¥¼ nIndexì— ë„£ì–´ë„ ë˜ëŠ”ì§€ ì²´í¬
+		if( !CheckAddSkill( dwComboStyleSrc, nIndex ) )		// Src¸¦ nIndex¿¡ ³Ö¾îµµ µÇ´ÂÁö Ã¼Å©
 			return FALSE;
 		for( int i = m_nCurQueueNum; i > nIndex; i-- )
 		{
@@ -1833,7 +1833,7 @@ BOOL CWndTaskBar::SetSkillQueue( int nIndex, DWORD dwType, DWORD dwId, CTexture*
 	}
 	else // add
 	{
-		if( !CheckAddSkill( dwComboStyleSrc,  m_nCurQueueNum ) )	// ì œì¼ ë§ˆì§€ë§‰ ì¹¸ì— ë„£ì–´ë„ ë˜ëŠ”ì§€ í…ŒìŠ¤íŠ¸.
+		if( !CheckAddSkill( dwComboStyleSrc,  m_nCurQueueNum ) )	// Á¦ÀÏ ¸¶Áö¸· Ä­¿¡ ³Ö¾îµµ µÇ´ÂÁö Å×½ºÆ®.
 			return FALSE;
 		pShortcut = &m_aSlotQueue[ m_nCurQueueNum ];
 		nIndex = m_nCurQueueNum;
@@ -1849,14 +1849,14 @@ BOOL CWndTaskBar::SetSkillQueue( int nIndex, DWORD dwType, DWORD dwId, CTexture*
 
 
 	pShortcut->m_dwShortcut = SHORTCUT_SKILL   ;
-	pShortcut->m_dwType     = dwType; // ì§ì—… 
-	pShortcut->m_dwIndex    = nIndex;//dwIndex; // ìŠ¤í‚¬ ì½˜íŠ¸ë¡¤ì—ì„œì˜ ìˆœì„œ 
-	pShortcut->m_dwId       = dwId; // ìŠ¤í‚¬ ì¸ë±ìŠ¤ 
+	pShortcut->m_dwType     = dwType; // Á÷¾÷ 
+	pShortcut->m_dwIndex    = nIndex;//dwIndex; // ½ºÅ³ ÄÜÆ®·Ñ¿¡¼­ÀÇ ¼ø¼­ 
+	pShortcut->m_dwId       = dwId; // ½ºÅ³ ÀÎµ¦½º 
 	pShortcut->m_dwUserId   = 0 ;
 	pShortcut->m_dwData     = 2;
 	_tcscpy( pShortcut->m_szString, m_GlobalShortcut.m_szString );
 	g_DPlay.SendSkillTaskBar();
-	// ìŠ¤í‚¬ ë“±ë¡ ì—¬ê¸°ì„œ ì„œë²„ë¡œ ë³´ë‚´ì•¼ í•¨
+	// ½ºÅ³ µî·Ï ¿©±â¼­ ¼­¹ö·Î º¸³»¾ß ÇÔ
 	return TRUE;
 }
 
@@ -1864,14 +1864,14 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 {
 	CRect rect = GetWindowRect();
 	rect.DeflateRect( 3, 3);
-	// ë°–ìœ¼ë¡œ ë²„ë ¸ì„ ê²½ìš° 
+	// ¹ÛÀ¸·Î ¹ö·ÈÀ» °æ¿ì 
 	if( pShortcut->m_pFromWnd == this )
 	{
 		LPSHORTCUT lpShortcut = (LPSHORTCUT) pShortcut->m_dwData;
-		// í¬ì¸íŠ¸ê°€ í…ŒìŠ¤í¬ë°”ê°€ ì•„ë‹Œ ê³³ì´ë¼ë©´. ì˜ë„ì ìœ¼ë¡œ ìˆì»·ì„ ì§€ìš°ë ¤ê³  íƒœìŠ¤í¬ë°” ë°–ì— ë†“ì€ ê²ƒì„. ì§€ìš°ì.
+		// Æ÷ÀÎÆ®°¡ Å×½ºÅ©¹Ù°¡ ¾Æ´Ñ °÷ÀÌ¶ó¸é. ÀÇµµÀûÀ¸·Î ¼ôÄÆÀ» Áö¿ì·Á°í ÅÂ½ºÅ©¹Ù ¹Û¿¡ ³õÀº °ÍÀÓ. Áö¿ìÀÚ.
 		if( GetClientRect().PtInRect( point ) == FALSE )
 		{
-			// ì•„ì´í…œ ì‚­ì œ ì„œë²„ë¡œ ì „ì†¡
+			// ¾ÆÀÌÅÛ »èÁ¦ ¼­¹ö·Î Àü¼Û
 			if( lpShortcut->m_dwData == 0 )
 				g_DPlay.SendRemoveAppletTaskBar( (BYTE)( lpShortcut->m_dwIndex ) );
 			else
@@ -1909,7 +1909,7 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		return FALSE;
 	}
 	
-	if( pShortcut->m_dwShortcut == SHORTCUT_SKILL && pShortcut->m_dwType != 2 ) // ê·¹ë‹¨ìŠ¤í‚¬ì€ ì•ˆë“¤ì–´ê°
+	if( pShortcut->m_dwShortcut == SHORTCUT_SKILL && pShortcut->m_dwType != 2 ) // ±Ø´Ü½ºÅ³Àº ¾Èµé¾î°¨
 	{
 		LPSKILL pSkill = g_pPlayer->GetSkill( 0, pShortcut->m_dwId );
 		if( pSkill && (pSkill->dwLevel <= 0 || g_pPlayer->CheckSkill( pSkill->dwSkill ) == FALSE) )
@@ -1927,7 +1927,7 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		SetForbid( TRUE );
 		return FALSE;
 	}
-	// ë‚´ë¶€ì—ì„œ ì´ë™ë˜ê±°ë‚˜, ì™¸ë¶€ì—ì„œ ë‚´ë¶€ë¡œ 
+	// ³»ºÎ¿¡¼­ ÀÌµ¿µÇ°Å³ª, ¿ÜºÎ¿¡¼­ ³»ºÎ·Î 
 	if( m_nPosition == TASKBAR_TOP || m_nPosition == TASKBAR_BOTTOM )
 	{
 		BOOL bForbid = TRUE;
@@ -1937,7 +1937,7 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			point.x -= rect.left;
 			point.y -= rect.top;
 			point.x /= ICON_SIZE;
-			// ë‚´ë¶€ì—ì„œ ì´ë™ 
+			// ³»ºÎ¿¡¼­ ÀÌµ¿ 
 			if( pShortcut->m_pFromWnd == this )
 			{
 				LPSHORTCUT lpCurShortcut = (LPSHORTCUT) pShortcut->m_dwData;			
@@ -1947,7 +1947,7 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 					//SetForbid( TRUE );
 					return FALSE;
 				}
-				// ì˜¤ë¦¬ì§€ë‚ ì´ ì•¡ì…˜ìŠ¬ë¡¯ì´ë‹¤.
+				// ¿À¸®Áö³¯ÀÌ ¾×¼Ç½½·ÔÀÌ´Ù.
 				//if( lpCurShortcut->m_dwData == 2 )
 				//	RemoveSkillQueue( lpCurShortcut->m_dwIndex );
 			}
@@ -1964,20 +1964,20 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 				if( pProp->dwComboStyle != CT_STEP && pProp->dwComboStyle != CT_GENERAL )	
 				{
 					SetForbid( TRUE );
-					return FALSE;	// í€µìŠ¬ë¡¯ì— ë“±ë¡í•˜ë ¤ëŠ” ìŠ¤í‚¬ì´ ìŠ¤í…ê¸°ìˆ ì´ ì•„ë‹Œê±´ ë“±ë¡ ëª»í•¨.
+					return FALSE;	// Äü½½·Ô¿¡ µî·ÏÇÏ·Á´Â ½ºÅ³ÀÌ ½ºÅÜ±â¼úÀÌ ¾Æ´Ñ°Ç µî·Ï ¸øÇÔ.
 				}
 /*				
 				ItemProp *pProp = prj.GetSkillProp( pShortcut->m_dwId );	
 				if( pProp->dwComboStyle != CT_STEP && pProp->dwComboStyle != CT_GENERAL )	
 				{
 					SetForbid( TRUE );
-					return FALSE;	// í€µìŠ¬ë¡¯ì— ë“±ë¡í•˜ë ¤ëŠ” ìŠ¤í‚¬ì´ ìŠ¤í…ê¸°ìˆ ì´ ì•„ë‹Œê±´ ë“±ë¡ ëª»í•¨.
+					return FALSE;	// Äü½½·Ô¿¡ µî·ÏÇÏ·Á´Â ½ºÅ³ÀÌ ½ºÅÜ±â¼úÀÌ ¾Æ´Ñ°Ç µî·Ï ¸øÇÔ.
 				}				
 				*/
 				//if( pProp->dwComboStyle != CT_STEP )
 				//{
 				//	SetForbid( TRUE );
-				//	return FALSE;	// í€µìŠ¬ë¡¯ì— ë“±ë¡í•˜ë ¤ëŠ” ìŠ¤í‚¬ì´ ìŠ¤í…ê¸°ìˆ ì´ ì•„ë‹Œê±´ ë“±ë¡ ëª»í•¨.
+				//	return FALSE;	// Äü½½·Ô¿¡ µî·ÏÇÏ·Á´Â ½ºÅ³ÀÌ ½ºÅÜ±â¼úÀÌ ¾Æ´Ñ°Ç µî·Ï ¸øÇÔ.
 				//}
 			}
 
@@ -1991,13 +1991,13 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			point.x -= rect.left;
 			point.y -= rect.top;
 			point.x /= ICON_SIZE;
-			// ë‚´ë¶€ì—ì„œ ì´ë™ 
+			// ³»ºÎ¿¡¼­ ÀÌµ¿ 
 			if( pShortcut->m_pFromWnd == this )
 			{
 				LPSHORTCUT lpCurShortcut = (LPSHORTCUT) pShortcut->m_dwData;
 				if( &m_aSlotItem[ m_nSlotIndex ][ point.x ] == lpCurShortcut )
 					return FALSE;
-				// ì˜¤ë¦¬ì§€ë‚ ì´ ì•¡ì…˜ìŠ¬ë¡¯ì´ë‹¤.
+				// ¿À¸®Áö³¯ÀÌ ¾×¼Ç½½·ÔÀÌ´Ù.
 				//if( lpCurShortcut->m_dwData == 2 )
 				//	RemoveSkillQueue( lpCurShortcut->m_dwIndex );
 			}
@@ -2023,7 +2023,7 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 				if( pProp->dwComboStyle != CT_STEP && pProp->dwComboStyle != CT_GENERAL )	
 				{
 					SetForbid( TRUE );
-					return FALSE;	// í€µìŠ¬ë¡¯ì— ë“±ë¡í•˜ë ¤ëŠ” ìŠ¤í‚¬ì´ ìŠ¤í…ê¸°ìˆ ì´ ì•„ë‹Œê±´ ë“±ë¡ ëª»í•¨.
+					return FALSE;	// Äü½½·Ô¿¡ µî·ÏÇÏ·Á´Â ½ºÅ³ÀÌ ½ºÅÜ±â¼úÀÌ ¾Æ´Ñ°Ç µî·Ï ¸øÇÔ.
 				}
 			}
 			SetShortcut( point.x, pShortcut->m_dwShortcut, pShortcut->m_dwType, pShortcut->m_dwId, pShortcut->m_pTexture, 1 );
@@ -2032,12 +2032,12 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		rect = RECT_QUEUE;
 		if( rect.PtInRect( point ) )
 		{
-			if( pShortcut->m_dwShortcut == SHORTCUT_SKILL && pShortcut->m_dwType == 0 )		// ìŠ¤í‚¬ì¼ê²½ìš°ë§Œ ë“±ë¡
+			if( pShortcut->m_dwShortcut == SHORTCUT_SKILL && pShortcut->m_dwType == 0 )		// ½ºÅ³ÀÏ°æ¿ì¸¸ µî·Ï
 			{
 				point.x -= rect.left;
 				point.y -= rect.top;
 				point.x /= SKILL_SIZE;
-				// ë‚´ë¶€ì—ì„œ ì´ë™ ; ë³´í†µì€ ì•„ë˜ ë¶€ë¶„ì—ì„œ ì‚­ì œë¥¼ ì²˜ë¦¬í•˜ë‚˜, ìŠ¤í‚¬ íì—ì„œì˜ ì´ë™ì€ ì‚­ì œí›„ ë°”ë¡œ ì¶”ê°€í•´ì•¼í•˜ê¸° ë•Œë¬¸ì— ì—¬ê¸°ì„œ ì‚­ì œë¥¼ í•œë‹¤.
+				// ³»ºÎ¿¡¼­ ÀÌµ¿ ; º¸ÅëÀº ¾Æ·¡ ºÎºĞ¿¡¼­ »èÁ¦¸¦ Ã³¸®ÇÏ³ª, ½ºÅ³ Å¥¿¡¼­ÀÇ ÀÌµ¿Àº »èÁ¦ÈÄ ¹Ù·Î Ãß°¡ÇØ¾ßÇÏ±â ¶§¹®¿¡ ¿©±â¼­ »èÁ¦¸¦ ÇÑ´Ù.
 				if( pShortcut->m_pFromWnd == this )
 				{
 					LPSHORTCUT lpShortcut = (LPSHORTCUT) pShortcut->m_dwData;
@@ -2056,12 +2056,12 @@ BOOL CWndTaskBar::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		if( pShortcut->m_pFromWnd != this )
 			SetForbid( bForbid );
 	}
-	// ì•ˆìœ¼ë¡œ ë²„ë ¸ì„ ê²½ìš°, ë˜ëŠ” ì•ˆì—ì„œ ì´ë™í–ˆì„ ê²½ìš° ì˜¤ë¦¬ì§€ë‚  ë¶€ë¶„ ì‚­ì œ  
-	// íƒœìŠ¤í¬ë°”ì— ìˆëŠ” ì•„ì´í…œì„ ìŠ¬ë¡¯ ì•ˆì˜ ê³µë°± ë¶€ë¶„ì— ë“œë˜ê·¸í–ˆì„ ê²½ìš° 
+	// ¾ÈÀ¸·Î ¹ö·ÈÀ» °æ¿ì, ¶Ç´Â ¾È¿¡¼­ ÀÌµ¿ÇßÀ» °æ¿ì ¿À¸®Áö³¯ ºÎºĞ »èÁ¦  
+	// ÅÂ½ºÅ©¹Ù¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» ½½·Ô ¾ÈÀÇ °ø¹é ºÎºĞ¿¡ µå·¡±×ÇßÀ» °æ¿ì 
 	if( pShortcut->m_pFromWnd == this )
 	{
 		LPSHORTCUT lpShortcut = (LPSHORTCUT) pShortcut->m_dwData;
-		// ì•„ì´í…œ ì‚­ì œ ì„œë²„ë¡œ ì „ì†¡
+		// ¾ÆÀÌÅÛ »èÁ¦ ¼­¹ö·Î Àü¼Û
 		if( lpShortcut->m_dwData == 0 )
 			g_DPlay.SendRemoveAppletTaskBar( (BYTE)( lpShortcut->m_dwIndex ) );
 		else
@@ -2192,30 +2192,30 @@ LPSKILL CWndTaskBar::GetCurrentSkillQueue()
 	return pSkill;
 }
 //
-// ìŠ¤í‚¬í ì‹¤í–‰ ê³ !
+// ½ºÅ³Å¥ ½ÇÇà °í!
 //
 BOOL CWndTaskBar::UseSkillQueue( CCtrl* pTargetObj )
 {
-	if( m_nExecute == 2 )	return FALSE;	// ì´ë¯¸ ìŠ¤í‚¬ë°” ì‹¤í–‰ì¤‘ì´ë¼ë©´ ë‹¤ì‹œ ë“¤ì–´ì˜¤ì§€ ì•ŠìŒ.
-	if( g_pPlayer->m_pActMover->IsActAttack() )			return FALSE;		// ì´ë¯¸ ê³µê²©ë™ì‘ì´ ì´ë¤„ì§€ê³  ìˆìœ¼ë©´ ë“¤ì–´ì˜¤ì§€ ë§ˆë¼.
-	if( g_pPlayer->m_pActMover->IsActJump() )			return FALSE;		// ì í”„ì¤‘ì—” ìŠ¤í‚¬ì‚¬ìš© ì•ˆë¨.
-//	if( g_pPlayer->m_pActMover->IsActDamage() )			return FALSE;		// ë°ë¯¸ì§€ ëª¨ì…˜ì¤‘ì—” ìŠ¤í‚¬ì‚¬ìš© ì•ˆë¨.
+	if( m_nExecute == 2 )	return FALSE;	// ÀÌ¹Ì ½ºÅ³¹Ù ½ÇÇàÁßÀÌ¶ó¸é ´Ù½Ã µé¾î¿ÀÁö ¾ÊÀ½.
+	if( g_pPlayer->m_pActMover->IsActAttack() )			return FALSE;		// ÀÌ¹Ì °ø°İµ¿ÀÛÀÌ ÀÌ·ïÁö°í ÀÖÀ¸¸é µé¾î¿ÀÁö ¸¶¶ó.
+	if( g_pPlayer->m_pActMover->IsActJump() )			return FALSE;		// Á¡ÇÁÁß¿£ ½ºÅ³»ç¿ë ¾ÈµÊ.
+//	if( g_pPlayer->m_pActMover->IsActDamage() )			return FALSE;		// µ¥¹ÌÁö ¸ğ¼ÇÁß¿£ ½ºÅ³»ç¿ë ¾ÈµÊ.
 	if( g_pPlayer->m_pActMover->IsFly() )				return FALSE;
-//	if( g_pPlayer->m_dwFlag & MVRF_SKILL )		return FALSE;				// ì´ë¯¸ ìŠ¤í‚¬ ì‚¬ìš©ì¤‘ì´ë©´ ì‚¬ìš© ì•ˆë¨.
+//	if( g_pPlayer->m_dwFlag & MVRF_SKILL )		return FALSE;				// ÀÌ¹Ì ½ºÅ³ »ç¿ëÁßÀÌ¸é »ç¿ë ¾ÈµÊ.
 	if( pTargetObj && pTargetObj->GetType() != OT_MOVER )	return FALSE;
 
-	// ì˜¤ë¸Œì íŠ¸ì— ì˜¤ë¥¸ìª½ í´ë¦­ í–ˆì„ë•Œ
+	// ¿ÀºêÁ§Æ®¿¡ ¿À¸¥ÂÊ Å¬¸¯ ÇßÀ»¶§
 	if( pTargetObj )
 	{
-		if( pTargetObj->GetType() == OT_OBJ )		// ì˜¤ë¸Œì íŠ¸ê°€ OT_OBJ(ë°°ê²½)ì´ë©´ ì„ íƒ ì•ˆí•œê±¸ë¡œ ê°„ì£¼í•¨.
+		if( pTargetObj->GetType() == OT_OBJ )		// ¿ÀºêÁ§Æ®°¡ OT_OBJ(¹è°æ)ÀÌ¸é ¼±ÅÃ ¾ÈÇÑ°É·Î °£ÁÖÇÔ.
 			m_idTarget = NULL_ID;
 		else
-			m_idTarget = ((CCtrl*)pTargetObj)->GetId();		// OT_OBJê°€ ì•„ë‹ˆë©´ ì•„ì´ë””ë¥¼ ê°€ì ¸ì˜´
+			m_idTarget = ((CCtrl*)pTargetObj)->GetId();		// OT_OBJ°¡ ¾Æ´Ï¸é ¾ÆÀÌµğ¸¦ °¡Á®¿È
 	}
 	else
-		m_idTarget = NULL_ID;		// íƒ€ê²Ÿì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìœ¼ë©´ NULL_ID
+		m_idTarget = NULL_ID;		// Å¸°ÙÀ» ¼±ÅÃÇÏÁö ¾Ê¾ÒÀ¸¸é NULL_ID
 	CMover *pTargetMover = (CMover*)pTargetObj;		// prj.GetMover( m_idTarget );
-	if( IsInvalidObj( pTargetMover ) )		// ê±°ì‹œê¸°í•œ íƒ€ê²Ÿì´ì—ˆìœ¼ë©´ íƒ€ê²Ÿ ì•ˆí•œê±¸ë¡œ ê°„ì£¼.
+	if( IsInvalidObj( pTargetMover ) )		// °Å½Ã±âÇÑ Å¸°ÙÀÌ¾úÀ¸¸é Å¸°Ù ¾ÈÇÑ°É·Î °£ÁÖ.
 		m_idTarget = NULL_ID;
 
 	
@@ -2231,32 +2231,32 @@ BOOL CWndTaskBar::UseSkillQueue( CCtrl* pTargetObj )
 		if( g_pPlayer->IsBullet( pSkill->GetProp() ) == FALSE )
 			return FALSE;
 
-		m_nExecute = 1;		// 1 ìŠ¤í‚¬ë°”ì‚¬ìš© ì‹¤í–‰ëŒ€ê¸°ì¤‘ 
-		// ì—¬ê¸°ì—” m_idTargetì´ NULL_IDê°€ ë“¤ì–´ê°ˆìˆ˜ë„ ìˆë‹¤.
-		if( g_pPlayer->CMD_SetUseSkill( m_idTarget, pShortcut->m_dwId, SUT_QUEUESTART ) == 0 )		// ì‹¤í–‰í•  ëª…ë ¹ì„ ì…‹íŒ…. ì´ë™ + ìŠ¤í‚¬ì‚¬ìš©ì´ í•©ì³ì§„ ëª…ë ¹.
+		m_nExecute = 1;		// 1 ½ºÅ³¹Ù»ç¿ë ½ÇÇà´ë±âÁß 
+		// ¿©±â¿£ m_idTargetÀÌ NULL_ID°¡ µé¾î°¥¼öµµ ÀÖ´Ù.
+		if( g_pPlayer->CMD_SetUseSkill( m_idTarget, pShortcut->m_dwId, SUT_QUEUESTART ) == 0 )		// ½ÇÇàÇÒ ¸í·ÉÀ» ¼ÂÆÃ. ÀÌµ¿ + ½ºÅ³»ç¿ëÀÌ ÇÕÃÄÁø ¸í·É.
 		{
-			OnCancelSkill();	// ì²«ìŠ¤í‚¬ë¶€í„° ì‹¤íŒ¨í–ˆë‹¤ë©´ ìŠ¤í‚¬í ì‚¬ìš©ì„ ì·¨ì†Œ.
+			OnCancelSkill();	// Ã¹½ºÅ³ºÎÅÍ ½ÇÆĞÇß´Ù¸é ½ºÅ³Å¥ »ç¿ëÀ» Ãë¼Ò.
 		} else
 		{	// success
-			// 1ë‹¨ê³„ ì“¸ë•ŒëŠ” apê°€ ì†Œëª¨ë˜ì§€ ì•ŠëŠ”ë‹¤.
+			// 1´Ü°è ¾µ¶§´Â ap°¡ ¼Ò¸ğµÇÁö ¾Ê´Â´Ù.
 			ItemProp *pItemProp = g_pPlayer->GetActiveHandItemProp();
 			if( pItemProp )
-			{   // ì†ì— ë“¤ê³  ìˆëŠ”ê²Œ ìŠ¤íƒœí”„ë‚˜ ì¹˜ì–´ìŠ¤í‹±ì´ ì•„ë‹ë•Œë§Œ NEXTSKILL_NONEë¡œ ë³€ê²½. ì•ˆí•˜ë©´ ìŠ¤í‚¬ì´ ì´ì–´ì§€ì§€ ì•ŠìŒ.
+			{   // ¼Õ¿¡ µé°í ÀÖ´Â°Ô ½ºÅÂÇÁ³ª Ä¡¾î½ºÆ½ÀÌ ¾Æ´Ò¶§¸¸ NEXTSKILL_NONE·Î º¯°æ. ¾ÈÇÏ¸é ½ºÅ³ÀÌ ÀÌ¾îÁöÁö ¾ÊÀ½.
 				if( pItemProp->dwItemKind3 != IK3_STAFF && pItemProp->dwItemKind3 != IK3_CHEERSTICK )			
-					g_WndMng.m_pWndWorld->SetNextSkill( NEXTSKILL_NONE );	// 2006/06/12 ìŠ¤í‚¬íë¥¼ ì‹¤í–‰í–ˆìœ¼ë‹ˆ ìŠ¤í‚¬íì‚¬ìš© ëª…ë ¹ í´ë¦¬ì–´.-xuzhu-
+					g_WndMng.m_pWndWorld->SetNextSkill( NEXTSKILL_NONE );	// 2006/06/12 ½ºÅ³Å¥¸¦ ½ÇÇàÇßÀ¸´Ï ½ºÅ³Å¥»ç¿ë ¸í·É Å¬¸®¾î.-xuzhu-
 			}
 
 		}
 		return TRUE;
 	} else
-		g_WndMng.m_pWndWorld->SetNextSkill( NEXTSKILL_NONE );	// ì•¡ì…˜ìŠ¤í‚¬ì´ ë¹„ì–´ìˆìœ¼ë©´ ì·¨ì†Œ.
+		g_WndMng.m_pWndWorld->SetNextSkill( NEXTSKILL_NONE );	// ¾×¼Ç½ºÅ³ÀÌ ºñ¾îÀÖÀ¸¸é Ãë¼Ò.
 
 	return FALSE;
 }
 
 BOOL CWndTaskBar::Process( void )
 {
-	// íˆ´íŒ ê³„ì† ê°±ì‹ í•´ì•¼í•˜ëŠ”ê²ƒë“¤ì€ ì—¬ê¸°ì„œ...
+	// ÅøÆÁ °è¼Ó °»½ÅÇØ¾ßÇÏ´Â°ÍµéÀº ¿©±â¼­...
 	CPoint point = GetMousePoint();
 
 	CRect rect = CRect( POINT_APPLET_X, POINT_APPLET_Y, POINT_APPLET_X + ICON_SIZE, POINT_APPLET_Y + ICON_SIZE );
@@ -2298,30 +2298,30 @@ BOOL CWndTaskBar::Process( void )
 
 	if( m_nExecute )
 	{
-		if( m_idTarget != NULL_ID )		// m_idTargetì´ NULL_IDì¸ê²½ìš°ëŠ” ìê¸° ìì‹ ì—ê²Œ ì“´ê²½ìš°ê¸°ë•œì— ìº”ìŠ¬ì‹œì¼œì„  ì•ˆëœë‹¤.
+		if( m_idTarget != NULL_ID )		// m_idTargetÀÌ NULL_IDÀÎ°æ¿ì´Â ÀÚ±â ÀÚ½Å¿¡°Ô ¾´°æ¿ì±â¶«¿¡ Äµ½½½ÃÄÑ¼± ¾ÈµÈ´Ù.
 		{
 			CMover* pObj = prj.GetMover( m_idTarget );
-			if( IsInvalidObj(pObj) )						// ì‹¤í–‰ì¤‘ì— ëŒ€ìƒì´ ì—†ì–´ì¡Œë‹¤ë©´ ìŠ¤í‚¬ì‚¬ìš©ì„ ë©ˆì¶¤.
+			if( IsInvalidObj(pObj) )						// ½ÇÇàÁß¿¡ ´ë»óÀÌ ¾ø¾îÁ³´Ù¸é ½ºÅ³»ç¿ëÀ» ¸ØÃã.
 				OnCancelSkill();
 		}
-//		if( pObj && pObj->IsDie() )						// ì‹¤í–‰ì¤‘ ëŒ€ìƒì´ ì£½ì—ˆìœ¼ë©´ ìŠ¤í‚¬ë°” ì‹¤í–‰ ë©ˆì¶¤.
+//		if( pObj && pObj->IsDie() )						// ½ÇÇàÁß ´ë»óÀÌ Á×¾úÀ¸¸é ½ºÅ³¹Ù ½ÇÇà ¸ØÃã.
 //			OnCancelSkill();
 
 //		if( (g_pPlayer->m_dwFlag & MVRF_SKILL) == 0 )
-//			OnCancelSkill();													// ìŠ¤í‚¬ì‚¬ìš© í•´ì œ
+//			OnCancelSkill();													// ½ºÅ³»ç¿ë ÇØÁ¦
 	}
-	// ë“œë˜ê·¸ í•˜ì´ë¼ì´íŠ¸ ìŠ¬ë¡¯ ì•ŒíŒŒ ì²˜ë¦¬ 
+	// µå·¡±× ÇÏÀÌ¶óÀÌÆ® ½½·Ô ¾ËÆÄ Ã³¸® 
 	if( m_GlobalShortcut.IsEmpty() == FALSE )
 	{
 		m_dwHighAlpha += 10;
 		if( m_dwHighAlpha >= 256 )
 			m_dwHighAlpha = 0;
 	}
-	// ë“œë˜ê·¸ì¤‘ì—ëŠ” í•«í‚¤ë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ 
+	// µå·¡±×Áß¿¡´Â ÇÖÅ°¸¦ »ç¿ëÇÒ ¼ö ¾øÀ½ 
 	else
 	{
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		// í•«í‚¤ ì²˜ë¦¬ 
+		// ÇÖÅ° Ã³¸® 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		if( g_bKeyTable[ VK_RETURN ] ) 
 		{
@@ -2351,7 +2351,7 @@ BOOL CWndTaskBar::Process( void )
 				bKey = g_bKeyTable[ pApplet->m_cHotkey ];
 				if( bKey && !g_bKeyTable2[ pApplet->m_cHotkey ] )
 #else
-				if( g_bKeyTable[ pApplet->m_cHotkey ] )			//gmpbigsun: í•˜ìš°ì§• Yí‚¤( ê°€êµ¬ì°½ ) ê²€ì‚¬ 
+				if( g_bKeyTable[ pApplet->m_cHotkey ] )			//gmpbigsun: ÇÏ¿ìÂ¡ YÅ°( °¡±¸Ã¢ ) °Ë»ç 
 #endif
 				{
 					g_Error_State.m_ch = pApplet->m_cHotkey;
@@ -2417,7 +2417,7 @@ BOOL CWndTaskBar::Process( void )
 	return CWndBase::Process();
 }
 
-// ìŠ¤í‚¬ë°” ì‚¬ìš©ì„ ì·¨ì†Œ(ì¤‘ë‹¨)í•¨.
+// ½ºÅ³¹Ù »ç¿ëÀ» Ãë¼Ò(Áß´Ü)ÇÔ.
 void CWndTaskBar::OnCancelSkill( void )
 {
 	if( g_pPlayer->m_dwReqFlag & REQ_USESKILL )
@@ -2429,7 +2429,7 @@ void CWndTaskBar::OnCancelSkill( void )
 	g_WndMng.m_pWndWorld->SetNextSkill( NEXTSKILL_NONE );
 }
 
-// ìŠ¤í‚¬ ë™ì‘ ëë‚¬ì„ë•Œ í˜¸ì¶œ.
+// ½ºÅ³ µ¿ÀÛ ³¡³µÀ»¶§ È£Ãâ.
 void CWndTaskBar::OnEndSkill( void )
 {
 }
@@ -2439,7 +2439,7 @@ void CWndTaskBar::OnEndSkill( void )
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// íƒœìŠ¤í¬ ë°”ì˜ ë§¤ë‰´ ì²˜ë¦¬ ìœˆë„  
+// ÅÂ½ºÅ© ¹ÙÀÇ ¸Å´º Ã³¸® À©µµ  
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2471,7 +2471,7 @@ void CWndTaskMenu::OnDraw(C2DRender* p2DRender)
 	p2DRender->TextOut( 10, 20,  _T( "MASQUERADE" ),  D3DCOLOR_ARGB( 255, 250, 250, 250 ) );
 
 	CRect rect = GetWindowRect();
-	// í…Œë‘ë¦¬ ë°•ìŠ¤ 
+	// Å×µÎ¸® ¹Ú½º 
 	DWORD dwColor1t = D3DCOLOR_ARGB( 055,  91, 104, 205 );
 	DWORD dwColor2t = D3DCOLOR_ARGB( 055, 116, 128, 220 );
 	DWORD dwColor4t = D3DCOLOR_ARGB( 055, 143, 173, 245 );
@@ -2494,7 +2494,7 @@ void CWndTaskMenu::OnDraw(C2DRender* p2DRender)
 	p2DRender->RenderFillRect( rect2, dwColor3b, dwColor3b, dwColor4b, dwColor4b );
 
 //	p2DRender->RenderLine( CPoint( 10, 5 * 22 + 54 ), CPoint( 140, 5 * 22 + 54 ), dwColor1t );
-	// client ì˜ì—­ ì¹ í•˜ê¸° 
+	// client ¿µ¿ª Ä¥ÇÏ±â 
 	//OnEraseBkgnd(p2DRender);
 	//.OffsetRect(-rect.TopLeft());
 	//p2DRender->PaintRect( rect,MKHIGHRGB(255>>3,255>>3,255>>3) );
@@ -2515,7 +2515,7 @@ BOOL CWndTaskMenu::Process()
 		CWndButton* pWndButton = (CWndButton*)m_awndMenuItem.GetAt( i );
 		if( pWndButton->GetClientRect( TRUE ).PtInRect( m_ptMouse ) )
 		{
-			// ëª¨ë‘ ìˆ¨ê¸°ê¸° 
+			// ¸ğµÎ ¼û±â±â 
 			if( pWndButton->m_pWndMenu == NULL || pWndButton->m_pWndMenu->IsVisible( ) == FALSE ) 
 			{
 				for( int i2 = 0; i2 < m_awndMenuItem.GetSize(); i2++)
@@ -2524,7 +2524,7 @@ BOOL CWndTaskMenu::Process()
 						((CWndButton*)m_awndMenuItem.GetAt( i2 ) )->m_pWndMenu->SetVisibleSub( FALSE );
 				}
 			}
-			// ìƒˆ ë§¤ë‰´ë¥¼ ë³´ì´ê³  í¬ì»¤ìŠ¤ ì£¼ê¸° 
+			// »õ ¸Å´º¸¦ º¸ÀÌ°í Æ÷Ä¿½º ÁÖ±â 
 			if( pWndButton->m_pWndMenu )
 			{
 				if( pWndButton->m_pWndMenu->IsVisible() == FALSE )
@@ -2532,10 +2532,10 @@ BOOL CWndTaskMenu::Process()
 					CRect rect = pWndButton->GetScreenRect();
 					pWndButton->m_pWndMenu->Move( CPoint( rect.right , rect.top ) );
 				}
-				// ë©”ë‰´ì˜ ì¢Œí‘œ ì§€ì • 
+				// ¸Ş´ºÀÇ ÁÂÇ¥ ÁöÁ¤ 
 				CRect rcButton = pWndButton->GetScreenRect();
 				pWndButton->m_pWndMenu->Move( CPoint( rcButton.right, rcButton.top ) );
-				// ê·¸ëŸ°ë° ê·¸ ë©”ë‰´ê°€ í™”ë©´ì„ ë²—ì–´ë‚¬ë‹¤ë©´ ìœ„ì¹˜ë¥¼ ìˆ˜ì • 
+				// ±×·±µ¥ ±× ¸Ş´º°¡ È­¸éÀ» ¹ş¾î³µ´Ù¸é À§Ä¡¸¦ ¼öÁ¤ 
 				CRect rcMenu = pWndButton->m_pWndMenu->GetScreenRect();
 				CRect rcLayout = m_pWndRoot->GetLayoutRect();
 				CPoint pt = rcMenu.TopLeft();
@@ -2567,7 +2567,7 @@ void CWndTaskMenu::OnInitialUpdate()
 	CWndMenu::OnInitialUpdate();
 
 	CWndButton* pWndButton;
-	// 0 ~ 9ë²ˆ 
+	// 0 ~ 9¹ø 
 	if( g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER ) )
 	{
 		pWndButton = AppendMenu( this, 0, APP_DEBUGINFO     , GETTEXT( TID_APP_DEBUGINFO     ) ); 
@@ -2626,7 +2626,7 @@ void CWndTaskMenu::OnInitialUpdate()
 	CWndButton* pWndButton2 = AppendMenu( this, 0, 0 , GETTEXT( TID_APP_COMMUNITY     ) ); pWndButton2->SetTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, _T( "icon_Folder.dds" ) ) );
 //	CWndButton* pWndButton3 = AppendMenu( this, 0, 0 , GETTEXT( TID_APP_FIND          ) ); pWndButton3->SetTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, _T( "icon_Folder.dds" ) ) );
 	CWndButton* pWndButton5 = AppendMenu( this, 0, 0 , GETTEXT( TID_APP_INFOMATION    ) ); pWndButton5->SetTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, _T( "icon_Folder.dds" ) ) );
-	CWndButton* pWndButton6 = AppendMenu( this, 0, 0 , GETTEXT( TID_APP_HELPER        ) ); pWndButton6->SetTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, _T( "icon_Folder.dds" ) ) ); // ì‚¬ìš©ì, ì‹œëƒ…ìŠ¤
+	CWndButton* pWndButton6 = AppendMenu( this, 0, 0 , GETTEXT( TID_APP_HELPER        ) ); pWndButton6->SetTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, _T( "icon_Folder.dds" ) ) ); // »ç¿ëÀÚ, ½Ã³À½º
 	CWndButton* pWndButton4 = AppendMenu( this, 0, APP_OPTIONEX, GETTEXT(TID_APP_OPTION) );
 
 	pWndButton = AppendMenu( this, 0, APP_LOGOUT    , GETTEXT( TID_APP_LOGOUT      ) );
@@ -2723,9 +2723,9 @@ CWndButton* CWndTaskMenu::AppendMenu( CWndMenu* pWndMenu, UINT nFlags, UINT nIDN
 
   CString string;
   if( pAppletFunc->m_cHotkey == 0 )
-  string.Format( "ì• í”Œë ›\n%s", pAppletFunc->m_pAppletDesc );
+  string.Format( "¾ÖÇÃ·¿\n%s", pAppletFunc->m_pAppletDesc );
   else
-  string.Format( "ì• í”Œë ›\n%s\n[ë‹¨ì¶•í‚¤ %c]", pAppletFunc->m_pAppletDesc, pAppletFunc->m_cHotkey );
+  string.Format( "¾ÖÇÃ·¿\n%s\n[´ÜÃàÅ° %c]", pAppletFunc->m_pAppletDesc, pAppletFunc->m_cHotkey );
   g_toolTip.PutToolTip( pShortcut->m_dwId , string, *pRect, point, 0 );
   
 	CWndButton* pWndButton = new CWndButton;

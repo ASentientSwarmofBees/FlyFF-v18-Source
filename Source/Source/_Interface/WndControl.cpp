@@ -1,18 +1,18 @@
-ï»¿// WndBase.cpp: implementation of the CWndBase class.
+// WndBase.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
 #include "defineSound.h" 
 #include "defineText.h" 
-#include "AppDefine.h" // ì—¬ê¸°ì„œ ì´ê±¸ ì™œ includeí•˜ì§€? 
+#include "AppDefine.h" // ¿©±â¼­ ÀÌ°É ¿Ö includeÇÏÁö? 
 #include "clipboard.h"
-// ê²½ê³ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// ì´ í´ë ˆìŠ¤ëŠ” ê¸°ë³¸ ìœˆë„ ë² ì´ìŠ¤ ì½˜í† ë¡¤ì´ë‹¤. ì´ ì½˜íŠ¸ë¡¤ì„ ê°œì¡°í•˜ê¸° ìœ„í•´ ë§¤ì¸í”„ë ˆì„ì˜ í‘ì…˜ì„ ë¶€ë¥¸ë‹¤ê±°ë‚˜
-// ì• í”Œë« ë‹¨ìœ„ì— ì ‘ê·¼ì„ ì‹œë„í•˜ëŠ” í–‰ìœ„ëŠ” ì—„ê²©íˆ ê¸ˆì§€í•¨!!! ì´ë¯¸ ëª‡ë¶€ë¶„ ê·¸ëŸ¬í•œ í–‰ê°ì´ ë°œìƒí–ˆìœ¼ë¯€ë¡œ 
-// ì‘ì„±ìëŠ” ìˆ˜ì •í•˜ê¸° ë°”ëŒ!!!! ê¸°ë³¸ ìœˆë„ ì½”ë”©ì—ì„œ ìœˆë„ì˜ ì½˜íŠ¸ë¡¤ ë°•ìŠ¤ë‚˜ ë¦¬ìŠ¤íŠ¸ ë°•ìŠ¤ê°€ ë§˜ì— ì•ˆë“ ë‹¤ê³ 
-// API ìì²´ë¥¼ ìˆ˜ì •í•˜ëŠ” í–‰ìœ„ëŠ” ë¶ˆê°€ëŠ¥í•˜ë‹¤. ìœˆë„ì—ì„œëŠ” ì½œë°±, í›…. ì˜¤ë²„ë¼ì´ë“œ ê°™ì€ ë°©ì‹ìœ¼ë¡œ ê¸°ëŠ¥ì— ë³€í˜•ì„ ê°€í•œë‹¤.
-// ì—¬ê¸°ì„œëŠ” í´ë ˆìŠ¤ë¥¼ ê³„ìŠ¹ë°›ì•„ ì˜¤ë²„ë¼ì´ë“œí•˜ì—¬ ì¬ì‘ì„±í•˜ëŠ” ë°©ë²•ì´ ì ë‹¹í•˜ë‹¤.
+// °æ°í!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// ÀÌ Å¬·¹½º´Â ±âº» À©µµ º£ÀÌ½º ÄÜÅä·ÑÀÌ´Ù. ÀÌ ÄÜÆ®·ÑÀ» °³Á¶ÇÏ±â À§ÇØ ¸ÅÀÎÇÁ·¹ÀÓÀÇ Æã¼ÇÀ» ºÎ¸¥´Ù°Å³ª
+// ¾ÖÇÃ·§ ´ÜÀ§¿¡ Á¢±ÙÀ» ½ÃµµÇÏ´Â ÇàÀ§´Â ¾ö°İÈ÷ ±İÁöÇÔ!!! ÀÌ¹Ì ¸îºÎºĞ ±×·¯ÇÑ Çà°¢ÀÌ ¹ß»ıÇßÀ¸¹Ç·Î 
+// ÀÛ¼ºÀÚ´Â ¼öÁ¤ÇÏ±â ¹Ù¶÷!!!! ±âº» À©µµ ÄÚµù¿¡¼­ À©µµÀÇ ÄÜÆ®·Ñ ¹Ú½º³ª ¸®½ºÆ® ¹Ú½º°¡ ¸¾¿¡ ¾Èµç´Ù°í
+// API ÀÚÃ¼¸¦ ¼öÁ¤ÇÏ´Â ÇàÀ§´Â ºÒ°¡´ÉÇÏ´Ù. À©µµ¿¡¼­´Â Äİ¹é, ÈÅ. ¿À¹ö¶óÀÌµå °°Àº ¹æ½ÄÀ¸·Î ±â´É¿¡ º¯ÇüÀ» °¡ÇÑ´Ù.
+// ¿©±â¼­´Â Å¬·¹½º¸¦ °è½Â¹Ş¾Æ ¿À¹ö¶óÀÌµåÇÏ¿© ÀçÀÛ¼ºÇÏ´Â ¹æ¹ıÀÌ Àû´çÇÏ´Ù.
 
 #if __VER >= 15 // __GUILD_HOUSE
 #include "GuildHouse.h"
@@ -370,7 +370,7 @@ void CWndButton::PaintFrame( C2DRender* p2DRender )
 /*	
 	if(	CWndBase::m_GlobalShortcut.m_dwShortcut == SHORTCUT_NONE )	  
 	{
-		// íˆ´ë¦½ ì¶œë ¥ 
+		// Åø¸³ Ãâ·Â 
 		switch( m_shortcut.m_dwShortcut )
 		{
 		case SHORTCUT_NONE   : 
@@ -384,9 +384,9 @@ void CWndButton::PaintFrame( C2DRender* p2DRender )
 				{
 					CString string;
 					if( pAppletFunc->m_cHotkey == 0 )
-						string.Format( "ì• í”Œë ›\n%s", pAppletFunc->m_pAppletDesc );
+						string.Format( "¾ÖÇÃ·¿\n%s", pAppletFunc->m_pAppletDesc );
 					else
-						string.Format( "ì• í”Œë ›\n%s\n[ë‹¨ì¶•í‚¤ %c]", pAppletFunc->m_pAppletDesc, pAppletFunc->m_cHotkey );
+						string.Format( "¾ÖÇÃ·¿\n%s\n[´ÜÃàÅ° %c]", pAppletFunc->m_pAppletDesc, pAppletFunc->m_cHotkey );
 					g_toolTip.PutToolTip( m_nIdWnd, string, m_rectCurrentWindow, point, m_nToolTipPos );
 				}
 			}
@@ -397,7 +397,7 @@ void CWndButton::PaintFrame( C2DRender* p2DRender )
 		case SHORTCUT_SKILL  :
 		case SHORTCUT_OBJECT :
 			{
-				string.Format( "ì˜¤ë¸Œì íŠ¸\n%s", GetTitle() );
+				string.Format( "¿ÀºêÁ§Æ®\n%s", GetTitle() );
 				g_toolTip.PutToolTip( m_nIdWnd, string, m_rectCurrentWindow, point, m_nToolTipPos );
 			}
 			break;
@@ -497,7 +497,7 @@ void CWndButton::PaintFrame( C2DRender* p2DRender )
 					CPoint( rect.right - 5, rect.top + rect.Height() / 2 ), 
 					0xffa0a0ff //dwColor
 					);
-				// ë§¤ë‰´ ì•„ì´í…œì˜ ì•„ì´ì½˜ 
+				// ¸Å´º ¾ÆÀÌÅÛÀÇ ¾ÆÀÌÄÜ 
 				if( m_pTexture )
 				{
 					CSize size = m_pTexture->m_size;
@@ -516,7 +516,7 @@ void CWndButton::PaintFrame( C2DRender* p2DRender )
 				p2DRender->RenderFillRect( rect, dwColor2, dwColor2, dwColor2, dwColor2 );
 				p2DRender->RenderRoundRect( rect, dwColor );
 			}
-			// ë§¤ë‰´ ì•„ì´í…œì˜ ì•„ì´ì½˜ 
+			// ¸Å´º ¾ÆÀÌÅÛÀÇ ¾ÆÀÌÄÜ 
 			if( m_pTexture )
 			{
 				CSize size = m_pTexture->m_size;
@@ -525,7 +525,7 @@ void CWndButton::PaintFrame( C2DRender* p2DRender )
 				m_pTexture->Render( p2DRender, CPoint( pt.x, pt.y ), m_nAlphaCount );
 				m_pTexture->m_size = size;
 			}
-			// ì²´í¬ 
+			// Ã¼Å© 
 			if( GetCheck() ) 
 			{
 				p2DRender->RenderLine( CPoint( 2,  2), CPoint( 5, 8), 0xff000000 );
@@ -545,7 +545,7 @@ void CWndButton::PaintFrame( C2DRender* p2DRender )
 
 	}
 	else
-	// í‘œì¤€ ë²„íŠ¼ 
+	// Ç¥ÁØ ¹öÆ° 
 	{
 		/*
 		if( m_pTexture )
@@ -618,7 +618,7 @@ void CWndButton::OnLButtonUp(UINT nFlags, CPoint point)
 		if( m_pWndMenu && m_bTopDown )
 		{
 			CWndMenu* pWndMenu = (CWndMenu*)m_pParentWnd;
-			// ê³µê°„ ë„“íˆê¸° 
+			// °ø°£ ³ĞÈ÷±â 
 			for( int i = 0; i < pWndMenu->m_awndMenuItem.GetSize(); i++ )
 			{
 				if( pWndMenu->GetMenuItem( i ) == this )
@@ -657,19 +657,19 @@ void CWndButton::OnLButtonUp(UINT nFlags, CPoint point)
 		if( (m_dwStyle & WBS_RADIO) && m_pParentWnd)
 		{
 			CPtrArray* pWndArray = m_pParentWnd->GetWndArray();
-			// ë‚´ ë²„íŠ¼ì˜ ì¸ë±ìŠ¤ë¥¼ í˜ì–´ëŸ°íŠ¸ë¡œë¶€í„° ì°¾ëŠ”ë‹¤.
+			// ³» ¹öÆ°ÀÇ ÀÎµ¦½º¸¦ Æä¾î·±Æ®·ÎºÎÅÍ Ã£´Â´Ù.
 			for( int i = 0; i < pWndArray->GetSize(); i++)
 			{
 				CWndButton* pWndBase = (CWndButton*)pWndArray->GetAt(i);
 				if( pWndBase == this )
 				{
-					// ì•ìª½ìœ¼ë¡œ ê·¸ë£¹ ì„ ì–¸ì„ ì°¾ëŠ”ë‹¤.
+					// ¾ÕÂÊÀ¸·Î ±×·ì ¼±¾ğÀ» Ã£´Â´Ù.
 					for( int i2 = i; i2 >= 0; i2-- )
 					{
 						pWndBase = (CWndButton*)pWndArray->GetAt(i2);
 						if(pWndBase->IsGroup() && pWndBase->IsWndStyle(WBS_RADIO))
 						{
-							// ë¼ë””ì˜¤ ë²„íŠ¼ì´ ì•„ë‹ˆê±°ë‚˜ ìƒˆë¡œìš´ ê·¸ë£¹ì´ ë‚˜íƒ€ë‚  ë•Œê¹Œì§€ ê²€ìƒ‰ 
+							// ¶óµğ¿À ¹öÆ°ÀÌ ¾Æ´Ï°Å³ª »õ·Î¿î ±×·ìÀÌ ³ªÅ¸³¯ ¶§±îÁö °Ë»ö 
 							for(int i3 = i2; i3 < pWndArray->GetSize(); i3++)
 							{
 								pWndBase = (CWndButton*)pWndArray->GetAt(i3);
@@ -693,7 +693,7 @@ void CWndButton::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	PLAYSND( SND_INF_CLICK );
 	//g_Sound.Play("sound\\SndSysEquippingWeapon.wav");
-//	m_timerPush.Set(m_nTimePush); // 1ì´ˆì˜ ë”œë ˆì´ 
+//	m_timerPush.Set(m_nTimePush); // 1ÃÊÀÇ µô·¹ÀÌ 
 	/*
 	if( ( m_dwStyle & WBS_MENUITEM ) && m_pWndMenu == NULL )
 	{
@@ -1189,7 +1189,7 @@ void CWndTreeCtrl::OnDraw(C2DRender* p2DRender)
 		m_wndScrollBar.SetScrollRange( 0, nRange );
 		m_wndScrollBar.SetScrollPage( nPage );
 
-		if(nPage >= m_wndScrollBar.GetMaxScrollPos()) // ìŠ¤í¬ë¡¤ë°”ê°€ í™œì„±í™”ë˜ì§€ ì•Šì„ ì˜ì—­ì—ì„œì˜ í¬ì§€ì…˜ì€ 0ë¡œ ì„¤ì •
+		if(nPage >= m_wndScrollBar.GetMaxScrollPos()) // ½ºÅ©·Ñ¹Ù°¡ È°¼ºÈ­µÇÁö ¾ÊÀ» ¿µ¿ª¿¡¼­ÀÇ Æ÷Áö¼ÇÀº 0·Î ¼³Á¤
 			m_wndScrollBar.SetScrollPos(0);
 	}
 	else
@@ -1292,7 +1292,7 @@ void CWndTreeCtrl::OnLButtonUp(UINT nFlags, CPoint point)
 #else // __IMPROVE_QUEST_INTERFACE
 			if(m_pFocusElem == pTreeItem->m_lpTreeElem)
 			{
-				// ë¶€ëª¨ê°€ ì°¨ì¼ë“œ ìœˆë„ê°€ ì•„ë‹ˆì–´ì•¼ OnCommand ë©”ì‹œì§€ë¥¼ ë°›ëŠ”ë‹¤.
+				// ºÎ¸ğ°¡ Â÷ÀÏµå À©µµ°¡ ¾Æ´Ï¾î¾ß OnCommand ¸Ş½ÃÁö¸¦ ¹Ş´Â´Ù.
 				CWndBase* pWnd = m_pParentWnd;
 				while(pWnd->GetStyle() & WBS_CHILD)
 					pWnd = pWnd->GetParentWnd();
@@ -1397,7 +1397,7 @@ void CWndTreeCtrl::OnSize(UINT nType, int cx, int cy)
 }
 BOOL CWndTreeCtrl::OnMouseWheel( UINT nFlags, short zDelta, CPoint pt )
 {
-	if(m_wndScrollBar.GetScrollPage() < m_wndScrollBar.GetMaxScrollPos())	//ìŠ¤í¬ë¡¤ì´ í™œì„±í™” ë˜ì—ˆì„ ë•Œì—ë§Œ ë™ì‘í•˜ì.
+	if(m_wndScrollBar.GetScrollPage() < m_wndScrollBar.GetMaxScrollPos())	//½ºÅ©·ÑÀÌ È°¼ºÈ­ µÇ¾úÀ» ¶§¿¡¸¸ µ¿ÀÛÇÏÀÚ.
 	{
 		if( zDelta < 0 )
 		{
@@ -1506,7 +1506,7 @@ int CWndScrollBar::GetScrollAbiliableRange()
 	int nPadHeight = ( m_nScrollPage * nHeight / GetScrollRange() );
 	if( nPadHeight < 6 ) nPadHeight = 6;
 	rect.bottom = rect.top + nPadHeight;
-	// ì—­ì‚°í•´ì„œ ê¸¸ì´ë¥¼ ì¡°ì •í•˜ì.
+	// ¿ª»êÇØ¼­ ±æÀÌ¸¦ Á¶Á¤ÇÏÀÚ.
 	return nHeight * m_nScrollPage / nPadHeight;
 }
 int CWndScrollBar::GetScrollAbiliablePos() 
@@ -1951,7 +1951,7 @@ void CWndListBox::OnLButtonUp(UINT nFlags, CPoint point)
 			{
 				if(m_pFocusItem == pListItem)
 				{
-					// ë¶€ëª¨ê°€ ì°¨ì¼ë“œ ìœˆë„ê°€ ì•„ë‹ˆì–´ì•¼ OnCommand ë©”ì‹œì§€ë¥¼ ë°›ëŠ”ë‹¤.
+					// ºÎ¸ğ°¡ Â÷ÀÏµå À©µµ°¡ ¾Æ´Ï¾î¾ß OnCommand ¸Ş½ÃÁö¸¦ ¹Ş´Â´Ù.
 					CWndBase* pWnd = m_pParentWnd;
 					pWnd->OnChildNotify(WNM_SELCHANGE,m_nIdWnd,(LRESULT*)pListItem);
 					return;
@@ -2009,7 +2009,7 @@ void CWndListBox::OnRButtonUp(UINT nFlags, CPoint point)
 		{
 			if(m_pFocusItem == pListItem)
 			{
-				// ë¶€ëª¨ê°€ ì°¨ì¼ë“œ ìœˆë„ê°€ ì•„ë‹ˆì–´ì•¼ OnCommand ë©”ì‹œì§€ë¥¼ ë°›ëŠ”ë‹¤.
+				// ºÎ¸ğ°¡ Â÷ÀÏµå À©µµ°¡ ¾Æ´Ï¾î¾ß OnCommand ¸Ş½ÃÁö¸¦ ¹Ş´Â´Ù.
 				CWndBase* pWnd = m_pParentWnd;
 				pListItem->m_rect.left = point.x;
 				pListItem->m_rect.top = point.y;				
@@ -2040,7 +2040,7 @@ void CWndListBox::OnLButtonDblClk( UINT nFlags, CPoint point)
 		{
 			if(m_pFocusItem == pListItem)
 			{
-				// ë¶€ëª¨ê°€ ì°¨ì¼ë“œ ìœˆë„ê°€ ì•„ë‹ˆì–´ì•¼ OnCommand ë©”ì‹œì§€ë¥¼ ë°›ëŠ”ë‹¤.
+				// ºÎ¸ğ°¡ Â÷ÀÏµå À©µµ°¡ ¾Æ´Ï¾î¾ß OnCommand ¸Ş½ÃÁö¸¦ ¹Ş´Â´Ù.
 				CWndBase* pWnd = m_pParentWnd;
 				while(pWnd->GetStyle() & WBS_CHILD)
 					pWnd = pWnd->GetParentWnd();
@@ -2704,7 +2704,7 @@ void CWndText::OnDraw( C2DRender* p2DRender )
 					p2DRender->RenderLine( CPoint( dwBegin, y * dwMaxHeight + size.cy ), CPoint( dwBegin + size.cx, y * dwMaxHeight + size.cy ), dwColor );
 				
 
-				// ë¬¸ì¥ ë‚´ì—ì„œ ìºëŸ¿ê³¼ ìœ„ì¹˜ê°€ ê°™ë‹¤ë©´ ì¶œë ¥ ìœ„ì¹˜ë‹¤.
+				// ¹®Àå ³»¿¡¼­ Ä³·µ°ú À§Ä¡°¡ °°´Ù¸é Ãâ·Â À§Ä¡´Ù.
 				if(dwCurOffset == m_dwOffset)
 				{
 					strcpy( m_szCaret, strHan );
@@ -2867,7 +2867,7 @@ CPoint CWndText::OffsetToPoint( DWORD dwSetOffset, TCHAR* pszStr )
 
 			dwCurOffset = dwOffset + (iter-begin);
 
-			// ë¬¸ì¥ ë‚´ì—ì„œ ìºëŸ¿ê³¼ ìœ„ì¹˜ê°€ ê°™ë‹¤ë©´ ì¶œë ¥ ìœ„ì¹˜ë‹¤.
+			// ¹®Àå ³»¿¡¼­ Ä³·µ°ú À§Ä¡°¡ °°´Ù¸é Ãâ·Â À§Ä¡´Ù.
 			if( dwCurOffset == dwSetOffset )
 			{
 				if( pszStr )
@@ -2878,7 +2878,7 @@ CPoint CWndText::OffsetToPoint( DWORD dwSetOffset, TCHAR* pszStr )
 			iter = next;
 		}
 
-		// ìºëŸ¿ì´ ë¬¸ì¥ ë‚´ì— ìˆì§€ ì•Šê³  ë¬¸ì¥ì˜ ëì— ìƒˆë¡œìš´ ì…ë ¥ì„ ê¸°ë‹¤ë ¤ì•¼í•˜ëŠ” ìœ„ì¹˜ì´ë‹¤.
+		// Ä³·µÀÌ ¹®Àå ³»¿¡ ÀÖÁö ¾Ê°í ¹®ÀåÀÇ ³¡¿¡ »õ·Î¿î ÀÔ·ÂÀ» ±â´Ù·Á¾ßÇÏ´Â À§Ä¡ÀÌ´Ù.
 		if( dwSetOffset == m_string.GetLength() )
 		{
 			if( !m_dwOffset || m_string.GetAt( m_dwOffset - 1 ) != '\n' )
@@ -3194,9 +3194,9 @@ void CWndText::SetString( LPCTSTR pszString, DWORD dwColor, DWORD dwPlayerId, DW
 void CWndText::SetString( LPCTSTR pszString, DWORD dwColor )
 #endif
 {
-	// Initì˜ ëª©ì ì€ Alignì´ ì•„ë‹ˆë¼ m_pfontì™€ Rectì„¸íŒ…ì´ë‹¤.
+	// InitÀÇ ¸ñÀûÀº AlignÀÌ ¾Æ´Ï¶ó m_pfont¿Í Rect¼¼ÆÃÀÌ´Ù.
 	m_string.Init( m_pFont, &GetClientRect() );
-	// ì´ ë‚´ë¶€ì—ì„œ Alignì„ í•œë‹¤.
+	// ÀÌ ³»ºÎ¿¡¼­ AlignÀ» ÇÑ´Ù.
 #ifdef __ITEMLINK
 	//	void SetParsingString( LPCTSTR lpsz, DWORD dwColor = 0xff000000, DWORD dwStyle = 0x00000000, WORD wCodePage = 0, DWORD dwPStyle = 0x00000001, BOOL bNoInitAlign = FALSE, DWORD dwPlayerId, DWORD dwObjId );
 #if __VER >= 15
@@ -3370,8 +3370,8 @@ void CWndText::ResetString()
 
 ////////////////////////////
 
-// ë§¤ë‰´ëŠ” ìƒì„±ì‹œ m_wndArrayì— ë“¤ì–´ê°€ì§€ë§Œ í™”ë©´ ì¢Œí‘œëŠ” ì „ì—­ ì¢Œí‘œë‹¤. 
-// ë”°ë¼ì„œ m_rectWindow, m_rectClientëŠ” í™”ë©´ ìƒì—ì„œì˜ ì¢Œí‘œì´ë¯€ë¡œ ë°”ë¡œ ì‚¬ìš©í•´ë‘ ëœë‹¤.
+// ¸Å´º´Â »ı¼º½Ã m_wndArray¿¡ µé¾î°¡Áö¸¸ È­¸é ÁÂÇ¥´Â Àü¿ª ÁÂÇ¥´Ù. 
+// µû¶ó¼­ m_rectWindow, m_rectClient´Â È­¸é »ó¿¡¼­ÀÇ ÁÂÇ¥ÀÌ¹Ç·Î ¹Ù·Î »ç¿ëÇØµÎ µÈ´Ù.
 CWndMenu::CWndMenu()
 {
 	m_nLargeWidth = 0;
@@ -3588,7 +3588,7 @@ void CWndMenu::OnDraw(C2DRender* p2DRender)
 	{
 		//if( m_pParentWnd->IsWndStyle(WBS_POPUP) )
 		{
-			// ë§¤ë‰´ì˜ ë²„íŠ¼ì„ í›‘ì–´ì„œ ì¼œì§„ê±° ë‹¤ ëˆë‹¤.
+			// ¸Å´ºÀÇ ¹öÆ°À» ÈÈ¾î¼­ ÄÑÁø°Å ´Ù ²ö´Ù.
 		//	CWndMenu* pMenu = (CWndMenu*)m_pParentWnd;
 			for( int i = 0; i < m_awndMenuItem.GetSize(); i++)
 			{
@@ -3614,10 +3614,10 @@ BOOL CWndMenu::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 {
 #if __VER >= 15 // __GUILD_HOUSE
 	
-	//gmpbigsun: ê¸¸ë“œí•˜ìš°ì§• ì½˜íŠ¸ë¡¤ ì˜¤ë¸Œì íŠ¸ì— ëŒ€í•´ ë©”ì„¸ì§€ì „íŒŒë¥¼ ì°¨ë‹¨, ìƒˆë¡œìš´ë°©ì‹ìœ¼ë¡œ ì‘ë™í•´ì•¼ í•˜ê¸°ë•Œë¬¸ì—...
+	//gmpbigsun: ±æµåÇÏ¿ìÂ¡ ÄÜÆ®·Ñ ¿ÀºêÁ§Æ®¿¡ ´ëÇØ ¸Ş¼¼ÁöÀüÆÄ¸¦ Â÷´Ü, »õ·Î¿î¹æ½ÄÀ¸·Î ÀÛµ¿ÇØ¾ß ÇÏ±â¶§¹®¿¡...
 	if( MMI_GHOUSE_INFO == nID )
 	{
-		// sgook : ê¸¸ë“œê°€êµ¬ì°½ì„ ì—´ì–´ì£¼ë©´ ëŒ„ë‹¤ê³  í•¨. 2009_11_18
+		// sgook : ±æµå°¡±¸Ã¢À» ¿­¾îÁÖ¸é ´í´Ù°í ÇÔ. 2009_11_18
 		CWndGuildHousing* pWnd = (CWndGuildHousing*)g_WndMng.GetApplet( APP_GH_FURNITURE_STORAGE );
 		if( !pWnd )
 		{
@@ -3629,12 +3629,12 @@ BOOL CWndMenu::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 		}
 
 	}
-	else if( MMI_GHOUSE_REINSTALL == nID )		//ì¬ì„¤ì¹˜
+	else if( MMI_GHOUSE_REINSTALL == nID )		//Àç¼³Ä¡
 	{
 		GuildHouse->Reset( );
 		return TRUE;
 	}
-	else if( MMI_GHOUSE_RECALL == nID )		//íšŒìˆ˜ 
+	else if( MMI_GHOUSE_RECALL == nID )		//È¸¼ö 
 	{
 		GuildHouse->Remove( );
 		return TRUE;
@@ -3751,7 +3751,7 @@ void CWndListCtrl::OnDraw(C2DRender* p2DRender)
 	CPoint pt( 3, 3 );
 	m_nFontHeight = GetFontHeight();
 	//
-	// ë¦¬í¬íŠ¸ ì¶œë ¥ 
+	// ¸®Æ÷Æ® Ãâ·Â 
 	//
 //	if( IsWndStyle( WLVS_REPORT ) )
 	{
@@ -3770,7 +3770,7 @@ void CWndListCtrl::OnDraw(C2DRender* p2DRender)
 			}
 			pt.y += m_nFontHeight + 3;
 		}
-		// ìŠ¤í¬ë¡¤ë°” ê´€ë ¨ 
+		// ½ºÅ©·Ñ¹Ù °ü·Ã 
 		int nPage = GETRANGE;//GetClientRect().Height() / (m_nFontHeight + 3);
 		int nRange = m_aItems.GetSize();// - nPage;
 
@@ -3784,7 +3784,7 @@ void CWndListCtrl::OnDraw(C2DRender* p2DRender)
 			m_wndScrollBar.SetVisible( FALSE );
 	}
 	//
-	// ì•„ì´ì½˜ ì¶œë ¥
+	// ¾ÆÀÌÄÜ Ãâ·Â
 	// CCtrllist
 	if( IsWndStyle( WLVS_ICON ) )
 	{
@@ -3804,7 +3804,7 @@ void CWndListCtrl::OnDraw(C2DRender* p2DRender)
 				p2DRender->RenderFillRect( CRect( x * 32, y * 32, x * 32 + 32 - 2, y * 32 + 32 - 2 ), 0xffffffff );
 			//p2DRender->TextOut( x * 32, y * 32, pItems->pszText, 0xff000000 );
 		}
-		// ìŠ¤í¬ë¡¤ë°” ê´€ë ¨ 
+		// ½ºÅ©·Ñ¹Ù °ü·Ã 
 		int nPage = nHeight;
 		int nRange = m_aItems.GetSize() / nWidth;// - nPage;
 		if(nRange - nPage <= 0)
@@ -3837,7 +3837,7 @@ void CWndListCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 	CPoint pt( 3, 3 );
 	CRect rect;
 	//
-	// ë¦¬í¬íŠ¸ ì¶œë ¥ 
+	// ¸®Æ÷Æ® Ãâ·Â 
 	//
 	//if( IsWndStyle( WLVS_REPORT ) )
 	{
@@ -3850,7 +3850,7 @@ void CWndListCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 			{
 				if(m_pFocusItem == pItems)
 				{
-					// ë¶€ëª¨ê°€ ì°¨ì¼ë“œ ìœˆë„ê°€ ì•„ë‹ˆì–´ì•¼ OnCommand ë©”ì‹œì§€ë¥¼ ë°›ëŠ”ë‹¤.
+					// ºÎ¸ğ°¡ Â÷ÀÏµå À©µµ°¡ ¾Æ´Ï¾î¾ß OnCommand ¸Ş½ÃÁö¸¦ ¹Ş´Â´Ù.
 					CWndBase* pWnd = m_pParentWnd;
 					pWnd->OnChildNotify(WNM_SELCHANGE,m_nIdWnd,(LRESULT*)m_pFocusItem); 
 					return;
@@ -3860,7 +3860,7 @@ void CWndListCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 		}
 	}
 	//
-	// ì•„ì´ì½˜ ì¶œë ¥
+	// ¾ÆÀÌÄÜ Ãâ·Â
 	// CCtrllist
 	if( IsWndStyle( WLVS_ICON ) )
 	{
@@ -3879,7 +3879,7 @@ void CWndListCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 			{
 				if(m_pFocusItem == pItems)
 				{
-					// ë¶€ëª¨ê°€ ì°¨ì¼ë“œ ìœˆë„ê°€ ì•„ë‹ˆì–´ì•¼ OnCommand ë©”ì‹œì§€ë¥¼ ë°›ëŠ”ë‹¤.
+					// ºÎ¸ğ°¡ Â÷ÀÏµå À©µµ°¡ ¾Æ´Ï¾î¾ß OnCommand ¸Ş½ÃÁö¸¦ ¹Ş´Â´Ù.
 					CWndBase* pWnd = m_pParentWnd;
 					pWnd->OnChildNotify(WNM_SELCHANGE,m_nIdWnd,(LRESULT*)m_pFocusItem); 
 					return;
@@ -3893,7 +3893,7 @@ void CWndListCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 	CPoint pt( 3, 3 );
 	CRect rect;
 	//
-	// ë¦¬í¬íŠ¸ ì¶œë ¥ 
+	// ¸®Æ÷Æ® Ãâ·Â 
 	//
 	//if( IsWndStyle( WLVS_REPORT ) )
 	{
@@ -3912,7 +3912,7 @@ void CWndListCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 		}
 	}
 	//
-	// ì•„ì´ì½˜ ì¶œë ¥
+	// ¾ÆÀÌÄÜ Ãâ·Â
 	// CCtrllist
 	if( IsWndStyle( WLVS_ICON ) )
 	{
@@ -3970,8 +3970,8 @@ void CWndListCtrl::SetWndRect( CRect rectWnd, BOOL bOnSize )
 		int nPage = GETRANGE;//GetClientRect().Height() / (m_nFontHeight + 3);
 		int nRange = m_aItems.GetSize();// - nPage;
 		if( !( nRange - nPage <= 0 ) )
-			m_rectClient.right -= 15; // ìŠ¤í¬ë¡¤ ë°”ê°€ ë³´ì´ë©´ 
-		m_rectClient.top += 15; // ë¦¬í¬íŠ¸ ì¹¼ëŸ¼ 
+			m_rectClient.right -= 15; // ½ºÅ©·Ñ ¹Ù°¡ º¸ÀÌ¸é 
+		m_rectClient.top += 15; // ¸®Æ÷Æ® Ä®·³ 
 	}
 	if( IsWndStyle( WLVS_ICON ) )
 	{
@@ -3981,7 +3981,7 @@ void CWndListCtrl::SetWndRect( CRect rectWnd, BOOL bOnSize )
 		int nPage = nHeight;
 		int nRange = m_aItems.GetSize() / nWidth;// - nPage;
 		if( !( nRange - nPage <= 0 ) )
-			m_rectClient.right -= 15; // ìŠ¤í¬ë¡¤ ë°”ê°€ ë³´ì´ë©´ 
+			m_rectClient.right -= 15; // ½ºÅ©·Ñ ¹Ù°¡ º¸ÀÌ¸é 
 	}
 	if( bOnSize )
 		OnSize( 0, m_rectClient.Width(), m_rectClient.Height() );
@@ -4047,7 +4047,7 @@ BOOL CWndListCtrl::OnEraseBkgnd( C2DRender* p2DRender )
 BOOL CWndListCtrl::SetItem( const LVITEM* pItem )
 {
 	if( pItem->iItem < m_aItems.GetSize() && m_aItems.GetAt( pItem->iItem ) == NULL ) 
-		return FALSE; // ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
+		return FALSE; // Á¸ÀçÇÏÁö ¾Ê´Â´Ù.
 	LVITEM* pItems = (LVITEM*)m_aItems.GetAt( pItem->iItem );
 	if( pItems )
 	{
@@ -4063,7 +4063,7 @@ int CWndListCtrl::InsertItem( const LVITEM* pItem )
 {
 //	if( pItem->iItem < m_aItems.GetSize() && m_aItems.GetAt( pItem->iItem ) ) 
 	if( pItem->iItem > m_aItems.GetSize() ) 
-			return -1; // ì´ë¯¸ ì¡´ì¬í•œë‹¤.
+			return -1; // ÀÌ¹Ì Á¸ÀçÇÑ´Ù.
 	LVITEM* pNewItems = new LVITEM[ m_aColumns.GetSize() ];
 	ZeroMemory( pNewItems, sizeof( LVITEM ) * m_aColumns.GetSize() );
 	memcpy( &pNewItems[ pItem->iSubItem ], pItem, sizeof( LVITEM ) );
@@ -4083,9 +4083,9 @@ int CWndListCtrl::InsertColumn( int nCol, const LVCOLUMN* pColumn )
 	pNewColumn->pszText = new _TCHAR[ _tcslen( pColumn->pszText ) + sizeof( _TCHAR ) ];
 	_tcscpy( pNewColumn->pszText, pColumn->pszText );
 	if( nCol < m_aColumns.GetSize() && m_aColumns.GetAt( nCol ) ) 
-		return -1; // ì´ë¯¸ ì¡´ì¬í•œë‹¤.
+		return -1; // ÀÌ¹Ì Á¸ÀçÇÑ´Ù.
 	m_aColumns.SetAtGrow( nCol, (void*)pNewColumn );
-	// ì»¬ëŸ¼ ë²„íŠ¼ ìƒì„± 
+	// ÄÃ·³ ¹öÆ° »ı¼º 
 	/*
 	CPtrArray m_aWndColumns;
 	CRect rect;// = GetWindowRect();
@@ -4348,7 +4348,7 @@ void CWndTabCtrl::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFOR
 			lpImage[i] = new IMAGE;
 			
 			if( LoadImage( MakePath( DIR_THEME, strFileName ), lpImage[i] ) == FALSE )
-				Error( "CWndTabCtrl::AdditionalSkinTextureì—ì„œ %s Open1 ì‹¤íŒ¨", strFileName );
+				Error( "CWndTabCtrl::AdditionalSkinTexture¿¡¼­ %s Open1 ½ÇÆĞ", strFileName );
 
 			m_strWndTileMap.SetAt( strFileName, lpImage[i] );
 		}
@@ -4411,7 +4411,7 @@ void CWndTabCtrl::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFOR
 		{
 			lpImage[i] = new IMAGE;
 			if( LoadImage( MakePath( DIR_THEME, strFileName ), lpImage[i] ) == FALSE )
-				Error( "CWndTabCtrl::AdditionalSkinTextureì—ì„œ %s Open1 ì‹¤íŒ¨", strFileName );
+				Error( "CWndTabCtrl::AdditionalSkinTexture¿¡¼­ %s Open1 ½ÇÆĞ", strFileName );
 
 			m_strWndTileMap.SetAt( strFileName, lpImage[i] );
 		}
@@ -4425,7 +4425,7 @@ void CWndTabCtrl::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFOR
 		{
 			lpImage[i] = new IMAGE;
 			if( LoadImage( MakePath( DIR_THEME, strFileName ), lpImage[i] ) == FALSE )
-				Error( "CWndTabCtrl::AdditionalSkinTextureì—ì„œ %s Open1 ì‹¤íŒ¨", strFileName );
+				Error( "CWndTabCtrl::AdditionalSkinTexture¿¡¼­ %s Open1 ½ÇÆĞ", strFileName );
 
 			m_strWndTileMap.SetAt( strFileName, lpImage[i] );
 		}
@@ -4551,7 +4551,7 @@ int CWndTabCtrl::SetCurSel( int nItem )
 		if( m_nCurSelect >= (int)( m_aTab.size() ) )
 		{
 			CString string;
-			string.Format( "CWndTabCtrl::SetCurSelì—ì„œ nItemì´ ë²”ìœ„ë¥¼ ë„˜ì–´ì„¬ : nItem(%d) m_aTabSize(%d)", m_nCurSelect, m_aTab.size() );
+			string.Format( "CWndTabCtrl::SetCurSel¿¡¼­ nItemÀÌ ¹üÀ§¸¦ ³Ñ¾î¼¶ : nItem(%d) m_aTabSize(%d)", m_nCurSelect, m_aTab.size() );
 			ADDERRORMSG( string );
 		}
 
@@ -4629,14 +4629,14 @@ BOOL CWndTabCtrl::InsertItem( int nItem, WTCITEM* pTabCtrlItem )
 
 		pItem->pWndBase->SetWndRect( rect );
 		pItem->pWndBase->AddWndStyle( WBS_CHILDFRAME );
-		// ì–¸ì   ì²˜ìŒ ê²ƒì— í¬ì»¤ìŠ¤ê°€ ê°€ê²Œ í•œë‹¤.
+		// ¾ğÁ¨ Ã³À½ °Í¿¡ Æ÷Ä¿½º°¡ °¡°Ô ÇÑ´Ù.
 		if( m_aTab[ m_nCurSelect ] )
 			m_aTab[ m_nCurSelect ]->pWndBase->SetFocus();
 	}
 	m_nTabButtonLength = GetClientRect().Width() / m_aTab.size();// - 10;
 	
 /*
-	// íƒ­ í´ë¦­í•  ë¶€ë¶„ì˜ ì˜ì—­ì„ ì„¤ì •.
+	// ÅÇ Å¬¸¯ÇÒ ºÎºĞÀÇ ¿µ¿ªÀ» ¼³Á¤.
 	rect = GetClientRect();
 	int nLength = rect.Width() / m_aTab.size() - 10;
 	rect.SetRect( nItem * nLength, y, nLength + nItem * nLength, rect.bottom );

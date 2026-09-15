@@ -1,6 +1,6 @@
-ï»¿// COMMON - ì„œë²„,í´ë¼ ê³µìš©
-// SERVER - ì„œë²„ì—ì„œë§Œ ì‚¬ìš©
-// CLIENT - í´ë¼ì—ì„œë§Œ ì‚¬ìš©
+// COMMON - ¼­¹ö,Å¬¶ó °ø¿ë
+// SERVER - ¼­¹ö¿¡¼­¸¸ »ç¿ë
+// CLIENT - Å¬¶ó¿¡¼­¸¸ »ç¿ë
 
 COMMON	"define.h"
 COMMON	"defineAttribute.h"

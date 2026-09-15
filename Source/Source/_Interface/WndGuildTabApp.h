@@ -1,4 +1,4 @@
-﻿#ifndef __WNDGUILD_TAB_APP__H
+#ifndef __WNDGUILD_TAB_APP__H
 #define __WNDGUILD_TAB_APP__H
 
 #include "guild.h"

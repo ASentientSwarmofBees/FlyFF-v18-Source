@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "ResData.h"
 #include "WndGuildWarPeace.h"
 #include "dpclient.h"
@@ -6,10 +6,10 @@
 extern	CDPClient	g_DPlay;
 
 /****************************************************
-  WndId : APP_GUILD_WARPEACE - íœ´ì „ì°½
+  WndId : APP_GUILD_WARPEACE - ÈÞÀüÃ¢
   CtrlId : WIDC_YES - Yes
   CtrlId : WIDC_NO - No
-  CtrlId : WIDC_STATIC1 - ìƒëŒ€ê¸¸ë“œì— íœ´ì „ì„ ìš”ì²­í•˜ê² ìŠµë‹ˆê¹Œ?
+  CtrlId : WIDC_STATIC1 - »ó´ë±æµå¿¡ ÈÞÀüÀ» ¿äÃ»ÇÏ°Ú½À´Ï±î?
 ****************************************************/
 
 CWndGuildWarPeace::CWndGuildWarPeace() 
@@ -24,24 +24,24 @@ void CWndGuildWarPeace::OnDraw( C2DRender* p2DRender )
 void CWndGuildWarPeace::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildWarPeace::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_WARPEACE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndGuildWarPeace::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -69,7 +69,7 @@ BOOL CWndGuildWarPeace::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 	switch( nID ) 
 	{
 	case WIDC_YES:
-		// íœ´ì „ì‹ ì²­ì„ ì„œë²„ë¡œ ë³´ëƒ„.
+		// ÈÞÀü½ÅÃ»À» ¼­¹ö·Î º¸³¿.
 		g_DPlay.SendQueryTruce( g_pPlayer->m_idPlayer );
 		Destroy();
 		break;

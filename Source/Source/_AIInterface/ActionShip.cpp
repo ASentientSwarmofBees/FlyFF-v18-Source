@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "ActionShip.h"
 #include "..\_Common\Ship.h"
 
@@ -25,7 +25,7 @@ void CActionShip::Init( void )
 
 void CActionShip::Destroy( void )
 {
-	// íŒŒê´´ì½”ë“œ.
+	// ÆÄ±«ÄÚµå.
 
 	Init();
 }
@@ -45,21 +45,21 @@ int	CActionShip::Process( void )
 	if( GetState() & OBJSTA_MOVE_ALL )
 		ProcessState( GetState() & OBJSTA_MOVE_ALL );
 
-	if( GetState() & OBJSTA_TURN_ALL )	// ì¢Œ/ìš° í„´
+	if( GetState() & OBJSTA_TURN_ALL )	// ÁÂ/¿ì ÅÏ
 		ProcessState( GetState() & OBJSTA_TURN_ALL );
 	
-	if( GetState() & OBJSTA_LOOK_ALL )	// ê³ ë„ ìƒ/í•˜ê°•
+	if( GetState() & OBJSTA_LOOK_ALL )	// °íµµ »ó/ÇÏ°­
 		ProcessState( GetState() & OBJSTA_LOOK_ALL );
 
-	if( GetState() & OBJSTA_ATK_ALL )	// ë°œí¬
+	if( GetState() & OBJSTA_ATK_ALL )	// ¹ßÆ÷
 		ProcessState( GetState() & OBJSTA_ATK_ALL );
 
-	if( GetState() & OBJSTA_DMG_ALL )	// í”¼ê²©.
+	if( GetState() & OBJSTA_DMG_ALL )	// ÇÇ°Ý.
 		ProcessState( GetState() & OBJSTA_DMG_ALL );
 
-	if( GetTurnState() == 0 )		// í„´ì„ ë©ˆì·„ì„ë•Œ ì„œì„œížˆ ì„œëŠ”ê²ƒ.
+	if( GetTurnState() == 0 )		// ÅÏÀ» ¸ØÃèÀ»¶§ ¼­¼­È÷ ¼­´Â°Í.
 	{
-		if( pShip->m_fAccAng > 0 )		// ì™¼ìª½ìœ¼ë¡œ í„´í•˜ê³  ìžˆì—ˆë‹¤.
+		if( pShip->m_fAccAng > 0 )		// ¿ÞÂÊÀ¸·Î ÅÏÇÏ°í ÀÖ¾ú´Ù.
 		{
 			pShip->m_fAccAng -= 0.002f;
 			if( m_pShip->m_fAccAng < 0 )
@@ -78,55 +78,55 @@ int	CActionShip::Process( void )
 	return TRUE;
 }
 
-#define AE_SUCCESS	 1		// ëª…ë ¹ì„ ì„±ê³µì ìœ¼ë¡œ ì‹¤í–‰í–ˆìŒ.
-#define AE_ALREADY	 0		// ì´ë¯¸ ì‹¤í–‰ì¤‘ì´ë¯€ë¡œ ë‹¤ì‹œ ì‹¤í–‰í•˜ì§€ ì•ŠìŒ.
-#define AE_FAIL		-1		// ëª…ë ¹ì„ ì‹¤í–‰í•˜ê¸°ì— ì í•©í•œ ìƒí™©ì´ ì•„ë‹ˆì–´ì„œ ê± ë¦¬í„´í•¨.
+#define AE_SUCCESS	 1		// ¸í·ÉÀ» ¼º°øÀûÀ¸·Î ½ÇÇàÇßÀ½.
+#define AE_ALREADY	 0		// ÀÌ¹Ì ½ÇÇàÁßÀÌ¹Ç·Î ´Ù½Ã ½ÇÇàÇÏÁö ¾ÊÀ½.
+#define AE_FAIL		-1		// ¸í·ÉÀ» ½ÇÇàÇÏ±â¿¡ ÀûÇÕÇÑ »óÈ²ÀÌ ¾Æ´Ï¾î¼­ °Á ¸®ÅÏÇÔ.
 
 //
-// ì˜¤ë¸Œì íŠ¸ì—ê²Œ ë‚´ë ¤ì§„ ëª…ë ¹ì´ ë‚´ë ¤ì§„ ìµœì´ˆìˆœê°„ì„ ì‹¤í–‰í•˜ê³  ìƒíƒœë¥¼ ì „í™˜ì‹œí‚´.
-// return : #define AE_xxxx ì°¸ì¡°.
+// ¿ÀºêÁ§Æ®¿¡°Ô ³»·ÁÁø ¸í·ÉÀÌ ³»·ÁÁø ÃÖÃÊ¼ø°£À» ½ÇÇàÇÏ°í »óÅÂ¸¦ ÀüÈ¯½ÃÅ´.
+// return : #define AE_xxxx ÂüÁ¶.
 int	CActionShip::SendActMsg( OBJMSG dwMsg, int nParam1, int nParam2, int nParam3 )
 {
 	switch( dwMsg )
 	{
-	case OBJMSG_STAND:	// ëŒ€ê¸°ìƒíƒœë¡œ ìžˆì–´ë¼.
-		if( GetMoveState() == OBJSTA_STAND )	return AE_ALREADY;		// ì´ë¯¸ ì‹¤í–‰ì¤‘ì´ë¯€ë¡œ ë¦¬í„´.
-		SetMoveState( OBJSTA_STAND );		// ëŒ€ê¸° ìƒíƒœë¡œ ì „í™˜.
+	case OBJMSG_STAND:	// ´ë±â»óÅÂ·Î ÀÖ¾î¶ó.
+		if( GetMoveState() == OBJSTA_STAND )	return AE_ALREADY;		// ÀÌ¹Ì ½ÇÇàÁßÀÌ¹Ç·Î ¸®ÅÏ.
+		SetMoveState( OBJSTA_STAND );		// ´ë±â »óÅÂ·Î ÀüÈ¯.
 		break;
-	case OBJMSG_STOP:	// ë©ˆì¶°ë¼.
-		if( GetMoveState() == 0 )	return AE_ALREADY;		// ì´ë¯¸ ë©ˆì¶°ìžˆìœ¼ë¯€ë¡œ ë¦¬í„´.
-		ResetState( OBJSTA_MOVE_ALL );		// ì´ë™ìƒíƒœë¥¼ í•´ì œ
+	case OBJMSG_STOP:	// ¸ØÃç¶ó.
+		if( GetMoveState() == 0 )	return AE_ALREADY;		// ÀÌ¹Ì ¸ØÃçÀÖÀ¸¹Ç·Î ¸®ÅÏ.
+		ResetState( OBJSTA_MOVE_ALL );		// ÀÌµ¿»óÅÂ¸¦ ÇØÁ¦
 		SetMoveState( OBJSTA_STAND );
 		break;
-	case OBJMSG_FORWARD:	// ì „ì§„ì„ ì‹œìž‘í•´ë¼.
-		if( GetMoveState() == OBJSTA_FMOVE )	return AE_ALREADY;	// ì´ë¯¸ ì „ì§„ìƒíƒœì´ë©´ ë¦¬í„´.
-		SetMoveState( OBJSTA_FMOVE );	// ì „ì§„ ìƒíƒœë¡œ ì „í™˜.
+	case OBJMSG_FORWARD:	// ÀüÁøÀ» ½ÃÀÛÇØ¶ó.
+		if( GetMoveState() == OBJSTA_FMOVE )	return AE_ALREADY;	// ÀÌ¹Ì ÀüÁø»óÅÂÀÌ¸é ¸®ÅÏ.
+		SetMoveState( OBJSTA_FMOVE );	// ÀüÁø »óÅÂ·Î ÀüÈ¯.
 		break;
 	
-	case OBJMSG_LTURN:	// ì¢ŒíšŒì „ì„ ì‹œìž‘í•´ë¼.
-		if( GetTurnState() == OBJSTA_LTURN )	return AE_ALREADY;	// ì´ë¯¸ ì™¼ìª½í„´ì¤‘.
+	case OBJMSG_LTURN:	// ÁÂÈ¸ÀüÀ» ½ÃÀÛÇØ¶ó.
+		if( GetTurnState() == OBJSTA_LTURN )	return AE_ALREADY;	// ÀÌ¹Ì ¿ÞÂÊÅÏÁß.
 		SetTurnState( OBJSTA_LTURN );
 		break;
-	case OBJMSG_RTURN:	// ìš°íšŒì „ì„ ì‹œìž‘í•´ë¼.
-		if( GetTurnState() == OBJSTA_RTURN )	return AE_ALREADY;	// ì´ë¯¸ ì˜¤ë¥¸ìª½í„´ì¤‘.
+	case OBJMSG_RTURN:	// ¿ìÈ¸ÀüÀ» ½ÃÀÛÇØ¶ó.
+		if( GetTurnState() == OBJSTA_RTURN )	return AE_ALREADY;	// ÀÌ¹Ì ¿À¸¥ÂÊÅÏÁß.
 		SetTurnState( OBJSTA_RTURN );
 		break;
-	case OBJMSG_STOP_TURN:	// íšŒì „ì„ ë©ˆì¶¤.
-		if( GetTurnState() == 0 )	return AE_ALREADY;	// ì´ë¯¸ ë©ˆì¶°ìžˆìŒ.
-		ResetState( OBJSTA_TURN_ALL );	// í„´ìƒíƒœ í•´ì œ.
+	case OBJMSG_STOP_TURN:	// È¸ÀüÀ» ¸ØÃã.
+		if( GetTurnState() == 0 )	return AE_ALREADY;	// ÀÌ¹Ì ¸ØÃçÀÖÀ½.
+		ResetState( OBJSTA_TURN_ALL );	// ÅÏ»óÅÂ ÇØÁ¦.
 		break;
 
-	case OBJMSG_LOOKUP:		// ê³ ë„ìƒìŠ¹ í•´ë¼.
-		if( GetLookState() == OBJSTA_LOOKUP )	return AE_ALREADY;	// ì´ë¯¸ ìƒìŠ¹ì¤‘.
+	case OBJMSG_LOOKUP:		// °íµµ»ó½Â ÇØ¶ó.
+		if( GetLookState() == OBJSTA_LOOKUP )	return AE_ALREADY;	// ÀÌ¹Ì »ó½ÂÁß.
 		SetLookState( OBJSTA_LOOKUP );
 		break;
-	case OBJMSG_LOOKDOWN:	// ê³ ë„í•˜ê°•.
-		if( GetLookState() == OBJSTA_LOOKDOWN )	return AE_ALREADY;	// ì´ë¯¸ í•˜ê°•ì¤‘
+	case OBJMSG_LOOKDOWN:	// °íµµÇÏ°­.
+		if( GetLookState() == OBJSTA_LOOKDOWN )	return AE_ALREADY;	// ÀÌ¹Ì ÇÏ°­Áß
 		SetLookState( OBJSTA_LOOKDOWN );
 		break;
-	case OBJMSG_STOP_LOOK:	// ìƒìŠ¹/í•˜ê°• ë©ˆì¶°ë¼.
-		if( GetLookState() == 0 )	return AE_ALREADY;	// ì´ë¯¸ ë©ˆì·„ìŒ.
-		ResetState( OBJSTA_LOOK_ALL );	// ìƒìŠ¹/í•˜ê°• ìƒíƒœ í•´ì œ
+	case OBJMSG_STOP_LOOK:	// »ó½Â/ÇÏ°­ ¸ØÃç¶ó.
+		if( GetLookState() == 0 )	return AE_ALREADY;	// ÀÌ¹Ì ¸ØÃèÀ½.
+		ResetState( OBJSTA_LOOK_ALL );	// »ó½Â/ÇÏ°­ »óÅÂ ÇØÁ¦
 		break;
 	}
 #ifdef __CLIENT
@@ -137,7 +137,7 @@ int	CActionShip::SendActMsg( OBJMSG dwMsg, int nParam1, int nParam2, int nParam3
 }
 
 //
-// ì˜¤ë¸Œì íŠ¸ì˜ í˜„ìž¬ ìƒíƒœë¥¼ ì‹¤í–‰í•¨
+// ¿ÀºêÁ§Æ®ÀÇ ÇöÀç »óÅÂ¸¦ ½ÇÇàÇÔ
 //
 void CActionShip::ProcessState( DWORD dwState, float fSpeed )
 {
@@ -146,30 +146,30 @@ void CActionShip::ProcessState( DWORD dwState, float fSpeed )
 	
 	switch( dwState )
 	{
-	case OBJSTA_STAND:	// ëŒ€ê¸°ì¤‘
-		pShip->m_vAcc = D3DXVECTOR3( 0, 0, 0 );		// ëŒ€ê¸°ìƒíƒœì—ì„  ì¶”ì§„ë ¥ì´ ì—†ìŒ.
+	case OBJSTA_STAND:	// ´ë±âÁß
+		pShip->m_vAcc = D3DXVECTOR3( 0, 0, 0 );		// ´ë±â»óÅÂ¿¡¼± ÃßÁø·ÂÀÌ ¾øÀ½.
 		break;
-	case OBJSTA_FMOVE:	// ì „ì§„ì¤‘
-		AngleToVectorXZ( &pShip->m_vAcc, fAng, 0.001f );		// fAngë°©í–¥ìœ¼ë¡œ ì¶”ì§„ë ¥ë°œìƒ.
+	case OBJSTA_FMOVE:	// ÀüÁøÁß
+		AngleToVectorXZ( &pShip->m_vAcc, fAng, 0.001f );		// fAng¹æÇâÀ¸·Î ÃßÁø·Â¹ß»ý.
 		break;
-	case OBJSTA_LTURN:	// ì™¼ìª½í„´ì¤‘
+	case OBJSTA_LTURN:	// ¿ÞÂÊÅÏÁß
 		pShip->m_fAccAng += 0.01f;
 		if( pShip->m_fAccAng > 0.1f )
 			pShip->m_fAccAng = 0.1f;
 		fAng += pShip->m_fAccAng;
 		pShip->SetAngle( fAng );
 		break;
-	case OBJSTA_RTURN:	// ì˜¤ë¥¸í„´ì¤‘.
+	case OBJSTA_RTURN:	// ¿À¸¥ÅÏÁß.
 		pShip->m_fAccAng -= 0.01f;
 		if( pShip->m_fAccAng < -0.1f )
 			pShip->m_fAccAng = -0.1f;
 		fAng += pShip->m_fAccAng;
 		pShip->SetAngle( fAng );
 		break;
-	case OBJSTA_LOOKUP:		// ê³ ë„ ìƒìŠ¹ì¤‘
+	case OBJSTA_LOOKUP:		// °íµµ »ó½ÂÁß
 		pShip->m_vAcc.y += 0.0001f;
 		break;
-	case OBJSTA_LOOKDOWN:	// ê³ ë„ í•˜ê°•ì¤‘
+	case OBJSTA_LOOKDOWN:	// °íµµ ÇÏ°­Áß
 		pShip->m_vAcc.y -= 0.0001f;
 		break;
 

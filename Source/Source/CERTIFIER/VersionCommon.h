@@ -1,4 +1,4 @@
-ï»¿#ifndef __VERSION_COMMON_H__
+#ifndef __VERSION_COMMON_H__
 #define	__VERSION_COMMON_H__
 #define	__VER 18
 #define __MAINSERVER
@@ -7,28 +7,28 @@
 	#define __INTERNALSERVER
 #endif
 
-#define		__SERVER				// í´ë¼ì´ì–¸íŠ¸ ì „ìš©ì½”ë“œë¥¼ ë¹Œë“œí•˜ì§€ ì•Šê¸° ìœ„í•œ define
+#define		__SERVER				// Å¬¶óÀÌ¾ğÆ® Àü¿ëÄÚµå¸¦ ºôµåÇÏÁö ¾Ê±â À§ÇÑ define
 
 #define		__CRC
-#define		__SO1014				// ì†Œì¼“ ì˜ˆì™¸ ì²˜ë¦¬( ìºì‰¬, ì¸ì¦, ë¡œê·¸ì¸ )
+#define		__SO1014				// ¼ÒÄÏ ¿¹¿Ü Ã³¸®( Ä³½¬, ÀÎÁõ, ·Î±×ÀÎ )
 #define		__PROTOCOL0910
 #define		__PROTOCOL1021
 #define		__VERIFYNETLIB
 #define		__DOS1101
-//#define		__S0114_RELOADPRO	// ìºë¦­í„° DBì—ì„œ ì½ì–´ì˜¤ê¸° : Neuz, Trans, login, World, Certifier, Account( ini : SKIP_TRACKING ì¶”ê°€ )
+//#define		__S0114_RELOADPRO	// Ä³¸¯ÅÍ DB¿¡¼­ ÀĞ¾î¿À±â : Neuz, Trans, login, World, Certifier, Account( ini : SKIP_TRACKING Ãß°¡ )
 #define		__TWN_LOGIN0816
 #define		__STL_0402				// stl
 
 #define	__GPAUTH
 #define	__GPAUTH_01
-#define	__GPAUTH_02		// ë…ì¼/í”„ë‘ìŠ¤ í†µí•© ì¸ì¦ - êµ¬ë§¤
-//#define	__GPAUTH_03		// ë…ì¼/í”„ë‘ìŠ¤ í†µí•© ì¸ì¦ - ê¶Œí•œ
+#define	__GPAUTH_02		// µ¶ÀÏ/ÇÁ¶û½º ÅëÇÕ ÀÎÁõ - ±¸¸Å
+//#define	__GPAUTH_03		// µ¶ÀÏ/ÇÁ¶û½º ÅëÇÕ ÀÎÁõ - ±ÇÇÑ
 #define	__EUROPE_0514
 
 // 14th
-//	#define 	__PCBANG		// PCë°© í˜œíƒ
+//	#define 	__PCBANG		// PC¹æ ÇıÅÃ
 
-#define __ENCRYPT_PASSWORD	//	mulcom	BEGIN100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”
+#define __ENCRYPT_PASSWORD	//	mulcom	BEGIN100218	ÆĞ½º¿öµå ¾ÏÈ£È­
 
 #if (_MSC_VER > 1200)
 #define		__VS2003
@@ -41,15 +41,15 @@
 
 
 
-#if	  defined(__INTERNALSERVER)		// ë‚´ë¶€ ì‚¬ë¬´ì‹¤ í…ŒìŠ¤íŠ¸ì„œë²„ 
+#if	  defined(__INTERNALSERVER)		// ³»ºÎ »ç¹«½Ç Å×½ºÆ®¼­¹ö 
 	#define	__SECURITY_0628
-	#define __JAPAN_AUTH			// ì¼ë³¸ ì¸ì¦ ë³€ê²½(ì›¹ì¸ì¦)
-#elif defined(__TESTSERVER)			// ì™¸ë¶€ ìœ ì € í…ŒìŠ¤íŠ¸ì„œë²„
+	#define __JAPAN_AUTH			// ÀÏº» ÀÎÁõ º¯°æ(À¥ÀÎÁõ)
+#elif defined(__TESTSERVER)			// ¿ÜºÎ À¯Àú Å×½ºÆ®¼­¹ö
 
 
 	
-#elif defined(__MAINSERVER)			// ì™¸ë¶€ ë³¸ì„­
+#elif defined(__MAINSERVER)			// ¿ÜºÎ º»¼·
 
-#endif	// end - ì„œë²„ì¢…ë¥˜ë³„ define 
+#endif	// end - ¼­¹öÁ¾·ùº° define 
 
 #endif	// __VERSION_COMMON_H__

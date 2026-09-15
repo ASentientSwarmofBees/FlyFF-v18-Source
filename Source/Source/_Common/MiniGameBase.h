@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 
 #if __VER >= 13 // __RAINBOW_RACE
 
@@ -59,7 +59,7 @@ public:
 	virtual ~CMiniGameBase(void);
 
 	virtual BOOL Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket ) = FALSE;
-	void	SendPacket( CUser* pUser, __MINIGAME_PACKET MiniGamePacket );	// í´ë¼ì´ì–¸íŠ¸ë¡œ ë¯¸ë‹ˆê²Œì„ íŒ¨í‚·ì„ ë³´ë‚¸ë‹¤.
+	void	SendPacket( CUser* pUser, __MINIGAME_PACKET MiniGamePacket );	// Å¬¶óÀÌ¾ğÆ®·Î ¹Ì´Ï°ÔÀÓ ÆĞÅ¶À» º¸³½´Ù.
 	void	SendExtPacket( CUser* pUser, __MINIGAME_EXT_PACKET MiniGameExtPacket );
 };
 #endif // __WORLDSERVER

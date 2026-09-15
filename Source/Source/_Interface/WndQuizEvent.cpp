@@ -1,4 +1,4 @@
-ï»¿// WndQuizEvent.cpp: implementation of the CWndQuizEvent class.
+// WndQuizEvent.cpp: implementation of the CWndQuizEvent class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -297,7 +297,7 @@ HRESULT CWndQuizEventButton::InvalidateDeviceObjects()
 void CWndQuizEventButton::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate();
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	this->DelWndStyle(WBS_CAPTION);
 	m_wndTitleBar.SetVisible( FALSE );
 
@@ -414,7 +414,7 @@ BOOL CWndQuizEventButton::Process()
 
 BOOL CWndQuizEventButton::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_QUIZ_BUTTON, WBS_NOFOCUS, CPoint( 0, 0 ), pWndParent );
 }
 

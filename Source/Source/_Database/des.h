@@ -1,4 +1,4 @@
-﻿#ifndef _DES_H
+#ifndef _DES_H
 #define _DES_H
 
 #ifndef uint8

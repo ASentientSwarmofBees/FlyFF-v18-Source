@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include ".\rainbowracedbctrl.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
@@ -67,7 +67,7 @@ void CRainbowRaceDBCtrl::LoadRainbowRace( DPID dpId )
 	CQuery* pQuery = GetQueryObject();
 	char szQuery[QUERY_SIZE] = {0,};
 
-	// m_nTimes ì •ë³´ ê°€ì ¸ì˜¤ê¸°.. ì—†ìœ¼ë©´ 0
+	// m_nTimes Á¤º¸ °¡Á®¿À±â.. ¾øÀ¸¸é 0
 	sprintf( szQuery, "RAINBOWRACE_STR 'S1', '%02d', 0, '0000000', 0", g_appInfo.dwSys );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
@@ -80,7 +80,7 @@ void CRainbowRaceDBCtrl::LoadRainbowRace( DPID dpId )
 		return;
 	}
 
-	// ì‹ ì²­ì ëª©ë¡
+	// ½ÅÃ»ÀÚ ¸ñ·Ï
 	vector<DWORD> vec_dwNowPlayerId;
 	sprintf( szQuery, "RAINBOWRACE_STR 'S2', '%02d', %d, '0000000', 0", g_appInfo.dwSys, m_nTimes );
 	if( pQuery->Exec( szQuery ) == FALSE )
@@ -89,12 +89,12 @@ void CRainbowRaceDBCtrl::LoadRainbowRace( DPID dpId )
 	while( pQuery->Fetch() )
 		vec_dwNowPlayerId.push_back( static_cast<DWORD>( pQuery->GetInt( "m_idPlayer" ) ) );
 	
-	if( vec_dwNowPlayerId.size() == 0 )		// í˜„ì¬ ì‹ ì²­ìê°€ ì—†ìœ¼ë©´ ë‹¤ìŒ íšŒ ì§„í–‰...
+	if( vec_dwNowPlayerId.size() == 0 )		// ÇöÀç ½ÅÃ»ÀÚ°¡ ¾øÀ¸¸é ´ÙÀ½ È¸ ÁøÇà...
 		m_nTimes++;
 
-	// ì´ì „ ëŒ€íšŒ ë­í‚¹
+	// ÀÌÀü ´ëÈ¸ ·©Å·
 	vector<DWORD> vec_dwPrevRanking;
-	if( m_nTimes > 1 )	// í˜„ì¬ê°€ 2íšŒ ì´ìƒì¼ë•Œë§Œ..( 1íšŒ ì´ìƒ ì§„í–‰í–ˆì„ ê²½ìš° )
+	if( m_nTimes > 1 )	// ÇöÀç°¡ 2È¸ ÀÌ»óÀÏ¶§¸¸..( 1È¸ ÀÌ»ó ÁøÇàÇßÀ» °æ¿ì )
 	{
 		sprintf( szQuery, "RAINBOWRACE_STR 'S3', '%02d', %d, '0000000', 0", g_appInfo.dwSys, m_nTimes );
 		if( pQuery->Exec( szQuery ) == FALSE )
@@ -112,7 +112,7 @@ void CRainbowRaceDBCtrl::Application( DWORD dwPlayerId )
 	CQuery* pQuery = GetQueryObject();
 	char szQuery[QUERY_SIZE] = {0,};
 
-	// ë“±ë¡í•œ ì‹ ì²­ìë¥¼ DBì— ì €ì¥í•œë‹¤.
+	// µî·ÏÇÑ ½ÅÃ»ÀÚ¸¦ DB¿¡ ÀúÀåÇÑ´Ù.
 	sprintf( szQuery, "RAINBOWRACE_STR 'I1', '%02d', %d, '%07d', 0", g_appInfo.dwSys, m_nTimes, dwPlayerId );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
@@ -123,7 +123,7 @@ void CRainbowRaceDBCtrl::FailedUser( DWORD dwPlayerId )
 	CQuery* pQuery = GetQueryObject();
 	char szQuery[QUERY_SIZE] = {0,};
 
-	// ë ˆì¸ë³´ìš°ë ˆì´ìŠ¤ ì‹œì‘ì‹œ ì ‘ì†ì•ˆí•œ ìœ ì € ì‹¤íŒ¨ì²˜ë¦¬
+	// ·¹ÀÎº¸¿ì·¹ÀÌ½º ½ÃÀÛ½Ã Á¢¼Ó¾ÈÇÑ À¯Àú ½ÇÆĞÃ³¸®
 	sprintf( szQuery, "RAINBOWRACE_STR 'U3', '%02d', %d, '%07d', 0", g_appInfo.dwSys, m_nTimes, dwPlayerId );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
@@ -135,7 +135,7 @@ void CRainbowRaceDBCtrl::UpdateRanking( DWORD dwPlayerId, int nRanking )
 	CQuery* pQuery = GetQueryObject();
 	char szQuery[QUERY_SIZE] = {0,};
 
-	// ì™„ì£¼í•œ ìœ ì €ë¥¼ ë­í‚¹ ì˜ˆì•½í•œë‹¤.
+	// ¿ÏÁÖÇÑ À¯Àú¸¦ ·©Å· ¿¹¾àÇÑ´Ù.
 	sprintf( szQuery, "RAINBOWRACE_STR 'U1', '%02d', %d, '%07d', %d", g_appInfo.dwSys, m_nTimes, dwPlayerId, nRanking );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
@@ -146,7 +146,7 @@ void CRainbowRaceDBCtrl::UpdateWinnersLosers()
 	CQuery* pQuery = GetQueryObject();
 	char szQuery[QUERY_SIZE] = {0,};
 
-	// ë­í‚¹ì˜ˆì•½ìì™€ ì™„ì£¼ì‹¤íŒ¨ìë¥¼ ì €ì¥í•œë‹¤.
+	// ·©Å·¿¹¾àÀÚ¿Í ¿ÏÁÖ½ÇÆĞÀÚ¸¦ ÀúÀåÇÑ´Ù.
 	sprintf( szQuery, "RAINBOWRACE_STR 'U2', '%02d', %d, '0000000', 0", g_appInfo.dwSys, m_nTimes );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }

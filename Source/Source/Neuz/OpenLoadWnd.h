@@ -1,4 +1,4 @@
-﻿#ifdef __CSC_VER9_4
+#ifdef __CSC_VER9_4
 
 #ifndef __OPENLOADWND__H
 #define __OPENLOADWND__H

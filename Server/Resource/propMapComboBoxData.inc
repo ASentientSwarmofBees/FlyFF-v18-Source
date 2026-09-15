@@ -1,4 +1,4 @@
-ï»¿MCD_WORLD
+MCD_WORLD
 {
 	SetCategory( MCC_MAP_CATEGORY );
 	SetTitle( IDS_PROPMAP_TXT_000001 );
@@ -179,7 +179,7 @@ MCD_ELLIUN
 	SetParentID( MCD_TOWN );
 }
 
-//ë˜ì „ ì§€ë„
+//´øÀü Áöµµ
 MCD_OMINOUS01
 {
 	SetCategory( MCC_MAP_NAME );
@@ -418,7 +418,7 @@ MCD_WdHeaven05
 }
 
 
-//ìœ ë£Œ ì§€ì—­
+//À¯·á Áö¿ª
 
 MCD_CORALICELAND
 {
@@ -441,7 +441,7 @@ MCD_ASRIA
 }
 
 
-// í”Œë¼ë¦¬ìŠ¤ ë§ˆì„
+// ÇÃ¶ó¸®½º ¸¶À»
 MCD_FLARINENOSPLE_NPC1
 {
 	SetCategory( MCC_NPC_NAME );

@@ -1,4 +1,4 @@
-Ôªø#ifndef __NPC_PROPERTY__
+#ifndef __NPC_PROPERTY__
 #define __NPC_PROPERTY__
 
 #include "Project.h"
@@ -23,7 +23,7 @@ protected:
 	char			m_szName[64];
 	int				m_nGlobal;
 #else
-	CScriptDialog	m_Dialog;				// Ïä§ÌÅ¨Î¶ΩÌä∏ ÎåÄÏÇ¨ 
+	CScriptDialog	m_Dialog;				// Ω∫≈©∏≥∆Æ ¥ÎªÁ 
 #endif // __REMOVE_SCIRPT_060712
 	DWORD			m_dwTick;
 };

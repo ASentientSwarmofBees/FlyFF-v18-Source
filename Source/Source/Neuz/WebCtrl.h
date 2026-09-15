@@ -1,4 +1,4 @@
-﻿// WebCtrl.h: interface for the CWebCtrl class.
+// WebCtrl.h: interface for the CWebCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 

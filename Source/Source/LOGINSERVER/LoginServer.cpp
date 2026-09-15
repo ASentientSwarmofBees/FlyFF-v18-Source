@@ -1,4 +1,4 @@
-ï»¿// LoginServer.cpp : Defines the entry point for the application.
+// LoginServer.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"
@@ -12,7 +12,7 @@
 #include "mytrace.h"
 #include "user.h"
 #include "..\_UnhandledException\ExceptionHandler.h"
-// nprotectê´€ë ¨ _Networkí´ë”ì— 
+// nprotect°ü·Ã _NetworkÆú´õ¿¡ 
 
 
 extern	CDPLoginSrvr		g_dpLoginSrvr;

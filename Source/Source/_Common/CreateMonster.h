@@ -1,4 +1,4 @@
-﻿#ifndef __CREATEMONSTER_H__
+#ifndef __CREATEMONSTER_H__
 #define	__CREATEMONSTER_H__
 
 #if __VER >= 12 // __NEW_ITEMCREATEMON_SERVER

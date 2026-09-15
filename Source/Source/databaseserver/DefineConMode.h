@@ -1,6 +1,6 @@
-ï»¿#define CONVER_ITEM_START	(DWORD)0x00000001	// ì•„ì´í…œ ì»¨ë²„íŠ¸ ì‹œìž‘( ì•„ëž˜ê²ƒì„ ì‚¬ìš©í•˜ë ¤ë©´ ê¼­ ìžˆì–´ì•¼í•¨
-#define SAVE_TEXT			(DWORD)0x00000002	// í€˜ë¦¬ë¬¸ìœ¼ë¡œ ì•ˆëŒë¦¬ê³  Textì— ì“°ê¸°
-#define REMOVE_ITEM_ALL		(DWORD)0x00000004	// ëª¨ë“  ì•„ì´í…œ ì§€ìš°ê¸°
-#define REMOVE_ITEM_ALL_PAY	(DWORD)0x00000008	// ì•„ì´í…œ ê°’ ì§€ë¶ˆ
-#define PIERCING_CONFIRM	(DWORD)0x00000010	// í”¼ì–´ì‹± í™•ì¸
+#define CONVER_ITEM_START	(DWORD)0x00000001	// ¾ÆÀÌÅÛ ÄÁ¹öÆ® ½ÃÀÛ( ¾Æ·¡°ÍÀ» »ç¿ëÇÏ·Á¸é ²À ÀÖ¾î¾ßÇÔ
+#define SAVE_TEXT			(DWORD)0x00000002	// Äù¸®¹®À¸·Î ¾Èµ¹¸®°í Text¿¡ ¾²±â
+#define REMOVE_ITEM_ALL		(DWORD)0x00000004	// ¸ðµç ¾ÆÀÌÅÛ Áö¿ì±â
+#define REMOVE_ITEM_ALL_PAY	(DWORD)0x00000008	// ¾ÆÀÌÅÛ °ª ÁöºÒ
+#define PIERCING_CONFIRM	(DWORD)0x00000010	// ÇÇ¾î½Ì È®ÀÎ
 

@@ -1,4 +1,4 @@
-﻿#ifndef __DPCORECLIENT_H__
+#ifndef __DPCORECLIENT_H__
 #define __DPCORECLIENT_H__
 
 #pragma once

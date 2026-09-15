@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 
 #ifdef __WORLDSERVER
 #include "guildquest.h"

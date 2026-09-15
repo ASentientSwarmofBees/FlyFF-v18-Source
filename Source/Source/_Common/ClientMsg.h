@@ -1,4 +1,4 @@
-﻿#ifndef __CLIENTMSG_H
+#ifndef __CLIENTMSG_H
 #define __CLIENTMSG_H
 
 //#include "graphic.h"

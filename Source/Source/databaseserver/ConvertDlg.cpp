@@ -1,4 +1,4 @@
-﻿// ConvertDlg.cpp : implementation file
+// ConvertDlg.cpp : implementation file
 //
 
 #include "stdafx.h"

@@ -1,4 +1,4 @@
-﻿// ProfileInfo.h: interface for the CProfileInfo class.
+// ProfileInfo.h: interface for the CProfileInfo class.
 //
 //////////////////////////////////////////////////////////////////////
 

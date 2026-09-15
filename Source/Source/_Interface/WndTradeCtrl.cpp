@@ -1,4 +1,4 @@
-ï»¿// WndBase.cpp: implementation of the CWndBase class.
+// WndBase.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -134,7 +134,7 @@ BOOL CWndTradeCtrl::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			if( pItemElem->IsFlag( CItemElem::expired ) )
 				return FALSE;
 /*
-			if(pItemProp->dwItemKind3 == IK3_EGG && pItemElem->m_pPet) //ì‚¬ë§í•œ íŽ«ì€ ê±°ëž˜ ë¶ˆê°€
+			if(pItemProp->dwItemKind3 == IK3_EGG && pItemElem->m_pPet) //»ç¸ÁÇÑ ÆêÀº °Å·¡ ºÒ°¡
 			{
 				if(pItemElem->m_pPet->GetLife() <= 0)
 					return FALSE;
@@ -229,7 +229,7 @@ BOOL CWndTradeCtrl::OnEraseBkgnd( C2DRender* p2DRender )
 BOOL CWndTradeCtrl::SetItem( const LVITEM* pItem )
 {
 	if( pItem->iItem < m_aItems.GetSize() && m_aItems.GetAt( pItem->iItem ) == NULL ) 
-		return FALSE; // ì¡´ìž¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
+		return FALSE; // Á¸ÀçÇÏÁö ¾Ê´Â´Ù.
 	LVITEM* pItems = (LVITEM*)m_aItems.GetAt( pItem->iItem );
 	memcpy( &pItems[ pItem->iSubItem ], pItem, sizeof( LVITEM ) );
 	pItems[ pItem->iSubItem ].pszText = new _TCHAR[ _tcslen( pItem->pszText ) + sizeof( _TCHAR ) ];
@@ -239,7 +239,7 @@ BOOL CWndTradeCtrl::SetItem( const LVITEM* pItem )
 int CWndTradeCtrl::InsertItem( const LVITEM* pItem )
 {
 	if( pItem->iItem < m_aItems.GetSize() && m_aItems.GetAt( pItem->iItem ) ) 
-		return -1; // ì´ë¯¸ ì¡´ìž¬í•œë‹¤.
+		return -1; // ÀÌ¹Ì Á¸ÀçÇÑ´Ù.
 	LVITEM* pNewItems = new LVITEM[ 3 ]; // m_aColumns.GetSize()
 	memcpy( &pNewItems[ pItem->iSubItem ], pItem, sizeof( LVITEM ) );
 	pNewItems[ pItem->iSubItem ].pszText = new _TCHAR[ _tcslen( pItem->pszText ) + sizeof( _TCHAR ) ];
@@ -258,7 +258,7 @@ int CWndTradeCtrl::InsertColumn( int nCol, const LVCOLUMN* pColumn )
 	pNewColumn->pszText = new _TCHAR[ _tcslen( pColumn->pszText ) ];
 	_tcscpy( pNewColumn->pszText, pColumn->pszText );
 	if( nCol < m_aColumns.GetSize() && m_aColumns.GetAt( nCol ) ) 
-		return -1; // ì´ë¯¸ ì¡´ìž¬í•œë‹¤.
+		return -1; // ÀÌ¹Ì Á¸ÀçÇÑ´Ù.
 	m_aColumns.SetAtGrow( nCol, (void*)pNewColumn );
 	return nCol;
 }

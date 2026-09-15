@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "defineItem.h"
 #include "defineSkill.h"
@@ -31,7 +31,7 @@ extern	CWorldMng			g_WorldMng;
 
 void CDPSrvr::OnUseSkill( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
 {
-	WORD wType;			// ì§ì—…ìŠ¤í‚¬ì´ëƒ, ë¼ì´ì„ ìŠ¤ìŠ¤í‚¬ì´ëƒ êµ¬ë¶„í•˜ëŠ” ë³€ìˆ˜ - 2005.10.04 ì˜ë¯¸ì—†ìŒ 
+	WORD wType;			// Á÷¾÷½ºÅ³ÀÌ³Ä, ¶óÀÌ¼±½º½ºÅ³ÀÌ³Ä ±¸ºÐÇÏ´Â º¯¼ö - 2005.10.04 ÀÇ¹Ì¾øÀ½ 
 	WORD wId;
 	OBJID objid;
 	int	 nUseType = 0;
@@ -79,18 +79,18 @@ void CDPSrvr::OnUseSkill( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf,
 #else // __VER >= 8 // __S8_PK
 		BOOL fSuccess	= pUser->DoUseSkill( wType, nIdx, objid, (SKILLUSETYPE)nUseType );
 #endif // __VER >= 8 // __S8_PK
-		if( fSuccess == TRUE )	// ìŠ¤í‚¬ì‚¬ìš©ì— ì„±ê³µí–ˆê³ 
+		if( fSuccess == TRUE )	// ½ºÅ³»ç¿ë¿¡ ¼º°øÇß°í
 		{
-			if( nUseType == SUT_QUEUESTART )	// ìŠ¤í‚¬íë¡œ ì‹¤í–‰í•˜ë¼ê³  í•œê±°ì˜€ë‹¤.
+			if( nUseType == SUT_QUEUESTART )	// ½ºÅ³Å¥·Î ½ÇÇàÇÏ¶ó°í ÇÑ°Å¿´´Ù.
 			{
-				pUser->m_playTaskBar.m_nUsedSkillQueue = 0;		// ìŠ¤í‚¬í ì‹¤í–‰ì¤‘ì¸ í‘œì‹œ ë‚¨ê¹€.
+				pUser->m_playTaskBar.m_nUsedSkillQueue = 0;		// ½ºÅ³Å¥ ½ÇÇàÁßÀÎ Ç¥½Ã ³²±è.
 			}
 		}
 
 		if( TRUE == fSuccess )
 		{
 		}
-		else	// ì„œë²„ì—ì„œ UseSkillì„ ì‹¤íŒ¨í•˜ë©´ ê·¸ê²ƒì„ ê·¸ í´ë¼í•œí…Œ ì•Œë ¤ì¤˜ì•¼ í•œë‹¤.
+		else	// ¼­¹ö¿¡¼­ UseSkillÀ» ½ÇÆÐÇÏ¸é ±×°ÍÀ» ±× Å¬¶óÇÑÅ× ¾Ë·ÁÁà¾ß ÇÑ´Ù.
 		{
 			TRACE( "Fail %d, ", nIdx );
 			pUser->AddHdr( GETID( pUser ), SNAPSHOTTYPE_CLEAR_USESKILL );
@@ -102,7 +102,7 @@ void CDPSrvr::OnDoCollect( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf
 {
 }
 */
-// í´ë¼ì´ì–¸íŠ¸ë¡œ ë¶€í„° ë°›ì€ ì—ëŸ¬ì½”ë“œë¥¼ ë¡œê·¸ë¡œ ë‚¨ê¸´ë‹¤.
+// Å¬¶óÀÌ¾ðÆ®·Î ºÎÅÍ ¹ÞÀº ¿¡·¯ÄÚµå¸¦ ·Î±×·Î ³²±ä´Ù.
 void CDPSrvr::OnError( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize)
 {
 	int		nCode, nData;
@@ -115,19 +115,19 @@ void CDPSrvr::OnError( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_
 		{
 		case FE_GENERAL:
 			break;
-		case FE_INVALIDATTACKER:	// í´ë¼ì´ì–¸íŠ¸ì—ì„œ ì–´íƒœì»¤ê°€ invalidí•œê²½ìš°(ìœ ë ¹ëª¹ ë²„ê·¸)
+		case FE_INVALIDATTACKER:	// Å¬¶óÀÌ¾ðÆ®¿¡¼­ ¾îÅÂÄ¿°¡ invalidÇÑ°æ¿ì(À¯·É¸÷ ¹ö±×)
 			{
 #ifndef _DEBUG
 				OBJID idAttacker = (OBJID)nData;
 				CMover *pAttacker = prj.GetMover( idAttacker );
 				if( IsValidObj(pAttacker) )
 				{
-					Error( "2OnError : FE_INVALIDATTACKER í”¼í•´ìž:%s(%f,%f,%f), ê³µê²©ìž:%s(%f,%f,%f)", pUser->GetName(), pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z,
+					Error( "2OnError : FE_INVALIDATTACKER ÇÇÇØÀÚ:%s(%f,%f,%f), °ø°ÝÀÚ:%s(%f,%f,%f)", pUser->GetName(), pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z,
 						pAttacker->GetName(), pAttacker->GetPos().x, pAttacker->GetPos().y, pAttacker->GetPos().z );
-					pUser->AddCorrReq( pAttacker );	// ìš”ì²­í•œ í´ë¼ì—ê²Œ ì¸ë°¸ë¦¬ë“œí•œ ì–´íƒœì»¤ë¥¼ ë‹¤ì‹œ ë³´ë‚´ì¤Œ.
+					pUser->AddCorrReq( pAttacker );	// ¿äÃ»ÇÑ Å¬¶ó¿¡°Ô ÀÎ¹ë¸®µåÇÑ ¾îÅÂÄ¿¸¦ ´Ù½Ã º¸³»ÁÜ.
 				}
 				else
-					Error( "2OnError : FE_INVALIDATTACKER í”¼í•´ìž:%s(%f,%f,%f) ì´ëŸ°ì  ìž¥ ì„œë²„ì—ì„œë„ pAttackerëŠ” Invalidë‹¤. 0x%08x", 
+					Error( "2OnError : FE_INVALIDATTACKER ÇÇÇØÀÚ:%s(%f,%f,%f) ÀÌ·±Á¨Àå ¼­¹ö¿¡¼­µµ pAttacker´Â Invalid´Ù. 0x%08x", 
 					pUser->GetName(), pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z,
 					nData );
 				
@@ -154,7 +154,7 @@ void CDPSrvr::OnShipActMsg( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBu
 		if( IsInvalidObj( pUser->GetIAObjLink() ) )		return;
 		if( idShip != pUser->GetIAObjLink()->GetId() )
 		{
-			Error( "OnShipActMsg : í´ë¼ì—ì„œ ë³´ë‚´ì˜¨ ì•„ì´ë””(%d)ì™€ ì„œë²„ì—ì„œì˜ ì•„ì´ë””(%d)ê°€ ë‹¤ë¥´ë‹¤", idShip, pUser->GetIAObjLink()->GetId() );
+			Error( "OnShipActMsg : Å¬¶ó¿¡¼­ º¸³»¿Â ¾ÆÀÌµð(%d)¿Í ¼­¹ö¿¡¼­ÀÇ ¾ÆÀÌµð(%d)°¡ ´Ù¸£´Ù", idShip, pUser->GetIAObjLink()->GetId() );
 			return;
 		}
 		
@@ -177,13 +177,13 @@ void CDPSrvr::OnLocalPosFromIA( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE 
 	CUser* pUser	= g_UserMng.GetUser( dpidCache, dpidUser );
 	if( IsValidObj( pUser ) )
 	{
-		// í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ì°©ì§€í•œì§€ì ì˜ ìƒëŒ€ì¢Œí‘œë¥¼ ë°›ì•˜ë‹¤.
-		// ì´ ì¢Œí‘œë¥¼ ì„œë²„ì—ì„œ ë™ê¸°í™” í•˜ìž
+		// Å¬¶óÀÌ¾ðÆ®·ÎºÎÅÍ ÂøÁöÇÑÁöÁ¡ÀÇ »ó´ëÁÂÇ¥¸¦ ¹Þ¾Ò´Ù.
+		// ÀÌ ÁÂÇ¥¸¦ ¼­¹ö¿¡¼­ µ¿±âÈ­ ÇÏÀÚ
 		CShip *pIA = prj.GetShip( idIA );
 		if( IsInvalidObj( pIA ) )	return;
 
 		
-		D3DXVECTOR3 vPos = pIA->GetPos() + vLocal;		// ì„œë²„ìƒì—ì„œì˜ IAì˜¤ë¸Œì íŠ¸ì™€ í´ë¼ì—ì„œ ë°›ì€ ë¡œì»¬ì¢Œí‘œë¥¼ í•©ì³ì„œ ìƒˆë¡œìš´ ì¢Œí‘œìƒì„±
+		D3DXVECTOR3 vPos = pIA->GetPos() + vLocal;		// ¼­¹ö»ó¿¡¼­ÀÇ IA¿ÀºêÁ§Æ®¿Í Å¬¶ó¿¡¼­ ¹ÞÀº ·ÎÄÃÁÂÇ¥¸¦ ÇÕÃÄ¼­ »õ·Î¿î ÁÂÇ¥»ý¼º
 		pUser->SetPos( vPos );
 		pUser->SetIAObjLink( pIA );
 	}

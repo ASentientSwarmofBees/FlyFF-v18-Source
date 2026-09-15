@@ -1,4 +1,4 @@
-﻿#include "StdAfx.h"
+#include "StdAfx.h"
 #ifdef __IMPROVE_MAP_SYSTEM
 #ifdef __CLIENT
 #include "MapComboBoxData.h"

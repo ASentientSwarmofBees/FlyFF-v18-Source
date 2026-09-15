@@ -1,4 +1,4 @@
-﻿#ifndef __WNDSELECTCH__H
+#ifndef __WNDSELECTCH__H
 #define __WNDSELECTCH__H
 
 #ifdef __AZRIA_1023

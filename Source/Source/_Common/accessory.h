@@ -1,4 +1,4 @@
-﻿#ifndef __ACCESSORY_H__
+#ifndef __ACCESSORY_H__
 #define	__ACCESSORY_H__
 
 #define	MAX_AAO		20

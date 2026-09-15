@@ -1,18 +1,18 @@
-ï»¿/*
-ì•„ëž˜ì˜ ì˜ˆëŠ”, II_SYS_SYS_EVE_CONEPISEEDINGì•„ì´í…œì„ ì‚¬ìš©í•˜ë©´,
-II_ARM_S_CLO_CLO_GAIA, II_ARM_S_CLO_MAS_BALL01, II_ARM_S_CLO_MAS_BALL04ì´
-ê°ê° í•œ ê°œì”© ë‚˜ì˜µë‹ˆë‹¤. ëª¨ë‘ ability optionì€ 0ìž…ë‹ˆë‹¤.
-ì‹ëª©ì¼ ì´ë²¤íŠ¸ì— ì‚¬ìš©ëœ ë“¯í•œ ë‚˜ë¬´ì¸ ë“¯í•´ì„œ propGiftboxì˜ ì•„ì´í…œì´ëž‘ ê²¹ì¹˜ë¯€ë¡œ
-ì•„ëž˜ì˜ ì˜ˆëŠ” ë¬¸ì œê°€ ìƒê¸¸ìˆ˜ ìžˆìœ¼ë‹ˆ, ê·¸ëƒ¥ ì°¸ê³ ìš©ìœ¼ë¡œ ë´ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
-ì•„ëž˜ì˜ ì˜ˆì—ì„œëŠ” ì•„ì´í…œì´ 3ê°œê°€ ë‚˜ì˜¤ëŠ”ë°, ì¸ë²¤í† ë¦¬ ê³µê°„ì´ ë¶€ì¡±í•˜ë©´ ì‚¬ìš©ì— ì‹¤íŒ¨í•©ë‹ˆë‹¤.(ì•„ë¬´ì¼ ì—†ëŠ” ê²ƒ)
+/*
+¾Æ·¡ÀÇ ¿¹´Â, II_SYS_SYS_EVE_CONEPISEEDING¾ÆÀÌÅÛÀ» »ç¿ëÇÏ¸é,
+II_ARM_S_CLO_CLO_GAIA, II_ARM_S_CLO_MAS_BALL01, II_ARM_S_CLO_MAS_BALL04ÀÌ
+°¢°¢ ÇÑ °³¾¿ ³ª¿É´Ï´Ù. ¸ðµÎ ability optionÀº 0ÀÔ´Ï´Ù.
+½Ä¸ñÀÏ ÀÌº¥Æ®¿¡ »ç¿ëµÈ µíÇÑ ³ª¹«ÀÎ µíÇØ¼­ propGiftboxÀÇ ¾ÆÀÌÅÛÀÌ¶û °ãÄ¡¹Ç·Î
+¾Æ·¡ÀÇ ¿¹´Â ¹®Á¦°¡ »ý±æ¼ö ÀÖÀ¸´Ï, ±×³É Âü°í¿ëÀ¸·Î ºÁÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+¾Æ·¡ÀÇ ¿¹¿¡¼­´Â ¾ÆÀÌÅÛÀÌ 3°³°¡ ³ª¿À´Âµ¥, ÀÎº¥Åä¸® °ø°£ÀÌ ºÎÁ·ÇÏ¸é »ç¿ë¿¡ ½ÇÆÐÇÕ´Ï´Ù.(¾Æ¹«ÀÏ ¾ø´Â °Í)
 
 prototype)
 
-PackItem		íŒ©_ì•„ì´í…œ	ê¸°ê°„(ë¶„ë‹¨ìœ„)-ê¸°ê°„ì œ ì•„ì´í…œì˜ íŒ©í‚¤ì§€í™”ë¡œ ì¸í•´ ì¶”ê°€
+PackItem		ÆÑ_¾ÆÀÌÅÛ	±â°£(ºÐ´ÜÀ§)-±â°£Á¦ ¾ÆÀÌÅÛÀÇ ÆÑÅ°ÁöÈ­·Î ÀÎÇØ Ãß°¡
 {
-	íŒ©ì—_í¬í•¨ëœ_ì•„ì´í…œ1	abilityoption(ê°•í™”)	ê°œìˆ˜
-	íŒ©ì—_í¬í•¨ëœ_ì•„ì´í…œ2	abilityoption(ê°•í™”)	ê°œìˆ˜
-	íŒ©ì—_í¬í•¨ëœ_ì•„ì´í…œ3	abilityoption(ê°•í™”)	ê°œìˆ˜
+	ÆÑ¿¡_Æ÷ÇÔµÈ_¾ÆÀÌÅÛ1	abilityoption(°­È­)	°³¼ö
+	ÆÑ¿¡_Æ÷ÇÔµÈ_¾ÆÀÌÅÛ2	abilityoption(°­È­)	°³¼ö
+	ÆÑ¿¡_Æ÷ÇÔµÈ_¾ÆÀÌÅÛ3	abilityoption(°­È­)	°³¼ö
 }
 
 PackItem		II_SYS_SYS_EVE_CONEPISEEDING	0
@@ -127,7 +127,7 @@ PackItem	II_SYS_SYS_SCR_BXFCHINA7	10080
 	II_ARM_F_CHR_CHINA01GLOVES	0	1
 	II_ARM_F_CHR_CHINA01SHOES	0	1
 }
-//ì˜ìƒ ì•„ì´í…œ
+//ÀÇ»ó ¾ÆÀÌÅÛ
 /*
 PackItem	II_SYS_SYS_SCR_BXMBULE7		10080
 {
@@ -214,7 +214,7 @@ PackItem	II_SYS_SYS_SCR_BXFDNUR30	43200
 }
 
 */
-// ì˜ìƒ 2ì°¨
+// ÀÇ»ó 2Â÷
 PackItem	II_SYS_SYS_SCR_BXMISHO30	43200
 {
 	II_ARM_M_CHR_ISHO01SUIT	0	1
@@ -350,7 +350,7 @@ PackItem	II_SYS_SYS_SCR_BXFPNUR		0
 	II_ARM_F_CHR_NURSE02GLOVES	0	1
 	II_ARM_F_CHR_NURSE02SHOES	0	1
 }
-//í•œë³µ
+//ÇÑº¹
 PackItem	II_SYS_SYS_SCR_BXMHAN		0
 {
 	II_ARM_M_CHR_KOREAN01SUIT	0	1
@@ -363,7 +363,7 @@ PackItem	II_SYS_SYS_SCR_BXFHAN		0
 	II_ARM_F_CHR_KOREAN01SHOES	0	1
 }
 
-// í•œêµ­5ì°¨íŒì— ì—†ëŠ” ê²ƒ begin
+// ÇÑ±¹5Â÷ÆÇ¿¡ ¾ø´Â °Í begin
 PackItem	II_SYS_SYS_SCR_BXMISHO		0
 {
 	II_ARM_M_CHR_ISHO01SUIT		0	1
@@ -448,24 +448,24 @@ PackItem	II_SYS_SYS_SCR_BXFRUDOLF07	10080
 	II_ARM_F_CHR_RUDOLF01GLOVES	0	1
 	II_ARM_F_CHR_RUDOLF01SHOES	0	1
 }
-// í•œêµ­5ì°¨íŒì— ì—†ëŠ” ê²ƒ end
+// ÇÑ±¹5Â÷ÆÇ¿¡ ¾ø´Â °Í end
 
 
-// ë¨¸ì„œë„ˆë¦¬ ìƒìž (í™œë ¥ë“œë§í¬10, Grilled ell *3, Upcut Stone*3 )
+// ¸Ó¼­³Ê¸® »óÀÚ (È°·Âµå¸µÅ©10, Grilled ell *3, Upcut Stone*3 )
 PackItem	II_SYS_SYS_SCR_BXMERCENARY	0
 {
 	II_CHR_POT_DRI_VITALX		0	10
 	II_CHR_FOO_COO_GRILLEDEEL	0	3
 	II_CHR_SYS_SCR_UPCUTSTONE 	0	3
 }
-// ë§¤ì§€ì…˜ ìƒìž (ë¦¬í”Œë ˆì…”í™€ë“œ10, Grilled ell*3, ì•¡í‹°ë¹„ì…˜3)
+// ¸ÅÁö¼Ç »óÀÚ (¸®ÇÃ·¹¼ÅÈ¦µå10, Grilled ell*3, ¾×Æ¼ºñ¼Ç3)
 PackItem	II_SYS_SYS_SCR_BXMAGICIAN	0
 {
 	II_CHR_REF_REF_HOLD		0	10
 	II_CHR_FOO_COO_GRILLEDEEL	0	3
 	II_CHR_SYS_SCR_ACTIVITION	0	3
 }
-// ë“€ì–¼ ìƒìž (ë¦¬í”Œë ˆì…”í™€ë“œ5, í™œë ¥ë“œë§í¬5, ì•¡í‹°ë¹„ì…˜2, ì—…ì»·ìŠ¤í†¤2, Grilled ell*2)
+// µà¾ó »óÀÚ (¸®ÇÃ·¹¼ÅÈ¦µå5, È°·Âµå¸µÅ©5, ¾×Æ¼ºñ¼Ç2, ¾÷ÄÆ½ºÅæ2, Grilled ell*2)
 PackItem	II_SYS_SYS_SCR_BXDUEL		0
 {
 	II_CHR_REF_REF_HOLD		0	5
@@ -474,7 +474,7 @@ PackItem	II_SYS_SYS_SCR_BXDUEL		0
 	II_CHR_SYS_SCR_UPCUTSTONE  	0	2
 	II_CHR_FOO_COO_GRILLEDEEL	0	2
 }
-// ë‹Œìž(ì—¬)
+// ´ÑÀÚ(¿©)
 PackItem	II_SYS_SYS_SCR_BXFNINJA01	0
 {
 	II_ARM_F_CHR_NINJA01HAT		0	1
@@ -482,7 +482,7 @@ PackItem	II_SYS_SYS_SCR_BXFNINJA01	0
 	II_ARM_F_CHR_NINJA01GLOVES	0	1
 	II_ARM_F_CHR_NINJA01SHOES	0	1
 }
-// ë‹Œìž(ë‚¨)
+// ´ÑÀÚ(³²)
 PackItem	II_SYS_SYS_SCR_BXMNINJA01	0
 {
 	II_ARM_M_CHR_NINJA01HAT		0	1
@@ -500,7 +500,7 @@ PackItem	II_SYS_SYS_SCR_BXFYUKATASET	0
 	II_ARM_F_CHR_YUKATA01SUIT	0	1
 	II_ARM_F_CHR_YUKATA01SHOES	0	1
 }
-// ë‚¨ì„± í„±ì‹œë„
+// ³²¼º ÅÎ½Ãµµ
 PackItem	II_SYS_SYS_SCR_BXMTUXEDO01	0
 {
 	II_ARM_M_CHR_TUXEDO01SUIT	0	1
@@ -519,7 +519,7 @@ PackItem	II_SYS_SYS_SCR_BXMTUXEDO03	0
 	II_ARM_M_CHR_TUXEDO03GLOVES	0	1
 	II_ARM_M_CHR_TUXEDO03SHOES	0	1
 }
-// ë‚¨ì„± í„±ì‹œë„ 7ì¼
+// ³²¼º ÅÎ½Ãµµ 7ÀÏ
 PackItem	II_SYS_SYS_SCR_BXMTUXEDO04	10080
 {
 	II_ARM_M_CHR_TUXEDO01SUIT	0	1
@@ -538,7 +538,7 @@ PackItem	II_SYS_SYS_SCR_BXMTUXEDO06	10080
 	II_ARM_M_CHR_TUXEDO03GLOVES	0	1
 	II_ARM_M_CHR_TUXEDO03SHOES	0	1
 }
-// ì—¬ì„± ë“œë ˆìŠ¤
+// ¿©¼º µå·¹½º
 PackItem	II_SYS_SYS_SCR_BXFDRESS01	0
 {
 	II_ARM_F_CHR_DRESS01HAT		0	1
@@ -560,7 +560,7 @@ PackItem	II_SYS_SYS_SCR_BXFDRESS04	0
 	II_ARM_F_CHR_DRESS04GLOVES	0	1
 	II_ARM_F_CHR_DRESS04SHOES	0	1
 }
-// ì—¬ì„± ë“œë ˆìŠ¤ 7ì¼
+// ¿©¼º µå·¹½º 7ÀÏ
 PackItem	II_SYS_SYS_SCR_BXFDRESS05	10080
 {
 	II_ARM_F_CHR_DRESS01HAT		0	1
@@ -582,7 +582,7 @@ PackItem	II_SYS_SYS_SCR_BXFDRESS07	10080
 	II_ARM_F_CHR_DRESS04GLOVES	0	1
 	II_ARM_F_CHR_DRESS04SHOES	0	1
 }
-// ë‚¨ì„± ê²½ì°°
+// ³²¼º °æÂû
 PackItem	II_SYS_SYS_SCR_BXMPOLICE	0
 {
 	II_ARM_M_CHR_POLICE01HAT	0	1
@@ -590,7 +590,7 @@ PackItem	II_SYS_SYS_SCR_BXMPOLICE	0
 	II_ARM_M_CHR_POLICE01GLOVES	0	1
 	II_ARM_M_CHR_POLICE01SHOES	0	1
 }
-// ì—¬ì„± ê²½ì°°
+// ¿©¼º °æÂû
 PackItem	II_SYS_SYS_SCR_BXFPOLICE	0
 {
 	II_ARM_F_CHR_POLICE01HAT	0	1
@@ -598,7 +598,7 @@ PackItem	II_SYS_SYS_SCR_BXFPOLICE	0
 	II_ARM_F_CHR_POLICE01GLOVES	0	1
 	II_ARM_F_CHR_POLICE01SHOES	0	1
 }
-// ë‚¨ì„± ê²½ì°°+ê³¤ë´‰
+// ³²¼º °æÂû+°ïºÀ
 PackItem	II_SYS_SYS_SCR_BXMPOLICE01	0
 {
 	II_ARM_M_CHR_POLICE01HAT	0	1
@@ -607,7 +607,7 @@ PackItem	II_SYS_SYS_SCR_BXMPOLICE01	0
 	II_ARM_M_CHR_POLICE01SHOES	0	1
 	II_WEA_SWO_POLICE_CLUB	0	1
 }
-// ì—¬ì„± ê²½ì°°+ê³¤ë´‰
+// ¿©¼º °æÂû+°ïºÀ
 PackItem	II_SYS_SYS_SCR_BXFPOLICE01	0
 {
 	II_ARM_F_CHR_POLICE01HAT	0	1
@@ -616,14 +616,14 @@ PackItem	II_SYS_SYS_SCR_BXFPOLICE01	0
 	II_ARM_F_CHR_POLICE01SHOES	0	1
 	II_WEA_SWO_POLICE_CLUB	0	1
 }
-// ì—¬ì„± ì¹´ë“œ
+// ¿©¼º Ä«µå
 PackItem	II_SYS_SYS_SCR_BXFCARD01	0
 {
 	II_ARM_F_CHR_CARD01HAT		0	1
 	II_ARM_F_CHR_CARD01SUIT		0	1
 	II_ARM_F_CHR_CARD01SHOES	0	1
 }
-// ë“œëž˜ìŠ¤ê±¸
+// µå·¡½º°É
 PackItem	II_SYS_SYS_SCR_BXFDRESSGIRL01	0
 {
 	II_ARM_F_CHR_DRESSGIRL01HAT	0	1
@@ -634,7 +634,7 @@ PackItem	II_SYS_SYS_SCR_BXFDRESSGIRL01	0
 
 
 
-// ì œë³µ(ë‚¨)
+// Á¦º¹(³²)
 PackItem	II_SYS_SYS_SCR_BXMUNIFORM01	0
 {
 	II_ARM_M_CHR_UNIFORM01SUIT	0	1
@@ -642,7 +642,7 @@ PackItem	II_SYS_SYS_SCR_BXMUNIFORM01	0
 	II_ARM_M_CHR_UNIFORM01SHOES	0	1
 }
 
-// ì œë³µ(ì—¬)
+// Á¦º¹(¿©)
 PackItem	II_SYS_SYS_SCR_BXFUNIFORM01	0
 {
 	II_ARM_F_CHR_UNIFORM01SUIT	0	1
@@ -650,7 +650,7 @@ PackItem	II_SYS_SYS_SCR_BXFUNIFORM01	0
 	II_ARM_F_CHR_UNIFORM01SHOES	0	1
 }
 
-// ë©”ì´ë“œë³µ
+// ¸ÞÀÌµåº¹
 PackItem	II_SYS_SYS_SCR_BXFMAID01	0
 {
 	II_ARM_F_CHR_MAID01HAT		0	1
@@ -659,7 +659,7 @@ PackItem	II_SYS_SYS_SCR_BXFMAID01	0
 	II_ARM_F_CHR_MAID01SHOES	0	1
 }
 
-// ìŠ¤íŒŒì´ë³µ(ë‚¨)
+// ½ºÆÄÀÌº¹(³²)
 PackItem	II_SYS_SYS_SCR_BXMSPY01  	0
 {
 	II_ARM_M_CHR_SPY01HAT		0	1
@@ -668,7 +668,7 @@ PackItem	II_SYS_SYS_SCR_BXMSPY01  	0
 	II_ARM_M_CHR_SPY01SHOES 	0	1
 }
 
-// ìŠ¤íŒŒì´ë³µ(ì—¬)
+// ½ºÆÄÀÌº¹(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSPY01 	0
 {
 	II_ARM_F_CHR_SPY01HAT		0	1
@@ -677,77 +677,77 @@ PackItem	II_SYS_SYS_SCR_BXFSPY01 	0
 	II_ARM_F_CHR_SPY01SHOES	        0	1
 }
 
-// ì¶•êµ¬ë³µ-ë ˆë“œ(ë‚¨)
+// Ãà±¸º¹-·¹µå(³²)
 PackItem	II_SYS_SYS_SCR_BXMSOCCER01 	0
 {
 	II_ARM_M_CHR_SOCCER01SUIT	0	1
 	II_ARM_M_CHR_SOCCER01SHOES	0	1
 }
 
-// ì¶•êµ¬ë³µ-ë ˆë“œ(ì—¬)
+// Ãà±¸º¹-·¹µå(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSOCCER01 	0
 {
 	II_ARM_F_CHR_SOCCER01SUIT	0	1
 	II_ARM_F_CHR_SOCCER01SHOES	0	1
 }
 
-// ì¶•êµ¬ë³µ-í™”ì´íŠ¸(ë‚¨)
+// Ãà±¸º¹-È­ÀÌÆ®(³²)
 PackItem	II_SYS_SYS_SCR_BXMSOCCER02 	0
 {
 	II_ARM_M_CHR_SOCCER02SUIT	0	1
 	II_ARM_M_CHR_SOCCER02SHOES	0	1
 }
 
-// ì¶•êµ¬ë³µ-í™”ì´íŠ¸(ì—¬)
+// Ãà±¸º¹-È­ÀÌÆ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSOCCER02 	0
 {
 	II_ARM_F_CHR_SOCCER02SUIT	0	1
 	II_ARM_F_CHR_SOCCER02SHOES	0	1
 }
 
-// ì¶•êµ¬ë³µ-ë¸”ë£¨(ë‚¨)
+// Ãà±¸º¹-ºí·ç(³²)
 PackItem	II_SYS_SYS_SCR_BXMSOCCER03 	0
 {
 	II_ARM_M_CHR_SOCCER03SUIT	0	1
 	II_ARM_M_CHR_SOCCER03SHOES	0	1
 }
 
-// ì¶•êµ¬ë³µ-ë¸”ë£¨(ì—¬)
+// Ãà±¸º¹-ºí·ç(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSOCCER03 	0
 {
 	II_ARM_F_CHR_SOCCER03SUIT	0	1
 	II_ARM_F_CHR_SOCCER03SHOES	0	1
 }
 
-// ìœ ì¹´íƒ€2006(ë‚¨)
+// À¯Ä«Å¸2006(³²)
 PackItem	II_SYS_SYS_SCR_BXMYUKATA2006SET	0
 {
 	II_ARM_M_CHR_YUKATA02SUIT	0	1
 	II_ARM_M_CHR_YUKATA02SHOES	0	1
 }
 
-// ìœ ì¹´íƒ€2006(ì—¬)
+// À¯Ä«Å¸2006(¿©)
 PackItem	II_SYS_SYS_SCR_BXFYUKATA2006SET	0
 {
 	II_ARM_F_CHR_YUKATA02SUIT	0	1
 	II_ARM_F_CHR_YUKATA02SHOES	0	1
 }
 
-// ìœ ì¹´íƒ€2007(ë‚¨)
+// À¯Ä«Å¸2007(³²)
 PackItem	II_SYS_SYS_SCR_BXMYUKATA2007SET	0
 {
 	II_ARM_M_CHR_YUKATA03SUIT	0	1
 	II_ARM_M_CHR_YUKATA03SHOES	0	1
 }
 
-// ìœ ì¹´íƒ€2007(ì—¬)
+// À¯Ä«Å¸2007(¿©)
 PackItem	II_SYS_SYS_SCR_BXFYUKATA2007SET	0
 {
 	II_ARM_F_CHR_YUKATA03SUIT	0	1
 	II_ARM_F_CHR_YUKATA03SHOES	0	1
 }
 
-// ì‘ì›ë³µ-ë ˆë“œ(ë‚¨)
+// ÀÀ¿øº¹-·¹µå(³²)
 PackItem	II_SYS_SYS_SCR_BXMSOCCERSET01 	0
 {
 	II_ARM_M_CHR_SOCCER01SUIT	0	1
@@ -755,7 +755,7 @@ PackItem	II_SYS_SYS_SCR_BXMSOCCERSET01 	0
         II_PET_SOCCERBALL               0       1
 }
 
-// ì‘ì›ë³µ-ë ˆë“œ(ì—¬)
+// ÀÀ¿øº¹-·¹µå(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSOCCERSET01 	0
 {
 	II_ARM_F_CHR_SOCCER01SUIT	0	1
@@ -763,7 +763,7 @@ PackItem	II_SYS_SYS_SCR_BXFSOCCERSET01 	0
         II_PET_SOCCERBALL               0       1
 }
 
-// ì‘ì›ë³µ-í™”ì´íŠ¸(ë‚¨)
+// ÀÀ¿øº¹-È­ÀÌÆ®(³²)
 PackItem	II_SYS_SYS_SCR_BXMSOCCERSET02 	0
 {
 	II_ARM_M_CHR_SOCCER02SUIT	0	1
@@ -771,7 +771,7 @@ PackItem	II_SYS_SYS_SCR_BXMSOCCERSET02 	0
         II_PET_SOCCERBALL               0       1
 }
 
-// ì‘ì›ë³µ-í™”ì´íŠ¸(ì—¬)
+// ÀÀ¿øº¹-È­ÀÌÆ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSOCCERSET02 	0
 {
 	II_ARM_F_CHR_SOCCER02SUIT	0	1
@@ -779,7 +779,7 @@ PackItem	II_SYS_SYS_SCR_BXFSOCCERSET02 	0
         II_PET_SOCCERBALL               0       1
 }
 
-// ì‘ì›ë³µ-ë¸”ë£¨(ë‚¨)
+// ÀÀ¿øº¹-ºí·ç(³²)
 PackItem	II_SYS_SYS_SCR_BXMSOCCERSET03 	0
 {
 	II_ARM_M_CHR_SOCCER03SUIT	0	1
@@ -787,14 +787,14 @@ PackItem	II_SYS_SYS_SCR_BXMSOCCERSET03 	0
         II_PET_SOCCERBALL               0       1
 }
 
-// ì‘ì›ë³µ-ë¸”ë£¨(ì—¬)
+// ÀÀ¿øº¹-ºí·ç(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSOCCERSET03 	0
 {
 	II_ARM_F_CHR_SOCCER03SUIT	0	1
 	II_ARM_F_CHR_SOCCER03SHOES	0	1
         II_PET_SOCCERBALL               0       1
 }
-// ë¹„ì¹˜ì„¸íŠ¸(ë‚¨)
+// ºñÄ¡¼¼Æ®(³²)
 PackItem	II_SYS_SYS_SCR_BXM_SWIM01SET	0
 {
 	II_ARM_M_CHR_SWIM01UPPER	0	1
@@ -852,7 +852,7 @@ PackItem	II_SYS_SYS_SCR_BXM_SWIM09SET	0
 	II_ARM_M_CHR_SWIM09FOOT 	0	1
 }
 
-//ë¹„ì¹˜ì„¸íŠ¸(ì—¬)
+//ºñÄ¡¼¼Æ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXF_SWIM01SET	0
 {
 	II_ARM_F_CHR_SWIM01UPPER	0	1
@@ -910,28 +910,28 @@ PackItem	II_SYS_SYS_SCR_BXF_SWIM11SET	0
 	II_ARM_F_CHR_SWIM11FOOT 	0	1
 }
 
-// ë ˆë²¨ ì—…(20) íŒ¨í‚¤ì§€
+// ·¹º§ ¾÷(20) ÆÐÅ°Áö
 PackItem	II_SYS_SYS_SCR_BXLVUP20	0
 {
 	II_SYS_SYS_SCR_AMPESA	0	5
 	II_CHR_FOO_COO_BULLHAMS		0	10
 	II_CHR_SYS_SCR_UPCUTSTONE	0	15
 }
-// ë ˆë²¨ ì—…(40) íŒ¨í‚¤ì§€
+// ·¹º§ ¾÷(40) ÆÐÅ°Áö
 PackItem	II_SYS_SYS_SCR_BXLVUP40	0
 {
 	II_SYS_SYS_SCR_AMPESB	0	5
 	II_CHR_FOO_COO_GRILLEDEEL	0	10
 	II_CHR_SYS_SCR_UPCUTSTONE	0	15
 }
-// ë ˆë²¨ ì—…(60) íŒ¨í‚¤ì§€
+// ·¹º§ ¾÷(60) ÆÐÅ°Áö
 PackItem	II_SYS_SYS_SCR_BXLVUP60	0
 {
 	II_SYS_SYS_SCR_AMPESC	0	5
 	II_CHR_FOO_COO_GRILLEDEEL	0	10
 	II_CHR_SYS_SCR_UPCUTSTONE	0	15	
 }
-// ë ˆë²¨ ì—…(80) íŒ¨í‚¤ì§€
+// ·¹º§ ¾÷(80) ÆÐÅ°Áö
 PackItem	II_SYS_SYS_SCR_BXLVUP80	0
 {
 	II_SYS_SYS_SCR_AMPESD	0	5
@@ -939,7 +939,7 @@ PackItem	II_SYS_SYS_SCR_BXLVUP80	0
 	II_CHR_SYS_SCR_UPCUTSTONE	0	15
 }
 
-// í•´ê³¨(ë‚¨)
+// ÇØ°ñ(³²)
 PackItem	II_SYS_SYS_SCR_BXMSKULL01  	0
 {
 	II_ARM_M_CHR_SKULL01HAT			0	1
@@ -948,7 +948,7 @@ PackItem	II_SYS_SYS_SCR_BXMSKULL01  	0
         II_ARM_M_CHR_SKULL01GLOVES              0       1
 }
 
-// í•´ê³¨(ì—¬)
+// ÇØ°ñ(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSKULL01 	0
 {
 	II_ARM_F_CHR_SKULL01HAT		0	1
@@ -957,7 +957,7 @@ PackItem	II_SYS_SYS_SCR_BXFSKULL01 	0
         II_ARM_F_CHR_SKULL01GLOVES      0       1
 }
 
-// ì¹´ë“œì˜ìƒ(ë‚¨)
+// Ä«µåÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMCARD01 	0
 {
 	II_ARM_M_CHR_CARD01HAT			0	1
@@ -965,7 +965,7 @@ PackItem	II_SYS_SYS_SCR_BXMCARD01 	0
 	II_ARM_M_CHR_CARD01SHOES		0	1
 }
 
-// ìŠˆí¼ë§¨
+// ½´ÆÛ¸Ç
 PackItem	II_SYS_SYS_SCR_BXMSUPER01 	0
 {
 	II_CHR_M_CLO_CLO_SUPERMAN		0	1                
@@ -974,7 +974,7 @@ PackItem	II_SYS_SYS_SCR_BXMSUPER01 	0
 	II_ARM_M_CHR_SUPER01SHOES		0	1
 }
 
-//ì›ë”ìš°ë¨¼
+//¿ø´õ¿ì¸Õ
 PackItem	II_SYS_SYS_SCR_BXFSUPER01 	0
 {
 	II_ARM_F_CHR_SUPER01HAT			0	1  
@@ -983,7 +983,7 @@ PackItem	II_SYS_SYS_SCR_BXFSUPER01 	0
 	II_ARM_F_CHR_SUPER01SHOES		0	1  
 }
 
-//ì‹ ë°§ë“œ(ë‚¨)
+//½Å¹åµå(³²)
 PackItem	II_SYS_SYS_SCR_BXMSINBAD01 	0
 {
 	II_ARM_M_CHR_SINBAD01HAT 		0	1  
@@ -991,7 +991,7 @@ PackItem	II_SYS_SYS_SCR_BXMSINBAD01 	0
 	II_ARM_M_CHR_SINBAD01SHOES		0	1  
 }
 
-//ì‹ ë°§ë“œ(ì—¬)
+//½Å¹åµå(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSINBAD01 	0
 {
 	II_ARM_F_CHR_SINBAD01HAT 		0	1  
@@ -999,7 +999,7 @@ PackItem	II_SYS_SYS_SCR_BXFSINBAD01 	0
 	II_ARM_F_CHR_SINBAD01SHOES		0	1  
 }
 
-//ìŠ¤ë…¸ìš°ë³´ë”(ë‚¨)
+//½º³ë¿ìº¸´õ(³²)
 PackItem	II_SYS_SYS_SCR_BXMSNOWBOARDER01 	0
 {
 	II_ARM_M_CHR_SNOWBOARDER01HAT		0	1  
@@ -1008,7 +1008,7 @@ PackItem	II_SYS_SYS_SCR_BXMSNOWBOARDER01 	0
 	II_ARM_M_CHR_SNOWBOARDER01SHOES		0	1  
 }
 
-//ìŠ¤ë…¸ìš°ë³´ë”(ì—¬)
+//½º³ë¿ìº¸´õ(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSNOWBOARDER01 	0
 {
 	II_ARM_F_CHR_SNOWBOARDER01HAT		0	1  
@@ -1017,7 +1017,7 @@ PackItem	II_SYS_SYS_SCR_BXFSNOWBOARDER01 	0
 	II_ARM_F_CHR_SNOWBOARDER01SHOES		0	1  
 }
 
-//ëˆˆì‚¬ëžŒ ì˜ìƒ(ë‚¨)
+//´«»ç¶÷ ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMSNOWMAN01 	0
 {
 	II_ARM_M_CHR_SNOWMAN01HAT		0	1
@@ -1026,7 +1026,7 @@ PackItem	II_SYS_SYS_SCR_BXMSNOWMAN01 	0
 	II_ARM_M_CHR_SNOWMAN01SHOES		0	1
 }
 
-//ëˆˆì‚¬ëžŒ ì˜ìƒ(ì—¬)
+//´«»ç¶÷ ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSNOWMAN01 	0
 {
 	II_ARM_F_CHR_SNOWMAN01HAT		0	1
@@ -1035,7 +1035,7 @@ PackItem	II_SYS_SYS_SCR_BXFSNOWMAN01 	0
 	II_ARM_F_CHR_SNOWMAN01SHOES		0	1
 }
 
-//ê°œêµ¬ë½ì§€ ì˜ìƒ(ë‚¨)
+//°³±¸¶ôÁö ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMFROG01 	0
 {
 	II_ARM_M_CHR_FROG01HAT			0	1
@@ -1044,7 +1044,7 @@ PackItem	II_SYS_SYS_SCR_BXMFROG01 	0
 	II_ARM_M_CHR_FROG01SHOES		0	1
 }
 
-//ê°œêµ¬ë½ì§€ ì˜ìƒ(ì—¬)
+//°³±¸¶ôÁö ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFFROG01 	0
 {
 	II_ARM_F_CHR_FROG01HAT			0	1
@@ -1053,7 +1053,7 @@ PackItem	II_SYS_SYS_SCR_BXFFROG01 	0
 	II_ARM_F_CHR_FROG01SHOES		0	1
 }
 
-//ì–‘í„¸ ì˜ìƒ(ë‚¨)
+//¾çÅÐ ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMLAMP01 	0
 {
 	II_ARM_M_CHR_LAMP01HAT			0	1
@@ -1062,7 +1062,7 @@ PackItem	II_SYS_SYS_SCR_BXMLAMP01 	0
 	II_ARM_M_CHR_LAMP01SHOES		0	1
 }
 
-//ì–‘í„¸ ì˜ìƒ(ì—¬)
+//¾çÅÐ ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFLAMP01 	0
 {
 	II_ARM_F_CHR_LAMP01HAT			0	1
@@ -1071,7 +1071,7 @@ PackItem	II_SYS_SYS_SCR_BXFLAMP01 	0
 	II_ARM_F_CHR_LAMP01SHOES		0	1
 }
 
-//ê³°ëŒì´ ì˜ìƒ(ë‚¨)
+//°õµ¹ÀÌ ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMBEAR01 	0
 {
 	II_ARM_M_CHR_BEAR01HAT			0	1
@@ -1080,7 +1080,7 @@ PackItem	II_SYS_SYS_SCR_BXMBEAR01 	0
 	II_ARM_M_CHR_BEAR01SHOES		0	1
 }
 
-//ê³°ëŒì´ ì˜ìƒ(ì—¬)
+//°õµ¹ÀÌ ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFBEAR01 	0
 {
 	II_ARM_F_CHR_BEAR01HAT			0	1
@@ -1089,14 +1089,14 @@ PackItem	II_SYS_SYS_SCR_BXFBEAR01 	0
 	II_ARM_F_CHR_BEAR01SHOES		0	1
 }
 
-//ë©˜ì¸ë¸”ëž™(ë‚¨)
+//¸àÀÎºí·¢(³²)
 PackItem	II_SYS_SYS_SCR_BXMMENINBLACK01 	0
 {
 	II_ARM_M_CHR_MENINBLACK01SUIT		0	1
 	II_ARM_M_CHR_MENINBLACK01SHOES		0	1
 }
 
-//ë©˜ì¸ë¸”ëž™(ì—¬)
+//¸àÀÎºí·¢(¿©)
 PackItem	II_SYS_SYS_SCR_BXFMENINBLACK01 	0
 {
 	II_ARM_F_CHR_MENINBLACK01SUIT		0	1
@@ -1104,7 +1104,7 @@ PackItem	II_SYS_SYS_SCR_BXFMENINBLACK01 	0
 }
 
 
-//ì‚¬ë¬´ë¼ì´ ì˜ìƒ(ë‚¨)
+//»ç¹«¶óÀÌ ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMSAMURAI01 	0
 {
 	II_ARM_M_CHR_SAMURAI01HAT		0	1
@@ -1113,7 +1113,7 @@ PackItem	II_SYS_SYS_SCR_BXMSAMURAI01 	0
 	II_ARM_M_CHR_SAMURAI01SHOES		0	1
 }
 
-//ì‚¬ë¬´ë¼ì´ ì˜ìƒ(ì—¬)
+//»ç¹«¶óÀÌ ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFSAMURAI01 	0
 {
 	II_ARM_F_CHR_SAMURAI01HAT		0	1
@@ -1122,7 +1122,7 @@ PackItem	II_SYS_SYS_SCR_BXFSAMURAI01 	0
 	II_ARM_F_CHR_SAMURAI01SHOES		0	1
 }
 
-//ì„¹ì‹œ í•œë³µ
+//¼½½Ã ÇÑº¹
 PackItem	II_SYS_SYS_SCR_BXFKOREAN02	0
 {
 	II_ARM_F_CHR_KOREAN02HAT		0	1
@@ -1130,7 +1130,7 @@ PackItem	II_SYS_SYS_SCR_BXFKOREAN02	0
 	II_ARM_F_CHR_KOREAN02SHOES		0	1
 }
 
-// í•„ë¦¬í•€ ìš”ì²­
+// ÇÊ¸®ÇÉ ¿äÃ»
 PackItem	II_SYS_SYS_SCR_BX_PET_LUIA07	10080
 {
 	II_PET_LUIA1	0	1
@@ -1159,7 +1159,7 @@ PackItem	II_SYS_SYS_SCR_BXF_SWIM01SET30		43200
 	II_ARM_F_CHR_SWIM01UPPER	0	1
 	II_ARM_F_CHR_SWIM01FOOT	0	1
 }
-// í•„ë¦¬í•€ ì¶”ê°€ ìš”ì²­
+// ÇÊ¸®ÇÉ Ãß°¡ ¿äÃ»
 PackItem	II_SYS_SYS_SCR_BXMDARKVADER	0
 {
 	II_ARM_M_CHR_DARKVADER01HAT	0	1
@@ -1354,7 +1354,7 @@ PackItem	II_SYS_SYS_SCR_BX_EVE_FSNOWMAN30	43200
 	II_ARM_F_CHR_SNOWMAN01SHOES     0     1
 }
 
-// 6-15 ì¼ë³¸ ì¶”ê°€ ì•„ì´í…œ
+// 6-15 ÀÏº» Ãß°¡ ¾ÆÀÌÅÛ
 PackItem	II_SYS_SYS_SCR_BXMHAN07_JAP	10080
 {
 	II_ARM_M_CHR_KOREAN01SUIT	0	1
@@ -1393,7 +1393,7 @@ PackItem	II_SYS_SYS_SCR_BXCHOCOLATE01		0
 	II_SYS_SYS_EVE_CHOCOLATE02		0	8
 }
 
-//ë¬´ì—íƒ€ì´ ì˜ìƒ(ë‚¨)
+//¹«¿¡Å¸ÀÌ ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMMUAYTHAI01 	0
 {
 	II_ARM_M_CHR_MUAYTHAI01HAT		0	1
@@ -1402,7 +1402,7 @@ PackItem	II_SYS_SYS_SCR_BXMMUAYTHAI01 	0
 	II_ARM_M_CHR_MUAYTHAI01SHOES		0	1
 }
 
-//ë¬´ì—íƒ€ì´ ì˜ìƒ(ì—¬)
+//¹«¿¡Å¸ÀÌ ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFMUAYTHAI01 	0
 {
 	II_ARM_F_CHR_MUAYTHAI01HAT		0	1
@@ -1411,7 +1411,7 @@ PackItem	II_SYS_SYS_SCR_BXFMUAYTHAI01 	0
 	II_ARM_F_CHR_MUAYTHAI01SHOES		0	1
 }
 
-//í•´ì  ì˜ìƒ(ë‚¨)
+//ÇØÀû ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMPIRATE01 	0
 {
 	II_ARM_M_CHR_PIRATE01HAT		0	1
@@ -1419,7 +1419,7 @@ PackItem	II_SYS_SYS_SCR_BXMPIRATE01 	0
 	II_ARM_M_CHR_PIRATE01SHOES		0	1
 }
 
-//í•´ì  ì˜ìƒ(ì—¬)
+//ÇØÀû ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFPIRATE01 	0
 {
 	II_ARM_F_CHR_PIRATE01HAT		0	1
@@ -1443,7 +1443,7 @@ PackItem	II_SYS_SYS_SCR_BXFCAT01 	0
 	II_ARM_F_CLO_CAT01SHOES			0	1
 }
 
-//ë±€íŒŒì´ì–´ ì˜ìƒ(ë‚¨)
+//¹ìÆÄÀÌ¾î ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMVAMPIRE01 	0
 {
 	II_ARM_M_CHR_VAMPIRE01HAT		0	1
@@ -1452,7 +1452,7 @@ PackItem	II_SYS_SYS_SCR_BXMVAMPIRE01 	0
 	II_ARM_M_CHR_VAMPIRE01SHOES		0	1
 }
 
-//ë±€íŒŒì´ì–´ ì˜ìƒ(ì—¬)
+//¹ìÆÄÀÌ¾î ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFVAMPIRE01 	0
 {
 	II_ARM_F_CHR_VAMPIRE01HAT		0	1
@@ -1461,7 +1461,7 @@ PackItem	II_SYS_SYS_SCR_BXFVAMPIRE01 	0
 	II_ARM_F_CHR_VAMPIRE01SHOES		0	1
 }
 
-//ê°•ì‹œ ì˜ìƒ(ë‚¨)
+//°­½Ã ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMCORPSE01 	0
 {
 	II_ARM_M_CHR_CORPSE01HAT		0	1
@@ -1469,7 +1469,7 @@ PackItem	II_SYS_SYS_SCR_BXMCORPSE01 	0
 	II_ARM_M_CHR_CORPSE01SHOES		0	1
 }
 
-//ê°•ì‹œ ì˜ìƒ(ì—¬)
+//°­½Ã ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFCORPSE01 	0
 {
 	II_ARM_F_CHR_CORPSE01HAT		0	1
@@ -1477,7 +1477,7 @@ PackItem	II_SYS_SYS_SCR_BXFCORPSE01 	0
 	II_ARM_F_CHR_CORPSE01SHOES		0	1
 }
 
-//ìˆ˜ëžê°„ ì˜ìƒ(ë‚¨)
+//¼ö¶ù°£ ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMKOREAN03 	0
 {
 	II_ARM_M_CHR_KOREAN03HAT		0	1
@@ -1485,7 +1485,7 @@ PackItem	II_SYS_SYS_SCR_BXMKOREAN03 	0
 	II_ARM_M_CHR_KOREAN03SHOES		0	1
 }
 
-//ìˆ˜ëžê°„ ì˜ìƒ(ì—¬)
+//¼ö¶ù°£ ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFKOREAN03 	0
 {
 	II_ARM_F_CHR_KOREAN03HAT		0	1
@@ -1494,7 +1494,7 @@ PackItem	II_SYS_SYS_SCR_BXFKOREAN03 	0
 }
 
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ë¸”ë£¨(ë‚¨)
+//¸¶µå¸®°¥¼öºñ´ë ºí·ç(³²)
 PackItem	II_SYS_SYS_SCR_BXMGUARDS01 	0
 {
 	II_ARM_M_CHR_GUARDS01HAT		0	1
@@ -1503,7 +1503,7 @@ PackItem	II_SYS_SYS_SCR_BXMGUARDS01 	0
 	II_ARM_M_CHR_GUARDS01SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ë¸”ë£¨(ì—¬)
+//¸¶µå¸®°¥¼öºñ´ë ºí·ç(¿©)
 PackItem	II_SYS_SYS_SCR_BXFGUARDS01 	0
 {
 	II_ARM_F_CHR_GUARDS01HAT		0	1
@@ -1512,7 +1512,7 @@ PackItem	II_SYS_SYS_SCR_BXFGUARDS01 	0
 	II_ARM_F_CHR_GUARDS01SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ë ˆë“œ(ë‚¨)
+//¸¶µå¸®°¥¼öºñ´ë ·¹µå(³²)
 PackItem	II_SYS_SYS_SCR_BXMGUARDS02 	0
 {
 	II_ARM_M_CHR_GUARDS02HAT		0	1
@@ -1521,7 +1521,7 @@ PackItem	II_SYS_SYS_SCR_BXMGUARDS02 	0
 	II_ARM_M_CHR_GUARDS02SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ë ˆë“œ(ì—¬)
+//¸¶µå¸®°¥¼öºñ´ë ·¹µå(¿©)
 PackItem	II_SYS_SYS_SCR_BXFGUARDS02 	0
 {
 	II_ARM_F_CHR_GUARDS02HAT		0	1
@@ -1530,7 +1530,7 @@ PackItem	II_SYS_SYS_SCR_BXFGUARDS02 	0
 	II_ARM_F_CHR_GUARDS02SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ì˜ë¡œìš°(ë‚¨)
+//¸¶µå¸®°¥¼öºñ´ë ¿»·Î¿ì(³²)
 PackItem	II_SYS_SYS_SCR_BXMGUARDS03 	0
 {
 	II_ARM_M_CHR_GUARDS03HAT		0	1
@@ -1539,7 +1539,7 @@ PackItem	II_SYS_SYS_SCR_BXMGUARDS03 	0
 	II_ARM_M_CHR_GUARDS03SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ì˜ë¡œìš°(ì—¬)
+//¸¶µå¸®°¥¼öºñ´ë ¿»·Î¿ì(¿©)
 PackItem	II_SYS_SYS_SCR_BXFGUARDS03 	0
 {
 	II_ARM_F_CHR_GUARDS03HAT		0	1
@@ -1548,7 +1548,7 @@ PackItem	II_SYS_SYS_SCR_BXFGUARDS03 	0
 	II_ARM_F_CHR_GUARDS03SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ê·¸ë¦°(ë‚¨)
+//¸¶µå¸®°¥¼öºñ´ë ±×¸°(³²)
 PackItem	II_SYS_SYS_SCR_BXMGUARDS04 	0
 {
 	II_ARM_M_CHR_GUARDS04HAT		0	1
@@ -1557,7 +1557,7 @@ PackItem	II_SYS_SYS_SCR_BXMGUARDS04 	0
 	II_ARM_M_CHR_GUARDS04SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ê·¸ë¦°(ì—¬)
+//¸¶µå¸®°¥¼öºñ´ë ±×¸°(¿©)
 PackItem	II_SYS_SYS_SCR_BXFGUARDS04 	0
 {
 	II_ARM_F_CHR_GUARDS04HAT		0	1
@@ -1566,7 +1566,7 @@ PackItem	II_SYS_SYS_SCR_BXFGUARDS04 	0
 	II_ARM_F_CHR_GUARDS04SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ í•‘í¬(ë‚¨)
+//¸¶µå¸®°¥¼öºñ´ë ÇÎÅ©(³²)
 PackItem	II_SYS_SYS_SCR_BXMGUARDS05 	0
 {
 	II_ARM_M_CHR_GUARDS05HAT		0	1
@@ -1575,7 +1575,7 @@ PackItem	II_SYS_SYS_SCR_BXMGUARDS05 	0
 	II_ARM_M_CHR_GUARDS05SHOES		0	1
 }
 
-//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ í•‘í¬(ì—¬)
+//¸¶µå¸®°¥¼öºñ´ë ÇÎÅ©(¿©)
 PackItem	II_SYS_SYS_SCR_BXFGUARDS05 	0
 {
 	II_ARM_F_CHR_GUARDS05HAT		0	1
@@ -1584,7 +1584,7 @@ PackItem	II_SYS_SYS_SCR_BXFGUARDS05 	0
 	II_ARM_F_CHR_GUARDS05SHOES		0	1
 }
 
-//ë¯¸ì´ë¼ ì˜ìƒ(ë‚¨)
+//¹ÌÀÌ¶ó ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMMUMMY01 	0
 {
 	II_ARM_M_CHR_MUMMY01HAT			0	1
@@ -1593,7 +1593,7 @@ PackItem	II_SYS_SYS_SCR_BXMMUMMY01 	0
 	II_ARM_M_CHR_MUMMY01SHOES		0	1
 }
 
-//ë¯¸ì´ë¼ ì˜ìƒ(ì—¬)
+//¹ÌÀÌ¶ó ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFMUMMY01 	0
 {
 	II_ARM_F_CHR_MUMMY01HAT			0	1
@@ -1602,7 +1602,7 @@ PackItem	II_SYS_SYS_SCR_BXFMUMMY01 	0
 	II_ARM_F_CHR_MUMMY01SHOES		0	1
 }
 
-//ì›ì‹œì¸ ì˜ìƒ(ë‚¨)
+//¿ø½ÃÀÎ ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMPRIMITIVE01 	0
 {
 	II_ARM_M_CHR_PRIMITIVE01SUIT		0	1
@@ -1615,7 +1615,7 @@ PackItem	II_SYS_SYS_SCR_BXMPRIMITIVE01_1 	0
 	II_ARM_M_CHR_PRIMITIVE01SHOES		0	1
 }
 
-//ì›ì‹œì¸ ì˜ìƒ(ì—¬)
+//¿ø½ÃÀÎ ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFPRIMITIVE01 	0
 {	II_ARM_F_CHR_PRIMITIVE01SUIT		0	1
 	II_ARM_F_CHR_PRIMITIVE01SHOES		0	1
@@ -1626,7 +1626,7 @@ PackItem	II_SYS_SYS_SCR_BXFPRIMITIVE01_1 	0
 	II_ARM_F_CHR_PRIMITIVE01SHOES		0	1
 }
 
-//ì¿¨ê°€ì´ ìºì£¼ì–¼ ì„¸íŠ¸(ë‚¨)
+//Äð°¡ÀÌ Ä³ÁÖ¾ó ¼¼Æ®(³²)
 PackItem	II_SYS_SYS_SCR_BXMCASUAL01 	0
 {
 	II_ARM_M_CHR_CASUAL01HAT			0	1
@@ -1643,7 +1643,7 @@ PackItem	II_SYS_SYS_SCR_BXMCASUAL01_1 	0
 	II_ARM_M_CHR_CASUAL01SHOES		0	1
 }
 
-//ìƒ¤ëž„ë¼ ë¯¸ë‹ˆ ì›í”¼ìŠ¤ ì„¸íŠ¸(ì—¬)
+//»þ¶ö¶ó ¹Ì´Ï ¿øÇÇ½º ¼¼Æ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXFCASUAL01 	0
 {
 	II_ARM_F_CHR_CASUAL01HAT			0	1
@@ -1660,7 +1660,7 @@ PackItem	II_SYS_SYS_SCR_BXFCASUAL01_1 	0
 	II_ARM_F_CHR_CASUAL01SHOES		0	1
 }
 
-//íž™í•© ì˜ìƒ(ë‚¨)
+//ÈüÇÕ ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMCASUAL02 	0
 {
 	II_ARM_M_CHR_CASUAL02HAT		0	1
@@ -1669,7 +1669,7 @@ PackItem	II_SYS_SYS_SCR_BXMCASUAL02 	0
 	II_ARM_M_CHR_CASUAL02SHOES		0	1
 }
 
-//íž™í•© ì˜ìƒ(ì—¬)
+//ÈüÇÕ ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFCASUAL02 	0
 {
 	II_ARM_F_CHR_CASUAL02HAT		0	1
@@ -1678,7 +1678,7 @@ PackItem	II_SYS_SYS_SCR_BXFCASUAL02 	0
 	II_ARM_F_CHR_CASUAL02SHOES		0	1
 }
 
-//ì›¨ë”© ì˜ìƒ(ë‚¨)
+//¿þµù ÀÇ»ó(³²)
 PackItem	II_SYS_SYS_SCR_BXMWED01 	0
 {
 	II_ARM_M_CHR_WED01HAT		0	1
@@ -1695,7 +1695,7 @@ PackItem	II_SYS_SYS_SCR_BXMWED01_1 	21600
 	II_ARM_M_CHR_WED01SHOES		0	1
 }
 
-//ì›¨ë”© ì˜ìƒ(ì—¬)
+//¿þµù ÀÇ»ó(¿©)
 PackItem	II_SYS_SYS_SCR_BXFWED01 	0
 {
 	II_ARM_F_CHR_WED01HAT		0	1
@@ -1712,7 +1712,7 @@ PackItem	II_SYS_SYS_SCR_BXFWED01_1 	21600
 	II_ARM_F_CHR_WED01SHOES		0	1
 }
 
-//ì´ˆë³´ìž ëª¨í—˜ ì„¸íŠ¸(ë‚¨)
+//ÃÊº¸ÀÚ ¸ðÇè ¼¼Æ®(³²)
 PackItem	II_SYS_SYS_SCR_BXMBEGINNER01	0
 {
 	II_SYS_SYS_SCR_AMPES_LINK		0	2
@@ -1721,7 +1721,7 @@ PackItem	II_SYS_SYS_SCR_BXMBEGINNER01	0
 	II_SYS_SYS_SCR_BXM_SWIM01SET07		0	1
 }
 
-//ì´ˆë³´ìž ëª¨í—˜ ì„¸íŠ¸(ì—¬)
+//ÃÊº¸ÀÚ ¸ðÇè ¼¼Æ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXFBEGINNER01	0
 {
 	II_SYS_SYS_SCR_AMPES_LINK		0	2
@@ -1821,13 +1821,13 @@ PackItem	II_SYS_SYS_SCR_BX_PET_CAT1_30		43200
 
 }
 
-PackItem	II_SYS_SYS_EVE_ENCHANT	0 //ì œë ¨ ì„ ë¬¼ ì„¸íŠ¸
+PackItem	II_SYS_SYS_EVE_ENCHANT	0 //Á¦·Ã ¼±¹° ¼¼Æ®
 {
 	II_GEN_MAT_ORICHALCUM01			0	20
 	II_SYS_SYS_SCR_SMELPROT			0	1
 }
 
-PackItem	II_SYS_SYS_EVE_DUAL	0 //ë“€ì–¼ ìƒìž(íŒŒì›Œì—…)
+PackItem	II_SYS_SYS_EVE_DUAL	0 //µà¾ó »óÀÚ(ÆÄ¿ö¾÷)
 {
 	II_CHR_REF_REF_HOLD			0	1
 	II_CHR_POT_DRI_VITALX			0	1
@@ -1842,7 +1842,7 @@ PackItem	II_SYS_SYS_SCR_BX_SCROLL	0 // Scroll Box
 	II_SYS_SYS_SCR_RESURRECTION	0	2
 }
 
-PackItem	II_SYS_SYS_SCR_BXSMELTING01	0 // ì œë ¨ì„¸íŠ¸
+PackItem	II_SYS_SYS_SCR_BXSMELTING01	0 // Á¦·Ã¼¼Æ®
 {
 	II_SYS_SYS_SCR_SMELPROT		0	5
 	II_SYS_SYS_SCR_SMELTING		0	5
@@ -1982,7 +1982,7 @@ PackItem	II_SYS_SYS_EVE_BXCOMEBACK01	10080
 	II_PET_DRAGON			0	1
 }
 
-//ëŒ€ë§Œ 3ì›” ë³´ìƒ ë°•ìŠ¤
+//´ë¸¸ 3¿ù º¸»ó ¹Ú½º
 PackItem	II_SYS_SYS_SCR_BXHWANGWOO01	0
 {
 	II_SYS_SYS_SCR_BLESSING			0	2
@@ -2037,7 +2037,7 @@ PackItem	II_SYS_SYS_SCR_BXFVAGRANT01		0
 	II_SYS_SYS_SCR_BXFBLUE01		0	1
 }
 
-//ë§¤ì˜ ìœ ì¹´íƒ€ ì„¸íŠ¸(ë‚¨ì„±ìš©)
+//¸ÅÀÇ À¯Ä«Å¸ ¼¼Æ®(³²¼º¿ë)
 PackItem	II_SYS_SYS_SCR_BXMYUKATA04	0
 {
 	II_ARM_M_CHR_YUKATA04SUIT		0	1
@@ -2045,7 +2045,7 @@ PackItem	II_SYS_SYS_SCR_BXMYUKATA04	0
 	II_ARM_M_CHR_YUKATA04SHOES		0	1
 }
 
-//ë„ë¼ì§€ ê½ƒ ìœ ì¹´íƒ€ ì„¸íŠ¸(ì—¬ì„±ìš©)
+//µµ¶óÁö ²É À¯Ä«Å¸ ¼¼Æ®(¿©¼º¿ë)
 PackItem	II_SYS_SYS_SCR_BXFYUKATA04	0
 {
 	II_ARM_F_CHR_YUKATA04SUIT		0	1
@@ -2053,7 +2053,7 @@ PackItem	II_SYS_SYS_SCR_BXFYUKATA04	0
 	II_ARM_F_CHR_YUKATA04SHOES		0	1
 }
 
-//ìœ„ì—„ ì„¸íŠ¸(ë‚¨)
+//À§¾ö ¼¼Æ®(³²)
 PackItem	II_SYS_SYS_SCR_BXMMAJESTY01	20160
 {
 	II_ARM_M_CHR_MAJESTY01HAT	        0       1
@@ -2062,7 +2062,7 @@ PackItem	II_SYS_SYS_SCR_BXMMAJESTY01	20160
 	II_ARM_M_CHR_MAJESTY01SHOES	        0       1
 }
 
-//ìœ„ì—„ ì„¸íŠ¸(ì—¬)
+//À§¾ö ¼¼Æ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXFMAJESTY01	20160
 {
 	II_ARM_F_CHR_MAJESTY01HAT	        0       1
@@ -2071,7 +2071,7 @@ PackItem	II_SYS_SYS_SCR_BXFMAJESTY01	20160
 	II_ARM_F_CHR_MAJESTY01SHOES	        0       1
 }
 
-//ê²©íˆ¬ê°€ ì„¸íŠ¸(ë‚¨)
+//°ÝÅõ°¡ ¼¼Æ®(³²)
 PackItem	II_SYS_SYS_SCR_BXMMARTIAL01	0
 {
 	II_ARM_M_CHR_MARTIAL01HAT	        0       1
@@ -2080,7 +2080,7 @@ PackItem	II_SYS_SYS_SCR_BXMMARTIAL01	0
 	II_ARM_M_CHR_MARTIAL01SHOES	        0       1
 }
 
-//ê²©íˆ¬ê°€ ì„¸íŠ¸(ì—¬)
+//°ÝÅõ°¡ ¼¼Æ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXFMARTIAL01	0
 {
 	II_ARM_F_CHR_MARTIAL01HAT	        0       1
@@ -2089,7 +2089,7 @@ PackItem	II_SYS_SYS_SCR_BXFMARTIAL01	0
 	II_ARM_F_CHR_MARTIAL01SHOES	        0       1
 }
 
-//ì•¼êµ¬ë³µ ì„¸íŠ¸(ë‚¨)
+//¾ß±¸º¹ ¼¼Æ®(³²)
 PackItem	II_SYS_SYS_SCR_BXMBASEBALL01	0
 {
 	II_ARM_M_CHR_BASEBALL01HAT	        0       1
@@ -2098,7 +2098,7 @@ PackItem	II_SYS_SYS_SCR_BXMBASEBALL01	0
 	II_ARM_M_CHR_BASEBALL01SHOES	        0       1
 }
 
-//ì•¼êµ¬ë³µ ì„¸íŠ¸(ì—¬)
+//¾ß±¸º¹ ¼¼Æ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXFBASEBALL01	0
 {
 	II_ARM_F_CHR_BASEBALL01HAT	        0       1
@@ -2107,7 +2107,7 @@ PackItem	II_SYS_SYS_SCR_BXFBASEBALL01	0
 	II_ARM_F_CHR_BASEBALL01SHOES	        0       1
 }
 
-//ì¿µí‘¸ ì„¸íŠ¸(ë‚¨)
+//ÄôÇª ¼¼Æ®(³²)
 PackItem	II_SYS_SYS_SCR_BXMKUNGFU01	0
 {
 	II_ARM_M_CHR_KUNGFU01HAT	        0       1
@@ -2116,7 +2116,7 @@ PackItem	II_SYS_SYS_SCR_BXMKUNGFU01	0
 	II_ARM_M_CHR_KUNGFU01SHOES	        0       1
 }
 
-//ì¿µí‘¸ ì„¸íŠ¸(ì—¬)
+//ÄôÇª ¼¼Æ®(¿©)
 PackItem	II_SYS_SYS_SCR_BXFKUNGFU01	0
 {
 	II_ARM_F_CHR_KUNGFU01HAT	        0       1
@@ -3111,7 +3111,7 @@ PackItem	II_SYS_SYS_SCR_BXFITA02		43200
 	II_ARM_S_CLO_FITA			0       1
 }
 
-//ë¬´ì—íƒ€ì´ ì˜ìƒ(ë‚¨)(7ì¼)
+//¹«¿¡Å¸ÀÌ ÀÇ»ó(³²)(7ÀÏ)
 PackItem	II_SYS_SYS_SCR_BXMMUAYTHAI01_7 	10080
 {
 	II_ARM_M_CHR_MUAYTHAI01HAT		0	1
@@ -3120,7 +3120,7 @@ PackItem	II_SYS_SYS_SCR_BXMMUAYTHAI01_7 	10080
 	II_ARM_M_CHR_MUAYTHAI01SHOES		0	1
 }
 
-//ë¬´ì—íƒ€ì´ ì˜ìƒ(ì—¬)(7ì¼)
+//¹«¿¡Å¸ÀÌ ÀÇ»ó(¿©)(7ÀÏ)
 PackItem	II_SYS_SYS_SCR_BXFMUAYTHAI01_7 	10080
 {
 	II_ARM_F_CHR_MUAYTHAI01HAT		0	1
@@ -3421,7 +3421,7 @@ PackItem	II_SYS_SYS_SCR_BXFKOREAN04	0
 	II_ARM_F_CHR_KOREAN04SHOES	 	0       1
 }
 
-//ë“œëž˜ê³¤ë³¼ - ë‚¨
+//µå·¡°ïº¼ - ³²
 PackItem	II_SYS_SYS_SCR_BXMCHINESE01	0
 {
 	II_ARM_M_CHR_CHINESE01HAT		0	1
@@ -3430,7 +3430,7 @@ PackItem	II_SYS_SYS_SCR_BXMCHINESE01	0
 	II_ARM_M_CHR_CHINESE01SHOES		0	1
 }
 
-//ì„¹ì‹œì¹˜íŒŒì˜¤ - ì—¬
+//¼½½ÃÄ¡ÆÄ¿À - ¿©
 PackItem	II_SYS_SYS_SCR_BXFMARTIALART01	0
 {
 	II_ARM_F_CHR_MARTIALART01HAT		0	1
@@ -3712,7 +3712,7 @@ PackItem	II_SYS_SYS_SCR_BXITEMMANIA2			0
 	II_SYS_TICKET_CISLAND01						0	1	
 }
 
-PackItem	II_SYS_SYS_SCR_BXREDEUSSEON			0     //ë ˆë“œì¬ì˜ ì„ ë¬¼ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXREDEUSSEON			0     //·¹µå½ãÀÇ ¼±¹° »óÀÚ
 {				
 	II_SYS_SYS_SCR_AMPES_LINK						0	7
 	II_SYS_SYS_SCR_BX_PET_AIBATT15					0	1
@@ -3722,7 +3722,7 @@ PackItem	II_SYS_SYS_SCR_BXREDEUSSEON			0     //ë ˆë“œì¬ì˜ ì„ ë¬¼ ìƒìž
 
 }
 
-PackItem	II_SYS_SYS_SCR_BXMIRE				0     //ë¯¸ë ˆì˜ ì„ ë¬¼ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXMIRE				0     //¹Ì·¹ÀÇ ¼±¹° »óÀÚ
 {				
 	II_SYS_SYS_SCR_AMPES_LINK						0	10
 	II_SYS_SYS_SCR_BX_PET_AIBATT15					0	1
@@ -3731,7 +3731,7 @@ PackItem	II_SYS_SYS_SCR_BXMIRE				0     //ë¯¸ë ˆì˜ ì„ ë¬¼ ìƒìž
 	II_SYS_SYS_EVE_FUN01		      					0        10
 }
 
-PackItem	II_SYS_SYS_SCR_BXAHINDEU			0     //ì•„ì¸ë“œì˜ ì„ ë¬¼ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXAHINDEU			0     //¾ÆÀÎµåÀÇ ¼±¹° »óÀÚ
 {				
 	II_SYS_SYS_SCR_AMPES_LINK						0	15
 	II_PET_SHEEP									0	1
@@ -3740,7 +3740,7 @@ PackItem	II_SYS_SYS_SCR_BXAHINDEU			0     //ì•„ì¸ë“œì˜ ì„ ë¬¼ ìƒìž
 	II_SYS_SYS_EVE_FUN01		      					0        15
 }
 
-PackItem	II_SYS_SYS_SCR_BXMYORANG			0     //ë¬˜ëž‘ì˜ ì„ ë¬¼ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXMYORANG			0     //¹¦¶ûÀÇ ¼±¹° »óÀÚ
 {				
 	II_SYS_SYS_EVE_BALLOON02_01					0	5
 	II_SYS_SYS_EVE_BALLOON_01						0	5
@@ -3751,35 +3751,35 @@ PackItem	II_SYS_SYS_SCR_BXMYORANG			0     //ë¬˜ëž‘ì˜ ì„ ë¬¼ ìƒìž
 	II_PET_EGG		      							0        1
 }
 
-PackItem	II_SYS_SYS_SCR_BXGEOMSEOL			0     //ê²€ì„¤ì˜ ì„ ë¬¼
+PackItem	II_SYS_SYS_SCR_BXGEOMSEOL			0     //°Ë¼³ÀÇ ¼±¹°
 {				
 	II_WEA_SWO_SUHO1					0	1
 	II_WEA_AXE_SUHO1						0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_BXJUMONG			0     //ì£¼ëª½ì˜ ì„ ë¬¼
+PackItem	II_SYS_SYS_SCR_BXJUMONG			0     //ÁÖ¸ùÀÇ ¼±¹°
 {				
 	II_WEA_BOW_SUHO1					0	1
 	II_WEA_YOY_SUHO1						0	1
 	      					
 }
 
-PackItem	II_SYS_SYS_SCR_BXSAGE			0     //í˜„ìžì˜ ì„ ë¬¼
+PackItem	II_SYS_SYS_SCR_BXSAGE			0     //ÇöÀÚÀÇ ¼±¹°
 {				
 	II_WEA_CHE_SUHO1						0	1
 	II_WEA_KNU_SUHO1						0	1
 	
 }
 
-PackItem	II_SYS_SYS_SCR_BXHARRY			0     //í•´ë¦¬ì˜ ì„ ë¬¼
+PackItem	II_SYS_SYS_SCR_BXHARRY			0     //ÇØ¸®ÀÇ ¼±¹°
 {				
 	II_WEA_STA_SUHO1						0	1
 	II_WEA_WAN_SUHO1					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_BXGEOMSEOL1			0     //ê²€ì„¤ì˜ ë°©ì–´êµ¬ ìƒìž(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXGEOMSEOL1			0     //°Ë¼³ÀÇ ¹æ¾î±¸ »óÀÚ(³²)
 
 {				
 	II_ARM_M_BLA_SUIT05						0	1
@@ -3789,7 +3789,7 @@ PackItem	II_SYS_SYS_SCR_BXGEOMSEOL1			0     //ê²€ì„¤ì˜ ë°©ì–´êµ¬ ìƒìž(ë‚¨)
 
 }
 
-PackItem		II_SYS_SYS_SCR_BXHARRY1		0     //í•´ë¦¬ì˜ ë°©ì–´êµ¬ ìƒìž(ë‚¨)
+PackItem		II_SYS_SYS_SCR_BXHARRY1		0     //ÇØ¸®ÀÇ ¹æ¾î±¸ »óÀÚ(³²)
 
 {				
 	II_ARM_M_ELE_SUIT05					0	1
@@ -3799,7 +3799,7 @@ PackItem		II_SYS_SYS_SCR_BXHARRY1		0     //í•´ë¦¬ì˜ ë°©ì–´êµ¬ ìƒìž(ë‚¨)
 	      					
 }
 
-PackItem	II_SYS_SYS_SCR_BXSAGE1			0     //í˜„ìžì˜ ë°©ì–´êµ¬ ìƒìž(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXSAGE1			0     //ÇöÀÚÀÇ ¹æ¾î±¸ »óÀÚ(³²)
 
 {				
 	II_ARM_M_RIN_BOOTS05					0	1
@@ -3809,7 +3809,7 @@ PackItem	II_SYS_SYS_SCR_BXSAGE1			0     //í˜„ìžì˜ ë°©ì–´êµ¬ ìƒìž(ë‚¨)
 	
 }
 
-PackItem		II_SYS_SYS_SCR_BXJUMONG1		0     //ì£¼ëª½ì˜ ë°©ì–´êµ¬ ìƒìž(ë‚¨)   
+PackItem		II_SYS_SYS_SCR_BXJUMONG1		0     //ÁÖ¸ùÀÇ ¹æ¾î±¸ »óÀÚ(³²)   
 
 {				
 	II_ARM_M_RAG_HELMET05					0	1
@@ -3819,7 +3819,7 @@ PackItem		II_SYS_SYS_SCR_BXJUMONG1		0     //ì£¼ëª½ì˜ ë°©ì–´êµ¬ ìƒìž(ë‚¨)
 
 }
 
-PackItem	II_SYS_SYS_SCR_BXGEOMSEOL2			0     //ê²€ì„¤ì˜ ë°©ì–´êµ¬ ìƒìž(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXGEOMSEOL2			0     //°Ë¼³ÀÇ ¹æ¾î±¸ »óÀÚ(¿©)
 
 {				
 	II_ARM_F_BLA_SUIT05						0	1
@@ -3829,7 +3829,7 @@ PackItem	II_SYS_SYS_SCR_BXGEOMSEOL2			0     //ê²€ì„¤ì˜ ë°©ì–´êµ¬ ìƒìž(ì—¬)
 
 }
 
-PackItem		II_SYS_SYS_SCR_BXHARRY2		0     //í•´ë¦¬ì˜ ë°©ì–´êµ¬ ìƒìž(ì—¬)
+PackItem		II_SYS_SYS_SCR_BXHARRY2		0     //ÇØ¸®ÀÇ ¹æ¾î±¸ »óÀÚ(¿©)
 
 {				
 	II_ARM_F_ELE_SUIT05					0	1
@@ -3839,7 +3839,7 @@ PackItem		II_SYS_SYS_SCR_BXHARRY2		0     //í•´ë¦¬ì˜ ë°©ì–´êµ¬ ìƒìž(ì—¬)
 	      					
 }
 
-PackItem	II_SYS_SYS_SCR_BXSAGE2			0     //í˜„ìžì˜ ë°©ì–´êµ¬ ìƒìž(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXSAGE2			0     //ÇöÀÚÀÇ ¹æ¾î±¸ »óÀÚ(¿©)
 
 {				
 	II_ARM_F_RIN_BOOTS05					0	1
@@ -3849,7 +3849,7 @@ PackItem	II_SYS_SYS_SCR_BXSAGE2			0     //í˜„ìžì˜ ë°©ì–´êµ¬ ìƒìž(ì—¬)
 	
 }
 
-PackItem	II_SYS_SYS_SCR_BXJUMONG2			0     //ì£¼ëª½ì˜ ë°©ì–´êµ¬ ìƒìž(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXJUMONG2			0     //ÁÖ¸ùÀÇ ¹æ¾î±¸ »óÀÚ(¿©)
 
 {				
 	II_ARM_F_RAG_HELMET05					0	1
@@ -3858,223 +3858,223 @@ PackItem	II_SYS_SYS_SCR_BXJUMONG2			0     //ì£¼ëª½ì˜ ë°©ì–´êµ¬ ìƒìž(ì—¬)
 	II_ARM_F_RAG_BOOTS05					0	1
 }
 
-PackItem	II_SYS_SYS_SCR_BXWINGGOODLUCK			0     //í–‰ìš´ì˜ ë‚ ê°œ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXWINGGOODLUCK			0     //Çà¿îÀÇ ³¯°³ »óÀÚ
 
 {				
 	II_SYS_SYS_SCR_BXWINGCOURAGE					0	1
 	II_SYS_SYS_SCR_BXPIERCINGLUCK					0	1
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXSTR7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž 7ì¼ ì‹œìž‘
+PackItem	II_SYS_SYS_SCR_LV2_BXSTR7			0     //2·¹º§ ºñ½º »óÀÚ 7ÀÏ ½ÃÀÛ
 
 {				
 	II_SYS_VIS_LV2_STR7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXDEX7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXDEX7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_DEX7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXINT7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXINT7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_INT7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXSTA7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXSTA7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_STA7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXDMG7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXDMG7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_DMG7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXSPELLRATE7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXSPELLRATE7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_SPELLRATE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXCRIRATE7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXCRIRATE7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_CRIRATE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXBLOMELEE7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXBLOMELEE7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_BLOMELEE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXBLRANGE7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXBLRANGE7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_BLRANGE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXCRITICAL7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXCRITICAL7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_CRITICAL7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXCRIBONUS7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXCRIBONUS7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_CRIBONUS7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXSPEED7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXSPEED7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_SPEED7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXHITRATE7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXHITRATE7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_HITRATE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXATKSPEED7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXATKSPEED7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_ATKSPEED7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXATKPOWER7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXATKPOWER7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_ATKPOWER7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXADJDEF7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXADJDEF7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_ADJDEF7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXADDMAGIC7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXADDMAGIC7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_ADDMAGIC7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXPARRY7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXPARRY7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_PARRY7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXHPMAX7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXHPMAX7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_HPMAX7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXKILLHP7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV2_BXKILLHP7			0     //2·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV2_KILLHP7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV2_BXMONSTERDMG7			0     //2ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼ ë
+PackItem	II_SYS_SYS_SCR_LV2_BXMONSTERDMG7			0     //2·¹º§ ºñ½º »óÀÚ7ÀÏ ³¡
 
 {				
 	II_SYS_VIS_LV2_MONSTERDMG7					0	1
 
 }
-PackItem	II_SYS_SYS_SCR_LV3_BXWARRIOR7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼ ì‹œìž‘
+PackItem	II_SYS_SYS_SCR_LV3_BXWARRIOR7			0     //3·¹º§ ºñ½º »óÀÚ7ÀÏ ½ÃÀÛ
 
 {				
 	II_SYS_VIS_LV3_WARRIOR7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV3_BXKNIGHT7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼
+PackItem	II_SYS_SYS_SCR_LV3_BXKNIGHT7			0     //3·¹º§ ºñ½º »óÀÚ7ÀÏ
 
 {				
 	II_SYS_VIS_LV3_KNIGHT7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV3_BXBUBBLE7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼
+PackItem	II_SYS_SYS_SCR_LV3_BXBUBBLE7			0     //3·¹º§ ºñ½º »óÀÚ7ÀÏ
 
 {				
 	II_SYS_VIS_LV3_BUBBLE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV3_BXIBLIS7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼
+PackItem	II_SYS_SYS_SCR_LV3_BXIBLIS7			0     //3·¹º§ ºñ½º »óÀÚ7ÀÏ
 
 {				
 	II_SYS_VIS_LV3_SHADE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV3_BXSHADE7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼ ë
+PackItem	II_SYS_SYS_SCR_LV3_BXSHADE7			0     //3·¹º§ ºñ½º »óÀÚ7ÀÏ ³¡
 
 {				
 	II_SYS_VIS_LV3_IBLIS7					0	1
 
 }
 
-//PackItem	II_SYS_SYS_SCR_LV3_BXWARRIOR7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž30ì¼ ì‹œìž‘
+//PackItem	II_SYS_SYS_SCR_LV3_BXWARRIOR7			0     //3·¹º§ ºñ½º »óÀÚ30ÀÏ ½ÃÀÛ
 
 {				
 	II_SYS_VIS_LV3_WARRIOR30					0	1
 
 }
 
-//PackItem	II_SYS_SYS_SCR_LV3_BXKNIGHT7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž30ì¼
+//PackItem	II_SYS_SYS_SCR_LV3_BXKNIGHT7			0     //3·¹º§ ºñ½º »óÀÚ30ÀÏ
 
 {				
 	II_SYS_VIS_LV3_KNIGHT30					0	1
 
 }
 
-//PackItem	II_SYS_SYS_SCR_LV3_BXBUBBLE7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž30ì¼
+//PackItem	II_SYS_SYS_SCR_LV3_BXBUBBLE7			0     //3·¹º§ ºñ½º »óÀÚ30ÀÏ
 
 {				
 	II_SYS_VIS_LV3_BUBBLE30					0	1
 
 }
 
-//PackItem	II_SYS_SYS_SCR_LV3_BXIBLIS7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž30ì¼
+//PackItem	II_SYS_SYS_SCR_LV3_BXIBLIS7			0     //3·¹º§ ºñ½º »óÀÚ30ÀÏ
 
 {				
 	II_SYS_VIS_LV3_IBLIS30					0	1
 
 }
 
-//PackItem	II_SYS_SYS_SCR_LV3_BXSHADE7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž30ì¼ ë
+//PackItem	II_SYS_SYS_SCR_LV3_BXSHADE7			0     //3·¹º§ ºñ½º »óÀÚ30ÀÏ ³¡
 
 {				
 	II_SYS_VIS_LV3_SHADE30					0	1
@@ -4082,140 +4082,140 @@ PackItem	II_SYS_SYS_SCR_LV3_BXSHADE7			0     //3ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼ ë
 }
 
 
-PackItem	II_SYS_SYS_SCR_LV1_BXSTR7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž ì‹œìž‘
+PackItem	II_SYS_SYS_SCR_LV1_BXSTR7			0     //1·¹º§ ºñ½º »óÀÚ ½ÃÀÛ
 
 {				
 	II_SYS_VIS_LV1_STR7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXDEX7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXDEX7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_DEX7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXINT7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXINT7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_INT7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXSTA7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXSTA7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_STA7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXDMG7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXDMG7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_DMG7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXSPELLRATE7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXSPELLRATE7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_SPELLRATE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXCRIRATE7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXCRIRATE7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_CRIRATE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXBLOMELEE7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXBLOMELEE7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_BLOMELEE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXBLRANGE7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXBLRANGE7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_BLRANGE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXCRITICAL7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXCRITICAL7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_CRITICAL7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXSPEED7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXSPEED7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_SPEED7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXHITRATE7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXHITRATE7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_HITRATE7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXATKSPEED7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXATKSPEED7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_ATKSPEED7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXATKPOWER7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXATKPOWER7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_ATKPOWER7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXADJDEF7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXADJDEF7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_ADJDEF7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXADDMAGIC7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXADDMAGIC7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_ADDMAGIC7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXPARRY7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_LV1_BXPARRY7			0     //1·¹º§ ºñ½º »óÀÚ
 
 {				
 	II_SYS_VIS_LV1_PARRY7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXHPMAX7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼ 
+PackItem	II_SYS_SYS_SCR_LV1_BXHPMAX7			0     //1·¹º§ ºñ½º »óÀÚ7ÀÏ 
 
 {				
 	II_SYS_VIS_LV1_HPMAX7					0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_LV1_BXKILLHP7			0     //1ë ˆë²¨ ë¹„ìŠ¤ ìƒìž7ì¼ ë
+PackItem	II_SYS_SYS_SCR_LV1_BXKILLHP7			0     //1·¹º§ ºñ½º »óÀÚ7ÀÏ ³¡
 
 {				
 	II_SYS_VIS_LV1_KILLHP7					0	1
 
 }
 
-PackItem	II_SYS_SYS_EVE_BXFIRECRACKER01	0		//ë…ì¼ í†µì¼ ê¸°ë… ë¶ˆê½ƒ ë†€ì´ ìƒìž
+PackItem	II_SYS_SYS_EVE_BXFIRECRACKER01	0		//µ¶ÀÏ ÅëÀÏ ±â³ä ºÒ²É ³îÀÌ »óÀÚ
 {
 	II_GEN_MAG_TRI_HWFIREWORKS	0	1
 	II_CHR_MAG_TRI_TWISTERBOMB	0	1
@@ -4225,28 +4225,28 @@ PackItem	II_SYS_SYS_EVE_BXFIRECRACKER01	0		//ë…ì¼ í†µì¼ ê¸°ë… ë¶ˆê½ƒ ë†€ì´ 
 	II_GEN_MAG_TRI_GOODBYEBOMB	0	1
 }
 
-PackItem	II_SYS_SYS_SCR_BXMZOMBIE	0		// í• ë¡œìœˆ ì¢€ë¹„ ì˜ìƒ(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXMZOMBIE	0		// ÇÒ·ÎÀ© Á»ºñ ÀÇ»ó(³²)
 {
 	II_ARM_M_CLO_ZOMBIEHAT	0	1
 	II_ARM_M_CLO_ZOMBIESUIT	0	1
 	II_ARM_M_CLO_ZOMBIEGLOVES	0	1
 	II_ARM_M_CLO_ZOMBIESHOES	0	1
 }
-PackItem	II_SYS_SYS_SCR_BXFZOMBIE	0		// í• ë¡œìœˆ ì¢€ë¹„ ì˜ìƒ(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFZOMBIE	0		// ÇÒ·ÎÀ© Á»ºñ ÀÇ»ó(¿©)
 {
 	II_ARM_F_CLO_ZOMBIEHAT	0	1
 	II_ARM_F_CLO_ZOMBIESUIT	0	1
 	II_ARM_F_CLO_ZOMBIEGLOVES	0	1
 	II_ARM_F_CLO_ZOMBIESHOES	0	1
 }
-PackItem	II_SYS_SYS_SCR_BXMZOMBIE01	10080		// í• ë¡œìœˆ ì¢€ë¹„ ì˜ìƒ(ë‚¨) 7ì¼
+PackItem	II_SYS_SYS_SCR_BXMZOMBIE01	10080		// ÇÒ·ÎÀ© Á»ºñ ÀÇ»ó(³²) 7ÀÏ
 {
 	II_ARM_M_CLO_ZOMBIEHAT	0	1
 	II_ARM_M_CLO_ZOMBIESUIT	0	1
 	II_ARM_M_CLO_ZOMBIEGLOVES	0	1
 	II_ARM_M_CLO_ZOMBIESHOES	0	1
 }
-PackItem	II_SYS_SYS_SCR_BXFZOMBIE01	10080		// í• ë¡œìœˆ ì¢€ë¹„ ì˜ìƒ(ì—¬) 7ì¼
+PackItem	II_SYS_SYS_SCR_BXFZOMBIE01	10080		// ÇÒ·ÎÀ© Á»ºñ ÀÇ»ó(¿©) 7ÀÏ
 {
 	II_ARM_F_CLO_ZOMBIEHAT	0	1
 	II_ARM_F_CLO_ZOMBIESUIT	0	1
@@ -4254,33 +4254,33 @@ PackItem	II_SYS_SYS_SCR_BXFZOMBIE01	10080		// í• ë¡œìœˆ ì¢€ë¹„ ì˜ìƒ(ì—¬) 7ì¼
 	II_ARM_F_CLO_ZOMBIESHOES	0	1
 }
 
-PackItem	II_SYS_SYS_SCR_LV3_BXKILLHP7	10080		// í¡í˜ˆ ë¹„ìŠ¤ 3ë ˆë²¨ 7ì¼
+PackItem	II_SYS_SYS_SCR_LV3_BXKILLHP7	10080		// ÈíÇ÷ ºñ½º 3·¹º§ 7ÀÏ
 {
 	II_SYS_VIS_LV3_KILLHP7	0	1
 
 }
 
-PackItem	II_SYS_SYS_SCR_BXMZOMBIEWORI	10080		// ë¦¬í‹€ì¢€ë¹„ìš°ë¦¬7ì¼
+PackItem	II_SYS_SYS_SCR_BXMZOMBIEWORI	10080		// ¸®Æ²Á»ºñ¿ì¸®7ÀÏ
 {
 	II_PET_LITTLEZOMBIE	0	1
 
 }
-PackItem	II_SYS_SYS_SCR_BXSMELPROT	0		// ì¼ë°˜ ë³´í˜¸ì˜ íŒ¨í‚¤ì§€
+PackItem	II_SYS_SYS_SCR_BXSMELPROT	0		// ÀÏ¹Ý º¸È£ÀÇ ÆÐÅ°Áö
 {
 	II_SYS_SYS_SCR_SMELPROT		0	50
 	II_GEN_MAT_ORICHALCUM01		0	60
 }
-PackItem	II_SYS_SYS_SCR_BXACCSMELPROT	0		// ì•¡ì„¸ì„œë¦¬ ì œë ¨ì˜ íŒ¨í‚¤ì§€
+PackItem	II_SYS_SYS_SCR_BXACCSMELPROT	0		// ¾×¼¼¼­¸® Á¦·ÃÀÇ ÆÐÅ°Áö
 {
 	II_SYS_SYS_SCR_SMELPROT4	0	50
 	II_GEN_MAT_MOONSTONE		0	60
 }
-PackItem	II_SYS_SYS_SCR_BXSPSMELPROT	0		// ìµœìƒê¸‰ ë³´í˜¸ì˜ íŒ¨í‚¤ì§€
+PackItem	II_SYS_SYS_SCR_BXSPSMELPROT	0		// ÃÖ»ó±Þ º¸È£ÀÇ ÆÐÅ°Áö
 {
 	II_SYS_SYS_SCR_SMELPROT3	0	50
 	II_GEN_MAT_ORICHALCUM02		0	60
 }
-PackItem	II_SYS_SYS_SCR_BXMDRAKSHADE		0		// ë‹¤í¬ì‰ì´ë“œ ì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXMDRAKSHADE		0		// ´ÙÅ©½¦ÀÌµå ¼¼Æ®(³²)
 {
 	II_ARM_M_DV_MSUIT			0	1
 	II_ARM_M_DV_MHELMET			0	1
@@ -4288,7 +4288,7 @@ PackItem	II_SYS_SYS_SCR_BXMDRAKSHADE		0		// ë‹¤í¬ì‰ì´ë“œ ì„¸íŠ¸(ë‚¨)
 	II_ARM_M_DV_MBOOTS			0	1
 
 }
-PackItem	II_SYS_SYS_SCR_BXFDRAKSHADE		0		// ë‹¤í¬ì‰ì´ë“œ ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFDRAKSHADE		0		// ´ÙÅ©½¦ÀÌµå ¼¼Æ®(¿©)
 {
 	II_ARM_M_DV_FSUIT			0	1
 	II_ARM_M_DV_FHELMET			0	1
@@ -4296,7 +4296,7 @@ PackItem	II_SYS_SYS_SCR_BXFDRAKSHADE		0		// ë‹¤í¬ì‰ì´ë“œ ì„¸íŠ¸(ì—¬)
 	II_ARM_M_DV_FBOOTS			0	1
 
 }
-PackItem	II_SYS_SYS_SCR_BXMHOLYBUBBLE		0		// í™€ë¦¬ë²„ë¸” ì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXMHOLYBUBBLE		0		// È¦¸®¹öºí ¼¼Æ®(³²)
 {
 	II_ARM_M_AG_MSUIT			0	1
 	II_ARM_M_AG_MHELMET			0	1
@@ -4304,7 +4304,7 @@ PackItem	II_SYS_SYS_SCR_BXMHOLYBUBBLE		0		// í™€ë¦¬ë²„ë¸” ì„¸íŠ¸(ë‚¨)
 	II_ARM_M_AG_MBOOTS			0	1
 
 }
-PackItem	II_SYS_SYS_SCR_BXFHOLYBUBBLE		0		// í™€ë¦¬ë²„ë¸” ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFHOLYBUBBLE		0		// È¦¸®¹öºí ¼¼Æ®(¿©)
 {
 	II_ARM_M_AG_FSUIT			0	1
 	II_ARM_M_AG_FHELMET			0	1
@@ -4312,7 +4312,7 @@ PackItem	II_SYS_SYS_SCR_BXFHOLYBUBBLE		0		// í™€ë¦¬ë²„ë¸” ì„¸íŠ¸(ì—¬)
 	II_ARM_M_AG_FBOOTS			0	1
 
 }
-PackItem	II_SYS_SYS_SCR_BXCHANLLENGE		0		// ëŸ¬ì‹œì•„ ì±Œë¦°ì§€ íŒ©
+PackItem	II_SYS_SYS_SCR_BXCHANLLENGE		0		// ·¯½Ã¾Æ Ã§¸°Áö ÆÑ
 {
 	II_SYS_TICKET_CISLAND01			0	3
 	II_SYS_SYS_SCR_AMPESA			0	1
@@ -4322,25 +4322,25 @@ PackItem	II_SYS_SYS_SCR_BXCHANLLENGE		0		// ëŸ¬ì‹œì•„ ì±Œë¦°ì§€ íŒ©
 	II_SYS_SYS_SCR_RESURRECTION		0	5
 	II_SYS_SYS_SCR_BXLOWACCORD30	0	1
 }
-PackItem	II_SYS_SYS_SCR_BXLOWACCORD30		43200		// í•˜ê¸‰ ì¡°í™”ì˜ ë§í†  30ì¼
+PackItem	II_SYS_SYS_SCR_BXLOWACCORD30		43200		// ÇÏ±Þ Á¶È­ÀÇ ¸ÁÅä 30ÀÏ
 {
 	II_CHR_S_CLO_CLO_LOWACCORD		0	1
 }
-PackItem	II_SYS_SYS_SCR_BXMROVER		0		//	ë°©ëž‘ìž ì„ ë¬¼ ìƒìž(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXMROVER		0		//	¹æ¶ûÀÚ ¼±¹° »óÀÚ(³²)
 {
 	II_CHR_SYS_SCR_UPCUTSTONE			0	2
 	II_SYS_SYS_SCR_AMPESS				0	2
 	II_SYS_SYS_SCR_BX_PET_AIBATT30		0	1
 	II_SYS_SYS_SCR_BXMBLUE01			0	1	
 }
-PackItem	II_SYS_SYS_SCR_BXFROVER		0		// ë°©ëž‘ìž ì„ ë¬¼ ìƒìž(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFROVER		0		// ¹æ¶ûÀÚ ¼±¹° »óÀÚ(¿©)
 {
 	II_CHR_SYS_SCR_UPCUTSTONE			0	2
 	II_SYS_SYS_SCR_AMPESS				0	2
 	II_SYS_SYS_SCR_BX_PET_AIBATT30		0	1
 	II_SYS_SYS_SCR_BXFBLUE01		0	1
 }
-PackItem	II_SYS_SYS_SCR_BXCHRISTMAS01		0		// ì¼ë³¸ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ìŠ¤íŽ˜ì…œ íŒ¨í‚¤ì§€
+PackItem	II_SYS_SYS_SCR_BXCHRISTMAS01		0		// ÀÏº» Å©¸®½º¸¶½º ½ºÆä¼È ÆÐÅ°Áö
 {
 	II_SYS_SYS_SCR_BXCHRISTMAS02	0	1
 	II_SYS_SYS_SCR_PET_MAGIC		0	1
@@ -4349,7 +4349,7 @@ PackItem	II_SYS_SYS_SCR_BXCHRISTMAS01		0		// ì¼ë³¸ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ìŠ¤íŽ˜ì…œ íŒ
 	II_SYS_VIS_LV2_ATKPOWER			0	11
 	II_SYS_VIS_LV3_WARRIOR			0	1
 }
-PackItem	II_SYS_SYS_SCR_BXEUROCHRISTMAS		0		// ìœ ëŸ½ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXEUROCHRISTMAS		0		// À¯·´ Å©¸®½º¸¶½º »óÀÚ
 {
 	II_RID_RID_BOR_LADOLF			0	1
 	II_SYS_SYS_GM_DIS_SANTA			0	1
@@ -4357,21 +4357,21 @@ PackItem	II_SYS_SYS_SCR_BXEUROCHRISTMAS		0		// ìœ ëŸ½ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ìƒìž
 	II_SYS_SYS_EVE_GINGERBRADE01	0	5
 
 }
-PackItem	II_SYS_SYS_SCR_BXMCHRISTMAS		0		//  ë‚¨ìž í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì˜ìƒ ì„¸íŠ¸
+PackItem	II_SYS_SYS_SCR_BXMCHRISTMAS		0		//  ³²ÀÚ Å©¸®½º¸¶½º ÀÇ»ó ¼¼Æ®
 {
 	II_ARM_M_CHRISMASMSUIT			0	1
 	II_ARM_M_CHRISMASMHELMET		0	1
 	II_ARM_M_CHRISMASMGAUNTLET		0	1
 	II_ARM_M_CHRISMASMBOOTS			0	1
 }
-PackItem	II_SYS_SYS_SCR_BXFCHRISTMAS		0		//  ì—¬ìž í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì˜ìƒ ì„¸íŠ¸
+PackItem	II_SYS_SYS_SCR_BXFCHRISTMAS		0		//  ¿©ÀÚ Å©¸®½º¸¶½º ÀÇ»ó ¼¼Æ®
 {
 	II_ARM_F_CHRISMASFSUIT			0	1
 	II_ARM_F_CHRISMASFHELMET		0	1
 	II_ARM_F_CHRISMASFGAUNTLET		0	1
 	II_ARM_F_CHRISMASFBOOTS			0	1
 }
-PackItem	II_SYS_SYS_EVE_BXFIRECRACKER02	1440		//ìœ ëŸ½ ìƒˆí•´ ì´ë²¤íŠ¸ ë¶ˆê½ƒ ë†€ì´ ìƒìž
+PackItem	II_SYS_SYS_EVE_BXFIRECRACKER02	1440		//À¯·´ »õÇØ ÀÌº¥Æ® ºÒ²É ³îÀÌ »óÀÚ
 {
 	II_GEN_MAG_TRI_HWFIREWORKS	0	1
 	II_CHR_MAG_TRI_TWISTERBOMB	0	1
@@ -4380,30 +4380,30 @@ PackItem	II_SYS_SYS_EVE_BXFIRECRACKER02	1440		//ìœ ëŸ½ ìƒˆí•´ ì´ë²¤íŠ¸ ë¶ˆê½ƒ ë
 	II_GEN_MAG_TRI_FIRESHOWER	0	1
 	II_GEN_MAG_TRI_GOODBYEBOMB	0	1
 }
-PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY01	0		//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ 1ê°œ êµí™˜
+PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY01	0		//Å©¸®½º¸¶½º Á¤·É 1°³ ±³È¯
 {
 	II_GEN_FOO_CHRISTMASGMCAKE01	0	5
 }
-PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY02	0		//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ 25ê°œ êµí™˜
+PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY02	0		//Å©¸®½º¸¶½º Á¤·É 25°³ ±³È¯
 {
 	II_GEN_FOO_CHRISTMASGMCAKE01	0	30
 	II_SYS_SYS_SCR_BXSANTA			0	5
 }
-PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY03	0		//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ 50ê°œ êµí™˜
+PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY03	0		//Å©¸®½º¸¶½º Á¤·É 50°³ ±³È¯
 {
 	II_SYS_SYS_SCR_BXSANTA			0	10
 	II_SYS_SYS_SCR_BXAWAKE01		0	3
 }
-PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY04	0		//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ 75ê°œ êµí™˜
+PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY04	0		//Å©¸®½º¸¶½º Á¤·É 75°³ ±³È¯
 {
 	II_SYS_SYS_SCR_BXAWAKE01		0	5
 	II_SYS_SYS_EVE_COMMERGIFTBOX47	0	3
 }
-PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY05	0		//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ 100ê°œ êµí™˜
+PackItem	II_SYS_SYS_SCR_BXCHRISTMASFAIRY05	0		//Å©¸®½º¸¶½º Á¤·É 100°³ ±³È¯
 {
 	II_PET_CHRISTMASFAIRY			0	1
 }
-PackItem	II_SYS_SYS_SCR_BXFLYFFPDS01	0		//í”„ë¦¬í”„ ê°œë°œíŒ€ì˜ ìŠ¤íŽ˜ì…œ ì„ ë¬¼ (ë”ë¯¸)
+PackItem	II_SYS_SYS_SCR_BXFLYFFPDS01	0		//ÇÁ¸®ÇÁ °³¹ßÆÀÀÇ ½ºÆä¼È ¼±¹° (´õ¹Ì)
 {
 	II_PET_KIMPD					0	1
 	II_GEN_FOO_COO_DDUKGUKHOT		0	2
@@ -4411,61 +4411,61 @@ PackItem	II_SYS_SYS_SCR_BXFLYFFPDS01	0		//í”„ë¦¬í”„ ê°œë°œíŒ€ì˜ ìŠ¤íŽ˜ì…œ ì„ ë¬
 	II_GEN_FOO_COO_DDUKGUKSWEET		0	2
 	II_GEN_MAG_TRI_GOODBYEBOMB		0	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODSUHO01	0		//ë§¤ì§€ì…˜ ìœ ë‹ˆí¬ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODSUHO01	0		//¸ÅÁö¼Ç À¯´ÏÅ© ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_STA_PERIODSUHO7			7	1
 	II_WEA_WAN_PERIODSUHO7			7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODSUHO02	0		//ë¨¸ì„œë„ˆë¦¬ ìœ ë‹ˆí¬ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODSUHO02	0		//¸Ó¼­³Ê¸® À¯´ÏÅ© ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_SWO_PERIODSUHO7			7	1
 	II_WEA_AXE_PERIODSUHO7			7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODSUHO03	0		//ì•„í¬ë¡œë±ƒ ìœ ë‹ˆí¬ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODSUHO03	0		//¾ÆÅ©·Î¹î À¯´ÏÅ© ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_YOY_PERIODSUHO7			7	1
 	II_WEA_BOW_PERIODSUHO7			7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODSUHO04	0		//ì–´ì‹œìŠ¤íŠ¸ ìœ ë‹ˆí¬ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODSUHO04	0		//¾î½Ã½ºÆ® À¯´ÏÅ© ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_KNU_PERIODSUHO7			7	1
 	II_WEA_CHE_PERIODSUHO7			7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODSUHO05	0		//ë§¤ì§€ì…˜ ìœ ë‹ˆí¬ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODSUHO05	0		//¸ÅÁö¼Ç À¯´ÏÅ© ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_STA_PERIODSUHO30			7	1
 	II_WEA_WAN_PERIODSUHO30			7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODSUHO06	0		//ë¨¸ì„œë„ˆë¦¬ ìœ ë‹ˆí¬ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODSUHO06	0		//¸Ó¼­³Ê¸® À¯´ÏÅ© ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_SWO_PERIODSUHO30			7	1
 	II_WEA_AXE_PERIODSUHO30			7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODSUHO07	0		//ì•„í¬ë¡œë±ƒ ìœ ë‹ˆí¬ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODSUHO07	0		//¾ÆÅ©·Î¹î À¯´ÏÅ© ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_YOY_PERIODSUHO30			7	1
 	II_WEA_BOW_PERIODSUHO30			7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODSUHO08	0		//ì–´ì‹œìŠ¤íŠ¸ ìœ ë‹ˆí¬ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODSUHO08	0		//¾î½Ã½ºÆ® À¯´ÏÅ© ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_KNU_PERIODSUHO30			7	1
 	II_WEA_CHE_PERIODSUHO30			7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXMOTERBIKE		0		//ëª¨í„°ì‚¬ì´í´ ì˜ìƒ ì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_MBXMOTERBIKE		0		//¸ðÅÍ»çÀÌÅ¬ ÀÇ»ó ¼¼Æ®(³²)
 {
 	II_ARM_M_MOTERBIKEMSUIT			0	1
 	II_ARM_M_MOTERBIKEMHELMET		0	1
 	II_ARM_M_MOTERBIKEMGAUNTLET		0	1
 	II_ARM_M_MOTERBIKEMBOOTS		0	1
 }
-PackItem	II_SYS_SYS_SCR_FBXMOTERBIKE		0		//ëª¨í„°ì‚¬ì´í´ ì˜ìƒ ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_FBXMOTERBIKE		0		//¸ðÅÍ»çÀÌÅ¬ ÀÇ»ó ¼¼Æ®(¿©)
 {
 	II_ARM_F_MOTERBIKEFSUIT			0	1
 	II_ARM_F_MOTERBIKEFHELMET		0	1
 	II_ARM_F_MOTERBIKEFGAUNTLET		0	1
 	II_ARM_F_MOTERBIKEFBOOTS		0	1
 }
-PackItem	II_SYS_SYS_SCR_MBXMILITERY		0		//ë°€ë¦¬í„°ë¦¬ ì˜ìƒ ì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_MBXMILITERY		0		//¹Ð¸®ÅÍ¸® ÀÇ»ó ¼¼Æ®(³²)
 {
 	II_ARM_M_MILITARYMSUIT			0	1
 	II_ARM_M_MILITARYMHELMET		0	1
@@ -4473,7 +4473,7 @@ PackItem	II_SYS_SYS_SCR_MBXMILITERY		0		//ë°€ë¦¬í„°ë¦¬ ì˜ìƒ ì„¸íŠ¸(ë‚¨)
 	II_ARM_M_MILITARYMBOOTS			0	1
 }
 
-PackItem	II_SYS_SYS_SCR_FBXMILITERY		0		//ë°€ë¦¬í„°ë¦¬ ì˜ìƒ ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_FBXMILITERY		0		//¹Ð¸®ÅÍ¸® ÀÇ»ó ¼¼Æ®(¿©)
 {
 	II_ARM_F_MILITARYFSUIT			0	1
 	II_ARM_F_MILITARYFHELMET		0	1
@@ -4481,25 +4481,25 @@ PackItem	II_SYS_SYS_SCR_FBXMILITERY		0		//ë°€ë¦¬í„°ë¦¬ ì˜ìƒ ì„¸íŠ¸(ì—¬)
 	II_ARM_F_MILITARYFBOOTS			0	1
 }
 
-PackItem	II_SYS_SYS_SCR_BXREDSUN01	0		//ë ˆë“œì¬ ìƒìž(17ì°¨)
+PackItem	II_SYS_SYS_SCR_BXREDSUN01	0		//·¹µå½ã »óÀÚ(17Â÷)
 {
 	II_SYS_TICKET_KEBARAS01			0	1
 	II_SYS_SYS_SCR_BXPCZONE01		0	10
 	II_CHR_SYS_SCR_SHOUTFULL15		0	1
 	II_CHR_SYS_SCR_UPCUTSTONE		0	10
 }
-PackItem	II_SYS_SYS_SCR_BX_PET_PENGUIN01	10080	//ë¯¸êµ­ íŽ­ê·„ ìš°ë¦¬ ê·€ì†
+PackItem	II_SYS_SYS_SCR_BX_PET_PENGUIN01	10080	//¹Ì±¹ Æë±Ï ¿ì¸® ±Í¼Ó
 {
 	II_PET_PENGUIN01				0	1
 }
-PackItem	II_SYS_SYS_SCR_BXMSWEETLOOK		0	//ìŠ¤ìœ„í‹° ì˜ìƒì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXMSWEETLOOK		0	//½ºÀ§Æ¼ ÀÇ»ó¼¼Æ®(³²)
 {
 	II_ARM_M_SWEETLOOKCLOTH			0	1
 	II_ARM_M_SWEETLOOKHAT			0	1
 	II_ARM_M_SWEETLOOKGLOVE			0	1
 	II_ARM_M_SWEETLOOKSHOES			0	1
 }
-PackItem	II_SYS_SYS_SCR_BXFSWEETLOOK		0	//ìŠ¤ìœ„í‹° ì˜ìƒì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFSWEETLOOK		0	//½ºÀ§Æ¼ ÀÇ»ó¼¼Æ®(¿©)
 {
 	II_ARM_F_SWEETLOOKCLOTH			0	1
 	II_ARM_F_SWEETLOOKHAT			0	1
@@ -4507,28 +4507,28 @@ PackItem	II_SYS_SYS_SCR_BXFSWEETLOOK		0	//ìŠ¤ìœ„í‹° ì˜ìƒì„¸íŠ¸(ì—¬)
 	II_ARM_F_SWEETLOOKSHOES			0	1
 
 }
-PackItem	II_SYS_SYS_SCR_BXMDRAKSHADE07		10080		// ë‹¤í¬ì‰ì´ë“œ ì„¸íŠ¸(ë‚¨)(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXMDRAKSHADE07		10080		// ´ÙÅ©½¦ÀÌµå ¼¼Æ®(³²)(7ÀÏ)
 {
 	II_ARM_M_DV_MSUIT			0	1
 	II_ARM_M_DV_MHELMET			0	1
 	II_ARM_M_DV_MGAUNTLET		0	1
 	II_ARM_M_DV_MBOOTS			0	1
 }
-PackItem	II_SYS_SYS_SCR_BXFDRAKSHADE07		10080		// ë‹¤í¬ì‰ì´ë“œ ì„¸íŠ¸(ì—¬)(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXFDRAKSHADE07		10080		// ´ÙÅ©½¦ÀÌµå ¼¼Æ®(¿©)(7ÀÏ)
 {
 	II_ARM_M_DV_FSUIT			0	1
 	II_ARM_M_DV_FHELMET			0	1
 	II_ARM_M_DV_FGAUNTLET		0	1
 	II_ARM_M_DV_FBOOTS			0	1
 }
-PackItem	II_SYS_SYS_SCR_BXMHOLYBUBBLE07		10080		// í™€ë¦¬ë²„ë¸” ì„¸íŠ¸(ë‚¨)(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXMHOLYBUBBLE07		10080		// È¦¸®¹öºí ¼¼Æ®(³²)(7ÀÏ)
 {
 	II_ARM_M_AG_MSUIT			0	1
 	II_ARM_M_AG_MHELMET			0	1
 	II_ARM_M_AG_MGAUNTLET		0	1
 	II_ARM_M_AG_MBOOTS			0	1
 }
-PackItem	II_SYS_SYS_SCR_BXFHOLYBUBBLE07		10080		// í™€ë¦¬ë²„ë¸” ì„¸íŠ¸(ì—¬)(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXFHOLYBUBBLE07		10080		// È¦¸®¹öºí ¼¼Æ®(¿©)(7ÀÏ)
 {
 	II_ARM_M_AG_FSUIT			0	1
 	II_ARM_M_AG_FHELMET			0	1
@@ -4536,14 +4536,14 @@ PackItem	II_SYS_SYS_SCR_BXFHOLYBUBBLE07		10080		// í™€ë¦¬ë²„ë¸” ì„¸íŠ¸(ì—¬)(7ì¼
 	II_ARM_M_AG_FBOOTS			0	1
 }
 
-PackItem	II_SYS_SYS_SCR_BXMCOUPLESAMBA		0		// ì‚¼ë°” ì˜ìƒ ì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXMCOUPLESAMBA		0		// »ï¹Ù ÀÇ»ó ¼¼Æ®(³²)
 {
 	II_ARM_M_COUPLESAMBAMSUIT			0		1
 	II_ARM_M_COUPLESAMBAMHELMET			0		1
 	II_ARM_M_COUPLESAMBAMGAUNTLET		0		1
 	II_ARM_M_COUPLESAMBAMBOOTS			0		1
 }
-PackItem	II_SYS_SYS_SCR_BXFCOUPLESAMBA		0		// ì‚¼ë°” ì˜ìƒ ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFCOUPLESAMBA		0		// »ï¹Ù ÀÇ»ó ¼¼Æ®(¿©)
 {
 	II_ARM_F_COUPLESAMBAFSUIT			0		1
 	II_ARM_F_COUPLESAMBAFHELMET			0		1
@@ -4551,7 +4551,7 @@ PackItem	II_SYS_SYS_SCR_BXFCOUPLESAMBA		0		// ì‚¼ë°” ì˜ìƒ ì„¸íŠ¸(ì—¬)
 	II_ARM_F_COUPLESAMBAFBOOTS			0		1
 
 }
-PackItem	II_SYS_SYS_SCR_BXPARTYPACK		0		// ê·¹ë‹¨ìž¥ì˜ ìœ„ì—„
+PackItem	II_SYS_SYS_SCR_BXPARTYPACK		0		// ±Ø´ÜÀåÀÇ À§¾ö
 {
 	II_SYS_SYS_SCR_PARTYEXPUP02			0		1
 	II_SYS_SYS_SCR_PARTYSKILLUP02		0		1
@@ -4562,7 +4562,7 @@ PackItem	II_SYS_SYS_SCR_BXPARTYPACK		0		// ê·¹ë‹¨ìž¥ì˜ ìœ„ì—„
 	II_SYS_SYS_SCR_SELPAR				0		3
 	
 }
-PackItem	II_SYS_SYS_SCR_BXMCOLOSSEUM		0		// ì½œë¡œì„¸ì›€ ì˜ìƒ ì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_BXMCOLOSSEUM		0		// ÄÝ·Î¼¼¿ò ÀÇ»ó ¼¼Æ®(³²)
 {
 	II_ARM_M_CHR_COLOSSEUMSUIT			0		1
 	II_ARM_M_CHR_COLOSSEUMHAT			0		1
@@ -4571,7 +4571,7 @@ PackItem	II_SYS_SYS_SCR_BXMCOLOSSEUM		0		// ì½œë¡œì„¸ì›€ ì˜ìƒ ì„¸íŠ¸(ë‚¨)
 	II_ARM_S_CLO_CLO_COLOSSEUM			0		1
 
 }
-PackItem	II_SYS_SYS_SCR_BXFCOLOSSEUM		0		// ì½œë¡œì„¸ì›€ ì˜ìƒ ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFCOLOSSEUM		0		// ÄÝ·Î¼¼¿ò ÀÇ»ó ¼¼Æ®(¿©)
 {
 	II_ARM_F_CHR_COLOSSEUMSUIT			0		1
 	II_ARM_F_CHR_COLOSSEUMHAT			0		1
@@ -4579,14 +4579,14 @@ PackItem	II_SYS_SYS_SCR_BXFCOLOSSEUM		0		// ì½œë¡œì„¸ì›€ ì˜ìƒ ì„¸íŠ¸(ì—¬)
 	II_ARM_F_CHR_COLOSSEUMSHOES			0		1
 	II_ARM_S_CLO_CLO_COLOSSEUM			0		1
 }
-PackItem	II_SYS_SYS_SCR_BXFGREENFAIRY		0		// ìˆ²ì˜ ìš”ì • ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFGREENFAIRY		0		// ½£ÀÇ ¿äÁ¤ ¼¼Æ®(¿©)
 {
 	II_ARM_F_GREENFAIRYCLOTH			0		1
 	II_ARM_F_GREENFAIRYHAT				0		1
 	II_ARM_F_GREENFAIRYGLOVE			0		1
 	II_ARM_F_GREENFAIRYSHOES			0		1
 }
-PackItem	II_SYS_SYS_SCR_BXFFLOWERFAIRY		0		// ê½ƒì˜ ìš”ì • ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_BXFFLOWERFAIRY		0		// ²ÉÀÇ ¿äÁ¤ ¼¼Æ®(¿©)
 {
 	II_ARM_F_FLOWERFAIRYCLOTH			0		1
 	II_ARM_F_FLOWERFAIRYHAT				0		1
@@ -4600,106 +4600,106 @@ PackItem	II_SYS_SYS_SCR_BXEVESMELTING		0
 	II_GEN_MAT_ORICHALCUM01_1		0	1
 	II_GEN_MAT_MOONSTONE_1			0	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU01		0		// ë‚˜ì´íŠ¸ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU01		0		// ³ªÀÌÆ®ÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_SWT_PERIODUSU07		7	1
 	II_WEA_AXT_PERIODUSU07		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU02		0		// ë§¤ì§€ì…˜ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU02		0		// ¸ÅÁö¼ÇÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_STA_PERIODUSU07		7	1
 	II_WEA_WAN_PERIODUSU07		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU03		0		// ë¨¸ì„œë„ˆë¦¬ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU03		0		// ¸Ó¼­³Ê¸®ÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_SWO_PERIODUSU07		7	1
 	II_WEA_AXE_PERIODUSU07		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU04		0		// ì•„í¬ë¡œë²³ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU04		0		// ¾ÆÅ©·ÎºªÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_YOY_PERIODUSU07		7	1
 	II_WEA_BOW_PERIODUSU07		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU05		0		// ì–´ì‹œìŠ¤íŠ¸ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(7ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU05		0		// ¾î½Ã½ºÆ®ÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(7ÀÏ)
 {
 	II_WEA_KNU_PERIODUSU07		7	1
 	II_WEA_CHE_PERIODUSU07		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU06		0		// ë‚˜ì´íŠ¸ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU06		0		// ³ªÀÌÆ®ÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_SWT_PERIODUSU30		7	1
 	II_WEA_AXT_PERIODUSU30		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU07		0		// ë§¤ì§€ì…˜ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU07		0		// ¸ÅÁö¼ÇÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_STA_PERIODUSU30		7	1
 	II_WEA_WAN_PERIODUSU30		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU08		0		// ë¨¸ì„œë„ˆë¦¬ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU08		0		// ¸Ó¼­³Ê¸®ÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_SWO_PERIODUSU30		7	1
 	II_WEA_AXE_PERIODUSU30		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU09		0		// ì•„í¬ë¡œë²³ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU09		0		// ¾ÆÅ©·ÎºªÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_YOY_PERIODUSU30		7	1
 	II_WEA_BOW_PERIODUSU30		7	1
 }
-PackItem	II_SYS_SYS_SCR_BXPERIODUSU10		0		// ì–´ì‹œìŠ¤íŠ¸ì˜ ìœ ì„œ ê¹Šì€ ë¬´ê¸° ì„¸íŠ¸(30ì¼)
+PackItem	II_SYS_SYS_SCR_BXPERIODUSU10		0		// ¾î½Ã½ºÆ®ÀÇ À¯¼­ ±íÀº ¹«±â ¼¼Æ®(30ÀÏ)
 {
 	II_WEA_KNU_PERIODUSU30		7	1
 	II_WEA_CHE_PERIODUSU30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR01		0		// ë¨¸ì„œë„ˆë¦¬ì˜ ë¦¬ì½˜ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR01		0		// ¸Ó¼­³Ê¸®ÀÇ ¸®ÄÜ ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_MER_HELMET_PERIODSET07		7	1
 	II_ARM_M_MER_SUIT_PERIODSET07		7	1
 	II_ARM_M_MER_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_MER_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR02		0		// ë§¤ì§€ì…˜ì˜ ì•„ì—ìŠ¤ ì„¸íŠ¸(ë‚¨ìž)(7ì¼) 
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR02		0		// ¸ÅÁö¼ÇÀÇ ¾Æ¿¡½º ¼¼Æ®(³²ÀÚ)(7ÀÏ) 
 {
 	II_ARM_M_MAG_HELMET_PERIODSET07		7	1
 	II_ARM_M_MAG_SUIT_PERIODSET07		7	1
 	II_ARM_M_MAG_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_MAG_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR03		0		// ì–´ì‹œìŠ¤íŠ¸ì˜ ìŠˆëž€ë“œ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR03		0		// ¾î½Ã½ºÆ®ÀÇ ½´¶õµå ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_ASS_HELMET_PERIODSET07		7	1
 	II_ARM_M_ASS_SUIT_PERIODSET07		7	1
 	II_ARM_M_ASS_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_ASS_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR04		0		// ì•„í¬ë¡œë²³ì˜ ë ˆë¸Œë¡  ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR04		0		// ¾ÆÅ©·ÎºªÀÇ ·¹ºê·Ð ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_ACR_HELMET_PERIODSET07		7	1
 	II_ARM_M_ACR_SUIT_PERIODSET07		7	1
 	II_ARM_M_ACR_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_ACR_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR05		0		// ë¨¸ì„œë„ˆë¦¬ì˜ ë¦¬ì½˜ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR05		0		// ¸Ó¼­³Ê¸®ÀÇ ¸®ÄÜ ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_MER_HELMET_PERIODSET30		7	1
 	II_ARM_M_MER_SUIT_PERIODSET30		7	1
 	II_ARM_M_MER_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_MER_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR06		0		// ë§¤ì§€ì…˜ì˜ ì•„ì—ìŠ¤ ì„¸íŠ¸(ë‚¨ìž)(30ì¼) 
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR06		0		// ¸ÅÁö¼ÇÀÇ ¾Æ¿¡½º ¼¼Æ®(³²ÀÚ)(30ÀÏ) 
 {
 	II_ARM_M_MAG_HELMET_PERIODSET30		7	1
 	II_ARM_M_MAG_SUIT_PERIODSET30		7	1
 	II_ARM_M_MAG_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_MAG_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR07		0		// ì–´ì‹œìŠ¤íŠ¸ì˜ ìŠˆëž€ë“œ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR07		0		// ¾î½Ã½ºÆ®ÀÇ ½´¶õµå ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_ASS_HELMET_PERIODSET30		7	1
 	II_ARM_M_ASS_SUIT_PERIODSET30		7	1
 	II_ARM_M_ASS_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_ASS_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR08		0		// ì•„í¬ë¡œë²³ì˜ ë ˆë¸Œë¡  ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR08		0		// ¾ÆÅ©·ÎºªÀÇ ·¹ºê·Ð ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_ACR_HELMET_PERIODSET30		7	1
 	II_ARM_M_ACR_SUIT_PERIODSET30		7	1
@@ -4707,287 +4707,287 @@ PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR08		0		// ì•„í¬ë¡œë²³ì˜ ë ˆë¸Œë¡  ì„¸í
 	II_ARM_M_ACR_BOOTS_PERIODSET30		7	1
 }
 
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR01		0		// ë¨¸ì„œë„ˆë¦¬ì˜ ë¦¬ì½˜ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR01		0		// ¸Ó¼­³Ê¸®ÀÇ ¸®ÄÜ ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {	
 	II_ARM_F_MER_HELMET_PERIODSET07		7	1
 	II_ARM_F_MER_SUIT_PERIODSET07		7	1
 	II_ARM_F_MER_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_MER_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR02		0		// ë§¤ì§€ì…˜ì˜ ì•„ì—ìŠ¤ ì„¸íŠ¸(ì—¬ìž)(7ì¼) 
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR02		0		// ¸ÅÁö¼ÇÀÇ ¾Æ¿¡½º ¼¼Æ®(¿©ÀÚ)(7ÀÏ) 
 {
 	II_ARM_F_MAG_HELMET_PERIODSET07		7	1
 	II_ARM_F_MAG_SUIT_PERIODSET07		7	1
 	II_ARM_F_MAG_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_MAG_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR03		0		// ì–´ì‹œìŠ¤íŠ¸ì˜ ìŠˆëž€ë“œ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR03		0		// ¾î½Ã½ºÆ®ÀÇ ½´¶õµå ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_ASS_HELMET_PERIODSET07		7	1
 	II_ARM_F_ASS_SUIT_PERIODSET07		7	1
 	II_ARM_F_ASS_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_ASS_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR04		0		// ì•„í¬ë¡œë²³ì˜ ë ˆë¸Œë¡  ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR04		0		// ¾ÆÅ©·ÎºªÀÇ ·¹ºê·Ð ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_ACR_HELMET_PERIODSET07		7	1
 	II_ARM_F_ACR_SUIT_PERIODSET07		7	1
 	II_ARM_F_ACR_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_ACR_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR05		0		// ë¨¸ì„œë„ˆë¦¬ì˜ ë¦¬ì½˜ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR05		0		// ¸Ó¼­³Ê¸®ÀÇ ¸®ÄÜ ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_MER_HELMET_PERIODSET30		7	1
 	II_ARM_F_MER_SUIT_PERIODSET30		7	1
 	II_ARM_F_MER_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_MER_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR06		0		// ë§¤ì§€ì…˜ì˜ ì•„ì—ìŠ¤ ì„¸íŠ¸(ì—¬ìž)(30ì¼) 
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR06		0		// ¸ÅÁö¼ÇÀÇ ¾Æ¿¡½º ¼¼Æ®(¿©ÀÚ)(30ÀÏ) 
 {
 	II_ARM_F_MAG_HELMET_PERIODSET30		7	1
 	II_ARM_F_MAG_SUIT_PERIODSET30		7	1
 	II_ARM_F_MAG_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_MAG_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR07		0		// ì–´ì‹œìŠ¤íŠ¸ì˜ ìŠˆëž€ë“œ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR07		0		// ¾î½Ã½ºÆ®ÀÇ ½´¶õµå ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_ASS_HELMET_PERIODSET30		7	1
 	II_ARM_F_ASS_SUIT_PERIODSET30		7	1
 	II_ARM_F_ASS_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_ASS_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR08		0		// ì•„í¬ë¡œë²³ì˜ ë ˆë¸Œë¡  ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR08		0		// ¾ÆÅ©·ÎºªÀÇ ·¹ºê·Ð ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_ACR_HELMET_PERIODSET30		7	1
 	II_ARM_F_ACR_SUIT_PERIODSET30		7	1
 	II_ARM_F_ACR_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_ACR_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR09		0		// ë‚˜ì´íŠ¸ ì›Œí° ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR09		0		// ³ªÀÌÆ® ¿öÆù ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_KIN_HELMET_PERIODSET07		7	1
 	II_ARM_M_KIN_SUIT_PERIODSET07		7	1
 	II_ARM_M_KIN_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_KIN_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR10		0		// ë¸”ë ˆì´ë“œ ì•„ì´ë‹ˆ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR10		0		// ºí·¹ÀÌµå ¾ÆÀÌ´Ï ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_BLA_HELMET_PERIODSET07		7	1
 	II_ARM_M_BLA_SUIT_PERIODSET07		7	1
 	II_ARM_M_BLA_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_BLA_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR11		0		// ì‚¬ì´í‚¤í¼ ë¡œíŒ¡ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR11		0		// »çÀÌÅ°ÆÛ ·ÎÆÎ ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_PSY_HELMET_PERIODSET07		7	1
 	II_ARM_M_PSY_SUIT_PERIODSET07		7	1
 	II_ARM_M_PSY_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_PSY_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR12		0		// ì—˜ë¦¬ë©˜í„° ë®¤ëž€ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR12		0		// ¿¤¸®¸àÅÍ ¹Â¶õ ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_ELE_HELMET_PERIODSET07		7	1
 	II_ARM_M_ELE_SUIT_PERIODSET07		7	1
 	II_ARM_M_ELE_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_ELE_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR13		0		// ë¹Œí¬ìŠ¤í„° ì•Œë ‰íŠ¸ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR13		0		// ºôÆ÷½ºÅÍ ¾Ë·ºÆ® ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_BIL_HELMET_PERIODSET07		7	1
 	II_ARM_M_BIL_SUIT_PERIODSET07		7	1
 	II_ARM_M_BIL_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_BIL_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR14		0		// ë§ë§ˆìŠ¤í„° íŒ©íŠ¸ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR14		0		// ¸µ¸¶½ºÅÍ ÆÑÆ® ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_RIN_HELMET_PERIODSET07		7	1
 	II_ARM_M_RIN_SUIT_PERIODSET07		7	1
 	II_ARM_M_RIN_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_RIN_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR15		0		// ì œìŠ¤í„° ì¹´íŠ¸ë¦¬ì•„ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR15		0		// Á¦½ºÅÍ Ä«Æ®¸®¾Æ ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_JST_HELMET_PERIODSET07		7	1
 	II_ARM_M_JST_SUIT_PERIODSET07		7	1
 	II_ARM_M_JST_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_JST_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR16		0		// ë ˆì¸ì € ì˜¤ìŠ¤ì¹´ ì„¸íŠ¸(ë‚¨ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR16		0		// ·¹ÀÎÀú ¿À½ºÄ« ¼¼Æ®(³²ÀÚ)(7ÀÏ)
 {
 	II_ARM_M_RAG_HELMET_PERIODSET07		7	1
 	II_ARM_M_RAG_SUIT_PERIODSET07		7	1
 	II_ARM_M_RAG_GAUNTLET_PERIODSET07	7	1
 	II_ARM_M_RAG_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR17		0		// ë‚˜ì´íŠ¸ ì›Œí° ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR17		0		// ³ªÀÌÆ® ¿öÆù ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_KIN_HELMET_PERIODSET30		7	1
 	II_ARM_M_KIN_SUIT_PERIODSET30		7	1
 	II_ARM_M_KIN_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_KIN_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR18		0		// ë¸”ë ˆì´ë“œ ì•„ì´ë‹ˆ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR18		0		// ºí·¹ÀÌµå ¾ÆÀÌ´Ï ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_BLA_HELMET_PERIODSET30		7	1
 	II_ARM_M_BLA_SUIT_PERIODSET30		7	1
 	II_ARM_M_BLA_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_BLA_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR19		0		// ì‚¬ì´í‚¤í¼ ë¡œíŒ¡ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR19		0		// »çÀÌÅ°ÆÛ ·ÎÆÎ ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_PSY_HELMET_PERIODSET30		7	1
 	II_ARM_M_PSY_SUIT_PERIODSET30		7	1
 	II_ARM_M_PSY_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_PSY_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR20		0		//  ì—˜ë¦¬ë©˜í„° ë®¤ëž€ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR20		0		//  ¿¤¸®¸àÅÍ ¹Â¶õ ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_ELE_HELMET_PERIODSET30		7	1
 	II_ARM_M_ELE_SUIT_PERIODSET30		7	1
 	II_ARM_M_ELE_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_ELE_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR21		0		// ë¹Œí¬ìŠ¤í„° ì•Œë ‰íŠ¸ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR21		0		// ºôÆ÷½ºÅÍ ¾Ë·ºÆ® ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_BIL_HELMET_PERIODSET30		7	1
 	II_ARM_M_BIL_SUIT_PERIODSET30		7	1
 	II_ARM_M_BIL_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_BIL_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR22		0		// ë§ë§ˆìŠ¤í„° íŒ©íŠ¸ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR22		0		// ¸µ¸¶½ºÅÍ ÆÑÆ® ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_RIN_HELMET_PERIODSET30		7	1
 	II_ARM_M_RIN_SUIT_PERIODSET30		7	1
 	II_ARM_M_RIN_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_RIN_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR23		0		// ì œìŠ¤í„° ì¹´íŠ¸ë¦¬ì•„ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR23		0		// Á¦½ºÅÍ Ä«Æ®¸®¾Æ ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_JST_HELMET_PERIODSET30		7	1
 	II_ARM_M_JST_SUIT_PERIODSET30		7	1
 	II_ARM_M_JST_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_JST_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR24		0		// ë ˆì¸ì € ì˜¤ìŠ¤ì¹´ ì„¸íŠ¸(ë‚¨ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_MBXPERIODUNIAMOR24		0		// ·¹ÀÎÀú ¿À½ºÄ« ¼¼Æ®(³²ÀÚ)(30ÀÏ)
 {
 	II_ARM_M_RAG_HELMET_PERIODSET30		7	1
 	II_ARM_M_RAG_SUIT_PERIODSET30		7	1
 	II_ARM_M_RAG_GAUNTLET_PERIODSET30	7	1
 	II_ARM_M_RAG_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR09		0		// ë‚˜ì´íŠ¸ ì›Œí° ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR09		0		// ³ªÀÌÆ® ¿öÆù ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_KIN_HELMET_PERIODSET07		7	1
 	II_ARM_F_KIN_SUIT_PERIODSET07		7	1
 	II_ARM_F_KIN_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_KIN_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR10		0		// ë¸”ë ˆì´ë“œ ì•„ì´ë‹ˆ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR10		0		// ºí·¹ÀÌµå ¾ÆÀÌ´Ï ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_BLA_HELMET_PERIODSET07		7	1
 	II_ARM_F_BLA_SUIT_PERIODSET07		7	1
 	II_ARM_F_BLA_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_BLA_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR11		0		// ì‚¬ì´í‚¤í¼ ë¡œíŒ¡ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR11		0		// »çÀÌÅ°ÆÛ ·ÎÆÎ ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_PSY_HELMET_PERIODSET07		7	1
 	II_ARM_F_PSY_SUIT_PERIODSET07		7	1
 	II_ARM_F_PSY_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_PSY_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR12		0		// ì—˜ë¦¬ë©˜í„° ë®¤ëž€ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR12		0		// ¿¤¸®¸àÅÍ ¹Â¶õ ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_ELE_HELMET_PERIODSET07		7	1
 	II_ARM_F_ELE_SUIT_PERIODSET07		7	1
 	II_ARM_F_ELE_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_ELE_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR13		0		// ë¹Œí¬ìŠ¤í„° ì•Œë ‰íŠ¸ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR13		0		// ºôÆ÷½ºÅÍ ¾Ë·ºÆ® ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_BIL_HELMET_PERIODSET07		7	1
 	II_ARM_F_BIL_SUIT_PERIODSET07		7	1
 	II_ARM_F_BIL_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_BIL_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR14		0		// ë§ë§ˆìŠ¤í„° íŒ©íŠ¸ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR14		0		// ¸µ¸¶½ºÅÍ ÆÑÆ® ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_RIN_HELMET_PERIODSET07		7	1
 	II_ARM_F_RIN_SUIT_PERIODSET07		7	1
 	II_ARM_F_RIN_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_RIN_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR15		0		// ì œìŠ¤í„° ì¹´íŠ¸ë¦¬ì•„ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR15		0		// Á¦½ºÅÍ Ä«Æ®¸®¾Æ ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_JST_HELMET_PERIODSET07		7	1
 	II_ARM_F_JST_SUIT_PERIODSET07		7	1
 	II_ARM_F_JST_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_JST_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR16		0		// ë ˆì¸ì € ì˜¤ìŠ¤ì¹´ ì„¸íŠ¸(ì—¬ìž)(7ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR16		0		// ·¹ÀÎÀú ¿À½ºÄ« ¼¼Æ®(¿©ÀÚ)(7ÀÏ)
 {
 	II_ARM_F_RAG_HELMET_PERIODSET07		7	1
 	II_ARM_F_RAG_SUIT_PERIODSET07		7	1
 	II_ARM_F_RAG_GAUNTLET_PERIODSET07	7	1
 	II_ARM_F_RAG_BOOTS_PERIODSET07		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR17		0		// ë‚˜ì´íŠ¸ ì›Œí° ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR17		0		// ³ªÀÌÆ® ¿öÆù ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_KIN_HELMET_PERIODSET30		7	1
 	II_ARM_F_KIN_SUIT_PERIODSET30		7	1
 	II_ARM_F_KIN_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_KIN_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR18		0		// ë¸”ë ˆì´ë“œ ì•„ì´ë‹ˆ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR18		0		// ºí·¹ÀÌµå ¾ÆÀÌ´Ï ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_BLA_HELMET_PERIODSET30		7	1
 	II_ARM_F_BLA_SUIT_PERIODSET30		7	1
 	II_ARM_F_BLA_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_BLA_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR19		0		// ì‚¬ì´í‚¤í¼ ë¡œíŒ¡ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR19		0		// »çÀÌÅ°ÆÛ ·ÎÆÎ ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_PSY_HELMET_PERIODSET30		7	1
 	II_ARM_F_PSY_SUIT_PERIODSET30		7	1
 	II_ARM_F_PSY_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_PSY_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR20		0		//  ì—˜ë¦¬ë©˜í„° ë®¤ëž€ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR20		0		//  ¿¤¸®¸àÅÍ ¹Â¶õ ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_ELE_HELMET_PERIODSET30		7	1
 	II_ARM_F_ELE_SUIT_PERIODSET30		7	1
 	II_ARM_F_ELE_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_ELE_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR21		0		// ë¹Œí¬ìŠ¤í„° ì•Œë ‰íŠ¸ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR21		0		// ºôÆ÷½ºÅÍ ¾Ë·ºÆ® ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_BIL_HELMET_PERIODSET30		7	1
 	II_ARM_F_BIL_SUIT_PERIODSET30		7	1
 	II_ARM_F_BIL_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_BIL_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR22		0		// ë§ë§ˆìŠ¤í„° íŒ©íŠ¸ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR22		0		// ¸µ¸¶½ºÅÍ ÆÑÆ® ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_RIN_HELMET_PERIODSET30		7	1
 	II_ARM_F_RIN_SUIT_PERIODSET30		7	1
 	II_ARM_F_RIN_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_RIN_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR23		0		// ì œìŠ¤í„° ì¹´íŠ¸ë¦¬ì•„ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR23		0		// Á¦½ºÅÍ Ä«Æ®¸®¾Æ ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_JST_HELMET_PERIODSET30		7	1
 	II_ARM_F_JST_SUIT_PERIODSET30		7	1
 	II_ARM_F_JST_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_JST_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR24		0		// ë ˆì¸ì € ì˜¤ìŠ¤ì¹´ ì„¸íŠ¸(ì—¬ìž)(30ì¼)
+PackItem	II_SYS_SYS_SCR_FBXPERIODUNIAMOR24		0		// ·¹ÀÎÀú ¿À½ºÄ« ¼¼Æ®(¿©ÀÚ)(30ÀÏ)
 {
 	II_ARM_F_RAG_HELMET_PERIODSET30		7	1
 	II_ARM_F_RAG_SUIT_PERIODSET30		7	1
 	II_ARM_F_RAG_GAUNTLET_PERIODSET30	7	1
 	II_ARM_F_RAG_BOOTS_PERIODSET30		7	1
 }
-PackItem	II_SYS_SYS_SCR_FBXSTEAMPUNKSET01		0		// ìŠ¤íŒ€ íŽ‘í¬ ì˜ìƒ ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_FBXSTEAMPUNKSET01		0		// ½ºÆÀ ÆãÅ© ÀÇ»ó ¼¼Æ®(¿©)
 {
 	II_ARM_F_FSTEAMPUNKLOOKCLOTH		0	1
 	II_ARM_F_FSTEAMPUNKLOOKHAT			0	1
@@ -4995,7 +4995,7 @@ PackItem	II_SYS_SYS_SCR_FBXSTEAMPUNKSET01		0		// ìŠ¤íŒ€ íŽ‘í¬ ì˜ìƒ ì„¸íŠ¸(ì—¬
 	II_ARM_F_FSTEAMPUNKLOOKSHOES		0	1
 
 }
-PackItem	II_SYS_SYS_SCR_MBXSTEAMPUNKSET01		0		// ìŠ¤íŒ€ íŽ‘í¬ ì˜ìƒ ì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_MBXSTEAMPUNKSET01		0		// ½ºÆÀ ÆãÅ© ÀÇ»ó ¼¼Æ®(³²)
 {
 	II_ARM_M_MSTEAMPUNKLOOKCLOTH		0	1
 	II_ARM_M_MSTEAMPUNKLOOKHAT			0	1
@@ -5005,7 +5005,7 @@ PackItem	II_SYS_SYS_SCR_MBXSTEAMPUNKSET01		0		// ìŠ¤íŒ€ íŽ‘í¬ ì˜ìƒ ì„¸íŠ¸(ë‚¨
 
 
 
-PackItem	II_SYS_SYS_SCR_BXEVESTRAWBERRY		0		// ë”¸ê¸° ìƒìž
+PackItem	II_SYS_SYS_SCR_BXEVESTRAWBERRY		0		// µþ±â »óÀÚ
 {
 	II_SYS_SYS_SCR_ICEATKSPEED			0	5
 	II_SYS_SYS_EVE_BALLOON_VTN			0	5
@@ -5013,7 +5013,7 @@ PackItem	II_SYS_SYS_SCR_BXEVESTRAWBERRY		0		// ë”¸ê¸° ìƒìž
 	II_SYS_SYS_EVE_FPSONGPYUN			0	5
 }
 
-PackItem	II_SYS_SYS_SCR_BXEVELEMON		0		// ë ˆëª¬ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXEVELEMON		0		// ·¹¸ó »óÀÚ
 {
 	II_SYS_SYS_SCR_ICEMOVESPEED			0	5
 	II_SYS_SYS_EVE_BALLOON_PHP			0	5
@@ -5021,7 +5021,7 @@ PackItem	II_SYS_SYS_SCR_BXEVELEMON		0		// ë ˆëª¬ ìƒìž
 	II_CHR_SYS_SCR_CM_LV20				0	5
 }
 
-PackItem	II_SYS_SYS_SCR_BXEVEMINT		0		// ë¯¼íŠ¸ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXEVEMINT		0		// ¹ÎÆ® »óÀÚ
 {
 	II_SYS_SYS_EVE_MPSONGPYUN			0	5
 	II_SYS_SYS_EVE_BALLOON_PHP			0	5
@@ -5029,7 +5029,7 @@ PackItem	II_SYS_SYS_SCR_BXEVEMINT		0		// ë¯¼íŠ¸ ìƒìž
 	II_SYS_SYS_SCR_COTTONCANDYGREEN_01	0	5
 }
 
-PackItem	II_SYS_SYS_SCR_BXEVECHOCOLATE		0		// ì´ˆì½œë¦¿ ìƒìž
+PackItem	II_SYS_SYS_SCR_BXEVECHOCOLATE		0		// ÃÊÄÝ¸´ »óÀÚ
 {
 	II_SYS_SYS_EVE_CHOCOLATE04			0	5
 	II_SYS_SYS_EVE_BALLOON_JP			0	5
@@ -5037,7 +5037,7 @@ PackItem	II_SYS_SYS_SCR_BXEVECHOCOLATE		0		// ì´ˆì½œë¦¿ ìƒìž
 	II_CHR_SYS_SCR_CM_LV60				0	5
 }
 
-PackItem	II_SYS_SYS_SCR_MBXDORMANTUSER		0		// íœ´ë©´ ê³„ì • ì´ë²¤íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_SCR_MBXDORMANTUSER		0		// ÈÞ¸é °èÁ¤ ÀÌº¥Æ®(³²)
 {
 	II_SYS_TICKET_CISLAND02				0	2
 	II_SYS_TICKET_KEBARAS02				0	2
@@ -5048,7 +5048,7 @@ PackItem	II_SYS_SYS_SCR_MBXDORMANTUSER		0		// íœ´ë©´ ê³„ì • ì´ë²¤íŠ¸(ë‚¨)
 	II_SYS_SYS_SCR_MBXMILITERY			0	1
 }
 
-PackItem	II_SYS_SYS_SCR_FBXDORMANTUSER		0		// íœ´ë©´ ê³„ì • ì´ë²¤íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_SCR_FBXDORMANTUSER		0		// ÈÞ¸é °èÁ¤ ÀÌº¥Æ®(¿©)
 {
 	II_SYS_TICKET_CISLAND02				0	2
 	II_SYS_TICKET_KEBARAS02				0	2
@@ -5059,28 +5059,28 @@ PackItem	II_SYS_SYS_SCR_FBXDORMANTUSER		0		// íœ´ë©´ ê³„ì • ì´ë²¤íŠ¸(ì—¬)
 	II_SYS_SYS_SCR_FBXMILITERY			0	1
 }
 
-PackItem	II_SYS_SYS_SCR_PACKBXSERVERMERGEKOR1_1		0		// ì„œë²„ í†µí•© ì´ë²¤íŠ¸ êµ­ë‚´ ìƒìž
+PackItem	II_SYS_SYS_SCR_PACKBXSERVERMERGEKOR1_1		0		// ¼­¹ö ÅëÇÕ ÀÌº¥Æ® ±¹³» »óÀÚ
 {
 	II_SYS_SYS_SCR_EXPSCROLL03_07		0	1
 	II_SYS_TICKET_CISLAND01				0	3
 	II_SYS_SYS_SCR_BX_PET_AIBATT30		0	1
 }
 
-PackItem	II_SYS_SYS_SCR_PACKBXSERVERMERGEKOR1_2		0		// ì„œë²„ í†µí•© ì´ë²¤íŠ¸ êµ­ë‚´ ìƒìž
+PackItem	II_SYS_SYS_SCR_PACKBXSERVERMERGEKOR1_2		0		// ¼­¹ö ÅëÇÕ ÀÌº¥Æ® ±¹³» »óÀÚ
 {
 	II_SYS_SYS_SCR_EXPSCROLL04_07		0	1
 	II_SYS_TICKET_KEBARAS01				0	1
 	II_SYS_SYS_SCR_BX_PET_CAT1_30		0	1
 }
 
-PackItem	II_SYS_SYS_SCR_PACKBXSERVERMERGEKOR1_3		0		// ì„œë²„ í†µí•© ì´ë²¤íŠ¸ êµ­ë‚´ ìƒìž
+PackItem	II_SYS_SYS_SCR_PACKBXSERVERMERGEKOR1_3		0		// ¼­¹ö ÅëÇÕ ÀÌº¥Æ® ±¹³» »óÀÚ
 {
 	II_SYS_SYS_SCR_EXPSCROLL04_07		0	2
 	II_SYS_TICKET_KEBARAS01				0	1
 	II_CHR_SYS_SCR_RESTATE_LINK			0	1
 }
 
-PackItem	II_SYS_SYS_SCR_PACKBXNEWBIE_30		43200		// ìˆ˜ìŠµìƒì˜ ìƒìž(30ì¼)
+PackItem	II_SYS_SYS_SCR_PACKBXNEWBIE_30		43200		// ¼ö½À»ýÀÇ »óÀÚ(30ÀÏ)
 {
 	II_GEN_POT_NEWBIE_WAR				0	1
 	II_GEN_POT_NEWBIE_MAG				0	1
@@ -5092,7 +5092,7 @@ PackItem	II_SYS_SYS_SCR_PACKBXNEWBIE_30		43200		// ìˆ˜ìŠµìƒì˜ ìƒìž(30ì¼)
 	II_SYS_SYS_EVE_POWERSCROLL01		0	5
 }
 
-PackItem	II_SYS_SYS_SCR_PACKBXNEWBIE_1		1440		// ìˆ˜ìŠµìƒì˜ ìƒìž(1ì¼)
+PackItem	II_SYS_SYS_SCR_PACKBXNEWBIE_1		1440		// ¼ö½À»ýÀÇ »óÀÚ(1ÀÏ)
 {
 	II_GEN_POT_NEWBIE_WAR_1				0	1
 	II_GEN_POT_NEWBIE_MAG_1				0	1
@@ -5104,7 +5104,7 @@ PackItem	II_SYS_SYS_SCR_PACKBXNEWBIE_1		1440		// ìˆ˜ìŠµìƒì˜ ìƒìž(1ì¼)
 	II_SYS_SYS_EVE_POWERSCROLL01		0	5
 }
 
-PackItem	II_SYS_SYS_SCR_PACKBXMASTER_30		43200		// ìˆ™ë ¨ìƒì˜ ìƒìž(30ì¼)
+PackItem	II_SYS_SYS_SCR_PACKBXMASTER_30		43200		// ¼÷·Ã»ýÀÇ »óÀÚ(30ÀÏ)
 {
 	II_GEN_POT_MASTER_WAR				0	1
 	II_GEN_POT_MASTER_MAG				0	1
@@ -5120,7 +5120,7 @@ PackItem	II_SYS_SYS_SCR_PACKBXMASTER_30		43200		// ìˆ™ë ¨ìƒì˜ ìƒìž(30ì¼)
 	II_GEN_FOO_LASAGNE					0	99	
 }
 
-PackItem	II_SYS_SYS_SCR_PACKBXMASTER_1		1440		// ìˆ™ë ¨ìƒì˜ ìƒìž(1ì¼)
+PackItem	II_SYS_SYS_SCR_PACKBXMASTER_1		1440		// ¼÷·Ã»ýÀÇ »óÀÚ(1ÀÏ)
 {
 	II_GEN_POT_MASTER_WAR_1				0	1
 	II_GEN_POT_MASTER_MAG_1				0	1
@@ -5135,7 +5135,7 @@ PackItem	II_SYS_SYS_SCR_PACKBXMASTER_1		1440		// ìˆ™ë ¨ìƒì˜ ìƒìž(1ì¼)
 	II_GEN_FOO_PENNE					0	99
 	II_GEN_FOO_LASAGNE					0	99
 }
-PackItem	II_SYS_SYS_SCR_CARD_FWC		0		// FWC ì¢…í•©ìƒìž
+PackItem	II_SYS_SYS_SCR_CARD_FWC		0		// FWC Á¾ÇÕ»óÀÚ
 {
 	II_CHR_REF_REF_HOLD					0	2
 	II_CHR_POT_DRI_VITALX				0	2
@@ -5143,7 +5143,7 @@ PackItem	II_SYS_SYS_SCR_CARD_FWC		0		// FWC ì¢…í•©ìƒìž
 }
 
 
-//18ì°¨ ë³´ìƒì•„ì´í…œ
+//18Â÷ º¸»ó¾ÆÀÌÅÛ
 
 PackItem	II_SYS_SYS_SCR_REWARD_BX_15ARMOR_M_MER		0		// 
 {
@@ -5394,7 +5394,7 @@ PackItem	II_SYS_SYS_SCR_FBXACTIVEUSA		0		// Female Active User Package
 
 }
 				
-PackItem	II_SYS_SYS_SCR_RETURNUSERBX	0		//	ë³µê·€ìžì˜ ë¦¬í„´ì¦ˆ ìƒìž
+PackItem	II_SYS_SYS_SCR_RETURNUSERBX	0		//	º¹±ÍÀÚÀÇ ¸®ÅÏÁî »óÀÚ
 {
 	II_SYS_SYS_SCR_EXPSCROLL03_07	0	1
 	II_CHR_SYS_SCR_RESTATE		0	1
@@ -5403,24 +5403,24 @@ PackItem	II_SYS_SYS_SCR_RETURNUSERBX	0		//	ë³µê·€ìžì˜ ë¦¬í„´ì¦ˆ ìƒìž
 	II_SYS_SYS_EVE_COMMERGIFTBOX51_1	0	1
 }
 
-//ëŸ¬ì‹œì•„ ë‰´ë¹„ íƒˆì¶œ ë°•ìŠ¤
-PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE01		0		//	ë‰´ë¹„ íƒˆì¶œ ë°•ìŠ¤(ì—¬)
+//·¯½Ã¾Æ ´ººñ Å»Ãâ ¹Ú½º
+PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE01		0		//	´ººñ Å»Ãâ ¹Ú½º(¿©)
 {
 	II_SYS_SYS_EVE_FBXRUSNEWBIE03	0	1
 }
-PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE01		0		//	ë‰´ë¹„ íƒˆì¶œ ë°•ìŠ¤(ë‚¨)
+PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE01		0		//	´ººñ Å»Ãâ ¹Ú½º(³²)
 {
 	II_SYS_SYS_EVE_MBXRUSNEWBIE03	0	1
 }
 
-PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE03		0		//	3ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ì—¬)
+PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE03		0		//	3·¹º§ ´Þ¼º ¹Ú½º(¿©)
 {
 	II_SYS_SYS_EVE_FBXRUSNEWBIE06	0	1
 	II_SYS_SYS_SCR_BX_PET_AIBATT7	0	1
 	II_CHR_SYS_SCR_UPCUTSTONE		0	3
 	II_GEN_FOO_COO_MEATSKEWER		0	99
 }
-PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE03		0		//	3ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
+PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE03		0		//	3·¹º§ ´Þ¼º ¹Ú½º(³²)
 {
 	II_SYS_SYS_EVE_MBXRUSNEWBIE06	0	1
 	II_SYS_SYS_SCR_BX_PET_AIBATT7	0	1
@@ -5428,27 +5428,27 @@ PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE03		0		//	3ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
 	II_GEN_FOO_COO_MEATSKEWER		0	99
 }
 
-PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE06		0		//	6ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ì—¬)
+PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE06		0		//	6·¹º§ ´Þ¼º ¹Ú½º(¿©)
 {
 	II_SYS_SYS_EVE_FBXRUSNEWBIE11	0	1
 	II_SYS_SYS_EVE_FBXRUSVANSET01	0	1
 	II_GEN_FOO_COO_SEAFOODPANCAKE	0	99
 }
-PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE06		0		//	6ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
+PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE06		0		//	6·¹º§ ´Þ¼º ¹Ú½º(³²)
 {
 	II_SYS_SYS_EVE_MBXRUSNEWBIE11	0	1
 	II_SYS_SYS_EVE_MBXRUSVANSET01	0	1
 	II_GEN_FOO_COO_SEAFOODPANCAKE	0	99
 }
 
-PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE11		0		//	11ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ì—¬)
+PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE11		0		//	11·¹º§ ´Þ¼º ¹Ú½º(¿©)
 {
 	II_SYS_SYS_EVE_FBXRUSNEWBIE16	0	1
 	II_GEN_JEW_RIN_STRRING			0	1
 	II_GEN_MAT_MOONSTONE_1			0	3
 	II_GEN_FOO_COO_SAUSAGECASSEROLE	0	99
 }
-PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE11		0		//	11ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
+PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE11		0		//	11·¹º§ ´Þ¼º ¹Ú½º(³²)
 {
 	II_SYS_SYS_EVE_MBXRUSNEWBIE16	0	1
 	II_GEN_JEW_RIN_STRRING			0	1
@@ -5456,14 +5456,14 @@ PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE11		0		//	11ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
 	II_GEN_FOO_COO_SAUSAGECASSEROLE	0	99
 }
 
-PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE16		0		//	16ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ì—¬)
+PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE16		0		//	16·¹º§ ´Þ¼º ¹Ú½º(¿©)
 {
 	II_SYS_SYS_EVE_FBXRUSNEWBIE20	0	1
 	II_GEN_JEW_EAR_ATTEARRING		0	1
 	II_GEN_MAT_MOONSTONE_1			0	3
 	II_GEN_FOO_INS_HODDUK			0	99
 }
-PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE16		0		//	16ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
+PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE16		0		//	16·¹º§ ´Þ¼º ¹Ú½º(³²)
 {
 	II_SYS_SYS_EVE_MBXRUSNEWBIE20	0	1
 	II_GEN_JEW_EAR_ATTEARRING		0	1
@@ -5471,40 +5471,40 @@ PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE16		0		//	16ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
 	II_GEN_FOO_INS_HODDUK			0	99
 }
 
-PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE20		0		//	20ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ì—¬)
+PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE20		0		//	20·¹º§ ´Þ¼º ¹Ú½º(¿©)
 {
 	II_SYS_SYS_EVE_FBXRUSNEWBIE21	0	1
 	II_SYS_SYS_EVE_BXPERIODFLIGHT	0	1
 	II_RID_AFU_ACC_SPEED			0	30
 }
-PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE20		0		//	20ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
+PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE20		0		//	20·¹º§ ´Þ¼º ¹Ú½º(³²)
 {
 	II_SYS_SYS_EVE_MBXRUSNEWBIE21	0	1
 	II_SYS_SYS_EVE_BXPERIODFLIGHT	0	1
 	II_RID_AFU_ACC_SPEED			0	30
 }
 
-PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE21		0		//	21ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ì—¬)
+PackItem	II_SYS_SYS_EVE_FBXRUSNEWBIE21		0		//	21·¹º§ ´Þ¼º ¹Ú½º(¿©)
 {
 	II_SYS_SYS_SCR_BXLOWACCORD30	0	1
 	II_SYS_SYS_EVE_FBXRUSWARLORDT01		0	1
 
 }
-PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE21		0		//	21ë ˆë²¨ ë‹¬ì„± ë°•ìŠ¤(ë‚¨)
+PackItem	II_SYS_SYS_EVE_MBXRUSNEWBIE21		0		//	21·¹º§ ´Þ¼º ¹Ú½º(³²)
 {
 	II_SYS_SYS_SCR_BXLOWACCORD30	0	1
 	II_SYS_SYS_EVE_MBXRUSWARLORDT01		0	1
 }
 
 
-PackItem	II_SYS_SYS_EVE_FBXRUSVANSET01		0		//	íŒŒë°€ ë°©ì–´êµ¬ ì„¸íŠ¸(ì—¬)
+PackItem	II_SYS_SYS_EVE_FBXRUSVANSET01		0		//	ÆÄ¹Ð ¹æ¾î±¸ ¼¼Æ®(¿©)
 {
 	II_ARM_F_VAG_HELMET04		0	1
 	II_ARM_F_VAG_GAUNTLET04		0	1
 	II_ARM_F_VAG_SUIT04			0	1
 	II_ARM_F_VAG_BOOTS04		0	1
 }
-PackItem	II_SYS_SYS_EVE_MBXRUSVANSET01		0		//	íŒŒë°€ ë°©ì–´êµ¬ ì„¸íŠ¸(ë‚¨)
+PackItem	II_SYS_SYS_EVE_MBXRUSVANSET01		0		//	ÆÄ¹Ð ¹æ¾î±¸ ¼¼Æ®(³²)
 {
 	II_ARM_M_VAG_HELMET04		0	1
 	II_ARM_M_VAG_GAUNTLET04		0	1
@@ -5512,7 +5512,7 @@ PackItem	II_SYS_SYS_EVE_MBXRUSVANSET01		0		//	íŒŒë°€ ë°©ì–´êµ¬ ì„¸íŠ¸(ë‚¨)
 	II_ARM_M_VAG_BOOTS04		0	1
 }
 
-PackItem	II_SYS_SYS_EVE_SHINYMOONSTONEBOX		0		//	ë¹›ë‚˜ëŠ” ë¬¸ìŠ¤í†¤ ìƒìž
+PackItem	II_SYS_SYS_EVE_SHINYMOONSTONEBOX		0		//	ºû³ª´Â ¹®½ºÅæ »óÀÚ
 {
 	II_ARM_S_CLO_MAS_HEROSUNGLASS	0	1
 	II_GEN_POT_MASTER_WAR			0	1
@@ -5537,7 +5537,7 @@ PackItem	II_SYS_SYS_EVE_FBXRUSWARLORDT01		10080
 	II_ARM_F_CHR_WARLORDSHOES	        0       1
 }
 
-PackItem	II_SYS_SYS_SCR_FWJEWELLERYBX01		0	//	FWC ì•¡ì„¸ì„œë¦¬ ìƒìž(ë°˜ì§€)
+PackItem	II_SYS_SYS_SCR_FWJEWELLERYBX01		0	//	FWC ¾×¼¼¼­¸® »óÀÚ(¹ÝÁö)
 {
 	II_GEN_JEW_RIN_DEXRING			20	2
 	II_GEN_JEW_RIN_STRRING			20	2
@@ -5545,20 +5545,20 @@ PackItem	II_SYS_SYS_SCR_FWJEWELLERYBX01		0	//	FWC ì•¡ì„¸ì„œë¦¬ ìƒìž(ë°˜ì§€)
 	II_GEN_JEW_RIN_STARING			20	2
 }
 
-PackItem	II_SYS_SYS_SCR_FWJEWELLERYBX02		0	//	FWC ì•¡ì„¸ì„œë¦¬ ìƒìž(ëª©ê±¸ì´)
+PackItem	II_SYS_SYS_SCR_FWJEWELLERYBX02		0	//	FWC ¾×¼¼¼­¸® »óÀÚ(¸ñ°ÉÀÌ)
 {
 	II_GEN_JEW_NEC_HPNECKLACE		20	1
 	II_GEN_JEW_NEC_MPNECKLACE		20	1
 	II_GEN_JEW_NEC_FPNECKLACE		20	1
 }
 
-PackItem	II_SYS_SYS_SCR_FWJEWELLERYBX03		0	//	FWC ì•¡ì„¸ì„œë¦¬ ìƒìž(ê·€ê±¸ì´)
+PackItem	II_SYS_SYS_SCR_FWJEWELLERYBX03		0	//	FWC ¾×¼¼¼­¸® »óÀÚ(±Í°ÉÀÌ)
 {
 	II_GEN_JEW_EAR_ATTEARRING		20	2
 	II_GEN_JEW_EAR_DEFEARRING		20	2
 	II_GEN_JEW_EAR_U_EARRING09		0	2
 }
-PackItem	II_SYS_SYS_SCR_TWNORMALBOX01		0	//	ëŒ€ë§Œ ì´ë²¤íŠ¸ ë…¸ë ¥ìƒìž
+PackItem	II_SYS_SYS_SCR_TWNORMALBOX01		0	//	´ë¸¸ ÀÌº¥Æ® ³ë·Â»óÀÚ
 {
 	II_SYS_SYS_SCR_STRONG_ADJDEF	0	1
 	II_SYS_SYS_SCR_STRONG_STR		0	1
@@ -5567,7 +5567,7 @@ PackItem	II_SYS_SYS_SCR_TWNORMALBOX01		0	//	ëŒ€ë§Œ ì´ë²¤íŠ¸ ë…¸ë ¥ìƒìž
 	II_SYS_SYS_SCR_STRONG_STA		0	1
 }
 
-PackItem	II_SYS_SYS_SCR_FWWEAPONBX01		0	//	fwc ë² ížˆëª¨ìŠ¤ ë¬´ê¸° ìƒìž
+PackItem	II_SYS_SYS_SCR_FWWEAPONBX01		0	//	fwc º£È÷¸ð½º ¹«±â »óÀÚ
 {
 	II_WEA_AXT_BEHETWOAXE			20	1
 	II_WEA_SWT_BEHETWOSWORD			20	1
@@ -5578,41 +5578,41 @@ PackItem	II_SYS_SYS_SCR_FWWEAPONBX01		0	//	fwc ë² ížˆëª¨ìŠ¤ ë¬´ê¸° ìƒìž
 	II_ARM_ARM_SHI_BEHEMAGICBOOK	20	1
 }
 
-PackItem	II_SYS_SYS_SCR_MBXOMGWARRIORS		0	//	fwc ë² ížˆëª¨ìŠ¤ ë¬´ê¸° ìƒìž
+PackItem	II_SYS_SYS_SCR_MBXOMGWARRIORS		0	//	fwc º£È÷¸ð½º ¹«±â »óÀÚ
 {
 	II_ARM_M_MOMGWARRIORCLOTH		0	1
 	II_ARM_M_MOMGWARRIORGLOVE		0	1
 	II_ARM_M_MOMGWARRIORSHOES		0	1
 	II_ARM_M_MOMGWARRIORHAT			0	1
 }
-PackItem	II_SYS_SYS_SCR_FBXOMGWARRIORS		0	//	fwc ë² ížˆëª¨ìŠ¤ ë¬´ê¸° ìƒìž
+PackItem	II_SYS_SYS_SCR_FBXOMGWARRIORS		0	//	fwc º£È÷¸ð½º ¹«±â »óÀÚ
 {
 	II_ARM_F_FOMGWARRIORCLOTH		0	1
 	II_ARM_F_FOMGWARRIORGLOVE		0	1
 	II_ARM_F_FOMGWARRIORSHOES		0	1
 	II_ARM_F_FOMGWARRIORHAT			0	1
 }
-PackItem	II_SYS_SYS_USAEVENTBX_ORIMOONSTONE		0	//ë¯¸êµ­ ê°€ìœ„ë°”ìœ„ë³´ ì´ë²¤íŠ¸ ë³´ìƒìš©
+PackItem	II_SYS_SYS_USAEVENTBX_ORIMOONSTONE		0	//¹Ì±¹ °¡À§¹ÙÀ§º¸ ÀÌº¥Æ® º¸»ó¿ë
 {
 	II_GEN_MAT_ORICHALCUM01_1		0	4
 	II_GEN_MAT_MOONSTONE_1			0	4
 }
 
-PackItem	II_SYS_SYS_BX_JAPAPINKSETM		0	//ì¼ë³¸ ë‚¨ìž ìœ ì¹´íƒ€ ì„¸íŠ¸
+PackItem	II_SYS_SYS_BX_JAPAPINKSETM		0	//ÀÏº» ³²ÀÚ À¯Ä«Å¸ ¼¼Æ®
 {
 	II_ARM_M_MPINKYDKATACLOTH		0	1
 	II_ARM_M_CHR_YUKATA04SHOES		0	1
 	II_ARM_M_MPINKYDKATAGLOVE		0	1
 }
 
-PackItem	II_SYS_SYS_BX_JAPAPINKSETF		0	//ì¼ë³¸ ì—¬ìž ìœ ì¹´íƒ€ ì„¸íŠ¸
+PackItem	II_SYS_SYS_BX_JAPAPINKSETF		0	//ÀÏº» ¿©ÀÚ À¯Ä«Å¸ ¼¼Æ®
 {
 	II_ARM_F_FPINKYDKATACLOTH		0	1
 	II_ARM_F_CHR_YUKATA04SHOES		0	1
 	II_ARM_F_FPINKYDKATAGLOVE		0	1
 }
 
-PackItem	II_SYS_SYS_BX_SEEDIGSETBXM		0	//ì‹œë””ê·¸ ì˜ìƒì„¸íŠ¸ ë‚¨ìž 
+PackItem	II_SYS_SYS_BX_SEEDIGSETBXM		0	//½Ãµð±× ÀÇ»ó¼¼Æ® ³²ÀÚ 
 {
 	II_ARM_M_MSEEDIGCLOTH		0	1
 	II_ARM_M_MSEEDIGGLOVE		0	1
@@ -5620,7 +5620,7 @@ PackItem	II_SYS_SYS_BX_SEEDIGSETBXM		0	//ì‹œë””ê·¸ ì˜ìƒì„¸íŠ¸ ë‚¨ìž
 	II_ARM_M_MSEEDIGHAT		0	1
 }
 
-PackItem	II_SYS_SYS_BX_SEEDIGSETBXF		0	//ì‹œë””ê·¸ ì˜ìƒì„¸íŠ¸ ì—¬ìž 
+PackItem	II_SYS_SYS_BX_SEEDIGSETBXF		0	//½Ãµð±× ÀÇ»ó¼¼Æ® ¿©ÀÚ 
 {
 	II_ARM_F_FSEEDIGCLOTH		0	1
 	II_ARM_F_FSEEDIGGLOVE		0	1
@@ -5628,7 +5628,7 @@ PackItem	II_SYS_SYS_BX_SEEDIGSETBXF		0	//ì‹œë””ê·¸ ì˜ìƒì„¸íŠ¸ ì—¬ìž
 	II_ARM_F_FSEEDIGHAT		0	1
 }
 
-PackItem	II_SYS_SYS_BX_INDRETURNBX		0	//íœ´ë©´ìœ ì € í™˜ì˜ìƒìž
+PackItem	II_SYS_SYS_BX_INDRETURNBX		0	//ÈÞ¸éÀ¯Àú È¯¿µ»óÀÚ
 {
 	II_RID_RID_WIN_EVEBUTTERFLY01		0	1
 	II_RID_RID_STI_WINGPROANGEL07		0	1

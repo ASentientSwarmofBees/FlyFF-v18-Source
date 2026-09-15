@@ -1,4 +1,4 @@
-ï»¿#ifndef __VERSION_COMMON_H__
+#ifndef __VERSION_COMMON_H__
 #define __VERSION_COMMON_H__
 #define __MAINSERVER
 #define	__VER 18
@@ -15,74 +15,74 @@
 #endif // __VC100
 #endif
 
-#define		__SERVER				// í´ë¼ì´ì–¸íŠ¸ ì „ìš©ì½”ë“œë¥¼ ë¹Œë“œí•˜ì§€ ì•Šê¸° ìœ„í•œ define
+#define		__SERVER				// Å¬¶óÀÌ¾ðÆ® Àü¿ëÄÚµå¸¦ ºôµåÇÏÁö ¾Ê±â À§ÇÑ define
 #define		__MAP_SIZE						
-#define		__S8_SERVER_PORT		// 2006ì›” 11ì›” 7ì¼ ì—…ë°ì´íŠ¸ - World, Cache, CoreServer
-#define		__EVE_NEWYEAR			// ì‹ ë…„ íš¨ê³¼
+#define		__S8_SERVER_PORT		// 2006¿ù 11¿ù 7ÀÏ ¾÷µ¥ÀÌÆ® - World, Cache, CoreServer
+#define		__EVE_NEWYEAR			// ½Å³â È¿°ú
 #define		__STL_0402				// stl
 
 //
-//#define		__HACK_0516 // ë¯¸êµ­ í•´í‚¹ 2ì°¨
-#define		__JEFF_9_20		// ë¹„í–‰ ì‹œê°„ì„ ì¹¨ë¬µ ì‹œê°„ìœ¼ë¡œ ì „ìš©
+//#define		__HACK_0516 // ¹Ì±¹ ÇØÅ· 2Â÷
+#define		__JEFF_9_20		// ºñÇà ½Ã°£À» Ä§¹¬ ½Ã°£À¸·Î Àü¿ë
 
 //
-#define		__MA_VER11_01			// ê·¹ë‹¨ë ˆë²¨ì—…í¬ì¸íŠ¸ë³€ê²½
+#define		__MA_VER11_01			// ±Ø´Ü·¹º§¾÷Æ÷ÀÎÆ®º¯°æ
 //#define		__SYS_PLAYER_DATA
-#define		__RT_1025				// ë©”ì‹ ì €
+#define		__RT_1025				// ¸Þ½ÅÀú
 
 
-#define		__AUTO_NOTICE		// ìžë™ ê³µì§€
+#define		__AUTO_NOTICE		// ÀÚµ¿ °øÁö
 
-// 12ì°¨
-//#define		__JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ  world,core
-//#define		__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+// 12Â÷
+//#define		__JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ  world,core
+//#define		__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 
 
-// 13ì°¨
-#define		__LAYER_1015		// ë™ì  ê°ì²´ ì¸µ
+// 13Â÷
+#define		__LAYER_1015		// µ¿Àû °´Ã¼ Ãþ
 
-// 14ì°¨
-//	#define		__INSTANCE_DUNGEON			// 14ì°¨ ì¸ìŠ¤í„´ìŠ¤ ë˜ì „ ê¸°ë°˜
-//	#define		__PARTY_DUNGEON				// 14ì°¨ ê·¹ë‹¨ ì „ìš© ì¸ìŠ¤í„´ìŠ¤ ì „ë˜
-	#define		__QUIZ						// í€´ì¦ˆ ì´ë²¤íŠ¸ ì‹œìŠ¤í…œ
+// 14Â÷
+//	#define		__INSTANCE_DUNGEON			// 14Â÷ ÀÎ½ºÅÏ½º ´øÀü ±â¹Ý
+//	#define		__PARTY_DUNGEON				// 14Â÷ ±Ø´Ü Àü¿ë ÀÎ½ºÅÏ½º Àü´ø
+	#define		__QUIZ						// ÄûÁî ÀÌº¥Æ® ½Ã½ºÅÛ
 
-	#define		__EVENTLUA_RAIN				// ìž¥ë§ˆ ì´ë²¤íŠ¸ -> ë£¨ì•„ë¡œ ë³€ê²½
+	#define		__EVENTLUA_RAIN				// Àå¸¶ ÀÌº¥Æ® -> ·ç¾Æ·Î º¯°æ
 
-	#define		__EVENTLUA_SNOW				// ê°•ì„¤ ì´ë²¤íŠ¸
+	#define		__EVENTLUA_SNOW				// °­¼³ ÀÌº¥Æ®
 
-// 15ì°¨
-//	#define		__HERO129_VER15				// 15ì°¨ ížˆì–´ë¡œ ë ˆë²¨í™•ìž¥
+// 15Â÷
+//	#define		__HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
 
 	#define		__ENVIRONMENT_EFFECT
 
 
-#if	  defined(__INTERNALSERVER)	// ë‚´ë¶€ ì‚¬ë¬´ì‹¤ í…ŒìŠ¤íŠ¸ì„œë²„ 
+#if	  defined(__INTERNALSERVER)	// ³»ºÎ »ç¹«½Ç Å×½ºÆ®¼­¹ö 
 	
-	#define		__GUILDVOTE			// ê¸¸ë“œ íˆ¬í‘œ 
+	#define		__GUILDVOTE			// ±æµå ÅõÇ¥ 
 
-	#define		__HACK_0516			// ë¯¸êµ­ í•´í‚¹ 2ì°¨
+	#define		__HACK_0516			// ¹Ì±¹ ÇØÅ· 2Â÷
 //	#define		__SYS_PLAYER_DATA
-//	#define		__RT_1025			// ë©”ì‹ ì €
+//	#define		__RT_1025			// ¸Þ½ÅÀú
 
 
-#elif defined(__TESTSERVER)		// ì™¸ë¶€ ìœ ì € í…ŒìŠ¤íŠ¸ì„œë²„ 
+#elif defined(__TESTSERVER)		// ¿ÜºÎ À¯Àú Å×½ºÆ®¼­¹ö 
 
-//	#define		__NOTIFYSTART0706	// ëŸ°ì³ì—ê²Œ ì‹œìž‘ ì•Œë¦¼ ë°©ì‹ì„ ì´ë²¤íŠ¸ë¡œ  
-	#define		__GUILDVOTE			// ê¸¸ë“œ íˆ¬í‘œ 
+//	#define		__NOTIFYSTART0706	// ·±ÃÄ¿¡°Ô ½ÃÀÛ ¾Ë¸² ¹æ½ÄÀ» ÀÌº¥Æ®·Î  
+	#define		__GUILDVOTE			// ±æµå ÅõÇ¥ 
 
-	#define		__HACK_0516			// ë¯¸êµ­ í•´í‚¹ 2ì°¨
+	#define		__HACK_0516			// ¹Ì±¹ ÇØÅ· 2Â÷
 
 //	#define		__SYS_PLAYER_DATA
-//	#define		__RT_1025			// ë©”ì‹ ì €
+//	#define		__RT_1025			// ¸Þ½ÅÀú
 
-//	#define		__JAPAN_SAKURA				// ë²—ê½ƒ ì´ë²¤íŠ¸
+//	#define		__JAPAN_SAKURA				// ¹þ²É ÀÌº¥Æ®
 
 
-#elif defined(__MAINSERVER)		// ì™¸ë¶€ ë³¸ì„­
-//	#define		__RAIN_EVENT		// ìž¥ë§ˆ ì´ë²¤íŠ¸(ë¹„ì˜¤ëŠ” ë™ì•ˆ ê²½í—˜ì¹˜ 2ë°°)
+#elif defined(__MAINSERVER)		// ¿ÜºÎ º»¼·
+//	#define		__RAIN_EVENT		// Àå¸¶ ÀÌº¥Æ®(ºñ¿À´Â µ¿¾È °æÇèÄ¡ 2¹è)
 
-//	#define		__JAPAN_SAKURA				// ë²—ê½ƒ ì´ë²¤íŠ¸
-#endif	// end - ì„œë²„ì¢…ë¥˜ë³„ define 
+//	#define		__JAPAN_SAKURA				// ¹þ²É ÀÌº¥Æ®
+#endif	// end - ¼­¹öÁ¾·ùº° define 
 
 
 #endif

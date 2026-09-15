@@ -1,4 +1,4 @@
-﻿#ifndef __TARGA_H
+#ifndef __TARGA_H
 #define __TARGA_H
 
 #pragma pack(1)

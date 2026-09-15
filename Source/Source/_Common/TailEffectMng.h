@@ -1,4 +1,4 @@
-ï»¿#ifndef __TAILEFFECTMNG_H__
+#ifndef __TAILEFFECTMNG_H__
 #define __TAILEFFECTMNG_H__
 
 #ifdef __CLIENT
@@ -14,8 +14,8 @@ struct TAILVERTEX
 
 struct TAIL
 {
-    D3DXVECTOR3 m_vPos1;       // ê¼¬ë¦¬ ì¢Œí‘œ 1
-    D3DXVECTOR3 m_vPos2;       // ê¼¬ë¦¬ ì¢Œí‘œ 2
+    D3DXVECTOR3 m_vPos1;       // ²¿¸® ÁÂÇ¥ 1
+    D3DXVECTOR3 m_vPos2;       // ²¿¸® ÁÂÇ¥ 2
 	
     D3DXCOLOR   m_clrDiffuse; // Initial diffuse color
     D3DXCOLOR   m_clrFade;    // Faded diffuse color
@@ -83,8 +83,8 @@ protected:
 	DWORD	m_dwFlush;
     DWORD	m_dwDiscard;
 	
-    TAIL* m_pTails;			// ë¦¬ìŠ¤íŠ¸ì˜ í˜„ì¬ í¬ì¸í„°.
-    TAIL* m_pTailsFree;		// ë¹„ì–´ìˆëŠ” í¬ì¸í„°
+    TAIL* m_pTails;			// ¸®½ºÆ®ÀÇ ÇöÀç Æ÷ÀÎÅÍ.
+    TAIL* m_pTailsFree;		// ºñ¾îÀÖ´Â Æ÷ÀÎÅÍ
 	
     LPDIRECT3DVERTEXBUFFER9 m_pVB;
 	
@@ -146,7 +146,7 @@ public:
 };
 
 
-#define		MAX_TAILEFFECT	32		// ìµœëŒ€ íŒŒí‹°í´ ì¢…ë¥˜.
+#define		MAX_TAILEFFECT	32		// ÃÖ´ë ÆÄÆ¼Å¬ Á¾·ù.
 
 class CTailEffectMng
 {

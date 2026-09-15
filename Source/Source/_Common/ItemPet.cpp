@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineObj.h"
 #include "CreateObj.h"
 
@@ -24,7 +24,7 @@ void CPetElem::Init()
 
 void CPetElem::Destroy()
 {
-	// ì´ê³³ì— íŒŒê´´ì½”ë“œë¥¼ ë„£ìœ¼ì‹œì˜¤.
+	// ÀÌ°÷¿¡ ÆÄ±«ÄÚµå¸¦ ³ÖÀ¸½Ã¿À.
 
 	Init():
 }

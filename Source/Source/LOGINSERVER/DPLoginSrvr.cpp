@@ -1,4 +1,4 @@
-﻿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "DPDatabaseClient.h"
 #include "dpcoreclient.h"
 extern	CDPCoreClient	g_dpCoreClient;

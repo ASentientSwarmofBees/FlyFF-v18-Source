@@ -1,4 +1,4 @@
-﻿// Timer.h
+// Timer.h
 
 #ifndef _INC_TIMER
 #define _INC_TIMER

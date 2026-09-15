@@ -1,4 +1,4 @@
-﻿#ifndef __CHARGEDITEM_H__
+#ifndef __CHARGEDITEM_H__
 #define	__CHARGEDITEM_H__
 
 typedef struct _BUYING_INFO

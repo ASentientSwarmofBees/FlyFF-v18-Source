@@ -1,4 +1,4 @@
-﻿// 등록
+// ���
 Accessory
 {
 	II_SYS_SYS_EVE_BROKENMOONSTONEBOX
@@ -49,7 +49,7 @@ Accessory
 		19	{	}
 		20	{	}
 	}
-	II_GEN_JEW_RIN_STRRING //뷔거링
+	II_GEN_JEW_RIN_STRRING //�߰Ÿ�
 	{
 		0	{	DST_STR	1	}
 		1	{	DST_STR	2	}
@@ -74,7 +74,7 @@ Accessory
 		20	{	DST_STR	40	}
 	}
 
-	II_GEN_JEW_RIN_STARING	//스탬링
+	II_GEN_JEW_RIN_STARING	//���Ƹ�
 	{
 		0	{	DST_STA	1	}
 		1	{	DST_STA	2	}
@@ -99,7 +99,7 @@ Accessory
 		20	{	DST_STA	40	}
 	}
 
-	II_GEN_JEW_RIN_DEXRING //어렉링
+	II_GEN_JEW_RIN_DEXRING //���
 	{
 		0	{	DST_DEX	1	}
 		1	{	DST_DEX	2	}
@@ -124,7 +124,7 @@ Accessory
 		20	{	DST_DEX	40	}
 	}
 
-	II_GEN_JEW_RIN_INTRING //인텔링
+	II_GEN_JEW_RIN_INTRING //���ڸ�
 	{
 		0	{	DST_INT	1	}
 		1	{	DST_INT	2	}
@@ -149,7 +149,7 @@ Accessory
 		20	{	DST_INT	40	}
 	}
 
-	II_GEN_JEW_EAR_ATTEARRING //디몰이어링
+	II_GEN_JEW_EAR_ATTEARRING //����̾
 	{
 		0	{	DST_CHR_DMG	10	}
 		1	{	DST_CHR_DMG	15	}
@@ -174,7 +174,7 @@ Accessory
 		20	{	DST_CHR_DMG	375	}
 	}
 
-	II_GEN_JEW_EAR_DEFEARRING //플럭이어링
+	II_GEN_JEW_EAR_DEFEARRING //�÷��̾
 	{
 		0	{	DST_ADJDEF	44	}
 		1	{	DST_ADJDEF	49	}
@@ -200,7 +200,7 @@ Accessory
 
 	}
 
-	II_GEN_JEW_NEC_HPNECKLACE //고어네클리스
+	II_GEN_JEW_NEC_HPNECKLACE //�����Ŭ����
 	{
 		0	{	DST_HP_MAX	82	}
 		1	{	DST_HP_MAX	118	}
@@ -225,7 +225,7 @@ Accessory
 		20	{	DST_HP_MAX	1018	}
 	}
 
-	II_GEN_JEW_NEC_MPNECKLACE //멘탈네클리스
+	II_GEN_JEW_NEC_MPNECKLACE //��Ż��Ŭ����
 	{
 		0	{	DST_MP_MAX	57	}
 		1	{	DST_MP_MAX	65	}
@@ -250,7 +250,7 @@ Accessory
 		20	{	DST_MP_MAX	227	}
 	}
 
-	II_GEN_JEW_NEC_FPNECKLACE //페이션네클리스
+	II_GEN_JEW_NEC_FPNECKLACE //���̼ǳ�Ŭ����
 	{
 		0	{	DST_FP_MAX	57	}
 		1	{	DST_FP_MAX	65	}

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include ".\minigametyping.h"
@@ -58,10 +58,10 @@ void CMiniGameTyping::MakeQuestion()
 		{
 			switch( xRandom( 3 ) )
 			{
-				case 0:	strTemp += static_cast<char>( xRandom( 48, 58 ) );	break;	// ìˆ«ì 0 ~ 9
-				case 1:	strTemp += static_cast<char>( xRandom( 97, 110 ) );	break;	// ì˜ë¬¸ ì†Œë¬¸ a ~ m
-				case 2:	strTemp += static_cast<char>( xRandom( 110, 123 ) );	break;	// ì˜ë¬¸ ì†Œë¬¸ n ~ z
-				//case 2:	strTemp += static_cast<char>( xRandom( 65, 91 ) );	break;	// ì˜ë¬¸ ëŒ€ë¬¸ì
+				case 0:	strTemp += static_cast<char>( xRandom( 48, 58 ) );	break;	// ¼ıÀÚ 0 ~ 9
+				case 1:	strTemp += static_cast<char>( xRandom( 97, 110 ) );	break;	// ¿µ¹® ¼Ò¹® a ~ m
+				case 2:	strTemp += static_cast<char>( xRandom( 110, 123 ) );	break;	// ¿µ¹® ¼Ò¹® n ~ z
+				//case 2:	strTemp += static_cast<char>( xRandom( 65, 91 ) );	break;	// ¿µ¹® ´ë¹®ÀÚ
 			}
 		}
 		m_vecTyping.push_back( strTemp );

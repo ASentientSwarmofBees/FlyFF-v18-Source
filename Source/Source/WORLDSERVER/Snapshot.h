@@ -1,4 +1,4 @@
-﻿#ifndef __SNAPSHOT_H__
+#ifndef __SNAPSHOT_H__
 #define	__SNAPSHOT_H__
 
 #pragma once

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <dxerr9.h>
@@ -18,14 +18,14 @@ extern LPDIRECT3DVERTEXDECLARATION9 g_pSkinVertexDeclaration;
 extern LPDIRECT3DVERTEXSHADER9	g_pSkiningVS;
 #endif
 
-BOOL	g_bUsableVS = TRUE;		// í•˜ë“œì›¨ì–´ ë²„í…ìŠ¤ ì‰ì´ë”(1.1)ë¥¼ ì“¸ìˆ˜ ìˆëŠ”ê°€.
+BOOL	g_bUsableVS = TRUE;		// ÇÏµå¿ş¾î ¹öÅØ½º ½¦ÀÌ´õ(1.1)¸¦ ¾µ¼ö ÀÖ´Â°¡.
 DWORD	g_dwUsablePS_Level = 0;		
 
 extern float g_fHairLight;
 extern float s_fDiffuse[];
 extern float s_fAmbient[];
-extern D3DXVECTOR4 s_vLight;		// ë¼ì´íŠ¸ ë²¡í„°
-extern D3DXVECTOR4 s_vLightPos;		// ë¼ì´íŠ¸ í¬ì§€ì…˜
+extern D3DXVECTOR4 s_vLight;		// ¶óÀÌÆ® º¤ÅÍ
+extern D3DXVECTOR4 s_vLightPos;		// ¶óÀÌÆ® Æ÷Áö¼Ç
 extern D3DXMATRIX s_mViewProj;		// 
 extern D3DXMATRIX s_mView;		// 
 extern D3DXMATRIX s_mProj;		// 
@@ -117,7 +117,7 @@ void CModelObject::Destroy( void )
 {
 	int		i;
 
-	// ë©”ì‰¬ ì‚­ì œ
+	// ¸Ş½¬ »èÁ¦
 	for( i = 0; i < MAX_ELEMENT; i ++ )
 	{
 		Destroy( i );
@@ -141,9 +141,9 @@ void CModelObject::Destroy( void )
 #endif //__Y_ADV_ENCHANT_EFFECT
 
 	Init();
-	// m_pBoneë¥¼ ì§ì ‘ ì‚­ì œí•˜ë©´ ì•ˆëœë‹¤.
-	// m_pMotionì„ ì§ì ‘ ì‚­ì œí•˜ë©´ ì•ˆëœë‹¤.
-	// CObject3D::m_pObject3Dë¥¼ ì§ì ‘ ì‚­ì œí•˜ë©´ ì•ˆëœë‹¤.  CObject3DMngì—ì„œ ì‚­ì œí•´ ì¤€ë‹¤.
+	// m_pBone¸¦ Á÷Á¢ »èÁ¦ÇÏ¸é ¾ÈµÈ´Ù.
+	// m_pMotionÀ» Á÷Á¢ »èÁ¦ÇÏ¸é ¾ÈµÈ´Ù.
+	// CObject3D::m_pObject3D¸¦ Á÷Á¢ »èÁ¦ÇÏ¸é ¾ÈµÈ´Ù.  CObject3DMng¿¡¼­ »èÁ¦ÇØ ÁØ´Ù.
 
 #ifdef __ATTACH_MODEL
 	m_mapAttachModel.clear();
@@ -269,22 +269,22 @@ int CModelObject::RenderAttachModelElem(LPDIRECT3DDEVICE9 pd3dDevice, const D3DX
 	int		nNextFrame;
 	D3DXMATRIX	m1;
 
-#ifndef __CLIENT						// ê²Œì„í´ë¼ì´ì–¸íŠ¸ê°€ ì•„ë‹ë•Œ...
-	if( IsEmptyElement() == TRUE )		// ëª¨ë¸ì´ ë¡œë“œê°€ ì•ˆë˜ì–´ ìˆìœ¼ë©´ ê± ë¦¬í„´
+#ifndef __CLIENT						// °ÔÀÓÅ¬¶óÀÌ¾ğÆ®°¡ ¾Æ´Ò¶§...
+	if( IsEmptyElement() == TRUE )		// ¸ğµ¨ÀÌ ·Îµå°¡ ¾ÈµÇ¾î ÀÖÀ¸¸é °Á ¸®ÅÏ
 		return 1;
 #endif
 
 #ifdef	_DEBUG
 	if( m_mUpdateBone && g_pSkiningVS == NULL )
-		Error( "CMyD3DApplication::RestoreDeviceObjects()ì— CreateSkiningVS()ë¥¼ í˜¸ì¶œí•˜ì‹œì˜¤.\r\nCMyD3DApplication::InvalidateDeviceObjects()ì—ëŠ” DeleteSkiningVS()ë¥¼ í˜¸ì¶œí•˜ì‹œì˜¤.\r\ní˜¹ì€ *.vshíŒŒì¼ì„ ì½ì§€ ëª»í–ˆë‹¤." );
+		Error( "CMyD3DApplication::RestoreDeviceObjects()¿¡ CreateSkiningVS()¸¦ È£ÃâÇÏ½Ã¿À.\r\nCMyD3DApplication::InvalidateDeviceObjects()¿¡´Â DeleteSkiningVS()¸¦ È£ÃâÇÏ½Ã¿À.\r\nÈ¤Àº *.vshÆÄÀÏÀ» ÀĞÁö ¸øÇß´Ù." );
 	if( m_nLoop == 0 )
-		Error( "ê²½ê³  : %s : CModelObject::m_nLoopê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ë‹¤.", m_pMotion->m_szName );
+		Error( "°æ°í : %s : CModelObject::m_nLoop°¡ ÁöÁ¤µÇÁö ¾Ê¾Ò´Ù.", m_pMotion->m_szName );
 #endif
 
-	if( m_pMotion )		// m_pMotionì´ ë„ì´ë¼ë©´ m_mUpdateBoneë„ ë„ì´ë‹¤.
-		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ì¼ë‹¨ ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ë¼ˆëŒ€ ì• ë‹ˆë©”ì´ì…˜ ì‹œí‚´
+	if( m_pMotion )		// m_pMotionÀÌ ³ÎÀÌ¶ó¸é m_mUpdateBoneµµ ³ÎÀÌ´Ù.
+		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ÀÏ´Ü »À´ë°¡ ÀÖ´Ù¸é »À´ë ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÅ´
 
-	if( m_pBone )		// m_pBoneì´ ìˆë‹¤ë©´ ë¼ˆëŒ€ê°€ ìˆë‹¤ëŠ” ì–˜ê¸°. VSë¥¼ ì¨ì•¼ í•œë‹¤.
+	if( m_pBone )		// m_pBoneÀÌ ÀÖ´Ù¸é »À´ë°¡ ÀÖ´Ù´Â ¾ê±â. VS¸¦ ½á¾ß ÇÑ´Ù.
 	{
 		D3DXMATRIX *pmBones;
 		D3DXMATRIX mWorldTranspose;
@@ -292,18 +292,18 @@ int CModelObject::RenderAttachModelElem(LPDIRECT3DDEVICE9 pd3dDevice, const D3DX
 		BONE	*pBoneList = m_pBone->m_pBones;
 		pmBones = m_mUpdateBone;
 
-		if( m_pBone->m_bSendVS )	// ë¼ˆëŒ€ê°œìˆ˜ê°€ MAX_VS_BONEì´í•˜ë¼ì„œ í•œë²ˆì— ë‹¤ ì „ì†¡í•œë‹¤.
+		if( m_pBone->m_bSendVS )	// »À´ë°³¼ö°¡ MAX_VS_BONEÀÌÇÏ¶ó¼­ ÇÑ¹ø¿¡ ´Ù Àü¼ÛÇÑ´Ù.
 		{
 			int		nMaxBone = m_pBone->m_nMaxBone;
 
 			if( nMaxBone > MAX_VS_BONE )	
 				Error( "CModelObject::Render : overflow bone count - %d", nMaxBone );
 
-			for( i = 0; i < nMaxBone; i ++ )	// MAX_VS_BONEê°œ ì´í•˜	
+			for( i = 0; i < nMaxBone; i ++ )	// MAX_VS_BONE°³ ÀÌÇÏ	
 			{
 				mWorldTranspose = pmBonesInv[i] * pmBones[i];				
-				D3DXMatrixTranspose( &mWorldTranspose, &mWorldTranspose );		// ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ëŒë¦°ë‹¤ìŒ.
-				m_pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&mWorldTranspose, 3 );		// ìƒìˆ˜ë ˆì§€ìŠ¤í„°ì— ì§‘ì–´ë„£ìŒ.
+				D3DXMatrixTranspose( &mWorldTranspose, &mWorldTranspose );		// ¸ÅÆ®¸¯½º¸¦ µ¹¸°´ÙÀ½.
+				m_pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&mWorldTranspose, 3 );		// »ó¼ö·¹Áö½ºÅÍ¿¡ Áı¾î³ÖÀ½.
 			}
 		}
 		D3DXMATRIX	mView, mProj;
@@ -335,7 +335,7 @@ int CModelObject::RenderAttachModelElem(LPDIRECT3DDEVICE9 pd3dDevice, const D3DX
 	D3DXVECTOR3 vec3LightBackup = D3DXVECTOR3( s_vLight[0], s_vLight[1], s_vLight[2] );
 	D3DXVECTOR4 vec4Diffuse = D3DXVECTOR4( s_fDiffuse[0], s_fDiffuse[1], s_fDiffuse[2], s_fDiffuse[3] );;
 	
-	// ì—˜ë¦¬ë¨¼íŠ¸ì—” ìŠ¤í‚¨,ì¼ë°˜,ëª¨í•‘ ì‹¬ì§€ì–´ëŠ” íŒŒí‹°í´ê¹Œì§€ë„ í¬í•¨ë ìˆ˜ìˆë‹¤.
+	// ¿¤¸®¸ÕÆ®¿£ ½ºÅ²,ÀÏ¹İ,¸ğÇÎ ½ÉÁö¾î´Â ÆÄÆ¼Å¬±îÁöµµ Æ÷ÇÔµÉ¼öÀÖ´Ù.
 	pElem = &m_Element[0];
 	pObject3D = pElem->m_pObject3D;
 
@@ -346,7 +346,7 @@ int CModelObject::RenderAttachModelElem(LPDIRECT3DDEVICE9 pd3dDevice, const D3DX
 		m1 = *mWorld;
 
 		if( m_pBone )
-			pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );	// ì™¸ì¥ë³¸ì´ ìˆë‹¤ë©´ ê·¸ê²ƒì„ ë„˜ê²¨ì¤€ë‹¤.
+			pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );	// ¿ÜÀåº»ÀÌ ÀÖ´Ù¸é ±×°ÍÀ» ³Ñ°ÜÁØ´Ù.
 		
 		if( m_SparkInfo.m_bUsed )
 		{
@@ -394,7 +394,7 @@ CString CModelObject::GetMotionFileName( const CString& rstrMotion ) const
 }
 #endif // __WING_ITEM
 
-// OBBì™€ lineì˜ ì¶©ëŒí…ŒìŠ¤íŠ¸ 
+// OBB¿Í lineÀÇ Ãæµ¹Å×½ºÆ® 
 // BOOL bNeedCollObject = TRUE
 BOOL CModelObject::TestIntersectionOBB_Line(const Segment3& segment, const CObj* pObj, BOOL bNeedCollObject)
 {
@@ -473,9 +473,9 @@ BOOL CModelObject::Destroy( int nIdx )
 				SAFE_RELEASE( pElem->m_ppd3d_VB3[i] );
 			pElem->m_pObject3D->SetLOD(0);
 			
-			SAFE_DELETE_ARRAY( pElem->m_ppd3d_VB );		// ì „ì²´ ë©”ëª¨ë¦¬ í’€ì„ í•œêº¼ë²ˆì— ë‚ ë¦¼.
+			SAFE_DELETE_ARRAY( pElem->m_ppd3d_VB );		// ÀüÃ¼ ¸Ş¸ğ¸® Ç®À» ÇÑ²¨¹ø¿¡ ³¯¸².
 		}
-		g_Object3DMng.DeleteObject3D( pElem->m_pObject3D );	// pObject3Dê°€ ê³µìœ ëœê²Œ ì•„ë‹ˆë©´ ì—¬ê¸°ì„œ ë‚ ë ¤ ë²„ë¦¼.
+		g_Object3DMng.DeleteObject3D( pElem->m_pObject3D );	// pObject3D°¡ °øÀ¯µÈ°Ô ¾Æ´Ï¸é ¿©±â¼­ ³¯·Á ¹ö¸².
 
 		Init( nIdx );
 		return TRUE;
@@ -484,18 +484,18 @@ BOOL CModelObject::Destroy( int nIdx )
 	return FALSE;
 }
 
-// ê²€ê´‘í´ë˜ìŠ¤ ìƒì„±
+// °Ë±¤Å¬·¡½º »ı¼º
 void	CModelObject::CreateForce( int nParts )
 {
 #ifdef __CLIENT
 	if( nParts == PARTS_RWEAPON )
 	{
-		if( m_pForce )	return;		// ì´ë¯¸ í• ë‹¹ë˜ì–´ ìˆìœ¼ë©´ ë‹¤ì‹œ í• ë‹¹í•˜ì§€ ì•ŠìŒ.
+		if( m_pForce )	return;		// ÀÌ¹Ì ÇÒ´çµÇ¾î ÀÖÀ¸¸é ´Ù½Ã ÇÒ´çÇÏÁö ¾ÊÀ½.
 		m_pForce = new CSwordForce;
 	} else
 	if( nParts == PARTS_LWEAPON )
 	{
-		if( m_pForce2 )	return;		// ì´ë¯¸ í• ë‹¹ë˜ì–´ ìˆìœ¼ë©´ ë‹¤ì‹œ í• ë‹¹í•˜ì§€ ì•ŠìŒ.
+		if( m_pForce2 )	return;		// ÀÌ¹Ì ÇÒ´çµÇ¾î ÀÖÀ¸¸é ´Ù½Ã ÇÒ´çÇÏÁö ¾ÊÀ½.
 		m_pForce2 = new CSwordForce;
 	} else
 	{
@@ -511,7 +511,7 @@ void	CModelObject::TakeOffParts( int nParts )
 		Error( "CModelObject::TakeOffParts : nParts = %d", nParts );
 
 
-	// íŒŒì¸ ë¥¼ ì œê±°í–ˆëŠ”ë°, ì•„ë˜ ë¶€ë¶„ì„ ì•ˆí•´ì£¼ë©´ old íŒŒì¸ ì—ì„œ ë§¤ëª¨ë¦¬ ë¦­ ë°œìƒ - vampyre
+	// ÆÄÃ÷¸¦ Á¦°ÅÇß´Âµ¥, ¾Æ·¡ ºÎºĞÀ» ¾ÈÇØÁÖ¸é old ÆÄÃ÷¿¡¼­ ¸Å¸ğ¸® ¸¯ ¹ß»ı - vampyre
 	O3D_ELEMENT	*pElem;
 	int nIdx = GetPartsIdx(nParts);
 	pElem = GetParts(nParts);
@@ -527,7 +527,7 @@ void	CModelObject::TakeOffParts( int nParts )
 		for( int j = 0; j < pElem->m_pObject3D->GetMaxObject(); j ++ )
 			SAFE_RELEASE( pElem->m_ppd3d_VB3[j] );
 		pElem->m_pObject3D->SetLOD(0);
-		SAFE_DELETE_ARRAY( pElem->m_ppd3d_VB );		// ì „ì²´ ë©”ëª¨ë¦¬ í’€ì„ í•œêº¼ë²ˆì— ë‚ ë¦¼.
+		SAFE_DELETE_ARRAY( pElem->m_ppd3d_VB );		// ÀüÃ¼ ¸Ş¸ğ¸® Ç®À» ÇÑ²¨¹ø¿¡ ³¯¸².
 	}
 
 	if(nIdx != -1)
@@ -563,34 +563,34 @@ void	CModelObject::TakeOffParts( int nParts )
 int		CModelObject::LoadBone( LPCTSTR szFileName )
 {
 	if( m_pBone )
-		Error( "CModelObject::LoadBone ; ì´ë¯¸ ë³¸ì´ ë¡œë”©ë˜ì–´ ìˆë‹¤. 0x%08x", (int)m_pBone );
+		Error( "CModelObject::LoadBone ; ÀÌ¹Ì º»ÀÌ ·ÎµùµÇ¾î ÀÖ´Ù. 0x%08x", (int)m_pBone );
 
-	// Bone ê´€ë¦¬ìë¥¼ í†µí•´ ë³¸ì„ ë¡œë”©í•œí›„ ê·¸ í¬ì¸í„°ë¥¼ ë°›ì•„ì˜¨ë‹¤.
+	// Bone °ü¸®ÀÚ¸¦ ÅëÇØ º»À» ·ÎµùÇÑÈÄ ±× Æ÷ÀÎÅÍ¸¦ ¹Ş¾Æ¿Â´Ù.
 	m_pBone = g_BonesMng.LoadBone( szFileName );
 
-	// ë³¸ì„ ëª»ì½ì—ˆë‹¤.
+	// º»À» ¸øÀĞ¾ú´Ù.
 	if( m_pBone == NULL )
 	{
-		LPCTSTR szStr = Error( "%s : ì°¾ì„ ìˆ˜ ì—†ìŒ", szFileName );
+		LPCTSTR szStr = Error( "%s : Ã£À» ¼ö ¾øÀ½", szFileName );
 		ADDERRORMSG( szStr );
 		return FAIL;
 	}
 
-	m_bSkin = TRUE;		// ìŠ¤í‚¤ë‹ ì˜¤ë¸Œì íŠ¸ë¼ëŠ” í”Œë˜ê·¸
+	m_bSkin = TRUE;		// ½ºÅ°´× ¿ÀºêÁ§Æ®¶ó´Â ÇÃ·¡±×
 #ifdef _DEBUG
 	if( m_mUpdateBone )
-		Error( "CModelObject::LoadBone : %s ì´ë¯¸ ì½ì—ˆëŠ”ë° ë˜ ì½ì€ê²ƒ ê°™ë‹¤.", szFileName );
+		Error( "CModelObject::LoadBone : %s ÀÌ¹Ì ÀĞ¾ú´Âµ¥ ¶Ç ÀĞÀº°Í °°´Ù.", szFileName );
 #endif
 
-	// ì˜¤ë¸Œì íŠ¸ì˜ ê³„ì¸µêµ¬ì¡°ê°€ ì• ë‹ˆë©”ì´ì…˜ë˜ë©´ì„œ ì‹¤ì‹œê°„ìœ¼ë¡œ ë³€í™˜ë˜ëŠ” ë§¤íŠ¸ë¦­ìŠ¤ ë°°ì—´
-	m_mUpdateBone = new D3DXMATRIX[ m_pBone->m_nMaxBone * 2 ];	// Invë‘ ê°™ì´ ì“°ë ¤ê³  * 2ë¡œ ì¡ëŠ”ë‹¤,.
+	// ¿ÀºêÁ§Æ®ÀÇ °èÃş±¸Á¶°¡ ¾Ö´Ï¸ŞÀÌ¼ÇµÇ¸é¼­ ½Ç½Ã°£À¸·Î º¯È¯µÇ´Â ¸ÅÆ®¸¯½º ¹è¿­
+	m_mUpdateBone = new D3DXMATRIX[ m_pBone->m_nMaxBone * 2 ];	// Inv¶û °°ÀÌ ¾²·Á°í * 2·Î Àâ´Â´Ù,.
 	m_pBaseBoneInv = m_mUpdateBone + m_pBone->m_nMaxBone;
 	
 	int		i;
 	for( i = 0; i < m_pBone->m_nMaxBone; i ++ )
 	{
-		m_mUpdateBone[i] = m_pBone->m_pBones[i].m_mTM;		// ê¸°ë³¸ì…‹ì€ ë¯¸ë¦¬ ì¹´í”¼í•´ë‘ .
-		m_pBaseBoneInv[i] = m_pBone->m_pBones[i].m_mInverseTM;	// Invë„ ë¯¸ë¦¬ ë°›ì•„ë‘ .
+		m_mUpdateBone[i] = m_pBone->m_pBones[i].m_mTM;		// ±âº»¼ÂÀº ¹Ì¸® Ä«ÇÇÇØµÒ.
+		m_pBaseBoneInv[i] = m_pBone->m_pBones[i].m_mInverseTM;	// Invµµ ¹Ì¸® ¹Ş¾ÆµÒ.
 	}
 	return SUCCESS;
 }
@@ -598,50 +598,50 @@ int		CModelObject::LoadBone( LPCTSTR szFileName )
 
 //
 //	LoadMotion
-// ì˜¤ë¸Œì íŠ¸ë¥¼ ë¡œë”©í•˜ì§€ì•Šê³ ë„ ë…ë¦½ì ìœ¼ë¡œ ë™ì‘í•´ì•¼í•œë‹¤.
+// ¿ÀºêÁ§Æ®¸¦ ·ÎµùÇÏÁö¾Ê°íµµ µ¶¸³ÀûÀ¸·Î µ¿ÀÛÇØ¾ßÇÑ´Ù.
 // 
 int		CModelObject::LoadMotion( LPCTSTR szFileName )
 {
 	int		i;
-	// ë³¸ì´ ì•„ì§ í• ë‹¹ ë˜ì–´ ìˆì§€ ì•Šìœ¼ë©´ ì• ë‹ˆë¥¼ ì½ì„ìˆ˜ ì—†ë‹¤.
+	// º»ÀÌ ¾ÆÁ÷ ÇÒ´ç µÇ¾î ÀÖÁö ¾ÊÀ¸¸é ¾Ö´Ï¸¦ ÀĞÀ»¼ö ¾ø´Ù.
 	if( m_pBone == NULL )		
 	{
-		Error( "%s : ë³¸ì„ ë¡œë”©í•˜ì§€ ì•Šê³  ëª¨ì…˜ì„ ì½ìŒ", szFileName );
+		Error( "%s : º»À» ·ÎµùÇÏÁö ¾Ê°í ¸ğ¼ÇÀ» ÀĞÀ½", szFileName );
 		return FAIL;
 	}
-	m_pMotionOld = m_pMotion;		// ì˜ˆì „ ëª¨ì…˜ë°›ì•„ë‘ .
+	m_pMotionOld = m_pMotion;		// ¿¹Àü ¸ğ¼Ç¹Ş¾ÆµÒ.
 	m_nFrameOld = (int)m_fFrameCurrent;
-	// Motionê´€ë¦¬ìë¥¼ í†µí•´ ë™ì‘ì„ ë¡œë”©í•œí›„ ê·¸ í¬ì¸í„°ë¥¼ ë°›ì•„ì˜¨ë‹¤.
+	// Motion°ü¸®ÀÚ¸¦ ÅëÇØ µ¿ÀÛÀ» ·ÎµùÇÑÈÄ ±× Æ÷ÀÎÅÍ¸¦ ¹Ş¾Æ¿Â´Ù.
 	m_pMotion = g_MotionMng.LoadMotion( szFileName );
-	if( m_pMotion == NULL )		// ëª¨ì…˜ì„ ëª»ì½ì—ˆë‹¤.
+	if( m_pMotion == NULL )		// ¸ğ¼ÇÀ» ¸øÀĞ¾ú´Ù.
 	{
 		return FAIL;
 	}
 	if( m_pMotionOld == NULL )
-		m_pMotionOld = m_pMotion;		// ì´ì „í”„ë ˆì„ì´ ì—†ìœ¼ë©´ í˜„ì¬ í”„ë ˆì„ì„ Oldë¡œ ì“´ë‹¤.  NULLì´ ë˜ëŠ”ìƒí™©ì´ ì—†ê²Œ í• ê²ƒ.
+		m_pMotionOld = m_pMotion;		// ÀÌÀüÇÁ·¹ÀÓÀÌ ¾øÀ¸¸é ÇöÀç ÇÁ·¹ÀÓÀ» Old·Î ¾´´Ù.  NULLÀÌ µÇ´Â»óÈ²ÀÌ ¾ø°Ô ÇÒ°Í.
 
 	InitAnimate();
 
 	m_nFrameMax = m_pMotion->GetMaxFrame();
-	m_fPerSlerp = (float)((int)(m_pMotion->m_fPerSlerp * 1000.0f)) / 1000.0f;		// ì†Œìˆ«ì  3ì§¸ ì´í•˜ì—ì„œ ì˜¤ì°¨ê°€ ìƒê¸¸ìˆ˜ ìˆìœ¼ë¯€ë¡œ 3ì§¸ê¹Œì§€ ì—ì„œ ì˜ë¼ë²„ë¦°ë‹¤,.
+	m_fPerSlerp = (float)((int)(m_pMotion->m_fPerSlerp * 1000.0f)) / 1000.0f;		// ¼Ò¼ıÁ¡ 3Â° ÀÌÇÏ¿¡¼­ ¿ÀÂ÷°¡ »ı±æ¼ö ÀÖÀ¸¹Ç·Î 3Â°±îÁö ¿¡¼­ Àß¶ó¹ö¸°´Ù,.
 
-	if( m_pMotionOld->m_nMaxBone != m_pMotion->m_nMaxBone )		// ì´ì „ì— ì½ì€ ëª¨ì…˜ì˜ ë³¸ê°œìˆ˜ì™€ ë‹¤ë¥´ë©´ ì—ëŸ¬ëƒ„.
+	if( m_pMotionOld->m_nMaxBone != m_pMotion->m_nMaxBone )		// ÀÌÀü¿¡ ÀĞÀº ¸ğ¼ÇÀÇ º»°³¼ö¿Í ´Ù¸£¸é ¿¡·¯³¿.
 	{
 		LPCTSTR szErr = Error( "CModelObject::LoadElement - %s bone count(%d) - old count(%d)", szFileName, m_pMotion->m_nMaxBone, m_pMotionOld->m_nMaxBone );
 		ADDERRORMSG( szErr );
 	}
 
-	// ì´ë¯¸ ìŠ¤í‚¨ ì˜¤ë¸Œì íŠ¸ê°€ ë¡œë”©ë˜ì–´ ìˆëŠ” ìƒíƒœë©´ m_mUpdateBoneì„ ê·¸ ì˜¤ë¸Œì íŠ¸ì— ë“±ë¡ì‹œí‚´.
+	// ÀÌ¹Ì ½ºÅ² ¿ÀºêÁ§Æ®°¡ ·ÎµùµÇ¾î ÀÖ´Â »óÅÂ¸é m_mUpdateBoneÀ» ±× ¿ÀºêÁ§Æ®¿¡ µî·Ï½ÃÅ´.
 	for( i = 0; i < MAX_ELEMENT; i ++ )
 	{
 		if( m_Element[i].m_pObject3D )
-			m_Element[i].m_pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );	// í•¨ìˆ˜ë‚´ë¶€ì—ì„œ ìŠ¤í‚¨ì¸ë„˜ë§Œ ë“±ë¡ì‹œí‚¨ë‹¤.
+			m_Element[i].m_pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );	// ÇÔ¼ö³»ºÎ¿¡¼­ ½ºÅ²ÀÎ³Ñ¸¸ µî·Ï½ÃÅ²´Ù.
 	}
 	return SUCCESS;
 }
 
-// íŒŒì¸ ë¥¼ ì˜®ê¹€.
-// ì™¼ì†ì— ë“ ê±¸ ì˜¤ë¥¸ì†ì— ì˜®ê¸°ëŠ”ë“±...
+// ÆÄÃ÷¸¦ ¿Å±è.
+// ¿Ş¼Õ¿¡ µç°É ¿À¸¥¼Õ¿¡ ¿Å±â´Âµî...
 int	CModelObject::MovePart( int nDstPart, int nSrcPart )
 {
 	O3D_ELEMENT* pDestPart = GetParts( nDstPart );
@@ -650,7 +650,7 @@ int	CModelObject::MovePart( int nDstPart, int nSrcPart )
 	if( !pDestPart && pSrcPart )
 	{
 		LoadElement( pSrcPart->m_pObject3D->m_szFileName, nDstPart );
-		memset( pSrcPart, 0, sizeof(O3D_ELEMENT) );		// ì†ŒìŠ¤ì¸¡ì€ í´ë¦¬ì–´.	
+		memset( pSrcPart, 0, sizeof(O3D_ELEMENT) );		// ¼Ò½ºÃøÀº Å¬¸®¾î.	
 		return 1;
 	}
 
@@ -660,13 +660,13 @@ int	CModelObject::MovePart( int nDstPart, int nSrcPart )
 	if( pDestPart->m_pObject3D )
 		Error( "CModelObject::MovePart : m_Element[%d].m_pObject3D == 0x%08x", nDstPart, (int)pDestPart->m_pObject3D );
 	
-	memcpy( pDestPart, pSrcPart, sizeof(O3D_ELEMENT) );	// ì¹´í”¼í•˜ê³ 
-	memset( pSrcPart, 0, sizeof(O3D_ELEMENT) );		// ì†ŒìŠ¤ì¸¡ì€ í´ë¦¬ì–´.	
+	memcpy( pDestPart, pSrcPart, sizeof(O3D_ELEMENT) );	// Ä«ÇÇÇÏ°í
+	memset( pSrcPart, 0, sizeof(O3D_ELEMENT) );		// ¼Ò½ºÃøÀº Å¬¸®¾î.	
 	return 1;
 }
 
 //
-//	ì˜¤ë¸Œì íŠ¸ ë¡œë”©.  ëª¨ì…˜ì„ ì½ì§€ ì•Šì€ ìƒíƒœì—ì„œë„ ë…ë¦½ì ìœ¼ë¡œ ë™ì‘í•œë‹¤.
+//	¿ÀºêÁ§Æ® ·Îµù.  ¸ğ¼ÇÀ» ÀĞÁö ¾ÊÀº »óÅÂ¿¡¼­µµ µ¶¸³ÀûÀ¸·Î µ¿ÀÛÇÑ´Ù.
 //
 int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 {
@@ -675,7 +675,7 @@ int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 
 	if( nParts < 0 )
 	{
-		Error( "CModelObject::LoadElement : nParts ì—ëŸ¬ - nParts = %d, %s", nParts, szFileName );
+		Error( "CModelObject::LoadElement : nParts ¿¡·¯ - nParts = %d, %s", nParts, szFileName );
 		return FAIL;
 	}
 
@@ -690,30 +690,30 @@ int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 
 #ifdef __CLIENT
 	HRESULT hr;
-	// Object3Dê´€ë¦¬ìë¥¼ í†µí•´ ë©”ì‰¬ë¥¼ ë¡œë”©í•œ í›„ ê·¸ í¬ì¸í„°ë¥¼ ë°›ì•„ì˜¨ë‹¤.
-	if( FAILED( hr = m_pd3dDevice->TestCooperativeLevel() ) )		// ë””ë°”ì´ìŠ¤ê°€ í—ˆì ‘í•˜ë©´ ì—ëŸ¬ë‚¨ê¹€.
+	// Object3D°ü¸®ÀÚ¸¦ ÅëÇØ ¸Ş½¬¸¦ ·ÎµùÇÑ ÈÄ ±× Æ÷ÀÎÅÍ¸¦ ¹Ş¾Æ¿Â´Ù.
+	if( FAILED( hr = m_pd3dDevice->TestCooperativeLevel() ) )		// µğ¹ÙÀÌ½º°¡ ÇãÁ¢ÇÏ¸é ¿¡·¯³²±è.
 	{
-		LPCTSTR szErr = Error( "%s ë””ë°”ì´ìŠ¤ì‹¤íŒ¨ %08x", szFileName, (int)hr );
+		LPCTSTR szErr = Error( "%s µğ¹ÙÀÌ½º½ÇÆĞ %08x", szFileName, (int)hr );
 		ADDERRORMSG( szErr );
 	}
 #endif
 	pObject3D = g_Object3DMng.LoadObject3D( m_pd3dDevice, szFileName );
 	if( pObject3D == NULL )
 	{
-		LPCTSTR szStr = Error( "%s : ì°¾ì„ ìˆ˜ ì—†ìŒ", MakePath( DIR_MODEL, szFileName ) );
+		LPCTSTR szStr = Error( "%s : Ã£À» ¼ö ¾øÀ½", MakePath( DIR_MODEL, szFileName ) );
 		ADDERRORMSG( szStr );
 		return FAIL;
 	}
 
 	pObject3D->InitDeviceObjects( m_pd3dDevice );
 
-	// ìŠ¤í‚¨íŒŒì¸ ì˜ ê²½ìš° ì™¸ë¶€ë³¸ì„ ì½ì—ˆëŠ”ì§€ ê²€ì‚¬.
-	if( pObject3D->IsUseExternBone() )		// ì™¸ì¥ë³¸ì„ ì‚¬ìš©í•˜ëŠ” ì˜¤ë¸Œì ì´ë‹¤.
+	// ½ºÅ²ÆÄÃ÷ÀÇ °æ¿ì ¿ÜºÎº»À» ÀĞ¾ú´ÂÁö °Ë»ç.
+	if( pObject3D->IsUseExternBone() )		// ¿ÜÀåº»À» »ç¿ëÇÏ´Â ¿ÀºêÁ§ÀÌ´Ù.
 	{
-		if( m_pBone == NULL )			// ë³¸ì„ ì•„ì§ ì•ˆì½ì€ ìƒíƒœë‹¤...
+		if( m_pBone == NULL )			// º»À» ¾ÆÁ÷ ¾ÈÀĞÀº »óÅÂ´Ù...
 		{
 #ifdef __CLIENT
-			Error( "%s : bone not loaded.", szFileName );		// ë³¸ì„ ë¡œë”©í•˜ì§€ ì•Šê³  ë©”ì‰¬ë¥¼ ì½ìŒ
+			Error( "%s : bone not loaded.", szFileName );		// º»À» ·ÎµùÇÏÁö ¾Ê°í ¸Ş½¬¸¦ ÀĞÀ½
 #endif // __CLIENT
 			return FAIL;
 		}
@@ -746,7 +746,7 @@ int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 
 	if( pObject3D->GetGMOBJECT() == NULL )
 	{
-		LPCTSTR szStr = Error( "CModelObject::LoadElementì—ì„œ íŠ•ê¹€ : ì½ì€ íŒŒì¼ëª… %s", MakePath( DIR_MODEL, szFileName ) );
+		LPCTSTR szStr = Error( "CModelObject::LoadElement¿¡¼­ Æ¨±è : ÀĞÀº ÆÄÀÏ¸í %s", MakePath( DIR_MODEL, szFileName ) );
 		ADDERRORMSG( szStr );
 		return FAIL;
 	}
@@ -756,29 +756,29 @@ int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 	m_bCollObj = pObject3D->IsHaveCollObj();
 	if( pObject3D->m_nHavePhysique )	m_bSkin = TRUE;
 
-	if( m_nFrameMax > 0 )	// ì´ë¯¸ ëª¨ì…˜ì´ë‚˜ ì˜¤ë¸Œì ì„ ì½ì–´ì„œ maxframeì´ ìˆì„ë•Œ ì´ë²ˆì— ì½ì€ ì˜¤ë¸Œì í‹” maxframeí•˜ê³  ë¹„êµ. í‹€ë¦¬ë©´ ì—ëŸ¬.
+	if( m_nFrameMax > 0 )	// ÀÌ¹Ì ¸ğ¼ÇÀÌ³ª ¿ÀºêÁ§À» ÀĞ¾î¼­ maxframeÀÌ ÀÖÀ»¶§ ÀÌ¹ø¿¡ ÀĞÀº ¿ÀºêÁ§Æ· maxframeÇÏ°í ºñ±³. Æ²¸®¸é ¿¡·¯.
 	{
 		if( pObject3D->GetMaxFrame() )
 			if( m_nFrameMax != pObject3D->GetMaxFrame() )
 			{
-				LPCTSTR szErr = Error( "CModelObject::LoadElement - %sì˜ MaxFrame(%d)ê³¼ ì´ì „ì— ì½ì€ MaxFrame(%d)ì´ ë‹¤ë¥´ë‹¤.", szFileName, pObject3D->GetMaxFrame(), m_nFrameMax );
+				LPCTSTR szErr = Error( "CModelObject::LoadElement - %sÀÇ MaxFrame(%d)°ú ÀÌÀü¿¡ ÀĞÀº MaxFrame(%d)ÀÌ ´Ù¸£´Ù.", szFileName, pObject3D->GetMaxFrame(), m_nFrameMax );
 				ADDERRORMSG( szErr );
 			}
 	}
-	if( m_nFrameMax == 0 )	// maxframeì´ ì„¸íŒ…ëœì ì´ ì—†ì„ë•Œë§Œ ìµœì´ˆ ì„¸íŒ…í•¨.
+	if( m_nFrameMax == 0 )	// maxframeÀÌ ¼¼ÆÃµÈÀûÀÌ ¾øÀ»¶§¸¸ ÃÖÃÊ ¼¼ÆÃÇÔ.
 		m_nFrameMax = pObject3D->GetMaxFrame();
 
-	// ì• ë‹ˆë©”ì´ì…˜ ì†ë„
-	m_fPerSlerp = (float)((int)(pObject3D->m_fPerSlerp * 1000.0f)) / 1000.0f;		// ì†Œìˆ«ì  3ì§¸ ì´í•˜ì—ì„œ ì˜¤ì°¨ê°€ ìƒê¸¸ìˆ˜ ìˆìœ¼ë¯€ë¡œ 3ì§¸ê¹Œì§€ ì—ì„œ ì˜ë¼ë²„ë¦°ë‹¤,.
+	// ¾Ö´Ï¸ŞÀÌ¼Ç ¼Óµµ
+	m_fPerSlerp = (float)((int)(pObject3D->m_fPerSlerp * 1000.0f)) / 1000.0f;		// ¼Ò¼ıÁ¡ 3Â° ÀÌÇÏ¿¡¼­ ¿ÀÂ÷°¡ »ı±æ¼ö ÀÖÀ¸¹Ç·Î 3Â°±îÁö ¿¡¼­ Àß¶ó¹ö¸°´Ù,.
 
 
-	// ì´ë¯¸ ë³¸ì´ ë¡œë”©ë˜ì–´ ìˆëŠ” ìƒíƒœë©´ m_pUpdateBoneì„ ì˜¤ë¸Œì íŠ¸ì˜ ì™¸ë¶€ë¼ˆëŒ€ë¡œ ë“±ë¡í•¨.
+	// ÀÌ¹Ì º»ÀÌ ·ÎµùµÇ¾î ÀÖ´Â »óÅÂ¸é m_pUpdateBoneÀ» ¿ÀºêÁ§Æ®ÀÇ ¿ÜºÎ»À´ë·Î µî·ÏÇÔ.
 	if( m_pBone )
 		pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );
 
-	// ìƒˆë¡œ ì½ì€ Meshì˜  BBë¥¼ ê¸°ì¤€ìœ¼ë¡œ CModelObjectì˜ BBë¥¼ ê°±ì‹ 
-	// ì´ë¶€ë¶„ê³„ì‚°ì€ í˜„ì¬ ì •í™•í•˜ì§€ ì•Šë‹¤.  Min,Maxëª¨ë‘ Localê¸°ì¤€ì¸ë°ë‹¤ê°€
-	// ì‚¬ëŒì´ ì°½ì„ ì¥ê³  ìˆì„ê²½ìš° ì°½ê¹Œì§€ ë°”ìš´ë”© ë°•ìŠ¤ì— í¬í•¨ë˜ê³  ìˆë‹¤.
+	// »õ·Î ÀĞÀº MeshÀÇ  BB¸¦ ±âÁØÀ¸·Î CModelObjectÀÇ BB¸¦ °»½Å
+	// ÀÌºÎºĞ°è»êÀº ÇöÀç Á¤È®ÇÏÁö ¾Ê´Ù.  Min,Max¸ğµÎ Local±âÁØÀÎµ¥´Ù°¡
+	// »ç¶÷ÀÌ Ã¢À» Áã°í ÀÖÀ»°æ¿ì Ã¢±îÁö ¹Ù¿îµù ¹Ú½º¿¡ Æ÷ÇÔµÇ°í ÀÖ´Ù.
 	if( pObject3D->m_vBBMin.x < m_vMin.x )	m_vMin.x = pObject3D->m_vBBMin.x;
 	if( pObject3D->m_vBBMin.y < m_vMin.y )	m_vMin.y = pObject3D->m_vBBMin.y;
 	if( pObject3D->m_vBBMin.z < m_vMin.z )	m_vMin.z = pObject3D->m_vBBMin.z;
@@ -787,11 +787,11 @@ int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 	if( pObject3D->m_vBBMax.z > m_vMax.z )	m_vMax.z = pObject3D->m_vBBMax.z;
 	SetBB( m_BB.m_vPos, m_vMin, m_vMax );
 
-	// ì½ì–´ì˜¨ ì—˜ë¦¬ë¨¼íŠ¸ëŠ” thisì˜ ë¼ˆëŒ€ì— ë¶€ëª¨ì§€ì •ì´ ì•ˆë˜ì–´ ìˆê²Œ í•œë‹¤.
-	// ë§Œì•½ ì¹¼ì„ ì½ì–´ì™”ë‹¤ë©´ ìˆ˜ë™ìœ¼ë¡œ SetParent()í•˜ë„ë¡ í•œë‹¤.
+	// ÀĞ¾î¿Â ¿¤¸®¸ÕÆ®´Â thisÀÇ »À´ë¿¡ ºÎ¸ğÁöÁ¤ÀÌ ¾ÈµÇ¾î ÀÖ°Ô ÇÑ´Ù.
+	// ¸¸¾à Ä®À» ÀĞ¾î¿Ô´Ù¸é ¼öµ¿À¸·Î SetParent()ÇÏµµ·Ï ÇÑ´Ù.
 	pElem->m_nParentIdx = -1;
 
-	if( pObject3D->m_nHavePhysique )	// í”¼ì§€í¬ë¥¼ ê°€ì§€ê³  ìˆë‹¤ë©´ ìŠ¤í‚¨ì€ ë²„í…ìŠ¤ë²„í¼ë¥¼ ë”°ë¡œ ê°€ì§
+	if( pObject3D->m_nHavePhysique )	// ÇÇÁöÅ©¸¦ °¡Áö°í ÀÖ´Ù¸é ½ºÅ²Àº ¹öÅØ½º¹öÆÛ¸¦ µû·Î °¡Áü
 	{
 		if( pElem->m_ppd3d_VB )
 			Error( "CModelObject::LoadElement: %s pElem->m_ppd3d_VB is not NULL", szFileName );
@@ -815,7 +815,7 @@ int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 		pElem->m_ppd3d_VBSel = pElem->m_ppd3d_VB1;
 	}
 	
-	pObject3D->RestoreDeviceObjects( pElem->m_ppd3d_VB );		// ì´ê±¸ ì—¬ê¸°ì„œ í•˜ë©´ ì•ˆë˜ëŠ” ì´ìœ ê°€ ìˆì–´ì„œ ì•ˆí•œê±´ë° ê·¸ ì´ìœ ê°€ ê¸°ì–µì´ ì•ˆë‚œë‹¤ -_-;;;
+	pObject3D->RestoreDeviceObjects( pElem->m_ppd3d_VB );		// ÀÌ°É ¿©±â¼­ ÇÏ¸é ¾ÈµÇ´Â ÀÌÀ¯°¡ ÀÖ¾î¼­ ¾ÈÇÑ°Çµ¥ ±× ÀÌÀ¯°¡ ±â¾ïÀÌ ¾È³­´Ù -_-;;;
 
 	return SUCCESS;
 }
@@ -825,7 +825,7 @@ int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 
 int CModelObject::LoadClonedElement( LPCTSTR szFileName )
 {
-	//gmpbigsun: ì™„ì ¼ ë³µì œ ëª¨ë¸ ìƒì„±( ë…ë¦½ í…ìŠ¤ì³ ) .. ê¸‰ì¡°í•¨.
+	//gmpbigsun: ¿ÏÁ¯ º¹Á¦ ¸ğµ¨ »ı¼º( µ¶¸³ ÅØ½ºÃÄ ) .. ±ŞÁ¶ÇÔ.
 	CObject3D* pObject3D = NULL;
 	O3D_ELEMENT* pElem = NULL;
 
@@ -858,34 +858,34 @@ int CModelObject::LoadClonedElement( LPCTSTR szFileName )
 	if( pObject3D->m_nHavePhysique )	
 		m_bSkin = TRUE;
 
-	if( m_nFrameMax == 0 )	// maxframeì´ ì„¸íŒ…ëœì ì´ ì—†ì„ë•Œë§Œ ìµœì´ˆ ì„¸íŒ…í•¨.
+	if( m_nFrameMax == 0 )	// maxframeÀÌ ¼¼ÆÃµÈÀûÀÌ ¾øÀ»¶§¸¸ ÃÖÃÊ ¼¼ÆÃÇÔ.
 		m_nFrameMax = pObject3D->GetMaxFrame();
 
-	m_fPerSlerp = (float)((int)(pObject3D->m_fPerSlerp * 1000.0f)) / 1000.0f;		// ì†Œìˆ«ì  3ì§¸ ì´í•˜ì—ì„œ ì˜¤ì°¨ê°€ ìƒê¸¸ìˆ˜ ìˆìœ¼ë¯€ë¡œ 3ì§¸ê¹Œì§€ ì—ì„œ ì˜ë¼ë²„ë¦°ë‹¤,.
+	m_fPerSlerp = (float)((int)(pObject3D->m_fPerSlerp * 1000.0f)) / 1000.0f;		// ¼Ò¼ıÁ¡ 3Â° ÀÌÇÏ¿¡¼­ ¿ÀÂ÷°¡ »ı±æ¼ö ÀÖÀ¸¹Ç·Î 3Â°±îÁö ¿¡¼­ Àß¶ó¹ö¸°´Ù,.
 
-	if( m_nFrameMax > 0 )	// ì´ë¯¸ ëª¨ì…˜ì´ë‚˜ ì˜¤ë¸Œì ì„ ì½ì–´ì„œ maxframeì´ ìˆì„ë•Œ ì´ë²ˆì— ì½ì€ ì˜¤ë¸Œì í‹” maxframeí•˜ê³  ë¹„êµ. í‹€ë¦¬ë©´ ì—ëŸ¬.
+	if( m_nFrameMax > 0 )	// ÀÌ¹Ì ¸ğ¼ÇÀÌ³ª ¿ÀºêÁ§À» ÀĞ¾î¼­ maxframeÀÌ ÀÖÀ»¶§ ÀÌ¹ø¿¡ ÀĞÀº ¿ÀºêÁ§Æ· maxframeÇÏ°í ºñ±³. Æ²¸®¸é ¿¡·¯.
 	{
 		if( pObject3D->GetMaxFrame() )
 			if( m_nFrameMax != pObject3D->GetMaxFrame() )
 			{
-				LPCTSTR szErr = Error( "CModelObject::LoadElement - %sì˜ MaxFrame(%d)ê³¼ ì´ì „ì— ì½ì€ MaxFrame(%d)ì´ ë‹¤ë¥´ë‹¤.", szFileName, pObject3D->GetMaxFrame(), m_nFrameMax );
+				LPCTSTR szErr = Error( "CModelObject::LoadElement - %sÀÇ MaxFrame(%d)°ú ÀÌÀü¿¡ ÀĞÀº MaxFrame(%d)ÀÌ ´Ù¸£´Ù.", szFileName, pObject3D->GetMaxFrame(), m_nFrameMax );
 				ADDERRORMSG( szErr );
 			}
 	}
-	if( m_nFrameMax == 0 )	// maxframeì´ ì„¸íŒ…ëœì ì´ ì—†ì„ë•Œë§Œ ìµœì´ˆ ì„¸íŒ…í•¨.
+	if( m_nFrameMax == 0 )	// maxframeÀÌ ¼¼ÆÃµÈÀûÀÌ ¾øÀ»¶§¸¸ ÃÖÃÊ ¼¼ÆÃÇÔ.
 		m_nFrameMax = pObject3D->GetMaxFrame();
 
-	// ì• ë‹ˆë©”ì´ì…˜ ì†ë„
-	m_fPerSlerp = (float)((int)(pObject3D->m_fPerSlerp * 1000.0f)) / 1000.0f;		// ì†Œìˆ«ì  3ì§¸ ì´í•˜ì—ì„œ ì˜¤ì°¨ê°€ ìƒê¸¸ìˆ˜ ìˆìœ¼ë¯€ë¡œ 3ì§¸ê¹Œì§€ ì—ì„œ ì˜ë¼ë²„ë¦°ë‹¤,.
+	// ¾Ö´Ï¸ŞÀÌ¼Ç ¼Óµµ
+	m_fPerSlerp = (float)((int)(pObject3D->m_fPerSlerp * 1000.0f)) / 1000.0f;		// ¼Ò¼ıÁ¡ 3Â° ÀÌÇÏ¿¡¼­ ¿ÀÂ÷°¡ »ı±æ¼ö ÀÖÀ¸¹Ç·Î 3Â°±îÁö ¿¡¼­ Àß¶ó¹ö¸°´Ù,.
 
 
-	// ì´ë¯¸ ë³¸ì´ ë¡œë”©ë˜ì–´ ìˆëŠ” ìƒíƒœë©´ m_pUpdateBoneì„ ì˜¤ë¸Œì íŠ¸ì˜ ì™¸ë¶€ë¼ˆëŒ€ë¡œ ë“±ë¡í•¨.
+	// ÀÌ¹Ì º»ÀÌ ·ÎµùµÇ¾î ÀÖ´Â »óÅÂ¸é m_pUpdateBoneÀ» ¿ÀºêÁ§Æ®ÀÇ ¿ÜºÎ»À´ë·Î µî·ÏÇÔ.
 	if( m_pBone )
 		pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );
 
-	// ìƒˆë¡œ ì½ì€ Meshì˜  BBë¥¼ ê¸°ì¤€ìœ¼ë¡œ CModelObjectì˜ BBë¥¼ ê°±ì‹ 
-	// ì´ë¶€ë¶„ê³„ì‚°ì€ í˜„ì¬ ì •í™•í•˜ì§€ ì•Šë‹¤.  Min,Maxëª¨ë‘ Localê¸°ì¤€ì¸ë°ë‹¤ê°€
-	// ì‚¬ëŒì´ ì°½ì„ ì¥ê³  ìˆì„ê²½ìš° ì°½ê¹Œì§€ ë°”ìš´ë”© ë°•ìŠ¤ì— í¬í•¨ë˜ê³  ìˆë‹¤.
+	// »õ·Î ÀĞÀº MeshÀÇ  BB¸¦ ±âÁØÀ¸·Î CModelObjectÀÇ BB¸¦ °»½Å
+	// ÀÌºÎºĞ°è»êÀº ÇöÀç Á¤È®ÇÏÁö ¾Ê´Ù.  Min,Max¸ğµÎ Local±âÁØÀÎµ¥´Ù°¡
+	// »ç¶÷ÀÌ Ã¢À» Áã°í ÀÖÀ»°æ¿ì Ã¢±îÁö ¹Ù¿îµù ¹Ú½º¿¡ Æ÷ÇÔµÇ°í ÀÖ´Ù.
 	if( pObject3D->m_vBBMin.x < m_vMin.x )	m_vMin.x = pObject3D->m_vBBMin.x;
 	if( pObject3D->m_vBBMin.y < m_vMin.y )	m_vMin.y = pObject3D->m_vBBMin.y;
 	if( pObject3D->m_vBBMin.z < m_vMin.z )	m_vMin.z = pObject3D->m_vBBMin.z;
@@ -894,11 +894,11 @@ int CModelObject::LoadClonedElement( LPCTSTR szFileName )
 	if( pObject3D->m_vBBMax.z > m_vMax.z )	m_vMax.z = pObject3D->m_vBBMax.z;
 	SetBB( m_BB.m_vPos, m_vMin, m_vMax );
 
-	// ì½ì–´ì˜¨ ì—˜ë¦¬ë¨¼íŠ¸ëŠ” thisì˜ ë¼ˆëŒ€ì— ë¶€ëª¨ì§€ì •ì´ ì•ˆë˜ì–´ ìˆê²Œ í•œë‹¤.
-	// ë§Œì•½ ì¹¼ì„ ì½ì–´ì™”ë‹¤ë©´ ìˆ˜ë™ìœ¼ë¡œ SetParent()í•˜ë„ë¡ í•œë‹¤.
+	// ÀĞ¾î¿Â ¿¤¸®¸ÕÆ®´Â thisÀÇ »À´ë¿¡ ºÎ¸ğÁöÁ¤ÀÌ ¾ÈµÇ¾î ÀÖ°Ô ÇÑ´Ù.
+	// ¸¸¾à Ä®À» ÀĞ¾î¿Ô´Ù¸é ¼öµ¿À¸·Î SetParent()ÇÏµµ·Ï ÇÑ´Ù.
 	pElem->m_nParentIdx = -1;
 
-	if( pObject3D->m_nHavePhysique )	// í”¼ì§€í¬ë¥¼ ê°€ì§€ê³  ìˆë‹¤ë©´ ìŠ¤í‚¨ì€ ë²„í…ìŠ¤ë²„í¼ë¥¼ ë”°ë¡œ ê°€ì§
+	if( pObject3D->m_nHavePhysique )	// ÇÇÁöÅ©¸¦ °¡Áö°í ÀÖ´Ù¸é ½ºÅ²Àº ¹öÅØ½º¹öÆÛ¸¦ µû·Î °¡Áü
 	{
 		if( pElem->m_ppd3d_VB )
 			Error( "CModelObject::LoadElement: %s pElem->m_ppd3d_VB is not NULL", szFileName );
@@ -932,8 +932,8 @@ int CModelObject::LoadClonedElement( LPCTSTR szFileName )
 #endif //__GUILD_HOUSE
 
 // SetParent( PARTS_LWEAPON, BONE_RHAND );
-// nPartsì˜ ì˜¤ë¸Œì íŠ¸ì˜ ë¶€ëª¨ë¥¼ nBoneIdxë¡œ ì„¸íŒ…
-// ë¶€ëª¨ë¥¼ ë°”ê¿€ë•Œ ì“´ë‹¤.
+// nPartsÀÇ ¿ÀºêÁ§Æ®ÀÇ ºÎ¸ğ¸¦ nBoneIdx·Î ¼¼ÆÃ
+// ºÎ¸ğ¸¦ ¹Ù²Ü¶§ ¾´´Ù.
 void	CModelObject::SetParent( int nParts, int nBoneIdx )
 {
 	O3D_ELEMENT	*pElem = GetParts( nParts );
@@ -944,8 +944,8 @@ void	CModelObject::SetParent( int nParts, int nBoneIdx )
 	pElem->m_nParentIdx = nBoneIdx;
 	pElem->m_mLocalTM = pElem->m_pObject3D->GetGMOBJECT()->m_mLocalTM;
 
-	// ë§Œì•½ ë³¸ì˜ ê°œìˆ˜ê°€ ë°”ë€Œì—ˆë‹¤ë©´ BONE_RHANDì˜ ì¸ë±ìŠ¤ë„ ë°”ê»´ì•¼ í•œë‹¤. ì¸ê°„í˜•ëª¨ë¸ì€ ë³¸ ê°œìˆ˜ë¥¼ í†µì¼ ì‹œì¼œì•¼ í•œë‹¤.
-	// ë³¸ ì¸ë±ìŠ¤ë¥¼ ì‰½ê²Œ ì•Œìˆ˜ ìˆëŠ” ë°©ë²•ì€ CModelObject->m_pMotion->m_pBoneInfo[]ì— 0~32ê¹Œì§€ë¥¼ ì…ë ¥ì‹œì¼œë³´ë©´ì„œ Bip01 R Handë¥¼ ì°¾ëŠ”ë‹¤,
+	// ¸¸¾à º»ÀÇ °³¼ö°¡ ¹Ù²î¾ú´Ù¸é BONE_RHANDÀÇ ÀÎµ¦½ºµµ ¹Ù²¸¾ß ÇÑ´Ù. ÀÎ°£Çü¸ğµ¨Àº º» °³¼ö¸¦ ÅëÀÏ ½ÃÄÑ¾ß ÇÑ´Ù.
+	// º» ÀÎµ¦½º¸¦ ½±°Ô ¾Ë¼ö ÀÖ´Â ¹æ¹ıÀº CModelObject->m_pMotion->m_pBoneInfo[]¿¡ 0~32±îÁö¸¦ ÀÔ·Â½ÃÄÑº¸¸é¼­ Bip01 R Hand¸¦ Ã£´Â´Ù,
 	if( nBoneIdx == GetRHandIdx() )	
 		pElem->m_mLocalRH = m_pBone->m_mLocalRH;
 
@@ -960,9 +960,9 @@ void	CModelObject::SetParent( int nParts, int nBoneIdx )
 }
 
 //
-// nPartsì— í…ìŠ¤ì³íŒŒì¼ szBitmapì„ ë©€í‹°í…ìŠ¤ì³ë¡œ ë“±ë¡
-// ê¸°ì¡´ í…ìŠ¤ì³ë¥¼ íŒŒê´´í•  í•„ìš”ëŠ” ì—†ë‹¤.
-// ë°˜ë“œì‹œ LoadMesh()ì´í›„ì— ë˜ì–´ì•¼ í•œë‹¤.
+// nParts¿¡ ÅØ½ºÃÄÆÄÀÏ szBitmapÀ» ¸ÖÆ¼ÅØ½ºÃÄ·Î µî·Ï
+// ±âÁ¸ ÅØ½ºÃÄ¸¦ ÆÄ±«ÇÒ ÇÊ¿ä´Â ¾ø´Ù.
+// ¹İµå½Ã LoadMesh()ÀÌÈÄ¿¡ µÇ¾î¾ß ÇÑ´Ù.
 //
 void	CModelObject::SetTextureMulti( LPCTSTR szBitmap, int nParts )
 {
@@ -1002,15 +1002,15 @@ void	CModelObject::ChangeTexture( int nParts, LPCTSTR szSrc, LPCTSTR szDest )
 #ifndef __WORLDSERVER
 //---------------------------------------------------------------------------------------------
 //
-// Render()ë¥¼ ë¶€ë¥¼ë•Œ ë‚´ë¶€ì—ì„œ SetTransform()ì„ í•´ì£¼ê³  ì™¸ë¶€ì—ì„  ë§¤íŠ¸ë¦­ìŠ¤ë§Œ ë„˜ê¸°ëŠ”ê²ƒì„ ì›ì¹™ìœ¼ë¡œ í•˜ì.
-// ë„˜ê²¨ì£¼ëŠ” ë§¤íŠ¸ë¦­ìŠ¤ëŠ” ì˜¤ë¸Œì íŠ¸ì˜ ì›ì ì„ ë„˜ê²¨ì¤€ë‹¤.
-// ê°€ë ¹ ì¸ê°„ì˜ ê²½ìš°ëŠ” ì„¼í„°ë¶€ë¶„ì´ë‹¤.
+// Render()¸¦ ºÎ¸¦¶§ ³»ºÎ¿¡¼­ SetTransform()À» ÇØÁÖ°í ¿ÜºÎ¿¡¼± ¸ÅÆ®¸¯½º¸¸ ³Ñ±â´Â°ÍÀ» ¿øÄ¢À¸·Î ÇÏÀÚ.
+// ³Ñ°ÜÁÖ´Â ¸ÅÆ®¸¯½º´Â ¿ÀºêÁ§Æ®ÀÇ ¿øÁ¡À» ³Ñ°ÜÁØ´Ù.
+// °¡·É ÀÎ°£ÀÇ °æ¿ì´Â ¼¾ÅÍºÎºĞÀÌ´Ù.
 //
 FLOAT   g_fDiffuse[4];
 FLOAT   g_fAmbient[4];
 /*
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-ë§Œì•½ì— Renderí–ˆëŠ”ë° í™”ë©´ì— ì•ˆë‚˜ì˜¨ë‹¤!!! ê·¸ëŸ¬ë©´!
+¸¸¾à¿¡ RenderÇß´Âµ¥ È­¸é¿¡ ¾È³ª¿Â´Ù!!! ±×·¯¸é!
 static D3DXVECTOR4 vConst( 1.0f, 1.0f, 1.0f, 100.0f );
 m_pd3dDevice->SetVertexShaderConstantF( 95, (float*)&vConst, 1 );
 SetTransformView( matView );
@@ -1018,8 +1018,8 @@ SetTransformProj( matProj );
 SetDiffuse( 1.0, 1.0, 1.0 );
 SetAmbient( 1.0, 1.0, 1.0 );
 
-ì´ê±¸ ë Œë” í•˜ê¸°ì „ì— ë¶ˆëŸ¬ì¤¬ëŠ”ì§€ í™•ì¸í•´ë¼!!!!!!!!!!!!!!!!!!!!! í¬ì•„ì•„ì•…!
-ì¢†ë„ ê³ ìƒí–ˆë„¤!
+ÀÌ°É ·»´õ ÇÏ±âÀü¿¡ ºÒ·¯Áá´ÂÁö È®ÀÎÇØ¶ó!!!!!!!!!!!!!!!!!!!!! Å©¾Æ¾Æ¾Ç!
+Á¿µµ °í»ıÇß³×!
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
  */
@@ -1034,22 +1034,22 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 	int		nNextFrame;
 	D3DXMATRIX	m1;
 
-#ifndef __CLIENT						// ê²Œì„í´ë¼ì´ì–¸íŠ¸ê°€ ì•„ë‹ë•Œ...
-	if( IsEmptyElement() == TRUE )		// ëª¨ë¸ì´ ë¡œë“œê°€ ì•ˆë˜ì–´ ìˆìœ¼ë©´ ê± ë¦¬í„´
+#ifndef __CLIENT						// °ÔÀÓÅ¬¶óÀÌ¾ğÆ®°¡ ¾Æ´Ò¶§...
+	if( IsEmptyElement() == TRUE )		// ¸ğµ¨ÀÌ ·Îµå°¡ ¾ÈµÇ¾î ÀÖÀ¸¸é °Á ¸®ÅÏ
 		return 1;
 #endif
 
 #ifdef	_DEBUG
 	if( m_mUpdateBone && g_pSkiningVS == NULL )
-		Error( "CMyD3DApplication::RestoreDeviceObjects()ì— CreateSkiningVS()ë¥¼ í˜¸ì¶œí•˜ì‹œì˜¤.\r\nCMyD3DApplication::InvalidateDeviceObjects()ì—ëŠ” DeleteSkiningVS()ë¥¼ í˜¸ì¶œí•˜ì‹œì˜¤.\r\ní˜¹ì€ *.vshíŒŒì¼ì„ ì½ì§€ ëª»í–ˆë‹¤." );
+		Error( "CMyD3DApplication::RestoreDeviceObjects()¿¡ CreateSkiningVS()¸¦ È£ÃâÇÏ½Ã¿À.\r\nCMyD3DApplication::InvalidateDeviceObjects()¿¡´Â DeleteSkiningVS()¸¦ È£ÃâÇÏ½Ã¿À.\r\nÈ¤Àº *.vshÆÄÀÏÀ» ÀĞÁö ¸øÇß´Ù." );
 	if( m_nLoop == 0 )
-		Error( "ê²½ê³  : %s : CModelObject::m_nLoopê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ë‹¤.", m_pMotion->m_szName );
+		Error( "°æ°í : %s : CModelObject::m_nLoop°¡ ÁöÁ¤µÇÁö ¾Ê¾Ò´Ù.", m_pMotion->m_szName );
 #endif
 
-	if( m_pMotion )		// m_pMotionì´ ë„ì´ë¼ë©´ m_mUpdateBoneë„ ë„ì´ë‹¤.
-		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ì¼ë‹¨ ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ë¼ˆëŒ€ ì• ë‹ˆë©”ì´ì…˜ ì‹œí‚´
+	if( m_pMotion )		// m_pMotionÀÌ ³ÎÀÌ¶ó¸é m_mUpdateBoneµµ ³ÎÀÌ´Ù.
+		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ÀÏ´Ü »À´ë°¡ ÀÖ´Ù¸é »À´ë ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÅ´
 
-	if( m_pBone )		// m_pBoneì´ ìˆë‹¤ë©´ ë¼ˆëŒ€ê°€ ìˆë‹¤ëŠ” ì–˜ê¸°. VSë¥¼ ì¨ì•¼ í•œë‹¤.
+	if( m_pBone )		// m_pBoneÀÌ ÀÖ´Ù¸é »À´ë°¡ ÀÖ´Ù´Â ¾ê±â. VS¸¦ ½á¾ß ÇÑ´Ù.
 	{
 		D3DXMATRIX *pmBones;
 		D3DXMATRIX mWorldTranspose;
@@ -1057,14 +1057,14 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 		BONE	*pBoneList = m_pBone->m_pBones;
 		pmBones = m_mUpdateBone;
 
-		if( m_pBone->m_bSendVS )	// ë¼ˆëŒ€ê°œìˆ˜ê°€ MAX_VS_BONEì´í•˜ë¼ì„œ í•œë²ˆì— ë‹¤ ì „ì†¡í•œë‹¤.
+		if( m_pBone->m_bSendVS )	// »À´ë°³¼ö°¡ MAX_VS_BONEÀÌÇÏ¶ó¼­ ÇÑ¹ø¿¡ ´Ù Àü¼ÛÇÑ´Ù.
 		{
 			int		nMaxBone = m_pBone->m_nMaxBone;
 
 			if( nMaxBone > MAX_VS_BONE )	
 				Error( "CModelObject::Render : overflow bone count - %d", nMaxBone );
 
-			for( i = 0; i < nMaxBone; i ++ )	// MAX_VS_BONEê°œ ì´í•˜	
+			for( i = 0; i < nMaxBone; i ++ )	// MAX_VS_BONE°³ ÀÌÇÏ	
 			{
 				mWorldTranspose = pmBonesInv[i] * pmBones[i];				
 #ifdef	__YENV		
@@ -1072,8 +1072,8 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 				str.Format( "mBoneMatrix[%d]", i );
 				HRESULT hr = g_Neuz.m_pEffect->SetMatrix( str, &mWorldTranspose );
 #else //__YENV
-				D3DXMatrixTranspose( &mWorldTranspose, &mWorldTranspose );		// ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ëŒë¦°ë‹¤ìŒ.
-				m_pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&mWorldTranspose, 3 );		// ìƒìˆ˜ë ˆì§€ìŠ¤í„°ì— ì§‘ì–´ë„£ìŒ.
+				D3DXMatrixTranspose( &mWorldTranspose, &mWorldTranspose );		// ¸ÅÆ®¸¯½º¸¦ µ¹¸°´ÙÀ½.
+				m_pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&mWorldTranspose, 3 );		// »ó¼ö·¹Áö½ºÅÍ¿¡ Áı¾î³ÖÀ½.
 #endif //__YENV		
 			}
 		}
@@ -1095,19 +1095,19 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 
 #ifdef __YENV
 		/*
-		// íˆ¬ì˜ ì„¤ì •...
+		// Åõ¿µ ¼³Á¤...
 		g_Neuz.m_pEffect->SetMatrix( g_Neuz.m_hmWVP, &mViewProjTranspose );
 		
-		// ë¼ì´íŠ¸ ìœ„ì¹˜ ì„¤ì •
+		// ¶óÀÌÆ® À§Ä¡ ¼³Á¤
 		D3DXVECTOR4 v;
 		D3DXVECTOR4 vLight_Pos = s_vLight;
 		D3DXMATRIX mLocal;
 		D3DXMatrixInverse( &mLocal, NULL, &mViewProjTranspose );						
-		D3DXVec4Transform( &v, &vLight_Pos, &mLocal );						// ë¡œì»¬ì¢Œí‘œë¡œ ë³€í™˜
-		D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// ì •ê·œí™”
-		v.w = -0.6f;														// í™˜ê²½ê´‘ì˜ ë°ê¸°(Ambint) Def : -0.3f
+		D3DXVec4Transform( &v, &vLight_Pos, &mLocal );						// ·ÎÄÃÁÂÇ¥·Î º¯È¯
+		D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// Á¤±ÔÈ­
+		v.w = -0.6f;														// È¯°æ±¤ÀÇ ¹à±â(Ambint) Def : -0.3f
 		
-		// ë¼ì´íŠ¸ ë°©í–¥ ì„¤ì •
+		// ¶óÀÌÆ® ¹æÇâ ¼³Á¤
 		g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvLightDir, &v );
 		
 		g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvDiffuse, (D3DXVECTOR4*)&s_fDiffuse[0] );	
@@ -1129,7 +1129,7 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 
 	if( m_nNoEffect == 0 )
 	{
-		// ê¸°ë³¸ ì„¤ì • 
+		// ±âº» ¼³Á¤ 
 		pd3dDevice->SetTextureStageState( 0, D3DTSS_COLORARG1, D3DTA_TEXTURE );
 		pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP,   D3DTOP_MODULATE );
 		pd3dDevice->SetTextureStageState( 0, D3DTSS_COLORARG2, D3DTA_DIFFUSE );
@@ -1140,7 +1140,7 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 		
 	}
 	DWORD dwBlendFactor = m_dwColor | ( m_dwBlendFactor << 24 );
-	// ì˜¤ë¸Œì íŠ¸ì˜ ë°˜íˆ¬ëª… íš¨ê³¼ ì„¸íŒ… 
+	// ¿ÀºêÁ§Æ®ÀÇ ¹İÅõ¸í È¿°ú ¼¼ÆÃ 
 	if( m_dwBlendFactor < 255 || m_dwColor )
 	{
 		pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, dwBlendFactor );
@@ -1157,7 +1157,7 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 	D3DXVECTOR3 vec3LightBackup = D3DXVECTOR3( s_vLight[0], s_vLight[1], s_vLight[2] );
 	D3DXVECTOR4 vec4Diffuse = D3DXVECTOR4( s_fDiffuse[0], s_fDiffuse[1], s_fDiffuse[2], s_fDiffuse[3] );;
 	
-	// ì—˜ë¦¬ë¨¼íŠ¸ì—” ìŠ¤í‚¨,ì¼ë°˜,ëª¨í•‘ ì‹¬ì§€ì–´ëŠ” íŒŒí‹°í´ê¹Œì§€ë„ í¬í•¨ë ìˆ˜ìˆë‹¤.
+	// ¿¤¸®¸ÕÆ®¿£ ½ºÅ²,ÀÏ¹İ,¸ğÇÎ ½ÉÁö¾î´Â ÆÄÆ¼Å¬±îÁöµµ Æ÷ÇÔµÉ¼öÀÖ´Ù.
 	for( i = 0; i < MAX_ELEMENT; i ++ )
 	{
 		pElem = &m_Element[i];		
@@ -1171,11 +1171,11 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 
 		pObject3D->m_nNoTexture = 0; // m_nNoTexture;
 		pObject3D->m_nNoEffect = m_nNoEffect;
-		// ë¼ˆëŒ€ì— ë§í¬ë˜ì–´ ìˆë‹¤.
-		if( pElem->m_nParentIdx != -1 )		// ë³¸ì˜ ì¸ë±ìŠ¤ë¥¼ ëœ»í•œë‹¤.
+		// »À´ë¿¡ ¸µÅ©µÇ¾î ÀÖ´Ù.
+		if( pElem->m_nParentIdx != -1 )		// º»ÀÇ ÀÎµ¦½º¸¦ ¶æÇÑ´Ù.
 		{
-			// ë§Œì•½ ë³¸ì˜ ê°œìˆ˜ê°€ ë°”ë€Œì—ˆë‹¤ë©´ ParentIdxë„ í‹€ë ¤ì¡Œê¸° ë•Œë¬¸ì— ë°”ê¿”ì¤˜ì•¼ í•œë‹¤.
-			m1 = m_mUpdateBone[ pElem->m_nParentIdx ] * *mWorld;		// ë¼ˆëŒ€ì— ë§í¬ë˜ì–´ ìˆë‹¤ë©´ ë¼ˆëŒ€ìœ„ì¹˜ê°€ ì„¼í„°ê°€ ëœë‹¤.
+			// ¸¸¾à º»ÀÇ °³¼ö°¡ ¹Ù²î¾ú´Ù¸é ParentIdxµµ Æ²·ÁÁ³±â ¶§¹®¿¡ ¹Ù²ãÁà¾ß ÇÑ´Ù.
+			m1 = m_mUpdateBone[ pElem->m_nParentIdx ] * *mWorld;		// »À´ë¿¡ ¸µÅ©µÇ¾î ÀÖ´Ù¸é »À´ëÀ§Ä¡°¡ ¼¾ÅÍ°¡ µÈ´Ù.
 			if( pElem->m_nParentIdx == GetRHandIdx() )
 				m1 = pElem->m_mLocalRH * m1;
 			else if( pElem->m_nParentIdx == GetLHandIdx() )
@@ -1205,7 +1205,7 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 				fblack = fblack / 3.0f;
 				fblack *= 0.6f;
 
-#if __VER >= 14 // __BS_FIX_HAIR_AMBIENT	// ambient ì„¤ì •ê°’ì´ ë„ˆë¬´ ë‚®ì„ê²½ìš° ê±°ì˜ ê²€ì€ìƒ‰ì— ê°€ê¹Œì›Œì§€ëŠ”ê±¸ ë°©ì§€ 
+#if __VER >= 14 // __BS_FIX_HAIR_AMBIENT	// ambient ¼³Á¤°ªÀÌ ³Ê¹« ³·À»°æ¿ì °ÅÀÇ °ËÀº»ö¿¡ °¡±î¿öÁö´Â°É ¹æÁö 
 				if( fblack < 0.3f )		
 					fblack = 0.3f;
 #endif // __BS_FIX_HAIR_AMBIENT
@@ -1229,11 +1229,11 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 		} else
 		if( pElem->m_nPartsIdx == PARTS_CLOAK )
 		{
-			g_ModelGlobal.SetTexture( m_pCloakTexture );		// ì™¸ë¶€ì§€ì • ë§í† í…ìŠ¤ì³ê°€ ìˆë‹¤ë©´.
+			g_ModelGlobal.SetTexture( m_pCloakTexture );		// ¿ÜºÎÁöÁ¤ ¸ÁÅäÅØ½ºÃÄ°¡ ÀÖ´Ù¸é.
 		}
 
 		if( m_pBone )
-			pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );	// ì™¸ì¥ë³¸ì´ ìˆë‹¤ë©´ ê·¸ê²ƒì„ ë„˜ê²¨ì¤€ë‹¤.
+			pObject3D->SetExternBone( m_mUpdateBone, m_pBaseBoneInv );	// ¿ÜÀåº»ÀÌ ÀÖ´Ù¸é ±×°ÍÀ» ³Ñ°ÜÁØ´Ù.
 		
 		if( m_SparkInfo.m_bUsed )
 		{
@@ -1270,7 +1270,7 @@ int		CModelObject::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 	RenderAttachModel(pd3dDevice, mWorld);
 #endif //__ATTACH_MODEL
 
-	// ìƒíƒœ í•´ì œ
+	// »óÅÂ ÇØÁ¦
 	if( m_dwBlendFactor < 255 || m_dwColor )
 	{
 		if( m_nNoEffect == 0 )
@@ -1306,7 +1306,7 @@ void CModelObject::RenderEffect( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX 
 //#endif //__CSC_ENCHANT_EFFECT_2
 	if( m_nNoEffect == 0 )
 	{
-		// ê²€ê´‘ ë Œë”.
+		// °Ë±¤ ·»´õ.
 		if( m_pForce && m_pForce->m_nMaxSpline > 0 )	m_pForce->Draw( pd3dDevice, mWorld );
 		if( m_pForce2 && m_pForce2->m_nMaxSpline > 0 )	m_pForce2->Draw( pd3dDevice, mWorld );
 		
@@ -1319,13 +1319,13 @@ void CModelObject::RenderEffect( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX 
 			pElem = GetParts( PARTS_RWEAPON );
 
 #ifdef __SFX_OPT
-			if( g_Option.m_nSfxLevel > 0 && pElem && (pElem->m_nEffect & XE_HIDE) == 0 )			// í•˜ì´ë“œê°€ ì•„ë‹ë•Œë§Œ ì¶œë ¥í•´ì•¼í•¨
+			if( g_Option.m_nSfxLevel > 0 && pElem && (pElem->m_nEffect & XE_HIDE) == 0 )			// ÇÏÀÌµå°¡ ¾Æ´Ò¶§¸¸ Ãâ·ÂÇØ¾ßÇÔ
 #else //__SFX_OPT
-			if( pElem && (pElem->m_nEffect & XE_HIDE) == 0 )			// í•˜ì´ë“œê°€ ì•„ë‹ë•Œë§Œ ì¶œë ¥í•´ì•¼í•¨
+			if( pElem && (pElem->m_nEffect & XE_HIDE) == 0 )			// ÇÏÀÌµå°¡ ¾Æ´Ò¶§¸¸ Ãâ·ÂÇØ¾ßÇÔ
 #endif //__SFX_OPT
 			{
-				nEffect = pElem->m_nEffect & 0x00FFFFFF;	// í•˜ìœ„ 24ë¹„íŠ¸
-				nLevel = (pElem->m_nEffect >> 24);			// ìƒìœ„ 8ë¹„íŠ¸
+				nEffect = pElem->m_nEffect & 0x00FFFFFF;	// ÇÏÀ§ 24ºñÆ®
+				nLevel = (pElem->m_nEffect >> 24);			// »óÀ§ 8ºñÆ®
 #ifdef __NEW_WEAPON_GLOW
 				if( nEffect & XE_ITEM_FIRE )
 					CreateWeaponEffect( PARTS_RWEAPON, dwItemKind3Right, mWorld, PE_FIRE, nLevel, nLevel2 );
@@ -1449,37 +1449,37 @@ void CModelObject::RenderEffect( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX 
 #endif // __NEW_WEAPON_GLOW
 			}
 //#ifdef __CSC_ENCHANT_EFFECT_2
-			else //ìš”ìš” ì¼ ê²½ìš° ê¸°ë³¸ì ìœ¼ë¡œ ì˜¤ë¥¸ìª½ íŒŒì¸ ì— ì •ë³´ë¥¼ ì‚¬ìš© ë‹¨ ê³µê²©ì‹œëŠ” ë‹¤ë¥´ê²Œ ì„¤ì •
+			else //¿ä¿ä ÀÏ °æ¿ì ±âº»ÀûÀ¸·Î ¿À¸¥ÂÊ ÆÄÃ÷¿¡ Á¤º¸¸¦ »ç¿ë ´Ü °ø°İ½Ã´Â ´Ù¸£°Ô ¼³Á¤
 			{				
 				O3D_ELEMENT	*pRweaponElem = GetParts( PARTS_RWEAPON );
 				O3D_ELEMENT	*pLweaponElem = GetParts( PARTS_LWEAPON );
-				if( (pRweaponElem && (pRweaponElem->m_nEffect & XE_HIDE) == 0 ) && //ì–‘ìª½ì— ë‹¤ ì°©ìš©í•˜ê³  ìˆì„ ê²½ìš°
+				if( (pRweaponElem && (pRweaponElem->m_nEffect & XE_HIDE) == 0 ) && //¾çÂÊ¿¡ ´Ù Âø¿ëÇÏ°í ÀÖÀ» °æ¿ì
 					(pLweaponElem && (pLweaponElem->m_nEffect & XE_HIDE) == 0 ) )
 					pElem = GetParts( PARTS_RWEAPON );
-				else if( (pRweaponElem && (pRweaponElem->m_nEffect & XE_HIDE) == 0 ) && //ì˜¤ë¥¸ìª½ë§Œ ì°©ìš©í•˜ê³  ìˆì„ ê²½ìš°
+				else if( (pRweaponElem && (pRweaponElem->m_nEffect & XE_HIDE) == 0 ) && //¿À¸¥ÂÊ¸¸ Âø¿ëÇÏ°í ÀÖÀ» °æ¿ì
 					(pLweaponElem && (pLweaponElem->m_nEffect & XE_HIDE) != 0 ) )
 					pElem = GetParts( PARTS_LWEAPON );
-				else if( (pRweaponElem && (pRweaponElem->m_nEffect & XE_HIDE) != 0 ) && //ì™¼ìª½ë§Œ ì°©ìš©í•˜ê³  ìˆì„ ê²½ìš°
+				else if( (pRweaponElem && (pRweaponElem->m_nEffect & XE_HIDE) != 0 ) && //¿ŞÂÊ¸¸ Âø¿ëÇÏ°í ÀÖÀ» °æ¿ì
 					(pLweaponElem && (pLweaponElem->m_nEffect & XE_HIDE) == 0 ) )
 				{
 					pElem = GetParts( PARTS_RWEAPON );
-					bYoYoAttakLEquip = TRUE; //ì •ë³´ëŠ” ì˜¤ë¥¸ìª½ íŒŒì¸ ë¥¼ ì°¸ê³ í•˜ë˜ ì•„ë˜ XE_HIDEë¥¼ íŒ¨ìŠ¤í•˜ê¸° ìœ„í•´ ì„ì‹œë¡œ ì‚¬ìš©
+					bYoYoAttakLEquip = TRUE; //Á¤º¸´Â ¿À¸¥ÂÊ ÆÄÃ÷¸¦ Âü°íÇÏµÇ ¾Æ·¡ XE_HIDE¸¦ ÆĞ½ºÇÏ±â À§ÇØ ÀÓ½Ã·Î »ç¿ë
 				}
 			}
 #ifdef __SFX_OPT
-			if( g_Option.m_nSfxLevel > 0 && pElem && (bYoYoAttakLEquip || (pElem->m_nEffect & XE_HIDE) == 0) )			// í•˜ì´ë“œê°€ ì•„ë‹ë•Œë§Œ ì¶œë ¥í•´ì•¼í•¨
+			if( g_Option.m_nSfxLevel > 0 && pElem && (bYoYoAttakLEquip || (pElem->m_nEffect & XE_HIDE) == 0) )			// ÇÏÀÌµå°¡ ¾Æ´Ò¶§¸¸ Ãâ·ÂÇØ¾ßÇÔ
 #else //__SFX_OPT
-			if( pElem && (bYoYoAttakLEquip || (pElem->m_nEffect & XE_HIDE) == 0) )			// í•˜ì´ë“œê°€ ì•„ë‹ë•Œë§Œ ì¶œë ¥í•´ì•¼í•¨
+			if( pElem && (bYoYoAttakLEquip || (pElem->m_nEffect & XE_HIDE) == 0) )			// ÇÏÀÌµå°¡ ¾Æ´Ò¶§¸¸ Ãâ·ÂÇØ¾ßÇÔ
 #endif //__SFX_OPT
 //#else //__CSC_ENCHANT_EFFECT_2
-//			if( pElem && (pElem->m_nEffect & XE_HIDE) == 0 )			// í•˜ì´ë“œê°€ ì•„ë‹ë•Œë§Œ ì¶œë ¥í•´ì•¼í•¨
+//			if( pElem && (pElem->m_nEffect & XE_HIDE) == 0 )			// ÇÏÀÌµå°¡ ¾Æ´Ò¶§¸¸ Ãâ·ÂÇØ¾ßÇÔ
 //#endif //__CSC_ENCHANT_EFFECT_2
 			{
 			#ifndef __CSC_ENCHANT_EFFECT_2
 				nLevel2 = nLevelL;
 			#endif //__CSC_ENCHANT_EFFECT_2
-				nEffect = pElem->m_nEffect & 0x00FFFFFF;	// í•˜ìœ„ 24ë¹„íŠ¸
-				nLevel = (pElem->m_nEffect >> 24);			// ìƒìœ„ 8ë¹„íŠ¸
+				nEffect = pElem->m_nEffect & 0x00FFFFFF;	// ÇÏÀ§ 24ºñÆ®
+				nLevel = (pElem->m_nEffect >> 24);			// »óÀ§ 8ºñÆ®
 				
 			#if __VER >= 9 // __Y_ADV_ENCHANT_EFFECT
 #ifdef __NEW_WEAPON_GLOW
@@ -1494,10 +1494,10 @@ void CModelObject::RenderEffect( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX 
 			}
 #else  //	__NEW_WEAPON_GLOW
 			#ifdef __CSC_ENCHANT_EFFECT_2
-				if( dwItemKind3 != IK3_YOYO ) //ìš”ìš”ëŠ” ë ˆë²¨ ì¼ì¹˜ ì‹œì¼œ ì¤˜ì•¼ ì´í™íŠ¸ê°€ ë™ì¼í•˜ê²Œ ë‚˜ì˜´.
+				if( dwItemKind3 != IK3_YOYO ) //¿ä¿ä´Â ·¹º§ ÀÏÄ¡ ½ÃÄÑ Áà¾ß ÀÌÆåÆ®°¡ µ¿ÀÏÇÏ°Ô ³ª¿È.
 					nLevel2 = nLevelL;
 			#else //__CSC_ENCHANT_EFFECT_2
-				if( dwItemKind3 == IK3_YOYO ) //ìš”ìš”ëŠ” ë ˆë²¨ ì¼ì¹˜ ì‹œì¼œ ì¤˜ì•¼ ì´í™íŠ¸ê°€ ë™ì¼í•˜ê²Œ ë‚˜ì˜´.
+				if( dwItemKind3 == IK3_YOYO ) //¿ä¿ä´Â ·¹º§ ÀÏÄ¡ ½ÃÄÑ Áà¾ß ÀÌÆåÆ®°¡ µ¿ÀÏÇÏ°Ô ³ª¿È.
 					nLevel2 =  nLevel;
 			#endif //__CSC_ENCHANT_EFFECT_2
 			#endif
@@ -1618,7 +1618,7 @@ void CModelObject::RenderEffect( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX 
 		for( i = 0; i < MAX_ELEMENT; i ++ )
 		{
 			pElem = &m_Element[i];
-			pElem->m_nEffect = 0;		// ì“°ê³ ë‚˜ë©´ ì´ˆê¸°í™” í•´ì£¼ì
+			pElem->m_nEffect = 0;		// ¾²°í³ª¸é ÃÊ±âÈ­ ÇØÁÖÀÚ
 		}
 	}
 }
@@ -1649,7 +1649,7 @@ HRESULT CModelObject::RestoreDeviceObjects()
 		pObject3D = pElem->m_pObject3D;
 		if( pObject3D )
 		{
-			// pElemì´ ìŠ¤í‚¨ì¼ë• m_ppd3d_VB[]ì— ë²„í…ìŠ¤ë²„í¼ê°€ ë‹´ê²¨ì„œ ëŒì•„ì˜¨ë‹¤.
+			// pElemÀÌ ½ºÅ²ÀÏ¶© m_ppd3d_VB[]¿¡ ¹öÅØ½º¹öÆÛ°¡ ´ã°Ü¼­ µ¹¾Æ¿Â´Ù.
 			pObject3D->RestoreDeviceObjects( pElem->m_ppd3d_VB );
 		}
 	}
@@ -1732,7 +1732,7 @@ HRESULT CModelObject::DeleteDeviceObjects()
 				for( j = 0; j < pElem->m_pObject3D->GetMaxObject(); j ++ )
 					SAFE_RELEASE( pElem->m_ppd3d_VB3[j] );
 				pElem->m_pObject3D->SetLOD(0);
-	//				SAFE_DELETE_ARRAY( pElem->m_ppd3d_VB );	// ì—¬ê¸°ì„œ ì´ê±¸ ì‚­ì œí•˜ë©´ ì•ˆëœë‹¤. device ìì›ë§Œ ì‚­ì œ.
+	//				SAFE_DELETE_ARRAY( pElem->m_ppd3d_VB );	// ¿©±â¼­ ÀÌ°É »èÁ¦ÇÏ¸é ¾ÈµÈ´Ù. device ÀÚ¿ø¸¸ »èÁ¦.
 			}
 //			pObject3D->DeleteDeviceObjects();
 		}
@@ -1748,7 +1748,7 @@ HRESULT CModelObject::DeleteDeviceObjects()
 void	CModelObject::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 {
 #ifdef __CLIENT
-	if( m_pMotion )		// CModel::FrameMoveì—ì„œ í”„ë ˆì„ì´ ì¦ê°€ë˜ê¸°ì „ì— ê²€ì‚¬í•´ë´ì•¼ í•œë‹¤.
+	if( m_pMotion )		// CModel::FrameMove¿¡¼­ ÇÁ·¹ÀÓÀÌ Áõ°¡µÇ±âÀü¿¡ °Ë»çÇØºÁ¾ß ÇÑ´Ù.
 	{
 #if __VER >= 9	//__AI_0509
 		MOTION_ATTR* pAttr	= IsAttrSound();
@@ -1789,7 +1789,7 @@ void	CModelObject::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 #else	// __AI_0509
 		MOTION_ATTR *pAttr = IsAttrSound();
 		if( pAttr )
-			if( pAttr->m_nSndID > 0 && m_nPause == 0 )		// íš¨ê³¼ìŒ ì†ì„±ì´ ìˆë‹¤ë©´ í”Œë ˆì´, pauseìƒíƒœë©´ ì‚¬ìš´ë“œ ì¶œë ¥ ì•ˆí•¨
+			if( pAttr->m_nSndID > 0 && m_nPause == 0 )		// È¿°úÀ½ ¼Ó¼ºÀÌ ÀÖ´Ù¸é ÇÃ·¹ÀÌ, pause»óÅÂ¸é »ç¿îµå Ãâ·Â ¾ÈÇÔ
 				PLAYSND( pAttr->m_nSndID, pvSndPos );
 		BOOL bQuake = IsAttrQuake();
 		if( bQuake && m_nPause == 0 )
@@ -1845,7 +1845,7 @@ void	CModelObject::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 #else	// __AI_0509
 		MOTION_ATTR *pAttr = pObject->IsAttrSound( m_fFrameCurrent );
 		if( pAttr )
-			if( pAttr->m_nSndID > 0 && m_nPause == 0 )		// íš¨ê³¼ìŒ ì†ì„±ì´ ìˆë‹¤ë©´ í”Œë ˆì´, pauseìƒíƒœë©´ ì‚¬ìš´ë“œ ì¶œë ¥ ì•ˆí•¨
+			if( pAttr->m_nSndID > 0 && m_nPause == 0 )		// È¿°úÀ½ ¼Ó¼ºÀÌ ÀÖ´Ù¸é ÇÃ·¹ÀÌ, pause»óÅÂ¸é »ç¿îµå Ãâ·Â ¾ÈÇÔ
 				PLAYSND( pAttr->m_nSndID, pvSndPos );
 			
 		BOOL bQuake = pObject->IsAttrQuake(m_fFrameCurrent);
@@ -1877,7 +1877,7 @@ void	CModelObject::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 			m_pForce->m_nMaxDraw += (int)((MAX_SF_SLERP*2+2) /** fSpeed*/);
 			if( m_pForce->m_nMaxDraw > m_pForce->m_nMaxSpline )
 			{
-				if( m_nLoop & ANILOOP_LOOP )	// ë£¨í•‘ë˜ëŠ” ì• ë‹ˆì¼ê²½ìš°ëŠ” ì²¨ë¶€í„° ë‹¤ì‹œ ê·¸ë¦°ë‹¤.
+				if( m_nLoop & ANILOOP_LOOP )	// ·çÇÎµÇ´Â ¾Ö´ÏÀÏ°æ¿ì´Â Ã·ºÎÅÍ ´Ù½Ã ±×¸°´Ù.
 					m_pForce->m_nMaxDraw = 0;
 				else
 					m_pForce->m_nMaxDraw = m_pForce->m_nMaxSpline;
@@ -1895,7 +1895,7 @@ void	CModelObject::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 			m_pForce2->m_nMaxDraw += (int)((MAX_SF_SLERP*2+2) /** fSpeed*/);
 			if( m_pForce2->m_nMaxDraw > m_pForce2->m_nMaxSpline )
 			{
-				if( m_nLoop & ANILOOP_LOOP )	// ë£¨í•‘ë˜ëŠ” ì• ë‹ˆì¼ê²½ìš°ëŠ” ì²¨ë¶€í„° ë‹¤ì‹œ ê·¸ë¦°ë‹¤.
+				if( m_nLoop & ANILOOP_LOOP )	// ·çÇÎµÇ´Â ¾Ö´ÏÀÏ°æ¿ì´Â Ã·ºÎÅÍ ´Ù½Ã ±×¸°´Ù.
 					m_pForce2->m_nMaxDraw = 0;
 				else
 					m_pForce2->m_nMaxDraw = m_pForce2->m_nMaxSpline;
@@ -1909,7 +1909,7 @@ void	CModelObject::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 	if( m_bMotionBlending )
 	{
 		m_fBlendWeight += 0.05f;
-		if( m_fBlendWeight >= 1.0f )		// ë¸”ë Œë”©ì´ 1.0ê¹Œì§€ ë‹¤ ì§„í–‰ëìœ¼ë©´ ë¸”ë Œë”© í•´ì œ
+		if( m_fBlendWeight >= 1.0f )		// ºí·»µùÀÌ 1.0±îÁö ´Ù ÁøÇàµÆÀ¸¸é ºí·»µù ÇØÁ¦
 			SetMotionBlending( FALSE );
 	}
 
@@ -1919,13 +1919,13 @@ void	CModelObject::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 }
 
 //
-//	ê²€ê´‘ì„ ìƒì„±
-//	m_pMotionì˜ ì²«í”„ë ˆì„~ë§ˆì§€ë§‰í”„ë ˆì„ê¹Œì§€ì˜ ê²€ê´‘ì„ ìƒì„±í•œë‹¤.
+//	°Ë±¤À» »ı¼º
+//	m_pMotionÀÇ Ã¹ÇÁ·¹ÀÓ~¸¶Áö¸·ÇÁ·¹ÀÓ±îÁöÀÇ °Ë±¤À» »ı¼ºÇÑ´Ù.
 void	CModelObject::MakeSWDForce( int nParts, DWORD dwItemKind3, BOOL bSlow, DWORD dwColor, float fSpeed )
 {
 #ifdef __CLIENT
 	D3DXVECTOR3		v1, v2;
-	O3D_ELEMENT		*pElem = GetParts( nParts );		// ì˜¤ë¥¸ì† ë¬´ê¸°ì˜ í¬ì¸í„°
+	O3D_ELEMENT		*pElem = GetParts( nParts );		// ¿À¸¥¼Õ ¹«±âÀÇ Æ÷ÀÎÅÍ
 	D3DXMATRIX	m1;
 	if( !pElem ) 
 		return;
@@ -1935,14 +1935,14 @@ void	CModelObject::MakeSWDForce( int nParts, DWORD dwItemKind3, BOOL bSlow, DWOR
 	if( pElem->m_pObject3D->m_vForce1.x == 0 )	return;
 	if( pElem->m_pObject3D->m_vForce2.x == 0 )	return;
 
-	// FrameCurrentë¥¼ 0ìœ¼ë¡œ
+	// FrameCurrent¸¦ 0À¸·Î
 	m_fFrameCurrent = 0.0f;
 	m_nPause = 0;
 	m_bEndFrame = FALSE;
 	int nLoop = m_nLoop;
 	m_nLoop = ANILOOP_1PLAY;
 	
-	CreateForce( nParts );	// ê²€ê´‘ ì˜¤ë¸Œì íŠ¸ ìƒì„±
+	CreateForce( nParts );	// °Ë±¤ ¿ÀºêÁ§Æ® »ı¼º
 	CSwordForce *pForce;
 	if( nParts == PARTS_RWEAPON )
 		pForce = m_pForce;
@@ -1966,12 +1966,12 @@ void	CModelObject::MakeSWDForce( int nParts, DWORD dwItemKind3, BOOL bSlow, DWOR
 	while(1)
 	{
 		if( m_pMotion )
-			m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ì¼ë‹¨ ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ë¼ˆëŒ€ ì• ë‹ˆë©”ì´ì…˜ ì‹œí‚´
+			m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ÀÏ´Ü »À´ë°¡ ÀÖ´Ù¸é »À´ë ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÅ´
 
-		// ë¬´ê¸° WorldTM = ë¬´ê¸°LocalTM X ë¬´ê¸°ë¶€ëª¨WorldTM  
+		// ¹«±â WorldTM = ¹«±âLocalTM X ¹«±âºÎ¸ğWorldTM  
 		D3DXMatrixMultiply( &m1, pmLocal, &m_mUpdateBone[ pElem->m_nParentIdx ] );
 		
-		// ì¹¼ë ë²„í…ìŠ¤ì˜ ì›”ë“œ ì¢Œí‘œ ê³„ì‚°
+		// Ä®³¡ ¹öÅØ½ºÀÇ ¿ùµå ÁÂÇ¥ °è»ê
 		D3DXVec3TransformCoord( &v1, &(pElem->m_pObject3D->m_vForce1), &m1 );
 		D3DXVec3TransformCoord( &v2, &(pElem->m_pObject3D->m_vForce2), &m1 );
 		pForce->Add( v1, v2 );
@@ -1983,7 +1983,7 @@ void	CModelObject::MakeSWDForce( int nParts, DWORD dwItemKind3, BOOL bSlow, DWOR
 			break;
 	}
 
-	pForce->MakeSpline();		// ìŠ¤í”Œë¼ì¸ ìƒì„±
+	pForce->MakeSpline();		// ½ºÇÃ¶óÀÎ »ı¼º
 	
 
 	// rewind
@@ -2181,7 +2181,7 @@ void	CModelObject::CreateParticle( int nParts, const D3DXMATRIX *pmWorld, int nT
 	
 #endif //__CSC_ENCHANT_EFFECT_2
 #endif //__Y_ADV_ENCHANT_EFFECT
-	O3D_ELEMENT		*pElem = GetParts( nParts );		// ì˜¤ë¥¸ì† ë¬´ê¸°ì˜ í¬ì¸í„°
+	O3D_ELEMENT		*pElem = GetParts( nParts );		// ¿À¸¥¼Õ ¹«±âÀÇ Æ÷ÀÎÅÍ
 
 	if( !pElem )
 		return;
@@ -2300,16 +2300,16 @@ void	CModelObject::CreateParticle( int nParts, const D3DXMATRIX *pmWorld, int nT
 	
 	if( nParts == PARTS_LWEAPON )
 	{
-		if( m_pPartsEffect2 && m_pPartsEffect2->m_nType != nType )	// ì´í™íŠ¸ê°€ ì´ë¯¸ ì§€ì •ë˜ì–´ ìˆê³   ê°™ì€ê²Œ ì•„ë‹ˆë¼ë©´
-			SAFE_DELETE( m_pPartsEffect2 );							// ì´í™íŠ¸ ì‚­ì œí•˜ê³  ë‹¤ì‹œ í• ë‹¹.
+		if( m_pPartsEffect2 && m_pPartsEffect2->m_nType != nType )	// ÀÌÆåÆ®°¡ ÀÌ¹Ì ÁöÁ¤µÇ¾î ÀÖ°í  °°Àº°Ô ¾Æ´Ï¶ó¸é
+			SAFE_DELETE( m_pPartsEffect2 );							// ÀÌÆåÆ® »èÁ¦ÇÏ°í ´Ù½Ã ÇÒ´ç.
 		if( m_pPartsEffect2 == NULL )
 			m_pPartsEffect2 = new CPartsFire( nType );
 		
 		pFire = (CPartsFire *)m_pPartsEffect2;
 	} else
 	{
-		if( m_pPartsEffect && m_pPartsEffect->m_nType != nType )	// ì´í™íŠ¸ê°€ ì´ë¯¸ ì§€ì •ë˜ì–´ ìˆê³   ê°™ì€ê²Œ ì•„ë‹ˆë¼ë©´
-			SAFE_DELETE( m_pPartsEffect );							// ì´í™íŠ¸ ì‚­ì œí•˜ê³  ë‹¤ì‹œ í• ë‹¹.
+		if( m_pPartsEffect && m_pPartsEffect->m_nType != nType )	// ÀÌÆåÆ®°¡ ÀÌ¹Ì ÁöÁ¤µÇ¾î ÀÖ°í  °°Àº°Ô ¾Æ´Ï¶ó¸é
+			SAFE_DELETE( m_pPartsEffect );							// ÀÌÆåÆ® »èÁ¦ÇÏ°í ´Ù½Ã ÇÒ´ç.
 		if( m_pPartsEffect == NULL )
 			m_pPartsEffect = new CPartsFire( nType );
 		
@@ -2324,12 +2324,12 @@ void	CModelObject::CreateParticle( int nParts, const D3DXMATRIX *pmWorld, int nT
 		{
 	#if __VER >= 9 // __Y_ADV_ENCHANT_EFFECT
 			case PE_FIRE_AL : dwSfx = XI_NAT_FIRE01_ADV_AL; break;
-			case PE_ELEC_AL : dwSfx = XI_NAT_ELEC01_ADV_AL; break;	// ì´ê²½ìš° ë°œìƒí•¨...í–¥ìƒë²„ì „ì—ì„œëŠ”
+			case PE_ELEC_AL : dwSfx = XI_NAT_ELEC01_ADV_AL; break;	// ÀÌ°æ¿ì ¹ß»ıÇÔ...Çâ»ó¹öÀü¿¡¼­´Â
 			case PE_WATER_AL: dwSfx = XI_NAT_WATER01_ADV_AL; break;
 			case PE_WIND_AL : dwSfx = XI_NAT_WIND01_ADV_AL; break;
 			case PE_EARTH_AL: dwSfx = XI_NAT_EARTH01_ADV_AL; break;
 			case PE_FIRE : dwSfx = XI_NAT_FIRE01_ADV; break;
-			case PE_ELEC : dwSfx = XI_NAT_ELEC01_ADV; break;		// ì´ê²½ìš° ë°œìƒí•¨...í–¥ìƒë²„ì „ì—ì„œëŠ”
+			case PE_ELEC : dwSfx = XI_NAT_ELEC01_ADV; break;		// ÀÌ°æ¿ì ¹ß»ıÇÔ...Çâ»ó¹öÀü¿¡¼­´Â
 			case PE_WATER: dwSfx = XI_NAT_WATER01_ADV; break;
 			case PE_WIND : dwSfx = XI_NAT_WIND01_ADV; break;
 			case PE_EARTH: dwSfx = XI_NAT_EARTH01_ADV; break;
@@ -2338,7 +2338,7 @@ void	CModelObject::CreateParticle( int nParts, const D3DXMATRIX *pmWorld, int nT
 			default: dwSfx = XI_NAT_FIRE01_ADV;
 	#else //__Y_ADV_ENCHANT_EFFECT
 			case PE_FIRE : dwSfx = XI_NAT_FIRE01;	break;
-			case PE_ELEC : dwSfx = XI_NAT_FIRE01;	break;	// ì´ê²½ìš°ëŠ” ë°œìƒí•˜ì§€ ì•ŠìŒ.
+			case PE_ELEC : dwSfx = XI_NAT_FIRE01;	break;	// ÀÌ°æ¿ì´Â ¹ß»ıÇÏÁö ¾ÊÀ½.
 			case PE_WATER: dwSfx = XI_NAT_WATER01;	break;
 			case PE_WIND : dwSfx = XI_NAT_WIND01;	break;
 			case PE_EARTH: dwSfx = XI_NAT_EARTH01;	break;
@@ -2408,12 +2408,12 @@ void	CModelObject::CreateParticle( int nParts, const D3DXMATRIX *pmWorld, int nT
 #ifdef __CSC_ENCHANT_EFFECT_2
 		if(nLevel > 0)
 #endif //__CSC_ENCHANT_EFFECT_2
-		pFire->Create( m_pd3dDevice, v3, dwSfx, vScale * fScalLevel );	// í•´ë‹¹ sfxë¡œ íŒŒí‹°í´ ìƒì„±ì‹œí‚´.
+		pFire->Create( m_pd3dDevice, v3, dwSfx, vScale * fScalLevel );	// ÇØ´ç sfx·Î ÆÄÆ¼Å¬ »ı¼º½ÃÅ´.
 #ifdef __CSC_ENCHANT_EFFECT_2
 		if(nEffLevel_2 > 0 && (nType == PE_FIRE || nType == PE_WATER || nType == PE_WIND || nType == PE_EARTH
 			|| nType == PE_FIRE_AL || nType == PE_WATER_AL || nType == PE_WIND_AL || nType == PE_EARTH_AL)
 			&& (fTemp > 0.1f && fTemp < 0.93f))
-			pFire->Create( m_pd3dDevice, v3, dwSfx_2 );	// í•´ë‹¹ sfxë¡œ íŒŒí‹°í´ ìƒì„±ì‹œí‚´.
+			pFire->Create( m_pd3dDevice, v3, dwSfx_2 );	// ÇØ´ç sfx·Î ÆÄÆ¼Å¬ »ı¼º½ÃÅ´.
 #endif //__CSC_ENCHANT_EFFECT_2
 	#if __VER >= 9 // __CSC_VER9_5
 		if(IsSecondLine)
@@ -2421,17 +2421,17 @@ void	CModelObject::CreateParticle( int nParts, const D3DXMATRIX *pmWorld, int nT
 #ifdef __CSC_ENCHANT_EFFECT_2
 			if(nLevel > 0)
 #endif //__CSC_ENCHANT_EFFECT_2
-			pFire->Create( m_pd3dDevice, v2_3, dwSfx, vScale * fScalLevel );	// í•´ë‹¹ sfxë¡œ íŒŒí‹°í´ ìƒì„±ì‹œí‚´.
+			pFire->Create( m_pd3dDevice, v2_3, dwSfx, vScale * fScalLevel );	// ÇØ´ç sfx·Î ÆÄÆ¼Å¬ »ı¼º½ÃÅ´.
 #ifdef __CSC_ENCHANT_EFFECT_2
 		if(nEffLevel_2 > 0 && (nType == PE_FIRE || nType == PE_WATER || nType == PE_WIND || nType == PE_EARTH
 			|| nType == PE_FIRE_AL || nType == PE_WATER_AL || nType == PE_WIND_AL || nType == PE_EARTH_AL)
 			&& (fTemp > 0.1f && fTemp < 0.93f))
-				pFire->Create( m_pd3dDevice, v2_3, dwSfx_2 );	// í•´ë‹¹ sfxë¡œ íŒŒí‹°í´ ìƒì„±ì‹œí‚´.
+				pFire->Create( m_pd3dDevice, v2_3, dwSfx_2 );	// ÇØ´ç sfx·Î ÆÄÆ¼Å¬ »ı¼º½ÃÅ´.
 #endif //__CSC_ENCHANT_EFFECT_2
 		}
 	#endif //__CSC_VER9_5
 	#else //__Y_ADV_ENCHANT_EFFECT
-		pFire->Create( m_pd3dDevice, v3, dwSfx );	// í•´ë‹¹ sfxë¡œ íŒŒí‹°í´ ìƒì„±ì‹œí‚´.
+		pFire->Create( m_pd3dDevice, v3, dwSfx );	// ÇØ´ç sfx·Î ÆÄÆ¼Å¬ »ı¼º½ÃÅ´.
 	#endif //__Y_ADV_ENCHANT_EFFECT
 	}
 
@@ -2462,7 +2462,7 @@ void	CModelObject::RenderItemElec_Adv( int nParts, const D3DXMATRIX *pmWorld, in
 		return;
 #endif //__CSC_ENCHANT_EFFECT_2
 
-	O3D_ELEMENT		*pElem = GetParts( nParts );		// ì˜¤ë¥¸ì† ë¬´ê¸°ì˜ í¬ì¸í„°
+	O3D_ELEMENT		*pElem = GetParts( nParts );		// ¿À¸¥¼Õ ¹«±âÀÇ Æ÷ÀÎÅÍ
 
 	if( !pElem )
 		return;
@@ -2501,7 +2501,7 @@ void	CModelObject::RenderItemElec_Adv( int nParts, const D3DXMATRIX *pmWorld, in
 	D3DXMatrixMultiply( &m1, pmLocal, &m_mUpdateBone[ pElem->m_nParentIdx ] );
 	m2 = m1 * *pmWorld;
 	
-	v1 = pElem->m_pObject3D->m_vForce1;		// ë¡œì»¬ë¡œ ê±´ë„¤ì£¼ê³ 
+	v1 = pElem->m_pObject3D->m_vForce1;		// ·ÎÄÃ·Î °Ç³×ÁÖ°í
 	v2 = pElem->m_pObject3D->m_vForce2;
 
 	CPartsBeam *pBeam;
@@ -2543,7 +2543,7 @@ void	CModelObject::RenderItemElec_Adv( int nParts, const D3DXMATRIX *pmWorld, in
 void	CModelObject::RenderItemElec( int nParts, const D3DXMATRIX *pmWorld, int nLevel )
 {
 #ifdef __CLIENT
-	O3D_ELEMENT		*pElem = GetParts( nParts );		// ì˜¤ë¥¸ì† ë¬´ê¸°ì˜ í¬ì¸í„°
+	O3D_ELEMENT		*pElem = GetParts( nParts );		// ¿À¸¥¼Õ ¹«±âÀÇ Æ÷ÀÎÅÍ
 
 	if( !pElem )
 		return;
@@ -2569,7 +2569,7 @@ void	CModelObject::RenderItemElec( int nParts, const D3DXMATRIX *pmWorld, int nL
 	D3DXMatrixMultiply( &m1, pmLocal, &m_mUpdateBone[ pElem->m_nParentIdx ] );
 	m2 = m1 * *pmWorld;
 	
-	v1 = pElem->m_pObject3D->m_vForce1;		// ë¡œì»¬ë¡œ ê±´ë„¤ì£¼ê³ 
+	v1 = pElem->m_pObject3D->m_vForce1;		// ·ÎÄÃ·Î °Ç³×ÁÖ°í
 	v2 = pElem->m_pObject3D->m_vForce2;
 
 	CPartsBeam *pBeam;
@@ -2615,7 +2615,7 @@ void	CModelObject::SetMotionBlending( BOOL bFlag )
 void	CModelObject::GetForcePos( D3DXVECTOR3 *vOut, int nIdx, int nParts, const D3DXMATRIX &mWorld )
 {
 	D3DXMATRIX *pmLocal;
-	O3D_ELEMENT		*pElem = GetParts( nParts );		// ì˜¤ë¥¸ì† ë¬´ê¸°ì˜ í¬ì¸í„°
+	O3D_ELEMENT		*pElem = GetParts( nParts );		// ¿À¸¥¼Õ ¹«±âÀÇ Æ÷ÀÎÅÍ
 	D3DXMATRIX	m1;
 	D3DXVECTOR3		v1;
 
@@ -2634,12 +2634,12 @@ void	CModelObject::GetForcePos( D3DXVECTOR3 *vOut, int nIdx, int nParts, const D
 	else
 	{
 		D3DXMatrixIdentity( &m1 );
-		pmLocal = &m1;						// ì¼ë‹¨ ì—ëŸ¬ëŠ” ì•ˆë‚˜ê²Œ ì´ë ‡ê²Œ í•œë‹¤.
+		pmLocal = &m1;						// ÀÏ´Ü ¿¡·¯´Â ¾È³ª°Ô ÀÌ·¸°Ô ÇÑ´Ù.
 	}
 		
 	
 //	if( m_pMotion )
-//		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ì¼ë‹¨ ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ë¼ˆëŒ€ ì• ë‹ˆë©”ì´ì…˜ ì‹œí‚´
+//		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ÀÏ´Ü »À´ë°¡ ÀÖ´Ù¸é »À´ë ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÅ´
 	
 	D3DXMatrixMultiply( &m1, pmLocal, &m_mUpdateBone[ pElem->m_nParentIdx ] );
 	if( nIdx == 0 )
@@ -2656,7 +2656,7 @@ void	CModelObject::GetForcePos( D3DXVECTOR3 *vOut, int nIdx, int nParts, const D
 void	CModelObject::GetForcePos( D3DXVECTOR3 *vOut, int nIdx, int nParts, const D3DXMATRIX &mWorld, float fScale)
 {
 	D3DXMATRIX mLocal;
-	O3D_ELEMENT		*pElem = GetParts( nParts );		// ì˜¤ë¥¸ì† ë¬´ê¸°ì˜ í¬ì¸í„°
+	O3D_ELEMENT		*pElem = GetParts( nParts );		// ¿À¸¥¼Õ ¹«±âÀÇ Æ÷ÀÎÅÍ
 	D3DXMATRIX	m1;
 	D3DXVECTOR3		v1;
 
@@ -2681,12 +2681,12 @@ void	CModelObject::GetForcePos( D3DXVECTOR3 *vOut, int nIdx, int nParts, const D
 	else
 	{
 		D3DXMatrixIdentity( &m1 );
-		mLocal = m1;						// ì¼ë‹¨ ì—ëŸ¬ëŠ” ì•ˆë‚˜ê²Œ ì´ë ‡ê²Œ í•œë‹¤.
+		mLocal = m1;						// ÀÏ´Ü ¿¡·¯´Â ¾È³ª°Ô ÀÌ·¸°Ô ÇÑ´Ù.
 	}
 		
 	
 //	if( m_pMotion )
-//		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ì¼ë‹¨ ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ë¼ˆëŒ€ ì• ë‹ˆë©”ì´ì…˜ ì‹œí‚´
+//		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ÀÏ´Ü »À´ë°¡ ÀÖ´Ù¸é »À´ë ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÅ´
 	
 	D3DXMatrixMultiply( &m1, &mLocal, &m_mUpdateBone[ pElem->m_nParentIdx ] );
 	if( nIdx == 0 )
@@ -2700,7 +2700,7 @@ void	CModelObject::GetForcePos( D3DXVECTOR3 *vOut, int nIdx, int nParts, const D
 }
 
 
-// ì£¼ë¨¹ ì¤‘ì•™ì˜ ìœ„ì¹˜ë¥¼ ê³„ì‚°í• ë•Œ.
+// ÁÖ¸Ô Áß¾ÓÀÇ À§Ä¡¸¦ °è»êÇÒ¶§.
 void	CModelObject::GetHandPos( D3DXVECTOR3 *vOut, int nParts, const D3DXMATRIX &mWorld )
 {
 	D3DXMATRIX *pmLocal;
@@ -2722,16 +2722,16 @@ void	CModelObject::GetHandPos( D3DXVECTOR3 *vOut, int nParts, const D3DXMATRIX &
 	else
 	{
 		D3DXMatrixIdentity( &m1 );
-		pmLocal = &m1;						// ì¼ë‹¨ ì—ëŸ¬ëŠ” ì•ˆë‚˜ê²Œ ì´ë ‡ê²Œ í•œë‹¤.
+		pmLocal = &m1;						// ÀÏ´Ü ¿¡·¯´Â ¾È³ª°Ô ÀÌ·¸°Ô ÇÑ´Ù.
 	}
 	
 	
 //	if( m_pMotion )
-//		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ì¼ë‹¨ ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ë¼ˆëŒ€ ì• ë‹ˆë©”ì´ì…˜ ì‹œí‚´
+//		m_pMotion->AnimateBone( m_mUpdateBone, m_pMotionOld, m_fFrameCurrent, GetNextFrame(), m_nFrameOld, m_bMotionBlending, m_fBlendWeight );		// ÀÏ´Ü »À´ë°¡ ÀÖ´Ù¸é »À´ë ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÅ´
 	
-	// ì• ë‹ˆë©”ì´ì…˜ëë‚œ ë³¸ì˜ ë§¤íŠ¸ë¦­ìŠ¤ì™€ LocalR/LHë¥¼ ê³±í•´ì„œ ìµœì¢… ë§¤íŠ¸ë¦­ìŠ¤ êµ¬í•¨.
+	// ¾Ö´Ï¸ŞÀÌ¼Ç³¡³­ º»ÀÇ ¸ÅÆ®¸¯½º¿Í LocalR/LH¸¦ °öÇØ¼­ ÃÖÁ¾ ¸ÅÆ®¸¯½º ±¸ÇÔ.
 	D3DXMatrixMultiply( &m1, pmLocal, &m_mUpdateBone[ nParentIdx ] );
-	v1.x = m1._41;		v1.y = m1._42;		v1.z = m1._43;		// ì¢Œí‘œë§Œ í•„ìš”í•¨.
+	v1.x = m1._41;		v1.y = m1._42;		v1.z = m1._43;		// ÁÂÇ¥¸¸ ÇÊ¿äÇÔ.
 	
 	D3DXVec3TransformCoord( &v1, &v1, &mWorld );
 	*vOut = v1;
@@ -2741,7 +2741,7 @@ void	CModelObject::GetHandPos( D3DXVECTOR3 *vOut, int nParts, const D3DXMATRIX &
 #ifdef __BS_EFFECT_LUA
 BOOL CModelObject::GetPosBone( D3DXVECTOR3* pOut, const char* bonename )
 {
-	//gmpbigsun : ë³¸ì´ë¦„ìœ¼ë¡œ ë³¸ì¢Œí‘œ ì¶”ì¶œ 
+	//gmpbigsun : º»ÀÌ¸§À¸·Î º»ÁÂÇ¥ ÃßÃâ 
 	for( int i =0; i < m_pBone->m_nMaxBone; ++i )
 	{
 		BONE* pUnitBone = m_pBone->GetBone( i );
@@ -2808,7 +2808,7 @@ void	CSwordForce::Add( D3DXVECTOR3 v1, D3DXVECTOR3 v2 )
 {
 	if( m_nMaxVertex >= MAX_SF_SWDFORCE )
 	{
-		LPCTSTR szErr = Error( "SWDForceAdd : ë²”ìœ„ ì´ˆê³¼ %d", m_nMaxVertex );
+		LPCTSTR szErr = Error( "SWDForceAdd : ¹üÀ§ ÃÊ°ú %d", m_nMaxVertex );
 		ADDERRORMSG( szErr );
 		return;
 	}
@@ -2824,8 +2824,8 @@ void	CSwordForce::Add( D3DXVECTOR3 v1, D3DXVECTOR3 v2 )
 	m_nMaxVertex ++;
 }
 
-// ë“±ë¡ëœ í‚¤ë¦¬ìŠ¤íŠ¸ë¥¼ ìŠ¤í”Œë¼ì¸ ë³´ê°„ëœ ë¦¬ìŠ¤íŠ¸ë¡œ ë°”ê¾¼ë‹¤.
-// ì´ë ‡ê²Œ ë§Œë“¤ì–´ì§„ ë¦¬ìŠ¤íŠ¸ë¥¼ ìµœì¢… ê·¸ë¦°ë‹¤.
+// µî·ÏµÈ Å°¸®½ºÆ®¸¦ ½ºÇÃ¶óÀÎ º¸°£µÈ ¸®½ºÆ®·Î ¹Ù²Û´Ù.
+// ÀÌ·¸°Ô ¸¸µé¾îÁø ¸®½ºÆ®¸¦ ÃÖÁ¾ ±×¸°´Ù.
 void	CSwordForce::MakeSpline( void )
 {
 	FVF_SWDFORCE *pKey;
@@ -2837,7 +2837,7 @@ void	CSwordForce::MakeSpline( void )
 	m_nMaxSpline = 0;
 	for( i = 0; i < nMaxVertex-1; i ++ )
 	{
-		// i ~ i+1ì‚¬ì´ë¥¼ ë³´ê°„í•œë‹¤.  
+		// i ~ i+1»çÀÌ¸¦ º¸°£ÇÑ´Ù.  
 		a = i - 1;		if( a < 0 )	a = 0;
 		b = i;
 		c = i+1;
@@ -2846,7 +2846,7 @@ void	CSwordForce::MakeSpline( void )
 		{
 			if( m_nMaxSpline >= MAX_SF_SPLINE )
 			{
-				LPCTSTR szErr = Error( "SWDForceAdd Spline : ë²”ìœ„ ì´ˆê³¼ %d", m_nMaxSpline );
+				LPCTSTR szErr = Error( "SWDForceAdd Spline : ¹üÀ§ ÃÊ°ú %d", m_nMaxSpline );
 				ADDERRORMSG( szErr );
 				break;
 			}
@@ -2927,7 +2927,7 @@ void	CSwordForce::Draw( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorld )
 		nMaxDraw -= 2;
 		nShare = nMaxDraw / 64;
 		nRest  = nMaxDraw % 64;
-		for( i = 0; i < nShare; i ++ )			// í”„ë¦¬ë¯¸í‹°ë¸Œ ê°¯ìˆ˜ì— ì œí•œì´ ìˆì–´ì„œ ì´ë ‡ê²Œ í–ˆë‹¤.
+		for( i = 0; i < nShare; i ++ )			// ÇÁ¸®¹ÌÆ¼ºê °¹¼ö¿¡ Á¦ÇÑÀÌ ÀÖ¾î¼­ ÀÌ·¸°Ô Çß´Ù.
 		{
 			pd3dDevice->DrawPrimitiveUP( D3DPT_TRIANGLESTRIP, 64, p, sizeof(FVF_SWDFORCE) );
 			p += 64;

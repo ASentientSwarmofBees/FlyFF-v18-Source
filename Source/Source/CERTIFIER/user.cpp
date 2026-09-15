@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "user.h"
 #include "msghdr.h"
 #ifdef _DEBUG

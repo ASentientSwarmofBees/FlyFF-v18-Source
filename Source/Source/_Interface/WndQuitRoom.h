@@ -1,4 +1,4 @@
-﻿#if __VER >= 13 // __HOUSING
+#if __VER >= 13 // __HOUSING
 #ifndef __WNDQUITROOM__H
 #define __WNDQUITROOM__H
 

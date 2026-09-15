@@ -1,4 +1,4 @@
-ï»¿
+
 // gmpbigsun
 // date : 2009_09_09
 // texture pooling
@@ -12,7 +12,7 @@ typedef Texture_Container::iterator					Texture_Iter;
 
 class TexturePool 
 {
-	// ëª¨ë“  IDirect3DTexture9*ë¥¼ ê´€ë¦¬í•˜ëŠ” poolë¡œ ì“°ê¸°ìœ„í•´ ë§Œë“¤ì–´ìœ¼ë‚˜ ê¸°ì¡´ì˜ ë°ì´í„°ë¥¼ ë§Œì§€ê¸´ ì‹«ë‹¤ -_-;
+	// ¸ğµç IDirect3DTexture9*¸¦ °ü¸®ÇÏ´Â pool·Î ¾²±âÀ§ÇØ ¸¸µé¾îÀ¸³ª ±âÁ¸ÀÇ µ¥ÀÌÅÍ¸¦ ¸¸Áö±ä ½È´Ù -_-;
 public:
 	TexturePool( );
 	~TexturePool( );

@@ -1,59 +1,59 @@
-ï»¿#ifndef __RANGDA_H__
+#ifndef __RANGDA_H__
 #define	__RANGDA_H__
 
-// ëœë¤ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°ê°€ ë‚˜íƒ€ë‚˜ëŠ” ì§€ì ì„ ë‚˜íƒ€ë‚´ëŠ” êµ¬ì¡°ì²´
+// ·£´ı ÀÌº¥Æ® ¸ó½ºÅÍ°¡ ³ªÅ¸³ª´Â ÁöÁ¡À» ³ªÅ¸³»´Â ±¸Á¶Ã¼
 typedef	struct	_RANGDA_POS
 {
-	DWORD	dwWorldId;	// ë‚˜íƒ€ë‚  ìˆ˜ ìˆëŠ” ê³³ì˜ ì›”ë“œ ì‹ë³„ì
-	D3DXVECTOR3 vPos;	// ë‚˜íƒ€ë‚  ìˆ˜ ìˆëŠ” ê³³ì˜ ì¢Œí‘œ
+	DWORD	dwWorldId;	// ³ªÅ¸³¯ ¼ö ÀÖ´Â °÷ÀÇ ¿ùµå ½Äº°ÀÚ
+	D3DXVECTOR3 vPos;	// ³ªÅ¸³¯ ¼ö ÀÖ´Â °÷ÀÇ ÁÂÇ¥
 }	RANGDA_POS,	*PRANGDA_POS;
 
 typedef	vector<RANGDA_POS>	VRP;
-// ë‹¨ì¼ ëœë¤ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°ë¥¼ ì œì–´í•˜ëŠ” í´ë˜ìŠ¤
+// ´ÜÀÏ ·£´ı ÀÌº¥Æ® ¸ó½ºÅÍ¸¦ Á¦¾îÇÏ´Â Å¬·¡½º
 class CRangda
 {
 public:
 	CRangda( DWORD dwMonster );
 	CRangda( DWORD dwMonster, int nInterval, int nReplace, BOOL bActiveAttack );
 	virtual	~CRangda();
-	void	AddPos( const RANGDA_POS & vPos );	// ì¢Œí‘œ ì¶”ê°€
-	void	OnTimer();	// í‹± ì²˜ë¦¬
-	void	SetInterval( int nInterval )	{	m_nInterval	= nInterval;	}	// ì¬ìƒ ê°„ê²© ì„¤ì •
-	void	SetReplace( int nReplace )	{	m_nReplace	= nReplace;		}	// ì´ë™ ê°„ê²© ì„¤ì •
-	void	SetActiveAttack( BOOL bActiveAttack )	{	m_bActiveAttack		= bActiveAttack;	}	// ì„ ê³µ ì—¬ë¶€ ì„¤ì •
+	void	AddPos( const RANGDA_POS & vPos );	// ÁÂÇ¥ Ãß°¡
+	void	OnTimer();	// Æ½ Ã³¸®
+	void	SetInterval( int nInterval )	{	m_nInterval	= nInterval;	}	// Àç»ı °£°İ ¼³Á¤
+	void	SetReplace( int nReplace )	{	m_nReplace	= nReplace;		}	// ÀÌµ¿ °£°İ ¼³Á¤
+	void	SetActiveAttack( BOOL bActiveAttack )	{	m_bActiveAttack		= bActiveAttack;	}	// ¼±°ø ¿©ºÎ ¼³Á¤
 
 private:
-	RANGDA_POS	GetRandomPos( void );	// ì„ì˜ ì¢Œí‘œ ë°˜í™˜
-	void	SetObj( OBJID objid );		// ì‹¤ ê°ì²´ ì„¤ì •
-	BOOL	HavetoGenerate( void );		// ì¬ìƒ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ”ê°€?
-	BOOL	HavetoReplace( void );		// ì´ë™ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ”ê°€?
-	void	CreateMonster( void );	// ì‹¤ ê°ì²´ ìƒì„±
-	BOOL	IsDamaged( CMover* pMonster );	// ìƒì²˜ ì…ì—ˆë‚˜?
-	void	ProcessReplace( CMover* pMonster );		// ì´ë™ ì²˜ë¦¬
-	void	ProcessGenerate( void );	// ì¬ìƒ ì²˜ë¦¬
-	CMover*		GetMonster( void );		// ì‹¤ ê°ì²´ ë°˜í™˜
+	RANGDA_POS	GetRandomPos( void );	// ÀÓÀÇ ÁÂÇ¥ ¹İÈ¯
+	void	SetObj( OBJID objid );		// ½Ç °´Ã¼ ¼³Á¤
+	BOOL	HavetoGenerate( void );		// Àç»ı Á¶°ÇÀ» ¸¸Á·ÇÏ´Â°¡?
+	BOOL	HavetoReplace( void );		// ÀÌµ¿ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â°¡?
+	void	CreateMonster( void );	// ½Ç °´Ã¼ »ı¼º
+	BOOL	IsDamaged( CMover* pMonster );	// »óÃ³ ÀÔ¾ú³ª?
+	void	ProcessReplace( CMover* pMonster );		// ÀÌµ¿ Ã³¸®
+	void	ProcessGenerate( void );	// Àç»ı Ã³¸®
+	CMover*		GetMonster( void );		// ½Ç °´Ã¼ ¹İÈ¯
 private:
-	const DWORD	m_dwMonster;	// ìƒì„±í•  ëª¬ìŠ¤í„° ì¢…ë¥˜ ì‹ë³„ì
-	int		m_nInterval;	// ì¬ìƒ ê°„ê²©
-	int		m_nReplace;		// ì´ë™ ê°„ê²©
-	BOOL	m_bActiveAttack;	// ì„ ê³µ ì—¬ë¶€
-	VRP	m_vvPos;	// ë‚˜íƒ€ë‚  ìˆ˜ ìˆëŠ” ì¢Œí‘œ ì§‘í•©
-	int		m_nGenerateCountdown;	// ì¬ìƒ ëŒ€ê¸° ì‹œê°„ í‹±ë‹¹ 1 ê°ì†Œ
-	int		m_nReplaceCountdown;	// ì´ë™ ëŒ€ê¸° ì‹œê°„, í‹±ë‹¹ 1 ê°ì†Œ
-	BOOL	m_bReplaceable;		// ì´ë™ ê°€ëŠ¥ í”Œë˜ê·¸
-	int		m_nOldPos;		// ì´ì „ ì¢Œí‘œ
-	OBJID	m_objid;	// ì‹¤ ê°ì²´ ì‹ë³„ì
+	const DWORD	m_dwMonster;	// »ı¼ºÇÒ ¸ó½ºÅÍ Á¾·ù ½Äº°ÀÚ
+	int		m_nInterval;	// Àç»ı °£°İ
+	int		m_nReplace;		// ÀÌµ¿ °£°İ
+	BOOL	m_bActiveAttack;	// ¼±°ø ¿©ºÎ
+	VRP	m_vvPos;	// ³ªÅ¸³¯ ¼ö ÀÖ´Â ÁÂÇ¥ ÁıÇÕ
+	int		m_nGenerateCountdown;	// Àç»ı ´ë±â ½Ã°£ Æ½´ç 1 °¨¼Ò
+	int		m_nReplaceCountdown;	// ÀÌµ¿ ´ë±â ½Ã°£, Æ½´ç 1 °¨¼Ò
+	BOOL	m_bReplaceable;		// ÀÌµ¿ °¡´É ÇÃ·¡±×
+	int		m_nOldPos;		// ÀÌÀü ÁÂÇ¥
+	OBJID	m_objid;	// ½Ç °´Ã¼ ½Äº°ÀÚ
 };
 
 typedef	vector<CRangda*>	VR;
-// ëª¨ë“  ëœë¤ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°ì— ëŒ€í•œ ì œì–´ í´ë˜ìŠ¤
+// ¸ğµç ·£´ı ÀÌº¥Æ® ¸ó½ºÅÍ¿¡ ´ëÇÑ Á¦¾î Å¬·¡½º
 class CRangdaController
 {
 public:
 	virtual	~CRangdaController();
 	static	CRangdaController*	Instance( void );
-	void	AddRangda( CRangda* pRangda );	// ëœë¤ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„° ì¶”ê°€
-	void	OnTimer( void );	// í‹±
+	void	AddRangda( CRangda* pRangda );	// ·£´ı ÀÌº¥Æ® ¸ó½ºÅÍ Ãß°¡
+	void	OnTimer( void );	// Æ½
 	BOOL	LoadScript( const char* szFile );
 private:
 	CRangdaController();

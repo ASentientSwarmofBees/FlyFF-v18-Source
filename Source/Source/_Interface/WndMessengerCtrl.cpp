@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "DPClient.h"
@@ -110,7 +110,7 @@ bool prStatusAsce(__MESSENGER_PLAYER player1, __MESSENGER_PLAYER player2)
 	nPlayer1Status = player1.m_dwStatus;
 	nPlayer2Status = player2.m_dwStatus;
 
-	// offline ìƒíƒœê°€ ë§¨ ë§ˆì§€ë§‰ìƒíƒœ
+	// offline »óÅÂ°¡ ¸Ç ¸¶Áö¸·»óÅÂ
 	if(nPlayer1Status == FRS_OFFLINE)
 		nPlayer1Status = 12;
 	if(nPlayer2Status == FRS_OFFLINE)
@@ -130,7 +130,7 @@ bool prStatusDesc(__MESSENGER_PLAYER player1, __MESSENGER_PLAYER player2)
 	nPlayer1Status = player1.m_dwStatus;
 	nPlayer2Status = player2.m_dwStatus;
 
-	// offline ìƒíƒœê°€ ë§¨ ë§ˆì§€ë§‰ìƒíƒœ
+	// offline »óÅÂ°¡ ¸Ç ¸¶Áö¸·»óÅÂ
 	if(nPlayer1Status == FRS_OFFLINE)
 		nPlayer1Status = 12;
 	if(nPlayer2Status == FRS_OFFLINE)
@@ -416,7 +416,7 @@ void CWndFriendCtrlEx::OnDraw( C2DRender* p2DRender )
 #else // __CAMPUS
 #if __VER >= 13 // __HOUSING
 		if(stPlayer.m_bVisitAllowed)
-			p2DRender->TextOut( 122, pt.y + 3, strFormat, 0xff00ff00 );	// ì´ˆëŒ€í—ˆìš©í•œ ì‚¬ëžŒì€ ë…¹ìƒ‰ìœ¼ë¡œ
+			p2DRender->TextOut( 122, pt.y + 3, strFormat, 0xff00ff00 );	// ÃÊ´ëÇã¿ëÇÑ »ç¶÷Àº ³ì»öÀ¸·Î
 		else
 #endif // __HOUSING
 		p2DRender->TextOut( 122, pt.y + 3, strFormat, 0xff000000 );
@@ -467,7 +467,7 @@ void CWndFriendCtrlEx::OnDraw( C2DRender* p2DRender )
 		else if( prj.m_aJob[ stPlayer.m_nJob ].dwJobType == JTYPE_MASTER )
 		{
 			int nMasterIndex = 27;
-			if(/*m_nLevel >= 60 && */stPlayer.m_nLevel < 70) //Level Downë  ê²½ìš°ë¥¼ ìƒê°í•´ì„œ ì£¼ì„ì²˜ë¦¬.
+			if(/*m_nLevel >= 60 && */stPlayer.m_nLevel < 70) //Level DownµÉ °æ¿ì¸¦ »ý°¢ÇØ¼­ ÁÖ¼®Ã³¸®.
 				nMasterIndex = 27;
 			else if(stPlayer.m_nLevel >= 70 && stPlayer.m_nLevel < 80)
 				nMasterIndex = 28;
@@ -538,7 +538,7 @@ void CWndFriendCtrlEx::OnDraw( C2DRender* p2DRender )
 #else // __CAMPUS
 #if __VER >= 13 // __HOUSING
 		if(stPlayer.m_bVisitAllowed)
-			p2DRender->TextOut( 220, pt.y + 3, strFormat, 0xff00ff00 );	// ì´ˆëŒ€í—ˆìš©í•œ ì‚¬ëžŒì€ ë…¹ìƒ‰ìœ¼ë¡œ
+			p2DRender->TextOut( 220, pt.y + 3, strFormat, 0xff00ff00 );	// ÃÊ´ëÇã¿ëÇÑ »ç¶÷Àº ³ì»öÀ¸·Î
 		else
 #endif // __HOUSING
 		p2DRender->TextOut( 220, pt.y + 3, strFormat, dwColor );
@@ -631,12 +631,12 @@ void CWndFriendCtrlEx::OnLButtonDblClk( UINT nFlags, CPoint point )
 		{
 			CString szMessage;
 			if( dwState == FRS_OFFLINE )
-				szMessage = prj.GetText(TID_GAME_NOTLOGIN);                               //"??? ë‹˜ì€ ì ‘ì†ë˜ì–´ ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤";
+				szMessage = prj.GetText(TID_GAME_NOTLOGIN);                               //"??? ´ÔÀº Á¢¼ÓµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù";
 			else
 #if __VER >= 11 // __SYS_PLAYER_DATA
-				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), CPlayerDataCenter::GetInstance()->GetPlayerString( idPlayer ) );  //"??? ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìžˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
+				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), CPlayerDataCenter::GetInstance()->GetPlayerString( idPlayer ) );  //"??? ´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Þ¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
 #else	// __SYS_PLAYER_DATA
-				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), lpFriend->szName );  //"??? ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìžˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
+				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), lpFriend->szName );  //"??? ´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Þ¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
 #endif	// __SYS_PLAYER_DATA
 			g_WndMng.PutString( szMessage, NULL, prj.GetTextColor( TID_GAME_NOTLOGIN ) );		
 		}
@@ -715,7 +715,7 @@ BOOL CWndFriendCtrlEx::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase 
 
 	switch( nID )
 	{
-	case 0:		// ë©”ì‹œì§€
+	case 0:		// ¸Þ½ÃÁö
 		{
 #ifdef __RT_1025
 			Friend* pFriend		= NULL;
@@ -730,21 +730,21 @@ BOOL CWndFriendCtrlEx::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase 
 #endif	// __RT_1025
 		}
 		break;
-	case 1:		// ì°¨ë‹¨ / ì°¨ë‹¨í•´ì œ
+	case 1:		// Â÷´Ü / Â÷´ÜÇØÁ¦
 		{
 			u_long uidPlayer = GetSelectId( m_nCurSelect );
 			if( uidPlayer != -1 )
 				g_DPlay.SendFriendInterceptState( uidPlayer );		
 		}
 		break;
-	case 2:		// ì‚­ì œ
+	case 2:		// »èÁ¦
 		{
 			u_long uidPlayer = GetSelectId( m_nCurSelect );
 			if( uidPlayer != -1 )
 				g_DPlay.SendRemoveFriend( uidPlayer );
 		}
 		break;
-	case 3:		// ì´ë™
+	case 3:		// ÀÌµ¿
 		{
 #ifdef __RT_1025
 			Friend* pFriend		= NULL;
@@ -769,7 +769,7 @@ BOOL CWndFriendCtrlEx::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase 
 #endif	// __RT_1025
 		}
 		break;
-	case 4:		// ê·¹ë‹¨ ì´ˆì²­
+	case 4:		// ±Ø´Ü ÃÊÃ»
 		{
 			u_long uidPlayer = GetSelectId( m_nCurSelect );
 			if( uidPlayer != -1 )
@@ -780,7 +780,7 @@ BOOL CWndFriendCtrlEx::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase 
 			}
 		}
 		break;
-	case 6:		// ìª½ì§€ ë³´ë‚´ê¸°
+	case 6:		// ÂÊÁö º¸³»±â
 		{
 #ifdef __RT_1025
 			Friend* pFriend		= NULL;
@@ -808,14 +808,14 @@ BOOL CWndFriendCtrlEx::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase 
 		}
 		break;
 #if __VER >= 13 // __HOUSING
-		case 7 :	// ìž…ìž¥í—ˆê°€ë¥¼ ì·¨ì†Œí•œë‹¤
+		case 7 :	// ÀÔÀåÇã°¡¸¦ Ãë¼ÒÇÑ´Ù
 			{
 				u_long uidPlayer = GetSelectId( m_nCurSelect );
 				if(uidPlayer > 0)
 					g_DPlay.SendHousingReqSetVisitAllow(uidPlayer, FALSE);
 			}
 			break;
-		case 8:		// ìž…ìž¥ì„ í—ˆê°€í•œë‹¤
+		case 8:		// ÀÔÀåÀ» Çã°¡ÇÑ´Ù
 			{
 				u_long uidPlayer = GetSelectId( m_nCurSelect );
 				if(uidPlayer > 0)
@@ -1132,7 +1132,7 @@ void CWndGuildCtrlEx::UpdatePlayerList()
 			stPlayer.m_nJob = pGuildMember->m_nJob;
 			stPlayer.m_nLevel = pGuildMember->m_nLevel;
 			stPlayer.m_dwPlayerId = pGuildMember->m_idPlayer;
-			stPlayer.m_dwStatus = 0; //Guild MemberëŠ” ìƒíƒœë¥¼ ì•Œ ìˆ˜ ì—†ë‹¤???
+			stPlayer.m_dwStatus = 0; //Guild Member´Â »óÅÂ¸¦ ¾Ë ¼ö ¾ø´Ù???
 			stPlayer.m_nChannel = pGuildMember->m_nMultiNo;
 #endif	// __SYS_PLAYER_DATA
 #if __VER >= 11 // __SYS_PLAYER_DATA
@@ -1284,7 +1284,7 @@ void CWndGuildCtrlEx::OnDraw( C2DRender* p2DRender )
 		else if( prj.m_aJob[ stPlayer.m_nJob ].dwJobType == JTYPE_MASTER )
 		{
 			int nMasterIndex = 27;
-			if(/*m_nLevel >= 60 && */stPlayer.m_nLevel < 70) //Level Downë  ê²½ìš°ë¥¼ ìƒê°í•´ì„œ ì£¼ì„ì²˜ë¦¬.
+			if(/*m_nLevel >= 60 && */stPlayer.m_nLevel < 70) //Level DownµÉ °æ¿ì¸¦ »ý°¢ÇØ¼­ ÁÖ¼®Ã³¸®.
 				nMasterIndex = 27;
 			else if(stPlayer.m_nLevel >= 70 && stPlayer.m_nLevel < 80)
 				nMasterIndex = 28;
@@ -1431,12 +1431,12 @@ void CWndGuildCtrlEx::OnLButtonDblClk( UINT nFlags, CPoint point )
 		{
 			CString szMessage;
 //			if( dwState == FRS_OFFLINE )
-				szMessage = prj.GetText( TID_GAME_NOTLOGIN );                               //"??? ë‹˜ì€ ì ‘ì†ë˜ì–´ ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤";
+				szMessage = prj.GetText( TID_GAME_NOTLOGIN );                               //"??? ´ÔÀº Á¢¼ÓµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù";
 /*			else
 #if __VER >= 11 // __SYS_PLAYER_DATA
-				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), CPlayerDataCenter::GetInstance()->GetPlayerString( idPlayer ) );  //"??? ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìžˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
+				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), CPlayerDataCenter::GetInstance()->GetPlayerString( idPlayer ) );  //"??? ´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Þ¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
 #else	// __SYS_PLAYER_DATA
-				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), lpFriend->szName );  //"??? ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìžˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
+				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), lpFriend->szName );  //"??? ´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Þ¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
 #endif	// __SYS_PLAYER_DATA
 */
 			g_WndMng.PutString( szMessage, NULL, prj.GetTextColor(TID_GAME_NOTLOGIN) );		

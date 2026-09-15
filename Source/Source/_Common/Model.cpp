@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "Model.h"
 #include "..\_DirectX\dxutil.h"
 
@@ -9,40 +9,40 @@ CModel::~CModel()
 	DeleteDeviceObjects();
 }
 
-// fSpeed : ì• ë‹ˆë©”ì´ì…˜ ì†ë„ë¥¼ ì¡°ì ˆí•˜ê³  ì‹¶ì„ë•Œ. 1.0ì´ ê¸°ë³¸ê°’ 2.0ì€ ë‘ë°° ë¹¨ë¼ì§.
+// fSpeed : ¾Ö´Ï¸ÞÀÌ¼Ç ¼Óµµ¸¦ Á¶ÀýÇÏ°í ½ÍÀ»¶§. 1.0ÀÌ ±âº»°ª 2.0Àº µÎ¹è »¡¶óÁü.
 void CModel::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 {
 	if( m_nPause )		
 		return;
 	if( m_nFrameMax == 0 )	
-		return;		// í”„ë ˆìž„ì´ ì—†ëŠ”ê±´ ëŒí•„ìš” ì—†ë‹¤.
+		return;		// ÇÁ·¹ÀÓÀÌ ¾ø´Â°Ç µ¹ÇÊ¿ä ¾ø´Ù.
 
 	int		nCurrFrame;
-	// ë³´ê°„ì„ ìœ„í•œ Slerp ê³„ì‚°.
+	// º¸°£À» À§ÇÑ Slerp °è»ê.
 
-	m_fFrameOld = m_fFrameCurrent;			// ë°”ë¡œ ì´ì „ í”„ë ˆìž„ ë²ˆí˜¸ë¥¼ ë°›ì•„ë‘ .
+	m_fFrameOld = m_fFrameCurrent;			// ¹Ù·Î ÀÌÀü ÇÁ·¹ÀÓ ¹øÈ£¸¦ ¹Þ¾ÆµÒ.
 
 	if( m_fFrameOld > (float)(m_nFrameMax - 1) )
 		m_fFrameOld -= (float)m_nFrameMax;
 
 	if( m_bSlow )
-		m_fFrameCurrent += 0.1f;			// ì• ë‹ˆë©”ì´ì…˜ ì§„í–‰
+		m_fFrameCurrent += 0.1f;			// ¾Ö´Ï¸ÞÀÌ¼Ç ÁøÇà
 	else
-		m_fFrameCurrent += (m_fPerSlerp * fSpeed);			// ì• ë‹ˆë©”ì´ì…˜ ì§„í–‰
+		m_fFrameCurrent += (m_fPerSlerp * fSpeed);			// ¾Ö´Ï¸ÞÀÌ¼Ç ÁøÇà
 
 
-	nCurrFrame = (int)m_fFrameCurrent;				// ì†Œìˆ«ì  ë–¼ë‚´ê³  ì •ìˆ˜ë¶€ë§Œ..
-	m_fSlp = m_fFrameCurrent - (float)nCurrFrame;	// ì†Œìˆ«ì  ë¶€ë¶„ë§Œ ê°€ì ¸ì˜´
+	nCurrFrame = (int)m_fFrameCurrent;				// ¼Ò¼ýÁ¡ ¶¼³»°í Á¤¼öºÎ¸¸..
+	m_fSlp = m_fFrameCurrent - (float)nCurrFrame;	// ¼Ò¼ýÁ¡ ºÎºÐ¸¸ °¡Á®¿È
 
-	if( m_nLoop & ANILOOP_LOOP )		// ë£¨í•‘ëª¨ë“œì¼ë•Œ
+	if( m_nLoop & ANILOOP_LOOP )		// ·çÇÎ¸ðµåÀÏ¶§
 	{
 		if( m_fFrameCurrent > (float)(m_nFrameMax - 1) )
 		{
 			m_bEndFrame = TRUE;
-			nCurrFrame %= m_nFrameMax;		// ì²˜ìŒìœ¼ë¡œ ë˜ëŒë¦¼
+			nCurrFrame %= m_nFrameMax;		// Ã³À½À¸·Î µÇµ¹¸²
 		}
 	} 
-	else		// ë£¨í•‘ëª¨ë“œê°€ ì•„ë‹ˆë¼ë©´ ë§ˆì§€ë§‰ í”„ë ˆìž„ì—ì„œ ë©ˆì¶˜ë‹¤.
+	else		// ·çÇÎ¸ðµå°¡ ¾Æ´Ï¶ó¸é ¸¶Áö¸· ÇÁ·¹ÀÓ¿¡¼­ ¸ØÃá´Ù.
 	{
 		if( m_fFrameCurrent > (float)(m_nFrameMax - 1) )
 		{
@@ -51,7 +51,7 @@ void CModel::FrameMove( D3DXVECTOR3 *pvSndPos, float fSpeed )
 			nCurrFrame = m_nFrameMax - 1;
 		}
 	}
-	m_fFrameCurrent = (float)nCurrFrame + m_fSlp;	// íŽ¸ì˜ìƒ ì‹œê°ì ìœ¼ë¡œ ë³´ê¸° ì‰½ë„ë¡ ìˆ˜ì¹˜ ë³´ì •
+	m_fFrameCurrent = (float)nCurrFrame + m_fSlp;	// ÆíÀÇ»ó ½Ã°¢ÀûÀ¸·Î º¸±â ½±µµ·Ï ¼öÄ¡ º¸Á¤
 }
 
 void CModel::AddFrame( FLOAT fAddFrame )
@@ -72,7 +72,7 @@ BOOL CModel::IsAniable()
 }
 
 //
-//	í˜„ìž¬ í”„ë ˆìž„ì˜ ë‹¤ìŒ í”„ë ˆìž„ë²ˆí˜¸ë¥¼ ë¦¬í„´
+//	ÇöÀç ÇÁ·¹ÀÓÀÇ ´ÙÀ½ ÇÁ·¹ÀÓ¹øÈ£¸¦ ¸®ÅÏ
 //
 int	CModel::GetNextFrame( void )
 {
@@ -83,16 +83,16 @@ int	CModel::GetNextFrame( void )
 	if( nNextFrm >= m_nFrameMax )		
 	{
 		if( m_nLoop & ANILOOP_LOOP )	
-			nNextFrm = 0;			// ë£¨í•‘ì• ë‹ˆë©”ì´ì…˜ì´ë©´ ì²˜ìŒí”„ë ˆìž„ê³¼ ì—°ê²°ë ìˆ˜ ìžˆë„ë¡ í•œë‹¤.
+			nNextFrm = 0;			// ·çÇÎ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ¸é Ã³À½ÇÁ·¹ÀÓ°ú ¿¬°áµÉ¼ö ÀÖµµ·Ï ÇÑ´Ù.
 		else													
-			nNextFrm = m_nFrameMax - 1;		// ì•„ë‹ˆë©´ ë§ˆì§€ë§‰ í”„ë ˆìž„ì—ì„œ ë©ˆì¶˜ë‹¤
+			nNextFrm = m_nFrameMax - 1;		// ¾Æ´Ï¸é ¸¶Áö¸· ÇÁ·¹ÀÓ¿¡¼­ ¸ØÃá´Ù
 	}
 
 	return nNextFrm;
 }
 
 //
-//	ë°”ìš´ë“œë°•ìŠ¤ vMin,vMaxë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°˜ì§€ë¦„ì„ ëŒë ¤ì¤Œ
+//	¹Ù¿îµå¹Ú½º vMin,vMax¸¦ ±âÁØÀ¸·Î ¹ÝÁö¸§À» µ¹·ÁÁÜ
 //
 float CModel::GetRadius( void )
 {

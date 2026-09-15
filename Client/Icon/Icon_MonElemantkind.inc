@@ -1,6 +1,6 @@
-ï»¿// number ì‚½ì… ì´ë¯¸ì§€ ê°œìˆ˜
-// serialize ì—°ì†ìœ¼ë¡œ ì´ë¯¸ì§€ ì‚½ì…(width hight StartPosition-X StartPosition-Y, center_x, center_y)
-// pos ë‹¨ì¼ë¡œ ì´ë¯¸ì§€ ì‚½ì… (width hight StartPosition-X StartPosition-Y)
+// number »ğÀÔ ÀÌ¹ÌÁö °³¼ö
+// serialize ¿¬¼ÓÀ¸·Î ÀÌ¹ÌÁö »ğÀÔ(width hight StartPosition-X StartPosition-Y, center_x, center_y)
+// pos ´ÜÀÏ·Î ÀÌ¹ÌÁö »ğÀÔ (width hight StartPosition-X StartPosition-Y)
 number 5
 texture "icon\Icon_MonElemantkind.dds" 0xffff00ff
-serialize 5 16 16  0   0 0 0 // ëª¬ìŠ¤í„° ì†ì„± í‘œì‹œìš© ì•„ì´ì½˜ ë¶ˆ, ë¬¼, ì „ê¸°, ë°”ëŒ, ë•… ìˆœì„œ 
+serialize 5 16 16  0   0 0 0 // ¸ó½ºÅÍ ¼Ó¼º Ç¥½Ã¿ë ¾ÆÀÌÄÜ ºÒ, ¹°, Àü±â, ¹Ù¶÷, ¶¥ ¼ø¼­ 

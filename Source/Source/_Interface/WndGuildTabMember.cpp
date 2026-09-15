@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndGuildTabMember.h"
@@ -22,8 +22,8 @@ extern CGuildCombat g_GuildCombatMng;
 /****************************************************
   WndId : APP_GUILD_TABMEMBER 
 ****************************************************/
-#define		MAX_MEMBER_LIST_DRAW	14		// í•œí™”ë©´ì— ë³´ì´ëŠ” ë¦¬ìŠ¤íŠ¸ ìˆ˜.
-#define		MEMBER_LIST_HEIGHT		18		// ë¦¬ìŠ¤íŠ¸ì˜ í•œë¼ì¸ í­ y += MEMBER_LIST_HEIGHT ë¡œ ì“°ë¼.
+#define		MAX_MEMBER_LIST_DRAW	14		// ÇÑÈ­¸é¿¡ º¸ÀÌ´Â ¸®½ºÆ® ¼ö.
+#define		MEMBER_LIST_HEIGHT		18		// ¸®½ºÆ®ÀÇ ÇÑ¶óÀÎ Æø y += MEMBER_LIST_HEIGHT ·Î ¾²¶ó.
 
 #if __VER >= 12 // __CSC_VER12_2
 //////////////////////////////////////////////////////////////////////////
@@ -237,7 +237,7 @@ void CWndGuildTabMember::OnDraw( C2DRender* p2DRender )
 	CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );
 
 #if __VER >= 11 // __CSC_VER11_4
-	// ì˜ì›…, ë§ˆìŠ¤í„° ì•„ì´ì½˜ ì¶”ê°€ë¬ìœ¼ë‹ˆ vertex í•˜ë‚˜ ëŠ˜ì„
+	// ¿µ¿õ, ¸¶½ºÅÍ ¾ÆÀÌÄÜ Ãß°¡‰çÀ¸´Ï vertex ÇÏ³ª ´ÃÀÓ
 	TEXTUREVERTEX2* pVertex = new TEXTUREVERTEX2[ ((m_nMax > MAX_MEMBER_LIST_DRAW) ? MAX_MEMBER_LIST_DRAW: m_nMax) * 6 * 5 ];
 #else //__CSC_VER11_4
 	TEXTUREVERTEX2* pVertex = new TEXTUREVERTEX2[ ((m_nMax > MAX_MEMBER_LIST_DRAW) ? MAX_MEMBER_LIST_DRAW: m_nMax) * 6 * 4 ];
@@ -349,7 +349,7 @@ void CWndGuildTabMember::OnDraw( C2DRender* p2DRender )
 		else if( prj.m_aJob[ pMember->nJob ].dwJobType == JTYPE_MASTER )
 		{
 			int nMasterIndex = 27;
-			if(/*m_nLevel >= 60 && */pMember->nLevel < 70) //Level Downë  ê²½ìš°ë¥¼ ìƒê°í•´ì„œ ì£¼ì„ì²˜ë¦¬.
+			if(/*m_nLevel >= 60 && */pMember->nLevel < 70) //Level DownµÉ °æ¿ì¸¦ »ı°¢ÇØ¼­ ÁÖ¼®Ã³¸®.
 				nMasterIndex = 27;
 			else if(pMember->nLevel>= 70 && pMember->nLevel < 80)
 				nMasterIndex = 28;
@@ -457,7 +457,7 @@ void CWndGuildTabMember::OnDraw( C2DRender* p2DRender )
 void CWndGuildTabMember::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_wndMenu.CreateMenu( this );	
 	
 //	CString strMember;
@@ -476,7 +476,7 @@ void CWndGuildTabMember::OnInitialUpdate()
 	m_wndScrollBar.SetScrollPage( nPage );
 
 #if __VER >= 12 // __CSC_VER12_2
-	// ë²„íŠ¼ ì´ë¯¸ì§€ ì„¸íŒ…
+	// ¹öÆ° ÀÌ¹ÌÁö ¼¼ÆÃ
 	CWndButton* pWndButton = (CWndButton*)GetDlgItem(WIDC_MLEVEL);
 	if(pWndButton)
 	{
@@ -559,17 +559,17 @@ void CWndGuildTabMember::OnInitialUpdate()
 	SortbyMemberLevel();	// Default Sort
 #endif //__CSC_VER12_2
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildTabMember::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 #if __VER >= 12 // __CSC_VER12_2
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_TABMEMBER_EX, 0, CPoint( 0, 0 ), pWndParent );
 #else //__CSC_VER12_2
@@ -605,7 +605,7 @@ BOOL CWndGuildTabMember::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBas
 	{
 		switch( nID )
 		{
-		case MGI_APPELL_UP:		// í˜¸ì¹­ ì—….
+		case MGI_APPELL_UP:		// È£Äª ¾÷.
 			g_DPlay.SendGuildMemberLv( pMover->m_idPlayer,
 				m_aList[m_nSelect].idPlayer, m_aList[m_nSelect].nMemberLv - 1 );
 			break;
@@ -614,7 +614,7 @@ BOOL CWndGuildTabMember::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBas
 				m_aList[m_nSelect].idPlayer, m_aList[m_nSelect].nMemberLv + 1 );
 			break;
 
-		case MGI_CLASS_UP:		// ë“±ê¸‰ ì—…
+		case MGI_CLASS_UP:		// µî±Ş ¾÷
 			g_DPlay.SendGuildClass( pMover->m_idPlayer,
 				m_aList[m_nSelect].idPlayer, 1 );
 			break;
@@ -633,7 +633,7 @@ BOOL CWndGuildTabMember::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBas
 				}
 			}
 			break;
-		case MGI_NICKNAME:		// ë³„ì¹­ ë¶€ì—¬
+		case MGI_NICKNAME:		// º°Äª ºÎ¿©
 			{
 				CGuild* pGuild = g_pPlayer->GetGuild();
 				if( pGuild && pGuild->IsMaster( g_pPlayer->m_idPlayer ) )
@@ -658,9 +658,9 @@ BOOL CWndGuildTabMember::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBas
 			}
 			break;
 
-		case MGI_GUILD_LEAVE:	// íƒˆí‡´
+		case MGI_GUILD_LEAVE:	// Å»Åğ
 			{
-				if(  pGuild->GetQuest( QUEST_WARMON_LV1 ) != NULL && pGuild->GetQuest( QUEST_WARMON_LV1 )->nState == QS_BEGIN )	// í´ë½ì›Œí¬ í€˜ìŠ¤íŠ¸ë©´ ê¸¸ë“œ í•´ì²´ ì•ˆë¨
+				if(  pGuild->GetQuest( QUEST_WARMON_LV1 ) != NULL && pGuild->GetQuest( QUEST_WARMON_LV1 )->nState == QS_BEGIN )	// Å¬¶ô¿öÅ© Äù½ºÆ®¸é ±æµå ÇØÃ¼ ¾ÈµÊ
 				{
 					QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( QUEST_WARMON_LV1 );
 					if( pQuestProp )
@@ -673,7 +673,7 @@ BOOL CWndGuildTabMember::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBas
 				{
 					if( g_GuildCombatMng.m_bRequest && g_GuildCombatMng.m_nState != CGuildCombat::CLOSE_STATE && g_GuildCombatMng.m_nGCState != CGuildCombat::WAR_CLOSE_STATE )
 					//if( g_GuildCombatMng.m_nState != CGuildCombat::CLOSE_STATE && g_GuildCombatMng.m_nGCState != CGuildCombat::WAR_CLOSE_STATE )
-						g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT_NOT_LEAVE_GUILD ) );		//"ìˆ˜ì •í•´ì•¼í•¨ : ê¸¸ë“œëŒ€ì „ì— ì‹ ì²­í•œê¸¸ë“œëŠ” ëŒ€ì „ì¤‘ì—ëŠ” ê¸¸ë“œ íƒˆí‡´ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤" );
+						g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT_NOT_LEAVE_GUILD ) );		//"¼öÁ¤ÇØ¾ßÇÔ : ±æµå´ëÀü¿¡ ½ÅÃ»ÇÑ±æµå´Â ´ëÀüÁß¿¡´Â ±æµå Å»Åğ¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù" );
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
 					else if( g_GuildCombat1to1Mng.m_nState != CGuildCombat1to1Mng::GC1TO1_CLOSE )
 						g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT1TO1_NOTLEAVEGUILD ) );
@@ -779,7 +779,7 @@ void CWndGuildTabMember::OnMouseMove(UINT nFlags, CPoint point )
 {
 	if( nFlags & MK_LBUTTON )
 	{
-		int		nDistY = (m_nMyOld - point.y) / 5;		// ê³¼ê±° ì¢Œí‘œì™€ì˜ ì°¨ì´.
+		int		nDistY = (m_nMyOld - point.y) / 5;		// °ú°Å ÁÂÇ¥¿ÍÀÇ Â÷ÀÌ.
 
 		m_nCurrentList += nDistY;
 		if( m_nCurrentList < 0 )
@@ -873,24 +873,24 @@ void CWndGuildTabMember::UpdateData()
 			pMember		= i->second;
 
 			m_aList[ m_nMax ].idPlayer       = pMember->m_idPlayer;
-			m_aList[ m_nMax ].nMemberLv      = pMember->m_nMemberLv;			// í˜¸ì¹­
+			m_aList[ m_nMax ].nMemberLv      = pMember->m_nMemberLv;			// È£Äª
 #if __VER >= 11 // __SYS_PLAYER_DATA
 			PlayerData* pPlayerData		= CPlayerDataCenter::GetInstance()->GetPlayerData( pMember->m_idPlayer );
 			m_aList[ m_nMax ].nJob	= pPlayerData->data.nJob;
 			m_aList[ m_nMax ].nSex	= pPlayerData->data.nSex;
-			m_aList[ m_nMax ].nLevel	= pPlayerData->data.nLevel;	// ë ˆë²¨
+			m_aList[ m_nMax ].nLevel	= pPlayerData->data.nLevel;	// ·¹º§
 			m_aList[ m_nMax ].bIsOnLine      = ( pPlayerData->data.uLogin > 0 );
 #else	// __SYS_PLAYER_DATA
-			m_aList[ m_nMax ].nJob           = pMember->m_nJob;	// ì§ì—…
-			m_aList[ m_nMax ].nSex           = pMember->m_dwSex;	// ì„±
-			m_aList[ m_nMax ].nLevel = pMember->m_nLevel;			// ë ˆë²¨
+			m_aList[ m_nMax ].nJob           = pMember->m_nJob;	// Á÷¾÷
+			m_aList[ m_nMax ].nSex           = pMember->m_dwSex;	// ¼º
+			m_aList[ m_nMax ].nLevel = pMember->m_nLevel;			// ·¹º§
 			m_aList[ m_nMax ].bIsOnLine      = pMember->m_nLogin;
 #endif	// __SYS_PLAYER_DATA
 
-			m_aList[ m_nMax ].nGiveGold      = pMember->m_nGiveGold;					// ê¸¸ë“œì— ê¸°ë¶€í•œ í˜ëƒ
-			m_aList[ m_nMax ].dwGivePxpCount = pMember->m_dwGivePxpCount;				// ê¸¸ë“œì— ê¸°ë¶€í•œ PXPíšŸìˆ˜( ìŠ¤í‚¬ ê²½í—˜ì¹˜ )
-			m_aList[ m_nMax ].nWin           = pMember->m_nWin;							// ë¬´ì—‡ì„ ì´ê²¼ì§€?
-			m_aList[ m_nMax ].nLose          = pMember->m_nLose;						// ë¬´ì—‡ì„ ì¡Œì„ê¹Œë‚˜?
+			m_aList[ m_nMax ].nGiveGold      = pMember->m_nGiveGold;					// ±æµå¿¡ ±âºÎÇÑ Æä³Ä
+			m_aList[ m_nMax ].dwGivePxpCount = pMember->m_dwGivePxpCount;				// ±æµå¿¡ ±âºÎÇÑ PXPÈ½¼ö( ½ºÅ³ °æÇèÄ¡ )
+			m_aList[ m_nMax ].nWin           = pMember->m_nWin;							// ¹«¾ùÀ» ÀÌ°åÁö?
+			m_aList[ m_nMax ].nLose          = pMember->m_nLose;						// ¹«¾ùÀ» Á³À»±î³ª?
 		
 #if __VER >= 11 // __SYS_PLAYER_DATA
 			LPCSTR pszPlayer	= pPlayerData->szPlayer;

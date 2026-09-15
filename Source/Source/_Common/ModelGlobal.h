@@ -1,4 +1,4 @@
-ï»¿#ifndef		__MODELGLOBAL_H__
+#ifndef		__MODELGLOBAL_H__
 #define		__MODELGLOBAL_H__
 
 #define XE_NONE				0
@@ -8,40 +8,40 @@
 #define XE_SELF_ILLUMINATE	(0x00000008)
 #define XE_SPECULAR			(0x00000010)
 #define XE_BUMP				(0x00000020)
-#define XE_HIDE				(0x00000040)			// ë Œë”ë§ ê¸ˆì§€. ì ì‹œ êº¼ë‘ì…”ë„ ì¢‹ìŠµë‹ˆë‹¤.
-//#define XE_NO_OPTION_EFFECT	(0x10000000)		// CreateParticle()ì„ ì‹¤í–‰ì•ˆí•˜ëŠ” ì˜µì…˜.
-#define XE_ITEM_FIRE		(0x00000080)		// ë¶ˆ íŒŒí‹°í´ì„ ìƒì„±í•˜ëŠ” ì˜µì…˜
-#define XE_ITEM_ELEC		(0x00000100)		// ì „ê¸° ì´í™íŠ¸ë¥¼ ìƒì„±í•˜ëŠ” ì˜µì…˜.
-#define XE_ITEM_WATER		(0x00000200)		// ë¬¼ ì´í™íŠ¸ë¥¼ ìƒì„±í•˜ëŠ” ì˜µì…˜.
-#define XE_ITEM_WIND		(0x00000400)		// ë°”ëŒ ì´í™íŠ¸ë¥¼ ìƒì„±í•˜ëŠ” ì˜µì…˜.
-#define XE_ITEM_EARTH		(0x00000800)		// ë•… ì´í™íŠ¸ë¥¼ ìƒì„±í•˜ëŠ” ì˜µì…˜.
-#define XE_NOBUMP			(0x00001000)		// ë²”í”„ì‚¬ìš©ì•ŠìŒ
-#define XE_HIGHLIGHT_OBJ	(0x00002000)		// í•˜ì´ë¼ì´íŠ¸ ì˜¤ë¸Œì íŠ¸(ì„ íƒì‹œ)
-#define XE_ITEM_GEN			(0x00004000)		// ì¼ë°˜ì†ì„±
+#define XE_HIDE				(0x00000040)			// ·»´õ¸µ ±İÁö. Àá½Ã ²¨µÎ¼Åµµ ÁÁ½À´Ï´Ù.
+//#define XE_NO_OPTION_EFFECT	(0x10000000)		// CreateParticle()À» ½ÇÇà¾ÈÇÏ´Â ¿É¼Ç.
+#define XE_ITEM_FIRE		(0x00000080)		// ºÒ ÆÄÆ¼Å¬À» »ı¼ºÇÏ´Â ¿É¼Ç
+#define XE_ITEM_ELEC		(0x00000100)		// Àü±â ÀÌÆåÆ®¸¦ »ı¼ºÇÏ´Â ¿É¼Ç.
+#define XE_ITEM_WATER		(0x00000200)		// ¹° ÀÌÆåÆ®¸¦ »ı¼ºÇÏ´Â ¿É¼Ç.
+#define XE_ITEM_WIND		(0x00000400)		// ¹Ù¶÷ ÀÌÆåÆ®¸¦ »ı¼ºÇÏ´Â ¿É¼Ç.
+#define XE_ITEM_EARTH		(0x00000800)		// ¶¥ ÀÌÆåÆ®¸¦ »ı¼ºÇÏ´Â ¿É¼Ç.
+#define XE_NOBUMP			(0x00001000)		// ¹üÇÁ»ç¿ë¾ÊÀ½
+#define XE_HIGHLIGHT_OBJ	(0x00002000)		// ÇÏÀÌ¶óÀÌÆ® ¿ÀºêÁ§Æ®(¼±ÅÃ½Ã)
+#define XE_ITEM_GEN			(0x00004000)		// ÀÏ¹İ¼Ó¼º
 
 #if __VER >= 9 // __Y_ADV_ENCHANT_EFFECT
-#define XE_ITEM_FIRE_AL		(0x00008000)		// Ultimateìš©
-#define XE_ITEM_ELEC_AL		(0x00010000)		// Ultimateìš©
-#define XE_ITEM_WATER_AL	(0x00020000)		// Ultimateìš©
-#define XE_ITEM_WIND_AL		(0x00040000)		// Ultimateìš©
-#define XE_ITEM_EARTH_AL	(0x00080000)		// Ultimateìš©
-#define XE_ITEM_GEN_AL		(0x00100000)		// Ultimateìš©
+#define XE_ITEM_FIRE_AL		(0x00008000)		// Ultimate¿ë
+#define XE_ITEM_ELEC_AL		(0x00010000)		// Ultimate¿ë
+#define XE_ITEM_WATER_AL	(0x00020000)		// Ultimate¿ë
+#define XE_ITEM_WIND_AL		(0x00040000)		// Ultimate¿ë
+#define XE_ITEM_EARTH_AL	(0x00080000)		// Ultimate¿ë
+#define XE_ITEM_GEN_AL		(0x00100000)		// Ultimate¿ë
 #endif //__Y_ADV_ENCHANT_EFFECT
 
 #ifdef __BS_EFFECT_LUA
 #define XE_MTE				(0x00200000)		// multi texturing effect
 #endif //__BS_EFFECT_LUA
 
-// ìƒìœ„ 8ë¹„íŠ¸ëŠ” ì“°ì§€ ë§ê²ƒ.  ì†ì„±ë ˆë²¨ë¡œ ì“¸êº¼ë‹¤. 0 ~ 5ë²”ìœ„.
+// »óÀ§ 8ºñÆ®´Â ¾²Áö ¸»°Í.  ¼Ó¼º·¹º§·Î ¾µ²¨´Ù. 0 ~ 5¹üÀ§.
 
-extern double		g_dUps;		// update per sec - í™”ë©´ ê°±ì‹  ì‹œê°„
-extern double		g_dKps;		// key per sec - í•œ ì• ë‹ˆë©”ì´ì…˜ í‚¤ê°€ ë„˜ì–´ê°€ëŠ”ë° ê¸°ë‹¤ë¦¬ëŠ” ì‹œê°„
-extern DWORD	g_tmCurrent;		// ì „ì—­ìœ¼ë¡œ ì‚¬ìš©í•  í˜„ì¬ ì‹œê°„.
+extern double		g_dUps;		// update per sec - È­¸é °»½Å ½Ã°£
+extern double		g_dKps;		// key per sec - ÇÑ ¾Ö´Ï¸ŞÀÌ¼Ç Å°°¡ ³Ñ¾î°¡´Âµ¥ ±â´Ù¸®´Â ½Ã°£
+extern DWORD	g_tmCurrent;		// Àü¿ªÀ¸·Î »ç¿ëÇÒ ÇöÀç ½Ã°£.
 
 void	InitUPS( void );
 void	CalcUPS( void );
 
-// ìŠ¤í‚¤ë‹ ì˜¤ë¸Œì íŠ¸ë“¤ì€ SetRenderState()ë“±ì— ì˜í–¥ë°›ì§€ ì•Šìœ¼ë¯€ë¡œ ì™¸ë¶€ì—ì„œ ì§ì ‘ ê°’ì„ ë„£ì–´ì¤˜ì•¼ í•œë‹¤.
+// ½ºÅ°´× ¿ÀºêÁ§Æ®µéÀº SetRenderState()µî¿¡ ¿µÇâ¹ŞÁö ¾ÊÀ¸¹Ç·Î ¿ÜºÎ¿¡¼­ Á÷Á¢ °ªÀ» ³Ö¾îÁà¾ß ÇÑ´Ù.
 void	SetDiffuse( float r, float g, float b );
 void	SetAmbient( float r, float g, float b );
 void	SetLightVec( const D3DVECTOR &vLight );
@@ -62,10 +62,10 @@ extern LPD3DXRENDERTOSURFACE   g_pRenderToSurface;
 extern LPDIRECT3DSURFACE9      g_pShadowSurface;
 extern LPDIRECT3DTEXTURE9      g_pShadowTexture; 
 
-extern D3DXMATRIX g_mViewLight;		// ë¹›ìœ¼ë¡œë¶€í„° í”Œë ˆì´ì–´ìª½ìœ¼ë¡œ ë³´ëŠ” ë·° ë§¤íŠ¸ë¦­ìŠ¤.
-extern D3DXMATRIX g_mShadowProj;		// ì‰ë„ìš° í”„ë¡œì ì…˜
+extern D3DXMATRIX g_mViewLight;		// ºûÀ¸·ÎºÎÅÍ ÇÃ·¹ÀÌ¾îÂÊÀ¸·Î º¸´Â ºä ¸ÅÆ®¸¯½º.
+extern D3DXMATRIX g_mShadowProj;		// ½¦µµ¿ì ÇÁ·ÎÁ§¼Ç
 
-// ì‰ë„ìš°ë§µ í…ìŠ¤ì³ ìƒì„±.
+// ½¦µµ¿ì¸Ê ÅØ½ºÃÄ »ı¼º.
 BOOL CreateShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBufferFormat );
 void DeleteShadowMap( LPDIRECT3DDEVICE9 pd3dDevice );
 void RenderShadowMapInfo( LPDIRECT3DDEVICE9 pd3dDevice );
@@ -74,7 +74,7 @@ void ResetStateShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, int nShadowStage );
 
 class CModelGlobal
 {
-	LPDIRECT3DTEXTURE9	m_pExtTexture;		// ì™¸ë¶€ ì§€ì • í…ìŠ¤ì³.
+	LPDIRECT3DTEXTURE9	m_pExtTexture;		// ¿ÜºÎ ÁöÁ¤ ÅØ½ºÃÄ.
 	
 public:
 	D3DXVECTOR3		m_vCameraPos, m_vCameraDest, m_vCameraForward;
@@ -90,10 +90,10 @@ public:
 	
 	void	SetCamera( const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vDest );
 	
-	// ì™¸ë¶€ ì§€ì • í…ìŠ¤ì³
-	// ì´ê²ƒì„ ì§€ì •í•œ í›„ CObject3D::Render()ë¥¼ í•˜ë©´ ì§€ì •ëœ í…ìŠ¤ì³ë¡œ ë‚˜ì˜¨ë‹¤.
+	// ¿ÜºÎ ÁöÁ¤ ÅØ½ºÃÄ
+	// ÀÌ°ÍÀ» ÁöÁ¤ÇÑ ÈÄ CObject3D::Render()¸¦ ÇÏ¸é ÁöÁ¤µÈ ÅØ½ºÃÄ·Î ³ª¿Â´Ù.
 	LPDIRECT3DTEXTURE9	GetTexture( void ) { return m_pExtTexture; }
-	void	SetTexture( LPDIRECT3DTEXTURE9 pTexture ) { m_pExtTexture = pTexture; }		// ì™¸ë¶€ì§€ì • í…ìŠ¤ì³.
+	void	SetTexture( LPDIRECT3DTEXTURE9 pTexture ) { m_pExtTexture = pTexture; }		// ¿ÜºÎÁöÁ¤ ÅØ½ºÃÄ.
 		
 	HRESULT RestoreDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice );
 	HRESULT InvalidateDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice );
@@ -101,8 +101,8 @@ public:
 
 extern CModelGlobal g_ModelGlobal;
 
-extern int		g_nRenderCnt;	// ë Œë”í™”ë©´ë•Œë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜
-extern int		g_nProcessCnt;	// í”„ë¡œì„¸ìŠ¤ë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜.
+extern int		g_nRenderCnt;	// ·»´õÈ­¸é¶§¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö
+extern int		g_nProcessCnt;	// ÇÁ·Î¼¼½º¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö.
 
 
 #define		PE_FIRE		1
@@ -188,7 +188,7 @@ public:
 		memset( m_pList_2, 0, sizeof(m_pList_2) );
 #endif //__CSC_ENCHANT_EFFECT_2
 	}
-	CPartsFire( int nType )		// PE_ ì‹œë¦¬ì¦ˆ.
+	CPartsFire( int nType )		// PE_ ½Ã¸®Áî.
 	{
 		m_nType = nType;
 		memset( m_pList, 0, sizeof(m_pList) );
@@ -270,15 +270,15 @@ struct FVF_BEAM
 class CPartsBeam : public CPartsEffect
 {
 	BOOL	m_bActive;
-	D3DXVECTOR3 m_vBeam[MAX_BEAM * 2];		// ë¹”ì˜ ì‹œì‘ê³¼ ëì .
-	D3DXVECTOR3 m_vCenter[MAX_BEAM];		// ë¹”ì˜ ì¤‘ì‹¬.
+	D3DXVECTOR3 m_vBeam[MAX_BEAM * 2];		// ºöÀÇ ½ÃÀÛ°ú ³¡Á¡.
+	D3DXVECTOR3 m_vCenter[MAX_BEAM];		// ºöÀÇ Áß½É.
 //	float		m_fScale[MAX_BEAM];
 	float		m_fSize[MAX_BEAM];
-	FVF_BEAM m_vList[MAX_BEAM * 2 * 2];		// ì¹´ë©”ë¼ ë·°ì— ë”°ë¼ ë³€í™˜ë˜ëŠ” ì‹¤ì œ ë¹”ë²„í…ìŠ¤ë“¤..
+	FVF_BEAM m_vList[MAX_BEAM * 2 * 2];		// Ä«¸Ş¶ó ºä¿¡ µû¶ó º¯È¯µÇ´Â ½ÇÁ¦ ºö¹öÅØ½ºµé..
 	int			m_nLevel[ MAX_BEAM ];
 	
 public:
-	int		m_nMax;		// ë¹” ê°œìˆ˜(ë²„í…ìŠ¤2ê°œê°€ í•œì„¸íŠ¸)
+	int		m_nMax;		// ºö °³¼ö(¹öÅØ½º2°³°¡ ÇÑ¼¼Æ®)
 	D3DXVECTOR3 m_vLast;
 	
 	CPartsBeam() 
@@ -305,12 +305,12 @@ public:
 //
 class CPartsLaser : public CPartsEffect
 {
-	D3DXVECTOR3 m_vBeam[2];				// ë ˆì´ì €ì˜ ì‹œì‘ê³¼ ëì .
-//	D3DXVECTOR3 m_vCenter;				// ë ˆì´ì €ì˜ ì¤‘ì‹¬
+	D3DXVECTOR3 m_vBeam[2];				// ·¹ÀÌÀúÀÇ ½ÃÀÛ°ú ³¡Á¡.
+//	D3DXVECTOR3 m_vCenter;				// ·¹ÀÌÀúÀÇ Áß½É
 	float		m_fSize;
-	FVF_BEAM m_vList[2 * 2];		// ì¹´ë©”ë¼ ë·°ì— ë”°ë¼ ë³€í™˜ë˜ëŠ” ì‹¤ì œ ë¹”ë²„í…ìŠ¤ë“¤..
+	FVF_BEAM m_vList[2 * 2];		// Ä«¸Ş¶ó ºä¿¡ µû¶ó º¯È¯µÇ´Â ½ÇÁ¦ ºö¹öÅØ½ºµé..
 	int		m_nCount;	
-	FLOAT	m_fRadian;				// ì»¤ì¡Œë‹¤ ì‘ì•„ì¡Œë‹¤ì— ì“°ì´ëŠ” sin ë¼ë””ì•ˆê°’.
+	FLOAT	m_fRadian;				// Ä¿Á³´Ù ÀÛ¾ÆÁ³´Ù¿¡ ¾²ÀÌ´Â sin ¶óµğ¾È°ª.
 	LPDIRECT3DTEXTURE9	m_pTexture;
 	
 public:

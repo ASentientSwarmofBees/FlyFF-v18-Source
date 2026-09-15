@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
      
 #define absC(x) (((x)<0) ? -(x):(x))
 #define signC(x) ((x)>0 ? 1: ((x)==0?0:(-1)))
@@ -44,7 +44,7 @@ void CSnow::Process()
 			}
 		}
 		*/
-		// ë¹—ë°©ìš¸ ê°¯ìˆ˜ê°€ ì´ ë¹—ë°©ìš¸ ê°¯ìˆ˜ë³´ë‹¤ í¬ë©´ íŒŒê´´í•œë‹¤.
+		// ºø¹æ¿ï °¹¼ö°¡ ÃÑ ºø¹æ¿ï °¹¼öº¸´Ù Å©¸é ÆÄ±«ÇÑ´Ù.
 		int nSnowNum = 500;
 		if( m_pWeather->m_nCloud >= 70 )
 			nSnowNum = 10;//SUM_RAIN(m_pWeather->m_nCloud);
@@ -84,8 +84,8 @@ void CSnow::Process()
 	if(ptz.z > 0)
 	{
 		ptz.x += m_nDirSpeed;
-		ptz.x += (2 - xRandom(5));			// xRandom()ì€ xSFX.cppì— ìƒˆë¡œ ì •ì˜ëœ ëœë¤ì…ë‹ˆë‹¤. -_-;;;
-		ptz.z -= (m_nFallSpeed / 4);		// ì»´íŒŒì¼ê³¼ì •ì—ì„œ ìë™ìœ¼ë¡œ ì‰¬í”„íŠ¸ë¡œ ìµœì í™” ëœë‹¤(XuZhu).
+		ptz.x += (2 - xRandom(5));			// xRandom()Àº xSFX.cpp¿¡ »õ·Î Á¤ÀÇµÈ ·£´ıÀÔ´Ï´Ù. -_-;;;
+		ptz.z -= (m_nFallSpeed / 4);		// ÄÄÆÄÀÏ°úÁ¤¿¡¼­ ÀÚµ¿À¸·Î ½¬ÇÁÆ®·Î ÃÖÀûÈ­ µÈ´Ù(XuZhu).
 	}
 	if(ptz.z <= 0)
 	{
@@ -93,7 +93,7 @@ void CSnow::Process()
 		if(nTile != 0xffff)
 		{
 			int nTileId = prj.GetTileId(nTile);
-			// ë–¨ì–´ì§„ ê³³ì´ ë¬¼ì´ ì•„ë‹ ê²½ìš°ì—ë§Œ ëˆˆì´ ë…¹ëŠ” í‘œí˜„ì„ í•œë‹¤.
+			// ¶³¾îÁø °÷ÀÌ ¹°ÀÌ ¾Æ´Ò °æ¿ì¿¡¸¸ ´«ÀÌ ³ì´Â Ç¥ÇöÀ» ÇÑ´Ù.
 			if(nTileId != TILE_RIVER && nTileId != TILE_RIVERSIDE)
 			{
 				CCtrl* pSnow = new CCtrl(CPtZ(ptz.x,ptz.y,0),OI_SFX,SI_SNOW,0);
@@ -101,7 +101,7 @@ void CSnow::Process()
 				m_pField->AddObj(pSnow);
 			}
 		}
-		// ë¹—ë°©ìš¸ ê°¯ìˆ˜ê°€ ì´ ë¹—ë°©ìš¸ ê°¯ìˆ˜ë³´ë‹¤ í¬ë©´ íŒŒê´´í•œë‹¤.
+		// ºø¹æ¿ï °¹¼ö°¡ ÃÑ ºø¹æ¿ï °¹¼öº¸´Ù Å©¸é ÆÄ±«ÇÑ´Ù.
 		int nSnowNum = 0;
 		if(m_pWeather->m_nCloud >= 70)
 			nSnowNum = SUM_RAIN(m_pWeather->m_nCloud);
@@ -200,7 +200,7 @@ void CRain::Process()
 			}
 		}
 		*/
-		// ë¹—ë°©ìš¸ ê°¯ìˆ˜ê°€ ì´ ë¹—ë°©ìš¸ ê°¯ìˆ˜ë³´ë‹¤ í¬ë©´ íŒŒê´´í•œë‹¤.
+		// ºø¹æ¿ï °¹¼ö°¡ ÃÑ ºø¹æ¿ï °¹¼öº¸´Ù Å©¸é ÆÄ±«ÇÑ´Ù.
 		int nRainNum = 100;
 		if( m_pWeather->m_nCloud >= 70 )
 			nRainNum = 10;//SUM_RAIN(m_pWeather->m_nCloud);
@@ -376,7 +376,7 @@ CWeather::~CWeather()
 void CWeather::ControlWeather()//
 {
 #ifndef _BEAST
-	// ê³„ì ˆê³¼ ê¸°ë³¸ ê¸°ì˜¨, ê¸°ë³¸ ìŠµë„ë¥¼ ì •í•œë‹¤.
+	// °èÀı°ú ±âº» ±â¿Â, ±âº» ½Àµµ¸¦ Á¤ÇÑ´Ù.
 	if(m_pDate->m_nMonth <= 2 || m_pDate->m_nMonth >= 11)
 	{
 		m_nSeason = WEATHER_WINTER;
@@ -413,7 +413,7 @@ void CWeather::ControlWeather()//
 	{
 		m_nWeatherCnt = 0;
 
-		// ì‹œê°„ì— ë”°ë¼ì„œ ê¸°ì˜¨ê³¼ ìŠµë„ë¥¼ ì¡°ì ˆí•œë‹¤.
+		// ½Ã°£¿¡ µû¶ó¼­ ±â¿Â°ú ½Àµµ¸¦ Á¶ÀıÇÑ´Ù.
 		if((m_pDate->m_nHour >= 19 && m_pDate->m_nHour <= 24) || m_pDate->m_nHour <= 6)
 		{
 			if(m_bFixTemperature == FALSE) m_nTemperature -= 10;
@@ -426,7 +426,7 @@ void CWeather::ControlWeather()//
 			if(m_bFixHumidity == FALSE) m_nHumidity += 5;
 		}
 		/*
-		// êµ¬ë¦„ì˜ ì¦ê°€/ê°ì†Œ, êµ¬ë¦„ì€ ë°”ëŒì´ ë¶ˆê³  ìŠµë„ê°€ ë†’ì•„ì•¼ ì¦ê°€í•œë‹¤.
+		// ±¸¸§ÀÇ Áõ°¡/°¨¼Ò, ±¸¸§Àº ¹Ù¶÷ÀÌ ºÒ°í ½Àµµ°¡ ³ô¾Æ¾ß Áõ°¡ÇÑ´Ù.
 		if(m_nWindSpeed && m_bFixWindSpeed == FALSE)
 		{
 			if(!(rand() % (101 - m_nWindSpeed)))
@@ -439,7 +439,7 @@ void CWeather::ControlWeather()//
 			}
 		}
 		*/
-		// ë°”ëŒì„ ë¶ˆê²Œ í•˜ê±°ë‚˜ ë©ˆì¶”ê²Œ í•˜ê±°ë‚˜ ë°”ëŒ ë°©í–¥ì„ ë°”ê¾¼ë‹¤. 
+		// ¹Ù¶÷À» ºÒ°Ô ÇÏ°Å³ª ¸ØÃß°Ô ÇÏ°Å³ª ¹Ù¶÷ ¹æÇâÀ» ¹Ù²Û´Ù. 
 		if(!(rand() % 300))// && m_nWindSpeed == 0)
 		{
 			if(m_bFixWindSpeed == FALSE)
@@ -467,18 +467,18 @@ void CWeather::ControlWeather()//
 		}
 		if(m_bFixCloud == FALSE)
 		{
-			// êµ¬ë¦„ì„ ë°œìƒì‹œí‚¨ë‹¤.
+			// ±¸¸§À» ¹ß»ı½ÃÅ²´Ù.
 			if(m_nCloud < 70 && !(rand() % 1000))
 				m_nCloud = 70 + rand() % 30;
 			else
 			if(m_nCloud > 70 && !(rand() % 300))
 				m_nCloud = rand() % 50;
 		}
-		// êµ¬ë¦„ì˜ ì–‘, ë¹„ë‚˜ ëˆˆì´ ì˜¤ëŠ”ì§€ ì—¬ë¶€ë¡œ ìŠµë„ì™€ ê¸°ì˜¨ì„ ì¡°ì ˆí•œë‹¤.
+		// ±¸¸§ÀÇ ¾ç, ºñ³ª ´«ÀÌ ¿À´ÂÁö ¿©ºÎ·Î ½Àµµ¿Í ±â¿ÂÀ» Á¶ÀıÇÑ´Ù.
 		if(m_nCloud > 70)
 		{
-			if(m_bFixTemperature == FALSE) m_nHumidity += m_nCloud - 70; // ìµœëŒ€ 30 ì •ë„ë¡œ ìŠµë„ë¥¼ ë†’ì¸ë‹¤.
-			if(m_bFixHumidity == FALSE) m_nTemperature -= (m_nCloud - 70) / 5; // ìµœëŒ€ 6 ì •ë„ ê¸°ì˜¨ì„ ë–¨ì–´ëœ¨ë¦°ë‹¤.
+			if(m_bFixTemperature == FALSE) m_nHumidity += m_nCloud - 70; // ÃÖ´ë 30 Á¤µµ·Î ½Àµµ¸¦ ³ôÀÎ´Ù.
+			if(m_bFixHumidity == FALSE) m_nTemperature -= (m_nCloud - 70) / 5; // ÃÖ´ë 6 Á¤µµ ±â¿ÂÀ» ¶³¾î¶ß¸°´Ù.
 		}
 	}
 

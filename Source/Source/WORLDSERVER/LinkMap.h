@@ -1,4 +1,4 @@
-﻿#ifndef __LINKMAP_H__20041210
+#ifndef __LINKMAP_H__20041210
 #define __LINKMAP_H__20041210
 
 class CObj;

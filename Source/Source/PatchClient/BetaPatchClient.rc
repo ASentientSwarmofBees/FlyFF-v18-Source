@@ -1,4 +1,4 @@
-ï»¿//Microsoft Developer Studio generated resource script.
+//Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
 
@@ -32,12 +32,12 @@ LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STR_FRA_SEARCHLIST  "Recherche de mises ?jour"
-    IDS_STR_FRA_PATCHCOMP   "Mise ?jour termin?"
-    IDS_STR_FRA_RUN         "Mise ?jour en cours..."
-    IDS_STR_FRA_PATCHPROCESS "Mise ?jour"
-    IDS_STR_FRA_DOWNLOADING "T??hargement..."
-    IDS_STR_FRA_DECOMPRESS  "D?ompression"
+    IDS_STR_FRA_SEARCHLIST  "Recherche de mises à jour"
+    IDS_STR_FRA_PATCHCOMP   "Mise à jour terminée"
+    IDS_STR_FRA_RUN         "Mise à jour en cours..."
+    IDS_STR_FRA_PATCHPROCESS "Mise à jour"
+    IDS_STR_FRA_DOWNLOADING "Téléchargement..."
+    IDS_STR_FRA_DECOMPRESS  "Décompression"
 END
 #endif    // French (France) resources
 
@@ -52,7 +52,7 @@ LANGUAGE LANG_PORTUGUESE, SUBLANG_PORTUGUESE_BRAZILIAN
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STR_POR_PATCHCOMP   "Patch Conclu?o"
+    IDS_STR_POR_PATCHCOMP   "Patch Concluído"
 END
 #endif
 /////////////////////////////////////////////////////////////////////////////

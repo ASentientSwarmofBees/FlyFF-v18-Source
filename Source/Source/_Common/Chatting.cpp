@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "Chatting.h"
 
 #ifndef __VM_0820

@@ -1,4 +1,4 @@
-﻿#ifndef __SERVERSOCKE_H__
+#ifndef __SERVERSOCKE_H__
 #define __SERVERSOCKE_H__
 
 #pragma once

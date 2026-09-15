@@ -1,4 +1,4 @@
-ï»¿#ifndef __DPCORESRVR_H__
+#ifndef __DPCORESRVR_H__
 #define __DPCORESRVR_H__
 
 #include "DPMng.h"
@@ -48,11 +48,11 @@ public:
 	void	SendPlayMusic( u_long idmusic, DWORD dwWorldID, DPID dpid );
 	void	SendPlaySound( u_long idsound, DWORD dwWorldID, DPID dpid );
 	
-#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 	void	SendSetPartyMode( u_long idParty, int nMode, BOOL bOnOff, LONG nPoint = 0 , DWORD dwSkillTime = 0 );
-#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 	void	SendSetPartyMode( u_long idParty, int nMode, BOOL bOnOff, LONG nPoint = 0 );
-#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 	void	SendRemoveParty( u_long idParty, u_long idLeader, u_long idMember );
 	void	SendPartyChangeTroup( u_long idParty, const char * szPartyName );
 	void	SendPartyChangeName( u_long idParty, const char * szPartyName );

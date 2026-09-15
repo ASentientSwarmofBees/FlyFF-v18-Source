@@ -1,7 +1,7 @@
-ï»¿#ifndef __ERRORCODE_H__
+#ifndef __ERRORCODE_H__
 #define __ERRORCODE_H__
 
-#define FE_GENERAL			0		// ë‹¤ìš©ë„.
-#define FE_INVALIDATTACKER	1		// ê³µê²©ìê°€ ìœ íš¨í•˜ì§€ ì•Šë‹¤.
+#define FE_GENERAL			0		// ´Ù¿ëµµ.
+#define FE_INVALIDATTACKER	1		// °ø°İÀÚ°¡ À¯È¿ÇÏÁö ¾Ê´Ù.
 
 #endif // ERRORCODE_H 

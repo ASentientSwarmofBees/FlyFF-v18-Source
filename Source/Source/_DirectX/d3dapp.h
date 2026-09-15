@@ -1,4 +1,4 @@
-ï»¿//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // File: D3DApp.h
 //
 // Desc: Application class for the Direct3D samples framework library.
@@ -52,7 +52,7 @@ class CD3DApplication
 {
 public:
     CD3DSettings      m_d3dSettings;
-	bool              m_bFakeFullMode;	// ê°€ìƒ í’€í™”ë©´ - ì‹ ìš©ì¹´ë“œ ê²°ì¬ì‹œ í•„ìš”, íŒ¨ì¹˜í´ë¼ì´ì–¸íŠ¸ë„ íŒ¨ì¹˜í•´ì•¼í•¨
+	bool              m_bFakeFullMode;	// °¡»ó Ç®È­¸é - ½Å¿ëÄ«µå °áÀç½Ã ÇÊ¿ä, ÆĞÄ¡Å¬¶óÀÌ¾ğÆ®µµ ÆĞÄ¡ÇØ¾ßÇÔ
 
 protected:
 	DEVMODE			  m_PrevDevMode;

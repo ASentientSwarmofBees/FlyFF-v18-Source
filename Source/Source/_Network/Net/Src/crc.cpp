@@ -1,4 +1,4 @@
-ï»¿// crc.cpp - written and placed in the public domain by Wei Dai
+// crc.cpp - written and placed in the public domain by Wei Dai
 
 #include "stdafx.h"
 #include "crc.h"
@@ -157,8 +157,8 @@ CRC32::CRC32()
 	Reset();
 }
 
-#define ELF_KEY   0x15779231		//hier ?dern z.B 0xD65F45B7	WICHTIG: 0x muss vorn so bleiben
-#define CRC32_KEY 0x13393917		//hier ?dern z.B. 0x38472934	WICHTIG: 0x muss vorn so bleiben
+#define ELF_KEY   0x15779231		//hier ändern z.B 0xD65F45B7	WICHTIG: 0x muss vorn so bleiben
+#define CRC32_KEY 0x13393917		//hier ändern z.B. 0x38472934	WICHTIG: 0x muss vorn so bleiben
 
 void CRC32::Update(const byte *s, unsigned int n)
 {

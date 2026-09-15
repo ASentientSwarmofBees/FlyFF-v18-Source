@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "model.h" 
 #include "sfxbase.h"
 #include "..\_Common\ParticleMng.h"
@@ -11,13 +11,13 @@ CSfxMng g_SfxMng;
 CSfxObjMng g_SfxObjMng;
 CSfxMeshMng g_SfxMeshMng;
 
-#define RANDF ((rand()%50000)/50000.0f) // 0.0~1.0 ì‚¬ì´ì˜ ì‹¤ìˆ˜ ëœë¤ê°’ ìƒì„±ìš©
+#define RANDF ((rand()%50000)/50000.0f) // 0.0~1.0 »çÀÌÀÇ ½Ç¼ö ·£´ı°ª »ı¼º¿ë
 
-// í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ìš© íŒŒì¼ëª… ì¶”ì¶œ
-// strTex : ê¸°ë³¸ í…ìŠ¤ì³ íŒŒì¼ëª…
-// nIndex : ê¸°ë³¸ í…ìŠ¤ì³ íŒŒì¼ëª…ì—ì„œ ëª‡ë²ˆì§¸ ë’¤ì˜ íŒŒì¼ëª…ì¸ê°€
-// ex) GetTextureName("babo03.jpg",5) í•˜ë©´ ë¦¬í„´ê°’ "babo08.jpg"
-// ì£¼ì˜ : í™•ì¥ìëŠ” ë¬´ì¡°ê±´ 3ìë¦¬
+// ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼Ç¿ë ÆÄÀÏ¸í ÃßÃâ
+// strTex : ±âº» ÅØ½ºÃÄ ÆÄÀÏ¸í
+// nIndex : ±âº» ÅØ½ºÃÄ ÆÄÀÏ¸í¿¡¼­ ¸î¹øÂ° µÚÀÇ ÆÄÀÏ¸íÀÎ°¡
+// ex) GetTextureName("babo03.jpg",5) ÇÏ¸é ¸®ÅÏ°ª "babo08.jpg"
+// ÁÖÀÇ : È®ÀåÀÚ´Â ¹«Á¶°Ç 3ÀÚ¸®
 CString GetTextureName(CString strTex,int nIndex)
 {
 	CString strRet;
@@ -197,10 +197,10 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 {
 #ifdef __CLIENT	
 	if( m_nTexFrame > 1 ) 
-	{ // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
+	{ // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
 		SfxKeyFrame* pFirstKey=GetNextKey(0);
 		if(nFrame<pFirstKey->nFrame) return;
-		int nTexFrame= (m_nTexFrame*(nFrame-pFirstKey->nFrame)/m_nTexLoop)%m_nTexFrame; // ì´ í”„ë ˆì„ì—ì„œ ì¶œë ¥í•  í…ìŠ¤ì³ ë²ˆí˜¸
+		int nTexFrame= (m_nTexFrame*(nFrame-pFirstKey->nFrame)/m_nTexLoop)%m_nTexFrame; // ÀÌ ÇÁ·¹ÀÓ¿¡¼­ Ãâ·ÂÇÒ ÅØ½ºÃÄ ¹øÈ£
 		CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(GetTextureName(m_strTex,nTexFrame)));
 	}
 	else 
@@ -211,7 +211,7 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 	SfxKeyFrame Key;
 	int dFrame = pNextKey->nFrame-pPrevKey->nFrame;
 	Key = *(pPrevKey);
-	// ì•ë’¤ keyframeì„ ìƒ‰ì¶œí•˜ì—¬ í˜„ì¬ í‚¤ê°’ì„ ì‚°ì¶œí•´ ë‚¸ë‹¤.
+	// ¾ÕµÚ keyframeÀ» »öÃâÇÏ¿© ÇöÀç Å°°ªÀ» »êÃâÇØ ³½´Ù.
 	if( dFrame != 0 ) 
 	{
 		Key.vPos		+= (pNextKey->vPos - pPrevKey->vPos) * (FLOAT)( (nFrame - pPrevKey->nFrame) ) / (FLOAT)( dFrame );
@@ -228,11 +228,11 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 	vScaleTemp.x *= Key.vScale.x;
 	vScaleTemp.y *= Key.vScale.y;
 	vScaleTemp.z *= Key.vScale.z;
-	// í…ìŠ¤ì³ íƒ€ì…ì— ë”°ë¼ world ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ì„¤ì •í•œë‹¤
+	// ÅØ½ºÃÄ Å¸ÀÔ¿¡ µû¶ó world ¸ÅÆ®¸¯½º¸¦ ¼³Á¤ÇÑ´Ù
 	switch(m_nBillType) 
 	{
-	case SFXPARTBILLTYPE_BILL: // ë¹Œë³´ë“œì´ë©´
-		{ // ë¬´ì¡°ê±´ í™”ë©´ì„ ì •ë©´ìœ¼ë¡œ ë°”ë¼ë³´ê²Œ í•œë‹¤.
+	case SFXPARTBILLTYPE_BILL: // ºôº¸µåÀÌ¸é
+		{ // ¹«Á¶°Ç È­¸éÀ» Á¤¸éÀ¸·Î ¹Ù¶óº¸°Ô ÇÑ´Ù.
 			D3DXMatrixRotationZ( &matAngle, DEGREETORADIAN( Key.vRotate.z ) );
 			D3DXMatrixScaling( &matScale, vScaleTemp.x, vScaleTemp.y, vScaleTemp.z );
 			matTemp2=g_matView;	matTemp2._41=matTemp2._42=matTemp2._43=.0f;
@@ -240,8 +240,8 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 			matTemp=matScale*matAngle*g_matInvView;
 			break;
 		}
-	case SFXPARTBILLTYPE_BOTTOM: // ë°”ë‹¥ì— ê¹”ë¦¬ëŠ” ë†ˆì´ë©´
-		{ // xì¶•ìœ¼ë¡œ 90ë„ ëŒë¦°ë‹¤.
+	case SFXPARTBILLTYPE_BOTTOM: // ¹Ù´Ú¿¡ ±ò¸®´Â ³ğÀÌ¸é
+		{ // xÃàÀ¸·Î 90µµ µ¹¸°´Ù.
 			D3DXMatrixRotationZ( &matAngle, DEGREETORADIAN( Key.vRotate.z - fAngle.z ) );
 			D3DXMatrixScaling( &matScale, vScaleTemp.x, vScaleTemp.y, vScaleTemp.z );
 			D3DXMatrixRotationX( &matTemp2,DEGREETORADIAN( 90 ) );
@@ -249,7 +249,7 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 			break;
 		}
 	case SFXPARTBILLTYPE_POLE:
-		{ // ì´ê±´ ê¸°ë‘¥ì¸ë° ì•„ì§ ì•ˆí–ˆë‹¤.
+		{ // ÀÌ°Ç ±âµÕÀÎµ¥ ¾ÆÁ÷ ¾ÈÇß´Ù.
 			D3DXMatrixRotationZ( &matAngle, DEGREETORADIAN( Key.vRotate.z ) );
 			D3DXMatrixScaling( &matScale, vScaleTemp.x, vScaleTemp.y, vScaleTemp.z );
 			matTemp2 = g_matView; matTemp2._41 = matTemp2._42 = matTemp2._43 = .0f;
@@ -257,8 +257,8 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 			matTemp = matScale * matAngle * g_matInvView;
 			break;
 		}
-	case SFXPARTBILLTYPE_NORMAL: // ë³´í†µì´ë©´.
-		{ // ê·¸ëƒ¥ ë³´í†µ ì˜¤ë¸Œì íŠ¸ì²˜ëŸ¼...
+	case SFXPARTBILLTYPE_NORMAL: // º¸ÅëÀÌ¸é.
+		{ // ±×³É º¸Åë ¿ÀºêÁ§Æ®Ã³·³...
 			D3DXMATRIX mRot;
 			D3DXVECTOR3 vRot  = DEGREETORADIAN(fAngle);
 			D3DXVECTOR3 vTemp2=DEGREETORADIAN( Key.vRotate );
@@ -271,7 +271,7 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 	}
 	D3DXMATRIX mRot;
 	D3DXVECTOR3 vRot  = DEGREETORADIAN(fAngle);
-	D3DXVECTOR3 vTemp2=DEGREETORADIAN(Key.vPosRotate); // ìœ„ì¹˜íšŒì „ê°’ì— ì˜í•œ ìƒˆë¡œìš´ ìœ„ì¹˜ë„ ê³„ì‚°í•˜ê³ 
+	D3DXVECTOR3 vTemp2=DEGREETORADIAN(Key.vPosRotate); // À§Ä¡È¸Àü°ª¿¡ ÀÇÇÑ »õ·Î¿î À§Ä¡µµ °è»êÇÏ°í
 	D3DXMatrixRotationYawPitchRoll(&matTemp2,vTemp2.y,vTemp2.x,vTemp2.z);
 	D3DXMatrixRotationYawPitchRoll(&mRot,vRot.y,vRot.x,vRot.z);
 
@@ -285,27 +285,27 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 		);
 	matTemp1=matTemp*matTrans;
 
-	switch(m_nAlphaType) { // ì•ŒíŒŒì˜ ìš©ë„ì— ë”°ë¼ ë Œë” ìŠ¤í…Œì´íŠ¸ë¥¼ ë°”ê¿”ì¤€ë‹¤
-	case SFXPARTALPHATYPE_BLEND: // ë¸”ë Œë“œì´ë©´
-		{ // ë°˜íˆ¬ëª… ì„¤ì •ìœ¼ë¡œ...
+	switch(m_nAlphaType) { // ¾ËÆÄÀÇ ¿ëµµ¿¡ µû¶ó ·»´õ ½ºÅ×ÀÌÆ®¸¦ ¹Ù²ãÁØ´Ù
+	case SFXPARTALPHATYPE_BLEND: // ºí·»µåÀÌ¸é
+		{ // ¹İÅõ¸í ¼³Á¤À¸·Î...
 			CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
 			break;
 		}
-	case SFXPARTALPHATYPE_GLOW: // ê¸€ë¡œìš°ë©´
-		{ // ë¬´ì¡°ê±´ ë”í•˜ëŠ”ê±¸ë¡œ...
+	case SFXPARTALPHATYPE_GLOW: // ±Û·Î¿ì¸é
+		{ // ¹«Á¶°Ç ´õÇÏ´Â°É·Î...
 			CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_ONE );
 			break;
 		}
 	}
 
-	// ë‹¤ë¥¸ partë“¤ë„ ê¸°ë³¸ì ìœ¼ë¡œ ì´ì™€ ë¹„ìŠ·í•˜ê²Œ ì²˜ë¦¬í•œë‹¤.
+	// ´Ù¸¥ partµéµµ ±âº»ÀûÀ¸·Î ÀÌ¿Í ºñ½ÁÇÏ°Ô Ã³¸®ÇÑ´Ù.
 
 //	D3DXMATRIX matWorld;
 //	CSfxMng::m_pd3dDevice->GetTransform(D3DTS_WORLD,&matWorld);
 	CSfxMng::m_pd3dDevice->SetTransform(D3DTS_WORLD,&matTemp1);
 	CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, Key.nAlpha<<24 | 0x404040 );
 
-	CSfxMng::m_pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 0, 2); // ì´ì œ ì„¤ì • ë‹¤í–ˆìœ¼ë‹ˆ ê·¸ë ¤ì•¼ì§€
+	CSfxMng::m_pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 0, 2); // ÀÌÁ¦ ¼³Á¤ ´ÙÇßÀ¸´Ï ±×·Á¾ßÁö
 //	CSfxMng::m_pd3dDevice->SetTransform(D3DTS_WORLD,&matWorld);
 #endif //__CLIENT
 }
@@ -314,10 +314,10 @@ void CSfxPartBill::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D
 void CSfxPartBill::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECTOR3 vScale )
 {
 	if( m_nTexFrame > 1 ) 
-	{ // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
+	{ // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
 		SfxKeyFrame* pFirstKey=GetNextKey(0);
 		if(nFrame<pFirstKey->nFrame) return;
-		int nTexFrame= (m_nTexFrame*(nFrame-pFirstKey->nFrame)/m_nTexLoop)%m_nTexFrame; // ì´ í”„ë ˆì„ì—ì„œ ì¶œë ¥í•  í…ìŠ¤ì³ ë²ˆí˜¸
+		int nTexFrame= (m_nTexFrame*(nFrame-pFirstKey->nFrame)/m_nTexLoop)%m_nTexFrame; // ÀÌ ÇÁ·¹ÀÓ¿¡¼­ Ãâ·ÂÇÒ ÅØ½ºÃÄ ¹øÈ£
 		CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(GetTextureName(m_strTex,nTexFrame)));
 	}
 	else 
@@ -328,7 +328,7 @@ void CSfxPartBill::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECT
 	SfxKeyFrame Key;
 	int dFrame = pNextKey->nFrame-pPrevKey->nFrame;
 	Key = *(pPrevKey);
-	// ì•ë’¤ keyframeì„ ìƒ‰ì¶œí•˜ì—¬ í˜„ì¬ í‚¤ê°’ì„ ì‚°ì¶œí•´ ë‚¸ë‹¤.
+	// ¾ÕµÚ keyframeÀ» »öÃâÇÏ¿© ÇöÀç Å°°ªÀ» »êÃâÇØ ³½´Ù.
 	if( dFrame != 0 ) 
 	{
 		Key.vPos		+= (pNextKey->vPos - pPrevKey->vPos) * (FLOAT)( (nFrame-pPrevKey->nFrame) ) / (FLOAT)( dFrame );
@@ -345,11 +345,11 @@ void CSfxPartBill::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECT
 	vScaleTemp.x *= Key.vScale.x;
 	vScaleTemp.y *= Key.vScale.y;
 	vScaleTemp.z *= Key.vScale.z;
-	// í…ìŠ¤ì³ íƒ€ì…ì— ë”°ë¼ world ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ì„¤ì •í•œë‹¤
+	// ÅØ½ºÃÄ Å¸ÀÔ¿¡ µû¶ó world ¸ÅÆ®¸¯½º¸¦ ¼³Á¤ÇÑ´Ù
 	switch(m_nBillType) 
 	{
-	case SFXPARTBILLTYPE_BILL: // ë¹Œë³´ë“œì´ë©´
-		{ // ë¬´ì¡°ê±´ í™”ë©´ì„ ì •ë©´ìœ¼ë¡œ ë°”ë¼ë³´ê²Œ í•œë‹¤.
+	case SFXPARTBILLTYPE_BILL: // ºôº¸µåÀÌ¸é
+		{ // ¹«Á¶°Ç È­¸éÀ» Á¤¸éÀ¸·Î ¹Ù¶óº¸°Ô ÇÑ´Ù.
 			D3DXMatrixRotationZ( &matAngle, DEGREETORADIAN( Key.vRotate.z ) );
 			D3DXMatrixScaling( &matScale, vScaleTemp.x, vScaleTemp.y, vScaleTemp.z );
 			matTemp2=g_matView;	matTemp2._41=matTemp2._42=matTemp2._43=.0f;
@@ -357,8 +357,8 @@ void CSfxPartBill::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECT
 			matTemp=matScale*matAngle*g_matInvView;
 			break;
 		}
-	case SFXPARTBILLTYPE_BOTTOM: // ë°”ë‹¥ì— ê¹”ë¦¬ëŠ” ë†ˆì´ë©´
-		{ // xì¶•ìœ¼ë¡œ 90ë„ ëŒë¦°ë‹¤.
+	case SFXPARTBILLTYPE_BOTTOM: // ¹Ù´Ú¿¡ ±ò¸®´Â ³ğÀÌ¸é
+		{ // xÃàÀ¸·Î 90µµ µ¹¸°´Ù.
 			D3DXMatrixRotationZ( &matAngle, DEGREETORADIAN( Key.vRotate.z - fAngle ) );
 			D3DXMatrixScaling( &matScale, vScaleTemp.x, vScaleTemp.y, vScaleTemp.z );
 			D3DXMatrixRotationX( &matTemp2,DEGREETORADIAN( 90 ) );
@@ -366,7 +366,7 @@ void CSfxPartBill::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECT
 			break;
 		}
 	case SFXPARTBILLTYPE_POLE:
-		{ // ì´ê±´ ê¸°ë‘¥ì¸ë° ì•„ì§ ì•ˆí–ˆë‹¤.
+		{ // ÀÌ°Ç ±âµÕÀÎµ¥ ¾ÆÁ÷ ¾ÈÇß´Ù.
 			D3DXMatrixRotationZ( &matAngle, DEGREETORADIAN( Key.vRotate.z ) );
 			D3DXMatrixScaling( &matScale, vScaleTemp.x, vScaleTemp.y, vScaleTemp.z );
 			matTemp2 = g_matView; matTemp2._41 = matTemp2._42 = matTemp2._43 = .0f;
@@ -374,8 +374,8 @@ void CSfxPartBill::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECT
 			matTemp = matScale * matAngle * g_matInvView;
 			break;
 		}
-	case SFXPARTBILLTYPE_NORMAL: // ë³´í†µì´ë©´.
-		{ // ê·¸ëƒ¥ ë³´í†µ ì˜¤ë¸Œì íŠ¸ì²˜ëŸ¼...
+	case SFXPARTBILLTYPE_NORMAL: // º¸ÅëÀÌ¸é.
+		{ // ±×³É º¸Åë ¿ÀºêÁ§Æ®Ã³·³...
 			D3DXVECTOR3 vTemp2=DEGREETORADIAN( Key.vRotate + D3DXVECTOR3( .0f, fAngle, .0f ) );
 			D3DXMatrixRotationYawPitchRoll( &matAngle, vTemp2.y, vTemp2.x, vTemp2.z );
 			D3DXMatrixScaling( &matScale, vScaleTemp.x, vScaleTemp.y, vScaleTemp.z );
@@ -383,7 +383,7 @@ void CSfxPartBill::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECT
 			break;
 		}
 	}
-	D3DXVECTOR3 vTemp2=DEGREETORADIAN(Key.vPosRotate+D3DXVECTOR3(.0f,fAngle,.0f)); // ìœ„ì¹˜íšŒì „ê°’ì— ì˜í•œ ìƒˆë¡œìš´ ìœ„ì¹˜ë„ ê³„ì‚°í•˜ê³ 
+	D3DXVECTOR3 vTemp2=DEGREETORADIAN(Key.vPosRotate+D3DXVECTOR3(.0f,fAngle,.0f)); // À§Ä¡È¸Àü°ª¿¡ ÀÇÇÑ »õ·Î¿î À§Ä¡µµ °è»êÇÏ°í
 	D3DXMatrixRotationYawPitchRoll(&matTemp2,vTemp2.y,vTemp2.x,vTemp2.z);
 	D3DXVec3TransformCoord(&vTemp,&Key.vPos,&matTemp2);
 	D3DXMatrixTranslation( &matTrans, 
@@ -393,27 +393,27 @@ void CSfxPartBill::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECT
 		);
 	matTemp1=matTemp*matTrans;
 
-	switch(m_nAlphaType) { // ì•ŒíŒŒì˜ ìš©ë„ì— ë”°ë¼ ë Œë” ìŠ¤í…Œì´íŠ¸ë¥¼ ë°”ê¿”ì¤€ë‹¤
-	case SFXPARTALPHATYPE_BLEND: // ë¸”ë Œë“œì´ë©´
-		{ // ë°˜íˆ¬ëª… ì„¤ì •ìœ¼ë¡œ...
+	switch(m_nAlphaType) { // ¾ËÆÄÀÇ ¿ëµµ¿¡ µû¶ó ·»´õ ½ºÅ×ÀÌÆ®¸¦ ¹Ù²ãÁØ´Ù
+	case SFXPARTALPHATYPE_BLEND: // ºí·»µåÀÌ¸é
+		{ // ¹İÅõ¸í ¼³Á¤À¸·Î...
 			CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
 			break;
 		}
-	case SFXPARTALPHATYPE_GLOW: // ê¸€ë¡œìš°ë©´
-		{ // ë¬´ì¡°ê±´ ë”í•˜ëŠ”ê±¸ë¡œ...
+	case SFXPARTALPHATYPE_GLOW: // ±Û·Î¿ì¸é
+		{ // ¹«Á¶°Ç ´õÇÏ´Â°É·Î...
 			CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_ONE );
 			break;
 		}
 	}
 
-	// ë‹¤ë¥¸ partë“¤ë„ ê¸°ë³¸ì ìœ¼ë¡œ ì´ì™€ ë¹„ìŠ·í•˜ê²Œ ì²˜ë¦¬í•œë‹¤.
+	// ´Ù¸¥ partµéµµ ±âº»ÀûÀ¸·Î ÀÌ¿Í ºñ½ÁÇÏ°Ô Ã³¸®ÇÑ´Ù.
 
 //	D3DXMATRIX matWorld;
 //	CSfxMng::m_pd3dDevice->GetTransform(D3DTS_WORLD,&matWorld);
 	CSfxMng::m_pd3dDevice->SetTransform(D3DTS_WORLD,&matTemp1);
 	CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, Key.nAlpha<<24 | 0x404040 );
 
-	CSfxMng::m_pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 0, 2); // ì´ì œ ì„¤ì • ë‹¤í–ˆìœ¼ë‹ˆ ê·¸ë ¤ì•¼ì§€
+	CSfxMng::m_pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 0, 2); // ÀÌÁ¦ ¼³Á¤ ´ÙÇßÀ¸´Ï ±×·Á¾ßÁö
 //	CSfxMng::m_pd3dDevice->SetTransform(D3DTS_WORLD,&matWorld);
 }
 #endif
@@ -430,8 +430,8 @@ void CSfxPartBill::Load(CResFile &file)
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	m_bUseing = TRUE;
 	
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -470,8 +470,8 @@ void CSfxPartBill::Load2(CResFile &file)
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	file.Read(&m_bUseing,sizeof(BOOL));
 	
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -678,8 +678,8 @@ void CSfxPartParticle::Load(CResFile &file)
 	file.Read(&m_nTexFrame,sizeof(WORD));
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	m_bUseing = TRUE;
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -752,8 +752,8 @@ void CSfxPartParticle::Load2(CResFile &file)
 	file.Read(&m_nTexFrame,sizeof(WORD));
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	file.Read(&m_bUseing,sizeof(BOOL));
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -826,8 +826,8 @@ void CSfxPartParticle::Load3(CResFile &file)
 	file.Read(&m_nTexFrame,sizeof(WORD));
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	file.Read(&m_bUseing,sizeof(BOOL));
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -971,9 +971,9 @@ void CSfxPartMesh::Load(CResFile &file)
 	file.Read(&m_nTexFrame,sizeof(WORD));
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	m_bUseing = TRUE;
-/* ë©”ì‰¬ëŠ” ì´ëŸ°ê±° ì—†ë‹¤!
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+/* ¸Ş½¬´Â ÀÌ·±°Å ¾ø´Ù!
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -1011,9 +1011,9 @@ void CSfxPartMesh::Load2(CResFile &file)
 	file.Read(&m_nTexFrame,sizeof(WORD));
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	file.Read(&m_bUseing,sizeof(BOOL));
-/* ë©”ì‰¬ëŠ” ì´ëŸ°ê±° ì—†ë‹¤!
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+/* ¸Ş½¬´Â ÀÌ·±°Å ¾ø´Ù!
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -1201,8 +1201,8 @@ void CSfxPartCustomMesh::Load(CResFile &file)
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	m_bUseing = TRUE;
 
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -1241,8 +1241,8 @@ void CSfxPartCustomMesh::Load2(CResFile &file)
 	file.Read(&m_nTexFrame,sizeof(WORD));
 	file.Read(&m_nTexLoop,sizeof(WORD));
 	file.Read(&m_bUseing,sizeof(BOOL));
-	if(m_nTexFrame>1) { // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-		for(i=0;i<m_nTexFrame;i++) { // ì „ë¶€ ë¡œë”©
+	if(m_nTexFrame>1) { // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+		for(i=0;i<m_nTexFrame;i++) { // ÀüºÎ ·Îµù
 			g_SfxTex.Tex(GetTextureName(strTemp,i));
 		}
 	}
@@ -1303,10 +1303,10 @@ void CSfxPartCustomMesh::OldLoad(CResFile &file)
 void CSfxPartCustomMesh::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECTOR3 vScale )
 {
 	if(m_nTexFrame>1) 
-	{ // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
+	{ // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
 		SfxKeyFrame* pFirstKey=GetNextKey(0);
 		if(nFrame<pFirstKey->nFrame) return;
-		int nTexFrame= (m_nTexFrame*(nFrame-pFirstKey->nFrame)/m_nTexLoop)%m_nTexFrame; // ì´ í”„ë ˆì„ì—ì„œ ì¶œë ¥í•  í…ìŠ¤ì³ ë²ˆí˜¸
+		int nTexFrame= (m_nTexFrame*(nFrame-pFirstKey->nFrame)/m_nTexLoop)%m_nTexFrame; // ÀÌ ÇÁ·¹ÀÓ¿¡¼­ Ãâ·ÂÇÒ ÅØ½ºÃÄ ¹øÈ£
 		CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(GetTextureName(m_strTex,nTexFrame)));
 	}
 	else CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(m_strTex));
@@ -1397,8 +1397,8 @@ void CSfxPartCustomMesh::Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3
 			break;
 		}
 	}
-	// íŒŒë¼ë¯¸í„°ì— ë”°ë¼ì„œ ë²„í…ìŠ¤ ë²„í¼ë¥¼ ìƒì„±í•œë‹¤.
-	// ì»¤ìŠ¤í…€ ë©”ì‰¬ì—ì„œì˜ vScaleì˜ ìš©ë„ëŠ” ë‹¤ë¥¸ partì™€ ë‹¤ë¥´ë‹¤. vScale.x: ìœ—ìª½ ì›ì˜ ë°˜ê²½ vScale.y: ì›í†µì˜ ë†’ì´ vScale.z: ì•„ë˜ìª½ ì›ì˜ ë°˜ê²½
+	// ÆÄ¶ó¹ÌÅÍ¿¡ µû¶ó¼­ ¹öÅØ½º ¹öÆÛ¸¦ »ı¼ºÇÑ´Ù.
+	// Ä¿½ºÅÒ ¸Ş½¬¿¡¼­ÀÇ vScaleÀÇ ¿ëµµ´Â ´Ù¸¥ part¿Í ´Ù¸£´Ù. vScale.x: À­ÂÊ ¿øÀÇ ¹İ°æ vScale.y: ¿øÅëÀÇ ³ôÀÌ vScale.z: ¾Æ·¡ÂÊ ¿øÀÇ ¹İ°æ
 	D3DSFXVERTEX *pVertices=new D3DSFXVERTEX[((m_nPoints*2)+1)*2];
 	for(int i=0;i<(m_nPoints*2)+1;i++) 
 	{
@@ -1446,10 +1446,10 @@ void CSfxPartCustomMesh::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAn
 {
 #ifdef __CLIENT
 	if(m_nTexFrame>1) 
-	{ // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
+	{ // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
 		SfxKeyFrame* pFirstKey=GetNextKey(0);
 		if(nFrame<pFirstKey->nFrame) return;
-		int nTexFrame= (m_nTexFrame*(nFrame-pFirstKey->nFrame)/m_nTexLoop)%m_nTexFrame; // ì´ í”„ë ˆì„ì—ì„œ ì¶œë ¥í•  í…ìŠ¤ì³ ë²ˆí˜¸
+		int nTexFrame= (m_nTexFrame*(nFrame-pFirstKey->nFrame)/m_nTexLoop)%m_nTexFrame; // ÀÌ ÇÁ·¹ÀÓ¿¡¼­ Ãâ·ÂÇÒ ÅØ½ºÃÄ ¹øÈ£
 		CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(GetTextureName(m_strTex,nTexFrame)));
 	}
 	else CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(m_strTex));
@@ -1534,8 +1534,8 @@ void CSfxPartCustomMesh::Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAn
 			break;
 		}
 	}
-	// íŒŒë¼ë¯¸í„°ì— ë”°ë¼ì„œ ë²„í…ìŠ¤ ë²„í¼ë¥¼ ìƒì„±í•œë‹¤.
-	// ì»¤ìŠ¤í…€ ë©”ì‰¬ì—ì„œì˜ vScaleì˜ ìš©ë„ëŠ” ë‹¤ë¥¸ partì™€ ë‹¤ë¥´ë‹¤. vScale.x: ìœ—ìª½ ì›ì˜ ë°˜ê²½ vScale.y: ì›í†µì˜ ë†’ì´ vScale.z: ì•„ë˜ìª½ ì›ì˜ ë°˜ê²½
+	// ÆÄ¶ó¹ÌÅÍ¿¡ µû¶ó¼­ ¹öÅØ½º ¹öÆÛ¸¦ »ı¼ºÇÑ´Ù.
+	// Ä¿½ºÅÒ ¸Ş½¬¿¡¼­ÀÇ vScaleÀÇ ¿ëµµ´Â ´Ù¸¥ part¿Í ´Ù¸£´Ù. vScale.x: À­ÂÊ ¿øÀÇ ¹İ°æ vScale.y: ¿øÅëÀÇ ³ôÀÌ vScale.z: ¾Æ·¡ÂÊ ¿øÀÇ ¹İ°æ
 	D3DSFXVERTEX *pVertices=new D3DSFXVERTEX[((m_nPoints*2)+1)*2];
 	for(int i=0;i<(m_nPoints*2)+1;i++) 
 	{
@@ -1649,7 +1649,7 @@ BOOL CSfxBase::LoadMerge()
 		file.Read(strTemp,8);
 		strTemp[8]=0;
 		CString strTemp2(strTemp);
-		if(strTemp2.Left(6)=="SFX0.1") { // ë²„ì ¼ì²´í¬. í˜„ì¬ëŠ” êµ¬ë²„ì ¼ì¸ì§€ ì‹ ë²„ì ¼ì¸ì§€ë§Œ ì²´í¬í•´ì„œ ë²„ì ¼ì— ë§ê²Œ ë¡œë”©.
+		if(strTemp2.Left(6)=="SFX0.1") { // ¹öÁ¯Ã¼Å©. ÇöÀç´Â ±¸¹öÁ¯ÀÎÁö ½Å¹öÁ¯ÀÎÁö¸¸ Ã¼Å©ÇØ¼­ ¹öÁ¯¿¡ ¸Â°Ô ·Îµù.
 			int nPart;
 			file.Read(&nPart,sizeof(int));
 			for(i=0;i<nPart;i++) 
@@ -1662,8 +1662,8 @@ BOOL CSfxBase::LoadMerge()
 			}
 		}
 		else 
-			if(strTemp2.Left(6)=="SFX0.2") { // ë²„ì ¼ì²´í¬. í˜„ì¬ëŠ” êµ¬ë²„ì ¼ì¸ì§€ ì‹ ë²„ì ¼ì¸ì§€ë§Œ ì²´í¬í•´ì„œ ë²„ì ¼ì— ë§ê²Œ ë¡œë”©.
-				// ì‹ ë²„ì ¼. í˜„ì¬ SFX0.2
+			if(strTemp2.Left(6)=="SFX0.2") { // ¹öÁ¯Ã¼Å©. ÇöÀç´Â ±¸¹öÁ¯ÀÎÁö ½Å¹öÁ¯ÀÎÁö¸¸ Ã¼Å©ÇØ¼­ ¹öÁ¯¿¡ ¸Â°Ô ·Îµù.
+				// ½Å¹öÁ¯. ÇöÀç SFX0.2
 				int nPart;
 				file.Read(&nPart,sizeof(int));
 				for(i=0;i<nPart;i++) 
@@ -1676,8 +1676,8 @@ BOOL CSfxBase::LoadMerge()
 				}
 			}
 			else
-			if(strTemp2.Left(6)=="SFX0.3") { // ë²„ì ¼ì²´í¬. í˜„ì¬ëŠ” êµ¬ë²„ì ¼ì¸ì§€ ì‹ ë²„ì ¼ì¸ì§€ë§Œ ì²´í¬í•´ì„œ ë²„ì ¼ì— ë§ê²Œ ë¡œë”©.
-				// ì‹ ë²„ì ¼. í˜„ì¬ SFX0.3
+			if(strTemp2.Left(6)=="SFX0.3") { // ¹öÁ¯Ã¼Å©. ÇöÀç´Â ±¸¹öÁ¯ÀÎÁö ½Å¹öÁ¯ÀÎÁö¸¸ Ã¼Å©ÇØ¼­ ¹öÁ¯¿¡ ¸Â°Ô ·Îµù.
+				// ½Å¹öÁ¯. ÇöÀç SFX0.3
 				int nPart;
 				file.Read(&nPart,sizeof(int));
 				for(i=0;i<nPart;i++) 
@@ -1694,8 +1694,8 @@ BOOL CSfxBase::LoadMerge()
 			}
 			else
 			{
-				// ë²„ì ¼ ì •ë³´ ì—†ìœ¼ë©´ êµ¬ë²„ì ¼
-				file.Seek(0,SEEK_SET); // ìœ„ì¹˜ ë‹¤ì‹œ ëŒë ¤ë†“ê³  ë¡œë”©
+				// ¹öÁ¯ Á¤º¸ ¾øÀ¸¸é ±¸¹öÁ¯
+				file.Seek(0,SEEK_SET); // À§Ä¡ ´Ù½Ã µ¹·Á³õ°í ·Îµù
 				int nPart;
 				file.Read(&nPart,sizeof(int));
 				for(i=0;i<nPart;i++) 
@@ -1729,7 +1729,7 @@ BOOL CSfxBase::Load(void)
 		file.Read(strTemp,8);
 		strTemp[8]=0;
 		CString strTemp2(strTemp);
-		if(strTemp2.Left(6)=="SFX0.1") { // ë²„ì ¼ì²´í¬. í˜„ì¬ëŠ” êµ¬ë²„ì ¼ì¸ì§€ ì‹ ë²„ì ¼ì¸ì§€ë§Œ ì²´í¬í•´ì„œ ë²„ì ¼ì— ë§ê²Œ ë¡œë”©.
+		if(strTemp2.Left(6)=="SFX0.1") { // ¹öÁ¯Ã¼Å©. ÇöÀç´Â ±¸¹öÁ¯ÀÎÁö ½Å¹öÁ¯ÀÎÁö¸¸ Ã¼Å©ÇØ¼­ ¹öÁ¯¿¡ ¸Â°Ô ·Îµù.
 			int nPart;
 			file.Read(&nPart,sizeof(int));
 			for( int i=0;i<nPart;i++) 
@@ -1742,8 +1742,8 @@ BOOL CSfxBase::Load(void)
 			}
 		}
 		else 
-		if(strTemp2.Left(6)=="SFX0.2") { // ë²„ì ¼ì²´í¬. í˜„ì¬ëŠ” êµ¬ë²„ì ¼ì¸ì§€ ì‹ ë²„ì ¼ì¸ì§€ë§Œ ì²´í¬í•´ì„œ ë²„ì ¼ì— ë§ê²Œ ë¡œë”©.
-			// ì‹ ë²„ì ¼. í˜„ì¬ SFX0.2
+		if(strTemp2.Left(6)=="SFX0.2") { // ¹öÁ¯Ã¼Å©. ÇöÀç´Â ±¸¹öÁ¯ÀÎÁö ½Å¹öÁ¯ÀÎÁö¸¸ Ã¼Å©ÇØ¼­ ¹öÁ¯¿¡ ¸Â°Ô ·Îµù.
+			// ½Å¹öÁ¯. ÇöÀç SFX0.2
 			int nPart;
 			file.Read(&nPart,sizeof(int));
 			for( int i=0;i<nPart;i++) 
@@ -1756,8 +1756,8 @@ BOOL CSfxBase::Load(void)
 			}
 		}
 		else
-		if(strTemp2.Left(6)=="SFX0.3") { // ë²„ì ¼ì²´í¬. í˜„ì¬ëŠ” êµ¬ë²„ì ¼ì¸ì§€ ì‹ ë²„ì ¼ì¸ì§€ë§Œ ì²´í¬í•´ì„œ ë²„ì ¼ì— ë§ê²Œ ë¡œë”©.
-			// ì‹ ë²„ì ¼. í˜„ì¬ SFX0.3
+		if(strTemp2.Left(6)=="SFX0.3") { // ¹öÁ¯Ã¼Å©. ÇöÀç´Â ±¸¹öÁ¯ÀÎÁö ½Å¹öÁ¯ÀÎÁö¸¸ Ã¼Å©ÇØ¼­ ¹öÁ¯¿¡ ¸Â°Ô ·Îµù.
+			// ½Å¹öÁ¯. ÇöÀç SFX0.3
 			int nPart;
 			file.Read(&nPart,sizeof(int));
 			for( int i=0;i<nPart;i++) 
@@ -1774,8 +1774,8 @@ BOOL CSfxBase::Load(void)
 		}
 		else
 		{
-			// ë²„ì ¼ ì •ë³´ ì—†ìœ¼ë©´ êµ¬ë²„ì ¼
-			file.Seek(0,SEEK_SET); // ìœ„ì¹˜ ë‹¤ì‹œ ëŒë ¤ë†“ê³  ë¡œë”©
+			// ¹öÁ¯ Á¤º¸ ¾øÀ¸¸é ±¸¹öÁ¯
+			file.Seek(0,SEEK_SET); // À§Ä¡ ´Ù½Ã µ¹·Á³õ°í ·Îµù
 			int nPart;
 			file.Read(&nPart,sizeof(int));
 			for( int i=0;i<nPart;i++) 
@@ -1790,7 +1790,7 @@ BOOL CSfxBase::Load(void)
 	}
 	else 
 	{
-		LPCTSTR szErr = Error( "CSfxBase::Load %s ì°¾ì„ ìˆ˜ ì—†ìŒ", strFilename );
+		LPCTSTR szErr = Error( "CSfxBase::Load %s Ã£À» ¼ö ¾øÀ½", strFilename );
 		ADDERRORMSG( szErr );
 		return FALSE;
 	}
@@ -1823,7 +1823,7 @@ CSfxBase* CSfxMng::GetSfxBase( CString strSfxName )
 		if( GetSfxBase( i )->m_strName == strSfxName )
 			return GetSfxBase( i );
 	}
-	// strSfxName ë¡œë“œ
+	// strSfxName ·Îµå
 	CSfxBase* pSfxBase = new CSfxBase;
 	pSfxBase->m_strName = strSfxName;
 	if( pSfxBase->Load() ) 
@@ -1962,7 +1962,7 @@ void CSfxModel::SetSfx( CSfxBase* pSfxBase )
 	//   7 | 6
 	// - --+-- + x
 	//   4 | 5
-	// ë°”ìš´ë“œ ë°•ìŠ¤ ì‚¬ì´ì¦ˆ ì„ì˜ ì§€ì •. ì´ê²ƒì´ ìˆì–´ì•¼ ì»¬ë§ì´ ê°€ëŠ¥
+	// ¹Ù¿îµå ¹Ú½º »çÀÌÁî ÀÓÀÇ ÁöÁ¤. ÀÌ°ÍÀÌ ÀÖ¾î¾ß ÄÃ¸µÀÌ °¡´É
 	m_vMin = D3DXVECTOR3( -1.0f, 0.0f, -1.0f );
 	m_vMax = D3DXVECTOR3(  1.0f, 1.0f,  1.0f );
 	m_BB.m_vPos[0] = D3DXVECTOR3( -1.0f, 1.0f, -1.0f ); 
@@ -2001,7 +2001,7 @@ void CSfxModel::SetSfx( LPCTSTR szSfxName )
 	//   7 | 6
 	// - --+-- + x
 	//   4 | 5
-	// ë°”ìš´ë“œ ë°•ìŠ¤ ì‚¬ì´ì¦ˆ ì„ì˜ ì§€ì •. ì´ê²ƒì´ ìˆì–´ì•¼ ì»¬ë§ì´ ê°€ëŠ¥
+	// ¹Ù¿îµå ¹Ú½º »çÀÌÁî ÀÓÀÇ ÁöÁ¤. ÀÌ°ÍÀÌ ÀÖ¾î¾ß ÄÃ¸µÀÌ °¡´É
 	m_vMin = D3DXVECTOR3( -1.0f, 0.0f, -1.0f );
 	m_vMax = D3DXVECTOR3(  1.0f, 1.0f,  1.0f );
 	m_BB.m_vPos[0] = D3DXVECTOR3( -1.0f, 1.0f, -1.0f ); 
@@ -2047,7 +2047,7 @@ void CSfxModel::SetSfx( DWORD dwIndex )
 	//   7 | 6
 	// - --+-- + x
 	//   4 | 5
-	// ë°”ìš´ë“œ ë°•ìŠ¤ ì‚¬ì´ì¦ˆ ì„ì˜ ì§€ì •. ì´ê²ƒì´ ìˆì–´ì•¼ ì»¬ë§ì´ ê°€ëŠ¥
+	// ¹Ù¿îµå ¹Ú½º »çÀÌÁî ÀÓÀÇ ÁöÁ¤. ÀÌ°ÍÀÌ ÀÖ¾î¾ß ÄÃ¸µÀÌ °¡´É
 	m_vMin = D3DXVECTOR3( -1.0f, 0.0f, -1.0f );
 	m_vMax = D3DXVECTOR3(  1.0f, 1.0f,  1.0f );
 	m_BB.m_vPos[0] = D3DXVECTOR3( -1.0f, 1.0f, -1.0f ); 
@@ -2103,8 +2103,8 @@ BOOL CSfxModel::Render2( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmWorld
 				break;
 			case SFXPARTTYPE_PARTICLE:
 				{
-					//  íŒŒí‹°í´ì´ í”„ë¡œì„¸ìŠ¤ ì•ˆë˜ì—ˆìœ¼ë©´ ì•„ì§ ìƒì„±ë˜ì§€ ì•Šì•˜ë‹¤.
-					// m_apPartëŠ” ìƒì„±ëœ íŒŒí‹°í´ë“¤ì˜ ë°°ì—´ë“¤.
+					//  ÆÄÆ¼Å¬ÀÌ ÇÁ·Î¼¼½º ¾ÈµÇ¾úÀ¸¸é ¾ÆÁ÷ »ı¼ºµÇÁö ¾Ê¾Ò´Ù.
+					// m_apPart´Â »ı¼ºµÈ ÆÄÆ¼Å¬µéÀÇ ¹è¿­µé.
 					CSfxMng::m_pd3dDevice->SetRenderState(D3DRS_ZWRITEENABLE,FALSE);
 					if( i < m_apParticles.GetSize() )
 					{
@@ -2143,10 +2143,10 @@ BOOL CSfxModel::Render2( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmWorld
 void CSfxModel::RenderParticles2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, CSfxPartParticle* pPartParticle, CPtrArray* pParticles, D3DXVECTOR3 vScale )
 {
 #ifdef __CLIENT
-	// íŒŒí‹°í´ partëŠ” ë‹¤ë¥¸ partë“¤ê³¼ ë‹¤ë¥´ê²Œ ëª¨ë¸ ì˜¤ë¸Œì íŠ¸ì—ì„œ ì§ì ‘ ë Œë”í•œë‹¤.
-	// ë˜‘ê°™ì€ sfxê°€ ì—¬ëŸ¬ê°œ ë‚˜ì˜¬ìˆ˜ë„ ìˆëŠ”ë° ê° íŒŒí‹°í´ë“¤ì˜ ë°ì´í„°ë¥¼ ê³µìœ í•  ìˆ˜ ì—†ê¸° ë•Œë¬¸ì´ë‹¤.
+	// ÆÄÆ¼Å¬ part´Â ´Ù¸¥ partµé°ú ´Ù¸£°Ô ¸ğµ¨ ¿ÀºêÁ§Æ®¿¡¼­ Á÷Á¢ ·»´õÇÑ´Ù.
+	// ¶È°°Àº sfx°¡ ¿©·¯°³ ³ª¿Ã¼öµµ ÀÖ´Âµ¥ °¢ ÆÄÆ¼Å¬µéÀÇ µ¥ÀÌÅÍ¸¦ °øÀ¯ÇÒ ¼ö ¾ø±â ¶§¹®ÀÌ´Ù.
 
-	// ê¸°ë³¸ world ë§¤íŠ¸ë¦­ìŠ¤ì˜ ê³„ì‚° ë“±ì€ ë¹Œë³´ë“œpartì˜ ê·¸ê²ƒê³¼ í¬ê²Œ ë‹¤ë¥´ì§€ ì•Šë‹¤.
+	// ±âº» world ¸ÅÆ®¸¯½ºÀÇ °è»ê µîÀº ºôº¸µåpartÀÇ ±×°Í°ú Å©°Ô ´Ù¸£Áö ¾Ê´Ù.
 	CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(pPartParticle->m_strTex));
 	SfxKeyFrame* pPrevKey=pPartParticle->GetPrevKey(nFrame);
 	SfxKeyFrame* pNextKey=pPartParticle->GetNextKey(nFrame);
@@ -2231,7 +2231,7 @@ void CSfxModel::RenderParticles2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAn
 	matTemp2 = mRot * matTemp2;
 	D3DXVec3TransformCoord( &vTemp, &(Key.vPos), &matTemp2 );
 
-	// ìœ„ì—ì„œ ì‚°ì¶œëœ ê¸°ë³¸ world ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ë¡œì»¬ ì›ì ìœ¼ë¡œ í˜„ì¬ ìƒì„±ë˜ì–´ ìˆëŠ” ëª¨ë“  íŒŒí‹°í´ë“¤ì„ ë Œë”í•œë‹¤.
+	// À§¿¡¼­ »êÃâµÈ ±âº» world ¸ÅÆ®¸¯½º¸¦ ·ÎÄÃ ¿øÁ¡À¸·Î ÇöÀç »ı¼ºµÇ¾î ÀÖ´Â ¸ğµç ÆÄÆ¼Å¬µéÀ» ·»´õÇÑ´Ù.
 	D3DXVECTOR3 vTemp3;
 	Particle* pParticle = NULL;
 	CString		TexName;
@@ -2241,8 +2241,8 @@ void CSfxModel::RenderParticles2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAn
 		pParticle = (Particle*)(pParticles->GetAt(i));
 #ifdef __SFX_OPT
 		if(pPartParticle->m_nTexFrame>1) 
-		{ // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-			int nTexFrame= (pPartParticle->m_nTexFrame*(pParticle->nFrame)/pPartParticle->m_nTexLoop)%pPartParticle->m_nTexFrame; // ì´ í”„ë ˆì„ì—ì„œ ì¶œë ¥í•  í…ìŠ¤ì³ ë²ˆí˜¸
+		{ // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+			int nTexFrame= (pPartParticle->m_nTexFrame*(pParticle->nFrame)/pPartParticle->m_nTexLoop)%pPartParticle->m_nTexFrame; // ÀÌ ÇÁ·¹ÀÓ¿¡¼­ Ãâ·ÂÇÒ ÅØ½ºÃÄ ¹øÈ£
 			CString tempTexName = GetTextureName(pPartParticle->m_strTex,nTexFrame);
 			if(TexName != tempTexName)
 			{
@@ -2260,8 +2260,8 @@ void CSfxModel::RenderParticles2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAn
 		}
 #else
 		if(pPartParticle->m_nTexFrame>1) 
-		{ // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-			int nTexFrame= (pPartParticle->m_nTexFrame*(pParticle->nFrame)/pPartParticle->m_nTexLoop)%pPartParticle->m_nTexFrame; // ì´ í”„ë ˆì„ì—ì„œ ì¶œë ¥í•  í…ìŠ¤ì³ ë²ˆí˜¸
+		{ // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+			int nTexFrame= (pPartParticle->m_nTexFrame*(pParticle->nFrame)/pPartParticle->m_nTexLoop)%pPartParticle->m_nTexFrame; // ÀÌ ÇÁ·¹ÀÓ¿¡¼­ Ãâ·ÂÇÒ ÅØ½ºÃÄ ¹øÈ£
 			CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(GetTextureName(pPartParticle->m_strTex,nTexFrame)));
 		}
 		else 
@@ -2324,19 +2324,19 @@ void CSfxModel::RenderParticles2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAn
 
 		CSfxMng::m_pd3dDevice->SetTransform( D3DTS_WORLD, &matTemp1 );
 
-		// ì„¤ì •ëœ íŒŒë¼ë¯¸í„°ì™€ í˜„ì¬ frameì— ë”°ë¼ ì•ŒíŒŒê°’ ê³„ì‚°
+		// ¼³Á¤µÈ ÆÄ¶ó¹ÌÅÍ¿Í ÇöÀç frame¿¡ µû¶ó ¾ËÆÄ°ª °è»ê
 		int nTempAlpha=0;
 		if(pParticle->nFrame<pPartParticle->m_nParticleFrameAppear) 
-		{ // ë‚˜íƒ€ë‚˜ëŠ” ì¤‘ì´ë‹¤
+		{ // ³ªÅ¸³ª´Â ÁßÀÌ´Ù
 			nTempAlpha = pParticle->nFrame*Key.nAlpha/pPartParticle->m_nParticleFrameAppear;
 		}
 		else 
 		if(pParticle->nFrame>pPartParticle->m_nParticleFrameKeep) 
-		{ // ì‚¬ë¼ì§€ëŠ” ì¤‘ì´ë‹¤
+		{ // »ç¶óÁö´Â ÁßÀÌ´Ù
 			nTempAlpha = Key.nAlpha - (Key.nAlpha * (pParticle->nFrame-pPartParticle->m_nParticleFrameKeep) / (pPartParticle->m_nParticleFrameDisappear-pPartParticle->m_nParticleFrameKeep));
 		}
 		else 
-		{ // ë‘˜ ë‹¤ ì•„ë‹ˆë©´ ì•ŒíŒŒê°’ ìœ ì§€ì¤‘ì´ë‹¤
+		{ // µÑ ´Ù ¾Æ´Ï¸é ¾ËÆÄ°ª À¯ÁöÁßÀÌ´Ù
 			nTempAlpha=Key.nAlpha;
 		}
 		CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, nTempAlpha<<24 | 0x404040 );
@@ -2387,8 +2387,8 @@ BOOL CSfxModel::RenderZ( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmWorld
 				break;
 			case SFXPARTTYPE_PARTICLE:
 				{
-					//  íŒŒí‹°í´ì´ í”„ë¡œì„¸ìŠ¤ ì•ˆë˜ì—ˆìœ¼ë©´ ì•„ì§ ìƒì„±ë˜ì§€ ì•Šì•˜ë‹¤.
-					// m_apPartëŠ” ìƒì„±ëœ íŒŒí‹°í´ë“¤ì˜ ë°°ì—´ë“¤.
+					//  ÆÄÆ¼Å¬ÀÌ ÇÁ·Î¼¼½º ¾ÈµÇ¾úÀ¸¸é ¾ÆÁ÷ »ı¼ºµÇÁö ¾Ê¾Ò´Ù.
+					// m_apPart´Â »ı¼ºµÈ ÆÄÆ¼Å¬µéÀÇ ¹è¿­µé.
 					
 					CSfxMng::m_pd3dDevice->SetRenderState(D3DRS_ZWRITEENABLE,FALSE);
 					
@@ -2465,8 +2465,8 @@ BOOL CSfxModel::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmWorld 
 				break;
 			case SFXPARTTYPE_PARTICLE:
 				{
-					//  íŒŒí‹°í´ì´ í”„ë¡œì„¸ìŠ¤ ì•ˆë˜ì—ˆìœ¼ë©´ ì•„ì§ ìƒì„±ë˜ì§€ ì•Šì•˜ë‹¤.
-					// m_apPartëŠ” ìƒì„±ëœ íŒŒí‹°í´ë“¤ì˜ ë°°ì—´ë“¤.
+					//  ÆÄÆ¼Å¬ÀÌ ÇÁ·Î¼¼½º ¾ÈµÇ¾úÀ¸¸é ¾ÆÁ÷ »ı¼ºµÇÁö ¾Ê¾Ò´Ù.
+					// m_apPart´Â »ı¼ºµÈ ÆÄÆ¼Å¬µéÀÇ ¹è¿­µé.
 					
 					CSfxMng::m_pd3dDevice->SetRenderState(D3DRS_ZWRITEENABLE,FALSE);
 					
@@ -2506,10 +2506,10 @@ BOOL CSfxModel::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmWorld 
 
 void CSfxModel::RenderParticles( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, CSfxPartParticle* pPartParticle, CPtrArray* pParticles, D3DXVECTOR3 vScale )
 {
-	// íŒŒí‹°í´ partëŠ” ë‹¤ë¥¸ partë“¤ê³¼ ë‹¤ë¥´ê²Œ ëª¨ë¸ ì˜¤ë¸Œì íŠ¸ì—ì„œ ì§ì ‘ ë Œë”í•œë‹¤.
-	// ë˜‘ê°™ì€ sfxê°€ ì—¬ëŸ¬ê°œ ë‚˜ì˜¬ìˆ˜ë„ ìˆëŠ”ë° ê° íŒŒí‹°í´ë“¤ì˜ ë°ì´í„°ë¥¼ ê³µìœ í•  ìˆ˜ ì—†ê¸° ë•Œë¬¸ì´ë‹¤.
+	// ÆÄÆ¼Å¬ part´Â ´Ù¸¥ partµé°ú ´Ù¸£°Ô ¸ğµ¨ ¿ÀºêÁ§Æ®¿¡¼­ Á÷Á¢ ·»´õÇÑ´Ù.
+	// ¶È°°Àº sfx°¡ ¿©·¯°³ ³ª¿Ã¼öµµ ÀÖ´Âµ¥ °¢ ÆÄÆ¼Å¬µéÀÇ µ¥ÀÌÅÍ¸¦ °øÀ¯ÇÒ ¼ö ¾ø±â ¶§¹®ÀÌ´Ù.
 
-	// ê¸°ë³¸ world ë§¤íŠ¸ë¦­ìŠ¤ì˜ ê³„ì‚° ë“±ì€ ë¹Œë³´ë“œpartì˜ ê·¸ê²ƒê³¼ í¬ê²Œ ë‹¤ë¥´ì§€ ì•Šë‹¤.
+	// ±âº» world ¸ÅÆ®¸¯½ºÀÇ °è»ê µîÀº ºôº¸µåpartÀÇ ±×°Í°ú Å©°Ô ´Ù¸£Áö ¾Ê´Ù.
 	//CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(pPartParticle->m_strTex));
 	SfxKeyFrame* pPrevKey=pPartParticle->GetPrevKey(nFrame);
 	SfxKeyFrame* pNextKey=pPartParticle->GetNextKey(nFrame);
@@ -2585,7 +2585,7 @@ void CSfxModel::RenderParticles( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, CS
 	if( pParticles == NULL )
 		return;
 
-	// ìœ„ì—ì„œ ì‚°ì¶œëœ ê¸°ë³¸ world ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ë¡œì»¬ ì›ì ìœ¼ë¡œ í˜„ì¬ ìƒì„±ë˜ì–´ ìˆëŠ” ëª¨ë“  íŒŒí‹°í´ë“¤ì„ ë Œë”í•œë‹¤.
+	// À§¿¡¼­ »êÃâµÈ ±âº» world ¸ÅÆ®¸¯½º¸¦ ·ÎÄÃ ¿øÁ¡À¸·Î ÇöÀç »ı¼ºµÇ¾î ÀÖ´Â ¸ğµç ÆÄÆ¼Å¬µéÀ» ·»´õÇÑ´Ù.
 	D3DXVECTOR3 vTemp3;
 	Particle* pParticle = NULL;
 	CString TexName;
@@ -2595,8 +2595,8 @@ void CSfxModel::RenderParticles( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, CS
 		pParticle = (Particle*)(pParticles->GetAt(i));
 #ifdef __SFX_OPT
 		if(pPartParticle->m_nTexFrame>1) 
-		{ // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-			int nTexFrame= (pPartParticle->m_nTexFrame*(pParticle->nFrame)/pPartParticle->m_nTexLoop)%pPartParticle->m_nTexFrame; // ì´ í”„ë ˆì„ì—ì„œ ì¶œë ¥í•  í…ìŠ¤ì³ ë²ˆí˜¸
+		{ // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+			int nTexFrame= (pPartParticle->m_nTexFrame*(pParticle->nFrame)/pPartParticle->m_nTexLoop)%pPartParticle->m_nTexFrame; // ÀÌ ÇÁ·¹ÀÓ¿¡¼­ Ãâ·ÂÇÒ ÅØ½ºÃÄ ¹øÈ£
 			CString tempTexName = GetTextureName(pPartParticle->m_strTex,nTexFrame);
 			if(TexName != tempTexName)
 			{
@@ -2614,8 +2614,8 @@ void CSfxModel::RenderParticles( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, CS
 		}
 #else
 		if(pPartParticle->m_nTexFrame>1) 
-		{ // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ì¼ ê²½ìš°
-			int nTexFrame= (pPartParticle->m_nTexFrame*(pParticle->nFrame)/pPartParticle->m_nTexLoop)%pPartParticle->m_nTexFrame; // ì´ í”„ë ˆì„ì—ì„œ ì¶œë ¥í•  í…ìŠ¤ì³ ë²ˆí˜¸
+		{ // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼ÇÀÏ °æ¿ì
+			int nTexFrame= (pPartParticle->m_nTexFrame*(pParticle->nFrame)/pPartParticle->m_nTexLoop)%pPartParticle->m_nTexFrame; // ÀÌ ÇÁ·¹ÀÓ¿¡¼­ Ãâ·ÂÇÒ ÅØ½ºÃÄ ¹øÈ£
 			CSfxMng::m_pd3dDevice->SetTexture(0,g_SfxTex.Tex(GetTextureName(pPartParticle->m_strTex,nTexFrame)));
 		}
 		else 
@@ -2675,19 +2675,19 @@ void CSfxModel::RenderParticles( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, CS
 		
 		CSfxMng::m_pd3dDevice->SetTransform( D3DTS_WORLD, &matTemp1 );
 
-		// ì„¤ì •ëœ íŒŒë¼ë¯¸í„°ì™€ í˜„ì¬ frameì— ë”°ë¼ ì•ŒíŒŒê°’ ê³„ì‚°
+		// ¼³Á¤µÈ ÆÄ¶ó¹ÌÅÍ¿Í ÇöÀç frame¿¡ µû¶ó ¾ËÆÄ°ª °è»ê
 		int nTempAlpha=0;
 		if(pParticle->nFrame<pPartParticle->m_nParticleFrameAppear) 
-		{ // ë‚˜íƒ€ë‚˜ëŠ” ì¤‘ì´ë‹¤
+		{ // ³ªÅ¸³ª´Â ÁßÀÌ´Ù
 			nTempAlpha = pParticle->nFrame*Key.nAlpha/pPartParticle->m_nParticleFrameAppear;
 		}
 		else 
 		if(pParticle->nFrame>pPartParticle->m_nParticleFrameKeep) 
-		{ // ì‚¬ë¼ì§€ëŠ” ì¤‘ì´ë‹¤
+		{ // »ç¶óÁö´Â ÁßÀÌ´Ù
 			nTempAlpha = Key.nAlpha - (Key.nAlpha * (pParticle->nFrame-pPartParticle->m_nParticleFrameKeep) / (pPartParticle->m_nParticleFrameDisappear-pPartParticle->m_nParticleFrameKeep));
 		}
 		else 
-		{ // ë‘˜ ë‹¤ ì•„ë‹ˆë©´ ì•ŒíŒŒê°’ ìœ ì§€ì¤‘ì´ë‹¤
+		{ // µÑ ´Ù ¾Æ´Ï¸é ¾ËÆÄ°ª À¯ÁöÁßÀÌ´Ù
 			nTempAlpha=Key.nAlpha;
 		}
 		CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, nTempAlpha<<24 | 0x404040 );
@@ -2704,7 +2704,7 @@ BOOL CSfxModel::Process(void)
 
 	m_nCurFrame++;
 	
-	// ì´ sfxì— íŒŒí‹°í´ partê°€ í¬í•¨ë˜ì–´ ìˆë‹¤ë©´ íŒŒí‹°í´ì˜ ìƒì„±, íŒŒê´´ ë“±ì„ ì²˜ë¦¬í•œë‹¤.
+	// ÀÌ sfx¿¡ ÆÄÆ¼Å¬ part°¡ Æ÷ÇÔµÇ¾î ÀÖ´Ù¸é ÆÄÆ¼Å¬ÀÇ »ı¼º, ÆÄ±« µîÀ» Ã³¸®ÇÑ´Ù.
 	for( int i = 0; i < m_apParticles.GetSize(); i++ ) 
 	{
 		CPtrArray* pParticles = (CPtrArray*)m_apParticles[ i ];
@@ -2718,7 +2718,7 @@ BOOL CSfxModel::Process(void)
 			SfxKeyFrame Key;
 			pPartParticle->GetKey( m_nCurFrame, &Key );
 
-			// íŒŒí‹°í´ ì´ë™, ìƒì„± ë° ì œê±°
+			// ÆÄÆ¼Å¬ ÀÌµ¿, »ı¼º ¹× Á¦°Å
 			int j;
 			for( j = 0; j < pParticles->GetSize(); j++ ) 
 			{
@@ -2960,7 +2960,7 @@ BOOL CSfxModel::Process(void)
 				}
 				else
 				{
-					Error( " CSfxModel::Process()ì—ì„œ nEndFrame < 0" );
+					Error( " CSfxModel::Process()¿¡¼­ nEndFrame < 0" );
 				}
 			}
 			
@@ -2978,7 +2978,7 @@ BOOL CSfxModel::SetFrame( int nFrame )
 	BOOL ret = TRUE;
 //	CSfxPartParticle* pPartParticle;
 //	Particle* pParticle;
-	// ì´ sfxì— íŒŒí‹°í´ partê°€ í¬í•¨ë˜ì–´ ìˆë‹¤ë©´ íŒŒí‹°í´ì˜ ìƒì„±, íŒŒê´´ ë“±ì„ ì²˜ë¦¬í•œë‹¤.
+	// ÀÌ sfx¿¡ ÆÄÆ¼Å¬ part°¡ Æ÷ÇÔµÇ¾î ÀÖ´Ù¸é ÆÄÆ¼Å¬ÀÇ »ı¼º, ÆÄ±« µîÀ» Ã³¸®ÇÑ´Ù.
 	for( int i = 0; i < m_apParticles.GetSize(); i++ ) 
 	{
 		CPtrArray* pParticles = (CPtrArray*)m_apParticles[ i ];
@@ -2990,7 +2990,7 @@ BOOL CSfxModel::SetFrame( int nFrame )
 			SfxKeyFrame Key;
 			pPartParticle->GetKey( m_nCurFrame, &Key );
 
-			// íŒŒí‹°í´ ì´ë™, ìƒì„± ë° ì œê±°
+			// ÆÄÆ¼Å¬ ÀÌµ¿, »ı¼º ¹× Á¦°Å
 			int j;
 			for( j = 0; j < pParticles->GetSize(); j++ ) 
 			{
@@ -3153,7 +3153,7 @@ LPDIRECT3DTEXTURE9 CSfxTexture::AddTex(CString str)
 		
 	if( hr != D3D_OK ) 
 	{
-		TRACE( "CSfxTexture::AddTexì—ì„œ í…ìŠ¤ì¶° ì—†ìŒ %s", str );
+		TRACE( "CSfxTexture::AddTex¿¡¼­ ÅØ½ºÃç ¾øÀ½ %s", str );
 		return NULL;
 	}
 	m_apTexture[str]=pTex;
@@ -3279,7 +3279,7 @@ HRESULT CSfxMeshMng::DeleteDeviceObjects()
 
 #ifdef __BS_EFFECT_LUA
 
-//gmpbigsun: ì™¸ë¶€(ë£¨ì•„)ì—ì„œ sfxë¥¼ ëŒë¦¬ê¸° ìœ„í•¨ ( 20100201 )
+//gmpbigsun: ¿ÜºÎ(·ç¾Æ)¿¡¼­ sfx¸¦ µ¹¸®±â À§ÇÔ ( 20100201 )
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //SfxModelSet
@@ -3290,12 +3290,12 @@ SfxModelSet::SfxModelSet( const OBJID idMaster, const char* szSfxName, const cha
 	_pModel = new CSfxModel;
 	_pModel->SetSfx( szSfxName );
 
-	// ìµœëŒ€ í”„ë ˆì„ì„ ì°¾ëŠ”ë‹¤ 
+	// ÃÖ´ë ÇÁ·¹ÀÓÀ» Ã£´Â´Ù 
 	for(int i = 0; i < _pModel->m_pSfxBase->m_apParts.GetSize(); i++)
 	{	
 		for(int j = 0; j < _pModel->m_pSfxBase->Part( i )->m_apKeyFrames.GetSize(); j++)
 		{
-			// ê° íŒŒíŠ¸ì˜ í”„ë ˆì„ ìˆ˜ì™€ ë¹„êµí•´ì„œ ìµœëŒ€ í”„ë ˆì„ì„ ì°¾ìŒ
+			// °¢ ÆÄÆ®ÀÇ ÇÁ·¹ÀÓ ¼ö¿Í ºñ±³ÇØ¼­ ÃÖ´ë ÇÁ·¹ÀÓÀ» Ã£À½
 			if(_nMaxFrame < _pModel->m_pSfxBase->Part( i )->Key(j)->nFrame)
 				_nMaxFrame = _pModel->m_pSfxBase->Part( i )->Key(j)->nFrame;
 		}
@@ -3392,7 +3392,7 @@ CSfxModelMng::~CSfxModelMng( )
 
 BOOL CSfxModelMng::IsFull( OBJID objID, const char* szSfx, const char* szBone )
 {
-	// ê½‰ ì°¼ëŠ”ê°€?
+	// ²Ë Ã¡´Â°¡?
 	static const int MAX_PLAY = 5;
 
 	SfxModelSetIter iter = _cDatas.find( objID );
@@ -3400,19 +3400,19 @@ BOOL CSfxModelMng::IsFull( OBJID objID, const char* szSfx, const char* szBone )
 	{
 		SMSVector& cSMS = iter->second;
 
-		// ìµœëŒ€ ë™ì‹œ ê°€ëŠ¥í•œ ì´í™íŠ¸ ê²€ì‚¬
+		// ÃÖ´ë µ¿½Ã °¡´ÉÇÑ ÀÌÆåÆ® °Ë»ç
 		if( cSMS.size() > MAX_PLAY )
 			return TRUE;
 
-		// ì´ë¦„ì´ ê°™ì€ sfxëŠ” ì¼ë‹¨ ì¤‘ë³µ ì•ˆëŒ
+		// ÀÌ¸§ÀÌ °°Àº sfx´Â ÀÏ´Ü Áßº¹ ¾È´ï
 		for( SMSVector::iterator iter2 = cSMS.begin(); iter2 != cSMS.end(); ++iter2 )
 		{
 			SfxModelSet* pData = *iter2;
-			if( !pData->_bLoop )		//clamp ì¤‘ë³µí—ˆìš© 
+			if( !pData->_bLoop )		//clamp Áßº¹Çã¿ë 
 				continue;
 
-			// loopingì¸ë° bone ì´ ê°™ê³  , sfx ê°€ ê°™ìœ¼ë©´ ì´ê±´ ë¬´ì‹œí•  ë°ì´í„°ë¡œ íŒë‹¨.
-			// ì¦‰ ê°™ì€ê³³ì— ê°™ì€ ì´í™íŠ¸ë¥¼ ë£¨í•‘ì‹œí‚¤ìê³  í–ˆë‹¤ë©´ ë¬´ì‹œí•œë‹¤. ( ì´ë¯¸ ê°™ì€ ì´í™íŠ¸ê°€ ì¶œë ¥ë˜ê³  ìˆìœ¼ë¯€ë¡œ )
+			// loopingÀÎµ¥ bone ÀÌ °°°í , sfx °¡ °°À¸¸é ÀÌ°Ç ¹«½ÃÇÒ µ¥ÀÌÅÍ·Î ÆÇ´Ü.
+			// Áï °°Àº°÷¿¡ °°Àº ÀÌÆåÆ®¸¦ ·çÇÎ½ÃÅ°ÀÚ°í Çß´Ù¸é ¹«½ÃÇÑ´Ù. ( ÀÌ¹Ì °°Àº ÀÌÆåÆ®°¡ Ãâ·ÂµÇ°í ÀÖÀ¸¹Ç·Î )
 			if( strcmp( pData->_szBone, szBone ) == 0 )
 			{
 				if( strcmp( pData->_szFileName, szSfx ) == 0 )
@@ -3427,23 +3427,23 @@ BOOL CSfxModelMng::IsFull( OBJID objID, const char* szSfx, const char* szBone )
 
 BOOL CSfxModelMng::AddData( SfxModelSet* pData, BOOL bChecked )
 {
-	// IsFullë¡œ ê²€ì‚¬í•œìš° AddDataê°€ ë¶ˆë ¤ì•¼ í•¨, ìµœì†Œí•œì˜ ì•ˆì ¼ëŒ€ì±… 
+	// IsFull·Î °Ë»çÇÑ¿ì AddData°¡ ºÒ·Á¾ß ÇÔ, ÃÖ¼ÒÇÑÀÇ ¾ÈÁ¯´ëÃ¥ 
 	if( !bChecked )
 		return FALSE;
 
-	//! IsFullí•¨ìˆ˜ë¡œ ì´ë¯¸ ê²€ì‚¬ê°€ ë˜ìˆë‹¤ê³  íŒë‹¨í•˜ì—¬ ì¬ ê²€ì‚¬ëŠ” í•˜ì§€ ì•ŠìŒ.
+	//! IsFullÇÔ¼ö·Î ÀÌ¹Ì °Ë»ç°¡ µÇÀÖ´Ù°í ÆÇ´ÜÇÏ¿© Àç °Ë»ç´Â ÇÏÁö ¾ÊÀ½.
 
 	SfxModelSetIter iter = _cDatas.find( pData->_idMaster );
 	if( iter != _cDatas.end() )
 	{
-		//Bone nameì´ ê°™ì€ê²½ìš° looping ì†ì„±ì— ëŒ€í•´ì„œ ê¸°ì¡´ ì´í™íŠ¸ ì‚­ì œ í›„ ì¶”ê°€ 
+		//Bone nameÀÌ °°Àº°æ¿ì looping ¼Ó¼º¿¡ ´ëÇØ¼­ ±âÁ¸ ÀÌÆåÆ® »èÁ¦ ÈÄ Ãß°¡ 
 		SMSVector& rSMS = iter->second;
 
 		for( SMSVector::iterator iter2 = rSMS.begin(); iter2 != rSMS.end();  )
 		{
 			SfxModelSet* pSet = *iter2;
 			
-			if( !pSet->_bLoop )		//clampì´ë©´ ì¤‘ë³µí—ˆìš© 
+			if( !pSet->_bLoop )		//clampÀÌ¸é Áßº¹Çã¿ë 
 			{
 				++iter2;
 				continue;
@@ -3451,7 +3451,7 @@ BOOL CSfxModelMng::AddData( SfxModelSet* pData, BOOL bChecked )
 
 			if( strcmp( pSet->_szBone, pData->_szBone ) == 0 )
 			{
-				//ìœ„ì¹˜ê°€ ê°™ë‹¤. ê¸°ì¡´ sfxì‚­ì œ 
+				//À§Ä¡°¡ °°´Ù. ±âÁ¸ sfx»èÁ¦ 
 				SAFE_DELETE( pSet );
 				iter2 = rSMS.erase( iter2 );
 			}
@@ -3493,7 +3493,7 @@ BOOL CSfxModelMng::SubData( OBJID objID )
 
 BOOL CSfxModelMng::SubData( OBJID objID, const int nState )
 {
-	// í•´ë‹¹ ìƒíƒœì— í•´ë‹¹í•˜ëŠ” ëª¨ë“  sfxë¥¼ ì‚­ì œí•œë‹¤.
+	// ÇØ´ç »óÅÂ¿¡ ÇØ´çÇÏ´Â ¸ğµç sfx¸¦ »èÁ¦ÇÑ´Ù.
 
 	BOOL bOK = FALSE;
 	SfxModelSetIter finder = _cDatas.find( objID );
@@ -3512,7 +3512,7 @@ BOOL CSfxModelMng::SubData( OBJID objID, const int nState )
 					SAFE_DELETE( pSfx );
 					iter = kSubData.erase( iter );
 
-					bOK = TRUE;		//ok ì°¾ì•„ì„œ ì§€ì› ìŒ.
+					bOK = TRUE;		//ok Ã£¾Æ¼­ Áö¿üÀ½.
 				}
 				else ++iter;
 			}
@@ -3526,7 +3526,7 @@ BOOL CSfxModelMng::SubData( OBJID objID, const int nState )
 
 BOOL CSfxModelMng::SubData( OBJID objID, const char* szBone )
 {
-	//í•´ë‹¹ ë³¸ì— ë§í¬ë˜ì–´ ìˆëŠ” ëª¨ë“  sfxë¥¼ ì‚­ì œí•œë‹¤.
+	//ÇØ´ç º»¿¡ ¸µÅ©µÇ¾î ÀÖ´Â ¸ğµç sfx¸¦ »èÁ¦ÇÑ´Ù.
 	BOOL bOK = FALSE;
 	SfxModelSetIter finder = _cDatas.find( objID );
 	if( finder != _cDatas.end() )
@@ -3544,7 +3544,7 @@ BOOL CSfxModelMng::SubData( OBJID objID, const char* szBone )
 					SAFE_DELETE( pSfx );
 					iter = kSubData.erase( iter );
 
-					bOK = TRUE;		//ok ì°¾ì•„ì„œ ì§€ì› ìŒ.
+					bOK = TRUE;		//ok Ã£¾Æ¼­ Áö¿üÀ½.
 				}
 				else ++iter;
 			}
@@ -3564,8 +3564,8 @@ void CSfxModelMng::Update( )
 			if( pMover )
 			{
 				int nState = iter->second;
-				pMover->m_pActMover->RemoveStateFlag( nState );		//ë¹¼ê³ 
-				pMover->m_pActMover->AddStateFlag( nState );		//ë„£ìœ¼ë©´ luaê°€ ë°œë™
+				pMover->m_pActMover->RemoveStateFlag( nState );		//»©°í
+				pMover->m_pActMover->AddStateFlag( nState );		//³ÖÀ¸¸é lua°¡ ¹ßµ¿
 			}
 		}
 
@@ -3619,7 +3619,7 @@ lua_State* g_SfxLua = NULL;
 
 int call_sfx( lua_State* L )
 {
-	// ë£¨ì•„ì—ì„œ call ( lua glue )
+	// ·ç¾Æ¿¡¼­ call ( lua glue )
 	int n = lua_gettop( L ); 
 
 	int who = lua_tointeger( L, 1 );				// master id
@@ -3636,7 +3636,7 @@ int call_sfx( lua_State* L )
 		return 0;
 	}
 
-	//! ìƒì„±í•˜ê¸° ì „ì— í•„íˆ ê²€ì‚¬í•´ì•¼í•¨.
+	//! »ı¼ºÇÏ±â Àü¿¡ ÇÊÈ÷ °Ë»çÇØ¾ßÇÔ.
 	BOOL bFull = CSfxModelMng::GetThis()->IsFull( who, szSfx, szBone );
 	if( bFull )
 		return 0;
@@ -3652,7 +3652,7 @@ int call_sfx( lua_State* L )
 
 int call_mte( lua_State* L )
 {
-	// ë£¨ì•„ì—ì„œ call ( lua glue )
+	// ·ç¾Æ¿¡¼­ call ( lua glue )
 	// multitexture effect
 	int n = lua_gettop( L ); 
 
@@ -3693,7 +3693,7 @@ int call_mte( lua_State* L )
 
 int stop_sfx_bybone( lua_State* L )
 {
-	//2010_05_10 gmpbigsun : ì¼ë‹¨ ë§Œë“¤ì–´ë†¨ë”°.. í˜¹ì‹œë‚˜ ì–´ë–¤ìƒíƒœê°€ ëë‚˜ë©´ ì–´ë–¤ë³¸ì— ë§í¬ëœ sfxë§Œ ì§€ìš°ê³ ì‹¶ì„ë•Œë¥¼ ëŒ€ë¹„í•´ì„œ..
+	//2010_05_10 gmpbigsun : ÀÏ´Ü ¸¸µé¾î³ùµû.. È¤½Ã³ª ¾î¶²»óÅÂ°¡ ³¡³ª¸é ¾î¶²º»¿¡ ¸µÅ©µÈ sfx¸¸ Áö¿ì°í½ÍÀ»¶§¸¦ ´ëºñÇØ¼­..
 	int n = lua_gettop( L );
 
 	int who = lua_tointeger( L, 1 );
@@ -3740,11 +3740,11 @@ void run_lua_sfx( int nState, OBJID caller, const char* szMoverName )
 	if( !g_SfxLua )
 		open_lua_sfx( );
 
-	// callerëŠ” ë¬´ë²„ë§Œ ì§€ì›í•œë‹¤. í˜„ì¬ 2010_0204
+	// caller´Â ¹«¹ö¸¸ Áö¿øÇÑ´Ù. ÇöÀç 2010_0204
 	CMover* pWho = prj.GetMover( caller );
 	if( !pWho )
 	{
-		// í  ìƒì„±ì´ ë˜ëŠ”ë„ì¤‘ ë¶ˆë¦´ìˆ˜ê°€ ìˆë‹¤. ì´ëŸ°ê²½ìš°ëŠ” prjì—ì„œ ëª»ì°¼ì„ê»ì´ë¯€ë¡œ ë“±ë¡ìƒíƒœë¡œ ë‘ê³  ë‹¤ìŒ í”„ë ˆì„ì— ì‹œë„í•œë‹¤.
+		// Èì »ı¼ºÀÌ µÇ´ÂµµÁß ºÒ¸±¼ö°¡ ÀÖ´Ù. ÀÌ·±°æ¿ì´Â prj¿¡¼­ ¸øÃ¡À»²¯ÀÌ¹Ç·Î µî·Ï»óÅÂ·Î µÎ°í ´ÙÀ½ ÇÁ·¹ÀÓ¿¡ ½ÃµµÇÑ´Ù.
 		CSfxModelMng::GetThis()->_cWaitingObj.insert( map< DWORD, int >::value_type( caller, nState ) );
 		return;
 	}
@@ -3754,7 +3754,7 @@ void run_lua_sfx( int nState, OBJID caller, const char* szMoverName )
 	CString strFileName = CString( szFunc ) + strFORMAT;
 	CString strFullPath = strPATH + strFileName;
 	
-	// resë¥¼ ì·¨ê¸‰í•˜ëŠ” í…Œì„­ ë° ì •ì„­ì€ bufferë¥¼ ì–»ì–´ì™€? ë£¨ì•„ë¥¼ ëŒë¦¬ì 
+	// res¸¦ Ãë±ŞÇÏ´Â Å×¼· ¹× Á¤¼·Àº buffer¸¦ ¾ò¾î¿Í¼* ·ç¾Æ¸¦ µ¹¸®ÀÚ 
 #ifdef __BS_EFFECT_LUA
 	if( 0 != luaL_dofile( g_SfxLua, strFullPath.GetBuffer(0) ) )
 	{
@@ -3762,12 +3762,12 @@ void run_lua_sfx( int nState, OBJID caller, const char* szMoverName )
 		return;
 	}
 #else //__BS_EFFECT_LUA
-	// resë¡œ mergeëœ íŒŒì¼ì€ CResFileì„ ì´ìš©í•´ ë²„í¼ë¥¼ ì–»ê³  ë£¨ì•„ë¥¼ í˜¸ì¶œ 
+	// res·Î mergeµÈ ÆÄÀÏÀº CResFileÀ» ÀÌ¿ëÇØ ¹öÆÛ¸¦ ¾ò°í ·ç¾Æ¸¦ È£Ãâ 
 	CResFile file;
 	BOOL bRet = file.Open( strFullPath.GetBuffer(0), "rt" );
 	if( bRet == FALSE )	
 	{
-		Error( "run_lua_sfx : %s ì½ê¸° ì‹¤íŒ¨", strFullPath.GetBuffer(0) );
+		Error( "run_lua_sfx : %s ÀĞ±â ½ÇÆĞ", strFullPath.GetBuffer(0) );
 		return;
 	}
 
@@ -3779,14 +3779,14 @@ void run_lua_sfx( int nState, OBJID caller, const char* szMoverName )
 		return;
 	}
 
-	if( nLength < 2 )		// ì¡´ì¬ì´ìœ ê°€ ì—†ëŠ” ê¸¸ì´ ì´ë‹¤ .
+	if( nLength < 2 )		// Á¸ÀçÀÌÀ¯°¡ ¾ø´Â ±æÀÌ ÀÌ´Ù .
 		return;
 
 	pBuff[ 0 ] = 0;
 	file.Read( pBuff, nLength );
 	pBuff[ nLength ] = 0;
 	
-	// TODO : bufferë¥¼ ì–»ì–´ì™€ì„œ call lua
+	// TODO : buffer¸¦ ¾ò¾î¿Í¼­ call lua
 	int a = luaL_loadbuffer( g_SfxLua, pBuff, nLength, NULL );
 	int b = lua_pcall(g_SfxLua, 0, LUA_MULTRET, 0);
 
@@ -3797,15 +3797,15 @@ void run_lua_sfx( int nState, OBJID caller, const char* szMoverName )
 	}
 #endif //__BS_EFFECT_LUA
 
-	//ë§Œì•½ ëª¬ìŠ¤í„°ì— ëŒ€í•´ì„œ ì¼ë°˜ì ì¸ luaë¥¼ ì ìš©í•˜ê³ , íŠ¹ë³„í•œ ê²½ìš°ë§Œ ëª¬ìŠ¤í„°ê°œê°œì¸ì— ëŒ€í•´ì„œ luaë¥¼ ì§€ì •í•œë‹¤ë©´ 
-	// ìš°ì„ ìˆœìœ„ëŠ” íŠ¹ë³„íˆ ì§€ì •ëœê²½ìš°ë‹¤ ,
+	//¸¸¾à ¸ó½ºÅÍ¿¡ ´ëÇØ¼­ ÀÏ¹İÀûÀÎ lua¸¦ Àû¿ëÇÏ°í, Æ¯º°ÇÑ °æ¿ì¸¸ ¸ó½ºÅÍ°³°³ÀÎ¿¡ ´ëÇØ¼­ lua¸¦ ÁöÁ¤ÇÑ´Ù¸é 
+	// ¿ì¼±¼øÀ§´Â Æ¯º°È÷ ÁöÁ¤µÈ°æ¿ì´Ù ,
 
 	if( OBJSTAF_COMBAT == nState )
 		strcat( szFunc, "_battle" );
 	else
 	if( OBJSTA_NONE == nState ) 
 	{
-		//ìƒì„±ìƒíƒœë¡œ ê°„ì£¼í•œë‹¤.. ì¦‰ ìƒì„±ë˜ê³  ì•„ë¬´ê²ƒë„ ì•„ë‹Œìƒíƒœë€ ê±¸ë¡œ í•´ì„í•˜ê¸° ë°”ëŒ.
+		//»ı¼º»óÅÂ·Î °£ÁÖÇÑ´Ù.. Áï »ı¼ºµÇ°í ¾Æ¹«°Íµµ ¾Æ´Ñ»óÅÂ¶õ °É·Î ÇØ¼®ÇÏ±â ¹Ù¶÷.
 		strcat( szFunc, "_create" );
 	}
 	else

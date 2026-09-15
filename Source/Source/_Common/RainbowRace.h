@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include "MiniGameBase.h"
@@ -18,11 +18,11 @@ public:
 	void	DestroyGame();
 
 	void	Serialize( CAr & ar );
-	BOOL	IsCompletedGame( int nGameNum );	// nGameNum(RMG_...) ê²Œì„ì„ í´ë¦¬ì–´ í–ˆëŠ”ê°€?
-	BOOL	IsAllCompleted() { return ( m_wGameState == (0x7fff >> (15 - RMG_MAX)) ); } // ëª¨ë“  ë¯¸ë‹ˆê²Œì„ì„ í´ë¦¬ì–´ í–ˆëŠ”ê°€?
+	BOOL	IsCompletedGame( int nGameNum );	// nGameNum(RMG_...) °ÔÀÓÀ» Å¬¸®¾î Çß´Â°¡?
+	BOOL	IsAllCompleted() { return ( m_wGameState == (0x7fff >> (15 - RMG_MAX)) ); } // ¸ğµç ¹Ì´Ï°ÔÀÓÀ» Å¬¸®¾î Çß´Â°¡?
 	
-	WORD	m_wGameState;		// í•´ë‹¹ ë¯¸ë‹ˆê²Œì„ì˜ ì™„ë£Œì—¬ë¶€(ê° ë¹„íŠ¸)
-	WORD	m_wNowGame;			// í˜„ì¬ ì§„í–‰ì¤‘ì¸ ë¯¸ë‹ˆê²Œì„(í•´ë‹¹ ë¹„íŠ¸)
+	WORD	m_wGameState;		// ÇØ´ç ¹Ì´Ï°ÔÀÓÀÇ ¿Ï·á¿©ºÎ(°¢ ºñÆ®)
+	WORD	m_wNowGame;			// ÇöÀç ÁøÇàÁßÀÎ ¹Ì´Ï°ÔÀÓ(ÇØ´ç ºñÆ®)
 #ifdef __CLIENT
 	static CRainbowRace* GetInstance();
 	int		GetGameKey();
@@ -35,18 +35,18 @@ public:
 	BOOL	m_bCheckEnd;
 #endif // __CLIENT
 #ifdef __WORLDSERVER
-	void	SetNowGameComplete( CUser* pUser );	// ì´ë²ˆ ê²Œì„ì„ ì™„ë£Œìƒíƒœë¡œ ë§Œë“¤ê³  ë‹¤ìŒ ê²Œì„ì„ ì…‹íŒ…í•œë‹¤.
-	void	SetNextMiniGame();	// ë‹¤ìŒ ê²Œì„ ì…‹íŒ…...
+	void	SetNowGameComplete( CUser* pUser );	// ÀÌ¹ø °ÔÀÓÀ» ¿Ï·á»óÅÂ·Î ¸¸µé°í ´ÙÀ½ °ÔÀÓÀ» ¼ÂÆÃÇÑ´Ù.
+	void	SetNextMiniGame();	// ´ÙÀ½ °ÔÀÓ ¼ÂÆÃ...
 	void	OnMiniGamePacket( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket );
 
-	void	SetFinish()	{ m_bFinished = TRUE; m_wGameState = 0x0000; }		// ì™„ì£¼ ì„¤ì •
-	BOOL	IsFinished() { return m_bFinished; }	// ì´ë¯¸ ì™„ì£¼í•œ ë†ˆì¸ê°€..
+	void	SetFinish()	{ m_bFinished = TRUE; m_wGameState = 0x0000; }		// ¿ÏÁÖ ¼³Á¤
+	BOOL	IsFinished() { return m_bFinished; }	// ÀÌ¹Ì ¿ÏÁÖÇÑ ³ğÀÎ°¡..
 private:
-	int		GetCompletedGameNum();		// í˜„ì¬ê¹Œì§€ ì™„ë£Œí•œ ë¯¸ë‹ˆê²Œì„ ê°œìˆ˜
+	int		GetCompletedGameNum();		// ÇöÀç±îÁö ¿Ï·áÇÑ ¹Ì´Ï°ÔÀÓ °³¼ö
 	void	SetMiniGame( int nGameNum );
-	CMiniGameBase*	m_pMiniGame;		// í˜„ì¬ ì§„í–‰ì¤‘ì¸ ë¯¸ë‹ˆê²Œì„ í¬ì¸í„°
+	CMiniGameBase*	m_pMiniGame;		// ÇöÀç ÁøÇàÁßÀÎ ¹Ì´Ï°ÔÀÓ Æ÷ÀÎÅÍ
 
-	BOOL	m_bFinished;		// ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ì™„ì£¼í–ˆëŠ”ê°€..
+	BOOL	m_bFinished;		// ·¹ÀÎº¸¿ì ·¹ÀÌ½º ¿ÏÁÖÇß´Â°¡..
 #endif // __WORLDSERVER
 };
 
@@ -71,25 +71,25 @@ public:
 	static CRainbowRaceMng* GetInstance();
 	
 	BOOL	LoadScript();
-	int		GetMiniGameSize()			{ return m_vecMiniGame.size(); }	// ë¯¸ë‹ˆê²Œì„ ê°¯ìˆ˜
-	void	SetState( int nState )	{ m_nState = nState; }				// State ë³€ê²½
-	int		GetState()				{ return m_nState; }				// í˜„ì¬ State
+	int		GetMiniGameSize()			{ return m_vecMiniGame.size(); }	// ¹Ì´Ï°ÔÀÓ °¹¼ö
+	void	SetState( int nState )	{ m_nState = nState; }				// State º¯°æ
+	int		GetState()				{ return m_nState; }				// ÇöÀç State
 
 	void	Process();
-	void	SetNextTime( DWORD dwTick )		{ m_dwNextTime = dwTick; }			// ë‹¤ìŒ ë‹¨ê³„ ì‹œê°„ ì„¤ì •
+	void	SetNextTime( DWORD dwTick )		{ m_dwNextTime = dwTick; }			// ´ÙÀ½ ´Ü°è ½Ã°£ ¼³Á¤
 	CMiniGameBase* GetMiniGame( int nGameNum ) { return m_vecMiniGame[nGameNum]; }
 
-	CRainbowRace*	GetRainbowRacerPtr( DWORD dwPlayerId );	// í•´ë‹¹ í”Œë ˆì´ì–´ì˜ ë ˆì´ìŠ¤ ì •ë³´ë¥¼ ê°–ëŠ” í¬ì¸í„°ë¥¼ ì–»ëŠ”ë‹¤.
-	BOOL			IsEntry( DWORD dwPlayerId );	// í•´ë‹¹ í”Œë ˆì´ì–´ê°€ ì§„í–‰ì¤‘ì¸ ì„ ìˆ˜ì¸ê°€?(ë¸”ë§í¬ìœ™, ìŠ¤í‚¬, ì•„ì´í…œ ë§‰ê¸°ìœ„í•´...)
-	BOOL			IsApplicant( DWORD dwPlayerId ) { return GetRainbowRacerPtr( dwPlayerId ) ? TRUE : FALSE; }		// ì‹ ì²­í•œ ìœ ì €ì¸ê°€?
-	int				GetApplicantNum() { return m_mapRainbowRace.size(); }	// ì°¸ê°€ì ì¸ì› ìˆ˜
-	void			SetApplicationUser( CUser* pUser );		// í”Œë ˆì´ì–´ê°€ ì‹ ì²­í•œ ê²½ìš°..
-	void			SetApplication( DWORD dwPlayerId );		// ì‹ ì²­ ë“±ë¡
-	BOOL			SetDropOut( DWORD dwPlayerId );			// íƒˆë½
-	DWORD			GetNextTime()				{ return m_dwNextTime; }			// ë‹¤ìŒ ë‹¨ê³„ë¡œ ë„˜ì–´ê°€ëŠ” ì‹œê°„
-	void			OnMiniGamePacket( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket );	// ë¯¸ë‹ˆê²Œì„ íŒ¨í‚·ì„ ë°›ì€ë’¤ ì²˜ë¦¬
-	void			SetRanking( CUser* pUser );	// ë ˆì´ìŠ¤ë¥¼ ì¢…ë£Œí•œ ìºë¦­í„°ë¥¼ ìˆœìœ„ì— ë“±ë¡
-	void			SetPrevRanking( vector<DWORD> & vecPrevRanking );	// ì§€ë‚œ ìˆœìœ„ ë“±ë¡
+	CRainbowRace*	GetRainbowRacerPtr( DWORD dwPlayerId );	// ÇØ´ç ÇÃ·¹ÀÌ¾îÀÇ ·¹ÀÌ½º Á¤º¸¸¦ °®´Â Æ÷ÀÎÅÍ¸¦ ¾ò´Â´Ù.
+	BOOL			IsEntry( DWORD dwPlayerId );	// ÇØ´ç ÇÃ·¹ÀÌ¾î°¡ ÁøÇàÁßÀÎ ¼±¼öÀÎ°¡?(ºí¸µÅ©À®, ½ºÅ³, ¾ÆÀÌÅÛ ¸·±âÀ§ÇØ...)
+	BOOL			IsApplicant( DWORD dwPlayerId ) { return GetRainbowRacerPtr( dwPlayerId ) ? TRUE : FALSE; }		// ½ÅÃ»ÇÑ À¯ÀúÀÎ°¡?
+	int				GetApplicantNum() { return m_mapRainbowRace.size(); }	// Âü°¡ÀÚ ÀÎ¿ø ¼ö
+	void			SetApplicationUser( CUser* pUser );		// ÇÃ·¹ÀÌ¾î°¡ ½ÅÃ»ÇÑ °æ¿ì..
+	void			SetApplication( DWORD dwPlayerId );		// ½ÅÃ» µî·Ï
+	BOOL			SetDropOut( DWORD dwPlayerId );			// Å»¶ô
+	DWORD			GetNextTime()				{ return m_dwNextTime; }			// ´ÙÀ½ ´Ü°è·Î ³Ñ¾î°¡´Â ½Ã°£
+	void			OnMiniGamePacket( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket );	// ¹Ì´Ï°ÔÀÓ ÆĞÅ¶À» ¹ŞÀºµÚ Ã³¸®
+	void			SetRanking( CUser* pUser );	// ·¹ÀÌ½º¸¦ Á¾·áÇÑ Ä³¸¯ÅÍ¸¦ ¼øÀ§¿¡ µî·Ï
+	void			SetPrevRanking( vector<DWORD> & vecPrevRanking );	// Áö³­ ¼øÀ§ µî·Ï
 	vector<DWORD>	GetPrevRanking();
 	
 private:
@@ -100,29 +100,29 @@ private:
 		: dwPlayerId( dwPI ), nCompletedNum( nCN ), dwCompletedTick( dwCT )	{}
 	};
 	vector<MINIGMAME_PRIZE_LIST>	m_vecMiniGamePrizeList;
-	void	SetMiniGamePrize( DWORD dwTick );	// ë¯¸ë‹ˆê²Œì„ì™„ë£Œ ìƒí’ˆì§€ê¸‰ì˜ˆì•½ëœ ìƒí’ˆì„ ì§€ê¸‰
+	void	SetMiniGamePrize( DWORD dwTick );	// ¹Ì´Ï°ÔÀÓ¿Ï·á »óÇ°Áö±Ş¿¹¾àµÈ »óÇ°À» Áö±Ş
 public:
-	void	SetMiniGamePrizeList( DWORD dwPlayerId, int nCompletedNum, DWORD dwCompletedTick )// ë¯¸ë‹ˆê²Œì„ì™„ë£Œ ìƒí’ˆì§€ê¸‰ ì˜ˆì•½
+	void	SetMiniGamePrizeList( DWORD dwPlayerId, int nCompletedNum, DWORD dwCompletedTick )// ¹Ì´Ï°ÔÀÓ¿Ï·á »óÇ°Áö±Ş ¿¹¾à
 	{ m_vecMiniGamePrizeList.push_back( MINIGMAME_PRIZE_LIST( dwPlayerId, nCompletedNum, dwCompletedTick ) ); }
 	
 
 private:
-	BOOL	IsApplicationTime();		// ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ì‹ ì²­ ì‹œê°„ì¸ê°€?
-	BOOL	IsOpenTime();				// ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ì˜¤í”ˆ ì‹œê°„ì¸ê°€?
-	void	BeginRainbowRace();			// ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ì‹œì‘ì„ í´ë¼ì— ì•Œë¦¼(ë¹„ì ‘ì†ìëŠ” íƒˆë½)
-	void	SetNPC();					// ì§„í–‰ NPCë¥¼ ì„¸ìš´ë‹¤.
-	void	RemoveNPC();				// ë ˆì´ìŠ¤ê°€ ì™„ë£Œë˜ë©´ ì§„í–‰ NPCë¥¼ ì œê±°í•œë‹¤.
-	void	SetPrize();					// ìƒí’ˆì„ ìš°í¸ìœ¼ë¡œ ì „ë‹¬í•œë‹¤.
+	BOOL	IsApplicationTime();		// ·¹ÀÎº¸¿ì ·¹ÀÌ½º ½ÅÃ» ½Ã°£ÀÎ°¡?
+	BOOL	IsOpenTime();				// ·¹ÀÎº¸¿ì ·¹ÀÌ½º ¿ÀÇÂ ½Ã°£ÀÎ°¡?
+	void	BeginRainbowRace();			// ·¹ÀÎº¸¿ì ·¹ÀÌ½º ½ÃÀÛÀ» Å¬¶ó¿¡ ¾Ë¸²(ºñÁ¢¼ÓÀÚ´Â Å»¶ô)
+	void	SetNPC();					// ÁøÇà NPC¸¦ ¼¼¿î´Ù.
+	void	RemoveNPC();				// ·¹ÀÌ½º°¡ ¿Ï·áµÇ¸é ÁøÇà NPC¸¦ Á¦°ÅÇÑ´Ù.
+	void	SetPrize();					// »óÇ°À» ¿ìÆíÀ¸·Î Àü´ŞÇÑ´Ù.
 	
-	MAPRR					m_mapRainbowRace;	// ê° í”Œë ˆì´ì–´ì— ëŒ€í•œ ìƒíƒœ ëª©ë¡
-	vector<CMiniGameBase*>	m_vecMiniGame;		// ë¯¸ë‹ˆê²Œì„ ëª©ë¡
+	MAPRR					m_mapRainbowRace;	// °¢ ÇÃ·¹ÀÌ¾î¿¡ ´ëÇÑ »óÅÂ ¸ñ·Ï
+	vector<CMiniGameBase*>	m_vecMiniGame;		// ¹Ì´Ï°ÔÀÓ ¸ñ·Ï
 	CLuaBase				m_Lua;
 
-	int			m_nState;					// í˜„ì¬ ìƒíƒœ
-	DWORD		m_dwNextTime;				// ë‹¤ìŒ ìƒíƒœë¡œ ë„˜ì–´ê°€ëŠ” ì‹œê°„
-	vector<OBJID> m_vecNPCId;				// ì§„í–‰ NPCì˜ Id
-	vector<DWORD> m_vecdwRankingId;			// ìˆœìœ„ë³„ PlayerId
-	vector<DWORD> m_vecPrevRanking;			// ì§€ë‚œ 5ìœ„ê¹Œì§€ ìˆœìœ„
+	int			m_nState;					// ÇöÀç »óÅÂ
+	DWORD		m_dwNextTime;				// ´ÙÀ½ »óÅÂ·Î ³Ñ¾î°¡´Â ½Ã°£
+	vector<OBJID> m_vecNPCId;				// ÁøÇà NPCÀÇ Id
+	vector<DWORD> m_vecdwRankingId;			// ¼øÀ§º° PlayerId
+	vector<DWORD> m_vecPrevRanking;			// Áö³­ 5À§±îÁö ¼øÀ§
 };
 #endif __WORLDSERVER
 

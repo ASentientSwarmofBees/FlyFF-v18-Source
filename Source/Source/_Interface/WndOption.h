@@ -1,4 +1,4 @@
-ï»¿// WndOption.h: interface for the CWndNeuz class.
+// WndOption.h: interface for the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -9,7 +9,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "WndOptionGame.h"	 // ê²Œìž„ ì˜µì…˜
+#include "WndOptionGame.h"	 // °ÔÀÓ ¿É¼Ç
 
 class CWndOption : public CWndNeuz 
 { 

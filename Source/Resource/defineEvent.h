@@ -1,4 +1,4 @@
-﻿#ifndef __DEFINEEVENT
+#ifndef __DEFINEEVENT
 #define __DEFINEEVENT
 
 #define EVENT_SECRETFORTRESS  0

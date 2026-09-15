@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "DPCacheSrvr.h"
 #include "DPClient.h"
 #include "DPCoreClient.h"
@@ -152,7 +152,7 @@ void CDPCoreClient::OnJoin( CAr & ar, DPID dpid )
 	DWORD dwSerial;
 	BYTE byData;
 	ar >> dwSerial;
-	ar >> byData;	// ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
+	ar >> byData;	// »ç¿ëÇÏÁö ¾Ê´Â´Ù.
 
 	CPlayer* pPlayer	= CPlayerMng::Instance()->GetPlayerBySerial( dwSerial );
 	if( pPlayer == NULL )
@@ -181,7 +181,7 @@ void CDPCoreClient::OnLeave( CAr & ar, DPID dpid )
 
 	DWORD dwSerial;
 	ar >> dwSerial;
-	CPlayer* pPlayer = CPlayerMng::Instance()->GetPlayerBySerial( dwSerial );  // dpidê°€ serialë²ˆí˜¸ì´ë‹¤.
+	CPlayer* pPlayer = CPlayerMng::Instance()->GetPlayerBySerial( dwSerial );  // dpid°¡ serial¹øÈ£ÀÌ´Ù.
 	if( pPlayer )
 		g_DPCacheSrvr.DestroyPlayer( dpid );
 }

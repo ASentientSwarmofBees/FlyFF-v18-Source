@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndGuildBank.h"
@@ -54,12 +54,12 @@ BOOL CWndGuildBankMessageBox::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 #endif //__VER < 8
 
 /****************************************************
-  WndId : APP_GUILD_BANK - ê¸¸ë“œì°½ê³ 
+  WndId : APP_GUILD_BANK - ±æµåÃ¢°í
   CtrlId : WIDC_CUSTOM1 - Custom
   CtrlId : WIDC_TABCTRL1 - 
   CtrlId : WIDC_GUILDBANK_NUM - 0
-  CtrlId : WIDC_BUTTON1 - ê¸¸ë“œì§€ì›
-  CtrlId : WIDC_BUTTON2 - ë§í† ì œì‘
+  CtrlId : WIDC_BUTTON1 - ±æµåÁö¿ø
+  CtrlId : WIDC_BUTTON2 - ¸ÁÅäÁ¦ÀÛ
 ****************************************************/
 
 CWndGuildBank::CWndGuildBank() 
@@ -88,7 +88,7 @@ void CWndGuildBank::OnDraw( C2DRender* p2DRender )
 void CWndGuildBank::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 #if __VER >= 11 // __SYS_POCKET
 	if(GetWndBase( APP_BAG_EX )) GetWndBase( APP_BAG_EX )->Destroy();
 #endif
@@ -110,7 +110,7 @@ void CWndGuildBank::OnInitialUpdate()
 	WTCITEM tabTabItem;
 	
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_GAME_ITEM);//"ì•„ì´í…œ";
+	tabTabItem.pszText = prj.GetText(TID_GAME_ITEM);//"¾ÆÀÌÅÛ";
 	tabTabItem.pWndBase = &m_wndItemCtrl;
 	pTabCtrl->InsertItem( 0, &tabTabItem );
 	
@@ -121,9 +121,9 @@ void CWndGuildBank::OnInitialUpdate()
 	CGuild *pGuild = g_pPlayer->GetGuild();
 	if( pGuild )
 	{
-		if(	pGuild->IsMaster( g_pPlayer->m_idPlayer ) == FALSE )	// ê¸¸ë§ˆê°€ ì•„ë‹ˆë©´ 
+		if(	pGuild->IsMaster( g_pPlayer->m_idPlayer ) == FALSE )	// ±æ¸¶°¡ ¾Æ´Ï¸é 
 		{
-			CWndButton* pWndButt = (CWndButton*)GetDlgItem(WIDC_BUTTON2);	// ë§í† ì œì‘ ë²„íŠ¼ì„ disable ì‹œí‚¨ë‹¤.
+			CWndButton* pWndButt = (CWndButton*)GetDlgItem(WIDC_BUTTON2);	// ¸ÁÅäÁ¦ÀÛ ¹öÆ°À» disable ½ÃÅ²´Ù.
 			pWndButt->EnableWindow( FALSE );
 		}
 	}
@@ -173,14 +173,14 @@ void CWndGuildBank::OnInitialUpdate()
 	//pWndButtLog->SetVisible(FALSE);
 #endif //__GUILD_BANK_LOG
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildBank::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_BANK, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndGuildBank::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -235,7 +235,7 @@ BOOL CWndGuildBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 						UINT SelectCount = pWndItemCtrl->GetSelectedCount();
 						if( SelectCount != 1)
 						{
-							//g_WndMng.PutString( "ì¥ì°© ë˜ì–´ ìˆëŠ”ê²ƒì€ ë„£ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤", NULL, 0xffffff00 );
+							//g_WndMng.PutString( "ÀåÂø µÇ¾î ÀÖ´Â°ÍÀº ³ÖÀ»¼ö ¾ø½À´Ï´Ù", NULL, 0xffffff00 );
 							g_WndMng.PutString( prj.GetText(TID_GAME_EQUIPPUT), NULL, prj.GetTextColor( TID_GAME_EQUIPPUT ) );
 							
 						}
@@ -266,8 +266,8 @@ BOOL CWndGuildBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 								g_WndMng.m_pWndTradeGold->MoveParentCenter();
 								CWndStatic* pStatic	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_STATIC );
 								CWndStatic* pStaticCount	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_CONTROL1 );
-								CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"ëª‡ê°œë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
-								CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " ê°¯ìˆ˜ : ";
+								CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"¸î°³¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
+								CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " °¹¼ö : ";
 								pStatic->m_strTitle = strMain;
 								pStaticCount->m_strTitle = strCount;
 							}
@@ -291,7 +291,7 @@ BOOL CWndGuildBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			{
 				switch( nID )
 				{
-				case WTBID_CLOSE: // ì¢…ë£Œ
+				case WTBID_CLOSE: // Á¾·á
 					{
 						g_DPlay.SendCloseGuildBankWnd();
 					}
@@ -310,7 +310,7 @@ BOOL CWndGuildBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			break;
 
-		case WIDC_BUTTON1:		// ê¸¸ë“œ ì§€ì›(ê³µí—Œ)
+		case WIDC_BUTTON1:		// ±æµå Áö¿ø(°øÇå)
 			SAFE_DELETE(m_pwndGuildMerit);
 			// TID_GAME_GUILDNOTHINGNAME 
 			{
@@ -319,7 +319,7 @@ BOOL CWndGuildBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				{
 					if( pGuild->m_szGuild[0] == '\0' )
 					{
-						// "ê¸¸ë“œëª…ì¹­ì´ ì—†ì–´ ê¸¸ë“œì— ì§€ì›ì„ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ê¸¸ë“œë§ˆìŠ¤í„°ëŠ” ê¸¸ë“œëª…ì¹­ì„ ì •í•´ì£¼ì„¸ìš”."
+						// "±æµå¸íÄªÀÌ ¾ø¾î ±æµå¿¡ Áö¿øÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù. ±æµå¸¶½ºÅÍ´Â ±æµå¸íÄªÀ» Á¤ÇØÁÖ¼¼¿ä."
 						g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDNOTHINGNAME ), MB_OK, this );
 					}
 					else
@@ -330,12 +330,12 @@ BOOL CWndGuildBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 			}
 			break;
-		case WIDC_BUTTON2:		// ë§í† ì œì‘.
+		case WIDC_BUTTON2:		// ¸ÁÅäÁ¦ÀÛ.
 			{
 				CGuild *pGuild = g_pPlayer->GetGuild();
 				if( pGuild )
 				{
-					if( pGuild->m_nLevel < 4 )		// 4ë ˆë²¨ ì´í•˜ëŠ” ë§í† ëª»ë§Œë“¬.
+					if( pGuild->m_nLevel < 4 )		// 4·¹º§ ÀÌÇÏ´Â ¸ÁÅä¸ø¸¸µë.
 					{
 						g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDNOTLEVEL ), MB_OK, this );
 						break;
@@ -349,13 +349,13 @@ BOOL CWndGuildBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			{
 				CGuild *pGuild = g_pPlayer->GetGuild();
 
-				// ê¸¸ë“œê°€ ì¡´ì¬í•˜ê³  ìš°ìŠ¹í•œ ê¸¸ë“œì´ë©´ì„œ...ê·¸ê¸¸ë“œì˜ ë§´ë²„ì´ë©´...ë§í†  ìƒì„±ê°€ëŠ¥
+				// ±æµå°¡ Á¸ÀçÇÏ°í ¿ì½ÂÇÑ ±æµåÀÌ¸é¼­...±×±æµåÀÇ ¸É¹öÀÌ¸é...¸ÁÅä »ı¼º°¡´É
 				if( pGuild && g_GuildCombatMng.m_uWinGuildId == pGuild->GetGuildId() && pGuild->IsMember( g_pPlayer->m_idPlayer ) )
 				{
 					CWndGuildBankMessageBox* pBox = new CWndGuildBankMessageBox;
 					g_WndMng.OpenCustomBox( "", pBox );
 					CString str;
-					str.Format( prj.GetText( TID_GAME_GUILDCOMBAT_MAKE_CLOAK ) );	//"ìˆ˜ì •ìš”ë§!! ìš©ë§í† ë¥¼ ìƒì„±í•˜ì‹œê² ìŠµë‹ˆê¹Œ? 1,000í˜ëƒì˜ ì œì‘ ìˆ˜ìˆ˜ë£Œê°€ ë¶€ê³¼ë©ë‹ˆë‹¤." );
+					str.Format( prj.GetText( TID_GAME_GUILDCOMBAT_MAKE_CLOAK ) );	//"¼öÁ¤¿ä¸Á!! ¿ë¸ÁÅä¸¦ »ı¼ºÇÏ½Ã°Ú½À´Ï±î? 1,000Æä³ÄÀÇ Á¦ÀÛ ¼ö¼ö·á°¡ ºÎ°úµË´Ï´Ù." );
 					pBox->SetValue( str );
 				}
 			}
@@ -411,7 +411,7 @@ void CWndGuildBankLog::OnDraw( C2DRender* p2DRender )
 void CWndGuildBankLog::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 
 	CWndTabCtrl* pWndTabCtrl = (CWndTabCtrl*)GetDlgItem( WIDC_TABCTRL1 );	
 	WTCITEM tabTabItem;
@@ -435,22 +435,22 @@ void CWndGuildBankLog::OnInitialUpdate()
 	m_wndAddItemLog.UpdateLogList();
 
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_GAME_GUILD_BANK_ADDITEMLOG); //"ì•„ì´í…œ ì¶”ê°€"
+	tabTabItem.pszText = prj.GetText(TID_GAME_GUILD_BANK_ADDITEMLOG); //"¾ÆÀÌÅÛ Ãß°¡"
 	tabTabItem.pWndBase = &m_wndAddItemLog;
 	pWndTabCtrl->InsertItem( 0, &tabTabItem );
 	
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_GAME_GUILD_BANK_REMOVEITEMLOG); //"ì•„ì´í…œ ì œê±°"
+	tabTabItem.pszText = prj.GetText(TID_GAME_GUILD_BANK_REMOVEITEMLOG); //"¾ÆÀÌÅÛ Á¦°Å"
 	tabTabItem.pWndBase = &m_wndRemoveItemLog;
 	pWndTabCtrl->InsertItem( 1, &tabTabItem );
 
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_GAME_GUILD_BANK_RECEIVEPENYALOG); //"í˜ëƒ ì…ê¸ˆ"
+	tabTabItem.pszText = prj.GetText(TID_GAME_GUILD_BANK_RECEIVEPENYALOG); //"Æä³Ä ÀÔ±İ"
 	tabTabItem.pWndBase = &m_wndReceivePenyaLog;
 	pWndTabCtrl->InsertItem( 2, &tabTabItem );
 
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_GAME_GUILD_BANK_INVESTPENYALOG); //"í˜ëƒ ì¶œê¸ˆ"
+	tabTabItem.pszText = prj.GetText(TID_GAME_GUILD_BANK_INVESTPENYALOG); //"Æä³Ä Ãâ±İ"
 	tabTabItem.pWndBase = &m_wndInvestPenyaLog;
 	pWndTabCtrl->InsertItem( 3, &tabTabItem );
 
@@ -488,10 +488,10 @@ void CWndGuildBankLog::OnInitialUpdate()
 	}
 }
 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildBankLog::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_BANK_LOG, 0, CPoint( 0, 0 ), pWndParent );
 } 
 

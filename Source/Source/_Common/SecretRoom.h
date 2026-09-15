@@ -1,4 +1,4 @@
-ï»¿// SecretRoom.h: interface for the CSecretRoom class.
+// SecretRoom.h: interface for the CSecretRoom class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -79,52 +79,52 @@ public:
 
 	map<BYTE, CSecretRoomContinent*>	m_mapSecretRoomContinent;
 	
-	int	m_nMinGuildLevel;			// ì°¸ì—¬ ê°€ëŠ¥ ìµœì†Œ ê¸¸ë“œ ë ˆë²¨
-	int m_nMinGuildMemberLevel;		// ì°¸ì—¬ ê¸¸ë“œì›ì˜ ìµœì†Œ ë ˆë²¨
-	int m_nMinPenya;				// ìµœì†Œ ì…ì°° í˜ëƒ
-	int m_nMinGuildNum;				// ì°¸ì—¬ ê°€ëŠ¥ ê¸¸ë“œ ìˆ˜
-	int m_nMaxGuildNum;				// ì°¸ì—¬ ê°€ëŠ¥ ê¸¸ë“œ ìˆ˜
-	int m_nMinGuildMemberNum;		// ìµœì†Œ ì°¸ì—¬ ê¸¸ë“œì› ìˆ˜
-	int m_nMaxGuildMemberNum;		// ìµœëŒ€ ì°¸ì—¬ ê¸¸ë“œì› ìˆ˜
-	int m_nCancelReturnRate;		// ì…ì°° ì·¨ì†Œ í˜ëƒ ë°˜í™˜ë¥ 
-	int m_nDropoutReturnRate;		// ì…ì°° ì‹¤íŒ¨ í˜ëƒ ë°˜í™˜ë¥ 
+	int	m_nMinGuildLevel;			// Âü¿© °¡´É ÃÖ¼Ò ±æµå ·¹º§
+	int m_nMinGuildMemberLevel;		// Âü¿© ±æµå¿øÀÇ ÃÖ¼Ò ·¹º§
+	int m_nMinPenya;				// ÃÖ¼Ò ÀÔÂû Æä³Ä
+	int m_nMinGuildNum;				// Âü¿© °¡´É ±æµå ¼ö
+	int m_nMaxGuildNum;				// Âü¿© °¡´É ±æµå ¼ö
+	int m_nMinGuildMemberNum;		// ÃÖ¼Ò Âü¿© ±æµå¿ø ¼ö
+	int m_nMaxGuildMemberNum;		// ÃÖ´ë Âü¿© ±æµå¿ø ¼ö
+	int m_nCancelReturnRate;		// ÀÔÂû Ãë¼Ò Æä³Ä ¹İÈ¯·ü
+	int m_nDropoutReturnRate;		// ÀÔÂû ½ÇÆĞ Æä³Ä ¹İÈ¯·ü
 
-	int m_nMonsterGenNum;			// ì¤‘ê°„ ë³´ìŠ¤ ì¶œí˜„ ì¡°ê±´ ëª¬ìŠ¤í„° ìˆ˜
+	int m_nMonsterGenNum;			// Áß°£ º¸½º ÃâÇö Á¶°Ç ¸ó½ºÅÍ ¼ö
 
-	int		m_nState;				// í˜„ì¬ state
-	DWORD	m_dwRemainTime;			// í˜„ì¬ stateì˜ ë‚¨ì€ ì‹œê°„
+	int		m_nState;				// ÇöÀç state
+	DWORD	m_dwRemainTime;			// ÇöÀç stateÀÇ ³²Àº ½Ã°£
 
-	map<int, int>	m_mapMonsterNum;	// ê° ëª¬ìŠ¤í„°ì˜ ì¢… ê°œì²´ìˆ˜(ì§€ì •ëœ ê°œì²´ìˆ˜ì”© ìƒì„±í•˜ê¸° ë•Œë¬¸ì— í•„ìš”í•˜ë‹¤.)
+	map<int, int>	m_mapMonsterNum;	// °¢ ¸ó½ºÅÍÀÇ Á¾ °³Ã¼¼ö(ÁöÁ¤µÈ °³Ã¼¼ö¾¿ »ı¼ºÇÏ±â ¶§¹®¿¡ ÇÊ¿äÇÏ´Ù.)
 #ifdef __CLIENT
 	CSecretRoomContinent* m_pSRCont;
 #endif // __CLIENT
 #ifdef __WORLDSERVER	
 	BOOL LoadScript();
-	void Process();			//  ì§„í–‰ ìˆœì„œê°€ ì •ì˜ë˜ì–´ ìˆìœ¼ë‹ˆê¹Œ ì½”ë“œ ìˆ˜ì •í• ë•Œ ì–´ë ¤ìš°ë©´ í•„ìš”í•˜ë©´ ì—¬ê¸°ë¶€í„° í™•ì¸í•˜ì!!!
-	BOOL CheckOpenTime();	// ë¹„ë°€ì˜ ë°© ì˜¤í”ˆì‹œê°„ì¸ì§€ ê²€ì‚¬
+	void Process();			//  ÁøÇà ¼ø¼­°¡ Á¤ÀÇµÇ¾î ÀÖÀ¸´Ï±î ÄÚµå ¼öÁ¤ÇÒ¶§ ¾î·Á¿ì¸é ÇÊ¿äÇÏ¸é ¿©±âºÎÅÍ È®ÀÎÇÏÀÚ!!!
+	BOOL CheckOpenTime();	// ºñ¹ĞÀÇ ¹æ ¿ÀÇÂ½Ã°£ÀÎÁö °Ë»ç
 	void SendNowState( CUser* pUser, int nState, DWORD dwRemainTime );
 	void SendNowStateAllMember( BYTE nCont = CONT_NODATA, int nState = 0, DWORD dwRemainTime = 0 );
-	void GetAllInfo( CUser* pUser );				// ì ‘ì†ì‹œ í˜„ì¬ ì§„í–‰ì¤‘ì¸ êµ¬ì„±ì›ì´ë©´ ë¹„ë°€ì˜ ë°© í˜„ì¬ ì •ë³´ë¥¼ ì „ì†¡
-	BOOL IsPossibleGuild( CUser* pUser );			// ì…ì°° ê°€ëŠ¥í•œ ê¸¸ë“œì¸ê°€?
-	BOOL IsGuildMaster( CUser* pUser );				// ê¸¸ë“œ ë§ˆìŠ¤í„° ì¸ê°€?
-	BOOL IsOtherTenderGuild( CUser* pUser );		// ë‹¤ë¥¸ ëŒ€ë¥™ì— ì…ì°°í•œ ê¸¸ë“œì¸ê°€?
-	void SetTenderOpenWnd( CUser* pUser );			// ë¹„ë°€ì˜ ë°© ì‹ ì²­ì°½ì„ ì—´ë•Œ í•„ìš”í•œ ì •ë³´ ì „ì†¡
-	void SetTender( CUser* pUser, int nPenya );		// ì…ì°°
-	void SetTenderCancelReturn( CUser* pUser );		// ì…ì°° ì·¨ì†Œì‹œ ìˆ˜ìˆ˜ë£Œë¥¼ ì œì™¸í•œ ì‹ ì²­ê¸ˆì„ ë°˜í™˜í•œë‹¤.
-	void SetLineUpOpenWnd( CUser* pUser );			// ì°¸ê°€ì êµ¬ì„± ì°½ì„ ì—´ë•Œ í•„ìš”í•œ ì •ë³´ ì „ì†¡
-	void SetLineUp( CUser* pUser, vector<DWORD> vecLineUpMember );	// ì°¸ê°€ì êµ¬ì„±
-	void GetTenderView( CUser* pUser );				// ì…ì°°í˜„í™© ì°½ì„ ì—´ë•Œ 
-	void SecretRoomOpen();							// ê¸ˆì£¼ ë¹„ë°€ì˜ ë°©ì„ ì˜¤í”ˆí•œë‹¤.
-	void SetTeleportSecretRoom( CUser* pUser );		// ë¹„ë°€ì˜ ë°©ìœ¼ë¡œ í…”ë ˆí¬íŠ¸...
-	void SetSecretRoomKill( DWORD dwWorldId, DWORD dwMonsterId );	// ë¹„ë°€ì˜ ë°©ì—ì„œ ëª¬ìŠ¤í„°ë¥¼ killí–ˆì„ë•Œ ì²˜ë¦¬
-	void SetFailGuild( CUser* pUser );				// ê¸¸ë§ˆê°€ ì£½ê±°ë‚˜ ë¡œê·¸ ì•„ì›ƒì‹œ íŒ¨ë°° ì²˜ë¦¬
-	D3DXVECTOR3 GetRevivalPos( CUser* pUser );		// ìºë¦­í„° ì‚¬ë§ì‹œ, ì¢…ë£Œì‹œ, ë¡œê·¸ ì•„ì›ƒì‹œ ê° ìºë¦­í„° ë¶€í™œìœ„ì¹˜
+	void GetAllInfo( CUser* pUser );				// Á¢¼Ó½Ã ÇöÀç ÁøÇàÁßÀÎ ±¸¼º¿øÀÌ¸é ºñ¹ĞÀÇ ¹æ ÇöÀç Á¤º¸¸¦ Àü¼Û
+	BOOL IsPossibleGuild( CUser* pUser );			// ÀÔÂû °¡´ÉÇÑ ±æµåÀÎ°¡?
+	BOOL IsGuildMaster( CUser* pUser );				// ±æµå ¸¶½ºÅÍ ÀÎ°¡?
+	BOOL IsOtherTenderGuild( CUser* pUser );		// ´Ù¸¥ ´ë·ú¿¡ ÀÔÂûÇÑ ±æµåÀÎ°¡?
+	void SetTenderOpenWnd( CUser* pUser );			// ºñ¹ĞÀÇ ¹æ ½ÅÃ»Ã¢À» ¿­¶§ ÇÊ¿äÇÑ Á¤º¸ Àü¼Û
+	void SetTender( CUser* pUser, int nPenya );		// ÀÔÂû
+	void SetTenderCancelReturn( CUser* pUser );		// ÀÔÂû Ãë¼Ò½Ã ¼ö¼ö·á¸¦ Á¦¿ÜÇÑ ½ÅÃ»±İÀ» ¹İÈ¯ÇÑ´Ù.
+	void SetLineUpOpenWnd( CUser* pUser );			// Âü°¡ÀÚ ±¸¼º Ã¢À» ¿­¶§ ÇÊ¿äÇÑ Á¤º¸ Àü¼Û
+	void SetLineUp( CUser* pUser, vector<DWORD> vecLineUpMember );	// Âü°¡ÀÚ ±¸¼º
+	void GetTenderView( CUser* pUser );				// ÀÔÂûÇöÈ² Ã¢À» ¿­¶§ 
+	void SecretRoomOpen();							// ±İÁÖ ºñ¹ĞÀÇ ¹æÀ» ¿ÀÇÂÇÑ´Ù.
+	void SetTeleportSecretRoom( CUser* pUser );		// ºñ¹ĞÀÇ ¹æÀ¸·Î ÅÚ·¹Æ÷Æ®...
+	void SetSecretRoomKill( DWORD dwWorldId, DWORD dwMonsterId );	// ºñ¹ĞÀÇ ¹æ¿¡¼­ ¸ó½ºÅÍ¸¦ killÇßÀ»¶§ Ã³¸®
+	void SetFailGuild( CUser* pUser );				// ±æ¸¶°¡ Á×°Å³ª ·Î±× ¾Æ¿ô½Ã ÆĞ¹è Ã³¸®
+	D3DXVECTOR3 GetRevivalPos( CUser* pUser );		// Ä³¸¯ÅÍ »ç¸Á½Ã, Á¾·á½Ã, ·Î±× ¾Æ¿ô½Ã °¢ Ä³¸¯ÅÍ ºÎÈ°À§Ä¡
 
 	CLuaBase m_Lua;
 
-	vector<__SECRETROOM_MONSTER> m_vecNormalMonster;	// ì¼ë°˜ ëª¬ìŠ¤í„° ì¢…ë¥˜, ìœ„ì¹˜, ê°œì²´ìˆ˜, ì„ ê³µ ì†ì„±
-	vector<__SECRETROOM_MONSTER> m_vecMidBossMonster;	// ì¤‘ê°„ë³´ìŠ¤ ëª¬ìŠ¤í„° ì¢…ë¥˜, ìœ„ì¹˜, ê°œì²´ìˆ˜, ì„ ê³µ ì†ì„±
-	vector<__SECRETROOM_MONSTER> m_vecBossMonster;		// ìµœì¢…ë³´ìŠ¤ ëª¬ìŠ¤í„° ì¢…ë¥˜, ìœ„ì¹˜, ê°œì²´ìˆ˜, ì„ ê³µ ì†ì„±
+	vector<__SECRETROOM_MONSTER> m_vecNormalMonster;	// ÀÏ¹İ ¸ó½ºÅÍ Á¾·ù, À§Ä¡, °³Ã¼¼ö, ¼±°ø ¼Ó¼º
+	vector<__SECRETROOM_MONSTER> m_vecMidBossMonster;	// Áß°£º¸½º ¸ó½ºÅÍ Á¾·ù, À§Ä¡, °³Ã¼¼ö, ¼±°ø ¼Ó¼º
+	vector<__SECRETROOM_MONSTER> m_vecBossMonster;		// ÃÖÁ¾º¸½º ¸ó½ºÅÍ Á¾·ù, À§Ä¡, °³Ã¼¼ö, ¼±°ø ¼Ó¼º
 #endif // __WORLDSERVER
 };
 
@@ -135,38 +135,38 @@ public:
 	CSecretRoomContinent( BYTE nCont );
 	virtual ~CSecretRoomContinent();
 
-	// CSecretRoomMngë¥¼ í†µí•´ ë“¤ì–´ì˜¤ëŠ” í•¨ìˆ˜ê°€ ê±°ì˜ ëŒ€ë¶€ë¶„ì´ë‹¤.
+	// CSecretRoomMng¸¦ ÅëÇØ µé¾î¿À´Â ÇÔ¼ö°¡ °ÅÀÇ ´ëºÎºĞÀÌ´Ù.
 
 	int		m_nState;
 	DWORD	m_dwRemainTime;
-	BYTE	m_nContinent;	// í˜„ì¬ ì§„í–‰ë˜ëŠ” ë¹„ë°€ì˜ ë°©ì´ í•´ë‹¹í•˜ëŠ” ëŒ€ë¥™(ë™ë¶€, ì„œë¶€)
-	vector<__SECRETROOM_TENDER> m_vecSecretRoomTender;		// ì‹ ì²­ ê¸¸ë“œ ëª©ë¡
+	BYTE	m_nContinent;	// ÇöÀç ÁøÇàµÇ´Â ºñ¹ĞÀÇ ¹æÀÌ ÇØ´çÇÏ´Â ´ë·ú(µ¿ºÎ, ¼­ºÎ)
+	vector<__SECRETROOM_TENDER> m_vecSecretRoomTender;		// ½ÅÃ» ±æµå ¸ñ·Ï
 
-	int		GetTenderGuild( DWORD dwGuildId );			// ì‹ ì²­í•œ ê¸¸ë“œì´ë©´ m_vecSecretRoomTenderì˜ indexë¥¼ ë°˜í™˜í•œë‹¤.
+	int		GetTenderGuild( DWORD dwGuildId );			// ½ÅÃ»ÇÑ ±æµåÀÌ¸é m_vecSecretRoomTenderÀÇ index¸¦ ¹İÈ¯ÇÑ´Ù.
 #ifdef __WORLDSERVER
 	void	Process( DWORD dwTick );	
-	BOOL	IsLineUpMember( CUser* pUser );				// êµ¬ì„±ëœ ì°¸ê°€ì ì¸ê°€?
-	void	SetContTender( CUser* pUser, int nPenya );	// ì‹¤ì œ í•´ë‹¹ ëŒ€ë¥™ì— ì…ì°°
-	void	SortTenderGuild();							// ì…ì°°ê¸ˆ ìˆœìœ¼ë¡œ ì •ë ¬
-	void	SetContTenderCancelReturn( CUser* pUser );	// ì…ì°° ì·¨ì†Œì‹œ ë°˜í™˜
-	void	SetContLineUp( CUser* pUser, vector<DWORD> vecLineUpMember );	// ì°¸ê°€ì êµ¬ì„±
-	void	SecretRoomContOpen();							// ì‹¤ì œ ëŒ€ë¥™ë³„ ë¹„ë°€ì˜ ë°© ì˜¤í”ˆ
-	void	SetSecretRoomWorld( int nContNum );				// ê° ê¸¸ë“œë¥¼ ë¹„ë°€ì˜ ë°© 16ê°œì¤‘ì— ì§€ì •í•´ ì¤€ë‹¤.
-	void	SetTeleportSecretRoomCont( CUser* pUser );		// í•´ë‹¹ ë¹„ë°€ì˜ ë°©ìœ¼ë¡œ í…”ë ˆí¬íŠ¸...
-	void	SetTeleportNormalRoom( CUser* pUser, int nIndex );		// ì¼ë°˜ ëª¬ìŠ¤í„° ìœ„ì¹˜ë¡œ í…”ë ˆí¬íŠ¸...
-	void	SetTeleportBossRoom( CUser* pUser, int nIndex );		// ìµœì¢…ë³´ìŠ¤ì¸ ê²½ìš° í…”ë ˆí¬íŠ¸ ìœ„ì¹˜ê°€ ë‹¤ë¥´ë‹¤.
-	void	CreateMonster();			// ëª¬ìŠ¤í„°ë¥¼ ì§€ì •í•œ ê°¯ìˆ˜(ìŠ¤í¬ë¦½íŠ¸)ë§Œí¼ì”© ë‹¨ê³„ì ìœ¼ë¡œ ìƒì„±í•œë‹¤.
-	void	RemoveAllSecretRoomObj( DWORD dwWorldId );		// ë¹„ë°€ì˜ ë°©ì—ì„œ íŒ¨ë°°í•˜ê±°ë‚˜ ìŠ¹ë¦¬ê¸¸ë“œê°€ ë‚˜ì˜¤ë©´ ëª¨ë“  ëª¬ìŠ¤í„° ì œê±°
-	void	SetSecretRoomContKill( DWORD dwWorldId, DWORD dwMonsterId, BOOL bKill = TRUE );	// ëª¬ìŠ¤í„° killì‹œ ì²˜ë¦¬(ìŠ¹ë¦¬ ê¸¸ë“œ, ë³´ìŠ¤ë‹¨ê³„ ë„ ì²˜ë¦¬í•œë‹¤.)
-	BOOL	IsSecretRoomMonster( DWORD dwMonsterId, int nWarState );	// ëª¬ìŠ¤í„° killì‹œ í•´ë‹¹ ëª¬ìŠ¤í„°ê°€ ë¹„ë°€ì˜ ë°© ëª¬ìŠ¤í„°ì¸ê°€?
-	void	UpdateInfoToMember( CUser* pUser, BYTE nType, int nIndex = NULL_ID );	// kill countë¥¼ clientì— ì•Œë ¤ì¤€ë‹¤.
-	void	UpdateInfoToAllMember( BYTE nType, int nIndex = NULL_ID );		// ìœ„ ì •ë³´ë¥¼ êµ¬ì„±ëœ ëª¨ë“  clientì— ì „ì†¡(í•´ë‹¹ ëŒ€ë¥™ë§Œ)
-	void	ProcessInGuildMaster();	// ê¸¸ë§ˆê°€ í•´ë‹¹ ë¹„ë°€ì˜ ë°©ì— ì¡´ì¬í•˜ëŠ” ê²€ì‚¬
-	void	SetContFailGuild( DWORD dwGuildId );			// ê¸¸ë§ˆê°€ ì£½ê±°ë‚˜ ë¡œê·¸ ì•„ì›ƒì‹œ íŒ¨ë°° ì²˜ë¦¬
-	void	SetContCloseWait();								// ë¹„ë°€ì˜ ë°©ì´ ì¢…ë£Œë˜ê³  ëŒ€ê¸°ì‹œê°„...
-	void	SetContClose();									// ë¹„ë°€ì˜ ë°© ìµœì¢… ì¢…ë£Œ
+	BOOL	IsLineUpMember( CUser* pUser );				// ±¸¼ºµÈ Âü°¡ÀÚ ÀÎ°¡?
+	void	SetContTender( CUser* pUser, int nPenya );	// ½ÇÁ¦ ÇØ´ç ´ë·ú¿¡ ÀÔÂû
+	void	SortTenderGuild();							// ÀÔÂû±İ ¼øÀ¸·Î Á¤·Ä
+	void	SetContTenderCancelReturn( CUser* pUser );	// ÀÔÂû Ãë¼Ò½Ã ¹İÈ¯
+	void	SetContLineUp( CUser* pUser, vector<DWORD> vecLineUpMember );	// Âü°¡ÀÚ ±¸¼º
+	void	SecretRoomContOpen();							// ½ÇÁ¦ ´ë·úº° ºñ¹ĞÀÇ ¹æ ¿ÀÇÂ
+	void	SetSecretRoomWorld( int nContNum );				// °¢ ±æµå¸¦ ºñ¹ĞÀÇ ¹æ 16°³Áß¿¡ ÁöÁ¤ÇØ ÁØ´Ù.
+	void	SetTeleportSecretRoomCont( CUser* pUser );		// ÇØ´ç ºñ¹ĞÀÇ ¹æÀ¸·Î ÅÚ·¹Æ÷Æ®...
+	void	SetTeleportNormalRoom( CUser* pUser, int nIndex );		// ÀÏ¹İ ¸ó½ºÅÍ À§Ä¡·Î ÅÚ·¹Æ÷Æ®...
+	void	SetTeleportBossRoom( CUser* pUser, int nIndex );		// ÃÖÁ¾º¸½ºÀÎ °æ¿ì ÅÚ·¹Æ÷Æ® À§Ä¡°¡ ´Ù¸£´Ù.
+	void	CreateMonster();			// ¸ó½ºÅÍ¸¦ ÁöÁ¤ÇÑ °¹¼ö(½ºÅ©¸³Æ®)¸¸Å­¾¿ ´Ü°èÀûÀ¸·Î »ı¼ºÇÑ´Ù.
+	void	RemoveAllSecretRoomObj( DWORD dwWorldId );		// ºñ¹ĞÀÇ ¹æ¿¡¼­ ÆĞ¹èÇÏ°Å³ª ½Â¸®±æµå°¡ ³ª¿À¸é ¸ğµç ¸ó½ºÅÍ Á¦°Å
+	void	SetSecretRoomContKill( DWORD dwWorldId, DWORD dwMonsterId, BOOL bKill = TRUE );	// ¸ó½ºÅÍ kill½Ã Ã³¸®(½Â¸® ±æµå, º¸½º´Ü°è µµ Ã³¸®ÇÑ´Ù.)
+	BOOL	IsSecretRoomMonster( DWORD dwMonsterId, int nWarState );	// ¸ó½ºÅÍ kill½Ã ÇØ´ç ¸ó½ºÅÍ°¡ ºñ¹ĞÀÇ ¹æ ¸ó½ºÅÍÀÎ°¡?
+	void	UpdateInfoToMember( CUser* pUser, BYTE nType, int nIndex = NULL_ID );	// kill count¸¦ client¿¡ ¾Ë·ÁÁØ´Ù.
+	void	UpdateInfoToAllMember( BYTE nType, int nIndex = NULL_ID );		// À§ Á¤º¸¸¦ ±¸¼ºµÈ ¸ğµç client¿¡ Àü¼Û(ÇØ´ç ´ë·ú¸¸)
+	void	ProcessInGuildMaster();	// ±æ¸¶°¡ ÇØ´ç ºñ¹ĞÀÇ ¹æ¿¡ Á¸ÀçÇÏ´Â °Ë»ç
+	void	SetContFailGuild( DWORD dwGuildId );			// ±æ¸¶°¡ Á×°Å³ª ·Î±× ¾Æ¿ô½Ã ÆĞ¹è Ã³¸®
+	void	SetContCloseWait();								// ºñ¹ĞÀÇ ¹æÀÌ Á¾·áµÇ°í ´ë±â½Ã°£...
+	void	SetContClose();									// ºñ¹ĞÀÇ ¹æ ÃÖÁ¾ Á¾·á
 
-	int		m_nFailedGuild;	 //íŒ¨ë°°í•œ ê¸¸ë“œ ìˆ˜(ì‹ ì²­ê¸¸ë“œ ìˆ˜ì™€ ê°™ìœ¼ë©´ ìŠ¹ë¦¬ ê¸¸ë“œ ì—†ì´ ì¢…ë£Œ)
+	int		m_nFailedGuild;	 //ÆĞ¹èÇÑ ±æµå ¼ö(½ÅÃ»±æµå ¼ö¿Í °°À¸¸é ½Â¸® ±æµå ¾øÀÌ Á¾·á)
 #endif // __WORLDSERVER
 
 };

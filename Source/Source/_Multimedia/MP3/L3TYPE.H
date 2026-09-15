@@ -1,4 +1,4 @@
-﻿/* Data structures for layer III decoding. Taken from the ISO MPEG Audio
+/* Data structures for layer III decoding. Taken from the ISO MPEG Audio
    Subgroup Software Simulation Group's public c source of the MPEG audio
    decoder.
 

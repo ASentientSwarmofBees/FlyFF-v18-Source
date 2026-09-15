@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include ".\minigamegawibawibo.h"
@@ -25,13 +25,13 @@ CMiniGameGawibawibo::~CMiniGameGawibawibo(void)
 
 BOOL CMiniGameGawibawibo::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket )
 {
-	BOOL bReturn = FALSE;		// ë¯¸ë‹ˆê²Œì„ ì™„ë£Œ ìƒíƒœ
+	BOOL bReturn = FALSE;		// ¹Ì´Ï°ÔÀÓ ¿Ï·á »óÅÂ
 
 	__MINIGAME_PACKET MP( pMiniGamePacket->wNowGame );
 	if( pMiniGamePacket->nState == MP_OPENWND )
 	{
 		MP.nState = MP_OPENWND;
-		m_nWinCount = 0;	// ì°½ì„ ìƒˆë¡œ ì—´ë©´ ì—°ìŠ¹ ì´ˆê¸°í™”..
+		m_nWinCount = 0;	// Ã¢À» »õ·Î ¿­¸é ¿¬½Â ÃÊ±âÈ­..
 		MP.nParam1 = m_nWinCount;
 		SendPacket( pUser, MP );
 		return bReturn;
@@ -41,18 +41,18 @@ BOOL CMiniGameGawibawibo::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePack
 	if( nRandom < m_nWinProb )
 	{
 		MP.nState = MP_TRUE;
-		m_nWinCount++;		// ì—°ìŠ¹ ì¶”ê°€
+		m_nWinCount++;		// ¿¬½Â Ãß°¡
 	}
 	else if( nRandom < m_nWinProb + m_nDrawProb )
 		MP.nState = MP_FALSE;
 	else
 	{
 		MP.nState = MP_FAIL;
-		m_nWinCount = 0;	// ì—°ìŠ¹ ì´ˆê¸°í™”
+		m_nWinCount = 0;	// ¿¬½Â ÃÊ±âÈ­
 	}
 
 	MP.nParam1 = m_nWinCount;
-	if( m_nWinCount == 3 )	// 3ì—°ìŠ¹ì´ë©´ ì™„ë£Œ...
+	if( m_nWinCount == 3 )	// 3¿¬½ÂÀÌ¸é ¿Ï·á...
 	{
 		MP.nState = MP_FINISH;
 		bReturn = TRUE;

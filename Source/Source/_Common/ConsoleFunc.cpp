@@ -1,4 +1,4 @@
-ï»¿
+
 #include "StdAfx.h"
 
 #ifdef __BS_CONSOLE
@@ -172,10 +172,10 @@ void _sfx_link( std::vector< string >& arg )
 
 	if( g_pPlayer )
 	{
-		CSfx *pSfx = CreateSfx( D3DDEVICE, index, g_pPlayer->GetPos(), g_pPlayer->GetId() );  // ì‹œì „ë™ì‘ì´ê¸°ë•Œë¬¸ì— ë¬´ì¡°ê±´ ìê¸°ì—ê²Œ ë‚˜íƒ€ë‚œë‹¤.
+		CSfx *pSfx = CreateSfx( D3DDEVICE, index, g_pPlayer->GetPos(), g_pPlayer->GetId() );  // ½ÃÀüµ¿ÀÛÀÌ±â¶§¹®¿¡ ¹«Á¶°Ç ÀÚ±â¿¡°Ô ³ªÅ¸³­´Ù.
 		if( pSfx )
 		{
-			pSfx->SetPartLink( 0 );		// ì˜¤ë¥¸ì†ì— ë§í¬.
+			pSfx->SetPartLink( 0 );		// ¿À¸¥¼Õ¿¡ ¸µÅ©.
 			pSfx->SetPartLink( 1 );
 		}
 
@@ -202,7 +202,7 @@ void _test_func( std::vector< string >& arg )
 	if( pGuild )
 		bAuthority = pGuild->IsAuthority( g_pPlayer->m_idPlayer, PF_GUILDHOUSE_UPKEEP );
 
-	if( !bAuthority )		//ìœ ì§€ë¹„ ê¶Œí•œì´ ì—†ìœ¼ë©´ 
+	if( !bAuthority )		//À¯Áöºñ ±ÇÇÑÀÌ ¾øÀ¸¸é 
 	{
 		g_WndMng.PutString( GETTEXT( TID_GAME_GUILDHOUSE_TAX_LEVEL ) );
 		return;
@@ -395,7 +395,7 @@ void _update_auto_login( const DWORD dwDelta )
 			pWndLogin->OnChildNotify( 0, WIDC_OK, 0 );
 
 			bySEQ = 1;
-			g_WndMng.PutString( "<WARNING!!!>ìë™ë¡œê·¸ì¸ì´ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤, ì›”ë“œì§„ì…ê¹Œì§€ í‚¤ë³´ë“œ ë§Œì§€ì§€ ë§ˆì„¸ìš” ", NULL, 0xffff0000 );
+			g_WndMng.PutString( "<WARNING!!!>ÀÚµ¿·Î±×ÀÎÀÌ ÁøÇàÁßÀÔ´Ï´Ù, ¿ùµåÁøÀÔ±îÁö Å°º¸µå ¸¸ÁöÁö ¸¶¼¼¿ä ", NULL, 0xffff0000 );
 		}
 	}
 	else if( 1 == bySEQ )
@@ -410,7 +410,7 @@ void _update_auto_login( const DWORD dwDelta )
 			bySEQ = 2;
 
 			CString strTemp;
-			strTemp.Format( "<WARNING!!!>ìë™ë¡œê·¸ì¸ SERVER INDEX: %d ", g_Console._nServer );
+			strTemp.Format( "<WARNING!!!>ÀÚµ¿·Î±×ÀÎ SERVER INDEX: %d ", g_Console._nServer );
 			g_WndMng.PutString( strTemp, NULL, 0xffff0000 );
 		}
 	}
@@ -425,7 +425,7 @@ void _update_auto_login( const DWORD dwDelta )
 			bySEQ = 3;
 
 			CString strTemp;
-			strTemp.Format( "<WARNING!!!>ìë™ë¡œê·¸ì¸ CHARACTER INDEX: %d ", g_Console._nCharacter );
+			strTemp.Format( "<WARNING!!!>ÀÚµ¿·Î±×ÀÎ CHARACTER INDEX: %d ", g_Console._nCharacter );
 			g_WndMng.PutString( strTemp, NULL, 0xffff0000 );
 
 			g_WndMng.PutString( "GOOD LUCK", NULL, 0xff0000ff );
@@ -437,27 +437,27 @@ void _update_auto_login( const DWORD dwDelta )
 
 void ConsoleRegister( )
 {	
-	// ì—¬ê¸°ì„œ ëª…ë ¹ ë¬¸ìì—´ ê³¼ í•¨ìˆ˜ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤.
-	CONSOLE_REGISTER( string("help"), CON_DATA::VT_FUNCTION, _help_commend, string("ë„ì›€ë§") );	
-	CONSOLE_REGISTER( string("?"), CON_DATA::VT_FUNCTION, _help_commend, string("ë„ì›€ë§") );
-	CONSOLE_REGISTER( string("pos"), CON_DATA::VT_FUNCTION, _show_mypos, string("ë‚´ì¢Œí‘œ ì¶œë ¥") );
+	// ¿©±â¼­ ¸í·É ¹®ÀÚ¿­ °ú ÇÔ¼ö¸¦ µî·ÏÇÕ´Ï´Ù.
+	CONSOLE_REGISTER( string("help"), CON_DATA::VT_FUNCTION, _help_commend, string("µµ¿ò¸»") );	
+	CONSOLE_REGISTER( string("?"), CON_DATA::VT_FUNCTION, _help_commend, string("µµ¿ò¸»") );
+	CONSOLE_REGISTER( string("pos"), CON_DATA::VT_FUNCTION, _show_mypos, string("³»ÁÂÇ¥ Ãâ·Â") );
 	CONSOLE_REGISTER( string("fps"), CON_DATA::VT_FUNCTION, _show_fps, string("toggle show fps") );	
-	CONSOLE_REGISTER( string("speed"), CON_DATA::VT_FUNCTION, _set_speed, string("ìŠ¤í”¼ë“œ ë°°ìœ¨") );	
-	CONSOLE_REGISTER( string("ã„´"), CON_DATA::VT_FUNCTION, _set_speed, string("ìŠ¤í”¼ë“œ ë°°ìœ¨") );	
+	CONSOLE_REGISTER( string("speed"), CON_DATA::VT_FUNCTION, _set_speed, string("½ºÇÇµå ¹èÀ²") );	
+	CONSOLE_REGISTER( string("¤¤"), CON_DATA::VT_FUNCTION, _set_speed, string("½ºÇÇµå ¹èÀ²") );	
 	CONSOLE_REGISTER( string("mpu"), CON_DATA::VT_FUNCTION, _show_mpu, string("print MPU") );	
 	CONSOLE_REGISTER( string("vol"), CON_DATA::VT_FUNCTION, _volum, string("music volum ( 0 - 255 )") );	
 	CONSOLE_REGISTER( string("music_info"), CON_DATA::VT_FUNCTION, _show_music_info, string("music info") );	
 	CONSOLE_REGISTER( string("music"), CON_DATA::VT_FUNCTION, _play_music, string("play music (number)") );
 	
 	CONSOLE_REGISTER( string("weather"), CON_DATA::VT_FUNCTION, _set_weather, string("change weather( 2rain, 3snow)") );
-	CONSOLE_REGISTER( string("change_model"), CON_DATA::VT_FUNCTION, _change_model, string( "ëª¨ë¸ë°”ê¿ˆ" ) );
-	CONSOLE_REGISTER( string("sfx_pos"), CON_DATA::VT_FUNCTION, _sfx_pos, string( "ì£¼ì¸ê³µ ì•ì— play sfx" ) );
-	CONSOLE_REGISTER( string("sfx_link"), CON_DATA::VT_FUNCTION, _sfx_link, string( "ì¥¬ì¸ê³µ link sfx" ) );
-	CONSOLE_REGISTER( string("world_height"), CON_DATA::VT_FUNCTION, _world_height, string( "ì›”ë“œ ë†’ì´ ì„¤ì •" ) );
-	CONSOLE_REGISTER( string("wh"), CON_DATA::VT_FUNCTION, _world_height, string( "ì›”ë“œ ë†’ì´ ì„¤ì •" ) );
+	CONSOLE_REGISTER( string("change_model"), CON_DATA::VT_FUNCTION, _change_model, string( "¸ğµ¨¹Ù²Ş" ) );
+	CONSOLE_REGISTER( string("sfx_pos"), CON_DATA::VT_FUNCTION, _sfx_pos, string( "ÁÖÀÎ°ø ¾Õ¿¡ play sfx" ) );
+	CONSOLE_REGISTER( string("sfx_link"), CON_DATA::VT_FUNCTION, _sfx_link, string( "ÁêÀÎ°ø link sfx" ) );
+	CONSOLE_REGISTER( string("world_height"), CON_DATA::VT_FUNCTION, _world_height, string( "¿ùµå ³ôÀÌ ¼³Á¤" ) );
+	CONSOLE_REGISTER( string("wh"), CON_DATA::VT_FUNCTION, _world_height, string( "¿ùµå ³ôÀÌ ¼³Á¤" ) );
 	CONSOLE_REGISTER( string("test" ), CON_DATA::VT_FUNCTION, _test_func, string( "test" ) );
 	CONSOLE_REGISTER( string("auto_login" ), CON_DATA::VT_FUNCTION, _auto_login, string( "auto login" ) );
-	CONSOLE_REGISTER( string("random_moving"), CON_DATA::VT_FUNCTION, _random_moving, string("ë¬´ì‘ìœ„ ì´ë™") );
+	CONSOLE_REGISTER( string("random_moving"), CON_DATA::VT_FUNCTION, _random_moving, string("¹«ÀÛÀ§ ÀÌµ¿") );
 
 	CONSOLE_REGISTER( string("ambient"), CON_DATA::VT_FUNCTION, _ambient, string("ambient value") );
 	CONSOLE_REGISTER( string("diffuse"), CON_DATA::VT_FUNCTION, _diffuse, string("diffuse value") );
@@ -472,7 +472,7 @@ void _auto_start( )
 {
 	
 #ifdef _DEBUG
-	g_Console.AddString( "â˜… Excute auto-command â˜…" );
+	g_Console.AddString( "¡Ú Excute auto-command ¡Ú" );
 
 	vector< string > arg;
 
@@ -511,12 +511,12 @@ void _update_console( )
 			{
 				char* lpszTitle = "letter";
 				CString title;
-				char* lpszText = "ë‚œ ì•Œì•„ìš” ì´ë°¤ì´ íë¥´ê³  íë¥´ë©´ ëª¨ë“ ê²ƒì´ ë– ë‚˜ì•¼ë§Œ í•œë‹¤ëŠ” ì´ì‚¬ì‹¤ì„ ê·¸ ì´ìœ ë¥¼ ë‚˜ëŠ” ì•Œìˆ˜ê°€ ì•Œìˆ˜ê°€ ìˆì–´ìš¤ taeji boys ye";
+				char* lpszText = "³­ ¾Ë¾Æ¿ä ÀÌ¹ãÀÌ Èå¸£°í Èå¸£¸é ¸ğµç°ÍÀÌ ¶°³ª¾ß¸¸ ÇÑ´Ù´Â ÀÌ»ç½ÇÀ» ±× ÀÌÀ¯¸¦ ³ª´Â ¾Ë¼ö°¡ ¾Ë¼ö°¡ ÀÖ¾î¿è taeji boys ye";
 				  
 
 				for( int i = 0; i < 90; ++i )
 				{
-					title.Format( "%d ë²ˆì§¸ í¸ì§€", i );
+					title.Format( "%d ¹øÂ° ÆíÁö", i );
 					g_DPlay.SendQueryPostMail( 1, 1, (char*)pObj->GetName(), 0,title.GetBuffer(0),lpszText );
 				}
 			}
@@ -592,7 +592,7 @@ void _update_console( )
 // 			int x = rand() % 10000;
 // 			int z = rand() % 10000;
 // 			CString str;
-// 			str.Format( "%s %d %d %d", "/í…”ë ˆ ", 1, x, z );
+// 			str.Format( "%s %d %d %d", "/ÅÚ·¹ ", 1, x, z );
 // 			pWndChat->m_wndEdit.AddString( str ); 
 // 			pWndChat->OnChildNotify( EN_RETURN, WIDC_EDIT, 0 );
 // 
@@ -612,7 +612,7 @@ void _update_console( )
 // 		if( sDelta > 6000 ) 
 // 		{
 // //  			CString str;
-// //  			str.Format( "%s %s %d %d", "/ì—”ìƒ", "ë¼ìš¸í”„", 500, 0 );
+// //  			str.Format( "%s %s %d %d", "/¿£»ı", "¶ó¿ïÇÁ", 500, 0 );
 // //  			pWndChat->m_wndEdit.AddString( str );
 // //  			pWndChat->OnChildNotify( EN_RETURN, WIDC_EDIT, 0 );
 // //  

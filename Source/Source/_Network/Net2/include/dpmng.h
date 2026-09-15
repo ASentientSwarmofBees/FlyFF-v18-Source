@@ -1,4 +1,4 @@
-﻿#ifndef __DPMNG_H__
+#ifndef __DPMNG_H__
 #define __DPMNG_H__
 
 #pragma once

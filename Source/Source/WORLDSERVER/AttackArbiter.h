@@ -1,4 +1,4 @@
-ï»¿// AttackArbiter.h: interface for the CAttackArbiter class.
+// AttackArbiter.h: interface for the CAttackArbiter class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -21,12 +21,12 @@ public:
 
 private:
 	DWORD			m_dwMsg;
-	CMover*			m_pAttacker;		// ê³µê²©ìž 
-	CMover*			m_pDefender;		// í”¼ê²©ìž 
+	CMover*			m_pAttacker;		// °ø°ÝÀÚ 
+	CMover*			m_pDefender;		// ÇÇ°ÝÀÚ 
 	DWORD			m_dwAtkFlags; 
 	int				m_nParam;
-	BOOL			m_bTarget;			// íƒ€ì¼“íŒ…ë˜ì—ˆëŠ”ê°€? - ê´‘ì—­ì¼ ê²½ìš° m_bTargetê°€ FALSEì´ë©´ ì£¼ë³€ì— ìžˆëŠ” ë„˜
-	int				m_nReflect;			// ë°˜ì‚¬ë°ë¯¸ì§€ 0 ì¼ë°˜, 1 : ë‹¹í•œë„˜(ê³µê²©í•œë„˜), 2 : ì¤€ë„˜(ë°©ì–´í•œë„˜)
+	BOOL			m_bTarget;			// Å¸ÄÏÆÃµÇ¾ú´Â°¡? - ±¤¿ªÀÏ °æ¿ì m_bTarget°¡ FALSEÀÌ¸é ÁÖº¯¿¡ ÀÖ´Â ³Ñ
+	int				m_nReflect;			// ¹Ý»çµ¥¹ÌÁö 0 ÀÏ¹Ý, 1 : ´çÇÑ³Ñ(°ø°ÝÇÑ³Ñ), 2 : ÁØ³Ñ(¹æ¾îÇÑ³Ñ)
 #if __VER >= 11 // __REFLECTDMG_AFTER
 	int m_nReflectDmg;
 #endif // __REFLECTDMG_AFTER
@@ -49,7 +49,7 @@ private:
 	void			OnDamaged( int nDamage );
 	void			OnDied();
 
-#if __VER >= 8     // 8ì°¨ ë“€ì–¼ì¡´ì— ê´€ê³„ì—†ì´ PVPê°€ëŠ¥í•˜ê²Œí•¨   Neuz, World
+#if __VER >= 8     // 8Â÷ µà¾óÁ¸¿¡ °ü°è¾øÀÌ PVP°¡´ÉÇÏ°ÔÇÔ   Neuz, World
 	void			OnDiedPVP();
 #endif	// __VER >= 8  
 

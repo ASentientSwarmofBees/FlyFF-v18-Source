@@ -1,4 +1,4 @@
-﻿**** Window Interface 사용하기
+**** Window Interface 사용하기
 
   윈도는 크게 두가지 형태로 관리된다. 
 

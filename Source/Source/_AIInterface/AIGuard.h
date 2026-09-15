@@ -1,4 +1,4 @@
-﻿#ifndef __AI_GUARD_H
+#ifndef __AI_GUARD_H
 #define __AI_GUARD_H
 
 #include "mempooler.h"

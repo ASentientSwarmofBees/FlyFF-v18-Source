@@ -1,4 +1,4 @@
-﻿#ifndef __WNDGUILDVOTE__H
+#ifndef __WNDGUILDVOTE__H
 #define __WNDGUILDVOTE__H
 
 

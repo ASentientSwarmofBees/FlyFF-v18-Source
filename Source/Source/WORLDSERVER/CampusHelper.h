@@ -1,4 +1,4 @@
-﻿// CampusHelper.h: interface for the CCampusHelper class.
+// CampusHelper.h: interface for the CCampusHelper class.
 //
 //////////////////////////////////////////////////////////////////////
 

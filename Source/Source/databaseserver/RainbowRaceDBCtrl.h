@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "dbcontroller.h"
 
 #if __VER >= 13 // __RAINBOW_RACE

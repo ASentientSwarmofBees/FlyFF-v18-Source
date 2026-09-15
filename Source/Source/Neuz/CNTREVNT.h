@@ -1,4 +1,4 @@
-﻿#ifndef CNTREVNT_H
+#ifndef CNTREVNT_H
 #define CNTREVNT_H
 
 #include <shlobj.h>

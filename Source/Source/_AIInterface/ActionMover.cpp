@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "DefineObj.h"
 #include "ActionMover.h"
 #include "..\_Common\ParticleMng.h"
@@ -134,7 +134,7 @@ void	CActionMover::Init( void )
 	m_objidHit		= NULL_ID;
 	m_fTurnAngle	= 0.0f;
 	m_fAccPower		= 0;
-	m_fSpeed		= 0;		// ì´ê²ƒì€ ë›¸ë•Œ thisì˜ ìŠ¤í”¼ë“œë¥¼ ë§í•œë‹¤.  ê³µì¤‘ì—ì„  ì ìš©ë˜ì§€ ì•ŠìŒ. ëª¬ìŠ¤í„°ë„ ê¸°ë³¸ ë›°ëŠ”ê²Œ ëœë‹¤,.
+	m_fSpeed		= 0;		// ÀÌ°ÍÀº ¶Û¶§ thisÀÇ ½ºÇÇµå¸¦ ¸»ÇÑ´Ù.  °øÁß¿¡¼± Àû¿ëµÇÁö ¾ÊÀ½. ¸ó½ºÅÍµµ ±âº» ¶Ù´Â°Ô µÈ´Ù,.
 	m_vDelta.x		= m_vDelta.y = m_vDelta.z = 0;
 	m_vDeltaE.x		= m_vDeltaE.y = m_vDeltaE.z = 0;
 	m_nMotionEx		= -1;
@@ -142,11 +142,11 @@ void	CActionMover::Init( void )
 	m_bMove			= 0;
 	m_dwAtkFlags	= 0;
 	m_nCastingTime	= 0;
-#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 	m_dwCastingEndTick	= 0;
 	m_nCastingTick	= 0;
 	m_nCastingSKillID = 0;
-#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 	m_fDistance		= 0.0f;
 	m_nShootCnt		= 0;
 	m_nMotionHitCount = 0;
@@ -189,13 +189,13 @@ BOOL	CActionMover::ProcessCollision( D3DXVECTOR3 *vPos )
 		f	= ProcessCollisionFly( vPos );
 	else
 		f	= ProcessCollisionGround( vPos );
-	m_vPosLast = *vPos;		// ë§ˆì§€ë§‰ ì¢Œí‘œê°’ì„ ë°›ì•„ë‘ 
+	m_vPosLast = *vPos;		// ¸¶Áö¸· ÁÂÇ¥°ªÀ» ¹Ş¾ÆµÒ
 
 	return( f );
 }
 
 //
-// ProcessAction()ì²˜ë¦¬ì „ í•œë²ˆ ë“¤ë¥´ëŠ” ê³³, ProcessAction()ì´ ë„¤ë²ˆ ëŒë”ë¼ë„ ì´ê³³ì€ í•œë²ˆë§Œ ë“¤ë¥¸ë‹¤
+// ProcessAction()Ã³¸®Àü ÇÑ¹ø µé¸£´Â °÷, ProcessAction()ÀÌ ³×¹ø µ¹´õ¶óµµ ÀÌ°÷Àº ÇÑ¹ø¸¸ µé¸¥´Ù
 //
 void	CActionMover :: ProcessPreAction( void )
 {
@@ -203,8 +203,8 @@ void	CActionMover :: ProcessPreAction( void )
 }
 
 //
-//		ë¬´ë²„ ì•¡ì…˜ ì²˜ë¦¬
-//		í˜„ì¬ ì§€ì •ëœ ë™ì‘ìƒíƒœì— ë”°ë¼ ì ì ˆí•œ ëª¨ì…˜ì„ í”Œë ˆì´ í•´ì¤Œ
+//		¹«¹ö ¾×¼Ç Ã³¸®
+//		ÇöÀç ÁöÁ¤µÈ µ¿ÀÛ»óÅÂ¿¡ µû¶ó ÀûÀıÇÑ ¸ğ¼ÇÀ» ÇÃ·¹ÀÌ ÇØÁÜ
 //	vPos : pMover->m_vPos.  
 //
 int		CActionMover :: ProcessAction( const D3DXVECTOR3 *vPos )
@@ -216,10 +216,10 @@ int		CActionMover :: ProcessAction( const D3DXVECTOR3 *vPos )
 //	m_vDelta.x	= m_vDelta.z = m_vDelta.y	= 0.0f;		
 	
 	BOOL bFly = FALSE;
-	if( pMover->IsFlyingNPC() )		// ë¹„í–‰í˜• ë¬´ë²„ì¸ê°€.
+	if( pMover->IsFlyingNPC() )		// ºñÇàÇü ¹«¹öÀÎ°¡.
 		bFly = TRUE;
 
-	// ì•„ë¬´ê²ƒë„ ì•„ë‹Œìƒíƒœ
+	// ¾Æ¹«°Íµµ ¾Æ´Ñ»óÅÂ
 	if( GetState() == 0 ) 
 	{
 		SendActMsg( OBJMSG_STAND );
@@ -235,9 +235,9 @@ int		CActionMover :: ProcessAction( const D3DXVECTOR3 *vPos )
 	{
 		float fSpeed = pMover->GetSpeed( m_fSpeed );
 
-		//--------- ìƒíƒœ ì²˜ë¦¬ ----------------------------
-		// ê¸°ë³¸ì ìœ¼ë¡œ ì—¬ëŸ¬ê°€ì§€ ìƒíƒœê°€ ì„ì¼ ìˆ˜ ìˆë‹¤.
-		// ëŒ€ê¸°ìƒíƒœì™€ / ì´ë™ì¤‘ìƒíƒœë¥¼ ì²˜ë¦¬
+		//--------- »óÅÂ Ã³¸® ----------------------------
+		// ±âº»ÀûÀ¸·Î ¿©·¯°¡Áö »óÅÂ°¡ ¼¯ÀÏ ¼ö ÀÖ´Ù.
+		// ´ë±â»óÅÂ¿Í / ÀÌµ¿Áß»óÅÂ¸¦ Ã³¸®
 		if( GetState() & OBJSTA_MOVE_ALL )
 		{
 			ProcessState( GetState() & OBJSTA_MOVE_ALL, fSpeed );
@@ -275,21 +275,21 @@ int		CActionMover :: ProcessAction( const D3DXVECTOR3 *vPos )
 	}
 
 	m_bMove = 1;
-	if( m_vDelta.x == 0 && m_vDelta.z == 0 )	// x,zì¢Œí‘œ ì´ë™ì´ ì—†ë‹¤. ì›€ì§ì´ì§€ ì•Šì•˜ìŒ
+	if( m_vDelta.x == 0 && m_vDelta.z == 0 )	// x,zÁÂÇ¥ ÀÌµ¿ÀÌ ¾ø´Ù. ¿òÁ÷ÀÌÁö ¾Ê¾ÒÀ½
 		if( m_vDeltaE.x == 0 && m_vDeltaE.y == 0 && m_vDeltaE.z == 0 )
 			m_bMove = 0;
 	
-	if( m_vDelta.y != 0 || m_bMove )			// delta x, y, zê°’ì— ë³€ê²½ì´ ìˆì—ˆë‹¤ë©´ "ì„œìˆë‹¤" í•´ì œ
+	if( m_vDelta.y != 0 || m_bMove )			// delta x, y, z°ª¿¡ º¯°æÀÌ ÀÖ¾ú´Ù¸é "¼­ÀÖ´Ù" ÇØÁ¦
 		m_bGround = 0;	
 	else if( fabs(vPos->y - m_vPosLast.y) > 0.001f )
 		m_bGround = 0;
 	
 	if( IsFly() == FALSE )	
 	{
-		// ì§€ìƒëª¨ë“œ - ì¤‘ë ¥ë²¡í„° ë”í•¨
-		if( !bFly && GetDmgState() != OBJSTA_DISAPPEAR )		// ì£½ì–´ ì‚¬ë¼ì ¸ê°€ëŠ” ì¤‘ì—” ì¤‘ë ¥ì²˜ë¦¬ ì•ˆí•¨
+		// Áö»ó¸ğµå - Áß·Âº¤ÅÍ ´õÇÔ
+		if( !bFly && GetDmgState() != OBJSTA_DISAPPEAR )		// Á×¾î »ç¶óÁ®°¡´Â Áß¿£ Áß·ÂÃ³¸® ¾ÈÇÔ
 		{
-			if( m_bGround != 1 )		// ë•…ì— ì„œìˆëŠ” ê²½ìš°ê°€ ì•„ë‹ë•Œë§Œ, ì¤‘ë ¥ ì²˜ë¦¬
+			if( m_bGround != 1 )		// ¶¥¿¡ ¼­ÀÖ´Â °æ¿ì°¡ ¾Æ´Ò¶§¸¸, Áß·Â Ã³¸®
 			{
 				m_vDelta.y -= 0.005f;
 				if( m_vDelta.y < -0.50f )		
@@ -306,7 +306,7 @@ int		CActionMover :: ProcessAction( const D3DXVECTOR3 *vPos )
 #ifdef __CLIENT
 	if( m_vDeltaE.x >= 0.025f || m_vDeltaE.z >= 0.025f ) 
 	{
-		if( m_bGround )		// ë•…ì—ì„œ ë¯¸ë„ëŸ¬ì§ˆë•Œ ë¨¼ì§€.
+		if( m_bGround )		// ¶¥¿¡¼­ ¹Ì²ô·¯Áú¶§ ¸ÕÁö.
 		{
 			if( g_nProcessCnt & 1 )
 				CreateSfx( g_Neuz.m_pd3dDevice, XI_NAT_DUST_RUN, pMover->GetPos() );
@@ -314,7 +314,7 @@ int		CActionMover :: ProcessAction( const D3DXVECTOR3 *vPos )
 	}
 #endif
 	
-	m_vDelta += m_vDeltaE;		// ì™¸ë¶€í˜ì„ ë”í•¨.
+	m_vDelta += m_vDeltaE;		// ¿ÜºÎÈûÀ» ´õÇÔ.
 	m_vDeltaAccu += m_vDelta;
 
 	if( (GetState() & OBJSTA_DMG_FLY) == 0 )
@@ -325,7 +325,7 @@ int		CActionMover :: ProcessAction( const D3DXVECTOR3 *vPos )
 			m_vDeltaE.x = 0.0f; m_vDeltaE.y = 0.0f; m_vDeltaE.z = 0.0f;
 		}
 	#endif
-		m_vDeltaE *= 0.9f;			// ì™¸ë¶€í˜ì€ ë§ˆì°°ë•Œë¬¸ì— ê³„ì† ê°ì†Œ.
+		m_vDeltaE *= 0.9f;			// ¿ÜºÎÈûÀº ¸¶Âû¶§¹®¿¡ °è¼Ó °¨¼Ò.
 	}
 
 	m_nCount++;
@@ -441,8 +441,8 @@ void CActionMover::PresupposePos( D3DXVECTOR3* pv, D3DXVECTOR3* pvd, float* pf, 
 #endif	// __CLIENT
 
 //
-// XZí‰ë©´ ê°ë„ì™€ Y(ë†’ì´ìª½)ê°ë„ ê·¸ë¦¬ê³  í˜ì„ ë„˜ê²¨ë°›ì•„ ë²¡í„°ë¥¼ ìƒì„±
-// 6ì‹œë°©í–¥ 0ë„ ì‹œê³„ë°˜ëŒ€ë¡œ ëŒì•„ê°€ë©° 3ì‹œë°©í–¥ì´ 90ë„
+// XZÆò¸é °¢µµ¿Í Y(³ôÀÌÂÊ)°¢µµ ±×¸®°í ÈûÀ» ³Ñ°Ü¹Ş¾Æ º¤ÅÍ¸¦ »ı¼º
+// 6½Ã¹æÇâ 0µµ ½Ã°è¹İ´ë·Î µ¹¾Æ°¡¸ç 3½Ã¹æÇâÀÌ 90µµ
 void	CActionMover::DoDamageFly( float fAngleXZ, float fAngleY, float fPower )
 {
 	float fTheta = D3DXToRadian( fAngleXZ );
@@ -453,10 +453,10 @@ void	CActionMover::DoDamageFly( float fAngleXZ, float fAngleY, float fPower )
 	m_vDeltaE.z += -cosf( fTheta ) * fDist;
 }
 
-int	CActionMover::SendDamageForce( DWORD dwAtkFlags, OBJID idSender, int nParam, BOOL bTarget )	// ê°•ê³µê²©
+int	CActionMover::SendDamageForce( DWORD dwAtkFlags, OBJID idSender, int nParam, BOOL bTarget )	// °­°ø°İ
 {
 #if __VER >= 10	// __AI_0711
-	// ì¤€ë³´ìŠ¤ ëª¬ìŠ¤í„°ëŠ” ê°•ê³µ ë©´ì—­
+	// ÁØº¸½º ¸ó½ºÅÍ´Â °­°ø ¸é¿ª
 	if( m_pMover->IsRank( RANK_MIDBOSS ) )
 		return SendActMsg( OBJMSG_DAMAGE, dwAtkFlags, idSender, nParam, bTarget );
 	return SendActMsg( OBJMSG_DAMAGE_FORCE, dwAtkFlags, idSender, nParam, bTarget );

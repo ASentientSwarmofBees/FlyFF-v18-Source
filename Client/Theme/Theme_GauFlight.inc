@@ -1,5 +1,5 @@
-ï»¿number 2
+number 2
 texture "Theme\GauFlight.tga" 0xffff00ff
 
-pos 16 16 0 0 n // ì†ë„ 
-pos 128 48 0 16 n   // ì†ë„ ê²Œì´ì§€ í…Œë‘ë¦¬
+pos 16 16 0 0 n // ¼Óµµ 
+pos 128 48 0 16 n   // ¼Óµµ °ÔÀÌÁö Å×µÎ¸®

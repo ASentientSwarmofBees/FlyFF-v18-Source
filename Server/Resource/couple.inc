@@ -1,4 +1,4 @@
-ï»¿Level
+Level
 {
 	0	// 1
 	2880 	// 2
@@ -55,8 +55,8 @@
 // SEX_MALE: 0, SEX_FEMALE: 1, SEX_SEXLESS: 2
 Item
 {
-	2	// ë ˆë²¨
-	{	// ì¢…ë¥˜			ì†ì„±(2ë©´ ê·€ì†)	ê¸°ê°„(ë¶„)	ê°œìˆ˜
+	2	// ·¹º§
+	{	// Á¾·ù			¼Ó¼º(2¸é ±Í¼Ó)	±â°£(ºĞ)	°³¼ö
 		II_CHR_MAG_TRI_HEARTBOMB	SEX_SEXLESS	2	0	10
 	}
 
@@ -166,7 +166,7 @@ SkillKind
 
 SkillLevel
 {
-// 	ì»¤í”Œ ë ˆë²¨	0	1	2	(SkillKind Index0 ì˜ ìŠ¤í‚¬ë ˆë²¨,SkillKind Index1 ì˜ ìŠ¤í‚¬ë ˆë²¨,SkillKind Index2 ì˜ ìŠ¤í‚¬ë ˆë²¨)
+// 	Ä¿ÇÃ ·¹º§	0	1	2	(SkillKind Index0 ÀÇ ½ºÅ³·¹º§,SkillKind Index1 ÀÇ ½ºÅ³·¹º§,SkillKind Index2 ÀÇ ½ºÅ³·¹º§)
 	1	0	0	0
 	6	1	0	0
 	11	2	1	0

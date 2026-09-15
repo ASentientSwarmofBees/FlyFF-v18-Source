@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "ActionMover.h"
 #include "DefineObj.h"
 
@@ -20,7 +20,7 @@ BOOL CanCollisionFly( CMover* pMover )
 //
 BOOL CActionMover::ProcessCollisionFly( D3DXVECTOR3 *pPos )
 {
-	if( m_fAccPower == 0.0f && m_vDeltaAccu == D3DXVECTOR3( 0.0f, 0.0f, 0.0f ) )	// ì •ì§€ìƒíƒœ?
+	if( m_fAccPower == 0.0f && m_vDeltaAccu == D3DXVECTOR3( 0.0f, 0.0f, 0.0f ) )	// Á¤Áö»óÅÂ?
 		return FALSE;
 
 	CMover*		pMover = m_pMover;
@@ -29,7 +29,7 @@ BOOL CActionMover::ProcessCollisionFly( D3DXVECTOR3 *pPos )
 	CWorld*		pWorld = GetWorld();
 
 	pMover->SetIAObjLink( NULL );
-	vStart.y += 0.5f;				// vStart ì§€ë©´ì˜ ì¢Œí‘œ + 0.5 = ë¹—ìë£¨ ë†’ì´
+	vStart.y += 0.5f;				// vStart Áö¸éÀÇ ÁÂÇ¥ + 0.5 = ºøÀÚ·ç ³ôÀÌ
 	
 	BOOL fResult = FALSE;
 	if( CanCollisionFly( pMover) )
@@ -38,14 +38,14 @@ BOOL CActionMover::ProcessCollisionFly( D3DXVECTOR3 *pPos )
 	#ifdef __WORLDSERVER
 		vDir *= 0.25f;
 	#endif
-		float fLen = D3DXVec3Length( &vDir );		// ì§„í–‰ë°©í–¥ ë²¡í„°ì˜ ê¸¸ì´ë¥¼ ì¼ë‹¨ êµ¬í•¨.
+		float fLen = D3DXVec3Length( &vDir );		// ÁøÇà¹æÇâ º¤ÅÍÀÇ ±æÀÌ¸¦ ÀÏ´Ü ±¸ÇÔ.
 		if( fLen > 0.001f )
 		{
 			FLOAT fR = 1.0f;
-			if( fLen < 0.65f )							// ì´ ê¸¸ì´ê°€ 0.65f ë³´ë‹¤ë„ ì§§ìœ¼ë©´
+			if( fLen < 0.65f )							// ÀÌ ±æÀÌ°¡ 0.65f º¸´Ùµµ ÂªÀ¸¸é
 			{
-				fR = 0.65f / fLen;						// ëª‡ë°°ë‚˜ ì‘ì€ì§€ ê³„ì‚°í•´ì„œ
-				vDir *= fR;								// ë²¡í„°ë¥¼ ê·¸ë§Œí¼ ëŠ˜ì—¬ì¤Œ.
+				fR = 0.65f / fLen;						// ¸î¹è³ª ÀÛÀºÁö °è»êÇØ¼­
+				vDir *= fR;								// º¤ÅÍ¸¦ ±×¸¸Å­ ´Ã¿©ÁÜ.
 			}
 			fResult	= pWorld->ProcessCollisionReflection( &vDelta, vStart, vDir, 0 );
 			if( fResult )	
@@ -57,21 +57,21 @@ BOOL CActionMover::ProcessCollisionFly( D3DXVECTOR3 *pPos )
 		}
 	}
 
-	// 1. yì¶• ë”í•¨
+	// 1. yÃà ´õÇÔ
 	pPos->y += vDelta.y;
 
-	// 2. xì¶• ë”í•¨
+	// 2. xÃà ´õÇÔ
 	pPos->x += vDelta.x;
 	pWorld->ClipX( pPos->x );
-	int nAttr = pWorld->GetHeightAttribute( pPos->x, pPos->z );		// ì´ë™í•  ìœ„ì¹˜ì˜ ì†ì„± ì½ìŒ.
+	int nAttr = pWorld->GetHeightAttribute( pPos->x, pPos->z );		// ÀÌµ¿ÇÒ À§Ä¡ÀÇ ¼Ó¼º ÀĞÀ½.
 	switch( nAttr )
 	{
-	case HATTR_NOMOVE:	// ì´ë™ ê¸ˆì§€.
-		pPos->x -= vDelta.x;		// ì´ë™í•˜ë ¤ëŠ” ê³³ì´ ì´ë™ ê¸ˆì§€ êµ¬ì—­ì´ë©´ ì¢Œí‘œë¥¼ ë‹¤ì‹œ ëºŒ
+	case HATTR_NOMOVE:	// ÀÌµ¿ ±İÁö.
+		pPos->x -= vDelta.x;		// ÀÌµ¿ÇÏ·Á´Â °÷ÀÌ ÀÌµ¿ ±İÁö ±¸¿ªÀÌ¸é ÁÂÇ¥¸¦ ´Ù½Ã »­
 		break;
 	}
 
-	// 3. zì¶• ë”í•¨
+	// 3. zÃà ´õÇÔ
 	pPos->z += vDelta.z;
 	pWorld->ClipZ( pPos->z );
 	if( pWorld->m_bFly )
@@ -81,15 +81,15 @@ BOOL CActionMover::ProcessCollisionFly( D3DXVECTOR3 *pPos )
 
 	switch( nAttr )
 	{
-	case HATTR_NOMOVE:	// ì´ë™ ê¸ˆì§€.
-		pPos->z -= vDelta.z;		// ì´ë™í•˜ë ¤ëŠ” ê³³ì´ ì´ë™ ê¸ˆì§€ êµ¬ì—­ì´ë©´ ì¢Œí‘œë¥¼ ë‹¤ì‹œ ëºŒ
+	case HATTR_NOMOVE:	// ÀÌµ¿ ±İÁö.
+		pPos->z -= vDelta.z;		// ÀÌµ¿ÇÏ·Á´Â °÷ÀÌ ÀÌµ¿ ±İÁö ±¸¿ªÀÌ¸é ÁÂÇ¥¸¦ ´Ù½Ã »­
 		break;
-	case HATTR_DIE:		// ì´ì˜ì—­ì— ë“¤ì–´ê°€ë©´ ì£½ìŒ.
+	case HATTR_DIE:		// ÀÌ¿µ¿ª¿¡ µé¾î°¡¸é Á×À½.
 		pMover->DoDie( NULL );
 		break;
-	case HATTR_NOFLY:	// ë¹„í–‰ ê¸ˆì§€ - ìë™ìœ¼ë¡œ ë¹„í–‰ëª¨ë“œ í’€ë¦¼.
+	case HATTR_NOFLY:	// ºñÇà ±İÁö - ÀÚµ¿À¸·Î ºñÇà¸ğµå Ç®¸².
 		pPos->x -= vDelta.x;
-		pPos->z -= vDelta.z;		// ì´ë™í•˜ë ¤ëŠ” ê³³ì´ ì´ë™ ê¸ˆì§€ êµ¬ì—­ì´ë©´ ì¢Œí‘œë¥¼ ë‹¤ì‹œ ëºŒ
+		pPos->z -= vDelta.z;		// ÀÌµ¿ÇÏ·Á´Â °÷ÀÌ ÀÌµ¿ ±İÁö ±¸¿ªÀÌ¸é ÁÂÇ¥¸¦ ´Ù½Ã »­
 		pPos->y -= vDelta.y;
 		pMover->UnequipRide();
 		break;
@@ -137,9 +137,9 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 		D3DXVECTOR3	vKneePos, vDeltaXZ ;
 		
 		vKneePos = *pPos;	
-		vKneePos.y += 0.4f;		// ë¬´ë¦ë†’ì´
+		vKneePos.y += 0.4f;		// ¹«¸­³ôÀÌ
 		vDeltaXZ = vDelta;	
-		vDeltaXZ.y = 0;			// ì´ë™ë²¡í„°ì—ì„œ ìˆ˜í‰ì´ë™ ì„±ë¶„ë§Œ ì·¨í•¨
+		vDeltaXZ.y = 0;			// ÀÌµ¿º¤ÅÍ¿¡¼­ ¼öÆòÀÌµ¿ ¼ººĞ¸¸ ÃëÇÔ
 
 
 		//gmpbigsun : collision test-------------------------------------------------------------------------------
@@ -147,7 +147,7 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 
 #ifdef __BS_ADJUST_COLLISION
 
-		if( pMover == g_pPlayer )		//ì£¼ì¸ê³µì¼ê²½ìš° 
+		if( pMover == g_pPlayer )		//ÁÖÀÎ°øÀÏ°æ¿ì 
 		{
 			COLL_TEST_DIR = 30.0f;
 
@@ -164,28 +164,28 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 
 		vDeltaXZ *= COLL_TEST_DIR;
 	#ifdef __X15
-		vDeltaXZ /= 4.0f;		// ì„œë²„ê°€ 15í”„ë ˆì„ìœ¼ë¡œ ëŒë•ŒëŠ” vDeltaXZë„ 4ë°°ë¡œ ì»¤ì§„ë‹¤. ê·¸ë˜ì„œ ì¤„ì—¬ì¤˜ì•¼ í•¨.
+		vDeltaXZ /= 4.0f;		// ¼­¹ö°¡ 15ÇÁ·¹ÀÓÀ¸·Î µ¹¶§´Â vDeltaXZµµ 4¹è·Î Ä¿Áø´Ù. ±×·¡¼­ ÁÙ¿©Áà¾ß ÇÔ.
 	#endif
 	
-		// í˜„ì¬ìœ„ì¹˜ì™€ ì´ë™ë²¡í„°ë¥¼ ë„˜ê²¨ì£¼ë©´ 
-		// ë°°ê²½ê³¼ì˜ ì¶©ëŒì—¬ë¶€ë¥¼ ê²€ì‚¬í•´ì„œ ë°”ë€ ì´ë™ë²¡í„°ë¥¼ ê³„ì‚°í•œë‹¤.
+		// ÇöÀçÀ§Ä¡¿Í ÀÌµ¿º¤ÅÍ¸¦ ³Ñ°ÜÁÖ¸é 
+		// ¹è°æ°úÀÇ Ãæµ¹¿©ºÎ¸¦ °Ë»çÇØ¼­ ¹Ù²ï ÀÌµ¿º¤ÅÍ¸¦ °è»êÇÑ´Ù.
 		BOOL bColl	= TRUE;
 		if( pMover->IsNPC() && (pMover->GetIndex() >= MI_PET_LAWOLF && pMover->GetIndex() <= MI_PET_LASTINDEX) )
 		{
-			bColl = FALSE;		// ë³€ì‹ êµ¬ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šì€ ìˆœìˆ˜ í«ì€ ì˜¤ë¸Œì íŠ¸ì™€ ì¶©ëŒê²€ì‚¬ ì•ˆí•¨.
+			bColl = FALSE;		// º¯½Å±¸¸¦ »ç¿ëÇÏÁö ¾ÊÀº ¼ø¼ö ÆêÀº ¿ÀºêÁ§Æ®¿Í Ãæµ¹°Ë»ç ¾ÈÇÔ.
 		}
 
 #if __VER >= 9	//__AI_0509
-		if( pMover->IsNPC() && ( pMover->GetSpeedFactor() > 1.9F || pMover->m_dwAIInterface == AII_PET ) )	// ê·€í™˜ì¤‘ì´ë©´
+		if( pMover->IsNPC() && ( pMover->GetSpeedFactor() > 1.9F || pMover->m_dwAIInterface == AII_PET ) )	// ±ÍÈ¯ÁßÀÌ¸é
 		{
-			// ë„‰ë°±ê°™ì€ í˜ì´ ê°€í•´ì§„ ìƒí™©ì—ëŠ” ì¶©ëŒì²´í¬ ì§„í–‰
+			// ³Ë¹é°°Àº ÈûÀÌ °¡ÇØÁø »óÈ²¿¡´Â Ãæµ¹Ã¼Å© ÁøÇà
 			if( pMover->m_pActMover->m_vDeltaE.x == 0 && pMover->m_pActMover->m_vDeltaE.y == 0 && pMover->m_pActMover->m_vDeltaE.z == 0 )
 				bColl = FALSE;
 		}
 #endif	// __AI_0509
 #ifdef __CLIENT
 #if __VER >= 9	// __PET_0410
-		if( pMover->GetId() == NULL_ID )	// í´ë¼ì´ì–¸íŠ¸ì—ì„œë§Œ ìƒì„±í•œ ê°ì²´ë©´,
+		if( pMover->GetId() == NULL_ID )	// Å¬¶óÀÌ¾ğÆ®¿¡¼­¸¸ »ı¼ºÇÑ °´Ã¼¸é,
 			bColl	= FALSE;
 #endif	// __PET_0410
 #endif	// __CLIENT
@@ -194,21 +194,21 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 
 		if( CObj::m_bCollision && bColl ) 
 		{
-			float fLen = D3DXVec3Length( &vDeltaXZ );		// ì§„í–‰ë°©í–¥ ë²¡í„°ì˜ ê¸¸ì´ë¥¼ ì¼ë‹¨ êµ¬í•¨.
+			float fLen = D3DXVec3Length( &vDeltaXZ );		// ÁøÇà¹æÇâ º¤ÅÍÀÇ ±æÀÌ¸¦ ÀÏ´Ü ±¸ÇÔ.
 			if( fLen != 0.0f )
 			{	/*
 				FLOAT fR = 1.0f;
-				if( fLen < 0.65f )							// ì´ ê¸¸ì´ê°€ 0.65f ë³´ë‹¤ë„ ì§§ìœ¼ë©´
+				if( fLen < 0.65f )							// ÀÌ ±æÀÌ°¡ 0.65f º¸´Ùµµ ÂªÀ¸¸é
 				{
-					fR = 0.65f / fLen;						// ëª‡ë°°ë‚˜ ì‘ì€ì§€ ê³„ì‚°í•´ì„œ
-					vDeltaXZ *= fR;							// ë²¡í„°ë¥¼ ê·¸ë§Œí¼ ëŠ˜ì—¬ì¤Œ.
+					fR = 0.65f / fLen;						// ¸î¹è³ª ÀÛÀºÁö °è»êÇØ¼­
+					vDeltaXZ *= fR;							// º¤ÅÍ¸¦ ±×¸¸Å­ ´Ã¿©ÁÜ.
 				}*/
 #ifdef __LAYER_1015
 				fResult	= pWorld->ProcessCollision( &vDeltaXZ, vKneePos, vDeltaXZ, 0, pMover->GetLayer() );
 #else	// __LAYER_1015
 				fResult	= pWorld->ProcessCollision( &vDeltaXZ, vKneePos, vDeltaXZ, 0 );
 #endif	// __LAYER_1015
-				//vDeltaXZ /= fR;								// ì¶©ëŒê³„ì‚°ì´ ëë‚œí›„ì—” ë‹¤ì‹œ ë²¡í„° ê¸¸ì´ ì›ìƒë³µê·€.
+				//vDeltaXZ /= fR;								// Ãæµ¹°è»êÀÌ ³¡³­ÈÄ¿£ ´Ù½Ã º¤ÅÍ ±æÀÌ ¿ø»óº¹±Í.
 			}
 		}
 
@@ -232,37 +232,37 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 	#endif
 		BOOL bCollision = FALSE;
 
-		// xì¶• ë”í•˜ê¸°
+		// xÃà ´õÇÏ±â
 		pPos->x += vDeltaXZ.x;
 		pWorld->ClipX( pPos->x );
-		int nAttr = pWorld->GetHeightAttribute( pPos->x, pPos->z );		// ì´ë™í•  ìœ„ì¹˜ì˜ ì†ì„± ì½ìŒ.
+		int nAttr = pWorld->GetHeightAttribute( pPos->x, pPos->z );		// ÀÌµ¿ÇÒ À§Ä¡ÀÇ ¼Ó¼º ÀĞÀ½.
 		switch( nAttr )
 		{
-		case HATTR_NOWALK:	// ê±·ê¸° ê¸ˆì§€
-		case HATTR_NOMOVE:	// ì´ë™ ê¸ˆì§€.
-			if( pMover->GetIAObjLink() == NULL )	// ë°°ë¥¼ íƒ€ê³  ìˆì„ë•ŒëŠ” ì§€ìƒì—ì„œì˜ ì†ì„±ì´ ë¬´ì‹œëœë‹¤.
+		case HATTR_NOWALK:	// °È±â ±İÁö
+		case HATTR_NOMOVE:	// ÀÌµ¿ ±İÁö.
+			if( pMover->GetIAObjLink() == NULL )	// ¹è¸¦ Å¸°í ÀÖÀ»¶§´Â Áö»ó¿¡¼­ÀÇ ¼Ó¼ºÀÌ ¹«½ÃµÈ´Ù.
 			{
-				pPos->x -= vDeltaXZ.x;		// ì´ë™í•˜ë ¤ëŠ” ê³³ì´ ì´ë™ ê¸ˆì§€ êµ¬ì—­ì´ë©´ ì¢Œí‘œë¥¼ ë‹¤ì‹œ ëºŒ
+				pPos->x -= vDeltaXZ.x;		// ÀÌµ¿ÇÏ·Á´Â °÷ÀÌ ÀÌµ¿ ±İÁö ±¸¿ªÀÌ¸é ÁÂÇ¥¸¦ ´Ù½Ã »­
 				bCollision = TRUE;
 			}
 			break;
 		}
 
-		// zì¶• ë”í•˜ê¸°
+		// zÃà ´õÇÏ±â
 		pPos->z += vDeltaXZ.z;
 		pWorld->ClipZ( pPos->z );	
-		nAttr = pWorld->GetHeightAttribute( pPos->x, pPos->z );		// ì´ë™í•  ìœ„ì¹˜ì˜ ì†ì„± ì½ìŒ.
+		nAttr = pWorld->GetHeightAttribute( pPos->x, pPos->z );		// ÀÌµ¿ÇÒ À§Ä¡ÀÇ ¼Ó¼º ÀĞÀ½.
 		switch( nAttr )	
 		{
-		case HATTR_NOWALK:	// ê±·ê¸° ê¸ˆì§€
-		case HATTR_NOMOVE:	// ì´ë™ ê¸ˆì§€.
+		case HATTR_NOWALK:	// °È±â ±İÁö
+		case HATTR_NOMOVE:	// ÀÌµ¿ ±İÁö.
 			if( pMover->GetIAObjLink() == NULL )
 			{
 				pPos->z -= vDeltaXZ.z;
 				bCollision = TRUE;
 			}
 			break;
-		case HATTR_DIE:		// ì´ì˜ì—­ì— ë“¤ì–´ê°€ë©´ ì£½ìŒ. - dieëŠ” x, zê°€ ë‹¤ ë”í•´ì§€ê³  ë‚œí›„ì— ê²€ì‚¬í•´ì•¼ í•œë‹¤.
+		case HATTR_DIE:		// ÀÌ¿µ¿ª¿¡ µé¾î°¡¸é Á×À½. - die´Â x, z°¡ ´Ù ´õÇØÁö°í ³­ÈÄ¿¡ °Ë»çÇØ¾ß ÇÑ´Ù.
 			pMover->DoDie( NULL );
 			break;
 		}
@@ -273,21 +273,21 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 	#endif
 	} // if( m_bMove )
 
-	// ì¢Œí‘œ ë”í•´ì¤€í›„ ë³´ì •(í›„ì²˜ë¦¬)
-	if( GetDmgState() == OBJSTA_DISAPPEAR )		// ì£½ì–´ ì‚¬ë¼ì§€ëŠ” ì¤‘ì—” ì§€í˜•ì¶©ëŒê²€ì‚¬ ì•ˆí•¨.
+	// ÁÂÇ¥ ´õÇØÁØÈÄ º¸Á¤(ÈÄÃ³¸®)
+	if( GetDmgState() == OBJSTA_DISAPPEAR )		// Á×¾î »ç¶óÁö´Â Áß¿£ ÁöÇüÃæµ¹°Ë»ç ¾ÈÇÔ.
 		return fResult;
 
-	if( vDelta.y < 0.0f )		// ì¢Œí‘œê°€ ë‚´ë ¤ê°”ìŒ
+	if( vDelta.y < 0.0f )		// ÁÂÇ¥°¡ ³»·Á°¬À½
 	{
-		if( m_bGround == 1 )	// ë°”ë‹¥ì— ê·¸ëƒ¥ ì„œìˆëŠ” ìƒíƒœ(m_bGround == 1)ëŠ” ì¶”ê°€ì ìœ¼ë¡œ ì¶©ëŒê²€ì‚¬ í• í•„ìš” ì—†ë‹¤.
+		if( m_bGround == 1 )	// ¹Ù´Ú¿¡ ±×³É ¼­ÀÖ´Â »óÅÂ(m_bGround == 1)´Â Ãß°¡ÀûÀ¸·Î Ãæµ¹°Ë»ç ÇÒÇÊ¿ä ¾ø´Ù.
 			return fResult;
 
-		// ìºë¦­í„° ë¨¸ë¦¬ì—ì„œ ì•„ë˜ë¡œ ë¼ì¸ì„ ë‚´ë¦¬ê³  ê±¸ë¦¬ëŠ”ê²Œ ìˆìœ¼ë©´ ì ë‹¹í•œ ê°’ìœ¼ë¡œ ìŠ¬ë¼ì´ë“œ ê³„ì‚°í›„ ì ìš©.
-		// ê±¸ë¦¬ëŠ”ê²Œ ì—†ë‹¤ë©´ ê³µì¤‘ì— ë– ìˆëŠ”ê²ƒì´ë¯€ë¡œ pPos->y += delta.yë§Œ í•´ì£¼ê³  hê°’ìœ¼ë¡œ ê³„ì‚°.
-		// ë‹¨ ìŠ¬ë¼ì´ë“œ ê³„ì‚°í• ë•ŒëŠ” ë©´ì´ ì¼ì •ê°ì´ìƒìœ¼ë¡œ ê¸°ìš¸ì–´ì ¸ ìˆì„ë•Œë§Œ ì ìš©. ì•ˆê·¸ëŸ¬ë©´ ëª¨ë“  ê²½ì‚¬ë©´ì€ ë‹¤ ë¯¸ë„ëŸ¬ì ¸ ëª»ì˜¬ë¼ê°„ë‹¤.
-		// ìŠ¬ë¼ì´ë“œë¥¼ ë”í• ë•ŒëŠ” ì‹¤ì œë¡œ ë°”ë‹¥ì— ë‹¿ì•˜ì„ë•Œë§Œ ë”í•´ì¤€ë‹¤.
+		// Ä³¸¯ÅÍ ¸Ó¸®¿¡¼­ ¾Æ·¡·Î ¶óÀÎÀ» ³»¸®°í °É¸®´Â°Ô ÀÖÀ¸¸é Àû´çÇÑ °ªÀ¸·Î ½½¶óÀÌµå °è»êÈÄ Àû¿ë.
+		// °É¸®´Â°Ô ¾ø´Ù¸é °øÁß¿¡ ¶°ÀÖ´Â°ÍÀÌ¹Ç·Î pPos->y += delta.y¸¸ ÇØÁÖ°í h°ªÀ¸·Î °è»ê.
+		// ´Ü ½½¶óÀÌµå °è»êÇÒ¶§´Â ¸éÀÌ ÀÏÁ¤°¢ÀÌ»óÀ¸·Î ±â¿ï¾îÁ® ÀÖÀ»¶§¸¸ Àû¿ë. ¾È±×·¯¸é ¸ğµç °æ»ç¸éÀº ´Ù ¹Ì²ô·¯Á® ¸ø¿Ã¶ó°£´Ù.
+		// ½½¶óÀÌµå¸¦ ´õÇÒ¶§´Â ½ÇÁ¦·Î ¹Ù´Ú¿¡ ´ê¾ÒÀ»¶§¸¸ ´õÇØÁØ´Ù.
 
-		D3DXVECTOR3 vSlide( 0.0f, 0.0f, 0.0f );		// slideë²¡í„°
+		D3DXVECTOR3 vSlide( 0.0f, 0.0f, 0.0f );		// slideº¤ÅÍ
 		CObj *pObjColl = NULL;
 		FLOAT h = pWorld->ProcessUnderCollision( &vSlide, &pObjColl, D3DXVECTOR3( pPos->x, pPos->y + 1.0f, pPos->z ) );
 		m_fCurrentHeight = h;
@@ -295,35 +295,35 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 		pPos->y += vDelta.y;
 		
 		BOOL bLanding = FALSE;
-		if( GetJumpState() == OBJSTA_SJUMP3 )	// í•˜ê°•ë™ì‘ ìƒíƒœì˜€ì„ë•Œ
+		if( GetJumpState() == OBJSTA_SJUMP3 )	// ÇÏ°­µ¿ÀÛ »óÅÂ¿´À»¶§
 		{
- 			if( pPos->y < h )	// ë°”ë‹¥ì— ë‹¿ìœ¼ë©´
+ 			if( pPos->y < h )	// ¹Ù´Ú¿¡ ´êÀ¸¸é
 				bLanding = TRUE;
 		} 
 		else	
 		{
-			// ê·¸ëƒ¥ ì¢Œí‘œë§Œ ë‚´ë ¤ê°€ê³  ìˆë˜ìƒíƒœ( ë¹„íƒˆê¸¸ì„ ë‚´ë ¤ê°„ë‹¤ê±°ë‚˜.  ê±¸ì–´ë‹¤ê°€ ë¹ ì¡Œë‹¤ê±°ë‚˜)
-			if( pPos->y - 0.25f > h )		// ë°œë°”ë‹¥ ì•„ë˜ xxì§€ì ì„ ë” ë‚´ë ¤ì„œ ê²€ì‚¬í–ˆëŠ”ë°ë„ ë°”ë‹¥ë³´ë‹¤ ë†’ë‹¤ë©´ 
+			// ±×³É ÁÂÇ¥¸¸ ³»·Á°¡°í ÀÖ´ø»óÅÂ( ºñÅ»±æÀ» ³»·Á°£´Ù°Å³ª.  °É¾î´Ù°¡ ºüÁ³´Ù°Å³ª)
+			if( pPos->y - 0.25f > h )		// ¹ß¹Ù´Ú ¾Æ·¡ xxÁöÁ¡À» ´õ ³»·Á¼­ °Ë»çÇß´Âµ¥µµ ¹Ù´Úº¸´Ù ³ô´Ù¸é 
 			{
-				if( vDelta.y < -0.1f )		// ë–¨ì–´ì§€ëŠ” ì†ë„ê°€ 0.xë³´ë‹¤ í´ë•Œë§Œ í•˜ê°•ë™ì‘.  ì‚´ì§ ë–¨ì–´ì§€ëŠ”ê±´ ê± ì¢Œí‘œë§Œ ë‚´ë ¤ê°.
+				if( vDelta.y < -0.1f )		// ¶³¾îÁö´Â ¼Óµµ°¡ 0.xº¸´Ù Å¬¶§¸¸ ÇÏ°­µ¿ÀÛ.  »ìÂ¦ ¶³¾îÁö´Â°Ç °Á ÁÂÇ¥¸¸ ³»·Á°¨.
 				{
 					#if __VER >= 11 // __SYS_COLLECTING
 						if( (GetState() & OBJSTA_COLLECT)== 0 )
 					#endif
 
 #if __VER >= 15 // __BS_FIXED_KNOCKBACK
-						if( pMover->IsPlayer() && !( GetDmgState() & OBJSTA_DMG_FLY_ALL ) )			//ëª¬ìŠ¤í„°ëŠ” í•˜ê°• ì• ë‹ˆ ì—†ìŒ 
+						if( pMover->IsPlayer() && !( GetDmgState() & OBJSTA_DMG_FLY_ALL ) )			//¸ó½ºÅÍ´Â ÇÏ°­ ¾Ö´Ï ¾øÀ½ 
 #endif
-					SetJumpState( OBJSTA_SJUMP3 );		// í•˜ê°• ìƒíƒœë¡œ ì „í™˜
+					SetJumpState( OBJSTA_SJUMP3 );		// ÇÏ°­ »óÅÂ·Î ÀüÈ¯
 
-					pMover->OnActDrop();				// ì´ë²¤íŠ¸ í˜¸ì¶œ
+					pMover->OnActDrop();				// ÀÌº¥Æ® È£Ãâ
 				}
 			} 
-			else				// ë°œì•„ë˜ 0.25ì§€ì ë‚´ì— ë°”ë‹¥ì´ ìˆë‹¤ë©´ ê·¸ëƒ¥ ë°œë°”ë‹¥ ë¶™ì—¬ì¤Œ
+			else				// ¹ß¾Æ·¡ 0.25ÁöÁ¡³»¿¡ ¹Ù´ÚÀÌ ÀÖ´Ù¸é ±×³É ¹ß¹Ù´Ú ºÙ¿©ÁÜ
 				bLanding = TRUE;
 		} 
 		
-		if( bLanding )			// ì°©ì§€? 
+		if( bLanding )			// ÂøÁö? 
 		{
 #ifdef __JEFF_11_6
 			BOOL bReturn	= pMover->IsNPC() && pMover->GetSpeedFactor() > 1.9F;
@@ -335,7 +335,7 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 				)
 			{
 				*pPos = vSlide;
-				m_bGround = 2;	// ë•…ì— ë‹¿ê¸´ í–ˆëŠ”ë° ë¯¸ë„ëŸ¬ ì§€ê³  ìˆë‹¤.
+				m_bGround = 2;	// ¶¥¿¡ ´ê±ä Çß´Âµ¥ ¹Ì²ô·¯ Áö°í ÀÖ´Ù.
 			#ifdef __WORLDSERVER
 				pMover->PostAIMsg( AIMSG_COLLISION );
 			#endif
@@ -343,26 +343,26 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 			else
 			{
 				pPos->y = h;
-				m_bGround = 1;	// ë¯¸ë„ëŸ¬ ì§€ì§€ ì•Šê³  ìˆë‹¤.
+				m_bGround = 1;	// ¹Ì²ô·¯ ÁöÁö ¾Ê°í ÀÖ´Ù.
 			}
 
 			if( pObjColl )
 			{
-				if( pObjColl->GetType()	== OT_SHIP )	// ì°©ì§€í•œ ì˜¤ë¸Œì íŠ¸ê°€ SHIPì´ë©´
+				if( pObjColl->GetType()	== OT_SHIP )	// ÂøÁöÇÑ ¿ÀºêÁ§Æ®°¡ SHIPÀÌ¸é
 					pMover->OnActIALanding( pObjColl, *pPos );
 				else
 					pMover->SetIAObjLink( NULL );
 			} 
 			else
-				pMover->SetIAObjLink( NULL );	// ì°©ì§€ í–ˆëŠ”ë° ì˜¤ë¸Œì íŠ¸ê°€ ì•„ë‹ˆë©´ IAì—ì„œ ë‚´ë¦°ê±¸ë¡œ ê°„ì£¼.
+				pMover->SetIAObjLink( NULL );	// ÂøÁö Çß´Âµ¥ ¿ÀºêÁ§Æ®°¡ ¾Æ´Ï¸é IA¿¡¼­ ³»¸°°É·Î °£ÁÖ.
 			
 			m_vDelta.y = 0;
 		}
 	} 
-	else if( vDelta.y > 0 )			// ì¢Œí‘œê°€ ì˜¬ë¼ê°”ìŒ
+	else if( vDelta.y > 0 )			// ÁÂÇ¥°¡ ¿Ã¶ó°¬À½
 	{
 #if __VER >= 15 // __BOUND_BOX_COLLISION
-		FLOAT h = 65535.0f;			// pPosìœ„ì¹˜ì˜ ì²œì¥ ë†’ì´
+		FLOAT h = 65535.0f;			// pPosÀ§Ä¡ÀÇ ÃµÀå ³ôÀÌ
 		if( pMover->IsPlayer() )
 		{
 			h = pWorld->GetOverHeightForPlayer( D3DXVECTOR3( pPos->x, pPos->y + 1.5f, pPos->z ), pMover );
@@ -372,16 +372,16 @@ BOOL CActionMover::ProcessCollisionGround( D3DXVECTOR3 *pPos )
 			h = pWorld->GetOverHeight( D3DXVECTOR3( pPos->x, pPos->y + 1.5f, pPos->z ), pMover );
 		}
 #else // __BOUND_BOX_COLLISION
-		// pPosìœ„ì¹˜ì˜ ì²œì¥ ë†’ì´
+		// pPosÀ§Ä¡ÀÇ ÃµÀå ³ôÀÌ
 		FLOAT h	= pWorld->GetOverHeight( D3DXVECTOR3( pPos->x, pPos->y + 1.5f, pPos->z ) );
 #endif // __BOUND_BOX_COLLISION
 			
-		pPos->y += vDelta.y;		// ìš´ë™ëŸ‰ì„ ë”í•´ì¤Œ
-		if( pPos->y + 1.5f > h )	// ë¨¸ë¦¬ ë¶€ë¶„ì´ ì²œì¥ì— ë‹¿ì•˜ìœ¼ë©´ 
+		pPos->y += vDelta.y;		// ¿îµ¿·®À» ´õÇØÁÜ
+		if( pPos->y + 1.5f > h )	// ¸Ó¸® ºÎºĞÀÌ ÃµÀå¿¡ ´ê¾ÒÀ¸¸é 
 		{
-			pPos->y = h - 1.5f ;	// yì¢Œí‘œ ë³´ì •
-			m_vDelta.y = -0.01f;	// ì˜¬ë¼ê°€ë˜ê±° ë©ˆì¶¤
-			fResult = TRUE;			// ì¶©ëŒ 
+			pPos->y = h - 1.5f ;	// yÁÂÇ¥ º¸Á¤
+			m_vDelta.y = -0.01f;	// ¿Ã¶ó°¡´ø°Å ¸ØÃã
+			fResult = TRUE;			// Ãæµ¹ 
 		}
 	}
 	

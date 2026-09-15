@@ -1,4 +1,4 @@
-ï»¿#ifndef __DEFINE_WORLD
+#ifndef __DEFINE_WORLD
 #define __DEFINE_WORLD
 
 #define WI_WORLD_NONE		0
@@ -7,7 +7,7 @@
 #define	WI_WORLD_CISLAND	3
 #define	WI_WORLD_RARTESIA	4
 
-//ì‹¬ì—°ì˜ íƒ‘(í…ŒìŠ¤íŠ¸ìš©)
+//½É¿¬ÀÇ Å¾(Å×½ºÆ®¿ë)
 #define WI_WORLD_HEAVEN01		21
 #define WI_WORLD_HEAVEN02		22
 #define WI_WORLD_HEAVEN03		23
@@ -20,7 +20,7 @@
 #define	WI_WORLD_LUX	102
 #define	WI_WORLD_LUX2	103
 
-// ì¸ìŠ¤í„´ìŠ¤ ë˜ì „ìš© ë§µ (121 ~ 150 ì¸ë˜ìœ¼ë¡œë§Œ ì‚¬ìš©)
+// ÀÎ½ºÅÏ½º ´øÀü¿ë ¸Ê (121 ~ 150 ÀÎ´øÀ¸·Î¸¸ »ç¿ë)
 #define	WI_INSTANCE_OMINOUS			121
 #define	WI_INSTANCE_OMINOUS_1		122
 #define	WI_INSTANCE_DREADFULCAVE	123
@@ -37,9 +37,9 @@
 #define	WI_INSTANCE_HERNEOS_1		134
 #define	WI_INSTANCE_SANPRES_1		135
 
-#define	WI_INSTANCE_LAST_ID			135// ë§ˆì§€ë§‰ ì¸ë˜ ì•„ì´ë””ì™€ ë™ì¼í•˜ê²Œ..
+#define	WI_INSTANCE_LAST_ID			135// ¸¶Áö¸· ÀÎ´ø ¾ÆÀÌµð¿Í µ¿ÀÏÇÏ°Ô..
 
-// 151 ~ 170ë²ˆ ê¹Œì§€ëŠ” ë¹„ë°€ì˜ë°© ì „ìš©
+// 151 ~ 170¹ø ±îÁö´Â ºñ¹ÐÀÇ¹æ Àü¿ë
 #define WI_DUNGEON_SECRET_0		151
 #define WI_DUNGEON_SECRET_1		152
 #define WI_DUNGEON_SECRET_2		153
@@ -65,36 +65,36 @@
 #define	WI_DUNGEON_FL_MAS   200
 #define	WI_DUNGEON_DA_DK    201
 #define WI_WORLD_GUILDWAR	202
-#define WI_DUNGEON_VOLCANE	203     // ë³¼ì¼€ì¸ ì§€ì—­ 
+#define WI_DUNGEON_VOLCANE	203     // º¼ÄÉÀÎ Áö¿ª 
 #define WI_DUNGEON_SA_TA        204
 #define WI_DUNGEON_SA_TA2       205
-#define WI_DUNGEON_VOLCANERED	206 // ë³¼ì¼€ì¸ ì§€ì—­ RED
-#define WI_DUNGEON_VOLCANEYELLOW	207 // ë³¼ì¼€ì¸ ì§€ì—­ YELLOW
-#define WI_WORLD_ARENA				208 // ì•„ë ˆë‚˜ ì§€ì—­
-#define	WI_WORLD_MINIROOM			209  // ë¯¸ë‹ˆë£¸(í•˜ìš°ì§•ì‹œìŠ¤í…œ)
-#define	WI_WORLD_QUIZ			211  //Quiz ì§€ì—­
+#define WI_DUNGEON_VOLCANERED	206 // º¼ÄÉÀÎ Áö¿ª RED
+#define WI_DUNGEON_VOLCANEYELLOW	207 // º¼ÄÉÀÎ Áö¿ª YELLOW
+#define WI_WORLD_ARENA				208 // ¾Æ·¹³ª Áö¿ª
+#define	WI_WORLD_MINIROOM			209  // ¹Ì´Ï·ë(ÇÏ¿ìÂ¡½Ã½ºÅÛ)
+#define	WI_WORLD_QUIZ			211  //Quiz Áö¿ª
 
-#define	WI_GUILDHOUSE_SMALL			212  //ê¸¸ë“œ í•˜ìš°ìŠ¤ ì†Œí˜•
-#define	WI_GUILDHOUSE_MIDDLE			213  //ê¸¸ë“œ í•˜ìš°ìŠ¤ ì¤‘í˜•
-#define	WI_GUILDHOUSE_LARGE			214  //ê¸¸ë“œ í•˜ìš°ìŠ¤ ëŒ€í˜•
+#define	WI_GUILDHOUSE_SMALL			212  //±æµå ÇÏ¿ì½º ¼ÒÇü
+#define	WI_GUILDHOUSE_MIDDLE			213  //±æµå ÇÏ¿ì½º ÁßÇü
+#define	WI_GUILDHOUSE_LARGE			214  //±æµå ÇÏ¿ì½º ´ëÇü
 
 #define WI_DUNGEON_MUSCLE	210
 #define WI_DUNGEON_KRRR		220
 #define WI_DUNGEON_BEAR		230
 
 #define WI_WORLD_COLOSSEUM		231
-#define WI_WORLD_ARENA_1			232 // ì•„ë ˆë‚˜ ì§€ì—­
-#define WI_WORLD_FWC			233 // ì›”ë“œì±”í”¼ì–¸ì‹­ ê²½ê¸°ìž¥
-#define WI_WORLD_MARKET			234 // ì¤‘ê°œê±°ëž˜ì‹œìž¥
-#define WI_WORLD_RICHCASTLE		235	//ë¶€ìœ ì„±
+#define WI_WORLD_ARENA_1			232 // ¾Æ·¹³ª Áö¿ª
+#define WI_WORLD_FWC			233 // ¿ùµåÃ¨ÇÇ¾ð½Ê °æ±âÀå
+#define WI_WORLD_MARKET			234 // Áß°³°Å·¡½ÃÀå
+#define WI_WORLD_RICHCASTLE		235	//ºÎÀ¯¼º
 
-//241ë²ˆ ë¶€í„°ëŠ” 1:1ê¸¸ë“œëŒ€ì „ìž¥ë§Œ ì¶”ê°€ í•´ì•¼ í•¨.
+//241¹ø ºÎÅÍ´Â 1:1±æµå´ëÀüÀå¸¸ Ãß°¡ ÇØ¾ß ÇÔ.
 #define WI_WORLD_GUILDWAR1TO1_0	241
 #define WI_WORLD_GUILDWAR1TO1_1	242
 #define WI_WORLD_GUILDWAR1TO1_2	243
 #define WI_WORLD_GUILDWAR1TO1_3	244
 
-#define WI_WORLD_GUILDWAR1TO1_L	244	// ë§ˆì§€ë§‰ 1:1ê¸¸ë“œëŒ€ì „ìž¥ ID
+#define WI_WORLD_GUILDWAR1TO1_L	244	// ¸¶Áö¸· 1:1±æµå´ëÀüÀå ID
 
 #endif  
   

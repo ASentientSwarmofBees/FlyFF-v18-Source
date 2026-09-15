@@ -1,4 +1,4 @@
-ï»¿// AudioStream.h
+// AudioStream.h
 
 #ifndef _INC_AUDIOSTREAM
 #define _INC_AUDIOSTREAM
@@ -83,7 +83,7 @@ protected:
     UINT m_nTimeStarted;           // time (in system time) playback started
     UINT m_nTimeElapsed;           // elapsed time in msec since playback started
 
-	BOOL m_Repeat;								 // ì¬ìƒ ëë‚˜ë„ ì¬ë°˜ë³µ ì¬ìƒí• ì§€ ì—¬ë¶€
+	BOOL m_Repeat;								 // Àç»ı ³¡³ªµµ Àç¹İº¹ Àç»ıÇÒÁö ¿©ºÎ
 };
 
 #endif // _INC_AUDIOSTREAM 

@@ -1,4 +1,4 @@
-ï»¿// Neuz.cpp : Defines the entry point for the application.
+// Neuz.cpp : Defines the entry point for the application.
 //
 #include "stdafx.h"
 #include "Hotkey.h"
@@ -13,7 +13,7 @@ CHotkey::~CHotkey()
 }
 void CHotkey::SetDefaultHotkey( int nMax )
 {
-	// ê¸°ë³¸ ë‹¨ì¶•í‚¤ ì„¸íŒ… 
+	// ±âº» ´ÜÃàÅ° ¼¼ÆÃ 
 	for( int i = 0; i < nMax; i++ )
 	{
 		LPHOTKEY lpHotkey = &m_HotkeyTable[i];
@@ -117,8 +117,8 @@ BOOL CHotkey::RemoveHotkey(int nChar,BOOL bShift,BOOL bControl)
 	}
 	return FALSE;
 }
-// nFunc = ê¸°ëŠ¥ ë˜ëŠ” ì§€ì‹ 
-// nChar = í‚¤ ë˜ëŠ” ê°€ìƒí‚¤
+// nFunc = ±â´É ¶Ç´Â Áö½Ä 
+// nChar = Å° ¶Ç´Â °¡»óÅ°
 BOOL CHotkey::AddHotkey(int nFunc,int nChar,BOOL bShift,BOOL bControl)
 {
 	ItemProp* pItemProp = prj.GetItemProp(nFunc);
@@ -126,11 +126,11 @@ BOOL CHotkey::AddHotkey(int nFunc,int nChar,BOOL bShift,BOOL bControl)
 	int nHotkeyType;
 	if((nHotkeyType = GetHotkeyType(nChar,bShift,bControl)))
 	{
-		if(nHotkeyType == 2) // ì§€ì‹ í•«í‚¤ 
+		if(nHotkeyType == 2) // Áö½Ä ÇÖÅ° 
 			RemoveHotkey(nChar,bShift,bControl);
 		else
 		{
-			//g_clientMessage.PutMessage(g_pMemDC, MKHIGHRGB(30, 16, 0),"ë‹¨ì¶•í‚¤ê°€ ì´ë¯¸ ì§€ì •ë˜ì–´ìžˆì–´ ì´ì „ ëª…ë ¹ì„ ìˆ˜í–‰í•©ë‹ˆë‹¤.");
+			//g_clientMessage.PutMessage(g_pMemDC, MKHIGHRGB(30, 16, 0),"´ÜÃàÅ°°¡ ÀÌ¹Ì ÁöÁ¤µÇ¾îÀÖ¾î ÀÌÀü ¸í·ÉÀ» ¼öÇàÇÕ´Ï´Ù.");
 			return FALSE;
 		}
 	}
@@ -144,11 +144,11 @@ BOOL CHotkey::AddHotkey(int nFunc,int nChar,BOOL bShift,BOOL bControl)
 	{
 		if(g_pWndMgr->m_pWndKnowledge)
 			g_pWndMgr->m_pWndKnowledge->SetSubKnowListToolTip();
-		str.Format("%s ì§€ì‹ ë‹¨ì¶•í‚¤ê°€ ì •ì˜ë˜ì—ˆìŠµë‹ˆë‹¤.",pItemProp->m_strName,nChar);
+		str.Format("%s Áö½Ä ´ÜÃàÅ°°¡ Á¤ÀÇµÇ¾ú½À´Ï´Ù.",pItemProp->m_strName,nChar);
 		//g_pPlayer->SetNewbieStatus(NEWBIE_HOTKEY);
 	}
 	else
-		str.Format("ë‹¨ì¶•í‚¤ê°€ ì •ì˜ë˜ì—ˆìŠµë‹ˆë‹¤.");
+		str.Format("´ÜÃàÅ°°¡ Á¤ÀÇµÇ¾ú½À´Ï´Ù.");
 //	g_clientMessage.PutMessage(g_pMemDC, MKHIGHRGB(30, 16, 0), str);
 	//SetConfig();
 	*/
@@ -177,7 +177,7 @@ void CHotkey::ExecuteFunc(int nFunc)
 	{
 		//if(g_pFieldWnd && g_pPlayer)
 		{
-			// í•„ë“œ ìƒíƒœì—ì„œ ë‹¨ì¶•í‚¤ ì²˜ë¦¬ 
+			// ÇÊµå »óÅÂ¿¡¼­ ´ÜÃàÅ° Ã³¸® 
 			switch(nFunc)
 			{
 			case FUNC_USE1: nSlotKey = 0; break;
@@ -238,7 +238,7 @@ void CHotkey::ExecuteFunc(int nFunc)
 				break;
 			}
 		}
-		// íƒ€ì´í‹€ ë˜ëŠ” í•„ë“œê°€ ì—´ë¦° ìƒíƒœì—ì„œ ëª¨ë‘ ì²˜ë¦¬ 
+		// Å¸ÀÌÆ² ¶Ç´Â ÇÊµå°¡ ¿­¸° »óÅÂ¿¡¼­ ¸ðµÎ Ã³¸® 
 		switch(nFunc)
 		{
 			case FUNC_HELP: 
@@ -265,7 +265,7 @@ void CHotkey::ExecuteFunc(int nFunc)
 }
 //////////////////////////////////////////////////////////
 // 
-// ë‹¨ì¶•í‚¤ ê´€ë ¨
+// ´ÜÃàÅ° °ü·Ã
 //
 void CHotkey::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
@@ -285,7 +285,7 @@ void CHotkey::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	int nKnowIdxList = -1;
 	if(bIMEMode == FALSE)
 	{
-		// ì§€ì‹ ë‹¨ì¶•í‚¤ ì²˜ë¦¬ : ì¸í„°íŽ˜ì´ìŠ¤ì—ì„œ ì§€ì‹ í•­ëª©ì— í•˜ì´ë¼ì´íŠ¸ê°€ ë˜ì–´ ìžˆë‚˜?
+		// Áö½Ä ´ÜÃàÅ° Ã³¸® : ÀÎÅÍÆäÀÌ½º¿¡¼­ Áö½Ä Ç×¸ñ¿¡ ÇÏÀÌ¶óÀÌÆ®°¡ µÇ¾î ÀÖ³ª?
 		if(pWndKnowledge && pWndKnowledge->m_nShowKnowMode != -1)
 		{
 			for(int i = 0; i < 20; i++)
@@ -314,7 +314,7 @@ void CHotkey::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				}
 			}
 		}
-		// ì§€ì‹ ë‹¨ì¶•í‚¤ ë“±ë¡ 
+		// Áö½Ä ´ÜÃàÅ° µî·Ï 
 		if(nKnowIdxList != -1)
 		{
 			if(AddHotkey(nKnowIdxList,nChar,g_bPressShift,g_bPressControl))

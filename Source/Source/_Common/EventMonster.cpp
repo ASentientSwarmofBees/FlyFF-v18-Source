@@ -1,4 +1,4 @@
-﻿// EventMonster.cpp: implementation of the CEventMonster class.
+// EventMonster.cpp: implementation of the CEventMonster class.
 //
 //////////////////////////////////////////////////////////////////////
 

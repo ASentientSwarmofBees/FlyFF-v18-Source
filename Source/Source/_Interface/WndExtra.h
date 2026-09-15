@@ -1,4 +1,4 @@
-﻿#ifndef __WNDEXTRACAPTURE__H
+#ifndef __WNDEXTRACAPTURE__H
 #define __WNDEXTRACAPTURE__H
 
 class CWndExtraCapture : public CWndNeuz 

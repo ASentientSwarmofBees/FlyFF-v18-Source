@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #ifdef __IMPROVE_MAP_SYSTEM
 #ifdef __CLIENT
 #include "WndMapEx.h"
@@ -979,7 +979,7 @@ void CWndMapEx::RenderPlayerPosition( C2DRender* p2DRender, CTexture* pArrowText
 	ConvertPosition( vConvertedPosition, vPlayerPosition, m_bySelectedMapLocationID );
 	CPoint pointConvertedPosition( static_cast< int >( vConvertedPosition.x ), static_cast< int >( vConvertedPosition.z ) );
 
-	// ìœ„ì¹˜ ì¶œë ¥
+	// À§Ä¡ Ãâ·Â
 	D3DXVECTOR3 vCamera = g_Neuz.m_camera.m_vPos;
 	D3DXVECTOR3 vView = vPlayerPosition - vCameraPosition;
 	vView.y = 0.0F;
@@ -995,13 +995,13 @@ void CWndMapEx::RenderPlayerPosition( C2DRender* p2DRender, CTexture* pArrowText
 	int nRevisedPCArrowStartPositionY = static_cast< int >( static_cast< FLOAT >( pointConvertedPosition.y ) - fRevisedArrowStartPositionY );
 	pArrowTexture->RenderRotate( p2DRender, CPoint( nRevisedPCArrowStartPositionX, nRevisedPCArrowStartPositionY ), fResultRadian, TRUE, 255, m_fRevisedMapSizeRatio, m_fRevisedMapSizeRatio );
 
-	// ì´ë¦„ ì¶œë ¥
+	// ÀÌ¸§ Ãâ·Â
 	CD3DFont* pOldFont = p2DRender->GetFont();
 	p2DRender->SetFont( CWndBase::m_Theme.m_pFontWorld );
 	static const int FONT_REVISING_VALUE = 2;
 
 	CSize sizeNameText = p2DRender->GetFont()->GetTextExtent( strName );
-	// í°íŠ¸ê°€ ë³€ê²½ë˜ì–´ ì›ë˜ í¬ê¸°ë³´ë‹¤ FONT_REVISING_VALUE ë§Œí¼ ë” ëŠ˜ì–´ë‚¨ (ê°€ë¡œ ì„¸ë¡œ ëª¨ë‘ )
+	// ÆùÆ®°¡ º¯°æµÇ¾î ¿ø·¡ Å©±âº¸´Ù FONT_REVISING_VALUE ¸¸Å­ ´õ ´Ã¾î³² (°¡·Î ¼¼·Î ¸ğµÎ )
 	sizeNameText.cx += ( FONT_REVISING_VALUE * 2 );
 	sizeNameText.cy += ( FONT_REVISING_VALUE * 2 );
 
@@ -1369,8 +1369,8 @@ const D3DXVECTOR3& CWndMapEx::ReconvertPosition( D3DXVECTOR3& vDestination, cons
 //-----------------------------------------------------------------------------
 const CRect& CWndMapEx::ReviseScriptRectInformation( CRect& rectDestination, const CRect& rectSource )
 {
-	// ìŠ¤í¬ë¦½íŠ¸ì˜ ì›ë³¸ ìœ„ì¹˜ ë°ì´í„°ëŠ” ëª¨ë‘ 1280 * 960 í•´ìƒë„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì‘ì„±ë˜ì–´ ìˆìŒ
-	// ìƒˆë¡œìš´ ë§µ ì‹œìŠ¤í…œì—ì„œëŠ” ë§µ í¬ê¸°ë¥¼ ë§ˆìŒëŒ€ë¡œ ë³€ê²½í•  ìˆ˜ ìˆìœ¼ë¯€ë¡œ, ê·¸ì— ë§ê²Œë” ë³´ì • ê³„ì‚°ì„ í•´ì„œ ë³´ì •ëœ ìœ„ì¹˜ ë°ì´í„°ë¥¼ ì‚¬ìš©í•´ì•¼ í•¨
+	// ½ºÅ©¸³Æ®ÀÇ ¿øº» À§Ä¡ µ¥ÀÌÅÍ´Â ¸ğµÎ 1280 * 960 ÇØ»óµµ¸¦ ±âÁØÀ¸·Î ÀÛ¼ºµÇ¾î ÀÖÀ½
+	// »õ·Î¿î ¸Ê ½Ã½ºÅÛ¿¡¼­´Â ¸Ê Å©±â¸¦ ¸¶À½´ë·Î º¯°æÇÒ ¼ö ÀÖÀ¸¹Ç·Î, ±×¿¡ ¸Â°Ô²û º¸Á¤ °è»êÀ» ÇØ¼­ º¸Á¤µÈ À§Ä¡ µ¥ÀÌÅÍ¸¦ »ç¿ëÇØ¾ß ÇÔ
 	FLOAT fRevisedPositionXRatio = static_cast< FLOAT >( rectSource.left ) / SOURCE_MAP_SIZE_X * static_cast< FLOAT >( m_rectRevisedMapPosition.Width() );
 	FLOAT fRevisedPositionYRatio = static_cast< FLOAT >( rectSource.top ) / SOURCE_MAP_SIZE_Y * static_cast< FLOAT >( m_rectRevisedMapPosition.Height() );
 	FLOAT fRevisedWidthRatio = static_cast< FLOAT >( rectSource.Width() ) * m_fRevisedMapSizeRatio;

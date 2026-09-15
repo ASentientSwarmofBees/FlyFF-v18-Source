@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "dpaccountclient.h"
 #include "dpcertifier.h"
 #include "dbmanager.h"
@@ -20,7 +20,7 @@ CLoginLimit::CLoginLimit()
 	m_nRequestPerSecond	= 0;
 }
 
-// ì´ˆë‹¹ loginì‹œë„ê°€ ì œí•œì„ ë„˜ëŠ”ì§€ ì²´í¬í•œë‹¤.  ( true - ì œí•œì„ ë„˜ëŠ”ë‹¤ )
+// ÃÊ´ç login½Ãµµ°¡ Á¦ÇÑÀ» ³Ñ´ÂÁö Ã¼Å©ÇÑ´Ù.  ( true - Á¦ÇÑÀ» ³Ñ´Â´Ù )
 bool CLoginLimit::Check()
 {
 	m_nRequestPerSecond++;
@@ -111,10 +111,10 @@ void CDPCertifier::OnAddConnection( DPID dpid )
 #endif	// __US_LOGIN_0223
 }
 
-// íƒœêµ­ì˜ ê²½ìš° ëŒì•„ì˜¤ëŠ” 22:00ì‹œê¹Œì§€ì˜ ë‚¨ì€ ì‹œê°„ì„ ì´ˆë‹¨ìœ„ë¡œ ë³´ë‚¸ë‹¤.
+// ÅÂ±¹ÀÇ °æ¿ì µ¹¾Æ¿À´Â 22:00½Ã±îÁöÀÇ ³²Àº ½Ã°£À» ÃÊ´ÜÀ§·Î º¸³½´Ù.
 long GetPlayLeftTime( BYTE cbAccountFlag )
 {
-	if( cbAccountFlag & ACCOUNT_FLAG_18 )	// ì„±ì¸ì€ ë‚¨ì€ 22:00ì‹œì— ëŠê¸°ì§€ ì•Šê¸°ì—, ì‹œê°„ì„ ì•Œë¦¬ì§€ ì•Šê²Œí•¨ 
+	if( cbAccountFlag & ACCOUNT_FLAG_18 )	// ¼ºÀÎÀº ³²Àº 22:00½Ã¿¡ ²÷±âÁö ¾Ê±â¿¡, ½Ã°£À» ¾Ë¸®Áö ¾Ê°ÔÇÔ 
 		return 0;		
 
 	CTime cur = CTime::GetCurrentTime();
@@ -134,7 +134,7 @@ long GetPlayLeftTime( BYTE cbAccountFlag )
 		span += ts;
 	}
 
-	return max( (long)( span.GetTotalSeconds() ), 1 );	// ì ì–´ë„ 1ì´ˆ ì´ìƒ ( 0 ê³¼ êµ¬ë¶„í•˜ê¸° ìœ„í•´ì„œ )
+	return max( (long)( span.GetTotalSeconds() ), 1 );	// Àû¾îµµ 1ÃÊ ÀÌ»ó ( 0 °ú ±¸ºĞÇÏ±â À§ÇØ¼­ )
 }
 
 #ifdef __GPAUTH_01
@@ -176,7 +176,7 @@ void CDPCertifier::SendServerList( DPID dpId, DWORD dwAuthKey, BYTE cbAccountFla
 
 	if( ::GetLanguage() == LANG_THA )
 	{
-		long lTimeLeft = GetPlayLeftTime( cbAccountFlag );	// íƒœêµ­ì˜ ê²½ìš° ëŒì•„ì˜¤ëŠ” 22:00ì‹œê¹Œì§€ì˜ ë‚¨ì€ ì‹œê°„ì„ ë³´ë‚¸ë‹¤.
+		long lTimeLeft = GetPlayLeftTime( cbAccountFlag );	// ÅÂ±¹ÀÇ °æ¿ì µ¹¾Æ¿À´Â 22:00½Ã±îÁöÀÇ ³²Àº ½Ã°£À» º¸³½´Ù.
 		ar << lTimeLeft;
 	}
 
@@ -202,7 +202,7 @@ void CDPCertifier::SendError( LONG lError, DPID dpId )
 	BEFORESEND( ar, PACKETTYPE_ERROR );
 	ar << lError;
 	SEND( ar, this, dpId );
-//	DestroyPlayer( dpId ); shutdownì„ í˜¸ì¶œí•˜ì§€ ëª»í•˜ëŠ” ì´ ì•„í”” 
+//	DestroyPlayer( dpId ); shutdownÀ» È£ÃâÇÏÁö ¸øÇÏ´Â ÀÌ ¾ÆÇÄ 
 }
 
 #ifdef __GPAUTH
@@ -251,7 +251,7 @@ void CDPCertifier::OnCertify( CAr & ar, DPID dpid, LPBYTE lpBuf, u_long uBufSize
 	ar.ReadString( pszAccount, MAX_ACCOUNT );
 
 	//////////////////////////////////////////////////////////////////////////
-	//	mulcom	BEGIN100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”
+	//	mulcom	BEGIN100218	ÆĞ½º¿öµå ¾ÏÈ£È­
 #ifdef __ENCRYPT_PASSWORD
 	char		szEnc[ 16 * MAX_PASSWORD ] = {0, };
 	char		szDec[ 16 * MAX_PASSWORD ] = {0, };
@@ -265,7 +265,7 @@ void CDPCertifier::OnCertify( CAr & ar, DPID dpid, LPBYTE lpBuf, u_long uBufSize
 #else
 	ar.ReadString( pszPwd, MAX_PASSWORD );
 #endif
-	//	mulcom	END100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”
+	//	mulcom	END100218	ÆĞ½º¿öµå ¾ÏÈ£È­
 	//////////////////////////////////////////////////////////////////////////
 
 

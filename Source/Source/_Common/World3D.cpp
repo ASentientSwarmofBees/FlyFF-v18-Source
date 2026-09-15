@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "Region.h"
 #include "ModelGlobal.h"
 #include "..\_Common\ParticleMng.h"
@@ -12,11 +12,11 @@
 #endif // __HOUSING
 
 //
-// ì˜¤ë¸Œì íŠ¸ íƒ€ì…(OT_OBJ, OT_MOVER.. )ì„ ì˜¤ë¸Œì íŠ¸ í•„í„°ë¡œ ë³€í™˜í•œë‹¤.(OF_OBJ, OF_MOVER... )
-// ì˜¤ë¸Œì íŠ¸ íƒ€ì…ìœ¼ë‹ˆ enumí˜•ì‹ì˜ ì—´ê±°ê°’ì´ê³ , ì˜¤ë¸Œì íŠ¸ í•„í„°ëŠ” ë¹„íŠ¸ ì—°ì‚°ì„ ìœ„í•œ ê°’ì´ë‹¤.
-// í•„ë“œì—ì„œ ì˜¤ë¸Œì íŠ¸ë¥¼ ì¶”ì¶œí•˜ê¸° ìœ„í•´ì„œëŠ” ì—´ê±°ê°’ì¸ ì˜¤ë¸Œì íŠ¸ íƒ€ì…ì„ ì‚¬ìš©í•  ìˆ˜ ì—†ì–´
+// ¿ÀºêÁ§Æ® Å¸ÀÔ(OT_OBJ, OT_MOVER.. )À» ¿ÀºêÁ§Æ® ÇÊÅÍ·Î º¯È¯ÇÑ´Ù.(OF_OBJ, OF_MOVER... )
+// ¿ÀºêÁ§Æ® Å¸ÀÔÀ¸´Ï enumÇü½ÄÀÇ ¿­°Å°ªÀÌ°í, ¿ÀºêÁ§Æ® ÇÊÅÍ´Â ºñÆ® ¿¬»êÀ» À§ÇÑ °ªÀÌ´Ù.
+// ÇÊµå¿¡¼­ ¿ÀºêÁ§Æ®¸¦ ÃßÃâÇÏ±â À§ÇØ¼­´Â ¿­°Å°ªÀÎ ¿ÀºêÁ§Æ® Å¸ÀÔÀ» »ç¿ëÇÒ ¼ö ¾ø¾î
 
-// ëŒ€ì•ˆìœ¼ë¡œ ì˜¤ë¸Œì íŠ¸ í•„í„° ì •ì˜ë¥¼ í•œ ê²ƒì´ë‹¤. ( OF_OBJ | OBJ_CTRL | OF_MOVER )
+// ´ë¾ÈÀ¸·Î ¿ÀºêÁ§Æ® ÇÊÅÍ Á¤ÀÇ¸¦ ÇÑ °ÍÀÌ´Ù. ( OF_OBJ | OBJ_CTRL | OF_MOVER )
 //
 inline DWORD ObjTypeToObjFilter( DWORD dwType )
 {  
@@ -47,7 +47,7 @@ D3DCOLOR   CWorld::m_dwBgColor = D3DCOLOR_XRGB(0xe0,0xe0,0xff);
 D3DXMATRIX CWorld::m_matProj;   
 D3DLIGHT9  CWorld::m_light;
 D3DLIGHT9  CWorld::m_lightFogSky;
-FLOAT CWorld::m_fFarPlane  = 512.0f;//768.0f; 512ê°€ ë¯¸ë‹ˆë©ˆ 
+FLOAT CWorld::m_fFarPlane  = 512.0f;//768.0f; 512°¡ ¹Ì´Ï¸Ø 
 FLOAT CWorld::m_fNearPlane = 0.5f;
 
 
@@ -59,7 +59,7 @@ float fDiv = 4.0f;
 
 void CWorld::Projection( LPDIRECT3DDEVICE9 pd3dDevice, int nWidth, int nHeight )
 { 
-	// Frame Windowì™€ ê´€ë ¤ëœ Projection
+	// Frame Window¿Í °ü·ÁµÈ Projection
 	FLOAT fAspect = (FLOAT)nWidth / (FLOAT)nHeight;
 	float fFov = D3DX_PI / fDiv;
 	extern int g_nFlySpeed;
@@ -109,11 +109,11 @@ void CWorld::Projection( LPDIRECT3DDEVICE9 pd3dDevice, int nWidth, int nHeight )
 }
 
 
-// ì§€í˜•ê³¼ ì˜¤ë¸Œì íŠ¸ë§Œ ë Œë”ë§.
+// ÁöÇü°ú ¿ÀºêÁ§Æ®¸¸ ·»´õ¸µ.
 void CWorld::RenderBase( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 {
 #ifdef __CLIENT
-	// ê¸°ë³¸ ëœë” ì„¸íŒ… 
+	// ±âº» ·£´õ ¼¼ÆÃ 
 	pd3dDevice->SetSamplerState( 0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR );		
 	pd3dDevice->SetSamplerState( 0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR );		
 	pd3dDevice->SetSamplerState( 0, D3DSAMP_ADDRESSU, 1 );
@@ -126,12 +126,12 @@ void CWorld::RenderBase( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 	pd3dDevice->SetRenderState( D3DRS_FILLMODE, D3DFILL_SOLID );
 	pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP,   D3DTOP_SELECTARG1 );
 	
-	// ê¸°ë³¸ ë§¤íŠ¸ë¦­ìŠ¤ 
+	// ±âº» ¸ÅÆ®¸¯½º 
 	D3DXMATRIX matWorld;
 	D3DXMatrixIdentity( &matWorld );
 	pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 	
-	// ì¶œë ¥ì„ ì™€ì´ì–´ í”„ë ˆì„ìœ¼ë¡œ. 
+	// Ãâ·ÂÀ» ¿ÍÀÌ¾î ÇÁ·¹ÀÓÀ¸·Î. 
 	if( m_bViewWireframe)
 	{
 		m_pd3dDevice->SetRenderState( D3DRS_FILLMODE, D3DFILL_WIREFRAME );
@@ -140,7 +140,7 @@ void CWorld::RenderBase( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 	}
 	pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPFILTER, D3DTEXF_NONE );
 #ifdef __CLIENT
-	// í•˜ëŠ˜ ëœë”ë§
+	// ÇÏ´Ã ·£´õ¸µ
 	CHECK1();
 	if( m_bViewSkybox )
 	{
@@ -149,9 +149,9 @@ void CWorld::RenderBase( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 	}
 	CHECK2( "  Render SkyBox" );
 #endif
-	// ì¹´ë©”ë¼ íŠ¸ëœìŠ¤í¼ ( View íŠ¸ëœìŠ¤í¼ ) 
+	// Ä«¸Ş¶ó Æ®·£½ºÆû ( View Æ®·£½ºÆû ) 
 	m_pCamera->Transform( pd3dDevice, this );
-	// ë°‰ë§µ ì„¸íŒ… 
+	// ¹Ó¸Ê ¼¼ÆÃ 
 	//pd3dDevice->SetSamplerState( 0, D3DSAMP_MAXMIPLEVEL, 0 );
 	pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPFILTER, D3DTEXF_POINT );
 	float fBias=-0.0f;
@@ -160,11 +160,11 @@ void CWorld::RenderBase( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 	m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPMAPLODBIAS , FtoDW(fBias));
 	//m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPMAPLODBIAS , 0 );
 
-	SetLight( TRUE ); // ì§€í˜•ì€ ë°˜ë“œì‹œ ì¡°ëª…ì„ ë°›ê²Œ í•œë‹¤.
+	SetLight( TRUE ); // ÁöÇüÀº ¹İµå½Ã Á¶¸íÀ» ¹Ş°Ô ÇÑ´Ù.
 
 	SetFogEnable( m_pd3dDevice, m_bViewFog );
 	
-	// ì§€í˜• ëœë”ë§  
+	// ÁöÇü ·£´õ¸µ  
 	CHECK1(); 
 	if( g_Option.m_nShadow < 2 ) SetStateShadowMap( m_pd3dDevice, 2, m_pCamera->m_matView );
 	RenderTerrain();
@@ -172,9 +172,9 @@ void CWorld::RenderBase( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 	CHECK2( "  Render Terrain" );
 	
 	if( m_bViewLight != TRUE )
-		SetLight( m_bViewLight );		//cpuì¡ì•„ë¨¹ëŠ” ì¼ì€ í•˜ì§€ ë§ì 
+		SetLight( m_bViewLight );		//cpuÀâ¾Æ¸Ô´Â ÀÏÀº ÇÏÁö ¸»ÀÚ 
 	
-	// ì˜¤ë¸Œì íŠ¸ ëœë”ë§ 
+	// ¿ÀºêÁ§Æ® ·£´õ¸µ 
 	RenderObject( pFont );
 #endif //	
 }
@@ -187,15 +187,15 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 
 	if( g_Option.m_nBloom && !pWorldMap->IsRender() )
 	{
-		//	RenderBaseë¡œ ë‹¤ë¥¸ ë Œë”íƒ€ê²Ÿì— ë Œë”ë§í•œ í…ìŠ¤ì³ë¥¼ thisì— ë Œë”í•¨.
-		// RenderBase( pd3dDevice, pFont );		// ì´ê±´ ì™¸ë¶€ì—ì„œ ë¯¸ë¦¬ ì‹¤í–‰ë˜ì–´ì•¼ í•œë‹¤.
+		//	RenderBase·Î ´Ù¸¥ ·»´õÅ¸°Ù¿¡ ·»´õ¸µÇÑ ÅØ½ºÃÄ¸¦ this¿¡ ·»´õÇÔ.
+		// RenderBase( pd3dDevice, pFont );		// ÀÌ°Ç ¿ÜºÎ¿¡¼­ ¹Ì¸® ½ÇÇàµÇ¾î¾ß ÇÑ´Ù.
 		
-			g_Glare.m_Src.RenderNormal( pd3dDevice );	// ê²Œì„í™”ë©´ ì›ë³¸ì„ ìŠ¤í¬ë¦°ì— ë°•ìŒ
-			g_Glare.RenderGlareEffect( pd3dDevice );	// ê·¸ìœ„ì— ë¸”ëŸ¬ëœ í™”ë©´ì„ ë§ì”Œì›€.
+			g_Glare.m_Src.RenderNormal( pd3dDevice );	// °ÔÀÓÈ­¸é ¿øº»À» ½ºÅ©¸°¿¡ ¹ÚÀ½
+			g_Glare.RenderGlareEffect( pd3dDevice );	// ±×À§¿¡ ºí·¯µÈ È­¸éÀ» µ¡¾º¿ò.
 	} 
 	else
 	{
-		// ê¸°ë³¸ ëœë” ì„¸íŒ… 
+		// ±âº» ·£´õ ¼¼ÆÃ 
 		pd3dDevice->SetSamplerState( 0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR );		
 		pd3dDevice->SetSamplerState( 0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR );		
 		pd3dDevice->SetSamplerState( 0, D3DSAMP_ADDRESSU, 1 );
@@ -208,12 +208,12 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 		pd3dDevice->SetRenderState( D3DRS_FILLMODE, D3DFILL_SOLID );
 		pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP,   D3DTOP_SELECTARG1 );
 		
-		// ê¸°ë³¸ ë§¤íŠ¸ë¦­ìŠ¤ 
+		// ±âº» ¸ÅÆ®¸¯½º 
 		D3DXMATRIX matWorld;
 		D3DXMatrixIdentity( &matWorld );
 		pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 		
-		// ì¶œë ¥ì„ ì™€ì´ì–´ í”„ë ˆì„ìœ¼ë¡œ. 
+		// Ãâ·ÂÀ» ¿ÍÀÌ¾î ÇÁ·¹ÀÓÀ¸·Î. 
 		if( m_bViewWireframe)
 		{
 			m_pd3dDevice->SetRenderState( D3DRS_FILLMODE, D3DFILL_WIREFRAME );
@@ -222,7 +222,7 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 		}
 		pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPFILTER, D3DTEXF_NONE );
 	 #ifdef __CLIENT
-		// í•˜ëŠ˜ ëœë”ë§
+		// ÇÏ´Ã ·£´õ¸µ
 		CHECK1();
 		if( m_bViewSkybox )
 		{
@@ -231,9 +231,9 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 		}
 		CHECK2( "  Render SkyBox" );
 	 #endif
-		// ì¹´ë©”ë¼ íŠ¸ëœìŠ¤í¼ ( View íŠ¸ëœìŠ¤í¼ ) 
+		// Ä«¸Ş¶ó Æ®·£½ºÆû ( View Æ®·£½ºÆû ) 
 		m_pCamera->Transform( pd3dDevice, this );
-		// ë°‰ë§µ ì„¸íŒ… 
+		// ¹Ó¸Ê ¼¼ÆÃ 
 		//pd3dDevice->SetSamplerState( 0, D3DSAMP_MAXMIPLEVEL, 0 );
 		pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPFILTER, D3DTEXF_POINT );
 		float fBias=-0.0f;
@@ -242,10 +242,10 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 		m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPMAPLODBIAS , FtoDW(fBias));
 		//m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPMAPLODBIAS , 0 );
 		
-		SetLight( TRUE ); // ì§€í˜•ì€ ë°˜ë“œì‹œ ì¡°ëª…ì„ ë°›ê²Œ í•œë‹¤.
+		SetLight( TRUE ); // ÁöÇüÀº ¹İµå½Ã Á¶¸íÀ» ¹Ş°Ô ÇÑ´Ù.
 		SetFogEnable( m_pd3dDevice, m_bViewFog );
 		
-		// ì§€í˜• ëœë”ë§  
+		// ÁöÇü ·£´õ¸µ  
 		CHECK1(); 
 		//m_pd3dDevice->SetRenderState( D3DRS_AMBIENT, D3DCOLOR_ARGB( 255,0,0,0) ); 
 		if( g_Option.m_nShadow < 2 ) SetStateShadowMap( m_pd3dDevice, 2, m_pCamera->m_matView );
@@ -257,10 +257,10 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 		if( TRUE != m_bViewLight )
 			SetLight( m_bViewLight );	
 		
-		// ê·¸ë¦¬ë“œ ëœë”ë§
+		// ±×¸®µå ·£´õ¸µ
 		RenderGrid();
 		
-		// ì˜¤ë¸Œì íŠ¸ ëœë”ë§ 
+		// ¿ÀºêÁ§Æ® ·£´õ¸µ 
 		RenderObject( pFont );
 
 #ifdef __BS_EFFECT_LUA
@@ -273,7 +273,7 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 	m_pd3dDevice->SetRenderState( D3DRS_AMBIENT, D3DCOLOR_ARGB( 255,255,255,255) ); //m_dwAmbient );//D3DCOLOR_ARGB( 255,128,128,128) );//D3DCOLOR_ARGB( 255,50,50,70) );
 	
 	g_GameTimer.GetMoonPercent();
-	// ìŠ¤ì¹´ì´ ë°•ìŠ¤ ëœë”ë§ 
+	// ½ºÄ«ÀÌ ¹Ú½º ·£´õ¸µ 
 	CHECK1();
 	m_skyBox.RenderFall( pd3dDevice );
 	if( m_bViewSkybox ) //&& g_GameTimer.GetSunPercent() )
@@ -285,15 +285,15 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 #else
 	//RenderWater();
 
-	// ë°”ìš´ë“œ ë°•ìŠ¤ ëœë”ë§ 
+	// ¹Ù¿îµå ¹Ú½º ·£´õ¸µ 
 	RenderBoundBox();
 
-	// ê¸°ì¦ˆëª¨ ëœë”ë§ 
+	// ±âÁî¸ğ ·£´õ¸µ 
 //	RenderGizmo();
 	RenderAxis();
 #endif
 	
-	// ëœë” ìŠ¤í…Œì´íŠ¸ ë³µêµ¬ 
+	// ·£´õ ½ºÅ×ÀÌÆ® º¹±¸ 
 	pd3dDevice->SetRenderState( D3DRS_CULLMODE, D3DCULL_NONE );
 	pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPFILTER, D3DTEXF_NONE );
 	SetFogEnable( pd3dDevice, FALSE );
@@ -303,7 +303,7 @@ void CWorld::Render( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont )
 // Desc: Callback function for sorting trees in back-to-front order
 //-----------------------------------------------------------------------------
 
-// ê°€ê¹Œìš´ë°ì„œ ë¨¼ê±°ë¦¬ë¡œ ì†ŒíŒ… (ì´ê²Œ ë¹ ë¥´ë°ìš”)
+// °¡±î¿îµ¥¼­ ¸Õ°Å¸®·Î ¼ÒÆÃ (ÀÌ°Ô ºü¸£µ¥¿ä)
 int ObjSortNearToFar( const VOID* arg1, const VOID* arg2 )
 {
     D3DXVECTOR3 vPos1 = (*(CObj**)arg1)->GetPos();
@@ -323,7 +323,7 @@ int ObjSortNearToFar( const VOID* arg1, const VOID* arg2 )
 
     return -1;
 }
-// ë¨¼ë°ì„œ ê°€ê¹Œìš´ ìˆœìœ¼ë¡œ ì†ŒíŒ… 
+// ¸Õµ¥¼­ °¡±î¿î ¼øÀ¸·Î ¼ÒÆÃ 
 int ObjSortFarToNear( const VOID* arg1, const VOID* arg2 )
 {
 #ifndef __CSC_UPDATE_WORLD3D
@@ -336,9 +336,9 @@ int ObjSortFarToNear( const VOID* arg1, const VOID* arg2 )
 
 //	FLOAT d1 =  sqrt( (vPos1.x - vDir.x ) * ( vPos1.x - vDir.x ) + ( vPos1.z - vDir.z ) * ( vPos1.z - vDir.z ) );
 //	FLOAT d2 =  sqrt( (vPos2.x - vDir.x ) * ( vPos2.x - vDir.x ) + ( vPos2.z - vDir.z ) * ( vPos2.z - vDir.z ) );
-	// ì‹¤ì œ ê±°ë¦¬ê°€ í•„ìš”í•œê²Œ ì•„ë‹ˆë¯€ë¡œ sqrtë¥¼ ì”Œìš¸í•„ìš”ëŠ” ì—†ì„ê±° ê°™ìŠµë‹ˆë‹¤.
-	// sqrtê°€ ë¬´ì§€ ëŠë¦°í•¨ìˆ˜ê±°ë“ ìš”.
-	// ë¬¸ì œìƒê¸°ë©´ ì–˜ê¸°í•´ì£¼ì„¸ìš”. xuzhu.
+	// ½ÇÁ¦ °Å¸®°¡ ÇÊ¿äÇÑ°Ô ¾Æ´Ï¹Ç·Î sqrt¸¦ ¾º¿ïÇÊ¿ä´Â ¾øÀ»°Å °°½À´Ï´Ù.
+	// sqrt°¡ ¹«Áö ´À¸°ÇÔ¼ö°Åµç¿ä.
+	// ¹®Á¦»ı±â¸é ¾ê±âÇØÁÖ¼¼¿ä. xuzhu.
 	FLOAT d1 =  (vPos1.x - vDir.x ) * ( vPos1.x - vDir.x ) + ( vPos1.z - vDir.z ) * ( vPos1.z - vDir.z );
 	FLOAT d2 =  (vPos2.x - vDir.x ) * ( vPos2.x - vDir.x ) + ( vPos2.z - vDir.z ) * ( vPos2.z - vDir.z );
 
@@ -361,7 +361,7 @@ int ObjSortFarToNear( const VOID* arg1, const VOID* arg2 )
 #endif //__CSC_UPDATE_WORLD3D
 }
 
-// ë¨¼ë°ì„œ ê°€ê¹Œìš´ ìˆœìœ¼ë¡œ ì†ŒíŒ… - ë¯¸ë¦¬ ê³„ì‚°í•´ë‘” ê±°ë¦¬ê°’ìœ¼ë¡œ ë¹„êµí•˜ëŠ” ë²„ì „.
+// ¸Õµ¥¼­ °¡±î¿î ¼øÀ¸·Î ¼ÒÆÃ - ¹Ì¸® °è»êÇØµĞ °Å¸®°ªÀ¸·Î ºñ±³ÇÏ´Â ¹öÀü.
 int ObjSortFarToNear2( const VOID* arg1, const VOID* arg2 )
 {
 	float	fDist1 = (*(CObj**)arg1)->m_fDistCamera;
@@ -496,7 +496,7 @@ void CWorld::RenderTerrain()
 }
 void CWorld::RenderWater()
 {
-//	SetLight( m_bViewLight );		//!!gmpbigsun: Lightë¥¼ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜ì¸ë° .. ë¬¼ì˜ê²½ìš°ë¼ê³  ë‹¤ì‹œ ê³„ì‚°í•´ì•¼í•  ì´ìœ ëŠ”?
+//	SetLight( m_bViewLight );		//!!gmpbigsun: Light¸¦ °è»êÇÏ´Â ÇÔ¼öÀÎµ¥ .. ¹°ÀÇ°æ¿ì¶ó°í ´Ù½Ã °è»êÇØ¾ßÇÒ ÀÌÀ¯´Â?
 //	SetFogEnable( m_pd3dDevice, m_bViewFog );
 
 	{
@@ -531,11 +531,11 @@ void CWorld::RenderObj(CObj* pObj)
 {
 	if( m_bViewFog )
 	{
-		if( pObj->m_pModel->m_bSkin )	// ìŠ¤í‚¤ë‹ì¸ê²ƒ
+		if( pObj->m_pModel->m_bSkin )	// ½ºÅ°´×ÀÎ°Í
 		{
 			D3DXVECTOR4 vConst( 1.0f, 1.0f, 1.0f, 100.0f );
 			m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
-			// ë²„í…ìŠ¤ ì‰ì´ë”ë¥¼ ì“°ëŠ”ë„˜ë“¤ì€ ìˆ˜ë™ìœ¼ë¡œ í¬ê·¸ë¥¼ ë„£ì–´ì•¼ í•˜ê¸°ë•œì— ì´ë ‡ê²Œ í•¨.
+			// ¹öÅØ½º ½¦ÀÌ´õ¸¦ ¾²´Â³ÑµéÀº ¼öµ¿À¸·Î Æ÷±×¸¦ ³Ö¾î¾ß ÇÏ±â¶«¿¡ ÀÌ·¸°Ô ÇÔ.
 			vConst.w = (m_fFogEndValue - pObj->m_fDistCamera) / (m_fFogEndValue - m_fFogStartValue);
 #ifdef __YENV
 			g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvFog, &vConst );
@@ -543,12 +543,12 @@ void CWorld::RenderObj(CObj* pObj)
 #else //__YENV						
 			m_pd3dDevice->SetVertexShaderConstantF( 95, (float*)&vConst, 1 );
 #endif //__YENV
-			// ìŠ¤í‚¤ë‹ë˜ëŠ” ë°°ê²½
+			// ½ºÅ°´×µÇ´Â ¹è°æ
 			SetLightVec( m_light.Direction );
 		}
 		else 			
 		{     
-			// ìŠ¤í‚¤ë‹ì´ì•„ë‹Œê²ƒ
+			// ½ºÅ°´×ÀÌ¾Æ´Ñ°Í
 			SetAmbient( m_light.Ambient.r+0.3f, m_light.Ambient.g+0.3f, m_light.Ambient.b+0.3f );
 		}		
 	}
@@ -562,14 +562,14 @@ void CWorld::RenderObj(CObj* pObj)
 }
 #endif //__CSC_UPDATE_WORLD3D
 //////////////////////////////////////////////////////////////////
-// ì˜¤ë¸Œì íŠ¸ ëœë”ë§ 
+// ¿ÀºêÁ§Æ® ·£´õ¸µ 
 //
-// ì¶œë ¥ ìˆœì„œ
+// Ãâ·Â ¼ø¼­
 //
-// 1.ì˜¤ë¸Œì íŠ¸ ì¶œë ¥ 
-// 2.ë¬¼ ì¶œë ¥ (ì˜¤ë¸Œì íŠ¸ê°€ ë¨¼ì € ìˆì–´ì•¼ ì˜¤ë¸Œì íŠ¸ê°€ ë¬¼ì†ì— ë¹„ì¹˜ê²Œ í•  ìˆ˜ ìˆë‹¤.
-// 3.ì´í™íŠ¸ ì¶œë ¥ ( ì´í™íŠ¸ë¥¼ ë§¨ ë§ˆì§€ë§‰ì— ì¶œë ¥í•´ì•¼, ì˜¤ë¸Œì íŠ¸ì™€ ë¬¼ì´ ë°°ê²½ìœ¼ë¡œ ë³´ì¼ ìˆ˜ ìˆë‹¤. )
-// 4.ë°˜íˆ¬ëª…í•˜ê²Œ ì‚¬ë¼ì§€ëŠ” ì˜¤ë¸Œì íŠ¸ë¥¼ ë§¨ ë§ˆì§€ë§‰ì— ì¶œë ¥í•œë‹¤.(ë°˜íˆ¬ëª… ì˜¤ë¸Œì íŠ¸ëŠ” ë¬¼ ì´í›„ì— ì¶œë ¥í•˜ê¸° ë•Œë¬¸ì— ë¬¼ ì†ì— ë¹„ì¹˜ê²Œ í•  ìˆ˜ ì—†ë‹¤.)
+// 1.¿ÀºêÁ§Æ® Ãâ·Â 
+// 2.¹° Ãâ·Â (¿ÀºêÁ§Æ®°¡ ¸ÕÀú ÀÖ¾î¾ß ¿ÀºêÁ§Æ®°¡ ¹°¼Ó¿¡ ºñÄ¡°Ô ÇÒ ¼ö ÀÖ´Ù.
+// 3.ÀÌÆåÆ® Ãâ·Â ( ÀÌÆåÆ®¸¦ ¸Ç ¸¶Áö¸·¿¡ Ãâ·ÂÇØ¾ß, ¿ÀºêÁ§Æ®¿Í ¹°ÀÌ ¹è°æÀ¸·Î º¸ÀÏ ¼ö ÀÖ´Ù. )
+// 4.¹İÅõ¸íÇÏ°Ô »ç¶óÁö´Â ¿ÀºêÁ§Æ®¸¦ ¸Ç ¸¶Áö¸·¿¡ Ãâ·ÂÇÑ´Ù.(¹İÅõ¸í ¿ÀºêÁ§Æ®´Â ¹° ÀÌÈÄ¿¡ Ãâ·ÂÇÏ±â ¶§¹®¿¡ ¹° ¼Ó¿¡ ºñÄ¡°Ô ÇÒ ¼ö ¾ø´Ù.)
 //
 void CWorld::RenderObject( CD3DFont* pFont )
 {
@@ -579,7 +579,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 	static D3DXVECTOR4 vConst( 1.0f, 1.0f, 1.0f, 100.0f );
 	
 //#ifdef __NEWPROCESS
-	// í™”ë©´ ì¶œë ¥ìš© í¬ì¸íŠ¸ ì‚­ì œ 
+	// È­¸é Ãâ·Â¿ë Æ÷ÀÎÆ® »èÁ¦ 
 	for( i = 0; i < m_nObjCullSize; i++ )
 		if( m_aobjCull[ i ] )
 			m_aobjCull[ i ]->m_ppViewPtr = NULL;
@@ -592,8 +592,8 @@ void CWorld::RenderObject( CD3DFont* pFont )
 
 	
 #ifdef __CLIENT
-	// ë°˜ê²½ì— ìˆëŠ” ì¼€ë¦­í„°ë“¤ì„ ë°°ì—´ì— ë„£ëŠ”ë‹¤.
-	// ìë™ íƒ€ê²ŸíŒ…  TABí‚¤
+	// ¹İ°æ¿¡ ÀÖ´Â ÄÉ¸¯ÅÍµéÀ» ¹è¿­¿¡ ³Ö´Â´Ù.
+	// ÀÚµ¿ Å¸°ÙÆÃ  TABÅ°
 	int	 nCount = 0;
 	BOOL bScan = FALSE;
 	memset( CWorld::m_amvrSelect, 0, sizeof(CMover*) * MAX_MOVERSELECT );
@@ -620,11 +620,11 @@ void CWorld::RenderObject( CD3DFont* pFont )
 	if( m_bViewAllObjects )
 	{
 		CHECK1();
-		// ì»¬ë§ì„ í•˜ì. í™”ë©´ì— ë³´ì´ëŠ” ë†ˆë“¤ë§Œ ì¶”ë ¤ë‚´ê¸°
-		// ì¶”ë ¤ë‚´ëŠ” ê²ƒê³¼ ë™ì‹œì— ì»¬ë§ í”Œë ‰ë„ ì„¸íŒ…í•˜ì.
+		// ÄÃ¸µÀ» ÇÏÀÚ. È­¸é¿¡ º¸ÀÌ´Â ³ğµé¸¸ Ãß·Á³»±â
+		// Ãß·Á³»´Â °Í°ú µ¿½Ã¿¡ ÄÃ¸µ ÇÃ·ºµµ ¼¼ÆÃÇÏÀÚ.
 		CObj* pObj;
 		CLandscape* pLand;// m_nVisibilityLand
-		// ì •ì  ì˜¤ë¸Œì íŠ¸ ì»¬ë§ ë° ì»¬ë ‰ì…˜ 
+		// Á¤Àû ¿ÀºêÁ§Æ® ÄÃ¸µ ¹× ÄÃ·º¼Ç 
 		m_pd3dDevice->SetRenderState( D3DRS_LIGHTING, m_bViewLight );
 		int _nCount = 0, _nCount2 = 0;
 
@@ -632,11 +632,11 @@ void CWorld::RenderObject( CD3DFont* pFont )
 		{
 			FOR_OBJARRAY( pLand, pObj )
 			{
-				// ê±°ë¦¬ë¥¼ ê³„ì‚°í•˜ê³ , ê±°ë¦¬ì— ë”°ë¼ ì¶œë ¥í•  ê²ƒê³¼ ì•ˆí•  ê²ƒì„ êµ¬ë¶„í•œë‹¤.
+				// °Å¸®¸¦ °è»êÇÏ°í, °Å¸®¿¡ µû¶ó Ãâ·ÂÇÒ °Í°ú ¾ÈÇÒ °ÍÀ» ±¸ºĞÇÑ´Ù.
 				D3DXVECTOR3 *pv, *pvCamera;
 				float xDist, yDist, zDist;
-				pvCamera = &(m_pCamera->GetPos());//;m_vPos2);	// ì¹´ë©”ë¼ ì¢Œí‘œ
-				pv = &(pObj->GetPos());	// CObjì¢Œí‘œ
+				pvCamera = &(m_pCamera->GetPos());//;m_vPos2);	// Ä«¸Ş¶ó ÁÂÇ¥
+				pv = &(pObj->GetPos());	// CObjÁÂÇ¥
 				xDist = (pv->x - pvCamera->x);
 				yDist = (pv->y - pvCamera->y);
 				zDist = (pv->z - pvCamera->z);
@@ -652,7 +652,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 					continue;
 				
 		#if defined(__CLIENT)
-				// ê¸¸ë“œì»´ë±ƒ ëœë”ë§ ì˜µì…˜...
+				// ±æµåÄÄ¹î ·£´õ¸µ ¿É¼Ç...
 				if( pObj->GetType() == OT_MOVER )
 				{
 					CMover* pMover = (CMover*)pObj;
@@ -661,7 +661,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 						continue;
 					}
 			#ifdef __QUIZ
-					// í€´ì¦ˆì´ë²¤íŠ¸ ì§€ì—­ì—ì„œì˜ ëœë”ë§ ìŠ¤í‚µ
+					// ÄûÁîÀÌº¥Æ® Áö¿ª¿¡¼­ÀÇ ·£´õ¸µ ½ºÅµ
 					if( !pObj->IsActiveObj() && ( pMover->m_dwMode & QUIZ_RENDER_SKIP_MODE ) )
 						continue;
 			#endif // __QUIZ
@@ -684,10 +684,10 @@ void CWorld::RenderObject( CD3DFont* pFont )
 					pObj->m_fDistCamera = 0;
 				//pObj->m_fDistCamera = sqrt( xDist * xDist + yDist * yDist + zDist * zDist ) + 200;
 
-//				vCam2Obj = pObj->GetPos() - m_pCamera->m_vPos;	// ì¹´ë©”ë¼ì—ì„œ ì˜¤ë¸Œì íŠ¸ìª½ì˜ ë²¡í„°
+//				vCam2Obj = pObj->GetPos() - m_pCamera->m_vPos;	// Ä«¸Ş¶ó¿¡¼­ ¿ÀºêÁ§Æ®ÂÊÀÇ º¤ÅÍ
 //				D3DXVec3Normalize( &vCam2Obj, &vCam2Obj );
 //				FLOAT fDot = D3DXVec3Dot( &vCamDir, &vCam2Obj );
-//				if( fDot <= 0 )	// ì¹´ë©”ë¼ì‹œì„ ê³¼ ì˜¤ë¸Œì ìª½ì˜ ë²¡í„°ì˜ ê°ë„ì°¨ê°€ 90ë„ë³´ë‹¤ ì ì„ë•Œë§Œ ì»¬ë§ í…ŒìŠ¤íŠ¸
+//				if( fDot <= 0 )	// Ä«¸Ş¶ó½Ã¼±°ú ¿ÀºêÁ§ÂÊÀÇ º¤ÅÍÀÇ °¢µµÂ÷°¡ 90µµº¸´Ù ÀûÀ»¶§¸¸ ÄÃ¸µ Å×½ºÆ®
 //		  			continue;
 					
 //				_nCount2 ++;
@@ -698,10 +698,10 @@ void CWorld::RenderObject( CD3DFont* pFont )
 				{
 					if( !( m_bMiniMapRender == TRUE && pObj->GetType() != OT_OBJ ) )
 					{
-						// í–‰ë ¬ê³¼ ë°”ìš´ë“œ ë°•ìŠ¤ ì—…ë°ì´íŠ¸ 
+						// Çà·Ä°ú ¹Ù¿îµå ¹Ú½º ¾÷µ¥ÀÌÆ® 
 						if( pObj->IsUpdateMatrix() )
 							pObj->UpdateMatrix();
-						// cull ìƒíƒœ ì´ˆê¸°í™” 
+						// cull »óÅÂ ÃÊ±âÈ­ 
 						pObj->SetCullState( CS_UNKNOWN );
 
 						if( m_nObjCullSize < MAX_DISPLAYOBJ )
@@ -743,7 +743,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 							} // dot
 						}
 						else
-							TRACE("í•œ í™”ë©´ì— ì¶œë ¥ ì˜¤ë¸Œì íŠ¸ê°€ %dë¥¼ ë„˜ì—ˆë‹¤. ìœ„í—˜!!!! \n", m_nObjCullSize);
+							TRACE("ÇÑ È­¸é¿¡ Ãâ·Â ¿ÀºêÁ§Æ®°¡ %d¸¦ ³Ñ¾ú´Ù. À§Çè!!!! \n", m_nObjCullSize);
 					}
 				}
 			}
@@ -753,12 +753,12 @@ void CWorld::RenderObject( CD3DFont* pFont )
 		//END_LINKMAP
 		CHECK2( "Assert Obj" );
 
-		// ëª¨ë‘ ì¶”ë ¤ëƒˆìœ¼ë©´ ì¶”ë ¤ë‚¸ ê²ƒì„ ì†ŒíŒ…í•˜ì. 
+		// ¸ğµÎ Ãß·Á³ÂÀ¸¸é Ãß·Á³½ °ÍÀ» ¼ÒÆÃÇÏÀÚ. 
 		CHECK1();
 	    qsort( m_aobjCull, m_nObjCullSize, sizeof(CObj*), ObjSortFarToNear2 ); 
 //#ifdef __NEWPROCESS
 		for( i = 0; i < m_nObjCullSize; i++ )
-			m_aobjCull[ i ]->m_ppViewPtr = &m_aobjCull[ i ];			//sun! ì•„ë‹ˆì´ëŸ° ë¬´ì±…ì„í•œ ì½”ë”©ì„.. ê°ì²´ë¥¼ ì‚­ì œí• ë•Œ ì´ë„˜ì´ ë¬¸ì œë˜ëŠ”ë“¯í•˜ë‹¤.
+			m_aobjCull[ i ]->m_ppViewPtr = &m_aobjCull[ i ];			//sun! ¾Æ´ÏÀÌ·± ¹«Ã¥ÀÓÇÑ ÄÚµùÀ».. °´Ã¼¸¦ »èÁ¦ÇÒ¶§ ÀÌ³ÑÀÌ ¹®Á¦µÇ´ÂµíÇÏ´Ù.
 //#endif
 		CHECK2("Sort");
 		m_pd3dDevice->SetRenderState( D3DRS_LIGHTING, TRUE );
@@ -766,13 +766,13 @@ void CWorld::RenderObject( CD3DFont* pFont )
 		::SetLight( m_bViewLight );
 		::SetFog( m_bViewFog );
 
-		// ì´ì œ ì˜¤ë¸Œì íŠ¸ ì¶œë ¥ 
+		// ÀÌÁ¦ ¿ÀºêÁ§Æ® Ãâ·Â 
 		CHECK1();
 		m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 		{
 			//static D3DXVECTOR4 vConst( 1.0f, 1.0f, 1.0f, 100.0f );
 			//SetFogEnable( m_pd3dDevice, FALSE );
-			::SetTransformView( m_pCamera->m_matView );		// CModelObject::Render()ë¥¼ ë¶€ë¥´ê¸°ì „ì— ì´ê²ƒì„ í˜¸ì¶œí•´ì£¼ì. ë‚´ë¶€ì—ì„œ pd3dDevice->GetTransform()ì„ ì•ˆí•˜ê¸° ìœ„í•´ì„œë‹¤.
+			::SetTransformView( m_pCamera->m_matView );		// CModelObject::Render()¸¦ ºÎ¸£±âÀü¿¡ ÀÌ°ÍÀ» È£ÃâÇØÁÖÀÚ. ³»ºÎ¿¡¼­ pd3dDevice->GetTransform()À» ¾ÈÇÏ±â À§ÇØ¼­´Ù.
 			::SetTransformProj( m_matProj );
 
 			SetDiffuse( m_light.Diffuse.r, m_light.Diffuse.g, m_light.Diffuse.b );
@@ -787,22 +787,22 @@ void CWorld::RenderObject( CD3DFont* pFont )
 				m_pd3dDevice->SetRenderState( D3DRS_RANGEFOGENABLE, TRUE );
 			}				
 			g_nMaxTri = 0;
-			// OT_OBJì¸ê²ƒê³¼ ì•„ë‹Œê²ƒì„ êµ¬ë¶„í•´ì„œ ì°ì.
-			// OT_OBJê°€ ì•„ë‹Œê²ƒë“¤.
+			// OT_OBJÀÎ°Í°ú ¾Æ´Ñ°ÍÀ» ±¸ºĞÇØ¼­ ÂïÀÚ.
+			// OT_OBJ°¡ ¾Æ´Ñ°Íµé.
 			for( i = 0; i < m_nObjCullSize; i++)
 			{
 				pObj = m_aobjCull[ i ];
 
 				if( g_Option.m_nShadow < 2 )	
-					if( pObj->GetType() == OT_OBJ )	continue;		// OT_OBJ ì¸ê±´ ê± ë‹¤ìŒ. - ë¹„ìŠ¤íŠ¸ì—ì„  ì´ ë£¨í”„ì—ì„œ ë‹¤ ì°ëŠ”ë‹¤.
-				// ë°˜íˆ¬ëª… ì˜¤ë¸Œì íŠ¸ëŠ” ìŠ¤í‚µ (ë§¨ ë§ˆì§€ë§‰ì— ì¶œë ¥)
+					if( pObj->GetType() == OT_OBJ )	continue;		// OT_OBJ ÀÎ°Ç °Á ´ÙÀ½. - ºñ½ºÆ®¿¡¼± ÀÌ ·çÇÁ¿¡¼­ ´Ù Âï´Â´Ù.
+				// ¹İÅõ¸í ¿ÀºêÁ§Æ®´Â ½ºÅµ (¸Ç ¸¶Áö¸·¿¡ Ãâ·Â)
 				if( pObj->m_wBlendFactor < 255 )	
 					continue;
 				if( pObj->IsActiveObj() && m_nZoomLevel != 0 )
 					continue;
 
 #ifdef __CLIENT
-				// TABí‚¤ë¡œ íƒ€ì¼“ ì„¤ì • - ë¦¬ìŠ¤íŠ¸ë¥¼ ë‹´ê³ ìˆëŠ”ë‹¤...
+				// TABÅ°·Î Å¸ÄÏ ¼³Á¤ - ¸®½ºÆ®¸¦ ´ã°íÀÖ´Â´Ù...
 				if( !pObj->IsActiveObj() )
 				{
 					if( bScan )
@@ -820,7 +820,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 
 									if( pGuild1 && pGuild2 )
 									{
-										// ë‹¤ë¥¸ê¸¸ë“œë“¤ë§Œ íƒ€ê²ŸíŒ…ë¦¬ìŠ¤íŠ¸ì— ë„£ì
+										// ´Ù¸¥±æµåµé¸¸ Å¸°ÙÆÃ¸®½ºÆ®¿¡ ³ÖÀÚ
 										if( pGuild1->GetGuildId() != pGuild2->GetGuildId() )
 										{
 											if( pObj->IsRangeObj( g_pPlayer->GetPos(), 20.0f ) )
@@ -844,7 +844,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 					//m_pd3dDevice->SetRenderState( D3DRS_FOGTABLEMODE,   D3DFOG_NONE );
 					//m_pd3dDevice->SetRenderState( D3DRS_FOGVERTEXMODE,  D3DFOG_LINEAR );
 					//m_pd3dDevice->SetRenderState( D3DRS_RANGEFOGENABLE, TRUE );
-					if( pObj->m_pModel->m_bSkin )	// ìŠ¤í‚¤ë‹ì¸ê²ƒ
+					if( pObj->m_pModel->m_bSkin )	// ½ºÅ°´×ÀÎ°Í
 					{
 //						m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 						vConst.w = (m_fFogEndValue - pObj->m_fDistCamera) / (m_fFogEndValue - m_fFogStartValue);
@@ -854,17 +854,17 @@ void CWorld::RenderObject( CD3DFont* pFont )
 		#else //__YENV						
 						m_pd3dDevice->SetVertexShaderConstantF( 95, (float*)&vConst, 1 );
 		#endif //__YENV
-						if( 0 )//pObj->GetType() == OT_MOVER )	// ìŠ¤í‚¤ë‹ ìºë¦­í„°
+						if( 0 )//pObj->GetType() == OT_MOVER )	// ½ºÅ°´× Ä³¸¯ÅÍ
 						{
 							SetDiffuse( 0, 0, 0 );
 							SetAmbient( m_light.Ambient.r * 2.0f, m_light.Ambient.g * 2.0f, m_light.Ambient.b * 2.0f );
 //							SetAmbient( 1.0f, 1.0f, 1.0f );
 						} else
-						{	// ìŠ¤í‚¤ë‹ë˜ëŠ” ë°°ê²½
+						{	// ½ºÅ°´×µÇ´Â ¹è°æ
 							SetLightVec( m_light.Direction );
 						}
 					} else
-					{	// ìŠ¤í‚¤ë‹ì´ ì•„ë‹Œê²ƒ
+					{	// ½ºÅ°´×ÀÌ ¾Æ´Ñ°Í
 //						m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, m_bViewFog );
 //						m_pd3dDevice->SetRenderState( D3DRS_FOGTABLEMODE,   D3DFOG_NONE );
 //						m_pd3dDevice->SetRenderState( D3DRS_FOGVERTEXMODE,  D3DFOG_LINEAR );
@@ -877,20 +877,20 @@ void CWorld::RenderObject( CD3DFont* pFont )
 					pObj->Render( m_pd3dDevice );
 				}
 #endif //__CSC_UPDATE_WORLD3D
-				// ì˜¤ë¸Œì íŠ¸ ì´ë¦„ì€ ë§ˆì§€ë§‰ì— ì°ëŠ”ìª½ìœ¼ë¡œ ì˜®ê¹€.
+				// ¿ÀºêÁ§Æ® ÀÌ¸§Àº ¸¶Áö¸·¿¡ Âï´ÂÂÊÀ¸·Î ¿Å±è.
 				if( m_bViewBoundBox )
 				{
 					SetBoundBoxVertex( pObj );
 					RenderBoundBoxVertex( pObj );
 				}
 			}
-			// OT_OBJì¸ê²ƒ
+			// OT_OBJÀÎ°Í
 			if( g_Option.m_nShadow < 2 )	
 			{
 
 #if __VER >= 14 // __BS_FIX_SHADOW_ONOBJECT
 				bool bRenderedShadow = false;
-				D3DXVECTOR3 kMyPos = g_pPlayer->GetPos( );			//ì£¼ì¸ê³µì€ í•­ìƒ ìœ íš¨í•˜ë‹¤ê³  ê°€ì •í•œë‹¤.
+				D3DXVECTOR3 kMyPos = g_pPlayer->GetPos( );			//ÁÖÀÎ°øÀº Ç×»ó À¯È¿ÇÏ´Ù°í °¡Á¤ÇÑ´Ù.
 #else
 				SetStateShadowMap( m_pd3dDevice, 2, m_pCamera->m_matView );
 #endif 
@@ -902,8 +902,8 @@ void CWorld::RenderObject( CD3DFont* pFont )
 				{
 					pObj = m_aobjCull[ i ];
 					if( pObj == NULL )	continue;
-					if( pObj->GetType() != OT_OBJ )	continue;		// OT_OBJê°€ ì•„ë‹Œê±´ ê± ë‹¤ìŒ.
-						// ë°˜íˆ¬ëª… ì˜¤ë¸Œì íŠ¸ëŠ” ìŠ¤í‚µ (ë§¨ ë§ˆì§€ë§‰ì— ì¶œë ¥)
+					if( pObj->GetType() != OT_OBJ )	continue;		// OT_OBJ°¡ ¾Æ´Ñ°Ç °Á ´ÙÀ½.
+						// ¹İÅõ¸í ¿ÀºêÁ§Æ®´Â ½ºÅµ (¸Ç ¸¶Áö¸·¿¡ Ãâ·Â)
 
 					if( pObj->m_wBlendFactor < 255 )	
 						continue;
@@ -915,7 +915,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 						if( pObj->GetPos().y < ( kMyPos.y + 0.5f ) )
 						{
 #if __VER >= 15 // __GUILD_HOUSE
-							if( !IsWorldGuildHouse() )			//ê¸¸ë“œí•˜ìš°ìŠ¤ ì•ˆì—ì„œëŠ” ì˜¤ë¸Œì íŠ¸ ìœ„ì— ê·¸ë¦¼ì ë°›ì§€ ì•Šê²Œ..
+							if( !IsWorldGuildHouse() )			//±æµåÇÏ¿ì½º ¾È¿¡¼­´Â ¿ÀºêÁ§Æ® À§¿¡ ±×¸²ÀÚ ¹ŞÁö ¾Ê°Ô..
 #endif	//__GUILD_HOUSE
 							{
 								SetStateShadowMap( m_pd3dDevice, 2, m_pCamera->m_matView );
@@ -929,10 +929,10 @@ void CWorld::RenderObject( CD3DFont* pFont )
 					{
 						//SetDiffuse( 0, 0, 0 );
 						//SetAmbient( m_light.Ambient.r, m_light.Ambient.g, m_light.Ambient.b );
-						if( pObj->m_pModel->m_bSkin )	// ìŠ¤í‚¤ë‹ì¸ê²ƒ
+						if( pObj->m_pModel->m_bSkin )	// ½ºÅ°´×ÀÎ°Í
 						{
 //							m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
-							// ë²„í…ìŠ¤ ì‰ì´ë”ë¥¼ ì“°ëŠ”ë„˜ë“¤ì€ ìˆ˜ë™ìœ¼ë¡œ í¬ê·¸ë¥¼ ë„£ì–´ì•¼ í•˜ê¸°ë•œì— ì´ë ‡ê²Œ í•¨.
+							// ¹öÅØ½º ½¦ÀÌ´õ¸¦ ¾²´Â³ÑµéÀº ¼öµ¿À¸·Î Æ÷±×¸¦ ³Ö¾î¾ß ÇÏ±â¶«¿¡ ÀÌ·¸°Ô ÇÔ.
 							vConst.w = (m_fFogEndValue - pObj->m_fDistCamera) / (m_fFogEndValue - m_fFogStartValue);
 #ifdef __YENV
 							g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvFog, &vConst );
@@ -940,11 +940,11 @@ void CWorld::RenderObject( CD3DFont* pFont )
 #else //__YENV						
 							m_pd3dDevice->SetVertexShaderConstantF( 95, (float*)&vConst, 1 );
 #endif //__YENV
-							{	// ìŠ¤í‚¤ë‹ë˜ëŠ” ë°°ê²½
+							{	// ½ºÅ°´×µÇ´Â ¹è°æ
 								SetLightVec( m_light.Direction );
 							}
 						} else
-						{	// ìŠ¤í‚¤ë‹ì´ ì•„ë‹Œê²ƒ
+						{	// ½ºÅ°´×ÀÌ ¾Æ´Ñ°Í
 //							m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, m_bViewFog );
 //							m_pd3dDevice->SetRenderState( D3DRS_FOGTABLEMODE,   D3DFOG_NONE );
 //							m_pd3dDevice->SetRenderState( D3DRS_FOGVERTEXMODE,  D3DFOG_LINEAR );
@@ -983,7 +983,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 			{
 				pObj = m_aobjCull[ i ];
 				if( pObj == NULL )	continue;
-				if( pObj->GetType() != OT_MOVER )	continue;		// OT_MOVERê°€ ì•„ë‹Œê±´ ê± ë‹¤ìŒ.
+				if( pObj->GetType() != OT_MOVER )	continue;		// OT_MOVER°¡ ¾Æ´Ñ°Ç °Á ´ÙÀ½.
 				CMover* pMover = (CMover*) pObj;
 				pMover->RenderPartsEffect( m_pd3dDevice );
 			}
@@ -992,7 +992,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 			g_ParticleMng.Render( m_pd3dDevice );
 #endif
 			
-			// ë‹¨ìˆœê·¸ë¦¼ì
+			// ´Ü¼ø±×¸²ÀÚ
 			if( g_Option.m_nShadow == 2 )
 			{
 				extern CModelObject g_Shadow;
@@ -1030,11 +1030,11 @@ void CWorld::RenderObject( CD3DFont* pFont )
 							continue;
 						if( pMoverShadow->IsMode( TRANSPARENT_MODE ) )
 							continue;						
-						if( pMoverShadow->m_pActMover->m_fCurrentHeight < GetWaterHeight( pMoverShadow->GetPos() )->byWaterHeight )	// ìˆ˜ë©´ë†’ì´ ë³´ë‹¤ë„ ë‚®ìœ¼ë©´ ì°ì§€ ì•ŠìŒ.
+						if( pMoverShadow->m_pActMover->m_fCurrentHeight < GetWaterHeight( pMoverShadow->GetPos() )->byWaterHeight )	// ¼ö¸é³ôÀÌ º¸´Ùµµ ³·À¸¸é ÂïÁö ¾ÊÀ½.
 							continue;
-						if( pMoverShadow->GetPos().y - pMoverShadow->m_pActMover->m_fCurrentHeight > 10.0f )	// ì‹¤ì²´ì™€ ê·¸ë¦¼ìì˜ ë†’ì´ì°¨ê°€ ì¼ì •ì´ìƒì´ë©´ ì•ˆì°ìŒ
+						if( pMoverShadow->GetPos().y - pMoverShadow->m_pActMover->m_fCurrentHeight > 10.0f )	// ½ÇÃ¼¿Í ±×¸²ÀÚÀÇ ³ôÀÌÂ÷°¡ ÀÏÁ¤ÀÌ»óÀÌ¸é ¾ÈÂïÀ½
 							continue;
-						if( pMoverShadow->GetPos().y - pMoverShadow->m_pActMover->m_fCurrentHeight < 0 )	// ê·¸ë¦¼ìê°€ ì˜¤íˆë ¤ ìœ„ì— ì°í˜€ì•¼ í•˜ëŠ”ìƒí™©ì´ë©´ ì•ˆì°ìŒ
+						if( pMoverShadow->GetPos().y - pMoverShadow->m_pActMover->m_fCurrentHeight < 0 )	// ±×¸²ÀÚ°¡ ¿ÀÈ÷·Á À§¿¡ ÂïÇô¾ß ÇÏ´Â»óÈ²ÀÌ¸é ¾ÈÂïÀ½
 							continue;
 
 					//////////////////////////////////////////
@@ -1047,7 +1047,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 						
 						D3DXVECTOR3 vPos;
 						
-						//ì†Œí™˜ìˆ˜ë§Œ GetScrPosë¡œ í•˜ì.
+						//¼ÒÈ¯¼ö¸¸ GetScrPos·Î ÇÏÀÚ.
 						MoverProp* pMoverProp = pMoverShadow->GetProp();
 						if( pMoverProp && ( pMoverProp->dwAI == AII_PET || pMoverProp->dwAI == AII_EGG ) )
 							vPos = pMoverShadow->GetScrPos();
@@ -1121,7 +1121,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 	//			g_Tail.Render( m_pd3dDevice );
 #endif
 	
-	// ìˆ˜ë©´ ë§‰ ì²˜ë¦¬ (ì¹´ë©”ë¼ê°€ ë¬¼ ë°‘ìœ¼ë¡œ ë“¤ì–´ê°€ë©´ í™”ë©´ ì „ë©´ì— ë¬¼í…ìŠ¤ì¶°ë¥¼ ê·¸ë ¤ ë¬¼ì†ì— ë“¤ì–´ê°„ ê²ƒ ì²˜ëŸ¼ ë³´ì´ê²Œ í•˜ê¸°)
+	// ¼ö¸é ¸· Ã³¸® (Ä«¸Ş¶ó°¡ ¹° ¹ØÀ¸·Î µé¾î°¡¸é È­¸é Àü¸é¿¡ ¹°ÅØ½ºÃç¸¦ ±×·Á ¹°¼Ó¿¡ µé¾î°£ °Í Ã³·³ º¸ÀÌ°Ô ÇÏ±â)
 	D3DXMATRIX matWorld;
 	D3DXMATRIX mat, matView;
 	m_pd3dDevice->GetTransform( D3DTS_VIEW, &matView );
@@ -1186,7 +1186,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 	m_pd3dDevice->SetRenderState( D3DRS_LIGHTING, TRUE );////_bViewLight );
 	CObj* pObj;
 	//
-	// 3.ì´í™íŠ¸ ì¶œë ¥ 
+	// 3.ÀÌÆåÆ® Ãâ·Â 
 	// 
 	for( i = 0; i < m_nSfxCullSize; i++)
 	{
@@ -1214,8 +1214,8 @@ void CWorld::RenderObject( CD3DFont* pFont )
 		pObj->Render( m_pd3dDevice );
 	}
 	//
-	// 4.ë°˜íˆ¬ëª… ì˜¤ë¸Œì íŠ¸ ì¶œë ¥ 
-	//   ë°˜íˆ¬ëª… ë°‘ìœ¼ë¡œ ì´í™íŠ¸ê°€ ë³´ì—¬ì•¼í•˜ê¸° ë•Œë¬¸ì— ë°˜íˆ¬ëª…í•´ì§€ëŠ” ì˜¤ë¸Œì íŠ¸ëŠ” ë§¨ ë§ˆì§€ë§‰ì— ì¶œë ¥í•œë‹¤.
+	// 4.¹İÅõ¸í ¿ÀºêÁ§Æ® Ãâ·Â 
+	//   ¹İÅõ¸í ¹ØÀ¸·Î ÀÌÆåÆ®°¡ º¸¿©¾ßÇÏ±â ¶§¹®¿¡ ¹İÅõ¸íÇØÁö´Â ¿ÀºêÁ§Æ®´Â ¸Ç ¸¶Áö¸·¿¡ Ãâ·ÂÇÑ´Ù.
 //	m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, TRUE );
 //	m_pd3dDevice->SetRenderState( D3DRS_LIGHTING, TRUE );////_bViewLight );
 #ifdef __CSC_UPDATE_WORLD3D
@@ -1233,16 +1233,16 @@ void CWorld::RenderObject( CD3DFont* pFont )
 		{
 			if( m_bViewFog )
 			{
-				if( pObj->m_pModel->m_bSkin )	// ìŠ¤í‚¤ë‹ì¸ê²ƒ
+				if( pObj->m_pModel->m_bSkin )	// ½ºÅ°´×ÀÎ°Í
 				{
-					// ë²„í…ìŠ¤ ì‰ì´ë”ë¥¼ ì“°ëŠ”ë„˜ë“¤ì€ ìˆ˜ë™ìœ¼ë¡œ í¬ê·¸ë¥¼ ë„£ì–´ì•¼ í•˜ê¸°ë•œì— ì´ë ‡ê²Œ í•¨.
+					// ¹öÅØ½º ½¦ÀÌ´õ¸¦ ¾²´Â³ÑµéÀº ¼öµ¿À¸·Î Æ÷±×¸¦ ³Ö¾î¾ß ÇÏ±â¶«¿¡ ÀÌ·¸°Ô ÇÔ.
 					vConst.w = (m_fFogEndValue - pObj->m_fDistCamera) / (m_fFogEndValue - m_fFogStartValue);
 #ifdef __YENV
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvFog, &vConst );
 #else //__YENV						
 					m_pd3dDevice->SetVertexShaderConstantF( 95, (float*)&vConst, 1 );
 #endif //__YENV
-					{	// ìŠ¤í‚¤ë‹ë˜ëŠ” ë°°ê²½
+					{	// ½ºÅ°´×µÇ´Â ¹è°æ
 						SetLightVec( m_light.Direction );
 					}
 				}
@@ -1259,7 +1259,7 @@ void CWorld::RenderObject( CD3DFont* pFont )
 //	m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 //	m_pd3dDevice->SetRenderState( D3DRS_LIGHTING, TRUE );////_bViewLight );
 	//
-	// 5. ì´ë¦„ì€ ë§¨ ë§ˆì§€ë§‰ì— ì°ìŒ 
+	// 5. ÀÌ¸§Àº ¸Ç ¸¶Áö¸·¿¡ ÂïÀ½ 
 	// 
 	for( i = 0; i < m_nObjCullSize; i++)
 	{
@@ -1274,17 +1274,17 @@ void CWorld::RenderObject( CD3DFont* pFont )
 					continue;
 				DWORD dwColor = 0xffffffff;
 				float fDistLimit = 40.0f;
-				if( pMover->IsPlayer() || (pMover->IsNPC() && pMover->IsPeaceful()) )		// í‰í™”ì  npcì´ë©´
-					fDistLimit = 100.0f;								// ë” ë©€ë¦¬ì„œë¶€í„° ì´ë¦„ì´ ë³´ì¸ë‹¤.
+				if( pMover->IsPlayer() || (pMover->IsNPC() && pMover->IsPeaceful()) )		// ÆòÈ­Àû npcÀÌ¸é
+					fDistLimit = 100.0f;								// ´õ ¸Ö¸®¼­ºÎÅÍ ÀÌ¸§ÀÌ º¸ÀÎ´Ù.
 				if( pObj->m_fDistCamera < fDistLimit ) 
 				{
 					CMover* pMover = (CMover*) pObj;
-					if( pMover->IsMode( TRANSPARENT_MODE ) == 0 )		// íˆ¬ëª…ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ ë Œë”.
+					if( pMover->IsMode( TRANSPARENT_MODE ) == 0 )		// Åõ¸í»óÅÂ°¡ ¾Æ´Ò¶§¸¸ ·»´õ.
 					{
-						// ë‚˜ì™€ ìƒëŒ€ê°€ ê²Œì„ ë§ˆìŠ¤í„°ì´ê±°ë‚˜ ê·¸ë³´ë‹¤ ë†’ì€ ì‹ ë¶„ì´ë¼ë©´?
+						// ³ª¿Í »ó´ë°¡ °ÔÀÓ ¸¶½ºÅÍÀÌ°Å³ª ±×º¸´Ù ³ôÀº ½ÅºĞÀÌ¶ó¸é?
 						if( pMover->IsAuthHigher( AUTH_GAMEMASTER ) && CMover::GetActiveMover()->IsAuthHigher( AUTH_GAMEMASTER ) ) //> IsAuthHigher( AUTH_GAMEMASTER ) )
 						{
-							// ë†’ì€ ë ˆë²¨ì˜ ì‹ ë¶„ì€ ë‚®ì€ ë ˆë²¨ì˜ ì‹ ë¶„ì„ êµ¬ë³„í•  ìˆ˜ ìˆì§€ë§Œ ë‚®ì€ ì‹ ë¶„ì€ ë†’ì€ ì‹ ë¶„ì„ ë³¼ ìˆ˜ ì—†ë‹¤.
+							// ³ôÀº ·¹º§ÀÇ ½ÅºĞÀº ³·Àº ·¹º§ÀÇ ½ÅºĞÀ» ±¸º°ÇÒ ¼ö ÀÖÁö¸¸ ³·Àº ½ÅºĞÀº ³ôÀº ½ÅºĞÀ» º¼ ¼ö ¾ø´Ù.
 							if( pMover->m_dwAuthorization <= CMover::GetActiveMover()->m_dwAuthorization )
 							{
 								if( pMover->IsAuthorization( AUTH_GAMEMASTER    ) ) dwColor = 0xffffff90; else
@@ -1293,15 +1293,15 @@ void CWorld::RenderObject( CD3DFont* pFont )
 							}
 						}
 						else
-							// ì¼ë°˜ ìœ ì €ëŠ” ê²Œì„ ë§ˆìŠ¤í„°ì¼ ê²½ìš°ë§Œ ë…¸ë€ìƒ‰ìœ¼ë¡œ.
+							// ÀÏ¹İ À¯Àú´Â °ÔÀÓ ¸¶½ºÅÍÀÏ °æ¿ì¸¸ ³ë¶õ»öÀ¸·Î.
 							if( pMover->IsAuthorization( AUTH_GAMEMASTER ) ) //> IsAuthHigher( AUTH_GAMEMASTER ) )
-								dwColor = 0xffffff00; // ë…¸ë€ìƒ‰ 
+								dwColor = 0xffffff00; // ³ë¶õ»ö 
 						pMover->RenderName( m_pd3dDevice, pFont, dwColor );
 							
 					}
 				}
-				// ìŠ¤í„´ë“± ìƒíƒœì´ìƒ ì´ëª¨í‹°ì½˜ì„ í‘œì‹œí•œë‹¤(ê¸°ì¡´ì€ g_DialogMsgì—ì„œ ì²˜ë¦¬í–ˆëŠ”ë° ì¤‘ê°„ì— ìƒíƒœì´ìƒ í’€ë ¤ë„ 
-				// ì•ˆê·¸ë ¤ì•¼í•˜ëŠ”ë° ê±´ë“¤ë©´ ì§€ì €ë¶„ í•´ì ¸ì„œ ë”°ë¡œ ì¼ë‹¨ ë¹¼ë³´ì•˜ìŒ )
+				// ½ºÅÏµî »óÅÂÀÌ»ó ÀÌ¸ğÆ¼ÄÜÀ» Ç¥½ÃÇÑ´Ù(±âÁ¸Àº g_DialogMsg¿¡¼­ Ã³¸®Çß´Âµ¥ Áß°£¿¡ »óÅÂÀÌ»ó Ç®·Áµµ 
+				// ¾È±×·Á¾ßÇÏ´Âµ¥ °Çµé¸é ÁöÀúºĞ ÇØÁ®¼­ µû·Î ÀÏ´Ü »©º¸¾ÒÀ½ )
 				pMover->RenderChrState( m_pd3dDevice );
 			}
 		}
@@ -1408,7 +1408,7 @@ void	_DrawRect( LPDIRECT3DDEVICE9 pd3dDevice, int x, int y, int w, int h, DWORD 
 	
 }
 
-// ì‰ë„ìš° ë§µì— ì˜¤ë¸Œì íŠ¸ë“¤ì„ ë Œë”í•¨.
+// ½¦µµ¿ì ¸Ê¿¡ ¿ÀºêÁ§Æ®µéÀ» ·»´õÇÔ.
 void RenderShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, CObj **pList, int nMax )
 {
 	extern BOOL g_bShadow;
@@ -1423,35 +1423,35 @@ void RenderShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, CObj **pList, int nMax )
 #endif //__YENV	
 	g_pRenderToSurface->BeginScene( g_pShadowSurface, NULL );
 	pd3dDevice->Clear( 0, NULL, D3DCLEAR_TARGET , D3DCOLOR_ARGB(0,255,255,255), 0, 0 );
-	// ì—¬ê¸°ê¹Œì§€ ì‹¤í–‰í•˜ë©´ ì•ˆë©ˆì¶¤
+	// ¿©±â±îÁö ½ÇÇàÇÏ¸é ¾È¸ØÃã
 	pd3dDevice->SetRenderState( D3DRS_LIGHTING, FALSE );	//
 	pd3dDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, FALSE );
 	pd3dDevice->SetRenderState( D3DRS_CULLMODE, D3DCULL_NONE );
 	pd3dDevice->SetRenderState( D3DRS_ZENABLE, D3DZB_FALSE );
 	
-	// ì—¬ê¸°ê¹Œì§„ ì•ˆ ë©ˆì¶¤
-	// ë‹¨ìƒ‰ ë Œë”ë§.
+	// ¿©±â±îÁø ¾È ¸ØÃã
+	// ´Ü»ö ·»´õ¸µ.
 	pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, D3DCOLOR_ARGB(255,192,192,192) );
 	pd3dDevice->SetTextureStageState( 0, D3DTSS_COLORARG1, D3DTA_TFACTOR);
 	pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
 
-	D3DXVECTOR3 vLightDir( 0.5f, 1.0f, -0.5f );		// ë¹› ë°©í–¥.
+	D3DXVECTOR3 vLightDir( 0.5f, 1.0f, -0.5f );		// ºû ¹æÇâ.
 
-	D3DXVec3Normalize( &vLightDir, &vLightDir );	// ë¹›ë°©í–¥ ë…¸ë§ë¼ì´ì¦ˆ
+	D3DXVec3Normalize( &vLightDir, &vLightDir );	// ºû¹æÇâ ³ë¸»¶óÀÌÁî
 
 	float fDistLight = -100.0f;
 //	if( g_pPlayer->m_fDistCamera < 9.0f )
 //		fDistLight = -30.0;
 	fDistLight = 20.0f + (g_pPlayer->m_fDistCamera - 4.0f) * 5.375f;
 
-	D3DXVECTOR3 vLightPos = vLightDir * -fDistLight;		// ë¹›ë°©í–¥ìœ¼ë¡œ 28m ë–¨ì–´ì§„ê³³ì—ì„œ ë¹›ì´ ë¹„ì¶”ë„ë¡ í•œë‹¤. 28ì´ ì ì •ê°’.
+	D3DXVECTOR3 vLightPos = vLightDir * -fDistLight;		// ºû¹æÇâÀ¸·Î 28m ¶³¾îÁø°÷¿¡¼­ ºûÀÌ ºñÃßµµ·Ï ÇÑ´Ù. 28ÀÌ ÀûÁ¤°ª.
 	D3DXVECTOR3 v1 = g_pPlayer->GetPos();
 	D3DXVECTOR3 v2 = CWorld::m_pCamera->m_vPos;
-	v2.y = v1.y;	// g_pPlayerë†’ì´ì™€ ë§ì¶˜ë‹¤.
+	v2.y = v1.y;	// g_pPlayer³ôÀÌ¿Í ¸ÂÃá´Ù.
 	v2 = v1 - v2;
 	v2 *= 1.5f;
-	D3DXVECTOR3 vLookAt = v1 + v2;	// ë¹›ì´ í–¥í•˜ëŠ”ì§€ì .
-	vLightPos += vLookAt;				// í”Œë ˆì´ì–´ë¡œë¶€í„° ë¹›ë°©í–¥ìœ¼ë¡œ 28më–¨ì–´ì§„ê³³.
+	D3DXVECTOR3 vLookAt = v1 + v2;	// ºûÀÌ ÇâÇÏ´ÂÁöÁ¡.
+	vLightPos += vLookAt;				// ÇÃ·¹ÀÌ¾î·ÎºÎÅÍ ºû¹æÇâÀ¸·Î 28m¶³¾îÁø°÷.
 
 #if __VER < 14 // __BS_FIX_SHADOW_ONOBJECT
 #if __VER >= 13 // __HOUSING
@@ -1474,7 +1474,7 @@ void RenderShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, CObj **pList, int nMax )
 	}
 #endif	// __HOUSING
 #endif  // __BS_SHADOW_ON_OBJECT
-	// ë¹›ì—ì„œ ë°”ë¼ë³´ëŠ” ìª½ì˜ ë·°/í”„ë¡œì ì…˜ ë§¤íŠ¸ë¦­ìŠ¤ ì„¤ì •.
+	// ºû¿¡¼­ ¹Ù¶óº¸´Â ÂÊÀÇ ºä/ÇÁ·ÎÁ§¼Ç ¸ÅÆ®¸¯½º ¼³Á¤.
 
 	D3DXMatrixLookAtLH( &g_mViewLight, &vLightPos, &vLookAt, &D3DXVECTOR3(0.0f,1.0f,0.0f) );
 	D3DXMatrixPerspectiveFovLH( &g_mShadowProj, D3DX_PI/4, 1.0f, 0.5f, 128.0f );
@@ -1488,14 +1488,14 @@ void RenderShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, CObj **pList, int nMax )
 		pObj = *pList++;
 		if( pObj )
 		{
-			if( g_Option.m_nShadow == 1 && pObj->GetType() != OT_MOVER )	continue;	// ë¬´ë²„ë§Œ ì°ëŠ” ì˜µì…˜ì¼ë• ë¬´ë²„ê°€ ì•„ë‹Œê±´ ìŠ¤í‚µ
+			if( g_Option.m_nShadow == 1 && pObj->GetType() != OT_MOVER )	continue;	// ¹«¹ö¸¸ Âï´Â ¿É¼ÇÀÏ¶© ¹«¹ö°¡ ¾Æ´Ñ°Ç ½ºÅµ
 
 			if( pObj->GetType() == OT_MOVER && ((CMover*)pObj)->IsMode( TRANSPARENT_MODE ) )
 				continue;
-			if( pObj->m_pModel && pObj->m_pModel->m_pModelElem->m_bShadow )		// ê·¸ë¦¼ìë¥¼ ë“œë¦¬ì›Œì•¼ í•˜ëŠ”ê²ƒë§Œ í•œë‹¤.
+			if( pObj->m_pModel && pObj->m_pModel->m_pModelElem->m_bShadow )		// ±×¸²ÀÚ¸¦ µå¸®¿ö¾ß ÇÏ´Â°Í¸¸ ÇÑ´Ù.
 			{
 //				pObj->m_pModel->m_nNoTexture = 1;
-				pObj->m_pModel->m_nNoEffect = 2;	// í‚¤ê°’ë§Œ ë¹ ì§€ê²Œ í•˜ëŠ” ìŠ¤í…Œì´íŠ¸ë§Œ ì‚¬ìš©.
+				pObj->m_pModel->m_nNoEffect = 2;	// Å°°ª¸¸ ºüÁö°Ô ÇÏ´Â ½ºÅ×ÀÌÆ®¸¸ »ç¿ë.
 				pObj->Render( pd3dDevice );
 				pObj->m_pModel->m_nNoEffect = 0;
 //				pObj->m_pModel->m_nNoTexture = 0;
@@ -1518,7 +1518,7 @@ void RenderShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, CObj **pList, int nMax )
 	pd3dDevice->SetTextureStageState( 0, D3DTSS_COLORARG1, D3DTA_DIFFUSE );
 	pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
 	
-	_DrawRect( pd3dDevice, 0, 0, 2048, 2048, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );		// ì™¸ê³½ì— í°ìƒ‰ í…Œë‘ë¦¬ë¥¼ ì”Œìš°ì.
+	_DrawRect( pd3dDevice, 0, 0, 2048, 2048, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );		// ¿Ü°û¿¡ Èò»ö Å×µÎ¸®¸¦ ¾º¿ìÀÚ.
 
 	extern BOOL s_bLight;
 	pd3dDevice->SetRenderState( D3DRS_LIGHTING, s_bLight );	//
@@ -1654,7 +1654,7 @@ void CWorld::SetBoundBoxVertex( CObj* pObj )
 	m_pBoundBoxVertexBuffer->Unlock();
 }
 
-// ì¹´ë©”ë¼ ì¶©ëŒì²´í¬ ì‹œì—ë§Œ ì“°ëŠ”ë“¯.. 
+// Ä«¸Ş¶ó Ãæµ¹Ã¼Å© ½Ã¿¡¸¸ ¾²´Âµí.. 
 BOOL CWorld::CheckBound(D3DXVECTOR3* vPos,D3DXVECTOR3* vDest,D3DXVECTOR3* vOut, FLOAT* fLength )
 {
 	D3DXVECTOR3 tempVec=(*(vPos)-*(vDest));// /10.0f;
@@ -1666,7 +1666,7 @@ BOOL CWorld::CheckBound(D3DXVECTOR3* vPos,D3DXVECTOR3* vDest,D3DXVECTOR3* vOut, 
 	float tempheight;
 	BOOL	b1, b2;
 	b1 = FALSE;	b2 = FALSE;
-	tempVec2 += (tempVec * 10);		// ì¹´ë©”ë¼ê°€ ìê¾¸ ì§€í˜•ì— ê»´ë“¤ì–´ê°€ì„œ ì¢€ ëºë‹¤.
+	tempVec2 += (tempVec * 10);		// Ä«¸Ş¶ó°¡ ÀÚ²Ù ÁöÇü¿¡ ²¸µé¾î°¡¼­ Á» »°´Ù.
 	
 	BOOL  bWaterChkDn = FALSE;
 	BOOL  bWaterChkUp = FALSE;
@@ -1693,21 +1693,21 @@ BOOL CWorld::CheckBound(D3DXVECTOR3* vPos,D3DXVECTOR3* vDest,D3DXVECTOR3* vOut, 
 		tempVec2+=tempVec;
 		tempheight=GetLandHeight( tempVec2.x, tempVec2.z );
 		#if __VER >= 11 // __FIX_PICKING
-		// ì¹´ë©”ë¼ë¥¼ ì•½ê°„ ë” ë“¤ì–´ì£¼ê¸° ìœ„í•´ì„œ ìˆ˜ì • - 07.10.24 - micky
+		// Ä«¸Ş¶ó¸¦ ¾à°£ ´õ µé¾îÁÖ±â À§ÇØ¼­ ¼öÁ¤ - 07.10.24 - micky
 		if(tempVec2.y<tempheight+0.6f)
 		#else
 		if(tempVec2.y<tempheight+0.3f)
 		#endif
 		{
 			b1 = TRUE;
-			vDist1 = tempVec2 - *vDest;		// ì‚¬ëŒì—ì„œ êµì°¨ì ê¹Œì§€ì˜ ë°©í–¥ë²¡í„°
+			vDist1 = tempVec2 - *vDest;		// »ç¶÷¿¡¼­ ±³Â÷Á¡±îÁöÀÇ ¹æÇâº¤ÅÍ
 //			*(vOut)=tempVec2;
 //			vOut->y+=1.1f;
 //			return TRUE;
 			break;
 		}
 
-		// ì¼€ë¦­í„°ê°€ ë¬¼ìœ„ì— ìˆê³ , ì ê¸°ì§€ ì•Šì•˜ë‹¤ë©´ ìˆ˜ë©´ ì¶©ëŒì²´í¬í•˜ì—¬ ì¹´ë©”ë¼ê°€ ë¬¼ì†ìœ¼ë¡œ ì•ˆë“¤ì–´ê°€ê²Œ ì²˜ë¦¬í•¨.
+		// ÄÉ¸¯ÅÍ°¡ ¹°À§¿¡ ÀÖ°í, Àá±âÁö ¾Ê¾Ò´Ù¸é ¼ö¸é Ãæµ¹Ã¼Å©ÇÏ¿© Ä«¸Ş¶ó°¡ ¹°¼ÓÀ¸·Î ¾Èµé¾î°¡°Ô Ã³¸®ÇÔ.
 		D3DXVECTOR3 vWaterVec = tempVec2;
 		//vWaterVec.y+=0.5f;
 		if( bWaterChkDn )
@@ -1721,7 +1721,7 @@ BOOL CWorld::CheckBound(D3DXVECTOR3* vPos,D3DXVECTOR3* vDest,D3DXVECTOR3* vOut, 
 		}
 #if __VER < 10
 		else
-		// ì¼€ë¦­í„°ê°€ ë¬¼ìœ„ì— ìˆê³ , ì ê²¼ë‹¤ë©´ ìˆ˜ë©´ ì¶©ëŒì²´í¬í•˜ì—¬ ì¹´ë©”ë¼ê°€ ë¬¼ë°–ìœ¼ë¡œ ëª»ë‚˜ê°€ê²Œ ì²˜ë¦¬í•¨
+		// ÄÉ¸¯ÅÍ°¡ ¹°À§¿¡ ÀÖ°í, Àá°å´Ù¸é ¼ö¸é Ãæµ¹Ã¼Å©ÇÏ¿© Ä«¸Ş¶ó°¡ ¹°¹ÛÀ¸·Î ¸ø³ª°¡°Ô Ã³¸®ÇÔ
 		if( bWaterChkUp )
 		{
 			if(vWaterVec.y>fWaterHeight-0.3f)
@@ -1738,15 +1738,15 @@ BOOL CWorld::CheckBound(D3DXVECTOR3* vPos,D3DXVECTOR3* vDest,D3DXVECTOR3* vOut, 
 	if( bRet )
 	{
 		b2 = TRUE;
-		vDist2 = vIntersect - *vDest;		// ì‚¬ëŒì—ì„œ êµì°¨ì ê¹Œì§€ì˜ ë°©í–¥ë²¡í„°
+		vDist2 = vIntersect - *vDest;		// »ç¶÷¿¡¼­ ±³Â÷Á¡±îÁöÀÇ ¹æÇâº¤ÅÍ
 //		*vOut = vIntersect;
 	}
 	FLOAT	fDist1, fDist2;
-	if( b1 == TRUE && b2 == TRUE )	// ì§€í˜•ì´ë‘ ì˜¤ë¸Œì íŠ¸ ëª¨ë‘ êµì°¨í–ˆë‹¤
+	if( b1 == TRUE && b2 == TRUE )	// ÁöÇüÀÌ¶û ¿ÀºêÁ§Æ® ¸ğµÎ ±³Â÷Çß´Ù
 	{
 		fDist1 = D3DXVec3LengthSq( &vDist1 );
 		fDist2 = D3DXVec3LengthSq( &vDist2 );
-		if( fDist1 < fDist2 )		// ê·¸ì¤‘ ê°€ê¹Œìš´ë†ˆìœ¼ë¡œ ì”€
+		if( fDist1 < fDist2 )		// ±×Áß °¡±î¿î³ğÀ¸·Î ¾¸
 		{
 			*fLength = D3DXVec3Length( &vDist1 );
 			*vOut = tempVec2;
@@ -1758,20 +1758,20 @@ BOOL CWorld::CheckBound(D3DXVECTOR3* vPos,D3DXVECTOR3* vDest,D3DXVECTOR3* vOut, 
 		}
 		return TRUE;
 	} else
-	if( b1 )	// ì§€í˜•ì—ë§Œ ë¶€ë”ªí˜”ë‹¤.
+	if( b1 )	// ÁöÇü¿¡¸¸ ºÎµúÇû´Ù.
 	{
 		*fLength = D3DXVec3Length( &vDist1 );		
 		*vOut = tempVec2;
 		return TRUE;
 	} else
-	if( b2 )	// ì˜¤ë¸Œì íŠ¸ì—ë§Œ ë¶€ë”ªí˜”ë‹¤
+	if( b2 )	// ¿ÀºêÁ§Æ®¿¡¸¸ ºÎµúÇû´Ù
 	{
 		*fLength = D3DXVec3Length( &vDist2 );		
 		*vOut = vIntersect;
 		return TRUE;
 	}
 
-	// ì•„ë¬´ë°ë„ ë¶€ë”ªíˆì§€ ì•Šì•˜ë‹¤.
+	// ¾Æ¹«µ¥µµ ºÎµúÈ÷Áö ¾Ê¾Ò´Ù.
 	*fLength = length;
 	return FALSE;
 }
@@ -1789,7 +1789,7 @@ void CWorld::SetLight( BOOL bLight )
 
 #if __VER >= 15 // __BS_CHANGING_ENVIR
 	ENVIR_INFO* pInfo = GetInContinent( g_pPlayer->GetPos( ) );
-	if( pInfo && m_kCurContinent._bUseEnvir )		// ëŒ€ë¥™ ì•ˆì´ê³  ëŒ€ë¥™ì •ë³´ë¥¼ ì´ìš©í•  ê²½ìš°ë§Œ !!
+	if( pInfo && m_kCurContinent._bUseEnvir )		// ´ë·ú ¾ÈÀÌ°í ´ë·úÁ¤º¸¸¦ ÀÌ¿ëÇÒ °æ¿ì¸¸ !!
 	{
 		if( pLight )
 		{
@@ -1838,21 +1838,21 @@ void CWorld::SetLight( BOOL bLight )
 	{
 		if( pLight )
 		{		
-			// ìŒì˜ ë³€í™” 
+			// À½¿µ º¯È­ 
 			pLight->Diffuse.r = ((m_dwDiffuse>>16) & 0xff) / 255.f;
 			pLight->Diffuse.g = ((m_dwDiffuse>>8) & 0xff)  / 255.f;
 			pLight->Diffuse.b = ((m_dwDiffuse) & 0xff)     / 255.f;
 
-			// ë³€í™” ì—†ìŒ 
+			// º¯È­ ¾øÀ½ 
 			pLight->Specular.r = 1.0f;
 			pLight->Specular.g = 1.0f;
 			pLight->Specular.b = 1.0f;
-			// ì „ì²´ ë³€í™” 
+			// ÀüÃ¼ º¯È­ 
 			pLight->Ambient.r  = ((m_dwAmbient>>16) & 0xff) / 255.f;
 			pLight->Ambient.g  = ((m_dwAmbient>>8) & 0xff)  / 255.f;
 			pLight->Ambient.b  = ((m_dwAmbient) & 0xff)     / 255.f;
 
-			if( g_Option.m_nBloom )		// ë½€ìƒ¤ì‹œ ì˜µì…˜ì´ ì¼œì ¸ìˆì„ë• ì¡°ëª…ì„ ì¢€ ë‚®ì¶°ì¤˜ì•¼ í•œë‹¤. ì•ˆê·¸ëŸ¬ë©´ ë„ˆë¬´ ë°ì•„.
+			if( g_Option.m_nBloom )		// »Ç»ş½Ã ¿É¼ÇÀÌ ÄÑÁ®ÀÖÀ»¶© Á¶¸íÀ» Á» ³·ÃçÁà¾ß ÇÑ´Ù. ¾È±×·¯¸é ³Ê¹« ¹à¾Æ.
 			{
 				pLight->Diffuse.r *= 0.6f;
 				pLight->Diffuse.g *= 0.6f;
@@ -1870,11 +1870,11 @@ void CWorld::SetLight( BOOL bLight )
 			pLight->Diffuse.r  += 0.1f;
 			pLight->Diffuse.g  += 0.1f;
 			pLight->Diffuse.b  += 0.1f;
-			// ë³€í™” ì—†ìŒ 
+			// º¯È­ ¾øÀ½ 
 			pLight->Specular.r = 2.0f;
 			pLight->Specular.g = 2.0f;
 			pLight->Specular.b = 2.0f;
-			// ì£¼ë³€ 
+			// ÁÖº¯ 
 			pLight->Ambient.r  *= 0.9f;
 			pLight->Ambient.g  *= 0.9f;
 			pLight->Ambient.b  *= 0.9f;
@@ -1898,11 +1898,11 @@ void CWorld::SetLight( BOOL bLight )
 		
 			int nHour = 8, nMin = 0;
 	#ifdef __CLIENT
-			// í´ë¼ì´ì–¸íŠ¸ëŠ” ì‹œê°„ì„ g_GameTimerì—ì„œ ê°€ì ¸ì˜¨ë‹¤. 
+			// Å¬¶óÀÌ¾ğÆ®´Â ½Ã°£À» g_GameTimer¿¡¼­ °¡Á®¿Â´Ù. 
 			nHour = g_GameTimer.m_nHour;
 			nMin  = g_GameTimer.m_nMin ;
 	#else
-			// ë¹„ìŠ¤íŠ¸ëŠ” ì‹œê°„ì„ m_nLightHourì—ì„œ ê°€ì ¸ì˜¨ë‹¤.
+			// ºñ½ºÆ®´Â ½Ã°£À» m_nLightHour¿¡¼­ °¡Á®¿Â´Ù.
 			if( m_nLightType == 1 )
 				nHour = m_nLightHour;
 	#endif
@@ -1924,20 +1924,20 @@ void CWorld::SetLight( BOOL bLight )
 			lightColorPrv.b2 += ( lightColor.b2 - lightColorPrv.b2) * nMin / 60;
 			// 60(minMax) : 15(curMin) = 0.5(colorDistant) : x(curCol)
 
-			// ìŒì˜ ë³€í™” 
+			// À½¿µ º¯È­ 
 			pLight->Diffuse.r  = lightColorPrv.r1;
 			pLight->Diffuse.g  = lightColorPrv.g1;
 			pLight->Diffuse.b  = lightColorPrv.b1;
-			// ë³€í™” ì—†ìŒ 
+			// º¯È­ ¾øÀ½ 
 			pLight->Specular.r = 1.0f;
 			pLight->Specular.g = 1.0f;
 			pLight->Specular.b = 1.0f;
-			// ì „ì²´ ë³€í™” 
+			// ÀüÃ¼ º¯È­ 
 			pLight->Ambient.r  = lightColorPrv.r2;
 			pLight->Ambient.g  = lightColorPrv.g2;
 			pLight->Ambient.b  = lightColorPrv.b2;
 
-			if( g_Option.m_nBloom )		// ë½€ìƒ¤ì‹œ ì˜µì…˜ì´ ì¼œì ¸ìˆì„ë• ì¡°ëª…ì„ ì¢€ ë‚®ì¶°ì¤˜ì•¼ í•œë‹¤. ì•ˆê·¸ëŸ¬ë©´ ë„ˆë¬´ ë°ì•„.
+			if( g_Option.m_nBloom )		// »Ç»ş½Ã ¿É¼ÇÀÌ ÄÑÁ®ÀÖÀ»¶© Á¶¸íÀ» Á» ³·ÃçÁà¾ß ÇÑ´Ù. ¾È±×·¯¸é ³Ê¹« ¹à¾Æ.
 			{
 				pLight->Diffuse.r *= 0.6f;
 				pLight->Diffuse.g *= 0.6f;
@@ -1956,11 +1956,11 @@ void CWorld::SetLight( BOOL bLight )
 			pLight->Diffuse.r  *= 1.1f;
 			pLight->Diffuse.g  *= 1.1f;
 			pLight->Diffuse.b  *= 1.1f;
-			// ë³€í™” ì—†ìŒ 
+			// º¯È­ ¾øÀ½ 
 			pLight->Specular.r = 2.0f;
 			pLight->Specular.g = 2.0f;
 			pLight->Specular.b = 2.0f;
-			// ì£¼ë³€ 
+			// ÁÖº¯ 
 			pLight->Ambient.r  *= 1.0f;
 			pLight->Ambient.g  *= 1.0f;
 			pLight->Ambient.b  *= 1.0f;
@@ -1968,11 +1968,11 @@ void CWorld::SetLight( BOOL bLight )
 			pLight->Diffuse.r  *= 1.1f;
 			pLight->Diffuse.g  *= 1.1f;
 			pLight->Diffuse.b  *= 1.1f;
-			// ë³€í™” ì—†ìŒ 
+			// º¯È­ ¾øÀ½ 
 			pLight->Specular.r = 2.0f;
 			pLight->Specular.g = 2.0f;
 			pLight->Specular.b = 2.0f;
-			// ì£¼ë³€ 
+			// ÁÖº¯ 
 			pLight->Ambient.r  *= 0.9f;
 			pLight->Ambient.g  *= 0.9f;
 			pLight->Ambient.b  *= 0.9f;
@@ -2005,7 +2005,7 @@ void CWorld::SetLight( BOOL bLight )
 	m_pd3dDevice->SetRenderState( D3DRS_AMBIENT, dwAmbient );//D3DCOLOR_ARGB( 0,0,0,0) ); //m_dwAmbient );//D3DCOLOR_ARGB( 255,128,128,128) );//D3DCOLOR_ARGB( 255,50,50,70) );
 	::SetLight( bLight );
 
-	// ê¸°ë³¸ íŒ¨í„°ë¦¬ì–¼ ì •ì˜ 
+	// ±âº» ÆĞÅÍ¸®¾ó Á¤ÀÇ 
 	m_pd3dDevice->SetMaterial( &m_baseMaterial );
 	
 #endif // not WORLDSERVER
@@ -2074,8 +2074,8 @@ HRESULT CWorld::RestoreDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 		if( m_apLand[ i ] )
 			m_apLand[ i ]->RestoreDeviceObjects( pd3dDevice );
 	}
-	// ë°”ìš´ë“œ ë°•ìŠ¤ ë²„í…ìŠ¤ ë²„í¼ ë§Œë“¤ê¸° 
-	m_nBoundBoxVertexNum = 12 * 2; // ë¼ì¸ìˆ˜ * ì  ( í•˜ë‚˜ì˜ ë¼ì¸ì€ ì  ë‘ìŒ )
+	// ¹Ù¿îµå ¹Ú½º ¹öÅØ½º ¹öÆÛ ¸¸µé±â 
+	m_nBoundBoxVertexNum = 12 * 2; // ¶óÀÎ¼ö * Á¡ ( ÇÏ³ªÀÇ ¶óÀÎÀº Á¡ µÎ½Ö )
 	hr = m_pd3dDevice->CreateVertexBuffer( 
 		m_nBoundBoxVertexNum * sizeof( BOUNDBOXVERTEX ),
 		D3DUSAGE_WRITEONLY, D3DFVF_BOUNDBOXVERTEX,
@@ -2171,70 +2171,70 @@ HRESULT CWorld::StaticRestoreDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 		g_pIB->Lock( 0, 0, (void**)&pIB, 0 );
 
 		WORD tempTriList[]={
-			// LOD level 0 ì•„ë˜ìª½ ì‚¼ê°í˜• 32ê°œì˜ index
+			// LOD level 0 ¾Æ·¡ÂÊ »ï°¢Çü 32°³ÀÇ index
 			0,10,1, 1,10,2, 2,10,11, 2,11,12, 2,12,3, 3,12,4, 4,12,13, 4,13,14, 4,14,5, 5,14,6, 6,14,15, 6,15,16, 6,16,7, 7,16,8,
 			10,20,11, 11,20,12, 12,20,21, 12,21,22, 12,22,13, 13,22,14, 14,22,23, 14,23,24, 14,24,15, 15,24,16,
 			20,30,21, 21,30,22, 22,30,31, 22,31,32, 22,32,23, 23,32,24, 30,40,31, 31,40,32,
-			// LOD level 0 ì™¼ìª½ ì‚¼ê°í˜• 32ê°œì˜ index
+			// LOD level 0 ¿ŞÂÊ »ï°¢Çü 32°³ÀÇ index
 			8,16,17, 16,24,25, 16,25,26, 16,26,17, 24,32,33, 24,33,34, 24,34,25, 25,34,26, 26,34,35,
 			32,40,41, 32,41,42, 32,42,33, 33,42,34, 34,42,43, 34,43,44, 34,44,35, 40,50,41, 41,50,42, 42,50,51, 42,51,52, 42,52,43, 43,52,44, 44,52,53,
 			50,60,51, 51,60,52, 52,60,61, 52,61,62, 52,62,53, 60,70,61, 61,70,62, 62,70,71, 70,80,71,
-			// LOD level 0 ì˜¤ë¥¸ìª½ ì‚¼ê°í˜• 32ê°œì˜ index
+			// LOD level 0 ¿À¸¥ÂÊ »ï°¢Çü 32°³ÀÇ index
 			0,9,10, 9,18,10, 10,18,19, 10,19,20, 18,27,28, 18,28,19, 19,28,20, 20,28,29, 20,29,30,
 			27,36,28, 28,36,37, 28,37,38, 28,38,29, 29,38,30, 30,38,39, 30,39,40, 36,45,46, 36,46,37, 37,46,38, 38,46,47, 38,47,48, 38,48,39, 39,48,40,
 			45,54,46, 46,54,55, 46,55,56, 46,56,47, 47,56,48, 54,63,64, 54,64,55, 55,64,56, 63,72,64,
-			// LOD level 0 ìœ—ìª½ ì‚¼ê°í˜• 32ê°œì˜ index
+			// LOD level 0 À­ÂÊ »ï°¢Çü 32°³ÀÇ index
 			48,49,40, 40,49,50, 48,56,57, 48,57,58, 48,58,49, 49,58,50, 50,58,59, 50,59,60,
 			56,64,65, 56,65,66, 56,66,57, 57,66,58, 58,66,67, 58,67,68, 58,68,59, 59,68,60, 60,68,69, 60,69,70,
 			64,72,73, 64,73,74, 64,74,65, 65,74,66, 66,74,75, 66,75,76, 66,76,67, 67,76,68, 68,76,77, 68,77,78, 68,78,69, 69,78,70, 70,78,79, 70,79,80,
-			// LOD level 0ì—ì„œ LOD level 1ì— ì—°ê²°ì‹œí‚¤ëŠ” ì•„ë˜ìª½ ì‚¼ê°í˜• 12ê°œì˜ index
+			// LOD level 0¿¡¼­ LOD level 1¿¡ ¿¬°á½ÃÅ°´Â ¾Æ·¡ÂÊ »ï°¢Çü 12°³ÀÇ index
 			0,10,2, 2,10,20, 2,20,4, 4,20,22, 4,22,24, 4,24,6, 6,24,16, 6,16,8,
 			20,30,22, 22,30,40, 22,40,32, 22,32,24,
-			// LOD level 0ì—ì„œ LOD level 1ì— ì—°ê²°ì‹œí‚¤ëŠ” ì™¼ìª½ ì‚¼ê°í˜• 12ê°œì˜ index
+			// LOD level 0¿¡¼­ LOD level 1¿¡ ¿¬°á½ÃÅ°´Â ¿ŞÂÊ »ï°¢Çü 12°³ÀÇ index
 			8,16,26, 16,24,26, 32,40,42, 32,42,24, 24,42,44, 24,44,26,
 			40,50,42, 42,50,60, 42,60,44, 44,60,62, 60,70,62, 62,70,80,
-			// LOD level 0ì—ì„œ LOD level 1ì— ì—°ê²°ì‹œí‚¤ëŠ” ì˜¤ë¥¸ìª½ ì‚¼ê°í˜• 12ê°œì˜ index
+			// LOD level 0¿¡¼­ LOD level 1¿¡ ¿¬°á½ÃÅ°´Â ¿À¸¥ÂÊ »ï°¢Çü 12°³ÀÇ index
 			0,18,10, 10,18,20, 20,18,36, 20,36,38, 20,38,30, 30,38,40,
 			36,54,56, 36,56,38, 38,56,48, 38,48,40, 54,72,64, 54,64,56,
-			// LOD level 0ì—ì„œ LOD level 1ì— ì—°ê²°ì‹œí‚¤ëŠ” ìœ—ìª½ ì‚¼ê°í˜• 12ê°œì˜ index
+			// LOD level 0¿¡¼­ LOD level 1¿¡ ¿¬°á½ÃÅ°´Â À­ÂÊ »ï°¢Çü 12°³ÀÇ index
 			48,56,58, 48,58,40, 50,40,58, 50,58,60,
 			64,72,74, 64,74,56, 56,74,76, 58,56,76, 58,76,60, 60,76,78, 60,78,70, 70,78,80,
 
-			// LOD level 1 ì•„ë˜ìª½ ì‚¼ê°í˜• 8ê°œì˜ index
+			// LOD level 1 ¾Æ·¡ÂÊ »ï°¢Çü 8°³ÀÇ index
 			0,20,2, 2,20,4, 4,20,22, 4,22,24, 4,24,6, 6,24,8, 20,40,22, 22,40,24,
-			// LOD level 1 ì™¼ìª½ ì‚¼ê°í˜• 8ê°œì˜ index
+			// LOD level 1 ¿ŞÂÊ »ï°¢Çü 8°³ÀÇ index
 			8,24,26, 24,40,42, 24,42,44, 24,44,26, 40,60,42, 42,60,44, 44,60,62, 60,80,62,
-			// LOD level 1 ì˜¤ë¥¸ìª½ ì‚¼ê°í˜• 8ê°œì˜ index
+			// LOD level 1 ¿À¸¥ÂÊ »ï°¢Çü 8°³ÀÇ index
 			0,18,20, 18,36,20, 20,36,38, 20,38,40, 36,54,56, 36,56,38, 38,56,40, 54,72,56,
-			// LOD level 1 ìœ—ìª½ ì‚¼ê°í˜• 8ê°œì˜ index
+			// LOD level 1 À­ÂÊ »ï°¢Çü 8°³ÀÇ index
 			40,56,58, 40,58,60, 56,72,74, 56,74,76, 56,76,58, 58,76,60, 60,76,78, 60,78,80,
-			// LOD level 1ì—ì„œ LOD level 2ì— ì—°ê²°ì‹œí‚¤ëŠ” ì•„ë˜ìª½ ì‚¼ê°í˜• 4ê°œì˜ index
+			// LOD level 1¿¡¼­ LOD level 2¿¡ ¿¬°á½ÃÅ°´Â ¾Æ·¡ÂÊ »ï°¢Çü 4°³ÀÇ index
 			4,0,20, 4,20,40, 4,40,24, 4,24,8,
-			// LOD level 1ì—ì„œ LOD level 2ì— ì—°ê²°ì‹œí‚¤ëŠ” ì™¼ìª½ ì‚¼ê°í˜• 4ê°œì˜ index
+			// LOD level 1¿¡¼­ LOD level 2¿¡ ¿¬°á½ÃÅ°´Â ¿ŞÂÊ »ï°¢Çü 4°³ÀÇ index
 			44,8,24, 44,24,40, 44,40,60, 44,60,80,
-			// LOD level 1ì—ì„œ LOD level 2ì— ì—°ê²°ì‹œí‚¤ëŠ” ì˜¤ë¥¸ìª½ ì‚¼ê°í˜• 4ê°œì˜ index
+			// LOD level 1¿¡¼­ LOD level 2¿¡ ¿¬°á½ÃÅ°´Â ¿À¸¥ÂÊ »ï°¢Çü 4°³ÀÇ index
 			36,72,56, 36,56,40, 36,40,20, 36,20,0,
-			// LOD level 1ì—ì„œ LOD level 2ì— ì—°ê²°ì‹œí‚¤ëŠ” ìœ—ìª½ ì‚¼ê°í˜• 4ê°œì˜ index
+			// LOD level 1¿¡¼­ LOD level 2¿¡ ¿¬°á½ÃÅ°´Â À­ÂÊ »ï°¢Çü 4°³ÀÇ index
 			76,80,60, 76,60,40, 76,40,56, 76,56,72,
 
-			// LOD level 2 ì•„ë˜ìª½ ì‚¼ê°í˜• 2ê°œì˜ index
+			// LOD level 2 ¾Æ·¡ÂÊ »ï°¢Çü 2°³ÀÇ index
 			4,0,40, 4,40,8,
-			// LOD level 2 ì™¼ìª½ ì‚¼ê°í˜• 2ê°œì˜ index
+			// LOD level 2 ¿ŞÂÊ »ï°¢Çü 2°³ÀÇ index
 			44,8,40, 44,40,80,
-			// LOD level 2 ì˜¤ë¥¸ìª½ ì‚¼ê°í˜• 2ê°œì˜ index
+			// LOD level 2 ¿À¸¥ÂÊ »ï°¢Çü 2°³ÀÇ index
 			36,72,40, 36,40,0,
-			// LOD level 2 ìœ—ìª½ ì‚¼ê°í˜• 2ê°œì˜ index
+			// LOD level 2 À­ÂÊ »ï°¢Çü 2°³ÀÇ index
 			76,80,40, 76,40,72,
-			// LOD level 2ì—ì„œ LOD level 3ì— ì—°ê²°ì‹œí‚¤ëŠ” ì•„ë˜ìª½ ì‚¼ê°í˜• 1ê°œì˜ index
+			// LOD level 2¿¡¼­ LOD level 3¿¡ ¿¬°á½ÃÅ°´Â ¾Æ·¡ÂÊ »ï°¢Çü 1°³ÀÇ index
 			0,40,8,
-			// LOD level 2ì—ì„œ LOD level 3ì— ì—°ê²°ì‹œí‚¤ëŠ” ì™¼ìª½ ì‚¼ê°í˜• 1ê°œì˜ index
+			// LOD level 2¿¡¼­ LOD level 3¿¡ ¿¬°á½ÃÅ°´Â ¿ŞÂÊ »ï°¢Çü 1°³ÀÇ index
 			8,40,80,
-			// LOD level 2ì—ì„œ LOD level 3ì— ì—°ê²°ì‹œí‚¤ëŠ” ì˜¤ë¥¸ìª½ ì‚¼ê°í˜• 1ê°œì˜ index
+			// LOD level 2¿¡¼­ LOD level 3¿¡ ¿¬°á½ÃÅ°´Â ¿À¸¥ÂÊ »ï°¢Çü 1°³ÀÇ index
 			0,72,40,
-			// LOD level 2ì—ì„œ LOD level 3ì— ì—°ê²°ì‹œí‚¤ëŠ” ìœ—ìª½ ì‚¼ê°í˜• 1ê°œì˜ index
+			// LOD level 2¿¡¼­ LOD level 3¿¡ ¿¬°á½ÃÅ°´Â À­ÂÊ »ï°¢Çü 1°³ÀÇ index
 			40,72,80,
 
-			// LOD level 3ì˜ ì‚¼ê°í˜• 2ê°œì˜ index
+			// LOD level 3ÀÇ »ï°¢Çü 2°³ÀÇ index
 			0,72,8, 8,72,80
 		};
 		memcpy( pIB, tempTriList, (128+48+32+16+8+4+2)*3 * sizeof( WORD ) );
@@ -2311,10 +2311,10 @@ CObj *GetLastPickObj( void )
 }
 
 //
-// í•„ë“œì˜ í´ë¦­í•œ ì§€ì ì„ ì–»ê¸°
-// [in] pointëŠ” í´ë¼ì´ì–¸íŠ¸ í™”ë©´ì˜ ì¢Œí‘œ 
-// [out] pVectorëŠ” ëª©í‘œ ì¢Œí‘œ 
-// pOut : í”¼í‚¹í•œê³³ì˜ ì‚¼ê°í˜• ë²„í…ìŠ¤ 3ê°œì˜ ì‹œì‘ í¬ì¸í„°
+// ÇÊµåÀÇ Å¬¸¯ÇÑ ÁöÁ¡À» ¾ò±â
+// [in] point´Â Å¬¶óÀÌ¾ğÆ® È­¸éÀÇ ÁÂÇ¥ 
+// [out] pVector´Â ¸ñÇ¥ ÁÂÇ¥ 
+// pOut : ÇÇÅ·ÇÑ°÷ÀÇ »ï°¢Çü ¹öÅØ½º 3°³ÀÇ ½ÃÀÛ Æ÷ÀÎÅÍ
 BOOL CWorld::ClientPointToVector( D3DXVECTOR3 *pOut, RECT rect, POINT point, D3DXMATRIX* pmatProj, D3DXMATRIX* pmatView, D3DXVECTOR3* pVector, BOOL bObject )
 {
 	if( m_pCamera == NULL )
@@ -2331,7 +2331,7 @@ BOOL CWorld::ClientPointToVector( D3DXVECTOR3 *pOut, RECT rect, POINT point, D3D
 	FLOAT fDist;               // Ray-Intersection Parameter Distance
 	FLOAT fNearDist = m_fFarPlane;                    
 	CObj* pObj = NULL;
-	D3DXVECTOR3 vPickObj = D3DXVECTOR3( 0, 0, 0 );	// ì˜¤ë¸Œì íŠ¸ì— í”¼í‚¹ëœì¢Œí‘œ.
+	D3DXVECTOR3 vPickObj = D3DXVECTOR3( 0, 0, 0 );	// ¿ÀºêÁ§Æ®¿¡ ÇÇÅ·µÈÁÂÇ¥.
 
 
 	GetPickRay( rect, point, pmatProj, pmatView, &vPickRayOrig, &vPickRayDir );
@@ -2341,7 +2341,7 @@ BOOL CWorld::ClientPointToVector( D3DXVECTOR3 *pOut, RECT rect, POINT point, D3D
 		pObj = CWorld::PickObject( rect, point, pmatProj, pmatView, 0xffffffff, CMover::GetActiveObj(), pVector, TRUE );
 		if( pObj ) 
 		{
-			vPickObj = *pVector;		// ì˜¤ë¸Œì íŠ¸ì— í”¼í‚¹ë˜ì—ˆìœ¼ë©´ ë°›ì•„ë‘ .
+			vPickObj = *pVector;		// ¿ÀºêÁ§Æ®¿¡ ÇÇÅ·µÇ¾úÀ¸¸é ¹Ş¾ÆµÒ.
 //			bTriangle1 = TRUE;
 //			return TRUE;
 		}
@@ -2382,7 +2382,7 @@ BOOL CWorld::ClientPointToVector( D3DXVECTOR3 *pOut, RECT rect, POINT point, D3D
 							if( fDist < fNearDist ) 
 							{ 
 								#if __VER >= 11 // __FIX_PICKING
-								// í”¼í‚¹ ë¬¸ì œ ìˆ˜ì • - 07.10.25 - micky
+								// ÇÇÅ· ¹®Á¦ ¼öÁ¤ - 07.10.25 - micky
 								D3DXVECTOR3 vNormal;
 								D3DXVECTOR3	vRay;
 								D3DXVECTOR3	vLine1 = v1 - v3;
@@ -2401,7 +2401,7 @@ BOOL CWorld::ClientPointToVector( D3DXVECTOR3 *pOut, RECT rect, POINT point, D3D
 							if( fDist < fNearDist ) 
 							{
 								#if __VER >= 11 // __FIX_PICKING
-								// í”¼í‚¹ ë¬¸ì œ ìˆ˜ì • - 07.10.25 - micky
+								// ÇÇÅ· ¹®Á¦ ¼öÁ¤ - 07.10.25 - micky
 								D3DXVECTOR3 vNormal;
 								D3DXVECTOR3	vRay;
 								D3DXVECTOR3	vLine1 = v2 - v3;
@@ -2423,16 +2423,16 @@ BOOL CWorld::ClientPointToVector( D3DXVECTOR3 *pOut, RECT rect, POINT point, D3D
 	
 	if( bTriangle1 || pObj )
 	{
-		// ì˜¤ë¸Œì íŠ¸ì— í”¼í‚¹ë˜ì—ˆì„ ìˆ˜ë„ ìˆê³  ë•…ì— í”¼í‚¹ë˜ì—ˆì„ ìˆ˜ë„ ìˆë‹¤. ê°€ê¹Œìš´ë†ˆì„ ì¨ì•¼í•œë‹¤.
+		// ¿ÀºêÁ§Æ®¿¡ ÇÇÅ·µÇ¾úÀ» ¼öµµ ÀÖ°í ¶¥¿¡ ÇÇÅ·µÇ¾úÀ» ¼öµµ ÀÖ´Ù. °¡±î¿î³ğÀ» ½á¾ßÇÑ´Ù.
 		if( pObj )
 		{
 			D3DXVECTOR3 vDist = vPickObj - vPickRayOrig;
-			FLOAT fDistSq1 = D3DXVec3LengthSq( &vDist );	// ë ˆì´ì™€ ì˜¤ë¸Œì íŠ¸ í”¼í‚¹ ì§€ì ê¹Œì§€ì˜ ê±°ë¦¬
+			FLOAT fDistSq1 = D3DXVec3LengthSq( &vDist );	// ·¹ÀÌ¿Í ¿ÀºêÁ§Æ® ÇÇÅ· ÁöÁ¡±îÁöÀÇ °Å¸®
 			vDist = *pVector - vPickRayOrig;
-			FLOAT fDistSq2 = D3DXVec3LengthSq( &vDist );	// ë ˆì´ì™€ ì§€í˜• í”¼í‚¹ì§€ì ê¹Œì§€ì˜ ê±°ë¦¬.
-			if( fDistSq1 < fDistSq2 )	// ì˜¤ë¸Œì íŠ¸ í”¼í‚¹ì´ ë” ê°€ê¹Œìš°ë©´.
+			FLOAT fDistSq2 = D3DXVec3LengthSq( &vDist );	// ·¹ÀÌ¿Í ÁöÇü ÇÇÅ·ÁöÁ¡±îÁöÀÇ °Å¸®.
+			if( fDistSq1 < fDistSq2 )	// ¿ÀºêÁ§Æ® ÇÇÅ·ÀÌ ´õ °¡±î¿ì¸é.
 			{
-				*pVector = vPickObj;	// ë°”ê¾¼ë‹¤.
+				*pVector = vPickObj;	// ¹Ù²Û´Ù.
 				D3DXVECTOR3 *pTri = ::GetLastPickTri();
 				if( pOut )
 				{
@@ -2440,17 +2440,17 @@ BOOL CWorld::ClientPointToVector( D3DXVECTOR3 *pOut, RECT rect, POINT point, D3D
 					D3DXVec3TransformCoord( &pOut[1], &pTri[1], pObj->GetMatrixWorldPtr() );
 					D3DXVec3TransformCoord( &pOut[2], &pTri[2], pObj->GetMatrixWorldPtr() );
 				}
-				s_pLastPickObj = pObj;		// ë§ˆì§€ë§‰ìœ¼ë¡œ í”¼í‚¹ëœ ì˜¤ë¸Œì íŠ¸.
+				s_pLastPickObj = pObj;		// ¸¶Áö¸·À¸·Î ÇÇÅ·µÈ ¿ÀºêÁ§Æ®.
 			} else
 			{
 				if( pOut )
-					GetLandTri( pVector->x, pVector->z, pOut );		// ì§€í˜•ì— í”¼í‚¹ëìœ¼ë©´ ì§€í˜•ì‚¼ê°í˜• êº¼ëƒ„.
+					GetLandTri( pVector->x, pVector->z, pOut );		// ÁöÇü¿¡ ÇÇÅ·µÆÀ¸¸é ÁöÇü»ï°¢Çü ²¨³¿.
 				s_pLastPickObj = NULL;
 			}
 		} else
 		{
 			if( pOut )
-				GetLandTri( pVector->x, pVector->z, pOut );		// ì§€í˜•ì— í”¼í‚¹ëìœ¼ë©´ ì§€í˜•ì‚¼ê°í˜• êº¼ëƒ„.
+				GetLandTri( pVector->x, pVector->z, pOut );		// ÁöÇü¿¡ ÇÇÅ·µÆÀ¸¸é ÁöÇü»ï°¢Çü ²¨³¿.
 			s_pLastPickObj = NULL;
 		}
 		return TRUE;
@@ -2497,7 +2497,7 @@ BOOL CWorld::IsPickTerrain( RECT rect, POINT point, D3DXMATRIX* pmatProj, D3DXMA
 				int tempx = (int)( vPickRayCur.x );//( (int)vPickRayCur.x / MPU ) * MPU;//(pLand->m_nWorldX+x*PATCH_SIZE+px)*MPU;
 				int tempy = (int)( vPickRayCur.z );//( (int)vPickRayCur.z / MPU ) * MPU;//(pLand->m_nWorldY+y*PATCH_SIZE+py)*MPU;
 
-				//gmpbigsun : MPU -> m_iMPUë¡œ ìˆ˜ì •ë¨
+				//gmpbigsun : MPU -> m_iMPU·Î ¼öÁ¤µÊ
 				v1=D3DXVECTOR3( (FLOAT)( tempx			), GetLandHeight( ( FLOAT ) tempx		  , ( FLOAT ) tempy )		  , (FLOAT)( tempy ) );
 				v2=D3DXVECTOR3( (FLOAT)( tempx + m_iMPU ), GetLandHeight( ( FLOAT ) tempx + m_iMPU, ( FLOAT ) tempy )		  , (FLOAT)( tempy ) );
 				v3=D3DXVECTOR3( (FLOAT)( tempx			), GetLandHeight( ( FLOAT ) tempx		  , ( FLOAT ) tempy + m_iMPU ), (FLOAT)( tempy + m_iMPU ) );
@@ -2514,13 +2514,13 @@ BOOL CWorld::IsPickTerrain( RECT rect, POINT point, D3DXMATRIX* pmatProj, D3DXMA
 			}
 		}
 		vLength = vPickRayOrig - vPickRayCur;
-	} while( D3DXVec3LengthSq( &vLength ) < fFarPlaneSq );	// Sqë²„ì „ìœ¼ë¡œ ë°”ê¿ˆ. -xuzhu-
+	} while( D3DXVec3LengthSq( &vLength ) < fFarPlaneSq );	// Sq¹öÀüÀ¸·Î ¹Ù²Ş. -xuzhu-
 	if( bTriangle1 )
 		return TRUE;
 	return FALSE;
 }
 
-// ì£¼ì–´ì§„ ë ˆì´ì™€ ì¶©ëŒí•˜ëŠ” ë°”ë‹¥ì„ ì²´í¬.
+// ÁÖ¾îÁø ·¹ÀÌ¿Í Ãæµ¹ÇÏ´Â ¹Ù´ÚÀ» Ã¼Å©.
 FLOAT CWorld::IntersectRayTerrain( const D3DXVECTOR3 &vPickRayOrig, const D3DXVECTOR3 &vPickRayDir )
 {
 	if( m_pCamera == NULL )
@@ -2569,7 +2569,7 @@ FLOAT CWorld::IntersectRayTerrain( const D3DXVECTOR3 &vPickRayOrig, const D3DXVE
 			}
 		}
 		vLength = vPickRayOrig - vPickRayCur;
-	} while( D3DXVec3LengthSq( &vLength ) < fFarPlaneSq );	// Sqë²„ì „ìœ¼ë¡œ ë°”ê¿ˆ. -xuzhu-
+	} while( D3DXVec3LengthSq( &vLength ) < fFarPlaneSq );	// Sq¹öÀüÀ¸·Î ¹Ù²Ş. -xuzhu-
 	if( bTriangle1 )
 		return fNearDist;
 	return 0;
@@ -2578,9 +2578,9 @@ FLOAT CWorld::IntersectRayTerrain( const D3DXVECTOR3 &vPickRayOrig, const D3DXVE
 
 
 //
-// í•„ë“œì˜ í´ë¦­í•œ ì§€ì ì„ ì–»ê¸°
-// [in] pointëŠ” í´ë¼ì´ì–¸íŠ¸ í™”ë©´ì˜ ì¢Œí‘œ 
-// [out] pVectorëŠ” ëª©í‘œ ì¢Œí‘œ 
+// ÇÊµåÀÇ Å¬¸¯ÇÑ ÁöÁ¡À» ¾ò±â
+// [in] point´Â Å¬¶óÀÌ¾ğÆ® È­¸éÀÇ ÁÂÇ¥ 
+// [out] pVector´Â ¸ñÇ¥ ÁÂÇ¥ 
 //
 CObj* CWorld::PickObject( RECT rectClient, POINT ptClient, D3DXMATRIX* pmatProj, D3DXMATRIX* pmatView, DWORD dwObjectFilter, CObj* pExceptionObj, D3DXVECTOR3* pVector, BOOL bOnlyTopPick, BOOL bOnlyNPC )
 {
@@ -2621,8 +2621,8 @@ CObj* CWorld::PickObject( RECT rectClient, POINT ptClient, D3DXMATRIX* pmatProj,
 			{
 				if( pObj != pExceptionObj && ( ObjTypeToObjFilter( pObj->GetType() ) & dwObjectFilter ) ) 
 				{
-					if( bOnlyNPC && pObj->GetType() == OT_MOVER )	// bOnlyNPCì˜µì…˜ì´ ì¼œì ¸ìˆì„ë•Œ
-						if( ((CMover*)pObj)->IsPlayer() )	continue;	// í”Œë ˆì´ì–´ëŠ” ìŠ¤í‚µ.
+					if( bOnlyNPC && pObj->GetType() == OT_MOVER )	// bOnlyNPC¿É¼ÇÀÌ ÄÑÁ®ÀÖÀ»¶§
+						if( ((CMover*)pObj)->IsPlayer() )	continue;	// ÇÃ·¹ÀÌ¾î´Â ½ºÅµ.
 
 					pNonCullObjs[ nNonCullNum++ ] = pObj;
 				}
@@ -2635,10 +2635,10 @@ CObj* CWorld::PickObject( RECT rectClient, POINT ptClient, D3DXMATRIX* pmatProj,
 	{
 		CObj* pObj = (CObj*)pNonCullObjs[ i ];
 		nCount++;
-		if( pObj->GetType() == OT_MOVER && ((CMover*)pObj)->IsDie() )	// ì£½ì€ì‚¬ëŒì€ ë°”ìš´ë”©ë°•ìŠ¤ë¡œ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.(ë°”ìš´ë”©ë°•ìŠ¤ë‘ ë§ì§€ ì•ŠëŠ”ë‹¤).
+		if( pObj->GetType() == OT_MOVER && ((CMover*)pObj)->IsDie() )	// Á×Àº»ç¶÷Àº ¹Ù¿îµù¹Ú½º·Î °Ë»çÇÏÁö ¾ÊÀ½.(¹Ù¿îµù¹Ú½º¶û ¸ÂÁö ¾Ê´Â´Ù).
 			bPick = pObj->m_pModel->Intersect( vPickRayOrig, vPickRayDir, pObj->GetMatrixWorld(), &vIntersect, &fDist );
 		else
-			bPick = pObj->Pick( &vPickRayOrig, &vPickRayDir, &vIntersect, &fDist ); // ê·¸ì™¸ëŠ” ë°”ìš´ë”©ë°•ìŠ¤ ë¨¼ì € ê²€ì‚¬í›„, ì„¸ë°€ê²€ì‚¬.
+			bPick = pObj->Pick( &vPickRayOrig, &vPickRayDir, &vIntersect, &fDist ); // ±×¿Ü´Â ¹Ù¿îµù¹Ú½º ¸ÕÀú °Ë»çÈÄ, ¼¼¹Ğ°Ë»ç.
 		if( bPick )
 		{
 			if( fDist < fNearDist )
@@ -2701,7 +2701,7 @@ CObj* CWorld::PickObject_Fast( RECT rectClient, POINT ptClient, D3DXMATRIX* pmat
 							if( ((CMover*)pObj)->IsDie() )
 								continue;
 #if __VER >= 9	// __PET_0410
-							// ë‹¤ë¥¸ ì‚¬ëŒì´ ì†Œí™˜í•œ í«ì´ë©´,
+							// ´Ù¸¥ »ç¶÷ÀÌ ¼ÒÈ¯ÇÑ ÆêÀÌ¸é,
 							if( ( (CMover*)pObj )->GetId() == NULL_ID && pObj != g_pPlayer->m_pet.GetObj() )
 								continue;
 #endif	// __PET_0410
@@ -2718,7 +2718,7 @@ CObj* CWorld::PickObject_Fast( RECT rectClient, POINT ptClient, D3DXMATRIX* pmat
 	{
 		CObj* pObj = (CObj*)pNonCullObjs[ i ];
 		bAABB = bBoundBox;
-		if( pObj->GetType() == OT_CTRL )		// ì»¨íŠ¸ë¡¤ì€ ë°”ìš´ë”©ë°•ìŠ¤ë¡œë§Œ ì²´í¬í•˜ë©´ ì•ˆë¨.
+		if( pObj->GetType() == OT_CTRL )		// ÄÁÆ®·ÑÀº ¹Ù¿îµù¹Ú½º·Î¸¸ Ã¼Å©ÇÏ¸é ¾ÈµÊ.
 			bAABB = FALSE;
 		if( pObj->Pick( &vPickRayOrig, &vPickRayDir, &vIntersect, &fDist, bAABB ) )
 		{

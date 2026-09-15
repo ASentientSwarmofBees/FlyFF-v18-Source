@@ -1,4 +1,4 @@
-﻿#ifndef		__XUZHU_H__
+#ifndef		__XUZHU_H__
 #define		__XUZHU_H__
 
 #ifndef	SUCCESS

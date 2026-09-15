@@ -1,4 +1,4 @@
-ï»¿//ë¹„ìŠ¤ êµ¬ë£¹	êµ¬ë£¹ ëŒ€í‘œì´ë¦„	ê¸°ê°„ ë³„ ì•„ì´í…œ ì¢…ë¥˜									
+//ºñ½º ±¸·ì	±¸·ì ´ëÇ¥ÀÌ¸§	±â°£ º° ¾ÆÀÌÅÛ Á¾·ù									
 //dwVisGroup	szGroupName	dwVisID1	dwVisID2	dwVisID3	dwVisID4	dwVisID5	dwVisID6	dwVisID7	dwVisID8	dwVisID9	dwVisID10
 1	TID_MMI_VISGROUP_STR_LV1	II_SYS_VIS_LV1_STR	II_SYS_VIS_LV1_STR7	=	=	=	=	=	=	=	=
 2	TID_MMI_VISGROUP_STR_LV2	II_SYS_VIS_LV2_STR	II_SYS_VIS_LV2_STR_01	II_SYS_VIS_LV2_STR7	=	=	=	=	=	=	=

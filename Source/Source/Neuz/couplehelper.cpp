@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #if __VER >= 13 // __COUPLE_1117
 
@@ -53,7 +53,7 @@ void CCoupleHelper::OnProposeResult( CAr & ar )
 	CPlayerDataCenter::GetInstance()->GetPlayerString( idProposer );
 	OutputDebugString( szText );
 
-	// í”„ëŸ¬í¬ì¦ˆ ë°›ì€ ë©”ì„¸ì§€ ì°½ ì¶œë ¥
+	// ÇÁ·¯Æ÷Áî ¹ŞÀº ¸Ş¼¼Áö Ã¢ Ãâ·Â
 	if(g_WndMng.m_pWndCoupleMessage)
 		SAFE_DELETE(g_WndMng.m_pWndCoupleMessage);
 
@@ -78,7 +78,7 @@ void CCoupleHelper::OnCoupleResult( CAr & ar )
 	CPlayerDataCenter::GetInstance()->GetPlayerString( idPartner );		//
 	char szText[200]	= { 0,};
 	sprintf( szText, prj.GetText( TID_GAME_COUPLE_S02 ), szPartner );
-	g_WndMng.PutString( szText, NULL, prj.GetTextColor( TID_GAME_COUPLE_S02 ) );		// %së‹˜ê³¼ ì»¤í”Œì´ ë˜ì—ˆìŠµë‹ˆë‹¤.
+	g_WndMng.PutString( szText, NULL, prj.GetTextColor( TID_GAME_COUPLE_S02 ) );		// %s´Ô°ú Ä¿ÇÃÀÌ µÇ¾ú½À´Ï´Ù.
 }
 
 void CCoupleHelper::OnDecoupleResult()
@@ -88,7 +88,7 @@ void CCoupleHelper::OnDecoupleResult()
 	if( pCouple )
 	{
 		Clear();
-		g_WndMng.PutString( prj.GetText( TID_GAME_COUPLE_S03 ), NULL, prj.GetTextColor( TID_GAME_COUPLE_S03 ) );		// %së‹˜ê³¼ ì»¤í”Œì´ ë˜ì—ˆìŠµë‹ˆë‹¤.
+		g_WndMng.PutString( prj.GetText( TID_GAME_COUPLE_S03 ), NULL, prj.GetTextColor( TID_GAME_COUPLE_S03 ) );		// %s´Ô°ú Ä¿ÇÃÀÌ µÇ¾ú½À´Ï´Ù.
 	}
 }
 
@@ -105,7 +105,7 @@ void CCoupleHelper::OnAddCoupleExperience( CAr & ar )
 		{
 			char szString[200]	= { 0,};
 			sprintf( szString, prj.GetText( TID_GAME_COUPLE_LEVELUP ), pCouple->GetLevel() );
-			g_WndMng.PutString( szString, NULL, prj.GetTextColor( TID_GAME_COUPLE_LEVELUP ) );		// ì»¤í”Œì´ %dë ˆë²¨ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.
+			g_WndMng.PutString( szString, NULL, prj.GetTextColor( TID_GAME_COUPLE_LEVELUP ) );		// Ä¿ÇÃÀÌ %d·¹º§ÀÌ µÇ¾ú½À´Ï´Ù.
 		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿// WndQuizEvent.h: interface for the CWndQuizEvent class.
+// WndQuizEvent.h: interface for the CWndQuizEvent class.
 //
 //////////////////////////////////////////////////////////////////////
 

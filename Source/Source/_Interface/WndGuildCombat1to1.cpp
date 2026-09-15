@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndManager.h"
@@ -14,7 +14,7 @@ extern	CDPClient	g_DPlay;
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
 
 //////////////////////////////////////////////////////////////////////////
-// 1:1 ê¸¸ë“œ ì»´ë±ƒ ì°¸ê°€ì êµ¬ì„±
+// 1:1 ±æµå ÄÄ¹î Âü°¡ÀÚ ±¸¼º
 //////////////////////////////////////////////////////////////////////////
 
 CWndGuildCombat1to1Selection::CWndGuildCombat1to1Selection() 
@@ -139,7 +139,7 @@ void CWndGuildCombat1to1Selection::UpDateGuildListBox()
 		CGuild* pGuild = g_pPlayer->GetGuild();
 		if( pGuild )
 		{
-			// ë ˆë²¨ë³„ë¡œ ì†ŒíŒ…
+			// ·¹º§º°·Î ¼ÒÆÃ
 			CGuildMember* pMember;
 			for( map<u_long, CGuildMember*>::iterator i = pGuild->m_mapPMember.begin(); i != pGuild->m_mapPMember.end(); ++i )
 			{
@@ -154,7 +154,7 @@ void CWndGuildCombat1to1Selection::UpDateGuildListBox()
 #endif	// __SYS_PLAYER_DATA
 			}
 
-			// ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€			
+			// ¸®½ºÆ®¿¡ Ãß°¡			
 			CString str;
 			for( multimap<int, CGuildMember*>::iterator j = m_mapSelectPlayer.begin(); j != m_mapSelectPlayer.end(); ++j )
 			{
@@ -258,10 +258,10 @@ void CWndGuildCombat1to1Selection::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 
-	// ì‹œê°„ ì§€ë‚¬ëŠ”ì§€ë¥¼ íŒë‹¨
+	// ½Ã°£ Áö³µ´ÂÁö¸¦ ÆÇ´Ü
 	if( g_GuildCombat1to1Mng.m_nState != CGuildCombat1to1Mng::GC1TO1_OPEN )
 	{
-		g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_CANNOT_MAKEUP) ); //ì§€ê¸ˆì€ ëª…ë‹¨ì‘ì„±ì„ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+		g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_CANNOT_MAKEUP) ); //Áö±İÀº ¸í´ÜÀÛ¼ºÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù.
 		Destroy();
 		return;
 	}
@@ -305,7 +305,7 @@ void CWndGuildCombat1to1Selection::Reset()
 
 BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
 { 
-	if( nID == WIDC_BUTTON1 ) // ì¶œì „ì ë“±ë¡
+	if( nID == WIDC_BUTTON1 ) // ÃâÀüÀÚ µî·Ï
 	{
 		CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 
@@ -335,13 +335,13 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 				if( pGuildMember->m_nLevel < g_GuildCombat1to1Mng.m_nMinJoinPlayerLevel )
 #endif	// __SYS_PLAYER_DATA
 				{
-					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_LIMIT_LEVEL_NOTICE) ); //ì¶œì „ì ë“±ë¡ì€ ë ˆë²¨ 30ì´ìƒì´ ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_LIMIT_LEVEL_NOTICE) ); //ÃâÀüÀÚ µî·ÏÀº ·¹º§ 30ÀÌ»óÀÌ µÇ¾î¾ß ÇÕ´Ï´Ù.
 					return FALSE;
 				}
 			}	
 			else
 			{
-				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_NOT_GUILD_MEMBER) );	//ê¸¸ë“œëŒ€ì „ì— ì°¸ê°€í•˜ëŠ” ê¸¸ë“œì˜ ë§´ë²„ê°€ ì•„ë‹™ë‹ˆë‹¤.			
+				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_NOT_GUILD_MEMBER) );	//±æµå´ëÀü¿¡ Âü°¡ÇÏ´Â ±æµåÀÇ ¸É¹ö°¡ ¾Æ´Õ´Ï´Ù.			
 				return FALSE;
 			}
 		}
@@ -351,14 +351,14 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 
 		if( uiPlayer != -1 )
 		{
-			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_ALREADY_ENTRY) ); //ì´ë¯¸ ë“±ë¡ë˜ì–´ ìˆìŠµë‹ˆë‹¤. ë‹¤ì‹œ ë“±ë¡í•´ì£¼ì„¸ìš”.
+			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_ALREADY_ENTRY) ); //ÀÌ¹Ì µî·ÏµÇ¾î ÀÖ½À´Ï´Ù. ´Ù½Ã µî·ÏÇØÁÖ¼¼¿ä.
 			return FALSE;
 		}
  
 		AddCombatPlayer( m_vecGuildList[nCurSel] );		
 		RemoveGuildPlayer( nCurSel );		
 	}
-	else if( nID == WIDC_BUTTON2 ) // ì¶œì „ì ì·¨ì†Œ
+	else if( nID == WIDC_BUTTON2 ) // ÃâÀüÀÚ Ãë¼Ò
 	{
 		CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX2 );
 		
@@ -371,7 +371,7 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 		
 		if( uiPlayer == -1 )
 		{
-			// ê¸¸ë“œë¦¬ìŠ¤íŠ¸ì— ì—†ë‹¤ë©´ ì¶”ê°€ 
+			// ±æµå¸®½ºÆ®¿¡ ¾ø´Ù¸é Ãß°¡ 
 			AddGuildPlayer( m_vecSelectPlayer[nCurSel] );		
 			RemoveCombatPlayer( nCurSel );		
 		}
@@ -380,7 +380,7 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 			RemoveCombatPlayer( nCurSel );		
 		}		
 	}
-	else if( nID == WIDC_BUTTON3 ) // ì¶œì „ì ìˆœì„œ ìœ„ë¡œ
+	else if( nID == WIDC_BUTTON3 ) // ÃâÀüÀÚ ¼ø¼­ À§·Î
 	{
 		CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX2 );
 		
@@ -426,7 +426,7 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 		pWndListBox->SetCurSel(nCurSel-1);
 		//m_nDefenderIndex = nCurSel-1;
 	}
-	else if( nID == WIDC_BUTTON4 ) // ì¶œì „ì ìˆœì„œ ì•„ë˜
+	else if( nID == WIDC_BUTTON4 ) // ÃâÀüÀÚ ¼ø¼­ ¾Æ·¡
 	{
 		CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX2 );
 		
@@ -479,10 +479,10 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 	}
 	else if( nID == WIDC_FINISH )
 	{
-		// ì‹œê°„ ì§€ë‚¬ëŠ”ì§€ë¥¼ íŒë‹¨
+		// ½Ã°£ Áö³µ´ÂÁö¸¦ ÆÇ´Ü
 		if( g_GuildCombat1to1Mng.m_nState != CGuildCombat1to1Mng::GC1TO1_OPEN )
 		{
-			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_CANNOT_MAKEUP) ); //ì§€ê¸ˆì€ ëª…ë‹¨ì‘ì„±ì„ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_CANNOT_MAKEUP) ); //Áö±İÀº ¸í´ÜÀÛ¼ºÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù.
 			Destroy();
 			return FALSE;
 		}
@@ -497,7 +497,7 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 
 		if( m_vecSelectPlayer.size() == 0 )
 		{
-			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_HAVENOT_PLAYER) ); //ì¶œì „ìê°€ ì—†ìŠµë‹ˆë‹¤. ì¶œì „ìë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.
+			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_HAVENOT_PLAYER) ); //ÃâÀüÀÚ°¡ ¾ø½À´Ï´Ù. ÃâÀüÀÚ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.
 			return FALSE;
 		}
 
@@ -508,8 +508,8 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 		{
 			BOOL bSkip = FALSE;
 
-			// ì¶œì „ì ë§´ë²„ì¤‘ì— ë§ˆìŠ¤í„°ê°€ í‚¹í•€ì´ ìˆëŠ”ì§€ ê²€ì‚¬ë¥¼í•œë‹¤.
-			// ë‘˜ì¤‘ í•˜ë‚˜ë¼ë„ ì—†ìœ¼ë©´ ì¶œì „ ë¶ˆê°€ëŠ¥...
+			// ÃâÀüÀÚ ¸É¹öÁß¿¡ ¸¶½ºÅÍ°¡ Å·ÇÉÀÌ ÀÖ´ÂÁö °Ë»ç¸¦ÇÑ´Ù.
+			// µÑÁß ÇÏ³ª¶óµµ ¾øÀ¸¸é ÃâÀü ºÒ°¡´É...
 			for( int i=0; i<(int)( m_vecSelectPlayer.size() ); i++ )
 			{
 				pGuildMemberl = pGuild->GetMember( m_vecSelectPlayer[i] );
@@ -531,7 +531,7 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 			}
 			else
 			{
-				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_HAVENOT_MASTER) ); //ì¶œì „ì ëª…ë‹¨ì— ê¸¸ë“œë§ˆìŠ¤í„°ë‚˜ í‚¹í•€ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_HAVENOT_MASTER) ); //ÃâÀüÀÚ ¸í´Ü¿¡ ±æµå¸¶½ºÅÍ³ª Å·ÇÉÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.
 				return FALSE;
 			}
 		}
@@ -545,7 +545,7 @@ BOOL CWndGuildCombat1to1Selection::OnChildNotify( UINT message, UINT nID, LRESUL
 }
 
 //////////////////////////////////////////////////////////////////////////
-// 1:1 ê¸¸ë“œ ì»´ë±ƒ ì‹ ì²­í•˜ê¸°
+// 1:1 ±æµå ÄÄ¹î ½ÅÃ»ÇÏ±â
 //////////////////////////////////////////////////////////////////////////
 
 CWndGuildCombat1to1Offer::CWndGuildCombat1to1Offer(int nCombatType) 
@@ -564,7 +564,7 @@ void CWndGuildCombat1to1Offer::PaintFrame( C2DRender* p2DRender )
 {
 	CRect rect = GetWindowRect();
 	RenderWnd();
-	// ì—¬ê¸°ëŠ” íƒ€ì´í‹€ ë°”ì˜ í…ìŠ¤íŠ¸ë¥¼ ì¶œë ¥í•˜ëŠ” ê³³ 
+	// ¿©±â´Â Å¸ÀÌÆ² ¹ÙÀÇ ÅØ½ºÆ®¸¦ Ãâ·ÂÇÏ´Â °÷ 
 	if( IsWndStyle( WBS_CAPTION ) )	
 	{
 		int y = 4;
@@ -683,7 +683,7 @@ BOOL CWndGuildCombat1to1Offer::OnChildNotify( UINT message, UINT nID, LRESULT* p
 			{
 				if( nCost <= m_dwBackupGold )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_CURRENT_REQUEST) ); //ê¸°ì¡´ í˜ëƒë³´ë‹¤ ë” ë§ì€ ê¸ˆì•¡ìœ¼ë¡œ ì‹ ì²­ì„ í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.
+					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_CURRENT_REQUEST) ); //±âÁ¸ Æä³Äº¸´Ù ´õ ¸¹Àº ±İ¾×À¸·Î ½ÅÃ»À» ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
 					return FALSE;
 				}
 				
@@ -692,7 +692,7 @@ BOOL CWndGuildCombat1to1Offer::OnChildNotify( UINT message, UINT nID, LRESULT* p
 			{
 				if( nCost < m_dwMinGold )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_LIMIT_MIN) ); //ìµœì†Œê¸ˆì•¡ë³´ë‹¤ ë” ë§ì€ í˜ëƒë¡œ ì‹ ì²­í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.
+					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_LIMIT_MIN) ); //ÃÖ¼Ò±İ¾×º¸´Ù ´õ ¸¹Àº Æä³Ä·Î ½ÅÃ»ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
 					return FALSE;
 				}
 			}
@@ -705,11 +705,11 @@ BOOL CWndGuildCombat1to1Offer::OnChildNotify( UINT message, UINT nID, LRESULT* p
 
 				if( m_dwReqGold == 0 )
 				{
-					str.Format( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_REQUEST), 0, nCost ); //ê¸°ì¡´ì— ì‹ ì²­ëœ %dí˜ëƒì—ì„œ ì¶”ê°€ë¡œ %dí˜ëƒë¥¼ ì‹ ì²­í•˜ê² ìŠµë‹ˆê¹Œ?
+					str.Format( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_REQUEST), 0, nCost ); //±âÁ¸¿¡ ½ÅÃ»µÈ %dÆä³Ä¿¡¼­ Ãß°¡·Î %dÆä³Ä¸¦ ½ÅÃ»ÇÏ°Ú½À´Ï±î?
 				}
 				else
 				{
-					str.Format( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_REQUEST), m_dwBackupGold, nCost-m_dwBackupGold ); //ê¸°ì¡´ì— ì‹ ì²­ëœ %dí˜ëƒì—ì„œ ì¶”ê°€ë¡œ %dí˜ëƒë¥¼ ì‹ ì²­í•˜ê² ìŠµë‹ˆê¹Œ?
+					str.Format( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_REQUEST), m_dwBackupGold, nCost-m_dwBackupGold ); //±âÁ¸¿¡ ½ÅÃ»µÈ %dÆä³Ä¿¡¼­ Ãß°¡·Î %dÆä³Ä¸¦ ½ÅÃ»ÇÏ°Ú½À´Ï±î?
 				}
 
 				pMsg->SetValue( str, nCost );
@@ -724,12 +724,12 @@ BOOL CWndGuildCombat1to1Offer::OnChildNotify( UINT message, UINT nID, LRESULT* p
 }
 
 //////////////////////////////////////////////////////////////////////////
-// 1:1 ê¸¸ë“œ ëŒ€ì „ ì°¸ê°€ì êµ¬ì„± í™•ì¸ ì°½
+// 1:1 ±æµå ´ëÀü Âü°¡ÀÚ ±¸¼º È®ÀÎ Ã¢
 //////////////////////////////////////////////////////////////////////////
 
 BOOL CGuildCombat1to1SelectionResetConfirm::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 {
-	return CWndMessageBox::Initialize( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_REMAKE_MAKEUP), //ëª…ë‹¨ì‘ì„±ì„ ë‹¤ì‹œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+	return CWndMessageBox::Initialize( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_REMAKE_MAKEUP), //¸í´ÜÀÛ¼ºÀ» ´Ù½Ã ÇÏ½Ã°Ú½À´Ï±î?
 		pWndParent, 
 		MB_OKCANCEL );
 }
@@ -756,7 +756,7 @@ BOOL CGuildCombat1to1SelectionResetConfirm::OnChildNotify( UINT message, UINT nI
 }
 
 //////////////////////////////////////////////////////////////////////////
-// 1:1 ê¸¸ë“œ ëŒ€ì „ ì…ì°° í™•ì¸ ì°½
+// 1:1 ±æµå ´ëÀü ÀÔÂû È®ÀÎ Ã¢
 //////////////////////////////////////////////////////////////////////////
 
 BOOL CWndGuildCombat1to1OfferMessageBox::Initialize( CWndBase* pWndParent, DWORD dwWndId )

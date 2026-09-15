@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "dpcoresrvr.h"
 #include "dpdatabaseclient.h"
 #include "dploginsrvr.h"
@@ -189,8 +189,8 @@ void CDPCacheSrvr::OnAddPlayer( CAr & ar, DPID dpidCache, DPID dpidUser, u_long 
 	CPlayer* pPlayer	= g_PlayerMng.GetPlayer( idPlayer );	// m_ulong2
 	if( pPlayer )
 	{
-		// í•´ë‹¹ ì†Œì¼“ë²ˆí˜¸ë¥¼ ê°€ì§„ í”Œë ˆì´ì–´ë¥¼ ì°¾ì•„ì„œ ì—†ì•¤ë‹¤.
-		// ê·¸ í”Œë ˆì´ì–´ëŠ” CACHEì„œë²„ë‚˜ LOGINì„œë²„ì— ì ‘ì† ê°ì§€ê°€ ë˜ì§€ ì•ŠëŠ” ìƒíƒœ
+		// ÇØ´ç ¼ÒÄÏ¹øÈ£¸¦ °¡Áø ÇÃ·¹ÀÌ¾î¸¦ Ã£¾Æ¼­ ¾ø¾Ø´Ù.
+		// ±× ÇÃ·¹ÀÌ¾î´Â CACHE¼­¹ö³ª LOGIN¼­¹ö¿¡ Á¢¼Ó °¨Áö°¡ µÇÁö ¾Ê´Â »óÅÂ
 		CPlayer* p;
 		p = g_PlayerMng.GetPlayerBySocket( dpidSocket );	// m_players
 		if( p )
@@ -224,8 +224,8 @@ void CDPCacheSrvr::OnAddPlayer( CAr & ar, DPID dpidCache, DPID dpidUser, u_long 
 		g_PlayerMng.RegisterPlayerInfo( pPlayer );
 
 		BEFORESENDSOLE( out, PACKETTYPE_JOIN, pPlayer->dpidUser );	// result
-		out << pPlayer->m_dwSerial ;	// serial keyë¡œ êµ¬ë¶„í•˜ê²Œ í•œë‹¤.
-		out << (BYTE)1;					// í•­ìƒ ì„±ê³µ 
+		out << pPlayer->m_dwSerial ;	// serial key·Î ±¸ºĞÇÏ°Ô ÇÑ´Ù.
+		out << (BYTE)1;					// Ç×»ó ¼º°ø 
 		SEND( out, this, dpidCache );
 	}
 	else
@@ -442,7 +442,7 @@ void CDPCacheSrvr::SendSetFriendState( CPlayer* pTo )
 		if( lpFriend->dwState != FRS_BLOCK )// && lpFriend->dwState != FRS_OFFLINE )
 		{
 			vecIdFriend.push_back( lpFriend->dwUserId );
-			lpFriend->dwState = dwState;		// ì™œ?
+			lpFriend->dwState = dwState;		// ¿Ö?
 		}
 	}
 #endif	// __RT_1025
@@ -474,7 +474,7 @@ void CDPCacheSrvr::SendSetFriendState( CPlayer* pTo )
 			LPFRIEND pFriendbuf = pPlayer->m_Messenger.GetFriend( idPlayer );
 			if( pFriendbuf )
 			{
-				if( pFriendbuf->dwState != FRS_BLOCK )		// ì™œ?
+				if( pFriendbuf->dwState != FRS_BLOCK )		// ¿Ö?
 				{
 					BEFORESENDSOLE( ar, PACKETTYPE_SETFRIENDSTATE, pPlayer->dpidUser );
 					ar << idPlayer; 
@@ -674,8 +674,8 @@ void CDPCacheSrvr::OnSendTag( CAr & ar, DPID dpidCache, DPID dpidUser, u_long uB
 	u_long idTo;
 	char szString[256];
 
-	ar >> idTo;						// ìª½ì§€ë¥¼ ë°›ì„ ìºë¦­í„° 
-	ar.ReadString( szString, 256 );		// ìª½ì§€ë‚´ìš© 
+	ar >> idTo;						// ÂÊÁö¸¦ ¹ŞÀ» Ä³¸¯ÅÍ 
+	ar.ReadString( szString, 256 );		// ÂÊÁö³»¿ë 
 	szString[255] = '\0';
 
 	TRACE( "CDPCacheSrvr::OnSendTag - %d %s\n", idTo, szString );
@@ -684,22 +684,22 @@ void CDPCacheSrvr::OnSendTag( CAr & ar, DPID dpidCache, DPID dpidUser, u_long uB
 
 	CPlayer* pFrom	=  g_PlayerMng.GetPlayerBySerial( dpidUser );
 	if( pFrom == NULL)
-		return;		// ë³´ë‚´ëŠ”ì ì—†ìœ¼ë©´ ë¬´ì‹œ
+		return;		// º¸³»´ÂÀÚ ¾øÀ¸¸é ¹«½Ã
 
 	pFrom->Lock();
 
-	TAG_RESULT result = pFrom->IsTagSendable( idTo );  // dbì— ìª½ì§€ë¥¼ ë„£ëŠ”ë‹¤.
+	TAG_RESULT result = pFrom->IsTagSendable( idTo );  // db¿¡ ÂÊÁö¸¦ ³Ö´Â´Ù.
 	switch( result )
 	{
 	case TAG_BLOCKED:
-		SendTagResult( pFrom, 0 );		// ìƒëŒ€ë°©ì´ blockedì‹œí‚¨ ìƒíƒœì´ë©´ full(0ì˜ ì˜ë¯¸)ë˜ì–´ì„œ ë³´ë‚´ì§€ ëª»í–ˆë‹¤ê³  ì•Œë ¤ì¤€ë‹¤.
+		SendTagResult( pFrom, 0 );		// »ó´ë¹æÀÌ blocked½ÃÅ² »óÅÂÀÌ¸é full(0ÀÇ ÀÇ¹Ì)µÇ¾î¼­ º¸³»Áö ¸øÇß´Ù°í ¾Ë·ÁÁØ´Ù.
 		break;
 
 	case TAG_OK:
 		if( g_PlayerMng.GetPlayer( idTo ) )
 		{
 			pFrom->Unlock();
-			return;					// ë°›ëŠ”ì onlineì´ë©´ ë¬´ì‹œ 
+			return;					// ¹Ş´ÂÀÚ onlineÀÌ¸é ¹«½Ã 
 		}
 
 		g_dpDatabaseClient.SendTag( pFrom->uKey, idTo, szString );
@@ -709,7 +709,7 @@ void CDPCacheSrvr::OnSendTag( CAr & ar, DPID dpidCache, DPID dpidUser, u_long uB
 	pFrom->Unlock();
 }
 
-// cbResult -  ê²°ê³¼: 0 - ì‹¤íŒ¨(20ê°œ ì´ˆê³¼ì˜ ê²½ìš°), 1 - ì„±ê³µ 
+// cbResult -  °á°ú: 0 - ½ÇÆĞ(20°³ ÃÊ°úÀÇ °æ¿ì), 1 - ¼º°ø 
 void CDPCacheSrvr::SendTagResult( CPlayer* pPlayer, BYTE cbResult )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_INSERTTAG_RESULT, pPlayer->dpidUser );
@@ -771,7 +771,7 @@ void CDPCacheSrvr::OnPartyChangeLeader( CAr & ar, DPID dpidCache, DPID dpidUser,
 	if( nFind == -1 || pParty->m_aMember[nFind].m_bRemove )
 		return;
 
-#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 	for( int j = 0 ; j < MAX_PARTYMODE ; j++ )
 	{
 		if( pParty->m_nModeTime[j] )
@@ -782,7 +782,7 @@ void CDPCacheSrvr::OnPartyChangeLeader( CAr & ar, DPID dpidCache, DPID dpidUser,
 			g_dpCoreSrvr.SendSetPartyMode( pParty->m_uPartyId, j, FALSE );
 		}
 	}
-#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 	pParty->ChangeLeader( idChangeLeader );
 	g_dpCoreSrvr.SendChangeLeader( pParty->m_uPartyId, idChangeLeader );
 }
@@ -845,9 +845,9 @@ void CDPCacheSrvr::OnAddPartyMember( CAr & ar, DPID dpidCache, DPID dpidUser, u_
 		{
 			pMember->m_uPartyId		= pParty->m_uPartyId;
 			g_dpCoreSrvr.SendAddPartyMember( pParty->m_uPartyId, pLeader->uKey, nLeaderLevel, nLeaderJob, (BYTE)( dwLSex ), pMember->uKey, nMemberLevel, nMemberJob, (BYTE)( dwMSex ) );
-#if __VER >= 12 // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
+#if __VER >= 12 // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
 			g_dpCoreSrvr.SendSetPartyMode( pParty->m_uPartyId, PARTY_PARSKILL_MODE, FALSE );
-#endif // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
+#endif // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
 		}
 	}
 	else	// new
@@ -931,7 +931,7 @@ void CDPCacheSrvr::OnRemovePartyMember( CAr & ar, DPID dpidCache, DPID dpidUser,
 				pLeadertmp->m_uPartyId	= 0;
 			g_PartyMng.DeleteParty( pParty->m_uPartyId );
 		}
-#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 		else
 		{
 			if( bLeader )
@@ -949,11 +949,11 @@ void CDPCacheSrvr::OnRemovePartyMember( CAr & ar, DPID dpidCache, DPID dpidUser,
 				u_long idChangeLeader =  pParty->GetPlayerId(0);
 				g_dpCoreSrvr.SendChangeLeader( pParty->m_uPartyId, idChangeLeader );
 			}
-			// 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
+			// 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
 			if( pParty->m_nModeTime[PARTY_PARSKILL_MODE] )
 				g_dpCoreSrvr.SendSetPartyMode( pParty->m_uPartyId, PARTY_PARSKILL_MODE, FALSE );
 		}
-#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz	
+#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz	
 	}
 	else
 	{
@@ -1002,19 +1002,19 @@ void CDPCacheSrvr::OnPartyChangeName( CAr & ar, DPID dpidCache, DPID dpidUser, u
 			}
 			else
 			{
-				// ì´ë¯¸ ê·¸ëŸ° ì´ë¦„ì€ ìˆë‹¤~ ë‹¤ë¥¸ì‚¬ëŒì´ ì‚¬ìš©ì¤‘ì„
+				// ÀÌ¹Ì ±×·± ÀÌ¸§Àº ÀÖ´Ù~ ´Ù¸¥»ç¶÷ÀÌ »ç¿ëÁßÀÓ
 				SendErrorParty( ERROR_DIFFERNTUSERNAME, pPlayer );
 			}
 			
 		}
 		else
 		{
-			// ì´ë¯¸ ìˆœíšŒê·¹ë‹¨ì´ ì•„ë‹ˆë¯€ë¡œ ì´ë¦„ì„ ì„¤ì •í• ìˆ˜ ì—†ë”°~
+			// ÀÌ¹Ì ¼øÈ¸±Ø´ÜÀÌ ¾Æ´Ï¹Ç·Î ÀÌ¸§À» ¼³Á¤ÇÒ¼ö ¾øµû~
 		}
 	}
 	else
 	{
-		// ë‹¨ì¥ì´ ì•„ë‹ˆë‹¤ ê·¸ëŸ¬ë¯€ë¡œ í• ìˆ˜ê°€ ì—†ë”°~
+		// ´ÜÀåÀÌ ¾Æ´Ï´Ù ±×·¯¹Ç·Î ÇÒ¼ö°¡ ¾øµû~
 	}
 }
 
@@ -1041,7 +1041,7 @@ void CDPCacheSrvr::OnPartyChangeItemMode( CAr & ar, DPID dpidCache, DPID dpidUse
 	pParty	= g_PartyMng.GetParty( pPlayer->m_uPartyId );
 	if( NULL == pParty )
 	{
-		// íŒŒí‹° ì°¾ê¸° ì‹¤íŒ¨
+		// ÆÄÆ¼ Ã£±â ½ÇÆĞ
 		SendErrorParty( ERROR_NOPARTY, pPlayer );
 		return;
 	}
@@ -1053,7 +1053,7 @@ void CDPCacheSrvr::OnPartyChangeItemMode( CAr & ar, DPID dpidCache, DPID dpidUse
 	}
 	else
 	{
-		// ë‹¨ì¥ì´ ì•„ë‹ˆë‹¤ ê·¸ëŸ¬ë¯€ë¡œ í• ìˆ˜ê°€ ì—†ë”°~
+		// ´ÜÀåÀÌ ¾Æ´Ï´Ù ±×·¯¹Ç·Î ÇÒ¼ö°¡ ¾øµû~
 	}
 }
 
@@ -1078,7 +1078,7 @@ void CDPCacheSrvr::OnPartyChangeExpMode( CAr & ar, DPID dpidCache, DPID dpidUser
 	pParty	= g_PartyMng.GetParty( pPlayer->m_uPartyId );
 	if( NULL == pParty )
 	{
-		// íŒŒí‹° ì°¾ê¸° ì‹¤íŒ¨
+		// ÆÄÆ¼ Ã£±â ½ÇÆĞ
 		SendErrorParty( ERROR_NOPARTY, pPlayer );
 		return;
 	}
@@ -1092,12 +1092,12 @@ void CDPCacheSrvr::OnPartyChangeExpMode( CAr & ar, DPID dpidCache, DPID dpidUser
 		}
 		else
 		{
-			// ì´ë¯¸ ìˆœíšŒê·¹ë‹¨ì´ ì•„ë‹ˆë¯€ë¡œ ì´ë¦„ì„ ì„¤ì •í• ìˆ˜ ì—†ë”°~
+			// ÀÌ¹Ì ¼øÈ¸±Ø´ÜÀÌ ¾Æ´Ï¹Ç·Î ÀÌ¸§À» ¼³Á¤ÇÒ¼ö ¾øµû~
 		}
 	}
 	else
 	{
-		// ë‹¨ì¥ì´ ì•„ë‹ˆë‹¤ ê·¸ëŸ¬ë¯€ë¡œ í• ìˆ˜ê°€ ì—†ë”°~
+		// ´ÜÀåÀÌ ¾Æ´Ï´Ù ±×·¯¹Ç·Î ÇÒ¼ö°¡ ¾øµû~
 	}
 }
 
@@ -1126,7 +1126,7 @@ void CDPCacheSrvr::OnPartyChangeTroup( CAr & ar, DPID dpidCache, DPID dpidUser, 
 	pParty	= g_PartyMng.GetParty( pPlayer->m_uPartyId );
 	if( NULL == pParty )
 	{
-		// íŒŒí‹° ì°¾ê¸° ì‹¤íŒ¨
+		// ÆÄÆ¼ Ã£±â ½ÇÆĞ
 		SendErrorParty( ERROR_NOPARTY, pPlayer );
 		return;
 	}
@@ -1141,9 +1141,9 @@ void CDPCacheSrvr::OnPartyChangeTroup( CAr & ar, DPID dpidCache, DPID dpidUser, 
 				strcpy( pParty->m_sParty, lpszPlayer );
 				pParty->m_nKindTroup = 1;
 				g_dpCoreSrvr.SendPartyChangeTroup( pParty->m_uPartyId, pParty->m_sParty );
-#if __VER >= 12 // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
+#if __VER >= 12 // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
 				g_dpCoreSrvr.SendSetPartyMode( pParty->m_uPartyId, PARTY_PARSKILL_MODE, FALSE );
-#endif // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
+#endif // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
 			}
 			else
 			{
@@ -1151,9 +1151,9 @@ void CDPCacheSrvr::OnPartyChangeTroup( CAr & ar, DPID dpidCache, DPID dpidUser, 
 				{
 					pParty->m_nKindTroup = 1;
 					g_dpCoreSrvr.SendPartyChangeTroup( pParty->m_uPartyId, pParty->m_sParty );						
-#if __VER >= 12 // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
+#if __VER >= 12 // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
 					g_dpCoreSrvr.SendSetPartyMode( pParty->m_uPartyId, PARTY_PARSKILL_MODE, FALSE );
-#endif // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
+#endif // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
 					
 					if( lpszPlayer != NULL )
 						g_PartyMng.RemovePartyName( pPlayer->uKey, lpszPlayer );
@@ -1165,19 +1165,19 @@ void CDPCacheSrvr::OnPartyChangeTroup( CAr & ar, DPID dpidCache, DPID dpidUser, 
 				}
 				else
 				{
-					// ì´ë¯¸ ê·¸ëŸ° ì´ë¦„ì€ ìˆë‹¤~ ë‹¤ë¥¸ì‚¬ëŒì´ ì‚¬ìš©ì¤‘ì„
+					// ÀÌ¹Ì ±×·± ÀÌ¸§Àº ÀÖ´Ù~ ´Ù¸¥»ç¶÷ÀÌ »ç¿ëÁßÀÓ
 					SendErrorParty( ERROR_DIFFERNTUSERNAME, pPlayer );
 				}
 			}
 		}
 		else
 		{
-			// ì´ë¯¸ ìˆœíšŒê·¹ë‹¨ì´ë‹¤
+			// ÀÌ¹Ì ¼øÈ¸±Ø´ÜÀÌ´Ù
 		}
 	}
 	else
 	{
-		// ë‹¨ì¥ì´ ì•„ë‹ˆë‹¤ ê·¸ëŸ¬ë¯€ë¡œ í• ìˆ˜ê°€ ì—†ë”°~
+		// ´ÜÀåÀÌ ¾Æ´Ï´Ù ±×·¯¹Ç·Î ÇÒ¼ö°¡ ¾øµû~
 	}
 }
 
@@ -1269,7 +1269,7 @@ void CDPCacheSrvr::OnAddGuildMember( CAr & ar, DPID dpidCache, DPID dpidUser, u_
 
 	if( !g_PlayerMng.IsOperator( info.idPlayer ) && tCurrent < pPlayer->m_tGuildMember )
 	{
-		if( ::GetLanguage() == LANG_FRE || ::GetLanguage() == LANG_GER )	// ìœ ëŸ½ - ë¬¸ì¥ì´ ê¸¸ì–´ì„œ 2ì¤„ë¡œ ë‚˜ëˆ„ í…ìŠ¤íŠ¸...
+		if( ::GetLanguage() == LANG_FRE || ::GetLanguage() == LANG_GER )	// À¯·´ - ¹®ÀåÀÌ ±æ¾î¼­ 2ÁÙ·Î ³ª´© ÅØ½ºÆ®...
 		{
 			SendDefinedText( TID_GAME_GUILDNOTINCLUDE_01, pMaster->dpidCache, pMaster->dpidUser, "" );
 			SendDefinedText( TID_GAME_GUILDNOTINCLUDE_01, pMaster->dpidCache, pMaster->dpidUser, "" );
@@ -1827,12 +1827,12 @@ void CDPCacheSrvr::OnGuildNickName( CAr & ar, DPID dpidCache, DPID dpidUser, u_l
 		if( nLen < 2 || nLen > 12 )
 		{
 			SendDefinedText( TID_DIAG_0011_01, pMaster->dpidCache, pMaster->dpidUser, "" );
-			//				g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— í•œê¸€ 1ê¸€ì ì´ìƒ, 6ê¸€ì ì´í•˜ë¡œ ì…ë ¥ ì…ë ¥í•˜ì‹­ì‹œì˜¤." ) );
+			//				g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ ÇÑ±Û 1±ÛÀÚ ÀÌ»ó, 6±ÛÀÚ ÀÌÇÏ·Î ÀÔ·Â ÀÔ·ÂÇÏ½Ê½Ã¿À." ) );
 			return;
 		}
 		
 		CGuildMember* pMember2	= pGuild->GetMember( idPlayer );
-		if( !pMember2 )		// ëŒ€ë§Œ - ì½”ì–´ ì„œë²„ í¬ë˜ì‹œ	// 2007/01/21
+		if( !pMember2 )		// ´ë¸¸ - ÄÚ¾î ¼­¹ö Å©·¡½Ã	// 2007/01/21
 			return;
 
 		strcpy( pMember2->m_szAlias, strNickName );
@@ -2141,9 +2141,9 @@ void CDPCacheSrvr::OnFriendInterceptState( CAr & ar, DPID dpidCache, DPID dpidUs
 	LPFRIEND pFriend	= pPlayer->m_Messenger.GetFriend( uidFriend );
 	if( pFriend )
 	{
-		if( pFriend->dwState == FRS_BLOCK ) // ì°¨ë‹¨ìƒíƒœ
+		if( pFriend->dwState == FRS_BLOCK ) // Â÷´Ü»óÅÂ
 		{
-			// ì°¨ë‹¨í•´ì œë¥¼ í•˜ë ¤ê³ í•¨ :: ì°¨ë‹¨í•´ì œë¥¼ í•˜ë©´ ê·¸ë„˜ì˜ ìƒíƒœë¥¼ ê°€ì§€ê³  ì™€ì„œ ë‚˜ì—ê²Œë§Œ ë³´ë‚´ë©´ ë¨ : ë‚˜í•œí…Œë§Œ ë³´ë‚´ì¤Œ
+			// Â÷´ÜÇØÁ¦¸¦ ÇÏ·Á°íÇÔ :: Â÷´ÜÇØÁ¦¸¦ ÇÏ¸é ±×³ÑÀÇ »óÅÂ¸¦ °¡Áö°í ¿Í¼­ ³ª¿¡°Ô¸¸ º¸³»¸é µÊ : ³ªÇÑÅ×¸¸ º¸³»ÁÜ
 			if( pFriendUser )
 			{
 				pFriend->dwState	= pFriendUser->m_Messenger.m_dwMyState;
@@ -2161,9 +2161,9 @@ void CDPCacheSrvr::OnFriendInterceptState( CAr & ar, DPID dpidCache, DPID dpidUs
 				pDFriend->dwState = 0;
 			}
 		}
-		else	// ì°¨ë‹¨í•´ì œ ìƒíƒœ
+		else	// Â÷´ÜÇØÁ¦ »óÅÂ
 		{
-			// ì°¨ë‹¨ì„ í•˜ë ¤ê³ í•¨ :: ë‚˜ëŠ” ê·¸ë„˜ì„ ë¸”ëŸ­ìƒíƒœë¼ê³  ë‚˜ì—ê²Œ ë³´ë‚´ì£¼ê³  ê·¸ë„˜ì—ê²ŒëŠ” ë‚˜ë¥¼ ë¡œê·¸ì•„ì›ƒì´ë¼ê³  í•¨ : ë‚˜ì—ê²Œ ë³´ë‚´ì£¼ê³  ê·¸ë„˜í•œíƒœë‘ ë³´ë‚´ì¤Œ
+			// Â÷´ÜÀ» ÇÏ·Á°íÇÔ :: ³ª´Â ±×³ÑÀ» ºí·°»óÅÂ¶ó°í ³ª¿¡°Ô º¸³»ÁÖ°í ±×³Ñ¿¡°Ô´Â ³ª¸¦ ·Î±×¾Æ¿ôÀÌ¶ó°í ÇÔ : ³ª¿¡°Ô º¸³»ÁÖ°í ±×³ÑÇÑÅÂµÎ º¸³»ÁÜ
 			pFriend->dwState	= FRS_BLOCK;
 			if( pFriendUser )
 			{
@@ -2217,7 +2217,7 @@ void CDPCacheSrvr::OnRemoveFriend( CAr & ar, DPID dpidCache, DPID dpidUser, u_lo
 		SEND( ar, this, pFriendUser->dpidCache );
 #else	// __RT_1025
 		pPlayer->Lock();	// lock
-		if( pPlayer->m_Messenger.RemoveFriend( uidFriend ) )	// ë‚´ê°€ ì‚­ì œ í–ˆìœ¼ë¯€ë¡œ ì§€ì›€
+		if( pPlayer->m_Messenger.RemoveFriend( uidFriend ) )	// ³»°¡ »èÁ¦ ÇßÀ¸¹Ç·Î Áö¿ò
 		{
 			pPlayer->Unlock();	// unlock
 			g_dpCoreSrvr.SendRemoveFriend( pPlayer->uKey, uidFriend );
@@ -2227,7 +2227,7 @@ void CDPCacheSrvr::OnRemoveFriend( CAr & ar, DPID dpidCache, DPID dpidUser, u_lo
 			if( !pFriendUser )
 				return;
 			pFriendUser->Lock();	// lock2
-			pFriendUser->m_Messenger.RemoveDifferntFriend( pPlayer->uKey ); // ë‚˜ë¥¼ ë“±ë¡í–ˆìœ¼ë¯€ë¡œ ì‚­ì œ í•´ì¤Œ(ë‚˜ì—ê²Œ ë©”ì„¸ì§€ë¥¼ ì•ˆë³´ë‚´ê²Œ)
+			pFriendUser->m_Messenger.RemoveDifferntFriend( pPlayer->uKey ); // ³ª¸¦ µî·ÏÇßÀ¸¹Ç·Î »èÁ¦ ÇØÁÜ(³ª¿¡°Ô ¸Ş¼¼Áö¸¦ ¾Èº¸³»°Ô)
 			BEFORESENDSOLE( ar, PACKETTYPE_REMOVEFRIENDSTATE, pFriendUser->dpidUser );
 			ar << pPlayer->uKey;
 			SEND( ar, this, pFriendUser->dpidCache );
@@ -2658,7 +2658,7 @@ void CDPCacheSrvr::OnAddVote( CAr & ar, DPID dpidCache, DPID dpidUser, u_long uB
 	if( pGuild && pGuild->IsMaster( pPlayer->uKey ) )
 	{
 		g_dpDatabaseClient.SendAddVote( pPlayer->m_idGuild, szTitle, szQuestion, szSelections );
-		// ë””ë¹„ì˜ ì‘ë‹µì„ ë°›ì•„ì„œ ì²˜ë¦¬í•œë‹¤. CDPDatabaseClient::OnAddVoteResult()
+		// µğºñÀÇ ÀÀ´äÀ» ¹Ş¾Æ¼­ Ã³¸®ÇÑ´Ù. CDPDatabaseClient::OnAddVoteResult()
 	}	
 }
 
@@ -2684,7 +2684,7 @@ void CDPCacheSrvr::OnRemoveVote( CAr & ar, DPID dpidCache, DPID dpidUser, u_long
 		g_dpDatabaseClient.SendRemoveVote( idVote );
 		pGuild->ModifyVote( idVote, REMOVE_VOTE, 0 );
 		
-		g_dpCoreSrvr.SendAddRemoveVote( pPlayer->m_idGuild, idVote );		// ëª¨ë“  ì›”ë“œì„œë²„ì— ì•Œë¦°ë‹¤.
+		g_dpCoreSrvr.SendAddRemoveVote( pPlayer->m_idGuild, idVote );		// ¸ğµç ¿ùµå¼­¹ö¿¡ ¾Ë¸°´Ù.
 	}	
 }
 
@@ -2708,13 +2708,13 @@ void CDPCacheSrvr::OnCloseVote( CAr & ar, DPID dpidCache, DPID dpidUser, u_long 
 	CGuildVote* pVote = pGuild->FindVote( idVote );
 	if( pGuild && pGuild->IsMaster( pPlayer->uKey ) && pVote )
 	{
-		if( pVote->IsCompleted() )	// ì™„ë£Œëœ ìƒíƒœì¸ê°€?
+		if( pVote->IsCompleted() )	// ¿Ï·áµÈ »óÅÂÀÎ°¡?
 			return;
 
 		g_dpDatabaseClient.SendCloseVote( idVote );
 		pVote->SetComplete();
 
-		g_dpCoreSrvr.SendAddCloseVote( pPlayer->m_idGuild, idVote );		// ëª¨ë“  ì›”ë“œì„œë²„ì— ì•Œë¦°ë‹¤.
+		g_dpCoreSrvr.SendAddCloseVote( pPlayer->m_idGuild, idVote );		// ¸ğµç ¿ùµå¼­¹ö¿¡ ¾Ë¸°´Ù.
 	}	
 }
 
@@ -2747,21 +2747,21 @@ void CDPCacheSrvr::OnCastVote( CAr & ar, DPID dpidCache, DPID dpidUser, u_long u
 
 	if( pGuild && pMember && pVote )
 	{
-		if( pVote->IsCompleted() )					// ì™„ë£Œëœ ìƒíƒœì¸ê°€?
+		if( pVote->IsCompleted() )					// ¿Ï·áµÈ »óÅÂÀÎ°¡?
 			return;
 
-		if( pMember->m_idSelectedVote == idVote )	// ì´ë¯¸ íˆ¬í‘œí–ˆë˜ê°€?
+		if( pMember->m_idSelectedVote == idVote )	// ÀÌ¹Ì ÅõÇ¥Çß´ø°¡?
 			return;
 
 		GUILD_VOTE_SELECT& select = pVote->GetVoteSelect( cbSelection );
-		if( select.szString == '\0' )				// ë¹ˆë¬¸ìì—´ì€ íˆ¬í‘œë¶ˆê°€ 		
+		if( select.szString == '\0' )				// ºó¹®ÀÚ¿­Àº ÅõÇ¥ºÒ°¡ 		
 			return;
 
 		g_dpDatabaseClient.SendCastVote( idVote, cbSelection );
 		
 		pMember->m_idSelectedVote = idVote;
 
-		g_dpCoreSrvr.SendAddCastVote( pPlayer->m_idGuild, idVote, cbSelection );		// ëª¨ë“  ì›”ë“œì„œë²„ì— ì•Œë¦°ë‹¤.
+		g_dpCoreSrvr.SendAddCastVote( pPlayer->m_idGuild, idVote, cbSelection );		// ¸ğµç ¿ùµå¼­¹ö¿¡ ¾Ë¸°´Ù.
 	}	
 }
 

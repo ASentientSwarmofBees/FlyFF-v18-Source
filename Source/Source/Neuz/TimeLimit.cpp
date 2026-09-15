@@ -1,8 +1,8 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "TimeLimit.h"
 
-static int g_nLimit = INT_MAX;		// ì œí•œ íšŸìˆ˜ 
-static DWORD g_dwPeriod  = 5000;		// ì œí•œ ê¸°ê°„ 
+static int g_nLimit = INT_MAX;		// Á¦ÇÑ È½¼ö 
+static DWORD g_dwPeriod  = 5000;		// Á¦ÇÑ ±â°£ 
 
 CTimeLimit::CTimeLimit()
 {
@@ -17,7 +17,7 @@ CTimeLimit::CTimeLimit( int nLimit, DWORD dwPeriod )
 	SetLimitation( nLimit, dwPeriod );
 }
 
-// ì‹œë„ê°€ ì‹œê°„ ì œí•œì„ ë„˜ëŠ”ì§€ ê²€ì‚¬  ( TRUE - ì œí•œì„ ë„˜ì—ˆë‹¤ )
+// ½Ãµµ°¡ ½Ã°£ Á¦ÇÑÀ» ³Ñ´ÂÁö °Ë»ç  ( TRUE - Á¦ÇÑÀ» ³Ñ¾ú´Ù )
 BOOL CTimeLimit::Check()
 {
 	m_nRequest++;

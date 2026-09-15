@@ -1,16 +1,16 @@
-ï»¿#ifndef __RANDOM_OPTION_EX_H__
+#ifndef __RANDOM_OPTION_EX_H__
 #define	__RANDOM_OPTION_EX_H__
 
 #include <vector>
 
 #define	MAX_RANDOM_OPTION	3
 
-//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 #define _AWAKE_SAFE_FLAG	0x2000000000000000
 
 #define _AWAKE_OLD_VALUE	1
 #define _AWAKE_NEW_VALUE	2
-//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 
 
 typedef	struct	_AdjData
@@ -26,8 +26,8 @@ typedef	struct	_AdjData
 
 typedef struct	_RANDOM_OPTION
 {
-	int		nDst;	// íŒŒë¼ë¯¸í„°
-	int		nProb;	//	ì´ íŒŒë¼ë¯¸í„°ê°€ ë‚˜ì˜¬ í™•ë¥ 
+	int		nDst;	// ÆÄ¶ó¹ÌÅÍ
+	int		nProb;	//	ÀÌ ÆÄ¶ó¹ÌÅÍ°¡ ³ª¿Ã È®·ü
 	vector<AdjData>	aAdjData;
 	_RANDOM_OPTION()
 	{
@@ -46,14 +46,14 @@ class CRandomOptionProperty
 {
 public:
 #if __VER >= 12 // __PET_0519
-	// ì‹œìŠ¤í…œ í« ê°ì„±ê³¼ ë¨¹í« ê°ì„± ì¶”ê°€
-	enum	{	eAwakening, eBlessing,	eSystemPet, eEatPet, eMaxRandomOptionKind	};		// ëœë¤ ì˜µì…˜ ì¢…ë¥˜	// ê°ì„±: 0, ì¶•ë³µ: 1
+	// ½Ã½ºÅÛ Æê °¢¼º°ú ¸ÔÆê °¢¼º Ãß°¡
+	enum	{	eAwakening, eBlessing,	eSystemPet, eEatPet, eMaxRandomOptionKind	};		// ·£´ı ¿É¼Ç Á¾·ù	// °¢¼º: 0, Ãàº¹: 1
 #else	// __PET_0519
-	enum	{	eAwakening, eBlessing,	eMaxRandomOptionKind	};		// ëœë¤ ì˜µì…˜ ì¢…ë¥˜	// ê°ì„±: 0, ì¶•ë³µ: 1
+	enum	{	eAwakening, eBlessing,	eMaxRandomOptionKind	};		// ·£´ı ¿É¼Ç Á¾·ù	// °¢¼º: 0, Ãàº¹: 1
 #endif	// __PET_0519
 
 #if __VER >= 12 // __J12_0
-	enum	{	eAwakeningExtension	= 3	};	// 0: ì†, 1: ë°œ, 2: ë¨¸ë¦¬	// ê°ì„± í™•ì¥
+	enum	{	eAwakeningExtension	= 3	};	// 0: ¼Õ, 1: ¹ß, 2: ¸Ó¸®	// °¢¼º È®Àå
 #endif	// __J12_0
 
 	CRandomOptionProperty();
@@ -63,59 +63,59 @@ public:
 	BOOL	LoadScript( LPCTSTR szFile );
 	void	LoadScriptBlock( CScript& s, int nRandomOptionKind );
 
-	// ië²ˆì§¸ ëœë¤ ì˜µì…˜ íŒŒë¼ë¯¸í„°ì™€ ê°’ì„ ë°˜í™˜, ë¹„ì–´ìˆìœ¼ë©´ FALSE ë°˜í™˜
+	// i¹øÂ° ·£´ı ¿É¼Ç ÆÄ¶ó¹ÌÅÍ¿Í °ªÀ» ¹İÈ¯, ºñ¾îÀÖÀ¸¸é FALSE ¹İÈ¯
 	BOOL	GetParam( __int64 nRandomOptItemId, int i, int* pnDst, int* pnAdj );
-	// ë¶€ì—¬ëœ ëœë¤ ì˜µì…˜ íŒŒë¼ë¯¸í„°ì˜ ê°œìˆ˜ ë°˜í™˜
+	// ºÎ¿©µÈ ·£´ı ¿É¼Ç ÆÄ¶ó¹ÌÅÍÀÇ °³¼ö ¹İÈ¯
 	int		GetRandomOptionSize( __int64 nRandomOptItemId );
 
-	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 	int		GetViewRandomOptionSize( __int64 n64RandomOptItemId );
-	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 
-	// ì¥ì°© ë¶€ìœ„ì— ë”°ë¥¸ ëœë¤ ì˜µì…˜ì˜ ì¢…ë¥˜ ë°˜í™˜
+	// ÀåÂø ºÎÀ§¿¡ µû¸¥ ·£´ı ¿É¼ÇÀÇ Á¾·ù ¹İÈ¯
 	int		GetRandomOptionKind( CItemElem* pItemElem );
 
-	// ëœë¤ ì˜µì…˜ ë¶€ì—¬
-	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	// ·£´ı ¿É¼Ç ºÎ¿©
+	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 	//BOOL	GenRandomOption( __int64* pnRandomOptItemId, int nRandomOptionKind, int nParts );
 	BOOL	GenRandomOption( __int64* pnRandomOptItemId, int nRandomOptionKind, int nParts, bool bDecreaseFlag = false );
-	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 
-	// ëœë¤ ì˜µì…˜ ì´ˆê¸°í™”
+	// ·£´ı ¿É¼Ç ÃÊ±âÈ­
 	void	InitializeRandomOption( __int64* pnRandomOptItemId );
 
-	// í•´ë‹¹ íŒŒë¼ë¯¸í„°ë¥¼ ê¸°ì¡´ ëœë¤ ì˜µì…˜ ë‹¤ìŒ ë²ˆì§¸ì— ì„¤ì •	- GenRandomOptionì—ì„œ í˜¸ì¶œ.
+	// ÇØ´ç ÆÄ¶ó¹ÌÅÍ¸¦ ±âÁ¸ ·£´ı ¿É¼Ç ´ÙÀ½ ¹øÂ°¿¡ ¼³Á¤	- GenRandomOption¿¡¼­ È£Ãâ.
 	void	SetParam( __int64* pnRandomOptItemId, int nDst, int nAdj );
 private:
 	int		DetermineRandomOptionSize( int nRandomOptionKind );
 	RANDOM_OPTION*	DetermineRandomOptionDst( int nRandomOptionKind, int nParts );
 
-	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 	//short DetermineRandomOptionAdj( RANDOM_OPTION* pRandomOption );
 	short DetermineRandomOptionAdj( RANDOM_OPTION* pRandomOption, bool bDecreaseAdj = false );
-	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 
 	int		GetRandomOptionKindIndex( int nRandomOptionKind, int nParts );
 	int		GetUpperProbability( int iRandomOptionKindIndex );
 #if __VER >= 12 // __J12_0
-	void	AwakeningExtension( void );		// ê°ì„± ì¶•ë³µ í…Œì´ë¸” í™•ì¥
+	void	AwakeningExtension( void );		// °¢¼º Ãàº¹ Å×ÀÌºí È®Àå
 #endif	// __J12_0
 private:
 	int		m_anRandomOptionProb[eMaxRandomOptionKind][MAX_RANDOM_OPTION];
 #if __VER >= 12 // __J12_0
-	// ê¸°ë³¸ + í™•ì¥
+	// ±âº» + È®Àå
 	vector<RANDOM_OPTION>	m_aRandomOption[eMaxRandomOptionKind + eAwakeningExtension];
 #else	// __J12_0
 	vector<RANDOM_OPTION>	m_aRandomOption[eMaxRandomOptionKind];
 #endif	// __J12_0
 
 
-	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 public:
 	bool	IsCheckedSafeFlag( __int64 n64RandomeOption );
 	void	SetSafeFlag( __int64* pn64RandomOption );
 	void	ResetSafeFlag( __int64* pn64RandomOption );
-	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 
 #ifdef __FASHION_COMBINE
 public:

@@ -1,4 +1,4 @@
-﻿#ifndef __WORLDDIALOG_H__
+#ifndef __WORLDDIALOG_H__
 #define __WORLDDIALOG_H__
 
 #include "FunctionsInfo.h"

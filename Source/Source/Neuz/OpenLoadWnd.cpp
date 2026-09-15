@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "OpenLoadWnd.h"
 
 #pragma comment	(lib, "Msimg32.lib")
@@ -73,15 +73,15 @@ HRESULT COpenLoadWnd::Create( HINSTANCE hInstance )
 		RECT openningWndrc;
 		SetRect(&openningWndrc, 0, 0, 640, 480);
 		
-		// rcë¥¼ ê¸°ì¤€ìœ¼ë¡œ ìœˆë„ìš° ì „ì²´ í¬ê¸°ë¥¼ ê³„ì‚°í•œë‹¤.
+		// rc¸¦ ±âÁØÀ¸·Î À©µµ¿ì ÀüÃ¼ Å©±â¸¦ °è»êÇÑ´Ù.
 		if( AdjustWindowRectEx( &openningWndrc, GetWindowLong(m_hWnd, GWL_STYLE),
 			::GetMenu(m_hWnd)?TRUE:FALSE, GetWindowLong(m_hWnd, GWL_EXSTYLE) ) )
 		{
-			// rcì—ëŠ” ìƒˆë¡œ ë§Œë“¤ì–´ì ¸ì•¼ í•  ìœˆë„ìš° ì „ì²´ í¬ê¸°ê°€ ë“¤ì–´ìˆê²Œëœë‹¤.
-			// ìœˆë„ìš°ë¥¼ í™”ë©´ ì¤‘ì•™ì— ë°°ì¹˜í•˜ì
+			// rc¿¡´Â »õ·Î ¸¸µé¾îÁ®¾ß ÇÒ À©µµ¿ì ÀüÃ¼ Å©±â°¡ µé¾îÀÖ°ÔµÈ´Ù.
+			// À©µµ¿ì¸¦ È­¸é Áß¾Ó¿¡ ¹èÄ¡ÇÏÀÚ
 			int  x, y;
 			
-			x = (GetSystemMetrics(SM_CXSCREEN) - (openningWndrc.right-openningWndrc.left)) / 2 - 201;	// ê²Œì„ê°€ë“œ ìŠ¤í”Œë ˆì‰¬í™”ë©´238x147 ë§Œí¼ ì›€ì§ì„
+			x = (GetSystemMetrics(SM_CXSCREEN) - (openningWndrc.right-openningWndrc.left)) / 2 - 201;	// °ÔÀÓ°¡µå ½ºÇÃ·¹½¬È­¸é238x147 ¸¸Å­ ¿òÁ÷ÀÓ
 			y = (GetSystemMetrics(SM_CYSCREEN) - (openningWndrc.bottom-openningWndrc.top)) / 2 - 195;
 			if( x < 0 )
 				x = 0;

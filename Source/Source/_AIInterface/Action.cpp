@@ -1,4 +1,4 @@
-ï»¿// Billboard.cpp : implementation of the CBeastView class
+// Billboard.cpp : implementation of the CBeastView class
 //
 
 #include "stdafx.h"
@@ -29,10 +29,10 @@ void CAction::Init( void )
 void	CAction::AddStateFlag( DWORD dwFlag ) 
 {
 #ifdef __BS_EFFECT_LUA
-	//ìƒíƒœê°€ ì¶”ê°€ë  ê²½ìš° ìµœì´ˆì¸ê²½ìš°ì— íš¨ê³¼ë¥¼ ë°œìƒì‹œí‚¨ë‹¤.
+	//»óÅÂ°¡ Ãß°¡µÉ °æ¿ì ÃÖÃÊÀÎ°æ¿ì¿¡ È¿°ú¸¦ ¹ß»ı½ÃÅ²´Ù.
 	if( dwFlag & OBJSTAF_COMBAT && !IsStateFlag( OBJSTAF_COMBAT ) )	
 	{
-		// ë§Œì•½ ì „íˆ¬ìƒíƒœë¡œ ì²˜ìŒ ëŒì…í•˜ëŠ”ê±°ë¼ë©´ ìƒíƒœë³„ íš¨ê³¼ë¥¼ í˜¸ì¶œí•œë‹¤. ì¼ë‹¨ npcë¥˜ë§Œ 
+		// ¸¸¾à ÀüÅõ»óÅÂ·Î Ã³À½ µ¹ÀÔÇÏ´Â°Å¶ó¸é »óÅÂº° È¿°ú¸¦ È£ÃâÇÑ´Ù. ÀÏ´Ü npc·ù¸¸ 
 		if( m_pMover->IsNPC( ) )
 			run_lua_sfx( OBJSTAF_COMBAT, m_pMover->GetId(), m_pMover->GetNameO3D() );
 	}
@@ -43,10 +43,10 @@ void	CAction::AddStateFlag( DWORD dwFlag )
 void	CAction::RemoveStateFlag( DWORD dwFlag )
 {
 #ifdef __BS_EFFECT_LUA
-	// ìƒíƒœê°€ í•´ì œë ê²½ìš° luaì—ì„œ í˜¸ì¶œí•œ ëª¨ë“  ìƒíƒœíš¨ê³¼ë¥¼ í•´ì œí•œë‹¤.
+	// »óÅÂ°¡ ÇØÁ¦µÉ°æ¿ì lua¿¡¼­ È£ÃâÇÑ ¸ğµç »óÅÂÈ¿°ú¸¦ ÇØÁ¦ÇÑ´Ù.
 	if( dwFlag & OBJSTAF_COMBAT )
 	{
-		//ì „íˆ¬ ìƒíƒœíš¨ê³¼ í•´ì œ
+		//ÀüÅõ »óÅÂÈ¿°ú ÇØÁ¦
 		CSfxModelMng::GetThis()->SubData( m_pMover->GetId(), OBJSTAF_COMBAT );
 	}
 #endif //__BS_EFFECT_LUA
@@ -65,13 +65,13 @@ CWorld* CAction::GetWorld( )
 	return m_pMover->GetWorld(); 
 }
 
-// OBJSTA_MOVE_ALL ìŠ¤í…Œì´íŠ¸ê°€ í´ë¦¬ì–´ë˜ëŠ” ìˆœê°„ ë°œìƒ.
+// OBJSTA_MOVE_ALL ½ºÅ×ÀÌÆ®°¡ Å¬¸®¾îµÇ´Â ¼ø°£ ¹ß»ı.
 void	CAction::OnEndMoveState( void )
 {
-	// ì´ê³³ì— ê·¸ì™¸ í•„ìš”í•œ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
+	// ÀÌ°÷¿¡ ±×¿Ü ÇÊ¿äÇÑ ÄÚµå¸¦ ³ÖÀ¸¼À.
 	switch( m_dwState & OBJSTA_MOVE_ALL )
 	{
-	case OBJSTA_SIT:		// ì°©ì§€ ë™ì‘ ì¤‘.
+	case OBJSTA_SIT:		// ÂøÁö µ¿ÀÛ Áß.
 		m_dwStateFlag &= (~OBJSTAF_SIT);
 		break;
 	}	
@@ -79,20 +79,20 @@ void	CAction::OnEndMoveState( void )
 
 void	CAction::OnEndTurnState( void )
 {
-	// ì´ê³³ì— ê·¸ì™¸ í•„ìš”í•œ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
+	// ÀÌ°÷¿¡ ±×¿Ü ÇÊ¿äÇÑ ÄÚµå¸¦ ³ÖÀ¸¼À.
 }
 
 void	CAction::OnEndLookState( void )
 {
-	// ì´ê³³ì— ê·¸ì™¸ í•„ìš”í•œ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
+	// ÀÌ°÷¿¡ ±×¿Ü ÇÊ¿äÇÑ ÄÚµå¸¦ ³ÖÀ¸¼À.
 }
 
 void	CAction::OnEndJumpState( DWORD dwState )
 {
-	// ì´ê³³ì— ê·¸ì™¸ í•„ìš”í•œ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
+	// ÀÌ°÷¿¡ ±×¿Ü ÇÊ¿äÇÑ ÄÚµå¸¦ ³ÖÀ¸¼À.
 	switch( dwState & OBJSTA_JUMP_ALL )
 	{
-	case OBJSTA_SJUMP4:		// ì°©ì§€ ë™ì‘ ì¤‘.
+	case OBJSTA_SJUMP4:		// ÂøÁö µ¿ÀÛ Áß.
 		m_pMover->OnActEndJump4();
 		break;
 	}
@@ -100,7 +100,7 @@ void	CAction::OnEndJumpState( DWORD dwState )
 
 void	CAction::OnEndAttackState( DWORD dwState )
 {
-	// ì´ê³³ì— ê·¸ì™¸ í•„ìš”í•œ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
+	// ÀÌ°÷¿¡ ±×¿Ü ÇÊ¿äÇÑ ÄÚµå¸¦ ³ÖÀ¸¼À.
 	switch( dwState & OBJSTA_ATK_ALL )
 	{
 	case OBJSTA_ATK1:
@@ -126,77 +126,77 @@ void	CAction::OnEndAttackState( DWORD dwState )
 #endif // not worldserver
 		break;
 	case OBJSTA_ATK_MELEESKILL:
-		m_pMover->OnActEndMeleeSkill();		// ê·¼ì ‘ìŠ¤í‚¬ ë™ì‘ ëë‚¨.
+		m_pMover->OnActEndMeleeSkill();		// ±ÙÁ¢½ºÅ³ µ¿ÀÛ ³¡³².
 		break;
 	case OBJSTA_ATK_MAGICSKILL:
-		m_pMover->OnActEndMagicSkill();		// ë§ˆë²•ìŠ¤í‚¬ ë™ì‘ ëë‚¨.
+		m_pMover->OnActEndMagicSkill();		// ¸¶¹ı½ºÅ³ µ¿ÀÛ ³¡³².
 		break;
 	}
 }
 
 void	CAction::OnEndDamageState( void )
 {
-	// ì´ê³³ì— ê·¸ì™¸ í•„ìš”í•œ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
+	// ÀÌ°÷¿¡ ±×¿Ü ÇÊ¿äÇÑ ÄÚµå¸¦ ³ÖÀ¸¼À.
 }
 
 void	CAction::OnEndActionState( void )
 {
-	// ì´ê³³ì— ê·¸ì™¸ í•„ìš”í•œ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
+	// ÀÌ°÷¿¡ ±×¿Ü ÇÊ¿äÇÑ ÄÚµå¸¦ ³ÖÀ¸¼À.
 }
 
 void	CAction::ClearState( void )
 {
 	DWORD dwState = m_dwState;
-	// 0xFFFFFFFF ë¡œ í•œêº¼ë²ˆì— ë¦¬ì…‹ ì‹œí‚¤ì§€ ë§ê²ƒ.
+	// 0xFFFFFFFF ·Î ÇÑ²¨¹ø¿¡ ¸®¼Â ½ÃÅ°Áö ¸»°Í.
 //	ResetState( OBJSTA_MOVE_ALL | OBJSTA_TURN_ALL | OBJSTA_LOOK_ALL | OBJSTA_JUMP_ALL | OBJSTA_ATK_ALL | OBJSTA_DMG_ALL );
 	ResetState( OBJSTA_ALL );
 	
 	if( m_dwState )
 	{
-		Error( "CAction::ClearState : ì•„ì§ë„ ë­”ê°€ í´ë¦¬ì–´ë˜ì§€ ì•Šì€ ê°’ì´ ìˆë‹¤. %08x, %08x", dwState, m_dwState );
+		Error( "CAction::ClearState : ¾ÆÁ÷µµ ¹º°¡ Å¬¸®¾îµÇÁö ¾ÊÀº °ªÀÌ ÀÖ´Ù. %08x, %08x", dwState, m_dwState );
 		m_dwState = 0; 
 	}
 }
 
-// dwStateì—ëŠ” OBJSTAë“¤ì´ ì„ì—¬ì„œ ì˜¬ ìˆ˜ ìˆë‹¤.
-// ë¦¬ì…‹í•˜ê³ ì í•˜ëŠ” ìŠ¤í…Œì´íŠ¸ë§Œ í´ë¦¬ì–´ì‹œí‚¤ë©´ì„œ í•´ë‹¹ í•¸ë“¤ëŸ¬ ë¶ˆëŸ¬ì¤Œ.
+// dwState¿¡´Â OBJSTAµéÀÌ ¼¯¿©¼­ ¿Ã ¼ö ÀÖ´Ù.
+// ¸®¼ÂÇÏ°íÀÚ ÇÏ´Â ½ºÅ×ÀÌÆ®¸¸ Å¬¸®¾î½ÃÅ°¸é¼­ ÇØ´ç ÇÚµé·¯ ºÒ·¯ÁÜ.
 void	CAction::ResetState( DWORD dwState )
 { 
 	DWORD dw	= m_dwState;
 	if( dwState & OBJSTA_MOVE_ALL )
 	{
-		OnEndMoveState();				// í•¸ë“¤ëŸ¬ í˜¸ì¶œ
-		m_dwState &= (~dwState);		// í•´ë‹¹ ë¹„íŠ¸ê°’ í´ë¦¬ì–´.
+		OnEndMoveState();				// ÇÚµé·¯ È£Ãâ
+		m_dwState &= (~dwState);		// ÇØ´ç ºñÆ®°ª Å¬¸®¾î.
 	}
 	
 	if( dwState & OBJSTA_TURN_ALL )
 	{
 		OnEndTurnState();
-		m_dwState &= (~dwState);		// í•´ë‹¹ ë¹„íŠ¸ê°’ í´ë¦¬ì–´.
+		m_dwState &= (~dwState);		// ÇØ´ç ºñÆ®°ª Å¬¸®¾î.
 	}
 	
 	if( dwState & OBJSTA_LOOK_ALL )
 	{
 		OnEndLookState();
-		m_dwState &= (~dwState);		// í•´ë‹¹ ë¹„íŠ¸ê°’ í´ë¦¬ì–´.
+		m_dwState &= (~dwState);		// ÇØ´ç ºñÆ®°ª Å¬¸®¾î.
 	}
 	
 	if( dwState & OBJSTA_JUMP_ALL )
 	{
-		m_dwState &= (~dwState);		// í•´ë‹¹ ë¹„íŠ¸ê°’ í´ë¦¬ì–´.
+		m_dwState &= (~dwState);		// ÇØ´ç ºñÆ®°ª Å¬¸®¾î.
 		OnEndJumpState( dw );
 	}
 	
 	if( dwState &	OBJSTA_ATK_ALL )
 	{
-		m_dwState &= (~dwState);		// í•´ë‹¹ ë¹„íŠ¸ê°’ í´ë¦¬ì–´.
+		m_dwState &= (~dwState);		// ÇØ´ç ºñÆ®°ª Å¬¸®¾î.
 		OnEndAttackState(dw);
 	}
 	
 	if( dwState &	OBJSTA_DMG_ALL )
 	{
 		OnEndDamageState();
-		m_dwState &= (~dwState);		// í•´ë‹¹ ë¹„íŠ¸ê°’ í´ë¦¬ì–´.
+		m_dwState &= (~dwState);		// ÇØ´ç ºñÆ®°ª Å¬¸®¾î.
 	}
 	
 	if( dwState & OBJSTA_ACTION_ALL )

@@ -1,4 +1,4 @@
-ï»¿//#define _SOUND_CPP
+//#define _SOUND_CPP
 
 /*
 |	 CSound Class library
@@ -31,8 +31,8 @@ CWaveStream::CWaveStream( void )
   BGMLocal = 127;
 	m_pasCurrent = NULL;
 	m_pass = NULL;
-	m_nListenerClientX = 1024/2; // í™”ë©´ ì¤‘ì•™
-	m_nListenerClientY = 768/2; // í™”ë©´ ì¤‘ì•™
+	m_nListenerClientX = 1024/2; // È­¸é Áß¾Ó
+	m_nListenerClientY = 768/2; // È­¸é Áß¾Ó
 	m_bBGMCreateFailure = FALSE;
 	m_nMusicId = -1;
 /*
@@ -183,7 +183,7 @@ void	 CWaveStream::PlayFSef( LPCTSTR fn )
 
 	if( sef->m_bEverMem )
 	{
-		for( j=0;j<4;j++ ) // ìˆ˜ë ¨ì¥ê°™ì€ë°ì„œ ì‚¬ìš´ë“œ ë‹¤ìˆ˜ ë°œìƒì— ì˜í•œ ì†ë„ì €í•˜ë¥¼ ë§‰ê¸°ìœ„í•´ ìµœëŒ€ 4ì±„ë„ë¡œ í•œë‹¤.
+		for( j=0;j<4;j++ ) // ¼ö·ÃÀå°°Àºµ¥¼­ »ç¿îµå ´Ù¼ö ¹ß»ı¿¡ ÀÇÇÑ ¼ÓµµÀúÇÏ¸¦ ¸·±âÀ§ÇØ ÃÖ´ë 4Ã¤³Î·Î ÇÑ´Ù.
 		{
 			if( sef->ChkPlaying(j)==FALSE ) break;
 		}
@@ -191,7 +191,7 @@ void	 CWaveStream::PlayFSef( LPCTSTR fn )
 	}
 	else
 	{
-		if( sef->ChkPlaying(0)==TRUE ) return; // ì„ì‹œ ë©”ëª¨ë¦¬ë¥¼ ì°¨ì§€í•˜ëŠ” wavëŠ” 1ì±„ë„ë§Œ ì§€ì›í•œë‹¤(ë™ë°©ì§€)
+		if( sef->ChkPlaying(0)==TRUE ) return; // ÀÓ½Ã ¸Ş¸ğ¸®¸¦ Â÷ÁöÇÏ´Â wav´Â 1Ã¤³Î¸¸ Áö¿øÇÑ´Ù(·¢¹æÁö)
 		j=0;
 	}
 
@@ -218,7 +218,7 @@ void	 CWaveStream::PlayFSef( LPCTSTR fn )
 
 	if( sef->m_bEverMem )
 	{
-		for( j=0;j<4;j++ ) // ìˆ˜ë ¨ì¥ê°™ì€ë°ì„œ ì‚¬ìš´ë“œ ë‹¤ìˆ˜ ë°œìƒì— ì˜í•œ ì†ë„ì €í•˜ë¥¼ ë§‰ê¸°ìœ„í•´ ìµœëŒ€ 4ì±„ë„ë¡œ í•œë‹¤.
+		for( j=0;j<4;j++ ) // ¼ö·ÃÀå°°Àºµ¥¼­ »ç¿îµå ´Ù¼ö ¹ß»ı¿¡ ÀÇÇÑ ¼ÓµµÀúÇÏ¸¦ ¸·±âÀ§ÇØ ÃÖ´ë 4Ã¤³Î·Î ÇÑ´Ù.
 		{
 			if( sef->ChkPlaying(j)==FALSE ) break;
 		}
@@ -226,7 +226,7 @@ void	 CWaveStream::PlayFSef( LPCTSTR fn )
 	}
 	else
 	{
-		if( sef->ChkPlaying(0)==TRUE ) return; // ì„ì‹œ ë©”ëª¨ë¦¬ë¥¼ ì°¨ì§€í•˜ëŠ” wavëŠ” 1ì±„ë„ë§Œ ì§€ì›í•œë‹¤(ë™ë°©ì§€)
+		if( sef->ChkPlaying(0)==TRUE ) return; // ÀÓ½Ã ¸Ş¸ğ¸®¸¦ Â÷ÁöÇÏ´Â wav´Â 1Ã¤³Î¸¸ Áö¿øÇÑ´Ù(·¢¹æÁö)
 		j=0;
 	}
 
@@ -409,7 +409,7 @@ BOOL CWaveStream::PlayMusic(int nId,BOOL bRepeat)
 	CString strFullPath = prj.MakeFullPath(prj.m_strDirMusic,prj.GetMusicFile(nId));
 	if(::GetFileAttributes(strFullPath) == 0xFFFFFFFF)
 	{
-		// ìŒì•… íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´ í”„ë¡œí¼í‹°ì—ì„œ ì•„ì˜ˆ ì‚­ì œí•œë‹¤.
+		// À½¾Ç ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é ÇÁ·ÎÆÛÆ¼¿¡¼­ ¾Æ¿¹ »èÁ¦ÇÑ´Ù.
 		prj.ClearMusicFile(nId);
 		return FALSE;
 	}

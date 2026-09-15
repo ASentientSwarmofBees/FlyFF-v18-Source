@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #include <stdio.h>
 #include <dxerr9.h>
@@ -31,8 +31,8 @@ D3DXMATRIX	g_mReflect = D3DXMATRIX(  0.50f, 0.00f, 0.00f, 0.00f,
 
 extern float s_fDiffuse[];
 extern float s_fAmbient[];
-extern D3DXVECTOR4 s_vLight;		// ë¼ì´íŠ¸ ë²¡í„°
-extern D3DXVECTOR4 s_vLightPos;		// ë¼ì´íŠ¸ í¬ì§€ì…˜
+extern D3DXVECTOR4 s_vLight;		// ¶óÀÌÆ® º¤ÅÍ
+extern D3DXVECTOR4 s_vLightPos;		// ¶óÀÌÆ® Æ÷Áö¼Ç
 extern D3DXMATRIX s_mViewProj;		// 
 extern D3DXMATRIX s_mView;		// 
 extern D3DXMATRIX s_mProj;		// 
@@ -162,7 +162,7 @@ HRESULT		CreateShadowMask( LPDIRECT3DDEVICE9 pd3dDevice, int nWidth, int nHeight
 										 D3DUSAGE_WRITEONLY, D3DFVF_SHADOWMASKVERTEX,
 										 D3DPOOL_MANAGED, &g_pd3d_ShadowVB, NULL );
 	if( FAILED(hr) )
-		Error( "CreateShadowMask : ë²„í…ìŠ¤ ë²„í¼ ìƒì„± ì‹¤íŒ¨" );
+		Error( "CreateShadowMask : ¹öÅØ½º ¹öÆÛ »ı¼º ½ÇÆĞ" );
 
 	SHADOWMASK_VERTEX *pVertex;
 	hr = g_pd3d_ShadowVB->Lock(0, 4 * sizeof(SHADOWMASK_VERTEX), (void **)&pVertex, 0);
@@ -252,7 +252,7 @@ void	CObject3DMng :: Init( void )
 #endif	// __JEFF_11_5
 }
 
-// ë””ë°”ì´ìŠ¤ ìì›ê³¼ ë©”ëª¨ë¦¬ ëª¨ë‘ë¥¼ ë‚ ë¦¼.
+// µğ¹ÙÀÌ½º ÀÚ¿ø°ú ¸Ş¸ğ¸® ¸ğµÎ¸¦ ³¯¸².
 void	CObject3DMng :: Destroy( void )
 {
 #ifdef __JEFF_11_5
@@ -287,7 +287,7 @@ HRESULT CObject3DMng :: InvalidateDeviceObjects()
 	return  S_OK;
 }
 
-// ë””ë°”ì´ìŠ¤ ìì›ë§Œ ë‚ ë¦¼.
+// µğ¹ÙÀÌ½º ÀÚ¿ø¸¸ ³¯¸².
 HRESULT CObject3DMng :: DeleteDeviceObjects()
 {
 #ifdef __JEFF_11_5
@@ -310,8 +310,8 @@ HRESULT CObject3DMng :: DeleteDeviceObjects()
 	return S_OK;
 }
 
-// pTextureë¥¼ ì‚¬ìš©í•˜ëŠ” ë§¤í„°ë¦¬ì–¼ì„ ì°¾ì•„ ì‚­ì œí•œë‹¤.
-// ê³µìœ ë˜ì–´ ìˆëŠ” í…ìŠ¤ì³ë¼ë©´ ì‚¬ìš©ì¹´ìš´í„°ë¥¼ ë³´ê³  1ì¸ê²ƒë§Œ ì‚­ì œí•œë‹¤..
+// pTexture¸¦ »ç¿ëÇÏ´Â ¸ÅÅÍ¸®¾óÀ» Ã£¾Æ »èÁ¦ÇÑ´Ù.
+// °øÀ¯µÇ¾î ÀÖ´Â ÅØ½ºÃÄ¶ó¸é »ç¿ëÄ«¿îÅÍ¸¦ º¸°í 1ÀÎ°Í¸¸ »èÁ¦ÇÑ´Ù..
 int CObject3DMng::DeleteObject3D( CObject3D *pObject3D )
 {
 #ifdef __JEFF_11_5
@@ -338,19 +338,19 @@ int CObject3DMng::DeleteObject3D( CObject3D *pObject3D )
 	{
 		if( m_pObject3DAry[i] )
 		{
-			if( m_pObject3DAry[i] == pObject3D )		// pObject3Dë¥¼ ì°¾ì•˜ë‹¤.
+			if( m_pObject3DAry[i] == pObject3D )		// pObject3D¸¦ Ã£¾Ò´Ù.
 			{
-				if( m_pObject3DAry[i]->m_nUseCnt == 1 )			// ê³µìœ ëœê²Œ ì•„ë‹ˆë‹¤(usecnt == 1)
+				if( m_pObject3DAry[i]->m_nUseCnt == 1 )			// °øÀ¯µÈ°Ô ¾Æ´Ï´Ù(usecnt == 1)
 				{
 					for( j = 0; j < MAX_OBJECT3D_CACHE; j ++ )
 					{
 						if( m_pCache[j] == pObject3D )
 						{
-							m_pCache[j] = NULL;			// ìºì‰¬ì— ìˆì—ˆëŠ”ì§€ ë¨¼ì € ê²€ì‚¬í•´ë³´ê³  ìºì‰¬ë¥¼ ë¨¼ì € ì¹˜ì›€.
+							m_pCache[j] = NULL;			// Ä³½¬¿¡ ÀÖ¾ú´ÂÁö ¸ÕÀú °Ë»çÇØº¸°í Ä³½¬¸¦ ¸ÕÀú Ä¡¿ò.
 							break;
 						}
 					}
-					SAFE_DELETE( m_pObject3DAry[i] );			// ì˜¤ë¸Œì íŠ¸ ê´€ë¦¬ìì—ì„œë„ ì‚­ì œí•˜ê³  ì‹¤ì œ ê°ì²´ë„ ë‚ ë ¤ë²„ë¦¼.
+					SAFE_DELETE( m_pObject3DAry[i] );			// ¿ÀºêÁ§Æ® °ü¸®ÀÚ¿¡¼­µµ »èÁ¦ÇÏ°í ½ÇÁ¦ °´Ã¼µµ ³¯·Á¹ö¸².
 					m_nMax --;
 					return TRUE;
 				}
@@ -397,70 +397,70 @@ CObject3D		*CObject3DMng :: LoadObject3D( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR 
 	CObject3D	*pObject3D;
 	int			nIdx = -1;
 
-	// ì´ë¯¸ ë©”ëª¨ë¦¬ì— ì ì¬ ë˜ì—ˆëŠ”ì§€ ê²€ìƒ‰, ë™ì‹œì— ë¹ˆê³³ë„ ê²€ìƒ‰
-	// ì¼ë‹¨ ìºì‰¬ë¥¼ ê²€ìƒ‰
+	// ÀÌ¹Ì ¸Ş¸ğ¸®¿¡ ÀûÀç µÇ¾ú´ÂÁö °Ë»ö, µ¿½Ã¿¡ ºó°÷µµ °Ë»ö
+	// ÀÏ´Ü Ä³½¬¸¦ °Ë»ö
 	pAry = m_pCache;
 	for( i = 0; i < MAX_OBJECT3D_CACHE; i ++ )
 	{
 		pObject3D = *pAry++;
 		if( pObject3D )
 		{
-			if( strcmpi(pObject3D->m_szFileName, szFileName) == 0 && pObject3D->m_pd3dDevice == pd3dDevice )		// ê°™ì€ê±¸ ì°¾ì•˜ìœ¼ë©´ ê·¸ê±¸ ë¦¬í„´
+			if( strcmpi(pObject3D->m_szFileName, szFileName) == 0 && pObject3D->m_pd3dDevice == pd3dDevice )		// °°Àº°É Ã£¾ÒÀ¸¸é ±×°É ¸®ÅÏ
 			{
-				pObject3D->m_nUseCnt ++;	// ì¤‘ë³µë˜ì–´ ì‚¬ìš©ë˜ì–´ì§€ë©´ ì¹´ìš´íŠ¸ ì˜¬ë¦¼.
+				pObject3D->m_nUseCnt ++;	// Áßº¹µÇ¾î »ç¿ëµÇ¾îÁö¸é Ä«¿îÆ® ¿Ã¸².
 				return pObject3D;
 			}
 		}
 	}
-	// ì´ë¯¸ ë©”ëª¨ë¦¬ì— ì ì¬ ë˜ì—ˆëŠ”ì§€ ê²€ìƒ‰, ë™ì‹œì— ë¹ˆê³³ë„ ê²€ìƒ‰
+	// ÀÌ¹Ì ¸Ş¸ğ¸®¿¡ ÀûÀç µÇ¾ú´ÂÁö °Ë»ö, µ¿½Ã¿¡ ºó°÷µµ °Ë»ö
 	pAry = m_pObject3DAry;
 	for( i = 0; i < MAX_OBJECT3D; i ++ )
 	{
 		pObject3D = *pAry++;
-		if( pObject3D )				// ë„ì´ ì•„ë‹Œê²ƒì€ ë¬´ìŠ¨ ëª¨ì…˜ì´ë“  ë¡œë”©ë˜ì–´ ìˆë‹¤ëŠ” ëœ»
+		if( pObject3D )				// ³ÎÀÌ ¾Æ´Ñ°ÍÀº ¹«½¼ ¸ğ¼ÇÀÌµç ·ÎµùµÇ¾î ÀÖ´Ù´Â ¶æ
 		{
-			if( strcmpi(pObject3D->m_szFileName, szFileName) == 0 && pObject3D->m_pd3dDevice == pd3dDevice )		// ê°™ì€ê±¸ ì°¾ì•˜ìœ¼ë©´ ê·¸ê±¸ ë¦¬í„´
+			if( strcmpi(pObject3D->m_szFileName, szFileName) == 0 && pObject3D->m_pd3dDevice == pd3dDevice )		// °°Àº°É Ã£¾ÒÀ¸¸é ±×°É ¸®ÅÏ
 			{
-				pObject3D->m_nUseCnt ++;	// ì¤‘ë³µë˜ì–´ ì‚¬ìš©ë˜ì–´ì§€ë©´ ì¹´ìš´íŠ¸ ì˜¬ë¦¼.
+				pObject3D->m_nUseCnt ++;	// Áßº¹µÇ¾î »ç¿ëµÇ¾îÁö¸é Ä«¿îÆ® ¿Ã¸².
 				return pObject3D;
 			}
 		} else
 		{
-			if( nIdx == -1 )		nIdx = i;			// ë¹ˆê³³ì´ ìˆìœ¼ë©´ ê°€ì¥ì²˜ìŒ ë¹ˆê³³ì´ ë‚˜ì˜¨ê³³ì„ ê¸°ì–µí•´ë‘ 
+			if( nIdx == -1 )		nIdx = i;			// ºó°÷ÀÌ ÀÖÀ¸¸é °¡ÀåÃ³À½ ºó°÷ÀÌ ³ª¿Â°÷À» ±â¾ïÇØµÒ
 		}
 	}
 	if( nIdx == -1 )	
 	{
-		Error( "%s : ì½ì„ ìˆ˜ ìˆëŠ” í•œê³„ë¥¼ ì´ˆê³¼í–ˆë‹¤", szFileName );
+		Error( "%s : ÀĞÀ» ¼ö ÀÖ´Â ÇÑ°è¸¦ ÃÊ°úÇß´Ù", szFileName );
 	}
 
 	pObject3D = new CObject3D;
-//	pObject3D->m_tmCreate = timeGetTime();		// ê°ì²´ê°€ ìƒì„±ëœ ë‹¹ì‹œì‹œê°„ì„ ê¸°ë¡
+//	pObject3D->m_tmCreate = timeGetTime();		// °´Ã¼°¡ »ı¼ºµÈ ´ç½Ã½Ã°£À» ±â·Ï
 	pObject3D->InitDeviceObjects( pd3dDevice );
 
-	// ë¡œë”©ëœê²Œ ì•„ë‹ˆì—ˆë‹¤ë©´.  ì‹¤ì œë¡œ ë°ì´íƒ€ ì½ìŒ.
+	// ·ÎµùµÈ°Ô ¾Æ´Ï¾ú´Ù¸é.  ½ÇÁ¦·Î µ¥ÀÌÅ¸ ÀĞÀ½.
 	if( pObject3D->LoadObject( szFileName ) == FAIL )
 	{
 		SAFE_DELETE( pObject3D );
 		return NULL;
 	}
 
-	pObject3D->m_nUseCnt = 1;	// ì²˜ìŒ ë¡œë”©ë˜ì—ˆìœ¼ë©´ 1ë¶€í„°
-	// ì½ì€ ë©”ì‰¬í¬ì¸í„°ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ë“±ë¡
+	pObject3D->m_nUseCnt = 1;	// Ã³À½ ·ÎµùµÇ¾úÀ¸¸é 1ºÎÅÍ
+	// ÀĞÀº ¸Ş½¬Æ÷ÀÎÅÍ¸¦ ¸®½ºÆ®¿¡ µî·Ï
 	m_pObject3DAry[ nIdx ] = pObject3D;
 	
-	// ìºì‹œì—ë„ ë„£ìŒ
+	// Ä³½Ã¿¡µµ ³ÖÀ½
 	m_pCache[ m_nCachePos++ ] = pObject3D;
 	if( m_nCachePos >= MAX_OBJECT3D_CACHE )		m_nCachePos = 0;
 
-	m_nMax ++;			// ê°€ì§„ ëª¨ì…˜ ê°¯ìˆ˜ ì¦ê°€
+	m_nMax ++;			// °¡Áø ¸ğ¼Ç °¹¼ö Áõ°¡
 
-	return pObject3D;		// ì½ì€ ëª¨ì…˜ í¬ì¸í„° ë¦¬í„´
+	return pObject3D;		// ÀĞÀº ¸ğ¼Ç Æ÷ÀÎÅÍ ¸®ÅÏ
 #endif	// __JEFF_11_5
 }
 
-// ì£¼ê¸°ì ìœ¼ë¡œ ê²€ì‚¬í•´ì„œ ì‚¬ìš©í•œì§€ ì˜¤ë˜ëœë†ˆì€ ë©”ëª¨ë¦¬ì—ì„œ ë‚ ë¦¼.
-// ì„œë²„ì—ì„œëŠ” ì‚¬ìš©í•˜ì§€ ë§ì.
+// ÁÖ±âÀûÀ¸·Î °Ë»çÇØ¼­ »ç¿ëÇÑÁö ¿À·¡µÈ³ğÀº ¸Ş¸ğ¸®¿¡¼­ ³¯¸².
+// ¼­¹ö¿¡¼­´Â »ç¿ëÇÏÁö ¸»ÀÚ.
 void CObject3DMng :: Process( void )
 {
 }
@@ -525,7 +525,7 @@ void	CObject3D :: Init( void )
 
 	m_fScrlU = m_fScrlV = 0.0f;
 
-	m_nUseCnt = 0;	// ì¼ë‹¨ ì´ˆê¸°í™”ëŠ” 0
+	m_nUseCnt = 0;	// ÀÏ´Ü ÃÊ±âÈ­´Â 0
 	
 	m_fAmbient[0] = 1.0f;
 	m_fAmbient[1] = 1.0f;
@@ -558,7 +558,7 @@ void	CObject3D :: Destroy( void )
 			for( k = 0; k < pObject[i].m_nMaxMtrlBlk; k ++ )
 			{
 			#if !defined(__WORLDSERVER) 
-				g_TextureMng.DeleteMaterial( pObject[i].m_pMtrlBlkTexture[k] );	// ì‚¬ìš©í•˜ë˜ í…ìŠ¤ì³ëŠ” ì‚­ì œí•œë‹¤. ê³µìœ í•˜ëŠ”ê²ƒì´ë©´ ì‚­ì œ ì•ˆí•¨.
+				g_TextureMng.DeleteMaterial( pObject[i].m_pMtrlBlkTexture[k] );	// »ç¿ëÇÏ´ø ÅØ½ºÃÄ´Â »èÁ¦ÇÑ´Ù. °øÀ¯ÇÏ´Â°ÍÀÌ¸é »èÁ¦ ¾ÈÇÔ.
 			#endif // !__WORLDSERVER
 
 #ifdef __YENV
@@ -580,7 +580,7 @@ void	CObject3D :: Destroy( void )
 
 			SAFE_DELETE_ARRAY( pObject[i].m_pVB );
 			SAFE_DELETE_ARRAY( pObject[i].m_pIB );
-			pObject[i].m_pIIB = NULL;		// IIBëŠ” IBì™€ ê°™ì€ ë¸”ëŸ­ì„ ì‚¬ìš©í•˜ë¯€ë¡œ deleteí•˜ë©´ ì•ˆëœë‹¤.
+			pObject[i].m_pIIB = NULL;		// IIB´Â IB¿Í °°Àº ºí·°À» »ç¿ëÇÏ¹Ç·Î deleteÇÏ¸é ¾ÈµÈ´Ù.
 		}
 	}
 	
@@ -595,10 +595,10 @@ void	CObject3D :: Destroy( void )
 	
 	SAFE_DELETE_ARRAY( m_CollObject.m_pVB );
 	SAFE_DELETE_ARRAY( m_CollObject.m_pIB );
-	m_CollObject.m_pIIB = NULL;		// IIBëŠ” IBì™€ ê°™ì€ ë¸”ëŸ­ì„ ì‚¬ìš©í•˜ë¯€ë¡œ deleteí•˜ë©´ ì•ˆëœë‹¤.
+	m_CollObject.m_pIIB = NULL;		// IIB´Â IB¿Í °°Àº ºí·°À» »ç¿ëÇÏ¹Ç·Î deleteÇÏ¸é ¾ÈµÈ´Ù.
 
 	DeleteDeviceObjects();	// m_pObject[].m_pd3d_VB
-	// m_pObjectë¥¼ ì‚­ì œí•˜ë ¤ë©´ DeleteDeviceObjets()ë¥¼ ë¨¼ì €í•˜ê³  í•´ì•¼í•œë‹¤.
+	// m_pObject¸¦ »èÁ¦ÇÏ·Á¸é DeleteDeviceObjets()¸¦ ¸ÕÀúÇÏ°í ÇØ¾ßÇÑ´Ù.
 
 #ifdef __YENV
 	SAFE_DELETE_ARRAY( m_CollObject.m_pNormalTexture );		
@@ -606,13 +606,13 @@ void	CObject3D :: Destroy( void )
 #endif //__YENV
 	
 	
-	SAFE_DELETE_ARRAY( m_Group[0].m_pObject );		// í†µì§œ ë©”ëª¨ë¦¬ í’€ì´ë¯€ë¡œ [0]ë§Œ ì§€ìš°ë©´ ëœë‹¤.
+	SAFE_DELETE_ARRAY( m_Group[0].m_pObject );		// ÅëÂ¥ ¸Ş¸ğ¸® Ç®ÀÌ¹Ç·Î [0]¸¸ Áö¿ì¸é µÈ´Ù.
 	m_Group[1].m_pObject = NULL;
 	m_Group[2].m_pObject = NULL;
-	SAFE_DELETE_ARRAY( m_Group[0]._mUpdate );		// í†µì§œ ë©”ëª¨ë¦¬ í’€ì´ë¯€ë¡œ [0]ë§Œ ì§€ìš°ë©´ ëœë‹¤.
+	SAFE_DELETE_ARRAY( m_Group[0]._mUpdate );		// ÅëÂ¥ ¸Ş¸ğ¸® Ç®ÀÌ¹Ç·Î [0]¸¸ Áö¿ì¸é µÈ´Ù.
 	m_Group[1]._mUpdate = NULL;
 	m_Group[2]._mUpdate = NULL;
-	// ì¶©ëŒìš© ë©”ì‹œëŠ” d3d_VBë¥¼ ìƒì„±í•˜ì§€ ì•Šê¸°ë•Œë¬¸ì— DeleteDeviceë¥¼ ì•ˆí•´ë„ ëœë‹¤.
+	// Ãæµ¹¿ë ¸Ş½Ã´Â d3d_VB¸¦ »ı¼ºÇÏÁö ¾Ê±â¶§¹®¿¡ DeleteDevice¸¦ ¾ÈÇØµµ µÈ´Ù.
 	SAFE_DELETE_ARRAY( m_pBaseBone );
 	SAFE_DELETE( m_pMotion );
 
@@ -651,7 +651,7 @@ int		CObject3D :: GetMaxMtrlBlk( void )
 
 
 //
-//	ë²„í…ìŠ¤ ë²„í¼ë¥¼ ìƒì„±/ì¬ìƒì„±.
+//	¹öÅØ½º ¹öÆÛ¸¦ »ı¼º/Àç»ı¼º.
 //
 HRESULT CObject3D::RestoreDeviceObjects( LPDIRECT3DVERTEXBUFFER9 *ppd3d_VB, D3DPOOL pool )
 {
@@ -675,7 +675,7 @@ HRESULT CObject3D::RestoreDeviceObjects( LPDIRECT3DVERTEXBUFFER9 *ppd3d_VB, D3DP
 				}
 				#endif //__YENV
 
-				// ìŠ¤í‚¨ì€ ë²„í…ìŠ¤ë²„í¼ë¥¼ ë”°ë¡œ ì¨ì•¼ í•˜ë¯€ë¡œ ì§€ì •ëœ ì™¸ë¶€í¬ì¸í„°ì—ë‹¤ ë²„í…ìŠ¤ ë²„í¼ë¥¼ ë°›ìŒ.
+				// ½ºÅ²Àº ¹öÅØ½º¹öÆÛ¸¦ µû·Î ½á¾ß ÇÏ¹Ç·Î ÁöÁ¤µÈ ¿ÜºÎÆ÷ÀÎÅÍ¿¡´Ù ¹öÅØ½º ¹öÆÛ¸¦ ¹ŞÀ½.
 				CreateDeviceBuffer( pObj, &ppd3d_VB[i], pool );
 
 			} else
@@ -735,12 +735,12 @@ HRESULT CObject3D::DeleteDeviceObjects()
 #endif //__YENV
 			
 			
-			// MtrlBlkì˜ m_pTextureëŠ” ì—¬ê¸°ì„œ ì§€ìš°ì§€ ì•ŠëŠ”ë‹¤.
+			// MtrlBlkÀÇ m_pTexture´Â ¿©±â¼­ Áö¿ìÁö ¾Ê´Â´Ù.
 		}
 	}
 
 #ifdef __YENV	
-	SAFE_RELEASE( m_pNormalDecl );		// ì •ì ì„ ì–¸
+	SAFE_RELEASE( m_pNormalDecl );		// Á¤Á¡¼±¾ğ
 #endif //__YENV
 
 	return  S_OK;
@@ -748,7 +748,7 @@ HRESULT CObject3D::DeleteDeviceObjects()
 
 int		g_MaxVB = 0;
 //
-//	ë²„í…ìŠ¤ ë²„í¼ & ì¸ë±ìŠ¤ ë²„í¼ìƒì„±.
+//	¹öÅØ½º ¹öÆÛ & ÀÎµ¦½º ¹öÆÛ»ı¼º.
 //
 HRESULT	CObject3D :: CreateDeviceBuffer( GMOBJECT *pObject, LPDIRECT3DVERTEXBUFFER9 *ppd3d_VB, D3DPOOL pool )
 {
@@ -762,13 +762,13 @@ HRESULT	CObject3D :: CreateDeviceBuffer( GMOBJECT *pObject, LPDIRECT3DVERTEXBUFF
 	DWORD		dwFVF;
 	DWORD		dwUsage = D3DUSAGE_WRITEONLY;
 
-	if( g_bUsableVS == FALSE && pObject->m_pPhysiqueVertex )	// ë²„í…ìŠ¤ì‰ì´ë” ì§€ì›ì•ˆë˜ê³  ìŠ¤í‚¤ë‹ì„ í•´ì•¼í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ë©´
-		dwUsage |= D3DUSAGE_SOFTWAREPROCESSING;		// ì†Œí”„íŠ¸ì›¨ì–´ ë²„í…ìŠ¤ë²„í¼ë¡œ ìƒì„±.
+	if( g_bUsableVS == FALSE && pObject->m_pPhysiqueVertex )	// ¹öÅØ½º½¦ÀÌ´õ Áö¿ø¾ÈµÇ°í ½ºÅ°´×À» ÇØ¾ßÇÏ´Â ¿ÀºêÁ§Æ®¸é
+		dwUsage |= D3DUSAGE_SOFTWAREPROCESSING;		// ¼ÒÇÁÆ®¿ş¾î ¹öÅØ½º¹öÆÛ·Î »ı¼º.
 
 	nVertexSize = pObject->m_nVertexSize;
 	dwFVF		= pObject->m_dwFVF;
 
-	if( ppd3d_VB == NULL )		// ppd3d_VBê°€ ë„ì´ë©´ ë‚´ë¶€... this->m_pd3d_VBë¥¼ ì¨ì•¼ í•œë‹¤.
+	if( ppd3d_VB == NULL )		// ppd3d_VB°¡ ³ÎÀÌ¸é ³»ºÎ... this->m_pd3d_VB¸¦ ½á¾ß ÇÑ´Ù.
 	{
 		// create vertexbuffer
 		if( pObject->m_pd3d_VB == NULL )
@@ -788,14 +788,14 @@ HRESULT	CObject3D :: CreateDeviceBuffer( GMOBJECT *pObject, LPDIRECT3DVERTEXBUFF
 
 			if( FAILED(hr) )
 			{
-				LPCTSTR szError = Error( "1 %s Object3D ë²„í…ìŠ¤ ë²„í¼ ìƒì„± ì‹¤íŒ¨(%s) : m_nMaxVB=%d, nVertexSize=%d, dwFVF=%d, dwUsage=%d, pool=%d %08x", 
+				LPCTSTR szError = Error( "1 %s Object3D ¹öÅØ½º ¹öÆÛ »ı¼º ½ÇÆĞ(%s) : m_nMaxVB=%d, nVertexSize=%d, dwFVF=%d, dwUsage=%d, pool=%d %08x", 
 																		  m_szFileName, DXGetErrorString9(hr), pObject->m_nMaxVB, 
 																		  nVertexSize, dwFVF, dwUsage, (int)pool, (int)m_pd3dDevice );
 				ADDERRORMSG( szError );
-				// Object3Dê´€ë¦¬ìë¥¼ í†µí•´ ë©”ì‰¬ë¥¼ ë¡œë”©í•œ í›„ ê·¸ í¬ì¸í„°ë¥¼ ë°›ì•„ì˜¨ë‹¤.
-				if( FAILED( hr = m_pd3dDevice->TestCooperativeLevel() ) )		// ë””ë°”ì´ìŠ¤ê°€ í—ˆì ‘í•˜ë©´ ì—ëŸ¬ë‚¨ê¹€.
+				// Object3D°ü¸®ÀÚ¸¦ ÅëÇØ ¸Ş½¬¸¦ ·ÎµùÇÑ ÈÄ ±× Æ÷ÀÎÅÍ¸¦ ¹Ş¾Æ¿Â´Ù.
+				if( FAILED( hr = m_pd3dDevice->TestCooperativeLevel() ) )		// µğ¹ÙÀÌ½º°¡ ÇãÁ¢ÇÏ¸é ¿¡·¯³²±è.
 				{
-					LPCTSTR szErr = Error( "%s CObject3D ë””ë°”ì´ìŠ¤ì‹¤íŒ¨ %08x", m_szFileName, (int)hr );
+					LPCTSTR szErr = Error( "%s CObject3D µğ¹ÙÀÌ½º½ÇÆĞ %08x", m_szFileName, (int)hr );
 					ADDERRORMSG( szErr );
 				}
 				int *p = NULL;
@@ -806,7 +806,7 @@ HRESULT	CObject3D :: CreateDeviceBuffer( GMOBJECT *pObject, LPDIRECT3DVERTEXBUFF
 		}
 	} else
 	{
-		if( *ppd3d_VB == NULL )		// ì•„ì§ í• ë‹¹ ë˜ì§€ ì•Šì•˜ìŒ
+		if( *ppd3d_VB == NULL )		// ¾ÆÁ÷ ÇÒ´ç µÇÁö ¾Ê¾ÒÀ½
 		{
 			// for Indexed Primitive
 			g_MaxVB += (pObject->m_nMaxVB * nVertexSize);
@@ -823,13 +823,13 @@ HRESULT	CObject3D :: CreateDeviceBuffer( GMOBJECT *pObject, LPDIRECT3DVERTEXBUFF
 
 			if( FAILED(hr) )
 			{
-				LPCTSTR szError = Error( "2 %s Object3D ë²„í…ìŠ¤ ë²„í¼ ìƒì„± ì‹¤íŒ¨(%s) : m_nMaxVB=%d, nVertexSize=%d, dwFVF=%d, dwUsage=%d, pool=%d %08x", 
+				LPCTSTR szError = Error( "2 %s Object3D ¹öÅØ½º ¹öÆÛ »ı¼º ½ÇÆĞ(%s) : m_nMaxVB=%d, nVertexSize=%d, dwFVF=%d, dwUsage=%d, pool=%d %08x", 
 																		  m_szFileName, DXGetErrorString9(hr), pObject->m_nMaxVB, 
 																		  nVertexSize, dwFVF, dwUsage, (int)pool, (int)m_pd3dDevice );
 				ADDERRORMSG( szError );
-				if( FAILED( hr = m_pd3dDevice->TestCooperativeLevel() ) )		// ë””ë°”ì´ìŠ¤ê°€ í—ˆì ‘í•˜ë©´ ì—ëŸ¬ë‚¨ê¹€.
+				if( FAILED( hr = m_pd3dDevice->TestCooperativeLevel() ) )		// µğ¹ÙÀÌ½º°¡ ÇãÁ¢ÇÏ¸é ¿¡·¯³²±è.
 				{
-					LPCTSTR szErr = Error( "%s CObject3D ë””ë°”ì´ìŠ¤ì‹¤íŒ¨ %08x", m_szFileName, (int)hr );
+					LPCTSTR szErr = Error( "%s CObject3D µğ¹ÙÀÌ½º½ÇÆĞ %08x", m_szFileName, (int)hr );
 					ADDERRORMSG( szErr );
 				}
 				int *p = NULL;
@@ -850,7 +850,7 @@ HRESULT	CObject3D :: CreateDeviceBuffer( GMOBJECT *pObject, LPDIRECT3DVERTEXBUFF
 												D3DPOOL_MANAGED, &pObject->m_pd3d_IB, NULL );
 		if( FAILED(hr) )
 		{
-			Error( "%s Object3D ì¸ë±ìŠ¤ ë²„í¼ ìƒì„± ì‹¤íŒ¨(%s) : m_nMaxIB=%d", 
+			Error( "%s Object3D ÀÎµ¦½º ¹öÆÛ »ı¼º ½ÇÆĞ(%s) : m_nMaxIB=%d", 
 													m_szFileName, DXGetErrorString9(hr), pObject->m_nMaxIB );
 			int *p = NULL;
 			*p = 1;
@@ -864,7 +864,7 @@ HRESULT	CObject3D :: CreateDeviceBuffer( GMOBJECT *pObject, LPDIRECT3DVERTEXBUFF
 #endif // !__WORLDSERVER
 }
 
-// szFileNameì´ ì• ë‹ˆë©”ì´ì…˜ íŒŒì¼ì¸ê°€?
+// szFileNameÀÌ ¾Ö´Ï¸ŞÀÌ¼Ç ÆÄÀÏÀÎ°¡?
 int CObject3D::IsAnimateFile( LPCTSTR szFileName )
 {
 	CResFile resFp;
@@ -872,7 +872,7 @@ int CObject3D::IsAnimateFile( LPCTSTR szFileName )
 	BOOL bRet = resFp.Open( szFileName, "rb" );
 	if( bRet == FALSE )	
 	{
-		Error( "IsAnimateFile : %s ì½ê¸° ì‹¤íŒ¨", szFileName );
+		Error( "IsAnimateFile : %s ÀĞ±â ½ÇÆĞ", szFileName );
 		return FAIL;
 	}
 	char c0;
@@ -881,24 +881,24 @@ int CObject3D::IsAnimateFile( LPCTSTR szFileName )
 	D3DXVECTOR3 v;
 	float f0;
 
-	resFp.Read( &c0, 1, 1 );		// íŒŒì¼ëª… ìŠ¤íŠ¸ë§ ê¸¸ì´ ì¼ìŒ.
-	resFp.Read( buff, c0, 1 );	// íŒŒì¼ëª… ì½ìŒ.
-	resFp.Read( &d0, 4, 1 );		// ë²„ì „
+	resFp.Read( &c0, 1, 1 );		// ÆÄÀÏ¸í ½ºÆ®¸µ ±æÀÌ ÀÏÀ½.
+	resFp.Read( buff, c0, 1 );	// ÆÄÀÏ¸í ÀĞÀ½.
+	resFp.Read( &d0, 4, 1 );		// ¹öÀü
 	
 	resFp.Read( &d0, 4, 1 );		// Serial ID
-	resFp.Read( &v, sizeof(D3DXVECTOR3), 1 );		// ê²€ê´‘1,2ì˜ ì¢Œí‘œì¸ë° ì¼ë‹¨ ì´ë ‡ê²Œ í•˜ì.
+	resFp.Read( &v, sizeof(D3DXVECTOR3), 1 );		// °Ë±¤1,2ÀÇ ÁÂÇ¥ÀÎµ¥ ÀÏ´Ü ÀÌ·¸°Ô ÇÏÀÚ.
 	resFp.Read( &v, sizeof(D3DXVECTOR3), 1 );
 	resFp.Read( &f0, sizeof(float), 1 );
 	resFp.Read( &f0, sizeof(float), 1 );
 	resFp.Seek( 16, SEEK_CUR );		// reserved
 	
-	resFp.Read( &v, sizeof(D3DXVECTOR3), 1 );		// ëŒ€í‘œ ë°”ìš´ë”© ë°•ìŠ¤
+	resFp.Read( &v, sizeof(D3DXVECTOR3), 1 );		// ´ëÇ¥ ¹Ù¿îµù ¹Ú½º
 	resFp.Read( &v, sizeof(D3DXVECTOR3), 1 );
 	resFp.Read( &f0, sizeof(float), 1 );		// per slerp
-	resFp.Read( &d0, 4, 1 );					// ani frame ìˆ˜.  ì• ë‹ˆê°€ ì—†ìœ¼ë©´ 0ì´ë˜ë„ë¡ ì €ì¥í• ê²ƒ.
+	resFp.Read( &d0, 4, 1 );					// ani frame ¼ö.  ¾Ö´Ï°¡ ¾øÀ¸¸é 0ÀÌµÇµµ·Ï ÀúÀåÇÒ°Í.
 
 	BOOL bAnimate = FALSE;
-	if( d0 > 0 )			// MaxFrameì´ ìˆëƒ?
+	if( d0 > 0 )			// MaxFrameÀÌ ÀÖ³Ä?
 		bAnimate = TRUE;
 	else
 		bAnimate = FALSE;
@@ -923,12 +923,12 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 	BOOL bRet = resFp.Open( MakePath( DIR_MODEL, szFileName ), "rb" );
 	if( bRet == FALSE )	
 	{
-		//Error( "LoadObject : %s ì½ê¸° ì‹¤íŒ¨", szFileName );
+		//Error( "LoadObject : %s ÀĞ±â ½ÇÆĞ", szFileName );
 		return FAIL;
 	}
 	Init();
 
-	// íŒŒì¼ëª… ì¹´í”¼
+	// ÆÄÀÏ¸í Ä«ÇÇ
 	char szName[MAX_PATH];
 	strcpy( m_szFileName, szFileName );
 	strlwr( m_szFileName );
@@ -937,40 +937,40 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 
 	char buff[MAX_PATH];
 	char cLen;
-	resFp.Read( &cLen, 1, 1 );		// íŒŒì¼ëª… ìŠ¤íŠ¸ë§ ê¸¸ì´ ì¼ìŒ.
-	resFp.Read( buff, cLen, 1 );	// íŒŒì¼ëª… ì½ìŒ.
+	resFp.Read( &cLen, 1, 1 );		// ÆÄÀÏ¸í ½ºÆ®¸µ ±æÀÌ ÀÏÀ½.
+	resFp.Read( buff, cLen, 1 );	// ÆÄÀÏ¸í ÀĞÀ½.
 	for( j = 0; j < cLen; j ++ )
-		buff[j] = buff[j] ^ (char)0xcd;	// ì•”í˜¸í™” í•´ì œ
+		buff[j] = buff[j] ^ (char)0xcd;	// ¾ÏÈ£È­ ÇØÁ¦
 
 	if( cLen >= 64 )
 	{
-		Error( "LoadObject3D : %s íŒŒì¼ëª…ì´ ë„ˆë¬´ ê¸¸ë‹¤ %d", szFileName, (int)cLen );
+		Error( "LoadObject3D : %s ÆÄÀÏ¸íÀÌ ³Ê¹« ±æ´Ù %d", szFileName, (int)cLen );
 		return 0;
 	}
 
-	buff[cLen] = 0;	// ëì— ë„ ë¶™ì„.
-	if( strcmpi( szName, buff ) != 0 )	// í—¤ë”ì˜ íŒŒì¼ëª…ê³¼ ë¹„êµí•´ë³´ê³  í‹€ë¦¬ë©´ ì—ëŸ¬.
+	buff[cLen] = 0;	// ³¡¿¡ ³Î ºÙÀÓ.
+	if( strcmpi( szName, buff ) != 0 )	// Çì´õÀÇ ÆÄÀÏ¸í°ú ºñ±³ÇØº¸°í Æ²¸®¸é ¿¡·¯.
 	{
-		Error( "ì˜ëª»ëœ íŒŒì¼ : %s, %s, %s", szFileName, szName, buff );
+		Error( "Àß¸øµÈ ÆÄÀÏ : %s, %s, %s", szFileName, szName, buff );
 		return 0;
 	}
 
-	//--- ê³µí†µ í—¤ë”ë¶€
-	resFp.Read( &nVer, 4, 1 );		// ë²„ì „
+	//--- °øÅë Çì´õºÎ
+	resFp.Read( &nVer, 4, 1 );		// ¹öÀü
 	if( nVer < VER_MESH )
 	{
-		Error( "%sì˜ ë²„ì „ì€ %d.  ìµœì‹ ë²„ì „ì€ %d", szFileName, nVer, VER_MESH );
+		Error( "%sÀÇ ¹öÀüÀº %d.  ÃÖ½Å¹öÀüÀº %d", szFileName, nVer, VER_MESH );
 		resFp.Close();
 		return FAIL;
 	}
 		
 	resFp.Read( &m_nID, 4, 1 );		// Serial ID
-	resFp.Read( &m_vForce1, sizeof(D3DXVECTOR3), 1 );		// ê²€ê´‘1,2ì˜ ì¢Œí‘œì¸ë° ì¼ë‹¨ ì´ë ‡ê²Œ í•˜ì.
+	resFp.Read( &m_vForce1, sizeof(D3DXVECTOR3), 1 );		// °Ë±¤1,2ÀÇ ÁÂÇ¥ÀÎµ¥ ÀÏ´Ü ÀÌ·¸°Ô ÇÏÀÚ.
 	resFp.Read( &m_vForce2, sizeof(D3DXVECTOR3), 1 );
 #if __VER >= 9 // __CSC_VER9_5
 	if(nVer >= 22)
 	{
-		resFp.Read( &m_vForce3, sizeof(D3DXVECTOR3), 1 );		// ê²€ê´‘3,4ì˜ ì¢Œí‘œì¸ë° ì¼ë‹¨ ì´ë ‡ê²Œ í•˜ì.
+		resFp.Read( &m_vForce3, sizeof(D3DXVECTOR3), 1 );		// °Ë±¤3,4ÀÇ ÁÂÇ¥ÀÎµ¥ ÀÏ´Ü ÀÌ·¸°Ô ÇÏÀÚ.
 		resFp.Read( &m_vForce4, sizeof(D3DXVECTOR3), 1 );
 	}
 #endif //__CSC_VER9_5
@@ -978,12 +978,12 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 	resFp.Read( &m_fScrlV, sizeof(float), 1 );
 	resFp.Seek( 16, SEEK_CUR );		// reserved
 
-	resFp.Read( &m_vBBMin, sizeof(D3DXVECTOR3), 1 );		// ëŒ€í‘œ ë°”ìš´ë”© ë°•ìŠ¤
+	resFp.Read( &m_vBBMin, sizeof(D3DXVECTOR3), 1 );		// ´ëÇ¥ ¹Ù¿îµù ¹Ú½º
 	resFp.Read( &m_vBBMax, sizeof(D3DXVECTOR3), 1 );
 	resFp.Read( &m_fPerSlerp, sizeof(float), 1 );		// per slerp
-	resFp.Read( &m_nMaxFrame, 4, 1 );					// ani frame ìˆ˜.  ì• ë‹ˆê°€ ì—†ìœ¼ë©´ 0ì´ë˜ë„ë¡ ì €ì¥í• ê²ƒ.
+	resFp.Read( &m_nMaxFrame, 4, 1 );					// ani frame ¼ö.  ¾Ö´Ï°¡ ¾øÀ¸¸é 0ÀÌµÇµµ·Ï ÀúÀåÇÒ°Í.
 
-	resFp.Read( &m_nMaxEvent, 4, 1 );	// ì´ë²¤íŠ¸ ì¢Œí‘œ
+	resFp.Read( &m_nMaxEvent, 4, 1 );	// ÀÌº¥Æ® ÁÂÇ¥
 	if( m_nMaxEvent > 0 )
 		resFp.Read( m_vEvent, sizeof(D3DXVECTOR3) * m_nMaxEvent, 1 );
 
@@ -991,46 +991,46 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 	if( nTemp )
 	{
 		m_CollObject.m_Type = GMT_NORMAL;
-		LoadGMObject( &resFp, &m_CollObject );		// ì¶©ëŒìš© ë©”ì‹œ
+		LoadGMObject( &resFp, &m_CollObject );		// Ãæµ¹¿ë ¸Ş½Ã
 	}
-	resFp.Read( &m_bLOD, 4, 1 );					// LODê°€ ìˆëŠ”ê°€?
+	resFp.Read( &m_bLOD, 4, 1 );					// LOD°¡ ÀÖ´Â°¡?
 
-	//--- ìì²´ë‚´ì¥ ë³¸ ì• ë‹ˆë©”ì´ì…˜ì´ ìˆë‹¤ë©´ ë³¸ ê°œìˆ˜ê°€ ìˆì„ê²ƒì´ë‹¤.  ex) Obj_í’ì„ .o3d    parts_female.o3d, mvr_íƒ€ì¡°.o3dëŠ” ë³¸íŒŒì¼ì´ ë”°ë¡œ ìˆìŒ.
+	//--- ÀÚÃ¼³»Àå º» ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ÀÖ´Ù¸é º» °³¼ö°¡ ÀÖÀ»°ÍÀÌ´Ù.  ex) Obj_Ç³¼±.o3d    parts_female.o3d, mvr_Å¸Á¶.o3d´Â º»ÆÄÀÏÀÌ µû·Î ÀÖÀ½.
 	resFp.Read( &m_nMaxBone, 4, 1 );
 
 	if( m_nMaxBone > 0 )
 	{
 		m_pBaseBone = new D3DXMATRIX[ m_nMaxBone * 2 ];
-		m_pBaseBoneInv = m_pBaseBone + m_nMaxBone;		// InverseTMì€ ë’¤ìª½ì— ë¶™ëŠ”ë‹¤.
-		resFp.Read( m_pBaseBone,	   sizeof(D3DXMATRIX) * m_nMaxBone, 1 );		// ë””í´íŠ¸ ë¼ˆëŒ€ ì…‹íŠ¸ 
-		resFp.Read( m_pBaseBoneInv, sizeof(D3DXMATRIX) * m_nMaxBone, 1 );		// InverseTM ì„¸íŠ¸
-		if( m_nMaxFrame > 0 )	// ë³¸ì´ ìˆê³  MaxFrameì´ ìˆìœ¼ë©´ ì• ë‹ˆë©”ì´ì…˜ì´ ìˆë‹¤ëŠ”ê±¸ë¡œ ê°„ì£¼.
+		m_pBaseBoneInv = m_pBaseBone + m_nMaxBone;		// InverseTMÀº µÚÂÊ¿¡ ºÙ´Â´Ù.
+		resFp.Read( m_pBaseBone,	   sizeof(D3DXMATRIX) * m_nMaxBone, 1 );		// µğÆúÆ® »À´ë ¼ÂÆ® 
+		resFp.Read( m_pBaseBoneInv, sizeof(D3DXMATRIX) * m_nMaxBone, 1 );		// InverseTM ¼¼Æ®
+		if( m_nMaxFrame > 0 )	// º»ÀÌ ÀÖ°í MaxFrameÀÌ ÀÖÀ¸¸é ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ÀÖ´Ù´Â°É·Î °£ÁÖ.
 		{
 			m_pMotion = new CMotion;
-			m_pMotion->ReadTM( &resFp, m_nMaxBone, m_nMaxFrame );		// ë³¸ ì• ë‹ˆë©”ì´ì…˜ ì½ìŒ.
+			m_pMotion->ReadTM( &resFp, m_nMaxBone, m_nMaxFrame );		// º» ¾Ö´Ï¸ŞÀÌ¼Ç ÀĞÀ½.
 		}
-		resFp.Read( &m_bSendVS, 4, 1 );		// ë³¸ê°œìˆ˜ê°€ MAX_VS_BONEë³´ë‹¤ ì ì–´ VSë¡œ í•œë²ˆì— ì „ì†¡ê°€ëŠ¥í•œ ê²ƒì¸ê°€?
+		resFp.Read( &m_bSendVS, 4, 1 );		// º»°³¼ö°¡ MAX_VS_BONEº¸´Ù Àû¾î VS·Î ÇÑ¹ø¿¡ Àü¼Û°¡´ÉÇÑ °ÍÀÎ°¡?
 	}
 
-	int nMaxGroup = (m_bLOD) ? MAX_GROUP : 1;	// LODê°€ ìˆìœ¼ë©´ 3ê°œë‹¤ ì½ìŒ. ì—†ìœ¼ë©´ 1ê°œë§Œ ì½ìŒ.
+	int nMaxGroup = (m_bLOD) ? MAX_GROUP : 1;	// LOD°¡ ÀÖÀ¸¸é 3°³´Ù ÀĞÀ½. ¾øÀ¸¸é 1°³¸¸ ÀĞÀ½.
 	LOD_GROUP *pGroup;
 	int nPoolSize, nDebugSize = 0;
-	resFp.Read( &nPoolSize, 4, 1 );		// ë©”ëª¨ë¦¬ í’€ ì‚¬ì´ì¦ˆ.
-	GMOBJECT *pPool = new GMOBJECT[ nPoolSize ];	// ë©”ëª¨ë¦¬ í’€.
+	resFp.Read( &nPoolSize, 4, 1 );		// ¸Ş¸ğ¸® Ç® »çÀÌÁî.
+	GMOBJECT *pPool = new GMOBJECT[ nPoolSize ];	// ¸Ş¸ğ¸® Ç®.
 	if( pPool == NULL )
-		Error( "ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨:CObject3D::LoadObject( %s ) %d", m_szFileName, nPoolSize );
+		Error( "¸Ş¸ğ¸® ÇÒ´ç ½ÇÆĞ:CObject3D::LoadObject( %s ) %d", m_szFileName, nPoolSize );
 	memset( pPool, 0, sizeof(GMOBJECT) * nPoolSize );
 	for( int i = 0; i < nMaxGroup; i ++ )
 	{
 		pGroup = &m_Group[i];
-		resFp.Read( &pGroup->m_nMaxObject, 4, 1 );		// geometry ê°¯ìˆ˜
+		resFp.Read( &pGroup->m_nMaxObject, 4, 1 );		// geometry °¹¼ö
 
-		pGroup->m_pObject = pPool;		// ë©”ëª¨ë¦¬ í¬ì¸í„° í• ë‹¹.
+		pGroup->m_pObject = pPool;		// ¸Ş¸ğ¸® Æ÷ÀÎÅÍ ÇÒ´ç.
 		pPool += pGroup->m_nMaxObject;
 
 		nDebugSize += pGroup->m_nMaxObject;
 		if( nDebugSize > nPoolSize )
-			Error( "LoadObject : ë©”ëª¨ë¦¬ ì˜¤ë²„í”Œë¡œìš° %d, %d", nPoolSize, nDebugSize );
+			Error( "LoadObject : ¸Ş¸ğ¸® ¿À¹öÇÃ·Î¿ì %d, %d", nPoolSize, nDebugSize );
 
 		memset( pGroup->m_pObject, 0, sizeof(GMOBJECT) * pGroup->m_nMaxObject );
 		for( j = 0; j < pGroup->m_nMaxObject; j ++ )		pGroup->m_pObject[j].m_nID = -1;
@@ -1051,7 +1051,7 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 
 			resFp.Read( &pObject->m_nMaxUseBone, 4, 1 );
 			if( pObject->m_nMaxUseBone > 0 )
-				resFp.Read( pObject->m_UseBone, sizeof(int) * pObject->m_nMaxUseBone, 1 );	// ì˜¤ë¸Œì íŠ¸ê°€ ì‚¬ìš©í•˜ëŠ” ë³¸ë¦¬ìŠ¤íŠ¸
+				resFp.Read( pObject->m_UseBone, sizeof(int) * pObject->m_nMaxUseBone, 1 );	// ¿ÀºêÁ§Æ®°¡ »ç¿ëÇÏ´Â º»¸®½ºÆ®
 			
 #if !defined(__YENV)
 			if( pObject->m_Type == GMT_SKIN )
@@ -1067,30 +1067,30 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 
 			resFp.Read( &pObject->m_nID, 4, 1 );	// Object ID
 			resFp.Read( &nParentIdx, 4, 1 );			// parent idx
-			pObject->m_nParentIdx = nParentIdx;		// saveë¥¼ ìœ„í•´ ë°±ì—… ë°›ì•„ë‘ 
+			pObject->m_nParentIdx = nParentIdx;		// save¸¦ À§ÇØ ¹é¾÷ ¹Ş¾ÆµÒ
 			
-			// ë¶€ëª¨ê°€ ìˆë‹¤ë©´ ë¶€ëª¨ í¬ì¸í„° ì§€ì •
+			// ºÎ¸ğ°¡ ÀÖ´Ù¸é ºÎ¸ğ Æ÷ÀÎÅÍ ÁöÁ¤
 			if( nParentIdx != -1 )
 			{
-				resFp.Read( &pObject->m_ParentType, 4, 1 );		// ë¶€ëª¨ì˜ íƒ€ì… ì½ìŒ.
-				// ë¶€ëª¨ì˜ í¬ì¸í„°ë¥¼ ì„¸íŒ…
+				resFp.Read( &pObject->m_ParentType, 4, 1 );		// ºÎ¸ğÀÇ Å¸ÀÔ ÀĞÀ½.
+				// ºÎ¸ğÀÇ Æ÷ÀÎÅÍ¸¦ ¼¼ÆÃ
 				switch( pObject->m_ParentType )
 				{
-				case GMT_BONE:		pObject->m_pParent = NULL;	break;		// ë¶€ëª¨ê°€ ë³¸ì´ë©´ m_pParentë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ.
-				case GMT_NORMAL:	pObject->m_pParent = &pGroup->m_pObject[ nParentIdx ];		break;	// ë¶€ëª¨ê°€ ì¼ë°˜ì˜¤ë¸Œì ì´ë¼ë©´ ê·¸ í¬ì¸í„° ì§€ì •.
+				case GMT_BONE:		pObject->m_pParent = NULL;	break;		// ºÎ¸ğ°¡ º»ÀÌ¸é m_pParent¸¦ »ç¿ëÇÏÁö ¾ÊÀ½.
+				case GMT_NORMAL:	pObject->m_pParent = &pGroup->m_pObject[ nParentIdx ];		break;	// ºÎ¸ğ°¡ ÀÏ¹İ¿ÀºêÁ§ÀÌ¶ó¸é ±× Æ÷ÀÎÅÍ ÁöÁ¤.
 					break;
 				}
 			}
 
-			// ì›ì ê¸°ì¤€ì˜ LocalTM.  ë¶€ëª¨ê°€ ìˆë‹¤ë©´ ì›ì ì€ ë¶€ëª¨ê°€ ëœë‹¤.
+			// ¿øÁ¡±âÁØÀÇ LocalTM.  ºÎ¸ğ°¡ ÀÖ´Ù¸é ¿øÁ¡Àº ºÎ¸ğ°¡ µÈ´Ù.
 			resFp.Read( &pObject->m_mLocalTM, sizeof(D3DXMATRIX), 1 );
 
 			// load geometry
-			LoadGMObject( &resFp, pObject );			// Meshë¶€ ì½ìŒ
+			LoadGMObject( &resFp, pObject );			// MeshºÎ ÀĞÀ½
 
 #ifdef __YENV
-			// ë²„íƒìŠ¤ ë²„í¼ íƒ€ì…ì„ ì¼ë°˜ìœ¼ë¡œ..
-			// ë²”í”„ìš© ë²„í¼ëŠ” ExtractBuffersí•¨ìˆ˜ í˜¸ì¶œí•¨ìœ¼ë¡œì¨ ì‚¬ì´ì¦ˆê°€ ë°”ë€ë‹¤
+			// ¹öÅÃ½º ¹öÆÛ Å¸ÀÔÀ» ÀÏ¹İÀ¸·Î..
+			// ¹üÇÁ¿ë ¹öÆÛ´Â ExtractBuffersÇÔ¼ö È£ÃâÇÔÀ¸·Î½á »çÀÌÁî°¡ ¹Ù²ï´Ù
 			if( g_Option.m_bSpecBump )
 				pObject->m_VBType = VBT_NORMAL;
 #endif //__YENV
@@ -1135,21 +1135,21 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 				}
 			}
 			
-			if( pObject->m_pPhysiqueVertex == NULL )	bNormalObj = TRUE;	// ì¼ë°˜í˜•ì˜¤ë¸Œì íŠ¸ê°€ í•˜ë‚˜ë¼ë„ ìˆì„ë•Œ.
-			else										m_nHavePhysique = TRUE;		// í”¼ì§€í¬ ì˜¤ë¸Œì íŠ¸ê°€ í•˜ë‚˜ë¼ë„ ìˆìœ¼ë©´ TRUEê°€ ëœë‹¤.
+			if( pObject->m_pPhysiqueVertex == NULL )	bNormalObj = TRUE;	// ÀÏ¹İÇü¿ÀºêÁ§Æ®°¡ ÇÏ³ª¶óµµ ÀÖÀ»¶§.
+			else										m_nHavePhysique = TRUE;		// ÇÇÁöÅ© ¿ÀºêÁ§Æ®°¡ ÇÏ³ª¶óµµ ÀÖÀ¸¸é TRUE°¡ µÈ´Ù.
 
 			// load TM animation - 
-			if( pObject->m_Type == GMT_NORMAL )	// ìŠ¤í‚¨ì—ëŠ” m_pFrameì´ ì•„ì˜ˆ ì—†ë‹¤.
+			if( pObject->m_Type == GMT_NORMAL )	// ½ºÅ²¿¡´Â m_pFrameÀÌ ¾Æ¿¹ ¾ø´Ù.
 			{
-				if( m_nMaxFrame > 0 )	LoadTMAni( &resFp, pObject );			// TM Animation ë°ì´íƒ€ ë¶€ë¶„.  maxframeì´0ì´ë©´ ì•„ì˜ˆ ì½ì§€ ì•ŠìŒ.
+				if( m_nMaxFrame > 0 )	LoadTMAni( &resFp, pObject );			// TM Animation µ¥ÀÌÅ¸ ºÎºĞ.  maxframeÀÌ0ÀÌ¸é ¾Æ¿¹ ÀĞÁö ¾ÊÀ½.
 			}
 
 		}
 	} // LOD_GROUP
-	// boudbox vMin, vMaxê°’ì„ ì´ìš©í•´ 8ê°œì˜ ë²¡í„°ë¡œ í’€ì–´ëƒ„
+	// boudbox vMin, vMax°ªÀ» ÀÌ¿ëÇØ 8°³ÀÇ º¤ÅÍ·Î Ç®¾î³¿
 //	SetBB( m_vBBVList, m_vBBMin, m_vBBMax );
 
-	// ê°±ì‹ ìš© ë§¤íŠ¸ë¦­ìŠ¤ ë¦¬ìŠ¤íŠ¸ ìƒì„±. - ì¼ë°˜í˜•ì˜¤ë¸Œì íŠ¸ê°€ í•˜ë‚˜ë¼ë„ ì‡ìœ¼ë©´ ìƒì„±.
+	// °»½Å¿ë ¸ÅÆ®¸¯½º ¸®½ºÆ® »ı¼º. - ÀÏ¹İÇü¿ÀºêÁ§Æ®°¡ ÇÏ³ª¶óµµ ÀÕÀ¸¸é »ı¼º.
 	if( bNormalObj == TRUE )
 	{
 		D3DXMATRIX *pmPool = new D3DXMATRIX[ nPoolSize ];
@@ -1162,15 +1162,15 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 		}
 	}
 
-	// version 21ì´ìƒë¶€í„°ëŠ” í”„ë ˆì„ì†ì„± ì €ì¥ë¨.
+	// version 21ÀÌ»óºÎÅÍ´Â ÇÁ·¹ÀÓ¼Ó¼º ÀúÀåµÊ.
 	if( nVer >= 21 )
 	{
 		int nAttr = 0;
 		
 		resFp.Read( &nAttr, 4, 1 );
-		if( nAttr == m_nMaxFrame )		// í”„ë ˆì„ ì†ì„± ìˆëŠ”ì§€ ê²€ì‚¬
+		if( nAttr == m_nMaxFrame )		// ÇÁ·¹ÀÓ ¼Ó¼º ÀÖ´ÂÁö °Ë»ç
 		{
-			// í”„ë ˆì„ ì†ì„± ì½ìŒ.
+			// ÇÁ·¹ÀÓ ¼Ó¼º ÀĞÀ½.
 			if(m_nMaxFrame > 0)
 				m_pAttr	= new MOTION_ATTR[ m_nMaxFrame ];
 			else
@@ -1200,7 +1200,7 @@ int		CObject3D::SaveObject( LPCTSTR szFileName )
 
 	if( fp == NULL )
 	{
-		Error( "CObject3D::SaveMesh() : %ë¥¼ ì°¾ì„ ìˆ˜ ì—†ë‹¤.\r\ní˜¹ì€ íŒŒì¼ì„ Check Outí–ˆëŠ”ì§€ í™•ì¸í•  ê²ƒ!.", szFileName );
+		Error( "CObject3D::SaveMesh() : %¸¦ Ã£À» ¼ö ¾ø´Ù.\r\nÈ¤Àº ÆÄÀÏÀ» Check OutÇß´ÂÁö È®ÀÎÇÒ °Í!.", szFileName );
 		return FAIL;
 	}
 	// common header
@@ -1216,9 +1216,9 @@ int		CObject3D::SaveObject( LPCTSTR szFileName )
 	fwrite( &m_vBBMax, sizeof(D3DXVECTOR3), 1, fp );
 	fwrite( &m_fPerSlerp, sizeof(float), 1, fp );	// 
 
-	fwrite( &m_nMaxFrame,	4, 1, fp );					// ani frame ìˆ˜ ì• ë‹ˆê°€ ì—†ìœ¼ë©´ 0
+	fwrite( &m_nMaxFrame,	4, 1, fp );					// ani frame ¼ö ¾Ö´Ï°¡ ¾øÀ¸¸é 0
 
-	fwrite( &m_nMaxObject, 4, 1, fp );	// geometry ê°œìˆ˜
+	fwrite( &m_nMaxObject, 4, 1, fp );	// geometry °³¼ö
 
 	GMOBJECT		*pObject;
 	//------  Geometry Object
@@ -1235,7 +1235,7 @@ int		CObject3D::SaveObject( LPCTSTR szFileName )
 		// save geometry
 		SaveGMObject( fp, pObject );
 
-		// save TM animation - ì¼ë°˜í˜•ë©”ì‰¬ë§Œ TMAnië¥¼ ì €ì¥
+		// save TM animation - ÀÏ¹İÇü¸Ş½¬¸¸ TMAni¸¦ ÀúÀå
 		SaveTMAni( fp, pObject );
 	}
 
@@ -1245,7 +1245,7 @@ int		CObject3D::SaveObject( LPCTSTR szFileName )
 }
 
 //
-//  GMOBJECTë¦¬ìŠ¤íŠ¸ì—ì„œ nIDë¥¼ ì°¾ì•„ ê·¸ë†ˆì˜ ë°°ì—´ì¸ë±ìŠ¤ë¥¼ ë¦¬í„´
+//  GMOBJECT¸®½ºÆ®¿¡¼­ nID¸¦ Ã£¾Æ ±×³ğÀÇ ¹è¿­ÀÎµ¦½º¸¦ ¸®ÅÏ
 /*int		CObject3D::Find( int nID )
 {
 	int		i;
@@ -1257,12 +1257,12 @@ int		CObject3D::SaveObject( LPCTSTR szFileName )
 			return i;
 	}
 
-	return -1;	// ëª»ì°¾ìœ¼ë©´ -1;
+	return -1;	// ¸øÃ£À¸¸é -1;
 }*/
 
 
 //
-//		GMOBJECT ë¶€ ì½ê°€
+//		GMOBJECT ºÎ ÀĞ°¡
 //
 int		CObject3D::LoadGMObject( CResFile *file, GMOBJECT *pObject )
 {
@@ -1282,16 +1282,16 @@ int		CObject3D::LoadGMObject( CResFile *file, GMOBJECT *pObject )
 #endif //__YENV_WITHOUT_BUMP
 
 	// size of list
-	file->Read( &pObject->m_nMaxVertexList,	4, 1 );		// ë²„í…ìŠ¤ ê°œìˆ˜
-	file->Read( &pObject->m_nMaxVB,			4, 1 );		// ë²„í…ìŠ¤ ë²„í¼ í¬ê¸°
-	file->Read( &pObject->m_nMaxFaceList,	4, 1 );		// í˜ì´ìŠ¤ ê°œìˆ˜
-	file->Read( &pObject->m_nMaxIB,		4, 1 );		// indexed ì¸ë±ìŠ¤ ë²„í¼ê°œìˆ˜
+	file->Read( &pObject->m_nMaxVertexList,	4, 1 );		// ¹öÅØ½º °³¼ö
+	file->Read( &pObject->m_nMaxVB,			4, 1 );		// ¹öÅØ½º ¹öÆÛ Å©±â
+	file->Read( &pObject->m_nMaxFaceList,	4, 1 );		// ÆäÀÌ½º °³¼ö
+	file->Read( &pObject->m_nMaxIB,		4, 1 );		// indexed ÀÎµ¦½º ¹öÆÛ°³¼ö
 
 	m_nMaxFace += pObject->m_nMaxFaceList;
 
-	// ë²„í…ìŠ¤ ë¦¬ìŠ¤íŠ¸ë¥¼ í• ë‹¹í•˜ê³  ë²„í…ìŠ¤ê°œìˆ˜ë§Œí¼ í†µì§¸ë¡œ ì½ìŒ
+	// ¹öÅØ½º ¸®½ºÆ®¸¦ ÇÒ´çÇÏ°í ¹öÅØ½º°³¼ö¸¸Å­ ÅëÂ°·Î ÀĞÀ½
 	// Vertex list
-	if( pObject->m_Type == GMT_SKIN )	// ì´ëŸ° LoadObject()ì—ì„œ ì´ë¯¸ ì½ì–´ì„œ ì˜¨ê²ƒì´ë‹¤.
+	if( pObject->m_Type == GMT_SKIN )	// ÀÌ·± LoadObject()¿¡¼­ ÀÌ¹Ì ÀĞ¾î¼­ ¿Â°ÍÀÌ´Ù.
 	{
 		pObject->m_pVertexList	= new D3DXVECTOR3[ pObject->m_nMaxVertexList ];
 		SKINVERTEX *pVB			= new SKINVERTEX[ pObject->m_nMaxVB ];	// Indexed Vertex buffer -
@@ -1304,29 +1304,29 @@ int		CObject3D::LoadGMObject( CResFile *file, GMOBJECT *pObject )
 
 		pObject->m_pVB = pVB;
 	}
-	pObject->m_pIB  = new WORD[ pObject->m_nMaxIB + pObject->m_nMaxVB ];		// m_pIIBë„ WORDí˜•ì„  ì“°ë¯€ë¡œ ê°™ì´ í• ë‹¹í•´ì„œ ì”€.
+	pObject->m_pIB  = new WORD[ pObject->m_nMaxIB + pObject->m_nMaxVB ];		// m_pIIBµµ WORDÇüÀ»  ¾²¹Ç·Î °°ÀÌ ÇÒ´çÇØ¼­ ¾¸.
 	pObject->m_pIIB = pObject->m_pIB + pObject->m_nMaxIB;
 
 	file->Read( pObject->m_pVertexList, sizeof(D3DXVECTOR3) * pObject->m_nMaxVertexList, 1 );
 	if( pObject->m_Type == GMT_SKIN )
-		file->Read( pObject->m_pVB,  sizeof(SKINVERTEX) * pObject->m_nMaxVB, 1 );		// ë²„í…ìŠ¤ ë²„í¼ ì½ìŒ
+		file->Read( pObject->m_pVB,  sizeof(SKINVERTEX) * pObject->m_nMaxVB, 1 );		// ¹öÅØ½º ¹öÆÛ ÀĞÀ½
 	else
-		file->Read( pObject->m_pVB,  sizeof(NORMALVERTEX) * pObject->m_nMaxVB, 1 );		// ë²„í…ìŠ¤ ë²„í¼ ì½ìŒ
+		file->Read( pObject->m_pVB,  sizeof(NORMALVERTEX) * pObject->m_nMaxVB, 1 );		// ¹öÅØ½º ¹öÆÛ ÀĞÀ½
 
 
-	file->Read( pObject->m_pIB,  sizeof(WORD) * pObject->m_nMaxIB, 1 );			// ì¸ë±ìŠ¤ ë²„í¼ ì½ìŒ
+	file->Read( pObject->m_pIB,  sizeof(WORD) * pObject->m_nMaxIB, 1 );			// ÀÎµ¦½º ¹öÆÛ ÀĞÀ½
 	file->Read( pObject->m_pIIB, sizeof(WORD) * pObject->m_nMaxVB, 1 );
 
-	file->Read( &dwTemp, 4, 1 );			// í”¼ì§€í¬ê°€ ìˆëŠ”ê°€ ì—†ëŠ”ê°€
+	file->Read( &dwTemp, 4, 1 );			// ÇÇÁöÅ©°¡ ÀÖ´Â°¡ ¾ø´Â°¡
 	if( dwTemp )
 	{
 		// Physique
 		pObject->m_pPhysiqueVertex = new int[ pObject->m_nMaxVertexList ];
-		file->Read( pObject->m_pPhysiqueVertex, sizeof(int) * pObject->m_nMaxVertexList, 1 );	// ë²„í…ìŠ¤ê°œìˆ˜ì™€ ê°™ì€ í”¼ì§€í¬ë°ì´íƒ€ ì½ìŒ
+		file->Read( pObject->m_pPhysiqueVertex, sizeof(int) * pObject->m_nMaxVertexList, 1 );	// ¹öÅØ½º°³¼ö¿Í °°Àº ÇÇÁöÅ©µ¥ÀÌÅ¸ ÀĞÀ½
 
-		// m_pVBì—ëŠ” worldë¡œ ë³€í™˜ëœ ë²„í…ìŠ¤ë“¤ì´ ë“¤ì–´ê°€ìˆê²Œ ë˜ê³ 
-		// _pVBì—ëŠ” ë¼ˆëŒ€ ê¸°ì¤€ ë¡œì»¬ë¡œ ë“¤ì–´ìˆê²Œ ëœë‹¤.
-		// ìŠ¤í‚¤ë‹ ì˜¤ë¸Œì íŠ¸ì˜ intersectë“±ì„ ì²˜ë¦¬í•˜ë ¤ë©´ m_pVBë¥¼ ì¨ì•¼ í•œë‹¤.
+		// m_pVB¿¡´Â world·Î º¯È¯µÈ ¹öÅØ½ºµéÀÌ µé¾î°¡ÀÖ°Ô µÇ°í
+		// _pVB¿¡´Â »À´ë ±âÁØ ·ÎÄÃ·Î µé¾îÀÖ°Ô µÈ´Ù.
+		// ½ºÅ°´× ¿ÀºêÁ§Æ®ÀÇ intersectµîÀ» Ã³¸®ÇÏ·Á¸é m_pVB¸¦ ½á¾ß ÇÑ´Ù.
 	}
 
 
@@ -1338,30 +1338,30 @@ int		CObject3D::LoadGMObject( CResFile *file, GMOBJECT *pObject )
 //nt				nIdx = 0;
 	int				bIsMaterial;
 
-	file->Read( &bIsMaterial, 4, 1 );		// ASEì˜ Main MaxMaterialì„ ì €ì¥í–ˆë‹¤.  ì´ê²Œ 0ì´ë©´ ë§¤í„°ë¦¬ì–¼ì´ ì—†ë‹¤ëŠ” ê²ƒ.
-	pObject->m_bMaterial = bIsMaterial;				// ë‚˜ì¤‘ì— ì €ì¥ì„ ìœ„í•´ì„œ ë°±ì—…ë°›ì•„ë‘”ë‹¤.
+	file->Read( &bIsMaterial, 4, 1 );		// ASEÀÇ Main MaxMaterialÀ» ÀúÀåÇß´Ù.  ÀÌ°Ô 0ÀÌ¸é ¸ÅÅÍ¸®¾óÀÌ ¾ø´Ù´Â °Í.
+	pObject->m_bMaterial = bIsMaterial;				// ³ªÁß¿¡ ÀúÀåÀ» À§ÇØ¼­ ¹é¾÷¹Ş¾ÆµĞ´Ù.
 	if( bIsMaterial )
 	{
 		memset( mMaterialAry, 0, sizeof(mMaterialAry) );
 //		for( i = 0; i < 16; i ++ )	mMaterialAry[i] = NULL;
 		
-		file->Read( &pObject->m_nMaxMaterial, 4, 1 );				// ì‚¬ìš©í•˜ëŠ” ë§¤íŠ¸ë¦¬ì–¼ ê°œìˆ˜ ì½ìŒ
+		file->Read( &pObject->m_nMaxMaterial, 4, 1 );				// »ç¿ëÇÏ´Â ¸ÅÆ®¸®¾ó °³¼ö ÀĞÀ½
 
-		if( pObject->m_nMaxMaterial == 0 )	pObject->m_nMaxMaterial = 1;	// CASEMeshì˜ Saveë¶€ë¶„ì„ ì°¸ê³ í• ê²ƒ.
+		if( pObject->m_nMaxMaterial == 0 )	pObject->m_nMaxMaterial = 1;	// CASEMeshÀÇ SaveºÎºĞÀ» Âü°íÇÒ°Í.
 
 		for( i = 0; i < pObject->m_nMaxMaterial; i ++ )
 		{
 			file->Read( &mMaterial, sizeof(D3DMATERIAL9), 1 );
-			file->Read( &nLen, 4, 1 );		// bitmap filename length;  null í¬í•¨
+			file->Read( &nLen, 4, 1 );		// bitmap filename length;  null Æ÷ÇÔ
 			if( nLen > sizeof(szBitmap) )		
-				Error( "CObject3D::LoadGMObject : %s í…ìŠ¤ì³ íŒŒì¼ëª…ì´ ë„ˆë¬´ê¸¸ë‹¤ : ê¸¸ì´ = %d", m_szFileName, nLen );
+				Error( "CObject3D::LoadGMObject : %s ÅØ½ºÃÄ ÆÄÀÏ¸íÀÌ ³Ê¹«±æ´Ù : ±æÀÌ = %d", m_szFileName, nLen );
 			file->Read( szBitmap, nLen, 1 );
-			strlwr( szBitmap );		// ì†Œë¬¸ìë¡œ ë³€í™˜
+			strlwr( szBitmap );		// ¼Ò¹®ÀÚ·Î º¯È¯
 			
 			pObject->m_MaterialAry[i].m_Material = mMaterial;
 
 			if( strlen(szBitmap)+1 > sizeof(pObject->m_MaterialAry[i].strBitMapFileName) )
-				Error( "CObject3D::LoadGeoMesh() : %sì˜ ê¸¸ì´ê°€ ë„ˆë¬´ ê¸¸ë‹¤", szBitmap );
+				Error( "CObject3D::LoadGeoMesh() : %sÀÇ ±æÀÌ°¡ ³Ê¹« ±æ´Ù", szBitmap );
 
 			strcpy( pObject->m_MaterialAry[i].strBitMapFileName, szBitmap );
 		#if	!defined(__WORLDSERVER)
@@ -1376,13 +1376,13 @@ int		CObject3D::LoadGMObject( CResFile *file, GMOBJECT *pObject )
 
 	if( pObject->m_nMaxMtrlBlk >= 32 )
 	{
-		Error( "ë§¤í„°ë¦¬ì–¼ ê°¯ìˆ˜ê°€ 32ê°œë¥¼ ë„˜ì—ˆë‹¤. %s", m_szFileName );
+		Error( "¸ÅÅÍ¸®¾ó °¹¼ö°¡ 32°³¸¦ ³Ñ¾ú´Ù. %s", m_szFileName );
 		return FAIL;
 	}
 	if( pObject->m_nMaxMtrlBlk > 0 )
 	{
-		pObject->m_pMtrlBlk = new MATERIAL_BLOCK[ pObject->m_nMaxMtrlBlk ];		// ë§¤í„°ë¦¬ì–¼ ë¸”ëŸ­ì„ í• ë‹¹í•˜ê³  ì½ìŒ
-		pObject->m_pMtrlBlkTexture = new LPDIRECT3DTEXTURE9[ pObject->m_nMaxMtrlBlk * 8 ];	// í™•ì¥í…ìŠ¤ì³(ìµœëŒ€8ê°œ)ë‘ ê°™ì´ ì“´ë‹¤. ì—†ìœ¼ë©´ ê± ë„ì´ë‹¤.
+		pObject->m_pMtrlBlk = new MATERIAL_BLOCK[ pObject->m_nMaxMtrlBlk ];		// ¸ÅÅÍ¸®¾ó ºí·°À» ÇÒ´çÇÏ°í ÀĞÀ½
+		pObject->m_pMtrlBlkTexture = new LPDIRECT3DTEXTURE9[ pObject->m_nMaxMtrlBlk * 8 ];	// È®ÀåÅØ½ºÃÄ(ÃÖ´ë8°³)¶û °°ÀÌ ¾´´Ù. ¾øÀ¸¸é °Á ³ÎÀÌ´Ù.
 		memset( pObject->m_pMtrlBlkTexture, 0, sizeof(LPDIRECT3DTEXTURE9) * (pObject->m_nMaxMtrlBlk * 8) );
 
 		file->Read( pObject->m_pMtrlBlk, sizeof(MATERIAL_BLOCK) * pObject->m_nMaxMtrlBlk, 1 );
@@ -1391,11 +1391,11 @@ int		CObject3D::LoadGMObject( CResFile *file, GMOBJECT *pObject )
 #ifdef __YENV
 		if( g_Option.m_bSpecBump )
 		{
-			// ë…¸ë§ë§µ	
+			// ³ë¸»¸Ê	
 			pObject->m_pNormalTexture = new LPDIRECT3DTEXTURE9[ pObject->m_nMaxMtrlBlk ];
 			memset( pObject->m_pNormalTexture, 0, sizeof(LPDIRECT3DTEXTURE9) * (pObject->m_nMaxMtrlBlk) );
 
-			// ë…¸ìŠ¤íŒ©í˜ëŸ¬ë§µ	
+			// ³ë½ºÆÑÅ§·¯¸Ê	
 			pObject->m_pNoSpecTexture = new LPDIRECT3DTEXTURE9[ pObject->m_nMaxMtrlBlk ];
 			memset( pObject->m_pNoSpecTexture, 0, sizeof(LPDIRECT3DTEXTURE9) * (pObject->m_nMaxMtrlBlk) );
 		}
@@ -1434,7 +1434,7 @@ int		CObject3D::LoadGMObject( CResFile *file, GMOBJECT *pObject )
 				#ifdef __YENV_WITHOUT_BUMP
 					if( g_Option.m_bSpecBump )
 				#else //__YENV_WITHOUT_BUMP
-					// ë…¸ìŠ¤íŒ©í˜ëŸ¬ë§µ
+					// ³ë½ºÆÑÅ§·¯¸Ê
 					if( pObject->m_pMtrlBlk[i].m_dwEffect & XE_BUMP && g_Option.m_bSpecBump )
 				#endif //__YENV_WITHOUT_BUMP
 					{
@@ -1472,12 +1472,12 @@ int		CObject3D::LoadGMObject( CResFile *file, GMOBJECT *pObject )
 					
 			#endif //__YENV
 				}
-//				if( (pObject->m_pMtrlBlk[i].m_nReflect & 0xfffffffe) == 0 )	// ë§ˆì§€ë§‰ 1ë¹„íŠ¸ë¥¼ ëº€ ë‚˜ë¨¸ì§€ì— ì•„ë¬´ê°’ë„ ì—†ìœ¼ë©´ ì˜›ë‚ ë²„ì „ì¼ ê°€ëŠ¥ì„±ì´ìˆë‹¤.
+//				if( (pObject->m_pMtrlBlk[i].m_nReflect & 0xfffffffe) == 0 )	// ¸¶Áö¸· 1ºñÆ®¸¦ »« ³ª¸ÓÁö¿¡ ¾Æ¹«°ªµµ ¾øÀ¸¸é ¿¾³¯¹öÀüÀÏ °¡´É¼ºÀÌÀÖ´Ù.
 //				{
-//					// ì´ëŸ´ë• ì»¨ë²„íŠ¸.
+//					// ÀÌ·²¶© ÄÁ¹öÆ®.
 //					if( pObject->m_pMtrlBlk[i].m_n2Side )			pObject->m_pMtrlBlk[i].m_nReflect |= XE_2SIDE;
 //					if( pObject->m_pMtrlBlk[i].m_nOpacity )			pObject->m_pMtrlBlk[i].m_nReflect |= XE_OPACITY;
-//					// XE_REFLECTëŠ” m_nReflectì— ê°’ì´ ë“¤ì–´ìˆëŠ” ìƒíƒœì´ë¯€ë¡œ ë”°ë¡œ ë„£ì–´ì¤„í•„ìš” ì—†ë‹¤.
+//					// XE_REFLECT´Â m_nReflect¿¡ °ªÀÌ µé¾îÀÖ´Â »óÅÂÀÌ¹Ç·Î µû·Î ³Ö¾îÁÙÇÊ¿ä ¾ø´Ù.
 //				}
 
 
@@ -1496,7 +1496,7 @@ int		CObject3D::LoadTMAni( CResFile *file, GMOBJECT *pObject )
 {
 	int	bFrame;
 	file->Read( &bFrame, 4, 1 );
-	if( bFrame == 0 )	return FAIL;	// í”„ë ˆì„ ì—†ìœ¼ë©´ ì½ì§€ ì•ŠìŒ.
+	if( bFrame == 0 )	return FAIL;	// ÇÁ·¹ÀÓ ¾øÀ¸¸é ÀĞÁö ¾ÊÀ½.
 
 	pObject->m_pFrame = new TM_ANIMATION[ m_nMaxFrame ];
 	file->Read( pObject->m_pFrame, sizeof(TM_ANIMATION) * m_nMaxFrame, 1 );
@@ -1505,7 +1505,7 @@ int		CObject3D::LoadTMAni( CResFile *file, GMOBJECT *pObject )
 } 
 
 //
-// ë©”ì‰¬ë‚´ì—ì„œ szSrcí…ìŠ¤ì³ë¥¼ szDestí…ìŠ¤ì³ë¡œ ë°”ê¾¼ë‹¤.
+// ¸Ş½¬³»¿¡¼­ szSrcÅØ½ºÃÄ¸¦ szDestÅØ½ºÃÄ·Î ¹Ù²Û´Ù.
 //
 //
 void	CObject3D::ChangeTexture( LPCTSTR szSrc, LPCTSTR szDest )
@@ -1526,24 +1526,24 @@ void	CObject3D::ChangeTexture( LPCTSTR szSrc, LPCTSTR szDest )
 		{
 			pObject = &m_Group[k].m_pObject[i];
 
-			// íŒŒì¼ëª… ë¹„êµë¥¼ ìœ„í•´ì„œ ë³µì‚¬í•´ ë†“ëŠ”ë‹¤. êµì²´ ì²˜ë¦¬í›„ 
-			// pObject->m_MaterialAry[ nID ].strBitMapFileNameì˜ ë‚´ìš©ì´ ë³€ê²½ë˜ê¸° ë•Œë¬¸ì— ì˜¤ë¦¬ì§€ë‚  ìŠ¤íŠ¸ë§ì„
-			// ë¹„êµë¥¼ ìœ„í•´ ì„ì‹œ ì €ì¥í•´ë‘˜ í•„ìš”ê°€ ìˆë‹¤.
-			for( j = 0; j < pObject->m_nMaxMtrlBlk; j ++ )		// ë§¤í„°ë¦¬ì–¼ ë¸”ëŸ­ì„ ëŒë©´ì„œ
+			// ÆÄÀÏ¸í ºñ±³¸¦ À§ÇØ¼­ º¹»çÇØ ³õ´Â´Ù. ±³Ã¼ Ã³¸®ÈÄ 
+			// pObject->m_MaterialAry[ nID ].strBitMapFileNameÀÇ ³»¿ëÀÌ º¯°æµÇ±â ¶§¹®¿¡ ¿À¸®Áö³¯ ½ºÆ®¸µÀ»
+			// ºñ±³¸¦ À§ÇØ ÀÓ½Ã ÀúÀåÇØµÑ ÇÊ¿ä°¡ ÀÖ´Ù.
+			for( j = 0; j < pObject->m_nMaxMtrlBlk; j ++ )		// ¸ÅÅÍ¸®¾ó ºí·°À» µ¹¸é¼­
 			{
 				int nID = pObject->m_pMtrlBlk[j].m_nTextureID;
 				_tcscpy( szBitMapFileName[ j ], pObject->m_MaterialAry[ nID ].strBitMapFileName );
 			}
-			for( j = 0; j < pObject->m_nMaxMtrlBlk; j ++ )		// ë§¤í„°ë¦¬ì–¼ ë¸”ëŸ­ì„ ëŒë©´ì„œ
+			for( j = 0; j < pObject->m_nMaxMtrlBlk; j ++ )		// ¸ÅÅÍ¸®¾ó ºí·°À» µ¹¸é¼­
 			{
 				int nID = pObject->m_pMtrlBlk[j].m_nTextureID;
-				if( strcmp( szBitMapFileName[j], szBuff ) == 0 )	// szSrcë‘ ê°™ì€ íŒŒì¼ëª…ì´ ìˆìœ¼ë©´
+				if( strcmp( szBitMapFileName[j], szBuff ) == 0 )	// szSrc¶û °°Àº ÆÄÀÏ¸íÀÌ ÀÖÀ¸¸é
 				{
 					MATERIAL	*pMtrl;
 					D3DMATERIAL9	mMtrl;
-					pMtrl = g_TextureMng.AddMaterial( m_pd3dDevice, &mMtrl, szDest );		// szDestë¡œ ì½ì–´ì„œ
-					pObject->m_pMtrlBlkTexture[j] = pMtrl->m_pTexture;	// ê·¸ë†ˆìœ¼ë¡œ ëŒ€ì²´ì‹œí‚¤ê³ 
-					strcpy( pObject->m_MaterialAry[ nID ].strBitMapFileName, szDest );	// íŒŒì¼ëª… ë°”ê¿”ë†“ëŠ”ë‹¤.
+					pMtrl = g_TextureMng.AddMaterial( m_pd3dDevice, &mMtrl, szDest );		// szDest·Î ÀĞ¾î¼­
+					pObject->m_pMtrlBlkTexture[j] = pMtrl->m_pTexture;	// ±×³ğÀ¸·Î ´ëÃ¼½ÃÅ°°í
+					strcpy( pObject->m_MaterialAry[ nID ].strBitMapFileName, szDest );	// ÆÄÀÏ¸í ¹Ù²ã³õ´Â´Ù.
 				}
 			}
 		}
@@ -1552,7 +1552,7 @@ void	CObject3D::ChangeTexture( LPCTSTR szSrc, LPCTSTR szDest )
 }
 
 //
-//	GMOBJECTë¶€ ì €ì¥
+//	GMOBJECTºÎ ÀúÀå
 //
 int		CObject3D::SaveGMObject( FILE *fp, GMOBJECT *pObject )
 {
@@ -1570,7 +1570,7 @@ int		CObject3D::SaveTMAni( FILE *fp, GMOBJECT *pObject )
 	if( pObject->m_pFrame )	bFrame = 1;
 	else					bFrame = 0;
 	fwrite( &bFrame, 4, 1, fp );
-	if( bFrame == 0 )	return FAIL;	// í”„ë ˆì„ ì—†ìœ¼ë©´ ì“°ì§€ ì•ŠìŒ.
+	if( bFrame == 0 )	return FAIL;	// ÇÁ·¹ÀÓ ¾øÀ¸¸é ¾²Áö ¾ÊÀ½.
 
 	if( m_nMaxFrame > 0 )
 	{
@@ -1583,10 +1583,10 @@ int		CObject3D::SaveTMAni( FILE *fp, GMOBJECT *pObject )
 //static int	_nSlideCnt = 0;
 
 //
-// Lineê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ì•„ Slideë²¡í„°ë¥¼ ê³„ì‚°.
-// ì£¼ì˜ : SlideVectorXZëŠ” ìŠ¤í‚¤ë‹ ì˜¤ë¸Œì íŠ¸ì—ëŠ” ì‚¬ìš©ê¸ˆì§€ë‹¤.
-// XZë°©í–¥ìœ¼ë¡œ ì´ë™í•˜ëŠ” ë²¡í„°ì—ë§Œ ì‚¬ìš©í•˜ëŠ” ê²ƒìœ¼ë¡œ ì¼ë°˜ì ì¸ ìƒí™©ì—” SlideVector()ë¥¼ ì¨ì•¼ í•œë‹¤.
-// bCollObj : ì¶©ëŒë©”ì‹œë¡œ ê²€ì‚¬í•˜ëŠ”ê°€? (ë””í´íŠ¸)
+// Line°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£¾Æ Slideº¤ÅÍ¸¦ °è»ê.
+// ÁÖÀÇ : SlideVectorXZ´Â ½ºÅ°´× ¿ÀºêÁ§Æ®¿¡´Â »ç¿ë±İÁö´Ù.
+// XZ¹æÇâÀ¸·Î ÀÌµ¿ÇÏ´Â º¤ÅÍ¿¡¸¸ »ç¿ëÇÏ´Â °ÍÀ¸·Î ÀÏ¹İÀûÀÎ »óÈ²¿£ SlideVector()¸¦ ½á¾ß ÇÑ´Ù.
+// bCollObj : Ãæµ¹¸Ş½Ã·Î °Ë»çÇÏ´Â°¡? (µğÆúÆ®)
 //
 int		CObject3D::SlideVectorXZ( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vEnd , const D3DXMATRIX &mWorld, BOOL bCollObj, int nSlideCnt )
 {
@@ -1595,7 +1595,7 @@ int		CObject3D::SlideVectorXZ( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 	D3DXVECTOR3 vA, vB, vN, vTemp;
 	D3DXMATRIX	mTM, mInv;
 	int		nMaxFace;
-	GMOBJECT* pObject = &m_CollObject;		// ì¶©ëŒë©”ì‹œë¡œ ì¶©ëŒê²€ì‚¬.
+	GMOBJECT* pObject = &m_CollObject;		// Ãæµ¹¸Ş½Ã·Î Ãæµ¹°Ë»ç.
 //	GMOBJECT* pObject = m_Group[0].m_pObject;
 	NORMALVERTEX *pVB;
 	WORD		*pIB;
@@ -1606,7 +1606,7 @@ int		CObject3D::SlideVectorXZ( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 	int i;
 	LOD_GROUP *pGroup = &m_Group[0];
 	int		nMaxObj = 1;
-	if( bCollObj == FALSE )		// ì¶©ëŒë©”ì‹œë¡œ ì¶©ëŒê²€ì‚¬ í•˜ì§€ë§ˆë¼.
+	if( bCollObj == FALSE )		// Ãæµ¹¸Ş½Ã·Î Ãæµ¹°Ë»ç ÇÏÁö¸¶¶ó.
 	{
 		pObject = pGroup->m_pObject;
 		nMaxObj = pGroup->m_nMaxObject;
@@ -1619,7 +1619,7 @@ int		CObject3D::SlideVectorXZ( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 	for( i = 0; i < nMaxObj; i++ )
 	{
 		if( pObject->m_Type == GMT_SKIN )	
-			Error( "SlideVectorXZ:ìŠ¤í‚¨ì˜¤ë¸Œì íŠ¸ ë°œê²¬. ì—ëŸ¬%s", m_szFileName ); 
+			Error( "SlideVectorXZ:½ºÅ²¿ÀºêÁ§Æ® ¹ß°ß. ¿¡·¯%s", m_szFileName ); 
 		nMaxFace = pObject->m_nMaxFaceList;
 		pIB = pObject->m_pIB;
 		pVB = (NORMALVERTEX*)(pObject->m_pVB);
@@ -1631,8 +1631,8 @@ int		CObject3D::SlideVectorXZ( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 
 		pObject++;
 		D3DXMatrixInverse( &mInv, NULL, &mTM );
-		D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Lineì‹œì‘ì ì„ Geometryê¸°ì¤€ìœ¼ë¡œ ë³€í™˜
-		D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Lineëì ì„ ì—­ì‹œ ë³€í™˜
+		D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Line½ÃÀÛÁ¡À» Geometry±âÁØÀ¸·Î º¯È¯
+		D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Line³¡Á¡À» ¿ª½Ã º¯È¯
 		vInvDir = vInvEnd - vInvPos;
 		for( j = 0; j < nMaxFace; j++ )
 		{
@@ -1644,32 +1644,32 @@ int		CObject3D::SlideVectorXZ( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 //			bRet = D3DXIntersectTri( v1, v2, v3, &vInvPos, &vInvDir, &fU, &fV, &fDist );
 			bRet = IsTouchRayTri( v1, v2, v3, &vInvPos, &vInvDir, &fDist );
 
-			if( bRet && fDist >= 0.0f )	// ë°˜ëŒ€ë°©í–¥ ë©´ì€ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
+			if( bRet && fDist >= 0.0f )	// ¹İ´ë¹æÇâ ¸éÀº °Ë»çÇÏÁö ¾ÊÀ½.
 			{
-				// ì •í™•í•˜ê²Œ í•˜ë ¤ë©´ ëª¨ë“  ë©´ì„ ë‹¤ ê²€ì‚¬í•´ì„œ ê°€ì¥ ê°€ê¹Œìš´ê²ƒì„ ê³¨ë¼ì•¼ í•˜ë‚˜
-				// Sì í˜•íƒœë¡œ êµ¬ë¶€ëŸ¬ì§„ ë©´ì´ ì—†ë‹¤ëŠ” ê°€ì •í•˜ì— ê°„ëµí™” ì‹œí‚¨ë‹¤.
+				// Á¤È®ÇÏ°Ô ÇÏ·Á¸é ¸ğµç ¸éÀ» ´Ù °Ë»çÇØ¼­ °¡Àå °¡±î¿î°ÍÀ» °ñ¶ó¾ß ÇÏ³ª
+				// SÀÚ ÇüÅÂ·Î ±¸ºÎ·¯Áø ¸éÀÌ ¾ø´Ù´Â °¡Á¤ÇÏ¿¡ °£·«È­ ½ÃÅ²´Ù.
 				if( fDist < 1.0f )
 				{
-					// Lineê³¼ ë‹¿ì€ ì‚¼ê°í˜•ì„ ì°¾ì•„ëƒˆë‹¤.
+					// Line°ú ´êÀº »ï°¢ÇüÀ» Ã£¾Æ³Â´Ù.
 					vDir = vEnd - vPos;
 					fDist *= 0.5f;
-					vIntersect = vPos + fDist * vDir;	// êµì°¨ì ì„ ê³„ì‚°.
+					vIntersect = vPos + fDist * vDir;	// ±³Â÷Á¡À» °è»ê.
 
 					vA = *v2 - *v1;
 					vB = *v3 - *v1;
-					D3DXVec3Cross( &vN, &vA, &vB );		// ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ êµ¬í•¨. ì´ê±´ ë‚˜ì¤‘ì— ë¯¸ë¦¬ ê³„ì‚°í•´ë‘ì.
+					D3DXVec3Cross( &vN, &vA, &vB );		// Ãæµ¹ÇÑ ¸éÀÇ ³ë¸» ±¸ÇÔ. ÀÌ°Ç ³ªÁß¿¡ ¹Ì¸® °è»êÇØµÎÀÚ.
 					mInv = mTM;
 					mInv._41 = mInv._42 = mInv._43 = 0;
-					D3DXVec3TransformCoord( &vN, &vN, &mInv );	// ì¶©ëŒí•œë©´ì˜ ë…¸ë§ì„ ì›ë˜ëŒ€ë¡œ(mWorld)ëŒë¦¼.
+					D3DXVec3TransformCoord( &vN, &vN, &mInv );	// Ãæµ¹ÇÑ¸éÀÇ ³ë¸»À» ¿ø·¡´ë·Î(mWorld)µ¹¸².
 
 					if( vN.x == 0 && vN.z == 0 )
-						Error( "CActionMover::ProcessCollisionGround : ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ì´ ì™„ì „ ìˆ˜ì§ì´ë‹¤" );
+						Error( "CActionMover::ProcessCollisionGround : Ãæµ¹ÇÑ ¸éÀÇ ³ë¸»ÀÌ ¿ÏÀü ¼öÁ÷ÀÌ´Ù" );
 
-					vN.y = 0;	// yì„±ë¶„ì„ ì—†ì• ì„œ ìˆ˜ì§ë©´ì˜ ë²•ì„ ì¸ê²ƒì²˜ëŸ¼ ë³€í™˜
-					D3DXVec3Normalize( &vN, &vN );		// ìµœì¢… ë‹¨ìœ„ë²¡í„°ë¡œ ë³€í™˜
+					vN.y = 0;	// y¼ººĞÀ» ¾ø¾Ö¼­ ¼öÁ÷¸éÀÇ ¹ı¼±ÀÎ°ÍÃ³·³ º¯È¯
+					D3DXVec3Normalize( &vN, &vN );		// ÃÖÁ¾ ´ÜÀ§º¤ÅÍ·Î º¯È¯
 					
-					// ì, ì´ì œ vIntersectì™€ vNì€ ì›”ë“œì¢Œí‘œê³„ë¡œ ì¤€ë¹„ê°€ ë˜ì—ˆë‹¤.
-					vTemp = vEnd - vIntersect;		// êµì°¨ì  - ë¼ì¸ë vector Vë¼ê³  ì¹­í•¨
+					// ÀÚ, ÀÌÁ¦ vIntersect¿Í vNÀº ¿ùµåÁÂÇ¥°è·Î ÁØºñ°¡ µÇ¾ú´Ù.
+					vTemp = vEnd - vIntersect;		// ±³Â÷Á¡ - ¶óÀÎ³¡ vector V¶ó°í ÄªÇÔ
 					CalcSlideVec( &vTemp, vTemp, vN );
 //					vTemp += vIntersect;
 //					*pOut = vTemp - vPos;
@@ -1677,8 +1677,8 @@ int		CObject3D::SlideVectorXZ( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 
 					vTemp += vPos;
 					
-					if( ++nSlideCnt < 3 )  // ë¬´í•œ ë¦¬ì»¤ì „ ë°©ì§€
-						SlideVectorXZ( pOut, vPos, vTemp, mWorld, bCollObj, nSlideCnt );		// ì´ê±°ì™œ ì‹œì‘ì ì´ vPosì¼ê¹Œë‚˜ -.-;;;
+					if( ++nSlideCnt < 3 )  // ¹«ÇÑ ¸®Ä¿Àü ¹æÁö
+						SlideVectorXZ( pOut, vPos, vTemp, mWorld, bCollObj, nSlideCnt );		// ÀÌ°Å¿Ö ½ÃÀÛÁ¡ÀÌ vPosÀÏ±î³ª -.-;;;
 					
 //					nSlideCnt = 0;
 					return 1;
@@ -1691,7 +1691,7 @@ int		CObject3D::SlideVectorXZ( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 }
 
 //
-// ì´ í•¨ìˆ˜ ìì²´ë¡œ ë¦¬ì»¤ì‹œë¸Œì½œì„ í•˜ì§€ ì•ŠëŠ” ë²„ì „.
+// ÀÌ ÇÔ¼ö ÀÚÃ¼·Î ¸®Ä¿½ÃºêÄİÀ» ÇÏÁö ¾Ê´Â ¹öÀü.
 //
 int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vEnd , const D3DXMATRIX &mWorld, BOOL bCollObj )
 {
@@ -1700,7 +1700,7 @@ int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, cons
 	D3DXVECTOR3 vA, vB, vN, vTemp;
 	D3DXMATRIX	mTM, mInv;
 	int		nMaxFace;
-	GMOBJECT* pObject = &m_CollObject;		// ì¶©ëŒë©”ì‹œë¡œ ì¶©ëŒê²€ì‚¬.
+	GMOBJECT* pObject = &m_CollObject;		// Ãæµ¹¸Ş½Ã·Î Ãæµ¹°Ë»ç.
 	NORMALVERTEX *pVB;
 	WORD		*pIB;
 	int		j;
@@ -1710,7 +1710,7 @@ int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, cons
 	int i;
 	LOD_GROUP *pGroup = &m_Group[0];
 	int		nMaxObj = 1;
-	if( bCollObj == FALSE )		// ì¶©ëŒë©”ì‹œë¡œ ì¶©ëŒê²€ì‚¬ í•˜ì§€ë§ˆë¼.
+	if( bCollObj == FALSE )		// Ãæµ¹¸Ş½Ã·Î Ãæµ¹°Ë»ç ÇÏÁö¸¶¶ó.
 	{
 		pObject = pGroup->m_pObject;
 		nMaxObj = pGroup->m_nMaxObject;
@@ -1723,7 +1723,7 @@ int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, cons
 	for( i = 0; i < nMaxObj; i++ )
 	{
 		if( pObject->m_Type == GMT_SKIN )	
-			Error( "SlideVectorXZ:ìŠ¤í‚¨ì˜¤ë¸Œì íŠ¸ ë°œê²¬. ì—ëŸ¬%s", m_szFileName ); 
+			Error( "SlideVectorXZ:½ºÅ²¿ÀºêÁ§Æ® ¹ß°ß. ¿¡·¯%s", m_szFileName ); 
 
 		nMaxFace = pObject->m_nMaxFaceList;
 		pIB = pObject->m_pIB;
@@ -1735,8 +1735,8 @@ int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, cons
 
 		pObject++;
 		D3DXMatrixInverse( &mInv, NULL, &mTM );
-		D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Lineì‹œì‘ì ì„ Geometryê¸°ì¤€ìœ¼ë¡œ ë³€í™˜
-		D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Lineëì ì„ ì—­ì‹œ ë³€í™˜
+		D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Line½ÃÀÛÁ¡À» Geometry±âÁØÀ¸·Î º¯È¯
+		D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Line³¡Á¡À» ¿ª½Ã º¯È¯
 		vInvDir = vInvEnd - vInvPos;
 		for( j = 0; j < nMaxFace; j++ )
 		{
@@ -1750,43 +1750,43 @@ int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, cons
 			{
 				vDir = vEnd - vPos;
 				float fDirLength = D3DXVec3Length(&vDir);
-				// ì •í™•í•˜ê²Œ í•˜ë ¤ë©´ ëª¨ë“  ë©´ì„ ë‹¤ ê²€ì‚¬í•´ì„œ ê°€ì¥ ê°€ê¹Œìš´ê²ƒì„ ê³¨ë¼ì•¼ í•˜ë‚˜
-				// Sì í˜•íƒœë¡œ êµ¬ë¶€ëŸ¬ì§„ ë©´ì´ ì—†ë‹¤ëŠ” ê°€ì •í•˜ì— ê°„ëµí™” ì‹œí‚¨ë‹¤.
+				// Á¤È®ÇÏ°Ô ÇÏ·Á¸é ¸ğµç ¸éÀ» ´Ù °Ë»çÇØ¼­ °¡Àå °¡±î¿î°ÍÀ» °ñ¶ó¾ß ÇÏ³ª
+				// SÀÚ ÇüÅÂ·Î ±¸ºÎ·¯Áø ¸éÀÌ ¾ø´Ù´Â °¡Á¤ÇÏ¿¡ °£·«È­ ½ÃÅ²´Ù.
 				if(fDirLength > 3.0f)
 				{
 					if( fabs(fDist) < fDirLength)
 					{
-						// Lineê³¼ ë‹¿ì€ ì‚¼ê°í˜•ì„ ì°¾ì•„ëƒˆë‹¤.
+						// Line°ú ´êÀº »ï°¢ÇüÀ» Ã£¾Æ³Â´Ù.
 						
 	//					fDist *= 0.5f;
 						if(fDist < 0.0f)
-							vIntersect = vPos - fDist * vDir;	// êµì°¨ì ì„ ê³„ì‚°.
+							vIntersect = vPos - fDist * vDir;	// ±³Â÷Á¡À» °è»ê.
 						else 
-							vIntersect = vPos + fDist * vDir;	// êµì°¨ì ì„ ê³„ì‚°.
+							vIntersect = vPos + fDist * vDir;	// ±³Â÷Á¡À» °è»ê.
 						vA = *v2 - *v1;
 						vB = *v3 - *v1;
-						D3DXVec3Cross( &vN, &vA, &vB );		// ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ êµ¬í•¨. ì´ê±´ ë‚˜ì¤‘ì— ë¯¸ë¦¬ ê³„ì‚°í•´ë‘ì.
+						D3DXVec3Cross( &vN, &vA, &vB );		// Ãæµ¹ÇÑ ¸éÀÇ ³ë¸» ±¸ÇÔ. ÀÌ°Ç ³ªÁß¿¡ ¹Ì¸® °è»êÇØµÎÀÚ.
 						mInv = mTM;
 						mInv._41 = mInv._42 = mInv._43 = 0;
-						D3DXVec3TransformCoord( &vN, &vN, &mInv );	// ì¶©ëŒí•œë©´ì˜ ë…¸ë§ì„ ì›ë˜ëŒ€ë¡œ(mWorld)ëŒë¦¼.
+						D3DXVec3TransformCoord( &vN, &vN, &mInv );	// Ãæµ¹ÇÑ¸éÀÇ ³ë¸»À» ¿ø·¡´ë·Î(mWorld)µ¹¸².
 
 						if( vN.x == 0 && vN.z == 0 )
-							Error( "CActionMover::ProcessCollisionGround : ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ì´ ì™„ì „ ìˆ˜ì§ì´ë‹¤" );
+							Error( "CActionMover::ProcessCollisionGround : Ãæµ¹ÇÑ ¸éÀÇ ³ë¸»ÀÌ ¿ÏÀü ¼öÁ÷ÀÌ´Ù" );
 
-						vN.y = 0;	// yì„±ë¶„ì„ ì—†ì• ì„œ ìˆ˜ì§ë©´ì˜ ë²•ì„ ì¸ê²ƒì²˜ëŸ¼ ë³€í™˜
-						D3DXVec3Normalize( &vN, &vN );		// ìµœì¢… ë‹¨ìœ„ë²¡í„°ë¡œ ë³€í™˜
+						vN.y = 0;	// y¼ººĞÀ» ¾ø¾Ö¼­ ¼öÁ÷¸éÀÇ ¹ı¼±ÀÎ°ÍÃ³·³ º¯È¯
+						D3DXVec3Normalize( &vN, &vN );		// ÃÖÁ¾ ´ÜÀ§º¤ÅÍ·Î º¯È¯
 						
-						// ì, ì´ì œ vIntersectì™€ vNì€ ì›”ë“œì¢Œí‘œê³„ë¡œ ì¤€ë¹„ê°€ ë˜ì—ˆë‹¤.
-						vTemp = vEnd - vIntersect;		// êµì°¨ì  - ë¼ì¸ë vector Vë¼ê³  ì¹­í•¨
-						*pIntersect = vIntersect;		// êµì°¨ì ì„ ë°›ì•„ë‘ 
+						// ÀÚ, ÀÌÁ¦ vIntersect¿Í vNÀº ¿ùµåÁÂÇ¥°è·Î ÁØºñ°¡ µÇ¾ú´Ù.
+						vTemp = vEnd - vIntersect;		// ±³Â÷Á¡ - ¶óÀÎ³¡ vector V¶ó°í ÄªÇÔ
+						*pIntersect = vIntersect;		// ±³Â÷Á¡À» ¹Ş¾ÆµÒ
 					
 						vInvDir.x = -vDir.x;	vInvDir.y = -vDir.y;	vInvDir.z = -vDir.z;	// -D
 						FLOAT fLenN = D3DXVec3Dot( &vInvDir, &vN );		// -D dot N
-						vN *= (fLenN * 2.0f);							// (-D dot N) * 2  ì´ë•Œ NëŠ” ë‹¨ìœ„ë²¡í„° ìƒíƒœì—¬ì•¼í•œë‹¤.
-						vTemp = vDir + vN;								// ìµœì¢… ë°˜ì‚¬ë²¡í„°.
+						vN *= (fLenN * 2.0f);							// (-D dot N) * 2  ÀÌ¶§ N´Â ´ÜÀ§º¤ÅÍ »óÅÂ¿©¾ßÇÑ´Ù.
+						vTemp = vDir + vN;								// ÃÖÁ¾ ¹İ»çº¤ÅÍ.
 						D3DXVec3Scale(&vTemp, &vTemp, 0.2f);					
 						
-						*pOut = vTemp;		// ë¯¸ë„ëŸ¬ì§„ ë²¡í„°ë¥¼ ê²°ê³¼ë¡œ ë°›ë„ë¡ ë°”ê¿”ë³´ì.
+						*pOut = vTemp;		// ¹Ì²ô·¯Áø º¤ÅÍ¸¦ °á°ú·Î ¹Şµµ·Ï ¹Ù²ãº¸ÀÚ.
 						
 						return 1;
 					}
@@ -1797,29 +1797,29 @@ int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, cons
 					{
 						if( fDist < 1.0f )
 						{
-							// Lineê³¼ ë‹¿ì€ ì‚¼ê°í˜•ì„ ì°¾ì•„ëƒˆë‹¤.
+							// Line°ú ´êÀº »ï°¢ÇüÀ» Ã£¾Æ³Â´Ù.
 							vDir = vEnd - vPos;
-							vIntersect = vPos + fDist * vDir;	// êµì°¨ì ì„ ê³„ì‚°.
+							vIntersect = vPos + fDist * vDir;	// ±³Â÷Á¡À» °è»ê.
 
 							vA = *v2 - *v1;
 							vB = *v3 - *v1;
-							D3DXVec3Cross( &vN, &vA, &vB );		// ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ êµ¬í•¨. ì´ê±´ ë‚˜ì¤‘ì— ë¯¸ë¦¬ ê³„ì‚°í•´ë‘ì.
+							D3DXVec3Cross( &vN, &vA, &vB );		// Ãæµ¹ÇÑ ¸éÀÇ ³ë¸» ±¸ÇÔ. ÀÌ°Ç ³ªÁß¿¡ ¹Ì¸® °è»êÇØµÎÀÚ.
 							mInv = mTM;
 							mInv._41 = mInv._42 = mInv._43 = 0;
-							D3DXVec3TransformCoord( &vN, &vN, &mInv );	// ì¶©ëŒí•œë©´ì˜ ë…¸ë§ì„ ì›ë˜ëŒ€ë¡œ(mWorld)ëŒë¦¼.
+							D3DXVec3TransformCoord( &vN, &vN, &mInv );	// Ãæµ¹ÇÑ¸éÀÇ ³ë¸»À» ¿ø·¡´ë·Î(mWorld)µ¹¸².
 
 							if( vN.x == 0 && vN.z == 0 )
-								Error( "CActionMover::ProcessCollisionGround : ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ì´ ì™„ì „ ìˆ˜ì§ì´ë‹¤" );
+								Error( "CActionMover::ProcessCollisionGround : Ãæµ¹ÇÑ ¸éÀÇ ³ë¸»ÀÌ ¿ÏÀü ¼öÁ÷ÀÌ´Ù" );
 
-							vN.y = 0;	// yì„±ë¶„ì„ ì—†ì• ì„œ ìˆ˜ì§ë©´ì˜ ë²•ì„ ì¸ê²ƒì²˜ëŸ¼ ë³€í™˜
-							D3DXVec3Normalize( &vN, &vN );		// ìµœì¢… ë‹¨ìœ„ë²¡í„°ë¡œ ë³€í™˜
+							vN.y = 0;	// y¼ººĞÀ» ¾ø¾Ö¼­ ¼öÁ÷¸éÀÇ ¹ı¼±ÀÎ°ÍÃ³·³ º¯È¯
+							D3DXVec3Normalize( &vN, &vN );		// ÃÖÁ¾ ´ÜÀ§º¤ÅÍ·Î º¯È¯
 							
-							// ì, ì´ì œ vIntersectì™€ vNì€ ì›”ë“œì¢Œí‘œê³„ë¡œ ì¤€ë¹„ê°€ ë˜ì—ˆë‹¤.
-							vTemp = vEnd - vIntersect;		// êµì°¨ì  - ë¼ì¸ë vector Vë¼ê³  ì¹­í•¨
-							*pIntersect = vIntersect;		// êµì°¨ì ì„ ë°›ì•„ë‘ 
+							// ÀÚ, ÀÌÁ¦ vIntersect¿Í vNÀº ¿ùµåÁÂÇ¥°è·Î ÁØºñ°¡ µÇ¾ú´Ù.
+							vTemp = vEnd - vIntersect;		// ±³Â÷Á¡ - ¶óÀÎ³¡ vector V¶ó°í ÄªÇÔ
+							*pIntersect = vIntersect;		// ±³Â÷Á¡À» ¹Ş¾ÆµÒ
 							CalcSlideVec( &vTemp, vTemp, vN );
 							
-							*pOut = vTemp;		// ë¯¸ë„ëŸ¬ì§„ ë²¡í„°ë¥¼ ê²°ê³¼ë¡œ ë°›ë„ë¡ ë°”ê¿”ë³´ì.
+							*pOut = vTemp;		// ¹Ì²ô·¯Áø º¤ÅÍ¸¦ °á°ú·Î ¹Şµµ·Ï ¹Ù²ãº¸ÀÚ.
 							
 							return 1;
 						}
@@ -1831,35 +1831,35 @@ int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, cons
 	}
 	return 0;
 #else
-			if( bRet && fDist >= 0.0f )	// ë°˜ëŒ€ë°©í–¥ ë©´ì€ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
+			if( bRet && fDist >= 0.0f )	// ¹İ´ë¹æÇâ ¸éÀº °Ë»çÇÏÁö ¾ÊÀ½.
 			{
-				// ì •í™•í•˜ê²Œ í•˜ë ¤ë©´ ëª¨ë“  ë©´ì„ ë‹¤ ê²€ì‚¬í•´ì„œ ê°€ì¥ ê°€ê¹Œìš´ê²ƒì„ ê³¨ë¼ì•¼ í•˜ë‚˜
-				// Sì í˜•íƒœë¡œ êµ¬ë¶€ëŸ¬ì§„ ë©´ì´ ì—†ë‹¤ëŠ” ê°€ì •í•˜ì— ê°„ëµí™” ì‹œí‚¨ë‹¤.
+				// Á¤È®ÇÏ°Ô ÇÏ·Á¸é ¸ğµç ¸éÀ» ´Ù °Ë»çÇØ¼­ °¡Àå °¡±î¿î°ÍÀ» °ñ¶ó¾ß ÇÏ³ª
+				// SÀÚ ÇüÅÂ·Î ±¸ºÎ·¯Áø ¸éÀÌ ¾ø´Ù´Â °¡Á¤ÇÏ¿¡ °£·«È­ ½ÃÅ²´Ù.
 				if( fDist < 1.0f )
 				{
-					// Lineê³¼ ë‹¿ì€ ì‚¼ê°í˜•ì„ ì°¾ì•„ëƒˆë‹¤.
+					// Line°ú ´êÀº »ï°¢ÇüÀ» Ã£¾Æ³Â´Ù.
 					vDir = vEnd - vPos;
 //					fDist *= 0.5f;
-					vIntersect = vPos + fDist * vDir;	// êµì°¨ì ì„ ê³„ì‚°.
+					vIntersect = vPos + fDist * vDir;	// ±³Â÷Á¡À» °è»ê.
 					vA = *v2 - *v1;
 					vB = *v3 - *v1;
-					D3DXVec3Cross( &vN, &vA, &vB );		// ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ êµ¬í•¨. ì´ê±´ ë‚˜ì¤‘ì— ë¯¸ë¦¬ ê³„ì‚°í•´ë‘ì.
+					D3DXVec3Cross( &vN, &vA, &vB );		// Ãæµ¹ÇÑ ¸éÀÇ ³ë¸» ±¸ÇÔ. ÀÌ°Ç ³ªÁß¿¡ ¹Ì¸® °è»êÇØµÎÀÚ.
 					mInv = mTM;
 					mInv._41 = mInv._42 = mInv._43 = 0;
-					D3DXVec3TransformCoord( &vN, &vN, &mInv );	// ì¶©ëŒí•œë©´ì˜ ë…¸ë§ì„ ì›ë˜ëŒ€ë¡œ(mWorld)ëŒë¦¼.
+					D3DXVec3TransformCoord( &vN, &vN, &mInv );	// Ãæµ¹ÇÑ¸éÀÇ ³ë¸»À» ¿ø·¡´ë·Î(mWorld)µ¹¸².
 
 					if( vN.x == 0 && vN.z == 0 )
-						Error( "CActionMover::ProcessCollisionGround : ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ì´ ì™„ì „ ìˆ˜ì§ì´ë‹¤" );
+						Error( "CActionMover::ProcessCollisionGround : Ãæµ¹ÇÑ ¸éÀÇ ³ë¸»ÀÌ ¿ÏÀü ¼öÁ÷ÀÌ´Ù" );
 
-					vN.y = 0;	// yì„±ë¶„ì„ ì—†ì• ì„œ ìˆ˜ì§ë©´ì˜ ë²•ì„ ì¸ê²ƒì²˜ëŸ¼ ë³€í™˜
-					D3DXVec3Normalize( &vN, &vN );		// ìµœì¢… ë‹¨ìœ„ë²¡í„°ë¡œ ë³€í™˜
+					vN.y = 0;	// y¼ººĞÀ» ¾ø¾Ö¼­ ¼öÁ÷¸éÀÇ ¹ı¼±ÀÎ°ÍÃ³·³ º¯È¯
+					D3DXVec3Normalize( &vN, &vN );		// ÃÖÁ¾ ´ÜÀ§º¤ÅÍ·Î º¯È¯
 					
-					// ì, ì´ì œ vIntersectì™€ vNì€ ì›”ë“œì¢Œí‘œê³„ë¡œ ì¤€ë¹„ê°€ ë˜ì—ˆë‹¤.
-					vTemp = vEnd - vIntersect;		// êµì°¨ì  - ë¼ì¸ë vector Vë¼ê³  ì¹­í•¨
-					*pIntersect = vIntersect;		// êµì°¨ì ì„ ë°›ì•„ë‘ 
+					// ÀÚ, ÀÌÁ¦ vIntersect¿Í vNÀº ¿ùµåÁÂÇ¥°è·Î ÁØºñ°¡ µÇ¾ú´Ù.
+					vTemp = vEnd - vIntersect;		// ±³Â÷Á¡ - ¶óÀÎ³¡ vector V¶ó°í ÄªÇÔ
+					*pIntersect = vIntersect;		// ±³Â÷Á¡À» ¹Ş¾ÆµÒ
 					CalcSlideVec( &vTemp, vTemp, vN );
 					
-					*pOut = vTemp;		// ë¯¸ë„ëŸ¬ì§„ ë²¡í„°ë¥¼ ê²°ê³¼ë¡œ ë°›ë„ë¡ ë°”ê¿”ë³´ì.
+					*pOut = vTemp;		// ¹Ì²ô·¯Áø º¤ÅÍ¸¦ °á°ú·Î ¹Şµµ·Ï ¹Ù²ãº¸ÀÚ.
 //					*pOut = vTemp;
 					
 					return 1;
@@ -1877,10 +1877,10 @@ int		CObject3D::SlideVectorXZ2( D3DXVECTOR3 *pOut, D3DXVECTOR3 *pIntersect, cons
 
 
 //
-// Lineê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ì•„ Slideë²¡í„°ë¥¼ ê³„ì‚°.
-// ì£¼ì˜ : SlideVectorëŠ” ìŠ¤í‚¤ë‹ ì˜¤ë¸Œì íŠ¸ì—ëŠ” ì‚¬ìš©ê¸ˆì§€ë‹¤.
-// ì¤‘ë ¥ë²¡í„°ì˜ ë°”ë‹¥ ë¯¸ë„ëŸ¬ì§ê³„ì‚°ì‹œ ì‚¬ìš©í•˜ëŠ” ì „ìš©í•¨ìˆ˜.
-// ë¦¬ì»¤ì „ì„ í•˜ì§€ ì•ŠëŠ”ë‹¤.  - ì†ë„ë•œì— -
+// Line°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£¾Æ Slideº¤ÅÍ¸¦ °è»ê.
+// ÁÖÀÇ : SlideVector´Â ½ºÅ°´× ¿ÀºêÁ§Æ®¿¡´Â »ç¿ë±İÁö´Ù.
+// Áß·Âº¤ÅÍÀÇ ¹Ù´Ú ¹Ì²ô·¯Áü°è»ê½Ã »ç¿ëÇÏ´Â Àü¿ëÇÔ¼ö.
+// ¸®Ä¿ÀüÀ» ÇÏÁö ¾Ê´Â´Ù.  - ¼Óµµ¶«¿¡ -
 //
 #if defined( __SLIDE_060502 )
 
@@ -1905,8 +1905,8 @@ int	CObject3D::SlideVectorUnder( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, con
 	pVB = (NORMALVERTEX*)(pObject->m_pVB);
 
 	D3DXMatrixInverse( &mInv, NULL, &mWorld );
-	D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Lineì‹œì‘ì ì„ Geometryê¸°ì¤€ìœ¼ë¡œ ë³€í™˜
-	D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Lineëì ì„ ì—­ì‹œ ë³€í™˜
+	D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Line½ÃÀÛÁ¡À» Geometry±âÁØÀ¸·Î º¯È¯
+	D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Line³¡Á¡À» ¿ª½Ã º¯È¯
 	vInvDir = vInvEnd - vInvPos;
 
 	for( int j = 0; j < pObject->m_nMaxFaceList; ++j )
@@ -1916,17 +1916,17 @@ int	CObject3D::SlideVectorUnder( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, con
 		v3 = &pVB[ *pIB++ ].position;
 
 		bRet = IsTouchRayTri( v1, v2, v3, &vInvPos, &vInvDir, &fDist );
-		if( bRet && fDist >= 0.0f )	// ë°˜ëŒ€ë°©í–¥ ë©´ì€ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
+		if( bRet && fDist >= 0.0f )	// ¹İ´ë¹æÇâ ¸éÀº °Ë»çÇÏÁö ¾ÊÀ½.
 		{
-			// ì •í™•í•˜ê²Œ í•˜ë ¤ë©´ ëª¨ë“  ë©´ì„ ë‹¤ ê²€ì‚¬í•´ì„œ ê°€ì¥ ê°€ê¹Œìš´ê²ƒì„ ê³¨ë¼ì•¼ í•˜ë‚˜
-			// Sì í˜•íƒœë¡œ êµ¬ë¶€ëŸ¬ì§„ ë©´ì´ ì—†ë‹¤ëŠ” ê°€ì •í•˜ì— ê°„ëµí™” ì‹œí‚¨ë‹¤.
+			// Á¤È®ÇÏ°Ô ÇÏ·Á¸é ¸ğµç ¸éÀ» ´Ù °Ë»çÇØ¼­ °¡Àå °¡±î¿î°ÍÀ» °ñ¶ó¾ß ÇÏ³ª
+			// SÀÚ ÇüÅÂ·Î ±¸ºÎ·¯Áø ¸éÀÌ ¾ø´Ù´Â °¡Á¤ÇÏ¿¡ °£·«È­ ½ÃÅ²´Ù.
 			if( fDist < 1.0f )
 			{
-				// Lineê³¼ ë‹¿ì€ ì‚¼ê°í˜•ì„ ì°¾ì•„ëƒˆë‹¤.
+				// Line°ú ´êÀº »ï°¢ÇüÀ» Ã£¾Æ³Â´Ù.
 				D3DXVECTOR3 vDir = vEnd - vPos;
-				*pIntersect = vPos + fDist * vDir;	// êµì°¨ì ì„ ê³„ì‚°.
+				*pIntersect = vPos + fDist * vDir;	// ±³Â÷Á¡À» °è»ê.
 
-				// 101ë„ ì´ìƒì˜ ê²½ì‚¬ë©´ë§Œ ë¯¸ë„ëŸ¬ì§„ë‹¤.
+				// 101µµ ÀÌ»óÀÇ °æ»ç¸é¸¸ ¹Ì²ô·¯Áø´Ù.
 				D3DXVECTOR3 vSlide;
 				if( CanSlide( *v1, *v2, *v3, -0.19080f, &vSlide ) == FALSE )	// -0.19080f = cos(101)
 				{
@@ -1934,7 +1934,7 @@ int	CObject3D::SlideVectorUnder( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, con
 					return 1;
 				}
 				
-				// ë¯¸ë„ëŸ¬ì§„ ì¢Œí‘œë¥¼ ì–»ëŠ”ë‹¤.
+				// ¹Ì²ô·¯Áø ÁÂÇ¥¸¦ ¾ò´Â´Ù.
 				D3DXVec3TransformNormal( &vSlide, &vSlide, &mWorld );
 				*pOut = *pIntersect + vSlide;
 				return 1;
@@ -1968,18 +1968,18 @@ int		CObject3D::SlideVectorUnder( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, co
 //	for( i = 0; i < nMaxObj; i++ )
 	{
 		if( pObject->m_Type == GMT_SKIN )	
-			Error( "SlideVectorUnder:ìŠ¤í‚¨ì˜¤ë¸Œì íŠ¸ ë°œê²¬. ì—ëŸ¬%s", m_szFileName ); 
+			Error( "SlideVectorUnder:½ºÅ²¿ÀºêÁ§Æ® ¹ß°ß. ¿¡·¯%s", m_szFileName ); 
 
 		nMaxFace = pObject->m_nMaxFaceList;
 		pIB = pObject->m_pIB;
 		pVB = (NORMALVERTEX*)(pObject->m_pVB);
 		pObject++;
-		mTM = mWorld;		// íˆ´ì—ì„  LocalTMì„ ì“°ì§€ ì•ŠëŠ”ë‹¤.
+		mTM = mWorld;		// Åø¿¡¼± LocalTMÀ» ¾²Áö ¾Ê´Â´Ù.
 //		mTM = m_Group[0].m_pObject[0].m_mLocalTM * mWorld;
 
 		D3DXMatrixInverse( &mInv, NULL, &mTM );
-		D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Lineì‹œì‘ì ì„ Geometryê¸°ì¤€ìœ¼ë¡œ ë³€í™˜
-		D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Lineëì ì„ ì—­ì‹œ ë³€í™˜
+		D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Line½ÃÀÛÁ¡À» Geometry±âÁØÀ¸·Î º¯È¯
+		D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Line³¡Á¡À» ¿ª½Ã º¯È¯
 		vInvDir = vInvEnd - vInvPos;
 		for( j = 0; j < nMaxFace; j++ )
 		{
@@ -1989,35 +1989,35 @@ int		CObject3D::SlideVectorUnder( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, co
 
 			bRet = IsTouchRayTri( v1, v2, v3, &vInvPos, &vInvDir, &fDist );
 
-			if( bRet && fDist >= 0.0f )	// ë°˜ëŒ€ë°©í–¥ ë©´ì€ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
+			if( bRet && fDist >= 0.0f )	// ¹İ´ë¹æÇâ ¸éÀº °Ë»çÇÏÁö ¾ÊÀ½.
 			{
-				// ì •í™•í•˜ê²Œ í•˜ë ¤ë©´ ëª¨ë“  ë©´ì„ ë‹¤ ê²€ì‚¬í•´ì„œ ê°€ì¥ ê°€ê¹Œìš´ê²ƒì„ ê³¨ë¼ì•¼ í•˜ë‚˜
-				// Sì í˜•íƒœë¡œ êµ¬ë¶€ëŸ¬ì§„ ë©´ì´ ì—†ë‹¤ëŠ” ê°€ì •í•˜ì— ê°„ëµí™” ì‹œí‚¨ë‹¤.
+				// Á¤È®ÇÏ°Ô ÇÏ·Á¸é ¸ğµç ¸éÀ» ´Ù °Ë»çÇØ¼­ °¡Àå °¡±î¿î°ÍÀ» °ñ¶ó¾ß ÇÏ³ª
+				// SÀÚ ÇüÅÂ·Î ±¸ºÎ·¯Áø ¸éÀÌ ¾ø´Ù´Â °¡Á¤ÇÏ¿¡ °£·«È­ ½ÃÅ²´Ù.
 				if( fDist < 1.0f )
 				{
-					// Lineê³¼ ë‹¿ì€ ì‚¼ê°í˜•ì„ ì°¾ì•„ëƒˆë‹¤.
+					// Line°ú ´êÀº »ï°¢ÇüÀ» Ã£¾Æ³Â´Ù.
 					vDir = vEnd - vPos;
-					*pIntersect = vPos + fDist * vDir;	// êµì°¨ì ì„ ê³„ì‚°.
+					*pIntersect = vPos + fDist * vDir;	// ±³Â÷Á¡À» °è»ê.
 	
-					vA = *v2 - *v1;		// ë…¸ë§ ê³„ì‚° ì‹œì‘.
+					vA = *v2 - *v1;		// ³ë¸» °è»ê ½ÃÀÛ.
 					vB = *v3 - *v1;
-					D3DXVec3Cross( &vTemp, &vA, &vB );		// ì¶©ëŒí•œ ë©´ì˜ ë…¸ë§ êµ¬í•¨. ì´ê±´ ë‚˜ì¤‘ì— ë¯¸ë¦¬ ê³„ì‚°í•´ë‘ì.
-					D3DXVec3Normalize( &vN, &vTemp );		// ë‹¨ìœ„ë²¡í„°ë¡œ ë³€í™˜
+					D3DXVec3Cross( &vTemp, &vA, &vB );		// Ãæµ¹ÇÑ ¸éÀÇ ³ë¸» ±¸ÇÔ. ÀÌ°Ç ³ªÁß¿¡ ¹Ì¸® °è»êÇØµÎÀÚ.
+					D3DXVec3Normalize( &vN, &vTemp );		// ´ÜÀ§º¤ÅÍ·Î º¯È¯
 
 					mInv = mTM;
 					mInv._41 = mInv._42 = mInv._43 = 0;
-					D3DXVec3TransformCoord( &vTemp, &vN, &mInv );	// ì¶©ëŒí•œë©´ì˜ ë…¸ë§ì„ ì›ë˜ëŒ€ë¡œ(mWorld)ëŒë¦¼.
-					vN = vTemp;		// ì¶©ëŒë©´ ë…¸ë§.
+					D3DXVec3TransformCoord( &vTemp, &vN, &mInv );	// Ãæµ¹ÇÑ¸éÀÇ ³ë¸»À» ¿ø·¡´ë·Î(mWorld)µ¹¸².
+					vN = vTemp;		// Ãæµ¹¸é ³ë¸».
 
 					vDir.x = vDir.z = 0;	vDir.y = -1.0f;
 					
-					// ì¼ì •ê° ì´ìƒ ê¸°ìš¸ì–´ì§„ ë©´ë§Œ ìŠ¬ë¼ì´ë“œë¥¼ ì ìš©ì‹œí‚¨ë‹¤. ë‘ë²¡í„°ë‹¤ ë…¸ë§ì´ì–´ì•¼ í•œë‹¤.
+					// ÀÏÁ¤°¢ ÀÌ»ó ±â¿ï¾îÁø ¸é¸¸ ½½¶óÀÌµå¸¦ Àû¿ë½ÃÅ²´Ù. µÎº¤ÅÍ´Ù ³ë¸»ÀÌ¾î¾ß ÇÑ´Ù.
 					if( D3DXVec3Dot( &vN, &vDir ) < -0.19080f )		// -0.19080f = cos(101)
 						return 1;
 					vDir.y = -0.01f;
 
-					// ì, ì´ì œ vIntersectì™€ vNì€ ì›”ë“œì¢Œí‘œê³„ë¡œ ì¤€ë¹„ê°€ ë˜ì—ˆë‹¤.
-					CalcSlideVec( &vTemp, vDir, vN );	// ì¶©ëŒì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ë¶€ë¶„ê¹Œì§€ì˜ ë²¡í„°
+					// ÀÚ, ÀÌÁ¦ vIntersect¿Í vNÀº ¿ùµåÁÂÇ¥°è·Î ÁØºñ°¡ µÇ¾ú´Ù.
+					CalcSlideVec( &vTemp, vDir, vN );	// Ãæµ¹Á¡¿¡¼­ ¹Ì²ô·¯ÁøºÎºĞ±îÁöÀÇ º¤ÅÍ
 					*pOut = *pIntersect + vTemp;
 					return 1;
 				}
@@ -2029,9 +2029,9 @@ int		CObject3D::SlideVectorUnder( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, co
 #endif // not __SLIDE_060502
 
 //
-// Lineê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ì•„ ë¦¬í„´
-// pTriOut : D3DXVECTOR3 *pTri[3]; ì˜ ì‹œì‘ í¬ì¸í„°.
-// ì£¼ì˜ : ìŠ¤í‚¤ë‹ ì˜¤ë¸Œì íŠ¸ì—ëŠ” ì‚¬ìš© ê¸ˆì§€.
+// Line°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£¾Æ ¸®ÅÏ
+// pTriOut : D3DXVECTOR3 *pTri[3]; ÀÇ ½ÃÀÛ Æ÷ÀÎÅÍ.
+// ÁÖÀÇ : ½ºÅ°´× ¿ÀºêÁ§Æ®¿¡´Â »ç¿ë ±İÁö.
 //
 void CObject3D::FindTouchTriLine( D3DXVECTOR3 **pTriOut, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vEnd , const D3DXMATRIX &mWorld, FLOAT *pDist, BOOL bCollObj )
 {
@@ -2046,7 +2046,7 @@ void CObject3D::FindTouchTriLine( D3DXVECTOR3 **pTriOut, const D3DXVECTOR3 &vPos
 	int i;
 	LOD_GROUP *pGroup = &m_Group[0];
 	int		nMaxObj = 1;
-	if( bCollObj == FALSE )		// ì¶©ëŒë©”ì‹œë¡œ ì¶©ëŒê²€ì‚¬ í•˜ì§€ë§ˆë¼.
+	if( bCollObj == FALSE )		// Ãæµ¹¸Ş½Ã·Î Ãæµ¹°Ë»ç ÇÏÁö¸¶¶ó.
 	{
 		pObject = pGroup->m_pObject;
 		nMaxObj = pGroup->m_nMaxObject;
@@ -2067,7 +2067,7 @@ void CObject3D::FindTouchTriLine( D3DXVECTOR3 **pTriOut, const D3DXVECTOR3 &vPos
 	for( i = 0; i < nMaxObj; i++ )
 	{
 		if( pObject->m_Type == GMT_SKIN )	
-			Error( "FindTouchTriLine:ìŠ¤í‚¨ì˜¤ë¸Œì íŠ¸ ë°œê²¬. ì—ëŸ¬%s", m_szFileName );
+			Error( "FindTouchTriLine:½ºÅ²¿ÀºêÁ§Æ® ¹ß°ß. ¿¡·¯%s", m_szFileName );
 
 		nMaxFace = pObject->m_nMaxFaceList;
 		pVB = (NORMALVERTEX*)(pObject->m_pVB);
@@ -2076,11 +2076,11 @@ void CObject3D::FindTouchTriLine( D3DXVECTOR3 **pTriOut, const D3DXVECTOR3 &vPos
 		if( bCollObj == FALSE )
 			mTM = pGroup->_mUpdate[i] * mWorld;
 		else
-			mTM = mWorld;		// ì¶©ëŒìš© ë©”ì‹œì—ëŠ” LocalTMì´ ì—†ë‹¤.
+			mTM = mWorld;		// Ãæµ¹¿ë ¸Ş½Ã¿¡´Â LocalTMÀÌ ¾ø´Ù.
 
 		D3DXMatrixInverse( &mInv, NULL, &mTM );
-		D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Lineì‹œì‘ì ì„ Geometryê¸°ì¤€ìœ¼ë¡œ ë³€í™˜
-		D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Lineëì ì„ ì—­ì‹œ ë³€í™˜
+		D3DXVec3TransformCoord( &vInvPos, &vPos, &mInv );	// Line½ÃÀÛÁ¡À» Geometry±âÁØÀ¸·Î º¯È¯
+		D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Line³¡Á¡À» ¿ª½Ã º¯È¯
 		vInvDir = vInvEnd - vInvPos;
 		for( j = 0; j < nMaxFace; j++ )
 		{
@@ -2090,14 +2090,14 @@ void CObject3D::FindTouchTriLine( D3DXVECTOR3 **pTriOut, const D3DXVECTOR3 &vPos
 
 			bRet = IsTouchRayTri( v1, v2, v3, &vInvPos, &vInvDir, pDist );
 
-			if( bRet && *pDist >= 0.0f )	// ë°˜ëŒ€ë°©í–¥ ë©´ì€ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
+			if( bRet && *pDist >= 0.0f )	// ¹İ´ë¹æÇâ ¸éÀº °Ë»çÇÏÁö ¾ÊÀ½.
 			{
-				// ì •í™•í•˜ê²Œ í•˜ë ¤ë©´ ëª¨ë“  ë©´ì„ ë‹¤ ê²€ì‚¬í•´ì„œ ê°€ì¥ ê°€ê¹Œìš´ê²ƒì„ ê³¨ë¼ì•¼ í•˜ë‚˜
-				// Sì í˜•íƒœë¡œ êµ¬ë¶€ëŸ¬ì§„ ë©´ì´ ì—†ë‹¤ëŠ” ê°€ì •í•˜ì— ê°„ëµí™” ì‹œí‚¨ë‹¤.
+				// Á¤È®ÇÏ°Ô ÇÏ·Á¸é ¸ğµç ¸éÀ» ´Ù °Ë»çÇØ¼­ °¡Àå °¡±î¿î°ÍÀ» °ñ¶ó¾ß ÇÏ³ª
+				// SÀÚ ÇüÅÂ·Î ±¸ºÎ·¯Áø ¸éÀÌ ¾ø´Ù´Â °¡Á¤ÇÏ¿¡ °£·«È­ ½ÃÅ²´Ù.
 				if( *pDist < 1.0f )
 				{
-					// Lineê³¼ ë‹¿ì€ ì‚¼ê°í˜•ì„ ì°¾ì•„ëƒˆë‹¤.
-					// ì´ ì¢Œí‘œë“¤ mTMìœ¼ë¡œ ê³±í•´ì„œ ë„˜ê²¨ì•¼ í•˜ëŠ”ê±° ì•„ë‹Œê°€?.
+					// Line°ú ´êÀº »ï°¢ÇüÀ» Ã£¾Æ³Â´Ù.
+					// ÀÌ ÁÂÇ¥µé mTMÀ¸·Î °öÇØ¼­ ³Ñ°Ü¾ß ÇÏ´Â°Å ¾Æ´Ñ°¡?.
 					pTriOut[0] = v1;
 					pTriOut[1] = v2;
 					pTriOut[2] = v3;
@@ -2112,7 +2112,7 @@ void CObject3D::FindTouchTriLine( D3DXVECTOR3 **pTriOut, const D3DXVECTOR3 &vPos
 
 
 #ifdef __CLIENT
-// intersectRayTriì—ì„œ êµì°¨í•œ ì‚¼ê°í˜• ë°ì´íƒ€ê°€ ì´ê³³ìœ¼ë¡œ ì„ì‹œë¡œ ë“¤ì–´ì˜¨ë‹¤.
+// intersectRayTri¿¡¼­ ±³Â÷ÇÑ »ï°¢Çü µ¥ÀÌÅ¸°¡ ÀÌ°÷À¸·Î ÀÓ½Ã·Î µé¾î¿Â´Ù.
 static D3DXVECTOR3	s_vLastPickTri[3];
 D3DXVECTOR3 *GetLastPickTri( void )
 {
@@ -2120,7 +2120,7 @@ D3DXVECTOR3 *GetLastPickTri( void )
 }
 #endif // __CLIENT
 
-// ìš©ëŸ‰ì´ í° ì´ìœ ëŠ” ìŠ¤í‚¨ì˜¤ë¸Œì íŠ¸ëŠ” ë¼ˆëŒ€ë³€í™˜ëœ ë²„í…ìŠ¤ë¥¼ ë‹¤ì‹œ ê³„ì‚° í•´ì•¼í•˜ë¯€ë¡œ ê·¸ ë³€í™˜ëœ ë²„í…ìŠ¤ê°€ vPoolë¡œ ë“¤ì–´ì˜¨ë‹¤.
+// ¿ë·®ÀÌ Å« ÀÌÀ¯´Â ½ºÅ²¿ÀºêÁ§Æ®´Â »À´ëº¯È¯µÈ ¹öÅØ½º¸¦ ´Ù½Ã °è»ê ÇØ¾ßÇÏ¹Ç·Î ±× º¯È¯µÈ ¹öÅØ½º°¡ vPool·Î µé¾î¿Â´Ù.
 static D3DXVECTOR3	_vPool[4696];
 
 #if __VER >= 13 // __HOUSING
@@ -2166,13 +2166,13 @@ BOOL	CObject3D::SimpleTriIntersect(D3DXMATRIX mWorld, GMOBJECT* pTargetObj, D3DX
 	int			i, j, k;
 	NORMALVERTEX *pVB, *pVB2;
 	
-	if( m_CollObject.m_Type != GMT_ERROR )	// ì¶©ëŒë©”ì‹œê°€ ì—†ìœ¼ë©´ ê± í•¨.
+	if( m_CollObject.m_Type != GMT_ERROR )	// Ãæµ¹¸Ş½Ã°¡ ¾øÀ¸¸é °Á ÇÔ.
 	{
 		pObj = &m_CollObject;
-		nMaxObj = 1;	// ì¶©ëŒë©”ì‹œëŠ” ë¬´ì¡°ê±´ 1ê°œë‹¤.
+		nMaxObj = 1;	// Ãæµ¹¸Ş½Ã´Â ¹«Á¶°Ç 1°³´Ù.
 	}
 
-	// ìŠ¤í‚¨ ì˜¤ë¸Œì íŠ¸ëŠ” ì—†ì„í…Œë‹ˆê¹Œ ì œë¼ê³  í•˜ì...ì‹œê°„ìƒ
+	// ½ºÅ² ¿ÀºêÁ§Æ®´Â ¾øÀ»Å×´Ï±î Á¦³¢°í ÇÏÀÚ...½Ã°£»ó
 	for( i = 0; i < nMaxObj; i++ )
 	{
 		
@@ -2183,39 +2183,39 @@ BOOL	CObject3D::SimpleTriIntersect(D3DXMATRIX mWorld, GMOBJECT* pTargetObj, D3DX
 		pIB	= pObj->m_pIB;
 		for( j = 0; j < nMax; j++ )
 		{
-			// ë¡œì»¬ì¢Œí‘œê³„ì—ì„œ ì›”ë“œì¢Œí‘œë¡œ ë³€í™˜..
+			// ·ÎÄÃÁÂÇ¥°è¿¡¼­ ¿ùµåÁÂÇ¥·Î º¯È¯..
 			D3DXVec3TransformCoord( &v1, &pVB[ *pIB++ ].position, &mTM );
 			D3DXVec3TransformCoord( &v2, &pVB[ *pIB++ ].position, &mTM );
 			D3DXVec3TransformCoord( &v3, &pVB[ *pIB++ ].position, &mTM );
 			
 			D3DXVECTOR3	vw1, vw2, vNormal;
 			float		fD;
-			// ì²«ë²ˆì§¸ í´ë¦¬ê³¤ì˜ ë…¸ë©€ì„ êµ¬í•œë‹¤
+			// Ã¹¹øÂ° Æú¸®°ïÀÇ ³ë¸ÖÀ» ±¸ÇÑ´Ù
 			D3DXVec3Subtract(&vw1, &v2, &v1);
 			D3DXVec3Subtract(&vw2, &v3, &v1);
 			D3DXVec3Cross(&vNormal, &vw1, &vw2);
-			// í‰ë©´ì˜ ë°©ì •ì‹ 1: N1.X+d1=0 
-			fD = -D3DXVec3Dot(&vNormal, &v1);	// í‰ë©´ì˜ ë°©ì •ì‹ Dê°’ êµ¬í•¨
+			// Æò¸éÀÇ ¹æÁ¤½Ä 1: N1.X+d1=0 
+			fD = -D3DXVec3Dot(&vNormal, &v1);	// Æò¸éÀÇ ¹æÁ¤½Ä D°ª ±¸ÇÔ
 			
-			// íƒ€ê²Ÿì˜¤ë¸Œì íŠ¸ë„ í´ë¦¬ê³¤ ë½‘ì..
+			// Å¸°Ù¿ÀºêÁ§Æ®µµ Æú¸®°ï »ÌÀÚ..
 			nMax2 = pTargetObj->m_nMaxFaceList;
 			pVB2  = (NORMALVERTEX*)(pTargetObj->m_pVB);
 			pIB2  = pTargetObj->m_pIB;
 			for( k = 0; k < nMax2; k++ )
 			{
-				// ì£¼ì˜! ì˜¤ë¸Œì íŠ¸ê°€ í•˜ë‚˜ì¸ ê²½ìš°ë¡œ ê°€ì •í•˜ê³  í–ˆë‹¤..ì•„ë‹ˆë¼ë©´ ë‹¤ì‹œ ì˜¤ë¸Œì íŠ¸ìˆ˜ë§Œí¼ ë£¨í”„ëŒë¦¬ê³  ë§¤ê°œë³€ìˆ˜ ë°”ê¿”ì„œ ë‹¤ì‹œ ì§œì•¼ëœë‹¤
-				// ë¡œì»¬ì¢Œí‘œê³„ì—ì„œ ì›”ë“œì¢Œí‘œë¡œ ë³€í™˜..
+				// ÁÖÀÇ! ¿ÀºêÁ§Æ®°¡ ÇÏ³ªÀÎ °æ¿ì·Î °¡Á¤ÇÏ°í Çß´Ù..¾Æ´Ï¶ó¸é ´Ù½Ã ¿ÀºêÁ§Æ®¼ö¸¸Å­ ·çÇÁµ¹¸®°í ¸Å°³º¯¼ö ¹Ù²ã¼­ ´Ù½Ã Â¥¾ßµÈ´Ù
+				// ·ÎÄÃÁÂÇ¥°è¿¡¼­ ¿ùµåÁÂÇ¥·Î º¯È¯..
 				float fdu0, fdu1, fdu2, ftdu0, ftdu1, ftdu2, fdu01, fdu02, ftdu01, ftdu02; 
 				D3DXVECTOR3	vtw1, vtw2, vtNormal, vCross;
 				float		fD2;
-				// ì¶•ê´€ë ¨
+				// Ãà°ü·Ã
 				float		fXLen, fYLen, fZLen, fCood1, fCood2, fCood3, ftCood1, ftCood2, ftCood3;
 
 				D3DXVec3TransformCoord( &tv1, &pVB2[ *pIB2++ ].position, &mTargetWorld );
 				D3DXVec3TransformCoord( &tv2, &pVB2[ *pIB2++ ].position, &mTargetWorld );
 				D3DXVec3TransformCoord( &tv3, &pVB2[ *pIB2++ ].position, &mTargetWorld );
 				
-				// ë‹¤ë¥¸ í´ë¦¬ê³¤ì˜ ê° ì •ì ì— ëŒ€í•´ì„œ ê³„ì‚°í•´ì„œ ì–´ëŠìª½ì— ìˆëŠ”ì§€ íŒë‹¨
+				// ´Ù¸¥ Æú¸®°ïÀÇ °¢ Á¤Á¡¿¡ ´ëÇØ¼­ °è»êÇØ¼­ ¾î´ÀÂÊ¿¡ ÀÖ´ÂÁö ÆÇ´Ü
 				fdu0 = D3DXVec3Dot(&vNormal, &tv1) + fD;
 				fdu1 = D3DXVec3Dot(&vNormal, &tv2) + fD;
 				fdu2 = D3DXVec3Dot(&vNormal, &tv3) + fD;
@@ -2223,15 +2223,15 @@ BOOL	CObject3D::SimpleTriIntersect(D3DXMATRIX mWorld, GMOBJECT* pTargetObj, D3DX
 				fdu01 = fdu0*fdu1;
 				fdu02 = fdu0*fdu2;
 				if(fdu01  > 0.0f && fdu02 > 0.0f) 
-					continue;                    // ëª¨ë‘ ë¶€í˜¸ê°€ ê°™ìœ¼ë©´ ê°™ì€ìª½ì— ìˆëŠ”ê²ƒì´ë¯€ë¡œ êµì°¨ì—†ìŒ
+					continue;                    // ¸ğµÎ ºÎÈ£°¡ °°À¸¸é °°ÀºÂÊ¿¡ ÀÖ´Â°ÍÀÌ¹Ç·Î ±³Â÷¾øÀ½
 				
 				D3DXVec3Subtract(&vtw1, &tv2, &tv1);
 				D3DXVec3Subtract(&vtw2, &tv3, &tv1);
 				D3DXVec3Cross(&vtNormal, &vtw1, &vtw2);
-				// í‰ë©´ì˜ ë°©ì •ì‹ 1: N1.X+d1=0 
-				fD2 = -D3DXVec3Dot(&vtNormal, &tv1);	// í‰ë©´ì˜ ë°©ì •ì‹ Dê°’ êµ¬í•¨
+				// Æò¸éÀÇ ¹æÁ¤½Ä 1: N1.X+d1=0 
+				fD2 = -D3DXVec3Dot(&vtNormal, &tv1);	// Æò¸éÀÇ ¹æÁ¤½Ä D°ª ±¸ÇÔ
 
-				// ë‹¤ë¥¸ í´ë¦¬ê³¤ì˜ ê° ì •ì ì— ëŒ€í•´ì„œ ê³„ì‚°í•´ì„œ ì–´ëŠìª½ì— ìˆëŠ”ì§€ íŒë‹¨
+				// ´Ù¸¥ Æú¸®°ïÀÇ °¢ Á¤Á¡¿¡ ´ëÇØ¼­ °è»êÇØ¼­ ¾î´ÀÂÊ¿¡ ÀÖ´ÂÁö ÆÇ´Ü
 				ftdu0 = D3DXVec3Dot(&vtNormal, &v1) + fD2;
 				ftdu1 = D3DXVec3Dot(&vtNormal, &v2) + fD2;
 				ftdu2 = D3DXVec3Dot(&vtNormal, &v3) + fD2;
@@ -2239,17 +2239,17 @@ BOOL	CObject3D::SimpleTriIntersect(D3DXMATRIX mWorld, GMOBJECT* pTargetObj, D3DX
 				ftdu01 = ftdu0*ftdu1;
 				ftdu02 = ftdu0*ftdu2;
 				if(ftdu01  > 0.0f && ftdu02 > 0.0f) 
-					continue;                    // ëª¨ë‘ ë¶€í˜¸ê°€ ê°™ìœ¼ë©´ ê°™ì€ìª½ì— ìˆëŠ”ê²ƒì´ë¯€ë¡œ êµì°¨ì—†ìŒ
+					continue;                    // ¸ğµÎ ºÎÈ£°¡ °°À¸¸é °°ÀºÂÊ¿¡ ÀÖ´Â°ÍÀÌ¹Ç·Î ±³Â÷¾øÀ½
 				
-				// êµì°¨ì„ ì˜ ë°©í–¥ì„ êµ¬í•¨ 
+				// ±³Â÷¼±ÀÇ ¹æÇâÀ» ±¸ÇÔ 
 				D3DXVec3Cross(&vCross,&vNormal,&vtNormal);
 
-				// êµì°¨ì„ ì˜ ì„±ë¶„ì¤‘ ê°€ì¥ ê¸´ ì¶•ì„ êµ¬í•¨
+				// ±³Â÷¼±ÀÇ ¼ººĞÁß °¡Àå ±ä ÃàÀ» ±¸ÇÔ
 				fXLen = fabs(vCross.x);
 				fYLen = fabs(vCross.y);
 				fZLen = fabs(vCross.z);
 
-				// ê·¸ì¶•ì— ë‘ê°œì˜ ì‚¼ê°í˜•ì„ íˆ¬ì˜í•¨
+				// ±×Ãà¿¡ µÎ°³ÀÇ »ï°¢ÇüÀ» Åõ¿µÇÔ
 				if(fYLen > fXLen && fYLen > fZLen) // y
 				{
 					fCood1 = v1.y;
@@ -2282,10 +2282,10 @@ BOOL	CObject3D::SimpleTriIntersect(D3DXMATRIX mWorld, GMOBJECT* pTargetObj, D3DX
 				float xx,yy,xxyy,tmp;
 				float isect1[2], isect2[2];
 
-				// í´ë¦¬ê³¤1ì˜ ê°„ê²© ê³„ì‚°
+				// Æú¸®°ï1ÀÇ °£°İ °è»ê
 				ComputeInterval(fCood1,fCood2,fCood3,fdu0,fdu1,fdu2,fdu01,fdu02,a,b,c,x0,x1);
 
-				// í´ë¦¬ê³¤2ì˜ ê°„ê²© ê³„ì‚°
+				// Æú¸®°ï2ÀÇ °£°İ °è»ê
 				ComputeInterval(ftCood1,ftCood2,ftCood3,ftdu0,ftdu1,ftdu2,ftdu01,ftdu02,d,e,f,y0,y1);
 
 				xx = x0 * x1;
@@ -2322,7 +2322,7 @@ BOOL	CObject3D::SimpleTriIntersect(D3DXMATRIX mWorld, GMOBJECT* pTargetObj, D3DX
 }
 #endif // __HOUSING
 //
-// ë ˆì´ì™€ êµì°¨í•œ ì‚¼ê°í˜•ì˜ ì‹œì‘í¬ì¸í„°ë¥¼ ë¦¬í„´.
+// ·¹ÀÌ¿Í ±³Â÷ÇÑ »ï°¢ÇüÀÇ ½ÃÀÛÆ÷ÀÎÅÍ¸¦ ¸®ÅÏ.
 //
 D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DXVECTOR3 &vRayDir, const D3DXMATRIX &mWorld, 
 											  D3DXVECTOR3* pvIntersect, FLOAT* pfDist, BOOL bColl )
@@ -2338,12 +2338,12 @@ D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DX
 	FLOAT	fDist, fMinDist = 65535.0f;
 	BOOL	bRet, bFlag = FALSE;
 
-	if( bColl )		// ì¶©ëŒë©”ì‹œë¡œ ê²€ì‚¬í•˜ê²Œ í•˜ëŠ” ì˜µì…˜
+	if( bColl )		// Ãæµ¹¸Ş½Ã·Î °Ë»çÇÏ°Ô ÇÏ´Â ¿É¼Ç
 	{
-		if( m_CollObject.m_Type != GMT_ERROR )	// ì¶©ëŒë©”ì‹œê°€ ì—†ìœ¼ë©´ ê± í•¨.
+		if( m_CollObject.m_Type != GMT_ERROR )	// Ãæµ¹¸Ş½Ã°¡ ¾øÀ¸¸é °Á ÇÔ.
 		{
 			pObj = &m_CollObject;
-			nMaxObj = 1;	// ì¶©ëŒë©”ì‹œëŠ” ë¬´ì¡°ê±´ 1ê°œë‹¤.
+			nMaxObj = 1;	// Ãæµ¹¸Ş½Ã´Â ¹«Á¶°Ç 1°³´Ù.
 		}
 	}
 
@@ -2356,7 +2356,7 @@ D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DX
 			D3DXMatrixInverse( &mInv, NULL, &mTM );
 			D3DXVec3TransformCoord( &vInvRayOrig, &vRayOrig, &mInv );
 			
-			mInv._41 = 0;	mInv._42 = 0;	mInv._43 = 0;	// vRayDirì€ ë°©í–¥ë²¡í„°ë§Œ ìˆê¸°ë•€ì‹œ ìœ„ì¹˜ëŠ” ì—†ì• ì¤€ë‹¤.
+			mInv._41 = 0;	mInv._42 = 0;	mInv._43 = 0;	// vRayDirÀº ¹æÇâº¤ÅÍ¸¸ ÀÖ±â¶¡½Ã À§Ä¡´Â ¾ø¾ÖÁØ´Ù.
 			D3DXVec3TransformCoord( &vInvRayDir, &vRayDir, &mInv );
 			int *pPhysique = pObj->m_pPhysiqueVertex;
 			D3DXVECTOR3	*pVList = pObj->m_pVertexList;
@@ -2365,18 +2365,18 @@ D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DX
 			pVB = (SKINVERTEX *)pObj->m_pVB;
 			if( m_pmExternBone )	
 			{
-				pBone = m_pmExternBone;		// ì™¸ë¶€ì§€ì • ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ê·¸ê±¸ ì“°ê³ 
+				pBone = m_pmExternBone;		// ¿ÜºÎÁöÁ¤ »À´ë°¡ ÀÖ´Ù¸é ±×°É ¾²°í
 				pBoneInv = m_pmExternBoneInv;
 			}
 			else					
 			{
-				pBone = m_pBaseBone;		// ì—†ë‹¤ë©´ ë””í´íŠ¸ë¥¼ ì“´ë‹¤.
+				pBone = m_pBaseBone;		// ¾ø´Ù¸é µğÆúÆ®¸¦ ¾´´Ù.
 				pBoneInv = m_pBaseBoneInv;
 			}
 			nMax = pObj->m_nMaxVB;
 
 			if( nMax > sizeof(_vPool) / sizeof(D3DXVECTOR3) )
-				Error( "IntersectRayTri : ë²„í…ìŠ¤ë²„í¼ì˜ ê°œìˆ˜ê°€ ë„ˆë¬´ í¬ë‹¤ %d", nMax );
+				Error( "IntersectRayTri : ¹öÅØ½º¹öÆÛÀÇ °³¼ö°¡ ³Ê¹« Å©´Ù %d", nMax );
 
 			int	matIdx;
 			v4 = _vPool;
@@ -2384,7 +2384,7 @@ D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DX
 			{
 				nVIdx = *pIIB++;
 //				D3DXVec3TransformCoord( v4, &pVList[nVIdx], &pBone[ pPhysique[nVIdx] ] );
-				matIdx = pPhysique[ nVIdx ];	// 2linkëŠ” ë¬´ì‹œí•˜ê³  ê·¸ì¤‘ í•˜ë‚˜ë§Œ ì“´ë‹¤. ê·¸ë˜ì„œ ê³„ì‚°ì´ ì •í™•í•˜ì§€ ì•Šì„ ìˆ˜ ìˆë‹¤,.
+				matIdx = pPhysique[ nVIdx ];	// 2link´Â ¹«½ÃÇÏ°í ±×Áß ÇÏ³ª¸¸ ¾´´Ù. ±×·¡¼­ °è»êÀÌ Á¤È®ÇÏÁö ¾ÊÀ» ¼ö ÀÖ´Ù,.
 				mTM = pBoneInv[ matIdx ] * pBone[ matIdx ];
 				D3DXVec3TransformCoord( v4, &pVB[j].position, &mTM );
 				v4 ++;
@@ -2398,9 +2398,9 @@ D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DX
 				v3 = &v4[ *pIB++ ];
 
 				bRet = IsTouchRayTri( v1, v2, v3, &vInvRayOrig, &vInvRayDir, &fDist );
-				if( bRet && fDist >= 0.0f )	// ë°˜ëŒ€ë°©í–¥ ë©´(-)ì€ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
+				if( bRet && fDist >= 0.0f )	// ¹İ´ë¹æÇâ ¸é(-)Àº °Ë»çÇÏÁö ¾ÊÀ½.
 				{
-					if( fDist < fMinDist )	// ë ˆì´ì›ì ìœ¼ë¡œë¶€í„° ê°€ì¥ ê°€ê¹Œìš´ ê±°ë¦¬ë¥¼ ì°¾ìŒ.
+					if( fDist < fMinDist )	// ·¹ÀÌ¿øÁ¡À¸·ÎºÎÅÍ °¡Àå °¡±î¿î °Å¸®¸¦ Ã£À½.
 					{
 						fMinDist = fDist;
 						bFlag = TRUE;
@@ -2417,7 +2417,7 @@ D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DX
 			D3DXMatrixInverse( &mInv, NULL, &mTM );
 			D3DXVec3TransformCoord( &vInvRayOrig, &vRayOrig, &mInv );
 			
-			mInv._41 = 0;	mInv._42 = 0;	mInv._43 = 0;	// vRayDirì€ ë°©í–¥ë²¡í„°ë§Œ ìˆê¸°ë•€ì‹œ ìœ„ì¹˜ëŠ” ì—†ì• ì¤€ë‹¤.
+			mInv._41 = 0;	mInv._42 = 0;	mInv._43 = 0;	// vRayDirÀº ¹æÇâº¤ÅÍ¸¸ ÀÖ±â¶¡½Ã À§Ä¡´Â ¾ø¾ÖÁØ´Ù.
 			D3DXVec3TransformCoord( &vInvRayDir, &vRayDir, &mInv );
 			nMax = pObj->m_nMaxFaceList;
 			pVB	= (NORMALVERTEX*)(pObj->m_pVB);
@@ -2430,9 +2430,9 @@ D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DX
 
 				bRet = IsTouchRayTri( v1, v2, v3, &vInvRayOrig, &vInvRayDir, &fDist );
 
-				if( bRet && fDist >= 0.0f )	// ë°˜ëŒ€ë°©í–¥ ë©´(-)ì€ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
+				if( bRet && fDist >= 0.0f )	// ¹İ´ë¹æÇâ ¸é(-)Àº °Ë»çÇÏÁö ¾ÊÀ½.
 				{
-					if( fDist < fMinDist )	// ë ˆì´ì›ì ìœ¼ë¡œë¶€í„° ê°€ì¥ ê°€ê¹Œìš´ ê±°ë¦¬ë¥¼ ì°¾ìŒ.
+					if( fDist < fMinDist )	// ·¹ÀÌ¿øÁ¡À¸·ÎºÎÅÍ °¡Àå °¡±î¿î °Å¸®¸¦ Ã£À½.
 					{
 						fMinDist = fDist;
 						bFlag = TRUE;
@@ -2448,10 +2448,10 @@ D3DXVECTOR3 *CObject3D::IntersectRayTri( const D3DXVECTOR3 &vRayOrig, const D3DX
 		pObj++;
 
 	}
-	if( bFlag )	// í•œë²ˆì´ë¼ë„ êµì°¨ëœ ì‚¼ê°í˜•ì„ ì°¾ì•˜ë‹¤ë©´.
+	if( bFlag )	// ÇÑ¹øÀÌ¶óµµ ±³Â÷µÈ »ï°¢ÇüÀ» Ã£¾Ò´Ù¸é.
 	{
-		*pvIntersect = vRayOrig + fMinDist * vRayDir;		// êµì°¨í–ˆë˜ ê°€ì¥ ê°€ê¹Œìš´ê±°ë¦¬ë¡œ ì¶©ëŒì§€ì  ê³„ì‚°.
-		return _vPool;		// ê·¸ ì‚¼ê°í˜• ì¢Œí‘œ ë¦¬í„´
+		*pvIntersect = vRayOrig + fMinDist * vRayDir;		// ±³Â÷Çß´ø °¡Àå °¡±î¿î°Å¸®·Î Ãæµ¹ÁöÁ¡ °è»ê.
+		return _vPool;		// ±× »ï°¢Çü ÁÂÇ¥ ¸®ÅÏ
 	}
 	
 	return NULL;
@@ -2486,14 +2486,14 @@ void	CObject3D::LoadTextureEx( int nNumEx, GMOBJECT *pObj, MATERIAL *pmMaterial[
 
 	memset( &mMaterial, 0, sizeof(mMaterial) );
 
-	// ì‚¬ìš©í•˜ëŠ” í…ìŠ¤ì³ì— -etë¥¼ ë¶™ì—¬ì„œ í™•ì¥ í…ìŠ¤ì³ë¥¼ ì½ì–´ë“¤ì„.
+	// »ç¿ëÇÏ´Â ÅØ½ºÃÄ¿¡ -et¸¦ ºÙ¿©¼­ È®Àå ÅØ½ºÃÄ¸¦ ÀĞ¾îµéÀÓ.
 	for( i = 0; i < pObj->m_nMaxMaterial; i ++ )
 	{
 		if( IsEmpty( pObj->m_MaterialAry[i].strBitMapFileName ) )	continue;
 		strcpy( szTexture, pObj->m_MaterialAry[i].strBitMapFileName );		// mvr_bang.dds
 //		strcpy( szTexture, ::GetFileTitle( pObj->m_MaterialAry[i].strBitMapFileName ) );	// mvr_bang
 		GetFileTitle( pObj->m_MaterialAry[i].strBitMapFileName, szTexture );	// mvr_bang
-		strcat( szTexture, "-et" );		// -et. ë¥¼ ë¶™ì„.  mvr_bang-et.
+		strcat( szTexture, "-et" );		// -et. ¸¦ ºÙÀÓ.  mvr_bang-et.
 		sprintf( szNum, "%02d.", nNumEx );	
 		strcat( szTexture, szNum );			// -et01 ~ 07
 //		strcat( szTexture, ::GetFileExt( pObj->m_MaterialAry[i].strBitMapFileName ) );		// mvr_bang-et.dds
@@ -2506,13 +2506,13 @@ void	CObject3D::LoadTextureEx( int nNumEx, GMOBJECT *pObj, MATERIAL *pmMaterial[
 #endif // !__WORLDSERVER
 }
 
-// í…ìŠ¤ì³ë¥¼ í™•ì¥í…ìŠ¤ì³ë¡œ ì§€ì •í•œë‹¤.
-// ê¸°ë³¸ì€ í™•ì‘í…ìŠ¤ì³ë¥¼ ë¡œë”©í•˜ì§€ ì•Šì§€ë§Œ ìš”ì²­ì´ ë“¤ì–´ì˜¤ë©´
-// í…ìŠ¤ì³ë¥¼ ë¡œë”©í•˜ê³  ê·¸í¬ì¸íŠ¸ë¡œ ê¸°ë³¸í¬ì¸í„°ë¡œ ë°”ê¾¼ë‹¤.
+// ÅØ½ºÃÄ¸¦ È®ÀåÅØ½ºÃÄ·Î ÁöÁ¤ÇÑ´Ù.
+// ±âº»Àº È®ÀÛÅØ½ºÃÄ¸¦ ·ÎµùÇÏÁö ¾ÊÁö¸¸ ¿äÃ»ÀÌ µé¾î¿À¸é
+// ÅØ½ºÃÄ¸¦ ·ÎµùÇÏ°í ±×Æ÷ÀÎÆ®·Î ±âº»Æ÷ÀÎÅÍ·Î ¹Ù²Û´Ù.
 void	CObject3D::SetTextureEx( GMOBJECT *pObj, int nNumEx )
 {
 #if !defined(__WORLDSERVER)
-	LPDIRECT3DTEXTURE9	*pTextureEx;		// ë§¤í„°ë¦¬ì–¼ ë¸”ëŸ­ë‚´ í…ìŠ¤ì³í¬ì¸í„°
+	LPDIRECT3DTEXTURE9	*pTextureEx;		// ¸ÅÅÍ¸®¾ó ºí·°³» ÅØ½ºÃÄÆ÷ÀÎÅÍ
 	int		i;
 	MATERIAL	*mMaterial[16];
 	int		nID;
@@ -2522,21 +2522,21 @@ void	CObject3D::SetTextureEx( GMOBJECT *pObj, int nNumEx )
 		Error( "CObject3D::SetTextureEx : nNumEx = %d", nNumEx );
 		return;
 	}
-	pTextureEx = pObj->m_pMtrlBlkTexture + (pObj->m_nMaxMtrlBlk * nNumEx);		// í™•ì¥ë¶€ë¶„ í¬ì¸í„°.
+	pTextureEx = pObj->m_pMtrlBlkTexture + (pObj->m_nMaxMtrlBlk * nNumEx);		// È®ÀåºÎºĞ Æ÷ÀÎÅÍ.
 	
 //	if( bUse )
 	if( 1 )
 	{
 		memset( mMaterial, 0, sizeof(mMaterial) );
 		
-		if( pTextureEx[0] == NULL )		// í™•ì¥ í…ìŠ¤ì³ê°€ ë¡œë”©ëœì ì´ ì—†ë‹¤.
+		if( pTextureEx[0] == NULL )		// È®Àå ÅØ½ºÃÄ°¡ ·ÎµùµÈÀûÀÌ ¾ø´Ù.
 		{
-			LoadTextureEx( nNumEx, pObj, mMaterial );		// í™•ì¥í…ìŠ¤ì³ë¥¼ ë¡œë”©í•¨.
+			LoadTextureEx( nNumEx, pObj, mMaterial );		// È®ÀåÅØ½ºÃÄ¸¦ ·ÎµùÇÔ.
 			for( i = 0; i < pObj->m_nMaxMtrlBlk; i ++ )
 			{
 				nID = pObj->m_pMtrlBlk[i].m_nTextureID;
 				if( mMaterial[ nID ] )
-					pTextureEx[i] = mMaterial[ nID ]->m_pTexture;		// í™•ì¥í…ìŠ¤ì³ë¥¼ ë¡œë”©í•¨.
+					pTextureEx[i] = mMaterial[ nID ]->m_pTexture;		// È®ÀåÅØ½ºÃÄ¸¦ ·ÎµùÇÔ.
 			}
 		}
 	}
@@ -2575,17 +2575,17 @@ void	CObject3D :: ClearNormal( void )
 }
 
 //
-// Animate()ìˆ˜í–‰í›„ ê³§ë°”ë¡œ Renderë¥¼ í˜¸ì¶œí•´ì•¼ í•œë‹¤.
-// ì„ì‹œë²„í¼ê°€ ì†ìƒë  ìˆ˜ ìˆê¸° ë•Œë¬¸ì´ë‹¤.
+// Animate()¼öÇàÈÄ °ğ¹Ù·Î Render¸¦ È£ÃâÇØ¾ß ÇÑ´Ù.
+// ÀÓ½Ã¹öÆÛ°¡ ¼Õ»óµÉ ¼ö ÀÖ±â ¶§¹®ÀÌ´Ù.
 //
-// ìŠ¤í‚¨ 
+// ½ºÅ² 
 //
 void	CObject3D::Animate( FLOAT fFrameCurrent, int nNextFrame )
 {
 #if !defined(__WORLDSERVER)
 	int		i;
-	TM_ANIMATION	*pFrame = NULL;					// í˜„ì¬ í”„ë ˆì„
-	TM_ANIMATION	*pNext = NULL;					// ë‹¤ìŒ í”„ë ˆì„
+	TM_ANIMATION	*pFrame = NULL;					// ÇöÀç ÇÁ·¹ÀÓ
+	TM_ANIMATION	*pNext = NULL;					// ´ÙÀ½ ÇÁ·¹ÀÓ
 	D3DXQUATERNION	qSlerp;
 	D3DXVECTOR3		vSlerp;
 	int		nCurrFrame;
@@ -2605,61 +2605,61 @@ void	CObject3D::Animate( FLOAT fFrameCurrent, int nNextFrame )
 			else					mParent = m_pBaseBone;
 		} else
 			mParent = m_pGroup->_mUpdate;
-		if( m_nMaxFrame > 0 )	// í”„ë ˆì„ì´ ìˆì„ë•Œ
+		if( m_nMaxFrame > 0 )	// ÇÁ·¹ÀÓÀÌ ÀÖÀ»¶§
 		{
 			if( pObj->m_pFrame )
 			{
-				// ë³´ê°„ì„ ìœ„í•œ Slerp ê³„ì‚°.
-				nCurrFrame = (int)fFrameCurrent;			// ì†Œìˆ«ì  ë–¼ë‚´ê³  ì •ìˆ˜ë¶€ë§Œ..
-				fSlp = fFrameCurrent - (float)nCurrFrame;	// ì†Œìˆ«ì  ë¶€ë¶„ë§Œ ê°€ì ¸ì˜´
+				// º¸°£À» À§ÇÑ Slerp °è»ê.
+				nCurrFrame = (int)fFrameCurrent;			// ¼Ò¼ıÁ¡ ¶¼³»°í Á¤¼öºÎ¸¸..
+				fSlp = fFrameCurrent - (float)nCurrFrame;	// ¼Ò¼ıÁ¡ ºÎºĞ¸¸ °¡Á®¿È
 
-				pFrame = &pObj->m_pFrame[ nCurrFrame ];		// í˜„ì¬ í”„ë ˆì„ í¬ì¸í„° ë°›ìŒ
-				pNext  = &pObj->m_pFrame[ nNextFrame ];		// ë‹¤ìŒ í”„ë ˆì„ í¬ì¸í„° ë°›ìŒ
+				pFrame = &pObj->m_pFrame[ nCurrFrame ];		// ÇöÀç ÇÁ·¹ÀÓ Æ÷ÀÎÅÍ ¹ŞÀ½
+				pNext  = &pObj->m_pFrame[ nNextFrame ];		// ´ÙÀ½ ÇÁ·¹ÀÓ Æ÷ÀÎÅÍ ¹ŞÀ½
 
-				D3DXQuaternionSlerp( &qSlerp, &pFrame->m_qRot, &pNext->m_qRot, fSlp );		// íšŒì „ ë³´ê°„
-				D3DXVec3Lerp( &vSlerp, &pFrame->m_vPos, &pNext->m_vPos, fSlp );					// ë²¡í„° ë³´ê°„
+				D3DXQuaternionSlerp( &qSlerp, &pFrame->m_qRot, &pNext->m_qRot, fSlp );		// È¸Àü º¸°£
+				D3DXVec3Lerp( &vSlerp, &pFrame->m_vPos, &pNext->m_vPos, fSlp );					// º¤ÅÍ º¸°£
 
-				// matAniTMê³„ì‚°
-				// ì´ë™í–‰ë ¬ ë§Œë“¦
+				// matAniTM°è»ê
+				// ÀÌµ¿Çà·Ä ¸¸µê
 				D3DXMatrixTranslation( &m1,	 vSlerp.x,  vSlerp.y,  vSlerp.z );
 			
-				// ì¿¼í„°ë‹ˆì˜¨ ë³´ê°„ëœ íšŒì „í‚¤ê°’ì„ íšŒì „í–‰ë ¬ë¡œ ë§Œë“¦
+				// ÄõÅÍ´Ï¿Â º¸°£µÈ È¸ÀüÅ°°ªÀ» È¸ÀüÇà·Ä·Î ¸¸µê
 				D3DXMatrixRotationQuaternion( &m2, &qSlerp );
-				mUpdate[i] = m2 * m1;		// ì´ë™í–‰ë ¬ X íšŒì „í–‰ë ¬ = ì• ë‹ˆí–‰ë ¬
+				mUpdate[i] = m2 * m1;		// ÀÌµ¿Çà·Ä X È¸ÀüÇà·Ä = ¾Ö´ÏÇà·Ä
 
 				if( pObj->m_nParentIdx != -1 )
 					mUpdate[i] *= mParent[ pObj->m_nParentIdx ];
 //				else
-//					mUpdate[i] *= *mCenter;		// ë£¨íŠ¸ëŠ” ì„¼í„°ë‘ ìµœì´ˆ ê³±í•¨.
+//					mUpdate[i] *= *mCenter;		// ·çÆ®´Â ¼¾ÅÍ¶û ÃÖÃÊ °öÇÔ.
 					
 			} else
-			// ì´ ì˜¤ë¸Œì íŠ¸ì— í”„ë ˆì„ì´ ì—†ì„ë•Œ
+			// ÀÌ ¿ÀºêÁ§Æ®¿¡ ÇÁ·¹ÀÓÀÌ ¾øÀ»¶§
 			{
-				if( pObj->m_nParentIdx != -1 )	// ë¶€ëª¨ê°€ ìˆëŠ” ê²½ìš°
+				if( pObj->m_nParentIdx != -1 )	// ºÎ¸ğ°¡ ÀÖ´Â °æ¿ì
 					mUpdate[i] = pObj->m_mLocalTM * mParent[ pObj->m_nParentIdx ];
 				else
-					mUpdate[i] = pObj->m_mLocalTM;					// ë¶€ëª¨ê°€ ì—†ë‹¤ë©´ ë£¨íŠ¸ë‹¤.
-//					mUpdate[i] = pObj->m_mLocalTM * *mCenter;		// ë¶€ëª¨ê°€ ì—†ë‹¤ë©´ ë£¨íŠ¸ë‹¤. ë£¨íŠ¸ëŠ” ì„¼í„°ë‘ ìµœì´ˆ ê³±í•¨.
+					mUpdate[i] = pObj->m_mLocalTM;					// ºÎ¸ğ°¡ ¾ø´Ù¸é ·çÆ®´Ù.
+//					mUpdate[i] = pObj->m_mLocalTM * *mCenter;		// ºÎ¸ğ°¡ ¾ø´Ù¸é ·çÆ®´Ù. ·çÆ®´Â ¼¾ÅÍ¶û ÃÖÃÊ °öÇÔ.
 			}
 		} else
-		// í”„ë ˆì„ì´ ì—†ì„ë•Œ.
+		// ÇÁ·¹ÀÓÀÌ ¾øÀ»¶§.
 		{
 			if( pObj->m_nParentIdx != -1 )
 				mUpdate[i] = pObj->m_mLocalTM * mParent[ pObj->m_nParentIdx ];
 			else
-				mUpdate[i] = pObj->m_mLocalTM;		// ë¶€ëª¨ê°€ ì—†ë‹¤ë©´ ë£¨íŠ¸ë‹¤. 
-//				mUpdate[i] = pObj->m_mLocalTM * *mCenter;		// ë¶€ëª¨ê°€ ì—†ë‹¤ë©´ ë£¨íŠ¸ë‹¤. ë£¨íŠ¸ëŠ” ì„¼í„°ë‘ ìµœì´ˆ ê³±í•¨.
+				mUpdate[i] = pObj->m_mLocalTM;		// ºÎ¸ğ°¡ ¾ø´Ù¸é ·çÆ®´Ù. 
+//				mUpdate[i] = pObj->m_mLocalTM * *mCenter;		// ºÎ¸ğ°¡ ¾ø´Ù¸é ·çÆ®´Ù. ·çÆ®´Â ¼¾ÅÍ¶û ÃÖÃÊ °öÇÔ.
 		}
 
-		// mUpdate[i]  ìµœì¢… WorldTM
+		// mUpdate[i]  ÃÖÁ¾ WorldTM
 	}
 #endif // __WORLDSERVER
 }
 
 //
-// ìŠ¤í‚¤ë‹.
-// ë³¸ì˜ ì• ë‹ˆë©”ì´ì…˜ì´ ëë‚œí›„ ë¼ˆëŒ€ì™€ ë¡œì»¬ë²„í…ìŠ¤ë¥¼ ê³±í•˜ì—¬ ìµœì¢… ë²„í…ìŠ¤ì¢Œí‘œë¥¼ ê³„ì‚°í•œë‹¤.
-// mBones : ê³„ì‚°ì´ ëë‚œ ë¼ˆëŒ€ë“¤ì˜ ë§¤íŠ¸ë¦­ìŠ¤ 
+// ½ºÅ°´×.
+// º»ÀÇ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ³¡³­ÈÄ »À´ë¿Í ·ÎÄÃ¹öÅØ½º¸¦ °öÇÏ¿© ÃÖÁ¾ ¹öÅØ½ºÁÂÇ¥¸¦ °è»êÇÑ´Ù.
+// mBones : °è»êÀÌ ³¡³­ »À´ëµéÀÇ ¸ÅÆ®¸¯½º 
 //
 void	CObject3D::Skining( GMOBJECT *pObj, const D3DXMATRIX *mBones )
 {
@@ -2668,17 +2668,17 @@ void	CObject3D::Skining( GMOBJECT *pObj, const D3DXMATRIX *mBones )
 	int			*pPhysique;
 	int			nMax;
 
-	// ë²„í…ìŠ¤ ê°¯ìˆ˜ë§Œí¼ ëˆë‹¤.
-	// ìŠ¤í‚¨ì˜ ê° ë²„í…ìŠ¤ë“¤ì€ ìê¸°ê°€ ì†Œì†ëœ BONEì˜ ìµœì¢…ê²°ê³¼ ë§¤íŠ¸ë¦­ìŠ¤ì™€ ìê¸°ë¡œì»¬ ì¢Œí‘œë¥¼ ê³±í•´ì„œ
-	// ìµœì¢… ì¢Œí‘œë¥¼ ìƒì„±í•´ë‚¸ë‹¤.
+	// ¹öÅØ½º °¹¼ö¸¸Å­ µ·´Ù.
+	// ½ºÅ²ÀÇ °¢ ¹öÅØ½ºµéÀº ÀÚ±â°¡ ¼Ò¼ÓµÈ BONEÀÇ ÃÖÁ¾°á°ú ¸ÅÆ®¸¯½º¿Í ÀÚ±â·ÎÄÃ ÁÂÇ¥¸¦ °öÇØ¼­
+	// ÃÖÁ¾ ÁÂÇ¥¸¦ »ı¼ºÇØ³½´Ù.
 	vLocal	  = pObj->m_pVertexList;
 	pPhysique = pObj->m_pPhysiqueVertex;
 	nMax	  = pObj->m_nMaxVertexList;
 	vWorld	  = pObj->_pVertexUpdate;
 	while( nMax-- )
 	{
-		D3DXVec3TransformCoord( vWorld, vLocal, &mBones[ *pPhysique ] );		// ì¼ë‹¨ì€ ì˜í–¥ë°›ëŠ” boneì„ í•œê°œë§Œ ì“´ë‹¤.
-		// ì—¬ê¸°ì„œ ë…¸ë§ë„ ê°™ì´ ëŒë ¤ì•¼ í•œë‹¤.
+		D3DXVec3TransformCoord( vWorld, vLocal, &mBones[ *pPhysique ] );		// ÀÏ´ÜÀº ¿µÇâ¹Ş´Â boneÀ» ÇÑ°³¸¸ ¾´´Ù.
+		// ¿©±â¼­ ³ë¸»µµ °°ÀÌ µ¹·Á¾ß ÇÑ´Ù.
 		vLocal ++;
 		vWorld ++;
 		pPhysique ++;
@@ -2686,19 +2686,19 @@ void	CObject3D::Skining( GMOBJECT *pObj, const D3DXMATRIX *mBones )
 */
 }
 
-// ë³¸ì˜ ë³€í™˜ì´ ëª¨ë‘ ëë‚œí›„ ì‹¤í–‰ëœë‹¤.
-// í”¼ì§€í¬ ë²„í…ìŠ¤ë“¤ì„ ë³¸ì— ë§ì¶° ë‹¤ì‹œ ê³„ì‚°í•´ì„œ ì›”ë“œ ì¢Œí‘œë¡œ ìƒì„±
-// ì›”ë“œì¢Œí‘œë¡œ ìƒì„±ëœ ë²„í…ìŠ¤ë“¤ì„ ë²„í…ìŠ¤ ë²„í¼ì— ì¹´í”¼
+// º»ÀÇ º¯È¯ÀÌ ¸ğµÎ ³¡³­ÈÄ ½ÇÇàµÈ´Ù.
+// ÇÇÁöÅ© ¹öÅØ½ºµéÀ» º»¿¡ ¸ÂÃç ´Ù½Ã °è»êÇØ¼­ ¿ùµå ÁÂÇ¥·Î »ı¼º
+// ¿ùµåÁÂÇ¥·Î »ı¼ºµÈ ¹öÅØ½ºµéÀ» ¹öÅØ½º ¹öÆÛ¿¡ Ä«ÇÇ
 HRESULT		CObject3D::SetVertexBuffer( GMOBJECT *pObj )
 {
 /*
-	CUSTOMVERTEX	*_pVB = pObj->_pVB;			// ìŠ¤í‚¤ë‹ì„ ìœ„í•œ ì„ì‹œë²„í¼
+	CUSTOMVERTEX	*_pVB = pObj->_pVB;			// ½ºÅ°´×À» À§ÇÑ ÀÓ½Ã¹öÆÛ
 	WORD			*pIB;
 	D3DXVECTOR3		*pVList;
 	int				nMax = pObj->m_nMaxVB;		// 
 
-	// WorldPosê°’ë§Œ ê°±ì‹ ë˜ë©´ ë˜ë¯€ë¡œ 
-	// Skining()ì—ì„œ ê³„ì‚°ëœ WorldPosê°’ë§Œ ì¹´í”¼ì‹œì¼œ ì¤€ë‹¤.
+	// WorldPos°ª¸¸ °»½ÅµÇ¸é µÇ¹Ç·Î 
+	// Skining()¿¡¼­ °è»êµÈ WorldPos°ª¸¸ Ä«ÇÇ½ÃÄÑ ÁØ´Ù.
 	pIB    = pObj->m_pIIB;
 	pVList = pObj->_pVertexUpdate;
 	while( nMax-- )
@@ -2711,7 +2711,7 @@ HRESULT		CObject3D::SetVertexBuffer( GMOBJECT *pObj )
 	return S_OK;
 }
 
-// ìŠ¤í‚¤ë‹ìœ¼ë¡œ ê°±ì‹ ëœ ë²„í…ìŠ¤ë²„í¼ë¥¼ d3dë²„í…ìŠ¤ ë²„í¼ë¡œ ì „ì†¡.
+// ½ºÅ°´×À¸·Î °»½ÅµÈ ¹öÅØ½º¹öÆÛ¸¦ d3d¹öÅØ½º ¹öÆÛ·Î Àü¼Û.
 //
 HRESULT CObject3D::SendVertexBuffer( GMOBJECT *pObj, LPDIRECT3DVERTEXBUFFER9 pd3d_VB )
 {
@@ -2723,7 +2723,7 @@ HRESULT CObject3D::SendVertexBuffer( GMOBJECT *pObj, LPDIRECT3DVERTEXBUFFER9 pd3
 	
 	nVertexSize = pObj->m_nVertexSize;
 	
-	// ë²„í…ìŠ¤ ë²„í¼ ì „ì†¡
+	// ¹öÅØ½º ¹öÆÛ Àü¼Û
 	nMax = pObj->m_nMaxVB * nVertexSize;
 /*
 	char buff[256] = { 0 };
@@ -2749,7 +2749,7 @@ HRESULT CObject3D::SendIndexBuffer( GMOBJECT *pObj )
 	VOID*	pVertices;
 	int		nMax;
 
-	// ì¸ë±ìŠ¤ ë²„í¼ ì „ì†¡
+	// ÀÎµ¦½º ¹öÆÛ Àü¼Û
 	nMax = pObj->m_nMaxIB * sizeof(WORD);
 	if( FAILED(	pObj->m_pd3d_IB->Lock( 0, nMax, (void**)&pVertices, 0 ) ) )	// send index buffer
 		return FAIL;
@@ -2777,7 +2777,7 @@ void CObject3D::SetState( MATERIAL_BLOCK* pBlock, int nEffect, DWORD dwBlendFact
 		if( m_nNoEffect )	return;
 		DWORD dwBlendF =  dwBlendFactor;
 		//m_pd3dDevice->SetRenderState( D3DRS_ALPHAREF, 0 );
-		//m_pd3dDevice->SetRenderState( D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL );		// íŠ¹ì • ì•ŒíŒŒí‚¤ê°’ ëºŒ.
+		//m_pd3dDevice->SetRenderState( D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL );		// Æ¯Á¤ ¾ËÆÄÅ°°ª »­.
 		//m_pd3dDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
 		//m_pd3dDevice->SetRenderState( D3DRS_ALPHAREF,        0xb0 );
 		//pd3dDevice->SetRenderState( D3DRS_SRCBLEND, D3DBLEND_SRCALPHA  );
@@ -2789,14 +2789,14 @@ void CObject3D::SetState( MATERIAL_BLOCK* pBlock, int nEffect, DWORD dwBlendFact
 		//pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAARG1, D3DTA_TFACTOR );
 		//pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAOP,   D3DTOP_SELECTARG1 );
 		m_pd3dDevice->SetRenderState( D3DRS_ALPHAREF, 0 );
-		m_pd3dDevice->SetRenderState( D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL );		// íŠ¹ì • ì•ŒíŒŒí‚¤ê°’ ëºŒ.
+		m_pd3dDevice->SetRenderState( D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL );		// Æ¯Á¤ ¾ËÆÄÅ°°ª »­.
 		
 		m_pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAOP,   D3DTOP_MODULATE );
 		m_pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE );
 		m_pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAARG2, D3DTA_TFACTOR  );
 	}
 	else
-	if( (pBlock->m_dwEffect & XE_OPACITY)  )	// ì•ŒíŒŒì±„ë„
+	if( (pBlock->m_dwEffect & XE_OPACITY)  )	// ¾ËÆÄÃ¤³Î
 	{
 		m_pd3dDevice->SetRenderState( D3DRS_ALPHATESTENABLE, TRUE );
 		m_pd3dDevice->SetRenderState( D3DRS_ALPHAREF,        0xb0 );
@@ -2814,7 +2814,7 @@ void CObject3D::SetState( MATERIAL_BLOCK* pBlock, int nEffect, DWORD dwBlendFact
 			m_pd3dDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
 			m_pd3dDevice->SetRenderState( D3DRS_ALPHATESTENABLE, TRUE );
 			m_pd3dDevice->SetRenderState( D3DRS_ALPHAREF, 0 );
-			m_pd3dDevice->SetRenderState( D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL );		// íŠ¹ì • ì•ŒíŒŒí‚¤ê°’ ëºŒ.
+			m_pd3dDevice->SetRenderState( D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL );		// Æ¯Á¤ ¾ËÆÄÅ°°ª »­.
 			
 			m_pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAOP,   D3DTOP_MODULATE );
 			m_pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE );
@@ -2835,7 +2835,7 @@ void CObject3D::SetState( MATERIAL_BLOCK* pBlock, int nEffect, DWORD dwBlendFact
 		m_pd3dDevice->SetSamplerState( 1, D3DSAMP_MINFILTER, D3DTEXF_LINEAR );
         m_pd3dDevice->SetSamplerState( 1, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR );
 		
-		//D3DRS_ALPHATESTENABLEêº¼ì¤˜ì•¼ ë¸”ë Œë”© íš¨ê³¼ë¥¼ ê¸°ëŒ€í• ìˆ˜ìˆë‹¤.
+		//D3DRS_ALPHATESTENABLE²¨Áà¾ß ºí·»µù È¿°ú¸¦ ±â´ëÇÒ¼öÀÖ´Ù.
 		m_pd3dDevice->SetRenderState( D3DRS_ALPHATESTENABLE, FALSE );
 		m_pd3dDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
 	    
@@ -2854,10 +2854,10 @@ void CObject3D::SetState( MATERIAL_BLOCK* pBlock, int nEffect, DWORD dwBlendFact
 		m_pd3dDevice->SetTextureStageState( 1, D3DTSS_ALPHAOP,   D3DTOP_SUBTRACT );
 
 		// 20sec : 1.0f
-		// ì•„ë˜ëŠ” toolì—ì„œ êµ¬í˜„ëœ ê²ƒê³¼ ë‹¤ë¥¸ë°, ì‹¤ì œê²Œì„ì—ì„œëŠ” ì‹œê°„ìœ¼ë¡œ ê·¸ ìˆ˜ì¹˜ë¥¼ ì •í•˜ê³  ìˆê¸° ë•Œë¬¸ì´ë‹¤. 
-		// toolì—ì„œëŠ” ì—¬ëŸ¬ ê°œì²´ìˆ˜ë¥¼ ë„ìš¸í•„ìš”ê°€ ì—†ê¸°ì— ì‹œê°„ëŒ€ì‹  ìƒìˆ˜ë¥¼ ì‚¬ìš©í•˜ì˜€ë‹¤.
+		// ¾Æ·¡´Â tool¿¡¼­ ±¸ÇöµÈ °Í°ú ´Ù¸¥µ¥, ½ÇÁ¦°ÔÀÓ¿¡¼­´Â ½Ã°£À¸·Î ±× ¼öÄ¡¸¦ Á¤ÇÏ°í ÀÖ±â ¶§¹®ÀÌ´Ù. 
+		// tool¿¡¼­´Â ¿©·¯ °³Ã¼¼ö¸¦ ¶ç¿ïÇÊ¿ä°¡ ¾ø±â¿¡ ½Ã°£´ë½Å »ó¼ö¸¦ »ç¿ëÇÏ¿´´Ù.
 		
-		extern DWORD g_timeMTE;	// 20ì´ˆ ê°±ì‹ ìš© íƒ€ì´ë¨¸
+		extern DWORD g_timeMTE;	// 20ÃÊ °»½Å¿ë Å¸ÀÌ¸Ó
 		float fUV = (float)(g_timeMTE * 0.00005f);
 		m_pMteData->_kUV[0].x = fUV;
 		m_pMteData->_kUV[0].y = fUV;
@@ -2867,7 +2867,7 @@ void CObject3D::SetState( MATERIAL_BLOCK* pBlock, int nEffect, DWORD dwBlendFact
 		m_pd3dDevice->SetVertexShaderConstantF( 91, (float*)&m_pMteData->_kUV[0], 1 );		//texture uv ( skinning2.vsh )
 
 
-		if( g_timeMTE < 11000 ) // ì„œì„œíˆ ë°ì•„ì§€ê²Œ í•˜ì
+		if( g_timeMTE < 11000 ) // ¼­¼­È÷ ¹à¾ÆÁö°Ô ÇÏÀÚ
 		{
 			float v = (float)(g_timeMTE * 0.0001f);
 			m_pMteData->_kUV[1] = D3DXVECTOR3( v, v, v );
@@ -3020,14 +3020,14 @@ void CObject3D::ResetState( MATERIAL_BLOCK* pBlock,  int nEffect, DWORD dwBlendF
 	m_pd3dDevice->SetTexture( 0, NULL );
 }
 //
-//	ìŠ¤í‚¨í˜•íƒœì˜ ì˜¤ë¸Œì íŠ¸ ë Œë”ëŸ¬
-//  ë‹¨ë…ìœ¼ë¡œëŠ” ë™ì‘í•˜ì§€ ëª»í•œë‹¤.
+//	½ºÅ²ÇüÅÂÀÇ ¿ÀºêÁ§Æ® ·»´õ·¯
+//  ´Üµ¶À¸·Î´Â µ¿ÀÛÇÏÁö ¸øÇÑ´Ù.
 //
 void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER9 pd3d_VB, GMOBJECT *pObj, const D3DXMATRIX *mWorld, int nEffect, DWORD dwBlendFactor )
 {
-	//---- ê·¸ëŒ€! ìŠ¤í‚¨ì˜¤ë¸Œì íŠ¸ë§Œ í™”ë©´ì— ì•ˆë‚˜ì˜¤ëŠ”ê°€! ê·¸ëŸ¬ë©´ CModelObject::Render()ì˜ ì„¤ëª…ì„ ì½ì–´ë³´ê³  í™•ì¸í•´ë³´ì•„ë¼!
-	if( g_bUsableVS == FALSE )		// ë²„í…ìŠ¤ì‰ì´ë” 1.1ì„ ì§€ì›ëª»í•˜ë©´
-		pd3dDevice->SetSoftwareVertexProcessing(TRUE);		// ì†Œí”„íŠ¸ì›¨ì–´ ëª¨ë“œë¡œ ë°”ê¿ˆ
+	//---- ±×´ë! ½ºÅ²¿ÀºêÁ§Æ®¸¸ È­¸é¿¡ ¾È³ª¿À´Â°¡! ±×·¯¸é CModelObject::Render()ÀÇ ¼³¸íÀ» ÀĞ¾îº¸°í È®ÀÎÇØº¸¾Æ¶ó!
+	if( g_bUsableVS == FALSE )		// ¹öÅØ½º½¦ÀÌ´õ 1.1À» Áö¿ø¸øÇÏ¸é
+		pd3dDevice->SetSoftwareVertexProcessing(TRUE);		// ¼ÒÇÁÆ®¿ş¾î ¸ğµå·Î ¹Ù²Ş
 	
 	MATERIAL_BLOCK	*pBlock;
 	int		nMaxMtrl, nMaxVB, nMaxBone;
@@ -3046,16 +3046,16 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 
 	if( m_pmExternBone )	
 	{
-		pBone = m_pmExternBone;		// ì™¸ë¶€ì§€ì • ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ê·¸ê±¸ ì“°ê³ 
+		pBone = m_pmExternBone;		// ¿ÜºÎÁöÁ¤ »À´ë°¡ ÀÖ´Ù¸é ±×°É ¾²°í
 		pmBonesInv = m_pmExternBoneInv;
 	}
 	else					
 	{
-		pBone = m_pBaseBone;		// ì—†ë‹¤ë©´ ë””í´íŠ¸ë¥¼ ì“´ë‹¤.
+		pBone = m_pBaseBone;		// ¾ø´Ù¸é µğÆúÆ®¸¦ ¾´´Ù.
 		pmBonesInv = m_pBaseBoneInv;
 	}
 
-	if( pObj->m_nMaxUseBone )		// ë¼ˆëŒ€ê°œìˆ˜ê°€ ë§ì•„ì„œ ë”°ë¡œ ì „ì†¡í•´ì•¼í•¨.
+	if( pObj->m_nMaxUseBone )		// »À´ë°³¼ö°¡ ¸¹¾Æ¼­ µû·Î Àü¼ÛÇØ¾ßÇÔ.
 	{
 		nMaxBone = pObj->m_nMaxUseBone;
 		for( i = 0; i < nMaxBone; i ++ )	// 
@@ -3068,8 +3068,8 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 			str.Format( "mBoneMatrix[%d]", i );
 			HRESULT hr = g_Neuz.m_pEffect->SetMatrix( str, &m1 );
 #else //__YENV
-			D3DXMatrixTranspose( &m1, &m1 );		// ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ëŒë¦°ë‹¤ìŒ.
-			pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&m1, 3 );		// ìƒìˆ˜ë ˆì§€ìŠ¤í„°ì— ì§‘ì–´ë„£ìŒ.
+			D3DXMatrixTranspose( &m1, &m1 );		// ¸ÅÆ®¸¯½º¸¦ µ¹¸°´ÙÀ½.
+			pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&m1, 3 );		// »ó¼ö·¹Áö½ºÅÍ¿¡ Áı¾î³ÖÀ½.
 #endif //__YENV
 
 		}
@@ -3112,7 +3112,7 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 	nMaxVB	 = pObj->m_nMaxVB;
 	while( nMaxMtrl-- )
 	{
-		if( pBlock->m_nMaxUseBone )		// ë¼ˆëŒ€ê°œìˆ˜ê°€ ë§ì•„ì„œ ë”°ë¡œ ì „ì†¡í•´ì•¼í•¨.
+		if( pBlock->m_nMaxUseBone )		// »À´ë°³¼ö°¡ ¸¹¾Æ¼­ µû·Î Àü¼ÛÇØ¾ßÇÔ.
 		{
 			nMaxBone = pBlock->m_nMaxUseBone;
 			for( i = 0; i < nMaxBone; i ++ )	// 
@@ -3125,20 +3125,20 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 				str.Format( "mBoneMatrix[%d]", i );
 				HRESULT hr = g_Neuz.m_pEffect->SetMatrix( str, &m1 );
 	#else //__YENV
-				D3DXMatrixTranspose( &m1, &m1 );		// ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ëŒë¦°ë‹¤ìŒ.
-				pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&m1, 3 );		// ìƒìˆ˜ë ˆì§€ìŠ¤í„°ì— ì§‘ì–´ë„£ìŒ.
+				D3DXMatrixTranspose( &m1, &m1 );		// ¸ÅÆ®¸¯½º¸¦ µ¹¸°´ÙÀ½.
+				pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&m1, 3 );		// »ó¼ö·¹Áö½ºÅÍ¿¡ Áı¾î³ÖÀ½.
 	#endif //__YENV
 
 			}
 		}
-		// ìƒíƒœ ì„¸íŒ… 
+		// »óÅÂ ¼¼ÆÃ 
 		SetState( pBlock, nEffect, dwBlendFactor );
 #ifdef __BS_EFFECT_LUA
 		if( XE_MTE != nEffect)
 #endif //__BS_EFFECT_LUA
 		{
 			LPDIRECT3DTEXTURE9 pCloakTexture = g_ModelGlobal.GetTexture();
-			if( pCloakTexture )		// ì™¸ë¶€ ì§€ì • í…ìŠ¤ì³ê°€ ìˆì„ë•Œ.
+			if( pCloakTexture )		// ¿ÜºÎ ÁöÁ¤ ÅØ½ºÃÄ°¡ ÀÖÀ»¶§.
 				pd3dDevice->SetTexture( 0, pCloakTexture );
 			else
 			if( m_nNoTexture && pObj->m_bOpacity == 0 )
@@ -3190,7 +3190,7 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 				D3DXMATRIX m;
 				m = mWorld2 * s_mView * s_mProj;
 				
-				// íˆ¬ì˜ ì„¤ì •...
+				// Åõ¿µ ¼³Á¤...
 				g_Neuz.m_pEffect->SetMatrix( g_Neuz.m_hmWVP, &m );
 				
 				if( m_nNoTexture )
@@ -3206,20 +3206,20 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 					g_Neuz.m_pEffect->SetTexture( g_Neuz.m_hTexDiffuse, *pBlkTexture );
 					
 					
-					// ë¼ì´íŠ¸ ìœ„ì¹˜ ì„¤ì •
+					// ¶óÀÌÆ® À§Ä¡ ¼³Á¤
 					D3DXVECTOR4 v;
 					D3DXVECTOR4 vLight_Dir = s_vLight;//D3DXVECTOR4( 0.0f, 0.0f, -0.05f, 0 );
 					D3DXMATRIX mLocal;
 					D3DXMatrixInverse( &mLocal, NULL, &mWorld2 );						
-					D3DXVec4Transform( &v, &vLight_Dir, &mLocal );						// ë¡œì»¬ì¢Œí‘œë¡œ ë³€í™˜
-					D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// ì •ê·œí™”
+					D3DXVec4Transform( &v, &vLight_Dir, &mLocal );						// ·ÎÄÃÁÂÇ¥·Î º¯È¯
+					D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// Á¤±ÔÈ­
 					
-					// ë¼ì´íŠ¸ ë°©í–¥ ì„¤ì •
+					// ¶óÀÌÆ® ¹æÇâ ¼³Á¤
 
 //					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvLightDir, &D3DXVECTOR4( 0.0f, -1.0f, 0.0f, 1.0f) );
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvLightDir, &v );
 					
-					// í¬ê·¸
+					// Æ÷±×
 					D3DXVECTOR4 vFog;
 					vFog.x = s_fFogEnd/(s_fFogEnd-s_fFogStart);
 					vFog.y = -1.0f/(s_fFogEnd-s_fFogStart);
@@ -3233,20 +3233,20 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvDiffuse, (D3DXVECTOR4*)&s_fDiffuse[0] );
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvAmbient, (D3DXVECTOR4*)&s_fAmbient[0] );
 					
-					// ì¹´ë©”ë¼ ìœ„ì¹˜
+					// Ä«¸Ş¶ó À§Ä¡
 					m = mWorld2 * s_mView ;
 					D3DXMatrixInverse( &m, NULL, &m );						
 					v = D3DXVECTOR4( 0, 0, 0, 1 );
 					D3DXVec4Transform( &v, &v, &m );
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvEyePos, &v );
 					
-					// ë²•ì„ ë§µ
+					// ¹ı¼±¸Ê
 			#ifndef __YENV_WITHOUT_BUMP			
 					g_Neuz.m_pEffect->SetTexture( g_Neuz.m_hTexBump, pNormalTexture );
 			#endif //__YENV_WITHOUT_BUMP
 				}
 				
-				// ì •ì ì„ ì–¸
+				// Á¤Á¡¼±¾ğ
 				m_pd3dDevice->SetVertexDeclaration( m_pNormalDecl );
 			}
 			else
@@ -3257,7 +3257,7 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 				D3DXMATRIX m;
 				m = mWorld2 * s_mView * s_mProj;
 				
-				// íˆ¬ì˜ ì„¤ì •...
+				// Åõ¿µ ¼³Á¤...
 				g_Neuz.m_pEffect->SetMatrix( g_Neuz.m_hmWVP, &m );
 				g_Neuz.m_pEffect->SetMatrix( "mView", &s_mView );
 				g_Neuz.m_pEffect->SetMatrix( "mProj", &s_mProj );
@@ -3267,21 +3267,21 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 				else
 					g_Neuz.m_pEffect->SetTexture( g_Neuz.m_hTexDiffuse, *pBlkTexture );
 				
-				// ë¼ì´íŠ¸ ìœ„ì¹˜ ì„¤ì •
+				// ¶óÀÌÆ® À§Ä¡ ¼³Á¤
 				D3DXVECTOR4 v;
 				D3DXVECTOR4 vLight_Dir = s_vLight;//D3DXVECTOR4( 0.0f, 0.0f, -0.05f, 0 );
 				D3DXMATRIX mLocal;
 				D3DXMatrixInverse( &mLocal, NULL, &mWorld2 );						
-				D3DXVec4Transform( &v, &vLight_Dir, &mLocal );						// ë¡œì»¬ì¢Œí‘œë¡œ ë³€í™˜
-				D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// ì •ê·œí™”
+				D3DXVec4Transform( &v, &vLight_Dir, &mLocal );						// ·ÎÄÃÁÂÇ¥·Î º¯È¯
+				D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// Á¤±ÔÈ­
 				
-				// ë¼ì´íŠ¸ ë°©í–¥ ì„¤ì •
+				// ¶óÀÌÆ® ¹æÇâ ¼³Á¤
 				g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvLightDir, &v );
 			
 				g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvDiffuse, (D3DXVECTOR4*)&s_fDiffuse[0] );	
 				g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvAmbient, (D3DXVECTOR4*)&s_fAmbient[0] );
 				
-				// í¬ê·¸
+				// Æ÷±×
 				D3DXVECTOR4 vFog;
 				vFog.x = s_fFogEnd/(s_fFogEnd-s_fFogStart);
 				vFog.y = -1.0f/(s_fFogEnd-s_fFogStart);
@@ -3319,23 +3319,23 @@ void	CObject3D::RenderSkin( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER
 		pBlkTexture ++;
 	}
 
-	// ë²„í…ìŠ¤ì‰ì´ë” ì“°ëŠ”ë„˜ì€ í¬ê·¸ë¥¼ êº¼ì•¼ ì œëŒ€ë¡œ ë‚˜ì˜¤ë”ë¼.
+	// ¹öÅØ½º½¦ÀÌ´õ ¾²´Â³ÑÀº Æ÷±×¸¦ ²¨¾ß Á¦´ë·Î ³ª¿À´õ¶ó.
 //	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, s_bFog );
 	pd3dDevice->SetVertexShader( NULL );
 	pd3dDevice->SetVertexDeclaration( NULL );
 	
 #ifdef __CLIENT
-	if( g_Neuz.m_d3dSettings.GetVertexProcessingType() != SOFTWARE_VP && g_bUsableVS == FALSE )		// ë²„í…ìŠ¤ì‰ì´ë” 1.1ì„ ì§€ì›ëª»í•˜ë©´
-		pd3dDevice->SetSoftwareVertexProcessing(FALSE);		// ë‹¤ì‹œ í•˜ë“œì›¨ì–´ì²˜ë¦¬ë¡œ ëŒë¦¼.
+	if( g_Neuz.m_d3dSettings.GetVertexProcessingType() != SOFTWARE_VP && g_bUsableVS == FALSE )		// ¹öÅØ½º½¦ÀÌ´õ 1.1À» Áö¿ø¸øÇÏ¸é
+		pd3dDevice->SetSoftwareVertexProcessing(FALSE);		// ´Ù½Ã ÇÏµå¿ş¾îÃ³¸®·Î µ¹¸².
 #endif	
 	
 }
 
 //
-// ë‹¨ë…ìœ¼ë¡œëŠ” ë™ì‘í•˜ì§€ ëª»í•œë‹¤. ì‚¬ì „ì— SetRenderë“±ì„ í•´ì¤˜ì•¼ í•œë‹¤.
-// ì¼ë°˜í˜•íƒœì˜ ë Œë”ëŸ¬
-// mUpdate : ê° ì˜¤ë¸Œì íŠ¸ê°€ Animateë˜ê³ ë‚œ í›„, ìµœì¢… ë§¤íŠ¸ë¦­ìŠ¤ì˜ ë¦¬ìŠ¤íŠ¸.
-// mWorld : ê¸°ì¤€ ë§¤íŠ¸ë¦­ìŠ¤.
+// ´Üµ¶À¸·Î´Â µ¿ÀÛÇÏÁö ¸øÇÑ´Ù. »çÀü¿¡ SetRenderµîÀ» ÇØÁà¾ß ÇÑ´Ù.
+// ÀÏ¹İÇüÅÂÀÇ ·»´õ·¯
+// mUpdate : °¢ ¿ÀºêÁ§Æ®°¡ AnimateµÇ°í³­ ÈÄ, ÃÖÁ¾ ¸ÅÆ®¸¯½ºÀÇ ¸®½ºÆ®.
+// mWorld : ±âÁØ ¸ÅÆ®¸¯½º.
 //
 void	CObject3D::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, GMOBJECT *pObj, const D3DXMATRIX *mWorld, int nEffect, int nBlendFactor )
 {
@@ -3410,7 +3410,7 @@ void	CObject3D::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, GMOBJECT *pObj, cons
 	
 	pd3dDevice->SetIndices( pObj->m_pd3d_IB );
 	
-//	m1 = mUpdate[i] * mWorld;		// mUpdateì— ë¯¸ë¦¬ mWorldë¥¼ ê³±í•œìƒíƒœë¡œ ì™€ë„ ë ê²ƒ ê°™ë‹¤.
+//	m1 = mUpdate[i] * mWorld;		// mUpdate¿¡ ¹Ì¸® mWorld¸¦ °öÇÑ»óÅÂ·Î ¿Íµµ µÉ°Í °°´Ù.
 	pd3dDevice->SetTransform( D3DTS_WORLD, mWorld );
 
 	pBlock   = pObj->m_pMtrlBlk;
@@ -3419,7 +3419,7 @@ void	CObject3D::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, GMOBJECT *pObj, cons
 	
 	while( nMaxMtrl-- )
 	{
-		// ìƒíƒœ ì„¸íŒ… 
+		// »óÅÂ ¼¼ÆÃ 
 		if( pObj->m_bLight )
 		{
 			if( m_nNoEffect == 0 )
@@ -3474,23 +3474,23 @@ void	CObject3D::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, GMOBJECT *pObj, cons
 					D3DXMATRIX m;
 					m = mWorld2 * s_mView * s_mProj;
 					
-					// íˆ¬ì˜ ì„¤ì •...
+					// Åõ¿µ ¼³Á¤...
 					g_Neuz.m_pEffect->SetMatrix( g_Neuz.m_hmWVP, &m );
 					g_Neuz.m_pEffect->SetTexture( g_Neuz.m_hTexDiffuse, *pBlkTexture );
 					
-					// ë¼ì´íŠ¸ ìœ„ì¹˜ ì„¤ì •
+					// ¶óÀÌÆ® À§Ä¡ ¼³Á¤
 					D3DXVECTOR4 v;
 					D3DXVECTOR4 vLight_Dir = s_vLight;//D3DXVECTOR4( 0.0f, 0.0f, -0.05f, 0 );
 					D3DXMATRIX mLocal;
 					D3DXMatrixInverse( &mLocal, NULL, &mWorld2 );						
-					D3DXVec4Transform( &v, &vLight_Dir, &mLocal );						// ë¡œì»¬ì¢Œí‘œë¡œ ë³€í™˜
-					D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// ì •ê·œí™”
-					v.w = -0.6f;														// í™˜ê²½ê´‘ì˜ ë°ê¸°(Ambint) Def : -0.3f
+					D3DXVec4Transform( &v, &vLight_Dir, &mLocal );						// ·ÎÄÃÁÂÇ¥·Î º¯È¯
+					D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// Á¤±ÔÈ­
+					v.w = -0.6f;														// È¯°æ±¤ÀÇ ¹à±â(Ambint) Def : -0.3f
 					
-					// ë¼ì´íŠ¸ ë°©í–¥ ì„¤ì •
+					// ¶óÀÌÆ® ¹æÇâ ¼³Á¤
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvLightDir, &v );
 					
-					// í¬ê·¸
+					// Æ÷±×
 					D3DXVECTOR4 vFog;
 					vFog.x = s_fFogEnd/(s_fFogEnd-s_fFogStart);
 					vFog.y = -1.0f/(s_fFogEnd-s_fFogStart);
@@ -3505,14 +3505,14 @@ void	CObject3D::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, GMOBJECT *pObj, cons
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvDiffuse, (D3DXVECTOR4*)&s_fDiffuse[0] );	
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvAmbient, (D3DXVECTOR4*)&s_fAmbient[0] );
 					
-					// ì¹´ë©”ë¼ ìœ„ì¹˜
+					// Ä«¸Ş¶ó À§Ä¡
 					m = mWorld2 * s_mView ;
 					D3DXMatrixInverse( &m, NULL, &m );						
 					v = D3DXVECTOR4( 0, 0, 0, 1 );
 					D3DXVec4Transform( &v, &v, &m );
 					g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvEyePos, &v );
 					
-					// ë²„íƒìŠ¤ì‰ì´ë”ê°€ 1.1 ì§€ì›í•˜ê³  í”½ì…€ì‰ì´ë”ê°€ 2.0ì´ìƒì´ì–´ì•¼ í•œë‹¤...
+					// ¹öÅÃ½º½¦ÀÌ´õ°¡ 1.1 Áö¿øÇÏ°í ÇÈ¼¿½¦ÀÌ´õ°¡ 2.0ÀÌ»óÀÌ¾î¾ß ÇÑ´Ù...
 					if( nEffect & XE_NOBUMP )
 						g_Neuz.m_pEffect->Pass(0);		
 					else				
@@ -3536,10 +3536,10 @@ void	CObject3D::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, GMOBJECT *pObj, cons
 						else
 							g_Neuz.m_pEffect->Pass(1);
 						
-						// ë²•ì„ ë§µ
+						// ¹ı¼±¸Ê
 						g_Neuz.m_pEffect->SetTexture( g_Neuz.m_hTexBump, pNormalTexture );				
 						
-						// ì •ì ì„ ì–¸
+						// Á¤Á¡¼±¾ğ
 						m_pd3dDevice->SetVertexDeclaration( m_pNormalDecl );
 					}
 					else
@@ -3565,7 +3565,7 @@ void	CObject3D::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, GMOBJECT *pObj, cons
 		pd3dDevice->DrawIndexedPrimitive( D3DPT_TRIANGLELIST, 0, 0, nMaxVB, pBlock->m_nStartVertex, pBlock->m_nPrimitiveCount );
 #endif //__YENV
 
-		// ìƒíƒœ ë³µì› 
+		// »óÅÂ º¹¿ø 
 		if( pObj->m_bLight )
 		{
 			if( m_nNoEffect == 0 )
@@ -3586,7 +3586,7 @@ void	CObject3D::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, GMOBJECT *pObj, cons
 }
 
 #if 0
-// ì¶©ëŒë©”ì‹œì˜ ë Œë”.
+// Ãæµ¹¸Ş½ÃÀÇ ·»´õ.
 void	CObject3D::RenderCollObject( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorld )
 {
 	GMOBJECT *pObj = &m_CollObject;
@@ -3618,7 +3618,7 @@ void	CObject3D::RenderCollObject( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX
 	
 	pd3dDevice->SetIndices( pObj->m_pd3d_IB );
 	
-	//	m1 = mUpdate[i] * mWorld;		// mUpdateì— ë¯¸ë¦¬ mWorldë¥¼ ê³±í•œìƒíƒœë¡œ ì™€ë„ ë ê²ƒ ê°™ë‹¤.
+	//	m1 = mUpdate[i] * mWorld;		// mUpdate¿¡ ¹Ì¸® mWorld¸¦ °öÇÑ»óÅÂ·Î ¿Íµµ µÉ°Í °°´Ù.
 	pd3dDevice->SetTransform( D3DTS_WORLD, mWorld );
 	
 	pBlock   = pObj->m_pMtrlBlk;
@@ -3626,7 +3626,7 @@ void	CObject3D::RenderCollObject( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX
 	nMaxVB	 = pObj->m_nMaxVB;
 	while( nMaxMtrl-- )
 	{
-		// ìƒíƒœ ì„¸íŒ… 
+		// »óÅÂ ¼¼ÆÃ 
 		if( pObj->m_bLight )
 		{
 			if( m_nNoEffect == 0 )
@@ -3653,7 +3653,7 @@ void	CObject3D::RenderCollObject( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX
 		
 		pd3dDevice->DrawIndexedPrimitive( D3DPT_TRIANGLELIST, 0, 0, nMaxVB, pBlock->m_nStartVertex, pBlock->m_nPrimitiveCount );
 
-		// ìƒíƒœ ë³µì› 
+		// »óÅÂ º¹¿ø 
 		if( pObj->m_bLight )
 		{
 			if( m_nNoEffect == 0 )
@@ -3675,24 +3675,24 @@ void	CObject3D::RenderCollObject( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX
 #endif // 0
 
 //
-// ìì²´ ë³¸ì• ë‹ˆë©”ì´ì…˜ì„ ì“°ëŠ” ë°°ê²½ì˜¤ë¸Œì íŠ¸ë“¤ì€ ì´ í•¨ìˆ˜ë¡œ ë³¸ ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ì‰ì´ë”ì— ë³´ë‚¸ë‹¤.
+// ÀÚÃ¼ º»¾Ö´Ï¸ŞÀÌ¼ÇÀ» ¾²´Â ¹è°æ¿ÀºêÁ§Æ®µéÀº ÀÌ ÇÔ¼ö·Î º» ¸ÅÆ®¸¯½º¸¦ ½¦ÀÌ´õ¿¡ º¸³½´Ù.
 //
 void	CObject3D::SetShader( const D3DXMATRIX *mWorld )
 {
 	int		i;
 	if( m_pBaseBone == NULL )	return;
 
-	D3DXMATRIX *pmBones = m_pBaseBone;		// ë¼ˆëŒ€ëª¨ì…˜ì´ ë¡œë”©ëœê²Œ ì—†ìœ¼ë©´ ë””í´íŠ¸ë¥¼ ì“´ë‹¤.
+	D3DXMATRIX *pmBones = m_pBaseBone;		// »À´ë¸ğ¼ÇÀÌ ·ÎµùµÈ°Ô ¾øÀ¸¸é µğÆúÆ®¸¦ ¾´´Ù.
 	D3DXMATRIX *pmBonesInv = m_pBaseBoneInv ;
 	D3DXMATRIX mWorldTranspose;
 	
-	if( m_bSendVS )	// ë¼ˆëŒ€ê°œìˆ˜ê°€ MAX_VS_BONEì´í•˜ë¼ì„œ í•œë²ˆì— ë‹¤ ì „ì†¡í•œë‹¤.
+	if( m_bSendVS )	// »À´ë°³¼ö°¡ MAX_VS_BONEÀÌÇÏ¶ó¼­ ÇÑ¹ø¿¡ ´Ù Àü¼ÛÇÑ´Ù.
 	{
 		int		nMaxBone = m_nMaxBone;
 		if( nMaxBone > MAX_VS_BONE )	
-			Error( "CModelObject::Render : ë¼ˆëŒ€ê°œìˆ˜ê°€ ìµœëŒ€ì¹˜ë¥¼ ì´ˆê³¼í–ˆë‹¤. %d", nMaxBone );
+			Error( "CModelObject::Render : »À´ë°³¼ö°¡ ÃÖ´ëÄ¡¸¦ ÃÊ°úÇß´Ù. %d", nMaxBone );
 
-		for( i = 0; i < nMaxBone; i ++ )	// MAX_VS_BONEê°œ ì´í•˜	
+		for( i = 0; i < nMaxBone; i ++ )	// MAX_VS_BONE°³ ÀÌÇÏ	
 		{
 			mWorldTranspose = pmBonesInv[i] * pmBones[i];
 
@@ -3701,8 +3701,8 @@ void	CObject3D::SetShader( const D3DXMATRIX *mWorld )
 			str.Format( "mBoneMatrix[%d]", i );
 			HRESULT hr = g_Neuz.m_pEffect->SetMatrix( str, &mWorldTranspose );
 #else //__YENV
-			D3DXMatrixTranspose( &mWorldTranspose, &mWorldTranspose );		// ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ëŒë¦°ë‹¤ìŒ.
-			m_pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&mWorldTranspose, 3 );		// ìƒìˆ˜ë ˆì§€ìŠ¤í„°ì— ì§‘ì–´ë„£ìŒ.
+			D3DXMatrixTranspose( &mWorldTranspose, &mWorldTranspose );		// ¸ÅÆ®¸¯½º¸¦ µ¹¸°´ÙÀ½.
+			m_pd3dDevice->SetVertexShaderConstantF( i * 3, (float*)&mWorldTranspose, 3 );		// »ó¼ö·¹Áö½ºÅÍ¿¡ Áı¾î³ÖÀ½.
 #endif //__YENV
 
 		}
@@ -3737,19 +3737,19 @@ void	CObject3D::SetShader( const D3DXMATRIX *mWorld )
 	
 #ifdef __YENV	
 	/*
-	// íˆ¬ì˜ ì„¤ì •...
+	// Åõ¿µ ¼³Á¤...
 	g_Neuz.m_pEffect->SetMatrix( g_Neuz.m_hmWVP, &mViewProjTranspose );
 	
-	// ë¼ì´íŠ¸ ìœ„ì¹˜ ì„¤ì •
+	// ¶óÀÌÆ® À§Ä¡ ¼³Á¤
 	D3DXVECTOR4 v;
 	D3DXVECTOR4 vLight_Pos = s_vLight;
 	D3DXMATRIX mLocal;
 	D3DXMatrixInverse( &mLocal, NULL, &mViewProjTranspose );						
-	D3DXVec4Transform( &v, &vLight_Pos, &mLocal );						// ë¡œì»¬ì¢Œí‘œë¡œ ë³€í™˜
-	D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// ì •ê·œí™”
-	v.w = -0.6f;														// í™˜ê²½ê´‘ì˜ ë°ê¸°(Ambint) Def : -0.3f
+	D3DXVec4Transform( &v, &vLight_Pos, &mLocal );						// ·ÎÄÃÁÂÇ¥·Î º¯È¯
+	D3DXVec3Normalize( (D3DXVECTOR3*)&v, (D3DXVECTOR3*)&v );			// Á¤±ÔÈ­
+	v.w = -0.6f;														// È¯°æ±¤ÀÇ ¹à±â(Ambint) Def : -0.3f
 	
-	// ë¼ì´íŠ¸ ë°©í–¥ ì„¤ì •
+	// ¶óÀÌÆ® ¹æÇâ ¼³Á¤
 	g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvLightDir, &v );
 	
 	g_Neuz.m_pEffect->SetVector( g_Neuz.m_hvDiffuse, (D3DXVECTOR4*)&s_fDiffuse[0] );	
@@ -3780,11 +3780,11 @@ void	CObject3D::Render( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER9 *p
 	D3DXMATRIX	m1;
 	D3DXMATRIX	*pBone = NULL;
 
-//	m_tmCreate = g_tmCurrent;	// í•œë²ˆì´ë¼ë„ ë Œë”ë§ ë˜ê³  ìˆë‹¤ë©´ ê³„ì† ì‚¬ìš©í•˜ê³  ìˆëŠ”ê²ƒìœ¼ë¡œ ë´ì•¼ í•œë‹¤,.
+//	m_tmCreate = g_tmCurrent;	// ÇÑ¹øÀÌ¶óµµ ·»´õ¸µ µÇ°í ÀÖ´Ù¸é °è¼Ó »ç¿ëÇÏ°í ÀÖ´Â°ÍÀ¸·Î ºÁ¾ß ÇÑ´Ù,.
 
-	// ì• ë‹ˆë©”ì´ì…˜ì´ ìˆê±°ë‚˜ ì™¸ë¶€ì§€ì •ë¼ˆëŒ€ê°€ ìˆë‹¤ë©´ ì• ë‹ˆë©”ì´íŠ¸ ëŒì•„ì•¼ í•œë‹¤.
-	if( m_pGroup->_mUpdate )		// maxframeì´ ìˆë‹¤ë©´ ì™¸ë¶€ë³¸ì´ê±´ ë‚´ì¥ë³¸ì´ê±´ AnimateëŠ” ëŒì•„ì•¼ í•œë‹¤.
-		Animate( fFrameCurrent, nNextFrame );	// mUpdate ì• ë‹ˆë©”ì´ì…˜ ê³„ì‚°í›„ ê°±ì‹ ëœ ë§¤íŠ¸ë¦­ìŠ¤
+	// ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ÀÖ°Å³ª ¿ÜºÎÁöÁ¤»À´ë°¡ ÀÖ´Ù¸é ¾Ö´Ï¸ŞÀÌÆ® µ¹¾Æ¾ß ÇÑ´Ù.
+	if( m_pGroup->_mUpdate )		// maxframeÀÌ ÀÖ´Ù¸é ¿ÜºÎº»ÀÌ°Ç ³»Àåº»ÀÌ°Ç Animate´Â µ¹¾Æ¾ß ÇÑ´Ù.
+		Animate( fFrameCurrent, nNextFrame );	// mUpdate ¾Ö´Ï¸ŞÀÌ¼Ç °è»êÈÄ °»½ÅµÈ ¸ÅÆ®¸¯½º
 	if( m_nMaxFrame > 0 )
 	{
 		if( m_pmExternBone == NULL )
@@ -3793,7 +3793,7 @@ void	CObject3D::Render( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER9 *p
 				m_pMotion->AnimateBone( m_pBaseBone, NULL, fFrameCurrent, nNextFrame, 0, FALSE, 0.0f );
 		}
 	}
-	if( m_pBaseBone )	// ëª¨ì…˜ì€ ì—†ê³  ë³¸ë§Œ ìˆë”ë¼ë„ ì‰ì´ë”ì— ì „ì†¡í•´ì•¼í•¨.
+	if( m_pBaseBone )	// ¸ğ¼ÇÀº ¾ø°í º»¸¸ ÀÖ´õ¶óµµ ½¦ÀÌ´õ¿¡ Àü¼ÛÇØ¾ßÇÔ.
 		SetShader( mWorld );
 	
 	for( i = 0; i < nMax; i ++ )
@@ -3801,12 +3801,12 @@ void	CObject3D::Render( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER9 *p
 		pObj = &m_pGroup->m_pObject[i];
 
 		if( pObj->m_nVertexSize == 0 || pObj->m_dwFVF == 0 )
-			Error( "%s : FVFê°€ ê¸°ìˆ ë˜ì§€ ì•Šì•˜ë‹¤. VertexSize=%d, FVF=%d", m_szFileName, pObj->m_nVertexSize, pObj->m_dwFVF );
+			Error( "%s : FVF°¡ ±â¼úµÇÁö ¾Ê¾Ò´Ù. VertexSize=%d, FVF=%d", m_szFileName, pObj->m_nVertexSize, pObj->m_dwFVF );
 
 		if( pObj->m_Type == GMT_SKIN )
 		{
 			if( ppd3d_VB == NULL )
-				Error( "CObject3D::Render : %s ìŠ¤í‚¨ì˜¤ë¸Œì íŠ¸ì¸ë° ppd3d_VBê°€ ì—†ë‹¤.", m_szFileName );
+				Error( "CObject3D::Render : %s ½ºÅ²¿ÀºêÁ§Æ®ÀÎµ¥ ppd3d_VB°¡ ¾ø´Ù.", m_szFileName );
 
 			RenderSkin( pd3dDevice, ppd3d_VB[i], pObj, mWorld, nEffect, dwBlendFactor );
 
@@ -3818,7 +3818,7 @@ void	CObject3D::Render( LPDIRECT3DDEVICE9 pd3dDevice, LPDIRECT3DVERTEXBUFFER9 *p
 		} else
 		{
 			m1 = m_pGroup->_mUpdate[i] * *mWorld;
-			if( pObj->m_bLight && s_bNight == FALSE )	// ë¼ì´íŠ¸ ì˜¤ë¸Œì íŠ¸ëŠ” ë‚®ì—” ë Œë”ë§ ë˜ì§€ ì•ŠìŒ.
+			if( pObj->m_bLight && s_bNight == FALSE )	// ¶óÀÌÆ® ¿ÀºêÁ§Æ®´Â ³·¿£ ·»´õ¸µ µÇÁö ¾ÊÀ½.
 				continue;
 			RenderNormal( pd3dDevice, pObj, &m1, nEffect, dwBlendFactor );
 		}

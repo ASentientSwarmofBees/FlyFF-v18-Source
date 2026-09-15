@@ -1,4 +1,4 @@
-ï»¿#ifndef __VERSION_COMMON_H__
+#ifndef __VERSION_COMMON_H__
 #define __VERSION_COMMON_H__
 #define __MAINSERVER
 #define	__VER 18
@@ -7,8 +7,8 @@
 	#define __INTERNALSERVER
 #endif
 
-#define		__SERVER				// í´ë¼ì´ì–¸íŠ¸ ì „ìš©ì½”ë“œë¥¼ ë¹Œë“œí•˜ì§€ ì•Šê¸° ìœ„í•œ define
-//#define	__S0114_RELOADPRO		// ìºë¦­í„° DBì—ì„œ ì½ì–´ì˜¤ê¸° : Neuz, Trans, login, World, Certifier, Account( ini : SKIP_TRACKING ì¶”ê°€ )
+#define		__SERVER				// Å¬¶óÀÌ¾ðÆ® Àü¿ëÄÚµå¸¦ ºôµåÇÏÁö ¾Ê±â À§ÇÑ define
+//#define	__S0114_RELOADPRO		// Ä³¸¯ÅÍ DB¿¡¼­ ÀÐ¾î¿À±â : Neuz, Trans, login, World, Certifier, Account( ini : SKIP_TRACKING Ãß°¡ )
 #define		__STL_0402		// stl
 
 #if (_MSC_VER > 1200)
@@ -20,30 +20,30 @@
 #endif
 
 // 08-01-22
-#define	__GPAUTH_01		// ë…ì¼/í”„ëž‘ìŠ¤ í†µí•© ì¸ì¦
-#define	__GPAUTH_02		// ë…ì¼/í”„ëž‘ìŠ¤ í†µí•© ì¸ì¦ - êµ¬ë§¤
+#define	__GPAUTH_01		// µ¶ÀÏ/ÇÁ¶û½º ÅëÇÕ ÀÎÁõ
+#define	__GPAUTH_02		// µ¶ÀÏ/ÇÁ¶û½º ÅëÇÕ ÀÎÁõ - ±¸¸Å
 #define	__EUROPE_0514
 
 // 11th
-#define __LOG_PLAYERCOUNT_CHANNEL // ì±„ë„ë³„ ë™ì ‘ ë¡œê·¸ 
+#define __LOG_PLAYERCOUNT_CHANNEL // Ã¤³Îº° µ¿Á¢ ·Î±× 
 
-#define	__REMOVE_PLAYER_0221		// ìºë¦­í„° ì‚­ì œ íŒ¨í‚· ì¡°ìž‘
+#define	__REMOVE_PLAYER_0221		// Ä³¸¯ÅÍ »èÁ¦ ÆÐÅ¶ Á¶ÀÛ
 
 #define __RT_1025
 
 // 14th
-//	#define __PCBANG			// PCë°© í˜œíƒ
+//	#define __PCBANG			// PC¹æ ÇýÅÃ
 
 
 
-#if	  defined(__INTERNALSERVER)	// ë‚´ë¶€ ì‚¬ë¬´ì‹¤ í…ŒìŠ¤íŠ¸ì„œë²„ 
-	#define	__SECURITY_0628	// ë¦¬ì†ŒìŠ¤ ë²„ì „ ì¸ì¦
+#if	  defined(__INTERNALSERVER)	// ³»ºÎ »ç¹«½Ç Å×½ºÆ®¼­¹ö 
+	#define	__SECURITY_0628	// ¸®¼Ò½º ¹öÀü ÀÎÁõ
 
-#elif defined(__TESTSERVER)		// ì™¸ë¶€ ìœ ì € í…ŒìŠ¤íŠ¸ì„œë²„ 
+#elif defined(__TESTSERVER)		// ¿ÜºÎ À¯Àú Å×½ºÆ®¼­¹ö 
 
-#elif defined(__MAINSERVER)		// ì™¸ë¶€ ë³¸ì„­
+#elif defined(__MAINSERVER)		// ¿ÜºÎ º»¼·
 
 
-#endif	// end - ì„œë²„ì¢…ë¥˜ë³„ define 
+#endif	// end - ¼­¹öÁ¾·ùº° define 
 
 #endif	// __VERSION_COMMON_H__

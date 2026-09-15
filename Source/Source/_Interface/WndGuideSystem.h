@@ -1,4 +1,4 @@
-﻿// GuideSystem.h: interface for the CGuideSystem class.
+// GuideSystem.h: interface for the CGuideSystem class.
 //
 //////////////////////////////////////////////////////////////////////
 #ifndef __WNDGUIDESYSTEM__H

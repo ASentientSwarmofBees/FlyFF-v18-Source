@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "BillingMgrJP2.h"
 #include "MsgHdr.h"
 #include "account.h"
@@ -33,31 +33,31 @@ BOOL CBillingMgrJP2::SetConfig( BILLING_ENUM id, DWORD data )
 	return TRUE;
 }
 
-// ì´ˆê¸°í™”: ë¹Œë§ ì„œë²„ì™€ì˜ ì—°ê²° ê°ì²´ë¥¼ í• ë‹¹í•´ ë‘”ë‹¤.
+// ÃÊ±âÈ­: ºô¸µ ¼­¹ö¿ÍÀÇ ¿¬°á °´Ã¼¸¦ ÇÒ´çÇØ µĞ´Ù.
 bool CBillingMgrJP2::Init( HWND hWnd )
 {
 	::SetTimer( hWnd, IDT_KICKOUT, 1000 * 60, NULL );
 	return true;
 }
 
-// í• ë‹¹ëœ ìì›ì„ ë°˜ë‚©í•œë‹¤.
+// ÇÒ´çµÈ ÀÚ¿øÀ» ¹İ³³ÇÑ´Ù.
 void CBillingMgrJP2::Release()
 {
 	safe_delete( this );
 }
 
-// ë¹Œë§ì •ë³´ë¥¼ ê²€ì‚¬í•œë‹¤.
+// ºô¸µÁ¤º¸¸¦ °Ë»çÇÑ´Ù.
 BYTE CBillingMgrJP2::CheckAccount( int nType, DWORD dwKey, const char* szAccount, const char* szAddr )
 {
-	if( nType != m_iBillingFreePass )  // ë¬´ë£Œìœ ì €? 
+	if( nType != m_iBillingFreePass )  // ¹«·áÀ¯Àú? 
 	{ 
-		// ìœ ë£Œìœ ì €ëŠ” ë””ë¹„ì— ì¿¼ë¦¬ 
+		// À¯·áÀ¯Àú´Â µğºñ¿¡ Äõ¸® 
 		g_DbManager.PostBillingQuery( szAccount, dwKey, 1 );
 		return ACCOUNT_BILLING_WAIT_ACK;
 	}
 	else														
 	{
-		// ë¬´ë£Œìœ ì €ëŠ” TRACE
+		// ¹«·áÀ¯Àú´Â TRACE
 		char szTrace[1024];
 		sprintf( szTrace, "FreePass - Account:%s fCheck:%d", szAccount, nType );
 		OutputDebugString( szTrace );
@@ -67,7 +67,7 @@ BYTE CBillingMgrJP2::CheckAccount( int nType, DWORD dwKey, const char* szAccount
 }
 
 
-// ë¹Œë§ì— ê´€ë ¨ëœ ìœˆë„ìš° ë©”ì„¸ì§€ê°€ ì²˜ë¦¬ë˜ê²Œ í•œë‹¤.
+// ºô¸µ¿¡ °ü·ÃµÈ À©µµ¿ì ¸Ş¼¼Áö°¡ Ã³¸®µÇ°Ô ÇÑ´Ù.
 BOOL CBillingMgrJP2::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam ) 
 {
 	switch( message ) 
@@ -90,36 +90,36 @@ BOOL CBillingMgrJP2::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam
 // 
 void CBillingMgrJP2::OnTimer( CAccount* pAccount )
 {
-	if( pAccount->m_fCheck == m_iBillingFreePass )	// ë¬´ë£Œì‚¬ìš©ì skip
+	if( pAccount->m_fCheck == m_iBillingFreePass )	// ¹«·á»ç¿ëÀÚ skip
 		return;
 
 	CTime tm = 0;
-	if( pAccount->m_TimeOverDays == tm )			// login ë¯¸ì²˜ë¦¬ì or timeover skip
+	if( pAccount->m_TimeOverDays == tm )			// login ¹ÌÃ³¸®ÀÚ or timeover skip
 		return;		
 
 	CTime cur = CTime::GetCurrentTime();
-	if( pAccount->m_TimeOverDays <= cur )			// timerover ì²˜ë¦¬ 
+	if( pAccount->m_TimeOverDays <= cur )			// timerover Ã³¸® 
 	{	
 		pAccount->m_TimeOverDays = 0;
 		g_dpSrvr.CloseExistingConnection( pAccount->m_lpszAccount, ERROR_BILLING_TIME_OVER );
 	}
 	else
 	{
-		// ë‚¨ì€ ì‹œê°„ í†µì§€
+		// ³²Àº ½Ã°£ ÅëÁö
 		CTimeSpan ts = pAccount->m_TimeOverDays - cur;
 		if ( ts.GetTotalMinutes() >= 59 && ts.GetTotalMinutes() <= 61 && 
 			 pAccount->m_nStatus != ACCOUNT_STATUS_NOTIFIED &&
 			 pAccount->m_fRoute == TRUE )
 		{
 			pAccount->m_nStatus = ACCOUNT_STATUS_NOTIFIED;				
-			g_dpDbSrvr.SendOneHourNotify( pAccount );	// TRANSì— ë³´ë‚¸ë‹¤.
+			g_dpDbSrvr.SendOneHourNotify( pAccount );	// TRANS¿¡ º¸³½´Ù.
 		}
 	}			
 }
 
-// sp ë¦¬í„´ê°’ ì„¤ëª…:
-// fError(ê²°ê³¼),fText(ê²°ê³¼ë¥¼ ë¬¸ìì—´ë¡œ),fTime(enddayê¹Œì§€ì˜ì‹œê°„ì„ ì´ˆë¡œ)
-// ì˜ˆ: 0,OK,540530
+// sp ¸®ÅÏ°ª ¼³¸í:
+// fError(°á°ú),fText(°á°ú¸¦ ¹®ÀÚ¿­·Î),fTime(endday±îÁöÀÇ½Ã°£À» ÃÊ·Î)
+// ¿¹: 0,OK,540530
 void CBillingMgrJP2::OnDBQuery( CQuery& query, tagDB_OVERLAPPED_PLUS* pOV )
 {
 	long lResult = SUCCESS;
@@ -174,7 +174,7 @@ void CBillingMgrJP2::OnDBQuery( CQuery& query, tagDB_OVERLAPPED_PLUS* pOV )
 	result.szAccount = pOV->szAccount;
 	result.dwKey = pOV->dwKey;
 	result.lResult = lResult;
-	result.pTimeOverDays = &endDay;	// endDayëŠ” lResultê°€ SUCCESSì¸ ê²½ìš°ì—ë§Œ ì„¤ì •ë˜ë©´ ëœë‹¤.
+	result.pTimeOverDays = &endDay;	// endDay´Â lResult°¡ SUCCESSÀÎ °æ¿ì¿¡¸¸ ¼³Á¤µÇ¸é µÈ´Ù.
 	
 	g_AccountMng.SendBillingResult( &result );
 }

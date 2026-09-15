@@ -1,8 +1,8 @@
-Ôªø//PAY Ïóê Í∏∞ÏûÖÌïòÎäî Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖúÏùò ÌôïÎ•† Îí§Ïóê 2Î•º ÎÑ£ÏúºÎ©¥ Í∑ÄÏÜçÏúºÎ°ú ÏßÄÍ∏â(ÏÉùÎûµÍ∞ÄÎä•)
+//PAY ø° ±‚¿‘«œ¥¬ ∫∏ªÛ æ∆¿Ã≈€¿« »Æ∑¸ µ⁄ø° 2∏¶ ≥÷¿∏∏È ±Õº”¿∏∑Œ ¡ˆ±ﬁ(ª˝∑´∞°¥…)
 
-MMI_EVENT_MAY //5Ïõî Ïù¥Î≤§Ìä∏
+MMI_EVENT_MAY //5ø˘ ¿Ã∫•∆Æ
 {
-	// Ïù¥Î≤§Ìä∏ ÏÑ§Î™Ö
+	// ¿Ã∫•∆Æ º≥∏Ì
 	DESCRIPTION
 	{
 		TID_GAME_EVENT_MAY_TEXT01
@@ -10,300 +10,300 @@ MMI_EVENT_MAY //5Ïõî Ïù¥Î≤§Ìä∏
 		TID_GAME_EVENT_MAY_TEXT03
 	}
 
-	// Î¶¨Ïä§Ìä∏ ÏÑ§Î™Ö
+	// ∏ÆΩ∫∆Æ º≥∏Ì
 	SET	TID_GAME_EVENT_MAY_COND01
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND01_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND01_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND01_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND01_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	30000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	30000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_RID_RID_STI_BIKE2	1	1000000
 		}
 	}						
 
 	SET	TID_GAME_EVENT_MAY_COND02
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND02_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND02_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND02_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND02_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	15000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	15000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_JEW_EAR_DEFEARRING06	1	1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_MAY_COND03
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND03_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND03_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND03_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND03_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	11300
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	11300
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_JEW_RIN_METEOFY		1	1000000
 		}
 	}	
 
 	SET	TID_GAME_EVENT_MAY_COND04
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND04_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND04_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND04_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND04_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	7500
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	7500
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_BXMFROG01	1	1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_MAY_COND04_01
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND04_01_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND04_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND04_01_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND04_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	7500
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	7500
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_BXFFROG01	1	1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_MAY_COND05
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND05_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND05_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND05_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND05_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	5300
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	5300
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_PET_SOCCERBALL	1	1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_MAY_COND06
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND06_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND06_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND06_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND06_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	3800
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	3800
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_EVENT_MAY_COND07
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND07_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND07_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND07_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND07_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	3800
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	3800
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON01	1	1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_MAY_COND08
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND08_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND08_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND08_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND08_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	3800
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	3800
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON02	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_EVENT_MAY_COND09
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND09_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND09_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND09_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND09_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	750
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	750
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_PARTYSUMMON	1	1000000
 		}
 	}		
 
 	SET	TID_GAME_EVENT_MAY_COND10
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND10_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND10_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND10_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND10_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	380
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	380
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_ADDMAGIC		1	333333
 			II_SYS_SYS_SCR_CRITICALBONUS	1	333333
 			II_SYS_SYS_SCR_MPMAX		1	333334
@@ -312,81 +312,81 @@ MMI_EVENT_MAY //5Ïõî Ïù¥Î≤§Ìä∏
 
 	SET	TID_GAME_EVENT_MAY_COND11
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND11_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND11_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND11_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND11_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	230
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	230
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BXFIRECRACKER	1	1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_MAY_COND12
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND12_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND12_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND12_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND12_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	150
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	150
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_WINGS	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_EVENT_MAY_COND13
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND13_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND13_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND13_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND13_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	80
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	80
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_GM_DIS_CROWNIBLIS	1	333333
 			II_SYS_SYS_GM_DIS_CROWNSHADE	1	333333
 			II_SYS_SYS_GM_DIS_CROWNBUBBLE	1	333334
@@ -395,27 +395,27 @@ MMI_EVENT_MAY //5Ïõî Ïù¥Î≤§Ìä∏
 
 	SET	TID_GAME_EVENT_MAY_COND14
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_MAY_COND14_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_MAY_COND14_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_MAY_COND14_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_MAY_COND14_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	40
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	40
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAG_TRI_GOODBYEBOMB	1	1000000
 		}
 	}		
@@ -423,7 +423,7 @@ MMI_EVENT_MAY //5Ïõî Ïù¥Î≤§Ìä∏
 
 MMI_COLLECT01
 {
-	// Ïù¥Î≤§Ìä∏ ÏÑ§Î™Ö
+	// ¿Ã∫•∆Æ º≥∏Ì
 	DESCRIPTION
 	{
 		TID_GAME_COLLECT_TEXT01
@@ -431,219 +431,219 @@ MMI_COLLECT01
 		TID_GAME_COLLECT_TEXT03
 	}
 
-	// Î¶¨Ïä§Ìä∏ ÏÑ§Î™Ö
+	// ∏ÆΩ∫∆Æ º≥∏Ì
 	SET	TID_GAME_COLLECT_COND01
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND01_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND01_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND01_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND01_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPCLOUD	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPCLOUD	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_CLOUDBOX          1     1000000
 		}
 	}						
 
 	SET	TID_GAME_COLLECT_COND02
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND02_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND02_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND02_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND02_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPORICHALCUM    10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPORICHALCUM    10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ORICHALCUM01           1	1000000
 		}
 	}
 
 	SET	TID_GAME_COLLECT_COND03
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND03_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND03_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND03_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND03_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPMOONSTONE    10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPMOONSTONE    10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_MOONSTONE		1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND04
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND04_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND04_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND04_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND04_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPTOPAZ	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPTOPAZ	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_TOPAZ	        1	1000000
 		}
 	}
 
 	SET	TID_GAME_COLLECT_COND05
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND05_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND05_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND05_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND05_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPRUBY	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPRUBY	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_RUBY    	1	1000000
 		}
 	}
 
 	SET	TID_GAME_COLLECT_COND06
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND06_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND06_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND06_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND06_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPSAPPHIRE	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPSAPPHIRE	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_SAPPHIRE      	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND07
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND07_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND07_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND07_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND07_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPEMERALD	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPEMERALD	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_EMERALD	        1	1000000
 		}
 	}
 
 	SET	TID_GAME_COLLECT_COND08
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND08_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND08_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND08_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND08_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPDIAMOND	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPDIAMOND	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_DIAMOND       	1	1000000
 		}
 	}	
@@ -651,7 +651,7 @@ MMI_COLLECT01
 
 MMI_COLLECT02
 {
-	// Ïù¥Î≤§Ìä∏ ÏÑ§Î™Ö
+	// ¿Ã∫•∆Æ º≥∏Ì
 	DESCRIPTION
 	{
 		TID_GAME_COLLECT_TEXT01
@@ -659,408 +659,408 @@ MMI_COLLECT02
 		TID_GAME_COLLECT_TEXT03
 	}
 
-	// Î¶¨Ïä§Ìä∏ ÏÑ§Î™Ö
+	// ∏ÆΩ∫∆Æ º≥∏Ì
 	SET	TID_GAME_COLLECT_COND09
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND09_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND09_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND09_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND09_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPSPARK	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPSPARK	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_SPARK             1     1000000
 		}
 	}						
 
 	SET	TID_GAME_COLLECT_COND10
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND10_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND10_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND10_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND10_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPTHUNDER    10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPTHUNDER    10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_THUNDER           1	1000000
 		}
 	}
 
 	SET	TID_GAME_COLLECT_COND11
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND11_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND11_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND11_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND11_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPLIGHTING    10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPLIGHTING    10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_LIGHTING		1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND12
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND12_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND12_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND12_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND12_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPSAND	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPSAND	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_SAND	        1	1000000
 		}
 	}
 
 	SET	TID_GAME_COLLECT_COND13
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND13_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND13_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND13_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND13_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPMOUNTAIN	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPMOUNTAIN	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_MOUNTAIN    	1	1000000
 		}
 	}
 
 	SET	TID_GAME_COLLECT_COND14
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND14_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND14_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND14_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND14_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPEARTHQUAKE	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPEARTHQUAKE	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_EARTHQUAKE      	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND15
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND15_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND15_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND15_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND15_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPCANDLE	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPCANDLE	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_CANDLE	        1	1000000
 		}
 	}
 
 	SET	TID_GAME_COLLECT_COND16
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND16_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND16_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND16_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND16_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPMAGMA	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPMAGMA	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_MAGMA       	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND17
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND17_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND17_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND17_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND17_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPVOLCANO	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPVOLCANO	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_VOLCANO       	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND18
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND18_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND18_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND18_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND18_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPBREEZE	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPBREEZE	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_BREEZE      	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND19
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND19_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND19_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND19_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND19_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPSTORM	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPSTORM	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_STORM       	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND20
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND20_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND20_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND20_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND20_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPVACCUM	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPVACCUM	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_VACCUM       	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND21
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND21_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND21_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND21_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND21_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPRAIN	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPRAIN	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_RAIN       	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND22
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND22_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND22_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND22_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND22_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPFLOOD	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPFLOOD	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_FLOOD       	1	1000000
 		}
 	}	
 
 	SET	TID_GAME_COLLECT_COND23
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_COLLECT_COND23_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_COLLECT_COND23_FAIL // Ïã§Ìå®
+			TID_GAME_COLLECT_COND23_SUCCESS // º∫∞¯
+			TID_GAME_COLLECT_COND23_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_SCR_SCRAPOCEAN	10
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_SCR_SCRAPOCEAN	10
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ELE_OCEAN       	1	1000000
 		}
 	}	
@@ -1068,91 +1068,91 @@ MMI_COLLECT02
 
 MMI_PET_RES01
 {
-	// Ïù¥Î≤§Ìä∏ ÏÑ§Î™Ö
+	// ¿Ã∫•∆Æ º≥∏Ì
 	DESCRIPTION
 	{
 		TID_GAME_PETRES_TEXT01
 		TID_GAME_PETRES_TEXT02
 	}
 
-	// Î¶¨Ïä§Ìä∏ ÏÑ§Î™Ö
+	// ∏ÆΩ∫∆Æ º≥∏Ì
 	SET	TID_GAME_PETRES_COND01
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_PETRES_COND01_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_PETRES_COND01_FAIL // Ïã§Ìå®
+			TID_GAME_PETRES_COND01_SUCCESS // º∫∞¯
+			TID_GAME_PETRES_COND01_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_QUE_PETRESURRECTION01_S	3
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_QUE_PETRESURRECTION01_S	3
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_QUE_PETRESURRECTION02_S	1     1000000
 		}
 	}						
 
 	SET	TID_GAME_PETRES_COND02
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_PETRES_COND02_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_PETRES_COND02_FAIL // Ïã§Ìå®
+			TID_GAME_PETRES_COND02_SUCCESS // º∫∞¯
+			TID_GAME_PETRES_COND02_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_QUE_PETRESURRECTION01_A	3
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_QUE_PETRESURRECTION01_A	3
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_QUE_PETRESURRECTION02_A	1	1000000
 		}
 	}
 
 	SET	TID_GAME_PETRES_COND03
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_PETRES_COND03_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_PETRES_COND03_FAIL // Ïã§Ìå®
+			TID_GAME_PETRES_COND03_SUCCESS // º∫∞¯
+			TID_GAME_PETRES_COND03_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_QUE_PETRESURRECTION01_B	3
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_QUE_PETRESURRECTION01_B	3
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_QUE_PETRESURRECTION02_B	1	1000000
 		}
 	}
@@ -1160,64 +1160,64 @@ MMI_PET_RES01
 
 MMI_EVENT_HAPPY_TWN
 {
-	// Ïù¥Î≤§Ìä∏ ÏÑ§Î™Ö
+	// ¿Ã∫•∆Æ º≥∏Ì
 	DESCRIPTION
 	{
 		TID_GAME_EVENT_HAPPY_TWN_TEXT01
 		TID_GAME_EVENT_HAPPY_TWN_TEXT02
 	}
 
-	// Î¶¨Ïä§Ìä∏ ÏÑ§Î™Ö
+	// ∏ÆΩ∫∆Æ º≥∏Ì
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND01
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND01_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND01_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND01_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND01_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	50000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	50000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_RID_RID_BOR_RIDINGCLOUD02	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_USA_COND02
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_USA_COND02_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_USA_COND02_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_USA_COND02_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_USA_COND02_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	30000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	30000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_ARM_S_CLO_CLO_GAIA	1     1000000
 		}
 	}
@@ -1225,27 +1225,27 @@ MMI_EVENT_HAPPY_TWN
 /*
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND02
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND02_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND02_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND02_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND02_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	30000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	30000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_JEW_EAR_DEFEARRING06	1     1000000
 		}
 	}
@@ -1253,351 +1253,351 @@ MMI_EVENT_HAPPY_TWN
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND03
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND03_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND03_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND03_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND03_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	25000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	25000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_JEW_RIN_METEOFY	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND04
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND04_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND04_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND04_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND04_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	22000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	22000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_PET_PENGUIN		1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND05
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND05_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND05_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND05_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND05_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	20000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	20000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_BXMVAMPIRE01	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND06
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND06_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND06_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND06_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND06_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	20000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	20000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_BXFVAMPIRE01	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND07
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND07_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND07_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND07_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND07_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	8000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	8000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_HAIRCHANGE	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND08
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND07_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND07_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND07_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND07_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	8000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	8000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_FACEOFFFREE	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND09
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND09_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND09_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND09_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND09_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	5000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	5000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ORICHALCUM01_1	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND10
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND10_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND10_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND10_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND10_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	3000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	3000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_MOONSTONE_1	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND11
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND11_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND11_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND11_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND11_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	1500
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	1500
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_WARP_COUPLERING	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND12
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND12_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND12_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND12_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND12_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND13
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND13_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND13_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND13_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND13_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON01	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND14
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND14_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND14_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND14_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND14_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON02	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND15
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND15_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND15_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND15_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND15_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	250
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	250
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_WINGS	1     1000000
 		}
 	}
@@ -1605,334 +1605,334 @@ MMI_EVENT_HAPPY_TWN
 
 MMI_EVENT_HAPPY_USA
 {
-	// Ïù¥Î≤§Ìä∏ ÏÑ§Î™Ö
+	// ¿Ã∫•∆Æ º≥∏Ì
 	DESCRIPTION
 	{
 		TID_GAME_EVENT_HAPPY_TWN_TEXT01
 		TID_GAME_EVENT_HAPPY_TWN_TEXT02
 	}
 
-	// Î¶¨Ïä§Ìä∏ ÏÑ§Î™Ö
+	// ∏ÆΩ∫∆Æ º≥∏Ì
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND01
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND01_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND01_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND01_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND01_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	50000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	50000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_RID_RID_BOR_RIDINGCLOUD02	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_USA_COND02
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_USA_COND02_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_USA_COND02_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_USA_COND02_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_USA_COND02_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	30000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	30000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_ARM_S_CLO_CLO_GAIA	1     1000000
 		}
 	}
 /*
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND03
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND03_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND03_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND03_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND03_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	25000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	25000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_JEW_RIN_METEOFY	1     1000000
 		}
 	}
 */
 	SET	TID_GAME_EVENT_HAPPY_USA_COND07
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_USA_COND07_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND07_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_USA_COND07_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND07_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	8000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	8000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_HAIRCHANGE	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND08
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND07_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND07_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND07_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND07_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	8000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	8000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_SCR_FACEOFFFREE	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND09
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND09_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND09_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND09_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND09_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	3000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	3000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_ORICHALCUM01_1	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND10
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND10_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND10_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND10_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND10_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	3000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	3000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_MAT_MOONSTONE_1	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND11
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND11_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND11_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND11_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND11_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	1500
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	1500
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_GEN_WARP_COUPLERING	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND12
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND12_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND12_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND12_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND12_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND13
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND13_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND13_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND13_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND13_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON01	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND14
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND14_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND14_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND14_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND14_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	1000
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_BALLOON02	1     1000000
 		}
 	}
 
 	SET	TID_GAME_EVENT_HAPPY_TWN_COND15
 	{
-		//Î©îÏãúÏßÄ ÎÇ¥Ïö©
+		//∏ﬁΩ√¡ˆ ≥ªøÎ
 		RESULTMSG
 		{
-			TID_GAME_EVENT_HAPPY_TWN_COND15_SUCCESS // ÏÑ±Í≥µ
-			TID_GAME_EVENT_HAPPY_TWN_COND15_FAIL // Ïã§Ìå®
+			TID_GAME_EVENT_HAPPY_TWN_COND15_SUCCESS // º∫∞¯
+			TID_GAME_EVENT_HAPPY_TWN_COND15_FAIL // Ω«∆–
 		}
-		//Ï°∞Í±¥
+		//¡∂∞«
 		CONDITION
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò
+			//æ∆¿Ã≈€ ID		∞πºˆ
 			II_SYS_SYS_EVE_HAPPYMONEY01	250
 		}
-		//ÏÇ≠Ï†ú
+		//ªË¡¶
 		REMOVE
 		{
 			II_SYS_SYS_EVE_HAPPYMONEY01	250
 		}
-		//ÏßÄÍ∏â	ÏßÄÍ∏âÍ∞ØÏàò
+		//¡ˆ±ﬁ	¡ˆ±ﬁ∞πºˆ
 		PAY	1
 		{
-			//ÏïÑÏù¥ÌÖú ID		Í∞ØÏàò	ÌôïÎ•†(n/1000000)
+			//æ∆¿Ã≈€ ID		∞πºˆ	»Æ∑¸(n/1000000)
 			II_SYS_SYS_EVE_WINGS	1     1000000
 		}
 	}
@@ -1945,7 +1945,7 @@ MMI_EXCHANGE_ARMORCARD
 		TID_EXCHANGE_ARMORCARD_TEXT01
 	}
 
-	// Î≥ºÏºÄÏù¥ÎÖ∏ 2%_>3%
+	// ∫ºƒ…¿Ã≥Î 2%_>3%
 	SET	TID_EXCHANGE_ARMORCARD_COND01_1
 	{
 		RESULTMSG
@@ -1968,7 +1968,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
    
-	// Î≥ºÏºÄÏù¥ÎÖ∏ 3%_>4%
+	// ∫ºƒ…¿Ã≥Î 3%_>4%
 	SET	TID_EXCHANGE_ARMORCARD_COND01_2
 	{
 		RESULTMSG
@@ -1991,7 +1991,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
 
-    // Î≥ºÏºÄÏù¥ÎÖ∏ 4%_>7%
+    // ∫ºƒ…¿Ã≥Î 4%_>7%
 	SET	TID_EXCHANGE_ARMORCARD_COND01_3
 	{
 		RESULTMSG
@@ -2014,7 +2014,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
     
-	// Ïò§ÏÖò 2%_>3%
+	// ø¿º« 2%_>3%
 	SET	TID_EXCHANGE_ARMORCARD_COND02_1
 	{
 		RESULTMSG
@@ -2037,7 +2037,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
    
-	// Ïò§ÏÖò 3%_>4%
+	// ø¿º« 3%_>4%
 	SET	TID_EXCHANGE_ARMORCARD_COND02_2
 	{
 		RESULTMSG
@@ -2060,7 +2060,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
 
-    // Ïò§ÏÖò 4%_>7%
+    // ø¿º« 4%_>7%
 	SET	TID_EXCHANGE_ARMORCARD_COND02_3
 	{
 		RESULTMSG
@@ -2083,7 +2083,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
     
-	// ÎùºÏù¥Ìä∏Îãù 2%_>3%
+	// ∂Û¿Ã∆Æ¥◊ 2%_>3%
 	SET	TID_EXCHANGE_ARMORCARD_COND03_1
 	{
 		RESULTMSG
@@ -2106,7 +2106,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
    
-	// ÎùºÏù¥Ìä∏Îãù 3%_>4%
+	// ∂Û¿Ã∆Æ¥◊ 3%_>4%
 	SET	TID_EXCHANGE_ARMORCARD_COND03_2
 	{
 		RESULTMSG
@@ -2129,7 +2129,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
 
-    // ÎùºÏù¥Ìä∏Îãù 4%_>7%
+    // ∂Û¿Ã∆Æ¥◊ 4%_>7%
 	SET	TID_EXCHANGE_ARMORCARD_COND03_3
 	{
 		RESULTMSG
@@ -2152,7 +2152,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
     
-	// Î∞îÌÅ† 2%_>3%
+	// πŸ≈® 2%_>3%
 	SET	TID_EXCHANGE_ARMORCARD_COND04_1
 	{
 		RESULTMSG
@@ -2175,7 +2175,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
    
-	// Î∞îÌÅ† 3%_>4%
+	// πŸ≈® 3%_>4%
 	SET	TID_EXCHANGE_ARMORCARD_COND04_2
 	{
 		RESULTMSG
@@ -2198,7 +2198,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
 
-    // Î∞îÌÅ† 4%_>7%
+    // πŸ≈® 4%_>7%
 	SET	TID_EXCHANGE_ARMORCARD_COND04_3
 	{
 		RESULTMSG
@@ -2221,7 +2221,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
 
-	// Ïñ¥Ïä§ÌÄòÏù¥ÌÅ¨ 2%_>3%
+	// æÓΩ∫ƒ˘¿Ã≈© 2%_>3%
 	SET	TID_EXCHANGE_ARMORCARD_COND05_1
 	{
 		RESULTMSG
@@ -2244,7 +2244,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
    
-	// Ïñ¥Ïä§ÌÄòÏù¥ÌÅ¨ 3%_>4%
+	// æÓΩ∫ƒ˘¿Ã≈© 3%_>4%
 	SET	TID_EXCHANGE_ARMORCARD_COND05_2
 	{
 		RESULTMSG
@@ -2267,7 +2267,7 @@ MMI_EXCHANGE_ARMORCARD
 		}
 	}
 
-    // Ïñ¥Ïä§ÌÄòÏù¥ÌÅ¨ 4%_>7%
+    // æÓΩ∫ƒ˘¿Ã≈© 4%_>7%
 	SET	TID_EXCHANGE_ARMORCARD_COND05_3
 	{
 		RESULTMSG
@@ -2298,7 +2298,7 @@ MMI_EXCHANGE_WEAPONCARD
 		TID_EXCHANGE_WEAPONCARD_TEXT01
 	}
 
-	// Ï∫îÎì§ D->C
+	// ƒµµÈ D->C
 	SET	TID_EXCHANGE_WEAPONCARD_COND01_1
 	{
 		RESULTMSG
@@ -2321,7 +2321,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
    
-	// Ï∫îÎì§ C->B
+	// ƒµµÈ C->B
 	SET	TID_EXCHANGE_WEAPONCARD_COND01_2
 	{
 		RESULTMSG
@@ -2344,7 +2344,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
 
-    // Ï∫îÎì§B->A
+    // ƒµµÈB->A
 	SET	TID_EXCHANGE_WEAPONCARD_COND01_3
 	{
 		RESULTMSG
@@ -2367,7 +2367,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
     
-	// Î†àÏù∏ D->C
+	// ∑π¿Œ D->C
 	SET	TID_EXCHANGE_WEAPONCARD_COND02_1
 	{
 		RESULTMSG
@@ -2390,7 +2390,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
    
-	// Î†àÏù∏C->B
+	// ∑π¿ŒC->B
 	SET	TID_EXCHANGE_WEAPONCARD_COND02_2
 	{
 		RESULTMSG
@@ -2413,7 +2413,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
 
-    // Î†àÏù∏ B->A
+    // ∑π¿Œ B->A
 	SET	TID_EXCHANGE_WEAPONCARD_COND02_3
 	{
 		RESULTMSG
@@ -2436,7 +2436,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
     
-	// Ïä§ÌååÌÅ¨ D->C
+	// Ω∫∆ƒ≈© D->C
 	SET	TID_EXCHANGE_WEAPONCARD_COND03_1
 	{
 		RESULTMSG
@@ -2459,7 +2459,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
    
-	// Ïä§ÌååÌÅ¨ C->B
+	// Ω∫∆ƒ≈© C->B
 	SET	TID_EXCHANGE_WEAPONCARD_COND03_2
 	{
 		RESULTMSG
@@ -2482,7 +2482,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
 
-    // Ïä§ÌååÌÅ¨ B->A
+    // Ω∫∆ƒ≈© B->A
 	SET	TID_EXCHANGE_WEAPONCARD_COND03_3
 	{
 		RESULTMSG
@@ -2505,7 +2505,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
     
-	// Î∏åÎ¶¨Ï¶à D->C
+	// ∫Í∏Æ¡Ó D->C
 	SET	TID_EXCHANGE_WEAPONCARD_COND04_1
 	{
 		RESULTMSG
@@ -2528,7 +2528,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
    
-	// Î∏åÎ¶¨Ï¶à C->B
+	// ∫Í∏Æ¡Ó C->B
 	SET	TID_EXCHANGE_WEAPONCARD_COND04_2
 	{
 		RESULTMSG
@@ -2551,7 +2551,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
 
-    // Î∏åÎ¶¨Ï¶à B->A
+    // ∫Í∏Æ¡Ó B->A
 	SET	TID_EXCHANGE_WEAPONCARD_COND04_3
 	{
 		RESULTMSG
@@ -2574,7 +2574,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
 
-	// ÏåòÎìú D->C
+	// Ω⁄µÂ D->C
 	SET	TID_EXCHANGE_WEAPONCARD_COND05_1
 	{
 		RESULTMSG
@@ -2597,7 +2597,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
    
-	// ÏåòÎìú C->B
+	// Ω⁄µÂ C->B
 	SET	TID_EXCHANGE_WEAPONCARD_COND05_2
 	{
 		RESULTMSG
@@ -2620,7 +2620,7 @@ MMI_EXCHANGE_WEAPONCARD
 		}
 	}
 
-    // ÏåòÎìú B->A
+    // Ω⁄µÂ B->A
 	SET	TID_EXCHANGE_WEAPONCARD_COND05_3
 	{
 		RESULTMSG
@@ -2644,7 +2644,7 @@ MMI_EXCHANGE_WEAPONCARD
 	}    
 }
 
-MMI_FASHION_PHP //Ìå®ÏÖò Ïø†Ìè∞ Ïù¥Î≤§Ìä∏(ÌïÑÎ¶¨ÌïÄ)
+MMI_FASHION_PHP //∆–º« ƒÌ∆˘ ¿Ã∫•∆Æ(« ∏Æ«…)
 {
 	DESCRIPTION
 	{
@@ -2878,7 +2878,7 @@ MMI_FASHION_PHP //Ìå®ÏÖò Ïø†Ìè∞ Ïù¥Î≤§Ìä∏(ÌïÑÎ¶¨ÌïÄ)
 	}
 }
 
-MMI_EVENT_CARD_KOR //Ïπ¥Îìú Ïù¥Î≤§Ìä∏(Íµ≠ÎÇ¥)
+MMI_EVENT_CARD_KOR //ƒ´µÂ ¿Ã∫•∆Æ(±π≥ª)
 {
 	DESCRIPTION
 	{
@@ -3804,7 +3804,7 @@ MMI_EVENT_HAPPY_USA2010
 		TID_GAME_EVENT_HAPPY_USA2010_TEXT01
 	}
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND01 //Ï≤úÏÇ¨ÏùòÎÇ†Í∞ú
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND01 //√µªÁ¿«≥Ø∞≥
 	{
 		CONDITION
 		{
@@ -3822,7 +3822,7 @@ MMI_EVENT_HAPPY_USA2010
 		}
 	}
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND02 //ÌïòÏù¥Î∏åÎ¶¨Îìú ÎùºÏù¥Ïπ∏
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND02 //«œ¿Ã∫Í∏ÆµÂ ∂Û¿Ãƒ≠
 	{
 		CONDITION
 		{
@@ -3840,7 +3840,7 @@ MMI_EVENT_HAPPY_USA2010
 		}
 	}
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND03 //ÌÅ¨Î¶¨Ïä§ÌÉà
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND03 //≈©∏ÆΩ∫≈ª
 	{
 		CONDITION
 		{
@@ -3858,7 +3858,7 @@ MMI_EVENT_HAPPY_USA2010
 		}
 	}
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND04 //ÏïÑÏ¶àÎ¶¨ÏïÑ 7Ïùº
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND04 //æ∆¡Ó∏Ææ∆ 7¿œ
 	{
 		CONDITION
 		{
@@ -3876,7 +3876,7 @@ MMI_EVENT_HAPPY_USA2010
 		}
 	}
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND05 //ÏÉ§Ïö∞Ìä∏ÌíÄ15,Í≤ΩÌóòÏπò Ï¶ùÌè≠, ÌååÌã∞ Ïä§ÌÇ¨ Ï¶ùÌè≠
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND05 //ª˛øÏ∆Æ«Æ15,∞Ê«Ëƒ° ¡ı∆¯, ∆ƒ∆º Ω∫≈≥ ¡ı∆¯
 	{
 		CONDITION
 		{
@@ -3894,7 +3894,7 @@ MMI_EVENT_HAPPY_USA2010
 		}
 	}
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND06 // Ïò§Î¶¨ÏπºÏø∞, ÌïëÌÅ¨ ÌíçÏÑ†
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND06 // ø¿∏ÆƒÆƒÒ, «Œ≈© «≥º±
 	{
 		CONDITION
 		{
@@ -3912,7 +3912,7 @@ MMI_EVENT_HAPPY_USA2010
 		}
 	}
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND07 // Î¨∏Ïä§ÌÜ§, Î∏îÎ£® ÌíçÏÑ†
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND07 // πÆΩ∫≈Ê, ∫Ì∑Á «≥º±
 	{
 		CONDITION
 		{
@@ -3931,7 +3931,7 @@ MMI_EVENT_HAPPY_USA2010
 	}
 	
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND08 // Î£®Ïù¥ÏïÑ Î≥ÄÏã†Íµ¨ , Î≥ÄÏã† Ìï¥Ï†úÍµ¨
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND08 // ∑Á¿Ãæ∆ ∫ØΩ≈±∏ , ∫ØΩ≈ «ÿ¡¶±∏
 	{
 		CONDITION
 		{
@@ -3950,7 +3950,7 @@ MMI_EVENT_HAPPY_USA2010
 	}
 
 	
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND09 // ÏßàÏ£ºÏùò ÎëêÎ£®ÎßàÎ¶¨
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND09 // ¡˙¡÷¿« µŒ∑Á∏∂∏Æ
 	{
 		CONDITION
 		{
@@ -3968,7 +3968,7 @@ MMI_EVENT_HAPPY_USA2010
 		}
 	}
 
-	SET	TID_GAME_EVENT_HAPPY_USA2010_COND10 // Î∞îÎãêÎùº ÏºÄÏùµ
+	SET	TID_GAME_EVENT_HAPPY_USA2010_COND10 // πŸ¥“∂Û ƒ…¿Õ
 	{
 		CONDITION
 		{
@@ -4493,7 +4493,7 @@ MMI_HOLDEMEVENT05
 		}
 	}
 }
-MMI_CHRISTMASFAIRY01				// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 1Í∞ú
+MMI_CHRISTMASFAIRY01				// ≈©∏ÆΩ∫∏∂Ω∫ ¡§∑… ±≥»Ø 1∞≥
 {
 	DESCRIPTION
 	{
@@ -4517,7 +4517,7 @@ MMI_CHRISTMASFAIRY01				// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 1Í∞ú
 		}
 	}
 }
-MMI_CHRISTMASFAIRY02				// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 25Í∞ú
+MMI_CHRISTMASFAIRY02				// ≈©∏ÆΩ∫∏∂Ω∫ ¡§∑… ±≥»Ø 25∞≥
 {
 	DESCRIPTION
 	{
@@ -4540,7 +4540,7 @@ MMI_CHRISTMASFAIRY02				// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 25Í∞ú
 		}
 	}
 }
-MMI_CHRISTMASFAIRY03					// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 50Í∞ú
+MMI_CHRISTMASFAIRY03					// ≈©∏ÆΩ∫∏∂Ω∫ ¡§∑… ±≥»Ø 50∞≥
 {
 	DESCRIPTION
 	{
@@ -4564,7 +4564,7 @@ MMI_CHRISTMASFAIRY03					// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 50Í∞ú
 		}
 	}
 }
-MMI_CHRISTMASFAIRY04				// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 75Í∞ú
+MMI_CHRISTMASFAIRY04				// ≈©∏ÆΩ∫∏∂Ω∫ ¡§∑… ±≥»Ø 75∞≥
 {
 	DESCRIPTION
 	{
@@ -4587,7 +4587,7 @@ MMI_CHRISTMASFAIRY04				// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 75Í∞ú
 		}
 	}
 }
-MMI_CHRISTMASFAIRY05				// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 100Í∞ú
+MMI_CHRISTMASFAIRY05				// ≈©∏ÆΩ∫∏∂Ω∫ ¡§∑… ±≥»Ø 100∞≥
 {
 	DESCRIPTION
 	{
@@ -4615,7 +4615,7 @@ MMI_CHRISTMASFAIRY05				// ÌÅ¨Î¶¨Ïä§ÎßàÏä§ Ï†ïÎ†π ÍµêÌôò 100Í∞ú
 
 
 
-MMI_WHITEDAY_EXCHANGE01			// ÌôîÏù¥Ìä∏Îç∞Ïù¥
+MMI_WHITEDAY_EXCHANGE01			// »≠¿Ã∆Æµ•¿Ã
 {
 	DESCRIPTION
 	{
@@ -4641,7 +4641,7 @@ MMI_WHITEDAY_EXCHANGE01			// ÌôîÏù¥Ìä∏Îç∞Ïù¥
 }
 
 
-MMI_WHITEDAY_EXCHANGE02				//ÌôîÏù¥Ìä∏Îç∞Ïù¥
+MMI_WHITEDAY_EXCHANGE02				//»≠¿Ã∆Æµ•¿Ã
 {
 	DESCRIPTION
 	{
@@ -4667,7 +4667,7 @@ MMI_WHITEDAY_EXCHANGE02				//ÌôîÏù¥Ìä∏Îç∞Ïù¥
 }
 
 
-MMI_WHITEDAY_EXCHANGE03				// ÌôîÏù¥Ìä∏Îç∞Ïù¥
+MMI_WHITEDAY_EXCHANGE03				// »≠¿Ã∆Æµ•¿Ã
 {
 	DESCRIPTION
 	{
@@ -4694,7 +4694,7 @@ MMI_WHITEDAY_EXCHANGE03				// ÌôîÏù¥Ìä∏Îç∞Ïù¥
 
 
 
-MMI_WHITEDAY_EXCHANGE04				// ÌôîÏù¥Ìä∏Îç∞Ïù¥
+MMI_WHITEDAY_EXCHANGE04				// »≠¿Ã∆Æµ•¿Ã
 {
 	DESCRIPTION
 	{
@@ -4723,7 +4723,7 @@ MMI_WHITEDAY_EXCHANGE04				// ÌôîÏù¥Ìä∏Îç∞Ïù¥
 
 
 
-MMI_FIRSEED2011				// Ï†ÑÎÇòÎ¨¥
+MMI_FIRSEED2011				// ¿¸≥™π´
 {
 	DESCRIPTION
 	{
@@ -4750,7 +4750,7 @@ MMI_FIRSEED2011				// Ï†ÑÎÇòÎ¨¥
 		}
 	}
 }
-MMI_PEARSEED2011				// Î∞∞ÎÇòÎ¨¥
+MMI_PEARSEED2011				// πË≥™π´
 {
 	DESCRIPTION
 	{
@@ -4776,7 +4776,7 @@ MMI_PEARSEED2011				// Î∞∞ÎÇòÎ¨¥
 		}
 	}
 }
-MMI_PINESEED2011				// ÏÜåÎÇòÎ¨¥
+MMI_PINESEED2011				// º“≥™π´
 {
 	DESCRIPTION
 	{
@@ -4802,7 +4802,7 @@ MMI_PINESEED2011				// ÏÜåÎÇòÎ¨¥
 		}
 	}
 }
-MMI_PERSIMSEED2011				// Í∞êÎÇòÎ¨¥
+MMI_PERSIMSEED2011				// ∞®≥™π´
 {
 	DESCRIPTION
 	{
@@ -4835,7 +4835,7 @@ MMI_PERSIMSEED2011				// Í∞êÎÇòÎ¨¥
 
 
 
-MMI_RIVERCARD2011				// ÎÇ°ÏùÄ ÏàòÌò∏Ïùò Î¨¥Í∏∞ ÍµêÌôò
+MMI_RIVERCARD2011				// ≥∞¿∫ ºˆ»£¿« π´±‚ ±≥»Ø
 {
 	DESCRIPTION
 	{
@@ -5005,7 +5005,7 @@ MMI_RIVERCARD2011				// ÎÇ°ÏùÄ ÏàòÌò∏Ïùò Î¨¥Í∏∞ ÍµêÌôò
 	
 }
 
-MMI_FLAMECARD2011				// ÏÜçÏÑ±Ïπ¥Îìú ÍµêÌôò
+MMI_FLAMECARD2011				// º”º∫ƒ´µÂ ±≥»Ø
 {
 	DESCRIPTION
 	{
@@ -5094,7 +5094,7 @@ MMI_FLAMECARD2011				// ÏÜçÏÑ±Ïπ¥Îìú ÍµêÌôò
 	}
 }
 
-MMI_DESERTCARD2011				// Îç∞Ï†ÄÌä∏ Ïπ¥Îìú
+MMI_DESERTCARD2011				// µ•¿˙∆Æ ƒ´µÂ
 {
 	DESCRIPTION
 	{
@@ -5119,7 +5119,7 @@ MMI_DESERTCARD2011				// Îç∞Ï†ÄÌä∏ Ïπ¥Îìú
 	}
 }
 
-MMI_GENERATERCARD2011				// FWC ÌçºÏ¶ê Ïù¥Î≤§Ìä∏
+MMI_GENERATERCARD2011				// FWC ∆€¡Ò ¿Ã∫•∆Æ
 {
 	DESCRIPTION
 	{
@@ -5262,7 +5262,7 @@ MMI_GENERATERCARD2011				// FWC ÌçºÏ¶ê Ïù¥Î≤§Ìä∏
 
 }
 
-MMI_CYCLONECARD2011				// Íµ≠ÎÇ¥ Î¶¨ÌÑ¥Ï¶à Ïù¥Î≤§Ìä∏ ÍµêÌôò
+MMI_CYCLONECARD2011				// ±π≥ª ∏Æ≈œ¡Ó ¿Ã∫•∆Æ ±≥»Ø
 {
 	DESCRIPTION
 	{
@@ -5335,7 +5335,7 @@ MMI_CYCLONECARD2011				// Íµ≠ÎÇ¥ Î¶¨ÌÑ¥Ï¶à Ïù¥Î≤§Ìä∏ ÍµêÌôò
 	}
 }
 
-MMI_EXCHANGEBLOSSOM				// ÏΩúÎ°úÏÑ∏ÏõÄ Ï¶ùÌëú ÍµêÌôò
+MMI_EXCHANGEBLOSSOM				// ƒ›∑ŒººøÚ ¡ı«• ±≥»Ø
 {
 	DESCRIPTION
 	{
@@ -5542,7 +5542,7 @@ MMI_EXCHANGEBLOSSOM				// ÏΩúÎ°úÏÑ∏ÏõÄ Ï¶ùÌëú ÍµêÌôò
 }
 
 /*
-MMI_INDNATIONALFALGEXCHANGE				// Ïù∏ÎèÑÎÑ§ÏãúÏïÑ ÎèÖÎ¶ΩÍ∏∞ÎÖêÏùº Ïù¥Î≤§Ìä∏
+MMI_INDNATIONALFALGEXCHANGE				// ¿Œµµ≥◊Ω√æ∆ µ∂∏≥±‚≥‰¿œ ¿Ã∫•∆Æ
 {
 	DESCRIPTION
 	{
@@ -5599,7 +5599,7 @@ MMI_INDNATIONALFALGEXCHANGE				// Ïù∏ÎèÑÎÑ§ÏãúÏïÑ ÎèÖÎ¶ΩÍ∏∞ÎÖêÏùº Ïù¥Î≤§Ìä∏
 	}
 }
 */
-MMI_HANGAWI_TRADE			//ÌïúÍ∞ÄÏúÑ Ïù¥Î≤§Ìä∏ ÍøÄÏÜ°Ìé∏ -> Í∞ÄÏúÑÎ∞îÏúÑÎ≥¥ Ïø†Ìè∞ ÍµêÌôò
+MMI_HANGAWI_TRADE			//«—∞°¿ß ¿Ã∫•∆Æ ≤‹º€∆Ì -> ∞°¿ßπŸ¿ß∫∏ ƒÌ∆˘ ±≥»Ø
 {
 	DESCRIPTION
 	{
@@ -5626,7 +5626,7 @@ MMI_HANGAWI_TRADE			//ÌïúÍ∞ÄÏúÑ Ïù¥Î≤§Ìä∏ ÍøÄÏÜ°Ìé∏ -> Í∞ÄÏúÑÎ∞îÏúÑÎ≥¥ Ïø†Ìè∞ Íµ
 	}
 }
 
-MMI_TWBOXTRADE01			// ÎåÄÎßå 5Ï£ºÎÖÑ ÏÉÅÏûê ÍµêÌôò
+MMI_TWBOXTRADE01			// ¥Î∏∏ 5¡÷≥‚ ªÛ¿⁄ ±≥»Ø
 {
 	DESCRIPTION
 	{
@@ -5668,7 +5668,7 @@ MMI_TWBOXTRADE01			// ÎåÄÎßå 5Ï£ºÎÖÑ ÏÉÅÏûê ÍµêÌôò
 
 }
 
-MMI_BEHEMOTHSMELTEVENT_TWOSWORD			//Î≤†ÌûàÎ™®Ïä§ Ïö∞Îì† Î¨¥Í∏∞ ÍµêÌôò ÏãúÏûë									
+MMI_BEHEMOTHSMELTEVENT_TWOSWORD			//∫£»˜∏Ω∫ øÏµÁ π´±‚ ±≥»Ø Ω√¿€									
 {												
 	DESCRIPTION											
 	{											
@@ -6136,7 +6136,7 @@ MMI_BEHEMOTHSMELTEVENT_WAND
 	}											
 }												
 												
-MMI_BEHEMOTHSMELTEVENT_STAFF							//Î≤†ÌûàÎ™®Ïä§ Ïö∞Îì† Î¨¥Í∏∞ ÍµêÌôò ÎÅù							
+MMI_BEHEMOTHSMELTEVENT_STAFF							//∫£»˜∏Ω∫ øÏµÁ π´±‚ ±≥»Ø ≥°							
 {												
 	DESCRIPTION											
 	{											
@@ -6188,7 +6188,7 @@ MMI_BEHEMOTHSMELTEVENT_STAFF							//Î≤†ÌûàÎ™®Ïä§ Ïö∞Îì† Î¨¥Í∏∞ ÍµêÌôò ÎÅù
 	}											
 }												
 
-MMI_MAPLE_TRADE					//ÎÇôÏóΩ ÍµêÌôò Í∞ÄÏùÑÏù¥Î≤§Ìä∏
+MMI_MAPLE_TRADE					//≥´ø± ±≥»Ø ∞°¿ª¿Ã∫•∆Æ
 {
 	DESCRIPTION											
 	{											
@@ -6239,7 +6239,7 @@ MMI_MAPLE_TRADE					//ÎÇôÏóΩ ÍµêÌôò Í∞ÄÏùÑÏù¥Î≤§Ìä∏
 		}										
 	}
 }
-MMI_TWBOXTRADE			// ÎåÄÎßå 5Ï£ºÎÖÑ ÏÉÅÏûê ÍµêÌôò
+MMI_TWBOXTRADE			// ¥Î∏∏ 5¡÷≥‚ ªÛ¿⁄ ±≥»Ø
 {
 	DESCRIPTION
 	{
@@ -6441,7 +6441,7 @@ MMI_TWBOXTRADE			// ÎåÄÎßå 5Ï£ºÎÖÑ ÏÉÅÏûê ÍµêÌôò
 	}
 }
 
-MMI_USAKAWIBAWIBOCOUPON2011					//Ìò∏Î∞ï 10Í∞úÏôÄ 100,000 ÌéòÎÉêÎ•º Í∞ÄÏúÑÎ∞îÏúÑÎ≥¥ Ïø†Ìè∞ÏúºÎ°ú ÍµêÌôò
+MMI_USAKAWIBAWIBOCOUPON2011					//»£π⁄ 10∞≥øÕ 100,000 ∆‰≥ƒ∏¶ ∞°¿ßπŸ¿ß∫∏ ƒÌ∆˘¿∏∑Œ ±≥»Ø
 {
 	DESCRIPTION											
 	{											
@@ -6462,13 +6462,13 @@ MMI_USAKAWIBAWIBOCOUPON2011					//Ìò∏Î∞ï 10Í∞úÏôÄ 100,000 ÌéòÎÉêÎ•º Í∞ÄÏúÑÎ∞îÏúÑ
 	
 }
 
-MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
+MMI_COLOSSEUM_REWARD_MIX				//¡ı«•∑Œ ±‚≈∏ ∫∏ªÛ æ∆¿Ã≈€ ±≥»Ø
 {
 	DESCRIPTION
 	{
 	TID_MMI_COLOSSEUM_REWARD_MIX_DESCRIPTION
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT01		// Ìë∏Î•∏ Ï¶ùÌëú 150Í∞ú -> Ïò§Î¶¨ÏπºÏø∞ 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT01		// «™∏• ¡ı«• 150∞≥ -> ø¿∏ÆƒÆƒÒ 1∞≥
 	{
 		CONDITION
 		{
@@ -6479,7 +6479,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_ORICHALCUM01	1	1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT02		// Ìë∏Î•∏ Ï¶ùÌëú 150Í∞ú -> Î¨∏Ïä§ÌÜ§ 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT02		// «™∏• ¡ı«• 150∞≥ -> πÆΩ∫≈Ê 1∞≥
 	{
 		CONDITION
 		{
@@ -6490,7 +6490,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_MOONSTONE	1	1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT03		// Ìë∏Î•∏ Ï¶ùÌëú 75Í∞ú ->  ÏÜçÏÑ± Ïπ¥Îìú Î¨¥ÏûëÏúÑ Ï¢ÖÎ•ò 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT03		// «™∏• ¡ı«• 75∞≥ ->  º”º∫ ƒ´µÂ π´¿€¿ß ¡æ∑˘ 1∞≥
 	{
 		CONDITION
 		{
@@ -6505,7 +6505,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_ELE_GENERATOR	1	200000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT04		//  Ìë∏Î•∏ Ï¶ùÌëú 50Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 10Í∞ú -> 3Îì±Í∏â ÏãúÎìú Í≤∞Ï†ïÏ≤¥ 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT04		//  «™∏• ¡ı«• 50∞≥, ∫”¿∫ ¡ı«• 10∞≥ -> 3µÓ±ﬁ Ω√µÂ ∞·¡§√º 1∞≥
 	{
 		CONDITION
 		{
@@ -6517,7 +6517,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_CIDPIECE03	1	1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT05		//  Ìë∏Î•∏ Ï¶ùÌëú 900Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 180Í∞ú -> Î¨¥ÏûëÏúÑ 3% Ïπ¥Îìú 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT05		//  «™∏• ¡ı«• 900∞≥, ∫”¿∫ ¡ı«• 180∞≥ -> π´¿€¿ß 3% ƒ´µÂ 1∞≥
 	{
 		CONDITION
 		{
@@ -6533,7 +6533,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_ELE_VACCUM3			1		200000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT06		//  Ìë∏Î•∏ Ï¶ùÌëú 900Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 180Í∞ú -> Î¨¥ÏûëÏúÑ C Îì±Í∏â Ïπ¥Îìú 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT06		//  «™∏• ¡ı«• 900∞≥, ∫”¿∫ ¡ı«• 180∞≥ -> π´¿€¿ß C µÓ±ﬁ ƒ´µÂ 1∞≥
 	{
 		CONDITION
 		{
@@ -6549,7 +6549,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_ELE_SANDATKC			1		200000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT07		//  Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú -> Î¨¥ÏûëÏúÑ ÏÜçÏÑ± Ïò§Î∏å 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT07		//  «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥ -> π´¿€¿ß º”º∫ ø¿∫Í 1∞≥
 	{
 		CONDITION
 		{
@@ -6565,7 +6565,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_ELE_GENERATERORB		1		200000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT08		//  Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 10Í∞ú -> ÌÜ†ÌååÏ¶à 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT08		//  «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 10∞≥ -> ≈‰∆ƒ¡Ó 1∞≥
 	{
 		CONDITION
 		{
@@ -6578,7 +6578,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_TOPAZ				1		1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT09		//  Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 25Í∞ú -> Î£®ÎπÑ 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT09		//  «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 25∞≥ -> ∑Á∫Ò 1∞≥
 	{
 		CONDITION
 		{
@@ -6591,7 +6591,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_RUBY				1		1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT10		//  Ìë∏Î•∏ Ï¶ùÌëú 9000Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1800Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 80Í∞ú -> ÏÇ¨ÌååÏù¥Ïñ¥ 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT10		//  «™∏• ¡ı«• 9000∞≥, ∫”¿∫ ¡ı«• 1800∞≥, ≈ıªÁ¿« ¡ı«• 80∞≥ -> ªÁ∆ƒ¿ÃæÓ 1∞≥
 	{
 		CONDITION
 		{
@@ -6604,7 +6604,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_SAPPHIRE				1		1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT11		//  Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 96Í∞ú  -> ÏóêÎ©îÎûÑÎìú 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT11		//  «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 96∞≥  -> ø°∏ﬁ∂ˆµÂ 1∞≥
 	{
 		CONDITION
 		{
@@ -6617,7 +6617,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_EMERALD				1		1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT12		//  Ìë∏Î•∏ Ï¶ùÌëú 18000Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 3600Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 112Í∞ú -> Îã§Ïù¥ÏïÑÎ™¨Îìú 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT12		//  «™∏• ¡ı«• 18000∞≥, ∫”¿∫ ¡ı«• 3600∞≥, ≈ıªÁ¿« ¡ı«• 112∞≥ -> ¥Ÿ¿Ãæ∆∏ÛµÂ 1∞≥
 	{
 		CONDITION
 		{
@@ -6630,7 +6630,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_GEN_MAT_DIAMOND				1		1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT13		//  Ìë∏Î•∏ Ï¶ùÌëú 27000Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 5400Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 128Í∞ú -> ÏòÅÌòºÏùò ÏïÖÏÑ∏ÏÑúÎ¶¨ ÎûúÎç§ Î∞ïÏä§ 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT13		//  «™∏• ¡ı«• 27000∞≥, ∫”¿∫ ¡ı«• 5400∞≥, ≈ıªÁ¿« ¡ı«• 128∞≥ -> øµ»•¿« æ«ººº≠∏Æ ∑£¥˝ π⁄Ω∫ 1∞≥
 	{
 		CONDITION
 		{
@@ -6643,7 +6643,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_SYS_SYS_BX_COLOSSEUM_SOULACCESSORY				1		1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT14		//  Ìë∏Î•∏ Ï¶ùÌëú 18000Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 3600Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 120Í∞ú -> Ïö©ÎßùÌÜ†(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT14		//  «™∏• ¡ı«• 18000∞≥, ∫”¿∫ ¡ı«• 3600∞≥, ≈ıªÁ¿« ¡ı«• 120∞≥ -> øÎ∏¡≈‰(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6656,7 +6656,7 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 		II_ARM_S_CLO_CLO_DRAGON_1				1		1000000
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT15		//  Ìë∏Î•∏ Ï¶ùÌëú 37800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 7560Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 360Í∞ú -> ÎèÑÏ†ÑÏùò Ïö©ÎßùÌÜ†(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT15		//  «™∏• ¡ı«• 37800∞≥, ∫”¿∫ ¡ı«• 7560∞≥, ≈ıªÁ¿« ¡ı«• 360∞≥ -> µµ¿¸¿« øÎ∏¡≈‰(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6672,13 +6672,13 @@ MMI_COLOSSEUM_REWARD_MIX				//Ï¶ùÌëúÎ°ú Í∏∞ÌÉÄ Î≥¥ÏÉÅ ÏïÑÏù¥ÌÖú ÍµêÌôò
 }	
 	
 	
-MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò	
+MMI_COLOSSEUM_REWARD_WEAPON_1		//¡ı«•∑Œ √ ±ﬁ ≈ıªÁ¿« π´±‚ ±≥»Ø	
 {
 	DESCRIPTION
 	{
 	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_DESCRIPTION
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT01		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò ÌïúÏÜêÍ≤Ä(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT01		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« «—º’∞À(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6691,7 +6691,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_SWO_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT02		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò ÏñëÏÜêÍ≤Ä(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT02		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« æÁº’∞À(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6704,7 +6704,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_SWT_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT03		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò ÌïúÏÜêÎèÑÎÅº(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT03		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« «—º’µµ≥¢(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6717,7 +6717,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_AXE_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT04		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò ÏñëÏÜêÎèÑÎÅº(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT04		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« æÁº’µµ≥¢(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6730,7 +6730,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_AXT_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT05		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò ÎÑàÌÅ¥(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT05		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« ≥ ≈¨(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6743,7 +6743,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_KNU_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT06		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Ïä§Ìã±(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT06		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« Ω∫∆Ω(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6756,7 +6756,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_CHE_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT07		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò ÏôÑÎìú(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT07		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« øœµÂ(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6769,7 +6769,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_WAN_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT08		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Ïä§ÌÉúÌîÑ(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT08		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« Ω∫≈¬«¡(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6782,7 +6782,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_STA_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT09		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Ìôú(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT09		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« »∞(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6795,7 +6795,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_BOW_COLOGRADE_1	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT10		// Ìë∏Î•∏ Ï¶ùÌëú 1800Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 360Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 6Í∞ú -> Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò ÏöîÏöî(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT10		// «™∏• ¡ı«• 1800∞≥, ∫”¿∫ ¡ı«• 360∞≥, ≈ıªÁ¿« ¡ı«• 6∞≥ -> √ ±ﬁ ≈ıªÁ¿« ø‰ø‰(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6810,13 +6810,13 @@ MMI_COLOSSEUM_REWARD_WEAPON_1		//Ï¶ùÌëúÎ°ú Ï¥àÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 	}
 }	
 	
-MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò	
+MMI_COLOSSEUM_REWARD_WEAPON_2		//¡ı«•∑Œ ¡ﬂ±ﬁ ≈ıªÁ¿« π´±‚ ±≥»Ø	
 {
 	DESCRIPTION
 	{
 	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_DESCRIPTION
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT01		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò ÌïúÏÜêÍ≤Ä(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT01		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« «—º’∞À(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6829,7 +6829,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_SWO_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT02		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò ÏñëÏÜêÍ≤Ä(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT02		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« æÁº’∞À(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6842,7 +6842,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_SWT_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT03		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò ÌïúÏÜêÎèÑÎÅº(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT03		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« «—º’µµ≥¢(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6855,7 +6855,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_AXE_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT04		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò ÏñëÏÜêÎèÑÎÅº(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT04		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« æÁº’µµ≥¢(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6868,7 +6868,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_AXT_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT05		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò ÎÑàÌÅ¥(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT05		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« ≥ ≈¨(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6881,7 +6881,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_KNU_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT06		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Ïä§Ìã±(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT06		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« Ω∫∆Ω(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6894,7 +6894,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_CHE_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT07		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò ÏôÑÎìú(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT07		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« øœµÂ(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6907,7 +6907,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_WAN_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT08		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Ïä§ÌÉúÌîÑ(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT08		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« Ω∫≈¬«¡(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6920,7 +6920,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_STA_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT09		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Ìôú(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT09		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« »∞(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6933,7 +6933,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_BOW_COLOGRADE_2	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT10		// Ìë∏Î•∏ Ï¶ùÌëú 5400Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 1080Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 18Í∞ú -> Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò ÏöîÏöî(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT10		// «™∏• ¡ı«• 5400∞≥, ∫”¿∫ ¡ı«• 1080∞≥, ≈ıªÁ¿« ¡ı«• 18∞≥ -> ¡ﬂ±ﬁ ≈ıªÁ¿« ø‰ø‰(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6949,13 +6949,13 @@ MMI_COLOSSEUM_REWARD_WEAPON_2		//Ï¶ùÌëúÎ°ú Ï§ëÍ∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 }		
 	
 	
-MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò	
+MMI_COLOSSEUM_REWARD_WEAPON_3		//¡ı«•∑Œ ∞Ì±ﬁ ≈ıªÁ¿« π´±‚ ±≥»Ø	
 {
 	DESCRIPTION
 	{
 	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_DESCRIPTION
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT01		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò ÌïúÏÜêÍ≤Ä(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT01		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« «—º’∞À(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6968,7 +6968,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_SWO_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT02		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò ÏñëÏÜêÍ≤Ä(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT02		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« æÁº’∞À(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6981,7 +6981,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_SWT_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT03		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò ÌïúÏÜêÎèÑÎÅº(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT03		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« «—º’µµ≥¢(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -6994,7 +6994,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_AXE_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT04		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò ÏñëÏÜêÎèÑÎÅº(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT04		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« æÁº’µµ≥¢(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -7007,7 +7007,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_AXT_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT05		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò ÎÑàÌÅ¥(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT05		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« ≥ ≈¨(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -7020,7 +7020,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_KNU_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT06		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Ïä§Ìã±(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT06		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« Ω∫∆Ω(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -7033,7 +7033,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_CHE_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT07		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò ÏôÑÎìú(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT07		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« øœµÂ(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -7046,7 +7046,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_WAN_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT08		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Ïä§ÌÉúÌîÑ(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT08		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« Ω∫≈¬«¡(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -7059,7 +7059,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_STA_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT09		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Ìôú(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT09		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« »∞(±Õº”) 1∞≥
 	{
 		CONDITION
 		{
@@ -7072,7 +7072,7 @@ MMI_COLOSSEUM_REWARD_WEAPON_3		//Ï¶ùÌëúÎ°ú Í≥†Í∏â Ìà¨ÏÇ¨Ïùò Î¨¥Í∏∞ ÍµêÌôò
 		II_WEA_BOW_COLOGRADE_3	1	1000000		2
 		}
 	}
-	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT10		// Ìë∏Î•∏ Ï¶ùÌëú 12600Í∞ú, Î∂âÏùÄ Ï¶ùÌëú 2520Í∞ú, Ìà¨ÏÇ¨Ïùò Ï¶ùÌëú 40Í∞ú -> Í≥†Í∏â Ìà¨ÏÇ¨Ïùò ÏöîÏöî(Í∑ÄÏÜç) 1Í∞ú
+	SET	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT10		// «™∏• ¡ı«• 12600∞≥, ∫”¿∫ ¡ı«• 2520∞≥, ≈ıªÁ¿« ¡ı«• 40∞≥ -> ∞Ì±ﬁ ≈ıªÁ¿« ø‰ø‰(±Õº”) 1∞≥
 	{
 		CONDITION
 		{

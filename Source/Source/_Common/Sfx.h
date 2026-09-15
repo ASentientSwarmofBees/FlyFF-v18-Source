@@ -1,4 +1,4 @@
-ï»¿// Sfx.h: interface for the CSfx class.
+// Sfx.h: interface for the CSfx class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -19,31 +19,31 @@ extern CSfxGenMoveMark* g_pMoveMark;
 
 class CSfxModel;
 
-/// íš¨ê³¼(íŒŒí‹°í´, ë°œì‚¬ì²´)ë¥¼ ì²˜ë¦¬í•˜ëŠ” base class
+/// È¿°ú(ÆÄÆ¼Å¬, ¹ß»çÃ¼)¸¦ Ã³¸®ÇÏ´Â base class
 class CSfx  : public CCtrl
 {
 protected:
-	CSfxModel m_SfxObj2; // ì—°ì† íš¨ê³¼ : ì‚¬ìš©í•˜ë˜ì§€ ë§ë˜ì§€  
-	CSfxModel m_SfxObj3; // ì—°ì† íš¨ê³¼ : ì‚¬ìš©í•˜ë˜ì§€ ë§ë˜ì§€ 
+	CSfxModel m_SfxObj2; // ¿¬¼Ó È¿°ú : »ç¿ëÇÏ´øÁö ¸»´øÁö  
+	CSfxModel m_SfxObj3; // ¿¬¼Ó È¿°ú : »ç¿ëÇÏ´øÁö ¸»´øÁö 
 
 #if defined( __CLIENT ) 
-	DWORD	m_dwSkill;		// ìŠ¤í‚¬ë°œì‚¬ì²´ë©´ ìŠ¤í‚¬ ì•„ì´ë””ë¥¼..
+	DWORD	m_dwSkill;		// ½ºÅ³¹ß»çÃ¼¸é ½ºÅ³ ¾ÆÀÌµğ¸¦..
 #endif	// 
 	
 public:
 	int m_nSec;
 	int m_nFrame;
 
-	CSfxModel* m_pSfxObj; // ì´í™íŠ¸ ëª¨ë¸ í¬ì¸í„°
-	OBJID       m_idSrc;    // ìœë†ˆ ID
-	OBJID       m_idDest;   // ë§ì„ë†ˆ ID
-	D3DXVECTOR3 m_vPosDest; // ë§ì„ ìœ„ì¹˜
-//	D3DXVECTOR3 m_vPosCur;  // í˜„ì¬ ìœ„ì¹˜ - ì´ê²Œ ì™œ í•„ìš”í•œê±¸ê¹Œ.
+	CSfxModel* m_pSfxObj; // ÀÌÆåÆ® ¸ğµ¨ Æ÷ÀÎÅÍ
+	OBJID       m_idSrc;    // ½ğ³ğ ID
+	OBJID       m_idDest;   // ¸ÂÀ»³ğ ID
+	D3DXVECTOR3 m_vPosDest; // ¸ÂÀ» À§Ä¡
+//	D3DXVECTOR3 m_vPosCur;  // ÇöÀç À§Ä¡ - ÀÌ°Ô ¿Ö ÇÊ¿äÇÑ°É±î.
 #if defined( __CLIENT ) 
 	CLight  m_light;
 	int		m_idSfxHit;
-	int		m_nMagicPower;	// ì¶©ì „ ë‹¨ê³„
-//	DWORD	m_dwSkillLevel;	// ìŠ¤í‚¬ë ˆë²¨.
+	int		m_nMagicPower;	// ÃæÀü ´Ü°è
+//	DWORD	m_dwSkillLevel;	// ½ºÅ³·¹º§.
 #endif	// 
 
 	CSfx();
@@ -61,35 +61,35 @@ public:
 	}
 #endif
 	
-	void Process(); // ê° í”„ë ˆì„ë§ˆë‹¤ ìœ„ì¹˜ì´ë™, ì• ë‹ˆë©”ì´ì…˜ ë“± ì²˜ë¦¬
-	void DamageToTarget( int nDmgCnt = 0, float fDmgAngle = 0, float fDmgPower = 0, int nMaxDmgCnt = 1 ); // ëª©í‘œë¬¼ì— ë§ì•˜ì„ë•Œ ë°ë¯¸ì§€ë¥¼ ì¤€ë‹¤
+	void Process(); // °¢ ÇÁ·¹ÀÓ¸¶´Ù À§Ä¡ÀÌµ¿, ¾Ö´Ï¸ŞÀÌ¼Ç µî Ã³¸®
+	void DamageToTarget( int nDmgCnt = 0, float fDmgAngle = 0, float fDmgPower = 0, int nMaxDmgCnt = 1 ); // ¸ñÇ¥¹°¿¡ ¸Â¾ÒÀ»¶§ µ¥¹ÌÁö¸¦ ÁØ´Ù
 	BOOL SetIndex( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwIndex, BOOL bInitProp = FALSE );
 
-	virtual	int SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex, D3DXVECTOR3& vPosSrc, OBJID idSrc, D3DXVECTOR3& vPosDest, OBJID idDest, int nSec = 0 ); // ì‚¬ìš©í•  SFX ì§€ì •
+	virtual	int SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex, D3DXVECTOR3& vPosSrc, OBJID idSrc, D3DXVECTOR3& vPosDest, OBJID idDest, int nSec = 0 ); // »ç¿ëÇÒ SFX ÁöÁ¤
 	virtual void ShootSfx( float fAngXZ, float fAngY, float fSpeed ) {}
 	virtual void SetPartLink( int nPart ) {}
 #ifndef __WORLDSERVER
-	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice ); // ë Œë”
+	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice ); // ·»´õ
 #endif	// __WORLDSERVER
 
 };
 
-// ì˜ê³  ë‚ ì•„ê°€ì„œ ë§ê³  í„°ì§€ëŠ” ì¼ë°˜ì ì¸ ì´í™íŠ¸
+// ½î°í ³¯¾Æ°¡¼­ ¸Â°í ÅÍÁö´Â ÀÏ¹İÀûÀÎ ÀÌÆåÆ®
 class CSfxShoot : public CSfx
 {
 public:
-	BOOL	m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	BOOL	m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	BOOL	m_bDir;
-	DWORD	m_dwSndHit;		// ë§ì•˜ì„ë•Œ ì†Œë¦¬.
-	DWORD	m_dwSfxHit;		// í­ë°œ ì´í™íŠ¸
-	FLOAT	m_fHitScale;	// í­ë°œì”¬ ìŠ¤ì¼€ì¼ë§.
+	DWORD	m_dwSndHit;		// ¸Â¾ÒÀ»¶§ ¼Ò¸®.
+	DWORD	m_dwSfxHit;		// Æø¹ß ÀÌÆåÆ®
+	FLOAT	m_fHitScale;	// Æø¹ß¾À ½ºÄÉÀÏ¸µ.
 	
 	CSfxShoot();
 	virtual ~CSfxShoot();
 	
-	void	SetHitSfx( LPCTSTR szFileName, OBJID idSrc, OBJID idDst, FLOAT fScale = 1.0f );	// ë§ì•˜ì„ë•Œ ì´í™íŠ¸ ë“±ë¡
-	void	SetHitSfx( DWORD dwIndex, OBJID idSrc, OBJID idDst, FLOAT fScale = 1.0f );	// ë§ì•˜ì„ë•Œ ì´í™íŠ¸ ë“±ë¡
-	void	SetDir( BOOL bDir );		// ë°©í–¥ì„±ìˆëŠ” sfx ì¸ê°€.
+	void	SetHitSfx( LPCTSTR szFileName, OBJID idSrc, OBJID idDst, FLOAT fScale = 1.0f );	// ¸Â¾ÒÀ»¶§ ÀÌÆåÆ® µî·Ï
+	void	SetHitSfx( DWORD dwIndex, OBJID idSrc, OBJID idDst, FLOAT fScale = 1.0f );	// ¸Â¾ÒÀ»¶§ ÀÌÆåÆ® µî·Ï
+	void	SetDir( BOOL bDir );		// ¹æÇâ¼ºÀÖ´Â sfx ÀÎ°¡.
 	void	SetSndHit( DWORD dwSndHit ) { m_dwSndHit = dwSndHit; }
 	
 	virtual void Process();
@@ -99,7 +99,7 @@ public:
 };
 
 
-// CSfxë‘ ë˜‘ê°™ê³  idSrcì˜ íšŒì „ë°©í–¥ê¹Œì§€ ë˜‘ê°™ì€ê±°.
+// CSfx¶û ¶È°°°í idSrcÀÇ È¸Àü¹æÇâ±îÁö ¶È°°Àº°Å.
 class CSfxRotate : public CSfx
 {
 public:
@@ -116,7 +116,7 @@ class CSfxDuelParty : public CSfx
 {
 public:
 	int	m_nType;
-	CSfxDuelParty() { m_nType = 0; };	// 0:ë“€ì–¼  1:ì „ìŸ.
+	CSfxDuelParty() { m_nType = 0; };	// 0:µà¾ó  1:ÀüÀï.
 	~CSfxDuelParty() {};
 
 	void Process();
@@ -148,7 +148,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 };
 
-// í´ë½ì›Œí¬ ë³´ìŠ¤ ë ˆì´ì € ì¶©ì „.
+// Å¬¶ô¿öÅ© º¸½º ·¹ÀÌÀú ÃæÀü.
 class CSfxClockWorksCharge : public CSfx
 {
 public:
@@ -159,7 +159,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 };
 
-// í´ë½ì›Œí¬ ë³´ìŠ¤ ì™¼íŒ”ì—ì„œ ë°œì‚¬í• ë•Œ ë‚˜ì˜¤ëŠ” ì´í™íŠ¸.
+// Å¬¶ô¿öÅ© º¸½º ¿ŞÆÈ¿¡¼­ ¹ß»çÇÒ¶§ ³ª¿À´Â ÀÌÆåÆ®.
 class CSfxClockWorksCannon : public CSfx
 {
 public:
@@ -170,7 +170,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 };
 
-// ë¨¸ì‰¬ë¬´íŠ¸ ë³´ìŠ¤ ë ˆì´ì € ì¶©ì „.
+// ¸Ó½¬¹«Æ® º¸½º ·¹ÀÌÀú ÃæÀü.
 class CSfxMushmootCharge : public CSfx
 {
 public:
@@ -193,7 +193,7 @@ public:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef __WORLDSERVER
-// ì¼ë°˜ ì´í™íŠ¸ : í†µìƒ ë°ë¯¸ì§€
+// ÀÏ¹İ ÀÌÆåÆ® : Åë»ó µ¥¹ÌÁö
 class CSfxGenNormalDmg01 : public CSfx
 {
 public:
@@ -217,7 +217,7 @@ public:
 #endif	// __CLIENT
 };
 
-// ê·¹ë‹¨ìŠ¤í‚¬ ì´í™íŠ¸ : ìŠ¤íŠ¸ë ˆì¹­01
+// ±Ø´Ü½ºÅ³ ÀÌÆåÆ® : ½ºÆ®·¹Äª01
 class CSfxTroStretching01 : public CSfx
 {
 public:
@@ -228,7 +228,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 #endif	// __WORLDSERVER
 };
-// ê·¹ë‹¨ìŠ¤í‚¬ ì´í™íŠ¸ : ìŠ¤íŠ¸ë ˆì¹­02
+// ±Ø´Ü½ºÅ³ ÀÌÆåÆ® : ½ºÆ®·¹Äª02
 class CSfxTroStretching02 : public CSfx
 {
 public:
@@ -239,7 +239,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 #endif	// __WORLDSERVER
 };
-// ê·¹ë‹¨ìŠ¤í‚¬ ì´í™íŠ¸ : ì§‘ì¤‘ê³µê²©
+// ±Ø´Ü½ºÅ³ ÀÌÆåÆ® : ÁıÁß°ø°İ
 class CSfxTroBlitz : public CSfx
 {
 public:
@@ -251,7 +251,7 @@ public:
 #endif	// __WORLDSERVER
 };
 
-// ì¼ë°˜ ì´í™íŠ¸ : ì•„ì§ ì•ˆì”€
+// ÀÏ¹İ ÀÌÆåÆ® : ¾ÆÁ÷ ¾È¾¸
 class CSfxGenSuperDmg01 : public CSfx
 {
 public:
@@ -262,7 +262,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ì•„ì§ ì•ˆì”€
+// ÀÏ¹İ ÀÌÆåÆ® : ¾ÆÁ÷ ¾È¾¸
 class CSfxGenSkillDmg01 : public CSfx
 {
 public:
@@ -273,7 +273,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ì•„ì§ ì•ˆì”€
+// ÀÏ¹İ ÀÌÆåÆ® : ¾ÆÁ÷ ¾È¾¸
 class CSfxGenMonsterDmg01 : public CSfx
 {
 public:
@@ -284,7 +284,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 #endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ë¶€í™œ
+// ÀÏ¹İ ÀÌÆåÆ® : ºÎÈ°
 class CSfxGenRestoration01 : public CSfx
 {
 public:
@@ -295,7 +295,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ì¹˜ë£Œ
+// ÀÏ¹İ ÀÌÆåÆ® : Ä¡·á
 class CSfxGenCure: public CSfx
 {
 public:
@@ -306,7 +306,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ê°•í™”
+// ÀÏ¹İ ÀÌÆåÆ® : °­È­
 class CSfxGenIncrease01 : public CSfx
 {
 public:
@@ -317,7 +317,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ë ˆë²¨ì—…
+// ÀÏ¹İ ÀÌÆåÆ® : ·¹º§¾÷
 class CSfxGenLevelUp : public CSfx
 {
 public:
@@ -328,7 +328,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ë¡œê·¸ì¸
+// ÀÏ¹İ ÀÌÆåÆ® : ·Î±×ÀÎ
 class CSfxGenLogin : public CSfx
 {
 public:
@@ -339,7 +339,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ì›Œí”„
+// ÀÏ¹İ ÀÌÆåÆ® : ¿öÇÁ
 class CSfxGenWarp : public CSfx
 {
 public:
@@ -350,7 +350,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ì‚¬ë§
+// ÀÏ¹İ ÀÌÆåÆ® : »ç¸Á
 class CSfxGenPcDie : public CSfx
 {
 public:
@@ -361,7 +361,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ëª¹ ë¦¬ìŠ¤í°
+// ÀÏ¹İ ÀÌÆåÆ® : ¸÷ ¸®½ºÆù
 class CSfxGenMonsterSpawn : public CSfx
 {
 public:
@@ -372,7 +372,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ì´ë™ìœ„ì¹˜
+// ÀÏ¹İ ÀÌÆåÆ® : ÀÌµ¿À§Ä¡
 class CSfxGenMoveMark: public CSfx
 {
 public:
@@ -395,7 +395,7 @@ public:
 #endif	// __VM_0820
 #endif	// __CLIENT
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ë¬¼ì˜ íŒŒì¥
+// ÀÏ¹İ ÀÌÆåÆ® : ¹°ÀÇ ÆÄÀå
 class CSfxGenWaterCircle: public CSfx
 {
 public:
@@ -419,7 +419,7 @@ public:
 #endif	// __CLIENT
 };
 
-// ì¼ë°˜ ì´í™íŠ¸ : ë¬¼ì˜ íŒŒì¥
+// ÀÏ¹İ ÀÌÆåÆ® : ¹°ÀÇ ÆÄÀå
 class CSfxGenRainCircle: public CSfx
 {
 public:
@@ -443,7 +443,7 @@ public:
 #endif	// __CLIENT
 };
 
-// ì¼ë°˜ ì´í™íŠ¸ : ë¬¼ íŠ€ê¸°ê¸°
+// ÀÏ¹İ ÀÌÆåÆ® : ¹° Æ¢±â±â
 class CSfxGenWaterCrown: public CSfx
 {
 public:
@@ -468,9 +468,9 @@ public:
 class CSfxMagicMiAtk1 : public CSfxShoot
 {
 public:
-	FLOAT m_fCenter;		// íƒ€ê²Ÿì˜ ì¢Œí‘œ.y ë³´ì •ì¹˜.
-	FLOAT m_fRadiusXZ;		// íƒ€ê²Ÿì˜ XZí‰ë©´ì˜ ë°˜ì§€ë¦„.
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
+	FLOAT m_fCenter;		// Å¸°ÙÀÇ ÁÂÇ¥.y º¸Á¤Ä¡.
+	FLOAT m_fRadiusXZ;		// Å¸°ÙÀÇ XZÆò¸éÀÇ ¹İÁö¸§.
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
 	CSfxMagicMiAtk1();
 	virtual ~CSfxMagicMiAtk1();
 	virtual void Process();
@@ -480,14 +480,14 @@ public:
 };
 
 
-// ì™„ë“œëŠ” ëª¨ìœ¼ê¸° ê³µê²© ë‹¨ê³„ë³„ë¡œ 4ê°€ì§€
-// ì¼ë°˜ ì´í™íŠ¸ : ì™„ë“œ1
+// ¿Ïµå´Â ¸ğÀ¸±â °ø°İ ´Ü°èº°·Î 4°¡Áö
+// ÀÏ¹İ ÀÌÆåÆ® : ¿Ïµå1
 class CSfxItemWandAtk1 : public CSfxShoot
 {
 public:
-	FLOAT m_fCenter;		// íƒ€ê²Ÿì˜ ì¢Œí‘œ.y ë³´ì •ì¹˜.
-	FLOAT m_fRadiusXZ;		// íƒ€ê²Ÿì˜ XZí‰ë©´ì˜ ë°˜ì§€ë¦„.
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
+	FLOAT m_fCenter;		// Å¸°ÙÀÇ ÁÂÇ¥.y º¸Á¤Ä¡.
+	FLOAT m_fRadiusXZ;		// Å¸°ÙÀÇ XZÆò¸éÀÇ ¹İÁö¸§.
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
 	CSfxItemWandAtk1();
 	virtual ~CSfxItemWandAtk1();
 	virtual void Process();
@@ -501,14 +501,14 @@ class CSfxItemRangeAtk1 : public CSfxShoot
 public:
 #if 1 
 #ifdef __CLIENT
-	CTailEffectBelt*	m_pTail;		// ê¼¬ë‘ì§€ ì´í™íŠ¸	
+	CTailEffectBelt*	m_pTail;		// ²¿¶ûÁö ÀÌÆåÆ®	
 #endif
 	FLOAT			m_fOriLen;
 	D3DXVECTOR3		m_v3SrcPos;
 #endif
-	FLOAT m_fCenter;		// íƒ€ê²Ÿì˜ ì¢Œí‘œ.y ë³´ì •ì¹˜.
-	FLOAT m_fRadiusXZ;		// íƒ€ê²Ÿì˜ XZí‰ë©´ì˜ ë°˜ì§€ë¦„.
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
+	FLOAT m_fCenter;		// Å¸°ÙÀÇ ÁÂÇ¥.y º¸Á¤Ä¡.
+	FLOAT m_fRadiusXZ;		// Å¸°ÙÀÇ XZÆò¸éÀÇ ¹İÁö¸§.
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
 	CSfxItemRangeAtk1();
 	virtual ~CSfxItemRangeAtk1();
 	virtual void Process();
@@ -517,7 +517,7 @@ public:
 #endif	// __WORLDSERVER
 };
 
-// ì•„ë˜ë¡œ ë–¨ì–´ì§€ëŠ” í™”ì‚´ ì´í™íŠ¸
+// ¾Æ·¡·Î ¶³¾îÁö´Â È­»ì ÀÌÆåÆ®
 class CSfxItemRangeAtk1_Allow : public CSfxShoot
 {
 public:
@@ -530,7 +530,7 @@ public:
 #endif	// __WORLDSERVER
 };
 
-// CSfxItemRangeAtk1_Allowìƒì„± ê´€ë¦¬ - ì‹¤ì œ ì‚¬ìš©ë˜ì–´ì§€ëŠ” ë¶€ë¶„
+// CSfxItemRangeAtk1_Allow»ı¼º °ü¸® - ½ÇÁ¦ »ç¿ëµÇ¾îÁö´Â ºÎºĞ
 class CSfxItemRangeAtk1_AllowRain : public CSfxShoot
 {
 public:
@@ -543,7 +543,7 @@ public:
 #endif	// __WORLDSERVER
 };
 
-// CSfxItemRangeAtk1_Allowìƒì„± ê´€ë¦¬ - ì‹¤ì œ ì‚¬ìš©ë˜ì–´ì§€ëŠ” ë¶€ë¶„
+// CSfxItemRangeAtk1_Allow»ı¼º °ü¸® - ½ÇÁ¦ »ç¿ëµÇ¾îÁö´Â ºÎºĞ
 class CSfxItemRangeAtk1_Stone : public CSfxShoot
 {
 public:
@@ -574,13 +574,13 @@ class CSfxItemRangeAtk_JunkBow : public CSfxShoot
 public:
 #if 1 
 #ifdef __CLIENT
-	CTailEffectBelt*	m_pTail[3];		// ê¼¬ë‘ì§€ ì´í™íŠ¸	
+	CTailEffectBelt*	m_pTail[3];		// ²¿¶ûÁö ÀÌÆåÆ®	
 #endif
 	FLOAT			m_fOriLen;
 	D3DXVECTOR3		m_v3SrcPos;
 #endif
-	FLOAT m_fCenter;		// íƒ€ê²Ÿì˜ ì¢Œí‘œ.y ë³´ì •ì¹˜.
-	FLOAT m_fRadiusXZ;		// íƒ€ê²Ÿì˜ XZí‰ë©´ì˜ ë°˜ì§€ë¦„.
+	FLOAT m_fCenter;		// Å¸°ÙÀÇ ÁÂÇ¥.y º¸Á¤Ä¡.
+	FLOAT m_fRadiusXZ;		// Å¸°ÙÀÇ XZÆò¸éÀÇ ¹İÁö¸§.
 	CSfxItemRangeAtk_JunkBow();
 	virtual ~CSfxItemRangeAtk_JunkBow();
 	virtual void Process();
@@ -594,7 +594,7 @@ class CSfxItemYoyoAtk : public CSfxShoot
 public:
 #ifdef __CLIENT
 	int				m_nMaxSpline;
-	CTailEffectModel*	m_pTail;		// ê¼¬ë‘ì§€ ì´í™íŠ¸	
+	CTailEffectModel*	m_pTail;		// ²¿¶ûÁö ÀÌÆåÆ®	
 	D3DXVECTOR3		m_aSpline[30];
 	int				m_nStep;
 	int				m_nType;
@@ -603,7 +603,7 @@ public:
 	int				m_nTailIndex;
 	CSfxModel		m_pSfxTailModel[20];
 	void			ProcessTail();
-	void			AddSfxTail( CSfxModel* pSfxModel );	// ë§ì•˜ì„ë•Œ ì´í™íŠ¸ ë“±ë¡
+	void			AddSfxTail( CSfxModel* pSfxModel );	// ¸Â¾ÒÀ»¶§ ÀÌÆåÆ® µî·Ï
 	
 #endif
 	FLOAT			m_fMaxLength;
@@ -614,8 +614,8 @@ public:
 	
 
 	
-	FLOAT m_fCenter;		// íƒ€ê²Ÿì˜ ì¢Œí‘œ.y ë³´ì •ì¹˜.
-	FLOAT m_fRadiusXZ;		// íƒ€ê²Ÿì˜ XZí‰ë©´ì˜ ë°˜ì§€ë¦„.
+	FLOAT m_fCenter;		// Å¸°ÙÀÇ ÁÂÇ¥.y º¸Á¤Ä¡.
+	FLOAT m_fRadiusXZ;		// Å¸°ÙÀÇ XZÆò¸éÀÇ ¹İÁö¸§.
 
 	void  MakePath(int nType);
 	D3DXVECTOR3	SplineSlerp( D3DXVECTOR3 *v1, D3DXVECTOR3 *v2, D3DXVECTOR3 *v3, D3DXVECTOR3 *v4, float fSlerp );
@@ -630,17 +630,17 @@ public:
 };
 
 
-// ì¼ì§ì„ ìœ¼ë¡œ ë°œì‚¬í•˜ëŠ” ì¥ê±°ë¦¬ íƒ„í™˜ë¥˜.
+// ÀÏÁ÷¼±À¸·Î ¹ß»çÇÏ´Â Àå°Å¸® ÅºÈ¯·ù.
 class CSfxAtkStraight : public CSfxShoot
 {
-	D3DXVECTOR3 m_vDelta;			// ì´ë™ ì¦ê°€ëŸ‰.
-	DWORD		m_dwExplosion;		// ë§ê³ ë‚œí›„ ìƒì„±ë  í­ë°œ ì•„ì´ë””.
+	D3DXVECTOR3 m_vDelta;			// ÀÌµ¿ Áõ°¡·®.
+	DWORD		m_dwExplosion;		// ¸Â°í³­ÈÄ »ı¼ºµÉ Æø¹ß ¾ÆÀÌµğ.
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
 	CSfxAtkStraight();
 	virtual ~CSfxAtkStraight();
 	virtual void Process();
-	void ShootSfx( float fAngXZ, float fAngH, float fSpeed, DWORD dwExplosion );		// ë°œì‚¬ì²´ì˜ ì´ë™ì¦ê°€ëŸ‰ì„ ì„ ê³„ì‚°í•¨. 
+	void ShootSfx( float fAngXZ, float fAngH, float fSpeed, DWORD dwExplosion );		// ¹ß»çÃ¼ÀÇ ÀÌµ¿Áõ°¡·®À» ¼±°è»êÇÔ. 
 	
 #ifndef __WORLDSERVER
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
@@ -649,14 +649,14 @@ public:
 
 class CSfxItemWandAtkAir : public CSfxShoot
 {
-	D3DXVECTOR3		m_vDelta;		// ê´€ì„±.
+	D3DXVECTOR3		m_vDelta;		// °ü¼º.
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxItemWandAtkAir();
 	virtual ~CSfxItemWandAtkAir();
 	virtual void Process();
-	virtual	int SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex, D3DXVECTOR3& vPosSrc, OBJID idSrc, D3DXVECTOR3& vPosDest, OBJID idDest, int nSec = 0 ); // ì‚¬ìš©í•  SFX ì§€ì •
+	virtual	int SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex, D3DXVECTOR3& vPosSrc, OBJID idSrc, D3DXVECTOR3& vPosDest, OBJID idDest, int nSec = 0 ); // »ç¿ëÇÒ SFX ÁöÁ¤
 	virtual void ShootSfx( float fAngXZ, float fAngY, float fSpeed );
 #ifndef __WORLDSERVER
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
@@ -664,12 +664,12 @@ public:
 };
 
 
-// ì¼ë°˜ ì´í™íŠ¸ : ì™„ë“œ2
+// ÀÏ¹İ ÀÌÆåÆ® : ¿Ïµå2
 class CSfxItemWandAtk2 : public CSfxShoot
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxItemWandAtk2();
 	virtual ~CSfxItemWandAtk2();
 	virtual void Process();
@@ -677,12 +677,12 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ì™„ë“œ3
+// ÀÏ¹İ ÀÌÆåÆ® : ¿Ïµå3
 class CSfxItemWandAtk3 : public CSfxShoot
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxItemWandAtk3();
 	virtual ~CSfxItemWandAtk3();
 	virtual void Process();
@@ -690,12 +690,12 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ì¼ë°˜ ì´í™íŠ¸ : ì™„ë“œ4
+// ÀÏ¹İ ÀÌÆåÆ® : ¿Ïµå4
 class CSfxItemWandAtk4 : public CSfxShoot
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxItemWandAtk4();
 	virtual ~CSfxItemWandAtk4();
 	virtual void Process();
@@ -712,11 +712,11 @@ public:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// ë°©ë‘ì ìŠ¤í‚¬ : ì˜¤ë²„ì»¤í„°
+// ¹æ¶ûÀÚ ½ºÅ³ : ¿À¹öÄ¿ÅÍ
 class CSfxSkillVagOverCutter: public CSfx
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
 	CSfxSkillVagOverCutter();
 	virtual ~CSfxSkillVagOverCutter();
 	virtual void Process();
@@ -724,7 +724,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë°©ë‘ì ìŠ¤í‚¬ : í´ë¦°íˆíŠ¸
+// ¹æ¶ûÀÚ ½ºÅ³ : Å¬¸°È÷Æ®
 class CSfxSkillVagCleanHit : public CSfx
 {
 public:
@@ -735,7 +735,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë°©ë‘ì ìŠ¤í‚¬ : ë¸Œëœë””ì‰¬
+// ¹æ¶ûÀÚ ½ºÅ³ : ºê·£µğ½¬
 class CSfxSkillVagBrandish : public CSfx
 {
 public:
@@ -747,7 +747,7 @@ public:
 	#endif	// __WORLDSERVER
 };
 
-// ë¨¸ì…”ë„ˆë¦¬ ìŠ¤í‚¬ : í‚¨íœ 
+// ¸Ó¼Å³Ê¸® ½ºÅ³ : Å²ÈÙ
 class CSfxSkillMerKeenWheel : public CSfx
 {
 public:
@@ -758,11 +758,11 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë¨¸ì…”ë„ˆë¦¬ ìŠ¤í‚¬ : ìŠ¤í”Œë§¤ì‰¬
+// ¸Ó¼Å³Ê¸® ½ºÅ³ : ½ºÇÃ¸Å½¬
 class CSfxSkillMerSplmash : public CSfx
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
 	CSfxSkillMerSplmash();
 	virtual ~CSfxSkillMerSplmash();
 	virtual void Process();
@@ -770,7 +770,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë¨¸ì…”ë„ˆë¦¬ ìŠ¤í‚¬ : ë¸”ë¼ì¸ë“œ ì‚¬ì´ë“œ
+// ¸Ó¼Å³Ê¸® ½ºÅ³ : ºí¶óÀÎµå »çÀÌµå
 class CSfxSkillMerBlindSide : public CSfx
 {
 public:
@@ -781,7 +781,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë¨¸ì…”ë„ˆë¦¬ ìŠ¤í‚¬ : íŒ¬ë°”ë¦¬ì–´
+// ¸Ó¼Å³Ê¸® ½ºÅ³ : ÆÒ¹Ù¸®¾î
 class CSfxSkillMerPanBarrier : public CSfx
 {
 public:
@@ -795,7 +795,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë¨¸ì…”ë„ˆë¦¬ ìŠ¤í‚¬ : í”„ë¡œí…ì…˜
+// ¸Ó¼Å³Ê¸® ½ºÅ³ : ÇÁ·ÎÅØ¼Ç
 class CSfxSkillMerProtection : public CSfx
 {
 public:
@@ -811,7 +811,7 @@ public:
 };
 
 
-// ë§¤ì§€ì…˜ ì£¼ë¬¸ì™¸ê¸°
+// ¸ÅÁö¼Ç ÁÖ¹®¿Ü±â
 class CSfxSkillMagFireCasting : public CSfx
 {
 public:
@@ -865,7 +865,7 @@ public:
 	#endif	// __WORLDSERVER
 };
 
-// ì–´ì‹œ ë„ˆí´ì¶”ê°€..
+// ¾î½Ã ³ÊÅ¬Ãß°¡..
 #ifdef __CLIENT
 
 class CSfxSkillAssBurstcrack : public CSfx
@@ -906,13 +906,13 @@ public:
 #endif // __CLIENT
 	
 
-// ë§¤ì§€ì…˜ ìŠ¤í‚¬ : ìŠ¤íŠ¸ë¡±ìœˆë“œ
+// ¸ÅÁö¼Ç ½ºÅ³ : ½ºÆ®·ÕÀ©µå
 class CSfxSkillMagStrongWind : public CSfxShoot
 {
 	float m_fAngle;	
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxSkillMagStrongWind();
 	virtual ~CSfxSkillMagStrongWind();
 //	int SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex, D3DXVECTOR3& vPosSrc, OBJID idSrc, D3DXVECTOR3& vPosDest, OBJID idDest, int nSec );
@@ -921,12 +921,12 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë§¤ì§€ì…˜ ìŠ¤í‚¬ : ì†Œë“œìœˆë“œ
+// ¸ÅÁö¼Ç ½ºÅ³ : ¼ÒµåÀ©µå
 class CSfxSkillMagSwordWind : public CSfxShoot
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxSkillMagSwordWind();
 	virtual ~CSfxSkillMagSwordWind();
 	virtual void Process();
@@ -934,12 +934,12 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë§¤ì§€ì…˜ ìŠ¤í‚¬ : íŒŒì´ì–´ë¶€ë©”ë‘
+// ¸ÅÁö¼Ç ½ºÅ³ : ÆÄÀÌ¾îºÎ¸Ş¶û
 class CSfxSkillMagFireBoomerang : public CSfxShoot
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxSkillMagFireBoomerang();
 	virtual ~CSfxSkillMagFireBoomerang();
 	virtual void Process();
@@ -947,7 +947,7 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë§¤ì§€ì…˜ ìŠ¤í‚¬ : íŒŒì´ì–´ë´„ë²„
+// ¸ÅÁö¼Ç ½ºÅ³ : ÆÄÀÌ¾îº½¹ö
 class CSfxSkillMagFireBomb : public CSfx
 {
 public:
@@ -958,12 +958,12 @@ public:
 	virtual void Render( LPDIRECT3DDEVICE9 pd3dDevice );
 	#endif	// __WORLDSERVER
 };
-// ë§¤ì§€ì…˜ ìŠ¤í‚¬ : í•«ì—ì–´
+// ¸ÅÁö¼Ç ½ºÅ³ : ÇÖ¿¡¾î
 class CSfxSkillMagHotAir : public CSfxShoot
 {
-	int m_nDmgCnt;		// ì§€ì†ë°ë¯¸ì§€ì˜ ë°ë¯¸ì§€ ì¹´ìš´íŠ¸. ë°ë¯¸ì§€ ë¨¹ì¼ë•Œë§ˆë‹¤ í•˜ë‚˜ì”© ì˜¬ë¼ê°„ë‹¤.
+	int m_nDmgCnt;		// Áö¼Óµ¥¹ÌÁöÀÇ µ¥¹ÌÁö Ä«¿îÆ®. µ¥¹ÌÁö ¸ÔÀÏ¶§¸¶´Ù ÇÏ³ª¾¿ ¿Ã¶ó°£´Ù.
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
 	CSfxSkillMagHotAir();
 	virtual ~CSfxSkillMagHotAir();
 	virtual void Process();
@@ -975,11 +975,11 @@ public:
 
 
 
-// ë§¤ì§€ì…˜ ìŠ¤í‚¬ : ì•„ì´ìŠ¤ë¯¸ì‚¬ì¼
+// ¸ÅÁö¼Ç ½ºÅ³ : ¾ÆÀÌ½º¹Ì»çÀÏ
 class CSfxSkillMagIceMissile : public CSfxShoot
 {
 public:
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxSkillMagIceMissile();
 	virtual ~CSfxSkillMagIceMissile();
 	virtual void Process();
@@ -988,12 +988,12 @@ public:
 #endif	// __WORLDSERVER
 };
 
-// ë§¤ì§€ì…˜ ìŠ¤í‚¬ : ë¼ì´íŠ¸ë‹ ë³¼
+// ¸ÅÁö¼Ç ½ºÅ³ : ¶óÀÌÆ®´× º¼
 class CSfxSkillMagLightningBall : public CSfxShoot
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxSkillMagLightningBall();
 	virtual ~CSfxSkillMagLightningBall();
 	virtual void Process();
@@ -1003,12 +1003,12 @@ public:
 };
 
 
-// ë§¤ì§€ì…˜ ìŠ¤í‚¬ : ìŠ¤íŒŒì´í¬ ìŠ¤í†¤
+// ¸ÅÁö¼Ç ½ºÅ³ : ½ºÆÄÀÌÅ© ½ºÅæ
 class CSfxSkillMagSpikeStone : public CSfxShoot
 {
 public:
-	//CSfxModel m_SfxObj2; // ëª…ì¤‘ì‹œ ì´í™íŠ¸ í‘œì‹œìš©
-	BOOL m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	//CSfxModel m_SfxObj2; // ¸íÁß½Ã ÀÌÆåÆ® Ç¥½Ã¿ë
+	BOOL m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	CSfxSkillMagSpikeStone();
 	virtual ~CSfxSkillMagSpikeStone();
 	virtual void Process();
@@ -1019,23 +1019,23 @@ public:
 
 
 #define MAX_SHOOTWAVE_TAIL		8
-// ë°”ë‹¥ì— ë¶™ì–´ì„œ ë‚ ì•„ê°€ëŠ” ì´í™íŠ¸.
+// ¹Ù´Ú¿¡ ºÙ¾î¼­ ³¯¾Æ°¡´Â ÀÌÆåÆ®.
 class CSfxShootWave : public CSfxShoot
 {
 public:
-	BOOL	m_bHit; // ëª…ì¤‘í–ˆëŠ”ì§€ì˜ ì—¬ë¶€
+	BOOL	m_bHit; // ¸íÁßÇß´ÂÁöÀÇ ¿©ºÎ
 	BOOL	m_bDir;
-	DWORD	m_dwSndHit;		// ë§ì•˜ì„ë•Œ ì†Œë¦¬.
-	FLOAT	m_fHitScale;	// í­ë°œì”¬ ìŠ¤ì¼€ì¼ë§.
-	D3DXVECTOR3 m_vTail[MAX_SHOOTWAVE_TAIL];	// ì§€ë‚˜ê°”ë˜ ì¢Œí‘œë¥¼ ì°¨ë¡€ë¡œ ìŒ“ìŒ.
-	int		m_nTailFrame[ MAX_SHOOTWAVE_TAIL ];	// í”„ë ˆì„ ë²ˆí˜¸.
+	DWORD	m_dwSndHit;		// ¸Â¾ÒÀ»¶§ ¼Ò¸®.
+	FLOAT	m_fHitScale;	// Æø¹ß¾À ½ºÄÉÀÏ¸µ.
+	D3DXVECTOR3 m_vTail[MAX_SHOOTWAVE_TAIL];	// Áö³ª°¬´ø ÁÂÇ¥¸¦ Â÷·Ê·Î ½×À½.
+	int		m_nTailFrame[ MAX_SHOOTWAVE_TAIL ];	// ÇÁ·¹ÀÓ ¹øÈ£.
 
 	CSfxShootWave();
 	virtual ~CSfxShootWave();
 	
-	void	SetHitSfx( LPCTSTR szFileName, OBJID idSrc, OBJID idDst, FLOAT fScale = 1.0f );	// ë§ì•˜ì„ë•Œ ì´í™íŠ¸ ë“±ë¡
-	void	SetHitSfx( DWORD dwIndex, OBJID idSrc, OBJID idDst, FLOAT fScale = 1.0f );	// ë§ì•˜ì„ë•Œ ì´í™íŠ¸ ë“±ë¡
-	void	SetDir( BOOL bDir );		// ë°©í–¥ì„±ìˆëŠ” sfx ì¸ê°€.
+	void	SetHitSfx( LPCTSTR szFileName, OBJID idSrc, OBJID idDst, FLOAT fScale = 1.0f );	// ¸Â¾ÒÀ»¶§ ÀÌÆåÆ® µî·Ï
+	void	SetHitSfx( DWORD dwIndex, OBJID idSrc, OBJID idDst, FLOAT fScale = 1.0f );	// ¸Â¾ÒÀ»¶§ ÀÌÆåÆ® µî·Ï
+	void	SetDir( BOOL bDir );		// ¹æÇâ¼ºÀÖ´Â sfx ÀÎ°¡.
 	void	SetSndHit( DWORD dwSndHit ) { m_dwSndHit = dwSndHit; }
 	
 	virtual void Process();
@@ -1045,7 +1045,7 @@ public:
 };
 
 
-// ê³ ì •ì¢Œí‘œ ê¸°ì¤€ ë²”ìš© sfx
+// °íÁ¤ÁÂÇ¥ ±âÁØ ¹ü¿ë sfx
 class CSfxFixed : public CSfx
 {
 	float m_fAngle;
@@ -1058,11 +1058,11 @@ public:
 #endif	// __WORLDSERVER
 };
 
-class CSfxPartsLink : public CSfx	// ê³„ì†ìœ ì§€ë˜ëŠ” ì´í™íŠ¸		
+class CSfxPartsLink : public CSfx	// °è¼ÓÀ¯ÁöµÇ´Â ÀÌÆåÆ®		
 {
 public:
 	BOOL	m_bEndFrame;
-	int		m_nPartsLink;		// ë§í¬ë  ìœ„ì¹˜. 0:ì˜¤ë¥¸ì† 1:ì™¼ì†
+	int		m_nPartsLink;		// ¸µÅ©µÉ À§Ä¡. 0:¿À¸¥¼Õ 1:¿Ş¼Õ
 	CSfxPartsLink() 
 	{ 
 		m_bEndFrame = FALSE;
@@ -1076,8 +1076,8 @@ public:
 	
 };
 
-// íŒŒì¸ ì— ë§í¬ë˜ëŠ” sfx(ë¸”ë ˆì´ë“œì˜ ì†ì— ì‚¬ìš©)
-class CSfxPartsLinkBlade : public CSfxPartsLink		// ë¸”ë ˆì´ë“œ íŒŒíŠ¸ ë§í¬ ì´í™ : ë°€ë¦¬ ëª¨ì…˜ì´ ëë‚˜ë©´ ì†Œë©¸
+// ÆÄÃ÷¿¡ ¸µÅ©µÇ´Â sfx(ºí·¹ÀÌµåÀÇ ¼Õ¿¡ »ç¿ë)
+class CSfxPartsLinkBlade : public CSfxPartsLink		// ºí·¹ÀÌµå ÆÄÆ® ¸µÅ© ÀÌÆå : ¹Ğ¸® ¸ğ¼ÇÀÌ ³¡³ª¸é ¼Ò¸ê
 {
 public:
 	CSfxPartsLinkBlade() {};
@@ -1086,7 +1086,7 @@ public:
 	void Process();
 };
 
-class CSfxPartsLinkJst : public CSfxPartsLink		// ì œìŠ¤í„° íŒŒì¸  ë§í¬ ì´í™ : ì´í™íŠ¸ê°€ EndFrameì´ë©´ ì†Œë©¸
+class CSfxPartsLinkJst : public CSfxPartsLink		// Á¦½ºÅÍ ÆÄÃ÷ ¸µÅ© ÀÌÆå : ÀÌÆåÆ®°¡ EndFrameÀÌ¸é ¼Ò¸ê
 {
 public:
 	CSfxPartsLinkJst() {};
@@ -1097,11 +1097,11 @@ public:
 
 
 
-// íŒŒì¸ ì— ë§í¬ë˜ëŠ” sfx(ì•„í¬ë¡œë±ƒì˜ ì†ì— ì‚¬ìš©)
+// ÆÄÃ÷¿¡ ¸µÅ©µÇ´Â sfx(¾ÆÅ©·Î¹îÀÇ ¼Õ¿¡ »ç¿ë)
 class CSfxAllowPartsLink : public CSfx
 {
 public:
-	int		m_nPartsLink;		// ë§í¬ë  ìœ„ì¹˜. 0:ì˜¤ë¥¸ì† 1:ì™¼ì†
+	int		m_nPartsLink;		// ¸µÅ©µÉ À§Ä¡. 0:¿À¸¥¼Õ 1:¿Ş¼Õ
 	CSfxAllowPartsLink() { m_nPartsLink = 0; }
 	~CSfxAllowPartsLink() {};
 	
@@ -1112,7 +1112,7 @@ public:
 };
 
 #ifndef __WORLDSERVER
-class CSfxPartsLinkShoulder : public CSfxPartsLink		// ë¸”ë ˆì´ë“œ íŒŒíŠ¸ ë§í¬ ì´í™ : ë°€ë¦¬ ëª¨ì…˜ì´ ëë‚˜ë©´ ì†Œë©¸
+class CSfxPartsLinkShoulder : public CSfxPartsLink		// ºí·¹ÀÌµå ÆÄÆ® ¸µÅ© ÀÌÆå : ¹Ğ¸® ¸ğ¼ÇÀÌ ³¡³ª¸é ¼Ò¸ê
 {
 public:
 	int				m_nOldAbilityOption;
@@ -1126,7 +1126,7 @@ public:
 };
 #endif //__WORLDSERVER
 
-// ì•„ì´í…œ ì‹œì „ ì´í™íŠ¸
+// ¾ÆÀÌÅÛ ½ÃÀü ÀÌÆåÆ®
 class CSfxReady : public CSfx
 {
 public:
@@ -1149,7 +1149,7 @@ public:
 class CSfxLinkMover : public CSfx			
 {
 public:
-	//gmpbigsun : ë¬´ë²„ì— ë¶™ì–´ ë‹¤ë‹ˆëŠ” ì¼ë°˜ì ì¸ ìƒí™©ì—°ì¶œìš©
+	//gmpbigsun : ¹«¹ö¿¡ ºÙ¾î ´Ù´Ï´Â ÀÏ¹İÀûÀÎ »óÈ²¿¬Ãâ¿ë
 	CSfxLinkMover( );
 	virtual ~CSfxLinkMover( );
 	virtual void Process( );

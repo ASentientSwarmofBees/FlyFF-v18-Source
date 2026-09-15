@@ -1,5 +1,5 @@
-ï»¿// ì§ì—…ì— ë”°ë¥¸ propertyë¥¼ ì„¤ì •í•˜ëŠ” íŒŒì¼ 
-//		  ê³µì†		MaxHPê´€ë ¨        MaxMPê´€ë ¨       MaxFPê´€ë ¨    ë¬¼ë¦¬ë°©ì–´ë ¥ê´€ë ¨  hpíšŒë³µë¥ ê´€ë ¨   mpíšŒë³µë¥ ê´€ë ¨ fpíšŒë³µë¥ ê´€ë ¨  SWD      AXE      STAFF     STICK     KNUCKLE    WAND    BLOCKING  YOYO    CRITICAL
+// Á÷¾÷¿¡ µû¸¥ property¸¦ ¼³Á¤ÇÏ´Â ÆÄÀÏ 
+//		  °ø¼Ó		MaxHP°ü·Ã        MaxMP°ü·Ã       MaxFP°ü·Ã    ¹°¸®¹æ¾î·Â°ü·Ã  hpÈ¸º¹·ü°ü·Ã   mpÈ¸º¹·ü°ü·Ã fpÈ¸º¹·ü°ü·Ã  SWD      AXE      STAFF     STICK     KNUCKLE    WAND    BLOCKING  YOYO    CRITICAL
 JOB_VAGRANT       75.0          0.9              0.3             0.3          1.0             1.2            0.5          0.5           4.5      5.5      0.8       3.0       5.0        6.0     0.2       4.2     1.0
 JOB_MERCENARY     80.0          1.5              0.5             0.7          1.35            1.6            0.5          1.0           4.5      5.5      0.8       3.0       5.0        6.0     0.8       4.2     1.0
 JOB_ACROBAT       75.0          1.4              0.5             0.5          1.4             1.7            0.5          0.5           4.5      5.5      0.8       3.0       5.0        6.0     0.5       4.2     1.0

@@ -1,4 +1,4 @@
-﻿#ifndef __WNDGUILDWARDECL__H
+#ifndef __WNDGUILDWARDECL__H
 #define __WNDGUILDWARDECL__H
 
 class CWndGuildWarDecl : public CWndNeuz 

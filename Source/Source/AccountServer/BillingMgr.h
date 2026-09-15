@@ -1,13 +1,13 @@
-ï»¿#ifndef __BILLINGMGR_H__
+#ifndef __BILLINGMGR_H__
 #define	__BILLINGMGR_H__
 
 const int	MAX_DPBILLING = 32;
 
 enum BILLING_ENUM
 {
-	BID_FREEPASS,			// ë¬´ë£Œ ìœ ì €ì˜ íƒ€ìž… ë²ˆí˜¸ (CAccountì˜ m_fCheckì™€ ë¹„êµí•œë‹¤.) 
-	BID_IP,					// ë¹Œë§ì„œë²„ ì•„ì´í”¼ 
-	BID_PORT,				// ë¹Œë§ì„œë²„ í¬íŠ¸ 
+	BID_FREEPASS,			// ¹«·á À¯ÀúÀÇ Å¸ÀÔ ¹øÈ£ (CAccountÀÇ m_fCheck¿Í ºñ±³ÇÑ´Ù.) 
+	BID_IP,					// ºô¸µ¼­¹ö ¾ÆÀÌÇÇ 
+	BID_PORT,				// ºô¸µ¼­¹ö Æ÷Æ® 
 };
 
 class	CAccount;

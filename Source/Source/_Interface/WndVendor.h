@@ -1,4 +1,4 @@
-﻿#ifndef __WNDVENDOR__H
+#ifndef __WNDVENDOR__H
 #define __WNDVENDOR__H
 
 #include "wndvendorctrl.h"

@@ -1,4 +1,4 @@
-Ôªø#include "stdafx.h"
+#include "stdafx.h"
 #include "defineObj.h"
 #include "ActionMover.h"
 #include "..\_Common\ParticleMng.h"
@@ -14,7 +14,7 @@
 #endif
 
 
-const float FRIC_AIR = 0.011f;		// ÎπÑÌñâÏ§ë ÎßàÏ∞∞Í≥ÑÏàò
+const float FRIC_AIR = 0.011f;		// ∫Ò«‡¡ﬂ ∏∂¬˚∞Ëºˆ
 
 
 #ifdef __CLIENT
@@ -41,7 +41,7 @@ void CActionMover::PresupposePos2( D3DXVECTOR3* pv, D3DXVECTOR3* pvd, float* pf,
 	if( prj.GetItemProp( pMover->m_dwRideItemIdx ) == NULL )
 		return;
 
-	float fAcc = prj.GetItemProp( pMover->m_dwRideItemIdx )->fFlightSpeed;	// Î¨¥Î≤ÑÍ∞Ä ÌÉÄÍ≥†ÏûàÎäî ÏïÑÏù¥ÌÖúÏùò Ïù∏Îç±Ïä§ÏóêÏÑú Ï∂îÏßÑÎ†•ÏùÑ Í∫ºÎÇ¥Ïò¥.
+	float fAcc = prj.GetItemProp( pMover->m_dwRideItemIdx )->fFlightSpeed;	// π´πˆ∞° ≈∏∞Ì¿÷¥¬ æ∆¿Ã≈€¿« ¿Œµ¶Ω∫ø°º≠ √ﬂ¡¯∑¬¿ª ≤®≥ªø».
 
 	fAcc	*= 0.75f;
 	float fTheta, fThetaX, d;
@@ -177,7 +177,7 @@ void CreateFlyParticle( CMover *pMover, float fAngX, int nType )
 		vVel.x = sinf(fAngXZ) * fDist;
 		vVel.z = -cosf(fAngXZ) * fDist;
 		vVel.y = -sinf(-fAngH) * fSpeed;
-		if( nType == 1 ) // Í∑ºÎëêÏö¥Ïö©.
+		if( nType == 1 ) // ±ŸµŒøÓøÎ.
 			g_ParticleMng.CreateParticle( 10 + xRandom(3), vPos, vVel, CMover::GetActiveMover()->GetPos().y + 0.5f );
 		else
 			g_ParticleMng.CreateParticle( 2 + xRandom(3), vPos, vVel, CMover::GetActiveMover()->GetPos().y + 0.5f );
@@ -189,14 +189,14 @@ void CActionMover::ProcessFlyParticle( float fLenSq )
 {
 	CMover *pMover = m_pMover;
 
-	// Ïö¥ÏòÅÏûê Ìà¨Î™ÖÎ™®ÎìúÎïåÎäî ÌååÌã∞ÌÅ¥ ÏïàÎÇòÏò¥.
+	// øÓøµ¿⁄ ≈ı∏Ì∏µÂ∂ß¥¬ ∆ƒ∆º≈¨ æ»≥™ø».
 	if( (pMover->IsMode( TRANSPARENT_MODE ) ) == 0 )
 	{
-		ItemProp* pRideProp = prj.GetItemProp( m_pMover->m_dwRideItemIdx );		// ÌòÑÏû¨ ÌÉÄÍ≥†ÏûàÎäî ÌÉàÍ≤ÉÏùò ÌîÑÎ°úÌçºÌã∞.
-		// ÎπÑÌñâ ÌååÌã∞ÌÅ¥ Ï≤òÎ¶¨.
+		ItemProp* pRideProp = prj.GetItemProp( m_pMover->m_dwRideItemIdx );		// «ˆ¿Á ≈∏∞Ì¿÷¥¬ ≈ª∞Õ¿« «¡∑Œ∆€∆º.
+		// ∫Ò«‡ ∆ƒ∆º≈¨ √≥∏Æ.
 		if( fLenSq > 0.01f )
 		{
-			if( (pMover->IsActiveMover() && g_Neuz.m_camera.m_fZoom > 2.0f) || pMover->IsActiveMover() == FALSE )		// ÏùºÏ†ïÏÜçÎèÑ Ïù¥ÏÉÅÏù¥ ÎêòÎ©¥ Íº¨Î¶¨Ïóê ÌååÌã∞ÌÅ¥Ïù¥ ÎÇòÏò§Í∏∞ ÏãúÏûë.
+			if( (pMover->IsActiveMover() && g_Neuz.m_camera.m_fZoom > 2.0f) || pMover->IsActiveMover() == FALSE )		// ¿œ¡§º”µµ ¿ÃªÛ¿Ã µ«∏È ≤ø∏Æø° ∆ƒ∆º≈¨¿Ã ≥™ø¿±‚ Ω√¿€.
 			{
 				int nType = 0;
 				if( pRideProp && pRideProp->dwID == II_RID_RID_BOR_RIDINGCLOUD )
@@ -209,25 +209,25 @@ void CActionMover::ProcessFlyParticle( float fLenSq )
 		{
 			if( (pMover->IsActiveMover() && g_Neuz.m_camera.m_fZoom > 1.0f) || pMover->IsActiveMover() == FALSE )
 			{
-				if( pRideProp && pRideProp->dwItemKind3 == IK3_BOARD )		// Î≥¥ÎìúÎßå Íº¨Î¶¨Í∞Ä ÎÇòÏò®Îã§.
+				if( pRideProp && pRideProp->dwItemKind3 == IK3_BOARD )		// ∫∏µÂ∏∏ ≤ø∏Æ∞° ≥™ø¬¥Ÿ.
 				{
 					if( m_pTail )
 					{
-						if( pRideProp->dwID == II_RID_RID_BOR_RIDINGCLOUD ) // Í∑ºÎëêÏö¥ÏùºÎïå
+						if( pRideProp->dwID == II_RID_RID_BOR_RIDINGCLOUD ) // ±ŸµŒøÓ¿œ∂ß
 						{
-							if( m_pTail->GetType() != 2 )	// ÏÉùÏÑ±ÎêòÏóàÎçò Íº¨Î¶¨Í≥† Í∑ºÎëêÏö¥Ïö©Ïù¥ ÏïÑÎãàÎ©¥
+							if( m_pTail->GetType() != 2 )	// ª˝º∫µ«æ˙¥¯ ≤ø∏Æ∞Ì ±ŸµŒøÓøÎ¿Ã æ∆¥œ∏È
 								m_pTail->ChangeTexture( D3DDEVICE, "etc_Tail2.bmp", 2 );
 						} else
 						{
-							if( m_pTail->GetType() != 1 )	// ÏÉùÏÑ±ÎêòÏóàÎçò Íº¨Î¶¨Í≥† ÏùºÎ∞òÎ≥¥ÎìúÏö©Ïù¥ ÏïÑÎãàÎ©¥ 
-								m_pTail->ChangeTexture( D3DDEVICE, "etc_Tail1.bmp", 1 );	// ÏùºÎ∞òÎ≥¥ÎìúÏö©ÏúºÎ°ú ÌÖçÏä§Ï≥ê ÍµêÏ≤¥.
+							if( m_pTail->GetType() != 1 )	// ª˝º∫µ«æ˙¥¯ ≤ø∏Æ∞Ì ¿œπ›∫∏µÂøÎ¿Ã æ∆¥œ∏È 
+								m_pTail->ChangeTexture( D3DDEVICE, "etc_Tail1.bmp", 1 );	// ¿œπ›∫∏µÂøÎ¿∏∑Œ ≈ÿΩ∫√ƒ ±≥√º.
 						}
 
 							
 					}
-					if( m_pTail == NULL )	// ÏïÑÏßÅ Ìï†Îãπ ÏïàÎêêÏúºÎ©¥ Ìï†ÎãπÌïòÍ≥†.
+					if( m_pTail == NULL )	// æ∆¡˜ «“¥Á æ»µ∆¿∏∏È «“¥Á«œ∞Ì.
 					{
-						if( pRideProp->dwID == II_RID_RID_BOR_RIDINGCLOUD ) // Í∑ºÎëêÏö¥...
+						if( pRideProp->dwID == II_RID_RID_BOR_RIDINGCLOUD ) // ±ŸµŒøÓ...
 						{
 							m_pTail = (CTailEffectBelt*)g_TailEffectMng.AddEffect( g_Neuz.m_pd3dDevice, "etc_Tail2.bmp", 2 );
 						}
@@ -268,29 +268,29 @@ void CActionMover::ProcessFlyParticle( float fLenSq )
 				}
 			}
 		}
-	} // Ìà¨Î™ÖÎ™®ÎìúÍ∞Ä ÏïÑÎãêÎïå
+	} // ≈ı∏Ì∏µÂ∞° æ∆¥“∂ß
 }		
 
 void CActionMover::ProcessFlyTracking()
 {
 	CMover* pMover = m_pMover;
 
-	// ÏûêÎèô Ï∂îÏ†Å Î™®Îìú. g_pPlayerÎßå Ïã§ÌñâÎêúÎã§.
+	// ¿⁄µø √ﬂ¿˚ ∏µÂ. g_pPlayer∏∏ Ω««‡µ»¥Ÿ.
 	if( pMover->IsActiveMover() && (pMover->m_dwFlag & MVRF_TRACKING) )
 	{
 		static float s_fTurnAcc = 0, s_fTurnAccH = 0;
 		{
-			CMover *pTarget = prj.GetMover( pMover->m_idTracking );		// Ï∂îÏ†ÅÌï† Î™©Ìëú.
+			CMover *pTarget = prj.GetMover( pMover->m_idTracking );		// √ﬂ¿˚«“ ∏Ò«•.
 			if( pTarget )
 			{
-				D3DXVECTOR3	vDist = pTarget->GetPos() - pMover->GetPos();		// ÎÇòÎ•º ÏõêÏ†êÏúºÎ°ú ÌÉÄÍ≤üÍπåÏßÄÏùò Î≤°ÌÑ∞.
+				D3DXVECTOR3	vDist = pTarget->GetPos() - pMover->GetPos();		// ≥™∏¶ ø¯¡°¿∏∑Œ ≈∏∞Ÿ±Ó¡ˆ¿« ∫§≈Õ.
 				FLOAT fAngXZ, fAngH;
 				
-				xGetDegree( &fAngXZ, &fAngH, vDist );		// ÌÉÄÍ≤üÍ≥ºÏùò Í∞ÅÎèÑ Íµ¨Ìï®.
-				// ÎÇ®Ï™ΩÏù¥ 0ÎèÑ Í∏∞Ï§Ä. ÏãúÍ≥ÑÎ∞©Ìñ• -180ÍπåÏßÄ ÏãúÍ≥ÑÎ∞òÎåÄÎ∞©Ìñ• +180
-				// 3ÎèÑ Ïù¥ÌïòÎäî Î¨¥Ïãú.
+				xGetDegree( &fAngXZ, &fAngH, vDist );		// ≈∏∞Ÿ∞˙¿« ∞¢µµ ±∏«‘.
+				// ≥≤¬ ¿Ã 0µµ ±‚¡ÿ. Ω√∞ËπÊ«‚ -180±Ó¡ˆ Ω√∞Ëπ›¥ÎπÊ«‚ +180
+				// 3µµ ¿Ã«œ¥¬ π´Ω√.
 				FLOAT fMoverAng = pMover->GetAngle();
-				if( fMoverAng > 180.0f )	// Í≥ÑÏÇ∞ÌïòÍ∏∞ Ï¢ãÍ≤å Ï¢åÌëúÍ≥ÑÎ•º +,- Î°ú Î∞îÍøà.
+				if( fMoverAng > 180.0f )	// ∞ËªÍ«œ±‚ ¡¡∞‘ ¡¬«•∞Ë∏¶ +,- ∑Œ πŸ≤ﬁ.
 					fMoverAng -= 360.0f;
 				FLOAT fSubAng = fAngXZ - fMoverAng;
 				if( fSubAng > 180.0f )
@@ -306,10 +306,10 @@ void CActionMover::ProcessFlyTracking()
 			#endif
 			#endif
 				
-				if( fSubAng < -3.0f )		// Ïò§Î•∏Ï™ΩÏúºÎ°ú ÎèåÏïÑÏïº ÌïúÎã§.
+				if( fSubAng < -3.0f )		// ø¿∏•¬ ¿∏∑Œ µπæ∆æﬂ «—¥Ÿ.
 					s_fTurnAcc = -2.5f;
 				else 
-				if( fSubAng > 3.0f )	// ÏôºÏ™ΩÏúºÎ°ú ÎèåÏïÑÏïº ÌïúÎã§.
+				if( fSubAng > 3.0f )	// øﬁ¬ ¿∏∑Œ µπæ∆æﬂ «—¥Ÿ.
 					s_fTurnAcc = 2.5f;
 				else
 					s_fTurnAcc = 0;
@@ -332,7 +332,7 @@ void CActionMover::ProcessFlyTracking()
 				pMover->SetAngle( pMover->GetAngle() + s_fTurnAcc );
 				pMover->SetAngleX( pMover->GetAngleX() + s_fTurnAccH );
 
-				if( s_fTurnAcc || s_fTurnAccH )	// Í∞íÏù¥ Îã¨ÎùºÏßÄÎ©¥ Ï†ÑÏÜ°Ìï®.
+				if( s_fTurnAcc || s_fTurnAccH )	// ∞™¿Ã ¥ﬁ∂Û¡ˆ∏È ¿¸º€«‘.
 					g_DPlay.PostPlayerAngle( TRUE );
 			}
 		}
@@ -343,11 +343,11 @@ void CActionMover::ProcessFlyTracking()
 void	CActionMover::ProcessFlyMove( void )
 {
 #ifdef __CLIENT	
-	g_nDrift = 0;									// ÎìúÎ¶¨ÌîÑÌä∏ ÌîåÎûô ÌÅ¥Î¶¨Ïñ¥ 
+	g_nDrift = 0;									// µÂ∏Æ«¡∆Æ «√∑¢ ≈¨∏ÆæÓ 
 #endif
 	float fLenSq = D3DXVec3LengthSq( &m_vDelta );
 	if( fLenSq == 0.0f && (GetStateFlag() & OBJSTAF_ACC ) == 0 )	  
-		return;										// Î©àÏ∂§ ÏÉÅÌÉúÎ©¥ Î¶¨ÌÑ¥ 
+		return;										// ∏ÿ√„ ªÛ≈¬∏È ∏Æ≈œ 
 
 	CMover* pMover = m_pMover;
 	FLOAT fAccPwr = m_fAccPower;
@@ -356,32 +356,32 @@ void	CActionMover::ProcessFlyMove( void )
 	ProcessFlyTracking();
 #endif // client
 	
-	// ÌÑ∞Î≥¥Î™®Îìú Ï≤òÎ¶¨ 
-	if( (GetStateFlag() & OBJSTAF_TURBO) && (GetStateFlag() & OBJSTAF_ACC) )		// ÌÑ∞Î≥¥Î™®Îìú & Ï†ÑÏßÑÏ§ë
+	// ≈Õ∫∏∏µÂ √≥∏Æ 
+	if( (GetStateFlag() & OBJSTAF_TURBO) && (GetStateFlag() & OBJSTAF_ACC) )		// ≈Õ∫∏∏µÂ & ¿¸¡¯¡ﬂ
 	{
 	#ifdef __WORLDSERVER
-		pMover->m_tmAccFuel	=  (int)( pMover->m_tmAccFuel - (1000.0f / (float)FRAME_PER_SEC) );		// 1/60ÎßåÌÅº ÍπéÏùå
+		pMover->m_tmAccFuel	=  (int)( pMover->m_tmAccFuel - (1000.0f / (float)FRAME_PER_SEC) );		// 1/60∏∏≈≠ ±¿Ω
 	#endif
-		if( pMover->m_tmAccFuel <= 0 )				// Í∞ÄÏÜçÏó∞Î£åÍ∞Ä Îã§ Îñ®Ïñ¥ÏßÄÎ©¥
+		if( pMover->m_tmAccFuel <= 0 )				// ∞°º”ø¨∑·∞° ¥Ÿ ∂≥æÓ¡ˆ∏È
 		{
 			pMover->m_tmAccFuel = 0;
-			SendActMsg( OBJMSG_MODE_TURBO_OFF );	// ÌÑ∞Î≥¥Î™®Îìú Ï§ëÏßÄ 
+			SendActMsg( OBJMSG_MODE_TURBO_OFF );	// ≈Õ∫∏∏µÂ ¡ﬂ¡ˆ 
 		#ifdef __WORLDSERVER
 			g_UserMng.AddSendActMsg( pMover, OBJMSG_MODE_TURBO_OFF );
 		#endif
 		}
 		else
-			fAccPwr *= 1.2f;						// Í∞ÄÏÜçÏó∞Î£åÍ∞Ä ÎÇ®ÏïÑÏûàÎã§Î©¥ ÌÑ∞Î≥¥Î™®Îìú
+			fAccPwr *= 1.2f;						// ∞°º”ø¨∑·∞° ≥≤æ∆¿÷¥Ÿ∏È ≈Õ∫∏∏µÂ
 	}
 
 #ifdef __CLIENT
 	ProcessFlyParticle( fLenSq );
 #endif
 
-	// Í¥ÄÏÑ±Ï≤òÎ¶¨ 
+	// ∞¸º∫√≥∏Æ 
 	if( fAccPwr > 0.0f )
 	{
-		// ÌûòÎ≤°ÌÑ∞ ÏÉùÏÑ±
+		// »˚∫§≈Õ ª˝º∫
 		FLOAT fAngX  = D3DXToRadian( pMover->GetAngleX() );		
 		FLOAT fAng   = D3DXToRadian( pMover->GetAngle() );
 		FLOAT fDist  = cosf(fAngX) * fAccPwr;		
@@ -391,7 +391,7 @@ void	CActionMover::ProcessFlyMove( void )
 		vAcc.z = -cosf( fAng ) * fDist;
 		vAcc.y = -sinf( fAngX ) * fAccPwr;
 
-		// Í¥ÄÏÑ±Î≤°ÌÑ∞ÏôÄ Ï∂îÏßÑÎ†•Î≤°ÌÑ∞Í∞Ä Í∞ÅÎèÑÍ∞Ä 50ÎèÑ Ïù¥ÌïòÎ©¥ Í∏âÏ∂îÏßÑ
+		// ∞¸º∫∫§≈ÕøÕ √ﬂ¡¯∑¬∫§≈Õ∞° ∞¢µµ∞° 50µµ ¿Ã«œ∏È ±ﬁ√ﬂ¡¯
 		if( fLenSq > 0.01f )
 		{
 			D3DXVECTOR3 vDeltaNorm, vAccNorm;
@@ -399,14 +399,14 @@ void	CActionMover::ProcessFlyMove( void )
 			D3DXVec3Normalize( &vAccNorm, &vAcc );
 			float fDot = D3DXVec3Dot( &vDeltaNorm, &vAccNorm );	
 
-			if( fDot < 0.633319f )					// Ïù¥Ï†ÑÏΩîÎìú: cosf(70.0f)  Í∞íÏúºÎ°úÎäî ÎåÄÎûµ 50ÎèÑ 
+			if( fDot < 0.633319f )					// ¿Ã¿¸ƒ⁄µÂ: cosf(70.0f)  ∞™¿∏∑Œ¥¬ ¥Î∑´ 50µµ 
 			{
 				vAcc *= 2.0f;						
 				m_vDelta *= 0.985f;
 			#ifdef __CLIENT
 				g_nDrift = 1;
 				
-				if( ! ( pMover->IsMode( TRANSPARENT_MODE ) ) )		// Ìà¨Î™ÖÏÉÅÌÉúÍ∞Ä ÏïÑÎãêÎïåÎßå Î†åÎçî.
+				if( ! ( pMover->IsMode( TRANSPARENT_MODE ) ) )		// ≈ı∏ÌªÛ≈¬∞° æ∆¥“∂ß∏∏ ∑ª¥ı.
 				{	
 					if( (g_nProcessCnt & 3) == 0 )
 						CreateSfx( g_Neuz.m_pd3dDevice, XI_NAT_DUST_RUN, pMover->GetPos() );
@@ -415,24 +415,24 @@ void	CActionMover::ProcessFlyMove( void )
 			}
 		}
 			
-		fLenSq = D3DXVec3LengthSq( &m_vDelta );		// 1/60 sec ÏÜçÎèÑ
+		fLenSq = D3DXVec3LengthSq( &m_vDelta );		// 1/60 sec º”µµ
 		float fMaxSpeed = 0.3f;
-		if( GetStateFlag() & OBJSTAF_TURBO )		// ÌÑ∞Î≥¥Î™®ÎìúÏóêÏÑ† MAXÏÜçÎèÑÍ∞Ä 1.1Î∞∞
+		if( GetStateFlag() & OBJSTAF_TURBO )		// ≈Õ∫∏∏µÂø°º± MAXº”µµ∞° 1.1πË
 			fMaxSpeed *= 1.1f;
 			
-		if( fLenSq < (fMaxSpeed * fMaxSpeed) )		// ÏùºÏ†ïÏù¥ÏÉÅ ÏÜçÎèÑÎ•º ÎÑòÏßÄ ÏïäÍ≤å ÌïòÏûê.
-			m_vDelta += vAcc;						// Í¥ÄÏÑ±Î≤°ÌÑ∞ += Ï∂îÏßÑÎ†•Î≤°ÌÑ∞
+		if( fLenSq < (fMaxSpeed * fMaxSpeed) )		// ¿œ¡§¿ÃªÛ º”µµ∏¶ ≥—¡ˆ æ ∞‘ «œ¿⁄.
+			m_vDelta += vAcc;						// ∞¸º∫∫§≈Õ += √ﬂ¡¯∑¬∫§≈Õ
 	}
 
-	m_vDelta *= (1.0f - FRIC_AIR);					// ÎßàÏ∞∞Î†•Ïóê ÏùòÌïú Í∞êÏÜå  
+	m_vDelta *= (1.0f - FRIC_AIR);					// ∏∂¬˚∑¬ø° ¿««— ∞®º“  
 
-	// raiders - ÏàòÏπòÏ†Å ÏïàÏ†ïÏÑ±ÏùÑ ÏúÑÌï¥ÏÑú Ï†ÅÏùÄ ÏàòÏπòÍ∞Ä Í≥ÑÏÇ∞ÎêòÎäî Í≤ÉÏùÑ ÌîºÌïúÎã§.
+	// raiders - ºˆƒ°¿˚ æ»¡§º∫¿ª ¿ß«ÿº≠ ¿˚¿∫ ºˆƒ°∞° ∞ËªÍµ«¥¬ ∞Õ¿ª «««—¥Ÿ.
 	fLenSq = D3DXVec3LengthSq( &m_vDelta );
 	if( m_fAccPower == 0.0f && fLenSq < 0.0002f * 0.0002f )		
 	{
 		fLenSq = 0;
 		m_vDelta = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );		
-		RemoveStateFlag( OBJSTAF_ACC );				// Í∞ÄÏÜçÏÉÅÌÉú Ìï¥Ï†ú 
+		RemoveStateFlag( OBJSTAF_ACC );				// ∞°º”ªÛ≈¬ «ÿ¡¶ 
 	}
 
 #ifdef __CLIENT
@@ -446,8 +446,8 @@ void	CActionMover::ProcessFlyMove( void )
 
 //
 //	State process
-//	Í∞ÄÍ∏âÏ†Å Ïù¥Í≥≥ÏóêÏÑ† pMover->SetMotionÏùÑ ÌïòÏßÄ ÎßêÍ≤É
-//	ÎπóÏûêÎ£® ÎπÑÌñâÎ™®Îìú
+//	∞°±ﬁ¿˚ ¿Ã∞˜ø°º± pMover->SetMotion¿ª «œ¡ˆ ∏ª∞Õ
+//	∫¯¿⁄∑Á ∫Ò«‡∏µÂ
 //
 void	CActionMover::ProcessState2( CMover* pMover, DWORD dwState, float fSpeed )
 {
@@ -464,36 +464,36 @@ void	CActionMover::ProcessState2( CMover* pMover, DWORD dwState, float fSpeed )
 
 	switch( dwState )
 	{
-	// Ï†úÏûêÎ¶¨ ÎåÄÍ∏∞ / Ï†ïÏßÄ
+	// ¡¶¿⁄∏Æ ¥Î±‚ / ¡§¡ˆ
 	case OBJSTA_STAND:
-		m_fAccPower = 0;		// ÎåÄÍ∏∞/Ï†ïÏßÄÏÉÅÌÉúÏóêÏÑ† ÌûòÏùÑ ÎçîÏù¥ÏÉÅ Í∞ÄÌïòÏßÄ ÏïäÎäîÎã§.
+		m_fAccPower = 0;		// ¥Î±‚/¡§¡ˆªÛ≈¬ø°º± »˚¿ª ¥ı¿ÃªÛ ∞°«œ¡ˆ æ ¥¬¥Ÿ.
 		if( GetState() & OBJSTA_ATK_ALL )	break;
 		if( GetState() & OBJSTA_TURN_ALL )	break;
 		if( GetState() & OBJSTA_DMG_ALL )	break;
 		{
-			if( pMover->SetMotion( pItemProp->dwUseMotion + MTA_FSTAND1, ANILOOP_LOOP, MOP_FIXED ) == TRUE )		// ÎåÄÍ∏∞ÏÉÅÌÉú
+			if( pMover->SetMotion( pItemProp->dwUseMotion + MTA_FSTAND1, ANILOOP_LOOP, MOP_FIXED ) == TRUE )		// ¥Î±‚ªÛ≈¬
 				if( pMover->m_pRide )	
 					pMover->m_pRide->m_fFrameCurrent = 0;
 		}
 		break;
-	// Ï†ÑÏßÑ
+	// ¿¸¡¯
 	case OBJSTA_FMOVE:
-		// Î¨¥Î≤ÑÍ∞Ä ÌÉÄÍ≥†ÏûàÎäî ÏïÑÏù¥ÌÖúÏùò Ïù∏Îç±Ïä§ÏóêÏÑú Ï∂îÏßÑÎ†•ÏùÑ Í∫ºÎÇ¥Ïò¥.
+		// π´πˆ∞° ≈∏∞Ì¿÷¥¬ æ∆¿Ã≈€¿« ¿Œµ¶Ω∫ø°º≠ √ﬂ¡¯∑¬¿ª ≤®≥ªø».
 		m_fAccPower = pItemProp->fFlightSpeed * 0.75f;
 
 		if( GetState() & OBJSTA_ATK_ALL )	break;
 		if( GetState() & OBJSTA_TURN_ALL )	break;
 		{
-			if( pMover->SetMotion( pItemProp->dwUseMotion + MTA_FRUNNING1, ANILOOP_LOOP, MOP_FIXED ) == TRUE )		// ÎåÄÍ∏∞ÏÉÅÌÉú
+			if( pMover->SetMotion( pItemProp->dwUseMotion + MTA_FRUNNING1, ANILOOP_LOOP, MOP_FIXED ) == TRUE )		// ¥Î±‚ªÛ≈¬
 				if( pMover->m_pRide )		
 					pMover->m_pRide->m_fFrameCurrent = 0;
 		}
 		break;
-	// Ï¢å/Ïö∞ ÎèåÍ∏∞
+	// ¡¬/øÏ µπ±‚
 	case OBJSTA_LTURN:
 		{
 			float fTurnAng = m_fTurnAngle;
-			if( (GetStateFlag() & OBJSTAF_ACC) == 0 )		// Í∞ÄÏÜçÏÉÅÌÉúÍ∞Ä ÏïÑÎãêÎïåÎäî 2Î∞∞Î°ú Îπ®Î¶¨ ÎèàÎã§.
+			if( (GetStateFlag() & OBJSTAF_ACC) == 0 )		// ∞°º”ªÛ≈¬∞° æ∆¥“∂ß¥¬ 2πË∑Œ ª°∏Æ µ∑¥Ÿ.
 				fTurnAng *= 2.5f;
 			pMover->AddAngle( fTurnAng );
 		}
@@ -504,7 +504,7 @@ void	CActionMover::ProcessState2( CMover* pMover, DWORD dwState, float fSpeed )
 	case OBJSTA_RTURN:
 		{
 			float fTurnAng = m_fTurnAngle;
-			if( (GetStateFlag() & OBJSTAF_ACC) == 0 )		// Í∞ÄÏÜçÏÉÅÌÉúÍ∞Ä ÏïÑÎãêÎïåÎäî 2Î∞∞Î°ú Îπ®Î¶¨ ÎèàÎã§.
+			if( (GetStateFlag() & OBJSTAF_ACC) == 0 )		// ∞°º”ªÛ≈¬∞° æ∆¥“∂ß¥¬ 2πË∑Œ ª°∏Æ µ∑¥Ÿ.
 				fTurnAng *= 2.5f;
 			pMover->AddAngle( -fTurnAng );
 		}
@@ -519,30 +519,30 @@ void	CActionMover::ProcessState2( CMover* pMover, DWORD dwState, float fSpeed )
 		if( fAng < 45.0f )
 			pMover->AddAngleX( pItemProp->fFlightTBAngle );
 		break;
-	//--------- Í≥µÍ≤© ---------------------------
+	//--------- ∞¯∞› ---------------------------
 	case OBJSTA_ATK1:
 	case OBJSTA_ATK2:
 	case OBJSTA_ATK3:
 	case OBJSTA_ATK4:
 		_ProcessStateAttack2( dwState, nParam );
 		break;
-	case OBJSTA_ATK_MAGIC1:		// ÏõêÍ±∞Î¶¨ ÏôÑÎìú Í≥µÍ≤©.
+	case OBJSTA_ATK_MAGIC1:		// ø¯∞≈∏Æ øœµÂ ∞¯∞›.
 		ProcessStateAttackMagic( dwState, nParam );
 		break;
 
-	//----------- Îç∞ÎØ∏ÏßÄ -------------------------
+	//----------- µ•πÃ¡ˆ -------------------------
 	case OBJSTA_DMG:
 		if( pModel->IsEndFrame() )	
 			ResetState( OBJSTA_DMG_ALL );
 		break;
-	case OBJSTA_DEAD:	// Ï£ΩÏñ¥ ÎÑêÎ∂ÄÎü¨ÏßÑ ÏÉÅÌÉú
+	case OBJSTA_DEAD:	// ¡◊æÓ ≥Œ∫Œ∑Ø¡¯ ªÛ≈¬
 		#ifdef __WORLDSERVER
 			if( !pMover->IsPlayer() ) 
 			{
 				m_nDeadCnt--;
 				if( m_nDeadCnt < 0 )
 				{
-					SetState( OBJSTA_DMG_ALL, OBJSTA_DISAPPEAR );	// ÏÇ¨ÎùºÏßÄÎäî ÏÉÅÌÉúÎ°ú Ï†ÑÌôò
+					SetState( OBJSTA_DMG_ALL, OBJSTA_DISAPPEAR );	// ªÁ∂Û¡ˆ¥¬ ªÛ≈¬∑Œ ¿¸»Ø
 					m_nCount = 0;
 				}
 			}
@@ -552,7 +552,7 @@ void	CActionMover::ProcessState2( CMover* pMover, DWORD dwState, float fSpeed )
 }
 
 //
-//		ÎπÑÌñâÏ§ë Í≥µÍ≤© Ïï°ÏÖò Ï≤òÎ¶¨
+//		∫Ò«‡¡ﬂ ∞¯∞› æ◊º« √≥∏Æ
 //
 void	CActionMover::_ProcessStateAttack2( DWORD dwState, int nParam )
 {
@@ -574,7 +574,7 @@ void	CActionMover::_ProcessStateAttack2( DWORD dwState, int nParam )
 			if( pModel->IsAttrHit() )
 			{
 				CMover* pHitObj	= prj.GetMover( m_objidHit );
-				if( IsInvalidObj( pHitObj ) || pHitObj->IsDie() )	// ÌÉÄÍ≤üÏù¥ Í±∞ÏãúÍ∏∞ÌïòÍ±∞ÎÇò Ï£ΩÏóàÏúºÎ©¥ Ï∑®ÏÜå
+				if( IsInvalidObj( pHitObj ) || pHitObj->IsDie() )	// ≈∏∞Ÿ¿Ã ∞≈Ω√±‚«œ∞≈≥™ ¡◊æ˙¿∏∏È √Îº“
 					return;
 
 				BOOL bSuccess = pHitObj->m_pActMover->SendDamage( AF_GENERIC, pMover->GetId() );
@@ -590,11 +590,11 @@ void	CActionMover::_ProcessStateAttack2( DWORD dwState, int nParam )
 			#endif
 				if( GetMover()->IsPlayer() )
 				{
-					pModel->m_nPause = 5;	// frame Î©àÏ∂§
+					pModel->m_nPause = 5;	// frame ∏ÿ√„
 				}
 				else
 				{
-					pModel->m_nPause = 0;	// Î™¨Ïä§ÌÑ∞Îäî Î©àÏ∂îÏßÄ ÏïäÏùå
+					pModel->m_nPause = 0;	// ∏ÛΩ∫≈Õ¥¬ ∏ÿ√ﬂ¡ˆ æ ¿Ω
 					pHitObj->m_pModel->m_nPause = 0;
 				}
 					

@@ -1,4 +1,4 @@
-﻿// WndArcane.h: interface for the CWndNeuz class.
+// WndArcane.h: interface for the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 

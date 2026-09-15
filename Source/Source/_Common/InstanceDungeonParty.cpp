@@ -1,4 +1,4 @@
-﻿// InstanceDungeonParty.cpp: implementation of the CInstanceDungeonParty class.
+// InstanceDungeonParty.cpp: implementation of the CInstanceDungeonParty class.
 //
 //////////////////////////////////////////////////////////////////////
 

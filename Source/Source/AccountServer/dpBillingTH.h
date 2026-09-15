@@ -1,4 +1,4 @@
-﻿#ifndef __DPBillingTH_H__
+#ifndef __DPBillingTH_H__
 #define	__DPBillingTH_H__
 
 #include "dpmng.h"

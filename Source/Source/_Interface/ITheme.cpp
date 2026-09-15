@@ -1,4 +1,4 @@
-﻿// Theme.cpp: implementation of the CWndBase class.
+// Theme.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -125,7 +125,7 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 	if( ::GetLanguage() == LANG_KOR )
 	{
 		CD3DFont* pFont;
-		// 폰트 로드 생성 
+		// ��Ʈ �ε� ���� 
 		pFont = new CD3DFont( _T("gulim"), 9 );//, D3DFONT_BOLD );
 		//pFont->m_nOutLine = 3;
 		m_mapFont.SetAt( _T( "gulim9"), pFont );
@@ -152,7 +152,7 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 		pFont->m_dwBgColor = D3DCOLOR_ARGB( 255, 60, 60, 60 );
 		m_mapFont.SetAt( _T( "FontWorld"), pFont );
 		
-		pFont = new CD3DFont( _T("가을체"), 15 );//, D3DFONT_BOLD );
+		pFont = new CD3DFont( _T("����ü"), 15 );//, D3DFONT_BOLD );
 		pFont->m_nOutLine = 2;
 		pFont->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		pFont->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
@@ -160,14 +160,14 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 		m_mapFont.SetAt( _T( "gulim20"), pFont );
 
 		/*
-		m_pFontAPICaption = new CD3DFontAPI( _T("휴먼매직체"), rectClient.Width() / 50 );//, D3DFONT_BOLD );
+		m_pFontAPICaption = new CD3DFontAPI( _T("�޸ո���ü"), rectClient.Width() / 50 );//, D3DFONT_BOLD );
 		m_pFontAPICaption->m_nOutLine = 2;
 		m_pFontAPICaption->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		m_pFontAPICaption->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
 		m_pFontAPICaption->m_dwFlags = D3DFONT_FILTERED;
 		m_pFontAPICaption->InitDeviceObjects( m_pApp->m_pd3dDevice );
 
-		m_pFontAPITitle = new CD3DFontAPI( _T("휴먼매직체"), rectClient.Width() / 20 );//, D3DFONT_BOLD );
+		m_pFontAPITitle = new CD3DFontAPI( _T("�޸ո���ü"), rectClient.Width() / 20 );//, D3DFONT_BOLD );
 		m_pFontAPITitle->m_nOutLine = 2;
 		m_pFontAPITitle->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		m_pFontAPITitle->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
@@ -179,7 +179,7 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 	if( ::GetLanguage() == LANG_JAP )
 	{
 		CD3DFont* pFont;
-		// 폰트 로드 생성 
+		// ��Ʈ �ε� ���� 
 		pFont = new CD3DFont( _T("MS Gothic"), 9 );//, D3DFONT_BOLD );
 		//pFont->m_nOutLine = 3;
 		m_mapFont.SetAt( _T( "gulim9"), pFont );
@@ -213,14 +213,14 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 		m_mapFont.SetAt( _T( "gulim20"), pFont );
 
 		/*
-		m_pFontAPICaption = new CD3DFontAPI( _T("휴먼매직체"), rectClient.Width() / 50 );//, D3DFONT_BOLD );
+		m_pFontAPICaption = new CD3DFontAPI( _T("�޸ո���ü"), rectClient.Width() / 50 );//, D3DFONT_BOLD );
 		m_pFontAPICaption->m_nOutLine = 2;
 		m_pFontAPICaption->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		m_pFontAPICaption->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
 		m_pFontAPICaption->m_dwFlags = D3DFONT_FILTERED;
 		m_pFontAPICaption->InitDeviceObjects( m_pApp->m_pd3dDevice );
 
-		m_pFontAPITitle = new CD3DFontAPI( _T("휴먼매직체"), rectClient.Width() / 20 );//, D3DFONT_BOLD );
+		m_pFontAPITitle = new CD3DFontAPI( _T("�޸ո���ü"), rectClient.Width() / 20 );//, D3DFONT_BOLD );
 		m_pFontAPITitle->m_nOutLine = 2;
 		m_pFontAPITitle->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		m_pFontAPITitle->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
@@ -232,7 +232,7 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 	if( ::GetLanguage() == LANG_THA )
 	{
 		CD3DFont* pFont;
-		// 폰트 로드 생성 
+		// ��Ʈ �ε� ���� 
 		pFont = new CD3DFont( _T("MS Sans Serif"), 9 );//, D3DFONT_BOLD );
 		//pFont->m_nOutLine = 3;
 		m_mapFont.SetAt( _T( "gulim9"), pFont );
@@ -265,14 +265,14 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 		m_mapFont.SetAt( _T( "gulim20"), pFont );
 
 		/*
-		m_pFontAPICaption = new CD3DFontAPI( _T("휴먼매직체"), rectClient.Width() / 50 );//, D3DFONT_BOLD );
+		m_pFontAPICaption = new CD3DFontAPI( _T("�޸ո���ü"), rectClient.Width() / 50 );//, D3DFONT_BOLD );
 		m_pFontAPICaption->m_nOutLine = 2;
 		m_pFontAPICaption->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		m_pFontAPICaption->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
 		m_pFontAPICaption->m_dwFlags = D3DFONT_FILTERED;
 		m_pFontAPICaption->InitDeviceObjects( m_pApp->m_pd3dDevice );
 
-		m_pFontAPITitle = new CD3DFontAPI( _T("휴먼매직체"), rectClient.Width() / 20 );//, D3DFONT_BOLD );
+		m_pFontAPITitle = new CD3DFontAPI( _T("�޸ո���ü"), rectClient.Width() / 20 );//, D3DFONT_BOLD );
 		m_pFontAPITitle->m_nOutLine = 2;
 		m_pFontAPITitle->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		m_pFontAPITitle->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
@@ -285,7 +285,7 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 	if( ::GetLanguage() == LANG_TWN || ::GetLanguage() == LANG_HK )
 	{
 		CD3DFont* pFont;
-		// 폰트 로드 생성 
+		// ��Ʈ �ε� ���� 
 		pFont = new CD3DFont( _T("MingLiU"), 9 );//, D3DFONT_BOLD );
 		//pFont->m_nOutLine = 3;
 		m_mapFont.SetAt( _T( "gulim9"), pFont );
@@ -321,7 +321,7 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 	if( ::GetLanguage() == LANG_CHI )
 	{
 		CD3DFont* pFont;
-		// 폰트 로드 생성 
+		// ��Ʈ �ε� ���� 
 		pFont = new CD3DFont( _T("MingLiU"), 9 );//, D3DFONT_BOLD );
 		//pFont->m_nOutLine = 3;
 		m_mapFont.SetAt( _T( "gulim9"), pFont );
@@ -354,14 +354,14 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 		m_mapFont.SetAt( _T( "gulim20"), pFont );
 
 		/*
-		m_pFontAPICaption = new CD3DFontAPI( _T("휴먼매직체"), rectClient.Width() / 50 );//, D3DFONT_BOLD );
+		m_pFontAPICaption = new CD3DFontAPI( _T("�޸ո���ü"), rectClient.Width() / 50 );//, D3DFONT_BOLD );
 		m_pFontAPICaption->m_nOutLine = 2;
 		m_pFontAPICaption->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		m_pFontAPICaption->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
 		m_pFontAPICaption->m_dwFlags = D3DFONT_FILTERED;
 		m_pFontAPICaption->InitDeviceObjects( m_pApp->m_pd3dDevice );
 
-		m_pFontAPITitle = new CD3DFontAPI( _T("휴먼매직체"), rectClient.Width() / 20 );//, D3DFONT_BOLD );
+		m_pFontAPITitle = new CD3DFontAPI( _T("�޸ո���ü"), rectClient.Width() / 20 );//, D3DFONT_BOLD );
 		m_pFontAPITitle->m_nOutLine = 2;
 		m_pFontAPITitle->m_dwColor = D3DCOLOR_ARGB( 255, 255, 255, 255);
 		m_pFontAPITitle->m_dwBgColor = D3DCOLOR_ARGB( 255, 40, 100, 220 );
@@ -373,7 +373,7 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 	if( ::GetLanguage() == LANG_ENG )
 	{
 		CD3DFont* pFont;
-		// 폰트 로드 생성 
+		// ��Ʈ �ε� ���� 
 		pFont = new CD3DFont( _T("Arial"), 9 );//, D3DFONT_BOLD );
 		//pFont->m_nOutLine = 3;
 		m_mapFont.SetAt( _T( "gulim9"), pFont );
@@ -410,7 +410,7 @@ BOOL CTheme::LoadTheme( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpszFileName)
 
 	//SetVersion( ::GetLanguage() ); 
 
-	// 폰트 세팅 
+	// ��Ʈ ���� 
 	m_mapFont.Lookup( _T("gulim9"), (void*&)m_pFontChat );
 	m_mapFont.Lookup( _T("gulim9"), (void*&)m_pFontText );
 	m_mapFont.Lookup( _T("gulim8"), (void*&)m_pFontStatus );
@@ -659,7 +659,7 @@ void CTheme::RenderDesktop( C2DRender* p2DRender )
 	viewport.MinZ   = 0.0f;
 	viewport.MaxZ   = 1.0f;
 
-	// 프로젝션 
+	// �������� 
 	FLOAT fAspect = (FLOAT)viewport.Width / (FLOAT)viewport.Height;
 	float fFov = D3DX_PI / 4.0f;
 	float fNear = CWorld::m_fNearPlane;
@@ -670,7 +670,7 @@ void CTheme::RenderDesktop( C2DRender* p2DRender )
 	DWORD dwColor = CWorld::GetDiffuseColor();
 	p2DRender->m_pd3dDevice->Clear(0, NULL, D3DCLEAR_ZBUFFER | D3DCLEAR_TARGET, dwColor /*D3DCOLOR_ARGB( 255, 255, 255, 255 )*/, 1.0f, 0 ) ;
 
-	// 필드 출력 
+	// �ʵ� ��� 
 	if(m_pTitleWorld != NULL)
 	{
 		//static float fCameraPositionX = 445.0f;
@@ -763,7 +763,7 @@ void CTheme::RenderDesktop( C2DRender* p2DRender )
 	texture.SetAutoFree( FALSE );
 	p2DRender->m_pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, FALSE );
 	CRect rectWindow = p2DRender->m_clipRect;
-	if( m_dwWallPaperType == WPT_STRETCH ) // 전체 늘리기 
+	if( m_dwWallPaperType == WPT_STRETCH ) // ��ü �ø��� 
 	{
 #if __VER >= 9 // __CSC_VER9_RESOLUTION
 		if(rectWindow.Width() == 1280 && (rectWindow.Height() == 720 || rectWindow.Height() == 768 || rectWindow.Height() == 800)) //Wide
@@ -812,14 +812,14 @@ void CTheme::RenderDesktop( C2DRender* p2DRender )
 #endif //__CSC_VER9_RESOLUTION
 	}
 	else
-	if( m_dwWallPaperType == WPT_CENTER ) // 중앙 정렬 
+	if( m_dwWallPaperType == WPT_CENTER ) // �߾� ���� 
 	{
 		CPoint pt( ( rectWindow.Width() / 2 ) - ( texture.m_size.cx / 2 ), ( rectWindow.Height() / 2 ) - ( texture.m_size.cy / 2 ) );
 		p2DRender->m_pd3dDevice->Clear(0, NULL,  D3DCLEAR_TARGET, m_d3dcBackground, 1.0f, 0 ) ;
 		p2DRender->RenderTexture( pt, &texture );
 	}
 	else
-	if( m_dwWallPaperType == WPT_CENTERSTRETCH ) // 중앙 늘리기  
+	if( m_dwWallPaperType == WPT_CENTERSTRETCH ) // �߾� �ø���  
 	{
 		if(( (int) rectWindow.Width() - texture.m_size.cx ) < ( (int)rectWindow.Height() - texture.m_size.cy ) )
 		{
@@ -839,7 +839,7 @@ void CTheme::RenderDesktop( C2DRender* p2DRender )
 		p2DRender->RenderTexture( pt, &texture );
 	}
 	else
-	if( m_dwWallPaperType == WPT_TILE ) // 타일 정렬 
+	if( m_dwWallPaperType == WPT_TILE ) // Ÿ�� ���� 
 	{
 		FLOAT fu = (FLOAT)rectWindow.Width()  / texture.m_size.cx;
 		FLOAT fv = (FLOAT)rectWindow.Height() / texture.m_size.cy;
@@ -875,7 +875,7 @@ void CTheme::RenderGameGradeScreen( C2DRender* p2DRender )
 	texture.SetAutoFree( FALSE );
 	p2DRender->m_pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, FALSE );
 	CRect rectWindow = p2DRender->m_clipRect;
-	if( g_WndMng.m_Theme.m_dwWallPaperType == WPT_STRETCH ) // 전체 늘리기 
+	if( g_WndMng.m_Theme.m_dwWallPaperType == WPT_STRETCH ) // ��ü �ø��� 
 	{
 		if(rectWindow.Width() == 1280 && (rectWindow.Height() == 720 || rectWindow.Height() == 768 || rectWindow.Height() == 800)) //Wide
 		{
@@ -916,13 +916,13 @@ void CTheme::RenderGameGradeScreen( C2DRender* p2DRender )
 		p2DRender->m_pd3dDevice->Clear(0, NULL,  D3DCLEAR_TARGET, g_WndMng.m_Theme.m_d3dcBackground, 1.0f, 0 ) ;
 		p2DRender->RenderTexture( CPoint( xOffset, 0 ), &texture );
 	}
-	else if( g_WndMng.m_Theme.m_dwWallPaperType == WPT_CENTER ) // 중앙 정렬 
+	else if( g_WndMng.m_Theme.m_dwWallPaperType == WPT_CENTER ) // �߾� ���� 
 	{
 		CPoint pt( ( rectWindow.Width() / 2 ) - ( texture.m_size.cx / 2 ), ( rectWindow.Height() / 2 ) - ( texture.m_size.cy / 2 ) );
 		p2DRender->m_pd3dDevice->Clear(0, NULL,  D3DCLEAR_TARGET, g_WndMng.m_Theme.m_d3dcBackground, 1.0f, 0 ) ;
 		p2DRender->RenderTexture( pt, &texture );
 	}
-	else if( g_WndMng.m_Theme.m_dwWallPaperType == WPT_CENTERSTRETCH ) // 중앙 늘리기  
+	else if( g_WndMng.m_Theme.m_dwWallPaperType == WPT_CENTERSTRETCH ) // �߾� �ø���  
 	{
 		if(( (int) rectWindow.Width() - texture.m_size.cx ) < ( (int)rectWindow.Height() - texture.m_size.cy ) )
 		{
@@ -941,7 +941,7 @@ void CTheme::RenderGameGradeScreen( C2DRender* p2DRender )
 		p2DRender->m_pd3dDevice->Clear(0, NULL,  D3DCLEAR_TARGET, g_WndMng.m_Theme.m_d3dcBackground, 1.0f, 0 ) ;
 		p2DRender->RenderTexture( pt, &texture );
 	}
-	else if( g_WndMng.m_Theme.m_dwWallPaperType == WPT_TILE ) // 타일 정렬 
+	else if( g_WndMng.m_Theme.m_dwWallPaperType == WPT_TILE ) // Ÿ�� ���� 
 	{
 		FLOAT fu = (FLOAT)rectWindow.Width()  / texture.m_size.cx;
 		FLOAT fv = (FLOAT)rectWindow.Height() / texture.m_size.cy;
@@ -1164,7 +1164,7 @@ void CTheme::RenderWndBaseFrame( C2DRender* p2DRender, CRect* pRect )
 	}
 	///////////////////////////////////////////////
 //return;
-	// 테두리 박스 
+	// �׵θ� �ڽ� 
 	p2DRender->RenderRoundRect( *pRect, dwColor1 );
 	pRect->DeflateRect(1,1);
 	p2DRender->RenderRoundRect( *pRect, dwColor3 );
@@ -1203,7 +1203,7 @@ void CTheme::RenderWndBaseBkgr( C2DRender* p2DRender, CRect* pRect  )
 {
 	if( m_bNudeSkin  == FALSE )
 	{
-		// 테두리 박스 
+		// �׵θ� �ڽ� 
 		DWORD dwColor1t = D3DCOLOR_ARGB( 155, 100, 100, 100 );//D3DCOLOR_ARGB( 255, 250, 250, 255 );//
 		DWORD dwColor1b = D3DCOLOR_ARGB( 155,  70,  70,  70 );//D3DCOLOR_ARGB( 255, 200, 200, 210 );//
 		DWORD dwColor2b = D3DCOLOR_ARGB( 155,  43,  73, 45 );//D3DCOLOR_ARGB( 255, 143, 173, 245 );//
@@ -1625,7 +1625,7 @@ void CTheme::RenderWndTaskBar( C2DRender* p2DRender, CRect* pRect )
 	texture.m_fuRB = fu  ; texture.m_fvRB = fv  ;
 	p2DRender->RenderTexture( CPoint( 0, 0), &texture );
 
-	// 테두리 박스 
+	// �׵θ� �ڽ� 
 	/*
 	DWORD dwColor1t = D3DCOLOR_ARGB( 255,  91, 104, 205 );
 	DWORD dwColor2t = D3DCOLOR_ARGB( 255, 116, 128, 220 );
@@ -1668,7 +1668,7 @@ void CTheme::RenderWndMenu( C2DRender* p2DRender, CRect* pRect )
 	RenderWndBaseFrame( p2DRender, pRect );
 	/*
 	CRect rect = *pRect;
-	// 테두리 박스 
+	// �׵θ� �ڽ� 
 	p2DRender->RenderRoundRect( rect, D3DCOLOR_ARGB( 155, 100, 100, 200 ) );
 	rect.DeflateRect(1,1);
 	p2DRender->RenderRoundRect( rect, D3DCOLOR_ARGB( 155, 180, 180, 220 ) );
@@ -1698,7 +1698,7 @@ BOOL CTheme::MakeGaugeVertex( LPDIRECT3DDEVICE9 pd3dDevice, CRect* pRect, DWORD 
 
 	int nWidth = ( pRect->Width() / nTexWidth );// - 2;
 
-	// 기본 패턴으로 완성될 수 있는건 2이다. 2보다 작으면 이미지가 깨질 수 있으니 리턴.
+	// �⺻ �������� �ϼ��� �� �ִ°� 2�̴�. 2���� ������ �̹����� ���� �� ������ ����.
 	if( nWidth < 2 )
 		return FALSE;
 	
@@ -1924,7 +1924,7 @@ void CTheme::RenderGauge( C2DRender* p2DRender, CRect* pRect, DWORD dwColor, LPD
 
 	int nWidth = ( pRect->Width() / nTexWidth );// - 2;
 
-	// 기본 패턴으로 완성될 수 있는건 2이다. 2보다 작으면 이미지가 깨질 수 있으니 리턴.
+	// �⺻ �������� �ϼ��� �� �ִ°� 2�̴�. 2���� ������ �̹����� ���� �� ������ ����.
 	if( nWidth < 2 )
 		return;
 	

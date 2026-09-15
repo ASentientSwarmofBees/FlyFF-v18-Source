@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #if __VER >= 12 // __SECRET_ROOM
 #include "dbcontroller.h"

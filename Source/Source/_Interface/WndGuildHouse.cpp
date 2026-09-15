@@ -1,4 +1,4 @@
-Ôªø
+
 #include "StdAfx.h"
 
 #if __VER >= 15 // __GUILD_HOUSE
@@ -22,7 +22,7 @@ CWndGHMainMenu::CWndGHMainMenu( )
 
 CWndGHMainMenu::~CWndGHMainMenu( )
 {
-	// Í∏∏ÎìúÌïòÏö∞Ïä§Î•º Îπ†Ï†∏ÎÇòÍ∞ê.
+	// ±ÊµÂ«œøÏΩ∫∏¶ ∫¸¡Æ≥™∞®.
 	CWndBase* pWnd = NULL;
 	pWnd = (CWndGuildHousing*)g_WndMng.GetApplet( APP_GH_FURNITURE_STORAGE );
 	if( pWnd )	
@@ -60,7 +60,7 @@ BOOL CWndGHMainMenu::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 {
 	switch( nID )
 	{
-	case WIDC_BTN_SETUPPOWER:	//Í∂åÌïú
+	case WIDC_BTN_SETUPPOWER:	//±««—
 		{
 			CWndGuild* pWnd = (CWndGuild*)g_WndMng.GetApplet( APP_GUILD );
 			if( pWnd )	
@@ -71,13 +71,13 @@ BOOL CWndGHMainMenu::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				pWnd = (CWndGuild*)g_WndMng.GetApplet( APP_GUILD );
 				assert( pWnd );
 
-				pWnd->SetCurTab( 4 ); //Í∂åÌïú tabÏúºÎ°ú !
+				pWnd->SetCurTab( 4 ); //±««— tab¿∏∑Œ !
 			}
 		}
 		
 		break;	
 
-	case WIDC_BTN_FURNITURE:	//Í∞ÄÍµ¨Ï∞Ω 		
+	case WIDC_BTN_FURNITURE:	//∞°±∏√¢ 		
 		{
 			CWndGuildHousing* pWnd = (CWndGuildHousing*)g_WndMng.GetApplet( APP_GH_FURNITURE_STORAGE );
 			if( pWnd )	
@@ -85,7 +85,7 @@ BOOL CWndGHMainMenu::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				if( pWnd->IsSection( CWndGuildHousing::GS_FURNITURE ) )
 					pWnd->Destroy( ); 
 				else 
-				if( pWnd->IsSection( CWndGuildHousing::GS_TELEPORTER ) )			//ÌÖîÎ†àÌè¨ÌÑ∞Îûë Í∞ôÏùÄ ÏúàÎèÑÎ•º Ïì∞Í∏∞ÎïåÎ¨∏Ïóê ÌÖîÎ†àÌè¨ÌÑ∞Ï∞Ω Ï£ΩÏù¥Í≥† Í∞ÄÍµ¨Ï∞Ω Ïó¥Í≤åÌï®.
+				if( pWnd->IsSection( CWndGuildHousing::GS_TELEPORTER ) )			//≈⁄∑π∆˜≈Õ∂˚ ∞∞¿∫ ¿©µµ∏¶ æ≤±‚∂ßπÆø° ≈⁄∑π∆˜≈Õ√¢ ¡◊¿Ã∞Ì ∞°±∏√¢ ø≠∞‘«‘.
 					pWnd->InitBySection( CWndGuildHousing::GS_FURNITURE );
 				
 			}
@@ -101,7 +101,7 @@ BOOL CWndGHMainMenu::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		}
 		break;
 
-	case WIDC_BTN_STORAGE:		//Ï∞ΩÍ≥†		
+	case WIDC_BTN_STORAGE:		//√¢∞Ì		
 		{
  			if( g_WndMng.m_pWndGuildBank )	
 			{
@@ -117,7 +117,7 @@ BOOL CWndGHMainMenu::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 		break;	
 
-	case WIDC_BTN_TELEPORTER:	//ÌÖîÎ†àÌè¨ÌÑ∞ 
+	case WIDC_BTN_TELEPORTER:	//≈⁄∑π∆˜≈Õ 
 		{
 			CWndGuildHousing* pWnd = (CWndGuildHousing*)g_WndMng.GetApplet( APP_GH_FURNITURE_STORAGE );
 			if( pWnd ) 
@@ -139,14 +139,14 @@ BOOL CWndGHMainMenu::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		}
 		break;
 
-	case WIDC_BTN_UPKEEP:		//Ïú†ÏßÄÎπÑ 
+	case WIDC_BTN_UPKEEP:		//¿Ø¡ˆ∫Ò 
 		{
 			BOOL bAuthority = FALSE;
 			CGuild* pGuild = g_pPlayer->GetGuild( );
 			if( pGuild )
 				bAuthority = pGuild->IsAuthority( g_pPlayer->m_idPlayer, PF_GUILDHOUSE_UPKEEP );
 
-			if( !bAuthority )		//Ïú†ÏßÄÎπÑ Í∂åÌïúÏù¥ ÏóÜÏúºÎ©¥ 
+			if( !bAuthority )		//¿Ø¡ˆ∫Ò ±««—¿Ã æ¯¿∏∏È 
 			{
 				g_WndMng.PutString( GETTEXT( TID_GAME_GUILDHOUSE_TAX_LEVEL ) );
 				break;
@@ -284,7 +284,7 @@ void CWndGHTeleporter::OnInitialUpdate()
 
 	RefreshItems( );
 
-	// ÏúàÎèÑÎ•º Ï§ëÏïôÏúºÎ°ú ÏòÆÍ∏∞Îäî Î∂ÄÎ∂Ñ.
+	// ¿©µµ∏¶ ¡ﬂæ”¿∏∑Œ ø≈±‚¥¬ ∫Œ∫–.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -336,7 +336,7 @@ BOOL CWndGHTeleporter::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 
 void CWndGHTeleporter::OnLButtonDown( UINT nFlags, CPoint point )
 {
-	//Ìï¥Îãπ Ïä¨Î°ØÏùÑ ÌåêÎ≥ÑÌï¥ÏÑú Ï†ïÎ≥¥Î•º shortcutÏóê ÎÑ£Ïñ¥Ï§ÄÎã§.
+	//«ÿ¥Á ΩΩ∑‘¿ª ∆«∫∞«ÿº≠ ¡§∫∏∏¶ shortcutø° ≥÷æÓ¡ÿ¥Ÿ.
 	int selectedSlot = GetSlotIndexByPoint( point );
  	if( selectedSlot < 0 || selectedSlot >= MAX_TELEPORTER_SLOT )
  		return;
@@ -385,7 +385,7 @@ int CWndGHTeleporter::GetSlotIndexByPoint( const CPoint& point )
 	CRect rect;
 	for( int i = 0; i < MAX_TELEPORTER_SLOT; ++i )
 	{
-		wndCtrl = GetWndCtrl( m_nCtrlId[i] );		// Ïä¨Î°ØÏúºÎ°ú ÎßåÎì§Ïñ¥ÏßÑ ÏúàÎèÑÏö∞Ïóê ÎåÄÌïòÏó¨ 
+		wndCtrl = GetWndCtrl( m_nCtrlId[i] );		// ΩΩ∑‘¿∏∑Œ ∏∏µÈæÓ¡¯ ¿©µµøÏø° ¥Î«œø© 
 		rect  = wndCtrl->rect;
 
 		if( rect.PtInRect( point ) )
@@ -401,7 +401,7 @@ int CWndGHTeleporter::GetCountListUp( )
 	for( int i = 0; i < MAX_TELEPORTER_SLOT; ++i )
 	{
 		HOUSING_ITEM& kItem = m_cWndItems[ i ];
-		if( EMPTY_SLOT != kItem.m_nType && !kItem.m_bDeploy )		//On SlotÎêòÏñ¥ ÏûàÍ≥† ÏÑ§ÏπòÎêòÏßÄ ÏïäÏïòÎã§Î©¥ ( Î¶¨Ïä§Ìä∏ ÏóÖÎßå Îêú ÏÉÅÌÉú )
+		if( EMPTY_SLOT != kItem.m_nType && !kItem.m_bDeploy )		//On Slotµ«æÓ ¿÷∞Ì º≥ƒ°µ«¡ˆ æ æ“¥Ÿ∏È ( ∏ÆΩ∫∆Æ æ˜∏∏ µ» ªÛ≈¬ )
 			++count;
 	}
 
@@ -418,13 +418,13 @@ BOOL CWndGHTeleporter::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		return FALSE;
 	}
 
-	if( APP_INVENTORY == pWndFrame->GetWndId( ) )			// Ïù∏Î≤§ÏóêÏÑú Ïò® ÏïÑÏù¥ÌÖúÏùÄ Ï°∞Í±¥Í≤ÄÏÇ¨ 
+	if( APP_INVENTORY == pWndFrame->GetWndId( ) )			// ¿Œ∫•ø°º≠ ø¬ æ∆¿Ã≈€¿∫ ¡∂∞«∞ÀªÁ 
 	{
 		CItemElem* pItem = g_pPlayer->m_Inventory.GetAtId( pShortcut->m_dwId );
 		if( !IsUsableItem( pItem ) )
 			return FALSE;
 
-		// ÌÖîÎ†àÌè¨ÌÑ∞ ÏïÑÏù¥ÌÖúÏùºÎïåÎßå 
+		// ≈⁄∑π∆˜≈Õ æ∆¿Ã≈€¿œ∂ß∏∏ 
 		if( IK3_TELEPORTER != pItem->GetProp( )->dwItemKind3  )
 			return FALSE;
 
@@ -436,7 +436,7 @@ BOOL CWndGHTeleporter::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 
 void CWndGHTeleporter::OnLButtonDblClk( UINT nFlags, CPoint point)
 {
-	//ÌååÍ¥¥ 
+	//∆ƒ±´ 
 	int selectedSlot = GetSlotIndexByPoint( point );
 	if( selectedSlot < 0 || selectedSlot >= MAX_TELEPORTER_SLOT )
 		return;
@@ -532,7 +532,7 @@ void CWndGHTeleporter::RefreshItems( )
 	
 	ItemProp* pProp = NULL;
 	
-	// 0Î≤àÏß∏ Ïä¨Î°Ø Ï±ÑÏö∞Í∏∞ ( ÌÖîÎ†àÌè¨ÌÑ∞Ïù¥Í≥† ÏÑ§ÏπòÎêú Í≤ΩÏö∞ )
+	// 0π¯¬∞ ΩΩ∑‘ √§øÏ±‚ ( ≈⁄∑π∆˜≈Õ¿Ã∞Ì º≥ƒ°µ» ∞ÊøÏ )
 	int serverSlot = -1;
 	GH_Fntr_Info* pItem = GetInstalledItem( serverSlot );
 	if( pItem )
@@ -547,7 +547,7 @@ void CWndGHTeleporter::RefreshItems( )
 		kItem.m_strName = pProp->szName;
 	}
 	
-	// 1~ 4Î≤à Ïä¨Î°Ø Ï±ÑÏö∞Í∏∞ 
+	// 1~ 4π¯ ΩΩ∑‘ √§øÏ±‚ 
 	int telSlot = 1;
 	for( int i = 0; i < GuildHouse->GetFurnitureListSize( ); ++i )
 	{
@@ -560,7 +560,7 @@ void CWndGHTeleporter::RefreshItems( )
 		 if( IK3_TELEPORTER != pProp->dwItemKind3 )
 			 continue;
 
-		 if( pItem->bSetup )		// ÌÖîÎ†àÌè¨ÌÑ∞ ÏïÑÏù¥ÌÖúÏù∏Îç∞ ÏÑ§ÏπòÎêú Í≤ΩÏö∞ Ïù¥Ï†ÑÏóê Ïù¥ÎØ∏ Îç∞Ïù¥ÌÑ∞Î•º ÏßëÏñ¥ÎÑ£ÏóàÏúºÎØÄÎ°ú Ìå®Ïä§ 
+		 if( pItem->bSetup )		// ≈⁄∑π∆˜≈Õ æ∆¿Ã≈€¿Œµ• º≥ƒ°µ» ∞ÊøÏ ¿Ã¿¸ø° ¿ÃπÃ µ•¿Ã≈Õ∏¶ ¡˝æÓ≥÷æ˙¿∏π«∑Œ ∆–Ω∫ 
 			 continue;	
 		 
 		 HOUSING_ITEM& kItem = m_cWndItems[ telSlot ];
@@ -589,7 +589,7 @@ void CWndGHTeleporter::DrawSlotItems( C2DRender* p2DRender )
 	{
 		HOUSING_ITEM& kItem = m_cWndItems[ i ];
 
-		if( EMPTY_SLOT == kItem.m_nType )			//ÎπàÏä¨Î°Ø 
+		if( EMPTY_SLOT == kItem.m_nType )			//∫ÛΩΩ∑‘ 
 			continue;
 	
 		ItemProp* pProp = prj.GetItemProp( kItem.m_nIndex );
@@ -618,7 +618,7 @@ void CWndGHTeleporter::UpdateButtons( )
 {
 	if( m_nSelectedSlot > -1 && m_nSelectedSlot < MAX_TELEPORTER_SLOT )
 	{
-		if( 0 == m_nSelectedSlot )	//ÏÑ§ÏπòÎêú Ïä¨Î°ØÏùÑ ÏÑ†ÌÉùÌñàÎã§Î©¥
+		if( 0 == m_nSelectedSlot )	//º≥ƒ°µ» ΩΩ∑‘¿ª º±≈√«ﬂ¥Ÿ∏È
 			m_pOK->EnableWindow( FALSE );
 		else m_pOK->EnableWindow( TRUE );
 	
@@ -664,7 +664,7 @@ void CWndGHUpkeep::OnLButtonDown( UINT nFlags, CPoint point )
 { 
 } 
 
-// ÏÇ¥Î†§Îäî ÏàòÎüâÏù¥ Î∞îÎÄåÎ©¥, Í∞ÄÍ≤©ÌëúÏãúÎèÑ Î≥ÄÍ≤ΩÏãúÌÇ®Îã§.
+// ªÏ∑¡¥¬ ºˆ∑Æ¿Ã πŸ≤Ó∏È, ∞°∞›«•Ω√µµ ∫Ø∞ÊΩ√≈≤¥Ÿ.
 void CWndGHUpkeep::OnChangeBuyCount( DWORD dwBuy )
 {
 	if( dwBuy > MAX_UPKEEP_DAY_CLIENT )
@@ -680,7 +680,7 @@ void CWndGHUpkeep::OnChangeBuyCount( DWORD dwBuy )
 
 	DWORD dwCost = 0;
 
-	// ÏßÄÍ∏à ÏÜåÏú†Ìïú Í∏∏ÎìúÌïòÏö∞Ïä§ Î†àÎ≤®Ïóê Îî∞ÎùºÏÑú Ïú†ÏßÄÎπÑ ÏÇ∞Ï∂ú
+	// ¡ˆ±› º“¿Ø«— ±ÊµÂ«œøÏΩ∫ ∑π∫ßø° µ˚∂Ûº≠ ¿Ø¡ˆ∫Ò ªÍ√‚
 	switch( GuildHouse->GetType() )
 	{
 	case WI_GUILDHOUSE_SMALL:
@@ -711,17 +711,17 @@ BOOL CWndGHUpkeep::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 	InitDialog( g_Neuz.GetSafeHwnd(), APP_CONFIRM_BUY_, 0, 0, pWndParent );
 	MoveParentCenter();
 
-	SetTitle( GETTEXT( TID_GAME_GUILDHOUSE_TAXUI01 ) );					//Ïú†ÏßÄÎπÑ 
+	SetTitle( GETTEXT( TID_GAME_GUILDHOUSE_TAXUI01 ) );					//¿Ø¡ˆ∫Ò 
 
 	CWndStatic* pLabel  = (CWndStatic  *)GetDlgItem( WIDC_STATIC );
 	pLabel->SetTitle( "" );
 
 	pLabel  = (CWndStatic  *)GetDlgItem( WIDC_STATIC1 );
-	pLabel->SetTitle( GETTEXT( TID_GAME_GUILDHOUSE_TAXUI03 ) );			//ÎÇ©Î∂ÄÍ∏àÏï°
+	pLabel->SetTitle( GETTEXT( TID_GAME_GUILDHOUSE_TAXUI03 ) );			//≥≥∫Œ±›æ◊
 
 	m_pEdit   = (CWndEdit  *)GetDlgItem( WIDC_CONTROL2 );
 	m_pStatic	= (CWndStatic *)GetDlgItem( WIDC_CONTROL1 );
-	m_pStatic->SetTitle( GETTEXT( TID_GAME_GUILDHOUSE_TAXUI02 ) );		//Ïú†ÏßÄÍ∏∞Í∞Ñ 
+	m_pStatic->SetTitle( GETTEXT( TID_GAME_GUILDHOUSE_TAXUI02 ) );		//¿Ø¡ˆ±‚∞£ 
 	m_pStaticGold = (CWndStatic *)GetDlgItem( WIDC_STATIC2 );
 	m_pStaticGold->AddWndStyle(WSS_MONEY);
 	
@@ -807,7 +807,7 @@ void CWndGHUpkeep::OnOK()
 
 	assert( nBuy > 0 && nBuy <= MAX_UPKEEP_DAY_CLIENT );
 	GH_Fntr_Info data;
-	data.dwItemId = nBuy; //Í∏∞Í∞Ñ (Ïùº)
+	data.dwItemId = nBuy; //±‚∞£ (¿œ)
 	GuildHouse->SendClientToWorld( GUILDHOUSE_PCKTTYPE_UPKEEP, data, NULL_ID );
 
 //	PLAYSND( SND_INF_TRADE );

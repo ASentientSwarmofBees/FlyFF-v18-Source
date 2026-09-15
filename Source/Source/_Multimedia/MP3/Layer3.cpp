@@ -1,4 +1,4 @@
-﻿/*
+/*
 Layer III routines adopted from the ISO MPEG Audio Subgroup Software Simulation
 Group's public c source for its MPEG audio decoder. These routines were in the
 file "decoder.c". Rearrangement of the routines as member functions of a

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "resData.h"
 #include "defineText.h"
 
@@ -22,15 +22,15 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /****************************************************
-  WndId : APP_HOUSING - í•˜ìš°ì§•
-  CtrlId : WIDC_BUTTON1 - ì„¤ì¹˜í•˜ê¸°
-  CtrlId : WIDC_BUTTON2 - í•´ì²´í•˜ê¸°
+  WndId : APP_HOUSING - ÇÏ¿ìÂ¡
+  CtrlId : WIDC_BUTTON1 - ¼³Ä¡ÇÏ±â
+  CtrlId : WIDC_BUTTON2 - ÇØÃ¼ÇÏ±â
   CtrlId : WIDC_TEXT1 - 
-  CtrlId : WIDC_STATIC1 - ì„¤ëª…
-  CtrlId : WIDC_STATIC2 - ì¢…ë¥˜
-  CtrlId : WIDC_STATIC3 - ì•„ì´í…œëª…
-  CtrlId : WIDC_STATIC4 - ë‚¨ì€ ì‹œê°„
-  CtrlId : WIDC_STATIC5 - ì„¤ì¹˜
+  CtrlId : WIDC_STATIC1 - ¼³¸í
+  CtrlId : WIDC_STATIC2 - Á¾·ù
+  CtrlId : WIDC_STATIC3 - ¾ÆÀÌÅÛ¸í
+  CtrlId : WIDC_STATIC4 - ³²Àº ½Ã°£
+  CtrlId : WIDC_STATIC5 - ¼³Ä¡
   CtrlId : WIDC_LISTBOX1 - Listbox
 ****************************************************/
 
@@ -127,9 +127,9 @@ void CWndHousing::OnDraw( C2DRender* p2DRender )
 			else
 				nLine++;
 
-			if(nDrawCount >= 10) continue;	// 10ê°œ ê¹Œì§€ë§Œ ë“œë¡œì‰í•œë‹¤
+			if(nDrawCount >= 10) continue;	// 10°³ ±îÁö¸¸ µå·ÎÀ×ÇÑ´Ù
 
-			// íƒ€ì…
+			// Å¸ÀÔ
 			switch(iter->m_nType)
 			{
 				case IK3_BED:
@@ -160,16 +160,16 @@ void CWndHousing::OnDraw( C2DRender* p2DRender )
 					p2DRender->TextOut( pCustom->rect.left + 5, pCustom->rect.top + 8 + (nIndex)*nListFontHeight, prj.GetText(TID_GAME_HOUSING_CARPET), dwColor);
 					break;
 			};
-			// ì´ë¦„
+			// ÀÌ¸§
 			p2DRender->TextOut( pCustom->rect.left + 85, pCustom->rect.top + 8 + (nIndex)*nListFontHeight, iter->m_strName, dwColor);
 
-			// ë‚¨ì€ ì‹œê°„
+			// ³²Àº ½Ã°£
 			time_t		t = (time_t)iter->m_dwTime - time_null();
 			if(t < 0)	t = 0;
 			CTimeSpan	ts( t );
 			CString		strTime;
 
-			// gmpbigsun : -_- 1ì‹œê°„ ë¯¸ë§Œì´ë©´ ì‹œê°„ë§Œ í‘œê¸°í•˜ê²Œ ë¼ìˆë‹¤ -> ìˆ˜ì •í•¨ 100105
+			// gmpbigsun : -_- 1½Ã°£ ¹Ì¸¸ÀÌ¸é ½Ã°£¸¸ Ç¥±âÇÏ°Ô µÅÀÖ´Ù -> ¼öÁ¤ÇÔ 100105
 			if( ts.GetDays() <= 0 && ts.GetHours() <= 0)
 				strTime.Format( prj.GetText( TID_GAME_TIME_1HOUR ));
 			else
@@ -177,7 +177,7 @@ void CWndHousing::OnDraw( C2DRender* p2DRender )
 
 			p2DRender->TextOut( pCustom->rect.left + 250, pCustom->rect.top + 8 + (nIndex)*nListFontHeight, strTime, dwColor);
 
-			// ì„¤ì¹˜ ì—¬ë¶€
+			// ¼³Ä¡ ¿©ºÎ
 			if(iter->m_bDeploy)
 				p2DRender->TextOut( pCustom->rect.left + 375, pCustom->rect.top + 8 + (nIndex)*nListFontHeight, "O", dwColor);
 			else
@@ -195,7 +195,7 @@ void CWndHousing::RefreshItemList()
 	HOUSING_ITEM	tmpItem;
 	int				nIndex = 1;
 
-	// ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë¥¼ ì‹¹ ìƒˆë¡œ ê°±ì‹ í•œë‹¤
+	// ¾ÆÀÌÅÛ ¸®½ºÆ®¸¦ ½Ï »õ·Î °»½ÅÇÑ´Ù
 	m_vecItem.clear();
 	m_mapItem.clear();
 	
@@ -232,25 +232,25 @@ void CWndHousing::Sort()
 	{
 		switch(m_nSortType)
 		{
-			case WIDC_STATIC2:		// íƒ€ì…
+			case WIDC_STATIC2:		// Å¸ÀÔ
 				if(m_bIsGreater)
 					std::sort( m_mapItem.begin(), m_mapItem.end(), CompType_Greater);
 				else
 					std::sort( m_mapItem.begin(), m_mapItem.end(), CompType_Smaller);
 				break;
-			case WIDC_STATIC3:		// ì•„ì´í…œëª…
+			case WIDC_STATIC3:		// ¾ÆÀÌÅÛ¸í
 				if(m_bIsGreater)
 					std::sort( m_mapItem.begin(), m_mapItem.end(), CompName_Greater);
 				else
 					std::sort( m_mapItem.begin(), m_mapItem.end(), CompName_Smaller);
 				break;
-			case WIDC_STATIC4:		// ë‚¨ì€ì‹œê°„
+			case WIDC_STATIC4:		// ³²Àº½Ã°£
 				if(m_bIsGreater)
 					std::sort( m_mapItem.begin(), m_mapItem.end(), CompTime_Greater);
 				else
 					std::sort( m_mapItem.begin(), m_mapItem.end(), CompTime_Smaller);
 				break;
-			case WIDC_STATIC5:		// ì„¤ì¹˜
+			case WIDC_STATIC5:		// ¼³Ä¡
 				if(m_bIsGreater)
 					std::sort( m_mapItem.begin(), m_mapItem.end(), CompDeploy_Greater);
 				else
@@ -263,7 +263,7 @@ void CWndHousing::Sort()
 void CWndHousing::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	RefreshItemList();
 
 	CWndButton* pWndButton1 = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
@@ -283,10 +283,10 @@ void CWndHousing::OnInitialUpdate()
 		lpWndCtrl = GetWndCtrl( WIDC_LISTBOX1 );
 		rect = lpWndCtrl->rect;
 		rect.bottom += ((size.cy+2)*10) - (rect.bottom-rect.top) + 4;
-		//í°íŠ¸ í¬ê¸° ì°¨ì´ ë•Œë¬¸ì— ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ í¬ê¸° ëŠ˜ì„
+		//ÆùÆ® Å©±â Â÷ÀÌ ¶§¹®¿¡ ¸®½ºÆ®¹Ú½º Å©±â ´ÃÀÓ
 		pWndList->SetWndRect(rect);
 
-		//ì°½ ë°€ë¦¬ëŠ” ê²½ìš° ì•„ë˜ë„ í¬ê¸° ì¡°ì •
+		//Ã¢ ¹Ğ¸®´Â °æ¿ì ¾Æ·¡µµ Å©±â Á¶Á¤
 		CRect rectStatic, recText;
 		CWndStatic* pWndStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC1 );
 		lpWndCtrl = GetWndCtrl( WIDC_STATIC1 );
@@ -300,21 +300,21 @@ void CWndHousing::OnInitialUpdate()
 		pWndText->SetWndRect(recText, TRUE);
 	}
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndHousing::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_HOUSING, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndHousing::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -344,7 +344,7 @@ void CWndHousing::OnLButtonUp( UINT nFlags, CPoint point )
 	pCustom = GetWndCtrl( WIDC_STATIC2 );
 	if( PtInRect(&pCustom->rect, point) )
 	{
-		//CtrlId : WIDC_STATIC2 - ì¢…ë¥˜
+		//CtrlId : WIDC_STATIC2 - Á¾·ù
 		if(m_nSortType == WIDC_STATIC2)
 			m_bIsGreater = !m_bIsGreater;
 		else
@@ -361,7 +361,7 @@ void CWndHousing::OnLButtonUp( UINT nFlags, CPoint point )
 	pCustom = GetWndCtrl( WIDC_STATIC3 );
 	if( PtInRect(&pCustom->rect, point) )
 	{
-		//CtrlId : WIDC_STATIC3 - ì•„ì´í…œëª…
+		//CtrlId : WIDC_STATIC3 - ¾ÆÀÌÅÛ¸í
 		if(m_nSortType == WIDC_STATIC3)
 			m_bIsGreater = !m_bIsGreater;
 		else
@@ -378,7 +378,7 @@ void CWndHousing::OnLButtonUp( UINT nFlags, CPoint point )
 	pCustom = GetWndCtrl( WIDC_STATIC4 );
 	if( PtInRect(&pCustom->rect, point) )
 	{
-		//CtrlId : WIDC_STATIC4 - ë‚¨ì€ ì‹œê°„
+		//CtrlId : WIDC_STATIC4 - ³²Àº ½Ã°£
 		if(m_nSortType == WIDC_STATIC4)
 			m_bIsGreater = !m_bIsGreater;
 		else
@@ -395,7 +395,7 @@ void CWndHousing::OnLButtonUp( UINT nFlags, CPoint point )
 	pCustom = GetWndCtrl( WIDC_STATIC5 );
 	if( PtInRect(&pCustom->rect, point) )
 	{
-		//CtrlId : WIDC_STATIC5 - ì„¤ì¹˜
+		//CtrlId : WIDC_STATIC5 - ¼³Ä¡
 		if(m_nSortType == WIDC_STATIC5)
 			m_bIsGreater = !m_bIsGreater;
 		else
@@ -436,10 +436,10 @@ BOOL CWndHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					else if(m_nSelected == nLoop)
 					{
 						
-						// ì„¤ëª…ì„ ë„ìš´ë‹¤
+						// ¼³¸íÀ» ¶ç¿î´Ù
 						pWndText->SetString(iter->m_strDesc);
 						
-						//ì„¤ì¹˜ë˜ì—ˆìœ¼ë©´ í•´ì œë²„íŠ¼ í™œì„±/ì„¤ì¹˜ë²„íŠ¼ ë¹„í™œì„±, ì•ˆë˜ì—ˆìœ¼ë©´ ë°˜ëŒ€ë¡œ
+						//¼³Ä¡µÇ¾úÀ¸¸é ÇØÁ¦¹öÆ° È°¼º/¼³Ä¡¹öÆ° ºñÈ°¼º, ¾ÈµÇ¾úÀ¸¸é ¹İ´ë·Î
 						if(iter->m_bDeploy)
 						{
 							pWndButton1->EnableWindow(FALSE);
@@ -473,7 +473,7 @@ BOOL CWndHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			break;
 
-		case WIDC_BUTTON1:// ì„¤ì¹˜ë²„íŠ¼
+		case WIDC_BUTTON1:// ¼³Ä¡¹öÆ°
 			{
 				if(CDeployManager::GetInstance()->IsReady())
 						CDeployManager::GetInstance()->EndDeploy();
@@ -512,7 +512,7 @@ BOOL CWndHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			break;
 
-		case WIDC_BUTTON2:// í•´ì œë²„íŠ¼
+		case WIDC_BUTTON2:// ÇØÁ¦¹öÆ°
 			if(!CDeployManager::GetInstance()->IsReady())
 			{
 				CWndListBox*	pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
@@ -566,7 +566,7 @@ CWndGuildHousing::~CWndGuildHousing( )
 
 BOOL CWndGuildHousing::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GH_FURNITURE_STORAGE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -629,14 +629,14 @@ void CWndGuildHousing::OnInitialUpdate()
 		m_wndButton[i].SetVisible( FALSE );
 	}
 
-	//ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ì— ë“¤ì–´ê°ˆ ì•„ì´í…œì˜ ë†’ì´ 
+	//¸®½ºÆ®¹Ú½º¿¡ µé¾î°¥ ¾ÆÀÌÅÛÀÇ ³ôÀÌ 
 	CWndListBox*	pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	pWndListBox->m_nLineSpace = (int)( ( 40 - pWndListBox->GetFontHeight( ) ) * 0.5f );
 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	RefreshItemList();
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -690,10 +690,10 @@ void CWndGuildHousing::OnDraw( C2DRender* p2DRender )
 
 		for(iter = m_cWndItems.begin(); iter != m_cWndItems.end(); ++iter)
 		{
-			//ì„ íƒ ë¼ì¸
+			//¼±ÅÃ ¶óÀÎ
 			bSelected = ( m_nSelected != 0 && (m_nSelected - 1) == nLine );
 	
-			//ìœ„ë¡œ ì˜¬ë¼ê°„ ë¼ì¸ íŒ¨ìŠ¤ 
+			//À§·Î ¿Ã¶ó°£ ¶óÀÎ ÆĞ½º 
 			if(nLine < pWndListBox->GetScrollPos()) 
 			{
 				nLine++;
@@ -702,7 +702,7 @@ void CWndGuildHousing::OnDraw( C2DRender* p2DRender )
 			else
 				nLine++;
 
-			//ë“œë¡œì‰ ìµœëŒ€ìˆ˜ì¹˜ 
+			//µå·ÎÀ× ÃÖ´ë¼öÄ¡ 
 			if(nDrawCount >= GH_MAX_VIEW_CAPACITY )		
 				continue;	
 
@@ -725,15 +725,15 @@ void CWndGuildHousing::OnDraw( C2DRender* p2DRender )
 			if( pTexture )
 				p2DRender->RenderTexture( pt, pTexture );
 		
-			// ì´ë¦„
+			// ÀÌ¸§
 			p2DRender->TextOut( pCustom->rect.left + 80, pCustom->rect.top + 20 + (nIndex)*nListFontHeight, kItem.m_strName, dwColor);
 
-			// ë‚¨ì€ ì‹œê°„
+			// ³²Àº ½Ã°£
 			bool bGoTime = true;
 			time_t		t = (time_t)iter->m_dwTime - time_null();
 			if(t < 0)	
 			{
-				t = iter->m_dwTime;	// ë§Œë£Œëœê²ƒì€ ìë™ìœ¼ë¡œ ë¹ ì§€ê¸° ë•Œë¬¸ì— ì´ê²½ìš° ì•„ì§ ì„¤ì¹˜ê°€ ì•ˆë€ ê²½ìš°ë‹¤.( Prop ì‹œê°„ ì„¤ì • )
+				t = iter->m_dwTime;	// ¸¸·áµÈ°ÍÀº ÀÚµ¿À¸·Î ºüÁö±â ¶§¹®¿¡ ÀÌ°æ¿ì ¾ÆÁ÷ ¼³Ä¡°¡ ¾È‰Â °æ¿ì´Ù.( Prop ½Ã°£ ¼³Á¤ )
 				bGoTime = false;
 			}
 			CTimeSpan	ts( t );
@@ -746,13 +746,13 @@ void CWndGuildHousing::OnDraw( C2DRender* p2DRender )
 			else 
 				strTime.Format( prj.GetText(TID_PK_LIMIT_MINUTE ), ts.GetMinutes() );
 
-			//gmpbigsun(100326) : ì§„í–‰ì¤‘ íŠ¹ìˆ˜ê¸°í˜¸ ì œê±° ë° ê¸°ì¡´(NEW)->ì™¸ë¶€ë¡œë¶€í„° ì½ì–´ì˜´
+			//gmpbigsun(100326) : ÁøÇàÁß Æ¯¼ö±âÈ£ Á¦°Å ¹× ±âÁ¸(NEW)->¿ÜºÎ·ÎºÎÅÍ ÀĞ¾î¿È
 			if( !bGoTime )
-				strTime = strTime + CString( prj.GetText( TID_GAME_TOOLTIP_NEWFURNITURE ) ); 		//ì„¤ì¹˜ê°€ í•œë²ˆë„ ì•ˆëŒ„( ì‹œê°„ì´ ì•ˆê°„ë‹¤ )			
+				strTime = strTime + CString( prj.GetText( TID_GAME_TOOLTIP_NEWFURNITURE ) ); 		//¼³Ä¡°¡ ÇÑ¹øµµ ¾È´í( ½Ã°£ÀÌ ¾È°£´Ù )			
 
 			p2DRender->TextOut( pCustom->rect.left + 260, pCustom->rect.top + 20 + (nIndex)*nListFontHeight, strTime, dwColor);
 
-			//ì„ íƒì˜ì—­ ë°•ìŠ¤
+			//¼±ÅÃ¿µ¿ª ¹Ú½º
 			if( bSelected )
 			{
 				bNoSelecting = FALSE;
@@ -760,7 +760,7 @@ void CWndGuildHousing::OnDraw( C2DRender* p2DRender )
 				renderBoxRect.bottom = renderBoxRect.top + 40;
 				p2DRender->RenderFillRect( renderBoxRect, 0x55ff0000 );
 
-				// ê¸°ëŠ¥ì„¤ëª… 
+				// ±â´É¼³¸í 
 				pWndText->SetString( kItem.m_strDesc );
 			}
 		
@@ -774,15 +774,15 @@ void CWndGuildHousing::OnDraw( C2DRender* p2DRender )
 
 	if( m_nSelectedSort != 0 )
 	{
-		//ì†ŒíŠ¸ ë§ˆí¬ 
+		//¼ÒÆ® ¸¶Å© 
 		CWndStatic* pWndStatic = (CWndStatic*)GetDlgItem( m_nSelectedSort );
 		if( pWndStatic )
 		{
 			CRect rect = pWndStatic->GetClientRect( TRUE );
 
-			if( m_bIsGreater )	//ì˜¤ë¦„ì°¨ìˆœ
+			if( m_bIsGreater )	//¿À¸§Â÷¼ø
 				p2DRender->RenderTexture( CPoint( rect.left-18, rect.top ), &m_texUp );
-			else	//ë‚´ë¦¼ì°¨ìˆœ
+			else	//³»¸²Â÷¼ø
 				p2DRender->RenderTexture( CPoint( rect.left-18, rect.top ), &m_texDown );
 		}
 	}
@@ -794,14 +794,14 @@ void CWndGuildHousing::RefreshItemList( )
 	int				nIndex = 1;
 
 	CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
-	int currScrollPos = pWndListBox->GetScrollPos( );		// í˜„ì¬ ìŠ¤í¬ë¡¤ ìœ„ì¹˜ë¥¼ ë³´ê´€í•´ë‘”ë‹¤.
+	int currScrollPos = pWndListBox->GetScrollPos( );		// ÇöÀç ½ºÅ©·Ñ À§Ä¡¸¦ º¸°üÇØµĞ´Ù.
 	pWndListBox->ResetContent();
 
-	// ë²½ì§€, ì¥íŒ í•´ì²´ì‹œ ë³µêµ¬flag
+	// º®Áö, ÀåÆÇ ÇØÃ¼½Ã º¹±¸flag
 	BOOL bWallTex = FALSE;
 	BOOL bTileTex = FALSE;
 
-	// ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë¥¼ ì‹¹ ìƒˆë¡œ ê°±ì‹ í•œë‹¤
+	// ¾ÆÀÌÅÛ ¸®½ºÆ®¸¦ ½Ï »õ·Î °»½ÅÇÑ´Ù
 	m_cWndItems.clear();
 
 	BOOL bShowWanted = FALSE;
@@ -822,10 +822,10 @@ void CWndGuildHousing::RefreshItemList( )
 			continue;
 		}
 
-		if( bShowWanted && m_dwComboCurrIK3 != pProp->dwItemKind3 )			//ì½¤ë³´ë°•ìŠ¤ì˜ ê°€êµ¬ì¢…ë¥˜ë¥¼ ì„ íƒí•œê²½ìš° í•´ë‹¹ê°€êµ¬ë¥˜ë§Œ ë³´ì—¬ì¤€ë‹¤.
+		if( bShowWanted && m_dwComboCurrIK3 != pProp->dwItemKind3 )			//ÄŞº¸¹Ú½ºÀÇ °¡±¸Á¾·ù¸¦ ¼±ÅÃÇÑ°æ¿ì ÇØ´ç°¡±¸·ù¸¸ º¸¿©ÁØ´Ù.
 			continue;
 
-		// í˜„ì¬ ì„¹ì…˜ì´ ê°€êµ¬ë©´ í…”ë ˆí¬í„° íŒ¨ìŠ¤, í˜„ì¬ ì„¹ì…˜ì´ í…”ë ˆí¬í„°ë©´ ê°€êµ¬ íŒ¨ìŠ¤ 
+		// ÇöÀç ¼½¼ÇÀÌ °¡±¸¸é ÅÚ·¹Æ÷ÅÍ ÆĞ½º, ÇöÀç ¼½¼ÇÀÌ ÅÚ·¹Æ÷ÅÍ¸é °¡±¸ ÆĞ½º 
 		if( GS_FURNITURE == m_eSection )
 		{
 			if( IK2_GUILDHOUSE_NPC == pProp->dwItemKind2 )
@@ -834,7 +834,7 @@ void CWndGuildHousing::RefreshItemList( )
 		else
 		if( GS_TELEPORTER == m_eSection )
 		{
-			// ê°€êµ¬, ë²½ì§€/ì¥íŒ 
+			// °¡±¸, º®Áö/ÀåÆÇ 
 			if( IK2_GUILDHOUSE_FURNITURE == pProp->dwItemKind2 || IK2_GUILDHOUSE_PAPERING == pProp->dwItemKind2 )  
 				continue;
 		}
@@ -845,12 +845,12 @@ void CWndGuildHousing::RefreshItemList( )
 		tmpItem.m_bDeploy = pInfo->bSetup;
 		tmpItem.m_dwTime = pInfo->tKeepTime;
 		
-		// ì•„ì§ ì„¤ì¹˜ê°€ í•œë²ˆë„ ì•ˆë€ê²½ìš° ë‚¨ì€ì‹œê°„ì„ ë°›ì§€(ì„œë²„ë¡œë¶€í„°)ì•ŠëŠ”ë‹¤. ê³ ë¡œ Prop dataë¥¼ ì“°ì.
+		// ¾ÆÁ÷ ¼³Ä¡°¡ ÇÑ¹øµµ ¾È‰Â°æ¿ì ³²Àº½Ã°£À» ¹ŞÁö(¼­¹ö·ÎºÎÅÍ)¾Ê´Â´Ù. °í·Î Prop data¸¦ ¾²ÀÚ.
 		if( 0 >= tmpItem.m_dwTime )
 			tmpItem.m_dwTime = pProp->dwAbilityMin * 60;
 		tmpItem.dwItemId = pInfo->objId;
-		tmpItem.m_strName = pProp->szName;		//í”„ë¡œí¼í‹° ì´ë¦„ 
-		tmpItem.m_strDesc = pProp->szCommand;	//  "      ì„¤ëª… 
+		tmpItem.m_strName = pProp->szName;		//ÇÁ·ÎÆÛÆ¼ ÀÌ¸§ 
+		tmpItem.m_strDesc = pProp->szCommand;	//  "      ¼³¸í 
 		tmpItem.m_nSlotIndex = i;
 
 		m_cWndItems.push_back( tmpItem );
@@ -862,7 +862,7 @@ void CWndGuildHousing::RefreshItemList( )
 	
 	Sort();
 
-	// íƒ€ê²Ÿì´ ìˆë‹¤ë©´ ì†ŒíŒ…í›„ì— í•´ë‹¹ì•„ì´í…œ ì„ íƒëœìƒíƒœë¡œ ...
+	// Å¸°ÙÀÌ ÀÖ´Ù¸é ¼ÒÆÃÈÄ¿¡ ÇØ´ç¾ÆÀÌÅÛ ¼±ÅÃµÈ»óÅÂ·Î ...
 	if( !IsValidObjID( GuildHouse->m_dwSelectedObjID ) )
 		m_nSelected = 0;
 	else if( !SetSelectedByObjID( GuildHouse->m_dwSelectedObjID ) )
@@ -875,7 +875,7 @@ void CWndGuildHousing::RefreshItemList( )
 
 void CWndGuildHousing::UpdateIRButton( )
 {
-	// ì•„ì´í…œë³„ ë²„íŠ¼ Update!!
+	// ¾ÆÀÌÅÛº° ¹öÆ° Update!!
 	if( !g_pPlayer )
 		return;
 
@@ -889,52 +889,52 @@ void CWndGuildHousing::UpdateIRButton( )
 	
 	if( bResult )
 	{
-		if( !g_pPlayer->GetWorld()->IsWorldGuildHouse() )			//ê¸¸ë“œí•˜ìš°ìŠ¤ ì›”ë“œê°€ ì•„ë‹ˆë©´ 
+		if( !g_pPlayer->GetWorld()->IsWorldGuildHouse() )			//±æµåÇÏ¿ì½º ¿ùµå°¡ ¾Æ´Ï¸é 
 			bResult = FALSE;
 	}
 
 	SetEnableInstallBtns( bResult );
 
 	CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
-	int nScrollPos = pWndListBox->GetScrollPos();		//ìŒ ìš”ë…€ì„ì´ ê°€ì¥ topì¸ê°€?
+	int nScrollPos = pWndListBox->GetScrollPos();		//À½ ¿ä³à¼®ÀÌ °¡Àå topÀÎ°¡?
 	if( nScrollPos < 0 )
 		pWndListBox->SetScrollPos( 0 );
 
 	int iMaxSize = m_cWndItems.size( );
 	for( int i = 0; i < GH_MAX_VIEW_CAPACITY; ++i )
 	{
-		int top = i + nScrollPos;						//ì‹¤ì œ ë°ì´í„°ëŠ” ìŠ¤í¬ë¡¤ í¬ì§€ì…˜ì— ì˜í–¥ì„ ë°›ê³ 
+		int top = i + nScrollPos;						//½ÇÁ¦ µ¥ÀÌÅÍ´Â ½ºÅ©·Ñ Æ÷Áö¼Ç¿¡ ¿µÇâÀ» ¹Ş°í
 		
 		CWndButton* pBtn = &m_wndButton[i];
 
-		//í…”ë ˆí¬í„° ì°½ì¼ê²½ìš° ì„¤ì¹˜ëœ ë…€ì„ì´ ìˆë‹¤ë©´ ì„¤ì¹˜ ì•ˆëœë…€ì„ë“¤ì€ disable 
+		//ÅÚ·¹Æ÷ÅÍ Ã¢ÀÏ°æ¿ì ¼³Ä¡µÈ ³à¼®ÀÌ ÀÖ´Ù¸é ¼³Ä¡ ¾ÈµÈ³à¼®µéÀº disable 
 		if( top < iMaxSize )
 		{
-			//ë°ì´í„°ê°€ ì¡´ì¬í•˜ëŠ”ê²½ìš°ë§Œ ë²„íŠ¼ì„ ë³´ì´ê²Œ í•˜ê³  ì„¤ì¹˜/í•´ì²´ ë¥¼ ìƒí™©ì— ë§ê²Œ ë°”ê¾¸ì–´ì¤€ë‹¤.
-			pBtn->SetVisible( TRUE );		//ë²„íŠ¼ì€ ë¬´ì¡°ê±´ 0ë¶€í„°ë‹¤.
+			//µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏ´Â°æ¿ì¸¸ ¹öÆ°À» º¸ÀÌ°Ô ÇÏ°í ¼³Ä¡/ÇØÃ¼ ¸¦ »óÈ²¿¡ ¸Â°Ô ¹Ù²Ù¾îÁØ´Ù.
+			pBtn->SetVisible( TRUE );		//¹öÆ°Àº ¹«Á¶°Ç 0ºÎÅÍ´Ù.
 			
 			if( m_cWndItems[ top ].m_bDeploy )		
 			{
-				// í•´ì²´í•˜ëŠ” ì´ë¯¸ì§€ ( ì„¤ì¹˜ê°€ ë˜ì–´ìˆìœ¼ë¯€ë¡œ )
+				// ÇØÃ¼ÇÏ´Â ÀÌ¹ÌÁö ( ¼³Ä¡°¡ µÇ¾îÀÖÀ¸¹Ç·Î )
 				
-				//sunTODO: í™•ì • ì´ë¯¸ì§€ ë‚˜ì˜¤ë©´ êµì²´ìš”ë§ 
+				//sunTODO: È®Á¤ ÀÌ¹ÌÁö ³ª¿À¸é ±³Ã¼¿ä¸Á 
 				pBtn->SetTexture( D3DDEVICE, MakePath( DIR_THEME, "Buttlockerinstall.BMP" ), TRUE );
-				pBtn->SetToolTip( GETTEXT(TID_TOOLTIP_GUILDHOUSE_BUTT_DISMANTLE) );		//ê°€êµ¬ê°€ í•´ì²´ë©ë‹ˆë‹¤.
+				pBtn->SetToolTip( GETTEXT(TID_TOOLTIP_GUILDHOUSE_BUTT_DISMANTLE) );		//°¡±¸°¡ ÇØÃ¼µË´Ï´Ù.
 			}
 			else									
 			{
-				// ì„¤ì¹˜í•˜ëŠ” ì´ë¯¸ì§€ ( í•´ì²´ê°€ ë˜ì–´ìˆìœ¼ë¯€ë¡œ )
+				// ¼³Ä¡ÇÏ´Â ÀÌ¹ÌÁö ( ÇØÃ¼°¡ µÇ¾îÀÖÀ¸¹Ç·Î )
 				
-				//sunTODO: í™•ì • ì´ë¯¸ì§€ ë‚˜ì˜¤ë©´ êµì²´ìš”ë§
+				//sunTODO: È®Á¤ ÀÌ¹ÌÁö ³ª¿À¸é ±³Ã¼¿ä¸Á
 				pBtn->SetTexture( D3DDEVICE, MakePath( DIR_THEME, "Buttlockerdismantle.BMP" ), TRUE );
-				pBtn->SetToolTip( GETTEXT(TID_TOOLTIP_GUILDHOUSE_BUTT_INSTALL) );		//ê°€êµ¬ê°€ ì„¤ì¹˜ë©ë‹ˆë‹¤.
+				pBtn->SetToolTip( GETTEXT(TID_TOOLTIP_GUILDHOUSE_BUTT_INSTALL) );		//°¡±¸°¡ ¼³Ä¡µË´Ï´Ù.
 			}
 		}
 		else 
 			pBtn->SetVisible( FALSE );
 	}
 
-	// í…”ë ˆí¬í„°ë¥¼ ì„¤ì¹˜í• ìˆ˜ ìˆëŠ”ê²½ìš° ì„¤ì¹˜ì¤‘ì¸ í…”ë ˆí¬í„° ì™¸ì—ëŠ” disable ì‹œí‚¨ë‹¤.
+	// ÅÚ·¹Æ÷ÅÍ¸¦ ¼³Ä¡ÇÒ¼ö ÀÖ´Â°æ¿ì ¼³Ä¡ÁßÀÎ ÅÚ·¹Æ÷ÅÍ ¿Ü¿¡´Â disable ½ÃÅ²´Ù.
 	if( bResult && IsSection( GS_TELEPORTER ) )
 	{
 		BOOL bInstalledTeleporter = FALSE;
@@ -963,19 +963,19 @@ void CWndGuildHousing::Sort()
 	{
 		switch(m_nSortType)
 		{
-			case WIDC_STATIC1:		// ì•„ì´í…œëª…
+			case WIDC_STATIC1:		// ¾ÆÀÌÅÛ¸í
 				if(m_bIsGreater)
 					std::sort( m_cWndItems.begin(), m_cWndItems.end(), CompName_Greater);
 				else
 					std::sort( m_cWndItems.begin(), m_cWndItems.end(), CompName_Smaller);
 				break;
-			case WIDC_STATIC2:		// ë‚¨ì€ì‹œê°„
+			case WIDC_STATIC2:		// ³²Àº½Ã°£
 				if(m_bIsGreater)
 					std::sort( m_cWndItems.begin(), m_cWndItems.end(), CompTime_Greater);
 				else
 					std::sort( m_cWndItems.begin(), m_cWndItems.end(), CompTime_Smaller);
 				break;
-			case WIDC_STATIC3:		// ì„¤ì¹˜
+			case WIDC_STATIC3:		// ¼³Ä¡
 				if(m_bIsGreater)
 					std::sort( m_cWndItems.begin(), m_cWndItems.end(), CompDeploy_Greater);
 				else
@@ -991,20 +991,20 @@ BOOL CWndGuildHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 { 
 	if( nID >= 0 && nID < GH_MAX_VIEW_CAPACITY )
 	{
-		//ë¦¬ìŠ¤íŠ¸ì•ˆì— ì•„ì´í…œë³„ ë²„íŠ¼ì´ ëˆŒë ¸ë‹¤..
+		//¸®½ºÆ®¾È¿¡ ¾ÆÀÌÅÛº° ¹öÆ°ÀÌ ´­·È´Ù..
 
-		// ì„¤ì¹˜, ì¬ì„¤ì¹˜, í•´ì²´ê°€ ë˜ì§€ ì•ŠëŠ” ì±„ë„ì¼ê²½ìš° ë©”ì„¸ì§€ ì¶œë ¥í•˜ê³  Retrun
+		// ¼³Ä¡, Àç¼³Ä¡, ÇØÃ¼°¡ µÇÁö ¾Ê´Â Ã¤³ÎÀÏ°æ¿ì ¸Ş¼¼Áö Ãâ·ÂÇÏ°í Retrun
 		if( !GuildHouse->IsSetFurnitureChannel( ) )
 		{
 			g_WndMng.PutString( GETTEXT( TID_GAME_GUILDHOUSE_INSIDE_INSTALL_CHANNEL  ) );
 			return CWndNeuz::OnChildNotify( message, nID, pLResult );
 		}
 
-		//ìŠ¤í¬ë¡¤ì´ ëœê²½ìš° nIDëŠ” íƒ‘ì¸ë±ìŠ¤ë¥¼ ë”í•œ ê°’ì´ë‹¤.
+		//½ºÅ©·ÑÀÌ µÈ°æ¿ì nID´Â Å¾ÀÎµ¦½º¸¦ ´õÇÑ °ªÀÌ´Ù.
 		CWndListBox*	pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 		int scrollPos = pWndListBox->GetScrollPos( );
 
-		//ë§ˆìš°ìŠ¤ íœ ì„ ì˜¬ë¦´ê²½ìš° ScrollPosê°€ ìŒìˆ˜ê°€ ë˜ëŠ”í˜„ìƒ ë³´ì • 
+		//¸¶¿ì½º ÈÙÀ» ¿Ã¸±°æ¿ì ScrollPos°¡ À½¼ö°¡ µÇ´ÂÇö»ó º¸Á¤ 
 		if( scrollPos < 0 )
 			pWndListBox->SetScrollPos( 0 );					
 		int resultIndex = nID + pWndListBox->GetScrollPos( );
@@ -1014,7 +1014,7 @@ BOOL CWndGuildHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 		HOUSING_ITEM& kItem = m_cWndItems[ resultIndex ];
 		assert( (int)( m_cWndItems.size() ) > resultIndex );
 
-		if( !kItem.m_bDeploy )		//ì„¤ì¹˜ë˜ì§€ ì•Šì•˜ë‹¤ë©´ 
+		if( !kItem.m_bDeploy )		//¼³Ä¡µÇÁö ¾Ê¾Ò´Ù¸é 
 		{
 			kItem.m_vPos = g_pPlayer->GetPos( );
 			kItem.m_fAngle = 0.0f;
@@ -1022,12 +1022,12 @@ BOOL CWndGuildHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 			ItemProp* pItemProp = prj.GetItemProp( kItem.m_nIndex );
 			assert( pItemProp );
 
-			// í…”ë ˆí¬í„°, ë²½ì§€, ì¥íŒì¸ ê²½ìš° ë°”ë¡œ ì„¤ì¹˜ ìš”ì²­ , ê°€êµ¬ì¸ ê²½ìš° í¸ì§‘ëª¨ë“œë¡œ ë³€ê²½
+			// ÅÚ·¹Æ÷ÅÍ, º®Áö, ÀåÆÇÀÎ °æ¿ì ¹Ù·Î ¼³Ä¡ ¿äÃ» , °¡±¸ÀÎ °æ¿ì ÆíÁı¸ğµå·Î º¯°æ
 			if( IK3_TELEPORTER == pItemProp->dwItemKind3 || IK3_WALLPAPER == pItemProp->dwItemKind3 || IK3_CARPET == pItemProp->dwItemKind3 )
 			{
 				GH_Fntr_Info* pInfo = GuildHouse->GetFurnitureInfoPtr( kItem.m_nSlotIndex );
 				assert( pInfo );
-				// ì´ë¯¸ ì„¤ì¹˜ë˜ì–´ ìˆëŠ” í…”ë ˆí¬í„°ê°€ ìˆëŠ”ì§€ ê²€ì‚¬ 
+				// ÀÌ¹Ì ¼³Ä¡µÇ¾î ÀÖ´Â ÅÚ·¹Æ÷ÅÍ°¡ ÀÖ´ÂÁö °Ë»ç 
 				GuildHouse->SendClientToWorld( GUILDHOUSE_PCKTTYPE_SETUP, *pInfo, kItem.m_nSlotIndex );
 			}else
 			{
@@ -1064,7 +1064,7 @@ BOOL CWndGuildHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 				if(m_nSelected > nLoop)	continue;
 				else if(m_nSelected == nLoop)
 				{
-					//í˜„ì¬ ì„ íƒëœ ì•„ì´í…œì´ë¼ë©´ 
+					//ÇöÀç ¼±ÅÃµÈ ¾ÆÀÌÅÛÀÌ¶ó¸é 
 					GuildHouse->m_dwSelectedObjID = kItem.dwItemId;
 				}
 			}
@@ -1080,7 +1080,7 @@ BOOL CWndGuildHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 					m_dwComboCurrIK3 = pCombo->GetItemData( curSel );
 
 					CWndListBox*	pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
-					pWndListBox->SetCurSel( 0 );		// ì½¤ë³´ë°•ìŠ¤ ì•„ì´í…œì„ ì„ íƒí•œê²½ìš° ìŠ¤í¬ë¡¤ ìœ„ì¹˜ëŠ” ìµœìƒìœ¼ë¡œ 
+					pWndListBox->SetCurSel( 0 );		// ÄŞº¸¹Ú½º ¾ÆÀÌÅÛÀ» ¼±ÅÃÇÑ°æ¿ì ½ºÅ©·Ñ À§Ä¡´Â ÃÖ»óÀ¸·Î 
 					RefreshItemList( );
 				}
 			}
@@ -1094,7 +1094,7 @@ BOOL CWndGuildHousing::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 
 BOOL CWndGuildHousing::SetSelectedByObjID( OBJID objID )
 {
-	// ì˜¤ë¸Œì íŠ¸ ì•„ì´ë””ë¡œ í˜„ì¬ ìœ ì§€í•˜ëŠ” Data indexë¥¼ ë½‘ëŠ”ë‹¤. ì˜¤ë¸Œì íŠ¸ë¥¼ ì„ íƒí–ˆì„ë•Œ ìœˆë„ìš°ì— ìë™ì„ íƒê¸°ëŠ¥ì„ ìœ„í•´ ë§Œë“¤ì–´ì§ 
+	// ¿ÀºêÁ§Æ® ¾ÆÀÌµğ·Î ÇöÀç À¯ÁöÇÏ´Â Data index¸¦ »Ì´Â´Ù. ¿ÀºêÁ§Æ®¸¦ ¼±ÅÃÇßÀ»¶§ À©µµ¿ì¿¡ ÀÚµ¿¼±ÅÃ±â´ÉÀ» À§ÇØ ¸¸µé¾îÁü 
 
 	int totalSize = m_cWndItems.size();
 	for( int i = 0; i < totalSize; ++i )
@@ -1123,11 +1123,11 @@ void CWndGuildHousing::FixScrollBar( const int nSelected )
 	int curSelected = pWndListBox->GetCurSel( );
 
 	int nDis = 0;
-	if( m_nSelected < ( curScrollPos + 1 ) )			//ì„ íƒë°•ìŠ¤ê°€ ìŠ¤í¬ë¡¤ ìœ„ì— ìˆëŠ”ê²½ìš° 
+	if( m_nSelected < ( curScrollPos + 1 ) )			//¼±ÅÃ¹Ú½º°¡ ½ºÅ©·Ñ À§¿¡ ÀÖ´Â°æ¿ì 
 	{
 		nDis = m_nSelected - 1;
 	}
-	else if ( m_nSelected > curScrollPos + GH_MAX_VIEW_CAPACITY )	// ì„ íƒë°•ìŠ¤ê°€ ìŠ¤í¬ë¡¤ ìµœëŒ€ì˜ì—­ ì•„ë˜ ìˆëŠ”ê²½ìš° 
+	else if ( m_nSelected > curScrollPos + GH_MAX_VIEW_CAPACITY )	// ¼±ÅÃ¹Ú½º°¡ ½ºÅ©·Ñ ÃÖ´ë¿µ¿ª ¾Æ·¡ ÀÖ´Â°æ¿ì 
 	{
 		nDis = m_nSelected - GH_MAX_VIEW_CAPACITY;
 	}
@@ -1178,7 +1178,7 @@ void CWndGuildHousing::OnLButtonUp( UINT nFlags, CPoint point )
 	pCustom = GetWndCtrl( WIDC_STATIC2 );
 	if( PtInRect(&pCustom->rect, point) )
 	{
-		//CtrlId : WIDC_STATIC2 - ì‹œê°„ 
+		//CtrlId : WIDC_STATIC2 - ½Ã°£ 
 		if(m_nSortType == WIDC_STATIC2)
 		{
 			m_bIsGreater = !m_bIsGreater;
@@ -1196,7 +1196,7 @@ void CWndGuildHousing::OnLButtonUp( UINT nFlags, CPoint point )
 	pCustom = GetWndCtrl( WIDC_STATIC3 );
 	if( PtInRect(&pCustom->rect, point) )
 	{
-		//CtrlId : WIDC_STATIC3 - ì„¤ì¹˜ìƒíƒœ
+		//CtrlId : WIDC_STATIC3 - ¼³Ä¡»óÅÂ
 		if(m_nSortType == WIDC_STATIC3)
 		{
 			m_bIsGreater = !m_bIsGreater;
@@ -1216,10 +1216,10 @@ void CWndGuildHousing::OnLButtonUp( UINT nFlags, CPoint point )
 
 void CWndGuildHousing::UpdateSortTextColor( int oldType, int newType )
 {
-	// 2010_04_06 : ì˜¤ë¦„ì°¨ìˆœ ë‚´ë¦¼ì°¨ìˆœ ë¬¸ìí‘œì‹œ->ì•„ì´ì½˜ í‘œì‹œ
+	// 2010_04_06 : ¿À¸§Â÷¼ø ³»¸²Â÷¼ø ¹®ÀÚÇ¥½Ã->¾ÆÀÌÄÜ Ç¥½Ã
 	m_nSelectedSort = newType;
 
-	//static const DWORD orgColor = 0xff2e70a9;		//ìŒ ...
+	//static const DWORD orgColor = 0xff2e70a9;		//À½ ...
 	//static const CString strUP = "^";
 	//static const CString strDOWN = " ";
 	//CWndStatic* pStatic = NULL;
@@ -1337,7 +1337,7 @@ BOOL CWndGuildHousing::Process()
 	static CRect sOldRect = GetWindowRect( );
 	static int snBackScrollPos = 0;
 	
-	// ì„¤ì¹˜/ì¬ì„¤ì¹˜ ëª¨ë“œë¼ë©´, í˜„ì¬ Visibleìƒíƒœì— ë”°ë¼ ìˆ¨ê¹€ê³¼ ë³µêµ¬ë¥¼ ì‹¤í–‰í•œë‹¤.( ì„¤ì¹˜ í¸ì˜ )
+	// ¼³Ä¡/Àç¼³Ä¡ ¸ğµå¶ó¸é, ÇöÀç Visible»óÅÂ¿¡ µû¶ó ¼û±è°ú º¹±¸¸¦ ½ÇÇàÇÑ´Ù.( ¼³Ä¡ ÆíÀÇ )
  	if( GUILDHOUSE_PCKTTYPE_SETUP == GuildHouse->m_iMode )
  	{
 		sRect = m_rectCurrentWindow;
@@ -1377,7 +1377,7 @@ BOOL CWndGuildHousing::Process()
 	time_t	t = (time_t)GuildHouse->GetUpkeepTime() - time_null();
 	if(t < 0)	
 	{
-		pEndTime->SetTitle( GETTEXT( TID_GAME_GUILDHOUSE_EXPIRATION ) ); //ê¸¸ë“œí•˜ìš°ìŠ¤ì˜ ìœ ì§€ê¸°ê°„ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.
+		pEndTime->SetTitle( GETTEXT( TID_GAME_GUILDHOUSE_EXPIRATION ) ); //±æµåÇÏ¿ì½ºÀÇ À¯Áö±â°£ÀÌ Á¾·áµÇ¾ú½À´Ï´Ù.
 		return TRUE;
 	}
 		
@@ -1425,7 +1425,7 @@ void CWndGuildHousing::CheckChannel( )
 	if( GUILDHOUSE_PCKTTYPE_SETUP == GuildHouse->m_iMode || GUILDHOUSE_PCKTTYPE_RESET == GuildHouse->m_iMode )
 	{
 		if( !GuildHouse->IsSetFurnitureChannel( ) )
-			g_WndMng.PutString( GETTEXT( TID_GAME_GUILDHOUSE_INSIDE_INSTALL_CHANNEL  ) );	//í˜„ì¬ ì±„ë„ì—ì„œëŠ” ì„¤ì¹˜ ì•ˆëŒ„ë‹¤..
+			g_WndMng.PutString( GETTEXT( TID_GAME_GUILDHOUSE_INSIDE_INSTALL_CHANNEL  ) );	//ÇöÀç Ã¤³Î¿¡¼­´Â ¼³Ä¡ ¾È´í´Ù..
 	}
 }
 
@@ -1444,7 +1444,7 @@ CWndGHouseShowOneUnit::~CWndGHouseShowOneUnit( )
 
 BOOL CWndGHouseShowOneUnit::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GH_SHOWONE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -1452,7 +1452,7 @@ void CWndGHouseShowOneUnit::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™, íƒ‘ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾Ó, Å¾À¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( (int)( rectRoot.right * 0.5f - rectWindow.Width() * 0.5f ), 0 );
@@ -1475,15 +1475,15 @@ void CWndGHouseShowOneUnit::OnDraw( C2DRender* p2DRender )
  	if( pTexture )
  		p2DRender->RenderTexture( pt, pTexture );
  
- 	// ì´ë¦„
+ 	// ÀÌ¸§
  	p2DRender->TextOut( pCustom->rect.left + 50, pCustom->rect.top + 12, m_kItem.m_strName, 0xff000000 );
  
- 	// ë‚¨ì€ ì‹œê°„
+ 	// ³²Àº ½Ã°£
  	bool bGoTime = true;
  	time_t		t = (time_t)m_kItem.m_dwTime - time_null();
  	if(t < 0)	
  	{
- 		t = m_kItem.m_dwTime;	// ë§Œë£Œëœê²ƒì€ ìë™ìœ¼ë¡œ ë¹ ì§€ê¸° ë•Œë¬¸ì— ì´ê²½ìš° ì•„ì§ ì„¤ì¹˜ê°€ ì•ˆë€ ê²½ìš°ë‹¤.( Prop ì‹œê°„ ì„¤ì • )
+ 		t = m_kItem.m_dwTime;	// ¸¸·áµÈ°ÍÀº ÀÚµ¿À¸·Î ºüÁö±â ¶§¹®¿¡ ÀÌ°æ¿ì ¾ÆÁ÷ ¼³Ä¡°¡ ¾È‰Â °æ¿ì´Ù.( Prop ½Ã°£ ¼³Á¤ )
  		bGoTime = false;
  	}
  	CTimeSpan	ts( t );
@@ -1497,8 +1497,8 @@ void CWndGHouseShowOneUnit::OnDraw( C2DRender* p2DRender )
 		strTime.Format( prj.GetText(TID_PK_LIMIT_MINUTE ), ts.GetMinutes() );
 
 	if( !bGoTime )
-		strTime = strTime + CString( " (NEW)" );		//ì„¤ì¹˜ê°€ í•œë²ˆë„ ì•ˆëŒ„( ì‹œê°„ì´ ì•ˆê°„ë‹¤ )
-	else strTime = strTime + CString( " (â–¶)" );		//ì„¤ì¹˜ê°€ í•œë²ˆì´ìƒ ë˜ì–´ì„œ ì‹œê°„ì´ íë¥´ëŠ”ì¤‘ 
+		strTime = strTime + CString( " (NEW)" );		//¼³Ä¡°¡ ÇÑ¹øµµ ¾È´í( ½Ã°£ÀÌ ¾È°£´Ù )
+	else strTime = strTime + CString( " (¢º)" );		//¼³Ä¡°¡ ÇÑ¹øÀÌ»ó µÇ¾î¼­ ½Ã°£ÀÌ Èå¸£´ÂÁß 
 
 	p2DRender->TextOut( pCustom->rect.left + 200, pCustom->rect.top + 12, strTime, 0xff000000 );
 
@@ -1521,7 +1521,7 @@ void CWndGHouseShowOneUnit::OnDraw( C2DRender* p2DRender )
 
 
 #ifdef __GUILD_HOUSE_MIDDLE
-//CWndGuildHouseBid( ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° )
+//CWndGuildHouseBid( ±æµåÇÏ¿ì½º ÀÔÂû )
 CWndGuildHouseBid::CWndGuildHouseBid( )
 : m_bMaster( FALSE ), 
 m_n64TenderPenya( 0 ),
@@ -1538,7 +1538,7 @@ CWndGuildHouseBid::~CWndGuildHouseBid( )
 
 BOOL CWndGuildHouseBid::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GH_BID, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -1557,7 +1557,7 @@ void CWndGuildHouseBid::OnInitialUpdate()
 		return;
 	}
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™, íƒ‘ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾Ó, Å¾À¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( (int)( rectRoot.right * 0.5f - rectWindow.Width() * 0.5f ), 0 );
@@ -1581,10 +1581,10 @@ void CWndGuildHouseBid::OnInitialUpdate()
 
 	ResetInputMoneyWindows( );
 
-	//ë§ˆìŠ¤í„°ê°€ ì•„ë‹ê²½ìš°(ê¸¸ë“œê°€ ì—†ì„ê²½ìš°ë˜í•œ) ì…ì°°ë²„íŠ¼ ë¹„í™œì„±
+	//¸¶½ºÅÍ°¡ ¾Æ´Ò°æ¿ì(±æµå°¡ ¾øÀ»°æ¿ì¶ÇÇÑ) ÀÔÂû¹öÆ° ºñÈ°¼º
     CGuild* pGuild = g_pPlayer->GetGuild();
 	if( pGuild )	
-		m_bMaster = pGuild->IsMaster( g_pPlayer->m_idPlayer );		//GetId()ê°€ ì•„ë‹˜!!!!!!!!!!!!!!!!!!
+		m_bMaster = pGuild->IsMaster( g_pPlayer->m_idPlayer );		//GetId()°¡ ¾Æ´Ô!!!!!!!!!!!!!!!!!!
 	
 	if( !m_bMaster )
 	{
@@ -1612,7 +1612,7 @@ void CWndGuildHouseBid::OnDraw( C2DRender* p2DRender )
 //		str.Format( "%d Sec...", dwDts / 1000 );
 //		p2DRender->TextOut( rect.left + 2, rect.bottom - 2, str, 0xffff0000 );
 
-		if( dwDts > 5000 ) // ì„œë²„ë¡œë¶€í„° ê²°ê³¼ì‘ë‹µ ëŒ€ê¸°ì¤‘ì´ê³  , 5ì´ˆê°€ ì§€ë‚¬ìœ¼ë©´ 
+		if( dwDts > 5000 ) // ¼­¹ö·ÎºÎÅÍ °á°úÀÀ´ä ´ë±âÁßÀÌ°í , 5ÃÊ°¡ Áö³µÀ¸¸é 
 		{
 			m_dwWaitTime = 0;
 			m_bWaitResult = FALSE;
@@ -1630,11 +1630,11 @@ BOOL CWndGuildHouseBid::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 {
 	switch( nID )
 	{
-	case WIDC_LISTBOX1:	//í•˜ìš°ìŠ¤ë¦¬ìŠ¤íŠ¸ì¤‘ í•˜ë‚˜ê°€ ì„ íƒëë‹¤.
+	case WIDC_LISTBOX1:	//ÇÏ¿ì½º¸®½ºÆ®Áß ÇÏ³ª°¡ ¼±ÅÃµÆ´Ù.
 		RequestCurrHouseInfo( );		
 		break;
 
-	case WIDC_BUTTON1: // ì…ì°°í•˜ê¸°
+	case WIDC_BUTTON1: // ÀÔÂûÇÏ±â
 		{
 			CWndEdit* pEdit1 = (CWndEdit*) GetDlgItem( WIDC_EDIT1 );
 			CWndEdit* pEdit2 = (CWndEdit*) GetDlgItem( WIDC_EDIT2 );
@@ -1652,7 +1652,7 @@ BOOL CWndGuildHouseBid::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 
 			if( str1.GetLength() > 10 || str2.GetLength() > 10 )
 			{
-				g_WndMng.OpenMessageBox( "ì˜ëª»ëœ ê¸ˆì•¡ì…ë‹ˆë‹¤. ë‹¤ì‹œì…ë ¥í•˜ì„¸ìš” IDí•„ìš”" );
+				g_WndMng.OpenMessageBox( "Àß¸øµÈ ±İ¾×ÀÔ´Ï´Ù. ´Ù½ÃÀÔ·ÂÇÏ¼¼¿ä IDÇÊ¿ä" );
 				ResetInputMoneyWindows( );
 				break;
 			}
@@ -1665,24 +1665,24 @@ BOOL CWndGuildHouseBid::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 
 			if( penya < 0 || penrin < 0 )
 			{
-				g_WndMng.OpenMessageBox( "ì˜ëª»ëœ ê¸ˆì•¡ì…ë‹ˆë‹¤. ë‹¤ì‹œì…ë ¥í•˜ì„¸ìš” IDí•„ìš”" );
+				g_WndMng.OpenMessageBox( "Àß¸øµÈ ±İ¾×ÀÔ´Ï´Ù. ´Ù½ÃÀÔ·ÂÇÏ¼¼¿ä IDÇÊ¿ä" );
 				ResetInputMoneyWindows( );
 				break;
 			}
 
 			__int64 totalPenya = ( penrin * 100000000 ) + penya;
 
-			//íëƒë¡œë§Œ 21ì–µì„ ì´ˆê³¼í• ìˆ˜ì—†ë‹¤. ë‹¨ íœë¦°ìœ¼ë¡œ ì´ˆê³¼ê°€ëŠ¥ 
+			//Æó³Ä·Î¸¸ 21¾ïÀ» ÃÊ°úÇÒ¼ö¾ø´Ù. ´Ü Ææ¸°À¸·Î ÃÊ°ú°¡´É 
 			if( penya > 0x7d2b7500 )
 			{
-				g_WndMng.OpenMessageBox( "21ì–µ penyaë¥¼ ì´ˆê³¼í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤, penrinì„ ì´ìš©í•˜ì„¸ìš” IDí•„ìš”" );
+				g_WndMng.OpenMessageBox( "21¾ï penya¸¦ ÃÊ°úÇÒ¼ö ¾ø½À´Ï´Ù, penrinÀ» ÀÌ¿ëÇÏ¼¼¿ä IDÇÊ¿ä" );
 				ResetInputMoneyWindows( );
 				break;
 			}
 
 			if( totalPenya <= (__int64)kData._nBidMinPenya )
 			{
-				g_WndMng.OpenMessageBox( "ìµœì†Œì…ì°°ê¸ˆë³´ë‹¤ í° ê¸ˆì•¡ì„ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤ IDí•„ìš”" );
+				g_WndMng.OpenMessageBox( "ÃÖ¼ÒÀÔÂû±İº¸´Ù Å« ±İ¾×À» ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù IDÇÊ¿ä" );
 				ResetInputMoneyWindows( );
 				break;
 			}
@@ -1700,13 +1700,13 @@ BOOL CWndGuildHouseBid::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 									
 			g_DPlay.SendGuildHouseTenderJoin( kData._id, (int)penrin, (int)penya );
 
-			// ì¤‘ë³µ í´ë¦­ ê¸ˆì§€ .. ì‘ë‹µì„ ë°›ì•„ì„œ í’€ì–´ì£¼ì.
+			// Áßº¹ Å¬¸¯ ±İÁö .. ÀÀ´äÀ» ¹Ş¾Æ¼­ Ç®¾îÁÖÀÚ.
 			SetEnableWindow_Apply( FALSE, TRUE );
 		}
 
 		break;
 		
-	case WIDC_BUTTON2:	// ë‹«ê¸°
+	case WIDC_BUTTON2:	// ´İ±â
 		Destroy();
 		break;
 	}
@@ -1741,7 +1741,7 @@ void CWndGuildHouseBid::ResetInputMoneyWindows( )
 
 void CWndGuildHouseBid::RequestCurrHouseInfo( )
 {
-	//í˜„ì¬ ì„ íƒë˜ì–´ì§„ í•˜ìš°ìŠ¤ì—ëŒ€í•´ì„œ ì„¸ë¶€í•­ëª© ìš”ì²­
+	//ÇöÀç ¼±ÅÃµÇ¾îÁø ÇÏ¿ì½º¿¡´ëÇØ¼­ ¼¼ºÎÇ×¸ñ ¿äÃ»
 	CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	int nCurSel = pWndListBox->GetCurSel( );
 	if( nCurSel < 0 || nCurSel >= (int)_cBidDatas.size() )
@@ -1812,7 +1812,7 @@ void CWndGuildHouseBid::UpdateData_HouseInfo( OBJID houseID, const int nMinPenya
 
 void CWndGuildHouseBid::RefreshWnd_HouseList( )
 {
-	//í•˜ìš°ìŠ¤ ë¦¬ìŠ¤íŠ¸ ì—…ëƒ, ì„¸ë¶€ì •ë³´ì°½ì€ ì´ˆê¸°í™”
+	//ÇÏ¿ì½º ¸®½ºÆ® ¾÷µ«, ¼¼ºÎÁ¤º¸Ã¢Àº ÃÊ±âÈ­
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	pWndList->ResetContent( );
 
@@ -1840,7 +1840,7 @@ void CWndGuildHouseBid::RefreshWnd_HouseList( )
 
 	pWndPenya->SetTitle( "0" );
 
-	//ì…ë ¥ì°½ ì´ˆê¸°í™”
+	//ÀÔ·ÂÃ¢ ÃÊ±âÈ­
 	CWndEdit* pWndEdit = (CWndEdit *)GetDlgItem( WIDC_EDIT1 );
 	if( !pWndEdit )
 		return;
@@ -1850,7 +1850,7 @@ void CWndGuildHouseBid::RefreshWnd_HouseList( )
 
 void CWndGuildHouseBid::RefreshWnd_HouseInfo( )
 {
-	//í•´ë‹¹ í•˜ìš°ìŠ¤ì˜ ì„¸ë¶€ì •ë³´ ì—…ëƒ
+	//ÇØ´ç ÇÏ¿ì½ºÀÇ ¼¼ºÎÁ¤º¸ ¾÷µ«
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	if( !pWndList )
 		return;
@@ -1864,15 +1864,15 @@ void CWndGuildHouseBid::RefreshWnd_HouseInfo( )
 
 	GHBidData& kData = _cBidDatas[ nSelected ];
 
-	//ê¸¸ë“œëª©ë¡ì°½ ê°±ì‹ 
+	//±æµå¸ñ·ÏÃ¢ °»½Å
 	pWndGuildList->ResetContent( );
 	CString str;
 	char buffer[ 64 ] = {0,};
 
 	if( kData._cGuildList.empty() )
 	{
-		//í˜„ì¬ ì…ì°°ê¸¸ë“œ ì—†ìŒ
-		pWndGuildList->AddString( "ì…ì°°ê¸¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤ ë¼ëŠ”ID í•„ìš”" );
+		//ÇöÀç ÀÔÂû±æµå ¾øÀ½
+		pWndGuildList->AddString( "ÀÔÂû±æµå°¡ ¾ø½À´Ï´Ù ¶ó´ÂID ÇÊ¿ä" );
 	}
 	else
 	{
@@ -1892,9 +1892,9 @@ void CWndGuildHouseBid::RefreshWnd_HouseInfo( )
 			{
 				szGuildName = pGuild->m_szGuild;
 
-				//ì…ì°°ê¸ˆ í‘œì‹œ ( ë‚´ê¸¸ë“œê³  ì…ì°°ê¸ˆ > 0 )
+				//ÀÔÂû±İ Ç¥½Ã ( ³»±æµå°í ÀÔÂû±İ > 0 )
 				if( g_pPlayer->GetGuild( ) == pGuild && 0 < m_n64TenderPenya )		
-					_i64toa( m_n64TenderPenya, buffer, 10 );		//arg3 : ê¸°ìˆ˜
+					_i64toa( m_n64TenderPenya, buffer, 10 );		//arg3 : ±â¼ö
 				else strcpy( buffer, "?" );
 			}
 
@@ -1903,7 +1903,7 @@ void CWndGuildHouseBid::RefreshWnd_HouseInfo( )
 		}
 	}
 
-	//ìµœì†Œíëƒ ê°±ì‹ 
+	//ÃÖ¼ÒÆó³Ä °»½Å
 	CWndStatic* pWndPenya = (CWndStatic*)GetDlgItem(WIDC_STATIC7);
 	if( !pWndPenya )
 		return;
@@ -1913,13 +1913,13 @@ void CWndGuildHouseBid::RefreshWnd_HouseInfo( )
 //	MakeMoneyStyle( str );
 	pWndPenya->SetTitle( str );
 
-	//ì…ë ¥ì°½ ì´ˆê¸°í™”
+	//ÀÔ·ÂÃ¢ ÃÊ±âÈ­
 	ResetInputMoneyWindows();
 }
 
 void CWndGuildHouseBid::MakeMoneyStyle( OUT CString& str )
 {
-	//ì²œë‹¨ìœ„ë§ˆë‹¤ ','ì¶”ê°€í•´ì„œ ë±‰ì–´ì¤Œ( 100000000 -> 100,000,000 )
+	//Ãµ´ÜÀ§¸¶´Ù ','Ãß°¡ÇØ¼­ ¹ñ¾îÁÜ( 100000000 -> 100,000,000 )
 	CString rst;
 	int len = str.GetLength( );
 	if( len < 4 )
@@ -1927,7 +1927,7 @@ void CWndGuildHouseBid::MakeMoneyStyle( OUT CString& str )
 
 	for( int i = 0; i < len; ++i )
 	{
-		if( i > 0 && i != (len-1) && i % 3 == 0 )		// iê°€ 3ì˜ ë°°ìˆ˜ì´ë©´
+		if( i > 0 && i != (len-1) && i % 3 == 0 )		// i°¡ 3ÀÇ ¹è¼öÀÌ¸é
 			rst.Insert( rst.GetLength(), ',' );
 	
 		rst.Insert( rst.GetLength(), str.GetAt( i ) );

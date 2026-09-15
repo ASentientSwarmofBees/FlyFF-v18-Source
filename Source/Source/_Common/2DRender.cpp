@@ -1,4 +1,4 @@
-ï»¿// Neuz.cpp : Defines the entry point for the application.
+// Neuz.cpp : Defines the entry point for the application.
 //
 #include "stdafx.h"
 #include "2DRender.h"
@@ -9,8 +9,8 @@
 /////////////////////////////////////////////////////////////////////////////
 // Class Name : CLipRect : public CRect
 // Remarks    :
-//   í´ë¦½í•‘ì— ê´€ë ¨ëœ ê¸°ëŠ¥ì„ ì œê³µí•œë‹¤. ì‚¬ê°í˜• ë¼ë¦¬ì˜ ê²¹ì¹¨ ì±„í¬, í´ë¦½í•‘ ì±„í‚¹
-// ë”°ìœ„ë¥¼ í•œë‹¤.
+//   Å¬¸³ÇÎ¿¡ °ü·ÃµÈ ±â´ÉÀ» Á¦°øÇÑ´Ù. »ç°¢Çü ³¢¸®ÀÇ °ãÄ§ Ã¤Å©, Å¬¸³ÇÎ Ã¤Å·
+// µûÀ§¸¦ ÇÑ´Ù.
 //
 
 ////////////////////////////////////////////////////////////////////////////
@@ -34,11 +34,11 @@ BOOL CRectClip::Clipping(CRect& rect) const
 /////////////////////////////////////////////////////////////////////////////
 // Func. Name : RectLapRect
 // Parameters :
-//  rect : ì¡°ì‚¬í•  CRect
+//  rect : Á¶»çÇÒ CRect
 // Return     :
-//  TRUEì´ë©´ ê²¹ì³¤ìŒ. FALSEì´ë©´ ê²¹ì¹˜ì§€ ì•ŠìŒ.
+//  TRUEÀÌ¸é °ãÃÆÀ½. FALSEÀÌ¸é °ãÄ¡Áö ¾ÊÀ½.
 // Remarks    :
-//   Rectì™€ Rectê°€ ê²¹ì¹©(Lap)ëŠ”ì§€ ì¡°ì‚¬í•œë‹¤.
+//   Rect¿Í Rect°¡ °ãÄ¨(Lap)´ÂÁö Á¶»çÇÑ´Ù.
 //
 BOOL CRectClip::RectLapRect(CRect rect) const
 {
@@ -52,11 +52,11 @@ BOOL CRectClip::RectLapRect(CRect rect) const
 /////////////////////////////////////////////////////////////////////////////
 // Func. Name : RectInRect
 // Parameters :
-//  rect : ì¡°ì‚¬í•  CRect
+//  rect : Á¶»çÇÒ CRect
 // Return     :
-//  TRUEì´ë©´ ê²¹ì³¤ìŒ. FALSEì´ë©´ ê²¹ì¹˜ì§€ ì•ŠìŒ.
+//  TRUEÀÌ¸é °ãÃÆÀ½. FALSEÀÌ¸é °ãÄ¡Áö ¾ÊÀ½.
 // Remarks    :
-//   Rectì™€ Rectê°€ ê²¹ì¹©(Lap)ëŠ”ì§€ ì¡°ì‚¬í•œë‹¤.
+//   Rect¿Í Rect°¡ °ãÄ¨(Lap)´ÂÁö Á¶»çÇÑ´Ù.
 //
 BOOL CRectClip::RectInRect(CRect rect) const
 {
@@ -69,7 +69,7 @@ BOOL CRectClip::RectInRect(CRect rect) const
 /////////////////////////////////////////////////////////////////////////////
 // Class Name : C2DRender
 // Remarks    :
-//   2D í‰ë©´ì— ê·¸ë¦¼ì„ ê·¸ë¦¬ê±°ë‚˜ í…ìŠ¤ì¶° ì¶œë ¥ 
+//   2D Æò¸é¿¡ ±×¸²À» ±×¸®°Å³ª ÅØ½ºÃç Ãâ·Â 
 //
 
 
@@ -253,7 +253,7 @@ BOOL C2DRender::RenderFillRect( CRect rect, DWORD dwColorLT, DWORD dwColorRT, DW
 
 	rect += m_ptOrigin;	//rect.right; rect.bottom;
 	ResizeFillRectVB( &rect, dwColorLT, dwColorRT, dwColorLB, dwColorRB, m_pVBFillRect,m_pTexture );
-		// ì•ŒíŒŒê°’ì´ í•˜ë‚˜ë¼ë„ 0xffê°€ ì•„ë‹Œê²Œ ìˆë‹¤ë©´ ë°˜íˆ¬ëª… ì²˜ë¦¬.
+		// ¾ËÆÄ°ªÀÌ ÇÏ³ª¶óµµ 0xff°¡ ¾Æ´Ñ°Ô ÀÖ´Ù¸é ¹İÅõ¸í Ã³¸®.
         if( ( dwColorLT & 0xff000000 ) != 0xff000000 || ( dwColorRT & 0xff000000 ) != 0xff000000 || ( dwColorLB & 0xff000000 ) != 0xff000000 || ( dwColorRB & 0xff000000 ) != 0xff000000 ) ////bSupportsAlphaBlend )
         {
 			m_pd3dDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
@@ -540,7 +540,7 @@ void C2DRender::TextOut_EditString( int x,int y, CEditString& strEditString, int
 				if( *temp == 10 )		//gmpbigsun(100414) : pass a character 'ENTER'
 					continue;
 
-				// ë¸”ëŸ­ ì¡ì€ ìŠ¤íŠ¸ë§. ë°˜ì „ ì¶œë ¥ 
+				// ºí·° ÀâÀº ½ºÆ®¸µ. ¹İÀü Ãâ·Â 
 				if( dwStyle & ESSTY_BLOCK )
 				{
 					DWORD dwBkgr = dwColor;
@@ -876,7 +876,7 @@ BOOL C2DRender::RenderTexture( CPoint pt, CTexture* pTexture, DWORD dwBlendFacto
 	return TRUE;
 };
 
-// í…ìŠ¤ì³ íšŒì „í•´ì„œ ì°ê¸°.
+// ÅØ½ºÃÄ È¸ÀüÇØ¼­ Âï±â.
 BOOL C2DRender::RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlendFactorAlhpa, FLOAT fScaleX , FLOAT fScaleY, FLOAT fRadian )
 {
 	pt += m_ptOrigin;
@@ -890,12 +890,12 @@ BOOL C2DRender::RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlen
 	FLOAT _right  = pt.x + ( fScaleX * pTexture->m_size.cx );
 	FLOAT _bottom = pt.y + ( fScaleY * pTexture->m_size.cy );
 	
-//	FLOAT cx = _left + ((_right - _left) / 2);		// ì¤‘ì‹¬ì (ì ˆëŒ€ì¢Œí‘œ)
+//	FLOAT cx = _left + ((_right - _left) / 2);		// Áß½ÉÁ¡(Àı´ëÁÂÇ¥)
 //	FLOAT cy = _top  + ((_bottom - _top) / 2);
-	FLOAT cx = _left + ptCenter.x;		// ì¤‘ì‹¬ì (ì ˆëŒ€ì¢Œí‘œ)
+	FLOAT cx = _left + ptCenter.x;		// Áß½ÉÁ¡(Àı´ëÁÂÇ¥)
 	FLOAT cy = _top  + ptCenter.y;
 	
-	_left -= cx;		// ë¡œì»¬ê¸°ì¤€ìœ¼ë¡œ ë³€í™˜.
+	_left -= cx;		// ·ÎÄÃ±âÁØÀ¸·Î º¯È¯.
 	_right -= cx;
 	_top -= cy;
 	_bottom -= cy;
@@ -903,16 +903,16 @@ BOOL C2DRender::RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlen
 	D3DXVECTOR2	v1, v2, v3, v4;
 	D3DXMATRIX	mRot;
 
-	v1.x = _left;	v1.y = _top;	// ì¢Œìƒ
-	v2.x = _right;	v2.y = _top;	// ìš°ìƒ
-	v3.x = _left;	v3.y = _bottom;	// ì¢Œí•˜
-	v4.x = _right;	v4.y = _bottom;	// ìš°í•˜
+	v1.x = _left;	v1.y = _top;	// ÁÂ»ó
+	v2.x = _right;	v2.y = _top;	// ¿ì»ó
+	v3.x = _left;	v3.y = _bottom;	// ÁÂÇÏ
+	v4.x = _right;	v4.y = _bottom;	// ¿ìÇÏ
 
 	D3DXMatrixRotationZ( &mRot, fRadian );
-	D3DXVec2TransformCoord( &v1, &v1, &mRot );		// 2Dì¢Œí‘œ íšŒì „.
-	D3DXVec2TransformCoord( &v2, &v2, &mRot );		// 2Dì¢Œí‘œ íšŒì „.
-	D3DXVec2TransformCoord( &v3, &v3, &mRot );		// 2Dì¢Œí‘œ íšŒì „.
-	D3DXVec2TransformCoord( &v4, &v4, &mRot );		// 2Dì¢Œí‘œ íšŒì „.
+	D3DXVec2TransformCoord( &v1, &v1, &mRot );		// 2DÁÂÇ¥ È¸Àü.
+	D3DXVec2TransformCoord( &v2, &v2, &mRot );		// 2DÁÂÇ¥ È¸Àü.
+	D3DXVec2TransformCoord( &v3, &v3, &mRot );		// 2DÁÂÇ¥ È¸Àü.
+	D3DXVec2TransformCoord( &v4, &v4, &mRot );		// 2DÁÂÇ¥ È¸Àü.
 	
 	
 	TEXTUREVERTEX vertex[ 4 ];
@@ -952,7 +952,7 @@ BOOL C2DRender::RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlen
 
 BOOL C2DRender::RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlendFactorAlhpa, FLOAT fRadian, BOOL bCenter, FLOAT fScaleX, FLOAT fScaleY )
 {
-	// gmpbigsun( 09_12_2# ) : í…ìŠ¤ì¶° íšŒì „ì¶• ë³€ê²½ 
+	// gmpbigsun( 09_12_2# ) : ÅØ½ºÃç È¸ÀüÃà º¯°æ 
 	// if bCenter is TRUE, Axis is texture center
 	// else Axis is left-top
 
@@ -971,16 +971,16 @@ BOOL C2DRender::RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlen
 	FLOAT cy = 0.0f;
 	if( bCenter )
 	{
-		cx = _left + ((_right - _left) / 2);		// ì¤‘ì‹¬ì (ì ˆëŒ€ì¢Œí‘œ)
+		cx = _left + ((_right - _left) / 2);		// Áß½ÉÁ¡(Àı´ëÁÂÇ¥)
 		cy = _top  + ((_bottom - _top) / 2);
 	}
 	else
 	{
-		cx = _left + ptCenter.x;		// ì¤‘ì‹¬ì (ì ˆëŒ€ì¢Œí‘œ)
+		cx = _left + ptCenter.x;		// Áß½ÉÁ¡(Àı´ëÁÂÇ¥)
 		cy = _top  + ptCenter.y;
 	}
 	
-	_left -= cx;		// ë¡œì»¬ê¸°ì¤€ìœ¼ë¡œ ë³€í™˜.
+	_left -= cx;		// ·ÎÄÃ±âÁØÀ¸·Î º¯È¯.
 	_right -= cx;
 	_top -= cy;
 	_bottom -= cy;
@@ -988,16 +988,16 @@ BOOL C2DRender::RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlen
 	D3DXVECTOR2	v1, v2, v3, v4;
 	D3DXMATRIX	mRot;
 
-	v1.x = _left;	v1.y = _top;	// ì¢Œìƒ
-	v2.x = _right;	v2.y = _top;	// ìš°ìƒ
-	v3.x = _left;	v3.y = _bottom;	// ì¢Œí•˜
-	v4.x = _right;	v4.y = _bottom;	// ìš°í•˜
+	v1.x = _left;	v1.y = _top;	// ÁÂ»ó
+	v2.x = _right;	v2.y = _top;	// ¿ì»ó
+	v3.x = _left;	v3.y = _bottom;	// ÁÂÇÏ
+	v4.x = _right;	v4.y = _bottom;	// ¿ìÇÏ
 
 	D3DXMatrixRotationZ( &mRot, fRadian );
-	D3DXVec2TransformCoord( &v1, &v1, &mRot );		// 2Dì¢Œí‘œ íšŒì „.
-	D3DXVec2TransformCoord( &v2, &v2, &mRot );		// 2Dì¢Œí‘œ íšŒì „.
-	D3DXVec2TransformCoord( &v3, &v3, &mRot );		// 2Dì¢Œí‘œ íšŒì „.
-	D3DXVec2TransformCoord( &v4, &v4, &mRot );		// 2Dì¢Œí‘œ íšŒì „.
+	D3DXVec2TransformCoord( &v1, &v1, &mRot );		// 2DÁÂÇ¥ È¸Àü.
+	D3DXVec2TransformCoord( &v2, &v2, &mRot );		// 2DÁÂÇ¥ È¸Àü.
+	D3DXVec2TransformCoord( &v3, &v3, &mRot );		// 2DÁÂÇ¥ È¸Àü.
+	D3DXVec2TransformCoord( &v4, &v4, &mRot );		// 2DÁÂÇ¥ È¸Àü.
 	
 	
 	TEXTUREVERTEX vertex[ 4 ];
@@ -1148,11 +1148,11 @@ BOOL CTexture::CreateTexture( LPDIRECT3DDEVICE9 pd3dDevice,
 	if( hr != D3D_OK )	
 	{
 		CString string;
-		string.Format( "í…ìŠ¤ì¶° ìƒì„± ëª»í•¨. Error = %d, cx = %d, cy = %d", hr, nWidth, nHeight );
+		string.Format( "ÅØ½ºÃç »ı¼º ¸øÇÔ. Error = %d, cx = %d, cy = %d", hr, nWidth, nHeight );
 #ifdef __CLIENT
 //		if( hr == D3DERR_INVALIDDEVICE )
 //		{
-//			MessageBox( g_Neuz.GetSafeHwnd(), "ì£„ì†¡í•©ë‹ˆë‹¤. ì§€ì›í•˜ì§€ ì•ŠëŠ” ê·¸ë˜í”½ì¹´ë“œì…ë‹ˆë‹¤.\r\nSorry. Not support graphic hardware", "Error", MB_OK );
+//			MessageBox( g_Neuz.GetSafeHwnd(), "ÁË¼ÛÇÕ´Ï´Ù. Áö¿øÇÏÁö ¾Ê´Â ±×·¡ÇÈÄ«µåÀÔ´Ï´Ù.\r\nSorry. Not support graphic hardware", "Error", MB_OK );
 //			exit(1);
 //		}
 #endif
@@ -1185,7 +1185,7 @@ BOOL CTexture::CreateTexture( LPDIRECT3DDEVICE9 pd3dDevice,
 BOOL CTexture::LoadTexture( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pFileName, D3DCOLOR d3dKeyColor, BOOL bMyLoader )
 {
 #ifndef __WORLDSERVER
-	// ì—¬ê¸°ì„œ í…ìŠ¤ì¶° ìƒì„± 
+	// ¿©±â¼­ ÅØ½ºÃç »ı¼º 
 
 #ifdef _DEBUG
 	m_strFileName = pFileName;
@@ -1278,7 +1278,7 @@ BOOL CTexture::LoadTexture( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pFileName, D3D
 			{
 			#ifndef _DEBUG
 				CString string;
-				string.Format( "Lock ì‹¤íŒ¨ : Error = %d", hr );
+				string.Format( "Lock ½ÇÆĞ : Error = %d", hr );
 				ADDERRORMSG( string );
 				ASSERT( 0 );
 			#endif
@@ -1338,7 +1338,7 @@ BOOL CTexture::LoadTexture( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pFileName, D3D
 			{
 			#ifndef _DEBUG
 				CString string;
-				string.Format( "Lock ì‹¤íŒ¨ : Error = %d", hr );
+				string.Format( "Lock ½ÇÆĞ : Error = %d", hr );
 				ADDERRORMSG( string );
 				ASSERT( 0 );
 			#endif
@@ -1589,7 +1589,7 @@ BOOL CTexturePack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileName
 			TCHAR strFileName[MAX_PATH]; 
 			strcpy(strFileName,scanner.token);	
 			D3DCOLOR d3dKeyColor = scanner.GetHex();
-			// ì—¬ê¸°ì„œ í…ìŠ¤ì¶° ìƒì„± (Create the texture using D3DX)
+			// ¿©±â¼­ ÅØ½ºÃç »ı¼º (Create the texture using D3DX)
 			D3DXIMAGE_INFO imageInfo;
 
 			if( bMultiLang )
@@ -1611,7 +1611,7 @@ BOOL CTexturePack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileName
 			m_size.cy = imageInfo.Height;
 		}
 		else
-		if(scanner.Token == "data") // ì¢Œí‘œì™€ ì‚¬ì´ì¦ˆ 
+		if(scanner.Token == "data") // ÁÂÇ¥¿Í »çÀÌÁî 
 		{	
 			if( dwCount >= m_dwNumber )
 			{
@@ -1630,7 +1630,7 @@ BOOL CTexturePack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileName
 			pTexture->m_pTexture = m_pTexture;
 		}
 		else
-		if( scanner.Token == "pos" ) // ì¢Œí‘œ
+		if( scanner.Token == "pos" ) // ÁÂÇ¥
 		{	
 			if( dwCount >= m_dwNumber )
 			{
@@ -1690,7 +1690,7 @@ BOOL CTexturePack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileName
 			pTexture->m_pTexture = m_pTexture;
 		}
 		else
-		if(scanner.Token == "datauv") // uv ìƒíƒœë¡œ ì…ë ¥ 
+		if(scanner.Token == "datauv") // uv »óÅÂ·Î ÀÔ·Â 
 		{	
 			if( dwCount >= m_dwNumber )
 			{   
@@ -1713,7 +1713,7 @@ BOOL CTexturePack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileName
 		{	
 			if( dwCount >= m_dwNumber )
 			{
-				Error( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d", pszFileName, m_dwNumber, dwCount );
+				Error( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d", pszFileName, m_dwNumber, dwCount );
 				return FALSE;
 			}
 			int nCnt = 0;
@@ -1737,7 +1737,7 @@ BOOL CTexturePack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileName
 						
 						if( dwCount >= m_dwNumber )
 						{
-							Error( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d", pszFileName, m_dwNumber, dwCount );
+							Error( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d", pszFileName, m_dwNumber, dwCount );
 							return FALSE;
 						}
 						
@@ -1867,7 +1867,7 @@ void CDamageNum::Process()
 		m_nState ++;
 		}
 		break;
-	case 1:	// ì˜¬ë¼ê°€ëŠ”ì¤‘.
+	case 1:	// ¿Ã¶ó°¡´ÂÁß.
 //		m_fDy -= 2.0f;
 		if( m_nCnt >= 8 )
 		{
@@ -1876,7 +1876,7 @@ void CDamageNum::Process()
 			m_fDy = 0;
 		}
 		break;
-	case 2:	// ì§„ë™
+	case 2:	// Áøµ¿
 		if( g_nRenderCnt & 1 )
 			m_fDy = -3.0f;
 		else
@@ -1889,7 +1889,7 @@ void CDamageNum::Process()
 			m_nCnt = 0;
 		}
 		break;
-	case 3: // ëŒ€ê¸°
+	case 3: // ´ë±â
 		if( m_nCnt >= 15 )
 		{
 			m_nCnt = 0;
@@ -1897,7 +1897,7 @@ void CDamageNum::Process()
 			m_nState ++;
 		}
 		break;
-	case 4: // ì‚¬ë¼ì§€ê¸°
+	case 4: // »ç¶óÁö±â
 		break;
 
 		
@@ -1917,13 +1917,13 @@ void CDamageNum::Render(CTexturePack *textPackNum)
 	
 	FLOAT fX,fY;
 	D3DXVECTOR3 vTemp;
-	// 3d ì¢Œí‘œë¥¼ í™”ë©´ìƒì˜ ì¢Œí‘œë¡œ ë³€í™˜í•œë‹¤
+	// 3d ÁÂÇ¥¸¦ È­¸é»óÀÇ ÁÂÇ¥·Î º¯È¯ÇÑ´Ù
 	D3DXVec3TransformCoord( &vTemp, &m_vPos, &g_DamageNumMng.m_matView );
 	if( vTemp.z < 0 )	return;
 	g_DamageNumMng.m_viewport.X = 0;
 	g_DamageNumMng.m_viewport.Y = 0;
 	D3DXVec3Project( &vTemp, &(m_vPos + D3DXVECTOR3(0, 1.0f, 0)), &g_DamageNumMng.m_viewport, &g_DamageNumMng.m_matProj, &g_DamageNumMng.m_matView, &g_DamageNumMng.m_matWorld );
-	// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ ì§„í–‰ ìƒí™©ì— ë§ì¶”ì–´ ìœ„ì¹˜, í¬ê¸°, opacity ë“±ì„ ì„¤ì •í•œë‹¤.
+	// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼Ç ÁøÇà »óÈ²¿¡ ¸ÂÃß¾î À§Ä¡, Å©±â, opacity µîÀ» ¼³Á¤ÇÑ´Ù.
 	fX = vTemp.x;
 //	if( m_nFrame == 1 )
 //		m_fY = vTemp.y;
@@ -1949,9 +1949,9 @@ void CDamageNum::Render(CTexturePack *textPackNum)
 	fScaleX /= 4;
 	fScaleY /= 4;
 
-	// ì†ì„±ê°’ì— ë”°ë¼ ì¶œë ¥í•˜ëŠ” ë‚´ìš©ì„ ë°”ê¾¼ë‹¤.
-	if( m_nAttribute < 4 ) { // ìˆ«ìì¸ ê²½ìš°
-		// í•œìë¦¬ì”© ì°¨ë¡€ëŒ€ë¡œ ì¶œë ¥í•œë‹¤
+	// ¼Ó¼º°ª¿¡ µû¶ó Ãâ·ÂÇÏ´Â ³»¿ëÀ» ¹Ù²Û´Ù.
+	if( m_nAttribute < 4 ) { // ¼ıÀÚÀÎ °æ¿ì
+		// ÇÑÀÚ¸®¾¿ Â÷·Ê´ë·Î Ãâ·ÂÇÑ´Ù
 		char strTemp[64];
 		sprintf( strTemp, "%d", m_nNumber );
 		int nLength = strlen(strTemp);
@@ -1959,7 +1959,7 @@ void CDamageNum::Render(CTexturePack *textPackNum)
 		for( int i = 0; i < nLength; i++ )
 		{
 			DWORD nIndex = strTemp[i] - '0' + m_nAttribute * 14;
-			if( (int)nIndex >= 0 )	// ì—ëŸ¬ë°©ì§€.
+			if( (int)nIndex >= 0 )	// ¿¡·¯¹æÁö.
 			{
 				textPackNum->Render( &g_Neuz.m_2DRender, CPoint( (int)( fX ), (int)( fY ) ), nIndex ,(DWORD)nAlpha,fScaleX,fScaleY);
 			} 
@@ -1973,25 +1973,25 @@ void CDamageNum::Render(CTexturePack *textPackNum)
 		}
 	}
 	else 
-	if( m_nAttribute == 4 ) // missì¸ ê²½ìš°
+	if( m_nAttribute == 4 ) // missÀÎ °æ¿ì
 	{
 		fX	= (FLOAT)( fX - (textPackNum->m_ap2DTexture[10].m_size.cx*0.5/2*fScaleX) );
 		textPackNum->Render( &g_Neuz.m_2DRender, CPoint( (int)( fX ), (int)( fY ) ), 10 ,nAlpha,fScaleX,fScaleY);
 	}
 	else 
-	if( m_nAttribute == 5 ) // goodì¸ ê²½ìš°
+	if( m_nAttribute == 5 ) // goodÀÎ °æ¿ì
 	{
 		fX	= (FLOAT)( fX - (textPackNum->m_ap2DTexture[11].m_size.cx*0.5/2*fScaleX) );
 		textPackNum->Render( &g_Neuz.m_2DRender, CPoint( (int)( fX ), (int)( fY ) ), 11 ,nAlpha,fScaleX,fScaleY);
 	}
 	else 
-	if( m_nAttribute == 6 ) // niceì¸ ê²½ìš°
+	if( m_nAttribute == 6 ) // niceÀÎ °æ¿ì
 	{
 		fX	= (FLOAT)( fX - (textPackNum->m_ap2DTexture[12].m_size.cx*0.5/2*fScaleX) );
 		textPackNum->Render( &g_Neuz.m_2DRender, CPoint( (int)( fX ), (int)( fY ) ), 12 ,nAlpha,fScaleX,fScaleY);
 	}
 	else 
-	if( m_nAttribute == 7 ) // yeah~ì¸ ê²½ìš°
+	if( m_nAttribute == 7 ) // yeah~ÀÎ °æ¿ì
 	{
 		fX	= (FLOAT)( fX - (textPackNum->m_ap2DTexture[13].m_size.cx*0.5/2*fScaleX) );
 		textPackNum->Render( &g_Neuz.m_2DRender, CPoint( (int)( fX ), (int)( fY ) ), 13 ,nAlpha,fScaleX,fScaleY);

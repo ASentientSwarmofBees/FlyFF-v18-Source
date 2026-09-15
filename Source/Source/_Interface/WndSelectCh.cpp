@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "resData.h"
 
 #ifdef __AZRIA_1023
@@ -16,7 +16,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /****************************************************
-  WndId : APP_SELECT_CHANNEL - ì±„ë„ ì„ íƒ
+  WndId : APP_SELECT_CHANNEL - Ã¤³Î ¼±ÅÃ
   CtrlId : WIDC_LISTBOX1 - Listbox
   CtrlId : WIDC_STATIC1 - GroupBox
 ****************************************************/
@@ -24,7 +24,7 @@ static char THIS_FILE[] = __FILE__;
 CWndSelectCh::CWndSelectCh(int nItemId, int nChCount) 
 { 
 	m_nItemId  = nItemId;
-	m_nChCount = nChCount + 1;	// 0ì¼ë•Œ 1ê°œì´ë¯€ë¡œ ì‹¤ì œê°¯ìˆ˜ëŒ€ë¡œ ë§žì¶°ì¤€ë‹¤
+	m_nChCount = nChCount + 1;	// 0ÀÏ¶§ 1°³ÀÌ¹Ç·Î ½ÇÁ¦°¹¼ö´ë·Î ¸ÂÃçÁØ´Ù
 } 
 
 CWndSelectCh::~CWndSelectCh() 
@@ -39,7 +39,7 @@ void CWndSelectCh::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 	
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	pWndListBox->ResetContent();
 	CString strTitle;
@@ -49,21 +49,21 @@ void CWndSelectCh::OnInitialUpdate()
 		pWndListBox->AddString(strTitle);
 	}
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndSelectCh::Initialize( CWndBase* pWndParent, DWORD  ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SELECT_CHANNEL, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndSelectCh::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 

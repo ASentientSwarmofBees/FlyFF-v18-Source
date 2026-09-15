@@ -1,4 +1,4 @@
-﻿#ifndef __WNDCLOSEEXISTINGCONNECTION__H
+#ifndef __WNDCLOSEEXISTINGCONNECTION__H
 #define __WNDCLOSEEXISTINGCONNECTION__H
 
 class CWndCloseExistingConnection : public CWndNeuz

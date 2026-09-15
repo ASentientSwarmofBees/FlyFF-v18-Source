@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include <stdio.h>
 
 #ifndef __MINIMIZE_USE_OPTION
@@ -135,7 +135,7 @@ COption		g_Option;
 	}
 	int GetLanguage()
 	{
-		return __CURRENT_LANG;	// patchclientì˜ versioncommon.hì— ì •ì˜ë¨ 
+		return __CURRENT_LANG;	// patchclientÀÇ versioncommon.h¿¡ Á¤ÀÇµÊ 
 	}
 #else
 
@@ -175,7 +175,7 @@ void COption::Init()
 	m_nSlangWord    = 0;
 	m_nChatCommand  = 0;
 	m_nInstantHelp  = 1;
-	m_nInterface	= 1;	// ë””í´íŠ¸ë¥¼ ì‹ ë²„ì „ìœ¼ë¡œ í•´ë†“ì.
+	m_nInterface	= 1;	// µğÆúÆ®¸¦ ½Å¹öÀüÀ¸·Î ÇØ³õÀÚ.
 	m_bRollEffect = 0;
 	m_bTip = 1;
 	
@@ -243,10 +243,10 @@ void COption::Init()
 	m_MouseSpeed = 1;
 	m_bSFXRenderOff = FALSE;	
 
-	m_bCameraLock = TRUE;			// ë””í´íŠ¸ë¡œ ì¼œì ¸ìˆê²Œ ë‚´ê°€ ê³ ì³¤ìŠ´ë°ì´~ -xuzhu-
+	m_bCameraLock = TRUE;			// µğÆúÆ®·Î ÄÑÁ®ÀÖ°Ô ³»°¡ °íÃÆ½¿µ¥ÀÌ~ -xuzhu-
 	m_bAutoAttack = TRUE;
-	m_nPlayerName		= 1;		    // ìì‹  ì´ë¦„ On / Off
-	m_nOtherPlayerName	= 1;		    // ë‹¤ë¥¸ í”Œë ˆì´ì–´ ì´ë¦„ On / Off
+	m_nPlayerName		= 1;		    // ÀÚ½Å ÀÌ¸§ On / Off
+	m_nOtherPlayerName	= 1;		    // ´Ù¸¥ ÇÃ·¹ÀÌ¾î ÀÌ¸§ On / Off
 
 #if __VER >= 8 //__Y_GAMMA_CONTROL_8
 	m_nOverBright = 10;
@@ -282,304 +282,304 @@ int COption::LoadToolTip( LPCTSTR szFileName )
 		nG = 0;
 		nB = 0;
 		scan.GetToken();
-		if( scan.Token == _T( "ì•„ì´í…œì´ë¦„0" ) )
+		if( scan.Token == _T( "¾ÆÀÌÅÛÀÌ¸§0" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
 			g_WndMng.dwItemColor[m_nToolTipText].dwName0 = D3DCOLOR_ARGB( 255, nR, nG, nB );
 		}
-		else if( scan.Token == _T( "ì•„ì´í…œì´ë¦„1" ) )
+		else if( scan.Token == _T( "¾ÆÀÌÅÛÀÌ¸§1" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
 			g_WndMng.dwItemColor[m_nToolTipText].dwName1 = D3DCOLOR_ARGB( 255, nR, nG, nB );
 		}
-		else if( scan.Token == _T( "ì•„ì´í…œì´ë¦„2" ) )
+		else if( scan.Token == _T( "¾ÆÀÌÅÛÀÌ¸§2" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
 			g_WndMng.dwItemColor[m_nToolTipText].dwName2 = D3DCOLOR_ARGB( 255, nR, nG, nB );
 		}
-		else if( scan.Token == _T( "ì•„ì´í…œì´ë¦„3" ) )
+		else if( scan.Token == _T( "¾ÆÀÌÅÛÀÌ¸§3" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
 			g_WndMng.dwItemColor[m_nToolTipText].dwName3 = D3DCOLOR_ARGB( 255, nR, nG, nB );
 		}
-		else if( scan.Token == _T( "ì•„ì´í…œì´ë¦„4" ) )
+		else if( scan.Token == _T( "¾ÆÀÌÅÛÀÌ¸§4" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
 			g_WndMng.dwItemColor[m_nToolTipText].dwName4 = D3DCOLOR_ARGB( 255, nR, nG, nB );
 		}
-		else if( scan.Token == _T( "ì•„ì´í…œì´ë¦„5" ) )
+		else if( scan.Token == _T( "¾ÆÀÌÅÛÀÌ¸§5" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
 			g_WndMng.dwItemColor[m_nToolTipText].dwName5 = D3DCOLOR_ARGB( 255, nR, nG, nB );
 		}
-		else if( scan.Token == _T( "ì¼ë°˜" ) )
+		else if( scan.Token == _T( "ÀÏ¹İ" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwGeneral = D3DCOLOR_ARGB( 255, nR, nG, nB );		// ì¼ë°˜	
+			g_WndMng.dwItemColor[m_nToolTipText].dwGeneral = D3DCOLOR_ARGB( 255, nR, nG, nB );		// ÀÏ¹İ	
 		}
-		else if( scan.Token == _T( "í”ŒëŸ¬ìŠ¤ì˜µì…˜" ) )
+		else if( scan.Token == _T( "ÇÃ·¯½º¿É¼Ç" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwPlusOption = D3DCOLOR_ARGB( 255, nR, nG, nB );	// í”ŒëŸ¬ìŠ¤ ì˜µì…˜
+			g_WndMng.dwItemColor[m_nToolTipText].dwPlusOption = D3DCOLOR_ARGB( 255, nR, nG, nB );	// ÇÃ·¯½º ¿É¼Ç
 		}
-		else if( scan.Token == _T( "í”¼ì–´ì‹±" ) )
+		else if( scan.Token == _T( "ÇÇ¾î½Ì" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwPiercing = D3DCOLOR_ARGB( 255, nR, nG, nB );	// í”¼ì–´ì‹±
+			g_WndMng.dwItemColor[m_nToolTipText].dwPiercing = D3DCOLOR_ARGB( 255, nR, nG, nB );	// ÇÇ¾î½Ì
 		}
-		else if( scan.Token == _T( "ì†ì„±ì¼ë°˜" ) )
+		else if( scan.Token == _T( "¼Ó¼ºÀÏ¹İ" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwResist = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì†ì„± ì¼ë°˜
+			g_WndMng.dwItemColor[m_nToolTipText].dwResist = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼Ó¼º ÀÏ¹İ
 		}
-		else if( scan.Token == _T( "ì†ì„±ë¶ˆ" ) )
+		else if( scan.Token == _T( "¼Ó¼ººÒ" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwResistFire = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì†ì„± ë¶ˆ
+			g_WndMng.dwItemColor[m_nToolTipText].dwResistFire = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼Ó¼º ºÒ
 		}
-		else if( scan.Token == _T( "ì†ì„±ë¬¼" ) )
+		else if( scan.Token == _T( "¼Ó¼º¹°" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwResistWater = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì†ì„± ë¬¼
+			g_WndMng.dwItemColor[m_nToolTipText].dwResistWater = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼Ó¼º ¹°
 		}
-		else if( scan.Token == _T( "ì†ì„±ë•…" ) )
+		else if( scan.Token == _T( "¼Ó¼º¶¥" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwResistEarth = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì†ì„± ë•…
+			g_WndMng.dwItemColor[m_nToolTipText].dwResistEarth = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼Ó¼º ¶¥
 		}
-		else if( scan.Token == _T( "ì†ì„±ì „ê¸°" ) )
+		else if( scan.Token == _T( "¼Ó¼ºÀü±â" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwResistElectricity = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì†ì„± ì „ê¸°
+			g_WndMng.dwItemColor[m_nToolTipText].dwResistElectricity = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼Ó¼º Àü±â
 		}
-		else if( scan.Token == _T( "ì†ì„±ë°”ëŒ" ) )
+		else if( scan.Token == _T( "¼Ó¼º¹Ù¶÷" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwResistWind = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì†ì„± ë°”ëŒ
+			g_WndMng.dwItemColor[m_nToolTipText].dwResistWind = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼Ó¼º ¹Ù¶÷
 		}
-		else if( scan.Token == _T( "ì†ì„±ìƒìš©í™”ë¬´ê¸°" ) )
+		else if( scan.Token == _T( "¼Ó¼º»ó¿ëÈ­¹«±â" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwResistSM = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì†ì„± ìƒìš©í™” ë¬´ê¸°
+			g_WndMng.dwItemColor[m_nToolTipText].dwResistSM = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼Ó¼º »ó¿ëÈ­ ¹«±â
 		}
-		else if( scan.Token == _T( "ì†ì„±ìƒìš©í™”ë°©ì–´êµ¬" ) )
+		else if( scan.Token == _T( "¼Ó¼º»ó¿ëÈ­¹æ¾î±¸" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwResistSM1 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì†ì„± ìƒìš©í™” ë°©ì–´êµ¬
+			g_WndMng.dwItemColor[m_nToolTipText].dwResistSM1 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼Ó¼º »ó¿ëÈ­ ¹æ¾î±¸
 		}
-		else if( scan.Token == _T( "ì‹œê°„" ) )
+		else if( scan.Token == _T( "½Ã°£" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwTime = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì‹œê°„ ë° íš¨ê³¼
+			g_WndMng.dwItemColor[m_nToolTipText].dwTime = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ½Ã°£ ¹× È¿°ú
 		}
-		else if( scan.Token == _T( "íš¨ëŠ¥0" ) )
+		else if( scan.Token == _T( "È¿´É0" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwEffective0 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì•„ì´í…œ íš¨ëŠ¥
+			g_WndMng.dwItemColor[m_nToolTipText].dwEffective0 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¾ÆÀÌÅÛ È¿´É
 		}
-		else if( scan.Token == _T( "íš¨ëŠ¥1" ) )
+		else if( scan.Token == _T( "È¿´É1" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwEffective1 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì•„ì´í…œ íš¨ëŠ¥1
+			g_WndMng.dwItemColor[m_nToolTipText].dwEffective1 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¾ÆÀÌÅÛ È¿´É1
 		}
-		else if( scan.Token == _T( "íš¨ëŠ¥2" ) )
+		else if( scan.Token == _T( "È¿´É2" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwEffective2 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì•„ì´í…œ íš¨ëŠ¥2
+			g_WndMng.dwItemColor[m_nToolTipText].dwEffective2 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¾ÆÀÌÅÛ È¿´É2
 		}
-		else if( scan.Token == _T( "íš¨ëŠ¥3" ) )
+		else if( scan.Token == _T( "È¿´É3" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwEffective3 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì•„ì´í…œ íš¨ëŠ¥3
+			g_WndMng.dwItemColor[m_nToolTipText].dwEffective3 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¾ÆÀÌÅÛ È¿´É3
 		}
-		else if( scan.Token == _T( "ëœë¤ì˜µì…˜" ) )
+		else if( scan.Token == _T( "·£´ı¿É¼Ç" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwRandomOption = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ëœë¤ ì˜µì…˜
+			g_WndMng.dwItemColor[m_nToolTipText].dwRandomOption = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ·£´ı ¿É¼Ç
 		}
-		else if( scan.Token == _T( "ì¸ì²¸íŠ¸ì˜µì…˜" ) )
+		else if( scan.Token == _T( "ÀÎÃ¾Æ®¿É¼Ç" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwEnchantOption = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì¸ì²¸íŠ¸ ì˜µì…˜
+			g_WndMng.dwItemColor[m_nToolTipText].dwEnchantOption = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ÀÎÃ¾Æ® ¿É¼Ç
 		}
-		else if( scan.Token == _T( "ì„¸íŠ¸ì´ë¦„" ) )
+		else if( scan.Token == _T( "¼¼Æ®ÀÌ¸§" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwSetName = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì„¸íŠ¸ ì´ë¦„
+			g_WndMng.dwItemColor[m_nToolTipText].dwSetName = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼¼Æ® ÀÌ¸§
 		}
-		else if( scan.Token == _T( "ì„¸íŠ¸ëª©ë¡ë¹„ì°©ìš©" ) )
+		else if( scan.Token == _T( "¼¼Æ®¸ñ·ÏºñÂø¿ë" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwSetItem0 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì„¸íŠ¸ ëª©ë¡(ë¹„ì°©ìš©ì‹œ)
+			g_WndMng.dwItemColor[m_nToolTipText].dwSetItem0 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼¼Æ® ¸ñ·Ï(ºñÂø¿ë½Ã)
 		}
-		else if( scan.Token == _T( "ì„¸íŠ¸ëª©ë¡ì°©ìš©" ) )
+		else if( scan.Token == _T( "¼¼Æ®¸ñ·ÏÂø¿ë" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwSetItem1 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì„¸íŠ¸ ëª©ë¡(ì°©ìš©ì‹œ)
+			g_WndMng.dwItemColor[m_nToolTipText].dwSetItem1 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼¼Æ® ¸ñ·Ï(Âø¿ë½Ã)
 		}
-		else if( scan.Token == _T( "ì„¸íŠ¸íš¨ê³¼" ) )
+		else if( scan.Token == _T( "¼¼Æ®È¿°ú" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwSetEffect = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì„¸íŠ¸ íš¨ê³¼
+			g_WndMng.dwItemColor[m_nToolTipText].dwSetEffect = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼¼Æ® È¿°ú
 		}
-		else if( scan.Token == _T( "ê°€ê²©" ) )
+		else if( scan.Token == _T( "°¡°İ" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwGold = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ê°€ê²©
+			g_WndMng.dwItemColor[m_nToolTipText].dwGold = D3DCOLOR_ARGB( 255, nR, nG, nB );			// °¡°İ
 		}
-		else if( scan.Token == _T( "ì„¤ëª…" ) )
+		else if( scan.Token == _T( "¼³¸í" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwCommand = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì„¤ëª…
+			g_WndMng.dwItemColor[m_nToolTipText].dwCommand = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¼³¸í
 		}
-		else if( scan.Token == _T( "ì‚¬ìš©ëª»í•¨" ) )
+		else if( scan.Token == _T( "»ç¿ë¸øÇÔ" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwNotUse = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ì‚¬ìš©ëª»í•¨	
+			g_WndMng.dwItemColor[m_nToolTipText].dwNotUse = D3DCOLOR_ARGB( 255, nR, nG, nB );			// »ç¿ë¸øÇÔ	
 		}
 #if __VER >= 9 // __CSC_VER9_1
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜1" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç1" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt1 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜1				
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt1 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç1				
 		}
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜2" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç2" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt2 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜2
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt2 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç2
 		}
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜3" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç3" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt3 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜3
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt3 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç3
 		}
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜4" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç4" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt4 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜4
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt4 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç4
 		}
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜5" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç5" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt5 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜5
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt5 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç5
 		}
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜6" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç6" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt6 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜6
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt6 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç6
 		}
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜7" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç7" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt7 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜7
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt7 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç7
 		}
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜8" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç8" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt8 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜8
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt8 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç8
 		}
-		else if( scan.Token == _T( "ë¬´ê¸°ì¶”ê°€ì˜µì…˜9" ) )
+		else if( scan.Token == _T( "¹«±âÃß°¡¿É¼Ç9" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
-			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt9 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ë¬´ê¸°ì¶”ê°€ì˜µì…˜9
+			g_WndMng.dwItemColor[m_nToolTipText].dwAddedOpt9 = D3DCOLOR_ARGB( 255, nR, nG, nB );			// ¹«±âÃß°¡¿É¼Ç9
 		}
 #endif //__CSC_VER9_1
 #if __VER >= 11 // __SYS_IDENTIFY
-		else if( scan.Token == _T( "ì•„ì´í…œê°ì„±" ) )
+		else if( scan.Token == _T( "¾ÆÀÌÅÛ°¢¼º" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
 			g_WndMng.dwItemColor[m_nToolTipText].dwAwakening	= D3DCOLOR_ARGB( 255, nR, nG, nB );
 		}
-		else if( scan.Token == _T( "ì—¬ì‹ ì˜ ì¶•ë³µ" ) )
+		else if( scan.Token == _T( "¿©½ÅÀÇ Ãàº¹" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
 			nB = scan.GetNumber();
 			g_WndMng.dwItemColor[m_nToolTipText].dwBlessing	= D3DCOLOR_ARGB( 255, nR, nG, nB );
 		}
-		else if( scan.Token == _T( "ì—¬ì‹ ì˜ ì¶•ë³µ ê²½ê³ " ) )
+		else if( scan.Token == _T( "¿©½ÅÀÇ Ãàº¹ °æ°í" ) )
 		{
 			nR = scan.GetNumber();			
 			nG = scan.GetNumber();
@@ -612,13 +612,13 @@ void COption::CheckResolution()
 			bResolution = TRUE;
 	}
 	
-	if(!bResolution && m_bStartFullScreen) //ë¯¸ì§€ì› í•´ìƒë„ì˜ ê²½ìš° 800x600ìœ¼ë¡œ ê³ ì •
+	if(!bResolution && m_bStartFullScreen) //¹ÌÁö¿ø ÇØ»óµµÀÇ °æ¿ì 800x600À¸·Î °íÁ¤
 	{
 		Error( "We Can't Support this Resolution!! - Width : %d, Height : %d", m_nResWidth, m_nResHeight );
 		m_nResWidth = 800;
 		m_nResHeight = 600;
 	}
-	else //ê·¸ë˜í”½ì¹´ë“œê°€ ì§€ì›í•˜ëŠ” í•´ìƒë„ ì¤‘ ì‚¬ìš©ê°€ëŠ¥í•œ í•´ìƒë„ ì„ ë³„
+	else //±×·¡ÇÈÄ«µå°¡ Áö¿øÇÏ´Â ÇØ»óµµ Áß »ç¿ë°¡´ÉÇÑ ÇØ»óµµ ¼±º°
 	{
 		switch(m_nResWidth)
 		{
@@ -709,13 +709,13 @@ int COption::Load( LPCTSTR szFileName )
 #if __VER < 9 // __CSC_VER9_RESOLUTION
 			if( m_nResWidth != 800 && m_nResWidth != 1024 && m_nResWidth != 1280 )
 			{
-				Error( "ì§€ì›í•˜ì§€ì•ŠëŠ” í•´ìƒë„ ë°œê²¬!! - Width : %d", m_nResWidth );
+				Error( "Áö¿øÇÏÁö¾Ê´Â ÇØ»óµµ ¹ß°ß!! - Width : %d", m_nResWidth );
 				m_nResWidth = 800;
 			}
 
 			if( m_nResHeight != 600 && m_nResHeight != 768 && m_nResHeight != 1024 )
 			{
-				Error( "ì§€ì›í•˜ì§€ì•ŠëŠ” í•´ìƒë„ ë°œê²¬!! - Height : %d", m_nResHeight );
+				Error( "Áö¿øÇÏÁö¾Ê´Â ÇØ»óµµ ¹ß°ß!! - Height : %d", m_nResHeight );
 				m_nResHeight = 600;
 			}
 #endif //__CSC_VER9_RESOLUTION	

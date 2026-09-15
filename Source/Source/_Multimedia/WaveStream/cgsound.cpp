@@ -1,4 +1,4 @@
-ï»¿/*===========================================================================*\
+/*===========================================================================*\
 |
 |  File:        cgsound.cpp
 |
@@ -115,7 +115,7 @@ char strVer[10];
 itoa( g_nDxVer, strVer, 10 );
 MessageBox( NULL, strVer, "DirectSound Error", MB_OK );
 */	
-		if( g_nDxVer>=0x500 ) // direct 5.0 ì´ìƒ?
+		if( g_nDxVer>=0x500 ) // direct 5.0 ÀÌ»ó?
 		{
     memset(&pcmwf, 0, sizeof(PCMWAVEFORMAT));
     pcmwf.wf.wFormatTag = WAVE_FORMAT_PCM;
@@ -156,7 +156,7 @@ MessageBox( NULL, strVer, "DirectSound Error", MB_OK );
       lpDSPrimaryBuffer->Release(); lpDSPrimaryBuffer=NULL;
     }
 		}
-		else	// Direct x 5.0 ì´í•˜
+		else	// Direct x 5.0 ÀÌÇÏ
 		{
 			memset(&pcmwf, 0, sizeof(PCMWAVEFORMAT));
 			pcmwf.wf.wFormatTag = WAVE_FORMAT_PCM;
@@ -367,14 +367,14 @@ LPWAVEHDR LoadWaveData(
 
 	if( g_nDxVer>=0x500 )
 	{
-		pSound->lpDirectSound3DBuffer=NULL;			// <------- ë°˜ë“œì‹œ í•´ì¤˜ì•¼ ì•„ëž˜ì¤„ ì—ëŸ¬ ì•ˆë‚œë‹¤. -_-;
+		pSound->lpDirectSound3DBuffer=NULL;			// <------- ¹Ýµå½Ã ÇØÁà¾ß ¾Æ·¡ÁÙ ¿¡·¯ ¾È³­´Ù. -_-;
 
 		if ( S_OK != lpDirectSoundBuffer->QueryInterface( IID_IDirectSound3DBuffer, (void **)&pSound->lpDirectSound3DBuffer))
 		{
 			return NULL;
 		}
 	}
-	lpDirectSoundBuffer->Release(); // <--- ìš”ê±° ì•ˆí•´ì¤˜ì„œ ìžê¾¸ evermem ì´ false ì¸ wave loadingì‹œ ë¦¬ì†ŒìŠ¤ê°€ ìŒ“ì˜€ë‹¤.(ì¡°ì‹¬)
+	lpDirectSoundBuffer->Release(); // <--- ¿ä°Å ¾ÈÇØÁà¼­ ÀÚ²Ù evermem ÀÌ false ÀÎ wave loading½Ã ¸®¼Ò½º°¡ ½×¿´´Ù.(Á¶½É)
 	return(lpWaveHdr);
 }
 
@@ -385,7 +385,7 @@ CSoundEffect::CSoundEffect(
     LPSTR   WaveName,   // name of wave file
     DWORD   Id,     // object id to allow one buffer per object
     BOOL    fLoopIt,    // loop the sound when played
-		BOOL		EverMem			// ë©”ëª¨ë¦¬ ìƒì£¼ì—¬ë¶€
+		BOOL		EverMem			// ¸Þ¸ð¸® »óÁÖ¿©ºÎ
 )
 {
 	CreateSoundEffect(WaveName,Id,fLoopIt,EverMem);
@@ -427,7 +427,7 @@ BOOL CSoundEffect::CreateSoundEffect(
     LPSTR   WaveName,   // name of wave file
     DWORD   Id,     // object id to allow one buffer per object
     BOOL    fLoopIt,    // loop the sound when played
-	BOOL		EverMem			// ë©”ëª¨ë¦¬ ìƒì£¼ì—¬ë¶€
+	BOOL		EverMem			// ¸Þ¸ð¸® »óÁÖ¿©ºÎ
 )
 {
 	pWaveInfo = NULL;
@@ -715,7 +715,7 @@ void CSoundEffect::SetMute( BOOL fMute, int rd )
 }
 
 //-----------------------------------------------------------------------------
-// playingì´ ëë‚¬ëŠ”ê°€?
+// playingÀÌ ³¡³µ´Â°¡?
 //-----------------------------------------------------------------------------
 BOOL CSoundEffect::ChkEndPlay( void )
 {

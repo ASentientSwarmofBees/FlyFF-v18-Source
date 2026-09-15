@@ -1,4 +1,4 @@
-﻿#ifndef __WNDTUTORIAL__H
+#ifndef __WNDTUTORIAL__H
 #define __WNDTUTORIAL__H
 
 #if __VER >= 12 // __MOD_TUTORIAL

@@ -1,10 +1,10 @@
-ï»¿#ifndef __CTRLOBJS_H__
+#ifndef __CTRLOBJS_H__
 #define __CTRLOBJS_H__
 
 #ifdef __WORLDSERVER
 #include "Ctrl.h"
 
-/// ì¼ì •ì§€ì—­ì— ì§€ì†ì  ë°ë¯¸ì§€ë¥¼ ì£¼ëŠ” ê°€ìƒì˜¤ë¸Œì íŠ¸
+/// ÀÏÁ¤Áö¿ª¿¡ Áö¼ÓÀû µ¥¹ÌÁö¸¦ ÁÖ´Â °¡»ó¿ÀºêÁ§Æ®
 class CContDamageCtrl : public CCtrl
 {
 private:
@@ -21,7 +21,7 @@ public:
 #if __VER >= 8 // __S8_PK
 	BOOL m_bControl;
 #endif // __VER >= 8 // __S8_PK
-	// chipi - ë²”ìœ„ ctrl ìƒì„± ìŠ¤í‚¬ë¡œ ì¸í•´ ë“€ì–¼ ì¢…ë£Œ í›„ ì¹´ì˜¤ë˜ëŠ” í˜„ìƒ ìˆ˜ì •
+	// chipi - ¹üÀ§ ctrl »ý¼º ½ºÅ³·Î ÀÎÇØ µà¾ó Á¾·á ÈÄ Ä«¿ÀµÇ´Â Çö»ó ¼öÁ¤
 	BOOL m_bDuelTarget;
 
 	void	ApplyDamage( void );

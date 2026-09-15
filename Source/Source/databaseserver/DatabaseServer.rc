@@ -1,4 +1,4 @@
-ï»¿// Microsoft Visual C++ generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -122,7 +122,7 @@ BEGIN
             VALUE "FileDescription", "DatabaseServer"
             VALUE "FileVersion", "1, 0, 0, 1"
             VALUE "InternalName", "DatabaseServer"
-            VALUE "LegalCopyright", "Copyright â“’ 2003"
+            VALUE "LegalCopyright", "Copyright ¨Ï 2003"
             VALUE "OriginalFilename", "DatabaseServer.exe"
             VALUE "ProductName", "AEONSOFT DatabaseServer"
             VALUE "ProductVersion", "1, 0, 0, 1"

@@ -1,10 +1,10 @@
-ï»¿#if __VER >= 9 // __CSC_VER9_1
+#if __VER >= 9 // __CSC_VER9_1
 
 #ifndef __WNDPETSYSTEM__H
 #define __WNDPETSYSTEM__H
 
 /*******************************
-	í« ì‹œìŠ¤í…œ ê´€ë ¨ Window
+	Æê ½Ã½ºÅÛ °ü·Ã Window
 ********************************/
 struct PETCAMTABLE
 {
@@ -117,13 +117,13 @@ class CWndConfirmVis : public CWndNeuz
 public: 
 	enum ConfirmVisSection
 	{
-		CVS_EQUIP_VIS,				// ë¹„ìŠ¤ì°©ìš© 
-		CVS_UNEQUIP_VIS,			// ë¹„ìŠ¤ ì°©ìš©í•´ì œ  
-		CVS_EQUIP_VISKEY,			// ë¹„ìŠ¤í‚¤ ì‚¬ìš© 
-		CVS_PICKUP_TO_BUFF,			// ë²„í”„í«ìœ¼ë¡œ ë³€í™˜
+		CVS_EQUIP_VIS,				// ºñ½ºÂø¿ë 
+		CVS_UNEQUIP_VIS,			// ºñ½º Âø¿ëÇØÁ¦  
+		CVS_EQUIP_VISKEY,			// ºñ½ºÅ° »ç¿ë 
+		CVS_PICKUP_TO_BUFF,			// ¹öÇÁÆêÀ¸·Î º¯È¯
 
 #ifdef __PROTECT_AWAKE
-		ETC_PROTECT_AWAKE,				// ê°ì„± ë³´í˜¸ 
+		ETC_PROTECT_AWAKE,				// °¢¼º º¸È£ 
 #endif //__PROTECT_AWAKE
 	};
 	CWndConfirmVis(); 
@@ -152,7 +152,7 @@ public:
 class CWndBuffPetStatus : public CWndNeuz
 {
 public:
-	//gmpbigsun: ë²„í”„í« ìƒíƒœ ìœˆë„ìš°
+	//gmpbigsun: ¹öÇÁÆê »óÅÂ À©µµ¿ì
 	CWndBuffPetStatus( );
 	virtual ~CWndBuffPetStatus( );
 	
@@ -174,7 +174,7 @@ public:
 	virtual HRESULT InvalidateDeviceObjects();
 	virtual HRESULT DeleteDeviceObjects();
 
-	void UpdateVisState( );			//ì¥ì°©ëœ ë¹„ìŠ¤ì— ëŒ€í•´ ìœ íš¨ì„± ê²€ì‚¬ 
+	void UpdateVisState( );			//ÀåÂøµÈ ºñ½º¿¡ ´ëÇØ À¯È¿¼º °Ë»ç 
 	CItemElem* GetItemElemByIndex( const int index );
 	BOOL DoModal_ConfirmQuestion( DWORD dwItemId, OBJID objid, DWORD dwIndex, int nSlot = 0,  CWndConfirmVis::ConfirmVisSection eSection = CWndConfirmVis::CVS_EQUIP_VIS );			//OK => SendDoUseItem
 	int GetSlotIndexByPoint( const CPoint& point );
@@ -230,17 +230,17 @@ class CWndPetMiracle : public CWndNeuz
 public:
 	int m_nMiracleLv[2];
 	int m_nCount[2];
-	int m_nDelay[2];			//íšŒì „ì‹œí‚¤ëŠ” Delayê°’
-	int m_nStatus[2];			//í˜„ì¬ì˜ ìƒíƒœ (Delayê´€ë ¨ ì ìš© ìœ„í•´ ì‚¬ìš©)
+	int m_nDelay[2];			//È¸Àü½ÃÅ°´Â Delay°ª
+	int m_nStatus[2];			//ÇöÀçÀÇ »óÅÂ (Delay°ü·Ã Àû¿ë À§ÇØ »ç¿ë)
 	int m_nPreLvCount;
 	int m_nCurLvCount;
 	int m_nResPreLevel;
 	int m_nResCurLevel;
-	int m_nPetLevel;		//í« ë ˆë²¨
+	int m_nPetLevel;		//Æê ·¹º§
 	
-	BOOL m_bReciveResult[2];	//ì„œë²„ë¡œ ë¶€í„° ê²°ê³¼ë¥¼ ë°›ì•˜ëŠ”ì§€ í™•ì¸
-	BOOL m_bEnd;				//íšŒì „ì´ ëë‚œ ì‹œì 
-	BOOL m_bLocked[2];			//ìƒíƒœì°½ì— ë ˆë²¨ê³ ì •ì„ í•˜ì˜€ì—ˆëŠ”ì§€.
+	BOOL m_bReciveResult[2];	//¼­¹ö·Î ºÎÅÍ °á°ú¸¦ ¹Ş¾Ò´ÂÁö È®ÀÎ
+	BOOL m_bEnd;				//È¸ÀüÀÌ ³¡³­ ½ÃÁ¡
+	BOOL m_bLocked[2];			//»óÅÂÃ¢¿¡ ·¹º§°íÁ¤À» ÇÏ¿´¾ú´ÂÁö.
 
 	DWORD m_dwObjId;
 	
@@ -260,7 +260,7 @@ public:
 	virtual	void OnInitialUpdate(); 
 	virtual BOOL Process ();
 	
-	void ReceiveResult(int nPreLevel, int nCurLevel);		//ì„œë²„ë¡œ ë¶€í„° ê²°ê³¼ ê°’ì„ ë°›ìŒ
+	void ReceiveResult(int nPreLevel, int nCurLevel);		//¼­¹ö·Î ºÎÅÍ °á°ú °ªÀ» ¹ŞÀ½
 	void PreLevelImgProcess();
 	void CurLevelImgProcess();
 	void SetDescription(CHAR* szChar);
@@ -270,8 +270,8 @@ public:
 class CWndPetFoodMill : public CWndNeuz
 {
 public:
-	OBJID m_dwObjId;		//ìƒìš©í™” ì•„ì´í…œ objid
-	CItemElem* m_pItemElem;	//ë¶„ì‡„ ë˜ëŠ” ì•„ì´í…œ
+	OBJID m_dwObjId;		//»ó¿ëÈ­ ¾ÆÀÌÅÛ objid
+	CItemElem* m_pItemElem;	//ºĞ¼â µÇ´Â ¾ÆÀÌÅÛ
 	CTexture*	m_pTexture;
 
 	CWndFoodConfirm* m_pWndFoodConfrim;

@@ -1,14 +1,14 @@
-ï»¿#ifndef _PATCH_MANAGER_H_
+#ifndef _PATCH_MANAGER_H_
 #define _PATCH_MANAGER_H_
 
 
-//íŒ¨ì¹˜ íŒŒì¼ ì •ë³´ êµ¬ì¡°ì²´
+//ÆĞÄ¡ ÆÄÀÏ Á¤º¸ ±¸Á¶Ã¼
 struct FILE_INFO
 {	
-	bool		bDir;					//ë””ë ‰í† ë¦¬ì¸ì§€?	
-	DWORD		nFileSize;				//íŒŒì¼ í¬ê¸°	
-	FILETIME	ft;						//íŒŒì¼ ìµœì¢… ìˆ˜ì •ì‹œê°„	
-	char		szPath[MAX_PATH];		//íŒ¨ìŠ¤	
+	bool		bDir;					//µğ·ºÅä¸®ÀÎÁö?	
+	DWORD		nFileSize;				//ÆÄÀÏ Å©±â	
+	FILETIME	ft;						//ÆÄÀÏ ÃÖÁ¾ ¼öÁ¤½Ã°£	
+	char		szPath[MAX_PATH];		//ÆĞ½º	
 	char		szServerPath[MAX_PATH];
 };
 
@@ -31,10 +31,10 @@ public:
 	~CPatchManager();
 
 private:
-	char					m_szCurrentDirectory[MAX_PATH];	//ì‚¬ìš©ì í˜„ì¬ ë””ë ‰í† ë¦¬										
+	char					m_szCurrentDirectory[MAX_PATH];	//»ç¿ëÀÚ ÇöÀç µğ·ºÅä¸®										
 	
 public:
-	FileContainer			m_files;								// íŒŒì¼ ë²¡í„°
+	FileContainer			m_files;								// ÆÄÀÏ º¤ÅÍ
 	
 public:
 	LPCTSTR					GetCurrentLocalDirectory() { return m_szCurrentDirectory; }

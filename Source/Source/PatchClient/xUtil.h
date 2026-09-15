@@ -1,4 +1,4 @@
-ï»¿#ifndef		__XUTIL_H__
+#ifndef		__XUTIL_H__
 #define		__XUTIL_H__
 
 extern LARGE_INTEGER	g_llFreq;
@@ -14,7 +14,7 @@ extern	DWORD	g_next;
 inline DWORD	xRand( void )
 {
 	g_next = g_next * 1103515245 + 12345;// + nRandomSeed[ i++ ];
-	return g_next;	// ì–µë‹¨ìœ„ í™•ë¥ ì´ í•„ìš”í•´ì„œë°”ê¿ˆ.
+	return g_next;	// ¾ï´ÜÀ§ È®·üÀÌ ÇÊ¿äÇØ¼­¹Ù²Ş.
 }
 
 inline DWORD xRandom( DWORD num )
@@ -22,7 +22,7 @@ inline DWORD xRandom( DWORD num )
 	return  xRand() % num;
 }
 
-DWORD		xRandom( DWORD min, DWORD max );	// minì—ì„œ maxê¹Œì§€  
+DWORD		xRandom( DWORD min, DWORD max );	// min¿¡¼­ max±îÁö  
 float		xRandomF( float num );
 void		xSRand( DWORD seed );
 inline int	random( int nNum ) { return rand() % nNum; }
@@ -98,20 +98,20 @@ struct	PROF_LIST
 	int		m_nIdx;
 	LARGE_INTEGER	m_lnPrev;
 	int		m_nCheckTime;
-	char	m_szMsg[64];	// strlen 64ì˜ ìŠ¤íŠ¸ë§ì´ MAX_PROF_TIMEê°œ.
+	char	m_szMsg[64];	// strlen 64ÀÇ ½ºÆ®¸µÀÌ MAX_PROF_TIME°³.
 };
 
 class CProf
 {
 	PROF_LIST	m_List[ MAX_PROF_TIME ];
-	char	m_szResultLast[1024];		// ìµœì¢… ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ê¸° ìœ„í•œ ë²„í¼
+	char	m_szResultLast[1024];		// ÃÖÁ¾ °á°ú¸¦ Ãâ·ÂÇÏ±â À§ÇÑ ¹öÆÛ
 	int		m_Stack[MAX_PROF_STACK];	// last index stack
 	int		m_nMaxStack;
 		
 	int	m_nMax;
 	int	m_nStackCnt;
 public:
-	char	m_szResult[1024];		// ìµœì¢… ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ê¸° ìœ„í•œ ë²„í¼
+	char	m_szResult[1024];		// ÃÖÁ¾ °á°ú¸¦ Ãâ·ÂÇÏ±â À§ÇÑ ¹öÆÛ
 
 	CProf()
 	{
@@ -131,10 +131,10 @@ public:
 		m_nMaxStack = 0;
 	}
 
-	// ë‹¤ì‹œ ì²˜ìŒì˜ ë©”ì¸ë£¨í”„ë¡œ ëŒì•„ì˜¬ë•Œ í•¨.
+	// ´Ù½Ã Ã³À½ÀÇ ¸ŞÀÎ·çÇÁ·Î µ¹¾Æ¿Ã¶§ ÇÔ.
 	void	Reset()
 	{
-		m_nMax = 0;		// ì²´í¬ê°¯ìˆ˜ ì´ˆê¸°í™”
+		m_nMax = 0;		// Ã¼Å©°¹¼ö ÃÊ±âÈ­
 		m_nStackCnt = 0;
 		m_nMaxStack = 0;
 		strcpy( m_szResultLast, m_szResult );
@@ -144,10 +144,10 @@ public:
 		PROF_LIST	*pList = &m_List[ m_nMax ];
 		
 		QueryPerformanceCounter( &pList->m_lnPrev );
-		pList->m_nIdx = m_nMax;		// Check1ì´ ë¶ˆë¦¬ê³  ë‹¤ì‹œ Check1ì´ ë¶ˆë ¤ë„ maxëŠ” ê³„ì† ì¦ê°€ í•˜ê³  ìŠ¤íƒì¹´ìš´íŠ¸ë§Œ ì˜¬ë¦°ë‹¤.
+		pList->m_nIdx = m_nMax;		// Check1ÀÌ ºÒ¸®°í ´Ù½Ã Check1ÀÌ ºÒ·Áµµ max´Â °è¼Ó Áõ°¡ ÇÏ°í ½ºÅÃÄ«¿îÆ®¸¸ ¿Ã¸°´Ù.
 		m_nStackCnt ++;
 		if( m_nMaxStack >= MAX_PROF_STACK )		Error( "CProf : stack overflow" );
-		m_Stack[m_nMaxStack++] = m_nMax;		// ë¦¬ìŠ¤íŠ¸ì¸ë±ìŠ¤ í‘¸ì‰¬
+		m_Stack[m_nMaxStack++] = m_nMax;		// ¸®½ºÆ®ÀÎµ¦½º Çª½¬
 
 		m_nMax ++;
 	}
@@ -159,7 +159,7 @@ public:
 
 		m_nMaxStack --;
 		if( m_nMaxStack < 0 )		Error( "CProf : stack under flow" );
-		int nLastIdx = m_Stack[ m_nMaxStack ];		// ë§ˆì§€ë§‰ìœ¼ë¡œ Check1 í–ˆë˜ê³³ì˜ ì¸ë±ìŠ¤ë¥¼ POPí•¨.
+		int nLastIdx = m_Stack[ m_nMaxStack ];		// ¸¶Áö¸·À¸·Î Check1 Çß´ø°÷ÀÇ ÀÎµ¦½º¸¦ POPÇÔ.
 
 		pList = &m_List[ nLastIdx ];
 
@@ -179,7 +179,7 @@ public:
 	{
 		if( fFPS <= 1.0f )	return;
 		PROF_LIST	*pList = m_List;;
-		int nTotal = (int)(g_llFreq.QuadPart / (int)fFPS);		// í•œí”„ë ˆì„ í† íƒˆ ê°±ì‹ ì‹œê°„
+		int nTotal = (int)(g_llFreq.QuadPart / (int)fFPS);		// ÇÑÇÁ·¹ÀÓ ÅäÅ» °»½Å½Ã°£
 		int		i;
 		char	*p = m_szResult;
 		int		nLen = 0, nMaxLen = 0;
@@ -187,7 +187,7 @@ public:
 		memset( p, 0, 1024 );
 		for( i = 0; i < m_nMax; i ++ )
 		{
-			if( IsEmpty(pList->m_szMsg) )		continue;	// ë©”ì‹œì§€ê°€ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ.
+			if( IsEmpty(pList->m_szMsg) )		continue;	// ¸Ş½ÃÁö°¡ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½.
 			sprintf( p, "%6.2f : %s   %f sec\r\n", ((double)pList->m_nCheckTime / nTotal) * 100, pList->m_szMsg, (double)pList->m_nCheckTime / g_llFreq.QuadPart );
 			nLen = strlen(p);
 			p += nLen;

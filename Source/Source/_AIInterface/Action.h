@@ -1,4 +1,4 @@
-ï»¿#ifndef __ACTION_H
+#ifndef __ACTION_H
 #define __ACTION_H
 
 #include "MoverMsg.h"
@@ -9,52 +9,52 @@
 
 #define	MAX_ACTMSG	0xff
 
-// ë¬´ë²„ì˜ ë™ìž‘ìƒíƒœë¥¼ ê¸°ìˆ 
+// ¹«¹öÀÇ µ¿ÀÛ»óÅÂ¸¦ ±â¼ú
 enum ACTTYPE
 {
 	ACT_NONE,
 
-	ACT_STOP,				// ëŒ€ê¸°
-	ACT_STOPWALK,			// ì œìžë¦¬ê±·ê¸°
-	ACT_FORWARD,			// ì „ì§„
-	ACT_BACKWARD,			// í›„ì§„
-	ACT_LEFT,				// ì™¼ìª½ìœ¼ë¡œì´ë™
-	ACT_RIGHT,				// ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™
+	ACT_STOP,				// ´ë±â
+	ACT_STOPWALK,			// Á¦ÀÚ¸®°È±â
+	ACT_FORWARD,			// ÀüÁø
+	ACT_BACKWARD,			// ÈÄÁø
+	ACT_LEFT,				// ¿ÞÂÊÀ¸·ÎÀÌµ¿
+	ACT_RIGHT,				// ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿
 
-	ACT_WALKMODE,			// ê±·ê¸°/ë›°ê¸°ëª¨ë“œ
+	ACT_WALKMODE,			// °È±â/¶Ù±â¸ðµå
 
-	ACT_LEFTTURN,			// ì™¼ì¡±ìœ¼ë¡œ ë„ëŠ”ì¤‘
-	ACT_RIGHTTURN,			// ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë„ëŠ”ì¤‘
+	ACT_LEFTTURN,			// ¿ÞÁ·À¸·Î µµ´ÂÁß
+	ACT_RIGHTTURN,			// ¿À¸¥ÂÊÀ¸·Î µµ´ÂÁß
 
 	ACT_FJUMPREADY,
-	ACT_FJUMP,				// ì•žìœ¼ë¡œ ì í”„ì¤‘
+	ACT_FJUMP,				// ¾ÕÀ¸·Î Á¡ÇÁÁß
 	ACT_FLAND,
 	ACT_SJUMPREADY,
-	ACT_SJUMP,				// ì œìžë¦¬ ì í”„ì¤‘
+	ACT_SJUMP,				// Á¦ÀÚ¸® Á¡ÇÁÁß
 	ACT_SLAND,
 	ACT_BJUMPREADY,
-	ACT_BJUMP,				// ë°± ì í”„ì¤‘
+	ACT_BJUMP,				// ¹é Á¡ÇÁÁß
 	ACT_BLAND,
 	ACT_LJUMPREADY,
-	ACT_LJUMP,				// ì™¼ì¡± ì í”„ì¤‘
+	ACT_LJUMP,				// ¿ÞÁ· Á¡ÇÁÁß
 	ACT_LLAND,
 	ACT_RJUMPREADY,
-	ACT_RJUMP,				// ì˜¤ë¥¸ìª½ ì í”„ì¤‘
+	ACT_RJUMP,				// ¿À¸¥ÂÊ Á¡ÇÁÁß
 	ACT_RLAND,
 
-	ACT_ATTACKMODE,			// ì „íˆ¬ëª¨ë“œ
-	ACT_ATTACK1,			// ê³µê²©ë™ìž‘ 1
+	ACT_ATTACKMODE,			// ÀüÅõ¸ðµå
+	ACT_ATTACK1,			// °ø°Ýµ¿ÀÛ 1
 	ACT_ATTACK2,
 	ACT_ATTACK3,
 	ACT_ATTACK4,
 
-	ACT_RANGE1,				// ê³µê²©ë™ìž‘ 1
+	ACT_RANGE1,				// °ø°Ýµ¿ÀÛ 1
 	ACT_RANGE2,
 	ACT_RANGE3,
 	ACT_RANGE4,
 
-	ACT_DAMAGE,				// í”¼ê²©ì¤‘
-	ACT_DIE					// ì£½ì–´ìžˆëŠ” ì¤‘(?)
+	ACT_DAMAGE,				// ÇÇ°ÝÁß
+	ACT_DIE					// Á×¾îÀÖ´Â Áß(?)
 };
 
 class CAction;
@@ -266,8 +266,8 @@ public:
 	virtual	~CAction();
 
 protected:
-	DWORD			m_dwState;			// ë™ìž‘ ìƒíƒœ - ì™¸ë¶€ì—ì„œ ì§ì ‘ ê±´ë“œë¦¬ì§€ ë§ê²ƒ.
-	DWORD			m_dwStateFlag;		// ë™ìž‘ ìƒíƒœ í”Œëž˜ê·¸
+	DWORD			m_dwState;			// µ¿ÀÛ »óÅÂ - ¿ÜºÎ¿¡¼­ Á÷Á¢ °Çµå¸®Áö ¸»°Í.
+	DWORD			m_dwStateFlag;		// µ¿ÀÛ »óÅÂ ÇÃ·¡±×
 	CMover*			m_pMover;
 	
 public:
@@ -279,7 +279,7 @@ public:
 	CMover*			GetMover() { return m_pMover; }
 	CWorld*			GetWorld();
 	void			Init();
-	void			__ForceSetState( DWORD dwState ) { m_dwState = dwState; }		// dwStateê°’ìœ¼ë¡œ ê°•ì œë¡œ ì„¸íŒ…. ì„œë²„ì™€ ë™ê¸°í™”ë•Œ ì™¸ì—” ì‚¬ìš©í•˜ì§€ ë§ê²ƒ.
+	void			__ForceSetState( DWORD dwState ) { m_dwState = dwState; }		// dwState°ªÀ¸·Î °­Á¦·Î ¼¼ÆÃ. ¼­¹ö¿Í µ¿±âÈ­¶§ ¿Ü¿£ »ç¿ëÇÏÁö ¸»°Í.
 	void			ClearStateFlag() { m_dwStateFlag = 0; }
 
 	void			AddStateFlag( DWORD dwFlag );
@@ -287,7 +287,7 @@ public:
 
 	DWORD			GetStateFlag() { return m_dwStateFlag; }
 
-	// ë™ìž‘ ì„¤ì •/ì°¸ì¡°
+	// µ¿ÀÛ ¼³Á¤/ÂüÁ¶
 	DWORD			GetState() { return m_dwState; }
 	void			SetState( DWORD dwType, DWORD dwState )	{ ResetState(dwType);	m_dwState |= dwState; }
 	void			SetMoveState( DWORD dwState ) { ResetState(OBJSTA_MOVE_ALL);	m_dwState |= dwState; }

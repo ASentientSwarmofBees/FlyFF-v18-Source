@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "BillingMgrTH.h"
 #include "dpBillingTH.h"
 #include "account.h"
@@ -47,7 +47,7 @@ BOOL CBillingMgrTH::SetConfig( BILLING_ENUM id, DWORD data )
 	return TRUE;
 }
 
-// ì´ˆê¸°í™”: ë¹Œë§ ì„œë²„ì™€ì˜ ì—°ê²° ê°ì²´ë¥¼ í• ë‹¹í•´ ë‘”ë‹¤.
+// ÃÊ±âÈ­: ºô¸µ ¼­¹ö¿ÍÀÇ ¿¬°á °´Ã¼¸¦ ÇÒ´çÇØ µĞ´Ù.
 bool CBillingMgrTH::Init( HWND hWnd )
 {
 	assert( m_pDPBillings == NULL );
@@ -65,7 +65,7 @@ bool CBillingMgrTH::Init( HWND hWnd )
 	}
 	
 	int nMaxConnect = m_strIPs.size();
-	nMaxConnect = min( nMaxConnect, MAX_DPBILLING );	// 32ê°œ ì´ìƒ ê¸ˆì§€ 
+	nMaxConnect = min( nMaxConnect, MAX_DPBILLING );	// 32°³ ÀÌ»ó ±İÁö 
 
 	m_nMaxConnect = nMaxConnect;
 	m_pDPBillings = new CDPBillingTH[ nMaxConnect ];
@@ -81,23 +81,23 @@ bool CBillingMgrTH::Init( HWND hWnd )
 	return true;
 }
 
-// í• ë‹¹ëœ ìì›ì„ ë°˜ë‚©í•œë‹¤.
+// ÇÒ´çµÈ ÀÚ¿øÀ» ¹İ³³ÇÑ´Ù.
 void CBillingMgrTH::Release()
 {
 	safe_delete( this );
 }
 
-// ë¹Œë§ì •ë³´ë¥¼ ê²€ì‚¬í•œë‹¤.
+// ºô¸µÁ¤º¸¸¦ °Ë»çÇÑ´Ù.
 BYTE CBillingMgrTH::CheckAccount( int , DWORD dwSession, const char* szAccount, const char* szAddr )
 {
-	// ë¹Œë§ì„œë²„ì— ë¹Œë§ì •ë³´ ìš”ì²­ 
+	// ºô¸µ¼­¹ö¿¡ ºô¸µÁ¤º¸ ¿äÃ» 
 	if( RequestBillingInfo( szAccount, szAddr, dwSession ) )
-		return ACCOUNT_BILLING_WAIT_ACK;		// ì„œë²„ë¡œë¶€í„° ACKê°€ ì˜¤ë©´ OnAfterCheckingë¥¼ í˜¸ì¶œí•œë‹¤.
+		return ACCOUNT_BILLING_WAIT_ACK;		// ¼­¹ö·ÎºÎÅÍ ACK°¡ ¿À¸é OnAfterChecking¸¦ È£ÃâÇÑ´Ù.
 	else
 		return ACCOUNT_BILLING_DISCONNECTED;
 }
 
-// dwSessionë¥¼ ê°–ëŠ” ìœ ì €ë¥¼ ë‹´ë‹¹í•˜ëŠ” ë¹Œë§ì„œë²„ì˜ indexë¥¼ êµ¬í•œë‹¤.
+// dwSession¸¦ °®´Â À¯Àú¸¦ ´ã´çÇÏ´Â ºô¸µ¼­¹öÀÇ index¸¦ ±¸ÇÑ´Ù.
 CDPBillingTH* CBillingMgrTH::GetBilling( DWORD dwSession )
 {
 	if( m_nMaxConnect == 0 )
@@ -110,7 +110,7 @@ CDPBillingTH* CBillingMgrTH::GetBilling( DWORD dwSession )
 	return &m_pDPBillings[iSelect];
 }
 
-// ë¹Œë§ì„œë²„ì— ë¹Œë§ì •ë³´ ìš”ì²­
+// ºô¸µ¼­¹ö¿¡ ºô¸µÁ¤º¸ ¿äÃ»
 bool CBillingMgrTH::RequestBillingInfo( LPCTSTR lpszAccount, LPCTSTR lpAddr, DWORD dwSession )
 {
 	CDPBillingTH* pBilling = GetBilling( dwSession );	
@@ -123,7 +123,7 @@ bool CBillingMgrTH::RequestBillingInfo( LPCTSTR lpszAccount, LPCTSTR lpAddr, DWO
 		return false;
 }
 
-// ë¹Œë§ì„œë²„ì— ìœ ì € ë¡œê·¸ì•„ì›ƒì„ ì•Œë¦°ë‹¤.
+// ºô¸µ¼­¹ö¿¡ À¯Àú ·Î±×¾Æ¿ôÀ» ¾Ë¸°´Ù.
 void CBillingMgrTH::NotifyLogout( LPCTSTR lpszAccount, DWORD dwSession )
 {
 	CDPBillingTH* pBilling = GetBilling( dwSession );	
@@ -131,7 +131,7 @@ void CBillingMgrTH::NotifyLogout( LPCTSTR lpszAccount, DWORD dwSession )
 		pBilling->NotifyLogout( lpszAccount, dwSession );
 }
 
-// ë¹Œë§ì— ê´€ë ¨ëœ ìœˆë„ìš° ë©”ì„¸ì§€ê°€ ì²˜ë¦¬ë˜ê²Œ í•œë‹¤.
+// ºô¸µ¿¡ °ü·ÃµÈ À©µµ¿ì ¸Ş¼¼Áö°¡ Ã³¸®µÇ°Ô ÇÑ´Ù.
 BOOL CBillingMgrTH::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam ) 
 {
 	switch( message ) 
@@ -164,7 +164,7 @@ BOOL CBillingMgrTH::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam,
 	return FALSE;
 }
 
-// ë¹Œë§ì„œë²„ì™€ ì—°ê²°í•œë‹¤.
+// ºô¸µ¼­¹ö¿Í ¿¬°áÇÑ´Ù.
 bool CBillingMgrTH::Connect()
 {
 	int iFailed = 0;
@@ -180,7 +180,7 @@ bool CBillingMgrTH::Connect()
 	return iFailed == 0;
 }
 
-// KEEP_ALIVEì‹ í˜¸ë¥¼ ë³´ë‚¸ë‹¤.
+// KEEP_ALIVE½ÅÈ£¸¦ º¸³½´Ù.
 void CBillingMgrTH::SendKeepAlive()
 {
 	for( int i=0; i<m_nMaxConnect; ++i )
@@ -194,28 +194,28 @@ void CBillingMgrTH::SendKeepAlive()
 void CBillingMgrTH::OnTimer( CAccount* pAccount )
 {
 	static CTime tm( 0 );
-	if( pAccount->m_TimeOverDays == tm )			// login ë¯¸ì²˜ë¦¬ì or timeover skip
+	if( pAccount->m_TimeOverDays == tm )			// login ¹ÌÃ³¸®ÀÚ or timeover skip
 		return;		
 		
 	if( pAccount->m_nStatus == ACCOUNT_STATUS_SECONDQUERY )
 		return;
 
 	CTime cur = CTime::GetCurrentTime();
-	if( pAccount->m_TimeOverDays <= cur )			// timerover ì²˜ë¦¬ 
+	if( pAccount->m_TimeOverDays <= cur )			// timerover Ã³¸® 
 	{	
 		pAccount->m_nStatus = ACCOUNT_STATUS_SECONDQUERY;	
 		CheckAccount( 0, pAccount->m_dwAuthKey, pAccount->m_lpszAccount, "" );
 	}
 	else
 	{
-		// ë‚¨ì€ ì‹œê°„ í†µì§€
+		// ³²Àº ½Ã°£ ÅëÁö
 		CTimeSpan ts = pAccount->m_TimeOverDays - cur;
 		if ( ts.GetTotalMinutes() >= 29 && ts.GetTotalMinutes() <= 31 && 
 			 pAccount->m_nStatus != ACCOUNT_STATUS_NOTIFIED &&
 			 pAccount->m_fRoute == TRUE )
 		{
 			pAccount->m_nStatus = ACCOUNT_STATUS_NOTIFIED;				
-			g_dpDbSrvr.SendOneHourNotify( pAccount );	// TRANSì— ë³´ë‚¸ë‹¤.
+			g_dpDbSrvr.SendOneHourNotify( pAccount );	// TRANS¿¡ º¸³½´Ù.
 		}
 	}			
 }

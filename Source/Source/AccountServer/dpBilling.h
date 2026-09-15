@@ -1,4 +1,4 @@
-ï»¿#ifndef __DPBILLING_H__
+#ifndef __DPBILLING_H__
 #define	__DPBILLING_H__
 
 #include "dpmng.h"
@@ -13,7 +13,7 @@ using	namespace	std;
 #undef theParameters
 #define theParameters	CAr & ar, DPID
 
-// ì¼ë³¸ ë¹Œë§í†µì‹ ìš© 
+// ÀÏº» ºô¸µÅë½Å¿ë 
 class CDPBilling : public CDPMng<CBuffer2>
 {
 private:

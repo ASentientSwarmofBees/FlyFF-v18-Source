@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "ItemScript.h"
 #include "..\lua\lua.hpp"
 #include "WScript.h"

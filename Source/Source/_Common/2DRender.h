@@ -1,4 +1,4 @@
-ï»¿#ifndef __2DRENDER_H
+#ifndef __2DRENDER_H
 #define __2DRENDER_H
 
 
@@ -66,7 +66,7 @@ struct TEXTUREVERTEX2
 	DWORD color; 
 	FLOAT u, v;
 };
-#define D3DFVF_DRAWVERTEX (D3DFVF_XYZRHW|D3DFVF_DIFFUSE/*|D3DFVF_TEX1*/)	// FVFê°€ ë§žì§€ì•Šì•„ ê²½ê³ ê°€ ë– ì„œ ì§€ì› ìŒ.-xuzhu-
+#define D3DFVF_DRAWVERTEX (D3DFVF_XYZRHW|D3DFVF_DIFFUSE/*|D3DFVF_TEX1*/)	// FVF°¡ ¸ÂÁö¾Ê¾Æ °æ°í°¡ ¶°¼­ Áö¿üÀ½.-xuzhu-
 #define D3DFVF_TEXTUREVERTEX (D3DFVF_XYZRHW|D3DFVF_TEX1)
 #define D3DFVF_TEXTUREVERTEX2 (D3DFVF_XYZRHW|D3DFVF_DIFFUSE|D3DFVF_TEX1)
 
@@ -117,7 +117,7 @@ public:
 	LPDIRECT3DDEVICE9 m_pd3dDevice; // The D3D rendering device
 	DWORD      m_dwTextColor;
 	CD3DFont*  m_pFont;
- 	CPoint     m_ptOrigin ; // ë·°í¬íŠ¸ ì‹œìž‘ ì§€ì  
+ 	CPoint     m_ptOrigin ; // ºäÆ÷Æ® ½ÃÀÛ ÁöÁ¡ 
 	CRectClip  m_clipRect;
 
 	C2DRender(); 
@@ -126,7 +126,7 @@ public:
 	CD3DFont* GetFont() { return m_pFont; }
 	void SetFont( CD3DFont* pFont ) { m_pFont = pFont; }
 
-	// ë·°í¬íŠ¸ ê´€ë ¨ 
+	// ºäÆ÷Æ® °ü·Ã 
 	CPoint GetViewportOrg() const { return m_ptOrigin; }
 	void SetViewportOrg(POINT pt) { m_ptOrigin = pt; }
 	void SetViewportOrg(int x,int y) { m_ptOrigin = CPoint(x,y); }
@@ -159,7 +159,7 @@ public:
 	BOOL RenderTexture( CPoint pt, CTexture* pTexture, DWORD dwBlendFactorAlhpa = 255, FLOAT fScaleX=1.0 , FLOAT fScaleY=1.0 );
 	BOOL RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlendFactorAlhpa, FLOAT fScaleX , FLOAT fScaleY, FLOAT fRadian );
 	
-	//added by gmpbigsun: íšŒì „ì¶• ë³€ê²½ 
+	//added by gmpbigsun: È¸ÀüÃà º¯°æ 
 	BOOL RenderTextureRotate( CPoint pt, CTexture* pTexture, DWORD dwBlendFactorAlhpa, FLOAT fRadian, BOOL bCenter, FLOAT fScaleX, FLOAT fScaleY );
 	
 	BOOL RenderTexture2( CPoint pt, CTexture* pTexture, FLOAT fScaleX = 1.0, FLOAT fScaleY = 1.0, D3DCOLOR coolor = 0xffffffff );
@@ -238,7 +238,7 @@ public:
 		p2DRender->RenderTextureRotate( pt, this, dwBlendFactorAlhpa , fscalX, fscalY, fRadian ); 
 	}
 
-	//added by gmpbigsun : íšŒì „ì¶• ë³€ê²½ê°€ëŠ¥ ( center or start point )
+	//added by gmpbigsun : È¸ÀüÃà º¯°æ°¡´É ( center or start point )
 	void RenderRotate( C2DRender* p2DRender, CPoint pt, FLOAT fRadian, BOOL bCenter, DWORD dwBlendFactorAlhpa = 255, FLOAT fscalX = 1.0, FLOAT fscalY = 1.0 ) {
 		p2DRender->RenderTextureRotate( pt, this, dwBlendFactorAlhpa, fRadian, bCenter, fscalX, fscalY ); 
 	}
@@ -287,7 +287,7 @@ public:
 	{
 		if( ((int)dwIndex >= (int)m_dwNumber) || (int)dwIndex < 0 )
 		{
-			LPCTSTR szErr = Error( "CTexturePack::Render : ë²”ìœ„ë¥¼ ë²—ì–´ë‚¨ %d", (int)dwIndex );
+			LPCTSTR szErr = Error( "CTexturePack::Render : ¹üÀ§¸¦ ¹þ¾î³² %d", (int)dwIndex );
 			ADDERRORMSG( szErr );
 			int *p = NULL;
 			*p = 1;
@@ -315,7 +315,7 @@ public:
 	CTexture* GetAt( LPCTSTR pFileName );
 };
 #ifdef __CLIENT
-// ëª¹, í”Œë ˆì´ì–´ ë°ë¯¸ì§€ ì¶œë ¥
+// ¸÷, ÇÃ·¹ÀÌ¾î µ¥¹ÌÁö Ãâ·Â
 class CDamageNum
 {
 public:
@@ -346,7 +346,7 @@ public:
 #endif	// __CLIENT
 };
 
-// ë°ë¯¸ì§€ ìˆ«ìž ê´€ë¦¬ìž
+// µ¥¹ÌÁö ¼ýÀÚ °ü¸®ÀÚ
 class CDamageNumMng
 {
 public:
@@ -363,9 +363,9 @@ public:
 
 	BOOL DeleteDeviceObjects();
 	void LoadTexture(LPDIRECT3DDEVICE9 pd3dDevice);
-	void AddNumber(D3DXVECTOR3 vPos,DWORD nNumber,DWORD nAttribute); // ìƒˆë¡œìš´ ë°ë¯¸ì§€ í‘œì‹œë¥¼ ìƒì„±ì‹œí‚¨ë‹¤.
-	void Process(); // í˜„ìž¬ ìƒì„±ëœ ë°ë¯¸ì§€ í‘œì‹œë“¤ì„ ì²˜ë¦¬í•œë‹¤.
-	void Render(); // í˜„ìž¬ ìƒì„±ëœ ë°ë¯¸ì§€ í‘œì‹œë“¤ì„ ì¶œë ¥í•œë‹¤.
+	void AddNumber(D3DXVECTOR3 vPos,DWORD nNumber,DWORD nAttribute); // »õ·Î¿î µ¥¹ÌÁö Ç¥½Ã¸¦ »ý¼º½ÃÅ²´Ù.
+	void Process(); // ÇöÀç »ý¼ºµÈ µ¥¹ÌÁö Ç¥½ÃµéÀ» Ã³¸®ÇÑ´Ù.
+	void Render(); // ÇöÀç »ý¼ºµÈ µ¥¹ÌÁö Ç¥½ÃµéÀ» Ãâ·ÂÇÑ´Ù.
 };
 #endif
 #endif

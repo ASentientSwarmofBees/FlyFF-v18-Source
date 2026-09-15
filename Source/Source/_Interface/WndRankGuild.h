@@ -1,4 +1,4 @@
-ï»¿#ifndef __WNDRANKGUILD__H
+#ifndef __WNDRANKGUILD__H
 #define __WNDRANKGUILD__H
 
 class CWndRankTabBest : public CWndNeuz 
@@ -7,8 +7,8 @@ public:
 	CWndRankTabBest(); 
 	~CWndRankTabBest(); 
 
-	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
-	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
+	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
+	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
 
 	virtual BOOL OnMouseWheel( UINT nFlags, short zDelta, CPoint pt );
 	virtual void OnMouseMove(UINT nFlags, CPoint point );
@@ -30,8 +30,8 @@ public:
 	CWndRankTabUnited(); 
 	~CWndRankTabUnited(); 
 	
-	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
-	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
+	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
+	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
 
 	virtual BOOL OnMouseWheel( UINT nFlags, short zDelta, CPoint pt );
 	virtual void OnMouseMove(UINT nFlags, CPoint point );
@@ -53,8 +53,8 @@ public:
 	CWndRankTabPenya(); 
 	~CWndRankTabPenya(); 
 	
-	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
-	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
+	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
+	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
 
 	virtual BOOL OnMouseWheel( UINT nFlags, short zDelta, CPoint pt );
 	virtual void OnMouseMove(UINT nFlags, CPoint point );

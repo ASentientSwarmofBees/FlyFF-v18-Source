@@ -1,4 +1,4 @@
-ï»¿// Project.cpp: implementation of the CProject class.
+// Project.cpp: implementation of the CProject class.
 //
 //////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
@@ -19,35 +19,35 @@ extern	CWorldMng	g_WorldMng;
 #endif	// __WORLDSERVER
 
 #define SYNTAX_ERROR		Error( "%s(%d) : MoverID=%d syntax error %s", szFileName, script.GetLineNum(), nVal, script.token );
-#define UNIDENTIFY_ERROR	Error( "%s(%d) : MoverID=%d ì§€ì •ë˜ì§€ ì•Šì€ ë””íŒŒì¸ error %s", szFileName, script.GetLineNum(), nVal, script.token );
+#define UNIDENTIFY_ERROR	Error( "%s(%d) : MoverID=%d ÁöÁ¤µÇÁö ¾ÊÀº µğÆÄÀÎ error %s", szFileName, script.GetLineNum(), nVal, script.token );
 #define CUSTOM_ERROR(A)		Error( "%s(%d) : MoverID=%d %s %s", szFileName, script.GetLineNum(), nVal, A, script.token );		
 
 enum AICMD {
 	AICMD_NONE = 0,
 	AICMD_SCAN, 
-	AICMD_ATTACK, 		// ê³µê²©ëª…ë ¹.
-	AICMD_ATK_HPCOND,	// hpë¹„êµ
-	AICMD_ATK_LVCOND,	// lvë¹„êµ
-	AICMD_RECOVERY,		// íšŒë³µ
-	AICMD_RANGEATTACK,	// ì›ê±°ë¦¬ ê³µê²©.
-	AICMD_KEEP_RANGEATTACK,	// ê±°ë¦¬ìœ ì§€ ì›ê±°ë¦¬ ê³µê²©.
-	AICMD_SUMMON,		// ì†Œí™˜
-	AICMD_EVADE,		// ë„ë§
-	AICMD_HELPER,		// ë„ì›€ìš”ì²­
-	AICMD_BERSERK,		// ê´‘ë¶„ìƒíƒœ
-	AICMD_RANDOMTARGET,	// ëœë¤í•œìƒëŒ€ì—ê²Œ ê³µê²©
-	AICMD_LOOT,			// ë£¨íŒ…í•˜ëŠ” ëª¹.
+	AICMD_ATTACK, 		// °ø°İ¸í·É.
+	AICMD_ATK_HPCOND,	// hpºñ±³
+	AICMD_ATK_LVCOND,	// lvºñ±³
+	AICMD_RECOVERY,		// È¸º¹
+	AICMD_RANGEATTACK,	// ¿ø°Å¸® °ø°İ.
+	AICMD_KEEP_RANGEATTACK,	// °Å¸®À¯Áö ¿ø°Å¸® °ø°İ.
+	AICMD_SUMMON,		// ¼ÒÈ¯
+	AICMD_EVADE,		// µµ¸Á
+	AICMD_HELPER,		// µµ¿ò¿äÃ»
+	AICMD_BERSERK,		// ±¤ºĞ»óÅÂ
+	AICMD_RANDOMTARGET,	// ·£´ıÇÑ»ó´ë¿¡°Ô °ø°İ
+	AICMD_LOOT,			// ·çÆÃÇÏ´Â ¸÷.
 };
 
-// AI{}ì¤‘ #SCAN ë¸”ëŸ­.
+// AI{}Áß #SCAN ºí·°.
 BOOL CProject::LoadPropMoverEx_AI_SCAN( LPCTSTR szFileName, CScript &script, int nVal )
 {
 	AICMD nCommand = AICMD_NONE;
 
 	script.GetToken();	// {
-	if( script.token[0] != '{' )	// #SCAN í›„ì— {ê°€ ë¹ ì¡ŒëŠ”ê°€.
+	if( script.token[0] != '{' )	// #SCAN ÈÄ¿¡ {°¡ ºüÁ³´Â°¡.
 	{
-		Error( "%s(%d) : MoverID=%d SCAN ì„¹í„°ë¸”ëŸ­ { ë¹ ì¡ŒìŒ.", szFileName, script.GetLineNum(), nVal );
+		Error( "%s(%d) : MoverID=%d SCAN ¼½ÅÍºí·° { ºüÁ³À½.", szFileName, script.GetLineNum(), nVal );
 		return FALSE;
 	}
 
@@ -55,43 +55,43 @@ BOOL CProject::LoadPropMoverEx_AI_SCAN( LPCTSTR szFileName, CScript &script, int
 	
 	while(1)
 	{
-		script.GetToken();		// í† í° í•˜ë‚˜ ì½ìŒ,.
-		if( script.token[0] == '}' )	// SCANë¸”ëŸ­ ë.
+		script.GetToken();		// ÅäÅ« ÇÏ³ª ÀĞÀ½,.
+		if( script.token[0] == '}' )	// SCANºí·° ³¡.
 			break;
 
-		if( script.tokenType == IDENTIFIER )		// í† í°ì´ ì‹ë³„ì.
+		if( script.tokenType == IDENTIFIER )		// ÅäÅ«ÀÌ ½Äº°ÀÚ.
 		{
-			if( nCommand == AICMD_SCAN )		// scanëª…ë ¹ì–´ê°€ ë‚˜ì™”ì—ˆë‹¤.
+			if( nCommand == AICMD_SCAN )		// scan¸í·É¾î°¡ ³ª¿Ô¾ú´Ù.
 			{
-				if( strcmpi( script.token, "job" ) == 0 )		// ìŠ¤ìº” ì§ì—… 
+				if( strcmpi( script.token, "job" ) == 0 )		// ½ºÄµ Á÷¾÷ 
 					pProp->m_nScanJob = script.GetNumber();
 				else 
-				if( strcmpi( script.token, "range" ) == 0 )		// ìŠ¤ìº” ë²”ìœ„ 
+				if( strcmpi( script.token, "range" ) == 0 )		// ½ºÄµ ¹üÀ§ 
 					pProp->m_nAttackFirstRange = script.GetNumber();
 				else 
-				if( strcmpi( script.token, "quest" ) == 0 )	// í€˜ìŠ¤íŠ¸ë¥¼ ê°–ì€ í”Œë ˆì´ì–´ ìŠ¤ì¼„ 
+				if( strcmpi( script.token, "quest" ) == 0 )	// Äù½ºÆ®¸¦ °®Àº ÇÃ·¹ÀÌ¾î ½ºÄË 
 					pProp->m_dwScanQuestId = script.GetNumber();
 				else 
-				if( strcmpi( script.token, "item" ) == 0 )	// í•´ë‹¹ ì•„ì´í…œì„ ê°–ì€ í”Œë ˆì´ì–´ ìŠ¤ì¼„ 
+				if( strcmpi( script.token, "item" ) == 0 )	// ÇØ´ç ¾ÆÀÌÅÛÀ» °®Àº ÇÃ·¹ÀÌ¾î ½ºÄË 
 					pProp->m_dwScanItemIdx = script.GetNumber();
 				else
-				if( strcmpi( script.token, "chao" ) == 0 )	// í•´ë‹¹ ì•„ì´í…œì„ ê°–ì€ í”Œë ˆì´ì–´ ìŠ¤ì¼„ 
+				if( strcmpi( script.token, "chao" ) == 0 )	// ÇØ´ç ¾ÆÀÌÅÛÀ» °®Àº ÇÃ·¹ÀÌ¾î ½ºÄË 
 					pProp->m_nScanChao = script.GetNumber();
 				else
 				{
-					// ìŠ¤ì¼„ ë’¤ì— ë‚˜ì˜¨ ìŠ¤íŠ¸ë§ì´ ì•„ë¬´ê²ƒë„ ì•„ë‹ˆë¼ë©´ ë¬¸ì œê°€ ìˆìŒ 
+					// ½ºÄË µÚ¿¡ ³ª¿Â ½ºÆ®¸µÀÌ ¾Æ¹«°Íµµ ¾Æ´Ï¶ó¸é ¹®Á¦°¡ ÀÖÀ½ 
 					SYNTAX_ERROR;
 					return FALSE;
 				}
 			}
-			if( strcmpi( script.Token, "scan" ) == 0 )	// ëª…ë ¹ì–´.
+			if( strcmpi( script.Token, "scan" ) == 0 )	// ¸í·É¾î.
 			{
-				if( nCommand )	// ì´ë¯¸ ë­”ê°€ ëª…ë ¹ì´ ì„¸íŒ…ë˜ì—ˆëŠ”ë° ë˜ ë‚˜ì™”ë‹¤.
+				if( nCommand )	// ÀÌ¹Ì ¹º°¡ ¸í·ÉÀÌ ¼¼ÆÃµÇ¾ú´Âµ¥ ¶Ç ³ª¿Ô´Ù.
 				{
 					SYNTAX_ERROR;
 					return FALSE;
 				}
-				nCommand =	AICMD_SCAN;	// scanëª…ë ¹
+				nCommand =	AICMD_SCAN;	// scan¸í·É
 				//pProp->m_nAttackFirstRange = 3;
 			}
 		}
@@ -100,15 +100,15 @@ BOOL CProject::LoadPropMoverEx_AI_SCAN( LPCTSTR szFileName, CScript &script, int
 	return TRUE;
 }
 
-// AI{}ì¤‘ #BATTLE ë¸”ëŸ­.
+// AI{}Áß #BATTLE ºí·°.
 BOOL CProject::LoadPropMoverEx_AI_BATTLE( LPCTSTR szFileName, CScript &script, int nVal )
 {
 	AICMD nCommand = AICMD_NONE;
 
 	script.GetToken();	// {
-	if( script.token[0] != '{' )	// #BATTLE í›„ì— {ê°€ ë¹ ì¡ŒëŠ”ê°€.
+	if( script.token[0] != '{' )	// #BATTLE ÈÄ¿¡ {°¡ ºüÁ³´Â°¡.
 	{
-		Error( "%s(%d) : MoverID=%d BATTLE ì„¹í„°ë¸”ëŸ­ { ë¹ ì¡ŒìŒ.", szFileName, script.GetLineNum(), nVal );
+		Error( "%s(%d) : MoverID=%d BATTLE ¼½ÅÍºí·° { ºüÁ³À½.", szFileName, script.GetLineNum(), nVal );
 		return FALSE;
 	}
 
@@ -116,34 +116,34 @@ BOOL CProject::LoadPropMoverEx_AI_BATTLE( LPCTSTR szFileName, CScript &script, i
 	
 	while(1)
 	{
-		script.GetToken();		// í† í° í•˜ë‚˜ ì½ìŒ,.
-		if( script.token[0] == '}' )	// BATTLEë¸”ëŸ­ ë.
+		script.GetToken();		// ÅäÅ« ÇÏ³ª ÀĞÀ½,.
+		if( script.token[0] == '}' )	// BATTLEºí·° ³¡.
 			break;
 
-		if( script.tokenType == IDENTIFIER )		// í† í°ì´ ì‹ë³„ì.
+		if( script.tokenType == IDENTIFIER )		// ÅäÅ«ÀÌ ½Äº°ÀÚ.
 		{
 			//---- Attack
-			if( strcmpi( script.token, "Attack" ) == 0 )	// ì¼ë°˜ ê³µê²©ëª…ë ¹.
+			if( strcmpi( script.token, "Attack" ) == 0 )	// ÀÏ¹İ °ø°İ¸í·É.
 			{
-				nCommand =	AICMD_ATTACK;	//	ëª…ë ¹ "ê³µê²©" ì‹œì‘.
-				pProp->m_bMeleeAttack = 1;	// ê·¼ì ‘ê³µê²© AIë„ ìˆë‹¤ëŠ”ê²ƒ.
+				nCommand =	AICMD_ATTACK;	//	¸í·É "°ø°İ" ½ÃÀÛ.
+				pProp->m_bMeleeAttack = 1;	// ±ÙÁ¢°ø°İ AIµµ ÀÖ´Ù´Â°Í.
 			} else
 			//--- cunning
-			if( strcmpi( script.token, "cunning" ) == 0 )	// ê³µê²©ëª…ë ¹ì‹œ ë ˆë²¨ ë¹„êµ
+			if( strcmpi( script.token, "cunning" ) == 0 )	// °ø°İ¸í·É½Ã ·¹º§ ºñ±³
 			{
-				if( nCommand == 0 )		// cunningëª…ë ¹ì•ì—ëŠ” ì–´ë–¤ëª…ë ¹ì´ë“  ë¨¼ì € ì™€ì•¼í•œë‹¤.
+				if( nCommand == 0 )		// cunning¸í·É¾Õ¿¡´Â ¾î¶²¸í·ÉÀÌµç ¸ÕÀú ¿Í¾ßÇÑ´Ù.
 				{
 					SYNTAX_ERROR;
 					return FALSE;
 				} else
-				if( nCommand == AICMD_ATTACK )		// Attack <xxx> cunning í˜•íƒœë¡œ ì™”ë‹¤.
+				if( nCommand == AICMD_ATTACK )		// Attack <xxx> cunning ÇüÅÂ·Î ¿Ô´Ù.
 				{
 					script.GetToken();
-					if( strcmpi( script.token, "low" ) == 0 )		// íƒ€ê²Ÿì´ ë ˆë²¨ì´ ë‚®ì€ê²½ìš° ê³µê²©
+					if( strcmpi( script.token, "low" ) == 0 )		// Å¸°ÙÀÌ ·¹º§ÀÌ ³·Àº°æ¿ì °ø°İ
 						pProp->m_nLvCond = 1;
-					else if( strcmpi( script.token, "Sam" ) == 0 )	// íƒ€ê²Ÿì´ ë ˆë²¨ì´ ê°™ì€ê²½ìš°.
+					else if( strcmpi( script.token, "Sam" ) == 0 )	// Å¸°ÙÀÌ ·¹º§ÀÌ °°Àº°æ¿ì.
 						pProp->m_nLvCond = 2;
-					else if( strcmpi( script.token, "Hi" ) == 0 )	// íƒ€ê²Ÿì´ ë ˆë²¨ì´ ë†’ì€ê²½ìš°.
+					else if( strcmpi( script.token, "Hi" ) == 0 )	// Å¸°ÙÀÌ ·¹º§ÀÌ ³ôÀº°æ¿ì.
 						pProp->m_nLvCond = 3;
 					else
 					{
@@ -153,196 +153,196 @@ BOOL CProject::LoadPropMoverEx_AI_BATTLE( LPCTSTR szFileName, CScript &script, i
 				}
 			} else
 			//--- Recovery
-			if( strcmpi( script.token, "Recovery" ) == 0 )	// íšŒë³µ ëª…ë ¹.
+			if( strcmpi( script.token, "Recovery" ) == 0 )	// È¸º¹ ¸í·É.
 			{
-				nCommand = AICMD_RECOVERY;		// ëª…ë ¹ "íšŒë³µ" ì‹œì‘.
-				pProp->m_bRecvCond = 1;			//ì¼ë‹¨ì€ ë””í´íŠ¸ë¡œ 1(ì „íˆ¬ì¤‘ ì¹˜ë£Œ)
+				nCommand = AICMD_RECOVERY;		// ¸í·É "È¸º¹" ½ÃÀÛ.
+				pProp->m_bRecvCond = 1;			//ÀÏ´ÜÀº µğÆúÆ®·Î 1(ÀüÅõÁß Ä¡·á)
 				pProp->m_nRecvCondMe = 0;
 				pProp->m_nRecvCondHow = 100;
 				pProp->m_nRecvCondMP = 0;
 			} else
-			//--- ëŒ€ìƒì§€ì •. u=ë‹¤ë¥¸ì´ m=ë‚˜ë§Œ, a=ë‹¤ë¥¸ì´/ë‚˜
+			//--- ´ë»óÁöÁ¤. u=´Ù¸¥ÀÌ m=³ª¸¸, a=´Ù¸¥ÀÌ/³ª
 			if( strcmpi( script.token, "u" ) == 0 || 
 				strcmpi( script.token, "m" ) == 0 || 
-				strcmpi( script.token, "a" ) == 0 )	// ëŒ€ìƒì„¤ì •
+				strcmpi( script.token, "a" ) == 0 )	// ´ë»ó¼³Á¤
 			{
-				if( nCommand == 0 )		// u,m,aëª…ë ¹ì•ì—ëŠ” ì–´ë–¤ëª…ë ¹ì´ë“  ë¨¼ì € ì™€ì•¼í•œë‹¤.
+				if( nCommand == 0 )		// u,m,a¸í·É¾Õ¿¡´Â ¾î¶²¸í·ÉÀÌµç ¸ÕÀú ¿Í¾ßÇÑ´Ù.
 				{
 					SYNTAX_ERROR;
 					return FALSE;
 				} else
-				if( nCommand == AICMD_RECOVERY )		// recovery xx xx xx (u,m,a) í˜•íƒœë¡œ ì™”ë‹¤.
+				if( nCommand == AICMD_RECOVERY )		// recovery xx xx xx (u,m,a) ÇüÅÂ·Î ¿Ô´Ù.
 				{
 //					script.GetToken();
-					if( strcmpi( script.token, "u" ) == 0 )		// ëŒ€ìƒì€ ë‹¤ë¥¸ì´.
+					if( strcmpi( script.token, "u" ) == 0 )		// ´ë»óÀº ´Ù¸¥ÀÌ.
 						pProp->m_bRecvCondWho = 1;
-					else if( strcmpi( script.token, "m" ) == 0 )	// ëŒ€ìƒì€ ë‚˜
+					else if( strcmpi( script.token, "m" ) == 0 )	// ´ë»óÀº ³ª
 						pProp->m_bRecvCondWho = 2;
-					else if( strcmpi( script.token, "a" ) == 0 )	// ëŒ€ìƒì€ ë‹¤ë¥¸ì´,ë‚˜
+					else if( strcmpi( script.token, "a" ) == 0 )	// ´ë»óÀº ´Ù¸¥ÀÌ,³ª
 						pProp->m_bRecvCondWho = 3;
 
-					pProp->m_bRecvCond = 2;			// ì¼ë‹¨ ì˜µì…˜ì´ ë¶™ì—ˆìœ¼ë¯€ë¡œ ì „íˆ¬/ë¹„ì „íˆ¬ ëª¨ë‘ íë§.
+					pProp->m_bRecvCond = 2;			// ÀÏ´Ü ¿É¼ÇÀÌ ºÙ¾úÀ¸¹Ç·Î ÀüÅõ/ºñÀüÅõ ¸ğµÎ Èú¸µ.
 				}
 			} else
-			if( strcmpi( script.token, "RangeAttack" ) == 0 )	// ì›ê±°ë¦¬ ê³µê²©
+			if( strcmpi( script.token, "RangeAttack" ) == 0 )	// ¿ø°Å¸® °ø°İ
 			{
 				nCommand = AICMD_RANGEATTACK;
 			} else
-			if( strcmpi( script.token, "KeepRangeAttack" ) == 0 )	// ê±°ë¦¬ìœ ì§€ ì›ê±°ë¦¬ ê³µê²©
+			if( strcmpi( script.token, "KeepRangeAttack" ) == 0 )	// °Å¸®À¯Áö ¿ø°Å¸® °ø°İ
 			{
 				nCommand = AICMD_KEEP_RANGEATTACK;
 			} else
-			if( strcmpi( script.token, "Summon" ) == 0 )		// ì†Œí™˜ ëª…ë ¹
+			if( strcmpi( script.token, "Summon" ) == 0 )		// ¼ÒÈ¯ ¸í·É
 			{
 				nCommand = AICMD_SUMMON;
 			} else
-			if( strcmpi( script.token, "Evade" ) == 0 )			// ë„ë§
+			if( strcmpi( script.token, "Evade" ) == 0 )			// µµ¸Á
 			{
 				nCommand = AICMD_EVADE;
 			} else
-			if( strcmpi( script.token, "Helper" ) == 0 )		// ë„ì›€ìš”ì²­.
+			if( strcmpi( script.token, "Helper" ) == 0 )		// µµ¿ò¿äÃ».
 			{
 				nCommand = AICMD_HELPER;
-				pProp->m_tmUnitHelp = 0;			// ëª‡ì´ˆë§ˆë‹¤ í•œë²ˆì”© í—¬í¼ë¥¼ ë¶€ë¥¼êº¼ëƒ. 0ì´ë©´ ìµœì´ˆí•œë²ˆë§Œ.
-				pProp->m_nHelpRangeMul = 2;			// ë””í´íŠ¸ëŠ” ì‹œì•¼ë°˜ê²½ 2ë°°ë‚´.
+				pProp->m_tmUnitHelp = 0;			// ¸îÃÊ¸¶´Ù ÇÑ¹ø¾¿ ÇïÆÛ¸¦ ºÎ¸¦²¨³Ä. 0ÀÌ¸é ÃÖÃÊÇÑ¹ø¸¸.
+				pProp->m_nHelpRangeMul = 2;			// µğÆúÆ®´Â ½Ã¾ß¹İ°æ 2¹è³».
 				pProp->m_bHelpWho = 1;
 				pProp->m_nCallHelperMax = 5;
 			} else
-			// helperì—ì„œ ì“°ì´ëŠ”..
+			// helper¿¡¼­ ¾²ÀÌ´Â..
 			if( strcmpi( script.token, "all" ) == 0 ||
 				strcmpi( script.token, "sam" ) == 0 )
 			{
-				if( nCommand == 0 ) // all/sam ëª…ë ¹ì•ì—ëŠ” ì–´ë–¤ëª…ë ¹ì´ë“  ë¨¼ì € ì™€ì•¼ í•œë‹¤.
+				if( nCommand == 0 ) // all/sam ¸í·É¾Õ¿¡´Â ¾î¶²¸í·ÉÀÌµç ¸ÕÀú ¿Í¾ß ÇÑ´Ù.
 				{
 					SYNTAX_ERROR;
 					return FALSE;
 				} else
 				if( nCommand == AICMD_HELPER )
 				{
-					if( strcmpi( script.token, "all" ) == 0 )			// ì•„ë¬´ë‚˜.
+					if( strcmpi( script.token, "all" ) == 0 )			// ¾Æ¹«³ª.
 						pProp->m_bHelpWho = 1;	
-					else if( strcmpi( script.token, "sam" ) == 0 )		// ê°™ì€ ì¢…ë§Œ
+					else if( strcmpi( script.token, "sam" ) == 0 )		// °°Àº Á¾¸¸
 						pProp->m_bHelpWho = 2;
 				}
 			} else
-			if( strcmpi( script.token, "Berserk" ) == 0 )		// ê´‘í¬í™”.
+			if( strcmpi( script.token, "Berserk" ) == 0 )		// ±¤Æ÷È­.
 			{
 				nCommand = AICMD_BERSERK;
 			} else
 			if( strcmpi( script.token, "Randomtarget" ) == 0 )	
 			{
 			} else
-//			if( strcmpi( script.token, "Loot" ) == 0 )		// ë£¨íŒ…. ì•„ì´í…œ ì¤ì–´ë¨¹ê¸°.
+//			if( strcmpi( script.token, "Loot" ) == 0 )		// ·çÆÃ. ¾ÆÀÌÅÛ ÁŞ¾î¸Ô±â.
 //			{
 //				nCommand = AICMD_LOOT;
 //				pProp->m_nLoot = 1;
 //			} else
 			{
-				SYNTAX_ERROR;	// ì´ìƒí•œ ëª…ë ¹ì´ ë“¤ì–´ì™”ìŒ.
+				SYNTAX_ERROR;	// ÀÌ»óÇÑ ¸í·ÉÀÌ µé¾î¿ÔÀ½.
 				return FALSE;
 			}
 		} else
-		/////////// í† í°ì´ ìˆ«ì.
+		/////////// ÅäÅ«ÀÌ ¼ıÀÚ.
 		if( script.tokenType == NUMBER )
 		{
-			if( nCommand == 0 )		// ì•„ë¬´ ëª…ë ¹ì—†ì´ ìˆ«ìê°€ ë‚˜ì™”ë‹¤.
+			if( nCommand == 0 )		// ¾Æ¹« ¸í·É¾øÀÌ ¼ıÀÚ°¡ ³ª¿Ô´Ù.
 			{
 				SYNTAX_ERROR;
 				return FALSE;
 			} else
-			if( nCommand == AICMD_ATTACK )		// ê³µê²©ëª…ë ¹ì´ ë‚˜ì™”ì—ˆë‹¤.
+			if( nCommand == AICMD_ATTACK )		// °ø°İ¸í·ÉÀÌ ³ª¿Ô¾ú´Ù.
 			{
-				int nNum = atoi( script.token );		// íŒŒë¼ë©”í„°ê°’ì„ ìˆ«ìë¡œ ë³€í™˜.
-				// nNumëŠ” ìƒëŒ€ì²´ë ¥ %;
-				pProp->m_nHPCond = nNum;				// ì„ ê³µëª¹ì¼ë•Œ íƒ€ê²ŸHPê°€ nNum%ë¯¸ë§Œì´ë©´ ê³µê²©í•œë‹¤.
+				int nNum = atoi( script.token );		// ÆÄ¶ó¸ŞÅÍ°ªÀ» ¼ıÀÚ·Î º¯È¯.
+				// nNum´Â »ó´ëÃ¼·Â %;
+				pProp->m_nHPCond = nNum;				// ¼±°ø¸÷ÀÏ¶§ Å¸°ÙHP°¡ nNum%¹Ì¸¸ÀÌ¸é °ø°İÇÑ´Ù.
 			} else
-			if( nCommand == AICMD_RECOVERY )	// íšŒë³µëª…ë ¹
+			if( nCommand == AICMD_RECOVERY )	// È¸º¹¸í·É
 			{
 				int nNum = atoi( script.token );
-				if( pProp->m_nRecvCondMe == 0 )		// ì²«ë²ˆì§¸ íŒŒë¼ë©”í„°(ë‚´HPê°€ ëª‡%ì´í•˜ì¸ê°€?)
+				if( pProp->m_nRecvCondMe == 0 )		// Ã¹¹øÂ° ÆÄ¶ó¸ŞÅÍ(³»HP°¡ ¸î%ÀÌÇÏÀÎ°¡?)
 				{
 					pProp->m_nRecvCondMe = nNum;
 				} else
-				if( pProp->m_nRecvCondHow == 100 )	// ë‘ë²ˆì§¸ íŒŒë¼ë©”í„°(ëª‡%ë¥¼ íë§í• ê»€ê°€)
+				if( pProp->m_nRecvCondHow == 100 )	// µÎ¹øÂ° ÆÄ¶ó¸ŞÅÍ(¸î%¸¦ Èú¸µÇÒ²«°¡)
 				{
 					pProp->m_nRecvCondHow = nNum;
 				} else
-				if( pProp->m_nRecvCondMP == 0 )		// ëª‡%ì˜ ë§ˆë‚˜ë¥¼ ì†Œëª¨í• ê»€ê°€.
+				if( pProp->m_nRecvCondMP == 0 )		// ¸î%ÀÇ ¸¶³ª¸¦ ¼Ò¸ğÇÒ²«°¡.
 				{
 					pProp->m_nRecvCondMP = nNum;
 				}
 			} else
-			if( nCommand == AICMD_RANGEATTACK || nCommand == AICMD_KEEP_RANGEATTACK )	// ì›ê±°ë¦¬ ê³µê²©ëª…ë ¹
+			if( nCommand == AICMD_RANGEATTACK || nCommand == AICMD_KEEP_RANGEATTACK )	// ¿ø°Å¸® °ø°İ¸í·É
 			{
 				int nJob = MAX_JOB;
 				int nRange	= atoi( script.token );			
 
 				if( nCommand == AICMD_KEEP_RANGEATTACK )
 				{
-					nRange |= 0x80;		// KEEP_RANGEëŠ” ìƒìœ„ 1ë¹„íŠ¸ ì˜¨.
-					if( nJob >= MAX_JOB )		// ëª¨ë“  ì§ì—….
+					nRange |= 0x80;		// KEEP_RANGE´Â »óÀ§ 1ºñÆ® ¿Â.
+					if( nJob >= MAX_JOB )		// ¸ğµç Á÷¾÷.
 					{
-						memset( pProp->m_bRangeAttack, nRange, sizeof(pProp->m_bRangeAttack) );		// ëª¨ë“ ì§ì—…ì— ê°™ì€ê°’ìœ¼ë¡œ ì„¤ì •.
+						memset( pProp->m_bRangeAttack, nRange, sizeof(pProp->m_bRangeAttack) );		// ¸ğµçÁ÷¾÷¿¡ °°Àº°ªÀ¸·Î ¼³Á¤.
 					} else
 					{
 						if( nJob >0 || nJob < MAX_JOB )
-							pProp->m_bRangeAttack[ nJob ] = (BYTE)nRange;		// í•´ë‹¹ì§ì—…ì˜ ì›ê±°ë¦¬ ê³µê²©ê¸¸ì´ë¥¼ ì €ì¥.
+							pProp->m_bRangeAttack[ nJob ] = (BYTE)nRange;		// ÇØ´çÁ÷¾÷ÀÇ ¿ø°Å¸® °ø°İ±æÀÌ¸¦ ÀúÀå.
 						else
 							SYNTAX_ERROR;
 					}
 				} else
 				{
-					if( nJob >= MAX_JOB )		// ëª¨ë“  ì§ì—….
+					if( nJob >= MAX_JOB )		// ¸ğµç Á÷¾÷.
 					{
-						memset( pProp->m_bRangeAttack, nRange, sizeof(pProp->m_bRangeAttack) );		// ëª¨ë“ ì§ì—…ì— ê°™ì€ê°’ìœ¼ë¡œ ì„¤ì •.
+						memset( pProp->m_bRangeAttack, nRange, sizeof(pProp->m_bRangeAttack) );		// ¸ğµçÁ÷¾÷¿¡ °°Àº°ªÀ¸·Î ¼³Á¤.
 					} else
 					{
 						if( nJob >0 || nJob < MAX_JOB )
-							pProp->m_bRangeAttack[ nJob ] = (BYTE)nRange;		// í•´ë‹¹ì§ì—…ì˜ ì›ê±°ë¦¬ ê³µê²©ê¸¸ì´ë¥¼ ì €ì¥.
+							pProp->m_bRangeAttack[ nJob ] = (BYTE)nRange;		// ÇØ´çÁ÷¾÷ÀÇ ¿ø°Å¸® °ø°İ±æÀÌ¸¦ ÀúÀå.
 						else
 							SYNTAX_ERROR;
 					}
 				}
 			} else
-			if( nCommand == AICMD_SUMMON )		// ì†Œí™˜ëª…ë ¹ì´ ë‚˜ì™”ì—ˆë‹¤.
+			if( nCommand == AICMD_SUMMON )		// ¼ÒÈ¯¸í·ÉÀÌ ³ª¿Ô¾ú´Ù.
 			{
-				pProp->m_nSummProb = atoi( script.token );	// ì†Œí™˜ í• ë•Œ ì„±ê³µí™•ë¥ 
-				pProp->m_nSummNum  = script.GetNumber();		// í•œë²ˆì— ëª‡ë§ˆë¦¬ë‚˜ ì†Œí™˜í•˜ëƒ.
+				pProp->m_nSummProb = atoi( script.token );	// ¼ÒÈ¯ ÇÒ¶§ ¼º°øÈ®·ü
+				pProp->m_nSummNum  = script.GetNumber();		// ÇÑ¹ø¿¡ ¸î¸¶¸®³ª ¼ÒÈ¯ÇÏ³Ä.
 				if( pProp->m_nSummNum > MAX_SUMMON )
 				{
-					CUSTOM_ERROR( "ì†Œí™˜í• ìˆ˜ ìˆëŠ” ê°œìˆ˜ê°€ ë„ˆë¬´ ë§ë‹¤" );
+					CUSTOM_ERROR( "¼ÒÈ¯ÇÒ¼ö ÀÖ´Â °³¼ö°¡ ³Ê¹« ¸¹´Ù" );
 #if __VER >= 12 // __NEW_SUMMON_RULE				
 					pProp->m_nSummNum = MAX_SUMMON;
 #endif // __NEW_SUMMON_RULE
 				}
 
-				script.GetToken();					// ëª¬ìŠ¤í„° ì•„ì´ë””
+				script.GetToken();					// ¸ó½ºÅÍ ¾ÆÀÌµğ
 				if( script.tokenType != NUMBER )
 					UNIDENTIFY_ERROR;
 				pProp->m_nSummID = atoi( script.token );
 				if( GetMoverProp( pProp->m_nSummID ) == NULL )
-					CUSTOM_ERROR( "ì§€ì •ëœ ëª¬ìŠ¤í„° ì•„ì´ë””ê°€ í”„ë¡œí¼í‹°ì— ì—†ìŒ" );
+					CUSTOM_ERROR( "ÁöÁ¤µÈ ¸ó½ºÅÍ ¾ÆÀÌµğ°¡ ÇÁ·ÎÆÛÆ¼¿¡ ¾øÀ½" );
 			} else
-			if( nCommand == AICMD_EVADE )	// ë„ë§ ëª…ë ¹ì´ ë‚˜ì™”ì—ˆë‹¤.
+			if( nCommand == AICMD_EVADE )	// µµ¸Á ¸í·ÉÀÌ ³ª¿Ô¾ú´Ù.
 			{
-				pProp->m_nRunawayHP = atoi( script.token );		// ëª‡%ë‚¨ìœ¼ë©´ ë„ë§ê°€ëƒ?
+				pProp->m_nRunawayHP = atoi( script.token );		// ¸î%³²À¸¸é µµ¸Á°¡³Ä?
 			} else
-			if( nCommand == AICMD_HELPER )	// í—¬í¼ ëª…ë ¹ì´ ë‚˜ì™”ì—ˆë‹¤.
+			if( nCommand == AICMD_HELPER )	// ÇïÆÛ ¸í·ÉÀÌ ³ª¿Ô¾ú´Ù.
 			{
 				int nNum = atoi( script.token );
-				if( pProp->m_tmUnitHelp == 0 )		// íŒŒë¼ë©”í„°ê°€ ì•„ì§ ì§€ì •ë˜ì§€ ì•Šì•˜ë‹¤ë©´..
-					pProp->m_tmUnitHelp = (DWORD)nNum;		// ëª‡ì´ˆë§ˆë‹¤ í—¬í¼ë¥¼ ë¶€ë¥´ëŠ” ì‹œë„ë¥¼ í• êº¼ëƒ.
-				else if( pProp->m_nHelpRangeMul == 2 )		// íŒŒë¼ë©”í„°ê°€ ì•„ì§ ì§€ì •ë˜ì§€ ì•Šì•˜ë‹¤ë©´..
-					pProp->m_nHelpRangeMul = nNum;			// ì‹œì•¼ë°°ìˆ˜
+				if( pProp->m_tmUnitHelp == 0 )		// ÆÄ¶ó¸ŞÅÍ°¡ ¾ÆÁ÷ ÁöÁ¤µÇÁö ¾Ê¾Ò´Ù¸é..
+					pProp->m_tmUnitHelp = (DWORD)nNum;		// ¸îÃÊ¸¶´Ù ÇïÆÛ¸¦ ºÎ¸£´Â ½Ãµµ¸¦ ÇÒ²¨³Ä.
+				else if( pProp->m_nHelpRangeMul == 2 )		// ÆÄ¶ó¸ŞÅÍ°¡ ¾ÆÁ÷ ÁöÁ¤µÇÁö ¾Ê¾Ò´Ù¸é..
+					pProp->m_nHelpRangeMul = nNum;			// ½Ã¾ß¹è¼ö
 			} else
-			if( nCommand == AICMD_BERSERK )	// ë²„ì„œì»¤ ëª…ë ¹ì´ ë‚˜ì™”ì—ˆë‹¤.
+			if( nCommand == AICMD_BERSERK )	// ¹ö¼­Ä¿ ¸í·ÉÀÌ ³ª¿Ô¾ú´Ù.
 			{
-				pProp->m_nBerserkHP = atoi( script.token );		// ë²„ì„œì»¤ê°€ ë˜ê¸°ìœ„í•œ %. 0ì´ë©´ ë²„ì„œì»¤ì—†ìŒ.
-				pProp->m_fBerserkDmgMul = script.GetFloat();	// ë²„ì„œì»¤ê±°ë˜ì—ˆì„ë•Œ ë°ë¯¸ì§€ ë°°ìˆ˜.
+				pProp->m_nBerserkHP = atoi( script.token );		// ¹ö¼­Ä¿°¡ µÇ±âÀ§ÇÑ %. 0ÀÌ¸é ¹ö¼­Ä¿¾øÀ½.
+				pProp->m_fBerserkDmgMul = script.GetFloat();	// ¹ö¼­Ä¿°ÅµÇ¾úÀ»¶§ µ¥¹ÌÁö ¹è¼ö.
 				if( pProp->m_fBerserkDmgMul <= 0 || pProp->m_fBerserkDmgMul >= 20.0f )
 				{
 					CString str;
-					str.Format( "Berserkëª…ë ¹ì˜ ë°ë¯¸ì§€ë°°ìˆ˜ì˜ ë²”ìœ„ê°€ ì´ìƒí•œê±° ê°™ì€ë””? %f", pProp->m_fBerserkDmgMul );
+					str.Format( "Berserk¸í·ÉÀÇ µ¥¹ÌÁö¹è¼öÀÇ ¹üÀ§°¡ ÀÌ»óÇÑ°Å °°Àºµğ? %f", pProp->m_fBerserkDmgMul );
 					CUSTOM_ERROR( (LPCTSTR)str );
 				}
 			}
@@ -353,15 +353,15 @@ BOOL CProject::LoadPropMoverEx_AI_BATTLE( LPCTSTR szFileName, CScript &script, i
 	return TRUE;
 }
 
-// AI{}ì¤‘ #MOVE ë¸”ëŸ­.
+// AI{}Áß #MOVE ºí·°.
 BOOL CProject::LoadPropMoverEx_AI_MOVE( LPCTSTR szFileName, CScript &script, int nVal )
 {
 	AICMD nCommand = AICMD_NONE;
 	
 	script.GetToken();	// {
-	if( script.token[0] != '{' )	// #MOVE í›„ì— {ê°€ ë¹ ì¡ŒëŠ”ê°€.
+	if( script.token[0] != '{' )	// #MOVE ÈÄ¿¡ {°¡ ºüÁ³´Â°¡.
 	{
-		Error( "%s(%d) : MoverID=%d MOVE ì„¹í„°ë¸”ëŸ­ { ë¹ ì¡ŒìŒ.", szFileName, script.GetLineNum(), nVal );
+		Error( "%s(%d) : MoverID=%d MOVE ¼½ÅÍºí·° { ºüÁ³À½.", szFileName, script.GetLineNum(), nVal );
 		return FALSE;
 	}
 	
@@ -369,32 +369,32 @@ BOOL CProject::LoadPropMoverEx_AI_MOVE( LPCTSTR szFileName, CScript &script, int
 	
 	while(1)
 	{
-		script.GetToken();		// í† í° í•˜ë‚˜ ì½ìŒ,.
-		if( script.token[0] == '}' )	// MOVEë¸”ëŸ­ ë.
+		script.GetToken();		// ÅäÅ« ÇÏ³ª ÀĞÀ½,.
+		if( script.token[0] == '}' )	// MOVEºí·° ³¡.
 			break;
 
-		if( script.tokenType == IDENTIFIER )		// í† í°ì´ ì‹ë³„ì.
+		if( script.tokenType == IDENTIFIER )		// ÅäÅ«ÀÌ ½Äº°ÀÚ.
 		{
-			if( strcmpi( script.token, "Loot" ) == 0 )		// ë£¨íŒ…. ì•„ì´í…œ ì¤ì–´ë¨¹ê¸°.
+			if( strcmpi( script.token, "Loot" ) == 0 )		// ·çÆÃ. ¾ÆÀÌÅÛ ÁŞ¾î¸Ô±â.
 			{
 				nCommand = AICMD_LOOT;
-//				pProp->m_nLoot = 1;		// åº·: ì„ì‹œë¡œ ë§‰ìŒ
+//				pProp->m_nLoot = 1;		// Ë¬: ÀÓ½Ã·Î ¸·À½
 				pProp->m_nLoot	= 0;
 			} else
-			if( strcmpi( script.token, "d" ) == 0 )		// Lootëª…ë ¹ ì˜µì…˜
+			if( strcmpi( script.token, "d" ) == 0 )		// Loot¸í·É ¿É¼Ç
 			{
-//				pProp->m_nLoot = 2;		// 2ëŠ” dì˜µì…˜.
-				pProp->m_nLoot	= 0;	// åº·: ì„ì‹œë¡œ ë§‰ìŒ
+//				pProp->m_nLoot = 2;		// 2´Â d¿É¼Ç.
+				pProp->m_nLoot	= 0;	// Ë¬: ÀÓ½Ã·Î ¸·À½
 			} else
 			{
-				SYNTAX_ERROR;	// ì´ìƒí•œ ëª…ë ¹ì´ ë“¤ì–´ì™”ìŒ.
+				SYNTAX_ERROR;	// ÀÌ»óÇÑ ¸í·ÉÀÌ µé¾î¿ÔÀ½.
 				return FALSE;
 			}
 		} else
-		/////////// í† í°ì´ ìˆ«ì.
+		/////////// ÅäÅ«ÀÌ ¼ıÀÚ.
 		if( script.tokenType == NUMBER )
 		{
-			if( nCommand == 0 )		// ì•„ë¬´ ëª…ë ¹ì—†ì´ ìˆ«ìê°€ ë‚˜ì™”ë‹¤.
+			if( nCommand == 0 )		// ¾Æ¹« ¸í·É¾øÀÌ ¼ıÀÚ°¡ ³ª¿Ô´Ù.
 			{
 				SYNTAX_ERROR;
 				return FALSE;
@@ -412,14 +412,14 @@ BOOL CProject::LoadPropMoverEx_AI_MOVE( LPCTSTR szFileName, CScript &script, int
 }
 
 
-// propMoverEx.incì¤‘ AI {} ë¸”ëŸ­ ì²˜ë¦¬ë¶€.
+// propMoverEx.incÁß AI {} ºí·° Ã³¸®ºÎ.
 BOOL CProject::LoadPropMoverEx_AI( LPCTSTR szFileName, CScript &script, int nVal )
 {
 	script.GetToken();		// {
 
 	if( script.token[0] != '{' )
 	{
-		Error( "%s(%d) : MoverID=%d AI ë‹¤ìŒì— { ì—†ìŒ.", szFileName, script.GetLineNum(), nVal );
+		Error( "%s(%d) : MoverID=%d AI ´ÙÀ½¿¡ { ¾øÀ½.", szFileName, script.GetLineNum(), nVal );
 		return FALSE;
 	}
 
@@ -427,11 +427,11 @@ BOOL CProject::LoadPropMoverEx_AI( LPCTSTR szFileName, CScript &script, int nVal
 	{
 		script.GetToken();
 
-		if( script.token[0] == '}' )		// ë¸”ëŸ­ ëë‚ ë•Œê¹Œì§€ ì½ìŒ.
+		if( script.token[0] == '}' )		// ºí·° ³¡³¯¶§±îÁö ÀĞÀ½.
 			break;
 
-		// ì„¹í„° ë¸”ëŸ­ ì‹œì‘.
-		if( script.token[0] == '#' )		// #???? ë¸”ëŸ­ ë‚˜ì™€ì•¼ í•¨.  #SCANìœ¼ë¡œ í•œêº¼ë²ˆì— ì½íŒë‹¤.
+		// ¼½ÅÍ ºí·° ½ÃÀÛ.
+		if( script.token[0] == '#' )		// #???? ºí·° ³ª¿Í¾ß ÇÔ.  #SCANÀ¸·Î ÇÑ²¨¹ø¿¡ ÀĞÈù´Ù.
 		{
 //			script.GetToken();	// SCAN/BATTLE/MOVING
 			if( strcmpi( script.Token, "#SCAN" ) == 0 )	// 
@@ -450,13 +450,13 @@ BOOL CProject::LoadPropMoverEx_AI( LPCTSTR szFileName, CScript &script, int nVal
 					return FALSE;
 			} else
 			{
-				Error( "%s(%d) : MoverID=%d ì„¹í„°ë¸”ëŸ­ì´ë¦„ì´ ì´ìƒí•¨(%s) ", szFileName, script.GetLineNum(), nVal, script.Token );
+				Error( "%s(%d) : MoverID=%d ¼½ÅÍºí·°ÀÌ¸§ÀÌ ÀÌ»óÇÔ(%s) ", szFileName, script.GetLineNum(), nVal, script.Token );
 				return FALSE;
 			}
 		} else
 		{
-			// ì„¹í„°ë¸”ëŸ­ì´ ì—†ìŒ.
-			Error( "%s(%d) : MoverID=%d ì„¹í„°ë¸”ëŸ­(<)ì´ ì—†ìŒ.", szFileName, script.GetLineNum(), nVal );
+			// ¼½ÅÍºí·°ÀÌ ¾øÀ½.
+			Error( "%s(%d) : MoverID=%d ¼½ÅÍºí·°(<)ÀÌ ¾øÀ½.", szFileName, script.GetLineNum(), nVal );
 			return FALSE;
 		}
 	}

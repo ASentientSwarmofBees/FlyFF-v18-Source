@@ -1,4 +1,4 @@
-ï»¿
+
 // author : gmpbigsun
 // date : 2009_11_02
 // music player for ogg and mp3 ( use miles lib )
@@ -29,13 +29,13 @@ BOOL PlayMusic_( LPCTSTR lpszFileName, int nLoopCount )
 	if( !g_Dig )
 		return FALSE;
 
-	if( g_bEnableMusic == FALSE )		// ì‚¬ìš´ë“œ ì¹´ë“œê°€ ì—†ê±°ë‚˜ ê»ì„ë•Œ
+	if( g_bEnableMusic == FALSE )		// »ç¿îµå Ä«µå°¡ ¾ø°Å³ª ²°À»¶§
 		return FALSE;
 
 	if( _tcscmp( lpszFileName, g_filename ) == 0 && IsPlayingMusic() )
 		return FALSE;
 
-	// ì•„ì§ ìŒì•…ì´ ì—°ì£¼ì¤‘ì´ë¼ë©´, ë³¼ë¥¨ì„ ì„œì„œíˆ ë‚®ì¶°ì¤„ ì„¸íŒ…ì„ í•œë‹¤.
+	// ¾ÆÁ÷ À½¾ÇÀÌ ¿¬ÁÖÁßÀÌ¶ó¸é, º¼·ıÀ» ¼­¼­È÷ ³·ÃçÁÙ ¼¼ÆÃÀ» ÇÑ´Ù.
 // 	if( IsPlayingMusic() )
 // 	{
 // 		_tcscpy( g_szFileName, lpszFileName );
@@ -45,13 +45,13 @@ BOOL PlayMusic_( LPCTSTR lpszFileName, int nLoopCount )
 // 		return TRUE;
 // 	}
 
-	// ì œê±° !
+	// Á¦°Å !
 	if( g_Stream )
 		AIL_close_stream( g_Stream );
 
 	strcpy( g_filename, lpszFileName );
 	
-	// ìƒˆë¡œìš´ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œ!
+	// »õ·Î¿î ½ºÆ®¸²À¸·Î!
 	g_Stream = AIL_open_stream( g_Dig, g_filename, 0 );
 
 	if (!g_Stream)
@@ -67,7 +67,7 @@ BOOL PlayMusic_( LPCTSTR lpszFileName, int nLoopCount )
 	AIL_start_stream( g_Stream );
 	AIL_service_stream( g_Stream, 0 );
 	
-	// ë³¼ë¥¨ì€ ì›ë˜ëŒ€ë¡œ
+	// º¼·ıÀº ¿ø·¡´ë·Î
 	SetVolume( g_fMusicVolume );
 
 	return TRUE;

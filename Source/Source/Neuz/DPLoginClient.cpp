@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #ifdef __CERTIFIER_COLLECTING_SYSTEM
@@ -77,7 +77,7 @@ void CDPLoginClient::SysMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize, 
 				g_DPlay.DeleteDPObject();
 
 				if( m_bShowDisconnectMsg )
-					g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//ì„œë²„ë¡œë¶€í„° ì ‘ì†ì´ í•´ì œë˜ì—ˆìŠµë‹ˆë‹¤.		  
+					g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//¼­¹ö·ÎºÎÅÍ Á¢¼ÓÀÌ ÇØÁ¦µÇ¾ú½À´Ï´Ù.		  
 				m_bShowDisconnectMsg = TRUE;
 				break;
 			}
@@ -141,10 +141,10 @@ void CDPLoginClient::SendCreatePlayer(BYTE nSlot, LPCSTR lpszPlayer/*, LPDWORD a
 	ar << nSlot;
 
 	if( strlen( lpszPlayer ) > 16 )
-		Error( "CDPLoginClient::SendCreatePlayerì—ì„œ ì´ìƒ ìºë¦­í„° ëª… E: %s", lpszPlayer );
+		Error( "CDPLoginClient::SendCreatePlayer¿¡¼­ ÀÌ»ó Ä³¸¯ÅÍ ¸í E: %s", lpszPlayer );
 	ar.WriteString( lpszPlayer );
 	if( strlen( lpszPlayer ) > 16 )
-		Error( "CDPLoginClient::SendCreatePlayerì—ì„œ ì´ìƒ ìºë¦­í„° ëª… F: %s", lpszPlayer );
+		Error( "CDPLoginClient::SendCreatePlayer¿¡¼­ ÀÌ»ó Ä³¸¯ÅÍ ¸í F: %s", lpszPlayer );
 	
 	//	ar.Write( adwEquipment, sizeof(DWORD) * MAX_HUMAN_PARTS );
 
@@ -205,7 +205,7 @@ void CDPLoginClient::OnPreJoin( CAr & ar )
 {
 	CNetwork::GetInstance().OnEvent( LOGIN_ACK_PREJOIN );
 
-	// ata2k - (1)ì‹œê°„ í•´ì œ
+	// ata2k - (1)½Ã°£ ÇØÁ¦
 	g_Neuz.m_dwTimeOutDis = 0xffffffff;
 	
 	// Open world here.	
@@ -215,7 +215,7 @@ void CDPLoginClient::OnPreJoin( CAr & ar )
 	g_DPlay.SendJoin( (BYTE)m_nSlot, g_Neuz.m_adwWorldID[m_nSlot], g_Neuz.m_apPlayer[m_nSlot], &g_Neuz.m_Messenger[m_nSlot], g_Neuz.m_uIdofMulti );	
 #endif	// __RT_1025
 
-	// ata2k - (2)ì‹œê°„ ì €ì¥
+	// ata2k - (2)½Ã°£ ÀúÀå
 #ifdef __NO_SUB_LANG
 	if(::GetLanguage() == LANG_USA )
 #else // __NO_SUB_LANG
@@ -251,13 +251,13 @@ void CDPLoginClient::OnError( CAr & ar )
 		case ERROR_DUPLICATE_ACCOUNT:
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0042) ) );
-//				g_WndMng.OpenMessageBox( _T( "ì ‘ì†ì¤‘ì¸ ê³„ì •ì…ë‹ˆë‹¤." ) );
+//				g_WndMng.OpenMessageBox( _T( "Á¢¼ÓÁßÀÎ °èÁ¤ÀÔ´Ï´Ù." ) );
 				break;
 			}
 		case ERROR_USER_EXISTS:
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0034) ) );
-//				g_WndMng.OpenMessageBox( _T( "ì´ë¯¸ ì‚¬ìš©ì¤‘ì¸ ìºë¦­í„° ì´ë¦„ì…ë‹ˆë‹¤" ) );
+//				g_WndMng.OpenMessageBox( _T( "ÀÌ¹Ì »ç¿ëÁßÀÎ Ä³¸¯ÅÍ ÀÌ¸§ÀÔ´Ï´Ù" ) );
 				CWndCreateChar* pWnd = (CWndCreateChar*)g_WndMng.GetWndBase( APP_CREATE_CHAR );
 				if( pWnd )
 				{
@@ -273,19 +273,19 @@ void CDPLoginClient::OnError( CAr & ar )
 					( (CWndCreateChar*)pWndBase )->Destroy();
 				g_WndMng.ObjectExecutor( SHORTCUT_APPLET, APP_SELECT_CHAR );
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0018) ) );
-//				g_WndMng.OpenMessageBox( _T( "ì‚¬ìš©ì¤‘ì¸ ìŠ¬ë¡¯ ì…ë‹ˆë‹¤." ) );
+//				g_WndMng.OpenMessageBox( _T( "»ç¿ëÁßÀÎ ½½·Ô ÀÔ´Ï´Ù." ) );
 				break;
 			}
 		case ERROR_ILLEGAL_VER:
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0035) ) );
-//				g_WndMng.OpenMessageBox( _T( "ì´ì „ ë²„ì „ì˜ í´ë¼ì´ì–¸íŠ¸ì…ë‹ˆë‹¤" ) );
+//				g_WndMng.OpenMessageBox( _T( "ÀÌÀü ¹öÀüÀÇ Å¬¶óÀÌ¾ğÆ®ÀÔ´Ï´Ù" ) );
 				break;
 			}
 		case ERROR_INVALID_NAME_CHARACTER:
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0020) ) );
-//				g_WndMng.OpenMessageBox( _T( "ì‚¬ìš©í• ìˆ˜ ì—†ëŠ” ì´ë¦„ì…ë‹ˆë‹¤" ) );
+//				g_WndMng.OpenMessageBox( _T( "»ç¿ëÇÒ¼ö ¾ø´Â ÀÌ¸§ÀÔ´Ï´Ù" ) );
 				CWndCreateChar* pWnd = (CWndCreateChar*)g_WndMng.GetWndBase( APP_CREATE_CHAR );
 				if( pWnd )
 					pWnd->GetDlgItem( WIDC_OK )->EnableWindow( TRUE );
@@ -294,7 +294,7 @@ void CDPLoginClient::OnError( CAr & ar )
 		case ERROR_NO_SUCH_GROUP:
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0039) ) );
-//				g_WndMng.OpenMessageBox( _T( "ì˜ëª»ì…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”" ) );
+//				g_WndMng.OpenMessageBox( _T( "Àß¸øÀÔ·ÂÇÏ¿´½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä" ) );
 				CWndDeleteChar* pWnd = (CWndDeleteChar*)g_WndMng.GetWndBase( APP_DELETE_CHAR );
 				if( pWnd )
 				{
@@ -327,18 +327,18 @@ void CDPLoginClient::OnError( CAr & ar )
 #ifdef __S0114_RELOADPRO
 		case ERROR_FLYFF_DB_JOB_ING:	// 133L
 			{
-				m_bShowDisconnectMsg = FALSE;       // ì„œë²„ë¡œ ë¶€í„° ì ‘ì†ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤ë¥¼ í‘œì‹œí•˜ì§€ ì•ŠìŒ 
+				m_bShowDisconnectMsg = FALSE;       // ¼­¹ö·Î ºÎÅÍ Á¢¼ÓÀÌ Á¾·áµÇ¾ú½À´Ï´Ù¸¦ Ç¥½ÃÇÏÁö ¾ÊÀ½ 
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DB_INSPECTION) ) );
 				break;
 			}
 #endif // __S0114_RELOADPRO
 */
-		case ERROR_BILLING_TIME_OVER:			// í”Œë ˆì´ ë„ì¤‘ ì‚¬ìš©ê¸°ê°„ ë§Œë£Œ
-			m_bShowDisconnectMsg = FALSE;       // ì„œë²„ë¡œ ë¶€í„° ì ‘ì†ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤ë¥¼ í‘œì‹œí•˜ì§€ ì•ŠìŒ 
-			g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_PLAYNOCHARGING), MB_OK, TRUE );  // TRUE - ë©”ì„¸ì§€ í‘œì‹œí›„ ë¡œê·¸ì¸í™”ë©´ìœ¼ë¡œ 
+		case ERROR_BILLING_TIME_OVER:			// ÇÃ·¹ÀÌ µµÁß »ç¿ë±â°£ ¸¸·á
+			m_bShowDisconnectMsg = FALSE;       // ¼­¹ö·Î ºÎÅÍ Á¢¼ÓÀÌ Á¾·áµÇ¾ú½À´Ï´Ù¸¦ Ç¥½ÃÇÏÁö ¾ÊÀ½ 
+			g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_PLAYNOCHARGING), MB_OK, TRUE );  // TRUE - ¸Ş¼¼Áö Ç¥½ÃÈÄ ·Î±×ÀÎÈ­¸éÀ¸·Î 
 			break;
 #if __VER >= 15 // __2ND_PASSWORD_SYSTEM
-		case ERROR_15MIN_PREVENT:	// 2ì°¨ ë¹„ë°€ë²ˆí˜¸ 3íšŒì´ìƒ í‹€ë ¸ì„ ê²½ìš°
+		case ERROR_15MIN_PREVENT:	// 2Â÷ ºñ¹Ğ¹øÈ£ 3È¸ÀÌ»ó Æ²·ÈÀ» °æ¿ì
 			{
 				g_WndMng.CloseMessageBox();
 				g_WndMng.OpenMessageBox( _T( prj.GetText( TID_15MIN_PREVENT ) ) );
@@ -414,7 +414,7 @@ void CDPLoginClient::OnPlayerList( CAr & ar )
 
 	for( int i = 0 ; i < MAX_CHARACTER_LIST ; i++ )
 	{
-		g_Neuz.m_nCharacterBlock[i] = 2; // ëª¨ë‘ ë¹ˆìŠ¬ë¡¯ìœ¼ë¡œ í•¨
+		g_Neuz.m_nCharacterBlock[i] = 2; // ¸ğµÎ ºó½½·ÔÀ¸·Î ÇÔ
 		SAFE_DELETE( g_Neuz.m_apPlayer[i] );
 	}
 	
@@ -484,15 +484,15 @@ void CDPLoginClient::OnPlayerList( CAr & ar )
 			ar >> dwItemId;
 			pItemProp	= prj.GetItemProp( dwItemId );
 			if( pItemProp == NULL)
-				Error( "CDPLoginClient::OnPlayerList : %dì•„ì´í…œ í”„ë¡œí¼í‹° ì—†ìŒ", dwItemId );
+				Error( "CDPLoginClient::OnPlayerList : %d¾ÆÀÌÅÛ ÇÁ·ÎÆÛÆ¼ ¾øÀ½", dwItemId );
 
 			nParts = (int)pItemProp->dwParts;
-			// ì˜¤ë¥¸ì† ë¬´ê¸°ì¥ì°©í•  ì°¨ë¡€ì¸ë° ì´ë¯¸ ì˜¤ë¥¸ì†ì— ë­”ê°€ ì¥ì°©ë˜ì–´ ìˆìœ¼ë©´ 
+			// ¿À¸¥¼Õ ¹«±âÀåÂøÇÒ Â÷·ÊÀÎµ¥ ÀÌ¹Ì ¿À¸¥¼Õ¿¡ ¹º°¡ ÀåÂøµÇ¾î ÀÖÀ¸¸é 
 			if( nParts == PARTS_RWEAPON && g_Neuz.m_apPlayer[slot]->m_aEquipInfo[nParts].dwId != NULL_ID )
 			{
-				// ì˜¤ë¥¸ì†ì—ê±¸ ì™¼ì†ìœ¼ë¡œ ì˜®ê¹€. - ìˆœì„œê°€ ê±°ê¾¸ë¡œ ë“¤ì–´ê°€ìˆì–´ì„œ ì´ë ‡ê²Œ í–ˆë‹¤.
+				// ¿À¸¥¼Õ¿¡°É ¿Ş¼ÕÀ¸·Î ¿Å±è. - ¼ø¼­°¡ °Å²Ù·Î µé¾î°¡ÀÖ¾î¼­ ÀÌ·¸°Ô Çß´Ù.
 				g_Neuz.m_apPlayer[slot]->m_aEquipInfo[PARTS_LWEAPON].dwId = g_Neuz.m_apPlayer[slot]->m_aEquipInfo[PARTS_RWEAPON].dwId;
-				// ìƒˆë¡œ ì½ì€ ë¬´ê¸°ëŠ” ì˜¤ë¥¸ì†ì— ì¥ .
+				// »õ·Î ÀĞÀº ¹«±â´Â ¿À¸¥¼Õ¿¡ Áç.
 			}
 			g_Neuz.m_apPlayer[slot]->m_aEquipInfo[nParts].dwId	= dwItemId;
 		}
@@ -529,8 +529,8 @@ void CDPLoginClient::OnPlayerList( CAr & ar )
 			}
 		}
 		pWndSelectChar->SelectCharacter( pWndSelectChar->m_nSelectCharacter );
-//		g_WndMng.OpenCustomBox( _T( "ì ‘ì†í• ìˆ˜ ì—†ëŠ” ê³„ì •ì…ë‹ˆë‹¤"), new CWndAllCharBlockBox );
-		// ëª¨ë“  ìºë¦­í„°ê°€ ë¸”ëŸ­ë˜ì–´ ìˆìŠµë‹ˆë‹¤.		
+//		g_WndMng.OpenCustomBox( _T( "Á¢¼ÓÇÒ¼ö ¾ø´Â °èÁ¤ÀÔ´Ï´Ù"), new CWndAllCharBlockBox );
+		// ¸ğµç Ä³¸¯ÅÍ°¡ ºí·°µÇ¾î ÀÖ½À´Ï´Ù.		
 	}
 }
 
@@ -538,7 +538,7 @@ void CDPLoginClient::OnCacheAddr( CAr & ar )
 {	
 	ar.ReadString( g_Neuz.m_lpCacheAddr, 16 );
 	
-	// ë…ì¼ í…ŒìŠ¤íŠ¸ ì„œë²„ì˜ í˜„ì§€ ì ‘ì†ì´ë©´, ì‚¬ì„¤ ì£¼ì†Œë¡œ ëŒ€ì²´
+	// µ¶ÀÏ Å×½ºÆ® ¼­¹öÀÇ ÇöÁö Á¢¼ÓÀÌ¸é, »ç¼³ ÁÖ¼Ò·Î ´ëÃ¼
 	CString strAddr	= g_Neuz.m_lpCertifierAddr;
 	if( ::GetLanguage() == LANG_GER && strAddr.Find( "192.168", 0 ) == 0 )
 		lstrcpy( g_Neuz.m_lpCacheAddr, g_Neuz.m_lpCertifierAddr );
@@ -570,7 +570,7 @@ void CDPLoginClient::OnLoginProtect( CAr & ar )
 		if( bLogin == FALSE )
 		{
 			g_WndMng.CloseMessageBox();
-			g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_CONNECTING_FAIL_ERROR ) );	// 2ì°¨ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.
+			g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_CONNECTING_FAIL_ERROR ) );	// 2Â÷ ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.
 			m_idNumberPad = idNumPad;
 			pWndSelectChar->m_pWnd2ndPassword->ResetNumberpad( idNumPad );
 			pWndSelectChar->m_pWnd2ndPassword->DeletePassword();

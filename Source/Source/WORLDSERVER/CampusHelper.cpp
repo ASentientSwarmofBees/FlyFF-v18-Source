@@ -1,4 +1,4 @@
-ï»¿// CampusHelper.cpp: implementation of the CCampusHelper class.
+// CampusHelper.cpp: implementation of the CCampusHelper class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -242,22 +242,22 @@ BOOL CCampusHelper::IsInviteAble( CUser* pRequest, CUser* pTarget )
 	if( !IsValidObj( pRequest ) || !IsValidObj( pTarget ) )
 		return FALSE;
 
-	// ë‚˜ì˜ ì‚¬ì œí¬ì¸íŠ¸ê°€ 0 ë¯¸ë§Œì´ë©´ ì•ˆë¨
+	// ³ªÀÇ »çÁ¦Æ÷ÀÎÆ®°¡ 0 ¹Ì¸¸ÀÌ¸é ¾ÈµÊ
 	if( pRequest->GetCampusPoint() < 0 )
 	{
 		pRequest->AddDefinedText( TID_GAME_TS_WANTMYTSP );
 		return FALSE;
 	}
-	// ìƒëŒ€ë°©ì˜ ì‚¬ì œí¬ì¸íŠ¸ê°€ 0 ë¯¸ë§Œì´ë©´ ì•ˆë¨
+	// »ó´ë¹æÀÇ »çÁ¦Æ÷ÀÎÆ®°¡ 0 ¹Ì¸¸ÀÌ¸é ¾ÈµÊ
 	if( pTarget->GetCampusPoint() < 0 )
 	{
 		pRequest->AddDefinedText( TID_GAME_TS_WANTYOURTSP );
 		return FALSE;
 	}
-	// ì‚¬ì œë§ºê¸°ë¥¼ ì‹ ì²­í•œ ìœ ì €ê°€ ìŠ¤ìŠ¹ì¼ ë•Œ
+	// »çÁ¦¸Î±â¸¦ ½ÅÃ»ÇÑ À¯Àú°¡ ½º½ÂÀÏ ¶§
 	if( IsMasterLevel( pRequest ) && IsPupilLevel( pTarget ) )
 	{
-		// ì‚¬ì œ í€˜ìŠ¤íŠ¸ë¥¼ ì•ˆí–ˆë‹¤ë©´ ì•ˆë¨
+		// »çÁ¦ Äù½ºÆ®¸¦ ¾ÈÇß´Ù¸é ¾ÈµÊ
 		if( !IsCompleteCampusQuest( pRequest ) )
 		{
 			pRequest->AddDefinedText( TID_GAME_TS_NOTQUEST, "\"%s\"", pRequest->GetName() );
@@ -266,14 +266,14 @@ BOOL CCampusHelper::IsInviteAble( CUser* pRequest, CUser* pTarget )
 		CCampus* pCampus = GetCampus( pRequest->GetCampusId() );
 		if( pCampus )
 		{
-			// ë™ì‹œì— ë°›ì„ ìˆ˜ ìžˆëŠ” ì œìžì˜ ìˆ˜ë¥¼ ë„˜ìœ¼ë©´ ì•ˆë¨
+			// µ¿½Ã¿¡ ¹ÞÀ» ¼ö ÀÖ´Â Á¦ÀÚÀÇ ¼ö¸¦ ³ÑÀ¸¸é ¾ÈµÊ
 			if( pCampus->GetPupilNum() >= GetMaxPupilNum( pRequest ) )
 			{
 				pRequest->AddDefinedText( TID_GAME_TS_FULLSTUDENT, "\"%s\"", pRequest->GetName() );
 				return FALSE;
 			}
 		}
-		// ìƒëŒ€ë°©ì´ ì‚¬ì œê´€ê³„ë¥¼ ë§ºê³  ìžˆìœ¼ë©´ ì•ˆë¨
+		// »ó´ë¹æÀÌ »çÁ¦°ü°è¸¦ ¸Î°í ÀÖÀ¸¸é ¾ÈµÊ
 		if( GetCampus( pTarget->GetCampusId() ) )
 		{
 			pRequest->AddDefinedText( TID_GAME_TS_ALREADY, "\"%s\"", pTarget->GetName() );
@@ -281,16 +281,16 @@ BOOL CCampusHelper::IsInviteAble( CUser* pRequest, CUser* pTarget )
 		}
 		return TRUE;
 	}
-	// ì‚¬ì œë§ºê¸°ë¥¼ ì‹ ì²­í•œ ìœ ì €ê°€ ì œìžì¼ ë•Œ
+	// »çÁ¦¸Î±â¸¦ ½ÅÃ»ÇÑ À¯Àú°¡ Á¦ÀÚÀÏ ¶§
 	else if( IsPupilLevel( pRequest ) && IsMasterLevel( pTarget ) )
 	{
-		// ì‚¬ì œê´€ê³„ë¥¼ ë§ºê³  ìžˆìœ¼ë©´ ì•ˆë¨
+		// »çÁ¦°ü°è¸¦ ¸Î°í ÀÖÀ¸¸é ¾ÈµÊ
 		if( GetCampus( pRequest->GetCampusId() ) )
 		{
 			pRequest->AddDefinedText( TID_GAME_TS_ALREADY, "\"%s\"", pRequest->GetName() );
 			return FALSE;
 		}
-		// ìƒëŒ€ë°©ì´ ì‚¬ì œ í€˜ìŠ¤íŠ¸ë¥¼ ì•ˆí–ˆë‹¤ë©´ ì•ˆë¨
+		// »ó´ë¹æÀÌ »çÁ¦ Äù½ºÆ®¸¦ ¾ÈÇß´Ù¸é ¾ÈµÊ
 		if( !IsCompleteCampusQuest( pTarget ) )
 		{
 			pRequest->AddDefinedText( TID_GAME_TS_NOTQUEST, "\"%s\"", pTarget->GetName() );
@@ -299,7 +299,7 @@ BOOL CCampusHelper::IsInviteAble( CUser* pRequest, CUser* pTarget )
 		CCampus* pCampus = GetCampus( pTarget->GetCampusId() );
 		if( pCampus )
 		{
-			// ìƒëŒ€ë°©ì´ ë™ì‹œì— ë°›ì„ ìˆ˜ ìžˆëŠ” ì œìžì˜ ìˆ˜ë¥¼ ë„˜ìœ¼ë©´ ì•ˆë¨
+			// »ó´ë¹æÀÌ µ¿½Ã¿¡ ¹ÞÀ» ¼ö ÀÖ´Â Á¦ÀÚÀÇ ¼ö¸¦ ³ÑÀ¸¸é ¾ÈµÊ
 			if( pCampus->GetPupilNum() >= GetMaxPupilNum( pTarget ) )
 			{
 				pRequest->AddDefinedText( TID_GAME_TS_FULLSTUDENT, "\"%s\"", pTarget->GetName() );
@@ -308,7 +308,7 @@ BOOL CCampusHelper::IsInviteAble( CUser* pRequest, CUser* pTarget )
 		}
 		return TRUE;
 	}
-	// ì´ë„ ì €ë„ ì•„ë‹ë•Œ...
+	// ÀÌµµ Àúµµ ¾Æ´Ò¶§...
 	else
 		pRequest->AddDefinedText( TID_GAME_TS_NOTLEVEL );
 	return FALSE;
@@ -433,7 +433,7 @@ void CCampusHelper::SetLevelUpReward( CUser* pUser )
 			g_dpDBClient.SendUpdateCampusPoint( pCampus->GetMaster(), pReward->nMasterReward, TRUE, 'L' );
 			g_dpDBClient.SendUpdateCampusPoint( pUser->m_idPlayer, pReward->nPupilReward, TRUE, 'L' );
 		}
-		// ì œìžì˜ ë ˆë²¨ì´ ì¡¸ì—…ê°€ëŠ¥í•œ ë ˆë²¨ì´ ë˜ëŠ” ê²½ìš° ì‚¬ì œê´€ê³„ í•´ì§€
+		// Á¦ÀÚÀÇ ·¹º§ÀÌ Á¹¾÷°¡´ÉÇÑ ·¹º§ÀÌ µÇ´Â °æ¿ì »çÁ¦°ü°è ÇØÁö
 		if( pUser->GetLevel() == COMPLETE_PUPIL_LEVEL )
 			g_dpDBClient.SendRemoveCampusMember( pCampus->GetCampusId(), pUser->m_idPlayer );
 	}

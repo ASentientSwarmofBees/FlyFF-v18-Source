@@ -1,4 +1,4 @@
-ï»¿#ifndef __WNDHOUSING__H
+#ifndef __WNDHOUSING__H
 #define __WNDHOUSING__H
 #pragma once
 
@@ -13,10 +13,10 @@ struct HOUSING_ITEM
 	BOOL		m_bDeploy;
 	int			m_nType;
 	int			m_nIndex;
-	DWORD		dwItemId;		// ì•„ì´í…œ ID
+	DWORD		dwItemId;		// ¾ÆÀÌÅÛ ID
 
 #if __VER >= 15 // __GUILD_HOUSE
-	int			m_nSlotIndex;		//ì„œë²„ì—ì„œ ê´€ë¦¬í•˜ëŠ” ê°€êµ¬ë²¡í„° ì¸ë±ìŠ¤ 
+	int			m_nSlotIndex;		//¼­¹ö¿¡¼­ °ü¸®ÇÏ´Â °¡±¸º¤ÅÍ ÀÎµ¦½º 
 	D3DXVECTOR3 m_vPos;
 	float		m_fAngle;
 	int			m_nTeleIndex;
@@ -32,11 +32,11 @@ struct HOUSING_ITEM
 class CWndHousing : public CWndNeuz 
 {
 private:
-	// ì„œë²„ì—ì„œ ì£¼ëŠ” ì •ë³´
+	// ¼­¹ö¿¡¼­ ÁÖ´Â Á¤º¸
 	vector<HOUSINGINFO>		m_vecItem;
-	// ì‹¤ì œ ì°½ì—ì„œ ì“°ì¼ ì •ë³´ë“¤
+	// ½ÇÁ¦ Ã¢¿¡¼­ ¾²ÀÏ Á¤º¸µé
 	vector<HOUSING_ITEM>	m_mapItem;
-	// ì†ŒíŒ… íƒ€ì…
+	// ¼ÒÆÃ Å¸ÀÔ
 	int						m_nSortType;
 	BOOL					m_bIsGreater;
 	int						m_nSelected;
@@ -67,7 +67,7 @@ public:
 
 class CWndGHouseShowOneUnit : public CWndNeuz			
 {
-	// ì„¤ì¹˜ ì¬ì„¤ì¹˜ì¤‘ ëŒ€ìƒì •ë³´ë¥¼ ì¶œë ¥í•´ì£¼ëŠ” ...
+	// ¼³Ä¡ Àç¼³Ä¡Áß ´ë»óÁ¤º¸¸¦ Ãâ·ÂÇØÁÖ´Â ...
 public:
 	CWndGHouseShowOneUnit( );
 	virtual ~CWndGHouseShowOneUnit( );
@@ -83,12 +83,12 @@ protected:
 };
 
 
-static const int GH_MAX_VIEW_CAPACITY = 7;	//ë¦¬ìŠ¤íŠ¸ì—ì„œ ë³´ì—¬ì¤„ ìµœëŒ€ í—ˆìš©ëŸ‰
+static const int GH_MAX_VIEW_CAPACITY = 7;	//¸®½ºÆ®¿¡¼­ º¸¿©ÁÙ ÃÖ´ë Çã¿ë·®
 
 class CWndGuildHousing : public CWndNeuz
 {
 public:
-	enum GH_SECTION		// êµ¬ë¶„ ( í•´ë‹¹ ì†ì„±ë§Œ ë¦¬ìŠ¤íŠ¸ì—ì„œ ë³´ì—¬ì¤€ë‹¤. )
+	enum GH_SECTION		// ±¸ºĞ ( ÇØ´ç ¼Ó¼º¸¸ ¸®½ºÆ®¿¡¼­ º¸¿©ÁØ´Ù. )
 	{
 		GS_ALL, 
 		GS_FURNITURE,
@@ -117,7 +117,7 @@ protected:
 	void UpdateIRButton( );			//IR: Install/Recall
 	void UpdateSortTextColor( int oldType, int newType );
 	void SetEnableInstallBtns( BOOL bEnable );
-	void CheckChannel( );	// ì„¤ì¹˜ í•´ì²´ë“±ì´ ê°€ëŠ¥í•œ ì±„ë„ì¸ì§€ ê²€ì‚¬ & ì¶œë ¥ 
+	void CheckChannel( );	// ¼³Ä¡ ÇØÃ¼µîÀÌ °¡´ÉÇÑ Ã¤³ÎÀÎÁö °Ë»ç & Ãâ·Â 
 	void FixScrollBar( const int nSelected );
 	void AutoAddingComboItems( );
 
@@ -146,7 +146,7 @@ protected:
 
 #ifdef __GUILD_HOUSE_MIDDLE
 
-struct GHBidData	//ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° ë°ì´í„°
+struct GHBidData	//±æµåÇÏ¿ì½º ÀÔÂû µ¥ÀÌÅÍ
 {
 	GHBidData( ) { Init(); }
 	void Init() { _id = 0, _name.Empty(), _cGuildList.clear(), _nBidMinPenya = 0; }
@@ -154,8 +154,8 @@ struct GHBidData	//ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° ë°ì´í„°
 	OBJID _id;
 	CString _name;
 
-	vector< DWORD > _cGuildList;	//ì…ì°°í•œ ê¸¸ë“œëª©ë¡
-	int _nBidMinPenya;				//ìµœì†Œ ì…ì°°ê¸ˆì•¡
+	vector< DWORD > _cGuildList;	//ÀÔÂûÇÑ ±æµå¸ñ·Ï
+	int _nBidMinPenya;				//ÃÖ¼Ò ÀÔÂû±İ¾×
 };
 
 typedef vector<GHBidData>				GHBidDataContainer;
@@ -163,7 +163,7 @@ typedef GHBidDataContainer::iterator	GHBidDataIter;
 
 class CWndGuildHouseBid : public CWndNeuz			
 {
-	//ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° 
+	//±æµåÇÏ¿ì½º ÀÔÂû 
 public:
 	CWndGuildHouseBid( );
 	virtual ~CWndGuildHouseBid( );
@@ -174,11 +174,11 @@ public:
 	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ); 
 
 	void SetEnableWindow_Apply( BOOL bEnable, BOOL bWait = FALSE );
-	void ResetInputMoneyWindows( );				//ì…ë ¥ì°½ "0"ìœ¼ë¡œ ì´ˆê¸°í™”
-	void RequestCurrHouseInfo( );				//í˜„ì¬ ë³´ê³ ìˆëŠ” í•˜ìš°ìŠ¤ ì„¸ë¶€ì •ë³´ ìš”ì²­
+	void ResetInputMoneyWindows( );				//ÀÔ·ÂÃ¢ "0"À¸·Î ÃÊ±âÈ­
+	void RequestCurrHouseInfo( );				//ÇöÀç º¸°íÀÖ´Â ÇÏ¿ì½º ¼¼ºÎÁ¤º¸ ¿äÃ»
 
-	void RefreshWnd_HouseList( );	//ë©”ì¸ì •ë³´ ê°±ì‹  ë° ê·¸ ì™¸ì˜ ìœˆë„ìš° ì´ˆê¸°í™”
-	void RefreshWnd_HouseInfo( );	//ë©”ì¸ì •ë³´ ì´ì™¸ì˜ ì •ë³´ ê°±ì‹ 
+	void RefreshWnd_HouseList( );	//¸ŞÀÎÁ¤º¸ °»½Å ¹× ±× ¿ÜÀÇ À©µµ¿ì ÃÊ±âÈ­
+	void RefreshWnd_HouseInfo( );	//¸ŞÀÎÁ¤º¸ ÀÌ¿ÜÀÇ Á¤º¸ °»½Å
 	void UpdateData_HouseList( OBJID houseID, const char* szName );
 	void UpdateData_HouseInfo( OBJID houseID, const int nMinPenya, __int64 nTnederPenya, vector< DWORD >& guildIDs );
 
@@ -188,7 +188,7 @@ public:
 
 protected:
 	GHBidDataContainer _cBidDatas;
-	__int64 m_n64TenderPenya;	//ë‚´ ê¸¸ë“œì˜ ì…ì°°ê¸ˆ 
+	__int64 m_n64TenderPenya;	//³» ±æµåÀÇ ÀÔÂû±İ 
 	BOOL m_bMaster;
 
 	BOOL m_bWaitResult;

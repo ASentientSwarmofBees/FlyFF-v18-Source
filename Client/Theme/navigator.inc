@@ -1,14 +1,14 @@
-ï»¿// number ì‚½ì… ì´ë¯¸ì§€ ê°œìˆ˜
-// serialize ì—°ì†ìœ¼ë¡œ ì´ë¯¸ì§€ ì‚½ì…(width hight StartPosition-X StartPosition-Y, center_x, center_y)
-// pos ë‹¨ì¼ë¡œ ì´ë¯¸ì§€ ì‚½ì… (width hight StartPosition-X StartPosition-Y)
+// number »ğÀÔ ÀÌ¹ÌÁö °³¼ö
+// serialize ¿¬¼ÓÀ¸·Î ÀÌ¹ÌÁö »ğÀÔ(width hight StartPosition-X StartPosition-Y, center_x, center_y)
+// pos ´ÜÀÏ·Î ÀÌ¹ÌÁö »ğÀÔ (width hight StartPosition-X StartPosition-Y)
 number 33
 texture "Theme\ImgNavObj.bmp" 0xffff00ff
-serialize 4  5  5  0   0 0 0 // í° ì§ì—… ì•„ì´ì½˜ 
-serialize 2  5  5  0   5 0 0 // í° ì§ì—… ì•„ì´ì½˜ 
+serialize 4  5  5  0   0 0 0 // Å« Á÷¾÷ ¾ÆÀÌÄÜ 
+serialize 2  5  5  0   5 0 0 // Å« Á÷¾÷ ¾ÆÀÌÄÜ 
 pos 7 7  9 9 n
-serialize 6 12 12  0  20 0 0 // ì‘ì€ ì§ì—… ì•„ì´ì½˜ 
-serialize 7 12 12  0  32 0 0 // ì‘ì€ ì§ì—… ì•„ì´ì½˜ 
-serialize 4 16 16 20  0 0 0 // í€˜ìŠ¤íŠ¸ ë§ˆí¬ 
-serialize 3 16 16 0  44 0 0 // ë…¸ë€ìƒ‰ í€˜ìŠ¤íŠ¸
-serialize 3 16 16 0  60 0 0 // ì—°ë‘ìƒ‰ í€˜ìŠ¤íŠ¸ 
-serialize 3 16 16 0  76 0 0 // ë¶‰ì€ìƒ‰ í€˜ìŠ¤íŠ¸
+serialize 6 12 12  0  20 0 0 // ÀÛÀº Á÷¾÷ ¾ÆÀÌÄÜ 
+serialize 7 12 12  0  32 0 0 // ÀÛÀº Á÷¾÷ ¾ÆÀÌÄÜ 
+serialize 4 16 16 20  0 0 0 // Äù½ºÆ® ¸¶Å© 
+serialize 3 16 16 0  44 0 0 // ³ë¶õ»ö Äù½ºÆ®
+serialize 3 16 16 0  60 0 0 // ¿¬µÎ»ö Äù½ºÆ® 
+serialize 3 16 16 0  76 0 0 // ºÓÀº»ö Äù½ºÆ®

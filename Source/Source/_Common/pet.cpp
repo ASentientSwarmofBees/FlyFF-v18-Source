@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "pet.h"
 #include "defineobj.h"
 
@@ -99,7 +99,7 @@ WORD CPetProperty::GetMaxEnergy( BYTE nLevel )
 {
 	if( nLevel >= PL_D && nLevel <= PL_S )
 		return m_awMaxEnergy[nLevel-1];
-	return 1;	// 0 ë‚˜ëˆ„ê¸° ë°©ì§€
+	return 1;	// 0 ³ª´©±â ¹æÁö
 }
 
 WORD CPetProperty::GetAddLife( void )
@@ -190,7 +190,7 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 		}
 		else if( s.Token == _T( "IncrementExp" ) )
 		{
-			//	100	// 0.1%	// 100000ë¶„ì˜ 1 ê¸°ì¤€
+			//	100	// 0.1%	// 100000ºĞÀÇ 1 ±âÁØ
 			int	nLevel	= 0;
 			s.GetToken();	// {
 			DWORD	dwIncrementExp	= s.GetNumber();
@@ -203,7 +203,7 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 		}
 		else if( s.Token == _T( "MaxEnergy" ) )
 		{
-			//	250	// D	// ìµœëŒ€ ê¸°ë ¥
+			//	250	// D	// ÃÖ´ë ±â·Â
 			int	nLevel	= 0;
 			s.GetToken();	// {
 			DWORD	dwMaxEnergy	= s.GetNumber();
@@ -216,7 +216,7 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 		}
 		else if( s.Token == _T( "AddLifeProbability" ) )
 		{
-			// ìˆ˜ëª… íšŒë³µì•¡ í™•ë¥ 	// ì¶”ê°€ ë  ê²½ìš° í•©ì´ 100ì´ ë˜ë„ë¡ í™•ì¥
+			// ¼ö¸í È¸º¹¾× È®·ü	// Ãß°¡ µÉ °æ¿ì ÇÕÀÌ 100ÀÌ µÇµµ·Ï È®Àå
 			// 	50	// +1
 			s.GetToken();	// {
 			WORD wProbability	= s.GetNumber();
@@ -228,9 +228,9 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 		}
 		else if( s.Token == _T( "Penalty" ) )
 		{
-			// Pet ì†Œí™˜ í›„ í•´ì œ ì‹œ D~Aë ˆë²¨ì—ì„  ê²½í—˜ì¹˜ë¥¼ ìƒê²Œ ë˜ë©°,
-			// ìµœì†Œ 0%ì—ì„œëŠ” ë” ì´ìƒ ê°ì†Œí•˜ì§€ ì•ŠëŠ”ë‹¤. 
-			// Së ˆë²¨ì—ì„  HPê°€ ê°ì†Œí•˜ë©°, ìµœì†Œ 5P ì´í•˜ë¡œëŠ” ë” ì´ìƒ ê°ì†Œí•˜ì§€ ì•ŠëŠ”ë‹¤. 
+			// Pet ¼ÒÈ¯ ÈÄ ÇØÁ¦ ½Ã D~A·¹º§¿¡¼± °æÇèÄ¡¸¦ ÀÒ°Ô µÇ¸ç,
+			// ÃÖ¼Ò 0%¿¡¼­´Â ´õ ÀÌ»ó °¨¼ÒÇÏÁö ¾Ê´Â´Ù. 
+			// S·¹º§¿¡¼± HP°¡ °¨¼ÒÇÏ¸ç, ÃÖ¼Ò 5P ÀÌÇÏ·Î´Â ´õ ÀÌ»ó °¨¼ÒÇÏÁö ¾Ê´Â´Ù. 
 			s.GetToken();	// {
 			FLOAT fExp	= s.GetFloat();
 			int nLevel	= PL_D;
@@ -254,7 +254,7 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 		TRACE( "dwDstParam=%d, nBase=%d, nParam=%d\n", pPetAvailParam->dwDstParam, pPetAvailParam->nBase, pPetAvailParam->nParam );
 	}
 	TRACE( "GetLevelupAvailLevel\n" );
-	// 0ì€ ëª¨ë‘ 0ì´ì–´ì•¼ í•œë‹¤.
+	// 0Àº ¸ğµÎ 0ÀÌ¾î¾ß ÇÑ´Ù.
 	for( i = PL_EGG; i < PL_MAX; i++ )
 	{
 		for( int j = 0; j < 100; j++ )
@@ -341,7 +341,7 @@ void CPet::Serialize( CAr & ar )
 void CPet::SetEnergy( WORD wEnergy )
 {
 #ifdef __DBSERVER
-	m_wEnergy	= wEnergy;		// transì„œë²„ì—ì„œëŠ” pet.incë¥¼ ì½ì§€ ì•ŠëŠ”ë‹¤.
+	m_wEnergy	= wEnergy;		// trans¼­¹ö¿¡¼­´Â pet.inc¸¦ ÀĞÁö ¾Ê´Â´Ù.
 #else	// __DBSERVER
 	WORD wMaxEnergy		= GetMaxEnergy();
 	m_wEnergy	= wEnergy > wMaxEnergy? wMaxEnergy: wEnergy;
@@ -499,11 +499,11 @@ BOOL CAIEgg::MoveProcessIdle( const AIMSG & msg )
 	CWorld *pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 
-	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
+	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 
-	// ì£¼ì¸ë‹˜ê³¼ì˜ ê±°ë¦¬ê°€ ë©€ì–´ì§€ë©´ ì£¼ì¸ë‹˜ìª½ìœ¼ë¡œ ë‹¬ë ¤ê°„ë‹¤.
+	// ÁÖÀÎ´Ô°úÀÇ °Å¸®°¡ ¸Ö¾îÁö¸é ÁÖÀÎ´ÔÂÊÀ¸·Î ´Ş·Á°£´Ù.
 	if( m_nState == PETSTATE_IDLE )
 	{
 		FLOAT fAngXZ	= pOwner->GetAngle();
@@ -551,14 +551,14 @@ BOOL CAIEgg::MoveProcessIdle( const AIMSG & msg )
 	/*
 	else if( m_nState == PETSTATE_TRACE )
 	{
-//		if( pOwner->IsRangeObj( pMover, 0 ) == TRUE )	// ì£¼ì¸ë‹˜ ê³ìœ¼ë¡œ ë‹¤ê°€ê°”ë‹¤.
+//		if( pOwner->IsRangeObj( pMover, 0 ) == TRUE )	// ÁÖÀÎ´Ô °çÀ¸·Î ´Ù°¡°¬´Ù.
 //		if( pMover->IsEmptyDestPos() )
 //		if( tmTrace.Over() )
 //		{
 //			tmTrace.Reset();
-			m_nState = PETSTATE_IDLE;	// ëŒ€ê¸°ìƒíƒœë¡œ ì „í™˜
-//			pMover->SendActMsg( OBJMSG_STOP );	// ëª¨ì…˜ ì •ì§€
-//			pMover->ClearDest();	// ì´ë™ëª©í‘œ í´ë¦¬ì–´.
+			m_nState = PETSTATE_IDLE;	// ´ë±â»óÅÂ·Î ÀüÈ¯
+//			pMover->SendActMsg( OBJMSG_STOP );	// ¸ğ¼Ç Á¤Áö
+//			pMover->ClearDest();	// ÀÌµ¿¸ñÇ¥ Å¬¸®¾î.
 //		}
 	}
 	*/
@@ -609,7 +609,7 @@ BOOL CAIEgg::MoveProcessRage( const AIMSG & msg )
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 	
-	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
+	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
 	if( pMover->IsDie() || ( pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL ) )
 		return FALSE;
 	return TRUE;
@@ -629,7 +629,7 @@ BOOL CAIEgg::StateRage( const AIMSG & msg )
 	OnMessage( AIMSG_INIT ) 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_INIT_TARGETCLEAR )		// íƒ€ê²Ÿì„ í´ë¦¬ì–´í•˜ê³  ëŒ€ê¸°ëª¨ë“œë¡œ ëŒì•„ê°.
+	OnMessage( AIMSG_INIT_TARGETCLEAR )		// Å¸°ÙÀ» Å¬¸®¾îÇÏ°í ´ë±â¸ğµå·Î µ¹¾Æ°¨.
 		
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_PROCESS ) 
@@ -665,8 +665,8 @@ BOOL CAIEgg::StateRage( const AIMSG & msg )
 #endif	// __PET_0410
 
 #if __VER >= 12 // __PET_0519
-// ì•Œë³€í™˜ ì¼ë°˜ì ì¸ ì•„ì´í…œ ë³€í™˜ì— ì´ìš©í•  ìˆ˜ ìˆë„ë¡ í™•ì¥ì„ ê³ ë ¤í•˜ì—¬ ë§Œë“¤ì—ˆìœ¼ë‚˜ ì•„ì§ êµ¬ì²´ì ì´ì§€ ì•Šë‹¤.
-// ë¹„ìŠ·í•œ ë³€í™˜ì´ ì¶”ê°€ë  ë•Œ, ë‚˜ë¨¸ì§€ ì‘ì—…ì„ í•˜ì
+// ¾Ëº¯È¯ ÀÏ¹İÀûÀÎ ¾ÆÀÌÅÛ º¯È¯¿¡ ÀÌ¿ëÇÒ ¼ö ÀÖµµ·Ï È®ÀåÀ» °í·ÁÇÏ¿© ¸¸µé¾úÀ¸³ª ¾ÆÁ÷ ±¸Ã¼ÀûÀÌÁö ¾Ê´Ù.
+// ºñ½ÁÇÑ º¯È¯ÀÌ Ãß°¡µÉ ¶§, ³ª¸ÓÁö ÀÛ¾÷À» ÇÏÀÚ
 CTransformStuff::CTransformStuff()
 :
 m_nTransform( 0 )
@@ -717,7 +717,7 @@ void CTransformStuff::Serialize( CAr & ar )
 }
 
 #ifdef __WORLDSERVER
-// ë³€í™˜ ê°ì²´
+// º¯È¯ °´Ã¼
 ITransformer::~ITransformer()
 {
 }
@@ -766,12 +766,12 @@ void ITransformer::CreateItem( CUser* pUser, CTransformStuff &stuff )
 
 BOOL ITransformer::IsValidStuff( CUser* pUser, CTransformStuff & stuff )
 {
-	// ì‚¬ìš©ìê°€ ë³´ë‚´ì˜¨ ì¬ë£Œì™€ ì‹¤ì œ í•„ìš”í•œ ì¬ë£Œ ê°œìˆ˜ê°€ ë‹¤ë¥´ë©´ ë¶€ì í•© ì¬ë£Œ
+	// »ç¿ëÀÚ°¡ º¸³»¿Â Àç·á¿Í ½ÇÁ¦ ÇÊ¿äÇÑ Àç·á °³¼ö°¡ ´Ù¸£¸é ºÎÀûÇÕ Àç·á
 	if( stuff.GetSize() != CTransformItemProperty::Instance()->GetStuffSize( stuff.GetTransform() ) )
 		return FALSE;
 
-	// ì‚¬ìš©ìê°€ ë³´ë‚´ì˜¨ ì¬ë£Œë¥¼ ì‚¬ìš©ìê°€ ê°€ì§€ê³  ìˆê³ 
-	// ì‚¬ìš©ê°€ëŠ¥í•œ ìƒíƒœì¸ì§€ë¥¼ ê²€ì‚¬í•œë‹¤
+	// »ç¿ëÀÚ°¡ º¸³»¿Â Àç·á¸¦ »ç¿ëÀÚ°¡ °¡Áö°í ÀÖ°í
+	// »ç¿ë°¡´ÉÇÑ »óÅÂÀÎÁö¸¦ °Ë»çÇÑ´Ù
 	for( DWORD i = 0; i < stuff.GetSize(); i++ )
 	{
 		TransformStuffComponent* pComponent		= stuff.GetComponent( i );
@@ -798,7 +798,7 @@ CTransformerEgg*	CTransformerEgg::Instance( void )
 
 BOOL CTransformerEgg::IsValidStuff( CUser* pUser, CTransformStuff & stuff )
 {
-	// ê¸°ë³¸ ì¬ë£Œ ì¡°ê±´ì„ ë§Œì¡±í•˜ì§€ ì•Šìœ¼ë©´ ë¶€ì í•© ì¬ë£Œ
+	// ±âº» Àç·á Á¶°ÇÀ» ¸¸Á·ÇÏÁö ¾ÊÀ¸¸é ºÎÀûÇÕ Àç·á
 	if( !ITransformer::IsValidStuff( pUser, stuff ) )
 		return FALSE;
 
@@ -806,12 +806,12 @@ BOOL CTransformerEgg::IsValidStuff( CUser* pUser, CTransformStuff & stuff )
 	for( DWORD i = 0; i < stuff.GetSize(); i++ )
 	{
 		TransformStuffComponent* pComponent		= stuff.GetComponent( i );
-		// ì¤‘ë³µëœ ì¬ë£Œë¥¼ ê°€ì§€ê³  ìˆë‹¤ë©´ ì¡°ì‘ëœ ê²ƒì´ë‹¤
+		// Áßº¹µÈ Àç·á¸¦ °¡Áö°í ÀÖ´Ù¸é Á¶ÀÛµÈ °ÍÀÌ´Ù
 		if( setItems.insert( pComponent->nItem ).second == false )
 			return FALSE;
 		CItemElem* pItem	= static_cast<CItemElem*>( pUser->GetItemId( pComponent->nItem ) );
 		ASSERT( pItem );
-		// ì•Œì´ ì•„ë‹ˆë©´ ë¶€ì í•© ì¬ë£Œ
+		// ¾ËÀÌ ¾Æ´Ï¸é ºÎÀûÇÕ Àç·á
 		if( !pItem->IsEgg() )
 			return FALSE;
 	}

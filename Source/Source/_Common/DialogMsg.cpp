@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "DialogMsg.h"
 #include "timer.h"
 
@@ -16,7 +16,7 @@ CDialogMsg::CDialogMsg()
 	m_pFont = NULL;
 	m_pFontEffect = NULL;
 
-	// í…ìŠ¤ì³ë Œë” ë²„ê·¸ ê´€ë ¨ ìˆ˜ì •
+	// ÅØ½ºÃÄ·»´õ ¹ö±× °ü·Ã ¼öÁ¤
 	for(int i = 0; i < 3; i++)
 		m_pTex[i] = NULL;
 }
@@ -86,7 +86,7 @@ void CDialogMsg::ClearAllMessage()
 	for(int i = 0; i < m_textArray.GetSize(); i++)
 	{
 		LPCUSTOMTEXT lpCustomText = (LPCUSTOMTEXT)m_textArray.GetAt(i);
-		// í€˜ìŠ¤íŠ¸ ì´ëª¨í‹°ì½˜ì„ ë‹¤ì‹œ ë³´ì´ê²Œ í•œë‹¤.
+		// Äù½ºÆ® ÀÌ¸ğÆ¼ÄÜÀ» ´Ù½Ã º¸ÀÌ°Ô ÇÑ´Ù.
 		if( lpCustomText->m_pObj->GetType() == OT_MOVER )
 			((CMover*)lpCustomText->m_pObj)->m_bShowQuestEmoticon = TRUE;
 	}
@@ -105,7 +105,7 @@ void CDialogMsg::ClearMessage( CObj* pObj )
 		LPCUSTOMTEXT pText	= (LPCUSTOMTEXT)m_textArray.GetAt( i );
 		if( pText->m_pObj == pObj )
 		{
-			// í€˜ìŠ¤íŠ¸ ì´ëª¨í‹°ì½˜ì„ ë‹¤ì‹œ ë³´ì´ê²Œ í•œë‹¤.
+			// Äù½ºÆ® ÀÌ¸ğÆ¼ÄÜÀ» ´Ù½Ã º¸ÀÌ°Ô ÇÑ´Ù.
 			if( pObj->GetType() == OT_MOVER )
 				((CMover*)pObj)->m_bShowQuestEmoticon = TRUE;
 			safe_delete( pText );
@@ -134,7 +134,7 @@ void CDialogMsg::RemoveDeleteObjMsg()
 			= (LPCUSTOMTEXT) m_textArray.GetAt( i );
 		if( !IsValidObj( lpCustomText->m_pObj ) )
 		{
-			// í€˜ìŠ¤íŠ¸ ì´ëª¨í‹°ì½˜ì„ ë‹¤ì‹œ ë³´ì´ê²Œ í•œë‹¤.
+			// Äù½ºÆ® ÀÌ¸ğÆ¼ÄÜÀ» ´Ù½Ã º¸ÀÌ°Ô ÇÑ´Ù.
 			if( lpCustomText->m_pObj->GetType() == OT_MOVER )
 				((CMover*)lpCustomText->m_pObj)->m_bShowQuestEmoticon = TRUE;
 			safe_delete( lpCustomText );
@@ -167,7 +167,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 		lpCustomText = (LPCUSTOMTEXT) m_textArray.GetAt( i );
 		if( lpCustomText->m_timer.TimeOut() )
 		{
-			// í€˜ìŠ¤íŠ¸ ì´ëª¨í‹°ì½˜ì„ ë‹¤ì‹œ ë³´ì´ê²Œ í•œë‹¤.
+			// Äù½ºÆ® ÀÌ¸ğÆ¼ÄÜÀ» ´Ù½Ã º¸ÀÌ°Ô ÇÑ´Ù.
 			if( lpCustomText->m_pObj->GetType() == OT_MOVER )
 				((CMover*)lpCustomText->m_pObj)->m_bShowQuestEmoticon = TRUE;
 			safe_delete( lpCustomText );
@@ -187,7 +187,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 					nAlpha = 200 - ( ( lpCustomText->m_timer.GetLeftTime() - 4000 )* 200 / 1000 );
 				LPDIRECT3DDEVICE9 pd3dDevice = p2DRender->m_pd3dDevice;
 
-				// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+				// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 				D3DXVECTOR3 vOut, vPos = pObj->GetPos(), vPosHeight;
 				D3DVIEWPORT9 vp;
 				const BOUND_BOX* pBB = pObj->m_pModel->GetBBVector();
@@ -240,7 +240,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 						else
 						if( j != nWidth - 1 )
 						{
-							// ë§¨ ë°‘ìª½ 
+							// ¸Ç ¹ØÂÊ 
 							/*
 							if( i == nHeight - 1 ) 
 							{
@@ -262,7 +262,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 							m_texPack.Render( p2DRender, point, nIndex + 2, nAlpha); 
 					}
 				}
-				// ê¼¬ë‘ì§€ ì¶œë ¥ 
+				// ²¿¶ûÁö Ãâ·Â 
 				if( nWidth >= 6 )
 					m_texPack.Render( p2DRender, CPoint( x + ( 3 * nWidth / 5 ) * 8, y + i * 8 - 1),  9, nAlpha ); 
 				else
@@ -360,7 +360,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 		TEXTUREVERTEX* pVertices = vertex; 
 		if( !lpCustomText->m_bInfinite && lpCustomText->m_timer.TimeOut() )
 		{
-			// í€˜ìŠ¤íŠ¸ ì´ëª¨í‹°ì½˜ì„ ë‹¤ì‹œ ë³´ì´ê²Œ í•œë‹¤.
+			// Äù½ºÆ® ÀÌ¸ğÆ¼ÄÜÀ» ´Ù½Ã º¸ÀÌ°Ô ÇÑ´Ù.
 			if( lpCustomText->m_pObj->GetType() == OT_MOVER )
 				((CMover*)lpCustomText->m_pObj)->m_bShowQuestEmoticon = TRUE;
 			safe_delete( lpCustomText );
@@ -374,7 +374,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 			{
 				if( pObj->IsCull() == FALSE )
 				{
-					// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+					// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 					D3DXVECTOR3 vOut, vPos = pObj->GetPos(), vPosHeight;
 					D3DVIEWPORT9 vp;
 					const BOUND_BOX* pBB;
@@ -421,7 +421,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 				if( !lpCustomText->m_bInfinite && lpCustomText->m_timer.GetLeftTime() > 4000 )
 					nAlpha = (int)( 200 - ( ( lpCustomText->m_timer.GetLeftTime() - 4000 )* 200 / 1000 ) );
 	
-				// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+				// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 				D3DXVECTOR3 vOut, vPos = pObj->GetPos(), vPosHeight;
 				D3DVIEWPORT9 vp;
 				const BOUND_BOX* pBB;
@@ -479,7 +479,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 				{
 					char buffer[256] = { 0 };
 					
-					// í…ìŠ¤ì³ë Œë” ë²„ê·¸ ê´€ë ¨ ìˆ˜ì •
+					// ÅØ½ºÃÄ·»´õ ¹ö±× °ü·Ã ¼öÁ¤
 					CTexture* pShoutTex = NULL;
 
 					int nlen = _tcsclen(lpStr);
@@ -559,7 +559,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 
 				}
 
-				// ê¼¬ë‘ì§€ ì¶œë ¥ 
+				// ²¿¶ûÁö Ãâ·Â 
 				if( nWidth >= 6 )
 				{
 					point =  CPoint( (int)( x + ( 3 * nWidth / 5 ) * 8 ), (int)( y ) );
@@ -639,7 +639,7 @@ g_ShoutChat:
 		{
 			int nAlpha = 200;
 
-			// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
+			// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
 			D3DXVECTOR3 vOut, vPos = pObj->GetPos(), vPosHeight;
 			D3DVIEWPORT9 vp;
 			const BOUND_BOX* pBB;
@@ -866,7 +866,7 @@ void CDialogMsg::AddMessage( CObj* pObj, LPCTSTR lpszMessage, DWORD RGB, int nKi
 	lpCustomText->m_pTexture = NULL;
 	lpCustomText->m_nKind = nKind;
 
-	// Moverë¼ë©´ ëŒ€ì‚¬ ì¶œë ¥ ì‹œê°„ ë™ì•ˆ í€˜ìŠ¤íŠ¸ ì´ëª¨í‹°ì½˜ì„ ê°ì¶˜ë‹¤.
+	// Mover¶ó¸é ´ë»ç Ãâ·Â ½Ã°£ µ¿¾È Äù½ºÆ® ÀÌ¸ğÆ¼ÄÜÀ» °¨Ãá´Ù.
 	if( pObj->GetType() == OT_MOVER )
 		((CMover*)pObj)->m_bShowQuestEmoticon = FALSE;
 
@@ -882,11 +882,11 @@ void CDialogMsg::AddMessage( CObj* pObj, LPCTSTR lpszMessage, DWORD RGB, int nKi
 	int nMaxHeight = lpCustomText->m_pFont->GetMaxHeight();
 	CSize size = lpCustomText->m_pFont->GetTextExtent( lpszMessage );
 	int cx, cy;
-	// ê¸°ë³¸ ì‚¬ì´ì¦ˆ ê³„ì‚° 
+	// ±âº» »çÀÌÁî °è»ê 
 	if( size.cx >= 160 )
 	{
 		cx = 160;
-		cy = 160; // ì´ ìˆ˜ì¹˜ëŠ” ì˜ë¯¸ê°€ ì—†ìŒ. Reset ì´í›„ì— ì¤„ìˆ˜ë¡œ ì¬ ê³„ì‚° ë¨
+		cy = 160; // ÀÌ ¼öÄ¡´Â ÀÇ¹Ì°¡ ¾øÀ½. Reset ÀÌÈÄ¿¡ ÁÙ¼ö·Î Àç °è»ê µÊ
 		
 		lpCustomText->m_string.Init( lpCustomText->m_pFont, &CRect( 0, 0, cx - 16, cy - 16) );
 	}
@@ -894,12 +894,12 @@ void CDialogMsg::AddMessage( CObj* pObj, LPCTSTR lpszMessage, DWORD RGB, int nKi
 	{
 		cx = size.cx + 16; 
 		cx = ( ( cx / 16 ) * 16 ) + ( ( cx % 16 ) ? 16 : 0 );
-		cy = size.cy;// ì´ ìˆ˜ì¹˜ëŠ” ì˜ë¯¸ê°€ ì—†ìŒ. Reset ì´í›„ì— ì¤„ìˆ˜ë¡œ ì¬ ê³„ì‚° ë¨ 
+		cy = size.cy;// ÀÌ ¼öÄ¡´Â ÀÇ¹Ì°¡ ¾øÀ½. Reset ÀÌÈÄ¿¡ ÁÙ¼ö·Î Àç °è»ê µÊ 
 		lpCustomText->m_string.Init( lpCustomText->m_pFont, &CRect( 0, 0, cx - 16, cy - 16) );
 	}
 
 
-	cy = lpCustomText->m_string.GetLineCount() * nMaxHeight + 16; // ë¼ì¸ ì¤„ìˆ˜ë¡œ ì„¸ë¡œ ê¸¸ì´ë¥¼ êµ¬í•¨ 
+	cy = lpCustomText->m_string.GetLineCount() * nMaxHeight + 16; // ¶óÀÎ ÁÙ¼ö·Î ¼¼·Î ±æÀÌ¸¦ ±¸ÇÔ 
 	cy = ( ( cy / 16 ) * 16 ) + ( ( cy % 16 ) ? 16 : 0 );
 
 	lpCustomText->m_rect = CRect( 0, 0, cx, cy );
@@ -915,7 +915,7 @@ void CDialogMsg::ClearVendorObjMsg()
 
 void CDialogMsg::AddVendorMessage(CObj *pObj, LPCTSTR lpszMessage, DWORD RGB)
 {
-	// ì¤„ë°”ê¿ˆ ìŠ¤í˜ì´ìŠ¤ í‘œê¸°ë¡œ ë°”ê¿”ì£¼ê¸°
+	// ÁÙ¹Ù²Ş ½ºÆäÀÌ½º Ç¥±â·Î ¹Ù²ãÁÖ±â
 	CString tempstr;
 	tempstr = lpszMessage;
 	for(int j=0; j<tempstr.GetLength(); j++)
@@ -949,12 +949,12 @@ void CDialogMsg::AddVendorMessage(CObj *pObj, LPCTSTR lpszMessage, DWORD RGB)
 	int nMaxHeight = lpCustomText->m_pFont->GetMaxHeight();
 	CSize size = lpCustomText->m_pFont->GetTextExtent( lpszMessage );
 	int cx, cy;
-	// ê¸°ë³¸ ì‚¬ì´ì¦ˆ ê³„ì‚° 
+	// ±âº» »çÀÌÁî °è»ê 
 	/*
 	if( size.cx >= 160 )
 	{
 		cx = 160;
-		cy = 160; // ì´ ìˆ˜ì¹˜ëŠ” ì˜ë¯¸ê°€ ì—†ìŒ. Reset ì´í›„ì— ì¤„ìˆ˜ë¡œ ì¬ ê³„ì‚° ë¨ 
+		cy = 160; // ÀÌ ¼öÄ¡´Â ÀÇ¹Ì°¡ ¾øÀ½. Reset ÀÌÈÄ¿¡ ÁÙ¼ö·Î Àç °è»ê µÊ 
 		lpCustomText->m_string.Init( lpCustomText->m_pFont, &CRect( 0, 0, cx - 16, cy - 16) );
 	}
 	else
@@ -962,7 +962,7 @@ void CDialogMsg::AddVendorMessage(CObj *pObj, LPCTSTR lpszMessage, DWORD RGB)
 	{
 		cx = size.cx + 16; 
 		cx = ( ( cx / 16 ) * 16 ) + ( ( cx % 16 ) ? 16 : 0 );
-		cy = size.cy;// ì´ ìˆ˜ì¹˜ëŠ” ì˜ë¯¸ê°€ ì—†ìŒ. Reset ì´í›„ì— ì¤„ìˆ˜ë¡œ ì¬ ê³„ì‚° ë¨ 
+		cy = size.cy;// ÀÌ ¼öÄ¡´Â ÀÇ¹Ì°¡ ¾øÀ½. Reset ÀÌÈÄ¿¡ ÁÙ¼ö·Î Àç °è»ê µÊ 
 		lpCustomText->m_string.Init( lpCustomText->m_pFont, &CRect( 0, 0, cx - 16, cy - 16) );
 	}
 	if( lpCustomText->m_bInfinite )
@@ -976,7 +976,7 @@ void CDialogMsg::AddVendorMessage(CObj *pObj, LPCTSTR lpszMessage, DWORD RGB)
 	else
 		lpCustomText->m_string.SetParsingString( lpszMessage );
 	
-	cy = lpCustomText->m_string.GetLineCount() * nMaxHeight + 16; // ë¼ì¸ ì¤„ìˆ˜ë¡œ ì„¸ë¡œ ê¸¸ì´ë¥¼ êµ¬í•¨ 
+	cy = lpCustomText->m_string.GetLineCount() * nMaxHeight + 16; // ¶óÀÎ ÁÙ¼ö·Î ¼¼·Î ±æÀÌ¸¦ ±¸ÇÔ 
 	cy = ( ( cy / 16 ) * 16 ) + ( ( cy % 16 ) ? 16 : 0 );
 	
 	lpCustomText->m_rect = CRect( 0, 0, cx, cy );
@@ -1012,7 +1012,7 @@ bool CDialogMsg::LoadEmotion()
 	{
 		if( i>=MAX_EMOTICON_NUM )
 		{
-			Error( "textEmotion.txt ê°¯ìˆ˜ê°€ ë§ì§€ ì•ŠìŒ" );
+			Error( "textEmotion.txt °¹¼ö°¡ ¸ÂÁö ¾ÊÀ½" );
 			return FALSE;
 		}
 

@@ -1,4 +1,4 @@
-﻿#ifndef TESTCLASS_H
+#ifndef TESTCLASS_H
 #define TESTCLASS_H
 
 #ifdef __COLOSSEUM

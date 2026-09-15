@@ -1,4 +1,4 @@
-ï»¿// Billboard.cpp : implementation of the CBeastView class
+// Billboard.cpp : implementation of the CBeastView class
 //
 
 #include "stdafx.h"
@@ -38,7 +38,7 @@ HRESULT CBillboard::RestoreDeviceObjects()
 	if( m_pVertexBuffer )
 		return S_OK;
 	m_nVertexNum = 4;
-	// ë²„í…ìŠ¤ ë²„í¼ ë§Œë“¤ê¸° 
+	// ¹öÅØ½º ¹öÆÛ ¸¸µé±â 
 	if( m_pBillboard->bAnimation )
 	{
 		hr = m_pd3dDevice->CreateVertexBuffer
@@ -172,7 +172,7 @@ HRESULT CBillboard::RestoreDeviceObjects()
 	pVertices++;
 
 	m_pVertexBuffer->Unlock();
-	// BoundBoxì˜ Vertexìˆœì„œ 
+	// BoundBoxÀÇ Vertex¼ø¼­ 
 	//     - z
 	//   3 | 2
 	// - --+-- + x
@@ -193,7 +193,7 @@ HRESULT CBillboard::RestoreDeviceObjects()
 	if( m_pBillboard->bEffect )
 		m_dwRenderEffect = REFF_SFX;
 
-	// ì• ë‹ˆë©”ì´ì…˜ ë¹Œë³´ë“œì´ë©´ ì´ ëª‡í”Œë ˆìž„ì¸ì§€ ê³„ì‚°í•œë‹¤.
+	// ¾Ö´Ï¸ÞÀÌ¼Ç ºôº¸µåÀÌ¸é ÃÑ ¸îÇÃ·¹ÀÓÀÎÁö °è»êÇÑ´Ù.
 	if( m_pBillboard->bAnimation  )
 	{
 		int nWidth = m_pTexture->m_size.cx / rect.Width();
@@ -318,7 +318,7 @@ BOOL CBillboard::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmatWor
 	material.Power = 50.0f;   
 	pd3dDevice->SetMaterial( &material );
 	*/
-	// ì˜¤ë¸Œì íŠ¸ì˜ ë°˜íˆ¬ëª… íš¨ê³¼ ì„¸íŒ… 
+	// ¿ÀºêÁ§Æ®ÀÇ ¹ÝÅõ¸í È¿°ú ¼¼ÆÃ 
 	pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, D3DCOLOR_ARGB( m_dwBlendFactor, 0, 0, 0) );
 	pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAOP,   D3DTOP_MODULATE );
 	pd3dDevice->SetTextureStageState( 0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE );

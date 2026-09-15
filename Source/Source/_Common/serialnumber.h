@@ -1,4 +1,4 @@
-﻿#ifndef __SERIAL_NUMBER_H__
+#ifndef __SERIAL_NUMBER_H__
 #define	__SERIAL_NUMBER_H__
 
 class	CSerialNumber

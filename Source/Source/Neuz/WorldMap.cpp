@@ -1,4 +1,4 @@
-ï»¿// WorldMap.cpp: implementation of the CWorldMap class.
+// WorldMap.cpp: implementation of the CWorldMap class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -106,7 +106,7 @@ void CWorldMap::Init()
 	m_mapView.clear();
 	vector<CPoint> vecMap;
 	
-	// í”Œë¼ë¦¬ìŠ¤
+	// ÇÃ¶ó¸®½º
 	vecMap.clear();
 	vecMap.push_back( CPoint(6159, 3407) );
 	vecMap.push_back( CPoint(6350, 3825) );
@@ -123,7 +123,7 @@ void CWorldMap::Init()
 	
 	m_mapView.insert( multimap< CString, vector<CPoint> >::value_type( "Flaris", vecMap ) );
 	
-	// ì„¸ì¸íŠ¸ëª¨ë‹
+	// ¼¼ÀÎÆ®¸ğ´×
 	vecMap.clear();
 	vecMap.push_back( CPoint(7253, 2684) );
 	vecMap.push_back( CPoint(8023, 3496) );
@@ -139,7 +139,7 @@ void CWorldMap::Init()
 	
 	m_mapView.insert( multimap< CString, vector<CPoint> >::value_type( "Saint", vecMap ) );
 	
-	// ë¦¬ì‹œìŠ¤ì •ì›
+	// ¸®½Ã½ºÁ¤¿ø
 	vecMap.clear();
 	vecMap.push_back( CPoint(9123, 3339) );
 	vecMap.push_back( CPoint(8922, 3740) );
@@ -154,7 +154,7 @@ void CWorldMap::Init()
 	
 	m_mapView.insert( multimap< CString, vector<CPoint> >::value_type( "Ricis", vecMap ) );
 	
-	// ë‹¤ì½˜1
+	// ´ÙÄÜ1
 	vecMap.clear();
 	vecMap.push_back( CPoint(4858, 2781) );
 	vecMap.push_back( CPoint(4561, 3613) );
@@ -175,7 +175,7 @@ void CWorldMap::Init()
 	
 	m_mapView.insert( multimap< CString, vector<CPoint> >::value_type( "Darkon12", vecMap ) );
 	
-	// ë‹¤ì½˜2,3
+	// ´ÙÄÜ2,3
 	vecMap.clear();
 	vecMap.push_back( CPoint(2834, 5241) );
 	vecMap.push_back( CPoint(3069, 4562) );
@@ -488,7 +488,7 @@ void CWorldMap::Process()
 							strEdit.AddString(strTemp, D3DCOLOR_XRGB(130, 130, 200));
 							strTemp.Format("%s", pMoverProp->szName);
 
-							if(j+1 == stMonsterInfo.m_nMonCnt) //ê±°ëŒ€ë§Œ ë¹¨ê°„ìƒ‰ìœ¼ë¡œ í‘œì‹œ
+							if(j+1 == stMonsterInfo.m_nMonCnt) //°Å´ë¸¸ »¡°£»öÀ¸·Î Ç¥½Ã
 								strEdit.AddString(strTemp, D3DCOLOR_XRGB(255, 0, 0));
 							else
 								strEdit.AddString(strTemp);
@@ -541,8 +541,8 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 					
 	if( m_nMap !=0 && m_nMap != nMap )
 		return;
-	// ì£¼ì¸ê³µ í™”ì‚´í‘œ ì¶œë ¥
-	// í™”ë©´ ë¹„ìœ¨ ë•Œë¬¸ì— ì„ì˜ë¡œ ì •ì‚¬ê°í˜• ë·°í¬íŠ¸ë¥¼ ì§€ì •í•´ ë†“ëŠ”ë‹¤. ì•ˆê·¸ëŸ¬ë©´ í™”ì‚´í‘œ ëª¨ì–‘ì´ ì°Œê·¸ëŸ¬ì§.
+	// ÁÖÀÎ°ø È­»ìÇ¥ Ãâ·Â
+	// È­¸é ºñÀ² ¶§¹®¿¡ ÀÓÀÇ·Î Á¤»ç°¢Çü ºäÆ÷Æ®¸¦ ÁöÁ¤ÇØ ³õ´Â´Ù. ¾È±×·¯¸é È­»ìÇ¥ ¸ğ¾çÀÌ Âî±×·¯Áü.
 #if __VER >= 9 // __CSC_VER9_RESOLUTION
 	D3DVIEWPORT9 viewport;
 	if((g_Option.m_nResWidth == 1360 || g_Option.m_nResWidth == 1440 || g_Option.m_nResWidth == 1680) || 
@@ -575,11 +575,11 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 #endif //__CSC_VER9_RESOLUTION
 	D3DDEVICE->SetViewport( &viewport );
 
-	// í”„ë¡œì ì…˜ 
+	// ÇÁ·ÎÁ§¼Ç 
 	D3DXMATRIX matProj;
 	D3DXMatrixIdentity( &matProj );
 	D3DDEVICE->SetTransform( D3DTS_PROJECTION, &matProj );
-	// ì¹´ë©”ë¼ 
+	// Ä«¸Ş¶ó 
 	D3DXMATRIX  matView;
 	D3DXMatrixIdentity( &matView );
 	D3DDEVICE->SetTransform( D3DTS_VIEW, &matView );
@@ -626,14 +626,14 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 		fMap_X1 = 0.0f;
 		fMap_Y1 = 1298.0f;//0.0f;
 		fMap_X2 = 11800.0f;
-		fMap_Y2 = 9757.0f; //9000.0f;		// DDS ì˜ ì „ì²´í¬ê¸° 1280,960ì„ ì‹¤ì œ í¬ê¸°ì— ëŒ€í•œ ì‚¬ì´ê¸¸ì´ ( ìƒë‹¨ 123, í•˜ë‹¨ 30 )ë¥¼ êµ¬í•œí›„ ì‹¤ì œí¬ê¸°ì— í•´ë‹¹í•˜ëŠ” 
-											// ì›”ë“œ ì‹¤ì œì¢Œí‘œë¥¼ êµ¬í•´ì„œ( 8662, 1770 ) ì‚¬ì´ê¸¸ì´ë¥¼ ì‹¤ì œí¬ê¸°ë¡œ í™˜ì‚°í•œí›„ ê° ì¢Œí‘œì— ë”í•˜ê³ ( ìƒë‹¨ ) ë¹¼ì¤€ë‹¤( í•˜ë‹¨ )
+		fMap_Y2 = 9757.0f; //9000.0f;		// DDS ÀÇ ÀüÃ¼Å©±â 1280,960À» ½ÇÁ¦ Å©±â¿¡ ´ëÇÑ »çÀÌ±æÀÌ ( »ó´Ü 123, ÇÏ´Ü 30 )¸¦ ±¸ÇÑÈÄ ½ÇÁ¦Å©±â¿¡ ÇØ´çÇÏ´Â 
+											// ¿ùµå ½ÇÁ¦ÁÂÇ¥¸¦ ±¸ÇØ¼­( 8662, 1770 ) »çÀÌ±æÀÌ¸¦ ½ÇÁ¦Å©±â·Î È¯»êÇÑÈÄ °¢ ÁÂÇ¥¿¡ ´õÇÏ°í( »ó´Ü ) »©ÁØ´Ù( ÇÏ´Ü )
 	}
 	else
 #if __VER >= 14 // __NEW_CONTINENT
 	if( m_nMap == 1 )
 #else __NEW_CONTINENT
-	if( m_strViewMapString == m_strMapStringList[1] ) // ë‹¤ì½˜ 1, 2
+	if( m_strViewMapString == m_strMapStringList[1] ) // ´ÙÄÜ 1, 2
 #endif // __NEW_CONTINENT
 	{
 		fMap_X1 = 2355.0f;
@@ -645,7 +645,7 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 #if __VER >= 14 // __NEW_CONTINENT
 	if( m_nMap == 2 )
 #else __NEW_CONTINENT
-	if( m_strViewMapString == m_strMapStringList[2] ) // ë‹¤ì½˜ 3
+	if( m_strViewMapString == m_strMapStringList[2] ) // ´ÙÄÜ 3
 #endif // __NEW_CONTINENT
 	{
 		fMap_X1 = 985.0f;
@@ -657,7 +657,7 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 #if __VER >= 14 // __NEW_CONTINENT
 	if( m_nMap == 3 )
 #else __NEW_CONTINENT
-	if( m_strViewMapString == m_strMapStringList[3] ) // ë¦¬ì‹œìŠ¤
+	if( m_strViewMapString == m_strMapStringList[3] ) // ¸®½Ã½º
 #endif // __NEW_CONTINENT
 	{
 		fMap_X1 = 8080.0f;
@@ -669,7 +669,7 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 #if __VER >= 14 // __NEW_CONTINENT
 	if( m_nMap == 4 )
 #else __NEW_CONTINENT
-	if( m_strViewMapString == m_strMapStringList[4] ) // ì„¸ì¸íŠ¸ëª¨ë‹
+	if( m_strViewMapString == m_strMapStringList[4] ) // ¼¼ÀÎÆ®¸ğ´×
 #endif // __NEW_CONTINENT
 	{
 		fMap_X1 = 6854.0f;
@@ -681,7 +681,7 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 #if __VER >= 14 // __NEW_CONTINENT
 	if( m_nMap == 5 )
 #else __NEW_CONTINENT
-	if( m_strViewMapString == m_strMapStringList[5] ) // í”Œë¼ë¦¬ìŠ¤
+	if( m_strViewMapString == m_strMapStringList[5] ) // ÇÃ¶ó¸®½º
 #endif // __NEW_CONTINENT
 	{
 		fMap_X1 = 5500.0f;
@@ -691,9 +691,9 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 	}
 #if __VER >= 14 // __NEW_CONTINENT
 	else
-	if( m_nMap == 6 ) // í•˜ë¥´ëª¨ë‹Œ
+	if( m_nMap == 6 ) // ÇÏ¸£¸ğ´Ñ
 	{
-		fMap_X1 = 4795.0f;		// uië§µì˜ í…Œë‘ë¦¬ ëŒ€ ëŒ€ë¥™ì‚¬ì´ì¦ˆ ë¹„ìœ¨ì„ ì´ìš©í•´ ì‹¤ì œ ì›”ë“œëŒ€ë¥™ì¢Œí‘œì— ì ìš©ì‹œí‚¨ uiì˜ í…Œíˆ¬ë¦¬ì— í•´ë‹¹í•˜ëŠ” ì›”ë“œ ì¢Œí‘œ
+		fMap_X1 = 4795.0f;		// ui¸ÊÀÇ Å×µÎ¸® ´ë ´ë·ú»çÀÌÁî ºñÀ²À» ÀÌ¿ëÇØ ½ÇÁ¦ ¿ùµå´ë·úÁÂÇ¥¿¡ Àû¿ë½ÃÅ² uiÀÇ Å×Åõ¸®¿¡ ÇØ´çÇÏ´Â ¿ùµå ÁÂÇ¥
 		fMap_Y1 = 4587.0f;
 		fMap_X2 = 8391.0f;
 		fMap_Y2 = 7236.0f;
@@ -701,7 +701,7 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 #endif //__NEW_CONTINENT
 #if __VER >= 15 // __NEW_CONTINENT15
 	else 
-	if( m_nMap == 7 ) // ì´ìŠ¤í‹°ì•„ ìºë‹ˆì–¸
+	if( m_nMap == 7 ) // ÀÌ½ºÆ¼¾Æ Ä³´Ï¾ğ
 	{
 		fMap_X1 = 5150.0f;
 		fMap_Y1 = 5573.0f;
@@ -733,7 +733,7 @@ void CWorldMap::RenderPlayer( C2DRender *p2DRender, BOOL bMyPlayer, D3DXVECTOR3 
 	D3DDEVICE->SetSamplerState( 0, D3DSAMP_MINFILTER, D3DTEXF_POINT );		
 	D3DDEVICE->SetSamplerState( 0, D3DSAMP_MAGFILTER, D3DTEXF_POINT );		
 
-	// í™”ì‚´í‘œ ì¶œë ¥ 
+	// È­»ìÇ¥ Ãâ·Â 
 	if( bMyPlayer )
 		m_billArrow[0].Render( D3DDEVICE );
 	else
@@ -829,7 +829,7 @@ void CWorldMap::RenderWorldMap( C2DRender *p2DRender )
 
 		CTexture *pTexture;
 
-#ifndef __IMPROVE15_WORLDMAP		// ëŒ€ë¥™ ì´ë¯¸ì§€ ë²„íŠ¼ ì œê±° 
+#ifndef __IMPROVE15_WORLDMAP		// ´ë·ú ÀÌ¹ÌÁö ¹öÆ° Á¦°Å 
 
 #if __VER >= 13 // __CSC_VER13_1
 		for( int i = 0; i < MAX_BUTTON; ++i )
@@ -921,7 +921,7 @@ void CWorldMap::RenderWorldMap( C2DRender *p2DRender )
 
 BOOL CWorldMap::LoadWorldMap()
 {
-	// ì „ì²´ ë§µì¤‘ì— ë‚´ê°€ í˜„ì¬ ì–´ë””ì— ìˆëŠ”ì§€ë¥¼ ê²€ì‚¬í•œë‹¤.
+	// ÀüÃ¼ ¸ÊÁß¿¡ ³»°¡ ÇöÀç ¾îµğ¿¡ ÀÖ´ÂÁö¸¦ °Ë»çÇÑ´Ù.
 #if __VER >= 14 // __NEW_CONTINENT
 	int nMap = CContinent::GetInstance()->GetMapNo( g_pPlayer );
 #else // __NEW_CONTINENT
@@ -938,7 +938,7 @@ BOOL CWorldMap::LoadWorldMap()
 //	for( int i = 0; i < MAX_BUTTON; ++i )
 //		m_pWndList->AddString( CContinent::GetInstance()->GetContinentName( i ).GetBuffer( 0 ) );
 
-	//ëŒ€ë¥™ ì¸ë±ìŠ¤ ì‘ì—…ì´ ì•ˆë¼ìˆì–´ì„œ ê± ì¼ë‹¨ í…ŒìŠ¤íŠ¸ë¡œ..
+	//´ë·ú ÀÎµ¦½º ÀÛ¾÷ÀÌ ¾ÈµÅÀÖ¾î¼­ °Á ÀÏ´Ü Å×½ºÆ®·Î..
 	m_pWndList->AddString( "WORLD" );
 	m_pWndList->AddString( "Darkon1,2" );
 	m_pWndList->AddString( "Darkon3" );
@@ -1128,7 +1128,7 @@ void CWorldMap::OnLButtonDown( )
 			CRect& rect = kIcon._rect;
 			if( rect.PtInRect( pt ) )
 			{
-				// í•´ë‹¹ í¬ì§€ì…˜ ë²„íŠ¼ì„ ëˆŒë €ë‹¤.
+				// ÇØ´ç Æ÷Áö¼Ç ¹öÆ°À» ´­·¶´Ù.
 				CMover* pMover = prj.GetMover( m_idTeleporter );
 				if( !pMover )
 					return;
@@ -1146,7 +1146,7 @@ void CWorldMap::OnLButtonDown( )
 	m_pWndList->OnLButtonDown( 1, m_pWndList->GetMousePoint() );//WindowProc( message, wParam, lParam ); 
 	if( m_pWndList->GetCurSel() < MAX_BUTTON  )
 	{
-		//ëª¬ìŠ¤í„° ì •ë³´ëŠ” ì„ íƒì•ˆë˜ê³  ì°ìœ¼ë©´ ëª¬ìŠ¤í„° ì •ë³´ë§Œ ë³´ì—¬ì£¼ê¸° 
+		//¸ó½ºÅÍ Á¤º¸´Â ¼±ÅÃ¾ÈµÇ°í ÂïÀ¸¸é ¸ó½ºÅÍ Á¤º¸¸¸ º¸¿©ÁÖ±â 
 		int nowMapNum = 0;
 		nowMapNum = m_pWndList->GetCurSel();
 
@@ -1239,10 +1239,10 @@ void CWorldMap::OnLButtonDown( )
 #if __VER >= 15 // __TELEPORTER
 void CWorldMap::UpdateTeleportWorld( )
 {
-	//í•´ë‹¹ í…”ë ˆí¬í„°ë¡œë¶€í„° ì–»ì–´ì˜¨ ì›”ë“œí¬ì¸íŠ¸ ìë£Œë¥¼ ëŒ€ìƒìœ¼ë¡œ í˜„ì¬ ë³´ê³ ìˆëŠ” ë§µì›”ë“œ ì•„ì´ë””ì— ë”°ë¼ 
-	//ì¢Œí‘œë¥¼ ì—…ë°ì´íŠ¸ ì‹œí‚¨ë‹¤.
+	//ÇØ´ç ÅÚ·¹Æ÷ÅÍ·ÎºÎÅÍ ¾ò¾î¿Â ¿ùµåÆ÷ÀÎÆ® ÀÚ·á¸¦ ´ë»óÀ¸·Î ÇöÀç º¸°íÀÖ´Â ¸Ê¿ùµå ¾ÆÀÌµğ¿¡ µû¶ó 
+	//ÁÂÇ¥¸¦ ¾÷µ¥ÀÌÆ® ½ÃÅ²´Ù.
 
-	m_cTelPosRects.clear( ); //ì¼ë‹¨ ë‚ ë ¤ë²„ë ¤ 
+	m_cTelPosRects.clear( ); //ÀÏ´Ü ³¯·Á¹ö·Á 
 
 	CPoint pt;
 	CSize size( 16, 16 );
@@ -1273,7 +1273,7 @@ void CWorldMap::ProcessingTeleporter( CMover* pFocusMover )
 
 	if( m_idTeleporter != pFocusMover->GetId( ) )
 	{
-		//ìµœì´ˆë¡œ ë¶ˆë ¸ê±°ë‚˜ ë‹¤ë¥¸ í…”ë ˆí¬í„°ì¼ê²½ìš° 
+		//ÃÖÃÊ·Î ºÒ·È°Å³ª ´Ù¸¥ ÅÚ·¹Æ÷ÅÍÀÏ°æ¿ì 
 		m_idTeleporter = pFocusMover->GetId( );
 		m_cWorldPos = pCharacter->m_vecTeleportPos;
 
@@ -1302,7 +1302,7 @@ void CWorldMap::RenderTelPos( C2DRender *p2DRender )
 		pt.y = rect.top;
 		if( rect.PtInRect( mousePt ) )
 		{
-			// í•´ë‹¹ êµ¬ì—­ì— ë§ˆìš°ìŠ¤ê°€ ìœ„ì¹˜í•œ ê²½ìš° ì„ íƒëë‹¤ëŠ” ë­ ê·¸ëŸ°?
+			// ÇØ´ç ±¸¿ª¿¡ ¸¶¿ì½º°¡ À§Ä¡ÇÑ °æ¿ì ¼±ÅÃµÆ´Ù´Â ¹¹ ±×·±?
 			pt.x -= 2;
 			pt.y -= 2;
 			m_pTelPosTexture->Render( p2DRender, pt, CPoint( 20, 20 ) );
@@ -1382,7 +1382,7 @@ void CWorldMap::SetDestinationMode( BOOL bDestinationMode )
 
 BOOL CWorldMap::WorldPosToMapPos( const D3DXVECTOR3& vPos, OUT CPoint& cPos )
 {
-	if( 0 != m_nMap )		// ì „ì²´ë§µì´ ì•„ë‹ê²½ìš° í•´ë‹¹ ì§€ì—­ì— ê´€í•œ ìí‘œë§Œ í‘œì‹œí• êº¼ì„
+	if( 0 != m_nMap )		// ÀüÃ¼¸ÊÀÌ ¾Æ´Ò°æ¿ì ÇØ´ç Áö¿ª¿¡ °üÇÑ ÀÚÇ¥¸¸ Ç¥½ÃÇÒ²¨ÀÓ
 	{
 		
 		int nMap = CContinent::GetInstance()->GetMapNo( vPos );
@@ -1444,15 +1444,15 @@ BOOL CWorldMap::WorldPosToMapPos( const D3DXVECTOR3& vPos, OUT CPoint& cPos )
 		fMap_Y2 = 5130.0f;
 	}
 	else
-	if( m_nMap == 6 ) // í•˜ë¥´ëª¨ë‹Œ
+	if( m_nMap == 6 ) // ÇÏ¸£¸ğ´Ñ
 	{
-		fMap_X1 = 4795.0f;		// uië§µì˜ í…Œë‘ë¦¬ ëŒ€ ëŒ€ë¥™ì‚¬ì´ì¦ˆ ë¹„ìœ¨ì„ ì´ìš©í•´ ì‹¤ì œ ì›”ë“œëŒ€ë¥™ì¢Œí‘œì— ì ìš©ì‹œí‚¨ uiì˜ í…Œíˆ¬ë¦¬ì— í•´ë‹¹í•˜ëŠ” ì›”ë“œ ì¢Œí‘œ
+		fMap_X1 = 4795.0f;		// ui¸ÊÀÇ Å×µÎ¸® ´ë ´ë·ú»çÀÌÁî ºñÀ²À» ÀÌ¿ëÇØ ½ÇÁ¦ ¿ùµå´ë·úÁÂÇ¥¿¡ Àû¿ë½ÃÅ² uiÀÇ Å×Åõ¸®¿¡ ÇØ´çÇÏ´Â ¿ùµå ÁÂÇ¥
 		fMap_Y1 = 4587.0f;
 		fMap_X2 = 8391.0f;
 		fMap_Y2 = 7236.0f;
 	}
 	else
-	if( m_nMap == 7 ) // ì´ìŠ¤í‹°ì•„ ìºë‹ˆì–¸
+	if( m_nMap == 7 ) // ÀÌ½ºÆ¼¾Æ Ä³´Ï¾ğ
 	{
 		fMap_X1 = 5150.0f;
 		fMap_Y1 = 5573.0f;
@@ -1544,7 +1544,7 @@ BOOL CMonsterInfoPack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFile
 			TCHAR strFileName[MAX_PATH]; 
 			strcpy(strFileName,scanner.token);	
 			D3DCOLOR d3dKeyColor = scanner.GetHex();
-			// ì—¬ê¸°ì„œ í…ìŠ¤ì¶° ìƒì„± (Create the texture using D3DX)
+			// ¿©±â¼­ ÅØ½ºÃç »ı¼º (Create the texture using D3DX)
 			D3DXIMAGE_INFO imageInfo;
 
 			if( bMultiLang )
@@ -1569,7 +1569,7 @@ BOOL CMonsterInfoPack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFile
 		{
 			if( dwCount >= m_dwNumber )
 			{
-				Error( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d", pszFileName, m_dwNumber, dwCount );
+				Error( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d", pszFileName, m_dwNumber, dwCount );
 				return FALSE;
 			}
 			int nCnt = 0;
@@ -1592,7 +1592,7 @@ BOOL CMonsterInfoPack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFile
 					{
 						if( dwCount >= m_dwNumber )
 						{
-							Error( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d", pszFileName, m_dwNumber, dwCount );
+							Error( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d", pszFileName, m_dwNumber, dwCount );
 							return FALSE;
 						}
 						
@@ -1685,7 +1685,7 @@ BOOL CRainbowNPCPack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileN
 			TCHAR strFileName[MAX_PATH]; 
 			strcpy(strFileName,scanner.token);	
 			D3DCOLOR d3dKeyColor = scanner.GetHex();
-			// ì—¬ê¸°ì„œ í…ìŠ¤ì¶° ìƒì„± (Create the texture using D3DX)
+			// ¿©±â¼­ ÅØ½ºÃç »ı¼º (Create the texture using D3DX)
 			D3DXIMAGE_INFO imageInfo;
 
 			if( bMultiLang )
@@ -1710,7 +1710,7 @@ BOOL CRainbowNPCPack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileN
 		{
 			if( dwCount >= m_dwNumber )
 			{
-				Error( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d", pszFileName, m_dwNumber, dwCount );
+				Error( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d", pszFileName, m_dwNumber, dwCount );
 				return FALSE;
 			}
 			int nCnt = 0;
@@ -1733,7 +1733,7 @@ BOOL CRainbowNPCPack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileN
 					{
 						if( dwCount >= m_dwNumber )
 						{
-							Error( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d", pszFileName, m_dwNumber, dwCount );
+							Error( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d", pszFileName, m_dwNumber, dwCount );
 							return FALSE;
 						}
 						

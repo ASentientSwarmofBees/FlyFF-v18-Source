@@ -1,29 +1,29 @@
-ï»¿#ifndef __LANG_H
+#ifndef __LANG_H
 #define __LANG_H
 
-// êµ­ê°€ ì–¸ì–´ ì½”ë“œ
+// ±¹°¡ ¾ğ¾î ÄÚµå
 
-#define LANG_KOR	0	// í•œêµ­
-#define LANG_USA	1	// ì˜ì–´
-#define LANG_JAP	2	// ì¼ë³¸
-#define LANG_CHI	3	// ì¤‘êµ­
-#define LANG_THA	4	// íƒœêµ­
-#define LANG_TWN	5	// ëŒ€ë§Œ
-#define	LANG_GER	6	// ë…ì¼
-#define	LANG_SPA	7	// ì¹ ë ˆ
-#define	LANG_FRE	8	// í”„ë‘ìŠ¤
-#define	LANG_HK		9	// í™ì½©
-#define	LANG_POR	10	// ë¸Œë¼ì§ˆ
-#define LANG_VTN	11	// ë² íŠ¸ë‚¨
-#define	LANG_RUS	12	// ëŸ¬ì‹œì•„
-#define LANG_PHP	13	// í•„ë¦¬í•€
-#define LANG_ID		14  // ì¸ë„ë„¤ì‹œì•„
+#define LANG_KOR	0	// ÇÑ±¹
+#define LANG_USA	1	// ¿µ¾î
+#define LANG_JAP	2	// ÀÏº»
+#define LANG_CHI	3	// Áß±¹
+#define LANG_THA	4	// ÅÂ±¹
+#define LANG_TWN	5	// ´ë¸¸
+#define	LANG_GER	6	// µ¶ÀÏ
+#define	LANG_SPA	7	// Ä¥·¹
+#define	LANG_FRE	8	// ÇÁ¶û½º
+#define	LANG_HK		9	// È«Äá
+#define	LANG_POR	10	// ºê¶óÁú
+#define LANG_VTN	11	// º£Æ®³²
+#define	LANG_RUS	12	// ·¯½Ã¾Æ
+#define LANG_PHP	13	// ÇÊ¸®ÇÉ
+#define LANG_ID		14  // ÀÎµµ³×½Ã¾Æ
 #define LANG_MAX	15	
 
 // #define LANG_SUB_DEFAULT   0
-// #define LANG_SUB_USA          1	// ë¯¸êµ­
-// #define LANG_SUB_PHP          2	// í•„ë¦¬í•€
-// #define LANG_SUB_IND          3	// ì¸ë„ë„¤ì‹œì•„
+// #define LANG_SUB_USA          1	// ¹Ì±¹
+// #define LANG_SUB_PHP          2	// ÇÊ¸®ÇÉ
+// #define LANG_SUB_IND          3	// ÀÎµµ³×½Ã¾Æ
 // #define LANG_SUB_MAX	      4
 
 

@@ -1,4 +1,4 @@
-ï»¿//ì•„ì´í…œID	ì„ í–‰ì¡°ê±´1	ì„ í–‰ì¡°ê±´2
+//¾ÆÀÌÅÛID	¼±ÇàÁ¶°Ç1	¼±ÇàÁ¶°Ç2
 //dwID	dwVisCheckList1	dwVisCheckList2
 II_SYS_VIS_LV3_WARRIOR	27	28
 II_SYS_VIS_LV3_KNIGHT	29	30

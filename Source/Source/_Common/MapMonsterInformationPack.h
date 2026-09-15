@@ -1,4 +1,4 @@
-﻿#ifndef __MAP_MONSTER_ICON_INFORMATION_PACK_H__
+#ifndef __MAP_MONSTER_ICON_INFORMATION_PACK_H__
 #define __MAP_MONSTER_ICON_INFORMATION_PACK_H__
 
 #include "MapMonsterInformation.h"

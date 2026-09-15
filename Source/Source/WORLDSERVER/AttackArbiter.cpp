@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "DefineObj.h"
 #include "defineSkill.h"
 #include "ActionMover.h"
@@ -39,11 +39,11 @@ ATK_TYPE ATTACK_INFO::GetAtkType() const
 	{
 		type = ATK_MAGICSKILL;
 	}	
-	else if( dwAtkFlags & AF_MAGIC )		// ì¼ë°˜ ì™„ë“œ ê³µê²©
+	else if( dwAtkFlags & AF_MAGIC )		// ÀÏ¹İ ¿Ïµå °ø°İ
 	{
 		type = ATK_MAGIC;
 	}
-	else if( dwAtkFlags & AF_FORCE )		// ë°˜ì‚¬ ë°ë¯¸ì§€ê°™ì€ ê²½ìš° 
+	else if( dwAtkFlags & AF_FORCE )		// ¹İ»ç µ¥¹ÌÁö°°Àº °æ¿ì 
 	{
 		type = ATK_FORCE;
 	}
@@ -51,7 +51,7 @@ ATK_TYPE ATTACK_INFO::GetAtkType() const
 	return type;
 }
 
-// ë°©ì–´ë ¥ ë¬´ì‹œì˜ ê²½ìš°ì¸ê°€?
+// ¹æ¾î·Â ¹«½ÃÀÇ °æ¿ìÀÎ°¡?
 BOOL ATTACK_INFO::CanIgnoreDEF() const		
 {
 	int nSkill = GetSkill();
@@ -63,7 +63,7 @@ BOOL ATTACK_INFO::CanIgnoreDEF() const
 		return TRUE;
 	}
 
-	if( dwAtkFlags & AF_FORCE )		// ë¯¸ë¦¬ê³„ì‚° ëœ ë°ë¯¸ì§€ì˜ ê²½ìš°, ë°©ì–´ë ¥ ë¬´ì‹œ (ì˜ˆ: ë°˜ì‚¬, ì‚¬ì´í‚¥ ì›”)  
+	if( dwAtkFlags & AF_FORCE )		// ¹Ì¸®°è»ê µÈ µ¥¹ÌÁöÀÇ °æ¿ì, ¹æ¾î·Â ¹«½Ã (¿¹: ¹İ»ç, »çÀÌÅ± ¿ù)  
 		return TRUE;
 	return FALSE;
 }
@@ -73,7 +73,7 @@ int ATTACK_INFO::GetChargeLevel() const
 	if( IsSkillAttack( dwAtkFlags ) )
 		return 0;
 	
-	return ( nParam & 0xFF);			// ì™„ë“œì¶©ì „ëŸ‰
+	return ( nParam & 0xFF);			// ¿ÏµåÃæÀü·®
 }
 
 int ATTACK_INFO::GetSkillLevel() const 
@@ -84,13 +84,13 @@ int ATTACK_INFO::GetSkillLevel() const
 
 int ATTACK_INFO::GetAttackCount() const 
 {
-	return ( nParam >> 8) & 0xFF;		// ì¼ë°˜ 0, ì§€ì†ë°ë¯¸ì§€ 1ì´ìƒ 
+	return ( nParam >> 8) & 0xFF;		// ÀÏ¹İ 0, Áö¼Óµ¥¹ÌÁö 1ÀÌ»ó 
 }
 
 int ATTACK_INFO::GetSkill() const
 {
 	if( IsSkillAttack( dwAtkFlags ) )
-		return ( nParam >> 16) & 0xFFFF;	// ìŠ¤í‚¬ì´ì—ˆë‹¤ë©´ ìŠ¤í‚¬ID
+		return ( nParam >> 16) & 0xFFFF;	// ½ºÅ³ÀÌ¾ú´Ù¸é ½ºÅ³ID
 	else
 		return 0;
 }
@@ -126,7 +126,7 @@ int CAttackArbiter::OnDamageMsgW()
 {
 	if( !CheckValidDamageMsg() )
 	{
-/*	ë¶ˆí•„ìš”í•œ ì½”ë“œ
+/*	ºÒÇÊ¿äÇÑ ÄÚµå
 #if __VER >= 8 // __S8_PK
 		if( m_pAttacker->IsPlayer() && m_pDefender->IsPlayer() )
 		{
@@ -179,14 +179,14 @@ int CAttackArbiter::OnDamageMsgW()
 #if __VER < 11 // __REMOVE_ENDURANCE
 			m_pDefender->Abrade( m_pAttacker, info.nParts );
 #endif // __REMOVE_ENDURANCE
-			int n = CalcDamage( &info );					// ë°ë¯¸ì§€ë¥¼ êµ¬í•œë‹¤. (m_dwAtkFlagsë„ ë³€ê²½ë  ìˆ˜ ìˆë‹¤) 
+			int n = CalcDamage( &info );					// µ¥¹ÌÁö¸¦ ±¸ÇÑ´Ù. (m_dwAtkFlagsµµ º¯°æµÉ ¼ö ÀÖ´Ù) 
 			if( n > 0 )
 			{
-				ProcessAbnormal( n, &info );				// ìŠ¤í„´, ì•”í‘, ë…, ë°˜ì‚¬ ìƒíƒœì²˜ë¦¬ 
+				ProcessAbnormal( n, &info );				// ½ºÅÏ, ¾ÏÈæ, µ¶, ¹İ»ç »óÅÂÃ³¸® 
 #if __VER >= 9 // __ULTIMATE
-				StealHP( n, info.GetAtkType() );								// í¡í˜ˆ 
+				StealHP( n, info.GetAtkType() );								// ÈíÇ÷ 
 #else // __ULTIMATE
-				StealHP( n );								// í¡í˜ˆ 
+				StealHP( n );								// ÈíÇ÷ 
 #endif // __ULTIMATE
 				nDamage += n;
 			}
@@ -210,34 +210,34 @@ int CAttackArbiter::OnDamageMsgW()
 #endif // __VER >= 8
 
 	nDamage = max( nDamage, 1 );
-	int nHP = MinusHP( &nDamage );							// HP ê°ì†Œ ì‹œí‚´ 
+	int nHP = MinusHP( &nDamage );							// HP °¨¼Ò ½ÃÅ´ 
 
 #if __VER >= 14 // __INSTANCE_DUNGEON
 	if( CMonsterSkill::GetInstance()->MonsterTransform( m_pDefender, nHP ) )
 		return 0;
 #endif // __INSTANCE_DUNGEON
 
-	if( m_pDefender->m_pActMover->IsSit() )					// ì•‰ê¸°í•´ì œ & ì´ë™ì„ ë©ˆì¶¤ 
+	if( m_pDefender->m_pActMover->IsSit() )					// ¾É±âÇØÁ¦ & ÀÌµ¿À» ¸ØÃã 
 		m_pDefender->m_pActMover->ResetState( OBJSTA_MOVE_ALL );
 	m_pDefender->m_pActMover->SendActMsg( OBJMSG_STAND );	
 	
-	m_pDefender->OnAttacked( m_pAttacker, nDamage, m_bTarget, m_nReflect );		// ê³µê²©ì í”¼ê²©ì ì €ì¥, ê²½í—˜ì¹˜ ì§€ê¸‰ìœ¨ ë³€ê²½	
+	m_pDefender->OnAttacked( m_pAttacker, nDamage, m_bTarget, m_nReflect );		// °ø°İÀÚ ÇÇ°İÀÚ ÀúÀå, °æÇèÄ¡ Áö±ŞÀ² º¯°æ	
 	if( nHP > 0 )
 	{
-		OnDamaged( nDamage );								// ë°ë¯¸ì§€ ëª¨ì…˜ ì·¨í•˜ê¸°, ë°ë¯¸ì§€ ì „ì†¡, ë²”ì£„ìì„¤ì • 
-		// MinusHP()ì—ì„œ ê°€ì ¸ì˜´ - ë°ë¯¸ì§€ ì´í›„ íšŒë³µì‹œì¼œì•¼ í•œë‹¤.
-		int nActionHPRate = m_pDefender->GetAdjParam( DST_AUTOHP );							// ë°œë™ HPìœ¨
+		OnDamaged( nDamage );								// µ¥¹ÌÁö ¸ğ¼Ç ÃëÇÏ±â, µ¥¹ÌÁö Àü¼Û, ¹üÁËÀÚ¼³Á¤ 
+		// MinusHP()¿¡¼­ °¡Á®¿È - µ¥¹ÌÁö ÀÌÈÄ È¸º¹½ÃÄÑ¾ß ÇÑ´Ù.
+		int nActionHPRate = m_pDefender->GetAdjParam( DST_AUTOHP );							// ¹ßµ¿ HPÀ²
 		if( nActionHPRate > 0 )
 		{
-			float fHPPercent = (float)nHP / m_pDefender->GetMaxHitPoint();					// í˜„ì¬ HPì˜ í¼ì„¼íŠ¸ ìœ¨
-			if( fHPPercent <= (nActionHPRate / 100.0f) )									// í˜„ì¬ HPê°€ ë°œë™HPì´í•˜ê°€ ë˜ë©´
+			float fHPPercent = (float)nHP / m_pDefender->GetMaxHitPoint();					// ÇöÀç HPÀÇ ÆÛ¼¾Æ® À²
+			if( fHPPercent <= (nActionHPRate / 100.0f) )									// ÇöÀç HP°¡ ¹ßµ¿HPÀÌÇÏ°¡ µÇ¸é
 			{
-				float fAddHP = m_pDefender->GetChgParam( DST_AUTOHP ) / 100.0f;				// íšŒë³µì‹œí‚¬ HPìœ¨
-				int nAddHP = (int)( m_pDefender->GetMaxHitPoint() * fAddHP );				// MaxHPì˜ ì¼ì •ë¹„ìœ¨ì„ ì·¨í•¨.
+				float fAddHP = m_pDefender->GetChgParam( DST_AUTOHP ) / 100.0f;				// È¸º¹½ÃÅ³ HPÀ²
+				int nAddHP = (int)( m_pDefender->GetMaxHitPoint() * fAddHP );				// MaxHPÀÇ ÀÏÁ¤ºñÀ²À» ÃëÇÔ.
 				nHP += nAddHP;
-				m_pDefender->SetPointParam( DST_HP, nHP, TRUE );									// HPì¦ê°€.
-				g_UserMng.AddCreateSfxObj( m_pDefender, XI_GEN_CURE01 );					// íšŒë³µ íš¨ê³¼ ë°œìƒ.
-				m_pDefender->RemoveBuff( BUFF_SKILL, SI_ASS_HEAL_PREVENTION );	// í•´ì œ.
+				m_pDefender->SetPointParam( DST_HP, nHP, TRUE );									// HPÁõ°¡.
+				g_UserMng.AddCreateSfxObj( m_pDefender, XI_GEN_CURE01 );					// È¸º¹ È¿°ú ¹ß»ı.
+				m_pDefender->RemoveBuff( BUFF_SKILL, SI_ASS_HEAL_PREVENTION );	// ÇØÁ¦.
 			}
 		}
 #if __VER >= 11 // __REFLECTDMG_AFTER
@@ -249,10 +249,10 @@ int CAttackArbiter::OnDamageMsgW()
 #endif// __REFLECTDMG_AFTER
 	}
 	else	
-		OnDied();											// ê²½í—˜ì¹˜, ì•„ì´í…œ ë“œë 
+		OnDied();											// °æÇèÄ¡, ¾ÆÀÌÅÛ µå¶ø 
 	
 
-#if __VER >= 8   // 8ì°¨ ë“€ì–¼ì¡´ì— ê´€ê³„ì—†ì´ PVPê°€ëŠ¥í•˜ê²Œí•¨   Neuz, World
+#if __VER >= 8   // 8Â÷ µà¾óÁ¸¿¡ °ü°è¾øÀÌ PVP°¡´ÉÇÏ°ÔÇÔ   Neuz, World
 	m_pDefender->EndPVP(nHP);
 #else	//__VER >= 8
 	m_pDefender->m_nHitPoint = nHP;
@@ -261,11 +261,11 @@ int CAttackArbiter::OnDamageMsgW()
 	return nDamage;
 }
 
-// ë°ë¯¸ì§€ë¥¼ ì…ê¸° ìœ„í•œ ì¡°ê±´ì„ ì¶©ì¡±í•˜ëŠ”ê°€? TRUE - ì¶©ì¡± 
+// µ¥¹ÌÁö¸¦ ÀÔ±â À§ÇÑ Á¶°ÇÀ» ÃæÁ·ÇÏ´Â°¡? TRUE - ÃæÁ· 
 BOOL CAttackArbiter::CheckValidDamageMsg()
 {
 #ifdef __EVENT_MONSTER
-	// ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°ì´ê³  ë ˆë²¨ì´ 15ë„˜ê²Œ ì°¨ì´ë‚˜ë©´ MISS
+	// ÀÌº¥Æ® ¸ó½ºÅÍÀÌ°í ·¹º§ÀÌ 15³Ñ°Ô Â÷ÀÌ³ª¸é MISS
 	if( m_pAttacker->IsPlayer() && !m_pDefender->IsPlayer() )
 	{
 		MoverProp* lpMoverProp = m_pDefender->GetProp();
@@ -290,12 +290,12 @@ BOOL CAttackArbiter::CheckValidDamageMsg()
 		return FALSE;
 	}
 
-	// ë§ëŠ”ì‹œì ì—ë„ ìŠ¤í‹¸ì²´í¬ë¥¼ í•´ì•¼í•œë‹¤.
-	// ë™ì‹œì— ìŠ¤í‚¬ì„ ì¼ì„ë•Œ ë°œë™í•˜ëŠ”ì‹œì ì— ìŠ¤í‚¬ì„ ì‚¬ìš©í•˜ê¸°ë•œì— ë‘˜ë‹¤ ìŠ¤í‹¸ìƒíƒœê°€ ì•„ë‹Œì±„ë¡œ ë“¤ì–´ì˜¤ê¸° ë•Œë¬¸ì´ë‹¤.
-	// ë°œë™í•˜ëŠ” ì‹œì ì—ë„ ì—­ì‹œ ìŠ¤í‹¸ì²´í¬ë¥¼ í•´ì•¼í•˜ëŠ”ê²ƒì€ ë‚´ëª¹ì„ ë”´ë†ˆì´ ê³µê²©í•˜ëŠ” ëª¨ì…˜ì´ ì•„ì˜ˆ ë‚˜ì˜¤ì§€ ì•Šê¸° ìœ„í•´ì„œ ë¯¸ë¦¬ ì²´í¬ í•´ì•¼í•˜ê¸°ë•Œë¬¸.
+	// ¸Â´Â½ÃÁ¡¿¡µµ ½ºÆ¿Ã¼Å©¸¦ ÇØ¾ßÇÑ´Ù.
+	// µ¿½Ã¿¡ ½ºÅ³À» ½èÀ»¶§ ¹ßµ¿ÇÏ´Â½ÃÁ¡¿¡ ½ºÅ³À» »ç¿ëÇÏ±â¶«¿¡ µÑ´Ù ½ºÆ¿»óÅÂ°¡ ¾Æ´ÑÃ¤·Î µé¾î¿À±â ¶§¹®ÀÌ´Ù.
+	// ¹ßµ¿ÇÏ´Â ½ÃÁ¡¿¡µµ ¿ª½Ã ½ºÆ¿Ã¼Å©¸¦ ÇØ¾ßÇÏ´Â°ÍÀº ³»¸÷À» µı³ğÀÌ °ø°İÇÏ´Â ¸ğ¼ÇÀÌ ¾Æ¿¹ ³ª¿ÀÁö ¾Ê±â À§ÇØ¼­ ¹Ì¸® Ã¼Å© ÇØ¾ßÇÏ±â¶§¹®.
 	if( !g_eLocal.GetState( EVE_STEAL ) )
 	{
-		if( m_pAttacker->IsSteal( m_pDefender ) )	// m_pAttackerê°€ ìŠ¤í‹¸í•˜ë ¤ í•˜ëŠ”ê°€?
+		if( m_pAttacker->IsSteal( m_pDefender ) )	// m_pAttacker°¡ ½ºÆ¿ÇÏ·Á ÇÏ´Â°¡?
 			return FALSE;					
 	}
 	return TRUE;
@@ -304,30 +304,30 @@ BOOL CAttackArbiter::CheckValidDamageMsg()
 int CAttackArbiter::CalcATK( ATTACK_INFO* pInfo )
 {
 	int nATK = 0;
-	int nCount = pInfo->GetAttackCount();		// ì¼ë°˜ 0, ì§€ì†ë°ë¯¸ì§€ 1ì´ìƒ 
+	int nCount = pInfo->GetAttackCount();		// ÀÏ¹İ 0, Áö¼Óµ¥¹ÌÁö 1ÀÌ»ó 
 
 	switch( pInfo->GetAtkType() )
 	{
-	case ATK_FORCE:								// ë¯¸ë¦¬ê³„ì‚°ëœ ë°ë¯¸ì§€ (ë°˜ì‚¬, ì‚¬ì´í‚¥ ì›”)
+	case ATK_FORCE:								// ¹Ì¸®°è»êµÈ µ¥¹ÌÁö (¹İ»ç, »çÀÌÅ± ¿ù)
 		nATK = m_nParam;						
 		nCount = 0;		
 		break;
-	case ATK_MELEESKILL:						// ë°€ë¦¬ìŠ¤í‚¬ 
+	case ATK_MELEESKILL:						// ¹Ğ¸®½ºÅ³ 
 		nATK = m_pAttacker->GetMeleeSkillPower( pInfo );
 		break;
-	case ATK_MAGICSKILL:						// ë§¤ì§ ìŠ¤í‚¬ 
+	case ATK_MAGICSKILL:						// ¸ÅÁ÷ ½ºÅ³ 
 		nATK = m_pAttacker->GetMagicSkillPower( pInfo );
 		break;
-	case ATK_MAGIC:								// ì™„ë“œ ê³µê²© 
+	case ATK_MAGIC:								// ¿Ïµå °ø°İ 
 		nATK = m_pAttacker->GetMagicHitPower( pInfo->GetChargeLevel() );
 		break;
-	case ATK_GENERIC:							// ì¼ë°˜ ê³µê²© 
+	case ATK_GENERIC:							// ÀÏ¹İ °ø°İ 
 		nATK = m_pAttacker->GetHitPower( pInfo );
 		break;
 	}
 
-	nATK	= (int)( nATK * m_pAttacker->GetATKMultiplier( m_pDefender, pInfo->dwAtkFlags ) );	// ìˆœìˆ˜ê³µê²©ë ¥ì„ ì¦í­í•œë‹¤. 	
-	if( nCount > 0 )															// ì§€ì†ë°ë¯¸ì§€ëŠ” ê³„ì‚°ëœ ATK 10%
+	nATK	= (int)( nATK * m_pAttacker->GetATKMultiplier( m_pDefender, pInfo->dwAtkFlags ) );	// ¼ø¼ö°ø°İ·ÂÀ» ÁõÆøÇÑ´Ù. 	
+	if( nCount > 0 )															// Áö¼Óµ¥¹ÌÁö´Â °è»êµÈ ATK 10%
 		nATK	= (int)( nATK * 0.1f );
 
 //#ifdef __PET_0410
@@ -348,10 +348,10 @@ int CAttackArbiter::CalcATK( ATTACK_INFO* pInfo )
 }
 
 
-// ë°ë¯¸ì§€ë¥¼ êµ¬í•œë‹¤. (m_dwAtkFlagsë„ ë³€ê²½ë  ìˆ˜ ìˆë‹¤)
+// µ¥¹ÌÁö¸¦ ±¸ÇÑ´Ù. (m_dwAtkFlagsµµ º¯°æµÉ ¼ö ÀÖ´Ù)
 int CAttackArbiter::CalcDamage( ATTACK_INFO* pInfo )
 {
-	if( m_pAttacker->m_dwMode & ONEKILL_MODE )	// ì›í‚¬ ëª¨ë“œ
+	if( m_pAttacker->m_dwMode & ONEKILL_MODE )	// ¿øÅ³ ¸ğµå
 		return m_pDefender->GetHitPoint();	
 
 	int nDamage = PostCalcDamage( CalcATK( pInfo ), pInfo );
@@ -367,11 +367,11 @@ int CAttackArbiter::OnAfterDamage( ATTACK_INFO* pInfo, int nDamage )
 
 	if( pAttacker->IsPlayer() && nDamage > 0 )
 	{
-		if( pDefender->GetAdjParam( DST_CHRSTATE ) & CHS_DOUBLE )	// ë”ë¸”ë°ë¯¸ì§€ ìƒíƒœ ê±¸ë ¸ë‹¤
+		if( pDefender->GetAdjParam( DST_CHRSTATE ) & CHS_DOUBLE )	// ´õºíµ¥¹ÌÁö »óÅÂ °É·È´Ù
 			pDefender->RemoveChrStateBuffs( CHS_DOUBLE );
 	}
 
-	if( pDefender->GetAdjParam( DST_CHRSTATE) & CHS_ATK_COUNTERATTACK  ) // ê³µê²©ë‹¹í–ˆì„ë•Œ : ë°ë¯¸ì§€ ì—†ìŒ
+	if( pDefender->GetAdjParam( DST_CHRSTATE) & CHS_ATK_COUNTERATTACK  ) // °ø°İ´çÇßÀ»¶§ : µ¥¹ÌÁö ¾øÀ½
 	{
 		if( pDefender->IsRangeObj( pAttacker->GetPos(), 3.0f ) )
 		{
@@ -401,7 +401,7 @@ int CAttackArbiter::OnAfterDamage( ATTACK_INFO* pInfo, int nDamage )
 		}
 	}
 	else
-	if( pDefender->GetAdjParam( DST_CHRSTATE) & CHS_DMG_COUNTERATTACK  ) // ê³µê²©ë‹¹í–ˆì„ë•Œ : ë°ë¯¸ì§€ ìˆìŒ
+	if( pDefender->GetAdjParam( DST_CHRSTATE) & CHS_DMG_COUNTERATTACK  ) // °ø°İ´çÇßÀ»¶§ : µ¥¹ÌÁö ÀÖÀ½
 	{
 		if( pDefender->IsRangeObj( pAttacker->GetPos(), 3.0f ) )
 		{
@@ -433,18 +433,18 @@ int CAttackArbiter::OnAfterDamage( ATTACK_INFO* pInfo, int nDamage )
 
 enum POSTCALC_TYPE
 {
-	POSTCALC_DPC,				// Defense, Parry, Critical ì ìš©
-	POSTCALC_MAGICSKILL,		// ì†ì„±ê³µê²© í¬í•¨ ë§¤ì§ ìŠ¤í‚¬  
-	POSTCALC_GENERIC,			// ê·¼ì ‘ê³µê²©  
+	POSTCALC_DPC,				// Defense, Parry, Critical Àû¿ë
+	POSTCALC_MAGICSKILL,		// ¼Ó¼º°ø°İ Æ÷ÇÔ ¸ÅÁ÷ ½ºÅ³  
+	POSTCALC_GENERIC,			// ±ÙÁ¢°ø°İ  
 };
 
-// ê³µê²©ê³„ì‚° íƒ€ì…
+// °ø°İ°è»ê Å¸ÀÔ
 POSTCALC_TYPE GetPostCalcType( DWORD dwAtkFlags )
 {
-	if ( dwAtkFlags & AF_MAGICSKILL )		// ë§¤ì§ ìŠ¤í‚¬
+	if ( dwAtkFlags & AF_MAGICSKILL )		// ¸ÅÁ÷ ½ºÅ³
 		return POSTCALC_MAGICSKILL;
 
-	if ( dwAtkFlags & AF_GENERIC )			// ì¼ë°˜ ê³µê²©
+	if ( dwAtkFlags & AF_GENERIC )			// ÀÏ¹İ °ø°İ
 		return POSTCALC_GENERIC;
 	
 	return POSTCALC_DPC;
@@ -458,7 +458,7 @@ int CAttackArbiter::PostCalcDamage( int nATK, ATTACK_INFO* pInfo )
 	CMover* pAttacker = pInfo->pAttacker;
 	CMover* pDefender = pInfo->pDefender;
 
-	// ì˜ˆì™¸ì²˜ë¦¬: ë§¤ì§ìŠ¤í‚¬ì´ ì•„ë‹ˆë©´, ëª¬ìŠ¤í„°ê°€ í”Œë ˆì´ì–´ë¥¼ ê³µê²©í•  ë•Œ ë ˆë²¨ì°¨ì— ë”°ë¥¸ ê³µê²©ë ¥UP
+	// ¿¹¿ÜÃ³¸®: ¸ÅÁ÷½ºÅ³ÀÌ ¾Æ´Ï¸é, ¸ó½ºÅÍ°¡ ÇÃ·¹ÀÌ¾î¸¦ °ø°İÇÒ ¶§ ·¹º§Â÷¿¡ µû¸¥ °ø°İ·ÂUP
 	if( ((pInfo->dwAtkFlags & AF_MAGICSKILL) == 0) && pAttacker->IsNPC() && pDefender->IsPlayer() )	
 	{
 		int nDelta = pAttacker->GetLevel() - pDefender->GetLevel();
@@ -473,10 +473,10 @@ int CAttackArbiter::PostCalcDamage( int nATK, ATTACK_INFO* pInfo )
 	switch( GetPostCalcType( pInfo->dwAtkFlags ) )
 	{
 	case POSTCALC_DPC:
-		nDamage = pDefender->ApplyDPC( nATK, pInfo );	// Defense, Parry, Critical ì ìš©
+		nDamage = pDefender->ApplyDPC( nATK, pInfo );	// Defense, Parry, Critical Àû¿ë
 #if __VER < 13 // __EXT_ENCHANT
 		if( nATK > 0 )
-			nDamage += pAttacker->CalcPropDamage( pDefender, pInfo->dwAtkFlags );		// ì†ì„±ë°ë¯¸ì§€ë¥¼ ì¶”ê°€
+			nDamage += pAttacker->CalcPropDamage( pDefender, pInfo->dwAtkFlags );		// ¼Ó¼ºµ¥¹ÌÁö¸¦ Ãß°¡
 #endif // __EXT_ENCHANT
 		break;
 	case POSTCALC_MAGICSKILL:
@@ -490,11 +490,11 @@ int CAttackArbiter::PostCalcDamage( int nATK, ATTACK_INFO* pInfo )
 	if( nDamage <= 0 )
 		return 0;
 
-	nDamage += pAttacker->CalcLinkAttackDamage( nDamage );						// ë§í¬ì–´íƒ ìŠ¤í‚¬ì„ ì ìš©í•œë‹¤.
+	nDamage += pAttacker->CalcLinkAttackDamage( nDamage );						// ¸µÅ©¾îÅÃ ½ºÅ³À» Àû¿ëÇÑ´Ù.
 	if( pInfo->GetSkill() == SI_BIL_PST_ASALRAALAIKUM )
 		nDamage += PostAsalraalaikum();
 
-	nDamage	= (int)( nDamage * pAttacker->GetDamageMultiplier( pInfo ) );		// ë°ë¯¸ì§€ì¦í­ 
+	nDamage	= (int)( nDamage * pAttacker->GetDamageMultiplier( pInfo ) );		// µ¥¹ÌÁöÁõÆø 
 #ifdef __3RD_LEGEND16
   if( pDefender->IsPlayer() && pAttacker->IsPlayer() )
   {
@@ -549,9 +549,9 @@ int CAttackArbiter::PostAsalraalaikum()
 		case 10:	nAddDmg = 150;	break;
 	}
 
-	int nMP = m_pAttacker->GetManaPoint();						// ì¼ë‹¨ ë°›ì•„ë†“ê³ 
-	if( m_pAttacker->IsPlayer() && m_pAttacker->IsSMMode( SM_MAINTAIN_MP ) == FALSE )		// MP ìœ ë£Œì•„ì´í…œ ë¨¹ì—ˆì„ë•ŒëŠ” MPë‹³ë©´ ì•ˆëœë‹¤.
-		m_pAttacker->SetPointParam( DST_MP, 0 );				// 0ìœ¼ë¡œ ë§Œë“¬.
+	int nMP = m_pAttacker->GetManaPoint();						// ÀÏ´Ü ¹Ş¾Æ³õ°í
+	if( m_pAttacker->IsPlayer() && m_pAttacker->IsSMMode( SM_MAINTAIN_MP ) == FALSE )		// MP À¯·á¾ÆÀÌÅÛ ¸Ô¾úÀ»¶§´Â MP´â¸é ¾ÈµÈ´Ù.
+		m_pAttacker->SetPointParam( DST_MP, 0 );				// 0À¸·Î ¸¸µë.
 	return ( ( ( m_pAttacker->GetStr() / 10 ) * dwSkillLevel ) * ( 5 + nMP / 10 ) + nAddDmg );
 }
 
@@ -572,16 +572,16 @@ void CAttackArbiter::ChanceSkill( int nDestParam, CCtrl *pAttackCtrl, CCtrl *pDe
 	CMover *pDefender = (CMover *)pDefendCtrl;
 
 	int nRate = pAttacker->GetAdjParam( nDestParam );
-	if( nRate > 0 )	// ê³µê²©ìê°€ ìŠ¤í‚¬ë°œë™ìƒíƒœ
+	if( nRate > 0 )	// °ø°İÀÚ°¡ ½ºÅ³¹ßµ¿»óÅÂ
 	{
 		if( (int)( xRandom(100) ) <= nRate )
 		{
-			DWORD dwAddSkill = pAttacker->GetChgParam( nDestParam );		// íƒ€ê²©ì‹œ ë°œë™ë  ì• ë“œìŠ¤í‚¬
+			DWORD dwAddSkill = pAttacker->GetChgParam( nDestParam );		// Å¸°İ½Ã ¹ßµ¿µÉ ¾Öµå½ºÅ³
 			
 			AddSkillProp *pAddSkillProp;
 			pAddSkillProp = prj.GetAddSkillProp( dwAddSkill );
 			if( pAddSkillProp )
-				pAttacker->DoActiveSkill( pAddSkillProp->dwName, pAddSkillProp->dwSkillLvl, pDefender );		// dwActiveSkill Lv1ì´ ë°œë™ë¨.
+				pAttacker->DoActiveSkill( pAddSkillProp->dwName, pAddSkillProp->dwSkillLvl, pDefender );		// dwActiveSkill Lv1ÀÌ ¹ßµ¿µÊ.
 			//				m_pDefender->SetPoison( TRUE, m_pAttacker->GetId(), m_pAttacker->GetChgParam( DST_CHR_CHANCEPOISON ), m_pAttacker->m_tmPoisonUnit, m_pAttacker->m_wPoisonDamage );
 		}
 		
@@ -589,20 +589,20 @@ void CAttackArbiter::ChanceSkill( int nDestParam, CCtrl *pAttackCtrl, CCtrl *pDe
 }
 
 
-// ìƒíƒœì´ìƒ(ë°˜ì‚¬, ìŠ¤í„´, ì•”í‘, ë…)ì²˜ë¦¬
+// »óÅÂÀÌ»ó(¹İ»ç, ½ºÅÏ, ¾ÏÈæ, µ¶)Ã³¸®
 void CAttackArbiter::ProcessAbnormal( int nDamage, ATTACK_INFO* pInfo )
 {
 	int	nSkill = pInfo->GetSkill();
 
-	//ë°©ì–´ìê°€ ë°˜ì‚¬ìƒíƒœì´ë©´?  ê³µê²©ìë„ ë°ë¯¸ì§€ë¥¼ ì…ëŠ”ë‹¤.
+	//¹æ¾îÀÚ°¡ ¹İ»ç»óÅÂÀÌ¸é?  °ø°İÀÚµµ µ¥¹ÌÁö¸¦ ÀÔ´Â´Ù.
 	int nReflectDmgRate = m_pDefender->GetAdjParam( DST_REFLECT_DAMAGE );
 	if( nReflectDmgRate > 0 )
 	{
 		int nReflectRate = m_pDefender->GetChgParam( DST_REFLECT_DAMAGE );	
 
 		BOOL bAble = TRUE;
-		if( nReflectRate > 0 )			// ë°˜ì‚¬ì‹œí‚¬ í™•ë¥ ì´ ìˆì„ë• í™•ë¥ ê²€ì‚¬ í•¨
-			if( (int)( xRandom(100) ) > nReflectRate )	// í™•ë¥  ì‹¤íŒ¨ëƒ?
+		if( nReflectRate > 0 )			// ¹İ»ç½ÃÅ³ È®·üÀÌ ÀÖÀ»¶© È®·ü°Ë»ç ÇÔ
+			if( (int)( xRandom(100) ) > nReflectRate )	// È®·ü ½ÇÆĞ³Ä?
 				bAble = FALSE;
 
 		ATK_TYPE atkType = pInfo->GetAtkType();
@@ -610,12 +610,12 @@ void CAttackArbiter::ProcessAbnormal( int nDamage, ATTACK_INFO* pInfo )
 		{
 		case ATK_MELEESKILL:
 		case ATK_MAGICSKILL:
-			if( m_pDefender->HasBuff( BUFF_SKILL, SI_PSY_NLG_CRUCIOSPELL ) )		// ë°©ì–´ìê°€ í¬ë£¨ì‹œì˜¤ ìŠ¤í ì¼ ê²½ìš°
+			if( m_pDefender->HasBuff( BUFF_SKILL, SI_PSY_NLG_CRUCIOSPELL ) )		// ¹æ¾îÀÚ°¡ Å©·ç½Ã¿À ½ºÆçÀÏ °æ¿ì
 				bAble = FALSE;
 #if __VER >= 11 // __REFLECTDMG_AFTER
 			break;
 #endif // __REFLECTDMG_AFTER
-		case ATK_FORCE:															// ë¯¸ë¦¬ê³„ì‚°ëœ ë°ë¯¸ì§€
+		case ATK_FORCE:															// ¹Ì¸®°è»êµÈ µ¥¹ÌÁö
 			bAble = FALSE;
 			break;
 		}
@@ -637,7 +637,7 @@ void CAttackArbiter::ProcessAbnormal( int nDamage, ATTACK_INFO* pInfo )
 		}
 	}
 
-	// chipi_080325 - AF_MAGICSKILL ì¸ê²½ìš° íŠ¹ì • ìŠ¤í‚¬ì— í•œí•´ ìƒíƒœì´ìƒ ì²˜ë¦¬
+	// chipi_080325 - AF_MAGICSKILL ÀÎ°æ¿ì Æ¯Á¤ ½ºÅ³¿¡ ÇÑÇØ »óÅÂÀÌ»ó Ã³¸®
 	if( (m_dwAtkFlags & AF_MAGICSKILL) && m_pAttacker->IsPlayer() )
 	{
 		switch( nSkill )
@@ -649,7 +649,7 @@ void CAttackArbiter::ProcessAbnormal( int nDamage, ATTACK_INFO* pInfo )
 		}
 	}
 		
-	if( m_dwAtkFlags & (AF_GENERIC | AF_MELEESKILL) )		// ê·¼ì ‘í‰íƒ€/ê·¼ì ‘ìŠ¤í‚¬ì— ë§ì•˜ë‹¤.
+	if( m_dwAtkFlags & (AF_GENERIC | AF_MELEESKILL) )		// ±ÙÁ¢ÆòÅ¸/±ÙÁ¢½ºÅ³¿¡ ¸Â¾Ò´Ù.
 	{
 		if( m_pAttacker->IsPlayer() )
 		{
@@ -660,7 +660,7 @@ void CAttackArbiter::ProcessAbnormal( int nDamage, ATTACK_INFO* pInfo )
 			ChanceSkill( DST_CHR_CHANCESTEALHP, m_pAttacker, m_pDefender );
 		}
 		
-		// Active Skill(ë§ˆë²• ë°œë™)
+		// Active Skill(¸¶¹ı ¹ßµ¿)
 		{
 			ItemProp *pAttackerHandItemProp = m_pAttacker->GetActiveHandItemProp();
 			if( pAttackerHandItemProp )
@@ -669,35 +669,35 @@ void CAttackArbiter::ProcessAbnormal( int nDamage, ATTACK_INFO* pInfo )
 				DWORD dwActiveSkillLevel = pAttackerHandItemProp->dwActiveSkillLv;
 				if( dwActiveSkillLevel == NULL_ID )
 					dwActiveSkillLevel = 1;
-				if(  dwActiveSkill != NULL_ID )	// ê³µê²©ìì˜ ë¬´ê¸°ì— ë°œë™ë§ˆë²•ì´ ìˆë‹¤.
+				if(  dwActiveSkill != NULL_ID )	// °ø°İÀÚÀÇ ¹«±â¿¡ ¹ßµ¿¸¶¹ıÀÌ ÀÖ´Ù.
 				{
-					if( pAttackerHandItemProp->dwActiveSkillRate == NULL_ID ||		// = ë©´ 100%
-						(DWORD)( random(100) ) < pAttackerHandItemProp->dwActiveSkillRate )	// ë°œë™í™•ë¥ ì— ê±¸ë ¸ëŠ”ê°€.
+					if( pAttackerHandItemProp->dwActiveSkillRate == NULL_ID ||		// = ¸é 100%
+						(DWORD)( random(100) ) < pAttackerHandItemProp->dwActiveSkillRate )	// ¹ßµ¿È®·ü¿¡ °É·È´Â°¡.
 					{
-						m_pAttacker->DoActiveSkill( dwActiveSkill, dwActiveSkillLevel, m_pDefender, true );		// dwActiveSkill Lv1ì´ ë°œë™ë¨. trueë¥¼ ì¤€ê±´. ì—¬ê¸°ì„œ í™•ë¥ ê³„ì‚° í–‡ìœ¼ë¯€ë¡œ ë‚´ë¶€ì—ì„œëŠ” í•˜ì§€ë§ˆë¼ëŠ”ëœ».
-						TRACE( "%sì˜ ActiveSkill ë°œë™, ", m_pAttacker->GetName() );
+						m_pAttacker->DoActiveSkill( dwActiveSkill, dwActiveSkillLevel, m_pDefender, true );		// dwActiveSkill Lv1ÀÌ ¹ßµ¿µÊ. true¸¦ ÁØ°Ç. ¿©±â¼­ È®·ü°è»ê ÇŞÀ¸¹Ç·Î ³»ºÎ¿¡¼­´Â ÇÏÁö¸¶¶ó´Â¶æ.
+						TRACE( "%sÀÇ ActiveSkill ¹ßµ¿, ", m_pAttacker->GetName() );
 					}
 				}
 			}
 		}
 	} // AF_GENERIC
 
-	if( m_dwAtkFlags & ( AF_MELEESKILL | AF_MAGICSKILL ) )	// ìŠ¤í‚¬ê³µê²©ì´ ì‹œë„ë ë•Œ
+	if( m_dwAtkFlags & ( AF_MELEESKILL | AF_MAGICSKILL ) )	// ½ºÅ³°ø°İÀÌ ½ÃµµµÉ¶§
 	{
 		ItemProp* pSkillProp;
 		AddSkillProp *pAddSkillProp;
 		m_pAttacker->GetSkillProp( &pSkillProp, &pAddSkillProp, nSkill, pInfo->GetSkillLevel(), "ProcessAbnormal" );
 		DWORD dwActiveSkill = pAddSkillProp->dwActiveSkill;
-		if( dwActiveSkill != NULL_ID )		// ì¶”ê°€ ë°œë™ ìŠ¤í‚¬ì´ ìˆë‹¤.
+		if( dwActiveSkill != NULL_ID )		// Ãß°¡ ¹ßµ¿ ½ºÅ³ÀÌ ÀÖ´Ù.
 		{
 			DWORD dwActiveSkillRate	= pAddSkillProp->dwActiveSkillRate;
 #if __VER >= 9	// __SKILL_0706
 			if( m_pAttacker->IsPlayer() && m_pDefender->IsPlayer() )
 				dwActiveSkillRate	= pAddSkillProp->dwActiveSkillRatePVP;
 #endif	// __SKILL_0706
-			// ë°œë™í™•ë¥ ì— ê±¸ë ¸ëŠ”ê°€.
+			// ¹ßµ¿È®·ü¿¡ °É·È´Â°¡.
 			if( dwActiveSkillRate == NULL_ID || xRandom(100) < dwActiveSkillRate )
-				m_pAttacker->DoActiveSkill( dwActiveSkill, pAddSkillProp->dwSkillLvl, m_pDefender );	// ë°œë™
+				m_pAttacker->DoActiveSkill( dwActiveSkill, pAddSkillProp->dwSkillLvl, m_pDefender );	// ¹ßµ¿
 		}
 	}
 #ifdef __BARUNA_PIERCING
@@ -738,33 +738,33 @@ void CAttackArbiter::ProcessAbnormal( int nDamage, ATTACK_INFO* pInfo )
 #endif // __BARUNA_PIERCING
 }
 
-// HP ê°ì†Œ ì‹œí‚´ 
+// HP °¨¼Ò ½ÃÅ´ 
 int CAttackArbiter::MinusHP( int *pnDamage )
 {
-	int nHP = m_pDefender->GetHitPoint() - *pnDamage;	// HPë¥¼ ê¹ëŠ”ë‹¤.
+	int nHP = m_pDefender->GetHitPoint() - *pnDamage;	// HP¸¦ ±ğ´Â´Ù.
 	if( nHP <= 0 )
 	{
-		if( m_pDefender->m_dwMode & MATCHLESS2_MODE )	// HPê°€ 0ë¯¸ë§Œìœ¼ë¡œ ë–¨ì–´ì¡ŒëŠ”ë° ë°˜ë¬´ì  ìƒíƒœëƒ
-			nHP = 1;									// hpë¥¼ 1ë¡œ ë³µêµ¬í•´ì¤Œ
+		if( m_pDefender->m_dwMode & MATCHLESS2_MODE )	// HP°¡ 0¹Ì¸¸À¸·Î ¶³¾îÁ³´Âµ¥ ¹İ¹«Àû »óÅÂ³Ä
+			nHP = 1;									// hp¸¦ 1·Î º¹±¸ÇØÁÜ
 		else
-			nHP = 0;									// ë°˜ë¬´ì  ì•„ë‹ˆë©´ ê± ì£½ëŠ”ê²Œ ë§ë‹¤.
+			nHP = 0;									// ¹İ¹«Àû ¾Æ´Ï¸é °Á Á×´Â°Ô ¸Â´Ù.
 		*pnDamage = m_pDefender->GetHitPoint() - nHP;
 	}
 	/*
 	else	
 	{
-		int nActionHPRate = m_pDefender->GetAdjParam( DST_AUTOHP );							// ë°œë™ HPìœ¨
+		int nActionHPRate = m_pDefender->GetAdjParam( DST_AUTOHP );							// ¹ßµ¿ HPÀ²
 		if( nActionHPRate > 0 )
 		{
-			float fHPPercent = (float)nHP / m_pDefender->GetMaxHitPoint();					// í˜„ì¬ HPì˜ í¼ì„¼íŠ¸ ìœ¨
-			if( fHPPercent <= (nActionHPRate / 100.0f) )									// í˜„ì¬ HPê°€ ë°œë™HPì´í•˜ê°€ ë˜ë©´
+			float fHPPercent = (float)nHP / m_pDefender->GetMaxHitPoint();					// ÇöÀç HPÀÇ ÆÛ¼¾Æ® À²
+			if( fHPPercent <= (nActionHPRate / 100.0f) )									// ÇöÀç HP°¡ ¹ßµ¿HPÀÌÇÏ°¡ µÇ¸é
 			{
-				float fAddHP = m_pDefender->GetChgParam( DST_AUTOHP ) / 100.0f;				// íšŒë³µì‹œí‚¬ HPìœ¨
-				int nAddHP = m_pDefender->GetMaxHitPoint() * fAddHP;						// MaxHPì˜ ì¼ì •ë¹„ìœ¨ì„ ì·¨í•¨.
+				float fAddHP = m_pDefender->GetChgParam( DST_AUTOHP ) / 100.0f;				// È¸º¹½ÃÅ³ HPÀ²
+				int nAddHP = m_pDefender->GetMaxHitPoint() * fAddHP;						// MaxHPÀÇ ÀÏÁ¤ºñÀ²À» ÃëÇÔ.
 				nHP += nAddHP;
-				m_pDefender->SetPointParam( DST_HP, nHP );									// HPì¦ê°€.
-				g_UserMng.AddCreateSfxObj( m_pDefender, XI_GEN_CURE01 );					// íšŒë³µ íš¨ê³¼ ë°œìƒ.
-				m_pDefender->RemoveBuff( BUFF_SKILL, SI_ASS_HEAL_PREVENTION );	// í•´ì œ.				
+				m_pDefender->SetPointParam( DST_HP, nHP );									// HPÁõ°¡.
+				g_UserMng.AddCreateSfxObj( m_pDefender, XI_GEN_CURE01 );					// È¸º¹ È¿°ú ¹ß»ı.
+				m_pDefender->RemoveBuff( BUFF_SKILL, SI_ASS_HEAL_PREVENTION );	// ÇØÁ¦.				
 			}
 		}
 	}
@@ -773,7 +773,7 @@ int CAttackArbiter::MinusHP( int *pnDamage )
 	return nHP;
 }
 
-// í¡í˜ˆ 
+// ÈíÇ÷ 
 #if __VER >= 9 // __ULTIMATE
 void CAttackArbiter::StealHP( int nDamage, ATK_TYPE type )
 #else // __ULTIMATE
@@ -783,10 +783,10 @@ void CAttackArbiter::StealHP( int nDamage )
 	ItemProp *pHandItem = m_pAttacker->GetActiveHandItemProp();
 	if( pHandItem )
 	{
-		if( pHandItem->dwDestParam1 == DST_CHR_STEALHP )					// ë“¤ê³  ìˆë˜ ë¬´ê¸°ì— í¡í˜ˆ ì˜µì…˜ì´ ìˆìœ¼ë©´
+		if( pHandItem->dwDestParam1 == DST_CHR_STEALHP )					// µé°í ÀÖ´ø ¹«±â¿¡ ÈíÇ÷ ¿É¼ÇÀÌ ÀÖÀ¸¸é
 		{
-			int nStealHP = (int)( nDamage * (pHandItem->nAdjParamVal1 / 100.0f) );	// ì‹¤ì œê°€ê²©í•œ ë°ë¯¸ì§€ì˜ %ë¥¼ ì·¨í•¨.
-			m_pAttacker->SetDestParam( DST_HP, nStealHP, NULL_CHGPARAM );				// ê³µê²©ìì—ê²Œ í¡í˜ˆHPë¥¼ ì¤Œ.
+			int nStealHP = (int)( nDamage * (pHandItem->nAdjParamVal1 / 100.0f) );	// ½ÇÁ¦°¡°İÇÑ µ¥¹ÌÁöÀÇ %¸¦ ÃëÇÔ.
+			m_pAttacker->SetDestParam( DST_HP, nStealHP, NULL_CHGPARAM );				// °ø°İÀÚ¿¡°Ô ÈíÇ÷HP¸¦ ÁÜ.
 		}
 	}
 
@@ -796,7 +796,7 @@ void CAttackArbiter::StealHP( int nDamage )
 		int nDstHP = m_pAttacker->GetParam( DST_MELEE_STEALHP, 0 );
 		int nStealHP = (int)( nDamage * (nDstHP / 100.0f) );
 		if( 0 < nDstHP )
-			m_pAttacker->SetDestParam( DST_HP, nStealHP, NULL_CHGPARAM );				// ê³µê²©ìì—ê²Œ í¡í˜ˆHPë¥¼ ì¤Œ.
+			m_pAttacker->SetDestParam( DST_HP, nStealHP, NULL_CHGPARAM );				// °ø°İÀÚ¿¡°Ô ÈíÇ÷HP¸¦ ÁÜ.
 	}
 #endif // __ULTIMATE
 }
@@ -804,7 +804,7 @@ void CAttackArbiter::StealHP( int nDamage )
 
 
 
-// ê³µê²©ë‹¹í•˜ê³  ë°ë¯¸ì§€ë¥¼ ì…ì„ ê²½ìš° ì²˜ë¦¬ 
+// °ø°İ´çÇÏ°í µ¥¹ÌÁö¸¦ ÀÔÀ» °æ¿ì Ã³¸® 
 void CAttackArbiter::OnDamaged( int nDamage )
 {
 #if __VER >= 9 // __RECOVERY10
@@ -815,10 +815,10 @@ void CAttackArbiter::OnDamaged( int nDamage )
 	g_UserMng.AddDamage( m_pDefender, GETID( m_pAttacker ), nDamage, m_dwAtkFlags );
 }
 
-// ê³µê²©ë‹¹í•˜ê³  ì£½ëŠ” ê²½ìš° ì²˜ë¦¬ 
+// °ø°İ´çÇÏ°í Á×´Â °æ¿ì Ã³¸® 
 void CAttackArbiter::OnDied()
 {
-#if __VER >= 8   // 8ì°¨ ë“€ì–¼ì¡´ì— ê´€ê³„ì—†ì´ PVPê°€ëŠ¥í•˜ê²Œí•¨   Neuz, World
+#if __VER >= 8   // 8Â÷ µà¾óÁ¸¿¡ °ü°è¾øÀÌ PVP°¡´ÉÇÏ°ÔÇÔ   Neuz, World
 	if( m_pDefender && m_pAttacker && m_pDefender->m_nDuel != 0 && m_pAttacker->m_nDuel != 0 && 
 		m_pDefender->m_idDuelOther == m_pAttacker->GetId() )
 	{
@@ -826,7 +826,7 @@ void CAttackArbiter::OnDied()
 		return;
 	}
 #endif	//__VER >= 8  
-	m_pDefender->SubPVP( m_pAttacker, m_nReflect );					// m_pDefenderê°€ ì£½ê³ ë‚œ í›„ ìŠ¬ë¡œí„°ê´€ë ¨ ì²˜ë¦¬.
+	m_pDefender->SubPVP( m_pAttacker, m_nReflect );					// m_pDefender°¡ Á×°í³­ ÈÄ ½½·ÎÅÍ°ü·Ã Ã³¸®.
 
 	m_pAttacker->AddKillRecovery();
 
@@ -834,14 +834,14 @@ void CAttackArbiter::OnDied()
 
 	if( m_pDefender->IsNPC() && m_pDefender->IsDie() )	 
 	{
-		m_pDefender->Delete();							// ì¼ë‹¨ ë•œë¹µ... ì´ëŸ°ê²½ìš°ëŠ” ê± ì—†ì• ì.
+		m_pDefender->Delete();							// ÀÏ´Ü ¶«»§... ÀÌ·±°æ¿ì´Â °Á ¾ø¾ÖÀÚ.
 		return;
 	}
 
 	if( m_pDefender->m_dwIndex == MI_CLOCKWORK1 || m_pDefender->m_dwIndex == MI_BIGMUSCLE || m_pDefender->m_dwIndex == MI_KRRR )		
-		m_pDefender->SubAroundExp( m_pAttacker, 50.0f );		// ë°˜ê²½50ë¯¸í„° ì´ë‚´ì—ëŠ” ë‹¤ ê²½í—˜ì¹˜ ë‚˜ëˆ ê°€ì§.
+		m_pDefender->SubAroundExp( m_pAttacker, 50.0f );		// ¹İ°æ50¹ÌÅÍ ÀÌ³»¿¡´Â ´Ù °æÇèÄ¡ ³ª´²°¡Áü.
 	else
-		m_pAttacker->SubExperience( m_pDefender );		// m_pDefenderë¥¼ ì£½ì´ê³  ë‚œí›„ì˜ m_pAttacker ê²½í—˜ì¹˜ ì²˜ë¦¬.
+		m_pAttacker->SubExperience( m_pDefender );		// m_pDefender¸¦ Á×ÀÌ°í ³­ÈÄÀÇ m_pAttacker °æÇèÄ¡ Ã³¸®.
 	
 	m_pDefender->DropItemByDied( m_pAttacker );
 
@@ -865,23 +865,23 @@ void CAttackArbiter::OnDied()
 	}	
 #endif // __VER >= 8 // __S8_PK
 
-	m_pAttacker->m_nAtkCnt = 0;							// íƒ€ê²Ÿì„ ì£½ì˜€ìœ¼ë©´ ê³µê²©ìì˜ ì–´íƒì¹´ìš´íŠ¸ í´ë¦¬ì–´
-	m_pDefender->DoDie( m_pAttacker, m_dwMsg );			// m_pDefenderì•¼ ì£½ì–´ë¼. 
+	m_pAttacker->m_nAtkCnt = 0;							// Å¸°ÙÀ» Á×¿´À¸¸é °ø°İÀÚÀÇ ¾îÅÃÄ«¿îÆ® Å¬¸®¾î
+	m_pDefender->DoDie( m_pAttacker, m_dwMsg );			// m_pDefender¾ß Á×¾î¶ó. 
 
-	m_pAttacker->ClearDestObj();						// ëª©í‘œë¥¼ ì£½ì˜€ìœ¼ë©´ ì´ë™ëª©í‘œë„ í´ë¦¬ì–´.
+	m_pAttacker->ClearDestObj();						// ¸ñÇ¥¸¦ Á×¿´À¸¸é ÀÌµ¿¸ñÇ¥µµ Å¬¸®¾î.
 }
 
-#if __VER >= 8     // 8ì°¨ ë“€ì–¼ì¡´ì— ê´€ê³„ì—†ì´ PVPê°€ëŠ¥í•˜ê²Œí•¨   Neuz, World
-// PVPê³µê²©ë‹¹í•˜ê³  ì£½ëŠ” ê²½ìš° ì²˜ë¦¬ 
+#if __VER >= 8     // 8Â÷ µà¾óÁ¸¿¡ °ü°è¾øÀÌ PVP°¡´ÉÇÏ°ÔÇÔ   Neuz, World
+// PVP°ø°İ´çÇÏ°í Á×´Â °æ¿ì Ã³¸® 
 void CAttackArbiter::OnDiedPVP()
 {
 	if( m_pDefender->IsNPC() && m_pDefender->IsDie() )	 
 	{
-		m_pDefender->Delete();							// ì¼ë‹¨ ë•œë¹µ... ì´ëŸ°ê²½ìš°ëŠ” ê± ì—†ì• ì.
+		m_pDefender->Delete();							// ÀÏ´Ü ¶«»§... ÀÌ·±°æ¿ì´Â °Á ¾ø¾ÖÀÚ.
 		return;
 	}
 
-	m_pDefender->SubDuel( m_pAttacker );//ë“€ì–¼ê²°ê³¼ ë³´ë‚´ê¸°
+	m_pDefender->SubDuel( m_pAttacker );//µà¾ó°á°ú º¸³»±â
 	
 	m_pDefender->SetPosChanged( TRUE );
 	m_pAttacker->SetPosChanged( TRUE );
@@ -894,25 +894,25 @@ void CAttackArbiter::OnDiedPVP()
 	m_pDefender->AddKillRecovery();
 	m_pAttacker->AddKillRecovery();
 
-	m_pAttacker->m_nAtkCnt = 0;							//  ê³µê²©ìì˜ ì–´íƒì¹´ìš´íŠ¸ í´ë¦¬ì–´
-	m_pDefender->m_nAtkCnt = 0;							//  ë°©ì–´ìì˜ ì–´íƒì¹´ìš´íŠ¸ í´ë¦¬ì–´
+	m_pAttacker->m_nAtkCnt = 0;							//  °ø°İÀÚÀÇ ¾îÅÃÄ«¿îÆ® Å¬¸®¾î
+	m_pDefender->m_nAtkCnt = 0;							//  ¹æ¾îÀÚÀÇ ¾îÅÃÄ«¿îÆ® Å¬¸®¾î
 
 	m_pDefender->DoPVPEnd( m_pAttacker, false ,m_dwMsg );			//
 
-	( (CUser*)m_pAttacker )->AddDuelStart( m_pDefender->m_idPlayer , 3 );	// ì„œë¡œ ìƒëŒ€ë°©ì— ëŒ€í•œ ì•„ì´ë””ë§Œ ë³´ë‚´ì£¼ë©´ ëœë‹¤. 3:ì´ê¹€, 4 : ì§
+	( (CUser*)m_pAttacker )->AddDuelStart( m_pDefender->m_idPlayer , 3 );	// ¼­·Î »ó´ë¹æ¿¡ ´ëÇÑ ¾ÆÀÌµğ¸¸ º¸³»ÁÖ¸é µÈ´Ù. 3:ÀÌ±è, 4 : Áü
 	( (CUser*)m_pDefender )->AddDuelStart( m_pAttacker->m_idPlayer , 4 );
 
 
-	m_pAttacker->ClearDestObj();						// ì´ë™ëª©í‘œë„ í´ë¦¬ì–´.
-	m_pDefender->ClearDestObj();						// ì´ë™ëª©í‘œë„ í´ë¦¬ì–´.
+	m_pAttacker->ClearDestObj();						// ÀÌµ¿¸ñÇ¥µµ Å¬¸®¾î.
+	m_pDefender->ClearDestObj();						// ÀÌµ¿¸ñÇ¥µµ Å¬¸®¾î.
 }
 #endif	// __VER >= 8  
 
 
-// ìŠ¤ì¿¨ì´ë²¤íŠ¸ ì²˜ë¦¬ 
+// ½ºÄğÀÌº¥Æ® Ã³¸® 
 void CAttackArbiter::OnDiedSchoolEvent()
 {
-	if( g_eLocal.GetState( EVE_SCHOOL_BATTLE ) == SBS_START2 )	// '/sbstart2'ì—ì„œë§Œ í”¼ê²©
+	if( g_eLocal.GetState( EVE_SCHOOL_BATTLE ) == SBS_START2 )	// '/sbstart2'¿¡¼­¸¸ ÇÇ°İ
 	{
 		if( m_pDefender->m_dwAuthorization < AUTH_GAMEMASTER )
 		{
@@ -953,16 +953,16 @@ void CAttackArbiter::OnDiedSchoolEvent()
 
 BYTE CAttackArbiter::GetHandFlag( void )
 {
-	BYTE cbHandFlag = 0x01;				// ë””í´íŠ¸ëŠ” ì˜¤ë¥¸ì†ì´ë‹¤ .
+	BYTE cbHandFlag = 0x01;				// µğÆúÆ®´Â ¿À¸¥¼ÕÀÌ´Ù .
 
-	if( m_dwAtkFlags & AF_RANGE )		// í™œì˜ ê²½ìš° ë¬´ì¡°ê±´ ì˜¤ë¥¸ì† 
+	if( m_dwAtkFlags & AF_RANGE )		// È°ÀÇ °æ¿ì ¹«Á¶°Ç ¿À¸¥¼Õ 
 		return cbHandFlag;
 
-	if( m_dwAtkFlags & AF_GENERIC )		// í‰íƒ€ì¼ë•
+	if( m_dwAtkFlags & AF_GENERIC )		// ÆòÅ¸ÀÏ¶©
 	{
-		cbHandFlag = m_nParam & 0x03;	// í•˜ìœ„ 2ë¹„íŠ¸ë¥¼ ë¹¼ì˜¤ë©´ ì˜¤ë¥¸ì†ìœ¼ë¡œ ì¹œê±´ì§€ ì™¼ì†ìœ¼ë¡œì¹œê±´ì§€ ë‚˜ì˜¨ë‹¤.
+		cbHandFlag = m_nParam & 0x03;	// ÇÏÀ§ 2ºñÆ®¸¦ »©¿À¸é ¿À¸¥¼ÕÀ¸·Î Ä£°ÇÁö ¿Ş¼ÕÀ¸·ÎÄ£°ÇÁö ³ª¿Â´Ù.
 		if( cbHandFlag == 0 )	
-			cbHandFlag = 0x01;			// ê°’ì´ ì—†ìœ¼ë©´ ë””í´íŠ¸ëŠ” ì˜¤ë¥¸ì†
+			cbHandFlag = 0x01;			// °ªÀÌ ¾øÀ¸¸é µğÆúÆ®´Â ¿À¸¥¼Õ
 	}
 
 	return cbHandFlag;

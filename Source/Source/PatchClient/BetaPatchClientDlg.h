@@ -1,4 +1,4 @@
-ï»¿// BetaPatchClientDlg.h : header file
+// BetaPatchClientDlg.h : header file
 //
 
 #if !defined(AFX_BETAPATCHCLIENTDLG_H__179321FA_0D9A_43C5_A089_598C606DDDC5__INCLUDED_)
@@ -19,11 +19,11 @@
 
 enum 
 {
-	STATE_COMPLETED,			// íŒ¨ì¹˜ìž‘ì—… ì™„ë£Œ 
-	STATE_WAIT_PATCHLISTFILE,	// íŒ¨ì¹˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ìœ¼ë ¤ í•¨
-	STATE_SELECTION,			// ë¦¬ìŠ¤íŠ¸ì—ì„œ ë°›ì„ íŒŒì¼ì„ ë³„ê³¼ì • 
+	STATE_COMPLETED,			// ÆÐÄ¡ÀÛ¾÷ ¿Ï·á 
+	STATE_WAIT_PATCHLISTFILE,	// ÆÐÄ¡ ¸®½ºÆ®¸¦ ¹ÞÀ¸·Á ÇÔ
+	STATE_SELECTION,			// ¸®½ºÆ®¿¡¼­ ¹ÞÀ» ÆÄÀÏ¼±º°°úÁ¤ 
 	STATE_OLD_PATCH,			// 
-	STATE_PATCH_END,			// íŒ¨ì¹˜ ì™„ë£Œ
+	STATE_PATCH_END,			// ÆÐÄ¡ ¿Ï·á
 };
 
 class CHttpDownload;
@@ -44,7 +44,7 @@ protected:
 	CPicture		m_pic;
 	CWnd			m_wndBrowser;
 #ifdef __LANG_JAP
-#if 0 //JAPAN íŒ¨ì¹˜ í´ë¼ì´ì–¸íŠ¸ ì´ë¯¸ì§€ ë³€ê²½ê´€ë ¨ ì‚­ì œ.	
+#if 0 //JAPAN ÆÐÄ¡ Å¬¶óÀÌ¾ðÆ® ÀÌ¹ÌÁö º¯°æ°ü·Ã »èÁ¦.	
 	CBitmap			m_bmpchr[2];
 #endif
 #endif // __LANG_JAP

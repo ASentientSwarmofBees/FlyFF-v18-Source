@@ -1,4 +1,4 @@
-ï»¿#ifndef		__MATERIAL_H__
+#ifndef		__MATERIAL_H__
 #define		__MATERIAL_H__
 
 #include <d3d9.h>
@@ -6,10 +6,10 @@
 struct MATERIAL
 {
 	D3DMATERIAL9			m_Material;
-	LPDIRECT3DTEXTURE9		m_pTexture;		// í…ìŠ¤ì³ë©”ëª¨ë¦¬ í¬ì¸í„°
-	char			strBitMapFileName[64];	// í…ìŠ¤ì³ íŒŒì¼ëª…
+	LPDIRECT3DTEXTURE9		m_pTexture;		// ÅØ½ºÃÄ¸Ş¸ğ¸® Æ÷ÀÎÅÍ
+	char			strBitMapFileName[64];	// ÅØ½ºÃÄ ÆÄÀÏ¸í
 	LPDIRECT3DDEVICE9       m_pd3dDevice;
-	int						m_nUseCnt;		// ê°™ì€ í…ìŠ¤ì³ê°€ ëª‡ë²ˆ ì‚¬ìš©ëëŠ”ì§€ ...
+	int						m_nUseCnt;		// °°Àº ÅØ½ºÃÄ°¡ ¸î¹ø »ç¿ëµÆ´ÂÁö ...
 	BOOL					m_bActive;
 };
 
@@ -22,13 +22,13 @@ protected:
 	int		m_nMaxTexture;
 	
 public:
-	MATERIAL	m_pMaterial[ MAX_MATERIAL ];		// ê²Œì„ì—ì„œ ì‚¬ìš©í•˜ëŠ” ëª¨ë“  ë§¤íŠ¸ë¦¬ì–¼ì´ ë“¤ì–´ê°„ë‹¤.
+	MATERIAL	m_pMaterial[ MAX_MATERIAL ];		// °ÔÀÓ¿¡¼­ »ç¿ëÇÏ´Â ¸ğµç ¸ÅÆ®¸®¾óÀÌ µé¾î°£´Ù.
 	CTextureManager();
 	~CTextureManager();
 
 	HRESULT DeleteDeviceObjects();
 
-	int		DeleteMaterial( LPDIRECT3DTEXTURE9 pTexture );	// pTextureë¥¼ ì‚¬ìš©í•˜ëŠ” ë§¤í„°ë¦¬ì–¼ì„ ì°¾ì•„ ì‚­ì œí•œë‹¤.
+	int		DeleteMaterial( LPDIRECT3DTEXTURE9 pTexture );	// pTexture¸¦ »ç¿ëÇÏ´Â ¸ÅÅÍ¸®¾óÀ» Ã£¾Æ »èÁ¦ÇÑ´Ù.
 //	void	SetD3DDevice( LPDIRECT3DDEVICE9 pd3dDevice ) { m_pd3dDevice = pd3dDevice;  }
 
 	D3DMATERIAL9			*GetMaterial( LPDIRECT3DDEVICE9 pd3dDevice, int nIdx );
@@ -37,7 +37,7 @@ public:
 	//D3DMATERIAL9			*GetMaterial( int nIdx ) { return &m_pMaterial[ nIdx ].m_Material; }
 	//LPDIRECT3DTEXTURE9		GetTexture( int nIdx ) { return m_pMaterial[ nIdx ].m_pTexture; }
 
-	MATERIAL	*AddMaterial( LPDIRECT3DDEVICE9 m_pd3dDevice, D3DMATERIAL9 *pMaterial, LPCTSTR strFileName, LPCTSTR szPath = NULL );		// ë§¤í„°ë¦¬ì–¼ í•˜ë‚˜ë¥¼ ì¶”ê°€í•˜ê³  ê·¸ í¬ì¸í„°ë¥¼ ë˜ëŒë¦°ë‹¤.
+	MATERIAL	*AddMaterial( LPDIRECT3DDEVICE9 m_pd3dDevice, D3DMATERIAL9 *pMaterial, LPCTSTR strFileName, LPCTSTR szPath = NULL );		// ¸ÅÅÍ¸®¾ó ÇÏ³ª¸¦ Ãß°¡ÇÏ°í ±× Æ÷ÀÎÅÍ¸¦ µÇµ¹¸°´Ù.
 };
 
 extern CTextureManager		g_TextureMng;

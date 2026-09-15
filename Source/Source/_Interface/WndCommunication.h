@@ -1,10 +1,10 @@
-Ôªø#ifndef __COMMUNICATION_H
+#ifndef __COMMUNICATION_H
 #define __COMMUNICATION_H
 
 class CWndCommand;
 class CWndChatFilter;
 //////////////////////////////////////////////////////////////////////////////////////
-// Ï±ÑÌåÖ ÏúàÎèÑ 
+// √§∆√ ¿©µµ 
 //
 class CWndEditChat : public CWndEdit
 {

@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "Wnd2ndPassword.h"
 #if __VER >= 15 /* __2ND_PASSWORD_SYSTEM */ && defined( __CLIENT )
 #include "DPClient.h"
@@ -109,7 +109,7 @@ BOOL CWnd2ndPassword::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			if( strcmp( str2ndPasswordNumber, _T( "" ) ) == 0 )
 			{
 				g_WndMng.CloseMessageBox();
-				g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR01 ) );	// 2ì°¨ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤.
+				g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR01 ) );	// 2Â÷ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿À.
 			}
 			else
 			{
@@ -127,12 +127,12 @@ BOOL CWnd2ndPassword::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					if( m_nSelectCharacter != -1 && g_Neuz.m_apPlayer[ m_nSelectCharacter ] )
 					{
 #if __VER < 8 // __S8_PK
-						// í•œêµ­ì€ 2005/11/1 PKì„œë²„ê°€ ì—†ì–´ì§€ê³ , ì•„ë˜ì˜ ì½”ë“œê°€ ìˆìœ¼ë©´ ì¹´ì˜¤ì¸ ìœ ì €ëŠ” ëª¨ë“  ì„œë²„ì— ì ‘ì† í•  ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ë§‰ëŠ”ë‹¤.
+						// ÇÑ±¹Àº 2005/11/1 PK¼­¹ö°¡ ¾ø¾îÁö°í, ¾Æ·¡ÀÇ ÄÚµå°¡ ÀÖÀ¸¸é Ä«¿ÀÀÎ À¯Àú´Â ¸ğµç ¼­¹ö¿¡ Á¢¼Ó ÇÒ ¼ö ¾øÀ¸¹Ç·Î ¸·´Â´Ù.
 						if( ::GetLanguage() != LANG_KOR )		
 						{
 							if( g_Neuz.m_b18Server == FALSE && g_Neuz.m_apPlayer[ m_nSelectCharacter ]->IsChaotic() )
 							{
-								//g_WndMng.OpenMessageBox( "ì„ íƒëœ í”Œë ˆì´ì–´ëŠ” ì¹´ë¥´ë§ˆ ìˆ˜ì¹˜ê°€ ë‚®ì•„ì„œ PKì„œë²„ì—ë§Œ ì ‘ì† í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤." );
+								//g_WndMng.OpenMessageBox( "¼±ÅÃµÈ ÇÃ·¹ÀÌ¾î´Â Ä«¸£¸¶ ¼öÄ¡°¡ ³·¾Æ¼­ PK¼­¹ö¿¡¸¸ Á¢¼Ó ÇÒ ¼ö ÀÖ½À´Ï´Ù." );
 								g_WndMng.OpenMessageBox( prj.GetText(TID_PK_REFUSE_CHAOTIC) );
 								break;
 							}

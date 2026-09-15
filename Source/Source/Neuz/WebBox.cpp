@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "WebBox.h"
 #define WININC
 #include "resource.h"

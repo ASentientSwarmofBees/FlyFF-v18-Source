@@ -1,6 +1,6 @@
-﻿// accessory.inc		
-// 횁짝쨌횄 횊짰쨌체		
-Accessory_Probability	// 1 / 10000 짹창횁횠	
+// accessory.inc		
+// Á¦·Ã È®·ü		
+Accessory_Probability	// 1 / 10000 ±âÁØ	
 {		
 	10000	// 0 - 1
 	10000	// 1 - 2
@@ -25,11 +25,11 @@ Accessory_Probability	// 1 / 10000 짹창횁횠
 }			
 
 // collecting.inc			
-// 횄짚횁첵짹창 횁짝쨌횄 횊짰쨌체			
+// Ã¤Áý±â Á¦·Ã È®·ü			
 Collecting_Enchant			
 {			
 // 1 / 1000			
-//	횊짰쨌체		횁짝쨌횄 쨌쨔쨘짠
+//	È®·ü		Á¦·Ã ·¹º§
 	100		// 0
 	100		// 1
 	100		// 2
@@ -37,11 +37,11 @@ Collecting_Enchant
 	100		// 4
 }			
 
-// 횄짚횁첵 쩐횈?횑횇횤			
+// Ã¤Áý ¾ÆÀÌÅÛ			
 Collecting_Item	
 	
 {			
-// 1 / 1000000000 (10쩐챦)
+// 1 / 1000000000 (10¾ï)
 	II_SYS_SYS_SCR_MINIWHEEL		144120000
 	II_SYS_SYS_SCR_SCRAPBREEZE		98040000
 	II_SYS_SYS_SCR_SCRAPRAIN		98040000
@@ -77,7 +77,7 @@ Collecting_Item
 }
 
 /*	
-//쨈횢횆횥?쨩 쨍쩌째챠 횉짧쨍짙째횚 ?횑쨘짜횈짰
+//´ÙÄÜÀ» ¸¼°í Çª¸£°Ô ÀÌº¥Æ®
 {
 	II_SYS_SYS_SCR_MINIWHEEL		122502000
 	II_SYS_SYS_SCR_SCRAPBREEZE		83334000
@@ -116,7 +116,7 @@ Collecting_Item
 */
 
 // pet.inc									
-Pet_LevelupAvail	// 쨌쨔쨘짠쩐첨쩔징 ?횉횉횗 쨈횋쨌횂횆징 쨩처쩍횂 횊짰쨌체								
+Pet_LevelupAvail	// ·¹º§¾÷¿¡ ÀÇÇÑ ´É·ÂÄ¡ »ó½Â È®·ü								
 {									
 //	1	2	3	4	5	6	7	8	9
 	10000	0	0	0	0	0	0	0	0
@@ -126,7 +126,7 @@ Pet_LevelupAvail	// 쨌쨔쨘짠쩐첨쩔징 ?횉횉횗 쨈횋쨌횂횆징 쨩�
 	2700	2100	1700	1300	900	600	400	200	100
 }									
 
-Pet_AddLifeProbability	// 쩌철쨍챠 횊쨍쨘쨔쩐횞 횊짰쨌체	// 횄횩째징 쨉횋 째챈쩔챙 횉횛?횑 100?횑 쨉횉쨉쨉쨌횕 횊짰?책
+Pet_AddLifeProbability	// ¼ö¸í È¸º¹¾× È®·ü	// Ãß°¡ µÉ °æ¿ì ÇÕÀÌ 100ÀÌ µÇµµ·Ï È®Àå
 {		
 	35	// +1
 	30	// +2

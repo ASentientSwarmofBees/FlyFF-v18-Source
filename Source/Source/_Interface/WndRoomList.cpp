@@ -1,4 +1,4 @@
-ï»¿
+
 
 #include "stdafx.h"
 #include "resData.h"
@@ -17,12 +17,12 @@ static char THIS_FILE[] = __FILE__;
 
 #if __VER >= 13 // __HOUSING
 /****************************************************
-  WndId : APP_MINIROOM_LIST - ë¯¸ë‹ˆë£¸ ëª©ë¡
+  WndId : APP_MINIROOM_LIST - ¹Ì´Ï·ë ¸ñ·Ï
   CtrlId : WIDC_BUTTON1 - Button
   CtrlId : WIDC_BUTTON2 - Button
   CtrlId : WIDC_BUTTON3 - Button
   CtrlId : WIDC_LISTBOX1 - Listbox
-  CtrlId : WIDC_TEXT1 - í˜„ì¬ ì…ì¥ì´ ê°€ëŠ¥í•œ ë¯¸ë‹ˆë£¸ì˜ ìºë¦­í„° ëª©ë¡ì…ë‹ˆë‹¤.
+  CtrlId : WIDC_TEXT1 - ÇöÀç ÀÔÀåÀÌ °¡´ÉÇÑ ¹Ì´Ï·ëÀÇ Ä³¸¯ÅÍ ¸ñ·ÏÀÔ´Ï´Ù.
 ****************************************************/
 
 CWndRoomList::CWndRoomList() 
@@ -38,7 +38,7 @@ void CWndRoomList::OnDraw( C2DRender* p2DRender )
 
 void CWndRoomList::Refresh()
 {
-	// ë¦¬ìŠ¤íŠ¸ë¥¼ ìƒˆë¡œ ê°±ì‹ 
+	// ¸®½ºÆ®¸¦ »õ·Î °»½Å
 	CWndListBox*				pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	vector<DWORD>::iterator		iter		= CHousing::GetInstance()->m_vecVisitable.begin();
 	int							nIndex		= 0;
@@ -62,28 +62,28 @@ void CWndRoomList::Refresh()
 void CWndRoomList::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CHousing::GetInstance()->m_vecVisitable.clear();
 	g_DPlay.SendHousingReqVisitableList();
 
 	CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	pWndListBox->m_nSelectColor = D3DCOLOR_ARGB(255, 255, 0, 0);
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndRoomList::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MINIROOM_LIST, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndRoomList::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -111,7 +111,7 @@ BOOL CWndRoomList::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	switch(nID)
 	{
-		case WIDC_BUTTON1:// ok ë²„íŠ¼
+		case WIDC_BUTTON1:// ok ¹öÆ°
 			if(pWndListBox->GetCurSel() >= 0)
 			{
 				
@@ -122,11 +122,11 @@ BOOL CWndRoomList::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			break;
 
-		case WIDC_BUTTON2:// refresh ë²„íŠ¼
+		case WIDC_BUTTON2:// refresh ¹öÆ°
 			g_DPlay.SendHousingReqVisitableList();
 			break;
 
-		case WIDC_BUTTON3:// cancel ë²„íŠ¼
+		case WIDC_BUTTON3:// cancel ¹öÆ°
 			Destroy();
 			break;
 	};

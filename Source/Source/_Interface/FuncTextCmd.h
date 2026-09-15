@@ -1,4 +1,4 @@
-﻿#ifndef __FUNCTEXTCMD_H
+#ifndef __FUNCTEXTCMD_H
 #define __FUNCTEXTCMD_H
 
 struct TextCmdFunc
@@ -8,7 +8,7 @@ struct TextCmdFunc
 	TCHAR* m_pAbbreviation;  
 	TCHAR* m_pKrCommand;  
 	TCHAR* m_pKrAbbreviation;  
-	DWORD  m_nServer; // 0 = client, 1 = server, 2 = 둘다 
+	DWORD  m_nServer; // 0 = client, 1 = server, 2 = �Ѵ� 
 	DWORD m_dwAuthorization;
 	TCHAR* m_pszDesc;
 };

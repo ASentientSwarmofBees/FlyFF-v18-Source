@@ -1,4 +1,4 @@
-﻿// AccountTimeLimitDBCtrl.h: interface for the CAccountTimeLimitDBCtrl class.
+// AccountTimeLimitDBCtrl.h: interface for the CAccountTimeLimitDBCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 

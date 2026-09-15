@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 
 #if __VER >= 12 // __LORD
 
@@ -73,7 +73,7 @@ void CLordSkillComponentTeleport::Execute( u_long idPlayer, u_long idTarget, VOI
 int CLordSkillComponentTeleport::IsExecutable( CUser* pUser, const char* szTarget, u_long &idTarget )
 {
 	int nText	= CLordSkillComponentExecutable::IsExecutable( pUser, szTarget, idTarget );
-	return( nText > 0? nText: IsTeleportable( pUser, g_UserMng.GetUserByPlayerID( idTarget ) ) );	// 12-2 康
+	return( nText > 0? nText: IsTeleportable( pUser, g_UserMng.GetUserByPlayerID( idTarget ) ) );	// 12-2 ˬ
 }
 
 namespace	lordskill

@@ -1,4 +1,4 @@
-ï»¿// WndBase.h: interface for the CWndBase class.
+// WndBase.h: interface for the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -52,7 +52,7 @@ class C2DRender;
 //HDN_TRACK
 
 /**
- ìœˆë„ ë§¤ì‹œì§€ ë°•ìŠ¤ì—ì„œ ì‚¬ìš©í•˜ëŠ” ë²„íŠ¼ ì¢…ë¥˜ 
+ À©µµ ¸Å½ÃÁö ¹Ú½º¿¡¼­ »ç¿ëÇÏ´Â ¹öÆ° Á¾·ù 
  MB_OK                 
  MB_OKCANCEL           
  MB_ABORTRETRYIGNORE   
@@ -60,7 +60,7 @@ class C2DRender;
  MB_YESNO              
  MB_RETRYCANCEL        
 **/
-// ì´ê²ƒì€ ì¶”ê°€ëœ ê²ƒ
+// ÀÌ°ÍÀº Ãß°¡µÈ °Í
 #define MB_CANCEL           0x00000006L
 
 //////////////////////////////////////////////////////////////////////////////
@@ -107,7 +107,7 @@ protected:
 	int       m_nTimePush;
 	BOOL      m_bHighLight;
 	CPoint    m_ptPush;
-	CWndBase* m_pWndExecute; // ì´ ë²„íŠ¼ì„ ëˆ„ë¥´ë¯€ë¡œì„œ ì‹¤í–‰ë  ìœˆë„. 
+	CWndBase* m_pWndExecute; // ÀÌ ¹öÆ°À» ´©¸£¹Ç·Î¼­ ½ÇÇàµÉ À©µµ. 
 //	CTimer m_timerPush;
 
 	//DWORD     m_dwButtonStyle;
@@ -141,7 +141,7 @@ public:
 
 	// Attributes
 	//BOOL IsButtonStyle( DWORD dwStyle ) { return ( m_dwButtonStyle & dwStyle ) ? TRUE : FALSE; }
-	void SetPushTime(int nTime); // ë²„íŠ¼ì„ ëˆ„ë¥´ê³  nTimeì´í›„ì— ê³„ì† OnCommandë¥¼ íŒ¨ì–´ëŸ°íŠ¸ì—ê²Œ ë³´ë‚¸ë‹¤.
+	void SetPushTime(int nTime); // ¹öÆ°À» ´©¸£°í nTimeÀÌÈÄ¿¡ °è¼Ó OnCommand¸¦ ÆĞ¾î·±Æ®¿¡°Ô º¸³½´Ù.
 	UINT GetState() const; // Retrieves the check state, highlight state, and focus state of a button control.
 	void SetState(BOOL bHighlight); // Sets the highlighting state of a button control
 	int  GetCheck() const; // Retrieves the check state of a button control.

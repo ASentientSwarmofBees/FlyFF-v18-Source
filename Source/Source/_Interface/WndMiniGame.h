@@ -1,4 +1,4 @@
-ï»¿#ifdef __EVE_MINIGAME
+#ifdef __EVE_MINIGAME
 
 #ifndef __WNDMINIGAME__H
 #define __WNDMINIGAME__H
@@ -9,27 +9,27 @@ class CWndKawiBawiBoGame : public CWndNeuz
 {
 	enum MyPosition {KAWI, BAWI, BO};
 public:
-	int m_nWinningCount;			//ì—°ìŠ¹ ìˆ˜
-	int m_nWinningMaxCount;			//ì—°ìŠ¹ ìµœëŒ€ì¹˜
-	int m_nMyChoice;				//ë‚´ê°€ ì„ íƒí•œ ì¹´ë“œ (ê°€ìœ„, ë°”ìœ„, ë³´)
-	int m_nComChoice;				//Comì´ ì„ íƒí•œ ì¹´ë“œ
+	int m_nWinningCount;			//¿¬½Â ¼ö
+	int m_nWinningMaxCount;			//¿¬½Â ÃÖ´ëÄ¡
+	int m_nMyChoice;				//³»°¡ ¼±ÅÃÇÑ Ä«µå (°¡À§, ¹ÙÀ§, º¸)
+	int m_nComChoice;				//ComÀÌ ¼±ÅÃÇÑ Ä«µå
 	int m_nCount;
-	int m_nDelay;					//Com ìƒíƒœë¥¼ íšŒì „ì‹œí‚¤ëŠ” Delayê°’
-	int m_nResult;					//ì„œë²„ë¡œ ë¶€í„° ê²°ê³¼ê°€ ì˜¨ ìƒíƒœ
+	int m_nDelay;					//Com »óÅÂ¸¦ È¸Àü½ÃÅ°´Â Delay°ª
+	int m_nResult;					//¼­¹ö·Î ºÎÅÍ °á°ú°¡ ¿Â »óÅÂ
 	int m_nPrevResult;
-	int m_nStatus;					//í˜„ìž¬ì˜ ìƒíƒœ (Delayê´€ë ¨ ì ìš© ìœ„í•´ ì‚¬ìš©)
+	int m_nStatus;					//ÇöÀçÀÇ »óÅÂ (Delay°ü·Ã Àû¿ë À§ÇØ »ç¿ë)
 	int m_nItemCount;
 	int m_nNextItemCount;
-	BOOL m_bCheckCoupon;			//ê°€ìœ„ë°”ìœ„ë³´ ì¿ í°ì„ í•„ìš”ë¡œí•˜ëŠ”ì§€ í™•ì¸
+	BOOL m_bCheckCoupon;			//°¡À§¹ÙÀ§º¸ ÄíÆùÀ» ÇÊ¿ä·ÎÇÏ´ÂÁö È®ÀÎ
 	
 	DWORD m_dwRItemId;
 	DWORD m_dwRNextItemId;
 
-	CString m_strChoice[3];			//ê°€ìœ„, ë°”ìœ„, ë³´ Text
+	CString m_strChoice[3];			//°¡À§, ¹ÙÀ§, º¸ Text
 	
-	CWndStatic*	m_pStWinningCount;	//ì—°ìŠ¹ í‘œì‹œ
-	CWndStatic*	m_pStMyChoice;		//ë‚´ê°€ ì„ íƒí•œ ì¹´ë“œ í‘œì‹œ
-	CWndStatic*	m_pStComChoice;		//Comì´ ì„ íƒí•œ ì¹´ë“œ í‘œì‹œ
+	CWndStatic*	m_pStWinningCount;	//¿¬½Â Ç¥½Ã
+	CWndStatic*	m_pStMyChoice;		//³»°¡ ¼±ÅÃÇÑ Ä«µå Ç¥½Ã
+	CWndStatic*	m_pStComChoice;		//ComÀÌ ¼±ÅÃÇÑ Ä«µå Ç¥½Ã
 	
 	CWndKawiBawiBoGameWin* m_pWndGameWin;
 public: 
@@ -109,16 +109,16 @@ public:
 class CWndFindWordGame : public CWndNeuz 
 {
 public:
-	int m_nPublic;				//ížŒíŠ¸ë¡œ ì£¼ì–´ì§€ëŠ” ê¸€ìžì˜ ìœ„ì¹˜
-	OBJID m_firstwordID;		//ížŒíŠ¸ë¡œ ì£¼ì–´ì§€ëŠ” ì²«ë²ˆì§¸ ê¸€ìž
-	OBJID m_itemID[5];			//ê° ê¸€ìžì˜ Object ID
-	CItemElem* m_pItemElem[5];	//ì•„ì´í…œ ì •ë³´ ì €ìž¥.
-	int m_pStaticID[5];			//5ê°œì˜ WndID -> Picture (ondropicon ì‚¬ìš©ì„ ìœ„í•´)
-	int m_nSelectCtrl;			//ì„ íƒëœ Wnd ê¸°ì–µ.
+	int m_nPublic;				//ÈùÆ®·Î ÁÖ¾îÁö´Â ±ÛÀÚÀÇ À§Ä¡
+	OBJID m_firstwordID;		//ÈùÆ®·Î ÁÖ¾îÁö´Â Ã¹¹øÂ° ±ÛÀÚ
+	OBJID m_itemID[5];			//°¢ ±ÛÀÚÀÇ Object ID
+	CItemElem* m_pItemElem[5];	//¾ÆÀÌÅÛ Á¤º¸ ÀúÀå.
+	int m_pStaticID[5];			//5°³ÀÇ WndID -> Picture (ondropicon »ç¿ëÀ» À§ÇØ)
+	int m_nSelectCtrl;			//¼±ÅÃµÈ Wnd ±â¾ï.
 	CWndText* m_pText;
-	BOOL m_bGetFirst;			//ížŒíŠ¸ë¡œ ì£¼ì–´ì§€ëŠ” ê¸€ìžë¥¼ ë°›ì•˜ë‹¤.
+	BOOL m_bGetFirst;			//ÈùÆ®·Î ÁÖ¾îÁö´Â ±ÛÀÚ¸¦ ¹Þ¾Ò´Ù.
 	BOOL m_bStart;
-	int m_nQuestionID;			// ë¬¸ì œ ë²ˆí˜¸
+	int m_nQuestionID;			// ¹®Á¦ ¹øÈ£
 	
 	CWndInventory* m_pWndInventory;
 public: 
@@ -152,33 +152,33 @@ class CWndDiceGame : public CWndNeuz
 {
 	enum DiceNum {DICE_ONE, DICE_TWO, DICE_THREE, DICE_FOUR, DICE_FIVE, DICE_SIX};
 public:
-	int m_nPenya[6];		//ê° ë²ˆí˜¸ì— ìž…ì°°í•œ ê¸ˆì•¡
-	int m_nSelectCtrl;		//ì„ íƒí•œ ë²ˆí˜¸
-	int m_nDiceChoiceNum;	//ì„ íƒëœ ì£¼ì‚¬ìœ„ì˜ ê²°ê³¼ê°’
-	int m_nDiceNum;			//ì£¼ì‚¬ìœ„ ë²ˆí˜¸
-	int m_pBtnID[6];		//Penya ì˜¬ë¼ê°ˆ Ctrlì˜ ID
+	int m_nPenya[6];		//°¢ ¹øÈ£¿¡ ÀÔÂûÇÑ ±Ý¾×
+	int m_nSelectCtrl;		//¼±ÅÃÇÑ ¹øÈ£
+	int m_nDiceChoiceNum;	//¼±ÅÃµÈ ÁÖ»çÀ§ÀÇ °á°ú°ª
+	int m_nDiceNum;			//ÁÖ»çÀ§ ¹øÈ£
+	int m_pBtnID[6];		//Penya ¿Ã¶ó°¥ CtrlÀÇ ID
 	int m_nCount;
-	int m_nDelay;			//Com ìƒíƒœë¥¼ íšŒì „ì‹œí‚¤ëŠ” Delayê°’
-	int m_nStatus;			//í˜„ìž¬ì˜ ìƒíƒœ (Delayê´€ë ¨ ì ìš© ìœ„í•´ ì‚¬ìš©)
-	int m_nMaxPenya;		//ìµœëŒ€ ìž…ì°°ê¸ˆì•¡
-	int m_nMinPenya;		//ìµœì†Œ ìž…ì°°ê¸ˆì•¡
-	int m_nMultiple;		//ìƒê¸ˆì§€ê¸‰ ë°°ìˆ˜
-	int m_nPrizePenya;		//ìƒê¸ˆì§€ê¸‰ ì•¡ìˆ˜
+	int m_nDelay;			//Com »óÅÂ¸¦ È¸Àü½ÃÅ°´Â Delay°ª
+	int m_nStatus;			//ÇöÀçÀÇ »óÅÂ (Delay°ü·Ã Àû¿ë À§ÇØ »ç¿ë)
+	int m_nMaxPenya;		//ÃÖ´ë ÀÔÂû±Ý¾×
+	int m_nMinPenya;		//ÃÖ¼Ò ÀÔÂû±Ý¾×
+	int m_nMultiple;		//»ó±ÝÁö±Þ ¹è¼ö
+	int m_nPrizePenya;		//»ó±ÝÁö±Þ ¾×¼ö
 	int m_pStaticID[6];
 	int m_pStaticRID[6];
 	int m_pStaticNum[6];
 	int m_nAlpha;
 
-	BOOL m_bSendStart;		//ì„œë²„ë¡œ ê²°ê³¼ë¥¼ ìš”ì²­ í•¨
-	BOOL m_bReciveResult;	//ì„œë²„ë¡œ ë¶€í„° ê²°ê³¼ë¥¼ ë°›ì•˜ëŠ”ì§€ í™•ì¸
-	BOOL m_bEnd;			//ì£¼ì‚¬ìœ„ ê²Œìž„ì´ ëë‚œ ì‹œì 
+	BOOL m_bSendStart;		//¼­¹ö·Î °á°ú¸¦ ¿äÃ» ÇÔ
+	BOOL m_bReciveResult;	//¼­¹ö·Î ºÎÅÍ °á°ú¸¦ ¹Þ¾Ò´ÂÁö È®ÀÎ
+	BOOL m_bEnd;			//ÁÖ»çÀ§ °ÔÀÓÀÌ ³¡³­ ½ÃÁ¡
 	BOOL m_bFlsh;
 
 	CString m_strPathDice[6];
 	CString m_strPathDiceNum[6];
 	
-	CWndText* m_pCost[6];	//Penya ì˜¬ë¦´ Ctrl
-	CWndText* m_pRCost[6];	//Penya ê²°ê³¼ Ctrl
+	CWndText* m_pCost[6];	//Penya ¿Ã¸± Ctrl
+	CWndText* m_pRCost[6];	//Penya °á°ú Ctrl
 	CWndText* m_pText;
 	
 	CWndDiceGameTender* m_pWndDiceTender;
@@ -200,10 +200,10 @@ public:
 	virtual BOOL Process ();
 	
 	void RefreshInfo();
-	void SetMinMaxPenya(int nMinPenya, int nMaxPenya, int nMultiple);	//ìµœì†Œ/ìµœëŒ€ ìž…ì°°ê¸ˆì•¡, ìƒí’ˆì§€ê¸‰ ë°°ìˆ˜ë¥¼ ì ìš©
-	void CheckPenyaUsuable(int nPenya, int nSelect);	//ìž…ì°°ë˜ëŠ” ê¸ˆì•¡ì´ ê°€ëŠ¥í•œ ê¸ˆì•¡ì¸ì§€ë¥¼ í™•ì¸
-	void SetTenderPenya(int nSelect, int nPenya);		//ê°€ëŠ¥í•œ ê¸ˆì•¡ì´ë¼ë©´ ì ìš©í•œë‹¤.
-	void ReceiveResult(int nDiceNum, int nPenya);		//ì„œë²„ë¡œ ë¶€í„° ì£¼ì‚¬ìœ„ì˜ ê²°ê³¼ ê°’ì„ ë°›ìŒ
+	void SetMinMaxPenya(int nMinPenya, int nMaxPenya, int nMultiple);	//ÃÖ¼Ò/ÃÖ´ë ÀÔÂû±Ý¾×, »óÇ°Áö±Þ ¹è¼ö¸¦ Àû¿ë
+	void CheckPenyaUsuable(int nPenya, int nSelect);	//ÀÔÂûµÇ´Â ±Ý¾×ÀÌ °¡´ÉÇÑ ±Ý¾×ÀÎÁö¸¦ È®ÀÎ
+	void SetTenderPenya(int nSelect, int nPenya);		//°¡´ÉÇÑ ±Ý¾×ÀÌ¶ó¸é Àû¿ëÇÑ´Ù.
+	void ReceiveResult(int nDiceNum, int nPenya);		//¼­¹ö·Î ºÎÅÍ ÁÖ»çÀ§ÀÇ °á°ú °ªÀ» ¹ÞÀ½
 	void SetDescription(CHAR* szChar);
 	void RefreshCtrl();
 	void ResetPenya();
@@ -262,11 +262,11 @@ public:
 class CWndPuzzleGame : public CWndNeuz 
 {
 public:
-	DWORD m_itemID[9];			//ê° ê¸€ìžì˜ Object ID
+	DWORD m_itemID[9];			//°¢ ±ÛÀÚÀÇ Object ID
 	OBJID m_objItemID[9];
-	CItemElem* m_pItemElem[9];	//ì•„ì´í…œ ì •ë³´ ì €ìž¥.
-	int m_pStaticID[9];			//5ê°œì˜ WndID -> Picture (ondropicon ì‚¬ìš©ì„ ìœ„í•´)
-	int m_nSelectCtrl;			//ì„ íƒëœ Wnd ê¸°ì–µ.
+	CItemElem* m_pItemElem[9];	//¾ÆÀÌÅÛ Á¤º¸ ÀúÀå.
+	int m_pStaticID[9];			//5°³ÀÇ WndID -> Picture (ondropicon »ç¿ëÀ» À§ÇØ)
+	int m_nSelectCtrl;			//¼±ÅÃµÈ Wnd ±â¾ï.
 	CWndText* m_pText;
 	BOOL m_bStart;
 

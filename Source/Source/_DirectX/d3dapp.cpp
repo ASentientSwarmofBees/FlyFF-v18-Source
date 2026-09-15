@@ -1,4 +1,4 @@
-ï»¿//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // File: D3DApp.cpp
 //
 // Desc: Application class for the Direct3D samples framework library.
@@ -138,7 +138,7 @@ void CD3DApplication::SetDeviceCursor( HCURSOR hCursor )
 		//ClipCursor();
 		//RECT rcWindow;
 		//GetWindowRect( m_hWnd, &rcWindow );
-		//ClipCursor( &rcWindow ); // ìœˆë„ìš°ë¥¼ rcWindowë¥¼ ë²—ì–´ë‚˜ì§€ ì•Šê²Œ í•œë‹¤.
+		//ClipCursor( &rcWindow ); // À©µµ¿ì¸¦ rcWindow¸¦ ¹ş¾î³ªÁö ¾Ê°Ô ÇÑ´Ù.
 		//ClipCursor( NULL );
 	}
 }
@@ -590,7 +590,7 @@ LRESULT CD3DApplication::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam,
 #endif
                 //if( m_bClipCursorWhenFullscreen && !m_bWindowed )
                   //  ClipCursor( NULL );
-//                Pause( true ); // Pause while we're minimized - xuzhuê°€ ê³ ì¹¨
+//                Pause( true ); // Pause while we're minimized - xuzhu°¡ °íÄ§
                 m_bMinimized = true;
                 m_bMaximized = false;
             }
@@ -644,8 +644,8 @@ LRESULT CD3DApplication::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam,
             {
 				//RECT rcWindow;
 				//GetWindowRect( m_hWnd, &rcWindow );
-				//ClipCursor( &rcWindow ); // ìœˆë„ìš°ë¥¼ rcWindowë¥¼ ë²—ì–´ë‚˜ì§€ ì•Šê²Œ í•œë‹¤.
-				//ClipCursor( NULL ); // ìœˆë„ìš°ë¥¼ rcWindowë¥¼ ë²—ì–´ë‚˜ì§€ ì•Šê²Œ í•œë‹¤.
+				//ClipCursor( &rcWindow ); // À©µµ¿ì¸¦ rcWindow¸¦ ¹ş¾î³ªÁö ¾Ê°Ô ÇÑ´Ù.
+				//ClipCursor( NULL ); // À©µµ¿ì¸¦ rcWindow¸¦ ¹ş¾î³ªÁö ¾Ê°Ô ÇÑ´Ù.
 
 //				SetCursor( NULL );
 				/*
@@ -906,8 +906,8 @@ HRESULT CD3DApplication::Initialize3DEnvironment()
         if( m_bWindowed )
         {
 #ifdef __CSC_VER9_4
-			//í…Œë‘ë¦¬ ë³´ì´ëŠ” ë¶€ë¶„ì„ ì•ˆë³´ì´ê²Œ í•˜ë ¤ê³  SWP_HIDEWINDOWë¥¼ ì“°ë©´ clientrect sizeê°€ 2pixelì”© ì‘ì•„ì ¸ì„œ
-			//Window Moveì‹œì— ê¸°ì¡´ í•´ìƒë„ì™€ ë‹¤ë¥´ë¯€ë¡œ ì¬ ì„¸íŒ…í•˜ë©´ì„œ íƒœë‘ë¦¬ ì£¼ìœ„ì— ê³µë°±ì´ ìƒê¹€ ì„ì‹œë¡œ -2ë¡œ SetWindowPosë¥¼ í•˜ì—¬ ì´ë¥¼ ë§‰ìŒ. 
+			//Å×µÎ¸® º¸ÀÌ´Â ºÎºĞÀ» ¾Èº¸ÀÌ°Ô ÇÏ·Á°í SWP_HIDEWINDOW¸¦ ¾²¸é clientrect size°¡ 2pixel¾¿ ÀÛ¾ÆÁ®¼­
+			//Window Move½Ã¿¡ ±âÁ¸ ÇØ»óµµ¿Í ´Ù¸£¹Ç·Î Àç ¼¼ÆÃÇÏ¸é¼­ ÅÂµÎ¸® ÁÖÀ§¿¡ °ø¹éÀÌ »ı±è ÀÓ½Ã·Î -2·Î SetWindowPos¸¦ ÇÏ¿© ÀÌ¸¦ ¸·À½. 
 
 			if(g_Option.m_bStartFullScreen)
 			{
@@ -1016,7 +1016,7 @@ HRESULT CD3DApplication::Initialize3DEnvironment()
         // Confine cursor to fullscreen window
         //RECT rcWindow;
         //GetWindowRect( m_hWnd, &rcWindow );
-        //ClipCursor( &rcWindow ); // ìœˆë„ìš°ë¥¼ rcWindowë¥¼ ë²—ì–´ë‚˜ì§€ ì•Šê²Œ í•œë‹¤.
+        //ClipCursor( &rcWindow ); // À©µµ¿ì¸¦ rcWindow¸¦ ¹ş¾î³ªÁö ¾Ê°Ô ÇÑ´Ù.
 		//ClipCursor( NULL );
 		ClipCursor();
 #endif
@@ -1167,7 +1167,7 @@ HRESULT CD3DApplication::Reset3DEnvironment()
 	{
 		if(D3DERR_DEVICELOST == hr)
 		{
-			ADDERRORMSG( "CD3DApplication::Reset3DEnvironment()ì— Resetë¦¬í„´ê°’ : D3DERR_DEVICELOSTê°€ ë‚˜ì™”ë‹¤." );
+			ADDERRORMSG( "CD3DApplication::Reset3DEnvironment()¿¡ Reset¸®ÅÏ°ª : D3DERR_DEVICELOST°¡ ³ª¿Ô´Ù." );
 		}
 		
         return hr;
@@ -1206,7 +1206,7 @@ HRESULT CD3DApplication::Reset3DEnvironment()
 
     //RECT rcWindow;
     //GetWindowRect( m_hWnd, &rcWindow );
-    //ClipCursor( &rcWindow ); // ìœˆë„ìš°ë¥¼ rcWindowë¥¼ ë²—ì–´ë‚˜ì§€ ì•Šê²Œ í•œë‹¤.
+    //ClipCursor( &rcWindow ); // À©µµ¿ì¸¦ rcWindow¸¦ ¹ş¾î³ªÁö ¾Ê°Ô ÇÑ´Ù.
     //ClipCursor( NULL );
 #endif
     // Initialize the app's device-dependent objects
@@ -1605,7 +1605,7 @@ HRESULT CD3DApplication::Render3DEnvironment()
 			{
 				//CString str;
 				//str.Format( );
-				//ADDERRORMSG( "CD3DApplication::Render3DEnvironment()ì— TestCooperativeLevelë¦¬í„´ê°’ : D3DERR_DEVICELOST" );
+				//ADDERRORMSG( "CD3DApplication::Render3DEnvironment()¿¡ TestCooperativeLevel¸®ÅÏ°ª : D3DERR_DEVICELOST" );
                 return S_OK;
 			}
 			
@@ -1678,7 +1678,7 @@ HRESULT CD3DApplication::Render3DEnvironment()
 		CHECK2( "Present" );
 		if( D3DERR_DEVICELOST == hr )
 		{
-			ADDERRORMSG( "CD3DApplication::Render3DEnvironment()ì— Presentë¦¬í„´ê°’ : D3DERR_DEVICELOST" );
+			ADDERRORMSG( "CD3DApplication::Render3DEnvironment()¿¡ Present¸®ÅÏ°ª : D3DERR_DEVICELOST" );
 			m_bDeviceLost = true;
 		}
 	}
@@ -1828,7 +1828,7 @@ void CD3DApplication::Cleanup3DEnvironment()
         if( nCount > 0 )
 		{
 			TCHAR szString[ 256 ];
-			_stprintf( szString, "Deviceì—ì„œ Releaseë˜ì§€ ì•Šì€ ê°¯ìˆ˜ : %d", nCount );
+			_stprintf( szString, "Device¿¡¼­ ReleaseµÇÁö ¾ÊÀº °¹¼ö : %d", nCount );
 			MessageBox( NULL, szString, "MASQUERADE", MB_ICONERROR|MB_OK );
             //DisplayErrorMsg( D3DAPPERR_NONZEROREFCOUNT, MSGERR_APPMUSTEXIT );
 		}
@@ -1871,9 +1871,9 @@ HRESULT CD3DApplication::DisplayErrorMsg( HRESULT hr, DWORD dwType )
 			{
 				_tcscpy( strMsg, _T("Could not find any compatible Direct3D\n")
 								 _T("devices.\n") 
-								 _T("ê·¸ë˜í”½ ë“œë¼ì´ë²„ì˜ ë²„ì „ì´ ë‚®ê±°ë‚˜ ê·¸ë˜í”½ì¹´ë“œê°€ Direct3Dë¥¼ ì§€ì›í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n")
-								 _T("www.flyff.comì—ì„œ í™”ë©´ë“œë¼ì´ë²„ë¥¼ ë°›ì•„ ì„¤ì¹˜í•˜ê±°ë‚˜\n")
-								 _T("ì œì¡°ì‚¬ì˜ í™ˆí˜ì´ì§€ì—ì„œ ë‹¤ìš´ë¡œë“œ ë°›ì•„ ì„¤ì¹˜í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.")
+								 _T("±×·¡ÇÈ µå¶óÀÌ¹öÀÇ ¹öÀüÀÌ ³·°Å³ª ±×·¡ÇÈÄ«µå°¡ Direct3D¸¦ Áö¿øÇÏÁö ¾Ê½À´Ï´Ù.\n")
+								 _T("www.flyff.com¿¡¼­ È­¸éµå¶óÀÌ¹ö¸¦ ¹Ş¾Æ ¼³Ä¡ÇÏ°Å³ª\n")
+								 _T("Á¦Á¶»çÀÇ È¨ÆäÀÌÁö¿¡¼­ ´Ù¿î·Îµå ¹Ş¾Æ ¼³Ä¡ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.")
 								 );
 			} 
 			else
@@ -1985,7 +1985,7 @@ HRESULT CD3DApplication::DisplayErrorMsg( HRESULT hr, DWORD dwType )
 #ifdef __CLIENT
 		Error( "%s", strMsg );
 #endif
-		if( hr != D3DAPPERR_RESETFAILED && bDefault == FALSE )		// reset ì—ëŸ¬ëŠ” ë„ˆë¬´ ë§ì´ ë‚˜ë¯€ë¡œ ë³´ë‚´ì§€ ë§ì ì  ì¥.
+		if( hr != D3DAPPERR_RESETFAILED && bDefault == FALSE )		// reset ¿¡·¯´Â ³Ê¹« ¸¹ÀÌ ³ª¹Ç·Î º¸³»Áö ¸»ÀÚ Á¨Àå.
 		{
 			int *p = NULL;
 			*p = 1;
@@ -2011,13 +2011,13 @@ void CD3DApplication::ChangeFakeDisplayMode()
 	{
 		if( g_Option.m_bStartFullScreen )
 		{
-			// í˜„ì¬ìƒíƒœ ì €ì¥. => ë‚˜ì¤‘ì— ë³µì›í•˜ê¸°ìœ„í•´ ì €ì¥ //
+			// ÇöÀç»óÅÂ ÀúÀå. => ³ªÁß¿¡ º¹¿øÇÏ±âÀ§ÇØ ÀúÀå //
 			ZeroMemory(&m_PrevDevMode, sizeof(DEVMODE));
 			m_PrevDevMode.dmSize = sizeof(DEVMODE);
 			m_PrevDevMode.dmFields=DM_BITSPERPEL|DM_PELSWIDTH|DM_PELSHEIGHT|DM_DISPLAYFREQUENCY;
 			EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &m_PrevDevMode);
 			
-			// (1024 x 768) ëª¨ë“œë¡œ ë³€ê²½
+			// (1024 x 768) ¸ğµå·Î º¯°æ
 			DEVMODE dm;
 			ZeroMemory(&dm, sizeof(DEVMODE));
 			dm.dmSize = sizeof(DEVMODE);
@@ -2027,11 +2027,11 @@ void CD3DApplication::ChangeFakeDisplayMode()
 			dm.dmPelsHeight = FULLSCREEN_HEIGHT;
 			dm.dmDisplayFrequency = m_PrevDevMode.dmDisplayFrequency;
 
-			// ë°”ê¿€ ìˆ˜ ìˆëŠ”ì§€ ì‹œí—˜í•´ë³´ê³  ë°”ê¿ˆ
+			// ¹Ù²Ü ¼ö ÀÖ´ÂÁö ½ÃÇèÇØº¸°í ¹Ù²Ş
 			if(ChangeDisplaySettings(&dm,CDS_TEST)==DISP_CHANGE_SUCCESSFUL) {
 				ChangeDisplaySettings(&dm, CDS_FULLSCREEN);	
 				
-				// ìœˆë„ìš° ì‘ì—…í‘œì‹œì¤„ì„ ì•ˆë³´ì´ê²Œ í•˜ë ¤ëŠ” ëª©ì .
+				// À©µµ¿ì ÀÛ¾÷Ç¥½ÃÁÙÀ» ¾Èº¸ÀÌ°Ô ÇÏ·Á´Â ¸ñÀû.
 				SetWindowPos(m_hWnd, HWND_NOTOPMOST, 0,0,0,0, SWP_NOSIZE | SWP_NOREPOSITION);
 			}
 		}
@@ -2044,7 +2044,7 @@ void CD3DApplication::RestoreFakeDisplayMode()
 	{
 		m_PrevDevMode.dmFields=DM_BITSPERPEL|DM_PELSWIDTH|DM_PELSHEIGHT|DM_DISPLAYFREQUENCY;
 		
-		// ë°”ê¿€ ìˆ˜ ìˆëŠ”ì§€ ì‹œí—˜í•´ë³´ê³  ë°”ê¿ˆ
+		// ¹Ù²Ü ¼ö ÀÖ´ÂÁö ½ÃÇèÇØº¸°í ¹Ù²Ş
 		if(ChangeDisplaySettings(&m_PrevDevMode,CDS_TEST)==DISP_CHANGE_SUCCESSFUL) {
 			ChangeDisplaySettings(&m_PrevDevMode, CDS_UPDATEREGISTRY);
 		}

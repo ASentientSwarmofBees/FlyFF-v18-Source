@@ -1,4 +1,4 @@
-ï»¿// WndBase.h: interface for the CWndBase class.
+// WndBase.h: interface for the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -145,7 +145,7 @@ protected:
 	DWORD			m_dwFrame;
 	CDWordArray		m_dwSelectAry;
 	BOOL			m_bDrag;
-	BOOL			m_bVisibleCount;		// ê°¯ìˆ˜ë¥¼ í‘œì‹œFLAG
+	BOOL			m_bVisibleCount;		// °¹¼ö¸¦ Ç¥½ÃFLAG
 	CItemElem*		m_pFocusItem;
 	int				m_nCurSelect;
 	int				m_nFontHeight;

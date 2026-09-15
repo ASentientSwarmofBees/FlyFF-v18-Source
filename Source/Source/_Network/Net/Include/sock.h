@@ -1,4 +1,4 @@
-﻿#ifndef __SOCK_H__
+#ifndef __SOCK_H__
 #define __SOCK_H__
 
 #pragma once

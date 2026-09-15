@@ -1,4 +1,4 @@
-ï»¿//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 /// \file MiniDumper.h
 /// \author excel96
 /// \date 2003.11.18
@@ -9,12 +9,12 @@
 
 #ifdef __MINIDUMP
 
-/// ë¤í”„í•  ë°ì´í„°ì˜ ìˆ˜ì¤€
+/// ´ıÇÁÇÒ µ¥ÀÌÅÍÀÇ ¼öÁØ
 enum DumpLevel
 {
-    DUMP_LEVEL_0, ///< MiniDumpNormalì„ ì‚¬ìš©
-    DUMP_LEVEL_1, ///< MiniDumpWithDataSegsë¥¼ ì‚¬ìš©
-    DUMP_LEVEL_2  ///< MiniDumpWithFullMemoryë¥¼ ì‚¬ìš©
+    DUMP_LEVEL_0, ///< MiniDumpNormalÀ» »ç¿ë
+    DUMP_LEVEL_1, ///< MiniDumpWithDataSegs¸¦ »ç¿ë
+    DUMP_LEVEL_2  ///< MiniDumpWithFullMemory¸¦ »ç¿ë
 };
 
 extern void InitDumper( DumpLevel level );

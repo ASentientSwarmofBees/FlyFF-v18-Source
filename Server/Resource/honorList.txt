@@ -1,102 +1,102 @@
-ï»¿//	!! ì£¼ì˜ì‚¬í•­ ! ìƒˆë¡œì¶”ê°€ë˜ëŠ” í•­ëª©ì€ ë¬´ì¡°ê±´ ì œì¼ ë’¤ì—ì„œë¶€í„° ì¶”ê°€ê°€ëŠ¥								
-//	ì•„ì´í…œ 50ê°œ ëª¬ìŠ¤í„° 50ê°œ	ê¸°íƒ€ 50ê°œ ê¹Œì§€ë§Œ ê°€ëŠ¥							
-// ì¸ë±ìŠ¤	ëŒ€ë¶„ë¥˜	   ì†Œë¶„ë¥˜	í•„ìš”ì¡°ê±´	íƒ€ì´í‹€					
-0	HI_ELASPED_TIME	HS_COLLECT	1440	IDS_TITLE_TXT_0001	//ì±„ì§‘ì˜ ë‹¬ì¸			//	ì±„ì§‘ì˜ ë‹¬ì¸
-1	HI_ELASPED_TIME	HS_TRADE	2160	IDS_TITLE_TXT_0002	//ìž¥ì‚¬ì˜ ë‹¬ì¸			//	ìž¥ì‚¬ì˜ ë‹¬ì¸
-2	HI_COUNT_CHECK	HS_HATCHING_EGG	100	IDS_TITLE_TXT_0003	//ì•Œ ë¶€í™”ì˜ ë‹¬ì¸			//	ì•Œ ë¶€í™”ì˜ ë‹¬ì¸
-3	HI_COUNT_CHECK	HS_COUPLE_COUNT	100	IDS_TITLE_TXT_0004	//ì¹´ì‚¬ë…¸ë°”			//	ì¹´ì‚¬ë…¸ë°”
-4	HI_COUNT_CHECK	HS_COUPLE_LV	21	IDS_TITLE_TXT_0005	//ìœ„ëŒ€í•œ ì»¤í”Œ			//	ìœ„ëŒ€í•œ ì»¤í”Œ
-5	HI_COUNT_CHECK	HS_PK_COUNT	5	IDS_TITLE_TXT_0006	//ë¬´ì‹œë¬´ì‹œí•œë†ˆ			//	ë¬´ì‹œë¬´ì‹œí•œë†ˆ
-6	HI_COUNT_CHECK	HS_STR	253	IDS_TITLE_TXT_0007	//íž˜ì˜ ë‹¬ì¸			//	íž˜ì˜ ë‹¬ì¸
-7	HI_COUNT_CHECK	HS_STA	253	IDS_TITLE_TXT_0008	//ì²´ë ¥ì˜ ë‹¬ì¸			//	ì²´ë ¥ì˜ ë‹¬ì¸
-8	HI_COUNT_CHECK	HS_DEX	253	IDS_TITLE_TXT_0009	//ë¯¼ì²©ì˜ ë‹¬ì¸			//	ë¯¼ì²©ì˜ ë‹¬ì¸
-9	HI_COUNT_CHECK	HS_INT	253	IDS_TITLE_TXT_0010	//ì§€ëŠ¥ì˜ ë‹¬ì¸			//	ì§€ëŠ¥ì˜ ë‹¬ì¸
-10	HI_COUNT_CHECK	HS_PVP_POINT01	10	IDS_TITLE_TXT_0011	//ì´ˆë³´ íŒŒì´í„°			//	ì´ˆë³´ íŒŒì´í„°
-11	HI_COUNT_CHECK	HS_PVP_POINT02	100	IDS_TITLE_TXT_0012	//ê²¬ìŠµ íŒŒì´í„°			//	ê²¬ìŠµ íŒŒì´í„°
-12	HI_COUNT_CHECK	HS_PVP_POINT03	1000	IDS_TITLE_TXT_0013	//ë…¸ë ¥í•˜ëŠ” íŒŒì´í„°			//	ë…¸ë ¥í•˜ëŠ” íŒŒì´í„°
-13	HI_COUNT_CHECK	HS_PVP_POINT04	4000	IDS_TITLE_TXT_0014	//íŒ¨ê¸°ìžˆëŠ” íŒŒì´í„°			//	íŒ¨ê¸°ìžˆëŠ” íŒŒì´í„°
-14	HI_COUNT_CHECK	HS_PVP_POINT05	10000	IDS_TITLE_TXT_0015	//ì•Œë ¤ì§„ íŒŒì´í„°			//	ì•Œë ¤ì§„ íŒŒì´í„°
-15	HI_COUNT_CHECK	HS_PVP_POINT06	20000	IDS_TITLE_TXT_0016	//ê°•í•œ íŒŒì´í„°			//	ê°•í•œ íŒŒì´í„°
-16	HI_COUNT_CHECK	HS_PVP_POINT07	50000	IDS_TITLE_TXT_0017	//ìœ ëª…í•œ íŒŒì´í„°			//	ìœ ëª…í•œ íŒŒì´í„°
-17	HI_COUNT_CHECK	HS_PVP_POINT08	1000000	IDS_TITLE_TXT_0018	//í›Œë¥­í•œ íŒŒì´í„°			//	í›Œë¥­í•œ íŒŒì´í„°
-18	HI_COUNT_CHECK	HS_PVP_POINT09	5000000	IDS_TITLE_TXT_0019	//ì¸ê¸°ë§Žì€ íŒŒì´í„°			//	ì¸ê¸°ë§Žì€ íŒŒì´í„°
-19	HI_COUNT_CHECK	HS_PVP_POINT10	100000000	IDS_TITLE_TXT_0020	//ìµœê°•ì˜ íŒŒì´í„°			//	ìµœê°•ì˜ íŒŒì´í„°
-20	HI_EARN_TITLE	JOB_KNIGHT_MASTER	1	IDS_TITLE_TXT_0021	//ë‚˜ì´íŠ¸ ë§ˆìŠ¤í„°			//	ë‚˜ì´íŠ¸ ë§ˆìŠ¤í„°
-21	HI_EARN_TITLE	JOB_BLADE_MASTER	1	IDS_TITLE_TXT_0022	//ë¸”ë ˆì´ë“œ ë§ˆìŠ¤í„°			//	ë¸”ë ˆì´ë“œ ë§ˆìŠ¤í„°
-22	HI_EARN_TITLE	JOB_JESTER_MASTER	1	IDS_TITLE_TXT_0023	//ì œìŠ¤í„° ë§ˆìŠ¤í„°			//	ì œìŠ¤í„° ë§ˆìŠ¤í„°
-23	HI_EARN_TITLE	JOB_RANGER_MASTER	1	IDS_TITLE_TXT_0024	//ë ˆì¸ì € ë§ˆìŠ¤í„°			//	ë ˆì¸ì € ë§ˆìŠ¤í„°
-24	HI_EARN_TITLE	JOB_RINGMASTER_MASTER	1	IDS_TITLE_TXT_0025	//ë§ë§ˆìŠ¤í„° ë§ˆìŠ¤í„°			//	ë§ë§ˆìŠ¤í„° ë§ˆìŠ¤í„°
-25	HI_EARN_TITLE	JOB_BILLPOSTER_MASTER	1	IDS_TITLE_TXT_0026	//ë¹Œí¬ìŠ¤í„° ë§ˆìŠ¤í„°			//	ë¹Œí¬ìŠ¤í„° ë§ˆìŠ¤í„°
-26	HI_EARN_TITLE	JOB_PSYCHIKEEPER_MASTER	1	IDS_TITLE_TXT_0027	//ì‹¸ì´í‚¤í¼ ë§ˆìŠ¤í„°			//	ì‹¸ì´í‚¤í¼ ë§ˆìŠ¤í„°
-27	HI_EARN_TITLE	JOB_ELEMENTOR_MASTER	1	IDS_TITLE_TXT_0028	//ì—˜ë¦¬ë©˜í„° ë§ˆìŠ¤í„°			//	ì—˜ë¦¬ë©˜í„° ë§ˆìŠ¤í„°
-28	HI_EARN_TITLE	JOB_KNIGHT_HERO	1	IDS_TITLE_TXT_0029	//ë‚˜ì´íŠ¸ ížˆì–´ë¡œ			//	ë‚˜ì´íŠ¸ ížˆì–´ë¡œ
-29	HI_EARN_TITLE	JOB_BLADE_HERO	1	IDS_TITLE_TXT_0030	//ë¸”ë ˆì´ë“œ ížˆì–´ë¡œ			//	ë¸”ë ˆì´ë“œ ížˆì–´ë¡œ
-30	HI_EARN_TITLE	JOB_JESTER_HERO	1	IDS_TITLE_TXT_0031	//ì œìŠ¤í„° ížˆì–´ë¡œ			//	ì œìŠ¤í„° ížˆì–´ë¡œ
-31	HI_EARN_TITLE	JOB_RANGER_HERO	1	IDS_TITLE_TXT_0032	//ë ˆì¸ì € ížˆì–´ë¡œ			//	ë ˆì¸ì € ížˆì–´ë¡œ
-32	HI_EARN_TITLE	JOB_RINGMASTER_HERO	1	IDS_TITLE_TXT_0033	//ë§ë§ˆìŠ¤í„° ížˆì–´ë¡œ			//	ë§ë§ˆìŠ¤í„° ížˆì–´ë¡œ
-33	HI_EARN_TITLE	JOB_BILLPOSTER_HERO	1	IDS_TITLE_TXT_0034	//ë¹Œí¬ìŠ¤í„° ížˆì–´ë¡œ			//	ë¹Œí¬ìŠ¤í„° ížˆì–´ë¡œ
-34	HI_EARN_TITLE	JOB_PSYCHIKEEPER_HERO	1	IDS_TITLE_TXT_0035	//ì‹¸ì´í‚¤í¼ ížˆì–´ë¡œ			//	ì‹¸ì´í‚¤í¼ ížˆì–´ë¡œ
-35	HI_EARN_TITLE	JOB_ELEMENTOR_HERO	1	IDS_TITLE_TXT_0036	//ì—˜ë¦¬ë©˜í„° ížˆì–´ë¡œ			//	ì—˜ë¦¬ë©˜í„° ížˆì–´ë¡œ
-36	HI_EARN_TITLE	HS_LORD	1	IDS_TITLE_TXT_0037	//êµ°ì£¼			//	êµ°ì£¼
-37	HI_COUNT_CHECK	HS_JUMP	500000	IDS_TITLE_TXT_0099	//ì í”„			//	ì í”„ì˜ë‹¬ì¸
-38	HI_USE_ITEM	II_GEN_FOO_PIL_GRAY	30000	IDS_TITLE_TXT_0038	//íšŒìƒ‰ ì•Œì•½ ì¤‘ë…ìž			//	íšŒìƒ‰ ì•Œì•½ ì¤‘ë…ìž
-39	HI_USE_ITEM	II_GEN_FOO_PIL_YELLOW	30000	IDS_TITLE_TXT_0039	//ë…¸ëž€ ì•Œì•½ ì¤‘ë…ìž			//	ë…¸ëž€ ì•Œì•½ ì¤‘ë…ìž
-40	HI_USE_ITEM	II_GEN_FOO_PIL_BLUE	30000	IDS_TITLE_TXT_0040	//íŒŒëž€ ì•Œì•½ ì¤‘ë…ìž			//	íŒŒëž€ ì•Œì•½ ì¤‘ë…ìž
-41	HI_USE_ITEM	II_GEN_FOO_PIL_RED	30000	IDS_TITLE_TXT_0041	//ë¶‰ì€ ì•Œì–„ ì¤‘ë…ìž			//	ë¶‰ì€ ì•Œì–„ ì¤‘ë…ìž
-42	HI_USE_ITEM	II_GEN_FOO_PIL_GOLD	30000	IDS_TITLE_TXT_0042	//í™©ê¸ˆ ì•Œì•½ ì¤‘ë…ìž			//	í™©ê¸ˆ ì•Œì•½ ì¤‘ë…ìž
-43	HI_USE_ITEM	II_GEN_FOO_PIL_SINBI	30000	IDS_TITLE_TXT_0043	//ì‹ ë¹„í•œ ì•Œì•½ ì¤‘ë…ìž			//	ì‹ ë¹„í•œ ì•Œì•½ ì¤‘ë…ìž
-44	HI_USE_ITEM	II_GEN_FOO_INS_LOLLIPOP	200000	IDS_TITLE_TXT_0044	//ë§‰ëŒ€ì‚¬íƒ• ì¤‘ë…ìž			//	ë§‰ëŒ€ì‚¬íƒ• ì¤‘ë…ìž
-45	HI_USE_ITEM	II_GEN_FOO_INS_BISCUIT	200000	IDS_TITLE_TXT_0045	//ë¹„ìŠ¤í‚· ì¤‘ë…ìž			//	ë¹„ìŠ¤í‚· ì¤‘ë…ìž
-46	HI_USE_ITEM	II_GEN_FOO_INS_CHOCOLATE	200000	IDS_TITLE_TXT_0046	//ì´ˆì½œë¦¿ ë°” ì¤‘ë…ìž			//	ì´ˆì½œë¦¿ ë°” ì¤‘ë…ìž
-47	HI_USE_ITEM	II_GEN_FOO_INS_MILK	200000	IDS_TITLE_TXT_0047	//ìš°ìœ  ì¤‘ë…ìž			//	ìš°ìœ  ì¤‘ë…ìž
-48	HI_USE_ITEM	II_GEN_FOO_INS_BREAD	200000	IDS_TITLE_TXT_0048	//ì‹ë¹µ ì¤‘ë…ìž			//	ì‹ë¹µ ì¤‘ë…ìž
-49	HI_USE_ITEM	II_GEN_FOO_INS_HOTDOG	200000	IDS_TITLE_TXT_0049	//í•«ë„ê·¸ ì¤‘ë…ìž			//	í•«ë„ê·¸ ì¤‘ë…ìž
-50	HI_USE_ITEM	II_GEN_FOO_INS_HODDUK	200000	IDS_TITLE_TXT_0050	//í˜¸ë–¡ ì¤‘ë…ìž			//	í˜¸ë–¡ ì¤‘ë…ìž
-51	HI_USE_ITEM	II_GEN_FOO_INS_KIMBAP	200000	IDS_TITLE_TXT_0051	//ê¹€ë°¥ ì¤‘ë…ìž			//	ê¹€ë°¥ ì¤‘ë…ìž
-52	HI_USE_ITEM	II_GEN_FOO_INS_CHICKENSTICK	200000	IDS_TITLE_TXT_0052	//ë‹­ë‹¤ë¦¬ ì¤‘ë…ìž			//	ë‹­ë‹¤ë¦¬ ì¤‘ë…ìž
-53	HI_USE_ITEM	II_GEN_FOO_INS_STARCANDY	200000	IDS_TITLE_TXT_0053	//ë³„ì‚¬íƒ• ì¤‘ë…ìž			//	ë³„ì‚¬íƒ• ì¤‘ë…ìž
-54	HI_USE_ITEM	II_GEN_FOO_COO_MEATSKEWER	200000	IDS_TITLE_TXT_0054	//ê¼¬ì¹˜ ì¤‘ë…ìž			//	ê¼¬ì¹˜ ì¤‘ë…ìž
-55	HI_USE_ITEM	II_GEN_FOO_COO_BARBECUE	200000	IDS_TITLE_TXT_0055	//ë°”ë² í ì¤‘ë…ìž			//	ë°”ë² í ì¤‘ë…ìž
-56	HI_USE_ITEM	II_GEN_FOO_COO_SEAFOODPANCAKE	200000	IDS_TITLE_TXT_0056	//í•´ë¬¼íŒŒì „ ì¤‘ë…ìž			//	í•´ë¬¼íŒŒì „ ì¤‘ë…ìž
-57	HI_USE_ITEM	II_GEN_FOO_COO_FISHSOUP	200000	IDS_TITLE_TXT_0057	//ìƒì„ ìŠ¤í”„ ì¤‘ë…ìž			//	ìƒì„ ìŠ¤í”„ ì¤‘ë…ìž
-58	HI_USE_ITEM	II_GEN_FOO_COO_SAUSAGECASSEROLE	200000	IDS_TITLE_TXT_0058	//ì†Œì‹œì§€ì „ê³¨ ì¤‘ë…ìž			//	ì†Œì‹œì§€ì „ê³¨ ì¤‘ë…ìž
-59	HI_USE_ITEM	II_GEN_FOO_COO_FISHSTEW	200000	IDS_TITLE_TXT_0059	//ìƒì„ ìŠ¤íŠœ ì¤‘ë…ìž			//	ìƒì„ ìŠ¤íŠœ ì¤‘ë…ìž
-60	HI_USE_ITEM	II_GEN_FOO_COO_STEAMEDSEAFOOD	200000	IDS_TITLE_TXT_0060	//í•´ë¬¼ì°œ ì¤‘ë…ìž			//	í•´ë¬¼ì°œ ì¤‘ë…ìž
-61	HI_USE_ITEM	II_GEN_FOO_COO_MEATSALAD	200000	IDS_TITLE_TXT_0061	//ê³ ê¸°ìƒëŸ¬ë“œ ì¤‘ë…ìž			//	ê³ ê¸°ìƒëŸ¬ë“œ ì¤‘ë…ìž
-62	HI_USE_ITEM	II_GEN_FOO_COO_GRATIN	200000	IDS_TITLE_TXT_0062	//ê·¸ë¼íƒ• ì¤‘ë…ìž			//	ê·¸ë¼íƒ• ì¤‘ë…ìž
-63	HI_USE_ITEM	II_GEN_FOO_COO_SEAFOODPIZZA	200000	IDS_TITLE_TXT_0063	//í•´ë¬¼í”¼ìž ì¤‘ë…ìž			//	í•´ë¬¼í”¼ìž ì¤‘ë…ìž
-64	HI_USE_ITEM	II_GEN_FOO_ICE_ORANGEJUIICE	200000	IDS_TITLE_TXT_0064	//ì˜¤ë Œì§€ì£¼ìŠ¤ ì¤‘ë…ìž			//	ì˜¤ë Œì§€ì£¼ìŠ¤ ì¤‘ë…ìž
-65	HI_USE_ITEM	II_GEN_FOO_ICE_STRAWBERRYSHAKE	200000	IDS_TITLE_TXT_0065	//ë”¸ê¸°ì‰ì´í¬ ì¤‘ë…ìž			//	ë”¸ê¸°ì‰ì´í¬ ì¤‘ë…ìž
-66	HI_USE_ITEM	II_GEN_FOO_ICE_PINEAPPLECONE	200000	IDS_TITLE_TXT_0066	//íŒŒì¸ì• í”Œì½˜ ì¤‘ë…ìž			//	íŒŒì¸ì• í”Œì½˜ ì¤‘ë…ìž
-67	HI_USE_ITEM	II_GEN_FOO_ICE_BANANAJUJUBAR	200000	IDS_TITLE_TXT_0067	//ë°”ë‚˜ë‚˜ì­ˆì­ˆë°” ì¤‘ë…ìž			//	ë°”ë‚˜ë‚˜ì­ˆì­ˆë°” ì¤‘ë…ìž
-68	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITJUICE	200000	IDS_TITLE_TXT_0068	//ê³¼ì¼ì£¼ìŠ¤ ì¤‘ë…ìž			//	ê³¼ì¼ì£¼ìŠ¤ ì¤‘ë…ìž
-69	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITICEWATER	200000	IDS_TITLE_TXT_0069	//ê³¼ì¼ë¹™ìˆ˜ ì¤‘ë…ìž			//	ê³¼ì¼ë¹™ìˆ˜ ì¤‘ë…ìž
-70	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITPARFAIT	200000	IDS_TITLE_TXT_0070	//ê³¼ì¼íŒŒë¥´íŽ˜ ì¤‘ë…ìž			//	ê³¼ì¼íŒŒë¥´íŽ˜ ì¤‘ë…ìž
-71	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITSHERBET	200000	IDS_TITLE_TXT_0071	//ê³¼ì¼ìƒ¤ë²³ ì¤‘ë…ìž			//	ê³¼ì¼ìƒ¤ë²³ ì¤‘ë…ìž
-72	HI_USE_ITEM	II_GEN_FOO_ICE_ICECREAMCAKE	200000	IDS_TITLE_TXT_0072	//ì•„ì´ìŠ¤í¬ë¦¼ì¼€ìµ ì¤‘ë…ìž			//	ì•„ì´ìŠ¤í¬ë¦¼ì¼€ìµ ì¤‘ë…ìž
-73	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITPUNCH	200000	IDS_TITLE_TXT_0073	//ê³¼ì¼í™”ì±„ ì¤‘ë…ìž			//	ê³¼ì¼í™”ì±„ ì¤‘ë…ìž
-74	HI_HUNT_MONSTER	MI_AIBATT2	15000	IDS_TITLE_TXT_0074	// ì•„ì´ë°”íŠ¸ ëˆˆì•Œ ë¹¼ë¨¹ëŠ”				
-75	HI_HUNT_MONSTER	MI_LAWOLF2	15000	IDS_TITLE_TXT_0075	// ë¼ìš¸í”„ë¥¼ ë°”ë¹„í í•´ë¨¹ëŠ”				
-76	HI_HUNT_MONSTER	MI_CARDPUPPET2	15000	IDS_TITLE_TXT_0076	// ì¹´ë“œí¼íŽ«ì˜ ì£¼ì¸ë‹˜				
-77	HI_HUNT_MONSTER	MI_GLAPHAN2	15000	IDS_TITLE_TXT_0077	// ê¸€ë¼íŒ¬ì´ ë²Œë²Œë– ëŠ”
-78	HI_HUNT_MONSTER	MI_DU_METEONYKER	15000	IDS_TITLE_TXT_0078	// ìš© ì‚¬ëƒ¥ê¾¼
-79	HI_HUNT_MONSTER	MI_CYCLOPSX	15000	IDS_TITLE_TXT_0079	// ì‹¸ì´í´ë¡­ìŠ¤X ê°€ ì¸ì •í•œ
-80	HI_HUNT_MONSTER	MI_NPC_YETI01	15000	IDS_TITLE_TXT_0080	// ì˜ˆí‹° ì‚¬ëƒ¥ê¾¼
-81	HI_HUNT_MONSTER	MI_NPC_YETI02	15000	IDS_TITLE_TXT_0081	// ì˜ˆí‹°ê°€ íŽ«ì¸ì¤„ ì•„ëŠ”
-82	HI_HUNT_MONSTER	MI_NPC_AUGOO01	15000	IDS_TITLE_TXT_0082	// ì•„ìš°êµ¬ í—Œí„°
-83	HI_HUNT_MONSTER	MI_NPC_AUGOO02	15000	IDS_TITLE_TXT_0083	// ì•„ìš°êµ¬ë¥¼ êµ¬ì›Œë¨¹ëŠ”
-84	HI_HUNT_MONSTER	MI_NPC_SADKING01 	15000	IDS_TITLE_TXT_0084	// ìœ ë ¹ ì‚¬ëƒ¥ê¾¼
-85	HI_HUNT_MONSTER	MI_NPC_SADKING02	15000	IDS_TITLE_TXT_0085	// ìœ ë ¹ë„ ë²Œë²Œë– ëŠ”
-86	HI_HUNT_MONSTER	MI_NPC_MAMMOTH01	15000	IDS_TITLE_TXT_0086	// ë©”ë¨¸ë“œ ì‚¬ëƒ¥ê¾¼
-87	HI_HUNT_MONSTER	MI_NPC_MAMMOTH02	15000	IDS_TITLE_TXT_0087	// ë©”ë¨¸ë“œë¡œ í›ˆì œ í•´ë¨¹ëŠ”
-88	HI_HUNT_MONSTER	MI_KINGSTER02	15000	IDS_TITLE_TXT_0088	// í‚¹ìŠ¤í„° ìˆ˜ì—¼ë½‘ì•„ ë…¸ëŠ”
-89	HI_HUNT_MONSTER	MI_KRAKEN02	15000	IDS_TITLE_TXT_0089	// í¬ë¼ì¼„ ìœ¼ë¡œ íŠ€ê¹€ í•´ë¨¹ëŠ”
-90	HI_HUNT_MONSTER	MI_CREPER02	15000	IDS_TITLE_TXT_0090	// í¬ë ˆí¼ë¡œ ë§›ì‚´ í•´ë¨¹ëŠ”
-91	HI_HUNT_MONSTER	MI_NAGA02	15000	IDS_TITLE_TXT_0091	// ë‚˜ê°€ë¡œ ìˆ  ë‹´ê¶ˆ ë¨¹ëŠ”
-92	HI_HUNT_MONSTER	MI_ATROX02	15000	IDS_TITLE_TXT_0092	// ì•„íŠ¸ë¡ìŠ¤ë¥¼ ë²Œë ˆ ìž¡ë“¯ ìž¡ëŠ”
-93	HI_HUNT_MONSTER	MI_OKEAN02	15000	IDS_TITLE_TXT_0093	// ì˜¤ì¼€ì•ˆì„ ë¶ˆíƒœìš´
-94	HI_HUNT_MONSTER	MI_TAIGA02	15000	IDS_TITLE_TXT_0094	// íƒ€ì´ê°€ë¥¼ ì• ì™„ë™ë¬¼ ì‚¼ì€
-95	HI_HUNT_MONSTER	MI_DORIAN02	15000	IDS_TITLE_TXT_0095	// ë„ë¦¬ì•ˆìœ¼ë¡œ íšŒ ë– ë¨¹ëŠ”
-96	HI_HUNT_MONSTER	MI_MEREL02	15000	IDS_TITLE_TXT_0096	// ë¨¸ëŸ´ì´ ë‘ë ¤ì›Œí•˜ëŠ”
-97	HI_HUNT_MONSTER	MI_CLOCKWORK1	100	IDS_TITLE_TXT_0097	// í´ë½ì›Œí¬ë¥¼ êµ´ë³µì‹œí‚¨
-98	HI_HUNT_MONSTER	MI_DU_METEONYKER2	100	IDS_TITLE_TXT_0098	// ì§„ì •í•œ ìš© ì‚¬ëƒ¥ê¾¼
+//	!! ÁÖÀÇ»çÇ× ! »õ·ÎÃß°¡µÇ´Â Ç×¸ñÀº ¹«Á¶°Ç Á¦ÀÏ µÚ¿¡¼­ºÎÅÍ Ãß°¡°¡´É								
+//	¾ÆÀÌÅÛ 50°³ ¸ó½ºÅÍ 50°³	±âÅ¸ 50°³ ±îÁö¸¸ °¡´É							
+// ÀÎµ¦½º	´ëºÐ·ù	   ¼ÒºÐ·ù	ÇÊ¿äÁ¶°Ç	Å¸ÀÌÆ²					
+0	HI_ELASPED_TIME	HS_COLLECT	1440	IDS_TITLE_TXT_0001	//Ã¤ÁýÀÇ ´ÞÀÎ			//	Ã¤ÁýÀÇ ´ÞÀÎ
+1	HI_ELASPED_TIME	HS_TRADE	2160	IDS_TITLE_TXT_0002	//Àå»çÀÇ ´ÞÀÎ			//	Àå»çÀÇ ´ÞÀÎ
+2	HI_COUNT_CHECK	HS_HATCHING_EGG	100	IDS_TITLE_TXT_0003	//¾Ë ºÎÈ­ÀÇ ´ÞÀÎ			//	¾Ë ºÎÈ­ÀÇ ´ÞÀÎ
+3	HI_COUNT_CHECK	HS_COUPLE_COUNT	100	IDS_TITLE_TXT_0004	//Ä«»ç³ë¹Ù			//	Ä«»ç³ë¹Ù
+4	HI_COUNT_CHECK	HS_COUPLE_LV	21	IDS_TITLE_TXT_0005	//À§´ëÇÑ Ä¿ÇÃ			//	À§´ëÇÑ Ä¿ÇÃ
+5	HI_COUNT_CHECK	HS_PK_COUNT	5	IDS_TITLE_TXT_0006	//¹«½Ã¹«½ÃÇÑ³ð			//	¹«½Ã¹«½ÃÇÑ³ð
+6	HI_COUNT_CHECK	HS_STR	253	IDS_TITLE_TXT_0007	//ÈûÀÇ ´ÞÀÎ			//	ÈûÀÇ ´ÞÀÎ
+7	HI_COUNT_CHECK	HS_STA	253	IDS_TITLE_TXT_0008	//Ã¼·ÂÀÇ ´ÞÀÎ			//	Ã¼·ÂÀÇ ´ÞÀÎ
+8	HI_COUNT_CHECK	HS_DEX	253	IDS_TITLE_TXT_0009	//¹ÎÃ¸ÀÇ ´ÞÀÎ			//	¹ÎÃ¸ÀÇ ´ÞÀÎ
+9	HI_COUNT_CHECK	HS_INT	253	IDS_TITLE_TXT_0010	//Áö´ÉÀÇ ´ÞÀÎ			//	Áö´ÉÀÇ ´ÞÀÎ
+10	HI_COUNT_CHECK	HS_PVP_POINT01	10	IDS_TITLE_TXT_0011	//ÃÊº¸ ÆÄÀÌÅÍ			//	ÃÊº¸ ÆÄÀÌÅÍ
+11	HI_COUNT_CHECK	HS_PVP_POINT02	100	IDS_TITLE_TXT_0012	//°ß½À ÆÄÀÌÅÍ			//	°ß½À ÆÄÀÌÅÍ
+12	HI_COUNT_CHECK	HS_PVP_POINT03	1000	IDS_TITLE_TXT_0013	//³ë·ÂÇÏ´Â ÆÄÀÌÅÍ			//	³ë·ÂÇÏ´Â ÆÄÀÌÅÍ
+13	HI_COUNT_CHECK	HS_PVP_POINT04	4000	IDS_TITLE_TXT_0014	//ÆÐ±âÀÖ´Â ÆÄÀÌÅÍ			//	ÆÐ±âÀÖ´Â ÆÄÀÌÅÍ
+14	HI_COUNT_CHECK	HS_PVP_POINT05	10000	IDS_TITLE_TXT_0015	//¾Ë·ÁÁø ÆÄÀÌÅÍ			//	¾Ë·ÁÁø ÆÄÀÌÅÍ
+15	HI_COUNT_CHECK	HS_PVP_POINT06	20000	IDS_TITLE_TXT_0016	//°­ÇÑ ÆÄÀÌÅÍ			//	°­ÇÑ ÆÄÀÌÅÍ
+16	HI_COUNT_CHECK	HS_PVP_POINT07	50000	IDS_TITLE_TXT_0017	//À¯¸íÇÑ ÆÄÀÌÅÍ			//	À¯¸íÇÑ ÆÄÀÌÅÍ
+17	HI_COUNT_CHECK	HS_PVP_POINT08	1000000	IDS_TITLE_TXT_0018	//ÈÇ¸¢ÇÑ ÆÄÀÌÅÍ			//	ÈÇ¸¢ÇÑ ÆÄÀÌÅÍ
+18	HI_COUNT_CHECK	HS_PVP_POINT09	5000000	IDS_TITLE_TXT_0019	//ÀÎ±â¸¹Àº ÆÄÀÌÅÍ			//	ÀÎ±â¸¹Àº ÆÄÀÌÅÍ
+19	HI_COUNT_CHECK	HS_PVP_POINT10	100000000	IDS_TITLE_TXT_0020	//ÃÖ°­ÀÇ ÆÄÀÌÅÍ			//	ÃÖ°­ÀÇ ÆÄÀÌÅÍ
+20	HI_EARN_TITLE	JOB_KNIGHT_MASTER	1	IDS_TITLE_TXT_0021	//³ªÀÌÆ® ¸¶½ºÅÍ			//	³ªÀÌÆ® ¸¶½ºÅÍ
+21	HI_EARN_TITLE	JOB_BLADE_MASTER	1	IDS_TITLE_TXT_0022	//ºí·¹ÀÌµå ¸¶½ºÅÍ			//	ºí·¹ÀÌµå ¸¶½ºÅÍ
+22	HI_EARN_TITLE	JOB_JESTER_MASTER	1	IDS_TITLE_TXT_0023	//Á¦½ºÅÍ ¸¶½ºÅÍ			//	Á¦½ºÅÍ ¸¶½ºÅÍ
+23	HI_EARN_TITLE	JOB_RANGER_MASTER	1	IDS_TITLE_TXT_0024	//·¹ÀÎÀú ¸¶½ºÅÍ			//	·¹ÀÎÀú ¸¶½ºÅÍ
+24	HI_EARN_TITLE	JOB_RINGMASTER_MASTER	1	IDS_TITLE_TXT_0025	//¸µ¸¶½ºÅÍ ¸¶½ºÅÍ			//	¸µ¸¶½ºÅÍ ¸¶½ºÅÍ
+25	HI_EARN_TITLE	JOB_BILLPOSTER_MASTER	1	IDS_TITLE_TXT_0026	//ºôÆ÷½ºÅÍ ¸¶½ºÅÍ			//	ºôÆ÷½ºÅÍ ¸¶½ºÅÍ
+26	HI_EARN_TITLE	JOB_PSYCHIKEEPER_MASTER	1	IDS_TITLE_TXT_0027	//½ÎÀÌÅ°ÆÛ ¸¶½ºÅÍ			//	½ÎÀÌÅ°ÆÛ ¸¶½ºÅÍ
+27	HI_EARN_TITLE	JOB_ELEMENTOR_MASTER	1	IDS_TITLE_TXT_0028	//¿¤¸®¸àÅÍ ¸¶½ºÅÍ			//	¿¤¸®¸àÅÍ ¸¶½ºÅÍ
+28	HI_EARN_TITLE	JOB_KNIGHT_HERO	1	IDS_TITLE_TXT_0029	//³ªÀÌÆ® È÷¾î·Î			//	³ªÀÌÆ® È÷¾î·Î
+29	HI_EARN_TITLE	JOB_BLADE_HERO	1	IDS_TITLE_TXT_0030	//ºí·¹ÀÌµå È÷¾î·Î			//	ºí·¹ÀÌµå È÷¾î·Î
+30	HI_EARN_TITLE	JOB_JESTER_HERO	1	IDS_TITLE_TXT_0031	//Á¦½ºÅÍ È÷¾î·Î			//	Á¦½ºÅÍ È÷¾î·Î
+31	HI_EARN_TITLE	JOB_RANGER_HERO	1	IDS_TITLE_TXT_0032	//·¹ÀÎÀú È÷¾î·Î			//	·¹ÀÎÀú È÷¾î·Î
+32	HI_EARN_TITLE	JOB_RINGMASTER_HERO	1	IDS_TITLE_TXT_0033	//¸µ¸¶½ºÅÍ È÷¾î·Î			//	¸µ¸¶½ºÅÍ È÷¾î·Î
+33	HI_EARN_TITLE	JOB_BILLPOSTER_HERO	1	IDS_TITLE_TXT_0034	//ºôÆ÷½ºÅÍ È÷¾î·Î			//	ºôÆ÷½ºÅÍ È÷¾î·Î
+34	HI_EARN_TITLE	JOB_PSYCHIKEEPER_HERO	1	IDS_TITLE_TXT_0035	//½ÎÀÌÅ°ÆÛ È÷¾î·Î			//	½ÎÀÌÅ°ÆÛ È÷¾î·Î
+35	HI_EARN_TITLE	JOB_ELEMENTOR_HERO	1	IDS_TITLE_TXT_0036	//¿¤¸®¸àÅÍ È÷¾î·Î			//	¿¤¸®¸àÅÍ È÷¾î·Î
+36	HI_EARN_TITLE	HS_LORD	1	IDS_TITLE_TXT_0037	//±ºÁÖ			//	±ºÁÖ
+37	HI_COUNT_CHECK	HS_JUMP	500000	IDS_TITLE_TXT_0099	//Á¡ÇÁ			//	Á¡ÇÁÀÇ´ÞÀÎ
+38	HI_USE_ITEM	II_GEN_FOO_PIL_GRAY	30000	IDS_TITLE_TXT_0038	//È¸»ö ¾Ë¾à Áßµ¶ÀÚ			//	È¸»ö ¾Ë¾à Áßµ¶ÀÚ
+39	HI_USE_ITEM	II_GEN_FOO_PIL_YELLOW	30000	IDS_TITLE_TXT_0039	//³ë¶õ ¾Ë¾à Áßµ¶ÀÚ			//	³ë¶õ ¾Ë¾à Áßµ¶ÀÚ
+40	HI_USE_ITEM	II_GEN_FOO_PIL_BLUE	30000	IDS_TITLE_TXT_0040	//ÆÄ¶õ ¾Ë¾à Áßµ¶ÀÚ			//	ÆÄ¶õ ¾Ë¾à Áßµ¶ÀÚ
+41	HI_USE_ITEM	II_GEN_FOO_PIL_RED	30000	IDS_TITLE_TXT_0041	//ºÓÀº ¾Ë¾â Áßµ¶ÀÚ			//	ºÓÀº ¾Ë¾â Áßµ¶ÀÚ
+42	HI_USE_ITEM	II_GEN_FOO_PIL_GOLD	30000	IDS_TITLE_TXT_0042	//È²±Ý ¾Ë¾à Áßµ¶ÀÚ			//	È²±Ý ¾Ë¾à Áßµ¶ÀÚ
+43	HI_USE_ITEM	II_GEN_FOO_PIL_SINBI	30000	IDS_TITLE_TXT_0043	//½ÅºñÇÑ ¾Ë¾à Áßµ¶ÀÚ			//	½ÅºñÇÑ ¾Ë¾à Áßµ¶ÀÚ
+44	HI_USE_ITEM	II_GEN_FOO_INS_LOLLIPOP	200000	IDS_TITLE_TXT_0044	//¸·´ë»çÅÁ Áßµ¶ÀÚ			//	¸·´ë»çÅÁ Áßµ¶ÀÚ
+45	HI_USE_ITEM	II_GEN_FOO_INS_BISCUIT	200000	IDS_TITLE_TXT_0045	//ºñ½ºÅ¶ Áßµ¶ÀÚ			//	ºñ½ºÅ¶ Áßµ¶ÀÚ
+46	HI_USE_ITEM	II_GEN_FOO_INS_CHOCOLATE	200000	IDS_TITLE_TXT_0046	//ÃÊÄÝ¸´ ¹Ù Áßµ¶ÀÚ			//	ÃÊÄÝ¸´ ¹Ù Áßµ¶ÀÚ
+47	HI_USE_ITEM	II_GEN_FOO_INS_MILK	200000	IDS_TITLE_TXT_0047	//¿ìÀ¯ Áßµ¶ÀÚ			//	¿ìÀ¯ Áßµ¶ÀÚ
+48	HI_USE_ITEM	II_GEN_FOO_INS_BREAD	200000	IDS_TITLE_TXT_0048	//½Ä»§ Áßµ¶ÀÚ			//	½Ä»§ Áßµ¶ÀÚ
+49	HI_USE_ITEM	II_GEN_FOO_INS_HOTDOG	200000	IDS_TITLE_TXT_0049	//ÇÖµµ±× Áßµ¶ÀÚ			//	ÇÖµµ±× Áßµ¶ÀÚ
+50	HI_USE_ITEM	II_GEN_FOO_INS_HODDUK	200000	IDS_TITLE_TXT_0050	//È£¶± Áßµ¶ÀÚ			//	È£¶± Áßµ¶ÀÚ
+51	HI_USE_ITEM	II_GEN_FOO_INS_KIMBAP	200000	IDS_TITLE_TXT_0051	//±è¹ä Áßµ¶ÀÚ			//	±è¹ä Áßµ¶ÀÚ
+52	HI_USE_ITEM	II_GEN_FOO_INS_CHICKENSTICK	200000	IDS_TITLE_TXT_0052	//´ß´Ù¸® Áßµ¶ÀÚ			//	´ß´Ù¸® Áßµ¶ÀÚ
+53	HI_USE_ITEM	II_GEN_FOO_INS_STARCANDY	200000	IDS_TITLE_TXT_0053	//º°»çÅÁ Áßµ¶ÀÚ			//	º°»çÅÁ Áßµ¶ÀÚ
+54	HI_USE_ITEM	II_GEN_FOO_COO_MEATSKEWER	200000	IDS_TITLE_TXT_0054	//²¿Ä¡ Áßµ¶ÀÚ			//	²¿Ä¡ Áßµ¶ÀÚ
+55	HI_USE_ITEM	II_GEN_FOO_COO_BARBECUE	200000	IDS_TITLE_TXT_0055	//¹Ùº£Å¥ Áßµ¶ÀÚ			//	¹Ùº£Å¥ Áßµ¶ÀÚ
+56	HI_USE_ITEM	II_GEN_FOO_COO_SEAFOODPANCAKE	200000	IDS_TITLE_TXT_0056	//ÇØ¹°ÆÄÀü Áßµ¶ÀÚ			//	ÇØ¹°ÆÄÀü Áßµ¶ÀÚ
+57	HI_USE_ITEM	II_GEN_FOO_COO_FISHSOUP	200000	IDS_TITLE_TXT_0057	//»ý¼±½ºÇÁ Áßµ¶ÀÚ			//	»ý¼±½ºÇÁ Áßµ¶ÀÚ
+58	HI_USE_ITEM	II_GEN_FOO_COO_SAUSAGECASSEROLE	200000	IDS_TITLE_TXT_0058	//¼Ò½ÃÁöÀü°ñ Áßµ¶ÀÚ			//	¼Ò½ÃÁöÀü°ñ Áßµ¶ÀÚ
+59	HI_USE_ITEM	II_GEN_FOO_COO_FISHSTEW	200000	IDS_TITLE_TXT_0059	//»ý¼±½ºÆ© Áßµ¶ÀÚ			//	»ý¼±½ºÆ© Áßµ¶ÀÚ
+60	HI_USE_ITEM	II_GEN_FOO_COO_STEAMEDSEAFOOD	200000	IDS_TITLE_TXT_0060	//ÇØ¹°Âò Áßµ¶ÀÚ			//	ÇØ¹°Âò Áßµ¶ÀÚ
+61	HI_USE_ITEM	II_GEN_FOO_COO_MEATSALAD	200000	IDS_TITLE_TXT_0061	//°í±â»ø·¯µå Áßµ¶ÀÚ			//	°í±â»ø·¯µå Áßµ¶ÀÚ
+62	HI_USE_ITEM	II_GEN_FOO_COO_GRATIN	200000	IDS_TITLE_TXT_0062	//±×¶óÅÁ Áßµ¶ÀÚ			//	±×¶óÅÁ Áßµ¶ÀÚ
+63	HI_USE_ITEM	II_GEN_FOO_COO_SEAFOODPIZZA	200000	IDS_TITLE_TXT_0063	//ÇØ¹°ÇÇÀÚ Áßµ¶ÀÚ			//	ÇØ¹°ÇÇÀÚ Áßµ¶ÀÚ
+64	HI_USE_ITEM	II_GEN_FOO_ICE_ORANGEJUIICE	200000	IDS_TITLE_TXT_0064	//¿À·»ÁöÁÖ½º Áßµ¶ÀÚ			//	¿À·»ÁöÁÖ½º Áßµ¶ÀÚ
+65	HI_USE_ITEM	II_GEN_FOO_ICE_STRAWBERRYSHAKE	200000	IDS_TITLE_TXT_0065	//µþ±â½¦ÀÌÅ© Áßµ¶ÀÚ			//	µþ±â½¦ÀÌÅ© Áßµ¶ÀÚ
+66	HI_USE_ITEM	II_GEN_FOO_ICE_PINEAPPLECONE	200000	IDS_TITLE_TXT_0066	//ÆÄÀÎ¾ÖÇÃÄÜ Áßµ¶ÀÚ			//	ÆÄÀÎ¾ÖÇÃÄÜ Áßµ¶ÀÚ
+67	HI_USE_ITEM	II_GEN_FOO_ICE_BANANAJUJUBAR	200000	IDS_TITLE_TXT_0067	//¹Ù³ª³ªÂÞÂÞ¹Ù Áßµ¶ÀÚ			//	¹Ù³ª³ªÂÞÂÞ¹Ù Áßµ¶ÀÚ
+68	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITJUICE	200000	IDS_TITLE_TXT_0068	//°úÀÏÁÖ½º Áßµ¶ÀÚ			//	°úÀÏÁÖ½º Áßµ¶ÀÚ
+69	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITICEWATER	200000	IDS_TITLE_TXT_0069	//°úÀÏºù¼ö Áßµ¶ÀÚ			//	°úÀÏºù¼ö Áßµ¶ÀÚ
+70	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITPARFAIT	200000	IDS_TITLE_TXT_0070	//°úÀÏÆÄ¸£Æä Áßµ¶ÀÚ			//	°úÀÏÆÄ¸£Æä Áßµ¶ÀÚ
+71	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITSHERBET	200000	IDS_TITLE_TXT_0071	//°úÀÏ»þºª Áßµ¶ÀÚ			//	°úÀÏ»þºª Áßµ¶ÀÚ
+72	HI_USE_ITEM	II_GEN_FOO_ICE_ICECREAMCAKE	200000	IDS_TITLE_TXT_0072	//¾ÆÀÌ½ºÅ©¸²ÄÉÀÍ Áßµ¶ÀÚ			//	¾ÆÀÌ½ºÅ©¸²ÄÉÀÍ Áßµ¶ÀÚ
+73	HI_USE_ITEM	II_GEN_FOO_ICE_FRUITPUNCH	200000	IDS_TITLE_TXT_0073	//°úÀÏÈ­Ã¤ Áßµ¶ÀÚ			//	°úÀÏÈ­Ã¤ Áßµ¶ÀÚ
+74	HI_HUNT_MONSTER	MI_AIBATT2	15000	IDS_TITLE_TXT_0074	// ¾ÆÀÌ¹ÙÆ® ´«¾Ë »©¸Ô´Â				
+75	HI_HUNT_MONSTER	MI_LAWOLF2	15000	IDS_TITLE_TXT_0075	// ¶ó¿ïÇÁ¸¦ ¹ÙºñÅ¥ ÇØ¸Ô´Â				
+76	HI_HUNT_MONSTER	MI_CARDPUPPET2	15000	IDS_TITLE_TXT_0076	// Ä«µåÆÛÆêÀÇ ÁÖÀÎ´Ô				
+77	HI_HUNT_MONSTER	MI_GLAPHAN2	15000	IDS_TITLE_TXT_0077	// ±Û¶óÆÒÀÌ ¹ú¹ú¶°´Â
+78	HI_HUNT_MONSTER	MI_DU_METEONYKER	15000	IDS_TITLE_TXT_0078	// ¿ë »ç³É²Û
+79	HI_HUNT_MONSTER	MI_CYCLOPSX	15000	IDS_TITLE_TXT_0079	// ½ÎÀÌÅ¬·Ó½ºX °¡ ÀÎÁ¤ÇÑ
+80	HI_HUNT_MONSTER	MI_NPC_YETI01	15000	IDS_TITLE_TXT_0080	// ¿¹Æ¼ »ç³É²Û
+81	HI_HUNT_MONSTER	MI_NPC_YETI02	15000	IDS_TITLE_TXT_0081	// ¿¹Æ¼°¡ ÆêÀÎÁÙ ¾Æ´Â
+82	HI_HUNT_MONSTER	MI_NPC_AUGOO01	15000	IDS_TITLE_TXT_0082	// ¾Æ¿ì±¸ ÇåÅÍ
+83	HI_HUNT_MONSTER	MI_NPC_AUGOO02	15000	IDS_TITLE_TXT_0083	// ¾Æ¿ì±¸¸¦ ±¸¿ö¸Ô´Â
+84	HI_HUNT_MONSTER	MI_NPC_SADKING01 	15000	IDS_TITLE_TXT_0084	// À¯·É »ç³É²Û
+85	HI_HUNT_MONSTER	MI_NPC_SADKING02	15000	IDS_TITLE_TXT_0085	// À¯·Éµµ ¹ú¹ú¶°´Â
+86	HI_HUNT_MONSTER	MI_NPC_MAMMOTH01	15000	IDS_TITLE_TXT_0086	// ¸Þ¸Óµå »ç³É²Û
+87	HI_HUNT_MONSTER	MI_NPC_MAMMOTH02	15000	IDS_TITLE_TXT_0087	// ¸Þ¸Óµå·Î ÈÆÁ¦ ÇØ¸Ô´Â
+88	HI_HUNT_MONSTER	MI_KINGSTER02	15000	IDS_TITLE_TXT_0088	// Å·½ºÅÍ ¼ö¿°»Ì¾Æ ³ë´Â
+89	HI_HUNT_MONSTER	MI_KRAKEN02	15000	IDS_TITLE_TXT_0089	// Å©¶óÄË À¸·Î Æ¢±è ÇØ¸Ô´Â
+90	HI_HUNT_MONSTER	MI_CREPER02	15000	IDS_TITLE_TXT_0090	// Å©·¹ÆÛ·Î ¸À»ì ÇØ¸Ô´Â
+91	HI_HUNT_MONSTER	MI_NAGA02	15000	IDS_TITLE_TXT_0091	// ³ª°¡·Î ¼ú ´ã±Å ¸Ô´Â
+92	HI_HUNT_MONSTER	MI_ATROX02	15000	IDS_TITLE_TXT_0092	// ¾ÆÆ®·Ï½º¸¦ ¹ú·¹ Àâµí Àâ´Â
+93	HI_HUNT_MONSTER	MI_OKEAN02	15000	IDS_TITLE_TXT_0093	// ¿ÀÄÉ¾ÈÀ» ºÒÅÂ¿î
+94	HI_HUNT_MONSTER	MI_TAIGA02	15000	IDS_TITLE_TXT_0094	// Å¸ÀÌ°¡¸¦ ¾Ö¿Ïµ¿¹° »ïÀº
+95	HI_HUNT_MONSTER	MI_DORIAN02	15000	IDS_TITLE_TXT_0095	// µµ¸®¾ÈÀ¸·Î È¸ ¶°¸Ô´Â
+96	HI_HUNT_MONSTER	MI_MEREL02	15000	IDS_TITLE_TXT_0096	// ¸Ó·²ÀÌ µÎ·Á¿öÇÏ´Â
+97	HI_HUNT_MONSTER	MI_CLOCKWORK1	100	IDS_TITLE_TXT_0097	// Å¬¶ô¿öÅ©¸¦ ±¼º¹½ÃÅ²
+98	HI_HUNT_MONSTER	MI_DU_METEONYKER2	100	IDS_TITLE_TXT_0098	// ÁøÁ¤ÇÑ ¿ë »ç³É²Û

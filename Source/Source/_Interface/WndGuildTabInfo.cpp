@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndGuildTabInfo.h"
@@ -33,17 +33,17 @@ void CWndGuildDisMiss::OnDraw( C2DRender* p2DRender )
 void CWndGuildDisMiss::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildDisMiss::Initialize( CWndBase* pWndParent ) 
 { 
 	LPWNDAPPLET lpWndApplet = m_resMng.GetAt ( APP_GUILD_DISMISS );
@@ -72,7 +72,7 @@ BOOL CWndGuildDisMiss::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 		case WIDC_YES:
 			{
 				if( g_GuildCombatMng.m_bRequest )
-					g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT_NOT_DISSOLVE_GUILD ) );	// "ìˆ˜ì •í•´ì•¼í•¨ : ê¸¸ë“œëŒ€ì „ì— ì‹ ì²­í•œê¸¸ë“œëŠ” ê¸¸ë“œí•´ì²´ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤" );
+					g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT_NOT_DISSOLVE_GUILD ) );	// "¼öÁ¤ÇØ¾ßÇÔ : ±æµå´ëÀü¿¡ ½ÅÃ»ÇÑ±æµå´Â ±æµåÇØÃ¼¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù" );
 				else
 					g_DPlay.SendDestroyGuild( g_pPlayer->m_idPlayer );
 				Destroy();
@@ -105,7 +105,7 @@ void CWndGuildNotice::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CGuild* pGuild = g_pPlayer->GetGuild();
 	if( pGuild )
 	{
@@ -117,22 +117,22 @@ void CWndGuildNotice::OnInitialUpdate()
 		if(pWndCtrl)
 			pNotice->SetWndRect(pWndCtrl->rect);
 
-		pNotice->SetString( pGuild->m_szNotice );		// ê³µì§€ ì¶œë ¥.
+		pNotice->SetString( pGuild->m_szNotice );		// °øÁö Ãâ·Â.
 	}
 		
 /*	pNotice->EnableModeChange( FALSE );
 	//pNotice->AddWndStyle( WBS_NODRAWFRAME );
 	pNotice->SetTabStop( TRUE );
-	pNotice->SetString( "ê³µì§€ë " );
+	pNotice->SetString( "°øÁöµÂ" );
 	pNotice->SetFocus(); */
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildNotice::Initialize( CWndBase* pWndParent ) 
 { 
 	LPWNDAPPLET lpWndApplet = m_resMng.GetAt ( APP_GUILD_NOTICE );
@@ -160,14 +160,14 @@ BOOL CWndGuildNotice::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 	switch( nID )
 	{
-	case WIDC_BUTTON2:		// ê³µì§€ ê°œì‹œ
+	case WIDC_BUTTON2:		// °øÁö °³½Ã
 		{
 			LPCTSTR szNotice = pNotice->GetString();
 
 			if( strlen(szNotice) < MAX_BYTE_NOTICE )
 			{
 				g_DPlay.SendGuildNotice( szNotice );
-				Destroy();		// ì°½ ë‹«ìŒ.
+				Destroy();		// Ã¢ ´İÀ½.
 			}
 			else
 			{
@@ -175,11 +175,11 @@ BOOL CWndGuildNotice::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			break;
 		}
-	case WIDC_BUTTON1:		// ìƒˆê³µì§€.
-		pNotice->SetString( "" );		// ì—ë””íŠ¸ ë°•ìŠ¤ ë‚´ìš©ì„ í´ë¦¬ì–´
+	case WIDC_BUTTON1:		// »õ°øÁö.
+		pNotice->SetString( "" );		// ¿¡µğÆ® ¹Ú½º ³»¿ëÀ» Å¬¸®¾î
 		break;
 	case WIDC_BUTTON3:
-		pNotice->SetFocus();			// ë‚´ìš©ì€ ê±´ë“œë¦¬ì§€ ì•Šê³  í¬ì»¤ìŠ¤ë§Œ ì—ë””íŠ¸ ë°•ìŠ¤ë¡œ ì´ë™.
+		pNotice->SetFocus();			// ³»¿ëÀº °Çµå¸®Áö ¾Ê°í Æ÷Ä¿½º¸¸ ¿¡µğÆ® ¹Ú½º·Î ÀÌµ¿.
 		break;
 	}
 		
@@ -226,7 +226,7 @@ void CWndGuildSetLogo::OnDraw( C2DRender* p2DRender )
 		
 		if( pWndWorld )
 		{
-			for( int i=0; i<CUSTOM_LOGO_MAX - 7; i++ )  // GM Guild Log ì¶œë ¥ ë§‰ìŒ
+			for( int i=0; i<CUSTOM_LOGO_MAX - 7; i++ )  // GM Guild Log Ãâ·Â ¸·À½
 			{
 				CPoint pt = CPoint( m_rect[i].left, m_rect[i].top );
 				p2DRender->RenderTexture( pt, &pWndWorld->m_pTextureLogo[i] );
@@ -250,7 +250,7 @@ void CWndGuildSetLogo::OnInitialUpdate()
 		if( pWndWorld == NULL )
 			return;
 
-		// ì¶œë ¥ìœ„ì¹˜ ì§€ì •
+		// Ãâ·ÂÀ§Ä¡ ÁöÁ¤
 		CPoint pt;
 		int index = 0;
 		
@@ -286,7 +286,7 @@ void CWndGuildSetLogo::OnInitialUpdate()
 		rectWindow.bottom = 208;
 		SetWndRect(rectWindow);
 	}
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -294,7 +294,7 @@ void CWndGuildSetLogo::OnInitialUpdate()
 	MoveParentCenter();
 	
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildSetLogo::Initialize( CWndBase* pWndParent ) 
 { 
 	LPWNDAPPLET lpWndApplet = m_resMng.GetAt ( APP_GUILD_SETLOGO );
@@ -314,7 +314,7 @@ void CWndGuildSetLogo::OnSize( UINT nType, int cx, int cy ) \
 void CWndGuildSetLogo::OnLButtonUp( UINT nFlags, CPoint point ) 
 { 
 	{
-		for( int i=0; i<CUSTOM_LOGO_MAX - 7; i++ ) // GM Guild Log ì„ íƒ ë§‰ìŒ
+		for( int i=0; i<CUSTOM_LOGO_MAX - 7; i++ ) // GM Guild Log ¼±ÅÃ ¸·À½
 		{
 			if( PtInRect( &m_rect[i], point) )
 			{
@@ -428,10 +428,10 @@ void CWndGuildTabInfo::UpdateData()
 		CWndBase *pWndText;
 		
 		pWndText = GetDlgItem( WIDC_GUILDNAME );
-		pWndText->SetTitle( pGuild->m_szGuild );		// ê¸¸ë“œëª…
+		pWndText->SetTitle( pGuild->m_szGuild );		// ±æµå¸í
 		pWndText = GetDlgItem( WIDC_GUILDLEVEL );
 		strText.Format( "%d", pGuild->m_nLevel );
-		pWndText->SetTitle( strText );					// ê¸¸ë“œ ë ˆë²¨.
+		pWndText->SetTitle( strText );					// ±æµå ·¹º§.
 		pWndText = GetDlgItem( WIDC_GUILDMASTER );
 #if __VER >= 11 // __SYS_PLAYER_DATA
 		LPCTSTR szMaster	= CPlayerDataCenter::GetInstance()->GetPlayerString( pGuild->m_idMaster );
@@ -443,7 +443,7 @@ void CWndGuildTabInfo::UpdateData()
 		pWndText->SetTitle( szMaster );
 #else	// __SYS_PLAYER_DATA
 		if( szMaster )
-			pWndText->SetTitle( szMaster );		// ê¸¸ë“œ ì¥.
+			pWndText->SetTitle( szMaster );		// ±æµå Àå.
 		else
 			g_DPlay.SendQueryPlayerString( pGuild->m_idMaster, QPS_GUILD_MASTER);
 #endif	// __SYS_PLAYER_DATA
@@ -452,13 +452,13 @@ void CWndGuildTabInfo::UpdateData()
 		
 		strText.Format( "%d / %d", pGuild->GetSize(), CGuildTable::GetInstance().GetMaxMemeber(pGuild->m_nLevel) );	
 //		strText.Format( "%d / %d", pGuild->GetSize(), prj.GetExpCompany(pGuild->m_nLevel-1)->nMaxMember );	
-		pWndText->SetTitle( strText );  // ê¸¸ë“œ ì¸ì›
+		pWndText->SetTitle( strText );  // ±æµå ÀÎ¿ø
 		pWndText = GetDlgItem( WIDC_GUILDEXPMERIT );
 		strText.Format( "%u", pGuild->m_dwContributionPxp );
-		pWndText->SetTitle( strText );	// ê³µí—Œë„ pxp
+		pWndText->SetTitle( strText );	// °øÇåµµ pxp
 		pWndText = GetDlgItem( WIDC_GUILDPENYAMERIT );
 		strText.Format( "%u", pGuild->m_nGoldGuild );
-		pWndText->SetTitle( strText );	// ê³µí—Œí˜ëƒ
+		pWndText->SetTitle( strText );	// °øÇåÆä³Ä
 		
 		CWndText* pNotice = (CWndText*) GetDlgItem( WIDC_TEXT1 );
 		if( pNotice )
@@ -470,17 +470,17 @@ void CWndGuildTabInfo::UpdateData()
 		CWndBase *pWndText;
 		
 		pWndText = GetDlgItem( WIDC_GUILDNAME );
-		pWndText->SetTitle( "" );		// ê¸¸ë“œëª…
+		pWndText->SetTitle( "" );		// ±æµå¸í
 		pWndText = GetDlgItem( WIDC_GUILDLEVEL );
-		pWndText->SetTitle( "" );					// ê¸¸ë“œ ë ˆë²¨.
+		pWndText->SetTitle( "" );					// ±æµå ·¹º§.
 		pWndText = GetDlgItem( WIDC_GUILDMASTER );
-		pWndText->SetTitle( "" );		// ê¸¸ë“œ ì¥.
+		pWndText->SetTitle( "" );		// ±æµå Àå.
 		pWndText = GetDlgItem( WIDC_GUILDNUMBER );
-		pWndText->SetTitle( "" );  // ê¸¸ë“œ ì¸ì›
+		pWndText->SetTitle( "" );  // ±æµå ÀÎ¿ø
 		pWndText = GetDlgItem( WIDC_GUILDEXPMERIT );
-		pWndText->SetTitle( "" );	// ê³µí—Œë„ pxp
+		pWndText->SetTitle( "" );	// °øÇåµµ pxp
 		pWndText = GetDlgItem( WIDC_GUILDPENYAMERIT );
-		pWndText->SetTitle( "" );	// ê³µí—Œí˜ëƒ
+		pWndText->SetTitle( "" );	// °øÇåÆä³Ä
 		
 		CWndText* pNotice = (CWndText*) GetDlgItem( WIDC_TEXT1 );
 		if( pNotice )
@@ -490,17 +490,17 @@ void CWndGuildTabInfo::UpdateData()
 void CWndGuildTabInfo::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 
 	UpdateData();
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildTabInfo::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_TABINFO, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndGuildTabInfo::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -534,7 +534,7 @@ BOOL CWndGuildTabInfo::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 
 	switch( nID )
 	{
-	case WIDC_BUTTON4:		// ê¸¸ë“œ ì´ë¦„ ë³€ê²½
+	case WIDC_BUTTON4:		// ±æµå ÀÌ¸§ º¯°æ
 		{
 			if( strlen(pGuild->m_szGuild) == 0 )
 			{
@@ -551,18 +551,18 @@ BOOL CWndGuildTabInfo::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 			
 		}
 		break;
-	case WIDC_BUTTON1:		// ê³µì§€
+	case WIDC_BUTTON1:		// °øÁö
 		{
 			SAFE_DELETE(m_pwndGuildNotice);
 			m_pwndGuildNotice = new CWndGuildNotice;
 			m_pwndGuildNotice->Initialize( this );
 		}
 		break;
-	case WIDC_BUTTON2:		// ë¡œê³  ì§€ì •
+	case WIDC_BUTTON2:		// ·Î°í ÁöÁ¤
 		{
 			if( g_pPlayer->m_idWar )
 			{
-				// ì „ìŸì¤‘ì—” ë¡œê³  ëª»ë°”ê¿ˆë‹¤.
+				// ÀüÀïÁß¿£ ·Î°í ¸ø¹Ù²Ş´Ù.
 				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDWARERRORLOGO), MB_OK, this );
 				return FALSE;
 			}
@@ -582,7 +582,7 @@ BOOL CWndGuildTabInfo::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 			m_pwndGuildSetLogo->Initialize( this );
 		}
 		break;
-	case WIDC_BUTTON3:		// ê¸¸ë“œ ë½€ê°œê¸°.
+	case WIDC_BUTTON3:		// ±æµå »Ç°³±â.
 		{
 			if( g_WndMng.m_pWndGuildBank )
 			{
@@ -590,12 +590,12 @@ BOOL CWndGuildTabInfo::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 			}
 			if( g_pPlayer->m_idWar )
 			{
-				// ì „ìŸì¤‘ì—” ê¸¸ë“œ ëª»ë½€ê°­ë‹ˆë‹¤.
+				// ÀüÀïÁß¿£ ±æµå ¸ø»Ç°¸´Ï´Ù.
 				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDWARERRORDISBAND), MB_OK, this );
 				return FALSE;
 			} else
 
-			if( pGuild->GetQuest( QUEST_WARMON_LV1 ) != NULL && pGuild->GetQuest( QUEST_WARMON_LV1 )->nState == QS_BEGIN )	// í´ë½ì›Œí¬ í€˜ìŠ¤íŠ¸ë©´ ê¸¸ë“œ í•´ì²´ ì•ˆë¨
+			if( pGuild->GetQuest( QUEST_WARMON_LV1 ) != NULL && pGuild->GetQuest( QUEST_WARMON_LV1 )->nState == QS_BEGIN )	// Å¬¶ô¿öÅ© Äù½ºÆ®¸é ±æµå ÇØÃ¼ ¾ÈµÊ
 			{
 				QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( QUEST_WARMON_LV1 );
 				if( pQuestProp )

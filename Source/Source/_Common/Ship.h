@@ -1,4 +1,4 @@
-ï»¿#ifndef __SHIP_H__
+#ifndef __SHIP_H__
 #define __SHIP_H__
 
 #include "Ctrl.h"
@@ -6,19 +6,19 @@
 
 #define MAX_LINKCTRL	128
 
-/// ë¹„ê³µì • 
+/// ºñ°øÁ¤ 
 class CShip : public CCtrl
 {
 private:
-	CMover *m_pMover;			// ì´ ë°°ì˜ ì¥”ì¥. ì¡°ì¢…í•˜ëŠ” ì‚¬ëŒ.
+	CMover *m_pMover;			// ÀÌ ¹èÀÇ ÁåÀå. Á¶Á¾ÇÏ´Â »ç¶÷.
 	CActionShip m_Act;
 	
 protected:
 	int		m_nCount;
 	D3DXVECTOR3		m_vDelta;
-	D3DXVECTOR3		m_vDeltaUnit, m_vAcc;		// ê´€ì„±, ë§¤í”„ë ˆì„ í˜
+	D3DXVECTOR3		m_vDeltaUnit, m_vAcc;		// °ü¼º, ¸ÅÇÁ·¹ÀÓ Èû
 	FLOAT			m_fDeltaAng;
-	FLOAT	m_fAccAng;		// íšŒì „ ê°€ì†ë„.
+	FLOAT	m_fAccAng;		// È¸Àü °¡¼Óµµ.
 	OBJID	m_LinkCtrl[ MAX_LINKCTRL ];
 	
 	virtual void Init( void );
@@ -29,8 +29,8 @@ public:
 	CShip();
 	virtual ~CShip();
 	
-	CMover *GetMover( void ) { return m_pMover; }				// ì´ ë°°ì˜ ì¥”ì¥ì„ ë¦¬í„´í•¨.
-	void SetMover( CMover *pMover ) { m_pMover = pMover; }		// ë°° ì¡°ì¢…í•˜ëŠ” ì‚¬ëŒì„ ì„¸íŒ….
+	CMover *GetMover( void ) { return m_pMover; }				// ÀÌ ¹èÀÇ ÁåÀåÀ» ¸®ÅÏÇÔ.
+	void SetMover( CMover *pMover ) { m_pMover = pMover; }		// ¹è Á¶Á¾ÇÏ´Â »ç¶÷À» ¼¼ÆÃ.
 	int		SendActMsg( OBJMSG dwMsg, int nParam1 = 0, int nParam2 = 0, int nParam3 = 0 )
 	{
 		return m_Act.SendActMsg( dwMsg, nParam1, nParam2, nParam3 );
@@ -46,7 +46,7 @@ public:
 		
 };
 
-// í”Œë¼ë¦¬ìŠ¤ ìœ„ì—ì„œ ëº‘ëº‘ì´ ë„ëŠ” ë°°
+// ÇÃ¶ó¸®½º À§¿¡¼­ »±»±ÀÌ µµ´Â ¹è
 class CShipLoop : public CShip
 {
 private:

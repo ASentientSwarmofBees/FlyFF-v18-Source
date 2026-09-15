@@ -1,4 +1,4 @@
-Ôªø
+
 // Desc : CommonUtils
 // Author : gmpbigsun
 // Date : 20090714
@@ -16,14 +16,14 @@ namespace con
 			~Singleton( void )
 			{  assert( ms_pSingleton);  ms_pSingleton = 0;  }
 			static T& GetSingleton( void )
-			{  assert( ms_pSingleton && "SingletonÏ∞∏Ï°∞ Error");  return ( *ms_pSingleton );  }
+			{  assert( ms_pSingleton && "Singleton¬¸¡∂ Error");  return ( *ms_pSingleton );  }
 			static T* GetSingletonPtr( void )
 			{  return ( ms_pSingleton );  }
 			
 		public:
 			Singleton()
 			{
-				assert(!ms_pSingleton && "Singleton ÏÉùÏÑ± Error" );
+				assert(!ms_pSingleton && "Singleton ª˝º∫ Error" );
 				int offset = (int)((T*)1) - (int)(Singleton <T>*)((T*)1);
 				ms_pSingleton = (T*)((int)this + offset);
 			}

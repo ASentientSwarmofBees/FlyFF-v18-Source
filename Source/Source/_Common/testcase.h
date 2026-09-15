@@ -1,4 +1,4 @@
-﻿#ifndef __TESTCASE_H
+#ifndef __TESTCASE_H
 #define	__TESTCASE_H
 
 class ITestCase

@@ -1,4 +1,4 @@
-﻿// NeuzEnemy.h: interface for the CNeuzEnemy class.
+// NeuzEnemy.h: interface for the CNeuzEnemy class.
 //
 //////////////////////////////////////////////////////////////////////
 

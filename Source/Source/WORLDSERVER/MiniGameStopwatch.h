@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include "minigamebase.h"
@@ -13,7 +13,7 @@ public:
 	virtual BOOL Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket );
 
 private:
-	int		SetTargetTime();		// ì†Œìˆ˜ì  2ìë¦¬ ê¹Œì§€
+	int		SetTargetTime();		// ¼Ò¼öÁ¡ 2ÀÚ¸® ±îÁö
 	int		GetTargetTime() { return m_nTargetTime; }
 	
 	int m_nTargetTime;

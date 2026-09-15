@@ -1,13 +1,13 @@
-ï»¿////////////////////////////////////////////////////////////////////
-PROJECT.CPP ì—ì„œ ì‚¬ìš©í•˜ëŠ” ì½”ë“œë¥¼ 
-í•„ìš”í•˜ë‹¤ë©´ 2006.07.22 project.cppë¥¼ get lastest versioní•´ì„œ ì‚¬ìš©í•œë‹¤.
+////////////////////////////////////////////////////////////////////
+PROJECT.CPP ¿¡¼­ »ç¿ëÇÏ´Â ÄÚµå¸¦ 
+ÇÊ¿äÇÏ´Ù¸é 2006.07.22 project.cpp¸¦ get lastest versionÇØ¼­ »ç¿ëÇÑ´Ù.
 ////////////////////////////////////////////////////////////////////
  
-// stateë¥¼ ì‚¬ìš©í•˜ëŠ” í€˜ìŠ¤íŠ¸ë¥¼ ì €ì¥í•œë‹¤
-// ìµœì‹  ë²„ì ¼ì˜ í€˜ìŠ¤íŠ¸ ì‹œìŠ¤í…œì€ state ì‚¬ìš©ì„ ì§€ì–‘í•œë‹¤.
-// ë”°ë¼ì„œ ê¸°ì¡´ì— stateë¥¼ ì‚¬ìš©í•˜ë˜ í…Œì´ë¸”ì„ ì €ì¥í•˜ì—¬ í–¥í›„ ì„ì˜ë¡œ stateê°€ ì‚¬ìš©ë  ë•Œ
-// ì´ê²ƒê³¼ ë¹„êµí•˜ì—¬ ì—ëŸ¬ë¥¼ ë°œìƒì‹œì¼œ, ê°œë°œìë“¤ë¡œ í•˜ì—¬ê¸ˆ state ì‚¬ìš©ì„ ì›ì²œ ë´‰ì‡„í•œë‹¤.
-// ë§Œì•½ ë¶ˆê°€í”¼í•˜ê²Œ ì‚¬ìš©í•  í•„ìš”ê°€ ìˆë‹¤ë©´ ë³„ë„ë¡œ í”„ë¡œê·¸ë˜ë¨¸ë“¤ì—ê²Œ ìš”ì²­í•œë‹¤.
+// state¸¦ »ç¿ëÇÏ´Â Äù½ºÆ®¸¦ ÀúÀåÇÑ´Ù
+// ÃÖ½Å ¹öÁ¯ÀÇ Äù½ºÆ® ½Ã½ºÅÛÀº state »ç¿ëÀ» Áö¾çÇÑ´Ù.
+// µû¶ó¼­ ±âÁ¸¿¡ state¸¦ »ç¿ëÇÏ´ø Å×ÀÌºíÀ» ÀúÀåÇÏ¿© ÇâÈÄ ÀÓÀÇ·Î state°¡ »ç¿ëµÉ ¶§
+// ÀÌ°Í°ú ºñ±³ÇÏ¿© ¿¡·¯¸¦ ¹ß»ı½ÃÄÑ, °³¹ßÀÚµé·Î ÇÏ¿©±İ state »ç¿ëÀ» ¿øÃµ ºÀ¼âÇÑ´Ù.
+// ¸¸¾à ºÒ°¡ÇÇÇÏ°Ô »ç¿ëÇÒ ÇÊ¿ä°¡ ÀÖ´Ù¸é º°µµ·Î ÇÁ·Î±×·¡¸Óµé¿¡°Ô ¿äÃ»ÇÑ´Ù.
 #ifdef __CLIENT
 //#define __WRITE_STATE_QUEST 
 //#define __CHECK_STATE_QUEST
@@ -56,10 +56,10 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 
 #ifdef __PRINT_ITEM0718
 /*
-3. ìƒì 
-4. ë“œë¡­
-5. ì œë ¨
-6. í”¼ì–´ì‹±
+3. »óÁ¡
+4. µå·Ó
+5. Á¦·Ã
+6. ÇÇ¾î½Ì
 */
 // 1	// set
 	int cbMonster	= 0;
@@ -212,12 +212,12 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 
 /*
 #ifdef __SHOP_AND_DROP_0802
-//1. ìƒì  ì•„ì´í…œ
-//	- ì…ë ¥ : ìºë¦­í„° ì‹ë³„ì
-//	- ì¶œë ¥ : íŒë§¤ ë¬¼í’ˆ ë¦¬ìŠ¤íŠ¸
-//2. ë“œë¡­ ì•„ì´í…œ
-//	- ì…ë ¥ : ëª¬ìŠ¤í„° ì‹ë³„ì, ë°˜ë³µì
-//	- ì¶œë ¥ : ë“œë¡­ ë¬¼í’ˆ ë¦¬ìŠ¤íŠ¸
+//1. »óÁ¡ ¾ÆÀÌÅÛ
+//	- ÀÔ·Â : Ä³¸¯ÅÍ ½Äº°ÀÚ
+//	- Ãâ·Â : ÆÇ¸Å ¹°Ç° ¸®½ºÆ®
+//2. µå·Ó ¾ÆÀÌÅÛ
+//	- ÀÔ·Â : ¸ó½ºÅÍ ½Äº°ÀÚ, ¹İº¹ÀÚ
+//	- Ãâ·Â : µå·Ó ¹°Ç° ¸®½ºÆ®
 
 	POSITION pos	= m_mapCharacter.GetStartPosition();
 	LPCHARACTER lpCharacter;
@@ -505,7 +505,7 @@ void CProject::OutputDropItem( void )
 		if( pMoverProp && pMoverProp->dwID && pMoverProp->dwBelligerence != BELLI_PEACEFUL && pMoverProp->dwBelligerence != BELLI_ALLIANCE )
 		{
 			TRACE( "%d\n", i );
-			// ìµœì†Œ ê³µê²©ë ¥	ìµœëŒ€ ê³µê²©ë ¥	HP	ì§€ê¸‰ ê²½í—˜ì¹˜	ì†ì„±
+			// ÃÖ¼Ò °ø°İ·Â	ÃÖ´ë °ø°İ·Â	HP	Áö±Ş °æÇèÄ¡	¼Ó¼º
 			s.Format( "\n%s\t%d\t%d\t%d\t%d\t%d\t%I64d\t%s", pMoverProp->szName, pMoverProp->m_DropItemGenerator.m_dwMax, pMoverProp->dwLevel, pMoverProp->dwAtkMin, pMoverProp->dwAtkMax,  pMoverProp->dwAddHp, pMoverProp->nExpValue, GetElementTypeString( pMoverProp->eElementType ) );
 //			QUESTITEM
 			/*
@@ -635,7 +635,7 @@ LoadPropQuest()
 					if( i == m_aStateQuest.GetSize() )
 					{
 						CString strQuest;
-						strQuest.Format( "%d Questì—ì„œ %d State ì‚¬ìš©ëìŒ! ëˆ„ê°€ Questì—ì„œ State ì‚¬ìš©í•˜ë¼ê³  í–ˆì–´! ìƒˆ í€˜ìŠ¤íŠ¸ì—ëŠ” ì‚¬ìš©í•˜ì§€ì¢€ ë§ˆ!", nQuest, nState );
+						strQuest.Format( "%d Quest¿¡¼­ %d State »ç¿ëµÆÀ½! ´©°¡ Quest¿¡¼­ State »ç¿ëÇÏ¶ó°í Çß¾î! »õ Äù½ºÆ®¿¡´Â »ç¿ëÇÏÁöÁ» ¸¶!", nQuest, nState );
 						AfxMessageBox( strQuest );
 					}
 #			endif
@@ -659,7 +659,7 @@ void CProject::InterpretMoverAddProp(MoverProp* pMoverPropAry,CScript& script)
 		MoverProp* pProp = &pMoverPropAry[nVal];
 		if(pProp == NULL)
 		{
-			TRACE("MoverAddPropì—ì„œ ì¡´ì¬í•´ì•¼ë  base Property %sê°€ ì—†ë‹¤. %s\n",script.Token);
+			TRACE("MoverAddProp¿¡¼­ Á¸ÀçÇØ¾ßµÉ base Property %s°¡ ¾ø´Ù. %s\n",script.Token);
 			continue;
 		}
 		script.GetToken(); // {
@@ -812,14 +812,14 @@ expLPPoint // 0 based
 }
 jobAbillity
 {
-  JOB_MOOYEGA // ë¬´ì˜ˆê°€ 
+  JOB_MOOYEGA // ¹«¿¹°¡ 
   {
     1 2 // str
 	1 1 // sta
 	1 1 // dex
 	2 1 // int
   }
-  JOB_VAGRANT // ë°©ë‘ì
+  JOB_VAGRANT // ¹æ¶ûÀÚ
   {
     1 1 // str
 	1 1 // sta
@@ -853,7 +853,7 @@ expSkill // 1 based
 	CScript script;
 	if( script.Load(lpszFileName) == FALSE )
 	{
-		Error( "LoadReNewEventTime ì—´ìˆ˜ ì—†ìŒ." );
+		Error( "LoadReNewEventTime ¿­¼ö ¾øÀ½." );
 		return FALSE;	
 	}
 	int nCount = 0;
@@ -897,7 +897,7 @@ BOOL	CProject::LoadReNewEventRealItem( LPCTSTR lpszFileName )
 	if( script.Load(lpszFileName) == FALSE )
 #endif	// __IDC
 	{
-		Error( "0504Event_LevelUp_RealItemList ì—´ìˆ˜ ì—†ìŒ." );
+		Error( "0504Event_LevelUp_RealItemList ¿­¼ö ¾øÀ½." );
 		return FALSE;	
 	}
 

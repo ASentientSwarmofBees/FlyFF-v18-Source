@@ -1,4 +1,4 @@
-ï»¿// MiniGame.cpp: implementation of the CMiniGame class.
+// MiniGame.cpp: implementation of the CMiniGame class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -23,7 +23,7 @@ extern	CDPDatabaseClient	g_dpDBClient;
 CMiniGame::CMiniGame()
 {
 	__KAWIBAWIBORESULT KawibawiboResult;
-	// ê°€ìœ„ ê¸°ì¤€
+	// °¡À§ ±âÁØ
 	KawibawiboResult.nMy = KAWI;
 	KawibawiboResult.nYou	= BAWI;
 	KawibawiboResult.nResult = KAWIBAWIBO_LOST;
@@ -32,7 +32,7 @@ CMiniGame::CMiniGame()
 	KawibawiboResult.nResult = KAWIBAWIBO_WIN;
 	m_vecKawibawiboResult.push_back( KawibawiboResult );
 
-	// ë°”ìœ„ ê¸°ì¤€
+	// ¹ÙÀ§ ±âÁØ
 	KawibawiboResult.nMy = BAWI;
 	KawibawiboResult.nYou	= KAWI;
 	KawibawiboResult.nResult = KAWIBAWIBO_WIN;
@@ -41,7 +41,7 @@ CMiniGame::CMiniGame()
 	KawibawiboResult.nResult = KAWIBAWIBO_LOST;
 	m_vecKawibawiboResult.push_back( KawibawiboResult );
 
-	// ë³´ ê¸°ì¤€
+	// º¸ ±âÁØ
 	KawibawiboResult.nMy = BO;
 	KawibawiboResult.nYou	= KAWI;
 	KawibawiboResult.nResult = KAWIBAWIBO_LOST;
@@ -60,7 +60,7 @@ CMiniGame::~CMiniGame()
 
 }
 
-// A~Z ì¹´ë“œë¥¼ ì£¼ë©´ ì¹´ë“œì— ë§ëŠ” ë¬¸ìì—´ì„ ë¦¬í„´
+// A~Z Ä«µå¸¦ ÁÖ¸é Ä«µå¿¡ ¸Â´Â ¹®ÀÚ¿­À» ¸®ÅÏ
 char CMiniGame::GetCharacter( DWORD ItemId )
 {
 	int nchar = 0;
@@ -83,7 +83,7 @@ int CMiniGame::Result_Kawibawibo( CUser* pUser )
 
 	__KAWIBAWIBO Kawibawibo = FindKawibawibo( pUser->m_nKawibawiboWin );
 
-	if( Kawibawibo.nItemCount != 0 )	// ì•„ì´í…œ ê°¯ìˆ˜ëŠ” 0ì¼ìˆ˜ ì—†ìŒ
+	if( Kawibawibo.nItemCount != 0 )	// ¾ÆÀÌÅÛ °¹¼ö´Â 0ÀÏ¼ö ¾øÀ½
 	{
 		if( pUser->m_nKawibawiboState != KAWIBAWIBO_DRAW && pUser->m_nKawibawiboState != KAWIBAWIBO_WIN )
 		{
@@ -95,10 +95,10 @@ int CMiniGame::Result_Kawibawibo( CUser* pUser )
 			aLogItem.RecvName = "KAWIBAWIBO_USE_ITEM";
 			g_DPSrvr.OnLogItem( aLogItem, pItemElem, 1 );
 
-			pUser->RemoveItem( (BYTE)( pItemElem->m_dwObjId ), (short)1 );		// ê°€ìœ„ë°”ìœ„ë³´ ì¿ í° ì•„ì´í…œ ì‚­ì œ
+			pUser->RemoveItem( (BYTE)( pItemElem->m_dwObjId ), (short)1 );		// °¡À§¹ÙÀ§º¸ ÄíÆù ¾ÆÀÌÅÛ »èÁ¦
 		}
 
-		// ì—°ìŠ¹ ìµœëŒ€ì¹˜ë¥¼ ë„˜ì—ˆì„ ë•Œ íŒ¨ ì²˜ë¦¬
+		// ¿¬½Â ÃÖ´ëÄ¡¸¦ ³Ñ¾úÀ» ¶§ ÆĞ Ã³¸®
 		if( pUser->m_nKawibawiboWin >= nKawiBawiBo_MaxWin )
 		{
 			pUser->m_nKawibawiboWin = 0;
@@ -113,7 +113,7 @@ int CMiniGame::Result_Kawibawibo( CUser* pUser )
 		}
 
 		int nRandom = xRandom( 1000000 );
-		// ë¹„ê²¼ì„ ë•Œ
+		// ºñ°åÀ» ¶§
 		if( (DWORD)( nRandom ) < Kawibawibo.dwDraw )	// Draw
 		{
 			LogItemInfo aLogItem;
@@ -125,7 +125,7 @@ int CMiniGame::Result_Kawibawibo( CUser* pUser )
 			g_DPSrvr.OnLogItem( aLogItem );
 			return KAWIBAWIBO_DRAW;
 		}
-		// ì¡Œì„ ë•Œ
+		// Á³À» ¶§
 		else if( (DWORD)( nRandom ) < Kawibawibo.dwDraw + Kawibawibo.dwLost ) // Lost
 		{
 			pUser->m_nKawibawiboWin = 0;
@@ -138,7 +138,7 @@ int CMiniGame::Result_Kawibawibo( CUser* pUser )
 			g_DPSrvr.OnLogItem( aLogItem );
 			return KAWIBAWIBO_LOST;
 		}
-		// ì´ê²¼ì„ ë•Œ
+		// ÀÌ°åÀ» ¶§
 		++pUser->m_nKawibawiboWin;
 		LogItemInfo aLogItem;
 		aLogItem.Action = "+";
@@ -159,7 +159,7 @@ BOOL CMiniGame::ResultItem_Kawibawibo( CUser* pUser )
 		return FALSE;
 	
 	__KAWIBAWIBO Kawibawibo = FindKawibawibo( pUser->m_nKawibawiboWin );
-	if( Kawibawibo.nItemCount != 0 )	// ì•„ì´í…œ ê°¯ìˆ˜ëŠ” 0ì¼ìˆ˜ ì—†ìŒ
+	if( Kawibawibo.nItemCount != 0 )	// ¾ÆÀÌÅÛ °¹¼ö´Â 0ÀÏ¼ö ¾øÀ½
 	{
 		LogItemInfo aLogItem;
 		aLogItem.Gold_1 = pUser->m_nKawibawiboWin;
@@ -206,7 +206,7 @@ void CMiniGame::OpenWnd_Reassemble( CUser* pUser )
 BOOL CMiniGame::Result_Reassemble( CUser* pUser, OBJID* objItemId, int nCount )
 {
 	CItemElem* pItemElem[9];
-	// ì¼ì¹˜í•˜ëŠ”ì§€ ê²€ì‚¬ (ì¸ë²¤í† ë¦¬ì—ì„œ ê²€ì‚¬)
+	// ÀÏÄ¡ÇÏ´ÂÁö °Ë»ç (ÀÎº¥Åä¸®¿¡¼­ °Ë»ç)
 	for( DWORD i=0; i<m_vecReassembleCard.size(); ++i )
 	{
 		pItemElem[i]	= (CItemElem*)pUser->m_Inventory.GetAtId( objItemId[i] );
@@ -217,7 +217,7 @@ BOOL CMiniGame::Result_Reassemble( CUser* pUser, OBJID* objItemId, int nCount )
 			return FALSE;
 	}
 
-	// ëª¨ë‘ ì¼ì¹˜í•˜ë©´ ì¹´ë“œ ì•„ì´í…œ ì‚­ì œ
+	// ¸ğµÎ ÀÏÄ¡ÇÏ¸é Ä«µå ¾ÆÀÌÅÛ »èÁ¦
 	for( int i=0; i<nCount ; ++i )
 	{
 		LogItemInfo aLogItem;
@@ -233,7 +233,7 @@ BOOL CMiniGame::Result_Reassemble( CUser* pUser, OBJID* objItemId, int nCount )
 }
 BOOL CMiniGame::ResultItem_Reassemble( CUser* pUser )
 {
-	// ì•„ì´í…œ ì§€ê¸‰ í™•ë¥ ì— ë”°ë¼ ì•„ì´í…œì„ ì–»ì–´ì˜¨ë‹¤.
+	// ¾ÆÀÌÅÛ Áö±Ş È®·ü¿¡ µû¶ó ¾ÆÀÌÅÛÀ» ¾ò¾î¿Â´Ù.
 	__ITEMGAME ItemGame = GetReassembleRandomItem();
 	
 	CItemElem itemElem;
@@ -286,11 +286,11 @@ CMiniGame::__ITEMGAME CMiniGame::GetReassembleRandomItem()
 
 int CMiniGame::Result_Alphabet( CUser* pUser, OBJID* objItemId, int nCount, int nQuestionID )
 {
-	// í˜ëƒ ê²€ì‚¬..
+	// Æä³Ä °Ë»ç..
 	if( pUser->GetGold() < m_nPayPenya )
 		return ALPHABET_NOTENOUGH_MONEY;
 
-	// ì¼ì¹˜í•˜ëŠ”ì§€ ê²€ì‚¬ (ì¸ë²¤í† ë¦¬ì—ì„œ ê²€ì‚¬)
+	// ÀÏÄ¡ÇÏ´ÂÁö °Ë»ç (ÀÎº¥Åä¸®¿¡¼­ °Ë»ç)
 	if( nQuestionID < 0 || nQuestionID >= (int)( m_vecAlphabet.size() ) )
 		return ALPHABET_FAILED;
 	
@@ -319,9 +319,9 @@ int CMiniGame::Result_Alphabet( CUser* pUser, OBJID* objItemId, int nCount, int 
 		strWord += chAlphabet;
 	}
 
-	pUser->AddGold( -m_nPayPenya );	// í˜ëƒ ì§€ë¶ˆ
+	pUser->AddGold( -m_nPayPenya );	// Æä³Ä ÁöºÒ
 	//g_DPSrvr.PutPenyaLog( pUser, "+", "ALPHABET_USE", m_nPayPenya );
-	// ì‚¬ìš©ëœ ì•ŒíŒŒë²³ ì•„ì´í…œ ì‚­ì œ
+	// »ç¿ëµÈ ¾ËÆÄºª ¾ÆÀÌÅÛ »èÁ¦
 	LogItemInfo aLogItem;
 	aLogItem.Action = "+";
 	aLogItem.SendName = pUser->GetName();
@@ -351,7 +351,7 @@ int CMiniGame::Result_Alphabet( CUser* pUser, OBJID* objItemId, int nCount, int 
 		pUser->RemoveItem( (BYTE)( objItemId[i] ), (short)1 );
 	}
 	
-	// ë‹¨ì–´ê°€ ì •ë‹µì¸ì§€ í™•ì¸
+	// ´Ü¾î°¡ Á¤´äÀÎÁö È®ÀÎ
 	__ALPHABET temp = m_vecAlphabet[nQuestionID];
 	if( strWord == temp.strWord )
 		return nQuestionID;
@@ -395,7 +395,7 @@ void CMiniGame::OpenWnd_Alphabet( CUser* pUser )
 
 BOOL CMiniGame::ResultItem_Alphabet( CUser* pUser, int nNum )
 {
-	// ì•„ì´í…œ ì§€ê¸‰ í™•ë¥ ì— ë”°ë¼ ì•„ì´í…œì„ ì–»ì–´ì˜¨ë‹¤.
+	// ¾ÆÀÌÅÛ Áö±Ş È®·ü¿¡ µû¶ó ¾ÆÀÌÅÛÀ» ¾ò¾î¿Â´Ù.
 	__ITEMGAME ItemGame = GetAlphabetRandomItem( nNum );
 	
 	CItemElem itemElem;
@@ -432,7 +432,7 @@ BOOL CMiniGame::ResultItem_Alphabet( CUser* pUser, int nNum )
 
 void CMiniGame::OpenWnd_FiveSystem( CUser* pUser )
 {
-	// pUser->m_nBetFiveSystem[]ë¥¼ ì´ˆê¸°í™” í•  í•„ìš”ê°€ ìˆìŒ.
+	// pUser->m_nBetFiveSystem[]¸¦ ÃÊ±âÈ­ ÇÒ ÇÊ¿ä°¡ ÀÖÀ½.
 	for(int i=0; i<6; ++i )
 		pUser->m_nBetFiveSystem[i] = 0;
 	
@@ -450,7 +450,7 @@ void CMiniGame::DestroyWnd_FiveSystem( CUser* pUser )
 		pUser->m_nBetFiveSystem[i] = 0;
 	}
 	
-	// ì…ì°°ëœ ê¸ˆì•¡ ì—†ì´ ì¢…ë£Œí•  ë•Œ(ë¡œê·¸ X)
+	// ÀÔÂûµÈ ±İ¾× ¾øÀÌ Á¾·áÇÒ ¶§(·Î±× X)
 	if( nPenya <= 0 )
 		return;
 	
@@ -481,21 +481,21 @@ void CMiniGame::DestroyWnd_FiveSystem( CUser* pUser )
 
 int CMiniGame::Bet_FiveSystem( CUser* pUser, int nBetNum, int nBetPenya )
 {
-	// ì…ì°° ë²ˆí˜¸ì— ì´ì „ ê°’ì´ 0ì´ê³  í˜„ì¬ ì…ì°°ê¸ˆì´ 0ì¼ë•Œ ì•„ë¬´ì¼ë„ ì•ˆí•¨(ë¡œê·¸ X)
+	// ÀÔÂû ¹øÈ£¿¡ ÀÌÀü °ªÀÌ 0ÀÌ°í ÇöÀç ÀÔÂû±İÀÌ 0ÀÏ¶§ ¾Æ¹«ÀÏµµ ¾ÈÇÔ(·Î±× X)
 	if( pUser->m_nBetFiveSystem[nBetNum] == 0 && nBetPenya == 0 )
 		return TRUE;
-	// ì˜ëª»ëœ ì…ì°° ë²ˆí˜¸ê°€ ë“¤ì–´ ì™”ì„ ë•Œ
+	// Àß¸øµÈ ÀÔÂû ¹øÈ£°¡ µé¾î ¿ÔÀ» ¶§
 	if( nBetNum < 0 || 5 < nBetNum )
 		return FIVESYSTEM_FAILED;
-	// ì…ì°°ê¸ˆì€ 0ë³´ë‹¤ ì‘ì„ ìˆ˜ ì—†ë‹¤.
+	// ÀÔÂû±İÀº 0º¸´Ù ÀÛÀ» ¼ö ¾ø´Ù.
 	if(nBetPenya < 0)
 		return FIVESYSTEM_FAILED;
 
-	// ìµœì†Œ ì…ì°°ê¸ˆê³¼ ìµœëŒ€ ì…ì°°ê¸ˆì˜ ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ì„ ê²½ìš° ( Client ì—ì„œ ì´ë¯¸ ê²€ì‚¬.. )
+	// ÃÖ¼Ò ÀÔÂû±İ°ú ÃÖ´ë ÀÔÂû±İÀÇ ¹üÀ§¸¦ ¹ş¾î³µÀ» °æ¿ì ( Client ¿¡¼­ ÀÌ¹Ì °Ë»ç.. )
 	if( ( nBetPenya < m_nBetMinPenya || nBetPenya > m_nBetMaxPenya ) && nBetPenya != 0 )
 		return FIVESYSTEM_NOTENOUGH;
 	
-	// ì…ì°° ë˜ëŠ” ì¬ì…ì°° ê¸ˆì•¡ì´ ë¶€ì¡±í•œì§€ ê²€ì‚¬
+	// ÀÔÂû ¶Ç´Â ÀçÀÔÂû ±İ¾×ÀÌ ºÎÁ·ÇÑÁö °Ë»ç
 	DWORD nGold = pUser->GetGold() + pUser->m_nBetFiveSystem[nBetNum];
 	if( (int)( nGold ) < nBetPenya )
 		return FIVESYSTEM_NOTENOUGH;
@@ -503,7 +503,7 @@ int CMiniGame::Bet_FiveSystem( CUser* pUser, int nBetNum, int nBetPenya )
 	LogItemInfo aLogItem;
 	aLogItem.RecvName = "FIVESYSTEM_USE";
 	BOOL bAddGold = TRUE;
-	if( 0 < pUser->m_nBetFiveSystem[nBetNum] - nBetPenya )		// ê¸°ì¡´ì— ê±¸ì€ê²ƒë³´ë‹¤ ì ê²Œ ê±¸ì•„ì„œ ë³´ìƒê¸ˆì•¡
+	if( 0 < pUser->m_nBetFiveSystem[nBetNum] - nBetPenya )		// ±âÁ¸¿¡ °ÉÀº°Íº¸´Ù Àû°Ô °É¾Æ¼­ º¸»ó±İ¾×
 	{
 		int nTotal = pUser->GetGold() + pUser->m_nBetFiveSystem[nBetNum] - nBetPenya;
 		if( nTotal < 0 )		// overflow?
@@ -536,7 +536,7 @@ int CMiniGame::Bet_FiveSystem( CUser* pUser, int nBetNum, int nBetPenya )
 }
 int CMiniGame::Result_FiveSystem( CUser* pUser )
 {
-	// ìµœê³  ì…ì°°ê¸ˆ ë° ê°¯ìˆ˜
+	// ÃÖ°í ÀÔÂû±İ ¹× °¹¼ö
 	int nMaxBet = 0;
 	int nMaxCount = 0;
 
@@ -579,7 +579,7 @@ BOOL CMiniGame::ResultPenya_FiveSystem( CUser* pUser, int nResult )
 {
 	int SetPenya = pUser->m_nBetFiveSystem[nResult] * m_nMultiple;
 	
-	// ì…ì°°ê¸ˆ ì´ˆê¸°í™”
+	// ÀÔÂû±İ ÃÊ±âÈ­
 	for( int i=0; i<6; ++i )
 		pUser->m_nBetFiveSystem[i] = 0;
 
@@ -687,7 +687,7 @@ BOOL CMiniGame::Load_Alphabet()
 			if( it != mapQuestion.end() )
 				Alpabet.strQuestion = it->second;
 			else
-				Error( "ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ë¬¸ì œ ID -> %s", s.Token );
+				Error( "Á¸ÀçÇÏÁö ¾Ê´Â ¹®Á¦ ID -> %s", s.Token );
 			
 			s.GetToken();	// {
 			s.GetToken();
@@ -697,7 +697,7 @@ BOOL CMiniGame::Load_Alphabet()
 				ItemGame.dwItemId = CScript::GetDefineNum( s.Token );
 				if( ItemGame.dwItemId == -1 )
 				{
-					Error( "CMiniGame::Load_Alphabet() ì•„ì´í…œì´ ì—†ëŠ”ê²ƒì„ ì„¤ì •í–ˆìŒ" );
+					Error( "CMiniGame::Load_Alphabet() ¾ÆÀÌÅÛÀÌ ¾ø´Â°ÍÀ» ¼³Á¤ÇßÀ½" );
 					return FALSE;
 				}
 				ItemGame.nItemCount = s.GetNumber();
@@ -737,7 +737,7 @@ BOOL CMiniGame::Load_KawiBawiBo()
 			KawiBawiBo.dwItemId = CScript::GetDefineNum( s.Token );
 			if( KawiBawiBo.dwItemId == -1 )
 			{
-				Error( "CMiniGame::Load_KawiBawiBo() ì•„ì´í…œì´ ì—†ëŠ”ê²ƒì„ ì„¤ì •í–ˆìŒ" );
+				Error( "CMiniGame::Load_KawiBawiBo() ¾ÆÀÌÅÛÀÌ ¾ø´Â°ÍÀ» ¼³Á¤ÇßÀ½" );
 				return FALSE;
 			}
 
@@ -819,10 +819,10 @@ BOOL CMiniGame::Load_Reassemble()
 				DWORD dwCard = CScript::GetDefineNum( s.Token );
 				if( dwCard == -1 )
 				{
-					Error( "CMiniGame::Load_Reassemble() \"CARD\" ì•„ì´í…œì´ ì—†ëŠ”ê²ƒì„ ì„¤ì •í–ˆìŒ" );
+					Error( "CMiniGame::Load_Reassemble() \"CARD\" ¾ÆÀÌÅÛÀÌ ¾ø´Â°ÍÀ» ¼³Á¤ÇßÀ½" );
 					return FALSE;
 				}
-				// 9ê°œ ì´ìƒ ì•ˆë“¤ì–´ ê°€ë„ë¡..
+				// 9°³ ÀÌ»ó ¾Èµé¾î °¡µµ·Ï..
 				if( m_vecReassembleCard.size() <= 9 )
 					m_vecReassembleCard.push_back( dwCard );
 		
@@ -839,7 +839,7 @@ BOOL CMiniGame::Load_Reassemble()
 				ItemGame.dwItemId = CScript::GetDefineNum( s.Token );
 				if( ItemGame.dwItemId == -1 )
 				{
-					Error( "CMiniGame::Load_Reassemble() \"ITEM\" ì•„ì´í…œì´ ì—†ëŠ”ê²ƒì„ ì„¤ì •í–ˆìŒ" );
+					Error( "CMiniGame::Load_Reassemble() \"ITEM\" ¾ÆÀÌÅÛÀÌ ¾ø´Â°ÍÀ» ¼³Á¤ÇßÀ½" );
 					return FALSE;
 				}
 				ItemGame.nItemCount = s.GetNumber();

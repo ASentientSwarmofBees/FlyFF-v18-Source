@@ -1,28 +1,28 @@
-ï»¿
+
 #pragma once
 
 #if __VER >= 15 // __USING_CONTINENT_DATA
 
-// ì´ íŒŒì¼ì€ ë§ˆë“œë¦¬ê°ˆì˜ ëŒ€ë¥™ì„ ì •ì˜í•©ë‹ˆë‹¤
-// ì´ íŒŒì¼ì€ ëŒ€ë¥™ì´ ì¶”ê°€ë ê²½ìš°  ëŒ€ë¥™ì´ë¦„ê³¼ Indexê°€ (ë¯¸ë¦¬)ì •ì˜ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
-// ëŒ€ë¥™ì´ ì •ì˜ë ê²½ìš° ì´ë¦„ê·œì¹™ì„ ê¼­ ì§€ì¼œì•¼ í•©ë‹ˆë‹¤. ( ì ‘ë‘ì‚¬ CONT_ )
+// ÀÌ ÆÄÀÏÀº ¸¶µå¸®°¥ÀÇ ´ë·úÀ» Á¤ÀÇÇÕ´Ï´Ù
+// ÀÌ ÆÄÀÏÀº ´ë·úÀÌ Ãß°¡µÉ°æ¿ì  ´ë·úÀÌ¸§°ú Index°¡ (¹Ì¸®)Á¤ÀÇµÇ¾î¾ß ÇÕ´Ï´Ù.
+// ´ë·úÀÌ Á¤ÀÇµÉ°æ¿ì ÀÌ¸§±ÔÄ¢À» ²À ÁöÄÑ¾ß ÇÕ´Ï´Ù. ( Á¢µÎ»ç CONT_ )
 
 #define CONT_NODATA			0
 
-#define CONT_FLARIS			1	// í”Œë¼ë¦¬ìŠ¤ 
-#define CONT_SAINTMORNING	2 // ì„¸ì¸íŠ¸ëª¨ë‹
-#define CONT_RICIS			3 // ë¦¬ì‹œìŠ¤ì˜ ì •ì›
-#define CONT_ESTIA			4 // ì´ìŠ¤í‹°ì•„ ìºë‹ˆì–¸
-#define CONT_EAST			15 // ë™ë¶€ : ( 15 > n ) -> ë™ë¶€ ê° ëŒ€ë¥™
+#define CONT_FLARIS			1	// ÇÃ¶ó¸®½º 
+#define CONT_SAINTMORNING	2 // ¼¼ÀÎÆ®¸ð´×
+#define CONT_RICIS			3 // ¸®½Ã½ºÀÇ Á¤¿ø
+#define CONT_ESTIA			4 // ÀÌ½ºÆ¼¾Æ Ä³´Ï¾ð
+#define CONT_EAST			15 // µ¿ºÎ : ( 15 > n ) -> µ¿ºÎ °¢ ´ë·ú
 
-#define CONT_DARKON12		241 // ë‹¤ì½˜ 1, 2
-#define CONT_DARKON3		242 // ë‹¤ì½˜ 3
-#define CONT_HARMONIN		243 // í•˜ë¥´ëª¨ë‹Œ
-#define CONT_KAILLUN		244 // ì¹´ì¼ë£¬ì´ˆì›
-#define CONT_BAHARA			245 // ë°”í•˜ë¼ì‚¬ë§‰
-#define CONT_WEST			240 // ì„œë¶€ : ( n > 240 ) -> ì„œë¶€ ê° ëŒ€ë¥™
+#define CONT_DARKON12		241 // ´ÙÄÜ 1, 2
+#define CONT_DARKON3		242 // ´ÙÄÜ 3
+#define CONT_HARMONIN		243 // ÇÏ¸£¸ð´Ñ
+#define CONT_KAILLUN		244 // Ä«ÀÏ·éÃÊ¿ø
+#define CONT_BAHARA			245 // ¹ÙÇÏ¶ó»ç¸·
+#define CONT_WEST			240 // ¼­ºÎ : ( n > 240 ) -> ¼­ºÎ °¢ ´ë·ú
 
-#define CONT_ALL			255 // êµ°ì£¼
+#define CONT_ALL			255 // ±ºÁÖ
 
 #define TOWN_FLARINENOSPLE	50
 #define TOWN_SAINCITY		51

@@ -1,4 +1,4 @@
-﻿#ifndef __WNDMOTION__H
+#ifndef __WNDMOTION__H
 #define __WNDMOTION__H
 
 

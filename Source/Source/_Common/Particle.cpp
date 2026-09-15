@@ -1,4 +1,4 @@
-ï»¿// Particle.cpp: implementation of the CParticle class.
+// Particle.cpp: implementation of the CParticle class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -413,7 +413,7 @@ HRESULT CEmitter::SetVertex(CUnit *pUnit)
 		BYTE g = (BYTE)pUnit->m_Color.g * fc;
 		BYTE b = (BYTE)pUnit->m_Color.b * fc;
 
-        // Strip ë³´ê°„
+        // Strip º¸°£
         if( m_vecvecVertex[pUnit->m_AniIndex].size() )
         {
             D3DXVec3TransformCoord( &Tri[0].m_v3Pos, &m_TriCylinder[0].m_v3Pos, &WorldM );

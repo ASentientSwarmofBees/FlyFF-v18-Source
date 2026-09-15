@@ -1,4 +1,4 @@
-ï»¿// Ctrl.cpp: implementation of the CCtrl class.
+// Ctrl.cpp: implementation of the CCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -86,15 +86,15 @@ BOOL CCtrl::Read( CFileIO* pFile )
 {
 	return CObj::Read( pFile );
 }
-// thisê°€ pIAì— ë§í¬ë˜ì—ˆë‹¤.
-// pIAê°€ NULLì´ë©´ ë§í¬í•´ì œ.
+// this°¡ pIA¿¡ ¸µÅ©µÇ¾ú´Ù.
+// pIA°¡ NULLÀÌ¸é ¸µÅ©ÇØÁ¦.
 void CCtrl::SetIAObjLink( CShip *pIA )
 {
-	if( pIA != NULL )	// IAì— ë§í¬ì‹œì¼œì•¼ í• ë•Œ...
+	if( pIA != NULL )	// IA¿¡ ¸µÅ©½ÃÄÑ¾ß ÇÒ¶§...
 	{
-		if( m_pIAObjLink != pIA )				// ê¸°ì¡´ì— ë§í¬ë‘ ë‹¤ë¥¸ë§í¬ê°€ ë ë•Œë§Œ...
-			if( pIA->FindCtrl( GetId() ) == NULL )			// pIAì— ì´ë¯¸ thisê°€ ë“±ë¡ë˜ì—ˆëŠ”ì§€ ë³´ê³ ...
-				pIA->AddCtrl( GetId() );			// IAì˜¤ë¸Œì íŠ¸ì— thisë¥¼ ë“±ë¡ì‹œí‚´.
+		if( m_pIAObjLink != pIA )				// ±âÁ¸¿¡ ¸µÅ©¶û ´Ù¸¥¸µÅ©°¡ µÉ¶§¸¸...
+			if( pIA->FindCtrl( GetId() ) == NULL )			// pIA¿¡ ÀÌ¹Ì this°¡ µî·ÏµÇ¾ú´ÂÁö º¸°í...
+				pIA->AddCtrl( GetId() );			// IA¿ÀºêÁ§Æ®¿¡ this¸¦ µî·Ï½ÃÅ´.
 	} else
 	{
 		if( m_pIAObjLink )
@@ -149,7 +149,7 @@ void CCtrl::RemoveItFromGlobalId()
 
 BOOL CCtrl::ProcessDeleteRespawn()
 {
-	// ë¦¬ìŠ¤í°ì´ Removeì´ë©´ ì‚­ì œ ëª…ë ¹ 
+	// ¸®½ºÆùÀÌ RemoveÀÌ¸é »èÁ¦ ¸í·É 
 #ifdef __LAYER_1021
 	CRespawnInfo* pRespawnInfo = GetWorld()->m_respawner.GetRespawnInfo( GetRespawn(), m_nRespawnType, GetLayer() );
 #else	// __LAYER_1021
@@ -215,10 +215,10 @@ BOOL CCtrl::IsNearPC( OBJID objid )
 
 BOOL	CCtrl::GetSkillProp( ItemProp **ppSkillProp, AddSkillProp **ppAddSkillProp, int nSkill, DWORD dwLevel, LPCTSTR szErr )
 {
-	ItemProp* pSkillProp = prj.GetSkillProp( nSkill );	// UseSkillì—ì„œ ì‚¬ìš©í•œ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
+	ItemProp* pSkillProp = prj.GetSkillProp( nSkill );	// UseSkill¿¡¼­ »ç¿ëÇÑ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
 	if( pSkillProp == NULL )
 	{
-		Error( "%s : %d. ìŠ¤í‚¬(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—†ë‹¤.", szErr, GetIndex(), nSkill );
+		Error( "%s : %d. ½ºÅ³(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾ø´Ù.", szErr, GetIndex(), nSkill );
 		return FALSE;
 	}
 	
@@ -226,12 +226,12 @@ BOOL	CCtrl::GetSkillProp( ItemProp **ppSkillProp, AddSkillProp **ppAddSkillProp,
 	AddSkillProp *pAddSkillProp	= prj.GetAddSkillProp( pSkillProp->dwSubDefine, dwLevel );
 	if( pAddSkillProp == NULL )
 	{
-		Error( "%s : %d. AddìŠ¤í‚¬(%d) Lv%dì˜ í”„ë¡œí¼í‹°ê°€ ì—†ë‹¤.", szErr, GetIndex(), nSkill, dwLevel );
+		Error( "%s : %d. Add½ºÅ³(%d) Lv%dÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾ø´Ù.", szErr, GetIndex(), nSkill, dwLevel );
 		return FALSE;
 	}
 
 	if( pAddSkillProp->dwName != pSkillProp->dwID )
-		Error( "%s : %d. AddìŠ¤í‚¬(%d) AddSkill->dwNameê³¼ Skill->dwIDê°€ ë‹¤ë¥´ë‹¤.", szErr, GetIndex(), nSkill );
+		Error( "%s : %d. Add½ºÅ³(%d) AddSkill->dwName°ú Skill->dwID°¡ ´Ù¸£´Ù.", szErr, GetIndex(), nSkill );
 	
 	*ppSkillProp = pSkillProp;
 	*ppAddSkillProp = pAddSkillProp;
@@ -240,13 +240,13 @@ BOOL	CCtrl::GetSkillProp( ItemProp **ppSkillProp, AddSkillProp **ppAddSkillProp,
 }
 
 
-// vPosë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ ì£¼ë³€ì— íš¨ê³¼ë¥¼ ì ìš©í•œë‹¤.
+// vPos¸¦ Áß½ÉÀ¸·Î ÁÖº¯¿¡ È¿°ú¸¦ Àû¿ëÇÑ´Ù.
 // ------------------------------------------
-// íŠ¸ë©ì´ ì“¸ìˆ˜ë„ ìˆê³ . ëª¬ìŠ¤í„°ê°€ì“¸ìˆ˜ë„ìˆë‹¤(ë±…), ì£¼ì¸ê³µì´ ìŠ¤í‚¬ë¡œ ì‚¬ìš©í• ìˆ˜ë„ ìˆë‹¤.
-// íš¨ê³¼ëŠ” ë°˜ë“œì‹œ SkillPropì„ ë§Œë“¤ì–´ì„œ ê·¸ ì•„ì´ë””ë¥¼ ë„˜ê²¨ì•¼ í•œë‹¤.
+// Æ®·¦ÀÌ ¾µ¼öµµ ÀÖ°í. ¸ó½ºÅÍ°¡¾µ¼öµµÀÖ´Ù(¹ğ), ÁÖÀÎ°øÀÌ ½ºÅ³·Î »ç¿ëÇÒ¼öµµ ÀÖ´Ù.
+// È¿°ú´Â ¹İµå½Ã SkillPropÀ» ¸¸µé¾î¼­ ±× ¾ÆÀÌµğ¸¦ ³Ñ°Ü¾ß ÇÑ´Ù.
 //
-// ê²½ìš°ì—ë”°ë¼ pAddSkillPropì€ NULLì¼ìˆ˜ë„ ìˆë‹¤.  ì•„ì´í…œì—ì„œ ì‚¬ìš©í• ìˆ˜ë„ ìˆê¸°ë•Œë¬¸. ì•„ì´í…œì€ ì• ë“œìŠ¤í‚¬í”„ë¡­ì´ ì—†ë‹¤.
-// pCenter : ê´‘ì—­ ì§€ì†ìŠ¤í‚¬ì˜ íƒ€ê²Ÿ. NULLì¼ìˆ˜ë„ ìˆë‹¤
+// °æ¿ì¿¡µû¶ó pAddSkillPropÀº NULLÀÏ¼öµµ ÀÖ´Ù.  ¾ÆÀÌÅÛ¿¡¼­ »ç¿ëÇÒ¼öµµ ÀÖ±â¶§¹®. ¾ÆÀÌÅÛÀº ¾Öµå½ºÅ³ÇÁ·ÓÀÌ ¾ø´Ù.
+// pCenter : ±¤¿ª Áö¼Ó½ºÅ³ÀÇ Å¸°Ù. NULLÀÏ¼öµµ ÀÖ´Ù
 #if __VER >= 8 // __S8_PK
 void	CCtrl::ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProb, BOOL bOnlyDmg, CCtrl* pCenter, BOOL bControl )
 #else // __VER >= 8 // __S8_PK
@@ -263,17 +263,17 @@ void	CCtrl::ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp 
 		Error( "CCtrl::ApplySkillRegion : pSkillProp == NULL A:%d-%d", pSrc->GetType(), pSrc->GetIndex() );
 
 	FLOAT fRange = 4.0f;
-	if( pAddSkillProp )										// ì• ë“œìŠ¤í‚¬ì´ ìˆìœ¼ë©´ ê±°ê¸°ì„œ êº¼ëƒ„
+	if( pAddSkillProp )										// ¾Öµå½ºÅ³ÀÌ ÀÖÀ¸¸é °Å±â¼­ ²¨³¿
 	{
 		fRange = (float)pAddSkillProp->dwSkillRange;
 		if( pAddSkillProp->dwSkillRange == NULL_ID )
-			Error( "ê²½ê³  : ìŠ¤í‚¬ %dì˜ dwSkillRangeê°€ ì§€ì •ë˜ì§€ ì•ŠìŒ", pAddSkillProp->dwID );
+			Error( "°æ°í : ½ºÅ³ %dÀÇ dwSkillRange°¡ ÁöÁ¤µÇÁö ¾ÊÀ½", pAddSkillProp->dwID );
 	}
 	else
 	{
-		fRange = (float)pSkillProp->_dwSkillRange;			// ì—†ìœ¼ë©´ ìŠ¤í‚¬í”„ë¡œí¼í‹°ì—ì„œ êº¼ëƒ„.
+		fRange = (float)pSkillProp->_dwSkillRange;			// ¾øÀ¸¸é ½ºÅ³ÇÁ·ÎÆÛÆ¼¿¡¼­ ²¨³¿.
 		if( pSkillProp->_dwSkillRange == NULL_ID )
-			Error( "ê²½ê³  : ìŠ¤í‚¬ %dì˜ dwSkillRangeê°€ ì§€ì •ë˜ì§€ ì•ŠìŒ", pSkillProp->dwID );
+			Error( "°æ°í : ½ºÅ³ %dÀÇ dwSkillRange°¡ ÁöÁ¤µÇÁö ¾ÊÀ½", pSkillProp->dwID );
 	}
 
 	if( fRange <= 4.0f )		nRange = 4;
@@ -281,26 +281,26 @@ void	CCtrl::ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp 
 	else if( fRange <= 16.0f )	nRange = 16;
 	else						nRange = 32;
 
-	if( fRange <= 0 )	// ë²”ìœ„ê°€ 0ì´ê±°ë‚˜ ìŒìˆ˜ì¼ìˆ˜ëŠ” ì—†ë‹¤.
+	if( fRange <= 0 )	// ¹üÀ§°¡ 0ÀÌ°Å³ª À½¼öÀÏ¼ö´Â ¾ø´Ù.
 		Error( "CCtrl::ApplySkillRegion : D:%d A:%d-%d %d %f", GetIndex(), pSrc->GetType(), pSrc->GetIndex(), pSkillProp->dwID, fRange );
 
 	BOOL	bApply = FALSE;
 	BOOL	bTarget = TRUE;
 
-	//------------ ì ìš©ëŒ€ìƒì´ í”Œë ˆì´ì–´ì¸ê°€ 
+	//------------ Àû¿ë´ë»óÀÌ ÇÃ·¹ÀÌ¾îÀÎ°¡ 
 	if( nApplyType & OBJTYPE_PLAYER )	
 	{
 		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkPlayer, GetLayer() )
 		{
-			bApply = FALSE;	// ì¼ë‹¨ FALSEë¡œ ì´ˆê¸°í™”
+			bApply = FALSE;	// ÀÏ´Ü FALSE·Î ÃÊ±âÈ­
 
 			if( pObj->GetType() != OT_MOVER )
-				Error( "ApplySkillRegion : pObjê°€ MOVERê°€ ì•„ë‹ˆë‹¤ %d", pObj->GetType() );
+				Error( "ApplySkillRegion : pObj°¡ MOVER°¡ ¾Æ´Ï´Ù %d", pObj->GetType() );
 
-			if( pSrc->GetType() == OT_MOVER )		// ê³µê²©ìê°€ ë¬´ë²„ëƒ.
+			if( pSrc->GetType() == OT_MOVER )		// °ø°İÀÚ°¡ ¹«¹ö³Ä.
 			{
 				CMover *pAttacker = (CMover *)pSrc;
-				if( pAttacker->IsPlayer() )			// ê³µê²©ìê°€ í”Œë ˆì´ì–´ëƒ
+				if( pAttacker->IsPlayer() )			// °ø°İÀÚ°¡ ÇÃ·¹ÀÌ¾î³Ä
 				{
 					bApply = TRUE;
 #if __VER >= 8 // __S8_PK
@@ -314,28 +314,28 @@ void	CCtrl::ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp 
 
 						if( bControl == FALSE && pAttacker->GetHitType( pDefender, bTarget, FALSE ) == HITTYPE_PK )
 							bApply = FALSE;
-//	#ifdef	__JHMA_VER_8_5_2			 // 8.5ì°¨ ë“€ì–¼ì¤‘ì¸ ë‘êµ¬ë£¹ì´ ì—°ê´€ë˜ì§€ì•Šê²Œ ìˆ˜ì •  World
+//	#ifdef	__JHMA_VER_8_5_2			 // 8.5Â÷ µà¾óÁßÀÎ µÎ±¸·ìÀÌ ¿¬°üµÇÁö¾Ê°Ô ¼öÁ¤  World
 						else if( pAttacker->m_nDuel == 1 && pDefender->m_nDuel == 1 && pAttacker->GetHitType( pDefender, bTarget, FALSE ) != HITTYPE_PVP )
 							bApply = FALSE;
 //	#endif // __JHMA_VER_8_5_1	
 					}
 #endif // __VER >= 8 // __S8_PK
 				} else
-				{	// ê³µê²©ìê°€ ëª¬ìŠ¤í„°ë©´
+				{	// °ø°İÀÚ°¡ ¸ó½ºÅÍ¸é
 					bApply = TRUE;		// 
 				}
 			} else
-			{	// ê³µê²©ìê°€ ë¬´ë²„ê°€ ì•„ë‹ˆë‹¤.
+			{	// °ø°İÀÚ°¡ ¹«¹ö°¡ ¾Æ´Ï´Ù.
 				bApply = TRUE;
 			}
 
 			if( bApply )
 			{
-				if( pObj != pSrc )		// ì–´íƒœì»¤ëŠ” ê²€ìƒ‰ëŒ€ìƒì—ì„œ ì œì™¸.
+				if( pObj != pSrc )		// ¾îÅÂÄ¿´Â °Ë»ö´ë»ó¿¡¼­ Á¦¿Ü.
 				{
-					if( pObj->IsRangeObj( vPos, fRange ) )	// vCenter + fRangeì™€ pObjì˜ ìŠ¤í”¼ì–´ê°€ ì¶©ëŒí–ˆëŠëƒ
+					if( pObj->IsRangeObj( vPos, fRange ) )	// vCenter + fRange¿Í pObjÀÇ ½ºÇÇ¾î°¡ Ãæµ¹Çß´À³Ä
 					{
-						CMover *pTarget = (CMover *)pObj;		// <- ì—¬ê¸´ ë¬´ì¡°ê±´ pObjëŠ” í”Œë ˆì´ì–´ë¯€ë¡œ í•´ë„ë¨.
+						CMover *pTarget = (CMover *)pObj;		// <- ¿©±ä ¹«Á¶°Ç pObj´Â ÇÃ·¹ÀÌ¾î¹Ç·Î ÇØµµµÊ.
 					
 						if( pCenter )
 							bTarget = (pCenter == pTarget);
@@ -344,55 +344,55 @@ void	CCtrl::ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp 
 
 						if( IsValidObj( pTarget ) && pTarget->IsLive() )
 						{
-							pTarget->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg, bTarget );		// ëŒ€ìƒì—ê²Œ íš¨ê³¼ë¥¼ ì ìš©í•¨.
+							pTarget->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg, bTarget );		// ´ë»ó¿¡°Ô È¿°ú¸¦ Àû¿ëÇÔ.
 						}
 					}
 				}
 				
-				bApply = FALSE;	// ë‹¤ìŒ ë£¨í”„ë¥¼ ìœ„í•´ì„œ ì´ˆê¸°í™”.
+				bApply = FALSE;	// ´ÙÀ½ ·çÇÁ¸¦ À§ÇØ¼­ ÃÊ±âÈ­.
 			} // bApply
 		}
 		END_LINKMAP
 	} // OBJTYPE_PLAYER
 
-	// ì ìš©ëŒ€ìƒì´ ëª¬ìŠ¤í„°/ì»¨íŠ¸ë¡¤ ì¸ê°€.
+	// Àû¿ë´ë»óÀÌ ¸ó½ºÅÍ/ÄÁÆ®·Ñ ÀÎ°¡.
 	if( nApplyType & (OBJTYPE_MONSTER | OBJTYPE_CTRL) )
 	{
-		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkDynamic, GetLayer() )	// linkDynamicì„ ì“´ë‹¤
+		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkDynamic, GetLayer() )	// linkDynamicÀ» ¾´´Ù
 		{
 			bApply = FALSE;
-			if( pObj->GetType() == OT_MOVER )				// ëŒ€ìƒì´ ë¬´ë²„ë©´.
+			if( pObj->GetType() == OT_MOVER )				// ´ë»óÀÌ ¹«¹ö¸é.
 			{
 				CMover *pTarget = (CMover *)pObj;
-				if( pTarget->IsPeaceful() == FALSE )		// NPCê°€ ì•„ë‹Œê²½ìš°ë§Œ ì ìš©
+				if( pTarget->IsPeaceful() == FALSE )		// NPC°¡ ¾Æ´Ñ°æ¿ì¸¸ Àû¿ë
 					bApply = TRUE;
-#if __VER >= 8 //	#ifdef	__JHMA_VER_8_5_1			 // 8.5ì°¨ ê²½ë¹„ë³‘ ë²”ìœ„ìŠ¤í‚¬ ê³µê²©íš¨ê³¼ ë¶ˆê°€ë¡œ ìˆ˜ì • World
+#if __VER >= 8 //	#ifdef	__JHMA_VER_8_5_1			 // 8.5Â÷ °æºñº´ ¹üÀ§½ºÅ³ °ø°İÈ¿°ú ºÒ°¡·Î ¼öÁ¤ World
 				CMover *pAttacker = (CMover *)pSrc;
 				if( pAttacker->IsPlayer() && pAttacker->IsChaotic() == FALSE && pTarget->GetProp()->dwClass == RANK_GUARD )
 					bApply = FALSE;
-#endif //	#endif // __JHMA_VER_8_5_1			 // 8.5ì°¨ ê²½ë¹„ë³‘ ë²”ìœ„ìŠ¤í‚¬ ê³µê²©íš¨ê³¼ ë¶ˆê°€ë¡œ ìˆ˜ì • World
+#endif //	#endif // __JHMA_VER_8_5_1			 // 8.5Â÷ °æºñº´ ¹üÀ§½ºÅ³ °ø°İÈ¿°ú ºÒ°¡·Î ¼öÁ¤ World
 			} else
-			// ëŒ€ìƒì´ ì»¨íŠ¸ë¡¤ì´ë©´.
+			// ´ë»óÀÌ ÄÁÆ®·ÑÀÌ¸é.
 			if( pObj->GetType() == OT_CTRL )
 			{
-				if( pSrc->GetType() == OT_MOVER )			// ê³µê²©ìê°€ ë¬´ë²„ì¼ë•Œë§Œ ì ìš©. ì»¨íŠ¸ë¡¤ì´ ì»¨íŠ¸ë¡¤ì—ê²Œ ì˜í–¥ì„ ì¤„ìˆœ ì—†ë‹¤.
+				if( pSrc->GetType() == OT_MOVER )			// °ø°İÀÚ°¡ ¹«¹öÀÏ¶§¸¸ Àû¿ë. ÄÁÆ®·ÑÀÌ ÄÁÆ®·Ñ¿¡°Ô ¿µÇâÀ» ÁÙ¼ø ¾ø´Ù.
 					bApply = TRUE;							
 			}
 
 			if( bApply )
 			{
-				if( pObj != pSrc )		// ê³µê²©ìëŠ” ê²€ì‚¬ëŒ€ìƒì—ì„œ ì œì™¸.
+				if( pObj != pSrc )		// °ø°İÀÚ´Â °Ë»ç´ë»ó¿¡¼­ Á¦¿Ü.
 				{
-					if( pObj->IsRangeObj( vPos, fRange ) )	// vCenter + fRangeì™€ pObjì˜ ìŠ¤í”¼ì–´ê°€ ì¶©ëŒí–ˆëŠëƒ
+					if( pObj->IsRangeObj( vPos, fRange ) )	// vCenter + fRange¿Í pObjÀÇ ½ºÇÇ¾î°¡ Ãæµ¹Çß´À³Ä
 					{
-						if( pObj->GetType() == OT_MOVER )	// íƒ€ê²Ÿì´ ë¬´ë²„ëƒ?
+						if( pObj->GetType() == OT_MOVER )	// Å¸°ÙÀÌ ¹«¹ö³Ä?
 						{
-							if( IsValidObj( pObj ) && ((CMover *)pObj)->IsLive() )		// íƒ€ê²Ÿì´ ë¬´ë²„ë©´ ì‚´ì•„ìˆëŠ”ì§€ ê²€ì‚¬.
-								((CCtrl*)pObj)->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg );		// ëŒ€ìƒì—ê²Œ íš¨ê³¼ë¥¼ ì ìš©í•¨.
+							if( IsValidObj( pObj ) && ((CMover *)pObj)->IsLive() )		// Å¸°ÙÀÌ ¹«¹ö¸é »ì¾ÆÀÖ´ÂÁö °Ë»ç.
+								((CCtrl*)pObj)->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg );		// ´ë»ó¿¡°Ô È¿°ú¸¦ Àû¿ëÇÔ.
 						} else
 						{
-							// íƒ€ê²Ÿì´ ë¬´ë²„ê°€ ì•„ë‹ˆëƒ?
-							((CCtrl*)pObj)->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg );		// ëŒ€ìƒì—ê²Œ íš¨ê³¼ë¥¼ ì ìš©í•¨.
+							// Å¸°ÙÀÌ ¹«¹ö°¡ ¾Æ´Ï³Ä?
+							((CCtrl*)pObj)->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg );		// ´ë»ó¿¡°Ô È¿°ú¸¦ Àû¿ëÇÔ.
 						}
 					}
 				}
@@ -405,13 +405,13 @@ void	CCtrl::ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp 
 } // ApplySkillRegion()
 
 
-// thisë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ ì£¼ë³€ì— íš¨ê³¼ë¥¼ ì ìš©í•œë‹¤.
+// this¸¦ Áß½ÉÀ¸·Î ÁÖº¯¿¡ È¿°ú¸¦ Àû¿ëÇÑ´Ù.
 // ------------------------------------------
-// íŠ¸ë©ì´ ì“¸ìˆ˜ë„ ìˆê³ . ëª¬ìŠ¤í„°ê°€ì“¸ìˆ˜ë„ìˆë‹¤(ë±…), ì£¼ì¸ê³µì´ ìŠ¤í‚¬ë¡œ ì‚¬ìš©í• ìˆ˜ë„ ìˆë‹¤.
-// íš¨ê³¼ëŠ” ë°˜ë“œì‹œ SkillPropì„ ë§Œë“¤ì–´ì„œ ê·¸ ì•„ì´ë””ë¥¼ ë„˜ê²¨ì•¼ í•œë‹¤.
+// Æ®·¦ÀÌ ¾µ¼öµµ ÀÖ°í. ¸ó½ºÅÍ°¡¾µ¼öµµÀÖ´Ù(¹ğ), ÁÖÀÎ°øÀÌ ½ºÅ³·Î »ç¿ëÇÒ¼öµµ ÀÖ´Ù.
+// È¿°ú´Â ¹İµå½Ã SkillPropÀ» ¸¸µé¾î¼­ ±× ¾ÆÀÌµğ¸¦ ³Ñ°Ü¾ß ÇÑ´Ù.
 //
-// ê²½ìš°ì—ë”°ë¼ pAddSkillPropì€ NULLì¼ìˆ˜ë„ ìˆë‹¤.  ì•„ì´í…œì—ì„œ ì‚¬ìš©í• ìˆ˜ë„ ìˆê¸°ë•Œë¬¸. ì•„ì´í…œì€ ì• ë“œìŠ¤í‚¬í”„ë¡­ì´ ì—†ë‹¤.
-// fRangeCustomì— ê°’ì´ ìˆì„ê²½ìš°ì—ëŠ” í”„ë¡œí¼í‹° nRangeê°’ì„ ë¬´ì‹œí•˜ê³  fRangeCustomìœ¼ë¡œ ë°”ë€ë‹¤.
+// °æ¿ì¿¡µû¶ó pAddSkillPropÀº NULLÀÏ¼öµµ ÀÖ´Ù.  ¾ÆÀÌÅÛ¿¡¼­ »ç¿ëÇÒ¼öµµ ÀÖ±â¶§¹®. ¾ÆÀÌÅÛÀº ¾Öµå½ºÅ³ÇÁ·ÓÀÌ ¾ø´Ù.
+// fRangeCustom¿¡ °ªÀÌ ÀÖÀ»°æ¿ì¿¡´Â ÇÁ·ÎÆÛÆ¼ nRange°ªÀ» ¹«½ÃÇÏ°í fRangeCustomÀ¸·Î ¹Ù²ï´Ù.
 #if __VER >= 8 // __S8_PK
 void	CCtrl::ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProb, BOOL bOnlyDmg, FLOAT fRangeCustom, BOOL bControl )
 #else // __VER >= 8 // __S8_PK
@@ -428,10 +428,10 @@ void	CCtrl::ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp,
 		Error( "CCtrl::ApplySkillAround : pSkillProp == NULL D:%d A:%d-%d", GetIndex(), pSrc->GetType(), pSrc->GetIndex() );
 
 	FLOAT fRange = 4.0f;
-	if( pAddSkillProp )										// ì• ë“œìŠ¤í‚¬ì´ ìˆìœ¼ë©´ ê±°ê¸°ì„œ êº¼ëƒ„
+	if( pAddSkillProp )										// ¾Öµå½ºÅ³ÀÌ ÀÖÀ¸¸é °Å±â¼­ ²¨³¿
 		fRange = (float)pAddSkillProp->dwSkillRange;
 	else
-		fRange = (float)pSkillProp->_dwSkillRange;			// ì—†ìœ¼ë©´ ìŠ¤í‚¬í”„ë¡œí¼í‹°ì—ì„œ êº¼ëƒ„.
+		fRange = (float)pSkillProp->_dwSkillRange;			// ¾øÀ¸¸é ½ºÅ³ÇÁ·ÎÆÛÆ¼¿¡¼­ ²¨³¿.
 
 	if( fRange <= 4.0f )		nRange = 4;
 	else if( fRange <= 8.0f )	nRange = 8;
@@ -444,29 +444,29 @@ void	CCtrl::ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp,
 	}
 
 	FLOAT fTargetRatio = 0.0f;
-	if( pSkillProp->dwSpellRegion == SRO_REGION )	// REGIONì†ì„±ì¼ë• íƒ€ê²Ÿë„ ë°ë¯¸ì§€ë¥¼ ë¨¹ìŒ.
+	if( pSkillProp->dwSpellRegion == SRO_REGION )	// REGION¼Ó¼ºÀÏ¶© Å¸°Ùµµ µ¥¹ÌÁö¸¦ ¸ÔÀ½.
 		fTargetRatio = 1.0f;
 
-	if( fRange <= 0 )	// ë²”ìœ„ê°€ 0ì´ê±°ë‚˜ ìŒìˆ˜ì¼ìˆ˜ëŠ” ì—†ë‹¤.
+	if( fRange <= 0 )	// ¹üÀ§°¡ 0ÀÌ°Å³ª À½¼öÀÏ¼ö´Â ¾ø´Ù.
 		Error( "CCtrl::ApplySkillAround : D:%d A:%d-%d %d %f", GetIndex(), pSrc->GetType(), pSrc->GetIndex(), pSkillProp->dwID, fRange );
 
 	BOOL	bApply = FALSE;
 	BOOL	bTarget = FALSE;
 
-	//------------ ì ìš©ëŒ€ìƒì´ í”Œë ˆì´ì–´ì¸ê°€ 
+	//------------ Àû¿ë´ë»óÀÌ ÇÃ·¹ÀÌ¾îÀÎ°¡ 
 	if( nApplyType & OBJTYPE_PLAYER )	
 	{
 		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkPlayer, GetLayer() )
 		{
-			bApply = FALSE;	// ì¼ë‹¨ FALSEë¡œ ì´ˆê¸°í™”
+			bApply = FALSE;	// ÀÏ´Ü FALSE·Î ÃÊ±âÈ­
 
 			if( pObj->GetType() != OT_MOVER )
-				Error( "ApplySkillAround : pObjê°€ MOVERê°€ ì•„ë‹ˆë‹¤ %d", pObj->GetType() );
+				Error( "ApplySkillAround : pObj°¡ MOVER°¡ ¾Æ´Ï´Ù %d", pObj->GetType() );
 
-			if( pSrc->GetType() == OT_MOVER )		// ê³µê²©ìê°€ ë¬´ë²„ëƒ.
+			if( pSrc->GetType() == OT_MOVER )		// °ø°İÀÚ°¡ ¹«¹ö³Ä.
 			{
 				CMover *pAttacker = (CMover *)pSrc;
-				if( pAttacker->IsPlayer() )			// ê³µê²©ìê°€ í”Œë ˆì´ì–´ëƒ
+				if( pAttacker->IsPlayer() )			// °ø°İÀÚ°¡ ÇÃ·¹ÀÌ¾î³Ä
 				{
 					bApply	= TRUE;
 #if __VER >= 8 // __S8_PK
@@ -477,7 +477,7 @@ void	CCtrl::ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp,
 						
 						if( bControl == FALSE && pAttacker->GetHitType( pDefender, bTarget, FALSE ) == HITTYPE_PK )
 							bApply = FALSE;
-//	#ifdef	__JHMA_VER_8_5_2			 // 8.5ì°¨ ë“€ì–¼ì¤‘ì¸ ë‘êµ¬ë£¹ì´ ì—°ê´€ë˜ì§€ì•Šê²Œ ìˆ˜ì •  World
+//	#ifdef	__JHMA_VER_8_5_2			 // 8.5Â÷ µà¾óÁßÀÎ µÎ±¸·ìÀÌ ¿¬°üµÇÁö¾Ê°Ô ¼öÁ¤  World
 						else if( pAttacker->m_nDuel == 1 && pDefender->m_nDuel == 1 && pAttacker->GetHitType( pDefender, bTarget, FALSE ) != HITTYPE_PVP )
 							bApply = FALSE;
 //	#endif // __JHMA_VER_8_5_1	
@@ -485,80 +485,80 @@ void	CCtrl::ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp,
 					}
 #endif // __VER >= 8 // __S8_PK
 				} else
-				{	// ê³µê²©ìê°€ ëª¬ìŠ¤í„°ë©´
+				{	// °ø°İÀÚ°¡ ¸ó½ºÅÍ¸é
 					bApply = TRUE;		// 
 				}
 			} else
-			{	// ê³µê²©ìê°€ ë¬´ë²„ê°€ ì•„ë‹ˆë‹¤.
+			{	// °ø°İÀÚ°¡ ¹«¹ö°¡ ¾Æ´Ï´Ù.
 				bApply = TRUE;
 			}
 
 			if( bApply )
 			{
-				if( pObj->IsRangeObj( this, fRange ) )	// this(Center)ì˜ ìŠ¤í”¼ì–´ì™€ pObjì˜ ìŠ¤í”¼ì–´ê°€ ì¶©ëŒí–ˆëŠëƒ
+				if( pObj->IsRangeObj( this, fRange ) )	// this(Center)ÀÇ ½ºÇÇ¾î¿Í pObjÀÇ ½ºÇÇ¾î°¡ Ãæµ¹Çß´À³Ä
 				{
-					if( pObj == this && fTargetRatio == 0.0f )	// íƒ€ê²Ÿë°ë¯¸ì§€ ë¹„ìœ¨ì´ 0ì´ë©´ ìê¸°ìì‹ (íƒ€ê²Ÿ)ì€ ë°ë¯¸ì§€ë¥¼ ì£¼ì§€ì•ŠìŒ.
+					if( pObj == this && fTargetRatio == 0.0f )	// Å¸°Ùµ¥¹ÌÁö ºñÀ²ÀÌ 0ÀÌ¸é ÀÚ±âÀÚ½Å(Å¸°Ù)Àº µ¥¹ÌÁö¸¦ ÁÖÁö¾ÊÀ½.
 					{
 					} else
 					{
-						if( pObj != pSrc )		// ì–´íƒœì»¤ëŠ” ê²€ìƒ‰ëŒ€ìƒì—ì„œ ì œì™¸.
+						if( pObj != pSrc )		// ¾îÅÂÄ¿´Â °Ë»ö´ë»ó¿¡¼­ Á¦¿Ü.
 						{
-							CMover *pTarget = (CMover *)pObj;		// <- ì—¬ê¸´ ë¬´ì¡°ê±´ pObjëŠ” í”Œë ˆì´ì–´ë¯€ë¡œ í•´ë„ë¨.
+							CMover *pTarget = (CMover *)pObj;		// <- ¿©±ä ¹«Á¶°Ç pObj´Â ÇÃ·¹ÀÌ¾î¹Ç·Î ÇØµµµÊ.
 							bTarget = (this == pTarget);
 							if( IsValidObj( pTarget ) && pTarget->IsLive() )
-								pTarget->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg, bTarget );		// ëŒ€ìƒì—ê²Œ íš¨ê³¼ë¥¼ ì ìš©í•¨.
+								pTarget->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg, bTarget );		// ´ë»ó¿¡°Ô È¿°ú¸¦ Àû¿ëÇÔ.
 						}
 					}
 				}
 				
-				bApply = FALSE;	// ë‹¤ìŒ ë£¨í”„ë¥¼ ìœ„í•´ì„œ ì´ˆê¸°í™”.
+				bApply = FALSE;	// ´ÙÀ½ ·çÇÁ¸¦ À§ÇØ¼­ ÃÊ±âÈ­.
 			} // bApply
 		}
 		END_LINKMAP
 	} // OBJTYPE_PLAYER
 
-	// ì ìš©ëŒ€ìƒì´ ëª¬ìŠ¤í„°/ì»¨íŠ¸ë¡¤ ì¸ê°€.
+	// Àû¿ë´ë»óÀÌ ¸ó½ºÅÍ/ÄÁÆ®·Ñ ÀÎ°¡.
 	if( nApplyType & (OBJTYPE_MONSTER | OBJTYPE_CTRL) )
 	{
-		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkDynamic, GetLayer() )	// linkDynamicì„ ì“´ë‹¤
+		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkDynamic, GetLayer() )	// linkDynamicÀ» ¾´´Ù
 		{
 			bApply = FALSE;
-			if( pObj->GetType() == OT_MOVER )				// ëŒ€ìƒì´ ë¬´ë²„ë©´.
+			if( pObj->GetType() == OT_MOVER )				// ´ë»óÀÌ ¹«¹ö¸é.
 			{
 				CMover *pTarget = (CMover *)pObj;
-				if( pTarget->IsPeaceful() == FALSE )		// NPCê°€ ì•„ë‹Œê²½ìš°ë§Œ ì ìš©
+				if( pTarget->IsPeaceful() == FALSE )		// NPC°¡ ¾Æ´Ñ°æ¿ì¸¸ Àû¿ë
 					bApply = TRUE;
-#if __VER >= 8 //	#ifdef	__JHMA_VER_8_5_1			 // 8.5ì°¨ ê²½ë¹„ë³‘ ë²”ìœ„ìŠ¤í‚¬ ê³µê²©íš¨ê³¼ ë¶ˆê°€ë¡œ ìˆ˜ì • World
+#if __VER >= 8 //	#ifdef	__JHMA_VER_8_5_1			 // 8.5Â÷ °æºñº´ ¹üÀ§½ºÅ³ °ø°İÈ¿°ú ºÒ°¡·Î ¼öÁ¤ World
 				CMover *pAttacker = (CMover *)pSrc;
 				if( pAttacker->IsPlayer() && pAttacker->IsChaotic() == FALSE && pTarget->GetProp()->dwClass == RANK_GUARD )
 					bApply = FALSE;
-#endif //	#endif // __JHMA_VER_8_5_1			 // 8.5ì°¨ ê²½ë¹„ë³‘ ë²”ìœ„ìŠ¤í‚¬ ê³µê²©íš¨ê³¼ ë¶ˆê°€ë¡œ ìˆ˜ì • World
+#endif //	#endif // __JHMA_VER_8_5_1			 // 8.5Â÷ °æºñº´ ¹üÀ§½ºÅ³ °ø°İÈ¿°ú ºÒ°¡·Î ¼öÁ¤ World
 			} else
-			// ëŒ€ìƒì´ ì»¨íŠ¸ë¡¤ì´ë©´.
+			// ´ë»óÀÌ ÄÁÆ®·ÑÀÌ¸é.
 			if( pObj->GetType() == OT_CTRL )
 			{
-				if( pSrc->GetType() == OT_MOVER )			// ê³µê²©ìê°€ ë¬´ë²„ì¼ë•Œë§Œ ì ìš©. ì»¨íŠ¸ë¡¤ì´ ì»¨íŠ¸ë¡¤ì—ê²Œ ì˜í–¥ì„ ì¤„ìˆœ ì—†ë‹¤.
+				if( pSrc->GetType() == OT_MOVER )			// °ø°İÀÚ°¡ ¹«¹öÀÏ¶§¸¸ Àû¿ë. ÄÁÆ®·ÑÀÌ ÄÁÆ®·Ñ¿¡°Ô ¿µÇâÀ» ÁÙ¼ø ¾ø´Ù.
 					bApply = TRUE;							
 			}
 
 			if( bApply )
 			{
-				if( pObj->IsRangeObj( this, fRange ) )	// this(Center)ì˜ ìŠ¤í”¼ì–´ì™€ pObjì˜ ìŠ¤í”¼ì–´ê°€ ì¶©ëŒí–ˆëŠëƒ
+				if( pObj->IsRangeObj( this, fRange ) )	// this(Center)ÀÇ ½ºÇÇ¾î¿Í pObjÀÇ ½ºÇÇ¾î°¡ Ãæµ¹Çß´À³Ä
 				{
-					if( pObj == this && fTargetRatio == 0.0f )	// íƒ€ê²Ÿë°ë¯¸ì§€ ë¹„ìœ¨ì´ 0ì´ë©´ ìê¸°ìì‹ (íƒ€ê²Ÿ)ì€ ë°ë¯¸ì§€ë¥¼ ì£¼ì§€ì•ŠìŒ.
+					if( pObj == this && fTargetRatio == 0.0f )	// Å¸°Ùµ¥¹ÌÁö ºñÀ²ÀÌ 0ÀÌ¸é ÀÚ±âÀÚ½Å(Å¸°Ù)Àº µ¥¹ÌÁö¸¦ ÁÖÁö¾ÊÀ½.
 					{
 					} else
 					{
-						if( pObj != pSrc )		// ê³µê²©ìëŠ” ê²€ì‚¬ëŒ€ìƒì—ì„œ ì œì™¸.
+						if( pObj != pSrc )		// °ø°İÀÚ´Â °Ë»ç´ë»ó¿¡¼­ Á¦¿Ü.
 						{
-							if( pObj->GetType() == OT_MOVER )	// íƒ€ê²Ÿì´ ë¬´ë²„ëƒ?
+							if( pObj->GetType() == OT_MOVER )	// Å¸°ÙÀÌ ¹«¹ö³Ä?
 							{
-								if( IsValidObj( pObj ) && ((CMover *)pObj)->IsLive() )		// íƒ€ê²Ÿì´ ë¬´ë²„ë©´ ì‚´ì•„ìˆëŠ”ì§€ ê²€ì‚¬.
-									((CCtrl*)pObj)->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg );		// ëŒ€ìƒì—ê²Œ íš¨ê³¼ë¥¼ ì ìš©í•¨.
+								if( IsValidObj( pObj ) && ((CMover *)pObj)->IsLive() )		// Å¸°ÙÀÌ ¹«¹ö¸é »ì¾ÆÀÖ´ÂÁö °Ë»ç.
+									((CCtrl*)pObj)->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg );		// ´ë»ó¿¡°Ô È¿°ú¸¦ Àû¿ëÇÔ.
 							} else
 							{
-								// íƒ€ê²Ÿì´ ë¬´ë²„ê°€ ì•„ë‹ˆëƒ?
-								((CCtrl*)pObj)->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg );		// ëŒ€ìƒì—ê²Œ íš¨ê³¼ë¥¼ ì ìš©í•¨.
+								// Å¸°ÙÀÌ ¹«¹ö°¡ ¾Æ´Ï³Ä?
+								((CCtrl*)pObj)->ApplySkill( pSrc, pSkillProp, pAddSkillProp, bIgnoreProb, 0, bOnlyDmg );		// ´ë»ó¿¡°Ô È¿°ú¸¦ Àû¿ëÇÔ.
 							}
 						}
 					}
@@ -572,11 +572,11 @@ void	CCtrl::ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp,
 } // ApplySkillAround()
 
 // 
-// í­, ë†’ì´, ê¸¸ì´ë¥¼ ì„¤ì •í•˜ì—¬ ìœ¡ë©´ì²´ í˜•íƒœì˜ ë°ë¯¸ì§€ ì˜ì—­ì„ ìƒì„±.
+// Æø, ³ôÀÌ, ±æÀÌ¸¦ ¼³Á¤ÇÏ¿© À°¸éÃ¼ ÇüÅÂÀÇ µ¥¹ÌÁö ¿µ¿ªÀ» »ı¼º.
 // nDmgType : AF_???
 // nApplyType : OBJTYPE_PLAYER , MONSTER
-// nAttackID : ìŠ¤í‚¬ì´ë‚˜ ì•„ì´í…œ ID
-// fWidth, fHeight, fDepth : í­, ë†’ì´, ê¸¸ì´.
+// nAttackID : ½ºÅ³ÀÌ³ª ¾ÆÀÌÅÛ ID
+// fWidth, fHeight, fDepth : Æø, ³ôÀÌ, ±æÀÌ.
 // this == Attacker
 #if __VER >= 8 // __S8_PK
 void	CCtrl::ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, float fWidth, float fHeight, float fDepth, bool bIgnoreProb, BOOL bControl )
@@ -593,47 +593,47 @@ void	CCtrl::ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *
 	if( pSkillProp == NULL )
 		Error( "CCtrl::ApplySkillLine : pSkillProp == NULL %d", GetIndex() );
 	
-	// ë°ë¯¸ì§€ ì˜ì—­ Local AABB.
+	// µ¥¹ÌÁö ¿µ¿ª Local AABB.
 	D3DXVECTOR3 vMin1 = D3DXVECTOR3( -fWidth / 2.0f, -fHeight / 2.0f, -fDepth );
 	D3DXVECTOR3 vMax1 = D3DXVECTOR3(  fWidth / 2.0f,  fHeight / 2.0f, 0 );
 
-	D3DXMATRIX mInv;		// ê³µê²©ìì¸¡ ì›”ë“œì—­í–‰ë ¬
+	D3DXMATRIX mInv;		// °ø°İÀÚÃø ¿ùµå¿ªÇà·Ä
 	D3DXMATRIX m1, m2, m3;
 	D3DXMatrixRotationY( &m1, D3DXToRadian( -GetAngle() ) );
 	D3DXMatrixTranslation( &m2, GetPos().x, GetPos().y, GetPos().z );
 	D3DXMatrixMultiply( &m3, &m1, &m2 );	// world = rot * trans
 	
-	D3DXMatrixInverse( &mInv, NULL, &m3 );		// ê³µê²©ìì˜ ì—­í–‰ë ¬ ë§Œë“¬.
+	D3DXMatrixInverse( &mInv, NULL, &m3 );		// °ø°İÀÚÀÇ ¿ªÇà·Ä ¸¸µë.
 
-	// íƒ€ê²Ÿì˜ ì¢Œí‘œë¥¼ ê³µê²©ìì¸¡ ê¸°ì¤€ìœ¼ë¡œ ì—­ë³€í™˜ í•œê²ƒ.
+	// Å¸°ÙÀÇ ÁÂÇ¥¸¦ °ø°İÀÚÃø ±âÁØÀ¸·Î ¿ªº¯È¯ ÇÑ°Í.
 	D3DXVECTOR3 vDestLocal;
 
-	// ì¼ë°˜ì ìœ¼ë¡œ fDepthê°€ ê°€ì¥ ê¸¸ê¸°ë•Œë¬¸ì— ê²€ì‚¬ ì˜ì—­ì€ fDepthë¡œ í–ˆë‹¤. 
+	// ÀÏ¹İÀûÀ¸·Î fDepth°¡ °¡Àå ±æ±â¶§¹®¿¡ °Ë»ç ¿µ¿ªÀº fDepth·Î Çß´Ù. 
 	if( fDepth <= 4.0f )		nRange = 4;
 	else if( fDepth <= 8.0f )	nRange = 8;
 	else if( fDepth <= 16.0f )	nRange = 16;
 	else						nRange = 32;
 	
-	if( fDepth <= 0 )	// ë²”ìœ„ê°€ 0ì´ê±°ë‚˜ ìŒìˆ˜ì¼ìˆ˜ëŠ” ì—†ë‹¤.
+	if( fDepth <= 0 )	// ¹üÀ§°¡ 0ÀÌ°Å³ª À½¼öÀÏ¼ö´Â ¾ø´Ù.
 		Error( "CCtrl::ApplySkillLine : %d %d", GetIndex(), fDepth );
 
 	
 	BOOL	bApply = FALSE;
 	BOOL	bTarget = FALSE;
 
-	if( nApplyType & OBJTYPE_PLAYER )	// ì ìš©ëŒ€ìƒì´ í”Œë ˆì´ì–´ì¸ê°€ 
+	if( nApplyType & OBJTYPE_PLAYER )	// Àû¿ë´ë»óÀÌ ÇÃ·¹ÀÌ¾îÀÎ°¡ 
 	{
 		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkPlayer, GetLayer() )
 		{
-			bApply = FALSE;	// ì‹œì‘ì€ FALSE
+			bApply = FALSE;	// ½ÃÀÛÀº FALSE
 
 			if( pObj->GetType() != OT_MOVER )
-				Error( "ApplySkillLine : pObjê°€ MOVERê°€ ì•„ë‹ˆë‹¤ %d", pObj->GetType() );
+				Error( "ApplySkillLine : pObj°¡ MOVER°¡ ¾Æ´Ï´Ù %d", pObj->GetType() );
 
-			if( GetType() == OT_MOVER )		// ê³µê²©ìê°€ ë¬´ë²„ëƒ.
+			if( GetType() == OT_MOVER )		// °ø°İÀÚ°¡ ¹«¹ö³Ä.
 			{
 				CMover *pAttacker = (CMover *)this;
-				if( pAttacker->IsPlayer() )			// ê³µê²©ìê°€ í”Œë ˆì´ì–´ëƒ
+				if( pAttacker->IsPlayer() )			// °ø°İÀÚ°¡ ÇÃ·¹ÀÌ¾î³Ä
 				{
 					bApply = TRUE;
 #if __VER >= 8 // __S8_PK
@@ -642,7 +642,7 @@ void	CCtrl::ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *
 					{
 						if( bControl == FALSE && pAttacker->GetHitType( pDefender, bTarget, FALSE ) == HITTYPE_PK )
 							bApply = FALSE;
-//	#ifdef	__JHMA_VER_8_5_2			 // 8.5ì°¨ ë“€ì–¼ì¤‘ì¸ ë‘êµ¬ë£¹ì´ ì—°ê´€ë˜ì§€ì•Šê²Œ ìˆ˜ì •  World
+//	#ifdef	__JHMA_VER_8_5_2			 // 8.5Â÷ µà¾óÁßÀÎ µÎ±¸·ìÀÌ ¿¬°üµÇÁö¾Ê°Ô ¼öÁ¤  World
 						else if( pAttacker->m_nDuel == 1 && pDefender->m_nDuel == 1 && pAttacker->GetHitType( pDefender, bTarget, FALSE ) != HITTYPE_PVP )
 							bApply = FALSE;
 //	#endif // __JHMA_VER_8_5_1	
@@ -650,28 +650,28 @@ void	CCtrl::ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *
 #endif // __VER >= 8 // __S8_PK
 				} else
 				{
-					// ê³µê²©ìê°€ ëª¬ìŠ¤í„°ë©´
+					// °ø°İÀÚ°¡ ¸ó½ºÅÍ¸é
 					bApply = TRUE;		// 
 				}
 			} else
 			{
-				// ê³µê²©ìê°€ ë¬´ë²„ê°€ ì•„ë‹ˆë‹¤.
+				// °ø°İÀÚ°¡ ¹«¹ö°¡ ¾Æ´Ï´Ù.
 				bApply = TRUE;
 			}
 			
-			if( bApply && pObj != this )		// thisëŠ” ê³µê²©ëŒ€ìƒì—ì„œ ì œì™¸.
+			if( bApply && pObj != this )		// this´Â °ø°İ´ë»ó¿¡¼­ Á¦¿Ü.
 			{
 				CMover *pTarget = (CMover *)pObj;
 				if( IsValidObj( pTarget ) && pTarget->IsLive() )
 				{
-					// íƒ€ê²Ÿì¸¡ ì¢Œí‘œë¥¼ ì—­ë³€í™˜.
+					// Å¸°ÙÃø ÁÂÇ¥¸¦ ¿ªº¯È¯.
 					D3DXVec3TransformCoord( &vDestLocal, &pTarget->GetPos(), &mInv );
-					// íƒ€ê²Ÿì¸¡ AABB
+					// Å¸°ÙÃø AABB
 					D3DXVECTOR3 vMin2 = vDestLocal + pTarget->m_pModel->m_vMin;
 					D3DXVECTOR3 vMax2 = vDestLocal + pTarget->m_pModel->m_vMax;
-					if( ::IsTouchAABB( vMin1, vMax1, vMin2, vMax2 ) )		// AABBì¶©ëŒê²€ì‚¬.
+					if( ::IsTouchAABB( vMin1, vMax1, vMin2, vMax2 ) )		// AABBÃæµ¹°Ë»ç.
 					{
-						pTarget->ApplySkill( this, pSkillProp, pAddSkillProp, bIgnoreProb, 0, FALSE, bTarget );		// bTarget íƒ€ê²Ÿì´ ì—†ìœ¼ë¯€ë¡œ FALSEë¡œ ë„£ìŒ. PKì‹œ ì„ ë¹µì„ ì¹ ìˆ˜ì—†ìŒ
+						pTarget->ApplySkill( this, pSkillProp, pAddSkillProp, bIgnoreProb, 0, FALSE, bTarget );		// bTarget Å¸°ÙÀÌ ¾øÀ¸¹Ç·Î FALSE·Î ³ÖÀ½. PK½Ã ¼±»§À» Ä¥¼ö¾øÀ½
 					}
 				}
 			} // bApply
@@ -679,27 +679,27 @@ void	CCtrl::ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *
 		END_LINKMAP
 	}
 
-	// ì ìš©ëŒ€ìƒì´ ëª¬ìŠ¤í„°ì¸ê°€.
+	// Àû¿ë´ë»óÀÌ ¸ó½ºÅÍÀÎ°¡.
 	if( nApplyType & (OBJTYPE_MONSTER | OBJTYPE_CTRL) )
 	{
 		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkDynamic, GetLayer() )
 		{
 			bApply = FALSE;
-			if( pObj->GetType() == OT_MOVER )				// ëŒ€ìƒì´ ë¬´ë²„ë©´.
+			if( pObj->GetType() == OT_MOVER )				// ´ë»óÀÌ ¹«¹ö¸é.
 			{
 				CMover *pTarget = (CMover *)pObj;
-				if( pTarget->IsPeaceful() == FALSE )		// NPCê°€ ì•„ë‹Œê²½ìš°ë§Œ ì ìš©
+				if( pTarget->IsPeaceful() == FALSE )		// NPC°¡ ¾Æ´Ñ°æ¿ì¸¸ Àû¿ë
 					bApply = TRUE;
-#if __VER >= 8 //	#ifdef	__JHMA_VER_8_5_1			 // 8.5ì°¨ ê²½ë¹„ë³‘ ë²”ìœ„ìŠ¤í‚¬ ê³µê²©íš¨ê³¼ ë¶ˆê°€ë¡œ ìˆ˜ì • World
+#if __VER >= 8 //	#ifdef	__JHMA_VER_8_5_1			 // 8.5Â÷ °æºñº´ ¹üÀ§½ºÅ³ °ø°İÈ¿°ú ºÒ°¡·Î ¼öÁ¤ World
 				CMover *pAttacker = (CMover *)this;
 				if( pAttacker->IsPlayer() && pAttacker->IsChaotic() == FALSE && pTarget->GetProp()->dwClass == RANK_GUARD )
 					bApply = FALSE;
-#endif //	#endif // __JHMA_VER_8_5_1			 // 8.5ì°¨ ê²½ë¹„ë³‘ ë²”ìœ„ìŠ¤í‚¬ ê³µê²©íš¨ê³¼ ë¶ˆê°€ë¡œ ìˆ˜ì • World
+#endif //	#endif // __JHMA_VER_8_5_1			 // 8.5Â÷ °æºñº´ ¹üÀ§½ºÅ³ °ø°İÈ¿°ú ºÒ°¡·Î ¼öÁ¤ World
 			} else
-			// ëŒ€ìƒì´ ì»¨íŠ¸ë¡¤ì´ë©´
+			// ´ë»óÀÌ ÄÁÆ®·ÑÀÌ¸é
 			if( pObj->GetType() == OT_CTRL )
 			{
-				if( GetType() == OT_MOVER )			// ê³µê²©ìê°€ ë¬´ë²„ì¼ë•Œë§Œ ì ìš©. ì»¨íŠ¸ë¡¤ì´ ì»¨íŠ¸ë¡¤ì—ê²Œ ì˜í–¥ì„ ì¤„ìˆœ ì—†ë‹¤.
+				if( GetType() == OT_MOVER )			// °ø°İÀÚ°¡ ¹«¹öÀÏ¶§¸¸ Àû¿ë. ÄÁÆ®·ÑÀÌ ÄÁÆ®·Ñ¿¡°Ô ¿µÇâÀ» ÁÙ¼ø ¾ø´Ù.
 					bApply = TRUE;							
 			}
 			
@@ -712,18 +712,18 @@ void	CCtrl::ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *
 
 					if( IsValidObj( pTarget ) && pTarget->IsLive() )
 					{
-						// íƒ€ê²Ÿì¸¡ ì¢Œí‘œë¥¼ ì—­ë³€í™˜.
+						// Å¸°ÙÃø ÁÂÇ¥¸¦ ¿ªº¯È¯.
 						D3DXVec3TransformCoord( &vDestLocal, &pTarget->GetPos(), &mInv );
-						// íƒ€ê²Ÿì¸¡ AABB
+						// Å¸°ÙÃø AABB
 						D3DXVECTOR3 vMin2 = vDestLocal + pTarget->m_pModel->m_vMin;
 						D3DXVECTOR3 vMax2 = vDestLocal + pTarget->m_pModel->m_vMax;
-						if( ::IsTouchAABB( vMin1, vMax1, vMin2, vMax2 ) )		// AABBì¶©ëŒê²€ì‚¬.
+						if( ::IsTouchAABB( vMin1, vMax1, vMin2, vMax2 ) )		// AABBÃæµ¹°Ë»ç.
 						{
-							((CCtrl*)pObj)->ApplySkill( this, pSkillProp, pAddSkillProp, bIgnoreProb );		// ëŒ€ìƒì—ê²Œ íš¨ê³¼ë¥¼ ì ìš©í•¨.
+							((CCtrl*)pObj)->ApplySkill( this, pSkillProp, pAddSkillProp, bIgnoreProb );		// ´ë»ó¿¡°Ô È¿°ú¸¦ Àû¿ëÇÔ.
 						}
 					}
 				} else
-					((CCtrl*)pObj)->ApplySkill( this, pSkillProp, pAddSkillProp, bIgnoreProb );		// ëŒ€ìƒì—ê²Œ íš¨ê³¼ë¥¼ ì ìš©í•¨.
+					((CCtrl*)pObj)->ApplySkill( this, pSkillProp, pAddSkillProp, bIgnoreProb );		// ´ë»ó¿¡°Ô È¿°ú¸¦ Àû¿ëÇÔ.
 			}
 		}
 		END_LINKMAP
@@ -733,14 +733,14 @@ void	CCtrl::ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *
 } // ApplySkillLine()
 
 //
-// idParty ê·¹ë‹¨ëŒ€ìƒ ë²”ìœ„ íš¨ê³¼.
+// idParty ±Ø´Ü´ë»ó ¹üÀ§ È¿°ú.
 //
 int		CCtrl::ApplySkillAroundTroupe(u_long idParty, ItemProp* pSkillProp, AddSkillProp* pAddSkillProp, bool bIgnoreProb)
 {
 	BOOL bRet = FALSE;
 #ifdef __WORLDSERVER
-	if (GetType() != OT_MOVER)		return bRet;	// ë¬´ë²„ê°€ ì•„ë‹Œê²Œ ê·¹ë‹¨ìŠ¤í‚¬ì„ ì¼ì„ë¦¬ ì—†ë‹¤.
-	if (((CMover*)this)->IsPlayer() == FALSE)		return bRet;	// í”Œë ˆì´ì–´ê°€ ì•„ë‹Œê²Œ ê·¹ë‹¨ìŠ¤í‚¬ì„ ì¼ì„ë¦¬ ì—†ë‹¤.
+	if (GetType() != OT_MOVER)		return bRet;	// ¹«¹ö°¡ ¾Æ´Ñ°Ô ±Ø´Ü½ºÅ³À» ½èÀ»¸® ¾ø´Ù.
+	if (((CMover*)this)->IsPlayer() == FALSE)		return bRet;	// ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ñ°Ô ±Ø´Ü½ºÅ³À» ½èÀ»¸® ¾ø´Ù.
 
 	CParty* pParty = g_PartyMng.GetParty(idParty);
 	if (pParty)
@@ -789,27 +789,27 @@ int		CCtrl::ApplySkillAroundTroupe(u_long idParty, ItemProp* pSkillProp, AddSkil
 }
 
 //
-// ApplySkill ë‚´ë¶€ì—ì„œ ìŠ¤í‚¬ì˜ í•˜ë“œì½”ë”© ì²˜ë¦¬ë¶€.
+// ApplySkill ³»ºÎ¿¡¼­ ½ºÅ³ÀÇ ÇÏµåÄÚµù Ã³¸®ºÎ.
 // this : Target
-// pSrc : ì‹œì „ì.
+// pSrc : ½ÃÀüÀÚ.
 //
 BOOL CCtrl::ApplySkillHardCoding( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp )
 {
 #ifdef __WORLDSERVER
 	switch( pSkillProp->dwID )
 	{
-	case SI_ASS_HEAL_RESURRECTION:		// ë¶€í™œ
+	case SI_ASS_HEAL_RESURRECTION:		// ºÎÈ°
 		if( GetType() == OT_MOVER )
 		{
 			CMover *pTarget = (CMover *)this;
-			if( pTarget->IsPlayer() && pTarget->IsDie() )	// í”Œë ˆì´ì–´ì´ê³  íƒ€ê²Ÿì´ ì£½ì–´ìˆì„ë•Œ
+			if( pTarget->IsPlayer() && pTarget->IsDie() )	// ÇÃ·¹ÀÌ¾îÀÌ°í Å¸°ÙÀÌ Á×¾îÀÖÀ»¶§
 			{
 				if( pTarget->m_pActMover->GetDmgState() == OBJSTA_RESURRECTION )
 				{
-					return FALSE;		// ì´ë¯¸ ë¶€í™œì¤‘ì¸ ì‚¬ëŒì—ê²Œ ì“´ê±°ë¼ë©´ ì·¨ì†Œ.
+					return FALSE;		// ÀÌ¹Ì ºÎÈ°ÁßÀÎ »ç¶÷¿¡°Ô ¾´°Å¶ó¸é Ãë¼Ò.
 				} else
 				{
-					g_dpDBClient.SendLogLevelUp( pTarget, 10 );	// ë¶€í™œ ìŠ¤í‚¬ ë¡œê·¸
+					g_dpDBClient.SendLogLevelUp( pTarget, 10 );	// ºÎÈ° ½ºÅ³ ·Î±×
 
 					if( ((CUser *)this)->m_Resurrection_Data.bUseing != TRUE )
 					{
@@ -824,9 +824,9 @@ BOOL CCtrl::ApplySkillHardCoding( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillPro
 					break;
 				}
 
-				// ë¶€í™œë•Œ DST_RECOVERY_EXPê°€ ìˆìœ¼ë©´ ê²¸ì¹˜ê°€ ì¡°ê¸ˆ ê¹ì„.
+				// ºÎÈ°¶§ DST_RECOVERY_EXP°¡ ÀÖÀ¸¸é °âÄ¡°¡ Á¶±İ ±ğÀÓ.
 				if( pAddSkillProp->dwDestParam2 == DST_RECOVERY_EXP )
-					pTarget->SubDieDecExp(TRUE, pAddSkillProp->nAdjParamVal2 );	// ë¶€í™œì´ ë˜ë©´ì„œ ê²¸ì¹˜ê°€ ì¡°ê¸ˆ ê¹ì„.
+					pTarget->SubDieDecExp(TRUE, pAddSkillProp->nAdjParamVal2 );	// ºÎÈ°ÀÌ µÇ¸é¼­ °âÄ¡°¡ Á¶±İ ±ğÀÓ.
 			}
 		}
 		break;
@@ -844,8 +844,8 @@ void CCtrl::CreateYoyoSkill( CSfx* pSfx, CCtrl *pTarget, ItemProp *pSkillProp, A
 	{
 		D3DXVECTOR3 vPos;
 		D3DXVECTOR3 vLocal;
-		D3DXVECTOR3 vPosSrc   = GetPos() + D3DXVECTOR3( 0.0f, 1.0f, 0.0f ); // ë°œì‚¬ ì§€ì ì„ ì„ì˜ë¡œ ì˜¬ë ¤ì¤€ë‹¤. ë•œë¹µ 
-		D3DXVECTOR3 vPosDest  = pTarget->GetPos() + D3DXVECTOR3( 0.0f, 1.0f, 0.0f ); // ëª©í‘œ ì§€ì ì„ ì„ì˜ë¡œ ì˜¬ë ¤ì¤€ë‹¤. ë•œë¹µ 
+		D3DXVECTOR3 vPosSrc   = GetPos() + D3DXVECTOR3( 0.0f, 1.0f, 0.0f ); // ¹ß»ç ÁöÁ¡À» ÀÓÀÇ·Î ¿Ã·ÁÁØ´Ù. ¶«»§ 
+		D3DXVECTOR3 vPosDest  = pTarget->GetPos() + D3DXVECTOR3( 0.0f, 1.0f, 0.0f ); // ¸ñÇ¥ ÁöÁ¡À» ÀÓÀÇ·Î ¿Ã·ÁÁØ´Ù. ¶«»§ 
 		
 		CModelObject *pModel = (CModelObject *)m_pModel;
 		
@@ -881,18 +881,18 @@ void CCtrl::CreateYoyoSkill( CSfx* pSfx, CCtrl *pTarget, ItemProp *pSkillProp, A
 #endif //__CLIENT
 
 //
-// ìŠ¤í‚¬ì„ ì¼ì„ë•Œ í´ë¼ì—ì„œ ìƒì„±í•´ì•¼í•  sfx ì²˜ë¦¬
+// ½ºÅ³À» ½èÀ»¶§ Å¬¶ó¿¡¼­ »ı¼ºÇØ¾ßÇÒ sfx Ã³¸®
 //
 void CCtrl::CreateSkillSfx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp )
 {
 #ifdef __CLIENT
 		
 	{
-		// ë°œì‚¬ì²´ í˜•íƒœê°€ ì•„ë‹ˆë‹¤.
+		// ¹ß»çÃ¼ ÇüÅÂ°¡ ¾Æ´Ï´Ù.
 		CSfx *pSfx = NULL;
-		if( (int)pAddSkillProp->dwSkillTime > 0 )	// ì§€ì†ì‹œê°„ì´ ìˆëŠ” ìŠ¤í‚¬ì€
+		if( (int)pAddSkillProp->dwSkillTime > 0 )	// Áö¼Ó½Ã°£ÀÌ ÀÖ´Â ½ºÅ³Àº
 		{
-			if( pSkillProp->dwSfxObj4 == NULL_ID )		// ì´í™ì´ ìœ ì§€ë˜ëŠ” ìŠ¤í‚¬ì´ ì•„ë‹ê²½ìš°ì—ë§Œ.
+			if( pSkillProp->dwSfxObj4 == NULL_ID )		// ÀÌÆåÀÌ À¯ÁöµÇ´Â ½ºÅ³ÀÌ ¾Æ´Ò°æ¿ì¿¡¸¸.
 			{
 				if( pSkillProp->dwExeTarget == EXT_MELEEATK )
 				{
@@ -905,24 +905,24 @@ void CCtrl::CreateSkillSfx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 					}
 					else
 					{
-						AngleToVectorXZ( &vLocal, GetAngle(), 1.3f );	// ë•Œë¦¬ëŠ”ë°©í–¥ 1ë¯¸í„°ì•.
+						AngleToVectorXZ( &vLocal, GetAngle(), 1.3f );	// ¶§¸®´Â¹æÇâ 1¹ÌÅÍ¾Õ.
 						vLocal += GetPos();
 						vLocal.y += 1.0f;
 					}
 
 					pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj3, GetPos(), GetId(), vLocal, pTarget->GetId(), 0 );
 					
-					if( pSkillProp->dwSfxObj5 != NULL_ID )		// ì‹œì „ìì—ê²Œ ë°œìƒ
-						pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj5, GetPos(), GetId(), this->GetPos(), this->GetId(), 0 );  // 5ë²ˆ ì´í™íŠ¸ë¥¼ ì¶œë ¥í•¨.
+					if( pSkillProp->dwSfxObj5 != NULL_ID )		// ½ÃÀüÀÚ¿¡°Ô ¹ß»ı
+						pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj5, GetPos(), GetId(), this->GetPos(), this->GetId(), 0 );  // 5¹ø ÀÌÆåÆ®¸¦ Ãâ·ÂÇÔ.
 				} else
 				{
-					if( pSkillProp->dwSfxObj3 != NULL_ID )		// íƒ€ê²Ÿì—ê²Œ ë°œìƒ
-						pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj3, GetPos(), GetId(), pTarget->GetPos(), pTarget->GetId(), 0 );  // 3ë²ˆ ì´í™íŠ¸ë¥¼ ì¶œë ¥í•¨.
-					if( pSkillProp->dwSfxObj5 != NULL_ID )		// ì‹œì „ìì—ê²Œ ë°œìƒ
-						pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj5, GetPos(), GetId(), this->GetPos(), this->GetId(), 0 );  // 5ë²ˆ ì´í™íŠ¸ë¥¼ ì¶œë ¥í•¨.
+					if( pSkillProp->dwSfxObj3 != NULL_ID )		// Å¸°Ù¿¡°Ô ¹ß»ı
+						pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj3, GetPos(), GetId(), pTarget->GetPos(), pTarget->GetId(), 0 );  // 3¹ø ÀÌÆåÆ®¸¦ Ãâ·ÂÇÔ.
+					if( pSkillProp->dwSfxObj5 != NULL_ID )		// ½ÃÀüÀÚ¿¡°Ô ¹ß»ı
+						pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj5, GetPos(), GetId(), this->GetPos(), this->GetId(), 0 );  // 5¹ø ÀÌÆåÆ®¸¦ Ãâ·ÂÇÔ.
 				}
 
-				if( pSkillProp->dwLinkKind == IK3_YOYO )  //ìš”ìš”ëŠ” ì•„ì´í…œí”„ë¡œí¼í‹°ì°¸ì¡°í•˜ì—¬ ì´í™íŠ¸ ìƒì„±(ì˜ˆì™¸ì²˜ë¦¬)
+				if( pSkillProp->dwLinkKind == IK3_YOYO )  //¿ä¿ä´Â ¾ÆÀÌÅÛÇÁ·ÎÆÛÆ¼ÂüÁ¶ÇÏ¿© ÀÌÆåÆ® »ı¼º(¿¹¿ÜÃ³¸®)
 				{
 				#ifdef __CLIENT
 					CreateYoyoSkill( pSfx, pTarget, pSkillProp, pAddSkillProp );
@@ -932,22 +932,22 @@ void CCtrl::CreateSkillSfx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 			{
 				if( GetType() == OT_MOVER )
 				{
-					if( pSkillProp->dwSkillType == NULL_ID )	// NULL_IDë©´ ì•„ì´í…œë“¤
+					if( pSkillProp->dwSkillType == NULL_ID )	// NULL_ID¸é ¾ÆÀÌÅÛµé
 					{
-						if( ((CMover *)this)->HasBuff( BUFF_ITEM, (WORD)( pSkillProp->dwID ) ) == FALSE )	// ì´ë¯¸ ì‹¤í–‰ë˜ê³  ìˆì§€ ì•Šì„ë•Œë§Œ ì´í™ ì¶œë ¥
+						if( ((CMover *)this)->HasBuff( BUFF_ITEM, (WORD)( pSkillProp->dwID ) ) == FALSE )	// ÀÌ¹Ì ½ÇÇàµÇ°í ÀÖÁö ¾ÊÀ»¶§¸¸ ÀÌÆå Ãâ·Â
 							CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj4, this->GetPos(), this->GetId(), pTarget->GetPos(), pTarget->GetId(), (int)(pAddSkillProp->dwSkillTime / 1000.0f) );
 					} else
 					{
-						// ì´ë¯¸ ì‹¤í–‰ë˜ê³  ìˆì§€ ì•Šì„ë•Œë§Œ ì´í™ ì¶œë ¥
+						// ÀÌ¹Ì ½ÇÇàµÇ°í ÀÖÁö ¾ÊÀ»¶§¸¸ ÀÌÆå Ãâ·Â
 						if( ((CMover *)this)->HasBuff( BUFF_SKILL, (WORD)( pSkillProp->dwID ) ) == FALSE
-							&& pSkillProp->dwID != SI_MER_SHIELD_PROTECTION && pSkillProp->dwID != SI_MER_SHIELD_PANBARRIER )	// 091022 mirchang - ì—¬ê¸°ì„œ ë¨¼ì € ìƒì„± í›„ IBuff.Processì—ì„œ sfxë¥¼ ë‹¤ì‹œ ìƒì„±í•˜ëŠ” ë¬¸ì œ ë°œìƒ. ë•œë¹µ.
+							&& pSkillProp->dwID != SI_MER_SHIELD_PROTECTION && pSkillProp->dwID != SI_MER_SHIELD_PANBARRIER )	// 091022 mirchang - ¿©±â¼­ ¸ÕÀú »ı¼º ÈÄ IBuff.Process¿¡¼­ sfx¸¦ ´Ù½Ã »ı¼ºÇÏ´Â ¹®Á¦ ¹ß»ı. ¶«»§.
 							CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj4, this->GetPos(), this->GetId(), pTarget->GetPos(), pTarget->GetId(), (int)(pAddSkillProp->dwSkillTime / 1000.0f) );
 					}
 				}
 			}
 		} else
-		{	// ì§€ì†ì‹œê°„ ì—†ëŠ” ìŠ¤í‚¬
-			if( pSkillProp->dwExeTarget == EXT_MELEEATK )	// ê·¼ì ‘ê³µê²© ìŠ¤í‚¬ì˜ íƒ€ê²© ì´í™íŠ¸.
+		{	// Áö¼Ó½Ã°£ ¾ø´Â ½ºÅ³
+			if( pSkillProp->dwExeTarget == EXT_MELEEATK )	// ±ÙÁ¢°ø°İ ½ºÅ³ÀÇ Å¸°İ ÀÌÆåÆ®.
 			{
 				if( pSkillProp->dwSfxObj3 != NULL_ID )	
 				{
@@ -960,12 +960,12 @@ void CCtrl::CreateSkillSfx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 					}
 					else
 					{
-						AngleToVectorXZ( &vLocal, GetAngle(), 1.3f );	// ë•Œë¦¬ëŠ”ë°©í–¥ 1ë¯¸í„°ì•.
-						vLocal += GetPos();		// GetPos()ë¥¼ thisì—ì„œ pTargetìœ¼ë¡œ ë°”ê¿¨ë‹¤. 2006/6/20 xuzhu.
+						AngleToVectorXZ( &vLocal, GetAngle(), 1.3f );	// ¶§¸®´Â¹æÇâ 1¹ÌÅÍ¾Õ.
+						vLocal += GetPos();		// GetPos()¸¦ this¿¡¼­ pTargetÀ¸·Î ¹Ù²å´Ù. 2006/6/20 xuzhu.
 						vLocal.y += 1.0f;
 					}
 
-					pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj3, vLocal, GetId(), vLocal, pTarget->GetId(), 0 );	// 2006/6/20 xuzhu ê°€ ë°”ê¿ˆ.
+					pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj3, vLocal, GetId(), vLocal, pTarget->GetId(), 0 );	// 2006/6/20 xuzhu °¡ ¹Ù²Ş.
 				}
 			} else
 			{
@@ -977,20 +977,20 @@ void CCtrl::CreateSkillSfx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 				}
 			}
 
-			if( pSkillProp->dwLinkKind == IK3_YOYO )  //ìš”ìš”ëŠ” ì•„ì´í…œí”„ë¡œí¼í‹°ì°¸ì¡°í•˜ì—¬ ì´í™íŠ¸ ìƒì„±(ì˜ˆì™¸ì²˜ë¦¬)
+			if( pSkillProp->dwLinkKind == IK3_YOYO )  //¿ä¿ä´Â ¾ÆÀÌÅÛÇÁ·ÎÆÛÆ¼ÂüÁ¶ÇÏ¿© ÀÌÆåÆ® »ı¼º(¿¹¿ÜÃ³¸®)
 			{
 			#ifdef __CLIENT
 				CreateYoyoSkill( pSfx, pTarget, pSkillProp, pAddSkillProp );
 			#endif
 			}
 			else
-			if( pSkillProp->dwSfxObj5 != NULL_ID )		// ì‹œì „ìì—ê²Œ ë°œìƒ
-				pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj5, GetPos(), GetId(), this->GetPos(), this->GetId(), 0 );  // 5ë²ˆ ì´í™íŠ¸ëŠ” ì‹œì „ì ìì‹ ì—ê²Œ ì¶œë ¥
+			if( pSkillProp->dwSfxObj5 != NULL_ID )		// ½ÃÀüÀÚ¿¡°Ô ¹ß»ı
+				pSfx = CreateSfx( D3DDEVICE, pSkillProp->dwSfxObj5, GetPos(), GetId(), this->GetPos(), this->GetId(), 0 );  // 5¹ø ÀÌÆåÆ®´Â ½ÃÀüÀÚ ÀÚ½Å¿¡°Ô Ãâ·Â
 		}
 		if( pSfx )
 		{
 			D3DXVECTOR3 vPos = GetPos();
-			PLAYSND( pSkillProp->dwSndAttack1, &vPos );		// ë°œì‚¬ íš¨ê³¼ìŒ.
+			PLAYSND( pSkillProp->dwSndAttack1, &vPos );		// ¹ß»ç È¿°úÀ½.
 		}
 			
 		//dwSkillRange
@@ -1005,18 +1005,18 @@ void CCtrl::CreateSkillSfx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 } // CreateSkillSfx
 
 
-// ApplySkill ë‚´ë¶€ì—ì„œ ë°ë¯¸ì§€ ì£¼ëŠ”ë¶€ë¶„ë§Œ ë¹ ì§.
+// ApplySkill ³»ºÎ¿¡¼­ µ¥¹ÌÁö ÁÖ´ÂºÎºĞ¸¸ ºüÁü.
 int		CCtrl::ApplyDamage( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, int nParam, BOOL bTarget ) 
 {
 	int nDamage = 0;
-	// ë°ë¯¸ì§€ë¥˜ ìŠ¤í‚¬ì˜ ë°ë¯¸ì§€ ì „ë‹¬.
+	// µ¥¹ÌÁö·ù ½ºÅ³ÀÇ µ¥¹ÌÁö Àü´Ş.
 	switch( pSkillProp->dwExeTarget )
 	{
-	case EXT_MELEEATK:		// ê·¼ì ‘ìŠ¤í‚¬ë°ë¯¸ì§€ê³µê²©
-	case EXT_MAGICATK:			// ì¦‰ì‹œë§ˆë²•ë°ë¯¸ì§€ê³µê²©
+	case EXT_MELEEATK:		// ±ÙÁ¢½ºÅ³µ¥¹ÌÁö°ø°İ
+	case EXT_MAGICATK:			// Áï½Ã¸¶¹ıµ¥¹ÌÁö°ø°İ
 	case EXT_MAGICATKSHOT:
 		{
-			if( pSkillProp->dwID == SI_MAG_FIRE_HOTAIR )	// í•«ì—ì–´ ë•œë¹µì²˜ë¦¬.
+			if( pSkillProp->dwID == SI_MAG_FIRE_HOTAIR )	// ÇÖ¿¡¾î ¶«»§Ã³¸®.
 			{
 				nDamage = SendDamage( AF_MAGICSKILL, pSrc->GetId(), nParam, bTarget );
 			} else
@@ -1037,15 +1037,15 @@ int		CCtrl::ApplyDamage( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSk
 	return nDamage;
 }
 
-// ì ìš©ê°€ëŠ¥í•œ ìŠ¤í‚¬ì´ëƒ?
+// Àû¿ë°¡´ÉÇÑ ½ºÅ³ÀÌ³Ä?
 BOOL CCtrl::IsPossibleApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp )
 {
 	return TRUE;
 }
 
-// pSkillPropì„ thisì— ì ìš©í•œë‹¤.  ë°ë¯¸ì§€ê°€ ë ìˆ˜ë„ ìˆê³ . ìƒíƒœë³€í™”ê°€ ë ìˆ˜ë„ìˆë‹¤.
-// pSrcëŠ” ì‹œì „ì(í˜¹ì€ ì–´íƒœì»¤)
-// pAddSkillPropì€ NULLì¼ìˆ˜ë„ ìˆìŒì„ ì£¼ì˜.
+// pSkillPropÀ» this¿¡ Àû¿ëÇÑ´Ù.  µ¥¹ÌÁö°¡ µÉ¼öµµ ÀÖ°í. »óÅÂº¯È­°¡ µÉ¼öµµÀÖ´Ù.
+// pSrc´Â ½ÃÀüÀÚ(È¤Àº ¾îÅÂÄ¿)
+// pAddSkillPropÀº NULLÀÏ¼öµµ ÀÖÀ½À» ÁÖÀÇ.
 void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProb, int nParam, BOOL bOnlyDmg, BOOL bTarget )
 {
 #ifdef __PK_PVP_SKILL_REGION
@@ -1078,52 +1078,52 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 		}
 	}
 #endif // __PK_PVP_SKILL_REGION
-	// ì ìš©ê°€ëŠ¥í•œ ìŠ¤í‚¬ì´ëƒ?
+	// Àû¿ë°¡´ÉÇÑ ½ºÅ³ÀÌ³Ä?
 	if( IsPossibleApplySkill( pSrc, pSkillProp, pAddSkillProp ) == FALSE )
 		return;
 
-	// ë°ë¯¸ì§€ì†ì„±ì´ ìˆì„ê²½ìš° ê·¸ê²ƒì„ ì²˜ë¦¬.
+	// µ¥¹ÌÁö¼Ó¼ºÀÌ ÀÖÀ»°æ¿ì ±×°ÍÀ» Ã³¸®.
 	int nDamage = ApplyDamage( pSrc, pSkillProp, pAddSkillProp, nParam, bTarget );
 	if( bOnlyDmg == TRUE )		
 		return;
 
 #if __VER >= 10	// __AI_0711
-	// ì¤€ë³´ìŠ¤ ëª¬ìŠ¤í„°ëŠ” ëª¨ë“  ë””ë²„í”„ ë©´ì—­
+	// ÁØº¸½º ¸ó½ºÅÍ´Â ¸ğµç µğ¹öÇÁ ¸é¿ª
 	if( GetType() == OT_MOVER )
 	{
 		if( ( (CMover*)this )->IsRank( RANK_MIDBOSS ) )
 		{
-			// ë©´ì—­ ì´í™íŠ¸
+			// ¸é¿ª ÀÌÆåÆ®
 			return;
 		}
 	}
 #endif	// __AI_0711
 
 #if defined(__WORLDSERVER)
-	if( this != pSrc && pSrc->GetType() == OT_MOVER && GetType() == OT_MOVER )		// ê´‘ì—­ ë””ë²„í”„ ì¤‘ íƒ€ê²Ÿì´ì•„ë‹ˆë©´ skip
+	if( this != pSrc && pSrc->GetType() == OT_MOVER && GetType() == OT_MOVER )		// ±¤¿ª µğ¹öÇÁ Áß Å¸°ÙÀÌ¾Æ´Ï¸é skip
 	{
 		if( ((CMover *)this)->IsDie() == FALSE )
 		{
 #if __VER >= 8 // __S8_PK
-			if( pSkillProp->nEvildoing < 0 )													// ë‚˜ìœë§ˆë²•ì€
-				if( ((CMover *)pSrc)->GetHitType2(((CMover *)this), bTarget, FALSE ) == HITTYPE_FAIL )  	// í‰í™”ì ì¸ìƒëŒ€ì—ê²Œ
-					return;																			// ì ìš©ì•ˆë¨
+			if( pSkillProp->nEvildoing < 0 )													// ³ª»Û¸¶¹ıÀº
+				if( ((CMover *)pSrc)->GetHitType2(((CMover *)this), bTarget, FALSE ) == HITTYPE_FAIL )  	// ÆòÈ­ÀûÀÎ»ó´ë¿¡°Ô
+					return;																			// Àû¿ë¾ÈµÊ
 #ifdef __JEFF_11_4
 			CWorld* pWorld	= pSrc->GetWorld();
-			if(  pWorld && pWorld->IsArena() == FALSE )		// ì•„ë ˆë‚˜ê°€ ì•„ë‹ˆë©´,
+			if(  pWorld && pWorld->IsArena() == FALSE )		// ¾Æ·¹³ª°¡ ¾Æ´Ï¸é,
 #endif	// __JEFF_11_4
 			{
-				if( pSkillProp->nEvildoing > 0 )													// ì¢‹ì€ ë§ˆë²•ì€
-					if( ((CMover *)pSrc)->GetHitType2(((CMover *)this), bTarget, TRUE ) != HITTYPE_FAIL )  	// ì ëŒ€ì ì¸ìƒëŒ€ì—ê²Œ
-						return;																			// ì ìš©ì•ˆë¨
+				if( pSkillProp->nEvildoing > 0 )													// ÁÁÀº ¸¶¹ıÀº
+					if( ((CMover *)pSrc)->GetHitType2(((CMover *)this), bTarget, TRUE ) != HITTYPE_FAIL )  	// Àû´ëÀûÀÎ»ó´ë¿¡°Ô
+						return;																			// Àû¿ë¾ÈµÊ
 			}
 #else // __VER >= 8 // __S8_PK
-			if( pSkillProp->nEvildoing < 0 )													// ë‚˜ìœë§ˆë²•ì€
-				if( ((CMover *)pSrc)->GetHitType2(((CMover *)this), bTarget ) == HITTYPE_FAIL )  	// í‰í™”ì ì¸ìƒëŒ€ì—ê²Œ
-					return;																			// ì ìš©ì•ˆë¨
-			if( pSkillProp->nEvildoing > 0 )													// ì¢‹ì€ ë§ˆë²•ì€
-				if( ((CMover *)pSrc)->GetHitType2(((CMover *)this), bTarget ) != HITTYPE_FAIL )  	// ì ëŒ€ì ì¸ìƒëŒ€ì—ê²Œ
-					return;																			// ì ìš©ì•ˆë¨
+			if( pSkillProp->nEvildoing < 0 )													// ³ª»Û¸¶¹ıÀº
+				if( ((CMover *)pSrc)->GetHitType2(((CMover *)this), bTarget ) == HITTYPE_FAIL )  	// ÆòÈ­ÀûÀÎ»ó´ë¿¡°Ô
+					return;																			// Àû¿ë¾ÈµÊ
+			if( pSkillProp->nEvildoing > 0 )													// ÁÁÀº ¸¶¹ıÀº
+				if( ((CMover *)pSrc)->GetHitType2(((CMover *)this), bTarget ) != HITTYPE_FAIL )  	// Àû´ëÀûÀÎ»ó´ë¿¡°Ô
+					return;																			// Àû¿ë¾ÈµÊ
 #endif // __VER >= 8 // __S8_PK
 		}
 		else
@@ -1152,12 +1152,12 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 #endif	// __SKILL_0706
 	}
 
-	if( bIgnoreProb )	// í™•ë¥ ë¬´ì‹œì˜µì´ ìˆìœ¼ë©´ ë¬´ì¡°ê±´ 100%
+	if( bIgnoreProb )	// È®·ü¹«½Ã¿ÉÀÌ ÀÖÀ¸¸é ¹«Á¶°Ç 100%
 		nProb = NULL_ID;
 	
-	if( nProb == NULL_ID || (int)( xRandom(100) ) < nProb  )		// ì ìš© í™•ë¥ , =ë¡œ ë˜ì–´ ìˆìœ¼ë©´ 100% ì ìš©
+	if( nProb == NULL_ID || (int)( xRandom(100) ) < nProb  )		// Àû¿ë È®·ü, =·Î µÇ¾î ÀÖÀ¸¸é 100% Àû¿ë
 	{
-		if( GetType() == OT_MOVER )		// íƒ€ê²Ÿì´ ë¬´ë²„ì¼ë•Œë§Œ ì§€ì†ì‹œê°„ ì²˜ë¦¬
+		if( GetType() == OT_MOVER )		// Å¸°ÙÀÌ ¹«¹öÀÏ¶§¸¸ Áö¼Ó½Ã°£ Ã³¸®
 		{
 			int nSkillTime = 0;
 			if( pAddSkillProp )		
@@ -1165,17 +1165,17 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 			else					
 				nSkillTime = (int)pSkillProp->dwSkillTime;
 
-			BOOL bNew = TRUE;	// ìŠ¤í‚¬ì´ ì²¨ ì ìš©ëëŠ”ê°€.
+			BOOL bNew = TRUE;	// ½ºÅ³ÀÌ Ã· Àû¿ëµÆ´Â°¡.
 #if __VER >= 8 //__Y_FLAG_SKILL_BUFF
-			if( nSkillTime >= 0 )	// ì§€ì†ì‹œê°„ì´ ìˆëŠ” ìŠ¤í‚¬(í”„ë¡œí…ì…˜ ë“±)
+			if( nSkillTime >= 0 )	// Áö¼Ó½Ã°£ÀÌ ÀÖ´Â ½ºÅ³(ÇÁ·ÎÅØ¼Ç µî)
 #else //__Y_FLAG_SKILL_BUFF
-			if( nSkillTime > 0 )	// ì§€ì†ì‹œê°„ì´ ìˆëŠ” ìŠ¤í‚¬(í”„ë¡œí…ì…˜ ë“±)					
+			if( nSkillTime > 0 )	// Áö¼Ó½Ã°£ÀÌ ÀÖ´Â ½ºÅ³(ÇÁ·ÎÅØ¼Ç µî)					
 #endif //__Y_FLAG_SKILL_BUFF
 			{
 				DWORD dwTime1 = 0, dwTime2 = 0;
 				if( pSkillProp->dwReferTarget1 == RT_TIME || pSkillProp->dwReferTarget2 == RT_TIME )
 				{
-					if( pSrc->GetType() == OT_MOVER )		// ì‹œì „ìê°€ ë¬´ë²„ì¼ë•Œë§Œ.
+					if( pSrc->GetType() == OT_MOVER )		// ½ÃÀüÀÚ°¡ ¹«¹öÀÏ¶§¸¸.
 						((CMover *)pSrc)->SubReferTime( &dwTime1, &dwTime2, pSkillProp, pAddSkillProp );
 				}
 
@@ -1185,7 +1185,7 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 				else										
 					wType = BUFF_SKILL;
 
-				// pTargetì€ thisê°€ ë ìˆ˜ë„ìˆê³  íƒ€ì¸ì´ ë ìˆ˜ë„ ìˆë‹¤.
+				// pTargetÀº this°¡ µÉ¼öµµÀÖ°í Å¸ÀÎÀÌ µÉ¼öµµ ÀÖ´Ù.
 			#if defined(__WORLDSERVER)
 				int nLevel = 0;
 				if( pAddSkillProp )		
@@ -1193,11 +1193,11 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 				else					
 					nLevel = 0;
 
-				// dwSkillTimeì´ ìŠ¤í‚¬ìì²´ì˜ ì§€ì†ì‹œê°„ìœ¼ë¡œë„ ì“°ì´ê³  ë¶€ê°€íš¨ê³¼ì˜ ì§€ì†ì‹œê°„ìœ¼ë¡œë„ ì“°ì´ê¸°ë•Œë¬¸ì— ì´ëŸ°êµ¬ì¡°ëŠ” ë§ì§€ ì•Šë‹¤
-				// ì´ëŒ€ë¡œë¼ë©´ ë²„ë‹í•„ë“œë„ ë²„í”„ì²˜ëŸ¼ ê±¸ë ¤ë²„ë¦°ë‹¤.
+				// dwSkillTimeÀÌ ½ºÅ³ÀÚÃ¼ÀÇ Áö¼Ó½Ã°£À¸·Îµµ ¾²ÀÌ°í ºÎ°¡È¿°úÀÇ Áö¼Ó½Ã°£À¸·Îµµ ¾²ÀÌ±â¶§¹®¿¡ ÀÌ·±±¸Á¶´Â ¸ÂÁö ¾Ê´Ù
+				// ÀÌ´ë·Î¶ó¸é ¹ö´×ÇÊµåµµ ¹öÇÁÃ³·³ °É·Á¹ö¸°´Ù.
 				// bNew = ((CMover *)this)->m_SkillState.Set( wType, pSkillProp->dwID, nLevel, nSkillTime + (int)dwTime1 + (int)dwTime2 );	
 				if( pSkillProp->dwID == SI_ELE_FIRE_BURINGFIELD )
-					bNew = FALSE;	//  ë²„ë‹í•„ë“œëŠ” ì˜ˆì™¸ì²˜ë¦¬ 
+					bNew = FALSE;	//  ¹ö´×ÇÊµå´Â ¿¹¿ÜÃ³¸® 
 				else
 #ifdef __PVPDEBUFSKILL
 					bNew	= static_cast<CMover*>( this )->AddBuff( wType, (WORD)( pSkillProp->dwID ), nLevel, nSkillTime + (int)dwTime1 + (int)dwTime2, pSrc->GetId() );
@@ -1211,23 +1211,23 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 			#endif // Client
 			}
 			
-			// ìµœì´ˆ ì ìš©ëœ ìŠ¤í‚¬ì—ë§Œ
-			if( bNew )	// ì´ë¯¸ ê±¸ë ¤ìˆëŠ” ìƒíƒœì—ì„œ ë˜ ì“°ë©´ bNewëŠ” FALSEê°€ ëœë‹¤.
+			// ÃÖÃÊ Àû¿ëµÈ ½ºÅ³¿¡¸¸
+			if( bNew )	// ÀÌ¹Ì °É·ÁÀÖ´Â »óÅÂ¿¡¼­ ¶Ç ¾²¸é bNew´Â FALSE°¡ µÈ´Ù.
 			{
 			#ifdef __WORLDSERVER
-				// ìŠ¤í‚¬ì¤‘ ì˜ˆì™¸ì²˜ë¦¬ í•´ì•¼í• ê²ƒì„ ì²˜ë¦¬í•¨.
+				// ½ºÅ³Áß ¿¹¿ÜÃ³¸® ÇØ¾ßÇÒ°ÍÀ» Ã³¸®ÇÔ.
 				if( ApplySkillHardCoding( pSrc, pSkillProp, pAddSkillProp ) == FALSE )
 					return;
 
-				// ë¶€í™œìŠ¤í‚¬ì…‹íŒ…ì´ ë˜ì–´ìˆë‹¤ë©´ ì•„ë«ê²ƒë“¤ ë¬´ì‹œ
+				// ºÎÈ°½ºÅ³¼ÂÆÃÀÌ µÇ¾îÀÖ´Ù¸é ¾Æ·§°Íµé ¹«½Ã
 				if( ((CMover *)this)->m_Resurrection_Data.bUseing )
 					return;
 
-				// ë°ë¯¸ì§€ë„ ì£¼ë©´ì„œ íŒŒë¼ë©”í„°ë„ ë³€í•˜ëŠ” ìŠ¤í‚¬ì´ ìˆê¸°ë•œì— ë°ë¯¸ì§€ë‘ ë”°ë¡œ ì²˜ë¦¬.
+				// µ¥¹ÌÁöµµ ÁÖ¸é¼­ ÆÄ¶ó¸ŞÅÍµµ º¯ÇÏ´Â ½ºÅ³ÀÌ ÀÖ±â¶«¿¡ µ¥¹ÌÁö¶û µû·Î Ã³¸®.
 				switch( pSkillProp->dwExeTarget )
 				{
-				case EXT_SELFCHGPARAMET:		// ì‹œì „ì ìì‹ .
-					if( pSrc->GetType() == OT_MOVER )	// íƒ€ê²Ÿ(ì—¬ê¸°ì„  íƒ€ê²Ÿì´ ì‹œì „ì)ì´ ë¬´ë²„ì¼ë•Œë§Œ...
+				case EXT_SELFCHGPARAMET:		// ½ÃÀüÀÚ ÀÚ½Å.
+					if( pSrc->GetType() == OT_MOVER )	// Å¸°Ù(¿©±â¼± Å¸°ÙÀÌ ½ÃÀüÀÚ)ÀÌ ¹«¹öÀÏ¶§¸¸...
 						((CMover *)pSrc)->ApplyParam( (CMover *)pSrc, pSkillProp, pAddSkillProp, TRUE, nDamage );
 					break;
 				case EXT_OBJCHGPARAMET:
@@ -1235,14 +1235,14 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 				case EXT_ANOTHER:
 				case EXT_ANOTHERWITH:
 				default:
-					if( this->GetType() == OT_MOVER )	// íƒ€ê²Ÿì´ ë¬´ë²„ì¼ë•Œë§Œ.
+					if( this->GetType() == OT_MOVER )	// Å¸°ÙÀÌ ¹«¹öÀÏ¶§¸¸.
 						((CMover *)this)->ApplyParam( (CMover *)pSrc, pSkillProp, pAddSkillProp, TRUE , nDamage );
 					break;
 				}
 
 				if( this->GetType() == OT_MOVER )
 				{
-					// ë°€ë¦¬ëŠ” ì–‘ì´ ìˆëŠ”ê°€?
+					// ¹Ğ¸®´Â ¾çÀÌ ÀÖ´Â°¡?
 					CMover *pTarget = (CMover *)this;
 					DWORD dwDmgShift;
 					if( pAddSkillProp )
@@ -1252,12 +1252,12 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 
 					if( dwDmgShift != NULL_ID && pTarget->GetProp()->dwClass != RANK_SUPER && pTarget->GetProp()->dwClass != RANK_MIDBOSS )
 					{
-						FLOAT fAngle = GetDegree( pTarget->GetPos(), pSrc->GetPos() );	// ì‹œì „ìì™€ íƒ€ê²Ÿì˜ ê°ë„ë¥¼ êµ¬í•¨
+						FLOAT fAngle = GetDegree( pTarget->GetPos(), pSrc->GetPos() );	// ½ÃÀüÀÚ¿Í Å¸°ÙÀÇ °¢µµ¸¦ ±¸ÇÔ
 						AngleToVectorXZ( &pTarget->m_pActMover->m_vDeltaE, fAngle, 0.85f );
 						g_UserMng.AddPushPower( pTarget, pTarget->GetPos(), pTarget->GetAngle(), fAngle, 0.85f );
 					}
 					
-					// ìƒëŒ€ë°©ì„ ëŒì–´ë‹¹ê¸´ë‹¤
+					// »ó´ë¹æÀ» ²ø¾î´ç±ä´Ù
 					if( pSkillProp->dwID == SI_ACR_YOYO_PULLING
 #ifdef __3RD_LEGEND16	
 						|| pSkillProp->dwID == SI_LOD_SUP_PULLING
@@ -1266,21 +1266,21 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 					{
 						if( pAddSkillProp && pAddSkillProp->nDestData1[2] != NULL_ID )
 						{
-							// ë‹¹ê²¨ì§ˆ ê±°ë¦¬
+							// ´ç°ÜÁú °Å¸®
 							FLOAT fPullingLen = (FLOAT)pAddSkillProp->nDestData1[2] * 0.001f; 
 							
-							// íƒ€ê²Ÿê³¼ì˜ ê±°ë¦¬
+							// Å¸°Ù°úÀÇ °Å¸®
 							D3DXVECTOR3 v3Len = pTarget->GetPos() - pSrc->GetPos();
 							FLOAT fTotalLen = D3DXVec3LengthSq( &v3Len ) * 0.1f;
 							{
 								if( fTotalLen > ((CMover*)this)->GetAttackRange( AR_HRANGE ) )
 									fTotalLen = ((CMover*)this)->GetAttackRange( AR_HRANGE );
 
-								// ê±°ë¦¬ì— ë”°ë¼ ëŒ•ê²¨ì§€ëŠ” í˜ì´ ë‹¤ë¥´ê²Œ ì ìš©ë¨
+								// °Å¸®¿¡ µû¶ó ´ó°ÜÁö´Â ÈûÀÌ ´Ù¸£°Ô Àû¿ëµÊ
 								FLOAT fDest = fTotalLen / ((CMover*)this)->GetAttackRange( AR_HRANGE );
 								{
-									// ì‹¤ì œë•¡ê²¨ì§ˆ ê±°ë¦¬ ê³„ì‚°
-									FLOAT fAngle = GetDegree( pTarget->GetPos(), pSrc->GetPos() );	// ì‹œì „ìì™€ íƒ€ê²Ÿì˜ ê°ë„ë¥¼ êµ¬í•¨
+									// ½ÇÁ¦¶¯°ÜÁú °Å¸® °è»ê
+									FLOAT fAngle = GetDegree( pTarget->GetPos(), pSrc->GetPos() );	// ½ÃÀüÀÚ¿Í Å¸°ÙÀÇ °¢µµ¸¦ ±¸ÇÔ
 									AngleToVectorXZ( &pTarget->m_pActMover->m_vDeltaE, fAngle, fPullingLen * -fDest);
 									g_UserMng.AddPushPower( pTarget, pTarget->GetPos(), pTarget->GetAngle(), fAngle, fPullingLen * -fDest );
 								}
@@ -1301,13 +1301,13 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 		}	// this == OT_MOVER
 	}	// if( nProb == NULL_ID || xRandom(100) < nProb  )
 #ifdef __WORLDSERVER
-	#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+	#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
 	else
 	{
 		if(pSkillProp->dwID == SI_PSY_HERO_STONE )
 			g_UserMng.AddRemoveSfxObj( this, pSkillProp->dwSfxObj4 );
 	}
-	#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+	#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
 #endif	//__WORLDSERVER
 	#ifdef __WORLDSERVER
 		switch( pSkillProp->dwSpellRegion )
@@ -1316,7 +1316,7 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 		case SRO_DIRECT:
 #endif //__YDEBUG
 		case SRO_AROUND:
-		case SRO_REGION:    // ë²”ìœ„ê³µê²©ì¼ë• ì—¬ê¸°ì„œ íƒ€ê²Ÿë“¤ ê°ê°ì— sfxobj3ë¥¼ ë¿Œë ¤ì¤Œ.
+		case SRO_REGION:    // ¹üÀ§°ø°İÀÏ¶© ¿©±â¼­ Å¸°Ùµé °¢°¢¿¡ sfxobj3¸¦ »Ñ·ÁÁÜ.
 			if (pSkillProp->dwExeTarget == EXT_TROUPE || pSkillProp->dwExeTarget == EXT_TROUPEWITH)
 			{
 				if (pSkillProp->dwSfxObj3 != NULL_ID)
@@ -1330,11 +1330,11 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 			break;
 		}
 
-		// ì˜ˆì™¸ì²˜ë¦¬: ê°•íƒˆìŠ¤í‚¬ - í˜ëƒë¥¼ í›”ì¹˜ë©´ì„œ ë°ë¯¸ì§€ë¥¼ ì¤€ë‹¤
+		// ¿¹¿ÜÃ³¸®: °­Å»½ºÅ³ - Æä³Ä¸¦ ÈÉÄ¡¸é¼­ µ¥¹ÌÁö¸¦ ÁØ´Ù
 		if( pSkillProp->dwID == SI_ACR_YOYO_SNITCH )
 		{
-			// pSrc - ê³µê²©ì í”Œë ˆì´ì–´, this - í”¼ê³µê²©ì ëª¬ìŠ¤í„° 
-			// í”¼ê³µê²©ì ì”ì•¡ì´ 0ì´ ì•„ë‹ˆë©´ ê°•íƒˆ í•œë‹¤.
+			// pSrc - °ø°İÀÚ ÇÃ·¹ÀÌ¾î, this - ÇÇ°ø°İÀÚ ¸ó½ºÅÍ 
+			// ÇÇ°ø°İÀÚ ÀÜ¾×ÀÌ 0ÀÌ ¾Æ´Ï¸é °­Å» ÇÑ´Ù.
 			CUser* pUser = (CUser*)pSrc;
 			CUser* pDest = (CUser*)this;
 			if( pDest->GetType() == OT_MOVER && pDest->GetGold() > 0 )
@@ -1361,7 +1361,7 @@ void	CCtrl::ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSki
 		
 				if( nPlus > 0 )
 				{				
-					nPlus = min( nPlus, pDest->GetGold() );		// í”¼ê³µê²©ì ëˆ ë³´ë‹¤ëŠ” ë§ì§€ ì•Šê²Œ 
+					nPlus = min( nPlus, pDest->GetGold() );		// ÇÇ°ø°İÀÚ µ· º¸´Ù´Â ¸¹Áö ¾Ê°Ô 
 					pUser->AddGold( nPlus );
 					pDest->AddGold( -nPlus );
 
@@ -1448,15 +1448,15 @@ void	CCtrl::CreateAggro( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSk
 #endif // __WORLDSERVER
 #endif // __INSTANCE_AGGRO_SYSTEM
 
-// ë°œì‚¬í˜•íƒœì˜ ìŠ¤í‚¬ì˜ ë°œì‚¬ì²´ë¥¼ ìƒì„±í•˜ëŠ” ë¶€ë¶„
-// ì´ ë°œì‚¬ì²´ê°€ íƒ€ê²Ÿì—ê²Œ ë§ì•˜ì„ë•Œ DoApplySkill()ì´ ë°œë™ëœë‹¤.
+// ¹ß»çÇüÅÂÀÇ ½ºÅ³ÀÇ ¹ß»çÃ¼¸¦ »ı¼ºÇÏ´Â ºÎºĞ
+// ÀÌ ¹ß»çÃ¼°¡ Å¸°Ù¿¡°Ô ¸Â¾ÒÀ»¶§ DoApplySkill()ÀÌ ¹ßµ¿µÈ´Ù.
 int		CCtrl::ShootSkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp )
 {
 #ifdef __CLIENT
-	// ë°œì‚¬í˜•íƒœê°€ ì•„ë‹ˆë©´ ë¦¬í„´
+	// ¹ß»çÇüÅÂ°¡ ¾Æ´Ï¸é ¸®ÅÏ
 	if( pSkillProp->dwExeTarget != EXT_MAGICATKSHOT 
 		&& pSkillProp->dwExeTarget != EXT_MAGICSHOT 
-		)	// ë°œì‚¬ì²´ sfx ìƒì„±.
+		)	// ¹ß»çÃ¼ sfx »ı¼º.
 		return 0;
 
 	DWORD dwShootObj;
@@ -1470,12 +1470,12 @@ int		CCtrl::ShootSkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAdd
 		
 		if( ((CMover*)this)->IsPlayer() )		
 		{
-			// ë³´ìš°ì—ì„œ ë‚˜ê°€ëŠ” í™”ì‚´ì€ ëª‡ê°€ì§€ ì…‹íŒ…ì„ í•´ì£¼ì
+			// º¸¿ì¿¡¼­ ³ª°¡´Â È­»ìÀº ¸î°¡Áö ¼ÂÆÃÀ» ÇØÁÖÀÚ
 			if( pSkillProp->dwLinkKind == IK3_BOW )
 			{
-				// í™”ì‚´ì€ ì™¼ì†ì— ì—°ê²°...
+				// È­»ìÀº ¿Ş¼Õ¿¡ ¿¬°á...
 				CModelObject *pModel = (CModelObject *)m_pModel;
-				pModel->GetHandPos( &vPos, PARTS_LWEAPON, GetMatrixWorld() );		// ì£¼ë¨¹ ì›”ë“œì¢Œí‘œ êµ¬í•¨		
+				pModel->GetHandPos( &vPos, PARTS_LWEAPON, GetMatrixWorld() );		// ÁÖ¸Ô ¿ùµåÁÂÇ¥ ±¸ÇÔ		
 				vPos.y -=	1.0f;
 			}
 		}
@@ -1484,16 +1484,16 @@ int		CCtrl::ShootSkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAdd
 		if( pShootSfx )
 		{		
 			D3DXVECTOR3 vPos = GetPos();
-			PLAYSND( pSkillProp->dwSndAttack1, &vPos );		// ë°œì‚¬ íš¨ê³¼ìŒ.
+			PLAYSND( pSkillProp->dwSndAttack1, &vPos );		// ¹ß»ç È¿°úÀ½.
 			
 			if( GetType() == OT_MOVER )
 			{
-				if( ((CMover *)this)->IsActiveMover() )		// g_pPlayerê°€ ì ë•Œë§Œ ìƒì„±í•´ì„œ ì „ì†¡.
+				if( ((CMover *)this)->IsActiveMover() )		// g_pPlayer°¡ ½ò¶§¸¸ »ı¼ºÇØ¼­ Àü¼Û.
 				{
-					int idSfxHit = ++(((CMover *)this)->m_idSfxHit);	// í´ë¼ì—ì„œ ë°œì‚¬ì²´ê°€ ìƒì„±ëœ ì¦‰ì‹œ IDë¥¼ ë§Œë“¤ê³  ê·¸ê²ƒì„ ì„œë²„ë¡œ ë³´ëƒ„.
+					int idSfxHit = ++(((CMover *)this)->m_idSfxHit);	// Å¬¶ó¿¡¼­ ¹ß»çÃ¼°¡ »ı¼ºµÈ Áï½Ã ID¸¦ ¸¸µé°í ±×°ÍÀ» ¼­¹ö·Î º¸³¿.
 					int		nMaxDmgCnt = 1;
-					if( pSkillProp->tmContinuousPain != NULL_ID )		// ì§€ì†ìŠ¤í‚¬ì´ ìˆëŠ” ë°ë¯¸ì§€ í˜•íƒœë©´
-						nMaxDmgCnt = (pAddSkillProp->dwSkillTime / pAddSkillProp->dwPainTime) + 1;		// ëª‡ë²ˆ ë°ë¯¸ì§€ë¥¼ ë¨¹ëƒ.
+					if( pSkillProp->tmContinuousPain != NULL_ID )		// Áö¼Ó½ºÅ³ÀÌ ÀÖ´Â µ¥¹ÌÁö ÇüÅÂ¸é
+						nMaxDmgCnt = (pAddSkillProp->dwSkillTime / pAddSkillProp->dwPainTime) + 1;		// ¸î¹ø µ¥¹ÌÁö¸¦ ¸Ô³Ä.
 					
 					if( pSkillProp->dwSkillType == KT_SKILL )
 						g_DPlay.SendSfxID( pTarget->GetId(), idSfxHit, AF_MELEESKILL, NULL_ID, nMaxDmgCnt );
@@ -1503,39 +1503,39 @@ int		CCtrl::ShootSkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAdd
 				}
 			}
 			pShootSfx->SetSkill( pSkillProp->dwID );
-			pShootSfx->m_nMagicPower	= pAddSkillProp->dwSkillLvl;	// ìŠ¤í‚¬ë ˆë²¨ì€ MagicPowerë³€ìˆ˜ë¡œ ê°™ì´ì¨ë„ ë ê±° ê°™ë‹¤.
-			pShootSfx->m_dwSfxHit = pSkillProp->dwSfxObj3;	// í­ë°œ ì´í™íŠ¸ ë“±ë¡.
+			pShootSfx->m_nMagicPower	= pAddSkillProp->dwSkillLvl;	// ½ºÅ³·¹º§Àº MagicPowerº¯¼ö·Î °°ÀÌ½áµµ µÉ°Å °°´Ù.
+			pShootSfx->m_dwSfxHit = pSkillProp->dwSfxObj3;	// Æø¹ß ÀÌÆåÆ® µî·Ï.
 
 		}
-		// ì§€ì†ì‹œê°„ë™ì•ˆ ì´í™íŠ¸ë„ ìœ ì§€ë˜ì–´ì•¼ í•˜ëŠ”ê²ƒì€ CSkillInfluence::Process()ì—ì„œ ì²˜ë¦¬í•œë‹¤.
+		// Áö¼Ó½Ã°£µ¿¾È ÀÌÆåÆ®µµ À¯ÁöµÇ¾î¾ß ÇÏ´Â°ÍÀº CSkillInfluence::Process()¿¡¼­ Ã³¸®ÇÑ´Ù.
 	} else
-		Error( "ShootSkill MAGICATKSHOT : %s dwSfxObj2ê°€ ì§€ì •ë˜ì§€ ì•ŠìŒ", pSkillProp->szName );
+		Error( "ShootSkill MAGICATKSHOT : %s dwSfxObj2°¡ ÁöÁ¤µÇÁö ¾ÊÀ½", pSkillProp->szName );
 #endif // CLIENT
 	return 1;
 }
 
 
-// ë²”ìœ„ì ìš©ì‹œ íƒ€ê²Ÿì˜ ì¢…ë¥˜ì— ë”°ë¼ ì£¼ë³€ íƒ€ê²Ÿì˜ ì¢…ë¥˜ë¥¼ ì„ íƒí•¨.
+// ¹üÀ§Àû¿ë½Ã Å¸°ÙÀÇ Á¾·ù¿¡ µû¶ó ÁÖº¯ Å¸°ÙÀÇ Á¾·ù¸¦ ¼±ÅÃÇÔ.
 int		CCtrl::TargetSelecter( CCtrl *pTarget )
 {
 	int nApplyType = 0;
 	CCtrl *pSrc = this;
 
-	if( pTarget->GetType() == OT_MOVER )	// íƒ€ê²Ÿì´ ë¬´ë²„ì¼ë•Œ
+	if( pTarget->GetType() == OT_MOVER )	// Å¸°ÙÀÌ ¹«¹öÀÏ¶§
 	{
-		nApplyType = OBJTYPE_PLAYER | OBJTYPE_MONSTER;	// ì£¼ìœ„ í”Œë ˆì´ì–´ë“¤/ëª¬ìŠ¤í„°ì—ê²Œ ì ìš©
+		nApplyType = OBJTYPE_PLAYER | OBJTYPE_MONSTER;	// ÁÖÀ§ ÇÃ·¹ÀÌ¾îµé/¸ó½ºÅÍ¿¡°Ô Àû¿ë
 	}
 	else
 	{
-		// íƒ€ê²Ÿì´ ì»¨íŠ¸ë¡¤ì¼ë•
-		if( pSrc->GetType() == OT_MOVER )	// ê³µê²©ìê°€ ë¬´ë²„ëƒ
+		// Å¸°ÙÀÌ ÄÁÆ®·ÑÀÏ¶©
+		if( pSrc->GetType() == OT_MOVER )	// °ø°İÀÚ°¡ ¹«¹ö³Ä
 		{
-			if( ((CMover *)pSrc)->IsPlayer() )		// ê³µê²©ìê°€ í”Œë ˆì´ì–´ë©´
-				nApplyType = OBJTYPE_PLAYER | OBJTYPE_CTRL | OBJTYPE_MONSTER;	// ì£¼ìœ„ ëª¬ìŠ¤í„°ì™€ ì»¨íŠ¸ë¡¤ì—ê²Œ ì ìš©.
+			if( ((CMover *)pSrc)->IsPlayer() )		// °ø°İÀÚ°¡ ÇÃ·¹ÀÌ¾î¸é
+				nApplyType = OBJTYPE_PLAYER | OBJTYPE_CTRL | OBJTYPE_MONSTER;	// ÁÖÀ§ ¸ó½ºÅÍ¿Í ÄÁÆ®·Ñ¿¡°Ô Àû¿ë.
 		}
 		else
-		{	// ê³µê²©ìê°€ ì»¨íŠ¸ë¡¤ì´ëƒ
-			nApplyType = OBJTYPE_PLAYER;	// í”Œë ˆì´ì–´ì—ê²Œ ì ìš©
+		{	// °ø°İÀÚ°¡ ÄÁÆ®·ÑÀÌ³Ä
+			nApplyType = OBJTYPE_PLAYER;	// ÇÃ·¹ÀÌ¾î¿¡°Ô Àû¿ë
 		}
 	}
 
@@ -1558,8 +1558,8 @@ int		CCtrl::DoApplySkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pA
 	#if defined(__WORLDSERVER)	
 		if( this != pTarget && GetType() == OT_MOVER && pTarget->GetType() == OT_MOVER )
 		{
-			if( pSkillProp->nEvildoing < 0 )	// ë‚˜ìœë§ˆë²•ì„ ì“°ë©´ ê³µê²©ê³¼ ê°™ë‹¤ê³  ê°„ì£¼í•œë‹¤. 
-				((CMover*)pTarget)->OnAttacked( (CMover*)this, 0, TRUE, 0 );	// TRUEëŠ” íƒ€ê²Ÿì´ë‹¤.
+			if( pSkillProp->nEvildoing < 0 )	// ³ª»Û¸¶¹ıÀ» ¾²¸é °ø°İ°ú °°´Ù°í °£ÁÖÇÑ´Ù. 
+				((CMover*)pTarget)->OnAttacked( (CMover*)this, 0, TRUE, 0 );	// TRUE´Â Å¸°ÙÀÌ´Ù.
 		}
 	#endif 
 	}
@@ -1568,12 +1568,12 @@ int		CCtrl::DoApplySkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pA
 }
 
 // 
-// ì§€ì •ëœ ìŠ¤í‚¬ì˜ íš¨ê³¼ë¥¼ pTargetì—ê²Œ ì ìš©í•œë‹¤.
-// ì§€ì •ë²”ìœ„ì— ë”°ë¼ì„œ pTargetì„ ì¤‘ì‹¬ìœ¼ë¡œ ë‹¤ë¥¸ targetì—ë„ ì ìš©ëœë‹¤.
-// ì´ê²ƒì„ ì‚¬ìš©í•˜ëŠ” ì£¼ì²´ëŠ” ì‚¬ëŒì´ ì•„ë‹ìˆ˜ë„ ìˆë‹¤
-// ì—¬ê¸°ì„œëŠ” SpellRegionì— ë”°ë¼ ì ìš©ëŒ€ìƒì„ ë¶„ë¥˜ë§Œ í•˜ê³  ì‹¤ì œ íš¨ê³¼ì ìš©ì€
-// ApplySkillì—ì„œ ì²˜ë¦¬í•œë‹¤.
-// bOnlyDmg : ì˜¤ì§ ë°ë¯¸ì§€ì ìš©ì‹œí‚¤ëŠ”ê²ƒë§Œ í•œë‹¤.  ê´‘ì—­ ì§€ì†ë°ë¯¸ì§€ê°œì²´ì—ì„œ ì‚¬ìš©í•¨.
+// ÁöÁ¤µÈ ½ºÅ³ÀÇ È¿°ú¸¦ pTarget¿¡°Ô Àû¿ëÇÑ´Ù.
+// ÁöÁ¤¹üÀ§¿¡ µû¶ó¼­ pTargetÀ» Áß½ÉÀ¸·Î ´Ù¸¥ target¿¡µµ Àû¿ëµÈ´Ù.
+// ÀÌ°ÍÀ» »ç¿ëÇÏ´Â ÁÖÃ¼´Â »ç¶÷ÀÌ ¾Æ´Ò¼öµµ ÀÖ´Ù
+// ¿©±â¼­´Â SpellRegion¿¡ µû¶ó Àû¿ë´ë»óÀ» ºĞ·ù¸¸ ÇÏ°í ½ÇÁ¦ È¿°úÀû¿ëÀº
+// ApplySkill¿¡¼­ Ã³¸®ÇÑ´Ù.
+// bOnlyDmg : ¿ÀÁ÷ µ¥¹ÌÁöÀû¿ë½ÃÅ°´Â°Í¸¸ ÇÑ´Ù.  ±¤¿ª Áö¼Óµ¥¹ÌÁö°³Ã¼¿¡¼­ »ç¿ëÇÔ.
 #if __VER >= 8 // __S8_PK
 int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProb, int nParam, BOOL bOnlyDmg, BOOL bControl )
 #else // __VER >= 8 // __S8_PK
@@ -1585,13 +1585,13 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 
 	switch( pSkillProp->dwSpellRegion )
 	{
-	case SRO_AROUND:	// ëŒ€ìƒ 0% ì£¼ìœ„ 100%
-	case SRO_REGION:	// ëŒ€ìƒ 100% ì£¼ìœ„ 100%
+	case SRO_AROUND:	// ´ë»ó 0% ÁÖÀ§ 100%
+	case SRO_REGION:	// ´ë»ó 100% ÁÖÀ§ 100%
 		{
 #if __VER >= 10 //  __LEGEND
-			if( pSkillProp->dwExeTarget != EXT_TROUPE && pSkillProp->dwExeTarget != EXT_TROUPEWITH )	// ê·¹ë‹¨ëŒ€ìƒì´ ì•„ë‹ë•Œ.
+			if( pSkillProp->dwExeTarget != EXT_TROUPE && pSkillProp->dwExeTarget != EXT_TROUPEWITH )	// ±Ø´Ü´ë»óÀÌ ¾Æ´Ò¶§.
 #else // __VER >= 10 //  __LEGEND
-			if( pSkillProp->dwExeTarget != EXT_TROUPE )	// ê·¹ë‹¨ëŒ€ìƒì´ ì•„ë‹ë•Œ.
+			if( pSkillProp->dwExeTarget != EXT_TROUPE )	// ±Ø´Ü´ë»óÀÌ ¾Æ´Ò¶§.
 #endif // __VER >= 10 // __LEGEND
 			{
 				int nApplyType = 0;
@@ -1603,9 +1603,9 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 #endif // __VER >= 8 // __S8_PK
 			}
 #if __VER >= 10 //  __LEGEND
-			else if( pSkillProp->dwExeTarget == EXT_TROUPEWITH )	// ê·¹ë‹¨ëŒ€ìƒì´ ì•„ë‹ë•Œ
+			else if( pSkillProp->dwExeTarget == EXT_TROUPEWITH )	// ±Ø´Ü´ë»óÀÌ ¾Æ´Ò¶§
 			{
-				// ê·¹ë‹¨ ëŒ€ìƒ ë²”ìœ„ íš¨ê³¼.
+				// ±Ø´Ü ´ë»ó ¹üÀ§ È¿°ú.
 				if( GetType() == OT_MOVER )
 				{
 					if( ((CMover *)this)->IsPlayer() )
@@ -1617,7 +1617,7 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 							if( (int)( xRandom(100) ) < ntmpProb )
 							{
 #endif // __3RD_LEGEND16
-								if( ApplySkillAroundTroupe( ((CMover *)this)->m_idparty, pSkillProp, pAddSkillProp, TRUE ) == FALSE )// ë©¤ë²„ ê°ê°ì—ê²Œ íš¨ê³¼ ì ìš©.
+								if( ApplySkillAroundTroupe( ((CMover *)this)->m_idparty, pSkillProp, pAddSkillProp, TRUE ) == FALSE )// ¸â¹ö °¢°¢¿¡°Ô È¿°ú Àû¿ë.
 								{
 									pSrc->ApplySkill( this, pSkillProp, pAddSkillProp, TRUE );	
 								}
@@ -1631,33 +1631,33 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 #endif // __VER >= 10 // __LEGEND
 			else
 			{
-				// ê·¹ë‹¨ ëŒ€ìƒ ë²”ìœ„ íš¨ê³¼.
+				// ±Ø´Ü ´ë»ó ¹üÀ§ È¿°ú.
 				if( GetType() == OT_MOVER )
 				{
 					if( ((CMover *)this)->IsPlayer() )
 					{
 						if( ApplySkillAroundTroupe( ((CMover *)this)->m_idparty, pSkillProp, pAddSkillProp, bIgnoreProb ) == FALSE )
-							return 0;  // ì‚¬ìš©ì‹¤íŒ¨.
+							return 0;  // »ç¿ë½ÇÆĞ.
 					}
 				}
 			}
 #ifdef __WORLDSERVER
-			// chipi - ë²”ìœ„ ctrl ìƒì„± ìŠ¤í‚¬ë¡œ ì¸í•´ ë“€ì–¼ ì¢…ë£Œ í›„ ì¹´ì˜¤ë˜ëŠ” í˜„ìƒ ìˆ˜ì •
-			if( pSkillProp->tmContinuousPain != NULL_ID && !(((CMover*)pTarget)->IsPlayer() && ((CMover*)pTarget)->m_nDead) )	// ì§€ì†ë°ë¯¸ì§€ í˜•íƒœëƒ?
+			// chipi - ¹üÀ§ ctrl »ı¼º ½ºÅ³·Î ÀÎÇØ µà¾ó Á¾·á ÈÄ Ä«¿ÀµÇ´Â Çö»ó ¼öÁ¤
+			if( pSkillProp->tmContinuousPain != NULL_ID && !(((CMover*)pTarget)->IsPlayer() && ((CMover*)pTarget)->m_nDead) )	// Áö¼Óµ¥¹ÌÁö ÇüÅÂ³Ä?
 			//if( pSkillProp->tmContinuousPain != NULL_ID )
 			{
-				CContDamageCtrl *pDmgCtrl = new CContDamageCtrl;	// ì§€ì†ë°ë¯¸ì§€ë¥¼ ì£¼ëŠ” ê°€ìƒì˜¤ë¸Œì íŠ¸ ìƒì„± - ë©”ëª¨ë¦¬í’€ë§ ì²˜ë¦¬ í• ê²ƒ
+				CContDamageCtrl *pDmgCtrl = new CContDamageCtrl;	// Áö¼Óµ¥¹ÌÁö¸¦ ÁÖ´Â °¡»ó¿ÀºêÁ§Æ® »ı¼º - ¸Ş¸ğ¸®Ç®¸µ Ã³¸® ÇÒ°Í
 				if( pDmgCtrl )
 				{
 					pDmgCtrl->m_pSkillProp = pSkillProp;
 					pDmgCtrl->m_pAddSkillProp = pAddSkillProp;
 					pDmgCtrl->m_idSrc = pSrc->GetId();
 					pDmgCtrl->m_idTarget = pTarget->GetId();
-					pDmgCtrl->SetPos( pTarget->GetPos() );		// ì¤‘ì‹¬ì´ ë˜ëŠ” íƒ€ê²Ÿì˜ ì¢Œí‘œë¡œ...
+					pDmgCtrl->SetPos( pTarget->GetPos() );		// Áß½ÉÀÌ µÇ´Â Å¸°ÙÀÇ ÁÂÇ¥·Î...
 #if __VER >= 8 // __S8_PK
 					pDmgCtrl->m_bControl = bControl;
 #endif // __VER >= 8 // __S8_PK
-					// chipi - ë²”ìœ„ ctrl ìƒì„± ìŠ¤í‚¬ë¡œ ì¸í•´ ë“€ì–¼ ì¢…ë£Œ í›„ ì¹´ì˜¤ë˜ëŠ” í˜„ìƒ ìˆ˜ì •
+					// chipi - ¹üÀ§ ctrl »ı¼º ½ºÅ³·Î ÀÎÇØ µà¾ó Á¾·á ÈÄ Ä«¿ÀµÇ´Â Çö»ó ¼öÁ¤
 					if( ((CMover*)pSrc)->IsPVPTarget( ((CMover*)pTarget) ) )
 						pDmgCtrl->m_bDuelTarget = TRUE;
 
@@ -1667,7 +1667,7 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 #endif
 		}
 		break;
-	case SRO_LINE:		// thisë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ m_fAngleë¼ì¸.
+	case SRO_LINE:		// this¸¦ Áß½ÉÀ¸·Î m_fAngle¶óÀÎ.
 		{
 			int nApplyType = 0;
 			nApplyType = pSrc->TargetSelecter( pTarget );
@@ -1678,15 +1678,15 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 #endif // __VER >= 8 // __S8_PK
 		}
 		break;
-	case SRO_DIRECT:	// ëŒ€ìƒ í•˜ë‚˜ì—ë§Œ ì ìš©
+	case SRO_DIRECT:	// ´ë»ó ÇÏ³ª¿¡¸¸ Àû¿ë
 	default:
-		if( pSkillProp->dwID != SI_PSY_PSY_PSYCHICWALL )		// ì‚¬ì´í‚¥ì›”ì€ ì²˜ë¦¬ ì•ˆí•¨.
+		if( pSkillProp->dwID != SI_PSY_PSY_PSYCHICWALL )		// »çÀÌÅ±¿ùÀº Ã³¸® ¾ÈÇÔ.
 			pTarget->ApplySkill( this, pSkillProp, pAddSkillProp, bIgnoreProb, nParam );
 		break;
 	} 
 
 #ifdef __WORLDSERVER		
-	// ì‹¸ì´í‚¥ì›”ì˜ ë²½ì„ ë§Œë“¤ì–´ëƒ„.
+	// ½ÎÀÌÅ±¿ùÀÇ º®À» ¸¸µé¾î³¿.
 	if( pSkillProp->dwID == SI_PSY_PSY_PSYCHICWALL )
 	{
 		BOOL bCreate = FALSE;
@@ -1696,11 +1696,11 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 			if( ((CMover *)this)->IsPlayer() )
 			{
 				CUser *pUser = (CUser *)this;
-				for( i = 0; i < 2; i ++ )		// í•œë²ˆì— 2ê°œì´ìƒ ìƒì„±ë˜ì§€ ì•Šê²Œí•¨.
+				for( i = 0; i < 2; i ++ )		// ÇÑ¹ø¿¡ 2°³ÀÌ»ó »ı¼ºµÇÁö ¾Ê°ÔÇÔ.
 				{
 					if( pUser->m_pWall[i] == NULL )
 					{
-						CObj *pObj = CreateObj( D3DDEVICE, OT_CTRL, CI_PSYCHICWALL );		// ë²½ ì»¨íŠ¸ë¡¤ ìƒì„±.
+						CObj *pObj = CreateObj( D3DDEVICE, OT_CTRL, CI_PSYCHICWALL );		// º® ÄÁÆ®·Ñ »ı¼º.
 						if( pObj )
 						{
 							pObj->SetPos( this->GetPos() );
@@ -1719,25 +1719,25 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 				}
 			}
 		}
-		if( bCreate == FALSE )	// ìƒì„±ëª»í–ˆìœ¼ë©´
-			nRet = 0;			// ì‹¤íŒ¨ ë¦¬í„´
+		if( bCreate == FALSE )	// »ı¼º¸øÇßÀ¸¸é
+			nRet = 0;			// ½ÇÆĞ ¸®ÅÏ
 
 	}
 
 
 	if( pSrc->GetType() == OT_MOVER )
 	{
-		// ëª¨ë“  ìŠ¤í‚¬ì‚¬ìš©ì‹œ ë‹¤í¬ì¼ë£¨ì ¼ìƒíƒœì´ë©´ í•´ì œí•œë‹¤!!~
+		// ¸ğµç ½ºÅ³»ç¿ë½Ã ´ÙÅ©ÀÏ·çÁ¯»óÅÂÀÌ¸é ÇØÁ¦ÇÑ´Ù!!~
 		if( pSkillProp->dwID != SI_ACR_SUP_DARKILLUSION )
 		{
 			if( ((CMover *)pSrc)->HasBuff( BUFF_SKILL, SI_ACR_SUP_DARKILLUSION ) )
 			{
 				((CMover *)pSrc)->SetDarkCover( FALSE );
-				((CMover *)pSrc)->RemoveBuff( BUFF_SKILL, SI_ACR_SUP_DARKILLUSION );		// í•´ì œ.
+				((CMover *)pSrc)->RemoveBuff( BUFF_SKILL, SI_ACR_SUP_DARKILLUSION );		// ÇØÁ¦.
 			}
 		}
 
-		// ì œìŠ¤í„° ë²„í”„ëŠ” íŠ¹ì • ë²„í”„ê°€ ìˆìœ¼ë©´ í•´ì œí•˜ê³  ê±¸ì–´ì•¼í•¨
+		// Á¦½ºÅÍ ¹öÇÁ´Â Æ¯Á¤ ¹öÇÁ°¡ ÀÖÀ¸¸é ÇØÁ¦ÇÏ°í °É¾î¾ßÇÔ
 		if( pSkillProp->dwID == SI_JST_SUP_POISON )
 		{
 			((CMover *)pSrc)->RemoveBuff( BUFF_SKILL, SI_JST_SUP_BLEEDING );
@@ -1759,17 +1759,17 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 	}	
 #endif // WorldServer
 	
-	// ìŠ¤í‚¬ì— í•„ìš”í•œ sfxë¥¼ ìƒì„±.
+	// ½ºÅ³¿¡ ÇÊ¿äÇÑ sfx¸¦ »ı¼º.
 	CreateSkillSfx( pTarget, pSkillProp, pAddSkillProp );
 	
-	// 2ì°¨ ìŠ¤í‚¬ ë°œë™. ActiveSkill
+	// 2Â÷ ½ºÅ³ ¹ßµ¿. ActiveSkill
 	if( pSkillProp->dwActiveSkill != NULL_ID )
 	{
-		if( pSkillProp->dwActiveSkillRate == NULL_ID || xRandom(100) <= pSkillProp->dwActiveSkillRate )	// ë°œë™í™•ë¥ ì— ê±¸ë ¸ëŠ”ê°€.
+		if( pSkillProp->dwActiveSkillRate == NULL_ID || xRandom(100) <= pSkillProp->dwActiveSkillRate )	// ¹ßµ¿È®·ü¿¡ °É·È´Â°¡.
 #if __VER >= 8 // __S8_PK
-			pSrc->DoActiveSkill( pSkillProp->dwActiveSkill, 1, pTarget, false, bControl );		// dwActiveSkill Lv1ì´ ë°œë™ë¨.
+			pSrc->DoActiveSkill( pSkillProp->dwActiveSkill, 1, pTarget, false, bControl );		// dwActiveSkill Lv1ÀÌ ¹ßµ¿µÊ.
 #else // __VER >= 8 // __S8_PK
-			pSrc->DoActiveSkill( pSkillProp->dwActiveSkill, 1, pTarget );		// dwActiveSkill Lv1ì´ ë°œë™ë¨.
+			pSrc->DoActiveSkill( pSkillProp->dwActiveSkill, 1, pTarget );		// dwActiveSkill Lv1ÀÌ ¹ßµ¿µÊ.
 #endif // __VER >= 8 // __S8_PK
 			
 	}
@@ -1777,8 +1777,8 @@ int		CCtrl::DoApplySkillEx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *
 	return nRet;
 }
 
-// nLevelì˜ dwSkillì´ pTargetì„ í–¥í•˜ì—¬ ë°œë™ë¨.  ì–´íƒœì»¤ëŠ” this
-// bIgnoreProbì´ TRUEì´ë©´ ë‚´ë¶€ì—ì„œ í™•ë¥ ê³„ì‚°ì„ ë¬´ì‹œí•˜ê³  100% ì‹¤í–‰ë˜ê²Œ í•œë‹¤.
+// nLevelÀÇ dwSkillÀÌ pTargetÀ» ÇâÇÏ¿© ¹ßµ¿µÊ.  ¾îÅÂÄ¿´Â this
+// bIgnoreProbÀÌ TRUEÀÌ¸é ³»ºÎ¿¡¼­ È®·ü°è»êÀ» ¹«½ÃÇÏ°í 100% ½ÇÇàµÇ°Ô ÇÑ´Ù.
 #if __VER >= 8 // __S8_PK
 void CCtrl::DoActiveSkill( DWORD dwSkill, int nLevel, CCtrl *pTarget, bool bIgnoreProb, BOOL bControl )
 #else // __VER >= 8 // __S8_PK
@@ -1791,7 +1791,7 @@ void CCtrl::DoActiveSkill( DWORD dwSkill, int nLevel, CCtrl *pTarget, bool bIgno
 	
 	int nRet;
 	if( pSkillProp->dwExeTarget == EXT_MAGICATKSHOT || 
-		pSkillProp->dwExeTarget == EXT_MAGICSHOT )		// ì˜ëŠ” í˜•íƒœë©´ sfxë§Œ ë°œìƒ
+		pSkillProp->dwExeTarget == EXT_MAGICSHOT )		// ½î´Â ÇüÅÂ¸é sfx¸¸ ¹ß»ı
 		nRet = ShootSkill( pTarget, pSkillProp, pAddSkillProp );
 	else
 	{

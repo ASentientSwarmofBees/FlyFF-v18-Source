@@ -1,4 +1,4 @@
-ï»¿#b#cff0000ff participation Info #nb#nc
+#b#cff0000ff participation Info #nb#nc
 * Time Limit for application : from (Sun) 00:00 to (Sat) 18:30
 * Battle Area : First sub server of each server cluster
 * Qualifications
@@ -12,4 +12,4 @@
  - 19:40  Entry Ends
  - 19:45  Battle Starts  
  - 20:15  Battle Ends
-#b#cffff0000â€» GuildSeige will be held in case at least 3 Guilds apply for GuildSeige.#nb#nc
+#b#cffff0000¡Ø GuildSeige will be held in case at least 3 Guilds apply for GuildSeige.#nb#nc

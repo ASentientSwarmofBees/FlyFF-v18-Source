@@ -1,2 +1,2 @@
-ï»¿#b#cff0000ffâ–  Scroll of Pet Reversion (Pickup Pets) #nb#nc
+#b#cff0000ff¡á Scroll of Pet Reversion (Pickup Pets) #nb#nc
 RRemoves the awakened traits of your pickup pet. Awakening is then made possible again. Awakened traits that have been removed cannot be re-applied, so please use carefully.

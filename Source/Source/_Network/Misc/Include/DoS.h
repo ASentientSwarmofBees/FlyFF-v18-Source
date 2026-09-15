@@ -1,4 +1,4 @@
-﻿#ifndef __DOS_H__
+#ifndef __DOS_H__
 #define	__DOS_H__
 
 #pragma once

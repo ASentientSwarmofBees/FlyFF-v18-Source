@@ -1,4 +1,4 @@
-ï»¿#ifndef __WNDGUILDWARREQUEST__H
+#ifndef __WNDGUILDWARREQUEST__H
 #define __WNDGUILDWARREQUEST__H
 
 class CWndGuildWarRequest : public CWndNeuz 
@@ -9,7 +9,7 @@ public:
 	CWndGuildWarRequest(); 
 	~CWndGuildWarRequest(); 
 
-	// Initializeí•˜ê¸°ì „ì— ì ê¸¸ë“œì•„ì´ë””ë‘ ì ê¸¸ë§ˆ ì´ë¦„ì„ ë°›ì•„ë‘ .
+	// InitializeÇÏ±âÀü¿¡ Àû±æµå¾ÆÀÌµğ¶û Àû±æ¸¶ ÀÌ¸§À» ¹Ş¾ÆµÒ.
 	void	Set( DWORD idEnemyGuild, LPCTSTR szMaster ) 
 	{ 
 		m_idEnemyGuild = idEnemyGuild; 

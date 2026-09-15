@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "AppDefine.h"
 #include "WndMap.h"
 #include "WorldMap.h"
@@ -23,12 +23,12 @@ void CWndMap::OnInitialUpdate()
 
 #else
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
 	SetTexture( m_pApp->m_pd3dDevice, MakePath( DIR_ITEM, m_szMapFile), TRUE );
 	FitTextureSize();
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -37,25 +37,25 @@ void CWndMap::OnInitialUpdate()
 #endif
 
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndMap::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 #if __VER >= 9  // __INSERT_MAP
 	CWorldMap* pWorldMap = CWorldMap::GetInstance();
 
 
-	// ë Œë”ë§ì¤‘ì´ë©´ ë„ê³  ì•„ë‹ˆë©´ ì¼ ë‹¤
+	// ·»´õ¸µÁßÀÌ¸é ²ô°í ¾Æ´Ï¸é ÄÒ´Ù
 	if(pWorldMap->IsRender())	pWorldMap->DeleteWorldMap();
 	else						pWorldMap->LoadWorldMap();
 
 	return FALSE;
 #else
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MAP, 0, CPoint( 0, 0 ), pWndParent );
 #endif
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndMap::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 

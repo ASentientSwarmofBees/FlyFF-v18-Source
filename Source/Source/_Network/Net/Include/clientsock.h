@@ -1,4 +1,4 @@
-﻿#ifndef __CLIENTSOCK_H__
+#ifndef __CLIENTSOCK_H__
 #define __CLIENTSOCK_H__
 
 #pragma once

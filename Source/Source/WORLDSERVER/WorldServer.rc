@@ -1,4 +1,4 @@
-ï»¿// Microsoft Visual C++ generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -50,7 +50,7 @@ BEGIN
             VALUE "FileDescription", "WorldServer"
             VALUE "FileVersion", "1, 0, 0, 1"
             VALUE "InternalName", "WorldServer"
-            VALUE "LegalCopyright", "Copyright â“’ 2007"
+            VALUE "LegalCopyright", "Copyright ¨Ï 2007"
             VALUE "OriginalFilename", "WorldServer.exe"
             VALUE "ProductName", "MY_HOME WorldServer"
             VALUE "ProductVersion", "1, 0, 0, 1"

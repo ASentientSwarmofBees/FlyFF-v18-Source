@@ -1,8 +1,8 @@
-ï»¿/*************************************************************
+/*************************************************************
  *													         *	
- *  ì •ìˆ˜ë§Œì´ ê°€ëŠ¥í•œ Recursive descent parser		         *	
- *  ë³€ìˆ˜ì˜ ì‚¬ìš©ì´ ê°€ëŠ¥í•˜ê³  í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•  ìˆ˜ ìˆìœ¼ë©°,			 *
- *  goto ëª…ë ¹ ë“± Little Cì—ì„œ ì œê³µí•˜ì§€ ì•ŠëŠ” ê¸°ëŠ¥ì„ ì œê³µí•œë‹¤. *
+ *  Á¤¼ö¸¸ÀÌ °¡´ÉÇÑ Recursive descent parser		         *	
+ *  º¯¼öÀÇ »ç¿ëÀÌ °¡´ÉÇÏ°í ÇÔ¼ö¸¦ È£ÃâÇÒ ¼ö ÀÖÀ¸¸ç,			 *
+ *  goto ¸í·É µî Little C¿¡¼­ Á¦°øÇÏÁö ¾Ê´Â ±â´ÉÀ» Á¦°øÇÑ´Ù. *
  *                            								 *			        
  *  by Travis nam			                       			 *
  *												             *			
@@ -44,7 +44,7 @@ Command _table[] =
 	"#include",INCLUDE , 
 	"enum"	  ,ENUM    , 
 	" "       ,FINISHED,
-	0         ,END      // í…Œì´ë¸”ì˜ ëì„ í‘œì‹œ
+	0         ,END      // Å×ÀÌºíÀÇ ³¡À» Ç¥½Ã
 };
 
 
@@ -168,7 +168,7 @@ int CScript::GetTkn( BOOL bComma )
 
 	if( tokenType == DELIMITER ) 
 	{
-		if( *token == '{' || *token == '}' ) // ë¸”ëŸ­ ì²˜ë¦¬
+		if( *token == '{' || *token == '}' ) // ºí·° Ã³¸®
 			tokenType = BLOCK;
 	}
 	else
@@ -187,7 +187,7 @@ int CScript::GetToken( BOOL bComma )
 
 	if( tokenType == IDENTIFIER ) 
 	{
-		// ì¸í„°í”„ë¦¬í„° ëª¨ë“œì—ì„œë§Œ ì‹¤í–‰ 
+		// ÀÎÅÍÇÁ¸®ÅÍ ¸ğµå¿¡¼­¸¸ ½ÇÇà 
 		if( IsInterpriterMode() )
 		{
 			map<string, string>::iterator i = CScript::m_mapString.find( m_mszToken );
@@ -210,7 +210,7 @@ int CScript::GetToken( BOOL bComma )
 				{
 					if( m_dwDef == 1 )
 					{
-						// í”„ë¡œí¼í‹° ë•Œë¬¸ì—. =ì„ -1ë¡œ ì‚¬ìš©í•˜ëŠ” ê²ƒì€ ì ì •ì ìœ¼ë¡œ ë¬¸ì œê°€ ìˆìŒ.
+						// ÇÁ·ÎÆÛÆ¼ ¶§¹®¿¡. =À» -1·Î »ç¿ëÇÏ´Â °ÍÀº ÀáÁ¤ÀûÀ¸·Î ¹®Á¦°¡ ÀÖÀ½.
 						if( *token != '\0' && *token != '=' && *token != '-' && *token != '+' ) 
 						{
 							CString string;
@@ -220,7 +220,7 @@ int CScript::GetToken( BOOL bComma )
 					}
 					else if( m_dwDef == 2 )
 					{
-						// í‚¤ì›Œë“œë„ ì•„ë‹ˆê³ , ë‚´ì¥í•¨ìˆ˜ë„ ì•„ë‹ˆê³ , ìœ ì €í•¨ìˆ˜ë„ ì•„ë‹ˆë¼ë©´ ë„ëŒ€ì²´ ë­ì§€?
+						// Å°¿öµåµµ ¾Æ´Ï°í, ³»ÀåÇÔ¼öµµ ¾Æ´Ï°í, À¯ÀúÇÔ¼öµµ ¾Æ´Ï¶ó¸é µµ´ëÃ¼ ¹¹Áö?
 						if( !( tok = LookUp( token ) ) && InternalFunc( token ) == -1 && FindFunc( token ) == FALSE && *token != '#' )
 						{
 							CString string;
@@ -422,7 +422,7 @@ void CScript::ExecDefine()
 
 char CScript::LookUp(const char *s)
 {
-	if(!process) // ì¸í„°í”„ë¦¬í„° 
+	if(!process) // ÀÎÅÍÇÁ¸®ÅÍ 
 	{
 	#ifdef __REMOVE_SCIRPT_060712
 		if( memcmp( s, "#define", 7 ) == 0 )
@@ -433,20 +433,20 @@ char CScript::LookUp(const char *s)
 				return cmd = _table[i].tok;
 	#endif // __REMOVE_SCIRPT_060712
 	}
-	else if(s[0]=='@')  // ì»´íŒŒì¼
+	else if(s[0]=='@')  // ÄÄÆÄÀÏ
 		return _table[atoi(&s[1])].tok;
 	return 0;
 }
 
 int CScript::InternalFunc(char *s)
 {
-	if(!process) // ì¸í„°í”„ë¦¬í„°
+	if(!process) // ÀÎÅÍÇÁ¸®ÅÍ
 	{
 		for(int i = 0; interFunc[i].p; i++)
 			if(!strcmp(interFunc[i].name,s))
 				return i;
 	}
-	else // ì»´íŒŒì¼ 
+	else // ÄÄÆÄÀÏ 
 	if(s[0]=='$') 
 		return atoi(&s[1]);
 	return -1;
@@ -515,10 +515,10 @@ BOOL CScript::LookupDefine( LPCTSTR lpszString, int& rValue )
 
 //
 // remark 
-//   lpIdë¼ëŠ” defineì˜ ë‚´ìš©ì´ ìˆ«ìë¼ë©´ ìˆ«ìë¥¼ ëŒë ¤ì¤€ë‹¤.
+//   lpId¶ó´Â defineÀÇ ³»¿ëÀÌ ¼ıÀÚ¶ó¸é ¼ıÀÚ¸¦ µ¹·ÁÁØ´Ù.
 // 
 // return 
-//   ê·¸ Defineì— Numberë¥¼ ëŒë ¤ì¤€ë‹¤. ë‹¤ë¥¸ ê²½ìš° -1
+//   ±× Define¿¡ Number¸¦ µ¹·ÁÁØ´Ù. ´Ù¸¥ °æ¿ì -1
 //  
 int CScript::GetDefineNum(LPCTSTR lpId)
 {
@@ -529,7 +529,7 @@ int CScript::GetDefineNum(LPCTSTR lpId)
 }
 
 //
-// XX_ë¡œ ì‹œì‘í•˜ëŠ” ê²ƒì„ ì°¾ì•„ì¤€ë‹¤.
+// XX_·Î ½ÃÀÛÇÏ´Â °ÍÀ» Ã£¾ÆÁØ´Ù.
 //
 void CScript::GetFindIdToArray(LPCTSTR lpStrDef,CStringArray* pStrArray)
 {
@@ -539,7 +539,7 @@ void CScript::GetFindIdToArray(LPCTSTR lpStrDef,CStringArray* pStrArray)
 	for( it = m_defines.begin(); it != m_defines.end(); ++it )
 	{
 		strValue = it->first;
-		if( strValue.find( lpStrDef ) == 0 )	// ì¸ë±ìŠ¤ 0ì—ì„œ ì°¾ì•˜ìœ¼ë©´ ê²°ê³¼ë°°ì—´ì— ë„£ëŠ”ë‹¤.
+		if( strValue.find( lpStrDef ) == 0 )	// ÀÎµ¦½º 0¿¡¼­ Ã£¾ÒÀ¸¸é °á°ú¹è¿­¿¡ ³Ö´Â´Ù.
 			pStrArray->Add( strValue.c_str() );
 	}
 }
@@ -571,7 +571,7 @@ void CScript::Compile()
 				Write(&cplProg,"\"");
 				break;
 			case IDENTIFIER:
-				// ì¸í„°ë„ í‘ì…˜ë§Œ ì»´íŒŒì¼í•œë‹¤.
+				// ÀÎÅÍ³Î Æã¼Ç¸¸ ÄÄÆÄÀÏÇÑ´Ù.
 				if((r=IsFunc(token))!=-1) 
 				{
 					str[0] = '$';	
@@ -840,12 +840,12 @@ void CScript::EvalExp0(int *value)
 				{
 					switch( op )
 					{
-					case '+': *pnValue += *value; break; // += ì²˜ë¦¬ 
-					case '-': *pnValue -= *value; break; // -= ì²˜ë¦¬ 
-					case '*': *pnValue *= *value; break; // *= ì²˜ë¦¬ 
-					case '/': *pnValue /= *value; break; // /= ì²˜ë¦¬ 
-					case '|': *pnValue |= *value; break; // |= ì²˜ë¦¬ 
-					case '&': *pnValue &= *value; break; // &= ì²˜ë¦¬ 
+					case '+': *pnValue += *value; break; // += Ã³¸® 
+					case '-': *pnValue -= *value; break; // -= Ã³¸® 
+					case '*': *pnValue *= *value; break; // *= Ã³¸® 
+					case '/': *pnValue /= *value; break; // /= Ã³¸® 
+					case '|': *pnValue |= *value; break; // |= Ã³¸® 
+					case '&': *pnValue &= *value; break; // &= Ã³¸® 
 					}
 				}
 			}
@@ -1014,11 +1014,11 @@ int CScript::InterpBlock(int aaa)
 		}
 		if( retSign ) 
 		{
-			// retSignì€ ë¸”ëŸ­ìœ¼ë¡œ ë¦¬ì»¤ì‹œë¸Œ ëœ ìƒíƒœë¥¼ ê³„ì† ë¦¬í„´í•˜ê²Œ í•´ì¤€ë‹¤.
-			// ë¦¬ì»¤ì‹œë¸Œ ìƒíƒœì˜ ì„œë¸Œ í•¨ìˆ˜ì—ì„œ returní•œë‹¤. ì½”ë“œ 3
+			// retSignÀº ºí·°À¸·Î ¸®Ä¿½Ãºê µÈ »óÅÂ¸¦ °è¼Ó ¸®ÅÏÇÏ°Ô ÇØÁØ´Ù.
+			// ¸®Ä¿½Ãºê »óÅÂÀÇ ¼­ºê ÇÔ¼ö¿¡¼­ returnÇÑ´Ù. ÄÚµå 3
 			if( blocktos-- != 1 )	
 				return 3;
-			// ëª¨ë“  ë¸”ëŸ­ì˜ ì¬ê·€ í˜¸ì¶œì´ ë¦¬í„´ë˜ë©´ retSignì„ 0ìœ¼ë¡œ ë¦¬ì…‹í•œë‹¤.
+			// ¸ğµç ºí·°ÀÇ Àç±Í È£ÃâÀÌ ¸®ÅÏµÇ¸é retSignÀ» 0À¸·Î ¸®¼ÂÇÑ´Ù.
 			retSign = 0; 
 			return 0;
 		}
@@ -1116,7 +1116,7 @@ void CScript::Call()
 		fi.label  = labeltos;
 		fi.answer = answerCnt;
 		fi.block  = blocktos;
-		retValue  = TRUE; // í‘ì…˜ì˜ ë””í´íŠ¸ ë¦¬í„´ê°’ì€ 1ì´ë‹¤.
+		retValue  = TRUE; // Æã¼ÇÀÇ µğÆúÆ® ¸®ÅÏ°ªÀº 1ÀÌ´Ù.
 		FuncPush(fi);          // save local var stack index
 		m_pProg      = loc; 	   // reset m_pProg to start of function
 		GetParams(); 		   // load the functuon's parameters with the values of the arguments
@@ -1404,7 +1404,7 @@ void CScript::ExecFor()
 	m_pProg++; // get past the ; 
 	temp = m_pProg;
 	for(;;) {
-		cond = 1; // ë‹¤ìŒ Computeì—ì„œ ë¹„êµëŒ€ìƒì´ ì—†ìœ¼ë©´ (;;) cond = 1ì„ ìœ ì§€í•˜ì—¬ ë¬´í•œë£¨í”„ë¥¼ ëŒê²Œ í•œë‹¤. 
+		cond = 1; // ´ÙÀ½ Compute¿¡¼­ ºñ±³´ë»óÀÌ ¾øÀ¸¸é (;;) cond = 1À» À¯ÁöÇÏ¿© ¹«ÇÑ·çÇÁ¸¦ µ¹°Ô ÇÑ´Ù. 
 		Compute(&cond); // check the condition 
 		if(*token!=';') SntxErr( NULL, SEMI_EXPECTED);
 		m_pProg++; // get past the ; 

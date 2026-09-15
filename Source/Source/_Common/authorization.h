@@ -1,67 +1,67 @@
-ï»¿#ifndef __AUTHORIZATION_H
+#ifndef __AUTHORIZATION_H
 #define __AUTHORIZATION_H
 
-// AUTHORAZATION ì •ì˜ë“¤. ADMINISTRATORì— ê°€ê¹Œìš¸ ìˆ˜ë£© ìˆ˜í¼ ê³„ì •ì´ë‹¤.
+// AUTHORAZATION Á¤ÀÇµé. ADMINISTRATOR¿¡ °¡±î¿ï ¼ö·è ¼öÆÛ °èÁ¤ÀÌ´Ù.
 
-#define AUTH_OBSERVER      'D' // ê´€ì°°ìž ê³„ì • ; ë°©ì†¡ìš©, ëª¨ë‹ˆí„°ë§, ê°ì‹œìš©
-#define AUTH_GENERAL       'F' // ì¼ë°˜ ì‚¬ìš©ìž ìœ ì €
-#define AUTH_LOGCHATTING   'G' // ì±„íŒ…ë¡œê·¸ë¥¼ ë‚¨ê¸¸ ì¼ë°˜ìœ ì € 
-#define AUTH_JOURNALIST    'H' // ê²Œìž„ì„ ì·¨ìž¬í•˜ê¸° ìœ„í•œ ê¸°ìž ê¶Œí•œ
-#define AUTH_HELPER        'J' // ì¤€ ìš´ì˜ìž ê¶Œí•œ ; ì‚¬ìš©ìžë¥¼ ë•ê¸° ìœ„í•œ ê²Œìž„ ë§ˆìŠ¤í„°
-#define AUTH_GAMEMASTER    'L' // ê²Œìž„ ë§ˆìŠ¤í„° ; ê²Œìž„ ì „ì²´ì˜ ì§„í–‰ì´ ê°€ëŠ¥í•œ ê³„ì • GM_LEVEL_1
-#define AUTH_GAMEMASTER2   'M' // ê²Œìž„ ë§ˆìŠ¤í„° ; ê²Œìž„ ì „ì²´ì˜ ì§„í–‰ì´ ê°€ëŠ¥í•œ ê³„ì • GM_LEVEL_2
-#define AUTH_GAMEMASTER3   'N' // ê²Œìž„ ë§ˆìŠ¤í„° ; ê²Œìž„ ì „ì²´ì˜ ì§„í–‰ì´ ê°€ëŠ¥í•œ ê³„ì • GM_LEVEL_3
-#define AUTH_OPERATOR      'O' // ë”ë¯¸ ê³„ì • ; í˜„ìž¬ëŠ” AUTH_ADMINISTRATORê³¼ ê°™ì€ ê¸°ëŠ¥ìœ¼ë¡œ ì„¸íŒ… GM_LEVEL_4
-#define AUTH_ADMINISTRATOR 'P' // ê´€ë¦¬ìž ê³„ì • ; ëª¨ë“  ê¸°ëŠ¥ì„ ì‚¬ìš©í•  ìˆ˜ ìžˆìŒ. GM_LEVEL_4
+#define AUTH_OBSERVER      'D' // °üÂûÀÚ °èÁ¤ ; ¹æ¼Û¿ë, ¸ð´ÏÅÍ¸µ, °¨½Ã¿ë
+#define AUTH_GENERAL       'F' // ÀÏ¹Ý »ç¿ëÀÚ À¯Àú
+#define AUTH_LOGCHATTING   'G' // Ã¤ÆÃ·Î±×¸¦ ³²±æ ÀÏ¹ÝÀ¯Àú 
+#define AUTH_JOURNALIST    'H' // °ÔÀÓÀ» ÃëÀçÇÏ±â À§ÇÑ ±âÀÚ ±ÇÇÑ
+#define AUTH_HELPER        'J' // ÁØ ¿î¿µÀÚ ±ÇÇÑ ; »ç¿ëÀÚ¸¦ µ½±â À§ÇÑ °ÔÀÓ ¸¶½ºÅÍ
+#define AUTH_GAMEMASTER    'L' // °ÔÀÓ ¸¶½ºÅÍ ; °ÔÀÓ ÀüÃ¼ÀÇ ÁøÇàÀÌ °¡´ÉÇÑ °èÁ¤ GM_LEVEL_1
+#define AUTH_GAMEMASTER2   'M' // °ÔÀÓ ¸¶½ºÅÍ ; °ÔÀÓ ÀüÃ¼ÀÇ ÁøÇàÀÌ °¡´ÉÇÑ °èÁ¤ GM_LEVEL_2
+#define AUTH_GAMEMASTER3   'N' // °ÔÀÓ ¸¶½ºÅÍ ; °ÔÀÓ ÀüÃ¼ÀÇ ÁøÇàÀÌ °¡´ÉÇÑ °èÁ¤ GM_LEVEL_3
+#define AUTH_OPERATOR      'O' // ´õ¹Ì °èÁ¤ ; ÇöÀç´Â AUTH_ADMINISTRATOR°ú °°Àº ±â´ÉÀ¸·Î ¼¼ÆÃ GM_LEVEL_4
+#define AUTH_ADMINISTRATOR 'P' // °ü¸®ÀÚ °èÁ¤ ; ¸ðµç ±â´ÉÀ» »ç¿ëÇÒ ¼ö ÀÖÀ½. GM_LEVEL_4
 
 
-// ëª¨ë“œ(ë¬´ì , íˆ¬ëª…í™” ë“±ë“±)CMover::m_dwModeë¥¼ ì‚¬ìš©í•¨. ë””íŒŒì¸ì— ë§ë¨¸ë¦¬ì¢€ ìžˆìœ¼ë©´ ì¢‹ê² ë„¤. -xuzhu-
+// ¸ðµå(¹«Àû, Åõ¸íÈ­ µîµî)CMover::m_dwMode¸¦ »ç¿ëÇÔ. µðÆÄÀÎ¿¡ ¸»¸Ó¸®Á» ÀÖÀ¸¸é ÁÁ°Ú³×. -xuzhu-
 // 1, 2, 4, 8, 10, 20, 40...
-#define MATCHLESS_MODE			(DWORD)0x00000001	// ë¬´ì  ìƒíƒœ
-#define TRANSPARENT_MODE		(DWORD)0x00000002	// íˆ¬ëª… ìƒíƒœ
-#define ONEKILL_MODE			(DWORD)0x00000004	// ì´ˆí•„ ìƒíƒœ
-#define DONMOVE_MODE			(DWORD)0x00000008	// ì›€ì§ì´ì§€ ëª»í•˜ëŠ” ìƒíƒœ
-#define SAYTALK_MODE			(DWORD)0x00000010	// ê·“ì†ë§ ëª»í•˜ëŠ” ìƒíƒœ
-#define MATCHLESS2_MODE			(DWORD)0x00000020	// ë¬´ì  ìƒíƒœ2 (ë°ë¯¸ì§€ëŠ” ìž…ì§€ë§Œ ì£½ì§€ëŠ” ì•ŠëŠ”ë‹¤.)
-#define NO_ATTACK_MODE			(DWORD)0x00000040	// ê³µê²© ëª»í•˜ëŠ” ìƒíƒœ
-#define ITEM_MODE				(DWORD)0x00000080	// ì•„ì´í…œ ëª»ë²„ë¦¬ê³  ëª»ì§‘ëŠ” ëª¨ë“œ
-#define COMMUNITY_MODE			(DWORD)0x00000100	// ê¸¸ë“œ, íŒŒí‹°, ì¹œêµ¬, ê°œì¸ê°„ ê±°ëž˜, ê°œì¸ìƒì  í• ìˆ˜ ì—†ìŒ
-#define TALK_MODE				(DWORD)0x00000200	// ì¼ë°˜ ë§ ëª»í•˜ëŠ” ìƒíƒœ
-#define SHOUTTALK_MODE			(DWORD)0x00000400	// ì™¸ì¹˜ê¸° ëª»í•˜ëŠ” ìƒíƒœ
-#define RECOVERCHAO_MODE		(DWORD)0x00000800	// ì¹´ì˜¤ ê·¹ë³µ ëª¨ë“œ
-#define	FREEPK_MODE				(DWORD)0x00001000	// CTRLí‚¤ ëˆ„ë¦„ ì—†ì´ pkê°€ëŠ¥
-#define	PVPCONFIRM_MODE			(DWORD)0x00002000	// PVPê±°ì ˆ ìƒíƒœ
-#define	QUERYSETPLAYERNAME_MODE	(DWORD)0x00004000	// ìºë¦­í„° ëª… ë³€ê²½ ê°€ëŠ¥ ëª¨ë“œ
-#define	MODE_MAILBOX			(DWORD)0x00008000	// ì½ì§€ ì•Šì€ íŽ¸ì§€
+#define MATCHLESS_MODE			(DWORD)0x00000001	// ¹«Àû »óÅÂ
+#define TRANSPARENT_MODE		(DWORD)0x00000002	// Åõ¸í »óÅÂ
+#define ONEKILL_MODE			(DWORD)0x00000004	// ÃÊÇÊ »óÅÂ
+#define DONMOVE_MODE			(DWORD)0x00000008	// ¿òÁ÷ÀÌÁö ¸øÇÏ´Â »óÅÂ
+#define SAYTALK_MODE			(DWORD)0x00000010	// ±Ó¼Ó¸» ¸øÇÏ´Â »óÅÂ
+#define MATCHLESS2_MODE			(DWORD)0x00000020	// ¹«Àû »óÅÂ2 (µ¥¹ÌÁö´Â ÀÔÁö¸¸ Á×Áö´Â ¾Ê´Â´Ù.)
+#define NO_ATTACK_MODE			(DWORD)0x00000040	// °ø°Ý ¸øÇÏ´Â »óÅÂ
+#define ITEM_MODE				(DWORD)0x00000080	// ¾ÆÀÌÅÛ ¸ø¹ö¸®°í ¸øÁý´Â ¸ðµå
+#define COMMUNITY_MODE			(DWORD)0x00000100	// ±æµå, ÆÄÆ¼, Ä£±¸, °³ÀÎ°£ °Å·¡, °³ÀÎ»óÁ¡ ÇÒ¼ö ¾øÀ½
+#define TALK_MODE				(DWORD)0x00000200	// ÀÏ¹Ý ¸» ¸øÇÏ´Â »óÅÂ
+#define SHOUTTALK_MODE			(DWORD)0x00000400	// ¿ÜÄ¡±â ¸øÇÏ´Â »óÅÂ
+#define RECOVERCHAO_MODE		(DWORD)0x00000800	// Ä«¿À ±Øº¹ ¸ðµå
+#define	FREEPK_MODE				(DWORD)0x00001000	// CTRLÅ° ´©¸§ ¾øÀÌ pk°¡´É
+#define	PVPCONFIRM_MODE			(DWORD)0x00002000	// PVP°ÅÀý »óÅÂ
+#define	QUERYSETPLAYERNAME_MODE	(DWORD)0x00004000	// Ä³¸¯ÅÍ ¸í º¯°æ °¡´É ¸ðµå
+#define	MODE_MAILBOX			(DWORD)0x00008000	// ÀÐÁö ¾ÊÀº ÆíÁö
 
 #define	EVENT_OLDBOY_MODE		(DWORD)0x00010000
 #define	EQUIP_DENIAL_MODE		(DWORD)0x00020000
 
-#define MODE_EXPUP_STOP			(DWORD)0x00040000		// ê²½í—˜ì¹˜ ìƒìŠ¹ ê¸ˆì§€ëª¨ë“œ.
+#define MODE_EXPUP_STOP			(DWORD)0x00040000		// °æÇèÄ¡ »ó½Â ±ÝÁö¸ðµå.
 
-#define GCWAR_NOT_CLICK_MODE	(DWORD)0x00080000		// íƒ€ì¸ì´ ìžì‹ ì„ í´ë¦­ ëª»í•œë‹¤...(í”¼í‚¹ íŒ¨ìŠ¤)
-#define GCWAR_RENDER_SKIP_MODE	(DWORD)0x00100000		// ëžœë”ë§ ìŠ¤í‚µ
+#define GCWAR_NOT_CLICK_MODE	(DWORD)0x00080000		// Å¸ÀÎÀÌ ÀÚ½ÅÀ» Å¬¸¯ ¸øÇÑ´Ù...(ÇÇÅ· ÆÐ½º)
+#define GCWAR_RENDER_SKIP_MODE	(DWORD)0x00100000		// ·£´õ¸µ ½ºÅµ
 
-#define	MODE_OPTION_DONT_RENDER_MASK	(DWORD)0x01000000	// ë§ˆìŠ¤í¬ ëžœë” ì—¬ë¶€
+#define	MODE_OPTION_DONT_RENDER_MASK	(DWORD)0x01000000	// ¸¶½ºÅ© ·£´õ ¿©ºÎ
 
 
-#define FRESH_MODE			(DWORD)0x10000000	// ì²˜ìŒ ì ‘ì†í•˜ëŠ” ì¼€ë¦­í„°ëƒ
-#define NOTFRESH_MODE		(DWORD)0x20000000	// ì–¼êµ´ ë°”ê¾¸ê¸°ì— í•„ìš”
-#define NOTFRESH_MODE2		(DWORD)0x40000000	// ì–¼êµ´ ë°”ê¾¸ê¸°ì— í•„ìš”2
+#define FRESH_MODE			(DWORD)0x10000000	// Ã³À½ Á¢¼ÓÇÏ´Â ÄÉ¸¯ÅÍ³Ä
+#define NOTFRESH_MODE		(DWORD)0x20000000	// ¾ó±¼ ¹Ù²Ù±â¿¡ ÇÊ¿ä
+#define NOTFRESH_MODE2		(DWORD)0x40000000	// ¾ó±¼ ¹Ù²Ù±â¿¡ ÇÊ¿ä2
 
-#define	MODE_OUTOF_PARTYQUESTRGN	(DWORD)0x80000000	// íŒŒí‹° í€˜ìŠ¤íŠ¸ ë°–ìœ¼ë¡œ 
+#define	MODE_OUTOF_PARTYQUESTRGN	(DWORD)0x80000000	// ÆÄÆ¼ Äù½ºÆ® ¹ÛÀ¸·Î 
 
-#define DONTALK_MODE		(DWORD)0x00000610	// ë§ ëª»í•˜ëŠ” ìƒíƒœ TALK_MODE, SAYTALK_MODE, SHOUTTALK_MODE í•©í•œê²ƒ
-#define OBSERVE_MODE		(DWORD)0x000000c0	// COMMUNITY_MODE, ITEM_MODE, ATACK_MODE, SHOUTTALK_MODE, SAYTALK_MODE í•©í•œê²ƒ
+#define DONTALK_MODE		(DWORD)0x00000610	// ¸» ¸øÇÏ´Â »óÅÂ TALK_MODE, SAYTALK_MODE, SHOUTTALK_MODE ÇÕÇÑ°Í
+#define OBSERVE_MODE		(DWORD)0x000000c0	// COMMUNITY_MODE, ITEM_MODE, ATACK_MODE, SHOUTTALK_MODE, SAYTALK_MODE ÇÕÇÑ°Í
 #define	ALL_MODE			(DWORD)0x000005d0
 
-#define	QUIZ_RENDER_SKIP_MODE		(DWORD)0x00200000	// í€´ì¦ˆì´ë²¤íŠ¸ ì§€ì—­ì—ì„œì˜ ëžœë”ë§ ìŠ¤í‚µ
+#define	QUIZ_RENDER_SKIP_MODE		(DWORD)0x00200000	// ÄûÁîÀÌº¥Æ® Áö¿ª¿¡¼­ÀÇ ·£´õ¸µ ½ºÅµ
 
 
-// PK, PVP, ì‹œì „CMover::m_dwStateModeì‚¬ìš©.
-#define STATE_PK_MODE			(DWORD)0x00000001	// PK ìƒíƒœ
-#define STATE_PVP_MODE			(DWORD)0x00000002	// PVP ìƒíƒœ
-#define STATE_BASEMOTION_MODE	(DWORD)0x00000004	// ì‹œì „ì¤‘ì¸ ìƒíƒœ
+// PK, PVP, ½ÃÀüCMover::m_dwStateMode»ç¿ë.
+#define STATE_PK_MODE			(DWORD)0x00000001	// PK »óÅÂ
+#define STATE_PVP_MODE			(DWORD)0x00000002	// PVP »óÅÂ
+#define STATE_BASEMOTION_MODE	(DWORD)0x00000004	// ½ÃÀüÁßÀÎ »óÅÂ
 
 #define STATE_BASEMOTION		(DWORD)0x0000000c	// STATE_BASEMOTION_MODE + STATE_BASEMOTION_END_MODE
 

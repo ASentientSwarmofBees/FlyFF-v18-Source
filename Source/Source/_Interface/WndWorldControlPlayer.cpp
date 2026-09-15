@@ -1,4 +1,4 @@
-ï»¿// WndArcane.cpp: implementation of the CWndNeuz class.
+// WndArcane.cpp: implementation of the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -22,11 +22,11 @@ int CWndWorld::ControlPlayer( DWORD dwMessage, CPoint point )
 		return 0;
 	if( g_pPlayer->m_dwMode & DONMOVE_MODE )
 		return 0;
-#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 //	if( g_pPlayer->GetAdjParam( DST_CHRSTATE ) & CHS_LOOT)			return 0;
 	if( g_pPlayer->GetAdjParam( DST_CHRSTATE ) & CHS_SETSTONE)
 		return 0;
-#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 	if( g_pPlayer->m_vtInfo.VendorIsVendor() )
 		return 0;
 #ifdef __S_SERVER_UNIFY
@@ -34,7 +34,7 @@ int CWndWorld::ControlPlayer( DWORD dwMessage, CPoint point )
 		return 0;
 #endif // __S_SERVER_UNIFY
 
-	if( g_WndMng.m_pLogOutWaitting ) // ì¢…ë£Œì¤‘ì´ë©´ í”Œë ˆì´ì–´ ì»¨íŠ¸ë¡¤ ë¶ˆê°€
+	if( g_WndMng.m_pLogOutWaitting ) // Á¾·áÁßÀÌ¸é ÇÃ·¹ÀÌ¾î ÄÁÆ®·Ñ ºÒ°¡
 		return 0;
 
 	if( g_WndMng.GetWndBase(APP_WEBBOX) )
@@ -73,7 +73,7 @@ int CWndWorld::ControlPlayer( DWORD dwMessage, CPoint point )
 		return 0;
 #endif //__CSC_VER9_1
 */
-	if( g_pPlayer->m_dwReqFlag & REQ_USESKILL )	return 0;		// ì„œë²„ë¡œë¶€í„° useskillì‘ë‹µì´ ì˜¤ê¸°ì „ê¹Œì§„ ì•¡ì…˜í•´ì„  ì•ˆë¨.
+	if( g_pPlayer->m_dwReqFlag & REQ_USESKILL )	return 0;		// ¼­¹ö·ÎºÎÅÍ useskillÀÀ´äÀÌ ¿À±âÀü±îÁø ¾×¼ÇÇØ¼± ¾ÈµÊ.
 	
 #ifdef __XUZHU
 	static BOOL bGlare2 = 0;
@@ -104,7 +104,7 @@ int CWndWorld::ControlPlayer( DWORD dwMessage, CPoint point )
 	}
 }
 //
-//		ì˜¤ë¸Œì íŠ¸ë¥¼ ì›€ì§ì´ëŠ”ë° í•„ìš”í•œ ë©”ì‹œì§€ë¥¼ ë°œìƒ
+//		¿ÀºêÁ§Æ®¸¦ ¿òÁ÷ÀÌ´Âµ¥ ÇÊ¿äÇÑ ¸Ş½ÃÁö¸¦ ¹ß»ı
 //
 int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 {
@@ -134,7 +134,7 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 		}
 	}
 	
-	// ì „ì§„/í›„ì§„/ìŠ¤í†±
+	// ÀüÁø/ÈÄÁø/½ºÅé
 	CWndBase* pWndBaseFocus = (CWndBase*) g_WndMng.GetFocusWnd();
 	if( g_Neuz.m_bActiveNeuz == FALSE || ( pWndChat && pWndBaseFocus && pWndBaseFocus == pWndChat ) )
 	{
@@ -149,7 +149,7 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 	bDown = g_bKeyTable['S'];
 
 #ifdef __BS_ADJUST_SYNC
-	//gmpbigsun : í‚¤ë³´ë“œ ì¡°ì‘ì¤‘ì—ëŠ” ë§ˆìš°ìŠ¤ì´ë™ ë¶ˆê°€ 
+	//gmpbigsun : Å°º¸µå Á¶ÀÛÁß¿¡´Â ¸¶¿ì½ºÀÌµ¿ ºÒ°¡ 
 	if( bUp || bDown )
 		m_bLButtonDown = FALSE;
 #endif
@@ -192,7 +192,7 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 	if( g_WndMng.m_bAutoRun )
 		bUp = TRUE;
 
-	// ì¢Œ/ìš° íšŒì „
+	// ÁÂ/¿ì È¸Àü
 	bLeft  = g_bKeyTable[g_Neuz.Key.chLeft];
 	bRight = g_bKeyTable['D'];
 
@@ -250,7 +250,7 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 			if( m_bLButtonDown )
 			{
 				D3DXVECTOR3 vDist2 = g_pPlayer->GetPos() - g_Neuz.m_vCursorPos;
-				float fDist = D3DXVec3Length( &vDist2 );			// ë‘ì¢Œí‘œê°„ì˜ ê±°ë¦¬
+				float fDist = D3DXVec3Length( &vDist2 );			// µÎÁÂÇ¥°£ÀÇ °Å¸®
 				if( 15.f < fDist )
 				{
 					g_WndMng.PutString( prj.GetText( TID_GAME_CREATEMON_F_15 ), NULL, prj.GetTextColor( TID_GAME_CREATEMON_F_15 ) );
@@ -258,9 +258,9 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 				}
 				if( bSendCM )
 				{
-					int nAttr = g_pPlayer->GetWorld()->GetHeightAttribute( g_Neuz.m_vCursorPos.x, g_Neuz.m_vCursorPos.z );		// ì´ë™í•  ìœ„ì¹˜ì˜ ì†ì„± ì½ìŒ.
+					int nAttr = g_pPlayer->GetWorld()->GetHeightAttribute( g_Neuz.m_vCursorPos.x, g_Neuz.m_vCursorPos.z );		// ÀÌµ¿ÇÒ À§Ä¡ÀÇ ¼Ó¼º ÀĞÀ½.
 					if( nAttr == HATTR_NOWALK || nAttr == HATTR_NOMOVE 
-						|| g_pPlayer->IsRegionAttr( RA_SAFETY ) || g_pPlayer->GetWorld()->GetID() == WI_WORLD_GUILDWAR )		// ëª» ì›€ì§ì´ëŠ” ê³³ì´ê±°ë‚˜ ì•ˆì „ì§€ì—­ì´ë©´ Pass
+						|| g_pPlayer->IsRegionAttr( RA_SAFETY ) || g_pPlayer->GetWorld()->GetID() == WI_WORLD_GUILDWAR )		// ¸ø ¿òÁ÷ÀÌ´Â °÷ÀÌ°Å³ª ¾ÈÀüÁö¿ªÀÌ¸é Pass
 					{
 						g_WndMng.PutString( prj.GetText( TID_GAME_CREATEMON_F_AREA ), NULL, prj.GetTextColor( TID_GAME_CREATEMON_F_AREA ) );
 						bSendCM = FALSE;
@@ -285,8 +285,8 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 	}
 #endif // __ITEMCREATEMON_S0602
 
-	//TODO:ata3kë‹˜ ê¼­ ê³ ì³ì£¼ì„¸ìš”. ì™œ ê·¸ëŸ°ì§€ ì•„ë¬´ë„ ëª°ë¼!
-	// ì´ë™ê¸ˆì§€ ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ í´ë¦­ìœ¼ë¡œ ì´ë™í• ìˆ˜ ìˆë‹¤.
+	//TODO:ata3k´Ô ²À °íÃÄÁÖ¼¼¿ä. ¿Ö ±×·±Áö ¾Æ¹«µµ ¸ô¶ó!
+	// ÀÌµ¿±İÁö »óÅÂ°¡ ¾Æ´Ò¶§¸¸ Å¬¸¯À¸·Î ÀÌµ¿ÇÒ¼ö ÀÖ´Ù.
 #ifdef __Y_INTERFACE_VER3
 	bool *bpButton;
 
@@ -313,10 +313,10 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 		D3DXVECTOR3 vec3Tri[3];
 		if( pWorld->ClientPointToVector( vec3Tri, rect, point, &pWorld->m_matProj, &g_Neuz.m_camera.m_matView, &vRayEnd, TRUE ) ) 
 		{
-			// ì´ë™ í¬ì¸íŠ¸ë¥¼ ì–»ì–´ ëª©í‘œ ì„¸íŒ… 
+			// ÀÌµ¿ Æ÷ÀÎÆ®¸¦ ¾ò¾î ¸ñÇ¥ ¼¼ÆÃ 
 			if( m_bFreeMove )
 			{
-	//			if( m_bLButtonDown )	// ì´ë™ê¸ˆì§€ ìƒíƒœê°€ ì•„ë‹ë•Œë§Œ í´ë¦­ìœ¼ë¡œ ì´ë™í• ìˆ˜ ìˆë‹¤.
+	//			if( m_bLButtonDown )	// ÀÌµ¿±İÁö »óÅÂ°¡ ¾Æ´Ò¶§¸¸ Å¬¸¯À¸·Î ÀÌµ¿ÇÒ¼ö ÀÖ´Ù.
 				{
 					{
 						if( m_pWndGuideSystem  && m_pWndGuideSystem->IsVisible())
@@ -380,9 +380,9 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 	//if( !pMover->IsEmptyDestPos() || !pMover->IsEmptyDestObj() )
 	//	return nMsg;
 #ifdef __Y_INTERFACE_VER3
-	if( bUp || bDown || bLeft || bRight || bSpace || bLForward || bRForward )	// ì´ë™ í‚¤ì¡°ì‘ì´ ë“¤ì–´ê°€ë©´ ìë™ê³µê²© ë©ˆì¶¤.
+	if( bUp || bDown || bLeft || bRight || bSpace || bLForward || bRForward )	// ÀÌµ¿ Å°Á¶ÀÛÀÌ µé¾î°¡¸é ÀÚµ¿°ø°İ ¸ØÃã.
 #else //__Y_INTERFACE_VER3	
-	if( bUp || bDown || bLeft || bRight || bSpace )	// ì´ë™ í‚¤ì¡°ì‘ì´ ë“¤ì–´ê°€ë©´ ìë™ê³µê²© ë©ˆì¶¤.
+	if( bUp || bDown || bLeft || bRight || bSpace )	// ÀÌµ¿ Å°Á¶ÀÛÀÌ µé¾î°¡¸é ÀÚµ¿°ø°İ ¸ØÃã.
 #endif //__Y_INTERFACE_VER3
 	{
 
@@ -447,12 +447,12 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 	}	
 #endif //__Y_INTERFACE_VER3
 	else 
-//	if( (bUp == FALSE && s_bUped == TRUE) || (bDown == FALSE && s_bDowned == TRUE) )	// í‚¤ë¥¼ ë—€ ìˆœê°„ì—ë§Œ ì²˜ë¦¬í•´ë³´ì..
+//	if( (bUp == FALSE && s_bUped == TRUE) || (bDown == FALSE && s_bDowned == TRUE) )	// Å°¸¦ ¶¾ ¼ø°£¿¡¸¸ Ã³¸®ÇØº¸ÀÚ..
 	if( bUp == FALSE || bDown == FALSE )
 	{
 		if( pMover->IsEmptyDest() ) 
 		{
-			if( pMover->m_pActMover->IsActJump() == FALSE && (pMover->m_pActMover->IsStateFlag( OBJSTAF_SIT ) ) == 0 )	// ì•‰ì•„ìˆì„ë• ì‹¤í–‰í•˜ë©´ ì•ˆëœë‹¤.
+			if( pMover->m_pActMover->IsActJump() == FALSE && (pMover->m_pActMover->IsStateFlag( OBJSTAF_SIT ) ) == 0 )	// ¾É¾ÆÀÖÀ»¶© ½ÇÇàÇÏ¸é ¾ÈµÈ´Ù.
 			{
 				if( pMover->SendActMsg( OBJMSG_STAND ) == 1 )
 				{
@@ -523,7 +523,7 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 #else //__Y_INTERFACE_VER3	
 	bWalk = g_bKeyTable[g_Neuz.Key.chWalk];	
 #endif //__Y_INTERFACE_VER3	
-	if( bWalk && !s_bWalk2 )		// ê±·ê¸° ëª¨ë“œ í† ê¸€.
+	if( bWalk && !s_bWalk2 )		// °È±â ¸ğµå Åä±Û.
 	{
 		if( pMover->m_pActMover->IsStateFlag( OBJSTAF_WALK ) )
 		{
@@ -557,13 +557,13 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 		g_DPlay.SendPlayerMoved();
 	if( fBehavior )
 		g_DPlay.SendPlayerBehavior();
-	if( g_pPlayer->IsStateMode( STATE_BASEMOTION_MODE ) && fCastCancel ) // ìºìŠ¤íŠ¸ ì·¨ì†Œ
+	if( g_pPlayer->IsStateMode( STATE_BASEMOTION_MODE ) && fCastCancel ) // Ä³½ºÆ® Ãë¼Ò
 	{
 		g_DPlay.SendStateModeCancel( STATE_BASEMOTION_MODE, STATEMODE_BASEMOTION_CANCEL );
 	}
 
 
-	// ìš´ì˜ìê°€ ì“°ëŠ” í‚¤. ì„œë²„ë¡œë¶€í„° ì¢Œí‘œë°›ì•„ì˜¤ê¸°.
+	// ¿î¿µÀÚ°¡ ¾²´Â Å°. ¼­¹ö·ÎºÎÅÍ ÁÂÇ¥¹Ş¾Æ¿À±â.
 	if( bTempKey = g_bKeyTable[ '8' ] )
 	{
 		if( !m_bTemp3ed )
@@ -574,12 +574,12 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 	}
 	m_bTemp3ed	= bTempKey;
 
-//----------- ìŠ¤í‚¬ì‚¬ìš©.
+//----------- ½ºÅ³»ç¿ë.
 /*	
 	static BOOL s_bShift2, s_bKeyC2;
 	BOOL bShift, bKeyC;
 
-	if( g_Option.m_nInterface == 1 )		// ì‹ ë²„ì „ ì¸í„°í˜ì´ìŠ¤ ë°©ì‹ì€ X ê°€ ìŠ¤í‚¬ì‚¬ìš©ì´ë‹¤.
+	if( g_Option.m_nInterface == 1 )		// ½Å¹öÀü ÀÎÅÍÆäÀÌ½º ¹æ½ÄÀº X °¡ ½ºÅ³»ç¿ëÀÌ´Ù.
 	{
 		bShift = g_bKeyTable[ VK_SHIFT ];
 		bKeyC  = g_bKeyTable[ 'C' ];
@@ -590,40 +590,40 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 			
 		if( (bShift && !s_bShift2) || (bKeyC && !s_bKeyC2) )	
 		{
-			CObj* pTargetObj = CObj::m_pObjHighlight;		// ì»¤ì„œë¥¼ ëŒ€ê³  ìˆë˜ ì˜¤ë¸Œì íŠ¸ê°€ í•˜ì´ë¼ì´íŠ¸ ì˜¤ë¸Œì ì´ë‹¤.
-			if( pTargetObj )	// ì»¤ì„œë¥¼ ëŒ€ê³  ìˆë˜ ì˜¤ë¸Œì íŠ¸ê°€ ìˆìœ¼ë©´
+			CObj* pTargetObj = CObj::m_pObjHighlight;		// Ä¿¼­¸¦ ´ë°í ÀÖ´ø ¿ÀºêÁ§Æ®°¡ ÇÏÀÌ¶óÀÌÆ® ¿ÀºêÁ§ÀÌ´Ù.
+			if( pTargetObj )	// Ä¿¼­¸¦ ´ë°í ÀÖ´ø ¿ÀºêÁ§Æ®°¡ ÀÖÀ¸¸é
 			{
-				pWorld->SetObjFocus( pTargetObj );	// ê·¸ë†ˆì„ ì…€ë ‰íŠ¸ í•˜ëŠ” ë™ì‹œì—.
+				pWorld->SetObjFocus( pTargetObj );	// ±×³ğÀ» ¼¿·ºÆ® ÇÏ´Â µ¿½Ã¿¡.
 				
 				CMover* pMover = (CMover*)pTargetObj;
 				if( pMover->GetType() == OT_MOVER )
-					m_dwNextSkill = NEXTSKILL_ACTIONSLOT;	// ìŠ¤í‚¬ ì‚¬ìš© ì˜ˆì•½.
+					m_dwNextSkill = NEXTSKILL_ACTIONSLOT;	// ½ºÅ³ »ç¿ë ¿¹¾à.
 			} else
-				m_dwNextSkill = NEXTSKILL_ACTIONSLOT;	// ìŠ¤í‚¬ ì‚¬ìš© ì˜ˆì•½.
+				m_dwNextSkill = NEXTSKILL_ACTIONSLOT;	// ½ºÅ³ »ç¿ë ¿¹¾à.
 		}
 		s_bShift2 = bShift;
 		s_bKeyC2 = bKeyC;
 	}
 */	
-//------------ ë¹„ê³µì • íƒ€ê¸°
+//------------ ºñ°øÁ¤ Å¸±â
 	if( bBoard )
 	{
-		if( !s_bBoarded )		// í”Œë ˆì´ì–´ê°€ ë¹„ê³µì •ì— ì˜¬ë¼íƒ€ìˆëŠ” ìƒíƒœì—ì„œ. íƒ‘ìŠ¹í‚¤ë¥¼ ëˆ„ë¥´ë©´.
+		if( !s_bBoarded )		// ÇÃ·¹ÀÌ¾î°¡ ºñ°øÁ¤¿¡ ¿Ã¶óÅ¸ÀÖ´Â »óÅÂ¿¡¼­. Å¾½ÂÅ°¸¦ ´©¸£¸é.
 		{
 			if( g_pShip == NULL )
 			{
 				if( g_pPlayer->GetIAObjLink() && g_pPlayer->GetIAObjLink()->GetType() == OT_SHIP && g_pPlayer->GetIAObjLink()->GetIndex() == 3 )
 				{
 					CShip *pShip = (CShip *)g_pPlayer->GetIAObjLink();
-					if( pShip->GetMover() == NULL )		// ì¥”ì¥ì´ ì—†ëŠ” ë°°ì¼ë•Œ.
+					if( pShip->GetMover() == NULL )		// ÁåÀåÀÌ ¾ø´Â ¹èÀÏ¶§.
 					{
-						pShip->SetMover( g_pPlayer );	// ì¥”ì¥ì„ g_pPlayerë¡œ ì„¤ì •.
+						pShip->SetMover( g_pPlayer );	// ÁåÀåÀ» g_pPlayer·Î ¼³Á¤.
 						g_pShip = pShip;
 							
 					}
 				}
 			} else
-			// ì´ë¯¸ ë°°ë¥¼ ì¡°ì¢…í•˜ê³  ìˆì„ë•Œ
+			// ÀÌ¹Ì ¹è¸¦ Á¶Á¾ÇÏ°í ÀÖÀ»¶§
 			{
 				g_pShip->SetMover( NULL );
 				g_pShip = NULL;
@@ -634,7 +634,7 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 
 	
 #ifdef _DEBUG
-	// ë””ë²„ê¹…ìš© í‚¤
+	// µğ¹ö±ë¿ë Å°
 	if( bTempKey = g_bKeyTable[ VK_F2 ] )
 	{
 		if( !s_bTempKeyed )
@@ -659,8 +659,8 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 }
 DWORD m_dwIdTarget = NULL_ID;
 //
-//		ì˜¤ë¸Œì íŠ¸ë¥¼ ì›€ì§ì´ëŠ”ë° í•„ìš”í•œ ë©”ì‹œì§€ë¥¼ ë°œìƒ
-//		ë¹—ìë£¨ ë¹„í–‰ëª¨ë“œ
+//		¿ÀºêÁ§Æ®¸¦ ¿òÁ÷ÀÌ´Âµ¥ ÇÊ¿äÇÑ ¸Ş½ÃÁö¸¦ ¹ß»ı
+//		ºøÀÚ·ç ºñÇà¸ğµå
 //
 extern	int	g_nDrift;
 int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
@@ -680,16 +680,16 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 	bUp	  = g_bKeyTable[g_Neuz.Key.chUp];
 	bDown = g_bKeyTable['S'];
 
-	// ì¢Œ/ìš° íšŒì „
+	// ÁÂ/¿ì È¸Àü
 	bLeft  = g_bKeyTable[g_Neuz.Key.chLeft];
 	bRight = g_bKeyTable['D'];
 	
-	// ê¸‰ì„ íšŒ.
+	// ±Ş¼±È¸.
 //	bFastTurn = g_bKeyTable[ VK_SHIFT ];
 	
 //	CMover* pMoverTarget = (CMover*)g_WorldMng.Get()->GetObjFocus() ;
 
-	// ê°€ì† ìƒíƒœë©´ ì „ì§„ ëª…ë ¹ ê³„ì† ë³´ëƒ„
+	// °¡¼Ó »óÅÂ¸é ÀüÁø ¸í·É °è¼Ó º¸³¿
 	bool fMoved	= false;
 	bool fBehavior	= false;
 	
@@ -705,11 +705,11 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 	}
 	//
 	bAcc	= g_bKeyTable[VK_SPACE];
-	if( bAcc && !s_bAccKeyed ) 		// í‚¤ ëˆ„ë¥¸ìˆœê°„ì—ë§Œ í† ê¸€ì‹œí‚´.
+	if( bAcc && !s_bAccKeyed ) 		// Å° ´©¸¥¼ø°£¿¡¸¸ Åä±Û½ÃÅ´.
 	{
-		if( pMover->m_pActMover->IsStateFlag( OBJSTAF_ACC ) ) 		// ê°€ì†ì¤‘ì´ì—ˆë‹¤ë©´ 
+		if( pMover->m_pActMover->IsStateFlag( OBJSTAF_ACC ) ) 		// °¡¼ÓÁßÀÌ¾ú´Ù¸é 
 		{
-			pMover->SendActMsg( OBJMSG_ACC_STOP );		// ê°€ì† ë©ˆì¶¤
+			pMover->SendActMsg( OBJMSG_ACC_STOP );		// °¡¼Ó ¸ØÃã
 			if( pMover->m_pActMover->IsActTurn() )
 			{
 				fMoved	= true;
@@ -717,7 +717,7 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 		}
 		else 
 		{
-			// ê°€ì†ì¤‘ì´ ì•„ë‹ˆì—ˆë‹¤ë©´ ê°€ì† ì‹œí‚´.
+			// °¡¼ÓÁßÀÌ ¾Æ´Ï¾ú´Ù¸é °¡¼Ó ½ÃÅ´.
 			if( pMover->SendActMsg( OBJMSG_ACC_START ) == 0 )		
 				g_WndMng.PutString( prj.GetText( TID_GAME_AIRFUELEMPTY ) );
 			else
@@ -730,7 +730,7 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 	s_bAccKeyed = bAcc;
 
 	bTurbo = g_bKeyTable[g_Neuz.Key.chWalk];
-	if( bTurbo && !s_bTurbo2 )		// í† ê¸€ ë°©ì‹.
+	if( bTurbo && !s_bTurbo2 )		// Åä±Û ¹æ½Ä.
 	{
 		if( pMover->m_pActMover->IsStateFlag( OBJSTAF_TURBO ) )
 		{
@@ -752,28 +752,28 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 			if( pFocusObj && pFocusObj->GetType() == OT_MOVER )
 			{
 				CMover* pFocusMover = (CMover*)pFocusObj;
-				if( pMover->m_dwFlag & MVRF_TRACKING )	// ì´ë¯¸ ì‹¤í–‰ì¤‘ì´ë©´ í•´ì œ.
+				if( pMover->m_dwFlag & MVRF_TRACKING )	// ÀÌ¹Ì ½ÇÇàÁßÀÌ¸é ÇØÁ¦.
 				{
-					pMover->m_dwFlag &= (~MVRF_TRACKING);		// ì¶”ì ëª¨ë“œí•´ì œ.
+					pMover->m_dwFlag &= (~MVRF_TRACKING);		// ÃßÀû¸ğµåÇØÁ¦.
 					pMover->m_idTracking = NULL_ID;
 				} else
 				{
-					// ë¹„í–‰ì¤‘ ì¶”ì ëª¨ë“œ.
-					pMover->m_dwFlag |= MVRF_TRACKING;		// ì¶”ì ëª¨ë“œ.
+					// ºñÇàÁß ÃßÀû¸ğµå.
+					pMover->m_dwFlag |= MVRF_TRACKING;		// ÃßÀû¸ğµå.
 					pMover->m_idTracking = pFocusMover->GetId();
 				}
 			} else
-			{	// íƒ€ê²Ÿì´ ì—†ì„ë•Œ Zí‚¤ë¥¼ ëˆ„ë¥´ë©´ ìë™ì¶”ì ì´ í’€ë¦°ë‹¤.
-				pMover->m_dwFlag &= (~MVRF_TRACKING);		// ì¶”ì ëª¨ë“œí•´ì œ.
+			{	// Å¸°ÙÀÌ ¾øÀ»¶§ ZÅ°¸¦ ´©¸£¸é ÀÚµ¿ÃßÀûÀÌ Ç®¸°´Ù.
+				pMover->m_dwFlag &= (~MVRF_TRACKING);		// ÃßÀû¸ğµåÇØÁ¦.
 				pMover->m_idTracking = NULL_ID;
 			}
 		}
 		s_bTraceKeyed = g_bKeyTable[g_Neuz.Key.chTrace];
 
-		// íƒ€ê²Ÿì„ íƒ í‚¤
+		// Å¸°Ù¼±ÅÃ Å°
 		if( g_bKeyTable[VK_TAB] && !s_bSelectKeyed )
 		{
-			if( m_aFlyTarget.GetSize() > 0 )		// ì„ íƒëœ íƒ€ê²Ÿìˆì„ë•Œ.
+			if( m_aFlyTarget.GetSize() > 0 )		// ¼±ÅÃµÈ Å¸°ÙÀÖÀ»¶§.
 			{
 				if( m_nSelect >= m_aFlyTarget.GetSize() )
 					m_nSelect = 0;
@@ -784,8 +784,8 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 					CWorld *pWorld = pMover->GetWorld();
 					if( pWorld )
 					{
-						pWorld->SetObjFocus( pSelectMover );			// ì´ë†ˆì„ íƒ€ê²Ÿìœ¼ë¡œ ì„¤ì •í•¨.
-						pMover->m_idTracking = pSelectMover->GetId();	// íƒ­ìœ¼ë¡œ íƒ€ê²Ÿì„ ë°”ê¾¸ë©´ ìë™ì¶”ì íƒ€ê²Ÿë„ ê·¸ë†ˆìœ¼ë¡œ ë°”ë€ë‹¤.
+						pWorld->SetObjFocus( pSelectMover );			// ÀÌ³ğÀ» Å¸°ÙÀ¸·Î ¼³Á¤ÇÔ.
+						pMover->m_idTracking = pSelectMover->GetId();	// ÅÇÀ¸·Î Å¸°ÙÀ» ¹Ù²Ù¸é ÀÚµ¿ÃßÀûÅ¸°Ùµµ ±×³ğÀ¸·Î ¹Ù²ï´Ù.
 					}
 				}
 			}
@@ -797,10 +797,10 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 
 	if( /*m_bFlyMove &&*/ m_bLButtonDown || g_bKeyTable[VK_INSERT] )	// 192 = `
 	{
-		CObj *pObj = pMover->GetWorld()->GetObjFocus();		// íƒ€ê²Ÿì¡íŒë†ˆì´ ìˆì„ë•Œë§Œ íœ˜ë‘ë¥¼ìˆ˜ ìˆë‹¤.
+		CObj *pObj = pMover->GetWorld()->GetObjFocus();		// Å¸°ÙÀâÈù³ğÀÌ ÀÖÀ»¶§¸¸ ÈÖµÎ¸¦¼ö ÀÖ´Ù.
 		if( pObj && pObj->GetType() == OT_MOVER )
 		{
-			if( pMover->IsAttackAble( pObj ) )	// ê³µê²© ê°€ëŠ¥í•œì§€ ê²€ì‚¬.
+			if( pMover->IsAttackAble( pObj ) )	// °ø°İ °¡´ÉÇÑÁö °Ë»ç.
 			{
 				OBJID	idTarget = ((CMover *)pObj)->GetId();
 				ItemProp *pWeapon = pMover->GetActiveHandItemProp();
@@ -813,11 +813,11 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 						D3DXVECTOR3 vFront, vTarget;
 						AngleToVector( &vFront, g_pPlayer->GetAngle(), -g_pPlayer->GetAngleX(), 1.0f );
 						vTarget = pObj->GetPos() - g_pPlayer->GetPos();
-						D3DXVec3Normalize( &vTarget, &vTarget );		// íƒ€ê²Ÿìª½ìœ¼ë¡œì˜ ë²¡í„°ì˜ ìœ ë‹›ë²¡í„°.
+						D3DXVec3Normalize( &vTarget, &vTarget );		// Å¸°ÙÂÊÀ¸·ÎÀÇ º¤ÅÍÀÇ À¯´Öº¤ÅÍ.
 						FLOAT fDot = D3DXVec3Dot( &vFront, &vTarget );
-						if( fDot >= cosf(D3DXToRadian(60.0f)) )	// íƒ€ê²Ÿì´ ë‚´ê°€ ë³´ëŠ” ë°©í–¥ì˜ +-30ë„ ì•ˆì— ìˆìœ¼ë©´ ë°œì‚¬í• ìˆ˜ ìˆë‹¤.
+						if( fDot >= cosf(D3DXToRadian(60.0f)) )	// Å¸°ÙÀÌ ³»°¡ º¸´Â ¹æÇâÀÇ +-30µµ ¾È¿¡ ÀÖÀ¸¸é ¹ß»çÇÒ¼ö ÀÖ´Ù.
 						{
-							if( pMover->IsRangeObj( pObj, 64.0f ) )		// ì‚¬ì •ê±°ë¦¬ì— ë“¤ì–´ì˜¤ë©´ ë°œì‚¬.
+							if( pMover->IsRangeObj( pObj, 64.0f ) )		// »çÁ¤°Å¸®¿¡ µé¾î¿À¸é ¹ß»ç.
 							{
 								pMover->DoAttackMagic( pObj, 0 );
 							}
@@ -840,7 +840,7 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 	}
 	else
 	{
-		Error( "ControlFlying : ë¹—ìë£¨ì •ë³´ ì½ê¸° ì‹¤íŒ¨ %d", g_pPlayer->GetRideItemIdx() );
+		Error( "ControlFlying : ºøÀÚ·çÁ¤º¸ ÀĞ±â ½ÇÆĞ %d", g_pPlayer->GetRideItemIdx() );
 		fTurnAngle = 0.6f;
 	}
 
@@ -895,7 +895,7 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 		}
 	}
 
-	// ì˜¤ë¥¸ìª½ ë²„íŠ¼ ë“œë˜ê·¸ëŠ” ë¹—ìë£¨ ì›€ì§ì„
+	// ¿À¸¥ÂÊ ¹öÆ° µå·¡±×´Â ºøÀÚ·ç ¿òÁ÷ÀÓ
 	if( dwMessage == WM_MOUSEMOVE /*&& m_bRButtonDown*/ )
 	{
 		float fAng = pMover->GetAngle();
@@ -947,7 +947,7 @@ int		CWndWorld::ControlFlying( DWORD dwMessage, CPoint point )
 }
 
 //
-//		ë°°ë¥¼ ì›€ì§ì´ëŠ”ë° í•„ìš”í•œ ë©”ì‹œì§€ë¥¼ ë°œìƒ
+//		¹è¸¦ ¿òÁ÷ÀÌ´Âµ¥ ÇÊ¿äÇÑ ¸Ş½ÃÁö¸¦ ¹ß»ı
 //
 int		CWndWorld::ControlShip( DWORD dwMessage, CPoint point )
 {

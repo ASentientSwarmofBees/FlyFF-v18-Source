@@ -1,4 +1,4 @@
-﻿
+
 //gmpbigsun
 
 #include "StdAfx.h"

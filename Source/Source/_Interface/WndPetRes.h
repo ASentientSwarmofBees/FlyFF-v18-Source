@@ -1,4 +1,4 @@
-﻿#ifndef __WNDPETRES__H
+#ifndef __WNDPETRES__H
 #define __WNDPETRES__H
 
 #ifdef __JEFF_11

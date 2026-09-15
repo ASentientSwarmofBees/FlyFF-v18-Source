@@ -1,12 +1,12 @@
-ï»¿#ifndef __LAYERED_LINK_MAP_H
+#ifndef __LAYERED_LINK_MAP_H
 #define	__LAYERED_LINK_MAP_H
 
 #include <map>
 using	namespace	std;
 
-const	int	nDefaultLayer	= 0;	// ë³€ê²½ ê°€ëŠ¥ì„±ì´ ì—†ëŠ” ê¸°ë³¸ ê³„ì¸µì´ë‹¤.
-const	int	nRevivalLayer	= 0;	// ë¶€í™œì´ ê³„ì¸µìœ¼ë¡œ êµ¬ë¶„ë˜ë©´ í•´ë‹¹ ìƒìˆ˜ê°’ ëŒ€ì‹  ë³€ìˆ˜ë¥¼ ì‚¬ìš©í•œë‹¤.
-const	int	nTempLayer	= 0;	// ê¸°íšì— ë”°ë¼ ë³€ê²½ë  ê°€ëŠ¥ì„±ì´ ìˆëŠ” ì„ì‹œ ê³„ì¸µ ê°’ì´ë‹¤.
+const	int	nDefaultLayer	= 0;	// º¯°æ °¡´É¼ºÀÌ ¾ø´Â ±âº» °èÃşÀÌ´Ù.
+const	int	nRevivalLayer	= 0;	// ºÎÈ°ÀÌ °èÃşÀ¸·Î ±¸ºĞµÇ¸é ÇØ´ç »ó¼ö°ª ´ë½Å º¯¼ö¸¦ »ç¿ëÇÑ´Ù.
+const	int	nTempLayer	= 0;	// ±âÈ¹¿¡ µû¶ó º¯°æµÉ °¡´É¼ºÀÌ ÀÖ´Â ÀÓ½Ã °èÃş °ªÀÌ´Ù.
 
 class CLinkMap;
 typedef	map<int, CLinkMap*>	MLM;

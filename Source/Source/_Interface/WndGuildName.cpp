@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndGuildName.h"
@@ -8,9 +8,9 @@ extern	CDPClient	g_DPlay;
 
 
 /****************************************************
-  WndId : APP_GUILDNAME - ê¸¸ë“œëª…ì„¤ì •ì°½
+  WndId : APP_GUILDNAME - ±æµå¸í¼³Á¤Ã¢
   CtrlId : WIDC_EDIT1 - 
-  CtrlId : WIDC_STATIC1 - ê¸¸ë“œëª…ì¹­ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.
+  CtrlId : WIDC_STATIC1 - ±æµå¸íÄªÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
 ****************************************************/
@@ -39,29 +39,29 @@ void CWndGuildName::OnDraw( C2DRender* p2DRender )
 void CWndGuildName::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CGuild* pGuild = g_pPlayer->GetGuild();
 	if( pGuild )
 	{
 		CWndEdit *pWndEdit = (CWndEdit *)GetDlgItem( WIDC_EDIT1 );
-		pWndEdit->SetString( pGuild->m_szGuild );		// ë””í´íŠ¸ ì´ë¦„ì„ ì—ë””íŠ¸ ë°•ìŠ¤ì— ì…ë ¥í•¨.
+		pWndEdit->SetString( pGuild->m_szGuild );		// µğÆúÆ® ÀÌ¸§À» ¿¡µğÆ® ¹Ú½º¿¡ ÀÔ·ÂÇÔ.
 	}
 	else
 	{
 		Destroy();
 	}
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildName::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILDNAME, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -86,7 +86,7 @@ BOOL CWndGuildName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		CWndEdit *pWndEdit = (CWndEdit *)GetDlgItem( WIDC_EDIT1 );
 		LPCTSTR szName = pWndEdit->GetString();
 
-		// ì´ê³³ì—ë‹¤ szNameì„ ì„œë²„ë¡œ ë³´ë‚´ëŠ” ì½”ë“œë¥¼ ë„£ìœ¼ì‹œì˜¤.
+		// ÀÌ°÷¿¡´Ù szNameÀ» ¼­¹ö·Î º¸³»´Â ÄÚµå¸¦ ³ÖÀ¸½Ã¿À.
 		CString strGuild = szName;
 		strGuild.TrimLeft();
 		strGuild.TrimRight();
@@ -100,21 +100,21 @@ BOOL CWndGuildName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 #endif	// __RULE_0516
 		{
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0011) ) );
-			//				g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— 3ê¸€ì ì´ìƒ, 16ê¸€ì ì´í•˜ë¡œ ì…ë ¥ ì…ë ¥í•˜ì‹­ì‹œì˜¤." ) );
+			//				g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ 3±ÛÀÚ ÀÌ»ó, 16±ÛÀÚ ÀÌÇÏ·Î ÀÔ·Â ÀÔ·ÂÇÏ½Ê½Ã¿À." ) );
 			return TRUE;
 		}
 		else
 		if( isdigit2( c ) && !IsDBCSLeadByte( strGuild.GetAt( 0 ) ) )
 		{
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0012) ) );
-			//				g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— ì²«ê¸€ìë¥¼ ìˆ«ìë¡œ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤." ) );
+			//				g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ Ã¹±ÛÀÚ¸¦ ¼ıÀÚ·Î »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù." ) );
 			return TRUE;
 		}
 		else
 		for( int i = 0; i < strGuild.GetLength(); i++ )
 		{
 			c = strGuild.GetAt( i );
-			// ìˆ«ìë‚˜ ì•ŒíŒŒë²³ì´ ì•„ë‹ ê²½ìš°ëŠ” ì˜ì‹¬í•˜ì.
+			// ¼ıÀÚ³ª ¾ËÆÄºªÀÌ ¾Æ´Ò °æ¿ì´Â ÀÇ½ÉÇÏÀÚ.
 			if( IsDBCSLeadByte( c ) == TRUE ) 
 			{
 				CHAR c2 = strGuild.GetAt( ++i );
@@ -131,7 +131,7 @@ BOOL CWndGuildName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			else
 			if( !IsCyrillic( c ) && ( isalnum( c ) == FALSE || iscntrl( c ) )  )
 			{
-				// íŠ¹ìˆ˜ ë¬¸ìë„ ì•„ë‹ˆë‹¤ (ì¦‰ ì½˜íŠ¸ë¡¤ ë˜ëŠ” !@#$%^&**()... ë¬¸ìì„)
+				// Æ¯¼ö ¹®ÀÚµµ ¾Æ´Ï´Ù (Áï ÄÜÆ®·Ñ ¶Ç´Â !@#$%^&**()... ¹®ÀÚÀÓ)
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0013) ) );
 				return TRUE;
 			}
@@ -167,10 +167,10 @@ BOOL CWndGuildName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 
 /****************************************************
-  WndId : APP_GUILD_NICKNAME - ê¸¸ë“œë³„ì¹­ì§€ì •
+  WndId : APP_GUILD_NICKNAME - ±æµåº°ÄªÁöÁ¤
   CtrlId : WIDC_OK - OK
   CtrlId : WIDC_CANCEL - Cancel
-  CtrlId : WIDC_STATIC1 - ì§€ì •í•´ ì¤„ ë³„ì¹­ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.
+  CtrlId : WIDC_STATIC1 - ÁöÁ¤ÇØ ÁÙ º°ÄªÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.
   CtrlId : WIDC_EDIT1 - 
 ****************************************************/
 
@@ -187,20 +187,20 @@ void CWndGuildNickName::OnDraw( C2DRender* p2DRender )
 void CWndGuildNickName::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildNickName::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_NICKNAME, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -237,7 +237,7 @@ BOOL CWndGuildNickName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 			int nMaxLen = 0;
 			int nMinLen = 0;
 
-			// í•œê¸€ì€ ë³„ì¹­ 3~12ì ê°€ëŠ¥...
+			// ÇÑ±ÛÀº º°Äª 3~12ÀÚ °¡´É...
 #ifndef __RULE_0615
 			if( ::GetLanguage() == LANG_KOR )
 #endif	// __RULE_0615
@@ -256,14 +256,14 @@ BOOL CWndGuildNickName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 			if( nLength < nMinLen || nLength > nMaxLen )
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0011_01) ) );
-//				g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— 3ê¸€ì ì´ìƒ, 16ê¸€ì ì´í•˜ë¡œ ì…ë ¥ ì…ë ¥í•˜ì‹­ì‹œì˜¤." ) );
+//				g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ 3±ÛÀÚ ÀÌ»ó, 16±ÛÀÚ ÀÌÇÏ·Î ÀÔ·Â ÀÔ·ÂÇÏ½Ê½Ã¿À." ) );
 				return TRUE;
 			}
 			else
 			if( IsDBCSLeadByte( c ) == FALSE && isdigit2( c ) ) 
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0012) ) );
-//				g_WndMng.OpenMessageBox( _T( "ëª…ì¹­ì— ì²«ê¸€ìë¥¼ ìˆ«ìë¡œ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤." ) );
+//				g_WndMng.OpenMessageBox( _T( "¸íÄª¿¡ Ã¹±ÛÀÚ¸¦ ¼ıÀÚ·Î »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù." ) );
 				return TRUE;
 			}
 			else
@@ -271,7 +271,7 @@ BOOL CWndGuildNickName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 				for( int i = 0; i < strNickName.GetLength(); i++ )
 				{
 					c = strNickName[ i ];
-					// ìˆ«ìë‚˜ ì•ŒíŒŒë²³ì´ ì•„ë‹ ê²½ìš°ëŠ” ì˜ì‹¬í•˜ì.
+					// ¼ıÀÚ³ª ¾ËÆÄºªÀÌ ¾Æ´Ò °æ¿ì´Â ÀÇ½ÉÇÏÀÚ.
 					if( IsDBCSLeadByte( c ) == TRUE ) 
 					{
 						CHAR c2 = strNickName[ ++i ];
@@ -288,7 +288,7 @@ BOOL CWndGuildNickName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 					else
 						if( !IsCyrillic( c ) && ( isalnum( c ) == FALSE || iscntrl( c ) )  )
 						{
-							// íŠ¹ìˆ˜ ë¬¸ìë„ ì•„ë‹ˆë‹¤ (ì¦‰ ì½˜íŠ¸ë¡¤ ë˜ëŠ” !@#$%^&**()... ë¬¸ìì„)
+							// Æ¯¼ö ¹®ÀÚµµ ¾Æ´Ï´Ù (Áï ÄÜÆ®·Ñ ¶Ç´Â !@#$%^&**()... ¹®ÀÚÀÓ)
 							g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0013) ) );
 							return TRUE;
 						}
@@ -303,7 +303,7 @@ BOOL CWndGuildNickName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 				)
 			{
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0020) ) );
-				//				g_WndMng.OpenMessageBox( _T( "ì‚¬ìš©í• ìˆ˜ ì—†ëŠ” ì´ë¦„ì…ë‹ˆë‹¤" ) );
+				//				g_WndMng.OpenMessageBox( _T( "»ç¿ëÇÒ¼ö ¾ø´Â ÀÌ¸§ÀÔ´Ï´Ù" ) );
 				return TRUE;
 			}
 			CGuild* pGuild = g_pPlayer->GetGuild();
@@ -328,7 +328,7 @@ BOOL CWndGuildNickName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 	else if( nID == WIDC_CANCEL )
 	{
 		Destroy();
-		//		g_WndMng.OpenMessageBox( _T( "ìˆœíšŒê·¹ë‹¨ ëª…ì¹­ì„ ì •í•´ì•¼ í•©ë‹ˆë‹¤." ) );
+		//		g_WndMng.OpenMessageBox( _T( "¼øÈ¸±Ø´Ü ¸íÄªÀ» Á¤ÇØ¾ß ÇÕ´Ï´Ù." ) );
 	}
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
 }

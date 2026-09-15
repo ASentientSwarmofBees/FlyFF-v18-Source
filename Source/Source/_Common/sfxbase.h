@@ -1,4 +1,4 @@
-ï»¿#ifndef __SFXBASE_H
+#ifndef __SFXBASE_H
 #define __SFXBASE_H
 
 class CModel;
@@ -9,10 +9,10 @@ class CSfxTexture;
 class CSfxMeshMng;
 class CSfxMng; 
 class CSfxObjMng;
-extern CSfxMng g_SfxMng; // SFX ì›í˜• ê´€ë¦¬ì
-extern CSfxObjMng g_SfxObjMng; // ì‹¤ì œ ìƒì„±ëœ SFX ì˜¤ë¸Œì íŠ¸ ê´€ë¦¬ì (ê²Œì„ì—ì„œëŠ” CModelMngë¥¼ ì‚¬ìš©í•˜ë¯€ë¡œ í•„ìš”ì—†ìŒ)
-extern CSfxTexture g_SfxTex; // SFXì— ì‚¬ìš©ë˜ëŠ” í…ìŠ¤ì³ë¥¼ ê´€ë¦¬í•˜ëŠ” ê´€ë¦¬ì
-extern CSfxMeshMng g_SfxMeshMng; // SFXì— ì‚¬ìš©ë˜ëŠ” ë©”ì‰¬ë¥¼ ê´€ë¦¬í•˜ëŠ” ê´€ë¦¬ì
+extern CSfxMng g_SfxMng; // SFX ¿øÇü °ü¸®ÀÚ
+extern CSfxObjMng g_SfxObjMng; // ½ÇÁ¦ »ı¼ºµÈ SFX ¿ÀºêÁ§Æ® °ü¸®ÀÚ (°ÔÀÓ¿¡¼­´Â CModelMng¸¦ »ç¿ëÇÏ¹Ç·Î ÇÊ¿ä¾øÀ½)
+extern CSfxTexture g_SfxTex; // SFX¿¡ »ç¿ëµÇ´Â ÅØ½ºÃÄ¸¦ °ü¸®ÇÏ´Â °ü¸®ÀÚ
+extern CSfxMeshMng g_SfxMeshMng; // SFX¿¡ »ç¿ëµÇ´Â ¸Ş½¬¸¦ °ü¸®ÇÏ´Â °ü¸®ÀÚ
 
 enum SFXPARTTYPE {
 	SFXPARTTYPE_BILL=1,
@@ -32,7 +32,7 @@ enum SFXPARTALPHATYPE {
 };
 
 //
-// í•˜ë‚˜ì˜ SFXëŠ” SFXì›í˜•ì„ ê°€ì§„ë‹¤. 
+// ÇÏ³ªÀÇ SFX´Â SFX¿øÇüÀ» °¡Áø´Ù. 
 // 
 //
 //
@@ -44,7 +44,7 @@ enum SFXPARTALPHATYPE {
 	#define DIR_SFX     _T( "SFX\\"  )
 #endif 
 
-struct D3DSFXVERTEX // SFXì— ì‚¬ìš©ë˜ëŠ” ë²„í…ìŠ¤ í¬ë§·
+struct D3DSFXVERTEX // SFX¿¡ »ç¿ëµÇ´Â ¹öÅØ½º Æ÷¸Ë
 {
 	D3DXVECTOR3 p;
 	FLOAT       tu1, tv1;
@@ -52,13 +52,13 @@ struct D3DSFXVERTEX // SFXì— ì‚¬ìš©ë˜ëŠ” ë²„í…ìŠ¤ í¬ë§·
 
 struct SfxKeyFrame
 {
-	WORD nFrame;       // í‚¤ í”„ë ˆì„ì˜ ìœ„ì¹˜ (í”„ë ˆì„)
-	D3DXVECTOR3 vPos;  // ìœ„ì¹˜
-	D3DXVECTOR3 vPosRotate; // ë¡œì»¬ ì›ì ì„ ì¤‘ì‹¬ìœ¼ë¡œ ê° ì¶•ì— ëŒ€í•œ ìœ„ì¹˜íšŒì „
-	D3DXVECTOR3 vScale; // í¬ê¸°
-	D3DXVECTOR3 vRotate; // íšŒì „
+	WORD nFrame;       // Å° ÇÁ·¹ÀÓÀÇ À§Ä¡ (ÇÁ·¹ÀÓ)
+	D3DXVECTOR3 vPos;  // À§Ä¡
+	D3DXVECTOR3 vPosRotate; // ·ÎÄÃ ¿øÁ¡À» Áß½ÉÀ¸·Î °¢ Ãà¿¡ ´ëÇÑ À§Ä¡È¸Àü
+	D3DXVECTOR3 vScale; // Å©±â
+	D3DXVECTOR3 vRotate; // È¸Àü
 	int nAlpha;
-}; // í‚¤í”„ë ˆì„ êµ¬ì¡°ì²´
+}; // Å°ÇÁ·¹ÀÓ ±¸Á¶Ã¼
 
 struct Particle
 {
@@ -73,28 +73,28 @@ struct Particle
 	D3DXVECTOR3 vScaleSpeed;
 	BOOL        bSwScal;
 //#endif	
-}; // íŒŒí‹°í´ êµ¬ì¡°ì²´
+}; // ÆÄÆ¼Å¬ ±¸Á¶Ã¼
 
 class CSfxPart
 {
 public:
 //#ifdef __ATEST
-	CString m_strName;  // ë ˆì´ì–´ ì´ë¦„...
+	CString m_strName;  // ·¹ÀÌ¾î ÀÌ¸§...
 //#endif
-	CString m_strTex; // í…ìŠ¤ì³ íŒŒì¼ëª…
-	SFXPARTTYPE m_nType; // ì´ íŒŒíŠ¸ëŠ” ë­í•˜ëŠ” íŒŒíŠ¸ì¸ê°€
-	SFXPARTBILLTYPE m_nBillType; // ì´ íŒŒíŠ¸ëŠ” ë¹Œë³´ë“œì¸ê°€ ë°”ë‹¥ì¸ê°€
-	SFXPARTALPHATYPE m_nAlphaType; // ì•ŒíŒŒì˜ ìš©ë„
-	WORD m_nTexFrame; // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„ ìˆ˜ (ì¥ìˆ˜)
-	WORD m_nTexLoop;  // í…ìŠ¤ì³ ì• ë‹ˆë©”ì´ì…˜ í•œë°”í€´ ë„ëŠ”ë™ì•ˆ ê±¸ë¦¬ëŠ” í”„ë ˆì„ ìˆ˜ (ì‹œê°„)
+	CString m_strTex; // ÅØ½ºÃÄ ÆÄÀÏ¸í
+	SFXPARTTYPE m_nType; // ÀÌ ÆÄÆ®´Â ¹¹ÇÏ´Â ÆÄÆ®ÀÎ°¡
+	SFXPARTBILLTYPE m_nBillType; // ÀÌ ÆÄÆ®´Â ºôº¸µåÀÎ°¡ ¹Ù´ÚÀÎ°¡
+	SFXPARTALPHATYPE m_nAlphaType; // ¾ËÆÄÀÇ ¿ëµµ
+	WORD m_nTexFrame; // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ ¼ö (Àå¼ö)
+	WORD m_nTexLoop;  // ÅØ½ºÃÄ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÑ¹ÙÄû µµ´Âµ¿¾È °É¸®´Â ÇÁ·¹ÀÓ ¼ö (½Ã°£)
 	BOOL m_bUseing;
 
-	CPtrArray m_apKeyFrames; // í‚¤í”„ë ˆì„ ë°°ì—´
-	SfxKeyFrame* Key(BYTE nIndex) { // í‚¤í”„ë ˆì„
+	CPtrArray m_apKeyFrames; // Å°ÇÁ·¹ÀÓ ¹è¿­
+	SfxKeyFrame* Key(BYTE nIndex) { // Å°ÇÁ·¹ÀÓ
 		if(nIndex>=m_apKeyFrames.GetSize()) return NULL;
 		return (SfxKeyFrame*)(m_apKeyFrames[nIndex]);
 	}
-	SfxKeyFrame* KeyByFrame(WORD nFrame) { // íŠ¹ì • í”„ë ˆì„ì˜ í‚¤í”„ë ˆì„
+	SfxKeyFrame* KeyByFrame(WORD nFrame) { // Æ¯Á¤ ÇÁ·¹ÀÓÀÇ Å°ÇÁ·¹ÀÓ
 		SfxKeyFrame* pKey;
 		for(int i=0;i<m_apKeyFrames.GetSize();i++) {
 			pKey=Key((BYTE)i);
@@ -106,23 +106,23 @@ public:
 	CSfxPart();
 	virtual ~CSfxPart();
 #ifndef __WORLDSERVER
-	virtual void Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECTOR3 vScale = D3DXVECTOR3( 1.0f, 1.0f, 1.0f ) ); // ë Œë”
+	virtual void Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECTOR3 vScale = D3DXVECTOR3( 1.0f, 1.0f, 1.0f ) ); // ·»´õ
 #endif
-	virtual void Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D3DXVECTOR3 vScale = D3DXVECTOR3( 1.0f, 1.0f, 1.0f ) ); // ë Œë”
+	virtual void Render2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAngle, D3DXVECTOR3 vScale = D3DXVECTOR3( 1.0f, 1.0f, 1.0f ) ); // ·»´õ
 
 	void DeleteAllKeyFrame();
-	void AddKeyFrame(WORD nFrame); // í‚¤í”„ë ˆì„ ì¶”ê°€
-	void DeleteKeyFrame(WORD nFrame); // í‚¤í”„ë ˆì„ ì‚­ì œ
-	SfxKeyFrame* GetPrevKey(WORD nFrame); // ì£¼ì–´ì§„ í”„ë ˆì„ë¶€í„° ì´ì „ í‚¤í”„ë ˆì„ì„ ê°–ê³ ì˜¨ë‹¤
-	SfxKeyFrame* GetNextKey(WORD nFrame, BOOL bSkip=TRUE); // ì£¼ì–´ì§„ í”„ë ˆì„ë¶€í„° ë‹¤ìŒ í‚¤í”„ë ˆì„ì„ ê°–ê³ ì˜¨ë‹¤
-	virtual void Load(CResFile& file); // ë¡œë“œ
-	virtual void OldLoad(CResFile& file); // ì´ì „ë²„ì ¼ ë¡œë“œ
+	void AddKeyFrame(WORD nFrame); // Å°ÇÁ·¹ÀÓ Ãß°¡
+	void DeleteKeyFrame(WORD nFrame); // Å°ÇÁ·¹ÀÓ »èÁ¦
+	SfxKeyFrame* GetPrevKey(WORD nFrame); // ÁÖ¾îÁø ÇÁ·¹ÀÓºÎÅÍ ÀÌÀü Å°ÇÁ·¹ÀÓÀ» °®°í¿Â´Ù
+	SfxKeyFrame* GetNextKey(WORD nFrame, BOOL bSkip=TRUE); // ÁÖ¾îÁø ÇÁ·¹ÀÓºÎÅÍ ´ÙÀ½ Å°ÇÁ·¹ÀÓÀ» °®°í¿Â´Ù
+	virtual void Load(CResFile& file); // ·Îµå
+	virtual void OldLoad(CResFile& file); // ÀÌÀü¹öÁ¯ ·Îµå
 	virtual void Load2(CResFile& file); 
-	virtual void Load3(CResFile& file) {}; // ìµœì‹ ë²„ì ¼
+	virtual void Load3(CResFile& file) {}; // ÃÖ½Å¹öÁ¯
 	
-	void GetKey(WORD nFrame,SfxKeyFrame* pKey); // íŠ¹ì •í”„ë ˆì„ì˜ ì¸í„°í´ë ˆì´ì…˜ëœ í‚¤ê°’ì„ ê°–ê³ ì˜¨ë‹¤
+	void GetKey(WORD nFrame,SfxKeyFrame* pKey); // Æ¯Á¤ÇÁ·¹ÀÓÀÇ ÀÎÅÍÆú·¹ÀÌ¼ÇµÈ Å°°ªÀ» °®°í¿Â´Ù
 
-	void AdjustKeyFrame(WORD nFrame, SfxKeyFrame& key); // íŠ¹ì • í”„ë ˆì„ì˜ í‚¤í”„ë ˆì„ì˜ ë‚´ìš©ì„ ê°±ì‹ 
+	void AdjustKeyFrame(WORD nFrame, SfxKeyFrame& key); // Æ¯Á¤ ÇÁ·¹ÀÓÀÇ Å°ÇÁ·¹ÀÓÀÇ ³»¿ëÀ» °»½Å
 };
 
 class CSfxPartBill : public CSfxPart
@@ -142,26 +142,26 @@ public:
 class CSfxPartParticle: public CSfxPart
 {
 public:
-	WORD m_nParticleCreate;     // ìƒì„±ì‹œí‚¤ëŠ” ê°„ê²©(í”„ë ˆì„)
-	WORD m_nParticleCreateNum;     // ìƒì„±ì‹œí‚¤ëŠ” ê°„ê²©(í”„ë ˆì„)
+	WORD m_nParticleCreate;     // »ı¼º½ÃÅ°´Â °£°İ(ÇÁ·¹ÀÓ)
+	WORD m_nParticleCreateNum;     // »ı¼º½ÃÅ°´Â °£°İ(ÇÁ·¹ÀÓ)
 
-	// íŒŒí‹°í´ í•œ ê°œì˜ ë¼ì´í”„ì‚¬ì´í´
-	WORD m_nParticleFrameAppear; // ë‚˜íƒ€ë‚˜ëŠ”ë° ê±¸ë¦¬ëŠ” ì‹œê°„(í”„ë ˆì„)
-	WORD m_nParticleFrameKeep; // ìœ ì§€ì‹œê°„(í”„ë ˆì„)
-	WORD m_nParticleFrameDisappear; // ì‚¬ë¼ì§€ëŠ”ë° ê±¸ë¦¬ëŠ” ì‹œê°„(í”„ë ˆì„)
+	// ÆÄÆ¼Å¬ ÇÑ °³ÀÇ ¶óÀÌÇÁ»çÀÌÅ¬
+	WORD m_nParticleFrameAppear; // ³ªÅ¸³ª´Âµ¥ °É¸®´Â ½Ã°£(ÇÁ·¹ÀÓ)
+	WORD m_nParticleFrameKeep; // À¯Áö½Ã°£(ÇÁ·¹ÀÓ)
+	WORD m_nParticleFrameDisappear; // »ç¶óÁö´Âµ¥ °É¸®´Â ½Ã°£(ÇÁ·¹ÀÓ)
 
-	/// ë‹¤ìŒ ì´ˆê¸°ì¹˜ëŠ” ìµœì €ê°’ê³¼ ìµœì†Œê°’ ì‚¬ì´ì˜ ëœë¤ê°’ì´ë‹¤.
-	FLOAT m_fParticleStartPosVar; // ì‹œì‘ìœ„ì¹˜ XZë²”ìœ„ (ë°˜ê²½) ìƒì„±ê¸°ì˜ ìœ„ì¹˜ë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ XZí‰ë©´ìƒì—ì„œ ì´ ê°’ë§Œí¼ ë–¨ì–´ì§„ ì„ì˜ì˜ ìœ„ì¹˜ì—ì„œ ìƒì„±
-	FLOAT m_fParticleStartPosVarY; // ì‹œì‘ìœ„ì¹˜ Y ë²”ìœ„. ìƒì„±ê¸°ì˜ Yì¢Œí‘œì—ì„œ ì´ ê°’ ì‚¬ì´ì˜ ì„ì˜ì˜ ìœ„ì¹˜ì—ì„œ ìƒì„±
-	FLOAT m_fParticleYLow; // ìˆ˜ì§ì†ë„ ì´ˆê¸°ì¹˜ ìµœì €ê°’
-	FLOAT m_fParticleYHigh; // ìˆ˜ì§ì†ë„ ì´ˆê¸°ì¹˜ ìµœëŒ€ê°’
-	FLOAT m_fParticleXZLow; // ìˆ˜í‰ì†ë„ ì´ˆê¸°ì¹˜ ìµœì €ê°’
-	FLOAT m_fParticleXZHigh; // ìˆ˜í‰ì†ë„ ì´ˆê¸°ì¹˜ ìµœëŒ€ê°’
+	/// ´ÙÀ½ ÃÊ±âÄ¡´Â ÃÖÀú°ª°ú ÃÖ¼Ò°ª »çÀÌÀÇ ·£´ı°ªÀÌ´Ù.
+	FLOAT m_fParticleStartPosVar; // ½ÃÀÛÀ§Ä¡ XZ¹üÀ§ (¹İ°æ) »ı¼º±âÀÇ À§Ä¡¸¦ Áß½ÉÀ¸·Î XZÆò¸é»ó¿¡¼­ ÀÌ °ª¸¸Å­ ¶³¾îÁø ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ı¼º
+	FLOAT m_fParticleStartPosVarY; // ½ÃÀÛÀ§Ä¡ Y ¹üÀ§. »ı¼º±âÀÇ YÁÂÇ¥¿¡¼­ ÀÌ °ª »çÀÌÀÇ ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ı¼º
+	FLOAT m_fParticleYLow; // ¼öÁ÷¼Óµµ ÃÊ±âÄ¡ ÃÖÀú°ª
+	FLOAT m_fParticleYHigh; // ¼öÁ÷¼Óµµ ÃÊ±âÄ¡ ÃÖ´ë°ª
+	FLOAT m_fParticleXZLow; // ¼öÆò¼Óµµ ÃÊ±âÄ¡ ÃÖÀú°ª
+	FLOAT m_fParticleXZHigh; // ¼öÆò¼Óµµ ÃÊ±âÄ¡ ÃÖ´ë°ª
 
-	D3DXVECTOR3 m_vParticleAccel;  // ê°€ì†ë„ ë²¡í„°... í”„ë ˆì„ë§ˆë‹¤ ì†ë„ì— ë”í•´ì§€ëŠ” ê°’
+	D3DXVECTOR3 m_vParticleAccel;  // °¡¼Óµµ º¤ÅÍ... ÇÁ·¹ÀÓ¸¶´Ù ¼Óµµ¿¡ ´õÇØÁö´Â °ª
 
-	D3DXVECTOR3 m_vScale; // ì´ˆê¸° í¬ê¸°
-	D3DXVECTOR3 m_vScaleSpeed; // í”„ë ˆì„ë§ˆë‹¤ í¬ê¸°ì— ë”í•´ì§€ëŠ” ê°’
+	D3DXVECTOR3 m_vScale; // ÃÊ±â Å©±â
+	D3DXVECTOR3 m_vScaleSpeed; // ÇÁ·¹ÀÓ¸¶´Ù Å©±â¿¡ ´õÇØÁö´Â °ª
 	D3DXVECTOR3 m_vRotation; 
 	D3DXVECTOR3 m_vRotationLow; 
 	D3DXVECTOR3 m_vRotationHigh; 
@@ -186,7 +186,7 @@ public:
 	~CSfxPartParticle();
 
 #ifndef __WORLDSERVER
-	virtual void Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECTOR3 vScale = D3DXVECTOR3( 1.0f, 1.0f, 1.0f )  ); // íŒŒí‹°í´ì˜ ê²½ìš° ì´ ë Œë”í•¨ìˆ˜ëŠ” ì—ë””í„°ì—ì„œë§Œ ì‚¬ìš©ëœë‹¤. ë‹¤ë¥¸ íŒŒíŠ¸ëŠ” ê²Œì„, ì—ë””í„° ëª¨ë‘ ì‚¬ìš©.
+	virtual void Render( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, D3DXVECTOR3 vScale = D3DXVECTOR3( 1.0f, 1.0f, 1.0f )  ); // ÆÄÆ¼Å¬ÀÇ °æ¿ì ÀÌ ·»´õÇÔ¼ö´Â ¿¡µğÅÍ¿¡¼­¸¸ »ç¿ëµÈ´Ù. ´Ù¸¥ ÆÄÆ®´Â °ÔÀÓ, ¿¡µğÅÍ ¸ğµÎ »ç¿ë.
 #endif
 	virtual void Load(CResFile& file);
 	virtual void Load2(CResFile& file);
@@ -222,15 +222,15 @@ public:
 	virtual void OldLoad(CResFile& file);
 };
 
-// SFXì˜ ì›í˜•. ë¡œë”©í•˜ë©´ SFXë³„ë¡œ ì €ì¥í•´ë’€ë‹¤ê°€ ê²Œì„ìƒ ì˜¤ë¸Œì íŠ¸ê°€ êº¼ë‚´ ì“´ë‹¤.
+// SFXÀÇ ¿øÇü. ·ÎµùÇÏ¸é SFXº°·Î ÀúÀåÇØµ×´Ù°¡ °ÔÀÓ»ó ¿ÀºêÁ§Æ®°¡ ²¨³» ¾´´Ù.
 class CSfxBase
 {
 public:
 	BOOL    LoadMerge();
-	CString m_strName; // sfxì˜ ì´ë¦„. íŒŒì¼ëª…ì—ì„œ í™•ì¥ìë¥¼ ì œì™¸í•œ ê²ƒ
+	CString m_strName; // sfxÀÇ ÀÌ¸§. ÆÄÀÏ¸í¿¡¼­ È®ÀåÀÚ¸¦ Á¦¿ÜÇÑ °Í
 
-	CPtrArray m_apParts; // íŒŒíŠ¸ì˜ ë°°ì—´
-	CSfxPart* Part(BYTE nIndex) { // ì§€ì •í•œ íŒŒíŠ¸ì˜ í¬ì¸í„°ë¥¼ êº¼ë‚´ì˜¨ë‹¤. ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ë©´ NULLì„ ë¦¬í„´
+	CPtrArray m_apParts; // ÆÄÆ®ÀÇ ¹è¿­
+	CSfxPart* Part(BYTE nIndex) { // ÁöÁ¤ÇÑ ÆÄÆ®ÀÇ Æ÷ÀÎÅÍ¸¦ ²¨³»¿Â´Ù. ¹üÀ§¸¦ ¹ş¾î³ª¸é NULLÀ» ¸®ÅÏ
 		if(m_apParts.GetSize()>nIndex) return (CSfxPart*)(m_apParts[nIndex]);
 		return NULL;
 	}
@@ -238,31 +238,31 @@ public:
 	CSfxBase();
 	~CSfxBase();
 
-	CSfxPart* AddPart(SFXPARTTYPE nType); // íŒŒíŠ¸ ì¶”ê°€
-	void DeletePart(BYTE nIndex); // íŒŒíŠ¸ ì‚­ì œ
-	void AdjustPart(BYTE nIndex); // íŒŒíŠ¸ ìˆ˜ì •
+	CSfxPart* AddPart(SFXPARTTYPE nType); // ÆÄÆ® Ãß°¡
+	void DeletePart(BYTE nIndex); // ÆÄÆ® »èÁ¦
+	void AdjustPart(BYTE nIndex); // ÆÄÆ® ¼öÁ¤
 
-	BOOL Load(void); // ë¡œë“œ
+	BOOL Load(void); // ·Îµå
 };
 
-// CSfxBase ê´€ë¦¬ì
+// CSfxBase °ü¸®ÀÚ
 class CSfxMng
 {
 public:
-	static LPDIRECT3DDEVICE9 m_pd3dDevice; // d3d ë””ë°”ì´ìŠ¤ í¬ì¸í„°
-	static LPDIRECT3DVERTEXBUFFER9 m_pSfxVB; // ì— ì‚¬ìš©í•  ë²„í…ìŠ¤ ë²„í¼
+	static LPDIRECT3DDEVICE9 m_pd3dDevice; // d3d µğ¹ÙÀÌ½º Æ÷ÀÎÅÍ
+	static LPDIRECT3DVERTEXBUFFER9 m_pSfxVB; // ¿¡ »ç¿ëÇÒ ¹öÅØ½º ¹öÆÛ
 
-	FLOAT m_fScale; // sfxì˜ í¬ê¸°
+	FLOAT m_fScale; // sfxÀÇ Å©±â
 
-	CPtrArray m_apSfxBase; // SfxBaseì˜ ë°°ì—´
+	CPtrArray m_apSfxBase; // SfxBaseÀÇ ¹è¿­
 
 	CSfxMng() {	m_fScale=0.5f; }
 	~CSfxMng();
 
-	void AddSfxBase(CSfxBase* pSfxBase); // SfxBaseë¥¼ ì¶”ê°€
-	void DeleteSfxBase(BYTE nIndex); // ì§€ì •í•œ SfxBaseë¥¼ ì‚­ì œ
-	CSfxBase* GetSfxBase(BYTE nIndex); // ì§€ì •í•œ SfxBaseì˜ í¬ì¸í„°ë¥¼ ê°–ê³ ì˜¨ë‹¤.
-	CSfxBase* GetSfxBase(CString strSfxName); // SfxBaseì˜ ì´ë¦„ìœ¼ë¡œ ì§€ì •í•œ SfxBaseì˜ í¬ì¸í„°ë¥¼ ê°–ê³ ì˜¨ë‹¤.
+	void AddSfxBase(CSfxBase* pSfxBase); // SfxBase¸¦ Ãß°¡
+	void DeleteSfxBase(BYTE nIndex); // ÁöÁ¤ÇÑ SfxBase¸¦ »èÁ¦
+	CSfxBase* GetSfxBase(BYTE nIndex); // ÁöÁ¤ÇÑ SfxBaseÀÇ Æ÷ÀÎÅÍ¸¦ °®°í¿Â´Ù.
+	CSfxBase* GetSfxBase(CString strSfxName); // SfxBaseÀÇ ÀÌ¸§À¸·Î ÁöÁ¤ÇÑ SfxBaseÀÇ Æ÷ÀÎÅÍ¸¦ °®°í¿Â´Ù.
 
 	HRESULT InitDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice);
 	HRESULT RestoreDeviceObjects();
@@ -270,7 +270,7 @@ public:
 	HRESULT DeleteDeviceObjects();
 };
 
-// ê²Œì„ìƒ ì˜¤ë¸Œì íŠ¸ì—ì„œ SFXì˜ ì¶œë ¥ì„ ìœ„í•œ CModel ì˜¤ë¸Œì íŠ¸
+// °ÔÀÓ»ó ¿ÀºêÁ§Æ®¿¡¼­ SFXÀÇ Ãâ·ÂÀ» À§ÇÑ CModel ¿ÀºêÁ§Æ®
 class CSfxModel : public CModel
 {
 public:
@@ -316,11 +316,11 @@ public:
 #endif	// __CLIENT
 };
 
-// ê²Œì„ìƒ ì‹¤ì œ SFXì˜¤ë¸Œì íŠ¸ë“¤ì˜ ê´€ë¦¬ì. (ë§Œë“¤ì–´ëŠ” ë†¨ëŠ”ë° ë‹¤ë¥¸ê±¸ë¡œ ê´€ë¦¬í•˜ë¯€ë¡œ ì‹¤ì œë¡œëŠ” ì•ˆì“´ë‹¤)
+// °ÔÀÓ»ó ½ÇÁ¦ SFX¿ÀºêÁ§Æ®µéÀÇ °ü¸®ÀÚ. (¸¸µé¾î´Â ³ù´Âµ¥ ´Ù¸¥°É·Î °ü¸®ÇÏ¹Ç·Î ½ÇÁ¦·Î´Â ¾È¾´´Ù)
 class CSfxObjMng
 {
 public:
-	CPtrArray m_apSfxObj; // ê²Œì„ìƒ SFXì˜¤ë¸Œì íŠ¸ë“¤ì˜ ë°°ì—´
+	CPtrArray m_apSfxObj; // °ÔÀÓ»ó SFX¿ÀºêÁ§Æ®µéÀÇ ¹è¿­
 
 	CSfxObjMng();
 	~CSfxObjMng();
@@ -329,37 +329,37 @@ public:
 #ifndef __WORLDSERVER
 	void Render(void);
 #endif
-	void RemoveAll(void); // êµ¬ì„±ìš”ì†Œë¥¼ ì „ë¶€ íŒŒê´´í•œë‹¤
+	void RemoveAll(void); // ±¸¼º¿ä¼Ò¸¦ ÀüºÎ ÆÄ±«ÇÑ´Ù
 };
 
-// SFXì—ì„œë§Œ ì‚¬ìš©ë˜ëŠ” í…ìŠ¤ì³ ê´€ë¦¬ì
+// SFX¿¡¼­¸¸ »ç¿ëµÇ´Â ÅØ½ºÃÄ °ü¸®ÀÚ
 class CSfxTexture
 {
 public:
-	CMapStringToPtr m_apTexture; // ìŠ¤íŠ¸ë§ìœ¼ë¡œ í…ìŠ¤ì³ í¬ì¸í„°ë¥¼ ì°¸ì¡°í•˜ëŠ” í•´ì‰¬í…Œì´ë¸”
+	CMapStringToPtr m_apTexture; // ½ºÆ®¸µÀ¸·Î ÅØ½ºÃÄ Æ÷ÀÎÅÍ¸¦ ÂüÁ¶ÇÏ´Â ÇØ½¬Å×ÀÌºí
 
 	CSfxTexture();
 	~CSfxTexture();
 
-	LPDIRECT3DTEXTURE9 AddTex(CString str); // í…ìŠ¤ì³ ì¶”ê°€
-	void DeleteTex(CString str); // í…ìŠ¤ì³ ì‚­ì œ
-	LPDIRECT3DTEXTURE9 Tex(CString str); //  ì§€ì •í•œ ì´ë¦„ì˜ í…ìŠ¤ì³ í¬ì¸í„°ë¥¼ ëŒë ¤ì¤€ë‹¤
-	void DeleteAll(void); // ëª¨ë“  í…ìŠ¤ì³ ì‚­ì œ
+	LPDIRECT3DTEXTURE9 AddTex(CString str); // ÅØ½ºÃÄ Ãß°¡
+	void DeleteTex(CString str); // ÅØ½ºÃÄ »èÁ¦
+	LPDIRECT3DTEXTURE9 Tex(CString str); //  ÁöÁ¤ÇÑ ÀÌ¸§ÀÇ ÅØ½ºÃÄ Æ÷ÀÎÅÍ¸¦ µ¹·ÁÁØ´Ù
+	void DeleteAll(void); // ¸ğµç ÅØ½ºÃÄ »èÁ¦
 };
 
 class CSfxMeshMng
 {
 public:
-	LPDIRECT3DDEVICE9 m_pd3dDevice; // d3dë””ë°”ì´ìŠ¤ í¬ì¸í„°
-	CMapStringToPtr m_apMesh; // ìŠ¤íŠ¸ë§ìœ¼ë¡œ ë©”ì‰¬ í¬ì¸í„°ë¥¼ ì°¸ì¡°í•˜ëŠ” í•´ì‰¬í…Œì´ë¸”
+	LPDIRECT3DDEVICE9 m_pd3dDevice; // d3dµğ¹ÙÀÌ½º Æ÷ÀÎÅÍ
+	CMapStringToPtr m_apMesh; // ½ºÆ®¸µÀ¸·Î ¸Ş½¬ Æ÷ÀÎÅÍ¸¦ ÂüÁ¶ÇÏ´Â ÇØ½¬Å×ÀÌºí
 
 	CSfxMeshMng();
 	~CSfxMeshMng();
 
-	CModelObject* AddMesh(CString str);// ë©”ì‰¬ ì¶”ê°€
-	void DeleteMesh(CString str); // ë©”ì‰¬ ì‚­ì œ
-	CModelObject* Mesh(CString str); //  ì§€ì •í•œ ì´ë¦„ì˜ ë©”ì‰¬ í¬ì¸í„°ë¥¼ ëŒë ¤ì¤€ë‹¤
-	void DeleteAll(void); // ì „ë¶€ ì‚­ì œ
+	CModelObject* AddMesh(CString str);// ¸Ş½¬ Ãß°¡
+	void DeleteMesh(CString str); // ¸Ş½¬ »èÁ¦
+	CModelObject* Mesh(CString str); //  ÁöÁ¤ÇÑ ÀÌ¸§ÀÇ ¸Ş½¬ Æ÷ÀÎÅÍ¸¦ µ¹·ÁÁØ´Ù
+	void DeleteAll(void); // ÀüºÎ »èÁ¦
 
 	HRESULT InitDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice);
 	HRESULT RestoreDeviceObjects();
@@ -379,7 +379,7 @@ struct lua_State;
 static int call_sfx( lua_State* L );
 static BOOL stop_sfx( OBJID caller );
 
-// ìì²´ update 
+// ÀÚÃ¼ update 
 struct SfxModelSet
 {
 	SfxModelSet( ) : _idMaster(0), _pModel(NULL), _bLoop(FALSE), _nMaxFrame(0), _nState(0) { }
@@ -397,7 +397,7 @@ struct SfxModelSet
 	BOOL _bLoop;
 	CSfxModel* _pModel;
 
-	int _nState;		//ìƒíƒœ : ì–´ë–¤ìƒíƒœì¼ë•Œ ë°œë™ë˜ëŠ” íš¨ê³¼ì¸ì§€
+	int _nState;		//»óÅÂ : ¾î¶²»óÅÂÀÏ¶§ ¹ßµ¿µÇ´Â È¿°úÀÎÁö
 
 };
 
@@ -405,8 +405,8 @@ typedef vector< SfxModelSet* >					SMSVector;				//SMS : SfxModelSet
 typedef map< OBJID, SMSVector >					SfxModelSetContainer;
 typedef SfxModelSetContainer::iterator			SfxModelSetIter;
 
-//gmpbigsun(100128 ) : Luaì—ì„œ í˜¸ì¶œí•œ sfx( ëª¨ë“  ì†ì„±ì´ dataë¡œ ì¡´ì¬í•˜ëŠ” ) ê´€ë¦¬ì
-// bone ì— ë§í¬ë˜ì–´ loopë˜ëŠ” ì´í™ë§Œ ì§€ì›í•œë‹¤. 
+//gmpbigsun(100128 ) : Lua¿¡¼­ È£ÃâÇÑ sfx( ¸ğµç ¼Ó¼ºÀÌ data·Î Á¸ÀçÇÏ´Â ) °ü¸®ÀÚ
+// bone ¿¡ ¸µÅ©µÇ¾î loopµÇ´Â ÀÌÆå¸¸ Áö¿øÇÑ´Ù. 
 class CSfxModelMng 
 {
 public:
@@ -414,9 +414,9 @@ public:
 	~CSfxModelMng( );
 
 	BOOL AddData( SfxModelSet* pData, BOOL bChecked );				
-	BOOL SubData( OBJID objID );						//í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ ëª¨ë“  luaê´€ë ¨ sfxì‚­ì œ 
-	BOOL SubData( OBJID objID, const int nState );		//í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ ëª¨ë“  ìƒíƒœì— í•´ë‹¹í•˜ëŠ” sfxì‚­ì œ
-	BOOL SubData( OBJID objID, const char* szBone );	//í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ í•´ë‹¹ ë³¸ì— ë§í¬ëœ ëª¨ë“  sfxì‚­ì œ
+	BOOL SubData( OBJID objID );						//ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ ¸ğµç lua°ü·Ã sfx»èÁ¦ 
+	BOOL SubData( OBJID objID, const int nState );		//ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ ¸ğµç »óÅÂ¿¡ ÇØ´çÇÏ´Â sfx»èÁ¦
+	BOOL SubData( OBJID objID, const char* szBone );	//ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ ÇØ´ç º»¿¡ ¸µÅ©µÈ ¸ğµç sfx»èÁ¦
 	
 	void Update( );
 	void Render( LPDIRECT3DDEVICE9 pd3dDevice );

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "dbmanager.h"
 #include "account.h"
 #include "BillingMgr.h"
@@ -174,7 +174,7 @@ void CDbManager::UpdateTracking( BOOL bON, LPCTSTR lpszAccount )
 	PostQueuedCompletionStatus( m_hDbCompletionPort, 1, NULL, &lpDbOverlappedPlus->Overlapped );		
 }
 
-// ëª¨ë‘ OFFë¡œ í•´ì¤Œ
+// ¸ðµÎ OFF·Î ÇØÁÜ
 BOOL CDbManager::AllOff()
 {
 	if( m_bTracking == FALSE )
@@ -192,7 +192,7 @@ BOOL CDbManager::AllOff()
 
 	if( FALSE == qry.Exec( szQuery ) )
 	{
-		AfxMessageBox( " DB Qry : ALL_OFF êµ¬ë¬¸ ì‹¤íŒ¨ " );
+		AfxMessageBox( " DB Qry : ALL_OFF ±¸¹® ½ÇÆÐ " );
 		return FALSE;
 	}
 	return TRUE;
@@ -209,7 +209,7 @@ void CDbManager::AccountOn( CQuery & qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlu
 
 void CDbManager::AccountOff( CQuery & qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
-	// åº·
+	// Ë¬
 	if( GetLanguage() == LANG_TWN )
 	{
 		sprintf( lpDbOverlappedPlus->szQuery, "dbo.uspExtendSession @paccount = '%s'", lpDbOverlappedPlus->szAccount );
@@ -227,26 +227,26 @@ void CDbManager::LogSMItem( CQuery & qryLog, LPDB_OVERLAPPED_PLUS lpDbOverlapped
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 	
 	/*
-	bi2.szBxaid		// êµ¬ë§¤ ë²ˆí˜¸
-	bi2.dwItemId	// ì•„ì´í…œ ì¸ë±ìŠ¤
-	bi2.dwItemNum	// ì•„ì´í…œ ê°œìˆ˜
-	bi2.dwServerIndex	// ì„œë²„ ì¸ë±ìŠ¤
-	bi2.dwPlayerId		// í”Œë ˆì´ì–´ ì‹ë³„ìž
-	bi2.dwRetVal	// ì§€ê¸‰ ì„±ê³µ ì—¬ë¶€, ì„±ê³µ : 1, ì‹¤íŒ¨ : 0
-	sn		// ì‹œë¦¬ì–¼ ë²ˆí˜¸
+	bi2.szBxaid		// ±¸¸Å ¹øÈ£
+	bi2.dwItemId	// ¾ÆÀÌÅÛ ÀÎµ¦½º
+	bi2.dwItemNum	// ¾ÆÀÌÅÛ °³¼ö
+	bi2.dwServerIndex	// ¼­¹ö ÀÎµ¦½º
+	bi2.dwPlayerId		// ÇÃ·¹ÀÌ¾î ½Äº°ÀÚ
+	bi2.dwRetVal	// Áö±Þ ¼º°ø ¿©ºÎ, ¼º°ø : 1, ½ÇÆÐ : 0
+	sn		// ½Ã¸®¾ó ¹øÈ£
 	*/
 	BUYING_INFO2	bi2;
 	SERIALNUMBER iSerialNumber;
 	arRead.Read( (void*)&bi2, sizeof(BUYING_INFO2) );
 	arRead >> iSerialNumber;
 	
-	// êµ¬ë§¤ë²ˆí˜¸ëŠ” : pszGetidPlayer
-	// ì•„ì´í…œì¸ë±ìŠ¤ : dwGold // ItemNameì€ í˜•ì‹ì— ì•ˆë§žìŒ
+	// ±¸¸Å¹øÈ£´Â : pszGetidPlayer
+	// ¾ÆÀÌÅÛÀÎµ¦½º : dwGold // ItemNameÀº Çü½Ä¿¡ ¾È¸ÂÀ½
 	LOG_SM_ITEM_INFO qi( "L3" );
 	if( bi2.dwRetVal )
-		qi.pszState = "3";		// ì„±ê³µ
+		qi.pszState = "3";		// ¼º°ø
 	else
-		qi.pszState = "4";		// ì‹¤íŒ¨
+		qi.pszState = "4";		// ½ÇÆÐ
 	qi.nserverindex = bi2.dwServerIndex;
 	char szPlayerId[128] = {0,};
 	sprintf( szPlayerId, "%07d", bi2.dwPlayerId );
@@ -274,7 +274,7 @@ void CDbManager::QueryBillingInfo( CQuery& query, LPDB_OVERLAPPED_PLUS pOV )
 }
 
 
-// ìœ ë£Œìœ ì €ëŠ” ë¹Œë§ì •ë³´ë¥¼ DBì— ì¿¼ë¦¬ 
+// À¯·áÀ¯Àú´Â ºô¸µÁ¤º¸¸¦ DB¿¡ Äõ¸® 
 void CDbManager::PostBillingQuery( const char* szAccount, DWORD dwKey, int nExtra )
 {
 	LPDB_OVERLAPPED_PLUS pOV = m_pDbIOData->Alloc();
@@ -294,7 +294,7 @@ void CDbManager::QueryReloadProject( CQuery& query, LPDB_OVERLAPPED_PLUS pOV )
 	
 	if( FALSE == query.Exec( szQuery ) )
 	{
-		Error( " DB Qry : Load_ReloadAccount êµ¬ë¬¸ ì‹¤íŒ¨ : LOGIN_RELOAD_STR" );
+		Error( " DB Qry : Load_ReloadAccount ±¸¹® ½ÇÆÐ : LOGIN_RELOAD_STR" );
 		m_pDbIOData->Free( pOV );
 		return;
 	}

@@ -1,4 +1,4 @@
-ï»¿#ifndef __DPSRVR_H__
+#ifndef __DPSRVR_H__
 #define	__DPSRVR_H__
 
 #include "dpmng.h"
@@ -20,7 +20,7 @@ typedef map<string, int>	STRING2INT;
 class CDPSrvr : public CDPMng<CBuffer>
 {
 public:
-	bool	m_bCheckAddr;		// ì ‘ì†í•˜ëŠ” accountì˜ addressë¥¼ ê²€ì‚¬í•´ì•¼ í•˜ëŠ”ê°€?
+	bool	m_bCheckAddr;		// Á¢¼ÓÇÏ´Â accountÀÇ address¸¦ °Ë»çÇØ¾ß ÇÏ´Â°¡?
 	int		m_nMaxConn;
 	BOOL	m_bReloadPro;
 	CMclCritSec		m_csAddrPmttd;

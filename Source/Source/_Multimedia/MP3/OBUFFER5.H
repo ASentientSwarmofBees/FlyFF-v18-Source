@@ -1,4 +1,4 @@
-﻿#ifndef _OBUFFERW_H
+#ifndef _OBUFFERW_H
 #define _OBUFFERW_H
 
 #include "all.h"

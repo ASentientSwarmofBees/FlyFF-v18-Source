@@ -1,21 +1,21 @@
-ï»¿#ifndef __WNDGUILD_TAB_MEMBER__H
+#ifndef __WNDGUILD_TAB_MEMBER__H
 #define __WNDGUILD_TAB_MEMBER__H
 
 struct MEMBERLIST
 {
-	DWORD	idPlayer;	// í”Œë ˆì´ì–´ ì•„ì´ë””.
-	int nMemberLv;		// í˜¸ì¹­
-	int nJob;			// ì§ì—… 
-	int nSex;			// ìƒ
-	int	nLevel;			// ìºë¦­ë ˆë²¨
-	BOOL bIsOnLine;     // ì˜¨ë¼ì¸, ì˜¤í”„ë¼ì¸
-	int		nGiveGold;					// ê¸¸ë“œì— ê¸°ë¶€í•œ í˜ëƒ
-	DWORD	dwGivePxpCount;				// ê¸¸ë“œì— ê¸°ë¶€í•œ PXPíšŸìˆ˜( ìŠ¤í‚¬ ê²½í—˜ì¹˜ )
-	short	nWin;							// ë¬´ì—‡ì„ ì´ê²¼ì§€?
-	short	nLose;						// ë¬´ì—‡ì„ ì¡Œì„ê¹Œë‚˜?
-	char szName[ MAX_NAME ];	// ì´ë¦„.
-	char szAlias[ MAX_GM_ALIAS ];	// ë³„ì¹­
-	int nClass;				// ë“±ê¸‰
+	DWORD	idPlayer;	// ÇÃ·¹ÀÌ¾î ¾ÆÀÌµğ.
+	int nMemberLv;		// È£Äª
+	int nJob;			// Á÷¾÷ 
+	int nSex;			// »ó
+	int	nLevel;			// Ä³¸¯·¹º§
+	BOOL bIsOnLine;     // ¿Â¶óÀÎ, ¿ÀÇÁ¶óÀÎ
+	int		nGiveGold;					// ±æµå¿¡ ±âºÎÇÑ Æä³Ä
+	DWORD	dwGivePxpCount;				// ±æµå¿¡ ±âºÎÇÑ PXPÈ½¼ö( ½ºÅ³ °æÇèÄ¡ )
+	short	nWin;							// ¹«¾ùÀ» ÀÌ°åÁö?
+	short	nLose;						// ¹«¾ùÀ» Á³À»±î³ª?
+	char szName[ MAX_NAME ];	// ÀÌ¸§.
+	char szAlias[ MAX_GM_ALIAS ];	// º°Äª
+	int nClass;				// µî±Ş
 };
 
 #define MAX_MEMBER	128
@@ -23,11 +23,11 @@ struct MEMBERLIST
 class CWndGuildTabMember : public CWndNeuz 
 { 
 //	CWndListCtrl *m_pListCtrl;
-	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
+	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
 	int		m_nSelect;
 
-	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
-	CWndMenu	m_wndMenu;			// íŒì—… ë©”ë‰´.
+	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
+	CWndMenu	m_wndMenu;			// ÆË¾÷ ¸Ş´º.
 	CWndScrollBar m_wndScrollBar;
 
 #if __VER >= 12 // __CSC_VER12_2
@@ -46,7 +46,7 @@ public:
 	CWndGuildTabMember(); 
 	~CWndGuildTabMember(); 
 
-	CRect	m_rectParent;			// ê¸¸ë“œì°½ì˜ ì¢Œìƒê·€ ì¢Œí‘œ.
+	CRect	m_rectParent;			// ±æµåÃ¢ÀÇ ÁÂ»ó±Í ÁÂÇ¥.
 	
 	virtual BOOL Initialize( CWndBase* pWndParent = NULL, DWORD nType = MB_OK ); 
 	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ); 

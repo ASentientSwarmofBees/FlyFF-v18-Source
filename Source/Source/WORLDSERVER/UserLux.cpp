@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "User.h"
 #include "DPDatabaseClient.h"
@@ -21,44 +21,44 @@ extern	CWorldMng	g_WorldMng;
 
 /*  
 //
-// ìì› ì±„ì§‘ ì‹œì‘
+// ÀÚ¿ø Ã¤Áı ½ÃÀÛ
 //
 BOOL CUser::DoCollect( CMover *pTarget )
 {
 	BOOL bAble = TRUE;
 
-	if( pTarget->m_idCollecter != NULL_ID )	// pTargetì´ ì£¼ì¸ì´ ìˆëŠ” ëª¹ì´ê³  
+	if( pTarget->m_idCollecter != NULL_ID )	// pTargetÀÌ ÁÖÀÎÀÌ ÀÖ´Â ¸÷ÀÌ°í 
 	{
 		CMover *pCollecter = prj.GetMover( pTarget->m_idCollecter );
 		if( IsValidObj(pCollecter) )
 		{
-			if( m_idparty )		// ì±„ì§‘í•˜ë ¤ëŠ” ì‚¬ëŒì´ íŒŒí‹°ê°€ ìˆëŠ”ê°€?
+			if( m_idparty )		// Ã¤ÁıÇÏ·Á´Â »ç¶÷ÀÌ ÆÄÆ¼°¡ ÀÖ´Â°¡?
 			{
-				if( m_idparty != pCollecter->m_idparty )		// ëª¹ ì£¼ì¸ê³¼ ê°™ì€ íŒŒí‹°ê°€ ì•„ë‹ˆë‹¤.
-					if( pTarget->m_nCollectOwnCnt > 0 )			// ì•„ì§ ì‹œê°„ì´ ëœí’€ë ¸ëŠ”ê°€?
-						bAble = FALSE;		// ëª»ë¨¹ìŒ.
+				if( m_idparty != pCollecter->m_idparty )		// ¸÷ ÁÖÀÎ°ú °°Àº ÆÄÆ¼°¡ ¾Æ´Ï´Ù.
+					if( pTarget->m_nCollectOwnCnt > 0 )			// ¾ÆÁ÷ ½Ã°£ÀÌ ´úÇ®·È´Â°¡?
+						bAble = FALSE;		// ¸ø¸ÔÀ½.
 			} else
-			// íŒŒí‹°ê°€ ì—†ì„ë•Œ
+			// ÆÄÆ¼°¡ ¾øÀ»¶§
 			{
-				if( pTarget->m_idCollecter != GetId() )			// ëª¹ ì£¼ì¸ì´ ë‚´ê°€ ì•„ë‹ˆëƒ?
-					if( pTarget->m_nCollectOwnCnt > 0 )			// ì•„ì§ ì‹œê°„ì´ ëœí’€ë ¸ëŠ”ê°€?
-						bAble = FALSE;		// ëª»ë¨¹ìŒ.
+				if( pTarget->m_idCollecter != GetId() )			// ¸÷ ÁÖÀÎÀÌ ³»°¡ ¾Æ´Ï³Ä?
+					if( pTarget->m_nCollectOwnCnt > 0 )			// ¾ÆÁ÷ ½Ã°£ÀÌ ´úÇ®·È´Â°¡?
+						bAble = FALSE;		// ¸ø¸ÔÀ½.
 			}
 		}
 //		else
-			// ì£¼ì¸ì´ ì‚¬ë¼ì¡Œìœ¼ë©´ ê± ë¨¹ì„ ìˆ˜ ìˆìŒ.
+			// ÁÖÀÎÀÌ »ç¶óÁ³À¸¸é °Á ¸ÔÀ» ¼ö ÀÖÀ½.
 //
-//		if( pTarget->m_idCollecter != GetId() )	// ê·¸ ì£¼ì¸ì´ ë‚´ê°€ ì•„ë‹ˆê³ 
+//		if( pTarget->m_idCollecter != GetId() )	// ±× ÁÖÀÎÀÌ ³»°¡ ¾Æ´Ï°í
 //		{
 //			CMover *pCollecter = prj.GetMover( pTarget->m_idCollecter );
 //			if( IsValidObj( pCollecter ) )
 //			{
-//				if( m_idparty && m_idparty != pCollecter->m_idparty )	// ê°™ì€ íŒŒí‹°ì›ë„ ì•„ë‹ˆê³ 
+//				if( m_idparty && m_idparty != pCollecter->m_idparty )	// °°Àº ÆÄÆ¼¿øµµ ¾Æ´Ï°í
 //				{
-//					if( pTarget->m_nCollectOwnCnt > 0 ) // ì•„ì§ ì‹œê°„ì´ ëœ í’€ë ¸ìœ¼ë©´
+//					if( pTarget->m_nCollectOwnCnt > 0 ) // ¾ÆÁ÷ ½Ã°£ÀÌ ´ú Ç®·ÈÀ¸¸é
 //					{
 //						AddDefinedText( TID_COLLECT_ERROROTHER );
-//						return FALSE;				// pTargetì€ thisê°€ ëª» ë¨¹ëŠ”ë‹¤.
+//						return FALSE;				// pTargetÀº this°¡ ¸ø ¸Ô´Â´Ù.
 //					}
 //				}
 //			}
@@ -66,11 +66,11 @@ BOOL CUser::DoCollect( CMover *pTarget )
 
 	}
 
-	// ì±„ì§‘ì´ í—ˆìš©ë˜ì§€ ì•ŠëŠ” ìƒí™©ì´ë©´
+	// Ã¤ÁıÀÌ Çã¿ëµÇÁö ¾Ê´Â »óÈ²ÀÌ¸é
 	if( bAble == FALSE )
 	{
-		AddDefinedText( TID_COLLECT_ERROROTHER );		// ì—ëŸ¬ë©”ì‹œì§€ ì¶œë ¥í•˜ê³ 
-		return FALSE;				// pTargetì€ thisê°€ ëª» ë¨¹ëŠ”ë‹¤.
+		AddDefinedText( TID_COLLECT_ERROROTHER );		// ¿¡·¯¸Ş½ÃÁö Ãâ·ÂÇÏ°í
+		return FALSE;				// pTargetÀº this°¡ ¸ø ¸Ô´Â´Ù.
 	}
 	
 
@@ -80,8 +80,8 @@ BOOL CUser::DoCollect( CMover *pTarget )
 				
 	if( CMover::DoCollect( pTarget ) == TRUE )
 	{
-		m_idTargetCollect = pTarget->GetId();	// pTargetì„ ì±„ì§‘ì¤‘ì´ë¼ëŠ”ê²ƒì„ í‘œì‹œí•¨.
-//		pTarget->m_idCollecter = GetId();		// íƒ€ê²Ÿì—ë‹¤ ë‚´êº¼ë¼ëŠ” í‘œì‹œí•¨.
+		m_idTargetCollect = pTarget->GetId();	// pTargetÀ» Ã¤ÁıÁßÀÌ¶ó´Â°ÍÀ» Ç¥½ÃÇÔ.
+//		pTarget->m_idCollecter = GetId();		// Å¸°Ù¿¡´Ù ³»²¨¶ó´Â Ç¥½ÃÇÔ.
 		m_nCollect = 0;
 		m_tmCollect = g_tmCurrent;
 	} else
@@ -98,14 +98,14 @@ int g_nCC = 0;
 /*
 //
 //
-// thisê°€ pTargetì„ ì±„ì§‘í•œë‹¤.
+// this°¡ pTargetÀ» Ã¤ÁıÇÑ´Ù.
 int		CUser::OnActCollecting( void )
 {
-	CMover *pTarget = prj.GetMover( m_idTargetCollect );		// ì±„ì§‘ëŒ€ìƒì˜ í¬ì¸í„° êº¼ëƒ„.
-	if( IsInvalidObj( pTarget ) )	// ì±„ì§‘ì¤‘ ì‹œê°„ì´ ë‹¤ë˜ì„œ ì˜¤ë¸Œì íŠ¸ê°€ ì‚¬ë¼ì§€ê±°ë‚˜ ê±°ì‹œê¸°í•œ ì˜¤ë¸Œì íŠ¸ë©´ ê± ë¦¬í„´.
-		return TRUE;		// ì±„ì§‘ ë™ì‘ í•´ì œí•˜ë¼.
+	CMover *pTarget = prj.GetMover( m_idTargetCollect );		// Ã¤Áı´ë»óÀÇ Æ÷ÀÎÅÍ ²¨³¿.
+	if( IsInvalidObj( pTarget ) )	// Ã¤ÁıÁß ½Ã°£ÀÌ ´ÙµÇ¼­ ¿ÀºêÁ§Æ®°¡ »ç¶óÁö°Å³ª °Å½Ã±âÇÑ ¿ÀºêÁ§Æ®¸é °Á ¸®ÅÏ.
+		return TRUE;		// Ã¤Áı µ¿ÀÛ ÇØÁ¦ÇÏ¶ó.
 
-	// ì±„ì§‘ ëª¨ì…˜ì´ ì§„í–‰ë˜ëŠ”ë™ì•ˆ ê³„ì† ë“¤ì–´ì˜¨ë‹¤.
+	// Ã¤Áı ¸ğ¼ÇÀÌ ÁøÇàµÇ´Âµ¿¾È °è¼Ó µé¾î¿Â´Ù.
 	if( g_tmCurrent > m_tmCollect + 1000.0f )
 	{
 		m_tmCollect = g_tmCurrent;
@@ -115,19 +115,19 @@ int		CUser::OnActCollecting( void )
 			Error( "CUser::OnActCollecting : pHandProp==NULL" );
 			return TRUE;
 		}
-		if( pHandProp->dwItemKind3 != IK3_COLLECTER )		// ì±„ì§‘ì¤‘ ë„êµ¬ë¥¼ ì—†ì• ë©´ ì±„ì§‘ ì·¨ì†Œ.
+		if( pHandProp->dwItemKind3 != IK3_COLLECTER )		// Ã¤ÁıÁß µµ±¸¸¦ ¾ø¾Ö¸é Ã¤Áı Ãë¼Ò.
 			return TRUE;
 		
-		m_nCollect += (int)pHandProp->dwLoadingTime;				// ì•„ì´í…œì˜ ì±„ì§‘ëŠ¥ë ¥ì— ë”°ë¼ ì±„ì§‘ëŸ‰ì„ ëˆ„ì .
-		pTarget->m_nResource -= (int)pHandProp->dwLoadingTime;		// ì±„ì§‘í•œ ë§Œí¼ íƒ€ê²Ÿì˜ ë¦¬ì†ŒìŠ¤ì—ì„œ ëºŒ.
+		m_nCollect += (int)pHandProp->dwLoadingTime;				// ¾ÆÀÌÅÛÀÇ Ã¤Áı´É·Â¿¡ µû¶ó Ã¤Áı·®À» ´©Àû.
+		pTarget->m_nResource -= (int)pHandProp->dwLoadingTime;		// Ã¤ÁıÇÑ ¸¸Å­ Å¸°ÙÀÇ ¸®¼Ò½º¿¡¼­ »­.
 		if( pTarget->m_nResource < 0 )
 			pTarget->m_nResource = 0;
-		if( m_nCollect >= pHandProp->nShellQuantity )	// ì±„ì§‘ì–‘ì´ ë§¥ìŠ¤ì¹˜ë¥¼ ë„˜ì–´ê°€ë©´.
+		if( m_nCollect >= pHandProp->nShellQuantity )	// Ã¤Áı¾çÀÌ ¸Æ½ºÄ¡¸¦ ³Ñ¾î°¡¸é.
 		{
-			//ë³´ì¡°ì„ 1ê°œ ìƒì„±;
+			//º¸Á¶¼® 1°³ »ı¼º;
 			BYTE bID;
 			CItemElem itemElem;
-			itemElem.m_dwItemId	= pTarget->GetProp()->dwSourceMaterial;		// ìì› ìƒì„±.
+			itemElem.m_dwItemId	= pTarget->GetProp()->dwSourceMaterial;		// ÀÚ¿ø »ı¼º.
 			itemElem.m_nItemNum		= 1;
 			if( itemElem.m_dwItemId != NULL_ID )
 			{
@@ -147,10 +147,10 @@ int		CUser::OnActCollecting( void )
 					g_DPSrvr.OnLogItem( aLogItem );
 				}
 			} else
-				Error( "CUser::OnActCollecting : %sê°€ dwSourceMaterialì´ -1", pTarget->GetName() );
+				Error( "CUser::OnActCollecting : %s°¡ dwSourceMaterialÀÌ -1", pTarget->GetName() );
 
-			FLOAT fResRatio = (float)pTarget->m_nResource / pTarget->GetProp()->dwMaterialAmount;		// ëª‡í¼ì„¼íŠ¸ ë‚¨ì•˜ëŠ”ì§€ ...
-			FLOAT fScale = pTarget->m_pModel->m_pModelElem->m_fScale;		// mdlDynaì— ìˆë˜ scaleê°’ì´ 100%
+			FLOAT fResRatio = (float)pTarget->m_nResource / pTarget->GetProp()->dwMaterialAmount;		// ¸îÆÛ¼¾Æ® ³²¾Ò´ÂÁö ...
+			FLOAT fScale = pTarget->m_pModel->m_pModelElem->m_fScale;		// mdlDyna¿¡ ÀÖ´ø scale°ªÀÌ 100%
 			if( fResRatio > 1.0f )
 			{
 				Error( "OnActCollecting : %f %d %d", fResRatio, pTarget->m_nResource, (int)pTarget->GetProp()->dwMaterialAmount );
@@ -170,17 +170,17 @@ int		CUser::OnActCollecting( void )
 			TRACE( "item Create: %d\n", g_nCC );
 #endif
 
-			m_nCollect -= pHandProp->nShellQuantity;	// ì˜¤ë²„ëœê²ƒ ì¬ì¡°ì •.
+			m_nCollect -= pHandProp->nShellQuantity;	// ¿À¹öµÈ°Í ÀçÁ¶Á¤.
 		}
-		if( pTarget->m_nResource <= 0 )							// íƒ€ê²Ÿì˜ ë¦¬ì†ŒìŠ¤ê°€ ë‹¤ë–¨ì–´ì¡Œìœ¼ë©´.
+		if( pTarget->m_nResource <= 0 )							// Å¸°ÙÀÇ ¸®¼Ò½º°¡ ´Ù¶³¾îÁ³À¸¸é.
 		{
-			// ì±„ì§‘ë
+			// Ã¤Áı³¡
 #ifdef __XUZHU
 			g_nCC = 0;
 #endif
-			pTarget->m_nResource = 0;							// 0ìœ¼ë¡œë§Œ í•´ë‘ê³  íƒ€ê²Ÿì´ ì—†ì–´ì§€ëŠ”ê±´ ê·¸ìª½ì—ì„œ ì•Œì•„ì„œ í•œë‹¤.
-			AddDefinedText( TID_COLLECT_EMPTY );	// ì±„ì§‘ì´ ëë‚¬ìŠµë‹ˆë‹¤
-			return TRUE;	// ì±„ì§‘ë™ì‘ í•´ì œí•˜ë¼.
+			pTarget->m_nResource = 0;							// 0À¸·Î¸¸ ÇØµÎ°í Å¸°ÙÀÌ ¾ø¾îÁö´Â°Ç ±×ÂÊ¿¡¼­ ¾Ë¾Æ¼­ ÇÑ´Ù.
+			AddDefinedText( TID_COLLECT_EMPTY );	// Ã¤ÁıÀÌ ³¡³µ½À´Ï´Ù
+			return TRUE;	// Ã¤Áıµ¿ÀÛ ÇØÁ¦ÇÏ¶ó.
 		}
 #ifdef __XUZHU
 		TRACE( "%d %d %d\n", m_tmCollect, pTarget->m_nResource, m_nCollect );
@@ -191,7 +191,7 @@ int		CUser::OnActCollecting( void )
 }
 */
 
-// tmMaxEscape : íƒˆì¶œì˜ ì¿¨íƒ€ì„
+// tmMaxEscape : Å»ÃâÀÇ ÄğÅ¸ÀÓ
 void CUser::AddEscape( DWORD tmMaxEscape )
 {
 	if( IsDelete() )	return;
@@ -202,7 +202,7 @@ void CUser::AddEscape( DWORD tmMaxEscape )
 	m_Snapshot.ar << tmMaxEscape;
 }
 
-// ì•¡ì…˜í¬ì¸íŠ¸ ê°±ì‹ .
+// ¾×¼ÇÆ÷ÀÎÆ® °»½Å.
 void CUser::AddSetActionPoint( int nAP )
 {
 	if( IsDelete() )	return;
@@ -254,7 +254,7 @@ void	CUserMng::AddCreateSkillEffect( CMover *pAttacker, OBJID idTarget, DWORD dw
 	NEXT_VISIBILITYRANGE( pAttacker )
 }
 
-// pMoverê°€ ìŠ¤í„´ ëœê²ƒì„ ì£¼ìœ„ ìœ ì €í´ë¼ì— ì•Œë¦¼.
+// pMover°¡ ½ºÅÏ µÈ°ÍÀ» ÁÖÀ§ À¯ÀúÅ¬¶ó¿¡ ¾Ë¸².
 void	CUserMng::AddSetStun( CMover *pMover, int nMaxTime )
 {
 	CAr ar;
@@ -279,7 +279,7 @@ void	CUserMng::AddDoApplySkill( CCtrl *pCtrl, OBJID idTarget, DWORD dwSkill, DWO
 	NEXT_VISIBILITYRANGE( pCtrl )
 }
 
-// SendActMsgë¥¼ ì£¼ìœ„ ìœ ì €ë“¤ì—ê²Œ ë³´ëƒ„ .
+// SendActMsg¸¦ ÁÖÀ§ À¯Àúµé¿¡°Ô º¸³¿ .
 void	CUserMng::AddSendActMsg( CMover *pMover, OBJMSG dwMsg, int nParam1, int nParam2, int nParam3 )
 {
 	CAr ar;
@@ -294,15 +294,15 @@ void	CUserMng::AddSendActMsg( CMover *pMover, OBJMSG dwMsg, int nParam1, int nPa
 	NEXT_VISIBILITYRANGE( pMover )
 }
 
-// Moverë¥¼ ì–´ëŠë°©í–¥ìœ¼ë¡œ ë°€ë¦¬ê²Œ í•˜ë‹¤.
-// pMover : ë°€ë¦¬ëŠ” ë¬´ë²„
-// vPos : ë°€ë¦¬ëŠ” ì‹œì ì—ì„œì˜ vPos - ì •í™•í•œ ë™ê¸°í™”ë•Œë¬¸ì— ì¢Œí‘œì™€ ê°ë„ê¹Œì§€ í•„ìš”í•˜ë‹¤.
-// fAngle : ë°€ë¦¬ëŠ” ì‹œì ì—ì„œì˜ Angle - 
-// fPushAngle : ë¯¸ëŠ” ê°ë„.
-// fPower : ë¯¸ëŠ” í˜.
+// Mover¸¦ ¾î´À¹æÇâÀ¸·Î ¹Ğ¸®°Ô ÇÏ´Ù.
+// pMover : ¹Ğ¸®´Â ¹«¹ö
+// vPos : ¹Ğ¸®´Â ½ÃÁ¡¿¡¼­ÀÇ vPos - Á¤È®ÇÑ µ¿±âÈ­¶§¹®¿¡ ÁÂÇ¥¿Í °¢µµ±îÁö ÇÊ¿äÇÏ´Ù.
+// fAngle : ¹Ğ¸®´Â ½ÃÁ¡¿¡¼­ÀÇ Angle - 
+// fPushAngle : ¹Ì´Â °¢µµ.
+// fPower : ¹Ì´Â Èû.
 void	CUserMng::AddPushPower( CMover *pMover, D3DXVECTOR3 vPos, FLOAT fAngle, FLOAT fPushAngle, FLOAT fPower )
 {
-	if( (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) || pMover->m_pActMover->GetState() & OBJSTA_STUN ) // ë°ë¯¸ì§€ í”Œë¼ì´ì¤‘ì´ë©´ ë¦¬í„´
+	if( (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) || pMover->m_pActMover->GetState() & OBJSTA_STUN ) // µ¥¹ÌÁö ÇÃ¶óÀÌÁßÀÌ¸é ¸®ÅÏ
 		return;
 
 	CAr ar;

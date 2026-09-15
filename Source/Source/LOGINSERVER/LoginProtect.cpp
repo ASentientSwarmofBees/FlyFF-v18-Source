@@ -1,4 +1,4 @@
-﻿// LoginProtect.cpp: implementation of the CLoginProtect class.
+// LoginProtect.cpp: implementation of the CLoginProtect class.
 //
 //////////////////////////////////////////////////////////////////////
 

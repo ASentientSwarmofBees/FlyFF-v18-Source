@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "WndColosseum.h"
 #ifdef	__COLOSSEUM
 
@@ -35,7 +35,7 @@ void CWndColosseumComplete::OnInitialUpdate()
 }
 BOOL CWndColosseumComplete::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLOCOMPLETE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumComplete::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
@@ -82,7 +82,7 @@ BOOL CWndColosseumEnter::Process()
 }
 BOOL CWndColosseumEnter::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLOENTER, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumEnter::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
@@ -148,7 +148,7 @@ void CWndColosseumMassage::OnInitialUpdate()
 }
 BOOL CWndColosseumMassage::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLOMASSAGE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumMassage::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
@@ -191,7 +191,7 @@ void CWndColosseumRankGuild::OnInitialUpdate()
 }
 BOOL CWndColosseumRankGuild::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLORANKGUILD, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumRankGuild::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
@@ -219,7 +219,7 @@ void CWndColosseumRankNomal::OnInitialUpdate()
 }
 BOOL CWndColosseumRankNomal::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLORANKNOMAL, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumRankNomal::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
@@ -247,7 +247,7 @@ void CWndColosseumRetry::OnInitialUpdate()
 }
 BOOL CWndColosseumRetry::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLORETRY, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumRetry::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
@@ -306,7 +306,7 @@ BOOL CWndColosseumStart::Process()
 }
 BOOL CWndColosseumStart::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLOSTART, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumStart::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
@@ -374,7 +374,7 @@ void CWndColosseumStartReady1::OnInitialUpdate()
 }
 BOOL CWndColosseumStartReady1::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLOSTARTREADY1, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumStartReady1::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
@@ -434,7 +434,7 @@ void CWndColosseumStartReady2::OnInitialUpdate()
 }
 BOOL CWndColosseumStartReady2::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_NEWCOLOSTARTREADY2, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndColosseumStartReady2::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 

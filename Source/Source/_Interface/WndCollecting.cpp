@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "resData.h"
 #include "WndCollecting.h"
 #include "Collecting.h"
@@ -117,7 +117,7 @@ void CCollectingWnd::OnDraw( C2DRender* p2DRender )
 	CRect rectTemp;
 	LPWNDCTRL lpFace = GetWndCtrl( WIDC_CUSTOM1 );
 	LPDIRECT3DDEVICE9 pd3dDevice = p2DRender->m_pd3dDevice;
-	// ë·°í¬íŠ¸ ì„¸íŒ… 
+	// ºäÆ÷Æ® ¼¼ÆÃ 
 	D3DVIEWPORT9 viewport;
 
 	pd3dDevice->Clear(0, NULL, D3DCLEAR_ZBUFFER, 0xffa08080, 1.0f, 0 ) ;
@@ -148,7 +148,7 @@ void CCollectingWnd::OnDraw( C2DRender* p2DRender )
 
 	pd3dDevice->SetViewport(&viewport);
 
-	// í”„ë¡œì ì…˜ 
+	// ÇÁ·ÎÁ§¼Ç 
 	D3DXMATRIX matProj;
 	D3DXMatrixIdentity( &matProj );
 	FLOAT fAspect = ((FLOAT)viewport.Width) / (FLOAT)viewport.Height;
@@ -177,7 +177,7 @@ void CCollectingWnd::OnDraw( C2DRender* p2DRender )
 	
 	pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-	// ëžœë”ë§ 
+	// ·£´õ¸µ 
 	pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
 	
 	pd3dDevice->SetRenderState( D3DRS_ZENABLE, TRUE );
@@ -197,7 +197,7 @@ void CCollectingWnd::OnDraw( C2DRender* p2DRender )
 	D3DXMatrixMultiply(&matWorld, &matWorld,&matRot);
 	D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 */
-/* ì´íŽ™íŠ¸.. ë¬¸ì œê°€ ì¢€ ìžˆì–´ì„œ ìš”êµ¬í•˜ê¸° ì „ê¹Œì§€ëŠ” ì¼ë‹¨ ë³´ë¥˜
+/* ÀÌÆåÆ®.. ¹®Á¦°¡ Á» ÀÖ¾î¼­ ¿ä±¸ÇÏ±â Àü±îÁö´Â ÀÏ´Ü º¸·ù
 	if(m_pSfx) 
 	{
 		CMover* pPlayer	= CMover::GetActiveMover();
@@ -303,7 +303,7 @@ void CCollectingWnd::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 #if __VER >= 11 // __SYS_COLLECTING
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	if(!g_pPlayer) return;
 	CItemElem* pCollector = g_pPlayer->GetCollector();
 
@@ -360,7 +360,7 @@ void CCollectingWnd::OnInitialUpdate()
 		m_pModel->InitDeviceObjects( g_Neuz.GetDevice() );*/
 	}
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -368,18 +368,18 @@ void CCollectingWnd::OnInitialUpdate()
 	
 #endif
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CCollectingWnd::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 	#if __VER >= 11 // __SYS_COLLECTING
-		// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+		// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 		return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_COLLECTING, 0, CPoint( 0, 0 ), pWndParent );
 	#else
 		return FALSE;
 	#endif
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CCollectingWnd::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 

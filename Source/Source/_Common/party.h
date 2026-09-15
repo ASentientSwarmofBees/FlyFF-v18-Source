@@ -1,4 +1,4 @@
-ï»¿#ifndef __PARTY_H__
+#ifndef __PARTY_H__
 #define	__PARTY_H__
 
 #ifdef __CORESERVER
@@ -14,19 +14,19 @@
 #include "mempooler.h"
 #include <map>
 
-// ëª¨ë“œ(ë°ë¯¸ì§€ ì¦ê°€, ìœ ë‹ˆí¬, íœ´ì‹, ì•„ì´í…œ)
+// ¸ğµå(µ¥¹ÌÁö Áõ°¡, À¯´ÏÅ©, ÈŞ½Ä, ¾ÆÀÌÅÛ)
 // 1, 2, 4, 8, 10, 12
-#define PARTY_LINKATTACK_MODE		0	// ë§í¬ì–´í… ìƒíƒœ	: ë°ë¯¸ì§€ ì¦ê°€
-#define PARTY_FORTUNECIRCLE_MODE	1	// í¬ì¶˜ì„œí´ ìƒíƒœ	: ìœ ë‹ˆí¬ ë“œë¡­í™•ë¥ 
-#define PARTY_STRETCHING_MODE		2	// ìŠ¤íŠ¸ë ˆì¹­ ìƒíƒœ	: íœ´ì‹ 2ë°° : ë‹¨ì¥ ì–´ì‹œìŠ¤íŠ¸ 3ë°°
-#define PARTY_GIFTBOX_MODE			3	// ê¸°í”„íŠ¸ë°•ìŠ¤ ìƒíƒœ  : ì•„ì´í…œ ì–‘ 2ë°°
+#define PARTY_LINKATTACK_MODE		0	// ¸µÅ©¾îÅØ »óÅÂ	: µ¥¹ÌÁö Áõ°¡
+#define PARTY_FORTUNECIRCLE_MODE	1	// Æ÷Ãá¼­Å¬ »óÅÂ	: À¯´ÏÅ© µå·ÓÈ®·ü
+#define PARTY_STRETCHING_MODE		2	// ½ºÆ®·¹Äª »óÅÂ	: ÈŞ½Ä 2¹è : ´ÜÀå ¾î½Ã½ºÆ® 3¹è
+#define PARTY_GIFTBOX_MODE			3	// ±âÇÁÆ®¹Ú½º »óÅÂ  : ¾ÆÀÌÅÛ ¾ç 2¹è
 
-#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
-#define PARTY_PARSKILL_MODE			4	// parskill ìƒíƒœ  :ë‹¨ì¥ì—ê²Œì„œ ë©€ë¦¬ë–¨ì–´ì ¸ë„ ì‚¬ìš©ê°€ëŠ¥
+#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#define PARTY_PARSKILL_MODE			4	// parskill »óÅÂ  :´ÜÀå¿¡°Ô¼­ ¸Ö¸®¶³¾îÁ®µµ »ç¿ë°¡´É
 #define MAX_PARTYMODE				5
-#else	//__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+#else	//__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 #define MAX_PARTYMODE				4
-#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
+#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
 
 #define	PP_REMOVE	0
 
@@ -39,7 +39,7 @@
 class CParty;
 extern	CParty		g_Party;
 
-typedef	struct	_PartyMember	// í”Œë ˆì´ì–´ ì•„ì´ë””ë§Œ ê°€ì§€ê³  ìˆìŒ
+typedef	struct	_PartyMember	// ÇÃ·¹ÀÌ¾î ¾ÆÀÌµğ¸¸ °¡Áö°í ÀÖÀ½
 {
 	u_long	m_uPlayerId;
 	CTime	m_tTime;
@@ -48,7 +48,7 @@ typedef	struct	_PartyMember	// í”Œë ˆì´ì–´ ì•„ì´ë””ë§Œ ê°€ì§€ê³  ìˆìŒ
 	LONG	m_nLevel;
 	LONG	m_nJob;
 	BYTE	m_nSex;
-	TCHAR	m_szName[20];		// í•œê¸€ 8ì (ì˜ë¬¸ 16ì)
+	TCHAR	m_szName[20];		// ÇÑ±Û 8ÀÚ (¿µ¹® 16ÀÚ)
 #endif	// __SYS_PLAYER_DATA
 #if defined( __WORLDSERVER ) || defined( __CLIENT )
 	D3DXVECTOR3	m_vPos;
@@ -74,17 +74,17 @@ class CParty
 {
 private:
 public:
-	u_long	m_uPartyId;								// ê·¹ë‹¨ ID
-	TCHAR	m_sParty[33];							// ê·¹ë‹¨ ëª…ì¹­( ë‹¨ë§‰ê·¹ë‹¨ : NO, ìˆœíšŒê·¹ë‹¨ : YES )
-	PartyMember	m_aMember[MAX_PTMEMBER_SIZE];		// í•œê°œì˜ ê·¹ë‹¨ì˜ ê·¹ë‹¨ì› ì •ë³´
-	int		m_nSizeofMember;						// ê·¹ë‹¨ì› ìˆ«ì	( 2 ~ 8 )
-	LONG	m_nLevel, m_nExp, m_nPoint;				// ê·¹ë‹¨ ë ˆë²¨, ê²½í—˜ì¹˜, í¬ì¸íŠ¸
-	int		m_nTroupsShareExp, m_nTroupeShareItem;	// ê²½í—˜ì¹˜ ë¶„ë°°ë°©ì‹, ì•„ì´í…œ ë¶„ë°°ë°©ì‹
-	int		m_nKindTroup;							// ê·¹ë‹¨ ì¢…ë¥˜ : ë‹¨ë§‰ê·¹ë‹¨, ìˆœíšŒê·¹ë‹¨
-	int		m_nReferens;							// ê·¹ë‹¨ì— í¬í•¨ë˜ì–´ ìˆëŠ” ìƒíƒœì¼ë•Œ ê²Œì„ì— ë‚˜ê°”ì„ê²½ìš° 10ë¶„í›„ì— íƒˆí‡´ ê²€ìƒ‰í•  íŒŒí‹°
-	int		m_nModeTime[MAX_PARTYMODE];				// ëª¨ë“œ ì‹œê°„
-	int		m_nGetItemPlayerId;						// ì•„ì´í…œ ì–»ì€ ìºë¦­í„°
-	u_long	m_idDuelParty;							// íŒŒí‹° ë“€ì–¼ì¤‘ì´ë©´ ìƒëŒ€ë°© íŒŒí‹°ì˜ ID, ì•„ë‹ˆë©´ 0
+	u_long	m_uPartyId;								// ±Ø´Ü ID
+	TCHAR	m_sParty[33];							// ±Ø´Ü ¸íÄª( ´Ü¸·±Ø´Ü : NO, ¼øÈ¸±Ø´Ü : YES )
+	PartyMember	m_aMember[MAX_PTMEMBER_SIZE];		// ÇÑ°³ÀÇ ±Ø´ÜÀÇ ±Ø´Ü¿ø Á¤º¸
+	int		m_nSizeofMember;						// ±Ø´Ü¿ø ¼ıÀÚ	( 2 ~ 8 )
+	LONG	m_nLevel, m_nExp, m_nPoint;				// ±Ø´Ü ·¹º§, °æÇèÄ¡, Æ÷ÀÎÆ®
+	int		m_nTroupsShareExp, m_nTroupeShareItem;	// °æÇèÄ¡ ºĞ¹è¹æ½Ä, ¾ÆÀÌÅÛ ºĞ¹è¹æ½Ä
+	int		m_nKindTroup;							// ±Ø´Ü Á¾·ù : ´Ü¸·±Ø´Ü, ¼øÈ¸±Ø´Ü
+	int		m_nReferens;							// ±Ø´Ü¿¡ Æ÷ÇÔµÇ¾î ÀÖ´Â »óÅÂÀÏ¶§ °ÔÀÓ¿¡ ³ª°¬À»°æ¿ì 10ºĞÈÄ¿¡ Å»Åğ °Ë»öÇÒ ÆÄÆ¼
+	int		m_nModeTime[MAX_PARTYMODE];				// ¸ğµå ½Ã°£
+	int		m_nGetItemPlayerId;						// ¾ÆÀÌÅÛ ¾òÀº Ä³¸¯ÅÍ
+	u_long	m_idDuelParty;							// ÆÄÆ¼ µà¾óÁßÀÌ¸é »ó´ë¹æ ÆÄÆ¼ÀÇ ID, ¾Æ´Ï¸é 0
 
 #ifdef __WORLDSERVER
 	DWORD	m_dwWorldId;
@@ -140,12 +140,12 @@ public:
 
 	void	SwapPartyMember( int first, int Second );
 
-#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 	int		GetPartyModeTime( int nMode );
 	void	SetPartyMode( int nMode, DWORD dwSkillTime ,int nCachMode );
-#else	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#else	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 	void	SetPartyMode( int nMode, DWORD dwSkillTime );
-#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 
 	void	DoUsePartySkill( u_long uPartyId, u_long nLeaderid, int nSkill );
 #ifdef __WORLDSERVER
@@ -189,7 +189,7 @@ class CPlayer;
 class CPartyMng
 {
 private:
-	u_long		m_id;	// ìƒˆë¡œ ìƒì„±ë˜ëŠ” íŒŒí‹°ì— ìˆœì°¨ì ìœ¼ë¡œ ì•„ì´ë””ë¥¼ í• ë‹¹í•˜ê¸° ìœ„í•œ ë³€ìˆ˜ë‹¤.
+	u_long		m_id;	// »õ·Î »ı¼ºµÇ´Â ÆÄÆ¼¿¡ ¼øÂ÷ÀûÀ¸·Î ¾ÆÀÌµğ¸¦ ÇÒ´çÇÏ±â À§ÇÑ º¯¼ö´Ù.
 //	CMapParty	m_2Party;
 	C2PartyPtr	m_2PartyPtr;
 #ifdef __WORLDSERVER

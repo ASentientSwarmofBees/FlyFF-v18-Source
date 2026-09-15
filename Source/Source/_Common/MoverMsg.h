@@ -1,29 +1,29 @@
-ï»¿#ifndef	__MOVERMSG_H__
+#ifndef	__MOVERMSG_H__
 #define	__MOVERMSG_H__
 
 
-#define		OBJSTA_NONE					0x00000000	// ì•„ë¬´ê²ƒë„ ì•„ë‹Œìƒíƒœ.
+#define		OBJSTA_NONE					0x00000000	// ¾Æ¹«°Íµµ ¾Æ´Ñ»óÅÂ.
 
 // stop/move
-#define		OBJSTA_STAND				0x00000001	// ëŒ€ê¸°ìƒíƒœ
-#define		OBJSTA_STAND2				0x00000002	// ëŒ€ê¸°ìƒíƒœEX
-#define		OBJSTA_SIT					0x00000003	// ì•‰ê¸°
-#define		OBJSTA_FMOVE				0x00000004	// ì•žìœ¼ë¡œ ê±·ê¸°
-#define		OBJSTA_BMOVE				0x00000005	// ë’¤ë¡œ ê±·ê¸°
-#define		OBJSTA_LEFT					0x00000006	// ì˜†ìœ¼ë¡œ ê±·ê¸°(ìˆ˜í‰ì´ë™)
+#define		OBJSTA_STAND				0x00000001	// ´ë±â»óÅÂ
+#define		OBJSTA_STAND2				0x00000002	// ´ë±â»óÅÂEX
+#define		OBJSTA_SIT					0x00000003	// ¾É±â
+#define		OBJSTA_FMOVE				0x00000004	// ¾ÕÀ¸·Î °È±â
+#define		OBJSTA_BMOVE				0x00000005	// µÚ·Î °È±â
+#define		OBJSTA_LEFT					0x00000006	// ¿·À¸·Î °È±â(¼öÆòÀÌµ¿)
 #define		OBJSTA_RIGHT				0x00000007	// 
-#define		OBJSTA_PICKUP				0x00000008	// (ë¬¼ê±´ë“±ì„)ì¤ë‹¤.
+#define		OBJSTA_PICKUP				0x00000008	// (¹°°ÇµîÀ»)ÁÝ´Ù.
 
-#define		OBJSTA_LMOVE				0x00000009	// ìˆ˜í‰ì™¼ìª½ìœ¼ë¡œ ê±·ê¸°
-#define		OBJSTA_RMOVE				0x0000000a	// ìŠ¤í‰ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê±·ê¸°
-#define		OBJSTA_STOP_RUN				0x0000000b	// ì œìžë¦¬ ë›°ê¸°
+#define		OBJSTA_LMOVE				0x00000009	// ¼öÆò¿ÞÂÊÀ¸·Î °È±â
+#define		OBJSTA_RMOVE				0x0000000a	// ½ºÆò¿À¸¥ÂÊÀ¸·Î °È±â
+#define		OBJSTA_STOP_RUN				0x0000000b	// Á¦ÀÚ¸® ¶Ù±â
 
 #define		OBJSTA_MOVE_ALL				0x000000FF
-#define		OBJSTA_NOT_STAND			(OBJSTA_MOVE_ALL & (~OBJSTA_STAND))		// STANDì´ì™¸ê°€ ìžˆëŠ”ê°€.
+#define		OBJSTA_NOT_STAND			(OBJSTA_MOVE_ALL & (~OBJSTA_STAND))		// STANDÀÌ¿Ü°¡ ÀÖ´Â°¡.
 
 // turn
-#define		OBJSTA_LTURN				0x00000100	// ì¢Œ í„´
-#define		OBJSTA_RTURN				0x00000200	// ìš° í„´
+#define		OBJSTA_LTURN				0x00000100	// ÁÂ ÅÏ
+#define		OBJSTA_RTURN				0x00000200	// ¿ì ÅÏ
 #define		OBJSTA_TURN_ALL				0x00000300	//
 // look up/down
 #define		OBJSTA_LOOKUP				0x00000400	//
@@ -31,131 +31,131 @@
 #define		OBJSTA_LOOK_ALL				0x00000C00
 
 // jump
-#define		OBJSTA_FJUMP_READY			0x00001000	// ì í”„ì „ ë„ì•½ - ì•žì í”„
-#define		OBJSTA_FJUMP				0x00002000	// ì í”„ì¤‘
-#define		OBJSTA_FFALL				0x00003000	// ë–¨ì–´ì§€ëŠ”ì¤‘
-#define		OBJSTA_FLAND				0x00004000	// ì°©ì§€
-#define		OBJSTA_SJUMP1				0x00005000	// ì í”„ì „ ë„ì•½ - ì œìžë¦¬ì í”„
-#define		OBJSTA_SJUMP2				0x00006000	// ì í”„ì¤‘
-#define		OBJSTA_SJUMP3				0x00007000	// ë–¨ì–´ì§€ëŠ”ì¤‘
-#define		OBJSTA_SJUMP4				0x00008000	// ì°©ì§€
-#define		OBJSTA_BJUMP_READY			0x00009000	// ì í”„ì „ ë„ì•½ - ë°±ì í”„
-#define		OBJSTA_BJUMP				0x0000a000	// ì í”„ì¤‘
-#define		OBJSTA_BFALL				0x0000b000	// ë–¨ì–´ì§€ëŠ”ì¤‘
-#define		OBJSTA_BLAND				0x0000c000	// ì°©ì§€
+#define		OBJSTA_FJUMP_READY			0x00001000	// Á¡ÇÁÀü µµ¾à - ¾ÕÁ¡ÇÁ
+#define		OBJSTA_FJUMP				0x00002000	// Á¡ÇÁÁß
+#define		OBJSTA_FFALL				0x00003000	// ¶³¾îÁö´ÂÁß
+#define		OBJSTA_FLAND				0x00004000	// ÂøÁö
+#define		OBJSTA_SJUMP1				0x00005000	// Á¡ÇÁÀü µµ¾à - Á¦ÀÚ¸®Á¡ÇÁ
+#define		OBJSTA_SJUMP2				0x00006000	// Á¡ÇÁÁß
+#define		OBJSTA_SJUMP3				0x00007000	// ¶³¾îÁö´ÂÁß
+#define		OBJSTA_SJUMP4				0x00008000	// ÂøÁö
+#define		OBJSTA_BJUMP_READY			0x00009000	// Á¡ÇÁÀü µµ¾à - ¹éÁ¡ÇÁ
+#define		OBJSTA_BJUMP				0x0000a000	// Á¡ÇÁÁß
+#define		OBJSTA_BFALL				0x0000b000	// ¶³¾îÁö´ÂÁß
+#define		OBJSTA_BLAND				0x0000c000	// ÂøÁö
 #define		OBJSTA_JUMP_ALL				0x0000F000
 // attack
-#define		OBJSTA_ATK1					0x00010000	// 1ë²ˆì—°íƒ€ ê³µê²©ë™ìž‘ì¤‘
-#define		OBJSTA_ATK2					0x00020000	// 2ë²ˆì—°íƒ€ ê³µê²©ë™ìž‘ì¤‘
+#define		OBJSTA_ATK1					0x00010000	// 1¹ø¿¬Å¸ °ø°Ýµ¿ÀÛÁß
+#define		OBJSTA_ATK2					0x00020000	// 2¹ø¿¬Å¸ °ø°Ýµ¿ÀÛÁß
 #define		OBJSTA_ATK3					0x00030000	// ...
-#define		OBJSTA_ATK4					0x00040000	// ...				// ë‚˜ì¤‘ì— "ê³µê²©ì¤‘"ì´ë¼ëŠ” ê°œë…ìœ¼ë¡œ í†µí•©ë ì§€ë„ ëª¨ë¥´ê² ë‹¤....
+#define		OBJSTA_ATK4					0x00040000	// ...				// ³ªÁß¿¡ "°ø°ÝÁß"ÀÌ¶ó´Â °³³äÀ¸·Î ÅëÇÕµÉÁöµµ ¸ð¸£°Ú´Ù....
 // wand attack
-#define		OBJSTA_ATK_MAGIC1    		0x00050000	// ì™„ë“œê³µê²©ë™ìž‘ì¤‘
-#define		OBJSTA_ATK_RANGE1    		0x00060000	// ì›ê±°ë¦¬ê³µê²©ë™ìž‘ì¤‘
+#define		OBJSTA_ATK_MAGIC1    		0x00050000	// ¿Ïµå°ø°Ýµ¿ÀÛÁß
+#define		OBJSTA_ATK_RANGE1    		0x00060000	// ¿ø°Å¸®°ø°Ýµ¿ÀÛÁß
 #define		OBJSTA_RANGE3				0x00070000	// 
 #define		OBJSTA_RANGE4				0x00080000	// 
 // melee skill
-#define		OBJSTA_ATK_MELEESKILL		0x00090000	// ê·¼ì ‘ ì „íˆ¬ìŠ¤í‚¬ë™ìž‘ ì¤‘
-#define		OBJSTA_ATK_RANGESKILL		0x000a0000	// ìž¥ê±°ë¦¬ ì „íˆ¬ìŠ¤í‚¬ë™ìž‘ ì¤‘
-#define		OBJSTA_ATK_CASTING1			0x000b0000	// ë§ˆë²• ìºìŠ¤íŒ… 1ë²ˆ (ì‹œìž‘)
-#define		OBJSTA_ATK_CASTING2			0x000c0000	// ë§ˆë²• ìºìŠ¤íŒ… 2ë²ˆ (ë°˜ë³µ.)
-#define		OBJSTA_ATK_MAGICSKILL		0x000d0000	// ë§ˆë²• ë°œì‚¬ ë™ìž‘.
-#define		OBJSTA_SP_ATK1				0x00100000	// íŠ¹ìˆ˜ê³µê²© : ëª¬ìŠ¤í„°ê°€ ì‚¬ìš©.
-#define		OBJSTA_SP_ATK2				0x00200000	// íŠ¹ìˆ˜ê³µê²©2 : ëª¬ìŠ¤í„°ê°€ ì‚¬ìš©.
+#define		OBJSTA_ATK_MELEESKILL		0x00090000	// ±ÙÁ¢ ÀüÅõ½ºÅ³µ¿ÀÛ Áß
+#define		OBJSTA_ATK_RANGESKILL		0x000a0000	// Àå°Å¸® ÀüÅõ½ºÅ³µ¿ÀÛ Áß
+#define		OBJSTA_ATK_CASTING1			0x000b0000	// ¸¶¹ý Ä³½ºÆÃ 1¹ø (½ÃÀÛ)
+#define		OBJSTA_ATK_CASTING2			0x000c0000	// ¸¶¹ý Ä³½ºÆÃ 2¹ø (¹Ýº¹.)
+#define		OBJSTA_ATK_MAGICSKILL		0x000d0000	// ¸¶¹ý ¹ß»ç µ¿ÀÛ.
+#define		OBJSTA_SP_ATK1				0x00100000	// Æ¯¼ö°ø°Ý : ¸ó½ºÅÍ°¡ »ç¿ë.
+#define		OBJSTA_SP_ATK2				0x00200000	// Æ¯¼ö°ø°Ý2 : ¸ó½ºÅÍ°¡ »ç¿ë.
 #define		OBJSTA_ATK_ALL				0x00FF0000
 //#define		OBJSTA_RANGE_ALL			0x0f000000
 // damage
-#define		OBJSTA_DMG					0x01000000	// í”¼ê²©
+#define		OBJSTA_DMG					0x01000000	// ÇÇ°Ý
 #define		OBJSTA_DMG_RESERVED1		0x04000000	
 #define		OBJSTA_DMG_RESERVED2		0x05000000	
 
-#define		OBJSTA_DMG_FLY				0x02000000	// ì™• í”¼ê²© - ë‚ ì•„ê°€ê¸°
-#define		OBJSTA_DMG_DIE				0x03000000	// ì™• í”¼ê²©í›„ ë•…ì— í„¸ì©!
-#define		OBJSTA_DMG_LIVE				0x06000000	// ì“°ëŸ¬ì§„ ìƒíƒœì—ì„œ ë‹¤ì‹œ ì¼ì–´ë‚˜ê¸°.
-#define		OBJSTA_DMG_FLY_ALL			0x02000000	// ë‚ ì•„ê°€ëŠ” ë°ë¯¸ì§€ ëª¨ë‘. ë‹¤ë¥¸ê³³ì—ì„œ 2ë²ˆì§¸ ë¹„íŠ¸ë¥¼ ì“°ì§€ ì•Šë„ë¡ì£¼ì˜.
+#define		OBJSTA_DMG_FLY				0x02000000	// ¿Õ ÇÇ°Ý - ³¯¾Æ°¡±â
+#define		OBJSTA_DMG_DIE				0x03000000	// ¿Õ ÇÇ°ÝÈÄ ¶¥¿¡ ÅÐ½â!
+#define		OBJSTA_DMG_LIVE				0x06000000	// ¾²·¯Áø »óÅÂ¿¡¼­ ´Ù½Ã ÀÏ¾î³ª±â.
+#define		OBJSTA_DMG_FLY_ALL			0x02000000	// ³¯¾Æ°¡´Â µ¥¹ÌÁö ¸ðµÎ. ´Ù¸¥°÷¿¡¼­ 2¹øÂ° ºñÆ®¸¦ ¾²Áö ¾Êµµ·ÏÁÖÀÇ.
 
-#define		OBJSTA_DEAD					0x08000000	// ì£½ì–´ ë„ë¶€ëŸ¬ì§„ ìƒíƒœ(ì£½ì€ìƒíƒœ)
-#define		OBJSTA_DISAPPEAR			0x09000000	// ì£½ì–´ ì—†ì–´ì§€ëŠ” ìƒíƒœ
-#define		OBJSTA_RESURRECTION			0x0C000000	// ë¶€í™œ 0xd = 1101
+#define		OBJSTA_DEAD					0x08000000	// Á×¾î ³ÎºÎ·¯Áø »óÅÂ(Á×Àº»óÅÂ)
+#define		OBJSTA_DISAPPEAR			0x09000000	// Á×¾î ¾ø¾îÁö´Â »óÅÂ
+#define		OBJSTA_RESURRECTION			0x0C000000	// ºÎÈ° 0xd = 1101
 #define		OBJSTA_DEAD_RESERVED1		0x0D000000	
-#define		OBJSTA_DIE_ALL				0x08000000	// ì£½ìŒ - 0x00800000 ë¹„íŠ¸ê°€ ì˜¨ì´ë©´ ì£½ì€ ìƒíƒœ.
-#define		OBJSTA_DMG_ALL				0x0F000000	// í”¼ê²© & ì£½ìŒ ëª¨ë‘
+#define		OBJSTA_DIE_ALL				0x08000000	// Á×À½ - 0x00800000 ºñÆ®°¡ ¿ÂÀÌ¸é Á×Àº »óÅÂ.
+#define		OBJSTA_DMG_ALL				0x0F000000	// ÇÇ°Ý & Á×À½ ¸ðµÎ
 
-// ì¼ë°˜ action - ë‹¤ë¥¸ ì–´ë–¤ ëª…ë ¹ë„ ì´ ì•¡ì…˜ì¤‘ì—ëŠ” ì˜í–¥ì„ ëª»ë¯¸ì¹œë‹¤.
-#define		OBJSTA_COLLECT				0x10000000	// ì±„ì§‘.
-#define		OBJSTA_APPEAR				0x20000000	// ë“±ìž¥ì”¬.
-#define		OBJSTA_APPEAR2				0x30000000  // ë“±ìž¥ì”¬ 2
-#define		OBJSTA_STUN					0x40000000	// ìŠ¤í„´ ìƒíƒœ.
+// ÀÏ¹Ý action - ´Ù¸¥ ¾î¶² ¸í·Éµµ ÀÌ ¾×¼ÇÁß¿¡´Â ¿µÇâÀ» ¸ø¹ÌÄ£´Ù.
+#define		OBJSTA_COLLECT				0x10000000	// Ã¤Áý.
+#define		OBJSTA_APPEAR				0x20000000	// µîÀå¾À.
+#define		OBJSTA_APPEAR2				0x30000000  // µîÀå¾À 2
+#define		OBJSTA_STUN					0x40000000	// ½ºÅÏ »óÅÂ.
 #define		OBJSTA_ACTION_ALL			0xF0000000	// 
 
 #define		OBJSTA_ALL	(OBJSTA_MOVE_ALL | OBJSTA_TURN_ALL | OBJSTA_LOOK_ALL | OBJSTA_JUMP_ALL | OBJSTA_ATK_ALL | OBJSTA_DMG_ALL | OBJSTA_ACTION_ALL )
 
 
 // State Flag
-#define		OBJSTAF_COMBAT				0x00000001	// ì „íˆ¬ ëª¨ë“œ
-#define		OBJSTAF_WALK				0x00000002	// ê±·ëŠ” ëª¨ë“œ
-#define		OBJSTAF_SIT					0x00000004	// ì•‰ê¸° ìƒíƒœ
-#define		OBJSTAF_FLY					0x00000008	// ë¹„í–‰ ëª¨ë“œ
-#define		OBJSTAF_ACC					0x00000010	// ê°€ì† ìƒíƒœ
-#define		OBJSTAF_ETC					0x00000020	// ì»¤ìŠ¤í…€ ëª¨ì…˜
-#define		OBJSTAF_ACCTURN				0x00000040	// ê¸‰ ì„ íšŒ.
-#define		OBJSTAF_TURBO				0x00000080	// í„°ë³´ ëª¨ë“œ.
+#define		OBJSTAF_COMBAT				0x00000001	// ÀüÅõ ¸ðµå
+#define		OBJSTAF_WALK				0x00000002	// °È´Â ¸ðµå
+#define		OBJSTAF_SIT					0x00000004	// ¾É±â »óÅÂ
+#define		OBJSTAF_FLY					0x00000008	// ºñÇà ¸ðµå
+#define		OBJSTAF_ACC					0x00000010	// °¡¼Ó »óÅÂ
+#define		OBJSTAF_ETC					0x00000020	// Ä¿½ºÅÒ ¸ð¼Ç
+#define		OBJSTAF_ACCTURN				0x00000040	// ±Þ ¼±È¸.
+#define		OBJSTAF_TURBO				0x00000080	// ÅÍº¸ ¸ðµå.
 
 // Act Message
 enum OBJMSG
 {
 	OBJMSG_NONE,
-	OBJMSG_FORWARD,		// ì „ì§„ í•´ë¼
-	OBJMSG_BACKWARD,	// í›„ì§„ í•´ë¼
-	OBJMSG_STAND,		// ì œìžë¦¬ì— ì„œìžˆì–´ë¼
-	OBJMSG_SITDOWN,		// ì•‰ì•„ë¼
-	OBJMSG_STANDUP,		// ì„œë¼.(ì•‰ì•„ìžˆì„ë•Œ)
-	OBJMSG_STOP,		// ë©ˆì¶°ë¼
-	OBJMSG_ASTOP,		// ë©ˆì¶°ë¼
-	OBJMSG_LTURN,		// ì™¼ìª½ìœ¼ë¡œ ëŒì•„ë¼
-	OBJMSG_RTURN,		// ì˜¤ë¥¸ìª½ìœ¼ë¡œ ëŒì•„ë¼
-	OBJMSG_STOP_TURN,		// ë„ëŠ”ê±¸ ë©ˆì¶°ë¼
-	OBJMSG_PICKUP,		// ì¤ë‹¤.
-	OBJMSG_RESURRECTION,	// ë¶€í™œ.
-	OBJMSG_COLLECT,		// ì±„ì§‘.
-	OBJMSG_APPEAR,		// ë“±ìž¥
-	OBJMSG_APPEAR2,		// ë“±ìž¥2
-	OBJMSG_STUN,		// ìŠ¤í„´ìƒíƒœ
-	OBJMSG_JUMP,		// ì í”„
-	OBJMSG_MODE_COMBAT,		// ì „íˆ¬ëª¨ë“œê°€ ë˜ì–´ë¼
-	OBJMSG_MODE_PEACE,		// í‰í™”ëª¨ë“œê°€ ë˜ì–´ë¼,
-	OBJMSG_MODE_WALK,		// ê±·ê¸°ëª¨ë“œê°€ ë˜ì–´ë¼
-	OBJMSG_MODE_RUN,		// ë›°ê¸°ëª¨ë“œê°€ ë˜ì–´ë¼
-	OBJMSG_MODE_FLY,		// ë¹„í–‰ëª¨ë“œê°€ ë˜ì–´ë¼
-	OBJMSG_MODE_GROUND,		// ì§€ìƒëª¨ë“œê°€ ë˜ì–´ë¼
-	OBJMSG_MODE_TURBO_ON,	// ìˆœê°„ ê°€ì† ëª¨ë“œ.
-	OBJMSG_MODE_TURBO_OFF,	// ê°€ì†ëª¨ë“œ í•´ì œ.
+	OBJMSG_FORWARD,		// ÀüÁø ÇØ¶ó
+	OBJMSG_BACKWARD,	// ÈÄÁø ÇØ¶ó
+	OBJMSG_STAND,		// Á¦ÀÚ¸®¿¡ ¼­ÀÖ¾î¶ó
+	OBJMSG_SITDOWN,		// ¾É¾Æ¶ó
+	OBJMSG_STANDUP,		// ¼­¶ó.(¾É¾ÆÀÖÀ»¶§)
+	OBJMSG_STOP,		// ¸ØÃç¶ó
+	OBJMSG_ASTOP,		// ¸ØÃç¶ó
+	OBJMSG_LTURN,		// ¿ÞÂÊÀ¸·Î µ¹¾Æ¶ó
+	OBJMSG_RTURN,		// ¿À¸¥ÂÊÀ¸·Î µ¹¾Æ¶ó
+	OBJMSG_STOP_TURN,		// µµ´Â°É ¸ØÃç¶ó
+	OBJMSG_PICKUP,		// ÁÝ´Ù.
+	OBJMSG_RESURRECTION,	// ºÎÈ°.
+	OBJMSG_COLLECT,		// Ã¤Áý.
+	OBJMSG_APPEAR,		// µîÀå
+	OBJMSG_APPEAR2,		// µîÀå2
+	OBJMSG_STUN,		// ½ºÅÏ»óÅÂ
+	OBJMSG_JUMP,		// Á¡ÇÁ
+	OBJMSG_MODE_COMBAT,		// ÀüÅõ¸ðµå°¡ µÇ¾î¶ó
+	OBJMSG_MODE_PEACE,		// ÆòÈ­¸ðµå°¡ µÇ¾î¶ó,
+	OBJMSG_MODE_WALK,		// °È±â¸ðµå°¡ µÇ¾î¶ó
+	OBJMSG_MODE_RUN,		// ¶Ù±â¸ðµå°¡ µÇ¾î¶ó
+	OBJMSG_MODE_FLY,		// ºñÇà¸ðµå°¡ µÇ¾î¶ó
+	OBJMSG_MODE_GROUND,		// Áö»ó¸ðµå°¡ µÇ¾î¶ó
+	OBJMSG_MODE_TURBO_ON,	// ¼ø°£ °¡¼Ó ¸ðµå.
+	OBJMSG_MODE_TURBO_OFF,	// °¡¼Ó¸ðµå ÇØÁ¦.
 	OBJMSG_MODE_TURN,
-	OBJMSG_ACC_START,	// ê°€ì† ì‹œìž‘
-	OBJMSG_ACC_STOP,	// ê°€ì† ì¤‘ì§€
-	OBJMSG_ATK1,		// ì—°íƒ€ê³µê²© 1ì‹œìž‘
-	OBJMSG_ATK2,		// ì—°íƒ€ê³µê²© 2ì‹œìž‘..
+	OBJMSG_ACC_START,	// °¡¼Ó ½ÃÀÛ
+	OBJMSG_ACC_STOP,	// °¡¼Ó ÁßÁö
+	OBJMSG_ATK1,		// ¿¬Å¸°ø°Ý 1½ÃÀÛ
+	OBJMSG_ATK2,		// ¿¬Å¸°ø°Ý 2½ÃÀÛ..
 	OBJMSG_ATK3,
 	OBJMSG_ATK4,
-	OBJMSG_SP_ATK1,		// íŠ¹ìˆ˜ê³µê²© : ëª¬ìŠ¤í„°ê°€ ì‚¬ìš©.
+	OBJMSG_SP_ATK1,		// Æ¯¼ö°ø°Ý : ¸ó½ºÅÍ°¡ »ç¿ë.
 	OBJMSG_SP_ATK2,
-	OBJMSG_ATK_RANGE1,	// ì›ê±°ë¦¬ê³µê²© 1ì‹œìž‘ - í™œê°™ì€...
-	OBJMSG_ATK_MAGIC1,	// ì™„ë“œê³µê²©
+	OBJMSG_ATK_RANGE1,	// ¿ø°Å¸®°ø°Ý 1½ÃÀÛ - È°°°Àº...
+	OBJMSG_ATK_MAGIC1,	// ¿Ïµå°ø°Ý
 	OBJMSG_MELEESKILL,
 	OBJMSG_MAGICSKILL,
 	OBJMSG_MAGICCASTING,
-	OBJMSG_DIE,		// ì£½ì–´ë¼!
-	OBJMSG_DAMAGE,			// ë°ë¯¸ì§€ë¨¹ìŒ.
-	OBJMSG_DAMAGE_FORCE,	// ê°•ë°ë¯¸ì§€ - ë§žìœ¼ë©´ ë‚ ì•„ê°.
+	OBJMSG_DIE,		// Á×¾î¶ó!
+	OBJMSG_DAMAGE,			// µ¥¹ÌÁö¸ÔÀ½.
+	OBJMSG_DAMAGE_FORCE,	// °­µ¥¹ÌÁö - ¸ÂÀ¸¸é ³¯¾Æ°¨.
 	OBJMSG_LOOKUP,
 	OBJMSG_LOOKDOWN,
 	OBJMSG_STOP_LOOK,
 	OBJMSG_MOTION,
 	OBJMSG_TURNMOVE,
 	OBJMSG_TURNMOVE2,
-	OBJMSG_BASE_RADY,		// ê¸°ë³¸ ì‹œì „ ë™ìž‘
+	OBJMSG_BASE_RADY,		// ±âº» ½ÃÀü µ¿ÀÛ
 	OBJMSG_TEMP,
-	OBJMSG_TEMP2,	// ë””ë²„ê¹…ìš© ê³µê²©ë©”ì‹œì§€
+	OBJMSG_TEMP2,	// µð¹ö±ë¿ë °ø°Ý¸Þ½ÃÁö
 	OBJMSG_TEMP3,
 	OBJMSG_DESTPOS,
 	OBJMSG_DESTOBJ,
@@ -165,7 +165,7 @@ enum OBJMSG
 	OBJMSG_STOP_RUN,
 };
 
-// ì˜¤ë¸Œì íŠ¸ í–‰ë™
+// ¿ÀºêÁ§Æ® Çàµ¿
 enum OBJACT
 {
 	OBJACT_NONE,
@@ -182,27 +182,27 @@ enum OBJACT
 };
 
 #define		MVRF_NONE			0x00000000
-#define		MVRF_SKILL			0x00000001		// ì—°ì† ìŠ¤í‚¬ ì‚¬ìš©ì¤‘.
-#define		MVRF_CRITICAL		0x00000002		// í¬ë¦¬í‹°ì»¬ ëª¨ë“œ. 1íšŒìš©.
-#define		MVRF_TRACKING		0x00000004		// ë¹„í–‰ì¤‘ ìžë™ì¶”ì ëª¨ë“œì¤‘.
-#define		MVRF_WARMARK		0x00000008		// ì „íˆ¬ë§ˆí¬ê°€ ë¨¸ë¦¬ìœ„ì— ë–´ëŠ”ì§€. 0ì´ë©´ CreateSfxë¥¼ í•´ì£¼ê³  1ë¡œ ë§Œë“¤ì–´ ì¤€ë‹¤.
-#define		MVRF_COLLECT		0x00000010		// ì±„ì§‘ ì´íŽ™íŠ¸.
-#define		MVRF_HITCONT		0x00000020		// ì¼ë°˜ê³µê²© íƒ€ì ì´í›„ë¶€í„° ì• ë‹ˆëë‚ ë•Œê¹Œì§€ ê³„ì† ON
-#define		MVRF_LASERCHARGE	0x00000040		// ë ˆì´ì € ì¶©ì „ì¤‘.
-#define		MVRF_EFFECT1		0x00000080		// ë¬´ë²„ê°€ í•˜ë‚˜ì”© ë‹¬ê³ ë‹¤ë‹ìˆ˜ ìžˆê²Œ í•˜ëŠ” ì´íŽ™íŠ¸(ë¼ì´ì ¬ê°™ì€ë„˜..)
-#define		MVRF_NOMOVE			0x00000100		// ì´ë™ê¸ˆì§€. ì œìžë¦¬ì—ì„œ ì´ë™ëª»í•¨.
-#define		MVRF_NOATTACK		0x00000200		// ê³µê²©ê¸ˆì§€. ê·¼ì ‘/ì™„ë“œ/ìŠ¤í‚¬ë“± ê³µê²© ë° ìŠ¤í‚¬ì„ ì‚¬ìš© ëª»í•¨
-#define		MVRF_NOUSERITEM		0x00000400		// ì•„ì´í…œì‚¬ìš©ê¸ˆì§€. 
-#define		MVRF_NOANI			0x00000800		// ì• ë‹ˆë©”ì´ì…˜ ê¸ˆì§€.
-#define		MVRF_NOACTION		(MVRF_NOMOVE | MVRF_NOATTACK | MVRF_NOUSERITEM)		// ì•¡ì…˜ê¸ˆì§€( ì´ë™/ê³µê²©/ìŠ¤í‚¬/ì•„ì´í…œ ëª¨ë‘ í•©í•œê±° )
-#define		MVRF_FREEZE			(MVRF_NOANI | MVRF_NOACTION)	// ì• ë‹ˆë©”ì´ì…˜ë„ ë©ˆì¶”ê³  ë™ìž‘ë„ ë‹¤ ë©ˆì¶˜ë‹¤.
-#define		MVRF_MEDITATION_SIT	0x00001000		// ë©”ë””í…Œì´ì…˜ì‚¬ìš©í›„ ì•‰ê¸° í”Œëž˜ê·¸ - ìµœì´ˆ í•œë²ˆë§Œ ì•‰ì•„ì•¼ í•˜ê¸°ë•Œë¬¸.
-#define		MVRF_SETITEMSFX		0x00002000		// ì„¸íŠ¸ ì•„ì´í…œ íš¨ê³¼ ì´íŽ™íŠ¸
+#define		MVRF_SKILL			0x00000001		// ¿¬¼Ó ½ºÅ³ »ç¿ëÁß.
+#define		MVRF_CRITICAL		0x00000002		// Å©¸®Æ¼ÄÃ ¸ðµå. 1È¸¿ë.
+#define		MVRF_TRACKING		0x00000004		// ºñÇàÁß ÀÚµ¿ÃßÀû¸ðµåÁß.
+#define		MVRF_WARMARK		0x00000008		// ÀüÅõ¸¶Å©°¡ ¸Ó¸®À§¿¡ ¶¹´ÂÁö. 0ÀÌ¸é CreateSfx¸¦ ÇØÁÖ°í 1·Î ¸¸µé¾î ÁØ´Ù.
+#define		MVRF_COLLECT		0x00000010		// Ã¤Áý ÀÌÆåÆ®.
+#define		MVRF_HITCONT		0x00000020		// ÀÏ¹Ý°ø°Ý Å¸Á¡ÀÌÈÄºÎÅÍ ¾Ö´Ï³¡³¯¶§±îÁö °è¼Ó ON
+#define		MVRF_LASERCHARGE	0x00000040		// ·¹ÀÌÀú ÃæÀüÁß.
+#define		MVRF_EFFECT1		0x00000080		// ¹«¹ö°¡ ÇÏ³ª¾¿ ´Þ°í´Ù´Ò¼ö ÀÖ°Ô ÇÏ´Â ÀÌÆåÆ®(¶óÀÌÁª°°Àº³Ñ..)
+#define		MVRF_NOMOVE			0x00000100		// ÀÌµ¿±ÝÁö. Á¦ÀÚ¸®¿¡¼­ ÀÌµ¿¸øÇÔ.
+#define		MVRF_NOATTACK		0x00000200		// °ø°Ý±ÝÁö. ±ÙÁ¢/¿Ïµå/½ºÅ³µî °ø°Ý ¹× ½ºÅ³À» »ç¿ë ¸øÇÔ
+#define		MVRF_NOUSERITEM		0x00000400		// ¾ÆÀÌÅÛ»ç¿ë±ÝÁö. 
+#define		MVRF_NOANI			0x00000800		// ¾Ö´Ï¸ÞÀÌ¼Ç ±ÝÁö.
+#define		MVRF_NOACTION		(MVRF_NOMOVE | MVRF_NOATTACK | MVRF_NOUSERITEM)		// ¾×¼Ç±ÝÁö( ÀÌµ¿/°ø°Ý/½ºÅ³/¾ÆÀÌÅÛ ¸ðµÎ ÇÕÇÑ°Å )
+#define		MVRF_FREEZE			(MVRF_NOANI | MVRF_NOACTION)	// ¾Ö´Ï¸ÞÀÌ¼Çµµ ¸ØÃß°í µ¿ÀÛµµ ´Ù ¸ØÃá´Ù.
+#define		MVRF_MEDITATION_SIT	0x00001000		// ¸ÞµðÅ×ÀÌ¼Ç»ç¿ëÈÄ ¾É±â ÇÃ·¡±× - ÃÖÃÊ ÇÑ¹ø¸¸ ¾É¾Æ¾ß ÇÏ±â¶§¹®.
+#define		MVRF_SETITEMSFX		0x00002000		// ¼¼Æ® ¾ÆÀÌÅÛ È¿°ú ÀÌÆåÆ®
 
 
-#define		ENEMY_PVP_PARTY		0		// íŒŒí‹° ë“€ì–¼
-#define		ENEMY_WAR			1		// ê¸¸ë“œì „
-#define		ENEMY_PK			2		// í”¼ì¼€ì´
-#define		ENEMY_PVP			3		// ë“€ì–¼
+#define		ENEMY_PVP_PARTY		0		// ÆÄÆ¼ µà¾ó
+#define		ENEMY_WAR			1		// ±æµåÀü
+#define		ENEMY_PK			2		// ÇÇÄÉÀÌ
+#define		ENEMY_PVP			3		// µà¾ó
 
 #endif	// __MOVERMSG_H__

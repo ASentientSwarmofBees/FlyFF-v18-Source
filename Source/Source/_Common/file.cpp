@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include <string.h>
 #include <stdio.h>
 #include "file.h"
@@ -126,8 +126,8 @@ void CResFile::AddResource( TCHAR* lpszResName )
 	file.Read( &nFileHeaderSize, sizeof( int ) );
 	
 	char *pHeader = new char[ nFileHeaderSize ];
-	// í•´ë”ëŠ” ì•”í˜¸ ê¸°ë³¸ 
-	//if( m_bEncryption ) // ì•”í˜¸í™” ë˜ì—ˆë‹¤ë©´
+	// ÇØ´õ´Â ¾ÏÈ£ ±âº» 
+	//if( m_bEncryption ) // ¾ÏÈ£È­ µÇ¾ú´Ù¸é
 	{
 		char *pCryptHeader = new char[ nFileHeaderSize ];
 		file.Read( pCryptHeader, nFileHeaderSize );
@@ -139,7 +139,7 @@ void CResFile::AddResource( TCHAR* lpszResName )
 		
 		safe_delete_array( pCryptHeader );
 	}
-	//else // ì•”í˜¸í™” ì•ˆë˜ì—ˆë‹¤ë©´
+	//else // ¾ÏÈ£È­ ¾ÈµÇ¾ú´Ù¸é
 	//{
 	//	m_File.Read( pHeader, nFileHeaderSize );
 	//}
@@ -188,7 +188,7 @@ void CResFile::AddResource( TCHAR* lpszResName )
 		m_mapResource.SetAt( szFullFileName, lpRes );
 
 		/*
-		// ì°¾ì•˜ë‹¤ë©´
+		// Ã£¾Ò´Ù¸é
 		if( 0 == strcmpi( lpszFileName, szFileName ) )
 		{
 			bFind = TRUE;
@@ -369,11 +369,11 @@ BOOL CResFile::FindFile(char *szSerchPath, LPCTSTR lpszFileName, TCHAR *mode, in
 			} 
 			else 
 			{
-				// .Res íŒŒì¼ì„ ì°¾ì•˜ë‹¤ë©´
+				// .Res ÆÄÀÏÀ» Ã£¾Ò´Ù¸é
 				if( 0 == strcmpi( ext, ".res" ) )
 				{
 					wsprintf( filepath, "%s%s%s", drive, dir, wfd.cFileName);
-					// .Res íŒŒì¼ ì•ˆì—ì„œ ì›í•˜ëŠ” íŒŒì¼ì„ ì°¾ì•˜ë‹¤ë©´
+					// .Res ÆÄÀÏ ¾È¿¡¼­ ¿øÇÏ´Â ÆÄÀÏÀ» Ã£¾Ò´Ù¸é
 					if( TRUE == FindFileFromResource( filepath, szFileName ) )
 					{
 						return TRUE;
@@ -384,7 +384,7 @@ BOOL CResFile::FindFile(char *szSerchPath, LPCTSTR lpszFileName, TCHAR *mode, in
 		}
 		FindClose( hSrch );
 	}
-	// ì°¾ëŠ” íŒŒì¼ì´ ì™¸ë¶€ì— ìˆë‹¤ë©´
+	// Ã£´Â ÆÄÀÏÀÌ ¿ÜºÎ¿¡ ÀÖ´Ù¸é
 	//if( 0 == strcmpi( szFileName, wfd.cFileName ) )
 	//{
 	m_bResouceInFile = FALSE;
@@ -407,8 +407,8 @@ BOOL CResFile::FindFileFromResource( char *filepath, LPCTSTR lpszFileName )
 	m_File.Read( &nFileHeaderSize, sizeof( int ) );
 
 	char *pHeader = new char[ nFileHeaderSize ];
-	// í•´ë”ëŠ” ì•”í˜¸ ê¸°ë³¸ 
-	//if( m_bEncryption ) // ì•”í˜¸í™” ë˜ì—ˆë‹¤ë©´
+	// ÇØ´õ´Â ¾ÏÈ£ ±âº» 
+	//if( m_bEncryption ) // ¾ÏÈ£È­ µÇ¾ú´Ù¸é
 	{
 		char *pCryptHeader = new char[ nFileHeaderSize ];
 		m_File.Read( pCryptHeader, nFileHeaderSize );
@@ -420,7 +420,7 @@ BOOL CResFile::FindFileFromResource( char *filepath, LPCTSTR lpszFileName )
  
 		delete [] pCryptHeader;
 	}
-	//else // ì•”í˜¸í™” ì•ˆë˜ì—ˆë‹¤ë©´
+	//else // ¾ÏÈ£È­ ¾ÈµÇ¾ú´Ù¸é
 	//{
 	//	m_File.Read( pHeader, nFileHeaderSize );
 	//}
@@ -445,7 +445,7 @@ BOOL CResFile::FindFileFromResource( char *filepath, LPCTSTR lpszFileName )
 		//FILEOUT( "c:\\debug.txt", "5 %s %s \n", lpszFileName, szFileName );
 		memcpy( &nFilePosition, &pHeader[ nHeaderPosition ], sizeof( int ) ); nHeaderPosition += sizeof( int );
 		//FILEOUT( "c:\\debug.txt", "6 %s %s \n", lpszFileName, szFileName );
-		// ì°¾ì•˜ë‹¤ë©´
+		// Ã£¾Ò´Ù¸é
 		if( 0 == strcmpi( lpszFileName, szFileName ) )
 		{
 			m_bResouceInFile = TRUE;
@@ -484,7 +484,7 @@ LPVOID CResFile::Read( void )
 		//m_nFileCurrentPosition 
 		m_File.Read( ptr, size );
 		m_nFileCurrentPosition += size;
-		// ì•”í˜¸í™”ì¼ ê²½ìš° ì•”í˜¸ë¥¼ í‘¼ë‹¤.
+		// ¾ÏÈ£È­ÀÏ °æ¿ì ¾ÏÈ£¸¦ Ç¬´Ù.
 		if( IsEncryption() )
 		{
 			for( int i = 0; i < size;  i++ )
@@ -503,7 +503,7 @@ size_t CResFile::Read( void *ptr, size_t size, size_t n /* = 1  */ )
 		//m_File.Seek( m_nFileCurrentPosition, CFile::begin );
 		size_t size_  = m_File.Read( ptr, size * n );
 		m_nFileCurrentPosition += size_;
-		// ì•”í˜¸í™”ì¼ ê²½ìš° ì•”í˜¸ë¥¼ í‘¼ë‹¤.
+		// ¾ÏÈ£È­ÀÏ °æ¿ì ¾ÏÈ£¸¦ Ç¬´Ù.
 		if( IsEncryption() )
 		{
 			for( int i = 0; i < (int)( size_ );  i++ )
@@ -601,7 +601,7 @@ char CResFile::GetC( void )
 		char c;
 		m_File.Read( &c, 1 );
 		m_nFileCurrentPosition += sizeof( c );
-		// ì•”í˜¸í™”ì¼ ê²½ìš° ì•”í˜¸ë¥¼ í‘¼ë‹¤.
+		// ¾ÏÈ£È­ÀÏ °æ¿ì ¾ÏÈ£¸¦ Ç¬´Ù.
 		if( IsEncryption() )
 			c = Decryption( m_byEncryptionKey, c );
 		return c;
@@ -628,7 +628,7 @@ WORD CResFile::GetW( void )
 	}
 }
 
-#pragma warning( disable : 4700 ) // CResFile::GetDW í•¨ìˆ˜ë‚´ì˜ ì´ˆê¸°í™” warningì„ ë¬´ì‹œí•©ë‹ˆë‹¤.
+#pragma warning( disable : 4700 ) // CResFile::GetDW ÇÔ¼ö³»ÀÇ ÃÊ±âÈ­ warningÀ» ¹«½ÃÇÕ´Ï´Ù.
 
 DWORD CResFile::GetDW( void )
 {
@@ -651,7 +651,7 @@ DWORD CResFile::GetDW( void )
 		return dw;
 	}
 }
-#pragma warning( default : 4700 ) // ë‹¤ì‹œ ë˜ëŒë¦½ë‹ˆë‹¤.
+#pragma warning( default : 4700 ) // ´Ù½Ã µÇµ¹¸³´Ï´Ù.
 
 
 int	CResFile::Flush( void )
@@ -734,12 +734,12 @@ BOOL CFileFinder::FindFirst( LPCTSTR lpFilespec, struct _finddata_t *fileinfo )
 	TCHAR drive[_MAX_DRIVE], dir[_MAX_DIR], name[ _MAX_FNAME ], ext[_MAX_EXT];
 	_splitpath( lpFilespec, drive, dir, name, ext );
 
-	// ë“œë¼ì´ë¸Œëª…ì´ ë“¤ì–´ ìˆìœ¼ë©´ ì™„ì „í•œ pathë‹¤. ê·¸ëŸ¬ë¯€ë¡œ ê·¸ëƒ¥ ì¹´í”¼ 
+	// µå¶óÀÌºê¸íÀÌ µé¾î ÀÖÀ¸¸é ¿ÏÀüÇÑ path´Ù. ±×·¯¹Ç·Î ±×³É Ä«ÇÇ 
 	if( drive[ 0 ] )
 	{
 		_tcscpy( m_szFilespec, lpFilespec );
 	}
-	// ë“œë¦¬ì´ë¸Œëª…ì´ ì—†ìœ¼ë©´ í˜„ì¬ pathì˜ ì—°ì¥ì´ë‹¤. 
+	// µå¸®ÀÌºê¸íÀÌ ¾øÀ¸¸é ÇöÀç pathÀÇ ¿¬ÀåÀÌ´Ù. 
 	else
 	{
 		::GetCurrentDirectory( MAX_PATH, szPath );

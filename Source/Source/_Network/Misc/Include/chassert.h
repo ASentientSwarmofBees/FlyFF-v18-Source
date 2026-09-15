@@ -1,4 +1,4 @@
-﻿#ifndef __CHASSERT_H__
+#ifndef __CHASSERT_H__
 #define	__CHASSERT_H__
 
 #define	MAXBUFF		1024

@@ -1,12 +1,12 @@
-ï»¿#ifndef LANDSCAPE_H
+#ifndef LANDSCAPE_H
 #define LANDSCAPE_H
 
 #ifndef __MAP_SIZE
 
 #define MAP_SIZE (128)
-#define NUM_PATCHES_PER_SIDE (16)							// 128(MAP_SIZE)ì— 16(NUM_PATCHES_PER_SIDE)ê°œì˜ íŒ¨ì¹˜ê°€ ìˆìŒ 
-#define PATCH_SIZE (MAP_SIZE/NUM_PATCHES_PER_SIDE)			// íŒ¨ì¹˜ì˜ í•œ ë³€ì˜ í¬ê¸°
-#define LIGHTMAP_SIZE ((PATCH_SIZE-1)*NUM_PATCHES_PER_SIDE) // ëœë“œìŠ¤ì¼€ì´í”„ í•˜ë‚˜ì— ì‚¬ìš©ë  ë¼ì´íŠ¸ë§µì˜ í•œ ë³€ì˜ í¬ê¸°
+#define NUM_PATCHES_PER_SIDE (16)							// 128(MAP_SIZE)¿¡ 16(NUM_PATCHES_PER_SIDE)°³ÀÇ ÆĞÄ¡°¡ ÀÖÀ½ 
+#define PATCH_SIZE (MAP_SIZE/NUM_PATCHES_PER_SIDE)			// ÆĞÄ¡ÀÇ ÇÑ º¯ÀÇ Å©±â
+#define LIGHTMAP_SIZE ((PATCH_SIZE-1)*NUM_PATCHES_PER_SIDE) // ·£µå½ºÄÉÀÌÇÁ ÇÏ³ª¿¡ »ç¿ëµÉ ¶óÀÌÆ®¸ÊÀÇ ÇÑ º¯ÀÇ Å©±â
 
 #ifdef __CLIENT
 #define LANDREALSCALE ( MAP_SIZE * MPU )
@@ -26,16 +26,16 @@
 #define D3DFVF_WATERVERTEX (D3DFVF_XYZ|D3DFVF_NORMAL|D3DFVF_DIFFUSE|D3DFVF_TEX1) 
 #define D3DFVF_HGTATTRVERTEX (D3DFVF_XYZ|D3DFVF_NORMAL|D3DFVF_DIFFUSE) 
 
-#define HGT_NOWALK 1000.0f // ê±·ê¸°, ì í”„ ê¸ˆì§€ 
-#define HGT_NOFLY  2000.0f // ë¹„í–‰ ê¸ˆì§€ 
-#define HGT_NOMOVE 3000.0f // ê±·ê¸°, ë¹„í–‰ ê¸ˆì§€ 
-#define HGT_DIE    4000.0f // ì£½ìŒ 
+#define HGT_NOWALK 1000.0f // °È±â, Á¡ÇÁ ±İÁö 
+#define HGT_NOFLY  2000.0f // ºñÇà ±İÁö 
+#define HGT_NOMOVE 3000.0f // °È±â, ºñÇà ±İÁö 
+#define HGT_DIE    4000.0f // Á×À½ 
 
 #define HATTR_NONE   0 
-#define HATTR_NOWALK 1 // ê±·ê¸°, ì í”„ ê¸ˆì§€ 
-#define HATTR_NOFLY  2 // ë¹„í–‰ ê¸ˆì§€ 
-#define HATTR_NOMOVE 3 // ê±·ê¸°, ë¹„í–‰ ê¸ˆì§€ 
-#define HATTR_DIE    4 // ì£½ìŒ 
+#define HATTR_NOWALK 1 // °È±â, Á¡ÇÁ ±İÁö 
+#define HATTR_NOFLY  2 // ºñÇà ±İÁö 
+#define HATTR_NOMOVE 3 // °È±â, ºñÇà ±İÁö 
+#define HATTR_DIE    4 // Á×À½ 
 
 #define WTYPE_NONE  0x00
 #define WTYPE_CLOUD 0x01
@@ -68,19 +68,19 @@ class CObj;
 class CWorld;
 
 
-// ëœë“œìŠ¤ì¼€ì´í”„ì—ì„œ ì‚¬ìš©í•˜ëŠ” ë ˆì´ì–´ í´ë˜ìŠ¤
-// í•˜ë‚˜ë‹¹ í•œ ì¢…ë¥˜ì˜ í…ìŠ¤ì³ê°€ ì–´ë–»ê²Œ ê¹”ë ¤ìˆëŠ”ì§€ì˜ ì •ë³´ë¥¼ ê°€ì§„ë‹¤
+// ·£µå½ºÄÉÀÌÇÁ¿¡¼­ »ç¿ëÇÏ´Â ·¹ÀÌ¾î Å¬·¡½º
+// ÇÏ³ª´ç ÇÑ Á¾·ùÀÇ ÅØ½ºÃÄ°¡ ¾î¶»°Ô ±ò·ÁÀÖ´ÂÁöÀÇ Á¤º¸¸¦ °¡Áø´Ù
 struct CLandLayer
 {
 public:
 	BOOL m_bVisible;
-	WORD m_nTex; // ì´ ë ˆì´ì–´ê°€ ë‹´ë‹¹í•˜ëŠ” í…ìŠ¤ì³ ID
-	BOOL m_aPatchEnable[NUM_PATCHES_PER_SIDE*NUM_PATCHES_PER_SIDE]; // íŒ¨ì¹˜ì˜ í‘œì‹œ ìƒíƒœë¥¼ ì €ì¥í•˜ëŠ” ë°°ì—´
-	LPDIRECT3DTEXTURE9 m_pLightMap; // ë¼ì´íŠ¸ë§µ í¬ì¸í„°
+	WORD m_nTex; // ÀÌ ·¹ÀÌ¾î°¡ ´ã´çÇÏ´Â ÅØ½ºÃÄ ID
+	BOOL m_aPatchEnable[NUM_PATCHES_PER_SIDE*NUM_PATCHES_PER_SIDE]; // ÆĞÄ¡ÀÇ Ç¥½Ã »óÅÂ¸¦ ÀúÀåÇÏ´Â ¹è¿­
+	LPDIRECT3DTEXTURE9 m_pLightMap; // ¶óÀÌÆ®¸Ê Æ÷ÀÎÅÍ
 
 	CLandLayer(LPDIRECT3DDEVICE9 pd3dDevice,WORD nTex);
 	~CLandLayer();
-	BOOL GetPatchEnable(int x, int z) { return m_aPatchEnable[x+z*NUM_PATCHES_PER_SIDE]; } // ì´ ë¶€ë¶„ì˜ íŒ¨ì¹˜ì˜ í‘œì‹œ ìƒíƒœë¥¼ ë¦¬í„´
+	BOOL GetPatchEnable(int x, int z) { return m_aPatchEnable[x+z*NUM_PATCHES_PER_SIDE]; } // ÀÌ ºÎºĞÀÇ ÆĞÄ¡ÀÇ Ç¥½Ã »óÅÂ¸¦ ¸®ÅÏ
 };
 
 
@@ -100,8 +100,8 @@ typedef struct
 
 #define MASK_WATERFRAME	0xfc
 
-// ëœë“œìŠ¤ì¼€ì´í”„ í´ë˜ìŠ¤
-// íŒ¨ì¹˜ì˜ ì§‘í•©ìœ¼ë¡œì„œ ì›”ë“œì˜ ì¼ë¶€ë¥¼ êµ¬ì„±
+// ·£µå½ºÄÉÀÌÇÁ Å¬·¡½º
+// ÆĞÄ¡ÀÇ ÁıÇÕÀ¸·Î¼­ ¿ùµåÀÇ ÀÏºÎ¸¦ ±¸¼º
 class CLandscape
 {
 	friend CWorld;
@@ -117,17 +117,17 @@ protected:
 	static FLOAT	m_fWaterFrame;
 #endif //__WATER_EXT
 
-	LPDIRECT3DDEVICE9		m_pd3dDevice;	// d3d ë””ë°”ì´ìŠ¤
-	CWorld*					m_pWorld;		// ì›”ë“œì˜ í¬ì¸í„°
-	FLOAT*					m_pHeightMap;											// ë†’ì´ ë§µ (ì‹¤ì œ í• ë‹¹ ì£¼ì†Œ)
+	LPDIRECT3DDEVICE9		m_pd3dDevice;	// d3d µğ¹ÙÀÌ½º
+	CWorld*					m_pWorld;		// ¿ùµåÀÇ Æ÷ÀÎÅÍ
+	FLOAT*					m_pHeightMap;											// ³ôÀÌ ¸Ê (½ÇÁ¦ ÇÒ´ç ÁÖ¼Ò)
 	WATERHEIGHT				m_aWaterHeight[ NUM_PATCHES_PER_SIDE * NUM_PATCHES_PER_SIDE ];
 	BYTE					m_aLandAttr[ NUM_PATCHES_PER_SIDE * NUM_PATCHES_PER_SIDE ];
-	BOOL					m_bDirty;										// ë²„í…ìŠ¤ ë²„í¼ë¥¼ ìˆ˜ì •í•  í•„ìš”ê°€ ìˆì„ ê²½ìš° TRUEë¡œ ì„¸íŒ…
-	BOOL					m_bVisible;				 						// ì»¬ë§ëœ ê²°ê³¼
-	D3DXVECTOR3				m_avBounds[8];									// ì»¬ë§ì— ì‚¬ìš©í•  ë°”ìš´ë“œ ë°•ìŠ¤ ë²¡í„°
-	D3DXPLANE				m_aplaneBounds[6];								// ì»¬ë§ì— ì‚¬ìš©í•  ë°”ìš´ë“œ ë°•ìŠ¤ í‰ë©´
-	int						m_nWorldX,m_nWorldY;							// ì´ ëœë“œìŠ¤ì¼€ì´í”„ì˜ ì¢Œí•˜ë‹¨ ì›”ë“œì¢Œí‘œ
-	LPDIRECT3DVERTEXBUFFER9 m_pVB;											// ë²„í…ìŠ¤ ë²„í¼
+	BOOL					m_bDirty;										// ¹öÅØ½º ¹öÆÛ¸¦ ¼öÁ¤ÇÒ ÇÊ¿ä°¡ ÀÖÀ» °æ¿ì TRUE·Î ¼¼ÆÃ
+	BOOL					m_bVisible;				 						// ÄÃ¸µµÈ °á°ú
+	D3DXVECTOR3				m_avBounds[8];									// ÄÃ¸µ¿¡ »ç¿ëÇÒ ¹Ù¿îµå ¹Ú½º º¤ÅÍ
+	D3DXPLANE				m_aplaneBounds[6];								// ÄÃ¸µ¿¡ »ç¿ëÇÒ ¹Ù¿îµå ¹Ú½º Æò¸é
+	int						m_nWorldX,m_nWorldY;							// ÀÌ ·£µå½ºÄÉÀÌÇÁÀÇ ÁÂÇÏ´Ü ¿ùµåÁÂÇ¥
+	LPDIRECT3DVERTEXBUFFER9 m_pVB;											// ¹öÅØ½º ¹öÆÛ
 	WATERVERTEXBUFFER		*m_pWaterVB;
 
 	DWORD					m_nCloudVertexNum;
@@ -138,7 +138,7 @@ protected:
 
 	FLOAT				GetHeightMap( int nOffset );  
 	void				OptimizeLayer();
-	CLandLayer*			NewLayer( WORD nTex );								// ì§€ì •í•œ ë ˆì´ì–´ì˜ í¬ì¸í„°ë¥¼ ë¦¬í„´
+	CLandLayer*			NewLayer( WORD nTex );								// ÁöÁ¤ÇÑ ·¹ÀÌ¾îÀÇ Æ÷ÀÎÅÍ¸¦ ¸®ÅÏ
 	int					GetHeightAttribute( int x, int z );
 	LPWATERHEIGHT		GetWaterHeight(int x, int z );
 	HRESULT				MakeWaterVertexBuffer();
@@ -149,13 +149,13 @@ public:
 	static	int			m_nWidthLinkMap[ MAX_LINKLEVEL ];
 
 	DWORD				m_dwVersion;
-	CPtrArray			m_aLayer; // ì´ ëœë“œìŠ¤ì¼€ì´í”„ì— ì‚¬ìš©ë  ë ˆì´ì–´ë“¤ì˜ ë°°ì—´
+	CPtrArray			m_aLayer; // ÀÌ ·£µå½ºÄÉÀÌÇÁ¿¡ »ç¿ëµÉ ·¹ÀÌ¾îµéÀÇ ¹è¿­
 	BOOL				m_abPatchRendered[NUM_PATCHES_PER_SIDE*NUM_PATCHES_PER_SIDE];
 	CObj**				m_apObject [ MAX_OBJARRAY ];
 	DWORD				m_adwObjNum[ MAX_OBJARRAY ];
 	CDWordStack			m_aObjStack[ MAX_OBJARRAY ];
 	CTexture			m_texMiniMap;
-	CPatch				m_aPatches[NUM_PATCHES_PER_SIDE][NUM_PATCHES_PER_SIDE];	// íŒ¨ì¹˜ ë°°ì—´
+	CPatch				m_aPatches[NUM_PATCHES_PER_SIDE][NUM_PATCHES_PER_SIDE];	// ÆĞÄ¡ ¹è¿­
 	CObj**				m_apObjLink[MAX_LINKTYPE][MAX_LINKLEVEL];
 	
 	CObj***				GetObjLink( DWORD dwLinkType )	{	return( m_apObjLink[dwLinkType] );	}
@@ -164,25 +164,25 @@ public:
 	HRESULT				RestoreDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice);
 	HRESULT				InvalidateDeviceObjects();
 	HRESULT				DeleteDeviceObjects();
-	int					isVisibile( ) { return m_bVisible; } // ì»¬ë§ëœ ê²°ê³¼ë¥¼ ë¦¬í„´
-	void				FreeTerrain(); // ì§€í˜•ì˜ ë©”ëª¨ë¦¬ í• ë‹¹ì„ í•´ì œí•œë‹¤.
-	void				ResetTerrain( DWORD dwInitHeight ,BYTE* pHeight=NULL); // ì§€í˜•ì„ ì´ˆê¸°í™”í•œë‹¤.
-	void				NewLandscape( DWORD dwTextureId ); // ì§€í˜•ì„ ìƒˆë¡œ ë§Œë“ ë‹¤.
-	void				SetVertices(); // ë²„í…ìŠ¤ ë²„í¼ ì¬êµ¬ì„±
-	void				RenderPatches(); // ëª¨ë“  íŒ¨ì¹˜ë¥¼ ëª¨ë“  ë ˆì´ì–´ë³„ë¡œ ê·¸ë¦°ë‹¤.
+	int					isVisibile( ) { return m_bVisible; } // ÄÃ¸µµÈ °á°ú¸¦ ¸®ÅÏ
+	void				FreeTerrain(); // ÁöÇüÀÇ ¸Ş¸ğ¸® ÇÒ´çÀ» ÇØÁ¦ÇÑ´Ù.
+	void				ResetTerrain( DWORD dwInitHeight ,BYTE* pHeight=NULL); // ÁöÇüÀ» ÃÊ±âÈ­ÇÑ´Ù.
+	void				NewLandscape( DWORD dwTextureId ); // ÁöÇüÀ» »õ·Î ¸¸µç´Ù.
+	void				SetVertices(); // ¹öÅØ½º ¹öÆÛ Àç±¸¼º
+	void				RenderPatches(); // ¸ğµç ÆĞÄ¡¸¦ ¸ğµç ·¹ÀÌ¾îº°·Î ±×¸°´Ù.
 	HRESULT				Render( LPDIRECT3DDEVICE9 pd3dDevice, BOOL bLod = TRUE );
 	HRESULT				RenderWater( LPDIRECT3DDEVICE9 pd3dDevice );
 #if __VER >= 13 // __HOUSING
 	BOOL				ForceTexture(LPDIRECT3DTEXTURE9 pNewTex);
 #endif	// __HOUSING
-	void				CalculateBound(); // ì»¬ë§ìš© ë°”ìš´ë“œ ë°•ìŠ¤ ì¬ê³„ì‚°
-	void				UpdateCull(void); // ê° íŒ¨ì¹˜ë³„ ì»¬ë§ê³¼ LOD ì ìš©
-	void				Cull(); // ì»¬ë§
+	void				CalculateBound(); // ÄÃ¸µ¿ë ¹Ù¿îµå ¹Ú½º Àç°è»ê
+	void				UpdateCull(void); // °¢ ÆĞÄ¡º° ÄÃ¸µ°ú LOD Àû¿ë
+	void				Cull(); // ÄÃ¸µ
 	FLOAT				GetHeight_Fast( float x, float z );
 	FLOAT				GetHeight( FLOAT x, FLOAT z );
-	FLOAT				GetHeight( DWORD x, DWORD z ); // ì§€ì • ìœ„ì¹˜ì˜ ë†’ì´ë¥¼ ëŒë ¤ì¤€ë‹¤.
+	FLOAT				GetHeight( DWORD x, DWORD z ); // ÁöÁ¤ À§Ä¡ÀÇ ³ôÀÌ¸¦ µ¹·ÁÁØ´Ù.
 	FLOAT				GetHeight( POINT pos );
-	void				ReadLandscape(FILE* fp); // ë¡œë“œ
+	void				ReadLandscape(FILE* fp); // ·Îµå
 	BOOL				LoadLandscape( LPCTSTR lpszFileName, int x = 0, int y = 0  );
 	void				SetUsedAllObjects();
 	void				AddObjArray( CObj* pObj );

@@ -1,4 +1,4 @@
-﻿//
+//
 // debug.h
 //
 // Provides basic debug services for C and C++ source modules.

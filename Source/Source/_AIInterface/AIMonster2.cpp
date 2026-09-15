@@ -1,4 +1,4 @@
-ï»¿// TODO: ëŒ€ìƒì— ëŒ€í•œ ë¹„í–‰í˜• ê²€ì‚¬ë¥¼ ë‹¤ë¥¸ ì½”ë“œì—ì„œë„ ì¼ì¹˜ì‹œí‚¨ë‹¤.
+// TODO: ´ë»ó¿¡ ´ëÇÑ ºñÇàÇü °Ë»ç¸¦ ´Ù¸¥ ÄÚµå¿¡¼­µµ ÀÏÄ¡½ÃÅ²´Ù.
 // g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_EVADE );
 // AIMSG_INIT_TARGETCLEAR
 
@@ -7,15 +7,15 @@
 #include "FSM.h"
 #include "FSMstate.h"
 #include "User.h"
-#include "definetext.h"							// ëŒ€ì‚¬ ë•Œë¬¸ì— 
+#include "definetext.h"							// ´ë»ç ¶§¹®¿¡ 
 
 extern	CUserMng		g_UserMng;
 
 #define		CAT_NONE					0
-#define		CAT_NORMAL					1		// ê¸°ë³¸ê³µê²©
+#define		CAT_NORMAL					1		// ±âº»°ø°İ
 #define		CAT_NORMAL2					2
-#define		CAT_QUAKE_ONE				3		// í•œì†ìœ¼ë¡œ ë•…ì„ ë‚´ë ¤ì¹¨
-#define		CAT_QUAKEDOUBLE				4		// ë‘ì†ìœ¼ë¡œ ë•…ì„ ë‚´ë ¤ì¹¨ - ìŠ¤í„´
+#define		CAT_QUAKE_ONE				3		// ÇÑ¼ÕÀ¸·Î ¶¥À» ³»·ÁÄ§
+#define		CAT_QUAKEDOUBLE				4		// µÎ¼ÕÀ¸·Î ¶¥À» ³»·ÁÄ§ - ½ºÅÏ
 
 /////////////////////////////////////////////////////////////////////////
 // AI script related
@@ -245,17 +245,17 @@ void CAIMonster2::InitAI()
 	m_fAttackRange = pMover->GetRadiusXZ();		
 }
 
-// AIê°€ ì œì–´í•  ìˆ˜ ìˆëŠ”ê°€?
+// AI°¡ Á¦¾îÇÒ ¼ö ÀÖ´Â°¡?
 BOOL CAIMonster2::IsControllable()
 {
 	CMover* pMover = GetMover();
-	// ì£½ì—ˆì„ ê²½ìš° or ë°ë¯¸ì§€ í”Œë¼ì´ ìƒíƒœ?
+	// Á×¾úÀ» °æ¿ì or µ¥¹ÌÁö ÇÃ¶óÀÌ »óÅÂ?
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 	return TRUE;
 }
 
-// nInputì´ ë°œìƒí–ˆëŠ”ê°€?
+// nInputÀÌ ¹ß»ıÇß´Â°¡?
 BOOL CAIMonster2::Check( int nInput, DWORD dwCurTick, DWORD dwValue )
 {
 	switch( nInput )
@@ -265,14 +265,14 @@ BOOL CAIMonster2::Check( int nInput, DWORD dwCurTick, DWORD dwValue )
 			return TRUE;
 		break;
 	case AIMSG_TARGET_FIND:
-		if( Search() )					// m_idTargetì— targetì„ ì„¸íŒ… 
+		if( Search() )					// m_idTarget¿¡ targetÀ» ¼¼ÆÃ 
 			return TRUE;
 		break;
-	case AIMSG_REATTACK_TIMEOUT:		// ë¦¬ì–´íƒ ì‹œê°„ì´ ëëŠ”ê°€?
+	case AIMSG_REATTACK_TIMEOUT:		// ¸®¾îÅÃ ½Ã°£ÀÌ µÆ´Â°¡?
 		if( dwCurTick > m_dwReattack )
 			return TRUE;
 		break;
-	case AIMSG_INVALID_TARGET:			// íƒ€ê²Ÿì´ ê³µê²©í•˜ê¸°ì— ë¶€ì ì ˆ?
+	case AIMSG_INVALID_TARGET:			// Å¸°ÙÀÌ °ø°İÇÏ±â¿¡ ºÎÀûÀı?
 		if( IsInValidTarget() )
 			return TRUE;
 		break;
@@ -280,7 +280,7 @@ BOOL CAIMonster2::Check( int nInput, DWORD dwCurTick, DWORD dwValue )
 	return FALSE;
 }
 
-// nInputì´ ë°œìƒí–ˆë‹¤. ì²˜ë¦¬í•˜ê³  nOutputìœ¼ë¡œ ì „ì´ 
+// nInputÀÌ ¹ß»ıÇß´Ù. Ã³¸®ÇÏ°í nOutputÀ¸·Î ÀüÀÌ 
 void CAIMonster2::ProcessAIMsg( int nInput, int nOutput, DWORD dwParam1, DWORD dwParam2 )
 {
 	OnEndState( nInput, dwParam1, dwParam2 );
@@ -309,7 +309,7 @@ void CAIMonster2::OnBeginState( int nInput, DWORD dwParam1, DWORD dwParam2 )
 			vPos.x += (float)(x - 10);
 			vPos.z += (float)(z - 10);
 
-			MoveToDst( vPos );		// yëŠ” ì–´ë–»ê²Œ ë˜ë‚˜?
+			MoveToDst( vPos );		// y´Â ¾î¶»°Ô µÇ³ª?
 		}
 		break;
 	case AI2_IDLE:
@@ -322,8 +322,8 @@ void CAIMonster2::OnBeginState( int nInput, DWORD dwParam1, DWORD dwParam2 )
 		break;
 
 	case AI2_ATTACK:
-		if( BeginAttack() == FALSE )						// ê³µê²© 
-			SendAIMsg( AIMSG_END_MELEEATTACK, 0, 0 );			// ì‹¤íŒ¨í•  ê²½ìš° ê³µê²©ì™„ë£Œ ë©”ì„¸ì§€ëŠ” ì˜¤ì§€ ì•ŠëŠ”ë‹¤.
+		if( BeginAttack() == FALSE )						// °ø°İ 
+			SendAIMsg( AIMSG_END_MELEEATTACK, 0, 0 );			// ½ÇÆĞÇÒ °æ¿ì °ø°İ¿Ï·á ¸Ş¼¼Áö´Â ¿ÀÁö ¾Ê´Â´Ù.
 		break;
 
 	case AI2_TRACKING:
@@ -337,7 +337,7 @@ void CAIMonster2::OnBeginState( int nInput, DWORD dwParam1, DWORD dwParam2 )
 		if( pMover->GetDestId() == m_idTarget )
 			break;
 #endif	// __TRAFIC_1222
-		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •.
+		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤.
 		pMover->SetDestObj( m_idTarget, m_fAttackRange );
 		g_UserMng.AddMoverSetDestObj( pMover, m_idTarget, m_fAttackRange );
 		break;
@@ -354,7 +354,7 @@ void CAIMonster2::RouteMessage()
 	DWORD dwCurTick = ::GetTickCount();
 	CFSMstate* pState = GetFSM( m_dwFsmType )->GetState( m_nState );
 	if( pState == NULL )
-		return;				// í•´ë‹¹ ìƒíƒœì— ëŒ€í•œ ì£¼ê¸°ì  ê²€ì‚¬ê°€ ì—†ë‹¤.
+		return;				// ÇØ´ç »óÅÂ¿¡ ´ëÇÑ ÁÖ±âÀû °Ë»ç°¡ ¾ø´Ù.
 
 	for( int i=0; i<pState->GetPolling(); ++i )
 	{
@@ -368,13 +368,13 @@ void CAIMonster2::RouteMessage()
 	}
 }
 
-// FSMì˜ ì…ë ¥ 
+// FSMÀÇ ÀÔ·Â 
 void CAIMonster2::PostAIMsg( DWORD dwMessage, DWORD dwParam1, DWORD dwParam2 )
 {
 	SendAIMsg( dwMessage, dwParam1, dwParam2 );
 }
 
-// FSMì˜ ì…ë ¥ 
+// FSMÀÇ ÀÔ·Â 
 void CAIMonster2::SendAIMsg( DWORD dwMessage, DWORD dwParam1, DWORD dwParam2 )
 {
 	if( dwMessage == AIMSG_DAMAGE )
@@ -387,7 +387,7 @@ void CAIMonster2::SendAIMsg( DWORD dwMessage, DWORD dwParam1, DWORD dwParam2 )
 	nInput = (int)dwMessage;
 
 	BOOL bResult = GetFSM( m_dwFsmType )->GetTransition( m_nState, nInput, nOutput );
-	if( bResult == FALSE )		// ì „ì´ê°€ ë°œìƒí•˜ì§€ ì•Šì•˜ë‚˜?
+	if( bResult == FALSE )		// ÀüÀÌ°¡ ¹ß»ıÇÏÁö ¾Ê¾Ò³ª?
 		return;					
 
 	ProcessAIMsg( nInput, nOutput, dwParam1, dwParam2 );
@@ -411,8 +411,8 @@ BOOL CAIMonster2::SelectTarget()
 	CWorld	*pWorld = GetWorld();
 	int		nAttackFirstRange = pMover->GetProp()->m_nAttackFirstRange;
 
-	FLOAT fRadius = pMover->GetRadiusXZ();		// thisì˜ ë°˜ì§€ë¦„
-	FLOAT fRadiusSq = fRadius * fRadius;		// ë°˜ì§€ë¦„Sqë²„ì „.
+	FLOAT fRadius = pMover->GetRadiusXZ();		// thisÀÇ ¹İÁö¸§
+	FLOAT fRadiusSq = fRadius * fRadius;		// ¹İÁö¸§Sq¹öÀü.
 	
 	CMover *pLastAttacker = prj.GetMover( m_idLastAttacker );
 	if( IsValidObj( pLastAttacker ) && pLastAttacker->IsDie() )
@@ -421,32 +421,32 @@ BOOL CAIMonster2::SelectTarget()
 		pLastAttacker = NULL;
 	}
 	
-	if( pLastAttacker == NULL )			// LastAttackerê°€ ì—†ì–´ì¡Œìœ¼ë©´ íƒ€ê²Ÿ ë‹¤ì‹œ ì¡ì„ ìˆ˜ ìˆë„ë¡ í•˜ì.
+	if( pLastAttacker == NULL )			// LastAttacker°¡ ¾ø¾îÁ³À¸¸é Å¸°Ù ´Ù½Ã ÀâÀ» ¼ö ÀÖµµ·Ï ÇÏÀÚ.
 	{
 		m_idLastAttacker = NULL_ID;
 	} 
 	else
 	{		
 		D3DXVECTOR3 vDist = pLastAttacker->GetPos() - pMover->GetPos();
-		FLOAT fDistSq = D3DXVec3LengthSq( &vDist );		// ëª©í‘œì§€ì ê¹Œì§€ì˜ ê±°ë¦¬.
-		if( fDistSq >= fRadiusSq * 10.0f )				// ë¼ìŠ¤íŠ¸ì–´íƒœì»¤ê°€ ë‚´ ë°˜ì§€ë¦„ì˜ 10ë°°ì´ìƒ ë–¨ì–´ì ¸ìˆìœ¼ë©´
+		FLOAT fDistSq = D3DXVec3LengthSq( &vDist );		// ¸ñÇ¥ÁöÁ¡±îÁöÀÇ °Å¸®.
+		if( fDistSq >= fRadiusSq * 10.0f )				// ¶ó½ºÆ®¾îÅÂÄ¿°¡ ³» ¹İÁö¸§ÀÇ 10¹èÀÌ»ó ¶³¾îÁ®ÀÖÀ¸¸é
 		{
-			// íƒ€ê²Ÿ í¬ê¸°
+			// Å¸°Ù Æ÷±â
 			m_idLastAttacker = NULL_ID;
 			pLastAttacker = NULL;
 		}
 	}
 
 	m_idTarget = NULL_ID;
-	m_vTarget.x = m_vTarget.y = m_vTarget.z = 0;	// ì¼ë‹¨ ì´ê±´ ì•ˆì“°ëŠ”ê±¸ë¡œ í•˜ì.
+	m_vTarget.x = m_vTarget.y = m_vTarget.z = 0;	// ÀÏ´Ü ÀÌ°Ç ¾È¾²´Â°É·Î ÇÏÀÚ.
 
-	if( m_idLastAttacker == NULL_ID )		// ì•„ì§ ë‚  ë•Œë¦°ì‰ë¦¬ê°€ ì—†ë‹¤.
+	if( m_idLastAttacker == NULL_ID )		// ¾ÆÁ÷ ³¯ ¶§¸°½¦¸®°¡ ¾ø´Ù.
 	{
 		CMover* pTarget = NULL;
 		pTarget = ScanTarget( pMover, nAttackFirstRange, JOB_ALL );		
 		if( pTarget )
 		{
-			if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() )	// ìœ„ìƒì´ ê°™ìœ¼ë©´ OK
+			if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() )	// À§»óÀÌ °°À¸¸é OK
 				m_idTarget = pTarget->GetId();
 			else
 				return FALSE;		
@@ -456,128 +456,128 @@ BOOL CAIMonster2::SelectTarget()
 	} 
 	else
 	{
-		// ë‚  ë•Œë¦° ì‰ë¦¬ê°€ ìˆë‹¤.
-		DWORD dwNum = xRandom( 100 );		// 0 ~ 99ê¹Œì§€ìœ¼ ë‚œìˆ˜.
+		// ³¯ ¶§¸° ½¦¸®°¡ ÀÖ´Ù.
+		DWORD dwNum = xRandom( 100 );		// 0 ~ 99±îÁöÀ¸ ³­¼ö.
 		DWORD dwAggroRate = 50;
 		
 		if( IsValidObj( pLastAttacker ) )
 		{
-			if( pLastAttacker->GetJob() == JOB_MERCENARY )		// ë§ˆì§€ë§‰ìœ¼ë¡œ ë‚ ë•Œë¦° ì‰ë¦¬ê°€ ë¨¸ì„œë©´ ì–´ê·¸ë¡œ ì¢€ë” ì£¼ì.
+			if( pLastAttacker->GetJob() == JOB_MERCENARY )		// ¸¶Áö¸·À¸·Î ³¯¶§¸° ½¦¸®°¡ ¸Ó¼­¸é ¾î±×·Î Á»´õ ÁÖÀÚ.
 				dwAggroRate = 70;
 		}
 
 		if( dwNum < dwAggroRate )		
 		{
-			// dwAggroRate% í™•ë¥ ë¡œ ë§ˆì§€ë§‰ìœ¼ë¡œ ë‚  ë•Œë¦°ë„˜ ê³µê²©.
-			m_idTarget = m_idLastAttacker;		// ë‚  ê³µê²©í•œ ì‰ë¦¬ë¥¼ íƒ€ê²Ÿìœ¼ë¡œ ì§€ì •í•˜ì.
+			// dwAggroRate% È®·ü·Î ¸¶Áö¸·À¸·Î ³¯ ¶§¸°³Ñ °ø°İ.
+			m_idTarget = m_idLastAttacker;		// ³¯ °ø°İÇÑ ½¦¸®¸¦ Å¸°ÙÀ¸·Î ÁöÁ¤ÇÏÀÚ.
 		} 
 		else if( dwNum < 75 )
 		{
-			// 50ë¯¸í„° ë°˜ê²½ë‚´ì—ì„œ ê°€ì¥ ìˆë„˜ì„ ì¡ì.
+			// 50¹ÌÅÍ ¹İ°æ³»¿¡¼­ °¡Àå ½ë³ÑÀ» ÀâÀÚ.
 			CMover *pTarget = ScanTargetStrong( pMover, (float)( nAttackFirstRange ) );
 			if( pTarget )
 			{
-				// thisê°€ ë¹„í–‰í˜• ëª¬ìŠ¤í„°ê±°ë‚˜ || íƒ€ê²Ÿì´ ë¹„í–‰ì¤‘ì´ ì•„ë‹ë•Œë§Œ ê³µê²©.
+				// this°¡ ºñÇàÇü ¸ó½ºÅÍ°Å³ª || Å¸°ÙÀÌ ºñÇàÁßÀÌ ¾Æ´Ò¶§¸¸ °ø°İ.
 				if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() )	
 					m_idTarget = pTarget->GetId();
 				else
-					m_idTarget = m_idLastAttacker;		// íƒ€ê²Ÿì´ ê³µê²©í•˜ê¸°ê°€ ì—¬ì˜ì¹˜ ì•Šìœ¼ë©´ ë§ˆì§€ë§‰ìœ¼ë¡œ ë•Œë¦°ì‰ë¦¬ ê³µê²©í•˜ì.
+					m_idTarget = m_idLastAttacker;		// Å¸°ÙÀÌ °ø°İÇÏ±â°¡ ¿©ÀÇÄ¡ ¾ÊÀ¸¸é ¸¶Áö¸·À¸·Î ¶§¸°½¦¸® °ø°İÇÏÀÚ.
 			} 
 			else
-				m_idTarget = m_idLastAttacker;		// íƒ€ê²Ÿì´ ê³µê²©í•˜ê¸°ê°€ ì—¬ì˜ì¹˜ ì•Šìœ¼ë©´ ë§ˆì§€ë§‰ìœ¼ë¡œ ë•Œë¦°ì‰ë¦¬ ê³µê²©í•˜ì.
+				m_idTarget = m_idLastAttacker;		// Å¸°ÙÀÌ °ø°İÇÏ±â°¡ ¿©ÀÇÄ¡ ¾ÊÀ¸¸é ¸¶Áö¸·À¸·Î ¶§¸°½¦¸® °ø°İÇÏÀÚ.
 		} 
 		else if( dwNum < 100 )
 		{
-			// ì˜¤ë²„íí•˜ëŠ” ì–´ì‹œë¥¼ ì£½ì´ì.
+			// ¿À¹öÈúÇÏ´Â ¾î½Ã¸¦ Á×ÀÌÀÚ.
 			CMover *pTarget = ScanTargetOverHealer( pMover, (float)( nAttackFirstRange ) );
 			if( pTarget )
 			{
-				// thisê°€ ë¹„í–‰í˜• ëª¬ìŠ¤í„°ê±°ë‚˜ || íƒ€ê²Ÿì´ ë¹„í–‰ì¤‘ì´ ì•„ë‹ë•Œë§Œ ê³µê²©.
+				// this°¡ ºñÇàÇü ¸ó½ºÅÍ°Å³ª || Å¸°ÙÀÌ ºñÇàÁßÀÌ ¾Æ´Ò¶§¸¸ °ø°İ.
 				if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() )	
 					m_idTarget = pTarget->GetId();
 				else
-					m_idTarget = m_idLastAttacker;		// íƒ€ê²Ÿì´ ê³µê²©í•˜ê¸°ê°€ ì—¬ì˜ì¹˜ ì•Šìœ¼ë©´ ë§ˆì§€ë§‰ìœ¼ë¡œ ë•Œë¦°ì‰ë¦¬ ê³µê²©í•˜ì.
+					m_idTarget = m_idLastAttacker;		// Å¸°ÙÀÌ °ø°İÇÏ±â°¡ ¿©ÀÇÄ¡ ¾ÊÀ¸¸é ¸¶Áö¸·À¸·Î ¶§¸°½¦¸® °ø°İÇÏÀÚ.
 			} 
 			else
-				m_idTarget = m_idLastAttacker;		// íƒ€ê²Ÿì´ ê³µê²©í•˜ê¸°ê°€ ì—¬ì˜ì¹˜ ì•Šìœ¼ë©´ ë§ˆì§€ë§‰ìœ¼ë¡œ ë•Œë¦°ì‰ë¦¬ ê³µê²©í•˜ì.
+				m_idTarget = m_idLastAttacker;		// Å¸°ÙÀÌ °ø°İÇÏ±â°¡ ¿©ÀÇÄ¡ ¾ÊÀ¸¸é ¸¶Áö¸·À¸·Î ¶§¸°½¦¸® °ø°İÇÏÀÚ.
 		}
 	}
 
 	return TRUE;
 }
 
-// ê³µê²© ëŒ€ìƒì„ ì°¾ì•„ì„œ m_idTargetì— ì„¸íŒ…í•œë‹¤.
+// °ø°İ ´ë»óÀ» Ã£¾Æ¼­ m_idTarget¿¡ ¼¼ÆÃÇÑ´Ù.
 BOOL CAIMonster2::Search()
 {
 	CMover	*pMover = GetMover();
 	CWorld	*pWorld = GetWorld();
 	CModelObject *pModel = (CModelObject *)pMover->GetModel();
 
-	FLOAT fRadius = pMover->GetRadiusXZ();		// thisì˜ ë°˜ì§€ë¦„
-	FLOAT fRadiusSq = fRadius * fRadius;		// ë°˜ì§€ë¦„Sqë²„ì „.
+	FLOAT fRadius = pMover->GetRadiusXZ();		// thisÀÇ ¹İÁö¸§
+	FLOAT fRadiusSq = fRadius * fRadius;		// ¹İÁö¸§Sq¹öÀü.
 	
-	if( m_idTarget == NULL_ID &&										// ê³µê²©ëŒ€ìƒì´ ì •í•´ì§€ì§€ ì•Šì•˜ê³ 
-		(m_vTarget.x == 0 && m_vTarget.y == 0 && m_vTarget.z == 0) )	// ê³µê²©ìœ„ì¹˜ë„ ì •í•´ì§€ì§€ ì•Šì•˜ë‹¤.
+	if( m_idTarget == NULL_ID &&										// °ø°İ´ë»óÀÌ Á¤ÇØÁöÁö ¾Ê¾Ò°í
+		(m_vTarget.x == 0 && m_vTarget.y == 0 && m_vTarget.z == 0) )	// °ø°İÀ§Ä¡µµ Á¤ÇØÁöÁö ¾Ê¾Ò´Ù.
 	{
-		// ì–´ë–¤ ì‰ë¦¬ë¥¼ ê³µê²©í• ê¹Œ....? ë¥¼ ì„ ì •í•¨.
+		// ¾î¶² ½¦¸®¸¦ °ø°İÇÒ±î....? ¸¦ ¼±Á¤ÇÔ.
 		if( SelectTarget() == FALSE )
 			return FALSE;
 	}
 
 	D3DXVECTOR3	vTarget;
-	FLOAT	fDistSq = 0;					// ê³µê²©ì§€ì ê³¼ thisì˜ ê±°ë¦¬.
+	FLOAT	fDistSq = 0;					// °ø°İÁöÁ¡°ú thisÀÇ °Å¸®.
 	CMover *pTarget = NULL;
 
-	if( m_idTarget != NULL_ID )					// íƒ€ê²Ÿì˜¤ë¸Œì ì´ ìˆì„ë•Œ
+	if( m_idTarget != NULL_ID )					// Å¸°Ù¿ÀºêÁ§ÀÌ ÀÖÀ»¶§
 	{
 		pTarget = prj.GetMover( m_idTarget );
 		if( IsValidObj(pTarget) )
-			vTarget = pTarget->GetPos();		// ê³µê²©ì¢Œí‘œëŠ” íƒ€ê²Ÿë¬´ë²„ì˜ ì¢Œí‘œ
+			vTarget = pTarget->GetPos();		// °ø°İÁÂÇ¥´Â Å¸°Ù¹«¹öÀÇ ÁÂÇ¥
 		else
 		{
 			m_idTarget = NULL_ID;
-			return FALSE;						// íƒ€ê²Ÿì´ ê±°ì‹œê¸° í•˜ë©´ ê±ë¦¬í„´.
+			return FALSE;						// Å¸°ÙÀÌ °Å½Ã±â ÇÏ¸é °Á¸®ÅÏ.
 		}
 	} 
-	else if( m_vTarget.x && m_vTarget.y && m_vTarget.z )		// ê³µê²© ì¢Œí‘œë¡œ ì„¤ì •ë˜ì–´ ìˆì„ë•Œ.
+	else if( m_vTarget.x && m_vTarget.y && m_vTarget.z )		// °ø°İ ÁÂÇ¥·Î ¼³Á¤µÇ¾î ÀÖÀ»¶§.
 	{
 		vTarget = m_vTarget;
 	} 
 	else
 	{
-		return FALSE;						// íƒ€ê²Ÿì´ ê±°ì‹œê¸° í•˜ë©´ ê±ë¦¬í„´.
+		return FALSE;						// Å¸°ÙÀÌ °Å½Ã±â ÇÏ¸é °Á¸®ÅÏ.
 	}
 
 	D3DXVECTOR3 vDist = vTarget - pMover->GetPos();
-	fDistSq = D3DXVec3LengthSq( &vDist );		// ëª©í‘œì§€ì ê¹Œì§€ëŠ” ê±°ë¦¬.
-	m_fAttackRange = fRadius;					// ì–¼ë§ˆë‚˜ ê·¼ì ‘í•´ì•¼í•˜ëŠ”ê°€? ë””í´íŠ¸ë¡œ ë°˜ì§€ë¦„ ê¸¸ì´.
+	fDistSq = D3DXVec3LengthSq( &vDist );		// ¸ñÇ¥ÁöÁ¡±îÁö´Â °Å¸®.
+	m_fAttackRange = fRadius;					// ¾ó¸¶³ª ±ÙÁ¢ÇØ¾ßÇÏ´Â°¡? µğÆúÆ®·Î ¹İÁö¸§ ±æÀÌ.
 
-	if( fDistSq < fRadiusSq * 4.0f )			// ê·¼ê±°ë¦¬ë©´.
+	if( fDistSq < fRadiusSq * 4.0f )			// ±Ù°Å¸®¸é.
 	{
-		DWORD dwNum = xRandom( 100 );			// 0 ~ 99ê¹Œì§€ìœ¼ ë‚œìˆ˜.
+		DWORD dwNum = xRandom( 100 );			// 0 ~ 99±îÁöÀ¸ ³­¼ö.
 		
 		if( dwNum < 85 )
 		{
 			if( xRandom( 2 ) )
-				m_nAttackType = CAT_NORMAL;		// ì•ë°œë¡œ ë°Ÿê¸°.
+				m_nAttackType = CAT_NORMAL;		// ¾Õ¹ß·Î ¹â±â.
 			else
 				m_nAttackType = CAT_NORMAL2;
 
-			m_fAttackRange = 5.0f;				// ë”±ë¶™ì–´ì„œ ë°Ÿì•„ì•¼ í•œë‹¤.	??
+			m_fAttackRange = 5.0f;				// µüºÙ¾î¼­ ¹â¾Æ¾ß ÇÑ´Ù.	??
 		}
 		else
 		{
-			m_nAttackType = CAT_QUAKEDOUBLE;	// ë‘ì†ìœ¼ë¡œ ë‚´ë ¤ì¹˜ê¸° - ìŠ¤í„´
+			m_nAttackType = CAT_QUAKEDOUBLE;	// µÎ¼ÕÀ¸·Î ³»·ÁÄ¡±â - ½ºÅÏ
 		}
 	} 
-	else if( fDistSq < fRadiusSq * 6.0f )		// ë°˜ì§€ë¦„ì˜ xë°° ì´í•˜ëŠ” ì˜ê¸°.
+	else if( fDistSq < fRadiusSq * 6.0f )		// ¹İÁö¸§ÀÇ x¹è ÀÌÇÏ´Â ½î±â.
 	{								
-		DWORD dwNum = xRandom( 100 );			// 0 ~ 99ê¹Œì§€ìœ¼ ë‚œìˆ˜.
-		// ë°˜ì§€ë¦„ 3ë°°ê±°ë¦¬ ì´ìƒì´ë©´ ì›ê±°ë¦¬.
+		DWORD dwNum = xRandom( 100 );			// 0 ~ 99±îÁöÀ¸ ³­¼ö.
+		// ¹İÁö¸§ 3¹è°Å¸® ÀÌ»óÀÌ¸é ¿ø°Å¸®.
 		if( dwNum < 60 )
 		{						
-			m_nAttackType = CAT_QUAKE_ONE;		// í•˜ëŠ˜ì—ì„œ ëŒ ë–¨ì–´ëœ¨ë¦¬ê¸°
-			m_fAttackRange = 15.0f;				// xxë¯¸í„° ê¹Œì§€ ì ‘ê·¼í•˜ì.  ??
+			m_nAttackType = CAT_QUAKE_ONE;		// ÇÏ´Ã¿¡¼­ µ¹ ¶³¾î¶ß¸®±â
+			m_fAttackRange = 15.0f;				// xx¹ÌÅÍ ±îÁö Á¢±ÙÇÏÀÚ.  ??
 		}
 		else
 		{
@@ -587,7 +587,7 @@ BOOL CAIMonster2::Search()
 	} 
 	else
 	{
-		m_nAttackType = CAT_NORMAL;		// ì•ë°œë¡œ ë°Ÿê¸°.
+		m_nAttackType = CAT_NORMAL;		// ¾Õ¹ß·Î ¹â±â.
 		m_fAttackRange = fRadius;		//10.0f;
 	}
 
@@ -603,7 +603,7 @@ BOOL CAIMonster2::BeginAttack()
 	DWORD		dwItemID = 0;
 	MoverProp	*pProp = pMover->GetProp();
 
-	// ì¶”ê²©í•˜ì—¬ ë„ì°©í•˜ë©´ ì„ íƒë˜ì—ˆë˜ ê³µê²©ë°©ì‹ì„ ì ìš©ì‹œí‚¨ë‹¤.
+	// Ãß°İÇÏ¿© µµÂøÇÏ¸é ¼±ÅÃµÇ¾ú´ø °ø°İ¹æ½ÄÀ» Àû¿ë½ÃÅ²´Ù.
 	switch( m_nAttackType )
 	{
 	case CAT_NORMAL:		dwMsg = OBJMSG_ATK1;	dwItemID = pProp->dwAtk1;	break;
@@ -630,8 +630,8 @@ BOOL CAIMonster2::BeginAttack()
 	if( nResult )
 	{
 		CMover *pTarget = prj.GetMover( m_idTarget );			
-		// ì´ë²¤íŠ¸ ë©”ì„¸ì§€
-		// ë³´ìŠ¤ëª¬ìŠ¤í„°ê°€ ìœ ì €ì—ê²Œ ë§ì„ í•œë‹¤.
+		// ÀÌº¥Æ® ¸Ş¼¼Áö
+		// º¸½º¸ó½ºÅÍ°¡ À¯Àú¿¡°Ô ¸»À» ÇÑ´Ù.
 		switch( m_nAttackType )
 		{
 		case CAT_QUAKEDOUBLE:

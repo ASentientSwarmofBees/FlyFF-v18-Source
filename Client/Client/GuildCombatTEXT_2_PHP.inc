@@ -1,4 +1,4 @@
-ï»¿#b#cff0000ff Basic Rules #nb#nc
+#b#cff0000ff Basic Rules #nb#nc
  - 30min for the battle.
  - Party & Buff Skill will be removed.
  - No interactions are allowed between battle area and observation area
@@ -9,4 +9,4 @@
 #b#cff0000ff* GuildMaster : Get bouns point in case taking down opponent
 * Defender(Except for GuildMaster) : Get bonus point in case taking down#nb#nc
 
-#b#cffff0000â€» You can't apply for GuildSeige and 1to1 GuildSeige at the same time.#nb#nc
+#b#cffff0000¡Ø You can't apply for GuildSeige and 1to1 GuildSeige at the same time.#nb#nc

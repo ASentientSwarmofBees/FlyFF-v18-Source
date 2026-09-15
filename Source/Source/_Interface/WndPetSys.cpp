@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndManager.h"
@@ -39,7 +39,7 @@ void CWndPetAwakCancel::OnDraw( C2DRender* p2DRender )
 void CWndPetAwakCancel::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CWndButton* pButton = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
 
 	if(::GetLanguage() == LANG_FRE)
@@ -52,10 +52,10 @@ void CWndPetAwakCancel::OnInitialUpdate()
 	
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndPetAwakCancel::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PET_AWAK_CANCEL, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -126,10 +126,10 @@ BOOL CWndPetAwakCancel::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	if(g_pPlayer != NULL) pTempElem = (CItemElem*)g_pPlayer->GetItemId( pShortcut->m_dwId );
 	if( pTempElem != NULL)
 	{
-		// í”½ì—…í« í™•ì¸	// ê°ì„± ì—¬ë¶€ëŠ” ì„œë²„ ê²€ì‚¬
+		// ÇÈ¾÷Æê È®ÀÎ	// °¢¼º ¿©ºÎ´Â ¼­¹ö °Ë»ç
 		if( !pTempElem->IsEatPet() )	
 			return FALSE;
-		// í™•ì¸ ë²„íŠ¼ í™œì„±
+		// È®ÀÎ ¹öÆ° È°¼º
 		if(m_pItemElem) m_pItemElem->SetExtra(0);
 		m_pItemElem = (CItemElem*)g_pPlayer->GetItemId( pShortcut->m_dwId );
 		m_pEItemProp = m_pItemElem->GetProp();
@@ -224,7 +224,7 @@ CWndPetStatus::~CWndPetStatus()
 
 void CWndPetStatus::SetPetCamTable()
 {
-	//ë°±í˜¸
+	//¹éÈ£
 	m_PetCameTable[0].CamPos.x = 1.2f;
 	m_PetCameTable[0].CamPos.y = 4.6f;
 	m_PetCameTable[0].CamPos.z = -7.0f;
@@ -232,7 +232,7 @@ void CWndPetStatus::SetPetCamTable()
 	m_PetCameTable[0].CamLook.y = 3.0f;
 	m_PetCameTable[0].CamLook.z = 0.0f;
 	m_PetCameTable[0].Scale = 6.0f;
-	//ë°”ë°”ë¦¬ ì‚¬ì
+	//¹Ù¹Ù¸® »çÀÚ
 	m_PetCameTable[1].CamPos.x = 0.7f;
 	m_PetCameTable[1].CamPos.y = 3.0f;
 	m_PetCameTable[1].CamPos.z = -5.2f;
@@ -240,7 +240,7 @@ void CWndPetStatus::SetPetCamTable()
 	m_PetCameTable[1].CamLook.y = 2.5f;
 	m_PetCameTable[1].CamLook.z = 1.0f;
 	m_PetCameTable[1].Scale = 6.0f;
-	//í† ë¼
+	//Åä³¢
 	m_PetCameTable[2].CamPos.x = 2.0f;
 	m_PetCameTable[2].CamPos.y = 2.2f;
 	m_PetCameTable[2].CamPos.z = -4.0f;
@@ -248,7 +248,7 @@ void CWndPetStatus::SetPetCamTable()
 	m_PetCameTable[2].CamLook.y = 1.0f;
 	m_PetCameTable[2].CamLook.z = 3.0f;
 	m_PetCameTable[2].Scale = 7.0f;
-	//êµ¬ë¯¸í˜¸
+	//±¸¹ÌÈ£
 	m_PetCameTable[3].CamPos.x = 1.4f;
 	m_PetCameTable[3].CamPos.y = 4.2f;
 	m_PetCameTable[3].CamPos.z = -8.0f;
@@ -256,7 +256,7 @@ void CWndPetStatus::SetPetCamTable()
 	m_PetCameTable[3].CamLook.y = 2.0f;
 	m_PetCameTable[3].CamLook.z = 3.0f;
 	m_PetCameTable[3].Scale = 6.0f;
-	//ìƒˆë¼ ë“œë˜ê³¤
+	//»õ³¢ µå·¡°ï
 	m_PetCameTable[4].CamPos.x = 1.4f;
 	m_PetCameTable[4].CamPos.y = 6.8f;
 	m_PetCameTable[4].CamPos.z = -6.0f;
@@ -264,7 +264,7 @@ void CWndPetStatus::SetPetCamTable()
 	m_PetCameTable[4].CamLook.y = 6.0f;
 	m_PetCameTable[4].CamLook.z = 3.0f;
 	m_PetCameTable[4].Scale = 5.5f;
-	//ìƒˆë¼ ê·¸ë¦¬í•€
+	//»õ³¢ ±×¸®ÇÉ
 	m_PetCameTable[5].CamPos.x = 3.0f;
 	m_PetCameTable[5].CamPos.y = 6.0f;
 	m_PetCameTable[5].CamPos.z = -12.0f;
@@ -272,7 +272,7 @@ void CWndPetStatus::SetPetCamTable()
 	m_PetCameTable[5].CamLook.y = 3.0f;
 	m_PetCameTable[5].CamLook.z = 3.0f;
 	m_PetCameTable[5].Scale = 4.5f;
-	//ìœ ë‹ˆì½˜
+	//À¯´ÏÄÜ
 	m_PetCameTable[6].CamPos.x = 4.0f;
 	m_PetCameTable[6].CamPos.y = 3.0f;
 	m_PetCameTable[6].CamPos.z = -10.0f;
@@ -335,7 +335,7 @@ void CWndPetStatus::PaintFrame( C2DRender* p2DRender )
 		if( m_pTexture && m_pPetElem != NULL && m_pPetElem->m_pPet != NULL)
 		{
 			RenderWnd();
-			// ì—¬ê¸°ëŠ” íƒ€ì´í‹€ ë°”ì˜ í…ìŠ¤íŠ¸ë¥¼ ì¶œë ¥í•˜ëŠ” ê³³ 
+			// ¿©±â´Â Å¸ÀÌÆ² ¹ÙÀÇ ÅØ½ºÆ®¸¦ Ãâ·ÂÇÏ´Â °÷ 
 			if( IsWndStyle( WBS_CAPTION ) )	
 			{
 				int y = 4;
@@ -368,7 +368,7 @@ void CWndPetStatus::PaintFrame( C2DRender* p2DRender )
 			m_pTheme->RenderWndBaseFrame( p2DRender, &rect );
 			if( IsWndStyle( WBS_CAPTION ) )
 			{
-				// íƒ€ì´í‹€ ë°” 
+				// Å¸ÀÌÆ² ¹Ù 
 				rect.bottom = 21;
 				{
 					m_pTheme->RenderWndBaseTitleBar( p2DRender, &rect, m_strTitle, m_dwColor );
@@ -454,7 +454,7 @@ void CWndPetStatus::DrawPetInformation(C2DRender* p2DRender)
 		else
 			strTemp.Format("%s", prj.GetText(TID_GAME_PET_EGG_ABILITY));
 
-		p2DRender->TextOut( 76 + size.cx, 18, strTemp, dwColor); //'Ability'ìê°„ì´ ë„“ì–´ ê²¹ì¹˜ëŠ” êµ­ê°€ ë°œìƒí•˜ì—¬ ìœ„ì¹˜ ì¡°ì •
+		p2DRender->TextOut( 76 + size.cx, 18, strTemp, dwColor); //'Ability'ÀÚ°£ÀÌ ³Ğ¾î °ãÄ¡´Â ±¹°¡ ¹ß»ıÇÏ¿© À§Ä¡ Á¶Á¤
 		
 		int nLife = m_pPetElem->m_pPet->GetLife();
 		strTemp.Format("%d", nLife);
@@ -592,7 +592,7 @@ void CWndPetStatus::OnDraw(C2DRender* p2DRender)
 		float fExp = (float)nExpResult / 100.0f;
 
 		if( fExp >= 99.99f )
-			nCharEXP = sprintf( cbufExp, "99.99%%" );		// sprintfí•¨ìˆ˜ ë‚´ë¶€ì—ì„œ ë°˜ì˜¬ë¦¼ë˜ì–´ 100.00ìœ¼ë¡œ í‘œì‹œë˜ëŠ” ê²ƒì„ ë§‰ê¸° ìœ„í•´ì„œ 
+			nCharEXP = sprintf( cbufExp, "99.99%%" );		// sprintfÇÔ¼ö ³»ºÎ¿¡¼­ ¹İ¿Ã¸²µÇ¾î 100.00À¸·Î Ç¥½ÃµÇ´Â °ÍÀ» ¸·±â À§ÇØ¼­ 
 		else
 			nCharEXP = sprintf( cbufExp, "%.2f%%", fExp );
 
@@ -619,7 +619,7 @@ void CWndPetStatus::OnDraw(C2DRender* p2DRender)
 
 	pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
 
-	// ë·°í¬íŠ¸ ì„¸íŒ… 
+	// ºäÆ÷Æ® ¼¼ÆÃ 
 	D3DVIEWPORT9 viewport;
 
 	viewport.X      = p2DRender->m_ptOrigin.x + lpFace->rect.left;
@@ -631,7 +631,7 @@ void CWndPetStatus::OnDraw(C2DRender* p2DRender)
 
 	pd3dDevice->SetViewport(&viewport);
 
-	// í”„ë¡œì ì…˜ 
+	// ÇÁ·ÎÁ§¼Ç 
 	D3DXMATRIX matProj;
 	D3DXMatrixIdentity( &matProj );
 	FLOAT fAspect = ((FLOAT)viewport.Width) / (FLOAT)viewport.Height;
@@ -644,20 +644,20 @@ void CWndPetStatus::OnDraw(C2DRender* p2DRender)
 
 	D3DXMATRIX  matView;
 
-	// ì›”ë“œ 
+	// ¿ùµå 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matRot1, matRot2;
 	D3DXMATRIXA16 matTrans;
 
-	// ì´ˆê¸°í™” 
+	// ÃÊ±âÈ­ 
 	D3DXMatrixIdentity(&matScale);
 	D3DXMatrixIdentity(&matRot1);
 	D3DXMatrixIdentity(&matRot2);
 	D3DXMatrixIdentity(&matTrans);
 	D3DXMatrixIdentity(&matWorld);
 
-	//í« ì¢…ë¥˜ì— ë”°ë¼ ì„¤ì •.
+	//Æê Á¾·ù¿¡ µû¶ó ¼³Á¤.
 	D3DXVECTOR3 vecPos;
 	D3DXVECTOR3 vecLookAt;
 	float fScale = 1.0f;
@@ -691,7 +691,7 @@ void CWndPetStatus::OnDraw(C2DRender* p2DRender)
 	D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 	pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-	// ëœë”ë§ 
+	// ·£´õ¸µ 
 	pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
 	
 	pd3dDevice->SetRenderState( D3DRS_ZENABLE, TRUE );
@@ -702,7 +702,7 @@ void CWndPetStatus::OnDraw(C2DRender* p2DRender)
 	//if( pPetModel )
 	if(m_pPetModel != NULL)
 	{
-		// Pet LODê°€ ë“¤ì–´ê°”ê¸° ë•Œë¬¸ì— LodGroup setting.
+		// Pet LOD°¡ µé¾î°¬±â ¶§¹®¿¡ LodGroup setting.
 		if(g_pPlayer && g_pPlayer->m_pet.GetObj() )
 		{
 			float	fDist = 50.0f;
@@ -799,7 +799,7 @@ void CWndPetStatus::OnInitialUpdate()
 	m_pTexPetLvBg = CWndBase::m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_THEME, "PetLevelBg.tga"), 0xffff00ff );
 	m_pTexPetStatusBg = CWndBase::m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_THEME, "PetStatusBg.tga"), 0xffff00ff, TRUE );
 
-	// ì¥ì°©, ê²Œì´ì§€ì— ë‚˜ì˜¬ ìºë¦­í„° ì˜¤ë¸Œì íŠ¸ ì„¤ì •
+	// ÀåÂø, °ÔÀÌÁö¿¡ ³ª¿Ã Ä³¸¯ÅÍ ¿ÀºêÁ§Æ® ¼³Á¤
 	if( g_pPlayer->HasActivatedSystemPet() )
 		m_pPetElem	= g_pPlayer->GetPetItem();
 
@@ -965,7 +965,7 @@ BOOL CWndPetStatus::Process()
 	if(!IsValidObj(g_pPlayer))
 		return FALSE;
 	
-	// ì¥ì°©, ê²Œì´ì§€ì— ë‚˜ì˜¬ ìºë¦­í„° ì˜¤ë¸Œì íŠ¸ ì„¤ì •
+	// ÀåÂø, °ÔÀÌÁö¿¡ ³ª¿Ã Ä³¸¯ÅÍ ¿ÀºêÁ§Æ® ¼³Á¤
 	if( g_pPlayer->HasActivatedSystemPet() )
 	{
 		m_pPetElem = g_pPlayer->GetPetItem();
@@ -1090,7 +1090,7 @@ void CWndFoodConfirm::OnDraw( C2DRender* p2DRender )
 			char szNumberbuf[8] = {0, };
 			strncpy( szNumberbuf, szNumber, 8 );
 			
-			// 0 : ê³µë°±, 48 : ìˆ«ì 0, 57 : ìˆ«ì 9
+			// 0 : °ø¹é, 48 : ¼ıÀÚ 0, 57 : ¼ıÀÚ 9
 			if( 47 >= szNumberbuf[i] || szNumberbuf[i] >= 58 )
 			{
 				if( szNumberbuf[i] != 0 )
@@ -1107,7 +1107,7 @@ void CWndFoodConfirm::OnDraw( C2DRender* p2DRender )
 void CWndFoodConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pEdit   = (CWndEdit  *)GetDlgItem( WIDC_EDIT1 );
 	CWndButton* pWndOk = (CWndButton *)GetDlgItem( WIDC_OK );	
 	pWndOk->SetDefault( TRUE );
@@ -1139,13 +1139,13 @@ void CWndFoodConfirm::OnInitialUpdate()
 	else if(m_nParent == 2)
 		pStatic->SetTitle(prj.GetText(TID_GAME_ITEMCOUNT_QUESTION));
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndFoodConfirm::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PET_ITEM, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -1209,7 +1209,7 @@ void CWndFoodConfirm::PaintFrame( C2DRender* p2DRender )
 	if( m_pTexture )
 	{
 		RenderWnd();
-		// ì—¬ê¸°ëŠ” íƒ€ì´í‹€ ë°”ì˜ í…ìŠ¤íŠ¸ë¥¼ ì¶œë ¥í•˜ëŠ” ê³³ 
+		// ¿©±â´Â Å¸ÀÌÆ² ¹ÙÀÇ ÅØ½ºÆ®¸¦ Ãâ·ÂÇÏ´Â °÷ 
 		if( IsWndStyle( WBS_CAPTION ) )	
 		{
 			int y = 4;
@@ -1233,7 +1233,7 @@ void CWndFoodConfirm::PaintFrame( C2DRender* p2DRender )
 		m_pTheme->RenderWndBaseFrame( p2DRender, &rect );
 		if( IsWndStyle( WBS_CAPTION ) )
 		{
-			// íƒ€ì´í‹€ ë°” 
+			// Å¸ÀÌÆ² ¹Ù 
 			rect.bottom = 21;
 			{
 				m_pTheme->RenderWndBaseTitleBar( p2DRender, &rect, m_strTitle, m_dwColor );
@@ -1305,13 +1305,13 @@ void CWndPetMiracle::OnDraw( C2DRender* p2DRender )
 	CString strPath;
 	CEditString strEdit;
 	
-	//ë ˆë²¨ í…ìŠ¤íŠ¸ ê·¸ë¦¬ê¸°.
+	//·¹º§ ÅØ½ºÆ® ±×¸®±â.
 	strEdit.SetString(m_strPetLevel[0], D3DCOLOR_XRGB( 255, 255, 255 ), ESSTY_BOLD);
 	p2DRender->TextOut_EditString(GetWndCtrl( WIDC_STATIC1 )->rect.left + 8, GetWndCtrl( WIDC_STATIC1 )->rect.top + 3, strEdit);
 	strEdit.SetString(m_strPetLevel[1], D3DCOLOR_XRGB( 255, 255, 255 ), ESSTY_BOLD);
 	p2DRender->TextOut_EditString(GetWndCtrl( WIDC_STATIC2 )->rect.left + 8, GetWndCtrl( WIDC_STATIC2 )->rect.top + 3, strEdit);
 
-	//ì´ì „ ë ˆë²¨ì˜ íŠ¹ì„±ì¹˜ ë ˆë²¨ ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°.
+	//ÀÌÀü ·¹º§ÀÇ Æ¯¼ºÄ¡ ·¹º§ ÀÌ¹ÌÁö ±×¸®±â.
 	if(m_bReciveResult[0])
 		strPath = m_strPathLvImage[m_nPreLvCount];
 	else
@@ -1322,7 +1322,7 @@ void CWndPetMiracle::OnDraw( C2DRender* p2DRender )
 		if(pTexture != NULL)
 			pTexture->Render( p2DRender, CPoint( GetWndCtrl( WIDC_STATIC3 )->rect.left, GetWndCtrl( WIDC_STATIC3 )->rect.top + 4 ) );	
 	}
-	//í˜„ì¬ ë ˆë²¨ì˜ íŠ¹ì„±ì¹˜ ë ˆë²¨ ì´ë¯¸ì§€ ê·¸ë¦¬ê¸°.
+	//ÇöÀç ·¹º§ÀÇ Æ¯¼ºÄ¡ ·¹º§ ÀÌ¹ÌÁö ±×¸®±â.
 	if(m_bReciveResult[1])
 		strPath = m_strPathLvImage[m_nCurLvCount];
 	else
@@ -1340,7 +1340,7 @@ void CWndPetMiracle::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 	
-	// ë¯¸êµ­ ë²„íŠ¼ ì´ë¯¸ì§€ ë³€ê²½
+	// ¹Ì±¹ ¹öÆ° ÀÌ¹ÌÁö º¯°æ
 	CWndButton* pWndButton = (CWndButton*)GetDlgItem(WIDC_BUTTON2);
 	if(pWndButton)
 	{
@@ -1352,7 +1352,7 @@ void CWndPetMiracle::OnInitialUpdate()
 			pWndButton->SetTexture( m_pApp->m_pd3dDevice, MakePath( DIR_THEME, "ButChance.bmp" ), 0xffff00ff );
 	}
 
-	//B/A/S ê¸‰ í«ë§Œ í•´ë‹¹ ê¸°ëŠ¥ì„ ì´ìš©í•  ìˆ˜ ìˆë‹¤.
+	//B/A/S ±Ş Æê¸¸ ÇØ´ç ±â´ÉÀ» ÀÌ¿ëÇÒ ¼ö ÀÖ´Ù.
 	if( g_pPlayer->HasActivatedSystemPet() )
 	{
 		CItemElem* m_pPetElem	= g_pPlayer->GetPetItem();
@@ -1388,7 +1388,7 @@ void CWndPetMiracle::OnInitialUpdate()
 			pButton->EnableWindow(FALSE);
 			pButton->SetVisible(FALSE);
 
-			//ë§Œì•½ Statusì°½ì´ í™œì„±í™”ëœ ìƒíƒœë¼ë©´ ë ˆë²¨ê°’ì´ ë³€í•˜ì§€ ì•Šë„ë¡ ê³ ì •ì„ ìš”ì²­í•˜ì.
+			//¸¸¾à StatusÃ¢ÀÌ È°¼ºÈ­µÈ »óÅÂ¶ó¸é ·¹º§°ªÀÌ º¯ÇÏÁö ¾Êµµ·Ï °íÁ¤À» ¿äÃ»ÇÏÀÚ.
 			CWndPetStatus* pWndStatus = (CWndPetStatus*)g_WndMng.GetWndBase( APP_PET_STATUS );
 			if(pWndStatus != NULL)
 			{
@@ -1408,7 +1408,7 @@ void CWndPetMiracle::OnInitialUpdate()
 
 BOOL CWndPetMiracle::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PET_MIRACLE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -1453,7 +1453,7 @@ void CWndPetMiracle::SetItem(DWORD dwObjId)
 
 BOOL CWndPetMiracle::Process()
 {
-	//Startë²„íŠ¼ ëˆ„ë¥¼ ê²½ìš° ì»´í“¨í„°ì˜ ì„ íƒì´ íšŒì „í•˜ë„ë¡ í•¨.
+	//Start¹öÆ° ´©¸¦ °æ¿ì ÄÄÇ»ÅÍÀÇ ¼±ÅÃÀÌ È¸ÀüÇÏµµ·Ï ÇÔ.
 	PreLevelImgProcess();
 	CurLevelImgProcess();
 	return TRUE;
@@ -1497,7 +1497,7 @@ void CWndPetMiracle::PreLevelImgProcess()
 			else
 			{
 				PLAYSND( "InfOpen.wav" );					
-				//ì´ˆê¸°í™” ë° ìƒíƒœì°½ì´ ì—´ë ¤ìˆì„ ê²½ìš° ìƒíƒœì°½ì˜ Level Lockì„ í‘¼ë‹¤.
+				//ÃÊ±âÈ­ ¹× »óÅÂÃ¢ÀÌ ¿­·ÁÀÖÀ» °æ¿ì »óÅÂÃ¢ÀÇ Level LockÀ» Ç¬´Ù.
 				m_nPreLvCount = m_nResPreLevel;
 				m_nStatus[0] = -1;
 				m_nDelay[0] = 1;
@@ -1564,7 +1564,7 @@ void CWndPetMiracle::CurLevelImgProcess()
 			else
 			{
 				PLAYSND( "InfOpen.wav" );					
-				//ì´ˆê¸°í™” ë° ìƒíƒœì°½ì´ ì—´ë ¤ìˆì„ ê²½ìš° ìƒíƒœì°½ì˜ Level Lockì„ í‘¼ë‹¤.
+				//ÃÊ±âÈ­ ¹× »óÅÂÃ¢ÀÌ ¿­·ÁÀÖÀ» °æ¿ì »óÅÂÃ¢ÀÇ Level LockÀ» Ç¬´Ù.
 				m_nCurLvCount = m_nResCurLevel;
 				m_nStatus[1] = -1;
 				m_nDelay[1] = 1;
@@ -1830,7 +1830,7 @@ void CWndPetLifeConfirm::OnDraw( C2DRender* p2DRender )
 void CWndPetLifeConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate();
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CRect rect = GetClientRect();
 	int x = m_rectClient.Width() / 2;
 	int y = m_rectClient.Height() - 30;
@@ -1855,10 +1855,10 @@ void CWndPetLifeConfirm::OnInitialUpdate()
 
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndPetLifeConfirm::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MESSAGEBOX, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndPetLifeConfirm::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -1885,7 +1885,7 @@ BOOL CWndPetLifeConfirm::OnChildNotify( UINT message, UINT nID, LRESULT* pLResul
 	}
 	else if( nID == IDNO )
 	{
-		//ê·¸ëƒ¥ ì¢…ë£Œ
+		//±×³É Á¾·á
 	}
 	
 	Destroy();
@@ -1933,7 +1933,7 @@ void CWndPetTransEggs::OnDraw( C2DRender* p2DRender )
 void CWndPetTransEggs::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 
 	CWndButton* pButton = (CWndButton*)GetDlgItem(WIDC_OK);
 	pButton->EnableWindow(FALSE);
@@ -1959,10 +1959,10 @@ void CWndPetTransEggs::OnInitialUpdate()
 
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndPetTransEggs::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PET_TRANS_EGGS, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -2196,7 +2196,7 @@ void CWndBuffPetStatus::OnInitialUpdate()
 	
 	RestoreDeviceObjects();
 	
-	// ì¥ì°©, ê²Œì´ì§€ì— ë‚˜ì˜¬ ìºë¦­í„° ì˜¤ë¸Œì íŠ¸ ì„¤ì •
+	// ÀåÂø, °ÔÀÌÁö¿¡ ³ª¿Ã Ä³¸¯ÅÍ ¿ÀºêÁ§Æ® ¼³Á¤
 	
 	//Position Control
 	CWndStatus* pWndStatus = (CWndStatus*)GetWndBase( APP_STATUS1 );
@@ -2306,7 +2306,7 @@ void CWndBuffPetStatus::OnDraw(C2DRender* p2DRender)
 //	pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP,   D3DTOP_SELECTARG1 );
 //	pd3dDevice->SetRenderState( D3DRS_AMBIENT,  D3DCOLOR_ARGB( 255, 255,255,255) );
 
-	// ë·°í¬íŠ¸ ì„¸íŒ… 
+	// ºäÆ÷Æ® ¼¼ÆÃ 
 	D3DVIEWPORT9 viewport;
 
 	viewport.X      = p2DRender->m_ptOrigin.x + lpFace->rect.left;
@@ -2318,7 +2318,7 @@ void CWndBuffPetStatus::OnDraw(C2DRender* p2DRender)
 
 	pd3dDevice->SetViewport(&viewport);
 
-	// í”„ë¡œì ì…˜ 
+	// ÇÁ·ÎÁ§¼Ç 
 	D3DXMATRIX matProj;
 	D3DXMatrixIdentity( &matProj );
 	FLOAT fAspect = ((FLOAT)viewport.Width) / (FLOAT)viewport.Height;
@@ -2331,20 +2331,20 @@ void CWndBuffPetStatus::OnDraw(C2DRender* p2DRender)
 
 	D3DXMATRIX  matView;
 
-	// ì›”ë“œ 
+	// ¿ùµå 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matRot1, matRot2;
 	D3DXMATRIXA16 matTrans;
 
-	// ì´ˆê¸°í™” 
+	// ÃÊ±âÈ­ 
 	D3DXMatrixIdentity(&matScale);
 	D3DXMatrixIdentity(&matRot1);
 	D3DXMatrixIdentity(&matRot2);
 	D3DXMatrixIdentity(&matTrans);
 	D3DXMatrixIdentity(&matWorld);
 
-	//í« ì¢…ë¥˜ì— ë”°ë¼ ì„¤ì •.
+	//Æê Á¾·ù¿¡ µû¶ó ¼³Á¤.
 	D3DXVECTOR3 vecPos;
 	D3DXVECTOR3 vecLookAt;
 	float fScale = 1.0f;
@@ -2358,13 +2358,13 @@ void CWndBuffPetStatus::OnDraw(C2DRender* p2DRender)
 	if( !pObj3D )
 		return;
 
-	//CModelObjectì—ëŠ” ì´ë²¤íŠ¸ ì¢Œí‘œê°€ ì—†ëŠ”ë° CObject3DëŠ” ìˆê³ ?
+	//CModelObject¿¡´Â ÀÌº¥Æ® ÁÂÇ¥°¡ ¾ø´Âµ¥ CObject3D´Â ÀÖ°í?
 	vecPos = pObj3D->m_vEvent[ 0 ];
 
-	// mdldyna.incì—ì„œ ìŠ¤ì¼€ì¼ì„ ì¡°ì •í•œê²½ìš° ê·¸ì— ë§ê²Œ ë³´ì •ì„ í•´ì£¼ëŠ”ë°, ì–´ë–¤ ì›ë¦¬ì¸ì§€ ë‚´ê°€ í–ˆì§€ë§Œ ì´ìƒí•¨. ë‚˜ì¤‘ì— ë‹¤ì‹œ ì •í™•íˆ ì¡ì•„ë³¼ê¹Œ?
+	// mdldyna.inc¿¡¼­ ½ºÄÉÀÏÀ» Á¶Á¤ÇÑ°æ¿ì ±×¿¡ ¸Â°Ô º¸Á¤À» ÇØÁÖ´Âµ¥, ¾î¶² ¿ø¸®ÀÎÁö ³»°¡ ÇßÁö¸¸ ÀÌ»óÇÔ. ³ªÁß¿¡ ´Ù½Ã Á¤È®È÷ Àâ¾Æº¼±î?
 	float fModelScale = pModel->m_pModelElem->m_fScale;
 	if( fModelScale < 1.0f && fModelScale > 0.001f )
-		vecPos *= ( fModelScale - fModelScale * (0.5f + ( 1.0f - fModelScale ) * 0.01f ) );	//ìŠ¤ì¼€ì¼ ë³€ë™ì¹˜ê°€ í´ìˆ˜ë¡ 
+		vecPos *= ( fModelScale - fModelScale * (0.5f + ( 1.0f - fModelScale ) * 0.01f ) );	//½ºÄÉÀÏ º¯µ¿Ä¡°¡ Å¬¼ö·Ï 
 	else if ( fModelScale > 1.0f )
 		vecPos *= ( fModelScale  - fModelScale * (0.9f + fModelScale * 0.01f) );
 
@@ -2389,7 +2389,7 @@ void CWndBuffPetStatus::OnDraw(C2DRender* p2DRender)
 	D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 	pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-	// ëœë”ë§ 
+	// ·£´õ¸µ 
 	pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
 	
 	pd3dDevice->SetRenderState( D3DRS_ZENABLE, TRUE );
@@ -2398,7 +2398,7 @@ void CWndBuffPetStatus::OnDraw(C2DRender* p2DRender)
 	::SetTransformView( matView );
 	::SetTransformProj( matProj );
 
-	//gmpbigsun : ìœˆë„ í˜ì´ìŠ¤ ê³ ì •ë¼ì´íŠ¸
+	//gmpbigsun : À©µµ ÆäÀÌ½º °íÁ¤¶óÀÌÆ®
  	::SetLight( FALSE );
  	::SetFog( FALSE );
  	SetDiffuse( 1.0f, 1.0f, 1.0f );
@@ -2423,7 +2423,7 @@ BOOL CWndBuffPetStatus::Process()
 		return FALSE;
 
 		
-	// ì¥ì°©, ê²Œì´ì§€ì— ë‚˜ì˜¬ ìºë¦­í„° ì˜¤ë¸Œì íŠ¸ ì„¤ì •
+	// ÀåÂø, °ÔÀÌÁö¿¡ ³ª¿Ã Ä³¸¯ÅÍ ¿ÀºêÁ§Æ® ¼³Á¤
 	if( g_pPlayer->HasActivatedVisPet( ) )
 	{
 		CMover* pMyBuffPet = NULL;
@@ -2434,9 +2434,9 @@ BOOL CWndBuffPetStatus::Process()
  			if( pMyBuffPet )
 			{
 				lstrcpy( pMyBuffPet->m_szCharacterKey, "MaFl_BuffPet" );
-				m_pPetModel = (CModelObject*)pMyBuffPet->GetModel( );		// ë²„í”„í«ì´ ìƒì„±ëë‹¤ë©´ ëª¨ë¸ê³µìœ  
+				m_pPetModel = (CModelObject*)pMyBuffPet->GetModel( );		// ¹öÇÁÆêÀÌ »ı¼ºµÆ´Ù¸é ¸ğµ¨°øÀ¯ 
 
-				//ë²„í”„í« ëª¨ë¸ì´ ì¤€ë¹„ë˜ë©´ íƒ€ì´í‹€ (í«ì´ë¦„) ì„¸íŒ…!
+				//¹öÇÁÆê ¸ğµ¨ÀÌ ÁØºñµÇ¸é Å¸ÀÌÆ² (ÆêÀÌ¸§) ¼¼ÆÃ!
 				m_strTitle = pMyBuffPet->GetName( );
 			}
 			else
@@ -2470,7 +2470,7 @@ BOOL CWndBuffPetStatus::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	if( !IsFreeSlot( selectedSlot ) )
 		return FALSE;
 
-	if( APP_INVENTORY == pWndFrame->GetWndId( ) )			// ì¸ë²¤ì—ì„œ ì˜¨ ì•„ì´í…œì€ ì¡°ê±´ê²€ì‚¬ 
+	if( APP_INVENTORY == pWndFrame->GetWndId( ) )			// ÀÎº¥¿¡¼­ ¿Â ¾ÆÀÌÅÛÀº Á¶°Ç°Ë»ç 
 	{
 		CItemElem* pItem = g_pPlayer->m_Inventory.GetAtId( pShortcut->m_dwId );
 		if( !IsUsableItem( pItem ) )
@@ -2482,16 +2482,16 @@ BOOL CWndBuffPetStatus::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 
 	if( pWndFrame->GetWndId( ) != APP_INVENTORY )				
 	{
-		if( APP_BUFFPET_STATUS == pWndFrame->GetWndId( ) )			//ê°™ì€ ì°½ ë‚´ì—ì„œ ì´ë™ì¼ ê²½ìš° 
+		if( APP_BUFFPET_STATUS == pWndFrame->GetWndId( ) )			//°°Àº Ã¢ ³»¿¡¼­ ÀÌµ¿ÀÏ °æ¿ì 
 		{
 			int selectedSlot = GetSlotIndexByPoint( point );
 			if( selectedSlot < 0  )
 				return FALSE;
 			
-			if( pShortcut->m_dwData == selectedSlot )			//	ì•„ì´ì½˜ì„ ê°™ì€ìë¦¬ì— ë†“ì•˜ë‹¤.
+			if( pShortcut->m_dwData == selectedSlot )			//	¾ÆÀÌÄÜÀ» °°ÀºÀÚ¸®¿¡ ³õ¾Ò´Ù.
 				return FALSE;
 
-			//ìŠ¤ì™‘ìš”ì²­ 
+			//½º¿Ò¿äÃ» 
 			g_DPlay.SendSwapVis( pShortcut->m_dwData, selectedSlot );
 		}
 		
@@ -2499,7 +2499,7 @@ BOOL CWndBuffPetStatus::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	}
 
 
-	//í™•ì¸ì°½ ë„ì›Œì£¼ê³  í™•ì¸ì°½ì—ì„œ OKì‹œ SendDoUseItem
+	//È®ÀÎÃ¢ ¶ç¿öÁÖ°í È®ÀÎÃ¢¿¡¼­ OK½Ã SendDoUseItem
 	if( APP_INVENTORY == pWndFrame->GetWndId( ) )
 		DoModal_ConfirmQuestion( pShortcut->m_dwId, g_pPlayer->GetId(), ((CItemElem*)pShortcut->m_dwData)->m_dwItemId );
 	else
@@ -2529,10 +2529,10 @@ void CWndBuffPetStatus::OnDestroy()
 	}
 }
 
-//ë¹„ìŠ¤ëŠ” í•„ìš”ë¹„ìŠ¤ì˜ í™œì„±í™” ì—¬ë¶€ì— ë”°ë¼ ìê¸°ì˜ í™œì„±í™” ì—¬ë¶€ê°€ ê²°ì •ë˜ë¯€ë¡œ
-//ì¬ê·€ê²€ì‚¬ë¡œ Leafê¹Œì§€ íƒìƒ‰í•œë‹¤. 
-//ì£¼ì„í™” ë˜ìˆëŠ” ë¶€ë¶„ì€ ë‹¨ìˆœíˆ í•„ìš”ë¹„ìŠ¤ê°€ ìˆë‹¤ë©´ ëª¨ë“  í•„ìš”ë¹„ìŠ¤ë¥¼ ì°¾ì•„ì„œ ì¥ì°©ë˜ì–´ìˆëŠ”ì§€ ê²€ì‚¬í•œë‹¤.
-//í˜„ì¬ëŠ” ì„œë²„ì™€ ê°™ì€ í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•¨.
+//ºñ½º´Â ÇÊ¿äºñ½ºÀÇ È°¼ºÈ­ ¿©ºÎ¿¡ µû¶ó ÀÚ±âÀÇ È°¼ºÈ­ ¿©ºÎ°¡ °áÁ¤µÇ¹Ç·Î
+//Àç±Í°Ë»ç·Î Leaf±îÁö Å½»öÇÑ´Ù. 
+//ÁÖ¼®È­ µÇÀÖ´Â ºÎºĞÀº ´Ü¼øÈ÷ ÇÊ¿äºñ½º°¡ ÀÖ´Ù¸é ¸ğµç ÇÊ¿äºñ½º¸¦ Ã£¾Æ¼­ ÀåÂøµÇ¾îÀÖ´ÂÁö °Ë»çÇÑ´Ù.
+//ÇöÀç´Â ¼­¹ö¿Í °°Àº ÇÔ¼ö¸¦ »ç¿ëÇÔ.
 
 /*BOOL IsEquipedVis( DWORD visIndex )
 {
@@ -2540,7 +2540,7 @@ void CWndBuffPetStatus::OnDestroy()
 	if( !pPetItem )
 		return FALSE;
 
-	// gmpbigsun: ë¹„ìŠ¤ë¥¼ ì°©ìš©í•˜ê³  ìˆëŠ”ê°€?
+	// gmpbigsun: ºñ½º¸¦ Âø¿ëÇÏ°í ÀÖ´Â°¡?
 	for( int i = 0; i < MAX_VIS; ++i )
 	{
 		DWORD dwIndex = pPetItem->GetPiercingItem( i );
@@ -2573,13 +2573,13 @@ BOOL GetRequireVis( vector< DWORD >& cNeedVises, DWORD visIndex )
 
 	cNeedVises.push_back( visIndex );
 
-	if( !IsValidIndex( dwNeeds[ 0 ] ) && !IsValidIndex( dwNeeds[ 1 ] ) )			// í•„ìš”ë¹„ìŠ¤ê°€ ì—†ë‹¤ë©´
+	if( !IsValidIndex( dwNeeds[ 0 ] ) && !IsValidIndex( dwNeeds[ 1 ] ) )			// ÇÊ¿äºñ½º°¡ ¾ø´Ù¸é
 		return TRUE;
 
-	if( IsValidIndex( dwNeeds[ 0 ] ) )						//í•„ìš”ë¹„ìŠ¤ê°€ ìˆë‹¤!
+	if( IsValidIndex( dwNeeds[ 0 ] ) )						//ÇÊ¿äºñ½º°¡ ÀÖ´Ù!
 	{
 		cNeedVises.push_back( dwNeeds[ 0 ] );
-		bRequire1 = GetRequireVis( cNeedVises, dwNeeds[ 0 ] );	//í•„ìš”ë¹„ìŠ¤ ì €ì¥ 
+		bRequire1 = GetRequireVis( cNeedVises, dwNeeds[ 0 ] );	//ÇÊ¿äºñ½º ÀúÀå 
 	}
 		
 	if( !bRequire1 )
@@ -2603,9 +2603,9 @@ BOOL GetRequireVis( vector< DWORD >& cNeedVises, DWORD visIndex )
 
 BOOL IsEquipedRequireVis( CItemElem* pPetItem, DWORD visIndex, BOOL bSelfCheck )
 {
-	//gmpbigsun: í•´ë‹¹ ë¹„ìŠ¤ì˜ í•„ìš” ë¹„ìŠ¤ë¥¼ ëª¨ë‘ ì°©ìš©í•˜ê³  ìˆê³  í™œì„±í™” ë˜ì–´ ìˆëŠ”ê°€?
+	//gmpbigsun: ÇØ´ç ºñ½ºÀÇ ÇÊ¿ä ºñ½º¸¦ ¸ğµÎ Âø¿ëÇÏ°í ÀÖ°í È°¼ºÈ­ µÇ¾î ÀÖ´Â°¡?
 	
-	//algorithm :  í•„ìš” ë¹„ìŠ¤ì— ëŒ€í•œ ì •ë³´ë¥¼ ëª¨ì€í›„ ëª¨ë‘ ì¥ì°©ë˜ì–´ìˆëŠ”ì§€ ê²€ì‚¬ 
+	//algorithm :  ÇÊ¿ä ºñ½º¿¡ ´ëÇÑ Á¤º¸¸¦ ¸ğÀºÈÄ ¸ğµÎ ÀåÂøµÇ¾îÀÖ´ÂÁö °Ë»ç 
 
 	if( !IsValidIndex( visIndex ) )
 		return FALSE;
@@ -2675,7 +2675,7 @@ void CWndBuffPetStatus::DrawSlotItems( C2DRender* p2DRender )
 		}
 		else
 		{
-			//ì‚¬ìš©ë¶ˆê°€ëŠ¥ ìŠ¬ë¡¯ 
+			//»ç¿ëºÒ°¡´É ½½·Ô 
 			wndCtrl = GetWndCtrl( m_nCtrlId[i] );
 			CTexture* pTexClosed = CWndBase::m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, "Icon_Lock.dds" ), 0xffff00ff );
 			if( pTexClosed )
@@ -2707,7 +2707,7 @@ int CWndBuffPetStatus::GetSlotIndexByPoint( const CPoint& point )
 	CRect rect;
 	for( int i = 0; i < MAX_VIS; ++i )
 	{
-		wndCtrl = GetWndCtrl( m_nCtrlId[i] );		// ìŠ¬ë¡¯ìœ¼ë¡œ ë§Œë“¤ì–´ì§„ ìœˆë„ìš°ì— ëŒ€í•˜ì—¬ 
+		wndCtrl = GetWndCtrl( m_nCtrlId[i] );		// ½½·ÔÀ¸·Î ¸¸µé¾îÁø À©µµ¿ì¿¡ ´ëÇÏ¿© 
 		rect  = wndCtrl->rect;
 
 		if( rect.PtInRect( point ) )
@@ -2719,7 +2719,7 @@ int CWndBuffPetStatus::GetSlotIndexByPoint( const CPoint& point )
 
 void CWndBuffPetStatus::OnLButtonDown( UINT nFlags, CPoint point )
 {
-	//í•´ë‹¹ ìŠ¬ë¡¯ì„ íŒë³„í•´ì„œ ì •ë³´ë¥¼ shortcutì— ë„£ì–´ì¤€ë‹¤.
+	//ÇØ´ç ½½·ÔÀ» ÆÇº°ÇØ¼­ Á¤º¸¸¦ shortcut¿¡ ³Ö¾îÁØ´Ù.
 
 	LPWNDCTRL wndCtrl = NULL;
 	CRect rect;
@@ -2732,7 +2732,7 @@ void CWndBuffPetStatus::OnLButtonDown( UINT nFlags, CPoint point )
 	if( !pItem )
 		return;
 
-	DWORD dwItemIndex = pItem->GetPiercingItem( selectedSlot );		// í´ë¦­ì„ í–ˆìœ¼ë‚˜ ë¹„ìŠ¤ê°€ ì—†ëŠ” ìŠ¬ë¡¯ì€ íŒ¨ìŠ¤ 
+	DWORD dwItemIndex = pItem->GetPiercingItem( selectedSlot );		// Å¬¸¯À» ÇßÀ¸³ª ºñ½º°¡ ¾ø´Â ½½·ÔÀº ÆĞ½º 
 	if( 0 == dwItemIndex )
 		return;
 	
@@ -2750,7 +2750,7 @@ void CWndBuffPetStatus::OnLButtonDown( UINT nFlags, CPoint point )
 
 void CWndBuffPetStatus::OnLButtonDblClk( UINT nFlags, CPoint point)
 {
-	//íŒŒê´´ 
+	//ÆÄ±« 
 	int selectedSlot = GetSlotIndexByPoint( point );
 	if( selectedSlot < 0 )
 		return;
@@ -2759,7 +2759,7 @@ void CWndBuffPetStatus::OnLButtonDblClk( UINT nFlags, CPoint point)
 	if( !pItem )
 		return;
 
-	DWORD dwItemIndex = pItem->GetPiercingItem( selectedSlot );		// í´ë¦­ì„ í–ˆìœ¼ë‚˜ ë¹„ìŠ¤ê°€ ì—†ëŠ” ìŠ¬ë¡¯ì€ íŒ¨ìŠ¤ 
+	DWORD dwItemIndex = pItem->GetPiercingItem( selectedSlot );		// Å¬¸¯À» ÇßÀ¸³ª ºñ½º°¡ ¾ø´Â ½½·ÔÀº ÆĞ½º 
 	if( 0 == dwItemIndex )
 		return;
 
@@ -2828,7 +2828,7 @@ void CWndBuffPetStatus::OnMouseWndSurface( CPoint point )
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-//CWndConfirmVis : ë¹„ìŠ¤ ê¼½ê³  ëº„ë•Œ í™•ì¸ì°½ 
+//CWndConfirmVis : ºñ½º ²Å°í »¬¶§ È®ÀÎÃ¢ 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 CWndConfirmVis::CWndConfirmVis() 
 { 
@@ -2873,7 +2873,7 @@ void CWndConfirmVis::OnInitialUpdate()
 	{
 	case CVS_EQUIP_VIS : strTitle.Format( GETTEXT( TID_GAME_BUFFPET_EQUIP ), pProp->szName ); break;
 	case CVS_UNEQUIP_VIS : strTitle.Format( GETTEXT( TID_GAME_BUFFPET_CANCEL ), pProp->szName ); break;
-	case CVS_EQUIP_VISKEY : // ë¹„ìŠ¤ ìŠ¬ë¡¯ í™•ì¥ í‚¤ ì“¸ë ¤ê³  í• ë•Œ 
+	case CVS_EQUIP_VISKEY : // ºñ½º ½½·Ô È®Àå Å° ¾µ·Á°í ÇÒ¶§ 
 		{
 			MoverProp* pProp = NULL;
 			if( g_pPlayer )
@@ -2888,19 +2888,19 @@ void CWndConfirmVis::OnInitialUpdate()
 		}break;
 
 	case CVS_PICKUP_TO_BUFF:
-		strTitle = GETTEXT( TID_GAME_PET_TRAN );	// ì†Œí™˜ë˜ì–´ ìˆëŠ” í”½ì—…í« ë²„í”„í«ìœ¼ë¡œ ë³€í™˜?
+		strTitle = GETTEXT( TID_GAME_PET_TRAN );	// ¼ÒÈ¯µÇ¾î ÀÖ´Â ÇÈ¾÷Æê ¹öÇÁÆêÀ¸·Î º¯È¯?
 		break;
 
 #ifdef __PROTECT_AWAKE
 	case ETC_PROTECT_AWAKE:
-		strTitle = GETTEXT( TID_GAME_REGARDLESS_USE01 ); //"ì§„ì§œëŸ¬ ê°ì„±ë³´í˜¸ ì“¸ë˜ì—¼? ì˜ ì•„ì´ë”” í•„ìš”";
+		strTitle = GETTEXT( TID_GAME_REGARDLESS_USE01 ); //"ÁøÂ¥·¯ °¢¼ºº¸È£ ¾µ·¡¿°? ÀÇ ¾ÆÀÌµğ ÇÊ¿ä";
 		break;
 #endif //AWAKE_PROTECT
 	}
 
 	pText->SetString( strTitle );
 
-	//ì—ë””íŠ¸ì°½ì„ ì•ˆë³´ì´ëŠ”ê³³ìœ¼ë¡œ ë³´ë‚´ë²„ë¦¬ê³  ENTERë°›ì„ì¤€ë¹„ 
+	//¿¡µğÆ®Ã¢À» ¾Èº¸ÀÌ´Â°÷À¸·Î º¸³»¹ö¸®°í ENTER¹ŞÀ»ÁØºñ 
 	pEdit->Move( -100, -100 );
 	pEdit->SetFocus( );
 } 
@@ -2943,7 +2943,7 @@ void CWndConfirmVis::SendEquipPacket( )
 
 BOOL CWndConfirmVis::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
 { 
-	// ì—”í„° ì…ë ¥ ì²˜ë¦¬ 
+	// ¿£ÅÍ ÀÔ·Â Ã³¸® 
 	if( WIDC_EDIT1 == nID && EN_RETURN == message )
 	{
 		SendEquipPacket( );	

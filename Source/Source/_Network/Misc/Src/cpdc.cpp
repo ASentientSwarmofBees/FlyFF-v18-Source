@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "cpdh.h"
 
 CPdh::CPdh()

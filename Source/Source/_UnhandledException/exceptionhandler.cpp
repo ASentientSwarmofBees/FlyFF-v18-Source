@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #ifndef __MINIDUMP
 #ifndef _DEBUG
@@ -7,7 +7,7 @@
 #include "BugslayerUtil.h"
 #include "CrashHandler.h"
 #include "ExceptionHandler.h"
-#include "..\_Common\HwOption.h"	// COLAì—ì„  includeë˜ë©´ ì•ˆë¨.
+#include "..\_Common\HwOption.h"	// COLA¿¡¼± includeµÇ¸é ¾ÈµÊ.
 
 #if defined( __CLIENT ) 
 	#include "dpcertified.h"
@@ -36,7 +36,7 @@ extern char   g_szLastFile[];
 
 LONG __stdcall CrashHandlerExceptionFilter( EXCEPTION_POINTERS* pExPtrs);
 
-// ExceptionHandler ì‹œì‘
+// ExceptionHandler ½ÃÀÛ
 void	InitEH( void )
 {
 	SetErrorMode(SetErrorMode(0) |
@@ -46,14 +46,14 @@ void	InitEH( void )
 	memset( g_szErrorAdd, 0, sizeof(g_szErrorAdd) );
 }
 
-// ì¶”ê°€ ì—ëŸ¬ì½”ë“œë¥¼ ê¸°ë¡í•œë‹¤.
+// Ãß°¡ ¿¡·¯ÄÚµå¸¦ ±â·ÏÇÑ´Ù.
 void	_AddErrorMsg( LPCTSTR str, LPCTSTR strHead )
 {
 	if( str[0] == 0 )	
 		return;
 	if( strlen( g_szErrorAdd ) >= 0x7fff )
 		return;
-	strcat( g_szErrorAdd, strHead );		// ë©”ëª¨ì¥ì—ì„œ ì°¾ê¸° ì‰½ì— ì´ê±° ë¶™ì´ì ã…ã…
+	strcat( g_szErrorAdd, strHead );		// ¸Ş¸ğÀå¿¡¼­ Ã£±â ½±¿¡ ÀÌ°Å ºÙÀÌÀÚ ¤¾¤¾
 	strcat( g_szErrorAdd, str );
 	strcat( g_szErrorAdd, "\n" );
 }
@@ -91,7 +91,7 @@ void SendErrorText( const char* pszErrorText )
 	////////////////////////////////////////////////////////////////////
 	//	Send data
 	////////////////////////////////////////////////////////////////////
-	DWORD dwIndex = 0;		// ACCUMULATORì™€ ì¼ì¹˜ì‹œí‚¬ ê²ƒ( - "KOR","CHI","JAP","TWN","THA","ENG" )
+	DWORD dwIndex = 0;		// ACCUMULATOR¿Í ÀÏÄ¡½ÃÅ³ °Í( - "KOR","CHI","JAP","TWN","THA","ENG" )
 	switch( ::GetLanguage() )
 	{
 	case LANG_JAP: 	dwIndex = 2; break;
@@ -140,9 +140,9 @@ LONG __stdcall CrashHandlerExceptionFilter( EXCEPTION_POINTERS* pExPtrs )
 	if( InterlockedIncrement( &s_nRecrvCnt ) >= 3 )
 		return EXCEPTION_CONTINUE_SEARCH;
 
-	// ë””ë²„ê¹… ëª¨ë“œ ì¼ë•Œì—ëŠ” ì¶”ê°€ ì •ë³´ë¥¼ ë³´ì—¬ì£¼ì§€ ì•Šê³ 
-	// EXCEPTION_CONTINUE_SEARCH  ê°’ì„ ë¦¬í„´í•¨ìœ¼ë¡œì¨
-	// í”„ë¡œê·¸ë˜ë¨¸ê°€ ë””ë²„ê¹… í•  ìˆ˜ ìˆë„ë¡ í•œë‹¤.
+	// µğ¹ö±ë ¸ğµå ÀÏ¶§¿¡´Â Ãß°¡ Á¤º¸¸¦ º¸¿©ÁÖÁö ¾Ê°í
+	// EXCEPTION_CONTINUE_SEARCH  °ªÀ» ¸®ÅÏÇÔÀ¸·Î½á
+	// ÇÁ·Î±×·¡¸Ó°¡ µğ¹ö±ë ÇÒ ¼ö ÀÖµµ·Ï ÇÑ´Ù.
 #ifdef _DEBUG
 	lRet = EXCEPTION_CONTINUE_SEARCH ;
 	return lRet;
@@ -150,7 +150,7 @@ LONG __stdcall CrashHandlerExceptionFilter( EXCEPTION_POINTERS* pExPtrs )
 	lRet = EXCEPTION_EXECUTE_HANDLER;
 #endif
 	
-	// ì™œ ì£½ì—ˆëŠ”ì§€ ì•Œì•„ë‚´ë„ë¡ í•©ë‹ˆë‹¤.
+	// ¿Ö Á×¾ú´ÂÁö ¾Ë¾Æ³»µµ·Ï ÇÕ´Ï´Ù.
 	char szReason[ 1024*16 ] = {0, };
 #ifdef __CLIENT
 	sprintf( szReason, "%s rCnt=%d\r\n%s", g_szVersion, s_nRecrvCnt, GetFaultReason(pExPtrs) );
@@ -215,7 +215,7 @@ LONG __stdcall CrashHandlerExceptionFilter( EXCEPTION_POINTERS* pExPtrs )
 
 #ifdef 	__CLIENT
 	{
-		char szPacket[512] = {0, };	// ë§ˆì§€ë§‰ íŒ¨í‚·ì„ ë¡œê·¸ì— ì¶”ê°€í•¨.
+		char szPacket[512] = {0, };	// ¸¶Áö¸· ÆĞÅ¶À» ·Î±×¿¡ Ãß°¡ÇÔ.
 		sprintf( szPacket, "0x%02x:0x%02x-", g_hdr, g_Prev );
 		strcat( szReason, szPacket );
 
@@ -238,7 +238,7 @@ LONG __stdcall CrashHandlerExceptionFilter( EXCEPTION_POINTERS* pExPtrs )
 	}
 #endif	// __CLIENT
 	
-#if defined( __CLIENT ) // í´ë¼ì´ì–¸íŠ¸ëŠ” ì‹±ê¸€ìŠ¤ë ˆë“œì´ë¯€ë¡œ ì´ì½”ë“œê°€ ê°€ëŠ¥í•  ë“¯ ì‹¶ë‹¤.
+#if defined( __CLIENT ) // Å¬¶óÀÌ¾ğÆ®´Â ½Ì±Û½º·¹µåÀÌ¹Ç·Î ÀÌÄÚµå°¡ °¡´ÉÇÒ µí ½Í´Ù.
 	g_dpCertified.DeleteDPObject();
 	g_DPlay.DeleteDPObject();
 	g_dpLoginClient.DeleteDPObject();

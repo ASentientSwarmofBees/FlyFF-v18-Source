@@ -1,4 +1,4 @@
-ï»¿// Microsoft Visual C++ generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -88,7 +88,7 @@ BEGIN
             VALUE "FileDescription", "Neuz"
             VALUE "FileVersion", "3, 8, 22, 1"
             VALUE "InternalName", "Neuz"
-            VALUE "LegalCopyright", "Copyright â“’ 2002"
+            VALUE "LegalCopyright", "Copyright ¨Ï 2002"
             VALUE "OriginalFilename", "Neuz.exe"
             VALUE "ProductName", "Masquerade"
             VALUE "ProductVersion", "1, 0, 0, 1"

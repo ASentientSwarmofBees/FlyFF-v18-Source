@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "dpsrvr.h"
 #include "dpadbill.h"
 #include "dpdbsrvr.h"
@@ -145,7 +145,7 @@ void CDPDBSrvr::OnRemovePlayer( CAr & ar, DPID dpid, LPBYTE lpBuf, u_long uBufSi
 	size_t nSize; u_long uTemp;
 	ar >> nSize;
 	for( size_t i=0; i<nSize; i++ )
-		ar >> uTemp;	// ê·¸ëƒ¥ ë°›ê¸°ë§Œ í•œë‹¤.(ì“¸ëª¨ì—†ìŒ)
+		ar >> uTemp;	// ±×³É ¹Þ±â¸¸ ÇÑ´Ù.(¾µ¸ð¾øÀ½)
 #endif // __RT_1025
 
 	CMclAutoLock	Lock( g_AccountMng.m_AddRemoveLock );
@@ -214,7 +214,7 @@ void CDPDBSrvr::OnJoin( CAr & ar, DPID dpid, LPBYTE lpBuf, u_long uBufSize )
 		Send( (LPVOID)lpBuf, (DWORD)uBufSize, dpid );
 		OutputDebugString( "ACCOUNTSERVER.EXE\t// PACKETTYPE_JOIN" );
 		
-		// ë™ì ‘ì„ ë³´ë‚¸ë‹¤.
+		// µ¿Á¢À» º¸³½´Ù.
 		u_long uId	= pAccount->m_dwIdofServer * 100 + pAccount->m_uIdofMulti;
 		map<u_long, LPSERVER_DESC>::iterator i	= g_dpSrvr.m_2ServersetPtr.find( uId );
 		if( i != g_dpSrvr.m_2ServersetPtr.end() )
@@ -372,13 +372,13 @@ void CDPDBSrvr::OnBuyingInfo( CAr & ar, DPID dpid, LPBYTE lpBuf, u_long uBufSize
 		CBuyingInfoMng::GetInstance()->Remove( bi2.dwKey );
 		safe_delete( pbi3 );
 		/*
-		bi2.szBxaid		// êµ¬ë§¤ ë²ˆí˜¸
-		bi2.dwItemId	// ì•„ì´í…œ ì¸ë±ìŠ¤
-		bi2.dwItemNum	// ì•„ì´í…œ ê°œìˆ˜
-		bi2.dwServerIndex	// ì„œë²„ ì¸ë±ìŠ¤
-		bi2.dwPlayerId		// í”Œë ˆì´ì–´ ì‹ë³„ìž
-		bi2.dwRetVal	// ì§€ê¸‰ ì„±ê³µ ì—¬ë¶€, ì„±ê³µ : 1, ì‹¤íŒ¨ : 0
-		iSerialNumber		// ì‹œë¦¬ì–¼ ë²ˆí˜¸
+		bi2.szBxaid		// ±¸¸Å ¹øÈ£
+		bi2.dwItemId	// ¾ÆÀÌÅÛ ÀÎµ¦½º
+		bi2.dwItemNum	// ¾ÆÀÌÅÛ °³¼ö
+		bi2.dwServerIndex	// ¼­¹ö ÀÎµ¦½º
+		bi2.dwPlayerId		// ÇÃ·¹ÀÌ¾î ½Äº°ÀÚ
+		bi2.dwRetVal	// Áö±Þ ¼º°ø ¿©ºÎ, ¼º°ø : 1, ½ÇÆÐ : 0
+		iSerialNumber		// ½Ã¸®¾ó ¹øÈ£
 		*/
 
 		LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus		= g_DbManager.m_pDbIOData->Alloc();
@@ -389,7 +389,7 @@ void CDPDBSrvr::OnBuyingInfo( CAr & ar, DPID dpid, LPBYTE lpBuf, u_long uBufSize
 	}
 	else
 	{
-		// ì¹˜ëª…ì  ì˜¤ë¥˜ : ì–´ì¹´ìš´íŠ¸ ì„œë²„ì—ëŠ” ì§€ê¸‰ ëª…ë ¹ì— ëŒ€í•œ ì •ë³´ê°€ ì—†ë‹¤.
+		// Ä¡¸íÀû ¿À·ù : ¾îÄ«¿îÆ® ¼­¹ö¿¡´Â Áö±Þ ¸í·É¿¡ ´ëÇÑ Á¤º¸°¡ ¾ø´Ù.
 	}
 	CBuyingInfoMng::GetInstance()->m_AddRemoveLock.Leave();
 	TRACE( "RECV PACKETTYPE_BUYING_INFO FROM TRANS\n" );

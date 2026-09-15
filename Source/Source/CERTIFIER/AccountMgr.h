@@ -1,4 +1,4 @@
-ï»¿// AccountMgr.h: interface for the CAccountMgr class.
+// AccountMgr.h: interface for the CAccountMgr class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -11,9 +11,9 @@
 
 
 enum ACCOUNT_CHECK {
-	CHECK_OK,				// í‹€ë¦° ì ì´ ì—†ê±°ë‚˜, ì²˜ìŒ 
-	CHECK_1TIMES_ERROR,		// 1íšŒ í‹€ë¦¼
-	CHECK_3TIMES_ERROR,		// 3íšŒ í‹€ë¦¼ 
+	CHECK_OK,				// Æ²¸° ÀûÀÌ ¾ø°Å³ª, Ã³À½ 
+	CHECK_1TIMES_ERROR,		// 1È¸ Æ²¸²
+	CHECK_3TIMES_ERROR,		// 3È¸ Æ²¸² 
 };
 
 struct ACCOUNT_CACHE 
@@ -27,7 +27,7 @@ struct ACCOUNT_CACHE
 class CAccountMgr
 {
 public:
-	list< ACCOUNT_CACHE* >	m_cache;		// LRUë¡œ ìœ ì§€ë˜ëŠ” ìºì‰¬ ì •ë³´ 
+	list< ACCOUNT_CACHE* >	m_cache;		// LRU·Î À¯ÁöµÇ´Â Ä³½¬ Á¤º¸ 
 
 public:
 	CAccountMgr();

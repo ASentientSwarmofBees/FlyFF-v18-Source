@@ -1,4 +1,4 @@
-ï»¿#ifndef _CTimer_H_
+#ifndef _CTimer_H_
 #define _CTimer_H_
 
 #define	MIN(x)	(1000*60*((int)x))
@@ -36,7 +36,7 @@ public:
 	void	operator()( double val );
 };
 
-#define SKIPPING_PARAM 6 // 2ì´ìƒ ë¶€í„° ì„¤ì •ë˜ë©°, ë†’ì„ ìˆ˜ë¡ ë¶€ë“œëŸ¬ìš´ ìŠ¤í‚¤í•‘ì´ëœë‹¤.
+#define SKIPPING_PARAM 6 // 2ÀÌ»ó ºÎÅÍ ¼³Á¤µÇ¸ç, ³ôÀ» ¼ö·Ï ºÎµå·¯¿î ½ºÅ°ÇÎÀÌµÈ´Ù.
 class CSkipTimer : public CTimer
 { 
 protected:
@@ -82,8 +82,8 @@ public:
 	void SetFixed( BOOL bFixed ) { m_bFixed = bFixed; }
 	BOOL IsFixed( ) { return m_bFixed; }
 
-	int GetSunPercent(); // í•´ê°€ ëœ¨ëŠ” ìƒí™©ì„ í¼ì„¼íŠ¸ë¡œ. 100ì— ê°€ê¹Œìš°ë©´ ë§Œë•…, 0ì— ê°€ê¹Œìš°ë©´ ë‚˜íƒ€ë‚˜ëŠ” ì¤‘ì„
-	int GetMoonPercent(); // ë‹¬ í˜¹ì€ ë³„ì´ ëœ¨ëŠ” ìƒí™©ì„ í¼ì„¼íŠ¸ë¡œ. 100ì— ê°€ê¹Œìš°ë©´ ë§Œë•…, 0ì— ê°€ê¹Œìš°ë©´ ë‚˜íƒ€ë‚˜ëŠ” ì¤‘ì„
+	int GetSunPercent(); // ÇØ°¡ ¶ß´Â »óÈ²À» ÆÛ¼¾Æ®·Î. 100¿¡ °¡±î¿ì¸é ¸¸¶¥, 0¿¡ °¡±î¿ì¸é ³ªÅ¸³ª´Â ÁßÀÓ
+	int GetMoonPercent(); // ´Ş È¤Àº º°ÀÌ ¶ß´Â »óÈ²À» ÆÛ¼¾Æ®·Î. 100¿¡ °¡±î¿ì¸é ¸¸¶¥, 0¿¡ °¡±î¿ì¸é ³ªÅ¸³ª´Â ÁßÀÓ
 
 	void Compute();
 };
@@ -131,7 +131,7 @@ void	InitTimerThread( void );
 void	DestroyTimerThread( void );
 
 #define		FRAME_PER_SEC		60
-#define		MAX_SKIP_FRAME		4		// ë°°ì†?
+#define		MAX_SKIP_FRAME		4		// ¹è¼Ó?
 #define		SEC1				PROCESS_COUNT
 
 #ifdef __WORLDSERVER

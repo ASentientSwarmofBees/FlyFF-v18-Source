@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "SfxHitArray.h"
 
 CSfxHitArray::CSfxHitArray()
@@ -30,7 +30,7 @@ int CSfxHitArray::Add( int id, OBJID objid, DWORD dwAtkFlags, DWORD dwSkill, int
 		}
 	}
 
-	memset( m_aSfxHit, 0, sizeof(m_aSfxHit) );	// ê½‰ì°¨ì„œ ë”ì´ìƒ ì‚¬ìš© ëª»í•˜ë¯€ë¡œ ì¼ë‹¨ í´ë¦¬ì–´ í•´ì¤Œ.
+	memset( m_aSfxHit, 0, sizeof(m_aSfxHit) );	// ²ËÂ÷¼­ ´õÀÌ»ó »ç¿ë ¸øÇÏ¹Ç·Î ÀÏ´Ü Å¬¸®¾î ÇØÁÜ.
 	return( -1 );
 }
 
@@ -49,7 +49,7 @@ BOOL CSfxHitArray::RemoveAt( int nIndex, BOOL bForce )
 		return( FALSE ); 
 	if( m_aSfxHit[nIndex].id != 0 )
 	{
-		if( --m_aSfxHit[nIndex].nMaxDmgCnt == 0 || bForce )		// ì¹´ìš´íŠ¸ë¥¼ ê¹ê³  0ì´ ëì„ë•Œë§Œ ì™„ì „íˆ ì‚­ì œ.
+		if( --m_aSfxHit[nIndex].nMaxDmgCnt == 0 || bForce )		// Ä«¿îÆ®¸¦ ±ğ°í 0ÀÌ µÆÀ»¶§¸¸ ¿ÏÀüÈ÷ »èÁ¦.
 			m_aSfxHit[nIndex].id	= 0;
 		return( TRUE );
 	}

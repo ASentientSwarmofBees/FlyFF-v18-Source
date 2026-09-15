@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "PathObj.h"
 #include "Respawn.h"
 
@@ -29,28 +29,28 @@ void CPatrolPath::SetReturn( DWORD dwIndex, BOOL bReturn )
 {
 }
 
-// ì¢Œí‘œë¥¼ ì¶”ê°€í•œë‹¤.
+// ÁÂÇ¥¸¦ Ãß°¡ÇÑ´Ù.
 void CPatrolPath::AddPatrolPath( DWORD dwIndex, _VECINFO vecInfo )
 {
 	map< DWORD, vector<_VECINFO> >::iterator it = m_mapPatrolPath.find( dwIndex );
 
 	vector<_VECINFO> pTemp;
 
-	// ê¸°ì¡´ì— ë“¤ì–´ê°€ìˆë‹¤
+	// ±âÁ¸¿¡ µé¾î°¡ÀÖ´Ù
 	if( it != m_mapPatrolPath.end() )
 	{
-		// ì²˜ìŒì—” ì‹œì‘ì¢Œí‘œ ë„£ëŠ”ë‹¤...
+		// Ã³À½¿£ ½ÃÀÛÁÂÇ¥ ³Ö´Â´Ù...
 		it->second.push_back( vecInfo );
 	}
 	else
-	// ìƒˆë¡­ê²Œ ë„£ëŠ”ë‹¤
+	// »õ·Ó°Ô ³Ö´Â´Ù
 	{
 		pTemp.push_back( vecInfo );
 		m_mapPatrolPath.insert( map< DWORD, vector<_VECINFO> >::value_type(dwIndex, pTemp) );
 	}
 }
 
-// ë‹¤ìŒ 
+// ´ÙÀ½ 
 void CPatrolPath::GetNextPosInfo( CObj* pObj, const D3DXVECTOR3 vPos, D3DXVECTOR3& vDest, _VECINFO& _vecInfo )
 //void CPatrolPath::GetNextPosInfo( DWORD dwIndex, DWORD& dwCount, const D3DXVECTOR3 vPos, D3DXVECTOR3& vDest, _VECINFO& _vecInfo )
 {
@@ -81,7 +81,7 @@ void CPatrolPath::GetNextPosInfo( CObj* pObj, const D3DXVECTOR3 vPos, D3DXVECTOR
 
 	vDest    = vPos + (v3Dir * fLength );
 
-	// ì „ì²´ìˆœí™˜ì´ëƒ
+	// ÀüÃ¼¼øÈ¯ÀÌ³Ä
 	if( pObj->m_bPatrolCycle == 1 )
 		pObj->m_nPatrolIndexCount++;
 	else
@@ -92,7 +92,7 @@ void CPatrolPath::GetNextPosInfo( CObj* pObj, const D3DXVECTOR3 vPos, D3DXVECTOR
 			pObj->m_nPatrolIndexCount--;		
 	}
 	
-	// ì „ì²´ìˆœí™˜ì´ëƒ
+	// ÀüÃ¼¼øÈ¯ÀÌ³Ä
 	if( pObj->m_bPatrolCycle == 1 )
 	{
 		if( pObj->m_nPatrolIndexCount >= (int)( _vecinfoTemp.size() ) )
@@ -105,13 +105,13 @@ void CPatrolPath::GetNextPosInfo( CObj* pObj, const D3DXVECTOR3 vPos, D3DXVECTOR
 		if( pObj->m_nPatrolIndexCount >= (int)_vecinfoTemp.size()-1 )
 		{
 			pObj->m_nPatrolIndexCount = pObj->m_nPatrolIndexCount - 1;
-			pObj->m_bPatrolReverse = 1; // ê±°ê¾¸ë¡œ..
+			pObj->m_bPatrolReverse = 1; // °Å²Ù·Î..
 		}
 		else
 		if( pObj->m_nPatrolIndexCount < 0 )
 		{
 			pObj->m_nPatrolIndexCount = 0;
-			pObj->m_bPatrolReverse = 0; // ê±°ê¾¸ë¡œ..
+			pObj->m_bPatrolReverse = 0; // °Å²Ù·Î..
 		}
 	}
 }
@@ -120,13 +120,13 @@ void CPatrolPath::AddPatrolIndex(DWORD dwIndex)
 {
 	map< DWORD, vector<_VECINFO> >::iterator it = m_mapPatrolPath.find( dwIndex );
 	
-	// ê¸°ì¡´ì— ë“¤ì–´ê°€ìˆë‹¤
+	// ±âÁ¸¿¡ µé¾î°¡ÀÖ´Ù
 	if( it != m_mapPatrolPath.end() )
 	{
 		return;
 	}
 	else
-	// ìƒˆë¡­ê²Œ ë„£ëŠ”ë‹¤
+	// »õ·Ó°Ô ³Ö´Â´Ù
 	{
 		vector<_VECINFO> pTemp;
 		pTemp.clear();
@@ -138,7 +138,7 @@ BOOL CPatrolPath::IsFirstPath( DWORD dwIndex )
 {
 	map< DWORD, vector<_VECINFO> >::iterator it = m_mapPatrolPath.find( dwIndex );
 	
-	// ê¸°ì¡´ì— ë“¤ì–´ê°€ìˆë‹¤
+	// ±âÁ¸¿¡ µé¾î°¡ÀÖ´Ù
 	if( it != m_mapPatrolPath.end() )
 	{
 		if( it->second.size() == 0 )

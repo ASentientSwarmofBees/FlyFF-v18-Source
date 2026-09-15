@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "dpcachesrvr.h"
 #include "dploginsrvr.h"
 #include "msghdr.h"

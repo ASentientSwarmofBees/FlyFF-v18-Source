@@ -1,4 +1,4 @@
-﻿#ifndef __MEMSPY_H__
+#ifndef __MEMSPY_H__
 #define __MEMSPY_H__
 
 #pragma once

@@ -1,4 +1,4 @@
-﻿#ifndef __FUNCTIONSINFO_H__
+#ifndef __FUNCTIONSINFO_H__
 #define __FUNCTIONSINFO_H__
 
 struct NPCDIALOG_INFO;

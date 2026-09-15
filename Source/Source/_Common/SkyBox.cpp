@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineObj.h"
 #include "sfx.h"
 
@@ -70,17 +70,17 @@ CSkyBox* CSkyBox::GetInstance()
 void CSkyBox::SetWeather( int nWeather, BOOL bOnOff )
 {
 #if __VER >= 15 // __BS_CHANGING_ENVIR
-	if( m_bLockWeather )		//gmpbigsun(100112) : í˜„ì¬ ëŒ€ë¥™ë‚ ì”¨ìª½ì—ì„œ ë½ì„ ì‹œí‚¤ê³  í’€ì–´ì¤Œ 
+	if( m_bLockWeather )		//gmpbigsun(100112) : ÇöÀç ´ë·ú³¯¾¾ÂÊ¿¡¼­ ¶ôÀ» ½ÃÅ°°í Ç®¾îÁÜ 
 		return;
 #endif
 
 	if( bOnOff == FALSE )
 	{
 		if( nWeather == m_nWeather )
-			m_timerWeather.Set( 0 ); // ë‚´ë¦¬ëŠ” ê²ƒì„ ê·¸ì¹˜ê²Œ í•œë‹¤.
+			m_timerWeather.Set( 0 ); // ³»¸®´Â °ÍÀ» ±×Ä¡°Ô ÇÑ´Ù.
 	}
 	else
-		m_timerWeather.Set( MIN( 1 ) ); // 5ë¶„ê°„ ë¹„ë‚˜ ëˆˆì´ ë‚´ë¦°ë‹¤.
+		m_timerWeather.Set( MIN( 1 ) ); // 5ºĞ°£ ºñ³ª ´«ÀÌ ³»¸°´Ù.
 
 	if( bOnOff == FALSE )
 	{
@@ -195,7 +195,7 @@ void CSkyBox::Process()
 							D3DXVECTOR3 vYPW;
 							QuaternionRotationToYPW( qDirMap, vYPW );
 							
-							// ë¬¼ì´ ìˆìœ¼ë©´ ë¬¼íš¨ê³¼
+							// ¹°ÀÌ ÀÖÀ¸¸é ¹°È¿°ú
 							LPWATERHEIGHT pWaterHeight = m_pWorld->GetWaterHeight( m_vFall[ i ] );
 
 							if( pWaterHeight && 
@@ -234,11 +234,11 @@ void CSkyBox::Process()
 					bFall = TRUE;
 				}
 				else
-				// íƒ€ì„ ì•„ì›ƒ ë˜ì—ˆìŒ. ë.
+				// Å¸ÀÓ ¾Æ¿ô µÇ¾úÀ½. ³¡.
 				if( fheight < m_vFall[ i ].y ) 
 				{
 					bFall = TRUE;
-					m_vFall[ i ] += m_vVelocity[ i ] * 1.5; // ëˆˆë³´ë‹¤ ë¹ ë¥´ê²Œ 
+					m_vFall[ i ] += m_vVelocity[ i ] * 1.5; // ´«º¸´Ù ºü¸£°Ô 
 				}
 			}
 		}
@@ -263,7 +263,7 @@ void CSkyBox::Process()
 					bFall = TRUE;
 				}
 				else
-				// íƒ€ì„ ì•„ì›ƒ ë˜ì—ˆìŒ. ë.
+				// Å¸ÀÓ ¾Æ¿ô µÇ¾úÀ½. ³¡.
 				if( fheight < m_vFall[ i ].y ) 
 				{
 					bFall = TRUE;
@@ -288,7 +288,7 @@ void CSkyBox::Render( CWorld* pWorld, LPDIRECT3DDEVICE9 pd3dDevice )
 	float angle1=(float)(atan(vecLookAt.x/vecLookAt.z)*180/3.1415926f);
 	if(vecLookAt.z<0) angle1+=180;
 	
-	// í•˜ëŠ˜ ì¶œë ¥ 
+	// ÇÏ´Ã Ãâ·Â 
 	D3DXMATRIX mat, matWorld;
 	float fTemp=-angle1/360.0f;
 
@@ -342,7 +342,7 @@ void CSkyBox::Render( CWorld* pWorld, LPDIRECT3DDEVICE9 pd3dDevice )
 	pd3dDevice->SetTransform( D3DTS_VIEW, &mat);
 	pd3dDevice->SetTransform( D3DTS_PROJECTION, &matProj2 );
 
-	// ë³‘í’ í•˜ëŠ˜ ì¶œë ¥ 
+	// º´Ç³ ÇÏ´Ã Ãâ·Â 
 /*
 	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, TRUE );
@@ -353,13 +353,13 @@ void CSkyBox::Render( CWorld* pWorld, LPDIRECT3DDEVICE9 pd3dDevice )
 */	
 	pd3dDevice->SetStreamSource( 0, m_pSideSkyBoxVB, 0, sizeof( D3DSKYBOXVERTEX ) );
 	pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, D3DCOLOR_ARGB( 255, 0, 0, 0 ) );
-	// ì‹œê°„ì— ë”°ë¼ í•˜ëŠ˜ í…ìŠ¤ì³ë¥¼ ìì—°ìŠ¤ëŸ½ê²Œ ë°”ê¿”ì¹˜ê¸°í•œë‹¤.
+	// ½Ã°£¿¡ µû¶ó ÇÏ´Ã ÅØ½ºÃÄ¸¦ ÀÚ¿¬½º·´°Ô ¹Ù²ãÄ¡±âÇÑ´Ù.
 
 	float fAlphaEX = 1.0f;			//added 
 	int rstA = 255;				//added
 #if __VER >= 15 // __BS_CHANGING_ENVIR
-	//gmpbigsun: Hookì€ ë¦¬í„´ê°’ìœ¼ë¡œ ê¸°ì¡´ ë£¨í‹´ì„ íƒ€ê±°ë‚˜ íƒ€ì§€ ì•ŠëŠ”ë‹¤ 
-	// FALSEì¸ ê²½ìš°( ë£¨í‹´ì„ íƒ€ì•¼ í•˜ëŠ”ê²½ìš° ) ê³±í•´ì§ˆ ì•ŒíŒŒê°€ ê³„ì‚°ë˜ì–´ì ¸ ë‚˜ì˜¤ê²Œ ëŒ.
+	//gmpbigsun: HookÀº ¸®ÅÏ°ªÀ¸·Î ±âÁ¸ ·çÆ¾À» Å¸°Å³ª Å¸Áö ¾Ê´Â´Ù 
+	// FALSEÀÎ °æ¿ì( ·çÆ¾À» Å¸¾ß ÇÏ´Â°æ¿ì ) °öÇØÁú ¾ËÆÄ°¡ °è»êµÇ¾îÁ® ³ª¿À°Ô ´ï.
 	if( !m_pWorld->HookRenderSky( SKY_SIDE, 348/3, fAlphaEX ) )
 #endif 
 	{
@@ -458,14 +458,14 @@ void CSkyBox::Render( CWorld* pWorld, LPDIRECT3DDEVICE9 pd3dDevice )
 		}
 	}
 
-	// ìë¶• í•˜ëŠ˜ ì¶œë ¥ 
+	// ÀÚºØ ÇÏ´Ã Ãâ·Â 
 //	pd3dDevice->SetTexture( 0, m_pSkyBoxTexture);
 //	pd3dDevice->DrawPrimitive( D3DPT_TRIANGLESTRIP, 0, 56);
 ///	pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 58, 28);
 //	pWorld->SetFogEnable(pd3dDevice,FALSE); 
 //	pd3dDevice->SetRenderState( D3DRS_FOGSTART,   FtoDW(50.0f) );
 //	pd3dDevice->SetRenderState( D3DRS_FOGEND,     FtoDW(100.0f) );
-	// ë†’ì€ êµ¬ë¦„ UV ìŠ¤í¬ë¡¤ 
+	// ³ôÀº ±¸¸§ UV ½ºÅ©·Ñ 
 	D3DXMatrixIdentity( &mat );
 	static float m_fCloud_u1 = 0;
 	static float m_fCloud_v1 = 0;
@@ -580,7 +580,7 @@ void CSkyBox::Render( CWorld* pWorld, LPDIRECT3DDEVICE9 pd3dDevice )
 		}
 	}
 	
-	//íƒœì–‘ & ë‹¬ 
+	//ÅÂ¾ç & ´Ş 
 	pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
 //	pd3dDevice->SetTexture( 0, m_pCloudTexture);
 //	pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 0, 28);
@@ -730,7 +730,7 @@ void CSkyBox::Render( CWorld* pWorld, LPDIRECT3DDEVICE9 pd3dDevice )
 			pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 0, 2);	
 			
 			//////////////////////////////////////////////////////////////////////////
-			// íƒœì–‘ ì¶œë ¥ 2
+			// ÅÂ¾ç Ãâ·Â 2
 			//////////////////////////////////////////////////////////////////////////
 			
 			pd3dDevice->GetTransform( D3DTS_VIEW, &matView );
@@ -795,7 +795,7 @@ void CSkyBox::Render( CWorld* pWorld, LPDIRECT3DDEVICE9 pd3dDevice )
 
 	}
 	//////////////////////////////////////////////////////////////////////////
-	// ìƒíƒœ ì´ˆê¸°í™” 
+	// »óÅÂ ÃÊ±âÈ­ 
 	//////////////////////////////////////////////////////////////////////////
 		
 	pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP,   D3DTOP_MODULATE);
@@ -878,7 +878,7 @@ void CSkyBox::DrawLensFlare(LPDIRECT3DDEVICE9 pd3dDevice)
 	vecLookAt -= m_pWorld->m_pCamera->GetPos();//m_vPos2;
 	float angle1=(float)(atan(vecLookAt.x/vecLookAt.z)*180/3.1415926f);
 	if(vecLookAt.z<0) angle1+=180;
-	// í•˜ëŠ˜ ì¶œë ¥ 
+	// ÇÏ´Ã Ãâ·Â 
 	D3DXMATRIX mat, matWorld;
 	float fTemp=-angle1/360.0f;
 

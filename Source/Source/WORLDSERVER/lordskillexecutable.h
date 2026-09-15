@@ -1,4 +1,4 @@
-﻿#ifndef __LORD_SKILL_EXECUTABLE_H__
+#ifndef __LORD_SKILL_EXECUTABLE_H__
 #define	__LORD_SKILL_EXECUTABLE_H__
 
 #include "lordskill.h"

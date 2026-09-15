@@ -1,4 +1,4 @@
-﻿/* A simple function to send the playback time back to the main window and
+/* A simple function to send the playback time back to the main window and
    handle seeks. This operates using the MCI command strings, and assumes
    that a sound file aliased "sounder" is already loaded. Written by Jeff Tsay
    (ctsay@pasteur.eecs.berkeley.edu).

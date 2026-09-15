@@ -1,4 +1,4 @@
-﻿#ifndef __TICKCOUNT_H__
+#ifndef __TICKCOUNT_H__
 #define	__TICKCOUNT_H__
 
 class CTickCount

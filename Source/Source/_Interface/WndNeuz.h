@@ -1,4 +1,4 @@
-ï»¿// WndArcane.h: interface for the CWndNeuz class.
+// WndArcane.h: interface for the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -10,8 +10,8 @@
 #endif // _MSC_VER > 1000
 
 //////////////////////////////////////////////////////////////////////////////////////
-// ìœˆë„ì˜ íƒ€ì´í‹€ ë°” 
-// íƒ€ì´í‹€ ì¶œë ¥, ìœˆë„ ê´€ë¦¬ ë²„íŠ¼ 
+// À©µµÀÇ Å¸ÀÌÆ² ¹Ù 
+// Å¸ÀÌÆ² Ãâ·Â, À©µµ °ü¸® ¹öÆ° 
 //
 #define WTBID_CLOSE     10000
 #define WTBID_MAX       10001
@@ -21,13 +21,13 @@
 #define WTBID_EXTENSION 10005
 #define WTBID_PIN       10006
 
-#define WBS_MINIMIZEBOX 0x00000001L // ìµœì†Œí™” ë²„íŠ¼ 
-#define WBS_MAXIMIZEBOX 0x00000002L // ìµœëŒ€í™” ë²„íŠ¼ 
-#define WBS_HELP        0x00000004L // í•¼í”„ ë²„íŠ¼ 
-#define WBS_VIEW        0x00000008L // ë·° ì „í™˜ ë²„íŠ¼ 
-#define WBS_PIN         0x00000010L // í•€ ë²„íŠ¼ 
-#define WBS_EXTENSION   0x00000020L // í™•ì¥ ë²„íŠ¼ 
-#define WBS_THICKFRAME  0x00000040L // ë¦¬ì‚¬ì´ì¦ˆ ê°€ëŠ¥ ìœˆë„
+#define WBS_MINIMIZEBOX 0x00000001L // ÃÖ¼ÒÈ­ ¹öÆ° 
+#define WBS_MAXIMIZEBOX 0x00000002L // ÃÖ´ëÈ­ ¹öÆ° 
+#define WBS_HELP        0x00000004L // ÇÛÇÁ ¹öÆ° 
+#define WBS_VIEW        0x00000008L // ºä ÀüÈ¯ ¹öÆ° 
+#define WBS_PIN         0x00000010L // ÇÉ ¹öÆ° 
+#define WBS_EXTENSION   0x00000020L // È®Àå ¹öÆ° 
+#define WBS_THICKFRAME  0x00000040L // ¸®»çÀÌÁî °¡´É À©µµ
 
 class CWndTitleBar : public CWndBase
 {
@@ -60,8 +60,8 @@ public:
 	virtual BOOL OnEraseBkgnd(C2DRender* p2DRender);
 };
 //////////////////////////////////////////////////////////////////////////////////////
-// ì‘ì—… ìœˆë„ 
-// ë©”ë‰´ ë²„íŠ¼, ëª…ë ¹ ì•„ì´ì½˜, ë‹¨ì¶• ì•„ì´ì½˜, í™œì„±í™” ê¸°ëŠ¥ ë“±ë“±
+// ÀÛ¾÷ À©µµ 
+// ¸Ş´º ¹öÆ°, ¸í·É ¾ÆÀÌÄÜ, ´ÜÃà ¾ÆÀÌÄÜ, È°¼ºÈ­ ±â´É µîµî
 //
 class CWndNeuz : public CWndBase  
 {
@@ -80,13 +80,13 @@ public:
 	CPoint m_ptMouseCenter;
 	int m_nWndType; // nomal wnd, tool wnd, 
 
-	// ìœˆë„ ì •ë³´ ì €ì¥ ê´€ë ¨ 
+	// À©µµ Á¤º¸ ÀúÀå °ü·Ã 
 	void SetPutRegInfo( BOOL bPutRegInfo ) { m_bPutRegInfo = bPutRegInfo; }
 	BOOL IsPutRegInfo() { return m_bPutRegInfo; }
 #ifdef __CLIENT
 	virtual void SerializeRegInfo( CAr& ar, DWORD& dwVersion );
 #endif
-	// ìœˆë„ ì •ë³´ ì €ì¥ ê´€ë ¨ ë 
+	// À©µµ Á¤º¸ ÀúÀå °ü·Ã ³¡ 
 
 	BOOL InitDialog( HWND hWnd, DWORD dwWID, DWORD dwStyle = 0, CPoint ptLeftTop = 0, CWndBase* pWndParent = NULL );
 	CWndBase* CreateControl( HWND hWnd, LPWNDCTRL lpWndCtrl );

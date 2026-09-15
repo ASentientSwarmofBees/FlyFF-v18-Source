@@ -1,4 +1,4 @@
-﻿#ifndef __WNDGUILDTABWAR__H
+#ifndef __WNDGUILDTABWAR__H
 #define __WNDGUILDTABWAR__H
 
 #include "WndGuildWarDecl.h"

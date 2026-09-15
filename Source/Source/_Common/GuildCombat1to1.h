@@ -1,4 +1,4 @@
-ï»¿// GuildCombat1to1.h: interface for the CGuildCombat1to1 class.
+// GuildCombat1to1.h: interface for the CGuildCombat1to1 class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -39,12 +39,12 @@ public:
 	CGuildCombat1to1Mng();
 	virtual ~CGuildCombat1to1Mng();
 
-	int m_nState;				// í˜„ì¬ state
+	int m_nState;				// ÇöÀç state
 
-	int	m_nJoinPenya;			// ìµœì†Œ ì…ì°° í˜ëƒ
-	int	m_nMaxJoinPlayer;		// ìµœëŒ€ êµ¬ì„±ì› ìˆ˜
-	int	m_nMinJoinPlayer;		// ìµœì†Œ êµ¬ì„±ì› ìˆ˜
-	int	m_nMinJoinPlayerLevel;	// ìµœì†Œ ì°¸ê°€ ë ˆë²¨
+	int	m_nJoinPenya;			// ÃÖ¼Ò ÀÔÂû Æä³Ä
+	int	m_nMaxJoinPlayer;		// ÃÖ´ë ±¸¼º¿ø ¼ö
+	int	m_nMinJoinPlayer;		// ÃÖ¼Ò ±¸¼º¿ø ¼ö
+	int	m_nMinJoinPlayerLevel;	// ÃÖ¼Ò Âü°¡ ·¹º§
 
 	int m_nWaitTime;
 	DWORD m_dwTime;
@@ -54,12 +54,12 @@ public:
 	CLuaBase	m_Lua;
 	BOOL	LoadScript();
 	
-	int	m_nGuildLevel;			// ìµœì†Œ ì…ì°° ê¸¸ë“œ ë ˆë²¨
-	int	m_nPlayerLife;			// ê¸¸ë“œì› ìƒëª…ìˆ˜
-	int	m_nMaxJoinGuild;		// ìµœëŒ€ ì „ìŸ ê¸¸ë“œ ìˆ˜
-	int	m_nMinJoinGuild;		// ìµœì†Œ ì „ìŸ ê¸¸ë“œ ìˆ˜
-	int	m_nCancelReturnRate;	// ì…ì°° ì·¨ì†Œì‹œ ë°˜í™˜ìœ¨(%)
-	int	m_nFailReturnRate;		// ì…ì°° ì‹¤íŒ¨ì‹œ ë°˜í™˜ë¥ (%)
+	int	m_nGuildLevel;			// ÃÖ¼Ò ÀÔÂû ±æµå ·¹º§
+	int	m_nPlayerLife;			// ±æµå¿ø »ı¸í¼ö
+	int	m_nMaxJoinGuild;		// ÃÖ´ë ÀüÀï ±æµå ¼ö
+	int	m_nMinJoinGuild;		// ÃÖ¼Ò ÀüÀï ±æµå ¼ö
+	int	m_nCancelReturnRate;	// ÀÔÂû Ãë¼Ò½Ã ¹İÈ¯À²(%)
+	int	m_nFailReturnRate;		// ÀÔÂû ½ÇÆĞ½Ã ¹İÈ¯·ü(%)
 
 	struct __GC1TO1TENDER
 	{
@@ -92,8 +92,8 @@ public:
 #endif // __DBSERVER
 
 #ifdef __CLIENT
-	vector < __GC1TO1_PLAYER_INFO > m_vecGuildCombat1to1_Players;		// ì¼ëŒ€ì¼ ê¸¸ë“œëŒ€ì „ì— ì°¸ì—¬í•˜ëŠ” ê¸¸ë“œì› ë¦¬ìŠ¤íŠ¸
-	u_long m_nGuildCombat1to1Guild;										// ì¼ëŒ€ì¼ ê¸¸ë“œëŒ€ì „ì‹œ ìƒëŒ€ ê¸¸ë“œ
+	vector < __GC1TO1_PLAYER_INFO > m_vecGuildCombat1to1_Players;		// ÀÏ´ëÀÏ ±æµå´ëÀü¿¡ Âü¿©ÇÏ´Â ±æµå¿ø ¸®½ºÆ®
+	u_long m_nGuildCombat1to1Guild;										// ÀÏ´ëÀÏ ±æµå´ëÀü½Ã »ó´ë ±æµå
 	int m_nMyGuildCount;
 	int m_nVsGuildCount;
 
@@ -134,8 +134,8 @@ public:
 	void	SetTeleportToStage( CUser* pUser );
 	
 	vector<CGuildCombat1to1>	m_vecGuilCombat1to1;	
-	vector<__GC1TO1TENDER>		m_vecTenderGuild;		// ì…ì°° ê¸¸ë“œ
-	vector<__GC1TO1TENDER>		m_vecTenderFailGuild;	// ì…ì°° ì‹¤íŒ¨ ê¸¸ë“œ
+	vector<__GC1TO1TENDER>		m_vecTenderGuild;		// ÀÔÂû ±æµå
+	vector<__GC1TO1TENDER>		m_vecTenderFailGuild;	// ÀÔÂû ½ÇÆĞ ±æµå
 
 #endif // __WORLDSERVER
 };
@@ -150,7 +150,7 @@ public:
 class CGuildCombat1to1  
 {
 public:
-	// ë³€ê²½ì‹œ CGuildCombat1to1Mng Classì˜ ê°’ë„ ê°™ì´ ë³€ê²½í•˜ì—¬ì•¼ í•œë‹¤.
+	// º¯°æ½Ã CGuildCombat1to1Mng ClassÀÇ °ªµµ °°ÀÌ º¯°æÇÏ¿©¾ß ÇÑ´Ù.
 	enum {	GC1TO1WAR_CLOSE=100, GC1TO1WAR_WAIT, GC1TO1WAR_WAR,	GC1TO1WAR_FINISH, GC1TO1WAR_CLOSEWAIT };
 
 	CGuildCombat1to1( vector<CGuildCombat1to1Mng::__GC1TO1TENDER>& vecTenderGuild, int nStageId );

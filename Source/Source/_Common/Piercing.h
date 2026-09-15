@@ -1,6 +1,6 @@
-Ôªø#pragma once
+#pragma once
 
-/* CmnHdr.hÎ°ú ÏòÆÍ≤ºÏùå!!
+/* CmnHdr.h∑Œ ø≈∞Â¿Ω!!
 #define MAX_PIERCING_SUIT		4
 #define MAX_PIERCING_WEAPON		10
 #define	MAX_PIERCING_ULTIMATE	5

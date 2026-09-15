@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 
 #include <map>
 #include <vector>
@@ -11,12 +11,12 @@
 
 typedef struct HonorData
 {
-	int		nID;			// ì¸ë±ìŠ¤
-	int		nLGrouping;		// ëŒ€ë¶„ë¥˜
-	int		nSGrouping;		// ì†Œë¶„ë¥˜
-	int		nNeed;			// íƒ€ì´í‹€ íšë“ ì¡°ê±´
-	int		nValue;			// í˜„ì¬ ìˆ˜ì¹˜
-	CString	strTitle;		// íƒ€ì´í‹€ëª…
+	int		nID;			// ÀÎµ¦½º
+	int		nLGrouping;		// ´ëºĞ·ù
+	int		nSGrouping;		// ¼ÒºĞ·ù
+	int		nNeed;			// Å¸ÀÌÆ² È¹µæ Á¶°Ç
+	int		nValue;			// ÇöÀç ¼öÄ¡
+	CString	strTitle;		// Å¸ÀÌÆ²¸í
 	HonorData() {Init();};
 	~HonorData() {};
 	void Init() {nID = -1;nLGrouping =  nSGrouping = nNeed = nValue = 0; strTitle.Empty(); };
@@ -57,7 +57,7 @@ public:
 	int     GetIdxByGroup(int nLarge,int nSmall);	
 
 #ifdef __CLIENT
-	// íšë“í•œ íƒ€ì´í‹€ ì¸ë±ìŠ¤
+	// È¹µæÇÑ Å¸ÀÌÆ² ÀÎµ¦½º
 	vector<EarnedTitle>	m_vecEarned;
 
 	BOOL	IsEarned(int nId);

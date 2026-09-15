@@ -1,4 +1,4 @@
-﻿// VerifyPlayerDlg.cpp : implementation file
+// VerifyPlayerDlg.cpp : implementation file
 //
 
 #include "stdafx.h"

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "misc.h"
 #include "CooltimeMgr.h"
 #include "ProjectCmn.h"
@@ -13,9 +13,9 @@ CCooltimeMgr::~CCooltimeMgr()
 {
 }
 
-// ì¿¨íƒ€ìž„ ì•„ì´í…œì˜ ì¿¨íƒ€ìž„ ê·¸ë£¹ë²ˆí˜¸ë¥¼ ì–»ëŠ”ë‹¤. 
-// ê°™ì€ ê·¸ë£¹ì˜ ì•„ì´í…œì€ í•œë²ˆ ì‚¬ìš©í•˜ë©´ ëª¨ë‘ ê°™ì´ ì¿¨íƒ€ìž„ì„ ì ìš©ë°›ëŠ”ë‹¤.
-// ì£¼ì˜: ìˆ˜ì •í•˜ë ¤ë©´ í—¤ë”íŒŒì¼ì— MAX_COOLTIME_TYPEë¥¼ ìž˜ ì¡°ì ˆí•  ê²ƒ 
+// ÄðÅ¸ÀÓ ¾ÆÀÌÅÛÀÇ ÄðÅ¸ÀÓ ±×·ì¹øÈ£¸¦ ¾ò´Â´Ù. 
+// °°Àº ±×·ìÀÇ ¾ÆÀÌÅÛÀº ÇÑ¹ø »ç¿ëÇÏ¸é ¸ðµÎ °°ÀÌ ÄðÅ¸ÀÓÀ» Àû¿ë¹Þ´Â´Ù.
+// ÁÖÀÇ: ¼öÁ¤ÇÏ·Á¸é Çì´õÆÄÀÏ¿¡ MAX_COOLTIME_TYPE¸¦ Àß Á¶ÀýÇÒ °Í 
 DWORD CCooltimeMgr::GetGroup( ItemProp* pItemProp )
 {
 	DWORD dwCooltimeItemGroup = 0;
@@ -43,14 +43,14 @@ DWORD CCooltimeMgr::GetGroup( ItemProp* pItemProp )
 }
 
 
-// dwGroupì„ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ”ê°€?
+// dwGroupÀ» »ç¿ëÇÒ ¼ö ÀÖ´Â°¡?
 BOOL CCooltimeMgr::CanUse( DWORD dwGroup )
 {
 	ASSERT( dwGroup > 0 );
-	return g_tmCurrent > GetTime( dwGroup );		// ìž¬ì‚¬ìš© ì‹œê°ì„ ë„˜ìœ¼ë©´ ì‚¬ìš©ê°€ëŠ¥ 
+	return g_tmCurrent > GetTime( dwGroup );		// Àç»ç¿ë ½Ã°¢À» ³ÑÀ¸¸é »ç¿ë°¡´É 
 }
 
-// ì‚¬ìš©í•œ ì‹œê°ì„ ê¸°ë¡í•´ì„œ, CanUseì—ì„œ íŒë‹¨ ê·¼ê±°ë¡œ ì‚¬ìš©í•œë‹¤.
+// »ç¿ëÇÑ ½Ã°¢À» ±â·ÏÇØ¼­, CanUse¿¡¼­ ÆÇ´Ü ±Ù°Å·Î »ç¿ëÇÑ´Ù.
 void CCooltimeMgr::SetTime( DWORD dwGroup, DWORD dwCoolTime )
 {
 	ASSERT( dwGroup > 0 && dwCoolTime > 0 );

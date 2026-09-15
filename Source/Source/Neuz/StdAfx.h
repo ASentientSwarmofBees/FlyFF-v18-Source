@@ -1,4 +1,4 @@
-ï»¿// stdafx.h : include file for standard system include files,         
+// stdafx.h : include file for standard system include files,         
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //  
@@ -47,7 +47,7 @@ using namespace std;
 
 
 #define		__CLIENT
-// exception handlerê´€ë ¨ 
+// exception handler°ü·Ã 
 #define		ADDR_ACCUMULATOR	"211.33.142.133"		
 
 #include "NeuzVersion.h"  
@@ -145,34 +145,34 @@ using namespace std;
 #include "authorization.h"
 
 // Interface
-#include "EditString.h"      // CStringì„ í™•ìž¥í•œ CEditString
-#include "ToolTip.h"         // íˆ´íŒ 
-#include "ITheme.h"          // ì¸í„°íŽ˜ì´ìŠ¤ì˜ ìƒ‰ìƒ, ìŠ¤í‚¨, í°íŠ¸ ë”°ìœ„ì˜ ì •ì˜ í´ë ˆìŠ¤ 
-#include "WndBase.h"         // ìœˆë„ì˜ ê¸°ë³¸ í´ëž˜ìŠ¤, ê¸°íƒ€ ê°ì¢… ì½˜íŠ¸ë¡¤ (ë²„íŠ¼, ìŠ¤í¬ë¡¤ë°” ë“±ë“±) 
-#include "WndControl.h"      // ìœˆë„ ê°ì¢… ì½˜íŠ¸ë¡¤ (ë²„íŠ¼, ìŠ¤í¬ë¡¤ë°” ë“±ë“±)
-#include "wndEditCtrl.h"     // ì—ë””íŠ¸ ì½˜íŠ¸ë¡¤, IME, ë¬¸ìž ìž…ë ¥
-#include "WndItemCtrl.h"     // ìœˆë„ ê°ì¢… ì½˜íŠ¸ë¡¤ (ë²„íŠ¼, ìŠ¤í¬ë¡¤ë°” ë“±ë“±)
-#include "WndTradeCtrl.h"     // ìœˆë„ ê°ì¢… ì½˜íŠ¸ë¡¤ (ë²„íŠ¼, ìŠ¤í¬ë¡¤ë°” ë“±ë“±)
-#include "WndNeuz.h"         // Neuz í˜•íƒœì˜ ìœˆë„ ì¶œë ¥ ê¸°ë³¸ í´ëž˜ìŠ¤ 
-#include "WndMessageBox.h"   // ë§¤ì‹œì§€ ë°•ìŠ¤, ê²½ê³ , ì¢…ë£Œ ë“±ë“± 
+#include "EditString.h"      // CStringÀ» È®ÀåÇÑ CEditString
+#include "ToolTip.h"         // ÅøÆÁ 
+#include "ITheme.h"          // ÀÎÅÍÆäÀÌ½ºÀÇ »ö»ó, ½ºÅ², ÆùÆ® µûÀ§ÀÇ Á¤ÀÇ Å¬·¹½º 
+#include "WndBase.h"         // À©µµÀÇ ±âº» Å¬·¡½º, ±âÅ¸ °¢Á¾ ÄÜÆ®·Ñ (¹öÆ°, ½ºÅ©·Ñ¹Ù µîµî) 
+#include "WndControl.h"      // À©µµ °¢Á¾ ÄÜÆ®·Ñ (¹öÆ°, ½ºÅ©·Ñ¹Ù µîµî)
+#include "wndEditCtrl.h"     // ¿¡µðÆ® ÄÜÆ®·Ñ, IME, ¹®ÀÚ ÀÔ·Â
+#include "WndItemCtrl.h"     // À©µµ °¢Á¾ ÄÜÆ®·Ñ (¹öÆ°, ½ºÅ©·Ñ¹Ù µîµî)
+#include "WndTradeCtrl.h"     // À©µµ °¢Á¾ ÄÜÆ®·Ñ (¹öÆ°, ½ºÅ©·Ñ¹Ù µîµî)
+#include "WndNeuz.h"         // Neuz ÇüÅÂÀÇ À©µµ Ãâ·Â ±âº» Å¬·¡½º 
+#include "WndMessageBox.h"   // ¸Å½ÃÁö ¹Ú½º, °æ°í, Á¾·á µîµî 
 #include "WndGuideSystem.h"
-#include "WndTitle.h"        // Titleì˜ ìœˆë„ í´ëž˜ìŠ¤ (Login, Character List ë“±ë“±)
-#include "WndTaskBar.h"      // íƒœìŠ¤í¬ ë°” í´ëž˜ìŠ¤ ê´€ë ¨, ë§¤ë‰´ ë“±ë“± 
-#include "WndField.h"        // Fieldì˜ ìœˆë„ í´ëž˜ìŠ¤ (ìƒíƒœ, ì¸ë²¤í† ë¦¬ ë“±ë“±)
-#include "WndCommunication.h"// Fieldì˜ ìœˆë„ í´ëž˜ìŠ¤ (ìƒíƒœ, ì¸ë²¤í† ë¦¬ ë“±ë“±)
-#include "WndOption.h"       // Option ê´€ë ¨ 
-#include "WndOptionGame.h"	 // ê²Œìž„ ì˜µì…˜
-#include "WndDialog.h"       // ëŒ€í™”  
-#include "WndShop.h"         // ìƒì  
-#include "WndMessengerSearch.h" // ë©”ì‹ ì € ê²€ìƒ‰ì°½
-#include "WndManager.h"      // ìœˆë„ ë§¤ë‹ˆì € 
-#include "WndWorld.h"        // ì›”ë“œ ìœˆë„ 
-#include "WndGuild.h"			// ê¸¸ë“œ ìœˆë„
-#include "WndRankGuild.h"		// ê¸¸ë“œ ëž­í‚¹
+#include "WndTitle.h"        // TitleÀÇ À©µµ Å¬·¡½º (Login, Character List µîµî)
+#include "WndTaskBar.h"      // ÅÂ½ºÅ© ¹Ù Å¬·¡½º °ü·Ã, ¸Å´º µîµî 
+#include "WndField.h"        // FieldÀÇ À©µµ Å¬·¡½º (»óÅÂ, ÀÎº¥Åä¸® µîµî)
+#include "WndCommunication.h"// FieldÀÇ À©µµ Å¬·¡½º (»óÅÂ, ÀÎº¥Åä¸® µîµî)
+#include "WndOption.h"       // Option °ü·Ã 
+#include "WndOptionGame.h"	 // °ÔÀÓ ¿É¼Ç
+#include "WndDialog.h"       // ´ëÈ­  
+#include "WndShop.h"         // »óÁ¡ 
+#include "WndMessengerSearch.h" // ¸Þ½ÅÀú °Ë»öÃ¢
+#include "WndManager.h"      // À©µµ ¸Å´ÏÀú 
+#include "WndWorld.h"        // ¿ùµå À©µµ 
+#include "WndGuild.h"			// ±æµå À©µµ
+#include "WndRankGuild.h"		// ±æµå ·©Å·
 #include "WndRankInfo.h"
 #include "WndRankWar.h"
-#include "WndGuildVote.h"         // ê¸¸ë“œíˆ¬í‘œ ìœˆë„
-#include "WndUpgradeBase.h"         // ìž¬ë ¨ìœˆë„ 
+#include "WndGuildVote.h"         // ±æµåÅõÇ¥ À©µµ
+#include "WndUpgradeBase.h"         // Àç·ÃÀ©µµ 
 
 #ifdef __YCLOTH
 #include "cloth.h"
@@ -196,18 +196,18 @@ using namespace std;
 
 #define D3DDEVICE   g_Neuz.m_pd3dDevice
 
-extern BYTE             g_bKeyTable[256]; // í‚¤ ìž…ë ¥ í…Œì´ë¸” 
+extern BYTE             g_bKeyTable[256]; // Å° ÀÔ·Â Å×ÀÌºí 
 extern BOOL             g_bSlotSwitchAboutEquipItem[ MAX_SLOT_ITEM ];
 #ifdef __XKEYEDGE
-extern BYTE             g_bKeyTable2[256]; // í‚¤ ìž…ë ¥ í…Œì´ë¸” (í‚¤ ì—ì§€ê²€ì‚¬ìš©)
+extern BYTE             g_bKeyTable2[256]; // Å° ÀÔ·Â Å×ÀÌºí (Å° ¿¡Áö°Ë»ç¿ë)
 #endif //__XKEYEDGE
-extern CNeuzApp         g_Neuz        ; // ì–´í”Œë¦¬ì¼€ì´ì…˜ í´ëž˜ìŠ¤, DX3D í”„ë ˆìž„ ì›Œí¬ 
-extern CToolTip         g_toolTip     ; // íˆ´íŒ ì¶œë ¥ 
+extern CNeuzApp         g_Neuz        ; // ¾îÇÃ¸®ÄÉÀÌ¼Ç Å¬·¡½º, DX3D ÇÁ·¹ÀÓ ¿öÅ© 
+extern CToolTip         g_toolTip     ; // ÅøÆÁ Ãâ·Â 
 #if __VER >= 15 // __IMPROVE_SYSTEM_VER15
 extern CToolTip         g_toolTipSub1 ;
 extern CToolTip         g_toolTipSub2 ;
 #endif // __IMPROVE_SYSTEM_VER15
-extern CMover*          g_pPlayer     ; // í”Œë ˆì´ì–´ ê°ì²´ 
+extern CMover*          g_pPlayer     ; // ÇÃ·¹ÀÌ¾î °´Ã¼ 
 extern CWorldMng	    g_WorldMng    ;
 extern CProject         prj;
 extern CModelObject*    g_pBipedMesh;
@@ -223,9 +223,9 @@ extern CULLINFO     g_cullinfo;
 extern	CTickCount	g_TickCount;
 extern CFlyffEvent	g_eLocal; 
 extern ADDSMMODE	g_AddSMMode;
-extern DWORD		g_tmCurrent;	// ì „ì—­ìœ¼ë¡œ ì‚¬ìš©í•  í˜„ìž¬ ì‹œê°„.
-extern int			g_nRenderCnt;	// ë Œë”í™”ë©´ë•Œë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜
-extern int			g_nProcessCnt;	// í”„ë¡œì„¸ìŠ¤ë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜.
+extern DWORD		g_tmCurrent;	// Àü¿ªÀ¸·Î »ç¿ëÇÒ ÇöÀç ½Ã°£.
+extern int			g_nRenderCnt;	// ·»´õÈ­¸é¶§¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö
+extern int			g_nProcessCnt;	// ÇÁ·Î¼¼½º¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö.
 
 
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
@@ -242,9 +242,9 @@ extern vector< CString > g_vecEncryptedValidCertifierIP;
 #endif // __CERTIFIER_COLLECTING_SYSTEM
 
 //////////////////////////////////////////////////////////////////////////
-//	mulcom	BEGIN100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”.
+//	mulcom	BEGIN100218	ÆÐ½º¿öµå ¾ÏÈ£È­.
 #include "../_Common/Rijndael.h"
-//	mulcom	END100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”.
+//	mulcom	END100218	ÆÐ½º¿öµå ¾ÏÈ£È­.
 //////////////////////////////////////////////////////////////////////////
 
 int (WINAPIV * __vsnwprintf)(wchar_t *, size_t, const wchar_t*, va_list) = _vsnwprintf;

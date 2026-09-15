@@ -1,4 +1,4 @@
-ï»¿#ifndef __AI_INTERFACE_H
+#ifndef __AI_INTERFACE_H
 #define __AI_INTERFACE_H
 
 #include "MoverMsg.h"
@@ -40,18 +40,18 @@ enum
 	AIMSG_DSTDIE,
 	AIMSG_DAMAGE,
 	AIMSG_DIE,
-	AIMSG_COLLISION,		// ì¶©ëŒ Collision
-	AIMSG_ARRIVAL,			// ì´ë™ ëª©í‘œì— ë„ì°© 
-	AIMSG_NOMOVE,			// ê°ˆ ìˆ˜ ì—†ìŒ 
-	AIMSG_BEGINMOVE,		// ì´ë™ ì‹œìž‘ì‹œ 
-	AIMSG_ATTACK_MELEE,		// ì¼ë°˜ê³µê²©ì‹œ íƒ€ì ì—ì„œ í˜¸ì¶œ.
-	AIMSG_END_MELEEATTACK,	// ì¼ë°˜ê³µê²© ëë‚¬ì„ë•Œ í˜¸ì¶œ.
-	AIMSG_END_APPEAR,		// ë“±ìž¥ì”¬ ëë‚¨.
+	AIMSG_COLLISION,		// Ãæµ¹ Collision
+	AIMSG_ARRIVAL,			// ÀÌµ¿ ¸ñÇ¥¿¡ µµÂø 
+	AIMSG_NOMOVE,			// °¥ ¼ö ¾øÀ½ 
+	AIMSG_BEGINMOVE,		// ÀÌµ¿ ½ÃÀÛ½Ã 
+	AIMSG_ATTACK_MELEE,		// ÀÏ¹Ý°ø°Ý½Ã Å¸Á¡¿¡¼­ È£Ãâ.
+	AIMSG_END_MELEEATTACK,	// ÀÏ¹Ý°ø°Ý ³¡³µÀ»¶§ È£Ãâ.
+	AIMSG_END_APPEAR,		// µîÀå¾À ³¡³².
 	AIMSG_INIT_TARGETCLEAR,
 	AIMSG_EXIT,
-	AIMSG_TARGET_FIND,		// íƒ€ê²Ÿì„ ì°¾ì•˜ë‹¤.
+	AIMSG_TARGET_FIND,		// Å¸°ÙÀ» Ã£¾Ò´Ù.
 	AIMSG_REATTACK_TIMEOUT,  
-	AIMSG_INVALID_TARGET,	// íƒ€ê²Ÿì´ ë‚ ê±°ë‚˜, ì—†ì–´ì§€ê±°ë‚˜, ì£½ê±°ë‚˜ .. ë“±ë“±ìœ¼ë¡œ ê³µê²© ë¶ˆê°€í•˜ë‹¤. 
+	AIMSG_INVALID_TARGET,	// Å¸°ÙÀÌ ³¯°Å³ª, ¾ø¾îÁö°Å³ª, Á×°Å³ª .. µîµîÀ¸·Î °ø°Ý ºÒ°¡ÇÏ´Ù. 
 #ifdef __INSTANCE_AGGRO_SYSTEM
 	AIMSG_SKILLSUPPORT,
 #endif // __INSTANCE_AGGRO_SYSTEM
@@ -62,18 +62,18 @@ enum AI2_STATE
 	AI2_IDLE,
 	AI2_MOVE,
 	AI2_RAGE,
-	AI2_SEARCH,			// íƒìƒ‰ ìƒíƒœ 
-	AI2_TRACKING,		// ì¶”ì  ìƒíƒœ 
-	AI2_ATTACK,			// ê³µê²© ìƒíƒœ 
+	AI2_SEARCH,			// Å½»ö »óÅÂ 
+	AI2_TRACKING,		// ÃßÀû »óÅÂ 
+	AI2_ATTACK,			// °ø°Ý »óÅÂ 
 };
 
 //////////////////////////////////////////////////////////////////////////////
-// AI ë©”ì‹œì§€ í•¸ë“¤ëŸ¬ ë§¤í¬ë¡œ ì •ì˜ 
+// AI ¸Þ½ÃÁö ÇÚµé·¯ ¸ÅÅ©·Î Á¤ÀÇ 
 #define BeginAIHandler() if( 0 ) { 
 #define OnMessage( x ) return TRUE; } else if( msg.dwMessage == x )	{
 #define EndAIHandler() return TRUE; }
 
-// State Map í•¸ë“¤ëŸ¬ ë§¤í¬ë¡œ ì •ì˜ 
+// State Map ÇÚµé·¯ ¸ÅÅ©·Î Á¤ÀÇ 
 #define BEGIN_AISTATE_MAP( theClass, baseClass ) \
 	const STATEMAP* theClass::GetStateMap() const  \
 		{ return (STATEMAP*)&theClass::stateMap; } \
@@ -107,7 +107,7 @@ public:
 	CAIInterface( CObj* pObj );
 	virtual	~CAIInterface();
 
-	// ë§¤ì‹œì§€ ê´€ë ¨ ì²˜ë¦¬ ë§¤ì†Œë“œ 
+	// ¸Å½ÃÁö °ü·Ã Ã³¸® ¸Å¼Òµå 
 	virtual void	RouteMessage();
 #ifdef __INSTANCE_AGGRO_SYSTEM
 	virtual void	SendAIMsg( DWORD dwMessage, DWORD dwParam1 = 0, DWORD dwParam2 = 0, DWORD dwParam3 = 0 );
@@ -125,7 +125,7 @@ protected:
 	CMover* GetMover() { return (CMover*)m_pObj; }
 	CWorld* GetWorld() { return m_pObj->GetWorld(); }
 
-	//ê¸°íƒ€ ìž¡ë‹¤í•œ ë§¤ì†Œë“œ 
+	//±âÅ¸ Àâ´ÙÇÑ ¸Å¼Òµå 
 	CMover* ScanTarget( CObj* pObjCenter, int nRangeMeter = 5, int nJobCond = 0, DWORD dwQuest = 0, DWORD dwItem = 0, int nChao = 0 );
 	CMover* ScanTargetStrong( CObj* pObjCenter, FLOAT fRangeMeter );
 	CMover* ScanTargetOverHealer( CObj* pObjCenter, FLOAT fRangeMeter  );

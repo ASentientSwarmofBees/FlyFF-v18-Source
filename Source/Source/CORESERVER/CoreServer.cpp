@@ -1,4 +1,4 @@
-ï»¿// CoreServer.cpp : Defines the entry point for the application.
+// CoreServer.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"
@@ -382,9 +382,9 @@ void OnTimer( WORD wTimerID )
 	}
 
 #if !defined(__INTERNALSERVER)
-	if( wTimerID == TIMER_ID_WANTED )	// í˜„ìƒê¸ˆ ì²˜ë¦¬ 
+	if( wTimerID == TIMER_ID_WANTED )	// Çö»ó±Ý Ã³¸® 
 	{
-		g_dpCoreSrvr.SendCWWantedList();	// í˜„ìƒê¸ˆ ë¦¬ìŠ¤íŠ¸ë¥¼ ë³´ë‚¸ë‹¤.
+		g_dpCoreSrvr.SendCWWantedList();	// Çö»ó±Ý ¸®½ºÆ®¸¦ º¸³½´Ù.
 		return;
 	}
 #endif // __INTERNALSERVER
@@ -394,11 +394,11 @@ void OnTimer( WORD wTimerID )
 	{
 		CTime	tmCurr	= CTime::GetCurrentTime();
 		BOOL bEventTime		= ( tmCurr.GetHour() >= 17 && tmCurr.GetHour() < 18 ) || ( tmCurr.GetHour() >= 22 && tmCurr.GetHour() < 23 );
-		if( bEventTime && !s_bEvent0913 )	// ì´ë²¤íŠ¸ ì‹œê°„ - ì´ë²¤íŠ¸ ì„¤ì •ë˜ì–´ ìžˆì§€ ì•Šìœ¼ë©´,
+		if( bEventTime && !s_bEvent0913 )	// ÀÌº¥Æ® ½Ã°£ - ÀÌº¥Æ® ¼³Á¤µÇ¾î ÀÖÁö ¾ÊÀ¸¸é,
 		{
 			g_dpCoreSrvr.SendEvent0913( s_bEvent0913 = TRUE );
 		}
-		else if( !bEventTime && s_bEvent0913 )	// ì´ë²¤íŠ¸ ì‹œê°„ì´ ì•„ë‹Œë° ì´ë²¤íŠ¸ ì„¤ì •ë˜ì–´ ìžˆìœ¼ë©´,
+		else if( !bEventTime && s_bEvent0913 )	// ÀÌº¥Æ® ½Ã°£ÀÌ ¾Æ´Ñµ¥ ÀÌº¥Æ® ¼³Á¤µÇ¾î ÀÖÀ¸¸é,
 		{
 			g_dpCoreSrvr.SendEvent0913( s_bEvent0913 = FALSE );
 		}
@@ -418,11 +418,11 @@ void OnTimer( WORD wTimerID )
 			bEventTime	= ( tmCurr >= CTime( 2005, 12, 10, 19, 0, 0 ) && tmCurr < CTime( 2005, 12, 10, 22, 0, 0 ) )
 						|| ( tmCurr >= CTime( 2005, 12, 11, 19, 0, 0 ) && tmCurr < CTime( 2005, 12, 11, 22, 0, 0 ) );
 		}
-		if( bEventTime && !s_bEvent1206 )	// ì´ë²¤íŠ¸ ì‹œê°„ - ì´ë²¤íŠ¸ ì„¤ì •ë˜ì–´ ìžˆì§€ ì•Šìœ¼ë©´,
+		if( bEventTime && !s_bEvent1206 )	// ÀÌº¥Æ® ½Ã°£ - ÀÌº¥Æ® ¼³Á¤µÇ¾î ÀÖÁö ¾ÊÀ¸¸é,
 		{
 			g_dpCoreSrvr.SendEvent1206( s_bEvent1206 = TRUE );
 		}
-		else if( !bEventTime && s_bEvent1206 )	// ì´ë²¤íŠ¸ ì‹œê°„ì´ ì•„ë‹Œë° ì´ë²¤íŠ¸ ì„¤ì •ë˜ì–´ ìžˆìœ¼ë©´,
+		else if( !bEventTime && s_bEvent1206 )	// ÀÌº¥Æ® ½Ã°£ÀÌ ¾Æ´Ñµ¥ ÀÌº¥Æ® ¼³Á¤µÇ¾î ÀÖÀ¸¸é,
 		{
 			g_dpCoreSrvr.SendEvent1206( s_bEvent1206 = FALSE );
 		}

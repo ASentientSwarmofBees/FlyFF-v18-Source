@@ -1,4 +1,4 @@
-ï»¿// WndArcane.h: interface for the CWndNeuz class.
+// WndArcane.h: interface for the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -34,7 +34,7 @@ public:
 
 	// Attributes
 	//BOOL IsButtonStyle( DWORD dwStyle ) { return ( m_dwButtonStyle & dwStyle ) ? TRUE : FALSE; }
-	void SetPushTime(int nTime); // ë²„íŠ¼ì„ ëˆ„ë¥´ê³  nTimeì´í›„ì— ê³„ì† OnCommandë¥¼ íŒ¨ì–´ëŸ°íŠ¸ì—ê²Œ ë³´ë‚¸ë‹¤.
+	void SetPushTime(int nTime); // ¹öÆ°À» ´©¸£°í nTimeÀÌÈÄ¿¡ °è¼Ó OnCommand¸¦ ÆĞ¾î·±Æ®¿¡°Ô º¸³½´Ù.
 	UINT GetState() const; // Retrieves the check state, highlight state, and focus state of a button control.
 	void SetState(BOOL bHighlight); // Sets the highlighting state of a button control
 	int  GetCheck() const; // Retrieves the check state of a button control.
@@ -73,8 +73,8 @@ public:
 };
 
 //////////////////////////////////////////////////////////////////////////////////////
-// ì‘ì—… ìœˆë„ 
-// ë©”ë‰´ ë²„íŠ¼, ëª…ë ¹ ì•„ì´ì½˜, ë‹¨ì¶• ì•„ì´ì½˜, í™œì„±í™” ê¸°ëŠ¥ ë“±ë“±
+// ÀÛ¾÷ À©µµ 
+// ¸Ş´º ¹öÆ°, ¸í·É ¾ÆÀÌÄÜ, ´ÜÃà ¾ÆÀÌÄÜ, È°¼ºÈ­ ±â´É µîµî
 //
 class CWndTaskBar : public CWndNeuz
 {
@@ -104,10 +104,10 @@ public:
 	int            m_nCurQueueNum;
 	int            m_nCurQueue;
 	CTimer         m_timer;
-	int			   m_nExecute;		// 0: ì‹¤í–‰ì¤‘ì´ì§€ ì•ŠìŒ 1:ì‹¤í–‰ëŒ€ê¸°ì¤‘(ìŠ¤í‚¬ì“°ëŸ¬ ë‹¬ë ¤ê°€ëŠ”ì¤‘) 2:ì‹¤í–‰ì¤‘.
-	OBJID		   m_idTarget;		// ìŠ¤í‚¬ì‚¬ìš©ëŒ€ìƒ.
+	int			   m_nExecute;		// 0: ½ÇÇàÁßÀÌÁö ¾ÊÀ½ 1:½ÇÇà´ë±âÁß(½ºÅ³¾²·¯ ´Ş·Á°¡´ÂÁß) 2:½ÇÇàÁß.
+	OBJID		   m_idTarget;		// ½ºÅ³»ç¿ë´ë»ó.
 	int            m_nSlotIndex;
-	int		       m_nActionPoint;		// ì•¡ì…˜ í¬ì¸íŠ¸ - ì‹œë¦¬ì–¼ë¼ì´ì¦ˆ ëŒ€ìƒ.
+	int		       m_nActionPoint;		// ¾×¼Ç Æ÷ÀÎÆ® - ½Ã¸®¾ó¶óÀÌÁî ´ë»ó.
 #if __VER >= 12 // __LORD
 	void RenderLordCollTime( CPoint pt, DWORD dwSkillId, C2DRender* p2DRender );
 #endif
@@ -158,7 +158,7 @@ protected:
 	void RenderOutLineLamp(int x, int y, int num, DWORD size);
 };
 //////////////////////////////////////////////////////////////////////////////////////
-// íƒœìŠ¤í¬ë°”ì˜ ë§¤ë‰´ 
+// ÅÂ½ºÅ©¹ÙÀÇ ¸Å´º 
 //
 class CWndTaskMenu : public CWndMenu //Neuz
 {

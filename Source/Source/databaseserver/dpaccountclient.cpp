@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "dploginsrvr.h"
 extern	CDPLoginSrvr	g_dpLoginSrvr;
 
@@ -233,7 +233,7 @@ void CDPAccountClient::ReloadProject( )
 	if( m_bMemDelete && m_tMemDelete < CTime::GetCurrentTime() )
 	{
 		g_DbManager.m_AddRemoveLock.Enter();
-		// ì—¬ê¸°ì„œ ë©”ëª¨ë¦¬ ì‚­ì œ
+		// ¿©±â¼­ ¸Ş¸ğ¸® »èÁ¦
 		m_bMemDelete = FALSE;
 		ACCOUNT_CACHE* AccountCache;
 		map<string, ACCOUNT_CACHE*>::iterator ia;
@@ -245,7 +245,7 @@ void CDPAccountClient::ReloadProject( )
 				AccountCache = ia->second;
 				AccountCache->Clear();
 				g_DbManager.m_pAccountMemPooler->Free( AccountCache );
-				// m_2Account.erase ë¥¼ í˜¸ì¶œí•´ì•¼ ë  ê²ƒ ê°™ìŒ 
+				// m_2Account.erase ¸¦ È£ÃâÇØ¾ß µÉ °Í °°À½ 
 			}
 		}
 		m_OutAccount_List.clear();

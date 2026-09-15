@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "packetlog.h"
 #include <vector>
 #include <algorithm>

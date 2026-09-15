@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #if __VER >= 12 // __LORD
 
@@ -10,7 +10,7 @@
 extern	CDPClient	g_DPlay;
 
 ////////////////////////////////////////////////////////////////////////////////
-// í´ë¼ì´ì–¸íŠ¸ìš© êµ°ì£¼ í´ë˜ìŠ¤
+// Å¬¶óÀÌ¾ğÆ®¿ë ±ºÁÖ Å¬·¡½º
 CCLord::CCLord()
 :
 CLord()
@@ -29,28 +29,28 @@ CCLord* CCLord::Instance( void )
 
 void CCLord::CreateColleagues( void )
 {
-	// ìƒì„±
+	// »ı¼º
 	CCElection * pElection	= new CCElection( this );
 	CLEvent* pEvent		= new CLEvent( this );
 	CLordSkill* pSkills		= new CLordSkill( this );
-	// ìŠ¤í¬ë¦½íŠ¸ ë¡œë“œ
+	// ½ºÅ©¸³Æ® ·Îµå
 	pEvent->Initialize( "lordevent.inc" );
 	pSkills->Initialize( "lordskill.txt" );
-	// ì„¤ì •
+	// ¼³Á¤
 	m_pElection		= pElection;
 	m_pEvent	= pEvent;
 	m_pSkills	= pSkills;
 }
 
 void CCLord::DestroyColleagues( void )
-{	// í˜‘ë ¥ ê°ì²´ë“¤ì˜ ì œê±°
+{	// Çù·Â °´Ã¼µéÀÇ Á¦°Å
 	SAFE_DELETE( m_pElection );
 	SAFE_DELETE( m_pEvent );
 	SAFE_DELETE( m_pSkills );
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// í´ë¼ì´ì–¸íŠ¸ìš© ì„ ê±° í´ë˜ìŠ¤
+// Å¬¶óÀÌ¾ğÆ®¿ë ¼±°Å Å¬·¡½º
 CCElection::CCElection( CLord* pLord )
 :
 IElection( pLord )
@@ -73,44 +73,44 @@ void CCElection::PrintCaption( const char* lpCaption )
 }
 
 BOOL CCElection::DoTestBeginCandidacy( void )
-{	// êµ°ì£¼ ì…í›„ë³´ ì‹œì‘
+{	// ±ºÁÖ ÀÔÈÄº¸ ½ÃÀÛ
 	PrintCaption( prj.GetText( TID_GAME_ELECTION_CAPTION_BEGIN_CANDIDACY_01 ) );
 	UpdateUI();
 	return TRUE;
 }
 
 BOOL CCElection::DoTestBeginVote( int & nRequirement )
-{	// êµ°ì£¼ í›„ë³´ í™•ì •
-	// íˆ¬í‘œ ì‹œì‘
+{	// ±ºÁÖ ÈÄº¸ È®Á¤
+	// ÅõÇ¥ ½ÃÀÛ
 	PrintCaption( prj.GetText( TID_GAME_ELECTION_CAPTION_BEGIN_VOTE_01 ) );
 	PrintCaption( prj.GetText( TID_GAME_ELECTION_CAPTION_BEGIN_VOTE_02 ) );
 	for( VSPC::iterator i = m_vCandidates.begin(); i != m_vCandidates.end(); ++i )
 	{
 		SPC ptr	= *i;
 		if( election::IsActivePlayer( ptr->GetIdPlayer() ) )
-			g_WndMng.OpenMessageBoxUpper( prj.GetText( TID_GAME_ELECTION_BEGIN_VOTE_S001 ) );	// "ì¶•í•˜í•©ë‹ˆë‹¤. ìµœì¢… 10ëª…ì˜ êµ°ì£¼ í›„ë³´ê°€ ë˜ì…¨ìŠµë‹ˆë‹¤. êµ°ì£¼ë³´ì¢Œê´€ NPCë¥¼ í†µí•´ ê³µì•½ì„ ì„¤ì •í•˜ì‹¤ ìˆ˜ ìˆìŠµë‹ˆë‹¤."
+			g_WndMng.OpenMessageBoxUpper( prj.GetText( TID_GAME_ELECTION_BEGIN_VOTE_S001 ) );	// "ÃàÇÏÇÕ´Ï´Ù. ÃÖÁ¾ 10¸íÀÇ ±ºÁÖ ÈÄº¸°¡ µÇ¼Ì½À´Ï´Ù. ±ºÁÖº¸ÁÂ°ü NPC¸¦ ÅëÇØ °ø¾àÀ» ¼³Á¤ÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù."
 	}
 	UpdateUI();
 	return TRUE;
 }
 
 BOOL CCElection::DoTestEndVote( u_long idPlayer )
-{	// íˆ¬í‘œ ì¢…ë£Œ
+{	// ÅõÇ¥ Á¾·á
 	PrintCaption( prj.GetText( TID_GAME_ELECTION_CAPTION_END_VOTE_01 ) );
 	char lpString[100]	= { 0,};
 	DWORD dwColor	= 0xffffffff;
 	if( idPlayer != NULL_ID )
 	{
-		// OOOë‹˜ì´ êµ°ì£¼ë¡œ ì„ ì¶œë˜ì—ˆìŠµë‹ˆë‹¤. 
+		// OOO´ÔÀÌ ±ºÁÖ·Î ¼±ÃâµÇ¾ú½À´Ï´Ù. 
 		sprintf( lpString, prj.GetText( TID_GAME_ELECTION_CAPTION_END_VOTE_02 ), CPlayerDataCenter::GetInstance()->GetPlayerString( idPlayer ) );
 		PrintCaption( lpString );
-		// OOOë‹˜ì´ ì„ ì¶œë˜ì–´, ì•ìœ¼ë¡œ 2ì£¼ ë™ì•ˆ êµ°ì£¼ë¡œ ì§‘ê¶Œì„ í•˜ê²Œ ë©ë‹ˆë‹¤.
+		// OOO´ÔÀÌ ¼±ÃâµÇ¾î, ¾ÕÀ¸·Î 2ÁÖ µ¿¾È ±ºÁÖ·Î Áı±ÇÀ» ÇÏ°Ô µË´Ï´Ù.
 		sprintf( lpString, prj.GetText( TID_GAME_ELECTION_END_VOTE_S000 ), CPlayerDataCenter::GetInstance()->GetPlayerString( idPlayer ) );
 		dwColor		= prj.GetTextColor( TID_GAME_ELECTION_END_VOTE_S000 );
 	}
 	else
 	{
-		// ì´ë²ˆ êµ°ì£¼ ì„ ê±°ëŠ” ë¬´íš¨ê°€ ë˜ì–´, 2ì£¼ ë™ì•ˆ êµ°ì£¼ê°€ ì—†ìŠµë‹ˆë‹¤. 
+		// ÀÌ¹ø ±ºÁÖ ¼±°Å´Â ¹«È¿°¡ µÇ¾î, 2ÁÖ µ¿¾È ±ºÁÖ°¡ ¾ø½À´Ï´Ù. 
 		sprintf( lpString, prj.GetText( TID_GAME_ELECTION_END_VOTE_S001 ) );
 		dwColor		= prj.GetTextColor( TID_GAME_ELECTION_END_VOTE_S001 );
 	}
@@ -121,7 +121,7 @@ BOOL CCElection::DoTestEndVote( u_long idPlayer )
 }
 
 BOOL CCElection::DoTestAddDeposit( u_long idPlayer, __int64 iDeposit, time_t tCreate )
-{	// êµ°ì£¼ ì…ì°°
+{	// ±ºÁÖ ÀÔÂû
 	if( election::IsActivePlayer( idPlayer ) )
 	{
 		CCandidate* pCandidate	= GetCandidate( idPlayer );
@@ -153,7 +153,7 @@ BOOL CCElection::DoTestIncVote( u_long idPlayer, u_long idElector )
 	if( election::IsActivePlayer( idElector ) )
 	{
 		const char* szPlayer	= CPlayerDataCenter::GetInstance()->GetPlayerString( idPlayer );
-		//  íˆ¬í‘œì°½ì´ ë‹«íˆë©°, 'OOOë‹˜ì—ê²Œ íˆ¬í‘œë¥¼ í•˜ì˜€ìŠµë‹ˆë‹¤.' ë¼ëŠ” ë‚´ìš©ì˜ í™•ì¸ì°½ ìƒì„±.
+		//  ÅõÇ¥Ã¢ÀÌ ´İÈ÷¸ç, 'OOO´Ô¿¡°Ô ÅõÇ¥¸¦ ÇÏ¿´½À´Ï´Ù.' ¶ó´Â ³»¿ëÀÇ È®ÀÎÃ¢ »ı¼º.
 		if(g_WndMng.m_pWndLordVote)g_WndMng.m_pWndLordVote->Destroy();
 		CString			string;
 		string.Format(prj.GetText(TID_GAME_VOTE_COMPLETE), szPlayer);
@@ -173,7 +173,7 @@ void CCElection::DoEndVoteComplete( void )
 		return;
 	if( !CCLord::Instance()->IsLord( g_pPlayer->m_idPlayer ) )
 	{
-		// êµ°ì£¼ê´€ë ¨ ìˆì»·ì œê±° - ë‹¨ì¶•í‚¤
+		// ±ºÁÖ°ü·Ã ¼ôÄÆÁ¦°Å - ´ÜÃàÅ°
 		CWndTaskBar* pTaskBar = g_WndMng.m_pWndTaskBar;
 		for(int nSlot = 0; nSlot < MAX_SLOT_ITEM_COUNT; ++nSlot)
 		{
@@ -187,7 +187,7 @@ void CCElection::DoEndVoteComplete( void )
 				}
 			}
 		}
-		// êµ°ì£¼ê´€ë ¨ ìˆì»·ì œê±° - í€µìŠ¬ë¡¯
+		// ±ºÁÖ°ü·Ã ¼ôÄÆÁ¦°Å - Äü½½·Ô
 		for( int nSlot = 0; nSlot < MAX_SLOT_APPLET; ++nSlot)
 		{
 			if(pTaskBar->m_aSlotApplet[nSlot].m_dwShortcut == SHORTCUT_LORDSKILL)
@@ -197,10 +197,10 @@ void CCElection::DoEndVoteComplete( void )
 			}
 			
 		}
-		// êµ°ì£¼ ìŠ¤í‚¬ ì°½ ì œê±°
+		// ±ºÁÖ ½ºÅ³ Ã¢ Á¦°Å
 		CWndLordSkill* pWndLordSkill = (CWndLordSkill*)g_WndMng.GetWndBase( APP_LORD_SKILL );
 		if(pWndLordSkill) pWndLordSkill->Destroy();
-		// êµ°ì£¼ ì´ë²¤íŠ¸ ì°½ ì œê±°
+		// ±ºÁÖ ÀÌº¥Æ® Ã¢ Á¦°Å
 		if(g_WndMng.m_pWndLordEvent) g_WndMng.m_pWndLordEvent->Destroy();
 	}
 }
@@ -214,7 +214,7 @@ void CCElection::UpdateUI( void )
 }
 
 void CCElection::State( void )
-{	// ì„ ê±° ìƒíƒœ ì¶œë ¥
+{	// ¼±°Å »óÅÂ Ãâ·Â
 #ifdef _DEBUG
 	char lpString[100]	= { 0,};
 	ELECTION_STATE eState	= GetState();
@@ -244,7 +244,7 @@ SPC CCElection::GetRanker(int nRanking)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// í´ë¼ì´ì–¸íŠ¸ ìš© êµ°ì£¼ ì´ë²¤íŠ¸ í´ë˜ìŠ¤
+// Å¬¶óÀÌ¾ğÆ® ¿ë ±ºÁÖ ÀÌº¥Æ® Å¬·¡½º
 CLEvent::CLEvent( CLord* pLord )
 :
 ILordEvent( pLord )
@@ -261,7 +261,7 @@ BOOL CLEvent::DoTestInitialize( void )
 }
 
 BOOL CLEvent::DoTestAddComponent( CLEComponent* pComponent )
-{	// ì´ë²¤íŠ¸ ì‹œì‘ í™”ë©´ ì¶œë ¥
+{	// ÀÌº¥Æ® ½ÃÀÛ È­¸é Ãâ·Â
 	char lpString[255]	= { 0,};
 	char lpCaption[255]		= { 0,};
 	

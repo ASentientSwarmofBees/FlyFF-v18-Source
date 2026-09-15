@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "region.h"
 #include "defineWorld.h"
 #include "commonctrl.h"
@@ -87,7 +87,7 @@ m_cbRunnableObject( 0 )
 	ZeroMemory( m_szKeyRevival, sizeof( m_szKeyRevival ) );	
 	m_nDeleteObjs	= 0;
 	m_szFileName[0]	= '\0';
-	m_fMaxHeight = 200.0f;		//091209 ê¸°íšìš”ì²­ìœ¼ë¡œ 200
+	m_fMaxHeight = 200.0f;		//091209 ±âÈ¹¿äÃ»À¸·Î 200
 	m_fMinHeight = 85.0f;
 	m_bFly = TRUE;
 	m_bIsIndoor  = FALSE;
@@ -197,7 +197,7 @@ void CWorld::Free()
 //		SAFE_DELETE( pCtrlRegion );
 //	}
 #else	// __WORLDSERVER
-	// Light íŒŒê´´ 
+	// Light ÆÄ±« 
 	POSITION pos 
 		= m_mapLight.GetStartPosition();
 	CLight* pLight;
@@ -230,7 +230,7 @@ void CWorld::Free()
 }
 
 
-// CPUë¥¼ ì‚¬ìš©ìœ¨ ì¤„ì´ê¸° ìœ„í•´ì„œ ì´ë ‡ê²Œ...
+// CPU¸¦ »ç¿ëÀ² ÁÙÀÌ±â À§ÇØ¼­ ÀÌ·¸°Ô...
 void CWorld::CalcBound()
 {
 	WORLD_WIDTH = MAP_SIZE * m_nLandWidth;
@@ -249,7 +249,7 @@ void CWorld::LoadAllMoverDialog()
 }
 
 #ifdef __CLIENT
-// pObjëŠ” CItemë„ ë“¤ì–´ì˜¨ë‹¤.
+// pObj´Â CItemµµ µé¾î¿Â´Ù.
 void CWorld::SetObjFocus( CObj* pObj, BOOL bSend ) 
 {
 #if __VER >= 13 // __HOUSING
@@ -267,17 +267,17 @@ void CWorld::SetObjFocus( CObj* pObj, BOOL bSend )
 	}
 
 #if __VER >= 15 // __GUILD_HOUSE
-	//gmpbigsun : í˜„ì¬ ì½˜íŠ¸ë¡¤ë“¤ì€ í´ë¦­->ì„œë²„ì²˜ë¦¬(ì‘ë™)->íƒ€ê²Ÿì œê±° ë°©ì‹ìœ¼ë¡œ ì‘ë™ë˜ê³ , ìˆ˜ì •ë˜ì§€ ì•ŠëŠ”í•œ ì½˜íŠ¸ë¡¤ì— ëŒ€í•´ ë‹¤ë¥¸ê¸°ëŠ¥ë¥¼ ë¶€ì—¬í•˜ëŠ”ê²ƒì´ ì¼ë°˜ì ì´ì§€ ì•Šë‹¤.
-	//			  ê·¸ëŸ¬ë‚˜ ê¸¸ë“œí•˜ìš°ì§• ì˜¤ë¸Œì íŠ¸ëŠ” íŒì—…ë©”ë‰´ë¡œ ë‹¤ë¥¸ê¸°ëŠ¥ì„ í•˜ê²Œë” í•´ì•¼ í•˜ëŠ” ìƒí™©ì´ê³ , ì•„ë˜ì™€ ê°™ì´ ìš°íšŒí•œë‹¤.
-	//			  íŒì—…ë©”ë‰´ë¥¼ ì„¤ì •í•œë’¤, í˜„ì¬ ì„ íƒí• ë ¤ëŠ” ëŒ€ìƒì´ ê¸¸ë“œí•˜ìš°ì§• ì˜¤ë¸Œì íŠ¸ì´ë©´ í˜„ì¬ íƒ€ê²Ÿì„ ë°”ê¾¸ì§€ ì•Šê³  PASSí•œë‹¤.
-	//            íŒì—…ë©”ë‰´ëŠ” ì„œë²„ì™€ ë¹„ë™ê¸°ë¡œ ì‘ë™í•˜ë©° ë©”ë‰´ë¥¼ ì„ íƒí• ê²½ìš° í˜„ì¬ ì„ íƒëŒ€ìƒê³¼ëŠ” ë³„ê°œë¡œ ì‘ë™í•œë‹¤. ( CWndWorld::OnCommandë¥¼ ë°œìƒì‹œí‚¤ì§€ ì•ŠëŠ”ë‹¤ )
-	//            íŒì—…ë©”ë‰´ëŠ” ë°”ë¡œ CGuildHouseBaseì˜ í•´ë‹¹ í•¨ìˆ˜ë¥¼ ë¶ˆëŸ¬ì£¼ê³  ëë‚˜ëŠ” í˜•íƒœì´ë‹¤.
-	//            CGuildHouseBasesëŠ” ì„ íƒëŒ€ìƒì´ ê¸¸ë“œí•˜ìš°ì§• ì˜¤ë¸Œì íŠ¸ì¼ê²½ìš° í•´ë‹¹ ì•„ì´ë””ë¥¼ ë³´ì¡´í•œë‹¤.
+	//gmpbigsun : ÇöÀç ÄÜÆ®·ÑµéÀº Å¬¸¯->¼­¹öÃ³¸®(ÀÛµ¿)->Å¸°ÙÁ¦°Å ¹æ½ÄÀ¸·Î ÀÛµ¿µÇ°í, ¼öÁ¤µÇÁö ¾Ê´ÂÇÑ ÄÜÆ®·Ñ¿¡ ´ëÇØ ´Ù¸¥±â´É¸¦ ºÎ¿©ÇÏ´Â°ÍÀÌ ÀÏ¹İÀûÀÌÁö ¾Ê´Ù.
+	//			  ±×·¯³ª ±æµåÇÏ¿ìÂ¡ ¿ÀºêÁ§Æ®´Â ÆË¾÷¸Ş´º·Î ´Ù¸¥±â´ÉÀ» ÇÏ°Ô²û ÇØ¾ß ÇÏ´Â »óÈ²ÀÌ°í, ¾Æ·¡¿Í °°ÀÌ ¿ìÈ¸ÇÑ´Ù.
+	//			  ÆË¾÷¸Ş´º¸¦ ¼³Á¤ÇÑµÚ, ÇöÀç ¼±ÅÃÇÒ·Á´Â ´ë»óÀÌ ±æµåÇÏ¿ìÂ¡ ¿ÀºêÁ§Æ®ÀÌ¸é ÇöÀç Å¸°ÙÀ» ¹Ù²ÙÁö ¾Ê°í PASSÇÑ´Ù.
+	//            ÆË¾÷¸Ş´º´Â ¼­¹ö¿Í ºñµ¿±â·Î ÀÛµ¿ÇÏ¸ç ¸Ş´º¸¦ ¼±ÅÃÇÒ°æ¿ì ÇöÀç ¼±ÅÃ´ë»ó°ú´Â º°°³·Î ÀÛµ¿ÇÑ´Ù. ( CWndWorld::OnCommand¸¦ ¹ß»ı½ÃÅ°Áö ¾Ê´Â´Ù )
+	//            ÆË¾÷¸Ş´º´Â ¹Ù·Î CGuildHouseBaseÀÇ ÇØ´ç ÇÔ¼ö¸¦ ºÒ·¯ÁÖ°í ³¡³ª´Â ÇüÅÂÀÌ´Ù.
+	//            CGuildHouseBases´Â ¼±ÅÃ´ë»óÀÌ ±æµåÇÏ¿ìÂ¡ ¿ÀºêÁ§Æ®ÀÏ°æ¿ì ÇØ´ç ¾ÆÀÌµğ¸¦ º¸Á¸ÇÑ´Ù.
 	if( pObj && OT_CTRL == pObj->GetType( ) )
 	{
 		if( pProp->IsGuildHousingObj( ) )
 		{
-			GuildHouse->m_dwSelectedObjID = pCtrl->GetId( );			// ê¸¸ë“œí•˜ìš°ì§• ì´ë¼ë©´ idì €ì¥í•˜ê³  pass!
+			GuildHouse->m_dwSelectedObjID = pCtrl->GetId( );			// ±æµåÇÏ¿ìÂ¡ ÀÌ¶ó¸é idÀúÀåÇÏ°í pass!
 
 			CWndGuildHousing* pWnd = (CWndGuildHousing*)g_WndMng.GetApplet( APP_GH_FURNITURE_STORAGE );
 			if( pWnd )
@@ -300,18 +300,18 @@ void CWorld::SetObjFocus( CObj* pObj, BOOL bSend )
 	CObj *pOldFocus = m_pObjFocus;
 	
 	if( m_pObjFocus && m_pObjFocus->GetType() == OT_MOVER )
-		m_idObjFocusOld = ((CMover *)m_pObjFocus)->GetId();		// í•œë²ˆ ì¡ì•˜ë˜ ì˜¤ë¸Œì íŠ¸ì˜ IDë¥¼ ê¸°ì–µí•´ë‘”ë‹¤. ì´ì˜¤ë¸Œì íŠ¸ê°€ ë‹¤ì‹œ Addë˜ì—ˆì„ë•Œ ìë™ìœ¼ë¡œ ë‹¤ì‹œ ì¡ì•„ì¤€ë‹¤.
-	if( pOldFocus )	// ê¸°ì¡´ì— ë­”ê°€ ì¡í˜€ìˆì—ˆëŠ”ê°€.
+		m_idObjFocusOld = ((CMover *)m_pObjFocus)->GetId();		// ÇÑ¹ø Àâ¾Ò´ø ¿ÀºêÁ§Æ®ÀÇ ID¸¦ ±â¾ïÇØµĞ´Ù. ÀÌ¿ÀºêÁ§Æ®°¡ ´Ù½Ã AddµÇ¾úÀ»¶§ ÀÚµ¿À¸·Î ´Ù½Ã Àâ¾ÆÁØ´Ù.
+	if( pOldFocus )	// ±âÁ¸¿¡ ¹º°¡ ÀâÇôÀÖ¾ú´Â°¡.
 	{
-		if( pOldFocus->GetType() == OT_MOVER )		// íƒ€ê²Ÿì´ Moverì¼ë•Œë§Œ ì²˜ë¦¬í•˜ì
+		if( pOldFocus->GetType() == OT_MOVER )		// Å¸°ÙÀÌ MoverÀÏ¶§¸¸ Ã³¸®ÇÏÀÚ
 		{
 			CMover *pMoverTarget = (CMover *)pOldFocus;
 			OBJID idTarget = pMoverTarget->GetId();
-			if( pOldFocus != pObj && pMoverTarget->IsLive() )		// ê¸°ì¡´íƒ€ê²Ÿê³¼ ë‹¤ë¥¸íƒ€ê²Ÿ(ë„í¬í•¨)ì„ ì¡ìœ¼ë ¤ í•˜ë©´ ì„œë²„ì— ì•Œë¦¼
+			if( pOldFocus != pObj && pMoverTarget->IsLive() )		// ±âÁ¸Å¸°Ù°ú ´Ù¸¥Å¸°Ù(³ÎÆ÷ÇÔ)À» ÀâÀ¸·Á ÇÏ¸é ¼­¹ö¿¡ ¾Ë¸²
 			{
 				if( bSend )
-					g_DPlay.SendSetTarget( idTarget, 1 );	// idTargetì—ê²Œ g_pPlayerê°€ íƒ€ê²Ÿì„ í•´ì œí–ˆë‹¤ëŠ”ê²ƒì„ ì•Œë¦¼.
-				pMoverTarget->m_idTargeter = NULL_ID;	// í´ë¼ì—ë„ í´ë¦¬ì–´ ì‹œì¼œì¤˜ì•¼ í•œë‹¤.
+					g_DPlay.SendSetTarget( idTarget, 1 );	// idTarget¿¡°Ô g_pPlayer°¡ Å¸°ÙÀ» ÇØÁ¦Çß´Ù´Â°ÍÀ» ¾Ë¸².
+				pMoverTarget->m_idTargeter = NULL_ID;	// Å¬¶ó¿¡µµ Å¬¸®¾î ½ÃÄÑÁà¾ß ÇÑ´Ù.
 			}
 		}
 	}
@@ -325,13 +325,13 @@ void CWorld::SetObjFocus( CObj* pObj, BOOL bSend )
 				CMover *pMoverTarget = (CMover *)pObj;
 				OBJID idTarget = pMoverTarget->GetId();
 				if( bSend )
-					g_DPlay.SendSetTarget( idTarget, 2 );	// g_pPlayerê°€ idTargetì„ í¬ì»¤ìŠ¤í–ˆë‹¤ëŠ”ê±¸(2) ì•Œë¦¼.
+					g_DPlay.SendSetTarget( idTarget, 2 );	// g_pPlayer°¡ idTargetÀ» Æ÷Ä¿½ºÇß´Ù´Â°É(2) ¾Ë¸².
 			}
 		}
 		else
 		{
 			if( bSend )
-				g_DPlay.SendSetTarget( NULL_ID, 2 );	// íƒ€ê²Ÿ í´ë¦¬ì–´.
+				g_DPlay.SendSetTarget( NULL_ID, 2 );	// Å¸°Ù Å¬¸®¾î.
 #if __VER >= 11 // __CSC_VER11_2
 			CWndWorld* pWndWorld = g_WndMng.m_pWndWorld;
 			if(pWndWorld)
@@ -352,7 +352,7 @@ void CWorld::SetObjFocus( CObj* pObj, BOOL bSend )
 			if( g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER ) == TRUE )
 			{
 				if( bSend )
-					g_DPlay.SendMoverFocus( ((CMover*)pObj)->m_idPlayer );	// ê²œë§ˆê°€ ìœ ì €ë¥¼ í´ë¦­í•œê²½ìš° ê·¸ ìœ ì €ì˜ ì •ë³´ë¥¼ ë‹¬ë¼ëŠ” ì‹ í˜¸ë¥¼ ë³´ëƒ„.
+					g_DPlay.SendMoverFocus( ((CMover*)pObj)->m_idPlayer );	// °×¸¶°¡ À¯Àú¸¦ Å¬¸¯ÇÑ°æ¿ì ±× À¯ÀúÀÇ Á¤º¸¸¦ ´Ş¶ó´Â ½ÅÈ£¸¦ º¸³¿.
 			}
 		}
 	}
@@ -414,14 +414,14 @@ BOOL CWorld::AddObj( CObj* pObj, BOOL bAddItToGlobalId )
 	if( pObj->IsDynamicObj() )
 	{
 #ifndef __WORLDSERVER
-		// ì´ ì½”ë“œëŠ” ë°ë“œë½ì„ ìœ ë°œí•˜ë¯€ë¡œ(ë‚´ë¶€ì  prj lock), _addì—ì„œ ì‹¤í–‰í•œë‹¤.
+		// ÀÌ ÄÚµå´Â µ¥µå¶ôÀ» À¯¹ßÇÏ¹Ç·Î(³»ºÎÀû prj lock), _add¿¡¼­ ½ÇÇàÇÑ´Ù.
 		if( bAddItToGlobalId ) 
 			( (CCtrl*)pObj )->AddItToGlobalId();
 #endif	// __WORLDSERVER
 		FLOAT fHeight	= GetLandHeight( v );
 		v.y		= ( v.y < fHeight ? fHeight : v.y );
 		
-		// ì˜ˆì™¸ ì²˜ë¦¬...Doorì»¨íŠ¸ë¡¤ì€ ë•…ì— ë¬»í˜€ë‘ ë¨
+		// ¿¹¿Ü Ã³¸®...DoorÄÁÆ®·ÑÀº ¶¥¿¡ ¹¯ÇôµÎ µÊ
 		if( pObj->m_dwType == OT_CTRL )
 		{
 			CCommonCtrl* pCCtrl = (CCommonCtrl*)pObj;
@@ -468,7 +468,7 @@ BOOL CWorld::AddObj( CObj* pObj, BOOL bAddItToGlobalId )
 
 #ifdef __BS_EFFECT_LUA
 	
-	// ìƒì„±ì‹œì ì—ì„œ ìƒì„±ê´€ë ¨ Effect ì²˜ë¦¬( NPC only!! )
+	// »ı¼º½ÃÁ¡¿¡¼­ »ı¼º°ü·Ã Effect Ã³¸®( NPC only!! )
 	if( OT_MOVER == pObj->GetType() )
 	{
 		CMover* pMover = static_cast< CMover* > ( pObj );
@@ -493,7 +493,7 @@ void CWorld::RemoveObj( CObj* pObj )
 	RemoveObjArray( pObj );
 }
 
-// ëª¨ë“  ë£¨í”„ê°€ ëë‚˜ê³  ë©”ëª¨ë¦¬ì—ì„œ delete ëœë‹¤.
+// ¸ğµç ·çÇÁ°¡ ³¡³ª°í ¸Ş¸ğ¸®¿¡¼­ delete µÈ´Ù.
 void CWorld::DeleteObj( CObj* pObj )
 {
 	if( !pObj->IsDelete() )
@@ -778,7 +778,7 @@ void CWorld::Process()
 	CObj::m_pObjHighlight = GetObjFocus();
 #endif
 	
-	// ì²˜ë¦¬ í”„ë¡œì„¸ìŠ¤ 
+	// Ã³¸® ÇÁ·Î¼¼½º 
 	CHECK1();
 	int i, j, k, l, x, y;
 	WorldPosToLand( m_pCamera->m_vPos, x, y );
@@ -795,7 +795,7 @@ void CWorld::Process()
 	int _nCnt = 0;
 #endif
 
-	// ì •ì  ì˜¤ë¸Œì íŠ¸ì˜ ë°˜íˆ¬ëª… ì²˜ë¦¬ë¥¼ ìœ„í•œ í”„ë¡œì„¸ìŠ¤ ì²˜ë¦¬ 
+	// Á¤Àû ¿ÀºêÁ§Æ®ÀÇ ¹İÅõ¸í Ã³¸®¸¦ À§ÇÑ ÇÁ·Î¼¼½º Ã³¸® 
 	int nNonCullNum = 0;
 	for( i = 0; i < m_nObjCullSize; i++ )
 	{
@@ -806,7 +806,7 @@ void CWorld::Process()
 		}
 	}
 
-	// OT_SHIPì´ OT_ITEMì´ë‚˜ OT_MOVERë³´ë‹¤ ë¨¼ì € í”„ë¡œì„¸ìŠ¤ ë˜ì–´ì•¼ í•´ì„œ ì–´ì©”ìˆ˜ ì—†ì´ ì´ ë°©ë²•ì„ ì”€.
+	// OT_SHIPÀÌ OT_ITEMÀÌ³ª OT_MOVERº¸´Ù ¸ÕÀú ÇÁ·Î¼¼½º µÇ¾î¾ß ÇØ¼­ ¾îÂ¿¼ö ¾øÀÌ ÀÌ ¹æ¹ıÀ» ¾¸.
 	static int idx[ MAX_OBJARRAY ] = { 0, 1, 2, 7, 3, 4, 5, 6 };	
 	for( i = y - m_nVisibilityLand; i <= y + m_nVisibilityLand; i++ )
 	{
@@ -841,10 +841,10 @@ void CWorld::Process()
 	}
 	CHECK2("    Visibi");
 	
-	// ì, ì—¬ê¸°ì„œ ëœë“œì— ì†í•œ ë°°ì—´ì—ì„œ ë°”ë¡œ í”„ë¡œì„¸ì‹±í•˜ì§€ ì•Šê³   apObjTemp ë°°ì—´ì— ì¶”ê°€í•œ í›„ì—
-	// Processí•œ ê²ƒì— ì£¼ëª©í•´ì•¼í•œë‹¤. Process ê³¼ì •ì—ì„œ ì˜¤ë¸Œì œíŠ¸ê°€ ì‚­ì œë˜ê±°ë‚˜ ì¶”ê°€ë  ìˆ˜ ìˆëŠ”ë°
-	// ëœë“œì— ì†í•œ ë°°ì—´ì„ ë£¨í•‘í•˜ë©´ì„œ ë™ì¼ ë°°ì—´ì— ì¶”ê°€ë˜ê±°ë‚˜ ì‚­ì œë˜ê²Œ ë˜ë©´  ë²„ê·¸ì˜  ê°€ëŠ¥ì„±ì´
-	// ë†’ì•„ì§„ë‹¤. ë”°ë¼ì„œ ì•½ê°„ì˜ ì˜¤ë²„í•´ë“œë¥¼ ê°ìˆ˜í•˜ë©´ì„œ apObjTempë¥¼ í™œìš©í•œë‹¤.
+	// ÀÚ, ¿©±â¼­ ·£µå¿¡ ¼ÓÇÑ ¹è¿­¿¡¼­ ¹Ù·Î ÇÁ·Î¼¼½ÌÇÏÁö ¾Ê°í  apObjTemp ¹è¿­¿¡ Ãß°¡ÇÑ ÈÄ¿¡
+	// ProcessÇÑ °Í¿¡ ÁÖ¸ñÇØ¾ßÇÑ´Ù. Process °úÁ¤¿¡¼­ ¿ÀºêÁ¦Æ®°¡ »èÁ¦µÇ°Å³ª Ãß°¡µÉ ¼ö ÀÖ´Âµ¥
+	// ·£µå¿¡ ¼ÓÇÑ ¹è¿­À» ·çÇÎÇÏ¸é¼­ µ¿ÀÏ ¹è¿­¿¡ Ãß°¡µÇ°Å³ª »èÁ¦µÇ°Ô µÇ¸é  ¹ö±×ÀÇ  °¡´É¼ºÀÌ
+	// ³ô¾ÆÁø´Ù. µû¶ó¼­ ¾à°£ÀÇ ¿À¹öÇØµå¸¦ °¨¼öÇÏ¸é¼­ apObjTemp¸¦ È°¿ëÇÑ´Ù.
 	CHECK1();
 	
 	CHECK2("    prc");
@@ -855,10 +855,10 @@ void CWorld::Process()
 
 	// Delete Obj 
 #ifdef __BS_SAFE_WORLD_DELETE 
-	if( 1 == m_nDeleteObjs )		//ì–¸ì œë‚˜ ë¬´íš¨í•œ í¬ì¸í„°ê°€ ë‚¨ëŠ”ê²½ìš°ëŠ” m_nDeleteObjs == 1ì¸ê²½ìš°ì˜€ë‹¤.
+	if( 1 == m_nDeleteObjs )		//¾ğÁ¦³ª ¹«È¿ÇÑ Æ÷ÀÎÅÍ°¡ ³²´Â°æ¿ì´Â m_nDeleteObjs == 1ÀÎ°æ¿ì¿´´Ù.
 	{
 		CCtrl *pCtrl = (CCtrl*)m_apDeleteObjs[0];
-		if( !prj.GetCtrl( pCtrl->m_objid ) )						// level 1 : í˜„ì¡´í•˜ëŠ” ë…€ì„ì¸ì§€ ì²´í¬í•œë‹¤( sfxëŠ” í´ë¼ê°€ ìì²´ë¡œ ìƒì„±í•˜ê³  NULL_IDì´ê¸°ë•Œë¬¸ì— ì—¬ê¸°ë¥¼ í†µê³¼í•œë‹¤ )
+		if( !prj.GetCtrl( pCtrl->m_objid ) )						// level 1 : ÇöÁ¸ÇÏ´Â ³à¼®ÀÎÁö Ã¼Å©ÇÑ´Ù( sfx´Â Å¬¶ó°¡ ÀÚÃ¼·Î »ı¼ºÇÏ°í NULL_IDÀÌ±â¶§¹®¿¡ ¿©±â¸¦ Åë°úÇÑ´Ù )
 		{
 			if( pCtrl->m_dwFlags != 0 && pCtrl->m_dwFlags < 1021 )	// level 2 : flag
 			if( pCtrl->m_pWorld )									// level 3 : world
@@ -868,7 +868,7 @@ void CWorld::Process()
 			}
 			else
 			{
-				// ë¬¸ì œì˜ ë…€ì„ì´ ë“±ì¥í–ˆë‹¤. ì´ë¯¸ì§€ì›Œì¡Œê±°ë‚˜ í•˜ëŠ” ë¶ˆëŸ‰ í¬ì¸í„° 
+				// ¹®Á¦ÀÇ ³à¼®ÀÌ µîÀåÇß´Ù. ÀÌ¹ÌÁö¿öÁ³°Å³ª ÇÏ´Â ºÒ·® Æ÷ÀÎÅÍ 
 				--m_nDeleteObjs;
 				m_apDeleteObjs[0] = NULL;
 				Error( "Fucking world process ::Delete" );
@@ -879,7 +879,7 @@ void CWorld::Process()
 	}
 #endif //__BS_SAFE_WORLD_DELETE
 
-	// ì˜¤ë¸Œì íŠ¸ Delete ( DeleteObjê°€ í˜¸ì¶œëœ ì˜¤ë¸Œì íŠ¸ë“¤)
+	// ¿ÀºêÁ§Æ® Delete ( DeleteObj°¡ È£ÃâµÈ ¿ÀºêÁ§Æ®µé)
 	for( i = 0; i < m_nDeleteObjs; i++ )
 	{
 		pObj = m_apDeleteObjs[ i ];
@@ -905,10 +905,10 @@ void CWorld::Process()
 #endif	// __PET_0410
 		if( CObj::m_pObjHighlight == pObj )
 			CObj::m_pObjHighlight = NULL;
-		// í™”ë©´ì— ì¶œë ¥ë˜ê³  ìˆëŠ” ì˜¤ë¸Œì íŠ¸ì¸ê°€.
- 		if( pObj->m_ppViewPtr )					//sun : (ê°€ë”)pObj->m_ppViewPtrì´ ì´ë¯¸ ì§€ì›Œì§„ ìƒíƒœë‹¤ ë¬¸ì œê°€ ë§êµ° ì œê¸¸
- 		{										//ì˜¤ë¸Œì íŠ¸ ì‚­ì œê³¼ì •ì— ë¬¸ì œê°€ ìˆë‹¤. ì–´ë””ì„ ê°€ ê¼¬ì´ê³  ìˆë‹¤ ì¶”ì í•˜ê¸°ì— ì‹œê°„ê³¼ ì˜ìš•ì´ ì—†ë‹¤.
- 			// ê·¸ë ‡ë‹¤ë©´ í™”ë©´ ì¶œë ¥ ë°°ì—´ì—ì„œ ìì‹ ì„ ì‚­ì œ 
+		// È­¸é¿¡ Ãâ·ÂµÇ°í ÀÖ´Â ¿ÀºêÁ§Æ®ÀÎ°¡.
+ 		if( pObj->m_ppViewPtr )					//sun : (°¡²û)pObj->m_ppViewPtrÀÌ ÀÌ¹Ì Áö¿öÁø »óÅÂ´Ù ¹®Á¦°¡ ¸¹±º Á¦±æ
+ 		{										//¿ÀºêÁ§Æ® »èÁ¦°úÁ¤¿¡ ¹®Á¦°¡ ÀÖ´Ù. ¾îµğ¼±°¡ ²¿ÀÌ°í ÀÖ´Ù ÃßÀûÇÏ±â¿¡ ½Ã°£°ú ÀÇ¿åÀÌ ¾ø´Ù.
+ 			// ±×·¸´Ù¸é È­¸é Ãâ·Â ¹è¿­¿¡¼­ ÀÚ½ÅÀ» »èÁ¦ 
  			*pObj->m_ppViewPtr = NULL;	
  			pObj->m_ppViewPtr = NULL;
  		}
@@ -919,7 +919,7 @@ void CWorld::Process()
 	}
 
 	if( m_nDeleteObjs > 0 )
-		memset( m_apDeleteObjs, 0, sizeof(CObj*) * m_nDeleteObjs );		//gmpbigsun: m_nDeleteObjs ì™€ m_apDeleteObjsì´ ê¼¬ì´ë©´ì„œ í´ë¼ê°€ ì£½ìŒ.. í•´ì„œ ì•ˆì ¼ì œì¼! 
+		memset( m_apDeleteObjs, 0, sizeof(CObj*) * m_nDeleteObjs );		//gmpbigsun: m_nDeleteObjs ¿Í m_apDeleteObjsÀÌ ²¿ÀÌ¸é¼­ Å¬¶ó°¡ Á×À½.. ÇØ¼­ ¾ÈÁ¯Á¦ÀÏ! 
 
 	m_nDeleteObjs = 0;
 
@@ -948,7 +948,7 @@ void CWorld::Process()
 #endif 
 	}
 
-	// ë¬¼ ì• ë‹ˆë©”ì´ì…˜
+	// ¹° ¾Ö´Ï¸ŞÀÌ¼Ç
 #if __VER >= 14 // __WATER_EXT
 	for(i=0; i<prj.m_terrainMng.m_nWaterFrame; i++)
     {
@@ -976,8 +976,8 @@ void CWorld::Process()
 
 // 
 // GetHeight(D3DXVECTOR vecPos)
-// vecPosì˜ í•´ë‹¹í•˜ëŠ” í•„ë“œì˜ ë†’ì´ë¥¼ ì •êµí•˜ê²Œ ê³„ì‚°í•´ì„œ ëŒë ¤ ì¤€ë‹¤. 
-// return ê°’ì€ y ì¢Œí‘œì— í•´ë‹¹ëœë‹¤.
+// vecPosÀÇ ÇØ´çÇÏ´Â ÇÊµåÀÇ ³ôÀÌ¸¦ Á¤±³ÇÏ°Ô °è»êÇØ¼­ µ¹·Á ÁØ´Ù. 
+// return °ªÀº y ÁÂÇ¥¿¡ ÇØ´çµÈ´Ù.
 //
 FLOAT CWorld::GetLandHeight( float x, float z )
 {
@@ -1005,22 +1005,22 @@ FLOAT CWorld::GetLandHeight( float x, float z )
 
 	FLOAT y3 = m_apHeightMap[ px + ( pz + 1 ) * WORLD_WIDTH ];
 	FLOAT y4 = m_apHeightMap[ px + 1 + ( pz + 1 ) * WORLD_WIDTH ];
-	if( y1 >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y1 >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y1 / HGT_NOWALK);
 		y1 -= (float)(HGT_NOWALK * n);
 	}
-	if( y2 >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y2 >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y2 / HGT_NOWALK);
 		y2 -= (float)(HGT_NOWALK * n);
 	}
-	if( y3 >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y3 >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y3 / HGT_NOWALK);
 		y3 -= (float)(HGT_NOWALK * n);
 	}
-	if( y4 >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y4 >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y4 / HGT_NOWALK);
 		y4 -= (float)(HGT_NOWALK * n);
@@ -1051,8 +1051,8 @@ FLOAT CWorld::GetLandHeight( const D3DXVECTOR3& vPos )
 #ifdef __CLIENT
 // 
 // GetHeight(D3DXVECTOR vecPos)
-// vecPosì˜ í•´ë‹¹í•˜ëŠ” í•„ë“œì˜ ë†’ì´ë¥¼ ì •êµí•˜ê²Œ ê³„ì‚°í•´ì„œ ëŒë ¤ ì¤€ë‹¤. 
-// return ê°’ì€ y ì¢Œí‘œì— í•´ë‹¹ëœë‹¤.
+// vecPosÀÇ ÇØ´çÇÏ´Â ÇÊµåÀÇ ³ôÀÌ¸¦ Á¤±³ÇÏ°Ô °è»êÇØ¼­ µ¹·Á ÁØ´Ù. 
+// return °ªÀº y ÁÂÇ¥¿¡ ÇØ´çµÈ´Ù.
 //
 FLOAT CWorld::GetLandHeight_Fast( float x, float z )
 {
@@ -1153,37 +1153,37 @@ BOOL CWorld::GetLandTri2( float x, float z, D3DXVECTOR3* pTri )
 		}
 	}
 	float y = pTri[0].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[0].y -= (float)(HGT_NOWALK * n);
 	}
 	y = pTri[1].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[1].y -= (float)(HGT_NOWALK * n);
 	}
 	y = pTri[2].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[2].y -= (float)(HGT_NOWALK * n);
 	}
 	y = pTri[3].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[3].y -= (float)(HGT_NOWALK * n);
 	}
 	y = pTri[4].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[4].y -= (float)(HGT_NOWALK * n);
 	}
 	y = pTri[5].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[5].y -= (float)(HGT_NOWALK * n);
@@ -1291,19 +1291,19 @@ void CWorld::GetLandTri( float x, float z, D3DXVECTOR3* pTri )
 	}
 
 	float y = pTri[0].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[0].y -= (float)(HGT_NOWALK * n);
 	}
 	y = pTri[1].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[1].y -= (float)(HGT_NOWALK * n);
 	}
 	y = pTri[2].y;
-	if( y >= HGT_NOWALK )		// 1000ì´ìƒ ê°’ì´ë©´ ê·¸ì´ìƒê°’ì„ ì˜ë¼ë²„ë¦°ë‹¤.
+	if( y >= HGT_NOWALK )		// 1000ÀÌ»ó °ªÀÌ¸é ±×ÀÌ»ó°ªÀ» Àß¶ó¹ö¸°´Ù.
 	{
 		int n = (int)(y / HGT_NOWALK);
 		pTri[2].y -= (float)(HGT_NOWALK * n);
@@ -1418,11 +1418,11 @@ void CWorld::_add( void )
 		if( !pObj->IsVirtual() )
 #endif	// __WORLDSERVER
 		{
-			if( !InsertObjLink( pObj ))			// ë§í¬ë§µì— ë„£ëŠ”ë‹¤ ( ì—ëŸ¬ê°€ ë‚  ìˆ˜ ìˆë‹¤ )
+			if( !InsertObjLink( pObj ))			// ¸µÅ©¸Ê¿¡ ³Ö´Â´Ù ( ¿¡·¯°¡ ³¯ ¼ö ÀÖ´Ù )
 				continue;
 		}
 
-		if( !AddObjArray( pObj ))			// m_apObject ì— ë„£ëŠ”ë‹¤.
+		if( !AddObjArray( pObj ))			// m_apObject ¿¡ ³Ö´Â´Ù.
 		{
 			RemoveObjLink( pObj );
 			continue;
@@ -1435,7 +1435,7 @@ void CWorld::_add( void )
 			if( pObj->IsDynamicObj() ) 
 			{
 				if( m_bAddItToGlobalId[i] )
-					( (CCtrl*)pObj )->AddItToGlobalId();	// prj.m_objmap ì™€ prj.m_idPlayerToUserPtrì— ë„£ëŠ”ë‹¤.
+					( (CCtrl*)pObj )->AddItToGlobalId();	// prj.m_objmap ¿Í prj.m_idPlayerToUserPtr¿¡ ³Ö´Â´Ù.
 				AddItToView( (CCtrl*)pObj );
 			}
 		}
@@ -1582,7 +1582,7 @@ void CWorld::_replace( void )
 		int nLayer	= m_aReplaceObj[i].nLayer;
 #endif	// __LAYER_1015
 
-		if( uIdofMulti != g_uIdofMulti )		// í˜„ì¬êµ¬í˜„ì—ì„œëŠ” ë³´ë¥˜ 
+		if( uIdofMulti != g_uIdofMulti )		// ÇöÀç±¸Çö¿¡¼­´Â º¸·ù 
 			continue;
 
 #ifdef __LAYER_1015
@@ -1594,10 +1594,10 @@ void CWorld::_replace( void )
 			if( vPos.y == 0.0f )
 			{
 				vPos.y = 100.0f;
-				vPos.y = GetFullHeight( vPos );  // ê²€ì‚¬ 
+				vPos.y = GetFullHeight( vPos );  // °Ë»ç 
 			}
 			g_UserMng.AddSetPos( (CCtrl*)pMover, vPos );
-			//vPos.y = GetFullHeight( vPos );  // ê²€ì‚¬ 
+			//vPos.y = GetFullHeight( vPos );  // °Ë»ç 
 			pMover->SetPos( vPos );
 			if( pMover->IsPlayer() )
 				( (CUser*)pMover )->Notify();	
@@ -1644,11 +1644,11 @@ void CWorld::_replace( void )
 				pUser->PCSetAt( pUser->GetId(), pUser );
 				pUser->AddAddObj( pUser );
 				pWorld->ADDOBJ( pUser, FALSE, nLayer );			// set pWorld 
-#ifndef __BUFF_1107	// chipi_090623 ìˆ˜ì • - ë²„í”„ ì‹œìŠ¤í…œ ë³€ê²½ í›„ ë¶€í„°ëŠ” ì¤‘ë³µìœ¼ë¡œ ëŠ¥ë ¥ì¹˜ê°€ ì°¨ê°ë˜ëŠ” ë¬¸ì œê°€ ë°œìƒí•˜ë¯€ë¡œ ì œê±°..
-				g_UserMng.AddHdr( pUser, SNAPSHOTTYPE_RESETBUFFSKILL );	// ë²„í”„ìŠ¤í‚¬ ë‹¤ì‹œ ì„¸íŒ…	
+#ifndef __BUFF_1107	// chipi_090623 ¼öÁ¤ - ¹öÇÁ ½Ã½ºÅÛ º¯°æ ÈÄ ºÎÅÍ´Â Áßº¹À¸·Î ´É·ÂÄ¡°¡ Â÷°¨µÇ´Â ¹®Á¦°¡ ¹ß»ıÇÏ¹Ç·Î Á¦°Å..
+				g_UserMng.AddHdr( pUser, SNAPSHOTTYPE_RESETBUFFSKILL );	// ¹öÇÁ½ºÅ³ ´Ù½Ã ¼¼ÆÃ	
 #endif // __BUFF_1107
 				pUser->AddSMModeAll();
-				pUser->AddEnvironment(); // í˜„ì¬ ë‚ ì”¨ ì„¸íŒ…
+				pUser->AddEnvironment(); // ÇöÀç ³¯¾¾ ¼¼ÆÃ
 #if __VER >= 15 // __GUILD_HOUSE
 				GuildHouseMng->SetApplyDST( pUser );
 #endif // __GUILD_HOUSE
@@ -1659,7 +1659,7 @@ void CWorld::_replace( void )
 					CHousing* pHousing = CHousingMng::GetInstance()->GetHousing( static_cast<DWORD>( nLayer ) );
 					if( pHousing )
 					{
-						pUser->AddHousingPaperingInfo( NULL_ID, FALSE );	// ë²½ì§€ ë° ì¥íŒ ì´ˆê¸°í™”
+						pUser->AddHousingPaperingInfo( NULL_ID, FALSE );	// º®Áö ¹× ÀåÆÇ ÃÊ±âÈ­
 						vector<DWORD> vecTemp = pHousing->GetAllPaperingInfo();
 						for( DWORD i=0; i<vecTemp.size(); i++ )
 						{
@@ -1778,18 +1778,18 @@ LPWATERHEIGHT CWorld::GetWaterHeight(int x, int z )
 #endif // WORLDSERVER
 
 
-// pvPosì˜ ì¢Œí‘œë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ ë²”ìœ„ ë°ë¯¸ì§€ë¥¼ ì¤€ë‹¤.
+// pvPosÀÇ ÁÂÇ¥¸¦ Áß½ÉÀ¸·Î ¹üÀ§ µ¥¹ÌÁö¸¦ ÁØ´Ù.
 // ------------------------------------------
-// nDmgType : ë°ë¯¸ì§€ íƒ€ì… ex) AF_MAGICSKILL
-// pAttacker : ê³µê²©ì(ì‹œì „ì) - ì•ìœ¼ë¡œ CCtrl*ë¡œ ë°”ê¿”ì•¼ í•œë‹¤
-// nApplyType : ì ìš©ëŒ€ìƒ. ex) OBJTYPE_PLAYER | OBJTYPE_MONSTER
-// nSkill : ì‚¬ìš©í•œ ìŠ¤í‚¬ì¢…ë¥˜
-// fRange : íƒ€ê²Ÿì„ ì¤‘ì‹¬ìœ¼ë¡œí•œ ë°ë¯¸ì§€ ë²”ìœ„(ë¯¸í„°)
+// nDmgType : µ¥¹ÌÁö Å¸ÀÔ ex) AF_MAGICSKILL
+// pAttacker : °ø°İÀÚ(½ÃÀüÀÚ) - ¾ÕÀ¸·Î CCtrl*·Î ¹Ù²ã¾ß ÇÑ´Ù
+// nApplyType : Àû¿ë´ë»ó. ex) OBJTYPE_PLAYER | OBJTYPE_MONSTER
+// nSkill : »ç¿ëÇÑ ½ºÅ³Á¾·ù
+// fRange : Å¸°ÙÀ» Áß½ÉÀ¸·ÎÇÑ µ¥¹ÌÁö ¹üÀ§(¹ÌÅÍ)
 // (&vPos, AF_MAGICSKILL, this, nSkill, 5.0f, 0.0, 1.0f )
 void	CWorld::SendDamageAround( const D3DXVECTOR3 *pvPos, int nDmgType, CMover *pAttacker, int nApplyType, int nAttackID, float fRange )
 {
 #ifdef __WORLDSERVER
-	int nRange	= 4;	// 4, 8, 16 ë‹¨ìœ„ë¡œ ë„£ì.
+	int nRange	= 4;	// 4, 8, 16 ´ÜÀ§·Î ³ÖÀÚ.
 	float fDistSq;
 	CObj* pObj;
 	CMover *pTarget;
@@ -1807,31 +1807,31 @@ void	CWorld::SendDamageAround( const D3DXVECTOR3 *pvPos, int nDmgType, CMover *p
 	else
 		nRange = 64;
 
-	if( fRange <= 0 )	// ë²”ìœ„ê°€ 0ì´ê±°ë‚˜ ìŒìˆ˜ì¼ìˆ˜ëŠ” ì—†ë‹¤.
+	if( fRange <= 0 )	// ¹üÀ§°¡ 0ÀÌ°Å³ª À½¼öÀÏ¼ö´Â ¾ø´Ù.
 		Error( "CWorld::SendDamageAround : D:%d,%d,%d A:%s %d %f", pvPos->x, pvPos->y, pvPos->z, pAttacker->GetName(), nAttackID, fRange );
 
 	ItemProp* pProp;
 	if( nDmgType == AF_MAGICSKILL )
 	{
-		pProp = prj.GetSkillProp( nAttackID );		// UseSkillì—ì„œ ì‚¬ìš©í•œ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
+		pProp = prj.GetSkillProp( nAttackID );		// UseSkill¿¡¼­ »ç¿ëÇÑ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
 		if( pProp == NULL )
 		{
-			Error( "CWorld::SendDamageAround : %s. ìŠ¤í‚¬(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—…ã…‚ë‹¤.", pAttacker->GetName(), nAttackID );
+			Error( "CWorld::SendDamageAround : %s. ½ºÅ³(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾÷¤²´Ù.", pAttacker->GetName(), nAttackID );
 			return;	// property not found
 		}
 	} else
 	{
-		pProp = prj.GetItemProp( nAttackID );		// ì•„ì´í…œ í”„ë¡œí¼í‹°êº¼ëƒ„
+		pProp = prj.GetItemProp( nAttackID );		// ¾ÆÀÌÅÛ ÇÁ·ÎÆÛÆ¼²¨³¿
 		if( pProp == NULL )
 		{
-			Error( "CWorld::SendDamageAround : %s. ì•„ì´í…œ(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—…ã…‚ë‹¤.", pAttacker->GetName(), nAttackID );
+			Error( "CWorld::SendDamageAround : %s. ¾ÆÀÌÅÛ(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾÷¤²´Ù.", pAttacker->GetName(), nAttackID );
 			return;	// property not found
 		}
 	}
 	
 	BOOL	bDamage = FALSE;
 
-	if( nApplyType & OBJTYPE_PLAYER )	// ì ìš©ëŒ€ìƒì´ í”Œë ˆì´ì–´ì¸ê°€ 
+	if( nApplyType & OBJTYPE_PLAYER )	// Àû¿ë´ë»óÀÌ ÇÃ·¹ÀÌ¾îÀÎ°¡ 
 	{
 		FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkPlayer, pAttacker->GetLayer() )
 		{
@@ -1841,18 +1841,18 @@ void	CWorld::SendDamageAround( const D3DXVECTOR3 *pvPos, int nDmgType, CMover *p
 				{
 					bDamage = TRUE;
 				} else
-				// ê³µê²©ìê°€ ëª¬ìŠ¤í„°
+				// °ø°İÀÚ°¡ ¸ó½ºÅÍ
 				{
 					bDamage = TRUE;
 				}
 
 				if( bDamage )
 				{
-					vDist = pObj->GetPos() - vPos;		// this -> íƒ€ê²Ÿê¹Œì§€ì˜ ë²¡í„°
+					vDist = pObj->GetPos() - vPos;		// this -> Å¸°Ù±îÁöÀÇ º¤ÅÍ
 					fDistSq = D3DXVec3LengthSq( &vDist );
-					if( fDistSq < fRange * fRange )		// íƒ€ê²Ÿê³¼ì˜ ê±°ë¦¬ê°€ fRangeë¯¸í„° ì´ë‚´ì¸ê²ƒì„ ëŒ€ìƒìœ¼ë¡œ.
+					if( fDistSq < fRange * fRange )		// Å¸°Ù°úÀÇ °Å¸®°¡ fRange¹ÌÅÍ ÀÌ³»ÀÎ°ÍÀ» ´ë»óÀ¸·Î.
 					{
-						if( pObj != pAttacker )		// ì–´íƒœì»¤ëŠ” ê²€ìƒ‰ëŒ€ìƒì—ì„œ ì œì™¸.
+						if( pObj != pAttacker )		// ¾îÅÂÄ¿´Â °Ë»ö´ë»ó¿¡¼­ Á¦¿Ü.
 						{
 							pTarget = (CMover *)pObj;
 							if( IsValidObj( (CObj*)pTarget ) && pTarget->IsLive() )
@@ -1865,25 +1865,25 @@ void	CWorld::SendDamageAround( const D3DXVECTOR3 *pvPos, int nDmgType, CMover *p
 						}
 					}
 					
-					bDamage = FALSE;	// ë‹¤ìŒ ë£¨í”„ë¥¼ ìœ„í•´ì„œ ì´ˆê¸°í™”.
+					bDamage = FALSE;	// ´ÙÀ½ ·çÇÁ¸¦ À§ÇØ¼­ ÃÊ±âÈ­.
 				} // bDamage
 			}
 		}
 		END_LINKMAP
 	}
 
-	// ì ìš©ëŒ€ìƒì´ ëª¬ìŠ¤í„°ì¸ê°€.
+	// Àû¿ë´ë»óÀÌ ¸ó½ºÅÍÀÎ°¡.
 	if( nApplyType & OBJTYPE_MONSTER )
 	{
 		FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkDynamic, pAttacker->GetLayer() )
 		{
 			if( pObj->GetType() == OT_MOVER && ((CMover *)pObj)->IsPeaceful() == FALSE )
 			{
-				vDist = pObj->GetPos() - vPos;		// this -> íƒ€ê²Ÿê¹Œì§€ì˜ ë²¡í„°
+				vDist = pObj->GetPos() - vPos;		// this -> Å¸°Ù±îÁöÀÇ º¤ÅÍ
 				fDistSq = D3DXVec3LengthSq( &vDist );
-				if( fDistSq < fRange * fRange )		// íƒ€ê²Ÿê³¼ì˜ ê±°ë¦¬ê°€ fRangeë¯¸í„° ì´ë‚´ì¸ê²ƒì„ ëŒ€ìƒìœ¼ë¡œ.
+				if( fDistSq < fRange * fRange )		// Å¸°Ù°úÀÇ °Å¸®°¡ fRange¹ÌÅÍ ÀÌ³»ÀÎ°ÍÀ» ´ë»óÀ¸·Î.
 				{
-					if( pObj != pAttacker )		// ê³µê²©ìëŠ” ê²€ì‚¬ëŒ€ìƒì—ì„œ ì œì™¸.
+					if( pObj != pAttacker )		// °ø°İÀÚ´Â °Ë»ç´ë»ó¿¡¼­ Á¦¿Ü.
 					{
 						pTarget = (CMover *)pObj;
 						if( IsValidObj( (CObj*)pTarget ) && pTarget->IsLive() )

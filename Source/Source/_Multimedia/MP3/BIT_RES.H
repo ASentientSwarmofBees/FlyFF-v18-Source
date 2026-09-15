@@ -1,4 +1,4 @@
-﻿#ifndef BIT_RES_H
+#ifndef BIT_RES_H
 #define BIT_RES_H
 
 #define BUFSIZE 4096

@@ -1,4 +1,4 @@
-﻿#ifndef __NETHDR_H__
+#ifndef __NETHDR_H__
 #define __NETHDR_H__
 
 #define PORT_WORLDSERVER	(u_short)2002

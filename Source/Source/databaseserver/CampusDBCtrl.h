@@ -1,4 +1,4 @@
-﻿// CampusDBCtrl.h: interface for the CCampusDBCtrl class.
+// CampusDBCtrl.h: interface for the CCampusDBCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 

@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include <dxerr9.h>
 #include "defineObj.h"
 #include "path.h"
@@ -14,35 +14,35 @@
 LARGE_INTEGER		g_lnFreq;
 LARGE_INTEGER		g_lnPrev, g_lnCurr;
 
-double		g_dUps;		// update per sec - í™”ë©´ ê°±ì‹  ì‹œê°„
-//double		g_dKps;		// key per sec - í•œ ì• ë‹ˆë©”ì´ì…˜ í‚¤ê°€ ë„˜ì–´ê°€ëŠ”ë° ê¸°ë‹¤ë¦¬ëŠ” ì‹œê°„
-//DWORD	g_tmCurrent = 0;		// ì „ì—­ìœ¼ë¡œ ì‚¬ìš©í•  í˜„ì¬ ì‹œê°„.
+double		g_dUps;		// update per sec - È­¸é °»½Å ½Ã°£
+//double		g_dKps;		// key per sec - ÇÑ ¾Ö´Ï¸ŞÀÌ¼Ç Å°°¡ ³Ñ¾î°¡´Âµ¥ ±â´Ù¸®´Â ½Ã°£
+//DWORD	g_tmCurrent = 0;		// Àü¿ªÀ¸·Î »ç¿ëÇÒ ÇöÀç ½Ã°£.
 
-//int		g_nRenderCnt = 0;	// ë Œë”í™”ë©´ë•Œë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜
-//int		g_nProcessCnt = 0;	// í”„ë¡œì„¸ìŠ¤ë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜.
+//int		g_nRenderCnt = 0;	// ·»´õÈ­¸é¶§¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö
+//int		g_nProcessCnt = 0;	// ÇÁ·Î¼¼½º¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö.
 
 void	InitUPS( void )
 {
-//	g_dKps = (double)1 / 60;	 								// í•œê°œì˜ ì• ë‹ˆë©”ì´ì…˜ í‚¤ê°€ ë„˜ì–´ê°€ëŠ”ë° ê±¸ë¦¬ëŠ” ì‹œê°„.
-	QueryPerformanceFrequency( &g_lnFreq );			// ì´ˆë‹¹ ì£¼íŒŒìˆ˜ ê³„ì‚°
+//	g_dKps = (double)1 / 60;	 								// ÇÑ°³ÀÇ ¾Ö´Ï¸ŞÀÌ¼Ç Å°°¡ ³Ñ¾î°¡´Âµ¥ °É¸®´Â ½Ã°£.
+	QueryPerformanceFrequency( &g_lnFreq );			// ÃÊ´ç ÁÖÆÄ¼ö °è»ê
 
-	QueryPerformanceCounter( &g_lnCurr );				// ì¹´ìš´í„°ë¥¼ ë˜‘ê°™ì´ ë§ì¶˜ë‹¤.
+	QueryPerformanceCounter( &g_lnCurr );				// Ä«¿îÅÍ¸¦ ¶È°°ÀÌ ¸ÂÃá´Ù.
 	g_lnPrev = g_lnCurr;
 }
-// í•œ í™”ë©´ ê°±ì‹ ì— ê±¸ë¦¬ëŠ” ì‹œê°„ ê³„ì‚°
+// ÇÑ È­¸é °»½Å¿¡ °É¸®´Â ½Ã°£ °è»ê
 void	CalcUPS( void )
 {
 	g_lnPrev = g_lnCurr;
 	QueryPerformanceCounter( &g_lnCurr );
-	// ì´ì „ í™”ë©´ì—ì„œ ì§€ê¸ˆ í™”ë©´ê¹Œì§€ ê±¸ë¦° ì‹œê°„
+	// ÀÌÀü È­¸é¿¡¼­ Áö±İ È­¸é±îÁö °É¸° ½Ã°£
 	g_dUps = (double)(g_lnCurr.QuadPart - g_lnPrev.QuadPart) / g_lnFreq.QuadPart;		
 }
 
 float g_fHairLight  = 1.5f;
 float s_fDiffuse[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
 float s_fAmbient[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-D3DXVECTOR4 s_vLight( 0.0f, 0.0f, 1.0f, 0.0f );		// ë¼ì´íŠ¸ ë²¡í„°
-D3DXVECTOR4 s_vLightPos( 0.0f, 5000.0f, 0.0f, 0.0f );		// ë¼ì´íŠ¸ í¬ì§€ì…˜
+D3DXVECTOR4 s_vLight( 0.0f, 0.0f, 1.0f, 0.0f );		// ¶óÀÌÆ® º¤ÅÍ
+D3DXVECTOR4 s_vLightPos( 0.0f, 5000.0f, 0.0f, 0.0f );		// ¶óÀÌÆ® Æ÷Áö¼Ç
 D3DXMATRIX s_mViewProj;		// 
 D3DXMATRIX s_mView;		// 
 D3DXMATRIX s_mProj;		// 
@@ -93,13 +93,13 @@ void	SetTransformProj( const D3DXMATRIX &mProj )
 	s_mProj = mProj;
 }
 
-// ë Œë”ìŠ¤í…Œì´íŠ¸ ë¼ì´íŠ¸ê°€ ì¼œì ¸ìˆëŠ”ê°€ ì•„ë‹Œê°€.
+// ·»´õ½ºÅ×ÀÌÆ® ¶óÀÌÆ®°¡ ÄÑÁ®ÀÖ´Â°¡ ¾Æ´Ñ°¡.
 void	SetLight( BOOL bLight )
 {
 	s_bLight = bLight;
 }
 
-// ë°¤ì´ë©´ íŠ¸ë£¨.
+// ¹ãÀÌ¸é Æ®·ç.
 void	SetNight( BOOL bNight )
 {
 	s_bNight = bNight;
@@ -179,15 +179,15 @@ LPD3DXRENDERTOSURFACE   g_pRenderToSurface = NULL;
 LPDIRECT3DSURFACE9      g_pShadowSurface   = NULL;
 LPDIRECT3DTEXTURE9      g_pShadowTexture   = NULL; 
 
-D3DXMATRIX g_mViewLight;		// ë¹›ìœ¼ë¡œë¶€í„° í”Œë ˆì´ì–´ìª½ìœ¼ë¡œ ë³´ëŠ” ë·° ë§¤íŠ¸ë¦­ìŠ¤.
-D3DXMATRIX g_mShadowProj;		// ì‰ë„ìš° í”„ë¡œì ì…˜
+D3DXMATRIX g_mViewLight;		// ºûÀ¸·ÎºÎÅÍ ÇÃ·¹ÀÌ¾îÂÊÀ¸·Î º¸´Â ºä ¸ÅÆ®¸¯½º.
+D3DXMATRIX g_mShadowProj;		// ½¦µµ¿ì ÇÁ·ÎÁ§¼Ç
 BOOL	g_bShadow = TRUE;
 
-// ì‰ë„ìš°ë§µ í…ìŠ¤ì³ ìƒì„±.
+// ½¦µµ¿ì¸Ê ÅØ½ºÃÄ »ı¼º.
 BOOL CreateShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBufferFormat )
 {  
 #ifndef __WORLDSERVER
-	if ( g_pRenderToSurface )	return TRUE;	// ì´ë¯¸ ìˆìœ¼ë©´ ìƒì„±ì•ˆí•¨.
+	if ( g_pRenderToSurface )	return TRUE;	// ÀÌ¹Ì ÀÖÀ¸¸é »ı¼º¾ÈÇÔ.
 
 	TRACE( "%d", (int)backBufferFormat );
 	HRESULT hr;
@@ -195,19 +195,19 @@ BOOL CreateShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBufferFormat )
 	hr = D3DXCreateTexture( pd3dDevice, SHADOWMAP_WIDTH, SHADOWMAP_HEIGHT, 1, D3DUSAGE_RENDERTARGET, backBufferFormat,  D3DPOOL_DEFAULT, &g_pShadowTexture );
 	if( hr == E_OUTOFMEMORY )
 	{
-		Error( "ì‰ë„ìš° ë§µ ìƒì„±ì¤‘ ë©”ëª¨ë¦¬ ë¶€ì¡± %d, %d", g_Option.m_nShadow, g_Option.m_nTextureQuality );
+		Error( "½¦µµ¿ì ¸Ê »ı¼ºÁß ¸Ş¸ğ¸® ºÎÁ· %d, %d", g_Option.m_nShadow, g_Option.m_nTextureQuality );
 		DeleteShadowMap( pd3dDevice );
 		return FALSE;
 	}
 	if ( hr == D3DERR_OUTOFVIDEOMEMORY )
 	{
-		Error( "ì‰ë„ìš° ë§µ ìƒì„±ì¤‘ ë¹„ë””ì˜¤ ë©”ëª¨ë¦¬ ë¶€ì¡± %d, %d", g_Option.m_nShadow, g_Option.m_nTextureQuality );
+		Error( "½¦µµ¿ì ¸Ê »ı¼ºÁß ºñµğ¿À ¸Ş¸ğ¸® ºÎÁ· %d, %d", g_Option.m_nShadow, g_Option.m_nTextureQuality );
 		DeleteShadowMap( pd3dDevice );
 		return FALSE;
 	}
 	if( FAILED( hr ) )
 	{
-		LPCTSTR szErr = Error( "ì‰ë„ìš° ë§µ ìƒì„± ì—ëŸ¬ %s, %d, %d", DXGetErrorString9(hr), g_Option.m_nShadow, g_Option.m_nTextureQuality );
+		LPCTSTR szErr = Error( "½¦µµ¿ì ¸Ê »ı¼º ¿¡·¯ %s, %d, %d", DXGetErrorString9(hr), g_Option.m_nShadow, g_Option.m_nTextureQuality );
 		ADDERRORMSG( szErr );
 		DeleteShadowMap( pd3dDevice );
 		return FALSE;
@@ -234,12 +234,12 @@ void DeleteShadowMap( LPDIRECT3DDEVICE9 pd3dDevice )
 	SAFE_RELEASE( g_pRenderToSurface );
 	g_bShadow = FALSE;
 }
-// ì‰ë„ìš°ë§µìš© ë Œë”íƒ€ê²Ÿì— ì‰ë„ìš°ë§µ ë Œë”ë§
+// ½¦µµ¿ì¸Ê¿ë ·»´õÅ¸°Ù¿¡ ½¦µµ¿ì¸Ê ·»´õ¸µ
 void RenderShadowMap( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 }
 
-// ë””ë²„ê¹…ìš© ì‰ë„ìš°ë§µì°½ì„ ê·¸ë¦°ë‹¤.
+// µğ¹ö±ë¿ë ½¦µµ¿ì¸ÊÃ¢À» ±×¸°´Ù.
 void RenderShadowMapInfo( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 	pd3dDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, FALSE );
@@ -272,7 +272,7 @@ void RenderShadowMapInfo( LPDIRECT3DDEVICE9 pd3dDevice )
 
 
 //
-// ê·¸ë¦¼ì ë¦¬ì‹œë²„ë“¤ì„ ë Œë”ë§ í•˜ê¸°ì „ì— ì´ê²ƒì„ í˜¸ì¶œí•œë‹¤.
+// ±×¸²ÀÚ ¸®½Ã¹öµéÀ» ·»´õ¸µ ÇÏ±âÀü¿¡ ÀÌ°ÍÀ» È£ÃâÇÑ´Ù.
 //
 void SetStateShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, int nShadowStage, const D3DXMATRIX &mView )
 {
@@ -307,7 +307,7 @@ void SetStateShadowMap( LPDIRECT3DDEVICE9 pd3dDevice, int nShadowStage, const D3
 	hr = pd3dDevice->SetTextureStageState( nShadowStage, D3DTSS_TEXCOORDINDEX, D3DTSS_TCI_CAMERASPACEPOSITION );
 	hr = pd3dDevice->SetTextureStageState( nShadowStage, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_COUNT3 | D3DTTFF_PROJECTED );
 	hr = pd3dDevice->SetTransform( (D3DTRANSFORMSTATETYPE)(D3DTS_TEXTURE0 + nShadowStage), &mShadowUV );
-	// ì—¬ê¸°ê¹Œì§€ ê´œì°®ìŒ.
+	// ¿©±â±îÁö ±¦ÂúÀ½.
 	hr = pd3dDevice->SetTextureStageState( nShadowStage, D3DTSS_COLORARG1, D3DTA_TEXTURE );
 	hr = pd3dDevice->SetTextureStageState( nShadowStage, D3DTSS_COLORARG2, D3DTA_CURRENT );
 	hr = pd3dDevice->SetTextureStageState( nShadowStage, D3DTSS_COLOROP, D3DTOP_MODULATE );
@@ -429,7 +429,7 @@ void	CPartsFire::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorld 
 		pSfxModel = m_pList[i];
 		if( pSfxModel == NULL )		continue;
 		
-		if( pSfxModel->Process() )	// 1play ëë‚¨.
+		if( pSfxModel->Process() )	// 1play ³¡³².
 		{
 			SAFE_DELETE(m_pList[i]);
 			continue;
@@ -474,7 +474,7 @@ void	CPartsFire::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorld 
 		pSfxModel = m_pList_2[i];
 		if( pSfxModel == NULL )		continue;
 		
-		if( pSfxModel->Process() )	// 1play ëë‚¨.
+		if( pSfxModel->Process() )	// 1play ³¡³².
 		{
 			SAFE_DELETE(m_pList_2[i]);
 			continue;
@@ -584,7 +584,7 @@ void CPartsFireDragon::Process( LPDIRECT3DDEVICE9 pd3dDevice )
 										 D3DPOOL_MANAGED, &m_pParticleVB, NULL );
 
 	if( FAILED(hr) )
-		Error( "CreateShadowMask : ë²„í…ìŠ¤ ë²„í¼ ìƒì„± ì‹¤íŒ¨" );
+		Error( "CreateShadowMask : ¹öÅØ½º ¹öÆÛ »ı¼º ½ÇÆĞ" );
 
 	FIREVERTEX *pVertex;
 	hr = m_pParticleVB->Lock(0, MAX_PARTS_FIRE_DRAGON * 6 * sizeof(FIREVERTEX), (void **)&pVertex, 0);
@@ -723,7 +723,7 @@ HRESULT CPartsFireDragon::RestoreDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 
 	if( hr == E_FAIL )
 	{
-		Error( "%s ì½ê¸° ì‹¤íŒ¨", MakePath( DIR_SFXTEX, szFileName ) );
+		Error( "%s ÀĞ±â ½ÇÆĞ", MakePath( DIR_SFXTEX, szFileName ) );
 	}
 	return S_OK;
 }
@@ -767,18 +767,18 @@ void CPartsBeam :: Create( const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, float f
 	m_nMax ++;
 }
 
-// ì—°ì†ìœ¼ë¡œ ë¹”ìƒì„±.
-// ìµœì´ˆ ë°œìƒì§€ì ì€ ì›ì .
+// ¿¬¼ÓÀ¸·Î ºö»ı¼º.
+// ÃÖÃÊ ¹ß»ıÁöÁ¡Àº ¿øÁ¡.
 void CPartsBeam :: Create( const D3DXVECTOR3 &v )
 {
 	if( m_nMax >= MAX_BEAM )	m_nMax = 0;
-	if( m_bActive == FALSE )	// ìµœì´ˆ ì‹œì‘.
+	if( m_bActive == FALSE )	// ÃÖÃÊ ½ÃÀÛ.
 	{
-		m_vBeam[ 0 ] = v;	// ìµœì´ˆ ì‹œì‘ìœ„ì¹˜
+		m_vBeam[ 0 ] = v;	// ÃÖÃÊ ½ÃÀÛÀ§Ä¡
 		m_bActive = TRUE;
 	} else
 	{
-		m_vBeam[ m_nMax * 2 + 0 ] = m_vLast;		// ì‹œì‘ì¢Œí‘œëŠ” ë°”ë¡œ ì´ì „ ë¹”ì˜ ë§ˆì§€ë§‰ ì¢Œí‘œë¡œ í•œë‹¤.
+		m_vBeam[ m_nMax * 2 + 0 ] = m_vLast;		// ½ÃÀÛÁÂÇ¥´Â ¹Ù·Î ÀÌÀü ºöÀÇ ¸¶Áö¸· ÁÂÇ¥·Î ÇÑ´Ù.
 	}
 
 	m_vBeam[ m_nMax * 2 + 1 ] = v;
@@ -797,13 +797,13 @@ void CPartsBeam :: Create( const D3DXVECTOR3 &v )
 	m_nMax ++;
 }
 
-// ë‘ì  ì‚¬ì´ì˜ ì„ì˜ì˜ ì ì—ì„œ ë¹”ì„ ìƒì„±ì‹œí‚´.
+// µÎÁ¡ »çÀÌÀÇ ÀÓÀÇÀÇ Á¡¿¡¼­ ºöÀ» »ı¼º½ÃÅ´.
 void	CPartsBeam :: Generate( const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, int nLevel )
 {
 /*
 	D3DXVECTOR3 v;
 	FLOAT		fSlp = xRandomF(1);
-	D3DXVec3Lerp( &v, &g_vForce1, &g_vForce2, fSlp );		// ê²€ê´‘ ì‚¬ì´ì˜ ì„ì˜ì˜ ì  ì„ íƒ
+	D3DXVec3Lerp( &v, &g_vForce1, &g_vForce2, fSlp );		// °Ë±¤ »çÀÌÀÇ ÀÓÀÇÀÇ Á¡ ¼±ÅÃ
 	
 	v.x += ((2.0f - xRandomF(4)) / 20.0f);
 	v.y += ((2.0f - xRandomF(4)) / 20.0f);
@@ -815,21 +815,21 @@ void	CPartsBeam :: Generate( const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, int n
 	D3DXVECTOR3 v, vv;
 	float fSize = 0.025f + (xRandomF(1) / 10.0f);
 
-	D3DXVec3Lerp( &v, &v1, &v2, 0.25f );		// ê²€ê´‘ ì‚¬ì´ì˜ ì„ì˜ì˜ ì  ì„ íƒ
+	D3DXVec3Lerp( &v, &v1, &v2, 0.25f );		// °Ë±¤ »çÀÌÀÇ ÀÓÀÇÀÇ Á¡ ¼±ÅÃ
 	v.x += ((2.0f - xRandomF(4)) / 20.0f);
 	v.y += ((2.0f - xRandomF(4)) / 20.0f);
 	v.z += ((2.0f - xRandomF(4)) / 20.0f);
 	Create( v1, v, fSize, nLevel );
 	vv = v;
 
-	D3DXVec3Lerp( &v, &v1, &v2, 0.5f );		// ê²€ê´‘ ì‚¬ì´ì˜ ì„ì˜ì˜ ì  ì„ íƒ
+	D3DXVec3Lerp( &v, &v1, &v2, 0.5f );		// °Ë±¤ »çÀÌÀÇ ÀÓÀÇÀÇ Á¡ ¼±ÅÃ
 	v.x += ((2.0f - xRandomF(4)) / 20.0f);
 	v.y += ((2.0f - xRandomF(4)) / 20.0f);
 	v.z += ((2.0f - xRandomF(4)) / 20.0f);
 	Create( vv, v, fSize, nLevel );
 	vv = v;
 	
-	D3DXVec3Lerp( &v, &v1, &v2, 0.75f );		// ê²€ê´‘ ì‚¬ì´ì˜ ì„ì˜ì˜ ì  ì„ íƒ
+	D3DXVec3Lerp( &v, &v1, &v2, 0.75f );		// °Ë±¤ »çÀÌÀÇ ÀÓÀÇÀÇ Á¡ ¼±ÅÃ
 	v.x += ((2.0f - xRandomF(4)) / 20.0f);
 	v.y += ((2.0f - xRandomF(4)) / 20.0f);
 	v.z += ((2.0f - xRandomF(4)) / 20.0f);
@@ -842,7 +842,7 @@ void	CPartsBeam :: Generate( const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, int n
 void CPartsBeam :: Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorld, const D3DXVECTOR3 &vEye, const D3DXVECTOR3 &vForward,
 					  const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, int nLevel )
 {
-	Generate( v1, v2, nLevel );		// ë²ˆê°œ ì´í™íŠ¸ ìƒì„±.
+	Generate( v1, v2, nLevel );		// ¹ø°³ ÀÌÆåÆ® »ı¼º.
 
 	if( m_bActive == FALSE )	return;
 	int		i;
@@ -882,18 +882,18 @@ void CPartsBeam :: Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorl
 	for( i = 0; i < MAX_BEAM; i ++ )
 	{
 		if( m_vCenter[i].x == 0 )	continue;
-		D3DXVECTOR3 vB = m_vBeam[i * 2 + 0] - m_vBeam[i * 2 + 1];		// ë¹”ì˜ ë°©í–¥ë²¡í„°.
-		D3DXVECTOR3 vE = vEye - m_vBeam[i * 2 + 0];	// ì¹´ë©”ë¼ì—ì„œ ë¹”ì˜ ì‹œì‘ì ì„ ë°”ë¼ë³´ëŠ” ë²¡í„°
+		D3DXVECTOR3 vB = m_vBeam[i * 2 + 0] - m_vBeam[i * 2 + 1];		// ºöÀÇ ¹æÇâº¤ÅÍ.
+		D3DXVECTOR3 vE = vEye - m_vBeam[i * 2 + 0];	// Ä«¸Ş¶ó¿¡¼­ ºöÀÇ ½ÃÀÛÁ¡À» ¹Ù¶óº¸´Â º¤ÅÍ
 		D3DXVECTOR3 vP;
-		D3DXVec3Cross( &vP, &vB, &vE );		// ë¹”ë°©í–¥ë²¡í„°ì™€ ì‹œì„ ë²¡í„°ì˜ ì™¸ì .
+		D3DXVec3Cross( &vP, &vB, &vE );		// ºö¹æÇâº¤ÅÍ¿Í ½Ã¼±º¤ÅÍÀÇ ¿ÜÀû.
 
-		D3DXVECTOR3 vF = vForward;		// ì•ìª½ ë²¡í„°.
+		D3DXVECTOR3 vF = vForward;		// ¾ÕÂÊ º¤ÅÍ.
 		D3DXVECTOR3 vFxP;
 		D3DXVec3Cross( &vFxP, &vF, &vP );
 		D3DXVec3Normalize( &vFxP, &vFxP );
 
 		D3DXVECTOR3 vR;
-		D3DXVec3Cross( &vR, &vF, &vFxP );		// ì˜¤ë¥¸ìª½ ë²¡í„°
+		D3DXVec3Cross( &vR, &vF, &vFxP );		// ¿À¸¥ÂÊ º¤ÅÍ
 
 		D3DXMATRIX m1, m2;
 		m1._31 = vF.x;	m1._21 = vFxP.x;	m1._11 = vR.x;		m1._41 = m_vBeam[i * 2 + 0].x;
@@ -981,7 +981,7 @@ HRESULT CPartsLaser::RestoreDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 
 void CPartsLaser::Create( const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, float fSize )
 {
-	m_vBeam[0] = v1;	// ë ˆì´ì € ì‹œì‘ê³¼ ëì .
+	m_vBeam[0] = v1;	// ·¹ÀÌÀú ½ÃÀÛ°ú ³¡Á¡.
 	m_vBeam[1] = v2;
 	m_fSize = fSize;
 	
@@ -990,19 +990,19 @@ void CPartsLaser::Create( const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, float fS
 
 void CPartsLaser::SetPos( const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, float fSize )
 {
-	FLOAT fExtent = 0.875f + (sinf( m_fRadian ) / 8.0f);	// 0.875 + -0.125 ~ 0.125(0.25ë²”ìœ„)
-	fSize *= fExtent;			// ê¸°ë³¸í­ì„ í¼ì„¼íŠ¸ë¡œ ì•½ê°„ì”© ì¡°ì ˆí•¨.
-	Create( v1, v2, fSize );	// ë ˆì´ì € ì´í™íŠ¸ ìƒì„±.
+	FLOAT fExtent = 0.875f + (sinf( m_fRadian ) / 8.0f);	// 0.875 + -0.125 ~ 0.125(0.25¹üÀ§)
+	fSize *= fExtent;			// ±âº»ÆøÀ» ÆÛ¼¾Æ®·Î ¾à°£¾¿ Á¶ÀıÇÔ.
+	Create( v1, v2, fSize );	// ·¹ÀÌÀú ÀÌÆåÆ® »ı¼º.
 }
 
 //
-// v1, v2 ë ˆì´ì € ì‹œì‘ê³¼ ë. ë¡œì»¬ì¢Œí‘œ
-// fSize : ë ˆì´ì € í­, ì—¬ê¸°ì— ë‚´ë¶€ì ìœ¼ë¡œ ì»¤ì¡Œë‹¤ ì‘ì•„ì¡Œë‹¤í•˜ëŠ” í¬ê¸°ê°€ ë”í•´ì§„ë‹¤.
+// v1, v2 ·¹ÀÌÀú ½ÃÀÛ°ú ³¡. ·ÎÄÃÁÂÇ¥
+// fSize : ·¹ÀÌÀú Æø, ¿©±â¿¡ ³»ºÎÀûÀ¸·Î Ä¿Á³´Ù ÀÛ¾ÆÁ³´ÙÇÏ´Â Å©±â°¡ ´õÇØÁø´Ù.
 //
 void CPartsLaser :: Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWorld, const D3DXVECTOR3 &vEye, const D3DXVECTOR3 &vForward
 					  /*const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, FLOAT fSize*/ )
 {
-//	Generate( v1, v2 );		// ë ˆì´ì € ì´í™íŠ¸ ìƒì„±.
+//	Generate( v1, v2 );		// ·¹ÀÌÀú ÀÌÆåÆ® »ı¼º.
 
 	if( m_bActive == FALSE )	return;
 	m_fRadian += 0.2f;
@@ -1044,18 +1044,18 @@ void CPartsLaser :: Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX *mWor
 
 	{
 //		if( m_vCenter[i].x == 0 )	continue;
-		D3DXVECTOR3 vB = m_vBeam[0] - m_vBeam[1];		// ë¹”ì˜ ë°©í–¥ë²¡í„°.
-		D3DXVECTOR3 vE = vEye - m_vBeam[0];	// ì¹´ë©”ë¼ì—ì„œ ë¹”ì˜ ì‹œì‘ì ì„ ë°”ë¼ë³´ëŠ” ë²¡í„°
+		D3DXVECTOR3 vB = m_vBeam[0] - m_vBeam[1];		// ºöÀÇ ¹æÇâº¤ÅÍ.
+		D3DXVECTOR3 vE = vEye - m_vBeam[0];	// Ä«¸Ş¶ó¿¡¼­ ºöÀÇ ½ÃÀÛÁ¡À» ¹Ù¶óº¸´Â º¤ÅÍ
 		D3DXVECTOR3 vP;
-		D3DXVec3Cross( &vP, &vB, &vE );		// ë¹”ë°©í–¥ë²¡í„°ì™€ ì‹œì„ ë²¡í„°ì˜ ì™¸ì .
+		D3DXVec3Cross( &vP, &vB, &vE );		// ºö¹æÇâº¤ÅÍ¿Í ½Ã¼±º¤ÅÍÀÇ ¿ÜÀû.
 
-		D3DXVECTOR3 vF = vForward;		// ì•ìª½ ë²¡í„°.
+		D3DXVECTOR3 vF = vForward;		// ¾ÕÂÊ º¤ÅÍ.
 		D3DXVECTOR3 vFxP;
 		D3DXVec3Cross( &vFxP, &vF, &vP );
 		D3DXVec3Normalize( &vFxP, &vFxP );
 
 		D3DXVECTOR3 vR;
-		D3DXVec3Cross( &vR, &vF, &vFxP );		// ì˜¤ë¥¸ìª½ ë²¡í„°
+		D3DXVec3Cross( &vR, &vF, &vFxP );		// ¿À¸¥ÂÊ º¤ÅÍ
 
 		D3DXMATRIX m1, m2;
 		m1._31 = vF.x;	m1._21 = vFxP.x;	m1._11 = vR.x;		m1._41 = m_vBeam[0].x;
@@ -1263,7 +1263,7 @@ void CTextureSurface::Destroy( void )
 
 HRESULT CTextureSurface::Create( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBufferFormat, int nWidth, int nHeight, BOOL bDepth )
 {
-	if ( m_pRenderToSurface )	return E_FAIL;	// ì´ë¯¸ ìˆìœ¼ë©´ ìƒì„±ì•ˆí•¨.
+	if ( m_pRenderToSurface )	return E_FAIL;	// ÀÌ¹Ì ÀÖÀ¸¸é »ı¼º¾ÈÇÔ.
 	
 	HRESULT hr;
 	if( bDepth )
@@ -1311,16 +1311,16 @@ HRESULT CTextureSurface::Create( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBuf
 		SURFACE_VERTEX	vTris[4];
 		
 		vTris[0].x = 0;					vTris[0].y = 0;							vTris[0].z = 0;		vTris[0].w = 1.0f;
-		vTris[0].tu = 0;				vTris[0].tv = 0;		// ì¢Œìƒê·€
+		vTris[0].tu = 0;				vTris[0].tv = 0;		// ÁÂ»ó±Í
 		
 		vTris[1].x = (float)( nWidth );	vTris[1].y = 0;							vTris[1].z = 0;		vTris[1].w = 1.0f;		
-		vTris[1].tu = 1.0f;				vTris[1].tv = 0;		// ìš°ìƒê·€
+		vTris[1].tu = 1.0f;				vTris[1].tv = 0;		// ¿ì»ó±Í
 		
 		vTris[2].x = (float)( nWidth );	vTris[2].y = (float)( nHeight );		vTris[2].z = 0;		vTris[2].w =  1.0f;
-		vTris[2].tu = 1.0f;				vTris[2].tv = 1.0f;		// ìš°í•˜ê·€
+		vTris[2].tu = 1.0f;				vTris[2].tv = 1.0f;		// ¿ìÇÏ±Í
 		
 		vTris[3].x = 0;					vTris[3].y = (float)( nHeight );		vTris[3].z = 0;		vTris[3].w = 1.0f;
-		vTris[3].tu = 0;				vTris[3].tv = 1.0f;		// ì¢Œí•˜ê·€
+		vTris[3].tu = 0;				vTris[3].tv = 1.0f;		// ÁÂÇÏ±Í
 
 		
 //		LPDIRECT3DVERTEXBUFFER9		m_pd3dVB;
@@ -1332,7 +1332,7 @@ HRESULT CTextureSurface::Create( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBuf
 											D3DPOOL_MANAGED, &m_pd3dVB, NULL );
 		if( FAILED(hr) )
 		{
-			Error( "CTextureSurface::Create : ë²„í…ìŠ¤ ë²„í¼ ìƒì„± ì‹¤íŒ¨" );
+			Error( "CTextureSurface::Create : ¹öÅØ½º ¹öÆÛ »ı¼º ½ÇÆĞ" );
 			return E_FAIL;
 		}
 		
@@ -1340,7 +1340,7 @@ HRESULT CTextureSurface::Create( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBuf
 		hr = m_pd3dVB->Lock(0, 4 * sizeof(SURFACE_VERTEX), (void **)&pVertex, 0);
 		if( FAILED(hr) )
 		{
-			Error( "CTextureSurface::Create : ë½ ì‹¤íŒ¨" );
+			Error( "CTextureSurface::Create : ¶ô ½ÇÆĞ" );
 			return E_FAIL;
 		}
 		memcpy( pVertex, vTris, sizeof(SURFACE_VERTEX) * 4 );
@@ -1470,7 +1470,7 @@ void CTextureSurface::DownSampling( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSurfac
 
 }
 
-// í˜„ì¬ ë””ë°”ì´ìŠ¤ì— m_pTextureë‚´ìš©ì„ ì¹´í”¼í•˜ëŠ” ì¼ë°˜ì ì¸ ë Œë”ë§.
+// ÇöÀç µğ¹ÙÀÌ½º¿¡ m_pTexture³»¿ëÀ» Ä«ÇÇÇÏ´Â ÀÏ¹İÀûÀÎ ·»´õ¸µ.
 void CTextureSurface::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSurface *pDst, BOOL bBlend )
 {
 	int nWidth = m_nWidth;
@@ -1490,25 +1490,25 @@ void CTextureSurface::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSurfac
 		memset( vTris, 0, sizeof(vTris) );
 
 		vTris[0].x = -0.0;					vTris[0].y = -0.0;						vTris[0].z = 0;		vTris[0].w = 1.0f;
-		vTris[0].tu = 0;					vTris[0].tv = 0;		// ì¢Œìƒê·€
+		vTris[0].tu = 0;					vTris[0].tv = 0;		// ÁÂ»ó±Í
 		
 		vTris[1].x = (float)( nWidth-0.0 );	vTris[1].y = -0.0;						vTris[1].z = 0;		vTris[1].w = 1.0f;		
-		vTris[1].tu = 1.0f;					vTris[1].tv = 0.0;		// ìš°ìƒê·€
+		vTris[1].tu = 1.0f;					vTris[1].tv = 0.0;		// ¿ì»ó±Í
 		
 		vTris[2].x = (float)( nWidth-0.0 );	vTris[2].y = (float)( nHeight-0.0 );	vTris[2].z = 0;		vTris[2].w =  1.0f;
-		vTris[2].tu = 1.0f;					vTris[2].tv = 1.0f;		// ìš°í•˜ê·€
+		vTris[2].tu = 1.0f;					vTris[2].tv = 1.0f;		// ¿ìÇÏ±Í
 		
 		vTris[3].x = -0.0;					vTris[3].y = (float)( nHeight-0.0 );	vTris[3].z = 0;		vTris[3].w = 1.0f;
-		vTris[3].tu = 0.0f;					vTris[3].tv = 1.0f;		// ì¢Œí•˜ê·€
+		vTris[3].tu = 0.0f;					vTris[3].tv = 1.0f;		// ÁÂÇÏ±Í
 
 		HRESULT	hr;
 
-		// ì´ë¶€ë¶„ì€ ë°–ìœ¼ë¡œ ë¹ ì ¸ì•¼ í•œë‹¤.
+		// ÀÌºÎºĞÀº ¹ÛÀ¸·Î ºüÁ®¾ß ÇÑ´Ù.
 		SURFACE_VERTEX *pVertex;
 		hr = m_pd3dVB->Lock(0, 4 * sizeof(SURFACE_VERTEX), (void **)&pVertex, 0);
 		if( FAILED(hr) )
 		{
-			Error( "CTextureSurface::Create : ë½ ì‹¤íŒ¨" );
+			Error( "CTextureSurface::Create : ¶ô ½ÇÆĞ" );
 			return;
 		}
 		memcpy( pVertex, vTris, sizeof(SURFACE_VERTEX) * 4 );
@@ -1582,8 +1582,8 @@ void CTextureSurface::RenderNormal( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSurfac
 	pd3dDevice->SetRenderState( D3DRS_LIGHTING, TRUE );
 }
 
-// this Surfaceë‚´ìš©ì„ pDstì„œí”¼ìŠ¤ì— ë Œë”ë§ í•˜ëŠ”ë°...
-// Blurë¥¼ ì ìš©í•˜ì—¬ ë Œë”ë§ í•œë‹¤.
+// this Surface³»¿ëÀ» pDst¼­ÇÇ½º¿¡ ·»´õ¸µ ÇÏ´Âµ¥...
+// Blur¸¦ Àû¿ëÇÏ¿© ·»´õ¸µ ÇÑ´Ù.
 void CTextureSurface::RenderTargetBlur( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSurface *pDst)
 {
 	HRESULT	hr;
@@ -1595,16 +1595,16 @@ void CTextureSurface::RenderTargetBlur( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSu
 		memset( vTris, 0, sizeof(vTris) );
 
 		vTris[0].x = -0.0;							vTris[0].y = -0.0;								vTris[0].z = 0;		vTris[0].w = 1.0f;
-		vTris[0].tu = 0;							vTris[0].tv = 0;		// ì¢Œìƒê·€
+		vTris[0].tu = 0;							vTris[0].tv = 0;		// ÁÂ»ó±Í
 		
 		vTris[1].x = (float)( pDst->m_nWidth-0.0 );	vTris[1].y = -0.0;								vTris[1].z = 0;		vTris[1].w = 1.0f;		
-		vTris[1].tu = 1.0f;							vTris[1].tv = 0.0;		// ìš°ìƒê·€
+		vTris[1].tu = 1.0f;							vTris[1].tv = 0.0;		// ¿ì»ó±Í
 		
 		vTris[2].x = (float)( pDst->m_nWidth-0.0 );	vTris[2].y = (float)( pDst->m_nHeight-0.0 );	vTris[2].z = 0;		vTris[2].w =  1.0f;
-		vTris[2].tu = 1.0f;							vTris[2].tv = 1.0f;		// ìš°í•˜ê·€
+		vTris[2].tu = 1.0f;							vTris[2].tv = 1.0f;		// ¿ìÇÏ±Í
 		
 		vTris[3].x = -0.0;							vTris[3].y = (float)( pDst->m_nHeight-0.0 );		vTris[3].z = 0;		vTris[3].w = 1.0f;
-		vTris[3].tu = 0.0f;							vTris[3].tv = 1.0f;		// ì¢Œí•˜ê·€
+		vTris[3].tu = 0.0f;							vTris[3].tv = 1.0f;		// ÁÂÇÏ±Í
 		
 		//		LPDIRECT3DVERTEXBUFFER9		m_pd3dVB;
 		
@@ -1615,7 +1615,7 @@ void CTextureSurface::RenderTargetBlur( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSu
 		hr = m_pd3dVB->Lock(0, 4 * sizeof(SURFACE_VERTEX), (void **)&pVertex, 0);
 		if( FAILED(hr) )
 		{
-			Error( "CTextureSurface::Create : ë½ ì‹¤íŒ¨" );
+			Error( "CTextureSurface::Create : ¶ô ½ÇÆĞ" );
 			return;
 		}
 		memcpy( pVertex, vTris, sizeof(SURFACE_VERTEX) * 4 );
@@ -1692,7 +1692,7 @@ void CTextureSurface::RenderTargetBlur( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSu
 	
 }
 
-// VS,PS ì‚¬ìš©ë²„ì „.
+// VS,PS »ç¿ë¹öÀü.
 void CTextureSurface::RenderTargetBlurH( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSurface *pDst)
 {
 	HRESULT	hr;
@@ -1708,28 +1708,28 @@ void CTextureSurface::RenderTargetBlurH( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
 //		nHeight = 1;
 /*		
 		vTris[0].x = -0.0;		vTris[0].y = -0.0;		vTris[0].z = 0;		vTris[0].w = 1.0f;
-		vTris[0].tu = 0.0f;		vTris[0].tv = 0.0f;		// ì¢Œìƒê·€
+		vTris[0].tu = 0.0f;		vTris[0].tv = 0.0f;		// ÁÂ»ó±Í
 		
 		vTris[1].x = nWidth-0.0;	vTris[1].y = -0.0;		vTris[1].z = 0;		vTris[1].w = 1.0f;		
-		vTris[1].tu = 1.0f;		vTris[1].tv = 0.0f;		// ìš°ìƒê·€
+		vTris[1].tu = 1.0f;		vTris[1].tv = 0.0f;		// ¿ì»ó±Í
 		
 		vTris[2].x = nWidth-0.0;	vTris[2].y = nHeight-0.0;		vTris[2].z = 0;		vTris[2].w =  1.0f;
-		vTris[2].tu = 1.0f;		vTris[2].tv = 1.0f;		// ìš°í•˜ê·€
+		vTris[2].tu = 1.0f;		vTris[2].tv = 1.0f;		// ¿ìÇÏ±Í
 		
 		vTris[3].x = -0.0;			vTris[3].y = nHeight-0.0;		vTris[3].z = 0;		vTris[3].w = 1.0f;
-		vTris[3].tu = 0.0f;		vTris[3].tv = 1.0f;		// ì¢Œí•˜ê·€
+		vTris[3].tu = 0.0f;		vTris[3].tv = 1.0f;		// ÁÂÇÏ±Í
 */
 		vTris[0].x = -1.0f;		vTris[0].y = +1.0f;		vTris[0].z = 0.1f;		vTris[0].w = 1.0f;
-		vTris[0].tu = 0.0f;		vTris[0].tv = 0.0f;		// ì¢Œìƒê·€
+		vTris[0].tu = 0.0f;		vTris[0].tv = 0.0f;		// ÁÂ»ó±Í
 		
 		vTris[1].x = +1.0f;		vTris[1].y = +1.0f;		vTris[1].z = 0.1f;		vTris[1].w = 1.0f;		
-		vTris[1].tu = 1.0f;		vTris[1].tv = 0.0f;		// ìš°ìƒê·€
+		vTris[1].tu = 1.0f;		vTris[1].tv = 0.0f;		// ¿ì»ó±Í
 		
 		vTris[2].x = +1.0f;		vTris[2].y = -1.0f;		vTris[2].z = 0.1f;		vTris[2].w =  1.0f;
-		vTris[2].tu = 1.0f;		vTris[2].tv = 1.0f;		// ìš°í•˜ê·€
+		vTris[2].tu = 1.0f;		vTris[2].tv = 1.0f;		// ¿ìÇÏ±Í
 		
 		vTris[3].x = -1.0f;		vTris[3].y = -1.0f;		vTris[3].z = 0.1f;		vTris[3].w = 1.0f;
-		vTris[3].tu = 0.0f;		vTris[3].tv = 1.0f;		// ì¢Œí•˜ê·€
+		vTris[3].tu = 0.0f;		vTris[3].tv = 1.0f;		// ÁÂÇÏ±Í
 		
 		
 		//		LPDIRECT3DVERTEXBUFFER9		m_pd3dVB;
@@ -1741,7 +1741,7 @@ void CTextureSurface::RenderTargetBlurH( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
 		hr = m_pd3dVB->Lock(0, 4 * sizeof(SURFACE_VERTEX), (void **)&pVertex, 0);
 		if( FAILED(hr) )
 		{
-			Error( "CTextureSurface::Create : ë½ ì‹¤íŒ¨" );
+			Error( "CTextureSurface::Create : ¶ô ½ÇÆĞ" );
 			return;
 		}
 		memcpy( pVertex, vTris, sizeof(SURFACE_VERTEX) * 4 );
@@ -1777,7 +1777,7 @@ void CTextureSurface::RenderTargetBlurH( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
     if( FAILED(hr = pd3dDevice->SetStreamSource(0, m_pd3dVB, 0, sizeof(SURFACE_VERTEX) )) )
         return;
 	
-	// ê°€ë¡œë§Œ
+	// °¡·Î¸¸
 	D3DXVECTOR4 vC0 = D3DXVECTOR4( -0.0009765625f, 0, 0, 0 );
 	D3DXVECTOR4 vC1 = D3DXVECTOR4(			   0, 0, 0, 0 );
 	D3DXVECTOR4 vC2 = D3DXVECTOR4( +0.0009765625f, 0, 0, 0 );
@@ -1795,7 +1795,7 @@ void CTextureSurface::RenderTargetBlurH( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
 	pd3dDevice->SetPixelShaderConstantF( 1, (float*)&vC1, 1 );
 	pd3dDevice->SetPixelShaderConstantF( 2, (float*)&vC2, 1 );
 	
-	// ì„¸ë¡œëŠ” ë”°ë¡œ
+	// ¼¼·Î´Â µû·Î
 
 	pd3dDevice->SetTexture( 0, m_pTexture );
 	pd3dDevice->SetTexture( 1, m_pTexture );
@@ -1824,7 +1824,7 @@ void CTextureSurface::RenderTargetBlurH( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
 	
 }
 
-// VS,PS ì‚¬ìš©ë²„ì „.
+// VS,PS »ç¿ë¹öÀü.
 void CTextureSurface::RenderTargetBlurV( LPDIRECT3DDEVICE9 pd3dDevice, CTextureSurface *pDst)
 {
 	HRESULT	hr;
@@ -1840,28 +1840,28 @@ void CTextureSurface::RenderTargetBlurV( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
 //		nHeight = 1;
 /*		
 		vTris[0].x = -0.0;		vTris[0].y = -0.0;		vTris[0].z = 0;		vTris[0].w = 1.0f;
-		vTris[0].tu = 0.0f;		vTris[0].tv = 0.0f;		// ì¢Œìƒê·€
+		vTris[0].tu = 0.0f;		vTris[0].tv = 0.0f;		// ÁÂ»ó±Í
 		
 		vTris[1].x = nWidth-0.0;	vTris[1].y = -0.0;		vTris[1].z = 0;		vTris[1].w = 1.0f;		
-		vTris[1].tu = 1.0f;		vTris[1].tv = 0.0f;		// ìš°ìƒê·€
+		vTris[1].tu = 1.0f;		vTris[1].tv = 0.0f;		// ¿ì»ó±Í
 		
 		vTris[2].x = nWidth-0.0;	vTris[2].y = nHeight-0.0;		vTris[2].z = 0;		vTris[2].w =  1.0f;
-		vTris[2].tu = 1.0f;		vTris[2].tv = 1.0f;		// ìš°í•˜ê·€
+		vTris[2].tu = 1.0f;		vTris[2].tv = 1.0f;		// ¿ìÇÏ±Í
 		
 		vTris[3].x = -0.0;			vTris[3].y = nHeight-0.0;		vTris[3].z = 0;		vTris[3].w = 1.0f;
-		vTris[3].tu = 0.0f;		vTris[3].tv = 1.0f;		// ì¢Œí•˜ê·€
+		vTris[3].tu = 0.0f;		vTris[3].tv = 1.0f;		// ÁÂÇÏ±Í
 */
 		vTris[0].x = -1.0f;		vTris[0].y = +1.0f;		vTris[0].z = 0.1f;		vTris[0].w = 1.0f;
-		vTris[0].tu = 0.0f;		vTris[0].tv = 0.0f;		// ì¢Œìƒê·€
+		vTris[0].tu = 0.0f;		vTris[0].tv = 0.0f;		// ÁÂ»ó±Í
 		
 		vTris[1].x = +1.0f;		vTris[1].y = +1.0f;		vTris[1].z = 0.1f;		vTris[1].w = 1.0f;		
-		vTris[1].tu = 1.0f;		vTris[1].tv = 0.0f;		// ìš°ìƒê·€
+		vTris[1].tu = 1.0f;		vTris[1].tv = 0.0f;		// ¿ì»ó±Í
 		
 		vTris[2].x = +1.0f;		vTris[2].y = -1.0f;		vTris[2].z = 0.1f;		vTris[2].w =  1.0f;
-		vTris[2].tu = 1.0f;		vTris[2].tv = 1.0f;		// ìš°í•˜ê·€
+		vTris[2].tu = 1.0f;		vTris[2].tv = 1.0f;		// ¿ìÇÏ±Í
 		
 		vTris[3].x = -1.0f;		vTris[3].y = -1.0f;		vTris[3].z = 0.1f;		vTris[3].w = 1.0f;
-		vTris[3].tu = 0.0f;		vTris[3].tv = 1.0f;		// ì¢Œí•˜ê·€
+		vTris[3].tu = 0.0f;		vTris[3].tv = 1.0f;		// ÁÂÇÏ±Í
 		
 		
 		//		LPDIRECT3DVERTEXBUFFER9		m_pd3dVB;
@@ -1873,7 +1873,7 @@ void CTextureSurface::RenderTargetBlurV( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
 		hr = m_pd3dVB->Lock(0, 4 * sizeof(SURFACE_VERTEX), (void **)&pVertex, 0);
 		if( FAILED(hr) )
 		{
-			Error( "CTextureSurface::Create : ë½ ì‹¤íŒ¨" );
+			Error( "CTextureSurface::Create : ¶ô ½ÇÆĞ" );
 			return;
 		}
 		memcpy( pVertex, vTris, sizeof(SURFACE_VERTEX) * 4 );
@@ -1909,7 +1909,7 @@ void CTextureSurface::RenderTargetBlurV( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
     if( FAILED(hr = pd3dDevice->SetStreamSource(0, m_pd3dVB, 0, sizeof(SURFACE_VERTEX) )) )
         return;
 	
-	// ê°€ë¡œë§Œ
+	// °¡·Î¸¸
 	D3DXVECTOR4 vC0 = D3DXVECTOR4( 0, -0.0009765625f, 0, 0 );
 	D3DXVECTOR4 vC1 = D3DXVECTOR4( 0,			  0, 0, 0 );
 	D3DXVECTOR4 vC2 = D3DXVECTOR4( 0, +0.0009765625f, 0, 0 );
@@ -1917,7 +1917,7 @@ void CTextureSurface::RenderTargetBlurV( LPDIRECT3DDEVICE9 pd3dDevice, CTextureS
 	pd3dDevice->SetVertexShaderConstantF( 1, (float*)&vC1, 1 );
 	pd3dDevice->SetVertexShaderConstantF( 2, (float*)&vC2, 1 );
 
-	// ì„¸ë¡œëŠ” ë”°ë¡œ
+	// ¼¼·Î´Â µû·Î
 	vC0 = D3DXVECTOR4( 0.240f, 0.240f, 0.240f, 1.0f );
 	vC1 = D3DXVECTOR4( 0.45f,   0.45f,  0.45f, 1.0f );
 	vC2 = D3DXVECTOR4( 0.240f, 0.240f, 0.240f, 1.0f );
@@ -2017,23 +2017,23 @@ void CGlareLevel::DeleteDeviceObjects( void )
 }
 
 //
-// nWidth, nHeightëŠ” ì›ë³¸ ìŠ¤í¬ë¦° ì‚¬ì´ì¦ˆ.
+// nWidth, nHeight´Â ¿øº» ½ºÅ©¸° »çÀÌÁî.
 //
 void CGlareLevel::Create( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBufferFormat, int nWidth, int nHeight )
 {
 	if( m_bActive )		return;	
 	HRESULT hr;
 
-	int noWidth = nWidth, noHeight = nHeight;	// ì˜¤ë¦¬ì§€ë‚  í¬ê¸°.
+	int noWidth = nWidth, noHeight = nHeight;	// ¿À¸®Áö³¯ Å©±â.
 #ifdef __XGLARE2
 //	nWidth = 512;	nHeight = noHeight * nWidth / noWidth;
 #endif
-	hr = m_Src.Create( pd3dDevice, backBufferFormat, nWidth, nHeight, TRUE );		// ê²Œì„í™”ë©´ì„ ë Œë”ë§í•œ ë³µì‚¬ë³¸
+	hr = m_Src.Create( pd3dDevice, backBufferFormat, nWidth, nHeight, TRUE );		// °ÔÀÓÈ­¸éÀ» ·»´õ¸µÇÑ º¹»çº»
 	if( FAILED(hr) )	return;
 //	m_Black.Create( pd3dDevice, backBufferFormat, nWidth, nHeight );
 		
 //	nWidth = 256;	nHeight = noHeight * nWidth / noWidth;
-	hr = m_Surface[0].Create( pd3dDevice, backBufferFormat, nWidth, nHeight );		// m_Srcë¥¼ ë¸”ëŸ¬ì‹œí‚¤ëŠ” ë©”ëª¨ë¦¬. ìµœì¢…ê²°ê³¼ëŠ” [0]ì— ë“¤ì–´ê°.
+	hr = m_Surface[0].Create( pd3dDevice, backBufferFormat, nWidth, nHeight );		// m_Src¸¦ ºí·¯½ÃÅ°´Â ¸Ş¸ğ¸®. ÃÖÁ¾°á°ú´Â [0]¿¡ µé¾î°¨.
 	if( FAILED(hr) )	return;
 	hr = m_Surface[1].Create( pd3dDevice, backBufferFormat, nWidth, nHeight );
 	if( FAILED(hr) )	return;
@@ -2054,12 +2054,12 @@ void CGlareLevel::Create( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBufferForm
 	hr = g_BlurVS.Create( pd3dDevice, "blur.vs", D3DFVF_XYZRHW | D3DFVF_TEX1 );
 	if( FAILED(hr) )
 	{
-		Error( "blur.vs ì½ê¸° ì‹¤íŒ¨" );
+		Error( "blur.vs ÀĞ±â ½ÇÆĞ" );
 	}
 	hr = g_BlurPS.Create( pd3dDevice, "blur.ps" );
 	if( FAILED(hr) )
 	{
-		Error( "blur.ps ì½ê¸° ì‹¤íŒ¨" );
+		Error( "blur.ps ÀĞ±â ½ÇÆĞ" );
 	}
 #else
 	g_ShaderBlur.LoadEffect( pd3dDevice, "blur.fx" );
@@ -2071,7 +2071,7 @@ void CGlareLevel::Create( LPDIRECT3DDEVICE9 pd3dDevice, D3DFORMAT backBufferForm
 	
 }
 
-// í’€ìŠ¤í¬ë¦°ìœ¼ë¡œ ë§ì”Œìš¸ë•Œ ì´ê±¸ í˜¸ì¶œí•˜ê³  ë°”ë¥´ë©´ ëœë‹¤.
+// Ç®½ºÅ©¸°À¸·Î µ¡¾º¿ï¶§ ÀÌ°É È£ÃâÇÏ°í ¹Ù¸£¸é µÈ´Ù.
 void CGlareLevel::SetState( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 	if( m_bActive == FALSE )	return;
@@ -2079,7 +2079,7 @@ void CGlareLevel::SetState( LPDIRECT3DDEVICE9 pd3dDevice )
 	HRESULT hr;
 
 
-	// ëŠ˜ì—¬ì„œ ìŠ¤í¬ë¦°í†¤ìœ¼ë¡œ ë°œë¼ë²„ë¦¬ë©´ ëœë‹¤.
+	// ´Ã¿©¼­ ½ºÅ©¸°ÅæÀ¸·Î ¹ß¶ó¹ö¸®¸é µÈ´Ù.
 	hr = pd3dDevice->SetTextureStageState( 0, D3DTSS_COLORARG1, D3DTA_TEXTURE );
 	hr = pd3dDevice->SetTextureStageState( 0, D3DTSS_COLORARG2, D3DTA_DIFFUSE );
 	hr = pd3dDevice->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
@@ -2093,8 +2093,8 @@ void CGlareLevel::ResetState( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 //
-// ì‘ì€ í…ìŠ¤ì³ì— ì›”ë“œë¥¼ ë˜‘ê°™ì´ ê·¸ë¦°ë‹¤.
-// ì•½ê°„ ì–´ë‘¡ê²Œí•´ì„œ ë Œë”ë§í•˜ì.
+// ÀÛÀº ÅØ½ºÃÄ¿¡ ¿ùµå¸¦ ¶È°°ÀÌ ±×¸°´Ù.
+// ¾à°£ ¾îµÓ°ÔÇØ¼­ ·»´õ¸µÇÏÀÚ.
 void CGlareLevel::RenderWorld( LPDIRECT3DDEVICE9 pd3dDevice, CObj **pList, int nMax )
 {
 }
@@ -2108,34 +2108,34 @@ void CGlareLevel::Blur( LPDIRECT3DDEVICE9 pd3dDevice )
 	if( g_Option.m_nBloom == 0 )		return;
 
 #if 0
-	// ì›ë³¸(m_Src)í¬ê¸°ì˜ ë¸”ëŸ¬[0]ë¥¼ ë§Œë“¬.
+	// ¿øº»(m_Src)Å©±âÀÇ ºí·¯[0]¸¦ ¸¸µë.
 	m_Surface[0].BeginScene();
 //	pd3dDevice->Clear( 0, NULL, D3DCLEAR_TARGET, D3DCOLOR_ARGB(0,0,0,0), 0, 0 );
-	m_Src.RenderTargetBlur( pd3dDevice, &m_Surface[0] );		// ê²Œì„í™”ë©´ì„ ë¸”ëŸ¬í•´ì„œ [0]ì— ë„£ìŒ
+	m_Src.RenderTargetBlur( pd3dDevice, &m_Surface[0] );		// °ÔÀÓÈ­¸éÀ» ºí·¯ÇØ¼­ [0]¿¡ ³ÖÀ½
 	m_Surface[0].EndScene();
 	
-	// ì¤‘ê°„í¬ê¸°ì˜ ì›ë³¸ì„ ë§Œë“¬.
+	// Áß°£Å©±âÀÇ ¿øº»À» ¸¸µë.
 	m_Surface[1].BeginScene();
 	m_Src.RenderNormal( pd3dDevice, &m_Surface[1] );
 	m_Surface[1].EndScene();
-	// ì¤‘ê°„í¬ê¸°ì˜ ë¸”ëŸ¬ ë§Œë“¬.
+	// Áß°£Å©±âÀÇ ºí·¯ ¸¸µë.
 	m_Surface[2].BeginScene();
 	m_Surface[1].RenderTargetBlur( pd3dDevice, &m_Surface[2] );	
 	m_Surface[2].EndScene();
 
-	// ë‚®ì€í¬ê¸°ì˜ ì›ë³¸ì„ ë§Œë“¬.
+	// ³·ÀºÅ©±âÀÇ ¿øº»À» ¸¸µë.
 	m_Surface[3].BeginScene();
 	m_Src.RenderNormal( pd3dDevice, &m_Surface[3] );
 	m_Surface[3].EndScene();
-	// ë‚®ì€í¬ê¸°ì˜ ë¸”ëŸ¬ ë§Œë“¬.
+	// ³·ÀºÅ©±âÀÇ ºí·¯ ¸¸µë.
 	m_Surface[4].BeginScene();
 	m_Surface[3].RenderTargetBlur( pd3dDevice, &m_Surface[4] );	
 	m_Surface[4].EndScene();
 
-	// í•©ì„±
+	// ÇÕ¼º
 	m_Surface[0].BeginScene();
-	m_Surface[4].RenderNormal( pd3dDevice, &m_Surface[0], TRUE );	// ë†’ìŒë¸”ëŸ¬ì— ë‚®ì€ ë¸”ëŸ¬ë¥¼ ë¸”ë Œë”© í•œë‹¤
-	m_Surface[2].RenderNormal( pd3dDevice, &m_Surface[0], TRUE );	// ë†’ìŒë¸”ëŸ¬ì— ì¤‘ê°„ ë¸”ëŸ¬ë¥¼ ë¸”ë Œë”© í•œë‹¤
+	m_Surface[4].RenderNormal( pd3dDevice, &m_Surface[0], TRUE );	// ³ôÀ½ºí·¯¿¡ ³·Àº ºí·¯¸¦ ºí·»µù ÇÑ´Ù
+	m_Surface[2].RenderNormal( pd3dDevice, &m_Surface[0], TRUE );	// ³ôÀ½ºí·¯¿¡ Áß°£ ºí·¯¸¦ ºí·»µù ÇÑ´Ù
 	m_Surface[0].EndScene();
 #endif // 0
 
@@ -2147,14 +2147,14 @@ void CGlareLevel::Blur( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_Surface[0].BeginScene();
 #ifdef __XGLARE2
 	pd3dDevice->Clear( 0, NULL, D3DCLEAR_TARGET, D3DCOLOR_ARGB(0,0,0,0), 0, 0 );
-	m_Src.RenderTargetBlurH( pd3dDevice, &m_Surface[0] );		// ê²Œì„í™”ë©´ì„ ë¸”ëŸ¬í•´ì„œ [0]ì— ë„£ìŒ
+	m_Src.RenderTargetBlurH( pd3dDevice, &m_Surface[0] );		// °ÔÀÓÈ­¸éÀ» ºí·¯ÇØ¼­ [0]¿¡ ³ÖÀ½
 #else	
-	m_Src.RenderTargetBlur( pd3dDevice, &m_Surface[0] );		// ê²Œì„í™”ë©´ì„ ë¸”ëŸ¬í•´ì„œ [0]ì— ë„£ìŒ
+	m_Src.RenderTargetBlur( pd3dDevice, &m_Surface[0] );		// °ÔÀÓÈ­¸éÀ» ºí·¯ÇØ¼­ [0]¿¡ ³ÖÀ½
 #endif
 	m_Surface[0].EndScene();
 	
 	int i;
-	// ë¸”ëŸ¬ ê°•ë„ë¥¼ ë†’ì´ê¸°ìœ„í•´ ë°˜ë³µí•¨.
+	// ºí·¯ °­µµ¸¦ ³ôÀÌ±âÀ§ÇØ ¹İº¹ÇÔ.
 
 	int nMax = g_Option.m_nBloom * 3;
 #ifdef __XGLARE2
@@ -2162,21 +2162,21 @@ void CGlareLevel::Blur( LPDIRECT3DDEVICE9 pd3dDevice )
 	for( i = 0; i < nMax; i ++ )
 	{
 		m_Surface[1].BeginScene();
-		m_Surface[0].RenderTargetBlurH( pd3dDevice, &m_Surface[1] );		// 0ì˜ ë‚´ìš©ì„ 1ë¡œ ë¸”ëŸ¬
+		m_Surface[0].RenderTargetBlurH( pd3dDevice, &m_Surface[1] );		// 0ÀÇ ³»¿ëÀ» 1·Î ºí·¯
 		m_Surface[1].EndScene();
 		
 		m_Surface[0].BeginScene();
-		m_Surface[1].RenderTargetBlurH( pd3dDevice, &m_Surface[0] );		// ë‹¤ì‹œ 1ì˜ ë‚´ìš©ì„ 0ìœ¼ë¡œ ë¸”ëŸ¬
+		m_Surface[1].RenderTargetBlurH( pd3dDevice, &m_Surface[0] );		// ´Ù½Ã 1ÀÇ ³»¿ëÀ» 0À¸·Î ºí·¯
 		m_Surface[0].EndScene();
 	}
 	for( i = 0; i < nMax; i ++ )
 	{
 		m_Surface[1].BeginScene();
-		m_Surface[0].RenderTargetBlurV( pd3dDevice, &m_Surface[1] );		// 0ì˜ ë‚´ìš©ì„ 1ë¡œ ë¸”ëŸ¬
+		m_Surface[0].RenderTargetBlurV( pd3dDevice, &m_Surface[1] );		// 0ÀÇ ³»¿ëÀ» 1·Î ºí·¯
 		m_Surface[1].EndScene();
 		
 		m_Surface[0].BeginScene();
-		m_Surface[1].RenderTargetBlurV( pd3dDevice, &m_Surface[0] );		// ë‹¤ì‹œ 1ì˜ ë‚´ìš©ì„ 0ìœ¼ë¡œ ë¸”ëŸ¬
+		m_Surface[1].RenderTargetBlurV( pd3dDevice, &m_Surface[0] );		// ´Ù½Ã 1ÀÇ ³»¿ëÀ» 0À¸·Î ºí·¯
 		m_Surface[0].EndScene();
 	}
 #else

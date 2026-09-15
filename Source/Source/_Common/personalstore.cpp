@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "personalstore.h"
 
 BOOL CPersonalStore::Add( CItemElem* pItemElem, int nIndex, int nNum, int nCost )

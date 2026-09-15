@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "AIInterface.h"
 #include "DefineSkill.h"
 
@@ -37,7 +37,7 @@ FUNCAISTATE CAIInterface::GetAIStateFunc( DWORD dwState)
 {
 	const STATEMAP* lpCurrentStateMap = GetStateMap();
 	const STATEMAP_ENTRIES* lpEntries = lpCurrentStateMap->lpStateMapEntries;
-	// í•˜ë¶€ ê°ì²´ë¶€í„° ì¼ì¹˜í•˜ëŠ” ë§¤ì‹œì§€ë¥¼ ì°¾ëŠ”ë‹¤. 
+	// ÇÏºÎ °´Ã¼ºÎÅÍ ÀÏÄ¡ÇÏ´Â ¸Å½ÃÁö¸¦ Ã£´Â´Ù. 
 	while( lpCurrentStateMap->lpBaseStateMap->lpStateMapEntries != lpEntries )
 	{
 		int i = 0;
@@ -49,7 +49,7 @@ FUNCAISTATE CAIInterface::GetAIStateFunc( DWORD dwState)
 			}
 			i++;
 		}
-		// ë°œê²¬ë˜ì§€ ì•Šì•˜ë‹¤! ìƒìœ„ ê°ì²´ë¡œ í¬ì¸í„°ë¥¼ ë°”ê¾¼ë‹¤.
+		// ¹ß°ßµÇÁö ¾Ê¾Ò´Ù! »óÀ§ °´Ã¼·Î Æ÷ÀÎÅÍ¸¦ ¹Ù²Û´Ù.
 		lpCurrentStateMap = lpCurrentStateMap->lpBaseStateMap;
 		lpEntries = lpCurrentStateMap->lpStateMapEntries;
 	}
@@ -144,8 +144,8 @@ void CAIInterface::PostAIMsg( DWORD dwMessage, DWORD dwParam1, DWORD dwParam2 )
 #if __VER >= 9	//__AI_0509
 CMover* CAIInterface::ScanTargetNext( CObj* pObjCenter, int nRange, OBJID dwIdTarget, u_long uParty )
 {
-	// íƒ€ê²Ÿì´ ì—†ì–´ì¡Œì„ ë•Œ, ê³µê²© ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” ì£¼ë³€ì— ê°™ì€ íŒŒí‹°ì›ì„ ê²€ìƒ‰í•œë‹¤.
-	// ê¸°ì¡´ íƒ€ê²Ÿì´ íŒŒí‹°ê°€ ì—†ì—ˆê±°ë‚˜, ê°€ë“œë©´ ë¬´ì‹œ
+	// Å¸°ÙÀÌ ¾ø¾îÁ³À» ¶§, °ø°İ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â ÁÖº¯¿¡ °°Àº ÆÄÆ¼¿øÀ» °Ë»öÇÑ´Ù.
+	// ±âÁ¸ Å¸°ÙÀÌ ÆÄÆ¼°¡ ¾ø¾ú°Å³ª, °¡µå¸é ¹«½Ã
 	if( uParty == 0 || nRange <= 0 || GetMover()->GetProp()->dwClass == RANK_GUARD )
 		return NULL;
 
@@ -180,8 +180,8 @@ CMover* CAIInterface::ScanTargetNext( CObj* pObjCenter, int nRange, OBJID dwIdTa
 }
 #endif	// __AI_0509
 
-// pObjCenterë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ nRangeMeterë°˜ê²½ë‚´ì— ë“¤ì–´ì˜¤ëŠ”ë„˜ë“¤ì¤‘ ê°€ì¥ë¨¼ì € ê±¸ë¦¬ëŠ” ë„˜ ê³¨ë¼ëƒ„/
-// nJobCond : í•´ë‹¹ ì§ì—…ë§Œ ê°ì‹œí•¨. ì§ì—…ê²€ì‚¬ ì•ˆí•¨.
+// pObjCenter¸¦ Áß½ÉÀ¸·Î nRangeMeter¹İ°æ³»¿¡ µé¾î¿À´Â³ÑµéÁß °¡Àå¸ÕÀú °É¸®´Â ³Ñ °ñ¶ó³¿/
+// nJobCond : ÇØ´ç Á÷¾÷¸¸ °¨½ÃÇÔ. Á÷¾÷°Ë»ç ¾ÈÇÔ.
 CMover* CAIInterface::ScanTarget( CObj* pObjCenter, int nRangeMeter, int nJobCond, DWORD dwQuest, DWORD dwItem, int nChao )
 {
 	CObj* pObj;
@@ -196,39 +196,39 @@ CMover* CAIInterface::ScanTarget( CObj* pObjCenter, int nRangeMeter, int nJobCon
 	BOOL bGuard = ( GetMover()->GetProp()->dwClass == RANK_GUARD );
 	BOOL bFlyMob = GetMover()->IsFlyingNPC();
 
-	float fRadius = (float)( nRangeMeter * nRangeMeter );	// ê±°ë¦¬ 
+	float fRadius = (float)( nRangeMeter * nRangeMeter );	// °Å¸® 
 
 	FOR_LINKMAP( pObjCenter->GetWorld(), vPos, pObj, nRangeMeter, CObj::linkPlayer, GetMover()->GetLayer() )
 	{
 		ASSERT( pObj->GetType() == OT_MOVER && ((CMover *)pObj)->IsPlayer() );
 		pTarget = (CMover *)pObj;
 
-		// ì¡°ê±´ ìŠ¤ì¼„ì´ ì•„ë‹ˆë¼ë©´ ëŠ˜ ê°€ëŠ¥í•˜ë‹¤.
+		// Á¶°Ç ½ºÄËÀÌ ¾Æ´Ï¶ó¸é ´Ã °¡´ÉÇÏ´Ù.
 		nAble = 0;
-		// ì¡°ê±´ ìŠ¤ì¼„ì´ë¼ë©´ í”„ëê³¼ ì¼ì¹˜í•˜ëŠ” ë†ˆë§Œ ê°€ëŠ¥í•˜ë‹¤.
+		// Á¶°Ç ½ºÄËÀÌ¶ó¸é ÇÁ¶ø°ú ÀÏÄ¡ÇÏ´Â ³ğ¸¸ °¡´ÉÇÏ´Ù.
 		if( bCondScan == TRUE && pTarget->IsLive() ) 
 		{
-			// 1. ì§ì—… ì¡°ê±´ ì²´í¬    
+			// 1. Á÷¾÷ Á¶°Ç Ã¼Å©    
 			if( nJobCond == 0 )
 				nAble++;
-			else if( nJobCond == JOB_ALL || pTarget->GetJob() == nJobCond )		// JOB_ALL : ëª¨ë“ ì§ì—…
+			else if( nJobCond == JOB_ALL || pTarget->GetJob() == nJobCond )		// JOB_ALL : ¸ğµçÁ÷¾÷
 				nAble++;
-			// 2. ì•„ì´í…œ ì¡°ê±´ ì²´í¬  
+			// 2. ¾ÆÀÌÅÛ Á¶°Ç Ã¼Å©  
 			if( dwItem == 0 )
 				nAble++;
 			else if( pTarget->GetItemNum( dwItem ) != 0 )	
 				nAble++;
-			// 3. í€˜ìŠ¤íŠ¸ ì¡°ê±´ ì²´í¬ 
+			// 3. Äù½ºÆ® Á¶°Ç Ã¼Å© 
 			if( dwQuest == 0 )
 				nAble++;
 			else if( pTarget->GetQuest( dwQuest ) != NULL )
 				nAble++;	
-			//4. ì¹´ì˜¤ ì¡°ê±´ ì²´í¬  
+			//4. Ä«¿À Á¶°Ç Ã¼Å©  
 			if( nChao == 0 )
 				nAble++;
 			else
 			{
-				// 100 = ì¹´ì˜¤ìœ ì €, 101 = ë¹„ì¹´ì˜¤
+				// 100 = Ä«¿ÀÀ¯Àú, 101 = ºñÄ«¿À
 				if( nChao == 100 )
 				{
 #if __VER >= 8 // __S8_PK
@@ -251,17 +251,17 @@ CMover* CAIInterface::ScanTarget( CObj* pObjCenter, int nRangeMeter, int nJobCon
 		}
 		if( nAble == 4 )
 		{
-			// ê°€ë“œëŠ” ë¬´ì¡°ê±´ ê³µê²©			
-			// ë¹„í–‰ëª¹ì€ ë¹„í–‰í”Œë ˆì´ì–´ë§Œ ê³µê²©, ì§€ìƒëª¹ì€ ì§€ìƒí”Œë ˆì´ì–´ë§Œë§Œ ê³µê²© - 1. true true  2. false false
+			// °¡µå´Â ¹«Á¶°Ç °ø°İ			
+			// ºñÇà¸÷Àº ºñÇàÇÃ·¹ÀÌ¾î¸¸ °ø°İ, Áö»ó¸÷Àº Áö»óÇÃ·¹ÀÌ¾î¸¸¸¸ °ø°İ - 1. true true  2. false false
 
-#ifdef __JHMA_VER_8_6     // 8ì°¨ ì§€ìƒëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
+#ifdef __JHMA_VER_8_6     // 8Â÷ Áö»ó¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
 			if( bGuard || bFlyMob == pTarget->IsFly() || bFlyMob == FALSE  )		
 #else	// __VER >= 8  
 			if( bGuard || bFlyMob == pTarget->IsFly() )		
 #endif	// __VER >= 8  
 			{
 				vDist = pTarget->GetPos() - vPos;				
-				if( D3DXVec3LengthSq( &vDist ) < fRadius )	// ë‘ ê°ì²´ê°„ì˜ ê±°ë¦¬ê°€ ë²”ìœ„ ì´ë‚´ì´ë©´ 
+				if( D3DXVec3LengthSq( &vDist ) < fRadius )	// µÎ °´Ã¼°£ÀÇ °Å¸®°¡ ¹üÀ§ ÀÌ³»ÀÌ¸é 
 				{
 					if( pTarget->IsMode( TRANSPARENT_MODE ) == FALSE )
 						if( pTarget->HasBuffByIk3( IK3_TEXT_DISGUISE ) == FALSE )
@@ -274,28 +274,28 @@ CMover* CAIInterface::ScanTarget( CObj* pObjCenter, int nRangeMeter, int nJobCon
 	return NULL;
 }
 
-// ë°˜ê²½ë‚´ì—ì„œ ê°€ì¥ ê°•í•œë„˜(ë ˆë²¨ë¡œ)ì„ ê³¨ë¼ëƒ„.
+// ¹İ°æ³»¿¡¼­ °¡Àå °­ÇÑ³Ñ(·¹º§·Î)À» °ñ¶ó³¿.
 CMover* CAIInterface::ScanTargetStrong( CObj* pObjCenter, FLOAT fRangeMeter  )
 {
 	CObj *pObj;
-	CObj *pObjMax = NULL;	// ê°€ì¥ìˆë„˜ í¬ì¸í„°.
+	CObj *pObjMax = NULL;	// °¡Àå½ë³Ñ Æ÷ÀÎÅÍ.
 	D3DXVECTOR3 vPos = pObjCenter->GetPos();
 	D3DXVECTOR3 vDist;
 	
-	// ì§€ë¦„ 
+	// Áö¸§ 
 	FLOAT fRadius = fRangeMeter * fRangeMeter;
 	
 	FOR_LINKMAP( pObjCenter->GetWorld(), vPos, pObj, (int)( fRangeMeter / MPU ), CObj::linkPlayer, GetMover()->GetLayer() )
 	{
-		vDist = pObj->GetPos() - vPos;	// ë‘ì¢Œí‘œê°„ ë²¡í„°
-		float fDistSq = D3DXVec3LengthSq( &vDist );		// ë‘ì˜¤ë¸Œì íŠ¸ê°„ì˜ ê±°ë¦¬Sq
+		vDist = pObj->GetPos() - vPos;	// µÎÁÂÇ¥°£ º¤ÅÍ
+		float fDistSq = D3DXVec3LengthSq( &vDist );		// µÎ¿ÀºêÁ§Æ®°£ÀÇ °Å¸®Sq
 		if( fDistSq < fRadius )	
 		{
 			if(  !( ((CMover*)pObj)->IsMode( TRANSPARENT_MODE ) ) )
 			{
 				if( pObjMax )
 				{
-					if( ((CMover *)pObj)->GetLevel() > ((CMover *)pObjMax)->GetLevel() )		// ë” ìˆë„˜ì„ ì°¾ì•˜ë‹¤.
+					if( ((CMover *)pObj)->GetLevel() > ((CMover *)pObjMax)->GetLevel() )		// ´õ ½ë³ÑÀ» Ã£¾Ò´Ù.
 						pObjMax = pObj;
 				} else
 					pObjMax = pObj;
@@ -308,7 +308,7 @@ CMover* CAIInterface::ScanTargetStrong( CObj* pObjCenter, FLOAT fRangeMeter  )
 	return (CMover *)pObjMax;
 }
 
-// ë°˜ê²½ë‚´ì—ì„œ ì˜¤ë²„í í•˜ëŠ” ì–´ì‹œ ì°¾ì•„ì„œ ì£½ì´ì.
+// ¹İ°æ³»¿¡¼­ ¿À¹öÈú ÇÏ´Â ¾î½Ã Ã£¾Æ¼­ Á×ÀÌÀÚ.
 CMover* CAIInterface::ScanTargetOverHealer( CObj* pObjCenter, FLOAT fRangeMeter  )
 {
 #ifndef __CLIENT
@@ -316,13 +316,13 @@ CMover* CAIInterface::ScanTargetOverHealer( CObj* pObjCenter, FLOAT fRangeMeter 
 	D3DXVECTOR3 vPos = pObjCenter->GetPos();
 	D3DXVECTOR3 vDist;
 	
-	// ì§€ë¦„ 
+	// Áö¸§ 
 	FLOAT fRadius = fRangeMeter * fRangeMeter;
 	
 	FOR_LINKMAP( pObjCenter->GetWorld(), vPos, pObj, (int)( fRangeMeter / MPU ), CObj::linkPlayer, GetMover()->GetLayer() )
 	{
-		vDist = pObj->GetPos() - vPos;	// ë‘ì¢Œí‘œê°„ ë²¡í„°
-		float fDistSq = D3DXVec3LengthSq( &vDist );		// ë‘ì˜¤ë¸Œì íŠ¸ê°„ì˜ ê±°ë¦¬Sq
+		vDist = pObj->GetPos() - vPos;	// µÎÁÂÇ¥°£ º¤ÅÍ
+		float fDistSq = D3DXVec3LengthSq( &vDist );		// µÎ¿ÀºêÁ§Æ®°£ÀÇ °Å¸®Sq
 		if( fDistSq < fRadius )	
 		{
 			if(  !( ((CMover*)pObj)->IsMode( TRANSPARENT_MODE ) ) )
@@ -330,7 +330,7 @@ CMover* CAIInterface::ScanTargetOverHealer( CObj* pObjCenter, FLOAT fRangeMeter 
 				CMover *pMover = (CMover *)pObj;
 
 				if( pMover->IsPlayer() )
-					if( ((CUser *)pMover)->m_nOverHeal > 0 )		// ì˜¤ë²„íëŸ¬ë¥¼ ì°¾ì•˜ë‹¤.
+					if( ((CUser *)pMover)->m_nOverHeal > 0 )		// ¿À¹öÈú·¯¸¦ Ã£¾Ò´Ù.
 						return pMover;
 			}
 		}

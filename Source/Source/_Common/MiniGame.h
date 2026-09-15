@@ -1,4 +1,4 @@
-ï»¿// MiniGame.h: interface for the CMiniGame class.
+// MiniGame.h: interface for the CMiniGame class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -22,9 +22,9 @@ public:
 
 	struct __ITEMGAME
 	{
-		DWORD	dwItemId;	// ì•„ì´ë””
-		int		nItemCount;	// ê°¯ìˆ˜
-		DWORD	dwPer;		// í¼ì„¼íŠ¸
+		DWORD	dwItemId;	// ¾ÆÀÌµğ
+		int		nItemCount;	// °¹¼ö
+		DWORD	dwPer;		// ÆÛ¼¾Æ®
 		__ITEMGAME()
 		{
 			dwItemId = 0;
@@ -35,10 +35,10 @@ public:
 	
 	struct __ALPHABET
 	{
-		int		nPublic;	// ê³µê°œ ê¸€ì ìœ„ì¹˜
-		CString strWord;	// ì œì‹œ ë‹¨ì–´
-		CString	strQuestion;	// ë¬¸ì œ
-		vector<__ITEMGAME>	vecItem;	// ì§€ê¸‰ ì•„ì´í…œ
+		int		nPublic;	// °ø°³ ±ÛÀÚ À§Ä¡
+		CString strWord;	// Á¦½Ã ´Ü¾î
+		CString	strQuestion;	// ¹®Á¦
+		vector<__ITEMGAME>	vecItem;	// Áö±Ş ¾ÆÀÌÅÛ
 		__ALPHABET():nPublic(1),strWord(_T("")), strQuestion(_T("")) {}
 	};
 	
@@ -51,11 +51,11 @@ public:
 
 	struct __KAWIBAWIBO
 	{
-		DWORD	dwDraw;		// ë¹„ê¹€ í™•ë¥ 
-		DWORD	dwLost;		// íŒ¨ë°° í™•ë¥ 
-		DWORD	dwWin;		// ìŠ¹ë¦¬ í™•ë¥ 
-		DWORD	dwItemId;	// ì•„ì´ë””
-		int		nItemCount;	// ì•„ì´í…œ ê°¯ìˆ˜
+		DWORD	dwDraw;		// ºñ±è È®·ü
+		DWORD	dwLost;		// ÆĞ¹è È®·ü
+		DWORD	dwWin;		// ½Â¸® È®·ü
+		DWORD	dwItemId;	// ¾ÆÀÌµğ
+		int		nItemCount;	// ¾ÆÀÌÅÛ °¹¼ö
 		__KAWIBAWIBO()
 		{
 			dwDraw = 0;		
@@ -66,10 +66,10 @@ public:
 		};
 	};
 
-	struct __FIVESYSTEM		// (ì˜¤ê³±) ì…ì°°ê¸ˆ ìƒìœ„ ìˆœìœ„ë³„ í™•ë¥ 
+	struct __FIVESYSTEM		// (¿À°ö) ÀÔÂû±İ »óÀ§ ¼øÀ§º° È®·ü
 	{
-		DWORD	dwMin;		// Min í™•ë¥ 
-		DWORD	dwMax;		// Max í™•ë¥ 
+		DWORD	dwMin;		// Min È®·ü
+		DWORD	dwMax;		// Max È®·ü
 		__FIVESYSTEM()
 		{
 			dwMin = 0;
@@ -83,11 +83,11 @@ public:
 	CMiniGame();
 	virtual ~CMiniGame();
 
-	BOOL Load_Alphabet();	// ì•ŒíŒŒë²³ ë‹¨ì–´ ë§ì¶”ê¸°
-	BOOL Load_KawiBawiBo();	// ê°€ìœ„, ë°”ìœ„, ë³´
-	BOOL Load_FiveSystem();	// ì˜¤ê³±
-	BOOL Load_Reassemble(); // í¼ì¦ 
-	char GetCharacter( DWORD ItemId ); // ì•„ì´í…œ ID ë§ëŠ” ì•ŒíŒŒë²³ í•œ ê¸€ì ë¦¬í„´
+	BOOL Load_Alphabet();	// ¾ËÆÄºª ´Ü¾î ¸ÂÃß±â
+	BOOL Load_KawiBawiBo();	// °¡À§, ¹ÙÀ§, º¸
+	BOOL Load_FiveSystem();	// ¿À°ö
+	BOOL Load_Reassemble(); // ÆÛÁñ 
+	char GetCharacter( DWORD ItemId ); // ¾ÆÀÌÅÛ ID ¸Â´Â ¾ËÆÄºª ÇÑ ±ÛÀÚ ¸®ÅÏ
 	int	GetKawibawiboYou( int nMy, int nResult );
 #ifdef __WORLDSERVER
 	int Result_Kawibawibo( CUser* pUser );
@@ -112,13 +112,13 @@ public:
 	BOOL ResultPenya_FiveSystem( CUser* pUser, int nResult );
 #endif // __WORLDSERVER
 	
-	int m_nBetMinPenya;				// ì˜¤ê³± - ìµœì†Œ ì…ì°° ê¸ˆì•¡
-	int m_nBetMaxPenya;				// ì˜¤ê³± - ìµœëŒ€ ì…ì°° ê¸ˆì•¡
-	int m_nMultiple;				// ì˜¤ê³± - ìƒê¸ˆ ì§€ê¸‰ ë°°ìˆ˜
+	int m_nBetMinPenya;				// ¿À°ö - ÃÖ¼Ò ÀÔÂû ±İ¾×
+	int m_nBetMaxPenya;				// ¿À°ö - ÃÖ´ë ÀÔÂû ±İ¾×
+	int m_nMultiple;				// ¿À°ö - »ó±İ Áö±Ş ¹è¼ö
 	
-	int m_nPayPenya;				// ì•ŒíŒŒë²³ ì§€ì¶œ í˜ëƒ
+	int m_nPayPenya;				// ¾ËÆÄºª ÁöÃâ Æä³Ä
 	
-	int nKawiBawiBo_MaxWin;			// ê°€ìœ„ë°”ìœ„ë³´ ìµœëŒ€ ì—°ìŠ¹ ì¸ë±ìŠ¤
+	int nKawiBawiBo_MaxWin;			// °¡À§¹ÙÀ§º¸ ÃÖ´ë ¿¬½Â ÀÎµ¦½º
 
 	vector<__ALPHABET>		m_vecAlphabet;	
 	map<int, __KAWIBAWIBO>  m_mapKawiBawiBo;

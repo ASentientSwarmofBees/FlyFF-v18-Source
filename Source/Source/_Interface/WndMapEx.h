@@ -1,4 +1,4 @@
-﻿#ifndef __WND_MAP_EX_H__
+#ifndef __WND_MAP_EX_H__
 #define __WND_MAP_EX_H__
 
 #ifdef __IMPROVE_MAP_SYSTEM

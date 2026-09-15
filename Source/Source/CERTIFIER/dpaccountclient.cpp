@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "dpcertifier.h"
 #include "dpaccountclient.h"
 #ifdef __GPAUTH_01
@@ -158,10 +158,10 @@ void CDPAccountClient::OnAddAccount( CAr & ar, DPID dpid )
 
 	switch( cbResult )
 	{
-		case ACCOUNT_DUPLIACTE:					// ì¤‘ë³µ ì—ëŸ¬
+		case ACCOUNT_DUPLIACTE:					// Áßº¹ ¿¡·¯
 			g_dpCertifier.SendError( ERROR_DUPLICATE_ACCOUNT, dpid );			
 			break;
-		case ACCOUNT_CHECK_OK:					// ì„±ê³µ
+		case ACCOUNT_CHECK_OK:					// ¼º°ø
 			{
 				{
 					CMclAutoLock Lock( CUserMng::GetInstance()->m_AddRemoveLock );
@@ -193,22 +193,22 @@ void CDPAccountClient::OnAddAccount( CAr & ar, DPID dpid )
 			#endif	// __GPAUTH_01
 				break;
 			}
-		case ACCOUNT_EXTERNAL_ADDR:				// í—ˆìš©ë˜ì§€ ì•ŠëŠ” ì£¼ì†Œ 
+		case ACCOUNT_EXTERNAL_ADDR:				// Çã¿ëµÇÁö ¾Ê´Â ÁÖ¼Ò 
 			g_dpCertifier.SendError( ERROR_EXTERNAL_ADDR, dpid );
 			break;
-		case ACCOUNT_OVERFLOW:					// ì¸ì›ì´ˆê³¼
+		case ACCOUNT_OVERFLOW:					// ÀÎ¿øÃÊ°ú
 			g_dpCertifier.SendError( ERROR_OVERFLOW, dpid );
 			break;
-		case ACCOUNT_BILLING_INFO_FAILED:		// ë¹Œë§ ì •ë³´ ì—†ìŒ
+		case ACCOUNT_BILLING_INFO_FAILED:		// ºô¸µ Á¤º¸ ¾øÀ½
 			g_dpCertifier.SendError( ERROR_BILLING_INFO_FAILED, dpid );
 			break;
-		case ACCOUNT_BILLING_DATABASE_ERROR:	// ë¹Œë§ DB ì—ëŸ¬ 
+		case ACCOUNT_BILLING_DATABASE_ERROR:	// ºô¸µ DB ¿¡·¯ 
 			g_dpCertifier.SendError( ERROR_BILLING_DATABASE_ERROR, dpid );
 			break;
-		case ACCOUNT_BILLING_TIME_OVER:			// ë¹Œë§ ì‚¬ìš©ì‹œê°„ ë§Œë£Œ 
+		case ACCOUNT_BILLING_TIME_OVER:			// ºô¸µ »ç¿ë½Ã°£ ¸¸·á 
 			g_dpCertifier.SendError( ERROR_BILLING_TIME_OVER, dpid );
 			break;
-		case ACCOUNT_BILLING_OTHER_ERROR:		// ë¹Œë§ ê¸°íƒ€ ë‹¤ë¥¸ ì—ëŸ¬ 
+		case ACCOUNT_BILLING_OTHER_ERROR:		// ºô¸µ ±âÅ¸ ´Ù¸¥ ¿¡·¯ 
 			g_dpCertifier.SendError( ERROR_BILLING_OTHER_ERROR, dpid );
 			break;
 		case ACCOUNT_BILLING_DISCONNECTED:

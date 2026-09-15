@@ -1,4 +1,4 @@
-﻿#ifndef __BS_COMMON_H_
+#ifndef __BS_COMMON_H_
 #define __BS_COMMON_H_
 
 #if _MSC_VER > 1000

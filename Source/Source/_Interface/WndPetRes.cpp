@@ -1,4 +1,4 @@
-ï»¿
+
 
 #include "stdafx.h"
 #include "resData.h"
@@ -13,7 +13,7 @@
 extern CDPClient g_DPlay;
 
 /****************************************************
-  WndId : APP_PET_RES - êµí™˜ì°½
+  WndId : APP_PET_RES - ±³È¯Ã¢
   CtrlId : WIDC_OK - 
   CtrlId : WIDC_CANCEL - 
   CtrlId : WIDC_DESC - 
@@ -47,26 +47,26 @@ void CWndPetRes::OnDraw( C2DRender* p2DRender )
 void CWndPetRes::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	CWndText* pDesc = (CWndText*)GetDlgItem( WIDC_DESC );
 	pDesc->m_string.AddParsingString(prj.GetText(TID_GAME_PETTRADE));
 	pDesc->ResetString();	
 	
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndPetRes::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PET_RES, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndPetRes::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -110,7 +110,7 @@ BOOL CWndPetRes::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			pButton = (CWndButton*)GetDlgItem( WIDC_OK );
 			pButton->EnableWindow(FALSE);
 
-			// ì„œë²„ì— ì²˜ë¦¬ ìš”ì²­í•˜ëŠ” í•¨ìˆ˜ í˜¸ì¶œ
+			// ¼­¹ö¿¡ Ã³¸® ¿äÃ»ÇÏ´Â ÇÔ¼ö È£Ãâ
 			if(m_pItemElem)
 			{
 				g_DPlay.SendQuePetResurrection(m_pItemElem->m_dwObjId);
@@ -149,7 +149,7 @@ BOOL CWndPetRes::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	pTempElem  = (CItemElem*)g_pPlayer->GetItemId( pShortcut->m_dwId );
 
 	if(!pTempElem) return FALSE;
-	// ì˜¬ë¦´ ìˆ˜ ìžˆëŠ” ì•„ì´í…œ ê±°ë¥´ê¸°
+	// ¿Ã¸± ¼ö ÀÖ´Â ¾ÆÀÌÅÛ °Å¸£±â
 	CPet* pPet	= pTempElem->m_pPet;
 	
 	if(!pPet)

@@ -1,4 +1,4 @@
-ï»¿// ìš´ì˜ìë§Œ ê°€ë ¤ì„œ ì „ì†¡í•˜ëŠ” ë¶€ë¶„ì…ë‹ˆë‹¤.
+// ¿î¿µÀÚ¸¸ °¡·Á¼­ Àü¼ÛÇÏ´Â ºÎºĞÀÔ´Ï´Ù.
 
 //	CMclAutoLock	Lock( g_PlayerMng.m_AddRemoveLock );
 	g_PlayerMng.m_AddRemoveLock.Enter();
@@ -7,7 +7,7 @@
 	{
 		pPlayer	= g_PlayerMng.GetPlayer( *i );
 		if( pPlayer ) {
-			// ì´ë†ˆì€ ìš´ì˜ìë‹¤, ë©”ì‹œì§€ ë³´ë‚´ì!!!.
+			// ÀÌ³ğÀº ¿î¿µÀÚ´Ù, ¸Ş½ÃÁö º¸³»ÀÚ!!!.
 		}
 	}
 	g_PlayerMng.m_AddRemoveLock.Leave();

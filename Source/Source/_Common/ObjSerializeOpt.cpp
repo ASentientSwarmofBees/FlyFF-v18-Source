@@ -1,4 +1,4 @@
-Ôªø#include "stdafx.h"
+#include "stdafx.h"
 
 #	if defined(__WORLDSERVER) || defined(__CLIENT)
 #include "mover.h"
@@ -60,7 +60,7 @@ void CObj::Serialize( CAr & ar )	// 21
 }
 
 #if defined(__WORLDSERVER) || defined(__CLIENT)
-// Ïû•Ïñ¥Íµ¨Ïù¥, Ïã†ÏÜçÏùò ÎëêÎ£®ÎßàÎ¶¨ Îì±Ïùò ÏòàÏô∏Ï≤òÎ¶¨
+// ¿ÂæÓ±∏¿Ã, Ω≈º”¿« µŒ∑Á∏∂∏Æ µÓ¿« øπø‹√≥∏Æ
 void CMover::OnApplySM()
 {
 	ItemProp* aItemprop;
@@ -180,9 +180,9 @@ void CMover::Serialize( CAr & ar )
 #endif // __VER >= 8 // __S8_PK
 			ar << m_nFame;
 			ar << (u_char)m_nDuel;
-#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
-			ar << m_nHonor;					// Îã¨Ïù∏ÏÑ†ÌÉù 
-#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
+#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
+			ar << m_nHonor;					// ¥ﬁ¿Œº±≈√ 
+#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
 			{
 				int i;
 				for( i = 0; i < MAX_HUMAN_PARTS; i ++ )
@@ -255,7 +255,7 @@ void CMover::Serialize( CAr & ar )
 				for( int k = 0 ; k < 3 ; ++k )
 					m_Bank[k].Serialize( ar );
 #if __VER >= 9	// __PET_0410
-				ar << GetPetId();	// ÏÜåÌôò Ï§ëÏù∏ Ìé´ Ïù∏Î≤§ÌÜ†Î¶¨ ÏúÑÏπò
+				ar << GetPetId();	// º“»Ø ¡ﬂ¿Œ ∆Í ¿Œ∫•≈‰∏Æ ¿ßƒ°
 #endif	// __PET_0410
 #if __VER >= 11 // __SYS_POCKET
 				m_Pocket.Serialize( ar );
@@ -263,13 +263,13 @@ void CMover::Serialize( CAr & ar )
 #ifdef __JEFF_9_20
 				ar << m_dwMute;
 #endif	// __JEFF_9_20
-#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
+#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
 				for( int i = 0 ; i < MAX_HONOR_TITLE ; ++i )
 				{
 					ar << m_aHonorTitle[i];
 
 				}
-#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
+#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
 #if __VER >= 15 // __CAMPUS
 				ar << m_idCampus;
 				ar << m_nCampusPoint;
@@ -364,7 +364,7 @@ void CMover::Serialize( CAr & ar )
 		ar >> nMotion;							// m_dwMotion
 
 		#if defined(__WORLDSERVER) || defined(__CLIENT)
-				m_dwMotion = (DWORD)nMotion;	// ÏÑ±Î≥ÑÎèÑ Ï†ïÌï¥ÏßÄÏßÄ ÏïäÎäî ÏÉÅÌÉúÏóêÏÑúÎäî SetMotionÌò∏Ï∂úÌïòÏßÄ ÏïäÎäîÎã§.
+				m_dwMotion = (DWORD)nMotion;	// º∫∫∞µµ ¡§«ÿ¡ˆ¡ˆ æ ¥¬ ªÛ≈¬ø°º≠¥¬ SetMotion»£√‚«œ¡ˆ æ ¥¬¥Ÿ.
 		#else	// defined(__WORLDSERVER) || defined(__CLIENT)
 			m_dwMotion = (DWORD)nMotion;
 		#endif
@@ -481,11 +481,11 @@ void CMover::Serialize( CAr & ar )
 #endif // __VER >= 8 // __S8_PK
 			ar >> m_nFame;
 			ar >> (u_char&)m_nDuel;
-#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
+#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
 			int nTemp = -1;
 			ar >> nTemp;
 #ifdef __CLIENT
-			if(m_nHonor != nTemp)// Îã¨Ïù∏ÏÑ†ÌÉù 
+			if(m_nHonor != nTemp)// ¥ﬁ¿Œº±≈√ 
 			{
 				m_nHonor = nTemp;
 				SetTitle(CTitleManager::Instance()->GetTitle(m_nHonor));
@@ -493,7 +493,7 @@ void CMover::Serialize( CAr & ar )
 #else	// __CLIENT
 			m_nHonor = nTemp;
 #endif	// __CLIENT
-#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
+#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
 			{
 				for( int i = 0; i < MAX_HUMAN_PARTS; i ++ )
 				{
@@ -504,7 +504,7 @@ void CMover::Serialize( CAr & ar )
 			
 			for( int j = 0 ; j < SM_MAX ; ++j )
 				ar >> m_dwSMTime[j];
-			// Ïû•Ïñ¥Íµ¨Ïù¥, Ïã†ÏÜçÏùò ÎëêÎ£®ÎßàÎ¶¨ Îì±Ïùò ÏòàÏô∏Ï≤òÎ¶¨Îäî m_nPlusMaxHitPointÎì±Ïù¥ ÏÑ∏Ìä∏ÎêòÍ≥† OnApplySM() Ïã§ÌñâÌïúÎã§.
+			// ¿ÂæÓ±∏¿Ã, Ω≈º”¿« µŒ∑Á∏∂∏Æ µÓ¿« øπø‹√≥∏Æ¥¬ m_nPlusMaxHitPointµÓ¿Ã ºº∆Æµ«∞Ì OnApplySM() Ω««‡«—¥Ÿ.
 
 			if( CObj::GetMethod() == METHOD_NONE )
 			{
@@ -535,7 +535,7 @@ void CMover::Serialize( CAr & ar )
 				ar >> m_nSkillPoint;
 				ar >> m_nDeathExp;
 				ar >> m_nDeathLevel; 
-				DWORD dwJobLv[MAX_JOB];		// ÏÇ¨Ïö©ÌïòÏßÄ ÏïäÏùå 
+				DWORD dwJobLv[MAX_JOB];		// ªÁøÎ«œ¡ˆ æ ¿Ω 
 				ar.Read( (void*)dwJobLv, sizeof(DWORD) * MAX_JOB );
 				ar >> m_idMarkingWorld;
 				ar >> m_vMarkingPos;
@@ -550,7 +550,7 @@ void CMover::Serialize( CAr & ar )
 #endif // __IMPROVE_QUEST_INTERFACE
 
 				ar >> m_idMurderer;
-				short n1, n2;		// n2Îäî ÏÇ¨Ïö©ÌïòÏßÄ ÏïäÎäîÎã§.
+				short n1, n2;		// n2¥¬ ªÁøÎ«œ¡ˆ æ ¥¬¥Ÿ.
 				ar >> n1 >> n2;		
 				m_nRemainGP	= n1;
 				{
@@ -609,7 +609,7 @@ void CMover::Serialize( CAr & ar )
 #ifdef __JEFF_9_20
 				ar >> m_dwMute;
 #endif	// __JEFF_9_20
-#if __VER >= 13 // __HONORABLE_TITLE	// Îã¨Ïù∏
+#if __VER >= 13 // __HONORABLE_TITLE	// ¥ﬁ¿Œ
 #ifdef __CLIENT
 				CTitleManager::Instance()->InitEarned();
 #endif	// __CLIENT
@@ -624,7 +624,7 @@ void CMover::Serialize( CAr & ar )
 					}
 					else
 					{
-						// ÌöçÎìùÎêú ÌÉÄÏù¥ÌãÄÏù¥ÏßÄÎßå ÏöîÍµ¨ÏÇ¨Ìï≠ÏùÑ Ï∂©Ï°±Î™ªÌïòÍ≤å Îê†Îïå
+						// »πµÊµ» ≈∏¿Ã∆≤¿Ã¡ˆ∏∏ ø‰±∏ªÁ«◊¿ª √Ê¡∑∏¯«œ∞‘ µ…∂ß
 						if(CTitleManager::Instance()->IsEarned(l))
 						{
 							CTitleManager::Instance()->RemoveEarned(l);
@@ -632,7 +632,7 @@ void CMover::Serialize( CAr & ar )
 					}
 #endif	// __CLIENT
 				}
-#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
+#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
 #if __VER >= 15 // __CAMPUS
 				ar >> m_idCampus;
 				ar >> m_nCampusPoint;

@@ -1,6 +1,6 @@
-ï»¿/*
-// ë‚˜ë¼  ê°œìˆ˜
-LANG_KOR 4 WndQDiaryBG.tga WndQDiaryBG.tga WndQDiaryBG.tga WndQDiaryBG.tga  //íŒŒì¼ë¦¬ìŠ¤íŠ¸
+/*
+// ³ª¶ó  °³¼ö
+LANG_KOR 4 WndQDiaryBG.tga WndQDiaryBG.tga WndQDiaryBG.tga WndQDiaryBG.tga  //ÆÄÀÏ¸®½ºÆ®
 */
 
 LANG_KOR 11 WndCommBanner00.tga WndCommBanner001.tga WndCommBanner002.tga WndCommBanner004.tga WndCommBanner005.tga WndCommBanner006.tga WndCommBanner007.tga WndCommBanner008.tga WndCommBanner009.tga WndCommBanner02.tga WndCommBanner021.tga

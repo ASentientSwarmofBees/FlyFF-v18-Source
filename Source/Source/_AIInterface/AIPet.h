@@ -1,4 +1,4 @@
-ï»¿#ifndef __AI_PET_H
+#ifndef __AI_PET_H
 #define __AI_PET_H
 
 #include "..\_AIInterface\AIInterface.h"
@@ -8,10 +8,10 @@
 class CAIPet : public CAIInterface
 {
 private:
-	OBJID m_idOwner;		// ì£¼ì¸ë‹˜
-	BOOL	m_bLootMove;				// ë£¨íŒ…í•˜ëŸ¬ ê°€ëŠ”ì¤‘.
-	DWORD	m_idLootItem;				// ë£¨íŒ…í•  ì•„ì´í…œ.
-	int		m_nState;					// í˜„ì¬ ìƒíƒœ.
+	OBJID m_idOwner;		// ÁÖÀÎ´Ô
+	BOOL	m_bLootMove;				// ·çÆÃÇÏ·¯ °¡´ÂÁß.
+	DWORD	m_idLootItem;				// ·çÆÃÇÒ ¾ÆÀÌÅÛ.
+	int		m_nState;					// ÇöÀç »óÅÂ.
 	
 	void MoveToDst(	OBJID idTarget );
 	void MoveToDst(	D3DXVECTOR3 vDst );
@@ -40,19 +40,19 @@ public:
 	BOOL SubItemLoot( void );
 
 #if __VER >= 12 // __PET_0519
-	// ì£¼ì¸ê³¼ ë¨¹í« ì•„ì´í…œ ì„¤ì •, ì„¤ì • ì‹œ ê°ì„± íš¨ê³¼ ì ìš©
+	// ÁÖÀÎ°ú ¸ÔÆê ¾ÆÀÌÅÛ ¼³Á¤, ¼³Á¤ ½Ã °¢¼º È¿°ú Àû¿ë
 	void	SetItem( CMover* pPlayer, CItemElem* pItem );
-	// ì£¼ì¸ìœ¼ë¡œë¶€í„° ë¨¹í« ê°ì„± íš¨ê³¼ ì œê±°
+	// ÁÖÀÎÀ¸·ÎºÎÅÍ ¸ÔÆê °¢¼º È¿°ú Á¦°Å
 	void	ResetItem( void );
-	// í•´ë‹¹ ë¨¹í« ì•„ì´í…œ ì‹ë³„ì ë°˜í™˜
+	// ÇØ´ç ¸ÔÆê ¾ÆÀÌÅÛ ½Äº°ÀÚ ¹İÈ¯
 	OBJID	GetPetItemId( void )	{	return m_idPetItem;		}
 private:
-	void	SetSkillId( DWORD dwSkill )		{ m_dwSkillId = dwSkill; }	// ì‚¬ìš© ì˜ˆ ì—†ìŒ
-	DWORD	GetSkillId()	{	return m_dwSkillId;	}	// ì‚¬ìš© ì˜ˆ ì—†ìŒ
-	void	SetSkill( CMover* pPlayer, ItemProp* pProp );	// ì‚¬ìš© ì˜ˆ ì—†ìŒ
-	void	ResetSkill( CMover* pPlayer );	// ì‚¬ìš© ì˜ˆ ì—†ìŒ
-	DWORD	m_dwSkillId;	// ì‚¬ìš© ì˜ˆ ì—†ìŒ
-	OBJID	m_idPetItem;	// ë¨¹í« ì•„ì´í…œ ì‹ë³„ì
+	void	SetSkillId( DWORD dwSkill )		{ m_dwSkillId = dwSkill; }	// »ç¿ë ¿¹ ¾øÀ½
+	DWORD	GetSkillId()	{	return m_dwSkillId;	}	// »ç¿ë ¿¹ ¾øÀ½
+	void	SetSkill( CMover* pPlayer, ItemProp* pProp );	// »ç¿ë ¿¹ ¾øÀ½
+	void	ResetSkill( CMover* pPlayer );	// »ç¿ë ¿¹ ¾øÀ½
+	DWORD	m_dwSkillId;	// »ç¿ë ¿¹ ¾øÀ½
+	OBJID	m_idPetItem;	// ¸ÔÆê ¾ÆÀÌÅÛ ½Äº°ÀÚ
 #endif	// __PET_0519
 private:
 	BOOL	NotOwnedPetInactivated();

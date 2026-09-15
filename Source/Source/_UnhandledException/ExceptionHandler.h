@@ -1,4 +1,4 @@
-ï»¿#ifndef __EXCEPTION_HANDLER_H__
+#ifndef __EXCEPTION_HANDLER_H__
 #define __EXCEPTION_HANDLER_H__
 
 #ifndef _DEBUG
@@ -8,10 +8,10 @@
 
 #if defined(__CLIENT ) 
 	#ifdef _DEBUG
-		#define ADDERRORMSG(A)			((void)0)				// ë””ë²„ê·¸ ëª¨ë“œì¼ë• ë¬´ì‹œ
+		#define ADDERRORMSG(A)			((void)0)				// µğ¹ö±× ¸ğµåÀÏ¶© ¹«½Ã
 		#define ADDERRORMSG_NOHEAD(A)	((void)0)				
 	#else	// _DEBUG
-		#define ADDERRORMSG(A)			_AddErrorMsg( A )		// ë¦´ë¦¬ì¦ˆì¼ë•Œ ì‹¤í–‰
+		#define ADDERRORMSG(A)			_AddErrorMsg( A )		// ¸±¸®ÁîÀÏ¶§ ½ÇÇà
 		#define ADDERRORMSG_NOHEAD(A)	_AddErrorMsg( A, "" )	
 	#endif	// _DEBUG
 #else

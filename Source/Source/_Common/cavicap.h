@@ -1,4 +1,4 @@
-﻿// CAVICAP.H
+// CAVICAP.H
 // (c) Vadim Gorbatenko, 1996-99
 // AviCap window
 // Started: 11.09.96

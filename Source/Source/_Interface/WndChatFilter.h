@@ -1,4 +1,4 @@
-﻿#ifndef __WNDCHATFILTER__H
+#ifndef __WNDCHATFILTER__H
 #define __WNDCHATFILTER__H
 
 class CWndChatFilter : public CWndNeuz 

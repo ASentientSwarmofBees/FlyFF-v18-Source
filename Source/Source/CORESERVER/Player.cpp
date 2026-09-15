@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "Player.h"
 #include "msghdr.h"
 #include "dpcachesrvr.h"
@@ -181,7 +181,7 @@ BOOL CPlayerMng::RegisterPlayerInfo( CPlayer* pPlayer )
 	g_GuildMng.AddConnection( pPlayer );
 
 	vector< u_long > vecIdFriend;
-	// ì—¬ê¸° ë£¨í‹´ì€ ë‚˜ë¥¼ ë“±ë¡í•œ ì‚¬ëžŒì—ê²Œ ë‚´ê°€ ë“¤ì–´ì™”ë‹¤ëŠ” ë©”ì„¸ì§€ë¥¼ ë‚ ë ¤ì£¼ëŠ” ê²ƒìž„
+	// ¿©±â ·çÆ¾Àº ³ª¸¦ µî·ÏÇÑ »ç¶÷¿¡°Ô ³»°¡ µé¾î¿Ô´Ù´Â ¸Þ¼¼Áö¸¦ ³¯·ÁÁÖ´Â °ÍÀÓ
 	pPlayer->Lock();
 	
 #ifdef __RT_1025
@@ -246,13 +246,13 @@ BOOL CPlayerMng::RegisterPlayerInfo( CPlayer* pPlayer )
 	return TRUE;
 }
 
-// bNotify - CACHEì„œë²„ì—ê²Œ í”Œë ˆì´ëŸ¬ ì œê±°ë¥¼ ì•Œë¦´ ê²ƒì¸ê°€?
+// bNotify - CACHE¼­¹ö¿¡°Ô ÇÃ·¹ÀÌ·¯ Á¦°Å¸¦ ¾Ë¸± °ÍÀÎ°¡?
 void CPlayerMng::RemovePlayer( CPlayer* pPlayer, BOOL bNotify )
 {
-	UnregisterPlayerInfo( pPlayer, bNotify );				// m_playersì—ì„œ ì œê±° 
+	UnregisterPlayerInfo( pPlayer, bNotify );				// m_players¿¡¼­ Á¦°Å 
 
 	m_ulong2.erase( pPlayer->uKey );
-	g_dpCoreSrvr.SendRemoveUser( pPlayer->m_dwSerial );		// ì›”ë“œ ì„œë²„ì—ì„œë„ ì œê±°í•˜ê²Œ í•œë‹¤.
+	g_dpCoreSrvr.SendRemoveUser( pPlayer->m_dwSerial );		// ¿ùµå ¼­¹ö¿¡¼­µµ Á¦°ÅÇÏ°Ô ÇÑ´Ù.
 
 	m_set.erase( pPlayer->uKey );				
 	SAFE_DELETE( pPlayer );

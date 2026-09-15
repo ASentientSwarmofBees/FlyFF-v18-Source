@@ -1,4 +1,4 @@
-﻿// CampusDBCtrl.cpp: implementation of the CCampusDBCtrl class.
+// CampusDBCtrl.cpp: implementation of the CCampusDBCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 

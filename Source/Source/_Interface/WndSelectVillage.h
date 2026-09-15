@@ -1,4 +1,4 @@
-﻿#ifndef __WNDSELECTVILLAGE__H
+#ifndef __WNDSELECTVILLAGE__H
 #define __WNDSELECTVILLAGE__H
 
 

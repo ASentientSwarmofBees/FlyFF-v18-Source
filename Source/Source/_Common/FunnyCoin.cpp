@@ -1,4 +1,4 @@
-ï»¿// FunnyCoin.cpp: implementation of the CFunnyCoin class.
+// FunnyCoin.cpp: implementation of the CFunnyCoin class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -40,19 +40,19 @@ CFunnyCoin* CFunnyCoin::GetInstance()
 	return & sFunnyCoin;
 }
 
-BOOL CFunnyCoin::DoUseFunnyCoin( CUser* pUser, CItemElem* pItemElem )	// í¼ë‹ˆì½”ì¸ì„ ì‚¬ìš©í•œë‹¤.
+BOOL CFunnyCoin::DoUseFunnyCoin( CUser* pUser, CItemElem* pItemElem )	// ÆÛ´ÏÄÚÀÎÀ» »ç¿ëÇÑ´Ù.
 {
 	if ( !IsUsable( pUser ) )
 		return FALSE;
 	
 	m_vecAckWaitPlayer.push_back( pUser->m_idPlayer );
-	g_dpDBClient.SendFunnyCoinReqUse( pUser->m_idPlayer, pItemElem );	// Trans Server ë¡œ ì „ì†¡
+	g_dpDBClient.SendFunnyCoinReqUse( pUser->m_idPlayer, pItemElem );	// Trans Server ·Î Àü¼Û
 	g_DPSrvr.PutItemLog( pUser, "M", "FUNNYCOIN_USE", pItemElem );
 	
 	return TRUE;
 }
 
-void CFunnyCoin::OnFunnyCoinAckUse( CAr & ar )	// í¼ë‹ˆì½”ì¸ ì‚¬ìš©ì— ëŒ€í•œ ì‘ë‹µì„ TranServerë¡œ ë¶€í„° ë°›ì•˜ë‹¤.
+void CFunnyCoin::OnFunnyCoinAckUse( CAr & ar )	// ÆÛ´ÏÄÚÀÎ »ç¿ë¿¡ ´ëÇÑ ÀÀ´äÀ» TranServer·Î ºÎÅÍ ¹Ş¾Ò´Ù.
 {
 	DWORD	dwPlayerId, dwItemId;
 	SERIALNUMBER	dwSerialNumber;
@@ -80,17 +80,17 @@ void CFunnyCoin::OnFunnyCoinAckUse( CAr & ar )	// í¼ë‹ˆì½”ì¸ ì‚¬ìš©ì— ëŒ€í•œ 
 						CItemElem itemElem;
 						itemElem.m_dwItemId = dwItemId;
 						itemElem.m_nItemNum = 1;
-						itemElem.SetSerialNumber( dwSerialNumber );		// ê¸°ì¡´ ì‹œë¦¬ì–¼ ë„˜ë²„ë¡œ ë³µêµ¬í•œë‹¤.
+						itemElem.SetSerialNumber( dwSerialNumber );		// ±âÁ¸ ½Ã¸®¾ó ³Ñ¹ö·Î º¹±¸ÇÑ´Ù.
 						if( pUser->CreateItem( &itemElem ) )	
 							g_DPSrvr.PutItemLog( pUser, "M", "FUNNYCOIN_REPAIR_SUCCESS", &itemElem );
-						else	// ì¸ë²¤í† ë¦¬ê°€ ê°€ë“ì°¨ëŠ” ë“±ì˜ ì´ìœ ë¡œ ì•„ì´í…œ ë³µêµ¬ ì‹¤íŒ¨!!
+						else	// ÀÎº¥Åä¸®°¡ °¡µæÂ÷´Â µîÀÇ ÀÌÀ¯·Î ¾ÆÀÌÅÛ º¹±¸ ½ÇÆĞ!!
 						{
 							g_DPSrvr.PutItemLog( pUser, "M", "FUNNYCOIN_REPAIR_FAILED", &itemElem );
 							Error( "CFunnyCoin::OnAckFunnyCoinAckUse() - FunnyCoin Repair Failed! [PlayerId:%07d], [Item:%d], [SerialNumber:%d]",
 									dwPlayerId, dwItemId, dwSerialNumber );
 						}
 					}
-					else	// í•´ë‹¹ í”Œë ˆì´ì–´ê°€ ì ‘ì† ì¤‘ì´ì§€ ì•Šë‹¤.
+					else	// ÇØ´ç ÇÃ·¹ÀÌ¾î°¡ Á¢¼Ó ÁßÀÌÁö ¾Ê´Ù.
 						Error( "CFunnyCoin::OnAckFunnyCoinAckUse() - FunnyCoin Repair Failed!(Invalid User) [PlayerId:%07d], [Item:%d], [SerialNumber:%d]",
 								dwPlayerId, dwItemId, dwSerialNumber );
 				}
@@ -104,12 +104,12 @@ void CFunnyCoin::OnFunnyCoinAckUse( CAr & ar )	// í¼ë‹ˆì½”ì¸ ì‚¬ìš©ì— ëŒ€í•œ 
 				break;
 		}
 	}
-	else	// í¼ë‹ˆì½”ì¸ ì‚¬ìš© ì‘ë‹µ ëŒ€ê¸° í”Œë ˆì´ì–´ê°€ ì•„ë‹ˆë‹¤.
+	else	// ÆÛ´ÏÄÚÀÎ »ç¿ë ÀÀ´ä ´ë±â ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ï´Ù.
 		Error( "CFunnyCoin::OnAckFunnyCoinAckUse() - Is Not AckWait Player [PlayerId:%07d]", dwPlayerId );
 }
 
-BOOL CFunnyCoin::IsAckWaitPlayer( DWORD dwPlayerId, BOOL bRemove )	// í¼ë‹ˆì½”ì¸ì„ ì‚¬ìš©í•œ í›„ DBì‘ë‹µì„ ê¸°ë‹¤ë¦¬ê³  ìˆëŠ” í”Œë ˆì´ì–´ ì¸ê°€?
-{																	// bRemoveê°€ TRUEì´ë©´ í•´ë‹¹ ì‚¬ìš©ìë¥¼ ì‚­ì œí•œë‹¤.
+BOOL CFunnyCoin::IsAckWaitPlayer( DWORD dwPlayerId, BOOL bRemove )	// ÆÛ´ÏÄÚÀÎÀ» »ç¿ëÇÑ ÈÄ DBÀÀ´äÀ» ±â´Ù¸®°í ÀÖ´Â ÇÃ·¹ÀÌ¾î ÀÎ°¡?
+{																	// bRemove°¡ TRUEÀÌ¸é ÇØ´ç »ç¿ëÀÚ¸¦ »èÁ¦ÇÑ´Ù.
 	for( vector<DWORD>::iterator it=m_vecAckWaitPlayer.begin(); it!=m_vecAckWaitPlayer.end(); it++ )
 	{
 		if( (*it) == dwPlayerId )
@@ -140,7 +140,7 @@ BOOL CFunnyCoin::IsUsable( CUser* pUser )
 
 				if( IsAckWaitPlayer( pUser->m_idPlayer ) )
 				{
-					//pUser->AddText( "ì ì‹œí›„ì— ë‹¤ì‹œ ì‚¬ìš©í•˜ê²Œë‚˜..." );
+					//pUser->AddText( "Àá½ÃÈÄ¿¡ ´Ù½Ã »ç¿ëÇÏ°Ô³ª..." );
 					return FALSE;
 				}
 
@@ -190,7 +190,7 @@ void CFunnyCoinDbCtrl::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey 
 	}
 }
 
-int CFunnyCoinDbCtrl::InsertFunnyCoin( DWORD dwPlayerId, DWORD dwItemId, SERIALNUMBER dwSerialNumber )	// ì‚¬ìš©í•œ í¼ë‹ˆì½”ì¸ì„ DBì— ì €ì¥í•œë‹¤.
+int CFunnyCoinDbCtrl::InsertFunnyCoin( DWORD dwPlayerId, DWORD dwItemId, SERIALNUMBER dwSerialNumber )	// »ç¿ëÇÑ ÆÛ´ÏÄÚÀÎÀ» DB¿¡ ÀúÀåÇÑ´Ù.
 {
 	ItemProp* pItemProp = prj.GetItemProp( dwItemId );
 	if( !pItemProp )
@@ -206,7 +206,7 @@ int CFunnyCoinDbCtrl::InsertFunnyCoin( DWORD dwPlayerId, DWORD dwItemId, SERIALN
 	if( pQuery->Fetch() )
 	{
 		int nResult = pQuery->GetInt( "result" );
-		if( nResult != FC_DBSUCCESS )	// ì‹¤íŒ¨chipi	
+		if( nResult != FC_DBSUCCESS )	// ½ÇÆĞchipi	
 		{
 			Error( "usp_FunnyCoin_input Result is Fail - ErrorCode : %d, %07d, %d, %d", nResult, dwPlayerId, dwItemId, dwSerialNumber );
 			return nResult;
@@ -215,7 +215,7 @@ int CFunnyCoinDbCtrl::InsertFunnyCoin( DWORD dwPlayerId, DWORD dwItemId, SERIALN
 	else
 		return FC_DBFAILED;
 
-	// ì„±ê³µ í–ˆë‹¤!!
+	// ¼º°ø Çß´Ù!!
 	return FC_DBSUCCESS;
 }
 

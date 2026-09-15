@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "BillingMgr.h"
 #include "BillingMgrJP.h"
 #include "BillingMgrJP2.h"
@@ -17,7 +17,7 @@ static char		g_szBillingPWD[256];
 // global function
 ///////////////////////////////////////////////////////////////////////
 
-// strcpyì™€ ê°™ì€ê¸°ëŠ¥ í•˜ì§€ë§Œ, NULLì´ì „ì˜ í¬ì¸í„°ë¥¼ ë¦¬í„´í•œë‹¤.
+// strcpy¿Í °°Àº±â´É ÇÏÁö¸¸, NULLÀÌÀüÀÇ Æ÷ÀÎÅÍ¸¦ ¸®ÅÏÇÑ´Ù.
 char* StrCpyExcludeNull( char* dst, const char* src )
 {
 	char *cp = dst;
@@ -27,7 +27,7 @@ char* StrCpyExcludeNull( char* dst, const char* src )
 	return( cp - 1 );
 }
 
-// pCurì—ì„œ pEndê¹Œì§€ ê³µë°±(0x20)ì„ ë¶™ì¸ë‹¤.
+// pCur¿¡¼­ pEnd±îÁö °ø¹é(0x20)À» ºÙÀÎ´Ù.
 void AppendSpace( char* pCur, char* pEnd )
 {
 	if( pEnd - pCur )
@@ -42,17 +42,17 @@ char* GetBillingPWD()
 // TODO: LoadLibrary
 BOOL CreateBillingMgr()
 {
-#ifdef __BILLING2_041021						// ë””ë¹„ë°©ì‹ ë¹Œë§ 
+#ifdef __BILLING2_041021						// µğºñ¹æ½Ä ºô¸µ 
 	#if defined(__BILLING_TW)					
-		g_pBillingMgr = new CBillingMgrTW;		// ëŒ€ë§Œ 	
+		g_pBillingMgr = new CBillingMgrTW;		// ´ë¸¸ 	
 	#elif defined(__BILLING_JP)
-		g_pBillingMgr = new CBillingMgrJP2;		// ì¼ë³¸ 	
+		g_pBillingMgr = new CBillingMgrJP2;		// ÀÏº» 	
 	#else
-		#error BILLING TARGET MUST BE DEFINED.	// ë¹Œë§ì€ ë‚˜ë¼ë³„ë¡œ ë””íŒŒì¸ì„ ê¼­ ë„£ì–´ì•¼í•œë‹¤.
+		#error BILLING TARGET MUST BE DEFINED.	// ºô¸µÀº ³ª¶óº°·Î µğÆÄÀÎÀ» ²À ³Ö¾î¾ßÇÑ´Ù.
 	#endif
 #else
 	#if defined(__BILLING_TH)
-		g_pBillingMgr = new CBillingMgrTH;		// íƒœêµ­ 
+		g_pBillingMgr = new CBillingMgrTH;		// ÅÂ±¹ 
 	#elif defined(__BILLING_JP)
 		g_pBillingMgr = new CBillingMgrJP;	
 	#endif

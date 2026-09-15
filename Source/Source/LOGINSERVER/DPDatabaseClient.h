@@ -1,4 +1,4 @@
-﻿#ifndef __DPDATABASECLIENT_H__
+#ifndef __DPDATABASECLIENT_H__
 #define __DPDATABASECLIENT_H__
 
 #pragma once

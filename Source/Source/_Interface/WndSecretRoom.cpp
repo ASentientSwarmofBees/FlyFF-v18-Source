@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndManager.h"
@@ -18,7 +18,7 @@ extern	CDPClient	g_DPlay;
 #if __VER >= 12 // __SECRET_ROOM
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì°¸ê°€ì êµ¬ì„±
+// ºñ¹ĞÀÇ ¹æ Âü°¡ÀÚ ±¸¼º
 //////////////////////////////////////////////////////////////////////////
 
 CWndSecretRoomSelection::CWndSecretRoomSelection() 
@@ -135,7 +135,7 @@ void CWndSecretRoomSelection::UpDateGuildListBox()
 		CGuild* pGuild = g_pPlayer->GetGuild();
 		if( pGuild )
 		{
-			// ë ˆë²¨ë³„ë¡œ ì†ŒíŒ…
+			// ·¹º§º°·Î ¼ÒÆÃ
 			CGuildMember* pMember;
 			for( map<u_long, CGuildMember*>::iterator i = pGuild->m_mapPMember.begin(); i != pGuild->m_mapPMember.end(); ++i )
 			{
@@ -145,7 +145,7 @@ void CWndSecretRoomSelection::UpDateGuildListBox()
 					m_mapSelectPlayer.insert( make_pair( pPlayerData->data.nLevel, pMember ) );
 			}
 
-			// ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€			
+			// ¸®½ºÆ®¿¡ Ãß°¡			
 			CString str;
 			for( multimap<int, CGuildMember*>::iterator j = m_mapSelectPlayer.begin(); j != m_mapSelectPlayer.end(); ++j )
 			{
@@ -202,10 +202,10 @@ void CWndSecretRoomSelection::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 
-	// ì‹œê°„ ì§€ë‚¬ëŠ”ì§€ë¥¼ íŒë‹¨
+	// ½Ã°£ Áö³µ´ÂÁö¸¦ ÆÇ´Ü
 //	if( g_GuildCombat1to1Mng.m_nState != CGuildCombat1to1Mng::GC1TO1_OPEN )
 //	{
-//		g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_CANNOT_MAKEUP) ); //ì§€ê¸ˆì€ ëª…ë‹¨ì‘ì„±ì„ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+//		g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_CANNOT_MAKEUP) ); //Áö±İÀº ¸í´ÜÀÛ¼ºÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù.
 //		Destroy();
 //		return;
 //	}
@@ -250,7 +250,7 @@ void CWndSecretRoomSelection::Reset()
 
 BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
 { 
-	if( nID == WIDC_BUTTON1 ) // ì¶œì „ì ë“±ë¡
+	if( nID == WIDC_BUTTON1 ) // ÃâÀüÀÚ µî·Ï
 	{
 		CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 
@@ -276,13 +276,13 @@ BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 			{
 				if( CPlayerDataCenter::GetInstance()->GetPlayerData( pGuildMember->m_idPlayer )->data.nLevel < CSecretRoomMng::GetInstance()->m_nMinGuildMemberNum )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_LIMIT_LEVEL) ); //ì¶œì „ì ë“±ë¡ì€ ë ˆë²¨ 30ì´ìƒì´ ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_LIMIT_LEVEL) ); //ÃâÀüÀÚ µî·ÏÀº ·¹º§ 30ÀÌ»óÀÌ µÇ¾î¾ß ÇÕ´Ï´Ù.
 					return FALSE;
 				}
 			}	
 			else
 			{
-				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_NOT_GUILD_MEMBER) );	//ë¹„ë°€ì˜ ë°©ì— ì°¸ê°€í•˜ëŠ” ê¸¸ë“œì˜ ë§´ë²„ê°€ ì•„ë‹™ë‹ˆë‹¤.			
+				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_NOT_GUILD_MEMBER) );	//ºñ¹ĞÀÇ ¹æ¿¡ Âü°¡ÇÏ´Â ±æµåÀÇ ¸É¹ö°¡ ¾Æ´Õ´Ï´Ù.			
 				return FALSE;
 			}
 		}
@@ -292,14 +292,14 @@ BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 
 		if( uiPlayer != -1 )
 		{
-			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_ALREADY_ENTRY) ); //ì´ë¯¸ ë“±ë¡ë˜ì–´ ìˆìŠµë‹ˆë‹¤. ë‹¤ì‹œ ë“±ë¡í•´ì£¼ì„¸ìš”.
+			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_ALREADY_ENTRY) ); //ÀÌ¹Ì µî·ÏµÇ¾î ÀÖ½À´Ï´Ù. ´Ù½Ã µî·ÏÇØÁÖ¼¼¿ä.
 			return FALSE;
 		}
  
 		AddCombatPlayer( m_vecGuildList[nCurSel] );		
 		//RemoveGuildPlayer( nCurSel );		
 	}
-	else if( nID == WIDC_BUTTON2 ) // ì¶œì „ì ì·¨ì†Œ
+	else if( nID == WIDC_BUTTON2 ) // ÃâÀüÀÚ Ãë¼Ò
 	{
 		CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX2 );
 		
@@ -314,12 +314,12 @@ BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 		CGuildMember* pGuildMemberl = pGuild->GetMember( m_vecSelectPlayer[nCurSel] );
 
 		if(pGuildMemberl->m_nMemberLv == GUD_MASTER)
-			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_DONTREMOVE_GUILDMASTER) ); //ê¸¸ë“œ ë§ˆìŠ¤í„°ëŠ” ëª©ë¡ì—ì„œ ì œì™¸í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_DONTREMOVE_GUILDMASTER) ); //±æµå ¸¶½ºÅÍ´Â ¸ñ·Ï¿¡¼­ Á¦¿ÜÇÒ ¼ö ¾ø½À´Ï´Ù.
 		else
 		{
 			if( uiPlayer == -1 )
 			{
-				// ê¸¸ë“œë¦¬ìŠ¤íŠ¸ì— ì—†ë‹¤ë©´ ì¶”ê°€ 
+				// ±æµå¸®½ºÆ®¿¡ ¾ø´Ù¸é Ãß°¡ 
 				AddGuildPlayer( m_vecSelectPlayer[nCurSel] );		
 				RemoveCombatPlayer( nCurSel );
 			}
@@ -336,10 +336,10 @@ BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 	}
 	else if( nID == WIDC_FINISH )
 	{
-		// ì‹œê°„ ì§€ë‚¬ëŠ”ì§€ë¥¼ íŒë‹¨
+		// ½Ã°£ Áö³µ´ÂÁö¸¦ ÆÇ´Ü
 //		if( g_GuildCombat1to1Mng.m_nState != CGuildCombat1to1Mng::GC1TO1_OPEN )
 //		{
-//			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_CANNOT_MAKEUP) ); //ì§€ê¸ˆì€ ëª…ë‹¨ì‘ì„±ì„ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+//			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_CANNOT_MAKEUP) ); //Áö±İÀº ¸í´ÜÀÛ¼ºÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù.
 //			Destroy();
 //			return FALSE;
 //		}
@@ -354,7 +354,7 @@ BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 
 		if( m_vecSelectPlayer.size() == 0 )
 		{
-			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_HAVENOT_PLAYER) ); //ì¶œì „ìê°€ ì—†ìŠµë‹ˆë‹¤. ì¶œì „ìë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.
+			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_HAVENOT_PLAYER) ); //ÃâÀüÀÚ°¡ ¾ø½À´Ï´Ù. ÃâÀüÀÚ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.
 			return FALSE;
 		}
 
@@ -365,7 +365,7 @@ BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 		{
 			BOOL bSkip = FALSE;
 
-			// ì¶œì „ì ë§´ë²„ì¤‘ì— ë§ˆìŠ¤í„°ê°€ ìˆëŠ”ì§€ ê²€ì‚¬ë¥¼í•œë‹¤.
+			// ÃâÀüÀÚ ¸É¹öÁß¿¡ ¸¶½ºÅÍ°¡ ÀÖ´ÂÁö °Ë»ç¸¦ÇÑ´Ù.
 			for( int i=0; i<(int)( m_vecSelectPlayer.size() ); i++ )
 			{
 				pGuildMemberl = pGuild->GetMember( m_vecSelectPlayer[i] );
@@ -387,7 +387,7 @@ BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 			}
 			else
 			{
-				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_HAVENOT_MASTER) ); //ì¶œì „ì ëª…ë‹¨ì— ê¸¸ë“œë§ˆìŠ¤í„°ë‚˜ í‚¹í•€ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_SECRETROOM_HAVENOT_MASTER) ); //ÃâÀüÀÚ ¸í´Ü¿¡ ±æµå¸¶½ºÅÍ³ª Å·ÇÉÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.
 				return FALSE;
 			}
 		}
@@ -401,7 +401,7 @@ BOOL CWndSecretRoomSelection::OnChildNotify( UINT message, UINT nID, LRESULT* pL
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì‹ ì²­í•˜ê¸°
+// ºñ¹ĞÀÇ ¹æ ½ÅÃ»ÇÏ±â
 //////////////////////////////////////////////////////////////////////////
 
 CWndSecretRoomOffer::CWndSecretRoomOffer() 
@@ -500,7 +500,7 @@ BOOL CWndSecretRoomOffer::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 			{
 				if( nCost <= m_dwBackupGold )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_CURRENT_REQUEST) ); //ê¸°ì¡´ í˜ëƒë³´ë‹¤ ë” ë§ì€ ê¸ˆì•¡ìœ¼ë¡œ ì‹ ì²­ì„ í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.
+					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_CURRENT_REQUEST) ); //±âÁ¸ Æä³Äº¸´Ù ´õ ¸¹Àº ±İ¾×À¸·Î ½ÅÃ»À» ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
 					return FALSE;
 				}
 				
@@ -509,7 +509,7 @@ BOOL CWndSecretRoomOffer::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 			{
 				if( nCost < m_dwMinGold )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_LIMIT_MIN) ); //ìµœì†Œê¸ˆì•¡ë³´ë‹¤ ë” ë§ì€ í˜ëƒë¡œ ì‹ ì²­í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.
+					g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_LIMIT_MIN) ); //ÃÖ¼Ò±İ¾×º¸´Ù ´õ ¸¹Àº Æä³Ä·Î ½ÅÃ»ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
 					return FALSE;
 				}
 			}
@@ -522,11 +522,11 @@ BOOL CWndSecretRoomOffer::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 
 				if( m_dwReqGold == 0 )
 				{
-					str.Format( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_REQUEST), 0, nCost ); //ê¸°ì¡´ì— ì‹ ì²­ëœ %dí˜ëƒì—ì„œ ì¶”ê°€ë¡œ %dí˜ëƒë¥¼ ì‹ ì²­í•˜ê² ìŠµë‹ˆê¹Œ?
+					str.Format( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_REQUEST), 0, nCost ); //±âÁ¸¿¡ ½ÅÃ»µÈ %dÆä³Ä¿¡¼­ Ãß°¡·Î %dÆä³Ä¸¦ ½ÅÃ»ÇÏ°Ú½À´Ï±î?
 				}
 				else
 				{
-					str.Format( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_REQUEST), m_dwBackupGold, nCost-m_dwBackupGold ); //ê¸°ì¡´ì— ì‹ ì²­ëœ %dí˜ëƒì—ì„œ ì¶”ê°€ë¡œ %dí˜ëƒë¥¼ ì‹ ì²­í•˜ê² ìŠµë‹ˆê¹Œ?
+					str.Format( prj.GetText(TID_GAME_GUILDCOMBAT1TO1_MORE_REQUEST), m_dwBackupGold, nCost-m_dwBackupGold ); //±âÁ¸¿¡ ½ÅÃ»µÈ %dÆä³Ä¿¡¼­ Ãß°¡·Î %dÆä³Ä¸¦ ½ÅÃ»ÇÏ°Ú½À´Ï±î?
 				}
 
 				pMsg->SetValue( str, nCost );
@@ -541,7 +541,7 @@ BOOL CWndSecretRoomOffer::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì„¸ìœ¨ ë³€ê²½ ì°½
+// ºñ¹ĞÀÇ ¹æ ¼¼À² º¯°æ Ã¢
 //////////////////////////////////////////////////////////////////////////
 CWndSecretRoomChangeTaxRate::CWndSecretRoomChangeTaxRate()
 {
@@ -584,7 +584,7 @@ void CWndSecretRoomChangeTaxRate::OnInitialUpdate()
 	strTex.Format("%d%%", m_nChangePurchaseTax);
 	pStatic->SetTitle(strTex);
 
-	// ì„¸ìœ¨ ë³€ê²½ ì•ˆë‚´ ì„¤ì •
+	// ¼¼À² º¯°æ ¾È³» ¼³Á¤
 	CWndText* pText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 
 	CScript scanner;
@@ -691,7 +691,7 @@ void CWndSecretRoomChangeTaxRate::SetDefaultTax(int nMinTax, int nMaxTax, BYTE n
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì„¸ìœ¨ í™•ì¸ ì°½
+// ºñ¹ĞÀÇ ¹æ ¼¼À² È®ÀÎ Ã¢
 //////////////////////////////////////////////////////////////////////////
 CWndSecretRoomCheckTaxRate::CWndSecretRoomCheckTaxRate()
 {
@@ -713,7 +713,7 @@ void CWndSecretRoomCheckTaxRate::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 	
-	// ì„¸ìœ¨ ë° ì ë ¹ê¸¸ë“œ ì„¤ì •
+	// ¼¼À² ¹× Á¡·É±æµå ¼³Á¤
 	BYTE nCont = CTax::GetInstance()->GetContinent( g_pPlayer );
 
 	m_nSalesTax		= (int)( CTax::GetInstance()->GetSalesTaxRate( g_pPlayer ) * 100 );
@@ -784,7 +784,7 @@ void CWndSecretRoomCheckTaxRate::OnInitialUpdate()
 		pStatic->SetTitle(prj.GetText(TID_GAME_SECRETROOM_TEX_NOGUILD));
 	}
 
-	// ì„¸ìœ¨ í™•ì¸ ì•ˆë‚´ ì„¤ì •
+	// ¼¼À² È®ÀÎ ¾È³» ¼³Á¤
 	CWndText* pText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 
 	CScript scanner;
@@ -815,12 +815,12 @@ BOOL CWndSecretRoomCheckTaxRate::OnChildNotify( UINT message, UINT nID, LRESULT*
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì°¸ê°€ì êµ¬ì„± í™•ì¸ ì°½
+// ºñ¹ĞÀÇ ¹æ Âü°¡ÀÚ ±¸¼º È®ÀÎ Ã¢
 //////////////////////////////////////////////////////////////////////////
 
 BOOL CWndSecretRoomSelectionResetConfirm::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 {
-	return CWndMessageBox::Initialize( prj.GetText(TID_GAME_SECRETROOM_REMAKE_MAKEUP), //ëª…ë‹¨ì‘ì„±ì„ ë‹¤ì‹œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+	return CWndMessageBox::Initialize( prj.GetText(TID_GAME_SECRETROOM_REMAKE_MAKEUP), //¸í´ÜÀÛ¼ºÀ» ´Ù½Ã ÇÏ½Ã°Ú½À´Ï±î?
 		pWndParent, 
 		MB_OKCANCEL );
 }
@@ -847,7 +847,7 @@ BOOL CWndSecretRoomSelectionResetConfirm::OnChildNotify( UINT message, UINT nID,
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì°¸ê°€ ê¸¸ë“œ í˜„í™©
+// ºñ¹ĞÀÇ ¹æ Âü°¡ ±æµå ÇöÈ²
 //////////////////////////////////////////////////////////////////////////
 CWndSecretRoomOfferState::CWndSecretRoomOfferState()
 { 
@@ -869,7 +869,7 @@ void CWndSecretRoomOfferState::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	MoveParentCenter();
 } 
 
@@ -899,7 +899,7 @@ void CWndSecretRoomOfferState::OnLButtonUp( UINT nFlags, CPoint point )
 { 
 } 
 
-// ì„ íƒëœ ì¸ë±ìŠ¤ë¥¼ ì–»ëŠ”ë‹¤.
+// ¼±ÅÃµÈ ÀÎµ¦½º¸¦ ¾ò´Â´Ù.
 int CWndSecretRoomOfferState::GetSelectIndex( const CPoint& point )
 {
 	return -1;
@@ -1011,7 +1011,7 @@ void CWndSecretRoomOfferState::SetGold( int nGold )
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì…ì°° í™•ì¸ ì°½
+// ºñ¹ĞÀÇ ¹æ ÀÔÂû È®ÀÎ Ã¢
 //////////////////////////////////////////////////////////////////////////
 
 BOOL CWndSecretRoomOfferMessageBox::Initialize( CWndBase* pWndParent, DWORD dwWndId )
@@ -1042,7 +1042,7 @@ BOOL CWndSecretRoomOfferMessageBox::OnChildNotify( UINT message, UINT nID, LRESU
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ë©”ì„¸ì§€ ì°½
+// ºñ¹ĞÀÇ ¹æ ¸Ş¼¼Áö Ã¢
 //////////////////////////////////////////////////////////////////////////
 
 CWndSecretRoomInfoMsgBox::CWndSecretRoomInfoMsgBox()
@@ -1105,7 +1105,7 @@ void CWndSecretRoomInfoMsgBox::OnInitialUpdate()
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì„¸ìœ¨ ë³€ê²½ í™•ì¸ ì°½
+// ºñ¹ĞÀÇ ¹æ ¼¼À² º¯°æ È®ÀÎ Ã¢
 //////////////////////////////////////////////////////////////////////////
 
 BOOL CWndSecretRoomChangeTaxRateMsgBox::Initialize( CWndBase* pWndParent, DWORD dwWndId )
@@ -1138,7 +1138,7 @@ BOOL CWndSecretRoomChangeTaxRateMsgBox::OnChildNotify( UINT message, UINT nID, L
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì·¨ì†Œ
+// ºñ¹ĞÀÇ ¹æ Ãë¼Ò
 //////////////////////////////////////////////////////////////////////////
 
 CWndSecretRoomCancelConfirm::CWndSecretRoomCancelConfirm() 
@@ -1205,7 +1205,7 @@ BOOL CWndSecretRoomCancelConfirm::OnChildNotify( UINT message, UINT nID, LRESULT
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì•ˆë‚´ ì°½
+// ºñ¹ĞÀÇ ¹æ ¾È³» Ã¢
 //////////////////////////////////////////////////////////////////////////
 CWndSecretRoomBoard::CWndSecretRoomBoard() 
 {
@@ -1282,7 +1282,7 @@ void CWndSecretRoomBoard::SetString()
 }
 /*
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ê¸¸ë“œë©¤ë²„ ë©”ë‹ˆì € ì°½
+// ºñ¹ĞÀÇ ¹æ ±æµå¸â¹ö ¸Ş´ÏÀú Ã¢
 //////////////////////////////////////////////////////////////////////////
 CWndSecretRoomGuildMemMng::CWndSecretRoomGuildMemMng()
 {
@@ -1546,7 +1546,7 @@ void CWndSecretRoomGuildMemMng::SetVisibleMng(BOOL bVisible)
 	}
 }
 //////////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ê¸¸ë“œë©¤ë²„ ì •ë³´ ì°½
+// ºñ¹ĞÀÇ ¹æ ±æµå¸â¹ö Á¤º¸ Ã¢
 //////////////////////////////////////////////////////////////////////////
 CWndSecretRoomGuildMember::CWndSecretRoomGuildMember()
 {
@@ -1663,7 +1663,7 @@ void CWndSecretRoomGuildMember::OnDraw( C2DRender* p2DRender )
 		else if( prj.m_aJob[ pPlayerData->data.nJob ].dwJobType == JTYPE_MASTER )
 		{
 			int nMasterIndex = 27;
-			if(pPlayerData->data.nLevel < 70) //Level Downë  ê²½ìš°ë¥¼ ìƒê°í•´ì„œ ì£¼ì„ì²˜ë¦¬.
+			if(pPlayerData->data.nLevel < 70) //Level DownµÉ °æ¿ì¸¦ »ı°¢ÇØ¼­ ÁÖ¼®Ã³¸®.
 				nMasterIndex = 27;
 			else if(pPlayerData->data.nLevel >= 70 && pPlayerData->data.nLevel < 80)
 				nMasterIndex = 28;
@@ -1917,7 +1917,7 @@ void CWndSecretRoomQuick::SerializeRegInfo( CAr& ar, DWORD& dwVersion )
 
 void CWndSecretRoomQuick::OnDraw( C2DRender* p2DRender ) 
 { 
-	// íŒŒí‹° ì •ë³´ ì¶œë ¥
+	// ÆÄÆ¼ Á¤º¸ Ãâ·Â
 	if(m_MemberCount <= 0 || m_MemberCount != m_vecGuildMemberId.size() || g_pPlayer->GetGuild() == NULL)
 		return;
 
@@ -1962,28 +1962,28 @@ void CWndSecretRoomQuick::OnDraw( C2DRender* p2DRender )
 			if(pFocusObjMember && pFocusObjMember == pObjMember)
 				p2DRender->RenderFillRect( rect, 0x60ffff00 );
 
-			// ìƒíƒœì— ë”°ë¼ ìƒ‰ ë³€ê²½
+			// »óÅÂ¿¡ µû¶ó »ö º¯°æ
 			DWORD dwColor = 0xff000000;
 
 			if( IsValidObj(pObjMember) )
 			{
 				if( pObjMember->GetHitPoint() == 0 ) 
-					dwColor = 0xffff0000; // ì£½ì€ë†ˆ
+					dwColor = 0xffff0000; // Á×Àº³ğ
 				else if( ((FLOAT)pObjMember->GetHitPoint()) / ((FLOAT)pObjMember->GetMaxHitPoint()) <.1f ) 
-					dwColor = 0xffffff00; // HP 10% ì´í•˜ì¸ë†ˆ
+					dwColor = 0xffffff00; // HP 10% ÀÌÇÏÀÎ³ğ
 
 				if(i==0) //GuildMaster Color Set
 				{
-					dwColor = 0xff1fb72d; //êµµê²Œ í•´ì•¼í•¨...
+					dwColor = 0xff1fb72d; //±½°Ô ÇØ¾ßÇÔ...
 
 					if(pObjMember->IsMaster())
 						strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_MASTER ), pObjMember->GetLevel(), pObjMember->GetName() );
 					else if(pObjMember->IsHero())
-#if __VER >= 15 // __HERO129_VER15				// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+#if __VER >= 15 // __HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
 						strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO ), pObjMember->GetLevel(), pObjMember->GetName() );
-	#else	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+	#else	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
 						strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO_BEFORE ), pObjMember->GetName() );
-	#endif	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+	#endif	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
 #ifdef __3RD_LEGEND16
 					else if(pObjMember->IsLegendHero())
 						strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO ), pObjMember->GetLevel(), pObjMember->GetName() );
@@ -1996,11 +1996,11 @@ void CWndSecretRoomQuick::OnDraw( C2DRender* p2DRender )
 					if(pObjMember->IsMaster())
 						strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_MASTER ), pObjMember->GetLevel(), pObjMember->GetName() );
 					else if(pObjMember->IsHero())
-#if __VER >= 15 // __HERO129_VER15				// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+#if __VER >= 15 // __HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
 						strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO ), pObjMember->GetLevel(), pObjMember->GetName() );
-	#else	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+	#else	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
 						strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO_BEFORE ), pObjMember->GetName() );
-	#endif	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+	#endif	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
 #ifdef __3RD_LEGEND16
 					else if(pObjMember->IsLegendHero())
 						strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO ), pObjMember->GetLevel(), pObjMember->GetName() );
@@ -2011,9 +2011,9 @@ void CWndSecretRoomQuick::OnDraw( C2DRender* p2DRender )
 			}
 			else
 			{
-				dwColor = 0xff878787; // ë””í´íŠ¸ëŠ” ì£¼ìœ„ì— ì—†ëŠ”ë†ˆ
+				dwColor = 0xff878787; // µğÆúÆ®´Â ÁÖÀ§¿¡ ¾ø´Â³ğ
 				if(pPlayerData->data.uLogin <= 0)
-					dwColor = 0xff000000; // ì„œë²„ì— ì—†ëŠ”ë†ˆ
+					dwColor = 0xff000000; // ¼­¹ö¿¡ ¾ø´Â³ğ
 
 				CString	strTemp2;
 				int nLevel	= pPlayerData->data.nLevel;
@@ -2022,21 +2022,21 @@ void CWndSecretRoomQuick::OnDraw( C2DRender* p2DRender )
 				if( MAX_PROFESSIONAL <= nJob && nJob < MAX_MASTER )
 					strTemp2.Format( "%d%s", nLevel, prj.GetText( TID_GAME_TOOLTIP_MARK_MASTER ) );
 				else if( MAX_MASTER <= nJob )
-#if __VER >= 15 // __HERO129_VER15 // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+#if __VER >= 15 // __HERO129_VER15 // 15Â÷ È÷¾î·Î ·¹º§È®Àå
 					strTemp2.Format( "%d%s", nLevel, prj.GetText( TID_GAME_TOOLTIP_MARK_HERO ) );
-#else // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+#else // 15Â÷ È÷¾î·Î ·¹º§È®Àå
 					strTemp2 = prj.GetText( TID_GAME_TOOLTIP_MARK_HERO_BEFORE );
-#endif // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+#endif // 15Â÷ È÷¾î·Î ·¹º§È®Àå
 				else 
 					strTemp2.Format( "%d", nLevel );
 
-				if(i==0) //GuildMaster Set êµµê²Œ í•´ì•¼í•¨...
+				if(i==0) //GuildMaster Set ±½°Ô ÇØ¾ßÇÔ...
 					strMember.Format( "%s. %s", strTemp2, pPlayerData->szPlayer );
 				else
 					strMember.Format( "%s. %s", strTemp2, pPlayerData->szPlayer );
 			}
 			//Member - Level, Name Draw
-			//ê¸´ ì´ë¦„ì€ ... ìœ¼ë¡œ.
+			//±ä ÀÌ¸§Àº ... À¸·Î.
 			if( strMember.GetLength() > 13 ) 
 			{
 				int	nReduceCount = 0;
@@ -2073,7 +2073,7 @@ void CWndSecretRoomQuick::OnDraw( C2DRender* p2DRender )
 void CWndSecretRoomQuick::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	for(int i=0; i<MAX_SECRETROOM_MEMBER; i++)
 		m_pWndMemberStatic[i] = (CWndStatic*)GetDlgItem( m_StaticID[i] );
 
@@ -2089,10 +2089,10 @@ void CWndSecretRoomQuick::OnInitialUpdate()
 	Move( point );
 } 
 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndSecretRoomQuick::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SECRETROOM_QUICK, 0, CPoint( 0, 0 ), pWndParent );
 } 
 

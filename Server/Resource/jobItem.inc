@@ -1,4 +1,4 @@
-ï»¿
+
 job JOB_VAGRANT
 {
 	sex SEX_FEMALE
@@ -17,7 +17,7 @@ job JOB_VAGRANT
 		II_ARM_M_VAG_BOOTS01   
 		II_WEA_SWO_WOODEN
 	}
-	// type       item                num // 20ê°œê°€ ë§¥ìŠ¤ 
+	// type       item                num // 20°³°¡ ¸Æ½º 
 	item ITYPE_ITEM II_GEN_FOO_INS_LOLLIPOP   3
 	item ITYPE_ITEM II_GEN_FOO_INS_BISCUIT    1
 	//item ITYPE_ITEM II_RID_RID_STI_MAGIC      1
@@ -105,7 +105,7 @@ II_ARM_F_GUA_BOOTS01
 */
 		II_WEA_SWO_PRACTICEWOODEN
 	}
-	// type       item                num // 20ê°œê°€ ë§¥ìŠ¤ 
+	// type       item                num // 20°³°¡ ¸Æ½º 
 	item ITYPE_ITEM II_GEN_FOO_INS_LOLLIPOP   5
 	item ITYPE_ITEM II_GEN_FOO_INS_BISCUIT    2
 /*
@@ -216,7 +216,7 @@ job JOB_MAGICIAN
 		II_WEA_SWO_PRACTICEWOODEN
 		//II_WEA_WAN_PRACTICEGLASS
 	}
-	// type       item                num // 20ê°œê°€ ë§¥ìŠ¤ 
+	// type       item                num // 20°³°¡ ¸Æ½º 
 	item ITYPE_ITEM II_GEN_FOO_INS_LOLLIPOP   5
 	item ITYPE_ITEM II_GEN_FOO_INS_BISCUIT    2
 	/*

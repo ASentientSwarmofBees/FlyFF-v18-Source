@@ -1,4 +1,4 @@
-ï»¿
+
 #include "stdafx.h"
 #include "..\_Common\honor.h"
 
@@ -48,11 +48,11 @@ BOOL	CTitleManager::LoadTitle(LPCTSTR lpszFileName)
 	while(script.tok != FINISHED)
 	{
 		
-		TempData.nLGrouping = script.GetNumber();	// ëŒ€ë¶„ë¥˜
-		TempData.nSGrouping = script.GetNumber();	// ì†Œë¶„ë¥˜
-		TempData.nNeed		= script.GetNumber();	// íšë“ ì¡°ê±´
+		TempData.nLGrouping = script.GetNumber();	// ´ëºĞ·ù
+		TempData.nSGrouping = script.GetNumber();	// ¼ÒºĞ·ù
+		TempData.nNeed		= script.GetNumber();	// È¹µæ Á¶°Ç
 		script.GetToken();
-		TempData.strTitle	= script.Token;	// íƒ€ì´í‹€ ì´ë¦„
+		TempData.strTitle	= script.Token;	// Å¸ÀÌÆ² ÀÌ¸§
 		switch(TempData.nLGrouping)
 		{
 			case HI_HUNT_MONSTER:
@@ -94,7 +94,7 @@ BOOL	CTitleManager::LoadTitle(LPCTSTR lpszFileName)
 	return TRUE;
 }
 /*
-BOOL	CTitleManager::AddValue( int nId, int nGroup, int nAmount)	// ìˆ˜ì¹˜ ì¹´ìš´íŒ…ì´ë‚˜ ì‹œê°„ ë”í•˜ê¸° í• ë•Œ ì“´ë‹¤.
+BOOL	CTitleManager::AddValue( int nId, int nGroup, int nAmount)	// ¼öÄ¡ Ä«¿îÆÃÀÌ³ª ½Ã°£ ´õÇÏ±â ÇÒ¶§ ¾´´Ù.
 {
 
 	map<int, HonorData>::iterator iter;
@@ -102,7 +102,7 @@ BOOL	CTitleManager::AddValue( int nId, int nGroup, int nAmount)	// ìˆ˜ì¹˜ ì¹´ìš´
 	switch(nGroup)
 	{
 		case HI_HUNT_MONSTER:
-			iter = m_mapMonster.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapMonster.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapMonster.end()) 
 			{
 				iter->second.nValue += nAmount;
@@ -116,7 +116,7 @@ BOOL	CTitleManager::AddValue( int nId, int nGroup, int nAmount)	// ìˆ˜ì¹˜ ì¹´ìš´
 			break;
 
 		case HI_USE_ITEM:
-			iter = m_mapItem.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapItem.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapItem.end()) 
 			{
 				iter->second.nValue += nAmount;
@@ -130,7 +130,7 @@ BOOL	CTitleManager::AddValue( int nId, int nGroup, int nAmount)	// ìˆ˜ì¹˜ ì¹´ìš´
 			break;
 		
 		default:
-			for(iter = m_mapEtc.begin(); iter != m_mapEtc.end(); ++iter) // ê·¸ì™¸ëŠ” 1ëŒ€1 íƒìƒ‰..ê°¯ìˆ˜ê°€ ì–¼ë§ˆì•ˆë˜ì„œ ë¬´ë¦¬ ì—†ì„ë“¯..
+			for(iter = m_mapEtc.begin(); iter != m_mapEtc.end(); ++iter) // ±×¿Ü´Â 1´ë1 Å½»ö..°¹¼ö°¡ ¾ó¸¶¾ÈµÇ¼­ ¹«¸® ¾øÀ»µí..
 			{
 				if(iter != m_mapEtc.end()) 
 				{
@@ -151,7 +151,7 @@ BOOL	CTitleManager::AddValue( int nId, int nGroup, int nAmount)	// ìˆ˜ì¹˜ ì¹´ìš´
 }*/
 
 /*
-BOOL	CTitleManager::IsQualified(int nId, int nGroup)		// ìê²© íšë“ ì—¬ë¶€ë§Œ í™•ì¸í•  ë•Œ ì“´ë‹¤. 
+BOOL	CTitleManager::IsQualified(int nId, int nGroup)		// ÀÚ°İ È¹µæ ¿©ºÎ¸¸ È®ÀÎÇÒ ¶§ ¾´´Ù. 
 {
 
 	map<int, HonorData>::iterator iter;
@@ -159,7 +159,7 @@ BOOL	CTitleManager::IsQualified(int nId, int nGroup)		// ìê²© íšë“ ì—¬ë¶€ë§Œ
 	switch(nId)
 	{
 		case HI_HUNT_MONSTER:
-			iter = m_mapMonster.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapMonster.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapMonster.end()) 
 			{
 				if(iter->second.nNeed <= iter->second.nValue)
@@ -172,7 +172,7 @@ BOOL	CTitleManager::IsQualified(int nId, int nGroup)		// ìê²© íšë“ ì—¬ë¶€ë§Œ
 			break;
 
 		case HI_USE_ITEM:
-			iter = m_mapItem.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapItem.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapItem.end()) 
 			{
 				if(iter->second.nNeed <= iter->second.nValue)
@@ -185,7 +185,7 @@ BOOL	CTitleManager::IsQualified(int nId, int nGroup)		// ìê²© íšë“ ì—¬ë¶€ë§Œ
 			break;
 
 		default:
-			for(iter = m_mapEtc.begin(); iter != m_mapEtc.end(); ++iter) // ê·¸ì™¸ëŠ” 1ëŒ€1 íƒìƒ‰..ê°¯ìˆ˜ê°€ ì–¼ë§ˆì•ˆë˜ì„œ ë¬´ë¦¬ ì—†ì„ë“¯..
+			for(iter = m_mapEtc.begin(); iter != m_mapEtc.end(); ++iter) // ±×¿Ü´Â 1´ë1 Å½»ö..°¹¼ö°¡ ¾ó¸¶¾ÈµÇ¼­ ¹«¸® ¾øÀ»µí..
 			{
 				if(iter != m_mapEtc.end()) 
 				{
@@ -204,7 +204,7 @@ BOOL	CTitleManager::IsQualified(int nId, int nGroup)		// ìê²© íšë“ ì—¬ë¶€ë§Œ
 }
 */
 /*
-BOOL	CTitleManager::Reset(int nId, int nGroup, int nNew)	// ë§ê·¸ëŒ€ë¡œ í˜„ì¬ê°’ì„ ì´ˆê¸°í™”í• ë•Œë‚˜, ìê²©íšë“ ê°™ì€ê±¸ ì„¸íŒ…í• ë•Œ ì“´ë‹¤.
+BOOL	CTitleManager::Reset(int nId, int nGroup, int nNew)	// ¸»±×´ë·Î ÇöÀç°ªÀ» ÃÊ±âÈ­ÇÒ¶§³ª, ÀÚ°İÈ¹µæ °°Àº°É ¼¼ÆÃÇÒ¶§ ¾´´Ù.
 {
 
 	map<int, HonorData>::iterator iter;
@@ -212,7 +212,7 @@ BOOL	CTitleManager::Reset(int nId, int nGroup, int nNew)	// ë§ê·¸ëŒ€ë¡œ í˜„ì¬ê
 	switch(nGroup)
 	{
 		case HI_HUNT_MONSTER:
-			iter = m_mapMonster.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapMonster.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapMonster.end()) 
 			{
 				iter->second.nValue = nNew;
@@ -226,7 +226,7 @@ BOOL	CTitleManager::Reset(int nId, int nGroup, int nNew)	// ë§ê·¸ëŒ€ë¡œ í˜„ì¬ê
 			break;
 
 		case HI_USE_ITEM:
-			iter = m_mapItem.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapItem.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapItem.end()) 
 			{
 				iter->second.nValue = nNew;
@@ -240,7 +240,7 @@ BOOL	CTitleManager::Reset(int nId, int nGroup, int nNew)	// ë§ê·¸ëŒ€ë¡œ í˜„ì¬ê
 			break;
 		
 		default:
-			for(iter = m_mapEtc.begin(); iter != m_mapEtc.end(); ++iter) // ê·¸ì™¸ëŠ” 1ëŒ€1 íƒìƒ‰..ê°¯ìˆ˜ê°€ ì–¼ë§ˆì•ˆë˜ì„œ ë¬´ë¦¬ ì—†ì„ë“¯..
+			for(iter = m_mapEtc.begin(); iter != m_mapEtc.end(); ++iter) // ±×¿Ü´Â 1´ë1 Å½»ö..°¹¼ö°¡ ¾ó¸¶¾ÈµÇ¼­ ¹«¸® ¾øÀ»µí..
 			{
 				if(iter != m_mapEtc.end()) 
 				{
@@ -261,12 +261,12 @@ BOOL	CTitleManager::Reset(int nId, int nGroup, int nNew)	// ë§ê·¸ëŒ€ë¡œ í˜„ì¬ê
 }
 */
 
-char	*CTitleManager::GetTitle(int nId)		// íƒ€ì´í‹€ì„ ë°˜í™˜
+char	*CTitleManager::GetTitle(int nId)		// Å¸ÀÌÆ²À» ¹İÈ¯
 {
 	map<int, HonorData>::iterator iter;
 	if(nId == -1) return NULL; 
 	//int nGroup = GetIdxType(nId);
-	iter = m_mapAll.find(nId);	// ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+	iter = m_mapAll.find(nId);	// ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 	if(iter != m_mapAll.end()) 
 	{
 		return (LPSTR)(LPCSTR)iter->second.strTitle;
@@ -275,7 +275,7 @@ char	*CTitleManager::GetTitle(int nId)		// íƒ€ì´í‹€ì„ ë°˜í™˜
 	{
 		
 		case HI_HUNT_MONSTER:
-			iter = m_mapMonster.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapMonster.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapMonster.end()) 
 			{
 				return (LPSTR)(LPCSTR)iter->second.strTitle;
@@ -285,7 +285,7 @@ char	*CTitleManager::GetTitle(int nId)		// íƒ€ì´í‹€ì„ ë°˜í™˜
 			break;
 
 		case HI_USE_ITEM:
-			iter = m_mapItem.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapItem.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapItem.end()) 
 			{
 				return (LPSTR)(LPCSTR)iter->second.strTitle;
@@ -295,7 +295,7 @@ char	*CTitleManager::GetTitle(int nId)		// íƒ€ì´í‹€ì„ ë°˜í™˜
 			break;
 		
 		default:
-			for(iter = m_mapEtc.begin(); iter != m_mapEtc.end(); ++iter) // ê·¸ì™¸ëŠ” 1ëŒ€1 íƒìƒ‰..ê°¯ìˆ˜ê°€ ì–¼ë§ˆì•ˆë˜ì„œ ë¬´ë¦¬ ì—†ì„ë“¯..
+			for(iter = m_mapEtc.begin(); iter != m_mapEtc.end(); ++iter) // ±×¿Ü´Â 1´ë1 Å½»ö..°¹¼ö°¡ ¾ó¸¶¾ÈµÇ¼­ ¹«¸® ¾øÀ»µí..
 			{
 				if(iter != m_mapEtc.end()) 
 				{
@@ -311,7 +311,7 @@ char	*CTitleManager::GetTitle(int nId)		// íƒ€ì´í‹€ì„ ë°˜í™˜
 
 }
 
-int	CTitleManager::GetNeedCount(int nId, int nGroup)		// íšë“ê°€ëŠ¥ ì¹´ìš´íŠ¸ ë¦¬í„´
+int	CTitleManager::GetNeedCount(int nId, int nGroup)		// È¹µæ°¡´É Ä«¿îÆ® ¸®ÅÏ
 {
 
 	map<int, HonorData>::iterator iter;
@@ -319,7 +319,7 @@ int	CTitleManager::GetNeedCount(int nId, int nGroup)		// íšë“ê°€ëŠ¥ ì¹´ìš´íŠ¸ 
 	switch(nGroup)
 	{
 		case HI_HUNT_MONSTER:
-			iter = m_mapMonster.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapMonster.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapMonster.end()) 
 			{
 				return iter->second.nNeed;
@@ -329,7 +329,7 @@ int	CTitleManager::GetNeedCount(int nId, int nGroup)		// íšë“ê°€ëŠ¥ ì¹´ìš´íŠ¸ 
 			break;
 
 		case HI_USE_ITEM:
-			iter = m_mapItem.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapItem.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapItem.end()) 
 			{
 				return iter->second.nNeed;
@@ -338,8 +338,8 @@ int	CTitleManager::GetNeedCount(int nId, int nGroup)		// íšë“ê°€ëŠ¥ ì¹´ìš´íŠ¸ 
 				return -1;
 			break;
 
-		case -1:		// ì „ë¶€ë‹¤ ê²€ìƒ‰
-			iter = m_mapAll.find(nId);	// ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+		case -1:		// ÀüºÎ´Ù °Ë»ö
+			iter = m_mapAll.find(nId);	// ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapAll.end()) 
 			{
 				return iter->second.nNeed;
@@ -349,7 +349,7 @@ int	CTitleManager::GetNeedCount(int nId, int nGroup)		// íšë“ê°€ëŠ¥ ì¹´ìš´íŠ¸ 
 			break;
 
 		default:
-			iter = m_mapEtc.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapEtc.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapEtc.end()) 
 			{
 				return iter->second.nNeed;
@@ -368,7 +368,7 @@ HonorData*		CTitleManager::GetHonorDataByID(int nId,int nGroup)
 	switch(nGroup)
 	{
 		case HI_HUNT_MONSTER:
-			iter = m_mapMonster.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapMonster.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapMonster.end()) 
 			{
 				return &iter->second;
@@ -378,7 +378,7 @@ HonorData*		CTitleManager::GetHonorDataByID(int nId,int nGroup)
 			break;
 
 		case HI_USE_ITEM:
-			iter = m_mapItem.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapItem.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapItem.end()) 
 			{
 				return &iter->second;
@@ -388,7 +388,7 @@ HonorData*		CTitleManager::GetHonorDataByID(int nId,int nGroup)
 			break;
 
 		default:
-			iter = m_mapEtc.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapEtc.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapEtc.end()) 
 			{
 				return &iter->second;
@@ -407,7 +407,7 @@ int	CTitleManager::GetIdx(int nId, int nGroup)		//
 	switch(nGroup)
 	{
 		case HI_HUNT_MONSTER:
-			iter = m_mapMonster.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapMonster.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapMonster.end()) 
 			{
 				return iter->second.nID;
@@ -417,7 +417,7 @@ int	CTitleManager::GetIdx(int nId, int nGroup)		//
 			break;
 
 		case HI_USE_ITEM:
-			iter = m_mapItem.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapItem.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapItem.end()) 
 			{
 				return iter->second.nID;
@@ -427,7 +427,7 @@ int	CTitleManager::GetIdx(int nId, int nGroup)		//
 			break;
 
 		default:
-			iter = m_mapEtc.find(nId);	// ì•„ì´í…œ ì•„ì´ë””ë¡œ ê²€ìƒ‰
+			iter = m_mapEtc.find(nId);	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ·Î °Ë»ö
 			if(iter != m_mapEtc.end()) 
 			{
 				return iter->second.nID;
@@ -444,7 +444,7 @@ int		CTitleManager::GetIdxType(int nId)
 {
 	map<int, HonorData>::iterator iter;
 
-	iter = m_mapAll.find(nId); // ëª¬ìŠ¤í„° ì•„ì´ë””ë¡œ ê²€ìƒ‰
+	iter = m_mapAll.find(nId); // ¸ó½ºÅÍ ¾ÆÀÌµğ·Î °Ë»ö
 
 	if(iter != m_mapAll.end()) 
 	{
@@ -459,7 +459,7 @@ int CTitleManager::GetIdxByName(LPCTSTR chName)		//
 {
 	map<int, HonorData>::iterator iter;
 
-	for(iter = m_mapAll.begin(); iter != m_mapAll.end(); ++iter) // ê·¸ì™¸ëŠ” 1ëŒ€1 íƒìƒ‰..ê°¯ìˆ˜ê°€ ì–¼ë§ˆì•ˆë˜ì„œ ë¬´ë¦¬ ì—†ì„ë“¯..
+	for(iter = m_mapAll.begin(); iter != m_mapAll.end(); ++iter) // ±×¿Ü´Â 1´ë1 Å½»ö..°¹¼ö°¡ ¾ó¸¶¾ÈµÇ¼­ ¹«¸® ¾øÀ»µí..
 	{
 		HonorData	TempData = iter->second;
 		if(lstrcmp(TempData.strTitle,chName) == 0 )

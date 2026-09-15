@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "dpdbsrvr.h"
 #include "dpadbill.h"
 

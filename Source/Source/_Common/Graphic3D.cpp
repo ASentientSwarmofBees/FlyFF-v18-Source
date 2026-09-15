@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "Graphic3D.h"
 
 
@@ -53,7 +53,7 @@ void	CGraphic3D :: Render3DLine( D3DXVECTOR3 &vOrig, D3DXVECTOR3 &vTar, DWORD dw
 }
 
 // 
-// vList : ì‚¼ê°í˜• 3ì ì˜ ì‹œì‘í¬ì¸í„°. vList[0], [1], [2]
+// vList : »ï°¢Çü 3Á¡ÀÇ ½ÃÀÛÆ÷ÀÎÅÍ. vList[0], [1], [2]
 void	CGraphic3D :: Render3DTri( D3DXVECTOR3 *vList, DWORD dwColor, BOOL bShowNormal )
 {
 	FVF_3DVERTEX	aList[3];
@@ -69,10 +69,10 @@ void	CGraphic3D :: Render3DTri( D3DXVECTOR3 *vList, DWORD dwColor, BOOL bShowNor
 	{
 		D3DXVECTOR3 vPos, v1, v2;
 		vPos = (vList[0] + vList[1] + vList[2]) / 3;
-		v1 = vList[1] - vList[0];		// ë…¸ë§ ê³„ì‚° ì‹œì‘.
+		v1 = vList[1] - vList[0];		// ³ë¸» °è»ê ½ÃÀÛ.
 		v2 = vList[2] - vList[0];
-		D3DXVec3Cross( &v1, &v1, &v2 );		// ë°”ë‹¥ì˜ ë…¸ë§ ê³„ì‚°.
-		D3DXVec3Normalize( &v1, &v1 );		// ë‹¨ìœ„ë²¡í„°ë¡œ ë³€í™˜
+		D3DXVec3Cross( &v1, &v1, &v2 );		// ¹Ù´ÚÀÇ ³ë¸» °è»ê.
+		D3DXVec3Normalize( &v1, &v1 );		// ´ÜÀ§º¤ÅÍ·Î º¯È¯
 		v1 += vPos;
 		Render3DLine( vPos, v1, COL_WHITE );
 	}
@@ -150,7 +150,7 @@ void	CGraphic3D :: RenderAABB( D3DXVECTOR3 &vMin, D3DXVECTOR3 &vMax, DWORD dwCol
 }
 
 //
-//	3ì°¨ì› ê³µê°„ìƒì— Y=0ì¸ ê·¸ë¦¬ë“œë¥¼ ë§Œë“ ë‹¤
+//	3Â÷¿ø °ø°£»ó¿¡ Y=0ÀÎ ±×¸®µå¸¦ ¸¸µç´Ù
 //
 void	CGraphic3D :: RenderGrid( DWORD dwColor )
 {
@@ -158,29 +158,29 @@ void	CGraphic3D :: RenderGrid( DWORD dwColor )
 	int		i;
 	int		nCnt = 0;
 
-	// ì„¸ë¡œì„ 
+	// ¼¼·Î¼±
 	for( i = 0; i < 21; i ++ )
 	{
-		aList[ nCnt ].vPos.x = (float)(-10 + i * 1);	// ì‹œì‘
+		aList[ nCnt ].vPos.x = (float)(-10 + i * 1);	// ½ÃÀÛ
 		aList[ nCnt ].vPos.z = (float)10;
 		aList[ nCnt ].vPos.y = 0;
 		aList[ nCnt ].dwColor = dwColor;
 		nCnt ++;
-		aList[ nCnt ].vPos.x = (float)(-10 + i * 1);	// ë
+		aList[ nCnt ].vPos.x = (float)(-10 + i * 1);	// ³¡
 		aList[ nCnt ].vPos.z = (float)-10;
 		aList[ nCnt ].vPos.y = 0;
 		aList[ nCnt ].dwColor = dwColor;
 		nCnt ++;
 	}
-	// ê°€ë¡œì„ 
+	// °¡·Î¼±
 	for( i = 0; i < 21; i ++ )
 	{
-		aList[ nCnt ].vPos.x = (float)-10;	// ì‹œì‘
+		aList[ nCnt ].vPos.x = (float)-10;	// ½ÃÀÛ
 		aList[ nCnt ].vPos.z = (float)(-10 + i * 1);
 		aList[ nCnt ].vPos.y = 0;
 		aList[ nCnt ].dwColor = dwColor;
 		nCnt ++;
-		aList[ nCnt ].vPos.x = (float)10;	// ë
+		aList[ nCnt ].vPos.x = (float)10;	// ³¡
 		aList[ nCnt ].vPos.z = (float)(-10 + i * 1);
 		aList[ nCnt ].vPos.y = 0;
 		aList[ nCnt ].dwColor = dwColor;

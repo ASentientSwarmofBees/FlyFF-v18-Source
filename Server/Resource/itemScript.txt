@@ -1,14 +1,14 @@
-﻿II_WEA_SWO_LONG
+II_WEA_SWO_LONG
 {
 	
 	"#equip"
 	{
-		Trace( "LONG 소드 장착 테스트" );
+		Trace( "LONG �ҵ� ���� �׽�Ʈ" );
 	}
 	
 	"#unequip"
 	{
-		Trace( "LONG 테스트 탈착" );
+		Trace( "LONG �׽�Ʈ Ż��" );
 	}
 }
 
@@ -18,11 +18,11 @@ II_WEA_SWO_PARMIL
 	
 	"#equip"
 	{
-		Trace( "파밀 소드 장착 테스트" );
+		Trace( "�Ĺ� �ҵ� ���� �׽�Ʈ" );
 	}
 	
 	"#unequip"
 	{
-		Trace( "파밀 소드 테스트 탈착" );
+		Trace( "�Ĺ� �ҵ� �׽�Ʈ Ż��" );
 	}
 }

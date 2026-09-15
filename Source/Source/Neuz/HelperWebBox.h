@@ -1,4 +1,4 @@
-﻿#ifndef __HELPER_WEB_BOX_H__
+#ifndef __HELPER_WEB_BOX_H__
 #define __HELPER_WEB_BOX_H__
 
 #ifdef __NEW_WEB_BOX

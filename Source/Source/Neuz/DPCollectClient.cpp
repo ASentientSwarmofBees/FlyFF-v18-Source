@@ -1,4 +1,4 @@
-﻿// DPCollectClient.cpp: implementation of the CDPCollectClient class.
+// DPCollectClient.cpp: implementation of the CDPCollectClient class.
 //
 //////////////////////////////////////////////////////////////////////
 

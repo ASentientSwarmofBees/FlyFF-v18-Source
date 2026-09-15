@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndManager.h"
@@ -13,11 +13,11 @@ extern	CDPClient	g_DPlay;
 #endif // CLIENT
 
 /****************************************************
-  WndId : APP_GUILD_MERIT - ê¸¸ë“œê³µí—Œì°½
+  WndId : APP_GUILD_MERIT - ±æµå°øÇåÃ¢
   CtrlId : WIDC_EDIT1 - 
-  CtrlId : WIDC_STATIC1 - PXPì§€ì› :
+  CtrlId : WIDC_STATIC1 - PXPÁö¿ø :
   CtrlId : WIDC_CHECK1 - 
-  CtrlId : WIDC_STATIC2 - ì§€ ì› ê¸ˆ   :
+  CtrlId : WIDC_STATIC2 - Áö ¿ø ±İ   :
   CtrlId : WIDC_BUTTON1 - Button
   CtrlId : WIDC_BUTTON2 - Button
 ****************************************************/
@@ -38,13 +38,13 @@ void CWndGuildMerit::OnDraw( C2DRender* p2DRender )
 void CWndGuildMerit::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	LPWNDCTRL lpWndCtrl = GetWndCtrl( WIDC_LISTBOX1 );
 	
 	m_wndctrlMerit.Create( WLVS_ICON | WBS_NODRAWFRAME, lpWndCtrl->rect, this, 100 );
 	
 	
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -58,7 +58,7 @@ void CWndGuildMerit::OnInitialUpdate()
 	pWndEdit->SetString( szNumber );
 	pWndEdit->SetFocus();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndGuildMerit::Initialize( CWndBase* pWndParent, DWORD ) 
 { 
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_MERIT1, 0, CPoint( 0, 0 ), pWndParent );
@@ -79,39 +79,39 @@ void CWndGuildMerit::OnLButtonDown( UINT nFlags, CPoint point )
 } 
 
 /*
-TID_GAME_GUILDNEEDGOLD ê¸¸ë“œì°½ê³ ì— í˜ëƒê°€ ë¶€ì¡±í•˜ì—¬ ë§í† ë¥¼ ìƒì„±í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. 
-TID_GAME_GUILDMERITSTUFF ê¸¸ë“œì— í˜ëƒì™€ ê²½í—˜ì¹˜ë¥¼ ê³µí—Œí–ˆìŠµë‹ˆë‹¤. 
-TID_GAME_GUILDMERITMAXLEVEL ê¸¸ë“œì˜ ë ˆë²¨ì´ ìƒìŠ¹í•˜ì§€ ì•ŠëŠ” ë‹¨ê³„ì´ë¯€ë¡œ ê³µí—Œì´ ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤. 
-TID_GAME_GUILDMERITLOWPXP PXPê°€ 100% ë˜ì§€ ì•Šì•„ ê³µí—Œë„ê°€ ì˜¬ë¼ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. 
-TID_GAME_GUILDMERITMAXGOLD ê³µí—Œí•  ìˆ˜ ìˆëŠ” ìµœëŒ€ë¥¼ ë„˜ì—ˆìŠµë‹ˆë‹¤. 
-TID_GAME_GUILDMAXBANKGOLD ê¸¸ë“œì°½ê³ ì— 42ì–µí˜ëƒê°€ ë„˜ëŠ” ê¸ˆì•¡ì´ ìˆìŠµë‹ˆë‹¤. 
-TID_GAME_GUILDNOTENGGOLD ì¸ë²¤í† ë¦¬ì— ê°€ì§„ í˜ëƒê°€ ë¶€ì¡±í•˜ì—¬ ì°½ê³ ì— í˜ëƒë¥¼ ë„£ì§€ ëª»í–ˆìŠµë‹ˆë‹¤. 
-TID_GAME_GUILDMERITSYSERROR ì‹œìŠ¤í…œ ì˜í–¥ìœ¼ë¡œ ê³µí—Œì´ ë˜ì§€ì•Šì•˜ìŠµë‹ˆë‹¤.  
+TID_GAME_GUILDNEEDGOLD ±æµåÃ¢°í¿¡ Æä³Ä°¡ ºÎÁ·ÇÏ¿© ¸ÁÅä¸¦ »ı¼ºÇÒ ¼ö ¾ø½À´Ï´Ù. 
+TID_GAME_GUILDMERITSTUFF ±æµå¿¡ Æä³Ä¿Í °æÇèÄ¡¸¦ °øÇåÇß½À´Ï´Ù. 
+TID_GAME_GUILDMERITMAXLEVEL ±æµåÀÇ ·¹º§ÀÌ »ó½ÂÇÏÁö ¾Ê´Â ´Ü°èÀÌ¹Ç·Î °øÇåÀÌ µÇÁö ¾Ê½À´Ï´Ù. 
+TID_GAME_GUILDMERITLOWPXP PXP°¡ 100% µÇÁö ¾Ê¾Æ °øÇåµµ°¡ ¿Ã¶óÁö ¾Ê¾Ò½À´Ï´Ù. 
+TID_GAME_GUILDMERITMAXGOLD °øÇåÇÒ ¼ö ÀÖ´Â ÃÖ´ë¸¦ ³Ñ¾ú½À´Ï´Ù. 
+TID_GAME_GUILDMAXBANKGOLD ±æµåÃ¢°í¿¡ 42¾ïÆä³Ä°¡ ³Ñ´Â ±İ¾×ÀÌ ÀÖ½À´Ï´Ù. 
+TID_GAME_GUILDNOTENGGOLD ÀÎº¥Åä¸®¿¡ °¡Áø Æä³Ä°¡ ºÎÁ·ÇÏ¿© Ã¢°í¿¡ Æä³Ä¸¦ ³ÖÁö ¸øÇß½À´Ï´Ù. 
+TID_GAME_GUILDMERITSYSERROR ½Ã½ºÅÛ ¿µÇâÀ¸·Î °øÇåÀÌ µÇÁö¾Ê¾Ò½À´Ï´Ù.  
 */
-// ì—ëŸ¬ ë©”ì‹œì§€ë“¤.
+// ¿¡·¯ ¸Ş½ÃÁöµé.
 void CGuild::MeritResultMsg( CONTRIBUTION_RESULT cbResult )
 {
 	switch( cbResult )
 	{
-	case CONTRIBUTION_OK:	// ê³µí—Œ ì„±ê³µ - ì´ê±´ ì„œë²„ì—ì„œ ê²€ì‚¬í•´ë³´ê³  ëì„ë•Œ ë³´ë‚´ì£¼ì.
+	case CONTRIBUTION_OK:	// °øÇå ¼º°ø - ÀÌ°Ç ¼­¹ö¿¡¼­ °Ë»çÇØº¸°í µÆÀ»¶§ º¸³»ÁÖÀÚ.
 		g_WndMng.PutString( prj.GetText( TID_GAME_GUILDMERITSTUFF ), NULL, prj.GetTextColor( TID_GAME_GUILDMERITSTUFF ) );
 		break;
-	case CONTRIBUTION_FAIL_MAXLEVEL:	// ê¸¸ë“œê°€ ì´ë¯¸ ìµœê³ ë ˆë²¨ì— ì˜¬ëì„ë•Œ.
+	case CONTRIBUTION_FAIL_MAXLEVEL:	// ±æµå°¡ ÀÌ¹Ì ÃÖ°í·¹º§¿¡ ¿Ã¶úÀ»¶§.
 		g_WndMng.PutString( prj.GetText( TID_GAME_GUILDMERITMAXLEVEL ), NULL, prj.GetTextColor( TID_GAME_GUILDMERITMAXLEVEL ) );
 		break;
-//	case CONTRIBUTION_FAIL_GUILD_OVERFLOW_PXP:	// ê¸¸ë“œPXPê°€ í•œê³„ì¹˜(42ì–µ)ë¥¼ ë„˜ì—ˆì„ë•Œ.
+//	case CONTRIBUTION_FAIL_GUILD_OVERFLOW_PXP:	// ±æµåPXP°¡ ÇÑ°èÄ¡(42¾ï)¸¦ ³Ñ¾úÀ»¶§.
 //		g_WndMng.PutString( prj.GetText( TID_GAME_GUILDMERITMAXLEVEL ), NULL, prj.GetTextColor( TID_GAME_GUILDMERITMAXLEVEL ) );
 //		break;
-	case CONTRIBUTION_FAIL_GUILD_OVERFLOW_PENYA:// ê¸¸ë“œí˜ëƒê°€ í•œê³„ì¹˜(42ì–µ)ë¥¼ ë„˜ì—ˆì„ë•Œ.
+	case CONTRIBUTION_FAIL_GUILD_OVERFLOW_PENYA:// ±æµåÆä³Ä°¡ ÇÑ°èÄ¡(42¾ï)¸¦ ³Ñ¾úÀ»¶§.
 		g_WndMng.PutString( prj.GetText( TID_GAME_GUILDMAXBANKGOLD ), NULL, prj.GetTextColor( TID_GAME_GUILDMAXBANKGOLD ) );
 		break;
-	case CONTRIBUTION_FAIL_INVALID_CONDITION:	// ì„œë²„ì´ìƒìœ¼ë¡œ ê³µí—Œì´ ì‹¤íŒ¨.
+	case CONTRIBUTION_FAIL_INVALID_CONDITION:	// ¼­¹öÀÌ»óÀ¸·Î °øÇåÀÌ ½ÇÆĞ.
 		g_WndMng.PutString( prj.GetText( TID_GAME_GUILDMERITSYSERROR ), NULL, prj.GetTextColor( TID_GAME_GUILDMERITSYSERROR ) );
 		break;
-//	case CONTRIBUTION_FAIL_OVERFLOW_PXP:	// ê°œì¸PXPê°€ í•œê³„ì¹˜(42ì–µ)ë¥¼ ë„˜ì—ˆì„ë•Œ.
+//	case CONTRIBUTION_FAIL_OVERFLOW_PXP:	// °³ÀÎPXP°¡ ÇÑ°èÄ¡(42¾ï)¸¦ ³Ñ¾úÀ»¶§.
 //		g_WndMng.PutString( prj.GetText( TID_GAME_GUILDMERITMAXLEVEL ), NULL, prj.GetTextColor( TID_GAME_GUILDMERITMAXLEVEL ) );
 //		break;
-	case CONTRIBUTION_FAIL_OVERFLOW_PENYA:	// ê°œì¸í˜ëƒê°€ í•œê³„ì¹˜(42ì–µ)ë¥¼ ë„˜ì—ˆì„ë•Œ.
+	case CONTRIBUTION_FAIL_OVERFLOW_PENYA:	// °³ÀÎÆä³Ä°¡ ÇÑ°èÄ¡(42¾ï)¸¦ ³Ñ¾úÀ»¶§.
 		g_WndMng.PutString( prj.GetText( TID_GAME_GUILDMERITMAXGOLD ), NULL, prj.GetTextColor( TID_GAME_GUILDMERITMAXGOLD ) );
 		break;
 	}
@@ -165,30 +165,30 @@ BOOL CWndGuildMerit::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	case WIDC_BUTTON1:		// OK
 		{
 			CWndEdit *pWndEdit = (CWndEdit *)GetDlgItem( WIDC_EDIT1 );
-			m_nPenya = atoi( pWndEdit->GetString() );		// ë¬¸ìì—´ì„ ìˆ«ìë¡œ ë³€í™˜.
+			m_nPenya = atoi( pWndEdit->GetString() );		// ¹®ÀÚ¿­À» ¼ıÀÚ·Î º¯È¯.
 			if( m_nPenya < 0 )
 				m_nPenya = 0;
 			CGuild* pGuild = g_pPlayer->GetGuild();
 			if( pGuild )
 			{
-				// í˜ëƒê°€ ê³µí—Œê°€ëŠ¥í•œì§€ ê²€ì‚¬.
+				// Æä³Ä°¡ °øÇå°¡´ÉÇÑÁö °Ë»ç.
 				if( m_nPenya )
 				{
 					CONTRIBUTION_RESULT cbResult = pGuild->CanContribute( 0, (DWORD)m_nPenya, g_pPlayer->m_idPlayer );
-					if( cbResult == CONTRIBUTION_OK )	// í˜ëƒ ê³µí—Œê°€ëŠ¥.
+					if( cbResult == CONTRIBUTION_OK )	// Æä³Ä °øÇå°¡´É.
 						g_DPlay.SendGuildContribution( 0, m_nPenya );
-					pGuild->MeritResultMsg( cbResult );	// ì•ˆë‚´ë©”ì‹œì§€.
+					pGuild->MeritResultMsg( cbResult );	// ¾È³»¸Ş½ÃÁö.
 				}
 				
 				//*
-				// ê³µí—Œì•„ì´í…œ
+				// °øÇå¾ÆÀÌÅÛ
 				if( m_nItem )
 				{
 					CONTRIBUTION_RESULT cbResult = pGuild->CanContribute( m_wndctrlMerit.GetTotalCount(), 0, g_pPlayer->m_idPlayer );
-					if( cbResult == CONTRIBUTION_OK )	// ì•„ì´í…œ ê³µí—Œê°€ëŠ¥
+					if( cbResult == CONTRIBUTION_OK )	// ¾ÆÀÌÅÛ °øÇå°¡´É
 						g_DPlay.SendGuildContribution( 0, 0,  1);
 
-					pGuild->MeritResultMsg( cbResult );	// ì•ˆë‚´ë©”ì‹œì§€.
+					pGuild->MeritResultMsg( cbResult );	// ¾È³»¸Ş½ÃÁö.
 				}
 				
 				/**/
@@ -201,7 +201,7 @@ BOOL CWndGuildMerit::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	case 10000:
 	case WIDC_BUTTON2:		// NO
 		m_wndctrlMerit.RestoreItem();
-		Destroy();			// ê± ì°½ ë‹«ê³  ë‚˜ê°.
+		Destroy();			// °Á Ã¢ ´İ°í ³ª°¨.
 		break;
 	}
 
@@ -249,7 +249,7 @@ void CWndGuildMeritCtrl::OnDraw( C2DRender* p2DRender )
 	int nWidth	= rect.Width() / 32;
 	int nHeight		= rect.Height() / 32;
 
-	// ìŠ¤í¬ë¡¤ë°” ê´€ë ¨   
+	// ½ºÅ©·Ñ¹Ù °ü·Ã   
 	CPoint pt( 0, 0 );
 
 	nWidth = 6;

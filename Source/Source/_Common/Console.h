@@ -1,4 +1,4 @@
-ï»¿
+
 // Desc : console dialog
 // Date : 20090714
 // Author : gmpbigsun
@@ -119,7 +119,7 @@ public:
 	int _nPasswordFigure[ 4 ];
 
 	//
-	BOOL _bRandomMoving;		//ë¬´ì‘ìœ„ ì´ë™
+	BOOL _bRandomMoving;		//¹«ÀÛÀ§ ÀÌµ¿
 	BOOL _bTestToggle;
 };
 

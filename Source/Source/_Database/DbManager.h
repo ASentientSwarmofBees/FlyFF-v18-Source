@@ -1,4 +1,4 @@
-ï»¿/********************************************************************
+/********************************************************************
 	created:	2003/02/26
 	created:	26:2:2003   16:49
 	filename: 	c:\neurospace\program\_database\dbmanager.h
@@ -7,7 +7,7 @@
 	file ext:	h
 	author:		Kim, pan-young
 	
-	purpose:	ë°ì´íƒ€ ë² ì´ìŠ¤ ì²˜ë¦¬ í´ë˜ìŠ¤
+	purpose:	µ¥ÀÌÅ¸ º£ÀÌ½º Ã³¸® Å¬·¡½º
 *********************************************************************/
 
 #ifndef _DB_MANAGER_H_
@@ -104,18 +104,18 @@ enum QUERYMODE
 	QM_DELETE_MESSENGER,
 	QM_UPDATE_MESSENGER,
 #endif	// __RT_1025
-#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
 	QM_GUILDBANK_LOG_VIEW,
-#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 	LOG_GETHONORTIME,
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
-#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 	QM_SEALCHAR,
 	QM_SEALCHARCONM,
 	QM_SEALCHARGET,
 	QM_SEALCHARSET,
-#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
 	GC1TO1_STATE,
 	GC1TO1_LOAD,
@@ -155,10 +155,10 @@ typedef struct tagDB_OVERLAPPED_PLUS
 {
 	OVERLAPPED	Overlapped;
 	int		nQueryMode;
-	//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
+	//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ¸Ş¸ğ¸® Ç® »ç¿ë.
 	BYTE*	lpBuf;
 	//BYTE	lpBuf[CAr::nGrowSize * 2];
-	//	mulcom	END100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
+	//	mulcom	END100415	DB_OVERLAPPED_PLUS ¸Ş¸ğ¸® Ç® »ç¿ë.
 	u_long	uBufSize;
 	ACCOUNT_INFO	AccountInfo;
 	DPID	dpid;
@@ -167,10 +167,10 @@ typedef struct tagDB_OVERLAPPED_PLUS
 	DWORD	dwAuthKey;
 	tagDB_OVERLAPPED_PLUS()
 	{
-		//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
+		//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ¸Ş¸ğ¸® Ç® »ç¿ë.
 		lpBuf	= NULL;
 		//::memset( lpBuf, 0, sizeof(lpBuf) );
-		//	mulcom	END100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
+		//	mulcom	END100415	DB_OVERLAPPED_PLUS ¸Ş¸ğ¸® Ç® »ç¿ë.
 		
 		uBufSize = 0;
 	}
@@ -276,7 +276,7 @@ struct	MAIL_QUERYINFO
 		}
 };
 
-// ê¸¸ë“œì¿¼ë¦¬ë¬¸ì¥ì„ ë§Œë“ ë‹¤.
+// ±æµåÄõ¸®¹®ÀåÀ» ¸¸µç´Ù.
 struct GUILD_QUERYINFO
 {
 	LPCTSTR	pszType;
@@ -316,7 +316,7 @@ struct GUILD_QUERYINFO
 	};
 };
 
-// ê¸¸ë“œ íˆ¬í‘œ ì¿¼ë¦¬ë¬¸ì¥ì„ ë§Œë“ ë‹¤.
+// ±æµå ÅõÇ¥ Äõ¸®¹®ÀåÀ» ¸¸µç´Ù.
 struct VOTE_QUERYINFO
 {
 	LPCTSTR		pszType;
@@ -341,23 +341,23 @@ struct VOTE_QUERYINFO
 	};
 }; 
 
-// ê¸¸ë“œ Log ì¿¼ë¦¬ë¬¸ì¥ì„ ë§Œë“ ë‹¤.
+// ±æµå Log Äõ¸®¹®ÀåÀ» ¸¸µç´Ù.
 struct GUILDLOG_QUERYINFO
 {
-	LPCTSTR		pszType;			// ë¡œê·¸ íƒ€ì…
-	u_long		idGuild;			// ê¸¸ë“œ ì•„ì´ë””
-	u_long		idPlayer;			// ë‹¹í•œì
-	u_long		idDoPlayer;			// ì‹œí‚¨ì
-	int			nGuildGold;			// ê¸¸ë“œ ê³¨ë“œ
-	int			nGuildPxp;			// ê¸¸ë“œ Pxp
-	int			nGuildLv;			// ê¸¸ë“œ ë ˆë²¨
-	int			nLevel;				// ë‹¹í•œì ë ˆë²¨
-	int 		nItem;				// ì•„ì´í…œ ì•„ì´ë”” / ê±°ë˜ í˜ëƒëŸ‰
-	int			nAbilityOption;		// ì•„ì´í…œ ì˜µì…˜
-	int			nItem_count;		// ê±°ë˜ ê°¯ìˆ˜
-	SERIALNUMBER	iUniqueNo;			// ìœ ë‹ˆí¬ ë„˜ë²„
-	LPCTSTR		pszTime;			// ì‹œê°
-	LPCTSTR		pszGuildBank;		// ê¸¸ë“œ ë±…í¬
+	LPCTSTR		pszType;			// ·Î±× Å¸ÀÔ
+	u_long		idGuild;			// ±æµå ¾ÆÀÌµğ
+	u_long		idPlayer;			// ´çÇÑÀÚ
+	u_long		idDoPlayer;			// ½ÃÅ²ÀÚ
+	int			nGuildGold;			// ±æµå °ñµå
+	int			nGuildPxp;			// ±æµå Pxp
+	int			nGuildLv;			// ±æµå ·¹º§
+	int			nLevel;				// ´çÇÑÀÚ ·¹º§
+	int 		nItem;				// ¾ÆÀÌÅÛ ¾ÆÀÌµğ / °Å·¡ Æä³Ä·®
+	int			nAbilityOption;		// ¾ÆÀÌÅÛ ¿É¼Ç
+	int			nItem_count;		// °Å·¡ °¹¼ö
+	SERIALNUMBER	iUniqueNo;			// À¯´ÏÅ© ³Ñ¹ö
+	LPCTSTR		pszTime;			// ½Ã°¢
+	LPCTSTR		pszGuildBank;		// ±æµå ¹ğÅ©
 	LPCTSTR		pszState;
 	
 	GUILDLOG_QUERYINFO(LPCTSTR pszQueryType)
@@ -464,7 +464,7 @@ struct WAR_QUERYINFO
 // WANTED_QUERYINFO
 ///////////////////////////////////////////////////////////////////////
 
-// ê¸¸ë“œ íˆ¬í‘œ ì¿¼ë¦¬ë¬¸ì¥ì„ ë§Œë“ ë‹¤.
+// ±æµå ÅõÇ¥ Äõ¸®¹®ÀåÀ» ¸¸µç´Ù.
 struct WANTED_QUERYINFO
 {
 	LPCTSTR		pszType;
@@ -688,17 +688,17 @@ class CDbManager
 	};
 	struct __GCRESULTVALUEGUILD
 	{
-		int	nCombatID;			// ê¸¸ë“œëŒ€ì „ ì•„ì´ë””
-		u_long uidGuild;		// ê¸¸ë“œ ì•„ì´ë””
-		__int64 nReturnCombatFee;	// ëŒë ¤ë°›ì„ ì°¸ì—¬ê¸ˆ
-		__int64 nReward;				// ë³´ìƒê¸ˆ
+		int	nCombatID;			// ±æµå´ëÀü ¾ÆÀÌµğ
+		u_long uidGuild;		// ±æµå ¾ÆÀÌµğ
+		__int64 nReturnCombatFee;	// µ¹·Á¹ŞÀ» Âü¿©±İ
+		__int64 nReward;				// º¸»ó±İ
 	};
 	struct __GCRESULTVALUEPLAYER
 	{
-		int nCombatID;			// ê¸¸ë“œëŒ€ì „ ì•„ì´ë””
-		u_long uidGuild;		// ê¸¸ë“œ ì•„ì´ë””
-		u_long uidPlayer;		// í”Œë ˆì´ì–´ ì•„ì´ë””
-		__int64 nReward;			// ë³´ìƒê¸ˆ
+		int nCombatID;			// ±æµå´ëÀü ¾ÆÀÌµğ
+		u_long uidGuild;		// ±æµå ¾ÆÀÌµğ
+		u_long uidPlayer;		// ÇÃ·¹ÀÌ¾î ¾ÆÀÌµğ
+		__int64 nReward;			// º¸»ó±İ
 	};
 	struct __GCPLAYERPOINT
 	{
@@ -740,7 +740,7 @@ public:
 	HANDLE			m_hIOCPGet;
 	HANDLE			m_hIOCPPut;
 	HANDLE			m_hIOCPUpdate;
-	HANDLE			m_hIOCPGuild;			// ê¸¸ë“œ ì—…ëƒìš© 
+	HANDLE			m_hIOCPGuild;			// ±æµå ¾÷µ«¿ë 
 #ifdef __S1108_BACK_END_SYSTEM
 	HANDLE			m_hWorker;
 	HANDLE			m_hCloseWorker;
@@ -761,8 +761,8 @@ public:
 	CMclCritSec		m_csCreatePlayer;
 #endif	// __J0826
 
-	vector<__GCRESULTVALUEGUILD>			m_GCResultValueGuild;		// ê¸¸ë“œëŒ€ì „ ê²°ê³¼ê°’
-	vector<__GCRESULTVALUEPLAYER>			m_GCResultValuePlayer;		// ê¸¸ë“œëŒ€ì „ ê²°ê³¼ê°’
+	vector<__GCRESULTVALUEGUILD>			m_GCResultValueGuild;		// ±æµå´ëÀü °á°ú°ª
+	vector<__GCRESULTVALUEPLAYER>			m_GCResultValuePlayer;		// ±æµå´ëÀü °á°ú°ª
 	vector<__GCPLAYERPOINT> m_vecGCPlayerPoint;
 
 #ifdef __S_BUG_GC
@@ -794,9 +794,9 @@ public:
 	void	AllSaveSkill( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
 #endif // __S_NEW_SKILL_2	
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 	void	SaveHonor( CQuery *qry, u_long uidPlayer, int * aHonor, char* szQuery );
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 
 #ifdef __SKILL_0205
 	void	SaveSkill( CQuery *qry, u_long uidPlayer, LPSKILL aJobSkill, LPBYTE abUpdateSkill, char* szQuery );
@@ -874,15 +874,15 @@ public:
 	void	GC1to1WarGuild( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
 #endif // __GUILD_COMBAT_1TO1
 
-#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
 	void	GuildBankLogView( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
-#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 	void	SealChar( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
 	void	SealCharConm( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
 	void	SealCharGet( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
 	void	SealCharSet( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
-#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 
 	void	CalluspPetLog( CQuery* pQuery, LPDB_OVERLAPPED_PLUS pov );
 
@@ -1004,9 +1004,9 @@ public:
 	BOOL	GetQuest( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
 	BOOL	GetSMMode( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
 	BOOL	GetSKillInfluence( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 	void	GetHonor( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 
 	static	UINT	_GetThread( LPVOID pParam );
 	static	UINT	_PutThread( LPVOID pParam );
@@ -1057,9 +1057,9 @@ public:
 #ifdef __EVENTLUA_COUPON
 		, int nCoupon = 0
 #endif // __EVENTLUA_COUPON
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
-		, int nHonor = -1					// ë‹¬ì¸ì„ íƒ 
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+		, int nHonor = -1					// ´ŞÀÎ¼±ÅÃ 
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 #ifdef __LAYER_1015
 		, int nLayer	= 0
 #endif	// __LAYER_1015
@@ -1241,9 +1241,9 @@ private:
 	void	RecommendEve( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus );
 #endif // __S_RECOMMEND_EVE
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 	void	LogGetHonorTime(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus);
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 	CQuery	m_qryPostProc;
 	void	AddMail( CQuery* pQuery, LPDB_OVERLAPPED_PLUS pov );
 	void	RemoveMail( CQuery* pQuery, LPDB_OVERLAPPED_PLUS pov );

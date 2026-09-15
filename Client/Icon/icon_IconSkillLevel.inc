@@ -1,7 +1,7 @@
-ï»¿// number ì‚½ì… ì´ë¯¸ì§€ ê°œìˆ˜
-// serialize ì—°ì†ìœ¼ë¡œ ì´ë¯¸ì§€ ì‚½ì…(width hight StartPosition-X StartPosition-Y, center_x, center_y)
-// pos ë‹¨ì¼ë¡œ ì´ë¯¸ì§€ ì‚½ì… (width hight StartPosition-X StartPosition-Y)
+// number »ğÀÔ ÀÌ¹ÌÁö °³¼ö
+// serialize ¿¬¼ÓÀ¸·Î ÀÌ¹ÌÁö »ğÀÔ(width hight StartPosition-X StartPosition-Y, center_x, center_y)
+// pos ´ÜÀÏ·Î ÀÌ¹ÌÁö »ğÀÔ (width hight StartPosition-X StartPosition-Y)
 number 40
 texture "icon\icon_IconSkillLevel.tga" 0xffff00ff
-serialize 20 28 28  1   1 0 0 // ë ˆë²¨
-serialize 20 28 28  1  29 0 0 // ë ˆë²¨
+serialize 20 28 28  1   1 0 0 // ·¹º§
+serialize 20 28 28  1  29 0 0 // ·¹º§

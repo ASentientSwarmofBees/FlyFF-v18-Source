@@ -1,4 +1,4 @@
-﻿#ifndef __WNDINDIRECTTALK__H
+#ifndef __WNDINDIRECTTALK__H
 #define __WNDINDIRECTTALK__H
 
 class CWndIndirectTalk : public CWndNeuz 

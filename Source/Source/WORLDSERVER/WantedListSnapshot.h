@@ -1,4 +1,4 @@
-ï»¿// WantedListSnapshot.h: interface for the CWantedListSnapshot class.
+// WantedListSnapshot.h: interface for the CWantedListSnapshot class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -13,7 +13,7 @@
 
 typedef std::vector<WANTED_ENTRY>	WANTED_ENTRY_VECTOR;
 
-// ë¦¬ìŠ¤íŠ¸ í‘œì‹œìš© ê°ì²´ ( ì‹¤ì‹œê°„ ì—…ë°ì´íŠ¸ ë˜ì§€ ì•Šê¸° ë•Œë¬¸ì— ì£¼ì˜ í•  ê²ƒ )
+// ¸®½ºÆ® Ç¥½Ã¿ë °´Ã¼ ( ½Ç½Ã°£ ¾÷µ¥ÀÌÆ® µÇÁö ¾Ê±â ¶§¹®¿¡ ÁÖÀÇ ÇÒ °Í )
 class CWantedListSnapshot  
 {
 public:
@@ -21,7 +21,7 @@ public:
 	virtual ~CWantedListSnapshot();
 
 protected:
-	long							m_lRecvTime;		// ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ì€ ì‹œê° 
+	long							m_lRecvTime;		// ¸®½ºÆ®¸¦ ¹ŞÀº ½Ã°¢ 
 	WANTED_ENTRY_VECTOR				m_wantedList;
 
 public:

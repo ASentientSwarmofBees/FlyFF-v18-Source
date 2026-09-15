@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "BillingMgrJP.h"
 #include "dpBilling.h"
 #include "account.h"
@@ -51,7 +51,7 @@ BOOL CBillingMgrJP::SetConfig( BILLING_ENUM id, DWORD data )
 	return TRUE;
 }
 
-// ì´ˆê¸°í™”: ë¹Œë§ ì„œë²„ì™€ì˜ ì—°ê²° ê°ì²´ë¥¼ í• ë‹¹í•´ ë‘”ë‹¤.
+// ÃÊ±âÈ­: ºô¸µ ¼­¹ö¿ÍÀÇ ¿¬°á °´Ã¼¸¦ ÇÒ´çÇØ µĞ´Ù.
 bool CBillingMgrJP::Init( HWND hWnd )
 {
 	assert( m_pDPBillings == NULL );
@@ -69,7 +69,7 @@ bool CBillingMgrJP::Init( HWND hWnd )
 	}
 	
 	int nMaxConnect = m_strIPs.size();
-	nMaxConnect = min( nMaxConnect, MAX_DPBILLING );	// 32ê°œ ì´ìƒ ê¸ˆì§€ 
+	nMaxConnect = min( nMaxConnect, MAX_DPBILLING );	// 32°³ ÀÌ»ó ±İÁö 
 
 	m_nMaxConnect = nMaxConnect;
 	m_pDPBillings = new CDPBilling[ nMaxConnect ];
@@ -85,26 +85,26 @@ bool CBillingMgrJP::Init( HWND hWnd )
 	return true;
 }
 
-// í• ë‹¹ëœ ìì›ì„ ë°˜ë‚©í•œë‹¤.
+// ÇÒ´çµÈ ÀÚ¿øÀ» ¹İ³³ÇÑ´Ù.
 void CBillingMgrJP::Release()
 {
 	safe_delete( this );
 }
 
-// ë¹Œë§ì •ë³´ë¥¼ ê²€ì‚¬í•œë‹¤. (dwKeyëŠ” ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.)
+// ºô¸µÁ¤º¸¸¦ °Ë»çÇÑ´Ù. (dwKey´Â »ç¿ëÇÏÁö ¾Ê´Â´Ù.)
 BYTE CBillingMgrJP::CheckAccount( int nType, DWORD , const char* szAccount, const char* szAddr )
 {
-	if( nType != m_iBillingFreePass )  // ë¬´ë£Œìœ ì €? 
+	if( nType != m_iBillingFreePass )  // ¹«·áÀ¯Àú? 
 	{ 
-		// ë¬´ë£Œìœ ì €ê°€ ì•„ë‹ˆë©´ ë¹Œë§ì„œë²„ì— ê²€ì‚¬ ìš”ì²­
+		// ¹«·áÀ¯Àú°¡ ¾Æ´Ï¸é ºô¸µ¼­¹ö¿¡ °Ë»ç ¿äÃ»
 		if( RequestBillingInfo( szAccount, szAddr ) )
-			return ACCOUNT_BILLING_WAIT_ACK;		// ì„œë²„ë¡œë¶€í„° ACKê°€ ì˜¤ë©´ OnAfterCheckingë¥¼ í˜¸ì¶œí•œë‹¤.
+			return ACCOUNT_BILLING_WAIT_ACK;		// ¼­¹ö·ÎºÎÅÍ ACK°¡ ¿À¸é OnAfterChecking¸¦ È£ÃâÇÑ´Ù.
 		else
 			return ACCOUNT_BILLING_DISCONNECTED;
 	}
 	else														
 	{
-		// ë¬´ë£Œìœ ì €ëŠ” TRACE
+		// ¹«·áÀ¯Àú´Â TRACE
 		char szTrace[1024];
 		sprintf( szTrace, "FreePass - Account:%s fCheck:%d", szAccount, nType );
 		OutputDebugString( szTrace );
@@ -113,7 +113,7 @@ BYTE CBillingMgrJP::CheckAccount( int nType, DWORD , const char* szAccount, cons
 	}
 }
 
-// ë¹Œë§ì„œë²„ì— ê²€ì‚¬ ìš”ì²­
+// ºô¸µ¼­¹ö¿¡ °Ë»ç ¿äÃ»
 bool CBillingMgrJP::RequestBillingInfo( LPCTSTR lpszAccount, LPCTSTR lpAddr )
 {
 	if( m_nMaxConnect == 0 )
@@ -136,7 +136,7 @@ bool CBillingMgrJP::RequestBillingInfo( LPCTSTR lpszAccount, LPCTSTR lpAddr )
 	return ( iConnected > 0 );
 }
 
-// ë¹Œë§ì— ê´€ë ¨ëœ ìœˆë„ìš° ë©”ì„¸ì§€ê°€ ì²˜ë¦¬ë˜ê²Œ í•œë‹¤.
+// ºô¸µ¿¡ °ü·ÃµÈ À©µµ¿ì ¸Ş¼¼Áö°¡ Ã³¸®µÇ°Ô ÇÑ´Ù.
 BOOL CBillingMgrJP::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam ) 
 {
 	switch( message ) 
@@ -169,7 +169,7 @@ BOOL CBillingMgrJP::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam,
 	return FALSE;
 }
 
-// ë¹Œë§ì„œë²„ì™€ ì—°ê²°í•œë‹¤.
+// ºô¸µ¼­¹ö¿Í ¿¬°áÇÑ´Ù.
 bool CBillingMgrJP::Connect()
 {
 	int iFailed = 0;
@@ -185,7 +185,7 @@ bool CBillingMgrJP::Connect()
 	return iFailed == 0;
 }
 
-// KEEP_ALIVEì‹ í˜¸ë¥¼ ë³´ë‚¸ë‹¤.
+// KEEP_ALIVE½ÅÈ£¸¦ º¸³½´Ù.
 void CBillingMgrJP::SendKeepAlive()
 {
 	for( int i=0; i<m_nMaxConnect; ++i )
@@ -198,29 +198,29 @@ void CBillingMgrJP::SendKeepAlive()
 // 
 void CBillingMgrJP::OnTimer( CAccount* pAccount )
 {
-	if( pAccount->m_fCheck == m_iBillingFreePass )	// ë¬´ë£Œì‚¬ìš©ì skip
+	if( pAccount->m_fCheck == m_iBillingFreePass )	// ¹«·á»ç¿ëÀÚ skip
 		return;
 
 	CTime tm = 0;
-	if( pAccount->m_TimeOverDays == tm )			// login ë¯¸ì²˜ë¦¬ì or timeover skip
+	if( pAccount->m_TimeOverDays == tm )			// login ¹ÌÃ³¸®ÀÚ or timeover skip
 		return;		
 
 	CTime cur = CTime::GetCurrentTime();
-	if( pAccount->m_TimeOverDays <= cur )			// timerover ì²˜ë¦¬ 
+	if( pAccount->m_TimeOverDays <= cur )			// timerover Ã³¸® 
 	{	
 		pAccount->m_TimeOverDays = 0;
 		g_dpSrvr.CloseExistingConnection( pAccount->m_lpszAccount, ERROR_BILLING_TIME_OVER );
 	}
 	else
 	{
-		// ë‚¨ì€ ì‹œê°„ í†µì§€
+		// ³²Àº ½Ã°£ ÅëÁö
 		CTimeSpan ts = pAccount->m_TimeOverDays - cur;
 		if ( ts.GetTotalMinutes() >= 59 && ts.GetTotalMinutes() <= 61 && 
 			 pAccount->m_nStatus != ACCOUNT_STATUS_NOTIFIED &&
 			 pAccount->m_fRoute == TRUE )
 		{
 			pAccount->m_nStatus = ACCOUNT_STATUS_NOTIFIED;				
-			g_dpDbSrvr.SendOneHourNotify( pAccount );	// TRANSì— ë³´ë‚¸ë‹¤.
+			g_dpDbSrvr.SendOneHourNotify( pAccount );	// TRANS¿¡ º¸³½´Ù.
 		}
 	}			
 }

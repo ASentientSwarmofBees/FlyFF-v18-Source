@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndManager.h"
@@ -27,7 +27,7 @@ CWndRainbowRaceOffer::~CWndRainbowRaceOffer()
 void CWndRainbowRaceOffer::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -50,7 +50,7 @@ void CWndRainbowRaceOffer::OnInitialUpdate()
 
 BOOL CWndRainbowRaceOffer::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RAINBOWRACE_OFFER, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -83,7 +83,7 @@ CWndRainbowRaceInfo::~CWndRainbowRaceInfo()
 void CWndRainbowRaceInfo::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -102,7 +102,7 @@ void CWndRainbowRaceInfo::OnInitialUpdate()
 
 BOOL CWndRainbowRaceInfo::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RAINBOWRACE_INFO, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -130,7 +130,7 @@ CWndRainbowRaceRule::~CWndRainbowRaceRule()
 void CWndRainbowRaceRule::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -149,7 +149,7 @@ void CWndRainbowRaceRule::OnInitialUpdate()
 
 BOOL CWndRainbowRaceRule::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RAINBOWRACE_RULE, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -181,13 +181,13 @@ CWndRainbowRaceRanking::~CWndRainbowRaceRanking()
 void CWndRainbowRaceRanking::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	MoveParentCenter();
 } 
 
 BOOL CWndRainbowRaceRanking::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RAINBOWRACE_RANKING, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -229,7 +229,7 @@ void CWndRainbowRaceRanking::OnDraw( C2DRender* p2DRender )
 				else if( prj.m_aJob[ nJob ].dwJobType == JTYPE_MASTER )
 				{
 					int nMasterIndex = 27;
-					if(/*m_nLevel >= 60 && */pPlayerData->data.nLevel < 70) //Level Downë  ê²½ìš°ë¥¼ ìƒê°í•´ì„œ ì£¼ì„ì²˜ë¦¬.
+					if(/*m_nLevel >= 60 && */pPlayerData->data.nLevel < 70) //Level DownµÉ °æ¿ì¸¦ »ı°¢ÇØ¼­ ÁÖ¼®Ã³¸®.
 						nMasterIndex = 27;
 					else if(pPlayerData->data.nLevel >= 70 && pPlayerData->data.nLevel < 80)
 						nMasterIndex = 28;
@@ -283,7 +283,7 @@ CWndRainbowRacePrize::~CWndRainbowRacePrize()
 void CWndRainbowRacePrize::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -302,7 +302,7 @@ void CWndRainbowRacePrize::OnInitialUpdate()
 
 BOOL CWndRainbowRacePrize::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RAINBOWRACE_PRIZE, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -340,7 +340,7 @@ CWndRainbowRaceMiniGame::~CWndRainbowRaceMiniGame()
 void CWndRainbowRaceMiniGame::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_strMiniGameInfo[0] = "RRMinigameKawiBawiBo.inc";
 	m_strMiniGameInfo[1] = "RRMinigameDice.inc";
 	m_strMiniGameInfo[2] = "RRMinigameArithmetic.inc";
@@ -441,7 +441,7 @@ void CWndRainbowRaceMiniGame::OnInitialUpdate()
 
 BOOL CWndRainbowRaceMiniGame::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RAINBOWRACE_MINIGAME, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -619,7 +619,7 @@ CWndRainbowRaceMiniGameInfo::~CWndRainbowRaceMiniGameInfo()
 void CWndRainbowRaceMiniGameInfo::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate();
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -662,7 +662,7 @@ void CWndRainbowRaceMiniGameInfo::OnInitialUpdate()
 
 BOOL CWndRainbowRaceMiniGameInfo::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RAINBOWRACE_MINIGAME_INFO, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -715,7 +715,7 @@ HRESULT CWndRainbowRaceMiniGameButton::InvalidateDeviceObjects()
 void CWndRainbowRaceMiniGameButton::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate();
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	this->DelWndStyle(WBS_CAPTION);
 	m_wndTitleBar.SetVisible( FALSE );
 
@@ -833,7 +833,7 @@ BOOL CWndRainbowRaceMiniGameButton::Process()
 
 BOOL CWndRainbowRaceMiniGameButton::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RAINBOWRACE_BUTTON, WBS_NOFOCUS, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -1005,7 +1005,7 @@ BOOL CWndRRMiniGameKawiBawiBo::Process()
 {
 	int nCom = -1;
 	
-	if(m_nStatus == 1) //Startë²„íŠ¼ ëˆ„ë¥¼ ê²½ìš° ì»´í“¨í„°ì˜ ì„ íƒì´ íšŒì „í•˜ë„ë¡ í•¨.
+	if(m_nStatus == 1) //Start¹öÆ° ´©¸¦ °æ¿ì ÄÄÇ»ÅÍÀÇ ¼±ÅÃÀÌ È¸ÀüÇÏµµ·Ï ÇÔ.
 	{
 		if(m_nCount > m_nDelay)
 		{
@@ -1037,7 +1037,7 @@ BOOL CWndRRMiniGameKawiBawiBo::Process()
 		}
 		m_nCount++;
 	}
-	else if(m_nStatus == 2) //Comì˜ ê²°ê³¼ê°€ ë³´ì—¬ì§€ê³  ë°”ë¡œ ì‚¬ë¼ì§€ê±°ë‚˜ í•˜ê¸° ë•Œë¬¸ì— ì•½ê°„ì˜ Delayë¥¼ ì¤Œ
+	else if(m_nStatus == 2) //ComÀÇ °á°ú°¡ º¸¿©Áö°í ¹Ù·Î »ç¶óÁö°Å³ª ÇÏ±â ¶§¹®¿¡ ¾à°£ÀÇ Delay¸¦ ÁÜ
 	{
 		if(m_nCount > m_nDelay)
 		{
@@ -1052,7 +1052,7 @@ BOOL CWndRRMiniGameKawiBawiBo::Process()
 				m_nWinningCount++;
 				RefreshInfo();
 				PlayMusic( BGM_IN_FITUP );
-				// ì„±ê³µì°½ ë³´ì—¬ì£¼ê³  ë‹«ê¸°
+				// ¼º°øÃ¢ º¸¿©ÁÖ°í ´İ±â
 				if(g_WndMng.m_pWndRainbowRaceMiniGameEnd)
 					SAFE_DELETE(g_WndMng.m_pWndRainbowRaceMiniGameEnd);
 
@@ -1148,7 +1148,7 @@ void CWndRRMiniGameKawiBawiBo::OnDraw( C2DRender* p2DRender )
 void CWndRRMiniGameKawiBawiBo::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -1173,7 +1173,7 @@ void CWndRRMiniGameKawiBawiBo::OnInitialUpdate()
 
 BOOL CWndRRMiniGameKawiBawiBo::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RR_MINIGAME_KAWIBAWIBO, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -1195,8 +1195,8 @@ BOOL CWndRRMiniGameKawiBawiBo::OnChildNotify( UINT message, UINT nID, LRESULT* p
 				break;
 			case WIDC_BTN_START:
 				DisableAllBtn();				
-				m_nStatus = 1;											//ì»´í“¨í„°ì˜ ì„ íƒì„ í™”ë©´ìƒì— ëŒë¦¬ê¸° ìœ„í•¨.
-				CRainbowRace::GetInstance()->SendMinigamePacket();		//DpClientì— ì •ë³´ë¥¼ ë„˜ê²¨ ê°€ìœ„ë°”ìœ„ë³´ ê²°ê³¼ë¥¼ ê¸°ë‹¤ë¦¼.
+				m_nStatus = 1;											//ÄÄÇ»ÅÍÀÇ ¼±ÅÃÀ» È­¸é»ó¿¡ µ¹¸®±â À§ÇÔ.
+				CRainbowRace::GetInstance()->SendMinigamePacket();		//DpClient¿¡ Á¤º¸¸¦ ³Ñ°Ü °¡À§¹ÙÀ§º¸ °á°ú¸¦ ±â´Ù¸².
 				break;
 		}
 	}
@@ -1263,7 +1263,7 @@ CWndRRMiniGameDice::~CWndRRMiniGameDice()
 void CWndRRMiniGameDice::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -1308,7 +1308,7 @@ HRESULT CWndRRMiniGameDice::RestoreDeviceObjects()
 
 BOOL CWndRRMiniGameDice::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RR_MINIGAME_DICE, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -1366,7 +1366,7 @@ void CWndRRMiniGameDice::OnDraw(C2DRender* p2DRender )
 
 BOOL CWndRRMiniGameDice::Process()
 {
-	//Startë²„íŠ¼ ëˆ„ë¥¼ ê²½ìš° ì»´í“¨í„°ì˜ ì„ íƒì´ íšŒì „í•˜ë„ë¡ í•¨.
+	//Start¹öÆ° ´©¸¦ °æ¿ì ÄÄÇ»ÅÍÀÇ ¼±ÅÃÀÌ È¸ÀüÇÏµµ·Ï ÇÔ.
 	if(m_nStatus1 == 0)
 	{
 		if(m_nCount1%4 == 0)
@@ -1480,14 +1480,14 @@ BOOL CWndRRMiniGameDice::Process()
 		}
 		m_nCount2++;
 	}
-	else if(m_nStatus2 == 2) //Comì˜ ê²°ê³¼ê°€ ë³´ì—¬ì§€ê³  ë°”ë¡œ ì‚¬ë¼ì§€ê±°ë‚˜ í•˜ê¸° ë•Œë¬¸ì— ì•½ê°„ì˜ Delayë¥¼ ì¤Œ
+	else if(m_nStatus2 == 2) //ComÀÇ °á°ú°¡ º¸¿©Áö°í ¹Ù·Î »ç¶óÁö°Å³ª ÇÏ±â ¶§¹®¿¡ ¾à°£ÀÇ Delay¸¦ ÁÜ
 	{
 		if(m_nCount2 > m_nDelay2)
 		{
 			if(m_bFinishStatus1 && m_nResult == MP_FINISH)
 			{
 				PlayMusic( BGM_IN_FITUP );
-				// ì„±ê³µì°½ ë³´ì—¬ì£¼ê³  ë‹«ê¸°
+				// ¼º°øÃ¢ º¸¿©ÁÖ°í ´İ±â
 				if(g_WndMng.m_pWndRainbowRaceMiniGameEnd)
 					SAFE_DELETE(g_WndMng.m_pWndRainbowRaceMiniGameEnd);
 
@@ -1559,7 +1559,7 @@ CWndRRMiniGameArithmetic::~CWndRRMiniGameArithmetic()
 void CWndRRMiniGameArithmetic::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate();
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT2 );
 	
 	CScript scanner;
@@ -1578,7 +1578,7 @@ void CWndRRMiniGameArithmetic::OnInitialUpdate()
 
 BOOL CWndRRMiniGameArithmetic::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RR_MINIGAME_ARITHMETIC, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -1597,7 +1597,7 @@ BOOL CWndRRMiniGameArithmetic::OnChildNotify( UINT message, UINT nID, LRESULT* p
 
 BOOL CWndRRMiniGameArithmetic::Process()
 {
-	// 1ë¬¸ì œë‹¹ 10ì´ˆì”© íƒ€ì´ë¨¸
+	// 1¹®Á¦´ç 10ÃÊ¾¿ Å¸ÀÌ¸Ó
 /*	if( m_dwTime > 0 && timeGetTime() - m_dwTime > SEC(10) )
 	{
 		CWndButton* pButton;
@@ -1693,7 +1693,7 @@ CWndRRMiniGameStopWatch::~CWndRRMiniGameStopWatch()
 void CWndRRMiniGameStopWatch::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -1731,7 +1731,7 @@ HRESULT CWndRRMiniGameStopWatch::RestoreDeviceObjects()
 
 BOOL CWndRRMiniGameStopWatch::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RR_MINIGAME_STOPWATCH, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -1862,7 +1862,7 @@ CWndRRMiniGameTyping::~CWndRRMiniGameTyping()
 void CWndRRMiniGameTyping::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT4 );
 	
 	CScript scanner;
@@ -1889,7 +1889,7 @@ void CWndRRMiniGameTyping::OnInitialUpdate()
 
 BOOL CWndRRMiniGameTyping::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RR_MINIGAME_TYPING, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -1956,7 +1956,7 @@ CWndRRMiniGameCard::~CWndRRMiniGameCard()
 void CWndRRMiniGameCard::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -2025,7 +2025,7 @@ HRESULT CWndRRMiniGameCard::RestoreDeviceObjects()
 
 BOOL CWndRRMiniGameCard::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RR_MINIGAME_CARD, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -2097,9 +2097,9 @@ void CWndRRMiniGameCard::OnLButtonUp( UINT nFlags, CPoint point )
 			rect = lpWndCtrl->rect;
 			if( rect.PtInRect( point ) )
 			{
-				if(m_nPair[0] == -1) //ì²«ë²ˆì§¸ ê·¸ë¦¼ì„ ì„ íƒí–ˆì„ ë•ŒëŠ” ê¸°ì–µë§Œ
+				if(m_nPair[0] == -1) //Ã¹¹øÂ° ±×¸²À» ¼±ÅÃÇßÀ» ¶§´Â ±â¾ï¸¸
 					m_nPair[0] = i;
-				else if(m_nPair[0] != -1 && m_nPair[0] != i && m_nPair[1] == -1) //ë‘ë²ˆì§¸ ê·¸ë¦¼ ì„ íƒ ì‹œ ì„œë²„ë¡œ ê²°ê³¼ë¥¼ ì „ì†¡
+				else if(m_nPair[0] != -1 && m_nPair[0] != i && m_nPair[1] == -1) //µÎ¹øÂ° ±×¸² ¼±ÅÃ ½Ã ¼­¹ö·Î °á°ú¸¦ Àü¼Û
 				{
 					m_nPair[1] = i;
 
@@ -2225,7 +2225,7 @@ CWndRRMiniGameLadder::~CWndRRMiniGameLadder()
 void CWndRRMiniGameLadder::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT1 );
 	
 	CScript scanner;
@@ -2277,7 +2277,7 @@ void CWndRRMiniGameLadder::OnInitialUpdate()
 
 BOOL CWndRRMiniGameLadder::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RR_MINIGAME_LADDER, 0, CPoint( 0, 0 ), pWndParent );
 }
 
@@ -2466,13 +2466,13 @@ BOOL CWndRRMiniGameLadder::Process()
 	int nDownSpeed = 3;
 	int nTurnSpeed = 2;
 
-	// ë¶„ê¸° ë ˆë²¨ì€ ì²« ë¶„ê¸° ë„ë‹¬ê¹Œì§€ë¥¼ -1ë¡œ ë³¸ë‹¤.
-	if(m_bMakeLadder && m_nLevel >= -1 && m_nLevel < 10) // ì‚¬ë‹¤ë¦¬ê°€ ì™„ì„±ë˜ê³  ë¶„ê¸°ì ì´ -1 ~ 9 ì¼ ê²½ìš° ì‹œì‘
+	// ºĞ±â ·¹º§Àº Ã¹ ºĞ±â µµ´Ş±îÁö¸¦ -1·Î º»´Ù.
+	if(m_bMakeLadder && m_nLevel >= -1 && m_nLevel < 10) // »ç´Ù¸®°¡ ¿Ï¼ºµÇ°í ºĞ±âÁ¡ÀÌ -1 ~ 9 ÀÏ °æ¿ì ½ÃÀÛ
 	{
 		int nStartLeft;
-		int nFirstTop = GetWndCtrl(WIDC_CUSTOM_BG)->rect.top + 20; // ì²«ë²ˆì§¸ ë¶„ê¸°ê¹Œì§€ì˜ ê±°ë¦¬
+		int nFirstTop = GetWndCtrl(WIDC_CUSTOM_BG)->rect.top + 20; // Ã¹¹øÂ° ºĞ±â±îÁöÀÇ °Å¸®
 
-		if(m_nLevel == -1) // ì²« ë¶„ê¸° ì „ì¼ ê²½ìš°ëŠ” í¬ì¸íŠ¸ëŠ” ì‹œì‘ì  (í¬ì¸íŠ¸ = ë§‰ëŒ€ê¸°ë²ˆí˜¸)
+		if(m_nLevel == -1) // Ã¹ ºĞ±â ÀüÀÏ °æ¿ì´Â Æ÷ÀÎÆ®´Â ½ÃÀÛÁ¡ (Æ÷ÀÎÆ® = ¸·´ë±â¹øÈ£)
 			m_nPoint = m_nStart;
 			
 		if(m_nPoint >=0 && m_nPoint < 15)
@@ -2487,19 +2487,19 @@ BOOL CWndRRMiniGameLadder::Process()
 					else
 						m_nNextPosY = nFirstTop + (25*(m_nLevel+1));
 
-					if(m_ptPoint.y < m_nNextPosY) // ë¶„ê¸°ë ˆë²¨ Yì¢Œí‘œ ë„ë‹¬í• ë•Œ ê¹Œì§€ Yì¢Œí‘œ ì¦ê°€
+					if(m_ptPoint.y < m_nNextPosY) // ºĞ±â·¹º§ YÁÂÇ¥ µµ´ŞÇÒ¶§ ±îÁö YÁÂÇ¥ Áõ°¡
 					{
 						m_ptPoint.y += nDownSpeed;
 						m_rectPointLine.bottom = m_ptPoint.y;
 					}
 					else
 					{
-						// ë¶„ê¸° ëë‚˜ë©´ ë¼ì¸ ì¶”ê°€
+						// ºĞ±â ³¡³ª¸é ¶óÀÎ Ãß°¡
 						m_rectPointLine.bottom += 10;
 						m_rectLine[m_nLineCount] = m_rectPointLine;
 						m_nLineCount++;
 
-						m_nLevel++; // ë‹¤ìš´ì™„ë£Œ í›„ ìƒˆ ë¶„ê¸°ì  ë„ë‹¬ ì‹œ ë¶„ê¸° ë ˆë²¨ ì¦ê°€ ì´ë™ë¼ì¸ ì‹œì‘ì  ê°±ì‹ 
+						m_nLevel++; // ´Ù¿î¿Ï·á ÈÄ »õ ºĞ±âÁ¡ µµ´Ş ½Ã ºĞ±â ·¹º§ Áõ°¡ ÀÌµ¿¶óÀÎ ½ÃÀÛÁ¡ °»½Å
 
 						if(m_nLevel < 10)
 						{
@@ -2532,7 +2532,7 @@ BOOL CWndRRMiniGameLadder::Process()
 				break;
 			case GO_LEFT:
 				{
-					if(m_ptPoint.x > nStartLeft) // ë¶„ê¸°ë ˆë²¨ Xì¢Œí‘œ ë„ë‹¬í• ë•Œ ê¹Œì§€ Yì¢Œí‘œ ì¦ê°€
+					if(m_ptPoint.x > nStartLeft) // ºĞ±â·¹º§ XÁÂÇ¥ µµ´ŞÇÒ¶§ ±îÁö YÁÂÇ¥ Áõ°¡
 					{
 						m_ptPoint.x -= nTurnSpeed;
 						m_rectPointLine.left = m_ptPoint.x;
@@ -2540,7 +2540,7 @@ BOOL CWndRRMiniGameLadder::Process()
 					else
 					{
 						m_nGoTo = GO_DOWN;
-						// ë¶„ê¸° ëë‚˜ë©´ ë¼ì¸ ì¶”ê°€
+						// ºĞ±â ³¡³ª¸é ¶óÀÎ Ãß°¡
 						m_rectPointLine.left += 9;
 						m_rectLine[m_nLineCount] = m_rectPointLine;
 						m_nLineCount++;
@@ -2550,7 +2550,7 @@ BOOL CWndRRMiniGameLadder::Process()
 				break;
 			case GO_RIGHT:
 				{
-					if(m_ptPoint.x < nStartLeft) // ë¶„ê¸°ë ˆë²¨ Xì¢Œí‘œ ë„ë‹¬í• ë•Œ ê¹Œì§€ Yì¢Œí‘œ ì¦ê°€
+					if(m_ptPoint.x < nStartLeft) // ºĞ±â·¹º§ XÁÂÇ¥ µµ´ŞÇÒ¶§ ±îÁö YÁÂÇ¥ Áõ°¡
 					{
 						m_ptPoint.x += nTurnSpeed;
 						m_rectPointLine.right = m_ptPoint.x;
@@ -2558,7 +2558,7 @@ BOOL CWndRRMiniGameLadder::Process()
 					else
 					{
 						m_nGoTo = GO_DOWN;
-						// ë¶„ê¸° ëë‚˜ë©´ ë¼ì¸ ì¶”ê°€
+						// ºĞ±â ³¡³ª¸é ¶óÀÎ Ãß°¡
 						m_rectPointLine.right += 14;
 						m_rectLine[m_nLineCount] = m_rectPointLine;
 						m_nLineCount++;
@@ -2583,7 +2583,7 @@ BOOL CWndRRMiniGameLadder::Process()
 	{
 		if(m_nResult == MP_FINISH)
 		{
-			// ì„±ê³µ ë©”ì„¸ì§€ í›„ ì¢…ë£Œ
+			// ¼º°ø ¸Ş¼¼Áö ÈÄ Á¾·á
 			g_WndMng.m_pWndRainbowRaceMiniGameEnd = new CWndRainbowRaceMiniGameEnd;
 
 			if(g_WndMng.m_pWndRainbowRaceMiniGameEnd)
@@ -2595,7 +2595,7 @@ BOOL CWndRRMiniGameLadder::Process()
 		}
 		else if(m_nResult == MP_FAIL && !m_bFailMsg)
 		{
-			//ì‹¤íŒ¨ ë©”ì„¸ì§€ í›„ ë¦¬ì…‹
+			//½ÇÆĞ ¸Ş¼¼Áö ÈÄ ¸®¼Â
 			m_bFailMsg = TRUE;
 
 			if(m_pWndRRMiniGameLadderFail)
@@ -2633,12 +2633,12 @@ BOOL CWndRRMiniGameLadder::MakeLadder()
 		for(int j=0; j<10; j++)
 		{
 			int nNext;
-			if(i>0 && i<14) // ë§¨ ì²˜ìŒê³¼ ëì„ ëº€ ê°€ìš´ë° ë§‰ëŒ€ê¸°
+			if(i>0 && i<14) // ¸Ç Ã³À½°ú ³¡À» »« °¡¿îµ¥ ¸·´ë±â
 			{
 				nNext = rand() % 3;
-				if(m_nLadder[i-1][j] != i) // ì´ì „ ë§‰ëŒ€ê¸°ê°€ ë‚˜ë¥¼ í–¥í•  ê²½ìš° ë¶„ê¸° ì œì™¸
+				if(m_nLadder[i-1][j] != i) // ÀÌÀü ¸·´ë±â°¡ ³ª¸¦ ÇâÇÒ °æ¿ì ºĞ±â Á¦¿Ü
 				{
-					if(i>1 && m_nLadder[i-2][j] == i-1 && nNext == GO_LEFT) // ì„¸ë²ˆì§¸ ë§‰ëŒ€ê¸° ë¶€í„°ëŠ” ì „ì „ ë§‰ëŒ€ê¸°ê°€ ì „ë§‰ëŒ€ê¸°ë¥¼ í–¥í•˜ê³  ë‚˜ì˜¨ ë°©í–¥ì´ ì™¼ìª½ì¼ ê²½ìš° ë¶„ê¸° ì œì™¸
+					if(i>1 && m_nLadder[i-2][j] == i-1 && nNext == GO_LEFT) // ¼¼¹øÂ° ¸·´ë±â ºÎÅÍ´Â ÀüÀü ¸·´ë±â°¡ Àü¸·´ë±â¸¦ ÇâÇÏ°í ³ª¿Â ¹æÇâÀÌ ¿ŞÂÊÀÏ °æ¿ì ºĞ±â Á¦¿Ü
 						nNext = GO_DOWN;
 					
 					switch(nNext)
@@ -2661,7 +2661,7 @@ BOOL CWndRRMiniGameLadder::MakeLadder()
 					}
 				}
 			}
-			else if(i == 0)// ë§¨ ì²˜ìŒ ë§‰ëŒ€ê¸°
+			else if(i == 0)// ¸Ç Ã³À½ ¸·´ë±â
 			{
 				nNext = rand() % 2;
 				if(nNext == 0)
@@ -2675,13 +2675,13 @@ BOOL CWndRRMiniGameLadder::MakeLadder()
 				else
 					m_nLadder[i][j] = -1;
 			}
-			else // ë§¨ ë ë§‰ëŒ€ê¸°
+			else // ¸Ç ³¡ ¸·´ë±â
 			{
-				if(m_nLadder[i-1][j] == i) // ì „ ë§‰ëŒ€ê¸°ê°€ ë‚˜ë¥¼ ë³¼ ê²½ìš° ë‚˜ë„ ì „ ë§‰ëŒ€ê¸°ë¥¼ í–¥í•œë‹¤.
+				if(m_nLadder[i-1][j] == i) // Àü ¸·´ë±â°¡ ³ª¸¦ º¼ °æ¿ì ³ªµµ Àü ¸·´ë±â¸¦ ÇâÇÑ´Ù.
 					m_nLadder[i][j] = i-1;
-				else if(m_nLadder[i-2][j] == i-1) // ì „ì „ ë§‰ëŒ€ê¸°ê°€ ì „ ë§‰ëŒ€ê¸°ë¥¼ ë³¼ ê²½ìš° ì¤‘ë³µì„ í”¼í•´ ë¶„ê¸° ì œì™¸
+				else if(m_nLadder[i-2][j] == i-1) // ÀüÀü ¸·´ë±â°¡ Àü ¸·´ë±â¸¦ º¼ °æ¿ì Áßº¹À» ÇÇÇØ ºĞ±â Á¦¿Ü
 					m_nLadder[i][j] = -1;
-				else // ê±¸ë¦¬ëŠ”ê²Œ ì—†ì„ ê²½ìš° ëœë¤ìœ¼ë¡œ ë¶„ê¸°ë¥¼ ê²°ì •
+				else // °É¸®´Â°Ô ¾øÀ» °æ¿ì ·£´ıÀ¸·Î ºĞ±â¸¦ °áÁ¤
 				{
 					nNext = rand() % 2;
 					if(nNext == 0)
@@ -2699,7 +2699,7 @@ BOOL CWndRRMiniGameLadder::MakeLadder()
 		}
 	}
 
-	// ì‹œë®¬ë ˆì´íŒ… í›„ ì„œë²„ì—ì„œ ì˜¨ ì„±ê³µ ì‹¤íŒ¨ì— ë”°ë¼ ê²°ê³¼ê°’ ì…‹ íŒ…
+	// ½Ã¹Ä·¹ÀÌÆÃ ÈÄ ¼­¹ö¿¡¼­ ¿Â ¼º°ø ½ÇÆĞ¿¡ µû¶ó °á°ú°ª ¼Â ÆÃ
 	int nGoal = m_nStart;
 	for( int i=0; i<10; i++)
 	{

@@ -1,4 +1,4 @@
-ï»¿// GuideSystem.cpp: implementation of the CGuideSystem class.
+// GuideSystem.cpp: implementation of the CGuideSystem class.
 //
 //////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
@@ -76,16 +76,16 @@ void CWndGuideSystem::OnDraw( C2DRender* p2DRender )
 	
 	CRect rect = GetClientRect();
 
-	// ë·°í¬íŠ¸ ì„¸íŒ… 
+	// ºäÆ÷Æ® ¼¼ÆÃ 
 	D3DVIEWPORT9 viewport;
 
-	// ì›”ë“œ 
+	// ¿ùµå 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matRot;
 	D3DXMATRIXA16 matTrans;
 
-	// ì¹´ë©”ë¼ 
+	// Ä«¸Ş¶ó 
 	D3DXMATRIX  matView;
 	D3DXVECTOR3 vecLookAt( 0.0f, 0.0f, 3.0f );
 	D3DXVECTOR3 vecPos(  0.0f, 0.7f, -5.5f );
@@ -132,7 +132,7 @@ void CWndGuideSystem::OnDraw( C2DRender* p2DRender )
 		D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 		pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-		// ëœë”ë§ 
+		// ·£´õ¸µ 
 		pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 		pd3dDevice->SetRenderState( D3DRS_LIGHTING, FALSE );//m_bViewLight );
 		
@@ -316,16 +316,16 @@ void CWndInfoPang::OnDraw( C2DRender* p2DRender )
 { 
 } 
 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndInfoPang::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_INFOPANG, 0, CPoint( 0, 0 ), pWndParent );
 	SetVisible(FALSE);
 	return TRUE;
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndMap::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -374,7 +374,7 @@ BOOL CWndGuideSystem::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		SetFocus();
 		switch( nID )
 		{
-		case 0: // ìˆ¨ê¸°ê¸° 
+		case 0: // ¼û±â±â 
 			{
 				if(g_pPlayer)
 					SetAni( g_pPlayer->GetJob(), ANI_BYTE );
@@ -387,7 +387,7 @@ BOOL CWndGuideSystem::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				
 			}
 			break;
-		case 1: // ë³´ê¸°
+		case 1: // º¸±â
 			if( m_wndGuideText->m_VecGuideText.size() )
 				m_wndGuideText->m_bVisible = !m_wndGuideText->m_bVisible;
 
@@ -444,7 +444,7 @@ void CWndGuideSystem::OnInitialUpdate()
 	
 	LoadGuide( MakePath( DIR_CLIENT, "Guide.inc" ) );
 	//*
-	//í…ìŠ¤íŠ¸ ì°½ ì¶œë ¥
+	//ÅØ½ºÆ® Ã¢ Ãâ·Â
 	SAFE_DELETE(m_wndGuideText);
 	m_wndGuideText = new CWndGuideTextMgr;
 #ifdef __FIX_WND_1109
@@ -491,7 +491,7 @@ BOOL CWndGuideSystem::Process()
 	if( m_pModel == NULL )
 		return FALSE;
 	
-	// ì—¬ê¸°ë¶€í„´ ì¸í¬íŒ¡ ëª¨ë¸ ì²˜ë¦¬
+	// ¿©±âºÎÅÏ ÀÎÆ÷ÆÎ ¸ğµ¨ Ã³¸®
 	m_pModel->FrameMove();
 	
 	if( m_pModel->IsEndFrame() )
@@ -509,15 +509,15 @@ BOOL CWndGuideSystem::Process()
 		}
 	}
 
-	// ì—¬ê¸°ë¶€í„° ê°€ì´ë“œ ìŠ¤í¬ë¦½íŠ¸ ì²˜ë¦¬
+	// ¿©±âºÎÅÍ °¡ÀÌµå ½ºÅ©¸³Æ® Ã³¸®
 	if(m_CurrentGuide.m_nVicCondition)
 	{
-		// ëŒ€ìƒ ê°€ì´ë“œê°€ ìˆìœ¼ë©´ ê°€ì´ë“œì˜ ì™„ë£Œ ì¡°ê±´ì„ ì²´í¬í•œë‹¤
+		// ´ë»ó °¡ÀÌµå°¡ ÀÖÀ¸¸é °¡ÀÌµåÀÇ ¿Ï·á Á¶°ÇÀ» Ã¼Å©ÇÑ´Ù
 		if(CheckCompletion(m_CurrentGuide))
 		{
 			if(m_CurrentIter == m_mapGuide.end())
 			{
-				// ë§ˆì§€ë§‰ê°€ì´ë“œì´ë©´ ì¢…ë£Œì²˜ë¦¬í•œë‹¤
+				// ¸¶Áö¸·°¡ÀÌµåÀÌ¸é Á¾·áÃ³¸®ÇÑ´Ù
 				m_wndGuideText->SetVisible(FALSE);
 				g_Option.m_nTutorialLv = m_CurrentGuide.m_nLevel;
 				g_DPlay.SendTutorialState(g_Option.m_nTutorialLv);
@@ -528,7 +528,7 @@ BOOL CWndGuideSystem::Process()
 			}
 			else if(m_CurrentIter == m_EmptyIter)
 			{
-				// ì´ë²¤íŠ¸ì„±(ì¼íšŒì„±) ì´ë²¤íŠ¸ì¼ ê²½ìš°ëŠ” ë‹¤ìŒì´ ì—†ë‹¤
+				// ÀÌº¥Æ®¼º(ÀÏÈ¸¼º) ÀÌº¥Æ®ÀÏ °æ¿ì´Â ´ÙÀ½ÀÌ ¾ø´Ù
 				m_wndGuideText->SetVisible(FALSE);
 				if(m_CurrentGuide.m_nLevel > g_Option.m_nTutorialLv)
 				{
@@ -540,7 +540,7 @@ BOOL CWndGuideSystem::Process()
 			}
 			else
 			{
-				// ë§ˆì§€ë§‰ì´ ì•„ë‹ˆë©´ ë‹¤ìŒ ê°€ì´ë“œë¡œ
+				// ¸¶Áö¸·ÀÌ ¾Æ´Ï¸é ´ÙÀ½ °¡ÀÌµå·Î
 				++m_CurrentIter;
 				if(m_CurrentIter != m_mapGuide.end()) 
 				{
@@ -581,7 +581,7 @@ BOOL CWndGuideSystem::PassToNext()
 	{
 		if(m_CurrentIter == m_mapGuide.end())
 		{
-			// ë§ˆì§€ë§‰ê°€ì´ë“œì´ë©´ ì¢…ë£Œì²˜ë¦¬í•œë‹¤
+			// ¸¶Áö¸·°¡ÀÌµåÀÌ¸é Á¾·áÃ³¸®ÇÑ´Ù
 			
 			m_wndGuideText->SetVisible(FALSE);
 			g_Option.m_nTutorialLv = m_CurrentGuide.m_nLevel;
@@ -594,7 +594,7 @@ BOOL CWndGuideSystem::PassToNext()
 		}
 		else if(m_CurrentIter == m_EmptyIter)
 		{
-			// ì´ë²¤íŠ¸ì„±(ì¼íšŒì„±) ì´ë²¤íŠ¸ì¼ ê²½ìš°ëŠ” ë‹¤ìŒì´ ì—†ë‹¤
+			// ÀÌº¥Æ®¼º(ÀÏÈ¸¼º) ÀÌº¥Æ®ÀÏ °æ¿ì´Â ´ÙÀ½ÀÌ ¾ø´Ù
 			m_wndGuideText->SetVisible(FALSE);
 			if(m_CurrentGuide.m_nLevel > g_Option.m_nTutorialLv)
 			{
@@ -606,7 +606,7 @@ BOOL CWndGuideSystem::PassToNext()
 		}
 		else
 		{
-			// ë§ˆì§€ë§‰ì´ ì•„ë‹ˆë©´ ë‹¤ìŒ ê°€ì´ë“œë¡œ
+			// ¸¶Áö¸·ÀÌ ¾Æ´Ï¸é ´ÙÀ½ °¡ÀÌµå·Î
 			++m_CurrentIter;
 			if(m_CurrentIter != m_mapGuide.end()) 
 			{
@@ -760,7 +760,7 @@ void CWndGuideSystem::GuideStart(BOOL ischart)
 
 	if(m_dwGuideLevel) return;
 
-	// ì´ë²¤íŠ¸ì„± ê°€ì´ë“œì¼ ê²½ìš°
+	// ÀÌº¥Æ®¼º °¡ÀÌµåÀÏ °æ¿ì
 	if(ischart)
 	{
 		if(m_vecEventGuide.size())
@@ -780,7 +780,7 @@ void CWndGuideSystem::GuideStart(BOOL ischart)
 	}
 	else
 	{	
-		// ìˆœì°¨ì ìœ¼ë¡œ ì‹¤í–‰ë˜ëŠ” ê¸°ë³¸ê°€ì´ë“œë¥¼ ì‹œì‘í•œë‹¤
+		// ¼øÂ÷ÀûÀ¸·Î ½ÇÇàµÇ´Â ±âº»°¡ÀÌµå¸¦ ½ÃÀÛÇÑ´Ù
 		if(m_mapGuide.size())
 		{
 			mgMapItor Iter = m_mapGuide.begin();
@@ -796,7 +796,7 @@ void CWndGuideSystem::GuideStart(BOOL ischart)
 				}
 				++Iter;
 			}
-			// íŠœí† ë¦¬ì–¼ì„ ë‹¤ ì™„ë£Œí–ˆìœ¼ë©´ íŠœí† ë¦¬ì–¼ì°½ì´ ë³´ì´ì§€ ì•ŠëŠ”ë‹¤.
+			// Æ©Åä¸®¾óÀ» ´Ù ¿Ï·áÇßÀ¸¸é Æ©Åä¸®¾óÃ¢ÀÌ º¸ÀÌÁö ¾Ê´Â´Ù.
 			SetVisible(FALSE);
 		}
 	}
@@ -873,7 +873,7 @@ void CWndGuideSystem::OnInitialUpdate()
 
 	LoadGuide( MakePath( DIR_CLIENT, "Guide.inc" ) );
 	//*
-	//í…ìŠ¤íŠ¸ ì°½ ì¶œë ¥
+	//ÅØ½ºÆ® Ã¢ Ãâ·Â
 	SAFE_DELETE(m_wndGuideText);
 	m_wndGuideText = new CWndGuideTextMgr;
 #ifdef __FIX_WND_1109
@@ -960,7 +960,7 @@ BOOL CWndGuideSystem::Process()
 					m_listGuideChart.pop_front();
 					m_listGuideMsg.pop_front();
 
-					// ìƒˆë¡œìš´ ê°€ì´ë“œ ì¶”ê°€
+					// »õ·Î¿î °¡ÀÌµå Ãß°¡
 					if( m_listGuideChart.size() )
 					{
 						guidestruct = m_listGuideChart.front();

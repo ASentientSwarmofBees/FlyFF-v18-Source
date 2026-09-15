@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndMessengerSearch.h"
@@ -7,14 +7,14 @@
 extern	CDPCertified	g_dpCertified;
 
 /****************************************************
-  WndId : APP_MESSENGER_SEARCH - ì‚¬ìš©ìžê²€ìƒ‰
-  CtrlId : WIDC_STATIC_ID - ì•„ì´ë””ê²€ìƒ‰
+  WndId : APP_MESSENGER_SEARCH - »ç¿ëÀÚ°Ë»ö
+  CtrlId : WIDC_STATIC_ID - ¾ÆÀÌµð°Ë»ö
   CtrlId : WIDC_EDIT_ID - 
-  CtrlId : WIDC_STATIC_SERVER - ì„œë²„ë³„ê²€ìƒ‰
+  CtrlId : WIDC_STATIC_SERVER - ¼­¹öº°°Ë»ö
   CtrlId : WIDC_COMBOBOX_SERVER - 
-  CtrlId : WIDC_STATIC_SEX - ì„±ë³„ê²€ìƒ‰
-  CtrlId : WIDC_RADIO_MALE - ë‚¨
-  CtrlId : WIDC_RADIO_FEMALE - ì—¬
+  CtrlId : WIDC_STATIC_SEX - ¼ºº°°Ë»ö
+  CtrlId : WIDC_RADIO_MALE - ³²
+  CtrlId : WIDC_RADIO_FEMALE - ¿©
   CtrlId : WIDC_BUTTON_OK - Button
   CtrlId : WIDC_BUTTON_CANCLE - Button
   CtrlId : WIDC_LIST - 
@@ -32,7 +32,7 @@ void CWndMessengerSearch::OnDraw( C2DRender* p2DRender )
 void CWndMessengerSearch::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 
 	CWndComboBox* pWndComboBox = (CWndComboBox*)GetDlgItem( WIDC_COMBOBOX_SERVER );
 	
@@ -44,11 +44,11 @@ void CWndMessengerSearch::OnInitialUpdate()
 //	m_wndFriend.InitItem( g_pPlayer->m_nJob, g_pPlayer->m_nJob, g_pPlayer->m_aJobSkill, APP_MESSENGER_SEARCH );
 
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_APP_COMMUNITY_FRIEND);//"ì¹œêµ¬";
+	tabTabItem.pszText = prj.GetText(TID_APP_COMMUNITY_FRIEND);//"Ä£±¸";
 	tabTabItem.pWndBase = &m_wndFriend;
 	pWndTabCtrl->InsertItem( 0, &tabTabItem );
 
-	// ì„œë²„ë³„ ë¦¬ìŠ¤íŠ¸ ë„£ê¸°
+	// ¼­¹öº° ¸®½ºÆ® ³Ö±â
 	pWndComboBox->AddString( "All Server" );
 	for( int i = 0 ; i < (int)( g_dpCertified.m_dwSizeofServerset ) ; ++i )
 	{
@@ -60,7 +60,7 @@ void CWndMessengerSearch::OnInitialUpdate()
 	pWndComboBox->SetCurSel( 0 );
 
 
-	// ë‚¨ / ì—¬ / ëª¨ë‘
+	// ³² / ¿© / ¸ðµÎ
 	CWndButton* pWndButton[ 3 ];
 	pWndButton[ 0 ] = (CWndButton*)GetDlgItem( WIDC_RADIO_MALE );
 	pWndButton[ 1 ] = (CWndButton*)GetDlgItem( WIDC_RADIO_FEMALE );
@@ -71,21 +71,21 @@ void CWndMessengerSearch::OnInitialUpdate()
 	
 	
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndMessengerSearch::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MESSENGER_SEARCH, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndMessengerSearch::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 

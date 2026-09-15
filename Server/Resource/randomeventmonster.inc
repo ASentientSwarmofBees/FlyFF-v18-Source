@@ -1,9 +1,9 @@
-ï»¿MI_RANGDA01
+MI_RANGDA01
 {
-	nInterval	3600	// ë¦¬ìŠ¤í° ì£¼ê¸°(ë‹¨ìœ„: ì´ˆ)
-	nReplace	3600	// ìœ„ì¹˜ ì´ë™ ì£¼ê¸°(ë‹¨ìœ„: ì´ˆ)
-	bActiveAttack	0	// ì„ ê³µ ì—¬ë¶€ : ë¹„ì„ ê³µ 0
-	vRangda		// ë¦¬ìŠ¤í° ì¢Œí‘œ
+	nInterval	3600	// ¸®½ºÆù ÁÖ±â(´ÜÀ§: ÃÊ)
+	nReplace	3600	// À§Ä¡ ÀÌµ¿ ÁÖ±â(´ÜÀ§: ÃÊ)
+	bActiveAttack	0	// ¼±°ø ¿©ºÎ : ºñ¼±°ø 0
+	vRangda		// ¸®½ºÆù ÁÂÇ¥
 	{
 		WI_WORLD_MADRIGAL	4609.0   60.0   4409.0
 		WI_WORLD_MADRIGAL	4390.0   20.0   3998.0
@@ -13,10 +13,10 @@
 
 MI_RANGDA02
 {
-	nInterval	3600	// ë¦¬ìŠ¤í° ì£¼ê¸°(ë‹¨ìœ„: ì´ˆ)
-	nReplace	3600	// ìœ„ì¹˜ ì´ë™ ì£¼ê¸°(ë‹¨ìœ„: ì´ˆ)
-	bActiveAttack	0	// ì„ ê³µ ì—¬ë¶€ : ë¹„ì„ ê³µ 0
-	vRangda		// ë¦¬ìŠ¤í° ì¢Œí‘œ
+	nInterval	3600	// ¸®½ºÆù ÁÖ±â(´ÜÀ§: ÃÊ)
+	nReplace	3600	// À§Ä¡ ÀÌµ¿ ÁÖ±â(´ÜÀ§: ÃÊ)
+	bActiveAttack	0	// ¼±°ø ¿©ºÎ : ºñ¼±°ø 0
+	vRangda		// ¸®½ºÆù ÁÂÇ¥
 	{
 		WI_WORLD_MADRIGAL	2587.0  52.0  3603.0
 		WI_WORLD_MADRIGAL	3589.0  36.0  3849.0
@@ -26,10 +26,10 @@ MI_RANGDA02
 
 MI_RANGDA03
 {
-	nInterval	3600	// ë¦¬ìŠ¤í° ì£¼ê¸°(ë‹¨ìœ„: ì´ˆ)
-	nReplace	3600	// ìœ„ì¹˜ ì´ë™ ì£¼ê¸°(ë‹¨ìœ„: ì´ˆ)
-	bActiveAttack	0	// ì„ ê³µ ì—¬ë¶€ : ë¹„ì„ ê³µ 0
-	vRangda		// ë¦¬ìŠ¤í° ì¢Œí‘œ
+	nInterval	3600	// ¸®½ºÆù ÁÖ±â(´ÜÀ§: ÃÊ)
+	nReplace	3600	// À§Ä¡ ÀÌµ¿ ÁÖ±â(´ÜÀ§: ÃÊ)
+	bActiveAttack	0	// ¼±°ø ¿©ºÎ : ºñ¼±°ø 0
+	vRangda		// ¸®½ºÆù ÁÂÇ¥
 	{
 		WI_WORLD_MADRIGAL	3187.0  36.0  3192.0
 		WI_WORLD_MADRIGAL	3512.0  117.0 2190.0 
@@ -39,10 +39,10 @@ MI_RANGDA03
 
 MI_RANGDA04
 {
-	nInterval	3600	// ë¦¬ìŠ¤í° ì£¼ê¸°(ë‹¨ìœ„: ì´ˆ)
-	nReplace	3600	// ìœ„ì¹˜ ì´ë™ ì£¼ê¸°(ë‹¨ìœ„: ì´ˆ)
-	bActiveAttack	0	// ì„ ê³µ ì—¬ë¶€ : ë¹„ì„ ê³µ 0
-	vRangda		// ë¦¬ìŠ¤í° ì¢Œí‘œ
+	nInterval	3600	// ¸®½ºÆù ÁÖ±â(´ÜÀ§: ÃÊ)
+	nReplace	3600	// À§Ä¡ ÀÌµ¿ ÁÖ±â(´ÜÀ§: ÃÊ)
+	bActiveAttack	0	// ¼±°ø ¿©ºÎ : ºñ¼±°ø 0
+	vRangda		// ¸®½ºÆù ÁÂÇ¥
 	{
 		WI_DUNGEON_VOLCANE	 601.0   89.0   1509.0
 		WI_DUNGEON_VOLCANE	 509.0   87.0    597.0

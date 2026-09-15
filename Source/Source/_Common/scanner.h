@@ -1,4 +1,4 @@
-ï»¿#ifndef __SCANNER_H
+#ifndef __SCANNER_H
 #define __SCANNER_H
 
 #include "data.h"
@@ -33,7 +33,7 @@ enum TokenType
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Token : í† í°ì„ êµ¬ë¶„í•˜ì—¬ ì½ì–´ë“œë¦¼.
+// Token : ÅäÅ«À» ±¸ºĞÇÏ¿© ÀĞ¾îµå¸².
 //
 class CScanner 
 {
@@ -43,8 +43,8 @@ public:
 	virtual ~CScanner();
 
 protected:
-	BOOL		m_bComma;			// êµ¬ë¶„ìê°€ ì½¤ë§ˆì¸ê°€?
-	BYTE		m_bMemFlag;			// 0ì€ ë¡œë“œ, 1ì€ ì™¸ë¶€ í¬ì¸íŠ¸ 
+	BOOL		m_bComma;			// ±¸ºĞÀÚ°¡ ÄŞ¸¶ÀÎ°¡?
+	BYTE		m_bMemFlag;			// 0Àº ·Îµå, 1Àº ¿ÜºÎ Æ÷ÀÎÆ® 
 	int			m_nProgSize;
 	DWORD		m_dwDef;
 	BOOL		Read( CFileIO* pFile, BOOL );
@@ -73,7 +73,7 @@ public:
 	
 	void			SetErrorCheck( BOOL bErrorCheck ) { m_bErrorCheck = bErrorCheck; } 
 	BOOL			GetErrorCheck() { return m_bErrorCheck; }
-	void			GetLastFull(); // í˜„ì¬ë¶€í„° ëê¹Œì§€ í•œë²ˆì— ì½ëŠ”ë‹¤.
+	void			GetLastFull(); // ÇöÀçºÎÅÍ ³¡±îÁö ÇÑ¹ø¿¡ ÀĞ´Â´Ù.
 	void			Free();
 	BOOL			Load( LPCTSTR lpszFileName, BOOL bMultiByte = TRUE );
 	BOOL			Load_FileIO( LPCTSTR lpszFileName, BOOL bMultiByte = TRUE );

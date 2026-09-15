@@ -1,4 +1,4 @@
-ï»¿#ifndef __SPEVENT_H__
+#ifndef __SPEVENT_H__
 #define	__SPEVENT_H__
 
 class CSPEvent
@@ -30,10 +30,10 @@ private:
 #define	MAX_EVENT_TITLE		100
 typedef	struct	_EVENT_GENERIC
 {
-	int	nId;	// ì´ë²¤íŠ¸ ë²ˆí˜¸, 500ì´ ì‹œì‘, ìµœëŒ€ëŠ” 531
-	int	nFlag;		// ì´ë²¤íŠ¸ í”Œë ˆê·¸, 1ê°’ì„ (ì´ë²¤íŠ¸ ë²ˆí˜¸ - 500) ì™¼ìª½ ì‹œí”„íŠ¸
-	time_t	tStart;		// ì‹œì‘ ì‹œê°„
-	time_t	tEnd;		// ë ì‹œê°„
+	int	nId;	// ÀÌº¥Æ® ¹øÈ£, 500ÀÌ ½ÃÀÛ, ÃÖ´ë´Â 531
+	int	nFlag;		// ÀÌº¥Æ® ÇÃ·¹±×, 1°ªÀ» (ÀÌº¥Æ® ¹øÈ£ - 500) ¿ŞÂÊ ½ÃÇÁÆ®
+	time_t	tStart;		// ½ÃÀÛ ½Ã°£
+	time_t	tEnd;		// ³¡ ½Ã°£
 	FLOAT	fExpFactor;
 #ifdef __ITEMDROPRATE
 	FLOAT	fItemDropRate;
@@ -56,51 +56,51 @@ typedef	struct	_EVENT_GENERIC
 class CEventItem
 {
 private:
-	int		m_nMax;		// ì¼ì¼ ìµœëŒ€ ë“œë¡­
+	int		m_nMax;		// ÀÏÀÏ ÃÖ´ë µå·Ó
 	DWORD	m_adwInterval[24];
 	DWORD	m_dwTimeout;
 	LONG	m_lSkip;
 public:
-	DWORD	m_dwItemId;		// ì•„ì´í…œ ë²ˆí˜¸
-	int		m_nNum;		// ì¼íšŒ ìµœëŒ€ ë“œë¡­
+	DWORD	m_dwItemId;		// ¾ÆÀÌÅÛ ¹øÈ£
+	int		m_nNum;		// ÀÏÈ¸ ÃÖ´ë µå·Ó
 public:
 //
 	CEventItem();
 	CEventItem( DWORD dwItemId, int nMax, int nNum );
 	virtual	~CEventItem()	{}
 //	op
-	BOOL	IsTimeout( int nHour );		// ë“œë¡­ ì£¼ê¸° ì¸ê°€?
-	void	Skip( LONG lSkip );		// ë“œë¡­ ì£¼ê¸°ì— ë“œë¡­ ë¬´ì‹œ íšŒìˆ˜ ì„¤ì •
+	BOOL	IsTimeout( int nHour );		// µå·Ó ÁÖ±â ÀÎ°¡?
+	void	Skip( LONG lSkip );		// µå·Ó ÁÖ±â¿¡ µå·Ó ¹«½Ã È¸¼ö ¼³Á¤
 	void	Serialize( CAr & ar );
 };
-// ì½”ì–´ ì„œë²„ì—ëŠ” í”„ë¡œì íŠ¸ë¥¼ ë¡œë”©í•˜ì§€ ì•Šìœ¼ë¯€ë¡œ
-// íŠ¸ëœìŠ¤ ì„œë²„ì—ì„œ ê°ì²´ë¥¼ ê´€ë¦¬í•œë‹¤.
+// ÄÚ¾î ¼­¹ö¿¡´Â ÇÁ·ÎÁ§Æ®¸¦ ·ÎµùÇÏÁö ¾ÊÀ¸¹Ç·Î
+// Æ®·£½º ¼­¹ö¿¡¼­ °´Ã¼¸¦ °ü¸®ÇÑ´Ù.
 
 #ifdef __EVENT_0117
-typedef	struct	_REGION_GENERIC		// ìŠ¤í° ì´ë²¤íŠ¸ (ì•„ì´í…œ, ëª¬ìŠ¤í„°)ì— ì“°ê¸° ìœ„í•œ ì˜ì—­ ì •ë³´
+typedef	struct	_REGION_GENERIC		// ½ºÆù ÀÌº¥Æ® (¾ÆÀÌÅÛ, ¸ó½ºÅÍ)¿¡ ¾²±â À§ÇÑ ¿µ¿ª Á¤º¸
 {
-	int		nLevel;	// ì˜ì—­ ë ˆë²¨
-	DWORD	dwWorldId;		// ì›”ë“œ ë²ˆí˜¸
-	CRespawnInfo* pi;	// ì°¸ì¡° ì˜ì—­
+	int		nLevel;	// ¿µ¿ª ·¹º§
+	DWORD	dwWorldId;		// ¿ùµå ¹øÈ£
+	CRespawnInfo* pi;	// ÂüÁ¶ ¿µ¿ª
 }	REGION_GENERIC,	*PREGION_GENERIC;
 
 class CSpawn
 {
 private:
-	int		m_nMax;		// ì¼ì¼ ìµœëŒ€ ìŠ¤í°
-	float	m_fRatio;	// ìµœì € ë ˆë²¨ ì˜ì—­ì— ëŒ€ë¹„ ìµœê³ ë ˆë²¨ì˜ ìŠ¤í° í™•ë¥ 
-	DWORD	m_dwInterval;	// ìŠ¤í° ê°„ê²© ms
-	DWORD	m_dwTimeout;	// ìŠ¤í° ì‹œê°„ íƒ€ì„ ì•„ì›ƒ
+	int		m_nMax;		// ÀÏÀÏ ÃÖ´ë ½ºÆù
+	float	m_fRatio;	// ÃÖÀú ·¹º§ ¿µ¿ª¿¡ ´ëºñ ÃÖ°í·¹º§ÀÇ ½ºÆù È®·ü
+	DWORD	m_dwInterval;	// ½ºÆù °£°İ ms
+	DWORD	m_dwTimeout;	// ½ºÆù ½Ã°£ Å¸ÀÓ ¾Æ¿ô
 public:
-	DWORD	m_dwType;	// ìŠ¤í° ê°ì²´ íƒ€ì…	
-	DWORD	m_dwIndex;		// ìŠ¤í° ê°ì²´ ì¸ë±ìŠ¤
+	DWORD	m_dwType;	// ½ºÆù °´Ã¼ Å¸ÀÔ	
+	DWORD	m_dwIndex;		// ½ºÆù °´Ã¼ ÀÎµ¦½º
 public:
 // Constructions
 	CSpawn();
 	CSpawn( DWORD dwType, DWORD dwIndex, int nMax, float fRatio, DWORD dwInterval );
 	virtual	~CSpawn()	{}
 //	Operations
-	BOOL	IsTimeout( void );	// ìŠ¤í° ì£¼ê¸° ì¸ê°€?
+	BOOL	IsTimeout( void );	// ½ºÆù ÁÖ±â ÀÎ°¡?
 private:
 	DWORD	GetMaxSpawnProbability( int nMax )
 	{
@@ -140,8 +140,8 @@ private:
 	map<int, list<CEventItem*>*>	m_mapEventItemList;
 
 #ifdef __EVENT_0117
-	vector<REGION_GENERIC>	m_aRegionGeneric;	// ëª¨ë“  ì›”ë“œì˜ ë¦¬ìŠ¤í° ì˜ì—­ì„ ë²¡í„°ì— ì €ì¥í•œë‹¤.	// ì›”ë“œ ë²ˆí˜¸, ì§€ì—­, ë ˆë²¨
-	map<int, CSpawn*>	m_mapSpawn;		// ì´ë²¤íŠ¸ê°€ í™œì„±í™” ë˜ì—ˆì„ ë•Œ, í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ìŠ¤í°ì„ í¬í•¨í•œë‹¤ë©´ ê°€ì ¸ì˜¤ê¸° ìœ„í•œ ë§µì´ë‹¤.
+	vector<REGION_GENERIC>	m_aRegionGeneric;	// ¸ğµç ¿ùµåÀÇ ¸®½ºÆù ¿µ¿ªÀ» º¤ÅÍ¿¡ ÀúÀåÇÑ´Ù.	// ¿ùµå ¹øÈ£, Áö¿ª, ·¹º§
+	map<int, CSpawn*>	m_mapSpawn;		// ÀÌº¥Æ®°¡ È°¼ºÈ­ µÇ¾úÀ» ¶§, ÇØ´ç ÀÌº¥Æ®°¡ ½ºÆùÀ» Æ÷ÇÔÇÑ´Ù¸é °¡Á®¿À±â À§ÇÑ ¸ÊÀÌ´Ù.
 #endif	// __EVENT_0117
 
 public:
@@ -149,9 +149,9 @@ public:
 	virtual	~CEventGeneric();
 //	op
 	void Clear( BOOL bDestructor = TRUE );
-	// ìŠ¤í¬ë¦½íŠ¸ ë¡œë“œ
+	// ½ºÅ©¸³Æ® ·Îµå
 	BOOL	LoadScript( LPCSTR lpFilename );
-	// ì´ë²¤íŠ¸ í™œì„±í™” ì‹œ ë“œë¡­ë˜ëŠ” ì•„ì´í…œ ì¶”ê°€
+	// ÀÌº¥Æ® È°¼ºÈ­ ½Ã µå·ÓµÇ´Â ¾ÆÀÌÅÛ Ãß°¡
 	BOOL	AddItem( int nEvent, DWORD dwItemId, int nMax, int nNum );
 #ifdef __WORLDSERVER
 	CEventItem*	GetItem( int* pnNum );
@@ -165,9 +165,9 @@ public:
 #endif	// __EVENT_1101
 
 #ifdef __EVENT_0117
-	void	AddSpawn( int nEvent, DWORD dwType, DWORD dwIndex, int nMax, float fRatio, DWORD dwInterval );		// ìŠ¤í° ì´ë²¤íŠ¸ ì •ë³´ ë“±ë¡
-	void	AddRegionGeneric( int nLevel, DWORD dwWorldId, CRespawnInfo* pi );	// ìŠ¤í° ì˜ì—­ ë“±ë¡
-	void	SortRegionGeneric( void );	// ìŠ¤í° ì˜ì—­ ì •ë ¬
+	void	AddSpawn( int nEvent, DWORD dwType, DWORD dwIndex, int nMax, float fRatio, DWORD dwInterval );		// ½ºÆù ÀÌº¥Æ® Á¤º¸ µî·Ï
+	void	AddRegionGeneric( int nLevel, DWORD dwWorldId, CRespawnInfo* pi );	// ½ºÆù ¿µ¿ª µî·Ï
+	void	SortRegionGeneric( void );	// ½ºÆù ¿µ¿ª Á¤·Ä
 	void	Spawn( void );
 #endif	// __EVENT_0117
 

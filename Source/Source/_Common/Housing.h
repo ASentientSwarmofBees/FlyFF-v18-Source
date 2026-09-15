@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 
 #if __VER >= 13 // __HOUSING
 
@@ -9,19 +9,19 @@
 /////////////////////////////////////////////////////////////////////
 struct HOUSINGINFO
 {
-	DWORD		dwItemId;		// ì•„ì´í…œ ID
-	time_t		tKeepTime;		// ê¸°ê°„(ì§€ì†ì‹œê°„)
-	BOOL		bSetup;			// ì„¤ì¹˜ì—¬ë¶€
-	D3DXVECTOR3	vPos;			// ì„¤ì¹˜ìœ„ì¹˜
-	float		fAngle;			// ì„¤ì¹˜ê°ë„
+	DWORD		dwItemId;		// ¾ÆÀÌÅÛ ID
+	time_t		tKeepTime;		// ±â°£(Áö¼Ó½Ã°£)
+	BOOL		bSetup;			// ¼³Ä¡¿©ºÎ
+	D3DXVECTOR3	vPos;			// ¼³Ä¡À§Ä¡
+	float		fAngle;			// ¼³Ä¡°¢µµ
 #ifdef __WORLDSERVER
-	OBJID		objId;			// ì„¤ì¹˜ëœ ê°€êµ¬ì˜ ì»¨íŠ¸ë¡¤ID(ì œê±°ì‹œ í•„ìš”)
+	OBJID		objId;			// ¼³Ä¡µÈ °¡±¸ÀÇ ÄÁÆ®·ÑID(Á¦°Å½Ã ÇÊ¿ä)
 #endif // __WORLDSERVER
 	HOUSINGINFO() : dwItemId(NULL_ID), tKeepTime(0), vPos(0.0f,0.0f,0.0f), bSetup(FALSE), fAngle(0.0f)
 #ifdef __WORLDSERVER
 	, objId( NULL_ID )
 #endif // __WORLDSERVER
-	{} // ì´ˆê¸°í™”
+	{} // ÃÊ±âÈ­
 #ifdef __DBSERVER
 	HOUSINGINFO( DWORD dwII ) : dwItemId(dwII), tKeepTime(0), vPos(0.0f,0.0f,0.0f), bSetup(FALSE), fAngle(0.0f)
 	{
@@ -55,8 +55,8 @@ public:
 #ifdef __CLIENT
 	vector<DWORD>	m_vecVisitable;
 	static CHousing* GetInstance();
-	void	GetHousingList( vector<HOUSINGINFO> & vHousingList );	// ê°€êµ¬ ëª©ë¡ ì •ë³´ë¥¼ ë³µì‚¬í•´ì„œ ë„˜ê¹€.
-	void	GetVisitAllow( vector<DWORD> & vVisitAllow );		// ë°©ë¬¸í—ˆìš©ì ëª©ë¡ì„ ë„˜ê¹€
+	void	GetHousingList( vector<HOUSINGINFO> & vHousingList );	// °¡±¸ ¸ñ·Ï Á¤º¸¸¦ º¹»çÇØ¼­ ³Ñ±è.
+	void	GetVisitAllow( vector<DWORD> & vVisitAllow );		// ¹æ¹®Çã¿ëÀÚ ¸ñ·ÏÀ» ³Ñ±è
 #endif // __CLIENT
 		
 	void Serialize( CAr & ar );
@@ -65,17 +65,17 @@ public:
 	void SetVisitAllow( DWORD dwTargetId, BOOL bAllow );
 
 #ifdef __WORLDSERVER
-	BOOL IsListUpAble( CUser* pUser, DWORD dwItemId );	// ê°€êµ¬ ëª©ë¡ ì¶”ê°€ê°€ ê°€ëŠ¥í•œê°€?
-	BOOL IsSetupAble( CUser* pUser, HOUSINGINFO housingInfo );		// ê°€êµ¬ ì„¤ì¹˜ê°€ ê°€ëŠ¥í•œê°€?
-	BOOL IsAllowVisit( DWORD dwPlayerId );	// ë‚´ê°€ í—ˆìš©í•œ ë°©ë¬¸ì ì¸ê°€?
-	BOOL AddFurnitureControl( int nIndex );		// ê°€êµ¬ ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•œë‹¤.
-	void RemoveFurnitureControl( int nIndex );	// ê°€êµ¬ ì»¨íŠ¸ë¡¤ì„ ì œê±°í•œë‹¤.
-	void AddAllFurnitureControl();				// ì„¤ì¹˜ëœ ëª¨ë“  ê°€êµ¬ ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•œë‹¤.
-	void SetBuff( DWORD dwItemId, BOOL bSet );	// ê°€êµ¬ ì„¤ì¹˜ë‚˜ ì œê±°ì‹œ ë²„í”„ì„¤ì •..
-	vector<DWORD> GetAllPaperingInfo();			// ë²½ì§€ ë° ì¥íŒ ì •ë³´..
+	BOOL IsListUpAble( CUser* pUser, DWORD dwItemId );	// °¡±¸ ¸ñ·Ï Ãß°¡°¡ °¡´ÉÇÑ°¡?
+	BOOL IsSetupAble( CUser* pUser, HOUSINGINFO housingInfo );		// °¡±¸ ¼³Ä¡°¡ °¡´ÉÇÑ°¡?
+	BOOL IsAllowVisit( DWORD dwPlayerId );	// ³»°¡ Çã¿ëÇÑ ¹æ¹®ÀÚ ÀÎ°¡?
+	BOOL AddFurnitureControl( int nIndex );		// °¡±¸ ÄÁÆ®·ÑÀ» »ı¼ºÇÑ´Ù.
+	void RemoveFurnitureControl( int nIndex );	// °¡±¸ ÄÁÆ®·ÑÀ» Á¦°ÅÇÑ´Ù.
+	void AddAllFurnitureControl();				// ¼³Ä¡µÈ ¸ğµç °¡±¸ ÄÁÆ®·ÑÀ» »ı¼ºÇÑ´Ù.
+	void SetBuff( DWORD dwItemId, BOOL bSet );	// °¡±¸ ¼³Ä¡³ª Á¦°Å½Ã ¹öÇÁ¼³Á¤..
+	vector<DWORD> GetAllPaperingInfo();			// º®Áö ¹× ÀåÆÇ Á¤º¸..
 	
 	void Setting( BOOL bSetting ) { m_bSetting = bSetting; }
-	BOOL m_bSetting;			// ì§€ê¸ˆ ë­”ê°€ ì„¸íŒ…ì¤‘ì¸ê°€?(TransServerì™€ íƒ€ì´ë° ë¬¸ì œë¡œ..)
+	BOOL m_bSetting;			// Áö±İ ¹º°¡ ¼¼ÆÃÁßÀÎ°¡?(TransServer¿Í Å¸ÀÌ¹Ö ¹®Á¦·Î..)
 #endif // __WORLDSERVER
 
 #ifdef __DBSERVER
@@ -87,8 +87,8 @@ private:
 	int		GetIndexFromList( DWORD dwItemId );
 
 	DWORD	m_dwMasterId;
-	vector<HOUSINGINFO> m_vecHousingInfo;		// ê°€êµ¬ ëª©ë¡
-	vector<DWORD>		m_vecIdVisitAllow;		// ë‚´ê°€ ë°©ë¬¸ í—ˆìš©í•œ ëª©ë¡
+	vector<HOUSINGINFO> m_vecHousingInfo;		// °¡±¸ ¸ñ·Ï
+	vector<DWORD>		m_vecIdVisitAllow;		// ³»°¡ ¹æ¹® Çã¿ëÇÑ ¸ñ·Ï
 };
 
 #ifndef __CLIENT	// __WORLDSERVER, __DBSERVER
@@ -106,33 +106,33 @@ public:
 	static CHousingMng* GetInstance();
 #ifdef __WORLDSERVER
 	void ReqLoadHousingInfo( DWORD dwPlayerId );
-	BOOL ReqSetFurnitureList( CUser* pUser, DWORD dwItemId );	// Transì— ê°€êµ¬ ëª©ë¡ ì¶”ê°€ ìš”ì²­
-	BOOL ReqSetupFurniture( CUser* pUser, HOUSINGINFO housingInfo );	// Transì— ê°€êµ¬ ì„¤ì¹˜ ë° ì œê±° ìš”ì²­
-	BOOL ReqSetAllowVisit( CUser* pUser, DWORD dwPlayerId, BOOL bAllow ); // Transì— í—ˆìš© ëª©ë¡ ì¶”ê°€ ìš”ì²­
-	void ReqGMFunrnitureListAll( CUser* pUser );	// GM ê°€êµ¬ ëª©ë¡ ì „ì²´ ì‚­ì œ..
+	BOOL ReqSetFurnitureList( CUser* pUser, DWORD dwItemId );	// Trans¿¡ °¡±¸ ¸ñ·Ï Ãß°¡ ¿äÃ»
+	BOOL ReqSetupFurniture( CUser* pUser, HOUSINGINFO housingInfo );	// Trans¿¡ °¡±¸ ¼³Ä¡ ¹× Á¦°Å ¿äÃ»
+	BOOL ReqSetAllowVisit( CUser* pUser, DWORD dwPlayerId, BOOL bAllow ); // Trans¿¡ Çã¿ë ¸ñ·Ï Ãß°¡ ¿äÃ»
+	void ReqGMFunrnitureListAll( CUser* pUser );	// GM °¡±¸ ¸ñ·Ï ÀüÃ¼ »èÁ¦..
 
-	void CreateRoomLayer( DWORD dwPlayerId );	// ì ‘ì†ì‹œ ë°© ë ˆì´ì–´ë¥¼ ìƒì„±í•˜ê³  ì„¤ì¹˜ëœ ê°€êµ¬ ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•œë‹¤.
-	BOOL DestroyHousing( DWORD dwPlayerId );	// ë¡œê·¸ ì•„ì›ƒì‹œ í•˜ìš°ì§• ì •ë³´ ì œê±°
+	void CreateRoomLayer( DWORD dwPlayerId );	// Á¢¼Ó½Ã ¹æ ·¹ÀÌ¾î¸¦ »ı¼ºÇÏ°í ¼³Ä¡µÈ °¡±¸ ÄÁÆ®·ÑÀ» »ı¼ºÇÑ´Ù.
+	BOOL DestroyHousing( DWORD dwPlayerId );	// ·Î±× ¾Æ¿ô½Ã ÇÏ¿ìÂ¡ Á¤º¸ Á¦°Å
 
 private:
-	MAP_VSTABLE	m_mapVisitable;		// ë°©ë¬¸ ê°€ëŠ¥ ëª©ë¡
+	MAP_VSTABLE	m_mapVisitable;		// ¹æ¹® °¡´É ¸ñ·Ï
 public:
-	void SetAddVisitable( DWORD dwPlayerId, DWORD dwTargetId );		// ë°©ë¬¸ ê°€ëŠ¥ ëª©ë¡ ì¶”ê°€
-	void SetRemoveVisitable( DWORD dwPlayerId, DWORD dwTargetId );	// ë°©ë¬¸ ê°€ëŠ¥ ëª©ë¡ ì œê±°
-	void OnReqVisitableList( CUser* pUser );	// í´ë¼ì´ì–¸íŠ¸ê°€ ë°©ë¬¸ ê°€ëŠ¥ ëª©ë¡ì„ ìš”ì²­í–ˆë‹¤.
-	void SetVisitRoom( CUser* pUser, DWORD dwPlayerId ); // ë°©ë¬¸...
-	void GoOut( CUser* pUser );		// ë°©ì—ì„œ ë‚˜ê°.
+	void SetAddVisitable( DWORD dwPlayerId, DWORD dwTargetId );		// ¹æ¹® °¡´É ¸ñ·Ï Ãß°¡
+	void SetRemoveVisitable( DWORD dwPlayerId, DWORD dwTargetId );	// ¹æ¹® °¡´É ¸ñ·Ï Á¦°Å
+	void OnReqVisitableList( CUser* pUser );	// Å¬¶óÀÌ¾ğÆ®°¡ ¹æ¹® °¡´É ¸ñ·ÏÀ» ¿äÃ»Çß´Ù.
+	void SetVisitRoom( CUser* pUser, DWORD dwPlayerId ); // ¹æ¹®...
+	void GoOut( CUser* pUser );		// ¹æ¿¡¼­ ³ª°¨.
 #endif // __WORLDSERVER
 	
-	CHousing*	CreateHousing( DWORD dwPlayerId );	// ì ‘ì†ì‹œ í•˜ìš°ì§• ì •ë³´ ìƒì„±(TransëŠ” ìµœì´ˆ ì ‘ì†ì‹œ)
-	CHousing*	GetHousing( DWORD dwPlayerId );	// í•´ë‹¹ IDì˜ í•˜ìš°ì§• ì •ë³´ Get
+	CHousing*	CreateHousing( DWORD dwPlayerId );	// Á¢¼Ó½Ã ÇÏ¿ìÂ¡ Á¤º¸ »ı¼º(Trans´Â ÃÖÃÊ Á¢¼Ó½Ã)
+	CHousing*	GetHousing( DWORD dwPlayerId );	// ÇØ´ç IDÀÇ ÇÏ¿ìÂ¡ Á¤º¸ Get
 	
-	void		SetFurnitureList( DWORD dwPlayerId, HOUSINGINFO& housingInfo, BOOL bAdd );	// ê°€êµ¬ ëª©ë¡ ì¶”ê°€ ë° ì œê±°
-	void		SetupFurniture( DWORD dwPlayerId, HOUSINGINFO housingInfo );	// ê°€êµ¬ ì„¤ì¹˜ ë° ì œê±°
-	void		SetVisitAllow( DWORD dwPlayerId, DWORD dwTargetId, BOOL bAllow );	// í—ˆìš© ëª©ë¡ ì¶”ê°€
+	void		SetFurnitureList( DWORD dwPlayerId, HOUSINGINFO& housingInfo, BOOL bAdd );	// °¡±¸ ¸ñ·Ï Ãß°¡ ¹× Á¦°Å
+	void		SetupFurniture( DWORD dwPlayerId, HOUSINGINFO housingInfo );	// °¡±¸ ¼³Ä¡ ¹× Á¦°Å
+	void		SetVisitAllow( DWORD dwPlayerId, DWORD dwTargetId, BOOL bAllow );	// Çã¿ë ¸ñ·Ï Ãß°¡
 
 #ifdef __DBSERVER
-	void		ProcessRemoveExpiredFurniture();	// ë§Œë£Œì‹œê°„ ê²€ì‚¬
+	void		ProcessRemoveExpiredFurniture();	// ¸¸·á½Ã°£ °Ë»ç
 #endif // __DBSERVER
 
 private:
@@ -152,12 +152,12 @@ class CDeployManager
 private:
 	HOUSINGINFO			m_ItemInfo;
 
-	LPDIRECT3DTEXTURE9	m_pOriginWall;				// ë²½ ê¸°ë³¸í…ìŠ¤ì³
-	LPDIRECT3DTEXTURE9	m_pOriginTile;				// ë°”ë‹¥ ê¸°ë³¸í…ìŠ¤ì³
-	vector<LPDIRECT3DTEXTURE9>	m_vecOriginal;		// íƒ€ê²Ÿì˜¤ë¸Œì íŠ¸ í…ìŠ¤ì³ì…‹
+	LPDIRECT3DTEXTURE9	m_pOriginWall;				// º® ±âº»ÅØ½ºÃÄ
+	LPDIRECT3DTEXTURE9	m_pOriginTile;				// ¹Ù´Ú ±âº»ÅØ½ºÃÄ
+	vector<LPDIRECT3DTEXTURE9>	m_vecOriginal;		// Å¸°Ù¿ÀºêÁ§Æ® ÅØ½ºÃÄ¼Â
 	LPDIRECT3DTEXTURE9	m_pRed;
 	BOOL				m_bIsColl;
-	BOOL				m_bIsMyRoom;				// ê°€ëŠ”ë°©ì´ ë‚´ë°©ì¸ê°€?
+	BOOL				m_bIsMyRoom;				// °¡´Â¹æÀÌ ³»¹æÀÎ°¡?
 	int					m_nBlendFactor;
 	int					m_nNumTex;
 	
@@ -195,7 +195,7 @@ struct HOUSING_ITEM;
 
 class CGuildDeployManager 
 {
-	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ê°€êµ¬ í¸ì§‘ê¸° 
+	// ±æµå ÇÏ¿ì½º °¡±¸ ÆíÁı±â 
 public:
 	CGuildDeployManager( );
 	virtual ~CGuildDeployManager( );
@@ -212,7 +212,7 @@ public:
 	BOOL	CheckCollision();
 	BOOL	ChangeWallTex(TCHAR* pTexName = NULL); 
 	BOOL	ChangeTileTex(TCHAR* pTexName = NULL);
-	BOOL	IsManagementPower( )						{ return m_bIsManagement; }	// ê°€êµ¬ ì œì–´ ê¶Œí•œì´ ìˆëŠ”ê°€?
+	BOOL	IsManagementPower( )						{ return m_bIsManagement; }	// °¡±¸ Á¦¾î ±ÇÇÑÀÌ ÀÖ´Â°¡?
 	void	SetManagementPower( BOOL bMng )				{ m_bIsManagement = bMng; }
 	BOOL	IsCollide()									{ return m_bIsColl; }
 
@@ -225,12 +225,12 @@ public:
 protected:
 	HOUSING_ITEM* m_pItem;
 
-	LPDIRECT3DTEXTURE9	m_pOriginWall;				// ë²½ ê¸°ë³¸í…ìŠ¤ì³
-	LPDIRECT3DTEXTURE9	m_pOriginTile;				// ë°”ë‹¥ ê¸°ë³¸í…ìŠ¤ì³
-	vector<LPDIRECT3DTEXTURE9>	m_vecOriginal;		// íƒ€ê²Ÿì˜¤ë¸Œì íŠ¸ í…ìŠ¤ì³ì…‹
+	LPDIRECT3DTEXTURE9	m_pOriginWall;				// º® ±âº»ÅØ½ºÃÄ
+	LPDIRECT3DTEXTURE9	m_pOriginTile;				// ¹Ù´Ú ±âº»ÅØ½ºÃÄ
+	vector<LPDIRECT3DTEXTURE9>	m_vecOriginal;		// Å¸°Ù¿ÀºêÁ§Æ® ÅØ½ºÃÄ¼Â
 	LPDIRECT3DTEXTURE9	m_pRed;
 	BOOL				m_bIsColl;
-	BOOL				m_bIsManagement;				// ê°€êµ¬ì„¤ì • ê¶Œí•œì´ ìˆëŠ”ê°€?
+	BOOL				m_bIsManagement;				// °¡±¸¼³Á¤ ±ÇÇÑÀÌ ÀÖ´Â°¡?
 	int					m_nBlendFactor;
 	int					m_nNumTex;
 

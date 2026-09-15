@@ -1,4 +1,4 @@
-ï»¿// SecretRoom.cpp: implementation of the CSecretRoom class.
+// SecretRoom.cpp: implementation of the CSecretRoom class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -25,7 +25,7 @@ extern CDPSrvr g_DPSrvr;
 
 #if __VER >= 12 // __SECRET_ROOM
 //////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ì „ì²´ ê´€ë¦¬
+// ºñ¹ĞÀÇ ¹æ ÀüÃ¼ °ü¸®
 //////////////////////////////////////////////////////////////////////
 CSecretRoomMng::CSecretRoomMng()
 {
@@ -127,7 +127,7 @@ void CSecretRoomMng::Process()
 {
 	DWORD dwTick = GetTickCount();
 	
-	switch( m_nState )		// í˜„ì¬ Stateì—ì„œ ë‹¤ìŒ Stateë¡œ ë„˜ì–´ê°ˆë•Œ ì²˜ë¦¬, m_nStateëŠ” í˜„ì¬ State
+	switch( m_nState )		// ÇöÀç State¿¡¼­ ´ÙÀ½ State·Î ³Ñ¾î°¥¶§ Ã³¸®, m_nState´Â ÇöÀç State
 	{
 		case SRMNG_CLOSE:
 			{
@@ -152,7 +152,7 @@ void CSecretRoomMng::Process()
 							CGuild* pGuild  = g_GuildMng.GetGuild( pSRCont->m_vecSecretRoomTender[i].dwGuildId );
 							if( pGuild )
 							{
-								// ê¸¸ë§ˆê°€ ë“±ë¡ë˜ì–´ ìˆì§€ ì•Šìœ¼ë©´ ìë™ë“±ë¡
+								// ±æ¸¶°¡ µî·ÏµÇ¾î ÀÖÁö ¾ÊÀ¸¸é ÀÚµ¿µî·Ï
 								/*
 								BOOL bLineUpMaster = FALSE;
 								for( int j=0; j<pSRCont->m_vecSecretRoomTender[i].vecLineUpMember.size(); j++ )
@@ -166,7 +166,7 @@ void CSecretRoomMng::Process()
 								if( !bLineUpMaster )
 								{
 									pSRCont->m_vecSecretRoomTender[i].vecLineUpMember.push_back( pGuild->m_idMaster );
-									// DBì— Update
+									// DB¿¡ Update
 									g_dpDBClient.SendSecretRoomInsertLineUpToDB( pSRCont->m_nContinent, pSRCont->m_vecSecretRoomTender[i] );
 								}
 								*/
@@ -249,7 +249,7 @@ void CSecretRoomMng::Process()
 	}
 }
 
-// ì…ì°° ê°€ëŠ¥í•œ ê¸¸ë“œ ì¸ê°€?
+// ÀÔÂû °¡´ÉÇÑ ±æµå ÀÎ°¡?
 BOOL CSecretRoomMng::IsPossibleGuild( CUser* pUser )
 {
 	CGuild* pGuild = pUser->GetGuild();
@@ -259,7 +259,7 @@ BOOL CSecretRoomMng::IsPossibleGuild( CUser* pUser )
 	return FALSE;
 }
 
-// ê¸¸ë“œ ë§ˆìŠ¤í„° ì¸ê°€?
+// ±æµå ¸¶½ºÅÍ ÀÎ°¡?
 BOOL CSecretRoomMng::IsGuildMaster( CUser* pUser )
 {
 	CGuild* pGuild = pUser->GetGuild();
@@ -269,7 +269,7 @@ BOOL CSecretRoomMng::IsGuildMaster( CUser* pUser )
 	return FALSE;
 }
 
-// ë‹¤ë¥¸ ëŒ€ë¥™ì— ì…ì°°í•œ ê¸¸ë“œì¸ê°€?
+// ´Ù¸¥ ´ë·ú¿¡ ÀÔÂûÇÑ ±æµåÀÎ°¡?
 BOOL CSecretRoomMng::IsOtherTenderGuild( CUser* pUser )
 {
 	map<BYTE, CSecretRoomContinent*>::iterator it = m_mapSecretRoomContinent.begin();
@@ -283,13 +283,13 @@ BOOL CSecretRoomMng::IsOtherTenderGuild( CUser* pUser )
 	return FALSE;
 }
 
-// í˜„ì¬ ë¹„ë°€ì˜ ë°© ì§„í–‰ ìƒíƒœë¥¼ í•´ë‹¹ ìœ ì €ì—ê²Œ ì „ë‹¬í•œë‹¤.
+// ÇöÀç ºñ¹ĞÀÇ ¹æ ÁøÇà »óÅÂ¸¦ ÇØ´ç À¯Àú¿¡°Ô Àü´ŞÇÑ´Ù.
 void CSecretRoomMng::SendNowState( CUser* pUser, int nState, DWORD dwRemainTime )
 {
 	pUser->AddSecretRoomMngState( nState, dwRemainTime );
 }
 
-// í˜„ì¬ ë¹„ë°€ì˜ ë°© ì§„í–‰ ìƒíƒœë¥¼ ì°¸ê°€ì‹ ì²­í•œ ëª¨ë“  ìœ ì €ì—ê²Œ ì „ë‹¬í•œë‹¤.
+// ÇöÀç ºñ¹ĞÀÇ ¹æ ÁøÇà »óÅÂ¸¦ Âü°¡½ÅÃ»ÇÑ ¸ğµç À¯Àú¿¡°Ô Àü´ŞÇÑ´Ù.
 void CSecretRoomMng::SendNowStateAllMember( BYTE nCont, int nState, DWORD dwRemainTime )
 {
 	map<BYTE, CSecretRoomContinent*>::iterator it = m_mapSecretRoomContinent.begin();
@@ -322,7 +322,7 @@ void CSecretRoomMng::SendNowStateAllMember( BYTE nCont, int nState, DWORD dwRema
 	}	
 }
 
-// ì°¸ê°€ ê°€ëŠ¥í•œ ìœ ì €ê°€ ë¡œê·¸ì¸ì‹œ í˜„ì¬ ì§„í–‰ ìƒíƒœë¥¼ ì „ë‹¬í•œë‹¤.
+// Âü°¡ °¡´ÉÇÑ À¯Àú°¡ ·Î±×ÀÎ½Ã ÇöÀç ÁøÇà »óÅÂ¸¦ Àü´ŞÇÑ´Ù.
 void CSecretRoomMng::GetAllInfo( CUser* pUser )
 {
 	if( m_nState == SRMNG_CLOSE )
@@ -360,7 +360,7 @@ void CSecretRoomMng::GetAllInfo( CUser* pUser )
 	}
 }
 
-// ì˜¤í”ˆ ì‹œê°„ì¸ê°€?
+// ¿ÀÇÂ ½Ã°£ÀÎ°¡?
 BOOL CSecretRoomMng::CheckOpenTime()
 {
 	BOOL bOpen = FALSE;
@@ -374,7 +374,7 @@ BOOL CSecretRoomMng::CheckOpenTime()
 	return bOpen;
 }
 
-// ëª¨ë“  ëŒ€ë¥™ì˜ ë¹„ë°€ì˜ ë°©ì„ ì˜¤í”ˆí•œë‹¤.
+// ¸ğµç ´ë·úÀÇ ºñ¹ĞÀÇ ¹æÀ» ¿ÀÇÂÇÑ´Ù.
 void CSecretRoomMng::SecretRoomOpen()
 {
 	if( !g_eLocal.GetState( EVE_SECRETROOM ) )
@@ -445,7 +445,7 @@ void CSecretRoomMng::SetTenderOpenWnd( CUser* pUser )
 	pUser->AddSecretRoomTenderOpenWnd( nTenderPenya );
 }
 
-// ì…ì°° ì‹ ì²­
+// ÀÔÂû ½ÅÃ»
 void CSecretRoomMng::SetTender( CUser* pUser, int nPenya )
 {
 	if( m_nState != SRMNG_CLOSE )
@@ -476,7 +476,7 @@ void CSecretRoomMng::SetTender( CUser* pUser, int nPenya )
 		pSRCont->SetContTender( pUser, nPenya );
 }
 
-// ì…ì°° ì·¨ì†Œ
+// ÀÔÂû Ãë¼Ò
 void CSecretRoomMng::SetTenderCancelReturn( CUser* pUser )
 {
 	if( m_nState != SRMNG_CLOSE )
@@ -500,7 +500,7 @@ void CSecretRoomMng::SetTenderCancelReturn( CUser* pUser )
 		pSRCont->SetContTenderCancelReturn( pUser );
 }
 
-// ì°¸ê°€ì êµ¬ì„±ì°½ì„ ì˜¤í”ˆí• ë•Œ ì •ë³´ë¥¼ ì „ë‹¬í•œë‹¤.
+// Âü°¡ÀÚ ±¸¼ºÃ¢À» ¿ÀÇÂÇÒ¶§ Á¤º¸¸¦ Àü´ŞÇÑ´Ù.
 void CSecretRoomMng::SetLineUpOpenWnd( CUser* pUser )
 {
 	if( m_nState != SRMNG_LINEUP )
@@ -532,7 +532,7 @@ void CSecretRoomMng::SetLineUpOpenWnd( CUser* pUser )
 		pUser->AddDefinedText( TID_GAME_SECRETROOM_NOTOPENCONT, "\"%s\"", CContinent::GetInstance()->GetContinentName( nCont ) );
 }
 
-// ì°¸ê°€ì êµ¬ì„± ì‹ ì²­
+// Âü°¡ÀÚ ±¸¼º ½ÅÃ»
 void CSecretRoomMng::SetLineUp( CUser* pUser, vector<DWORD> vecLineUpMemeber )
 {
 	if( m_nState != SRMNG_LINEUP )
@@ -559,7 +559,7 @@ void CSecretRoomMng::SetLineUp( CUser* pUser, vector<DWORD> vecLineUpMemeber )
 
 }
 
-// ì…ì°° í˜„í™© ì •ë³´
+// ÀÔÂû ÇöÈ² Á¤º¸
 void CSecretRoomMng::GetTenderView( CUser* pUser )
 {
 	if( m_nState != SRMNG_CLOSE )
@@ -596,7 +596,7 @@ void CSecretRoomMng::GetTenderView( CUser* pUser )
 	}
 }
 
-// í•´ë‹¹ ëŒ€ë¥™ì˜ ë¹„ë°€ì˜ ë°©ìœ¼ë¡œ í…”ë ˆí¬íŠ¸ ì‹œí‚¨ë‹¤.
+// ÇØ´ç ´ë·úÀÇ ºñ¹ĞÀÇ ¹æÀ¸·Î ÅÚ·¹Æ÷Æ® ½ÃÅ²´Ù.
 void CSecretRoomMng::SetTeleportSecretRoom( CUser* pUser )
 {
 	if( m_nState != SRMNG_ENTRANCE && m_nState != SRMNG_WARWAIT && m_nState != SRMNG_WAR )
@@ -666,7 +666,7 @@ D3DXVECTOR3 CSecretRoomMng::GetRevivalPos( CUser* pUser )
 
 
 //////////////////////////////////////////////////////////////////////
-// ë¹„ë°€ì˜ ë°© ëŒ€ë¥™ë³„ ê´€ë¦¬
+// ºñ¹ĞÀÇ ¹æ ´ë·úº° °ü¸®
 //////////////////////////////////////////////////////////////////////
 
 CSecretRoomContinent::CSecretRoomContinent( BYTE nCont )
@@ -710,7 +710,7 @@ void CSecretRoomContinent::Process( DWORD dwTick )
 				m_dwRemainTime = dwTick + (DWORD)CSecretRoomMng::GetInstance()->m_Lua.GetGlobalNumber( "WarTime" );
 				CSecretRoomMng::GetInstance()->SendNowStateAllMember( m_nContinent, m_nState, m_dwRemainTime - dwTick );
 				
-				// ê¸¸ë“œë§ˆìŠ¤í„°ê°€ ì…ì¥í•˜ì§€ ì•Šì€ ê¸¸ë“œëŠ” íƒˆë½ì‹œí‚¨ë‹¤.
+				// ±æµå¸¶½ºÅÍ°¡ ÀÔÀåÇÏÁö ¾ÊÀº ±æµå´Â Å»¶ô½ÃÅ²´Ù.
 				/*
 				for( int i=0; i<m_vecSecretRoomTender.size(); i++ )
 				{
@@ -740,7 +740,7 @@ void CSecretRoomContinent::Process( DWORD dwTick )
 				}
 				else 
 				{
-					ProcessInGuildMaster();		// ê¸¸ë§ˆê°€ í•´ë‹¹ ë¹„ë°€ì˜ ë°©ì— ì¡´ì¬í•˜ëŠ”ì§€ ê²€ì‚¬í•´ì„œ ì—†ìœ¼ë©´ íƒˆë½!!!
+					ProcessInGuildMaster();		// ±æ¸¶°¡ ÇØ´ç ºñ¹ĞÀÇ ¹æ¿¡ Á¸ÀçÇÏ´ÂÁö °Ë»çÇØ¼­ ¾øÀ¸¸é Å»¶ô!!!
 					CreateMonster();
 				}
 			}
@@ -784,7 +784,7 @@ void CSecretRoomContinent::SetContTender( CUser* pUser, int nPenya )
 		return;
 	}
 	
-	// ë¡œê·¸ ë‚¨ê¸¸ ì¤€ë¹„
+	// ·Î±× ³²±æ ÁØºñ
 	LogItemInfo aLogItem;
 	aLogItem.Action = "h";
 	aLogItem.SendName = pUser->GetName();
@@ -795,7 +795,7 @@ void CSecretRoomContinent::SetContTender( CUser* pUser, int nPenya )
 	aLogItem.Gold = pUser->GetGold();
 
 	int nIndex = GetTenderGuild( pUser->m_idGuild );
-	// ì²˜ìŒ ì…ì°°í•œ ê¸¸ë“œ
+	// Ã³À½ ÀÔÂûÇÑ ±æµå
 	
 	if( nIndex == NULL_ID )
 	{
@@ -811,18 +811,18 @@ void CSecretRoomContinent::SetContTender( CUser* pUser, int nPenya )
 		srTender.nPenya = nPenya;
 		
 		m_vecSecretRoomTender.push_back( srTender );
-		// DBì— Insert
+		// DB¿¡ Insert
 		g_dpDBClient.SendSecretRoomInsertToDB( m_nContinent, srTender );
 		pUser->AddDefinedText( TID_GAME_SECRETROOM_TENDERCOMPLETE );
-		// ë¡œê·¸
+		// ·Î±×
 		aLogItem.Gold2 = pUser->GetGold();
 		aLogItem.Gold_1 = -nPenya;
 	}
-	else	// ì´ë¯¸ ì…ì°°í•œ ê¸¸ë“œ
+	else	// ÀÌ¹Ì ÀÔÂûÇÑ ±æµå
 	{
 		if( m_vecSecretRoomTender[nIndex].nPenya < nPenya )
 		{
-			// ì†Œì§€í•œ í˜ëƒê°€ ë¶€ì¡±í•˜ë©´
+			// ¼ÒÁöÇÑ Æä³Ä°¡ ºÎÁ·ÇÏ¸é
 			if( pUser->GetGold() < (nPenya - m_vecSecretRoomTender[nIndex].nPenya) )
 			{
 				pUser->AddDefinedText( TID_GAME_SECRETROOM_NOTENOUGHPENYA );
@@ -832,10 +832,10 @@ void CSecretRoomContinent::SetContTender( CUser* pUser, int nPenya )
 			{
 				pUser->AddGold( m_vecSecretRoomTender[nIndex].nPenya - nPenya );
 				m_vecSecretRoomTender[nIndex].nPenya = nPenya;
-				// DBì— Update
+				// DB¿¡ Update
 				g_dpDBClient.SendSecretRoomUpdateToDB( m_nContinent, m_vecSecretRoomTender[nIndex], 'T' );
 				pUser->AddDefinedText( TID_GAME_SECRETROOM_TENDERCOMPLETE );
-				// ë¡œê·¸
+				// ·Î±×
 				aLogItem.RecvName = "SECRETROOM_ADD";
 				aLogItem.Gold2 = pUser->GetGold();
 				aLogItem.Gold_1 = m_vecSecretRoomTender[nIndex].nPenya - nPenya;
@@ -863,7 +863,7 @@ struct TenderCompare :	public binary_function< __SECRETROOM_TENDER, __SECRETROOM
 
 void CSecretRoomContinent::SortTenderGuild()
 {
-	// ì…ì°°ê¸ˆ ìˆœì„œë¡œ ì •ë ¬
+	// ÀÔÂû±İ ¼ø¼­·Î Á¤·Ä
 	//std::sort( m_vecSecretRoomTender.begin(), m_vecSecretRoomTender.end(), TenderCompare() );
 	
 	if( m_vecSecretRoomTender.size() < 2 )
@@ -900,7 +900,7 @@ void CSecretRoomContinent::SetContTenderCancelReturn( CUser* pUser )
 		return;
 	}
 
-	// ë¡œê·¸ ë‚¨ê¸¸ ì¤€ë¹„
+	// ·Î±× ³²±æ ÁØºñ
 	LogItemInfo aLogItem;
 	aLogItem.Action = "h";
 	aLogItem.SendName = pUser->GetName();
@@ -910,13 +910,13 @@ void CSecretRoomContinent::SetContTenderCancelReturn( CUser* pUser )
 	_stprintf( aLogItem.szItemName, "%d", II_GOLD_SEED1 );
 	aLogItem.Gold = pUser->GetGold();
 
-	// DBì— Update - 'C'
+	// DB¿¡ Update - 'C'
 	g_dpDBClient.SendSecretRoomUpdateToDB( m_nContinent, m_vecSecretRoomTender[nIndex], 'C' );	
 	m_vecSecretRoomTender.erase( remove( m_vecSecretRoomTender.begin(), m_vecSecretRoomTender.end(), pUser->m_idGuild ) );
 	pUser->AddGold( nPenya );
 	pUser->AddDefinedText( TID_GAME_SECRETROOM_CANCELRETURN, "%d", nPenya );
 
-	//ë¡œê·¸
+	//·Î±×
 	aLogItem.Gold2 = pUser->GetGold();
 	aLogItem.Gold_1 = nPenya;
 	g_DPSrvr.OnLogItem( aLogItem );
@@ -957,7 +957,7 @@ void CSecretRoomContinent::SetContLineUp( CUser* pUser, vector<DWORD> vecLineUpM
 
 	m_vecSecretRoomTender[nIndex].vecLineUpMember = vecLineUpMember;
 	pUser->AddDefinedText( TID_GAME_SECRETROOM_LINEUPCOMPLETE );
-	// DBì— ì°¸ê°€ì ëª©ë¡ ì €ì¥ - ê¸°ì¡´ì— ì €ì¥ëœ ëª©ë¡ì€ deleteí•˜ê³  ìƒˆë¡œ Insertí•œë‹¤.
+	// DB¿¡ Âü°¡ÀÚ ¸ñ·Ï ÀúÀå - ±âÁ¸¿¡ ÀúÀåµÈ ¸ñ·ÏÀº deleteÇÏ°í »õ·Î InsertÇÑ´Ù.
 	g_dpDBClient.SendSecretRoomInsertLineUpToDB( m_nContinent, m_vecSecretRoomTender[nIndex] );
 }
 
@@ -968,13 +968,13 @@ void CSecretRoomContinent::SecretRoomContOpen()
 	vector<__SECRETROOM_TENDER>::iterator it = m_vecSecretRoomTender.begin();
 	for( int nCount=1; it!=m_vecSecretRoomTender.end(); nCount++ )
 	{
-		// ìˆœìœ„ì—ì„œ ë°€ë ¤ë‚œ ê¸¸ë“œ ì²˜ë¦¬
+		// ¼øÀ§¿¡¼­ ¹Ğ·Á³­ ±æµå Ã³¸®
 		if( nCount > CSecretRoomMng::GetInstance()->m_nMaxGuildNum )
 		{
 			CGuild* pGuild = g_GuildMng.GetGuild( (*it).dwGuildId );
 			if( pGuild )
 			{
-				// ìš°í¸ìœ¼ë¡œ ë°œì†¡
+				// ¿ìÆíÀ¸·Î ¹ß¼Û
 				int nPenya = (*it).nPenya;
 				nPenya	= (int)( nPenya - ( nPenya * static_cast<float>(CSecretRoomMng::GetInstance()->m_nDropoutReturnRate/100.0f) ) );
 				CItemElem itemElem;
@@ -984,16 +984,16 @@ void CSecretRoomContinent::SecretRoomContOpen()
 				sprintf( szSub, prj.GetText( TID_GAME_SECRETROOM_RETURNPENYA_POST_SUBSTANCE ) );
 				g_dpDBClient.SendQueryPostMail( pGuild->m_idMaster, 0, itemElem, nPenya, szTitle, szSub );
 				
-				// í˜„ì¬ ê¸¸ë§ˆê°€ ì ‘ì†ì¤‘ì´ë©´ ì‹œìŠ¤í…œ ë©”ì„¸ì§€ ì¶œë ¥
+				// ÇöÀç ±æ¸¶°¡ Á¢¼ÓÁßÀÌ¸é ½Ã½ºÅÛ ¸Ş¼¼Áö Ãâ·Â
 				CUser* pUserTemp = (CUser*)prj.GetUserByID( pGuild->m_idMaster );
 				if( IsValidObj( pUserTemp ) )
 					pUserTemp->AddDefinedText( TID_GAME_SECRETROOM_TENDERFAILED );
 			}
-			// DBì— Update - 'F'
+			// DB¿¡ Update - 'F'
 			g_dpDBClient.SendSecretRoomUpdateToDB( m_nContinent, (*it), 'F' );	
 			it	= m_vecSecretRoomTender.erase( it );
 		}
-		else // ìˆœìœ„ì•ˆì— ë“¤ì—ˆìœ¼ë©´ ê° ë¹„ë°€ì˜ ë°©ì— ì¶œí˜„ì‹œí‚¬ ëª¬ìŠ¤í„° ëª©ë¡ì„ ì¤€ë¹„í•œë‹¤.
+		else // ¼øÀ§¾È¿¡ µé¾úÀ¸¸é °¢ ºñ¹ĞÀÇ ¹æ¿¡ ÃâÇö½ÃÅ³ ¸ó½ºÅÍ ¸ñ·ÏÀ» ÁØºñÇÑ´Ù.
 		{
 			(*it).nWarState = MONSTER_NORMAL;
 			(*it).vecMonster.assign( CSecretRoomMng::GetInstance()->m_vecNormalMonster.begin(), CSecretRoomMng::GetInstance()->m_vecNormalMonster.end() );
@@ -1034,29 +1034,29 @@ void CSecretRoomContinent::SetTeleportSecretRoomCont( CUser* pUser )
 		return;
 	}
 
-	// íŒ¨ë°°í•œ ê¸¸ë“œ
+	// ÆĞ¹èÇÑ ±æµå
 	if( m_vecSecretRoomTender[nIndex].nWarState == MONSTER_FAILED )
 	{
 		pUser->AddDefinedText( TID_GAME_SECRETROOM_ISLOSTGUILD );
 		return;
 	}
 	
-	// ë³´ìŠ¤ ëª¹ì¼ë•Œ
+	// º¸½º ¸÷ÀÏ¶§
 	if( m_vecSecretRoomTender[nIndex].nWarState == MONSTER_BOSS )
        SetTeleportBossRoom( pUser, nIndex );
 	else
 		SetTeleportNormalRoom( pUser, nIndex );
 	
-	// ë²„í”„ ì—†ì• ê¸°
+	// ¹öÇÁ ¾ø¾Ö±â
 	pUser->RemoveCommonBuffs();
 	
-	// íŒŒí‹° íƒˆí‡´
+	// ÆÄÆ¼ Å»Åğ
 	if( pUser->GetPartyId() > 0 )
 		g_DPCoreClient.SendGCRemoveParty( pUser->GetPartyId(), pUser->m_idPlayer );
 }
 
-// í•´ë‹¹ ê¸¸ë“œê°€ ë³´ìŠ¤ ëª¬ìŠ¤í„°ì™€ ì „íˆ¬í•˜ì§€ ì•ŠëŠ” ê²½ìš° ë¹„ë°€ì˜ ë°© ì…êµ¬ë¡œ ì´ë™
-// ì •í•´ì§„ ì¢Œí‘œì—ì„œ íŠ¹ì • ë²”ìœ„ì•ˆì— ëœë¤í•˜ê²Œ ìœ„ì¹˜í•œë‹¤.
+// ÇØ´ç ±æµå°¡ º¸½º ¸ó½ºÅÍ¿Í ÀüÅõÇÏÁö ¾Ê´Â °æ¿ì ºñ¹ĞÀÇ ¹æ ÀÔ±¸·Î ÀÌµ¿
+// Á¤ÇØÁø ÁÂÇ¥¿¡¼­ Æ¯Á¤ ¹üÀ§¾È¿¡ ·£´ıÇÏ°Ô À§Ä¡ÇÑ´Ù.
 void CSecretRoomContinent::SetTeleportNormalRoom( CUser* pUser, int nIndex )
 {
 	int nRandx = xRandom(4) - 2;
@@ -1066,8 +1066,8 @@ void CSecretRoomContinent::SetTeleportNormalRoom( CUser* pUser, int nIndex )
 	pUser->REPLACE( g_uIdofMulti, m_vecSecretRoomTender[nIndex].dwWorldId, D3DXVECTOR3( (float)( 295 + nRandx ), (float)( 102 ), (float)( 530 + nRandz ) ), REPLACE_NORMAL, nDefaultLayer );
 }
 
-// í•´ë‹¹ ê¸¸ë“œê°€ ë³´ìŠ¤ ëª¬ìŠ¤í„°ì™€ ì „íˆ¬ì¤‘ì¸ ê²½ìš° ë³´ìŠ¤ë£¸ìœ¼ë¡œ ì´ë™
-// ì •í•´ì§„ ì¢Œí‘œì—ì„œ íŠ¹ì • ë²”ìœ„ì•ˆì— ëœë¤í•˜ê²Œ ìœ„ì¹˜í•œë‹¤.
+// ÇØ´ç ±æµå°¡ º¸½º ¸ó½ºÅÍ¿Í ÀüÅõÁßÀÎ °æ¿ì º¸½º·ëÀ¸·Î ÀÌµ¿
+// Á¤ÇØÁø ÁÂÇ¥¿¡¼­ Æ¯Á¤ ¹üÀ§¾È¿¡ ·£´ıÇÏ°Ô À§Ä¡ÇÑ´Ù.
 void CSecretRoomContinent::SetTeleportBossRoom( CUser* pUser, int nIndex )
 {
 	int nRandx = xRandom(4) - 2;
@@ -1077,8 +1077,8 @@ void CSecretRoomContinent::SetTeleportBossRoom( CUser* pUser, int nIndex )
 	pUser->REPLACE( g_uIdofMulti, m_vecSecretRoomTender[nIndex].dwWorldId, D3DXVECTOR3( (float)( 600 + nRandx ), (float)( 102 ), (float)( 310 + nRandz ) ), REPLACE_NORMAL, nDefaultLayer );
 }
 
-// stateì— ë”°ë¼ ëª¬ìŠ¤í„° ì¶œí˜„ì‹œí‚´(ì´ˆë‹¹ nCountë§Œí¼ ìˆœì°¨ì ìœ¼ë¡œ ì¶œí˜„)
-// ìŠ¤í¬ë¦½íŠ¸ì—ì„œ ì •í•´ì§„ ì˜ì—­ì•ˆì— ëœë¤í•œ ìœ„ì¹˜ì— ì¶œí˜„
+// state¿¡ µû¶ó ¸ó½ºÅÍ ÃâÇö½ÃÅ´(ÃÊ´ç nCount¸¸Å­ ¼øÂ÷ÀûÀ¸·Î ÃâÇö)
+// ½ºÅ©¸³Æ®¿¡¼­ Á¤ÇØÁø ¿µ¿ª¾È¿¡ ·£´ıÇÑ À§Ä¡¿¡ ÃâÇö
 void CSecretRoomContinent::CreateMonster()
 {
 	int nCount = CSecretRoomMng::GetInstance()->m_nMonsterGenNum;
@@ -1126,7 +1126,7 @@ void CSecretRoomContinent::CreateMonster()
 	}
 }
 
-// ì›”ë“œë‚´ ëª¨ë“  ëª¬ìŠ¤í„° ì œê±°
+// ¿ùµå³» ¸ğµç ¸ó½ºÅÍ Á¦°Å
 void CSecretRoomContinent::RemoveAllSecretRoomObj( DWORD dwWorldId )
 {
 	CWorld* pWorld = g_WorldMng.GetWorld( dwWorldId );
@@ -1142,9 +1142,9 @@ void CSecretRoomContinent::RemoveAllSecretRoomObj( DWORD dwWorldId )
 	}
 }
 
-// ë¹„ë°€ì˜ ë°©ì—ì„œ ëª¬ìŠ¤í„°ê°€ ì£½ì—ˆì„ ë•Œ ì²˜ë¦¬
-// í˜„ì¬ stateì˜ ëª¬ìŠ¤í„°ë¥¼ ëª¨ë‘ ì¡ìœ¼ë©´ ë‹¤ìŒ stateë¡œ ë„˜ê¸´ë‹¤.
-// ë³´ìŠ¤ ëª¬ìŠ¤í„°ë¥¼ killí•œ ê²½ìš° ìŠ¹ë¦¬í•˜ê³  í•´ë‹¹ ëŒ€ë¥™ ë¹„ë°€ì˜ ë°©ì´ ì¢…ë£Œëœë‹¤.
+// ºñ¹ĞÀÇ ¹æ¿¡¼­ ¸ó½ºÅÍ°¡ Á×¾úÀ» ¶§ Ã³¸®
+// ÇöÀç stateÀÇ ¸ó½ºÅÍ¸¦ ¸ğµÎ ÀâÀ¸¸é ´ÙÀ½ state·Î ³Ñ±ä´Ù.
+// º¸½º ¸ó½ºÅÍ¸¦ killÇÑ °æ¿ì ½Â¸®ÇÏ°í ÇØ´ç ´ë·ú ºñ¹ĞÀÇ ¹æÀÌ Á¾·áµÈ´Ù.
 void CSecretRoomContinent::SetSecretRoomContKill( DWORD dwWorldId, DWORD dwMonsterId, BOOL bKill )
 {
 	if( m_nState != SRCONT_WAR )
@@ -1155,7 +1155,7 @@ void CSecretRoomContinent::SetSecretRoomContKill( DWORD dwWorldId, DWORD dwMonst
 		if( m_vecSecretRoomTender[i].dwWorldId != dwWorldId )
 			continue;
 
-		if( bKill )	// ì‹¤ì œ ëª¬ìŠ¤í„°ê°€ ì£½ì—ˆì„ ë•Œ ë¹„ë°€ì˜ ë°© ì„¤ì • ëª¬ìŠ¤í„° ì¸ì§€ í™•ì¸í•´ì„œ í‚¬ì¹´ìš´íŠ¸ ì¦ê°€
+		if( bKill )	// ½ÇÁ¦ ¸ó½ºÅÍ°¡ Á×¾úÀ» ¶§ ºñ¹ĞÀÇ ¹æ ¼³Á¤ ¸ó½ºÅÍ ÀÎÁö È®ÀÎÇØ¼­ Å³Ä«¿îÆ® Áõ°¡
 		{
 			if( !IsSecretRoomMonster( dwMonsterId, m_vecSecretRoomTender[i].nWarState ) )
 				return;
@@ -1164,7 +1164,7 @@ void CSecretRoomContinent::SetSecretRoomContKill( DWORD dwWorldId, DWORD dwMonst
 			UpdateInfoToAllMember( SECRETROOM_KILLCOUNT, i );
 		}
 
-		// í˜„ì¬ monster stateì˜ ëª¨ë“  ëª¬ìŠ¤í„°ë¥¼ kill í•œ ê²½ìš°...
+		// ÇöÀç monster stateÀÇ ¸ğµç ¸ó½ºÅÍ¸¦ kill ÇÑ °æ¿ì...
 		if( m_vecSecretRoomTender[i].nKillCount >= CSecretRoomMng::GetInstance()->m_mapMonsterNum.find(m_vecSecretRoomTender[i].nWarState)->second )
 		{
 			m_vecSecretRoomTender[i].nKillCount = 0;
@@ -1184,7 +1184,7 @@ void CSecretRoomContinent::SetSecretRoomContKill( DWORD dwWorldId, DWORD dwMonst
 						m_vecSecretRoomTender[i].nWarState = MONSTER_BOSS;
 						m_vecSecretRoomTender[i].vecMonster.assign( CSecretRoomMng::GetInstance()->m_vecBossMonster.begin(), CSecretRoomMng::GetInstance()->m_vecBossMonster.end() );
 						UpdateInfoToAllMember( SECRETROOM_WARSTATE, i );
-						// ëª¨ë“  êµ¬ì„±ì›ì„ ë³´ìŠ¤ ë°©ìœ¼ë¡œ í…”ë ˆí¬íŠ¸
+						// ¸ğµç ±¸¼º¿øÀ» º¸½º ¹æÀ¸·Î ÅÚ·¹Æ÷Æ®
 						for( DWORD j=0; j<m_vecSecretRoomTender[i].vecLineUpMember.size(); j++ )
 						{
 							CUser* pUserTemp = (CUser*)prj.GetUserByID( m_vecSecretRoomTender[i].vecLineUpMember[j] );
@@ -1197,7 +1197,7 @@ void CSecretRoomContinent::SetSecretRoomContKill( DWORD dwWorldId, DWORD dwMonst
 
 				case MONSTER_BOSS :
 					{
-						//ì¢…ë£Œì²˜ë¦¬
+						//Á¾·áÃ³¸®
 						m_vecSecretRoomTender[i].nWarState = MONSTER_WIN;
 						UpdateInfoToAllMember( SECRETROOM_WARSTATE, i );
 						CGuild* pGuild = g_GuildMng.GetGuild( m_vecSecretRoomTender[i].dwGuildId );
@@ -1215,7 +1215,7 @@ void CSecretRoomContinent::SetSecretRoomContKill( DWORD dwWorldId, DWORD dwMonst
 	}
 }
 
-// ë¹„ë°€ì˜ ë°©ì´ ì¢…ë£Œë˜ê³  ë§ˆì„ë¡œ ê°€ê¸° ìœ„í•´ ëŒ€ê¸°í•œë‹¤.
+// ºñ¹ĞÀÇ ¹æÀÌ Á¾·áµÇ°í ¸¶À»·Î °¡±â À§ÇØ ´ë±âÇÑ´Ù.
 void CSecretRoomContinent::SetContCloseWait()
 {
 	m_nState = SRCONT_CLOSEWAIT;
@@ -1224,7 +1224,7 @@ void CSecretRoomContinent::SetContCloseWait()
 	CSecretRoomMng::GetInstance()->SendNowStateAllMember( m_nContinent, m_nState, m_dwRemainTime - GetTickCount() );
 	for( DWORD i=0; i<m_vecSecretRoomTender.size(); i++ )
 	{
-		// ì—¬ê¸°ì„œ ë§µì˜ ëª¬ìŠ¤í„°ê°€ ì „ë¶€ ì œê±°ëœë‹¤.
+		// ¿©±â¼­ ¸ÊÀÇ ¸ó½ºÅÍ°¡ ÀüºÎ Á¦°ÅµÈ´Ù.
 //		if( m_vecSecretRoomTender[i].nWarState == MONSTER_FAILED )
 //			continue;
 //		else
@@ -1236,22 +1236,22 @@ void CSecretRoomContinent::SetContCloseWait()
 			CTax::GetInstance()->SetNextSecretRoomGuild( m_nContinent, m_vecSecretRoomTender[i].dwGuildId );
 			CTax::GetInstance()->SendSetTaxRateOpenWnd( m_nContinent, m_vecSecretRoomTender[i].dwGuildId );
 	#endif // __TAX
-			// DBì— Update - 'W' : ìš°ìŠ¹ ê¸¸ë“œ
+			// DB¿¡ Update - 'W' : ¿ì½Â ±æµå
 			g_dpDBClient.SendSecretRoomUpdateToDB( m_nContinent, m_vecSecretRoomTender[i], 'W' );
 		}
 		else
-			// DBì— Update - 'L' : ë‚˜ë¨¸ì§€ëŠ” ì „ë¶€ íŒ¨ë°° ê¸¸ë“œë¡œ ì €ì¥
+			// DB¿¡ Update - 'L' : ³ª¸ÓÁö´Â ÀüºÎ ÆĞ¹è ±æµå·Î ÀúÀå
 			g_dpDBClient.SendSecretRoomUpdateToDB( m_nContinent, m_vecSecretRoomTender[i], 'L' );
 	}
 }
 
-// ë¹„ë°€ì˜ ë°©ì´ ì™„ì „ ì¢…ë£Œë˜ê³  ëª¨ë“  í”Œë ˆì´ì–´ë¥¼ ë§ˆì„ë¡œ ì´ë™ì‹œí‚¨ë‹¤.
+// ºñ¹ĞÀÇ ¹æÀÌ ¿ÏÀü Á¾·áµÇ°í ¸ğµç ÇÃ·¹ÀÌ¾î¸¦ ¸¶À»·Î ÀÌµ¿½ÃÅ²´Ù.
 void CSecretRoomContinent::SetContClose()
 {
 	m_nState = SRCONT_CLOSE;
 	m_dwRemainTime = 0;
 	CSecretRoomMng::GetInstance()->SendNowStateAllMember( m_nContinent, m_nState );
-	// ì—¬ê¸°ì„œ ëª¨ë“  í”Œë ˆì´ì–´ë¥¼ nWarState != MONSTER_FAILED ì¸ ìœ ì €ë¥¼ ì „ë¶€ ë°–ìœ¼ë¡œ ë‚´ë³´ë‚¸ë‹¤.
+	// ¿©±â¼­ ¸ğµç ÇÃ·¹ÀÌ¾î¸¦ nWarState != MONSTER_FAILED ÀÎ À¯Àú¸¦ ÀüºÎ ¹ÛÀ¸·Î ³»º¸³½´Ù.
 	for( DWORD i=0; i<m_vecSecretRoomTender.size(); i++ )
 	{
 		if( m_vecSecretRoomTender[i].nWarState == MONSTER_FAILED )
@@ -1268,14 +1268,14 @@ void CSecretRoomContinent::SetContClose()
 	m_vecSecretRoomTender.clear();
 }
 
-// í˜„ì¬ ëŒ€ë¥™ì˜ ë¹„ë°€ì˜ ë°© ìƒíƒœë¥¼ í”Œë ˆì´ì–´ì—ê²Œ ì „ë‹¬í•œë‹¤.
+// ÇöÀç ´ë·úÀÇ ºñ¹ĞÀÇ ¹æ »óÅÂ¸¦ ÇÃ·¹ÀÌ¾î¿¡°Ô Àü´ŞÇÑ´Ù.
 void CSecretRoomContinent::UpdateInfoToMember( CUser* pUser, BYTE nType, int nIndex )
 {
 	if( IsValidObj( pUser ) )
 		pUser->AddSecretRoomContInfo( m_nContinent, nType, m_vecSecretRoomTender, nIndex );
 }
 
-// í˜„ì¬ ëŒ€ë¥™ì˜ ë¹„ë°€ì˜ ë°© ìƒíƒœë¥¼ ì°¸ê°€í•œ ëª¨ë“  í”Œë ˆì´ì–´ì—ê²Œ ì „ì†¡í•œë‹¤.
+// ÇöÀç ´ë·úÀÇ ºñ¹ĞÀÇ ¹æ »óÅÂ¸¦ Âü°¡ÇÑ ¸ğµç ÇÃ·¹ÀÌ¾î¿¡°Ô Àü¼ÛÇÑ´Ù.
 void CSecretRoomContinent::UpdateInfoToAllMember( BYTE nType, int nIndex )
 {
 	for( DWORD i=0; i<m_vecSecretRoomTender.size(); i++ )
@@ -1291,7 +1291,7 @@ void CSecretRoomContinent::UpdateInfoToAllMember( BYTE nType, int nIndex )
 	}
 }
 
-// ê¸¸ë§ˆê°€ í•´ë‹¹ ë¹„ë°€ì˜ ë°©ì•ˆì— ì¡´ì¬í•˜ëŠ”ì§€ ê²€ì‚¬
+// ±æ¸¶°¡ ÇØ´ç ºñ¹ĞÀÇ ¹æ¾È¿¡ Á¸ÀçÇÏ´ÂÁö °Ë»ç
 void CSecretRoomContinent::ProcessInGuildMaster()
 {
 	for( DWORD i=0; i<m_vecSecretRoomTender.size(); i++ )
@@ -1312,15 +1312,15 @@ void CSecretRoomContinent::ProcessInGuildMaster()
 	}
 }
 
-// ê¸¸ë§ˆê°€ ì£½ê±°ë‚˜ ë¡œê·¸ ì•„ì›ƒí•˜ëŠ” ë“±ì˜ íŒ¨ë°° ìš”ì¸ì´ ë°œìƒí•˜ì—¬ í•´ë‹¹ ê¸¸ë“œë¥¼ íŒ¨ë°° ì²˜ë¦¬í•œ í›„ 
-// ë§ˆì„ë¡œ ì´ë™ì‹œí‚¨ë‹¤. í•´ë‹¹ ë¹„ë°€ì˜ ë°©ì˜ ëª¨ë“  ëª¬ìŠ¤í„°ë„ ì œê±°ëœë‹¤.
+// ±æ¸¶°¡ Á×°Å³ª ·Î±× ¾Æ¿ôÇÏ´Â µîÀÇ ÆĞ¹è ¿äÀÎÀÌ ¹ß»ıÇÏ¿© ÇØ´ç ±æµå¸¦ ÆĞ¹è Ã³¸®ÇÑ ÈÄ 
+// ¸¶À»·Î ÀÌµ¿½ÃÅ²´Ù. ÇØ´ç ºñ¹ĞÀÇ ¹æÀÇ ¸ğµç ¸ó½ºÅÍµµ Á¦°ÅµÈ´Ù.
 void CSecretRoomContinent::SetContFailGuild( DWORD dwGuildId )
 {
 	int nIndex = GetTenderGuild( dwGuildId );
 	if( nIndex == NULL_ID )
 		return;
 
-	// DBì— Update - 'L'
+	// DB¿¡ Update - 'L'
 	g_dpDBClient.SendSecretRoomUpdateToDB( m_nContinent, m_vecSecretRoomTender[nIndex], 'L' );	
 	
 	m_vecSecretRoomTender[nIndex].nWarState = MONSTER_FAILED;
@@ -1338,11 +1338,11 @@ void CSecretRoomContinent::SetContFailGuild( DWORD dwGuildId )
 		}
 	}
 
-	// ëª¨ë“  ë¹„ë°€ì˜ ë°© ëª¬ìŠ¤í„° ì œê±°
+	// ¸ğµç ºñ¹ĞÀÇ ¹æ ¸ó½ºÅÍ Á¦°Å
 	RemoveAllSecretRoomObj( m_vecSecretRoomTender[nIndex].dwWorldId );
 }
 
-// ëª¬ìŠ¤í„°ê°€ killë‹¹í–ˆì„ ê²½ìš° í•´ë‹¹ ëª¬ìŠ¤í„°ê°€ ë¹„ë°€ì˜ ë°© ëª¬ìŠ¤í„°ì¸ì§€ë¥¼ íŒë³„í•œë‹¤.
+// ¸ó½ºÅÍ°¡ kill´çÇßÀ» °æ¿ì ÇØ´ç ¸ó½ºÅÍ°¡ ºñ¹ĞÀÇ ¹æ ¸ó½ºÅÍÀÎÁö¸¦ ÆÇº°ÇÑ´Ù.
 BOOL CSecretRoomContinent::IsSecretRoomMonster( DWORD dwMonsterId, int nWarState )
 {
 	if( dwMonsterId == NULL_ID )

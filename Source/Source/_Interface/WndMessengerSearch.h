@@ -1,4 +1,4 @@
-﻿#ifndef __WNDMESSENGERSEARCH__H
+#ifndef __WNDMESSENGERSEARCH__H
 #define __WNDMESSENGERSEARCH__H
 
 #include "WndFriendCtrl.h"

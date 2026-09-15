@@ -1,4 +1,4 @@
-ï»¿
+
 #include "stdafx.h"
 #include "resData.h"
 #include "WndQuitRoom.h"
@@ -14,8 +14,8 @@ static char THIS_FILE[] = __FILE__;
 
 #if __VER >= 13 // __HOUSING
 /****************************************************
-  WndId : APP_QUIT_ROOM - ë¯¸ë‹ˆë£¸
-  CtrlId : WIDC_STATIC1 - ë¯¸ë‹ˆë£¸ì—ì„œ í‡´ìž¥ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+  WndId : APP_QUIT_ROOM - ¹Ì´Ï·ë
+  CtrlId : WIDC_STATIC1 - ¹Ì´Ï·ë¿¡¼­ ÅðÀå ÇÏ½Ã°Ú½À´Ï±î?
   CtrlId : WIDC_BUTTON1 - Button
   CtrlId : WIDC_BUTTON2 - Button
 ****************************************************/
@@ -32,24 +32,24 @@ void CWndQuitRoom::OnDraw( C2DRender* p2DRender )
 void CWndQuitRoom::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
+	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
 	
 
-	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
+	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
+// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
 BOOL CWndQuitRoom::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_QUIT_ROOM, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
+  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
 BOOL CWndQuitRoom::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -76,12 +76,12 @@ BOOL CWndQuitRoom::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 { 
 	switch(nID)
 	{
-		case WIDC_BUTTON1:// ok ë²„íŠ¼
+		case WIDC_BUTTON1:// ok ¹öÆ°
 			g_DPlay.SendHousingGoOut();
 			Destroy();
 			break;
 
-		case WIDC_BUTTON2:// cancel ë²„íŠ¼
+		case WIDC_BUTTON2:// cancel ¹öÆ°
 			Destroy();
 			break;
 	};

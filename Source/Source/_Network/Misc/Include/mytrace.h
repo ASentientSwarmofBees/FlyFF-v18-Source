@@ -1,4 +1,4 @@
-﻿#ifndef __MYTRACE_H__
+#ifndef __MYTRACE_H__
 #define __MYTRACE_H__
 
 #pragma once

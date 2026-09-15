@@ -1,4 +1,4 @@
-﻿#include "StdAfx.h"
+#include "StdAfx.h"
 
 #include "dpsrvr.h"
 extern	CDPSrvr	g_DPSrvr;

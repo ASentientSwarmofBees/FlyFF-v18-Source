@@ -1,4 +1,4 @@
-﻿#ifndef __WNDVENDORBUY__H
+#ifndef __WNDVENDORBUY__H
 #define __WNDVENDORBUY__H
 
 #include "WndRegVend.h"

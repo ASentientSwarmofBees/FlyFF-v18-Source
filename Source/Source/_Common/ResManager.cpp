@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "ResManager.h"
 
 LPWNDCTRL WNDAPPLET::GetAt( DWORD dwWndId )
@@ -101,9 +101,9 @@ BOOL CResManager::Load( LPCTSTR lpszName )
 		pWndApplet->dwWndStyle = scanner.GetNumber();
 		pWndApplet->d3dFormat = (D3DFORMAT)scanner.GetNumber();
 
-		// íƒ€ì´í‹€ 
+		// Å¸ÀÌÆ² 
 		pWndApplet->strTitle = GetLangApplet( scanner, pWndApplet, FALSE );
-		// í•¼í”„ í‚¤ 
+		// ÇÛÇÁ Å° 
 		pWndApplet->strToolTip = GetLangApplet( scanner, pWndApplet, TRUE );
 
 		
@@ -122,7 +122,7 @@ BOOL CResManager::Load( LPCTSTR lpszName )
 				if( ((LPWNDCTRL)pWndApplet->ptrCtrlArray.GetAt( z ) )->strDefine == pWndCtrl->strDefine )
 				{
 					CString string;
-					string.Format( "%sì—ì„œ ID ì¶©ëŒ %s ", pWndApplet->strDefine, pWndCtrl->strDefine );
+					string.Format( "%s¿¡¼­ ID Ãæµ¹ %s ", pWndApplet->strDefine, pWndCtrl->strDefine );
 					AfxMessageBox( string );
 				}
 			}
@@ -146,9 +146,9 @@ BOOL CResManager::Load( LPCTSTR lpszName )
 			scanner.GetNumber();
 			scanner.GetNumber();
 
-			// íƒ€ì´í‹€ 
+			// Å¸ÀÌÆ² 
 			pWndCtrl->strTitle = GetLangCtrl( scanner, pWndCtrl, FALSE );
-			// í•¼í”„ í‚¤ 
+			// ÇÛÇÁ Å° 
 			pWndCtrl->strToolTip = GetLangCtrl( scanner, pWndCtrl, TRUE );
 			
 			pWndApplet->ptrCtrlArray.Add( pWndCtrl );

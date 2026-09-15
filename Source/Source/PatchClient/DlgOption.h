@@ -1,4 +1,4 @@
-ï»¿#if !defined(AFX_DLGOPTION_H__3D38DC06_76E7_4F5A_9F94_A49970837AF0__INCLUDED_)
+#if !defined(AFX_DLGOPTION_H__3D38DC06_76E7_4F5A_9F94_A49970837AF0__INCLUDED_)
 #define AFX_DLGOPTION_H__3D38DC06_76E7_4F5A_9F94_A49970837AF0__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -20,7 +20,7 @@ public:
 
 	CFont			m_font;
 	CPicture		m_pic;
-	int				m_nResWidth;	// ì„ íƒí•œ í•´ìƒë„
+	int				m_nResWidth;	// ¼±ÅÃÇÑ ÇØ»óµµ
 	int				m_nResHeight;
 	BOOL			m_bStartFullScreen;
 	

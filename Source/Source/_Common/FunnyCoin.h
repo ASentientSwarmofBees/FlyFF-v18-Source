@@ -1,4 +1,4 @@
-ï»¿// FunnyCoin.h: interface for the CFunnyCoin class.
+// FunnyCoin.h: interface for the CFunnyCoin class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -22,14 +22,14 @@ public:
 	~CFunnyCoin();
 	static CFunnyCoin* GetInstance();
 
-	BOOL	DoUseFunnyCoin( CUser* pUser, CItemElem* pItemElem );		// í¼ë‹ˆì½”ì¸ì„ ì‚¬ìš©í•œë‹¤.
-	void	OnFunnyCoinAckUse( CAr & ar );	// í¼ë‹ˆì½”ì¸ ì‚¬ìš©ì— ëŒ€í•œ ì‘ë‹µì„ TranServerë¡œ ë¶€í„° ë°›ì•˜ë‹¤.
+	BOOL	DoUseFunnyCoin( CUser* pUser, CItemElem* pItemElem );		// ÆÛ´ÏÄÚÀÎÀ» »ç¿ëÇÑ´Ù.
+	void	OnFunnyCoinAckUse( CAr & ar );	// ÆÛ´ÏÄÚÀÎ »ç¿ë¿¡ ´ëÇÑ ÀÀ´äÀ» TranServer·Î ºÎÅÍ ¹Ş¾Ò´Ù.
 		
 private:
-	BOOL	IsUsable( CUser* pUser );		// í¼ë‹ˆì½”ì¸ì„ ìƒìš©í•  ìˆ˜ ìˆëŠ” Playerì¸ê°€?
-	BOOL	IsAckWaitPlayer( DWORD dwPlayerId, BOOL bRemove = FALSE );	// í¼ë‹ˆì½”ì¸ì„ ì‚¬ìš©í•œ í›„ DBì‘ë‹µì„ ê¸°ë‹¤ë¦¬ê³  ìˆëŠ” í”Œë ˆì´ì–´ ì¸ê°€?
-																		// bRemoveê°€ TRUEì´ë©´ í•´ë‹¹ ì‚¬ìš©ìë¥¼ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°í•œë‹¤.
-	vector<DWORD> m_vecAckWaitPlayer;				// í¼ë‹ˆì½”ì¸ ì‚¬ìš© í›„ DBì‘ë‹µì„ ê¸°ë‹¤ë¦¬ëŠ” í”Œë ˆì´ì–´ ëª©ë¡
+	BOOL	IsUsable( CUser* pUser );		// ÆÛ´ÏÄÚÀÎÀ» »ó¿ëÇÒ ¼ö ÀÖ´Â PlayerÀÎ°¡?
+	BOOL	IsAckWaitPlayer( DWORD dwPlayerId, BOOL bRemove = FALSE );	// ÆÛ´ÏÄÚÀÎÀ» »ç¿ëÇÑ ÈÄ DBÀÀ´äÀ» ±â´Ù¸®°í ÀÖ´Â ÇÃ·¹ÀÌ¾î ÀÎ°¡?
+																		// bRemove°¡ TRUEÀÌ¸é ÇØ´ç »ç¿ëÀÚ¸¦ ¸®½ºÆ®¿¡¼­ Á¦°ÅÇÑ´Ù.
+	vector<DWORD> m_vecAckWaitPlayer;				// ÆÛ´ÏÄÚÀÎ »ç¿ë ÈÄ DBÀÀ´äÀ» ±â´Ù¸®´Â ÇÃ·¹ÀÌ¾î ¸ñ·Ï
 };
 #endif // __WORLDSERVER
 
@@ -50,7 +50,7 @@ public:
 	virtual void Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey );
 
 private:
-	int InsertFunnyCoin( DWORD dwPlayerId, DWORD dwItemId, SERIALNUMBER dwSerialNumber );	// ì‚¬ìš©í•œ í¼ë‹ˆì½”ì¸ì„ DBì— ì €ì¥í•œë‹¤.
+	int InsertFunnyCoin( DWORD dwPlayerId, DWORD dwItemId, SERIALNUMBER dwSerialNumber );	// »ç¿ëÇÑ ÆÛ´ÏÄÚÀÎÀ» DB¿¡ ÀúÀåÇÑ´Ù.
 };
 
 

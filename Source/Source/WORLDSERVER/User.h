@@ -1,4 +1,4 @@
-ï»¿#ifndef __USER_H__
+#ifndef __USER_H__
 #define __USER_H__
 
 #pragma once
@@ -65,7 +65,7 @@ class CMailBox;
 #if __VER >= 12 // __LORD
 class CLordSkill;
 #endif	// __LORD
-/// í”Œë ˆì´ì–´ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í´ë˜ìŠ¤ 
+/// ÇÃ·¹ÀÌ¾î¸¦ ³ªÅ¸³»´Â Å¬·¡½º 
 class CUser : public CMover
 {
 public:
@@ -83,62 +83,62 @@ private:
 	//////////////////////////////////////////////////////////////////////////
 
 public:
-	DWORD			m_dwSerial;							/// ìºì‰¬ì„œë²„ê°€ ë°œê¸‰í•œ ìœ ì €ì˜ ìˆœì°¨ì  ë²ˆí˜¸
-	BOOL			m_bValid;							/// db serverì—ì„œ join packetë°›ê³ , ë§µì— Addëœí›„ TRUE
-	CSnapshot		m_Snapshot;							/// SNAPSHOTTYPE_ë¥˜ ì†¡ì‹  ëˆ„ì  ë²„í¼( Notify()ì—ì„œ ë³´ë‚´ì§„ë‹¤. )
-	map<DWORD, CCtrl*>	m_2npc;							/// ì£¼ë³€ NPCë¥¼ ë‹´ê³  ìˆëŠ” container
-	DWORD			m_dwTickSFS;						/// SubSMMode, Finite, SavePlyer()ìš© íƒ€ì´ë¨¸ 
-	DWORD			m_dwTickNotify;						/// Notify()ìš© íƒ€ì´ë¨¸ 
-	DWORD			m_dwTimeout4Save;					/// db ì €ì¥ìš© íƒ€ì´ë¨¸ 
-	DWORD			m_dwLeavePenatyTime;				/// ì¢…ë£Œìš”ì²­ ì‹œê° 	
-	DWORD			m_dwDestroyTime;					/// Destoryì˜ˆì•½ ì‹œê° 
+	DWORD			m_dwSerial;							/// Ä³½¬¼­¹ö°¡ ¹ß±ŞÇÑ À¯ÀúÀÇ ¼øÂ÷Àû ¹øÈ£
+	BOOL			m_bValid;							/// db server¿¡¼­ join packet¹Ş°í, ¸Ê¿¡ AddµÈÈÄ TRUE
+	CSnapshot		m_Snapshot;							/// SNAPSHOTTYPE_·ù ¼Û½Å ´©Àû ¹öÆÛ( Notify()¿¡¼­ º¸³»Áø´Ù. )
+	map<DWORD, CCtrl*>	m_2npc;							/// ÁÖº¯ NPC¸¦ ´ã°í ÀÖ´Â container
+	DWORD			m_dwTickSFS;						/// SubSMMode, Finite, SavePlyer()¿ë Å¸ÀÌ¸Ó 
+	DWORD			m_dwTickNotify;						/// Notify()¿ë Å¸ÀÌ¸Ó 
+	DWORD			m_dwTimeout4Save;					/// db ÀúÀå¿ë Å¸ÀÌ¸Ó 
+	DWORD			m_dwLeavePenatyTime;				/// Á¾·á¿äÃ» ½Ã°¢ 	
+	DWORD			m_dwDestroyTime;					/// Destory¿¹¾à ½Ã°¢ 
 
-	DWORD			m_dwAuthKey;						/// ì¸ì¦ìš© key
-	PLAY_ACCOUNT	m_playAccount;						/// Accountì •ë³´ 
-	CUserTaskBar	m_playTaskBar;						/// playerì˜ taskbar class(í‡ìŠ¬ë¡¯)
-	OBJID			m_idSetTarget;						/// ì´ ìœ ì €ê°€ ì¡ê³ ìˆëŠ” íƒ€ê²Ÿ
+	DWORD			m_dwAuthKey;						/// ÀÎÁõ¿ë key
+	PLAY_ACCOUNT	m_playAccount;						/// AccountÁ¤º¸ 
+	CUserTaskBar	m_playTaskBar;						/// playerÀÇ taskbar class(Å£½½·Ô)
+	OBJID			m_idSetTarget;						/// ÀÌ À¯Àú°¡ Àâ°íÀÖ´Â Å¸°Ù
 #ifdef __RT_1025
 	CRTMessenger	m_RTMessenger;
 #else	// __RT_1025
-	CMessenger		m_Messenger;						/// ë©”ì‹ ì ¸ 
+	CMessenger		m_Messenger;						/// ¸Ş½ÅÁ® 
 #endif	// __RT_1025
-	char			m_szPartyName[32];					/// íŒŒí‹° ì´ë¦„ 
-	char			m_szBankPass[5];					/// ì€í–‰ ë¹„ë¹Œë²ˆí˜¸ 
+	char			m_szPartyName[32];					/// ÆÄÆ¼ ÀÌ¸§ 
+	char			m_szBankPass[5];					/// ÀºÇà ºñºô¹øÈ£ 
 
-	int				m_nOverHeal;						/// ì˜¤ë²„í í•œ ì–´ì‹œì—ê²ŒëŠ” ì´ ì¹´ìš´íŠ¸ê°€ ë¶™ëŠ”ë‹¤.	
-	CObj			*m_pWall[2];						/// ì‚¬ì´í‚¥ ì›”ì„ ìƒì„±í•˜ë©´ ì—¬ê¸°ì— ì €ì¥
-	BOOL			m_bPosting;							/// ë©”ì¼ ì‚¬ìš©ì¤‘?
+	int				m_nOverHeal;						/// ¿À¹öÈú ÇÑ ¾î½Ã¿¡°Ô´Â ÀÌ Ä«¿îÆ®°¡ ºÙ´Â´Ù.	
+	CObj			*m_pWall[2];						/// »çÀÌÅ± ¿ùÀ» »ı¼ºÇÏ¸é ¿©±â¿¡ ÀúÀå
+	BOOL			m_bPosting;							/// ¸ŞÀÏ »ç¿ëÁß?
 
-	u_long			m_idChatting;						/// ì±„íŒ…ë°©ì— ë“¤ì–´ê°”ì„ ë•Œì˜ ì±„íŒ…ë°© id
-	u_long			m_idSnoop;							/// ë‚˜ë¥¼ ê°ì²­í•˜ëŠ”ì id 
-	BOOL			m_bInstantBank;						/// ì¦‰ì‹œ ì‚¬ìš© ë±…í¬ ì‚¬ìš©ì¤‘? 
-	CCooltimeMgr	m_cooltimeMgr;						/// ì•„ì´í…œ ì¿¨íƒ€ì„ ê´€ë¦¬ì 
-	DWORD			m_tmEscape;							/// íƒˆì¶œ ì¸í„°í˜ì´ìŠ¤ ì‹œì‘ì‹œê°
-	D3DXVECTOR3		m_vReturnPos;						/// 'ê·€í™˜ ë‘ë£¨ë§ˆë¦¬' - ëª©í‘œì§€ì   
-	DWORD			m_dwReturnWorldID;					/// 'ê·€í™˜ ë‘ë£¨ë§ˆë¦¬' - ì›”ë“œ id
-	LPCTSTR			m_lpszVillage;						/// 'ê·€í™˜ ë‘ë£¨ë§ˆë¦¬' - ë§ˆì„ ì´ë¦„ 
+	u_long			m_idChatting;						/// Ã¤ÆÃ¹æ¿¡ µé¾î°¬À» ¶§ÀÇ Ã¤ÆÃ¹æ id
+	u_long			m_idSnoop;							/// ³ª¸¦ °¨Ã»ÇÏ´ÂÀÚ id 
+	BOOL			m_bInstantBank;						/// Áï½Ã »ç¿ë ¹ğÅ© »ç¿ëÁß? 
+	CCooltimeMgr	m_cooltimeMgr;						/// ¾ÆÀÌÅÛ ÄğÅ¸ÀÓ °ü¸®ÀÚ 
+	DWORD			m_tmEscape;							/// Å»Ãâ ÀÎÅÍÆäÀÌ½º ½ÃÀÛ½Ã°¢
+	D3DXVECTOR3		m_vReturnPos;						/// '±ÍÈ¯ µÎ·ç¸¶¸®' - ¸ñÇ¥ÁöÁ¡  
+	DWORD			m_dwReturnWorldID;					/// '±ÍÈ¯ µÎ·ç¸¶¸®' - ¿ùµå id
+	LPCTSTR			m_lpszVillage;						/// '±ÍÈ¯ µÎ·ç¸¶¸®' - ¸¶À» ÀÌ¸§ 
 
-	DWORD			m_dwPlayerTime;						/// DBì €ì¥ìš© ì´ í”Œë ˆì´ ì‹œê°„ 
-	DWORD			m_dwSavePlayerTime;					/// ë§ˆì§€ë§‰ ì €ì¥ í”Œë ˆì´ ì‹œê°„ì˜ ì´í•© 
+	DWORD			m_dwPlayerTime;						/// DBÀúÀå¿ë ÃÑ ÇÃ·¹ÀÌ ½Ã°£ 
+	DWORD			m_dwSavePlayerTime;					/// ¸¶Áö¸· ÀúÀå ÇÃ·¹ÀÌ ½Ã°£ÀÇ ÃÑÇÕ 
 
 #ifndef __JEFF_9_20
-	DWORD			m_dwFlyTime;						/// DBì €ì¥ìš© ì´ ë¹„í–‰ ì‹œê°„ 
-	DWORD			m_dwSaveFlyTime;					/// ë¹„í–‰ì‹œê°„ ê³„ì‚°ìš© 
-	DWORD			m_dwSendFlyTime;					/// ë¹„í–‰ì‹œê°„ ê³„ì‚°ìš© 
+	DWORD			m_dwFlyTime;						/// DBÀúÀå¿ë ÃÑ ºñÇà ½Ã°£ 
+	DWORD			m_dwSaveFlyTime;					/// ºñÇà½Ã°£ °è»ê¿ë 
+	DWORD			m_dwSendFlyTime;					/// ºñÇà½Ã°£ °è»ê¿ë 
 #endif	// __JEFF_9_20
 
-//	OBJID			m_idTargetCollect;					/// ìì›ëª¬ìŠ¤í„° ì±„ì§‘ëŒ€ìƒ - ì±„ì§‘ì¤‘ì— íƒ€ê²Ÿì„ ë°”ê¿€ ìˆ˜ë„ ìˆê¸°ë•Œë¬¸
-//	int				m_nCollect;							/// í˜„ì¬ ìì› ì±„ì§‘ëŸ‰
-//	DWORD			m_tmCollect;						/// ìì›ì±„ì§‘ íƒ€ì´ë¨¸ - 1ì´ˆì— í•œë²ˆì”©
+//	OBJID			m_idTargetCollect;					/// ÀÚ¿ø¸ó½ºÅÍ Ã¤Áı´ë»ó - Ã¤ÁıÁß¿¡ Å¸°ÙÀ» ¹Ù²Ü ¼öµµ ÀÖ±â¶§¹®
+//	int				m_nCollect;							/// ÇöÀç ÀÚ¿ø Ã¤Áı·®
+//	DWORD			m_tmCollect;						/// ÀÚ¿øÃ¤Áı Å¸ÀÌ¸Ó - 1ÃÊ¿¡ ÇÑ¹ø¾¿
 
 #ifdef __EVENT_1101
 #ifdef __EVENT_1101_2
 	__int64	m_nEventFlag;
 #else // __EVENT_1101_2
-	DWORD	m_dwEventFlag;	//	ê²½ê³¼ ì¼ ë²ˆì§¸ ë¹„íŠ¸
+	DWORD	m_dwEventFlag;	//	°æ°ú ÀÏ ¹øÂ° ºñÆ®
 #endif // __EVENT_1101_2
-	DWORD	m_dwEventTime;	// ë¶„ ë‹¨ìœ„ ê³„ìˆ˜
-	DWORD	m_dwEventElapsed;	// ê²½ê³¼ ì¼
+	DWORD	m_dwEventTime;	// ºĞ ´ÜÀ§ °è¼ö
+	DWORD	m_dwEventElapsed;	// °æ°ú ÀÏ
 #ifdef __EVENT_1101_2
 	__int64	GetEventFlagBit( int nBit );
 #else // __EVENT_1101_2
@@ -333,11 +333,11 @@ public:
 	void			AddPartyMemberFlightLevel( int nMemberIndex, int nLevel);
 	void			AddPartyChangeTroup( const char * szPartyName );
 	void			AddPartyChangeName( const char * szPartyName );
-#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 	void			AddSetPartyMode( int nMode, BOOL bOnOff, LONG nPoint , DWORD dwSkillTime );
-#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 	void			AddSetPartyMode( int nMode, BOOL bOnOff, LONG nPoint );		
-#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
 	void			AddPartyChangeItemMode( int nItemMode );
 	void			AddPartyChangeExpMode( int nExpMode );
 	void			AddSetPartyMemberParam( u_long idPlayer, BYTE nParam, int nVal );
@@ -370,12 +370,12 @@ public:
 	void			AddDuelRequest( u_long uidSrc, u_long uidDst );
 	void			AddDuelStart( u_long uidTarget, int bStart = 0 );
 	void			AddDuelNo( OBJID idTarget );
-	void			AddDuelCancel( OBJID idTarget );	// ë“€ì–¼ì¤‘ ì·¨ì†Œì‹œí‚´
+	void			AddDuelCancel( OBJID idTarget );	// µà¾óÁß Ãë¼Ò½ÃÅ´
 	void			AddDuelPartyRequest( u_long uidSrc, u_long uidDst );
 	void			AddDuelPartyStart( LPCTSTR szPartyName, int nMax, OBJID *pMembers, u_long idParty, int bFlag = 0 );
 	void			AddDuelPartyNo( OBJID idTarget );
-	void			AddDuelPartyCancel( CParty *pDuelOther );	// ë“€ì–¼ì¤‘ ì·¨ì†Œì‹œí‚´
-	void			AddDuelPartyResult( CParty *pDuelOther, BOOL bWin );		// ë“€ì–¼ê²°ê³¼ í†µë³´.
+	void			AddDuelPartyCancel( CParty *pDuelOther );	// µà¾óÁß Ãë¼Ò½ÃÅ´
+	void			AddDuelPartyResult( CParty *pDuelOther, BOOL bWin );		// µà¾ó°á°ú Åëº¸.
 #if __VER >= 11 // __SYS_PLAYER_DATA
 	void			AddQueryPlayerData( u_long idPlayer, PlayerData* pPlayerData );
 	void			AddPlayerData( void );
@@ -432,8 +432,8 @@ public:
 #endif // __EVENTLUA
 	void			AddQueryGetDestObj( OBJID objid );
 	void			AddGetDestObj( OBJID objid, OBJID objidDest, FLOAT fRange );
-//	BOOL			DoCollect( CMover *pTarget );		// ì±„ì§‘ì‹œì‘.
-//	int				OnActCollecting();					// ì±„ì§‘ì¤‘ ê³„ì† í˜¸ì¶œ.
+//	BOOL			DoCollect( CMover *pTarget );		// Ã¤Áı½ÃÀÛ.
+//	int				OnActCollecting();					// Ã¤ÁıÁß °è¼Ó È£Ãâ.
 	void			AddCommonSkill( DWORD dwSkill, DWORD dwLevel );
 	void			AddExpBoxCoolTime( OBJID objid, DWORD dwTime );
 	void			AddPlaySound2( const char* szSound );
@@ -530,9 +530,9 @@ public:
 	void	AddPetFoodMill( int nResult, int nCount );
 #endif	// __PET_0410
 
-#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 	void			AddLegendSkillResult( int nResult );
-#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 	
 #if __VER >= 10 // __REMOVE_ATTRIBUTE
 	void			AddRemoveAttribute( BOOL bSuccess );
@@ -582,17 +582,17 @@ public:
 	void	RemoveAngel( void );
 #endif	// __CSC_VER8_5
 
-#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
 	void	AddGuildBankLogView( BYTE byListType, short nLogCount, const __GUILDBANKLOG_ENTRY* logs );
-#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 	void	AddSealChar( short nLogCount, const __SEALCHAR_ENTRY* seals );
 	void	AddSealCharSet();
-#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 	void	AddHonorListAck();
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 
 #ifdef __EVENTLUA_COUPON
 	void	AddCoupon( int nCoupon );
@@ -754,7 +754,7 @@ public:
 	DWORD	GetCampusTick()	{	return m_dwCampusTick;	}
 	void	SetCampusTick( DWORD dwTick )		{	m_dwCampusTick = dwTick;	}
 	
-	int		GetPointByType( int nType );	// 100122 define.h ì— ì •ì˜ë˜ì–´ ìˆëŠ” í¬ì¸íŠ¸ íƒ€ì…ì— ë”°ë¥¸ ìœ ì €ì˜ í¬ì¸íŠ¸ ë¦¬í„´
+	int		GetPointByType( int nType );	// 100122 define.h ¿¡ Á¤ÀÇµÇ¾î ÀÖ´Â Æ÷ÀÎÆ® Å¸ÀÔ¿¡ µû¸¥ À¯ÀúÀÇ Æ÷ÀÎÆ® ¸®ÅÏ
 
 private:
 	DWORD	m_dwCampusTick;
@@ -797,11 +797,11 @@ private:
 #endif	// __COUPLE_1117
 
 
-	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 public:
 	void	SelectAwakeningValue( DWORD dwItemObjID, DWORD dwSerialNumber, BYTE bySelectFlag );
 	void	SendNewRandomOption( unsigned char id, DWORD dwSerialNumber, __int64 n64NewRandomOption );
-	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
 
 };
 
@@ -857,14 +857,14 @@ public:
 	void			AddDlgEmoticon( CCtrl* pCtrl, int nIdx );
 	void			AddDamage( CMover* pMover, OBJID objidAttacker, DWORD dwHit, DWORD dwAtkFlags );
 	void			AddDoEquip( CMover* pMover, int nPart, BYTE nId, const EQUIP_INFO & rEquipInfo, BYTE fEquip );
-	void			AddDoEquip( CMover* pMover, int nPart, CItemElem *pItemElem, BYTE fEquip );	// ê°„ë‹¨ íŒŒë¼ë©”í„° ë²„ì „.
+	void			AddDoEquip( CMover* pMover, int nPart, CItemElem *pItemElem, BYTE fEquip );	// °£´Ü ÆÄ¶ó¸ŞÅÍ ¹öÀü.
 	void			AddVendor( CMover* pVendor );
 	void			AddUpdateVendor( CMover* pVendor, CHAR cTab, BYTE nId, short nNum );
 	void			AddSetDestParam( CMover* pMover, int nDstParameter, int nAdjParameterValue, int nChgParameterValue );
 	void			AddResetDestParam( CMover* pMover, int nDstParamter, int nAdjParameterValue );
-#ifdef __SPEED_SYNC_0108		// ResetDestParam speed ìˆ˜ì •
+#ifdef __SPEED_SYNC_0108		// ResetDestParam speed ¼öÁ¤
 	void			AddResetDestParamSync( CMover* pMover, int nDstParameter,int nAdjParameterValue, int nParameterValue );
-#endif // __SPEED_SYNC_0108		// ResetDestParam speed ìˆ˜ì •
+#endif // __SPEED_SYNC_0108		// ResetDestParam speed ¼öÁ¤
 	void			AddSetPointParam( CMover* pMover, int nDstParameter, int nValue );
 	void			AddSetPos( CCtrl* pCtrl, D3DXVECTOR3 & vPos );
 	void			AddSetPosAngle( CCtrl* pCtrl, const D3DXVECTOR3 &vPos, FLOAT fAngle );
@@ -892,9 +892,9 @@ public:
 
 	void			AddCreateSfxAllow( CMover *pMover, DWORD dwSfxObjArrow, DWORD dwSfxObjHit, D3DXVECTOR3 vPosDest, int idTarget );
 	void			AddCreateSfxObj( CCtrl* pCtrl, DWORD dwSfxObj, float x = 0, float y = 0, float z = 0, BOOL bFlag = FALSE );
-#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
 	void			AddRemoveSfxObj( CCtrl* pCtrl, DWORD dwSfxObj, float x = 0, float y = 0, float z = 0, BOOL bFlag = FALSE );
-#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
 	void			AddNearSetChangeJob( CMover* pMover, int nJob, LPSKILL lpSkill );
 	void			AddModifyMode( CUser* pUser );
 	void			AddStateMode( CUser* pUser, BYTE nFlag );
@@ -1029,9 +1029,9 @@ public:
 	void	AddPetLevelup( CMover* pMover, DWORD dwPetId );
 	void	AddPetFeed( CMover* pMover, WORD wEnergy );
 #endif	// __PET_0410
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 	void	AddHonorTitleChange( CMover* pMover, int nChange );
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 #if __VER >= 9	//__AI_0509
 	void	AddSetSpeedFactor( CMover* pMover, FLOAT fSpeedFactor );
 #endif	// __AI_0509

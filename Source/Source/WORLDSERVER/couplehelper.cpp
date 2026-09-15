@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.H"
+#include "stdafx.H"
 
 #if __VER >= 13 // __COUPLE_1117
 
@@ -12,9 +12,9 @@
 #include "defineobj.h"
 extern	CUserMng	g_UserMng;
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 	#include "honor.h"
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 
 CCoupleHelper::CCoupleHelper()
 {
@@ -50,23 +50,23 @@ void CCoupleHelper::OnPropose( CUser* pUser, const char* szPlayer )
 	u_long idPlayer	= CPlayerDataCenter::GetInstance()->GetPlayerId( const_cast<char*>( szPlayer )  );
 	if( idPlayer == 0 )
 	{
-		pUser->AddDefinedText( TID_GAME_COUPLE_E00, "%s", szPlayer );	//%së‹˜ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E00, "%s", szPlayer );	//%s´ÔÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.
 		return;
 	}
 	CUser* pTarget	= static_cast<CUser*>( prj.GetUserByID( idPlayer ) );
 	if( !IsValidObj( pTarget ) )
 	{
-		pUser->AddDefinedText( TID_GAME_COUPLE_E00 );	//%së‹˜ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E00 );	//%s´ÔÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.
 		return;
 	}
 	if( pUser == pTarget )
 	{
-		pUser->AddDefinedText( TID_GAME_COUPLE_E01 );	// ëŒ€ìƒì´ ë¶€ì í•© í•©ë‹ˆë‹¤. ì»¤í”Œì´ ì•„ë‹Œ ì´ì„± ìºë¦­í„°ì—ê²Œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E01 );	// ´ë»óÀÌ ºÎÀûÇÕ ÇÕ´Ï´Ù. Ä¿ÇÃÀÌ ¾Æ´Ñ ÀÌ¼º Ä³¸¯ÅÍ¿¡°Ô¸¸ °¡´ÉÇÕ´Ï´Ù.
 		return;
 	}
 	if( pUser->GetSex() == pTarget->GetSex() )
 	{
-		pUser->AddDefinedText( TID_GAME_COUPLE_E01 );	// ëŒ€ìƒì´ ë¶€ì í•© í•©ë‹ˆë‹¤. ì»¤í”Œì´ ì•„ë‹Œ ì´ì„± ìºë¦­í„°ì—ê²Œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E01 );	// ´ë»óÀÌ ºÎÀûÇÕ ÇÕ´Ï´Ù. Ä¿ÇÃÀÌ ¾Æ´Ñ ÀÌ¼º Ä³¸¯ÅÍ¿¡°Ô¸¸ °¡´ÉÇÕ´Ï´Ù.
 		return;
 	}
 	m_pdpClient->SendPropose( pUser->m_idPlayer, pTarget->m_idPlayer );
@@ -110,7 +110,7 @@ void CCoupleHelper::OnProposeResult( CAr & ar )
 		const char* pszTarget	= CPlayerDataCenter::GetInstance()->GetPlayerString( idTarget );	
 		if( !pszTarget )
 			pszTarget	= "";
-		pProposer->AddDefinedText( TID_GAME_COUPLE_S01, "%s", pszTarget );	// %së‹˜ì—ê²Œ í”„ëŸ¬í¬ì¦ˆ í•˜ì˜€ìŠµë‹ˆë‹¤.
+		pProposer->AddDefinedText( TID_GAME_COUPLE_S01, "%s", pszTarget );	// %s´Ô¿¡°Ô ÇÁ·¯Æ÷Áî ÇÏ¿´½À´Ï´Ù.
 	}
 	else
 	{
@@ -118,7 +118,7 @@ void CCoupleHelper::OnProposeResult( CAr & ar )
 		{
 			CTimeSpan ts( t );
 			char szText[200]	= { 0,};
-			// í”„ëŸ¬í¬ì¦ˆëŠ” %dì¼ %dì‹œê°„ %dë¶„ í›„ì— ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤.
+			// ÇÁ·¯Æ÷Áî´Â %dÀÏ %d½Ã°£ %dºĞ ÈÄ¿¡ »ç¿ë °¡´ÉÇÕ´Ï´Ù.
 			sprintf( szText, prj.GetText( TID_GAME_COUPLE_M00 ), static_cast<int>( ts.GetDays() ), ts.GetHours(), ts.GetMinutes() );
 			pProposer->AddText( szText );
 		}
@@ -132,15 +132,15 @@ void CCoupleHelper::OnRefuse( CUser* pUser )
 	election::OutputDebugString( "S: CCoupleHelper.OnRefuse" );
 	if( pUser->GetProposer() == 0 )
 	{
-		pUser->AddDefinedText( TID_GAME_COUPLE_E02 );	// ë¨¼ì € í”„ëŸ¬í¬ì¦ˆë¥¼ ë°›ì•„ì•¼ í•©ë‹ˆë‹¤.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E02 );	// ¸ÕÀú ÇÁ·¯Æ÷Áî¸¦ ¹Ş¾Æ¾ß ÇÕ´Ï´Ù.
 		return;
 	}
 	CUser* pProposer	= static_cast<CUser*>( prj.GetUserByID( pUser->GetProposer() ) );
 	if( IsValidObj( pProposer ) )
-		pProposer->AddDefinedText( TID_GAME_COUPLE_E03 );	// ìƒëŒ€ë°©ì´ í”„ëŸ¬í¬ì¦ˆë¥¼ ê±°ì ˆ í•˜ì˜€ìŠµë‹ˆë‹¤. 
+		pProposer->AddDefinedText( TID_GAME_COUPLE_E03 );	// »ó´ë¹æÀÌ ÇÁ·¯Æ÷Áî¸¦ °ÅÀı ÇÏ¿´½À´Ï´Ù. 
 	const char* pszProposer	= CPlayerDataCenter::GetInstance()->GetPlayerString( pUser->GetProposer() );
 	if( pszProposer )
-		pUser->AddDefinedText( TID_GAME_COUPLE_E04, "%s", pszProposer );	// %së‹˜ì˜ í”„ëŸ¬í¬ì¦ˆë¥¼ ê±°ì ˆ í•˜ì˜€ìŠµë‹ˆë‹¤.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E04, "%s", pszProposer );	// %s´ÔÀÇ ÇÁ·¯Æ÷Áî¸¦ °ÅÀı ÇÏ¿´½À´Ï´Ù.
 	pUser->SetProposer( 0 );
 }
 
@@ -149,7 +149,7 @@ void CCoupleHelper::OnCouple( CUser* pUser )
 	election::OutputDebugString( "S: CCoupleHelper.OnCouple" );
 	if( pUser->GetProposer() == 0 )
 	{
-		pUser->AddDefinedText( TID_GAME_COUPLE_E02 );	// ë¨¼ì € í”„ëŸ¬í¬ì¦ˆë¥¼ ë°›ì•„ì•¼ í•©ë‹ˆë‹¤.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E02 );	// ¸ÕÀú ÇÁ·¯Æ÷Áî¸¦ ¹Ş¾Æ¾ß ÇÕ´Ï´Ù.
 		return;
 	}
 	m_pdpClient->SendCouple( pUser->GetProposer(), pUser->m_idPlayer );
@@ -173,16 +173,16 @@ void CCoupleHelper::OnCoupleResult( CAr & ar )
 		if( IsValidObj( pProposer ) )
 		{
 			pProposer->AddCoupleResult( idTarget, pszTarget );
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 			pProposer->SetHonorAdd(	HS_COUPLE_COUNT,HI_COUNT_CHECK );
 #endif	// __HONORABLE_TITLE
 		}
 		if( IsValidObj( pTarget ) )
 		{
 			pTarget->AddCoupleResult( idProposer, pszProposer );
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 			pTarget->SetHonorAdd(HS_COUPLE_COUNT,HI_COUNT_CHECK );
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 		}
 	}
 	else
@@ -198,7 +198,7 @@ void CCoupleHelper::OnDecouple( CUser* pUser )
 	CCouple* pCouple	= m_pMgr->GetCouple( pUser->m_idPlayer );
 	if( !pCouple )
 	{
-		pUser->AddDefinedText( TID_GAME_COUPLE_E05 );	// ì»¤í”Œì´ ì•„ë‹™ë‹ˆë‹¤.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E05 );	// Ä¿ÇÃÀÌ ¾Æ´Õ´Ï´Ù.
 		return;
 	}
 	m_pdpClient->SendDecouple( pUser->m_idPlayer );
@@ -222,7 +222,7 @@ void CCoupleHelper::OnDecoupleResult( CAr & ar )
 		if( IsValidObj( pUser ) )
 		{
 			pUser->AddDecoupleResult();
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 			int nIdx = CTitleManager::Instance()->GetIdx(HS_COUPLE_LV,HI_COUNT_CHECK);
 			if( nIdx >= 0)
 			{	
@@ -232,12 +232,12 @@ void CCoupleHelper::OnDecoupleResult( CAr & ar )
 				if( nNeedCount >= nPrevLvl )
 					pUser->AddHonorListAck();
 			}
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 		}
 		if( IsValidObj( pPartner ) )
 		{
 			pPartner->AddDecoupleResult();
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 			int nIdx = CTitleManager::Instance()->GetIdx(HS_COUPLE_LV,HI_COUNT_CHECK);
 			if( nIdx >= 0)
 			{	
@@ -247,7 +247,7 @@ void CCoupleHelper::OnDecoupleResult( CAr & ar )
 				if( nNeedCount >= nPrevLvl )
 					pPartner->AddHonorListAck();
 			}
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 		}
 	}
 	else
@@ -266,9 +266,9 @@ void CCoupleHelper::OnAddCoupleExperience( CAr & ar )
 	CCouple* pCouple	= GetCouple( idPlayer );
 	if( pCouple )
 	{
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 		int nPreCouplelvl =	pCouple->GetLevel();
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 		pCouple->AddExperience( nExperience );
 		CUser* pFirst	= static_cast<CUser*>( prj.GetUserByID( pCouple->GetFirst() ) );
 		CUser* pSecond	= static_cast<CUser*>( prj.GetUserByID( pCouple->GetSecond() ) );
@@ -276,19 +276,19 @@ void CCoupleHelper::OnAddCoupleExperience( CAr & ar )
 		{
 			pFirst->RemoveIk3Buffs( IK3_COUPLE_BUFF );
 			pFirst->AddAddCoupleExperience( nExperience );
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 			if(nPreCouplelvl < pCouple->GetLevel())
 				pFirst->SetHonorAdd(HS_COUPLE_LV,HI_COUNT_CHECK,pCouple->GetLevel());
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 		}
 		if( IsValidObj( pSecond ) )
 		{
 			pSecond->RemoveIk3Buffs( IK3_COUPLE_BUFF );
 			pSecond->AddAddCoupleExperience( nExperience );
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 			if(nPreCouplelvl < pCouple->GetLevel())
 				pSecond->SetHonorAdd(HS_COUPLE_LV,HI_COUNT_CHECK,pCouple->GetLevel());
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 		}
 	}
 }

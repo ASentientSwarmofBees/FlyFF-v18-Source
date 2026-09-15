@@ -1,4 +1,4 @@
-ï»¿// stdafx.cpp : source file that includes just the standard includes
+// stdafx.cpp : source file that includes just the standard includes
 //	WorldServer.pch will be the pre-compiled header
 //	stdafx.obj will contain the pre-compiled type information
 
@@ -14,9 +14,9 @@ CGameTimer		g_GameTimer;
 CFlyffEvent		g_eLocal;
 ADDSMMODE		g_AddSMMode;
 ULONG			g_uKey;
-DWORD			g_tmCurrent = 0;		// ì „ì—­ìœ¼ë¡œ ì‚¬ìš©í•  í˜„ìž¬ ì‹œê°„.
+DWORD			g_tmCurrent = 0;		// Àü¿ªÀ¸·Î »ç¿ëÇÒ ÇöÀç ½Ã°£.
 time_t		g_tCurrent	= 0;
-int				g_nProcessCnt = 0;	// í”„ë¡œì„¸ìŠ¤ë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜.
+int				g_nProcessCnt = 0;	// ÇÁ·Î¼¼½º¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö.
 
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
 CGuildCombat1to1Mng	g_GuildCombat1to1Mng;

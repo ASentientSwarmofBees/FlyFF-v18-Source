@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  @(#) all.h 1.6, last edit: 6/17/94 15:40:44
  *  @(#) Copyright (C) 1993, 1994 Tobias Bading (bading@cs.tu-berlin.de)
  *  @(#) Berlin University of Technology

@@ -1,24 +1,24 @@
-ï»¿#ifndef __POST_H__
+#ifndef __POST_H__
 #define	__POST_H__
 
 #include <map>
 #include <list>
 using	namespace	std;
 
-//	mulcom	BEGIN100420	ë©”ì¼ ê´€ë ¨ ì‚¬ì´ì¦ˆ ë³€ê²½.
+//	mulcom	BEGIN100420	¸ŞÀÏ °ü·Ã »çÀÌÁî º¯°æ.
 //#define	MAX_MAILTITLE	128
 #define	MAX_MAILTITLE	32
-//	mulcom	END100420	ë©”ì¼ ê´€ë ¨ ì‚¬ì´ì¦ˆ ë³€ê²½.
+//	mulcom	END100420	¸ŞÀÏ °ü·Ã »çÀÌÁî º¯°æ.
 #define	MAX_MAILTEXT	256
 
 #ifdef __INTERNALSERVER
-// ë‚´ë¶€
-#define MAX_KEEP_MAX_DAY		7   // ìµœëŒ€ ë³´ê´€ì¼ìˆ˜ 5ì¼
-#define MAX_KEEP_BASIC_DAY		2   // ê¸°ë³¸ ë³´ê´€ì¼ìˆ˜ 1ì¼
+// ³»ºÎ
+#define MAX_KEEP_MAX_DAY		7   // ÃÖ´ë º¸°üÀÏ¼ö 5ÀÏ
+#define MAX_KEEP_BASIC_DAY		2   // ±âº» º¸°üÀÏ¼ö 1ÀÏ
 #else //__INTERNALSERVER
-// ì •ì„­
-#define MAX_KEEP_MAX_DAY		15  // ìµœëŒ€ ë³´ê´€ì¼ìˆ˜ 15ì¼
-#define MAX_KEEP_BASIC_DAY		7	// ê¸°ë³¸ ë³´ê´€ì¼ìˆ˜ 7ì¼
+// Á¤¼·
+#define MAX_KEEP_MAX_DAY		15  // ÃÖ´ë º¸°üÀÏ¼ö 15ÀÏ
+#define MAX_KEEP_BASIC_DAY		7	// ±âº» º¸°üÀÏ¼ö 7ÀÏ
 #endif //__INTERNALSERVER
 
 class CItemElem;
@@ -119,10 +119,10 @@ public:
 #endif	// __WORLDSERVER
 };
 
-//	mulcom	BEGIN100420	ë©”ì¼ ê´€ë ¨ ì‚¬ì´ì¦ˆ ë³€ê²½.
+//	mulcom	BEGIN100420	¸ŞÀÏ °ü·Ã »çÀÌÁî º¯°æ.
 //#define	MAX_MAIL	100
 #define	MAX_MAIL	50
-//	mulcom	END100420	ë©”ì¼ ê´€ë ¨ ì‚¬ì´ì¦ˆ ë³€ê²½.
+//	mulcom	END100420	¸ŞÀÏ °ü·Ã »çÀÌÁî º¯°æ.
 class CPost
 {
 public:

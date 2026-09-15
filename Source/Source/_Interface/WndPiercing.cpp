@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineitem.h"
 #include "defineText.h"
 #include "defineObj.h"
@@ -183,7 +183,7 @@ BOOL CWndPiercing::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 {
 	CWndBase* pWndFrame =  pShortcut->m_pFromWnd->GetFrameWnd();
 
-	// ì•„ì´í…œì´ ì¸ë²¤í† ë¦¬ì—ì„œ ì™”ëŠ”ê°€?
+	// ¾ÆÀÌÅÛÀÌ ÀÎº¥Åä¸®¿¡¼­ ¿Ô´Â°¡?
 	if( !(pShortcut->m_dwShortcut == SHORTCUT_ITEM) && !(pWndFrame->GetWndId() == APP_INVENTORY) )
 		return FALSE;
 	
@@ -198,7 +198,7 @@ BOOL CWndPiercing::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	if(pItemElem == NULL)
 		return FALSE;
 
-	// ì•„ì´í…œ( ë°©ì–´êµ¬, ë¬´ê¸°êµ¬ )
+	// ¾ÆÀÌÅÛ( ¹æ¾î±¸, ¹«±â±¸ )
 	if( PtInRect(&m_Rect[0], point) )
 	{
 		
@@ -210,7 +210,7 @@ BOOL CWndPiercing::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		}
 #endif // __ULTIMATE
 		
-		// 4ê°œ ì´ˆê³¼ë¡œ í”¼ì–´ì‹± í• ìˆ˜ ì—†ìŒ
+		// 4°³ ÃÊ°ú·Î ÇÇ¾î½Ì ÇÒ¼ö ¾øÀ½
 #if __VER >= 12 // __EXT_PIERCING
 		if( !pItemElem->IsPierceAble( NULL_ID, TRUE ) )
 #else // __EXT_PIERCING
@@ -253,7 +253,7 @@ BOOL CWndPiercing::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	else
 	if( PtInRect(&m_Rect[1], point) )
 	{
-		// íŒŒì›Œë‹¤ì´ìŠ¤ 8, 10ë§Œ ì‚¬ìš©í• ìˆ˜ ìžˆìŒ
+		// ÆÄ¿ö´ÙÀÌ½º 8, 10¸¸ »ç¿ëÇÒ¼ö ÀÖÀ½
 		if( m_pItemElem[0] )
 		{
 #if __VER >= 8 //__Y_NEW_ENCHANT
@@ -277,7 +277,7 @@ BOOL CWndPiercing::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	{
 		if( m_pItemElem[0] )
 		{
-			// ë³´ì¡°ì•„ì´í…œì€ ìƒìš©í™” ì•„ì´í…œë§Œ ê²€ì‚¬
+			// º¸Á¶¾ÆÀÌÅÛÀº »ó¿ëÈ­ ¾ÆÀÌÅÛ¸¸ °Ë»ç
 			if( pItemElem->GetProp()->dwID != II_SYS_SYS_SCR_PIEPROT )
 			{
 				g_WndMng.PutString( prj.GetText(TID_SBEVE_NOTUSEITEM), NULL, prj.GetTextColor(TID_SBEVE_NOTUSEITEM) );

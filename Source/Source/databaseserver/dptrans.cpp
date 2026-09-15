@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #if __VER >= 11 // __SYS_PLAYER_DATA
 #include "dpcoresrvr.h"
 extern	CDPCoreSrvr	g_dpCoreSrvr;
@@ -142,36 +142,36 @@ CDPTrans::CDPTrans()
 	ON_MSG( PACKETTYPE_UPDATE_PLAYER_DATA, &CDPTrans::OnUpdatePlayerData );
 #endif	// __SYS_PLAYER_DATA
 
-#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
 	ON_MSG( PACKETTYPE_GUILDLOG_VIEW, &CDPTrans::OnGuildBankLogView );
-#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 	ON_MSG( PACKETTYPE_SEALCHAR_REQ, &CDPTrans::OnSealChar );
 	ON_MSG( PACKETTYPE_SEALCHARCONM_REQ, &CDPTrans::OnSealCharConm );
 	ON_MSG( PACKETTYPE_SEALCHARGET_REQ, &CDPTrans::OnSealCharGet );
 	ON_MSG( PACKETTYPE_SEALCHARSET_REQ, &CDPTrans::OnSealCharSet );
-#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 
 #if __VER >= 12 // __LORD
-	// /êµ°ì£¼ì…ì°°
+	// /±ºÁÖÀÔÂû
 	ON_MSG( PACKETTYPE_ELECTION_ADD_DEPOSIT, &CDPTrans::OnElectionAddDeposit );
-	// /ê³µì•½ì„¤ì •
+	// /°ø¾à¼³Á¤
 	ON_MSG( PACKETTYPE_ELECTION_SET_PLEDGE, &CDPTrans::OnElectionSetPledge );
-	// /êµ°ì£¼íˆ¬í‘œ
+	// /±ºÁÖÅõÇ¥
 	ON_MSG( PACKETTYPE_ELECTION_INC_VOTE, &CDPTrans::OnElectionIncVote );
-	// /êµ°ì£¼ì´ë²¤íŠ¸ì‹œì‘
+	// /±ºÁÖÀÌº¥Æ®½ÃÀÛ
 	ON_MSG( PACKETTYPE_L_EVENT_CREATE,	&CDPTrans::OnLEventCreate );
-	// /êµ°ì£¼ìŠ¤í‚¬
+	// /±ºÁÖ½ºÅ³
 	ON_MSG( PACKETTYPE_LORD_SKILL_USE,	&CDPTrans::OnLordSkillUse );
-	// /êµ°ì£¼í”„ë¡œì„¸ìŠ¤
+	// /±ºÁÖÇÁ·Î¼¼½º
 	ON_MSG( PACKETTYPE_ELECTION_PROCESS, &CDPTrans::OnElectionProcess );
-	// /ì…í›„ë³´ì‹œì‘
+	// /ÀÔÈÄº¸½ÃÀÛ
 	ON_MSG( PACKETTYPE_ELECTION_BEGIN_CANDIDACY, &CDPTrans::OnElectionBeginCandidacy );
-	// /íˆ¬í‘œì‹œì‘
+	// /ÅõÇ¥½ÃÀÛ
 	ON_MSG( PACKETTYPE_ELECTION_BEGIN_VOTE, &CDPTrans::OnElectionBeginVote );
-	// /íˆ¬í‘œì¢…ë£Œ
+	// /ÅõÇ¥Á¾·á
 	ON_MSG( PACKETTYPE_ELECTION_END_VOTE, &CDPTrans::OnElectionEndVote );
-	// /êµ°ì£¼ì´ë²¤íŠ¸ì´ˆê¸°í™”
+	// /±ºÁÖÀÌº¥Æ®ÃÊ±âÈ­
 	ON_MSG( PACKETTYPE_L_EVENT_INITIALIZE,	&CDPTrans::OnLEventInitialize );
 #endif	// __LORD
 
@@ -214,9 +214,9 @@ CDPTrans::CDPTrans()
 	ON_MSG( PACKETTYPE_ADD_COUPLE_EXPERIENCE, &CDPTrans::OnQueryAddCoupleExperience );
 #endif	// __COUPLE_1202
 #endif	// __COUPLE_1117
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 	ON_MSG( PACKETTYPE_LOG_GETHONORTIME, &CDPTrans::OnLogGetHonorTime );
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 
 #ifdef __FUNNY_COIN
 	ON_MSG( PACKETTYPE_FUNNYCOIN_REQ_USE, &CDPTrans::OnFunnyCoinReqUse );
@@ -293,7 +293,7 @@ void CDPTrans::SysMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize, DPID i
 #endif	// __SYS_PLAYER_DATA
 
 #if __VER >= 12 // __LORD
-				// ì›”ë“œ ì„œë²„ì— êµ°ì£¼ ì •ë³´ ì „ì†¡
+				// ¿ùµå ¼­¹ö¿¡ ±ºÁÖ Á¤º¸ Àü¼Û
 				CTLord::Instance()->PostRequest( CTLord::eInit, NULL, 0, lpCreatePlayer->dpId );
 #endif	// __LORD
 
@@ -827,7 +827,7 @@ void CDPTrans::OnLogServerDeath( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidU
 	lpDbOverlappedPlus->nQueryMode	= LOG_SERVER_DEATH;
 	PostQueuedCompletionStatus( g_DbManager.m_hIOCPPut, 1, NULL, &lpDbOverlappedPlus->Overlapped );
 }
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
 void	CDPTrans::OnLogGetHonorTime( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
 {
 	LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus = g_DbManager.AllocRequest();
@@ -835,7 +835,7 @@ void	CDPTrans::OnLogGetHonorTime( CAr & ar, DPID dpid, DPID dpidCache, DPID dpid
 	lpDbOverlappedPlus->nQueryMode	= LOG_GETHONORTIME;
 	PostQueuedCompletionStatus( g_DbManager.m_hIOCPPut, 1, NULL, &lpDbOverlappedPlus->Overlapped );
 }
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
 
 void CDPTrans::OnLogUniqueItem( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
 {
@@ -1513,8 +1513,8 @@ void CDPTrans::OnCalluspXXXMultiServer( CAr & ar, DPID dpid, DPID dpidCache, DPI
 	else
 	{
 #ifndef __INVALID_LOGIN_0612
-		// ë¡œê·¸ ì•„ì›ƒ
-		if( idPlayer > 0 )	// ìˆ˜ì • ì˜ˆì •	// åº·	// ì ‘ì†ì¤‘ì¸ ë©€í‹° ì„œë²„ ë²ˆí˜¸ë¥¼ ì´ˆê¸°í™” í•˜ê³  ìˆì§€ë§Œ, ì‹¤ì œë¡œ ì•„ì§ ì €ì¥ ì „ ê°€ëŠ¥ì„±ì´ ìˆë‹¤.
+		// ·Î±× ¾Æ¿ô
+		if( idPlayer > 0 )	// ¼öÁ¤ ¿¹Á¤	// Ë¬	// Á¢¼ÓÁßÀÎ ¸ÖÆ¼ ¼­¹ö ¹øÈ£¸¦ ÃÊ±âÈ­ ÇÏ°í ÀÖÁö¸¸, ½ÇÁ¦·Î ¾ÆÁ÷ ÀúÀå Àü °¡´É¼ºÀÌ ÀÖ´Ù.
 			g_DbManager.m_AccountCacheMgr.ChangeMultiServer( szAccount, 0 );
 #endif	// __INVALID_LOGIN_0612
 	}
@@ -1654,7 +1654,7 @@ void CDPTrans::OnUpdatePlayerData( CAr & ar, DPID dpid, DPID dpidCache, DPID dpi
 }
 #endif	// __SYS_PLAYER_DATA
 
-#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
 void CDPTrans::OnGuildBankLogView( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
 {
 	LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus		= g_DbManager.AllocRequest();
@@ -1662,8 +1662,8 @@ void CDPTrans::OnGuildBankLogView( CAr & ar, DPID dpid, DPID dpidCache, DPID dpi
 	lpDbOverlappedPlus->nQueryMode	= QM_GUILDBANK_LOG_VIEW;
 	PostQueuedCompletionStatus( g_DbManager.m_hIOCPGuild, 1, NULL, &lpDbOverlappedPlus->Overlapped );
 }
-#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 void CDPTrans::OnSealChar( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
 {
 	LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus		= g_DbManager.AllocRequest();
@@ -1692,18 +1692,18 @@ void CDPTrans::OnSealCharSet( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser
 	lpDbOverlappedPlus->nQueryMode	= QM_SEALCHARSET;
 	PostQueuedCompletionStatus( g_DbManager.m_hIOCPGuild, 1, NULL, &lpDbOverlappedPlus->Overlapped );
 }
-#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 
 #if __VER >= 12 // __LORD
 void CDPTrans::SendElectionAddDeposit( u_long idPlayer, __int64 iDeposit, time_t tCreate, BOOL bRet )
-{	// ì›”ë“œ ì„œë²„ì— êµ°ì£¼ì…ì°° ê²°ê³¼ ì „ì†¡
+{	// ¿ùµå ¼­¹ö¿¡ ±ºÁÖÀÔÂû °á°ú Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_ELECTION_ADD_DEPOSIT, DPID_UNKNOWN, DPID_UNKNOWN );
 	ar << idPlayer << iDeposit << tCreate << bRet;
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
 void CDPTrans::SendElectionSetPledge( u_long idPlayer, const char* szPledge, BOOL bRet )
-{	// ì›”ë“œ ì„œë²„ì— ê³µì•½ ì„¤ì • ê²°ê³¼ ì „ì†¡
+{	// ¿ùµå ¼­¹ö¿¡ °ø¾à ¼³Á¤ °á°ú Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_ELECTION_SET_PLEDGE, DPID_UNKNOWN, DPID_UNKNOWN );
 	ar << idPlayer;
 	ar.WriteString( szPledge );
@@ -1712,70 +1712,70 @@ void CDPTrans::SendElectionSetPledge( u_long idPlayer, const char* szPledge, BOO
 }
 
 void CDPTrans::SendElectionIncVote( u_long idPlayer, u_long idElector, BOOL bRet )
-{	// ì›”ë“œ ì„œë²„ì— íˆ¬í‘œ ê²°ê³¼ ì „ì†¡
+{	// ¿ùµå ¼­¹ö¿¡ ÅõÇ¥ °á°ú Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_ELECTION_INC_VOTE, DPID_UNKNOWN, DPID_UNKNOWN );
 	ar << idPlayer << idElector << bRet;
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
 void CDPTrans::SendElectionBeginCandidacy( void )
-{	// ì›”ë“œ ì„œë²„ì— ì…í›„ë³´ ì‹œì‘ ìƒíƒœ ì „ì†¡
+{	// ¿ùµå ¼­¹ö¿¡ ÀÔÈÄº¸ ½ÃÀÛ »óÅÂ Àü¼Û
 	SendHdr( PACKETTYPE_ELECTION_BEGIN_CANDIDACY, DPID_ALLPLAYERS );
 }
 
 void CDPTrans::SendElectionBeginVote( int nRequirement )
-{	// ì›”ë“œ ì„œë²„ì— íˆ¬í‘œ ì‹œì‘ ìƒíƒœ ì „ì†¡
+{	// ¿ùµå ¼­¹ö¿¡ ÅõÇ¥ ½ÃÀÛ »óÅÂ Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_ELECTION_BEGIN_VOTE, DPID_UNKNOWN, DPID_UNKNOWN );
 	ar << nRequirement;
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
 void CDPTrans::SendElectionEndVote( u_long idPlayer )
-{	// ì›”ë“œ ì„œë²„ì— íˆ¬í‘œ ì¢…ë£Œ ìƒíƒœ ì „ì†¡
+{	// ¿ùµå ¼­¹ö¿¡ ÅõÇ¥ Á¾·á »óÅÂ Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_ELECTION_END_VOTE, DPID_UNKNOWN, DPID_UNKNOWN );
 	ar << idPlayer;
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
 void CDPTrans::OnElectionAddDeposit( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— êµ°ì£¼ ì…ì°° ì²˜ë¦¬ë¥¼ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ ±ºÁÖ ÀÔÂû Ã³¸®¸¦ ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnElectionAddDeposit()" );
 	CTLord::Instance()->PostRequest( CTLord::eAddDeposit, lpBuf, uBufSize );
 }
 
 void CDPTrans::OnElectionSetPledge( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— ê³µì•½ ì„¤ì • ì²˜ë¦¬ë¥¼ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ °ø¾à ¼³Á¤ Ã³¸®¸¦ ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnElectionSetPledge()" );
 	CTLord::Instance()->PostRequest( CTLord::eSetPledge, lpBuf, uBufSize );
 }
 
 void CDPTrans::OnElectionIncVote( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— íˆ¬í‘œ ì²˜ë¦¬ë¥¼ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ ÅõÇ¥ Ã³¸®¸¦ ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnElectionIncVote()" );
 	CTLord::Instance()->PostRequest( CTLord::eIncVote, lpBuf, uBufSize );
 }
 
 void CDPTrans::OnLEventCreate( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— êµ°ì£¼ ì´ë²¤íŠ¸ ì‹œì‘ì„ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ ±ºÁÖ ÀÌº¥Æ® ½ÃÀÛÀ» ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnLEventCreate()" );
 	CTLord::Instance()->PostRequest( CTLord::eLEventCreate, lpBuf, uBufSize );
 }
 
 void CDPTrans::OnLordSkillUse( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— êµ°ì£¼ ìŠ¤í‚¬ ì‚¬ìš©ì„ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ ±ºÁÖ ½ºÅ³ »ç¿ëÀ» ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnLordSkillUse()" );
 	CTLord::Instance()->PostRequest( CTLord::eLordSkillUse, lpBuf, uBufSize );
 }
 
 void CDPTrans::OnLEventInitialize( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— êµ°ì£¼ ì´ë²¤íŠ¸ ì´ˆê¸°í™”ë¥¼ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ ±ºÁÖ ÀÌº¥Æ® ÃÊ±âÈ­¸¦ ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnLEventInitialize()" );
 	CTLord::Instance()->PostRequest( CTLord::eLEventInitialize, lpBuf, uBufSize );
 }								 
 
 // operator commands
 void CDPTrans::OnElectionProcess( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ í”„ë¡œì„¸ìŠ¤ ì œì–´ ì²˜ë¦¬
+{	// ±ºÁÖ ÇÁ·Î¼¼½º Á¦¾î Ã³¸®
 	election::OutputDebugString( "CDPTrans::OnElectionProcess()" );
 	BOOL bRun;
 	ar >> bRun;
@@ -1783,30 +1783,30 @@ void CDPTrans::OnElectionProcess( CAr & ar, DPID dpid, DPID dpidCache, DPID dpid
 	pElection->SetRun( bRun );
 }
 void CDPTrans::OnElectionBeginCandidacy( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— ì…í›„ë³´ ì‹œì‘ì„ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ ÀÔÈÄº¸ ½ÃÀÛÀ» ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnElectionBeginCandidacy()" );
 	CTLord::Instance()->PostRequest( CTLord::eBeginCandidacy );
 }
 void CDPTrans::OnElectionBeginVote( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— íˆ¬í‘œ ì‹œì‘ì„ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ ÅõÇ¥ ½ÃÀÛÀ» ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnElectionBeginVote()" );
 	CTLord::Instance()->PostRequest( CTLord::eBeginVote );
 }
 void CDPTrans::OnElectionEndVote( CAr & ar, DPID dpid, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
-{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— íˆ¬í‘œ ì¢…ë£Œë¥¼ ìš”ì²­
+{	// ±ºÁÖ ½º·¹µå¿¡ ÅõÇ¥ Á¾·á¸¦ ¿äÃ»
 	election::OutputDebugString( "CDPTrans::OnElectionEndVote()" );
 	CTLord::Instance()->PostRequest( CTLord::eEndVote );
 }
 
 void CDPTrans::SendLord( DPID dpid )
-{	// ëª¨ë“  êµ°ì£¼ ì‹œìŠ¤í…œ ì •ë³´ë¥¼ ì›”ë“œ ì„œë²„ì— ì „ì†¡
+{	// ¸ğµç ±ºÁÖ ½Ã½ºÅÛ Á¤º¸¸¦ ¿ùµå ¼­¹ö¿¡ Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_LORD, DPID_UNKNOWN, DPID_UNKNOWN );
 	CTLord::Instance()->Serialize( ar );
 	SEND( ar, this, dpid );
 }
 
 void CDPTrans::SendLEventCreate( CLEComponent* pComponent, BOOL bResult )
-{	// ì›”ë“œ ì„œë²„ì— êµ°ì£¼ ì´ë²¤íŠ¸ í˜„ì¬ ìƒíƒœë¥¼ ì „ì†¡
+{	// ¿ùµå ¼­¹ö¿¡ ±ºÁÖ ÀÌº¥Æ® ÇöÀç »óÅÂ¸¦ Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_L_EVENT_CREATE, DPID_UNKNOWN, DPID_UNKNOWN );
 	pComponent->Serialize( ar );
 	ar << bResult;
@@ -1814,28 +1814,28 @@ void CDPTrans::SendLEventCreate( CLEComponent* pComponent, BOOL bResult )
 }
 
 void CDPTrans::SendLEventInitialize( void )
-{	// ì›”ë“œ ì„œë²„ì— êµ°ì£¼ ì´ë²¤íŠ¸ ì´ˆê¸°í™”ë¥¼ ì „ì†¡
+{	// ¿ùµå ¼­¹ö¿¡ ±ºÁÖ ÀÌº¥Æ® ÃÊ±âÈ­¸¦ Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_L_EVENT_INITIALIZE, DPID_UNKNOWN, DPID_UNKNOWN );
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
 void CDPTrans::SendLordSkillUse( u_long idPlayer, u_long idTarget, int nSkill, int nRet )
-{	// ì›”ë“œ ì„œë²„ì— êµ°ì£¼ ìŠ¤í‚¬ ì‚¬ìš© ê²°ê³¼ë¥¼ ì „ì†¡
-	// ê²°ê³¼ê°€ ì°¸ì´ë©´ ì›”ë“œ ì„œë²„ëŠ” ì‹¤ì œ êµ°ì£¼ ìŠ¤í‚¬ íš¨ê³¼ë¥¼ ì ìš©
+{	// ¿ùµå ¼­¹ö¿¡ ±ºÁÖ ½ºÅ³ »ç¿ë °á°ú¸¦ Àü¼Û
+	// °á°ú°¡ ÂüÀÌ¸é ¿ùµå ¼­¹ö´Â ½ÇÁ¦ ±ºÁÖ ½ºÅ³ È¿°ú¸¦ Àû¿ë
 	BEFORESENDDUAL( ar, PACKETTYPE_LORD_SKILL_USE, DPID_UNKNOWN, DPID_UNKNOWN );
 	ar << idPlayer << idTarget << nSkill << nRet;
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
 void CDPTrans::SendLordSkillTick( CLordSkill* pSkills )
-{	// í•´ë‹¹ êµ°ì£¼ ìŠ¤í‚¬ì˜ ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ì„ ì „ì†¡
+{	// ÇØ´ç ±ºÁÖ ½ºÅ³ÀÇ Àç»ç¿ë ´ë±â ½Ã°£À» Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_LORD_SKILL_TICK, DPID_UNKNOWN, DPID_UNKNOWN );
 	pSkills->SerializeTick( ar );
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
 void CDPTrans::SendLEventTick( ILordEvent* pEvent )
-{	// í•´ë‹¹ êµ°ì£¼ ì´ë²¤íŠ¸ì˜ ë‚¨ì•„ìˆëŠ” í‹±ì„ ì „ì†¡
+{	// ÇØ´ç ±ºÁÖ ÀÌº¥Æ®ÀÇ ³²¾ÆÀÖ´Â Æ½À» Àü¼Û
 	BEFORESENDDUAL( ar, PACKETTYPE_L_EVENT_TICK, DPID_UNKNOWN, DPID_UNKNOWN );
 	pEvent->SerializeTick( ar );
 	SEND( ar, this, DPID_ALLPLAYERS );

@@ -1,4 +1,4 @@
-﻿#ifndef __DPLOGINCLIENT_H__
+#ifndef __DPLOGINCLIENT_H__
 #define __DPLOGINCLIENT_H__
 
 #include "DPMng.h"

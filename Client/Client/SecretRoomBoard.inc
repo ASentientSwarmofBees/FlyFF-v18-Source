@@ -1,4 +1,4 @@
-ï»¿#b#cff0000ff Entry Information#nb#nc
+#b#cff0000ff Entry Information#nb#nc
 * Application Period : Secret Room closing  ~ Sunday 12:00
 * Area : First sub server of each server set
 * Condition
@@ -11,7 +11,7 @@
  - 12:00  Secrect Room opens
  - 13:00  Entry
  - 13:10  Battle starts 
-#b#cffff0000â€» Secret Room opens at least 1 Guild's application.#nb#nc
+#b#cffff0000¡Ø Secret Room opens at least 1 Guild's application.#nb#nc
 
 #b#cff0000ff Basic Rules#nb#nc
  - Secret Room runs for Eastern area and Western area are independent 
@@ -20,7 +20,7 @@
  - No EXP gained from montsers in the Secret Room. But, EXP penalty activates when killed by a monster
  - Possible to join again in case of getting killed by a monster
  - Possible to join with minimum 1 to maximum 11 Guild members.
-#b#cffff0000â€» You can not apply for Western Area and Eastern Area at the same time.#nb#nc
+#b#cffff0000¡Ø You can not apply for Western Area and Eastern Area at the same time.#nb#nc
 
 #b#cff0000ff Conditon of Victory#nb#nc
  - Mutant Asura appears when all the monsters are dead on the 6th floor of Forsaken Tower.
@@ -41,11 +41,11 @@
 * Western Area
  - Avaliable to use Hunting Area for occupying Guild through the manager of Western Secret Room
  - All the players in the occupying Guild Hunting Area will be teleported to Darkon at 00:00 Monday
-#b#cffff0000â€» Occupying Guild dominate the area from 00:00 Monday to Sunday next week.
+#b#cffff0000¡Ø Occupying Guild dominate the area from 00:00 Monday to Sunday next week.
 
 #b#cff0000ff Commision informaion#nb#nc
  - Application Cancel: Deduct 20% from application fee
               (Returned application fee will be sent to the inventory)
  - Fail to apply:  Deduct 2% from application fee
               (Returned application fee will be sent to mail)
-#b#cffff0000â€» The top 8 guilds that joined the Secret Room cannot receive the application fee return.#nb#nc
+#b#cffff0000¡Ø The top 8 guilds that joined the Secret Room cannot receive the application fee return.#nb#nc

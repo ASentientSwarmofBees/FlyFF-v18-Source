@@ -1,4 +1,4 @@
-ï»¿#ifndef __LORD_H__
+#ifndef __LORD_H__
 #define	__LORD_H__
 
 #if __VER >= 12 // __LORD
@@ -124,23 +124,23 @@ protected:
 	VSPC	m_vCandidates;
 	time_t	m_tBegin;
 
-	// ìŠ¤í¬ë¦½íŠ¸
+	// ½ºÅ©¸³Æ®
 	struct	sProperty
 		{	
-			int		nDayOfWeek;		// ì‹œì‘ ìš”ì¼
-			int		nHour;		// ì‹œì‘ ì‹œê°„
-			time_t	tCandidacy;		// ì…í›„ë³´ ê¸°ê°„
-			time_t	tVote;	// íˆ¬í‘œ ê¸°ê°„
-			int		nDays;	// êµ°ì£¼ íˆ¬í‘œ ê°„ê²©
-			vector<float>	m_vReturnDepositRates;	// ì…ì°°ê¸ˆ ë°˜í™˜ ë¹„ìœ¨
-			vector<int>	m_vItems[2];	// êµ°ì£¼ ì•„ì´í…œ
-			float	fRequirementFactor;		// ìµœì†Œ êµ°ì£¼ ë“í‘œ ë¹„ìœ¨
+			int		nDayOfWeek;		// ½ÃÀÛ ¿äÀÏ
+			int		nHour;		// ½ÃÀÛ ½Ã°£
+			time_t	tCandidacy;		// ÀÔÈÄº¸ ±â°£
+			time_t	tVote;	// ÅõÇ¥ ±â°£
+			int		nDays;	// ±ºÁÖ ÅõÇ¥ °£°İ
+			vector<float>	m_vReturnDepositRates;	// ÀÔÂû±İ ¹İÈ¯ ºñÀ²
+			vector<int>	m_vItems[2];	// ±ºÁÖ ¾ÆÀÌÅÛ
+			float	fRequirementFactor;		// ÃÖ¼Ò ±ºÁÖ µæÇ¥ ºñÀ²
 			sProperty()	: nDayOfWeek( 0 ), nHour( 0 ), tCandidacy( 0 ), tVote( 0 ), fRequirementFactor( 0.0f ), nDays( 0 )	{}
 			void	Serialize( CAr & ar );
 		}	property;
 };
 
-// í›„ë³´ê°„ ì…ì°°ê¸ˆ ë¹„êµ í•¨ìˆ˜ì
+// ÈÄº¸°£ ÀÔÂû±İ ºñ±³ ÇÔ¼öÀÚ
 struct	DepositCompare:
 	public binary_function<SPC, SPC, bool>	{
 	bool operator() ( const SPC & lhs, const SPC & rhs )	const

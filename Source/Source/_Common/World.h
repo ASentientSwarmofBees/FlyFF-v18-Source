@@ -1,4 +1,4 @@
-ï»¿#ifndef __WORLD_2002_1_22
+#ifndef __WORLD_2002_1_22
 #define __WORLD_2002_1_22
 
 #ifdef __LAYER_1015
@@ -47,7 +47,7 @@ extern WORD						g_anPrimitiveA[3];
 extern WORD						g_anStartIndex[4];
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-// struct ì„ ì–¸ 
+// struct ¼±¾ğ 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 struct BOUNDBOXVERTEX 
@@ -111,7 +111,7 @@ struct TextureSet
 
 struct ENVIR_INFO
 {
-	// ëŒ€ë¥™ í™˜ê²½ ì •ë³´, ì›”ë“œë‹¹ ì—¬ëŸ¬ê°œì˜ ëŒ€ë¥™ì´ ì¡´ì¬í• ìˆ˜ìˆìŒ.
+	// ´ë·ú È¯°æ Á¤º¸, ¿ùµå´ç ¿©·¯°³ÀÇ ´ë·úÀÌ Á¸ÀçÇÒ¼öÀÖÀ½.
 	ENVIR_INFO( )
 	{
 		_iWeather = 0;
@@ -162,7 +162,7 @@ struct WORLD_ENVIR_INFO
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-// class fowardì„ ì–¸ 
+// class foward¼±¾ğ 
 ////////////////////////////////////////////////////////////////////////////////////////////
 class CObj;
 class CAnim;
@@ -209,8 +209,8 @@ public:
 #endif	// __LAYER_1015
 
 	u_long			m_dwObjNum;
-	CCtrl*			m_apObject[MAX_DYNAMICOBJ];	// dynamic ê°ì²´ë¥¼ ë‹´ëŠ”ë‹¤.		// 312k
-	vector< CObj* > m_vecBackground;			// static ê°ì²´ë¥¼ ë‹´ëŠ”ë‹¤.
+	CCtrl*			m_apObject[MAX_DYNAMICOBJ];	// dynamic °´Ã¼¸¦ ´ã´Â´Ù.		// 312k
+	vector< CObj* > m_vecBackground;			// static °´Ã¼¸¦ ´ã´Â´Ù.
 
 //	CRIT_SEC		m_csModifyLink;
 	int				m_cbModifyLink;
@@ -298,7 +298,7 @@ public:
     LPDIRECT3DDEVICE9       m_pd3dDevice;        
 	D3DMATERIAL9			m_baseMaterial;
 
-	// ë””ë²„ê·¸ ì •ë³´ ê´€ë ¨ 
+	// µğ¹ö±× Á¤º¸ °ü·Ã 
 	static BOOL			m_bViewLODTerrain;
 	static BOOL			m_bMiniMapRender;
 	BOOL				m_bViewGrid;
@@ -325,7 +325,7 @@ public:
 	BOOL				m_bViewSpawn;
 	BOOL				m_bViewHeightAttribute;
 	BOOL				m_bViewIdState;
-	// ë””ë²„ê·¸ ì •ë³´ ê´€ë ¨ ë 
+	// µğ¹ö±× Á¤º¸ °ü·Ã ³¡ 
 
 
 	void			Process();
@@ -378,7 +378,7 @@ public:
 	CRegionElemArray	m_aRegion;
 	CRegionElemArray	m_aStructure;
 
-	LIGHTCOLOR m_k24Light[24];				//ì›”ë“œë‹¹ 24ì‹œê°„ Lightì •ë³´ë¥¼ ì™¸ë¶€Dataì—ì„œ ê°€ì ¸ì˜´ 
+	LIGHTCOLOR m_k24Light[24];				//¿ùµå´ç 24½Ã°£ LightÁ¤º¸¸¦ ¿ÜºÎData¿¡¼­ °¡Á®¿È 
 
 #if __VER >= 15 // __BS_CHANGING_ENVIR
 	string m_strCurContName;
@@ -449,8 +449,8 @@ public:
 #endif	// __LAYER_1015
 
 	FLOAT			GetFullHeight( const D3DXVECTOR3& vPos );
-	// 2008/09/24 åº·: GetFullHeightê°€ ì •í™•í•œ ì˜¤ë¸Œì íŠ¸ ìœ„ yì¢Œí‘œë¥¼
-	// ë°˜í™˜í•˜ì§€ ì•Šì•„ ì„ì‹œë¡œ ProcessUnderCollisionì„ ì°¸ê³ í•˜ì—¬ ë§Œë“¤ì—ˆë‹¤.
+	// 2008/09/24 Ë¬: GetFullHeight°¡ Á¤È®ÇÑ ¿ÀºêÁ§Æ® À§ yÁÂÇ¥¸¦
+	// ¹İÈ¯ÇÏÁö ¾Ê¾Æ ÀÓ½Ã·Î ProcessUnderCollisionÀ» Âü°íÇÏ¿© ¸¸µé¾ú´Ù.
 	FLOAT			GetItemHeight( const D3DXVECTOR3 & vPos );
 	FLOAT			GetUnderHeight( const D3DXVECTOR3 &vPos );
 #if __VER >= 15 // __BOUND_BOX_COLLISION
@@ -490,7 +490,7 @@ public:
 #if __VER >= 15 // __BS_CHANGING_ENVIR
 public:
 	int				GetDiffuseAvg( );
-	BOOL			IsInContinent( );	//ì¡´ì¬í•˜ëŠ” ì–´ëŠëŒ€ë¥™ì—ë¼ë„ ì†í•´ìˆëŠ”ê°€?
+	BOOL			IsInContinent( );	//Á¸ÀçÇÏ´Â ¾î´À´ë·ú¿¡¶óµµ ¼ÓÇØÀÖ´Â°¡?
 
 	ENVIR_INFO*		GetContinentInfo( const string& name );
 
@@ -504,13 +504,13 @@ protected:
 
 	//for the continent
 	void			ReadFileContinent( const char* filename );
-	void			InitContinent( const char* filename );		//ì›”ë“œ ì§„ì…ì‹œ ì´ˆê¸°í™” ( íŒŒì¼ì •ë³´ ì¶”ì¶œ )
-	void			InitAfterCreatedPlayer( );				//ì›”ë“œê°€ ìƒì„±ë˜ê³  ì£¼ì¸ê³µì´ ìƒì„±ëœ í›„ 2ì°¨ì´ˆê¸°í™” 
-	void			StartEV( const ENVIR_INFO& kOld );		//í™˜ê²½ë³€í™” ì‹œì‘ !				
-	BOOL			CheckInOutContinent( );					//ì£¼ì¸ê³µì— ëŒ€í•œ ëŒ€ë¥™ì§„ì… ì²´í¬ ( ì›”ë“œ <-> ëŒ€ë¥™ )
+	void			InitContinent( const char* filename );		//¿ùµå ÁøÀÔ½Ã ÃÊ±âÈ­ ( ÆÄÀÏÁ¤º¸ ÃßÃâ )
+	void			InitAfterCreatedPlayer( );				//¿ùµå°¡ »ı¼ºµÇ°í ÁÖÀÎ°øÀÌ »ı¼ºµÈ ÈÄ 2Â÷ÃÊ±âÈ­ 
+	void			StartEV( const ENVIR_INFO& kOld );		//È¯°æº¯È­ ½ÃÀÛ !				
+	BOOL			CheckInOutContinent( );					//ÁÖÀÎ°ø¿¡ ´ëÇÑ ´ë·úÁøÀÔ Ã¼Å© ( ¿ùµå <-> ´ë·ú )
 	void			MoveInContinent( const ENVIR_INFO& kInfo );
 	void			MoveOutContinent( const string& oldname );
-	void			HookUpdateLight( CLight* pLight );		//í™˜ê²½ì´ ë³€í•´ì•¼ í• ë•Œ Hooking the light 
+	void			HookUpdateLight( CLight* pLight );		//È¯°æÀÌ º¯ÇØ¾ß ÇÒ¶§ Hooking the light 
 	ENVIR_INFO*		GetInContinent( const D3DXVECTOR3& test_point );
 	
 	BOOL			HookRenderSky_Side( int numRender, ENVIR_INFO* pInfo, float& fAlpha );
@@ -537,11 +537,11 @@ public:
 
 #ifndef __WORLDSERVER
 public:
-	BOOL			InitWorldEnvir( );		// 24ì‹œê°„ Light ì„¤ì • ë° ê¸°íƒ€ í™˜ê²½ ì´ˆê¸°í™” 
+	BOOL			InitWorldEnvir( );		// 24½Ã°£ Light ¼³Á¤ ¹× ±âÅ¸ È¯°æ ÃÊ±âÈ­ 
 
 #if __VER >= 15 // __GUILD_HOUSE
-	void			InProcessing( );		// gmpbigsun : í˜„ì¬ ì›”ë“œë¡œ ì§„ì…ì‹œ í•œë²ˆ í˜¸ì¶œë¨
-	void			OutProcessing( );		// gmpibgsun : í˜„ì¬ ì›”ë“œì—ì„œ í‡´ì¥ì‹œ í•œë²ˆ í˜¸ì¶œë¨ 
+	void			InProcessing( );		// gmpbigsun : ÇöÀç ¿ùµå·Î ÁøÀÔ½Ã ÇÑ¹ø È£ÃâµÊ
+	void			OutProcessing( );		// gmpibgsun : ÇöÀç ¿ùµå¿¡¼­ ÅğÀå½Ã ÇÑ¹ø È£ÃâµÊ 
 #endif
 
 	// Render
@@ -573,7 +573,7 @@ public:
 	void			RenderGrids( CRect rect, WORD dx, DWORD color );
 	void			RenderWorldGrids(int wx,int wy,CPoint ptLT,CPoint ptRB,WORD dx,DWORD color);
 	
-	// Direct3D ê´€ë ¨ ì˜¤ë¸Œì íŠ¸ ì´ˆê¸°í™”ë° ì œê±°, ì¬ì„¤ì • ê´€ë ¨ 
+	// Direct3D °ü·Ã ¿ÀºêÁ§Æ® ÃÊ±âÈ­¹× Á¦°Å, Àç¼³Á¤ °ü·Ã 
 	HRESULT			InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice );
 	HRESULT			RestoreDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice );
 	HRESULT			DeleteDeviceObjects();
@@ -620,7 +620,7 @@ public:
 	void	DriveOut( int nLayer );
 	BOOL	LoadObject( int nLayer );
 	BOOL	CreateLayer( int nLayer );
-	BOOL	ReleaseLayer( int nLayer );		// ì„ì˜ í˜¸ì¶œ ê¸ˆì§€
+	BOOL	ReleaseLayer( int nLayer );		// ÀÓÀÇ È£Ãâ ±İÁö
 	void	DestroyObj( int nLayer );
 #else	// __LAYER_1021
 	BOOL	LoadObject();
@@ -785,7 +785,7 @@ inline void CWorld::ClipZ( FLOAT& z )
 
 extern CObj *GetLastPickObj( void );
 
-//gmpbigsun : MPU -> _pWorld->m_iMPUë¡œ ìˆ˜ì •í•¨.
+//gmpbigsun : MPU -> _pWorld->m_iMPU·Î ¼öÁ¤ÇÔ.
 
 #ifdef __WORLDSERVER	// _nRadiusLink
 #ifdef __LAYER_1015

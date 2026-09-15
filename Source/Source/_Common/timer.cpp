@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "timer.h"
 #include <mmsystem.h>
 
@@ -82,7 +82,7 @@ void CTimer::operator()( double fInterval )
 #define HOUR_MOONSET     6 
 #define SETRISE_VARIABLE 2
 
-// í•´ê°€ ëœ¨ëŠ” ìƒí™©ì„ í¼ì„¼íŠ¸ë¡œ. 100ì— ê°€ê¹Œìš°ë©´ ë§Œë•…, 0ì— ê°€ê¹Œìš°ë©´ ë‚˜íƒ€ë‚˜ëŠ” ì¤‘ì„
+// ÇØ°¡ ¶ß´Â »óÈ²À» ÆÛ¼¾Æ®·Î. 100¿¡ °¡±î¿ì¸é ¸¸¶¥, 0¿¡ °¡±î¿ì¸é ³ªÅ¸³ª´Â ÁßÀÓ
 
 int CGameTimer::GetSunPercent() 
 {
@@ -107,7 +107,7 @@ int CGameTimer::GetSunPercent()
 	return nResult;
 }
 
-// ë‹¬ í˜¹ì€ ë³„ì´ ëœ¨ëŠ” ìƒí™©ì„ í¼ì„¼íŠ¸ë¡œ. 100ì— ê°€ê¹Œìš°ë©´ ë§Œë•…, 0ì— ê°€ê¹Œìš°ë©´ ë‚˜íƒ€ë‚˜ëŠ” ì¤‘ì„
+// ´Ş È¤Àº º°ÀÌ ¶ß´Â »óÈ²À» ÆÛ¼¾Æ®·Î. 100¿¡ °¡±î¿ì¸é ¸¸¶¥, 0¿¡ °¡±î¿ì¸é ³ªÅ¸³ª´Â ÁßÀÓ
 
 int CGameTimer::GetMoonPercent() 
 {
@@ -134,10 +134,10 @@ int CGameTimer::GetMoonPercent()
 //	;//	TRACE( "Moon %d \n", nResult );
 	return nResult;
 }
-//1 = 1000ë°°
-//10 = 100ë°°
-//100 = 10ë°°
-//1000 = 1ë°°
+//1 = 1000¹è
+//10 = 100¹è
+//100 = 10¹è
+//1000 = 1¹è
 #define TIMESPEED 10
 CGameTimer::CGameTimer()
 {
@@ -189,12 +189,12 @@ void CGameTimer::Compute()
 
 	nSec    = lCurTime / 60;
 	m_nSec  = lCurTime % 60;
-	nMin    = nSec  / 60; // 60ì´ˆë¡œ ë‚˜ëˆˆë‹¤.
-	m_nMin  = nSec  % 60; // 60ì´ˆë¡œ ë‚˜ëˆˆë‹¤.
-	nHour   = nMin  / 24; // 24ì‹œê°„ìœ¼ë¡œ ë‚˜ëˆˆë‹¤.
-	m_nHour = nMin  % 24; // 24ì‹œê°„ìœ¼ë¡œ ë‚˜ëˆˆë‹¤.
-	nDay    = nHour / 30; // 30ì¼ë¡œ ë‚˜ëˆˆë‹¤.
-	m_nDay  = nHour % 30; // 30ì¼ë¡œë‚˜ëˆˆë‹¤.
+	nMin    = nSec  / 60; // 60ÃÊ·Î ³ª´«´Ù.
+	m_nMin  = nSec  % 60; // 60ÃÊ·Î ³ª´«´Ù.
+	nHour   = nMin  / 24; // 24½Ã°£À¸·Î ³ª´«´Ù.
+	m_nHour = nMin  % 24; // 24½Ã°£À¸·Î ³ª´«´Ù.
+	nDay    = nHour / 30; // 30ÀÏ·Î ³ª´«´Ù.
+	m_nDay  = nHour % 30; // 30ÀÏ·Î³ª´«´Ù.
 	
 	m_nHour++; // 1 based
 	m_nDay++; // 1 based
@@ -202,7 +202,7 @@ void CGameTimer::Compute()
 	
 #ifdef __XUZHU
 //#ifdef _DEBUG
-//	m_nHour = 7;		// ì–¸ì œë‚˜ ë‚®ì´ ë˜ë„ë¡
+//	m_nHour = 7;		// ¾ğÁ¦³ª ³·ÀÌ µÇµµ·Ï
 //#endif
 #endif	
 }
@@ -318,7 +318,7 @@ BOOL CDate::IsNight()
 	return FALSE;
 }
 
-// í˜„ì¬ ë‚ ì§œë¥¼ 1ì¼ë¡œ í™˜ì‚°í•˜ì—¬ ë¦¬í„´
+// ÇöÀç ³¯Â¥¸¦ 1ÀÏ·Î È¯»êÇÏ¿© ¸®ÅÏ
 int		CDate :: GetDay( void )
 {
 	int		nDay = (m_nYear * 365) + (m_nMonth * 30) + m_nDay;
@@ -346,10 +346,10 @@ int CDate::ComputeShade(int nMax)
 void CDate::GetTimeColor(LPTIMECOLOR pTimeColor)
 {
 	int nTime;
-	// ë°¤ì´ ë˜ê³  ìˆìŒ 
+	// ¹ãÀÌ µÇ°í ÀÖÀ½ 
 	if(m_nHour >= 18)
 	{
-		nTime = (m_nHour - 18) * 60 + m_nMinute; // ë¶„ë‹¨ìœ„ë¥¼ êµ¬í•¨ (ë§¥ì‹œì„¬ 360 + 59 = 419)
+		nTime = (m_nHour - 18) * 60 + m_nMinute; // ºĞ´ÜÀ§¸¦ ±¸ÇÔ (¸Æ½Ã¼¶ 360 + 59 = 419)
 		// 419 : 0x0f = nTime = x
 		pTimeColor->m_nDarkAlpha = nTime * 0x0f / 359;
 		if(pTimeColor->m_nDarkAlpha > 0x0f) 
@@ -359,10 +359,10 @@ void CDate::GetTimeColor(LPTIMECOLOR pTimeColor)
 		pTimeColor->m_nB = 0;
 	}
 	else
-	// ì•„ì¹¨ì´ ë˜ê³  ìˆìŒ 
+	// ¾ÆÄ§ÀÌ µÇ°í ÀÖÀ½ 
 	if(m_nHour <= 5)
 	{
-		nTime = (8 - m_nHour) * 60 - m_nMinute; // 420 - 1 = 419) (ë°¤ì´ ëë‚˜ëŠ” ì‹œê°ê³¼ ì¼ì¹˜)
+		nTime = (8 - m_nHour) * 60 - m_nMinute; // 420 - 1 = 419) (¹ãÀÌ ³¡³ª´Â ½Ã°¢°ú ÀÏÄ¡)
 		// 419 : 0x0f = nTime = x
 		pTimeColor->m_nDarkAlpha = nTime * 0x0f / 359;
 		if(pTimeColor->m_nDarkAlpha > 0x0f) 
@@ -447,7 +447,7 @@ DWORD WINAPI	TimerThread( void *pvoid )
 			g_bHacking = timeEnd - timeStart;
 		nCheck = 0;
 		nCheckSum = 0;
-		Sleep(15000);			// 5ì´ˆì— í•œë²ˆì”© ê²€ì‚¬
+		Sleep(15000);			// 5ÃÊ¿¡ ÇÑ¹ø¾¿ °Ë»ç
 	}
 
 	ExitThread(0);
@@ -473,14 +473,14 @@ void InitFST( void )
 	s_bFrameSkip = TRUE;
 }
 
-// í”„ë ˆì„ ìŠ¤í‚¤í•‘ì„ ì¼œê³ /ëˆë‹¤
+// ÇÁ·¹ÀÓ ½ºÅ°ÇÎÀ» ÄÑ°í/²ö´Ù
 void	SetFrameSkip( BOOL bFlag )
 {
 	s_bFrameSkip = bFlag;
 	if( bFlag == TRUE )		InitFST();
 }
 
-// í˜„ì¬ í”Œë˜ê·¸ ëŒë ¤ì¤Œ
+// ÇöÀç ÇÃ·¡±× µ¹·ÁÁÜ
 BOOL	GetFrameSkip( void )
 {
 	return s_bFrameSkip;
@@ -490,12 +490,12 @@ static void UpdateTime( void )
 {
 	DWORD	dwTime = timeGetTime();
 
-	m_lTime += (dwTime - m_dwOldTime);	// ê²½ê³¼ëœ ì‹œê°„ì„ ë”í•¨
+	m_lTime += (dwTime - m_dwOldTime);	// °æ°úµÈ ½Ã°£À» ´õÇÔ
 	if( m_lTime > 1000 )	m_lTime = 1000;
 
 #ifdef __BS_EFFECT_LUA
 	g_timeMTE += ( dwTime - m_dwOldTime );
-	if( g_timeMTE > 20000 )	//20ì´ˆë§ˆë‹¤ ê°±ì‹ 
+	if( g_timeMTE > 20000 )	//20ÃÊ¸¶´Ù °»½Å
 		g_timeMTE = 0;
 #endif //__BS_EFFECT_LUA
 	m_dwOldTime = dwTime;
@@ -503,7 +503,7 @@ static void UpdateTime( void )
 
 BOOL	IsDrawTiming( void )
 {
-	if( s_bFrameSkip == FALSE )		return TRUE;		// í”„ë ˆì„ ìŠ¤í‚µì´ êº¼ì ¸ìˆìœ¼ë©´ ë¬´ì¡°ê±´ ë“œë¡œìš°.
+	if( s_bFrameSkip == FALSE )		return TRUE;		// ÇÁ·¹ÀÓ ½ºÅµÀÌ ²¨Á®ÀÖÀ¸¸é ¹«Á¶°Ç µå·Î¿ì.
 	UpdateTime();
 	if( m_lTime >= 1000 )	
 	{

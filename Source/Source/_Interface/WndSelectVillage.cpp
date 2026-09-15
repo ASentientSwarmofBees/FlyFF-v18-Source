@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "resData.h"
 #include "WndSelectVillage.h"
 #include "dpclient.h"
@@ -16,8 +16,8 @@ extern		CDPClient		g_DPlay;
 
 BOOL CReturnScrollMsgBox::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 {
-	// ì•„ì´í…œ ì‚¬ìš© í›„ 4ì‹œê°„ ì•ˆì— ì €ì¥ëœ ìœ„ì¹˜ë¡œ ëŒì•„ì˜¤ì§€ ì•Šìœ¼ë©´ ì•„ì´í…œì˜ íš¨ë ¥ì€ 
-	//ì‚¬ë¼ì§‘ë‹ˆë‹¤. ì•„ì´í…œì„ ì‚¬ìš©í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+	// ¾ÆÀÌÅÛ »ç¿ë ÈÄ 4½Ã°£ ¾È¿¡ ÀúÀåµÈ À§Ä¡·Î µ¹¾Æ¿ÀÁö ¾ÊÀ¸¸é ¾ÆÀÌÅÛÀÇ È¿·ÂÀº 
+	//»ç¶óÁı´Ï´Ù. ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ½Ã°Ú½À´Ï±î?
 	return CWndMessageBox::Initialize( prj.GetText(TID_GAME_RETURN_USEITEM), 
 	                                   pWndParent, 
 									   MB_OKCANCEL );

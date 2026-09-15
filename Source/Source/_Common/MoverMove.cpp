@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "defineText.h"
 #include "defineSound.h"
 #include "defineSkill.h"
@@ -30,7 +30,7 @@ extern	CPartyMng	g_PartyMng;
 
 void CMover::PlayCombatMusic()
 {
-	//gmpbigsun: ì „íˆ¬ìŒì•… on off
+	//gmpbigsun: ÀüÅõÀ½¾Ç on off
 
 #if __VER >= 15 // __IMPROVE_SYSTEM_VER15
 	if( g_Option.m_bBattleBGM == FALSE )
@@ -69,13 +69,13 @@ void CMover::PlayCombatMusic()
 }
 //
 //
-// í´ë¼ì´ì–¸íŠ¸ìš©
+// Å¬¶óÀÌ¾ğÆ®¿ë
 void CMover::ProcessMoveArrival( CCtrl *pObj )
 {
-	// í´ë¼ì´ì–¸íŠ¸ ì²˜ë¦¬
+	// Å¬¶óÀÌ¾ğÆ® Ã³¸®
 	if( IsActiveMover() )
 	{
-		switch( m_oaCmd )	// ëª©í‘œì— ë„ì°©í•œ í›„ì˜ ëª…ë ¹ ì²˜ë¦¬.
+		switch( m_oaCmd )	// ¸ñÇ¥¿¡ µµÂøÇÑ ÈÄÀÇ ¸í·É Ã³¸®.
 		{
 		case OBJACT_USESKILL:
 			if( pObj->GetType() == OT_MOVER && ( m_SkillTimerStop || m_SkillTimer.TimeOut() ) )
@@ -96,9 +96,9 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 				int nSkillIdx = GetCmdParam(0);
 				OBJID idTarget = (OBJID)GetCmdParam(1);
 				SKILLUSETYPE sutType = (SKILLUSETYPE)GetCmdParam(2);
-				if( (m_dwReqFlag & REQ_USESKILL) == 0 )	// ì‘ë‹µ ìš”ì²­ì¤‘ì¼ë• ë‹¤ì‹œ ë³´ë‚´ì„  ì•ˆëœë‹¤.
+				if( (m_dwReqFlag & REQ_USESKILL) == 0 )	// ÀÀ´ä ¿äÃ»ÁßÀÏ¶© ´Ù½Ã º¸³»¼± ¾ÈµÈ´Ù.
 				{
-					LPSKILL pSkill	= GetSkill( 0, nSkillIdx );		// thisê°€ ê°€ì§„ ìŠ¤í‚¬ì¤‘ nIdxì— í•´ë‹¹í•˜ëŠ” ìŠ¤í‚¬ì„ êº¼ë‚¸ë‹¤.
+					LPSKILL pSkill	= GetSkill( 0, nSkillIdx );		// this°¡ °¡Áø ½ºÅ³Áß nIdx¿¡ ÇØ´çÇÏ´Â ½ºÅ³À» ²¨³½´Ù.
 					if( pSkill == NULL )
 					{
 						Error( "CMD_SetUseSkill : %s skill(%d) not found", m_szName, nSkillIdx );
@@ -125,26 +125,26 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 					}
 					
 
-					// ë’¤ì—ì„œ ê³µê²©ê°€ëŠ¥í•œ ìŠ¤í‚¬ì¸ì§€ íŒë‹¨í•œë‹¤
-					// ê°•íƒˆ ìŠ¤í‚¬ì€ ë’¤ì—ì„œ ì‚¬ìš©ê°€ëŠ¥(ì¼ë‹¨ í´ë¼ì—ì„œ íŒì •í•˜ì~)
+					// µÚ¿¡¼­ °ø°İ°¡´ÉÇÑ ½ºÅ³ÀÎÁö ÆÇ´ÜÇÑ´Ù
+					// °­Å» ½ºÅ³Àº µÚ¿¡¼­ »ç¿ë°¡´É(ÀÏ´Ü Å¬¶ó¿¡¼­ ÆÇÁ¤ÇÏÀÚ~)
 					if( pSkill->GetProp() && pSkill->GetProp()->dwAtkStyle == AS_BACK )
 					{						
 						D3DXVECTOR3 v3Pos;
 						D3DXVECTOR3 v3PosSrc;
 						D3DXVECTOR3 v3PosDest;
 						
-						// ë°©í–¥ë²¡í„° 1
+						// ¹æÇâº¤ÅÍ 1
 						v3PosSrc = pObj->GetPos() - GetPos();
 						D3DXVec3Normalize( &v3PosSrc, &v3PosSrc );
 						
-						// ë°©í–¥ë²¡í„° 2
+						// ¹æÇâº¤ÅÍ 2
 						AngleToVectorXZ( &v3Pos, pObj->GetAngle(), 3.0f );
 						v3PosDest = (pObj->GetPos()+v3Pos) - pObj->GetPos();
 						D3DXVec3Normalize( &v3PosDest, &v3PosDest );
 						
 						FLOAT fDir = D3DXVec3Dot( &v3PosSrc, &v3PosDest );
 
-						// ë’¤ê°€ ì•„ë‹ˆë©´ ìŠ¤í‚¬ ì‚¬ìš© ë¶ˆê°€!
+						// µÚ°¡ ¾Æ´Ï¸é ½ºÅ³ »ç¿ë ºÒ°¡!
 						if( fDir < 0.3f )
 						{
 							g_WndMng.PutString( prj.GetText(TID_GAME_NEVERKILLSTOP) );
@@ -153,13 +153,13 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 					}
 					
 #if __VER >= 8 // __S8_PK
-					// ì¹´ì˜¤ì—ê²Œ ì¢‹ì€ ìŠ¤í‚¬ì„ ì‚¬ìš©í• ë•ŒëŠ” Control í‚¤ë¥¼ ëˆŒëŸ¬ì•¼ í•¨
+					// Ä«¿À¿¡°Ô ÁÁÀº ½ºÅ³À» »ç¿ëÇÒ¶§´Â Control Å°¸¦ ´­·¯¾ß ÇÔ
 					if( g_eLocal.GetState( EVE_PK ) )
 					{
 						CMover * pMover;
 						pMover = prj.GetMover( idTarget );
 						if( IsValidObj(pMover) && pMover != g_pPlayer && pMover->IsPlayer() && pMover->IsChaotic() )
-							if( pSkill->GetProp()->nEvildoing > 0 ) // ì¢‹ì€ ìŠ¤í‚¬
+							if( pSkill->GetProp()->nEvildoing > 0 ) // ÁÁÀº ½ºÅ³
 								if( !(GetAsyncKeyState(VK_CONTROL) & 0x8000) )
 									break;
 					}
@@ -168,15 +168,15 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 					TRACE( "OBJACT_USESKILL %d\n", nSkillIdx );
 #if __VER >= 8 // __S8_PK
 					BOOL bControl = ((GetAsyncKeyState(VK_CONTROL) & 0x8000)? TRUE:FALSE);
-					g_DPlay.SendUseSkill( 0, nSkillIdx, idTarget, sutType, bControl );	// ëª©í‘œì§€ì ì— ë„ì°©í•˜ë©´ ìŠ¤í‚¬ì“´ë‹¤ê³  ì•Œë¦¼.
+					g_DPlay.SendUseSkill( 0, nSkillIdx, idTarget, sutType, bControl );	// ¸ñÇ¥ÁöÁ¡¿¡ µµÂøÇÏ¸é ½ºÅ³¾´´Ù°í ¾Ë¸².
 #else // __VER >= 8 // __S8_PK
-					g_DPlay.SendUseSkill( 0, nSkillIdx, idTarget, sutType );	// ëª©í‘œì§€ì ì— ë„ì°©í•˜ë©´ ìŠ¤í‚¬ì“´ë‹¤ê³  ì•Œë¦¼.
+					g_DPlay.SendUseSkill( 0, nSkillIdx, idTarget, sutType );	// ¸ñÇ¥ÁöÁ¡¿¡ µµÂøÇÏ¸é ½ºÅ³¾´´Ù°í ¾Ë¸².
 #endif // __VER >= 8 // __S8_PK
 
-					m_dwReqFlag |= REQ_USESKILL;	// ì‘ë‹µ ìš”ì²­ì¤‘
+					m_dwReqFlag |= REQ_USESKILL;	// ÀÀ´ä ¿äÃ»Áß
 					
 				}
-				ClearDestObj();		// ëª©í‘œì— ë„ë‹¬í•˜ë©´ ì¶”ì ì„ ë©ˆì¶¤.
+				ClearDestObj();		// ¸ñÇ¥¿¡ µµ´ŞÇÏ¸é ÃßÀûÀ» ¸ØÃã.
 				SendActMsg( OBJMSG_STOP );
 				if( !m_SkillTimerStop )
 					m_SkillTimer.Reset();
@@ -200,7 +200,7 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 					}
 				}
 				
-				DoAttackMelee( (CMover *)pObj );		// pObjë¥¼ ì¼ë°˜ê³µê²©.
+				DoAttackMelee( (CMover *)pObj );		// pObj¸¦ ÀÏ¹İ°ø°İ.
 			}
 			break;
 		//---------------------------------------------
@@ -211,11 +211,11 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 
 				OBJID	idTarget = GetCmdParam(0);
 				int		nMagicPower = GetCmdParam(1);
-				CMover *pTarget = prj.GetMover( idTarget );		// íƒ€ê²Ÿì˜ ì•„ì´ë””ë¥¼ í¬ì¸í„°ë¡œ ì½ìŒ.
-				if( IsInvalidObj(pTarget) )		break;			// íƒ€ê²Ÿì´ ê±°ì‹œê¸°í•œ í¬ì¸í„°ë©´ ì·¨ì†Œì‹œí‚´.
+				CMover *pTarget = prj.GetMover( idTarget );		// Å¸°ÙÀÇ ¾ÆÀÌµğ¸¦ Æ÷ÀÎÅÍ·Î ÀĞÀ½.
+				if( IsInvalidObj(pTarget) )		break;			// Å¸°ÙÀÌ °Å½Ã±âÇÑ Æ÷ÀÎÅÍ¸é Ãë¼Ò½ÃÅ´.
 				
 				SendActMsg( OBJMSG_STAND );
-				ClearDestObj();		// ëª©í‘œì— ë„ë‹¬í•˜ë©´ ì¶”ì ì„ ë©ˆì¶¤.
+				ClearDestObj();		// ¸ñÇ¥¿¡ µµ´ŞÇÏ¸é ÃßÀûÀ» ¸ØÃã.
 				DoAttackMagic( pTarget, nMagicPower );
 			}
 			break;
@@ -227,34 +227,34 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 
 					OBJID	idTarget = GetCmdParam(0);
 					int		nPower = GetCmdParam(1);
-					CMover *pTarget = prj.GetMover( idTarget );		// íƒ€ê²Ÿì˜ ì•„ì´ë””ë¥¼ í¬ì¸í„°ë¡œ ì½ìŒ.
-					if( IsInvalidObj(pTarget) )		break;			// íƒ€ê²Ÿì´ ê±°ì‹œê¸°í•œ í¬ì¸í„°ë©´ ì·¨ì†Œì‹œí‚´.
+					CMover *pTarget = prj.GetMover( idTarget );		// Å¸°ÙÀÇ ¾ÆÀÌµğ¸¦ Æ÷ÀÎÅÍ·Î ÀĞÀ½.
+					if( IsInvalidObj(pTarget) )		break;			// Å¸°ÙÀÌ °Å½Ã±âÇÑ Æ÷ÀÎÅÍ¸é Ãë¼Ò½ÃÅ´.
 					
 					SendActMsg( OBJMSG_STAND );
 					SendActMsg( OBJMSG_STOP_TURN );
 					
-					ClearDestObj();									// ëª©í‘œì— ë„ë‹¬í•˜ë©´ ì¶”ì ì„ ë©ˆì¶¤.
+					ClearDestObj();									// ¸ñÇ¥¿¡ µµ´ŞÇÏ¸é ÃßÀûÀ» ¸ØÃã.
 
-					DoAttackRange( pTarget, nPower, 0 );			// nPowerë¥¼ dwItemIDì— ë„£ëŠ”ë‹¤.
+					DoAttackRange( pTarget, nPower, 0 );			// nPower¸¦ dwItemID¿¡ ³Ö´Â´Ù.
 				}				
 			}
 			break;
 		//---------------------------------------------
 		case OBJACT_USEITEM:
-			ClearDestObj();	// ê·¸ì™¸ëŠ” ëª©í‘œì— ë„ì°©í•˜ë©´ ë©ˆì¶¤.
+			ClearDestObj();	// ±×¿Ü´Â ¸ñÇ¥¿¡ µµÂøÇÏ¸é ¸ØÃã.
 			SendActMsg( OBJMSG_STAND );
-			SetAngle( GetDegree(pObj->GetPos(), GetPos()) );		// ëª©í‘œìª½ìœ¼ë¡œ ëª¸ì„ ëŒë¦¼.
+			SetAngle( GetDegree(pObj->GetPos(), GetPos()) );		// ¸ñÇ¥ÂÊÀ¸·Î ¸öÀ» µ¹¸².
 			break;
 		//---------------------------------------------
 		case OBJACT_COLLECT:
-//			ClearDestObj();	// ê·¸ì™¸ëŠ” ëª©í‘œì— ë„ì°©í•˜ë©´ ë©ˆì¶¤.
+//			ClearDestObj();	// ±×¿Ü´Â ¸ñÇ¥¿¡ µµÂøÇÏ¸é ¸ØÃã.
 //			SendActMsg( OBJMSG_STOP );
-//			SetAngle( GetDegree(pObj->GetPos(), GetPos()) );		// ëª©í‘œìª½ìœ¼ë¡œ ëª¸ì„ ëŒë¦¼.
-//			g_DPlay.SendDoCollect( pObj );						// ì„œë²„ë¡œ ë³´ëƒ„.
+//			SetAngle( GetDegree(pObj->GetPos(), GetPos()) );		// ¸ñÇ¥ÂÊÀ¸·Î ¸öÀ» µ¹¸².
+//			g_DPlay.SendDoCollect( pObj );						// ¼­¹ö·Î º¸³¿.
 			break;
 		//---------------------------------------------
 		default:
-			ClearDestObj();	// ê·¸ì™¸ëŠ” ëª©í‘œì— ë„ì°©í•˜ë©´ ë©ˆì¶¤.
+			ClearDestObj();	// ±×¿Ü´Â ¸ñÇ¥¿¡ µµÂøÇÏ¸é ¸ØÃã.
 			SendActMsg( OBJMSG_STOP );
 			break;
 			
@@ -265,7 +265,7 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 	{
 		BOOL bQuery	= m_pActMover->IsMove();
 		
-		ClearDestObj();	// ê·¸ì™¸ëŠ” ëª©í‘œì— ë„ì°©í•˜ë©´ ë©ˆì¶¤.
+		ClearDestObj();	// ±×¿Ü´Â ¸ñÇ¥¿¡ µµÂøÇÏ¸é ¸ØÃã.
 		SendActMsg( OBJMSG_STOP );
 		OnArrive( pObj->GetId(), 0 );
 
@@ -276,36 +276,36 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 #else // Client
 //
 //
-// ì›”ë“œì„œë²„ìš©
+// ¿ùµå¼­¹ö¿ë
 void CMover::ProcessMoveArrival( CCtrl *pObj )
 {
-	switch( m_oaCmd )	// ëª©í‘œì— ë„ì°©í•œ í›„ì˜ ëª…ë ¹ ì²˜ë¦¬.
+	switch( m_oaCmd )	// ¸ñÇ¥¿¡ µµÂøÇÑ ÈÄÀÇ ¸í·É Ã³¸®.
 	{
 	case OBJACT_USESKILL:
-		if( pObj->GetType() == OT_MOVER )	// íƒ€ê²Ÿì´ ë¬´ë²„ì¼ë•Œë©´ ì²˜ë¦¬í•¨.
+		if( pObj->GetType() == OT_MOVER )	// Å¸°ÙÀÌ ¹«¹öÀÏ¶§¸é Ã³¸®ÇÔ.
 		{
 			int nSkillIdx = GetCmdParam(0);
 			OBJID idTarget = (OBJID)GetCmdParam(1);
 			SKILLUSETYPE sutType = (SKILLUSETYPE)GetCmdParam(2);
 
-			LPSKILL pSkill	= GetSkill( 0, nSkillIdx );		// thisê°€ ê°€ì§„ ìŠ¤í‚¬ì¤‘ nIdxì— í•´ë‹¹í•˜ëŠ” ìŠ¤í‚¬ì„ êº¼ë‚¸ë‹¤.
+			LPSKILL pSkill	= GetSkill( 0, nSkillIdx );		// this°¡ °¡Áø ½ºÅ³Áß nIdx¿¡ ÇØ´çÇÏ´Â ½ºÅ³À» ²¨³½´Ù.
 			if( pSkill == NULL )
 			{
 				Error( "ProcessMoveArrival mover:%s skill(%d) not found.", m_szName, nSkillIdx );
 				return;	// skill not found
 			}
-#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 			if( pSkill->dwSkill == SI_MAG_MAG_BLINKPOOL || pSkill->dwSkill == SI_RIG_HERO_RETURN )
-#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
 			if( pSkill->dwSkill == SI_MAG_MAG_BLINKPOOL )
-#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
-				return;		// ì•„ì§ ì„œë²„ëª…ë ¹ìœ¼ë¡œëŠ” ë¸”ë§í¬í’€ ì‚¬ìš©ëª»í•¨.
+#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+				return;		// ¾ÆÁ÷ ¼­¹ö¸í·ÉÀ¸·Î´Â ºí¸µÅ©Ç® »ç¿ë¸øÇÔ.
 
 			CWorld *pWorld = GetWorld();
 			D3DXVECTOR3 vStart = GetPos();			vStart.y += 0.5f;
 			D3DXVECTOR3 vEnd   = pObj->GetPos();	vEnd.y += 0.5f;
  
-			if( pWorld->IntersectObjLine( NULL, vStart, vEnd, FALSE, FALSE ) )	// ì‹œì „ìì™€ íƒ€ê²Ÿì‚¬ì´ ì¥ì• ë¬¼ì„ ê²€ì‚¬.
+			if( pWorld->IntersectObjLine( NULL, vStart, vEnd, FALSE, FALSE ) )	// ½ÃÀüÀÚ¿Í Å¸°Ù»çÀÌ Àå¾Ö¹°À» °Ë»ç.
 			{
 				if( IsPlayer() )
 					((CUser *)this)->AddDefinedText( TID_GAME_BLOCKTARGETING, "" );
@@ -313,22 +313,22 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 			}
 
 #if __VER >= 8 // __S8_PK
-			BOOL bSuccess = DoUseSkill( 0, nSkillIdx, idTarget, sutType, FALSE );		// ëª©í‘œì§€ì ì— ë„ì°©í•˜ë©´ ìŠ¤í‚¬ ì‚¬ìš©ì‹œì‘.
+			BOOL bSuccess = DoUseSkill( 0, nSkillIdx, idTarget, sutType, FALSE );		// ¸ñÇ¥ÁöÁ¡¿¡ µµÂøÇÏ¸é ½ºÅ³ »ç¿ë½ÃÀÛ.
 #else // __VER >= 8 // __S8_PK
-			BOOL bSuccess = DoUseSkill( 0, nSkillIdx, idTarget, sutType );		// ëª©í‘œì§€ì ì— ë„ì°©í•˜ë©´ ìŠ¤í‚¬ ì‚¬ìš©ì‹œì‘.
+			BOOL bSuccess = DoUseSkill( 0, nSkillIdx, idTarget, sutType );		// ¸ñÇ¥ÁöÁ¡¿¡ µµÂøÇÏ¸é ½ºÅ³ »ç¿ë½ÃÀÛ.
 #endif // __VER >= 8 // __S8_PK
 			if( bSuccess == FALSE )
 				if( IsPlayer() )
 					((CUser *)this)->m_playTaskBar.OnEndSkillQueue( (CUser *)this );
 
-			ClearDestObj();		// ëª©í‘œì— ë„ë‹¬í•˜ë©´ ì¶”ì ì„ ë©ˆì¶¤.
+			ClearDestObj();		// ¸ñÇ¥¿¡ µµ´ŞÇÏ¸é ÃßÀûÀ» ¸ØÃã.
 			SendActMsg( OBJMSG_STOP );
 		}
 		break;
 
 	default:
 		SendActMsg( OBJMSG_STOP );
-		ClearDestObj();		// ëª©í‘œì— ë„ë‹¬í•˜ë©´ ì¶”ì ì„ ë©ˆì¶¤.
+		ClearDestObj();		// ¸ñÇ¥¿¡ µµ´ŞÇÏ¸é ÃßÀûÀ» ¸ØÃã.
 		OnArrive( pObj->GetId(), 0 );
 		break;
 	} // switch
@@ -340,14 +340,14 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 }
 #endif // not CLIENT
 
-// ì´ í•¨ìˆ˜.. ì˜¤ë¸Œì íŠ¸ ì„œë¸Œ í´ë˜ìŠ¤ë¡œ ë¶„ë¦¬ ì˜ˆì •.. 
+// ÀÌ ÇÔ¼ö.. ¿ÀºêÁ§Æ® ¼­ºê Å¬·¡½º·Î ºĞ¸® ¿¹Á¤.. 
 void CMover::ProcessMove()
 {
 	if( m_pActMover->IsSit() )	
 		return;
 
-	EnforcedGhostCorr();	// ê³ ìŠ¤íŠ¸ì˜ ê°•ì œ ë™ê¸°ê°€ í•„ìš”í•˜ë‹¤ë©´ ì‹¤í–‰
-	ApproachGhostAngle();	// ê³ ìŠ¤íŠ¸ì˜ ëª©í‘œ ê°ë„ë¡œì˜ ì ì§„ì ì¸ ê°ë„ì˜ ë³€ê²½
+	EnforcedGhostCorr();	// °í½ºÆ®ÀÇ °­Á¦ µ¿±â°¡ ÇÊ¿äÇÏ´Ù¸é ½ÇÇà
+	ApproachGhostAngle();	// °í½ºÆ®ÀÇ ¸ñÇ¥ °¢µµ·ÎÀÇ Á¡ÁøÀûÀÎ °¢µµÀÇ º¯°æ
 
 	if( IsEmptyDest() )
 		return;
@@ -357,12 +357,12 @@ void CMover::ProcessMove()
 	D3DXVECTOR3 vPos     = GetPos(); 
 	D3DXVECTOR3 vDestPos = m_vDestPos; 
 
-	if( !IsEmptyDestPos() )	// ì¢Œí‘œ
+	if( !IsEmptyDestPos() )	// ÁÂÇ¥
 	{
 		bool bPositiveX = ( (vPos.x - vDestPos.x) > 0.0f );
 		bool bPositiveZ = ( (vPos.z - vDestPos.z) > 0.0f );
 
-#ifdef __BS_FIX_ARRIVEPOS_ALGO		// ë§ˆìš°ìŠ¤ ëª©ì ì¢Œí‘œ ì´ë™ì‹œ ì ˆëŒ€ì¶•ê³¼ ê°™ì€ê²½ìš° ì¤‘ê°„ì— ë©ˆì¶”ëŠ” í˜„ìƒì´ ìˆì—ˆë‹¤.
+#ifdef __BS_FIX_ARRIVEPOS_ALGO		// ¸¶¿ì½º ¸ñÀûÁÂÇ¥ ÀÌµ¿½Ã Àı´ëÃà°ú °°Àº°æ¿ì Áß°£¿¡ ¸ØÃß´Â Çö»óÀÌ ÀÖ¾ú´Ù.
 		if( ( bPositiveX != m_bPositiveX || bPositiveZ != m_bPositiveZ ) ) 
 		{
 			if( IsActiveMover( ) )
@@ -390,12 +390,12 @@ void CMover::ProcessMove()
 #else
 		if( ( bPositiveX != m_bPositiveX || bPositiveZ != m_bPositiveZ ) ) 
 		{
-			OnArriveAtPos();									// ì¢Œí‘œì— ë„ì°©í–ˆì„ ë•Œì˜ ì²˜ë¦¬
+			OnArriveAtPos();									// ÁÂÇ¥¿¡ µµÂøÇßÀ» ¶§ÀÇ Ã³¸®
 			return;
 		}
 #endif
 	}
-	else					// ì˜¤ë¸Œì íŠ¸
+	else					// ¿ÀºêÁ§Æ®
 	{
 		CCtrl* pObj = prj.GetCtrl( m_idDest );
 		if( IsValidObj( pObj ) == FALSE )
@@ -410,7 +410,7 @@ void CMover::ProcessMove()
 			BOOL bRangeObj = pObj->IsRangeObj( this, m_fArrivalRange );
 			if( bRangeObj == TRUE )
 			{
-				ClearDestObj();									// ê·¸ì™¸ëŠ” ëª©í‘œì— ë„ì°©í•˜ë©´ ë©ˆì¶¤.
+				ClearDestObj();									// ±×¿Ü´Â ¸ñÇ¥¿¡ µµÂøÇÏ¸é ¸ØÃã.
 			#ifdef __WORLDSERVER
 				OnArrive( pObj->GetId(), 0 );
 			#endif	// __WORLDSERVER
@@ -418,7 +418,7 @@ void CMover::ProcessMove()
 		}
 		else 
 		{			
-			if( pObj->IsRangeObj( this, m_fArrivalRange ) )		// 3D ì¶©ëŒì— ì‹¤íŒ¨í–ˆì§€ë§Œ
+			if( pObj->IsRangeObj( this, m_fArrivalRange ) )		// 3D Ãæµ¹¿¡ ½ÇÆĞÇßÁö¸¸
 			{
 				ProcessMoveArrival( pObj );
 				return;		
@@ -426,7 +426,7 @@ void CMover::ProcessMove()
 		}
 	}
 
-	// ê³µì¤‘ ì¶”ì  
+	// °øÁß ÃßÀû 
 	if( m_pActMover->IsFly() )
 	{
 		if( m_uRemnantCorrFrm > 0 ) 
@@ -449,18 +449,18 @@ void CMover::ProcessMove()
 	}
 } 
 
-// íŒ¨í„´ì´ë™ì¤‘.
+// ÆĞÅÏÀÌµ¿Áß.
 void	CMover::ProcessMovePattern( void )
 {
-	if( m_nMovePattern == 1 )	// 8ìì´ë™ íŒ¨í„´.
+	if( m_nMovePattern == 1 )	// 8ÀÚÀÌµ¿ ÆĞÅÏ.
 	{
 		switch( m_nMoveEvent )
 		{
 		case 0:			
 			m_nMoveEvent ++;
 			m_nMoveEventCnt = 0;
-			// break;		// break ë„£ì§€ ë§ê²ƒ.
-		case 1:		// S - 1 êµ¬ê°„ : nì´ˆê°„ ì¢ŒíšŒì „ì¤‘.
+			// break;		// break ³ÖÁö ¸»°Í.
+		case 1:		// S - 1 ±¸°£ : nÃÊ°£ ÁÂÈ¸ÀüÁß.
 			SendActMsg( OBJMSG_FORWARD );
 			if( (m_nMoveEventCnt & 3) == 0 )
 				SendActMsg( OBJMSG_LTURN );
@@ -474,7 +474,7 @@ void	CMover::ProcessMovePattern( void )
 //				SendActMsg( OBJMSG_STOP );
 			}
 			break;
-		case 2:		// 1 - 2êµ¬ê°„ : nì´ˆê°„ ìš°íšŒì „í•˜ë©° ìƒìŠ¹í–ˆë‹¤ í•˜ê°•.
+		case 2:		// 1 - 2±¸°£ : nÃÊ°£ ¿ìÈ¸ÀüÇÏ¸ç »ó½ÂÇß´Ù ÇÏ°­.
 			SendActMsg( OBJMSG_FORWARD );
 			if( (m_nMoveEventCnt & 3) == 0 )
 				SendActMsg( OBJMSG_RTURN );
@@ -487,7 +487,7 @@ void	CMover::ProcessMovePattern( void )
 			if( m_nMoveEventCnt == (SEC1 * 5) / 2 )
 			{
 				SendActMsg( OBJMSG_STOP_LOOK );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			} else
 			{
 				SendActMsg( OBJMSG_LOOKDOWN );
@@ -500,10 +500,10 @@ void	CMover::ProcessMovePattern( void )
 				SendActMsg( OBJMSG_STOP_LOOK );
 				SendActMsg( OBJMSG_STOP_TURN );
 				SendActMsg( OBJMSG_STOP );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			}
 			break;
-		case 3:		// 2 - 3êµ¬ê°„ : ìš°íšŒì „ í•˜ë‹¤ê°€ ì¢ŒíšŒì „.
+		case 3:		// 2 - 3±¸°£ : ¿ìÈ¸Àü ÇÏ´Ù°¡ ÁÂÈ¸Àü.
 			SendActMsg( OBJMSG_FORWARD );
 			if( m_nMoveEventCnt < (SEC1 * 5) / 2 )		// 
 			{
@@ -525,10 +525,10 @@ void	CMover::ProcessMovePattern( void )
 				m_nMoveEvent ++;
 				SendActMsg( OBJMSG_STOP_LOOK );
 				SendActMsg( OBJMSG_STOP_TURN );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			}
 			break;
-		case 4:	// 3 - Sêµ¬ê°„ : ì¢ŒíšŒì „í•˜ë©´ì„œ í•˜ê°•í•˜ë‹¤ ìƒìŠ¹
+		case 4:	// 3 - S±¸°£ : ÁÂÈ¸ÀüÇÏ¸é¼­ ÇÏ°­ÇÏ´Ù »ó½Â
 			SendActMsg( OBJMSG_FORWARD );
 			if( (m_nMoveEventCnt & 3) == 0 )
 				SendActMsg( OBJMSG_LTURN );
@@ -541,7 +541,7 @@ void	CMover::ProcessMovePattern( void )
 			if( m_nMoveEventCnt == (SEC1 * 5) / 2 )
 			{
 				SendActMsg( OBJMSG_STOP_LOOK );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			} else
 			{
 				SendActMsg( OBJMSG_LOOKUP );
@@ -554,7 +554,7 @@ void	CMover::ProcessMovePattern( void )
 				SendActMsg( OBJMSG_STOP_LOOK );
 				SendActMsg( OBJMSG_STOP_TURN );
 				SendActMsg( OBJMSG_STOP );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			}
 			break;
 				
@@ -562,18 +562,18 @@ void	CMover::ProcessMovePattern( void )
 			break;
 		}
 	} else	// movePattern 1
-	if( m_nMovePattern == 2 )		// ë¹„í–‰ íŒ¨í„´ 2
+	if( m_nMovePattern == 2 )		// ºñÇà ÆĞÅÏ 2
 	{
 		switch( m_nMoveEvent )
 		{
 		case 0:			
 			m_nMoveEvent ++;
 			m_nMoveEventCnt = 0;
-			// break;		// break ë„£ì§€ ë§ê²ƒ.
-		case 1:		// S - 1 êµ¬ê°„ì¤‘ ì§ì§„ ì½”ìŠ¤
+			// break;		// break ³ÖÁö ¸»°Í.
+		case 1:		// S - 1 ±¸°£Áß Á÷Áø ÄÚ½º
 			SendActMsg( OBJMSG_FORWARD );
 			
-			if( ++m_nMoveEventCnt > SEC1 )		// 1ì´ˆê°€ ì§€ë‚˜ë©´ ê¸‰ ìš°íšŒì „.
+			if( ++m_nMoveEventCnt > SEC1 )		// 1ÃÊ°¡ Áö³ª¸é ±Ş ¿ìÈ¸Àü.
 			{
 				FLOAT fAngle = GetAngle();
 				SetAngle( fAngle + 135.0f );
@@ -581,10 +581,10 @@ void	CMover::ProcessMovePattern( void )
 				m_nMoveEvent ++;
 			}
 			break;
-		case 2:		// 1êµ¬ê°„ì¤‘ ìš°/í•˜ë¡œ ì´ë™
+		case 2:		// 1±¸°£Áß ¿ì/ÇÏ·Î ÀÌµ¿
 			SendActMsg( OBJMSG_FORWARD );
 
-			if( ++m_nMoveEventCnt > SEC1 * 2 )		// 2ì´ˆê°„ ì§ì§„í•˜ë‹¤ê°€ ë‹¤ì‹œ ì¢Œë¡œ 90ë„ íšŒì „.
+			if( ++m_nMoveEventCnt > SEC1 * 2 )		// 2ÃÊ°£ Á÷ÁøÇÏ´Ù°¡ ´Ù½Ã ÁÂ·Î 90µµ È¸Àü.
 			{
 				FLOAT fAngle = GetAngle();
 				SetAngle( fAngle - 90.0f );
@@ -593,10 +593,10 @@ void	CMover::ProcessMovePattern( void )
 				SendActMsg( OBJMSG_STOP_LOOK );
 				SendActMsg( OBJMSG_STOP_TURN );
 				SendActMsg( OBJMSG_STOP );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			}
 			break;
-		case 3:		// 1êµ¬ê°„ì¤‘ 3ë²ˆì§¸ êµ¬ê°„
+		case 3:		// 1±¸°£Áß 3¹øÂ° ±¸°£
 			SendActMsg( OBJMSG_FORWARD );
 				
 			if( ++m_nMoveEventCnt > SEC1 * 2 )
@@ -607,10 +607,10 @@ void	CMover::ProcessMovePattern( void )
 				m_nMoveEvent ++;
 				SendActMsg( OBJMSG_STOP_LOOK );
 				SendActMsg( OBJMSG_STOP_TURN );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			}
 			break;
-		case 4:	// 2-1 êµ¬ê°„
+		case 4:	// 2-1 ±¸°£
 			SendActMsg( OBJMSG_FORWARD );
 				
 			if( ++m_nMoveEventCnt > SEC1 * 1 )
@@ -622,10 +622,10 @@ void	CMover::ProcessMovePattern( void )
 				SendActMsg( OBJMSG_STOP_LOOK );
 				SendActMsg( OBJMSG_STOP_TURN );
 				SendActMsg( OBJMSG_STOP );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			}
 			break;
-		case 5:	// 2-2 êµ¬ê°„
+		case 5:	// 2-2 ±¸°£
 			SendActMsg( OBJMSG_FORWARD );
 			
 			if( ++m_nMoveEventCnt > SEC1 * 3 )
@@ -637,7 +637,7 @@ void	CMover::ProcessMovePattern( void )
 				SendActMsg( OBJMSG_STOP_LOOK );
 				SendActMsg( OBJMSG_STOP_TURN );
 				SendActMsg( OBJMSG_STOP );
-				SetAngleX( 0 );		// ìˆ˜í‰ìœ¼ë¡œ ë§ì¶¤.
+				SetAngleX( 0 );		// ¼öÆòÀ¸·Î ¸ÂÃã.
 			}
 			break;
 			

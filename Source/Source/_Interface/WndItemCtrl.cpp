@@ -1,4 +1,4 @@
-ï»¿// WndBase.cpp: implementation of the CWndBase class.
+// WndBase.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -68,7 +68,7 @@ void CWndItemCtrl::UpdateTooltip( void )
 	CPoint point= GetMousePoint();
 //	ClientToScreen( &point );
 
-	// ìŠ¤í¬ë¡¤ë°” ê´€ë ¨   
+	// ½ºÅ©·Ñ¹Ù °ü·Ã   
 	CPoint pt;
 	pt.y = 0;
 	pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
@@ -92,9 +92,9 @@ void CWndItemCtrl::UpdateTooltip( void )
 			ClientToScreen( &point2 );
 			ClientToScreen( &rectHittest );
 			
-			if( m_dwFrame == APP_SHOP_ )		// ìƒì 
+			if( m_dwFrame == APP_SHOP_ )		// »óÁ¡
 				g_WndMng.PutToolTip_Item( pItemElem, point2, &rectHittest, APP_SHOP_ );
-			else if( m_dwFrame == APP_INVENTORY || m_dwFrame == APP_BANK )	// ë‚˜ì˜ ì¸ë²¤í† ë¦¬
+			else if( m_dwFrame == APP_INVENTORY || m_dwFrame == APP_BANK )	// ³ªÀÇ ÀÎº¥Åä¸®
 			{
 				if( g_WndMng.GetWndBase( APP_REPAIR ) )
 				{
@@ -124,7 +124,7 @@ void CWndItemCtrl::OnMouseWndSurface( CPoint point )
 	int nWidth = rect.Width() / 32;
 	int nHeight = rect.Height() / 32;
 
-	// ìŠ¤í¬ë¡¤ë°” ê´€ë ¨   
+	// ½ºÅ©·Ñ¹Ù °ü·Ã   
 	CPoint pt;
 	pt.y = 0;
 	pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
@@ -162,10 +162,10 @@ void CWndItemCtrl::OnMouseWndSurface( CPoint point )
 				ClientToScreen( &point2 );
 				ClientToScreen( &rectHittest );
 				
-				if( m_dwFrame == APP_SHOP_ )		// ìƒì 
+				if( m_dwFrame == APP_SHOP_ )		// »óÁ¡
 					g_WndMng.PutToolTip_Item( pItemElem, point2, &rectHittest, APP_SHOP_ );
 				else 
-				if( m_dwFrame == APP_INVENTORY || m_dwFrame == APP_BANK )	// ë‚˜ì˜ ì¸ë²¤í† ë¦¬
+				if( m_dwFrame == APP_INVENTORY || m_dwFrame == APP_BANK )	// ³ªÀÇ ÀÎº¥Åä¸®
 				{
 					if( g_WndMng.GetWndBase( APP_REPAIR ) )
 					{
@@ -226,13 +226,13 @@ void CWndItemCtrl::OnMouseWndSurface( CPoint point )
 				ClientToScreen( &point2 );
 				ClientToScreen( &rectHittest );
 				
-				if( m_dwFrame == APP_SHOP_ )		// ìƒì 
+				if( m_dwFrame == APP_SHOP_ )		// »óÁ¡
 					g_WndMng.PutToolTip_Item( pItemElem, point2, &rectHittest, APP_SHOP_ );
 				else 
 				if( m_dwFrame == APP_INVENTORY || m_dwFrame == APP_BANK
 				 || m_dwFrame == APP_GUILD_BANK
 				 || m_dwFrame == APP_COMMON_BANK
-					)	// ë‚˜ì˜ ì¸ë²¤í† ë¦¬
+					)	// ³ªÀÇ ÀÎº¥Åä¸®
 				{
 					if( g_WndMng.GetWndBase( APP_REPAIR ) )
 					{
@@ -275,7 +275,7 @@ void CWndItemCtrl::RanderIcon( C2DRender* p2DRender, CItemElem* pItemElem, int x
 			case IK2_CLOTHETC:
 			{
 					
-				// ë¬´ê¸° : ì§ì—…, ëŠ¥ë ¥ì¹˜ ìŠ¤í…Ÿ, ê°€ê²©
+				// ¹«±â : Á÷¾÷, ´É·ÂÄ¡ ½ºÅÝ, °¡°Ý
 				if( pItemProp->dwItemSex != 0xffffffff && pItemProp->dwItemSex != g_pPlayer->GetSex() )
 				{
 					bRander = 1;
@@ -309,7 +309,7 @@ void CWndItemCtrl::RanderIcon( C2DRender* p2DRender, CItemElem* pItemElem, int x
 //			case IK2_BOARDING:
 //			case IK2_HATCH:
 			{
-				// ë¹„í–‰ : ë¹„í–‰ë ˆë²¨
+				// ºñÇà : ºñÇà·¹º§
 				if( g_pPlayer->GetFlightLv() < (int)( pItemProp->dwFlightLimit ) )
 				{
 					bRander = 1;
@@ -319,7 +319,7 @@ void CWndItemCtrl::RanderIcon( C2DRender* p2DRender, CItemElem* pItemElem, int x
 			}
 		}
  
-		// ëª¨ë“ ì•„ì´í…œ ê°€ê²© ë¹„êµ
+		// ¸ðµç¾ÆÀÌÅÛ °¡°Ý ºñ±³
 #if __VER >= 11 // __CSC_VER11_3
 		if( nParent == APP_SHOP_ )
 		{
@@ -355,7 +355,7 @@ void CWndItemCtrl::RanderIcon( C2DRender* p2DRender, CItemElem* pItemElem, int x
 			pItemElem->GetTexture()->Render( p2DRender, CPoint( x, y ), nalpha );
 		}
 		else
-		if( bRander == 1 )	// ì‚¬ìš©í• ìˆ˜ ì—†ëŠ”ê²ƒ
+		if( bRander == 1 )	// »ç¿ëÇÒ¼ö ¾ø´Â°Í
 		{
 			pItemElem->GetTexture()->Render2( p2DRender, CPoint( x, y ), D3DCOLOR_ARGB( nalpha, 255, 100, 100 ) );
 		}
@@ -402,7 +402,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 	}
 
 	//
-	// ë¦¬í¬íŠ¸ ì¶œë ¥ 
+	// ¸®Æ÷Æ® Ãâ·Â 
 	//
 	if( 0 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
@@ -437,7 +437,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 		}
 	}
 	//
-	// ì•„ì´ì½˜ ì¶œë ¥
+	// ¾ÆÀÌÄÜ Ãâ·Â
 	// CCtrllist
 	if( 1 ) //m_dwListCtrlStyle == WLVS_ICON )
 	{
@@ -445,7 +445,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 		int nWidth = rect.Width() / 32;
 		int nHeight = rect.Height() / 32;
 
-		// ìŠ¤í¬ë¡¤ë°” ê´€ë ¨   
+		// ½ºÅ©·Ñ¹Ù °ü·Ã   
 		int nPage = nHeight;
 		int nRange = m_pItemContainer->m_dwIndexNum / nWidth;// - nPage;
 		if( m_pItemContainer->m_dwIndexNum % nWidth )
@@ -516,7 +516,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 					else
 					{
 #if __VER >= 9 // __CSC_VER9_1
-						if(pItemElem->m_dwItemId == II_SYS_SYS_SCR_PET_FEED_POCKET && pItemElem->m_dwKeepTime <= 0) //ë¨¹ì´ ì£¼ë¨¸ë‹ˆ ì•„ì´í…œì´ ì‚¬ìš©ì•ˆëœ ìƒíƒœì¸ê°€?
+						if(pItemElem->m_dwItemId == II_SYS_SYS_SCR_PET_FEED_POCKET && pItemElem->m_dwKeepTime <= 0) //¸ÔÀÌ ÁÖ¸Ó´Ï ¾ÆÀÌÅÛÀÌ »ç¿ë¾ÈµÈ »óÅÂÀÎ°¡?
 							RanderIcon( p2DRender, pItemElem, x * 32, y * 32, nParent, 100 );
 						else						
 							RanderIcon( p2DRender, pItemElem, x * 32, y * 32, nParent );
@@ -550,10 +550,10 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 					DWORD dwGroup = g_pPlayer->m_cooltimeMgr.GetGroup( pItemElem->GetProp() );
 					if( dwGroup )
 					{
-						DWORD dwEnd = g_pPlayer->m_cooltimeMgr.GetTime( dwGroup );		// ì´ë²¤íŠ¸ ì¢…ë£Œ ì‹œê° 
+						DWORD dwEnd = g_pPlayer->m_cooltimeMgr.GetTime( dwGroup );		// ÀÌº¥Æ® Á¾·á ½Ã°¢ 
 						if( dwEnd != 0 && dwEnd > dwCur )
 						{
-							DWORD dwBase = g_pPlayer->m_cooltimeMgr.GetBase( dwGroup );	// ì´ë²¤íŠ¸ ì‹œìž‘ ì‹œê° 
+							DWORD dwBase = g_pPlayer->m_cooltimeMgr.GetBase( dwGroup );	// ÀÌº¥Æ® ½ÃÀÛ ½Ã°¢ 
 							CPoint pt( x * 32, y * 32 );
 							RenderRadar( p2DRender, pt, dwCur - dwBase, dwEnd - dwBase );
 						}
@@ -893,8 +893,8 @@ void CWndItemCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 			m_bDrag = TRUE;
 		}
 
-		// ì¸ì²¸íŠ¸í•  ì•„ì´í…œì„ ì„ íƒí•˜ì˜€ë‹¤ë©´ ì‹¤í–‰í•œë‹¤.
-		// í´ë¼ì—ì„œ 4ì´ˆì •ë„ ì´íŽ™íŠ¸ ì¶œë ¥í›„ íŒ¨í‚·ì„ ë‚ ë¦°ë‹¤..
+		// ÀÎÃ¾Æ®ÇÒ ¾ÆÀÌÅÛÀ» ¼±ÅÃÇÏ¿´´Ù¸é ½ÇÇàÇÑ´Ù.
+		// Å¬¶ó¿¡¼­ 4ÃÊÁ¤µµ ÀÌÆåÆ® Ãâ·ÂÈÄ ÆÐÅ¶À» ³¯¸°´Ù..
 		if( nParent == APP_INVENTORY && pWndInventory )
 		{
 			CPoint pt( 3, 3 );
@@ -903,7 +903,7 @@ void CWndItemCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 			int nWidth = rect.Width() / 32;
 			int nHeight = rect.Height() / 32;
 
-			// ì¸ì²¸, í”¼ì–´ì‹±ê´€ë ¨ ì´íŽ™íŠ¸ ì¶œë ¥ìœ„ì¹˜   
+			// ÀÎÃ¾, ÇÇ¾î½Ì°ü·Ã ÀÌÆåÆ® Ãâ·ÂÀ§Ä¡   
 			int nPage = nHeight;
 			int nRange = m_pItemContainer->m_dwIndexNum / nWidth;
 			if( m_pItemContainer->m_dwIndexNum % nWidth )
@@ -1134,7 +1134,7 @@ void CWndItemCtrl::OnMouseMove(UINT nFlags, CPoint point)
 			if(pItemElem->GetProp() == NULL)
 			{
 				CString strErr;
-				strErr.Format( "CWndItemCtrl::OnMouseMoveì—ì„œ GetPropê°€ NULL\nItemType : %d, ItemId : %d ", 0, pItemElem->m_dwItemId );
+				strErr.Format( "CWndItemCtrl::OnMouseMove¿¡¼­ GetProp°¡ NULL\nItemType : %d, ItemId : %d ", 0, pItemElem->m_dwItemId );
 				ADDERRORMSG(strErr);
 			}
 			_tcscpy( m_GlobalShortcut.m_szString, pItemElem->GetName() );
@@ -1161,7 +1161,7 @@ void CWndItemCtrl::OnMouseMove(UINT nFlags, CPoint point)
 		if(pItemElem->GetProp() == NULL)
 		{
 			CString strErr;
-			strErr.Format( "CWndItemCtrl::OnMouseMoveì—ì„œ GetPropê°€ NULL\nItemType : %d, ItemId : %d ", 0, pItemElem->m_dwItemId );
+			strErr.Format( "CWndItemCtrl::OnMouseMove¿¡¼­ GetProp°¡ NULL\nItemType : %d, ItemId : %d ", 0, pItemElem->m_dwItemId );
 			ADDERRORMSG(strErr);
 		}
 		_tcscpy( m_GlobalShortcut.m_szString, pItemElem->GetName() );
@@ -1187,7 +1187,7 @@ int CWndItemCtrl::HitTest( CPoint point )
 	CPoint pt( 3, 3 );
 	CRect rect;
 	//
-	// ë¦¬í¬íŠ¸  
+	// ¸®Æ÷Æ®  
 	//
 	if( 0 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
@@ -1205,7 +1205,7 @@ int CWndItemCtrl::HitTest( CPoint point )
 		}
 	}
 	//
-	// ì•„ì´ì½˜ 
+	// ¾ÆÀÌÄÜ 
 	//
 	if( 1 ) //m_dwListCtrlStyle == WLVS_ICON )
 	{
@@ -1374,7 +1374,7 @@ void CWndItemCtrl::OnRButtonUp( UINT nFlags, CPoint point )
 }
 void CWndItemCtrl::OnRButtonDown( UINT nFlags, CPoint point )
 {
-	// ì¸ë²¤ì°½ì´ ì—´ë ¤ìžˆê³  ì¸ì²¸íŠ¸ ëª¨ë“œì´ë©´ ì»¤ì„œëª¨ì–‘ ë³€ê²½
+	// ÀÎº¥Ã¢ÀÌ ¿­·ÁÀÖ°í ÀÎÃ¾Æ® ¸ðµåÀÌ¸é Ä¿¼­¸ð¾ç º¯°æ
 	CWndInventory* pWndInventory	= (CWndInventory*)GetWndBase( APP_INVENTORY );
 
 	if( pWndInventory && pWndInventory->m_dwEnchantWaitTime == 0xffffffff )
@@ -1461,7 +1461,7 @@ void CWndItemCtrl::OnRButtonDown( UINT nFlags, CPoint point )
 }
 BOOL CWndItemCtrl::OnSetCursor ( CWndBase* pWndBase, UINT nHitTest, UINT message )
 {
-	// ì¸ë²¤ì°½ì´ ì—´ë ¤ìžˆê³  ì¸ì²¸íŠ¸ ëª¨ë“œì´ë©´ ì»¤ì„œëª¨ì–‘ ë³€ê²½
+	// ÀÎº¥Ã¢ÀÌ ¿­·ÁÀÖ°í ÀÎÃ¾Æ® ¸ðµåÀÌ¸é Ä¿¼­¸ð¾ç º¯°æ
 	CWndInventory* pWndInventory	= (CWndInventory*)GetWndBase( APP_INVENTORY );	
 	if( pWndInventory )
 		pWndInventory->SetEnchantCursor();
@@ -1533,8 +1533,8 @@ void CWndItemCtrl::SetWndRect( CRect rectWnd, BOOL bOnSize )
 			int nPage = GetClientRect().Height() / (m_nFontHeight + 3);
 			int nRange = m_pItemContainer->m_dwIndexNum;// - nPage;
 			if( !( nRange - nPage <= 0 ) )
-				m_rectClient.right -= 15; // ìŠ¤í¬ë¡¤ ë°”ê°€ ë³´ì´ë©´ 
-			m_rectClient.top += 15; // ë¦¬í¬íŠ¸ ì¹¼ëŸ¼ 
+				m_rectClient.right -= 15; // ½ºÅ©·Ñ ¹Ù°¡ º¸ÀÌ¸é 
+			m_rectClient.top += 15; // ¸®Æ÷Æ® Ä®·³ 
 		}
 		if( 1 ) //m_dwListCtrlStyle == WLVS_ICON )
 		{
@@ -1544,7 +1544,7 @@ void CWndItemCtrl::SetWndRect( CRect rectWnd, BOOL bOnSize )
 			int nPage = nHeight;
 			int nRange = m_pItemContainer->m_dwIndexNum / nWidth;// - nPage;
 			//if( !( nRange - nPage <= 0 ) )
-				m_rectClient.right -= 15; // ìŠ¤í¬ë¡¤ ë°”ê°€ ë³´ì´ë©´ 
+				m_rectClient.right -= 15; // ½ºÅ©·Ñ ¹Ù°¡ º¸ÀÌ¸é 
 		}
 	}
 	if( bOnSize )
@@ -1593,7 +1593,7 @@ void CWndItemCtrl::PaintFrame( C2DRender* p2DRender )
 
 	if( 0 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
-		// ì»¬ëŸ¼ ì¶œë ¥ 
+		// ÄÃ·³ Ãâ·Â 
 		int i, x;
 		for( i, x = 0; i < m_aColumns.GetSize(); i++ )
 		{
@@ -1648,7 +1648,7 @@ BOOL CWndItemCtrl::OnEraseBkgnd( C2DRender* p2DRender )
 BOOL CWndItemCtrl::SetItem( const LVITEM* pItem )
 {
 	if( pItem->iItem < m_aItems.GetSize() && m_aItems.GetAt( pItem->iItem ) == NULL ) 
-		return FALSE; // ì¡´ìž¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
+		return FALSE; // Á¸ÀçÇÏÁö ¾Ê´Â´Ù.
 	LVITEM* pItems = (LVITEM*)m_aItems.GetAt( pItem->iItem );
 	memcpy( &pItems[ pItem->iSubItem ], pItem, sizeof( LVITEM ) );
 	pItems[ pItem->iSubItem ].pszText = new _TCHAR[ _tcslen( pItem->pszText ) + sizeof( _TCHAR ) ];
@@ -1659,7 +1659,7 @@ BOOL CWndItemCtrl::SetItem( const LVITEM* pItem )
 int CWndItemCtrl::InsertItem( const LVITEM* pItem )
 {
 	if( pItem->iItem < m_aItems.GetSize() && m_aItems.GetAt( pItem->iItem ) ) 
-		return -1; // ì´ë¯¸ ì¡´ìž¬í•œë‹¤.
+		return -1; // ÀÌ¹Ì Á¸ÀçÇÑ´Ù.
 	LVITEM* pNewItems = new LVITEM[ 3 ]; // m_aColumns.GetSize()
 	memcpy( &pNewItems[ pItem->iSubItem ], pItem, sizeof( LVITEM ) );
 	pNewItems[ pItem->iSubItem ].pszText = new _TCHAR[ _tcslen( pItem->pszText ) + sizeof( _TCHAR ) ];
@@ -1679,9 +1679,9 @@ int CWndItemCtrl::InsertColumn( int nCol, const LVCOLUMN* pColumn )
 	pNewColumn->pszText = new _TCHAR[ _tcslen( pColumn->pszText ) ];
 	_tcscpy( pNewColumn->pszText, pColumn->pszText );
 	if( nCol < m_aColumns.GetSize() && m_aColumns.GetAt( nCol ) ) 
-		return -1; // ì´ë¯¸ ì¡´ìž¬í•œë‹¤.
+		return -1; // ÀÌ¹Ì Á¸ÀçÇÑ´Ù.
 	m_aColumns.SetAtGrow( nCol, (void*)pNewColumn );
-	// ì»¬ëŸ¼ ë²„íŠ¼ ìƒì„± 
+	// ÄÃ·³ ¹öÆ° »ý¼º 
 	/*
 	CPtrArray m_aWndColumns;
 	CRect rect;// = GetWindowRect();

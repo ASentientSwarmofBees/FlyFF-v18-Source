@@ -1,4 +1,4 @@
-﻿#ifndef __WNDOPTIONGAME__H
+#ifndef __WNDOPTIONGAME__H
 #define __WNDOPTIONGAME__H
 
 class CWndOptionGame : public CWndNeuz 

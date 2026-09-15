@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 #include "CtrlObjs.h"
 #include "defineSkill.h"
 #include "user.h"
@@ -22,7 +22,7 @@ void CContDamageCtrl::Init( void )
 #if __VER >= 8 // __S8_PK
 	m_bControl = FALSE;
 #endif // __VER >= 8 // __S8_PK
-	// chipi - ë²”ìœ„ ctrl ìƒì„± ìŠ¤í‚¬ë¡œ ì¸í•´ ë“€ì–¼ ì¢…ë£Œ í›„ ì¹´ì˜¤ë˜ëŠ” í˜„ìƒ ìˆ˜ì •
+	// chipi - ¹üÀ§ ctrl »ı¼º ½ºÅ³·Î ÀÎÇØ µà¾ó Á¾·á ÈÄ Ä«¿ÀµÇ´Â Çö»ó ¼öÁ¤
 	m_bDuelTarget = FALSE;
 }
  
@@ -36,20 +36,20 @@ void CContDamageCtrl::ApplyDamage( void )
 	ItemProp *pSkillProp = m_pSkillProp;
 	AddSkillProp *pAddSkillProp = m_pAddSkillProp;
 	
-	CCtrl *pSrc = prj.GetCtrl( m_idSrc );			// ì‹œì „ì.  ì¤‘ê°„ì— ì—†ì–´ì§ˆìˆ˜ë„ ìˆìŠ´.
+	CCtrl *pSrc = prj.GetCtrl( m_idSrc );			// ½ÃÀüÀÚ.  Áß°£¿¡ ¾ø¾îÁú¼öµµ ÀÖ½¿.
 	if( IsInvalidObj(pSrc) )
 	{
-		// ì´ë•Œ ì²˜ë¦¬ë¥¼ í•´ì•¼í•œë‹¤.
+		// ÀÌ¶§ Ã³¸®¸¦ ÇØ¾ßÇÑ´Ù.
 		Delete();
 		return;
 	}
 
-	// chipi - ë²”ìœ„ ctrl ìƒì„± ìŠ¤í‚¬ë¡œ ì¸í•´ ë“€ì–¼ ì¢…ë£Œ í›„ ì¹´ì˜¤ë˜ëŠ” í˜„ìƒ ìˆ˜ì •
+	// chipi - ¹üÀ§ ctrl »ı¼º ½ºÅ³·Î ÀÎÇØ µà¾ó Á¾·á ÈÄ Ä«¿ÀµÇ´Â Çö»ó ¼öÁ¤
 	if( pSrc->GetType() == OT_MOVER && !((CMover*)pSrc)->m_nDuel && m_bDuelTarget )
 		return;
 	
-	CCtrl *pCenter = prj.GetCtrl( m_idTarget );		// ì¤‘ì‹¬ì´ ë˜ëŠ” ì˜¤ë¸Œì íŠ¸.  ì¤‘ê°„ì— ì—†ì–´ì§ˆìˆ˜ë„ ìˆìŠ´.
-	D3DXVECTOR3 vPos = GetPos();					// ì¤‘ì‹¬ì¢Œí‘œ
+	CCtrl *pCenter = prj.GetCtrl( m_idTarget );		// Áß½ÉÀÌ µÇ´Â ¿ÀºêÁ§Æ®.  Áß°£¿¡ ¾ø¾îÁú¼öµµ ÀÖ½¿.
+	D3DXVECTOR3 vPos = GetPos();					// Áß½ÉÁÂÇ¥
 	int nApplyType;
 	nApplyType = OBJTYPE_PLAYER | OBJTYPE_MONSTER;
 #if __VER >= 8 // __S8_PK
@@ -59,23 +59,23 @@ void CContDamageCtrl::ApplyDamage( void )
 #endif // __VER >= 8 // __S8_PK
 }
 
- // ì§€ì†ë°ë¯¸ì§€ë¥¼ ì¤Œ.
+ // Áö¼Óµ¥¹ÌÁö¸¦ ÁÜ.
 void CContDamageCtrl::Process()
 {
 	ItemProp *pSkillProp = m_pSkillProp;
 	AddSkillProp *pAddSkillProp = m_pAddSkillProp;
 	
 	if( pSkillProp->tmContinuousPain == NULL_ID )
-		Error( "%sì˜ SkillProp tmContinuousPainì˜ ê°’ì´ -1", pSkillProp->dwID );
+		Error( "%sÀÇ SkillProp tmContinuousPainÀÇ °ªÀÌ -1", pSkillProp->dwID );
 
-	if( (int)(g_tmCurrent - m_tmUpdate) > (int)pSkillProp->tmContinuousPain )		// ë‹¨ìœ„ì‹œê°„ì´ ì§€ë‚˜ë©´
+	if( (int)(g_tmCurrent - m_tmUpdate) > (int)pSkillProp->tmContinuousPain )		// ´ÜÀ§½Ã°£ÀÌ Áö³ª¸é
 	{
-		m_tmUpdate = g_tmCurrent;		// ì‹œê°„ ê°±ì‹ í•˜ê³ 
-		// ì§€ì†ë°ë¯¸ì§€ ì²˜ë¦¬ë¥¼ ì´ê³³ì— ë„£ìŒ.
+		m_tmUpdate = g_tmCurrent;		// ½Ã°£ °»½ÅÇÏ°í
+		// Áö¼Óµ¥¹ÌÁö Ã³¸®¸¦ ÀÌ°÷¿¡ ³ÖÀ½.
 		ApplyDamage();
 	}
 
-	if( (int)(g_tmCurrent - m_tmStart) > (int)m_pAddSkillProp->dwSkillTime )		// ì´ì‹œê°„ì´ ì§€ë‚˜ë©´ ë.
+	if( (int)(g_tmCurrent - m_tmStart) > (int)m_pAddSkillProp->dwSkillTime )		// ÃÑ½Ã°£ÀÌ Áö³ª¸é ³¡.
 		Delete();
 }
  

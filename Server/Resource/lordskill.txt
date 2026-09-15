@@ -1,4 +1,4 @@
-ï»¿// ì‹ë³„ìž	ìœ í˜•	        ì´ë¦„	                  ì„¤ëª…	                íƒ€ê²Ÿ ìœ í˜•	ì—°ê´€ ì•„ì´í…œ	       ìž¬ì‚¬ìš©ëŒ€ê¸°ì‹œê°„	ì•„ì´ì½˜	ì§€ì† ìŠ¤í‚¬	ì‹œì „ íš¨ê³¼	ëŒ€ìƒ íš¨ê³¼	ê±°ë¦¬ ì œí•œ
+// ½Äº°ÀÚ	À¯Çü	        ÀÌ¸§	                  ¼³¸í	                Å¸°Ù À¯Çü	¿¬°ü ¾ÆÀÌÅÛ	       Àç»ç¿ë´ë±â½Ã°£	¾ÆÀÌÄÜ	Áö¼Ó ½ºÅ³	½ÃÀü È¿°ú	´ë»ó È¿°ú	°Å¸® Á¦ÇÑ
 LI_CHEERING	LT_ITEMBUF	IDS_LORDSKILL_TXT_0000	IDS_LORDSKILL_TXT_0001	LTT_BOTH	II_SYS_SYS_LS_CHEERING	60	skill_sklKing01.dds	0	1898	1899	8
 LI_BLESSING	LT_ITEMBUF	IDS_LORDSKILL_TXT_0002	IDS_LORDSKILL_TXT_0003	LTT_BOTH	II_SYS_SYS_LS_BLESSING	60	skill_sklKing02.dds	0	1900	1901	8
 LI_LOVE	LT_ITEMBUF	IDS_LORDSKILL_TXT_0004	IDS_LORDSKILL_TXT_0005	LTT_BOTH	II_SYS_SYS_LS_LOVE	60	skill_sklKing03.dds	0	1902	1903	8

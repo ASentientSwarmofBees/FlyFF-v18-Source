@@ -1,4 +1,4 @@
-﻿#ifndef __GUILDQUEST_H__
+#ifndef __GUILDQUEST_H__
 #define	__GUILDQUEST_H__
 
 #pragma once

@@ -1,4 +1,4 @@
-ï»¿\
+\
 aeonsoft
 Aeonsoft
 AEONSOFT
@@ -36,8 +36,8 @@ gameMaster
 Gamemaster
 gamemaster
 GAMEMASTER
-Â²
-Â³
+©÷
+©ø
 "|"
 GRATIS
 gratis

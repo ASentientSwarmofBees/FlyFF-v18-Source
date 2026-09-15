@@ -1,4 +1,4 @@
-﻿#ifndef __DPDBSRVR_H__
+#ifndef __DPDBSRVR_H__
 #define	__DPDBSRVR_H__
 
 #include "dpmng.h"

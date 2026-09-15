@@ -1,4 +1,4 @@
-ï»¿// Theme.h: interface for the CWndBase class.
+// Theme.h: interface for the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -141,12 +141,12 @@ public:
 	HRESULT FrameMove();
 	HRESULT RestoreDeviceObjects();
 
-	// GUI ëœë”ì— í•„ìš”í•œ í•¨ìˆ˜ë“¤ 
+	// GUI ·£´õ¿¡ ÇÊ¿äÇÑ ÇÔ¼öµé 
 	void  GradationRect( C2DRender* p2DRender, CRect* pRect, DWORD dwColor1t, DWORD dwColor1b, DWORD dwColor2b, int nMidPercent = 40 );
 	DWORD GetButtonFontColor( CWndButton* pWndButton );
 	POINT GetButtonTextPos( C2DRender* p2DRender, CWndButton* pWndButton );
 
-	// ìœˆë„ ìœˆí„°í˜ì´ìŠ¤ ëœë” ì‹œì‘ 
+	// À©µµ À©ÅÍÆäÀÌ½º ·£´õ ½ÃÀÛ 
 	void RenderEdge              ( C2DRender* p2DRender, CRect* pRect, BOOL bClient = TRUE );
 	void RenderWndBaseTitleBar   ( C2DRender* p2DRender, CRect* pRect, LPCTSTR lpszTitle, DWORD dwColor = 0xff000000 );
 	void RenderWndBaseFrame      ( C2DRender* p2DRender, CRect* pRect );

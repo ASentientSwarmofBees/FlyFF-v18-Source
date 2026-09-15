@@ -1,60 +1,60 @@
-ï»¿// GuildCombat Script
+// GuildCombat Script
 //enum { OPEN_STATE, CLOSE_STATE, WAR_STATE, COMPLET_CLOSE_STATE, GM_COLSE_STATE };
 //enum { NOTENTER_STATE = 100, NOTENTER_COUNT_STATE, ENTER_STATE, MAINTENANCE_STATE, WAR_WAR_STATE, WAR_CLOSE_STATE, WAR_CLOSE_WAIT_STATE, WAR_TELEPORT_STATE };
 
-// 1/1000 ALLMSG	: ëª¨ë“ ì„œë²„ìœ ì €ì—ê²Œ ë³´ë‚´ëŠ” ë©”ì„¸ì§€
-// 1/1000 GUILDMSG	: ì°¸ì—¬í•œ ê¸¸ë“œì—ê²Œ ë³´ë‚´ëŠ” ë©”ì„¸ì§€
-// 1/1000 JOINMSG	: ì°¸ì—¬í•œ ìœ ì €ì—ê²Œ ë³´ë‚´ëŠ” ë©”ì„¸ì§€	
-// 1/1000 WORLDMSG	: ê¸¸ë“œëŒ€ì „ ì›”ë“œì— ìžˆëŠ” ìœ ì €ì—ê²Œ ë³´ë‚´ëŠ” ë©”ì„¸ì§€
-// 1/1000 STATE		: ì¼ë°˜ ê°’ ë³€ê²½
-// 1/1000 WARSTATE	: ì „ìŸëª¨ë‘ ê°’ ë³€ê²½
-// 1/1000 WAIT		: ê¸°ë‹¤ë¦¬ëŠ” ì‹œê°„
+// 1/1000 ALLMSG	: ¸ðµç¼­¹öÀ¯Àú¿¡°Ô º¸³»´Â ¸Þ¼¼Áö
+// 1/1000 GUILDMSG	: Âü¿©ÇÑ ±æµå¿¡°Ô º¸³»´Â ¸Þ¼¼Áö
+// 1/1000 JOINMSG	: Âü¿©ÇÑ À¯Àú¿¡°Ô º¸³»´Â ¸Þ¼¼Áö	
+// 1/1000 WORLDMSG	: ±æµå´ëÀü ¿ùµå¿¡ ÀÖ´Â À¯Àú¿¡°Ô º¸³»´Â ¸Þ¼¼Áö
+// 1/1000 STATE		: ÀÏ¹Ý °ª º¯°æ
+// 1/1000 WARSTATE	: ÀüÀï¸ðµÎ °ª º¯°æ
+// 1/1000 WAIT		: ±â´Ù¸®´Â ½Ã°£
 
 
-// ìµœì†Œ ì°¸ê°€ PENYA ì„¤ì •
+// ÃÖ¼Ò Âü°¡ PENYA ¼³Á¤
 JOINPENYA	100000000
 
-// ìµœì†Œ ì°¸ê°€ ê¸¸ë“œ ë ˆë²¨ ì„¤ì •
+// ÃÖ¼Ò Âü°¡ ±æµå ·¹º§ ¼³Á¤
 GUILDLEVEL	20
 
-// ìµœì†Œ ì°¸ì—¬ ê¸¸ë“œ ê°œìˆ˜
+// ÃÖ¼Ò Âü¿© ±æµå °³¼ö
 MINJOINGUILDSIZE	3
 
-// ìµœëŒ€ ì „ìŸì„ í• ìˆ˜ ìžˆëŠ” ê¸¸ë“œ ê°œìˆ˜
+// ÃÖ´ë ÀüÀïÀ» ÇÒ¼ö ÀÖ´Â ±æµå °³¼ö
 MAXJOINGUILDSIZE	8
 
-// ëŒ€ì „í•œ ì°¸ê°€ìžë“¤ì˜ ìµœëŒ€ ìƒëª…ìˆ˜
+// ´ëÀüÇÑ Âü°¡ÀÚµéÀÇ ÃÖ´ë »ý¸í¼ö
 MAXPLAYERLIFE		6
 
-// ì¶œì „ìž ê°œìˆ˜
+// ÃâÀüÀÚ °³¼ö
 MAXJOINMEMBERSIZE	10
 
-// ì„ ë°œëŒ€ ê°œìˆ˜
+// ¼±¹ß´ë °³¼ö
 MAXWARPLAYER		5
 
-// ëŒ€ì „ìœ„ì¹˜ ì‹œê°„ ì„¤ì • 
+// ´ëÀüÀ§Ä¡ ½Ã°£ ¼³Á¤ 
 MAXMAPTIME 		10
 
-// ìƒí’ˆ ì•„ì´í…œ ê°€ê²©
+// »óÇ° ¾ÆÀÌÅÛ °¡°Ý
 ITEMPENYA		1000
 	
-// ìš°ìŠ¹ê¸¸ë“œ ìƒê¸ˆ %
+// ¿ì½Â±æµå »ó±Ý %
 MAXGUILDPERCENT		0
 
-// ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ìƒê¸ˆ %
+// º£½ºÆ® ÇÃ·¹ÀÌ¾î »ó±Ý %
 MAXPLAYERPERCENT	0
 
-// ì°¸ê°€ ì·¨ì†Œ ì‹œ ëŒë ¤ì£¼ëŠ” íŽ˜ëƒ %
+// Âü°¡ Ãë¼Ò ½Ã µ¹·ÁÁÖ´Â Æä³Ä %
 REQUESTCANCLEPERCENT	80
 
-// ìž…ì°° ì‹¤íŒ¨ ì‹œ ëŒë ¤ì£¼ëŠ” íŽ˜ëƒ %
+// ÀÔÂû ½ÇÆÐ ½Ã µ¹·ÁÁÖ´Â Æä³Ä %
 NOTREQUESTPERCENT	98
 
 /*
-// ìµœëŒ€ ì—°ìŠ¹ ì•„ì´í…œ ì„¤ì •
+// ÃÖ´ë ¿¬½Â ¾ÆÀÌÅÛ ¼³Á¤
 MAX_GCSIENDITEM		10
 
-// ì—°ìŠ¹ ì•„ì´í…œ ì„¤ì •( ex, GCSENDITEM	ì—°ìŠ¹	ë””íŒŒì¸ì•„ì´í…œ	ê°œìˆ˜ )
+// ¿¬½Â ¾ÆÀÌÅÛ ¼³Á¤( ex, GCSENDITEM	¿¬½Â	µðÆÄÀÎ¾ÆÀÌÅÛ	°³¼ö )
 
 GCSENDITEM	1	II_SYS_SYS_SCR_BXGUILD		10
 GCSENDITEM	2	II_SYS_SYS_SCR_BXGUILD		10
@@ -76,37 +76,37 @@ GCSENDITEM	10	II_SYS_SYS_SCR_BXGUILD		10
 GCSENDITEM	10	II_ARM_S_CLO_CLO_DRAGON1	1
 */
 
-// ìžë™ ì˜¤í”ˆ ì‹œê°„ ì„¤ì •
-// ìž…ë ¥í˜•ì‹( ì¼ì¼ë‹¹ ìµœëŒ€ 24ì‹œë¥¼ ë„˜ì„ìˆ˜ ì—†ìŒ )
-// 1~7 == ì¼~í† 
+// ÀÚµ¿ ¿ÀÇÂ ½Ã°£ ¼³Á¤
+// ÀÔ·ÂÇü½Ä( ÀÏÀÏ´ç ÃÖ´ë 24½Ã¸¦ ³ÑÀ»¼ö ¾øÀ½ )
+// 1~7 == ÀÏ~Åä
 AUTO_OPEN_IDC
 {
-	7	18	30   // ìš”ì¼	ì‹œ(24ì‹œê°„í˜•ì‹ìœ¼ë¡œ ìž…ë ¥)	      ë¶„
+	7	18	30   // ¿äÀÏ	½Ã(24½Ã°£Çü½ÄÀ¸·Î ÀÔ·Â)	      ºÐ
 }
 
 AUTO_OPEN_TEST
 {
-	1	17	00   // ìš”ì¼	ì‹œ(24ì‹œê°„í˜•ì‹ìœ¼ë¡œ ìž…ë ¥)	      ë¶„
-	2	17	00   // ìš”ì¼	ì‹œ(24ì‹œê°„í˜•ì‹ìœ¼ë¡œ ìž…ë ¥)	      ë¶„
-	3	17	00   // ìš”ì¼	ì‹œ(24ì‹œê°„í˜•ì‹ìœ¼ë¡œ ìž…ë ¥)	      ë¶„
-	4	17	00   // ìš”ì¼	ì‹œ(24ì‹œê°„í˜•ì‹ìœ¼ë¡œ ìž…ë ¥)	      ë¶„
-	5	17	00   // ìš”ì¼	ì‹œ(24ì‹œê°„í˜•ì‹ìœ¼ë¡œ ìž…ë ¥)	      ë¶„
-	6	17	00   // ìš”ì¼	ì‹œ(24ì‹œê°„í˜•ì‹ìœ¼ë¡œ ìž…ë ¥)	      ë¶„
-	7	17	00   // ìš”ì¼	ì‹œ(24ì‹œê°„í˜•ì‹ìœ¼ë¡œ ìž…ë ¥)	      ë¶„
+	1	17	00   // ¿äÀÏ	½Ã(24½Ã°£Çü½ÄÀ¸·Î ÀÔ·Â)	      ºÐ
+	2	17	00   // ¿äÀÏ	½Ã(24½Ã°£Çü½ÄÀ¸·Î ÀÔ·Â)	      ºÐ
+	3	17	00   // ¿äÀÏ	½Ã(24½Ã°£Çü½ÄÀ¸·Î ÀÔ·Â)	      ºÐ
+	4	17	00   // ¿äÀÏ	½Ã(24½Ã°£Çü½ÄÀ¸·Î ÀÔ·Â)	      ºÐ
+	5	17	00   // ¿äÀÏ	½Ã(24½Ã°£Çü½ÄÀ¸·Î ÀÔ·Â)	      ºÐ
+	6	17	00   // ¿äÀÏ	½Ã(24½Ã°£Çü½ÄÀ¸·Î ÀÔ·Â)	      ºÐ
+	7	17	00   // ¿äÀÏ	½Ã(24½Ã°£Çü½ÄÀ¸·Î ÀÔ·Â)	      ºÐ
 }
 
-OPEN	14 // ì˜¤í”ˆ ì‹œê°„
+OPEN	14 // ¿ÀÇÂ ½Ã°£
 {
 //	WORLDMSG	5000		2706	101 	// TID_GAME_GUILDCOMBAT_OPEN_READY_MSG	
 //	WARSTATE	30000		101	102 	// NOTENTER_COUNT_STATE	
 //	WARSTATE	0		102	0 	// ENTER_STATE
 //	ALLMSG		30000		2710	103 	// TID_GAME_GUILDCOMBAT_OPEN_MSG	
-//	ì „ìŸ ì¤€ë¹„
+//	ÀüÀï ÁØºñ
 //	STATE		0		2	0 	// WAR_STATE
 //	WARSTATE	30000		103	104 	// MAINTENANCE_STATE	
-// 	ì „ìŸ ì‹œìž‘
+// 	ÀüÀï ½ÃÀÛ
 //	WARSTATE	600000 		104	105 	// WAR_WAR_STATE
-// 	ì „ìŸ ì¢…ë£Œ 	
+// 	ÀüÀï Á¾·á 	
 //	STATE		0		3	0 	// COMPLET_CLOSE_STATE
 //	WARSTATE	0		105	0 	// WAR_CLOSE_STATE
 //	WAIT		10000		0	0	// WAIT
@@ -118,12 +118,12 @@ OPEN	14 // ì˜¤í”ˆ ì‹œê°„
 	WARSTATE	3600000		101	102 	// NOTENTER_COUNT_STATE	
 	WARSTATE	0		102	0 	// ENTER_STATE
 	ALLMSG		420000		2710	103 	// TID_GAME_GUILDCOMBAT_OPEN_MSG	
-//	ì „ìŸ ì¤€ë¹„
+//	ÀüÀï ÁØºñ
 	STATE		0		2	0 	// WAR_STATE
 	WARSTATE	60000		103	104 	// MAINTENANCE_STATE	
-// 	ì „ìŸ ì‹œìž‘
+// 	ÀüÀï ½ÃÀÛ
 	WARSTATE	1800000 	104	105 	// WAR_WAR_STATE
-// 	ì „ìŸ ì¢…ë£Œ 	
+// 	ÀüÀï Á¾·á 	
 	STATE		0		3	0 	// COMPLET_CLOSE_STATE
 	WARSTATE	0		105	0 	// WAR_CLOSE_STATE
 	WAIT		10000		0	0	// WAIT
@@ -137,12 +137,12 @@ OPEN	14 // ì˜¤í”ˆ ì‹œê°„
 //	ALLMSG		60000		2709	102 	// TID_GAME_GUILDCOMBAT_OPEN_WAIT	
 //	WARSTATE	0		102	0 	// ENTER_STATE
 //	ALLMSG		90000		2710	103 	// TID_GAME_GUILDCOMBAT_OPEN_MSG	
-//	ì „ìŸ ì¤€ë¹„
+//	ÀüÀï ÁØºñ
 //	STATE		0		2	0 	// WAR_STATE
 //	WARSTATE	60000		103	104 	// MAINTENANCE_STATE	
-// 	ì „ìŸ ì‹œìž‘
+// 	ÀüÀï ½ÃÀÛ
 //	WARSTATE	120000 		104	105 	// WAR_WAR_STATE
-// 	ì „ìŸ ì¢…ë£Œ 	
+// 	ÀüÀï Á¾·á 	
 //	STATE		0		3	0 	// COMPLET_CLOSE_STATE
 //	WARSTATE	0		105	0 	// WAR_CLOSE_STATE
 //	WAIT		10000		0	0	// WAIT
@@ -156,12 +156,12 @@ OPEN	14 // ì˜¤í”ˆ ì‹œê°„
 //	ALLMSG		10000		2709	102 	// TID_GAME_GUILDCOMBAT_OPEN_WAIT	
 //	WARSTATE	0		102	0 	// ENTER_STATE
 //	ALLMSG		20000		2710	103 	// TID_GAME_GUILDCOMBAT_OPEN_MSG	
-//	ì „ìŸ ì¤€ë¹„
+//	ÀüÀï ÁØºñ
 //	STATE		0		2	0 	// WAR_STATE
 //	WARSTATE	30000		103	104 	// MAINTENANCE_STATE	
-//	ì „ìŸ ì‹œìž‘
+//	ÀüÀï ½ÃÀÛ
 //	WARSTATE	90000 		104	105 	// WAR_WAR_STATE
-// 	ì „ìŸ ì¢…ë£Œ 	
+// 	ÀüÀï Á¾·á 	
 //	STATE		0		3	0 	// COMPLET_CLOSE_STATE
 //	WARSTATE	0		105	0 	// WAR_CLOSE_STATE
 //	WAIT		10000		0	0	// WAIT
@@ -174,12 +174,12 @@ OPEN	14 // ì˜¤í”ˆ ì‹œê°„
 //	ALLMSG		3600000		2709	102 	// TID_GAME_GUILDCOMBAT_OPEN_WAIT	
 //	WARSTATE	0		102	0 	// ENTER_STATE
 //	ALLMSG		600000		2710	103 	// TID_GAME_GUILDCOMBAT_OPEN_MSG	
-//	ì „ìŸ ì¤€ë¹„
+//	ÀüÀï ÁØºñ
 //	STATE		0		2	0 	// WAR_STATE
 //	WARSTATE	900000		103	104 	// MAINTENANCE_STATE	
-// 	ì „ìŸ ì‹œìž‘
+// 	ÀüÀï ½ÃÀÛ
 //	WARSTATE	600000 		104	105 	// WAR_WAR_STATE
-// 	ì „ìŸ ì¢…ë£Œ 	
+// 	ÀüÀï Á¾·á 	
 //	STATE		0		3	0 	// COMPLET_CLOSE_STATE
 //	WARSTATE	0		105	0 	// WAR_CLOSE_STATE
 //	WAIT		10000		0	0	// WAIT

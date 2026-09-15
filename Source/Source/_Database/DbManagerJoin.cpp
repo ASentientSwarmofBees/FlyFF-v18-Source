@@ -1,4 +1,4 @@
-ï»¿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -74,7 +74,7 @@ void CDbManager::SendJoin( CMover* pMover, LPDB_OVERLAPPED_PLUS lpDBOP, DWORD dw
 	ar << dwFlyTime;
 #endif	// __JEFF_9_20
 	ar << nMaximumLevel;
-	WriteTag(ar, nTags, tags);	// ìª½ì§€ ì“°ê¸° 
+	WriteTag(ar, nTags, tags);	// ÂÊÁö ¾²±â 
 	ar.WriteString( szTimeGuild );
 	ar << pMover->m_dwReturnWorldID;
 	ar << pMover->m_vReturnPos;
@@ -111,16 +111,16 @@ void CDbManager::SendJoin( CMover* pMover, LPDB_OVERLAPPED_PLUS lpDBOP, DWORD dw
 }
 
 /*
-ìºë¦­í„° ë³µêµ¬ì‹œ - ë±…í¬ê°€ ì‚¬ë¼ì§€ëŠ” ë¬¸ì œ 
+Ä³¸¯ÅÍ º¹±¸½Ã - ¹ðÅ©°¡ »ç¶óÁö´Â ¹®Á¦ 
 
-ìºë¦­í„° ìƒì„±
-í•´ë‹¹ ìºë¦­ì˜ ë±…í¬ìŠ¬ë¡¯ì— ì•„ì´í…œ ë„£ìŒ
-ìºë¦­í„° ì‚­ì œ
-ìºë¦­í„° ë³µêµ¬
-ë¡œê·¸ì¸ 
+Ä³¸¯ÅÍ »ý¼º
+ÇØ´ç Ä³¸¯ÀÇ ¹ðÅ©½½·Ô¿¡ ¾ÆÀÌÅÛ ³ÖÀ½
+Ä³¸¯ÅÍ »èÁ¦
+Ä³¸¯ÅÍ º¹±¸
+·Î±×ÀÎ 
 S8
-result setì˜ ë±…í¬ ì •ë³´ë¥¼ ì½ì§€ ì•ŠìŒ ( ìºì‰¬ hit ì´ê¸° ë•Œë¬¸ì— )
-ìºë¦­í„°ë¥¼ ìƒˆë¡œ ì½ì–´ë„ ë±…í¬ëŠ” ìƒˆë¡œ ì½ì§€ ì•ŠìŒ( ìºì‰¬ì— ìžˆê¸° ë•Œë¬¸ì— )
+result setÀÇ ¹ðÅ© Á¤º¸¸¦ ÀÐÁö ¾ÊÀ½ ( Ä³½¬ hit ÀÌ±â ¶§¹®¿¡ )
+Ä³¸¯ÅÍ¸¦ »õ·Î ÀÐ¾îµµ ¹ðÅ©´Â »õ·Î ÀÐÁö ¾ÊÀ½( Ä³½¬¿¡ ÀÖ±â ¶§¹®¿¡ )
 */
 
 void CDbManager::Join( CQuery* qry, CQuery* qry1, CQuery* qrylog, LPDB_OVERLAPPED_PLUS lpDBOP )
@@ -153,7 +153,7 @@ void CDbManager::Join( CQuery* qry, CQuery* qry1, CQuery* qrylog, LPDB_OVERLAPPE
 	OutputDebugString( lpOutputString );
 
 	// CHARACTER_STR 'S8',@im_idPlayer,@iserverindex,@account
-	// CHARACTER_STR 'S8','000001','01','í™ê¸¸ë™'
+	// CHARACTER_STR 'S8','000001','01','È«±æµ¿'
 	char szQuery[QUERY_SIZE]	= { 0,};
 	DBQryCharacter( szQuery, "S8", idPlayer, g_appInfo.dwSys, lpDBOP->AccountInfo.szAccount );
 
@@ -176,7 +176,7 @@ void CDbManager::Join( CQuery* qry, CQuery* qry1, CQuery* qrylog, LPDB_OVERLAPPE
 	
 	BYTE nSlot = (BYTE)qry->GetInt( "playerslot" );
 
-	// ìž„ì‹œ ë³€ìˆ˜ì— ì¿¼ë¦¬ ê²°ê³¼ë¥¼ ì €ìž¥í•œë‹¤
+	// ÀÓ½Ã º¯¼ö¿¡ Äõ¸® °á°ú¸¦ ÀúÀåÇÑ´Ù
 	CMover	mover;
 	mover.m_nSlot	= nSlot;
 #if __VER >= 14 // __PCBANG
@@ -323,9 +323,9 @@ void CDbManager::Join( CQuery* qry, CQuery* qry1, CQuery* qrylog, LPDB_OVERLAPPE
 	GetMessengerFriend( &mover, qry, lpDBOP );
 #endif	// __RT_1025
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+#if __VER >= 13 // __HONORABLE_TITLE			// ´ÞÀÎ
 	GetHonor( &mover, qry, lpDBOP );
-#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
+#endif	// __HONORABLE_TITLE			// ´ÞÀÎ
 
 	if( !GetSkill( &mover, qry, lpDBOP ) )
 	{
@@ -348,25 +348,25 @@ void CDbManager::Join( CQuery* qry, CQuery* qry1, CQuery* qrylog, LPDB_OVERLAPPE
 		if( pCache->pMover[nSlot] == NULL )
 			pCache->pMover[nSlot]	= new CMover;
 		else
-			bExists		= TRUE;		// ìºì‹œì— ë‚¨ì•„ìžˆëŠ” ìºë¦­í„°ë©´ ìºì‹œ ì •ë³´ë¥¼ ì‚¬ìš©í•œë‹¤
+			bExists		= TRUE;		// Ä³½Ã¿¡ ³²¾ÆÀÖ´Â Ä³¸¯ÅÍ¸é Ä³½Ã Á¤º¸¸¦ »ç¿ëÇÑ´Ù
 	}
 	else
 		pCache->pMover[nSlot] = new CMover;
 	
 	CMover* pMover	= pCache->pMover[nSlot];
 
-#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 	if( memcmp( pCache->m_idPlayerBank, mover.m_idPlayerBank, sizeof(u_long) * 3 ) )
 	{
 		bRefresh = TRUE;
 	}
 	if( dwPlayTime == 0 || pMover->m_idPlayer != mover.m_idPlayer )	
 		bRefresh = TRUE;
-#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
+#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
 
 
-	// ì²˜ìŒ ì ‘ì†í•˜ëŠ” ê³„ì •ì´ê±°ë‚˜ ìƒˆë¡œê³ ì¹¨ì´ ì„¤ì •ë˜ì–´ ìžˆëŠ”
-	// ìºë¦­í„°ì˜ ê²½ìš° ì–´ì¹´ìš´íŠ¸ ìºì‹œì— ì€í–‰ì„ ë³µì‚¬í•œë‹¤
+	// Ã³À½ Á¢¼ÓÇÏ´Â °èÁ¤ÀÌ°Å³ª »õ·Î°íÄ§ÀÌ ¼³Á¤µÇ¾î ÀÖ´Â
+	// Ä³¸¯ÅÍÀÇ °æ¿ì ¾îÄ«¿îÆ® Ä³½Ã¿¡ ÀºÇàÀ» º¹»çÇÑ´Ù
 	if( !bCacheHit || bRefresh )
 	{
 		for( int j = 0 ; j < 3 ; j++ )
@@ -376,25 +376,25 @@ void CDbManager::Join( CQuery* qry, CQuery* qry1, CQuery* qrylog, LPDB_OVERLAPPE
 	}
 
 	pMover->Lock();
-	// ìºë¦­í„°ê°€ ìºì‹œì— ì—†ê±°ë‚˜ ìƒˆë¡œê³ ì¹¨ì´ ì„¤ì •ë˜ì–´ ìžˆìœ¼ë©´
-	// ëª¨ë“  ì •ë³´ë¥¼ ë³µì‚¬í•œë‹¤
+	// Ä³¸¯ÅÍ°¡ Ä³½Ã¿¡ ¾ø°Å³ª »õ·Î°íÄ§ÀÌ ¼³Á¤µÇ¾î ÀÖÀ¸¸é
+	// ¸ðµç Á¤º¸¸¦ º¹»çÇÑ´Ù
 	pMover->Copy( &mover, !bExists || bRefresh );
-	// ìºë¦­í„°ì— ì€í–‰ì„ ë³µì‚¬í•œë‹¤
+	// Ä³¸¯ÅÍ¿¡ ÀºÇàÀ» º¹»çÇÑ´Ù
 	for( int j = 0 ; j < 3 ; j++ )
 		pMover->m_Bank[j].Copy( pCache->m_Bank[j] );
 	memcpy( pMover->m_idPlayerBank, pCache->m_idPlayerBank, sizeof(u_long) * 3 );
 	memcpy( pMover->m_dwGoldBank, pCache->m_dwGoldBank, sizeof(DWORD) * 3 );
 
 	pMover->PeriodTick();
-	// ìž„ì‹œ ë³€ìˆ˜ì— ëª¨ë“  ì •ë³´ë¥¼ ë³µì‚¬í•œë‹¤.
-	// ì´ê²ƒì€ ë½ì´ ì—†ëŠ” ìƒíƒœì—ì„œ ì¿¼ë¦¬ë¥¼ ì‹¤í–‰í•˜ê¸° ìœ„í•´ì„œì´ë‹¤
+	// ÀÓ½Ã º¯¼ö¿¡ ¸ðµç Á¤º¸¸¦ º¹»çÇÑ´Ù.
+	// ÀÌ°ÍÀº ¶ôÀÌ ¾ø´Â »óÅÂ¿¡¼­ Äõ¸®¸¦ ½ÇÇàÇÏ±â À§ÇØ¼­ÀÌ´Ù
 	mover.Copy( pMover, TRUE );
 	pMover->Unlock();
 
 	m_AccountCacheMgr.AddAccount( pMover->m_idPlayer, lpDBOP->AccountInfo.szAccount, bCacheHit, pCache );
 	m_AddRemoveLock.Leave();
 
-	// ì§€ê¸‰, ì‚­ì œ
+	// Áö±Þ, »èÁ¦
 	BOOL bResult	= FALSE;
 #ifndef __NOLOG
 	bResult
@@ -406,15 +406,15 @@ void CDbManager::Join( CQuery* qry, CQuery* qry1, CQuery* qrylog, LPDB_OVERLAPPE
 	bResult	= mover.RemoveItemIK3()
 		|| bResult;
 	/*
-		- ë¬¸ì œ -
-			ìž„ì‹œ ë³€ìˆ˜ì—ì„œ ì§€ê¸‰ ì‚­ì œê°€ ì´ë£¨ì–´ì¡Œê¸° ë•Œë¬¸ì—,
-			í•´ë‹¹ ì‚¬ìš©ìžì˜ ì›”ë“œ ì„œë²„ë¡œì˜ ì§„ìž…ì´ ì‹¤íŒ¨í•  ê²½ìš° ìžë£Œê°€
-			ìœ ì‹¤ ë  ìˆ˜ ìžˆë‹¤. ë”°ë¼ì„œ ì´ì— ëŒ€í•œ ì²˜ë¦¬ê°€ í•„ìš”í•˜ë‹¤.
-		- í•´ê²° -
-			1. ì§€ê¸‰, ì‚­ì œë¡œ ì¸í•˜ì—¬ ë³€ê²½ì´ ìžˆì„ ê²½ìš° ìºì‹œì— ìž¬ ë³µì‚¬í•œë‹¤.
-			2. ì§€ê¸‰ê³¼ ì‚­ì œì— ëŒ€í•œ ì¿¼ë¦¬ë¶€ë¶„ì— ëŒ€í•œ ê²°ê³¼ë¥¼ ìž„ì˜ì˜ ìžë£Œì—
-				ì €ìž¥í•˜ê³  ì´ë¥¼ ë©”ëª¨ë¦¬ì—ì„œ ì²˜ë¦¬í•œë‹¤.
-			- í˜„ìž¬ 1, ì¶”í›„ 2ë¡œ ìˆ˜ì • ì˜ˆì •
+		- ¹®Á¦ -
+			ÀÓ½Ã º¯¼ö¿¡¼­ Áö±Þ »èÁ¦°¡ ÀÌ·ç¾îÁ³±â ¶§¹®¿¡,
+			ÇØ´ç »ç¿ëÀÚÀÇ ¿ùµå ¼­¹ö·ÎÀÇ ÁøÀÔÀÌ ½ÇÆÐÇÒ °æ¿ì ÀÚ·á°¡
+			À¯½Ç µÉ ¼ö ÀÖ´Ù. µû¶ó¼­ ÀÌ¿¡ ´ëÇÑ Ã³¸®°¡ ÇÊ¿äÇÏ´Ù.
+		- ÇØ°á -
+			1. Áö±Þ, »èÁ¦·Î ÀÎÇÏ¿© º¯°æÀÌ ÀÖÀ» °æ¿ì Ä³½Ã¿¡ Àç º¹»çÇÑ´Ù.
+			2. Áö±Þ°ú »èÁ¦¿¡ ´ëÇÑ Äõ¸®ºÎºÐ¿¡ ´ëÇÑ °á°ú¸¦ ÀÓÀÇÀÇ ÀÚ·á¿¡
+				ÀúÀåÇÏ°í ÀÌ¸¦ ¸Þ¸ð¸®¿¡¼­ Ã³¸®ÇÑ´Ù.
+			- ÇöÀç 1, ÃßÈÄ 2·Î ¼öÁ¤ ¿¹Á¤
 	*/
 	if( bResult )
 	{

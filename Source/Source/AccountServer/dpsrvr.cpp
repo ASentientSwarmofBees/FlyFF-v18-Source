@@ -1,4 +1,4 @@
-Ôªø#include "stdafx.h"
+#include "stdafx.h"
 #include "dpdbsrvr.h"
 extern	CDPDBSrvr	g_dpDbSrvr;
 
@@ -131,7 +131,7 @@ void CDPSrvr::OnAddAccount( CAr & ar, DPID dpid1, DPID dpid2 )
 #endif	// __GPAUTH_02
 	BYTE cbResult = ACCOUNT_CHECK_OK;		 
 
-	// 1. Ïô∏Î∂Ä ÏïÑÏù¥Ìîº Í≤ÄÏÇ¨ 
+	// 1. ø‹∫Œ æ∆¿Ã«« ∞ÀªÁ 
 	if( m_bCheckAddr )							
 	{
 		CMclAutoLock	Lock( m_csAddrPmttd );
@@ -139,7 +139,7 @@ void CDPSrvr::OnAddAccount( CAr & ar, DPID dpid1, DPID dpid2 )
 		for( i = 0; i < m_nSizeofAddrPmttd; i++ )
 		{
 			if( strstr( lpAddr, m_sAddrPmttd[i] ) )
-				break;		// Í≤ÄÏÇ¨ ÌÜµÍ≥º 
+				break;		// ∞ÀªÁ ≈Î∞˙ 
 		}
 		if( i == m_nSizeofAddrPmttd )
 			cbResult = ACCOUNT_EXTERNAL_ADDR;	 
@@ -152,7 +152,7 @@ void CDPSrvr::OnAddAccount( CAr & ar, DPID dpid1, DPID dpid2 )
 	if( lpAddr[0] == '\0' )
 		Error( "Not Addr : %s", lpAddr );
 	
-	// 2. MAX, Ï§ëÎ≥µÍ≤ÄÏÇ¨  
+	// 2. MAX, ¡ﬂ∫π∞ÀªÁ  
 	if( cbResult == ACCOUNT_CHECK_OK )			
 	{
 		if( g_AccountMng.m_nCount < m_nMaxConn )	
@@ -168,7 +168,7 @@ void CDPSrvr::OnAddAccount( CAr & ar, DPID dpid1, DPID dpid2 )
 	}
 
 #ifdef __BILLING0712
-	// 3. ÎπåÎßÅ Í≤ÄÏÇ¨ 	
+	// 3. ∫Ù∏µ ∞ÀªÁ 	
 	if( cbResult == ACCOUNT_CHECK_OK )
 	{
 		cbResult = GetBillingMgr()->CheckAccount( fCheck, dwAuthKey, lpszAccount, lpAddr );
@@ -203,7 +203,7 @@ void CDPSrvr::OnAfterChecking( BYTE cbResult, LPCTSTR lpszAccount, DPID dpid1, D
 {
 	if( cbResult == ACCOUNT_CHECK_OK )
 	{
-		g_DbManager.UpdateTracking( TRUE, lpszAccount );  // Ïú†Ï†ÄÍ∞Ä login ÌñàÏùåÏùÑ ÎîîÎπÑÏóê Ïì¥Îã§.
+		g_DbManager.UpdateTracking( TRUE, lpszAccount );  // ¿Ø¿˙∞° login «ﬂ¿Ω¿ª µ∫Òø° æ¥¥Ÿ.
 	}
 
 	BEFORESENDSOLE( ar, PACKETTYPE_ADD_ACCOUNT, dpid2 );
@@ -441,23 +441,23 @@ void CDPSrvr::OnCloseExistingConnection( CAr & ar, DPID dpid1, DPID dpid2 )
 {
 	char lpszAccount[MAX_ACCOUNT]	= { 0, };
 	ar.ReadString( lpszAccount, MAX_ACCOUNT );
-	CloseExistingConnection( lpszAccount, 0 );	// 0 - ÏóêÎü¨Í∞Ä ÏïÑÎãàÎã§.
+	CloseExistingConnection( lpszAccount, 0 );	// 0 - ø°∑Ø∞° æ∆¥œ¥Ÿ.
 }
 
-// ÌòÑÏû¨ Ï†ëÏÜçÌïú Ïñ¥Ïπ¥Ïö¥Ìä∏Î•º ÎÅäÎäîÎã§.
-// Ï†ëÏÜçÏùÄ 2Í∞ÄÏßÄ Í≤ΩÏö∞Í∞Ä ÏûàÎã§. - Ï†ëÏÜç ÌõÑ ÌîåÎ†àÏù¥Î•º ÌïòÎäî Í≤ΩÏö∞ 
-//                           - Ï†ëÏÜç Í≥ºÏ†ï 
+// «ˆ¿Á ¡¢º”«— æÓƒ´øÓ∆Æ∏¶ ≤˜¥¬¥Ÿ.
+// ¡¢º”¿∫ 2∞°¡ˆ ∞ÊøÏ∞° ¿÷¥Ÿ. - ¡¢º” »ƒ «√∑π¿Ã∏¶ «œ¥¬ ∞ÊøÏ 
+//                           - ¡¢º” ∞˙¡§ 
 void CDPSrvr::CloseExistingConnection( LPCTSTR lpszAccount, LONG lError )
 {
 	CMclAutoLock	Lock( g_AccountMng.m_AddRemoveLock );
 	CAccount* pAccount	= g_AccountMng.GetAccount( lpszAccount );
 	if( pAccount )
 	{
-		if( pAccount->m_fRoute )	// Ï†ëÏÜç ÌõÑ ÌîåÎ†àÏù¥Î•º ÌïòÎäî Í≤ΩÏö∞ 
+		if( pAccount->m_fRoute )	// ¡¢º” »ƒ «√∑π¿Ã∏¶ «œ¥¬ ∞ÊøÏ 
 		{
 			g_dpDbSrvr.SendCloseExistingConnection( lpszAccount, lError );
 		}
-		else						// Ï†ëÏÜç Í≥ºÏ†ï 
+		else						// ¡¢º” ∞˙¡§ 
 		{
 			DestroyPlayer( pAccount->m_dpid1, pAccount->m_dpid2 );
 			g_AccountMng.RemoveAccount( pAccount->m_dpid1, pAccount->m_dpid2 );

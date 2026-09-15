@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include ".\minigamestopwatch.h"
@@ -36,7 +36,7 @@ BOOL CMiniGameStopwatch::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacke
 		return bReturn;
 	}
 
-	// 0.05ì´ˆ ì˜¤ì°¨ë²”ìœ„ ì¸ì •..
+	// 0.05ÃÊ ¿ÀÂ÷¹üÀ§ ÀÎÁ¤..
 	if( GetTargetTime() <= (pMiniGamePacket->nParam1 + 30)
 		&& GetTargetTime() >= (pMiniGamePacket->nParam1 - 30) )
 	{

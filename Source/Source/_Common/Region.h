@@ -1,4 +1,4 @@
-Ôªø// Region.h: interface for the CCtrl class.
+// Region.h: interface for the CCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -33,7 +33,7 @@ struct REGIONELEM
 	union
 	{
 		bool          m_bDirectMusic;
-		bool          m_bUnit; // structure typeÏóêÏÑú unitÏù∏Í∞Ä?
+		bool          m_bUnit; // structure typeø°º≠ unit¿Œ∞°?
 	};
 
 	bool          m_bPlayDirectMusic;

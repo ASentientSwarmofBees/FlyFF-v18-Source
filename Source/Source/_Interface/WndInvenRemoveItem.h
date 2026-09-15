@@ -1,4 +1,4 @@
-﻿#ifndef __WNDINVENREMOVEITEM__H
+#ifndef __WNDINVENREMOVEITEM__H
 #define __WNDINVENREMOVEITEM__H
 
 class CWndInvenRemoveItem : public CWndNeuz 

@@ -1,4 +1,4 @@
-﻿#ifndef __DPLOGINSRVR_H__
+#ifndef __DPLOGINSRVR_H__
 #define __DPLOGINSRVR_H__
 
 #include "DPMng.h"

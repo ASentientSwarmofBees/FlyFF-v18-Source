@@ -1,4 +1,4 @@
-﻿/*
+/*
  *  FIPS-46-3 compliant 3DES implementation
  *
  *  Copyright (C) 2001-2003  Christophe Devine

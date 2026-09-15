@@ -1,4 +1,4 @@
-ï»¿#include "stdafx.h"
+#include "stdafx.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include ".\minigamediceplay.h"
@@ -21,7 +21,7 @@ CMiniGameDiceplay::~CMiniGameDiceplay(void)
 
 BOOL CMiniGameDiceplay::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket )
 {
-	BOOL bReturn = FALSE;		// í˜„ì¬ ë¯¸ë‹ˆ ê²Œì„ì´ ì™„ë£Œë˜ëŠ”ê±´ì§€...
+	BOOL bReturn = FALSE;		// ÇöÀç ¹Ì´Ï °ÔÀÓÀÌ ¿Ï·áµÇ´Â°ÇÁö...
 	__MINIGAME_PACKET MP( pMiniGamePacket->wNowGame );
 	if( pMiniGamePacket->nState == MP_OPENWND )
 	{
@@ -45,7 +45,7 @@ BOOL CMiniGameDiceplay::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket
 		SendPacket( pUser, MP );
 		m_nTargetNum = xRandom( 2, 13 );
 		MP.nParam1 = m_nTargetNum;
-		MP.nParam2 = -1;	// ì‹¤íŒ¨ì‹œ ìƒˆë¡œ ë°”ë€ ëª©í‘œê°’ì´ë¼ëŠ” ê±¸ ì•Œë ¤ì¤Œ..(-1)
+		MP.nParam2 = -1;	// ½ÇÆĞ½Ã »õ·Î ¹Ù²ï ¸ñÇ¥°ªÀÌ¶ó´Â °É ¾Ë·ÁÁÜ..(-1)
 	}
 
 	SendPacket( pUser, MP );

@@ -1,0 +1,3 @@
+@echo off
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0start_servers.ps1"
+if %errorlevel% neq 0 pause

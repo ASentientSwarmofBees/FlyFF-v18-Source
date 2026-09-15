@@ -1,12 +1,12 @@
-ï»¿//+	szPath	        "C:\Program Files\Aeonsoft\Flyff Test/Client/notice.inc.gz"
+//+	szPath	        "C:\Program Files\Aeonsoft\Flyff Test/Client/notice.inc.gz"
 //+	szServerPath	"flyff/NeuroSpace/TEST_RESCLIENT_KOR/Client/notice.inc.gz"
 
 
 	m_pThread = AfxBeginThread( _DownloadThread, this, THREAD_PRIORITY_NORMAL, CREATE_SUSPENDED );
 
-CDPPatchClient ë¥¼ ì œê±° 
-g_PatchManager.fv ë¥¼ ë‚´ë¶€ ë©¤ë²„ë¡œ ë³€ê²½ì‹œí‚¨ë‹¤.
-ui ë³€ê²½ì„ ì•Œì•„ì„œ í•˜ê²Œ 
+CDPPatchClient ¸¦ Á¦°Å 
+g_PatchManager.fv ¸¦ ³»ºÎ ¸â¹ö·Î º¯°æ½ÃÅ²´Ù.
+ui º¯°æÀ» ¾Ë¾Æ¼­ ÇÏ°Ô 
 
 
 			int nIndex;
@@ -192,7 +192,7 @@ LPCTSTR CBetaPatchClientApp::GetOptionString( OPTION_STRING type )
 	return "";
 }
 
-#ifdef	__HANGAME0307     // í•œê²Œì„ ëŒ€ì‘ ë²„ì ¼ 
+#ifdef	__HANGAME0307     // ÇÑ°ÔÀÓ ´ëÀÀ ¹öÁ¯ 
 	TCHAR* szText   = HOME_LINK;
 	TCHAR* szURL    = HOME_LINK;
 	TCHAR* szWebURL = WEB_FIRST_PAGE;
@@ -204,7 +204,7 @@ LPCTSTR CBetaPatchClientApp::GetOptionString( OPTION_STRING type )
 		szURL    = "http://www.hangame.co.jp/game.asp?fo";
 		szWebURL = "http://www.flyff.jp/info/news/info_list.asp?domain=hangame.co.jp";
 	}
-#else					// ì¼ë°˜ë²„ì ¼ 
+#else					// ÀÏ¹İ¹öÁ¯ 
 	TCHAR* szText   = HOME_LINK;
 	TCHAR* szURL    = HOME_LINK;
 	TCHAR* szWebURL = WEB_FIRST_PAGE;
