@@ -1,0 +1,69 @@
+# =========================================================================
+# Visual Studio Build Outputs & Intermediates (Saves ~1.8 GB)
+# =========================================================================
+# Precompiled headers, browser info, debug databases, assembly listings
+*.pch
+*.sbr
+*.pdb
+*.cod
+*.i
+*.bsc
+*.map
+*.res
+*.tlog
+*.idb
+*.plg
+*.opt
+*.recipe
+*.lastbuildstate
+*.aps
+
+# Compiled binaries and libraries
+*.exe
+*.dll
+*.lib
+*.a
+*.sys
+*.tlb
+*.obj
+
+# User-specific Visual Studio settings & temporary folders
+*.user
+.vs/
+Debug/
+Release/
+x64/
+x86/
+
+# =========================================================================
+# Game Assets & Large Binary Formats (Saves ~4.1 GB)
+# =========================================================================
+# Textures & Images
+*.dds
+*.tga
+*.bmp
+*.jpg
+*.image
+*.ico
+*.cur
+
+# 3D Models, Animations & Character Assets
+*.o3d
+*.ani
+*.ase
+*.chr
+
+# Audio & Music
+*.wav
+*.ogg
+*.bgm
+*.sfx
+
+# Proprietary Game/Engine Data & Map Files
+*.lnd
+*.rgn
+*.dyo
+*.wld
+
+# Backup files
+*.old
