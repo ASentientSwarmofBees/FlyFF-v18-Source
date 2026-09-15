@@ -1,17 +1,17 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndRankGuild.h"
 
 #ifdef __GUILDRANK
 /****************************************************
-  WndId : APP_RANK_GUILDTABBEST - ÃÖ°­±æµå
-  CtrlId : WIDC_STATIC1 - ¼øÀ§
-  CtrlId : WIDC_STATIC3 - ±æµå¸íÄª
-  CtrlId : WIDC_STATIC4 - ±æµåÀå¸íÄª
-  CtrlId : WIDC_STATIC5 - ½Â
+  WndId : APP_RANK_GUILDTABBEST - ìµœê°•ê¸¸ë“œ
+  CtrlId : WIDC_STATIC1 - ìˆœìœ„
+  CtrlId : WIDC_STATIC3 - ê¸¸ë“œëª…ì¹­
+  CtrlId : WIDC_STATIC4 - ê¸¸ë“œì¥ëª…ì¹­
+  CtrlId : WIDC_STATIC5 - ìŠ¹
   CtrlId : WIDC_STATIC6 - /
-  CtrlId : WIDC_STATIC7 - ÆĞ
+  CtrlId : WIDC_STATIC7 - íŒ¨
 ****************************************************/
 
 CWndRankTabBest::CWndRankTabBest() 
@@ -42,7 +42,7 @@ void CWndRankTabBest::OnDraw( C2DRender* p2DRender )
 		
 		dwColor = D3DCOLOR_ARGB( 255, 0, 0, 0 );
 		
-		// ±æµå ¼øÀ§ ·Î±×
+		// ê¸¸ë“œ ìˆœìœ„ ë¡œê·¸
 		int nNo = i + 1;
 		if( nNo < 2 )
 			nNo = 0;
@@ -56,10 +56,10 @@ void CWndRankTabBest::OnDraw( C2DRender* p2DRender )
 			nNo = 4;
 		pWndWorld->m_texMsgIcon.MakeVertex( p2DRender, CPoint( sx +  0, sy-3 ), 49 + nNo, &pVertices, 0xffffffff );	
 		
-		// ±æµå ¼øÀ§
+		// ê¸¸ë“œ ìˆœìœ„
 		p2DRender->TextOut( sx +   20, sy, i+1, dwColor  );
 		
-		// ±æµå ·Î±×
+		// ê¸¸ë“œ ë¡œê·¸
 		
 		if( pGuildRank->m_Ranking[nFlag][i].m_dwLogo != 0 )
 		{
@@ -73,11 +73,11 @@ void CWndRankTabBest::OnDraw( C2DRender* p2DRender )
 			p2DRender->m_pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
 		}
 		
-		// ±æµå¸í
+		// ê¸¸ë“œëª…
 		CString guildname = pGuildRank->m_Ranking[nFlag][i].m_szGuild;
 		p2DRender->TextOut( sx + 72, sy, guildname, dwColor );
 				
-		// ¸¶½ºÅÍ¸í (±æ °æ¿ì ... À¸·Î)
+		// ë§ˆìŠ¤í„°ëª… (ê¸¸ ê²½ìš° ... ìœ¼ë¡œ)
 		CString strMasterName;
 		strMasterName.Format("%s", pGuildRank->m_Ranking[nFlag][i].m_szName);
 		strMasterName.TrimRight();
@@ -99,7 +99,7 @@ void CWndRankTabBest::OnDraw( C2DRender* p2DRender )
 		}
 		p2DRender->TextOut( sx + 210, sy, strMasterName, dwColor );
 		
-		// ½Â / ÆĞ
+		// ìŠ¹ / íŒ¨
 		CString strWin;
 		strWin.Format( "%5d  /  %5d", pGuildRank->m_Ranking[nFlag][i].m_nWin, pGuildRank->m_Ranking[nFlag][i].m_nLose );
 		p2DRender->TextOut( sx + 330, sy, strWin, dwColor );
@@ -114,12 +114,12 @@ void CWndRankTabBest::OnDraw( C2DRender* p2DRender )
 void CWndRankTabBest::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	m_nCurrentList = 0;
 	m_nMxOld = m_nMyOld = 0;	
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -127,10 +127,10 @@ void CWndRankTabBest::OnInitialUpdate()
 	MoveParentCenter();
 } 
 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndRankTabBest::Initialize( CWndBase* pWndParent, DWORD ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RANK_GUILDTABBEST, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -163,7 +163,7 @@ void CWndRankTabBest::OnMouseMove(UINT nFlags, CPoint point )
 {
 	if( nFlags & MK_LBUTTON )
 	{
-		int		nDistY = (m_nMyOld - point.y) / 5;		// °ú°Å ÁÂÇ¥¿ÍÀÇ Â÷ÀÌ.
+		int		nDistY = (m_nMyOld - point.y) / 5;		// ê³¼ê±° ì¢Œí‘œì™€ì˜ ì°¨ì´.
 		int		nFlag = CGuildRank::R1;
 		
 		m_nCurrentList += nDistY;
@@ -207,13 +207,13 @@ BOOL CWndRankTabBest::OnMouseWheel( UINT nFlags, short zDelta, CPoint pt )
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /****************************************************
-  WndId : APP_RANK_GUILDTABUNITED - ÃÖ´ë°á¼Ó
-  CtrlId : WIDC_STATIC1 - ¼øÀ§
-  CtrlId : WIDC_STATIC2 - ±æµå¸íÄª
-  CtrlId : WIDC_STATIC3 - ±æµåÀå¸íÄª
-  CtrlId : WIDC_STATIC4 - ½Â
+  WndId : APP_RANK_GUILDTABUNITED - ìµœëŒ€ê²°ì†
+  CtrlId : WIDC_STATIC1 - ìˆœìœ„
+  CtrlId : WIDC_STATIC2 - ê¸¸ë“œëª…ì¹­
+  CtrlId : WIDC_STATIC3 - ê¸¸ë“œì¥ëª…ì¹­
+  CtrlId : WIDC_STATIC4 - ìŠ¹
   CtrlId : WIDC_STATIC5 - /
-  CtrlId : WIDC_STATIC6 - ÆĞ
+  CtrlId : WIDC_STATIC6 - íŒ¨
 ****************************************************/
 CWndRankTabUnited::CWndRankTabUnited() 
 { 
@@ -243,7 +243,7 @@ void CWndRankTabUnited::OnDraw( C2DRender* p2DRender )
 		
 		dwColor = D3DCOLOR_ARGB( 255, 0, 0, 0 );
 		
-		// ±æµå ¼øÀ§ ·Î±×
+		// ê¸¸ë“œ ìˆœìœ„ ë¡œê·¸
 		int nNo = i + 1;
 		if( nNo < 2 )
 			nNo = 0;
@@ -257,10 +257,10 @@ void CWndRankTabUnited::OnDraw( C2DRender* p2DRender )
 			nNo = 4;
 		pWndWorld->m_texMsgIcon.MakeVertex( p2DRender, CPoint( sx +  0, sy-3 ), 49 + nNo, &pVertices, 0xffffffff );	
 		
-		// ±æµå ¼øÀ§
+		// ê¸¸ë“œ ìˆœìœ„
 		p2DRender->TextOut( sx +   20, sy, i+1, dwColor  );
 		
-		// ±æµå ·Î±×
+		// ê¸¸ë“œ ë¡œê·¸
 		
 		if( pGuildRank->m_Ranking[nFlag][i].m_dwLogo != 0 )
 		{
@@ -274,11 +274,11 @@ void CWndRankTabUnited::OnDraw( C2DRender* p2DRender )
 			p2DRender->m_pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
 		}
 		
-		// ±æµå¸í
+		// ê¸¸ë“œëª…
 		CString guildname = pGuildRank->m_Ranking[nFlag][i].m_szGuild;
 		p2DRender->TextOut( sx + 72, sy, guildname, dwColor );
 				
-		// ¸¶½ºÅÍ¸í (±æ °æ¿ì ... À¸·Î)
+		// ë§ˆìŠ¤í„°ëª… (ê¸¸ ê²½ìš° ... ìœ¼ë¡œ)
 		CString strMasterName;
 		strMasterName.Format("%s", pGuildRank->m_Ranking[nFlag][i].m_szName);
 		strMasterName.TrimRight();
@@ -300,7 +300,7 @@ void CWndRankTabUnited::OnDraw( C2DRender* p2DRender )
 		}
 		p2DRender->TextOut( sx + 210, sy, strMasterName, dwColor );
 		
-		// ½Â / ÆĞ
+		// ìŠ¹ / íŒ¨
 		CString strWin;
 		strWin.Format( "%5d  /  %5d", pGuildRank->m_Ranking[nFlag][i].m_nWin, pGuildRank->m_Ranking[nFlag][i].m_nLose );
 		p2DRender->TextOut( sx + 330, sy, strWin, dwColor );
@@ -315,23 +315,23 @@ void CWndRankTabUnited::OnDraw( C2DRender* p2DRender )
 void CWndRankTabUnited::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	//	m_nSelect = 0;
 	m_nCurrentList = 0;
 	m_nMxOld = m_nMyOld = 0;
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndRankTabUnited::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RANK_GUILDTABUNITED, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndRankTabUnited::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -358,7 +358,7 @@ void CWndRankTabUnited::OnMouseMove(UINT nFlags, CPoint point )
 {
 	if( nFlags & MK_LBUTTON )
 	{
-		int		nDistY = (m_nMyOld - point.y) / 5;		// °ú°Å ÁÂÇ¥¿ÍÀÇ Â÷ÀÌ.
+		int		nDistY = (m_nMyOld - point.y) / 5;		// ê³¼ê±° ì¢Œí‘œì™€ì˜ ì°¨ì´.
 		int		nFlag = CGuildRank::R5;
 		
 		m_nCurrentList += nDistY;
@@ -408,10 +408,10 @@ BOOL CWndRankTabUnited::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /****************************************************
-  WndId : APP_RANK_GUILDTABPENYA - ÃÖ´ëÀç·Â
-  CtrlId : WIDC_STATIC1 - ¼øÀ§
-  CtrlId : WIDC_STATIC2 - ±æµå¸íÄª
-  CtrlId : WIDC_STATIC3 - ±æµåÀå¸íÄª
+  WndId : APP_RANK_GUILDTABPENYA - ìµœëŒ€ì¬ë ¥
+  CtrlId : WIDC_STATIC1 - ìˆœìœ„
+  CtrlId : WIDC_STATIC2 - ê¸¸ë“œëª…ì¹­
+  CtrlId : WIDC_STATIC3 - ê¸¸ë“œì¥ëª…ì¹­
 ****************************************************/
 CWndRankTabPenya::CWndRankTabPenya() 
 { 
@@ -441,7 +441,7 @@ void CWndRankTabPenya::OnDraw( C2DRender* p2DRender )
 
 		dwColor = D3DCOLOR_ARGB( 255, 0, 0, 0 );
 		
-		// ±æµå ¼øÀ§ ·Î±×
+		// ê¸¸ë“œ ìˆœìœ„ ë¡œê·¸
 		int nNo = i + 1;
 		if( nNo < 2 )
 			nNo = 0;
@@ -455,10 +455,10 @@ void CWndRankTabPenya::OnDraw( C2DRender* p2DRender )
 			nNo = 4;
 		pWndWorld->m_texMsgIcon.MakeVertex( p2DRender, CPoint( sx +  0, sy-3 ), 49 + nNo, &pVertices, 0xffffffff );	
 		
-		// ±æµå ¼øÀ§
+		// ê¸¸ë“œ ìˆœìœ„
 		p2DRender->TextOut( sx +   20, sy, i+1, dwColor  );
 		
-		// ±æµå ·Î±×
+		// ê¸¸ë“œ ë¡œê·¸
 		
 		if( pGuildRank->m_Ranking[nFlag][i].m_dwLogo != 0 )
 		{
@@ -472,11 +472,11 @@ void CWndRankTabPenya::OnDraw( C2DRender* p2DRender )
 			p2DRender->m_pd3dDevice->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA );
 		}
 		
-		// ±æµå¸í
+		// ê¸¸ë“œëª…
 		CString guildname = pGuildRank->m_Ranking[nFlag][i].m_szGuild;
 		p2DRender->TextOut( sx + 72, sy, guildname, dwColor );
 				
-		// ¸¶½ºÅÍ¸í (±æ °æ¿ì ... À¸·Î)
+		// ë§ˆìŠ¤í„°ëª… (ê¸¸ ê²½ìš° ... ìœ¼ë¡œ)
 		CString strMasterName;
 		strMasterName.Format("%s", pGuildRank->m_Ranking[nFlag][i].m_szName);
 		strMasterName.TrimRight();
@@ -508,24 +508,24 @@ void CWndRankTabPenya::OnDraw( C2DRender* p2DRender )
 void CWndRankTabPenya::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	//	m_nSelect = 0;
 	m_nCurrentList = 0;
 	m_nMxOld = m_nMyOld = 0;
 
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndRankTabPenya::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RANK_GUILDTABPENYA, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndRankTabPenya::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -552,7 +552,7 @@ void CWndRankTabPenya::OnMouseMove(UINT nFlags, CPoint point )
 {
 	if( nFlags & MK_LBUTTON )
 	{
-		int		nDistY = (m_nMyOld - point.y) / 5;		// °ú°Å ÁÂÇ¥¿ÍÀÇ Â÷ÀÌ.
+		int		nDistY = (m_nMyOld - point.y) / 5;		// ê³¼ê±° ì¢Œí‘œì™€ì˜ ì°¨ì´.
 		int		nFlag = CGuildRank::R6;
 		
 		m_nCurrentList += nDistY;
@@ -601,7 +601,7 @@ BOOL CWndRankTabPenya::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /****************************************************
-  WndId : APP_RANK_GUILD - ±æµå ·©Å·Ã¢
+  WndId : APP_RANK_GUILD - ê¸¸ë“œ ë­í‚¹ì°½
   CtrlId : WIDC_TABCTRL1 - 
 ****************************************************/
 
@@ -617,7 +617,7 @@ void CWndRankGuild::OnDraw( C2DRender* p2DRender )
 void CWndRankGuild::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	CWndTabCtrl* pWndTabCtrl = (CWndTabCtrl*)GetDlgItem( WIDC_TABCTRL1 );
 	CRect rect = GetClientRect();
@@ -644,17 +644,17 @@ void CWndRankGuild::OnInitialUpdate()
 	tabTabItem.pWndBase = &m_WndRankTabPenya;
 	pWndTabCtrl->InsertItem( 2, &tabTabItem );
 	
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndRankGuild::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_RANK_GUILD, 0, CPoint( 0, 0 ), pWndParent );
 } 
 

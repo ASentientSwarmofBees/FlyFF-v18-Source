@@ -1,4 +1,4 @@
-#ifndef __PROJECT_H__
+ï»¿#ifndef __PROJECT_H__
 #define __PROJECT_H__
 
 #include "ProjectCmn.h"
@@ -85,7 +85,7 @@ public:
 	CFixedArray<ItemProp>	m_aPropSkill;
 	CFixedArray<ItemProp>	m_aPropItem  ;
 	int						m_nMoverPropSize;
-	MoverProp*				m_pPropMover;	// m_aPropMover¹è¿­¿¡ ¸Ş¸ğ¸® Ä§¹üÀÌ ÀÖ¾î¼­ ¼öÁ¤ÇÔ.04.10.14
+	MoverProp*				m_pPropMover;	// m_aPropMoverë°°ì—´ì— ë©”ëª¨ë¦¬ ì¹¨ë²”ì´ ìˆì–´ì„œ ìˆ˜ì •í•¨.04.10.14
 	CFixedArray< tagColorText >	m_colorText;
 
 #if __VER >= 9 // __EVENTLUA
@@ -106,21 +106,21 @@ public:
 	EXPPARTY	m_aExpParty[MAX_PARTYLEVEL];
 	EXPCHARACTER m_aExpCharacter[MAX_EXPCHARACTER];
 
-	FLOAT m_fItemDropRate;			// ¸ó½ºÅÍ ¾ÆÀÌÅÛ µå·Ó·ü
-	FLOAT m_fGoldDropRate;			// ¸ó½ºÅÍ Æä³Ä µå·Ó·ü
-	FLOAT m_fMonsterExpRate;		// ¸ó½ºÅÍ °æÇèÄ¡·ê
-	FLOAT m_fMonsterHitRate;		// ¸ó½ºÅÍ °ø°İ·ü
-	FLOAT m_fShopCost;				// »óÁ¡°¡°İ
+	FLOAT m_fItemDropRate;			// ëª¬ìŠ¤í„° ì•„ì´í…œ ë“œë¡­ë¥ 
+	FLOAT m_fGoldDropRate;			// ëª¬ìŠ¤í„° í˜ëƒ ë“œë¡­ë¥ 
+	FLOAT m_fMonsterExpRate;		// ëª¬ìŠ¤í„° ê²½í—˜ì¹˜ë£°
+	FLOAT m_fMonsterHitRate;		// ëª¬ìŠ¤í„° ê³µê²©ë¥ 
+	FLOAT m_fShopCost;				// ìƒì ê°€ê²©
 #ifdef __ITEM_REMOVE_LIST
 	DWORD	m_dwConvMode;
 #endif // __ITEM_REMOVE_LIST
 	
 #ifdef __S1108_BACK_END_SYSTEM
-	FLOAT m_fMonsterRebirthRate;	// ¸ó½ºÅÍ ¸®½ºÆù·ü
-	FLOAT m_fMonsterHitpointRate;	// ¸ó½ºÅÍ »ı¸í·Â·ü
-	FLOAT m_fMonsterAggressiveRate; // ¼±°ø¸ó½ºÅÍ·ü
-	FLOAT m_fMonsterRespawnRate;	// ¸ó½ºÅÍ ¸®½ºÆù·ü
-	BOOL  m_bBaseGameSetting;		// °ÔÀÓ™VÆÃ ¿Ï·á
+	FLOAT m_fMonsterRebirthRate;	// ëª¬ìŠ¤í„° ë¦¬ìŠ¤í°ë¥ 
+	FLOAT m_fMonsterHitpointRate;	// ëª¬ìŠ¤í„° ìƒëª…ë ¥ë¥ 
+	FLOAT m_fMonsterAggressiveRate; // ì„ ê³µëª¬ìŠ¤í„°ë¥ 
+	FLOAT m_fMonsterRespawnRate;	// ëª¬ìŠ¤í„° ë¦¬ìŠ¤í°ë¥ 
+	BOOL  m_bBaseGameSetting;		// ê²Œì„ì…‘íŒ… ì™„ë£Œ
 	BOOL  m_bBackEndSystem;
 	MONSTER_RESPAWN	m_aMonsterRespawn[MAX_RESPAWN];		// Respawn
 	MONSTER_RESPAWN n_aAddRespawn[MAX_RESPAWN];

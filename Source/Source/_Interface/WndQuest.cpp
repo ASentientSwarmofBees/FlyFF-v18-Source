@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndQuest.h"
@@ -25,7 +25,7 @@ BOOL CWndRemoveQuest::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 
 	m_wndText.SetString( prj.GetText(TID_GAME_QUEST_DELCONFIRM) );
 	m_wndText.ResetString();
-	if( g_WndMng.m_pWndWorld && g_WndMng.m_pWndWorld->GetMouseMode() == 1 )	// FPS¸ğµåÀÏ¶§
+	if( g_WndMng.m_pWndWorld && g_WndMng.m_pWndWorld->GetMouseMode() == 1 )	// FPSëª¨ë“œì¼ë•Œ
 	{
 		g_WndMng.m_pWndWorld->SetMouseMode( 0 );
 	}
@@ -204,7 +204,7 @@ void CWndQuest::Update( int nNewQuestId )
 	
 	CUIntArray* paHeadQuest;
 	CPtrArray aOrderQuest;
-	// ÇØµå Äù½ºÆ®¸¦ ¸¸µç´Ù. 
+	// í•´ë“œ í€˜ìŠ¤íŠ¸ë¥¼ ë§Œë“ ë‹¤. 
 	int i;
 	for( i = 0; i < g_pPlayer->m_nCompleteQuestSize; i++ )
 	{
@@ -217,14 +217,14 @@ void CWndQuest::Update( int nNewQuestId )
 				for( int j = 0; j < aOrderQuest.GetSize(); j++ )
 				{
 					paHeadQuest = (CUIntArray*) aOrderQuest.GetAt( j );
-					// °°Àº°Ô ¹ß°ßµÇ¸é µÚ¸¦ ÀÌ¾î Ãß°¡ : Ãß°¡µÈ°Ç ÀÏ¹İ Äù½ºÆ® 
+					// ê°™ì€ê²Œ ë°œê²¬ë˜ë©´ ë’¤ë¥¼ ì´ì–´ ì¶”ê°€ : ì¶”ê°€ëœê±´ ì¼ë°˜ í€˜ìŠ¤íŠ¸ 
 					if( paHeadQuest->GetAt( 0 ) == pQuestProp->m_nHeadQuest ) 
 					{
 						paHeadQuest->Add( wQuest );
 						break;
 					}
 				}
-				// ¹ß°ß ¸øÇßÀ¸¸é ÇØµå Äù½ºÆ®¸¦ Ã³À½ Ãß°¡ 
+				// ë°œê²¬ ëª»í–ˆìœ¼ë©´ í•´ë“œ í€˜ìŠ¤íŠ¸ë¥¼ ì²˜ìŒ ì¶”ê°€ 
 				if( j == aOrderQuest.GetSize() )
 				{
 					paHeadQuest = new CUIntArray;
@@ -236,7 +236,7 @@ void CWndQuest::Update( int nNewQuestId )
 			else
 			{
 				CString string;
-				string.Format( "CWndQuest::Update 1 : Quest %dÀÇ pQuestProp NULLÀÌ´Ù.", wQuest );
+				string.Format( "CWndQuest::Update 1 : Quest %dì˜ pQuestProp NULLì´ë‹¤.", wQuest );
 				ADDERRORMSG( string );
 			}
 		}
@@ -252,14 +252,14 @@ void CWndQuest::Update( int nNewQuestId )
 				for( int j = 0; j < aOrderQuest.GetSize(); j++ )
 				{
 					paHeadQuest = (CUIntArray*) aOrderQuest.GetAt( j );
-					// °°Àº°Ô ¹ß°ßµÇ¸é µÚ¸¦ ÀÌ¾î Ãß°¡ : Ãß°¡µÈ°Ç ÀÏ¹İ Äù½ºÆ® 
+					// ê°™ì€ê²Œ ë°œê²¬ë˜ë©´ ë’¤ë¥¼ ì´ì–´ ì¶”ê°€ : ì¶”ê°€ëœê±´ ì¼ë°˜ í€˜ìŠ¤íŠ¸ 
 					if( paHeadQuest->GetAt( 0 ) == pQuestProp->m_nHeadQuest ) 
 					{
 						paHeadQuest->Add( lpQuest->m_wId );
 						break;
 					}
 				}
-				// ¹ß°ß ¸øÇßÀ¸¸é ÇØµå Äù½ºÆ®¸¦ Ã³À½ Ãß°¡ 
+				// ë°œê²¬ ëª»í–ˆìœ¼ë©´ í•´ë“œ í€˜ìŠ¤íŠ¸ë¥¼ ì²˜ìŒ ì¶”ê°€ 
 				if( j == aOrderQuest.GetSize() )
 				{
 					paHeadQuest = new CUIntArray;
@@ -271,13 +271,13 @@ void CWndQuest::Update( int nNewQuestId )
 			else
 			{
 				CString string;
-				string.Format( "CWndQuest::Update 2 : Quest %dÀÇ pQuestProp NULLÀÌ´Ù.", lpQuest->m_wId );
+				string.Format( "CWndQuest::Update 2 : Quest %dì˜ pQuestProp NULLì´ë‹¤.", lpQuest->m_wId );
 				ADDERRORMSG( string );
 			}
 		}
 	}
 
-	// Äù½ºÆ®¸¦ list¿¡ ³Ö´Â´Ù.
+	// í€˜ìŠ¤íŠ¸ë¥¼ listì— ë„£ëŠ”ë‹¤.
 	QUEST questTemp;
 	BOOL bCompleteQuest;
 	for( i = 0; i < aOrderQuest.GetSize(); i++ )
@@ -301,7 +301,7 @@ void CWndQuest::Update( int nNewQuestId )
 						bCompleteQuest = TRUE;
 					}
 				}
-				// ½ÇÁ¦ Äù½ºÆ® 
+				// ì‹¤ì œ í€˜ìŠ¤íŠ¸ 
 				CString string;
 				if( lpQuest )
 				{
@@ -315,12 +315,12 @@ void CWndQuest::Update( int nNewQuestId )
 						pTreeCtrl->InsertItem( lpTreeElem, string, nQuestId );
 
 				}
-				// ÇØµå Äù½ºÆ® 
+				// í•´ë“œ í€˜ìŠ¤íŠ¸ 
 				else
 				{
 					string.Format( "%s", pQuestProp->m_szTitle );
 					lpTreeElem = pTreeCtrl->InsertItem( NULL, string, nQuestId );
-					// »õ Äù½ºÆ®ÀÇ Çìµå¶û ³ª¶û °°À¸¸é Æ®¸® ÀÚµ¿ ¿ÀÇÂ 
+					// ìƒˆ í€˜ìŠ¤íŠ¸ì˜ í—¤ë“œë‘ ë‚˜ë‘ ê°™ìœ¼ë©´ íŠ¸ë¦¬ ìë™ ì˜¤í”ˆ 
 					if( nNewQuestId != -1 && prj.m_aPropQuest.GetAt( nNewQuestId )->m_nHeadQuest == nQuestId )
 					{
 						lpTreeElem->m_bOpen = TRUE;
@@ -376,7 +376,7 @@ void CWndQuest::RemoveQuest( void )
 	{
 		CWndDialog* pWndDialog = (CWndDialog*)g_WndMng.GetWndBase( APP_DIALOG_EX );
 		QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( nQuest );
-		// ¿î¿µÀÚ´Â ¾ğÁ¦³ª Äù½ºÆ®¸¦ Áö¿ï ¼ö ÀÖ´Ù
+		// ìš´ì˜ìëŠ” ì–¸ì œë‚˜ í€˜ìŠ¤íŠ¸ë¥¼ ì§€ìš¸ ìˆ˜ ìˆë‹¤
 		if( g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER ) && g_Option.m_bOperator )
 			pWndRemove->EnableWindow( TRUE );
 		else if( bComplete || lpQuest->m_nState == QS_END || pWndDialog )
@@ -423,7 +423,7 @@ void CWndQuest::UpdateText()
 		CWndDialog* pWndDialog = (CWndDialog*)g_WndMng.GetWndBase( APP_DIALOG );
 #endif //__CSC_VER12_3
 		pQuestProp = prj.m_aPropQuest.GetAt( nQuest );
-		// ¿µÀÚ´Â ¾ğÁ¦³ª Äù½ºÆ®¸¦ Áö¿ï ¼ö ÀÖ´Ù.
+		// ì˜ìëŠ” ì–¸ì œë‚˜ í€˜ìŠ¤íŠ¸ë¥¼ ì§€ìš¸ ìˆ˜ ìˆë‹¤.
 		if( g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER ) && g_Option.m_bOperator )
 			pWndRemove->EnableWindow( TRUE );
 		else
@@ -439,7 +439,7 @@ void CWndQuest::UpdateText()
 				pWndRemove->EnableWindow( TRUE );
 		}
 
-		// µğ½ºÅ©¸³¼Ç¸¸ Ãâ·Â
+		// ë””ìŠ¤í¬ë¦½ì…˜ë§Œ ì¶œë ¥
 		if( bComplete )
 		{
 			for( int i = QS_END; i >= 0; i-- )
@@ -458,7 +458,7 @@ void CWndQuest::UpdateText()
 			pTextDesc->SetString( pQuestState->m_szDesc, 0xff000000 );
 		}
 		//////////////////////////////////////////////////////////////////////////////////
-		// Äù½ºÆ® Á¾·á Á¶°Ç 
+		// í€˜ìŠ¤íŠ¸ ì¢…ë£Œ ì¡°ê±´ 
 		//////////////////////////////////////////////////////////////////////////////////
 		CString strTemp;
 		CString strCond;
@@ -632,51 +632,51 @@ void CWndQuest::UpdateText()
 					}
 				}
 #endif // __VER < 8 // __S8_PK
-				// ÆÄÆ¼ Ã¼Å© 
+				// íŒŒí‹° ì²´í¬ 
 				if( pQuestProp->m_nEndCondParty != 0 ) 
 				{
 					BOOL bLeader = FALSE;
 					BOOL bParty  = g_Party.IsMember( g_pPlayer->m_idPlayer );
 					int nSize = g_Party.GetSizeofMember();
 
-					if( pQuestProp->m_nEndCondParty == 1 ) // ½Ì±ÛÀÌ¾î¾ßÇÔ 
+					if( pQuestProp->m_nEndCondParty == 1 ) // ì‹±ê¸€ì´ì–´ì•¼í•¨ 
 					{
 						strTemp.Format( GETTEXT( TID_QUEST_PARTY_SOLO ) );
 						strCond += MakeQuestString( strTemp, !bParty );
 					}
 					else
-					if( pQuestProp->m_nEndCondParty == 2 ) // ÆÄÆ¼¿©¾ßÇÔ
+					if( pQuestProp->m_nEndCondParty == 2 ) // íŒŒí‹°ì—¬ì•¼í•¨
 					{
 						int nTextId = 0;
 						BOOL bResult = FALSE;
 
 						if( pQuestProp->m_nEndCondPartyNum == 0 ) 
 						{
-							if( pQuestProp->m_nEndCondPartyLeader == 0 ) // ÆÄÆ¼ ¿©ºÎ (0 == 0 )
+							if( pQuestProp->m_nEndCondPartyLeader == 0 ) // íŒŒí‹° ì—¬ë¶€ (0 == 0 )
 								nTextId = TID_QUEST_PARTY;
-							else // ÆÄÆ¼, ¸É¹ö ¿©ºÎ (0 == 0 ) 
+							else // íŒŒí‹°, ë§´ë²„ ì—¬ë¶€ (0 == 0 ) 
 							if( pQuestProp->m_nEndCondPartyLeader == 1 )
 								nTextId = TID_QUEST_PARTY_MEMBER;
-							else // ÆÄÆ¼, ¸®´õ ¿©ºÎ (0 == 0 ) 
+							else // íŒŒí‹°, ë¦¬ë” ì—¬ë¶€ (0 == 0 ) 
 							if( pQuestProp->m_nEndCondPartyLeader == 2 )
 								nTextId = TID_QUEST_PARTY_LEADER;
 
 							strTemp.Format( GETTEXT( nTextId ) );
 
-							if( pQuestProp->m_nEndCondPartyLeader == 0 ) // ÆÄÆ¼ ¿©ºÎ 
+							if( pQuestProp->m_nEndCondPartyLeader == 0 ) // íŒŒí‹° ì—¬ë¶€ 
 								bResult = TRUE;
-							else // ÆÄÆ¼, ¸É¹ö ¿©ºÎ 
+							else // íŒŒí‹°, ë§´ë²„ ì—¬ë¶€ 
 							if( ( pQuestProp->m_nEndCondPartyLeader - 1 ) == bLeader )
 								bResult = TRUE;
 						}
 						else
 						{
-							if( pQuestProp->m_nEndCondPartyLeader == 0 ) // ÆÄÆ¼ ¿©ºÎ (0 == 0 )
+							if( pQuestProp->m_nEndCondPartyLeader == 0 ) // íŒŒí‹° ì—¬ë¶€ (0 == 0 )
 								nTextId = TID_QUEST_PARTY_NUM;
-							else // ÆÄÆ¼, ¸É¹ö ¿©ºÎ (0 == 0 ) 
+							else // íŒŒí‹°, ë§´ë²„ ì—¬ë¶€ (0 == 0 ) 
 							if( pQuestProp->m_nEndCondPartyLeader == 1 )
 								nTextId = TID_QUEST_PARTY_MEMBER_NUM;
-							else // ÆÄÆ¼, ¸®´õ ¿©ºÎ (0 == 0 ) 
+							else // íŒŒí‹°, ë¦¬ë” ì—¬ë¶€ (0 == 0 ) 
 							if( pQuestProp->m_nEndCondPartyLeader == 2 )
 								nTextId = TID_QUEST_PARTY_LEADER_NUM;
 
@@ -704,7 +704,7 @@ void CWndQuest::UpdateText()
 						strCond += MakeQuestString( strTemp, bResult && bParty );
 					}
 				}
-				// ±æµå Ã¼Å© 
+				// ê¸¸ë“œ ì²´í¬ 
 				if( pQuestProp->m_nEndCondGuild != 0 ) 
 				{
 					BOOL bLeader = FALSE;
@@ -713,44 +713,44 @@ void CWndQuest::UpdateText()
 
 
 
-					if( pQuestProp->m_nEndCondGuild == 1 ) // ±æµå°¡ ¾Æ´Ï¾î¾ßµÊ 
+					if( pQuestProp->m_nEndCondGuild == 1 ) // ê¸¸ë“œê°€ ì•„ë‹ˆì–´ì•¼ë¨ 
 					{
 						strTemp.Format( GETTEXT( TID_QUEST_GUILD_SOLO ) );
 						strCond += MakeQuestString( strTemp, !bGuild );
 					}
 					else
-					if( pQuestProp->m_nEndCondGuild == 2 ) // ±æµå¿©¾ßµÊ 
+					if( pQuestProp->m_nEndCondGuild == 2 ) // ê¸¸ë“œì—¬ì•¼ë¨ 
 					{
 						int nTextId = 0;
 						BOOL bResult = FALSE;
 
 						if( pQuestProp->m_nEndCondGuildNum == 0 ) 
 						{
-							if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ÆÄÆ¼ ¿©ºÎ (0 == 0 )
+							if( pQuestProp->m_nEndCondGuildLeader == 0 ) // íŒŒí‹° ì—¬ë¶€ (0 == 0 )
 								nTextId = TID_QUEST_GUILD;
-							else // ÆÄÆ¼, ¸É¹ö ¿©ºÎ (0 == 0 ) 
+							else // íŒŒí‹°, ë§´ë²„ ì—¬ë¶€ (0 == 0 ) 
 							if( pQuestProp->m_nEndCondGuildLeader == 1 )
 								nTextId = TID_QUEST_GUILD_MEMBER;
-							else // ÆÄÆ¼, ¸®´õ ¿©ºÎ (0 == 0 ) 
+							else // íŒŒí‹°, ë¦¬ë” ì—¬ë¶€ (0 == 0 ) 
 							if( pQuestProp->m_nEndCondGuildLeader == 2 )
 								nTextId = TID_QUEST_GUILD_LEADER;
 
 							strTemp.Format( GETTEXT( nTextId ) );
 
-							if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ±æµå ¿©ºÎ 
+							if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ê¸¸ë“œ ì—¬ë¶€ 
 								bResult = TRUE;
-							else // ±æµå, ¸®´õ ¿©ºÎ 
+							else // ê¸¸ë“œ, ë¦¬ë” ì—¬ë¶€ 
 							if( ( pQuestProp->m_nEndCondGuildLeader - 1 ) == bLeader )
 								bResult = TRUE;
 						}
 						else
 						{
-							if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ±æµå ¿©ºÎ (0 == 0 )
+							if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ê¸¸ë“œ ì—¬ë¶€ (0 == 0 )
 								nTextId = TID_QUEST_GUILD_NUM;
-							else // ±æµå, ¸É¹ö ¿©ºÎ (0 == 0 ) 
+							else // ê¸¸ë“œ, ë§´ë²„ ì—¬ë¶€ (0 == 0 ) 
 							if( pQuestProp->m_nEndCondGuildLeader == 1 )
 								nTextId = TID_QUEST_GUILD_MEMBER_NUM;
-							else // ±æµå, ¸®´õ ¿©ºÎ (0 == 0 ) 
+							else // ê¸¸ë“œ, ë¦¬ë” ì—¬ë¶€ (0 == 0 ) 
 							if( pQuestProp->m_nEndCondGuildLeader == 2 )
 								nTextId = TID_QUEST_GUILD_LEADER_NUM;
 
@@ -905,7 +905,7 @@ void CWndQuest::UpdateText()
 					strTemp.Format( GETTEXT( TID_QUEST_DESTINATION ), lpCharacter->m_strName );
 					strCond += strTemp + "\n";
 #if __VER >= 13 // __QUEST_HELPER
-					if(bClick) //Å¬¸¯ÇØ¼­ ¾÷µ¥ÀÌÆ® µÇ´Â °æ¿ì¿¡¸¸ ÁÂÇ¥¸¦ ¿äÃ»ÇÑ´Ù.
+					if(bClick) //í´ë¦­í•´ì„œ ì—…ë°ì´íŠ¸ ë˜ëŠ” ê²½ìš°ì—ë§Œ ì¢Œí‘œë¥¼ ìš”ì²­í•œë‹¤.
 					{
 						CWndWorld* pWndWorld = g_WndMng.m_pWndWorld;
 						if(pWndWorld)
@@ -956,7 +956,7 @@ void CWndQuest::UpdateText()
 		}
 
 		//////////////////////////////////////////////////////////////////////////////////
-		// º¸»ó ¾ÆÀÌÅÛ ¸ñ·Ï
+		// ë³´ìƒ ì•„ì´í…œ ëª©ë¡
 		//////////////////////////////////////////////////////////////////////////////////
 		CString strReward;
 
@@ -1158,10 +1158,10 @@ void CWndQuest::OnInitialUpdate()
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndQuest::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_QUEST_EX_LIST, 0, CPoint( 0, 0 ), pWndParent );
 #else // __IMPROVE_QUEST_INTERFACE
@@ -1355,19 +1355,19 @@ CWndQuestTreeCtrl* CWndQuest::GetQuestTreeSelf( const DWORD dwQuestID )
 	DWORD dwRootHeadQuestID = GetRootHeadQuest( dwQuestID );
 	switch( dwRootHeadQuestID )
 	{
-	case QUEST_KIND_SCENARIO: // ½Ã³ª¸®¿À Äù½ºÆ®
+	case QUEST_KIND_SCENARIO: // ì‹œë‚˜ë¦¬ì˜¤ í€˜ìŠ¤íŠ¸
 		{
 			return &m_WndScenario;
 		}
-	case QUEST_KIND_NORMAL: // ÀÏ¹İ Äù½ºÆ®
+	case QUEST_KIND_NORMAL: // ì¼ë°˜ í€˜ìŠ¤íŠ¸
 		{
 			return &m_WndNormal;
 		}
-	case QUEST_KIND_REQUEST: // ÀÇ·Ú¼Ò Äù½ºÆ®
+	case QUEST_KIND_REQUEST: // ì˜ë¢°ì†Œ í€˜ìŠ¤íŠ¸
 		{
 			return &m_WndRequest;
 		}
-	case QUEST_KIND_EVENT: // ÀÌº¥Æ® Äù½ºÆ®
+	case QUEST_KIND_EVENT: // ì´ë²¤íŠ¸ í€˜ìŠ¤íŠ¸
 		{
 			return &m_WndEvent;
 		}
@@ -1748,7 +1748,7 @@ void CWndQuestDetail::UpdateQuestDetailText( DWORD dwQuestID, LPQUEST lpQuest, B
 
 	QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( dwQuestID );
 
-	// µğ½ºÅ©¸³¼Ç¸¸ Ãâ·Â
+	// ë””ìŠ¤í¬ë¦½ì…˜ë§Œ ì¶œë ¥
 	if( bComplete )
 	{
 		for( int i = QS_END; i >= 0; --i )
@@ -1768,7 +1768,7 @@ void CWndQuestDetail::UpdateQuestDetailText( DWORD dwQuestID, LPQUEST lpQuest, B
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////
-	// Äù½ºÆ® Á¾·á Á¶°Ç
+	// í€˜ìŠ¤íŠ¸ ì¢…ë£Œ ì¡°ê±´
 	//////////////////////////////////////////////////////////////////////////////////
 	CString strTemp = _T( "" );
 #ifdef __BS_PUTNAME_QUESTARROW
@@ -1782,7 +1782,7 @@ void CWndQuestDetail::UpdateQuestDetailText( DWORD dwQuestID, LPQUEST lpQuest, B
 		MakeQuestConditionItems( dwQuestID, pWndQuestConditionTree, bClick );
 
 	//////////////////////////////////////////////////////////////////////////////////
-	// º¸»ó ¾ÆÀÌÅÛ ¸ñ·Ï
+	// ë³´ìƒ ì•„ì´í…œ ëª©ë¡
 	//////////////////////////////////////////////////////////////////////////////////
 	CString strReward = _T( "" );
 	for( int i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
@@ -2042,14 +2042,14 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 			}
 		}
 #endif // __VER < 8 // __S8_PK
-		// ÆÄÆ¼ Ã¼Å©
+		// íŒŒí‹° ì²´í¬
 		if( pQuestProp->m_nEndCondParty != 0 )
 		{
 			BOOL bLeader = FALSE;
 			BOOL bParty  = g_Party.IsMember( g_pPlayer->m_idPlayer );
 			int nSize = g_Party.GetSizeofMember();
 
-			if( pQuestProp->m_nEndCondParty == 1 ) // ½Ì±ÛÀÌ¾î¾ß ÇÔ
+			if( pQuestProp->m_nEndCondParty == 1 ) // ì‹±ê¸€ì´ì–´ì•¼ í•¨
 			{
 				strTemp.Format( GETTEXT( TID_QUEST_PARTY_SOLO ) );
 				DWORD dwCompleteColor = 0;
@@ -2059,34 +2059,34 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 					dwCompleteColor = dwStartColor;
 				pWndTreeCtrl->InsertItem( lpTreeElem, MakeString( strTemp, !bParty ), 0, TRUE, FALSE, dwCompleteColor, dwSelectColor );
 			}
-			else if( pQuestProp->m_nEndCondParty == 2 ) // ÆÄÆ¼¿©¾ß ÇÔ
+			else if( pQuestProp->m_nEndCondParty == 2 ) // íŒŒí‹°ì—¬ì•¼ í•¨
 			{
 				int nTextId = 0;
 				BOOL bResult = FALSE;
 
 				if( pQuestProp->m_nEndCondPartyNum == 0 )
 				{
-					if( pQuestProp->m_nEndCondPartyLeader == 0 ) // ÆÄÆ¼ ¿©ºÎ (0 == 0 )
+					if( pQuestProp->m_nEndCondPartyLeader == 0 ) // íŒŒí‹° ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_PARTY;
-					else if( pQuestProp->m_nEndCondPartyLeader == 1 ) // ÆÄÆ¼, ¸É¹ö ¿©ºÎ (0 == 0 )
+					else if( pQuestProp->m_nEndCondPartyLeader == 1 ) // íŒŒí‹°, ë§´ë²„ ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_PARTY_MEMBER;
-					else if( pQuestProp->m_nEndCondPartyLeader == 2 ) // ÆÄÆ¼, ¸®´õ ¿©ºÎ (0 == 0 )
+					else if( pQuestProp->m_nEndCondPartyLeader == 2 ) // íŒŒí‹°, ë¦¬ë” ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_PARTY_LEADER;
 
 					strTemp.Format( GETTEXT( nTextId ) );
 
-					if( pQuestProp->m_nEndCondPartyLeader == 0 ) // ÆÄÆ¼ ¿©ºÎ 
+					if( pQuestProp->m_nEndCondPartyLeader == 0 ) // íŒŒí‹° ì—¬ë¶€ 
 						bResult = TRUE;
-					else if( ( pQuestProp->m_nEndCondPartyLeader - 1 ) == bLeader ) // ÆÄÆ¼, ¸É¹ö ¿©ºÎ
+					else if( ( pQuestProp->m_nEndCondPartyLeader - 1 ) == bLeader ) // íŒŒí‹°, ë§´ë²„ ì—¬ë¶€
 						bResult = TRUE;
 				}
 				else
 				{
-					if( pQuestProp->m_nEndCondPartyLeader == 0 ) // ÆÄÆ¼ ¿©ºÎ (0 == 0 )
+					if( pQuestProp->m_nEndCondPartyLeader == 0 ) // íŒŒí‹° ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_PARTY_NUM;
-					else if( pQuestProp->m_nEndCondPartyLeader == 1 ) // ÆÄÆ¼, ¸É¹ö ¿©ºÎ (0 == 0 )
+					else if( pQuestProp->m_nEndCondPartyLeader == 1 ) // íŒŒí‹°, ë§´ë²„ ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_PARTY_MEMBER_NUM;
-					else if( pQuestProp->m_nEndCondPartyLeader == 2 ) // ÆÄÆ¼, ¸®´õ ¿©ºÎ (0 == 0 )
+					else if( pQuestProp->m_nEndCondPartyLeader == 2 ) // íŒŒí‹°, ë¦¬ë” ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_PARTY_LEADER_NUM;
 
 					if( pQuestProp->m_nEndCondPartyNumComp == 0 ) 
@@ -2116,14 +2116,14 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 				pWndTreeCtrl->InsertItem( lpTreeElem, MakeString( strTemp, bResult && bParty ), 0, TRUE, FALSE, dwCompleteColor, dwSelectColor );
 			}
 		}
-		// ±æµå Ã¼Å©
+		// ê¸¸ë“œ ì²´í¬
 		if( pQuestProp->m_nEndCondGuild != 0 ) 
 		{
 			BOOL bLeader = FALSE;
 			BOOL bGuild  = g_Party.IsMember( g_pPlayer->m_idPlayer );
 			int nSize = g_Party.GetSizeofMember();
 
-			if( pQuestProp->m_nEndCondGuild == 1 ) // ±æµå°¡ ¾Æ´Ï¾î¾ß µÊ
+			if( pQuestProp->m_nEndCondGuild == 1 ) // ê¸¸ë“œê°€ ì•„ë‹ˆì–´ì•¼ ë¨
 			{
 				strTemp.Format( GETTEXT( TID_QUEST_GUILD_SOLO ) );
 				DWORD dwCompleteColor = 0;
@@ -2133,34 +2133,34 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 					dwCompleteColor = dwStartColor;
 				pWndTreeCtrl->InsertItem( lpTreeElem, MakeString( strTemp, !bGuild ), 0, TRUE, FALSE, dwCompleteColor, dwSelectColor );
 			}
-			else if( pQuestProp->m_nEndCondGuild == 2 ) // ±æµå¿©¾ß µÊ
+			else if( pQuestProp->m_nEndCondGuild == 2 ) // ê¸¸ë“œì—¬ì•¼ ë¨
 			{
 				int nTextId = 0;
 				BOOL bResult = FALSE;
 
 				if( pQuestProp->m_nEndCondGuildNum == 0 ) 
 				{
-					if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ÆÄÆ¼ ¿©ºÎ (0 == 0 )
+					if( pQuestProp->m_nEndCondGuildLeader == 0 ) // íŒŒí‹° ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_GUILD;
-					else if( pQuestProp->m_nEndCondGuildLeader == 1 ) // ÆÄÆ¼, ¸É¹ö ¿©ºÎ (0 == 0 )
+					else if( pQuestProp->m_nEndCondGuildLeader == 1 ) // íŒŒí‹°, ë§´ë²„ ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_GUILD_MEMBER;
-					else if( pQuestProp->m_nEndCondGuildLeader == 2 ) // ÆÄÆ¼, ¸®´õ ¿©ºÎ (0 == 0 )
+					else if( pQuestProp->m_nEndCondGuildLeader == 2 ) // íŒŒí‹°, ë¦¬ë” ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_GUILD_LEADER;
 
 					strTemp.Format( GETTEXT( nTextId ) );
 
-					if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ±æµå ¿©ºÎ
+					if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ê¸¸ë“œ ì—¬ë¶€
 						bResult = TRUE;
-					else if( ( pQuestProp->m_nEndCondGuildLeader - 1 ) == bLeader ) // ±æµå, ¸®´õ ¿©ºÎ
+					else if( ( pQuestProp->m_nEndCondGuildLeader - 1 ) == bLeader ) // ê¸¸ë“œ, ë¦¬ë” ì—¬ë¶€
 						bResult = TRUE;
 				}
 				else
 				{
-					if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ±æµå ¿©ºÎ (0 == 0 )
+					if( pQuestProp->m_nEndCondGuildLeader == 0 ) // ê¸¸ë“œ ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_GUILD_NUM;
-					else if( pQuestProp->m_nEndCondGuildLeader == 1 ) // ±æµå, ¸É¹ö ¿©ºÎ (0 == 0 )
+					else if( pQuestProp->m_nEndCondGuildLeader == 1 ) // ê¸¸ë“œ, ë§´ë²„ ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_GUILD_MEMBER_NUM;
-					else if( pQuestProp->m_nEndCondGuildLeader == 2 ) // ±æµå, ¸®´õ ¿©ºÎ (0 == 0 )
+					else if( pQuestProp->m_nEndCondGuildLeader == 2 ) // ê¸¸ë“œ, ë¦¬ë” ì—¬ë¶€ (0 == 0 )
 						nTextId = TID_QUEST_GUILD_LEADER_NUM;
 
 					if( pQuestProp->m_nEndCondGuildNumComp == 0 )
@@ -2309,7 +2309,7 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 			}
 #endif
 #if __VER >= 13 // __QUEST_HELPER
-			if( bClick ) // Å¬¸¯ÇØ¼­ ¾÷µ¥ÀÌÆ®µÇ´Â °æ¿ì¿¡¸¸ ÁÂÇ¥¸¦ ¿äÃ»ÇÑ´Ù
+			if( bClick ) // í´ë¦­í•´ì„œ ì—…ë°ì´íŠ¸ë˜ëŠ” ê²½ìš°ì—ë§Œ ì¢Œí‘œë¥¼ ìš”ì²­í•œë‹¤
 			{
 				CWndWorld* pWndWorld = g_WndMng.m_pWndWorld;
 				if( pWndWorld )

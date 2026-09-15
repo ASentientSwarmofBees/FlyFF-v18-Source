@@ -1,4 +1,4 @@
-// Exchange.h: interface for the CExchange class.
+Ôªø// Exchange.h: interface for the CExchange class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -68,18 +68,18 @@ public:
 	virtual ~CExchange();
 
 	BOOL			Load_Script();					// Load Script
-	vector<int>		GetListTextId( int nMMIId );	// ∞¢ ∏ÆΩ∫∆Æ∫∞ º≥∏Ì TEXT ID ∏Ò∑œ
-	vector<int>		GetDescId( int nMMIId );		// ¿¸√º º≥∏Ì TEXT ID ∏Ò∑œ
+	vector<int>		GetListTextId( int nMMIId );	// Í∞Å Î¶¨Ïä§Ìä∏Î≥Ñ ÏÑ§Î™Ö TEXT ID Î™©Î°ù
+	vector<int>		GetDescId( int nMMIId );		// Ï†ÑÏ≤¥ ÏÑ§Î™Ö TEXT ID Î™©Î°ù
 	vector<int>		GetResultMsg( int nMMIId, int nListNum );
 	PSETLIST		FindExchange( int nMMIID );		
 #ifdef __WORLDSERVER
-	int				ResultExchange( CUser* pUser, int nMMIid, int nListNum ); // √÷¡æ ∞·∞˙
-	BOOL			CheckCondition( CUser* pUser, int nMMIId, int nListNum ); // ¡∂∞« ∫Ò±≥
-	BOOL			IsFull( CUser* pUser, vector<__ITEM> vecRemoveItem, vector<__ITEM> vecPayItem ); // ¿Œ∫• ∞¯∞£
-	vector<__ITEM>	GetRemoveItemList( int nMMIId, int nListNum ); // ªË¡¶ æ∆¿Ã≈€ ∏ÆΩ∫∆Æ
-	vector<__ITEM>	GetPayItemList( int nMMIId, int nListNum ); // ¡ˆ±ﬁ æ∆¿Ã≈€ ∏ÆΩ∫∆Æ
+	int				ResultExchange( CUser* pUser, int nMMIid, int nListNum ); // ÏµúÏ¢Ö Í≤∞Í≥º
+	BOOL			CheckCondition( CUser* pUser, int nMMIId, int nListNum ); // Ï°∞Í±¥ ÎπÑÍµê
+	BOOL			IsFull( CUser* pUser, vector<__ITEM> vecRemoveItem, vector<__ITEM> vecPayItem ); // Ïù∏Î≤§ Í≥µÍ∞Ñ
+	vector<__ITEM>	GetRemoveItemList( int nMMIId, int nListNum ); // ÏÇ≠Ï†ú ÏïÑÏù¥ÌÖú Î¶¨Ïä§Ìä∏
+	vector<__ITEM>	GetPayItemList( int nMMIId, int nListNum ); // ÏßÄÍ∏â ÏïÑÏù¥ÌÖú Î¶¨Ïä§Ìä∏
 #if __VER >= 15 // __CAMPUS
-	vector<__POINT>	GetRemovePointList( int nMMIId, int nListNum ); // ¬˜∞® ∆˜¿Œ∆Æ ∏ÆΩ∫∆Æ
+	vector<__POINT>	GetRemovePointList( int nMMIId, int nListNum ); // Ï∞®Í∞ê Ìè¨Ïù∏Ìä∏ Î¶¨Ïä§Ìä∏
 #endif // __CAMPUS
 #endif // __WORLDSERVER
 		

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "playerdata.h"
 #ifdef __CLIENT
 #include "dpclient.h"
@@ -67,7 +67,7 @@ PlayerData*	CPlayerDataCenter::AddPlayerData( u_long idPlayer, PlayerData & pd )
 	CMclAutoLock	Lock( m_Access );
 	PlayerData* ptr	= GetPlayerData( idPlayer );
 
-// __CHIPI_080109 - Ä³¸¯ÅÍ »èÁ¦ ÈÄ µ¿ÀÏ ÀÌ¸§À¸·Î Ä³¸¯ÅÍ »ı¼º½Ã ¹®Á¦
+// __CHIPI_080109 - ìºë¦­í„° ì‚­ì œ í›„ ë™ì¼ ì´ë¦„ìœ¼ë¡œ ìºë¦­í„° ìƒì„±ì‹œ ë¬¸ì œ
 	m_mapPlayerStringToId.erase( pd.szPlayer );
 // __CHIPI_080109
 	bool b	= m_mapPlayerStringToId.insert( map<string, u_long>::value_type( pd.szPlayer, idPlayer ) ).second;

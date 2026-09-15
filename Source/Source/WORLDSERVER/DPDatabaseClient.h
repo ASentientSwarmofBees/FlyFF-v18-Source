@@ -1,4 +1,4 @@
-#ifndef __DPDATABASECLIENT_H__
+ï»¿#ifndef __DPDATABASECLIENT_H__
 #define __DPDATABASECLIENT_H__
 
 #include "DPMng.h"
@@ -75,13 +75,13 @@ public:
 #endif	// __INVALID_LOGIN_0320
 	void	SendLogExpBox( u_long idPlayer, OBJID objid, EXPINTEGER iExp, BOOL bGet=FALSE );
 #ifdef __GUILDRANK
-	void	UpdateGuildRanking(); // TRANS¼­¹ö¿¡°Ô ±æµå·©Å·À» ¾÷µ¥ÀÕÇÏ¶ó´Â ÆÐÅ¶À» º¸³»´Â ÇÔ¼ö
+	void	UpdateGuildRanking(); // TRANSì„œë²„ì—ê²Œ ê¸¸ë“œëž­í‚¹ì„ ì—…ë°ìž‡í•˜ë¼ëŠ” íŒ¨í‚·ì„ ë³´ë‚´ëŠ” í•¨ìˆ˜
 	void	UpdateGuildRankingUpdate();
 #endif
 	void	SendQueryGuildQuest( void );
 	void	SendInsertGuildQuest( u_long idGuild, int nId );
 	void	SendUpdateGuildQuest( u_long idGuild, int nId, int nState );
-	void	SendQueryGuildBank(); // TRANS¼­¹ö¿¡°Ô ±æµåÃ¢°í¸¦ Äõ¸®ÇÏ¶ó´Â ÆÐÅ¶À» º¸³»´Â ÇÔ¼ö
+	void	SendQueryGuildBank(); // TRANSì„œë²„ì—ê²Œ ê¸¸ë“œì°½ê³ ë¥¼ ì¿¼ë¦¬í•˜ë¼ëŠ” íŒ¨í‚·ì„ ë³´ë‚´ëŠ” í•¨ìˆ˜
 	void	SendGuildContribution( CONTRIBUTION_CHANGED_INFO & info, BYTE nLevelUp, LONG nMemberLevel );
 	void	SendGuildGetPay( u_long uGuildId, DWORD nGoldGuild, DWORD dwPay );
 	void	SendQuerySetPlayerName( u_long idPlayer, const char* lpszPlayer, DWORD dwData );
@@ -112,15 +112,15 @@ public:
 	void	SendSchoolReport( PSCHOOL_ENTRY pSchool );
 	void	SendBuyingInfo( PBUYING_INFO2 pbi2, SERIALNUMBER iSerialNumber );
 	
-#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
 	void	SendQueryGetGuildBankLogList( u_long idReceiver, DWORD	idGuild,BYTE byListType );
-#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
 	void	SendQueryGetSealChar( u_long idReceiver ,const char* szAccount);
 	void	SendQueryGetSealCharConm( u_long idReceiver );
 	void	SendQueryGetSealCharGet( u_long idReceiver ,const char* szAccount,DWORD dwGetId);
 	void	SendQueryGetSealCharSet( u_long idReceiver ,const char* szAccount,LONG lSetPlayerSlot,DWORD dwSetPlayerId);
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
 
 #if __VER >= 9	// __PET_0410
 	void	CalluspPetLog( u_long idPlayer, SERIALNUMBER iSerial, DWORD dwData, int nType, CPet* pPet );
@@ -192,13 +192,13 @@ private:
 	void	OnGC1to1TenderGuildFromDB( CAr & ar, DPID, DPID );
 #endif // __GUILD_COMBAT_1TO1
 
-#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
 	void	OnGuildBankLogViewFromDB( CAr & ar, DPID, DPID );
-#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
 	void	OnSealCharFromDB( CAr & ar, DPID, DPID );
 	void	OnSealCharGetFromDB( CAr & ar, DPID, DPID );
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
 
 /*
 #ifdef __S0114_RELOADPRO
@@ -289,13 +289,13 @@ public:
 	void	OnAddCoupleExperience( CAr & ar, DPID, DPID );
 #endif	// __COUPLE_1202
 #endif	// __COUPLE_1117
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ÞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 	void	SendLogGetHonorTime(CMover* pMover, int nGetHonor );
-#endif	// __HONORABLE_TITLE			// ´ÞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 #ifdef __FUNNY_COIN
-	void	SendFunnyCoinReqUse( DWORD dwPlayerId, CItemElem* pItemElem );	// ÆÛ´ÏÄÚÀÎÀ» »ç¿ëÇßÀ½À» TransServer¿¡ ¾Ë¸°´Ù.
-	void	OnFunnyCoinAckUse( CAr & ar, DPID, DPID );		// ÆÛ´ÏÄÚÀÎ »ç¿ë¿¡ ´ëÇÑ ÀÀ´äÀ» TranServer·Î ºÎÅÍ ¹Þ¾Ò´Ù.
+	void	SendFunnyCoinReqUse( DWORD dwPlayerId, CItemElem* pItemElem );	// í¼ë‹ˆì½”ì¸ì„ ì‚¬ìš©í–ˆìŒì„ TransServerì— ì•Œë¦°ë‹¤.
+	void	OnFunnyCoinAckUse( CAr & ar, DPID, DPID );		// í¼ë‹ˆì½”ì¸ ì‚¬ìš©ì— ëŒ€í•œ ì‘ë‹µì„ TranServerë¡œ ë¶€í„° ë°›ì•˜ë‹¤.
 #endif // __FUNNY_COIN
 #if __VER >= 14 // __PCBANG
 	void	OnPCBangToggle( CAr & ar, DPID, DPID );

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 
 #include <stdio.h>
 #include "modelSfx.h"
@@ -195,7 +195,7 @@ void CSfxParticle::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
-// �Ž� 
+// 매쉬 
 
 CSfxMesh::CSfxMesh()
 {

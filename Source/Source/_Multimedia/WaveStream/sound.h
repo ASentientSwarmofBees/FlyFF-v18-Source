@@ -1,4 +1,4 @@
-#ifndef     _SOUNDWAVE_H_
+﻿#ifndef     _SOUNDWAVE_H_
 #define     _SOUNDWAVE_H_
 
 //

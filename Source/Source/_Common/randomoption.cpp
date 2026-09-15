@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "randomoption.h"
 
 CRandomOptionProperty::CRandomOptionProperty()
@@ -20,7 +20,7 @@ CRandomOptionProperty* CRandomOptionProperty::GetInstance()
 void CRandomOptionProperty::LoadScriptBlock( CScript & s, int nRandomOptionKind )
 {
 	int nTotalProb1		= 0;
-	for( int i = 0; i < MAX_RANDOM_OPTION; i++ )	// 3	// ·£´ı ¿É¼ÇÀÌ ¸î°³ ºÎ¿©µÉ °ÍÀÎ°¡¿¡ ´ëÇÑ È®·ü
+	for( int i = 0; i < MAX_RANDOM_OPTION; i++ )	// 3	// ëœë¤ ì˜µì…˜ì´ ëª‡ê°œ ë¶€ì—¬ë  ê²ƒì¸ê°€ì— ëŒ€í•œ í™•ë¥ 
 	{
 		m_anRandomOptionProb[nRandomOptionKind][i]	= s.GetNumber() + nTotalProb1;
 		nTotalProb1	= m_anRandomOptionProb[nRandomOptionKind][i];
@@ -67,7 +67,7 @@ BOOL CRandomOptionProperty::LoadScript( LPCTSTR szFile )
 		else if( s.Token == _T( "Blessing" ) )
 			LoadScriptBlock( s, eBlessing );
 #if __VER >= 12 // __PET_0519
-		// ½Ã½ºÅÛ Æê °¢¼º°ú ¸ÔÆê °¢¼º Ãß°¡
+		// ì‹œìŠ¤í…œ í« ê°ì„±ê³¼ ë¨¹í« ê°ì„± ì¶”ê°€
 		else if( s.Token == _T( "SystemPet" ) )
 			LoadScriptBlock( s, eSystemPet );
 		else if( s.Token == _T( "EatPet" ) )
@@ -76,7 +76,7 @@ BOOL CRandomOptionProperty::LoadScript( LPCTSTR szFile )
 		s.GetToken();
 	}
 #if __VER >= 12 // __J12_0
-	AwakeningExtension();	// °¢¼º, Ãàº¹ °¡´É ÆÄÃ÷ Ãß°¡¸¦ À§ÇÑ Å×ÀÌºí È®Àå
+	AwakeningExtension();	// ê°ì„±, ì¶•ë³µ ê°€ëŠ¥ íŒŒì¸  ì¶”ê°€ë¥¼ ìœ„í•œ í…Œì´ë¸” í™•ì¥
 #endif	// __J12_0
 	return TRUE;
 }
@@ -98,14 +98,14 @@ void	CRandomOptionProperty::SetParam( __int64* pnRandomOptItemId, int nDst, int 
 
 	if( nAdj < 0 )
 	{
-		nRandomOptionItemId	|= 0x0200;	// À½¼öÀÎ °æ¿ì ÃÖ»óÀ§ ºñÆ® 1
+		nRandomOptionItemId	|= 0x0200;	// ìŒìˆ˜ì¸ ê²½ìš° ìµœìƒìœ„ ë¹„íŠ¸ 1
 		nRandomOptionItemId	= nRandomOptionItemId | ( -nAdj );
 	}
 	else
 		nRandomOptionItemId	= nRandomOptionItemId | nAdj;
 
-	nRandomOptionItemId	= nRandomOptionItemId << ( 8 + 18 * nSize );	// ÇØ´ç À§Ä¡·Î ½ÃÇÁÆ®
-	*pnRandomOptItemId	|= nRandomOptionItemId;		// °á°ú °ª ÀúÀå
+	nRandomOptionItemId	= nRandomOptionItemId << ( 8 + 18 * nSize );	// í•´ë‹¹ ìœ„ì¹˜ë¡œ ì‹œí”„íŠ¸
+	*pnRandomOptItemId	|= nRandomOptionItemId;		// ê²°ê³¼ ê°’ ì €ì¥
 }
 
 int CRandomOptionProperty::GetRandomOptionKind( CItemElem* pItemElem )
@@ -117,10 +117,10 @@ int CRandomOptionProperty::GetRandomOptionKind( CItemElem* pItemElem )
 		case PARTS_RWEAPON:
 		case PARTS_SHIELD:
 #if __VER >= 12 // __J12_0
-		// °¢¼º °¡´É ÆÄÃ÷ Ãß°¡
-		case PARTS_HAND:	// ¼Õ
-		case PARTS_FOOT:	// ¹ß
-		case PARTS_CAP:		// ¸Ó¸®
+		// ê°ì„± ê°€ëŠ¥ íŒŒì¸  ì¶”ê°€
+		case PARTS_HAND:	// ì†
+		case PARTS_FOOT:	// ë°œ
+		case PARTS_CAP:		// ë¨¸ë¦¬
 #endif	// __J12_0
 #ifdef __NEW_ITEM_VARUNA
 			{
@@ -133,18 +133,18 @@ int CRandomOptionProperty::GetRandomOptionKind( CItemElem* pItemElem )
 		case PARTS_CLOTH:
 		case PARTS_CLOAK:
 #if __VER >= 12 // __J12_0
-		case PARTS_HAT:		// °Ñ¿Ê ¸Ó¸®
-		case PARTS_GLOVE:	// °Ñ¿Ê ¼Õ
-		case PARTS_BOOTS:	// °Ñ¿Ê ¹ß
+		case PARTS_HAT:		// ê²‰ì˜· ë¨¸ë¦¬
+		case PARTS_GLOVE:	// ê²‰ì˜· ì†
+		case PARTS_BOOTS:	// ê²‰ì˜· ë°œ
 #endif	// __J12_0
 			return static_cast<int>( eBlessing );
 #if __VER >= 12 // __PET_0519
 		default:
 			{
-				// C±Ş ÀÌ»óÀÇ ½Ã½ºÅÛ ÆêÀÎ°¡?
+				// Cê¸‰ ì´ìƒì˜ ì‹œìŠ¤í…œ í«ì¸ê°€?
 				if( pProp->dwItemKind3 == IK3_EGG && pItemElem->m_pPet && pItemElem->m_pPet->GetLevel() >= PL_C )
 					return static_cast<int>( eSystemPet );
-				// ¸ÔÆêÀÎ°¡?
+				// ë¨¹í«ì¸ê°€?
 				else if( pProp->dwItemKind3 == IK3_PET )
 					return static_cast<int>( eEatPet );
 				break;
@@ -160,16 +160,16 @@ BOOL	CRandomOptionProperty::GetParam( __int64 nRandomOptItemId, int i, int* pnDs
 	if( i >= MAX_RANDOM_OPTION )
 		return FALSE;
 
-	int nRandomOption	= static_cast<int>( nRandomOptItemId >> ( 8 + i * 18 ) );	// °ªÀ» °¡Á®¿À±â À§ÇÏ¿© ÇØ´ç À§Ä¡·Î ½ÃÇÁÆ®
-	*pnAdj	= nRandomOption & 0x000001FF;	// ÇÏÀ§ 9ºñÆ® °¡Á®¿È.
-	if( nRandomOption & 0x00000200 )	// ÃÖ»óÀ§ 10 ºñÆ®°¡ 1ÀÌ¸é À½¼ö
+	int nRandomOption	= static_cast<int>( nRandomOptItemId >> ( 8 + i * 18 ) );	// ê°’ì„ ê°€ì ¸ì˜¤ê¸° ìœ„í•˜ì—¬ í•´ë‹¹ ìœ„ì¹˜ë¡œ ì‹œí”„íŠ¸
+	*pnAdj	= nRandomOption & 0x000001FF;	// í•˜ìœ„ 9ë¹„íŠ¸ ê°€ì ¸ì˜´.
+	if( nRandomOption & 0x00000200 )	// ìµœìƒìœ„ 10 ë¹„íŠ¸ê°€ 1ì´ë©´ ìŒìˆ˜
 		*pnAdj	= -*pnAdj;
-	nRandomOption	= nRandomOption >> 10;	// 10ºñÆ® ¹Ğ°í, 
+	nRandomOption	= nRandomOption >> 10;	// 10ë¹„íŠ¸ ë°€ê³ , 
 
-	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
-	//*pnDst	= nRandomOption & 0x000000FF;	// 8ºñÆ® °¡Á®¿È
-	*pnDst	= nRandomOption & 0x0000007F;	// 8ºñÆ® °¡Á®¿È
-	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+	//*pnDst	= nRandomOption & 0x000000FF;	// 8ë¹„íŠ¸ ê°€ì ¸ì˜´
+	*pnDst	= nRandomOption & 0x0000007F;	// 8ë¹„íŠ¸ ê°€ì ¸ì˜´
+	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 	return ( *pnDst > 0 );
 }
@@ -178,7 +178,7 @@ int CRandomOptionProperty::GetRandomOptionSize( __int64 nRandomOptItemId )
 {
 	int nSize	= 0;
 
-	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 	bool	bCheckedSafeFlag = false;
 	bCheckedSafeFlag	= IsCheckedSafeFlag( nRandomOptItemId );
 
@@ -186,7 +186,7 @@ int CRandomOptionProperty::GetRandomOptionSize( __int64 nRandomOptItemId )
 	{
 		return	nSize;
 	}
-	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 	__int64 i	= 0x3FFFF << 8;
 	for( int j = 0; j < MAX_RANDOM_OPTION; j++ )
@@ -203,7 +203,7 @@ int CRandomOptionProperty::GetRandomOptionSize( __int64 nRandomOptItemId )
 }
 
 
-//	mulcom	BEGIN100405		°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	BEGIN100405		ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 int		CRandomOptionProperty::GetViewRandomOptionSize( __int64 n64RandomOptItemId )
 {
 	int nSize	= 0;
@@ -221,13 +221,13 @@ int		CRandomOptionProperty::GetViewRandomOptionSize( __int64 n64RandomOptItemId 
 
 	return nSize;
 }
-//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 
-//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 //BOOL	CRandomOptionProperty::GenRandomOption( __int64* pnRandomOptItemId, int nRandomOptionKind, int nParts )
 BOOL	CRandomOptionProperty::GenRandomOption( __int64* pnRandomOptItemId, int nRandomOptionKind, int nParts, bool bDecreaseFlag /* = false */ )
-//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 { 
 	if( GetRandomOptionSize( *pnRandomOptItemId )  > 0 )
 	{
@@ -236,14 +236,14 @@ BOOL	CRandomOptionProperty::GenRandomOption( __int64* pnRandomOptItemId, int nRa
 
 	int nRandomOptionSize	= DetermineRandomOptionSize( nRandomOptionKind );
 
-	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 	int	nDecreaseNumber	= -1;
 
 	if( bDecreaseFlag == true )
 	{
 		nDecreaseNumber = xRandom( nRandomOptionSize );
 	}
-	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 	
 	while( nRandomOptionSize-- > 0 )
@@ -252,7 +252,7 @@ BOOL	CRandomOptionProperty::GenRandomOption( __int64* pnRandomOptItemId, int nRa
 		ASSERT( pRandomOption );
 
 
-		//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+		//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 		//short nAdj	= DetermineRandomOptionAdj( pRandomOption );
 		bool	bDecreaseAdj	= false;
 
@@ -266,7 +266,7 @@ BOOL	CRandomOptionProperty::GenRandomOption( __int64* pnRandomOptItemId, int nRa
 		}
 
 		short nAdj	= DetermineRandomOptionAdj( pRandomOption, bDecreaseAdj );
-		//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+		//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 		SetParam( pnRandomOptItemId, pRandomOption->nDst, nAdj );
 	}
@@ -300,10 +300,10 @@ RANDOM_OPTION*	CRandomOptionProperty::DetermineRandomOptionDst( int nRandomOptio
 	return NULL;
 }
 
-//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 //short CRandomOptionProperty::DetermineRandomOptionAdj( RANDOM_OPTION* pRandomOption )
 short CRandomOptionProperty::DetermineRandomOptionAdj( RANDOM_OPTION* pRandomOption, bool bDecreaseAdj /* = false */ )
-//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 {
 	ASSERT( pRandomOption );
 	DWORD dwRand	= xRandom( 1000000000 );	// 0 - 9999999
@@ -331,10 +331,10 @@ short CRandomOptionProperty::DetermineRandomOptionAdj( RANDOM_OPTION* pRandomOpt
 
 
 int	CRandomOptionProperty::GetRandomOptionKindIndex( int nRandomOptionKind, int nParts )
-{	// °¢¼º Ãàº¹ ½Ã ÂüÁ¶ÇÒ Å×ÀÌºíÀÇ ÀÎµ¦½º¸¦ ¹İÈ¯ÇÑ´Ù
+{	// ê°ì„± ì¶•ë³µ ì‹œ ì°¸ì¡°í•  í…Œì´ë¸”ì˜ ì¸ë±ìŠ¤ë¥¼ ë°˜í™˜í•œë‹¤
 #if __VER >= 12 // __J12_0
 	//PARTS_HAND: 4, PARTS_FOOT: 5, PARTS_CAP: 6
-	// ±âº» Å×ÀÌºíÀÇ ¸¶Áö¸· ÀÎµ¦½ººÎÅÍ È®Àå ÀÎµ¦½º ½ÃÀÛÇÑ´Ù
+	// ê¸°ë³¸ í…Œì´ë¸”ì˜ ë§ˆì§€ë§‰ ì¸ë±ìŠ¤ë¶€í„° í™•ì¥ ì¸ë±ìŠ¤ ì‹œì‘í•œë‹¤
 	if( nRandomOptionKind == eAwakening && ( nParts == PARTS_HAND || nParts == PARTS_FOOT || nParts == PARTS_CAP ) )
 		return eMaxRandomOptionKind + nParts - PARTS_HAND;
 #endif	// __J12_0
@@ -349,7 +349,7 @@ void CRandomOptionProperty::InitializeRandomOption( __int64* pnRandomOptItemId )
 
 
 
-//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 void	CRandomOptionProperty::SetSafeFlag( __int64* pn64RandomOption )
 {
 	if( pn64RandomOption == NULL )
@@ -409,7 +409,7 @@ bool	CRandomOptionProperty::IsCheckedSafeFlag( __int64 n64RandomeOption )
 
 	return	false;
 }
-//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 #ifdef __FASHION_COMBINE
 int CRandomOptionProperty::MergeRandomOption( CItemElem* pItemElemMain, CItemElem* pItemElemDestroy, int nMaxCombinedSize )
@@ -433,15 +433,15 @@ int CRandomOptionProperty::MergeRandomOption( CItemElem* pItemElemMain, CItemEle
 #if __VER >= 12 // __J12_0
 void CRandomOptionProperty::AwakeningExtension( void )
 {
-	int	anDst[eAwakeningExtension][6]	= {		// °¢ ºÎºĞ º° °¢¼º °¡´É ¼Ó¼º
+	int	anDst[eAwakeningExtension][6]	= {		// ê° ë¶€ë¶„ ë³„ ê°ì„± ê°€ëŠ¥ ì†ì„±
 		DST_CHR_CHANCECRITICAL, DST_ATKPOWER, DST_SPELL_RATE, DST_ATTACKSPEED, DST_MP_MAX, DST_FP_MAX,
 		DST_CRITICAL_BONUS, DST_SPEED, DST_ADJDEF, DST_HP_MAX, DST_MP_MAX, DST_FP_MAX,
 		DST_STR, DST_DEX, DST_INT, DST_STA, DST_MP_MAX, DST_FP_MAX	};
 	int anTotal[eAwakeningExtension];
 	memset( anTotal, 0, sizeof(int) * eAwakeningExtension );
 
-	// °¢¼º Å×ÀÌºí¿¡¼­ ÇØ´ç ºÎºĞ¿¡ °¢¼º °¡´ÉÇÑ ¼Ó¼º¸¸À» Æ÷ÇÔÇÏµµ·Ï
-	// °¢¼º Å×ÀÌºí È®Àå ÈÄ ±¸¼ºÇÑ´Ù
+	// ê°ì„± í…Œì´ë¸”ì—ì„œ í•´ë‹¹ ë¶€ë¶„ì— ê°ì„± ê°€ëŠ¥í•œ ì†ì„±ë§Œì„ í¬í•¨í•˜ë„ë¡
+	// ê°ì„± í…Œì´ë¸” í™•ì¥ í›„ êµ¬ì„±í•œë‹¤
 	for( DWORD i = 0; i < m_aRandomOption[eAwakening].size(); i++ )
 	{
 		RANDOM_OPTION* pRandomOption	= &m_aRandomOption[eAwakening][i];

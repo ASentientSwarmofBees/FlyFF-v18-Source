@@ -1,4 +1,4 @@
-#ifndef __ACCOUNT_H__
+ï»¿#ifndef __ACCOUNT_H__
 #define	__ACCOUNT_H__
 
 #include "mempooler.h"
@@ -9,7 +9,7 @@ using	namespace	std;
 #define	MAX_CERTIFIER			32
 const int LEFTIME_NOTIFIED		= 1;
 
-//ºô¸µÀÇ °á°ú°ª 
+//ë¹Œë§ì˜ ê²°ê³¼ê°’ 
 enum BILLING_RETURN
 {
 	SUCCESS				= 0,
@@ -23,9 +23,9 @@ struct BILLING_INFO
 {
 	const char*		szAccount;
 	DWORD			dwKey;
-	long			lResult;				// ºô¸µÀÇ °á°ú°ª 
+	long			lResult;				// ë¹Œë§ì˜ ê²°ê³¼ê°’ 
 	const CTime*	pTimeOverDays; 
-	char			cbLastOneLogon;			// ´ë¸¸¿¡¼­ »ç¿ëÇÏ´Â ÇÃ·¡±× 'Y'ÀÏ °æ¿ì¸¸ 30ºÐÅëÁö¸¦ ÇÑ´Ù. 
+	char			cbLastOneLogon;			// ëŒ€ë§Œì—ì„œ ì‚¬ìš©í•˜ëŠ” í”Œëž˜ê·¸ 'Y'ì¼ ê²½ìš°ë§Œ 30ë¶„í†µì§€ë¥¼ í•œë‹¤. 
 
 	BILLING_INFO() : 
 		szAccount( NULL ), 
@@ -38,9 +38,9 @@ struct BILLING_INFO
 
 enum ACCOUNT_STATUS
 {
-	ACCOUNT_STATUS_INITIAL,			// ÃÊ±â»óÅÂ 
-	ACCOUNT_STATUS_NOTIFIED,		// ³²Àº ½Ã°£À» ¾Ë·ÁÁØ »óÅÂ 
-	ACCOUNT_STATUS_SECONDQUERY,		// 2¹øÂ° Äõ¸®°á°ú¸¦ ±â´Ù¸®´Â »óÅÂ   
+	ACCOUNT_STATUS_INITIAL,			// ì´ˆê¸°ìƒíƒœ 
+	ACCOUNT_STATUS_NOTIFIED,		// ë‚¨ì€ ì‹œê°„ì„ ì•Œë ¤ì¤€ ìƒíƒœ 
+	ACCOUNT_STATUS_SECONDQUERY,		// 2ë²ˆì§¸ ì¿¼ë¦¬ê²°ê³¼ë¥¼ ê¸°ë‹¤ë¦¬ëŠ” ìƒíƒœ   
 };
 
 class CAccount
@@ -70,7 +70,7 @@ public:
 	int				m_cbRef;
 	int				m_fCheck;
 	ACCOUNT_STATUS	m_nStatus;				// ACCOUNT_STATUS_INITIAL, ...
-	char			m_cbLastOneLogon;		// ´ë¸¸¿¡¼­ »ç¿ëÇÏ´Â ÇÃ·¡±× 'Y'ÀÏ °æ¿ì¸¸ 30ºÐÅëÁö¸¦ ÇÑ´Ù. 
+	char			m_cbLastOneLogon;		// ëŒ€ë§Œì—ì„œ ì‚¬ìš©í•˜ëŠ” í”Œëž˜ê·¸ 'Y'ì¼ ê²½ìš°ë§Œ 30ë¶„í†µì§€ë¥¼ í•œë‹¤. 
 	u_long			m_uIdofMulti;
 
 public:

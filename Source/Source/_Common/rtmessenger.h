@@ -1,4 +1,4 @@
-#ifndef __RT_MESSENGER_H__
+﻿#ifndef __RT_MESSENGER_H__
 #define	__RT_MESSENGER_H__
 
 #include "messenger.h"

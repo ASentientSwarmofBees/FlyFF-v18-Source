@@ -1,4 +1,4 @@
-#ifndef __SKYBOX_H_2002_5_14
+ï»¿#ifndef __SKYBOX_H_2002_5_14
 #define __SKYBOX_H_2002_5_14
 
 #include <D3D9.h>
@@ -42,7 +42,7 @@ public:
 		SKY_SUN,
 	};
 
-	// °¢Á¾ ÅØ½ºÃÄ
+	// ê°ì¢… í…ìŠ¤ì³
 	LPDIRECT3DTEXTURE9 m_pMoonTexture;
 	LPDIRECT3DTEXTURE9 m_pSkyBoxTexture;
 	LPDIRECT3DTEXTURE9 m_pSkyBoxTexture2;
@@ -61,25 +61,25 @@ public:
 	LPDIRECT3DVERTEXBUFFER9 m_pRainVB;
 	LPDIRECT3DVERTEXBUFFER9 m_pSnowVB;
 	LPDIRECT3DVERTEXBUFFER9 m_pStarVB;
-	CWorld*        m_pWorld       ; // ÀÚ½ÅÀÌ ¼ÓÇÑ ¿ùµåÀÇ Æ÷ÀÎÅÍ¸¦ °®´Â´Ù. 
+	CWorld*        m_pWorld       ; // ìì‹ ì´ ì†í•œ ì›”ë“œì˜ í¬ì¸í„°ë¥¼ ê°–ëŠ”ë‹¤. 
 
-	D3DXVECTOR3 m_vVelocity[2000]; // ´«ºø¹æ¿ï¿ë ¼Óµµ 
-	D3DXVECTOR3 m_vFall[2000]; // ´«ºø¹æ¿ï¿ë À§Ä¡ ¹è¿­
-	//D3DXVECTOR3 m_vSnow[2000]; // ´«µ¢ÀÌ¿ë À§Ä¡ ¹è¿­
+	D3DXVECTOR3 m_vVelocity[2000]; // ëˆˆë¹—ë°©ìš¸ìš© ì†ë„ 
+	D3DXVECTOR3 m_vFall[2000]; // ëˆˆë¹—ë°©ìš¸ìš© ìœ„ì¹˜ ë°°ì—´
+	//D3DXVECTOR3 m_vSnow[2000]; // ëˆˆë©ì´ìš© ìœ„ì¹˜ ë°°ì—´
 //	D3DXVECTOR3 m_vStar[1000];
 
-	D3DXMATRIX m_matStar[2000]; // º°¿ë À§Ä¡ ¹è¿­
-	DWORD m_nFall; // ÇöÀç ºø¹æ¿ï °¹¼ö
-//	DWORD m_nSnow; // ÇöÀç ´«µ¢ÀÌ °¹¼ö
-//	DWORD m_nStar; // ÇöÀç º° °¹¼ö
+	D3DXMATRIX m_matStar[2000]; // ë³„ìš© ìœ„ì¹˜ ë°°ì—´
+	DWORD m_nFall; // í˜„ì¬ ë¹—ë°©ìš¸ ê°¯ìˆ˜
+//	DWORD m_nSnow; // í˜„ì¬ ëˆˆë©ì´ ê°¯ìˆ˜
+//	DWORD m_nStar; // í˜„ì¬ ë³„ ê°¯ìˆ˜
 
 	BOOL m_bOldSkyBox;
 
-	float m_fCloudx,m_fCloudy; // Èê·¯°¡´Â ±¸¸§¿ë ÁÂÇ¥
-	float m_fSunAngle; // ÇöÀç ÅÂ¾çÀÇ °¢µµ
+	float m_fCloudx,m_fCloudy; // í˜ëŸ¬ê°€ëŠ” êµ¬ë¦„ìš© ì¢Œí‘œ
+	float m_fSunAngle; // í˜„ì¬ íƒœì–‘ì˜ ê°ë„
 
 #if __VER >= 15 // __BS_CHANGING_ENVIR
-	BOOL m_bLockWeather; //gmpbigsun :  ³¯¾¾ °íÁ¤flag (´ë·ú´ÜÀ§·Î ¼³Á¤ÇÑ ³¯¾¾´Â ¾î¶°ÇÑ ÀÌÀ¯·Îµç º¯ÇÏÁö ¾Ê´Â´Ù)
+	BOOL m_bLockWeather; //gmpbigsun :  ë‚ ì”¨ ê³ ì •flag (ëŒ€ë¥™ë‹¨ìœ„ë¡œ ì„¤ì •í•œ ë‚ ì”¨ëŠ” ì–´ë– í•œ ì´ìœ ë¡œë“  ë³€í•˜ì§€ ì•ŠëŠ”ë‹¤)
 #endif
 
 	CSkyBox();
@@ -97,7 +97,7 @@ public:
 	void SetVertices();
 	void SetStarVertices();
 
-	// Ã³¸® ¹× Ãâ·Â 
+	// ì²˜ë¦¬ ë° ì¶œë ¥ 
 	void    Process();
 	void    Render(CWorld* pWorld, LPDIRECT3DDEVICE9 pd3dDevice);
 	void	DrawLensFlare(LPDIRECT3DDEVICE9 pd3dDevice);
@@ -109,7 +109,7 @@ public:
 
 	IDirect3DTexture9* GetCurrSkyTexture( SKY_TYPE eType );
 
-	// Direct3D °ü·Ã ¿ÀºêÁ§Æ® ÃÊ±âÈ­¹× Á¦°Å, Àç¼³Á¤ °ü·Ã 
+	// Direct3D ê´€ë ¨ ì˜¤ë¸Œì íŠ¸ ì´ˆê¸°í™”ë° ì œê±°, ì¬ì„¤ì • ê´€ë ¨ 
 	HRESULT InitDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice);
 	HRESULT RestoreDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice);
 	HRESULT DeleteDeviceObjects();

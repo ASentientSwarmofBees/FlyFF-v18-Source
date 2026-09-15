@@ -1,4 +1,4 @@
-#ifndef __WNDADDFRIEND__H
+﻿#ifndef __WNDADDFRIEND__H
 #define __WNDADDFRIEND__H
 
 class CWndAddFriend : public CWndNeuz 

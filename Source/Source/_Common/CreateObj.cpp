@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineSound.h"
 #include "DefineObj.h"
 #include "CommonCtrl.h"
@@ -13,29 +13,29 @@
 #ifdef __CLIENT
 
 /*
-	XI_·Î ½ÃÀÛÇÏ´Â°Ç ÇÏ³ªÀÇ ºôº¸µå ÅØ½ºÃçÀÏ ¼öµµ ÀÖ°í, Æ¯¼öÈ¿°ú Åø¿¡ ÀÇÇØ »ý¼ºµÈ µ¥ÀÌÅ¸ÀÏ ¼öµµ ÀÖ´Ù.
+	XI_ë¡œ ì‹œìž‘í•˜ëŠ”ê±´ í•˜ë‚˜ì˜ ë¹Œë³´ë“œ í…ìŠ¤ì¶°ì¼ ìˆ˜ë„ ìžˆê³ , íŠ¹ìˆ˜íš¨ê³¼ íˆ´ì— ì˜í•´ ìƒì„±ëœ ë°ì´íƒ€ì¼ ìˆ˜ë„ ìžˆë‹¤.
 	
-	CreateGenSfx - ÀÏ¹Ý È¿°ú ÀÎµ¦½º¿¡ ÇØ´çÇÏ´Â È¿°ú ÀÎµ¦½º·Î »ý¼º 
+	CreateGenSfx - ì¼ë°˜ íš¨ê³¼ ì¸ë±ìŠ¤ì— í•´ë‹¹í•˜ëŠ” íš¨ê³¼ ì¸ë±ìŠ¤ë¡œ ìƒì„± 
 			dwSfxIdx( EI_EXPLOSION ) -> Create( XI_EXPLOSION )
 
-	CreateItemSfx - ¾ÆÀÌÅÛ ÀÎµ¦½º¿¡ ÇØ´çÇÏ´Â È¿°ú ÀÎµ¦½º·Î »ý¼º 
+	CreateItemSfx - ì•„ì´í…œ ì¸ë±ìŠ¤ì— í•´ë‹¹í•˜ëŠ” íš¨ê³¼ ì¸ë±ìŠ¤ë¡œ ìƒì„± 
 			pItemElem( II_FOOD ) -> Create( XI_FOOD )
 			
-	CreateSkillSfx - ½ºÅ³ ÀÎµ¦½º¿¡ ÇØ´çÇÏ´Â È¿°ú ÀÎµ¦½º·Î »ý¼º 
+	CreateSkillSfx - ìŠ¤í‚¬ ì¸ë±ìŠ¤ì— í•´ë‹¹í•˜ëŠ” íš¨ê³¼ ì¸ë±ìŠ¤ë¡œ ìƒì„± 
 			pItemElem( SI_FIREBALL ) -> Create( XI_FIREBALL )
 		
 */
 
 
 
-// ÀÏ¹Ý È¿°ú »ý¼º 
-// SFX »õ·Î ¸¸µé°íµµ ¿©±â´Ù°¡ Ãß°¡ ¾ÈÇØÁÖ¸é »ý¼º ¾ÈµÈ´Ù.
+// ì¼ë°˜ íš¨ê³¼ ìƒì„± 
+// SFX ìƒˆë¡œ ë§Œë“¤ê³ ë„ ì—¬ê¸°ë‹¤ê°€ ì¶”ê°€ ì•ˆí•´ì£¼ë©´ ìƒì„± ì•ˆëœë‹¤.
 CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj, 
 				 D3DXVECTOR3& vPosSrc, OBJID idSrc, D3DXVECTOR3& vPosDest, OBJID idDest, int nSec )
 {
 	CSfx* pObj = NULL;
 #ifdef _DEBUG
-	if( dwSfxObj == 265 )	// µð¹ö±ë ÇÏ·Á¸é ÀÌ°É ¹Ù²ã ¾²¼¼¿ä.
+	if( dwSfxObj == 265 )	// ë””ë²„ê¹… í•˜ë ¤ë©´ ì´ê±¸ ë°”ê¿” ì“°ì„¸ìš”.
 	{
 		int a = 0;
 	}
@@ -134,7 +134,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 	case XI_SKILL_VAG_ONE_OVERCUTTER01 : 
 	case XI_SKILL_VAG_ONE_CLEANHIT01   : 
 	case XI_SKILL_VAG_ONE_BRANDISH01   : 
-	case XI_SKILL_MER_ONE_SPECIALHIT02:		//½ºÆä¼È È÷Æ® ÅÍÁö´Â sfx
+	case XI_SKILL_MER_ONE_SPECIALHIT02:		//ìŠ¤íŽ˜ì…œ ížˆíŠ¸ í„°ì§€ëŠ” sfx
 	case XI_SKILL_MER_ONE_REFLEXHIT02:
 	case XI_SKILL_BIL_KNU_BELIALSMESHING02:
 	case XI_SKILL_BLD_DOUBLE_CROSSSTRIKE02:
@@ -146,23 +146,23 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 	case XI_SKILL_RIN_SUP_MERKABAHANZELRUSHA03:
 	case XI_SKILL_ELE_FIRE_BURINGFIELD02:
 	case XI_SKILL_KNT_TWOSW_EARTHDIVIDER02:
-		pObj = new CSfxFixed();		// fixed´Â ÀÌÆåÆ® 
+		pObj = new CSfxFixed();		// fixedëŠ” ì´íŽ™íŠ¸ 
 		if( pObj && IsValidObj(pSrc) )
-			pObj->SetAngle( -pSrc->GetAngle() ); // ½ÃÀüÀÚÀÇ ¹æÇâ°ú ÀÏÄ¡½ÃÅ²´Ù.
-//			pObj->SetAngle( 180.0f - pSrc->GetAngle() ); // ½ÃÀüÀÚÀÇ ¹æÇâ°ú ÀÏÄ¡½ÃÅ²´Ù.
+			pObj->SetAngle( -pSrc->GetAngle() ); // ì‹œì „ìžì˜ ë°©í–¥ê³¼ ì¼ì¹˜ì‹œí‚¨ë‹¤.
+//			pObj->SetAngle( 180.0f - pSrc->GetAngle() ); // ì‹œì „ìžì˜ ë°©í–¥ê³¼ ì¼ì¹˜ì‹œí‚¨ë‹¤.
 
 		break;
-	case XI_SKILL_BIL_KNU_SONICHAND02:		// sfx ¹æÇâ¹Ù²¸¼­ °¢µµ Á¶Àý µû·Î ÇÏ´Â°Å
+	case XI_SKILL_BIL_KNU_SONICHAND02:		// sfx ë°©í–¥ë°”ê»´ì„œ ê°ë„ ì¡°ì ˆ ë”°ë¡œ í•˜ëŠ”ê±°
 	case XI_SKILL_BIL_KNU_ASALRAALAIKUM02:
-		pObj = new CSfxFixed();		// fixed´Â ÀÌÆåÆ® 
+		pObj = new CSfxFixed();		// fixedëŠ” ì´íŽ™íŠ¸ 
 		if( pObj && IsValidObj(pSrc) )
 		{
 			float fAngle = -pSrc->GetAngle() + 180;
-			pObj->SetAngle( fAngle ); // ½ÃÀüÀÚÀÇ ¹æÇâ°ú ÀÏÄ¡½ÃÅ²´Ù.
+			pObj->SetAngle( fAngle ); // ì‹œì „ìžì˜ ë°©í–¥ê³¼ ì¼ì¹˜ì‹œí‚¨ë‹¤.
 		}
 		
 		break;
-		// Æø¹ß¾À ·ù´Â Áö»ó¿¡¼­ Á» ¶ç¿ö¼­ Ãâ·Â
+		// í­ë°œì”¬ ë¥˜ëŠ” ì§€ìƒì—ì„œ ì¢€ ë„ì›Œì„œ ì¶œë ¥
 //	case XI_SKILL_RAG_SUP_FASTATTACK02:
 //	case XI_SKILL_ACR_YOYO_SLOWSTEP02:
 	case XI_HIT_YOY01:
@@ -187,9 +187,9 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 	case XI_SKILL_BLD_DOUBLESW_BLADEDANCE03:
 	case XI_SKILL_KNT_TWO_POWERSWING02:
 //		vPosDest.y += 1.0f;
-		pObj = new CSfxFixed();		// fixed´Â ÀÌÆåÆ® 
+		pObj = new CSfxFixed();		// fixedëŠ” ì´íŽ™íŠ¸ 
 		if( pObj && IsValidObj(pSrc) )
-			pObj->SetAngle( 180.0f - pSrc->GetAngle() ); // ½ÃÀüÀÚÀÇ ¹æÇâ°ú ÀÏÄ¡½ÃÅ²´Ù.
+			pObj->SetAngle( 180.0f - pSrc->GetAngle() ); // ì‹œì „ìžì˜ ë°©í–¥ê³¼ ì¼ì¹˜ì‹œí‚¨ë‹¤.
 		break;
 		
 	case XI_SKILL_MER_ONE_KEENWHEEL01     : pObj = new CSfxSkillMerKeenWheel()    ;break;
@@ -202,7 +202,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 
 	case XI_SKILL_MAG_EARTH_CASTING01:
 	case XI_SKILL_MAG_ELECTRICITY_CASTING01:
-	case XI_SKILL_MAG_WATER_CASTING01:		// ÀÏ´Ü Ä³½ºÆÃ µ¿ÀÛÀº ¸ðµÎ FireCastingÀ¸·Î ¾´´Ù.
+	case XI_SKILL_MAG_WATER_CASTING01:		// ì¼ë‹¨ ìºìŠ¤íŒ… ë™ìž‘ì€ ëª¨ë‘ FireCastingìœ¼ë¡œ ì“´ë‹¤.
 	case XI_SKILL_MAG_MAG_CASTING01:
 	case XI_SKILL_ELE_FIRE_CASTING01:
 	case XI_SKILL_ASS_CHEER_HASCASTING01:
@@ -236,7 +236,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 	case XI_SKILL_ASS_KNU_BURSTCRACK01 : pObj = new CSfxSkillAssBurstcrack()   ;break;    
 	case XI_SKILL_ASS_KNU_TAMPINGHOLE01 : pObj = new CSfxSkillAssTampinghole()   ;break;    
 	case XI_NPC_DIR_STEAM : pObj = new CSfxNpcDirSteam()   ;break;    
-	case XI_GEN_PVP_FLAG01: pObj = new CSfxDuelParty();		break;	// ÀÌ°Å CSfxDuelParty()·Î ¾È¾µ°Å¸é ¸ðµç¼Ò½º°Ë»öÇØ¼­ ÀÌ°Å¾´°Å ¹Ù²ãÁà¾ßÇÔ
+	case XI_GEN_PVP_FLAG01: pObj = new CSfxDuelParty();		break;	// ì´ê±° CSfxDuelParty()ë¡œ ì•ˆì“¸ê±°ë©´ ëª¨ë“ ì†ŒìŠ¤ê²€ìƒ‰í•´ì„œ ì´ê±°ì“´ê±° ë°”ê¿”ì¤˜ì•¼í•¨
 	case XI_ITEM_COLLECT: pObj = new CSfxCollect();		break;
 	case XI_NPCSP1DIRAMP:		pObj = new CSfxClockWorksCharge();	break;
 	case XI_NPCSP1DIRCANNON:	pObj = new CSfxClockWorksCannon();	break;
@@ -256,26 +256,26 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 			}
 		}
 		break;
-	// ÀÏ¹ÝÀûÀÎ ½î°í ³¯¾Æ°¡¼­ ¸Â´Â ÀÌÆåÆ®´Â ÀÌ°É·Î ÅëÀÏÇÏÀÚ.
+	// ì¼ë°˜ì ì¸ ì˜ê³  ë‚ ì•„ê°€ì„œ ë§žëŠ” ì´íŽ™íŠ¸ëŠ” ì´ê±¸ë¡œ í†µì¼í•˜ìž.
 	case XI_SKILL_MAG_ELECTRICITY_LIGHTINGBALL01: 	pObj = new CSfxSkillMagLightningBall();		break;
 	case XI_SKILL_MAG_FIRE_FIRESTRIKE02:		pObj = new CSfxShoot();		break;
 	case XI_SKILL_MAG_EARTH_SPIKESTONE01:	pObj = new CSfxSkillMagSpikeStone();		break;
-	case XI_NAT_WINGANGEL01:	// Ãµ»çÀÇ ³¯°³
+	case XI_NAT_WINGANGEL01:	// ì²œì‚¬ì˜ ë‚ ê°œ
 		pObj = new CSfxRotate();
 		break;
-	case XI_NAT_WASTART01:	// Ãµ»çÀÇ ³¯°³ ½ÃÀü È¿°ú.
+	case XI_NAT_WASTART01:	// ì²œì‚¬ì˜ ë‚ ê°œ ì‹œì „ íš¨ê³¼.
 		pObj = new CSfx();
-		CreateSfx( pd3dDevice, XI_NAT_WINGANGEL01, vPosSrc, idSrc, vPosDest, idDest, nSec );		// ³¯°³ 2ºÐµ¿¾È Ãâ·Â.
+		CreateSfx( pd3dDevice, XI_NAT_WINGANGEL01, vPosSrc, idSrc, vPosDest, idDest, nSec );		// ë‚ ê°œ 2ë¶„ë™ì•ˆ ì¶œë ¥.
 		break;
-	case XI_NAT_CUPITSTART01:	// Å¥ÇÇÆ®³¯°³ ½ÃÀü È¿°ú.
+	case XI_NAT_CUPITSTART01:	// íí”¼íŠ¸ë‚ ê°œ ì‹œì „ íš¨ê³¼.
 		pObj = new CSfx();
-		CreateSfx( pd3dDevice, XI_NAT_WINGANGEL01, vPosSrc, idSrc, vPosDest, idDest, nSec );		// ³¯°³ 5ºÐµ¿¾È Ãâ·Â.
+		CreateSfx( pd3dDevice, XI_NAT_WINGANGEL01, vPosSrc, idSrc, vPosDest, idDest, nSec );		// ë‚ ê°œ 5ë¶„ë™ì•ˆ ì¶œë ¥.
 		break;
-	case XI_SKILL_KNT_TWO_POWERSWING01:		// ³ªÀÌÆ®-°¡µå½ºÅ³
+	case XI_SKILL_KNT_TWO_POWERSWING01:		// ë‚˜ì´íŠ¸-ê°€ë“œìŠ¤í‚¬
 		idDest = NULL_ID;
 		pObj = new CSfx();
 		break;
-	case XI_SKILL_MER_ONE_GUILOTIN02: 	// ÇÊÂü - ÆÄ¿ö¿þÀÌºê.
+	case XI_SKILL_MER_ONE_GUILOTIN02: 	// í•„ì°¸ - íŒŒì›Œì›¨ì´ë¸Œ.
 		pObj = new CSfxShootWave();
 		break;
 	case XI_SKILL_DROP_DUST_RAIN:
@@ -291,7 +291,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 		pObj = new CSfxItemRangeAtk1_Allow();
 		break;
 		
-	// È°¿ë ½ÃÀüÀÌÆåÆ®´Â ÆÈ¿¡ ¸µÅ©µÇ°Ô ÇÑ´Ù.
+	// í™œìš© ì‹œì „ì´íŽ™íŠ¸ëŠ” íŒ”ì— ë§í¬ë˜ê²Œ í•œë‹¤.
 	case XI_SKILL_RAG_BOW_ICEARROW01:
 	case XI_SKILL_RAG_SUP_FASTATTACK01:
 	case XI_SKILL_RAG_BOW_FLAMEARROW01:
@@ -318,7 +318,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 	case XI_SKILL_JST_YOYO_VATALSTAB01:
 	case XI_SKILL_JST_YOYO_HITOFPENYA01:
 	case XI_SKILL_ACR_YOYO_SLOWSTEP01:
-	case XI_SKILL_JST_SUP_POISON01:  // ¼Õ¿¡ ¸µÅ©µÇ´Â ÀÌÆå
+	case XI_SKILL_JST_SUP_POISON01:  // ì†ì— ë§í¬ë˜ëŠ” ì´íŽ™
 	case XI_SKILL_JST_SUP_BLEEDING01:
 	case XI_SKILL_JST_YOYO_BACKSTAB01:		
 	case XI_SKILL_JST_SUP_ABSORB01:		
@@ -326,7 +326,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 		pObj = new CSfxPartsLinkJst();
 		break;
 
-	case XI_SKILL_BLD_DOUBLEAX_SPRINGATTACK01:		// ¼Õ¿¡ ¸µÅ©µÇ´Â ÀÌÆå
+	case XI_SKILL_BLD_DOUBLEAX_SPRINGATTACK01:		// ì†ì— ë§í¬ë˜ëŠ” ì´íŽ™
 	case XI_SKILL_BLD_DOUBLE_SONICBLADE01:
 	case XI_SKILL_KNT_TWOSW_CHARGE01:
 	case XI_SKILL_BLD_DOUBLESW_BLADEDANCE01:
@@ -369,7 +369,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 			if( pObj->GetModel()->m_pModelElem->m_szPart[0] )
 				PLAYSND( pObj->GetModel()->m_pModelElem->m_szPart, &vPosSrc );
 
-			// ¿ÀºêÁ§Æ® »ý¼ºÈÄ ÈÄÃ³¸®.
+			// ì˜¤ë¸Œì íŠ¸ ìƒì„±í›„ í›„ì²˜ë¦¬.
 			switch( dwSfxObj )
 			{
 /*			case XI_SKILL_MAG_ELECTRICITY_LIGHTINGBALL01:
@@ -380,7 +380,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 					pSfxShoot->SetSndHit( SND_PC_SKILLM_FIREBOOMERANG2 );
 				}
 				break;*/
-			case XI_SKILL_MER_ONE_GUILOTIN02: 	// ÇÊÂü - ÆÄ¿ö¿þÀÌºê.
+			case XI_SKILL_MER_ONE_GUILOTIN02: 	// í•„ì°¸ - íŒŒì›Œì›¨ì´ë¸Œ.
 				{
 					CSfxShootWave *pSfxShootWave = (CSfxShootWave *)pObj;
 					pSfxShootWave->SetHitSfx( XI_SKILL_MER_ONE_GUILOTIN02, idSrc, idDest, 2.0f );
@@ -394,7 +394,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 					pSfxShoot->SetDir( TRUE );
 				}
 				break;
-			case XI_SKILL_MER_ONE_SNEAKER02:	// ½º³×¾î
+			case XI_SKILL_MER_ONE_SNEAKER02:	// ìŠ¤ë„¤ì–´
 				{
 					CMover *pDst = prj.GetMover( idDest );
 					if( IsValidObj( pDst ) )
@@ -406,7 +406,7 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 				break;
 			}
 
-			// ¿ùµå¿¡ ¿ÀºêÁ§Æ® Ãß°¡.
+			// ì›”ë“œì— ì˜¤ë¸Œì íŠ¸ ì¶”ê°€.
 			g_WorldMng.Get()->AddObj(pObj);
 		} else
 		{
@@ -417,14 +417,14 @@ CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 	return pObj;
 }
 
-// ¿ä¿ä¹«±â´Â ¹«Á¶°Ç ¿©±â¸¸ È£Ãâ
+// ìš”ìš”ë¬´ê¸°ëŠ” ë¬´ì¡°ê±´ ì—¬ê¸°ë§Œ í˜¸ì¶œ
 CSfx* CreateSfxYoYo( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj, 
 				 D3DXVECTOR3& vPosSrc, OBJID idSrc, D3DXVECTOR3& vPosDest, OBJID idDest, int nSec )
 {
 	CSfx* pObj = NULL;
 
 #ifdef _DEBUG
-	if( dwSfxObj == 116 )	// µð¹ö±ë ÇÏ·Á¸é ÀÌ°É ¹Ù²ã ¾²¼¼¿ä.
+	if( dwSfxObj == 116 )	// ë””ë²„ê¹… í•˜ë ¤ë©´ ì´ê±¸ ë°”ê¿” ì“°ì„¸ìš”.
 	{
 		int a = 0;
 	}
@@ -438,7 +438,7 @@ CSfx* CreateSfxYoYo( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 	{
 	}
 	*/
-	// ¿ä¿ä
+	// ìš”ìš”
 	pObj = new CSfxItemYoyoAtk();
 
 	if( pObj )
@@ -448,18 +448,18 @@ CSfx* CreateSfxYoYo( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 		{
 			if( pObj->GetModel() == NULL )
 			{
-				LPCTSTR szErr = Error( "CreateSfxYoYo : %d sfxÀÇ m_pModelÀÌ ¾øÀ½", dwSfxObj );
+				LPCTSTR szErr = Error( "CreateSfxYoYo : %d sfxì˜ m_pModelì´ ì—†ìŒ", dwSfxObj );
 				ADDERRORMSG( szErr );
 			}
 			if( pObj->GetModel()->m_pModelElem == NULL )
 			{
-				LPCTSTR szErr = Error( "CreateSfxYoYo : %d sfxÀÇ m_pModelElemÀÌ ¾øÀ½", dwSfxObj );
+				LPCTSTR szErr = Error( "CreateSfxYoYo : %d sfxì˜ m_pModelElemì´ ì—†ìŒ", dwSfxObj );
 				ADDERRORMSG( szErr );
 			}
 			if( pObj->GetModel()->m_pModelElem->m_szPart[0] )
 				PLAYSND( pObj->GetModel()->m_pModelElem->m_szPart, &vPosSrc );
 
-			// ¿ùµå¿¡ ¿ÀºêÁ§Æ® Ãß°¡.
+			// ì›”ë“œì— ì˜¤ë¸Œì íŠ¸ ì¶”ê°€.
 			g_WorldMng.Get()->AddObj(pObj);
 		} else
 		{
@@ -475,7 +475,7 @@ CSfxShoot* CreateShootSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 {
 	CSfxShoot* pObj = NULL;
 #ifdef _DEBUG
-	if( dwSfxObj == XI_SKILL_MAG_FIRE_FIRESTRIKE01 )	// µð¹ö±ë ÇÏ·Á¸é ÀÌ°É ¹Ù²ã ¾²¼¼¿ä.
+	if( dwSfxObj == XI_SKILL_MAG_FIRE_FIRESTRIKE01 )	// ë””ë²„ê¹… í•˜ë ¤ë©´ ì´ê±¸ ë°”ê¿” ì“°ì„¸ìš”.
 	{
 		int a = 0;
 	}
@@ -534,14 +534,14 @@ CSfxShoot* CreateShootSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 	
 	case XI_SKILL_MAG_ELECTRICITY_LIGHTINGBALL01: 	pObj = new CSfxSkillMagLightningBall();		break;
 	case XI_SKILL_MAG_EARTH_SPIKESTONE01:	pObj = new CSfxSkillMagSpikeStone();		break;
-	case XI_SKILL_MER_ONE_GUILOTIN02: 	// ÇÊÂü - ÆÄ¿ö¿þÀÌºê.
+	case XI_SKILL_MER_ONE_GUILOTIN02: 	// í•„ì°¸ - íŒŒì›Œì›¨ì´ë¸Œ.
 		pObj = new CSfxShootWave();
 		break;
 		
 	case 0:		break;
-	default:	// ±×¿Ü ¸ðµç µðÆúÆ®.
+	default:	// ê·¸ì™¸ ëª¨ë“  ë””í´íŠ¸.
 		pObj = new CSfxShoot();		
-		break;		// ÀÏ¹ÝÀûÀÎ ½î°í ³¯¾Æ°¡¼­ ¸Â´Â ÀÌÆåÆ®´Â ÀÌ°É·Î ÅëÀÏÇÏÀÚ.
+		break;		// ì¼ë°˜ì ì¸ ì˜ê³  ë‚ ì•„ê°€ì„œ ë§žëŠ” ì´íŽ™íŠ¸ëŠ” ì´ê±¸ë¡œ í†µì¼í•˜ìž.
 	}
 
 	if( pObj )
@@ -552,18 +552,18 @@ CSfxShoot* CreateShootSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 		{
 			if( pObj->GetModel()->m_pModelElem == NULL )
 			{
-				LPCTSTR szErr = Error( "CreateShootSfx : %d sfxÀÇ m_pModelElemÀÌ ¾øÀ½", dwSfxObj );
+				LPCTSTR szErr = Error( "CreateShootSfx : %d sfxì˜ m_pModelElemì´ ì—†ìŒ", dwSfxObj );
 				ADDERRORMSG( szErr );
 			}
 			if( pObj->GetModel()->m_pModelElem->m_szPart[0] )
 				PLAYSND( pObj->GetModel()->m_pModelElem->m_szPart, &vPosSrc );
 
-			pObj->SetDir( TRUE );		// ¹æÇâ¼ºÀ» °®°Ô ÇÏÀÚ.
+			pObj->SetDir( TRUE );		// ë°©í–¥ì„±ì„ ê°–ê²Œ í•˜ìž.
 
-			// ¿ÀºêÁ§Æ® »ý¼ºÈÄ ÈÄÃ³¸®.
+			// ì˜¤ë¸Œì íŠ¸ ìƒì„±í›„ í›„ì²˜ë¦¬.
 			switch( dwSfxObj )
 			{
-			case XI_SKILL_MER_ONE_GUILOTIN02: 	// ÇÊÂü - ÆÄ¿ö¿þÀÌºê.
+			case XI_SKILL_MER_ONE_GUILOTIN02: 	// í•„ì°¸ - íŒŒì›Œì›¨ì´ë¸Œ.
 				{
 					CSfxShootWave *pSfxShootWave = (CSfxShootWave *)pObj;
 					pSfxShootWave->SetHitSfx( XI_SKILL_MER_ONE_GUILOTIN02, idSrc, idDest, 2.0f );
@@ -572,7 +572,7 @@ CSfxShoot* CreateShootSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 				break;
 			}
 
-			// ¿ùµå¿¡ ¿ÀºêÁ§Æ® Ãß°¡.
+			// ì›”ë“œì— ì˜¤ë¸Œì íŠ¸ ì¶”ê°€.
 			g_WorldMng.Get()->AddObj(pObj);
 		} else
 		{
@@ -598,12 +598,12 @@ CSfx* CreateItemReadySfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj,
 		{
 			if( pObj->GetModel() == NULL )
 			{
-				LPCTSTR szErr = Error( "CreateItemReadySfx : %d sfxÀÇ m_pModelÀÌ ¾øÀ½", dwSfxObj );
+				LPCTSTR szErr = Error( "CreateItemReadySfx : %d sfxì˜ m_pModelì´ ì—†ìŒ", dwSfxObj );
 				ADDERRORMSG( szErr );
 			}
 			if( pObj->GetModel()->m_pModelElem == NULL )
 			{
-				LPCTSTR szErr = Error( "CreateItemReadySfx : %d sfxÀÇ m_pModelElemÀÌ ¾øÀ½", dwSfxObj );
+				LPCTSTR szErr = Error( "CreateItemReadySfx : %d sfxì˜ m_pModelElemì´ ì—†ìŒ", dwSfxObj );
 				ADDERRORMSG( szErr );
 			}
 			if( pObj->GetModel()->m_pModelElem->m_szPart[0] )
@@ -678,7 +678,7 @@ CObj* CreateObj( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwObjType, DWORD dwObjIndex
 	else if( pObj->SetIndex( pd3dDevice, dwObjIndex, bInitProp ) == TRUE )
 	{
 		pObj->SetMotion( MTI_STAND );
-		// ½ºÇÇµå¸¦ ¼³Á¤ÇÏ·Á¸é ÇöÀç·Î¼± ÀÌ¼ö¹Û¿¡....Á¿Ä¡¾ÈÅ¸.
+		// ìŠ¤í”¼ë“œë¥¼ ì„¤ì •í•˜ë ¤ë©´ í˜„ìž¬ë¡œì„  ì´ìˆ˜ë°–ì—....ì¢†ì¹˜ì•ˆíƒ€.
 		if( dwObjType == OT_MOVER )
 		{
 			CMover *pMover = (CMover *)pObj;
@@ -718,7 +718,7 @@ CObj* ReadObj( CFileIO* pFile )
 			#endif
 			break;  
 		case OT_ITEM : pObj = new CItem; break;
-		case OT_MOVER:				// ÆÄÀÏ¿¡¼­ ÀÐ¾îµéÀÌ´Â °ÍÀº ¸ðµÎ NPC
+		case OT_MOVER:				// íŒŒì¼ì—ì„œ ì½ì–´ë“¤ì´ëŠ” ê²ƒì€ ëª¨ë‘ NPC
 			pObj = new CMover; 
 			((CMover *)pObj)->InitNPCProperty();
 			break;

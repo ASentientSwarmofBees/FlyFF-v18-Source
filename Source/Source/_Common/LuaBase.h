@@ -1,4 +1,4 @@
-// LuaBase.h: interface for the CLuaBase class.
+﻿// LuaBase.h: interface for the CLuaBase class.
 //
 //////////////////////////////////////////////////////////////////////
 

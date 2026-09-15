@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <stdio.h>
 #include "model.h"
 #include "Bone.h"
@@ -51,7 +51,7 @@ void	CBones :: Destroy( void )
 }
 
 //
-//  »À´ëµéÁß¿¡¼­ nID°ªÀ» °¡Áö´Â »À´ë¸¦ Ã£À½
+//  ë¼ˆëŒ€ë“¤ì¤‘ì—ì„œ nIDê°’ì„ ê°€ì§€ëŠ” ë¼ˆëŒ€ë¥¼ ì°¾ìŒ
 //
 /*
 BONE	*CBones :: FindBone( int nID )
@@ -88,12 +88,12 @@ int		CBones :: LoadBone( LPCTSTR szFileName )
 	resFp.Read( &nVer, 4, 1 );		// version
 	if( nVer < VER_BONE )
 	{
-		Error( "%sÀÇ ¹öÀüÀº %d.  ÃÖ½Å¹öÀüÀº %d", szFileName, nVer, VER_BONE );
+		Error( "%sì˜ ë²„ì „ì€ %d.  ìµœì‹ ë²„ì „ì€ %d", szFileName, nVer, VER_BONE );
 		resFp.Close();
 		return FAIL;
 	}
 
-	// IDÀĞ±â¸¦ ³ÖÀ½.
+	// IDì½ê¸°ë¥¼ ë„£ìŒ.
 	resFp.Read( &m_nID, 4, 1 );
 
 	if( strlen( szFileName ) > sizeof(m_szName) )
@@ -103,40 +103,40 @@ int		CBones :: LoadBone( LPCTSTR szFileName )
 		return FAIL;
 	}
 
-	// ÆÄÀÏ¸í Ä«ÇÇ
+	// íŒŒì¼ëª… ì¹´í”¼
 	strcpy( m_szName, szFileName );
 
-	resFp.Read( &nNumBone, 4, 1 );			// º» °³¼ö ÀĞÀ½
+	resFp.Read( &nNumBone, 4, 1 );			// ë³¸ ê°œìˆ˜ ì½ìŒ
 	m_nMaxBone = nNumBone;
-	m_pBones = new BONE[ nNumBone ];			// º» °³¼ö ¸¸Å­ ÇÒ´ç
+	m_pBones = new BONE[ nNumBone ];			// ë³¸ ê°œìˆ˜ ë§Œí¼ í• ë‹¹
 	memset( m_pBones, 0, sizeof(BONE) * nNumBone );		// zero clear
 
 	for( i = 0; i < nNumBone; i ++ )
 	{
-		resFp.Read( &nLen, 4, 1 );		// ³Î Æ÷ÇÔ±æÀÌ
-		resFp.Read( m_pBones[i].m_szName,		nLen, 1 );		// bone node ÀÌ¸§ ÀúÀå
+		resFp.Read( &nLen, 4, 1 );		// ë„ í¬í•¨ê¸¸ì´
+		resFp.Read( m_pBones[i].m_szName,		nLen, 1 );		// bone node ì´ë¦„ ì €ì¥
 		resFp.Read( &m_pBones[i].m_mTM,			sizeof(D3DXMATRIX), 1 );			// World(Object) TM
 		resFp.Read( &m_pBones[i].m_mInverseTM,	sizeof(D3DXMATRIX), 1 );			// Inv NODE TM
 		resFp.Read( &m_pBones[i].m_mLocalTM,		sizeof(D3DXMATRIX), 1 );			// LocalTM
 		resFp.Read( &m_pBones[i].m_nParentIdx,	4, 1 );								// parent bone index
-		if( strcmpi( m_pBones[i].m_szName + 6, "r hand") == 0 )	// ºÎ¸ğÀÌ¸§ÀÌ R Hand¸é...
+		if( strcmpi( m_pBones[i].m_szName + 6, "r hand") == 0 )	// ë¶€ëª¨ì´ë¦„ì´ R Handë©´...
 			m_nRHandIdx = i;
-		if( strcmpi( m_pBones[i].m_szName + 6, "l hand") == 0 )	// ºÎ¸ğÀÌ¸§ÀÌ L Hand¸é...
+		if( strcmpi( m_pBones[i].m_szName + 6, "l hand") == 0 )	// ë¶€ëª¨ì´ë¦„ì´ L Handë©´...
 			m_nLHandIdx = i;
-		if( strcmpi(m_pBones[i].m_szName + 6, "l forearm") == 0 )	// ºÎ¸ğÀÌ¸§ÀÌ L ForeArm¸é...
+		if( strcmpi(m_pBones[i].m_szName + 6, "l forearm") == 0 )	// ë¶€ëª¨ì´ë¦„ì´ L ForeArmë©´...
 			m_nLArmIdx = i;
-		if( strcmpi(m_pBones[i].m_szName + 6, "r forearm") == 0 )	// ºÎ¸ğÀÌ¸§ÀÌ R ForeArm¸é...
+		if( strcmpi(m_pBones[i].m_szName + 6, "r forearm") == 0 )	// ë¶€ëª¨ì´ë¦„ì´ R ForeArmë©´...
 			m_nRArmIdx = i;
 	}
 
 	resFp.Read( &m_bSendVS, 4, 1 );
 	
-	// ¿À¸¥¼Õ ¹«±âÁã´Â À§Ä¡ÀÇ Çà·Ä
+	// ì˜¤ë¥¸ì† ë¬´ê¸°ì¥ëŠ” ìœ„ì¹˜ì˜ í–‰ë ¬
 	resFp.Read( &m_mLocalRH, sizeof(D3DXMATRIX), 1 );
 	resFp.Read( &m_mLocalShield, sizeof(D3DXMATRIX), 1 );
 	resFp.Read( &m_mLocalKnuckle, sizeof(D3DXMATRIX), 1 );
 	
-	// m_vEvent°¡ Ãß°¡µÈ ¹öÀü.
+	// m_vEventê°€ ì¶”ê°€ëœ ë²„ì „.
 //	int		nParentIdx[4];
 	if( nVer == 5 )
 	{
@@ -154,7 +154,7 @@ int		CBones :: LoadBone( LPCTSTR szFileName )
 		resFp.Read( &m_mLocalLH, sizeof(D3DXMATRIX), 1 );
 	}
 
-	// Æ÷ÀÎÅÍ·Î ÇÒ´ç.
+	// í¬ì¸í„°ë¡œ í• ë‹¹.
 //	for( i = 0; i < 4; i ++ )
 //	{
 //		m_pEventParent[i] = &m_pBones[ nParentIdx[i] ];
@@ -162,10 +162,10 @@ int		CBones :: LoadBone( LPCTSTR szFileName )
 
 	resFp.Close();
 
-	// ºÎ¸ğ Æ÷ÀÎÅÍ¸¦ ¼ÂÆÃ
+	// ë¶€ëª¨ í¬ì¸í„°ë¥¼ ì…‹íŒ…
 	for( i = 0; i < nNumBone; i ++ )
 	{
-		if( m_pBones[i].m_nParentIdx == -1 )			// ºÎ¸ğ°¡ ¾øÀ¸¸é ºÎ¸ğÆ÷ÀÎÅÍ´Â ³Î
+		if( m_pBones[i].m_nParentIdx == -1 )			// ë¶€ëª¨ê°€ ì—†ìœ¼ë©´ ë¶€ëª¨í¬ì¸í„°ëŠ” ë„
 			m_pBones[i].m_pParent = NULL;
 		else
 			m_pBones[i].m_pParent = &m_pBones[ m_pBones[i].m_nParentIdx ];
@@ -234,9 +234,9 @@ void	CBonesMng :: Destroy( void )
 #endif	// __LEAK_0827
 }
 
-// º» ÆÄÀÏLoad¿äÃ»ÀÌ µé¾î¿À¸é ÆÄÀÏÀ» ÀĞ¾î ¸Ş¸ğ¸®¿¡ ÀûÀçÇÑ´Ù.
-// ÀûÀçÇÒ¶© Áßº¹µÈ°ÍÀº ÀÌ¹Ì ·ÎµùµÇ¾ú´ø º»ÀÇ Æ÷ÀÎÅÍ¸¦ ¸®ÅÏÇÑ´Ù.
-// ÆÄÀÏÀÇ Ã¹¸Ó¸®¿¡ °íÀ¯ ¾ÆÀÌµğ¸¦ ³Ö¾î¼­ °Ë»öÇÒ¶§ ÆÄÀÏÀÌ¸§À¸·Î ÇÏÁö¸»°í ¾ÆÀÌµğ·Î ÇÏµµ·Ï ÇÑ´Ù.
+// ë³¸ íŒŒì¼Loadìš”ì²­ì´ ë“¤ì–´ì˜¤ë©´ íŒŒì¼ì„ ì½ì–´ ë©”ëª¨ë¦¬ì— ì ì¬í•œë‹¤.
+// ì ì¬í• ë• ì¤‘ë³µëœê²ƒì€ ì´ë¯¸ ë¡œë”©ë˜ì—ˆë˜ ë³¸ì˜ í¬ì¸í„°ë¥¼ ë¦¬í„´í•œë‹¤.
+// íŒŒì¼ì˜ ì²«ë¨¸ë¦¬ì— ê³ ìœ  ì•„ì´ë””ë¥¼ ë„£ì–´ì„œ ê²€ìƒ‰í• ë•Œ íŒŒì¼ì´ë¦„ìœ¼ë¡œ í•˜ì§€ë§ê³  ì•„ì´ë””ë¡œ í•˜ë„ë¡ í•œë‹¤.
 CBones *CBonesMng :: LoadBone( LPCTSTR szFileName )
 {
 #if __VER >= 12 // __LEAK_0827
@@ -247,7 +247,7 @@ CBones *CBonesMng :: LoadBone( LPCTSTR szFileName )
 	map<string, CBones*>::iterator i	= m_mapBones.find( sFile );
 	if( i != m_mapBones.end() )
 		return i->second;
-	// ·ÎµùµÈ°Ô ¾Æ´Ï¾ú´Ù¸é.  ½ÇÁ¦·Î µ¥ÀÌÅ¸ ÀĞÀ½.
+	// ë¡œë”©ëœê²Œ ì•„ë‹ˆì—ˆë‹¤ë©´.  ì‹¤ì œë¡œ ë°ì´íƒ€ ì½ìŒ.
 	CBones* pBones	= new CBones;
 	if( pBones->LoadBone( szFileName ) == FAIL )
 	{
@@ -262,33 +262,33 @@ CBones *CBonesMng :: LoadBone( LPCTSTR szFileName )
 	CBones *pBones;
 	int		nIdx = -1;
 
-	// ÀÌ¹Ì ¸Ş¸ğ¸®¿¡ ÀûÀç µÇ¾ú´ÂÁö °Ë»ö, µ¿½Ã¿¡ ºó°÷µµ °Ë»ö
+	// ì´ë¯¸ ë©”ëª¨ë¦¬ì— ì ì¬ ë˜ì—ˆëŠ”ì§€ ê²€ìƒ‰, ë™ì‹œì— ë¹ˆê³³ë„ ê²€ìƒ‰
 	for( i = 0; i < MAX_BONES; i ++ )
 	{
 		pBones = *pAry++;
-		if( pBones )				// ³ÎÀÌ ¾Æ´Ñ°ÍÀº ¹«½¼ º»ÀÌµç ·ÎµùµÇ¾î ÀÖ´Ù´Â ¶æ
+		if( pBones )				// ë„ì´ ì•„ë‹Œê²ƒì€ ë¬´ìŠ¨ ë³¸ì´ë“  ë¡œë”©ë˜ì–´ ìˆë‹¤ëŠ” ëœ»
 		{
-			if( strcmpi(pBones->m_szName, szFileName) == 0 )		// °°Àº°É Ã£¾ÒÀ¸¸é ±×°É ¸®ÅÏ
-//			if( pBones->m_nIDstrcmp(pBones->m_szName, szFileName) == 0 )		// °°Àº°É Ã£¾ÒÀ¸¸é ±×°É ¸®ÅÏ
+			if( strcmpi(pBones->m_szName, szFileName) == 0 )		// ê°™ì€ê±¸ ì°¾ì•˜ìœ¼ë©´ ê·¸ê±¸ ë¦¬í„´
+//			if( pBones->m_nIDstrcmp(pBones->m_szName, szFileName) == 0 )		// ê°™ì€ê±¸ ì°¾ì•˜ìœ¼ë©´ ê·¸ê±¸ ë¦¬í„´
 				return pBones;
 		}
 		else
 		{
-			if( nIdx == -1 )		nIdx = i;			// ºó°÷ÀÌ ÀÖÀ¸¸é °¡ÀåÃ³À½ ºó°÷ÀÌ ³ª¿Â°÷À» ±â¾ïÇØµÒ
+			if( nIdx == -1 )		nIdx = i;			// ë¹ˆê³³ì´ ìˆìœ¼ë©´ ê°€ì¥ì²˜ìŒ ë¹ˆê³³ì´ ë‚˜ì˜¨ê³³ì„ ê¸°ì–µí•´ë‘ 
 		}
 	}
 
 	pBones = new CBones;
-	// ·ÎµùµÈ°Ô ¾Æ´Ï¾ú´Ù¸é.  ½ÇÁ¦·Î µ¥ÀÌÅ¸ ÀĞÀ½.
+	// ë¡œë”©ëœê²Œ ì•„ë‹ˆì—ˆë‹¤ë©´.  ì‹¤ì œë¡œ ë°ì´íƒ€ ì½ìŒ.
 	if( pBones->LoadBone( szFileName ) == FAIL )
 		return NULL;
 
-	// ÀĞÀº º»Æ÷ÀÎÅÍ¸¦ ¸®½ºÆ®¿¡ µî·Ï
+	// ì½ì€ ë³¸í¬ì¸í„°ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ë“±ë¡
 	m_pBonesAry[ nIdx ] = pBones;
 
-	m_nMax ++;			// °¡Áø º» °¹¼ö Áõ°¡
+	m_nMax ++;			// ê°€ì§„ ë³¸ ê°¯ìˆ˜ ì¦ê°€
 
-	return pBones;		// ÀĞÀº º» Æ÷ÀÎÅÍ ¸®ÅÏ
+	return pBones;		// ì½ì€ ë³¸ í¬ì¸í„° ë¦¬í„´
 #endif	// __LEAK_0827
 }
 
@@ -368,7 +368,7 @@ CMotion *CMotionMng :: LoadMotion( LPCTSTR szFileName )
 	if( i != m_mapMotions.end() )
 		return i->second;
 
-	// ·ÎµùµÈ°Ô ¾Æ´Ï¾ú´Ù¸é.  ½ÇÁ¦·Î µ¥ÀÌÅ¸ ÀĞÀ½.
+	// ë¡œë”©ëœê²Œ ì•„ë‹ˆì—ˆë‹¤ë©´.  ì‹¤ì œë¡œ ë°ì´íƒ€ ì½ìŒ.
 	CMotion* pMotion	= new CMotion;
 	if( pMotion->LoadMotion( szFileName ) == FAIL )
 	{
@@ -382,55 +382,55 @@ CMotion *CMotionMng :: LoadMotion( LPCTSTR szFileName )
 	CMotion **pAry, *pMotion;
 	int		nIdx = -1;
 
-	// ÀÌ¹Ì ¸Ş¸ğ¸®¿¡ ÀûÀç µÇ¾ú´ÂÁö °Ë»ö, µ¿½Ã¿¡ ºó°÷µµ °Ë»ö
-	// ÀÏ´Ü Ä³½¬¸¦ °Ë»ö
+	// ì´ë¯¸ ë©”ëª¨ë¦¬ì— ì ì¬ ë˜ì—ˆëŠ”ì§€ ê²€ìƒ‰, ë™ì‹œì— ë¹ˆê³³ë„ ê²€ìƒ‰
+	// ì¼ë‹¨ ìºì‰¬ë¥¼ ê²€ìƒ‰
 	pAry = m_pCache;
 	for( i = 0; i < MAX_MOTION_CACHE; i ++ )
 	{
 		pMotion = *pAry++;
 		if( pMotion )
 		{
-			if( strcmpi(pMotion->m_szName, szFileName) == 0 )		// °°Àº°É Ã£¾ÒÀ¸¸é ±×°É ¸®ÅÏ
+			if( strcmpi(pMotion->m_szName, szFileName) == 0 )		// ê°™ì€ê±¸ ì°¾ì•˜ìœ¼ë©´ ê·¸ê±¸ ë¦¬í„´
 				return pMotion;
 		}
 	}
 
-	// Ä³½¬¿¡¼­ ¸øÃ£¾ÒÀ¸¸é ¸®½ºÆ®¿¡¼­ °Ë»ö
+	// ìºì‰¬ì—ì„œ ëª»ì°¾ì•˜ìœ¼ë©´ ë¦¬ìŠ¤íŠ¸ì—ì„œ ê²€ìƒ‰
 	pAry = m_pMotionAry;
 	for( i = 0; i < MAX_MOTION; i ++ )
 	{
 		pMotion = *pAry++;
-		if( pMotion )				// ³ÎÀÌ ¾Æ´Ñ°ÍÀº ¹«½¼ ¸ğ¼ÇÀÌµç ·ÎµùµÇ¾î ÀÖ´Ù´Â ¶æ
+		if( pMotion )				// ë„ì´ ì•„ë‹Œê²ƒì€ ë¬´ìŠ¨ ëª¨ì…˜ì´ë“  ë¡œë”©ë˜ì–´ ìˆë‹¤ëŠ” ëœ»
 		{
-			if( strcmpi(pMotion->m_szName, szFileName) == 0 )		// °°Àº°É Ã£¾ÒÀ¸¸é ±×°É ¸®ÅÏ
+			if( strcmpi(pMotion->m_szName, szFileName) == 0 )		// ê°™ì€ê±¸ ì°¾ì•˜ìœ¼ë©´ ê·¸ê±¸ ë¦¬í„´
 				return pMotion;
 		} else
 		{
-			if( nIdx == -1 )		nIdx = i;			// ºó°÷ÀÌ ÀÖÀ¸¸é °¡ÀåÃ³À½ ºó°÷ÀÌ ³ª¿Â°÷À» ±â¾ïÇØµÒ
+			if( nIdx == -1 )		nIdx = i;			// ë¹ˆê³³ì´ ìˆìœ¼ë©´ ê°€ì¥ì²˜ìŒ ë¹ˆê³³ì´ ë‚˜ì˜¨ê³³ì„ ê¸°ì–µí•´ë‘ 
 		}
 	}
 	if( nIdx == -1 )	
 	{
-		Error( "%s : ÀĞÀ» ¼ö ÀÖ´Â ÇÑ°è¸¦ ÃÊ°úÇß´Ù", szFileName );
+		Error( "%s : ì½ì„ ìˆ˜ ìˆëŠ” í•œê³„ë¥¼ ì´ˆê³¼í–ˆë‹¤", szFileName );
 	}
 
 	pMotion = new CMotion;
-	// ·ÎµùµÈ°Ô ¾Æ´Ï¾ú´Ù¸é.  ½ÇÁ¦·Î µ¥ÀÌÅ¸ ÀĞÀ½.
+	// ë¡œë”©ëœê²Œ ì•„ë‹ˆì—ˆë‹¤ë©´.  ì‹¤ì œë¡œ ë°ì´íƒ€ ì½ìŒ.
 	if( pMotion->LoadMotion( szFileName ) == FAIL )
 	{
 		safe_delete( pMotion );
 		return NULL;
 	}
-	// ÀĞÀº ¸ğ¼ÇÆ÷ÀÎÅÍ¸¦ ¸®½ºÆ®¿¡ µî·Ï
+	// ì½ì€ ëª¨ì…˜í¬ì¸í„°ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ë“±ë¡
 	m_pMotionAry[ nIdx ] = pMotion;
 	
-	// Ä³½Ã¿¡µµ ³ÖÀ½
+	// ìºì‹œì—ë„ ë„£ìŒ
 	m_pCache[ m_nCachePos++ ] = pMotion;	
 	if( m_nCachePos >= MAX_MOTION_CACHE )		m_nCachePos = 0;
 
-	m_nMax ++;			// °¡Áø ¸ğ¼Ç °¹¼ö Áõ°¡
+	m_nMax ++;			// ê°€ì§„ ëª¨ì…˜ ê°¯ìˆ˜ ì¦ê°€
 
-	return pMotion;		// ÀĞÀº ¸ğ¼Ç Æ÷ÀÎÅÍ ¸®ÅÏ
+	return pMotion;		// ì½ì€ ëª¨ì…˜ í¬ì¸í„° ë¦¬í„´
 #endif	// __LEAK_0827
 }
 
@@ -500,7 +500,7 @@ int		CMotion :: LoadMotion( LPCTSTR szFileName )
 	BOOL bRet = resFp.Open( MakePath( DIR_MODEL, szFileName ), "rb" );
 	if( bRet == FALSE )	
 	{
-		/*LPCTSTR szStr = Error( "%s : Ã£À» ¼ö ¾øÀ½", szFileName );
+		/*LPCTSTR szStr = Error( "%s : ì°¾ì„ ìˆ˜ ì—†ìŒ", szFileName );
 		ADDERRORMSG( szStr );*/
 		resFp.Close();
 		return FAIL;
@@ -509,12 +509,12 @@ int		CMotion :: LoadMotion( LPCTSTR szFileName )
 	resFp.Read( &nVer, 4, 1 );		// version
 	if( nVer != VER_MOTION )
 	{
-		Error( "%sÀÇ ¹öÀüÀº %d.  ÃÖ½Å¹öÀüÀº %d", szFileName, nVer, VER_MOTION );
+		Error( "%sì˜ ë²„ì „ì€ %d.  ìµœì‹ ë²„ì „ì€ %d", szFileName, nVer, VER_MOTION );
 		resFp.Close();
 		return FAIL;
 	}
 
-	// IDÀĞ±â¸¦ ³ÖÀ½.
+	// IDì½ê¸°ë¥¼ ë„£ìŒ.
 	resFp.Read( &m_nID, 4, 1 );
 
 	if( strlen( szFileName ) > sizeof(m_szName) )
@@ -524,14 +524,14 @@ int		CMotion :: LoadMotion( LPCTSTR szFileName )
 		return FAIL;
 	}
 
-	// ÆÄÀÏ¸í Ä«ÇÇ
+	// íŒŒì¼ëª… ì¹´í”¼
 	strcpy( m_szName, szFileName );
 	
 	resFp.Read( &m_fPerSlerp, sizeof(float), 1 );		// 
 	resFp.Seek( 32, SEEK_CUR );		// reserved
 
-	resFp.Read( &nNumBone, 4, 1 );			// »À´ë °¹¼ö ÀĞÀ½
-	resFp.Read( &nNumFrame, 4, 1 );		// ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ °³¼ö ÀĞÀ½
+	resFp.Read( &nNumBone, 4, 1 );			// ë¼ˆëŒ€ ê°¯ìˆ˜ ì½ìŒ
+	resFp.Read( &nNumFrame, 4, 1 );		// ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„ ê°œìˆ˜ ì½ìŒ
 	m_nMaxFrame = nNumFrame;
 	m_nMaxBone = nNumBone;
 
@@ -544,34 +544,34 @@ int		CMotion :: LoadMotion( LPCTSTR szFileName )
 
 	// path 
 	int nTemp;
-	resFp.Read( &nTemp, 4, 1 );	// pathÁ¤º¸°¡ ÀÖ´Â°¡?
+	resFp.Read( &nTemp, 4, 1 );	// pathì •ë³´ê°€ ìˆëŠ”ê°€?
 	if( nTemp )
 	{
 		m_pPath = new D3DXVECTOR3[ nNumFrame ];
-		resFp.Read( m_pPath, sizeof(D3DXVECTOR3) * nNumFrame, 1 );		// nNumFrame¸¸Å­ ÇÑ¹æ¿¡ ÀĞ¾î¹ö¸®±â.
+		resFp.Read( m_pPath, sizeof(D3DXVECTOR3) * nNumFrame, 1 );		// nNumFrameë§Œí¼ í•œë°©ì— ì½ì–´ë²„ë¦¬ê¸°.
 	}
 
 	//
-	// TM_Animation µ¥ÀÌÅ¸ ÀĞÀ½.
+	// TM_Animation ë°ì´íƒ€ ì½ìŒ.
 	ReadTM( &resFp, nNumBone, nNumFrame );
 	
-	// ÇÁ·¹ÀÓ ¼Ó¼º ÀĞÀ½.
+	// í”„ë ˆì„ ì†ì„± ì½ìŒ.
 	resFp.Read( m_pAttr, sizeof(MOTION_ATTR) * nNumFrame, 1 );
 
-	resFp.Read( &m_nMaxEvent, 4, 1 );	// ÀÌº¥Æ® ÁÂÇ¥ ÀúÀå
+	resFp.Read( &m_nMaxEvent, 4, 1 );	// ì´ë²¤íŠ¸ ì¢Œí‘œ ì €ì¥
 	if( m_nMaxEvent > 0 )
 		resFp.Read( m_vEvent, sizeof(D3DXVECTOR3) * m_nMaxEvent, 1 );
 	
 
 	resFp.Close();
 
-//	m_vPivot = m_pMotion[0].m_vPos;			// Bip01ÀÇ POS°ªÀ» ¹ŞÀ½.  °ñ¹İÀÇ ±âÁØ ÁÂÇ¥´Ù.
+//	m_vPivot = m_pMotion[0].m_vPos;			// Bip01ì˜ POSê°’ì„ ë°›ìŒ.  ê³¨ë°˜ì˜ ê¸°ì¤€ ì¢Œí‘œë‹¤.
 
 	return SUCCESS;
 }
 
 //
-//  MotionÀÇ coreºÎºĞÀ» ÀĞÀ½. ¿ÜºÎ¿¡¼­ ´Üµ¶ È£Ãâ °¡´É.
+//  Motionì˜ coreë¶€ë¶„ì„ ì½ìŒ. ì™¸ë¶€ì—ì„œ ë‹¨ë… í˜¸ì¶œ ê°€ëŠ¥.
 //
 void	CMotion :: ReadTM( CResFile *file, int nNumBone, int nNumFrame )
 {
@@ -579,11 +579,11 @@ void	CMotion :: ReadTM( CResFile *file, int nNumBone, int nNumFrame )
 	int		nFrame;
 	int		i;
 
-	m_nMaxBone = nNumBone;		// LoadMotion()¿¡¼­ ºÒ·ÁÁ³´Ù¸é ÀÌºÎºĞÀº ÇÊ¿ä¾øÀ¸³ª ReadTM¸¸ µû·Î ºÒ¸± ÀÏÀÌ ÀÖÀ¸¸é ÀÌ°Ô ÇÊ¿äÇÏ´Ù.
+	m_nMaxBone = nNumBone;		// LoadMotion()ì—ì„œ ë¶ˆë ¤ì¡Œë‹¤ë©´ ì´ë¶€ë¶„ì€ í•„ìš”ì—†ìœ¼ë‚˜ ReadTMë§Œ ë”°ë¡œ ë¶ˆë¦´ ì¼ì´ ìˆìœ¼ë©´ ì´ê²Œ í•„ìš”í•˜ë‹¤.
 	m_nMaxFrame = nNumFrame;
 
-	//--- »À´ë±¸¼ºÁ¤º¸ ÀĞÀ½.
-	m_pBoneInfo = new BONE[ nNumBone ];			// º» °³¼ö ¸¸Å­ ÇÒ´ç
+	//--- ë¼ˆëŒ€êµ¬ì„±ì •ë³´ ì½ìŒ.
+	m_pBoneInfo = new BONE[ nNumBone ];			// ë³¸ ê°œìˆ˜ ë§Œí¼ í• ë‹¹
 	memset( m_pBoneInfo, 0, sizeof(BONE) * nNumBone );		// zero clear
 	
 	int		nLen;
@@ -593,39 +593,39 @@ void	CMotion :: ReadTM( CResFile *file, int nNumBone, int nNumFrame )
 		if( nLen > 32 )		
 			Error("CMotion::ReadTM - %s bonename is too long", m_szName );
 
-		file->Read( m_pBoneInfo[i].m_szName,	nLen, 1 );		// bone node ÀÌ¸§
+		file->Read( m_pBoneInfo[i].m_szName,	nLen, 1 );		// bone node ì´ë¦„
 		file->Read( &m_pBoneInfo[i].m_mInverseTM,	sizeof(D3DXMATRIX), 1 );			// Inv NODE TM
 		file->Read( &m_pBoneInfo[i].m_mLocalTM,		sizeof(D3DXMATRIX), 1 );			// LocalTM
 		file->Read( &m_pBoneInfo[i].m_nParentIdx,	4, 1 );								// parent bone index
 	}
 	
-	// ºÎ¸ğ Æ÷ÀÎÅÍ¸¦ ¼ÂÆÃ
+	// ë¶€ëª¨ í¬ì¸í„°ë¥¼ ì…‹íŒ…
 	for( i = 0; i < nNumBone; i ++ )
 	{
-		if( m_pBoneInfo[i].m_nParentIdx == -1 )			// ºÎ¸ğ°¡ ¾øÀ¸¸é ºÎ¸ğÆ÷ÀÎÅÍ´Â ³Î
+		if( m_pBoneInfo[i].m_nParentIdx == -1 )			// ë¶€ëª¨ê°€ ì—†ìœ¼ë©´ ë¶€ëª¨í¬ì¸í„°ëŠ” ë„
 			m_pBoneInfo[i].m_pParent = NULL;
 		else
 			m_pBoneInfo[i].m_pParent = &m_pBoneInfo[ m_pBoneInfo[i].m_nParentIdx ];
 	}
 	
 
-	file->Read( &nNumSize, 4, 1 );			// ÇÁ·¹ÀÓ »çÀÌÁî ÀĞÀ½ - ¸Ş¸ğ¸® Ç® »çÀÌÁî
-	//--- ¸ğ¼Ç ÀĞÀ½.
-	m_pMotion		= new TM_ANIMATION[ nNumSize ];		// ¸Ş¸ğ¸® Ç®
+	file->Read( &nNumSize, 4, 1 );			// í”„ë ˆì„ ì‚¬ì´ì¦ˆ ì½ìŒ - ë©”ëª¨ë¦¬ í’€ ì‚¬ì´ì¦ˆ
+	//--- ëª¨ì…˜ ì½ìŒ.
+	m_pMotion		= new TM_ANIMATION[ nNumSize ];		// ë©”ëª¨ë¦¬ í’€
 	m_pBoneFrame	= new BONE_FRAME[ nNumBone ];
 	m_pAttr			= new MOTION_ATTR[ nNumFrame ];
-	memset( m_pAttr, 0, sizeof(MOTION_ATTR) * nNumFrame );	// nNumSize¿´´Âµ¥ nNumFrameÀÌ ¸Â´Â°Å °°´Ù.
+	memset( m_pAttr, 0, sizeof(MOTION_ATTR) * nNumFrame );	// nNumSizeì˜€ëŠ”ë° nNumFrameì´ ë§ëŠ”ê±° ê°™ë‹¤.
 	TM_ANIMATION	*p = m_pMotion;
 	int		nCnt = 0;
 	
-	// »À´ë ¼ö ¸¸Å­ ·çÇÁ
+	// ë¼ˆëŒ€ ìˆ˜ ë§Œí¼ ë£¨í”„
 	for( i = 0; i < nNumBone; i ++ )
 	{
 		file->Read( &nFrame, 4, 1 );
-		if( nFrame == 1 )		// 1ÀÌ¸é ÇöÀç »À´ë¿¡ ÇÁ·¹ÀÓ ÀÖÀ½
+		if( nFrame == 1 )		// 1ì´ë©´ í˜„ì¬ ë¼ˆëŒ€ì— í”„ë ˆì„ ìˆìŒ
 		{
 			m_pBoneFrame[i].m_pFrame = p;
-			file->Read( m_pBoneFrame[i].m_pFrame, sizeof(TM_ANIMATION) * nNumFrame, 1 );		// ÇÑ¹æ¿¡ ÀĞ¾î¹ö¸®±â.
+			file->Read( m_pBoneFrame[i].m_pFrame, sizeof(TM_ANIMATION) * nNumFrame, 1 );		// í•œë°©ì— ì½ì–´ë²„ë¦¬ê¸°.
 			p += nNumFrame;
 			nCnt += nNumFrame;
 //			for( j = 0; j < nNumFrame; j ++ )
@@ -636,11 +636,11 @@ void	CMotion :: ReadTM( CResFile *file, int nNumBone, int nNumFrame )
 //				p ++;
 //				nCnt ++;
 //			}
-		} else			// ÇöÀç »À´ë¿¡ ÇÁ·¹ÀÓ ¾øÀ½
+		} else			// í˜„ì¬ ë¼ˆëŒ€ì— í”„ë ˆì„ ì—†ìŒ
 		{
-			file->Read( &(m_pBoneFrame[i].m_mLocalTM), sizeof(D3DXMATRIX), 1 );			// ÇÁ·¹ÀÓÀÌ ¾øÀ¸¸é LocalTM¸¸ ÀĞ°í
+			file->Read( &(m_pBoneFrame[i].m_mLocalTM), sizeof(D3DXMATRIX), 1 );			// í”„ë ˆì„ì´ ì—†ìœ¼ë©´ LocalTMë§Œ ì½ê³ 
 			m_pBoneFrame[i].m_pFrame = NULL;
-			// m_mLocalTM¿¡ ³Ö¾úÀ¸¹Ç·Î ¸Ş¸ğ¸® Ç®¿¡´Â ³ÖÀ»ÇÊ¿ä ¾ø´Ù.
+			// m_mLocalTMì— ë„£ì—ˆìœ¼ë¯€ë¡œ ë©”ëª¨ë¦¬ í’€ì—ëŠ” ë„£ì„í•„ìš” ì—†ë‹¤.
 		}
 	}
 	
@@ -651,60 +651,60 @@ void	CMotion :: ReadTM( CResFile *file, int nNumBone, int nNumFrame )
 }
 
 //
-// »À´ëÀÇ ¾Ö´Ï¸ŞÀÌ¼Ç
+// ë¼ˆëŒ€ì˜ ì• ë‹ˆë©”ì´ì…˜
 // 
 void	CMotion :: AnimateBone( D3DXMATRIX *pmUpdateBone, CMotion *pMotionOld, float fFrameCurrent, int nNextFrame, int nFrameOld, BOOL bMotionTrans, float fBlendWeight )
 {
 	int		i;
-	BONE	*pBone = m_pBoneInfo;		// ÀÌ ¸ğµ¨ÀÇ »À´ë ½ÃÀÛ Æ÷ÀÎÅÍ.
-	TM_ANIMATION	*pFrame = NULL;					// ÇöÀç ÇÁ·¹ÀÓ
-	TM_ANIMATION	*pNext = NULL;					// ´ÙÀ½ ÇÁ·¹ÀÓ
-	TM_ANIMATION	*pFrameOld = NULL;				// ÀÌÀü¸ğ¼ÇÀÇ ÇÁ·¹ÀÓ
+	BONE	*pBone = m_pBoneInfo;		// ì´ ëª¨ë¸ì˜ ë¼ˆëŒ€ ì‹œì‘ í¬ì¸í„°.
+	TM_ANIMATION	*pFrame = NULL;					// í˜„ì¬ í”„ë ˆì„
+	TM_ANIMATION	*pNext = NULL;					// ë‹¤ìŒ í”„ë ˆì„
+	TM_ANIMATION	*pFrameOld = NULL;				// ì´ì „ëª¨ì…˜ì˜ í”„ë ˆì„
 //	D3DXMATRIX	*pMatBone = m_mUpdateBone;
-	D3DXMATRIX	*pMatBones = pmUpdateBone;			// ¾÷µ¥ÀÌÆ® ¸ÅÆ®¸¯½º ¸®½ºÆ® ½ÃÀÛ Æ÷ÀÎÅÍ
+	D3DXMATRIX	*pMatBones = pmUpdateBone;			// ì—…ë°ì´íŠ¸ ë§¤íŠ¸ë¦­ìŠ¤ ë¦¬ìŠ¤íŠ¸ ì‹œì‘ í¬ì¸í„°
 	int			nCurrFrame;
 	float		fSlp;
 	D3DXQUATERNION		qSlerp;
 	D3DXVECTOR3			vSlerp;
 	BONE_FRAME	*pBoneFrame = NULL;
-	BONE_FRAME	*pBoneFrameOld = NULL;		// º»ÀÇ °èÃş±¸Á¶
+	BONE_FRAME	*pBoneFrameOld = NULL;		// ë³¸ì˜ ê³„ì¸µêµ¬ì¡°
 	D3DXMATRIX	m1, m2;
 
-	if( pMotionOld == NULL )	// pMotionOld-> ÇÒ¶§ ³ÎÂüÁ¶ ¿¡·¯¸¸ ¾È³ª°ÔÇÔ.
+	if( pMotionOld == NULL )	// pMotionOld-> í• ë•Œ ë„ì°¸ì¡° ì—ëŸ¬ë§Œ ì•ˆë‚˜ê²Œí•¨.
 		pMotionOld = this;
 
-	// ¾Ö´Ï¸ŞÀÌ¼Ç µ¿ÀÛÀÌ ÀÖ´Â °æ¿ì
+	// ì• ë‹ˆë©”ì´ì…˜ ë™ì‘ì´ ìˆëŠ” ê²½ìš°
 	i = m_nMaxBone;
-	// º¸°£À» À§ÇÑ Slerp °è»ê.
-	nCurrFrame = (int)fFrameCurrent;				// ¼Ò¼ıÁ¡ ¶¼³»°í Á¤¼öºÎ¸¸..
-	fSlp = fFrameCurrent - (float)nCurrFrame;	// ¼Ò¼ıÁ¡ ºÎºĞ¸¸ °¡Á®¿È
+	// ë³´ê°„ì„ ìœ„í•œ Slerp ê³„ì‚°.
+	nCurrFrame = (int)fFrameCurrent;				// ì†Œìˆ«ì  ë–¼ë‚´ê³  ì •ìˆ˜ë¶€ë§Œ..
+	fSlp = fFrameCurrent - (float)nCurrFrame;	// ì†Œìˆ«ì  ë¶€ë¶„ë§Œ ê°€ì ¸ì˜´
 	/////////////////////////////
 
 //	int	nNextFrame = GetNextFrame();
 	pBoneFrame	  = m_pBoneFrame;
-	pBoneFrameOld = pMotionOld->m_pBoneFrame;		// ÀÌÀüµ¿ÀÛÀÇ »À´ë °èÃş
-	// »À´ë °¹¼ö¸¸Å­ ·çÇÁ µ·´Ù
+	pBoneFrameOld = pMotionOld->m_pBoneFrame;		// ì´ì „ë™ì‘ì˜ ë¼ˆëŒ€ ê³„ì¸µ
+	// ë¼ˆëŒ€ ê°¯ìˆ˜ë§Œí¼ ë£¨í”„ ëˆë‹¤
 	while( i-- )
 	{
 		if( pBoneFrameOld->m_pFrame )
-			pFrameOld = &pBoneFrameOld->m_pFrame[nFrameOld];		// ÀÏ´ÜÀº 0À¸·Î ÇÑ´Ù.  ÀÌÀü¸ğ¼ÇÀÇ nCurrFrameµµ ±â¾ïÇÏ°í ÀÖ¾î¾ß ÇÑ´Ù.
+			pFrameOld = &pBoneFrameOld->m_pFrame[nFrameOld];		// ì¼ë‹¨ì€ 0ìœ¼ë¡œ í•œë‹¤.  ì´ì „ëª¨ì…˜ì˜ nCurrFrameë„ ê¸°ì–µí•˜ê³  ìˆì–´ì•¼ í•œë‹¤.
 		else
-			pFrameOld = NULL;		// ÀÏ´ÜÀº 0À¸·Î ÇÑ´Ù.  ÀÌÀü¸ğ¼ÇÀÇ nCurrFrameµµ ±â¾ïÇÏ°í ÀÖ¾î¾ß ÇÑ´Ù.
-		if( pBoneFrame->m_pFrame )		// ÀÌ »À´ë¿¡ ÇÁ·¹ÀÓÀÌ ÀÖÀ»¶§
+			pFrameOld = NULL;		// ì¼ë‹¨ì€ 0ìœ¼ë¡œ í•œë‹¤.  ì´ì „ëª¨ì…˜ì˜ nCurrFrameë„ ê¸°ì–µí•˜ê³  ìˆì–´ì•¼ í•œë‹¤.
+		if( pBoneFrame->m_pFrame )		// ì´ ë¼ˆëŒ€ì— í”„ë ˆì„ì´ ìˆì„ë•Œ
 		{
-			pFrame = &pBoneFrame->m_pFrame[ nCurrFrame ];		// ÇöÀç ÇÁ·¹ÀÓ Æ÷ÀÎÅÍ ¹ŞÀ½
-			pNext  = &pBoneFrame->m_pFrame[ nNextFrame ];		// ´ÙÀ½ ÇÁ·¹ÀÓ Æ÷ÀÎÅÍ ¹ŞÀ½
+			pFrame = &pBoneFrame->m_pFrame[ nCurrFrame ];		// í˜„ì¬ í”„ë ˆì„ í¬ì¸í„° ë°›ìŒ
+			pNext  = &pBoneFrame->m_pFrame[ nNextFrame ];		// ë‹¤ìŒ í”„ë ˆì„ í¬ì¸í„° ë°›ìŒ
 
-			D3DXQuaternionSlerp( &qSlerp, &pFrame->m_qRot, &pNext->m_qRot, fSlp );	// º¸°£µÈ ÄõÅÍ´Ï¾ğ ±¸ÇÔ
-			D3DXVec3Lerp( &vSlerp, &pFrame->m_vPos, &pNext->m_vPos, fSlp );		// º¸°£µÈ Posº¤ÅÍ ±¸ÇÔ
+			D3DXQuaternionSlerp( &qSlerp, &pFrame->m_qRot, &pNext->m_qRot, fSlp );	// ë³´ê°„ëœ ì¿¼í„°ë‹ˆì–¸ êµ¬í•¨
+			D3DXVec3Lerp( &vSlerp, &pFrame->m_vPos, &pNext->m_vPos, fSlp );		// ë³´ê°„ëœ Posë²¡í„° êµ¬í•¨
 
-			if( bMotionTrans )	// ÀÌÀü ¸ğ¼Ç°ú ºí·»µù ÇØ¾ß ÇÏ´Â°¡
+			if( bMotionTrans )	// ì´ì „ ëª¨ì…˜ê³¼ ë¸”ë Œë”© í•´ì•¼ í•˜ëŠ”ê°€
 			{
 				float	fBlendSlp = fBlendWeight;
 				if( pFrameOld )
 				{
-					D3DXQuaternionSlerp( &qSlerp, &pFrameOld->m_qRot, &qSlerp, fBlendSlp );	// ÀÌÀü¸ğ¼Ç°ú ÇöÀç ÇÁ·¹ÀÓÀ» ºí·»µù
-					D3DXVec3Lerp( &vSlerp, &pFrameOld->m_vPos, &vSlerp, fBlendSlp );		// º¸°£µÈ Posº¤ÅÍ ±¸ÇÔ
+					D3DXQuaternionSlerp( &qSlerp, &pFrameOld->m_qRot, &qSlerp, fBlendSlp );	// ì´ì „ëª¨ì…˜ê³¼ í˜„ì¬ í”„ë ˆì„ì„ ë¸”ë Œë”©
+					D3DXVec3Lerp( &vSlerp, &pFrameOld->m_vPos, &vSlerp, fBlendSlp );		// ë³´ê°„ëœ Posë²¡í„° êµ¬í•¨
 				} else
 				{
 					D3DXQUATERNION	qLocal;
@@ -714,30 +714,30 @@ void	CMotion :: AnimateBone( D3DXMATRIX *pmUpdateBone, CMotion *pMotionOld, floa
 					vLocal.x = pmLocalTM->_41;
 					vLocal.y = pmLocalTM->_42;
 					vLocal.z = pmLocalTM->_43;
-					D3DXQuaternionSlerp( &qSlerp, &qLocal, &qSlerp, fBlendSlp );	// ÀÌÀü¸ğ¼Ç°ú ÇöÀç ÇÁ·¹ÀÓÀ» ºí·»µù
-					D3DXVec3Lerp( &vSlerp, &vLocal, &vSlerp, fBlendSlp );		// º¸°£µÈ Posº¤ÅÍ ±¸ÇÔ
+					D3DXQuaternionSlerp( &qSlerp, &qLocal, &qSlerp, fBlendSlp );	// ì´ì „ëª¨ì…˜ê³¼ í˜„ì¬ í”„ë ˆì„ì„ ë¸”ë Œë”©
+					D3DXVec3Lerp( &vSlerp, &vLocal, &vSlerp, fBlendSlp );		// ë³´ê°„ëœ Posë²¡í„° êµ¬í•¨
 				}
 			}
 
-			// matAniTM°è»ê
-			// ÀÌµ¿Çà·Ä ¸¸µê
+			// matAniTMê³„ì‚°
+			// ì´ë™í–‰ë ¬ ë§Œë“¦
 			D3DXMatrixTranslation( &m1,	 vSlerp.x,  vSlerp.y,  vSlerp.z );
 		
-			// ÄõÅÍ´Ï¿Â º¸°£µÈ È¸ÀüÅ°°ªÀ» È¸ÀüÇà·Ä·Î ¸¸µê
+			// ì¿¼í„°ë‹ˆì˜¨ ë³´ê°„ëœ íšŒì „í‚¤ê°’ì„ íšŒì „í–‰ë ¬ë¡œ ë§Œë“¦
 			D3DXMatrixRotationQuaternion( &m2, &qSlerp );
-			m2 *= m1;		// ÀÌµ¿Çà·Ä X È¸ÀüÇà·Ä = ¾Ö´ÏÇà·Ä
+			m2 *= m1;		// ì´ë™í–‰ë ¬ X íšŒì „í–‰ë ¬ = ì• ë‹ˆí–‰ë ¬
 
 			if( pBone->m_pParent )
-				m2 *= pMatBones[ pBone->m_nParentIdx ];		// ºÎ¸ğ°¡ ¾ø´Ù¸é ·çÆ®ÀÎµ¥ Ç×µîÇà·Ä°ú °öÇÒ ÇÊ¿ä ¾ø¾î¼­ »ı·«Çß´Ù.
+				m2 *= pMatBones[ pBone->m_nParentIdx ];		// ë¶€ëª¨ê°€ ì—†ë‹¤ë©´ ë£¨íŠ¸ì¸ë° í•­ë“±í–‰ë ¬ê³¼ ê³±í•  í•„ìš” ì—†ì–´ì„œ ìƒëµí–ˆë‹¤.
 //				else
-//					m2 = m2 * *pmWorld;  // ÀÌºÎºĞÀÌ »ı·«µÆ´Ù.  mCenter´Â Ç×µîÇà·Ä.
+//					m2 = m2 * *pmWorld;  // ì´ë¶€ë¶„ì´ ìƒëµëë‹¤.  mCenterëŠ” í•­ë“±í–‰ë ¬.
 			
 			// WorldTM = LocalTM * ParentTM;
-			// ÃÖÁ¾ º¯È¯µÈ ¿ùµå¸ÅÆ®¸¯½º¸¦ ¸â¹ö¿¡ ³Ö¾î¼­ Render()¿¡¼­ SetTransfromÇÔ.
+			// ìµœì¢… ë³€í™˜ëœ ì›”ë“œë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ë©¤ë²„ì— ë„£ì–´ì„œ Render()ì—ì„œ SetTransfromí•¨.
 		} else
-		// ÀÌ »À´ë¿¡ ÇÁ·¹ÀÓÀÌ ¾øÀ»¶§.
+		// ì´ ë¼ˆëŒ€ì— í”„ë ˆì„ì´ ì—†ì„ë•Œ.
 		{
-			if( bMotionTrans )	// ÀÌÀü ¸ğ¼Ç°ú ºí·»µù ÇØ¾ß ÇÏ´Â°¡
+			if( bMotionTrans )	// ì´ì „ ëª¨ì…˜ê³¼ ë¸”ë Œë”© í•´ì•¼ í•˜ëŠ”ê°€
 			{
 				float	fBlendSlp = fBlendWeight;
 				D3DXQUATERNION	qLocal;
@@ -746,12 +746,12 @@ void	CMotion :: AnimateBone( D3DXMATRIX *pmUpdateBone, CMotion *pMotionOld, floa
 				D3DXQuaternionRotationMatrix( &qLocal, pmLocalTM );
 				vLocal.x = pmLocalTM->_41;
 				vLocal.y = pmLocalTM->_42;
-				vLocal.z = pmLocalTM->_43;	// ÇöÀçÇÁ·¹ÀÓÀÇ LocalTMÀ» ÄõÅÍ´Ï¿Â°ú º¤ÅÍ·Î »©³¿.
+				vLocal.z = pmLocalTM->_43;	// í˜„ì¬í”„ë ˆì„ì˜ LocalTMì„ ì¿¼í„°ë‹ˆì˜¨ê³¼ ë²¡í„°ë¡œ ë¹¼ëƒ„.
 
 				if( pFrameOld )
 				{
-					D3DXQuaternionSlerp( &qSlerp, &pFrameOld->m_qRot, &qLocal, fBlendSlp );	// ÀÌÀü¸ğ¼Ç°ú ÇöÀç ÇÁ·¹ÀÓÀ» ºí·»µù
-					D3DXVec3Lerp( &vSlerp, &pFrameOld->m_vPos, &vLocal, fBlendSlp );		// º¸°£µÈ Posº¤ÅÍ ±¸ÇÔ
+					D3DXQuaternionSlerp( &qSlerp, &pFrameOld->m_qRot, &qLocal, fBlendSlp );	// ì´ì „ëª¨ì…˜ê³¼ í˜„ì¬ í”„ë ˆì„ì„ ë¸”ë Œë”©
+					D3DXVec3Lerp( &vSlerp, &pFrameOld->m_vPos, &vLocal, fBlendSlp );		// ë³´ê°„ëœ Posë²¡í„° êµ¬í•¨
 				} else
 				{
 					D3DXQUATERNION	qLocal2;
@@ -761,14 +761,14 @@ void	CMotion :: AnimateBone( D3DXMATRIX *pmUpdateBone, CMotion *pMotionOld, floa
 					vLocal2.x = pmLocalTM2->_41;
 					vLocal2.y = pmLocalTM2->_42;
 					vLocal2.z = pmLocalTM2->_43;
-					D3DXQuaternionSlerp( &qSlerp, &qLocal2, &qLocal, fBlendSlp );	// ÀÌÀü¸ğ¼Ç°ú ÇöÀç ÇÁ·¹ÀÓÀ» ºí·»µù
-					D3DXVec3Lerp( &vSlerp, &vLocal2, &vLocal, fBlendSlp );		// º¸°£µÈ Posº¤ÅÍ ±¸ÇÔ
+					D3DXQuaternionSlerp( &qSlerp, &qLocal2, &qLocal, fBlendSlp );	// ì´ì „ëª¨ì…˜ê³¼ í˜„ì¬ í”„ë ˆì„ì„ ë¸”ë Œë”©
+					D3DXVec3Lerp( &vSlerp, &vLocal2, &vLocal, fBlendSlp );		// ë³´ê°„ëœ Posë²¡í„° êµ¬í•¨
 				}
 				D3DXMatrixTranslation( &m1,	 vSlerp.x,  vSlerp.y,  vSlerp.z );
 			
-				// ÄõÅÍ´Ï¿Â º¸°£µÈ È¸ÀüÅ°°ªÀ» È¸ÀüÇà·Ä·Î ¸¸µê
+				// ì¿¼í„°ë‹ˆì˜¨ ë³´ê°„ëœ íšŒì „í‚¤ê°’ì„ íšŒì „í–‰ë ¬ë¡œ ë§Œë“¦
 				D3DXMatrixRotationQuaternion( &m2, &qSlerp );
-				m2 *= m1;			// ÀÌµ¿Çà·Ä X È¸ÀüÇà·Ä = ¾Ö´ÏÇà·Ä
+				m2 *= m1;			// ì´ë™í–‰ë ¬ X íšŒì „í–‰ë ¬ = ì• ë‹ˆí–‰ë ¬
 			} else
 				m2 = pBoneFrame->m_mLocalTM;
 
@@ -778,12 +778,12 @@ void	CMotion :: AnimateBone( D3DXMATRIX *pmUpdateBone, CMotion *pMotionOld, floa
 //					m2 = m2 * *pmWorld;
 		}
 
-		*pmUpdateBone = m2;		// ÀÌ »À´ëÀÇ ÃÖÁ¾ ¿ùµå º¯È¯ ¸ÅÆ®¸¯½º
+		*pmUpdateBone = m2;		// ì´ ë¼ˆëŒ€ì˜ ìµœì¢… ì›”ë“œ ë³€í™˜ ë§¤íŠ¸ë¦­ìŠ¤
 
 		pBoneFrame ++;
 		pBoneFrameOld ++;
-		pBone ++;					// º» ++
-		pmUpdateBone ++;			// º» Æ®·£½ºÆû ¸ÅÆ®¸¯½º ++
+		pBone ++;					// ë³¸ ++
+		pmUpdateBone ++;			// ë³¸ íŠ¸ëœìŠ¤í¼ ë§¤íŠ¸ë¦­ìŠ¤ ++
 	}
 }
 

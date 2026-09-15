@@ -1,4 +1,4 @@
-#if !defined(AFX_IMECTRL_H__DECA6B06_644E_11D2_A0AB_008651C10000__INCLUDED_)
+ï»¿#if !defined(AFX_IMECTRL_H__DECA6B06_644E_11D2_A0AB_008651C10000__INCLUDED_)
 #define AFX_IMECTRL_H__DECA6B06_644E_11D2_A0AB_008651C10000__INCLUDED_
 
 #if _MSC_VER >= 1000
@@ -22,7 +22,7 @@
 
 #define CANDWND_CLASS	"HanjaCandidate"
 
-/* ±âÁ¸ Edit ControlÀÇ Notify
+/* ê¸°ì¡´ Edit Controlì˜ Notify
 #define EN_SETFOCUS         0x0100
 #define EN_KILLFOCUS        0x0200
 #define EN_CHANGE           0x0300
@@ -32,8 +32,8 @@
 #define EN_HSCROLL          0x0601
 #define EN_VSCROLL          0x0602
 */
-#define EN_RETURN           0x0603 // WndEdit¿¡¼­¸¸ »ç¿ëÇÏ´Â Ãß°¡µÈ Notify
-#define EN_UP				0x0604 // WndEdit¿¡¼­¸¸ »ç¿ëÇÏ´Â Ãß°¡µÈ Notify
+#define EN_RETURN           0x0603 // WndEditì—ì„œë§Œ ì‚¬ìš©í•˜ëŠ” ì¶”ê°€ëœ Notify
+#define EN_UP				0x0604 // WndEditì—ì„œë§Œ ì‚¬ìš©í•˜ëŠ” ì¶”ê°€ëœ Notify
 
 /////////////////////////////////////////////////////////////////////////////
 class CIMEMgr

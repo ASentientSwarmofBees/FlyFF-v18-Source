@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndGuildVote.h"
@@ -12,7 +12,7 @@ extern	CGuildMng	g_GuildMng;
 
 
 /****************************************************
-  WndId : APP_GUILDVOTE - ±æµåÅõÇ¥Ã¢
+  WndId : APP_GUILDVOTE - ê¸¸ë“œíˆ¬í‘œì°½
   CtrlId : WIDC_TABCTRL1 - TabCtrl
 ****************************************************/
 CWndGuildVote::CWndGuildVote() 
@@ -34,7 +34,7 @@ void CWndGuildVote::UpdateDataAll()
 void CWndGuildVote::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	CWndEdit* pEdit;
 	
@@ -52,7 +52,7 @@ void CWndGuildVote::OnInitialUpdate()
 	CGuild* pGuild = g_pPlayer->GetGuild();
 	if( !pGuild )
 	{
-		g_WndMng.PutString( "¼Ò¼ÓµÈ ±æµå°¡ ¾ø¾î¼­ ±æµåÅõÇ¥Ã¢À» ¿­ ¼ö ¾ø½À´Ï´Ù." );
+		g_WndMng.PutString( "ì†Œì†ëœ ê¸¸ë“œê°€ ì—†ì–´ì„œ ê¸¸ë“œíˆ¬í‘œì°½ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤." );
 		Destroy();
 		return;
 	}
@@ -85,17 +85,17 @@ void CWndGuildVote::OnInitialUpdate()
 	pWndButton[ 3 ] = (CWndButton*)GetDlgItem( WIDC_RADIO4 );
 	pWndButton[ 0 ]->SetGroup( TRUE );
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndGuildVote::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_VOTE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndGuildVote::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -130,12 +130,12 @@ BOOL CWndGuildVote::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 				break;
 			}
-		// ±æµå ÅõÇ¥ ¼³Á¤
+		// ê¸¸ë“œ íˆ¬í‘œ ì„¤ì •
 		case WIDC_VOTE_SETTING:
 			{
 				if(	pGuild->IsMaster( g_pPlayer->m_idPlayer ) == FALSE )
 				{
-					g_WndMng.OpenMessageBox( "±æµå¸¶½ºÅÍ¸¸ ¼³Á¤ÇÒ¼ö ÀÖ½À´Ï´Ù.", MB_OK, this );
+					g_WndMng.OpenMessageBox( "ê¸¸ë“œë§ˆìŠ¤í„°ë§Œ ì„¤ì •í• ìˆ˜ ìžˆìŠµë‹ˆë‹¤.", MB_OK, this );
 					break;
 				}
 
@@ -146,15 +146,15 @@ BOOL CWndGuildVote::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				m_pWndGuildVoteSeting->Initialize( this );
 				break;
 			}
-		// ±æµå ÅõÇ¥
+		// ê¸¸ë“œ íˆ¬í‘œ
 		case WIDC_VOTE:
 			{
-				// ÇöÀç ÅõÇ¥ÇÒ ¸Þ´º°¡ ¿Ï·áµÈ°ÍÀÌ³Ä?
+				// í˜„ìž¬ íˆ¬í‘œí•  ë©”ë‰´ê°€ ì™„ë£Œëœê²ƒì´ëƒ?
 				CWndComboBox* pCombo = (CWndComboBox*)GetDlgItem(WIDC_COMBOBOX1);
 
 				if( pCombo->GetCurSel() == -1 )
 				{
-					g_WndMng.OpenMessageBox( "Á¾·ù¸¦ °í¸£¼¼¿ä.", MB_OK, this );
+					g_WndMng.OpenMessageBox( "ì¢…ë¥˜ë¥¼ ê³ ë¥´ì„¸ìš”.", MB_OK, this );
 					return FALSE;
 				}
 				
@@ -169,7 +169,7 @@ BOOL CWndGuildVote::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 						{
 							if( (*it)->IsCompleted() )
 							{
-								g_WndMng.OpenMessageBox( "ÅõÇ¥°¡ ¿Ï·áµÈ »çÇ×ÀÔ´Ï´Ù.", MB_OK, this );
+								g_WndMng.OpenMessageBox( "íˆ¬í‘œê°€ ì™„ë£Œëœ ì‚¬í•­ìž…ë‹ˆë‹¤.", MB_OK, this );
 								return FALSE;
 							}
 						}
@@ -263,7 +263,7 @@ void CWndGuildVoteSeting::OnDraw( C2DRender* p2DRender )
 void CWndGuildVoteSeting::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	if( m_nSelect != -1 )
 	{
@@ -294,14 +294,14 @@ void CWndGuildVoteSeting::OnInitialUpdate()
 		
 	}
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndGuildVoteSeting::Initialize( CWndBase* pWndParent ) 
 { 
 	LPWNDAPPLET lpWndApplet = m_resMng.GetAt ( APP_GUILD_VOTESETING );
@@ -328,7 +328,7 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 { 
 	switch( nID )
 	{
-	// ±æµå ¼³Á¤Ã¢ Å¬¸®¾î
+	// ê¸¸ë“œ ì„¤ì •ì°½ í´ë¦¬ì–´
 	case WIDC_VOTE_CLEAR:
 		{
 			CWndEdit* pEdit;
@@ -349,14 +349,14 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 			m_nSelect = -1;
 		}
 		break;
-	// ±æµå ÅõÇ¥ ½ÃÀÛ
+	// ê¸¸ë“œ íˆ¬í‘œ ì‹œìž‘
 	case WIDC_VOTE_START:
 		{
 			CGuild* pGuild = g_pPlayer->GetGuild();
 
 			if( pGuild )
 			{
-				// ÇöÀç ÅõÇ¥ÇÒ ¸Þ´º°¡ ¿Ï·áµÈ°ÍÀÌ³Ä?
+				// í˜„ìž¬ íˆ¬í‘œí•  ë©”ë‰´ê°€ ì™„ë£Œëœê²ƒì´ëƒ?
 				CWndComboBox* pCombo = (CWndComboBox*)GetParentWnd()->GetDlgItem(WIDC_COMBOBOX1);
 
 				if( m_nSelect != -1 )
@@ -371,12 +371,12 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 							{
 								if( (*it)->IsCompleted() )
 								{
-									g_WndMng.OpenMessageBox( "ÅõÇ¥°¡ ¿Ï·áµÈ »çÇ×ÀÔ´Ï´Ù.", MB_OK, this );
+									g_WndMng.OpenMessageBox( "íˆ¬í‘œê°€ ì™„ë£Œëœ ì‚¬í•­ìž…ë‹ˆë‹¤.", MB_OK, this );
 									return FALSE;
 								}
 								else
 								{
-									g_WndMng.OpenMessageBox( "ÀÌ¹Ì ÁøÇàÁßÀÔ´Ï´Ù.", MB_OK, this );
+									g_WndMng.OpenMessageBox( "ì´ë¯¸ ì§„í–‰ì¤‘ìž…ë‹ˆë‹¤.", MB_OK, this );
 									return FALSE;
 								}
 								
@@ -386,13 +386,13 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 				}
 				
 
-				// ÀÔ·Â»çÇ× Ã¼Å© ºÎºÐ...
+				// ìž…ë ¥ì‚¬í•­ ì²´í¬ ë¶€ë¶„...
 				CWndEdit* pEdit1 = (CWndEdit*) GetDlgItem( WIDC_EDIT1 );
 				CWndEdit* pEdit2 = (CWndEdit*) GetDlgItem( WIDC_EDIT2 );
 
 				if( strlen( pEdit1->GetString() ) <= 0 || strlen( pEdit2->GetString() ) <= 0 )
 				{
-					g_WndMng.OpenMessageBox( "ÅõÇ¥Á¦¸ñ°ú ³»¿ëÀº ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.", MB_OK, this );
+					g_WndMng.OpenMessageBox( "íˆ¬í‘œì œëª©ê³¼ ë‚´ìš©ì€ í•„ìˆ˜ ìž…ë ¥ ì‚¬í•­ìž…ë‹ˆë‹¤.", MB_OK, this );
 					break;
 				}
 
@@ -414,7 +414,7 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 				{
 					if( nChk < 1 )
 					{
-						g_WndMng.OpenMessageBox( "ÅõÇ¥ Ç×¸ñÀº ÃÖ¼ÒÇÑ 2°³ ÀÌ»óÀÌ¾î¾ß ÇÕ´Ï´Ù.", MB_OK, this );
+						g_WndMng.OpenMessageBox( "íˆ¬í‘œ í•­ëª©ì€ ìµœì†Œí•œ 2ê°œ ì´ìƒì´ì–´ì•¼ í•©ë‹ˆë‹¤.", MB_OK, this );
 						break;
 					}
 
@@ -422,7 +422,7 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 					{
 						if( strlen( pEdit[i]->GetString() ) <= 0 )
 						{
-							g_WndMng.OpenMessageBox( "Áß°£¿¡ ºó ³»¿ëÀÌ ÀÖ½À´Ï´Ù.", MB_OK, this );
+							g_WndMng.OpenMessageBox( "ì¤‘ê°„ì— ë¹ˆ ë‚´ìš©ì´ ìžˆìŠµë‹ˆë‹¤.", MB_OK, this );
 							return FALSE;
 						}
 					}
@@ -430,7 +430,7 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 				}
 				else
 				{
-					g_WndMng.OpenMessageBox( "ÅõÇ¥ Ç×¸ñÀº ÃÖ¼ÒÇÑ 2°³ ÀÌ»óÀÌ¾î¾ß ÇÕ´Ï´Ù.", MB_OK, this );
+					g_WndMng.OpenMessageBox( "íˆ¬í‘œ í•­ëª©ì€ ìµœì†Œí•œ 2ê°œ ì´ìƒì´ì–´ì•¼ í•©ë‹ˆë‹¤.", MB_OK, this );
 					break;
 				}
 
@@ -447,7 +447,7 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 			Destroy();
 		}
 		break;
-	// ±æµåÅõÇ¥ ³¡³»±â
+	// ê¸¸ë“œíˆ¬í‘œ ëë‚´ê¸°
 	case WIDC_VOTE_FINISH:
 		{
 			CWndComboBox* pCombo = (CWndComboBox*)GetParentWnd()->GetDlgItem(WIDC_COMBOBOX1);

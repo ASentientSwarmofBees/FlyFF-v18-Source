@@ -1,4 +1,4 @@
-#ifndef __NPCHECKER_H__
+﻿#ifndef __NPCHECKER_H__
 #define	__NPCHECKER_H__
 
 #define	MAX_LEN_MOVER_MENU	1024	// 32

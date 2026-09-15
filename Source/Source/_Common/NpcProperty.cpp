@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "NpcProperty.h"
 #if defined(__REMOVE_SCIRPT_060712)
 	#include "WorldDialog.h"
@@ -69,7 +69,7 @@ BOOL CNpcProperty::RunDialog( LPCTSTR szKey, int* pResult, int nValue, int nDstI
 #if! defined(__REMOVE_SCIRPT_060712)
 	return m_Dialog.Run( szKey, pResult, nValue, nDstId, nSrcId, nQuestId );
 #else
-	if( m_szName[0] == 0 )		// character.inc¿¡¼­ dialog ÀÌ¸§À» µî·ÏÇÏÁö ¾ÊÀº °æ¿ì ´ë»ç°¡ ¾ø´Ù°í °£ÁÖ.
+	if( m_szName[0] == 0 )		// character.incì—ì„œ dialog ì´ë¦„ì„ ë“±ë¡í•˜ì§€ ì•Šì€ ê²½ìš° ëŒ€ì‚¬ê°€ ì—†ë‹¤ê³  ê°„ì£¼.
 		return TRUE;
 
 	if( pResult )

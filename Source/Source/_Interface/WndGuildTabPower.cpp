@@ -1,4 +1,4 @@
-
+ï»¿
 #include "StdAfx.h"
 
 //Author : gmpbigsun
@@ -27,18 +27,18 @@ void CWndGuildTabPower::OnDraw( C2DRender* p2DRender )
 void CWndGuildTabPower::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	UpdateData();
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 
-	//ÃÖÃÊ¿£ ¹öÆ° disable 
+	//ìµœì´ˆì—” ë²„íŠ¼ disable 
 	CWndButton* pWndBtnOK = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
 	pWndBtnOK->EnableWindow(m_bChanedCheckBox);
 } 
@@ -101,11 +101,11 @@ void CWndGuildTabPower::EnableButton(BOOL bEnable)
 	pWndCheck = (CWndButton*)GetDlgItem(WIDC_CHECK12);
 	pWndCheck->EnableWindow(bEnable);
 	
-	// ¹öÆ° ºÎºÐ
+	// ë²„íŠ¼ ë¶€ë¶„
 	pWndCheck = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
 	pWndCheck->EnableWindow(bEnable);
 	
-	//Ãë¼Ò¹öÆ° ÀÏ´Ü Àá±Ý 
+	//ì·¨ì†Œë²„íŠ¼ ì¼ë‹¨ ìž ê¸ˆ 
 	pWndCheck = (CWndButton*)GetDlgItem(WIDC_BUTTON11);
 	pWndCheck->EnableWindow(FALSE);
 }
@@ -186,7 +186,7 @@ BOOL CWndGuildTabPower::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 	if(	pGuildMember->m_nMemberLv != GUD_MASTER )
 		return FALSE;
 
-	static BOOL bChanged = FALSE;		//º¯È­°¡ µÆÀ»¶§¸¸ ¿äÃ» 
+	static BOOL bChanged = FALSE;		//ë³€í™”ê°€ ëì„ë•Œë§Œ ìš”ì²­ 
 	
 	//Kingpin
 	if( nID == WIDC_CHECK1 )
@@ -251,7 +251,7 @@ BOOL CWndGuildTabPower::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 	}
 	
 
-	 if( WIDC_BUTTON1 == nID && bChanged )	// º¸³»±â
+	 if( WIDC_BUTTON1 == nID && bChanged )	// ë³´ë‚´ê¸°
 	{
 		g_DPlay.SendGuildAuthority( pGuild->GetGuildId(), m_adwPower );
 		bChanged = FALSE;

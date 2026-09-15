@@ -1,4 +1,4 @@
-// AccountServer.cpp : Defines the entry point for the application.
+ï»¿// AccountServer.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"
@@ -145,7 +145,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 #endif	// _DEBUG
 
 #ifdef __BILLING0712
-	if( ::CreateBillingMgr() == FALSE )		// CreateWindowÀü¿¡ È£ÃâµÇ¾î¾ß ÇÑ´Ù.
+	if( ::CreateBillingMgr() == FALSE )		// CreateWindowì „ì— í˜¸ì¶œë˜ì–´ì•¼ í•œë‹¤.
 		return FALSE;
 #endif
 
@@ -168,7 +168,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	::srand( timeGetTime() );
 
-	// ScriptÇÔ¼öÀÇ È£Ãâ¼ø¼­°¡ Áß¿äÇÏ´Ù. (menu -> script -> createdbworker)
+	// Scriptí•¨ìˆ˜ì˜ í˜¸ì¶œìˆœì„œê°€ ì¤‘ìš”í•˜ë‹¤. (menu -> script -> createdbworker)
 	if( Script( "AccountServer.ini" ) == FALSE )	
 		return FALSE;
 
@@ -334,7 +334,7 @@ AddTail( -1, 1, "TEST", "192.168.0.103" );
 			}
 			else if( s.Token == "BillingPWD" )
 			{
-				// µğºñÆĞ½º¿öµå´Â ¾ÏÈ£È­ µÇ¾î ÀÖ´Ù. ¾ÏÈ£ ½ÃÅ°´Â ÇÁ·Î±×·¥Àº ¿ÜºÎ½ÇÇàÆÄÀÏÀÌ´Ù.
+				// ë””ë¹„íŒ¨ìŠ¤ì›Œë“œëŠ” ì•”í˜¸í™” ë˜ì–´ ìˆë‹¤. ì•”í˜¸ ì‹œí‚¤ëŠ” í”„ë¡œê·¸ë¨ì€ ì™¸ë¶€ì‹¤í–‰íŒŒì¼ì´ë‹¤.
 				s.GetToken();
 				char* szPWD = GetBillingPWD();
 				::GetPWDFromToken( s.Token, szPWD ); // from query.cpp
@@ -344,7 +344,7 @@ AddTail( -1, 1, "TEST", "192.168.0.103" );
 				s.GetToken();
 				lstrcpy( g_dpSrvr.m_szVer, s.Token );
 			}
-			else if( s.Token == "SKIP_TRACKING" )		// login logout·Î±×¸¦ ³²±âÁö ¾Ê´Â´Ù.
+			else if( s.Token == "SKIP_TRACKING" )		// login logoutë¡œê·¸ë¥¼ ë‚¨ê¸°ì§€ ì•ŠëŠ”ë‹¤.
 			{
 				bSkipTracking = TRUE;
 				g_DbManager.SetTracking( FALSE );
@@ -387,7 +387,7 @@ AddTail( -1, 1, "TEST", "192.168.0.103" );
 			}
 			else if( s.Token == "NOLOG" )
 			{
-				g_DbManager.SetLogging( FALSE );	// »ó¿ëÈ­ ¾ÆÀÌÅÛ ·Î±×¸¦ ³²±âÁö ¾Ê´Â´Ù.
+				g_DbManager.SetLogging( FALSE );	// ìƒìš©í™” ì•„ì´í…œ ë¡œê·¸ë¥¼ ë‚¨ê¸°ì§€ ì•ŠëŠ”ë‹¤.
 			}
 			else if( s.Token == "DB_PWD_LOGIN" )
 			{
@@ -425,7 +425,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	HDC hdc;
 
 #ifdef __BILLING0712
-	// ºô¸µ¿¡ °ü·ÃµÈ À©µµ¿ì ¸Ş¼¼Áö°¡ Ã³¸®µÇ°Ô ÇÑ´Ù.
+	// ë¹Œë§ì— ê´€ë ¨ëœ ìœˆë„ìš° ë©”ì„¸ì§€ê°€ ì²˜ë¦¬ë˜ê²Œ í•œë‹¤.
 	if( GetBillingMgr()->PreTranslateMessage( hWnd, message, wParam, lParam ) )
 		return 0;
 #endif

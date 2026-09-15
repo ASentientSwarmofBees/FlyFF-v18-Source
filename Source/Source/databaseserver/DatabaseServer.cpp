@@ -1,4 +1,4 @@
-// DatabaseServer.cpp : Defines the entry point for the application.
+ï»¿// DatabaseServer.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"
@@ -208,8 +208,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	if (!hWnd)
 	  return FALSE;
 
-	// Item ½Ã¸®¾ó ¹øÈ£ »ý¼º ·£´ý°ª ÃÊ±âÈ­
-	xSRand( timeGetTime()  );	// ¼Óµµ¸¦ ¿äÇÏ´Â ·£´ýÀº xRandom()À» ¾²µµ·Ï...
+	// Item ì‹œë¦¬ì–¼ ë²ˆí˜¸ ìƒì„± ëžœë¤ê°’ ì´ˆê¸°í™”
+	xSRand( timeGetTime()  );	// ì†ë„ë¥¼ ìš”í•˜ëŠ” ëžœë¤ì€ xRandom()ì„ ì“°ë„ë¡...
 
 #ifndef _DEBUG
 //   InitEH();
@@ -275,19 +275,19 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 #endif	// __CONV_SERIAL_NUMBER
 #ifdef __CONV_SKILL_STOP
 	g_DbManager.ConvSkillStop();
-	if( MB_OK != AfxMessageBox( "¿Ï·á ÄÁ¹öÆ® ½ºÅ³ ½ºÅé", MB_OK ) )
+	if( MB_OK != AfxMessageBox( "ì™„ë£Œ ì»¨ë²„íŠ¸ ìŠ¤í‚¬ ìŠ¤í†±", MB_OK ) )
 		return FALSE;
 #endif // __CONV_SKILL_STOP
 	
 #ifdef __S0707_ITEM_CONV
-	if( g_DbManager.ConvItem() )	// // ¾ÆÀÌÅÛ ÇÁ·ÎÆÛÆ¼°¡ ¹Ù²î¾úÀ»½Ã »ç¿ë
+	if( g_DbManager.ConvItem() )	// // ì•„ì´í…œ í”„ë¡œí¼í‹°ê°€ ë°”ë€Œì—ˆì„ì‹œ ì‚¬ìš©
 	{
-		if( MB_OK != AfxMessageBox( "¿Ï·á ÄÁ¹öÆ® Item", MB_OK ) )
+		if( MB_OK != AfxMessageBox( "ì™„ë£Œ ì»¨ë²„íŠ¸ Item", MB_OK ) )
 			return FALSE;
 	}
 	else
 	{
-		if( MB_OK != AfxMessageBox( "½ÇÆÐ ÄÁ¹öÆ® Item", MB_OK ) )
+		if( MB_OK != AfxMessageBox( "ì‹¤íŒ¨ ì»¨ë²„íŠ¸ Item", MB_OK ) )
 			return FALSE;
 	}
 #endif // __S0707_ITEM_CONV
@@ -366,7 +366,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	}
 
 #if __VER >= 12 // __LORD
-	// ±ºÁÖ ½Ã½ºÅÛÀ» ±¸¼ºÇÏ´Â Çù·Â °´Ã¼µéÀ» »ý¼ºÇÑ´Ù
+	// êµ°ì£¼ ì‹œìŠ¤í…œì„ êµ¬ì„±í•˜ëŠ” í˜‘ë ¥ ê°ì²´ë“¤ì„ ìƒì„±í•œë‹¤
 	CTLord::Instance()->CreateColleagues();
 #endif	// __LORD
 #if __VER >= 12 // __TAX
@@ -444,7 +444,7 @@ void ExitInstance( void )
 	CDbControllerTimer::GetInstance()->Destroy();
 #endif	// __TAX
 #if __VER >= 12 // __LORD
-	// ±ºÁÖ ½Ã½ºÅÛ Çù·Â °´Ã¼µéÀ» Á¦°ÅÇÑ´Ù
+	// êµ°ì£¼ ì‹œìŠ¤í…œ í˜‘ë ¥ ê°ì²´ë“¤ì„ ì œê±°í•œë‹¤
 	CTLord::Instance()->DestroyColleagues();
 #endif	// __LORD
 

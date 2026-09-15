@@ -1,4 +1,4 @@
-#ifndef __WNDREGVEND__H
+﻿#ifndef __WNDREGVEND__H
 #define __WNDREGVEND__H
 
 typedef struct CALC_DATA

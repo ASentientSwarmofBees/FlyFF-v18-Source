@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -93,7 +93,7 @@ void CBmp::CreateBmp(CDC* pDc,CDibPalette* pPal)
 
 	CreateDIBSection(pDc,pPal,nLgWidth,-nLgHeight,m_infoHeader.biBitCount);	
 
-	// CreateDibSectionÀ» °ÅÄ¡¸é¼­ m_infoHeader.biWidth´Â ¹°¸®Àû ÁÂÇ¥·Î º¯È¯ÇÑ´Ù.
+	// CreateDibSectionì„ ê±°ì¹˜ë©´ì„œ m_infoHeader.biWidthëŠ” ë¬¼ë¦¬ì  ì¢Œí‘œë¡œ ë³€í™˜í•œë‹¤.
 	int nPgHeight = abs(m_infoHeader.biHeight);
 	int nPgWidth  = m_infoHeader.biWidth;
 	nPgWidth *= bitCount;
@@ -136,7 +136,7 @@ BOOL CBmp::Save(LPCTSTR lpszFileName,RGBQUAD* rgbQuad)
 	BMPheader.bfType += 'B';
 	BMPheader.bfReserved1 = 0; 
 	BMPheader.bfReserved2 = 0;
-	// 16ºñÆ®(nBit==2)¶óµµ ÆÈ·¹Æ®°¡ ÀÖ´Â °Í Ã³·³ ¾ÈÇÏ¸é ±×¸²ÀÌ ¹Ğ·Á¼­ Ãâ·ÂÇÑ´Ù. ¾ÆÄÉÀÎ Ä¸Ãç °ü·Ã ¹ö±× 
+	// 16ë¹„íŠ¸(nBit==2)ë¼ë„ íŒ”ë ˆíŠ¸ê°€ ìˆëŠ” ê²ƒ ì²˜ëŸ¼ ì•ˆí•˜ë©´ ê·¸ë¦¼ì´ ë°€ë ¤ì„œ ì¶œë ¥í•œë‹¤. ì•„ì¼€ì¸ ìº¡ì¶° ê´€ë ¨ ë²„ê·¸ 
 	if(nBit == 1 || nBit == 2)
 	{
 		BMPheader.bfSize = ( sizeof(BITMAPFILEHEADER ) + sizeof(BITMAPINFOHEADER) + sizeof(RGBQUAD) * 256 + m_infoHeader.biWidth * abs(m_infoHeader.biHeight) * nBit );

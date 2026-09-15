@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndRepairItem.h"
@@ -8,13 +8,13 @@ extern	CDPClient	g_DPlay;
 
 
 /****************************************************
-  WndId : APP_REPAIR - ¼ö¸®Ã¢
+  WndId : APP_REPAIR - ìˆ˜ë¦¬ì°½
   CtrlId : WIDC_EDIT1 - 
-  CtrlId : WIDC_STATIC1 - ÃÑ¼ö¸®°¡°İ
+  CtrlId : WIDC_STATIC1 - ì´ìˆ˜ë¦¬ê°€ê²©
   CtrlId : WIDC_EDIT2 - 
-  CtrlId : WIDC_OK - ¼ö¸®È®ÀÎ
-  CtrlId : WIDC_CANCEL - ¼ö¸®Ãë¼Ò
-  CtrlId : WIDC_STATIC2 - ¼ö¸®¸ñ·Ï
+  CtrlId : WIDC_OK - ìˆ˜ë¦¬í™•ì¸
+  CtrlId : WIDC_CANCEL - ìˆ˜ë¦¬ì·¨ì†Œ
+  CtrlId : WIDC_STATIC2 - ìˆ˜ë¦¬ëª©ë¡
 ****************************************************/
 
 CWndRepairItem::CWndRepairItem() 
@@ -44,7 +44,7 @@ void CWndRepairItem::OnDraw( C2DRender* p2DRender )
 void CWndRepairItem::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	memset( m_adwIdRepair, 0xff, sizeof(m_adwIdRepair) );
 	m_dwCost = 0;
@@ -63,7 +63,7 @@ void CWndRepairItem::OnInitialUpdate()
 //	m_wndItemCtrl.InitItem( &pRepairItem, APP_REPAIR );
 //	WTCITEM tabTabItem;
 //	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-//	tabTabItem.pszText = "¾ÆÀÌÅÛ";
+//	tabTabItem.pszText = "ì•„ì´í…œ";
 //	tabTabItem.pWndBase = &m_wndItemCtrl;
 //	pTabCtrl->InsertItem( 0, &tabTabItem );
 
@@ -122,9 +122,9 @@ BOOL CWndRepairItem::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				{
 					if( g_pPlayer->m_Inventory.IsEquip( pItemBase->m_dwObjId ) == FALSE )
 					{
-						// ¾ÆÀÌÅÛÀÎ°¡?
-						// ¹æ¾î±¸ È¤Àº ¹«±âÀÎ°¡?
-						// ¼ö¸®ÇÒ ÇÊ¿ä°¡ ÀÖ´Â°¡?
+						// ì•„ì´í…œì¸ê°€?
+						// ë°©ì–´êµ¬ í˜¹ì€ ë¬´ê¸°ì¸ê°€?
+						// ìˆ˜ë¦¬í•  í•„ìš”ê°€ ìˆëŠ”ê°€?
 						ItemProp* pItemProp	= pItemBase->GetProp();
 						if( pItemProp )
 						{
@@ -150,26 +150,26 @@ BOOL CWndRepairItem::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 									}
 									else
 									{
-										// Æä³Ä°¡ ºÎÁ·ÇÏ¿© ¼ö¸®¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù.
+										// í˜ëƒê°€ ë¶€ì¡±í•˜ì—¬ ìˆ˜ë¦¬ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 										g_WndMng.PutString( prj.GetText(TID_GAME_REPAIR_NOTENOUGHPENYA), NULL, prj.GetTextColor( TID_GAME_REPAIR_NOTENOUGHPENYA ) );
 									}									
 								}
 								else
 								{
-									// ¼ö¸®ÇÒ ÇÊ¿ä°¡ ¾ø´Â ¾ÆÀÌÅÛ
+									// ìˆ˜ë¦¬í•  í•„ìš”ê°€ ì—†ëŠ” ì•„ì´í…œ
 									g_WndMng.PutString( prj.GetText(TID_GAME_REPAIR_FULLENDURANCE), NULL, prj.GetTextColor( TID_GAME_REPAIR_FULLENDURANCE ) );
 								}
 							}
 							else
 							{
-								// ¼ö¸®ÇÒ¼ö ¾ø´Â ¾ÆÀÌÅÛ
+								// ìˆ˜ë¦¬í• ìˆ˜ ì—†ëŠ” ì•„ì´í…œ
 								g_WndMng.PutString( prj.GetText(TID_GAME_REPAIR_DONOT), NULL, prj.GetTextColor( TID_GAME_REPAIR_DONOT ) );
 							}
 						}
 					}
 					else
 					{
-						// ÀåÂøµÇ¾î ÀÖÀ½.
+						// ì¥ì°©ë˜ì–´ ìˆìŒ.
 						g_WndMng.PutString( prj.GetText(TID_GAME_REPAIR_EQUIP), NULL, prj.GetTextColor( TID_GAME_REPAIR_EQUIP ) );
 					}
 				}
@@ -183,7 +183,7 @@ BOOL CWndRepairItem::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				UINT SelectCount = pWndItemCtrl->GetSelectedCount();
 				if( SelectCount != 1)
 				{
-					//g_WndMng.PutString( "ÀåÂø µÇ¾î ÀÖ´Â°ÍÀº ³ÖÀ»¼ö ¾ø½À´Ï´Ù", NULL, 0xffffff00 );
+					//g_WndMng.PutString( "ì¥ì°© ë˜ì–´ ìˆëŠ”ê²ƒì€ ë„£ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤", NULL, 0xffffff00 );
 					g_WndMng.PutString( prj.GetText(TID_GAME_EQUIPPUT), NULL, prj.GetTextColor( TID_GAME_EQUIPPUT ) );
 					
 				}

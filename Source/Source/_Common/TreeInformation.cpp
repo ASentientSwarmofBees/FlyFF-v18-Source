@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+﻿#include "StdAfx.h"
 #include "TreeInformation.h"
 
 #if __VER >= 15 /* __IMPROVE_QUEST_INTERFACE */ && defined( __CLIENT )

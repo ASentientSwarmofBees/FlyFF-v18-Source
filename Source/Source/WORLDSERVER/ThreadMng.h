@@ -1,4 +1,4 @@
-#ifndef __THREADMNG_H__
+﻿#ifndef __THREADMNG_H__
 #define __THREADMNG_H__
 
 class	CTimeout

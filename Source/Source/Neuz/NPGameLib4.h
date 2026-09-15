@@ -1,4 +1,4 @@
-//#if __NPROTECT_VER == 4
+﻿//#if __NPROTECT_VER == 4
 //=============================================================================
 //    File : NPGameLib.h
 //     Use : Handle Communication between Game and GameMon

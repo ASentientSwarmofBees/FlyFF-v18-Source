@@ -1,4 +1,4 @@
-#ifndef __WNDNOTICE__H
+﻿#ifndef __WNDNOTICE__H
 #define __WNDNOTICE__H
 
 class CWndInfoNotice : public CWndNeuz 

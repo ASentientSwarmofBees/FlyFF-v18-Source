@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "DPClient.h"
 #include "DPCoreClient.h"
 #include "DPCacheSrvr.h"
@@ -123,19 +123,19 @@ void CDPCacheSrvr::UserMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize, D
 			case PACKETTYPE_GUILD_SETNAME:
 			case PACKETTYPE_GUILD_CLASS:
 			case PACKETTYPE_GUILD_NICKNAME:
-			case PACKETTYPE_DECL_GUILD_WAR:		// ¼±Àü Æ÷°í
-			case PACKETTYPE_ACPT_GUILD_WAR:		// °³Àü
-			case PACKETTYPE_SURRENDER:	// Ç×º¹
-			case PACKETTYPE_QUERY_TRUCE:	// ÈÞÀü
-			case PACKETTYPE_ACPT_TRUCE:		// ÈÞÀü
+			case PACKETTYPE_DECL_GUILD_WAR:		// ì„ ì „ í¬ê³ 
+			case PACKETTYPE_ACPT_GUILD_WAR:		// ê°œì „
+			case PACKETTYPE_SURRENDER:	// í•­ë³µ
+			case PACKETTYPE_QUERY_TRUCE:	// íœ´ì „
+			case PACKETTYPE_ACPT_TRUCE:		// íœ´ì „
 
 #ifdef __GUILDVOTE
-			case PACKETTYPE_NC_ADDVOTE:	   // ÅõÇ¥ ÀÔ·Â 
-			case PACKETTYPE_NC_REMOVEVOTE: // ÅõÇ¥ Ãë¼Ò 
-			case PACKETTYPE_NC_CLOSEVOTE:  // ÅõÇ¥ Á¾·á 
-			case PACKETTYPE_NC_CASTVOTE:   // ÅõÇ¥ÇÏ±â 
+			case PACKETTYPE_NC_ADDVOTE:	   // íˆ¬í‘œ ìž…ë ¥ 
+			case PACKETTYPE_NC_REMOVEVOTE: // íˆ¬í‘œ ì·¨ì†Œ 
+			case PACKETTYPE_NC_CLOSEVOTE:  // íˆ¬í‘œ ì¢…ë£Œ 
+			case PACKETTYPE_NC_CASTVOTE:   // íˆ¬í‘œí•˜ê¸° 
 #endif  // __GUILDVOTE
-			case PACKETTYPE_CHG_MASTER:   // ±æµå ¸¶½ºÅÍ º¯°æ 
+			case PACKETTYPE_CHG_MASTER:   // ê¸¸ë“œ ë§ˆìŠ¤í„° ë³€ê²½ 
 			case PACKETTYPE_SENDTAG:
 				g_DPCoreClient.SendToServer( idFrom, lpMsg, dwMsgSize );
 				break;
@@ -180,7 +180,7 @@ void CDPCacheSrvr::OnRemoveConnection( DPID dpid )
 	CPlayer* pPlayer	= CPlayerMng::Instance()->GetPlayer( dpid );
 	if( pPlayer )
 	{
-		if( pPlayer->GetClient() )	// JOINÆÐÅ¶À» º¸³½ ÇÃ·¹ÀÌ¾î¸¸ LEAVEÆÐÅ¶À» º¸³½´Ù.
+		if( pPlayer->GetClient() )	// JOINíŒ¨í‚·ì„ ë³´ë‚¸ í”Œë ˆì´ì–´ë§Œ LEAVEíŒ¨í‚·ì„ ë³´ë‚¸ë‹¤.
 		{
 			BEFORESENDSOLE( ar, PACKETTYPE_LEAVE, DPID_UNKNOWN );
 			ar << pPlayer->GetPlayerId();

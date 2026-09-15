@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndChatFilter.h"
@@ -10,22 +10,22 @@ extern	CDPClient	g_DPlay;
 
 
 /****************************************************
-  WndId : APP_CHAT_FILTER - Ã¤ÆÃ ÇÊÅÍ
-  CtrlId : WIDC_CHECK1 - ÀÏ¹Ý Ã¤ÆÃ
-  CtrlId : WIDC_CHECK2 - ±Ó¼Ó¸»
-  CtrlId : WIDC_CHECK3 - ¿ÜÄ¡±â
-  CtrlId : WIDC_CHECK4 - ÆÄÆ¼
-  CtrlId : WIDC_CHECK5 - ±æµå
-  CtrlId : WIDC_CHECK6 - µµ¿ò¸», È­¸é
-  CtrlId : WIDC_CHECK7 - µµ¿ò¸», Ãª 
+  WndId : APP_CHAT_FILTER - ì±„íŒ… í•„í„°
+  CtrlId : WIDC_CHECK1 - ì¼ë°˜ ì±„íŒ…
+  CtrlId : WIDC_CHECK2 - ê·“ì†ë§
+  CtrlId : WIDC_CHECK3 - ì™¸ì¹˜ê¸°
+  CtrlId : WIDC_CHECK4 - íŒŒí‹°
+  CtrlId : WIDC_CHECK5 - ê¸¸ë“œ
+  CtrlId : WIDC_CHECK6 - ë„ì›€ë§, í™”ë©´
+  CtrlId : WIDC_CHECK7 - ë„ì›€ë§, ì±— 
 
-  CtrlId : WIDC_RADIO1 - °ÔÀÓ, È­¸é 
-  CtrlId : WIDC_RADIO2 - °ÔÀÓ, Ãª 
-  CtrlId : WIDC_RADIO3 - ¾Ë¸², È­¸é 
-  CtrlId : WIDC_RADIO4 - ¾Ë¸², Ãª 
+  CtrlId : WIDC_RADIO1 - ê²Œìž„, í™”ë©´ 
+  CtrlId : WIDC_RADIO2 - ê²Œìž„, ì±— 
+  CtrlId : WIDC_RADIO3 - ì•Œë¦¼, í™”ë©´ 
+  CtrlId : WIDC_RADIO4 - ì•Œë¦¼, ì±— 
 
-  CtrlId : WIDC_STATIC1 - Ã¤ÆÃ Ã¤³Î
-  CtrlId : WIDC_STATIC2 - ¸Å½ÃÁö ÇÊÅÍ
+  CtrlId : WIDC_STATIC1 - ì±„íŒ… ì±„ë„
+  CtrlId : WIDC_STATIC2 - ë§¤ì‹œì§€ í•„í„°
 ****************************************************/
 CWndChatFilter::CWndChatFilter() 
 { 
@@ -39,7 +39,7 @@ void CWndChatFilter::OnDraw( C2DRender* p2DRender )
 void CWndChatFilter::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	SetButtonStatus();
 
 #if __VER >= 8 //__Y_CHAT_SYSTEM_8
@@ -51,7 +51,7 @@ void CWndChatFilter::OnInitialUpdate()
 		pWndGroup->SetVisible(FALSE);	
 #endif //__Y_CHAT_SYSTEM_8
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -113,14 +113,14 @@ void CWndChatFilter::SetButtonStatus()
 	if( CWndChat::m_nChatChannel == CHATSTY_GUILD   ) pWndCheck5->EnableWindow( FALSE );
 
 }
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndChatFilter::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CHAT_FILTER, WBS_MODAL, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndChatFilter::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 

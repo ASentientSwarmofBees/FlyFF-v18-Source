@@ -1,4 +1,4 @@
-#ifndef __WNDBANK__H
+﻿#ifndef __WNDBANK__H
 #define __WNDBANK__H
 
 class CWndBank : public CWndNeuz 

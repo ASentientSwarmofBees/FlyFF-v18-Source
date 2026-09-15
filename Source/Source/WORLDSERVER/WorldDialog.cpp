@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 
 #if defined(__REMOVE_SCIRPT_060712)
 

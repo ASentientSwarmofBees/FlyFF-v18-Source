@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "WndText.h"
 #include "resdata.h"
 #ifdef __CLIENT
@@ -7,7 +7,7 @@
 #endif
 
 /****************************************************
-  WndId : APP_TEXT_BOOK - ¼­Àû
+  WndId : APP_TEXT_BOOK - ì„œì 
   CtrlId : WIDC_BUTTON1 - Button
   CtrlId : WIDC_BUTTON2 - Button
   CtrlId : WIDC_TEXT1 - Text
@@ -28,7 +28,7 @@ void CWndTextBook::OnDraw( C2DRender* p2DRender )
 void CWndTextBook::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	CWndButton* pWndAccept = (CWndButton*)GetDlgItem( WIDC_ACCEPT );
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
@@ -47,23 +47,23 @@ void CWndTextBook::OnInitialUpdate()
 		pWndText->SetString( pText );
 		safe_delete( pText );
 	}
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndTextBook::Initialize( CWndBase* pWndParent, CItemBase* pItemBase )
 { 
 	m_pItemBase = pItemBase;
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_TEXT_BOOK, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndTextBook::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -109,7 +109,7 @@ BOOL CWndTextBook::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 } 
 
 /****************************************************
-  WndId : APP_TEXT_SCROLL - ½ºÅ©·Ñ
+  WndId : APP_TEXT_SCROLL - ìŠ¤í¬ë¡¤
   CtrlId : WIDC_TEXT1 - Text
   CtrlId : WIDC_ACCEPT - Button
   CtrlId : WIDC_CLOSE - Button
@@ -127,7 +127,7 @@ void CWndTextScroll::OnDraw( C2DRender* p2DRender )
 void CWndTextScroll::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndButton* pWndAccept = (CWndButton*)GetDlgItem( WIDC_ACCEPT );
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
@@ -146,22 +146,22 @@ void CWndTextScroll::OnInitialUpdate()
 		pWndText->SetString( pText );
 		safe_delete( pText );
 	}
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndTextScroll::Initialize( CWndBase* pWndParent, CItemBase* pItemBase )
 { 
 	m_pItemBase = pItemBase;
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_TEXT_SCROLL, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndTextScroll::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -207,7 +207,7 @@ BOOL CWndTextScroll::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 } 
 
 /****************************************************
-  WndId : APP_TEXT_LETTER - ÆíÁö
+  WndId : APP_TEXT_LETTER - í¸ì§€
   CtrlId : WIDC_TEXT1 - Text
   CtrlId : WIDC_ACCEPT - Button
   CtrlId : WIDC_CLOSE - Button
@@ -225,7 +225,7 @@ void CWndTextLetter::OnDraw( C2DRender* p2DRender )
 void CWndTextLetter::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	CWndButton* pWndAccept = (CWndButton*)GetDlgItem( WIDC_ACCEPT );
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
@@ -245,22 +245,22 @@ void CWndTextLetter::OnInitialUpdate()
 		pWndText->SetString( pText );
 		safe_delete( pText );
 	}
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndTextLetter::Initialize( CWndBase* pWndParent, CItemBase* pItemBase )
 { 
 	m_pItemBase = pItemBase;
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_TEXT_LETTER, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndTextLetter::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -307,8 +307,8 @@ BOOL CWndTextLetter::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 
 /****************************************************
-  WndId : APP_TEXT_QUEST - Äù½ºÆ® È®ÀÎ
-  CtrlId : WIDC_STATIC1 - Äù½ºÆ®¸¦ ÁøÇàÇÏ½Ã°Ú½À´Ï±î?
+  WndId : APP_TEXT_QUEST - í€˜ìŠ¤íŠ¸ í™•ì¸
+  CtrlId : WIDC_STATIC1 - í€˜ìŠ¤íŠ¸ë¥¼ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
   CtrlId : WIDC_BUTTON1 - Button
   CtrlId : WIDC_BUTTON2 - Button
   CtrlId : WIDC_STATIC2 - 
@@ -316,7 +316,7 @@ BOOL CWndTextLetter::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 BOOL CWndTextQuest::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 {
-	return CWndMessageBox::Initialize( "Äù½ºÆ®¸¦ ÁøÇàÇÏ½Ã°Ú½À´Ï±î?", pWndParent, MB_OKCANCEL );
+	return CWndMessageBox::Initialize( "í€˜ìŠ¤íŠ¸ë¥¼ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?", pWndParent, MB_OKCANCEL );
 }
 BOOL CWndTextQuest::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 {

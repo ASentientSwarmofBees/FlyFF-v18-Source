@@ -1,4 +1,4 @@
-//############################################################################
+ï»¿//############################################################################
 //##                                                                        ##
 //##  MilesPly.C                                                            ##
 //##                                                                        ##
@@ -20,7 +20,7 @@
 
 #include "StdAfx.h"
 
-#if __VER < 15 // __MUSIC2		//music2°¡ ¾Æ´Ò°æ¿ì¸¸ 
+#if __VER < 15 // __MUSIC2		//music2ê°€ ì•„ë‹ê²½ìš°ë§Œ 
 
 #define _MUSIC_LIB_MILES	0		//use Miles lib
 #define _MUSiC_LIB_FMOD		1		//use FMod Lib
@@ -1094,9 +1094,9 @@ void UnInitCustomSound()
 }
 BOOL PlayMusic_( LPCTSTR lpszFileName, int nLoopCount )
 {
-	if( g_bEnableMusic == FALSE )		// »ç¿îµå Ä«µå°¡ ¾ø°Å³ª ²°À»¶§
+	if( g_bEnableMusic == FALSE )		// ì‚¬ìš´ë“œ ì¹´ë“œê°€ ì—†ê±°ë‚˜ ê»ì„ë•Œ
 		return FALSE;
-	// À½¾ÇÀÌ ¿¬ÁÖÁßÀÎµ¥, ¿¬ÁÖÁßÀÎ ÆÄÀÏ°ú µ¿ÀÏÇÑ ÆÄÀÏÀÌ ÇÃ·¹ÀÌ¸¦ ¿äÃ»Çß´Ù¸é Äµ½½ 
+	// ìŒì•…ì´ ì—°ì£¼ì¤‘ì¸ë°, ì—°ì£¼ì¤‘ì¸ íŒŒì¼ê³¼ ë™ì¼í•œ íŒŒì¼ì´ í”Œë ˆì´ë¥¼ ìš”ì²­í–ˆë‹¤ë©´ ìº”ìŠ¬ 
 	if( _tcscmp( lpszFileName, filename ) == 0 && IsPlayingMusic() )
 		return FALSE;
 	filtered=1;
@@ -1106,7 +1106,7 @@ BOOL PlayMusic_( LPCTSTR lpszFileName, int nLoopCount )
 	chans=2;//GetProfileInt(SECTION,"Channels",(UINT)chans);
 	forceDLS=0;//GetProfileInt(SECTION,"ForceDLS",(UINT)forceDLS);
 	
-	// ¾ÆÁ÷ À½¾ÇÀÌ ¿¬ÁÖÁßÀÌ¶ó¸é, º¼·ýÀ» ¼­¼­È÷ ³·ÃçÁÙ ¼¼ÆÃÀ» ÇÑ´Ù.
+	// ì•„ì§ ìŒì•…ì´ ì—°ì£¼ì¤‘ì´ë¼ë©´, ë³¼ë¥¨ì„ ì„œì„œížˆ ë‚®ì¶°ì¤„ ì„¸íŒ…ì„ í•œë‹¤.
 	if( IsPlayingMusic() )
 	{
 		_tcscpy( g_szFileName, lpszFileName );
@@ -1132,7 +1132,7 @@ BOOL PlayMusic( LPCTSTR lpszFileName, int nLoopCount )
 		return FALSE;
 	return PlayMusic_( lpszFileName, nLoopCount );
 }	
-// ÁÖ·Î Áß°£¿¡ °îÀÌ ²÷°åÀ» ¶§ ²÷±â´Â °îÀ» ºÎµå·´°Ô ²÷±â À§ÇØ¼­.
+// ì£¼ë¡œ ì¤‘ê°„ì— ê³¡ì´ ëŠê²¼ì„ ë•Œ ëŠê¸°ëŠ” ê³¡ì„ ë¶€ë“œëŸ½ê²Œ ëŠê¸° ìœ„í•´ì„œ.
 void ProcessFadeMusic()
 {
 	if( g_bFadeOutMusic )
@@ -1156,8 +1156,8 @@ void ProcessFadeMusic()
 			g_bLockMusic = FALSE;
 	}
 }
-// ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÏ¸é ´Ù¸¥ ¾î¶² À½¾ÇÀÌ ÇÃ·¹ÀÌ°¡ ½Ãµµ µÇ´õ¶óµµ ¹«½ÃÇÑ´Ù.
-// Áï ¿ÏÁÖ¸¦ º¸ÀåÇÏ´Â °ÍÀÌ´Ù.
+// ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ë©´ ë‹¤ë¥¸ ì–´ë–¤ ìŒì•…ì´ í”Œë ˆì´ê°€ ì‹œë„ ë˜ë”ë¼ë„ ë¬´ì‹œí•œë‹¤.
+// ì¦‰ ì™„ì£¼ë¥¼ ë³´ìž¥í•˜ëŠ” ê²ƒì´ë‹¤.
 void LockMusic()
 {
 	g_bLockMusic = TRUE;
@@ -1254,7 +1254,7 @@ void AIL_set_digital_master_volume_level(
 
 //------------------------------------------------------------------------------------------------------------------------------
 // FMOD here 
-// gmpbigsun : FMOD , ±âÁ¸ÀÇ Sound Interface¸¦ ±×´ë·Î À¯Áö 
+// gmpbigsun : FMOD , ê¸°ì¡´ì˜ Sound Interfaceë¥¼ ê·¸ëŒ€ë¡œ ìœ ì§€ 
 //------------------------------------------------------------------------------------------------------------------------------
 
 #include "fmod.h"
@@ -1278,12 +1278,12 @@ struct FModData
 	int _iChannel;
 };
 
-FModData g_FModData;		// bgmÀ» 2°îÀÌ»ó µ¿½Ã¿¡ ÇÃ·¹ÀÌ½ÃÅ³ÀÏÀÌ ¾øÀ¸¹Ç·Î...
+FModData g_FModData;		// bgmì„ 2ê³¡ì´ìƒ ë™ì‹œì— í”Œë ˆì´ì‹œí‚¬ì¼ì´ ì—†ìœ¼ë¯€ë¡œ...
 
 
 void ProcessFadeMusic()
 {
-	// ÀÌ±â´ÉÀÌ ÇÊ¿äÇÑ°¡?
+	// ì´ê¸°ëŠ¥ì´ í•„ìš”í•œê°€?
 /*	static CTime kOldTime;
 	static bool bFirst = true;
 	if( g_bFadeOutMusic )
@@ -1311,20 +1311,20 @@ void ProcessFadeMusic()
 
 BOOL PlayMusic_( LPCTSTR lpszFileName, int nLoopCount )
 {
-	if( g_bEnableMusic == FALSE )		// »ç¿îµå Ä«µå°¡ ¾ø°Å³ª ²°À»¶§
+	if( g_bEnableMusic == FALSE )		// ì‚¬ìš´ë“œ ì¹´ë“œê°€ ì—†ê±°ë‚˜ ê»ì„ë•Œ
 		return FALSE;
 
-	// ÀÌ¹Ì ·ÎµåµÈ StreamÀÌ ÀÖ´Ù¸é..
+	// ì´ë¯¸ ë¡œë“œëœ Streamì´ ìžˆë‹¤ë©´..
 	if( g_FModData._stream )
 	{
 		if( g_FModData._filename == string( lpszFileName ) && IsPlayingMusic( ) )
 			return FALSE;
 	}
 
-	// Á¦°Å !
+	// ì œê±° !
 	FSOUND_Stream_Close( g_FModData._stream );
 
-	// »õ·Î¿î ½ºÆ®¸²À¸·Î!
+	// ìƒˆë¡œìš´ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œ!
 	g_FModData._stream = FSOUND_Stream_Open( lpszFileName,  FSOUND_NORMAL | FSOUND_MPEGACCURATE, 0, 0);
 	if( !g_FModData._stream )
 	{
@@ -1341,7 +1341,7 @@ BOOL PlayMusic_( LPCTSTR lpszFileName, int nLoopCount )
 
 	g_FModData._iChannel = FSOUND_Stream_Play( FSOUND_FREE, g_FModData._stream );
 
-	// º¼·ýÀº ¿ø·¡´ë·Î
+	// ë³¼ë¥¨ì€ ì›ëž˜ëŒ€ë¡œ
 	SetVolume( g_fMusicVolume );
 	
 	return FALSE;
@@ -1394,7 +1394,7 @@ void StopMusic()
 
 void SetVolume( FLOAT fVolume )
 {
-	g_fMusicVolume = fVolume;	//Miles´Â 0.0 ~ 1.0f ¸¦ ¾²´Â°ü°è·Î ÀÌ°ªÀ» 255·Î °öÇØÁà¾ß ½ÇÁ¦ FMOD volum ¼öÄ¡°¡ µÈ´Ù.
+	g_fMusicVolume = fVolume;	//MilesëŠ” 0.0 ~ 1.0f ë¥¼ ì“°ëŠ”ê´€ê³„ë¡œ ì´ê°’ì„ 255ë¡œ ê³±í•´ì¤˜ì•¼ ì‹¤ì œ FMOD volum ìˆ˜ì¹˜ê°€ ëœë‹¤.
 	int iFModVolum = g_fMusicVolume * 255.0f;
 	FSOUND_SetVolume( g_FModData._iChannel, iFModVolum );
 }

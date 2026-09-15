@@ -1,4 +1,4 @@
-#ifndef __DOS2_H__
+﻿#ifndef __DOS2_H__
 #define	__DOS2_H__
 
 #pragma once

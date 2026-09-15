@@ -1,4 +1,4 @@
-// WndArcane.cpp: implementation of the CWndNeuz class.
+ï»¿// WndArcane.cpp: implementation of the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -54,8 +54,8 @@ BOOL CWndConnectingBox::Initialize( CWndBase* pWndParent, DWORD nType  )
 {
 	CRect rect = m_pWndRoot->MakeCenterRect( 250, 130 );
 /*
-	Create( _T( "¸Å½ÃÁö ¹Ú½º" ), MB_CANCEL, rect, APP_MESSAGEBOX );
-	m_wndText.SetString( _T( "Á¢¼ÓÁßÀÔ´Ï´Ù. Àá½Ã¸¸ ±â´Ù·Á ÁÖ½Ê½Ã¿À." ) );
+	Create( _T( "ë§¤ì‹œì§€ ë°•ìŠ¤" ), MB_CANCEL, rect, APP_MESSAGEBOX );
+	m_wndText.SetString( _T( "ì ‘ì†ì¤‘ì…ë‹ˆë‹¤. ì ì‹œë§Œ ê¸°ë‹¤ë ¤ ì£¼ì‹­ì‹œì˜¤." ) );
 */
 	Create( _T( prj.GetText(TID_DIAG_0068) ), /*MB_CANCEL*/0xFFFFFFFF, rect, APP_MESSAGEBOX );
 	m_wndText.SetString( _T( prj.GetText(TID_DIAG_0064) ) );
@@ -72,8 +72,8 @@ BOOL CWndCharBlockBox::Initialize( CWndBase* pWndParent, DWORD nType  )
 {
 	CRect rect = m_pWndRoot->MakeCenterRect( 250, 130 );
 /*
-	Create( _T( "¸Å½ÃÁö ¹Ú½º" ), MB_CANCEL, rect, APP_MESSAGEBOX );
-	m_wndText.SetString( _T( "»ç¿ëÇÒ¼ö ¾ø´Â Ä³¸¯ÅÍ ÀÔ´Ï´Ù" ) );
+	Create( _T( "ë§¤ì‹œì§€ ë°•ìŠ¤" ), MB_CANCEL, rect, APP_MESSAGEBOX );
+	m_wndText.SetString( _T( "ì‚¬ìš©í• ìˆ˜ ì—†ëŠ” ìºë¦­í„° ì…ë‹ˆë‹¤" ) );
 */
 	Create( _T( prj.GetText(TID_DIAG_0068) ), MB_CANCEL, rect, APP_MESSAGEBOX );
 	m_wndText.SetString( _T( prj.GetText(TID_DIAG_0073) ) );
@@ -98,8 +98,8 @@ BOOL CWndAllCharBlockBox::Initialize( CWndBase* pWndParent, DWORD nType  )
 {
     CRect rect = m_pWndRoot->MakeCenterRect( 250, 130 );
 /*
-	Create( _T( "¸Å½ÃÁö ¹Ú½º" ), MB_CANCEL, rect, APP_MESSAGEBOX );
-	m_wndText.SetString( _T( "Á¢¼ÓÇÒ¼ö ¾ø´Â °èÁ¤ÀÔ´Ï´Ù" ) );
+	Create( _T( "ë§¤ì‹œì§€ ë°•ìŠ¤" ), MB_CANCEL, rect, APP_MESSAGEBOX );
+	m_wndText.SetString( _T( "ì ‘ì†í• ìˆ˜ ì—†ëŠ” ê³„ì •ì…ë‹ˆë‹¤" ) );
 */
 	Create( _T( prj.GetText(TID_DIAG_0068) ), MB_CANCEL, rect, APP_MESSAGEBOX );
 	m_wndText.SetString( _T( prj.GetText(TID_DIAG_0074) ) );
@@ -429,19 +429,19 @@ void CWndLogin::Connected( long lTimeSpan )
 	g_WndMng.CloseMessageBox();
 	g_WndMng.ObjectExecutor( SHORTCUT_APPLET, APP_SELECT_SERVER );
 #ifdef __BILLING0712
-	if( lTimeSpan )	// 1ÀÏ ¹Ì¸¸?
+	if( lTimeSpan )	// 1ì¼ ë¯¸ë§Œ?
 	{
 		CTimeSpan span = (time_t)lTimeSpan;		
 		char szMsg[256];			
 
-		if( span.GetTotalMinutes() > 60 )	// 1½Ã°£ 0ºĞ Àº Ç¥½ÃÇÏÁö ¾Ê°í 60ºĞ ³²¾ÒÀ½À¸·Î 
+		if( span.GetTotalMinutes() > 60 )	// 1ì‹œê°„ 0ë¶„ ì€ í‘œì‹œí•˜ì§€ ì•Šê³  60ë¶„ ë‚¨ì•˜ìŒìœ¼ë¡œ 
 		{
-			// %d½Ã°£ %ºĞ ³²¾Ò½À´Ï´Ù.
+			// %dì‹œê°„ %ë¶„ ë‚¨ì•˜ìŠµë‹ˆë‹¤.
 			sprintf( szMsg, prj.GetText(TID_DIAG_EXPIRYDAY), span.GetHours(), span.GetMinutes() );
 		}
 		else
 		{
-			// %ºĞ ³²¾Ò½À´Ï´Ù. (ÃÖ¼Ò 1ºĞÀ¸·Î Ç¥½Ã)
+			// %ë¶„ ë‚¨ì•˜ìŠµë‹ˆë‹¤. (ìµœì†Œ 1ë¶„ìœ¼ë¡œ í‘œì‹œ)
 			int nMM = span.GetTotalMinutes();
 			sprintf( szMsg, prj.GetText(TID_DIAG_EXPIRYDAYMIN ), max(nMM, 1) );
 		}
@@ -514,7 +514,7 @@ BOOL CWndLogin::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				pWndCredit->Initialize();
 			}
 			break;
-		case WIDC_OK: // Á¢¼Ó 
+		case WIDC_OK: // ì ‘ì† 
 			{
 #			ifdef __CRC
 				if( !g_dpCertified.ConnectToServer( g_Neuz.m_lpCertifierAddr, PN_CERTIFIER, TRUE, CSock::crcWrite ) )
@@ -524,7 +524,7 @@ BOOL CWndLogin::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				{
 					// Can't connect to server
 					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0043) ) );
-//					g_WndMng.OpenMessageBox( _T( "Á¢¼ÓÇÒ ¼ö ¾ø½À´Ï´Ù. ³×Æ®¿öÅ© »óÅÂ¸¦ È®ÀÎÇÏ½Ê½Ã¿À." ) );
+//					g_WndMng.OpenMessageBox( _T( "ì ‘ì†í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ë„¤íŠ¸ì›Œí¬ ìƒíƒœë¥¼ í™•ì¸í•˜ì‹­ì‹œì˜¤." ) );
 					CNetwork::GetInstance().OnEvent( CERT_CONNECT_FAIL );
 					break;
 				}
@@ -543,14 +543,14 @@ BOOL CWndLogin::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				if( IsAcValid( pAccount->GetString() ) == FALSE )
 				{
 					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0005) ) );
-//					g_WndMng.OpenMessageBox( _T( "°èÁ¤Àº 3~16ÀÚ ¿µ¾î, ¼ıÀÚ¸¦ »ç¿ëÇÒ ¼ö ÀÖ°í, ¼ıÀÚ·Î ½ÃÀÛÇÒ ¼ö ¾ø½À´Ï´Ù." ) );
+//					g_WndMng.OpenMessageBox( _T( "ê³„ì •ì€ 3~16ì ì˜ì–´, ìˆ«ìë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆê³ , ìˆ«ìë¡œ ì‹œì‘í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤." ) );
 					pButton->EnableWindow( TRUE );
 					return TRUE;
 				}
 				if( IsPwdValid( pPassword->GetString() ) == FALSE )
 				{
 					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0030) ) );
-//					g_WndMng.OpenMessageBox( _T( "¾ÏÈ£´Â 3~16ÀÚ ¿µ¾î, ¼ıÀÚ¸¦ »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù." ) );
+//					g_WndMng.OpenMessageBox( _T( "ì•”í˜¸ëŠ” 3~16ì ì˜ì–´, ìˆ«ìë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤." ) );
 					pButton->EnableWindow( TRUE );
 					return TRUE;
 				}
@@ -559,7 +559,7 @@ BOOL CWndLogin::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 #ifdef __THROUGHPORTAL0810
 				if( g_Neuz.m_bThroughPortal == FALSE )
 #else	// __THROUGHPORTAL0810
-				if( g_Neuz.m_bHanGame == FALSE )	// ÇÑ°ÔÀÓ À¯Àú´Â ÀÌ¹Ì ¼¼ÆÃµÇ¾î ÀÖÀ½, µÎ¹ø ÇÏ¸é ¹®Á¦»ı±è 
+				if( g_Neuz.m_bHanGame == FALSE )	// í•œê²Œì„ ìœ ì €ëŠ” ì´ë¯¸ ì„¸íŒ…ë˜ì–´ ìˆìŒ, ë‘ë²ˆ í•˜ë©´ ë¬¸ì œìƒê¹€ 
 #endif	// __THROUGHPORTAL0810
 					g_Neuz.SetAccountInfo( pAccount->GetString(), pPassword->GetString() );
 				g_dpCertified.SendCertify();
@@ -568,7 +568,7 @@ BOOL CWndLogin::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				break;
 			}
 
-		case WIDC_QUIT: // Á¾·á 
+		case WIDC_QUIT: // ì¢…ë£Œ 
 		case WTBID_CLOSE:
 			::PostMessage( g_Neuz.GetSafeHwnd(), WM_CLOSE, 0, 0 );
 			break;
@@ -725,13 +725,13 @@ void CWndSelectServer::OnInitialUpdate()
 
 					if( lCount < lBusy )
 					{
-						//strcpy( lpStrtmp, "Á¤»ó" );
+						//strcpy( lpStrtmp, "ì •ìƒ" );
 						strcpy( lpStrtmp, prj.GetText(TID_GAME_NORMAL));
 					}
 					else 
 					if( lCount < lMax )
 					{
-						//strcpy( lpStrtmp, "È¥Àâ" );
+						//strcpy( lpStrtmp, "í˜¼ì¡" );
 						strcpy( lpStrtmp, prj.GetText(TID_GAME_BUSY));
 					}
 					else	
@@ -815,7 +815,7 @@ void CWndSelectServer::OnInitialUpdate()
 				
 				if( nCount <= 0 )
 				{
-					Error( "TexBannerList.incÀÇ °¹¼ö°¡ 0ÀÌ´Ù" );
+					Error( "TexBannerList.incì˜ ê°¯ìˆ˜ê°€ 0ì´ë‹¤" );
 					return;
 				}
 				
@@ -941,9 +941,9 @@ BOOL CWndSelectServer::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 							long lBusy	= (long)( lMax * 0.8 );
 
 							if( lCount < lBusy )	
-								strcpy( lpStrtmp, prj.GetText(TID_GAME_NORMAL));	//"Á¤»ó"
+								strcpy( lpStrtmp, prj.GetText(TID_GAME_NORMAL));	//"ì •ìƒ"
 							else if( lCount < lMax )		
-								strcpy( lpStrtmp, prj.GetText(TID_GAME_BUSY));		//"È¥Àâ"
+								strcpy( lpStrtmp, prj.GetText(TID_GAME_BUSY));		//"í˜¼ì¡"
 							else	
 								lstrcpy( lpStrtmp, prj.GetText(TID_GAME_FULL) );
 
@@ -978,7 +978,7 @@ BOOL CWndSelectServer::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 					if( !( g_Neuz.m_cbAccountFlag & ACCOUNT_FLAG_SCHOOLEVENT ) && pDesc->lCount > pDesc->lMax )
 					{
 						g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0041) ) );
-//						g_WndMng.OpenMessageBox( _T( "»ç¿ëÀÚ°¡ ³Ê¹« ¸¹½À´Ï´Ù." ) );
+//						g_WndMng.OpenMessageBox( _T( "ì‚¬ìš©ìê°€ ë„ˆë¬´ ë§ìŠµë‹ˆë‹¤." ) );
 						break;
 					}
 				}
@@ -991,7 +991,7 @@ BOOL CWndSelectServer::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				{
 					if( pDesc->b18 && !( g_Neuz.m_cbAccountFlag & ACCOUNT_FLAG_18 ) )
 					{
-						g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0058) ) );   // 18¼¼¹Ì¸¸ »ç¿ëÀÚ´Â Á¢¼ÓÇÒ ¼ö ¾ø½À´Ï´Ù.
+						g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0058) ) );   // 18ì„¸ë¯¸ë§Œ ì‚¬ìš©ìëŠ” ì ‘ì†í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 						break;
 					}
 				}
@@ -1047,7 +1047,7 @@ BOOL CWndSelectServer::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 			{
 				// Can't connect to server
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0043) ) );
-//				g_WndMng.OpenMessageBox( _T( "Á¢¼ÓÇÒ ¼ö ¾ø½À´Ï´Ù. ³×Æ®¿öÅ© »óÅÂ¸¦ È®ÀÎÇÏ½Ê½Ã¿À." ) );
+//				g_WndMng.OpenMessageBox( _T( "ì ‘ì†í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ë„¤íŠ¸ì›Œí¬ ìƒíƒœë¥¼ í™•ì¸í•˜ì‹­ì‹œì˜¤." ) );
 				CNetwork::GetInstance().OnEvent( LOGIN_CONNECT_FAIL );
 				break;
 			}
@@ -1086,7 +1086,7 @@ BOOL CWndSelectServer::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase 
 	case 101:
 		break;
 	case 102:
-		//g_WndMng.OpenCustomBox("Á¾·áÇÏ½Ã°Ú½À´Ï±î?",new CWndExitBox);
+		//g_WndMng.OpenCustomBox("ì¢…ë£Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?",new CWndExitBox);
 		break;
 	case 1000:
 		break;
@@ -1313,7 +1313,7 @@ BOOL CWndDeleteChar::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		switch( ::GetLanguage() )
 		{
 		case LANG_KOR:
-#ifdef __DELETE_CHAR_CHANGE_KEY_VALUE	// 100304_mirchang ÁÖ¹Î¹øÈ£¿¡¼­ 2Â÷ºñ¹øÀ¸·Î º¯°æ(±¹³», ¹öµğ¹öµğ i-PIN)
+#ifdef __DELETE_CHAR_CHANGE_KEY_VALUE	// 100304_mirchang ì£¼ë¯¼ë²ˆí˜¸ì—ì„œ 2ì°¨ë¹„ë²ˆìœ¼ë¡œ ë³€ê²½(êµ­ë‚´, ë²„ë””ë²„ë”” i-PIN)
 			if( strlen(szNo) == 4 )
 #else // __DELETE_CHAR_CHANGE_KEY_VALUE
 			if( strlen(szNo) == 7 )
@@ -1361,7 +1361,7 @@ BOOL CWndDeleteChar::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 #else	// __THROUGHPORTAL0810
 			if( g_Neuz.m_bHanGame == FALSE )
 #endif	// __THROUGHPORTAL0810
-				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0044) ) ); // "ÁÖ¹Î¹øÈ£ ¼ıÀÚ 7ÀÚ¸®·Î ³Ö¾î¾ß ÇÕ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä"
+				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0044) ) ); // "ì£¼ë¯¼ë²ˆí˜¸ ìˆ«ì 7ìë¦¬ë¡œ ë„£ì–´ì•¼ í•©ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”"
 		}
 	}
 	else if( nID == WIDC_CANCEL )
@@ -1388,7 +1388,7 @@ CWndSelectChar::CWndSelectChar()
 	m_dwMotion[ 1 ] = MTI_SITSTAND;
 	m_dwMotion[ 2 ] = MTI_SITSTAND;
 	SetPutRegInfo( FALSE );
-	m_CreateApply = TRUE; //¼­¹öÅëÇÕ °ü·Ã Æ¯Á¤ ±â°£ Ä³¸¯ÅÍ »ı¼º ±İÁö.
+	m_CreateApply = TRUE; //ì„œë²„í†µí•© ê´€ë ¨ íŠ¹ì • ê¸°ê°„ ìºë¦­í„° ìƒì„± ê¸ˆì§€.
 #ifdef __LECTURE_V17 // Lecture v17 chracter
     m_bFlash        = TRUE;
     m_nFlashAlpha    = 0;
@@ -1490,11 +1490,11 @@ BOOL CWndSelectChar::Process()
 	/*
 	 *	
 
-	ANILOOP_1PLAY			(0x00000001)			// ÇÑ¹ø ÇÃ·¹ÀÌÈÄ ³¡.
-	ANILOOP_CONT			(0x00000002)			// ÇÑ¹ø ÇÃ·¹ÀÌÈÄ ¸¶Áö¸· µ¿ÀÛÀ¸·Î
-	ANILOOP_LOOP			(0x00000004)			// ¹İº¹
-	ANILOOP_RETURN			(0x00000008)			// ¿Õº¹ - »ç¿ëµÇÁö ¾ÊÀ½.
-	ANILOOP_BACK			(0x00000010)			// µÚ¿¡¼­ ºÎÅÍ. - »ç¿ëµÇÁö ¾ÊÀ½
+	ANILOOP_1PLAY			(0x00000001)			// í•œë²ˆ í”Œë ˆì´í›„ ë.
+	ANILOOP_CONT			(0x00000002)			// í•œë²ˆ í”Œë ˆì´í›„ ë§ˆì§€ë§‰ ë™ì‘ìœ¼ë¡œ
+	ANILOOP_LOOP			(0x00000004)			// ë°˜ë³µ
+	ANILOOP_RETURN			(0x00000008)			// ì™•ë³µ - ì‚¬ìš©ë˜ì§€ ì•ŠìŒ.
+	ANILOOP_BACK			(0x00000010)			// ë’¤ì—ì„œ ë¶€í„°. - ì‚¬ìš©ë˜ì§€ ì•ŠìŒ
 
 	 */
 	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
@@ -1508,7 +1508,7 @@ BOOL CWndSelectChar::Process()
 			int nMover = (pMover->GetSex() == SEX_MALE ? MI_MALE : MI_FEMALE);
 			if( m_nSelectCharacter == i )
 			{
-				// ¿ÏÀüÈ÷ ÀÏ¾î³µ³ª? ±×·¸´Ù¸é MTI_STAND·Î º¯°æ 
+				// ì™„ì „íˆ ì¼ì–´ë‚¬ë‚˜? ê·¸ë ‡ë‹¤ë©´ MTI_STANDë¡œ ë³€ê²½ 
 				if( m_dwMotion[ i ] == MTI_GETUP )
 				{
 					if( pModel->IsEndFrame() && pModel->m_nLoop == ANILOOP_1PLAY )
@@ -1520,7 +1520,7 @@ BOOL CWndSelectChar::Process()
 			}
 			else
 			{
-				// ¾É¾Æ ÀÖ´Â°Ô ¾Æ´Ñ°¡? ±×·¸´Ù¸é ¹«Á¶°Ç ¾É¾Æ¶ó. MTI_SITÀ¸·Î º¯°æ
+				// ì•‰ì•„ ìˆëŠ”ê²Œ ì•„ë‹Œê°€? ê·¸ë ‡ë‹¤ë©´ ë¬´ì¡°ê±´ ì•‰ì•„ë¼. MTI_SITìœ¼ë¡œ ë³€ê²½
 				if( m_dwMotion[ i ] != MTI_SITSTAND )
 				{
 					if( pModel->IsEndFrame() && pModel->m_nLoop == ANILOOP_1PLAY )
@@ -1535,7 +1535,7 @@ BOOL CWndSelectChar::Process()
 						m_dwMotion[ i ] = MTI_SIT;
 					}
 				}
-				// ¿ÏÀüÈ÷ ¾É¾Ò³ª? ±×·¸´Ù¸é MTI_SITSTAND·Î º¯°æ 
+				// ì™„ì „íˆ ì•‰ì•˜ë‚˜? ê·¸ë ‡ë‹¤ë©´ MTI_SITSTANDë¡œ ë³€ê²½ 
 			}
 			pModel->FrameMove();
 		}
@@ -1759,14 +1759,14 @@ void CWndSelectChar::OnDraw( C2DRender* p2DRender )
 
 			CRect rectViewport( 0, 0, viewport.Width, viewport.Height );
 
-			// ÇÁ·ÎÁ§¼Ç 
+			// í”„ë¡œì ì…˜ 
 			D3DXMATRIX matProj;
 			D3DXMatrixIdentity( &matProj );
 			FLOAT fAspect = ((FLOAT)viewport.Width) / (FLOAT)viewport.Height;
 			D3DXMatrixPerspectiveFovLH( &matProj, D3DX_PI/4.0f, fAspect, CWorld::m_fNearPlane - 0.01f, CWorld::m_fFarPlane );
 			pd3dDevice->SetTransform( D3DTS_PROJECTION, &matProj );
 
-			// Ä«¸Ş¶ó 
+			// ì¹´ë©”ë¼ 
 			D3DXMATRIX  matView;
 			D3DXVECTOR3 vecLookAt( 0.0f, 0.0f, 1.0f );
 			D3DXVECTOR3 vecPos(  0.0f, 0.5f, -3.5f );
@@ -1775,13 +1775,13 @@ void CWndSelectChar::OnDraw( C2DRender* p2DRender )
 
 			pd3dDevice->SetTransform( D3DTS_VIEW, &matView );
 
-			// ¿ùµå 
+			// ì›”ë“œ 
 			D3DXMATRIXA16 matWorld;
 			D3DXMATRIXA16 matScale;
 			D3DXMATRIXA16 matRot;
 			D3DXMATRIXA16 matTrans;
 
-			// ÃÊ±âÈ­ 
+			// ì´ˆê¸°í™” 
 			D3DXMatrixIdentity(&matScale);
 			D3DXMatrixIdentity(&matRot);
 			D3DXMatrixIdentity(&matTrans);
@@ -1795,7 +1795,7 @@ void CWndSelectChar::OnDraw( C2DRender* p2DRender )
 			D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 			pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-			// ·£´õ¸µ 
+			// ëœë”ë§ 
 			pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
 			pd3dDevice->SetRenderState( D3DRS_ZENABLE, TRUE );
 			pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
@@ -1830,7 +1830,7 @@ void CWndSelectChar::OnDraw( C2DRender* p2DRender )
 
 			g_Neuz.m_apPlayer[i]->OverCoatItemRenderCheck(pModel);
 			
-			// Çï¸äÀÌ ¸Ó¸®Ä«¶ô ³¯·Á¾ßÇÏ´Â°ÍÀÌ³Ä?  // ÀÎº¥ÀÌ ¾ø´Â°æ¿ì
+			// í—¬ë©§ì´ ë¨¸ë¦¬ì¹´ë½ ë‚ ë ¤ì•¼í•˜ëŠ”ê²ƒì´ëƒ?  // ì¸ë²¤ì´ ì—†ëŠ”ê²½ìš°
 			DWORD dwId	= g_Neuz.m_apPlayer[i]->m_aEquipInfo[PARTS_CAP].dwId;
 			ItemProp* pItemProp = NULL;
 
@@ -1844,7 +1844,7 @@ void CWndSelectChar::OnDraw( C2DRender* p2DRender )
 					pElement = pModel->SetEffect(pItemProp->dwBasePartsIgnore, XE_HIDE );
 				}
 
-				// ¿ÜÅõÀÇ»óÀ» ÀÔ¾úÀ»°æ¿ì ¸Ó¸®³¯¸±°ÍÀÎ°¡ÀÇ ±âÁØÀ» ¿ÜÅõ ¸ğÀÚ¸¦ ±âÁØÀ¸·Î ¹Ù²Û´Ù
+				// ì™¸íˆ¬ì˜ìƒì„ ì…ì—ˆì„ê²½ìš° ë¨¸ë¦¬ë‚ ë¦´ê²ƒì¸ê°€ì˜ ê¸°ì¤€ì„ ì™¸íˆ¬ ëª¨ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤
 				dwId	= g_Neuz.m_apPlayer[i]->m_aEquipInfo[PARTS_HAT].dwId;
 				if( dwId != NULL_ID )
 				{
@@ -1868,7 +1868,7 @@ void CWndSelectChar::OnDraw( C2DRender* p2DRender )
 			}
 			else
 			{
-				// ¿ÜÅõÀÇ»óÀ» ÀÔ¾úÀ»°æ¿ì ¸Ó¸®³¯¸±°ÍÀÎ°¡ÀÇ ±âÁØÀ» ¿ÜÅõ ¸ğÀÚ¸¦ ±âÁØÀ¸·Î ¹Ù²Û´Ù
+				// ì™¸íˆ¬ì˜ìƒì„ ì…ì—ˆì„ê²½ìš° ë¨¸ë¦¬ë‚ ë¦´ê²ƒì¸ê°€ì˜ ê¸°ì¤€ì„ ì™¸íˆ¬ ëª¨ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤
 				dwId	= g_Neuz.m_apPlayer[i]->m_aEquipInfo[PARTS_HAT].dwId;
 				if( dwId != NULL_ID )
 				{
@@ -1965,7 +1965,7 @@ void CWndSelectChar::UpdateCharacter()
 		CMover* pMover = g_Neuz.m_apPlayer[i];
 		if( pMover )
 		{
-			// ÀåÂø, °ÔÀÌÁö¿¡ ³ª¿Ã Ä³¸¯ÅÍ ¿ÀºêÁ§Æ® ¼³Á¤ 
+			// ì¥ì°©, ê²Œì´ì§€ì— ë‚˜ì˜¬ ìºë¦­í„° ì˜¤ë¸Œì íŠ¸ ì„¤ì • 
 			int nMover = (pMover->GetSex() == SEX_MALE ? MI_MALE : MI_FEMALE);
 			m_pBipedMesh[ i ] = (CModelObject*)prj.m_modelMng.LoadModel( g_Neuz.m_pd3dDevice, OT_MOVER, nMover, TRUE );
 			if( i == m_nSelectCharacter )
@@ -2045,7 +2045,7 @@ void CWndSelectChar::OnInitialUpdate()
 #endif //__LECTURE_V17
 	}
 	
-	//¼­¹öÅëÇÕ °ü·Ã Æ¯Á¤ ±â°£ Ä³¸¯ÅÍ »ı¼º ±İÁö. 2007/01/02 ~ 2007/01/11 ¿¡¸¸ »ç¿ë.
+	//ì„œë²„í†µí•© ê´€ë ¨ íŠ¹ì • ê¸°ê°„ ìºë¦­í„° ìƒì„± ê¸ˆì§€. 2007/01/02 ~ 2007/01/11 ì—ë§Œ ì‚¬ìš©.
 #if defined( __MAINSERVER )
 /*	if(g_Option.m_nSer != 1)
 	{
@@ -2081,7 +2081,7 @@ void CWndSelectChar::Connected()
 {
 	if( m_nSelectCharacter < 0 || m_nSelectCharacter >= 5 )
 	{
-		LPCTSTR szErr = Error( "CWndSelectChar::Connected : ¹üÀ§ÃÊ°ú %d", m_nSelectCharacter );
+		LPCTSTR szErr = Error( "CWndSelectChar::Connected : ë²”ìœ„ì´ˆê³¼ %d", m_nSelectCharacter );
 		ADDERRORMSG( szErr );
 		int *p = NULL;
 		*p = 1;
@@ -2118,7 +2118,7 @@ void CWndSelectChar::Connected()
 
 	CNetwork::GetInstance().OnEvent( LOGIN_REQ_PREJOIN );
 
-	// ata2k - (1)½Ã°£ ÀúÁ¤
+	// ata2k - (1)ì‹œê°„ ì €ì •
 #ifdef __NO_SUB_LANG
 	if( ::GetLanguage() == LANG_USA )
 #else // __NO_SUB_LANG
@@ -2143,7 +2143,7 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				DPCollectClient->DeleteDPObject();
 #endif // __CERTIFIER_COLLECTING_SYSTEM
 				g_dpLoginClient.DeleteDPObject();
-				Sleep( 1000 );	// ÀÓ½Ã.
+				Sleep( 1000 );	// ì„ì‹œ.
 #			ifdef __CRC
 				if( !g_dpCertified.ConnectToServer( g_Neuz.m_lpCertifierAddr, PN_CERTIFIER, TRUE, CSock::crcWrite ) )
 #			else	// __CRC
@@ -2152,7 +2152,7 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				{
 					// Can't connect to server
 					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0043) ) );
-//					g_WndMng.OpenMessageBox( _T( "Á¢¼ÓÇÒ ¼ö ¾ø½À´Ï´Ù. ³×Æ®¿öÅ© »óÅÂ¸¦ È®ÀÎÇÏ½Ê½Ã¿À." ) );
+//					g_WndMng.OpenMessageBox( _T( "ì ‘ì†í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ë„¤íŠ¸ì›Œí¬ ìƒíƒœë¥¼ í™•ì¸í•˜ì‹­ì‹œì˜¤." ) );
 					CNetwork::GetInstance().OnEvent( CERT_CONNECT_FAIL );
 					break;
 				}
@@ -2168,7 +2168,7 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 		case WIDC_CREATE: // Create
 			if( m_nSelectCharacter != -1 && g_Neuz.m_apPlayer[ m_nSelectCharacter ] == NULL )
 			{
-				if(m_CreateApply) //¼­¹öÅëÇÕ °ü·Ã Æ¯Á¤ ±â°£ Ä³¸¯ÅÍ »ı¼º ±İÁö.
+				if(m_CreateApply) //ì„œë²„í†µí•© ê´€ë ¨ íŠ¹ì • ê¸°ê°„ ìºë¦­í„° ìƒì„± ê¸ˆì§€.
 				{	
 					u_short uSlot	= (u_short)m_nSelectCharacter;
 					Destroy();
@@ -2180,7 +2180,7 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				}
 				else
 				{
-//					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_GAME_CREATECHAR_WARNNING) ) ); //Message : ¼­¹öÅëÇÕ °ü·Ã Æ¯Á¤ ±â°£ Ä³¸¯ÅÍ »ı¼º ±İÁö.
+//					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_GAME_CREATECHAR_WARNNING) ) ); //Message : ì„œë²„í†µí•© ê´€ë ¨ íŠ¹ì • ê¸°ê°„ ìºë¦­í„° ìƒì„± ê¸ˆì§€.
 				}
 			}
 			break;
@@ -2208,7 +2208,7 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 						g_Option.m_pGuide = &(g_Option.m_nGuide3);
 						break;
 					default:
-						Error( "¼±ÅÃÇÑ Ä³¸¯ÅÍ ¹øÈ£°¡ ÀÌ»óÇÔ!! : %d", m_nSelectCharacter );
+						Error( "ì„ íƒí•œ ìºë¦­í„° ë²ˆí˜¸ê°€ ì´ìƒí•¨!! : %d", m_nSelectCharacter );
 						return FALSE;
 				}
 				CWndButton* pWndAccept = (CWndButton*)GetDlgItem( WIDC_ACCEPT );
@@ -2251,7 +2251,7 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				else
 				{
 					g_WndMng.OpenCustomBox( _T( prj.GetText(TID_DIAG_0064) ), new CWndConnectingBox );
-					//g_WndMng.OpenCustomBox( _T( "·ÎµùÁßÀÔ´Ï´Ù. Àá½Ã¸¸ ±â´Ù·Á ÁÖ½Ê½Ã¿À." ), new CWndConnectingBox );
+					//g_WndMng.OpenCustomBox( _T( "ë¡œë”©ì¤‘ì…ë‹ˆë‹¤. ì ì‹œë§Œ ê¸°ë‹¤ë ¤ ì£¼ì‹­ì‹œì˜¤." ), new CWndConnectingBox );
 
 					if( g_DPlay.Connect( g_Neuz.m_lpCacheAddr, g_Neuz.m_uCachePort ) )
 					{						
@@ -2259,12 +2259,12 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 						if( m_nSelectCharacter != -1 && g_Neuz.m_apPlayer[m_nSelectCharacter] )
 						{
 #if __VER < 8 // __S8_PK
-							// ÇÑ±¹Àº 2005/11/1 PK¼­¹ö°¡ ¾ø¾îÁö°í, ¾Æ·¡ÀÇ ÄÚµå°¡ ÀÖÀ¸¸é Ä«¿ÀÀÎ À¯Àú´Â ¸ğµç ¼­¹ö¿¡ Á¢¼Ó ÇÒ ¼ö ¾øÀ¸¹Ç·Î ¸·´Â´Ù.
+							// í•œêµ­ì€ 2005/11/1 PKì„œë²„ê°€ ì—†ì–´ì§€ê³ , ì•„ë˜ì˜ ì½”ë“œê°€ ìˆìœ¼ë©´ ì¹´ì˜¤ì¸ ìœ ì €ëŠ” ëª¨ë“  ì„œë²„ì— ì ‘ì† í•  ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ë§‰ëŠ”ë‹¤.
 							if( ::GetLanguage() != LANG_KOR )		
 							{
 								if( g_Neuz.m_b18Server == FALSE && g_Neuz.m_apPlayer[m_nSelectCharacter]->IsChaotic() )
 								{
-									//g_WndMng.OpenMessageBox( "¼±ÅÃµÈ ÇÃ·¹ÀÌ¾î´Â Ä«¸£¸¶ ¼öÄ¡°¡ ³·¾Æ¼­ PK¼­¹ö¿¡¸¸ Á¢¼Ó ÇÒ ¼ö ÀÖ½À´Ï´Ù." );
+									//g_WndMng.OpenMessageBox( "ì„ íƒëœ í”Œë ˆì´ì–´ëŠ” ì¹´ë¥´ë§ˆ ìˆ˜ì¹˜ê°€ ë‚®ì•„ì„œ PKì„œë²„ì—ë§Œ ì ‘ì† í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤." );
 									g_WndMng.OpenMessageBox( prj.GetText(TID_PK_REFUSE_CHAOTIC) );
 									break;
 								}
@@ -2282,7 +2282,7 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 				}
 #else // __2ND_PASSWORD_SYSTEM
 				g_WndMng.OpenCustomBox( _T( prj.GetText(TID_DIAG_0064) ), new CWndConnectingBox );
-				//g_WndMng.OpenCustomBox( _T( "·ÎµùÁßÀÔ´Ï´Ù. Àá½Ã¸¸ ±â´Ù·Á ÁÖ½Ê½Ã¿À." ), new CWndConnectingBox );
+				//g_WndMng.OpenCustomBox( _T( "ë¡œë”©ì¤‘ì…ë‹ˆë‹¤. ì ì‹œë§Œ ê¸°ë‹¤ë ¤ ì£¼ì‹­ì‹œì˜¤." ), new CWndConnectingBox );
 
 				if( g_DPlay.Connect( g_Neuz.m_lpCacheAddr, g_Neuz.m_uCachePort ) )
 				{						
@@ -2291,12 +2291,12 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 					if( m_nSelectCharacter != -1 && g_Neuz.m_apPlayer[m_nSelectCharacter] )
 					{
 #if __VER < 8 // __S8_PK
-						// ÇÑ±¹Àº 2005/11/1 PK¼­¹ö°¡ ¾ø¾îÁö°í, ¾Æ·¡ÀÇ ÄÚµå°¡ ÀÖÀ¸¸é Ä«¿ÀÀÎ À¯Àú´Â ¸ğµç ¼­¹ö¿¡ Á¢¼Ó ÇÒ ¼ö ¾øÀ¸¹Ç·Î ¸·´Â´Ù.
+						// í•œêµ­ì€ 2005/11/1 PKì„œë²„ê°€ ì—†ì–´ì§€ê³ , ì•„ë˜ì˜ ì½”ë“œê°€ ìˆìœ¼ë©´ ì¹´ì˜¤ì¸ ìœ ì €ëŠ” ëª¨ë“  ì„œë²„ì— ì ‘ì† í•  ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ë§‰ëŠ”ë‹¤.
 						if( ::GetLanguage() != LANG_KOR )		
 						{
 							if( g_Neuz.m_b18Server == FALSE && g_Neuz.m_apPlayer[m_nSelectCharacter]->IsChaotic() )
 							{
-								//g_WndMng.OpenMessageBox( "¼±ÅÃµÈ ÇÃ·¹ÀÌ¾î´Â Ä«¸£¸¶ ¼öÄ¡°¡ ³·¾Æ¼­ PK¼­¹ö¿¡¸¸ Á¢¼Ó ÇÒ ¼ö ÀÖ½À´Ï´Ù." );
+								//g_WndMng.OpenMessageBox( "ì„ íƒëœ í”Œë ˆì´ì–´ëŠ” ì¹´ë¥´ë§ˆ ìˆ˜ì¹˜ê°€ ë‚®ì•„ì„œ PKì„œë²„ì—ë§Œ ì ‘ì† í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤." );
 								g_WndMng.OpenMessageBox( prj.GetText(TID_PK_REFUSE_CHAOTIC) );
 								break;
 							}
@@ -2331,7 +2331,7 @@ BOOL CWndSelectChar::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 	case 101:
 		break;
 	case 102:
-		//g_WndMng.OpenCustomBox("Á¾·áÇÏ½Ã°Ú½À´Ï±î?",new CWndExitBox);
+		//g_WndMng.OpenCustomBox("ì¢…ë£Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?",new CWndExitBox);
 		break;
 	case 1000:
 		break;
@@ -2381,12 +2381,12 @@ BOOL CWndSelectChar::SetMotion( CModelObject* pModel, DWORD dwIndex, DWORD dwMot
 	DWORD	dwOrigMotion = dwMotion;
 	/*
 static DWORD m_dwOrigMotion = MTI_STAND;
-	if( dwMotion == m_dwOrigMotion )	// °°Àº ¸ğ¼ÇÀ» ÇÏ¶ó°í Çß´Âµ¥...
+	if( dwMotion == m_dwOrigMotion )	// ê°™ì€ ëª¨ì…˜ì„ í•˜ë¼ê³  í–ˆëŠ”ë°...
 	{
-		if( nLoop == ANILOOP_LOOP )		return FALSE;	// ·çÇÎ¸ğµå ÀÌ¸é °Á ¸®ÅÏ
-		if( pModel->m_bEndFrame == FALSE )		// ¾ÆÁ÷ ¾Ö´Ï¸ŞÀÌ¼ÇÁßÀÏ¶§´Â 
-			return FALSE;						// Ãë¼Ò.
-		if( pModel->m_bEndFrame && nLoop == ANILOOP_CONT )	// ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ³¡³­»óÅÂ°í Áö¼Ó¸ğµå¸é ¸¶Áö¸· ÇÁ·¹ÀÓÀ¸·Î Áö¼Ó
+		if( nLoop == ANILOOP_LOOP )		return FALSE;	// ë£¨í•‘ëª¨ë“œ ì´ë©´ ê± ë¦¬í„´
+		if( pModel->m_bEndFrame == FALSE )		// ì•„ì§ ì• ë‹ˆë©”ì´ì…˜ì¤‘ì¼ë•ŒëŠ” 
+			return FALSE;						// ì·¨ì†Œ.
+		if( pModel->m_bEndFrame && nLoop == ANILOOP_CONT )	// ì• ë‹ˆë©”ì´ì…˜ì´ ëë‚œìƒíƒœê³  ì§€ì†ëª¨ë“œë©´ ë§ˆì§€ë§‰ í”„ë ˆì„ìœ¼ë¡œ ì§€ì†
 			return FALSE;
 	}
 	*/
@@ -2413,7 +2413,7 @@ void CWndSelectChar::SelectCharacter( int i )
 			if( pModel )
 				SetMotion( pModel, nMover, MTI_GETUP, ANILOOP_1PLAY, 0 );
 			m_dwMotion[ i ] = MTI_GETUP;
-			//pModel->SetMotion( MTI_SIT, ANILOOP_1PLAY ); // idle2 ¾×¼Ç 
+			//pModel->SetMotion( MTI_SIT, ANILOOP_1PLAY ); // idle2 ì•¡ì…˜ 
 
 			if( ::GetLanguage() == LANG_JAP && g_Option.m_bVoice )
 			{
@@ -2538,11 +2538,11 @@ void CWndCreateChar::OnDraw( C2DRender* p2DRender )
 	p2DRender->TextOut( rect.left, rect.top + y, _T( "Name" ) ); y += 50;
 	p2DRender->TextOut( rect.left, rect.top + y, _T( "Job" ) ); y += 30;
 	p2DRender->TextOut( rect.left, rect.top + y, _T( "Gender" ) ); y += 30;
-	p2DRender->TextOut( rect.left, rect.top + y, _T( "Hair Style" ) ); y += 30; // ¸Ó¸®Ä«¶ô ¸ğ¾ç 
-	p2DRender->TextOut( rect.left, rect.top + y, _T( "Hair Color" ) ); y += 30; // ÇÇºÎ»ö ¹× ¾ó±¼ 
-	p2DRender->TextOut( rect.left, rect.top + y, _T( "Face" ) ); y += 30; // ÇÇºÎ»ö ¹× ¾ó±¼ 
+	p2DRender->TextOut( rect.left, rect.top + y, _T( "Hair Style" ) ); y += 30; // ë¨¸ë¦¬ì¹´ë½ ëª¨ì–‘ 
+	p2DRender->TextOut( rect.left, rect.top + y, _T( "Hair Color" ) ); y += 30; // í”¼ë¶€ìƒ‰ ë° ì–¼êµ´ 
+	p2DRender->TextOut( rect.left, rect.top + y, _T( "Face" ) ); y += 30; // í”¼ë¶€ìƒ‰ ë° ì–¼êµ´ 
 	*/
-	//p2DRender->TextOut( rect.left, rect.top + y, _T( "Costume" ) ); y += 30; // ÇÇºÎ»ö ¹× ¾ó±¼ 
+	//p2DRender->TextOut( rect.left, rect.top + y, _T( "Costume" ) ); y += 30; // í”¼ë¶€ìƒ‰ ë° ì–¼êµ´ 
 	//p2DRender->TextOut( rect.left, rect.top +130, _T( "Skin Color" ) );
 	//DRender->TextOut( rect.left, rect.top +220, _T( "Underwear" ) );
 	//p2DRender->TextOut( rect.left, rect.top +130, _T( "Underwear" ) );
@@ -2609,7 +2609,7 @@ void CWndCreateChar::OnDraw( C2DRender* p2DRender )
 	*/
 
 
-	// ºäÆ÷Æ® ¼¼ÆÃ 
+	// ë·°í¬íŠ¸ ì„¸íŒ… 
 	D3DVIEWPORT9 viewport;
 
 	viewport.X      = p2DRender->m_ptOrigin.x + 280;
@@ -2628,7 +2628,7 @@ void CWndCreateChar::OnDraw( C2DRender* p2DRender )
 
 	CRect rectViewport( 0, 0, viewport.Width, viewport.Height );
 /*
-	// ÇÁ·ÎÁ§¼Ç 
+	// í”„ë¡œì ì…˜ 
 	D3DXMATRIX matProj;
 	D3DXMatrixIdentity( &matProj );
 	pd3dDevice->SetTransform( D3DTS_PROJECTION, &matProj );
@@ -2646,7 +2646,7 @@ void CWndCreateChar::OnDraw( C2DRender* p2DRender )
 	D3DXMatrixOrthoLH( &matProj, w, h, 1.0f, 10.0f );
 	pd3dDevice->SetTransform( D3DTS_PROJECTION, &matProj );
 
-	// Ä«¸Ş¶ó 
+	// ì¹´ë©”ë¼ 
 	D3DXMATRIX  matView;
 	D3DXVECTOR3 vecLookAt( 0.0f, 0.0f, 3.0f );
 	D3DXVECTOR3 vecPos(  0.0f, 0.0f, -5.0f );
@@ -2670,13 +2670,13 @@ void CWndCreateChar::OnDraw( C2DRender* p2DRender )
 
 	pd3dDevice->SetTransform( D3DTS_VIEW, &matView );
 
-	// ¿ùµå 
+	// ì›”ë“œ 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matRot;
 	D3DXMATRIXA16 matTrans;
 
-	// ÃÊ±âÈ­ 
+	// ì´ˆê¸°í™” 
 	D3DXMatrixIdentity(&matScale);
 	D3DXMatrixIdentity(&matRot);
 	D3DXMatrixIdentity(&matTrans);
@@ -2690,7 +2690,7 @@ void CWndCreateChar::OnDraw( C2DRender* p2DRender )
 	D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 	pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-	// ·£´õ¸µ 
+	// ëœë”ë§ 
 	pd3dDevice->SetRenderState( D3DRS_ZWRITEENABLE, TRUE );
 	pd3dDevice->SetRenderState( D3DRS_ZENABLE, TRUE );
 	pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
@@ -2811,7 +2811,7 @@ void CWndCreateChar::SetSex( int nSex )
 	if( nSex == SEX_MALE )
 		prj.m_modelMng.LoadMotion( m_pModel,  OT_MOVER, nMover, MTI_STAND );
 	else
-		prj.m_modelMng.LoadMotion( m_pModel,  OT_MOVER, nMover, MTI_STAND2 ); // Æ÷´ÏÅ×ÀÏ ¾ÕÀ¸·Î 
+		prj.m_modelMng.LoadMotion( m_pModel,  OT_MOVER, nMover, MTI_STAND2 ); // í¬ë‹ˆí…Œì¼ ì•ìœ¼ë¡œ 
 
 	memset( m_Player.m_aEquipInfo, 0, sizeof(EQUIP_INFO) * MAX_HUMAN_PARTS );
 	{
@@ -2878,22 +2878,22 @@ DWORD IsValidPlayerName( CString& strName )
 
 	LPCTSTR lpszString = strName;
 	if( strName.IsEmpty() )
-		return TID_DIAG_0031;			// "ÀÌ¸§À» ÀÔ·ÂÇÏ½Ê½Ã¿À."
+		return TID_DIAG_0031;			// "ì´ë¦„ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤."
 
 #ifdef __RULE_0615
-	// "ÀÌ¸§Àº ÇÑ±Û 2ÀÚ ÀÌ»ó, 8ÀÚ ÀÌÇÏ·Î ÀÔ·ÂÇÏ½Ê½Ã¿À."
-	// "ÀÌ¸§Àº ¿µ¹® 4ÀÚ ÀÌ»ó, 16ÀÚ ÀÌÇÏ·Î ÀÔ·ÂÇÏ½Ê½Ã¿À."
+	// "ì´ë¦„ì€ í•œê¸€ 2ì ì´ìƒ, 8ì ì´í•˜ë¡œ ì…ë ¥í•˜ì‹­ì‹œì˜¤."
+	// "ì´ë¦„ì€ ì˜ë¬¸ 4ì ì´ìƒ, 16ì ì´í•˜ë¡œ ì…ë ¥í•˜ì‹­ì‹œì˜¤."
 	if( strName.GetLength() < 3 || strName.GetLength() > 16 )
 		return TID_DIAG_RULE_0;
 #else	// __RULE_0615
 	if( strName.GetLength() < 3 || strName.GetLength() > 16 )
-		return TID_DIAG_0011;			// "¸íÄª¿¡ 3±ÛÀÚ ÀÌ»ó, 16±ÛÀÚ ÀÌÇÏ·Î ÀÔ·Â ÀÔ·ÂÇÏ½Ê½Ã¿À."
+		return TID_DIAG_0011;			// "ëª…ì¹­ì— 3ê¸€ì ì´ìƒ, 16ê¸€ì ì´í•˜ë¡œ ì…ë ¥ ì…ë ¥í•˜ì‹­ì‹œì˜¤."
 #endif	// __RULE_0615
 
 	char c = strName[ 0 ];
 
 	if( ( c >= '0' && c <= '9' ) && !IsMultiByte( lpszString ) )
-		return TID_DIAG_0012;			// "¸íÄª¿¡ Ã¹±ÛÀÚ¸¦ ¼ıÀÚ·Î »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
+		return TID_DIAG_0012;			// "ëª…ì¹­ì— ì²«ê¸€ìë¥¼ ìˆ«ìë¡œ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."
 
 	int j;
 	switch( ::GetLanguage() )
@@ -2903,7 +2903,7 @@ DWORD IsValidPlayerName( CString& strName )
 		{
 			c = strName[ j ];
 			if( IsNative( &lpszString[ j ] ) == FALSE && ( isalnum( c ) == FALSE || iscntrl( c ) ) )		
-				return TID_DIAG_0013;	// ¸íÄª¿¡ ÄÜÆ®·ÑÀÌ³ª ½ºÆäÀÌ½º, Æ¯¼ö ¹®ÀÚ¸¦ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.	
+				return TID_DIAG_0013;	// ëª…ì¹­ì— ì½˜íŠ¸ë¡¤ì´ë‚˜ ìŠ¤í˜ì´ìŠ¤, íŠ¹ìˆ˜ ë¬¸ìë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.	
 		}
 		break;
 	case LANG_TWN:
@@ -3010,7 +3010,7 @@ BOOL CWndCreateChar::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 #endif	// __RULE_0615
 					)
 				{
-					g_WndMng.OpenMessageBox( prj.GetText(TID_DIAG_0020) );	// "»ç¿ëÇÒ¼ö ¾ø´Â ÀÌ¸§ÀÔ´Ï´Ù"
+					g_WndMng.OpenMessageBox( prj.GetText(TID_DIAG_0020) );	// "ì‚¬ìš©í• ìˆ˜ ì—†ëŠ” ì´ë¦„ì…ë‹ˆë‹¤"
 					return TRUE;
 				}
 
@@ -3021,29 +3021,29 @@ BOOL CWndCreateChar::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				assert( pWnd2ndPasswordConfirm );
 				if( strcmp( pWnd2ndPassword->GetString(), _T( "" ) ) == 0 )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR01 ) );	// 2Â÷ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿À.
+					g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR01 ) );	// 2ì°¨ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤.
 					return TRUE;
 				}
 				if( static_cast< int >( strlen( pWnd2ndPassword->GetString() ) ) < MAX_2ND_PASSWORD_NUMBER )
 				{
 					CString strError = _T( "" );
 					strError.Format( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR02 ), MAX_2ND_PASSWORD_NUMBER );
-					g_WndMng.OpenMessageBox( strError );	// 2Â÷ ºñ¹Ğ¹øÈ£´Â ¼ıÀÚ %dÀÚ¸®·Î¸¸ ÀÔ·ÂÇØ¾ß ÇÕ´Ï´Ù.
+					g_WndMng.OpenMessageBox( strError );	// 2ì°¨ ë¹„ë°€ë²ˆí˜¸ëŠ” ìˆ«ì %dìë¦¬ë¡œë§Œ ì…ë ¥í•´ì•¼ í•©ë‹ˆë‹¤.
 					return TRUE;
 				}
 				if( strcmp( pWnd2ndPassword->GetString(), _T( "0000" ) ) == 0 )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR03 ) );	// ÀÔ·ÂÇÏ½Å ºñ¹Ğ¹øÈ£´Â 2Â÷ ºñ¹Ğ¹øÈ£·Î »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
+					g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR03 ) );	// ì…ë ¥í•˜ì‹  ë¹„ë°€ë²ˆí˜¸ëŠ” 2ì°¨ ë¹„ë°€ë²ˆí˜¸ë¡œ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 					return TRUE;
 				}
 				if( strcmp( pWnd2ndPasswordConfirm->GetString(), _T( "" ) ) == 0 )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR04 ) );	// 2Â÷ ºñ¹Ğ¹øÈ£ È®ÀÎÀ» ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿À.
+					g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR04 ) );	// 2ì°¨ ë¹„ë°€ë²ˆí˜¸ í™•ì¸ì„ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤.
 					return TRUE;
 				}
 				if( strcmp( pWnd2ndPassword->GetString(), pWnd2ndPasswordConfirm->GetString() ) != 0 )
 				{
-					g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR05 ) );	// 2Â÷ ºñ¹Ğ¹øÈ£ È®ÀÎÀÌ 2Â÷ ºñ¹Ğ¹øÈ£¿Í ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.
+					g_WndMng.OpenMessageBox( prj.GetText( TID_2ND_PASSWORD_INPUT_ERROR05 ) );	// 2ì°¨ ë¹„ë°€ë²ˆí˜¸ í™•ì¸ì´ 2ì°¨ ë¹„ë°€ë²ˆí˜¸ì™€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
 					return TRUE;
 				}
 #endif // __2ND_PASSWORD_SYSTEM

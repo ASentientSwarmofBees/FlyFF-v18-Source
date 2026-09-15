@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "buffer.h"
 
 #ifdef	__VERIFY_LOOP041010

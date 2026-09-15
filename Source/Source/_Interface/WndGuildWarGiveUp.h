@@ -1,4 +1,4 @@
-#ifndef __WNDGUILDWARGIVEUP__H
+﻿#ifndef __WNDGUILDWARGIVEUP__H
 #define __WNDGUILDWARGIVEUP__H
 
 class CWndGuildWarGiveUp : public CWndNeuz 

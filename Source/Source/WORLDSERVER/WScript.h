@@ -1,4 +1,4 @@
-#ifndef __SCRIPTLIB20060908_H__
+﻿#ifndef __SCRIPTLIB20060908_H__
 #define __SCRIPTLIB20060908_H__
 
 struct lua_State;

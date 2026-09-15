@@ -1,4 +1,4 @@
-#if __VER >= 13 // __RAINBOW_RACE
+ï»¿#if __VER >= 13 // __RAINBOW_RACE
 
 #ifndef __WNDRAINBOWRACE__H
 #define __WNDRAINBOWRACE__H
@@ -181,24 +181,24 @@ class CWndRRMiniGameKawiBawiBo : public CWndNeuz
 	enum MyPosition {KAWI, BAWI, BO};
 public:
 	CWndText* m_pText;
-	int m_nWinningCount;			//¿¬½Â ¼ö
-	int m_nMyChoice;				//³»°¡ ¼±ÅÃÇÑ Ä«µå (°¡À§, ¹ÙÀ§, º¸)
-	int m_nComChoice;				//ComÀÌ ¼±ÅÃÇÑ Ä«µå
+	int m_nWinningCount;			//ì—°ìŠ¹ ìˆ˜
+	int m_nMyChoice;				//ë‚´ê°€ ì„ íƒí•œ ì¹´ë“œ (ê°€ìœ„, ë°”ìœ„, ë³´)
+	int m_nComChoice;				//Comì´ ì„ íƒí•œ ì¹´ë“œ
 	int m_nCount;
-	int m_nDelay;					//Com »óÅÂ¸¦ È¸Àü½ÃÅ°´Â Delay°ª
-	int m_nResult;					//¼­¹ö·Î ºÎÅÍ °á°ú°¡ ¿Â »óÅÂ
-	int m_nStatus;					//ÇöÀçÀÇ »óÅÂ (Delay°ü·Ã Àû¿ë À§ÇØ »ç¿ë)
+	int m_nDelay;					//Com ìƒíƒœë¥¼ íšŒì „ì‹œí‚¤ëŠ” Delayê°’
+	int m_nResult;					//ì„œë²„ë¡œ ë¶€í„° ê²°ê³¼ê°€ ì˜¨ ìƒíƒœ
+	int m_nStatus;					//í˜„ì¬ì˜ ìƒíƒœ (Delayê´€ë ¨ ì ìš© ìœ„í•´ ì‚¬ìš©)
 	int m_nItemCount;
 	int m_nNextItemCount;
 	
 	DWORD m_dwRItemId;
 	DWORD m_dwRNextItemId;
 
-	CString m_strChoice[3];			//°¡À§, ¹ÙÀ§, º¸ Text
+	CString m_strChoice[3];			//ê°€ìœ„, ë°”ìœ„, ë³´ Text
 	
-	CWndStatic*	m_pStWinningCount;	//¿¬½Â Ç¥½Ã
-	CWndStatic*	m_pStMyChoice;		//³»°¡ ¼±ÅÃÇÑ Ä«µå Ç¥½Ã
-	CWndStatic*	m_pStComChoice;		//ComÀÌ ¼±ÅÃÇÑ Ä«µå Ç¥½Ã
+	CWndStatic*	m_pStWinningCount;	//ì—°ìŠ¹ í‘œì‹œ
+	CWndStatic*	m_pStMyChoice;		//ë‚´ê°€ ì„ íƒí•œ ì¹´ë“œ í‘œì‹œ
+	CWndStatic*	m_pStComChoice;		//Comì´ ì„ íƒí•œ ì¹´ë“œ í‘œì‹œ
 	
 public: 
 	CWndRRMiniGameKawiBawiBo(); 
@@ -224,12 +224,12 @@ public:
 	int m_nTargetNum;
 	int m_nTargetNumBackup;
 	int m_nDiceNum1, m_nDiceNum2;
-	int m_nResultDiceNum1, m_nResultDiceNum2;	//¼­¹ö·Î ºÎÅÍ ¹ŞÀº °á°ú °ª
+	int m_nResultDiceNum1, m_nResultDiceNum2;	//ì„œë²„ë¡œ ë¶€í„° ë°›ì€ ê²°ê³¼ ê°’
 	CString m_strPathDice[6];
 	int m_nResult;
 	int m_nCount1, m_nCount2;
-	int m_nDelay1, m_nDelay2;					//Com »óÅÂ¸¦ È¸Àü½ÃÅ°´Â Delay°ª
-	int m_nStatus1, m_nStatus2;					//ÇöÀçÀÇ »óÅÂ (Delay°ü·Ã Àû¿ë À§ÇØ »ç¿ë)
+	int m_nDelay1, m_nDelay2;					//Com ìƒíƒœë¥¼ íšŒì „ì‹œí‚¤ëŠ” Delayê°’
+	int m_nStatus1, m_nStatus2;					//í˜„ì¬ì˜ ìƒíƒœ (Delayê´€ë ¨ ì ìš© ìœ„í•´ ì‚¬ìš©)
 	BOOL m_bFinishStatus1;
 
 	CTexturePack m_texTargetNum;

@@ -1,4 +1,4 @@
-#ifndef __WNDDIALOG2__H
+ï»¿#ifndef __WNDDIALOG2__H
 #define __WNDDIALOG2__H
 
 class CWndAnswer : public CWndButton
@@ -31,14 +31,14 @@ public:
 		TCHAR szKey[ 64 ];
 		DWORD dwParam;
 		DWORD dwParam2;
-		int nLinkIndex; // ÁÙ¹Ù²ŞÀ¸·Î ´Ü¾î°¡ ²÷¾îÁø °æ¿ì ¿¬°áÇÏ±â À§ÇÑ ÀÎµ¦½º 
+		int nLinkIndex; // ì¤„ë°”ê¿ˆìœ¼ë¡œ ë‹¨ì–´ê°€ ëŠì–´ì§„ ê²½ìš° ì—°ê²°í•˜ê¸° ìœ„í•œ ì¸ë±ìŠ¤ 
 	};
 	WORDBUTTON m_aWordButton[ 32 ];
 	WORDBUTTON m_aKeyButton[ 32 ];
 	WORDBUTTON m_aContextButton[ 32 ];
 	CEditString m_string;
 
-	DWORD m_dwQuest;// context ¹öÆ°¿¡¼­ »ç¿ëÇÔ 
+	DWORD m_dwQuest;// context ë²„íŠ¼ì—ì„œ ì‚¬ìš©í•¨ 
 	BOOL m_bSay;
 	int m_nCurArray;
 	CPtrArray m_strArray;

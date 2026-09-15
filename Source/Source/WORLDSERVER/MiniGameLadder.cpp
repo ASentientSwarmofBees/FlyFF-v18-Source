@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include ".\minigameladder.h"
@@ -30,7 +30,7 @@ BOOL CMiniGameLadder::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket )
 	}	
 
 	
-	if( xRandom( 10 ) == 0 ) // 1/10 È®·ü·Î ¼º°øÇÑ´Ù.
+	if( xRandom( 10 ) == 0 ) // 1/10 í™•ë¥ ë¡œ ì„±ê³µí•œë‹¤.
 	{
 		MP.nState = MP_FINISH;
 		bReturn = TRUE;

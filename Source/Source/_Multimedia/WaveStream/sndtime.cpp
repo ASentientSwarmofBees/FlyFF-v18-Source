@@ -1,5 +1,5 @@
-
-#include "stdafx.h"	// MFC¿¡¼­´Â Ç×»ó "stdafx.h"¸¦ ¸ÕÀú ½áÁà¾ß ÇÑ´Ù(-_-;)
+ï»¿
+#include "stdafx.h"	// MFCì—ì„œëŠ” í•­ìƒ "stdafx.h"ë¥¼ ë¨¼ì € ì¨ì¤˜ì•¼ í•œë‹¤(-_-;)
 #include <mmsystem.h>
 #include "sndtime.h" 
 

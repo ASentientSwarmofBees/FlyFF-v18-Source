@@ -1,4 +1,4 @@
-#ifndef __VERSION_COMMON_H__
+﻿#ifndef __VERSION_COMMON_H__
 #define __VERSION_COMMON_H__
 #define __ERRORTXT
 

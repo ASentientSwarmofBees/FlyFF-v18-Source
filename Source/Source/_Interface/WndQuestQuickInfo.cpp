@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "WndQuestQuickInfo.h"
 #if __VER >= 15 /* __IMPROVE_QUEST_INTERFACE */ && defined( __CLIENT )
 #include "ResData.h"
@@ -213,8 +213,8 @@ void CWndQuestQuickInfo::OnInitialUpdate( void )
 BOOL CWndQuestQuickInfo::Process( void )
 {
 	CRect rtQuickInfoApplet = GetWindowRect();
-	static const int REVISION_RECT_LEFT = 4; // Rect°¡ ½ÇÁ¦ À©µµ¿ìº¸´Ù 4ÇÈ¼¿ Á¤µµ ¿À¸¥ÂÊÀ¸·Î Ä¡¿ìÃÄÁ® ÀÖ´Â °ÍÀ» º¸Á¤
-	static const int REVISION_RECT_UP = 22; // Rect°¡ ½ÇÁ¦ À©µµ¿ìº¸´Ù 22ÇÈ¼¿ Á¤µµ ³»·Á°¡ ÀÖ´Â °ÍÀ» º¸Á¤
+	static const int REVISION_RECT_LEFT = 4; // Rectê°€ ì‹¤ì œ ìœˆë„ìš°ë³´ë‹¤ 4í”½ì…€ ì •ë„ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì¹˜ìš°ì³ì ¸ ìžˆëŠ” ê²ƒì„ ë³´ì •
+	static const int REVISION_RECT_UP = 22; // Rectê°€ ì‹¤ì œ ìœˆë„ìš°ë³´ë‹¤ 22í”½ì…€ ì •ë„ ë‚´ë ¤ê°€ ìžˆëŠ” ê²ƒì„ ë³´ì •
 	rtQuickInfoApplet.left -= REVISION_RECT_LEFT;
 	rtQuickInfoApplet.right -= REVISION_RECT_LEFT;
 	rtQuickInfoApplet.top -= REVISION_RECT_UP;
@@ -323,11 +323,11 @@ void CWndQuestQuickInfo::PaintFrame( C2DRender* p2DRender )
 //-----------------------------------------------------------------------------
 void CWndQuestQuickInfo::SetWndRect( CRect rectWnd, BOOL bOnSize )
 {
-	static const int TILE_TEXTURE_SIZE_XY = 16; // Å¸ÀÏ ÅØ½ºÃ³ »çÀÌÁî
-	static const int MINIMUM_TILE_NUMBER_X = 8; // °¡Àå ÀÛÀº À©µµ¿ìÀÏ ¶§, Å¸ÀÏ ÅØ½ºÃ³ÀÇ °¡·Î Å©±â
-	static const int MINIMUM_TILE_NUMBER_Y = 6; // °¡Àå ÀÛÀº À©µµ¿ìÀÏ ¶§, Å¸ÀÏ ÅØ½ºÃ³ÀÇ ¼¼·Î Å©±â
-	static const int MAXIMUM_TILE_NUMBER_X = 48; // °¡Àå Å« À©µµ¿ìÀÏ ¶§, Å¸ÀÏ ÅØ½ºÃ³ÀÇ °¡·Î Å©±â
-	static const int MAXIMUM_TILE_NUMBER_Y = 34; // °¡Àå Å« À©µµ¿ìÀÏ ¶§, Å¸ÀÏ ÅØ½ºÃ³ÀÇ ¼¼·Î Å©±â
+	static const int TILE_TEXTURE_SIZE_XY = 16; // íƒ€ì¼ í…ìŠ¤ì²˜ ì‚¬ì´ì¦ˆ
+	static const int MINIMUM_TILE_NUMBER_X = 8; // ê°€ìž¥ ìž‘ì€ ìœˆë„ìš°ì¼ ë•Œ, íƒ€ì¼ í…ìŠ¤ì²˜ì˜ ê°€ë¡œ í¬ê¸°
+	static const int MINIMUM_TILE_NUMBER_Y = 6; // ê°€ìž¥ ìž‘ì€ ìœˆë„ìš°ì¼ ë•Œ, íƒ€ì¼ í…ìŠ¤ì²˜ì˜ ì„¸ë¡œ í¬ê¸°
+	static const int MAXIMUM_TILE_NUMBER_X = 48; // ê°€ìž¥ í° ìœˆë„ìš°ì¼ ë•Œ, íƒ€ì¼ í…ìŠ¤ì²˜ì˜ ê°€ë¡œ í¬ê¸°
+	static const int MAXIMUM_TILE_NUMBER_Y = 34; // ê°€ìž¥ í° ìœˆë„ìš°ì¼ ë•Œ, íƒ€ì¼ í…ìŠ¤ì²˜ì˜ ì„¸ë¡œ í¬ê¸°
 	AdjustMinRect( &rectWnd, TILE_TEXTURE_SIZE_XY * MINIMUM_TILE_NUMBER_X, TILE_TEXTURE_SIZE_XY * MINIMUM_TILE_NUMBER_Y );
 	AdjustMaxRect( &rectWnd, TILE_TEXTURE_SIZE_XY * MAXIMUM_TILE_NUMBER_X, TILE_TEXTURE_SIZE_XY * MAXIMUM_TILE_NUMBER_Y );
 

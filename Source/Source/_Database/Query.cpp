@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "Query.h"
 
 #ifdef __MONITORSRVR
@@ -83,7 +83,7 @@ BOOL GetPWDFromToken( const char* szToken, char* szPWD )
 	return TRUE;
 }
 
-// »ý¼ºÀÚ:°¢Á¾ ÃÊ±âÈ­¸¦ ´ã´çÇÑ´Ù.
+// ìƒì„±ìž:ê°ì¢… ì´ˆê¸°í™”ë¥¼ ë‹´ë‹¹í•œë‹¤.
 CQuery::CQuery()
 {
 	hStmt	= NULL;
@@ -95,7 +95,7 @@ CQuery::CQuery()
 		Col[i]	= new char[8192];
 }
 
-// ÆÄ±«ÀÚ:¿¬°á ÇÚµéÀ» ÇØÁ¦ÇÑ´Ù.
+// íŒŒê´´ìž:ì—°ê²° í•¸ë“¤ì„ í•´ì œí•œë‹¤.
 CQuery::~CQuery()
 {
 	if (hStmt)	SQLFreeHandle(SQL_HANDLE_STMT,hStmt);
@@ -127,12 +127,12 @@ BOOL CQuery::EnableConnectionPooling()
 	return SQL_SUCCEEDED( result ); 
 }
 
-// ¿¬°á ÇÚµéÀ» ÇÒ´çÇÏ°í ¿¬°áÇÑ ÈÄ ¸í·ÉÇÚµé±îÁö °°ÀÌ ÇÒ´çÇÑ´Ù.
-// Type=1:ConStrÀº MDB ÆÄÀÏÀÇ °æ·Î¸¦ °¡Áø´Ù. °æ·Î »ý·«½Ã ÇöÀç µð·ºÅä¸®¿¡¼­ MDB¸¦ Ã£´Â´Ù.
-// Type=2:ConStrÀº SQL ¼­¹öÀÇ ¿¬°á Á¤º¸¸¦ °¡Áö´Â DSN ÆÄÀÏÀÇ °æ·Î¸¦ °¡Áø´Ù. 
-//        °æ·Î´Â ¹Ýµå½Ã ¿ÏÀü °æ·Î·Î ÁöÁ¤ÇØ¾ß ÇÑ´Ù.
-// Type=3:SQLConnect ÇÔ¼ö·Î DSN¿¡ Á÷Á¢ ¿¬°áÇÑ´Ù.
-// ¿¬°á ¶Ç´Â ¸í·É ÇÚµé ÇÒ´ç¿¡ ½ÇÆÐÇÏ¸é FALSE¸¦ ¸®ÅÏÇÑ´Ù.
+// ì—°ê²° í•¸ë“¤ì„ í• ë‹¹í•˜ê³  ì—°ê²°í•œ í›„ ëª…ë ¹í•¸ë“¤ê¹Œì§€ ê°™ì´ í• ë‹¹í•œë‹¤.
+// Type=1:ConStrì€ MDB íŒŒì¼ì˜ ê²½ë¡œë¥¼ ê°€ì§„ë‹¤. ê²½ë¡œ ìƒëžµì‹œ í˜„ìž¬ ë””ë ‰í† ë¦¬ì—ì„œ MDBë¥¼ ì°¾ëŠ”ë‹¤.
+// Type=2:ConStrì€ SQL ì„œë²„ì˜ ì—°ê²° ì •ë³´ë¥¼ ê°€ì§€ëŠ” DSN íŒŒì¼ì˜ ê²½ë¡œë¥¼ ê°€ì§„ë‹¤. 
+//        ê²½ë¡œëŠ” ë°˜ë“œì‹œ ì™„ì „ ê²½ë¡œë¡œ ì§€ì •í•´ì•¼ í•œë‹¤.
+// Type=3:SQLConnect í•¨ìˆ˜ë¡œ DSNì— ì§ì ‘ ì—°ê²°í•œë‹¤.
+// ì—°ê²° ë˜ëŠ” ëª…ë ¹ í•¸ë“¤ í• ë‹¹ì— ì‹¤íŒ¨í•˜ë©´ FALSEë¥¼ ë¦¬í„´í•œë‹¤.
 BOOL CQuery::Connect(int Type, char *ConStr, char *UID, const char *PWD)
 {
 	strcpy( DBName, ConStr );
@@ -145,11 +145,11 @@ BOOL CQuery::Connect(int Type, char *ConStr, char *UID, const char *PWD)
 
 	SQLRETURN ret;
 
-	// È¯°æ ÇÚµéÀ» ÇÒ´çÇÏ°í ¹öÀü ¼Ó¼ºÀ» ¼³Á¤ÇÑ´Ù.
+	// í™˜ê²½ í•¸ë“¤ì„ í• ë‹¹í•˜ê³  ë²„ì „ ì†ì„±ì„ ì„¤ì •í•œë‹¤.
 	SQLAllocHandle(SQL_HANDLE_ENV,SQL_NULL_HANDLE,&hEnv);
 	SQLSetEnvAttr(hEnv,SQL_ATTR_ODBC_VERSION,(SQLPOINTER)SQL_OV_ODBC3,SQL_IS_INTEGER);
 	
-	// ¿¬°á Å¸ÀÔ¿¡ µû¶ó MDB ¶Ç´Â SQL ¼­¹ö, ¶Ç´Â DSN¿¡ ¿¬°áÇÑ´Ù.
+	// ì—°ê²° íƒ€ìž…ì— ë”°ë¼ MDB ë˜ëŠ” SQL ì„œë²„, ë˜ëŠ” DSNì— ì—°ê²°í•œë‹¤.
 	SQLAllocHandle(SQL_HANDLE_DBC,hEnv,&hDbc);
 	switch (Type) 
 	{
@@ -175,7 +175,7 @@ BOOL CQuery::Connect(int Type, char *ConStr, char *UID, const char *PWD)
 		return FALSE;
 	}
 
-	// ¸í·É ÇÚµéÀ» ÇÒ´çÇÑ´Ù.
+	// ëª…ë ¹ í•¸ë“¤ì„ í• ë‹¹í•œë‹¤.
 	ret=SQLAllocHandle(SQL_HANDLE_STMT,hDbc,&hStmt);
 	if ((ret != SQL_SUCCESS) && (ret != SQL_SUCCESS_WITH_INFO)) 
 	{
@@ -184,7 +184,7 @@ BOOL CQuery::Connect(int Type, char *ConStr, char *UID, const char *PWD)
 		return FALSE;
 	}
 
-//	::SQLSetStmtOption(hStmt, SQL_QUERY_TIMEOUT, 10);  // 10ÃÊ Å¸ÀÓ¾Æ¿ô 
+//	::SQLSetStmtOption(hStmt, SQL_QUERY_TIMEOUT, 10);  // 10ì´ˆ íƒ€ìž„ì•„ì›ƒ 
 	return TRUE;
 }
 
@@ -211,10 +211,10 @@ BOOL CQuery::BindParameter(SQLUSMALLINT parameterNumber,
 		return TRUE;
 }
 
-// SQL¹®À» ½ÇÇàÇÑ´Ù. ½ÇÆÐ½Ã Áø´Ü Á¤º¸¸¦ Ãâ·ÂÇÏ°í FALSE¸¦ ¸®ÅÏÇÑ´Ù.
+// SQLë¬¸ì„ ì‹¤í–‰í•œë‹¤. ì‹¤íŒ¨ì‹œ ì§„ë‹¨ ì •ë³´ë¥¼ ì¶œë ¥í•˜ê³  FALSEë¥¼ ë¦¬í„´í•œë‹¤.
 BOOL CQuery::Exec(LPCTSTR szSQL)
 {
-	Clear();	// ½ÇÇèÀûÀ¸·Î Ç×»ó Å¬¸®¾î µÈ »óÅÂ·Î ½ÇÇàµÇ°Ô ÇÑ´Ù.
+	Clear();	// ì‹¤í—˜ì ìœ¼ë¡œ í•­ìƒ í´ë¦¬ì–´ ëœ ìƒíƒœë¡œ ì‹¤í–‰ë˜ê²Œ í•œë‹¤.
 
 	SQLRETURN ret = SQLExecDirect( hStmt, (SQLCHAR*)szSQL, lstrlen( szSQL ) );
 	switch( ret )
@@ -223,7 +223,7 @@ BOOL CQuery::Exec(LPCTSTR szSQL)
 #ifdef _DEBUG
 		PrintDiag( szSQL, SQL_HANDLE_STMT );	
 #endif
-		// ¾Æ·¡ °è¼Ó ½ÇÇà 
+		// ì•„ëž˜ ê³„ì† ì‹¤í–‰ 
 	case SQL_SUCCESS:
 	case SQL_NO_DATA_FOUND:
 		break;
@@ -247,7 +247,7 @@ BOOL CQuery::Exec(LPCTSTR szSQL)
 
 BOOL CQuery::MoreResults()
 {
-//	Clear();	// ½ÇÇèÀûÀ¸·Î Ç×»ó Å¬¸®¾î µÈ »óÅÂ·Î ½ÇÇàµÇ°Ô ÇÑ´Ù.
+//	Clear();	// ì‹¤í—˜ì ìœ¼ë¡œ í•­ìƒ í´ë¦¬ì–´ ëœ ìƒíƒœë¡œ ì‹¤í–‰ë˜ê²Œ í•œë‹¤.
 	
 	SQLRETURN ret = SQLMoreResults( hStmt );
 	switch( ret ) {
@@ -262,10 +262,10 @@ BOOL CQuery::MoreResults()
 	return PrepareFetch();
 }
 
-// SQL¹®À» ½ÇÇàÇÑ´Ù. ½ÇÆÐ½Ã Áø´Ü Á¤º¸¸¦ Ãâ·ÂÇÏ°í FALSE¸¦ ¸®ÅÏÇÑ´Ù.
+// SQLë¬¸ì„ ì‹¤í–‰í•œë‹¤. ì‹¤íŒ¨ì‹œ ì§„ë‹¨ ì •ë³´ë¥¼ ì¶œë ¥í•˜ê³  FALSEë¥¼ ë¦¬í„´í•œë‹¤.
 BOOL CQuery::Exec(LPCTSTR szSQL, int nCount, QUERY_BINDINFO infos[])
 {
-	Clear();	// ½ÇÇèÀûÀ¸·Î Ç×»ó Å¬¸®¾î µÈ »óÅÂ·Î ½ÇÇàµÇ°Ô ÇÑ´Ù.
+	Clear();	// ì‹¤í—˜ì ìœ¼ë¡œ í•­ìƒ í´ë¦¬ì–´ ëœ ìƒíƒœë¡œ ì‹¤í–‰ë˜ê²Œ í•œë‹¤.
 
 	SQLRETURN ret = SQLExecDirect( hStmt, (SQLCHAR*)szSQL, lstrlen( szSQL ) );
 	switch( ret )
@@ -274,7 +274,7 @@ BOOL CQuery::Exec(LPCTSTR szSQL, int nCount, QUERY_BINDINFO infos[])
 #ifdef _DEBUG
 		PrintDiag( szSQL, SQL_HANDLE_STMT );	
 #endif
-		// ¾Æ·¡ °è¼Ó ½ÇÇà 
+		// ì•„ëž˜ ê³„ì† ì‹¤í–‰ 
 	case SQL_SUCCESS:
 	case SQL_NO_DATA_FOUND:
 		break;
@@ -297,7 +297,7 @@ BOOL CQuery::Exec(LPCTSTR szSQL, int nCount, QUERY_BINDINFO infos[])
 }
 
 
-// °á°ú¼Â¿¡¼­ ÇÑ ÇàÀ» °¡Á®¿Â´Ù.
+// ê²°ê³¼ì…‹ì—ì„œ í•œ í–‰ì„ ê°€ì ¸ì˜¨ë‹¤.
 BOOL CQuery::Fetch()
 {
 	SQLRETURN result = SQLFetch( hStmt );
@@ -323,14 +323,14 @@ BOOL CQuery::Fetch()
 	return FALSE;
 }
 
-// Ä¿¼­¸¦ ´Ý°í ¹ÙÀÎµù Á¤º¸¸¦ ÇØÁ¦ÇÑ´Ù.
+// ì»¤ì„œë¥¼ ë‹«ê³  ë°”ì¸ë”© ì •ë³´ë¥¼ í•´ì œí•œë‹¤.
 void CQuery::Clear()
 {
 	SQLCloseCursor(hStmt);
 	SQLFreeStmt(hStmt, SQL_UNBIND);
 }
 
-// ÄÃ·³ ÀÌ¸§À¸·ÎºÎÅÍ ÄÃ·³ ÀÎµ¦½º¸¦ Ã£´Â´Ù. ¾øÀ» °æ¿ì -1À» ¸®ÅÏÇÑ´Ù.
+// ì»¬ëŸ¼ ì´ë¦„ìœ¼ë¡œë¶€í„° ì»¬ëŸ¼ ì¸ë±ìŠ¤ë¥¼ ì°¾ëŠ”ë‹¤. ì—†ì„ ê²½ìš° -1ì„ ë¦¬í„´í•œë‹¤.
 int CQuery::FindCol(char *name)
 {
 	int i;
@@ -342,7 +342,7 @@ int CQuery::FindCol(char *name)
 	return -1;
 }
 
-// nColÀÇ ÄÃ·³°ªÀ» Á¤¼ö·Î ÀÐ¾îÁØ´Ù. NULLÀÏ °æ¿ì CQUERYNULLÀ» ¸®ÅÏÇÑ´Ù.
+// nColì˜ ì»¬ëŸ¼ê°’ì„ ì •ìˆ˜ë¡œ ì½ì–´ì¤€ë‹¤. NULLì¼ ê²½ìš° CQUERYNULLì„ ë¦¬í„´í•œë‹¤.
 int CQuery::GetInt(int nCol)
 {
 	if (nCol > this->nCol)
@@ -357,7 +357,7 @@ int CQuery::GetInt(int nCol)
 	}
 }
 
-// sColÀÇ ÄÃ·³°ªÀ» Á¤¼ö·Î ÀÐ¾îÁØ´Ù.
+// sColì˜ ì»¬ëŸ¼ê°’ì„ ì •ìˆ˜ë¡œ ì½ì–´ì¤€ë‹¤.
 int CQuery::GetInt(char *sCol)
 {
 	int n;
@@ -371,7 +371,7 @@ int CQuery::GetInt(char *sCol)
 	}
 }
 
-// nColÀÇ ÄÃ·³°ªÀ» Á¤¼ö·Î ÀÐ¾îÁØ´Ù. NULLÀÏ °æ¿ì CQUERYNULLÀ» ¸®ÅÏÇÑ´Ù.
+// nColì˜ ì»¬ëŸ¼ê°’ì„ ì •ìˆ˜ë¡œ ì½ì–´ì¤€ë‹¤. NULLì¼ ê²½ìš° CQUERYNULLì„ ë¦¬í„´í•œë‹¤.
 __int64 CQuery::GetInt64(int nCol)
 {
 	if (nCol > this->nCol)
@@ -386,7 +386,7 @@ __int64 CQuery::GetInt64(int nCol)
 	}
 }
 
-// sColÀÇ ÄÃ·³°ªÀ» Á¤¼ö·Î ÀÐ¾îÁØ´Ù.
+// sColì˜ ì»¬ëŸ¼ê°’ì„ ì •ìˆ˜ë¡œ ì½ì–´ì¤€ë‹¤.
 __int64 CQuery::GetInt64(char *sCol )
 {
 	int n;
@@ -400,7 +400,7 @@ __int64 CQuery::GetInt64(char *sCol )
 	}
 }
 
-// nColÀÇ ÄÃ·³°ªÀ» ½Ç¼ö·Î ÀÐ¾îÁØ´Ù. NULLÀÏ °æ¿ì CQUERYNULLÀ» ¸®ÅÏÇÑ´Ù.
+// nColì˜ ì»¬ëŸ¼ê°’ì„ ì‹¤ìˆ˜ë¡œ ì½ì–´ì¤€ë‹¤. NULLì¼ ê²½ìš° CQUERYNULLì„ ë¦¬í„´í•œë‹¤.
 float CQuery::GetFloat(int nCol)
 {
 	if (nCol > this->nCol)
@@ -427,7 +427,7 @@ float CQuery::GetFloat(char *sCol)
 }
 
 
-char CQuery::GetChar(int nCol)					// ½Ç¼öÇü ÄÃ·³ ÀÐ±â
+char CQuery::GetChar(int nCol)					// ì‹¤ìˆ˜í˜• ì»¬ëŸ¼ ì½ê¸°
 {
 	if (nCol > this->nCol)
 		return CQUERYNOCOL;
@@ -441,7 +441,7 @@ char CQuery::GetChar(int nCol)					// ½Ç¼öÇü ÄÃ·³ ÀÐ±â
 	}
 }
 
-char CQuery::GetChar(char *sCol)				// ½Ç¼öÇü ÄÃ·³ ÀÐ±â
+char CQuery::GetChar(char *sCol)				// ì‹¤ìˆ˜í˜• ì»¬ëŸ¼ ì½ê¸°
 {
 	int n;
 	n = FindCol(sCol);
@@ -451,8 +451,8 @@ char CQuery::GetChar(char *sCol)				// ½Ç¼öÇü ÄÃ·³ ÀÐ±â
 		return GetChar(n);
 }
 
-// nColÀÇ ÄÃ·³°ªÀ» ¹®ÀÚ¿­·Î ÀÐ¾îÁØ´Ù. NULLÀÏ °æ¿ì ¹®ÀÚ¿­¿¡ NULLÀ» Ã¤¿öÁØ´Ù. 
-// bufÀÇ ±æÀÌ´Â ÃÖ¼ÒÇÑ 256ÀÌ¾î¾ß ÇÏ¸ç ±æÀÌ Á¡°ËÀº ÇÏÁö ¾Ê´Â´Ù.
+// nColì˜ ì»¬ëŸ¼ê°’ì„ ë¬¸ìžì—´ë¡œ ì½ì–´ì¤€ë‹¤. NULLì¼ ê²½ìš° ë¬¸ìžì—´ì— NULLì„ ì±„ì›Œì¤€ë‹¤. 
+// bufì˜ ê¸¸ì´ëŠ” ìµœì†Œí•œ 256ì´ì–´ì•¼ í•˜ë©° ê¸¸ì´ ì ê²€ì€ í•˜ì§€ ì•ŠëŠ”ë‹¤.
 void CQuery::GetStr(int nCol, char *buf)
 {
 	if (nCol > this->nCol) 
@@ -469,7 +469,7 @@ void CQuery::GetStr(int nCol, char *buf)
 	}
 }
 
-// sColÀÇ ÄÃ·³°ªÀ» ¹®ÀÚ¿­·Î ÀÐ¾îÁØ´Ù.
+// sColì˜ ì»¬ëŸ¼ê°’ì„ ë¬¸ìžì—´ë¡œ ì½ì–´ì¤€ë‹¤.
 void CQuery::GetStr(char *sCol, char *buf)
 {
 	int n;
@@ -483,7 +483,7 @@ void CQuery::GetStr(char *sCol, char *buf)
 	}
 }
 
-// ¿¡·¯ ¹ß»ý½Ã Áø´Ü Á¤º¸¸¦ Ãâ·ÂÇØ ÁØ´Ù.
+// ì—ëŸ¬ ë°œìƒì‹œ ì§„ë‹¨ ì •ë³´ë¥¼ ì¶œë ¥í•´ ì¤€ë‹¤.
 void CQuery::PrintDiag( LPCTSTR szSQL, SQLSMALLINT type )
 {
 
@@ -529,9 +529,9 @@ void CQuery::PrintDiag( LPCTSTR szSQL, SQLSMALLINT type )
 	}
 }
 
-// BLOB µ¥ÀÌÅÍ¸¦ buf¿¡ Ã¤¿öÁØ´Ù. ÀÌ¶§ buf´Â ÃæºÐÇÑ Å©±âÀÇ ¸Þ¸ð¸®¸¦ ¹Ì¸® ÇÒ´çÇØ 
-// ³õ¾Æ¾ß ÇÑ´Ù. NULLÀÏ °æ¿ì 0À» ¸®ÅÏÇÏ°í ¿¡·¯ ¹ß»ý½Ã -1À» ¸®ÅÏÇÑ´Ù. ¼º°ø½Ã ÀÐÀº 
-// ÃÑ ¹ÙÀÌÆ® ¼ö¸¦ ¸®ÅÏÇÑ´Ù. szSQLÀº ÇÏ³ªÀÇ BLOB ÇÊµå¸¦ ÀÐ´Â Select SQL¹®ÀÌ¾î¾ß ÇÑ´Ù.
+// BLOB ë°ì´í„°ë¥¼ bufì— ì±„ì›Œì¤€ë‹¤. ì´ë•Œ bufëŠ” ì¶©ë¶„í•œ í¬ê¸°ì˜ ë©”ëª¨ë¦¬ë¥¼ ë¯¸ë¦¬ í• ë‹¹í•´ 
+// ë†“ì•„ì•¼ í•œë‹¤. NULLì¼ ê²½ìš° 0ì„ ë¦¬í„´í•˜ê³  ì—ëŸ¬ ë°œìƒì‹œ -1ì„ ë¦¬í„´í•œë‹¤. ì„±ê³µì‹œ ì½ì€ 
+// ì´ ë°”ì´íŠ¸ ìˆ˜ë¥¼ ë¦¬í„´í•œë‹¤. szSQLì€ í•˜ë‚˜ì˜ BLOB í•„ë“œë¥¼ ì½ëŠ” Select SQLë¬¸ì´ì–´ì•¼ í•œë‹¤.
 int CQuery::ReadBlob(LPCTSTR szSQL, void *buf)
 {
 	SQLCHAR BinaryPtr[BLOBBATCH];
@@ -569,8 +569,8 @@ int CQuery::ReadBlob(LPCTSTR szSQL, void *buf)
 	return TotalGet;
 }
 
-// bufÀÇ BLOB µ¥ÀÌÅÍ¸¦ ÀúÀåÇÑ´Ù. szSQLÀº ÇÏ³ªÀÇ BLOB µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â Update, Insert
-// SQL¹®ÀÌ¾î¾ß ÇÑ´Ù.
+// bufì˜ BLOB ë°ì´í„°ë¥¼ ì €ìž¥í•œë‹¤. szSQLì€ í•˜ë‚˜ì˜ BLOB ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” Update, Insert
+// SQLë¬¸ì´ì–´ì•¼ í•œë‹¤.
 void CQuery::WriteBlob(LPCTSTR szSQL, void *buf, int size)
 {
 	SQLINTEGER cbBlob;
@@ -636,8 +636,8 @@ BOOL CQuery::PrepareFetch()
 	if (nCol > MAXCOL)
 		return FALSE;
 	
-	// nColÀÌ 0ÀÎ °æ¿ì´Â Select¹® ÀÌ¿ÜÀÇ ´Ù¸¥ ¸í·ÉÀ» ½ÇÇàÇÑ °æ¿ìÀÌ¹Ç·Î 
-	// ¹ÙÀÎµùÀ» ÇÒ ÇÊ¿ä°¡ ¾ø´Ù.
+	// nColì´ 0ì¸ ê²½ìš°ëŠ” Selectë¬¸ ì´ì™¸ì˜ ë‹¤ë¥¸ ëª…ë ¹ì„ ì‹¤í–‰í•œ ê²½ìš°ì´ë¯€ë¡œ 
+	// ë°”ì¸ë”©ì„ í•  í•„ìš”ê°€ ì—†ë‹¤.
 	if (nCol == 0) 
 	{
 		Clear();
@@ -650,8 +650,8 @@ BOOL CQuery::PrepareFetch()
 	SWORD	m_nScale;
 	SWORD	m_nNullability;
  
-	// ¸ðµç ÄÃ·³À» ¹®ÀÚ¿­·Î ¹ÙÀÎµùÇØ ³õ´Â´Ù. Col¹è¿­Àº zero base, 
-	// ÄÃ·³ ¹øÈ£´Â one baseÀÓ¿¡ À¯ÀÇÇÒ °Í
+	// ëª¨ë“  ì»¬ëŸ¼ì„ ë¬¸ìžì—´ë¡œ ë°”ì¸ë”©í•´ ë†“ëŠ”ë‹¤. Colë°°ì—´ì€ zero base, 
+	// ì»¬ëŸ¼ ë²ˆí˜¸ëŠ” one baseìž„ì— ìœ ì˜í•  ê²ƒ
 	for (int c=0;c<nCol;c++) 
 	{
 		SQLBindCol(hStmt,c+1,SQL_C_CHAR,Col[c],8192,&lCol[c]);

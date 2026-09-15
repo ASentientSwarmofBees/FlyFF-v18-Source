@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 
 #if __VER >= 12 // __LORD
 
@@ -147,25 +147,25 @@ namespace	election
 	int	AddDepositRequirements( CUser* pUser, __int64 iTotal, __int64 & iDeposit )
 	{
 		if (!pUser->IsMaster() && !pUser->IsHero() && !pUser->IsLegendHero())
-			return TID_GAME_ELECTION_ADD_DEPOSIT_E001;	// "�����, ������ ����� ĳ���͸� ���� �ĺ��� ������ �Ͻ� �� �ֽ��ϴ�."
+			return TID_GAME_ELECTION_ADD_DEPOSIT_E001;	// "히어로, 마스터 등급의 캐릭터만 군주 후보에 입찰을 하실 수 있습니다."
 		if( iTotal < CCandidate::nMinDeposit )
-			return TID_GAME_ELECTION_ADD_DEPOSIT_E002;	// "���� �ݾ��� �����մϴ�."
+			return TID_GAME_ELECTION_ADD_DEPOSIT_E002;	// "입찰 금액이 부족합니다."
 		IElection* pElection	= CSLord::Instance()->GetElection();
 
 		if( pElection->GetState() != IElection::eCandidacy )
-			return TID_GAME_ELECTION_ADD_DEPOSIT_E004;		//  �ĺ� ��� �Ⱓ�� �ƴմϴ�.
+			return TID_GAME_ELECTION_ADD_DEPOSIT_E004;		//  후보 등록 기간이 아닙니다.
 
 		CCandidate* pCandidate	= pElection->GetCandidate( pUser->m_idPlayer );
 		__int64 iOld	= ( pCandidate? pCandidate->GetDeposit(): 0 );
 		if( iOld >= iTotal )
-			return TID_GAME_ELECTION_ADD_DEPOSIT_E003;	// "���� ��ĺ��� �� ���� �ݾ��� ��û�Ͻñ� �ٶ��ϴ�."
+			return TID_GAME_ELECTION_ADD_DEPOSIT_E003;	// "기존 페냐보다 더 많은 금액을 신청하시기 바랍니다."
 		if( pUser->IsQuerying() )
 			return TID_GAME_LORD_IS_QUERYING;
 		iDeposit	= iTotal - iOld;
 		if( iDeposit > INT_MAX || pUser->GetGold() < static_cast<int>( iDeposit ) )
-			return TID_GAME_ELECTION_ADD_DEPOSIT_E002;	// "���� �ݾ��� �����մϴ�."
+			return TID_GAME_ELECTION_ADD_DEPOSIT_E002;	// "입찰 금액이 부족합니다."
 		if( iDeposit < static_cast<__int64>( 10000000 ) )
-			return TID_GAME_ELECTION_ADD_DEPOSIT_E005;	// �߰� ������ �ּ� 10,000,000 ��İ� �ʿ��մϴ�.
+			return TID_GAME_ELECTION_ADD_DEPOSIT_E005;	// 추가 입찰은 최소 10,000,000 페냐가 필요합니다.
 		pUser->SetQuerying( TRUE );
 		return 0;
 	}
@@ -200,15 +200,15 @@ namespace	election
 		IElection* pElection	= CSLord::Instance()->GetElection();
 		CCandidate* pCandidate	= pElection->GetCandidate( idPlayer );
 		if( !pCandidate )
-			return TID_GAME_ELECTION_INC_VOTE_E001;		// �ĺ��� ���ų� �ĺ����� �߸� �Է� �ϼ̽��ϴ�. Ȯ�� �� �ٽ� �Է��� �ֽñ� �ٶ��ϴ�.
+			return TID_GAME_ELECTION_INC_VOTE_E001;		// 후보에 없거나 후보명을 잘못 입력 하셨습니다. 확인 후 다시 입력해 주시기 바랍니다.
 		if( pElection->GetState() != IElection::eVote )
-			return TID_GAME_ELECTION_INC_VOTE_E002;		// ��ǥ �Ⱓ�� �ƴմϴ�.
+			return TID_GAME_ELECTION_INC_VOTE_E002;		// 투표 기간이 아닙니다.
 		if( pUser->GetLevel() < IElection::nLevelRequirements )
-			return TID_GAME_ELECTION_INC_VOTE_E003;		// �����/������ ���, ĳ���� ���� 60�̻��� ĳ���͸� ��ǥ���� �����ϴ�.
+			return TID_GAME_ELECTION_INC_VOTE_E003;		// 히어로/마스터 등급, 캐릭터 레벨 60이상의 캐릭터만 투표권을 가집니다.
 		if( pUser->IsQuerying() )
 			return TID_GAME_LORD_IS_QUERYING;
-		if( pUser->GetElection() == pElection->GetId() )	// ˬ
-			return TID_GAME_ELECTION_INC_VOTE_E004;		// �̹� ��ǥ�� �����ϼ̽��ϴ�.
+		if( pUser->GetElection() == pElection->GetId() )	// 康
+			return TID_GAME_ELECTION_INC_VOTE_E004;		// 이미 투표에 참여하셨습니다.
 
 		pUser->SetQuerying( TRUE );
 		return 0;

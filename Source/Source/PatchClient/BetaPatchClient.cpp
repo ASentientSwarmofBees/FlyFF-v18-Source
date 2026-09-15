@@ -1,4 +1,4 @@
-// BetaPatchClient.cpp : Defines the class behaviors for the application.
+ï»¿// BetaPatchClient.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
@@ -40,16 +40,16 @@ CBetaPatchClientApp theApp;
 
 CHECK_TYPE CBetaPatchClientApp::CheckSingleInstance()
 {
-	//	Neuz ¹ÂÅØ½º °Ë»ç
+	//	Neuz ë®¤í…ìŠ¤ ê²€ì‚¬
 	HANDLE hNeuzMutex = OpenMutex( MUTEX_ALL_ACCESS, TRUE, "neuz" );
 	if( hNeuzMutex != NULL )
 	{
 	#if __CURRENT_LANG == LANG_JAP || __CURRENT_LANG == LANG_KOR || __CURRENT_LANG == LANG_ENG || __CURRENT_LANG == LANG_THA || __CURRENT_CNTRY == CNTRY_HK
-		//¸ÖÆ¼ ¶ç¿ì±â Çã¿ë (5Â÷ºÎÅÍ), ´ºÁî°¡ ¶ç¿öÁ® ÀÖÀ¸¸é ÀÌ¹Ì ÆĞÄ¡¹Ş¾Ò´Ù°í °¡Á¤ÇÑ´Ù.
+		//ë©€í‹° ë„ìš°ê¸° í—ˆìš© (5ì°¨ë¶€í„°), ë‰´ì¦ˆê°€ ë„ì›Œì ¸ ìˆìœ¼ë©´ ì´ë¯¸ íŒ¨ì¹˜ë°›ì•˜ë‹¤ê³  ê°€ì •í•œë‹¤.
 /*
 #if __CURRENT_LANG == LANG_KOR
 #ifdef __LINK_PORTAL
-		//¹«ÀÎÀÚ ÀÏ °æ¿ì È¨ÆäÀÌÁö·Î ¿¬°á
+		//ë¬´ì¸ì ì¼ ê²½ìš° í™ˆí˜ì´ì§€ë¡œ ì—°ê²°
 		CString strCmdLine;
 		strCmdLine.Format("%s", AfxGetApp()->m_lpCmdLine);
 		if(strCmdLine.GetLength() == 0 || strCmdLine == "1")
@@ -72,7 +72,7 @@ CHECK_TYPE CBetaPatchClientApp::CheckSingleInstance()
 		return CHECK_FALSE;	
 	}
 	
-	//	ÆĞÄ¡ Å¬¶óÀÌ¾ğÆ® ¹ÂÅØ½º
+	//	íŒ¨ì¹˜ í´ë¼ì´ì–¸íŠ¸ ë®¤í…ìŠ¤
 	HANDLE hMutex	= CreateMutex( NULL, TRUE, "masquerade" );
 	DWORD dwError	= GetLastError();
 	if( hMutex )
@@ -86,7 +86,7 @@ CHECK_TYPE CBetaPatchClientApp::CheckSingleInstance()
 	return CHECK_TRUE;
 }
 
-// ¿¹Àü¿¡´Â ·¹Áö½ºÆ®¸®ÀÇ ÆĞ½ºÁ¤º¸¸¦ ÀÌ¿ëÇßÁö¸¸ 2006.04ºÎÅÍ ÀÌ¸¦ ÀÌ¿ëÇÏÁö ¾Ê°Ô ¼öÁ¤ 
+// ì˜ˆì „ì—ëŠ” ë ˆì§€ìŠ¤íŠ¸ë¦¬ì˜ íŒ¨ìŠ¤ì •ë³´ë¥¼ ì´ìš©í–ˆì§€ë§Œ 2006.04ë¶€í„° ì´ë¥¼ ì´ìš©í•˜ì§€ ì•Šê²Œ ìˆ˜ì • 
 BOOL CBetaPatchClientApp::InitPath()
 {
 	g_PatchManager.SetCurrentLocalDirectory();
@@ -94,7 +94,7 @@ BOOL CBetaPatchClientApp::InitPath()
 }
 
 
-// DirectX °Ë»ç VerSionÀÌ 9 ¹Ì¸¸ÀÌ¸é ½ÇÇàÀÌ ¾ÈµÊ
+// DirectX ê²€ì‚¬ VerSionì´ 9 ë¯¸ë§Œì´ë©´ ì‹¤í–‰ì´ ì•ˆë¨
 BOOL CBetaPatchClientApp::CheckDirectXVersion()
 {
 	DWORD dwVersion, dwRevision;
@@ -158,12 +158,12 @@ BOOL CBetaPatchClientApp::InitInstance()
 	::DeleteFile( PATCH_LOGFILE );
 	::DeleteFile( "NewFlyff.exe" );
 	
-	if( InitPath() == FALSE )				// ·¹Áö½ºÆ®¸®¿¡¼­ ½ÇÇà Path¸¦ ¾ò¾î ÁöÁ¤ÇÑ´Ù.
+	if( InitPath() == FALSE )				// ë ˆì§€ìŠ¤íŠ¸ë¦¬ì—ì„œ ì‹¤í–‰ Pathë¥¼ ì–»ì–´ ì§€ì •í•œë‹¤.
 		return FALSE;
 
 	if( CheckDirectXVersion() == FALSE )	
 	{
-		AfxMessageBox( IDS_DIRECTX_INSTALL );	// DirectX 9°¡ ¼³Ä¡µÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù.
+		AfxMessageBox( IDS_DIRECTX_INSTALL );	// DirectX 9ê°€ ì„¤ì¹˜ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤.
 		return FALSE;
 	}
 

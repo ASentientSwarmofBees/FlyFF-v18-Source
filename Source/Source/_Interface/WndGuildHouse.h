@@ -1,4 +1,4 @@
-
+ï»¿
 //Guild house windows
 //date : 2009_10_26
 //author : gmpbigsun
@@ -14,7 +14,7 @@ class CWndGHTeleporter;
 class CWndGHUpkeep;
 class CWndGHMainMenu : public CWndNeuz			//GH : Guild House 
 {
-	// ±æµåÇÏ¿ì½º ¸ŞÀÎ¸Ş´º À©µµ¿ì
+	// ê¸¸ë“œí•˜ìš°ìŠ¤ ë©”ì¸ë©”ë‰´ ìœˆë„ìš°
 public:
 	CWndGHMainMenu( );
 	virtual ~CWndGHMainMenu( );
@@ -43,8 +43,8 @@ protected:
 
 class CWndGHTeleporter : public CWndNeuz
 {
-	// ÅÚ·¹Æ÷ÅÍ , 
-	// 2009_11_17 °³¹ßµµÁß ±æµå°¡±¸Ã¢À¸·Î ÆíÀÔ´ï , ÇöÀç ¾²ÀÌÁö ¾ÊÀ½ 
+	// í…”ë ˆí¬í„° , 
+	// 2009_11_17 ê°œë°œë„ì¤‘ ê¸¸ë“œê°€êµ¬ì°½ìœ¼ë¡œ í¸ì…ëŒ , í˜„ì¬ ì“°ì´ì§€ ì•ŠìŒ 
 public:
 	CWndGHTeleporter( );
 	virtual ~CWndGHTeleporter( );
@@ -66,14 +66,14 @@ public:
 
 	
 	int GetSlotIndexByPoint( const CPoint& point );
-	void RefreshItems( );		// ¼­¹öÁ¤º¸¸¦ ±â¹İÀ¸·Î ÅÚ·¹Æ÷ÅÍÁ¤º¸¸¸À» »©¿Í¼­ Å¬¶óµ¥ÀÌÅÍ·Î Àç±¸¼º 
-	void UpdateButtons( );		// ÇöÀç ¼±ÅÃÇÑ ½½·Ô¿¡ ÀÇ°Å ¹öÆ° È°¼ºÈ­ »óÅÂ °»½Å 
+	void RefreshItems( );		// ì„œë²„ì •ë³´ë¥¼ ê¸°ë°˜ìœ¼ë¡œ í…”ë ˆí¬í„°ì •ë³´ë§Œì„ ë¹¼ì™€ì„œ í´ë¼ë°ì´í„°ë¡œ ì¬êµ¬ì„± 
+	void UpdateButtons( );		// í˜„ì¬ ì„ íƒí•œ ìŠ¬ë¡¯ì— ì˜ê±° ë²„íŠ¼ í™œì„±í™” ìƒíƒœ ê°±ì‹  
 
 protected:
 	void DrawSlotItems( C2DRender* p2DRender );
-	GH_Fntr_Info* GetInstalledItem( OUT int& serverSlot );		//°ñ¶§¸°´Ù.Á¤¸»  ¼­¹öµ¥ÀÌÅÍ¿¡¼­ Ã£Àº ¼³Ä¡µÈ ÅÚ·¹Æ÷ÅÍ ¾ò±â out:¼­¹öµ¥ÀÌÅÍ ÀÎµ¦½º 
+	GH_Fntr_Info* GetInstalledItem( OUT int& serverSlot );		//ê³¨ë•Œë¦°ë‹¤.ì •ë§  ì„œë²„ë°ì´í„°ì—ì„œ ì°¾ì€ ì„¤ì¹˜ëœ í…”ë ˆí¬í„° ì–»ê¸° out:ì„œë²„ë°ì´í„° ì¸ë±ìŠ¤ 
 
-	int GetCountListUp( );	//¸®½ºÆ®¾÷´í  ÃÑ °¹¼ö¾ò±â 
+	int GetCountListUp( );	//ë¦¬ìŠ¤íŠ¸ì—…ëŒ„  ì´ ê°¯ìˆ˜ì–»ê¸° 
 
 protected:
 	CWndButton* m_pOK;

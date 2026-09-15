@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <d3d9.h>
 #include <d3dx9.h>
 
@@ -47,8 +47,8 @@ HRESULT CTextureManager::DeleteDeviceObjects()
 	return  S_OK;
 }	
 
-// pTexture¸¦ »ç¿ëÇÏ´Â ¸ÅÅÍ¸®¾óÀ» Ã£¾Æ »èÁ¦ÇÑ´Ù.
-// °øÀ¯µÇ¾î ÀÖ´Â ÅØ½ºÃÄ¶ó¸é »ç¿ëÄ«¿îÅÍ¸¦ º¸°í 1ÀÎ°Í¸¸ »èÁ¦ÇÑ´Ù..
+// pTextureë¥¼ ì‚¬ìš©í•˜ëŠ” ë§¤í„°ë¦¬ì–¼ì„ ì°¾ì•„ ì‚­ì œí•œë‹¤.
+// ê³µìœ ë˜ì–´ ìˆëŠ” í…ìŠ¤ì³ë¼ë©´ ì‚¬ìš©ì¹´ìš´í„°ë¥¼ ë³´ê³  1ì¸ê²ƒë§Œ ì‚­ì œí•œë‹¤..
 int CTextureManager::DeleteMaterial( LPDIRECT3DTEXTURE9 pTexture )
 {
 	int		i;
@@ -60,12 +60,12 @@ int CTextureManager::DeleteMaterial( LPDIRECT3DTEXTURE9 pTexture )
 	{
 		if( m_pMaterial[i].m_bActive )
 		{
-			if( m_pMaterial[i].m_pTexture == pTexture )		// pTexture¸¦ Ã£¾Ò´Ù.
+			if( m_pMaterial[i].m_pTexture == pTexture )		// pTextureë¥¼ ì°¾ì•˜ë‹¤.
 			{
-				if( m_pMaterial[i].m_nUseCnt == 1 )			// °øÀ¯µÈ°Ô ¾Æ´Ï´Ù(usecnt == 1)
+				if( m_pMaterial[i].m_nUseCnt == 1 )			// ê³µìœ ëœê²Œ ì•„ë‹ˆë‹¤(usecnt == 1)
 				{
-					SAFE_RELEASE( m_pMaterial[i].m_pTexture );	// »èÁ¦.
-					m_pMaterial[i].m_bActive = FALSE;			// ÅØ½ºÃÄ °ü¸®ÀÚ¿¡¼­µµ »èÁ¦.
+					SAFE_RELEASE( m_pMaterial[i].m_pTexture );	// ì‚­ì œ.
+					m_pMaterial[i].m_bActive = FALSE;			// í…ìŠ¤ì³ ê´€ë¦¬ìì—ì„œë„ ì‚­ì œ.
 					m_pMaterial[i].strBitMapFileName[0] = 0;
 					m_nMaxTexture --;
 					return TRUE;
@@ -87,14 +87,14 @@ MATERIAL*	CTextureManager :: AddMaterial( LPDIRECT3DDEVICE9 pd3dDevice, D3DMATER
 	MATERIAL	*pMList = m_pMaterial;
 	LPDIRECT3DTEXTURE9      pTexture = NULL;
 
-	// ÀÌ¹Ì ÀĞÀº°ÇÁö °Ë»ç.
+	// ì´ë¯¸ ì½ì€ê±´ì§€ ê²€ì‚¬.
 	for( i = 0; i < MAX_MATERIAL; i ++ )
 	{
 		if( pMList->m_bActive )
 		{
-			if( strcmpi(strFileName, pMList->strBitMapFileName) == 0 && pMList->m_pd3dDevice == pd3dDevice )	// ÀÌ¹Ì ÀĞÀº°Ç ´Ù½Ã ÀĞÁö ¾ÊÀ½.  ¿ª½Ã ¶«»§ -_-;;
+			if( strcmpi(strFileName, pMList->strBitMapFileName) == 0 && pMList->m_pd3dDevice == pd3dDevice )	// ì´ë¯¸ ì½ì€ê±´ ë‹¤ì‹œ ì½ì§€ ì•ŠìŒ.  ì—­ì‹œ ë•œë¹µ -_-;;
 			{
-				pMList->m_nUseCnt ++;	// ÀÌ¹Ì·ÎµùÇÑ°É °øÀ¯ÇÏ°í ÀÖ´Ù¸é Ä«¿îÆ® ¿Ã¸².
+				pMList->m_nUseCnt ++;	// ì´ë¯¸ë¡œë”©í•œê±¸ ê³µìœ í•˜ê³  ìˆë‹¤ë©´ ì¹´ìš´íŠ¸ ì˜¬ë¦¼.
 				return pMList;
 			}
 		}
@@ -119,7 +119,7 @@ MATERIAL*	CTextureManager :: AddMaterial( LPDIRECT3DDEVICE9 pd3dDevice, D3DMATER
 	}
 	else
 	{
-		strPath = MakePath( szPath, strFileName );		// °æ·Î°¡ ÁöÁ¤µÇ¾î ÀÖÀ»¶© ±×°É¾´´Ù.
+		strPath = MakePath( szPath, strFileName );		// ê²½ë¡œê°€ ì§€ì •ë˜ì–´ ìˆì„ë• ê·¸ê±¸ì“´ë‹¤.
 	}
 	
 	if( FAILED( LoadTextureFromRes( pd3dDevice, strPath, 
@@ -132,7 +132,7 @@ MATERIAL*	CTextureManager :: AddMaterial( LPDIRECT3DDEVICE9 pd3dDevice, D3DMATER
 			Error( "%s texture bitmap", strPath );
 	}
 
-	// ºó ½½·ÔÀÌ ÀÖ´ÂÁö °Ë»ç.
+	// ë¹ˆ ìŠ¬ë¡¯ì´ ìˆëŠ”ì§€ ê²€ì‚¬.
 	pMList = m_pMaterial;
 	for( i = 0; i < MAX_MATERIAL; i ++ )
 	{
@@ -141,7 +141,7 @@ MATERIAL*	CTextureManager :: AddMaterial( LPDIRECT3DDEVICE9 pd3dDevice, D3DMATER
 	}
 	if( i >= MAX_MATERIAL )
 	{
-		LPCTSTR szErr = Error( "CTextureManager::AddMaterial : ÅØ½ºÃÄ °¹¼ö¸¦ ³Ñ¾î¼¹´Ù." );
+		LPCTSTR szErr = Error( "CTextureManager::AddMaterial : í…ìŠ¤ì³ ê°¯ìˆ˜ë¥¼ ë„˜ì–´ì„°ë‹¤." );
 		ADDERRORMSG( szErr );
 		return NULL;
 	}
@@ -163,16 +163,16 @@ MATERIAL*	CTextureManager :: AddMaterial( LPDIRECT3DDEVICE9 pd3dDevice, D3DMATER
 	pMaterial->Power = 0.0f;
 #endif
 	pMList->m_Material = *pMaterial;
-//	memcpy( &pMList->m_Material, pMaterial, sizeof(D3DMATERIAL9) );				// ¸ÅÅÍ¸®¾ó³»¿ë Ä«ÇÇ
-//	memcpy( pMList->strBitMapFileName, strFileName, strlen(strFileName) );		// ÅØ½ºÃÄ ÆÄÀÏ¸í Ä«ÇÇ
+//	memcpy( &pMList->m_Material, pMaterial, sizeof(D3DMATERIAL9) );				// ë§¤í„°ë¦¬ì–¼ë‚´ìš© ì¹´í”¼
+//	memcpy( pMList->strBitMapFileName, strFileName, strlen(strFileName) );		// í…ìŠ¤ì³ íŒŒì¼ëª… ì¹´í”¼
 #ifdef	_XDEBUG
 	if( strlen(strFileName)+1 > 32 )
-		Error( "CTextureManager::AddMaterial() : %sÀÇ ±æÀÌ°¡ ³Ê¹« ±æ´Ù", strFilename );
+		Error( "CTextureManager::AddMaterial() : %sì˜ ê¸¸ì´ê°€ ë„ˆë¬´ ê¸¸ë‹¤", strFilename );
 #endif
-	strcpy( pMList->strBitMapFileName, strFileName );		// ÅØ½ºÃÄ ÆÄÀÏ¸í Ä«ÇÇ
+	strcpy( pMList->strBitMapFileName, strFileName );		// í…ìŠ¤ì³ íŒŒì¼ëª… ì¹´í”¼
 	pMList->m_pTexture = pTexture;
 	pMList->m_pd3dDevice = pd3dDevice;
-	pMList->m_nUseCnt = 1;	// Ã³À½ µî·ÏµÈ°ÍÀÌ±â¶«¿¡ 1ºÎÅÍ ½ÃÀÛ.
+	pMList->m_nUseCnt = 1;	// ì²˜ìŒ ë“±ë¡ëœê²ƒì´ê¸°ë•œì— 1ë¶€í„° ì‹œì‘.
 	m_nMaxTexture ++;
 
 

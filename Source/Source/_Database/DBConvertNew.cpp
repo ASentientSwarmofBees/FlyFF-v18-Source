@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -126,7 +126,7 @@ DWORD CDbManager::GetMaxGuildBank( char* pszSQL, CQuery* pQueryChar, CQuery* pQu
 }
 BOOL CDbManager::CreateInvenBankView( char* pszSQL, CQuery* pQueryChar, CQuery* pQuerySave )
 {
-	// Inven, Bank view »ý¼º
+	// Inven, Bank view ìƒì„±
 	sprintf( pszSQL, " if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[seghope]') and OBJECTPROPERTY(id, N'IsView') = 1)"
 		" drop view [dbo].[seghope]");
 	
@@ -170,7 +170,7 @@ BOOL CDbManager::CreateInvenBankView( char* pszSQL, CQuery* pQueryChar, CQuery* 
 
 BOOL CDbManager::CreateGuildBankView( char* pszSQL, CQuery* pQueryChar, CQuery* pQuerySave )
 {
-	// Inven, Bank view »ý¼º
+	// Inven, Bank view ìƒì„±
 	sprintf( pszSQL, " if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[seghope_guild]') and OBJECTPROPERTY(id, N'IsView') = 1)"
 		" drop view [dbo].[seghope_guild]");
 	
@@ -205,7 +205,7 @@ BOOL CDbManager::CreateGuildBankView( char* pszSQL, CQuery* pQueryChar, CQuery* 
 
 BOOL CDbManager::DeleteInvenBankView( char* pszSQL, CQuery* pQueryChar, CQuery* pQuerySave )
 {
-	// Inven, Bank view »èÁ¦
+	// Inven, Bank view ì‚­ì œ
 	sprintf( pszSQL, "drop view seghope" );
 	if( FALSE == pQueryChar->Exec( pszSQL ) )
 	{
@@ -441,11 +441,11 @@ BOOL CDbManager::RemoveGuildBankListPanya( char* pszSQL, int nGuildId, CQuery* p
 DWORD CDbManager::GetRemoveItemPanya( int nItem0, int nItem1 )
 {
 	DWORD dwAddGold = 0;
-	if( nItem0 )	//"Ãµ¿îÀÇ ½ºÅÂÇÁ"
+	if( nItem0 )	//"ì²œìš´ì˜ ìŠ¤íƒœí”„"
 	{
 		dwAddGold += 36000 * nItem0;
 	}
-	if( nItem1 )	//"ÆÄÈ²ÀÇ ½ºÅÂÇÁ"
+	if( nItem1 )	//"íŒŒí™©ì˜ ìŠ¤íƒœí”„"
 	{
 		dwAddGold += 147500 * nItem1;
 	}
@@ -480,9 +480,9 @@ BOOL CDbManager::RemoveItemInvenBank( CMover* pMover, int* nCountItem0, int* nCo
 						pMover->m_Inventory.RemoveAtId( pItemElem->m_dwObjId );
 						if( prj.IsConvMode( REMOVE_ITEM_ALL_PAY ) )
 						{
-							if( lstrcmp( it->data(), "Ãµ¿îÀÇ ½ºÅÂÇÁ" ) == 0 )
+							if( lstrcmp( it->data(), "ì²œìš´ì˜ ìŠ¤íƒœí”„" ) == 0 )
 								(*nCountItem0)++;
-							if( lstrcmp( it->data(), "ÆÄÈ²ÀÇ ½ºÅÂÇÁ" ) == 0 )
+							if( lstrcmp( it->data(), "íŒŒí™©ì˜ ìŠ¤íƒœí”„" ) == 0 )
 								(*nCountItem1)++;
 						}
 //						FILEOUT( "..\\RemoveItem.log", "PlayerName = %s, ItemName : %s", pMover->m_szName,  it->data() );
@@ -509,9 +509,9 @@ BOOL CDbManager::RemoveItemInvenBank( CMover* pMover, int* nCountItem0, int* nCo
 						pMover->m_Bank[0].RemoveAtId( pItemElem->m_dwObjId );
 						if( prj.IsConvMode( REMOVE_ITEM_ALL_PAY ) )
 						{
-							if( lstrcmp( it->data(), "Ãµ¿îÀÇ ½ºÅÂÇÁ" ) == 0 )
+							if( lstrcmp( it->data(), "ì²œìš´ì˜ ìŠ¤íƒœí”„" ) == 0 )
 								(*nCountItem0)++;
-							if( lstrcmp( it->data(), "ÆÄÈ²ÀÇ ½ºÅÂÇÁ" ) == 0 )
+							if( lstrcmp( it->data(), "íŒŒí™©ì˜ ìŠ¤íƒœí”„" ) == 0 )
 								(*nCountItem1)++;
 						}
 //						FILEOUT( "..\\RemoveItem.log", "PlayerName = %s, ItemName : %s", pMover->m_szName,  it->data() );
@@ -552,9 +552,9 @@ BOOL CDbManager::RemoveItemGuildBank( int nGuildId, CItemContainer< CItemElem  >
 						GuildBank->RemoveAtId( pItemElem->m_dwObjId );
 						if( prj.IsConvMode( REMOVE_ITEM_ALL_PAY ) )
 						{
-							if( lstrcmp( it->data(), "Ãµ¿îÀÇ ½ºÅÂÇÁ" ) == 0 )
+							if( lstrcmp( it->data(), "ì²œìš´ì˜ ìŠ¤íƒœí”„" ) == 0 )
 								(*nCountItem0)++;
-							if( lstrcmp( it->data(), "ÆÄÈ²ÀÇ ½ºÅÂÇÁ" ) == 0 )
+							if( lstrcmp( it->data(), "íŒŒí™©ì˜ ìŠ¤íƒœí”„" ) == 0 )
 								(*nCountItem1)++;
 						}
 //						FILEOUT( "..\\RemoveItem.log", "GuildId = %s, ItemName : %s", nGuildId,  it->data() );
@@ -732,7 +732,7 @@ BOOL CDbManager::ConvItemStart( void )
 	UpdateConvItemDialog( "Inventory, Bank", lpString, "0 %%", 0 );
 	if( CreateInvenBankView( szSQL, pQueryChar, pQuerySave ) == FALSE )
 		return FALSE;
-	// Inven, Bank Item °¡Áö°í ¿À±â
+	// Inven, Bank Item ê°€ì§€ê³  ì˜¤ê¸°
 	if( GetInventoryBankView( szSQL, pQueryChar, pQuerySave ) == FALSE )
 		return FALSE;
 	while( pQueryChar->Fetch() )
@@ -774,7 +774,7 @@ BOOL CDbManager::ConvItemStart( void )
 	UpdateConvItemDialog( "GuildBank", lpString, "0 %%", 0 );
 	if( CreateGuildBankView( szSQL, pQueryChar, pQuerySave ) == FALSE )
 		return FALSE;
-	// Inven, Bank Item °¡Áö°í ¿À±â
+	// Inven, Bank Item ê°€ì§€ê³  ì˜¤ê¸°
 	if( GetGuildBankView( szSQL, pQueryChar, pQuerySave ) == FALSE )
 		return FALSE;
 	
@@ -786,7 +786,7 @@ BOOL CDbManager::ConvItemStart( void )
 		sprintf( lpString1, "%d %", int( float( (float)nStarted / (float)dwMaxConv ) * 100.0f ) );
 		UpdateConvItemDialog( "GuildBank", lpString, lpString1, (int( float( (float)nStarted / (float)dwMaxConv ) * 100.0f )) );
 			
-		CItemContainer<CItemElem>	GuildBank;	// ±æµå Ã¢°í
+		CItemContainer<CItemElem>	GuildBank;	// ê¸¸ë“œ ì°½ê³ 
 		int							nGuildId	= 0;
 	
 		GuildBank.SetItemContainer( ITYPE_ITEM, MAX_GUILDBANK );

@@ -1,4 +1,4 @@
-
+﻿
 //InfoCritSect.cpp Source File
 
 #include "stdafx.h"

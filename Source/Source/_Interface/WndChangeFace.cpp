@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineObj.h"
 #include "AppDefine.h"
 #include "WndChangeFace.h"
@@ -10,8 +10,8 @@ extern CDPClient	g_DPlay;
 
 
 /****************************************************
-  WndId : APP_CHANGEFACE - ¾ó±¼º¯°æ
-  CtrlId : WIDC_STATIC1 - ¾ó±¼À» ¼±ÅÃÇÏ¼¼¿ä. ÃÑ 2È¸ º¯°æÀÌ °¡´ÉÇÕ´Ï´Ù.
+  WndId : APP_CHANGEFACE - ì–¼êµ´ë³€ê²½
+  CtrlId : WIDC_STATIC1 - ì–¼êµ´ì„ ì„ íƒí•˜ì„¸ìš”. ì´ 2íšŒ ë³€ê²½ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
 ****************************************************/
@@ -45,24 +45,24 @@ void CWndChangeFace::OnDraw( C2DRender* p2DRender )
 void CWndChangeFace::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndChangeFace::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CHANGEFACE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndChangeFace::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -153,16 +153,16 @@ void CWndChangeSex::OnDraw( C2DRender* p2DRender )
 	
 	CRect rect = GetClientRect();
 
-	// ºäÆ÷Æ® ¼¼ÆÃ 
+	// ë·°í¬íŠ¸ ì„¸íŒ… 
 	D3DVIEWPORT9 viewport;
 
-	// ¿ùµå 
+	// ì›”ë“œ 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matRot;
 	D3DXMATRIXA16 matTrans;
 
-	// Ä«¸Þ¶ó 
+	// ì¹´ë©”ë¼ 
 	D3DXMATRIX  matView;
 	D3DXVECTOR3 vecLookAt( 0.0f, 0.0f, 3.0f );
 	D3DXVECTOR3 vecPos(  0.0f, 0.7f, -3.5f );
@@ -171,7 +171,7 @@ void CWndChangeSex::OnDraw( C2DRender* p2DRender )
 	
 	pd3dDevice->SetTransform( D3DTS_VIEW, &matView );
 	
-	// ¿ÞÂÊ ¿øº» ¸ðµ¨ ·£´õ¸µ
+	// ì™¼ìª½ ì›ë³¸ ëª¨ë¸ ëžœë”ë§
 	{
 		LPWNDCTRL lpFace = GetWndCtrl( WIDC_STATIC1 );
 
@@ -214,7 +214,7 @@ void CWndChangeSex::OnDraw( C2DRender* p2DRender )
 		D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 		pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-		// ·£´õ¸µ 
+		// ëžœë”ë§ 
 		pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 		pd3dDevice->SetRenderState( D3DRS_LIGHTING, FALSE );//m_bViewLight );
 		
@@ -245,11 +245,11 @@ void CWndChangeSex::OnDraw( C2DRender* p2DRender )
 void CWndChangeSex::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	SAFE_DELETE( m_pModel );
 	
-	// ¼ºÀüÈ¯ÀÌ´Ï±ñ ¹Ý´ë·Î ÇÏÀÚ~
+	// ì„±ì „í™˜ì´ë‹ˆê¹ ë°˜ëŒ€ë¡œ í•˜ìž~
 	int nMover = (g_pPlayer->GetSex() == SEX_MALE ? MI_FEMALE:MI_MALE );
 	m_pModel = (CModelObject*)prj.m_modelMng.LoadModel( g_Neuz.m_pd3dDevice, OT_MOVER, nMover, TRUE );
 	prj.m_modelMng.LoadMotion( m_pModel,  OT_MOVER, nMover, MTI_STAND2 );
@@ -258,17 +258,17 @@ void CWndChangeSex::OnInitialUpdate()
 	
 	m_pModel->InitDeviceObjects( g_Neuz.GetDevice() );
 	
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndChangeSex::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CHANGESEX, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndChangeSex::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -332,10 +332,10 @@ BOOL CWndChangeSex::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 } 
 
 /****************************************************
-  WndId : APP_ITEM_TRANSY - ¾ÆÀÌÅÛ Æ®·£Áö(ITM)
+  WndId : APP_ITEM_TRANSY - ì•„ì´í…œ íŠ¸ëžœì§€(ITM)
   CtrlId : WIDC_STATIC1 - 
-  CtrlId : WIDC_STATIC2 - ¾ÆÀÌÅÛ Æ®·£Áö(ITM)
-  CtrlId : WIDC_STATIC3 - ¾ÆÀÌÅÛ : 
+  CtrlId : WIDC_STATIC2 - ì•„ì´í…œ íŠ¸ëžœì§€(ITM)
+  CtrlId : WIDC_STATIC3 - ì•„ì´í…œ : 
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
 ****************************************************/
@@ -418,19 +418,19 @@ void CWndItemTransy::OnDraw( C2DRender* p2DRender )
 void CWndItemTransy::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndItemTransy::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ITEM_TRANSY, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndItemTransy::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -496,11 +496,11 @@ BOOL CWndItemTransy::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 {
 	CWndBase* pWndFrame = pShortcut->m_pFromWnd->GetFrameWnd();
 	
-	// ÀÎº¥Åä¸®¿¡¼­ ¿Â°ÍÀÎÁö °Ë»ç
+	// ì¸ë²¤í† ë¦¬ì—ì„œ ì˜¨ê²ƒì¸ì§€ ê²€ì‚¬
 	if( !(pShortcut->m_dwShortcut == SHORTCUT_ITEM) && !(pWndFrame->GetWndId() == APP_INVENTORY) )
 		return FALSE;
 	
-	// ÀåÂøµÇ¾îÀÖ´ÂÁö °Ë»ç
+	// ìž¥ì°©ë˜ì–´ìžˆëŠ”ì§€ ê²€ì‚¬
 	if( g_pPlayer->m_Inventory.IsEquip( pShortcut->m_dwId ) )
 	{
 		g_WndMng.PutString( prj.GetText(TID_GAME_EQUIPPUT), NULL, prj.GetTextColor(TID_GAME_EQUIPPUT) );
@@ -518,7 +518,7 @@ BOOL CWndItemTransy::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	if( PtInRect( &m_Rect[0], point ) )
 	{
 		ItemProp* pItemPropChange = NULL;
-		// ¼ºº°ÀÌ ÀÖ´Â ¾ÆÀÌÅÛ ÀÎÁö °Ë»ç
+		// ì„±ë³„ì´ ìžˆëŠ” ì•„ì´í…œ ì¸ì§€ ê²€ì‚¬
 		ItemProp* pItemProp = pItemElem->GetProp();
 		
 		pItemPropChange = g_pPlayer->GetTransyItem( pItemProp );

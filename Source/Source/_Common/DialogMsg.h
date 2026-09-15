@@ -1,4 +1,4 @@
-#ifndef __DIALOGMSG_H
+ï»¿#ifndef __DIALOGMSG_H
 #define __DIALOGMSG_H
 
 #define DLGEMOT_ATTACK     0
@@ -34,8 +34,8 @@ typedef struct tagCUSTOMTEXT
 #define CHAT_GUILD		2
 #define CHAT_SHOUT		3
 
-#define MAX_EMOTICON_STR		32		// ÀÌ¸ğÆ¼ÄÜ ¸í·É±ÛÀÚ ÃÖ´ë±æÀÌ
-#define MAX_EMOTICON_NUM		100		// ÀÌ¸ğÆ¼ÄÜ °¹¼ö
+#define MAX_EMOTICON_STR		32		// ì´ëª¨í‹°ì½˜ ëª…ë ¹ê¸€ì ìµœëŒ€ê¸¸ì´
+#define MAX_EMOTICON_NUM		100		// ì´ëª¨í‹°ì½˜ ê°¯ìˆ˜
 
 struct EmticonCmd
 {

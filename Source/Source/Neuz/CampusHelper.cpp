@@ -1,4 +1,4 @@
-// CampusHelper.cpp: implementation of the CCampusHelper class.
+﻿// CampusHelper.cpp: implementation of the CCampusHelper class.
 //
 //////////////////////////////////////////////////////////////////////
 

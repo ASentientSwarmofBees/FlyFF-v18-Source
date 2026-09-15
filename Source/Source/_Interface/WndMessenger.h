@@ -1,4 +1,4 @@
-#ifndef __WNDMESSENGER__H
+ï»¿#ifndef __WNDMESSENGER__H
 #define __WNDMESSENGER__H
 
 #include "WndFriendCtrl.h"
@@ -18,7 +18,7 @@ public:
 	CWndFriendCtrl	m_wndFriend;
 	CWndPartyCtrl	m_wndParty;
 	CWndGuildCtrl	m_wndGuild;
-	CString			m_strTooltip;	// Á¢¼ÓÇ¥½Ã ÅøÆÁ¹®ÀÚ¿­ 
+	CString			m_strTooltip;	// ì ‘ì†í‘œì‹œ íˆ´íŒë¬¸ìì—´ 
 	CTexture		m_TexMail;
 	int				m_nFlashCounter;
 	int				m_nSwitch;

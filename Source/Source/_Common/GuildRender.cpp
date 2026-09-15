@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #include "GuildRender.h"
 
@@ -18,16 +18,16 @@ CGuildTexture::CGuildTexture()
 {
 	m_nMax = 0;
 	memset( m_Texture, 0, sizeof(m_Texture) );
-//	m_pTextures = NULL;		// ½ÃÀÛ À§Ä¡ ÁöÁ¤.
+//	m_pTextures = NULL;		// ì‹œìž‘ ìœ„ì¹˜ ì§€ì •.
 //	m_pFree = NULL;
 }
 
 CGuildTexture::~CGuildTexture()
 {
-	// DeleteDevicesObject();		// ÅØ½ºÃÄ µð¹ÙÀÌ½º »èÁ¦
+	// DeleteDevicesObject();		// í…ìŠ¤ì³ ë””ë°”ì´ìŠ¤ ì‚­ì œ
 	m_nMax = 0;
 	memset( m_Texture, 0, sizeof(m_Texture) );
-//	m_pTextures = NULL;		// ½ÃÀÛ À§Ä¡ ÁöÁ¤.
+//	m_pTextures = NULL;		// ì‹œìž‘ ìœ„ì¹˜ ì§€ì •.
 //	m_pFree = NULL;
 }
 
@@ -37,7 +37,7 @@ CGuildTexture::~CGuildTexture()
 LPDIRECT3DTEXTURE9 CGuildTexture::LoadGuildTexture( DWORD idGuild )
 {
 #ifndef _DEBUG
-	return NULL;		// Á¤¼·¿¡ ¿Ã¶ó°¥¶© °Á ³Î ¸®ÅÏ.
+	return NULL;		// ì •ì„­ì— ì˜¬ë¼ê°ˆë• ê± ë„ ë¦¬í„´.
 #endif
 	int	i;
 	GUILD_TEXTURE *pList = m_Texture, *pNode;
@@ -51,7 +51,7 @@ LPDIRECT3DTEXTURE9 CGuildTexture::LoadGuildTexture( DWORD idGuild )
 	{
 		pNode = pList++;
 		if( pNode->idGuild == 0 )	continue;
-		if( pNode->idGuild == idGuild )		// ÀÌ¹Ì ·ÎµùÇÑ°É ÀÐÀ¸·Á ÇÏ¸é 
+		if( pNode->idGuild == idGuild )		// ì´ë¯¸ ë¡œë”©í•œê±¸ ì½ìœ¼ë ¤ í•˜ë©´ 
 			return pNode->lpCloakTexture;
 	}
 
@@ -60,19 +60,19 @@ LPDIRECT3DTEXTURE9 CGuildTexture::LoadGuildTexture( DWORD idGuild )
 	{
 		pNode = pList++;
 		if( pNode->idGuild )		continue;
-		// idGuild °¡ 0ÀÎ°Í¸¸ ºñ¾îÀÖ´Â ³ëµå´Ù.
+		// idGuild ê°€ 0ì¸ê²ƒë§Œ ë¹„ì–´ìžˆëŠ” ë…¸ë“œë‹¤.
 		pNode->idGuild = idGuild;
 
-		// CT + ±æµå¹øÈ£ + .jpg ·Î ÅØ½ºÃÄ ÀÌ¸§ »ý¼º/·Îµù
+		// CT + ê¸¸ë“œë²ˆí˜¸ + .jpg ë¡œ í…ìŠ¤ì³ ì´ë¦„ ìƒì„±/ë¡œë”©
 		sprintf( szName, "CT%06d.jpg", idGuild );
 		pMtrl = g_TextureMng.AddMaterial( D3DDEVICE, &mMaterial, szName, DIR_LOGO );
 
 		pNode->lpCloakTexture = pMtrl->m_pTexture;
-		pNode->tmLoad = timeGetTime();			// ·ÎµùÇÑ ½Ã°£ ±â·Ï.
+		pNode->tmLoad = timeGetTime();			// ë¡œë”©í•œ ì‹œê°„ ê¸°ë¡.
 		return pNode->lpCloakTexture;
 	}
 
-	LPCTSTR szErr = Error( "CGuildTexture::LoadGuildTexture : ²ËÂù°æ¿ì »ý±è" );
+	LPCTSTR szErr = Error( "CGuildTexture::LoadGuildTexture : ê½‰ì°¬ê²½ìš° ìƒê¹€" );
 	ADDERRORMSG( szErr );
 
 	return NULL;
@@ -84,13 +84,13 @@ LPDIRECT3DTEXTURE9 CGuildTexture::LoadGuildTexture( DWORD idGuild )
 
 
 /*
-	. À¯Àú°¡ ¸ÁÅäÅØ½ºÃÄ jpg¸¦ È¨ÇÇ¿¡ µî·Ï.
-	. ÅØ½ºÃÄ¸¦ CTxxx.jpg ÇüÅÂ·Î º¯È¯ ÈÄ ¼Ò½º¼¼ÀÌÇÁ¿¡ ÁöÁ¤µÈ Æú´õ¿¡ µî·Ï.  - ÀÌÆÄÀÏµéÀº ³ªÁß¿¡ mergeµÈ´Ù.
-	. xxx´Â ±æµå¾ÆÀÌµð¿Í 1:1´ëÀÀµÈ´Ù ±æµå¾ÆÀÌµðÀÇ Àç»ç¿ëÀº ±ÝÁöµÈ´Ù.
-	. "CT" + ±æµå¾ÆÀÌµð + ".jpg"ÀÇ ÇüÅÂ·Î ÆÄÀÏÀÌ ·ÎµùµÈ´Ù.
-	. Á¤±âÀûÀ¸·Î DB¿¡¼­ ÇöÀç Á¸ÀçÇÏ´Â ±æµåÀÇ ¹øÈ£¸®½ºÆ®¸¦ ÅØ½ºÆ® ÆÄÀÏ·Î ¹Þ¾Æ¼­ ÀÌ¸¦ Åä´ë·Î ¾ø¾îÁø ±æµå´Â ÆÄÀÏµµ »èÁ¦½ÃÄÑÁØ´Ù.
-	. ±æµå ¸ÁÅä´Â ±æÀåÀÌ Á¦ÀÛÇÏ¸ç "Á¦ÀÛ"À» ÇÏ¸é µ·ÀÌ ÁöºÒµÇ°í ·Î°íÁ¤º¸°¡ µéÀº ¹ÎÂ¥¸ÁÅä°¡ ÀÎº¥¿¡ »ý¼º.
-	. ÀÌ ¸ÁÅä´Â Å¸ÀÎ¿¡°Ô ÁÙ¼öµµ ÀÖ´Ù. ±×·¯³ª ±æµå°¡ »èÁ¦µÇ¸é ¸ÁÅäµµ ¹ÎÂ¥¸ÁÅä·Î µ¹¾Æ¿Â´Ù.
+	. ìœ ì €ê°€ ë§í† í…ìŠ¤ì³ jpgë¥¼ í™ˆí”¼ì— ë“±ë¡.
+	. í…ìŠ¤ì³ë¥¼ CTxxx.jpg í˜•íƒœë¡œ ë³€í™˜ í›„ ì†ŒìŠ¤ì„¸ì´í”„ì— ì§€ì •ëœ í´ë”ì— ë“±ë¡.  - ì´íŒŒì¼ë“¤ì€ ë‚˜ì¤‘ì— mergeëœë‹¤.
+	. xxxëŠ” ê¸¸ë“œì•„ì´ë””ì™€ 1:1ëŒ€ì‘ëœë‹¤ ê¸¸ë“œì•„ì´ë””ì˜ ìž¬ì‚¬ìš©ì€ ê¸ˆì§€ëœë‹¤.
+	. "CT" + ê¸¸ë“œì•„ì´ë”” + ".jpg"ì˜ í˜•íƒœë¡œ íŒŒì¼ì´ ë¡œë”©ëœë‹¤.
+	. ì •ê¸°ì ìœ¼ë¡œ DBì—ì„œ í˜„ìž¬ ì¡´ìž¬í•˜ëŠ” ê¸¸ë“œì˜ ë²ˆí˜¸ë¦¬ìŠ¤íŠ¸ë¥¼ í…ìŠ¤íŠ¸ íŒŒì¼ë¡œ ë°›ì•„ì„œ ì´ë¥¼ í† ëŒ€ë¡œ ì—†ì–´ì§„ ê¸¸ë“œëŠ” íŒŒì¼ë„ ì‚­ì œì‹œì¼œì¤€ë‹¤.
+	. ê¸¸ë“œ ë§í† ëŠ” ê¸¸ìž¥ì´ ì œìž‘í•˜ë©° "ì œìž‘"ì„ í•˜ë©´ ëˆì´ ì§€ë¶ˆë˜ê³  ë¡œê³ ì •ë³´ê°€ ë“¤ì€ ë¯¼ì§œë§í† ê°€ ì¸ë²¤ì— ìƒì„±.
+	. ì´ ë§í† ëŠ” íƒ€ì¸ì—ê²Œ ì¤„ìˆ˜ë„ ìžˆë‹¤. ê·¸ëŸ¬ë‚˜ ê¸¸ë“œê°€ ì‚­ì œë˜ë©´ ë§í† ë„ ë¯¼ì§œë§í† ë¡œ ëŒì•„ì˜¨ë‹¤.
 
 */
 

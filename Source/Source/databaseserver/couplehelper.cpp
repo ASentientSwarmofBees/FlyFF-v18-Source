@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 13 // __COUPLE_1117
 
@@ -251,7 +251,7 @@ void CCoupleHelper::PostItem( u_long idPlayer, const COUPLE_ITEM& ci, int nLevel
 	pMail->m_pItemElem->m_nItemNum	= ci.nNum;
 	pMail->m_pItemElem->m_dwKeepTime	=	0;
 	if( ci.nLife > 0 )
-		pMail->m_pItemElem->m_dwKeepTime	= ::time_null() + ci.nLife * 60;	// ci.nLife(´ÜÀ§: ºÐ)
+		pMail->m_pItemElem->m_dwKeepTime	= ::time_null() + ci.nLife * 60;	// ci.nLife(ë‹¨ìœ„: ë¶„)
 	pMail->m_pItemElem->m_byFlag	= static_cast<BYTE>( ci.nFlags );
 	pMail->m_pItemElem->SetSerialNumber( xRand() );
 	post::Post( idPlayer, pMail, m_pController->GetQueryObject() );
@@ -299,11 +299,11 @@ void CCoupleHelper::OnPropose( CAr & ar, DPID dpid )
 			t	= 1;
 	}
 	if( nResult == 0 && m_pMgr->GetCouple( idProposer ) )
-		nResult		= TID_GAME_COUPLE_E06;	// Ä¿ÇÃÀÌ ¾Æ´Ñ Ä³¸¯ÅÍ¸¸ °¡´ÉÇÕ´Ï´Ù.
+		nResult		= TID_GAME_COUPLE_E06;	// ì»¤í”Œì´ ì•„ë‹Œ ìºë¦­í„°ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 	if( nResult == 0 && m_pMgr->GetCouple( idTarget ) )
-		nResult		= TID_GAME_COUPLE_E01;	// ´ë»óÀÌ ºÎÀûÇÕ ÇÕ´Ï´Ù. Ä¿ÇÃÀÌ ¾Æ´Ñ ÀÌ¼º Ä³¸¯ÅÍ¿¡°Ô¸¸ °¡´ÉÇÕ´Ï´Ù.
+		nResult		= TID_GAME_COUPLE_E01;	// ëŒ€ìƒì´ ë¶€ì í•© í•©ë‹ˆë‹¤. ì»¤í”Œì´ ì•„ë‹Œ ì´ì„± ìºë¦­í„°ì—ê²Œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 	if( nResult == 0 && !SetPropose( idProposer, time( NULL ) + 86400 ) )
-		nResult		= TID_GAME_COUPLE_E10;	// µ¥ÀÌÅÍº£ÀÌ½º ¿À·ùÀÔ´Ï´Ù.
+		nResult		= TID_GAME_COUPLE_E10;	// ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜ìž…ë‹ˆë‹¤.
 	CDPTrans::GetInstance()->SendProposeResult( idProposer, idTarget, nResult, t, dpid );
 }
 
@@ -314,11 +314,11 @@ void CCoupleHelper::OnCouple( CAr & ar )
 	ar >> idProposer >> idTarget;
 	election::OutputDebugString( "\nT: CCoupleHelper.OnCouple: %d, %d\n", idProposer, idTarget );
 	if( m_pMgr->GetCouple( idProposer ) )
-		nResult		= TID_GAME_COUPLE_E06;	// Ä¿ÇÃÀÌ ¾Æ´Ñ Ä³¸¯ÅÍ¸¸ °¡´ÉÇÕ´Ï´Ù.
+		nResult		= TID_GAME_COUPLE_E06;	// ì»¤í”Œì´ ì•„ë‹Œ ìºë¦­í„°ë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 	if( nResult == 0 && m_pMgr->GetCouple( idTarget ) )
-		nResult		= TID_GAME_COUPLE_E01;	// ´ë»óÀÌ ºÎÀûÇÕ ÇÕ´Ï´Ù. Ä¿ÇÃÀÌ ¾Æ´Ñ ÀÌ¼º Ä³¸¯ÅÍ¿¡°Ô¸¸ °¡´ÉÇÕ´Ï´Ù.
+		nResult		= TID_GAME_COUPLE_E01;	// ëŒ€ìƒì´ ë¶€ì í•© í•©ë‹ˆë‹¤. ì»¤í”Œì´ ì•„ë‹Œ ì´ì„± ìºë¦­í„°ì—ê²Œë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 	if( nResult == 0 && !m_pController->Couple( idProposer, idTarget ) )
-		nResult		= TID_GAME_COUPLE_E10;	// µ¥ÀÌÅÍº£ÀÌ½º ¿À·ùÀÔ´Ï´Ù.
+		nResult		= TID_GAME_COUPLE_E10;	// ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜ìž…ë‹ˆë‹¤.
 	if( nResult == 0 )
 		m_pMgr->Couple( idProposer, idTarget );
 	CDPTrans::GetInstance()->SendCoupleResult( idProposer, idTarget, nResult );
@@ -336,7 +336,7 @@ void CCoupleHelper::OnDecouple( CAr & ar )
 	if( !pCouple )
 		nResult		= TID_GAME_COUPLE_E05;
 	if( nResult == 0 && !m_pController->Decouple( idPlayer ) )
-		nResult		= TID_GAME_COUPLE_E10;	// µ¥ÀÌÅÍº£ÀÌ½º ¿À·ùÀÔ´Ï´Ù.
+		nResult		= TID_GAME_COUPLE_E10;	// ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜ìž…ë‹ˆë‹¤.
 	if( nResult == 0 && !m_pMgr->Decouple( idPlayer ) )
 		nResult		= TID_GAME_COUPLE_E11;
 	CDPTrans::GetInstance()->SendDecoupleResult( idPlayer, nResult );

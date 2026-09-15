@@ -1,4 +1,4 @@
-#ifndef __DPMONITORCLIENT_H__
+﻿#ifndef __DPMONITORCLIENT_H__
 #define	__DPMONITORCLIENT_H__
 
 #include "dpmng.h"

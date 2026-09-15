@@ -1,4 +1,4 @@
-#ifndef __COUPLEHELPER_H
+﻿#ifndef __COUPLEHELPER_H
 #define	__COUPLEHELPER_H
 
 #include "dbcontroller.h"

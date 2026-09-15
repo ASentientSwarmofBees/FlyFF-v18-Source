@@ -1,4 +1,4 @@
-#ifndef __WNDGUILD_TAB_INFO__H
+﻿#ifndef __WNDGUILD_TAB_INFO__H
 #define __WNDGUILD_TAB_INFO__H
 
 #include "WndGuildName.h"

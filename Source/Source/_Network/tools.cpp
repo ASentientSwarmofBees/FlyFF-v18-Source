@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "tools.h"
 #include <wincrypt.h>
 

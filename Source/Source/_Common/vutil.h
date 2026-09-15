@@ -1,4 +1,4 @@
-//-----------------------------------------------------------------------------
+ï»¿//-----------------------------------------------------------------------------
 // File: D3DUtil.h
 //
 // Desc: Helper functions and typing shortcuts for Direct3D programming.
@@ -25,7 +25,7 @@ BOOL IsMultiByte( const char* pSrc );
 BOOL IsHangul( WORD word );
 BOOL IsNative( LPCTSTR lpszStr );
 
-// ¸ğµç¾ğ¾îÀÇ ¹®ÀÚ°ü·Ã
+// ëª¨ë“ ì–¸ì–´ì˜ ë¬¸ìê´€ë ¨
 int GetStrCut( const CHAR* pSrc, CHAR* pDest, int nCount );
 int GetStrLen( const CHAR* pSrc );
 
@@ -91,9 +91,9 @@ void GetRayEnd( D3DXVECTOR3* pvPickRayOrig,D3DXVECTOR3* pvPickRayDir,D3DXVECTOR3
 
 //-----------------------------------------------------------------------------
 // Name: IntersectTriangle()
-// Desc: orig¿¡¼­ ½ğ d ±¤¼±ÀÌ v0,v1,v2 »ï°¢Çü ¾È¿¡ ¼ÓÇÏ´ÂÁö¸¦ È®ÀÎÇÏ°í,
-//       ¼ÓÇÏ°í ÀÖ´Ù¸é »ï°¢Çü°úÀÇ ±³Â÷Á¡À» pIntersect¿¡ µ¹·ÁÁØ´Ù.
-//       ¶ÇÇÑ »ï°¢Çü°úÀÇ °Å¸®¸¦ fDist¿¡ µ¹·ÁÁØ´Ù.
+// Desc: origì—ì„œ ìœ d ê´‘ì„ ì´ v0,v1,v2 ì‚¼ê°í˜• ì•ˆì— ì†í•˜ëŠ”ì§€ë¥¼ í™•ì¸í•˜ê³ ,
+//       ì†í•˜ê³  ìˆë‹¤ë©´ ì‚¼ê°í˜•ê³¼ì˜ êµì°¨ì ì„ pIntersectì— ëŒë ¤ì¤€ë‹¤.
+//       ë˜í•œ ì‚¼ê°í˜•ê³¼ì˜ ê±°ë¦¬ë¥¼ fDistì— ëŒë ¤ì¤€ë‹¤.
 //-----------------------------------------------------------------------------
 
 BOOL IntersectTriangle(D3DXVECTOR3& v0,D3DXVECTOR3& v1, D3DXVECTOR3& v2, const D3DXVECTOR3& orig,const D3DXVECTOR3& d, D3DXVECTOR3* pIntersect,FLOAT* pfDist );

@@ -1,4 +1,4 @@
-#ifndef __FLYFFEVENT_H__
+Ôªø#ifndef __FLYFFEVENT_H__
 #define	__FLYFFEVENT_H__
 
 #define	MAX_EVENT	1024
@@ -8,9 +8,9 @@ enum
 	EVE_0401A, EVE_18, ENABLE_GUILD_INVENTORY,
 	EVE_GUILDWAR,
 	EVE_SCHOOL, EVE_SCHOOL_BATTLE,
-	EVE_NOFLYMONSTER, // ∫Ò«‡ ∏ÛΩ∫≈Õ ¡¶∞≈ 
-	EVE_NODARKON, // ¥Ÿƒ‹ ¡¶∞≈ 
-	EVE_NOGUILD, // ±ÊµÂ ¡¶∞≈ 
+	EVE_NOFLYMONSTER, // ÎπÑÌñâ Î™¨Ïä§ÌÑ∞ Ï†úÍ±∞ 
+	EVE_NODARKON, // Îã§ÏΩò Ï†úÍ±∞ 
+	EVE_NOGUILD, // Í∏∏Îìú Ï†úÍ±∞ 
 	EVE_WORMON,
 	EVE_RESPAWN,
 	EVE_PK,
@@ -34,7 +34,7 @@ enum
 #ifdef __JEFF_11_4
 	EVE_ARENA, 
 #endif // __JEFF_11_4
-	EVE_SECRETROOM,	// 12¬˜ ∫Òπ–¿« πÊ
+	EVE_SECRETROOM,	// 12Ï∞® ÎπÑÎ∞ÄÏùò Î∞©
 	EVE_RAINBOWRACE,
 };
 

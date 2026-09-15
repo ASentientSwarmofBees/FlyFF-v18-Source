@@ -1,4 +1,4 @@
-#if __VER >= 12 // __SECRET_ROOM
+ï»¿#if __VER >= 12 // __SECRET_ROOM
 
 #ifndef __WNDGUILDSECRETROOM__H
 #define __WNDGUILDSECRETROOM__H
@@ -10,10 +10,10 @@
 class CWndSecretRoomSelection : public CWndNeuz
 {
 protected:	
-	multimap<int, CGuildMember*>	m_mapSelectPlayer;   // Á¤·ÄµÈ ±æµå¿ø ¸®½ºÆ®
+	multimap<int, CGuildMember*>	m_mapSelectPlayer;   // ì •ë ¬ëœ ê¸¸ë“œì› ë¦¬ìŠ¤íŠ¸
 
-	vector<u_long>					m_vecGuildList   ;   // ±æµå¿ø ¸®½ºÆ®
-	vector<u_long>					m_vecSelectPlayer;   // Âü°¡ÀÚ ¸®½ºÆ®
+	vector<u_long>					m_vecGuildList   ;   // ê¸¸ë“œì› ë¦¬ìŠ¤íŠ¸
+	vector<u_long>					m_vecSelectPlayer;   // ì°¸ê°€ì ë¦¬ìŠ¤íŠ¸
 	
 public: 
 	void Reset();

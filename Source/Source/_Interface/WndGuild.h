@@ -1,4 +1,4 @@
-#ifndef __WNDGUILD__H
+ï»¿#ifndef __WNDGUILD__H
 #define __WNDGUILD__H
 
 #include "WndGuildTabApp.h"
@@ -25,7 +25,7 @@ public:
 #if __VER >= 15 // __GUILD_HOUSE
 	CWndGuildTabPower m_WndGuildTabPower;
 
-	void SetCurTab( int index );		//¼±ÅÃµÈ ÅÇ º¯°æ 
+	void SetCurTab( int index );		//ì„ íƒëœ íƒ­ ë³€ê²½ 
 #endif
 
 	void UpdateDataAll();

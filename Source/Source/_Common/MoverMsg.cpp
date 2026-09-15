@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineSkill.h"
 #include "defineText.h"
 #ifdef __CLIENT
@@ -37,13 +37,13 @@ extern	CDPCoreClient	g_DPCoreClient;
 void	CMover::SetCmd( OBJACT cmd, int nParam1, int nParam2, int nParam3 )
 {
 	m_oaCmd = cmd;
-	m_nCParam[0] = nParam1;		// ¸í·É ÆÄ¶ó¸ŞÅÍ.
+	m_nCParam[0] = nParam1;		// ëª…ë ¹ íŒŒë¼ë©”í„°.
 	m_nCParam[1] = nParam2;
 	m_nCParam[2] = nParam3;
 }
 
 //
-// fRange = µµ´Ş¹üÀ§.  µğÆúÆ®´Â 0.0fÀº »ó´ë¹æÀÇ ¹İ°æ±îÁö ºÙ´Â°Å´Ù.
+// fRange = ë„ë‹¬ë²”ìœ„.  ë””í´íŠ¸ëŠ” 0.0fì€ ìƒëŒ€ë°©ì˜ ë°˜ê²½ê¹Œì§€ ë¶™ëŠ”ê±°ë‹¤.
 void CMover::SetDestObj( OBJID objid, float fRange, BOOL bSend )
 {
 #ifdef __WORLDSERVER
@@ -57,7 +57,7 @@ void CMover::SetDestObj( OBJID objid, float fRange, BOOL bSend )
 		if( pTarget )
 		{
 			if( pTarget->IsPlayer( ) )
-				g_DPlay.SendPlayerBehavior();	// »õ·Î¿î Obj·Î ÀÌµ¿ÇÒ°æ¿ì µ¿±âÈ­ ÇÑ¹ø ¸ÂÃçÁÖ°í....
+				g_DPlay.SendPlayerBehavior();	// ìƒˆë¡œìš´ Objë¡œ ì´ë™í• ê²½ìš° ë™ê¸°í™” í•œë²ˆ ë§ì¶°ì£¼ê³ ....
 		}
 #endif
 		g_DPlay.SendPlayerDestObj( objid, fRange );
@@ -70,13 +70,13 @@ void CMover::SetDestObj( OBJID objid, float fRange, BOOL bSend )
 	ClearDestPos();
 
 #ifdef __WORLDSERVER
-	// ¼­¹ö¿¡¼­ SetDestObj¸¦ ½ÇÇàÇÏ¸é Å¬¶óµé¿¡°Ô º¸³»ÁÖ´Â°Ô ¾ø¾î¼­ ÀÌ°É ³ÖÀ½.
+	// ì„œë²„ì—ì„œ SetDestObjë¥¼ ì‹¤í–‰í•˜ë©´ í´ë¼ë“¤ì—ê²Œ ë³´ë‚´ì£¼ëŠ”ê²Œ ì—†ì–´ì„œ ì´ê±¸ ë„£ìŒ.
 	if( bSend )
 		g_UserMng.AddMoverSetDestObj( this, objid, fRange, FALSE );
 #endif	// __WORLDSERVER
 
 #ifdef __CLIENT
-	m_oaCmd = OBJACT_NONE;		// CMD_ ½Ã¸®Áî¸¦ °ÅÄ¡Áö ¾Ê°í ÀÌ°Í¸¸ È£ÃâµÇ´Â °æ¿ì´Â Cmd¸¦ ÇØÁ¦½ÃÅ°ÀÚ.
+	m_oaCmd = OBJACT_NONE;		// CMD_ ì‹œë¦¬ì¦ˆë¥¼ ê±°ì¹˜ì§€ ì•Šê³  ì´ê²ƒë§Œ í˜¸ì¶œë˜ëŠ” ê²½ìš°ëŠ” Cmdë¥¼ í•´ì œì‹œí‚¤ì.
 #endif // Client
 
 //	if( IsPlayer() )
@@ -110,16 +110,16 @@ void CMover::SetDestPos( const D3DXVECTOR3 & vDestPos, bool bForward, BOOL fTran
 #endif
 }
 
-// IA¿ÀºêÁ§Æ® À§·Î ÀÌµ¿Å¬¸¯À» ÇßÀ»¶§....
+// IAì˜¤ë¸Œì íŠ¸ ìœ„ë¡œ ì´ë™í´ë¦­ì„ í–ˆì„ë•Œ....
 #ifdef __IAOBJ0622
 void CMover::SetDestPos( CShip *pIAObj, const D3DXVECTOR3 &vDestPos )
 {
 	m_pIADestPos = pIAObj;
 	
 	D3DXMATRIX mTrans, mInvIA, mLocal;
-	D3DXMatrixTranslation( &mTrans, vDestPos.x, vDestPos.y, vDestPos.z );		// ¿ùµåÁÂÇ¥¸¦ ¸ÅÆ®¸¯½º·Î º¯È¯
-	D3DXMatrixInverse( &mInvIA, NULL, pIAObj->GetMatrixWorldPtr() );			// IAObjÀÇ ¿ªÇà·Ä.
-	D3DXMatrixMultiply( &mLocal, &mTrans, GetIAObjLink()->GetInvTM() );	// IA¿ÀºêÁ§Æ®·ÎºÎÅÍÀÇ ·ÎÄÃ Çà·Ä.
+	D3DXMatrixTranslation( &mTrans, vDestPos.x, vDestPos.y, vDestPos.z );		// ì›”ë“œì¢Œí‘œë¥¼ ë§¤íŠ¸ë¦­ìŠ¤ë¡œ ë³€í™˜
+	D3DXMatrixInverse( &mInvIA, NULL, pIAObj->GetMatrixWorldPtr() );			// IAObjì˜ ì—­í–‰ë ¬.
+	D3DXMatrixMultiply( &mLocal, &mTrans, GetIAObjLink()->GetInvTM() );	// IAì˜¤ë¸Œì íŠ¸ë¡œë¶€í„°ì˜ ë¡œì»¬ í–‰ë ¬.
 
 	D3DXVECTOR3 vLocal;
 	vLocal.x = mLocal._41;
@@ -148,38 +148,38 @@ FLOAT	CMover::GetAttackRange( DWORD dwAttackRange )
 	case AR_RANGE:	fAttRange = 10.0f;		break;
 	case AR_WAND:	fAttRange = 15.0f;		break;
 	case AR_HRANGE: fAttRange = 6.0f;	break;
-#if __VER >= 10 // __LEGEND		//10Â÷ Àü½Â ¸¶½ºÅÍ½ºÅ³
+#if __VER >= 10 // __LEGEND		//10ì°¨ ì „ìŠ¹ ë§ˆìŠ¤í„°ìŠ¤í‚¬
 	case AR_HWAND:	fAttRange = 18.0f;		break;
-#endif //__LEGEND		//10Â÷ Àü½Â ¸¶½ºÅÍ½ºÅ³
+#endif //__LEGEND		//10ì°¨ ì „ìŠ¹ ë§ˆìŠ¤í„°ìŠ¤í‚¬
 	default:		fAttRange = 0.0f;		break;
 	}
-#if __VER >= 10 // __LEGEND		//10Â÷ Àü½Â ¸¶½ºÅÍ½ºÅ³
+#if __VER >= 10 // __LEGEND		//10ì°¨ ì „ìŠ¹ ë§ˆìŠ¤í„°ìŠ¤í‚¬
 	int  nTmpATR = GetParam( DST_HAWKEYE_RATE, 0 );
 	if( nTmpATR > 0 )
 	{
 		nTmpATR += 100;
 		fAttRange =  fAttRange * nTmpATR / 100;
 	}
-#endif //__LEGEND		//10Â÷ Àü½Â ¸¶½ºÅÍ½ºÅ³
+#endif //__LEGEND		//10ì°¨ ì „ìŠ¹ ë§ˆìŠ¤í„°ìŠ¤í‚¬
 
 	return fAttRange;
 }
 
 //
-// ¿ÜºÎ¿¡¼­ UseSkillÀ» ¸í·ÉÇÒ¶© ÀÌ°ÍÀ¸·Î È£ÃâÇÏÀÚ.
-// sutType : ½ºÅ³À» »ç¿ëÇÒ¶§ ½ºÅ³Å¥¿¡¼­ ¿¬Å¸·Î »ç¿ëÇÑ°Ç°¡ ÀÏ¹İÀûÀÎ »ç¿ëÀ» ÇÑ°Ç°¡.c
+// ì™¸ë¶€ì—ì„œ UseSkillì„ ëª…ë ¹í• ë• ì´ê²ƒìœ¼ë¡œ í˜¸ì¶œí•˜ì.
+// sutType : ìŠ¤í‚¬ì„ ì‚¬ìš©í• ë•Œ ìŠ¤í‚¬íì—ì„œ ì—°íƒ€ë¡œ ì‚¬ìš©í•œê±´ê°€ ì¼ë°˜ì ì¸ ì‚¬ìš©ì„ í•œê±´ê°€.c
 //
 int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType )
 {
 	m_oaCmd = OBJACT_NONE;
 	TRACE( "CMD_SetUseSkill( " );
-	if( m_pActMover->IsFly() )	return 0;				// ºñÇàÁß¿£ ½ºÅ³»ç¿ë ±İÁö.
+	if( m_pActMover->IsFly() )	return 0;				// ë¹„í–‰ì¤‘ì—” ìŠ¤í‚¬ì‚¬ìš© ê¸ˆì§€.
 	if( m_pActMover->IsActAttack() )	return 0;
-	if( m_pActMover->IsActJump() )	return 0;			// Á¡ÇÁÁß¿£ »ç¿ë±İÁö.
-	if( m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL )		return 0;	// µ¥¹ÌÁö ÇÃ¶óÀÌÁß¿£ ½ºÅ³»ç¿ë±İÁö.
-	if( IsDie() )	return 0;		// Á×¾úÀ»¶§ »ç¿ë±İÁö.
+	if( m_pActMover->IsActJump() )	return 0;			// ì í”„ì¤‘ì—” ì‚¬ìš©ê¸ˆì§€.
+	if( m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL )		return 0;	// ë°ë¯¸ì§€ í”Œë¼ì´ì¤‘ì—” ìŠ¤í‚¬ì‚¬ìš©ê¸ˆì§€.
+	if( IsDie() )	return 0;		// ì£½ì—ˆì„ë•Œ ì‚¬ìš©ê¸ˆì§€.
 
-	LPSKILL pSkill	= GetSkill( 0, nSkillIdx );		// this°¡ °¡Áø ½ºÅ³Áß nIdx¿¡ ÇØ´çÇÏ´Â ½ºÅ³À» ²¨³½´Ù.
+	LPSKILL pSkill	= GetSkill( 0, nSkillIdx );		// thisê°€ ê°€ì§„ ìŠ¤í‚¬ì¤‘ nIdxì— í•´ë‹¹í•˜ëŠ” ìŠ¤í‚¬ì„ êº¼ë‚¸ë‹¤.
 	if( pSkill == NULL )
 	{
 		Error( "CMD_SetUseSkill : %s skill(%d) not found", m_szName, nSkillIdx );
@@ -187,13 +187,13 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 	}
 
 	ItemProp* pSkillProp = pSkill->GetProp();
-	if( pSkillProp == NULL )		// JobSkill ¸®½ºÆ®¿¡¼­ ²¨³½ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³¿.
+	if( pSkillProp == NULL )		// JobSkill ë¦¬ìŠ¤íŠ¸ì—ì„œ êº¼ë‚¸ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹°ë¥¼ êº¼ëƒ„.
 	{
 		Error( "CMD_SetUseSkill : %s. skill(%d) property not found", m_szName, pSkill->dwSkill );
 		return 0;	// 
 	}
 	
-	if( IsPlayer() && IsStateMode( STATE_BASEMOTION_MODE ) )	// ½ÃÀüÁß(ÁØºñ½Ã°£)ÀÏ¶© »ç¿ë±İÁö.
+	if( IsPlayer() && IsStateMode( STATE_BASEMOTION_MODE ) )	// ì‹œì „ì¤‘(ì¤€ë¹„ì‹œê°„)ì¼ë• ì‚¬ìš©ê¸ˆì§€.
 	{
 	#ifdef __CLIENT
 		g_DPlay.SendStateModeCancel( STATE_BASEMOTION_MODE, STATEMODE_BASEMOTION_CANCEL );
@@ -201,16 +201,16 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 		return 0;		
 	}
 
-	// µµ´Ş¹üÀ§ - ¾ó¸¶³ª °¡±îÀÌ ±ÙÁ¢ÇØ¾ßÇÏ´Â°¡. ¹ÌÅÍ´ÜÀ§
+	// ë„ë‹¬ë²”ìœ„ - ì–¼ë§ˆë‚˜ ê°€ê¹Œì´ ê·¼ì ‘í•´ì•¼í•˜ëŠ”ê°€. ë¯¸í„°ë‹¨ìœ„
 	float	fArrivalRange = 0.0f;		
 	fArrivalRange = GetAttackRange( pSkillProp->dwAttackRange );
 	
 	switch( pSkillProp->dwUseChance )
 	{
-	case WUI_NOW:	// Å¸°ÙÆÃ°ú »ó°ü¾øÀÌ ÀÚ±âÀÚ½Å¿¡°Ô ¾²´Â ¹æ½Ä.
+	case WUI_NOW:	// íƒ€ê²ŸíŒ…ê³¼ ìƒê´€ì—†ì´ ìê¸°ìì‹ ì—ê²Œ ì“°ëŠ” ë°©ì‹.
 		idTarget = GetId();
 		break;
-	case WUI_TARGETINGOBJ:	// ¼¿·ºÆ® µÇ¾î ÀÖ´Â Å¸°Ù¿¡°Ô »ç¿ë.
+	case WUI_TARGETINGOBJ:	// ì…€ë ‰íŠ¸ ë˜ì–´ ìˆëŠ” íƒ€ê²Ÿì—ê²Œ ì‚¬ìš©.
 		{
 #ifdef __CLIENT
 		CObj *pFocusObj = GetWorld()->GetObjFocus();
@@ -239,13 +239,13 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 			if( GetWorld()->ClientPointToVector( NULL, rect, pWndWorld->GetMousePoint(), &GetWorld()->m_matProj, &GetWorld()->GetCamera()->m_matView, &vPos, TRUE ) )
 			{
 #ifdef __SKILL0517
-				AddSkillProp* pAddSkillProp = prj.GetAddSkillProp( pSkillProp->dwSubDefine, GetSkillLevel( pSkill ) );		// UseSkill¿¡¼­ »ç¿ëÇÑ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
+				AddSkillProp* pAddSkillProp = prj.GetAddSkillProp( pSkillProp->dwSubDefine, GetSkillLevel( pSkill ) );		// UseSkillì—ì„œ ì‚¬ìš©í•œ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
 #else	// __SKILL0517
-				AddSkillProp* pAddSkillProp = prj.GetAddSkillProp( pSkillProp->dwSubDefine, pSkill->dwLevel );		// UseSkill¿¡¼­ »ç¿ëÇÑ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
+				AddSkillProp* pAddSkillProp = prj.GetAddSkillProp( pSkillProp->dwSubDefine, pSkill->dwLevel );		// UseSkillì—ì„œ ì‚¬ìš©í•œ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
 #endif	// __SKILL0517
 				if( pAddSkillProp == NULL )
 				{
-					Error( "CMover::OnMagicSkill : %s. add½ºÅ³(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾ø´Ù.", m_szName, nSkillIdx );
+					Error( "CMover::OnMagicSkill : %s. addìŠ¤í‚¬(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—†ë‹¤.", m_szName, nSkillIdx );
 					return 0;	// property not found
 				}
 				
@@ -257,9 +257,9 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 				vDist = vPos - GetPos();
 				fDist = D3DXVec3LengthSq( &vDist );	
 
-				SetAngle( GetDegree(vPos, GetPos()) );		// ¸ñÇ¥ÂÊÀ¸·Î ¸öÀ» µ¹¸².
+				SetAngle( GetDegree(vPos, GetPos()) );		// ëª©í‘œìª½ìœ¼ë¡œ ëª¸ì„ ëŒë¦¼.
 				
-				// ÅÚ·¹Æ÷Æ® ÇÒ À§Ä¡°¡ ¸Ö°æ¿ì ÇöÁ¦ ½ºÅ³¿¡ ÇØ´çÇÏ´Â °Å¸®·Î ¹Ù²ãÁØ´Ù
+				// í…”ë ˆí¬íŠ¸ í•  ìœ„ì¹˜ê°€ ë©€ê²½ìš° í˜„ì œ ìŠ¤í‚¬ì— í•´ë‹¹í•˜ëŠ” ê±°ë¦¬ë¡œ ë°”ê¿”ì¤€ë‹¤
 				if( fDist > fMaxDistSq )
 				{
 					FLOAT fLength;
@@ -270,7 +270,7 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 					vPos = GetPos() + (vDirNor * fLength);
 					vPos.y	= y;
 
-					// ½ºÅ³¿¡ ÇØ´çÇÏ´Â °Å¸®·Î ¹Ù²Û°÷ÀÌ ¸ø°¡´Â Áö¿ªÀÌ¶ó¸é °¥¼ö ÀÖ´Â Áö¿ªÀ» °Ë»çÇÑ´Ù.
+					// ìŠ¤í‚¬ì— í•´ë‹¹í•˜ëŠ” ê±°ë¦¬ë¡œ ë°”ê¾¼ê³³ì´ ëª»ê°€ëŠ” ì§€ì—­ì´ë¼ë©´ ê°ˆìˆ˜ ìˆëŠ” ì§€ì—­ì„ ê²€ì‚¬í•œë‹¤.
 					int nAttr = GetWorld()->GetHeightAttribute( vPos.x, vPos.z );
 
 					if( nAttr != HATTR_NONE ) 
@@ -280,12 +280,12 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 							if( nAttr == HATTR_NOFLY )
 								break;
 							
-							fLength -= 1.0f; // 1¹ÌÅÍ¾¿ ÁÙ¿©°¡¸ç °è»êÇÑ´Ù.
+							fLength -= 1.0f; // 1ë¯¸í„°ì”© ì¤„ì—¬ê°€ë©° ê³„ì‚°í•œë‹¤.
 							vPos  = GetPos() + (vDirNor * fLength);
 							nAttr = GetWorld()->GetHeightAttribute( vPos.x, vPos.z );
 
-							// Ä³¸¯ÅÍÀÇ ¾Õ µÚ·Î ÀÌµ¿ºÒ°¡ ÀÏ °æ¿ì µŞÂÊÀÌ ÀÌµ¿ºÒ°¡ ÇØÁ¦ µÉ¶§ ±îÁö °è¼Ó °è»êÇÏ¿© ÀÌµ¿½ÃÅ´
-							// ±×·¯¹Ç·Î ÅÚ·¹Æ÷Æ® ½ºÅ³ ¹üÀ§¸¦ ³Ñ¾î¼³ °æ¿ì ¿ø·¡ ÀÚ¸®·Î ÅÚ·¹Æ÷Æ® ÇÏµµ·Ï Ã³¸®
+							// ìºë¦­í„°ì˜ ì• ë’¤ë¡œ ì´ë™ë¶ˆê°€ ì¼ ê²½ìš° ë’·ìª½ì´ ì´ë™ë¶ˆê°€ í•´ì œ ë ë•Œ ê¹Œì§€ ê³„ì† ê³„ì‚°í•˜ì—¬ ì´ë™ì‹œí‚´
+							// ê·¸ëŸ¬ë¯€ë¡œ í…”ë ˆí¬íŠ¸ ìŠ¤í‚¬ ë²”ìœ„ë¥¼ ë„˜ì–´ì„¤ ê²½ìš° ì›ë˜ ìë¦¬ë¡œ í…”ë ˆí¬íŠ¸ í•˜ë„ë¡ ì²˜ë¦¬
 							D3DXVECTOR3 vTemp = vPos - GetPos();
 							float fTemp = D3DXVec3LengthSq( &vTemp );
 							if(fTemp > fMaxDistSq)
@@ -295,11 +295,11 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 							}
 						}
 						
-						// ÇÑ¹ø´õ ÁÙ¿©ÁÜ
+						// í•œë²ˆë” ì¤„ì—¬ì¤Œ
 						fLength -= 1.0f; 
 						vPos = GetPos() + (vDirNor * fLength);
 
-						// ÁÙÀÎ °÷ÀÌ ÀÌµ¿ºÒ°¡ Áö¿ªÀÏ ¼ö ÀÖ´Ù.
+						// ì¤„ì¸ ê³³ì´ ì´ë™ë¶ˆê°€ ì§€ì—­ì¼ ìˆ˜ ìˆë‹¤.
 						nAttr = GetWorld()->GetHeightAttribute( vPos.x, vPos.z );
 						if( nAttr != HATTR_NONE )
 						{
@@ -307,7 +307,7 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 						}
 					}
 				}
-				else // ÅÚ·¹Æ÷Æ® ÇÒ À§Ä¡°¡ ÇØ´ç½ºÅ³ °Å¸®º¸´Ù ÀÛÀ»°æ¿ì
+				else // í…”ë ˆí¬íŠ¸ í•  ìœ„ì¹˜ê°€ í•´ë‹¹ìŠ¤í‚¬ ê±°ë¦¬ë³´ë‹¤ ì‘ì„ê²½ìš°
 				{
 					int nAttr = GetWorld()->GetHeightAttribute( vPos.x, vPos.z );
 
@@ -326,8 +326,8 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 						
 						nAttr = GetWorld()->GetHeightAttribute( vPos.x, vPos.z );
 
-						// Ä³¸¯ÅÍÀÇ ¾Õ µÚ·Î ÀÌµ¿ºÒ°¡ ÀÏ °æ¿ì µŞÂÊÀÌ ÀÌµ¿ºÒ°¡ ÇØÁ¦ µÉ¶§ ±îÁö °è¼Ó °è»êÇÏ¿© ÀÌµ¿½ÃÅ´
-						// ±×·¯¹Ç·Î ÅÚ·¹Æ÷Æ® ½ºÅ³ ¹üÀ§¸¦ ³Ñ¾î¼³ °æ¿ì ¿ø·¡ ÀÚ¸®·Î ÅÚ·¹Æ÷Æ® ÇÏµµ·Ï Ã³¸®
+						// ìºë¦­í„°ì˜ ì• ë’¤ë¡œ ì´ë™ë¶ˆê°€ ì¼ ê²½ìš° ë’·ìª½ì´ ì´ë™ë¶ˆê°€ í•´ì œ ë ë•Œ ê¹Œì§€ ê³„ì† ê³„ì‚°í•˜ì—¬ ì´ë™ì‹œí‚´
+						// ê·¸ëŸ¬ë¯€ë¡œ í…”ë ˆí¬íŠ¸ ìŠ¤í‚¬ ë²”ìœ„ë¥¼ ë„˜ì–´ì„¤ ê²½ìš° ì›ë˜ ìë¦¬ë¡œ í…”ë ˆí¬íŠ¸ í•˜ë„ë¡ ì²˜ë¦¬
 						D3DXVECTOR3 vTemp = vPos - GetPos();
 						float fTemp = D3DXVec3LengthSq( &vTemp );
 						if(fTemp > fMaxDistSq)
@@ -338,12 +338,12 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 					}
 				}
 
-				if( IsActiveMover() && g_eLocal.GetState( EVE_SCHOOL ) )	// ÇĞ±³ÀÌº¥¼·ÀÌ¸é.
+				if( IsActiveMover() && g_eLocal.GetState( EVE_SCHOOL ) )	// í•™êµì´ë²¤ì„­ì´ë©´.
 				{
 					D3DXVECTOR3 v1, v2;
 					v1 = GetPos();	v1.y += 0.1f;
 					v2 = vPos;		v2.y += 0.1f;
-					if( GetWorld()->IntersectObjLine( NULL, v1, v2, FALSE, FALSE ) )	// ÅÚ·¹Æ÷Æ®´Â ¶óÀÎÃ¼Å©ÇÔ.
+					if( GetWorld()->IntersectObjLine( NULL, v1, v2, FALSE, FALSE ) )	// í…”ë ˆí¬íŠ¸ëŠ” ë¼ì¸ì²´í¬í•¨.
 					{
 						g_WndMng.PutString( prj.GetText(TID_GAME_NOMOVING), NULL, prj.GetTextColor(TID_GAME_NOMOVING) );
 						g_WndMng.m_pWndWorld->SetNextSkill( NEXTSKILL_NONE );
@@ -364,59 +364,59 @@ int	CMover::CMD_SetUseSkill( OBJID idTarget, int nSkillIdx, SKILLUSETYPE sutType
 #endif // __CLIENT
 	}
 
-	// Å¸ÀÎ¿¡°Ô ¾²´Â°æ¿ì¿¡¸¸ °Ë»ç...
+	// íƒ€ì¸ì—ê²Œ ì“°ëŠ”ê²½ìš°ì—ë§Œ ê²€ì‚¬...
 	if( idTarget != GetId() )		
 	{
 		CMover *pTarget = prj.GetMover( idTarget );
 		if( IsValidObj(pTarget) )
 		{
-			if( pSkillProp->nEvildoing < 0 )	// ³ª»Û ½ºÅ³Àº 
-				if( IsAttackAble(pTarget) == FALSE )	// °ø°İÇã¿ëÀÌ µÇÁö ¾ÊÀ¸¸é »ç¿ëÇÒ ¼ö ¾øÀ½.
+			if( pSkillProp->nEvildoing < 0 )	// ë‚˜ìœ ìŠ¤í‚¬ì€ 
+				if( IsAttackAble(pTarget) == FALSE )	// ê³µê²©í—ˆìš©ì´ ë˜ì§€ ì•Šìœ¼ë©´ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ.
 					return 0;
 				
-			if( pSkill->dwSkill == SI_ASS_HEAL_RESURRECTION )	// ºÎÈ°À» »ç¿ëÇßÀ»¶§
+			if( pSkill->dwSkill == SI_ASS_HEAL_RESURRECTION )	// ë¶€í™œì„ ì‚¬ìš©í–ˆì„ë•Œ
 			{
-				if( pTarget->IsNPC() || pTarget->IsDie() == FALSE )		// »ó´ë°¡ NPC°Å³ª »ó´ë°¡ Á×¾îÀÖÁö ¾Ê´Ù¸é Ãë¼Ò
+				if( pTarget->IsNPC() || pTarget->IsDie() == FALSE )		// ìƒëŒ€ê°€ NPCê±°ë‚˜ ìƒëŒ€ê°€ ì£½ì–´ìˆì§€ ì•Šë‹¤ë©´ ì·¨ì†Œ
 					return 0;
 			} else
 			{
-				if( pTarget->IsDie() )		// ºÎÈ°ÀÌ ¾Æ´Ñ ½ºÅ³À» »ç¿ëÇßÀ»¶§ »ó´ë°¡ Á×¾îÀÖÀ¸¸é »ç¿ë¾ÈµÊ.
+				if( pTarget->IsDie() )		// ë¶€í™œì´ ì•„ë‹Œ ìŠ¤í‚¬ì„ ì‚¬ìš©í–ˆì„ë•Œ ìƒëŒ€ê°€ ì£½ì–´ìˆìœ¼ë©´ ì‚¬ìš©ì•ˆë¨.
 					return 0;
 			}
 		}
 	}
 
-	// Å¸°Ù ±ÙÁ¢ ¹æ½Ä.
+	// íƒ€ê²Ÿ ê·¼ì ‘ ë°©ì‹.
 	switch( pSkillProp->dwExeTarget )
 	{
-	case EXT_SELFCHGPARAMET:	// ½ÃÀüÀÚ ÀÚ½Å¿¡°Ô »ç¿ëÇÏ´Â Á¾·ù
-		idTarget = GetId();		// Å¸°ÙÀ» ÀÚ±âÀÚ½ÅÀ¸·Î ¼³Á¤.
-		SetDestObj( idTarget, fArrivalRange, TRUE );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤. << ÀÌ°Ô ¿Ö ÇÊ¿äÇÏÁö? ¤Ñ.¤Ñ?
+	case EXT_SELFCHGPARAMET:	// ì‹œì „ì ìì‹ ì—ê²Œ ì‚¬ìš©í•˜ëŠ” ì¢…ë¥˜
+		idTarget = GetId();		// íƒ€ê²Ÿì„ ìê¸°ìì‹ ìœ¼ë¡œ ì„¤ì •.
+		SetDestObj( idTarget, fArrivalRange, TRUE );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •. << ì´ê²Œ ì™œ í•„ìš”í•˜ì§€? ã…¡.ã…¡?
 		break;
 	case EXT_MAGICATKSHOT:
-	case EXT_MAGICATK:			// ¿ø°Å¸®¿¡¼­ ¸¶¹ıÀ¸·Î Å¸°ÙÀ» °ø°İ
+	case EXT_MAGICATK:			// ì›ê±°ë¦¬ì—ì„œ ë§ˆë²•ìœ¼ë¡œ íƒ€ê²Ÿì„ ê³µê²©
 	case EXT_MAGICSHOT:
-		if( idTarget == NULL_ID )	return 0;			// Å¸°ÙÀÌ ¾ø°Å³ª À¯È¿ÇÏÁö ¾ÊÀ¸¸é ½ÇÆĞ.
-		SetDestObj( idTarget, fArrivalRange, TRUE );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤. ´Ù°¡°¡´Â ¹üÀ§´Â fArrivalRange°ªÀ¸·Î..
+		if( idTarget == NULL_ID )	return 0;			// íƒ€ê²Ÿì´ ì—†ê±°ë‚˜ ìœ íš¨í•˜ì§€ ì•Šìœ¼ë©´ ì‹¤íŒ¨.
+		SetDestObj( idTarget, fArrivalRange, TRUE );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •. ë‹¤ê°€ê°€ëŠ” ë²”ìœ„ëŠ” fArrivalRangeê°’ìœ¼ë¡œ..
 		break;
-	case EXT_ANOTHERWITH:		// ³ª È¤Àº ´Ù¸¥»ç¶÷¿¡°Ô ½ÃÀü
-		if( idTarget == NULL_ID )	// Å¸°ÙÀÌ ÀâÇôÀÖÁö ¾ÊÀ¸¸é
-			idTarget = GetId();		// ÀÚ½ÅÀ» Å¸°ÙÀ¸·Î ÀâÀ½
-		SetDestObj( idTarget, fArrivalRange, TRUE );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤.
+	case EXT_ANOTHERWITH:		// ë‚˜ í˜¹ì€ ë‹¤ë¥¸ì‚¬ëŒì—ê²Œ ì‹œì „
+		if( idTarget == NULL_ID )	// íƒ€ê²Ÿì´ ì¡í˜€ìˆì§€ ì•Šìœ¼ë©´
+			idTarget = GetId();		// ìì‹ ì„ íƒ€ê²Ÿìœ¼ë¡œ ì¡ìŒ
+		SetDestObj( idTarget, fArrivalRange, TRUE );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •.
 		break;
-	case EXT_AROUNDATK:			// ³» ÁÖÀ§ÀûµéÀ» ´ë»ó.
-		idTarget = GetId();		// Å¸°ÙÀ» ÀÚ±âÀÚ½ÅÀ¸·Î ¼³Á¤.
-		SetDestObj( idTarget, fArrivalRange, TRUE );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤.
+	case EXT_AROUNDATK:			// ë‚´ ì£¼ìœ„ì ë“¤ì„ ëŒ€ìƒ.
+		idTarget = GetId();		// íƒ€ê²Ÿì„ ìê¸°ìì‹ ìœ¼ë¡œ ì„¤ì •.
+		SetDestObj( idTarget, fArrivalRange, TRUE );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •.
 		break;
-	case EXT_OBJCHGPARAMET:		// Å¸ÀÎ¿¡°Ô »ç¿ë
-	default:	// ±×¿Ü´Â ¸ğµÎ ±ÙÁ¢ÇÏÀÚ.
-		if( idTarget == NULL_ID )	return 0;			// Å¸°ÙÀÌ ¾ø°Å³ª À¯È¿ÇÏÁö ¾ÊÀ¸¸é ½ÇÆĞ.
-		SetDestObj( idTarget, fArrivalRange, TRUE );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤.
+	case EXT_OBJCHGPARAMET:		// íƒ€ì¸ì—ê²Œ ì‚¬ìš©
+	default:	// ê·¸ì™¸ëŠ” ëª¨ë‘ ê·¼ì ‘í•˜ì.
+		if( idTarget == NULL_ID )	return 0;			// íƒ€ê²Ÿì´ ì—†ê±°ë‚˜ ìœ íš¨í•˜ì§€ ì•Šìœ¼ë©´ ì‹¤íŒ¨.
+		SetDestObj( idTarget, fArrivalRange, TRUE );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •.
 		break;
 	}
 	
 	ClearActParam();
-	SetCmd( OBJACT_USESKILL, nSkillIdx, idTarget, sutType );		// »çÁ¤°Å¸®°¡ µÇ¾úÀ»¶§ ½ÇÇàÇÒ ¸í·É ¼ÂÆÃ.
+	SetCmd( OBJACT_USESKILL, nSkillIdx, idTarget, sutType );		// ì‚¬ì •ê±°ë¦¬ê°€ ë˜ì—ˆì„ë•Œ ì‹¤í–‰í•  ëª…ë ¹ ì…‹íŒ….
 	TRACE( "\n)CMD_SetUseSkill\n" );
 
 	return 1;
@@ -427,28 +427,28 @@ class CWndWorld;
 void	CMover::CMD_SetMeleeAttack( OBJID idTarget, FLOAT fRange )
 {
 	ItemProp *pProp = GetActiveHandItemProp();
-	if( pProp->dwItemKind2 == IK2_TOOLS )			// ÅøÀ» µé°í¼± °ø°İ¸øÇÑ´Ù,.
+	if( pProp->dwItemKind2 == IK2_TOOLS )			// íˆ´ì„ ë“¤ê³ ì„  ê³µê²©ëª»í•œë‹¤,.
 		return;
 
 	if( m_pActMover->IsActAttack() )	
 		return;
 	if( IsDie() )	
-		return;										// Á×¾úÀ»¶§ »ç¿ë±İÁö.
+		return;										// ì£½ì—ˆì„ë•Œ ì‚¬ìš©ê¸ˆì§€.
 
-	// ¿ä¿ä´Â ¹Ğ¸®¾îÅÃÀÌ±ä ÇÏ³ª ¾à°£ °Å¸®¸¦ µÎ°í °ø°İÇÑ´Ù.( ÇÁ·ÎÆÛÆ¼ ÂüÁ¶ÇÔ )
+	// ìš”ìš”ëŠ” ë°€ë¦¬ì–´íƒì´ê¸´ í•˜ë‚˜ ì•½ê°„ ê±°ë¦¬ë¥¼ ë‘ê³  ê³µê²©í•œë‹¤.( í”„ë¡œí¼í‹° ì°¸ì¡°í•¨ )
 	if( pProp->dwItemKind3 == IK3_YOYO )
 		fRange = GetAttackRange( pProp->dwAttackRange );
 	
 #ifdef __CLIENT
 	ClearActParam();
-	SetDestObj( idTarget, fRange );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤.
-	SetCmd( OBJACT_MELEE_ATTACK, idTarget );		// »çÁ¤°Å¸®°¡ µÇ¾úÀ»¶§ ½ÇÇàÇÒ ¸í·É ¼ÂÆÃ.
+	SetDestObj( idTarget, fRange );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •.
+	SetCmd( OBJACT_MELEE_ATTACK, idTarget );		// ì‚¬ì •ê±°ë¦¬ê°€ ë˜ì—ˆì„ë•Œ ì‹¤í–‰í•  ëª…ë ¹ ì…‹íŒ….
 #elif defined(__WORLDSERVER)
 #ifdef __TRAFIC_1222
 	if( GetDestId() == idTarget )
 		return;
 #endif	// __TRAFIC_1222
-	SetDestObj( idTarget, fRange );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤.
+	SetDestObj( idTarget, fRange );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •.
 	g_UserMng.AddMoverSetDestObj( this, idTarget, fRange );
 #endif // WORLDSERVER
 }
@@ -461,12 +461,12 @@ void	CMover::CMD_SetCollect( CObj *pObj )
 	if( m_pActMover->IsActAttack() )	return;
 	if( m_pActMover->IsActJump() )		return;
 	if( m_pActMover->IsActDamage() )		return;
-	if( IsDie() )	return;		// Á×¾úÀ»¶§ »ç¿ë±İÁö.
+	if( IsDie() )	return;		// ì£½ì—ˆì„ë•Œ ì‚¬ìš©ê¸ˆì§€.
 	
 	CMover *pTarget = (CMover *)pObj;
 	ClearActParam();
-	SetDestObj( pTarget->GetId(), 3.0f );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤.
-	SetCmd( OBJACT_COLLECT, pTarget->GetId() );		// »çÁ¤°Å¸®°¡ µÇ¾úÀ»¶§ ½ÇÇàÇÒ ¸í·É ¼ÂÆÃ.
+	SetDestObj( pTarget->GetId(), 3.0f );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •.
+	SetCmd( OBJACT_COLLECT, pTarget->GetId() );		// ì‚¬ì •ê±°ë¦¬ê°€ ë˜ì—ˆì„ë•Œ ì‹¤í–‰í•  ëª…ë ¹ ì…‹íŒ….
 }
 */
 //
@@ -476,17 +476,17 @@ void	CMover::CMD_SetRangeAttack( OBJID idTarget, int nPower )
 {
 	TRACE("CMD_SetRangeAttack(%d, %d)\n", idTarget, nPower );
 
-	if( m_pActMover->IsActAttack() )		// ÀÌ¹Ì ¾îÅÃÁßÀÌ¸é Ãë¼Ò.
+	if( m_pActMover->IsActAttack() )		// ì´ë¯¸ ì–´íƒì¤‘ì´ë©´ ì·¨ì†Œ.
 		return;
 
 	if( IsDie() )	
-		return;								// Á×¾úÀ»¶§ »ç¿ë±İÁö.
+		return;								// ì£½ì—ˆì„ë•Œ ì‚¬ìš©ê¸ˆì§€.
 	
 	ItemProp *pItemProp = GetActiveHandItemProp();
 	if( pItemProp == NULL )		
 		return;
 #ifdef __CROSSBOW	
-	if( pItemProp->dwItemKind3 != IK3_BOW &&  pItemProp->dwItemKind3 != IK3_CROSSBOW )	// µé°íÀÖ´Â ¹«±â°¡ º¸¿ì°¡ ¾Æ´Ï¸é ¿¡·¯
+	if( pItemProp->dwItemKind3 != IK3_BOW &&  pItemProp->dwItemKind3 != IK3_CROSSBOW )	// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ê°€ ë³´ìš°ê°€ ì•„ë‹ˆë©´ ì—ëŸ¬
 		return;
 #else // __CROSSBOW
 	if( pItemProp->dwItemKind3 != IK3_BOW )
@@ -497,41 +497,41 @@ void	CMover::CMD_SetRangeAttack( OBJID idTarget, int nPower )
 		return;
 	
 	ClearActParam();
-	SetDestObj( idTarget, GetAttackRange( pItemProp->dwAttackRange ), TRUE );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°(idTarget)°ú ±× °Å¸®¸¦ ¼³Á¤ 
-	SetCmd( OBJACT_RANGE_ATTACK, idTarget, nPower, 0 );		// »çÁ¤°Å¸®°¡ µÇ¾úÀ»¶§ ½ÇÇàÇÒ ¸í·É ¼ÂÆÃ.
+	SetDestObj( idTarget, GetAttackRange( pItemProp->dwAttackRange ), TRUE );		// ì´ë™í•  ëª©í‘œë¬¼(idTarget)ê³¼ ê·¸ ê±°ë¦¬ë¥¼ ì„¤ì • 
+	SetCmd( OBJACT_RANGE_ATTACK, idTarget, nPower, 0 );		// ì‚¬ì •ê±°ë¦¬ê°€ ë˜ì—ˆì„ë•Œ ì‹¤í–‰í•  ëª…ë ¹ ì…‹íŒ….
 }
 
 void	CMover::CMD_SetMagicAttack( OBJID idTarget, int nMagicPower )
 {
 	TRACE("CMD_SetMagicAttack(%d, %d)\n", idTarget, nMagicPower );
 
-	if( m_pActMover->IsActAttack() )		// ÀÌ¹Ì ¾îÅÃÁßÀÌ¸é Ãë¼Ò.
+	if( m_pActMover->IsActAttack() )		// ì´ë¯¸ ì–´íƒì¤‘ì´ë©´ ì·¨ì†Œ.
 		return;
-	if( IsDie() )	return;		// Á×¾úÀ»¶§ »ç¿ë±İÁö.
+	if( IsDie() )	return;		// ì£½ì—ˆì„ë•Œ ì‚¬ìš©ê¸ˆì§€.
 	
-	// ¼Õ¿¡ µé°í ÀÖ´Â ¿ÏµåÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
-	// »çÁ¤°Å¸® °è»êÇÔ
+	// ì†ì— ë“¤ê³  ìˆëŠ” ì™„ë“œì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
+	// ì‚¬ì •ê±°ë¦¬ ê³„ì‚°í•¨
 	ItemProp *pItemProp = GetActiveHandItemProp();
 	if( pItemProp == NULL )		return;
 
-	if( pItemProp->dwItemKind3 != IK3_WAND /*&& pItemProp->dwItemKind3 != IK3_STAFF*/ )	//Staff->ata2k	// µé°íÀÖ´Â ¹«±â°¡ ¿Ïµå°¡ ¾Æ´Ï¸é Ãë¼Ò
+	if( pItemProp->dwItemKind3 != IK3_WAND /*&& pItemProp->dwItemKind3 != IK3_STAFF*/ )	//Staff->ata2k	// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ê°€ ì™„ë“œê°€ ì•„ë‹ˆë©´ ì·¨ì†Œ
 		return;
 	
-	// µµ´Ş¹üÀ§ - ¾ó¸¶³ª °¡±îÀÌ ±ÙÁ¢ÇØ¾ßÇÏ´Â°¡. ¹ÌÅÍ´ÜÀ§
+	// ë„ë‹¬ë²”ìœ„ - ì–¼ë§ˆë‚˜ ê°€ê¹Œì´ ê·¼ì ‘í•´ì•¼í•˜ëŠ”ê°€. ë¯¸í„°ë‹¨ìœ„
 	float	fArrivalRange = GetAttackRange( AR_WAND );
 	
 	ClearActParam();
-	SetDestObj( idTarget, fArrivalRange );		// ÀÌµ¿ÇÒ ¸ñÇ¥¹°À» idTargetÀ¸·Î ¼³Á¤.
-	SetCmd( OBJACT_MAGIC_ATTACK, idTarget, nMagicPower );		// »çÁ¤°Å¸®°¡ µÇ¾úÀ»¶§ ½ÇÇàÇÒ ¸í·É ¼ÂÆÃ.
+	SetDestObj( idTarget, fArrivalRange );		// ì´ë™í•  ëª©í‘œë¬¼ì„ idTargetìœ¼ë¡œ ì„¤ì •.
+	SetCmd( OBJACT_MAGIC_ATTACK, idTarget, nMagicPower );		// ì‚¬ì •ê±°ë¦¬ê°€ ë˜ì—ˆì„ë•Œ ì‹¤í–‰í•  ëª…ë ¹ ì…‹íŒ….
 }
 
-// vPosÀ§Ä¡·Î ÀÌµ¿¸í·É
+// vPosìœ„ì¹˜ë¡œ ì´ë™ëª…ë ¹
 void	CMover::CMD_SetMoveToPos( const D3DXVECTOR3 &vPos )
 {
 	SetDestPos( vPos );
 }
 
-// idObjÀ§Ä¡·Î ÀÌµ¿
+// idObjìœ„ì¹˜ë¡œ ì´ë™
 void	CMover::CMD_SetMoveToObj( OBJID idObj )
 {
 	SetDestObj( idObj );
@@ -544,7 +544,7 @@ void	CMover::CMD_SetUseItem( CCtrl *pCtrl )
 		SetDestObj( pCtrl, 20.0f );
 	else
 		SetDestObj( pCtrl );
-	SetCmd( OBJACT_USEITEM );		// »çÁ¤°Å¸®°¡ µÇ¾úÀ»¶§ ½ÇÇàÇÒ ¸í·É ¼ÂÆÃ.
+	SetCmd( OBJACT_USEITEM );		// ì‚¬ì •ê±°ë¦¬ê°€ ë˜ì—ˆì„ë•Œ ì‹¤í–‰í•  ëª…ë ¹ ì…‹íŒ….
 }
 
 
@@ -560,7 +560,7 @@ void	CMover::CMD_SetUseItem( CCtrl *pCtrl )
 void	CMover::SetActParam( OBJACT act, int nParam1, int nParam2, int nParam3 )
 {
 	m_oaAct = act;				
-	m_nAParam[0] = nParam1;		// ¸í·É ÆÄ¶ó¸ŞÅÍ.
+	m_nAParam[0] = nParam1;		// ëª…ë ¹ íŒŒë¼ë©”í„°.
 	m_nAParam[1] = nParam2;
 	m_nAParam[2] = nParam3;
 }

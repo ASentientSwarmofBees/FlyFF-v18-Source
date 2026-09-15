@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Sfx.h"
 
 #ifdef __CLIENT
@@ -43,14 +43,14 @@ CSfx::~CSfx()
 #ifdef __CLIENT
 	if( m_idSfxHit )
 	{
-		if( m_idSrc == NULL_ID )	// ÀÌ·±»óÈ²ÀÌ »ý°Ü¼± ¾ÈµÈ´Ù.
+		if( m_idSrc == NULL_ID )	// ì´ëŸ°ìƒí™©ì´ ìƒê²¨ì„  ì•ˆëœë‹¤.
 		{
 			LPCTSTR szErr = Error( "CSfx::~CSfx : %d %d %d", m_dwIndex, m_idSfxHit, m_idSrc );
 			ADDERRORMSG( szErr );
 		} 
 	#ifdef __CLIENT
 		else
-			g_DPlay.SendSfxClear( m_idSfxHit, m_idSrc );	// m_idSfxHit°¡ ÀÖ´Â °Å¿´À¸¸é ¼­¹ö¿¡ ¿ä³ð Áö¿ì¶ó°í º¸³»ÀÚ 
+			g_DPlay.SendSfxClear( m_idSfxHit, m_idSrc );	// m_idSfxHitê°€ ìžˆëŠ” ê±°ì˜€ìœ¼ë©´ ì„œë²„ì— ìš”ë†ˆ ì§€ìš°ë¼ê³  ë³´ë‚´ìž 
 	#endif//__CLIENT
 	}
 #endif // __CLIENT
@@ -82,7 +82,7 @@ int	CSfx::SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex,
 	m_vPosDest = vPosDest;
 	m_nSec = nSec;
 
-	vPosSrc.y += 0.01f; // Áö¸é¿¡¼­ ¾à°£ ¶ç¿öÁÖÀÚ. ¾È±×·¯¸é ¹Ø¿¡ ¹·Çô¼­ Áö±Û°Å¸².
+	vPosSrc.y += 0.01f; // ì§€ë©´ì—ì„œ ì•½ê°„ ë„ì›Œì£¼ìž. ì•ˆê·¸ëŸ¬ë©´ ë°‘ì— ë­í˜€ì„œ ì§€ê¸€ê±°ë¦¼.
 	SetPos( vPosSrc );
 	
 	if( nIndex >= 0 ) 
@@ -102,31 +102,31 @@ int	CSfx::SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex,
 }
 
 //
-// nDmgCnt : ÀÏ¹ÝÀûÀ¸·Ð 0 : Áö¼Óµ¥¹ÌÁö¸¦ »ç¿ëÇÒ°æ¿ì¿¡ 0ÀÌ ¾Æ´Ñ°ªÀÌ µé¾î¿Â´Ù.
+// nDmgCnt : ì¼ë°˜ì ìœ¼ë¡  0 : ì§€ì†ë°ë¯¸ì§€ë¥¼ ì‚¬ìš©í• ê²½ìš°ì— 0ì´ ì•„ë‹Œê°’ì´ ë“¤ì–´ì˜¨ë‹¤.
 //
 void CSfx::DamageToTarget( int nDmgCnt, float fDmgAngle, float fDmgPower, int nMaxDmgCnt )
 {
 	CMover* pObjSrc = (CMover*)prj.GetCtrl( m_idSrc );
 	CCtrl* pObjDest = prj.GetCtrl( m_idDest );
 	
-	if( IsInvalidObj(pObjSrc) )		return;		// Áö±ÝÀº °Á ¸®ÅÏÇÏÁö¸¸ ÀÌ·¸°Ô ½ÇÆÐÇÑ°æ¿ì´Â m_idSfxHitÀ» ClearÇØÁÖ´ÂÀÛ¾÷ÀÌ ÇÊ¿äÇÏ´Ù.
+	if( IsInvalidObj(pObjSrc) )		return;		// ì§€ê¸ˆì€ ê± ë¦¬í„´í•˜ì§€ë§Œ ì´ë ‡ê²Œ ì‹¤íŒ¨í•œê²½ìš°ëŠ” m_idSfxHitì„ Clearí•´ì£¼ëŠ”ìž‘ì—…ì´ í•„ìš”í•˜ë‹¤.
 	if(	IsInvalidObj(pObjDest) )	return;
 
 	if( pObjDest->GetType() == OT_MOVER )
 	{
 		CMover* pMover = (CMover*) pObjDest;
 #ifdef __CLIENT
-		PLAYSND( pMover->GetProp()->dwSndDmg2, &pMover->GetPos() );	// ¸¶¹ý·ù ¸ÂÀ»¶§ Å¸°ÝÀ½.	
+		PLAYSND( pMover->GetProp()->dwSndDmg2, &pMover->GetPos() );	// ë§ˆë²•ë¥˜ ë§žì„ë•Œ íƒ€ê²©ìŒ.	
 #endif 
 
 #ifdef __CLIENT
-		// ½ð³ðÀÌ ÇÃ·¹ÀÌ¾îÀÌ°Å³ª / ½ð³ðÀº ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ñµ¥ ¸ÂÀº³ðÀÌ ÇÃ·¹ÀÌ¾îÀÏ°æ¿ì Àü¼Û
+		// ìœë†ˆì´ í”Œë ˆì´ì–´ì´ê±°ë‚˜ / ìœë†ˆì€ í”Œë ˆì´ì–´ê°€ ì•„ë‹Œë° ë§žì€ë†ˆì´ í”Œë ˆì´ì–´ì¼ê²½ìš° ì „ì†¡
 		if( pObjSrc->IsActiveMover() || (pObjSrc->IsPlayer() == FALSE && pObjDest->IsActiveObj()) )
 		{
-			pMover->SetDmgCnt( 10 );	// ¹ß»çÃ¼ ¸Â¾Æµµ ÀÌÁ¦ Èçµé¸°´Ù,
+			pMover->SetDmgCnt( 10 );	// ë°œì‚¬ì²´ ë§žì•„ë„ ì´ì œ í”ë“¤ë¦°ë‹¤,
 			g_DPlay.SendSfxHit( m_idSfxHit, m_nMagicPower, m_dwSkill, pObjSrc->GetId(), nDmgCnt, fDmgAngle, fDmgPower );
-			if( nMaxDmgCnt == 1 )	// ÇÑ¹æÂ¥¸® µ¥¹ÌÁö¸¸ id¸¦ Å¬¸®¾î ÇÔ.
-				m_idSfxHit = 0;		// 0À¸·Î ÇØ³ö¾ß this°¡ »èÁ¦µÉ¶§ SendSfxClear¸¦ ¶Ç º¸³»Áö ¾Ê´Â´Ù.
+			if( nMaxDmgCnt == 1 )	// í•œë°©ì§œë¦¬ ë°ë¯¸ì§€ë§Œ idë¥¼ í´ë¦¬ì–´ í•¨.
+				m_idSfxHit = 0;		// 0ìœ¼ë¡œ í•´ë†”ì•¼ thisê°€ ì‚­ì œë ë•Œ SendSfxClearë¥¼ ë˜ ë³´ë‚´ì§€ ì•ŠëŠ”ë‹¤.
 		}
 #endif	// __CLIENT
 	}
@@ -134,25 +134,25 @@ void CSfx::DamageToTarget( int nDmgCnt, float fDmgAngle, float fDmgPower, int nM
 void CSfx::Process()
 {
 #ifdef _DEBUG
-	if( m_dwIndex == XI_SKILL_MAG_FIRE_HOTAIR01 )	// µð¹ö±ë ÇÏ·Á¸é ÀÌ°É ¹Ù²ã ¾²¼¼¿ä.
+	if( m_dwIndex == XI_SKILL_MAG_FIRE_HOTAIR01 )	// ë””ë²„ê¹… í•˜ë ¤ë©´ ì´ê±¸ ë°”ê¿” ì“°ì„¸ìš”.
 	{
 		int a = 0;
 	}
 #endif
 	m_nFrame++;
-	if( m_nSec == 0 )	// 0Àº 1È¸ ÇÃ·¹ÀÌÈÄ Á¾·á.
+	if( m_nSec == 0 )	// 0ì€ 1íšŒ í”Œë ˆì´í›„ ì¢…ë£Œ.
 	{
-		if( m_pSfxObj->Process() )		// return true´Â ¾Ö´Ï¸ÞÀÌ¼Ç ³¡.
+		if( m_pSfxObj->Process() )		// return trueëŠ” ì• ë‹ˆë©”ì´ì…˜ ë.
 			Delete();
 	}
 	else
 	{
-		// ¹Ýº¹ ¾Ö´Ï¸ÞÀÌ¼Ç
+		// ë°˜ë³µ ì• ë‹ˆë©”ì´ì…˜
 		if( m_pSfxObj->Process() )		
 			m_pSfxObj->m_nCurFrame = 0;
-		if( m_nSec != -1 )		// ¹«ÇÑ¹Ýº¹(-1)ÀÌ ¾Æ´Ï¸é
+		if( m_nSec != -1 )		// ë¬´í•œë°˜ë³µ(-1)ì´ ì•„ë‹ˆë©´
 		{
-			if( m_nFrame > ( m_nSec * 60 ) )	// ½Ã°£ Ã¼Å©¸¦ ÇÑ´Ù.
+			if( m_nFrame > ( m_nSec * 60 ) )	// ì‹œê°„ ì²´í¬ë¥¼ í•œë‹¤.
 				Delete();
 		}
 	}
@@ -175,18 +175,18 @@ void CSfx::Process()
 	}
 #endif //__CLIENT
 
-	if( m_idDest != NULL_ID )		// Dest°¡ ÁöÁ¤µÇ¾î ÀÖÀ»¶§.
+	if( m_idDest != NULL_ID )		// Destê°€ ì§€ì •ë˜ì–´ ìžˆì„ë•Œ.
 	{
 		CMover* pObjDest = (CMover*)prj.GetCtrl( m_idDest );
-		if( IsValidObj( pObjDest ) )		// À¯È¿ÇÑ³ÑÀÎ°¡?
-			m_vPosDest = pObjDest->GetPos();	// ´ç½Ã ÁÂÇ¥¸¦ °è¼Ó ¹Þ¾ÆµÒ.  Invalid»óÅÂ°¡ µÇ¸é ¸¶Áö¸· ÁÂÇ¥·Î ¼¼ÆÃµÈ´Ù.
+		if( IsValidObj( pObjDest ) )		// ìœ íš¨í•œë„˜ì¸ê°€?
+			m_vPosDest = pObjDest->GetPos();	// ë‹¹ì‹œ ì¢Œí‘œë¥¼ ê³„ì† ë°›ì•„ë‘ .  Invalidìƒíƒœê°€ ë˜ë©´ ë§ˆì§€ë§‰ ì¢Œí‘œë¡œ ì„¸íŒ…ëœë‹¤.
 		
-		SetPos( m_vPosDest );	// Å¸°Ù¿¡ ¿ÀºêÁ§Æ® ¹ßµ¿.
+		SetPos( m_vPosDest );	// íƒ€ê²Ÿì— ì˜¤ë¸Œì íŠ¸ ë°œë™.
 #ifdef __CLIENT
-	#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+	#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 		if( m_dwIndex == XI_SKILL_PSY_HERO_STONE02 )
 		{
-			if( IsValidObj( pObjDest ) )		// À¯È¿ÇÑ³ÑÀÎ°¡?
+			if( IsValidObj( pObjDest ) )		// ìœ íš¨í•œë„˜ì¸ê°€?
 			{
 				DWORD dwTmpID =  pObjDest->GetRemoveSfxObj(XI_SKILL_PSY_HERO_STONE02 );
 				if( dwTmpID && m_nFrame > 0)
@@ -196,11 +196,11 @@ void CSfx::Process()
 				}
 			}
 		}
-	#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
-		// 091022 mirchang - ÇÁ·ÎÅØ¼Ç, Ææ¹Ù¸®¾î ½ºÅ³ ¹öÇÁ ÇØÁ¦ ½Ã sfx »èÁ¦
+	#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+		// 091022 mirchang - í”„ë¡œí…ì…˜, íŽœë°”ë¦¬ì–´ ìŠ¤í‚¬ ë²„í”„ í•´ì œ ì‹œ sfx ì‚­ì œ
 		if( m_dwIndex == XI_SKILL_MER_SHIELD_PANBARRIER02 )
 		{
-			if( IsValidObj( pObjDest ) )		// À¯È¿ÇÑ³ÑÀÎ°¡?
+			if( IsValidObj( pObjDest ) )		// ìœ íš¨í•œë„˜ì¸ê°€?
 			{
 				DWORD dwTmpID =  pObjDest->GetRemoveSfxObj( XI_SKILL_MER_SHIELD_PANBARRIER02 );
 				if( dwTmpID && m_nFrame > 0)
@@ -212,7 +212,7 @@ void CSfx::Process()
 		}
 		if( m_dwIndex == XI_SKILL_MER_SHIELD_PROTECTION02 )
 		{
-			if( IsValidObj( pObjDest ) )		// À¯È¿ÇÑ³ÑÀÎ°¡?
+			if( IsValidObj( pObjDest ) )		// ìœ íš¨í•œë„˜ì¸ê°€?
 			{
 				DWORD dwTmpID =  pObjDest->GetRemoveSfxObj( XI_SKILL_MER_SHIELD_PROTECTION02 );
 				if( dwTmpID && m_nFrame > 0)
@@ -225,19 +225,19 @@ void CSfx::Process()
 #endif	// __CLIENT
 	} else
 	{
-		// Dest°¡ ÁöÁ¤µÇ¾î ÀÖÁö ¾ÊÀ»¶§. Src·Î...
+		// Destê°€ ì§€ì •ë˜ì–´ ìžˆì§€ ì•Šì„ë•Œ. Srcë¡œ...
 		if( m_idSrc != NULL_ID )
 		{
 			CMover* pObjSrc = (CMover*)prj.GetCtrl( m_idSrc );
-			if( IsValidObj( pObjSrc ) )			// ¼Ò½º¾ÆÀÌµð°¡ ÁöÁ¤µÇ¾î ÀÖÀ¸¸é
-				SetPos( pObjSrc->GetPos() );	// ¼Ò½ºÃø¿¡ ÀÌÆå ¹ßµ¿.
+			if( IsValidObj( pObjSrc ) )			// ì†ŒìŠ¤ì•„ì´ë””ê°€ ì§€ì •ë˜ì–´ ìžˆìœ¼ë©´
+				SetPos( pObjSrc->GetPos() );	// ì†ŒìŠ¤ì¸¡ì— ì´íŽ™ ë°œë™.
 			else
 				Delete();
 		}
 	}
 }
 #ifndef __WORLDSERVER
-// yÃàÀ¸·Î¸¸ È¸Àüµµ´Â ¹öÀü.
+// yì¶•ìœ¼ë¡œë§Œ íšŒì „ë„ëŠ” ë²„ì „.
 void CSfx::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 	if( !IsVisible() || ( IsCull() && GetType() != 1 ))
@@ -246,7 +246,7 @@ void CSfx::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 #ifdef __3RD_LEGEND16
@@ -281,7 +281,7 @@ void CSfx::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	}
 #else // __3RD_LEGEND16
 	m_pSfxObj->m_vPos = GetPos();
-	m_pSfxObj->m_vPos.y += 0.2f;		// 0.2¾¿ÀÌ³ª ¿Ã¸±ÇÊ¿ä°¡ ÀÖ³²?
+	m_pSfxObj->m_vPos.y += 0.2f;		// 0.2ì”©ì´ë‚˜ ì˜¬ë¦´í•„ìš”ê°€ ìžˆë‚¨?
 	m_pSfxObj->m_vRotate.y = GetAngle();
 #endif // __3RD_LEGEND16
 	m_pSfxObj->m_vScale = GetScale();

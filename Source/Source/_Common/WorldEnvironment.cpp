@@ -1,4 +1,4 @@
-
+ï»¿
 // Implement of CWorld
 // date : 2009_09_09
 // author : gmpbigsun
@@ -12,7 +12,7 @@
 #include "ResData.h"
 #endif
 
-// ¿À·¡ÀüºÎÅÍ ½á¿À´ø °ÔÀÓ³» ½Ã°£´ÜÀ§ Light color values, ÀÌ ³à¼®À» default·Î ¾´´Ù.
+// ì˜¤ë˜ì „ë¶€í„° ì¨ì˜¤ë˜ ê²Œì„ë‚´ ì‹œê°„ë‹¨ìœ„ Light color values, ì´ ë…€ì„ì„ defaultë¡œ ì“´ë‹¤.
 static const LIGHTCOLOR gs_kLight[24] = // diffuse, ambient
 {
 	0.4f,  0.4f,  0.5f,    0.3f, 0.3f, 0.4f,  // 0 12
@@ -51,10 +51,10 @@ BOOL CWorld::InitWorldEnvir( )
 #if __VER >= 15 // __GUILD_HOUSE
 void CWorld::InProcessing( )
 {
-	//ÁøÀÔ½Ã ÇÑ¹ø È£Ãâ 
-	if( IsWorldGuildHouse() )		//±æµå ÇÏ¿ì½º ÀÔÀåÀÌ¸é 
+	//ì§„ì…ì‹œ í•œë²ˆ í˜¸ì¶œ 
+	if( IsWorldGuildHouse() )		//ê¸¸ë“œ í•˜ìš°ìŠ¤ ì…ì¥ì´ë©´ 
 	{
-		//¸ŞÀÎ¸Ş´ºÃ¢ ¶ç¿ì°í;;µîµî 
+		//ë©”ì¸ë©”ë‰´ì°½ ë„ìš°ê³ ;;ë“±ë“± 
 		if( !g_WndMng.m_pWndGHMain )
 		{
 			g_WndMng.m_pWndGHMain = new CWndGHMainMenu;
@@ -72,10 +72,10 @@ void CWorld::InProcessing( )
 
 void CWorld::OutProcessing( )
 {
-	//ÅğÀå½Ã ÇÑ¹ø È£Ãâ 
+	//í‡´ì¥ì‹œ í•œë²ˆ í˜¸ì¶œ 
 	if( IsWorldGuildHouse() )		
 	{
-		//¸ŞÀÎ¸Ş´ºÃ¢ ´İ±â µîµî 
+		//ë©”ì¸ë©”ë‰´ì°½ ë‹«ê¸° ë“±ë“± 
 		if( g_WndMng.m_pWndGHMain )
 			SAFE_DELETE( g_WndMng.m_pWndGHMain );
 
@@ -92,7 +92,7 @@ void CWorld::OutProcessing( )
 #endif // __PETVIS
 
 
-	//gmpbigsun(20100419): °³ÀÎÇÏ¿ìÂ¡¿¡¼­ ºüÁ®³ª¿À¸é ¹°°¡ ÅØ½ºÃÄ°¡ ÇÏ¿ìÂ¡ ¹Ù´ÚÀÌ´Ù?
+	//gmpbigsun(20100419): ê°œì¸í•˜ìš°ì§•ì—ì„œ ë¹ ì ¸ë‚˜ì˜¤ë©´ ë¬¼ê°€ í…ìŠ¤ì³ê°€ í•˜ìš°ì§• ë°”ë‹¥ì´ë‹¤?
 	if( GetID() == WI_WORLD_MINIROOM )
 		ForceTexture( NULL );
 
@@ -162,14 +162,14 @@ void CWorld::InitWorldEnvir( const char* filename )
 	//24 hours light
 	if( m_bUsing24Light )
 	{
-		//ok 24½Ã°£ LightÁ¤º¸¸¦ ¿ÜºÎ¿¡¼­ °¡Á®¿À°Ú´Ù!, ¸¸¾à ÀĞ±â¿¡ ½ÇÆĞÇß´Ù¸é default°ªÀ» ! 
+		//ok 24ì‹œê°„ Lightì •ë³´ë¥¼ ì™¸ë¶€ì—ì„œ ê°€ì ¸ì˜¤ê² ë‹¤!, ë§Œì•½ ì½ê¸°ì— ì‹¤íŒ¨í–ˆë‹¤ë©´ defaultê°’ì„ ! 
 		m_bUsing24Light = ReadFile24Light( filename );
 		assert( m_bUsing24Light );
 	}
 
 	if( !m_bUsing24Light )
 	{
-		//hm.. ¹Ì¸® Á¤ÀÇµÇ¾î ÀÖ´Â °ªÀ» ¾²ÀÚ!
+		//hm.. ë¯¸ë¦¬ ì •ì˜ë˜ì–´ ìˆëŠ” ê°’ì„ ì“°ì!
 		memcpy( m_k24Light, gs_kLight, sizeof( LIGHTCOLOR ) * 24 );
 	}
 
@@ -204,7 +204,7 @@ BOOL CWorld::ReadFile24Light( const char* filename )
 
 void CWorld::InitContinent( const char* filename )
 {
-	// ¿ùµå »ı¼º½Ã ÃÊ±âÈ­ 
+	// ì›”ë“œ ìƒì„±ì‹œ ì´ˆê¸°í™” 
 	m_strCurContName = "";
 	m_cContinents.clear( );
 	ReadFileContinent( filename );
@@ -216,12 +216,12 @@ void CWorld::InitContinent( const char* filename )
 
 void CWorld::InitAfterCreatedPlayer( )
 {
-	// g_pPlayer°¡ »ı¼ºµÈ Á÷ÈÄ µüÇÑ¹ø ÃÊ±âÈ­ 
-	// ÃÖÃÊ player°¡ ¼ÓÇÑ °÷¿¡ µû¶ó ÀûÀıÇÑ °ªÀ¸·Î ÃÊ±âÈ­ µÈ´Ù.
+	// g_pPlayerê°€ ìƒì„±ëœ ì§í›„ ë”±í•œë²ˆ ì´ˆê¸°í™” 
+	// ìµœì´ˆ playerê°€ ì†í•œ ê³³ì— ë”°ë¼ ì ì ˆí•œ ê°’ìœ¼ë¡œ ì´ˆê¸°í™” ëœë‹¤.
 	DWORD dwAmbient = m_dwAmbient;
 	DWORD dwDiffuse = GetDiffuseColor( );
 
-	// player°¡ »ı¼ºµÇ¸é world ÀÌ°Å³ª continent ÀÎµ¥ continentÀÎ°æ¿ì´Â MoveInÀÌ È£ÃâµÈ´Ù ÀÌ°æ¿ì ¿ùµåÁ¤º¸¸¦ ¹Ì¸® ÀÔ·ÂÇØ³ö¾ß¸¸ Á¦´ë·ÎµÈ º¯È­¸¦ º¼¼öÀÖ´Ù.
+	// playerê°€ ìƒì„±ë˜ë©´ world ì´ê±°ë‚˜ continent ì¸ë° continentì¸ê²½ìš°ëŠ” MoveInì´ í˜¸ì¶œëœë‹¤ ì´ê²½ìš° ì›”ë“œì •ë³´ë¥¼ ë¯¸ë¦¬ ì…ë ¥í•´ë†”ì•¼ë§Œ ì œëŒ€ë¡œëœ ë³€í™”ë¥¼ ë³¼ìˆ˜ìˆë‹¤.
 	m_kCurContinent._fAmbient[ 0 ] = ( (dwAmbient>>16) & 0xff ) / 255.0f;
 	m_kCurContinent._fAmbient[ 1 ] = ( (dwAmbient>>8) & 0xff ) / 255.0f;
 	m_kCurContinent._fAmbient[ 2 ] = ( (dwAmbient) & 0xff ) / 255.0f;
@@ -233,12 +233,12 @@ void CWorld::InitAfterCreatedPlayer( )
 	ENVIR_INFO* pInfo = GetInContinent( g_pPlayer->GetPos() );
 	if( !pInfo )
 	{
-		// Ã³À½ ½ÃÀÛÁöÁ¡ÀÌ ¿ùµå 
+		// ì²˜ìŒ ì‹œì‘ì§€ì ì´ ì›”ë“œ 
 		m_strCurContName = m_szFileName;
 		
 	}else
 	{
-		// Ã³À½ ½ÃÀÛÁöÁ¡ÀÌ ´ë·úÀÌ´Ù, ´ë·úÁ¤º¸·Î È¯°æÀ» Àç±¸¼ºÇØ¾ß ÇÏ±â¶§¹®¿¡ MoveIn....ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù.
+		// ì²˜ìŒ ì‹œì‘ì§€ì ì´ ëŒ€ë¥™ì´ë‹¤, ëŒ€ë¥™ì •ë³´ë¡œ í™˜ê²½ì„ ì¬êµ¬ì„±í•´ì•¼ í•˜ê¸°ë•Œë¬¸ì— MoveIn....í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œë‹¤.
 		MoveInContinent( *pInfo );
 	}
 }
@@ -247,23 +247,23 @@ BOOL CWorld::CheckInOutContinent( )
 {
 	//called every frame 
 
-	if( m_strCurContName.empty() )		//Ã³À½ ¿ùµå°¡ »ı¼ºµÇ°í g_pPlayer°¡ »ı¼ºµÈ ½Ã±â 
-		InitAfterCreatedPlayer( );		// g_pPlayerÀ§Ä¡¸¦ ±âÁØÀ¸·Î ÃÊ±âÈ­ 
+	if( m_strCurContName.empty() )		//ì²˜ìŒ ì›”ë“œê°€ ìƒì„±ë˜ê³  g_pPlayerê°€ ìƒì„±ëœ ì‹œê¸° 
+		InitAfterCreatedPlayer( );		// g_pPlayerìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì´ˆê¸°í™” 
 
 	ENVIR_INFO* pInfo = GetInContinent( g_pPlayer->GetPos( ) );
-	if( !pInfo )	// ¿ùµå¿¡ ÀÖÀ½
+	if( !pInfo )	// ì›”ë“œì— ìˆìŒ
 	{
-		if( string::npos == m_strCurContName.find( ".wld" ) )// Ã£À»¼ö ¾ø´Ù! ÀÌÀü¿¡ ´ë·ú 
-			MoveOutContinent( m_szFileName );	// ´ë·ú Å»Ãâ!
+		if( string::npos == m_strCurContName.find( ".wld" ) )// ì°¾ì„ìˆ˜ ì—†ë‹¤! ì´ì „ì— ëŒ€ë¥™ 
+			MoveOutContinent( m_szFileName );	// ëŒ€ë¥™ íƒˆì¶œ!
 	
 		return TRUE;
 	}
 
-	// ÀÌÈÄ´Â ´ë·ú¿¡ ÀÖÀ½ÀÌ º¸ÀåµÊ 
-	if( pInfo->_strName != m_strCurContName )	// ÀÌÀü°ú Æ²¸®´Ù¸é 
+	// ì´í›„ëŠ” ëŒ€ë¥™ì— ìˆìŒì´ ë³´ì¥ë¨ 
+	if( pInfo->_strName != m_strCurContName )	// ì´ì „ê³¼ í‹€ë¦¬ë‹¤ë©´ 
 	{
-	//	if( string::npos != m_strCurContName.find( ".wld" ) ) //  ÀÌÀü¿¡ ¿ùµå¿´´Ù.
-			MoveInContinent( *pInfo );	// ´ë·ú ÀÔÀå!
+	//	if( string::npos != m_strCurContName.find( ".wld" ) ) //  ì´ì „ì— ì›”ë“œì˜€ë‹¤.
+			MoveInContinent( *pInfo );	// ëŒ€ë¥™ ì…ì¥!
 	}
 
 	return TRUE;
@@ -272,7 +272,7 @@ BOOL CWorld::CheckInOutContinent( )
 
 void CWorld::MoveInContinent( const ENVIR_INFO& kInfo )
 {	
-	// ¿ùµå -> ´ë·úÁøÀÔ 
+	// ì›”ë“œ -> ëŒ€ë¥™ì§„ì… 
 	m_strCurContName = kInfo._strName;		
 
 	//use
@@ -291,7 +291,7 @@ void CWorld::MoveInContinent( const ENVIR_INFO& kInfo )
 	if( kInfo._iWeather != WEATHER_NONE )
 	{
 #ifdef __BS_ADD_CONTINENT_WEATHER
-		if( 5 == kInfo._iWeather )			//±âº»³¯¾¾·Î!( ´ë·úÀÌ±â¶§¹®¿¡ ¹Ù²î´Â ³¯¾¾¿¡ ´ëÇØ¼­µµ ¹«½ÃÇÑ´Ù. )
+		if( 5 == kInfo._iWeather )			//ê¸°ë³¸ë‚ ì”¨ë¡œ!( ëŒ€ë¥™ì´ê¸°ë•Œë¬¸ì— ë°”ë€ŒëŠ” ë‚ ì”¨ì— ëŒ€í•´ì„œë„ ë¬´ì‹œí•œë‹¤. )
 			m_skyBox.SetWeather( 0, TRUE );
 #else
 		m_skyBox.SetWeather( kInfo._iWeather, TRUE );
@@ -315,8 +315,8 @@ void CWorld::MoveInContinent( const ENVIR_INFO& kInfo )
 
 void CWorld::MoveOutContinent( const string& worldname )
 {
-	// ´ë·ú -> ¿ùµå 
-	ENVIR_INFO* pOldContInfo = GetContinentInfo( m_strCurContName );		//¹Ì¸® ¹Ş¾Æ³õ°í.
+	// ëŒ€ë¥™ -> ì›”ë“œ 
+	ENVIR_INFO* pOldContInfo = GetContinentInfo( m_strCurContName );		//ë¯¸ë¦¬ ë°›ì•„ë†“ê³ .
 	if( !pOldContInfo )
 	{
 		assert( pOldContInfo );
@@ -332,7 +332,7 @@ void CWorld::MoveOutContinent( const string& worldname )
 	m_fFogStartValue = m_fOldFogStart[ 0 ];
 	m_fFogEndValue = m_fOldFogEnd[ 0 ];
 
-	// ½ÃÀÛ°ú ³¡À» µÚÁı´Â´Ù.
+	// ì‹œì‘ê³¼ ëì„ ë’¤ì§‘ëŠ”ë‹¤.
 	m_fOldFogStart[ 0 ] = m_fOldFogStart[ 1 ];
 	m_fOldFogStart[ 1 ] = m_fFogStartValue;
 
@@ -345,7 +345,7 @@ void CWorld::MoveOutContinent( const string& worldname )
 	m_skyBox.m_bLockWeather = FALSE;
 	m_skyBox.SetWeather( m_iOldWorldWeather, TRUE );
 
-	// ´ë·ú skyÁ¤º¸ ³²±è ( skyº¯È­¿¡ ÀÌ¿ë )
+	// ëŒ€ë¥™ skyì •ë³´ ë‚¨ê¹€ ( skyë³€í™”ì— ì´ìš© )
 	m_kCurContinent._kCloud = pOldContInfo->_kCloud;			
 	m_kCurContinent._kSky = pOldContInfo->_kSky;
 
@@ -359,7 +359,7 @@ inline float LerpValueToValue( const float oldVal_, const float newVal_, const f
 	return oldVal_ -  (oldVal_ - newVal_) * dt_;			// oldVal * ( 1.0f - dt_ ) + newVal * dt_ 
 }
 
-const float fCON_DUR = 2.0f;	//º¯È­ÇÒ ÃÑ ½Ã°£.
+const float fCON_DUR = 2.0f;	//ë³€í™”í•  ì´ ì‹œê°„.
 const float fINV_CON_DUR = 1.0f / fCON_DUR;
 
 void CWorld::HookUpdateLight( CLight* pLight )
@@ -386,7 +386,7 @@ void CWorld::HookUpdateLight( CLight* pLight )
 	
 	float fTime = m_dwAddedTime * 0.001f * ( fINV_CON_DUR );
 
-	// ¸ñÇ¥ °ªÀº ÇöÀç ¶óÀÌÆ®°ª!
+	// ëª©í‘œ ê°’ì€ í˜„ì¬ ë¼ì´íŠ¸ê°’!
 	//set light here!!
 
 	m_kCurContinent._fAmbient[ 0 ] = pLight->Ambient.r = LerpValueToValue( m_kOldContinent._fAmbient[ 0 ], pLight->Ambient.r, fTime );
@@ -479,31 +479,31 @@ int	CWorld::GetDiffuseAvg( )
 
 BOOL CWorld::HookRenderSky( CSkyBox::SKY_TYPE eType, int numRender, float& fAlpha )
 {
-	//working: ´ë·ú in out°úÁ¤ÀÌ¶ó¸é °úÁ¤À» ±×·ÁÁØ´Ù.
-	//working: °úÁ¤ÀÌ ³¡³ª°í inÀÌ¶ó¸é ´ë·ú ½ºÄ«ÀÌ·Î ±×·ÁÁØ´Ù.
+	//working: ëŒ€ë¥™ in outê³¼ì •ì´ë¼ë©´ ê³¼ì •ì„ ê·¸ë ¤ì¤€ë‹¤.
+	//working: ê³¼ì •ì´ ëë‚˜ê³  inì´ë¼ë©´ ëŒ€ë¥™ ìŠ¤ì¹´ì´ë¡œ ê·¸ë ¤ì¤€ë‹¤.
 
 	if( !m_kCurContinent._bUseEnvir )
 		return FALSE;
 
 	ENVIR_INFO* pInfo = GetInContinent( g_pPlayer->GetPos( ) );
-	if( !m_bProcessingEnvir && !pInfo )		// º¯È­ °úÁ¤µµ ¾Æ´Ï°í ´ë·ú¾Èµµ ¾Æ´Ï¸é ÇÒÀÏ¾øÀ½.
+	if( !m_bProcessingEnvir && !pInfo )		// ë³€í™” ê³¼ì •ë„ ì•„ë‹ˆê³  ëŒ€ë¥™ì•ˆë„ ì•„ë‹ˆë©´ í• ì¼ì—†ìŒ.
 		return FALSE;
 
-	// ¿©±â¼­ºÎÅÏ ´ë·ú¾ÈÀÌ°Å³ª º¯È­°úÁ¤ÁßÀÓ.
+	// ì—¬ê¸°ì„œë¶€í„´ ëŒ€ë¥™ì•ˆì´ê±°ë‚˜ ë³€í™”ê³¼ì •ì¤‘ì„.
 	switch( eType )
 	{
 	case CSkyBox::SKY_SIDE : return HookRenderSky_Side( numRender, pInfo, fAlpha );
 	case CSkyBox::SKY_CLOUD : return HookRenderSky_Cloud( numRender, pInfo, fAlpha );
 	}
 
-	return TRUE;		// ¹º°¡ hookingÇØ¼­ Ã³¸®Çß´Ù.
+	return TRUE;		// ë­”ê°€ hookingí•´ì„œ ì²˜ë¦¬í–ˆë‹¤.
 }
 
 BOOL CWorld::HookRenderSky_Side( int numRender, ENVIR_INFO* pInfo, float& fAlpha )
 {
 	if( m_bProcessingEnvir )
 	{
-		//º¯È­ °úÁ¤Áß : lerp alpha org to target 
+		//ë³€í™” ê³¼ì •ì¤‘ : lerp alpha org to target 
 		float fTime = m_dwAddedTime * 0.001f * ( fINV_CON_DUR );
 		int grow = (int)( LerpValueToValue( 1, 255, fTime ) );
 		int degrow = 255 - grow;
@@ -518,14 +518,14 @@ BOOL CWorld::HookRenderSky_Side( int numRender, ENVIR_INFO* pInfo, float& fAlpha
 				m_pd3dDevice->DrawPrimitive( D3DPT_TRIANGLELIST, 0, numRender );
 			}
 
-			// ¿ùµå ½ºÄ«ÀÌ alpha°ªÀ» ³Ñ°ÜÁØ´Ù. 
-			fAlpha = (float)grow / 255.0f;		//Á¡Á¡ ³ªÅ¸³ª´Â 
+			// ì›”ë“œ ìŠ¤ì¹´ì´ alphaê°’ì„ ë„˜ê²¨ì¤€ë‹¤. 
+			fAlpha = (float)grow / 255.0f;		//ì ì  ë‚˜íƒ€ë‚˜ëŠ” 
 			return FALSE;
 
 		}else 
 		if( CHANGING_TO_CONTINENT == m_bProcessingEnvir )
 		{
-			fAlpha = (float)degrow / 255.0f;	//Á¡Á¡ »ç¶óÁö´Â 
+			fAlpha = (float)degrow / 255.0f;	//ì ì  ì‚¬ë¼ì§€ëŠ” 
 
 			TextureSet* pSet = &pInfo->_kSky;
 			if( pSet->_bUse && pSet->_pTexture )
@@ -539,14 +539,14 @@ BOOL CWorld::HookRenderSky_Side( int numRender, ENVIR_INFO* pInfo, float& fAlpha
 		}
 
 	}
-	else //º¯È­°¡ ³¡³ª°í ´ë·ú¾È 
+	else //ë³€í™”ê°€ ëë‚˜ê³  ëŒ€ë¥™ì•ˆ 
 	{
 		TextureSet* pSet = &pInfo->_kSky;
 
-		if( !pSet->_bUse )		//»ç¿ëÇÏÁö ¾ÊÀ»°æ¿ì ¿ùµå·Î ³Ñ±è 
+		if( !pSet->_bUse )		//ì‚¬ìš©í•˜ì§€ ì•Šì„ê²½ìš° ì›”ë“œë¡œ ë„˜ê¹€ 
 			return FALSE;
 
-		if( pSet->_bUse && !pSet->_pTexture )		//»ç¿ëÇÏ°Ú´Ù°í ÇØ³õ°í ÅØ½ºÃÄ ¾øÀ»°æ¿ì ¾Æ¹«°Íµµ ±×¸®Áö ¾ÊÀ½.
+		if( pSet->_bUse && !pSet->_pTexture )		//ì‚¬ìš©í•˜ê² ë‹¤ê³  í•´ë†“ê³  í…ìŠ¤ì³ ì—†ì„ê²½ìš° ì•„ë¬´ê²ƒë„ ê·¸ë¦¬ì§€ ì•ŠìŒ.
 			return TRUE;
 
 		m_pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, D3DCOLOR_ARGB( 255, 0, 0, 0 ) );
@@ -561,14 +561,14 @@ BOOL CWorld::HookRenderSky_Cloud( int numRender, ENVIR_INFO* pInfo, float& fAlph
 {
 	if( m_bProcessingEnvir )
 	{
-		//º¯È­ °úÁ¤Áß : lerp alpha org to target 
+		//ë³€í™” ê³¼ì •ì¤‘ : lerp alpha org to target 
 		float fTime = m_dwAddedTime * 0.001f * ( fINV_CON_DUR );
 		int grow = (int)( LerpValueToValue( 1, 255, fTime ) );
 		int degrow = 255 - grow;
 
 		if( CHANGING_TO_WORLD == m_bProcessingEnvir )
 		{
-			// ´ë·ú ½ºÄ«ÀÌ´Â Á¡Á¡ »ç¶óÁö°í 
+			// ëŒ€ë¥™ ìŠ¤ì¹´ì´ëŠ” ì ì  ì‚¬ë¼ì§€ê³  
 			TextureSet* pSet = &m_kOldContinent._kCloud;
 			if( pSet->_bUse && pSet->_pTexture )
 			{
@@ -577,14 +577,14 @@ BOOL CWorld::HookRenderSky_Cloud( int numRender, ENVIR_INFO* pInfo, float& fAlph
 				m_pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 0, numRender );
 			}
 
-			// ¿ùµå ½ºÄ«ÀÌ´Â Á¡Á¡ ³ªÅ¸³ª°í
+			// ì›”ë“œ ìŠ¤ì¹´ì´ëŠ” ì ì  ë‚˜íƒ€ë‚˜ê³ 
 			fAlpha = (float)grow / 255.0f;
 			return FALSE;
 
 		}else 
 		if( CHANGING_TO_CONTINENT == m_bProcessingEnvir )
 		{
-			// ´ë·ú ½ºÄ«ÀÌ´Â Á¡Á¡ ³ªÅ¸³ª°í
+			// ëŒ€ë¥™ ìŠ¤ì¹´ì´ëŠ” ì ì  ë‚˜íƒ€ë‚˜ê³ 
 			TextureSet* pSet = &pInfo->_kCloud;
 			if( pSet->_bUse &&  pSet->_pTexture )
 			{
@@ -593,20 +593,20 @@ BOOL CWorld::HookRenderSky_Cloud( int numRender, ENVIR_INFO* pInfo, float& fAlph
 				m_pd3dDevice->DrawPrimitive( D3DPT_TRIANGLEFAN, 0, numRender );
 			}
 
-			// ¿ùµå ½ºÄ«ÀÌ´Â Á¡Á¡ »ç¶óÁö°í
+			// ì›”ë“œ ìŠ¤ì¹´ì´ëŠ” ì ì  ì‚¬ë¼ì§€ê³ 
 			fAlpha = (float)degrow / 255.0f;	
 			return FALSE;
 		}
 
 	}
-	else //º¯È­°¡ ³¡³ª°í ´ë·ú¾È 
+	else //ë³€í™”ê°€ ëë‚˜ê³  ëŒ€ë¥™ì•ˆ 
 	{
 		TextureSet* pSet = &pInfo->_kCloud;
 
-		if( !pSet->_bUse )		// »ç¿ëÇÏÁö ¾ÊÀ»°æ¿ì ±×³É ¿ùµå²¬ ±×·Á¶ó~
+		if( !pSet->_bUse )		// ì‚¬ìš©í•˜ì§€ ì•Šì„ê²½ìš° ê·¸ëƒ¥ ì›”ë“œê»„ ê·¸ë ¤ë¼~
 			return FALSE;
 
-		if( pSet->_bUse && !pSet->_pTexture )		//»ç¿ëÇÏ°Ú´Ù°í ÇØ³õ°í ÅØ½ºÃÄ ¾øÀ»°æ¿ì ¾Æ¹«°Íµµ ±×¸®Áö ¾ÊÀ½.
+		if( pSet->_bUse && !pSet->_pTexture )		//ì‚¬ìš©í•˜ê² ë‹¤ê³  í•´ë†“ê³  í…ìŠ¤ì³ ì—†ì„ê²½ìš° ì•„ë¬´ê²ƒë„ ê·¸ë¦¬ì§€ ì•ŠìŒ.
 			return TRUE;
 	
 		m_pd3dDevice->SetRenderState( D3DRS_TEXTUREFACTOR, D3DCOLOR_ARGB( 255, 0, 0, 0 ) );
@@ -665,7 +665,7 @@ void CWorld::ReadFileContinent( const char* filename )
 				if( !kInfo._cVertices.empty() )
 					kInfo._cVertices.push_back( kInfo._cVertices[ 0 ] );
 
-				if( kInfo._bUseEnvir )		// È¯°æÀ» ÀÌ¿ëÇÒ °æ¿ì¸¸ ÀúÀå 
+				if( kInfo._bUseEnvir )		// í™˜ê²½ì„ ì´ìš©í•  ê²½ìš°ë§Œ ì €ì¥ 
 					m_cContinents.push_back( kInfo );
 			}
 		}
@@ -682,7 +682,7 @@ void CWorld::ReadFileContinent( const char* filename )
 		else 
 		if( script.Token == _T( "C_name" ) )
 		{
-			//´ë·ú ÀÌ¸§
+			//ëŒ€ë¥™ ì´ë¦„
 			script.GetToken();
 			kInfo._strName = script.token;
 		}

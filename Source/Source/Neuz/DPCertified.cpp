@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "dpcertified.h"
@@ -40,14 +40,14 @@ LONG CDPCertified::GetNetError()
 	return m_lError;
 }
 
-// Á¢¼Ó ²÷±èÀ» Ç¥½ÃÇØ¾ß ÇÏ´Â°¡?
+// ì ‘ì† ëŠê¹€ì„ í‘œì‹œí•´ì•¼ í•˜ëŠ”ê°€?
 BOOL CDPCertified::CheckNofityDisconnected()
 {
-	//¼­¹ö ¸®½ºÆ®¸¦ ¹Ş¾ÒÀ¸¸é ¼­¹ö ²÷±èÀ» Ç¥½ÃÇÏÁö ¾Ê´Â´Ù.
+	//ì„œë²„ ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ì•˜ìœ¼ë©´ ì„œë²„ ëŠê¹€ì„ í‘œì‹œí•˜ì§€ ì•ŠëŠ”ë‹¤.
 	if( g_bRecvSvrList )
 		return FALSE;
 
-	// ¿¡·¯·Î ²÷±â¸é Ç¥½ÃÇÏÁö ¾Ê´Â´Ù.
+	// ì—ëŸ¬ë¡œ ëŠê¸°ë©´ í‘œì‹œí•˜ì§€ ì•ŠëŠ”ë‹¤.
 	if( m_lError )
 		return FALSE;
 
@@ -73,7 +73,7 @@ void CDPCertified::SysMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize, DP
 
 			m_fConn		= FALSE;
 
-			if( CheckNofityDisconnected() )		// Á¢¼Ó ²÷±èÀ» Ç¥½ÃÇØ¾ß ÇÏ´Â°¡?
+			if( CheckNofityDisconnected() )		// ì ‘ì† ëŠê¹€ì„ í‘œì‹œí•´ì•¼ í•˜ëŠ”ê°€?
 			{
 				g_WndMng.CloseMessageBox();
 				g_WndMng.OpenMessageBox( prj.GetText(TID_DIAG_0023) );
@@ -83,7 +83,7 @@ void CDPCertified::SysMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize, DP
 					pWndLogin->GetDlgItem( WIDC_OK )->EnableWindow( TRUE );
 			}
 
-			m_lError = 0;		// ¿¡·¯ÄÚµå clear
+			m_lError = 0;		// ì—ëŸ¬ì½”ë“œ clear
 			break;
 	}
 }
@@ -118,7 +118,7 @@ void CDPCertified::SendNewAccount( LPCSTR lpszAccount, LPCSTR lpszpw )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// 2006.03 MSG_VER¸¦ º¸³»´Â ºÎºĞÀÌ 5Â÷ ±¹³»¿¡´Â ¾øÀ½
+// 2006.03 MSG_VERë¥¼ ë³´ë‚´ëŠ” ë¶€ë¶„ì´ 5ì°¨ êµ­ë‚´ì—ëŠ” ì—†ìŒ
 void CDPCertified::SendCertify()
 {
 #ifdef __NO_SUB_LANG
@@ -138,7 +138,7 @@ void CDPCertified::SendCertify()
 	ar.WriteString( g_Neuz.m_szAccount );
 
 	//////////////////////////////////////////////////////////////////////////
-	//	mulcom	BEGIN100218	ÆĞ½º¿öµå ¾ÏÈ£È­
+	//	mulcom	BEGIN100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”
 #ifdef __ENCRYPT_PASSWORD
 	char	szPlain[ 16 * MAX_PASSWORD ] = {0, };
 	char	szEnc[ 16 * MAX_PASSWORD ] = {0, };
@@ -153,7 +153,7 @@ void CDPCertified::SendCertify()
 #else
 	ar.WriteString( g_Neuz.m_szPassword );
 #endif
-	//	mulcom	END100218	ÆĞ½º¿öµå ¾ÏÈ£È­
+	//	mulcom	END100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”
 
 
 #ifdef __TWN_LOGIN0816
@@ -176,16 +176,16 @@ void CDPCertified::SendCloseExistingConnection( const char* lpszAccount, const c
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ¼­¹öÀÎµ¦½º¸¦ °¡Áö°í ¼­¹öÀÇ ÀÌ¸§À»  ¾ò´Â´Ù.
-// nServerIndex - ¼­¹ö ListBox¿¡¼­ ¼±ÅÃÇÑ ÇàÀÇ ¹øÈ£ ( 0ºÎÅÍ ½ÃÀÛ )
+// ì„œë²„ì¸ë±ìŠ¤ë¥¼ ê°€ì§€ê³  ì„œë²„ì˜ ì´ë¦„ì„  ì–»ëŠ”ë‹¤.
+// nServerIndex - ì„œë²„ ListBoxì—ì„œ ì„ íƒí•œ í–‰ì˜ ë²ˆí˜¸ ( 0ë¶€í„° ì‹œì‘ )
 LPCTSTR CDPCertified::GetServerName( int nServerIndex )
 {
-	int nCount = 0;		// ¼­¹ö¼ÂÀÇ count
+	int nCount = 0;		// ì„œë²„ì…‹ì˜ count
 	for( int i = 0; i < (int)( m_dwSizeofServerset ); i++ )
 	{
 		if( m_aServerset[i].dwParent == NULL_ID )
 		{
-			if( nCount++ == nServerIndex )	 // nServerIndex(=¼­¹öÀÎµ¦½º)´Â ¼­¹ö¼ÂÀÇ ÀÎµ¦½º¿Í °°Àº ÀÇ¹Ì 
+			if( nCount++ == nServerIndex )	 // nServerIndex(=ì„œë²„ì¸ë±ìŠ¤)ëŠ” ì„œë²„ì…‹ì˜ ì¸ë±ìŠ¤ì™€ ê°™ì€ ì˜ë¯¸ 
 			{
 				return m_aServerset[i].lpName;
 			}
@@ -213,7 +213,7 @@ void CDPCertified::OnSrvrList( CAr & ar, DPID )
 	ar >> g_Neuz.m_cbAccountFlag;
 	long lTimeSpan = 0;
 #ifdef __BILLING0712
-	// °áÀç°¡ 1ÀÏ ¹Ì¸¸ ³²Àº°æ¿ì, À¯Àú°¡ ·Î±×ÀÎ ÇÒ¶§ ¸î½Ã°£ ¸îºĞ ³²¾Ò½À´Ï´Ù ¶ó´Â ¸Ş¼¼Áö¸¦ º¸¿©ÁÖ´Â °Í
+	// ê²°ì¬ê°€ 1ì¼ ë¯¸ë§Œ ë‚¨ì€ê²½ìš°, ìœ ì €ê°€ ë¡œê·¸ì¸ í• ë•Œ ëª‡ì‹œê°„ ëª‡ë¶„ ë‚¨ì•˜ìŠµë‹ˆë‹¤ ë¼ëŠ” ë©”ì„¸ì§€ë¥¼ ë³´ì—¬ì£¼ëŠ” ê²ƒ
 	ar >> lTimeSpan;
 #endif	// __BILLING0712
 
@@ -239,11 +239,11 @@ void CDPCertified::OnSrvrList( CAr & ar, DPID )
 	if( ::GetLanguage() == LANG_THA )
 	{
 		long lTimeLeft;	
-		ar >> lTimeLeft;		// ÅÂ±¹ÀÇ °æ¿ì µ¹¾Æ¿À´Â 22:00½Ã±îÁöÀÇ ³²Àº ½Ã°£À» ¹Ş´Â´Ù.
+		ar >> lTimeLeft;		// íƒœêµ­ì˜ ê²½ìš° ëŒì•„ì˜¤ëŠ” 22:00ì‹œê¹Œì§€ì˜ ë‚¨ì€ ì‹œê°„ì„ ë°›ëŠ”ë‹¤.
 		g_Neuz.SetLeftTime( lTimeLeft );
 	}
 
-	// µ¶ÀÏ Å×½ºÆ® ¼­¹ö ÇöÁö Á¢¼ÓÀÎ°¡?
+	// ë…ì¼ í…ŒìŠ¤íŠ¸ ì„œë²„ í˜„ì§€ ì ‘ì†ì¸ê°€?
 	CString strAddr	= g_Neuz.m_lpCertifierAddr;
 	BOOL bPrivate	= ( ::GetLanguage() == LANG_GER && strAddr.Find( "192.168", 0 ) == 0 );
 
@@ -257,7 +257,7 @@ void CDPCertified::OnSrvrList( CAr & ar, DPID )
 		ar.ReadString( pServer->lpName, 36 );
 		ar.ReadString( pServer->lpAddr, 16 );
 
-		// µ¶ÀÏ Å×½ºÆ® ¼­¹ö·ÎÀÇ ÇöÁö Á¢¼ÓÀÌ°í ip°¡ Æ÷ÇÔµÈ ¼­¹ö Á¤º¸¶ó¸é,
+		// ë…ì¼ í…ŒìŠ¤íŠ¸ ì„œë²„ë¡œì˜ í˜„ì§€ ì ‘ì†ì´ê³  ipê°€ í¬í•¨ëœ ì„œë²„ ì •ë³´ë¼ë©´,
 		if( bPrivate && pServer->lpAddr[0] != '\0' )
 			lstrcpy( pServer->lpAddr, g_Neuz.m_lpCertifierAddr );
 
@@ -277,7 +277,7 @@ void CDPCertified::OnSrvrList( CAr & ar, DPID )
 void CDPCertified::OnErrorString( CAr & ar, DPID dpid )
 {
 #ifdef __JAPAN_AUTH
-	g_Neuz.m_dwTimeOutDis = 0xffffffff;			// Å¸ÀÓ ¾Æ¿ô ¸Ş¼¼Áö ¹Ú½º Ç¥½Ã¸¦ ¸·´Â´Ù.
+	g_Neuz.m_dwTimeOutDis = 0xffffffff;			// íƒ€ì„ ì•„ì›ƒ ë©”ì„¸ì§€ ë°•ìŠ¤ í‘œì‹œë¥¼ ë§‰ëŠ”ë‹¤.
 #endif // __JAPAN_AUTH
 
 	char szError[256]	= { 0,};
@@ -290,7 +290,7 @@ void CDPCertified::OnErrorString( CAr & ar, DPID dpid )
 	if( pWndLogin )
 		pWndLogin->GetDlgItem( WIDC_OK )->EnableWindow( TRUE );
 
-	// ¿¡·¯ Ç¥½Ã ÈÄ ¼ÒÄÏÀÌ ²÷±â°Ô ÆĞÅ¶À» º¸³½´Ù. shutdownÀÌ µÇÁö ¾Ê´Â ÀÌ ¾ÆÇÄ 
+	// ì—ëŸ¬ í‘œì‹œ í›„ ì†Œì¼“ì´ ëŠê¸°ê²Œ íŒ¨í‚·ì„ ë³´ë‚¸ë‹¤. shutdownì´ ë˜ì§€ ì•ŠëŠ” ì´ ì•„í”” 
 	// BEFORESENDSOLE( arWrite, PACKETTYPE_ERROR, DPID_UNKNOWN );
 	BEFORESEND( arWrite, PACKETTYPE_ERROR);		// chipi_090219
 	SEND( arWrite, this, DPID_SERVERPLAYER );
@@ -299,7 +299,7 @@ void CDPCertified::OnErrorString( CAr & ar, DPID dpid )
 
 void CDPCertified::OnError( CAr & ar, DPID dpid )
 {
-	g_Neuz.m_dwTimeOutDis = 0xffffffff;			// Å¸ÀÓ ¾Æ¿ô ¸Ş¼¼Áö ¹Ú½º Ç¥½Ã¸¦ ¸·´Â´Ù.
+	g_Neuz.m_dwTimeOutDis = 0xffffffff;			// íƒ€ì„ ì•„ì›ƒ ë©”ì„¸ì§€ ë°•ìŠ¤ í‘œì‹œë¥¼ ë§‰ëŠ”ë‹¤.
 	int nText = 0;
 
 	ar >> m_lError;
@@ -324,46 +324,46 @@ void CDPCertified::OnError( CAr & ar, DPID dpid )
 			nText	= TID_GAME_RESOURCE_MODIFIED;
 			break;
 #endif	// __SECURITY_0628
-		case ERROR_ACCOUNT_EXISTS:				// 100L ÀÌ¹Ì °°Àº ÀÌ¸§ÀÇ °èÁ¤ÀÌ ÀÖ½À´Ï´Ù.
+		case ERROR_ACCOUNT_EXISTS:				// 100L ì´ë¯¸ ê°™ì€ ì´ë¦„ì˜ ê³„ì •ì´ ìˆìŠµë‹ˆë‹¤.
 			nText = TID_DIAG_0032;
 			break;
-		case ERROR_FLYFF_PASSWORD:				// 120L (ºñ¹Ğ ¹øÈ£°¡ Æ²¸³´Ï´Ù.)
+		case ERROR_FLYFF_PASSWORD:				// 120L (ë¹„ë°€ ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤.)
 			nText = TID_DIAG_0016;
 			break;
-		case ERROR_FLYFF_ACCOUNT:				// 121L (Àß¸øµÈ °èÁ¤ÀÔ´Ï´Ù.)
+		case ERROR_FLYFF_ACCOUNT:				// 121L (ì˜ëª»ëœ ê³„ì •ì…ë‹ˆë‹¤.)
 			nText = TID_DIAG_0038;
 			break;
-		case ERROR_OVERFLOW:					// 108L Á¢¼ÓÀÚ°¡ ³Ê¹« ¸¹½À´Ï´Ù.
+		case ERROR_OVERFLOW:					// 108L ì ‘ì†ìê°€ ë„ˆë¬´ ë§ìŠµë‹ˆë‹¤.
 			nText = TID_DIAG_0041;
 			break;
-		case ERROR_EXTERNAL_ADDR:				// 109L ÇöÀç ¼­ºñ½ºÁßÀÌ ¾Æ´Õ´Ï´Ù.
+		case ERROR_EXTERNAL_ADDR:				// 109L í˜„ì¬ ì„œë¹„ìŠ¤ì¤‘ì´ ì•„ë‹™ë‹ˆë‹¤.
 			nText = TID_DIAG_0053;
 			break;
-		case ERROR_BLOCKGOLD_ACCOUNT:			// 119L ºí·°µÈ °èÁ¤ÀÔ´Ï´Ù.
+		case ERROR_BLOCKGOLD_ACCOUNT:			// 119L ë¸”ëŸ­ëœ ê³„ì •ì…ë‹ˆë‹¤.
 			nText = TID_DIAG_0015;
 			break;
-		case ERROR_FLYFF_AUTH:					// 122L ½Ç¸íÀÎÁõÈÄ °ÔÀÓÁ¢¼ÓÀÌ °¡´ÉÇÕ´Ï´Ù www.flyff.comÀ¸·Î Á¢¼ÓÇØÁÖ½Ê½Ã¿À
+		case ERROR_FLYFF_AUTH:					// 122L ì‹¤ëª…ì¸ì¦í›„ ê²Œì„ì ‘ì†ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤ www.flyff.comìœ¼ë¡œ ì ‘ì†í•´ì£¼ì‹­ì‹œì˜¤
 			nText = TID_DIAG_0026;
 			break;
-		case ERROR_FLYFF_PERMIT:				// 123L ÇÁ¸®ÇÁ´Â 12¼¼ ÀÌ»ó ÀÌ¿ë°¡ ÀÌ¹Ç·Î °ÔÀÓÁ¢¼ÓÀ» ÇÒ¼ö ¾ø½À´Ï´Ù.
+		case ERROR_FLYFF_PERMIT:				// 123L í”„ë¦¬í”„ëŠ” 12ì„¸ ì´ìƒ ì´ìš©ê°€ ì´ë¯€ë¡œ ê²Œì„ì ‘ì†ì„ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 			nText = TID_DIAG_0050;
 			break;		
-		case ERROR_FLYFF_NEED_AGREEMENT:		// 124L 14¼¼ ¹Ì¸¸ °¡ÀÔÀÚ ºĞµéÀº ºÎ¸ğ´Ô µ¿ÀÇ¼­¸¦ º¸³»ÁÖ¼Å¾ß °ÔÀÓ Á¢¼ÓÀÌ °¡´ÉÇÕ´Ï´Ù. www.flyff.com À¸·Î Á¢¼ÓÇÏ¼Å¼­ È®ÀÎÇØ ÁÖ¼¼¿ä.
+		case ERROR_FLYFF_NEED_AGREEMENT:		// 124L 14ì„¸ ë¯¸ë§Œ ê°€ì…ì ë¶„ë“¤ì€ ë¶€ëª¨ë‹˜ ë™ì˜ì„œë¥¼ ë³´ë‚´ì£¼ì…”ì•¼ ê²Œì„ ì ‘ì†ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤. www.flyff.com ìœ¼ë¡œ ì ‘ì†í•˜ì…”ì„œ í™•ì¸í•´ ì£¼ì„¸ìš”.
 			nText = TID_DIAG_0001;
 			break;
-		case ERROR_FLYFF_NO_MEMBERSHIP:			// 125L	 À¥¿¡¼­ Å»ÅğÇÑ °èÁ¤ÀÔ´Ï´Ù. www.flyff.com À¸·Î Á¢¼ÓÇÏ¼Å¼­ È®ÀÎÇØ ÁÖ¼¼¿ä." ) );
+		case ERROR_FLYFF_NO_MEMBERSHIP:			// 125L	 ì›¹ì—ì„œ íƒˆí‡´í•œ ê³„ì •ì…ë‹ˆë‹¤. www.flyff.com ìœ¼ë¡œ ì ‘ì†í•˜ì…”ì„œ í™•ì¸í•´ ì£¼ì„¸ìš”." ) );
 			nText = TID_GAME_ACCOUNTWEBRETIRE;
 			break;		
-		case ERROR_BILLING_INFO_FAILED:			// ºô¸µ Á¤º¸ ¾øÀ½
+		case ERROR_BILLING_INFO_FAILED:			// ë¹Œë§ ì •ë³´ ì—†ìŒ
 			nText = TID_DIAG_NOCHARGING;
 			break;
-		case ERROR_BILLING_DATABASE_ERROR:		// ºô¸µ DB ¿¡·¯ 
+		case ERROR_BILLING_DATABASE_ERROR:		// ë¹Œë§ DB ì—ëŸ¬ 
 			nText = TID_DIAG_DBERROR1;
 			break;
-		case ERROR_BILLING_TIME_OVER:			// ºô¸µ »ç¿ë½Ã°£ ¸¸·á 
+		case ERROR_BILLING_TIME_OVER:			// ë¹Œë§ ì‚¬ìš©ì‹œê°„ ë§Œë£Œ 
 			nText = TID_DIAG_EXPIRY;
 			break;		
-		case ERROR_BILLING_OTHER_ERROR:			// ºô¸µ ±âÅ¸ ´Ù¸¥ ¿¡·¯ 
+		case ERROR_BILLING_OTHER_ERROR:			// ë¹Œë§ ê¸°íƒ€ ë‹¤ë¥¸ ì—ëŸ¬ 
 			nText = TID_DIAG_DBERROR2;
 			break;
 		case ERROR_BILLING_DISCONNECTED:
@@ -401,7 +401,7 @@ void CDPCertified::OnError( CAr & ar, DPID dpid )
 		if( pWndLogin )
 			pWndLogin->GetDlgItem( WIDC_OK )->EnableWindow( TRUE );
 
-		// ¿¡·¯ Ç¥½Ã ÈÄ ¼ÒÄÏÀÌ ²÷±â°Ô ÆĞÅ¶À» º¸³½´Ù. shutdownÀÌ µÇÁö ¾Ê´Â ÀÌ ¾ÆÇÄ 
+		// ì—ëŸ¬ í‘œì‹œ í›„ ì†Œì¼“ì´ ëŠê¸°ê²Œ íŒ¨í‚·ì„ ë³´ë‚¸ë‹¤. shutdownì´ ë˜ì§€ ì•ŠëŠ” ì´ ì•„í”” 
 		//BEFORESENDSOLE( ar, PACKETTYPE_ERROR, DPID_UNKNOWN );
 		BEFORESEND( ar, PACKETTYPE_ERROR );		// chipi_090219 
 		SEND( ar, this, DPID_SERVERPLAYER );

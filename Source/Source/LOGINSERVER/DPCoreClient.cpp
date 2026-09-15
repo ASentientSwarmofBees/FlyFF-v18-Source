@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "user.h"
 extern	CUserMng	g_UserMng;
 #include "dploginsrvr.h"

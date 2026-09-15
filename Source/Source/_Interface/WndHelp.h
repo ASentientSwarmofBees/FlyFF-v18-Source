@@ -1,8 +1,8 @@
-#ifndef __WNDHELP_H
+ï»¿#ifndef __WNDHELP_H
 #define __WNDHELP_H
 
 //////////////////////////////////////////////////////////////////////////////////////
-// µµ¿ò¸»
+// ë„ì›€ë§
 //
 class CWndHelp : public CWndNeuz
 {

@@ -1,4 +1,4 @@
-/*
+﻿/*
 by PJ Naughter
 www.naughter.com
 */

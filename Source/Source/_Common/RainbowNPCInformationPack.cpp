@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #ifdef __IMPROVE_MAP_SYSTEM
 #ifdef __CLIENT
 #include "RainbowNPCInformationPack.h"
@@ -93,7 +93,7 @@ BOOL CRainbowNPCInformationPack::LoadScript( const CString& strFileName )
 		{
 			if( dwCount >= m_dwNumber )
 			{
-				Error( _T( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d" ), strFileName, m_dwNumber, dwCount );
+				Error( _T( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d" ), strFileName, m_dwNumber, dwCount );
 				return FALSE;
 			}
 			int nCount = 0;
@@ -116,7 +116,7 @@ BOOL CRainbowNPCInformationPack::LoadScript( const CString& strFileName )
 					{
 						if( dwCount >= m_dwNumber )
 						{
-							Error( _T( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d" ), strFileName, m_dwNumber, dwCount );
+							Error( _T( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d" ), strFileName, m_dwNumber, dwCount );
 							return FALSE;
 						}
 
@@ -147,7 +147,7 @@ BOOL CRainbowNPCInformationPack::LoadScript( const CString& strFileName )
 			for( int i = 0; i < nFrame; ++i )
 			{
 				CRainbowNPCInformation* pRainbowNPCInformation = new CRainbowNPCInformation;
-				// ÇöÀç »ç¿ëÇÏ°í ÀÖ´Â ¸Ê ID = ±âÁ¸ ½ºÅ©¸³Æ®ÀÇ ¸Ê ID + 4
+				// í˜„ì¬ ì‚¬ìš©í•˜ê³  ìˆëŠ” ë§µ ID = ê¸°ì¡´ ìŠ¤í¬ë¦½íŠ¸ì˜ ë§µ ID + 4
 				pRainbowNPCInformation->SetMapID( scanner.GetNumber() + 4 );
 				CRect rectWorldPosition( 0, 0, 0, 0 );
 				rectWorldPosition.left = scanner.GetNumber();

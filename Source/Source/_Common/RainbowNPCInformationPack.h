@@ -1,4 +1,4 @@
-#ifndef __RAINBOW_NPC_INFORMATION_PACK_H__
+﻿#ifndef __RAINBOW_NPC_INFORMATION_PACK_H__
 #define __RAINBOW_NPC_INFORMATION_PACK_H__
 
 #include "RainbowNPCInformation.h"

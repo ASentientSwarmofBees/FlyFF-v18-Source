@@ -1,8 +1,8 @@
-//*************************************************************
+ï»¿//*************************************************************
 //													        
-//  Á¤¼ö¸¸ÀÌ °¡´ÉÇÑ Recursive descent parser		        
-//  º¯¼öÀÇ »ç¿ëÀÌ °¡´ÉÇÏ°í ÇÔ¼ö¸¦ È£ÃâÇÒ ¼ö ÀÖÀ¸¸ç,			 
-//  goto ¸í·É µî Little C¿¡¼­ Á¦°øÇÏÁö ¾Ê´Â ±â´ÉÀ» Á¦°øÇÑ´Ù. 
+//  ì •ìˆ˜ë§Œì´ ê°€ëŠ¥í•œ Recursive descent parser		        
+//  ë³€ìˆ˜ì˜ ì‚¬ìš©ì´ ê°€ëŠ¥í•˜ê³  í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•  ìˆ˜ ìˆìœ¼ë©°,			 
+//  goto ëª…ë ¹ ë“± Little Cì—ì„œ ì œê³µí•˜ì§€ ì•ŠëŠ” ê¸°ëŠ¥ì„ ì œê³µí•œë‹¤. 
 //                            								
 //  by Travis nam			                       			
 //												               
@@ -29,7 +29,7 @@ inline int isdelim( wchar_t c )
 }
 
 //
-// ÅäÅ« ½ºÆ®¸²
+// í† í° ìŠ¤íŠ¸ë¦¼
 //
 WORD g_codePage = 0;	// 949
 
@@ -177,7 +177,7 @@ const char* CharNextVt(const char* lpsz)
 {
 	const BYTE* stream = (const BYTE*)(lpsz);
 
-	// µÎ¹øÂ° °ªÀÌ ¼ºÁ¶ÀÏ °æ¿ì Ã¼Å©
+	// ë‘ë²ˆì§¸ ê°’ì´ ì„±ì¡°ì¼ ê²½ìš° ì²´í¬
 	switch(stream[1])
 	{
 		case 0xcc:
@@ -210,9 +210,9 @@ const char*	CharNextEx(const char* strText, WORD codePage)
 	}
 }
 
-// º£Æ®³²¾î Ã³¸®
-// À¯´ÏÄÚµå¿¡¼­ 1258 : [¿Ï¼ºÇü À¯´ÏÄÚµå] -> [Á¶ÇÕÇü À¯´ÏÄÚµå] -> [CodePage 1258 ANSI È£È¯ÄÚµå] 
-// 1258¿¡¼­ À¯´ÏÄÚµå : [CodePage 1258 ANSI È£È¯ÄÚµå] -> [Á¶ÇÕÇü À¯´ÏÄÚµå] -> [¿Ï¼ºÇü À¯´ÏÄÚµå] 
+// ë² íŠ¸ë‚¨ì–´ ì²˜ë¦¬
+// ìœ ë‹ˆì½”ë“œì—ì„œ 1258 : [ì™„ì„±í˜• ìœ ë‹ˆì½”ë“œ] -> [ì¡°í•©í˜• ìœ ë‹ˆì½”ë“œ] -> [CodePage 1258 ANSI í˜¸í™˜ì½”ë“œ] 
+// 1258ì—ì„œ ìœ ë‹ˆì½”ë“œ : [CodePage 1258 ANSI í˜¸í™˜ì½”ë“œ] -> [ì¡°í•©í˜• ìœ ë‹ˆì½”ë“œ] -> [ì™„ì„±í˜• ìœ ë‹ˆì½”ë“œ] 
 
 namespace VTN
 {
@@ -251,7 +251,7 @@ namespace VTN
 int IsTone(wchar_t input)
 {
 	using namespace VTN;
-	//U0300 U0301 U0309 U0303 U0323 ÀÏ¶§ true
+	//U0300 U0301 U0309 U0303 U0323 ì¼ë•Œ true
 
 	for(int i=0; i<5; i++)
 	{
@@ -298,7 +298,7 @@ bool GetTone(wchar_t input, int* pnLetterLine, int* pnTone)
 	return false;
 }
 
-// Á¶ÇÕÇü À¯´ÏÄÚµå -> ¿Ï¼ºÇü À¯´ÏÄÚµå
+// ì¡°í•©í˜• ìœ ë‹ˆì½”ë“œ -> ì™„ì„±í˜• ìœ ë‹ˆì½”ë“œ
 void ComposeString(wchar_t* pwSrc, wchar_t* pwDest, int nSize)
 {
 	using namespace VTN;
@@ -324,7 +324,7 @@ void ComposeString(wchar_t* pwSrc, wchar_t* pwDest, int nSize)
 	}
 }
 
-// ¿Ï¼ºÇü À¯´ÏÄÚµå -> Á¶ÇÕÇü À¯´ÏÄÚµå
+// ì™„ì„±í˜• ìœ ë‹ˆì½”ë“œ -> ì¡°í•©í˜• ìœ ë‹ˆì½”ë“œ
 void DecomposeString(wchar_t* pwSrc, wchar_t* pwDest, int nSize)
 {
 	using namespace VTN;
@@ -352,7 +352,7 @@ void DecomposeString(wchar_t* pwSrc, wchar_t* pwDest, int nSize)
 	}
 }
 
-// ·¯½Ã¾Æ¾î Å°¸±¹®ÀÚ
+// ëŸ¬ì‹œì•„ì–´ í‚¤ë¦´ë¬¸ì
 BOOL IsCyrillic( const char chSrc )
 {
 	if( ::GetLanguage() != LANG_RUS )
@@ -492,13 +492,13 @@ BOOL CScanner::Read( CFileIO* pFile, BOOL )
 
 	m_pProg = m_pBuf = pProg;
 	pFile->Read( m_pBuf, m_nProgSize );
-	// 0xfffeÀÇ 2¹ÙÀÌÆ®¸¦ »©°í ³Î(0x0000)À» 2¹ÙÀÌÆ®¸¦ Ãß°¡ÇØ¼­ °á±¹ m_nProgSize´Â º¯È­ ¾øÀ½.
+	// 0xfffeì˜ 2ë°”ì´íŠ¸ë¥¼ ë¹¼ê³  ë„(0x0000)ì„ 2ë°”ì´íŠ¸ë¥¼ ì¶”ê°€í•´ì„œ ê²°êµ­ m_nProgSizeëŠ” ë³€í™” ì—†ìŒ.
 	*(pProg + m_nProgSize ) = '\0';
 	*(pProg + m_nProgSize + 1 ) = '\0';
 
 	if( (BYTE)*(pProg + 0 ) == 0xff && (BYTE)*(pProg + 1 ) == 0xfe ) // is unicode ?
 	{
-		// ÅØ½ºÆ®°¡ À¯´ÏÄÚµåÀÏ °æ¿ì ¸ÖÆ¼¹ÙÀÌÆ®·Î º¯°æ 
+		// í…ìŠ¤íŠ¸ê°€ ìœ ë‹ˆì½”ë“œì¼ ê²½ìš° ë©€í‹°ë°”ì´íŠ¸ë¡œ ë³€ê²½ 
 		char* lpMultiByte = new char[ nSize ];
 		int nResult = WideCharToMultiByteEx( g_codePage, 0, 
 			                               (LPCWSTR)(pProg + 2), -1, 
@@ -556,9 +556,9 @@ int CScanner::GetLineNum( LPVOID lpProg )
 	}
 	return nLine;
 }
-void CScanner::GetLastFull() // ÇöÀçºÎÅÍ ³¡±îÁö ÇÑ¹ø¿¡ ÀĞ´Â´Ù.
+void CScanner::GetLastFull() // í˜„ì¬ë¶€í„° ëê¹Œì§€ í•œë²ˆì— ì½ëŠ”ë‹¤.
 {
-	// ¾ÕÂÊ white space¸¦ ½ºÅµ
+	// ì•ìª½ white spaceë¥¼ ìŠ¤í‚µ
 	while( iswhite( *m_pProg ) && *m_pProg && *m_pProg != '\r' ) 
 		++m_pProg;
 	
@@ -569,7 +569,7 @@ void CScanner::GetLastFull() // ÇöÀçºÎÅÍ ³¡±îÁö ÇÑ¹ø¿¡ ÀĞ´Â´Ù.
 		m_pProg += count;
 		pCur += count;
 	}
-	// µÚÂÊ white space¸¦ ½ºÅµ
+	// ë’¤ìª½ white spaceë¥¼ ìŠ¤í‚µ
 	if( pCur != token )
 	{
 		--pCur;
@@ -594,10 +594,10 @@ int CScanner::GetToken( BOOL bComma )
 	{
 		bLoop = FALSE;
 		
-		while( iswhite( *m_pProg ) && *m_pProg ) // white space¸¦ ½ºÅµ
+		while( iswhite( *m_pProg ) && *m_pProg ) // white spaceë¥¼ ìŠ¤í‚µ
 			++m_pProg;
 
-		while(*m_pProg == '/') // ÁÖ¼®¹® Ã³¸®
+		while(*m_pProg == '/') // ì£¼ì„ë¬¸ ì²˜ë¦¬
 		{
 			++m_pProg;
 			if(*m_pProg == '/') 
@@ -635,12 +635,12 @@ int CScanner::GetToken( BOOL bComma )
 				--m_pProg;
 				break;
 			}
-			bLoop = TRUE;	// ÁÖ¼® ³¡ ´Ù½Ã loop½ÃÀÛ 
+			bLoop = TRUE;	// ì£¼ì„ ë ë‹¤ì‹œ loopì‹œì‘ 
 		}
 	}
 	while( bLoop ) ;
 
-	// È­ÀÏÀÇ ³¡
+	// í™”ì¼ì˜ ë
 	if(*m_pProg=='\0') 
 	{
 		tok = FINISHED;
@@ -648,11 +648,11 @@ int CScanner::GetToken( BOOL bComma )
 		goto EXIT;
 	}
 
-	// Comma Çü½ÄÀÇ ±¸ºĞÀÚÀÎ°¡?
+	// Comma í˜•ì‹ì˜ êµ¬ë¶„ìì¸ê°€?
 	if( bComma || m_bComma )
 	{
-		// ÄŞ¸¶³ª µ¥ÀÌÅ¸ÀÇ ³¡, ¶Ç´Â ¿£ÅÍ ÄÚµå°¡ ³ª¿Ã ¶§±îÁö ÀĞ´Â´Ù.
-		// ÄŞ¸¶ ±¸ºĞÀÏ °æ¿ì´Â ±×°ÍÀº pszCur¿Í NUMBER¸¸À» ±¸ºĞÇÑ´Ù.
+		// ì½¤ë§ˆë‚˜ ë°ì´íƒ€ì˜ ë, ë˜ëŠ” ì—”í„° ì½”ë“œê°€ ë‚˜ì˜¬ ë•Œê¹Œì§€ ì½ëŠ”ë‹¤.
+		// ì½¤ë§ˆ êµ¬ë¶„ì¼ ê²½ìš°ëŠ” ê·¸ê²ƒì€ pszCurì™€ NUMBERë§Œì„ êµ¬ë¶„í•œë‹¤.
 		if(*m_pProg=='"') 
 		{
 			++m_pProg;
@@ -668,7 +668,7 @@ int CScanner::GetToken( BOOL bComma )
 		}
 		if( *m_pProg == ',' || *m_pProg == '\r')
 			++m_pProg; // skim comma
-		// white space¸¦ ½ºÅµ
+		// white spaceë¥¼ ìŠ¤í‚µ
 		if( pszCur != token )
 		{
 			--pszCur;
@@ -769,7 +769,7 @@ int CScanner::GetToken( BOOL bComma )
 		goto EXIT;
 	}
 
-	// ½ºÆ®¸µ 
+	// ìŠ¤íŠ¸ë§ 
 	if(*m_pProg=='"') 
 	{
 		++m_pProg;
@@ -789,9 +789,9 @@ int CScanner::GetToken( BOOL bComma )
 			{
 				CString string;
 				if( ( pszCur - token ) >= MAX_TOKENSTR )
-					string.Format( "line(%d) ÆÄÀÏ %s¿¡¼­ \"%s\" ½ºÆ®¸µ ±æÀÌ°¡ %d¹ÙÀÌÆ®¸¦ ÃÊ°úÇßÀ½.", GetLineNum(), m_strFileName, token, MAX_TOKENSTR );
+					string.Format( "line(%d) íŒŒì¼ %sì—ì„œ \"%s\" ìŠ¤íŠ¸ë§ ê¸¸ì´ê°€ %dë°”ì´íŠ¸ë¥¼ ì´ˆê³¼í–ˆìŒ.", GetLineNum(), m_strFileName, token, MAX_TOKENSTR );
 				else
-					string.Format( "line(%d) ÆÄÀÏ %s¿¡¼­ \"%s\" ½ºÆ®¸µÀÌ µû¿ÈÇ¥·Î ³¡³ªÁö ¾ÊÀ½.", GetLineNum(), m_strFileName, token );
+					string.Format( "line(%d) íŒŒì¼ %sì—ì„œ \"%s\" ìŠ¤íŠ¸ë§ì´ ë”°ì˜´í‘œë¡œ ëë‚˜ì§€ ì•ŠìŒ.", GetLineNum(), m_strFileName, token );
 				Error( string );
 			}
 		}
@@ -806,8 +806,8 @@ int CScanner::GetToken( BOOL bComma )
 		tokenType = HEX; 
 		goto EXIT;
 	}
-	// ¼ıÀÚ
-	if( isdigit2( *m_pProg ) && !IsMultiByte( m_pProg ) ) //¼ıÀÚ °Ë»ç¸¸À¸·Î ³¡³ª´Âµ¥ ¿Ö ÇÑ±ÛÀÌ ¾Æ´Ò °æ¿ìµµ Ã¼Å©ÇÏÁö?
+	// ìˆ«ì
+	if( isdigit2( *m_pProg ) && !IsMultiByte( m_pProg ) ) //ìˆ«ì ê²€ì‚¬ë§Œìœ¼ë¡œ ëë‚˜ëŠ”ë° ì™œ í•œê¸€ì´ ì•„ë‹ ê²½ìš°ë„ ì²´í¬í•˜ì§€?
 	{
 		while( !isdelim( *m_pProg ) )
 		{
@@ -821,7 +821,7 @@ int CScanner::GetToken( BOOL bComma )
 		goto EXIT;
 	}
 
-	// º¯¼ö¿Í ¸í·É
+	// ë³€ìˆ˜ì™€ ëª…ë ¹
 #ifdef __VS2003
 	if( iswalpha( *m_pProg ) || IsMultiByte( m_pProg ) || IsCyrillic( *m_pProg ) 
 		|| *m_pProg == '#' || *m_pProg == '_' || *m_pProg == '@' || *m_pProg=='$' || *m_pProg == '?' ) 
@@ -1000,7 +1000,7 @@ void CScanner::PutBack()
 { 
 	for( CHAR *t = m_mszToken; *t; t++ ) 
 		m_pProg--;
-	if( tokenType == STRING ) // µû¿ÈÇ¥ Ã³¸® 
+	if( tokenType == STRING ) // ë”°ì˜´í‘œ ì²˜ë¦¬ 
 		m_pProg-=2;
 }
 

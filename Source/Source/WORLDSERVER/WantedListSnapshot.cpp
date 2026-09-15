@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "WantedListSnapshot.h"
 
 CWantedListSnapshot& CWantedListSnapshot::GetInstance()
@@ -27,7 +27,7 @@ void CWantedListSnapshot::Read( CAr& ar )
 {
 	m_wantedList.clear();
 
-	int nCount;				// ¸®½ºÆ®ÀÇ °¹¼ö 
+	int nCount;				// ë¦¬ìŠ¤íŠ¸ì˜ ê°¯ìˆ˜ 
 
 	ar >> m_lRecvTime;
 	ar >> nCount;						
@@ -58,7 +58,7 @@ void CWantedListSnapshot::Write( CAr& ar )
 	}
 }
 
-// nIndex¿¡ ÇØ´çµÇ´Â ÇÃ·¹ÀÌ¾îÀÇ ÀÌ¸§À» ¾ò´Â´Ù.
+// nIndexì— í•´ë‹¹ë˜ëŠ” í”Œë ˆì´ì–´ì˜ ì´ë¦„ì„ ì–»ëŠ”ë‹¤.
 int CWantedListSnapshot::GetPlayerIndex( LPCTSTR szPlayer )
 {
 	int nCount = m_wantedList.size();

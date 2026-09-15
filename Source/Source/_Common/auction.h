@@ -1,4 +1,4 @@
-#ifndef __AUCTION_H__
+﻿#ifndef __AUCTION_H__
 #define	__AUCTION_H__
 
 class CUser;

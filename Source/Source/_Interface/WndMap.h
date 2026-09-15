@@ -1,4 +1,4 @@
-#ifndef __WNDMAP__H
+﻿#ifndef __WNDMAP__H
 #define __WNDMAP__H
 
 class CWndMap : public CWndNeuz 

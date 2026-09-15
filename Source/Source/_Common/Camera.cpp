@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #include "Ship.h"
 
@@ -53,7 +53,7 @@ void CCamera::Transform( LPDIRECT3DDEVICE9 pd3dDevice, CWorld* pWorld )
 
 	pd3dDevice->SetTransform( D3DTS_VIEW, &m_matView );
 	pWorld->UpdateCullInfo( &m_matView, &pWorld->m_matProj );
-	// °Å´ëÇÑ ¿ÀºêÁ§Æ®ÀÇ ÄÃ¸µÀ» À§ÇØ Ä«¸Þ¶ó¸¦ ½ÇÁ¦º¸´Ù µÚ·Î Á¶±Ý »«´Ù.
+	// ê±°ëŒ€í•œ ì˜¤ë¸Œì íŠ¸ì˜ ì»¬ë§ì„ ìœ„í•´ ì¹´ë©”ë¼ë¥¼ ì‹¤ì œë³´ë‹¤ ë’¤ë¡œ ì¡°ê¸ˆ ëº€ë‹¤.
 	/*
 	D3DXVECTOR3 vTempLook = m_vLookAt;
 	D3DXVec3Normalize(&(vTempLook),&(vTempLook));
@@ -62,7 +62,7 @@ void CCamera::Transform( LPDIRECT3DDEVICE9 pd3dDevice, CWorld* pWorld )
 	D3DXMatrixLookAtLH( &mTempView, &vTempPos, &m_vLookAt, &D3DXVECTOR3(0.0f,1.0f,0.0f) );
 	pWorld->UpdateCullInfo( &mTempView, &pWorld->m_matProj );
 	*/
-	// ÇöÀç Ä«¸Þ¶óÀÇ ¿ªÇÔ¼ö¸¦ ±¸ÇÑ´Ù. ÀÌ°ÍÀº ¿©±âÀú±â¼­ ´Ù¸ñÀûÀ¸·Î »ç¿ëÇÑ´Ù.
+	// í˜„ìž¬ ì¹´ë©”ë¼ì˜ ì—­í•¨ìˆ˜ë¥¼ êµ¬í•œë‹¤. ì´ê²ƒì€ ì—¬ê¸°ì €ê¸°ì„œ ë‹¤ëª©ì ìœ¼ë¡œ ì‚¬ìš©í•œë‹¤.
 	D3DXMatrixInverse( &m_matInvView, NULL, &m_matView );
 	m_matInvView._41 = 0.0f; m_matInvView._42 = 0.0f; m_matInvView._43 = 0.0f;
 	g_matInvView = m_matInvView;
@@ -185,7 +185,7 @@ void CBackCamera::Process( LPDIRECT3DDEVICE9 pd3dDevice ,float fFactor )
 {
 #ifdef __CLIENT
 	CMover *pMover = CMover::GetActiveMover();
-	// ¿©±â¼­ Ä«¸Þ¶ó ¼¼ÆÃ!!!!!
+	// ì—¬ê¸°ì„œ ì¹´ë©”ë¼ ì„¸íŒ…!!!!!
 	if( pMover == NULL )	return;
 
 	CWorld* pWorld = pMover->GetWorld();
@@ -208,8 +208,8 @@ void CBackCamera::Process( LPDIRECT3DDEVICE9 pd3dDevice ,float fFactor )
 	CMover* pMoverTarget = (CMover*)g_WorldMng.Get()->GetObjFocus() ;
 	D3DXVECTOR3 vTarget,vTemp;
 	if( pMoverTarget && pMover->m_pActMover->IsFly() && (pMover->m_dwFlag & MVRF_TRACKING) ) 
-	{	// ³¯°í ÀÖ´Â °æ¿ì Å¸°ÙÀÌ ÀÖ´Ù¸é
-		// Å¸°ÙÂÊÀ¸·Î Ä«¸Þ¶ó ¹æÇâÀ» ¼öÁ¤ÇÑ´Ù.
+	{	// ë‚ ê³  ìžˆëŠ” ê²½ìš° íƒ€ê²Ÿì´ ìžˆë‹¤ë©´
+		// íƒ€ê²Ÿìª½ìœ¼ë¡œ ì¹´ë©”ë¼ ë°©í–¥ì„ ìˆ˜ì •í•œë‹¤.
 		vTemp = vPos - pMoverTarget->GetPos();
 		if( vTemp.z > 0 ) 
 		{
@@ -221,7 +221,7 @@ void CBackCamera::Process( LPDIRECT3DDEVICE9 pd3dDevice ,float fFactor )
 		}
 		D3DXVECTOR3	vDistXZ = vTemp;
 		vDistXZ.y = 0;
-		float fDistSq = D3DXVec3Length( &vDistXZ );		// XZÆò¸é¿¡¼­ÀÇ ±æÀÌ
+		float fDistSq = D3DXVec3Length( &vDistXZ );		// XZí‰ë©´ì—ì„œì˜ ê¸¸ì´
 		fAngleY = atan2( fDistSq, vTemp.y/* * vTemp.y*/ );
 		fAngleY = D3DXToDegree( fAngleY );
 
@@ -331,7 +331,7 @@ void CBackCamera::Process( LPDIRECT3DDEVICE9 pd3dDevice ,float fFactor )
 	m_fCurRoty += fAdjAng;
 	m_fCurRoty += pMover->GetAngleX();
 	
-	if( pMover->m_pActMover->IsFly() )	// ºñÇàÇÒ¶© Á¶±Ý µé¾îÁÖÀÚ
+	if( pMover->m_pActMover->IsFly() )	// ë¹„í–‰í• ë• ì¡°ê¸ˆ ë“¤ì–´ì£¼ìž
 		m_fCurRoty += 0.0f;
 	if( m_fCurRoty > 80.0f ) 
 		m_fCurRoty = 80.0f;
@@ -351,7 +351,7 @@ void CBackCamera::Process( LPDIRECT3DDEVICE9 pd3dDevice ,float fFactor )
 	fAngle = m_fCurRotx - fAngle + 180.0f;
 
 	D3DXMATRIX matTemp;
-	// zoom »óÅÂ¿¡ µû¶ó Ä«¸Þ¶ó À§Ä¡¸¦ Á¶Á¤
+	// zoom ìƒíƒœì— ë”°ë¼ ì¹´ë©”ë¼ ìœ„ì¹˜ë¥¼ ì¡°ì •
 	extern float fDiv;
 	
 	if( fDiv == 2.0f )
@@ -395,11 +395,11 @@ void CBackCamera::Process( LPDIRECT3DDEVICE9 pd3dDevice ,float fFactor )
 	bCrash = pWorld->CheckBound( &m_vPos, &m_vLookAt, &m_vOutPos, &fLength );
 #endif //__GUILD_COMBAT_1TO1
 
-	// Ãæµ¹ÀÌÀÖ´Ù¸é ¸¶Áö¸·À¸·Î Ãæµ¹Çß´ø °Å¸®¸¦ ÀúÀå
+	// ì¶©ëŒì´ìžˆë‹¤ë©´ ë§ˆì§€ë§‰ìœ¼ë¡œ ì¶©ëŒí–ˆë˜ ê±°ë¦¬ë¥¼ ì €ìž¥
 	if( bCrash )
 		m_fLength2 = fLength;
 
-	// ÀüÇÁ·¹ÀÓ¿¡ Ãæµ¹, ÇöÀç´Â Ãæµ¹ÀÌ ¾Æ´Ò¶§...Áï, ¼­¼­È÷ µÚ·Î °¡°ÔÇÏ´Â ½ÃÁ¡..
+	// ì „í”„ë ˆìž„ì— ì¶©ëŒ, í˜„ìž¬ëŠ” ì¶©ëŒì´ ì•„ë‹ë•Œ...ì¦‰, ì„œì„œížˆ ë’¤ë¡œ ê°€ê²Œí•˜ëŠ” ì‹œì ..
 	if( m_bOld && bCrash == FALSE )
 	{
 		m_fLength1 = fLength;

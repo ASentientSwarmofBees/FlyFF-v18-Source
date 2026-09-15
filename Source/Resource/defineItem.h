@@ -1,20 +1,20 @@
-#ifndef __DEFINE_ITEM
+ï»¿#ifndef __DEFINE_ITEM
 #define __DEFINE_ITEM
 
-// 20 ~ ¹«±â
-// 500 ~ ¹æ¾î±¸
-// 2530 ~ ÀÏ¹Ý¾ÆÀÌÅÛ
-// 3200 ~ Á¦·Ã¿ë ¾ÆÀÌÅÛ
-// 4400 ~ ÀÇ»ó
-// 4600 ~ ¸ÁÅä
-// 4800 ~ ½Ã½ºÅÛ
-// 5000 ~ ºñÇàÃ¼
-// 6000 ~ Äù½ºÆ®
-// 6500 ~ À¯´ÏÅ© ¾ÆÀÌÅÛ
-// 8000 ~ Äù½ºÆ®¿ë ¹«±â/¹æ¾î±¸
-// 9000 ~ ¸ó½ºÅÍ ¹«±â
-// 10000 ~ ¼¼Æ®¹æ¾î±¸
-// 21000 ~ Æê¼ÒÈ¯ ¾ÆÀÌÅÛ
+// 20 ~ ë¬´ê¸°
+// 500 ~ ë°©ì–´êµ¬
+// 2530 ~ ì¼ë°˜ì•„ì´í…œ
+// 3200 ~ ì œë ¨ìš© ì•„ì´í…œ
+// 4400 ~ ì˜ìƒ
+// 4600 ~ ë§í† 
+// 4800 ~ ì‹œìŠ¤í…œ
+// 5000 ~ ë¹„í–‰ì²´
+// 6000 ~ í€˜ìŠ¤íŠ¸
+// 6500 ~ ìœ ë‹ˆí¬ ì•„ì´í…œ
+// 8000 ~ í€˜ìŠ¤íŠ¸ìš© ë¬´ê¸°/ë°©ì–´êµ¬
+// 9000 ~ ëª¬ìŠ¤í„° ë¬´ê¸°
+// 10000 ~ ì„¸íŠ¸ë°©ì–´êµ¬
+// 21000 ~ íŽ«ì†Œí™˜ ì•„ì´í…œ
 
 
 
@@ -27,12 +27,12 @@
 #define II_GOLD_SEED3                   14
 #define II_GOLD_SEED4                   15
 
-// 20 -  ¹«±â»ç¿ë
+// 20 -  ë¬´ê¸°ì‚¬ìš©
 #define II_WEA_SWO_WOODEN               21
 #define II_WEA_SWO_LONG                 23
 #define II_WEA_SWO_HANDCLAW             25
 #define II_WEA_SWO_PARMIL               27
-#define II_WEA_SWO_CRIMSON              61 // Ãß°¡ ¾ÆÀÌÅÛ
+#define II_WEA_SWO_CRIMSON              61 // ì¶”ê°€ ì•„ì´í…œ
 #define II_WEA_SWO_PETAL                29
 #define II_WEA_SWO_BLINK                31
 #define II_WEA_SWO_OUTLAW               33
@@ -48,7 +48,7 @@
 #define II_WEA_SWO_CARNAGE              53
 #define II_WEA_SWO_JANITOR              55
 #define II_WEA_SWO_BLUEJADE             57
-#define II_WEA_SWO_SHYERTEST            74 // Å×½ºÆ®¿ëÀÌ¹Ç·Î Áö¿öÁ®¾ßÇÔ
+#define II_WEA_SWO_SHYERTEST            74 // í…ŒìŠ¤íŠ¸ìš©ì´ë¯€ë¡œ ì§€ì›Œì ¸ì•¼í•¨
 #define II_WEA_SWO_ZEROTH               59 // Max 79
 #define II_WEA_SWO_EMERYL               63
 #define II_WEA_SWO_CHAINSING            65
@@ -241,7 +241,7 @@
 #define II_WEA_BOW_BROUTO               471
 #define II_WEA_BOW_SEVOY                473
 
-// 500 -  ¹æ¾î±¸ »ç¿ë
+// 500 -  ë°©ì–´êµ¬ ì‚¬ìš©
 #define II_ARM_M_VAG_HELMET02          500
 #define II_ARM_F_VAG_HELMET02          501
 #define II_ARM_M_VAG_SUIT01            502
@@ -265,7 +265,7 @@
 #define II_ARM_M_VAG_BOOTS03           520
 #define II_ARM_F_VAG_BOOTS03           521 // Max 529
 
-// °íÀ¯ ¼¼Æ® 1Â÷
+// ê³ ìœ  ì„¸íŠ¸ 1ì°¨
 #define II_ARM_M_VAG_HELMET04          522
 #define II_ARM_M_VAG_SUIT04            523
 #define II_ARM_M_VAG_GAUNTLET04        524
@@ -275,7 +275,7 @@
 #define II_ARM_F_VAG_GAUNTLET04        528
 #define II_ARM_F_VAG_BOOTS04           529
 
-// Ãß°¡ ¹æ¾î±¸ ¼¼Æ®
+// ì¶”ê°€ ë°©ì–´êµ¬ ì„¸íŠ¸
 #define II_ARM_M_MER_HELMET0101        534
 #define II_ARM_M_MER_HELMET0201        535
 #define II_ARM_M_MER_HELMET0301        536
@@ -870,12 +870,12 @@
 #define II_ARM_ARM_SHI_COMET          2023
 #define II_ARM_ARM_SHI_ICICLE         2025
 
-//°ø°Ýº¸Á¶ ¾ÆÀÌÅÛ
+//ê³µê²©ë³´ì¡° ì•„ì´í…œ
 #define	II_WEA_SEC_BIL_CHARM	      2026
 #define	II_WEA_SEC_RIN_CHARM	      2027
 #define II_WEA_SEC_ACR_ARROW	      2028
 
-//8.5Â÷ ºÎÅÍ µé¾î°¡´Â Àç·Ã °ü·Ã ¾ÆÀÌÅÛ
+//8.5ì°¨ ë¶€í„° ë“¤ì–´ê°€ëŠ” ìž¬ë ¨ ê´€ë ¨ ì•„ì´í…œ
 #define II_GEN_MAT_DIAMOND				2029
 #define	II_GEN_MAT_EMERALD				2030
 #define	II_GEN_MAT_SAPPHIRE				2031
@@ -884,65 +884,65 @@
 #define	II_GEN_MAT_ORICHALCUM02			2034
 #define	II_GEN_MAT_ORICHALCUM01			2035
 #define	II_GEN_MAT_MOONSTONE			2036
-//°æÇèÄ¡
+//ê²½í—˜ì¹˜
 #define II_GEN_MAT_DIAMOND01			2037
 #define II_GEN_MAT_EMERALD01			2038
 #define II_GEN_MAT_SAPPHIRE01			2039
 #define II_GEN_MAT_RUBY01				2040
 #define II_GEN_MAT_TOPAZ01				2041
-//µ¥¹ÌÁö¹Ý»ç
+//ë°ë¯¸ì§€ë°˜ì‚¬
 #define II_GEN_MAT_DIAMOND02			2042
 #define II_GEN_MAT_EMERALD02			2043
 #define II_GEN_MAT_SAPPHIRE02			2044
 #define II_GEN_MAT_RUBY02				2045
 #define II_GEN_MAT_TOPAZ02				2046
-//ÈíÇ÷
+//í¡í˜ˆ
 #define II_GEN_MAT_DIAMOND03			2047
 #define II_GEN_MAT_EMERALD03			2048
 #define II_GEN_MAT_SAPPHIRE03			2049
 #define II_GEN_MAT_RUBY03				2050
 #define II_GEN_MAT_TOPAZ03				2051
-//»ç³É½Ã ´ë¹ÌÁö Áõ°¡
+//ì‚¬ëƒ¥ì‹œ ëŒ€ë¯¸ì§€ ì¦ê°€
 #define II_GEN_MAT_DIAMOND04			2052
 #define II_GEN_MAT_EMERALD04			2053
 #define II_GEN_MAT_SAPPHIRE04			2054
 #define II_GEN_MAT_RUBY04				2055
 #define II_GEN_MAT_TOPAZ04				2056
-//PvP½Ã ´ë¹ÌÁö Áõ°¡
+//PvPì‹œ ëŒ€ë¯¸ì§€ ì¦ê°€
 #define II_GEN_MAT_DIAMOND05			2057
 #define II_GEN_MAT_EMERALD05			2058
 #define II_GEN_MAT_SAPPHIRE05			2059
 #define II_GEN_MAT_RUBY05				2060
 #define II_GEN_MAT_TOPAZ05				2061
-//ÈûÁõ°¡
+//íž˜ì¦ê°€
 #define II_GEN_MAT_DIAMOND06			2062
 #define II_GEN_MAT_EMERALD06			2063
 #define II_GEN_MAT_SAPPHIRE06			2064
 #define II_GEN_MAT_RUBY06				2065
 #define II_GEN_MAT_TOPAZ06				2066
-//Ã¼·ÂÁõ°¡
+//ì²´ë ¥ì¦ê°€
 #define II_GEN_MAT_DIAMOND07			2067
 #define II_GEN_MAT_EMERALD07			2068
 #define II_GEN_MAT_SAPPHIRE07			2069
 #define II_GEN_MAT_RUBY07				2070
 #define II_GEN_MAT_TOPAZ07				2071
-//¹ÎÃ¸Áõ°¡
+//ë¯¼ì²©ì¦ê°€
 #define II_GEN_MAT_DIAMOND08			2072
 #define II_GEN_MAT_EMERALD08			2073
 #define II_GEN_MAT_SAPPHIRE08			2074
 #define II_GEN_MAT_RUBY08				2075
 #define II_GEN_MAT_TOPAZ08				2076
-//Áö´ÉÁõ°¡
+//ì§€ëŠ¥ì¦ê°€
 #define II_GEN_MAT_DIAMOND09			2077
 #define II_GEN_MAT_EMERALD09			2078
 #define II_GEN_MAT_SAPPHIRE09			2079
 #define II_GEN_MAT_RUBY09				2080
 #define II_GEN_MAT_TOPAZ09				2081
 
-#define	II_GEN_MAT_ORICHALCUM01_1		2082 // ÀÌº¥Æ®¿ë ¿À¸®Ä®Äñ(°Å·¡¾ÈµÊ)
-#define	II_GEN_MAT_MOONSTONE_1			2083 //  ÀÌº¥Æ®¿ë ¹®½ºÅæ(°Å·¡¾ÈµÊ)
+#define	II_GEN_MAT_ORICHALCUM01_1		2082 // ì´ë²¤íŠ¸ìš© ì˜¤ë¦¬ì¹¼ì¿°(ê±°ëž˜ì•ˆë¨)
+#define	II_GEN_MAT_MOONSTONE_1			2083 //  ì´ë²¤íŠ¸ìš© ë¬¸ìŠ¤í†¤(ê±°ëž˜ì•ˆë¨)
 
-// 2500 ºÎÅÍ ÀÏ¹Ý ¾ÆÀÌÅÛ
+// 2500 ë¶€í„° ì¼ë°˜ ì•„ì´í…œ
 #define II_GEN_REF_REF_FIRST                2530
 #define II_GEN_REF_REF_SECOND               2531
 #define II_GEN_REF_REF_THIRD                2532
@@ -970,7 +970,7 @@
 #define II_GEN_POT_POT_POISON_IMMUNE        2555
 
 
-#define II_GEN_JEW_EAR_ATTEARRING01         2560 // ÀÏ¹Ý ¾Ç¼¼»ç¸®
+#define II_GEN_JEW_EAR_ATTEARRING01         2560 // ì¼ë°˜ ì•…ì„¸ì‚¬ë¦¬
 #define II_GEN_JEW_EAR_ATTEARRING02         2561
 #define II_GEN_JEW_EAR_ATTEARRING03         2562
 #define II_GEN_JEW_EAR_ATTEARRING04         2563
@@ -1031,7 +1031,7 @@
 #define II_GEN_JEW_RIN_STARING05            2618
 #define II_GEN_JEW_RIN_STARING06            2619
 
-#define II_GEN_JEW_EAR_U_EARRING01          2701 // À¯´ÏÅ© ¾Ç¼¼»ç¸®
+#define II_GEN_JEW_EAR_U_EARRING01          2701 // ìœ ë‹ˆí¬ ì•…ì„¸ì‚¬ë¦¬
 #define II_GEN_JEW_EAR_U_EARRING02          2702
 #define II_GEN_JEW_EAR_U_EARRING03          2703
 #define II_GEN_JEW_EAR_U_EARRING04          2704
@@ -1147,19 +1147,19 @@
 #define II_GEN_GEM_GEM_GUARDIEYE            2983
 #define II_GEN_GEM_GEM_GARBAGETON           2984
 #define II_GEN_GEM_GEM_ERONIOR              2985
-//´ÙÄÜ 2 ¸ó½ºÅÍ Àü¸®Ç°
+//ë‹¤ì½˜ 2 ëª¬ìŠ¤í„° ì „ë¦¬í’ˆ
 #define II_GEN_GEM_GEM_SYCALE	            2986
 #define II_GEN_GEM_GEM_MONGTEAR             2987
 #define II_GEN_GEM_GEM_BOMBTIMER            2988
 #define	II_GEN_GEM_GEM_ZEMMARK              2989
 #define II_GEN_GEM_GEM_NUCTUWHEEL           2990
 #define II_GEN_GEM_GEM_ZOMBYHOE             2991
-//±Ø´Ü »ç³É¿ë ¸ó½ºÅÍ Àü¸®Ç°
+//ê·¹ë‹¨ ì‚¬ëƒ¥ìš© ëª¬ìŠ¤í„° ì „ë¦¬í’ˆ
 #define II_GEN_GEM_GEM_BUCORONG             2992
 #define	II_GEN_GEM_GEM_SCOTOOTH             2993
 #define II_GEN_GEM_GEM_RANGLASS             2994
 #define II_GEN_GEM_GEM_BATHOOK              2995
-//´ÙÄÜ 3 ¸ó½ºÅÍ Àü¸®Ç°
+//ë‹¤ì½˜ 3 ëª¬ìŠ¤í„° ì „ë¦¬í’ˆ
 #define II_GEN_GEM_GEM_GRBANDAGE            2996
 #define	II_GEN_GEM_GEM_DUMPTIRE             2997
 #define II_GEN_GEM_GEM_REPYGLE              2998
@@ -1175,11 +1175,11 @@
 #define	II_GEN_GEM_GEM_RNAMOND              3008
 #define II_GEN_GEM_GEM_PHANBUBLE            3009
 #define II_GEN_GEM_GEM_FFURISCOOPE          3010
-//º¼ÄÉÀÎ ¸ó½ºÅÍ Àü¸®Ç°
+//ë³¼ì¼€ì¸ ëª¬ìŠ¤í„° ì „ë¦¬í’ˆ
 #define II_GEN_GEM_GEM_DRAGONHEART          3011
 #define II_GEN_GEM_GEM_DRAGONCANINE         3012
 #define II_GEN_GEM_GEM_STRANGEEYES          3013
-//½É¿¬ÀÇÅ¾ ¸ó½ºÅÍ Àü¸®Ç°
+//ì‹¬ì—°ì˜íƒ‘ ëª¬ìŠ¤í„° ì „ë¦¬í’ˆ
 #define II_GEN_GEM_GEM_CATBELL              3014
 #define II_GEN_GEM_GEM_HARPYFEATHER	    3015
 #define II_GEN_GEM_GEM_POLEVIKMUD	    3016
@@ -1190,7 +1190,7 @@
 #define II_GEN_GEM_GEM_DATALBALL	    3021
 #define II_GEN_GEM_GEM_GANESALVORY	    3022
 #define II_GEN_GEM_GEM_ASURAHEART	    3023
-//ÄÚ¶ö ¾ÆÀÏ·£µå ¸ó½ºÅÍ Àü¸®Ç°
+//ì½”ëž„ ì•„ì¼ëžœë“œ ëª¬ìŠ¤í„° ì „ë¦¬í’ˆ
 #define	II_GEN_GEM_GEM_GIANTFORCEPS	    3024
 #define	II_GEN_GEM_GEM_INKSAC	    	    3025
 #define	II_GEN_GEM_GEM_CARAPACE	    	    3026
@@ -1200,14 +1200,14 @@
 #define	II_GEN_GEM_GEM_CANINETOOTH	    3030
 #define	II_GEN_GEM_GEM_SHARPTOOTH	    3031
 #define	II_GEN_GEM_GEM_GOGGLOO		    3032
-//ÇÏ¸£¸ð´Ñ ¸ó½ºÅÍ Àü¸®Ç°
+//í•˜ë¥´ëª¨ë‹Œ ëª¬ìŠ¤í„° ì „ë¦¬í’ˆ
 #define	II_GEN_GEM_GEM_POISONBAG	    3033
 #define	II_GEN_GEM_GEM_BLAD		    3034
 #define	II_GEN_GEM_GEM_NECKLACE		    3035
 #define	II_GEN_GEM_GEM_FLOWER		    3036
 #define	II_GEN_GEM_GEM_DOGTOOTH		    3037
 
-//ÇÏ¸£¸ð´Ñ ÀÎ½ºÅÏ½º ´øÀü Àü¸®Ç°
+//í•˜ë¥´ëª¨ë‹Œ ì¸ìŠ¤í„´ìŠ¤ ë˜ì „ ì „ë¦¬í’ˆ
 #define	II_GEN_GEM_GEM_ANTEGG				3038
 #define	II_GEN_GEM_GEM_OILLEG				3039		
 #define	II_GEN_GEM_GEM_NICECHEESE			3040	
@@ -1219,7 +1219,7 @@
 #define	II_GEN_GEM_GEM_CURSEBIGTOENAIL		3046
 #define	II_GEN_GEM_GEM_CURSEVEMPIREGLASS	3047
 
-//ÀÌ½ºÆ¼¾Æ ÄÉÀÌºê ´øÀü Àü¸®Ç°
+//ì´ìŠ¤í‹°ì•„ ì¼€ì´ë¸Œ ë˜ì „ ì „ë¦¬í’ˆ
 #define	II_GEN_GEM_GEM_GRIFFINFEATHER	3048
 #define	II_GEN_GEM_GEM_BACKBONELEADER	3049
 #define	II_GEN_GEM_GEM_BACKBONESPAIN	3050
@@ -1228,7 +1228,7 @@
 #define	II_GEN_GEM_GEM_DEVILPIECE		3053
 
 
-// ÀÌ½ºÆ¼¾Æ ÄÉÀÌºê ÇÊµå Àü¸®Ç°
+// ì´ìŠ¤í‹°ì•„ ì¼€ì´ë¸Œ í•„ë“œ ì „ë¦¬í’ˆ
 #define	II_GEN_GEM_GEM_WOLFTOOTH			3054
 #define	II_GEN_GEM_GEM_SKELSKIN				3055
 #define	II_GEN_GEM_GEM_SKELPIECE			3056
@@ -1237,7 +1237,7 @@
 #define	II_GEN_GEM_GEM_SKELTOOLBOX			3059
 #define	II_GEN_GEM_GEM_SKELGENERALPIECE		3060
 
-// ·¯½ºÆ¼¾Æ ÀÏ¹Ý Àü¸®Ç°
+// ëŸ¬ìŠ¤í‹°ì•„ ì¼ë°˜ ì „ë¦¬í’ˆ
 #define	II_GEN_GEM_GEM_POISONTOOTH			3061
 #define	II_GEN_GEM_GEM_COBRASCALE			3062
 #define	II_GEN_GEM_GEM_SOFTFUR				3063
@@ -1247,7 +1247,7 @@
 #define	II_GEN_GEM_GEM_BIGFOOTHEART			3067
 
 
-// ·¯½ºÆ¼¾Æ ¸¶½ºÅÍ Àü¸®Ç°
+// ëŸ¬ìŠ¤í‹°ì•„ ë§ˆìŠ¤í„° ì „ë¦¬í’ˆ
 #define	II_GEN_GEM_GEM_LIGHTPOISONTOOTH		3068
 #define	II_GEN_GEM_GEM_LIGHTCOBRASCALE		3069
 #define	II_GEN_GEM_GEM_LIGHTSOFTFUR			3070
@@ -1256,13 +1256,13 @@
 #define	II_GEN_GEM_GEM_LIGHTLUSIKAMASK		3073
 #define	II_GEN_GEM_GEM_LIGHTBIGFOOTHEART	3074
 
-//Àç·Ã¿ë ¾ÆÀÌÅÛ ½ÃÀÛ
-#define II_GEN_MAT_SUP_MINERAL              3200	//º¸Á¶¼®
+//ìž¬ë ¨ìš© ì•„ì´í…œ ì‹œìž‘
+#define II_GEN_MAT_SUP_MINERAL              3200	//ë³´ì¡°ì„
 #define II_GEN_MAT_SUP_ERONS                3201
 #define II_GEN_MAT_SUP_KRASEC               3202
 #define II_GEN_MAT_SUP_GURU                 3203
 
-#define II_GEN_MAT_ELE_CANDLE               3204	//¼Ó¼º Ä«µå
+#define II_GEN_MAT_ELE_CANDLE               3204	//ì†ì„± ì¹´ë“œ
 #define II_GEN_MAT_ELE_TOUCH                3205
 #define II_GEN_MAT_ELE_FLAME                3206
 #define II_GEN_MAT_ELE_MAGMA                3207
@@ -1288,7 +1288,7 @@
 #define II_GEN_MAT_ELE_STORM                3227
 #define II_GEN_MAT_ELE_VACCUM               3228
 
-#define II_GEN_MAT_DIE_FOUR                 3229	//¾÷±×·¡ÀÌµå ÁÖ»çÀ§
+#define II_GEN_MAT_DIE_FOUR                 3229	//ì—…ê·¸ëž˜ì´ë“œ ì£¼ì‚¬ìœ„
 #define II_GEN_MAT_DIE_SIX                  3230
 #define II_GEN_MAT_DIE_EIGHT                3231
 #define II_GEN_MAT_DIE_TEN                  3232
@@ -1297,7 +1297,7 @@
 // seghope - PIERCING_CARD_ITEM Start
 #define II_GEN_MAT_DIE_LOW_MIGHTY			3235
 #define II_GEN_MAT_DIE_HIGH_MIGHTY			3236
-// ½´Æ®
+// ìŠˆíŠ¸
 #define II_GEN_MAT_ELE_STRIKINGPOWER_1		3237
 #define II_GEN_MAT_ELE_DEFENSIVEPOWER_1		3238
 #define II_GEN_MAT_ELE_MAX_HP_1				3239
@@ -1323,7 +1323,7 @@
 #define	II_GEN_MAT_ELE_LIGHTING3			3258
 #define	II_GEN_MAT_ELE_EARTHQUAKE3			3259
 
-// ¹«±â
+// ë¬´ê¸°
 #define II_GEN_MAP_ELE_MP_DEC_0				3500
 #define II_GEN_MAP_ELE_MP_DEC_1				3501
 #define II_GEN_MAP_ELE_FP_DEC_0				3502
@@ -1362,18 +1362,18 @@
 #define	II_GEN_WARP_COUPLERING		3600
 #define	II_GEN_WARP_COUPLERING01	3601	//
 
-#define II_GEN_TOO_COL_NOMAL                4000	//Ã¤Áý µµ±¸
+#define II_GEN_TOO_COL_NOMAL                4000	//ì±„ì§‘ ë„êµ¬
 #define II_GEN_TOO_COL_VTHREE               4001
 #define II_GEN_TOO_COL_POWER                4002
 #define II_GEN_TOO_COL_ULTRA                4003
 
-// 4100 ½ºÅ³ ¾ÆÀÌÅÛ
-#define II_GEN_SKILL_BUFFBREAKER			4100	//¹öÇÁ ºê·¹ÀÌÄ¿. »ó´ëÀÇ ¹öÇÁ¸¦ ³¯·Á¹ö¸°´Ù.
-#define II_GEN_SKILL_BUFFBREAKER_X			4101	//¹öÇÁ ºê·¹ÀÌÄ¿X. »ó´ëÀÇ ¸ðµç ¹öÇÁ¸¦ ³¯·Á¹ö¸°´Ù.
+// 4100 ìŠ¤í‚¬ ì•„ì´í…œ
+#define II_GEN_SKILL_BUFFBREAKER			4100	//ë²„í”„ ë¸Œë ˆì´ì»¤. ìƒëŒ€ì˜ ë²„í”„ë¥¼ ë‚ ë ¤ë²„ë¦°ë‹¤.
+#define II_GEN_SKILL_BUFFBREAKER_X			4101	//ë²„í”„ ë¸Œë ˆì´ì»¤X. ìƒëŒ€ì˜ ëª¨ë“  ë²„í”„ë¥¼ ë‚ ë ¤ë²„ë¦°ë‹¤.
 
-// 4300 ºÎÅÍ Ä«µå¸¦ À§ÇÑ °ø°£
+// 4300 ë¶€í„° ì¹´ë“œë¥¼ ìœ„í•œ ê³µê°„
 
-// 4400 ºÎÅÍ ÀÇ»ó
+// 4400 ë¶€í„° ì˜ìƒ
 #define II_ARM_S_CLO_MAS_GOGLE              4400
 #define II_ARM_S_CLO_HAT_STATHAT            4401
 #define II_ARM_S_CLO_MAS_IRON               4402
@@ -1436,7 +1436,7 @@
 #define	II_SYS_SYS_SCR_BXGLASS07		4457
 #define	II_SYS_SYS_SCR_BXGLASS08		4458
 
-// 4600 ¸ÁÅä
+// 4600 ë§í† 
 #define II_ARM_S_CLO_CLO_TEST               4600
 #define II_ARM_S_CLO_CLO_BLANK              4601
 #define II_ARM_S_CLO_CLO_SYSCLOAK01         4602
@@ -1467,7 +1467,7 @@
 #define II_ARM_S_CLO_CLO_DRAGON2	    4704
 #define II_ARM_S_CLO_CLO_DRAGON3	    4705
 #define II_ARM_S_CLO_CLO_DRAGON4	    4706
-#define II_ARM_S_CLO_CLO_MAJESTY	    4707 // ±ºÁÖ Àü¿ë ¸ÁÅä(ºûÀÇ ¸ÁÅä)
+#define II_ARM_S_CLO_CLO_MAJESTY	    4707 // êµ°ì£¼ ì „ìš© ë§í† (ë¹›ì˜ ë§í† )
 #define	II_ARM_S_CLO_CLO_AMERICA		4708
 #define	II_ARM_S_CLO_CLO_CHILE			4709
 #define	II_ARM_S_CLO_CLO_EU				4710
@@ -1532,7 +1532,7 @@
 
 #define	II_ARM_S_CLO_CLO_CLOVER			4765
 
-// 4800 ºÎÅÍ ½Ã½ºÅÛ
+// 4800 ë¶€í„° ì‹œìŠ¤í…œ
 #define II_SYS_SYS_MAP_FLARIS               4801
 #define II_SYS_SYS_MAP_SAINTMORNING         4802
 #define II_SYS_BLI_BLI_FLARIS               4803
@@ -1548,7 +1548,7 @@
 
 
 
-// 5000 ºÎÅÍ ºñÇàÃ¼
+// 5000 ë¶€í„° ë¹„í–‰ì²´
 #define II_RID_RID_STI_MAGIC                5000
 #define II_RID_RID_STI_KESTREL              5001
 #define II_RID_RID_STI_FLICKER              5002
@@ -1582,7 +1582,7 @@
 #define II_RID_RID_BOR_EVEIGNICE09          5813
 #define II_RID_RID_BOR_EVEIGNICE10          5814
 #define II_RID_RID_STI_DRAGON               5815
-#define II_RID_RID_STI_MAJESTYBIKE          5816 // ¸®¹«Áø ¹ÙÀÌÅ©(±ºÁÖ Àü¿ë)
+#define II_RID_RID_STI_MAJESTYBIKE          5816 // ë¦¬ë¬´ì§„ ë°”ì´í¬(êµ°ì£¼ ì „ìš©)
 #define II_RID_RID_BOR_RIDINGCLOUD_1        5817
 #define	II_RID_RID_BOR_FLYSWORD_1	    5818
 #define	II_RID_RID_WIN_FEATHER01	    5819
@@ -1592,10 +1592,10 @@
 #define II_RID_RID_BOR_SHARK    	    5823
 #define II_RID_RID_BOR_SMILE	            5824
 
-//5900ºÎÅÍ ºñÇà ¿¬·á
+//5900ë¶€í„° ë¹„í–‰ ì—°ë£Œ
 #define II_RID_AFU_ACC_SPEED		    5902
 
-// 2701 ºÎÅÍ Äù½ºÆ®
+// 2701 ë¶€í„° í€˜ìŠ¤íŠ¸
 #define II_SYS_SYS_QUE_VISIONSTONE          6001
 #define II_SYS_SYS_QUE_LETTERBOBOKU         6002
 #define II_SYS_SYS_QUE_LETTERJURIA          6003
@@ -1652,24 +1652,24 @@
 #define II_SYS_SYS_QUE_BEARERHEART	    6056
 #define II_SYS_SYS_QUE_BONEBOWL		    6057
 #define II_SYS_SYS_QUE_LIVETEA	            6058
-//ÃÊ°Å´ë ¸ó½ºÅÍ Äù½ºÆ® ¾ÆÀÌÅÛ
+//ì´ˆê±°ëŒ€ ëª¬ìŠ¤í„° í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_MONBOOK1		    6059
 #define II_SYS_SYS_QUE_MONBOOK2             6060
 #define II_SYS_SYS_QUE_MONBOOK3             6061
 #define II_SYS_SYS_QUE_WARMONIDLV1          6062
-//´ÙÄÜ 2 Äù½ºÆ® ¾ÆÀÌÅÛ
+//ë‹¤ì½˜ 2 í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_LEYGALL		    6063
 #define II_SYS_SYS_QUE_RADORAM              6064
 #define II_SYS_SYS_QUE_LEMEAT               6065
 #define II_SYS_SYS_QUE_STEAMWOOD	    6066
 #define II_SYS_SYS_QUE_STEAMTEAR            6067
 #define II_SYS_SYS_QUE_KNIMINERAL           6068
-//ÀÇ·Ú¼Ò Äù½ºÆ® ¾ÆÀÌÅÛ
+//ì˜ë¢°ì†Œ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_NYANYA		    6069
 #define II_SYS_SYS_QUE_UNKLETTER	    6070
 #define II_SYS_SYS_QUE_UNKID		    6071
 #define II_SYS_SYS_QUE_OFFICEDOC            6072			 
-//½Ã³ª¸®¿ÀÄù½ºÆ® ¾ÆÀÌÅÛ
+//ì‹œë‚˜ë¦¬ì˜¤í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_TARINROOT	    6200
 #define II_SYS_SYS_QUE_ASTROPAPER           6201
 #define II_SYS_SYS_QUE_SHININGST            6202
@@ -1709,7 +1709,7 @@
 #define II_SYS_SYS_QUE_BOMBTIMER            6236
 #define II_SYS_SYS_QUE_REDSOCKS             6237
 
-// 2701 ºÎÅÍ ÀÌº¥Æ® 
+// 2701 ë¶€í„° ì´ë²¤íŠ¸ 
 #define II_SYS_SYS_EVE_0401F01COUPON        6301
 #define II_SYS_SYS_EVE_0401M02TAEGUK        6302
 #define II_SYS_SYS_EVE_0401A01HEART         6303
@@ -1726,7 +1726,7 @@
 #define II_SYS_SYS_EVE_0504M8OST            6314
 #define II_RID_RID_BOR_EVEINSHOVER          6315
 #define II_SYS_SYS_EVE_EVEISISCU            6316
-//¹ß·»Å¸ÀÎ ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//ë°œë Œíƒ€ì¸ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_EVE_FLOWER			6317
 #define II_SYS_SYS_EVE_FBOX			6318
 #define II_SYS_SYS_EVE_WINGS			6319
@@ -1741,7 +1741,7 @@
 #define II_SYS_SYS_EVE_FLOVECANDY               6328
 #define II_SYS_SYS_EVE_HEARTPIECE               6329
 #define II_SYS_SYS_EVE_WHITEGIFTBOX             6330
-//4¿ù Ãá°èÀÌº¥Æ® ¾ÆÀÌÅÛ
+//4ì›” ì¶˜ê³„ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_EVE_BUCKET                   6331
 #define II_SYS_SYS_EVE_CONEPISEED               6332
 #define II_SYS_SYS_EVE_FIRSEED                  6333
@@ -1754,14 +1754,14 @@
 #define II_SYS_SYS_EVE_PEARSEEDING              6340
 #define II_SYS_SYS_EVE_PINESEEDING              6341
 #define II_SYS_SYS_EVE_ACROGIFTBOX              6342
-//ÀÏº» Ä¥¼®ÀÌº¥Æ®
+//ì¼ë³¸ ì¹ ì„ì´ë²¤íŠ¸
 #define II_SYS_SYS_EVE_BLUETANZAKU              6343
 #define II_SYS_SYS_EVE_PINKTANZAKU              6344
 #define II_ARM_M_CLO_YUKATA01SUIT               6345
 #define II_ARM_M_CLO_YUKATA01SHOES              6346
 #define II_ARM_F_CLO_YUKATA01SUIT               6347
 #define II_ARM_F_CLO_YUKATA01SHOES              6348
-//´ë¸¸ PSPÀÌº¥Æ®
+//ëŒ€ë§Œ PSPì´ë²¤íŠ¸
 #define II_SYS_SYS_EVE_PSP                      6349
 
 #define II_SYS_SYS_EVE_01CARD					6350
@@ -1785,7 +1785,7 @@
 #define II_SYS_SYS_EVE_19CARD					6368
 #define II_SYS_SYS_EVE_20CARD					6369
 
-//¾Æ¸®¶û ÀÌº¥Æ®
+//ì•„ë¦¬ëž‘ ì´ë²¤íŠ¸
 #define II_SYS_SYS_EVE_A_CARD					6370
 #define II_SYS_SYS_EVE_B_CARD					6371
 #define II_SYS_SYS_EVE_C_CARD					6372
@@ -1814,7 +1814,7 @@
 #define II_SYS_SYS_EVE_Z_CARD					6395
 #define II_SYS_SYS_EVE_HEART_CARD				6396
 
-// À¯´ÏÅ© ¾ÆÀÌÅÛ
+// ìœ ë‹ˆí¬ ì•„ì´í…œ
 #define II_WEA_SWO_KEHIN                    6500
 #define II_WEA_SWO_ARKON                    6501
 #define II_WEA_SWO_ZIRKAN                   6502
@@ -1874,7 +1874,7 @@
 #define II_ARM_ARM_SHI_AVALON               7004
 #define II_ARM_ARM_SHI_ANCIENT              7005
 
-// 16Â÷ ÀÇ·Ú¼Ò Äù½ºÆ® ¾ÆÀÌÅÛ
+// 16ì°¨ ì˜ë¢°ì†Œ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 
 #define II_SYS_SYS_QUE_SKULLMASK01			7006
 #define II_SYS_SYS_QUE_LEATHERCAPE01		7007
@@ -1893,7 +1893,7 @@
 #define II_SYS_SYS_QUE_GHOSTSWORD01			7020
 #define II_SYS_SYS_QUE_SLEEPDUST01			7021
 
-// 16Â÷ 3Â÷ ÀüÁ÷ Äù½ºÆ® ¾ÆÀÌÅÛ
+// 16ì°¨ 3ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 
 #define II_SYS_SYS_QUE_TEACHERCLO01				7022
 #define II_SYS_SYS_QUE_ZEMCHOKER01				7023
@@ -1904,7 +1904,7 @@
 #define II_SYS_SYS_QUE_RAINBOWFLO01				7028
 #define II_SYS_SYS_QUE_MAGICSSTONE01			7029
 
-// 16Â÷ ½Ã³ª¸®¿À Äù½ºÆ®
+// 16ì°¨ ì‹œë‚˜ë¦¬ì˜¤ í€˜ìŠ¤íŠ¸
 
 #define II_SYS_SYS_QUE_GRASSLANDBREATH01		7030
 #define II_SYS_SYS_QUE_CHIEFLETTER01			7031
@@ -1912,12 +1912,12 @@
 #define II_SYS_SYS_QUE_LASTDIARY01				7033
 #define II_SYS_SYS_QUE_RESTOREDIARY01			7034
 
-// 16Â÷ Àú·¾ ½Ã³ª¸®¿À Äù½ºÆ®
+// 16ì°¨ ì €ë ™ ì‹œë‚˜ë¦¬ì˜¤ í€˜ìŠ¤íŠ¸
 #define II_SYS_SYS_QUE_SHINEGOLD01				7035
 #define II_SYS_SYS_QUE_TARINDRINK01				7036
 
 
-// 16Â÷ ½Å Á¦·Ã ½Ã½ºÅÛ °ü·Ã ¾ÆÀÌÅÛ
+// 16ì°¨ ì‹  ì œë ¨ ì‹œìŠ¤í…œ ê´€ë ¨ ì•„ì´í…œ
 #define II_GEN_MAT_CID						7037
 #define II_GEN_MAT_CIDPIEC01				7038
 #define II_GEN_MAT_GOODCIDMIX01				7039
@@ -1937,9 +1937,9 @@
 #define II_GEN_MAT_GOODCIDMIX05				7059
 
 
-// Äù½ºÆ®¿ë ¹«±â
-#define II_WEA_SWO_PENEL2                   8000 // À§¿¡¼­ »ç¿ë(»ç¿ë±ÝÁö)
-#define II_WEA_SWO_CRIMSON2                 8001 // À§¿¡¼­ »ç¿ë(»ç¿ë±ÝÁö)
+// í€˜ìŠ¤íŠ¸ìš© ë¬´ê¸°
+#define II_WEA_SWO_PENEL2                   8000 // ìœ„ì—ì„œ ì‚¬ìš©(ì‚¬ìš©ê¸ˆì§€)
+#define II_WEA_SWO_CRIMSON2                 8001 // ìœ„ì—ì„œ ì‚¬ìš©(ì‚¬ìš©ê¸ˆì§€)
 #define II_WEA_SWO_BROAD                    8002
 #define II_WEA_SWO_SIRAIN                   8003
 #define II_WEA_SWO_SEED                     8004
@@ -1951,23 +1951,23 @@
 #define II_WEA_CHE_DEVOTION                 8010
 #define II_WEA_WAN_WANDMULE                 8011
 #define II_WEA_MAR_TEST                     8012
-#define II_WEA_SWO_CLOSEITEM1               8013 //À¯Àú ³×ÀÌ¹Ö ¾ÆÀÌÅÛ
+#define II_WEA_SWO_CLOSEITEM1               8013 //ìœ ì € ë„¤ì´ë° ì•„ì´í…œ
 #define II_WEA_SWO_CLOSEITEM2               8014
 #define II_WEA_SWO_CLOSEITEM3               8015
 #define II_WEA_SWO_CLOSEITEM4               8016
 #define II_WEA_SWO_CLOSEITEM5               8017
-#define II_WEA_CHE_CLOSEITEM1               8018 //À¯Àú ³×ÀÌ¹Ö ¾ÆÀÌÅÛ
+#define II_WEA_CHE_CLOSEITEM1               8018 //ìœ ì € ë„¤ì´ë° ì•„ì´í…œ
 
-//Äù½ºÆ®¿ë ¹æ¾î±¸
+//í€˜ìŠ¤íŠ¸ìš© ë°©ì–´êµ¬
 #define II_ARM_M_VAG_QUE_HELMET02           8500
 #define II_ARM_F_VAG_QUE_HELMET02           8501
 #define II_ARM_M_VAG_QUE_SUIT03             8502
 #define II_ARM_F_VAG_QUE_SUIT03             8503
-#define II_GEN_JEW_RIN_STRRING00            8504 //¹ð Äù½ºÆ®¿ë 
-#define II_GEN_JEW_RIN_INTRING00            8505 //¹ð Äù½ºÆ®¿ë 
-#define II_GEN_JEW_RIN_STARING00            8506 //¹ð Äù½ºÆ®¿ë 
+#define II_GEN_JEW_RIN_STRRING00            8504 //ë±… í€˜ìŠ¤íŠ¸ìš© 
+#define II_GEN_JEW_RIN_INTRING00            8505 //ë±… í€˜ìŠ¤íŠ¸ìš© 
+#define II_GEN_JEW_RIN_STARING00            8506 //ë±… í€˜ìŠ¤íŠ¸ìš© 
 
-// 4000 ºÎÅÍ ¸ó½ºÅÍ ¹«±â¼³Á¤
+// 4000 ë¶€í„° ëª¬ìŠ¤í„° ë¬´ê¸°ì„¤ì •
 #define II_WEA_MOB_AIBATT1_ATK1             9000
 #define II_WEA_MOB_AIBATT1_ATK2             9001
 #define II_WEA_MOB_AIBATT1_ATK3             9002
@@ -2249,7 +2249,7 @@
 #define	II_WEA_MOB_SKELDEVIL_ATK2		9276
 #define	II_WEA_MOB_SKELDEVIL_ATK3		9277
 
-//16Â÷ ¸ó½ºÅÍ ½ºÅ³
+//16ì°¨ ëª¬ìŠ¤í„° ìŠ¤í‚¬
 #define	II_WEA_MOB_RYBARGA_ATK1		9278
 #define	II_WEA_MOB_RYBARGA_ATK2		9279
 #define	II_WEA_MOB_RYBARGA_ATK3		9280
@@ -2257,12 +2257,12 @@
 #define	II_WEA_MOB_BEHEMOTH_ATK2		9282
 #define	II_WEA_MOB_BEHEMOTH_ATK3		9283
 
-//ÇÒ·ÎÀ© Á»ºñ ¸ó½ºÅÍ ½ºÅ³
+//í• ë¡œìœˆ ì¢€ë¹„ ëª¬ìŠ¤í„° ìŠ¤í‚¬
 #define	II_WEA_MOB_ZOMBIE_ATK1		9284
 #define	II_WEA_MOB_ZOMBIE_ATK2		9285
 #define	II_WEA_MOB_ZOMBIE_ATK3		9286
 
-//18Â÷ º¸½º ¹«±â			
+//18ì°¨ ë³´ìŠ¤ ë¬´ê¸°			
 			
 #define	II_WEA_MOB_DREAMQEEN_ATK1		9287
 #define	II_WEA_MOB_DREAMQEEN_ATK2		9288
@@ -2277,8 +2277,8 @@
 #define	II_WEA_MOB_SHIPHARPINEES_ATK2		9294
 #define	II_WEA_MOB_SHIPHARPINEES_ATK3		9295
 
-//¼¼Æ® ¹æ¾î±¸ ¾ÆÀÌÅÛ
-#define II_ARM_M_MER_SET01HELMET           10000  //1Â÷
+//ì„¸íŠ¸ ë°©ì–´êµ¬ ì•„ì´í…œ
+#define II_ARM_M_MER_SET01HELMET           10000  //1ì°¨
 #define II_ARM_M_MER_SET01SUIT             10001
 #define II_ARM_M_MER_SET01GAUNTLET         10002
 #define II_ARM_M_MER_SET01BOOTS            10003
@@ -2313,18 +2313,18 @@
 
 
 
-//¼¼Æ® ¹«±â ¾ÆÀÌÅÛ
-#define II_WEA_SWO_SET01                   10200 //1Â÷
+//ì„¸íŠ¸ ë¬´ê¸° ì•„ì´í…œ
+#define II_WEA_SWO_SET01                   10200 //1ì°¨
 #define II_WEA_AXE_SET01                   10201
 #define II_WEA_CHE_SET01                   10202
 #define II_WEA_WAN_SET01                   10203
 #define II_WEA_STA_SET01                   10204
 #define II_WEA_KNU_SET01                   10205
 
-//10206 »ó¿ëÈ­ ¾ÆÀÌÅÛ
+//10206 ìƒìš©í™” ì•„ì´í…œ
 #define II_CHR_FOO_COO_REMANTIS	            10206
-#define II_CHR_REF_REF_HOLD					10207 //¸®ÇÁ·¹¼Å È¦µå
-#define II_CHR_POT_DRI_VITALX	            10208 //È°·Âµå¸µÅ© x
+#define II_CHR_REF_REF_HOLD					10207 //ë¦¬í”„ë ˆì…” í™€ë“œ
+#define II_CHR_POT_DRI_VITALX	            10208 //í™œë ¥ë“œë§í¬ x
 #define II_CHR_FOO_COO_BULLHAMS	            10209
 #define II_CHR_FOO_COO_GRILLEDEEL			10210
 #define II_CHR_SYS_SCR_RESTATE	            10211
@@ -2342,11 +2342,11 @@
 #define II_CHR_MAG_TRI_ANGELWING			10223
 #define II_CHR_MAG_TRI_TWISTERBOMB          10224
 
-//¿Ã¸²ÇÇ¾Æµå ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//ì˜¬ë¦¼í”¼ì•„ë“œ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_GEN_JEW_RIN_METEOR				10225
 #define II_GEN_JEW_RIN_METEOFY              10226
 
-//2Â÷ ÀüÁ÷ Äù½ºÆ® ¾ÆÀÌÅÛ
+//2ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_HEROTALE01          10227
 #define II_SYS_SYS_QUE_HEROTALE02          10228  
 #define II_SYS_SYS_QUE_HEROTALE03          10229
@@ -2376,7 +2376,7 @@
 #define II_SYS_SYS_QUE_HEROAUTH            10253
 #define II_SYS_SYS_QUE_VENHEART            10254
 
-//2Â÷ ÀüÁ÷ Äù½ºÆ® º¸»ó ¾ÆÀÌÅÛ
+//2ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ ë³´ìƒ ì•„ì´í…œ
 #define II_WEA_SWT_PREBASTAR               10255
 #define II_WEA_SWO_PRESHYER                10256
 #define II_WEA_KNU_PRENECRYNZI             10257
@@ -2391,12 +2391,12 @@
 #define II_WEA_WAN_PERICUUM				   10265
 #define II_WEA_STA_PERICUUM				   10266
 
-//ÇÃ¶ó¸®½º ´øÀü ¾ÆÀÌÅÛ ¹Ú½º ¿­¼è¿ë ÅÂ¿±
+//í”Œë¼ë¦¬ìŠ¤ ë˜ì „ ì•„ì´í…œ ë°•ìŠ¤ ì—´ì‡ ìš© íƒœì—½
 #define II_SYS_SYS_KEY_COPPER			   10267
 #define II_SYS_SYS_KEY_SILVER			   10268
 #define II_SYS_SYS_KEY_GOLD 			   10269
 
-//»ó¿ëÈ­ ¾ÆÀÌÅÛ 2Â÷ºÐ
+//ìƒìš©í™” ì•„ì´í…œ 2ì°¨ë¶„
 #define II_CHR_SYS_SCR_UPCUTSTONE          10270
 #define II_CHR_SYS_SCR_LIRIFFPOUCH1        10271
 #define II_CHR_SYS_SCR_FFRILLYPOUCH1       10272
@@ -2417,13 +2417,13 @@
 #define II_CHR_SYS_SCR_LIRIFFPOUCH7        10287
 #define II_CHR_SYS_SCR_FFRILLYPOUCH7       10288
 
-//Ãß°¡ ½Çµå
+//ì¶”ê°€ ì‹¤ë“œ
 #define II_ARM_ARM_SHI_HILEITINE           10294
 #define II_ARM_ARM_SHI_COIEN               10295
 #define II_ARM_ARM_SHI_RUKENSHIA           10296
 #define II_ARM_ARM_SHI_TOEFFIN             10297
 #define II_ARM_ARM_SHI_CATEPO              10298
-//»ó¿ëÈ­ ÆÐ¼Ç ¾ÆÀÌÅÛ
+//ìƒìš©í™” íŒ¨ì…˜ ì•„ì´í…œ
 #define II_ARM_M_CLO_SAILOR01HAT           10299
 #define II_ARM_M_CLO_SAILOR01SUIT          10300
 #define II_ARM_M_CLO_SAILOR01SHOES         10301
@@ -2474,9 +2474,9 @@
 #define II_ARM_F_CLO_KOREAN01SUIT          10346
 #define II_ARM_F_CLO_KOREAN01SHOES         10347
 
-//ÇÃ¶ó¸®½º ´øÀü °ÔÀÌÆ® ¿­¼è
+//í”Œë¼ë¦¬ìŠ¤ ë˜ì „ ê²Œì´íŠ¸ ì—´ì‡ 
 #define II_SYS_SYS_KEY_DUGATE1 		   10348
-//´øÀü¿ë ¸÷ÅÛ	
+//ë˜ì „ìš© ëª¹í…œ	
 #define II_GEN_GEM_GEM_DUTARINROOT	   10349
 #define II_GEN_GEM_GEM_DUSTARSTONE	   10350
 #define II_GEN_GEM_GEM_DUGOLDENWING 	   10351
@@ -2484,7 +2484,7 @@
 #define II_SYS_SYS_QUE_LETTERISRUEL	   10353
 #define II_SYS_SYS_QUE_PAPERROJI	   10354
 #define II_GEN_GEM_GEM_SERUSURIELHAIR 	   10355
-//ÇÃ¶ó¸®½º ´øÀü ·¹¾î ¾ÆÀÌÅÛ
+//í”Œë¼ë¦¬ìŠ¤ ë˜ì „ ë ˆì–´ ì•„ì´í…œ
 #define II_WEA_SWO_TRITIUM		   10356
 #define II_WEA_AXE_TRITIUM		   10357
 #define II_WEA_CHEE_TRITIUM		   10358
@@ -2492,37 +2492,37 @@
 #define II_WEA_WAN_TRITIUM		   10360
 #define II_WEA_STA_TRITIUM		   10361
 
-//Äù½ºÆ® ¸®´º¾ó Å×½ºÆ®¿ë
+//í€˜ìŠ¤íŠ¸ ë¦¬ë‰´ì–¼ í…ŒìŠ¤íŠ¸ìš©
 #define II_SYS_SYS_QUE_AIBATTAIL	   10362
 #define II_SYS_SYS_QUE_RHALPA	           10363
 #define II_SYS_SYS_QUE_CHUCHU		   10364
 #define II_SYS_SYS_QUE_MARKETLIST	   10365
-//p.k°ü·Ã ½ºÅÈ Á¦ÇÑ º¸»ó±Ý µî °ü·Ã ¿ä¼Ò ¼¼ÆÃ
+//p.kê´€ë ¨ ìŠ¤íƒ¯ ì œí•œ ë³´ìƒê¸ˆ ë“± ê´€ë ¨ ìš”ì†Œ ì„¸íŒ…
 #define II_SYS_SYS_VIR_PENALTYSTR		10366
 #define II_SYS_SYS_VIR_PENALTYSTA		10367
 #define II_SYS_SYS_VIR_PENALTYINT		10368
 #define II_SYS_SYS_VIR_PENALTYDEX		10369
-#define II_GOLD_REWARD                  10382 //P.Kº¸»ó±Ý
+#define II_GOLD_REWARD                  10382 //P.Kë³´ìƒê¸ˆ
 
-// Ã¥, ½ºÅ©·Ñ, ÆíÁöÁö Å×½ºÆ® 
+// ì±…, ìŠ¤í¬ë¡¤, íŽ¸ì§€ì§€ í…ŒìŠ¤íŠ¸ 
 #define II_SYS_SYS_QUE_BOOK           10383
 #define II_SYS_SYS_QUE_SCROLL         10384
 #define II_SYS_SYS_QUE_LETTER         10385
 
-//P.KÄ«¸£¸¶ °¨¼Ò Äù½ºÆ®¿ë ¾ÆÀÌÅÛ 
+//P.Kì¹´ë¥´ë§ˆ ê°ì†Œ í€˜ìŠ¤íŠ¸ìš© ì•„ì´í…œ 
 #define II_SYS_SYS_QUE_KARMABALL      10386
 
-//1Â÷ ÀüÁ÷ Äù½ºÆ® ¾ÆÀÌÅÛ
+//1ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_BKSKILL		10387
 #define II_SYS_SYS_QUE_NTSKILL		10388	
 
-//2Â÷ ÀüÁ÷ Äù½ºÆ® ¾ÆÀÌÅÛ
+//2ì°¨ ì „ì§ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_MASNOMINATE   	10389
 #define II_SYS_SYS_QUE_RENSRING		10390
 #define II_SYS_SYS_QUE_SCRSTAMP		10391
 #define II_SYS_SYS_QUE_LTHYNAN		10392
 #define II_SYS_SYS_QUE_BKHEROL		10393
-//´øÀü Äù½ºÆ®¿ë ¾ÆÀÌÅÛ
+//ë˜ì „ í€˜ìŠ¤íŠ¸ìš© ì•„ì´í…œ
 #define II_SYS_SYS_QUE_LETTERRANKASHU 10394
 #define II_SYS_SYS_KEY_DKDUIDCARD     10395
 #define II_SYS_SYS_QUE_KEYPIECE1      10396
@@ -2531,18 +2531,18 @@
 #define II_SYS_SYS_KEY_NEVILPRISON    10399
 #define II_SYS_SYS_QUE_CHIEFSIGN      10400
 #define II_SYS_SYS_QUE_DRIANCARGO     10401
-#define II_GEN_JEW_RIN_SHUBRIN		  10402//º¸»ó ¾ÆÀÌÅÛ 
+#define II_GEN_JEW_RIN_SHUBRIN		  10402//ë³´ìƒ ì•„ì´í…œ 
 #define II_SYS_SYS_QUE_ROACHFLUID1    10403
 #define II_SYS_SYS_QUE_ROACHFLUID2    10404
 #define II_SYS_SYS_QUE_WAKEROACHWATER 10405
 #define II_SYS_SYS_QUE_ROACHFLUID3    10406
 #define II_SYS_SYS_QUE_ROACHFLUID4    10407
-#define II_WEA_SWT_QURION			  10408//º¸»ó ¾ÆÀÌÅÛ
-#define II_WEA_AXE_QURION			  10409//º¸»ó ¾ÆÀÌÅÛ
-#define II_WEA_CHEE_QURION		      10410//º¸»ó ¾ÆÀÌÅÛ
-#define II_WEA_KNU_QURION			  10411//º¸»ó ¾ÆÀÌÅÛ
-#define II_WEA_WAN_QURION			  10412//º¸»ó ¾ÆÀÌÅÛ
-#define II_WEA_STA_QURION			  10413//º¸»ó ¾ÆÀÌÅÛ
+#define II_WEA_SWT_QURION			  10408//ë³´ìƒ ì•„ì´í…œ
+#define II_WEA_AXE_QURION			  10409//ë³´ìƒ ì•„ì´í…œ
+#define II_WEA_CHEE_QURION		      10410//ë³´ìƒ ì•„ì´í…œ
+#define II_WEA_KNU_QURION			  10411//ë³´ìƒ ì•„ì´í…œ
+#define II_WEA_WAN_QURION			  10412//ë³´ìƒ ì•„ì´í…œ
+#define II_WEA_STA_QURION			  10413//ë³´ìƒ ì•„ì´í…œ
 #define II_SYS_SYS_KEY_DKDUIDCARD2    10414
 #define II_SYS_SYS_QUE_CILLIN         10415
 #define II_SYS_SYS_QUE_FAKERIBENUUM   10416
@@ -2550,12 +2550,12 @@
 #define II_SYS_SYS_KEY_DKDUIDCARD3    10418
 #define II_SYS_SYS_QUE_TRIDUUM		  10419
 #define II_SYS_SYS_KEY_DKDUIDCARD4    10420
-#define II_GEN_JEW_NEC_PURAN	      10421//º¸»ó ¾ÆÀÌÅÛ
-//P.KÄ«¸£¸¶ °¨¼Ò Äù½ºÆ®¿ë ¾ÆÀÌÅÛ 
+#define II_GEN_JEW_NEC_PURAN	      10421//ë³´ìƒ ì•„ì´í…œ
+//P.Kì¹´ë¥´ë§ˆ ê°ì†Œ í€˜ìŠ¤íŠ¸ìš© ì•„ì´í…œ 
 #define II_SYS_SYS_KEY_PKENTRANCE     10422
 #define II_SYS_SYS_KEY_ROACHKEY       10423 
 
-//»ó¿ë ¾ÆÀÌÅÛ 3Â÷ºÐ
+//ìƒìš© ì•„ì´í…œ 3ì°¨ë¶„
 #define II_SYS_SYS_SCR_CHANAM		10424
 #define II_SYS_SYS_SCR_CHACLA		10425
 #define II_SYS_SYS_SCR_HOLY		10426
@@ -2568,16 +2568,16 @@
 #define II_SYS_SYS_SCR_BXLUCKY		10433
 #define II_SYS_SYS_SCR_RECCURENCE	10434
 
-// Å»Ãâ ºí¸µÅ©À® ¹Ù²ã¾ßÇÔ ¾Ë¾Æ¼­ seghope ¹®ÀÇ
+// íƒˆì¶œ ë¸”ë§í¬ìœ™ ë°”ê¿”ì•¼í•¨ ì•Œì•„ì„œ seghope ë¬¸ì˜
 #define	II_CHR_SYS_SCR_ESCAPEBLINKWING 10435
 #define II_GEN_JEW_RIN_DEXRING00	10436																																																																																																																																																																										
-//¾ÆÅ©·Îºª Ãß°¡¿¡ µû¸¥ Äù½ºÆ® ¾ÆÀÌÅÛ Ãß°¡ºÐ
+//ì•„í¬ë¡œë²³ ì¶”ê°€ì— ë”°ë¥¸ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ ì¶”ê°€ë¶„
 #define II_WEA_YOY_TRITIUM				   10437
 #define II_WEA_BOW_TRITIUM				   10438
-#define II_WEA_YOY_QURION				   10439//º¸»ó ¾ÆÀÌÅÛ
-#define II_WEA_BOW_QURION				   10440//º¸»ó ¾ÆÀÌÅÛ
+#define II_WEA_YOY_QURION				   10439//ë³´ìƒ ì•„ì´í…œ
+#define II_WEA_BOW_QURION				   10440//ë³´ìƒ ì•„ì´í…œ
 
-//»ó¿ë ¾ÆÀÌÅÛ 3Â÷ºÐ Ãß°¡
+//ìƒìš© ì•„ì´í…œ 3ì°¨ë¶„ ì¶”ê°€
 #define II_SYS_SYS_SCR_BXVITAL		10441
 #define II_SYS_SYS_SCR_BXREF		10442
 #define	II_SYS_SYS_SCR_BXDDUK1		10443
@@ -2585,7 +2585,7 @@
 
 
 #define II_CHEERUP					10445
-//µ¥Ä«³×½º ´øÀü ¸ó½ºÅÍ¿ë ¸ó½ºÅÍ »ê¹° 
+//ë°ì¹´ë„¤ìŠ¤ ë˜ì „ ëª¬ìŠ¤í„°ìš© ëª¬ìŠ¤í„° ì‚°ë¬¼ 
 
 #define II_GEN_GEM_GEM_AXKEAKOON1	   10446
 #define II_GEN_GEM_GEM_AXKEAKOON2	   10447
@@ -2600,16 +2600,16 @@
 #define II_GEN_GEM_GEM_TRILIPY3  	   10456
 #define II_GEN_GEM_GEM_KIMERADON  	   10457
 
-//»ó¿ë ¾ÆÀÌÅÛ 4Â÷ºÐ Ãß°¡
+//ìƒìš© ì•„ì´í…œ 4ì°¨ë¶„ ì¶”ê°€
 #define II_SYS_SYS_SCR_BXSTAMINA	10458
 #define II_SYS_SYS_SCR_BXPOT		10459
 #define II_SYS_SYS_SCR_BXSCROLL		10460
 #define II_SYS_SYS_SCR_PUMKSOUP		10461
 #define II_SYS_SYS_SCR_URICNOODLE	10462
 #define II_SYS_SYS_SCR_GCHANAM		10463
-#define II_SYS_SYS_SCR_SMELPROT		10464 //ÀÏ¹Ý º¸È£ÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_SMELPROT3	10488 //ÃÖ»ó±Þ º¸È£ÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_PIEPROT		10465 //ÇÇ¾î½Ì º¸È£ÀÇ µÎ·ç¸¶¸®
+#define II_SYS_SYS_SCR_SMELPROT		10464 //ì¼ë°˜ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_SMELPROT3	10488 //ìµœìƒê¸‰ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_PIEPROT		10465 //í”¼ì–´ì‹± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 #define II_SYS_SYS_SCR_EXPANSION	10466
 #define II_SYS_SYS_SCR_GLVCHEER		10467
 #define II_SYS_SYS_SCR_SMELTING		10468
@@ -2630,7 +2630,7 @@
 #define II_CHR_S_CLO_CLO_LOWACCORD      10483
 #define II_CHR_S_CLO_CLO_LOWQUICK       10484
 #define II_CHR_S_CLO_CLO_LOWWISDOM      10485
-//ÀÇ»ó Å×½ºÆ® ¾ÆÀÌÅÛ
+//ì˜ìƒ í…ŒìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_BXCLOTEST	10486
 #define II_SYS_SYS_SCR_SMELPROT2	10487
 #define	II_SYS_SYS_SCR_SMELTING2	10489
@@ -2639,7 +2639,7 @@
 
 #define	II_SYS_SYS_SCR_BXSCROLL01	10491
 
-//±â°£Á¦ À¯´ÏÅ© ¾ÆÀÌÅÛ(¼öÈ£ 7ÀÏ)
+//ê¸°ê°„ì œ ìœ ë‹ˆí¬ ì•„ì´í…œ(ìˆ˜í˜¸ 7ì¼)
 #define II_WEA_STA_PERIODSUHO7				10492
 #define II_WEA_WAN_PERIODSUHO7				10493
 #define II_WEA_SWO_PERIODSUHO7				10494
@@ -2648,7 +2648,7 @@
 #define II_WEA_BOW_PERIODSUHO7				10497
 #define II_WEA_KNU_PERIODSUHO7				10498
 #define II_WEA_CHE_PERIODSUHO7				10499
-//±â°£Á¦ À¯´ÏÅ© ¾ÆÀÌÅÛ(¼öÈ£ 30ÀÏ)
+//ê¸°ê°„ì œ ìœ ë‹ˆí¬ ì•„ì´í…œ(ìˆ˜í˜¸ 30ì¼)
 #define II_WEA_STA_PERIODSUHO30				10500
 #define II_WEA_WAN_PERIODSUHO30				10501
 #define II_WEA_SWO_PERIODSUHO30				10502
@@ -2657,7 +2657,7 @@
 #define II_WEA_BOW_PERIODSUHO30				10505
 #define II_WEA_KNU_PERIODSUHO30				10506
 #define II_WEA_CHE_PERIODSUHO30				10507
-//±â°£Á¦ À¯´ÏÅ© ¾ÆÀÌÅÛ(À¯¼­ 7ÀÏ)
+//ê¸°ê°„ì œ ìœ ë‹ˆí¬ ì•„ì´í…œ(ìœ ì„œ 7ì¼)
 #define II_WEA_SWT_PERIODUSU07				10508
 #define II_WEA_AXT_PERIODUSU07				10509
 #define II_WEA_SWO_PERIODUSU07				10510
@@ -2677,7 +2677,7 @@
 #define II_ARM_F_CHR_SANTASUIT        15006
 #define II_ARM_F_CHR_SANTAGLOVES      15008
 #define II_ARM_F_CHR_SANTASHOES       15007
-//ÀÇ»ó ½Ã½ºÅÛ
+//ì˜ìƒ ì‹œìŠ¤í…œ
 #define II_ARM_M_CHR_SAILOR01HAT	15009
 #define II_ARM_M_CHR_SAILOR01SUIT	15010
 #define II_ARM_M_CHR_SAILOR01SHOES	15011
@@ -2754,7 +2754,7 @@
 #define II_ARM_F_CHR_CHINA01SHOES	15082
 
 
-//À¯·á ¾ÆÀÌÅÛ Ãß°¡
+//ìœ ë£Œ ì•„ì´í…œ ì¶”ê°€
 #define II_SYS_SYS_SCR_CUSTODY				15083
 #define II_SYS_SYS_SCR_BXMBULE7				15084
 #define II_SYS_SYS_SCR_BXMBULE30			15085
@@ -2795,7 +2795,7 @@
 #define II_SYS_SYS_SCR_BXMRUDOLF			15130
 #define II_SYS_SYS_SCR_BXFRUDOLF			15131
 
-// ÅÎ½Ãµµ, µå·¹½º ÀÇ»ó ÆÑ Ãß°¡
+// í„±ì‹œë„, ë“œë ˆìŠ¤ ì˜ìƒ íŒ© ì¶”ê°€
 #define II_SYS_SYS_SCR_BXMTUXEDO01			15132
 #define II_SYS_SYS_SCR_BXMTUXEDO02			15133
 #define II_SYS_SYS_SCR_BXMTUXEDO03			15134
@@ -2803,7 +2803,7 @@
 #define II_SYS_SYS_SCR_BXFDRESS03			15136
 #define II_SYS_SYS_SCR_BXFDRESS04			15137
 
-// ÅÎ½Ãµµ, µå·¹½º ÀÇ»ó Ãß°¡
+// í„±ì‹œë„, ë“œë ˆìŠ¤ ì˜ìƒ ì¶”ê°€
 #define II_ARM_M_CHR_TUXEDO01SUIT			15138
 #define II_ARM_M_CHR_TUXEDO01GLOVES			15139
 #define II_ARM_M_CHR_TUXEDO01SHOES			15140
@@ -2826,7 +2826,7 @@
 #define II_ARM_F_CHR_DRESS04GLOVES			15158
 #define II_ARM_F_CHR_DRESS04SHOES			15159
 
-// °æÂûº¹ ³²/¿© Ãß°¡
+// ê²½ì°°ë³µ ë‚¨/ì—¬ ì¶”ê°€
 #define II_ARM_M_CHR_POLICE01HAT			15160
 #define II_ARM_M_CHR_POLICE01SUIT			15161
 #define II_ARM_M_CHR_POLICE01GLOVES			15162
@@ -2836,7 +2836,7 @@
 #define II_ARM_F_CHR_POLICE01GLOVES			15166
 #define II_ARM_F_CHR_POLICE01SHOES			15167
 
-//À¯·´ ½Å±Ô ºñÇàÃ¼
+//ìœ ëŸ½ ì‹ ê·œ ë¹„í–‰ì²´
 #define II_RID_RID_STI_CARFIRE					15168
 #define II_RID_RID_STI_BIKELECT					15169
 
@@ -2862,126 +2862,126 @@
 #define II_SYS_SYS_SCR_BXFHARMIONR			15219 //15119
 #define II_SYS_SYS_SCR_CUSTODY2				15220 //15120
 
-//ÅÂ±¹ ¾î¸Ó´ÏÀÇ ³¯ ÀÌº¥Æ®
-#define II_SYS_SYS_EVE_LOVECANDY				15221 //»ç¶ûÀÇ »çÅÁ
-#define II_SYS_SYS_EVE_LOVEFLOWER				15222 //»ç¶ûÀÇ ²É´Ù¹ß
+//íƒœêµ­ ì–´ë¨¸ë‹ˆì˜ ë‚  ì´ë²¤íŠ¸
+#define II_SYS_SYS_EVE_LOVECANDY				15221 //ì‚¬ëž‘ì˜ ì‚¬íƒ•
+#define II_SYS_SYS_EVE_LOVEFLOWER				15222 //ì‚¬ëž‘ì˜ ê½ƒë‹¤ë°œ
 
-//ÇÊ¸®ÇÉ ½ºÇÁ¸µ ÀÌº¥Æ®
-#define II_SYS_SYS_SCR_BXSPRING					15223 //½ºÇÁ¸µ¹Ú½º
+//í•„ë¦¬í•€ ìŠ¤í”„ë§ ì´ë²¤íŠ¸
+#define II_SYS_SYS_SCR_BXSPRING					15223 //ìŠ¤í”„ë§ë°•ìŠ¤
 
-//·ÔÅäÀÇ ¼±¹° »óÀÚ
-#define II_SYS_SYS_SCR_BXROTTOUI1				15225 //·ÔÅäÀÇ ¼±¹° »óÀÚ
-#define II_SYS_SYS_SCR_BXROTTOUI2				15224 //¿ëÀÚÀÇ ±ÍÈ¯ »óÀÚ 
+//ë¡¯í† ì˜ ì„ ë¬¼ ìƒìž
+#define II_SYS_SYS_SCR_BXROTTOUI1				15225 //ë¡¯í† ì˜ ì„ ë¬¼ ìƒìž
+#define II_SYS_SYS_SCR_BXROTTOUI2				15224 //ìš©ìžì˜ ê·€í™˜ ìƒìž 
 
-// °æÂûº¹ ¹Ú½º ¾ÆÀÌÅÛ  
+// ê²½ì°°ë³µ ë°•ìŠ¤ ì•„ì´í…œ  
 #define II_SYS_SYS_SCR_BXMPOLICE			16168
 #define II_SYS_SYS_SCR_BXFPOLICE			16169
 
-// ÅÍ¹ø ¸ðÀÚ ³²/¿© Ãß°¡
+// í„°ë²ˆ ëª¨ìž ë‚¨/ì—¬ ì¶”ê°€
 #define II_ARM_F_CHR_TURBANHAT				16170
 #define II_ARM_M_CHR_TURBANHAT				16171
 
-// ¹Ùº¸ ¾È°æ Ãß°¡
+// ë°”ë³´ ì•ˆê²½ ì¶”ê°€
 #define II_ARM_S_CLO_MAS_FOOLGLASS			16172
 
-// ¹«µµÈ¸ °¡¸é
+// ë¬´ë„íšŒ ê°€ë©´
 #define II_ARM_S_CLO_MAS_BALL09				16173
 
-// µ¥ºô ¸Ó¸®Àå½Ä
+// ë°ë¹Œ ë¨¸ë¦¬ìž¥ì‹
 #define II_ARM_S_CLO_MAS_DEVIL				16179
-// ¿£Á© ¸Ó¸®Àå½Ä
+// ì—”ì ¤ ë¨¸ë¦¬ìž¥ì‹
 #define II_ARM_S_CLO_MAS_ANGEL				16180
 
-// ÀÇ»ó Ä«µå¼Ò³à
+// ì˜ìƒ ì¹´ë“œì†Œë…€
 #define II_ARM_F_CHR_CARD01HAT				16181
 #define II_ARM_F_CHR_CARD01SUIT				16182
 #define II_ARM_F_CHR_CARD01SHOES			16183
-// ÀÇ»ó Ä«µå¼Ò³à ÆÑ
+// ì˜ìƒ ì¹´ë“œì†Œë…€ íŒ©
 #define II_SYS_SYS_SCR_BXFCARD01			16184
 
-// µå·¹½º°É(¿©)
+// ë“œë ˆìŠ¤ê±¸(ì—¬)
 #define II_ARM_F_CHR_DRESSGIRL01HAT			16185
 #define II_ARM_F_CHR_DRESSGIRL01SUIT		16186
 #define II_ARM_F_CHR_DRESSGIRL01GLOVES		16187
 #define II_ARM_F_CHR_DRESSGIRL01SHOES		16188
 #define II_SYS_SYS_SCR_BXFDRESSGIRL01		16189
-// ´ÑÀÚ(¿©)
+// ë‹Œìž(ì—¬)
 #define II_ARM_F_CHR_NINJA01HAT				16190
 #define II_ARM_F_CHR_NINJA01SUIT			16191
 #define II_ARM_F_CHR_NINJA01GLOVES			16192
 #define II_ARM_F_CHR_NINJA01SHOES			16193
 #define II_SYS_SYS_SCR_BXFNINJA01			16194
-// ´ÑÀÚ(³²)
+// ë‹Œìž(ë‚¨)
 #define II_ARM_M_CHR_NINJA01HAT				16195
 #define II_ARM_M_CHR_NINJA01SUIT			16196
 #define II_ARM_M_CHR_NINJA01GLOVES			16197
 #define II_ARM_M_CHR_NINJA01SHOES			16198
 #define II_SYS_SYS_SCR_BXMNINJA01			16199
 
-//Á¦º¹(³²)
+//ì œë³µ(ë‚¨)
 #define II_ARM_M_CHR_UNIFORM01SUIT			16200
 #define II_ARM_M_CHR_UNIFORM01GLOVES			16201
 #define II_ARM_M_CHR_UNIFORM01SHOES			16202
 #define II_SYS_SYS_SCR_BXMUNIFORM01			16203
 
-//Á¦º¹(¿©)
+//ì œë³µ(ì—¬)
 #define II_ARM_F_CHR_UNIFORM01SUIT			16204
 #define II_ARM_F_CHR_UNIFORM01GLOVES			16205
 #define II_ARM_F_CHR_UNIFORM01SHOES			16206
 #define II_SYS_SYS_SCR_BXFUNIFORM01			16207
 
-//¸ÞÀÌµåº¹
+//ë©”ì´ë“œë³µ
 #define II_ARM_F_CHR_MAID01HAT				16208
 #define II_ARM_F_CHR_MAID01SUIT  			16209
 #define II_ARM_F_CHR_MAID01GLOVES			16210
 #define II_ARM_F_CHR_MAID01SHOES			16211
 #define II_SYS_SYS_SCR_BXFMAID01			16212
 
-//½ºÆÄÀÌº¹(³²)
+//ìŠ¤íŒŒì´ë³µ(ë‚¨)
 #define II_ARM_M_CHR_SPY01HAT				16213
 #define II_ARM_M_CHR_SPY01SUIT				16214
 #define II_ARM_M_CHR_SPY01GLOVES			16215
 #define II_ARM_M_CHR_SPY01SHOES				16216
 #define II_SYS_SYS_SCR_BXMSPY01			        16217
 
-//½ºÆÄÀÌº¹(¿©)
+//ìŠ¤íŒŒì´ë³µ(ì—¬)
 #define II_ARM_F_CHR_SPY01HAT				16218
 #define II_ARM_F_CHR_SPY01SUIT  			16219
 #define II_ARM_F_CHR_SPY01GLOVES 			16220
 #define II_ARM_F_CHR_SPY01SHOES	         		16221
 #define II_SYS_SYS_SCR_BXFSPY01		         	16222
 
-//Ãà±¸º¹1(³²)
+//ì¶•êµ¬ë³µ1(ë‚¨)
 #define II_ARM_M_CHR_SOCCER01SUIT       		16223
 #define II_ARM_M_CHR_SOCCER01SHOES			16224
 #define II_SYS_SYS_SCR_BXMSOCCER01 	         	16225
 
-//Ãà±¸º¹1(¿©)
+//ì¶•êµ¬ë³µ1(ì—¬)
 #define II_ARM_F_CHR_SOCCER01SUIT       		16226
 #define II_ARM_F_CHR_SOCCER01SHOES			16227
 #define II_SYS_SYS_SCR_BXFSOCCER01 	         	16228
 
-//Ãà±¸º¹2(³²)
+//ì¶•êµ¬ë³µ2(ë‚¨)
 #define II_ARM_M_CHR_SOCCER02SUIT       		16229
 #define II_ARM_M_CHR_SOCCER02SHOES			16230
 #define II_SYS_SYS_SCR_BXMSOCCER02 	         	16231
 
-//Ãà±¸º¹2(¿©)
+//ì¶•êµ¬ë³µ2(ì—¬)
 #define II_ARM_F_CHR_SOCCER02SUIT       		16232
 #define II_ARM_F_CHR_SOCCER02SHOES			16233
 #define II_SYS_SYS_SCR_BXFSOCCER02 	         	16234
 
-//Ãà±¸º¹3(³²)
+//ì¶•êµ¬ë³µ3(ë‚¨)
 #define II_ARM_M_CHR_SOCCER03SUIT            		16235
 #define II_ARM_M_CHR_SOCCER03SHOES       		16236
 #define II_SYS_SYS_SCR_BXMSOCCER03 	         	16237
 
-//Ãà±¸º¹3(¿©)
+//ì¶•êµ¬ë³µ3(ì—¬)
 #define II_ARM_F_CHR_SOCCER03SUIT        		16238
 #define II_ARM_F_CHR_SOCCER03SHOES			16239
 #define II_SYS_SYS_SCR_BXFSOCCER03 	         	16240
 
-//À¯Ä«Å¸2006
+//ìœ ì¹´íƒ€2006
 #define II_ARM_M_CHR_YUKATA02SUIT			16241
 #define II_ARM_M_CHR_YUKATA02SHOES     			16242
 #define II_SYS_SYS_SCR_BXMYUKATA2006SET                 16243
@@ -2989,17 +2989,17 @@
 #define II_ARM_F_CHR_YUKATA02SHOES    			16245
 #define II_SYS_SYS_SCR_BXFYUKATA2006SET			16246
 
-//ÀÀ¿øº¹ ¼¼Æ®(³²)1~3
+//ì‘ì›ë³µ ì„¸íŠ¸(ë‚¨)1~3
 #define II_SYS_SYS_SCR_BXMSOCCERSET01                      16247
 #define II_SYS_SYS_SCR_BXMSOCCERSET02                      16248
 #define II_SYS_SYS_SCR_BXMSOCCERSET03                      16249
 
-//ÀÀ¿øº¹ ¼¼Æ®(¿©)1~3
+//ì‘ì›ë³µ ì„¸íŠ¸(ì—¬)1~3
 #define II_SYS_SYS_SCR_BXFSOCCERSET01                      16250
 #define II_SYS_SYS_SCR_BXFSOCCERSET02                      16251
 #define II_SYS_SYS_SCR_BXFSOCCERSET03                      16252
 
-//¼ö¿µº¹
+//ìˆ˜ì˜ë³µ
 #define II_ARM_M_CHR_SWIM01UPPER       					16253
 #define II_ARM_F_CHR_SWIM01UPPER       					16254
 #define II_ARM_M_CHR_SWIM01FOOT       					16255
@@ -3007,11 +3007,11 @@
 #define II_SYS_SYS_SCR_BXM_SWIM01SET				16257
 #define II_SYS_SYS_SCR_BXF_SWIM01SET				16258
 
-// °æÂûº¹+°ïºÀ ¹Ú½º ¾ÆÀÌÅÛ
+// ê²½ì°°ë³µ+ê³¤ë´‰ ë°•ìŠ¤ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_BXMPOLICE01	16259
 #define II_SYS_SYS_SCR_BXFPOLICE01	16260
 
-// ÇÊ¸®ÇÉ ¿äÃ» ±â°£Á¦ ¾ÆÀÌÅÛ
+// í•„ë¦¬í•€ ìš”ì²­ ê¸°ê°„ì œ ì•„ì´í…œ
 #define	II_SYS_SYS_SCR_BX_PET_LUIA07	16261
 #define	II_SYS_SYS_SCR_BX_PET_LUIA30	16262
 #define II_SYS_SYS_SCR_BXM_SWIM01SET07	16263
@@ -3029,27 +3029,27 @@
 #define	II_SYS_SYS_SCR_BX_PET_LEYENA07	16273
 #define	II_SYS_SYS_SCR_BX_PET_LEYENA30	16274
 
-// ÇØ°ñÀÇ»ó(³²)
+// í•´ê³¨ì˜ìƒ(ë‚¨)
 #define II_ARM_M_CHR_SKULL01HAT				16275
 #define II_ARM_M_CHR_SKULL01SUIT			16276
 #define II_ARM_M_CHR_SKULL01SHOES			16277
 #define II_SYS_SYS_SCR_BXMSKULL01			16278
 #define II_ARM_M_CHR_SKULL01GLOVES			16283
 
-// ÇØ°ñÀÇ»ó(¿©)
+// í•´ê³¨ì˜ìƒ(ì—¬)
 #define II_ARM_F_CHR_SKULL01HAT				16279
 #define II_ARM_F_CHR_SKULL01SUIT			16280
 #define II_ARM_F_CHR_SKULL01SHOES			16281
 #define II_SYS_SYS_SCR_BXFSKULL01			16282
 #define II_ARM_F_CHR_SKULL01GLOVES			16284
 
-//Ä«µåÀÇ»ó(³²)
+//ì¹´ë“œì˜ìƒ(ë‚¨)
 #define II_ARM_M_CHR_CARD01HAT				16285
 #define II_ARM_M_CHR_CARD01SUIT				16286
 #define II_ARM_M_CHR_CARD01SHOES			16287 
 #define II_SYS_SYS_SCR_BXMCARD01			16288
 
-//½´ÆÛ¸Ç,¿ø´õ¿ì¸Õ
+//ìŠˆí¼ë§¨,ì›ë”ìš°ë¨¼
 #define II_CHR_M_CLO_CLO_SUPERMAN                       16289
 #define II_ARM_M_CHR_SUPER01SUIT			16290
 #define II_ARM_M_CHR_SUPER01GLOVES			16291
@@ -3062,7 +3062,7 @@
 #define II_ARM_F_CHR_SUPER01SHOES			16297
 #define II_SYS_SYS_SCR_BXFSUPER01 			16298
 
-//½Å¹åµå
+//ì‹ ë°§ë“œ
 #define II_ARM_M_CHR_SINBAD01HAT                        16299
 #define II_ARM_M_CHR_SINBAD01SUIT			16302
 #define II_ARM_M_CHR_SINBAD01SHOES			16303
@@ -3072,7 +3072,7 @@
 #define II_ARM_F_CHR_SINBAD01SHOES			16307
 #define II_SYS_SYS_SCR_BXFSINBAD01			16308
 
-//½º³ë¿ìº¸´õ
+//ìŠ¤ë…¸ìš°ë³´ë”
 #define II_ARM_M_CHR_SNOWBOARDER01HAT                   16309
 #define II_ARM_M_CHR_SNOWBOARDER01SUIT			16310
 #define II_ARM_M_CHR_SNOWBOARDER01GLOVES		16311
@@ -3085,11 +3085,11 @@
 #define II_ARM_F_CHR_SNOWBOARDER01SHOES			16317
 #define II_SYS_SYS_SCR_BXFSNOWBOARDER01			16318
 
-// ½Å±Ô ºñÇàÃ¼(½º³ë¿ìº¸µå,¸¶¹ýÀÇ ¾çÅºÀÚ)
+// ì‹ ê·œ ë¹„í–‰ì²´(ìŠ¤ë…¸ìš°ë³´ë“œ,ë§ˆë²•ì˜ ì–‘íƒ„ìž)
 #define II_RID_RID_BOR_SNOWBOARD                        16319
 #define II_RID_RID_BOR_MAGICCARPET			16320
 
-// ´«»ç¶÷ ÀÇ»ó
+// ëˆˆì‚¬ëžŒ ì˜ìƒ
 #define II_ARM_M_CHR_SNOWMAN01HAT                       16321
 #define II_ARM_M_CHR_SNOWMAN01SUIT			16322
 #define II_ARM_M_CHR_SNOWMAN01GLOVES			16323
@@ -3101,7 +3101,7 @@
 #define II_ARM_F_CHR_SNOWMAN01SHOES			16329
 #define II_SYS_SYS_SCR_BXFSNOWMAN01			16330
 
-// °³±¸¶ôÁö ÀÇ»ó
+// ê°œêµ¬ë½ì§€ ì˜ìƒ
 #define II_ARM_M_CHR_FROG01HAT				16331
 #define II_ARM_M_CHR_FROG01SUIT				16332
 #define II_ARM_M_CHR_FROG01GLOVES			16333
@@ -3113,7 +3113,7 @@
 #define II_ARM_F_CHR_FROG01SHOES			16339
 #define II_SYS_SYS_SCR_BXFFROG01			16340
 
-// ¾çÅÐ ÀÇ»ó
+// ì–‘í„¸ ì˜ìƒ
 #define II_ARM_M_CHR_LAMP01HAT				16341
 #define II_ARM_M_CHR_LAMP01SUIT				16342
 #define II_ARM_M_CHR_LAMP01GLOVES			16343
@@ -3125,7 +3125,7 @@
 #define II_ARM_F_CHR_LAMP01SHOES			16349
 #define II_SYS_SYS_SCR_BXFLAMP01			16350
 	
-// °õµ¹ÀÌ ÀÇ»ó
+// ê³°ëŒì´ ì˜ìƒ
 #define II_ARM_M_CHR_BEAR01HAT				16351
 #define II_ARM_M_CHR_BEAR01SUIT				16352
 #define II_ARM_M_CHR_BEAR01GLOVES			16353
@@ -3137,7 +3137,7 @@
 #define II_ARM_F_CHR_BEAR01SHOES			16359
 #define II_SYS_SYS_SCR_BXFBEAR01			16360
 
-// ¸ÇÀÎºí·¢(³²,¿©)
+// ë§¨ì¸ë¸”ëž™(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_MENINBLACK01SUIT  			16361
 #define II_ARM_M_CHR_MENINBLACK01SHOES			16362
 #define II_SYS_SYS_SCR_BXMMENINBLACK01			16363
@@ -3145,7 +3145,7 @@
 #define II_ARM_F_CHR_MENINBLACK01SHOES			16365
 #define II_SYS_SYS_SCR_BXFMENINBLACK01			16366
 
-// »ç¹«¶óÀÌ(³²,¿©)
+// ì‚¬ë¬´ë¼ì´(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_SAMURAI01HAT			16367
 #define II_ARM_M_CHR_SAMURAI01SUIT			16368
 #define II_ARM_M_CHR_SAMURAI01GLOVES			16369
@@ -3157,13 +3157,13 @@
 #define II_ARM_F_CHR_SAMURAI01SHOES			16375
 #define II_SYS_SYS_SCR_BXFSAMURAI01 			16376
 
-// ¼½½ÃÇÑº¹
+// ì„¹ì‹œí•œë³µ
 #define II_ARM_F_CHR_KOREAN02HAT			16377
 #define II_ARM_F_CHR_KOREAN02SUIT			16378
 #define II_ARM_F_CHR_KOREAN02SHOES			16379
 #define II_SYS_SYS_SCR_BXFKOREAN02			16380
 
-// ¹«¿¡Å¸ÀÌ(³²,¿©)
+// ë¬´ì—íƒ€ì´(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_MUAYTHAI01HAT			16381
 #define II_ARM_M_CHR_MUAYTHAI01SUIT			16382
 #define II_ARM_M_CHR_MUAYTHAI01GLOVES		16383
@@ -3175,7 +3175,7 @@
 #define II_ARM_F_CHR_MUAYTHAI01SHOES		16389
 #define II_SYS_SYS_SCR_BXFMUAYTHAI01		16390
 
-// ÇØÀû(³²,¿©)
+// í•´ì (ë‚¨,ì—¬)
 #define II_ARM_M_CHR_PIRATE01HAT			16391
 #define II_ARM_M_CHR_PIRATE01SUIT			16392
 #define II_ARM_M_CHR_PIRATE01SHOES			16393
@@ -3185,7 +3185,7 @@
 #define II_ARM_F_CHR_PIRATE01SHOES			16397
 #define II_SYS_SYS_SCR_BXFPIRATE01			16498
 
-//¹ìÆÄÀÌ¾î
+//ë±€íŒŒì´ì–´
 #define II_ARM_M_CHR_VAMPIRE01HAT			16499
 #define II_ARM_M_CHR_VAMPIRE01SUIT			16500
 #define II_ARM_M_CHR_VAMPIRE01GLOVES		16501
@@ -3197,7 +3197,7 @@
 #define II_ARM_F_CHR_VAMPIRE01SHOES			16507
 #define II_SYS_SYS_SCR_BXFVAMPIRE01			16508
 
-//°­½Ã
+//ê°•ì‹œ
 #define II_ARM_M_CHR_CORPSE01HAT			16509
 #define II_ARM_M_CHR_CORPSE01SUIT			16510
 #define II_ARM_M_CHR_CORPSE01SHOES			16511
@@ -3207,7 +3207,7 @@
 #define II_ARM_F_CHR_CORPSE01SHOES			16515
 #define II_SYS_SYS_SCR_BXFCORPSE01			16516
 
-//¼ö¶ù°£
+//ìˆ˜ëžê°„
 #define II_ARM_M_CHR_KOREAN03HAT			16517
 #define II_ARM_M_CHR_KOREAN03SUIT			16518
 #define II_ARM_M_CHR_KOREAN03SHOES			16519
@@ -3217,7 +3217,7 @@
 #define II_ARM_F_CHR_KOREAN03SHOES			16523
 #define II_SYS_SYS_SCR_BXFKOREAN03			16524
 
-//¸¶µå¸®°¥¼öºñ´ë ºí·ç
+//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ë¸”ë£¨
 #define II_ARM_M_CHR_GUARDS01HAT			16525
 #define II_ARM_M_CHR_GUARDS01SUIT			16526
 #define II_ARM_M_CHR_GUARDS01GLOVES			16527
@@ -3229,7 +3229,7 @@
 #define II_ARM_F_CHR_GUARDS01SHOES			16533
 #define II_SYS_SYS_SCR_BXFGUARDS01			16534
 
-//¸¶µå¸®°¥¼öºñ´ë ·¹µå
+//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ë ˆë“œ
 #define II_ARM_M_CHR_GUARDS02HAT			16535
 #define II_ARM_M_CHR_GUARDS02SUIT			16536
 #define II_ARM_M_CHR_GUARDS02GLOVES			16537
@@ -3241,7 +3241,7 @@
 #define II_ARM_F_CHR_GUARDS02SHOES			16543
 #define II_SYS_SYS_SCR_BXFGUARDS02			16544
 
-//¸¶µå¸®°¥¼öºñ´ë ¿»·Î¿ì
+//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ì˜ë¡œìš°
 #define II_ARM_M_CHR_GUARDS03HAT			16545
 #define II_ARM_M_CHR_GUARDS03SUIT			16546
 #define II_ARM_M_CHR_GUARDS03GLOVES			16547
@@ -3253,7 +3253,7 @@
 #define II_ARM_F_CHR_GUARDS03SHOES			16553
 #define II_SYS_SYS_SCR_BXFGUARDS03			16554
 
-//¸¶µå¸®°¥¼öºñ´ë ±×¸°
+//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ ê·¸ë¦°
 #define II_ARM_M_CHR_GUARDS04HAT			16555
 #define II_ARM_M_CHR_GUARDS04SUIT			16556
 #define II_ARM_M_CHR_GUARDS04GLOVES			16557
@@ -3265,7 +3265,7 @@
 #define II_ARM_F_CHR_GUARDS04SHOES			16563
 #define II_SYS_SYS_SCR_BXFGUARDS04			16564
 
-//¸¶µå¸®°¥¼öºñ´ë ÇÎÅ©
+//ë§ˆë“œë¦¬ê°ˆìˆ˜ë¹„ëŒ€ í•‘í¬
 #define II_ARM_M_CHR_GUARDS05HAT			16565
 #define II_ARM_M_CHR_GUARDS05SUIT			16566
 #define II_ARM_M_CHR_GUARDS05GLOVES			16567
@@ -3277,7 +3277,7 @@
 #define II_ARM_F_CHR_GUARDS05SHOES			16573
 #define II_SYS_SYS_SCR_BXFGUARDS05			16574
 
-//¹ÌÀÌ¶ó
+//ë¯¸ì´ë¼
 #define II_ARM_M_CHR_MUMMY01HAT				16575
 #define II_ARM_M_CHR_MUMMY01SUIT			16576
 #define II_ARM_M_CHR_MUMMY01GLOVES			16577
@@ -3289,7 +3289,7 @@
 #define II_ARM_F_CHR_MUMMY01SHOES			16583
 #define II_SYS_SYS_SCR_BXFMUMMY01			16584
 
-//¿ø½ÃÀÎ
+//ì›ì‹œì¸
 #define II_ARM_M_CHR_PRIMITIVE01SUIT			16585
 #define II_ARM_M_CHR_PRIMITIVE01SHOES			16587
 #define II_SYS_SYS_SCR_BXMPRIMITIVE01			16588
@@ -3297,7 +3297,7 @@
 #define II_ARM_F_CHR_PRIMITIVE01SHOES			16590
 #define II_SYS_SYS_SCR_BXFPRIMITIVE01			16591
 
-//Ä³Áê¾ó ÀÇ»ó
+//ìºì¥¬ì–¼ ì˜ìƒ
 #define II_ARM_M_CHR_CASUAL01HAT			16592
 #define II_ARM_M_CHR_CASUAL01SUIT			16593
 #define II_ARM_M_CHR_CASUAL01GLOVES			16594
@@ -3320,7 +3320,7 @@
 #define II_ARM_F_CHR_CASUAL02SHOES			16610
 #define II_SYS_SYS_SCR_BXFCASUAL02			16611
 
-// ¿þµù ÀÇ»ó
+// ì›¨ë”© ì˜ìƒ
 #define II_ARM_M_CHR_WED01HAT				16612
 #define II_ARM_M_CHR_WED01SUIT				16613
 #define II_ARM_M_CHR_WED01GLOVES			16614
@@ -3341,7 +3341,7 @@
 #define II_ARM_F_CHR_YUKATA04SHOES			16628
 #define II_SYS_SYS_SCR_BXFYUKATA04			16629
 
-// °ÝÅõ°¡ ÀÇ»ó
+// ê²©íˆ¬ê°€ ì˜ìƒ
 #define II_ARM_M_CHR_MARTIAL01HAT			16630
 #define II_ARM_M_CHR_MARTIAL01SUIT			16631
 #define II_ARM_M_CHR_MARTIAL01GLOVES			16632
@@ -3353,7 +3353,7 @@
 #define II_ARM_F_CHR_MARTIAL01SHOES			16638
 #define II_SYS_SYS_SCR_BXFMARTIAL01			16639
 
-// 2008³â ¼ö¿µº¹
+// 2008ë…„ ìˆ˜ì˜ë³µ
 #define II_ARM_M_CHR_SWIM07UPPER			16640
 #define II_ARM_M_CHR_SWIM07GLOVES			16641
 #define II_ARM_M_CHR_SWIM07FOOT				16642
@@ -3371,7 +3371,7 @@
 #define II_ARM_F_CHR_SWIM10FOOT				16654
 #define II_SYS_SYS_SCR_BXF_SWIM10SET			16655
 
-// ¾ß±¸º¹ ÀÇ»ó
+// ì•¼êµ¬ë³µ ì˜ìƒ
 #define II_ARM_M_CHR_BASEBALL01HAT			16656
 #define II_ARM_M_CHR_BASEBALL01SUIT			16657
 #define II_ARM_M_CHR_BASEBALL01GLOVES			16658
@@ -3383,7 +3383,7 @@
 #define II_ARM_F_CHR_BASEBALL01SHOES			16664
 #define II_SYS_SYS_SCR_BXFBASEBALL01			16665
 
-// ÄôÇª ÀÇ»ó
+// ì¿µí‘¸ ì˜ìƒ
 #define II_ARM_M_CHR_KUNGFU01HAT			16666
 #define II_ARM_M_CHR_KUNGFU01SUIT			16667
 #define II_ARM_M_CHR_KUNGFU01GLOVES			16668
@@ -3395,7 +3395,7 @@
 #define II_ARM_F_CHR_KUNGFU01SHOES			16674
 #define II_SYS_SYS_SCR_BXFKUNGFU01			16675
 
-// ±¹°¡ ÀÇ»ó
+// êµ­ê°€ ì˜ìƒ
 #define II_ARM_M_CHR_GERMAN01HAT			16676
 #define II_ARM_M_CHR_GERMAN01SUIT			16677
 #define II_ARM_M_CHR_GERMAN01GLOVES			16678
@@ -3440,7 +3440,7 @@
 #define II_ARM_F_CHR_PHILIPPINES01SHOES			16714
 #define II_SYS_SYS_SCR_BXFPHILIPPINES01			16715
 
-// Åä³¢ ÀÇ»ó
+// í† ë¼ ì˜ìƒ
 #define II_ARM_M_CHR_RABBIT03HAT			16716
 #define II_ARM_M_CHR_RABBIT03SUIT			16717
 #define II_ARM_M_CHR_RABBIT03GLOVES			16718
@@ -3452,11 +3452,11 @@
 #define II_ARM_F_CHR_RABBIT03SHOES			16724
 #define II_SYS_SYS_SCR_BXFRABBIT03			16725
 
-// ÇÊ¸®ÇÉ ÀÌº¥Æ®¿ë
+// í•„ë¦¬í•€ ì´ë²¤íŠ¸ìš©
 #define II_SYS_SYS_SCR_BXMPRIMITIVE01_1			16726
 #define II_SYS_SYS_SCR_BXFPRIMITIVE01_1			16727
 
-// Ä¥·¹ ÀÇ»ó
+// ì¹ ë ˆ ì˜ìƒ
 #define II_ARM_M_CHR_CHILE01HAT				16728
 #define II_ARM_M_CHR_CHILE01SUIT			16729
 #define II_ARM_M_CHR_CHILE01GLOVES			16730
@@ -3474,7 +3474,7 @@
 #define	II_SYS_SYS_SCR_BXMWED01_1			16740
 #define II_SYS_SYS_SCR_BXFWED01_1			16741
 
-// ÆÒ´õ ÀÇ»ó
+// íŒ¬ë” ì˜ìƒ
 #define II_ARM_M_CHR_PANDA01HAT				16742
 #define II_ARM_M_CHR_PANDA01SUIT			16743
 #define II_ARM_M_CHR_PANDA01GLOVES			16744
@@ -3486,7 +3486,7 @@
 #define II_ARM_F_CHR_PANDA01SHOES			16750
 #define II_SYS_SYS_SCR_BXFPANDA01			16751
 
-// ¹Ì½ÄÃà±¸ ÀÇ»ó
+// ë¯¸ì‹ì¶•êµ¬ ì˜ìƒ
 #define II_ARM_M_CHR_FOOTBALL01HAT			16752
 #define II_ARM_M_CHR_FOOTBALL01SUIT			16753
 #define II_ARM_M_CHR_FOOTBALL01GLOVES			16754
@@ -3498,7 +3498,7 @@
 #define II_ARM_F_CHR_FOOTBALL01SHOES			16760
 #define II_SYS_SYS_SCR_BXFFOOTBALL01			16761
 
-// ÆÇ´Ù ÀÇ»ó
+// íŒë‹¤ ì˜ìƒ
 #define II_ARM_M_CHR_PANDA02HAT				16762
 #define II_ARM_M_CHR_PANDA02SUIT			16763
 #define II_ARM_M_CHR_PANDA02GLOVES			16764
@@ -3510,7 +3510,7 @@
 #define II_ARM_F_CHR_PANDA02SHOES			16770
 #define II_SYS_SYS_SCR_BXFPANDA02			16771
 
-// È²¼Ò,Á¥¼Ò ÀÇ»ó
+// í™©ì†Œ,ì –ì†Œ ì˜ìƒ
 #define II_ARM_M_CHR_BULL01HAT				16772
 #define II_ARM_M_CHR_BULL01SUIT				16773
 #define II_ARM_M_CHR_BULL01GLOVES			16774
@@ -3522,12 +3522,12 @@
 #define II_ARM_F_CHR_COW01SHOES				16780
 #define II_SYS_SYS_SCR_BXFCOW01				16781
 
-// ³ª±â ÀÇ»ó
+// ë‚˜ê¸° ì˜ìƒ
 #define II_ARM_F_CHR_NAGI01SUIT				16782
 #define II_ARM_F_CHR_NAGI01GLOVES			16783
 #define II_ARM_F_CHR_NAGI01SHOES			16784
 
-// ¿ä¸®»ç
+// ìš”ë¦¬ì‚¬
 #define II_ARM_M_CHR_COOK01HAT				16785
 #define II_ARM_M_CHR_COOK01SUIT				16786
 #define II_ARM_M_CHR_COOK01GLOVES			16787
@@ -3539,7 +3539,7 @@
 #define II_ARM_F_CHR_COOK01SHOES			16793
 #define II_SYS_SYS_SCR_BXFCOOK01			16794
 
-// °í½º·Î¸®
+// ê³ ìŠ¤ë¡œë¦¬
 #define II_ARM_M_CHR_GOTH01HAT				16795
 #define II_ARM_M_CHR_GOTH01SUIT				16796
 #define II_ARM_M_CHR_GOTH01GLOVES			16797
@@ -3551,7 +3551,7 @@
 #define II_ARM_F_CHR_GOTH01SHOES			16803
 #define II_SYS_SYS_SCR_BXFGOTH01			16804
 
-// ¿ìÁÖº¹
+// ìš°ì£¼ë³µ
 #define II_ARM_M_CHR_ASTRONAUT01HAT			16805
 #define II_ARM_M_CHR_ASTRONAUT01SUIT			16806
 #define II_ARM_M_CHR_ASTRONAUT01GLOVES			16807
@@ -3593,15 +3593,15 @@
 #define II_SYS_SYS_SCR_BXFBEAR012			16932
 
 
-// ÇÊ¸®ÇÉ Ãß°¡
+// í•„ë¦¬í•€ ì¶”ê°€
 #define	II_SYS_SYS_SCR_BXMDARKVADER	16300
 #define	II_SYS_SYS_SCR_BXFDARKVADER	16301
 
-// ºê¶óÁú ½Å±Ô ¼±¹° »óÀÚ
+// ë¸Œë¼ì§ˆ ì‹ ê·œ ì„ ë¬¼ ìƒìž
 #define	II_SYS_SYS_SCR_BX_PET_BANG1_1			16933
 #define	II_SYS_SYS_SCR_BXBRASIL				16934
 
-//µ¿È­
+//ë™í™”
 #define II_ARM_M_CHR_FAIRYTALE01HAT			16935
 #define II_ARM_M_CHR_FAIRYTALE01SUIT			16936
 #define II_ARM_M_CHR_FAIRYTALE01GLOVES			16937
@@ -3613,7 +3613,7 @@
 #define II_ARM_F_CHR_FAIRYTALE01SHOES			16943
 #define II_SYS_SYS_SCR_BXFFAIRYTALE01			16944
 
-//ÀÎµð¾ð
+//ì¸ë””ì–¸
 #define II_ARM_M_CHR_INDIAN01HAT			16945
 #define II_ARM_M_CHR_INDIAN01SUIT			16946
 #define II_ARM_M_CHR_INDIAN01GLOVES			16947
@@ -3625,7 +3625,7 @@
 #define II_ARM_F_CHR_INDIAN01SHOES			16953
 #define II_SYS_SYS_SCR_BXFINDIAN01			16954
 
-//¿¹Æ¼
+//ì˜ˆí‹°
 #define II_ARM_M_CHR_YETI01HAT				16955
 #define II_ARM_M_CHR_YETI01SUIT				16956
 #define II_ARM_M_CHR_YETI01GLOVES			16957
@@ -3640,7 +3640,7 @@
 #define	II_SYS_SYS_SCR_BXMCASUAL01_1			16965
 #define	II_SYS_SYS_SCR_BXFCASUAL01_1			16966
 
-//ÇÐ±³¼ö¿µº¹
+//í•™êµìˆ˜ì˜ë³µ
 
 #define II_ARM_M_CHR_SWIM09UPPER			16967
 #define II_ARM_M_CHR_SWIM09GLOVES			16968
@@ -3652,7 +3652,7 @@
 #define II_ARM_F_CHR_SWIM11FOOT				16973
 #define II_SYS_SYS_SCR_BXF_SWIM11SET			16974
 
-// ½ºÆ®¸®Æ® ½º¸¶Æ®(³²,¿©)
+// ìŠ¤íŠ¸ë¦¬íŠ¸ ìŠ¤ë§ˆíŠ¸(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_STREETSMARTHAT			16975
 #define II_ARM_M_CHR_STREETSMARTSUIT			16976
 #define II_ARM_M_CHR_STREETSMARTGLOVES			16977
@@ -3664,7 +3664,7 @@
 #define II_ARM_F_CHR_STREETSMARTSHOES			16983
 #define II_SYS_SYS_SCR_BXFSTREETSMART 			16984
 
-// ¿ö·Îµå(³²,¿©)
+// ì›Œë¡œë“œ(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_WARLORDHAT				16985
 #define II_ARM_M_CHR_WARLORDSUIT			16986
 #define II_ARM_M_CHR_WARLORDGLOVES			16987
@@ -3676,7 +3676,7 @@
 #define II_ARM_F_CHR_WARLORDSHOES			16993
 #define II_SYS_SYS_SCR_BXFWARLORD 			16994
 
-// Äí·çÁø(³²,¿©)
+// ì¿ ë£¨ì§„(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_CRUSINHAT				16995
 #define II_ARM_M_CHR_CRUSINSUIT				16996
 #define II_ARM_M_CHR_CRUSINGLOVES			16997
@@ -3688,7 +3688,7 @@
 #define II_ARM_F_CHR_CRUSINSHOES			17003
 #define II_SYS_SYS_SCR_BXFCRUSIN 			17004
 
-// ¿ìÁÖ Á¦º¹(³²,¿©)
+// ìš°ì£¼ ì œë³µ(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_UNIFORM02HAT			17005
 #define II_ARM_M_CHR_UNIFORM02SUIT			17006
 #define II_ARM_M_CHR_UNIFORM02GLOVES			17007
@@ -3700,7 +3700,7 @@
 #define II_ARM_F_CHR_UNIFORM02SHOES			17013
 #define II_SYS_SYS_SCR_BXFUNIFORM02 			17014
 
-// °­Ã¶(³²,¿©)
+// ê°•ì² (ë‚¨,ì—¬)
 #define II_ARM_M_CHR_STEELHAT				17015
 #define II_ARM_M_CHR_STEELSUIT				17016
 #define II_ARM_M_CHR_STEELGLOVES			17017
@@ -3712,7 +3712,7 @@
 #define II_ARM_F_CHR_STEELSHOES				17023
 #define II_SYS_SYS_SCR_BXFSTEEL 			17024
 
-// Å½Á¤(³²,¿©)
+// íƒì •(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_DETECTIVEHAT			17025
 #define II_ARM_M_CHR_DETECTIVESUIT			17026
 #define II_ARM_M_CHR_DETECTIVEGLOVES			17027
@@ -3724,7 +3724,7 @@
 #define II_ARM_F_CHR_DETECTIVESHOES			17033
 #define II_SYS_SYS_SCR_BXFDETECTIVE 			17034
 
-// ¼³ºö(³²,¿©)
+// ì„¤ë¹”(ë‚¨,ì—¬)
 #define II_ARM_M_CHR_KOREAN04HAT			17035
 #define II_ARM_M_CHR_KOREAN04SUIT			17036
 #define II_ARM_M_CHR_KOREAN04GLOVES			17037
@@ -3888,106 +3888,106 @@
 // SetItem End - seghope
 
 
-//Quest ¹× Event Item - Jimmie(ÁöÈÆ)
-#define II_SYS_SYS_QUE_GRPFLARIS	18096	//ÇÃ¶ó¸®½º Á¾
-#define II_SYS_SYS_QUE_GRPSAINT		18097	//¼¼ÀÎÆ® Á¾
-#define II_SYS_SYS_QUE_GRPDARKON	18098	//´ÙÄÜ Á¾
-#define II_SYS_SYS_BIN_BOZFLARIS	18099	//º¸Á¹·¹ ÇÃ¶ó¸®½º
-#define II_SYS_SYS_BIN_BOZSAINT		18100	//º¸Á¹·¹ ¼¼ÀÎÆ®
-#define II_SYS_SYS_BIN_BOZDARKON	18101	//º¸Á¹·¹ ´ÙÄÜ
-#define II_SYS_SYS_QUE_REDBANGHEAD	18102 	//ºÓÀº ¹ðÀÇ ¸Ó¸®
-#define II_SYS_SYS_QUE_LUDASAFE		18103	//·ç´ÙÀÇ ±Ý°í
-#define II_SYS_SYS_QUE_METEORITILL	18104	//¸ÞÅ×¿À¶óÀÌÆ¿
-#define II_SYS_SYS_QUE_SCRIPT		18105 	//´ëº»
-#define II_SYS_SYS_QUE_LES1MANU		18106	//±³º» 1Àå
-#define II_SYS_SYS_QUE_LES2MANU		18107	//±³º» 2Àå
-#define II_SYS_SYS_QUE_LES3MANU		18108	//±³º» 3Àå
-#define II_SYS_SYS_QUE_CLUEPORT1	18109	//ÃÊ»óÈ­ ´Ü¼­1
-#define II_SYS_SYS_QUE_CLUEPORT2	18110	//ÃÊ»óÈ­ ´Ü¼­2
-#define II_SYS_SYS_QUE_RADIPORT		18111	//¶óµð¿ÂÀÇ ÃÊ»óÈ­
-#define II_SYS_SYS_QUE_BONEWAG		18112	//¿Í±×ÀÛÀÇ »À Á¶°¢
-#define II_SYS_SYS_QUE_DNAWAG		18113	//¿Í±×ÀÛÀÇ À¯ÀüÀÚ Á¶°¢
-#define II_SYS_SYS_QUE_BLKMAR		18114	//°ËÀº Åù¸¶ºí
-#define II_SYS_SYS_QUE_BLKSPL		18115	//°ËÀº ÁÖ¹®¼­
-#define II_SYS_SYS_QUE_BLKHER		18116	//°ËÀº Çì·ÎÄ« Ç®
-#define II_SYS_SYS_GEM_REDSOCKS		18117	//¼±¹° ¾ç¸»
-#define II_SYS_SYS_GEM_BLUEGBOX		18118	//ÆÄ¶õ ¼±¹° »óÀÚ
-#define II_SYS_SYS_GEM_REDGBOX		18119	//»¡°£ ¼±¹° »óÀÚ
-#define II_SYS_SYS_GEM_YELLOWGBOX	18120	//³ë¶õ ¼±¹° »óÀÚ
-#define II_SYS_SYS_QUE_SECDIS		18121	//ºñ¹ÐÀÇ ½ÇÁ¾ »ç°Ç Á¶»ç¼­
-#define II_SYS_SYS_QUE_JINDOLL		18122	//Áø¿µÀÇ ÀÎÇü
-#define II_SYS_SYS_QUE_TRUDIS		18123	//°¨ÃçÁø ½ÇÁ¾ Á¶»ç¼­
-#define II_SYS_SYS_GEM_RCSOUP		18124	//¶±±¹
-#define II_SYS_SYS_GEM_LUCKBAG		18125	//º¹ÁÖ¸Ó´Ï
-#define II_SYS_SYS_QUE_REQFORM		18126	//¿¬±¸ºñ¿ë ½ÅÃ»¼­
-#define II_SYS_SYS_QUE_FLASTONE		18127	//ÇÃ¶ó¸®½º ¾Ï¼® Á¶°¢
-#define II_SYS_SYS_QUE_SAINSTONE	18128	//¼¼ÀÎÆ®¸ð´× ¾Ï¼® Á¶°¢
-#define II_SYS_SYS_QUE_DARSTONE		18129	//´ÙÄÜ ¾Ï¼® Á¶°¢
-#define II_SYS_SYS_QUE_PRFCONDIV	18130	//´ë·ú ºÐ¿­ÀÇ Áõ°ÅÀÚ·á
-#define II_SYS_SYS_QUE_GOTNOMINATE	18131	//°í´ÜÅ×ÀÇ ÃßÃµ¼­
-#define II_SYS_SYS_QUE_STRCLOTH		18132	//ÀÌ»óÇÑ Ãµ Á¶°¢
-#define II_SYS_SYS_QUE_BKDREAD1		18133	//°øÆ÷ÀÇ ¼­ 1±Ç	
-#define II_SYS_SYS_QUE_MAPDREAD1	18134	//±×µéÀÇ ¿ä»õ
-#define II_SYS_SYS_QUE_HRTTHYRED	18135	//½Ã·¹µåÀÇ ½ÉÀå
-#define II_SYS_SYS_QUE_BKDREAD2		18136	//°øÆ÷ÀÇ ¼­ 2±Ç
-#define II_SYS_SYS_QUE_MAPDREAD2	18137	//±×µéÀÇ ¼ºÁö
-#define II_SYS_SYS_QUE_HRTDASIED	18138	//´Ù½ÃµåÀÇ ½ÉÀå
-#define II_SYS_SYS_QUE_BKDREAD3		18139	//°øÆ÷ÀÇ ¼­ 3±Ç
-#define II_SYS_SYS_QUE_MAPDREAD3	18140	//±×µéÀÇ ½ÀÁö
-#define II_SYS_SYS_QUE_HRTARVAN		18141	//¾Æ¸£¹ÝÀÇ ½ÉÀå
-#define II_SYS_SYS_QUE_UNKMARK		18142	//¾Ë ¼ö ¾ø´Â ¹®¾ç
-#define II_SYS_SYS_QUE_UNKCLOTH		18143	//¾Ë ¼ö ¾ø´Â Ãµ Á¶°¢
-#define II_SYS_SYS_QUE_BOOKTRBHIS	18144	//°í³­ÀÇ ¿ª»ç
-#define II_WEA_SWO_ENTANALE		18145	//¿£Å¸³¯·¹ ¼Òµå(º¸»ó¿ë)
-#define II_SYS_SYS_QUE_ENTANALE		18146	//¿£Å¸³¯·¹ ¼Òµå(Äù½ºÆ®¿ë)
-#define II_SYS_SYS_QUE_RBSYMBOL		18147	//ºÓÀº ¹ð µµÀû´ÜÀÇ »óÂ¡
-#define II_SYS_SYS_QUE_LBNECKLACE	18148	//·Îµå ¹ðÀÇ ¸ñ°ÉÀÌ
-#define II_SYS_SYS_QUE_MIAREPORT	18149	//¹Ì¾Æ º¸°í¼­
-#define II_SYS_SYS_QUE_PRFMISS		18150	//½ÇÁ¾ »ç°ÇÀÇ Áõ°Å
-#define II_SYS_SYS_QUE_EXAMDATA		18151	//ÇÏÄ®ÀÇ Á¶»ç ÀÚ·á
-#define II_SYS_SYS_QUE_ACEBOOK		18152	//³°Àº °í´ëÀÇ Ã¥ÀÚ
-#define II_SYS_SYS_QUE_MYSTGEMB		18153	//ÀÇ¹®ÀÇ ±¸½½(Ã»)
-#define II_SYS_SYS_QUE_MYSTGEMR		18154	//ÀÇ¹®ÀÇ ±¸½½(Àû)
-#define II_SYS_SYS_QUE_BKLAOLA		18155	//¶ó¿Ã¶óÀÇ ¼­Àû
-#define II_SYS_SYS_QUE_SCRGOTH		18156	//°í´ÜÅ×ÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_QUE_EMERSPAWN	18157	//¿¡¸Ó¶öµå½ºÆù
-#define II_SYS_SYS_GEM_BROKTM		18158	//±ú¾îÁø Åù¸¶ºí
-#define II_SYS_SYS_GEM_LIQUES		18159	//¾×È­µÈ ¿¡·±½Ã¹ÌÆ®
-#define II_SYS_SYS_GEM_DRYNRT		18160	//°ÇÁ¶µÈ ·çÆ¼¿À
-#define II_SYS_SYS_GEM_LUXUBOX 		18161	//´Ï³ªÀÇ »óÀÚ
-#define II_SYS_SYS_GEM_SPECBOX		18162	//ÂîÂîÀÇ »óÀÚ
-#define II_SYS_SYS_GEM_NORMBOX		18163	//»ß»ßÀÇ »óÀå
-#define II_SYS_SYS_QUE_YORN		18164 	//¿ä¸¥
-#define II_SYS_SYS_QUE_DORIRIND		18165	//µµ¸®µµ¸¶ ²®Áú
-#define II_SYS_SYS_QUE_LIQMUSH		18166	//¸Ó½´¸° ¾×
-#define II_GEN_FOO_COO_DORIVINIG	18167	//µµ¸®µµ¸® ÃÊ¹ä
-#define II_SYS_SYS_QUE_PROVGOLDHELM	18168	//È²±Ý Çï¸äÀÇ ´Ü¼­
-#define II_SYS_SYS_QUE_GOLDHELM		18169	//ºô·¹ÀÌ¾ðÀÇ È²±Ý Çï¸ä
-#define II_SYS_SYS_QUE_SOULSTONE	18170	//¼Ò¿ï ½ºÅæ
-#define II_SYS_SYS_QUE_EARRHEREN	18171	//Çì·»ÀÇ ±Í°í¸®
-#define II_SYS_SYS_QUE_TEARDARK		18172	//¾ÏÈæÀÇ ´«¹°
-#define II_SYS_SYS_QUE_DOCHALL		18173	//µµÀå ¹®¼­
-#define II_SYS_SYS_QUE_MPOSTERSKILL	18174	//±â¼úÀÇ Æ÷½ºÅÍ(±ØÁø)
-#define II_SYS_SYS_QUE_MARKEIEN 	18175	//¿¡ÀÌ¿£´ÀÀÇ ÀÎÀå
-#define II_SYS_SYS_QUE_DEWEIEN		18176	//¿¡ÀÌ¿£´ÀÀÇ ÀÌ½½
-#define II_SYS_SYS_QUE_UNDERSTRENGTH	18177	//°­È­ÀÇ ¸¶¹ý ¼Ó¿Ê
-#define II_SYS_SYS_QUE_TRAOPEREB	18178	//¿ÀÆÛ¿¦ÀÇ ÈçÀû
-#define II_SYS_SYS_QUE_FEATHERMANA	18179	//¸¶·Â Áõ°¡ÀÇ ±êÅÐ
-#define II_SYS_SYS_QUE_PERFLYLIP	18180	//¸±¸³ÀÇ Çâ¼ö
-#define II_SYS_SYS_QUE_KEYPIECE		18181	//¿­¼èÁ¶°¢
-#define II_SYS_SYS_QUE_WARMARK		18182	//ÀüÀïÀÇ ÈçÀû
-#define II_SYS_SYS_QUE_WOUNDWAR		18183	//ÀüÀïÀÇ »óÃ³
-#define II_SYS_SYS_QUE_IBLRECORD	18184	//ÀÌºí¸®½ºÀÇ °è½Ã·Ï Å¹º»
-#define II_SYS_SYS_QUE_IBLGUAMARK	18185	//ÀÌºí°¡´õÀÇ ¹®¾ç
-#define	II_GEN_WARP_WEDDING_BAND	18186	// °áÈ¥ ¹ÝÁö
+//Quest ë° Event Item - Jimmie(ì§€í›ˆ)
+#define II_SYS_SYS_QUE_GRPFLARIS	18096	//í”Œë¼ë¦¬ìŠ¤ ì¢…
+#define II_SYS_SYS_QUE_GRPSAINT		18097	//ì„¸ì¸íŠ¸ ì¢…
+#define II_SYS_SYS_QUE_GRPDARKON	18098	//ë‹¤ì½˜ ì¢…
+#define II_SYS_SYS_BIN_BOZFLARIS	18099	//ë³´ì¡¸ë ˆ í”Œë¼ë¦¬ìŠ¤
+#define II_SYS_SYS_BIN_BOZSAINT		18100	//ë³´ì¡¸ë ˆ ì„¸ì¸íŠ¸
+#define II_SYS_SYS_BIN_BOZDARKON	18101	//ë³´ì¡¸ë ˆ ë‹¤ì½˜
+#define II_SYS_SYS_QUE_REDBANGHEAD	18102 	//ë¶‰ì€ ë±…ì˜ ë¨¸ë¦¬
+#define II_SYS_SYS_QUE_LUDASAFE		18103	//ë£¨ë‹¤ì˜ ê¸ˆê³ 
+#define II_SYS_SYS_QUE_METEORITILL	18104	//ë©”í…Œì˜¤ë¼ì´í‹¸
+#define II_SYS_SYS_QUE_SCRIPT		18105 	//ëŒ€ë³¸
+#define II_SYS_SYS_QUE_LES1MANU		18106	//êµë³¸ 1ìž¥
+#define II_SYS_SYS_QUE_LES2MANU		18107	//êµë³¸ 2ìž¥
+#define II_SYS_SYS_QUE_LES3MANU		18108	//êµë³¸ 3ìž¥
+#define II_SYS_SYS_QUE_CLUEPORT1	18109	//ì´ˆìƒí™” ë‹¨ì„œ1
+#define II_SYS_SYS_QUE_CLUEPORT2	18110	//ì´ˆìƒí™” ë‹¨ì„œ2
+#define II_SYS_SYS_QUE_RADIPORT		18111	//ë¼ë””ì˜¨ì˜ ì´ˆìƒí™”
+#define II_SYS_SYS_QUE_BONEWAG		18112	//ì™€ê·¸ìž‘ì˜ ë¼ˆ ì¡°ê°
+#define II_SYS_SYS_QUE_DNAWAG		18113	//ì™€ê·¸ìž‘ì˜ ìœ ì „ìž ì¡°ê°
+#define II_SYS_SYS_QUE_BLKMAR		18114	//ê²€ì€ íˆ¼ë§ˆë¸”
+#define II_SYS_SYS_QUE_BLKSPL		18115	//ê²€ì€ ì£¼ë¬¸ì„œ
+#define II_SYS_SYS_QUE_BLKHER		18116	//ê²€ì€ í—¤ë¡œì¹´ í’€
+#define II_SYS_SYS_GEM_REDSOCKS		18117	//ì„ ë¬¼ ì–‘ë§
+#define II_SYS_SYS_GEM_BLUEGBOX		18118	//íŒŒëž€ ì„ ë¬¼ ìƒìž
+#define II_SYS_SYS_GEM_REDGBOX		18119	//ë¹¨ê°„ ì„ ë¬¼ ìƒìž
+#define II_SYS_SYS_GEM_YELLOWGBOX	18120	//ë…¸ëž€ ì„ ë¬¼ ìƒìž
+#define II_SYS_SYS_QUE_SECDIS		18121	//ë¹„ë°€ì˜ ì‹¤ì¢… ì‚¬ê±´ ì¡°ì‚¬ì„œ
+#define II_SYS_SYS_QUE_JINDOLL		18122	//ì§„ì˜ì˜ ì¸í˜•
+#define II_SYS_SYS_QUE_TRUDIS		18123	//ê°ì¶°ì§„ ì‹¤ì¢… ì¡°ì‚¬ì„œ
+#define II_SYS_SYS_GEM_RCSOUP		18124	//ë–¡êµ­
+#define II_SYS_SYS_GEM_LUCKBAG		18125	//ë³µì£¼ë¨¸ë‹ˆ
+#define II_SYS_SYS_QUE_REQFORM		18126	//ì—°êµ¬ë¹„ìš© ì‹ ì²­ì„œ
+#define II_SYS_SYS_QUE_FLASTONE		18127	//í”Œë¼ë¦¬ìŠ¤ ì•”ì„ ì¡°ê°
+#define II_SYS_SYS_QUE_SAINSTONE	18128	//ì„¸ì¸íŠ¸ëª¨ë‹ ì•”ì„ ì¡°ê°
+#define II_SYS_SYS_QUE_DARSTONE		18129	//ë‹¤ì½˜ ì•”ì„ ì¡°ê°
+#define II_SYS_SYS_QUE_PRFCONDIV	18130	//ëŒ€ë¥™ ë¶„ì—´ì˜ ì¦ê±°ìžë£Œ
+#define II_SYS_SYS_QUE_GOTNOMINATE	18131	//ê³ ë‹¨í…Œì˜ ì¶”ì²œì„œ
+#define II_SYS_SYS_QUE_STRCLOTH		18132	//ì´ìƒí•œ ì²œ ì¡°ê°
+#define II_SYS_SYS_QUE_BKDREAD1		18133	//ê³µí¬ì˜ ì„œ 1ê¶Œ	
+#define II_SYS_SYS_QUE_MAPDREAD1	18134	//ê·¸ë“¤ì˜ ìš”ìƒˆ
+#define II_SYS_SYS_QUE_HRTTHYRED	18135	//ì‹œë ˆë“œì˜ ì‹¬ìž¥
+#define II_SYS_SYS_QUE_BKDREAD2		18136	//ê³µí¬ì˜ ì„œ 2ê¶Œ
+#define II_SYS_SYS_QUE_MAPDREAD2	18137	//ê·¸ë“¤ì˜ ì„±ì§€
+#define II_SYS_SYS_QUE_HRTDASIED	18138	//ë‹¤ì‹œë“œì˜ ì‹¬ìž¥
+#define II_SYS_SYS_QUE_BKDREAD3		18139	//ê³µí¬ì˜ ì„œ 3ê¶Œ
+#define II_SYS_SYS_QUE_MAPDREAD3	18140	//ê·¸ë“¤ì˜ ìŠµì§€
+#define II_SYS_SYS_QUE_HRTARVAN		18141	//ì•„ë¥´ë°˜ì˜ ì‹¬ìž¥
+#define II_SYS_SYS_QUE_UNKMARK		18142	//ì•Œ ìˆ˜ ì—†ëŠ” ë¬¸ì–‘
+#define II_SYS_SYS_QUE_UNKCLOTH		18143	//ì•Œ ìˆ˜ ì—†ëŠ” ì²œ ì¡°ê°
+#define II_SYS_SYS_QUE_BOOKTRBHIS	18144	//ê³ ë‚œì˜ ì—­ì‚¬
+#define II_WEA_SWO_ENTANALE		18145	//ì—”íƒ€ë‚ ë ˆ ì†Œë“œ(ë³´ìƒìš©)
+#define II_SYS_SYS_QUE_ENTANALE		18146	//ì—”íƒ€ë‚ ë ˆ ì†Œë“œ(í€˜ìŠ¤íŠ¸ìš©)
+#define II_SYS_SYS_QUE_RBSYMBOL		18147	//ë¶‰ì€ ë±… ë„ì ë‹¨ì˜ ìƒì§•
+#define II_SYS_SYS_QUE_LBNECKLACE	18148	//ë¡œë“œ ë±…ì˜ ëª©ê±¸ì´
+#define II_SYS_SYS_QUE_MIAREPORT	18149	//ë¯¸ì•„ ë³´ê³ ì„œ
+#define II_SYS_SYS_QUE_PRFMISS		18150	//ì‹¤ì¢… ì‚¬ê±´ì˜ ì¦ê±°
+#define II_SYS_SYS_QUE_EXAMDATA		18151	//í•˜ì¹¼ì˜ ì¡°ì‚¬ ìžë£Œ
+#define II_SYS_SYS_QUE_ACEBOOK		18152	//ë‚¡ì€ ê³ ëŒ€ì˜ ì±…ìž
+#define II_SYS_SYS_QUE_MYSTGEMB		18153	//ì˜ë¬¸ì˜ êµ¬ìŠ¬(ì²­)
+#define II_SYS_SYS_QUE_MYSTGEMR		18154	//ì˜ë¬¸ì˜ êµ¬ìŠ¬(ì )
+#define II_SYS_SYS_QUE_BKLAOLA		18155	//ë¼ì˜¬ë¼ì˜ ì„œì 
+#define II_SYS_SYS_QUE_SCRGOTH		18156	//ê³ ë‹¨í…Œì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_QUE_EMERSPAWN	18157	//ì—ë¨¸ëž„ë“œìŠ¤í°
+#define II_SYS_SYS_GEM_BROKTM		18158	//ê¹¨ì–´ì§„ íˆ¼ë§ˆë¸”
+#define II_SYS_SYS_GEM_LIQUES		18159	//ì•¡í™”ëœ ì—ëŸ°ì‹œë¯¸íŠ¸
+#define II_SYS_SYS_GEM_DRYNRT		18160	//ê±´ì¡°ëœ ë£¨í‹°ì˜¤
+#define II_SYS_SYS_GEM_LUXUBOX 		18161	//ë‹ˆë‚˜ì˜ ìƒìž
+#define II_SYS_SYS_GEM_SPECBOX		18162	//ì°Œì°Œì˜ ìƒìž
+#define II_SYS_SYS_GEM_NORMBOX		18163	//ì‚ì‚ì˜ ìƒìž¥
+#define II_SYS_SYS_QUE_YORN		18164 	//ìš”ë¥¸
+#define II_SYS_SYS_QUE_DORIRIND		18165	//ë„ë¦¬ë„ë§ˆ ê»ì§ˆ
+#define II_SYS_SYS_QUE_LIQMUSH		18166	//ë¨¸ìŠˆë¦° ì•¡
+#define II_GEN_FOO_COO_DORIVINIG	18167	//ë„ë¦¬ë„ë¦¬ ì´ˆë°¥
+#define II_SYS_SYS_QUE_PROVGOLDHELM	18168	//í™©ê¸ˆ í—¬ë©§ì˜ ë‹¨ì„œ
+#define II_SYS_SYS_QUE_GOLDHELM		18169	//ë¹Œë ˆì´ì–¸ì˜ í™©ê¸ˆ í—¬ë©§
+#define II_SYS_SYS_QUE_SOULSTONE	18170	//ì†Œìš¸ ìŠ¤í†¤
+#define II_SYS_SYS_QUE_EARRHEREN	18171	//í—¤ë Œì˜ ê·€ê³ ë¦¬
+#define II_SYS_SYS_QUE_TEARDARK		18172	//ì•”í‘ì˜ ëˆˆë¬¼
+#define II_SYS_SYS_QUE_DOCHALL		18173	//ë„ìž¥ ë¬¸ì„œ
+#define II_SYS_SYS_QUE_MPOSTERSKILL	18174	//ê¸°ìˆ ì˜ í¬ìŠ¤í„°(ê·¹ì§„)
+#define II_SYS_SYS_QUE_MARKEIEN 	18175	//ì—ì´ì—”ëŠì˜ ì¸ìž¥
+#define II_SYS_SYS_QUE_DEWEIEN		18176	//ì—ì´ì—”ëŠì˜ ì´ìŠ¬
+#define II_SYS_SYS_QUE_UNDERSTRENGTH	18177	//ê°•í™”ì˜ ë§ˆë²• ì†ì˜·
+#define II_SYS_SYS_QUE_TRAOPEREB	18178	//ì˜¤í¼ì—¡ì˜ í”ì 
+#define II_SYS_SYS_QUE_FEATHERMANA	18179	//ë§ˆë ¥ ì¦ê°€ì˜ ê¹ƒí„¸
+#define II_SYS_SYS_QUE_PERFLYLIP	18180	//ë¦´ë¦½ì˜ í–¥ìˆ˜
+#define II_SYS_SYS_QUE_KEYPIECE		18181	//ì—´ì‡ ì¡°ê°
+#define II_SYS_SYS_QUE_WARMARK		18182	//ì „ìŸì˜ í”ì 
+#define II_SYS_SYS_QUE_WOUNDWAR		18183	//ì „ìŸì˜ ìƒì²˜
+#define II_SYS_SYS_QUE_IBLRECORD	18184	//ì´ë¸”ë¦¬ìŠ¤ì˜ ê³„ì‹œë¡ íƒë³¸
+#define II_SYS_SYS_QUE_IBLGUAMARK	18185	//ì´ë¸”ê°€ë”ì˜ ë¬¸ì–‘
+#define	II_GEN_WARP_WEDDING_BAND	18186	// ê²°í˜¼ ë°˜ì§€
 
-//½Å±Ô¸ó½ºÅÍ Àü¸®Ç° ¾ÆÀÌÅÛ
+//ì‹ ê·œëª¬ìŠ¤í„° ì „ë¦¬í’ˆ ì•„ì´í…œ
 #define II_GEN_GEM_GEM_HOOKKIMERA	20500	
 #define II_GEN_GEM_GEM_BEARMANE		20501
 #define II_GEN_GEM_GEM_CRUETMUF		20502
 #define II_GEN_GEM_GEM_SHIFTPOP		20503
 
-// Æê¼ÒÈ¯ ¾ÆÀÌÅÛ
+// íŽ«ì†Œí™˜ ì•„ì´í…œ
 #define II_PET_LAWOLF1					21000
 #define II_PET_AIBATT1					21001
 #define II_PET_LEYENA1					21002
@@ -4050,10 +4050,10 @@
 #define	II_PET_SKEL01					21089
 #define	II_PET_MOCOMOCI					21090
 
-//±è°¨µ¶´Ô Æê
+//ê¹€ê°ë…ë‹˜ íŽ«
 #define II_PET_KIMPD					21091
 
-//½Ã½ºÅÛ Æê
+//ì‹œìŠ¤í…œ íŽ«
 #define	II_PET_EGG					21029
 #define	II_PET_WHITETIGER01				21039
 #define	II_PET_BARBARYLION01				21040
@@ -4080,7 +4080,7 @@
 #define	II_SYS_SYS_FEED_MAKER	21038
 
 
-// ±â°£Á¦ ¾ÆÀÌÅÛ
+// ê¸°ê°„ì œ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_BX_PET_LAWOLF1	21008
 #define II_SYS_SYS_SCR_BX_PET_LAWOLF7	21009
 #define II_SYS_SYS_SCR_BX_PET_LAWOLF30	21010
@@ -4103,13 +4103,13 @@
 #define II_SYS_SYS_SCR_BX_EVE_FSNOWMAN07		21024
 #define II_SYS_SYS_SCR_BX_EVE_FSNOWMAN30		21025
 
-// °íÀ¯ ¹«±â 1Â÷
+// ê³ ìœ  ë¬´ê¸° 1ì°¨
 #define II_WEA_SWO_BOBOKU	22000
 #define II_WEA_AXE_LUDA		22001
 #define II_WEA_SWO_FALL		22002
 #define II_WEA_AXE_FALL		22003
 #define II_WEA_KNU_FALL		22004
-// °íÀ¯ ¹«±â 2Â÷
+// ê³ ìœ  ë¬´ê¸° 2ì°¨
 #define II_WEA_SWO_SWD30	22005
 #define II_WEA_SWO_SWD45	22006
 #define II_WEA_AXE_AXE30	22007
@@ -4132,7 +4132,7 @@
 #define II_WEA_STA_STA30	22024
 #define II_WEA_STA_STA45	22025
 
-// °íÀ¯ ¹«±â 3Â÷ (À¯´ÏÅ© ¹«±â ¾ÆÀÌÅÛ) - kyk1236(¿ë±Ô)
+// ê³ ìœ  ë¬´ê¸° 3ì°¨ (ìœ ë‹ˆí¬ ë¬´ê¸° ì•„ì´í…œ) - kyk1236(ìš©ê·œ)
 #define	II_WEA_SWO_SUHO 	22026
 #define	II_WEA_SWO_USU   	22027
 #define	II_WEA_SWO_ANGEL 	22028
@@ -4174,7 +4174,7 @@
 #define	II_WEA_STA_ANGEL	22064
 #define	II_WEA_STA_LEAGENDG	22065
 
-// ¼¼Æ®¾ÆÀÌÅÛ(2Â÷) - ·¹º§ 60,75,90,105 (KYK1236¿ë±Ô) 
+// ì„¸íŠ¸ì•„ì´í…œ(2ì°¨) - ë ˆë²¨ 60,75,90,105 (KYK1236ìš©ê·œ) 
 #define	II_ARM_M_MER_HELMET_SET_04	22066
 #define	II_ARM_M_MER_SUIT_SET_04	22067
 #define	II_ARM_M_MER_GAUNTLET_SET_04	22068
@@ -4400,7 +4400,7 @@
 #define	II_ARM_F_ELE_GAUNTLET_SET_31	22288
 #define	II_ARM_F_ELE_BOOTS_SET_31	22289
 
-// ¼¼Æ®¾ÆÀÌÅÛ(3Â÷)
+// ì„¸íŠ¸ì•„ì´í…œ(3ì°¨)
 #define	II_ARM_M_KIN_HELMET_SET_32	22290
 #define	II_ARM_M_KIN_SUIT_SET_32	22291
 #define	II_ARM_M_KIN_GAUNTLET_SET_32	22292
@@ -4465,7 +4465,7 @@
 #define	II_ARM_F_ELE_SUIT_SET_32	22351
 #define	II_ARM_F_ELE_GAUNTLET_SET_32	22352
 #define	II_ARM_F_ELE_BOOTS_SET_32	22353
-// ºí·¯µð ½Ã¸®Áî(À¯´ÏÅ© ¹«±â)
+// ë¸”ëŸ¬ë”” ì‹œë¦¬ì¦ˆ(ìœ ë‹ˆí¬ ë¬´ê¸°)
 #define II_WEA_SWO_BLOODY		22354
 #define II_WEA_SWT_BLOODY		22355
 #define II_WEA_AXE_BLOODY		22356
@@ -4477,13 +4477,13 @@
 #define II_WEA_YOY_BLOODY		22362
 #define II_WEA_BOW_BLOODY		22363
 
-// ´©¶ô ÀÏ¹Ý ¾ÆÀÌÅÛ
+// ëˆ„ë½ ì¼ë°˜ ì•„ì´í…œ
 #define II_WEA_SWT_PEACE		22364
 #define II_WEA_SWT_LASTER		22365
 #define II_WEA_AXT_PEACE		22366
 #define II_WEA_AXT_LASTER		22367
 
-//¾óÅÍ¸Ú ¾ÆÀÌÅÛ
+//ì–¼í„°ë©‹ ì•„ì´í…œ
 #define	II_WEA_SWO_SUHOUM		22368
 #define	II_WEA_SWO_USUUM   		22369
 #define	II_WEA_SWO_ANGELUM 		22370
@@ -4535,7 +4535,7 @@
 #define	II_WEA_STA_LEAGENDGUM	22416
 #define II_WEA_STA_BLOODYUM		22417
 
-//120 ¼¼Æ® ¹æ¾î±¸
+//120 ì„¸íŠ¸ ë°©ì–´êµ¬
 #define	II_ARM_M_KIN_HELMET_SET_33		22418
 #define	II_ARM_M_KIN_SUIT_SET_33		22419
 #define	II_ARM_M_KIN_GAUNTLET_SET_33	22420
@@ -4610,7 +4610,7 @@
 #define II_SYS_SYS_SCR_BXMMAG60SET		22498
 #define II_SYS_SYS_SCR_BXFMAG60SET		22499
 
-// 14Â÷ À¯´ÏÅ© ¹«±â
+// 14ì°¨ ìœ ë‹ˆí¬ ë¬´ê¸°
 #define II_WEA_SWO_ANCIENT			22500
 #define II_WEA_SWT_ANCIENT			22501
 #define II_WEA_AXE_ANCIENT			22502
@@ -4640,7 +4640,7 @@
 #define II_SYS_SYS_QUE_TODRINHEART		22523
 #define II_SYS_SYS_QUE_HARMONINDAILY2	22524
 
-//15Â÷ ½Ã³ª¸®¿À Äù½ºÆ® ¾ÆÀÌÅÛ
+//15ì°¨ ì‹œë‚˜ë¦¬ì˜¤ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_DECIPHERPAPER01		22525
 #define II_SYS_SYS_QUE_BXQUESTION01			22526
 #define II_SYS_SYS_QUE_QUESTIONPAPER01		22527
@@ -4651,7 +4651,7 @@
 #define II_SYS_SYS_QUE_RERGARU01			22532
 #define II_SYS_SYS_QUE_FIGHTERBOX			22597
 
-//15Â÷ 125 ¼¼Æ® ¹æ¾î±¸
+//15ì°¨ 125 ì„¸íŠ¸ ë°©ì–´êµ¬
 #define	II_ARM_M_KIN_HELMET_SET_34		22533
 #define	II_ARM_M_KIN_SUIT_SET_34		22534
 #define	II_ARM_M_KIN_GAUNTLET_SET_34		22535
@@ -4720,44 +4720,44 @@
 
 
 
-// GM ¸í·É ¾ÆÀÌÅÛ
-#define II_SYS_SYS_GM_NODISGUISE		25999	// º¯½Å ÇØÁ¦			
-#define II_SYS_SYS_GM_UNDYING			26000	// ¹«Àû
-#define II_SYS_SYS_GM_UNDYING2			26001	// ¹Ý¹«Àû
-#define II_SYS_SYS_GM_DIS_AIBATT1		26002	// º¯½Å ºÎÇÏ ¾ÆÀÌ¹ÙÆ®
-#define II_SYS_SYS_GM_DIS_MUSHPANG1		26003	// º¯½Å ºÎÇÏ ¸Ó½´ÆÎ
-#define II_SYS_SYS_GM_DIS_NYANGNYANG1   26004	// º¯½Å ±Í¿©¿î ³É³É
-#define II_SYS_SYS_GM_DIS_YOUNGAIBATT	26005	// "»õ³¢ ¾ÆÀÌ¹ÙÆ® º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_AIBATT4		26006	// "°Å´ë ¾ÆÀÌ¹ÙÆ® º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_CUTELAWOLF	26007	// "±Í¿©¿î ¶ó¿ïÇÁ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LAWOLF		26008	// "¶ó¿ïÇÁ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LAWOLF4		26009	// "°Å´ë ¶ó¿ïÇÁ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LEYENA		26010	// "±æµé¿©Áø ·¹ÀÌ¿¡³ª º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LEYENA2		26011	// "·¹ÀÌ¿¡³ª º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LEYENA4		26012	// "°Å´ë ·¹ÀÌ¿¡³ª º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LUIA			26013	// "¿µ°è ·çÀÌ¾Æ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LUIA2			26014	// "·çÀÌ¾Æ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LUIA4			26015	// "°Å´ë ·çÀÌ¾Æ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_DWARPETMAS	26016	// "¸¶½ºÅÍ µå¿öÆê º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_CROWNIBLIS	26017	// "ÀÌºí¸®½º º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_CROWNSHADE	26018	// "½¦ÀÌµå º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_CROWNBUBBLE	26019	// "¹öºí º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_BANG5			26020	// "¾ç½É¾ø´Â ¹ð º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_MRPUMPKIN5	26021	// "±«¼ö ¹Ì½ºÅÍ ÆßÅ² º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_LOSHA			26022	// "·Î»þ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_BOBOKU		26023	// "º¸º¸Äí º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_JURIA			26024	// "Áì¸®¾Æ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_MARCHE		26025	// "¸¶¸£½¦ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_MARTIN		26026	// "¸¶Æ¾ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_REWARD		26027	// "¸¶À» °æºñ ´ëÀå º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_GUARDIAN		26028	// "°æºñº´ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_SANTA			26029	// "»êÅ¸ º¯½Å±¸"
-#define II_SYS_SYS_GM_DIS_CROWNIBLIS1	26030	// "ÀÌºí¸®½º º¯½Å±¸(2½Ã°£)" 
+// GM ëª…ë ¹ ì•„ì´í…œ
+#define II_SYS_SYS_GM_NODISGUISE		25999	// ë³€ì‹  í•´ì œ			
+#define II_SYS_SYS_GM_UNDYING			26000	// ë¬´ì 
+#define II_SYS_SYS_GM_UNDYING2			26001	// ë°˜ë¬´ì 
+#define II_SYS_SYS_GM_DIS_AIBATT1		26002	// ë³€ì‹  ë¶€í•˜ ì•„ì´ë°”íŠ¸
+#define II_SYS_SYS_GM_DIS_MUSHPANG1		26003	// ë³€ì‹  ë¶€í•˜ ë¨¸ìŠˆíŒ¡
+#define II_SYS_SYS_GM_DIS_NYANGNYANG1   26004	// ë³€ì‹  ê·€ì—¬ìš´ ëƒ¥ëƒ¥
+#define II_SYS_SYS_GM_DIS_YOUNGAIBATT	26005	// "ìƒˆë¼ ì•„ì´ë°”íŠ¸ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_AIBATT4		26006	// "ê±°ëŒ€ ì•„ì´ë°”íŠ¸ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_CUTELAWOLF	26007	// "ê·€ì—¬ìš´ ë¼ìš¸í”„ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LAWOLF		26008	// "ë¼ìš¸í”„ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LAWOLF4		26009	// "ê±°ëŒ€ ë¼ìš¸í”„ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LEYENA		26010	// "ê¸¸ë“¤ì—¬ì§„ ë ˆì´ì—ë‚˜ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LEYENA2		26011	// "ë ˆì´ì—ë‚˜ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LEYENA4		26012	// "ê±°ëŒ€ ë ˆì´ì—ë‚˜ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LUIA			26013	// "ì˜ê³„ ë£¨ì´ì•„ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LUIA2			26014	// "ë£¨ì´ì•„ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LUIA4			26015	// "ê±°ëŒ€ ë£¨ì´ì•„ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_DWARPETMAS	26016	// "ë§ˆìŠ¤í„° ë“œì›ŒíŽ« ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_CROWNIBLIS	26017	// "ì´ë¸”ë¦¬ìŠ¤ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_CROWNSHADE	26018	// "ì‰ì´ë“œ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_CROWNBUBBLE	26019	// "ë²„ë¸” ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_BANG5			26020	// "ì–‘ì‹¬ì—†ëŠ” ë±… ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_MRPUMPKIN5	26021	// "ê´´ìˆ˜ ë¯¸ìŠ¤í„° íŽŒí‚¨ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_LOSHA			26022	// "ë¡œìƒ¤ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_BOBOKU		26023	// "ë³´ë³´ì¿  ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_JURIA			26024	// "ì¥´ë¦¬ì•„ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_MARCHE		26025	// "ë§ˆë¥´ì‰ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_MARTIN		26026	// "ë§ˆí‹´ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_REWARD		26027	// "ë§ˆì„ ê²½ë¹„ ëŒ€ìž¥ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_GUARDIAN		26028	// "ê²½ë¹„ë³‘ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_SANTA			26029	// "ì‚°íƒ€ ë³€ì‹ êµ¬"
+#define II_SYS_SYS_GM_DIS_CROWNIBLIS1	26030	// "ì´ë¸”ë¦¬ìŠ¤ ë³€ì‹ êµ¬(2ì‹œê°„)" 
 
-#define II_RID_RID_BOR_FPLANET			26100   // ¹Ì±¹ ¼±¹°¿ë º¸µå
-#define II_SYS_SYS_SCR_BXMERCENARY		26101   // ¼±¹° »óÀÚ ( ¸Ó¼­³Ê¸® ¿ë )
-#define II_SYS_SYS_SCR_BXMAGICIAN		26102	// ¼±¹° »óÀÚ ( ¸ÅÁö¼Ç ¿ë )
-#define II_SYS_SYS_SCR_BXDUEL			26103	// ¼±¹° »óÀÚ ( ¾î½Ã½ºÆ®, ¾ÆÅ©·Îºª ¿ë )
+#define II_RID_RID_BOR_FPLANET			26100   // ë¯¸êµ­ ì„ ë¬¼ìš© ë³´ë“œ
+#define II_SYS_SYS_SCR_BXMERCENARY		26101   // ì„ ë¬¼ ìƒìž ( ë¨¸ì„œë„ˆë¦¬ ìš© )
+#define II_SYS_SYS_SCR_BXMAGICIAN		26102	// ì„ ë¬¼ ìƒìž ( ë§¤ì§€ì…˜ ìš© )
+#define II_SYS_SYS_SCR_BXDUEL			26103	// ì„ ë¬¼ ìƒìž ( ì–´ì‹œìŠ¤íŠ¸, ì•„í¬ë¡œë²³ ìš© )
 
 #define II_ARM_M_CHR_CAT01HATSTAT1		26104  	// Cats(M) Hat+
 #define II_ARM_M_CHR_CAT01SUITSTAT1		26105   	// Cats(M) Suit+
@@ -4768,53 +4768,53 @@
 #define II_ARM_F_CHR_CAT01GLOVESSTAT1	26110  	// Cats(F) Gloves+
 #define II_ARM_F_CHR_CAT01SHOESSTAT1	26111	// Cats(F) Shoes+
 
-//±æµå´ëÀü ÀÌº¥Æ®¿ë °æÇ°»óÀÚ
+//ê¸¸ë“œëŒ€ì „ ì´ë²¤íŠ¸ìš© ê²½í’ˆìƒìž
 #define II_SYS_SYS_SCR_BXSCRACH		26112
 
-//±æµå´ëÀü »óÀÚ
+//ê¸¸ë“œëŒ€ì „ ìƒìž
 #define II_SYS_SYS_SCR_BXGUILD		26113
 #define II_SYS_SYS_SCR_DEFENSE20	26114
 #define II_SYS_SYS_SCR_DEFENSE50	26115
 
-// seghope - »ó¿ëÈ­ ¾ÆÀÌÅÛ Ãß°¡ Start
-#define II_SYS_SYS_SCR_SUPERLEADERPARTY		26200	// "´ÜÀåÀÇ Ãàº¹"
-#define II_SYS_SYS_SCR_FRIENDSUMMON_A		26201	// "±Ý¶õÁö±³(A)"
-#define II_SYS_SYS_SCR_PARTYSUMMON		26202	// "´ÜÀåÀÇ ºÎ¸§"
-#define II_SYS_SYS_SCR_SUPERSMELTING		26203	// "Á¦·ÃÀÇ µÎ·ç¸¶¸®(Áø)"
-#define II_CHR_SYS_SCR_ITEMTRANSY_A		26204	// "Æ®·£Áö(ITM)(A)"
-#define II_SYS_SYS_SCR_AMPESA			26205	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®(A)"
-#define II_SYS_SYS_SCR_AMPESA1			26206	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®A1"
-#define II_SYS_SYS_SCR_AMPESA2			26207	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®A2"
-#define II_SYS_SYS_SCR_AMPESB			26208	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®(B)"
-#define II_SYS_SYS_SCR_AMPESB1			26209	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®B1"	
-#define II_SYS_SYS_SCR_AMPESB2			26210	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®B2"
-#define II_SYS_SYS_SCR_AMPESC			26211	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®(C)"
-#define II_SYS_SYS_SCR_AMPESC1			26212	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®C1"
-#define II_SYS_SYS_SCR_AMPESC2			26213	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®C2"
-#define II_SYS_SYS_SCR_AMPESD			26214	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®(D)"
-#define II_SYS_SYS_SCR_AMPESD1			26215	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®D1"
-#define II_SYS_SYS_SCR_AMPESD2			26216	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®D2"
-#define II_SYS_SYS_SCR_FRIENDSUMMON_B		26217	// "±Ý¶õÁö±³(B)"
-#define II_CHR_SYS_SCR_ITEMTRANSY_B		26218	// "Æ®·£Áö(ITM)(B)"
-#define II_SYS_SYS_SCR_AMPESE			26219	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®(E)"
+// seghope - ìƒìš©í™” ì•„ì´í…œ ì¶”ê°€ Start
+#define II_SYS_SYS_SCR_SUPERLEADERPARTY		26200	// "ë‹¨ìž¥ì˜ ì¶•ë³µ"
+#define II_SYS_SYS_SCR_FRIENDSUMMON_A		26201	// "ê¸ˆëž€ì§€êµ(A)"
+#define II_SYS_SYS_SCR_PARTYSUMMON		26202	// "ë‹¨ìž¥ì˜ ë¶€ë¦„"
+#define II_SYS_SYS_SCR_SUPERSMELTING		26203	// "ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬(ì§„)"
+#define II_CHR_SYS_SCR_ITEMTRANSY_A		26204	// "íŠ¸ëžœì§€(ITM)(A)"
+#define II_SYS_SYS_SCR_AMPESA			26205	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(A)"
+#define II_SYS_SYS_SCR_AMPESA1			26206	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬A1"
+#define II_SYS_SYS_SCR_AMPESA2			26207	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬A2"
+#define II_SYS_SYS_SCR_AMPESB			26208	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(B)"
+#define II_SYS_SYS_SCR_AMPESB1			26209	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬B1"	
+#define II_SYS_SYS_SCR_AMPESB2			26210	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬B2"
+#define II_SYS_SYS_SCR_AMPESC			26211	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(C)"
+#define II_SYS_SYS_SCR_AMPESC1			26212	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬C1"
+#define II_SYS_SYS_SCR_AMPESC2			26213	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬C2"
+#define II_SYS_SYS_SCR_AMPESD			26214	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(D)"
+#define II_SYS_SYS_SCR_AMPESD1			26215	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬D1"
+#define II_SYS_SYS_SCR_AMPESD2			26216	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬D2"
+#define II_SYS_SYS_SCR_FRIENDSUMMON_B		26217	// "ê¸ˆëž€ì§€êµ(B)"
+#define II_CHR_SYS_SCR_ITEMTRANSY_B		26218	// "íŠ¸ëžœì§€(ITM)(B)"
+#define II_SYS_SYS_SCR_AMPESE			26219	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(E)"
 
-#define II_SYS_SYS_SCR_CHANCECRITICAL		26220	// "¿¹¸®ÇÔÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_ATTACKSPEED		26221	// "³­µµÁúÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_HITRATE			26222	// "ÀûÁßÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_SPELLRATE		26223	// "Àçºü¸¥ »ç°í ¹°¾à"
-#define II_SYS_SYS_SCR_STR			26224	// "ÈûÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_DEX			26225	// "¹ÎÃ¸ÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_INT			26226	// "Áö´ÉÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_STA			26227	// "Ã¼·ÂÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_ADJDEF			26228	// "¹æ¾îÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_RESIST_MAGIC		26229	// "ÀúÇ×ÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_MPMAX			26230	// "¸¶³ªÁõÆøÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_ADDMAGIC			26231	// "¸¶¹ýÁõÆøÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_PARRY			26232	// "È¸ÇÇÀÇ ¹°¾à"
-#define II_SYS_SYS_SCR_CRITICALBONUS		26233	// "°ú´ÙÃâÇ÷ÀÇ ¹°¾à"
-// seghope - »ó¿ëÈ­ ¾ÆÀÌÅÛ Ãß°¡ End
+#define II_SYS_SYS_SCR_CHANCECRITICAL		26220	// "ì˜ˆë¦¬í•¨ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_ATTACKSPEED		26221	// "ë‚œë„ì§ˆì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_HITRATE			26222	// "ì ì¤‘ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_SPELLRATE		26223	// "ìž¬ë¹ ë¥¸ ì‚¬ê³  ë¬¼ì•½"
+#define II_SYS_SYS_SCR_STR			26224	// "íž˜ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_DEX			26225	// "ë¯¼ì²©ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_INT			26226	// "ì§€ëŠ¥ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_STA			26227	// "ì²´ë ¥ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_ADJDEF			26228	// "ë°©ì–´ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_RESIST_MAGIC		26229	// "ì €í•­ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_MPMAX			26230	// "ë§ˆë‚˜ì¦í­ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_ADDMAGIC			26231	// "ë§ˆë²•ì¦í­ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_PARRY			26232	// "íšŒí”¼ì˜ ë¬¼ì•½"
+#define II_SYS_SYS_SCR_CRITICALBONUS		26233	// "ê³¼ë‹¤ì¶œí˜ˆì˜ ë¬¼ì•½"
+// seghope - ìƒìš©í™” ì•„ì´í…œ ì¶”ê°€ End
 
-// ÀÌºí¸®½ºÀÇ »ç¿ø¿ë ¾ÆÀÌÅÛ
+// ì´ë¸”ë¦¬ìŠ¤ì˜ ì‚¬ì›ìš© ì•„ì´í…œ
 #define II_WEA_SWO_IBLLINESS		26234
 #define II_WEA_SWT_IBLLINESS		26235
 #define II_WEA_AXE_IBLLINESS		26236
@@ -4832,27 +4832,27 @@
 
 #define II_ARM_ARM_SHI_CONTRA           26247
 
-// ¸ó½ºÅÍ »ý¼º ¼ÒÈ¯
-#define II_CHR_SYS_SCR_CM_LV5		26300	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(5)"
-#define II_CHR_SYS_SCR_CM_LV10		26301	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(10)"
-#define II_CHR_SYS_SCR_CM_LV15		26302	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(15)"
-#define II_CHR_SYS_SCR_CM_LV20		26303	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(20)"
-#define II_CHR_SYS_SCR_CM_LV25		26304	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(25)"
-#define II_CHR_SYS_SCR_CM_LV30		26305	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(30)"
-#define II_CHR_SYS_SCR_CM_LV35		26306	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(35)"
-#define II_CHR_SYS_SCR_CM_LV40		26307	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(40)"
-#define II_CHR_SYS_SCR_CM_LV45		26308	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(45)"
-#define II_CHR_SYS_SCR_CM_LV50		26309	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(50)"
-#define II_CHR_SYS_SCR_CM_LV55		26310	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(55)"
-#define II_CHR_SYS_SCR_CM_LV60		26311	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(60)"
-#define II_CHR_SYS_SCR_CM_LV65		26312	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(65)"
-#define II_CHR_SYS_SCR_CM_LV70		26313	// "±¤´ëÀÇ ½ÅºñÇÑ °ø(70)"
+// ëª¬ìŠ¤í„° ìƒì„± ì†Œí™˜
+#define II_CHR_SYS_SCR_CM_LV5		26300	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(5)"
+#define II_CHR_SYS_SCR_CM_LV10		26301	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(10)"
+#define II_CHR_SYS_SCR_CM_LV15		26302	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(15)"
+#define II_CHR_SYS_SCR_CM_LV20		26303	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(20)"
+#define II_CHR_SYS_SCR_CM_LV25		26304	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(25)"
+#define II_CHR_SYS_SCR_CM_LV30		26305	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(30)"
+#define II_CHR_SYS_SCR_CM_LV35		26306	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(35)"
+#define II_CHR_SYS_SCR_CM_LV40		26307	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(40)"
+#define II_CHR_SYS_SCR_CM_LV45		26308	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(45)"
+#define II_CHR_SYS_SCR_CM_LV50		26309	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(50)"
+#define II_CHR_SYS_SCR_CM_LV55		26310	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(55)"
+#define II_CHR_SYS_SCR_CM_LV60		26311	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(60)"
+#define II_CHR_SYS_SCR_CM_LV65		26312	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(65)"
+#define II_CHR_SYS_SCR_CM_LV70		26313	// "ê´‘ëŒ€ì˜ ì‹ ë¹„í•œ ê³µ(70)"
 
 #define	II_SYS_SYS_SCR_AMPESA_LINK	26314
 #define II_SYS_SYS_SCR_BLESSING_LINK	26315
 #define II_SYS_SYS_SCR_RECCURENCE_LINK	26316
 
-// ÇÑ°¡À§ ÀÌº¥Æ® (2006³â Ãß¼®)
+// í•œê°€ìœ„ ì´ë²¤íŠ¸ (2006ë…„ ì¶”ì„)
 #define	 II_SYS_SYS_EVE_REDBALL         26317
 #define	 II_SYS_SYS_EVE_ORANGEBALL      26318
 #define	 II_SYS_SYS_EVE_YELLOWBALL      26319
@@ -4863,30 +4863,30 @@
 #define	 II_SYS_SYS_EVE_FPSONGPYUN      26324
 #define	 II_SYS_SYS_EVE_SONGPYUN        26325
 
-//06³â ÇØ¿Ü °¡À» ÀÌº¥Æ®
+//06ë…„ í•´ì™¸ ê°€ì„ ì´ë²¤íŠ¸
 #define	 II_SYS_SYS_EVE_LEAF01		26326
 #define	 II_SYS_SYS_EVE_SEEDLING01      26327
 #define	 II_SYS_SYS_EVE_SEEDLING02      26328
 #define	 II_SYS_SYS_EVE_SEEDLING03      26329
 #define	 II_SYS_SYS_EVE_SEEDLING04      26330
 
-// 6-15 ÀÏº» Ãß°¡ ¾ÆÀÌÅÛ
+// 6-15 ì¼ë³¸ ì¶”ê°€ ì•„ì´í…œ
 #define	II_SYS_SYS_SCR_AMPES_LINK	26331
 #define	II_SYS_SYS_SCR_BXMHAN07_JAP	26332
 #define	II_SYS_SYS_SCR_BXFHAN07_JAP	26333
 
-// 6-16 ´ë¸¸ Ãß°¡ ¾ÆÀÌÅÛ
+// 6-16 ëŒ€ë§Œ ì¶”ê°€ ì•„ì´í…œ
 #define II_GEN_FOO_ICE_STRAWBERRYSHAKE_TWN	26334
 
-// 06³â Å©¸®½º¸¶½º ÀÌº¥Æ®
-#define II_SYS_SYS_SCR_BXSANTA		        26335	// »êÅ¸ÀÇ ¼±¹° »óÀÚ
-#define II_ARM_S_CLO_MAS_RUDOLPH_NOSE	        26336	// ·çµ¹ÇÁ ÄÚ
-#define	II_GEN_FOO_INS_CHRISTMAS_COOKIES	26337	// Å©¸®½º¸¶½º Äí±â
-#define II_SYS_SYS_GM_DIS_SANTA2		26338	// 30ºÐ »êÅ¸ º¯½Å±¸
-#define II_SYS_SYS_SCR_BXMSANTA01HAT		26339	// »êÅ¸ ¸ðÀÚ 7ÀÏ(³²)
-#define II_SYS_SYS_SCR_BXFSANTA01HAT		26340	// »êÅ¸ ¸ðÀÚ 7ÀÏ(¿©)
+// 06ë…„ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì´ë²¤íŠ¸
+#define II_SYS_SYS_SCR_BXSANTA		        26335	// ì‚°íƒ€ì˜ ì„ ë¬¼ ìƒìž
+#define II_ARM_S_CLO_MAS_RUDOLPH_NOSE	        26336	// ë£¨ëŒí”„ ì½”
+#define	II_GEN_FOO_INS_CHRISTMAS_COOKIES	26337	// í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì¿ ê¸°
+#define II_SYS_SYS_GM_DIS_SANTA2		26338	// 30ë¶„ ì‚°íƒ€ ë³€ì‹ êµ¬
+#define II_SYS_SYS_SCR_BXMSANTA01HAT		26339	// ì‚°íƒ€ ëª¨ìž 7ì¼(ë‚¨)
+#define II_SYS_SYS_SCR_BXFSANTA01HAT		26340	// ì‚°íƒ€ ëª¨ìž 7ì¼(ì—¬)
 
-// °¡¹ß (³²¼º¿ë)
+// ê°€ë°œ (ë‚¨ì„±ìš©)
 #define II_ARM_M_CLO_MAS_WIG01GO	26341
 #define II_ARM_M_CLO_MAS_WIG01P		26342
 #define II_ARM_M_CLO_MAS_WIG01B		26343
@@ -4919,7 +4919,7 @@
 #define II_ARM_M_CLO_MAS_WIG10V		26370
 
 
-// °¡¹ß (¿©¼º¿ë)
+// ê°€ë°œ (ì—¬ì„±ìš©)
 #define II_ARM_F_CLO_MAS_WIG01GO	26371
 #define II_ARM_F_CLO_MAS_WIG01P		26372
 #define II_ARM_F_CLO_MAS_WIG01B		26373
@@ -4951,26 +4951,26 @@
 #define II_ARM_F_CLO_MAS_WIG10G		26399
 #define II_ARM_F_CLO_MAS_WIG10V		26400
 
-// ¹ß·»Å¸ÀÎ ÀÌº¥Æ®
-#define II_SYS_SYS_SCR_VALENTINE		26401   // »ç¶ûÀÇ ¼±¹° »óÀÚ
-#define II_GEN_FOO_INS_VALENTINE_COOKIES	26402   // ¹ß·»Å¸ÀÎ ÄíÅ°
+// ë°œë Œíƒ€ì¸ ì´ë²¤íŠ¸
+#define II_SYS_SYS_SCR_VALENTINE		26401   // ì‚¬ëž‘ì˜ ì„ ë¬¼ ìƒìž
+#define II_GEN_FOO_INS_VALENTINE_COOKIES	26402   // ë°œë Œíƒ€ì¸ ì¿ í‚¤
 
-// ¹ß·»Å¸ÀÎ ÀÌº¥Æ® °ü·Ã ÅÎ½Ãµµ 7ÀÏ
+// ë°œë Œíƒ€ì¸ ì´ë²¤íŠ¸ ê´€ë ¨ í„±ì‹œë„ 7ì¼
 #define II_SYS_SYS_SCR_BXMTUXEDO04	26403
 #define II_SYS_SYS_SCR_BXMTUXEDO05	26404
 #define II_SYS_SYS_SCR_BXMTUXEDO06	26405
-// ¹ß·»Å¸ÀÎ ÀÌº¥Æ® °ü·Ã µå·¹½º 7ÀÏ
+// ë°œë Œíƒ€ì¸ ì´ë²¤íŠ¸ ê´€ë ¨ ë“œë ˆìŠ¤ 7ì¼
 #define II_SYS_SYS_SCR_BXFDRESS05	26406
 #define II_SYS_SYS_SCR_BXFDRESS06	26407
 #define II_SYS_SYS_SCR_BXFDRESS07	26408
 
-// 2007 ±¸Á¤ È²±Ý º¹ µÅÁö ÀÌº¥Æ®
-#define II_SYS_SYS_SCR_BXPIG		26409   // È²±Ý º¹ µÅÁö
-#define II_SYS_SYS_SCR_HAIRCHANGE	26410   // Çì¾î Ã¼ÀÎÁö ±³È¯±Ç
-#define II_SYS_SYS_SCR_FACEOFFFREE	26411   // ¼ºÇü ¹«·á ÀÌ¿ë±Ç
-#define II_SYS_SYS_SCR_BXPIG_TWN	26412	// È²±Ý º¹ µÅÁö(´ë¸¸¿ë)
+// 2007 êµ¬ì • í™©ê¸ˆ ë³µ ë¼ì§€ ì´ë²¤íŠ¸
+#define II_SYS_SYS_SCR_BXPIG		26409   // í™©ê¸ˆ ë³µ ë¼ì§€
+#define II_SYS_SYS_SCR_HAIRCHANGE	26410   // í—¤ì–´ ì²´ì¸ì§€ êµí™˜ê¶Œ
+#define II_SYS_SYS_SCR_FACEOFFFREE	26411   // ì„±í˜• ë¬´ë£Œ ì´ìš©ê¶Œ
+#define II_SYS_SYS_SCR_BXPIG_TWN	26412	// í™©ê¸ˆ ë³µ ë¼ì§€(ëŒ€ë§Œìš©)
 
-// 2007 ÀÌº¥Æ® ¾ÆÀÌÅÛ
+// 2007 ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_EVE_SCHOOL01		26413
 #define II_SYS_SYS_SCR_BXSCHOOL01	26414
 #define II_SYS_SYS_SCR_BXSCHOOL02	26415
@@ -4999,14 +4999,14 @@
 #define II_SYS_SYS_EVE_BALLOON02	26443
 #define II_SYS_SYS_EVE_BXFIRECRACKER	26444
 
-// ÇØ¿Ü ½Ä¸ñÀÏ ÀÌº¥Æ®
+// í•´ì™¸ ì‹ëª©ì¼ ì´ë²¤íŠ¸
 #define II_SYS_SYS_SCR_BXSEEDING01	26437
 #define II_SYS_SYS_SCR_BXARBORDAY05	26438
 #define II_SYS_SYS_SCR_BXARBORDAY06	26439
 #define II_SYS_SYS_SCR_BXARBORDAY07	26440
 #define II_SYS_SYS_SCR_BXARBORDAY08	26441
 
-// ¹«Áö°³ Á¶°¢
+// ë¬´ì§€ê°œ ì¡°ê°
 #define II_SYS_SYS_EVE_RAINBOWRED	26445
 #define II_SYS_SYS_EVE_RAINBOWORANGE	26446
 #define II_SYS_SYS_EVE_RAINBOWYELLOW	26447
@@ -5015,21 +5015,21 @@
 #define II_SYS_SYS_EVE_RAINBOWINDIGO	26450
 #define II_SYS_SYS_EVE_RAINBOWPURPLE	26451
 
-// 11Â÷ ¹öÀü °ü·Ã(kyk1236)
-#define II_GEN_TOO_COL_NORMAL                26452  // ÄÝ·ºÅÍ
-#define II_GEN_TOO_COL_NORMALBATTERY         26453  // ¹èÅÍ¸®
-#define II_GEN_TOO_COL_SILVERBATTERY         26454  // ½Ç¹ö ¹èÅÍ¸®
-#define II_GEN_TOO_COL_GOLDBATTERY           26455  // °ñµå ¹èÅÍ¸®
-#define II_SYS_SYS_SCR_PERIN                 26456  // Æä¸°
-#define II_GEN_FOO_PIL_SINBI                 26457  // ½ÅºñÇÑ ¾Ë¾à
-#define II_SYS_SYS_SCR_LEVELDOWN01           26458  // ÇÏ¶ôÀÇ µÎ·ç¸¶¸®(ÇÏ±Þ)
-#define II_SYS_SYS_SCR_LEVELDOWN02           26459  // ÇÏ¶ôÀÇ µÎ·ç¸¶¸®(»ó±Þ)
-#define II_CHP_RED		             26460  // ·¹µåÄ¨
-#define II_SYS_SYS_SCR_AWAKE   		     26461  // °¢¼ºÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_AWAKECANCEL   	     26462  // °¢¼º Ãë¼ÒÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_BLESSEDNESS   	     26463  // ¿©½ÅÀÇ Ãàº¹
+// 11ì°¨ ë²„ì „ ê´€ë ¨(kyk1236)
+#define II_GEN_TOO_COL_NORMAL                26452  // ì½œë ‰í„°
+#define II_GEN_TOO_COL_NORMALBATTERY         26453  // ë°°í„°ë¦¬
+#define II_GEN_TOO_COL_SILVERBATTERY         26454  // ì‹¤ë²„ ë°°í„°ë¦¬
+#define II_GEN_TOO_COL_GOLDBATTERY           26455  // ê³¨ë“œ ë°°í„°ë¦¬
+#define II_SYS_SYS_SCR_PERIN                 26456  // íŽ˜ë¦°
+#define II_GEN_FOO_PIL_SINBI                 26457  // ì‹ ë¹„í•œ ì•Œì•½
+#define II_SYS_SYS_SCR_LEVELDOWN01           26458  // í•˜ë½ì˜ ë‘ë£¨ë§ˆë¦¬(í•˜ê¸‰)
+#define II_SYS_SYS_SCR_LEVELDOWN02           26459  // í•˜ë½ì˜ ë‘ë£¨ë§ˆë¦¬(ìƒê¸‰)
+#define II_CHP_RED		             26460  // ë ˆë“œì¹©
+#define II_SYS_SYS_SCR_AWAKE   		     26461  // ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_AWAKECANCEL   	     26462  // ê°ì„± ì·¨ì†Œì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_BLESSEDNESS   	     26463  // ì—¬ì‹ ì˜ ì¶•ë³µ
 
-// Á¦·Ã¿ë ¾×¼¼¼­¸®
+// ì œë ¨ìš© ì•¡ì„¸ì„œë¦¬
 #define	II_GEN_JEW_RIN_STRRING				26464
 #define	II_GEN_JEW_RIN_STARING				26465
 #define	II_GEN_JEW_RIN_DEXRING				26466
@@ -5040,100 +5040,100 @@
 #define	II_GEN_JEW_NEC_MPNECKLACE			26471
 #define	II_GEN_JEW_NEC_FPNECKLACE			26472
 
-#define	II_SYS_SYS_SCR_SMELPROT4	        26473	// ¾×¼¼¼­¸® º¸È£ÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_SEAL			26475   // ºÀÀÎÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_SEALCHARACTER   		26476   // ºÀÀÎµÈ Ä³¸¯ÅÍ
-#define II_SYS_SYS_SCR_BAGBAG                   26477   // ÈÞ´ë °¡¹æ »ç¿ë±Ç
-#define II_SYS_SYS_SCR_MINIWHEEL                26478   // ÀÛÀº Åé´Ï¹ÙÄû
-#define II_SYS_SYS_SCR_WHEEL                    26479   // Åé´Ï¹ÙÄû
-#define II_SYS_SYS_SCR_SCRAPCLOUD               26480   // ±¸¸§ Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPORICHALCUM          26481   // ¿À¸®Ä®Äñ Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPMOONSTONE           26482   // ¹®½ºÅæ Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPTOPAZ               26483   // ÅäÆÄÁî Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPRUBY                26484   // ·çºñ Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPSAPPHIRE            26485   // »çÆÄÀÌ¾î Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPEMERALD             26486   // ¿¡¸Þ¶öµå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPDIAMOND             26487   // ´ÙÀÌ¾Æ¸óµå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPCANDLE              26488   // Äµµé Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPMAGMA               26489   // ¸¶±×¸¶ Ä«µå Á¶°¢  
-#define II_SYS_SYS_SCR_SCRAPVOLCANO             26490   // º¼ÄÉÀÌ³ë Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPRAIN                26491   // ·¹ÀÎ Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPFLOOD               26492   // ÇÃ·¯µå Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPOCEAN     		26493   // ¿À¼Ç Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPBREEZE    		26494   // ºê¸®Áî Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPSTORM   		26495   // ½ºÅè Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPVACCUM  		26496   // ¹ÙÅ¨ Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPSPARK  		26497   // ½ºÆÄÅ© Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPTHUNDER		26498   // ½ã´õ Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPLIGHTING		26499   // ¶óÀÌÆ®´× Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPSAND 		26500   // ½Úµå Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPMOUNTAIN		26501   // ¸¶¿îÆ¾ Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_SCRAPEARTHQUAKE 		26502   // ¾î½ºÄùÀÌÅ© Ä«µå Á¶°¢
-#define II_SYS_SYS_SCR_COTTONCANDYVIOLET 	26503   // º¸¶óºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYBLUE		26504   // ÆÄ¶õºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYGREEN		26505   // ÃÊ·Ïºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYRED		26506   // »¡°£ºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYBLUESKY	26507   // ÇÏ´Ãºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYPINK 	    26508   // ºÐÈ«ºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYYELLOW	26509   // ³ë¶õºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYWHITE		26510   // ÇÏ¾áºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYGRAY		26511   // È¸»öºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYORANGE	26512   // ÁÖÈ²ºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_BXPIG_TWN01		26513	// 2007³â ´ë¸¸ 12¿ù ÀÌº¥Æ®
-#define II_RID_RID_STI_MAGIC01			26514	// 2007³â ±¹³» ÀÌº¥Æ®¿ë ºñÇàÃ¼
-#define II_SYS_SYS_SCR_CLOUDBOX  	 	26515	// ±¸¸§ »óÀÚ
-#define II_SYS_SYS_EVE_BXMAGIC01	        26516   // 2007³â ±¹³» ÀÌº¥Æ®¿ë ºñÇàÃ¼ »óÀÚ
-#define II_SYS_SYS_EVE_GOLDENAPPLE	        26517   // 2007³â ±¹³» ÀÌº¥Æ®¿ë È²±Ý»ç°ú
-#define II_SYS_SYS_EVE_REDSOCKS		        26518   // 2007³â ±¹³» ÀÌº¥Æ®¿ë »¡°£¾ç¸»
-#define II_SYS_SYS_QUE_PETRESURRECTION01_S	26519	// Æê ºÎÈ°ÀÇ µÎ·ç¸¶¸® Á¶°¢(S)
-#define II_SYS_SYS_QUE_PETRESURRECTION01_A	26520   // Æê ºÎÈ°ÀÇ µÎ·ç¸¶¸® Á¶°¢(A)
-#define II_SYS_SYS_QUE_PETRESURRECTION01_B	26521   // Æê ºÎÈ°ÀÇ µÎ·ç¸¶¸® Á¶°¢(B)
-#define II_SYS_SYS_QUE_PETRESURRECTION02_S	26522   // Æê ºÎÈ°ÀÇ µÎ·ç¸¶¸®(S)
-#define II_SYS_SYS_QUE_PETRESURRECTION02_A	26523   // Æê ºÎÈ°ÀÇ µÎ·ç¸¶¸®(A)
-#define II_SYS_SYS_QUE_PETRESURRECTION02_B	26524   // Æê ºÎÈ°ÀÇ µÎ·ç¸¶¸®(B)
-#define II_GEN_GEM_GEM_REDCRYSTAL   		26525   // »¡°£ °áÁ¤Ã¼
-#define II_GEN_GEM_GEM_YELLOWCRYSTAL		26526   // ³ë¶õ °áÁ¤Ã¼
-#define II_GEN_GEM_GEM_GREENCRYSTAL		26527   // ÃÊ·Ï °áÁ¤Ã¼
-#define II_GEN_GEM_GEM_BLUECRYSTAL		26528   // ÆÄ¶õ °áÁ¤Ã¼
-#define	II_SYS_TICKET_KEBARAS01	         	26529	// ¾ÆÁî¸®¾Æ ÀÔÀå±Ç(7ÀÏ)
-#define	II_SYS_TICKET_KEBARAS02	                26530	// ¾ÆÁî¸®¾Æ ÀÔÀå±Ç(14ÀÏ)
-#define	II_SYS_SYS_SCR_PET_FEED_POCKET02	26531   // Æê ¸ÔÀÌ ÁÖ¸Ó´Ï
-#define II_RID_RID_BOR_FLYFF	         	26532   // ÇÁ¸®ÇÁº¸µå
-#define II_RID_RID_BOR_ANGEL		 	26533   // ¿£Á©º¸µå
-#define II_RID_RID_BOR_BUDDY		 	26534   // ¹öµðº¸µå
-#define II_ARM_S_CLO_CLO_SPIRIT                 26535   // ¿ë¸ÍÀÇ ¸ÁÅä
-#define II_ARM_S_CLO_CLO_LEGEND01		26536   // ¿µ±¤ÀÇ ¸ÁÅä
-#define II_SYS_SYS_SCR_PARTYEXPUP01		26537   // ±Ø´Ü °æÇèÄ¡ ÁõÆøÀÇ µÎ·ç¸¶¸®(7ÀÏ)
-#define II_SYS_SYS_SCR_PARTYEXPUP02		26538   // ±Ø´Ü °æÇèÄ¡ ÁõÆøÀÇ µÎ·ç¸¶¸®(15ÀÏ)
-#define II_SYS_SYS_SCR_PARTYSKILLUP01		26539   // ±Ø´Ü ½ºÅ³ ÁõÆøÀÇ µÎ·ç¸¶¸®(7ÀÏ)
-#define II_SYS_SYS_SCR_PARTYSKILLUP02		26540   // ±Ø´Ü ½ºÅ³ ÁõÆøÀÇ µÎ·ç¸¶¸®(15ÀÏ)
-#define II_SYS_SYS_EVE_EVENT0001		26541   // ÈÞ´ëÆù ÃæÀü±â ±³È¯±Ç
-#define II_SYS_SYS_EVE_EVENT0002		26542   // ¾ÆÀÌ¸®¹ö ¹ÌÅ°MP3 ±³È¯±Ç
-#define II_SYS_SYS_EVE_EVENT0003        	26543   // NDSL ±³È¯±Ç
+#define	II_SYS_SYS_SCR_SMELPROT4	        26473	// ì•¡ì„¸ì„œë¦¬ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_SEAL			26475   // ë´‰ì¸ì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_SEALCHARACTER   		26476   // ë´‰ì¸ëœ ìºë¦­í„°
+#define II_SYS_SYS_SCR_BAGBAG                   26477   // íœ´ëŒ€ ê°€ë°© ì‚¬ìš©ê¶Œ
+#define II_SYS_SYS_SCR_MINIWHEEL                26478   // ìž‘ì€ í†±ë‹ˆë°”í€´
+#define II_SYS_SYS_SCR_WHEEL                    26479   // í†±ë‹ˆë°”í€´
+#define II_SYS_SYS_SCR_SCRAPCLOUD               26480   // êµ¬ë¦„ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPORICHALCUM          26481   // ì˜¤ë¦¬ì¹¼ì¿° ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPMOONSTONE           26482   // ë¬¸ìŠ¤í†¤ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPTOPAZ               26483   // í† íŒŒì¦ˆ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPRUBY                26484   // ë£¨ë¹„ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPSAPPHIRE            26485   // ì‚¬íŒŒì´ì–´ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPEMERALD             26486   // ì—ë©”ëž„ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPDIAMOND             26487   // ë‹¤ì´ì•„ëª¬ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPCANDLE              26488   // ìº”ë“¤ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPMAGMA               26489   // ë§ˆê·¸ë§ˆ ì¹´ë“œ ì¡°ê°  
+#define II_SYS_SYS_SCR_SCRAPVOLCANO             26490   // ë³¼ì¼€ì´ë…¸ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPRAIN                26491   // ë ˆì¸ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPFLOOD               26492   // í”ŒëŸ¬ë“œ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPOCEAN     		26493   // ì˜¤ì…˜ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPBREEZE    		26494   // ë¸Œë¦¬ì¦ˆ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPSTORM   		26495   // ìŠ¤í†° ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPVACCUM  		26496   // ë°”í  ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPSPARK  		26497   // ìŠ¤íŒŒí¬ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPTHUNDER		26498   // ì¬ë” ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPLIGHTING		26499   // ë¼ì´íŠ¸ë‹ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPSAND 		26500   // ìŒ˜ë“œ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPMOUNTAIN		26501   // ë§ˆìš´í‹´ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_SCRAPEARTHQUAKE 		26502   // ì–´ìŠ¤í€˜ì´í¬ ì¹´ë“œ ì¡°ê°
+#define II_SYS_SYS_SCR_COTTONCANDYVIOLET 	26503   // ë³´ë¼ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYBLUE		26504   // íŒŒëž€ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYGREEN		26505   // ì´ˆë¡ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYRED		26506   // ë¹¨ê°„ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYBLUESKY	26507   // í•˜ëŠ˜ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYPINK 	    26508   // ë¶„í™ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYYELLOW	26509   // ë…¸ëž€ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYWHITE		26510   // í•˜ì–€ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYGRAY		26511   // íšŒìƒ‰ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYORANGE	26512   // ì£¼í™©ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_BXPIG_TWN01		26513	// 2007ë…„ ëŒ€ë§Œ 12ì›” ì´ë²¤íŠ¸
+#define II_RID_RID_STI_MAGIC01			26514	// 2007ë…„ êµ­ë‚´ ì´ë²¤íŠ¸ìš© ë¹„í–‰ì²´
+#define II_SYS_SYS_SCR_CLOUDBOX  	 	26515	// êµ¬ë¦„ ìƒìž
+#define II_SYS_SYS_EVE_BXMAGIC01	        26516   // 2007ë…„ êµ­ë‚´ ì´ë²¤íŠ¸ìš© ë¹„í–‰ì²´ ìƒìž
+#define II_SYS_SYS_EVE_GOLDENAPPLE	        26517   // 2007ë…„ êµ­ë‚´ ì´ë²¤íŠ¸ìš© í™©ê¸ˆì‚¬ê³¼
+#define II_SYS_SYS_EVE_REDSOCKS		        26518   // 2007ë…„ êµ­ë‚´ ì´ë²¤íŠ¸ìš© ë¹¨ê°„ì–‘ë§
+#define II_SYS_SYS_QUE_PETRESURRECTION01_S	26519	// íŽ« ë¶€í™œì˜ ë‘ë£¨ë§ˆë¦¬ ì¡°ê°(S)
+#define II_SYS_SYS_QUE_PETRESURRECTION01_A	26520   // íŽ« ë¶€í™œì˜ ë‘ë£¨ë§ˆë¦¬ ì¡°ê°(A)
+#define II_SYS_SYS_QUE_PETRESURRECTION01_B	26521   // íŽ« ë¶€í™œì˜ ë‘ë£¨ë§ˆë¦¬ ì¡°ê°(B)
+#define II_SYS_SYS_QUE_PETRESURRECTION02_S	26522   // íŽ« ë¶€í™œì˜ ë‘ë£¨ë§ˆë¦¬(S)
+#define II_SYS_SYS_QUE_PETRESURRECTION02_A	26523   // íŽ« ë¶€í™œì˜ ë‘ë£¨ë§ˆë¦¬(A)
+#define II_SYS_SYS_QUE_PETRESURRECTION02_B	26524   // íŽ« ë¶€í™œì˜ ë‘ë£¨ë§ˆë¦¬(B)
+#define II_GEN_GEM_GEM_REDCRYSTAL   		26525   // ë¹¨ê°„ ê²°ì •ì²´
+#define II_GEN_GEM_GEM_YELLOWCRYSTAL		26526   // ë…¸ëž€ ê²°ì •ì²´
+#define II_GEN_GEM_GEM_GREENCRYSTAL		26527   // ì´ˆë¡ ê²°ì •ì²´
+#define II_GEN_GEM_GEM_BLUECRYSTAL		26528   // íŒŒëž€ ê²°ì •ì²´
+#define	II_SYS_TICKET_KEBARAS01	         	26529	// ì•„ì¦ˆë¦¬ì•„ ìž…ìž¥ê¶Œ(7ì¼)
+#define	II_SYS_TICKET_KEBARAS02	                26530	// ì•„ì¦ˆë¦¬ì•„ ìž…ìž¥ê¶Œ(14ì¼)
+#define	II_SYS_SYS_SCR_PET_FEED_POCKET02	26531   // íŽ« ë¨¹ì´ ì£¼ë¨¸ë‹ˆ
+#define II_RID_RID_BOR_FLYFF	         	26532   // í”„ë¦¬í”„ë³´ë“œ
+#define II_RID_RID_BOR_ANGEL		 	26533   // ì—”ì ¤ë³´ë“œ
+#define II_RID_RID_BOR_BUDDY		 	26534   // ë²„ë””ë³´ë“œ
+#define II_ARM_S_CLO_CLO_SPIRIT                 26535   // ìš©ë§¹ì˜ ë§í† 
+#define II_ARM_S_CLO_CLO_LEGEND01		26536   // ì˜ê´‘ì˜ ë§í† 
+#define II_SYS_SYS_SCR_PARTYEXPUP01		26537   // ê·¹ë‹¨ ê²½í—˜ì¹˜ ì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(7ì¼)
+#define II_SYS_SYS_SCR_PARTYEXPUP02		26538   // ê·¹ë‹¨ ê²½í—˜ì¹˜ ì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(15ì¼)
+#define II_SYS_SYS_SCR_PARTYSKILLUP01		26539   // ê·¹ë‹¨ ìŠ¤í‚¬ ì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(7ì¼)
+#define II_SYS_SYS_SCR_PARTYSKILLUP02		26540   // ê·¹ë‹¨ ìŠ¤í‚¬ ì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(15ì¼)
+#define II_SYS_SYS_EVE_EVENT0001		26541   // íœ´ëŒ€í° ì¶©ì „ê¸° êµí™˜ê¶Œ
+#define II_SYS_SYS_EVE_EVENT0002		26542   // ì•„ì´ë¦¬ë²„ ë¯¸í‚¤MP3 êµí™˜ê¶Œ
+#define II_SYS_SYS_EVE_EVENT0003        	26543   // NDSL êµí™˜ê¶Œ
 
-#define II_SYS_SYS_SCR_COTTONCANDYVIOLET_01 	26544   // ÀÌº¥Æ®¿ë º¸¶óºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYBLUE_01		26545   // ÀÌº¥Æ®¿ë ÆÄ¶õºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYGREEN_01		26546   // ÀÌº¥Æ®¿ë ÃÊ·Ïºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYRED_01		26547   // ÀÌº¥Æ®¿ë »¡°£ºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYBLUESKY_01	26548   // ÀÌº¥Æ®¿ë ÇÏ´Ãºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYPINK_01 	    26549   // ÀÌº¥Æ®¿ë ºÐÈ«ºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYYELLOW_01		26550   // ÀÌº¥Æ®¿ë ³ë¶õºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYWHITE_01		26551   // ÀÌº¥Æ®¿ë ÇÏ¾áºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYGRAY_01		26552   // ÀÌº¥Æ®¿ë È¸»öºû ¼Ø»çÅÁ
-#define II_SYS_SYS_SCR_COTTONCANDYORANGE_01		26553   // ÀÌº¥Æ®¿ë ÁÖÈ²ºû ¼Ø»çÅÁ
-#define	II_SYS_SYS_EVE_BALLOON_01				26554   // ÀÌº¥Æ®¿ë ºÐÈ«»ö Ç³¼±
-#define	II_SYS_SYS_EVE_BALLOON01_01				26555   // ÀÌº¥Æ®¿ë ÆÄ¶õ»ö Ç³¼±
-#define	II_SYS_SYS_EVE_BALLOON02_01				26556   // ÀÌº¥Æ®¿ë ³ë¶õ»ö Ç³¼±
+#define II_SYS_SYS_SCR_COTTONCANDYVIOLET_01 	26544   // ì´ë²¤íŠ¸ìš© ë³´ë¼ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYBLUE_01		26545   // ì´ë²¤íŠ¸ìš© íŒŒëž€ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYGREEN_01		26546   // ì´ë²¤íŠ¸ìš© ì´ˆë¡ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYRED_01		26547   // ì´ë²¤íŠ¸ìš© ë¹¨ê°„ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYBLUESKY_01	26548   // ì´ë²¤íŠ¸ìš© í•˜ëŠ˜ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYPINK_01 	    26549   // ì´ë²¤íŠ¸ìš© ë¶„í™ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYYELLOW_01		26550   // ì´ë²¤íŠ¸ìš© ë…¸ëž€ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYWHITE_01		26551   // ì´ë²¤íŠ¸ìš© í•˜ì–€ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYGRAY_01		26552   // ì´ë²¤íŠ¸ìš© íšŒìƒ‰ë¹› ì†œì‚¬íƒ•
+#define II_SYS_SYS_SCR_COTTONCANDYORANGE_01		26553   // ì´ë²¤íŠ¸ìš© ì£¼í™©ë¹› ì†œì‚¬íƒ•
+#define	II_SYS_SYS_EVE_BALLOON_01				26554   // ì´ë²¤íŠ¸ìš© ë¶„í™ìƒ‰ í’ì„ 
+#define	II_SYS_SYS_EVE_BALLOON01_01				26555   // ì´ë²¤íŠ¸ìš© íŒŒëž€ìƒ‰ í’ì„ 
+#define	II_SYS_SYS_EVE_BALLOON02_01				26556   // ì´ë²¤íŠ¸ìš© ë…¸ëž€ìƒ‰ í’ì„ 
 
-#define	II_CHR_SYS_SCR_SHOUTFULL001                     26557 // »þ¿ìÆ®Ç®(1ÀÏ), II_CHR_SYS_SCR_PSKILLFULL1 = ÆÄ½ºÅ³Ç® 1ÀÏÂ¥¸® Á¸ÀçÇÏ°í ÀÖÀ½
-#define	II_SYS_TICKET_KEBARAS001			26558 // ¾ÆÁî¸®¾Æ ÀÔÀå±Ç(1ÀÏ)
-#define	II_CHR_SYS_SCR_COMMBANK001			26559 // Ä¿¸Õ¹ðÅ©(1ÀÏ)
-#define	II_GEN_TOO_COL_BATTERY001			26560 // ¹èÅÍ¸®(1ÀÏ)
-#define	II_SYS_SYS_SCR_BAGBAG001			26561 // ÈÞ´ë °¡¹æ »ç¿ë±Ç(1ÀÏ)
-#define	II_SYS_SYS_SCR_PET_LIFE02			26562 // Æê ¼ö¸í È¸º¹ÀÇ µÎ·ç¸¶¸®
+#define	II_CHR_SYS_SCR_SHOUTFULL001                     26557 // ìƒ¤ìš°íŠ¸í’€(1ì¼), II_CHR_SYS_SCR_PSKILLFULL1 = íŒŒìŠ¤í‚¬í’€ 1ì¼ì§œë¦¬ ì¡´ìž¬í•˜ê³  ìžˆìŒ
+#define	II_SYS_TICKET_KEBARAS001			26558 // ì•„ì¦ˆë¦¬ì•„ ìž…ìž¥ê¶Œ(1ì¼)
+#define	II_CHR_SYS_SCR_COMMBANK001			26559 // ì»¤ë¨¼ë±…í¬(1ì¼)
+#define	II_GEN_TOO_COL_BATTERY001			26560 // ë°°í„°ë¦¬(1ì¼)
+#define	II_SYS_SYS_SCR_BAGBAG001			26561 // íœ´ëŒ€ ê°€ë°© ì‚¬ìš©ê¶Œ(1ì¼)
+#define	II_SYS_SYS_SCR_PET_LIFE02			26562 // íŽ« ìˆ˜ëª… íšŒë³µì˜ ë‘ë£¨ë§ˆë¦¬
 
-#define II_SYS_SYS_SCR_AWAKECANCEL02   	     26563  // ÀÌº¥Æ®¿ë °¢¼º Ãë¼ÒÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_BLESSEDNESS02   	     26564  // ÀÌº¥Æ®¿ë ¿©½ÅÀÇ Ãàº¹
+#define II_SYS_SYS_SCR_AWAKECANCEL02   	     26563  // ì´ë²¤íŠ¸ìš© ê°ì„± ì·¨ì†Œì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_BLESSEDNESS02   	     26564  // ì´ë²¤íŠ¸ìš© ì—¬ì‹ ì˜ ì¶•ë³µ
 
 #define	II_GEN_TOO_COL_EVENT		26565
 #define	II_SYS_SYS_SCR_BXCOLLECTOR	26566
@@ -5144,12 +5144,12 @@
 #define	II_SYS_SYS_SCR_BXLAWOLF		26571
 
 #define	II_SYS_SYS_SCR_BXPETRESURRECTION01	26572
-#define	II_SYS_SYS_SCR_SPETGOOD	            26573 // S±Þ Æê Àü¿ë ¸ÔÀÌ
+#define	II_SYS_SYS_SCR_SPETGOOD	            26573 // Sê¸‰ íŽ« ì „ìš© ë¨¹ì´
 
-#define II_SYS_SYS_QUE_HOLYRED				26574  //Ãàº¹¹ÞÀº º¸¼®(ºÒ)
-#define II_SYS_SYS_QUE_HOLYBLUE				26575  //Ãàº¹¹ÞÀº º¸¼®(¹°)
-#define II_SYS_SYS_QUE_HOLYYELLOW			26576  //Ãàº¹¹ÞÀº º¸¼®(Àü±â)
-#define II_SYS_SYS_SCR_BXTREASURE			26577  //º¸¹° »óÀÚ
+#define II_SYS_SYS_QUE_HOLYRED				26574  //ì¶•ë³µë°›ì€ ë³´ì„(ë¶ˆ)
+#define II_SYS_SYS_QUE_HOLYBLUE				26575  //ì¶•ë³µë°›ì€ ë³´ì„(ë¬¼)
+#define II_SYS_SYS_QUE_HOLYYELLOW			26576  //ì¶•ë³µë°›ì€ ë³´ì„(ì „ê¸°)
+#define II_SYS_SYS_SCR_BXTREASURE			26577  //ë³´ë¬¼ ìƒìž
 
 #define II_SYS_SYS_SCR_BXGREEN02			26578
 
@@ -5166,12 +5166,12 @@
 #define	II_SYS_SYS_SCR_BXMVAGRANT01			26586
 #define	II_SYS_SYS_SCR_BXFVAGRANT01			26587
 
-#define II_RID_RID_STI_BIKE3				26588 // Å¬¶ô ¹ÙÀÌÅ©(¿À·»Áö)
-#define II_RID_RID_STI_BIKE4				26589 // Å¬¶ô ¹ÙÀÌÅ©(È­ÀÌÆ®)
-#define II_RID_RID_STI_BIKE5				26590 // Å¬¶ô ¹ÙÀÌÅ©(¹ÙÀÌ¿Ã·¿)
-#define II_RID_RID_STI_BIKE6				26591 // ¸ÞÅ×¿À ¹ÙÀÌÅ©(¿»·Î¿ì)
-#define II_RID_RID_STI_BIKE7				26592 // ¸ÞÅ×¿À ¹ÙÀÌÅ©(·¹µå)
-#define II_RID_RID_STI_BIKE8				26593 // ¸ÞÅ×¿À ¹ÙÀÌÅ©(±×¸°)
+#define II_RID_RID_STI_BIKE3				26588 // í´ë½ ë°”ì´í¬(ì˜¤ë Œì§€)
+#define II_RID_RID_STI_BIKE4				26589 // í´ë½ ë°”ì´í¬(í™”ì´íŠ¸)
+#define II_RID_RID_STI_BIKE5				26590 // í´ë½ ë°”ì´í¬(ë°”ì´ì˜¬ë ›)
+#define II_RID_RID_STI_BIKE6				26591 // ë©”í…Œì˜¤ ë°”ì´í¬(ì˜ë¡œìš°)
+#define II_RID_RID_STI_BIKE7				26592 // ë©”í…Œì˜¤ ë°”ì´í¬(ë ˆë“œ)
+#define II_RID_RID_STI_BIKE8				26593 // ë©”í…Œì˜¤ ë°”ì´í¬(ê·¸ë¦°)
 
 #define II_GEN_MAT_ELE_CANDLED              26594
 #define II_GEN_MAT_ELE_CANDLEC              26595
@@ -5229,7 +5229,7 @@
 
 #define	II_SYS_SYS_SCR_BXFESTIVAL02			26643
 
-//ÀÏº» ¿äÃ» ÆÛ´Ï ¾ÆÀÌÅÛ
+//ì¼ë³¸ ìš”ì²­ í¼ë‹ˆ ì•„ì´í…œ
 #define	II_WEA_SWO_APPLE					26644
 #define	II_WEA_SWO_BAMBOO					26645
 #define	II_ARM_M_CLO_CATPUNCH01				26646
@@ -5245,7 +5245,7 @@
 #define	II_SYS_SYS_SCR_BXLEAGENDG01			26653
 #define	II_SYS_SYS_SCR_BX_PET_AIBATT15			26654
 
-//ÇÊ¸®ÇÉ ¿äÃ» ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//í•„ë¦¬í•€ ìš”ì²­ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_ARM_F_CLO_MAS_WIG07BL_1			26655
 #define II_ARM_F_CLO_MAS_WIG07B_1			26656
 #define II_ARM_F_CLO_MAS_WIG07BR_1			26657
@@ -5322,7 +5322,7 @@
 #define	II_HOU_FUR_TAB_HEART01				26717
 #define	II_HOU_FUR_WAR_HEART01				26718
 
-// Ä¿ÇÃ ¹öÇÁ
+// ì»¤í”Œ ë²„í”„
 #define	II_COUPLE_BUFF_POWER_01		26720
 #define	II_COUPLE_BUFF_POWER_02		26721
 #define	II_COUPLE_BUFF_POWER_03		26722
@@ -5410,23 +5410,23 @@
 #define	II_SYS_SYS_EVE_FLOWERPOT05	26803
 #define	II_SYS_SYS_EVE_FLOWER01		26804
 
-#define	II_SYS_SYS_EVE_BXBLOSSOM02	26805	//ÀÏº», ´ë¸¸, È«Äá º½ ÀÌº¥Æ®»óÀÚ
+#define	II_SYS_SYS_EVE_BXBLOSSOM02	26805	//ì¼ë³¸, ëŒ€ë§Œ, í™ì½© ë´„ ì´ë²¤íŠ¸ìƒìž
 
 #define II_SYS_SYS_SCR_BXTREASURE03	26806
 
-#define II_SYS_SYS_SCR_BXWOODSET01	26807	//Åë³ª¹«°¡±¸¼Â
-#define II_SYS_SYS_SCR_BXHEARTSET01	26808	//ÇÏÆ®°¡±¸¼Â
+#define II_SYS_SYS_SCR_BXWOODSET01	26807	//í†µë‚˜ë¬´ê°€êµ¬ì…‹
+#define II_SYS_SYS_SCR_BXHEARTSET01	26808	//í•˜íŠ¸ê°€êµ¬ì…‹
 
-#define II_SYS_SYS_SCR_BXMVWANDER01	26809	//ºÒÇÜ, ¸®ÇÁ·¹¼Å, È°·ÂX, ¹æ¶ûÀÚ(³²)
-#define II_SYS_SYS_SCR_BXFVWANDER01	26810	//ºÒÇÜ, ¸®ÇÁ·¹¼Å, È°·ÂX, ¹æ¶ûÀÚ(¿©)
+#define II_SYS_SYS_SCR_BXMVWANDER01	26809	//ë¶ˆí–„, ë¦¬í”„ë ˆì…”, í™œë ¥X, ë°©ëž‘ìž(ë‚¨)
+#define II_SYS_SYS_SCR_BXFVWANDER01	26810	//ë¶ˆí–„, ë¦¬í”„ë ˆì…”, í™œë ¥X, ë°©ëž‘ìž(ì—¬)
 
-#define	II_VIETNAM_BUFF01		26811   // º£Æ®³² ´©Àû Á¢¼Ó ½Ã°£ È®ÀÎ¿ë ¹öÇÁ
+#define	II_VIETNAM_BUFF01		26811   // ë² íŠ¸ë‚¨ ëˆ„ì  ì ‘ì† ì‹œê°„ í™•ì¸ìš© ë²„í”„
 
 #define	II_SYS_SYS_EVE_POWERSCROLL01	26812
 #define	II_SYS_SYS_EVE_POWERSCROLL02	26813
 #define	II_SYS_SYS_EVE_POWERSCROLL03	26814
 
-#define	II_SYS_SYS_SCR_BXWONDERBR01	26815	//ºê¶óÁú ½Å±Ô¼±¹° »óÀÚ
+#define	II_SYS_SYS_SCR_BXWONDERBR01	26815	//ë¸Œë¼ì§ˆ ì‹ ê·œì„ ë¬¼ ìƒìž
 
 #define	II_SYS_SYS_SCR_BX_PET_DOG1_7_1	26816
 #define	II_SYS_SYS_SCR_BX_EVE_MPOLICE30_1	26817
@@ -5454,7 +5454,7 @@
 #define	II_HOU_FUR_TAB_BASIC03_1	26838
 #define	II_HOU_FUR_CAB_BASIC03_1	26839
 
-//±¹°¡º° Ç³¼±
+//êµ­ê°€ë³„ í’ì„ 
 #define	II_SYS_SYS_EVE_BALLOON_GP	26840
 #define	II_SYS_SYS_EVE_BALLOON_JP	26841
 #define	II_SYS_SYS_EVE_BALLOON_PHP	26842
@@ -5464,7 +5464,7 @@
 #define	II_SYS_SYS_EVE_BALLOON_SPA	26846
 #define	II_SYS_SYS_EVE_BALLOON_HK	26847
 
-//Å×½ºÆ®¿ë ºñ½º
+//í…ŒìŠ¤íŠ¸ìš© ë¹„ìŠ¤
 #define	II_SYS_VIS_LV1_STR		26848
 #define	II_SYS_VIS_LV1_DEX		26849
 #define	II_SYS_VIS_LV1_INT		26850
@@ -5476,12 +5476,12 @@
 
 #define	II_SYS_SYS_VIS_KEY01		26855
 
-// »çÁ¦ÀÇ Á¤ ¹öÇÁ
+// ì‚¬ì œì˜ ì • ë²„í”„
 #define	II_TS_BUFF_POWER_LOVE01		26856
 #define	II_TS_BUFF_POWER_LOVE02		26857
 #define	II_TS_BUFF_POWER_LOVE03		26858
 
-// 1Â÷ ºñ½º
+// 1ì°¨ ë¹„ìŠ¤
 #define	II_SYS_VIS_LV1_CRIRATE		26859
 #define	II_SYS_VIS_LV1_BLOMELEE		26860
 #define	II_SYS_VIS_LV1_BLRANGE		26861
@@ -5522,7 +5522,7 @@
 #define	II_SYS_VIS_LV3_IBLIS		26896
 #define	II_SYS_VIS_LV3_SHADE		26897
 
-//2010³â ÇÊ¸®ÇÉ FITA ÀÌº¥Æ®
+//2010ë…„ í•„ë¦¬í•€ FITA ì´ë²¤íŠ¸
 #define	II_SYS_SYS_EVE_FITAPIECEF	26898
 #define	II_SYS_SYS_EVE_FITAPIECEI	26899
 #define	II_SYS_SYS_EVE_FITAPIECET	26900
@@ -5531,7 +5531,7 @@
 #define	II_SYS_SYS_SCR_BXFITA01		26903
 #define	II_SYS_SYS_SCR_BXFITA02		26904
 
-//2010³â ÀÏº» ÀýºÐ ÀÌº¥Æ®
+//2010ë…„ ì¼ë³¸ ì ˆë¶„ ì´ë²¤íŠ¸
 #define	II_SYS_SYS_EVE_SARDINE		26905
 #define	II_SYS_SYS_EVE_MELONSODA	26906
 #define	II_SYS_SYS_SCR_BXMMUAYTHAI01_7	26907
@@ -5602,11 +5602,11 @@
 
 #define	II_SYS_SYS_SCR_AWAKESAFE		26961
 
-//¶ó¸£Å×½Ã¾Æ
+//ë¼ë¥´í…Œì‹œì•„
 #define	II_SYS_TICKET_RARTESIA01		26962	
 #define	II_SYS_TICKET_RARTESIA02		26963
 
-//¾ÆÅ©·Îºª ÁÖ¸ù ÆÐÅ°Áö
+//ì•„í¬ë¡œë²³ ì£¼ëª½ íŒ¨í‚¤ì§€
 #define II_ARM_M_RAG_HELMET05				26964
 #define II_ARM_M_RAG_SUIT05					26965
 #define II_ARM_M_RAG_GAUNTLET05				26966
@@ -5616,7 +5616,7 @@
 #define II_ARM_F_RAG_GAUNTLET05				26970
 #define II_ARM_F_RAG_BOOTS05				26971
 
-//¾î½Ã½ºÆ® ÇöÀÚ ÆÐÅ°Áö
+//ì–´ì‹œìŠ¤íŠ¸ í˜„ìž íŒ¨í‚¤ì§€
 #define II_ARM_M_RIN_BOOTS05				26972
 #define II_ARM_M_RIN_HELMET05				26973
 #define II_ARM_M_RIN_SUIT05					26974
@@ -5631,7 +5631,7 @@
 
 
 
-//¼±¹°»óÀÚ ¾ÆÀÌÅÛ
+//ì„ ë¬¼ìƒìž ì•„ì´í…œ
 #define II_SYS_SYS_EVE_COMMERGIFTBOX1    30001
 #define II_SYS_SYS_EVE_COMMERGIFTBOX2    30002
 #define II_SYS_SYS_EVE_COMMERGIFTBOX3    30003 // 20060203 ByDonny
@@ -5640,33 +5640,33 @@
 #define II_SYS_SYS_EVE_COMMERGIFTBOX6	 30008 // 20060413/ Bc
 #define II_SYS_SYS_EVE_COMMERGIFTBOX7    30009 // 20060616
 #define II_SYS_SYS_EVE_COMMERGIFTBOX8    30010 // 20060711
-#define II_SYS_SYS_EVE_COMMERGIFTBOX9    30021 // ½ÃÀÌ¶ó ¼±¹°»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX10   30022 // ¸ñ¸¶ ¼±¹°»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX11   30023 // ±ÙµÎ¿î ¼±¹°»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX12   30029 // ·¹ÀÌ¾Ö³ª Æê ¹Ú½º
-#define II_SYS_SYS_EVE_COMMERGIFTBOX13   30030 // ¶ó¿ïÇÁ Æê ¹Ú½º
-#define II_SYS_SYS_EVE_COMMERGIFTBOX14   30031 // ·çÀÌ¾Æ Æê ¹Ú½º
-#define II_SYS_SYS_EVE_COMMERGIFTBOX15   30032 // ¾ÆÀÌ¹ÙÆ® Æê ¹Ú½º
-#define II_SYS_SYS_EVE_COMMERGIFTBOX16   30033 // ½º³ë¿ìº¸µå ¼±¹°»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX17   30034 // ¸¶¹ýÀÇ ¾çÅºÀÚ ¼±¹°»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX18   30043 // ½º³ë¿ìº¸´õ ¼±¹°»óÀÚ(±¹³»¿ë)
-#define II_SYS_SYS_EVE_COMMERGIFTBOX19   30044 // ½Å¹åµå ¼±¹°»óÀÚ(±¹³»¿ë)
-#define II_SYS_SYS_EVE_COMMERGIFTBOX20   30045 // »¡°£ º¹ÁÖ¸Ó´Ï(´ë¸¸¿ë)
-#define II_SYS_SYS_EVE_COMMERGIFTBOX21   30046 // Çà¿îÀÇ °¡¸é»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX22   30047 // Çà¿îÀÇ ¸ÁÅä»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX23   30048 // Çà¿îÀÇ ¾×¼¼¼­¸®»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX24   30049 // Çà¿îÀÇ Çì¶ó»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX25   30050 // Çà¿îÀÇ µå·¡°ï½ºÆ½»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX26   30051 // Çà¿îÀÇ ½º³ë¿ìº¸µå»óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX27   30052 // Çà¿îÀÇ ¾çÅºÀÚ»óÀÚ
+#define II_SYS_SYS_EVE_COMMERGIFTBOX9    30021 // ì‹œì´ë¼ ì„ ë¬¼ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX10   30022 // ëª©ë§ˆ ì„ ë¬¼ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX11   30023 // ê·¼ë‘ìš´ ì„ ë¬¼ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX12   30029 // ë ˆì´ì• ë‚˜ íŽ« ë°•ìŠ¤
+#define II_SYS_SYS_EVE_COMMERGIFTBOX13   30030 // ë¼ìš¸í”„ íŽ« ë°•ìŠ¤
+#define II_SYS_SYS_EVE_COMMERGIFTBOX14   30031 // ë£¨ì´ì•„ íŽ« ë°•ìŠ¤
+#define II_SYS_SYS_EVE_COMMERGIFTBOX15   30032 // ì•„ì´ë°”íŠ¸ íŽ« ë°•ìŠ¤
+#define II_SYS_SYS_EVE_COMMERGIFTBOX16   30033 // ìŠ¤ë…¸ìš°ë³´ë“œ ì„ ë¬¼ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX17   30034 // ë§ˆë²•ì˜ ì–‘íƒ„ìž ì„ ë¬¼ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX18   30043 // ìŠ¤ë…¸ìš°ë³´ë” ì„ ë¬¼ìƒìž(êµ­ë‚´ìš©)
+#define II_SYS_SYS_EVE_COMMERGIFTBOX19   30044 // ì‹ ë°§ë“œ ì„ ë¬¼ìƒìž(êµ­ë‚´ìš©)
+#define II_SYS_SYS_EVE_COMMERGIFTBOX20   30045 // ë¹¨ê°„ ë³µì£¼ë¨¸ë‹ˆ(ëŒ€ë§Œìš©)
+#define II_SYS_SYS_EVE_COMMERGIFTBOX21   30046 // í–‰ìš´ì˜ ê°€ë©´ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX22   30047 // í–‰ìš´ì˜ ë§í† ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX23   30048 // í–‰ìš´ì˜ ì•¡ì„¸ì„œë¦¬ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX24   30049 // í–‰ìš´ì˜ í—¤ë¼ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX25   30050 // í–‰ìš´ì˜ ë“œëž˜ê³¤ìŠ¤í‹±ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX26   30051 // í–‰ìš´ì˜ ìŠ¤ë…¸ìš°ë³´ë“œìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX27   30052 // í–‰ìš´ì˜ ì–‘íƒ„ìžìƒìž
 #define II_SYS_SYS_SCR_BXMCAT01			 30053
 #define II_SYS_SYS_SCR_BXFCAT01			 30054
 
-//´ë¸¸ ¾È°æ ¹Ú½º
+//ëŒ€ë§Œ ì•ˆê²½ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXGLASS03		 30055
 #define II_SYS_SYS_SCR_BXGLASS04		 30056
 
-//ÇØ¿Ü 8Â÷ ÇÈ½ºÀü ¿äÃ» ¾ÆÀÌÅÛ
+//í•´ì™¸ 8ì°¨ í”½ìŠ¤ì „ ìš”ì²­ ì•„ì´í…œ
 #define II_CHR_SYS_SCR_PSKILLFULL1		30057
 #define II_CHR_SYS_SCR_UPCUTSTONE01		30058
 #define II_SYS_SYS_SCR_BXMBEGINNER01	        30059
@@ -5678,7 +5678,7 @@
 #define II_SYS_SYS_SCR_BXMASK03			30065
 #define II_SYS_SYS_SCR_BXMASK04			30066
 
-//ÇÊ¸®ÇÉ 1Â÷ ³×½½·¹ ÀÌº¥Æ®
+//í•„ë¦¬í•€ 1ì°¨ ë„¤ìŠ¬ë ˆ ì´ë²¤íŠ¸
 #define	II_SYS_SYS_EVE_COFFEE			30067
 #define	II_SYS_SYS_EVE_CREAMER			30068
 #define	II_SYS_SYS_EVE_SUGAR			30069
@@ -5687,14 +5687,14 @@
 #define	II_SYS_SYS_EVE_NESCAFE02		30072
 #define	II_SYS_SYS_EVE_NESCAFE03		30073
 
-//´ë¸¸ Àü¿ë ½ÃÀÏ¶ó ¹ÙÀÌÅ©
+//ëŒ€ë§Œ ì „ìš© ì‹œì¼ë¼ ë°”ì´í¬
 #define II_SYS_SYS_SCR_BXBIKE01		30074
 
-//2007³âÀÏº»Ä¥¼®ÀÌº¥Æ®
+//2007ë…„ì¼ë³¸ì¹ ì„ì´ë²¤íŠ¸
 #define II_SYS_SYS_SCR_BXHEART01	30075
 #define II_SYS_SYS_SCR_BXLOVE01		30076
 
-//À¯Ä«Å¸2007
+//ìœ ì¹´íƒ€2007
 #define II_ARM_M_CHR_YUKATA03SUIT	30077
 #define II_ARM_M_CHR_YUKATA03SHOES     	30078
 #define II_SYS_SYS_SCR_BXMYUKATA2007SET	30079
@@ -5702,7 +5702,7 @@
 #define II_ARM_F_CHR_YUKATA03SHOES     	30081
 #define II_SYS_SYS_SCR_BXFYUKATA2007SET	30082
 
-//2007 ¼ö¿µº¹
+//2007 ìˆ˜ì˜ë³µ
 #define II_ARM_F_CHR_SWIM02UPPER      	30083
 #define II_ARM_F_CHR_SWIM02FOOT      	30084
 #define II_ARM_F_CHR_SWIM03UPPER     	30085
@@ -5734,13 +5734,13 @@
 #define II_SYS_SYS_SCR_BXM_SWIM04SET	30110
 #define II_SYS_SYS_SCR_BXM_SWIM05SET	30111
 #define II_SYS_SYS_SCR_BXM_SWIM06SET	30112
-#define II_RID_RID_BOR_RIDINGCLOUD02	30113 // ¿¬È«¿î
-#define II_RID_RID_BOR_RIDINGCLOUD03	30114 // Ãµ»ó¿î
-#define II_SYS_SYS_SCR_GET01		30115 // È¹µæÀÇ µÎ·ç¸¶¸®(ÇÏ±Þ)
-#define II_SYS_SYS_SCR_GET02		30116 // È¹µæÀÇ µÎ·ç¸¶¸®(»ó±Þ)
-#define II_RID_RID_BOR_RIDINGCLOUD04	30117 // ÀûÇ÷¿î 
+#define II_RID_RID_BOR_RIDINGCLOUD02	30113 // ì—°í™ìš´
+#define II_RID_RID_BOR_RIDINGCLOUD03	30114 // ì²œìƒìš´
+#define II_SYS_SYS_SCR_GET01		30115 // íšë“ì˜ ë‘ë£¨ë§ˆë¦¬(í•˜ê¸‰)
+#define II_SYS_SYS_SCR_GET02		30116 // íšë“ì˜ ë‘ë£¨ë§ˆë¦¬(ìƒê¸‰)
+#define II_RID_RID_BOR_RIDINGCLOUD04	30117 // ì í˜ˆìš´ 
 
-//±¹³» ºñÇà ¾ÆÀÌÅÛ À¯Áö¿ë
+//êµ­ë‚´ ë¹„í–‰ ì•„ì´í…œ ìœ ì§€ìš©
 #define II_RID_RID_STI_BIKE_S		30118
 #define II_RID_RID_STI_BIKE2_S		30119
 #define II_RID_RID_BOR_TIGER_S		30120
@@ -5759,18 +5759,18 @@
 #define II_SYS_SYS_EVE_COMMERGIFTBOX26_S	30132
 #define II_SYS_SYS_EVE_COMMERGIFTBOX27_S	30133
 
-// 2007³â ±¹³» ÀÌº¥Æ® ¾ÆÀÌÅÛ
+// 2007ë…„ êµ­ë‚´ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_EVE_POTION			30134
 #define II_SYS_SYS_EVE_ENCHANT			30135
 #define II_SYS_SYS_EVE_DUAL			30136
 
-// 2007 ÀÏº» Â¦È¦¼ö »óÀÚ ÀÌº¥Æ®
-#define II_SYS_SYS_EVE_NUMBERBOX1J		30137	// È¦¼ö »óÀÚ	// µå·Ó		// propEvent.inc
-#define II_SYS_SYS_EVE_NUMBERBOX2J		30138	// Â¦¼ö »óÀÚ	// ÆÇ¸Å		// IK3_EVENTSUB	// 190
-// 2007 ´ë¸¸ »ç¶ûÀÇ ¼±¹°»óÀÚ 
+// 2007 ì¼ë³¸ ì§í™€ìˆ˜ ìƒìž ì´ë²¤íŠ¸
+#define II_SYS_SYS_EVE_NUMBERBOX1J		30137	// í™€ìˆ˜ ìƒìž	// ë“œë¡­		// propEvent.inc
+#define II_SYS_SYS_EVE_NUMBERBOX2J		30138	// ì§ìˆ˜ ìƒìž	// íŒë§¤		// IK3_EVENTSUB	// 190
+// 2007 ëŒ€ë§Œ ì‚¬ëž‘ì˜ ì„ ë¬¼ìƒìž 
 #define II_SYS_SYS_SCR_BXLOVE02			30139
 
-//ÇÊ¸®ÇÉ 2,3Â÷ ³×½½·¹ ÀÌº¥Æ®
+//í•„ë¦¬í•€ 2,3ì°¨ ë„¤ìŠ¬ë ˆ ì´ë²¤íŠ¸
 #define	II_SYS_SYS_EVE_NESCAFE04		30141
 #define	II_SYS_SYS_EVE_NESCAFE05		30142
 #define	II_SYS_SYS_EVE_NESCAFE06		30143
@@ -5779,68 +5779,68 @@
 #define II_RID_RID_BOA_NESCAFE03		30146
 #define II_RID_RID_STI_NESCAFE01		30147
 
-// ESÁõÆøÀÇ µÎ·ç¸¶¸®(S)
+// ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬(S)
 #define II_SYS_SYS_SCR_AMPESS			30148
 #define II_SYS_SYS_SCR_AMPESS1			30149
 #define II_SYS_SYS_SCR_AMPESS2			30150
 
-#define II_CHR_SYS_SCR_RESTATE_STR		30151  // ¸®½ºÅ×Æ®(Èû)
-#define II_CHR_SYS_SCR_RESTATE_DEX		30152  // ¸®½ºÅ×Æ®(¹ÎÃ¸)
-#define II_CHR_SYS_SCR_RESTATE_STA		30153  // ¸®½ºÅ×Æ®(Ã¼·Â)
-#define II_CHR_SYS_SCR_RESTATE_INT		30154  // ¸®½ºÅ×Æ®(Áö´É)
+#define II_CHR_SYS_SCR_RESTATE_STR		30151  // ë¦¬ìŠ¤í…ŒíŠ¸(íž˜)
+#define II_CHR_SYS_SCR_RESTATE_DEX		30152  // ë¦¬ìŠ¤í…ŒíŠ¸(ë¯¼ì²©)
+#define II_CHR_SYS_SCR_RESTATE_STA		30153  // ë¦¬ìŠ¤í…ŒíŠ¸(ì²´ë ¥)
+#define II_CHR_SYS_SCR_RESTATE_INT		30154  // ë¦¬ìŠ¤í…ŒíŠ¸(ì§€ëŠ¥)
 
-// 07³â ±¹³» Ãß¼® ÀÌº¥Æ®
+// 07ë…„ êµ­ë‚´ ì¶”ì„ ì´ë²¤íŠ¸
 #define II_SYS_SYS_SCR_BXCHUSEOK01		30155
 #define II_SYS_SYS_SCR_BXCHUSEOK02		30156
 
-// ÇØ¿Ü¿äÃ» ¿¬È«¿î ¹Ú½º
+// í•´ì™¸ìš”ì²­ ì—°í™ìš´ ë°•ìŠ¤
 #define II_SYS_SYS_EVE_COMMERGIFTBOX28	30157
 
-// 07³â ±¹³» ºñ°øÁ¤ Àç·á¸¦ »ç¼öÇÏ¶ó ÀÌº¥Æ®
+// 07ë…„ êµ­ë‚´ ë¹„ê³µì • ìž¬ë£Œë¥¼ ì‚¬ìˆ˜í•˜ë¼ ì´ë²¤íŠ¸
 #define II_SYS_SYS_EVE_STUFF01		30158
 #define II_SYS_SYS_EVE_STRANGEBOX01	30159
 #define II_SYS_SYS_EVE_STRANGEBOX02	30160
 #define II_SYS_SYS_EVE_STRANGEBOX03	30161
 
-// ÀÏº» ¿äÃ» Æê ¹Ú½º
+// ì¼ë³¸ ìš”ì²­ íŽ« ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_BXDOG1		30162
 #define	II_SYS_SYS_SCR_BXCAT1		30163
 #define	II_SYS_SYS_SCR_BXFROG		30164
 #define	II_SYS_SYS_SCR_BXHAMBURGER	30165
 #define	II_SYS_SYS_SCR_BXTURTLE		30166
 
-#define	II_SYS_SYS_SCR_BXSMELTING01	30167  //Á¦·Ã¼¼Æ®
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX29	30168  //±Í¿©¿î ÇÜ½ºÅÍ ¹Ú½º
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX30	30169  //4ÁÖ³â ±â³ä Çà¿î »óÀÚ
+#define	II_SYS_SYS_SCR_BXSMELTING01	30167  //ì œë ¨ì„¸íŠ¸
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX29	30168  //ê·€ì—¬ìš´ í–„ìŠ¤í„° ë°•ìŠ¤
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX30	30169  //4ì£¼ë…„ ê¸°ë… í–‰ìš´ ìƒìž
 
-#define	II_SYS_SYS_EVE_BXCOMEBACK01		30170  //ÀÏº» ÄÄ¹é ÀÌº¥Æ®
+#define	II_SYS_SYS_EVE_BXCOMEBACK01		30170  //ì¼ë³¸ ì»´ë°± ì´ë²¤íŠ¸
 
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX31	30171  //´ë¸¸ 2008³â º¹ ÁÖ¸Ó´Ï
-#define	II_SYS_SYS_EVE_BXJULBUN			30172  //ÀÏº» ÀýºÐ ¹Ú½º
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX31	30171  //ëŒ€ë§Œ 2008ë…„ ë³µ ì£¼ë¨¸ë‹ˆ
+#define	II_SYS_SYS_EVE_BXJULBUN			30172  //ì¼ë³¸ ì ˆë¶„ ë°•ìŠ¤
 
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX32	30173  //ÀÏº» Æê ¹Ú½º(ÀÛÀº ¹Ì¾Æ)
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX33	30174  //ÀÏº» Æê ¹Ú½º(ÀÛÀº ¸ÞÀÌµå Ä«µåÆÛÆê)
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX32	30173  //ì¼ë³¸ íŽ« ë°•ìŠ¤(ìž‘ì€ ë¯¸ì•„)
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX33	30174  //ì¼ë³¸ íŽ« ë°•ìŠ¤(ìž‘ì€ ë©”ì´ë“œ ì¹´ë“œí¼íŽ«)
 
-#define	II_SYS_SYS_EVE_BXFLOVE			30175  //ÀÏº» »ç¶ûÀÇ °í¹é ¹Ú½º(¿©ÀÚ¿ë)
-#define	II_SYS_SYS_EVE_BXMLOVE			30176  //ÀÏº» »ç¶ûÀÇ °í¹é ¹Ú½º(³²ÀÚ¿ë)
+#define	II_SYS_SYS_EVE_BXFLOVE			30175  //ì¼ë³¸ ì‚¬ëž‘ì˜ ê³ ë°± ë°•ìŠ¤(ì—¬ìžìš©)
+#define	II_SYS_SYS_EVE_BXMLOVE			30176  //ì¼ë³¸ ì‚¬ëž‘ì˜ ê³ ë°± ë°•ìŠ¤(ë‚¨ìžìš©)
 
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX34	30177  //ÀÏº» Æê ¹Ú½º(¸»)
-#define II_SYS_SYS_SCR_BXHWANGWOO01     30178  //´ë¸¸ ¿äÃ» º¸»ó ¾ÆÀÌÅÛ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX35	30179  //ÀÏº» Æê ¹Ú½º(ºñ±Û)
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX34	30177  //ì¼ë³¸ íŽ« ë°•ìŠ¤(ë§)
+#define II_SYS_SYS_SCR_BXHWANGWOO01     30178  //ëŒ€ë§Œ ìš”ì²­ ë³´ìƒ ì•„ì´í…œ
+#define II_SYS_SYS_EVE_COMMERGIFTBOX35	30179  //ì¼ë³¸ íŽ« ë°•ìŠ¤(ë¹„ê¸€)
 
 #define II_SYS_SYS_EVE_STRANGEBOX01_1	30180
 #define II_SYS_SYS_EVE_STRANGEBOX03_1	30181
 
-#define II_SYS_SYS_EVE_COMMERGIFTBOX36	30182  //¸ÞÅ×¿À ¹ÙÀÌÅ© ¼±¹° »óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX37	30183  //Å¬¶ô ¹ÙÀÌÅ© ¼±¹° »óÀÚ
-#define II_SYS_SYS_EVE_COMMERGIFTBOX38	30184  //Çì¶ó ¹ÙÀÌÅ© ¼±¹° »óÀÚ 2
-#define II_SYS_SYS_EVE_COMMERGIFTBOX39	30185  //½ÃÀÏ¶ó ¹ÙÀÌÅ© ¼±¹° »óÀÚ 2
-#define II_SYS_SYS_EVE_COMMERGIFTBOX40	30186  //¸ñ¸¶ ¼±¹° »óÀÚ 2
-#define II_SYS_SYS_EVE_COMMERGIFTBOX41	30187  //¸¶¹ýÀÇ ¾çÅºÀÚ ¼±¹° »óÀÚ 2
+#define II_SYS_SYS_EVE_COMMERGIFTBOX36	30182  //ë©”í…Œì˜¤ ë°”ì´í¬ ì„ ë¬¼ ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX37	30183  //í´ë½ ë°”ì´í¬ ì„ ë¬¼ ìƒìž
+#define II_SYS_SYS_EVE_COMMERGIFTBOX38	30184  //í—¤ë¼ ë°”ì´í¬ ì„ ë¬¼ ìƒìž 2
+#define II_SYS_SYS_EVE_COMMERGIFTBOX39	30185  //ì‹œì¼ë¼ ë°”ì´í¬ ì„ ë¬¼ ìƒìž 2
+#define II_SYS_SYS_EVE_COMMERGIFTBOX40	30186  //ëª©ë§ˆ ì„ ë¬¼ ìƒìž 2
+#define II_SYS_SYS_EVE_COMMERGIFTBOX41	30187  //ë§ˆë²•ì˜ ì–‘íƒ„ìž ì„ ë¬¼ ìƒìž 2
 #define II_SYS_SYS_EVE_COMMERGIFTBOX42	30188  //Animal Week Box
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX43	30189  // ÀÏ¹Ý º¸È£ÀÇ µÎ·ç¸¶¸® ¼±¹° »óÀÚ
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX44	30190  // ¸ÞÅ×¿À ¹ÙÀÌÅ© ¼±¹° »óÀÚ2
-#define	II_SYS_SYS_EVE_COMMERGIFTBOX45	30191  // È¯¿µ ¼±¹° »óÀÚ
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX43	30189  // ì¼ë°˜ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ ì„ ë¬¼ ìƒìž
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX44	30190  // ë©”í…Œì˜¤ ë°”ì´í¬ ì„ ë¬¼ ìƒìž2
+#define	II_SYS_SYS_EVE_COMMERGIFTBOX45	30191  // í™˜ì˜ ì„ ë¬¼ ìƒìž
 
 #define	II_SYS_SYS_SCR_BXBIKE02			30192
 
@@ -5857,7 +5857,7 @@
 #define	II_SYS_SYS_EVE_COMMERGIFTBOX49		30301
 #define	II_SYS_SYS_EVE_COMMERGIFTBOX50		30302
 
-#define II_SYS_SYS_SCR_BXRAINBOW01              30303 // ·¹ÀÎº¸¿ì ¹Ú½º
+#define II_SYS_SYS_SCR_BXRAINBOW01              30303 // ë ˆì¸ë³´ìš° ë°•ìŠ¤
 
 #define	II_SYS_SYS_EVE_COMMERGIFTBOX51		30304
 #define	II_SYS_SYS_EVE_BXDRAW01			30305
@@ -5875,7 +5875,7 @@
 #define	II_SYS_SYS_EVE_COMMERGIFTBOX60		30316
 #define	II_SYS_SYS_EVE_COMMERGIFTBOX61		30317
 #define	II_SYS_SYS_EVE_COMMERGIFTBOX62		30318
-//2009 È«Äá ·¹½ÃÇÇ ÀÌº¥Æ®
+//2009 í™ì½© ë ˆì‹œí”¼ ì´ë²¤íŠ¸
 #define	II_SYS_SYS_QUE_COOKINGBOOK01		30319
 #define	II_SYS_SYS_QUE_COOKINGBOOK02		30320
 #define	II_SYS_SYS_QUE_COOKINGBOOK03		30321
@@ -5925,22 +5925,22 @@
 #define	II_SYS_SYS_SCR_BXLVUP60		20015
 #define	II_SYS_SYS_SCR_BXLVUP80		20016
 
-// ´ë¸¸ ´ëÃ¼ ¾ÆÀÌÅÛ
+// ëŒ€ë§Œ ëŒ€ì²´ ì•„ì´í…œ
 #define	II_SYS_SYS_SCR_BXMAKEOVER	20017
-// ÇÊ¸®ÇÉ ´ëÃ¼ ¾ÆÀÌÅÛ
+// í•„ë¦¬í•€ ëŒ€ì²´ ì•„ì´í…œ
 #define	II_SYS_SYS_SCR_BX_SCROLL	20018
 
-// 12Â÷ ±ºÁÖ
+// 12ì°¨ êµ°ì£¼
 #define	II_SYS_SYS_LS_CHEERING		20019
 #define	II_SYS_SYS_LS_BLESSING		20020
 #define	II_SYS_SYS_LS_LOVE		20021
 #define	II_SYS_SYS_LS_SHOUT		20022
 #define	II_SYS_SYS_LS_RAGE		20023
 
-#define	II_SYS_SYS_SCR_PETAWAKE		20024 // ¸®¾îÆê °¢¼ºÀÇ µÎ·ç¸¶¸®
-#define	II_SYS_SYS_SCR_PETAWAKECANCEL	20025 // ¸®¾îÆê °¢¼ºÀÇ µÎ·ç¸¶¸®
+#define	II_SYS_SYS_SCR_PETAWAKE		20024 // ë¦¬ì–´íŽ« ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
+#define	II_SYS_SYS_SCR_PETAWAKECANCEL	20025 // ë¦¬ì–´íŽ« ê°ì„±ì˜ ë‘ë£¨ë§ˆë¦¬
 
-// ±ºÁÖ Àü¿ë ÀÇ»ó(À§¾ö¼Â)
+// êµ°ì£¼ ì „ìš© ì˜ìƒ(ìœ„ì—„ì…‹)
 #define II_ARM_M_CHR_MAJESTY01HAT	20026
 #define II_ARM_M_CHR_MAJESTY01SUIT	20027
 #define II_ARM_M_CHR_MAJESTY01GLOVES	20028
@@ -5954,17 +5954,17 @@
 
 #define	II_SYS_SYS_VOTE_THANKS		20036
 
-#define	II_SYS_SYS_SCR_SOKCHANG		20037 // ¼Ó¼º º¯°æÀÇ µÎ·ç¸¶¸®
-#define	II_CHR_FOO_COO_GRILLEDEEL_1	20038 // ÀÌº¥Æ®¿ë Àå¾î ±¸ÀÌ
+#define	II_SYS_SYS_SCR_SOKCHANG		20037 // ì†ì„± ë³€ê²½ì˜ ë‘ë£¨ë§ˆë¦¬
+#define	II_CHR_FOO_COO_GRILLEDEEL_1	20038 // ì´ë²¤íŠ¸ìš© ìž¥ì–´ êµ¬ì´
 
-#define	II_SYS_SYS_SCR_PET_NAMING	20039	// Æê ÀÛ¸íÀÇ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_BAGBAG15         20040   // ÈÞ´ë °¡¹æ »ç¿ë±Ç15ÀÏ
+#define	II_SYS_SYS_SCR_PET_NAMING	20039	// íŽ« ìž‘ëª…ì˜ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_BAGBAG15         20040   // íœ´ëŒ€ ê°€ë°© ì‚¬ìš©ê¶Œ15ì¼
 
-#define II_SYS_SYS_SCR_BXBIKE03		20041	// ¹ÙÀÌÅ© »óÀÚ - ¸ÞÅ×¿À ¹ÙÀÌÅ©(±×¸°) 7ÀÏ
+#define II_SYS_SYS_SCR_BXBIKE03		20041	// ë°”ì´í¬ ìƒìž - ë©”í…Œì˜¤ ë°”ì´í¬(ê·¸ë¦°) 7ì¼
 
-#define II_SYS_SYS_SCR_BXGUILDWAR01	20042	//	ÇÊ¸®ÇÉ ±æµå´ëÀü ¼Ò¸ð¼º ¾ÆÀÌÅÛ »óÀÚ
+#define II_SYS_SYS_SCR_BXGUILDWAR01	20042	//	í•„ë¦¬í•€ ê¸¸ë“œëŒ€ì „ ì†Œëª¨ì„± ì•„ì´í…œ ìƒìž
 
-//2009³â ÀÏº» Ä¥¼® ÀÌº¥Æ®
+//2009ë…„ ì¼ë³¸ ì¹ ì„ ì´ë²¤íŠ¸
 #define II_SYS_SYS_QUE_TISSUE01			20043
 #define II_ARM_F_CHR_YUKATA05SUIT		20044
 #define II_ARM_F_CHR_YUKATA05GLOVES		20045
@@ -5979,7 +5979,7 @@
 #define II_SYS_SYS_SCR_ICEJUMP			20054
 #define II_SYS_SYS_SCR_BXNATURE01		20055
 
-//2009³â ÀÏº» 5ÁÖ³â ±â³ä ÀÌº¥Æ®
+//2009ë…„ ì¼ë³¸ 5ì£¼ë…„ ê¸°ë… ì´ë²¤íŠ¸
 #define II_SYS_SYS_EVE_BOBOKUEX			20056
 #define II_SYS_SYS_EVE_HURAGIA			20057
 #define II_SYS_SYS_EVE_MERONCOOKIE		20058
@@ -5988,17 +5988,17 @@
 #define II_SYS_SYS_EVE_BXMERONBASKET	20061
 #define II_SYS_SYS_EVE_BXEXPERIENCE		20062
 
-//¹Ì±¹ ·¹º§¾÷ ÀÌº¥Æ® »óÀÚ
+//ë¯¸êµ­ ë ˆë²¨ì—… ì´ë²¤íŠ¸ ìƒìž
 
 #define II_SYS_SYS_SCR_BXLEVELUP01		20063
 #define II_SYS_SYS_SCR_BXLEVELUP02		20064
 #define II_SYS_SYS_SCR_BXLEVELUP03		20065
 #define II_SYS_SYS_SCR_BXLEVELUP04		20066
 
-// ±¹³» »çÁ¦ ½Ã½ºÅÛ º¸»ó ¾ÆÀÌÅÛ
+// êµ­ë‚´ ì‚¬ì œ ì‹œìŠ¤í…œ ë³´ìƒ ì•„ì´í…œ
 #define	II_SYS_SYS_SCR_BXTAEGUK01		20067
 
-// »þ¿ö°¡¿î ÄÚ½ºÆ¬
+// ìƒ¤ì›Œê°€ìš´ ì½”ìŠ¤íŠ¬
 #define	II_ARM_M_CHR_SHOWERHAT			20068
 #define	II_ARM_M_CHR_SHOWERSUIT			20069
 #define	II_ARM_M_CHR_SHOWERGLOVES		20070
@@ -6061,32 +6061,32 @@
 
 #define	II_SYS_SYS_SCR_BXPCZONE01		20114
 
-//±æµå ÇÏ¿ì½º °¡±¸
+//ê¸¸ë“œ í•˜ìš°ìŠ¤ ê°€êµ¬
 #define	II_GHOU_FUR_BED_WOOD01			20115
 #define	II_GHOU_FUR_TAB_WOOD01			20116
 
-//À¯·´ 14Â÷ ¾÷µ¥ÀÌÆ® ÀÌº¥Æ®
+//ìœ ëŸ½ 14ì°¨ ì—…ë°ì´íŠ¸ ì´ë²¤íŠ¸
 #define	II_SYS_SYS_EVE_CARLIC				20117
 #define	II_SYS_SYS_EVE_CROSS				20118
 #define	II_SYS_SYS_EVE_VANHARLENNECKLACE	20119
 #define II_SYS_SYS_SCR_BXALCHEMY			20120
 
-//¹Ì±¹ ¸ÁÅä ÄÜÅ×½ºÆ® ¾ÆÀÌÅÛ Ãß°¡
+//ë¯¸êµ­ ë§í†  ì½˜í…ŒìŠ¤íŠ¸ ì•„ì´í…œ ì¶”ê°€
 #define	II_ARM_S_CLO_CLO_STARCLOUD			20121
 #define	II_ARM_S_CLO_CLO_YINYANG			20122
 #define	II_ARM_S_CLO_CLO_TWINDRAGONS		20123
 
-//ÅÚ·¹Æ÷ÅÍ NPCÀÌ¿ë±Ç
+//í…”ë ˆí¬í„° NPCì´ìš©ê¶Œ
 #define II_GHOU_FUR_NPC_TELEPORTER			20124
 
-//³ªºñ³¯°³ 
+//ë‚˜ë¹„ë‚ ê°œ 
 #define II_RID_RID_WIN_BUTTERFLY01			20125
 #define II_RID_RID_WIN_BUTTERFLY02			20126
 #define II_RID_RID_WIN_BUTTERFLY03			20127
 #define II_RID_RID_WIN_BUTTERFLY04			20128
 #define II_RID_RID_WIN_BUTTERFLY05			20129
 
-//ÇÁ¸®ÇÁº¸µå(µ¶ÀÏ)
+//í”„ë¦¬í”„ë³´ë“œ(ë…ì¼)
 #define II_RID_RID_BOR_FLYFFGER				20130
 #define II_SYS_SYS_SCR_BXFLYFFGER01			20131
 
@@ -6134,12 +6134,12 @@
 
 #define	II_SYS_TICKET_GUILDHOUSE_COMEBACK01	20169
 
-//ÀÏº» Å©¸®½º¸¶½º ÀÌº¥Æ®
+//ì¼ë³¸ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì´ë²¤íŠ¸
 #define	II_SYS_SYS_EVE_FRUITOFHEART01		20170
 #define	II_SYS_SYS_SCR_BXCHARISTMASBLUE		20171
 #define	II_SYS_SYS_SCR_BXCHARISTMASRED		20172
 
-//À¯·´ Å©¸®½º¸¶½º ÀÌº¥Æ®
+//ìœ ëŸ½ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì´ë²¤íŠ¸
 
 #define	II_SYS_SYS_EVE_CHRISTMASBEESWAX01	20173
 #define	II_SYS_SYS_EVE_CHRISTMASGLASS01		20174
@@ -6357,7 +6357,7 @@
 #define	II_ARM_S_CLO_CLO_WORLDCUP_POR		20353
 #define	II_ARM_S_CLO_CLO_WORLDCUP_ZAF		20354
 
-//16Â÷ Ãß°¡ ¹«±â 6Á¾
+//16ì°¨ ì¶”ê°€ ë¬´ê¸° 6ì¢…
 
 #define	II_WEA_BOOK_BOKROMAIN				20355
 #define	II_ARM_ARM_SHI_ZEMBATO				20356 
@@ -6366,7 +6366,7 @@
 #define	II_ARM_ARM_SHI_SHESOUL				20359
 #define	II_WEA_SWO_SWDSOUL					20360
 
-// 16Â÷ º£È÷¸ð½º ¹«±â 12Á¾
+// 16ì°¨ ë² ížˆëª¨ìŠ¤ ë¬´ê¸° 12ì¢…
 
 #define	II_WEA_SWO_BEHESWORD					20361
 #define	II_WEA_SWT_BEHETWOSWORD					20362
@@ -6395,9 +6395,9 @@
 
 #define II_SYS_SYS_SCR_BXM_SWIM07SET02			20382
 #define II_SYS_SYS_SCR_BXF_SWIM09SET02			20383
-#define II_SYS_SYS_SCR_BXSUMMER			        20384 //¿©¸§»óÀÚ
+#define II_SYS_SYS_SCR_BXSUMMER			        20384 //ì—¬ë¦„ìƒìž
 
-#define II_SYS_SYS_SCR_BXSUMMER2				20385 //¿ÀÀÛ±³ ¿¬ÀÎÀÇ º¸¹° »óÀÚ
+#define II_SYS_SYS_SCR_BXSUMMER2				20385 //ì˜¤ìž‘êµ ì—°ì¸ì˜ ë³´ë¬¼ ìƒìž
 #define II_GEN_GEM_GEM_MAGPIEFEATHER			20386
 #define II_GEN_GEM_GEM_BROKENSTONE			    20387
 
@@ -6415,14 +6415,14 @@
 #define II_ARM_F_CHR_YUKATA06GLOVES				20398
 #define II_ARM_F_CHR_YUKATA06SHOES				20399
 #define II_SYS_SYS_SCR_BXFYUKATASET06			20400
-//ÇØÇÇÄÝ ÀÌº¥Æ®
+//í•´í”¼ì½œ ì´ë²¤íŠ¸
 #define II_SYS_SYS_SCR_BXHAPPYM1					20401
 #define II_SYS_SYS_SCR_BXHAPPYH2					20402
 
-//´ë¸¸ µå·¡°ï ³¯°³ »óÀÚ Ãß°¡
+//ëŒ€ë§Œ ë“œëž˜ê³¤ ë‚ ê°œ ìƒìž ì¶”ê°€
 #define II_SYS_SYS_SCR_BXDRAGONWING					20403
 
-//¹Ì±¹ ÀÇ»ó¼¼Æ® ¹Ú½º ¾ÆÀÌÅÛ Ãß°¡ º¯°æ
+//ë¯¸êµ­ ì˜ìƒì„¸íŠ¸ ë°•ìŠ¤ ì•„ì´í…œ ì¶”ê°€ ë³€ê²½
 #define II_SYS_SYS_SCR_BXMYUKATASET07					20404
 #define II_SYS_SYS_SCR_BXFYUKATASET07					20405
 
@@ -6430,67 +6430,67 @@
 #define	II_SYS_TICKET_BXGOLDEN						20407
 #define	II_SYS_TICKET_BXXBOX360						20408
 
-#define	II_SYS_SYS_EVE_BALLOON003						20409 //¿¹»Û ³ë¶û»ö Ç³¼±
-#define	II_SYS_SYS_EVE_BALLOON004						20410  //¿¹»Û ºÐÈ«»ö Ç³¼±
+#define	II_SYS_SYS_EVE_BALLOON003						20409 //ì˜ˆìœ ë…¸ëž‘ìƒ‰ í’ì„ 
+#define	II_SYS_SYS_EVE_BALLOON004						20410  //ì˜ˆìœ ë¶„í™ìƒ‰ í’ì„ 
 
-#define	II_SYS_SYS_SCR_BXITEMMANIA1						20411 //²ÇÂ¥·Î ¹ÞÀº ¼±¹° »óÀÚ
-#define	II_SYS_SYS_SCR_BXITEMMANIA2						20412  //¾öÃ»³­ ¼±¹° »óÀÚ
+#define	II_SYS_SYS_SCR_BXITEMMANIA1						20411 //ê½ì§œë¡œ ë°›ì€ ì„ ë¬¼ ìƒìž
+#define	II_SYS_SYS_SCR_BXITEMMANIA2						20412  //ì—„ì²­ë‚œ ì„ ë¬¼ ìƒìž
 
-//¹Ì±¹ ·¹º§¾÷ ÀÌº¥Æ® ÀÌº¥Æ®¿ë Àü¼³ÀÇ È²±Ý ¹«±â
-#define	II_WEA_SWO_LEAGENDG1						20413 //ÀÌº¥Æ®¿ë È²±Ý°Ë
-#define	II_WEA_SWT_LEAGENDG1						20414  //ÀÌº¥Æ®¿ë È²±Ý ´ë°Ë
-#define	II_WEA_AXE_LEAGENDG1						20415 //ÀÌº¥Æ®¿ë È²±Ý µµ³¢
-#define	II_WEA_AXT_LEAGENDG1						20416  //ÀÌº¥Æ®¿ë Ä¿´Ù¶õ È²±Ýµµ³¢
-#define	II_WEA_KNU_LEAGENDG1						20417 //ÀÌº¥Æ®¿ëÈ²±ÝÀå°©
-#define	II_WEA_CHE_LEAGENDG1						20418  //ÀÌº¥Æ®¿ëÈ²±Ý½ºÆ½
-#define	II_WEA_WAN_LEAGENDG1						20419 //ÀÌº¥Æ®¿ëÈ²±Ý¿Ïµå
-#define	II_WEA_STA_LEAGENDG1						20420  //ÀÌº¥Æ®¿ëÈ²±Ý½ºÅÂÇÁ
-#define	II_WEA_BOW_LEAGENDG1						20421 //ÀÌº¥Æ®¿ëÈ²±ÝÈ°
-#define	II_WEA_YOY_LEAGENDG1						20422  //ÀÌº¥Æ®¿ëÈ²±Ý¿ä¿ä
+//ë¯¸êµ­ ë ˆë²¨ì—… ì´ë²¤íŠ¸ ì´ë²¤íŠ¸ìš© ì „ì„¤ì˜ í™©ê¸ˆ ë¬´ê¸°
+#define	II_WEA_SWO_LEAGENDG1						20413 //ì´ë²¤íŠ¸ìš© í™©ê¸ˆê²€
+#define	II_WEA_SWT_LEAGENDG1						20414  //ì´ë²¤íŠ¸ìš© í™©ê¸ˆ ëŒ€ê²€
+#define	II_WEA_AXE_LEAGENDG1						20415 //ì´ë²¤íŠ¸ìš© í™©ê¸ˆ ë„ë¼
+#define	II_WEA_AXT_LEAGENDG1						20416  //ì´ë²¤íŠ¸ìš© ì»¤ë‹¤ëž€ í™©ê¸ˆë„ë¼
+#define	II_WEA_KNU_LEAGENDG1						20417 //ì´ë²¤íŠ¸ìš©í™©ê¸ˆìž¥ê°‘
+#define	II_WEA_CHE_LEAGENDG1						20418  //ì´ë²¤íŠ¸ìš©í™©ê¸ˆìŠ¤í‹±
+#define	II_WEA_WAN_LEAGENDG1						20419 //ì´ë²¤íŠ¸ìš©í™©ê¸ˆì™„ë“œ
+#define	II_WEA_STA_LEAGENDG1						20420  //ì´ë²¤íŠ¸ìš©í™©ê¸ˆìŠ¤íƒœí”„
+#define	II_WEA_BOW_LEAGENDG1						20421 //ì´ë²¤íŠ¸ìš©í™©ê¸ˆí™œ
+#define	II_WEA_YOY_LEAGENDG1						20422  //ì´ë²¤íŠ¸ìš©í™©ê¸ˆìš”ìš”
 
-//ÀÏº» ¹öÇÁ Æê ¹Ú½º Ãß°¡
-#define	II_SYS_SYS_SCR_BXRACCON						20423 //¹öÇÁ Æê ¹Ú½º[¿ë¸ÍÇÑ ¶óÄï]
+//ì¼ë³¸ ë²„í”„ íŽ« ë°•ìŠ¤ ì¶”ê°€
+#define	II_SYS_SYS_SCR_BXRACCON						20423 //ë²„í”„ íŽ« ë°•ìŠ¤[ìš©ë§¹í•œ ë¼ì¿¤]
 
-//Á¦·ÃÁ¤·É
+//ì œë ¨ì •ë ¹
 #define	II_PET_SMELTPIYO			20424
 #define	II_PET_SMELTUDI				20425
 
-//¾ÆÀÌÅÛ¸Þ´Ï¾Æ ½Å±ÔÀ¯Àú Áö±Þ¿ë ¾ç¿ì¸® Á¦ÀÛ
-#define	II_PET_SHEEP1						20426 //±Í¼Ó ¾ç¿ì¸®
+//ì•„ì´í…œë©”ë‹ˆì•„ ì‹ ê·œìœ ì € ì§€ê¸‰ìš© ì–‘ìš°ë¦¬ ì œìž‘
+#define	II_PET_SHEEP1						20426 //ê·€ì† ì–‘ìš°ë¦¬
 
-//ÀÏº» µå·¡°ï ³¯°³ ·£´ý ¹Ú½º
-#define	II_SYS_SYS_SCR_BXDRAGONWING1		20427 //µå·¡°ï ³¯°³ ·£´ý ¹Ú½º
+//ì¼ë³¸ ë“œëž˜ê³¤ ë‚ ê°œ ëžœë¤ ë°•ìŠ¤
+#define	II_SYS_SYS_SCR_BXDRAGONWING1		20427 //ë“œëž˜ê³¤ ë‚ ê°œ ëžœë¤ ë°•ìŠ¤
 
-//±¹³» Á¡ÇÎ ÀÌº¥Æ®
-#define	II_SYS_SYS_QUE_HOLYBRANCH01		20428 //¿µÇèÇÑ ³ª¹µ °¡Áö
-#define	II_SYS_SYS_SCR_BXREDEUSSEON		20429 //·¹µå½ã
-#define	II_SYS_SYS_SCR_BXMIRE			20430 //¹Ì·¹
-#define	II_SYS_SYS_SCR_BXAHINDEU		20431 //¾ÆÀÎµå
-#define	II_SYS_SYS_SCR_BXMYORANG		20432 //¹¦¶ûÀÇ ¼±¹° »óÀÚ
-//Á÷¾÷¹«±â»óÀÚ ¹× ±¸¼ºÇ°
-#define	II_SYS_SYS_SCR_BXGEOMSEOL		20433 //°Ë¼³ÀÇ ¼±¹°
-#define	II_SYS_SYS_SCR_BXJUMONG		20434 //ÁÖ¸ùÀÇ ¼±¹°
-#define	II_SYS_SYS_SCR_BXSAGE		20435 //ÇöÀÚÀÇ ¼±¹°
-#define	II_SYS_SYS_SCR_BXHARRY		20436 //ÇØ¸®ÀÇ ¼±¹°
-#define	II_WEA_SWO_SUHO1		20437 //°Ë¼³ÀÌ ÁØ ¼öÈ£ÀÇ °Ë
-#define	II_WEA_AXE_SUHO1		20438 //°Ë¼³ÀÌ ÁØ ¼öÈ£ÀÇ µµ³¢
-#define	II_WEA_BOW_SUHO1		20439 //ÁÖ¸ùÀÌ ÁØ ¼öÈ£ÀÇ È°
-#define	II_WEA_YOY_SUHO1		20440 //ÁÖ¸ùÀÌ ÁØ ¼öÈ£ÀÇ ¿ä¿ä
-#define	II_WEA_CHE_SUHO1		20441 //ÇöÀÚ°¡ ÁØ ¼öÈ£ÀÇ ½ºÆ½
-#define	II_WEA_KNU_SUHO1		20442 //ÇöÀÚ°¡ ÁØ ¼öÈ£ÀÇ ³ÊÅ¬
-#define	II_WEA_STA_SUHO1		20443 //ÇØ¸®°¡ ÁØ ¼öÈ£ÀÇ ½ºÅÂÇÁ
-#define	II_WEA_WAN_SUHO1		20444 //ÇØ¸®°¡ ÁØ ¼öÈ£ÀÇ ¿Ïµå
-#define	II_SYS_SYS_SCR_AMPES_MYORANGLINK		20445 //¹¦¶ûÀÌ ÁØ ESÁõÆøÀÇ µÎ·ç¸¶¸®
+//êµ­ë‚´ ì í•‘ ì´ë²¤íŠ¸
+#define	II_SYS_SYS_QUE_HOLYBRANCH01		20428 //ì˜í—˜í•œ ë‚˜ë­‡ ê°€ì§€
+#define	II_SYS_SYS_SCR_BXREDEUSSEON		20429 //ë ˆë“œì¬
+#define	II_SYS_SYS_SCR_BXMIRE			20430 //ë¯¸ë ˆ
+#define	II_SYS_SYS_SCR_BXAHINDEU		20431 //ì•„ì¸ë“œ
+#define	II_SYS_SYS_SCR_BXMYORANG		20432 //ë¬˜ëž‘ì˜ ì„ ë¬¼ ìƒìž
+//ì§ì—…ë¬´ê¸°ìƒìž ë° êµ¬ì„±í’ˆ
+#define	II_SYS_SYS_SCR_BXGEOMSEOL		20433 //ê²€ì„¤ì˜ ì„ ë¬¼
+#define	II_SYS_SYS_SCR_BXJUMONG		20434 //ì£¼ëª½ì˜ ì„ ë¬¼
+#define	II_SYS_SYS_SCR_BXSAGE		20435 //í˜„ìžì˜ ì„ ë¬¼
+#define	II_SYS_SYS_SCR_BXHARRY		20436 //í•´ë¦¬ì˜ ì„ ë¬¼
+#define	II_WEA_SWO_SUHO1		20437 //ê²€ì„¤ì´ ì¤€ ìˆ˜í˜¸ì˜ ê²€
+#define	II_WEA_AXE_SUHO1		20438 //ê²€ì„¤ì´ ì¤€ ìˆ˜í˜¸ì˜ ë„ë¼
+#define	II_WEA_BOW_SUHO1		20439 //ì£¼ëª½ì´ ì¤€ ìˆ˜í˜¸ì˜ í™œ
+#define	II_WEA_YOY_SUHO1		20440 //ì£¼ëª½ì´ ì¤€ ìˆ˜í˜¸ì˜ ìš”ìš”
+#define	II_WEA_CHE_SUHO1		20441 //í˜„ìžê°€ ì¤€ ìˆ˜í˜¸ì˜ ìŠ¤í‹±
+#define	II_WEA_KNU_SUHO1		20442 //í˜„ìžê°€ ì¤€ ìˆ˜í˜¸ì˜ ë„ˆí´
+#define	II_WEA_STA_SUHO1		20443 //í•´ë¦¬ê°€ ì¤€ ìˆ˜í˜¸ì˜ ìŠ¤íƒœí”„
+#define	II_WEA_WAN_SUHO1		20444 //í•´ë¦¬ê°€ ì¤€ ìˆ˜í˜¸ì˜ ì™„ë“œ
+#define	II_SYS_SYS_SCR_AMPES_MYORANGLINK		20445 //ë¬˜ëž‘ì´ ì¤€ ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬
 
-#define	II_SYS_SYS_SCR_BXGEOMSEOL1		20446 //°Ë¼³ÀÇ ¹æ¾î±¸ »óÀÚ³²
-#define	II_SYS_SYS_SCR_BXJUMONG1		20447 //ÁÖ¸ùÀÇ ¹æ¾î±¸ »óÀÚ³²
-#define	II_SYS_SYS_SCR_BXSAGE1		20448 //ÇöÀÚÀÇ ¹æ¾î±¸ »óÀÚ³²
-#define	II_SYS_SYS_SCR_BXHARRY1		20449 //ÇØ¸®ÀÇ ¹æ¾î±¸ »óÀÚ³²
-#define	II_SYS_SYS_SCR_BXGEOMSEOL2		20450 //°Ë¼³ÀÇ ¹æ¾î±¸ »óÀÚ¿©
-#define	II_SYS_SYS_SCR_BXJUMONG2		20451 //ÁÖ¸ùÀÇ ¹æ¾î±¸ »óÀÚ¿©
-#define	II_SYS_SYS_SCR_BXSAGE2		20452 //ÇöÀÚÀÇ ¹æ¾î±¸ »óÀÚ¿©
-#define	II_SYS_SYS_SCR_BXHARRY2		20453 //ÇØ¸®ÀÇ ¹æ¾î±¸ »óÀÚ¿©
-//¹æ¾î±¸ »óÀÚ ±¸¼ºÇ°
+#define	II_SYS_SYS_SCR_BXGEOMSEOL1		20446 //ê²€ì„¤ì˜ ë°©ì–´êµ¬ ìƒìžë‚¨
+#define	II_SYS_SYS_SCR_BXJUMONG1		20447 //ì£¼ëª½ì˜ ë°©ì–´êµ¬ ìƒìžë‚¨
+#define	II_SYS_SYS_SCR_BXSAGE1		20448 //í˜„ìžì˜ ë°©ì–´êµ¬ ìƒìžë‚¨
+#define	II_SYS_SYS_SCR_BXHARRY1		20449 //í•´ë¦¬ì˜ ë°©ì–´êµ¬ ìƒìžë‚¨
+#define	II_SYS_SYS_SCR_BXGEOMSEOL2		20450 //ê²€ì„¤ì˜ ë°©ì–´êµ¬ ìƒìžì—¬
+#define	II_SYS_SYS_SCR_BXJUMONG2		20451 //ì£¼ëª½ì˜ ë°©ì–´êµ¬ ìƒìžì—¬
+#define	II_SYS_SYS_SCR_BXSAGE2		20452 //í˜„ìžì˜ ë°©ì–´êµ¬ ìƒìžì—¬
+#define	II_SYS_SYS_SCR_BXHARRY2		20453 //í•´ë¦¬ì˜ ë°©ì–´êµ¬ ìƒìžì—¬
+//ë°©ì–´êµ¬ ìƒìž êµ¬ì„±í’ˆ
 #define II_ARM_M_BLA_SUIT05            		20454
 #define II_ARM_M_BLA_HELMET05           	20455
 #define II_ARM_M_BLA_GAUNTLET05             20456
@@ -6526,55 +6526,55 @@
 #define II_ARM_F_KIN_HELMET05               20483
 #define II_ARM_F_KIN_GAUNTLET05             20484
 #define II_ARM_F_KIN_BOOTS05                20485
-//¹Ù·ç³ªÀÇ °¡È£
+//ë°”ë£¨ë‚˜ì˜ ê°€í˜¸
 #define II_SYS_SYS_SCR_BARUNASMELPROT                20486
-//¹¦¶ûÀÌ ÁØ ºÎÈ­ÃËÁøÁ¦
+//ë¬˜ëž‘ì´ ì¤€ ë¶€í™”ì´‰ì§„ì œ
 #define II_SYS_SYS_SCR_PET_HATCH1                20487
-//ÇÇ³ÄÅ¸
+//í”¼ëƒíƒ€
 #define II_SYS_SYS_SCR_BXHAPPYBDAY                20488
-//´ë¸¸ Çà¿îÀÇ º¸¹° »óÀÚ
+//ëŒ€ë§Œ í–‰ìš´ì˜ ë³´ë¬¼ ìƒìž
 #define II_SYS_SYS_SCR_BXTREASURELUCK                20489
 
-//´ë¸¸ 4ÁÖ³â ¸ÁÅä
+//ëŒ€ë§Œ 4ì£¼ë…„ ë§í† 
 #define II_ARM_S_CLO_CLO_OMG1                20490
 #define II_ARM_S_CLO_CLO_OMG2                20491
 #define II_ARM_S_CLO_CLO_OMG3                20492
 #define II_ARM_S_CLO_CLO_ClOCHAMELEON1                20493
 #define II_ARM_S_CLO_CLO_ClOCHAMELEON2                20494
 #define II_ARM_S_CLO_CLO_ClOCHAMELEON3                20495
-//´ë¸¸ 4ÁÖ³â ¸ÁÅä »óÀÚ
+//ëŒ€ë§Œ 4ì£¼ë…„ ë§í†  ìƒìž
 #define II_SYS_SYS_SCR_BXOMG1               20496
 #define II_SYS_SYS_SCR_BXOMG2                20497
 #define II_SYS_SYS_SCR_BXOMG3                20498
 #define II_SYS_SYS_SCR_BXClOCHAMELEON1                20499
 #define II_SYS_SYS_SCR_BXClOCHAMELEON2                20504
 #define II_SYS_SYS_SCR_BXClOCHAMELEON3                20505
-//´ë¸¸ 4ÁÖ³â µ¿Àü
+//ëŒ€ë§Œ 4ì£¼ë…„ ë™ì „
 #define II_CHR_TOC_FUN_OMGCOIN               20506
 
-//´ë¸¸ Ä«¸á·¹¿Â ÆÖ
+//ëŒ€ë§Œ ì¹´ë©œë ˆì˜¨ íŒ»
 #define II_PET_CHAMELEON               20507
 
-//·¯½Ã¾Æ ·°Å°¹Ú½º 3Á¾ Ãß°¡
+//ëŸ¬ì‹œì•„ ëŸ­í‚¤ë°•ìŠ¤ 3ì¢… ì¶”ê°€
 #define II_SYS_SYS_SCR_BXDTREASURE               20508
 #define II_SYS_SYS_SCR_BXNTREASURE               20509
 #define II_SYS_SYS_SCR_BXGGLASSES                20510
 
-//ÀÏº» Æê¹Ú½º Ãß°¡
+//ì¼ë³¸ íŽ«ë°•ìŠ¤ ì¶”ê°€
 #define II_SYS_SYS_EVE_JPETGIFTBOX               20511
 
-//±¹³» ¾ÆÀÌÅÛ »óÀÚ Ãß°¡
+//êµ­ë‚´ ì•„ì´í…œ ìƒìž ì¶”ê°€
 #define II_SYS_SYS_SCR_BXWINGGOODLUCK               20512
 #define II_SYS_SYS_SCR_BXWINGCOURAGE                20513
 #define II_SYS_SYS_SCR_BXPIERCINGLUCK               20514
 
-//±¹³» NEW¾×Æ¼ºñ¼Ç Ãß°¡
+//êµ­ë‚´ NEWì•¡í‹°ë¹„ì…˜ ì¶”ê°€
 #define II_CHR_SYS_SCR_NEWACTIVITION               20515
 
-//ÀÏº» ºñÇà¾ÆÀÌÅÛ(ºí·¡½ºÆ®Ä«/ÀÏ·ºÆ®·Ð¹ÙÀÌÅ©)·£´ý ¹Ú½º
+//ì¼ë³¸ ë¹„í–‰ì•„ì´í…œ(ë¸”ëž˜ìŠ¤íŠ¸ì¹´/ì¼ë ‰íŠ¸ë¡ ë°”ì´í¬)ëžœë¤ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXFLYJAPAN             20516
 
-//¿¬½À¿ë Á¦·Ã 
+//ì—°ìŠµìš© ì œë ¨ 
 #define II_PET_SMELTUDI01					20517
 #define II_GEN_MAT_CIDPIECE05_01             20518
 #define II_GEN_MAT_CIDPIECE04_01             20519
@@ -6583,10 +6583,10 @@
 #define II_GEN_MAT_OPER01					20522
 #define II_GEN_MAT_OPERCID01				 20523
 #define II_GEN_MAT_BARYUMMEAL01	             20524
-//±Í¼Ó ´ëº¸¸§ ¼±¹° »óÀÚ
+//ê·€ì† ëŒ€ë³´ë¦„ ì„ ë¬¼ ìƒìž
 #define II_SYS_SYS_SCR_BXCHUSEOK03		20525
 
-//2·¹º§ ºñ½º 7ÀÏ
+//2ë ˆë²¨ ë¹„ìŠ¤ 7ì¼
 #define	II_SYS_VIS_LV2_STR7			20526
 #define	II_SYS_VIS_LV2_DEX7			20527
 #define	II_SYS_VIS_LV2_INT7			20528
@@ -6608,20 +6608,20 @@
 #define	II_SYS_VIS_LV2_HPMAX7		20544
 #define	II_SYS_VIS_LV2_KILLHP7		20545
 #define	II_SYS_VIS_LV2_MONSTERDMG7	20546
-//3·¹º§ ºñ½º 7ÀÏ
+//3ë ˆë²¨ ë¹„ìŠ¤ 7ì¼
 #define	II_SYS_VIS_LV3_WARRIOR7		20547
 #define	II_SYS_VIS_LV3_KNIGHT7		20548
 #define	II_SYS_VIS_LV3_BUBBLE7		20549
 #define	II_SYS_VIS_LV3_IBLIS7		20550
 #define	II_SYS_VIS_LV3_SHADE7		20551
-//3·¹º§ ºñ½º 30ÀÏ
+//3ë ˆë²¨ ë¹„ìŠ¤ 30ì¼
 #define	II_SYS_VIS_LV3_WARRIOR30	20552
 #define	II_SYS_VIS_LV3_KNIGHT30		20553
 #define	II_SYS_VIS_LV3_BUBBLE30		20554
 #define	II_SYS_VIS_LV3_IBLIS30		20555
 #define	II_SYS_VIS_LV3_SHADE30		20556
 
-//2·¹º§ ºñ½º 7ÀÏ »óÀÚ
+//2ë ˆë²¨ ë¹„ìŠ¤ 7ì¼ ìƒìž
 #define	II_SYS_SYS_SCR_LV2_BXSTR7			20557
 #define	II_SYS_SYS_SCR_LV2_BXDEX7			20558
 #define	II_SYS_SYS_SCR_LV2_BXINT7			20559
@@ -6644,7 +6644,7 @@
 #define	II_SYS_SYS_SCR_LV2_BXKILLHP7		20576
 #define	II_SYS_SYS_SCR_LV2_BXMONSTERDMG7	20577
 
-//3·¹º§ ºñ½º 7ÀÏ »óÀÚ
+//3ë ˆë²¨ ë¹„ìŠ¤ 7ì¼ ìƒìž
 #define	II_SYS_SYS_SCR_LV3_BXWARRIOR7		20578
 #define	II_SYS_SYS_SCR_LV3_BXKNIGHT7		20579
 #define	II_SYS_SYS_SCR_LV3_BXBUBBLE7		20580
@@ -6652,7 +6652,7 @@
 #define	II_SYS_SYS_SCR_LV3_BXSHADE7			20582
 
 
-//1·¹º§ ºñ½º 7ÀÏ
+//1ë ˆë²¨ ë¹„ìŠ¤ 7ì¼
 #define	II_SYS_VIS_LV1_STR7			20583
 #define	II_SYS_VIS_LV1_DEX7			20584
 #define	II_SYS_VIS_LV1_INT7			20585
@@ -6673,7 +6673,7 @@
 #define	II_SYS_VIS_LV1_HPMAX7		20600
 #define	II_SYS_VIS_LV1_KILLHP7		20601
 
-//1·¹º§ ºñ½º»óÀÚ  7ÀÏ
+//1ë ˆë²¨ ë¹„ìŠ¤ìƒìž  7ì¼
 #define	II_SYS_SYS_SCR_LV1_BXSTR7			20602
 #define	II_SYS_SYS_SCR_LV1_BXDEX7			20603
 #define	II_SYS_SYS_SCR_LV1_BXINT7			20604
@@ -6693,22 +6693,22 @@
 #define	II_SYS_SYS_SCR_LV1_BXPARRY7			20618
 #define	II_SYS_SYS_SCR_LV1_BXHPMAX7			20619
 #define	II_SYS_SYS_SCR_LV1_BXKILLHP7		20620
-//Æ¯º° °æÇèÄ¡ µÎ·ç¸¶¸® Ãß°¡
+//íŠ¹ë³„ ê²½í—˜ì¹˜ ë‘ë£¨ë§ˆë¦¬ ì¶”ê°€
 #define	II_SYS_SYS_SCR_SPAMPESE				20621
 
-//¹öºí ½¦ÀÌµå ¹Ú½º
+//ë²„ë¸” ì‰ì´ë“œ ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_BXBUBBLE				20622
 #define	II_SYS_SYS_SCR_BXSHADE				20623
 
-//È­ÀÌÆ® ºí·¢ ½ºÅæ ¹× ¹öºí ½¦ÀÌµå »óÂ¡
+//í™”ì´íŠ¸ ë¸”ëž™ ìŠ¤í†¤ ë° ë²„ë¸” ì‰ì´ë“œ ìƒì§•
 #define	II_GEN_GEM_GEM_WSTONE					20624
 #define	II_GEN_GEM_GEM_BSTONE					20625
 #define	II_GEN_GEM_GEM_BUBBLESYMBOL				20626
 #define	II_GEN_GEM_GEM_SHADESYMBOL				20627
-//¿ë¸ÍÇÔÀÇ Á¶°¢
+//ìš©ë§¹í•¨ì˜ ì¡°ê°
 #define	II_GEN_GEM_GEM_SPIRITMARBLE				20628
 
-//¾Ç¸¶ ¹æ¾î±¸ ³²¿©
+//ì•…ë§ˆ ë°©ì–´êµ¬ ë‚¨ì—¬
 #define	II_ARM_M_DV_MSUIT					20629
 #define	II_ARM_M_DV_MHELMET					20630
 #define	II_ARM_M_DV_MGAUNTLET				20631
@@ -6717,7 +6717,7 @@
 #define	II_ARM_M_DV_FHELMET					20634
 #define	II_ARM_M_DV_FGAUNTLET				20635
 #define	II_ARM_M_DV_FBOOTS					20636
-//Ãµ»ç ¹æ¾î±¸ ¿©³²
+//ì²œì‚¬ ë°©ì–´êµ¬ ì—¬ë‚¨
 #define	II_ARM_M_AG_FSUIT					20637
 #define	II_ARM_M_AG_FHELMET					20638
 #define	II_ARM_M_AG_FGAUNTLET				20639
@@ -6727,11 +6727,11 @@
 #define	II_ARM_M_AG_MGAUNTLET				20643
 #define	II_ARM_M_AG_MBOOTS					20644
 
-//µ¶ÀÏ ÅëÀÏ ±â³ä ¸ÁÅä¿Í ºÒ²É³îÀÌ »óÀÚ
+//ë…ì¼ í†µì¼ ê¸°ë… ë§í† ì™€ ë¶ˆê½ƒë†€ì´ ìƒìž
 #define	II_ARM_S_CLO_CLO_EVGERMANY		20645
 #define II_SYS_SYS_EVE_BXFIRECRACKER01	20646
 
-//¹Ì±¹ ¹«±â ¹æ¾î±¸ ÇÇ¾î½Ì Ä«µå »óÀÚ
+//ë¯¸êµ­ ë¬´ê¸° ë°©ì–´êµ¬ í”¼ì–´ì‹± ì¹´ë“œ ìƒìž
 #define	II_SYS_SYS_EVE_BXCANDLEA		20647
 #define II_SYS_SYS_EVE_BXRAINATKA		20648
 #define	II_SYS_SYS_EVE_BXBREEZEATKA		20649
@@ -6743,18 +6743,18 @@
 #define II_SYS_SYS_EVE_BXVACCUM			20655
 #define	II_SYS_SYS_EVE_BXEARTHQUAKE		20656
 
-//°¡½ºÄË Àü±âÅé
+//ê°€ìŠ¤ì¼„ ì „ê¸°í†±
 #define	II_GEN_GEM_GEM_GASEUKAEN		20657
 #define II_GEN_GEM_GEM_CHAINSAW			20658
 
-//ESÁõÆøÀÇ µÎ·ç¸¶¸® Ãß°¡
+//ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬ ì¶”ê°€
 #define II_SYS_SYS_SCR_AMPESA3 			20659
 #define II_SYS_SYS_SCR_AMPESA4 			20660
 #define II_SYS_SYS_SCR_AMPESB3			20661
 #define II_SYS_SYS_SCR_AMPESB4			20662
 #define II_SYS_SYS_SCR_AMPESS3			20663
 #define II_SYS_SYS_SCR_AMPESS4			20664
-//Á»ºñ ¹Ú½º ¹× ±¸¼º Ç°
+//ì¢€ë¹„ ë°•ìŠ¤ ë° êµ¬ì„± í’ˆ
 #define II_SYS_SYS_EVE_BXZOMBIES 		20665
 #define II_SYS_SYS_SCR_SKULL 			20666
 #define II_SYS_SYS_SCR_ARM_01			20667
@@ -6763,7 +6763,7 @@
 #define II_SYS_SYS_SCR_LEG_02			20670
 #define II_SYS_SYS_SCR_RIB				20671
 
-//ÇÒ·ÎÀ© ¸ÁÅä 2Á¾, ÅäÅ«, ¹Ú½º, Æê
+//í• ë¡œìœˆ ë§í†  2ì¢…, í† í°, ë°•ìŠ¤, íŽ«
 
 #define II_ARM_S_CLO_CLO_EVEZOMBIE				20672 
 #define II_ARM_S_CLO_CLO_EVESURVIVE				20673 
@@ -6771,7 +6771,7 @@
 #define II_SYS_SYS_EVE_HUNTERZOMBIETOKEN	    20675 
 #define II_PET_LITTLEZOMBIE					    20676 
 
-//ÇÒ·ÎÀ© Á»ºñ ÀÇ»ó
+//í• ë¡œìœˆ ì¢€ë¹„ ì˜ìƒ
 #define II_ARM_M_CLO_ZOMBIEHAT			    20680
 #define II_ARM_M_CLO_ZOMBIESUIT			    20681
 #define II_ARM_M_CLO_ZOMBIEGLOVES		    20682
@@ -6787,124 +6787,124 @@
 
 
 
-//3·¹º§ ÈíÇ÷ ºñ½º ¹× »óÀÚ  7ÀÏ
+//3ë ˆë²¨ í¡í˜ˆ ë¹„ìŠ¤ ë° ìƒìž  7ì¼
 #define	II_SYS_VIS_LV3_KILLHP7					20697
 #define	II_SYS_SYS_SCR_LV3_BXKILLHP7			20698
-//ÀÏº» Æê¹Ú½º ¹× ³¯°³ ¹Ú½º
+//ì¼ë³¸ íŽ«ë°•ìŠ¤ ë° ë‚ ê°œ ë°•ìŠ¤
 #define	II_SYS_SYS_EVE_DANCERBOX				20699
 #define	II_SYS_SYS_SCR_BXWINGBUTTERFIY			20700
 
-//Á»ºñ ¿ì¸®7ÀÏ
+//ì¢€ë¹„ ìš°ë¦¬7ì¼
 #define	II_SYS_SYS_SCR_BXMZOMBIEWORI				20701
 
-//ÇÏÂúÀº ¿ìµç ¼Òµå ¹× »óÀÚ
+//í•˜ì°®ì€ ìš°ë“  ì†Œë“œ ë° ìƒìž
 #define	II_WEA_SWO_PPWOODEN						20702
 #define	II_SYS_SYS_SCR_BXFWOODEN				20703
 
 
-//¹Ì±¹ ½Å±Ô ·£´ý ¹Ú½º Á¦ÀÛ
+//ë¯¸êµ­ ì‹ ê·œ ëžœë¤ ë°•ìŠ¤ ì œìž‘
 #define	II_SYS_SYS_SCR_BXWEAPON01		20704
 #define	II_SYS_SYS_SCR_BXWEAPON02		20705
 #define	II_SYS_SYS_SCR_BXWEAPON03		20706
 #define	II_SYS_SYS_SCR_BXWEAPON04		20707
-#define	II_SYS_SYS_SCR_BXWEAPON05		20708	// ¹«±â ÇÇ¾î½Ì Ä«µå ¹Ú½º 5Á¾
+#define	II_SYS_SYS_SCR_BXWEAPON05		20708	// ë¬´ê¸° í”¼ì–´ì‹± ì¹´ë“œ ë°•ìŠ¤ 5ì¢…
 #define	II_SYS_SYS_SCR_BXARMOR01		20709
 #define	II_SYS_SYS_SCR_BXARMOR02		20710
 #define	II_SYS_SYS_SCR_BXARMOR03		20711
 #define	II_SYS_SYS_SCR_BXARMOR04		20712
-#define	II_SYS_SYS_SCR_BXARMOR05		20713	// °©¿Ê ÇÇ¾î½Ì Ä«µå ¹Ú½º 5Á¾
+#define	II_SYS_SYS_SCR_BXARMOR05		20713	// ê°‘ì˜· í”¼ì–´ì‹± ì¹´ë“œ ë°•ìŠ¤ 5ì¢…
 #define	II_SYS_SYS_SCR_BXULTI01			20714	
-#define	II_SYS_SYS_SCR_BXULTI02			20715   // ¾óÆ¼¹Ô ¹«±â ¹Ú½º 2Á¾
+#define	II_SYS_SYS_SCR_BXULTI02			20715   // ì–¼í‹°ë°‹ ë¬´ê¸° ë°•ìŠ¤ 2ì¢…
 #define	II_SYS_SYS_SCR_BXACC01			20716	
 #define	II_SYS_SYS_SCR_BXACC02			20717
-#define	II_SYS_SYS_SCR_BXACC03			20718   // ¾Ç¼¼»ç¸® ¹Ú½º 3Á¾
+#define	II_SYS_SYS_SCR_BXACC03			20718   // ì•…ì„¸ì‚¬ë¦¬ ë°•ìŠ¤ 3ì¢…
 
-//´ë¸¸ ·£´ý ¹Ú½º
-#define	II_SYS_SYS_SCR_BXSPEEDLFLY		20719	// ½ºÇÇµå Àü¼³ ·£´ý¹Ú½º
-#define	II_SYS_SYS_SCR_BXRAREPET		20720	// Áø±ÍÇÑ ÆÖ ·£´ý¹Ú½º
+//ëŒ€ë§Œ ëžœë¤ ë°•ìŠ¤
+#define	II_SYS_SYS_SCR_BXSPEEDLFLY		20719	// ìŠ¤í”¼ë“œ ì „ì„¤ ëžœë¤ë°•ìŠ¤
+#define	II_SYS_SYS_SCR_BXRAREPET		20720	// ì§„ê·€í•œ íŒ» ëžœë¤ë°•ìŠ¤
 
-//¿äÁ¤ ³¯°³ ºí·ç/ÇÎÅ©
-#define	II_RID_RID_WIN_FairieWingsB		20721	//¿äÁ¤³¯°³ ºí·ç
-#define	II_RID_RID_WIN_FairieWingsP		20722	//¿äÁ¤³¯°³ ÇÎÅ©
+//ìš”ì • ë‚ ê°œ ë¸”ë£¨/í•‘í¬
+#define	II_RID_RID_WIN_FairieWingsB		20721	//ìš”ì •ë‚ ê°œ ë¸”ë£¨
+#define	II_RID_RID_WIN_FairieWingsP		20722	//ìš”ì •ë‚ ê°œ í•‘í¬
 
-//¹Ì±¹ ¸ó½ºÅÍ ¼ÒÈ¯ ÀÌº¥Æ® µå¶ø »óÀÚ
-#define	II_SYS_SYS_SCR_BXEVMONSTER01	20723	//R.DeFeo ¹Ú½º
-#define	II_SYS_SYS_SCR_BXEVMONSTER02	20724	//Bloody Mary ¹Ú½º
+//ë¯¸êµ­ ëª¬ìŠ¤í„° ì†Œí™˜ ì´ë²¤íŠ¸ ë“œëž ìƒìž
+#define	II_SYS_SYS_SCR_BXEVMONSTER01	20723	//R.DeFeo ë°•ìŠ¤
+#define	II_SYS_SYS_SCR_BXEVMONSTER02	20724	//Bloody Mary ë°•ìŠ¤
 
-//16Â÷ ·Î¿­ °¡±¸ 1ÀÏ ¿ìµç
-#define	II_GHOU_FUR_SOF_ROYAL01_01						20725 //¼ÒÆÄ
-#define	II_GHOU_FUR_WAR_ROYAL01_01						20726 //Àå½ÄÀå
-#define	II_GHOU_FUR_DRA_ROYAL01_01						20727 //ÇùÅ¹
-#define	II_GHOU_FUR_CHA_ROYAL01_01						20728 //ÀÇÀÚ
-#define	II_GHOU_FUR_TAB_ROYAL01_01						20729 //Å×ÀÌºí
-#define	II_GHOU_FUR_FLO_ROYAL01_01						20730 //¿åÁ¶
-#define	II_GHOU_FUR_CAS_ROYAL01_01						20731 //Ã¥Àå
-#define	II_HOU_FUR_CLO_ROYAL01_01						20732 //È­Àå´ë
-#define	II_HOU_FUR_BED_ROYAL01_01						20733 //Ä§´ë
-#define	II_HOU_FUR_CAB_ROYAL01_01						20734 //Å¹ÀÚ
-#define	II_GHOU_FUR_CAR_ROYAL01_01						20735 //¹Ù´Ú
-#define	II_GHOU_FUR_WAL_ROYAL01_01						20736 //º®Áö
+//16ì°¨ ë¡œì—´ ê°€êµ¬ 1ì¼ ìš°ë“ 
+#define	II_GHOU_FUR_SOF_ROYAL01_01						20725 //ì†ŒíŒŒ
+#define	II_GHOU_FUR_WAR_ROYAL01_01						20726 //ìž¥ì‹ìž¥
+#define	II_GHOU_FUR_DRA_ROYAL01_01						20727 //í˜‘íƒ
+#define	II_GHOU_FUR_CHA_ROYAL01_01						20728 //ì˜ìž
+#define	II_GHOU_FUR_TAB_ROYAL01_01						20729 //í…Œì´ë¸”
+#define	II_GHOU_FUR_FLO_ROYAL01_01						20730 //ìš•ì¡°
+#define	II_GHOU_FUR_CAS_ROYAL01_01						20731 //ì±…ìž¥
+#define	II_HOU_FUR_CLO_ROYAL01_01						20732 //í™”ìž¥ëŒ€
+#define	II_HOU_FUR_BED_ROYAL01_01						20733 //ì¹¨ëŒ€
+#define	II_HOU_FUR_CAB_ROYAL01_01						20734 //íƒìž
+#define	II_GHOU_FUR_CAR_ROYAL01_01						20735 //ë°”ë‹¥
+#define	II_GHOU_FUR_WAL_ROYAL01_01						20736 //ë²½ì§€
 
-//16Â÷ ·Î¿­ °¡±¸ 1ÀÏ È­ÀÌÆ®
-#define	II_GHOU_FUR_SOF_ROYAL02_01						20737 //¼ÒÆÄ
-#define	II_GHOU_FUR_WAR_ROYAL02_01						20738 //Àå½ÄÀå
-#define	II_GHOU_FUR_DRA_ROYAL02_01						20739 //ÇùÅ¹
-#define	II_GHOU_FUR_CHA_ROYAL02_01						20740 //ÀÇÀÚ
-#define	II_GHOU_FUR_TAB_ROYAL02_01						20741 //Å×ÀÌºí
-#define	II_GHOU_FUR_FLO_ROYAL02_01						20742 //¿åÁ¶
-#define	II_GHOU_FUR_CAS_ROYAL02_01						20743 //Ã¥Àå
-#define	II_HOU_FUR_CLO_ROYAL02_01						20744 //È­Àå´ë
-#define	II_HOU_FUR_BED_ROYAL02_01						20745 //Ä§´ë
-#define	II_HOU_FUR_CAB_ROYAL02_01						20746 //Å¹ÀÚ
-#define	II_GHOU_FUR_CAR_ROYAL02_01						20747 //¹Ù´Ú
-#define	II_GHOU_FUR_WAL_ROYAL02_01						20748 //º®Áö
+//16ì°¨ ë¡œì—´ ê°€êµ¬ 1ì¼ í™”ì´íŠ¸
+#define	II_GHOU_FUR_SOF_ROYAL02_01						20737 //ì†ŒíŒŒ
+#define	II_GHOU_FUR_WAR_ROYAL02_01						20738 //ìž¥ì‹ìž¥
+#define	II_GHOU_FUR_DRA_ROYAL02_01						20739 //í˜‘íƒ
+#define	II_GHOU_FUR_CHA_ROYAL02_01						20740 //ì˜ìž
+#define	II_GHOU_FUR_TAB_ROYAL02_01						20741 //í…Œì´ë¸”
+#define	II_GHOU_FUR_FLO_ROYAL02_01						20742 //ìš•ì¡°
+#define	II_GHOU_FUR_CAS_ROYAL02_01						20743 //ì±…ìž¥
+#define	II_HOU_FUR_CLO_ROYAL02_01						20744 //í™”ìž¥ëŒ€
+#define	II_HOU_FUR_BED_ROYAL02_01						20745 //ì¹¨ëŒ€
+#define	II_HOU_FUR_CAB_ROYAL02_01						20746 //íƒìž
+#define	II_GHOU_FUR_CAR_ROYAL02_01						20747 //ë°”ë‹¥
+#define	II_GHOU_FUR_WAL_ROYAL02_01						20748 //ë²½ì§€
 
-//16Â÷ ·Î¿­ °¡±¸ 7ÀÏ ¿ìµç
-#define	II_GHOU_FUR_SOF_ROYAL01_07						20749 //¼ÒÆÄ
-#define	II_GHOU_FUR_WAR_ROYAL01_07						20750 //Àå½ÄÀå
-#define	II_GHOU_FUR_DRA_ROYAL01_07						20751 //ÇùÅ¹
-#define	II_GHOU_FUR_CHA_ROYAL01_07						20752 //ÀÇÀÚ
-#define	II_GHOU_FUR_TAB_ROYAL01_07						20753 //Å×ÀÌºí
-#define	II_GHOU_FUR_FLO_ROYAL01_07						20754 //¿åÁ¶
-#define	II_GHOU_FUR_CAS_ROYAL01_07						20755 //Ã¥Àå
-#define	II_HOU_FUR_CLO_ROYAL01_07						20756 //È­Àå´ë
-#define	II_HOU_FUR_BED_ROYAL01_07						20757 //Ä§´ë
-#define	II_HOU_FUR_CAB_ROYAL01_07						20758 //Å¹ÀÚ
-#define	II_GHOU_FUR_CAR_ROYAL01_07						20759 //¹Ù´Ú
-#define	II_GHOU_FUR_WAL_ROYAL01_07						20760 //º®Áö
+//16ì°¨ ë¡œì—´ ê°€êµ¬ 7ì¼ ìš°ë“ 
+#define	II_GHOU_FUR_SOF_ROYAL01_07						20749 //ì†ŒíŒŒ
+#define	II_GHOU_FUR_WAR_ROYAL01_07						20750 //ìž¥ì‹ìž¥
+#define	II_GHOU_FUR_DRA_ROYAL01_07						20751 //í˜‘íƒ
+#define	II_GHOU_FUR_CHA_ROYAL01_07						20752 //ì˜ìž
+#define	II_GHOU_FUR_TAB_ROYAL01_07						20753 //í…Œì´ë¸”
+#define	II_GHOU_FUR_FLO_ROYAL01_07						20754 //ìš•ì¡°
+#define	II_GHOU_FUR_CAS_ROYAL01_07						20755 //ì±…ìž¥
+#define	II_HOU_FUR_CLO_ROYAL01_07						20756 //í™”ìž¥ëŒ€
+#define	II_HOU_FUR_BED_ROYAL01_07						20757 //ì¹¨ëŒ€
+#define	II_HOU_FUR_CAB_ROYAL01_07						20758 //íƒìž
+#define	II_GHOU_FUR_CAR_ROYAL01_07						20759 //ë°”ë‹¥
+#define	II_GHOU_FUR_WAL_ROYAL01_07						20760 //ë²½ì§€
 
-//16Â÷ ·Î¿­ °¡±¸ 7ÀÏ È­ÀÌÆ®
-#define	II_GHOU_FUR_SOF_ROYAL02_07						20761 //¼ÒÆÄ
-#define	II_GHOU_FUR_WAR_ROYAL02_07						20762 //Àå½ÄÀå
-#define	II_GHOU_FUR_DRA_ROYAL02_07						20763 //ÇùÅ¹
-#define	II_GHOU_FUR_CHA_ROYAL02_07						20764 //ÀÇÀÚ
-#define	II_GHOU_FUR_TAB_ROYAL02_07						20765 //Å×ÀÌºí
-#define	II_GHOU_FUR_FLO_ROYAL02_07						20766 //¿åÁ¶
-#define	II_GHOU_FUR_CAS_ROYAL02_07						20767 //Ã¥Àå
-#define	II_HOU_FUR_CLO_ROYAL02_07						20768 //È­Àå´ë
-#define	II_HOU_FUR_BED_ROYAL02_07						20769 //Ä§´ë
-#define	II_HOU_FUR_CAB_ROYAL02_07						20770 //Å¹ÀÚ
-#define	II_GHOU_FUR_CAR_ROYAL02_07						20771 //¹Ù´Ú
-#define	II_GHOU_FUR_WAL_ROYAL02_07						20772 //º®Áö
+//16ì°¨ ë¡œì—´ ê°€êµ¬ 7ì¼ í™”ì´íŠ¸
+#define	II_GHOU_FUR_SOF_ROYAL02_07						20761 //ì†ŒíŒŒ
+#define	II_GHOU_FUR_WAR_ROYAL02_07						20762 //ìž¥ì‹ìž¥
+#define	II_GHOU_FUR_DRA_ROYAL02_07						20763 //í˜‘íƒ
+#define	II_GHOU_FUR_CHA_ROYAL02_07						20764 //ì˜ìž
+#define	II_GHOU_FUR_TAB_ROYAL02_07						20765 //í…Œì´ë¸”
+#define	II_GHOU_FUR_FLO_ROYAL02_07						20766 //ìš•ì¡°
+#define	II_GHOU_FUR_CAS_ROYAL02_07						20767 //ì±…ìž¥
+#define	II_HOU_FUR_CLO_ROYAL02_07						20768 //í™”ìž¥ëŒ€
+#define	II_HOU_FUR_BED_ROYAL02_07						20769 //ì¹¨ëŒ€
+#define	II_HOU_FUR_CAB_ROYAL02_07						20770 //íƒìž
+#define	II_GHOU_FUR_CAR_ROYAL02_07						20771 //ë°”ë‹¥
+#define	II_GHOU_FUR_WAL_ROYAL02_07						20772 //ë²½ì§€
 
-//±â°£Á¦ °æÇèÄ¡ ½ºÅ©·Ñ
-#define	II_SYS_SYS_SCR_EXPSCROLL01_07				20773 //°æÇèÄ¡ 2¹è ½ºÅ©·Ñ
-#define	II_SYS_SYS_SCR_EXPSCROLL01_30				20774 //°æÇèÄ¡ 2¹è ½ºÅ©·Ñ
-#define	II_SYS_SYS_SCR_EXPSCROLL02_07				20775 //°æÇèÄ¡ 3¹è ½ºÅ©·Ñ
-#define	II_SYS_SYS_SCR_EXPSCROLL02_30				20776 //°æÇèÄ¡ 3¹è ½ºÅ©·Ñ
+//ê¸°ê°„ì œ ê²½í—˜ì¹˜ ìŠ¤í¬ë¡¤
+#define	II_SYS_SYS_SCR_EXPSCROLL01_07				20773 //ê²½í—˜ì¹˜ 2ë°° ìŠ¤í¬ë¡¤
+#define	II_SYS_SYS_SCR_EXPSCROLL01_30				20774 //ê²½í—˜ì¹˜ 2ë°° ìŠ¤í¬ë¡¤
+#define	II_SYS_SYS_SCR_EXPSCROLL02_07				20775 //ê²½í—˜ì¹˜ 3ë°° ìŠ¤í¬ë¡¤
+#define	II_SYS_SYS_SCR_EXPSCROLL02_30				20776 //ê²½í—˜ì¹˜ 3ë°° ìŠ¤í¬ë¡¤
 
-//Á¦·Ã ¼º°ø È®·ü ±Ø´ëÈ­ ½ºÅ©·Ñ
-#define	II_SYS_SYS_SCR_NOR_SMELTING01				20777 //ÀÏ¹Ý¹«±â 100% ¼º°ø
-#define	II_SYS_SYS_SCR_NOR_SMELTING02				20778 //ÀÏ¹Ý¹«±â 50% ¼º°ø
-#define	II_SYS_SYS_SCR_NOR_SMELTING03				20779 //ÀÏ¹Ý¹«±â 30% ¼º°ø
-#define II_SYS_SYS_SCR_NOR_ULTITRANS01				20780 //¾óÆ¼¹Ô º¯È¯ ½Ã 100% ¼º°ø
+//ì œë ¨ ì„±ê³µ í™•ë¥  ê·¹ëŒ€í™” ìŠ¤í¬ë¡¤
+#define	II_SYS_SYS_SCR_NOR_SMELTING01				20777 //ì¼ë°˜ë¬´ê¸° 100% ì„±ê³µ
+#define	II_SYS_SYS_SCR_NOR_SMELTING02				20778 //ì¼ë°˜ë¬´ê¸° 50% ì„±ê³µ
+#define	II_SYS_SYS_SCR_NOR_SMELTING03				20779 //ì¼ë°˜ë¬´ê¸° 30% ì„±ê³µ
+#define II_SYS_SYS_SCR_NOR_ULTITRANS01				20780 //ì–¼í‹°ë°‹ ë³€í™˜ ì‹œ 100% ì„±ê³µ
 
 
-//ÇÁ·ÎÆä½Ã ³¯°³
+//í”„ë¡œíŽ˜ì‹œ ë‚ ê°œ
 #define II_RID_RID_STI_WINGPROANGEL				20781
 #define II_RID_RID_STI_WINGPRODEVIL				20782
 
-//¹Ì±¹ ½Å±Ô Ä³¸¯ÅÍ ¾ÆÀÌÅÛ Áö±Þ ÀÌº¥Æ®
+//ë¯¸êµ­ ì‹ ê·œ ìºë¦­í„° ì•„ì´í…œ ì§€ê¸‰ ì´ë²¤íŠ¸
 #define II_RID_RID_WIN_EVEANGEL				20783
 #define II_RID_RID_WIN_EVEDRAGON			20784
 #define II_RID_RID_WIN_EVEBUTTERFLY05		20785
@@ -6913,71 +6913,71 @@
 #define II_PET_EVE_BANG1					20788
 #define II_PET_EVE_RACCON					20789
 
-//À¯·´ Çà¿îÀÇ »óÀÚ
+//ìœ ëŸ½ í–‰ìš´ì˜ ìƒìž
 #define II_SYS_SYS_SCR_BXSPIRIT				20790
 #define II_SYS_SYS_SCR_BXPROPHET			20791
 
-//ÈíÇ÷ ºñ½º (¿µ±¸)
+//í¡í˜ˆ ë¹„ìŠ¤ (ì˜êµ¬)
 #define II_SYS_VIS_LV1_FOREVERKILLHP01		20794
 #define II_SYS_VIS_LV2_FOREVERKILLHP02		20795
 #define II_SYS_VIS_LV3_FOREVERKILLHP03		20796
 
-//Àü±âÅé ÇÑ±¹ ¹öÀü
+//ì „ê¸°í†± í•œêµ­ ë²„ì „
 #define II_GEN_GEM_GEM_CHAINSAWKR			20792
 
-//±Í¼Ó ÇØÁ¦ ½ºÅ©·Ñ
+//ê·€ì† í•´ì œ ìŠ¤í¬ë¡¤
 #define II_SYS_SYS_SCR_CANCELLATION			20793
 
-//ÀÏº» ¾Ç¼¼»ç¸® ·£´ý »óÀÚ 3Á¾
+//ì¼ë³¸ ì•…ì„¸ì‚¬ë¦¬ ëžœë¤ ìƒìž 3ì¢…
 #define II_SYS_SYS_SCR_BXACC04				20797
 #define II_SYS_SYS_SCR_BXACC05				20798
 #define II_SYS_SYS_SCR_BXACC06				20799
 
 
-//À¯·´ ÇÁ¸®ÇÁ È¦´ý ÀÌº¥Æ® »óÀÚ
+//ìœ ëŸ½ í”„ë¦¬í”„ í™€ë¤ ì´ë²¤íŠ¸ ìƒìž
 #define II_SYS_SYS_SCR_BXBANKJACK			20800
 #define II_SYS_SYS_SCR_BXGRANDJACK			20801
 #define II_SYS_SYS_SCR_BXLARGEJACK			20802
 #define II_SYS_SYS_SCR_BXNRJACK				20803
 #define II_SYS_SYS_SCR_BXSMJACK				20804
 
-//±¹³» º¸È£ µÎ·ç¸¶¸® ÆÐÅ°Áö
+//êµ­ë‚´ ë³´í˜¸ ë‘ë£¨ë§ˆë¦¬ íŒ¨í‚¤ì§€
 #define II_SYS_SYS_SCR_BXSMELPROT			20805
 #define II_SYS_SYS_SCR_BXACCSMELPROT		20806
 #define II_SYS_SYS_SCR_BXSPSMELPROT			20807
 
-//±¹³» ´ÙÅ©½¦ÀÌµå, È¦¸®¹öºí ÄÚ½ºÆ¬ ÆÐÅ°Áö, ÇÇ¾î½Ì Ä«µå »óÀÚ
+//êµ­ë‚´ ë‹¤í¬ì‰ì´ë“œ, í™€ë¦¬ë²„ë¸” ì½”ìŠ¤íŠ¬ íŒ¨í‚¤ì§€, í”¼ì–´ì‹± ì¹´ë“œ ìƒìž
 #define II_SYS_SYS_SCR_BXMDRAKSHADE			20808
 #define II_SYS_SYS_SCR_BXFDRAKSHADE			20809
 #define II_SYS_SYS_SCR_BXMHOLYBUBBLE		20810
 #define II_SYS_SYS_SCR_BXFHOLYBUBBLE		20811
 #define II_SYS_SYS_SCR_BXLUCKPIERCE			20812
 
-//ºÓÀº ·¹µåÆÎ Æê ¿ì¸®
+//ë¶‰ì€ ë ˆë“œíŒ¡ íŽ« ìš°ë¦¬
 #define II_PET_REDPAANG			20813
 
-//°³±¸ÀïÀÌ ÇØ°ñ ¿ì¸®(±¹³»¿ë -±Í¼Ó¾Æ´Ô)
+//ê°œêµ¬ìŸì´ í•´ê³¨ ìš°ë¦¬(êµ­ë‚´ìš© -ê·€ì†ì•„ë‹˜)
 #define II_PET_SKEL02			20814
 
-//Ãàº¹¹ÞÀº ¹Ù·ç³ªÀÇ °¡È£
+//ì¶•ë³µë°›ì€ ë°”ë£¨ë‚˜ì˜ ê°€í˜¸
 #define II_SYS_SYS_SCR_BARUNASMELPROT02		20815
 
-//¹Ì±¹ Ãß¼ö°¨»çÀý Ç³¿äÀÇ »Ô
+//ë¯¸êµ­ ì¶”ìˆ˜ê°ì‚¬ì ˆ í’ìš”ì˜ ë¿”
 #define II_SYS_SYS_SCR_BXThGiving			20816
 
-//À¯·´ ¶ó¸£Å×½Ã¾Æ 1ÀÏ ÀÔÀå±Ç
+//ìœ ëŸ½ ë¼ë¥´í…Œì‹œì•„ 1ì¼ ìž…ìž¥ê¶Œ
 #define II_SYS_TICKET_RARTESIA03			20817
 
-//ÀÏº» Æê¹Ú½º(²¿¸¶ ¼³³à/¾Æ±â ºÏ±Ø°õ)
+//ì¼ë³¸ íŽ«ë°•ìŠ¤(ê¼¬ë§ˆ ì„¤ë…€/ì•„ê¸° ë¶ê·¹ê³°)
 #define II_SYS_SYS_SCR_BXPETRANDOM01		20818
 
-//·¯½Ã¾Æ Ã§¸°Áö ÆÑ
+//ëŸ¬ì‹œì•„ ì±Œë¦°ì§€ íŒ©
 #define II_SYS_SYS_SCR_BXCHANLLENGE			20819
 #define II_SYS_SYS_SCR_BXLOWACCORD30		20820
 #define II_SYS_SYS_SCR_BXMROVER				20821
 #define II_SYS_SYS_SCR_BXFROVER				20822
 
-//17Â÷ Äù½ºÆ® ¾ÆÀÌÅÛ
+//17ì°¨ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_QUE_LUGALFEATHER			20823
 #define II_SYS_SYS_QUE_LUGALHORN			20824
 #define II_SYS_SYS_QUE_KUMCLOTH				20825
@@ -6989,7 +6989,7 @@
 #define II_SYS_SYS_QUE_UNIQUEFRUIT			20831
 #define II_SYS_SYS_QUE_ETERPENDANT			20832
 
-//17Â÷ ¹æ¾î±¸
+//17ì°¨ ë°©ì–´êµ¬
 
 #define II_ARM_M_LORDK_HELMET_SET_KAL			20833
 #define II_ARM_F_LORDK_HELMET_SET_KAL			20834
@@ -7056,20 +7056,20 @@
 #define II_ARM_M_ELEL_BOOTS_SET_KAL				20895
 #define II_ARM_F_ELEL_BOOTS_SET_KAL				20896
 
-//¹Ù·ç³ª ÇÇ¾î½Ì À¯·á ¾ÆÀÌÅÛ
-#define II_SYS_SYS_SCR_BARUNARUNE01				20897  //°í´ë ¹®ÀÚ¼®(½Ã°Ö)
-#define II_SYS_SYS_SCR_BARUNAPRPROTECT			20898  //°í´ë ¹®ÀÚ¼® º¸È£ µÎ·ç¸¶¸®
-#define II_SYS_SYS_SCR_BARUNAPRRATE				20899  //¹Ù·ç³ª ÇÇ¾î½Ì ¼º°ø È®·ü Áõ°¡ ¹®¾ç
-//¹Ù·ç³ª ¹®ÀÚ¼® ¹æ¾î±¸¿ë
+//ë°”ë£¨ë‚˜ í”¼ì–´ì‹± ìœ ë£Œ ì•„ì´í…œ
+#define II_SYS_SYS_SCR_BARUNARUNE01				20897  //ê³ ëŒ€ ë¬¸ìžì„(ì‹œê²”)
+#define II_SYS_SYS_SCR_BARUNAPRPROTECT			20898  //ê³ ëŒ€ ë¬¸ìžì„ ë³´í˜¸ ë‘ë£¨ë§ˆë¦¬
+#define II_SYS_SYS_SCR_BARUNAPRRATE				20899  //ë°”ë£¨ë‚˜ í”¼ì–´ì‹± ì„±ê³µ í™•ë¥  ì¦ê°€ ë¬¸ì–‘
+//ë°”ë£¨ë‚˜ ë¬¸ìžì„ ë°©ì–´êµ¬ìš©
 #define II_SYS_SYS_SCR_BARUNARUNE02				20913
 
 
-//¹Ì±¹ Å©¸®½º¸¶½º Á¤·É ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//ë¯¸êµ­ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_EVE_CHRISTMASFAIRY			20900
 #define II_GEN_FOO_CHRISTMASGMCAKE				20901
 #define II_SYS_SYS_EVE_CHRISTMASTOKEN			20902
 
-//Å©¸®½º¸¶½º ´«»ç¶÷ ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ëˆˆì‚¬ëžŒ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_EVE_SNOWTOPHAT		20903
 #define II_SYS_SYS_EVE_COALEYES			20904
 #define II_SYS_SYS_EVE_CARROTNOSE		20905
@@ -7078,12 +7078,12 @@
 #define II_SYS_SYS_EVE_MITTENS			20908
 #define II_PET_REDSNOWMAN				20909
 
-//ÀÏº» ½Å±Ô ¹Ú½º(ºñÇà ¹× Å©¸®½º¸¶½º)
+//ì¼ë³¸ ì‹ ê·œ ë°•ìŠ¤(ë¹„í–‰ ë° í¬ë¦¬ìŠ¤ë§ˆìŠ¤)
 #define II_SYS_SYS_SCR_BXRIDRANDOM01		20910
 #define II_SYS_SYS_SCR_BXCHRISTMAS01		20911
 #define II_SYS_SYS_SCR_BXCHRISTMAS02		20912
 
-//±¹³» ¿äÃ» ¹Ú½º »óÀÚ 7Á¾
+//êµ­ë‚´ ìš”ì²­ ë°•ìŠ¤ ìƒìž 7ì¢…
 #define II_SYS_SYS_SCR_BXBLOOD01					20914
 #define II_SYS_SYS_SCR_BXBLOOD02					20915
 #define II_SYS_SYS_SCR_BXBLOOD03					20916
@@ -7097,17 +7097,17 @@
 #define II_ARM_S_CLO_MAS_TWILIGHT01MASK01			20922
 #define II_ARM_S_CLO_MAS_GOLDMASK01					20923
 
-//À¯·´ Å©¸®½º¸¶½º »óÀÚ 
+//ìœ ëŸ½ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ìƒìž 
 #define II_SYS_SYS_SCR_BXEUROCHRISTMAS				20925
 
-// ¹Ì±¹ 5ÁÖ³â ±â³ä ÆøÁ×
+// ë¯¸êµ­ 5ì£¼ë…„ ê¸°ë… í­ì£½
 #define II_CHR_MAG_TRI_ANNIVARSARYBOMB				20926
 #define II_GEN_FOO_CHRISTMASGMCAKE01				20927
 
-//ÇÇ¿äÄÚ
+//í”¼ìš”ì½”
 #define II_RID_RID_ANI_PIYOKO01				20928
 
-//Å©¸®½º¸¶½º ÀÇ»ó ¼¼Æ® ¹× Æê
+//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì˜ìƒ ì„¸íŠ¸ ë° íŽ«
 #define II_ARM_M_CHRISMASMSUIT				20929
 #define II_ARM_M_CHRISMASMHELMET			20930
 #define II_ARM_M_CHRISMASMGAUNTLET			20931
@@ -7122,58 +7122,58 @@
 #define II_PET_CHRISTMASFAIRY				20940
 #define II_PET_CHRISTMASDEER				20956
 
-//º¸½º È®·ü Áõ°¡, ¸Þ¸£µ¥¸£ÀÇ °¡º¸
+//ë³´ìŠ¤ í™•ë¥  ì¦ê°€, ë©”ë¥´ë°ë¥´ì˜ ê°€ë³´
 #define II_SYS_SYS_SCR_BOSSPLUSE			20941
 #define II_SYS_SYS_SCR_MERDER				20942
 
-//À¯·´ »õÇØ ÀÌº¥Æ® ±â³ä ºÒ²É³îÀÌ »óÀÚ
+//ìœ ëŸ½ ìƒˆí•´ ì´ë²¤íŠ¸ ê¸°ë… ë¶ˆê½ƒë†€ì´ ìƒìž
 #define II_SYS_SYS_EVE_BXFIRECRACKER02		20943
 
-//±¹³» Å©¸®½º¸¶½º ÀÌº¥Æ®
+//êµ­ë‚´ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì´ë²¤íŠ¸
 #define II_SYS_SYS_SCR_BXCHRISTMASRANDOM	20944
 #define II_SYS_SYS_EVE_CHRISTMASGOODDEED	20945
 #define II_SYS_SYS_SCR_BXSANTAPRESENT01		20946
 #define II_SYS_SYS_SCR_BXSANTAPRESENT02		20947
 
-//ÀÏº» Á¦ºñ»Ì±â ·£´ý ¹Ú½º
+//ì¼ë³¸ ì œë¹„ë½‘ê¸° ëžœë¤ ë°•ìŠ¤
 #define II_SYS_SYS_EVE_BXDRAW02				20948
 #define II_SYS_SYS_EVE_BXDRAW03				20949
 #define II_SYS_SYS_EVE_BXSOCKET01			20950
 #define II_SYS_SYS_EVE_BXSOCKET02			20951
 
-//±¹³» ÀÌº¥Æ® ¹× Ä³½Ã ¾ÆÀÌÅÛ ( »óÀÚ )
+//êµ­ë‚´ ì´ë²¤íŠ¸ ë° ìºì‹œ ì•„ì´í…œ ( ìƒìž )
 #define II_SYS_SYS_SCR_BXLUCKY701			20952
 #define II_SYS_SYS_SCR_BXLUCKY702			20953
 #define II_SYS_SYS_SCR_BXLUCKY703			20954
 #define II_SYS_SYS_SCR_BXLUCKYULTMATE01		20955
 
-//Å©¸®½º¸¶½º Á¤·É ÀÌº¥Æ® ±³È¯ »óÀÚ
+//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ ì´ë²¤íŠ¸ êµí™˜ ìƒìž
 #define II_SYS_SYS_SCR_BXCHRISTMASFAIRY01		20957
 #define II_SYS_SYS_SCR_BXCHRISTMASFAIRY02		20958
 #define II_SYS_SYS_SCR_BXCHRISTMASFAIRY03		20959
 #define II_SYS_SYS_SCR_BXCHRISTMASFAIRY04		20960
 #define II_SYS_SYS_SCR_BXCHRISTMASFAIRY05		20961
 
-// ¹Ù·ç³ª ¹®ÀÚ¼® Ãß°¡
-#define II_SYS_SYS_SCR_BARUNARUNE03				20962	//°í´ë ¹®ÀÚ¼® º£¸£Å©
-#define II_SYS_SYS_SCR_BARUNARUNE04				20963	//°í´ë ¹®ÀÚ¼® Á¦¶ó
-#define II_SYS_SYS_SCR_BARUNARUNE05				20964	//°í´ë ¹®ÀÚ¼® ¸¶³ªÁî
+// ë°”ë£¨ë‚˜ ë¬¸ìžì„ ì¶”ê°€
+#define II_SYS_SYS_SCR_BARUNARUNE03				20962	//ê³ ëŒ€ ë¬¸ìžì„ ë² ë¥´í¬
+#define II_SYS_SYS_SCR_BARUNARUNE04				20963	//ê³ ëŒ€ ë¬¸ìžì„ ì œë¼
+#define II_SYS_SYS_SCR_BARUNARUNE05				20964	//ê³ ëŒ€ ë¬¸ìžì„ ë§ˆë‚˜ì¦ˆ
 
-//¹Ì±¹ 5ÁÖ³â ±â³ä À¯¹°¹Ú½º ¾ÆÀÌÅÛ
+//ë¯¸êµ­ 5ì£¼ë…„ ê¸°ë… ìœ ë¬¼ë°•ìŠ¤ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_BXANNIVERSARY01			20965
-//¾Æ·¡ ¾ÆÀÌÅÛ 4°³´Â »ç¿ëÇÏÁö ¾ÊÀ½
+//ì•„ëž˜ ì•„ì´í…œ 4ê°œëŠ” ì‚¬ìš©í•˜ì§€ ì•ŠìŒ
 #define II_ARM_S_CLO_MAS_ANGEL01				20966
 #define II_ARM_S_CLO_MAS_DEVIL01				20967
 #define II_ARM_S_CLO_HAT_MUSHROOM01				20968
 #define II_ARM_S_CLO_HAT_STATHAT01				20969
 
 
-//´ë¸¸ ¾÷µ¥ÀÌÆ® ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//ëŒ€ë§Œ ì—…ë°ì´íŠ¸ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_BXNOVEL01				20970
 #define II_SYS_SYS_SCR_BXEVEWITCH01				20971
 #define II_SYS_SYS_SCR_BXTWRANDOM01				20972
 
-//¹Ð¸®ÅÍ¸® ¸ðÅÍ»çÀÌÅ¬ ÄÚ½ºÆ¬ Ãß°¡
+//ë°€ë¦¬í„°ë¦¬ ëª¨í„°ì‚¬ì´í´ ì½”ìŠ¤íŠ¬ ì¶”ê°€
 #define II_ARM_M_MOTERBIKEMSUIT					20973
 #define II_ARM_M_MOTERBIKEMHELMET				20974
 #define II_ARM_M_MOTERBIKEMGAUNTLET				20975
@@ -7191,14 +7191,14 @@
 #define II_ARM_F_MILITARYFGAUNTLET				20987
 #define II_ARM_F_MILITARYFBOOTS					20988
 
-//¹Ù·ç³ª ÇÇ¾î½Ì ¹®ÀÚ¼® Ãß°¡
-#define II_SYS_SYS_SCR_BARUNARUNE06				20989	//°í´ë ¹®ÀÚ¼® ¿¡¿À
-#define II_SYS_SYS_SCR_BARUNARUNE07				20990	//°í´ë ¹®ÀÚ¼® Æ¼¸£
+//ë°”ë£¨ë‚˜ í”¼ì–´ì‹± ë¬¸ìžì„ ì¶”ê°€
+#define II_SYS_SYS_SCR_BARUNARUNE06				20989	//ê³ ëŒ€ ë¬¸ìžì„ ì—ì˜¤
+#define II_SYS_SYS_SCR_BARUNARUNE07				20990	//ê³ ëŒ€ ë¬¸ìžì„ í‹°ë¥´
 
-//17Â÷ ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//17ì°¨ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_BXFLYFFPDS01				20991
 
-//±â°£Á¦ À¯´ÏÅ© ¾ÆÀÌÅÛ 
+//ê¸°ê°„ì œ ìœ ë‹ˆí¬ ì•„ì´í…œ 
 #define II_SYS_SYS_SCR_BXPERIODSUHO01				20992
 #define II_SYS_SYS_SCR_BXPERIODSUHO02				20993
 #define II_SYS_SYS_SCR_BXPERIODSUHO03				20994
@@ -7208,23 +7208,23 @@
 #define II_SYS_SYS_SCR_BXPERIODSUHO07				20998
 #define II_SYS_SYS_SCR_BXPERIODSUHO08				20999
 
-//23000 ~ 25998 ±îÁö ÀÎµ¦½º ¹øÈ£ ¾øÀ½ Áö±Ý ÀÎµ¦½º ¼ø¼­°¡ ¾û¸ÁÀÌ´Ï ÃßÈÄ¿¡ Á¤¸® ÇÊ¿ä
+//23000 ~ 25998 ê¹Œì§€ ì¸ë±ìŠ¤ ë²ˆí˜¸ ì—†ìŒ ì§€ê¸ˆ ì¸ë±ìŠ¤ ìˆœì„œê°€ ì—‰ë§ì´ë‹ˆ ì¶”í›„ì— ì •ë¦¬ í•„ìš”
 #define II_SYS_SYS_SCR_EVEAMPESS				23000
 
-//¹Ð¸®ÅÍ¸® ¸ðÅÍ»çÀÌÅ¬ ÄÚ½ºÆ¬ ÆÐÅ°Áö
+//ë°€ë¦¬í„°ë¦¬ ëª¨í„°ì‚¬ì´í´ ì½”ìŠ¤íŠ¬ íŒ¨í‚¤ì§€
 #define II_SYS_SYS_SCR_MBXMOTERBIKE				23001
 #define II_SYS_SYS_SCR_FBXMOTERBIKE				23002
 #define II_SYS_SYS_SCR_MBXMILITERY				23003
 #define II_SYS_SYS_SCR_FBXMILITERY				23004
 
-//ÀÏº» ·¯½Ã¾Æ ·£´ý ¹Ú½º
+//ì¼ë³¸ ëŸ¬ì‹œì•„ ëžœë¤ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXJPRANDOM01				23005
 #define II_SYS_SYS_SCR_BXRUSRANDOM01			23006
 #define II_SYS_SYS_SCR_BXRUSRANDOM02			23007
 
 #define II_SYS_SYS_SCR_BXQUESTBARUNA01			23008
 
-//±â°£Á¦ À¯´ÏÅ© ¹æ¾î±¸
+//ê¸°ê°„ì œ ìœ ë‹ˆí¬ ë°©ì–´êµ¬
 #define II_ARM_M_MER_HELMET_PERIODSET07			23009
 #define II_ARM_M_MER_SUIT_PERIODSET07			23010
 #define II_ARM_M_MER_GAUNTLET_PERIODSET07		23011
@@ -7265,46 +7265,46 @@
 #define II_ARM_F_ACR_GAUNTLET_PERIODSET07		23039
 #define II_ARM_F_ACR_BOOTS_PERIODSET07			23040
 
-//17Â÷ ·¹µå½ã »óÀÚ
+//17ì°¨ ë ˆë“œì¬ ìƒìž
 #define II_SYS_SYS_SCR_BXREDSUN01				23041
 
-//¹Ì±¹ ±Í¼Ó Æë±Ï ¿ì¸®
+//ë¯¸êµ­ ê·€ì† íŽ­ê·„ ìš°ë¦¬
 #define II_SYS_SYS_SCR_BX_PET_PENGUIN01			23042
 #define II_PET_PENGUIN01						23043
 
-//·¯½Ã¾Æ 1ÁÖ³â ±â³ä ¸ÁÅä
+//ëŸ¬ì‹œì•„ 1ì£¼ë…„ ê¸°ë… ë§í† 
 #define II_ARM_S_CLO_CLO_RUSANNIVERSARY			23044
 #define II_CHR_MAG_TRI_ANNIVARSARYBOMB01		23048
 
-//±¹³» ¶ó¸£Å×½Ã¾Æ 7ÀÏ ±Í¼Ó
+//êµ­ë‚´ ë¼ë¥´í…Œì‹œì•„ 7ì¼ ê·€ì†
 #define II_SYS_TICKET_RARTESIA04				23045
 
-//´ë¸¸ ³¯°³ ·£´ý »óÀÚ
+//ëŒ€ë§Œ ë‚ ê°œ ëžœë¤ ìƒìž
 #define II_SYS_SYS_SCR_BXTWRANDOM02				23046
 #define II_SYS_SYS_SCR_BXTWRANDOM03				23047
 #define II_PET_CUTEBEAR							23049
 #define II_PET_SMELTCOBI						23050
 #define II_PET_SMELTPIERCE						23051
 
-//±¹³»°¡Â÷ ¹Ú½º 11. 01. 17
+//êµ­ë‚´ê°€ì°¨ ë°•ìŠ¤ 11. 01. 17
 #define II_SYS_SYS_SCR_BXRANDOM01						23052
 
-//ÀÏº» ³¯°³ ·£´ý »óÀÚ
+//ì¼ë³¸ ë‚ ê°œ ëžœë¤ ìƒìž
 #define II_SYS_SYS_SCR_BXJPWRANDOM01			23053
 #define II_SYS_SYS_SCR_BXJPWRANDOM02			23054
 
-//Ãµ»çÀÇ Æ¼ÄÏ ¾Ç¸¶ÀÇ Æ¼ÄÏ
+//ì²œì‚¬ì˜ í‹°ì¼“ ì•…ë§ˆì˜ í‹°ì¼“
 #define II_SYS_SYS_SCR_ANGELTICKET			23055
 #define II_SYS_SYS_SCR_DEVILTICKET			23056
 
-//½Â¸®,ÆÐ¹è ·£´ý ¹Ú½º
+//ìŠ¹ë¦¬,íŒ¨ë°° ëžœë¤ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXWDRANDOM01				23057
 #define II_SYS_SYS_SCR_BXWDRANDOM02				23058
 
-//½Å³â Åä³¢ Æê
+//ì‹ ë…„ í† ë¼ íŽ«
 #define II_PET_NEWYEARRABBIT					23059
 
-//¹ß·»Å¸ÀÎµ¥ÀÌ ÄÚ½ºÆ¬
+//ë°œë Œíƒ€ì¸ë°ì´ ì½”ìŠ¤íŠ¬
 #define II_ARM_M_SWEETLOOKCLOTH					23060
 #define II_ARM_M_SWEETLOOKHAT					23061
 #define II_ARM_M_SWEETLOOKGLOVE					23062
@@ -7316,7 +7316,7 @@
 #define II_SYS_SYS_SCR_BXMSWEETLOOK				23068
 #define II_SYS_SYS_SCR_BXFSWEETLOOK				23069
 
-//±â°£Á¦ À¯´ÏÅ© ¾ÆÀÌÅÛ
+//ê¸°ê°„ì œ ìœ ë‹ˆí¬ ì•„ì´í…œ
 #define II_WEA_SWT_PERIODUSU30				23070
 #define II_WEA_AXT_PERIODUSU30				23071
 #define II_WEA_SWO_PERIODUSU30				23072
@@ -7524,10 +7524,10 @@
 #define II_ARM_F_RAG_GAUNTLET_PERIODSET30			23239
 #define II_ARM_F_RAG_BOOTS_PERIODSET30				23240
 
-//±¹³» Çà¿îÀÇ ºñ½º »óÀÚ
+//êµ­ë‚´ í–‰ìš´ì˜ ë¹„ìŠ¤ ìƒìž
 #define II_SYS_SYS_SCR_BXKRLUCKVIS					23241
 
-//À¯·´ ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//ìœ ëŸ½ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_BXMDRAKSHADE07				23242
 #define II_SYS_SYS_SCR_BXFDRAKSHADE07				23243
 #define II_SYS_SYS_SCR_BXMHOLYBUBBLE07				23244
@@ -7535,17 +7535,17 @@
 #define II_RID_RID_STI_WINGPROANGEL07				23246
 #define II_RID_RID_STI_WINGPRODEVIL07				23247
 
-//½Å±Ô ¹öÇÁÆê ·£´ý ¹Ú½º Á¦ÀÛ
+//ì‹ ê·œ ë²„í”„íŽ« ëžœë¤ ë°•ìŠ¤ ì œìž‘
 #define II_SYS_SYS_SCR_BXBUFFPET					23248
 
-//¹Ì±¹ °¡À§¹ÙÀ§º¸ ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//ë¯¸êµ­ ê°€ìœ„ë°”ìœ„ë³´ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_EVE_SNOWCRYSTAL					23249
 
-//ÅÚ·¹Æ÷Æ® Áöµµ ¾ÆÀÌÅÛ
+//í…”ë ˆí¬íŠ¸ ì§€ë„ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_TELEPORTS					23250
 #define II_SYS_SYS_SCR_TELEPORTV					23251
 
-//»ï¹Ù ÄÚ½ºÆ¬ Ãß°¡
+//ì‚¼ë°” ì½”ìŠ¤íŠ¬ ì¶”ê°€
 #define II_ARM_M_COUPLESAMBAMSUIT					23252
 #define II_ARM_M_COUPLESAMBAMHELMET					23253
 #define II_ARM_M_COUPLESAMBAMGAUNTLET				23254
@@ -7557,33 +7557,33 @@
 #define II_SYS_SYS_SCR_BXMCOUPLESAMBA				23260
 #define II_SYS_SYS_SCR_BXFCOUPLESAMBA				23261
 
-//·¯½Ã¾Æ ·£´ý ¹Ú½º
+//ëŸ¬ì‹œì•„ ëžœë¤ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXRUSRANDOM03				23262
 
 
-//ÀÏº» È­ÀÌÆ® µ¥ÀÌ Àç·á
+//ì¼ë³¸ í™”ì´íŠ¸ ë°ì´ ìž¬ë£Œ
 #define II_SYS_SYS_EVE_WHITEDAY01				23263
 #define II_SYS_SYS_EVE_WHITEDAY02				23264
 #define II_SYS_SYS_EVE_WHITEDAY03				23265
 #define II_SYS_SYS_EVE_WHITEDAY04				23266
 
-//ÄÚ½ºÆ¬ ÇÕ¼º À¯·á ¾ÆÀÌÅÛ
+//ì½”ìŠ¤íŠ¬ í•©ì„± ìœ ë£Œ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_COSTUMEDEFENDER				23267
 
-//À¯·á Áöµµ ½Ã½ºÅÛ È¶ºÒ 2Á¾ (Áö¿ª/´øÀü)
+//ìœ ë£Œ ì§€ë„ ì‹œìŠ¤í…œ íšƒë¶ˆ 2ì¢… (ì§€ì—­/ë˜ì „)
 #define II_SYS_SYS_SCR_MAPOPENAREA				23268
 #define II_SYS_SYS_SCR_MAPOPENDUNGEON				23269
 
-//±Ø´ÜÀåÀÇ À§¾ö ÆÐÅ°Áö
+//ê·¹ë‹¨ìž¥ì˜ ìœ„ì—„ íŒ¨í‚¤ì§€
 #define II_SYS_SYS_SCR_BXPARTYPACK				23270
 
-//Àý´ë½Ã°£ °æÇèÄ¡ ½ºÅ©·Ñ
+//ì ˆëŒ€ì‹œê°„ ê²½í—˜ì¹˜ ìŠ¤í¬ë¡¤
 #define II_SYS_SYS_SCR_EXPSCROLL03_07				23271
 #define II_SYS_SYS_SCR_EXPSCROLL03_30				23272
 #define II_SYS_SYS_SCR_EXPSCROLL04_07				23273
 #define II_SYS_SYS_SCR_EXPSCROLL04_30				23274
 
-//ÄÝ·Î¼¼¿ò ÀÇ»ó
+//ì½œë¡œì„¸ì›€ ì˜ìƒ
 #define II_ARM_M_CHR_COLOSSEUMHAT			23275
 #define II_ARM_M_CHR_COLOSSEUMSUIT			23276
 #define II_ARM_M_CHR_COLOSSEUMGLOVES		23277
@@ -7596,14 +7596,14 @@
 #define II_SYS_SYS_SCR_BXMCOLOSSEUM			23284
 #define II_SYS_SYS_SCR_BXFCOLOSSEUM			23285
 
-//È­ÀÌÆ®µ¥ÀÌ Äù½ºÆ®¿ë
+//í™”ì´íŠ¸ë°ì´ í€˜ìŠ¤íŠ¸ìš©
 #define II_SYS_SYS_QUE_WHITEDAYLETTER				23286
 #define II_SYS_SYS_QUE_WHITEDAYRIBBON				23287
 
-//ÀÏº» ¿ë±â ¸ÁÅä ·£´ý ¹Ú½º 
+//ì¼ë³¸ ìš©ê¸° ë§í†  ëžœë¤ ë°•ìŠ¤ 
 #define II_SYS_SYS_SCR_BXRSPIRIT			23288
 
-//Áß±¹ ¸®¼Ò½º ÄÚ½ºÆ¬ ¹× Æê Ãß°¡
+//ì¤‘êµ­ ë¦¬ì†ŒìŠ¤ ì½”ìŠ¤íŠ¬ ë° íŽ« ì¶”ê°€
 #define II_ARM_F_GREENFAIRYCLOTH			23289
 #define II_ARM_F_GREENFAIRYHAT				23290
 #define II_ARM_F_GREENFAIRYGLOVE			23291
@@ -7617,41 +7617,41 @@
 #define II_SYS_SYS_SCR_BXFFLOWERFAIRY		23298
 #define II_PET_DEVILTOY						23299
 
-//´ë¸¸ ·£´ý »óÀÚ 2Á¾
+//ëŒ€ë§Œ ëžœë¤ ìƒìž 2ì¢…
 #define II_SYS_SYS_SCR_BXTWRANDOM04			23300
 #define II_SYS_SYS_SCR_BXTWRANDOM05			23301
 
-//È­ÀÌÆ® µ¥ÀÌ Äù½ºÆ® º¸»ó
+//í™”ì´íŠ¸ ë°ì´ í€˜ìŠ¤íŠ¸ ë³´ìƒ
 #define II_ARM_S_CLO_MAS_CORSAGE_BLUE			23302
 #define II_ARM_S_CLO_MAS_CORSAGE_WHITE			23303
 #define II_ARM_S_CLO_MAS_CORSAGE_PINK			23304
 #define II_ARM_S_CLO_MAS_CORSAGE_YELLOW			23305
 #define II_ARM_F_CHR_BLACKRIBBON				23306
 
-//±Í¿©¿î Å×µðº£¾î Æê
+//ê·€ì—¬ìš´ í…Œë””ë² ì–´ íŽ«
 #define II_PET_TADDYBEAR						23307
 
 
-//È­ÀÌÆ®µ¥ÀÌ ÀÌº¥Æ®¿ë ½ºÆä¼È Á¦·Ã ¹Ú½º
+//í™”ì´íŠ¸ë°ì´ ì´ë²¤íŠ¸ìš© ìŠ¤íŽ˜ì…œ ì œë ¨ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXEVESMELTING			23308
 
-//À¯·´ ³ëÆ®ºÏ ÀÌº¥Æ®
+//ìœ ëŸ½ ë…¸íŠ¸ë¶ ì´ë²¤íŠ¸
 #define II_SYS_SYS_SCR_NOTEBOOK				23309
 
-//·¯½Ã¾Æ 3¿ù ·£´ý¹Ú½º
+//ëŸ¬ì‹œì•„ 3ì›” ëžœë¤ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_BXRANDOMRUS01		23310
 
-//ÀÏº» ¿µ±¤ÀÇ ¸ÁÅä ·£´ý ¹Ú½º
+//ì¼ë³¸ ì˜ê´‘ì˜ ë§í†  ëžœë¤ ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_BXRANLEGEND01		23311
 
-//±¹³» Çà¿îÀÇ ¿µ±¤ ¸ÁÅä »óÀÚ
+//êµ­ë‚´ í–‰ìš´ì˜ ì˜ê´‘ ë§í†  ìƒìž
 #define II_SYS_SYS_SCR_BXLUCKGLORYCLO		23312
 
 
-//ÀÏº» ±âºÎ¿ë Èñ¸ÁÀÇ ¸ÁÅä
+//ì¼ë³¸ ê¸°ë¶€ìš© í¬ë§ì˜ ë§í† 
 #define II_ARM_S_CLO_CLO_HOPECLOCK			23313
 
-//±â°£Á¦ À¯´ÏÅ© ÆÐÅ°Áö
+//ê¸°ê°„ì œ ìœ ë‹ˆí¬ íŒ¨í‚¤ì§€
 #define II_SYS_SYS_SCR_BXPERIODUSU01		23314
 #define II_SYS_SYS_SCR_BXPERIODUSU02		23315
 #define II_SYS_SYS_SCR_BXPERIODUSU03		23316
@@ -7664,7 +7664,7 @@
 #define II_SYS_SYS_SCR_BXPERIODUSU09		23322
 #define II_SYS_SYS_SCR_BXPERIODUSU10		23323
 
-// 60 ·¹º§ ±â°£Á¦ À¯´ÏÅ© ¹æ¾î±¸ ¼¼Æ®
+// 60 ë ˆë²¨ ê¸°ê°„ì œ ìœ ë‹ˆí¬ ë°©ì–´êµ¬ ì„¸íŠ¸
 #define II_SYS_SYS_SCR_MBXPERIODUNIAMOR01	23324
 #define II_SYS_SYS_SCR_MBXPERIODUNIAMOR02	23325
 #define II_SYS_SYS_SCR_MBXPERIODUNIAMOR03	23326
@@ -7685,7 +7685,7 @@
 #define II_SYS_SYS_SCR_FBXPERIODUNIAMOR07	23338
 #define II_SYS_SYS_SCR_FBXPERIODUNIAMOR08	23339
 
-//75 ±â°£Á¦ À¯´ÏÅ© ¹æ¾î±¸ ¼¼Æ®
+//75 ê¸°ê°„ì œ ìœ ë‹ˆí¬ ë°©ì–´êµ¬ ì„¸íŠ¸
 #define II_SYS_SYS_SCR_MBXPERIODUNIAMOR09	23340
 #define II_SYS_SYS_SCR_MBXPERIODUNIAMOR10	23341
 #define II_SYS_SYS_SCR_MBXPERIODUNIAMOR11	23342
@@ -7723,7 +7723,7 @@
 #define II_SYS_SYS_SCR_FBXPERIODUNIAMOR24	23371
 
 
-//½ºÆÀ ÆãÅ© ÀÇ»ó	
+//ìŠ¤íŒ€ íŽ‘í¬ ì˜ìƒ	
 #define II_ARM_F_FSTEAMPUNKLOOKCLOTH		23372
 #define II_ARM_F_FSTEAMPUNKLOOKHAT			23373
 #define II_ARM_F_FSTEAMPUNKLOOKGLOVE		23374
@@ -7737,12 +7737,12 @@
 #define II_SYS_SYS_SCR_FBXSTEAMPUNKSET01	23380
 #define II_SYS_SYS_SCR_MBXSTEAMPUNKSET01	23381
 
-//´ë¸¸ ·£´ý¹Ú½º 2Á¾
+//ëŒ€ë§Œ ëžœë¤ë°•ìŠ¤ 2ì¢…
 #define II_SYS_SYS_SCR_BXTWRANDOM06			23382
 #define II_SYS_SYS_SCR_BXTWRANDOM07			23383
 
 
-//½Ä¸ñÀÏ ÀÌº¥Æ®
+//ì‹ëª©ì¼ ì´ë²¤íŠ¸
 #define II_SYS_SYS_EVE_2011FIRSEED			23384
 #define II_SYS_SYS_EVE_2011PEARSEED			23385
 #define II_SYS_SYS_EVE_2011PINESEED			23386
@@ -7751,7 +7751,7 @@
 #define II_SYS_SYS_SCR_BXGREATBAK			23389
 #define II_EVE_WEA_SWO_BHWOODEN				23390
 
-//À¯·´ ¾î¸°ÀÌ³¯ ÀÌº¥Æ®
+//ìœ ëŸ½ ì–´ë¦°ì´ë‚  ì´ë²¤íŠ¸
 #define II_PET_EVEYNEWYEARRABBIT			23391
 #define II_SYS_SYS_QUE_RABBITFRIEND			23392
 #define II_SYS_SYS_QUE_CHILDRENTOKEN01		23393
@@ -7764,34 +7764,34 @@
 #define II_SYS_SYS_SCR_BXEVECHOCOLATE		23399
 #define II_SYS_SYS_SCR_BXEVECHILDREN		23400
 
-//±¹³» Çà¿îÀÇ ¿ë¸Í ¸ÁÅä »óÀÚ
+//êµ­ë‚´ í–‰ìš´ì˜ ìš©ë§¹ ë§í†  ìƒìž
 #define II_SYS_SYS_SCR_BXLUCKBRAVECLO		23401
 
-//±¹³» ·¹¾Ë Çà¿îÀÇ »óÀÚ
+//êµ­ë‚´ ë ˆì•Œ í–‰ìš´ì˜ ìƒìž
 #define II_SYS_SYS_SCR_BXREALLUCKY			23402
 
-//·¯½Ã¾Æ ·£´ý »óÀÚ 3Á¾
+//ëŸ¬ì‹œì•„ ëžœë¤ ìƒìž 3ì¢…
 #define II_SYS_SYS_SCR_BXRUSRANDOM04		23403
 #define II_SYS_SYS_SCR_BXRUSRANDOM05		23404
 #define II_SYS_SYS_SCR_BXRUSRANDOM06		23405
 
 
-//ÀÏº» ±Í¿©¿î Àå³­°¨ ·£´ý ¹Ú½º
+//ì¼ë³¸ ê·€ì—¬ìš´ ìž¥ë‚œê° ëžœë¤ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXCUTYRANDOM			23406
 #define II_SYS_SYS_SCR_FASHIONTICKET		23407
 
 
-//±¹³» ÆÐ¼Ç Á¾°áÀÚÀÇ ¼±±Û¶ó½º
+//êµ­ë‚´ íŒ¨ì…˜ ì¢…ê²°ìžì˜ ì„ ê¸€ë¼ìŠ¤
 #define II_ARM_S_CLO_MAS_MASKENDBLACK		23408
 #define II_ARM_S_CLO_MAS_MASKENDRED			23409
 #define II_ARM_S_CLO_MAS_MASKENDWHITE		23410
 #define II_SYS_SYS_SCR_BXMASKENDRANDOM		23411
 
-//´ë¸¸ ½Å±âÇÑ º¸¹°»óÀÚ ÀÌº¥Æ®
+//ëŒ€ë§Œ ì‹ ê¸°í•œ ë³´ë¬¼ìƒìž ì´ë²¤íŠ¸
 #define II_SYS_SYS_SCR_BXRANDOMRABBIT		23412
 #define II_SYS_SYS_QUE_EVENOVELCOUPON		23413
 
-//´ë¸¸ °¡À§¹ÙÀ§º¸ ÀÌº¥Æ®
+//ëŒ€ë§Œ ê°€ìœ„ë°”ìœ„ë³´ ì´ë²¤íŠ¸
 
 #define II_SYS_SYS_QUE_EVEOMGBEDGE			23414
 #define II_ARM_S_EVEOMGCAMELEONKHATG07		23415
@@ -7801,49 +7801,49 @@
 #define II_ARM_S_EVEOMGCAMELEONKHATG		23419
 #define II_SYS_SYS_SCR_BXRANDOMCAMELEON		23420
 
-//ÇØ¿Ü ÈÞ¸é °èÁ¤ ÀÌº¥Æ®
+//í•´ì™¸ íœ´ë©´ ê³„ì • ì´ë²¤íŠ¸
 #define II_RID_RID_ANI_PIYOKO30				23421
 #define II_SYS_SYS_SCR_MBXDORMANTUSER		23422
 #define II_SYS_SYS_SCR_FBXDORMANTUSER		23423
 
-//ÀÏº» °³±¸ÀïÀÌ À¯·É ¿ì¸® ±Í¼Ó
+//ì¼ë³¸ ê°œêµ¬ìŸì´ ìœ ë ¹ ìš°ë¦¬ ê·€ì†
 #define II_PET_GHOST_BELONGED				23424
 
-//´ë¸¸ ½Å±Ô ¹ÙÀÌÅ©
+//ëŒ€ë§Œ ì‹ ê·œ ë°”ì´í¬
 #define II_RID_RID_STI_HARLYBIKE			23425
 
-//2±Þ ÀÏ¹Ý ÅÚ·¹Æ÷ÅÍ
+//2ê¸‰ ì¼ë°˜ í…”ë ˆí¬í„°
 #define II_GHOU_FUR_NPC_TELEPORTER02			23426
 
-//ÀÏº» Å¬·Î¹ö ¸ÁÅä ·£´ý ¹Ú½º
+//ì¼ë³¸ í´ë¡œë²„ ë§í†  ëžœë¤ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXCLOVERRANDOM01			23427
 
-//±¹³» Çà¿îÀÇ ±Í¼ÓÇØÁ¦ ½ºÅ©·Ñ »óÀÚ
+//êµ­ë‚´ í–‰ìš´ì˜ ê·€ì†í•´ì œ ìŠ¤í¬ë¡¤ ìƒìž
 #define II_SYS_SYS_SCR_BXCANCELLATION01			23428
 
-//18Â÷ ¹Ù·ç³ª ¼Ó¼ºÁ¦·Ã, °¢¼º °ü·Ã Ä³½Ã ¾ÆÀÌÅÛ
+//18ì°¨ ë°”ë£¨ë‚˜ ì†ì„±ì œë ¨, ê°ì„± ê´€ë ¨ ìºì‹œ ì•„ì´í…œ
 
 #define II_SYS_SYS_SCR_BARUNAGRACE01			23429
 #define II_SYS_SYS_SCR_BARUNAGRACE02			23430
 #define II_SYS_SYS_SCR_BARUNAOBLIVION			23431
 #define II_SYS_SYS_SCR_ELEMENTREJU01			23432
 
-//¼Ó¼º¿Àºê
+//ì†ì„±ì˜¤ë¸Œ
 #define II_GEN_MAT_ELE_FLAMEORB					23433
 #define II_GEN_MAT_ELE_DESERTORB				23434
 #define II_GEN_MAT_ELE_GENERATERORB				23435
 #define II_GEN_MAT_ELE_RIVERORB					23436
 #define II_GEN_MAT_ELE_CYCLONEORB				23437
 
-//ÀÏº» ÆÐ¼Ç Á¾°áÀÚ ¼±±Û¶ó½º ·£´ý¹Ú½º
+//ì¼ë³¸ íŒ¨ì…˜ ì¢…ê²°ìž ì„ ê¸€ë¼ìŠ¤ ëžœë¤ë°•ìŠ¤
 #define II_SYS_SYS_SCR_BXMASKENDRANDOMJAP		23438
 #define II_SYS_SYS_SCR_PICKUPPETTICKET			23439
 
 
-//·¯½Ã¾Æ ÇÇ¿äÄÚ ·£´ý ¹Ú½º
+//ëŸ¬ì‹œì•„ í”¼ìš”ì½” ëžœë¤ ë°•ìŠ¤
 #define II_SYS_SYS_SCR_RUSRANDOM01				23440
 
-//±¹³» ¼­¹ö ÅëÇÕ ÀÌº¥Æ®
+//êµ­ë‚´ ì„œë²„ í†µí•© ì´ë²¤íŠ¸
 #define II_SYS_SYS_SCR_RANDOMBXSERVERMERGEKOR	23441
 
 #define II_SYS_SYS_SCR_PACKBXSERVERMERGEKOR1_1	23442
@@ -7854,7 +7854,7 @@
 
 #define	II_GEN_JEW_EAR_FEELSOGOODOLDRING		23446
 
-//Äý ¿£Å¸´Ï½º ¹«±â
+//í€¸ ì—”íƒ€ë‹ˆìŠ¤ ë¬´ê¸°
 #define	II_WEA_SWO_ENTANESS			23447
 #define	II_WEA_SWT_ENTANESS			23448
 #define	II_WEA_AXE_ENTANESS			23449
@@ -7866,7 +7866,7 @@
 #define	II_WEA_BOW_ENTANESS			23455
 #define	II_WEA_YOY_ENTANESS			23456
 
-//ÇÊ¼ö ÆíÀÇ ¾ÆÀÌÅÛ ÆÐÅ°Áö
+//í•„ìˆ˜ íŽ¸ì˜ ì•„ì´í…œ íŒ¨í‚¤ì§€
 #define II_GEN_POT_NEWBIE_WAR		23457
 #define II_GEN_POT_NEWBIE_MAG		23458
 #define II_GEN_POT_NEWBIE_ARC		23459
@@ -7877,7 +7877,7 @@
 #define II_GEN_FOO_PENNE			23464
 #define II_GEN_FOO_LASAGNE			23465
 
-//Çì¸£³×½º ¹«±â
+//í—¤ë¥´ë„¤ìŠ¤ ë¬´ê¸°
 #define	II_WEA_SWO_HERNES			23466
 #define	II_WEA_SWT_HERNES			23467
 #define	II_WEA_AXE_HERNES			23468
@@ -7889,7 +7889,7 @@
 #define	II_WEA_BOW_HERNES			23474
 #define	II_WEA_YOY_HERNES			23475
 
-//¿Õ½Ç ¼öÈ£´Ü ¹«±â
+//ì™•ì‹¤ ìˆ˜í˜¸ë‹¨ ë¬´ê¸°
 #define	II_WEA_SWO_ROYAL			23476
 #define	II_WEA_SWT_ROYAL			23477
 #define	II_WEA_AXE_ROYAL			23478
@@ -7901,7 +7901,7 @@
 #define	II_WEA_BOW_ROYAL			23484
 #define	II_WEA_YOY_ROYAL			23485
 
-//ÇÊ¼ö ÆÐÅ°Áö »óÀÚ
+//í•„ìˆ˜ íŒ¨í‚¤ì§€ ìƒìž
 #define II_SYS_SYS_SCR_PACKBXNEWBIE_30	23486
 #define II_SYS_SYS_SCR_PACKBXNEWBIE_1	23487
 #define II_SYS_SYS_SCR_PACKBXMASTER_30	23488
@@ -7914,40 +7914,40 @@
 #define II_GEN_POT_MASTER_MAG_1		23494
 #define II_GEN_POT_MASTER_ARC_1		23495
 
-//ÀÎµµ³×½Ã¾Æ ÆÇµµ¶ó ¹Ú½º ÀÏº» ¸ÁÅä ¹Ú½º
+//ì¸ë„ë„¤ì‹œì•„ íŒë„ë¼ ë°•ìŠ¤ ì¼ë³¸ ë§í†  ë°•ìŠ¤
 #define II_SYS_SYS_SCR_INDOPANDORARANDOMBX			23496
 #define II_SYS_SYS_SCR_JAPCLOCKRANDOMBX				23497
 #define II_SYS_SYS_EVE_IPOD2						23498
 
-//°¨ÀÚÆê
+//ê°ìžíŽ«
 #define	II_PET_GPOTATO				23499
 
-//±¹³» Çà¿îÀÇ °æÇèÄ¡ ÁõÆø »óÀÚ
+//êµ­ë‚´ í–‰ìš´ì˜ ê²½í—˜ì¹˜ ì¦í­ ìƒìž
 #define	II_SYS_SYS_SCR_ESQKORRANDOMBX				23500
 
-//±¹³» FWC ±â³ä ¸ÁÅä
+//êµ­ë‚´ FWC ê¸°ë… ë§í† 
 #define	II_ARM_S_CLO_FWCWINNER			23501
 #define	II_ARM_S_CLO_FWCCHAMPION		23502
 
-//·¯½Ã¾Æ ·£´ý ¹Ú½º
+//ëŸ¬ì‹œì•„ ëžœë¤ ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_RUSMELPROTRANDOM			23503
 #define	II_SYS_SYS_SCR_RUREDBIKERANDOM			23504
 
-//À¯·á¸Ê ÀÚÀ¯ÀÌ¿ë±Ç(´õ¹Ì)
+//ìœ ë£Œë§µ ìžìœ ì´ìš©ê¶Œ(ë”ë¯¸)
 #define	II_SYS_TICKET_PAIDWORLDPASS01			23505
 
 
-//FWC ¾ÆÀÌÅÛ
+//FWC ì•„ì´í…œ
 #define	II_SYS_SYS_SCR_EVEFWCHIP			23506
 
-//18Â÷ ÀÎ´ø Äù½ºÆ® ¾ÆÀÌÅÛ
+//18ì°¨ ì¸ë˜ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 #define	II_SYS_SYS_QUE_POISONMUSHROOM01			23507
 #define	II_SYS_SYS_QUE_TREASUREBOX01			23508
 #define	II_SYS_SYS_QUE_NIGHTMISTNAIL01			23509
 #define	II_SYS_SYS_QUE_SIRENHALF01				23510
 #define	II_SYS_SYS_QUE_HARPINEESPLUME01			23511
 
-//18Â÷ Àú·¾ Äù½ºÆ® ¾ÆÀÌÅÛ
+//18ì°¨ ì €ë ™ í€˜ìŠ¤íŠ¸ ì•„ì´í…œ
 
 #define	II_SYS_SYS_QUE_HAIRBAND01				23512
 #define	II_SYS_SYS_QUE_PUMPKIN01				23513
@@ -7971,10 +7971,10 @@
 #define	II_SYS_SYS_QUE_ROCIQEENSAP01			23531
 #define	II_SYS_SYS_QUE_AGONYORE01				23532
 
-//±¹³» Çà¿îÀÇ ¹öÇÁ »óÀÚ
+//êµ­ë‚´ í–‰ìš´ì˜ ë²„í”„ ìƒìž
 #define	II_SYS_SYS_SCR_KORLUCKRANDOMBX			23533
 
-//Äý ¿£Å¸´Ï½º ¹«±â@
+//í€¸ ì—”íƒ€ë‹ˆìŠ¤ ë¬´ê¸°@
 #define	II_WEA_SWO_ENTANESSUM			23534
 #define	II_WEA_SWT_ENTANESSUM			23535
 #define	II_WEA_AXE_ENTANESSUM			23536
@@ -7986,7 +7986,7 @@
 #define	II_WEA_BOW_ENTANESSUM			23542
 #define	II_WEA_YOY_ENTANESSUM			23543
 
-//Çì¸£³×½º ¹«±â@
+//í—¤ë¥´ë„¤ìŠ¤ ë¬´ê¸°@
 #define	II_WEA_SWO_HERNESUM			23544
 #define	II_WEA_SWT_HERNESUM			23545
 #define	II_WEA_AXE_HERNESUM			23546
@@ -7998,7 +7998,7 @@
 #define	II_WEA_BOW_HERNESUM			23552
 #define	II_WEA_YOY_HERNESUM			23553
 
-//¿Õ½Ç ¼öÈ£´Ü ¹«±â@
+//ì™•ì‹¤ ìˆ˜í˜¸ë‹¨ ë¬´ê¸°@
 #define	II_WEA_SWO_ROYALUM			23554
 #define	II_WEA_SWT_ROYALUM			23555
 #define	II_WEA_AXE_ROYALUM			23556
@@ -8011,20 +8011,20 @@
 #define	II_WEA_YOY_ROYALUM			23563
 
 
-//À¯´ÏÅ© ±³È¯¿ë ÁõÇ¥
+//ìœ ë‹ˆí¬ êµí™˜ìš© ì¦í‘œ
 #define	II_SYS_SYS_SCR_UNIQCHIP_SUHO			23564
 #define	II_SYS_SYS_SCR_UNIQCHIP_USU				23565
 #define	II_SYS_SYS_SCR_UNIQCHIP_ANGEL			23566
 #define	II_SYS_SYS_SCR_UNIQCHIP_LEAGEND			23567
 
-//º¸¹°»óÀÚ ¾ÆÀÌÅÛ »óÀÚ
+//ë³´ë¬¼ìƒìž ì•„ì´í…œ ìƒìž
 #define	II_SYS_SYS_SCR_TREASUREBOXLV15			23568
 #define	II_SYS_SYS_SCR_TREASUREBOXLV60			23569
 #define	II_SYS_SYS_SCR_TREASUREBOXLV90			23570
 #define	II_SYS_SYS_SCR_TREASUREBOXLV120			23571
 #define	II_SYS_SYS_SCR_TREASUREBOXLV150			23572
 
-//º¸¹°»óÀÚ ¾ÆÀÌÅÛ ¿­¼è
+//ë³´ë¬¼ìƒìž ì•„ì´í…œ ì—´ì‡ 
 #define	II_SYS_SYS_SCR_TREASUREKEYLOW15			23573
 #define	II_SYS_SYS_SCR_TREASUREKEYMIDDLE15		23574
 #define	II_SYS_SYS_SCR_TREASUREKEYHIGH15		23575
@@ -8051,7 +8051,7 @@
 #define	II_SYS_SYS_SCR_CARD_FWC				23590
 #define	II_SYS_SYS_SCR_CARD_2011FWC				23591
 
-//°¨ÀÚÆê ±Í¼Ó ÇØÁ¦
+//ê°ìžíŽ« ê·€ì† í•´ì œ
 #define	II_PET_GPOTATO_OWNFREE					23592
 
 #define	II_SYS_SYS_MEMORYPIECE01				23593
@@ -8065,7 +8065,7 @@
 #define	II_SYS_SYS_QUE_TIMERETURNFLOWER01			23600
 #define	II_SYS_SYS_QUE_HEROELEMENTERPENDENT01			23601
 
-//Äù½ºÆ® º¸»ó ¾ÆÀÌÅÛ
+//í€˜ìŠ¤íŠ¸ ë³´ìƒ ì•„ì´í…œ
 #define	II_SYS_SYS_SCR_REWARD_BX_15ARMOR_M_MER		23602
 #define	II_SYS_SYS_SCR_REWARD_BX_15ARMOR_F_MER		23603
 #define	II_SYS_SYS_SCR_REWARD_BX_15ARMOR_M_ACR		23604
@@ -8110,11 +8110,11 @@
 #define II_SYS_SYS_VOLITIONSTONE01			23636
 #define II_SYS_SYS_ENLIGHTENMENT01			23637
 
-//¹Ì±¹ ÈÞ¸é À¯Àú ÀÌº¥Æ®
+//ë¯¸êµ­ íœ´ë©´ ìœ ì € ì´ë²¤íŠ¸
 #define	II_SYS_SYS_SCR_FBXACTIVEUSA			23638
 #define	II_SYS_SYS_SCR_MBXACTIVEUSA			23639
 
-//fwc ÄÝ·Î¼¼¿ò º¸»ó¿ë ¾ÆÀÌÅÛ
+//fwc ì½œë¡œì„¸ì›€ ë³´ìƒìš© ì•„ì´í…œ
 #define	II_SYS_SYS_FWC_REWARD_BX_SUHO		23640
 #define	II_SYS_SYS_FWC_REWARD_BX_USU		23641
 #define	II_SYS_SYS_FWC_REWARD_BX_ANGEL		23642
@@ -8131,29 +8131,29 @@
 #define	II_SYS_SYS_FWC_DROP_BX_BCARD		23653
 #define	II_SYS_SYS_FWC_DROP_BX_ACARD		23654
 
-//½ºÆÀÆãÅ© ·£´ý¹Ú½º
+//ìŠ¤íŒ€íŽ‘í¬ ëžœë¤ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_STEAMPUNKBX		23655
 
-//¸®ÅÏÁî ±â³ä »óÀÚ
+//ë¦¬í„´ì¦ˆ ê¸°ë… ìƒìž
 #define	II_SYS_SYS_SCR_RETURNBX			23656
 
-//¸®ÅÏÁî ¾÷µ¥ÀÌÆ® ±â³ä ÁÖÈ­
+//ë¦¬í„´ì¦ˆ ì—…ë°ì´íŠ¸ ê¸°ë… ì£¼í™”
 #define	II_SYS_SYS_SCR_RETURNCOIN		23657
 
-//18ÁÖÂ÷ À¯Àú ÁõÇ¥
+//18ì£¼ì°¨ ìœ ì € ì¦í‘œ
 #define	II_SYS_SYS_SCR_18UPDATETOKEN		23658
 
-//º¹±ÍÀÚÀÇ ¸®ÅÏÁî »óÀÚ
+//ë³µê·€ìžì˜ ë¦¬í„´ì¦ˆ ìƒìž
 #define	II_SYS_SYS_SCR_RETURNUSERBX		23659
 
-//ES ÁõÆøÀÇ µÎ·ç¸¶¸® Q R 1ÀÏ
+//ES ì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬ Q R 1ì¼
 #define	II_SYS_SYS_SCR_EXPSCROLL03_01	23660
 #define	II_SYS_SYS_SCR_EXPSCROLL04_01	23661
 
-//¿ùµå ¸ÁÅä ¼±¹° »óÀÚ ÀÌº¥Æ®¿ë
+//ì›”ë“œ ë§í†  ì„ ë¬¼ ìƒìž ì´ë²¤íŠ¸ìš©
 #define	II_SYS_SYS_EVE_COMMERGIFTBOX51_1	23662
 
-//·¯½Ã¾Æ ´ººñ Å»Ãâ ¹Ú½º
+//ëŸ¬ì‹œì•„ ë‰´ë¹„ íƒˆì¶œ ë°•ìŠ¤
 #define	II_SYS_SYS_EVE_FBXRUSNEWBIE01	23663
 #define	II_SYS_SYS_EVE_MBXRUSNEWBIE01	23664
 #define	II_SYS_SYS_EVE_FBXRUSNEWBIE03	23665
@@ -8173,34 +8173,34 @@
 #define	II_SYS_SYS_EVE_MBXRUSVANSET01	23678
 #define	II_SYS_SYS_EVE_BXPERIODFLIGHT	23679
 
-//¿ë¿ÕÀÇ ¸ÁÅä 3Á¾(4¹ø ´õ¹Ì Æ÷ÇÔ)
+//ìš©ì™•ì˜ ë§í†  3ì¢…(4ë²ˆ ë”ë¯¸ í¬í•¨)
 #define	II_ARM_S_CLO_CLO_SEAKING01		23680
 #define	II_ARM_S_CLO_CLO_SEAKING02		23681
 #define	II_ARM_S_CLO_CLO_SEAKING03		23682
 #define	II_ARM_S_CLO_CLO_SEAKING04		23683
 
-//1Â÷ ÀüÁ÷¿ë
+//1ì°¨ ì „ì§ìš©
 #define II_GEN_GEM_GEM_TWINKLESTONE_1         23684
 #define II_GEN_GEM_GEM_FORFORM_1              23685
 
-//±¹³» 18Â÷ ¾÷µ¥ÀÌÆ® ±â³ä Á¦·Ã ÀÌº¥Æ®
+//êµ­ë‚´ 18ì°¨ ì—…ë°ì´íŠ¸ ê¸°ë… ì œë ¨ ì´ë²¤íŠ¸
 #define II_SYS_SYS_EVE_BROKENMOONSTONEBOX     23686
 #define II_SYS_SYS_EVE_SHINYMOONSTONEBOX      23687
 #define II_ARM_S_CLO_MAS_HEROSUNGLASS	      23688
 
-//·¯½Ã¾Æ ´ººñ Å»Ãâ ¹Ú½º Ãß°¡
+//ëŸ¬ì‹œì•„ ë‰´ë¹„ íƒˆì¶œ ë°•ìŠ¤ ì¶”ê°€
 #define	II_SYS_SYS_EVE_MBXRUSWARLORDT01	23689
 #define	II_SYS_SYS_EVE_FBXRUSWARLORDT01	23690
 
-//·¯½Ã¾Æ ¸¶Æ®·Î½ÃÄ« Æê
+//ëŸ¬ì‹œì•„ ë§ˆíŠ¸ë¡œì‹œì¹´ íŽ«
 #define II_PET_MATRYOSHKA			23691
 
-//Çà¿îÀÇ Àü¼³ÀÇ ¿ë¿Õ ¸ÁÅä »óÀÚ
+//í–‰ìš´ì˜ ì „ì„¤ì˜ ìš©ì™• ë§í†  ìƒìž
 #define II_SYS_SYS_SCR_SEAKING01BX			23692
 #define II_SYS_SYS_SCR_SEAKING02BX			23693
 #define II_SYS_SYS_SCR_SEAKING03BX			23694
 
-//ÀÎµµ³×½Ã¾Æ ÀÌº¥Æ® ¸ÁÅä
+//ì¸ë„ë„¤ì‹œì•„ ì´ë²¤íŠ¸ ë§í† 
 #define II_ARM_S_CLO_CLO_BATIKINDOCLOCK			23695
 #define II_ARM_S_CLO_CLO_GARUDAINDOCLOCK		23696
 
@@ -8215,55 +8215,55 @@
 #define	II_WEA_BOW_SUHO_BAD				23705
 #define	II_WEA_YOY_SUHO_BAD				23706
 
-//ÀÎµµ³×½Ã¾Æ µ¶¸³±â³äÀÏ ÀÌº¥Æ®
+//ì¸ë„ë„¤ì‹œì•„ ë…ë¦½ê¸°ë…ì¼ ì´ë²¤íŠ¸
 #define	II_SYS_SYS_SCR_INDNATIONALFLAG			23707
 
-//Ä³¸¯ÅÍ ¼­¹ö ÀÌÀü ÁÖ¹®¼­
+//ìºë¦­í„° ì„œë²„ ì´ì „ ì£¼ë¬¸ì„œ
 #define	II_SYS_SYS_SCR_CHARACTERSERVERMOVEITEM		23708
 
-//´ë¸¸ 5ÁÖ³â ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//ëŒ€ë§Œ 5ì£¼ë…„ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define	II_SYS_SYS_SCR_TWOMGGREEN			23709
 #define	II_SYS_SYS_SCR_TWOMGBLUE			23710
 #define	II_SYS_SYS_SCR_TWOMGYELLOW			23711
 #define	II_SYS_SYS_SCR_TWOMGRED				23712
 
-//´ë¸¸ ¿ë¿Õ¸ÁÅä ·£´ý¹Ú½º
+//ëŒ€ë§Œ ìš©ì™•ë§í†  ëžœë¤ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_TWNSEAKINGBX			23713
 
-//ÇØ¿Ü º£È÷¸ð½º ¹«±â Á¦·Ã ÀÌº¥Æ® º¸»ó¿ë ÆÐ¼Ç Á¾°áÀÚÀÇ ¼±±Û¶ó½º ·¹µå ±Í¼Ó
+//í•´ì™¸ ë² ížˆëª¨ìŠ¤ ë¬´ê¸° ì œë ¨ ì´ë²¤íŠ¸ ë³´ìƒìš© íŒ¨ì…˜ ì¢…ê²°ìžì˜ ì„ ê¸€ë¼ìŠ¤ ë ˆë“œ ê·€ì†
 #define II_ARM_S_CLO_MAS_MASKENDRED_TRADEX		23714
 
-//FWC¿ë ¾×¼¼¼­¸® ¹Ú½º 3Á¾
+//FWCìš© ì•¡ì„¸ì„œë¦¬ ë°•ìŠ¤ 3ì¢…
 #define II_SYS_SYS_SCR_FWJEWELLERYBX01			23715
 #define II_SYS_SYS_SCR_FWJEWELLERYBX02			23716
 #define II_SYS_SYS_SCR_FWJEWELLERYBX03			23717
 
-//´ë¸¸ 5ÁÖ³â ÀÌº¥Æ® ¾ÆÀÌÅÛ
+//ëŒ€ë§Œ 5ì£¼ë…„ ì´ë²¤íŠ¸ ì•„ì´í…œ
 #define II_SYS_SYS_SCR_TWNORMALBOX01			23718
 #define II_SYS_SYS_SCR_TWSILVERBOX01			23719
 #define II_SYS_SYS_SCR_TWGOLDBOX01			23720
 #define II_RID_RID_BOR_OMGCAMELEON01			23721
 #define II_SYS_SYS_SCR_TWOMGRANDOM01			23722
 
-//·¯½Ã¾Æ ¿ë¿Õ¸ÁÅä ·£´ý¹Ú½º
+//ëŸ¬ì‹œì•„ ìš©ì™•ë§í†  ëžœë¤ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_RUSEAKINGBX01			23723
 #define	II_SYS_SYS_SCR_RUSEAKINGBX02			23724
 #define	II_SYS_SYS_SCR_RUSEAKINGBX03			23725
 
-//´ë¸¸ 5ÁÖ³â ±â³ä ÆøÁ×
+//ëŒ€ë§Œ 5ì£¼ë…„ ê¸°ë… í­ì£½
 #define	II_CHR_MAG_TRI_TWANNIVARSARYBOMB01		23726
 
-//Çà¿î ±êµç Àü¼³ÀÇ »óÀÚ
+//í–‰ìš´ ê¹ƒë“  ì „ì„¤ì˜ ìƒìž
 #define	II_SYS_SYS_SCR_LUCKYLEGENDBX			23727
 
 
-//FWC ¹«±â Áö±Þ ¹Ú½º
+//FWC ë¬´ê¸° ì§€ê¸‰ ë°•ìŠ¤
 #define	II_SYS_SYS_SCR_FWWEAPONBX01			23728
 
-//OMG Ä«¸á·¹¿Â ¸ðÀÚ(ÃÊ·Ï)(7ÀÏ) »óÀÚ ÀÌº¥Æ®¿ëÀ¸·Î º°µµ Á¦ÀÛ
+//OMG ì¹´ë©œë ˆì˜¨ ëª¨ìž(ì´ˆë¡)(7ì¼) ìƒìž ì´ë²¤íŠ¸ìš©ìœ¼ë¡œ ë³„ë„ ì œìž‘
 #define	II_SYS_SYS_SCR_BXRANDOMCAMELEON_1		23729
 
-//´ë¸¸ 5ÁÖ³â ±â³ä OMG ¿ë»ç ¼¼Æ®
+//ëŒ€ë§Œ 5ì£¼ë…„ ê¸°ë… OMG ìš©ì‚¬ ì„¸íŠ¸
 #define	II_ARM_M_MOMGWARRIORCLOTH		23730
 #define	II_ARM_M_MOMGWARRIORGLOVE		23731
 #define	II_ARM_M_MOMGWARRIORSHOES		23732
@@ -8290,21 +8290,21 @@
 #define	II_SYS_SYS_SCR_ITEMTRADECASHE7DAY		23748
 #define	II_SYS_SYS_SCR_ITEMTRADECASHE15DAY		23749
 
-//ÄÝ·Î¼¼¿ò ÁõÇ¥
+//ì½œë¡œì„¸ì›€ ì¦í‘œ
 #define	II_SYS_SYS_SCR_MERDERBLUESIGNSCROLL		23750
 #define	II_SYS_SYS_SCR_MERDERREDSIGNSCROLL		23751
 #define	II_SYS_SYS_SCR_COLOSSEUMSIGNSCROLL		23752
 
-// ¹Ì±¹ °¡À§¹ÙÀ§º¸ ÀÌº¥Æ® º¸»ó¿ë »óÀÚ
+// ë¯¸êµ­ ê°€ìœ„ë°”ìœ„ë³´ ì´ë²¤íŠ¸ ë³´ìƒìš© ìƒìž
 #define	II_SYS_SYS_USAEVENTBX_ORIMOONSTONE		23753
 
-//ÄÝ·Î¼¼¿ò º¸»ó
+//ì½œë¡œì„¸ì›€ ë³´ìƒ
 #define	II_SYS_SYS_BX_COLOSSEUM_SOULACCESSORY	23754
 
-//ÀÏº»_¸ÁÅä ±³È¯ Æ¼°Ù
+//ì¼ë³¸_ë§í†  êµí™˜ í‹°ê²Ÿ
 #define II_SYS_SYS_SCR_CHANGECLOTICKET		23755
 
-//FWC ¿¹¼± 1À§ ÀÇ»ó
+//FWC ì˜ˆì„  1ìœ„ ì˜ìƒ
 #define II_ARM_M_MFWCWINNERCLOTH	23756
 #define II_ARM_M_MFWCWINNERGLOVE	23757
 #define II_ARM_M_MFWCWINNERSHOES	23758
@@ -8315,7 +8315,7 @@
 #define II_ARM_F_FFWCWINNERSHOES	23762
 #define II_ARM_F_FFWCWINNERHAT		23763
 
-//ÀÏº» Ä¥¼® ÀÌº¥Æ®
+//ì¼ë³¸ ì¹ ì„ ì´ë²¤íŠ¸
 #define II_ARM_M_MPINKYDKATACLOTH		23764
 #define II_ARM_M_MPINKYDKATAGLOVE		23765
 #define II_ARM_M_MPINKYDKATAHAT			23766
@@ -8327,13 +8327,13 @@
 #define II_SYS_SYS_BX_JAPAPINKSETM		23770
 #define II_SYS_SYS_BX_JAPAPINKSETF		23771
 
-//¿¤µòÀÇ Ç×¾Æ¸®_´õ¹Ì
+//ì—˜ë”˜ì˜ í•­ì•„ë¦¬_ë”ë¯¸
 #define II_CHR_POT_SAV_ELLDIN7			23772
 #define II_GEN_MAT_ELL_ELLDINKEY		23773
 #define II_CHR_FOO_FOO_ELLDINFOOD		23774
 #define II_CHR_POT_SAV_ELLDIN			23775
 
-//FWC º»¼± 3À§ ÀÇ»ó
+//FWC ë³¸ì„  3ìœ„ ì˜ìƒ
 #define II_ARM_M_MFWCFINAL3CLOTH	23776
 #define II_ARM_M_MFWCFINAL3GLOVE	23777
 #define II_ARM_M_MFWCFINAL3SHOES	23778
@@ -8344,7 +8344,7 @@
 #define II_ARM_F_FFWCFINAL3SHOES	23782
 #define II_ARM_F_FFWCFINAL3HAT		23783
 
-//FWC º»¼± 2À§ ÀÇ»ó
+//FWC ë³¸ì„  2ìœ„ ì˜ìƒ
 #define II_ARM_M_MFWCFINAL2CLOTH	23784
 #define II_ARM_M_MFWCFINAL2GLOVE	23785
 #define II_ARM_M_MFWCFINAL2SHOES	23786
@@ -8355,7 +8355,7 @@
 #define II_ARM_F_FFWCFINAL2SHOES	23790
 #define II_ARM_F_FFWCFINAL2HAT		23791
 
-//FWC º»¼± 1À§ ÀÇ»ó
+//FWC ë³¸ì„  1ìœ„ ì˜ìƒ
 #define II_ARM_M_MFWCFINAL1CLOTH	23792
 #define II_ARM_M_MFWCFINAL1GLOVE	23793
 #define II_ARM_M_MFWCFINAL1SHOES	23794
@@ -8366,19 +8366,19 @@
 #define II_ARM_F_FFWCFINAL1SHOES	23798
 #define II_ARM_F_FFWCFINAL1HAT		23799
 
-//¿ë¿ÕÀÇ °ü ´õ¹Ì
+//ìš©ì™•ì˜ ê´€ ë”ë¯¸
 #define II_ARM_S_CLO_MAS_SEAKINGCROWN	23800
 
-//FWC º»¼± ¸ÁÅä
+//FWC ë³¸ì„  ë§í† 
 #define II_ARM_S_CLO_CLO_FWCFINAL3	23801
 #define II_ARM_S_CLO_CLO_FWCFINAL2	23802
 #define II_ARM_S_CLO_CLO_FWCFINAL1	23803
 
-//ÀáÀÚ¸®³¯°³ ±Í¼Ó
+//ìž ìžë¦¬ë‚ ê°œ ê·€ì†
 #define II_RID_RID_WIN_BUTTERFLY05_1	23804	
 
 
-//ÄÝ·Î¼¼¿ò ½Å±Ô¹«±â
+//ì½œë¡œì„¸ì›€ ì‹ ê·œë¬´ê¸°
 
 #define	II_WEA_SWO_COLOGRADE_1		23805
 #define	II_WEA_SWT_COLOGRADE_1		23806
@@ -8442,11 +8442,11 @@
 #define	II_WEA_YOY_COLOGRADE_3_UM		23864
 
 
-//¿ë¿ÕÀÇ°ü
+//ìš©ì™•ì˜ê´€
 #define	II_ARM_F_SEAKINGCROWN		23865
 #define	II_ARM_M_SEAKINGCROWN		23866
 
-//´ë¸¸_½Ãµð±× ÀÇ»ó ¼¼Æ®
+//ëŒ€ë§Œ_ì‹œë””ê·¸ ì˜ìƒ ì„¸íŠ¸
 #define II_ARM_M_MSEEDIGCLOTH		23867
 #define II_ARM_M_MSEEDIGGLOVE		23868
 #define II_ARM_M_MSEEDIGSHOES		23869
@@ -8457,66 +8457,66 @@
 #define II_ARM_F_FSEEDIGHAT		23874
 
 
-//À¯·´ ÇÒ·ÎÀ© º¸»ó¾ÆÀÌÅÛ 
+//ìœ ëŸ½ í• ë¡œìœˆ ë³´ìƒì•„ì´í…œ 
 
 #define	II_SYS_SYS_EVE_BXZOMBIEHUMTER_1		23875
 
-//¿ë¿Õ °¡¸é Ãß°¡ºÐ
+//ìš©ì™• ê°€ë©´ ì¶”ê°€ë¶„
 
 #define	II_ARM_S_CLO_MAS_SEAKINGCROWN_1		23876
 #define	II_ARM_S_CLO_MAS_SEAKINGCROWN_2		23877
 
-//¿ë¿Õ °¡¸é °¡Â÷¹Ú½º 3Á¾
+//ìš©ì™• ê°€ë©´ ê°€ì°¨ë°•ìŠ¤ 3ì¢…
 #define II_SYS_SYS_SCR_SEAKINGCROWN01BX		23878
 #define II_SYS_SYS_SCR_SEAKINGCROWN02BX		23879
 #define II_SYS_SYS_SCR_SEAKINGCROWN03BX		23880
 
-//FWC ¿¹¼± 1À§ ¸ÁÅä
+//FWC ì˜ˆì„  1ìœ„ ë§í† 
 #define II_ARM_S_CLO_CLO_FWCWINNER	23881
 
-//½Ãµð±× ÀÇ»ó¼¼Æ® »óÀÚ 2Á¾
+//ì‹œë””ê·¸ ì˜ìƒì„¸íŠ¸ ìƒìž 2ì¢…
 #define II_SYS_SYS_BX_SEEDIGSETBXM	23882
 #define II_SYS_SYS_BX_SEEDIGSETBXF	23883
 
-//ÀÎµµ³×½Ã¾Æ_ÈÞ¸éÀ¯Àú È¯¿µ»óÀÚ(ÀÎµµ³×½Ã¾Æ)
+//ì¸ë„ë„¤ì‹œì•„_íœ´ë©´ìœ ì € í™˜ì˜ìƒìž(ì¸ë„ë„¤ì‹œì•„)
 #define II_SYS_SYS_BX_INDRETURNBX	23884
 
-// --- °æ°è¼±, ÀÏ¹ÝÀûÀÎ ¾ÆÀÌÅÛÀº 30004 ÀÌÇÏ ¹øÈ£·Î ÀÛ¼º Áß
+// --- ê²½ê³„ì„ , ì¼ë°˜ì ì¸ ì•„ì´í…œì€ 30004 ì´í•˜ ë²ˆí˜¸ë¡œ ìž‘ì„± ì¤‘
 
 
 #define II_SYS_SYS_SCR_BXMYUKATASET      30005  // 20060317 ByDonny
 #define II_SYS_SYS_SCR_BXFYUKATASET      30006  // 20060323 ByDonny
 #define II_SYS_SYS_SCR_FONTEDIT			 30011  
-#define II_SYS_SYS_SCR_RANDOMSTR	30012	// ÈûÀÇ °­È­½ºÅ©·Ñ
-#define II_SYS_SYS_SCR_RANDOMDEX	30013	// ¹ÎÃ¸ÀÇ °­È­½ºÅ©·Ñ
-#define II_SYS_SYS_SCR_RANDOMSTA	30014	// Ã¼·ÂÀÇ °­È­½ºÅ©·Ñ
-#define II_SYS_SYS_SCR_RANDOMINT	30015	// Áö´ÉÀÇ °­È­½ºÅ©·Ñ
-#define II_SYS_SYS_SCR_STRONG_STR	30016	// °­ÇÑ ÈûÀÇ ¹°¾à
-#define II_SYS_SYS_SCR_STRONG_DEX	30017	// °­ÇÑ ¹ÎÃ¸ÀÇ ¹°¾à
-#define II_SYS_SYS_SCR_STRONG_INT	30018	// °­ÇÑ Áö´ÉÀÇ ¹°¾à
-#define II_SYS_SYS_SCR_STRONG_STA	30019	// °­ÇÑ Ã¼·ÂÀÇ ¹°¾à
-#define II_SYS_SYS_SCR_STRONG_ADJDEF	30020	// °­ÇÑ ¹æ¾îÀÇ ¹°¾à
+#define II_SYS_SYS_SCR_RANDOMSTR	30012	// íž˜ì˜ ê°•í™”ìŠ¤í¬ë¡¤
+#define II_SYS_SYS_SCR_RANDOMDEX	30013	// ë¯¼ì²©ì˜ ê°•í™”ìŠ¤í¬ë¡¤
+#define II_SYS_SYS_SCR_RANDOMSTA	30014	// ì²´ë ¥ì˜ ê°•í™”ìŠ¤í¬ë¡¤
+#define II_SYS_SYS_SCR_RANDOMINT	30015	// ì§€ëŠ¥ì˜ ê°•í™”ìŠ¤í¬ë¡¤
+#define II_SYS_SYS_SCR_STRONG_STR	30016	// ê°•í•œ íž˜ì˜ ë¬¼ì•½
+#define II_SYS_SYS_SCR_STRONG_DEX	30017	// ê°•í•œ ë¯¼ì²©ì˜ ë¬¼ì•½
+#define II_SYS_SYS_SCR_STRONG_INT	30018	// ê°•í•œ ì§€ëŠ¥ì˜ ë¬¼ì•½
+#define II_SYS_SYS_SCR_STRONG_STA	30019	// ê°•í•œ ì²´ë ¥ì˜ ë¬¼ì•½
+#define II_SYS_SYS_SCR_STRONG_ADJDEF	30020	// ê°•í•œ ë°©ì–´ì˜ ë¬¼ì•½
 
-#define II_SYS_SYS_SCR_BEAUTYSHOP	      30024  // ºäÆ¼¼¥
-#define II_SYS_SYS_SCR_VENDOR		      30025  // °³ÀÎ»óÁ¡
+#define II_SYS_SYS_SCR_BEAUTYSHOP	      30024  // ë·°í‹°ìƒµ
+#define II_SYS_SYS_SCR_VENDOR		      30025  // ê°œì¸ìƒì 
 
 #define II_GEN_FOO_COO_MEDICINE01             30026
 #define II_GEN_FOO_COO_MEDICINE02             30027
 #define II_SYS_SYS_GM_DIS_LAWOLF_BUFF         30028
 
-#define II_SYS_SYS_QUE_ANGEL_RED			30035	// "·¹µå¿£Á©"
-#define II_SYS_SYS_QUE_ANGEL_BLUE			30036	// "ºí·ç¿£Á©"
-#define II_SYS_SYS_QUE_ANGEL_GREEN			30037	// "±×¸°¿£Á©"
-#define II_SYS_SYS_QUE_ANGEL_WHITE			30038	// "È­ÀÌÆ®¿£Á©"
-#define II_SYS_SYS_QUE_ANGEL_RED100			30039	// "·¹µå¿£Á©100%»óÅÂ"
-#define II_SYS_SYS_QUE_ANGEL_BLUE100		        30040	// "ºí·ç¿£Á©100%»óÅÂ"
-#define II_SYS_SYS_QUE_ANGEL_GREEN100		        30041	// "±×¸°¿£Á©100%»óÅÂ"
-#define II_SYS_SYS_QUE_ANGEL_WHITE100		        30042	// "È­ÀÌÆ®¿£Á©100%»óÅÂ"
+#define II_SYS_SYS_QUE_ANGEL_RED			30035	// "ë ˆë“œì—”ì ¤"
+#define II_SYS_SYS_QUE_ANGEL_BLUE			30036	// "ë¸”ë£¨ì—”ì ¤"
+#define II_SYS_SYS_QUE_ANGEL_GREEN			30037	// "ê·¸ë¦°ì—”ì ¤"
+#define II_SYS_SYS_QUE_ANGEL_WHITE			30038	// "í™”ì´íŠ¸ì—”ì ¤"
+#define II_SYS_SYS_QUE_ANGEL_RED100			30039	// "ë ˆë“œì—”ì ¤100%ìƒíƒœ"
+#define II_SYS_SYS_QUE_ANGEL_BLUE100		        30040	// "ë¸”ë£¨ì—”ì ¤100%ìƒíƒœ"
+#define II_SYS_SYS_QUE_ANGEL_GREEN100		        30041	// "ê·¸ë¦°ì—”ì ¤100%ìƒíƒœ"
+#define II_SYS_SYS_QUE_ANGEL_WHITE100		        30042	// "í™”ì´íŠ¸ì—”ì ¤100%ìƒíƒœ"
 
 
 
-// ##32767ÀÌ»ó ¾²Áö ¸¶½Ã¿À
-//120 ¼¼Æ® ¹æ¾î±¸ »óÀÚ (½Ç¼ö·Î µé¾î°£ »óÀÚ. »èÁ¦ÇÏÁö ¸¶¼¼¿ä!)
+// ##32767ì´ìƒ ì“°ì§€ ë§ˆì‹œì˜¤
+//120 ì„¸íŠ¸ ë°©ì–´êµ¬ ìƒìž (ì‹¤ìˆ˜ë¡œ ë“¤ì–´ê°„ ìƒìž. ì‚­ì œí•˜ì§€ ë§ˆì„¸ìš”!)
 #define II_SYS_SYS_SCR_BXMKNT120SET		224882
 #define II_SYS_SYS_SCR_BXMBLA120SET		224883
 #define II_SYS_SYS_SCR_BXFKNT120SET		224884

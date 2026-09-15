@@ -1,4 +1,4 @@
-// WndBase.cpp: implementation of the CWndBase class.
+ï»¿// WndBase.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -420,7 +420,7 @@ void CWndFriendCtrl::OnDraw( C2DRender* p2DRender )
 		LPFRIEND lpFriend	= g_WndMng.m_Messenger.GetFriend( m_uServerPlayerId[nMyMuilti][j] );
 		DWORD dwState;
 
-		// »óÅÂ¿¡ µû¶ó »ö º¯°æ
+		// ìƒíƒœì— ë”°ë¼ ìƒ‰ ë³€ê²½
 
 		DWORD dwColor = 0xff000000;
 		if( i == m_nCurSelect )
@@ -545,7 +545,7 @@ void CWndFriendCtrl::OnDraw( C2DRender* p2DRender )
 			LPFRIEND lpFriend = g_WndMng.m_Messenger.GetFriend( uFriendId );
 			DWORD dwState;
 			
-			// »óÅÂ¿¡ µû¶ó »ö º¯°æ
+			// ìƒíƒœì— ë”°ë¼ ìƒ‰ ë³€ê²½
 			DWORD dwColor = 0xff000000;
 			
 			if( i == m_nCurSelect )
@@ -725,9 +725,9 @@ void CWndFriendCtrl::OnLButtonDblClk( UINT nFlags, CPoint point )
 		{
 			CString szMessage;
 			if( pFriend->dwState == FRS_OFFLINE )
-				szMessage	= prj.GetText(TID_GAME_NOTLOGIN);	//szMessage += "´ÔÀº Á¢¼ÓµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù";
+				szMessage	= prj.GetText(TID_GAME_NOTLOGIN);	//szMessage += "ë‹˜ì€ ì ‘ì†ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤";
 			else
-				szMessage.Format( prj.GetText( TID_GAME_MSGBLOCKCHR ), pPlayerDataCenter->GetPlayerString( idFriend ) );  //szMessage += "´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Ş¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
+				szMessage.Format( prj.GetText( TID_GAME_MSGBLOCKCHR ), pPlayerDataCenter->GetPlayerString( idFriend ) );  //szMessage += "ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
 			g_WndMng.PutString( szMessage, NULL, prj.GetTextColor(TID_GAME_NOTLOGIN) );
 		}
 	}	
@@ -756,12 +756,12 @@ void CWndFriendCtrl::OnLButtonDblClk( UINT nFlags, CPoint point )
 		{
 			CString szMessage;
 			if( lpFriend->dwState == FRS_OFFLINE )
-				szMessage = prj.GetText(TID_GAME_NOTLOGIN);                               //szMessage += "´ÔÀº Á¢¼ÓµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù";
+				szMessage = prj.GetText(TID_GAME_NOTLOGIN);                               //szMessage += "ë‹˜ì€ ì ‘ì†ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤";
 			else
 #ifdef __SYS_PLAYER_DATA
-				szMessage.Format( prj.GetText( TID_GAME_MSGBLOCKCHR ), pPlayerDataCenter->GetPlayerString( lpFriend->dwUserId ) );  //szMessage += "´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Ş¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
+				szMessage.Format( prj.GetText( TID_GAME_MSGBLOCKCHR ), pPlayerDataCenter->GetPlayerString( lpFriend->dwUserId ) );  //szMessage += "ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
 #else	// __SYS_PLAYER_DATA
-				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), lpFriend->szName );  //szMessage += "´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Ş¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
+				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), lpFriend->szName );  //szMessage += "ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
 #endif	// __SYS_PLAYER_DATA
 			g_WndMng.PutString( szMessage, NULL, prj.GetTextColor(TID_GAME_NOTLOGIN) );
 			
@@ -1020,7 +1020,7 @@ BOOL CWndFriendCtrl::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 
 	switch( nID )
 	{
-	case 0:		// ¸Ş½ÃÁö
+	case 0:		// ë©”ì‹œì§€
 		{
 #ifdef __RT_1025
 			u_long idPlayer	= 0;
@@ -1036,21 +1036,21 @@ BOOL CWndFriendCtrl::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 #endif	// __RT_1025
 		}
 		break;
-	case 1:		// Â÷´Ü / Â÷´ÜÇØÁ¦
+	case 1:		// ì°¨ë‹¨ / ì°¨ë‹¨í•´ì œ
 		{
 			u_long uidPlayer = GetSelectId( m_nCurSelect );
 			if( uidPlayer != -1 )
 				g_DPlay.SendFriendInterceptState( uidPlayer );		
 		}
 		break;
-	case 2:		// »èÁ¦
+	case 2:		// ì‚­ì œ
 		{
 			u_long uidPlayer = GetSelectId( m_nCurSelect );
 			if( uidPlayer != -1 )
 				g_DPlay.SendRemoveFriend( uidPlayer );
 		}
 		break;
-	case 3: // ÀÌµ¿
+	case 3: // ì´ë™
 		{
 #ifdef __RT_1025
 			u_long idPlayer;
@@ -1076,7 +1076,7 @@ BOOL CWndFriendCtrl::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 #endif	// __RT_1025
 		}
 		break;
-	case 4:	// ±Ø´Ü ÃÊÃ»
+	case 4:	// ê·¹ë‹¨ ì´ˆì²­
 		{
 			u_long uidPlayer = GetSelectId( m_nCurSelect );
 			if( uidPlayer != -1 )
@@ -1087,11 +1087,11 @@ BOOL CWndFriendCtrl::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 			}
 		}
 		break;
-	case 5: // ÄÄÆÛ´Ï ÃÊÃ»
+	case 5: // ì»´í¼ë‹ˆ ì´ˆì²­
 		{
 		}
 		break;
-	case 6: // ÂÊÁö º¸³»±â
+	case 6: // ìª½ì§€ ë³´ë‚´ê¸°
 		{
 #ifdef __RT_1025
 			u_long idPlayer;

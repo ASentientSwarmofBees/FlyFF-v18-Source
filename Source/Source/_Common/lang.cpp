@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "lang.h"
 
 CHAR g_szLanguage[ LANG_MAX ][16] =

@@ -1,13 +1,13 @@
-#pragma once
+ï»¿#pragma once
 
 #ifdef __IMPROVE_MAP_SYSTEM
 
-// ¸Ê ÄŞº¸ ¹Ú½º ºĞ·ù ( Áöµµ Á¾·ù, Áöµµ ÀÌ¸§, NPC ÀÌ¸§ )
+// ë§µ ì½¤ë³´ ë°•ìŠ¤ ë¶„ë¥˜ ( ì§€ë„ ì¢…ë¥˜, ì§€ë„ ì´ë¦„, NPC ì´ë¦„ )
 #define MCC_MAP_CATEGORY 0
 #define MCC_MAP_NAME 1
 #define MCC_NPC_NAME 2
 
-// ¸Ê ÄŞº¸ ¹Ú½º µ¥ÀÌÅÍ ID
+// ë§µ ì½¤ë³´ ë°•ìŠ¤ ë°ì´í„° ID
 #define MCD_NONE 0
 
 #define MCD_WORLD 1
@@ -70,7 +70,7 @@
 #define MCD_WdHeaven04		49
 #define MCD_WdHeaven05		50
 
-//ÇÃ¶ó¸®½º npc´Â 50 ~ 250±îÁö		
+//í”Œë¼ë¦¬ìŠ¤ npcëŠ” 50 ~ 250ê¹Œì§€		
 #define MCD_FLARINENOSPLE_NPC1		51
 #define MCD_FLARINENOSPLE_NPC2		52
 #define MCD_FLARINENOSPLE_NPC3		53
@@ -130,7 +130,7 @@
 #define MCD_FLARINENOSPLE_NPC58		108
 
 
-//ÇÃ¶ó¸®½º Áö¿ª
+//í”Œë¼ë¦¬ìŠ¤ ì§€ì—­
 #define MCD_MCD_FLARIS_NPC53		103
 #define MCD_MCD_FLARIS_NPC54		104
 #define MCD_MCD_FLARIS_NPC55		105
@@ -157,7 +157,7 @@
 #define MCD_MCD_FLARIS_NPC76		126
 #define MCD_MCD_FLARIS_NPC77		127
 		
-//¼¼ÀÎÆ®¸ğ´× npc´Â 251 ~ 500±îÁö		
+//ì„¸ì¸íŠ¸ëª¨ë‹ npcëŠ” 251 ~ 500ê¹Œì§€		
 #define MCD_SAINCITY_NPC1		251
 #define MCD_SAINCITY_NPC2		252
 #define MCD_SAINCITY_NPC3		253
@@ -197,16 +197,16 @@
 #define MCD_SAINCITY_NPC37		287
 #define MCD_SAINCITY_NPC38		295
 
-//¼¼ÀÎÆ®Áö¿ª
+//ì„¸ì¸íŠ¸ì§€ì—­
 #define MCD_SAINT_MORNING_NPC38		288
 #define MCD_SAINT_MORNING_NPC39		289
 #define MCD_SAINT_MORNING_NPC40		290
 #define MCD_SAINT_MORNING_NPC41		291
-#define MCD_SAINT_MORNING_NPC42		292 //¸®½Ã½º Á¤¿ø Ä«ºí·Ï
+#define MCD_SAINT_MORNING_NPC42		292 //ë¦¬ì‹œìŠ¤ ì •ì› ì¹´ë¸”ë¡
 #define MCD_SAINT_MORNING_NPC43		293
 #define MCD_SAINT_MORNING_NPC44		294
 		
-//´ÙÄË npc´Â 501 ~ 750±îÁö		
+//ë‹¤ì¼„ npcëŠ” 501 ~ 750ê¹Œì§€		
 #define MCD_DARKEN_NPC2		502	
 #define MCD_DARKEN_NPC3		503	
 #define MCD_DARKEN_NPC4		504	
@@ -244,7 +244,7 @@
 #define MCD_DARKEN_NPC38	538	
 #define MCD_DARKEN_NPC39	539	
 
-//´ÙÄÜÁö¿ª
+//ë‹¤ì½˜ì§€ì—­
 #define MCD_DARKON_12_NPC40	540	
 #define MCD_DARKON_12_NPC41	541	
 #define MCD_DARKON_12_NPC42	542	
@@ -277,7 +277,7 @@
 
 
 
-//¿¤¸®¿î npc´Â 751 ~ 1000±îÁö		
+//ì—˜ë¦¬ìš´ npcëŠ” 751 ~ 1000ê¹Œì§€		
 #define MCD_ELIUN_NPC1		751
 #define MCD_ELIUN_NPC2		752
 #define MCD_ELIUN_NPC3		753
@@ -310,14 +310,14 @@
 #define MCD_ELIUN_NPC30		780
 
 
-//ÇÏ¸£¸ğ´Ñ npc 1001 ~ 1100±îÁö
+//í•˜ë¥´ëª¨ë‹Œ npc 1001 ~ 1100ê¹Œì§€
 #define MCD_HARMONIN01		1001
 #define MCD_HARMONIN02		1002
 #define MCD_HARMONIN03		1003
 #define MCD_HARMONIN04		1004
 #define MCD_HARMONIN05		1005
 
-//·ç¿£µ¥¶ó npc 1100 ~ 1150±îÁö
+//ë£¨ì—”ë°ë¼ npc 1100 ~ 1150ê¹Œì§€
 
 #define MCD_BAHARA_NPC1		1101
 #define MCD_BAHARA_NPC2		1102

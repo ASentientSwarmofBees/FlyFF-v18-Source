@@ -1,4 +1,4 @@
-#ifndef __PACKET_LOG_H
+﻿#ifndef __PACKET_LOG_H
 #define __PACKET_LOG_H
 
 #include <map>

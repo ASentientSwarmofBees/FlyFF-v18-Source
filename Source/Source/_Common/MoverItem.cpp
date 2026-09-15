@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "mover.h"
 #include "defineText.h"
 #ifdef __WORLDSERVER
@@ -7,10 +7,10 @@ extern	CUserMng			g_UserMng;
 #endif	// WORLDSERVER
 
 
-// pc, npcÀÇ ºĞ¸® 
-// m_nCost»èÁ¦ 
+// pc, npcì˜ ë¶„ë¦¬ 
+// m_nCostì‚­ì œ 
 
-// °Å·¡ »ó´ë¹æÀ» ¾ò´Â´Ù.
+// ê±°ë˜ ìƒëŒ€ë°©ì„ ì–»ëŠ”ë‹¤.
 CMover* CVTInfo::GetOther()
 {
 //	return m_pOther;
@@ -20,7 +20,7 @@ CMover* CVTInfo::GetOther()
 	return prj.GetMover( m_objId );
 }
 
-// °Å·¡ »ó´ë¹æÀ» Á¤ÇÑ´Ù.
+// ê±°ë˜ ìƒëŒ€ë°©ì„ ì •í•œë‹¤.
 void CVTInfo::SetOther( CMover* pMover )
 {
 //	m_pOther = pMover;
@@ -83,7 +83,7 @@ void CVTInfo::TradeClear()
 		}
 	}
 #ifdef __WORLDSERVER	
-	// raiders.2006.11.28	ÀÎº¥µ· = ÀÎº¥µ· + ³» °Å·¡Ã¢ µ·
+	// raiders.2006.11.28	ì¸ë²¤ëˆ = ì¸ë²¤ëˆ + ë‚´ ê±°ë˜ì°½ ëˆ
 	int nGold = TradeGetGold();
 	if( nGold > 0 && m_pOwner )
 		m_pOwner->AddGold( nGold );
@@ -128,7 +128,7 @@ BOOL CVTInfo::TradeClearItem( BYTE i )
 		return FALSE;
 }
 
-//raiders.2006.11.28  °è»ê°úÁ¤ º¯°æ ( ÀÎº¥µ· = ÀÎº¥µ· + »ó´ë¹æ °Å·¡Ã¢ µ· )
+//raiders.2006.11.28  ê³„ì‚°ê³¼ì • ë³€ê²½ ( ì¸ë²¤ëˆ = ì¸ë²¤ëˆ + ìƒëŒ€ë°© ê±°ë˜ì°½ ëˆ )
 BOOL CVTInfo::TradeConsent()
 {
 	CMover* pTrader	= GetOther();
@@ -156,7 +156,7 @@ BOOL CVTInfo::TradeConsent()
 			pItemElem->m_nItemNum = nTradeNum;
 			pItemElem->SetExtra( 0 );
 			if( nTradeNum == 0 )
-				m_pOwner->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	// Á¦°Å
+				m_pOwner->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	// ì œê±°
 		}
 		else
 		{
@@ -181,7 +181,7 @@ BOOL CVTInfo::TradeConsent()
 			pItemElem->m_nItemNum = nTradeNum;
 			pItemElem->SetExtra( 0 );
 			if( nTradeNum == 0 )
-				pTrader->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	// Á¦°Å
+				pTrader->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	// ì œê±°
 		}
 		else
 		{
@@ -197,17 +197,17 @@ BOOL CVTInfo::TradeConsent()
 		pTrader->m_Inventory.Add( (CItemElem*)pItemBase );
 	}
 	
-	// step1. ÁÙµ·°ú »¬µ·À» ±¸ÇØµĞ´Ù.
+	// step1. ì¤„ëˆê³¼ ëº„ëˆì„ êµ¬í•´ë‘”ë‹¤.
 	int nThisGold = pTrader->m_vtInfo.TradeGetGold();
 	int nTraderGold = TradeGetGold();
 
-	// step2. m_dwTradeGold¸¦ clear
-	TradeSetGold( 0 );						// ¿øº¹ ¾ÈµÇ°Ô 
+	// step2. m_dwTradeGoldë¥¼ clear
+	TradeSetGold( 0 );						// ì›ë³µ ì•ˆë˜ê²Œ 
 	TradeClear();
-	pTrader->m_vtInfo.TradeSetGold( 0 );	// ¿øº¹ ¾ÈµÇ°Ô 
+	pTrader->m_vtInfo.TradeSetGold( 0 );	// ì›ë³µ ì•ˆë˜ê²Œ 
 	pTrader->m_vtInfo.TradeClear();
 
-	// step3. µ·À» ´õÇÑ´Ù.
+	// step3. ëˆì„ ë”í•œë‹¤.
 	m_pOwner->AddGold( nThisGold, FALSE );						
 	pTrader->AddGold( nTraderGold, FALSE );
 
@@ -320,8 +320,8 @@ void TradeLog( CAr & ar, CItemBase* pItemBase, short nItemCount )
 #endif // __PET_0410
 }
 
-// nMinus - ³ª°¥ µ· 
-// nPlus  - µé¾î¿Ã µ· 
+// nMinus - ë‚˜ê°ˆ ëˆ 
+// nPlus  - ë“¤ì–´ì˜¬ ëˆ 
 BOOL CheckTradeGold( CMover* pMover, int nMinus, int nPlus )
 {
 	if( nMinus >= 0 )
@@ -332,12 +332,12 @@ BOOL CheckTradeGold( CMover* pMover, int nMinus, int nPlus )
 			int nResult = nGold + nPlus;
 			if( nPlus >= 0 )
 			{
-				if( nResult >= nGold )	// overflow°¡ ¾Æ´Ï¸é?
+				if( nResult >= nGold )	// overflowê°€ ì•„ë‹ˆë©´?
 					return TRUE;
 			}
 			else
 			{
-				if( nResult >= 0 )		// underflow°¡ ¾Æ´Ï¸é?
+				if( nResult >= 0 )		// underflowê°€ ì•„ë‹ˆë©´?
 					return TRUE;
 			}
 
@@ -346,22 +346,22 @@ BOOL CheckTradeGold( CMover* pMover, int nMinus, int nPlus )
 
 	return FALSE;
 }
-//raiders.2006.11.28  °è»ê°úÁ¤ º¯°æ 
-//·Î±×¿Í Ã¼Å©¸¦ ¶§¾î³»¸é Å¬¶ó¿Í °°´Ù. ÅëÇÕÇØ¼­ refactoringÇÏÀÚ.
+//raiders.2006.11.28  ê³„ì‚°ê³¼ì • ë³€ê²½ 
+//ë¡œê·¸ì™€ ì²´í¬ë¥¼ ë•Œì–´ë‚´ë©´ í´ë¼ì™€ ê°™ë‹¤. í†µí•©í•´ì„œ refactoringí•˜ì.
 TRADE_CONFIRM_TYPE CVTInfo::TradeLastConfirm( CAr & ar )
 {
 	TRADE_CONFIRM_TYPE		result = TRADE_CONFIRM_ERROR;
 	CMover*					pTrader	= GetOther();
 
-	// gold_step1. GetGold(), AddGold() ÇÔ¼ö°¡ ¿øÇÏ´Âµ¥·Î µ¿ÀÛµÇµµ·Ï º¸°ü ÈÄ¿¡ clearÇØµĞ´Ù.
+	// gold_step1. GetGold(), AddGold() í•¨ìˆ˜ê°€ ì›í•˜ëŠ”ë°ë¡œ ë™ì‘ë˜ë„ë¡ ë³´ê´€ í›„ì— clearí•´ë‘”ë‹¤.
 	int nTraderGold        = pTrader->m_vtInfo.TradeGetGold();
 	int nUserGold          = TradeGetGold();
 	
-	// gold_step2. ÁÙµ·°ú »¬µ·À» ±¸ÇØµĞ´Ù.
+	// gold_step2. ì¤„ëˆê³¼ ëº„ëˆì„ êµ¬í•´ë‘”ë‹¤.
 	int nThisAdd   = nTraderGold;
 	int nTraderAdd = nUserGold;
 
-	// gold_step3. overflow¸¦ °Ë»ç 
+	// gold_step3. overflowë¥¼ ê²€ì‚¬ 
 	if( CheckTradeGold( m_pOwner, 0, nTraderGold ) == FALSE ||
 		CheckTradeGold( pTrader, 0, nUserGold ) == FALSE )
 	{
@@ -370,7 +370,7 @@ TRADE_CONFIRM_TYPE CVTInfo::TradeLastConfirm( CAr & ar )
 		return result;
 	}
 
-	// ±³È¯ ÇÒ ¸¸Å­ ¾çÂÊÀÇ ÀÎº¥Åä¸® ½½·ÔÀÌ ¿©À¯°¡ ÀÖ´Â Áö¸¦ °Ë»çÇÑ´Ù. 
+	// êµí™˜ í•  ë§Œí¼ ì–‘ìª½ì˜ ì¸ë²¤í† ë¦¬ ìŠ¬ë¡¯ì´ ì—¬ìœ ê°€ ìˆëŠ” ì§€ë¥¼ ê²€ì‚¬í•œë‹¤. 
 	int nPlayers = 0;
 	int nTraders = 0;
 
@@ -395,10 +395,10 @@ TRADE_CONFIRM_TYPE CVTInfo::TradeLastConfirm( CAr & ar )
 		CItemContainer<CItemElem> u;
 		u.SetItemContainer( ITYPE_ITEM, MAX_TRADE );
 
-		// gold_step4. µ·À» ´õÇÑ´Ù.
+		// gold_step4. ëˆì„ ë”í•œë‹¤.
 		m_pOwner->AddGold( nThisAdd, FALSE );						
 		pTrader->AddGold( nTraderAdd, FALSE );
-		// TradeClear¿¡¼­ ¿øº¹ÀÌ ¾ÈµÇ±â À§ÇØ¼­ 
+		// TradeClearì—ì„œ ì›ë³µì´ ì•ˆë˜ê¸° ìœ„í•´ì„œ 
 		pTrader->m_vtInfo.TradeSetGold( 0 );
 		TradeSetGold( 0 );
 
@@ -421,7 +421,7 @@ TRADE_CONFIRM_TYPE CVTInfo::TradeLastConfirm( CAr & ar )
 		u_long uOffset2	= ar.GetOffset();
 		ar << (DWORD)0;
 
-		// item_step1. m_pOwner->ÀÓ½Ã 
+		// item_step1. m_pOwner->ì„ì‹œ 
 		CItemBase* pItemBase;
 		for( int i = 0; i < MAX_TRADE; i++ )
 		{
@@ -439,12 +439,12 @@ TRADE_CONFIRM_TYPE CVTInfo::TradeLastConfirm( CAr & ar )
 				pItemElem->m_nItemNum = nTradeNum;
 				pItemElem->SetExtra( 0 );
 				if( nTradeNum == 0 )
-					m_pOwner->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	// Á¦°Å
+					m_pOwner->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	// ì œê±°
 			}
 			else
 			{
-				u.Add( pItemElem );	// ÀÓ½Ã ¹öÆÛ¿¡ Ãß°¡
-				m_pOwner->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	// Á¦°Å
+				u.Add( pItemElem );	// ì„ì‹œ ë²„í¼ì— ì¶”ê°€
+				m_pOwner->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	// ì œê±°
 			}
 		}
 		
@@ -482,13 +482,13 @@ TRADE_CONFIRM_TYPE CVTInfo::TradeLastConfirm( CAr & ar )
 			{
 				TradeLog( ar, pItemBase, 1 );
 				
-				m_pOwner->m_Inventory.Add( pItemElem );	// pUser¿¡ pTrader°¡ ÁØ ¾ÆÀÌÅÛÀ» Ãß°¡
+				m_pOwner->m_Inventory.Add( pItemElem );	// pUserì— pTraderê°€ ì¤€ ì•„ì´í…œì„ ì¶”ê°€
 				pTrader->m_Inventory.RemoveAtId( pItemBase->m_dwObjId );	
 			}
 		}
 
-		// item_step3. ÀÓ½Ã -> pTrader
-		nPlayers = u.GetCount();	// ÇÕÄ§À» °í·ÁÇØ¼­ ±¸ÇØµĞ´Ù.
+		// item_step3. ì„ì‹œ -> pTrader
+		nPlayers = u.GetCount();	// í•©ì¹¨ì„ ê³ ë ¤í•´ì„œ êµ¬í•´ë‘”ë‹¤.
 		for( int i = 0; i < nPlayers; i++ )
 		{
 			pItemBase = u.GetAtId( i );
@@ -528,7 +528,7 @@ void CVTInfo::TradeSetState( TRADE_STATE state )
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// °³ÀÎ»óÁ¡ 
+// ê°œì¸ìƒì  
 ///////////////////////////////////////////////////////////////////////////////
 
 //void CDPClient::OnUnregisterPVendorItem( OBJID objid, CAr & ar )
@@ -561,7 +561,7 @@ void CVTInfo::VendorSetItem( BYTE nId, BYTE i, short nNum, int nCost )
 }
 
 //void CDPClient::OnPVendorItemNum( OBJID objid, CAr & ar )
-// nNum - ³²Àº °¹¼ö 
+// nNum - ë‚¨ì€ ê°¯ìˆ˜ 
 void CVTInfo::VendorItemNum( BYTE i, short nNum )
 {
 	CItemBase* pItemBase = m_apItem_VT[i];
@@ -579,7 +579,7 @@ void CVTInfo::VendorItemNum( BYTE i, short nNum )
 	}
 }
 
-// µ¥ÀÌÅ¸ Ä«ÇÇ¸¦ ÇØ¼­ º¸°ü?
+// ë°ì´íƒ€ ì¹´í”¼ë¥¼ í•´ì„œ ë³´ê´€?
 // void CDPClient::OnPVendorItem( OBJID objid, CAr & ar )
 void CVTInfo::VendorCopyItems( CItemBase** ppItemVd )
 {
@@ -610,12 +610,12 @@ void CVTInfo::VendorClose( BOOL bClearTitle )
 }
 
 
-// ³ª´Â ÆÇ¸ÅÀÚ ÀÎ°¡? 
+// ë‚˜ëŠ” íŒë§¤ì ì¸ê°€? 
 BOOL CVTInfo::VendorIsVendor() 
 {
 	for( int i=0; i<MAX_VENDITEM; ++i )
 	{
-		if( m_apItem_VT[i] )	// µî·ÏÇÑ ¾ÆÀÌÅÛÀÌ ÀÖ´Â°¡?
+		if( m_apItem_VT[i] )	// ë“±ë¡í•œ ì•„ì´í…œì´ ìˆëŠ”ê°€?
 			return TRUE;
 	}
 
@@ -679,7 +679,7 @@ BOOL CVTInfo::VendorSellItem( CMover* pBuyer, BYTE i, DWORD dwItemId, short nNum
 		return FALSE;
 	}
 
-	// CItemElemÀÇ º¹»ç ¿¬»êÀÚ¿¡ m_nCost´Â Á¦¿ÜµÇ¾î ÀÖ´Ù.
+	// CItemElemì˜ ë³µì‚¬ ì—°ì‚°ìì— m_nCostëŠ” ì œì™¸ë˜ì–´ ìˆë‹¤.
 	int nCost	= pItemBase->m_nCost;
 	pBuyer->AddGold( -( pItemBase->m_nCost * nNum ) );
 	m_pOwner->AddGold( pItemBase->m_nCost * nNum );

@@ -1,4 +1,4 @@
-#ifndef __OBJ_H__
+ï»¿#ifndef __OBJ_H__
 #define __OBJ_H__
 
 #pragma once
@@ -57,11 +57,11 @@ enum
 #ifdef __3RD_LEGEND16
 #define MAX_SKILL_JOB	( MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL + MAX_LEGEND_HERO_SKILL )
 #else // __3RD_LEGEND16
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #define MAX_SKILL_JOB	( MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL )
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #define MAX_SKILL_JOB	( MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL )
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #endif // __3RD_LEGEND16
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -115,11 +115,11 @@ public:
 class CItemBase
 {
 public:
-	OBJID       m_dwObjId ;		// ¾ÆÀÌÅÛ ÄÁÅ×ÀÌ³Ê¿¡¼­ ¸î¹øÂ° 
-	DWORD		m_dwItemId;		// IID_ °ª 
+	OBJID       m_dwObjId ;		// ì•„ì´í…œ ì»¨í…Œì´ë„ˆì—ì„œ ëª‡ë²ˆì§¸ 
+	DWORD		m_dwItemId;		// IID_ ê°’ 
 	TCHAR       m_szItemText[ 32 ];
 
-	DWORD		m_dwObjIndex;	// ÀÎº¥Åä¸®¿¡¼­ ¸î¹øÂ° 
+	DWORD		m_dwObjIndex;	// ì¸ë²¤í† ë¦¬ì—ì„œ ëª‡ë²ˆì§¸ 
 private:
 	SERIALNUMBER	m_liSerialNumber;
 public:
@@ -178,15 +178,15 @@ public:
 	short	m_nItemNum; 
 	int		m_nHitPoint;
 	DWORD	m_idGuild;
-	BYTE	m_bItemResist;				// ¾î´À ¼Ó¼º ÀÎ°¡?
-	int		m_nResistAbilityOption;		// ¼Ó¼º Ãß°¡ ´É·ÂÄ¡ °¡º¯ ¿É¼Ç
+	BYTE	m_bItemResist;				// ì–´ëŠ ì†ì„± ì¸ê°€?
+	int		m_nResistAbilityOption;		// ì†ì„± ì¶”ê°€ ëŠ¥ë ¥ì¹˜ ê°€ë³€ ì˜µì…˜
 	int		m_nResistSMItemId;
 
 //	PIERCINGINFO	m_piercingInfo;
-	BOOL	m_bCharged;					// »ó¿ëÈ­ ¾ÆÀÌÅÛÀÎÁö È®ÀÎ
-	DWORD	m_dwKeepTime;				// Áö¼Ó½Ã°£
+	BOOL	m_bCharged;					// ìƒìš©í™” ì•„ì´í…œì¸ì§€ í™•ì¸
+	DWORD	m_dwKeepTime;				// ì§€ì†ì‹œê°„
 #if __VER >= 11 // __SYS_IDENTIFY
-	// ºñÆ®º° ¿¬»ê
+	// ë¹„íŠ¸ë³„ ì—°ì‚°
 	// 12|12|16|16|8	= 64
 private:
 	__int64		m_iRandomOptItemId;
@@ -407,13 +407,13 @@ template <class T> BOOL CItemContainer<T>::Add( DWORD dwItemId, short nNum, int 
 	CItemElem* pElemtmp;
 	if( bPackItem )
 	{
-		for( DWORD i = 0; i < m_dwIndexNum; i++ )	// ÇÕÃÄÁú¼ö ÀÖÀ¸¸é ÇÕÄ¡±â
+		for( DWORD i = 0; i < m_dwIndexNum; i++ )	// í•©ì³ì§ˆìˆ˜ ìˆìœ¼ë©´ í•©ì¹˜ê¸°
 		{
 			nId	= m_apIndex[i];
 			pElemtmp	= (CItemElem*)&m_apItem[nId];
 				
 			if( pElemtmp->IsEmpty() == FALSE && pElemtmp->m_dwItemId == dwItemId && pElemtmp->m_nItemNum < (short)pItemProp->dwPackMax
-				&& pElemtmp->m_bCharged == bCharged && pElemtmp->m_byFlag == 0 )	// ¾ÆÀÌÅÛ ÇÃ·¡±× 0 ¾ÆÀÌÅÛ ¸ÓÁö °¡´É
+				&& pElemtmp->m_bCharged == bCharged && pElemtmp->m_byFlag == 0 )	// ì•„ì´í…œ í”Œë˜ê·¸ 0 ì•„ì´í…œ ë¨¸ì§€ ê°€ëŠ¥
 			{
 				if( pElemtmp->m_nItemNum + nNumtmp > (short)pItemProp->dwPackMax )
 				{
@@ -524,7 +524,7 @@ template <class T> BOOL CItemContainer<T>::Add( T* pElem, BYTE* pnId, short* pnN
 	int nId;
 
 	short nNumtmp	= ( (CItemElem*)pElem )->m_nItemNum;
-	if( IsFull( pItemProp, nNumtmp, pElem->m_bCharged ) )	// ¾ÆÀÌÅÛÀ» ³ÖÀ»¼ö ÀÖ´ÂÁö °Ë»ç
+	if( IsFull( pItemProp, nNumtmp, pElem->m_bCharged ) )	// ì•„ì´í…œì„ ë„£ì„ìˆ˜ ìˆëŠ”ì§€ ê²€ì‚¬
 		return FALSE;
 
 	if( pItemProp->dwPackMax == 1 )
@@ -542,7 +542,7 @@ template <class T> BOOL CItemContainer<T>::Add( T* pElem, BYTE* pnId, short* pnN
 			
 			//if( pElemtmp->IsEmpty() == FALSE && pElemtmp->m_dwItemId == pElem->m_dwItemId && pElemtmp->m_nItemNum < (short)pItemProp->dwPackMax )
 			if( pElemtmp->IsEmpty() == FALSE && pElemtmp->m_dwItemId == pElem->m_dwItemId && pElemtmp->m_nItemNum < (short)pItemProp->dwPackMax
-				&& pElemtmp->m_bCharged == pElem->m_bCharged && pElemtmp->m_byFlag == 0 ) // mirchang 100114 ¾ÆÀÌÅÛ °ãÄ§ ¹®Á¦ ¼öÁ¤
+				&& pElemtmp->m_bCharged == pElem->m_bCharged && pElemtmp->m_byFlag == 0 ) // mirchang 100114 ì•„ì´í…œ ê²¹ì¹¨ ë¬¸ì œ ìˆ˜ì •
 			{
 				if( pElemtmp->m_nItemNum + nNumtmp > (short)pItemProp->dwPackMax )
 				{
@@ -578,7 +578,7 @@ template <class T> BOOL CItemContainer<T>::Add( T* pElem, BYTE* pnId, short* pnN
 			if( nId < 0 || nId >= (int)( m_dwItemMax ) )
 				continue;
 			pElemtmp	= (CItemElem*)&m_apItem[nId];
-			if( pElemtmp->IsEmpty() )	// ºó°ø°£ÀÎÁö °Ë»ç
+			if( pElemtmp->IsEmpty() )	// ë¹ˆê³µê°„ì¸ì§€ ê²€ì‚¬
 			{
 				*pElemtmp	= *( (CItemElem*)pElem );
 				pElemtmp->m_dwObjId	= nId;
@@ -906,9 +906,9 @@ typedef struct tagQuest
 	BYTE		m_nState;
 	WORD		m_wTime;
 	WORD		m_wId;
-	// Ãß°¡ 
-	//BYTE		m_nKillNPCNum[ 2 ];	// chipi_091015 - NPC Kill Quest °¹¼ö È®Àå( BYTE -> WORD )
-	WORD		m_nKillNPCNum[MAX_QUEST_COND_KILL];	// chipi_091015 - NPC Kill Quest °¹¼ö È®Àå( BYTE -> WORD )
+	// ì¶”ê°€ 
+	//BYTE		m_nKillNPCNum[ 2 ];	// chipi_091015 - NPC Kill Quest ê°¯ìˆ˜ í™•ì¥( BYTE -> WORD )
+	WORD		m_nKillNPCNum[MAX_QUEST_COND_KILL];	// chipi_091015 - NPC Kill Quest ê°¯ìˆ˜ í™•ì¥( BYTE -> WORD )
 	BYTE		m_bPatrol   : 1;
 	BYTE		m_bReserve2 : 1;
 	BYTE		m_bReserve3 : 1;
@@ -941,7 +941,7 @@ private:
 	DWORD			m_dwGold;
 
 public:
-/// ¸ó½ºÅÍ¿¡ ÇØ´çµÇ´Â °Í 
+/// ëª¬ìŠ¤í„°ì— í•´ë‹¹ë˜ëŠ” ê²ƒ 
 	TCHAR			m_szCharacterKey[ 32 ];
 	BOOL			m_bActiveAttack;
 	DWORD			m_dwBelligerence;
@@ -949,7 +949,7 @@ public:
 	int				m_nMovePattern;
 	int				m_nMoveEvent;
 	int				m_nMoveEventCnt;
-/// ¸ó½ºÅÍ¿¡ ÇØ´çµÇ´Â °Í 
+/// ëª¬ìŠ¤í„°ì— í•´ë‹¹ë˜ëŠ” ê²ƒ 
 
 	TCHAR			m_szName[32];
 	BOOL			m_bPlayer;
@@ -1016,25 +1016,25 @@ public:
 	u_long			m_idGuild;
 	u_long			m_idWar;
 #if __VER >= 8 // __S8_PK
-	DWORD			m_dwPKTime;					/// ÇÎÅ© »óÅÂ ½Ã°£
-	int				m_nPKValue;					/// PK ¼öÄ¡
-	DWORD			m_dwPKPropensity;			/// PK ¼ºÇâ
-	DWORD			m_dwPKExp;					/// PK ¼ºÇâ ½Àµæ °æÇèÄ¡
+	DWORD			m_dwPKTime;					/// í•‘í¬ ìƒíƒœ ì‹œê°„
+	int				m_nPKValue;					/// PK ìˆ˜ì¹˜
+	DWORD			m_dwPKPropensity;			/// PK ì„±í–¥
+	DWORD			m_dwPKExp;					/// PK ì„±í–¥ ìŠµë“ ê²½í—˜ì¹˜
 #else // __VER >= 8 // __S8_PK
 	int				m_nNumKill;
 	int				m_nSlaughter;
 #endif // __VER >= 8 // __S8_PK
 #if __VER >= 8 // __CSC_VER8_5
-	EXPINTEGER		m_nAngelExp;				/// ¿£Á© °æÇèÄ¡
-	LONG			m_nAngelLevel;				/// ¿£Á© Level
+	EXPINTEGER		m_nAngelExp;				/// ì—”ì ¤ ê²½í—˜ì¹˜
+	LONG			m_nAngelLevel;				/// ì—”ì ¤ Level
 #endif // __CSC_VER8_5
 
 	int				m_nFame;
 	u_long			m_idMurderer;
-	int				m_nDuel;			// µà¾óÁßÀÎ°¡.( 0:¾øÀ½ 1:°³ÀÎµà¾óÁß 2:ÆÄÆ¼µà¾óÁß.
-	u_long			m_idDuelParty;		// ÆÄÆ¼µà¾óÁßÀÌ¸é »ó´ë¹æ ÆÄÆ¼ÀÇ id
+	int				m_nDuel;			// ë“€ì–¼ì¤‘ì¸ê°€.( 0:ì—†ìŒ 1:ê°œì¸ë“€ì–¼ì¤‘ 2:íŒŒí‹°ë“€ì–¼ì¤‘.
+	u_long			m_idDuelParty;		// íŒŒí‹°ë“€ì–¼ì¤‘ì´ë©´ ìƒëŒ€ë°© íŒŒí‹°ì˜ id
 	int				m_nGuildCombatState;
-	int				m_nSkillLevel;						// Áö±İ±îÁö ¿Ã¸° ½ºÅ³·¹º§
+	int				m_nSkillLevel;						// ì§€ê¸ˆê¹Œì§€ ì˜¬ë¦° ìŠ¤í‚¬ë ˆë²¨
 	int				m_nSkillPoint;						// SP
 
 	CActionMover*					m_pActMover; 
@@ -1048,7 +1048,7 @@ public:
 	CItemContainer< CItemElem  >	m_Bank[ 3 ] ;
 	DWORD							m_dwGoldBank[ 3 ];
 
-	D3DXVECTOR3		m_vReturnPos;						//'±ÍÈ¯ µÎ·ç¸¶¸®'°ü·Ã 
+	D3DXVECTOR3		m_vReturnPos;						//'ê·€í™˜ ë‘ë£¨ë§ˆë¦¬'ê´€ë ¨ 
 	DWORD			m_dwReturnWorldID;
 	DWORD			m_tmAccFuel;
 #ifdef __DBSERVER
@@ -1061,23 +1061,23 @@ public:
 	CMclCritSec		m_AccessLock;
 #ifdef __EVENT_1101
 #ifdef __EVENT_1101_2
-	__int64 m_nEventFlag; // 64ºñÆ® °æ°ú ÀÏ ¹øÂ° ºñÆ®
+	__int64 m_nEventFlag; // 64ë¹„íŠ¸ ê²½ê³¼ ì¼ ë²ˆì§¸ ë¹„íŠ¸
 #else // __EVENT_1101_2
-	DWORD	m_dwEventFlag;	//	°æ°ú ÀÏ ¹øÂ° ºñÆ®
+	DWORD	m_dwEventFlag;	//	ê²½ê³¼ ì¼ ë²ˆì§¸ ë¹„íŠ¸
 #endif // __EVENT_1101_2
-	DWORD	m_dwEventTime;	// ºĞ ´ÜÀ§ °è¼ö
-	DWORD	m_dwEventElapsed;	// °æ°ú ÀÏ
+	DWORD	m_dwEventTime;	// ë¶„ ë‹¨ìœ„ ê³„ìˆ˜
+	DWORD	m_dwEventElapsed;	// ê²½ê³¼ ì¼
 #endif	// __EVENT_1101
 #endif // __DBSERVER
 
 #if __VER >= 15 // __PETVIS
 private:
-	OBJID	m_objIdVisPet;	// ¼ÒÈ¯ÁßÀÎ ºñ½ºÆêÀÇ ÀÎº¥Åä¸® À§Ä¡
-	DWORD	m_dwMoverSfxId; // ¹«¹ö¿¡ ºÙ´Â ÀÌÆåÆ®
+	OBJID	m_objIdVisPet;	// ì†Œí™˜ì¤‘ì¸ ë¹„ìŠ¤í«ì˜ ì¸ë²¤í† ë¦¬ ìœ„ì¹˜
+	DWORD	m_dwMoverSfxId; // ë¬´ë²„ì— ë¶™ëŠ” ì´í™íŠ¸
 #endif // __PETVIS
 #if __VER >= 9	// __PET_0410
 private:
-	DWORD	m_dwPetId;	// ¼ÒÈ¯ÁßÀÌ ÆêÀÇ ÀÎº¥Åä¸® À§Ä¡(í»), ¼ÒÈ¯ÁßÀÎ Æê ÀÎµ¦½º(öâ)
+	DWORD	m_dwPetId;	// ì†Œí™˜ì¤‘ì´ í«ì˜ ì¸ë²¤í† ë¦¬ ìœ„ì¹˜(è‡ª), ì†Œí™˜ì¤‘ì¸ í« ì¸ë±ìŠ¤(ä»–)
 public:
 	DWORD	GetPetId( void )	{	return m_dwPetId;	}
 	void	SetPetId( DWORD dwPetId )		{	m_dwPetId	= dwPetId;	}
@@ -1096,11 +1096,11 @@ public:
 	int		m_nCoupon;
 #endif // __EVENTLUA_COUPON
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
-	int				m_nHonor;					// ´ŞÀÎ¼±ÅÃ 
-	int				m_aHonorTitle[MAX_HONOR_TITLE];			// ´ŞÀÎ¼öÄ¡
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+	int				m_nHonor;					// ë‹¬ì¸ì„ íƒ 
+	int				m_aHonorTitle[MAX_HONOR_TITLE];			// ë‹¬ì¸ìˆ˜ì¹˜
 	void			SetHonorCount(int nIdx , int nCount )	{	m_aHonorTitle[nIdx] = nCount;	}
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 	LONG			m_nPlusMaxHitPoint;
 	DWORD			m_dwSMTime[SM_MAX];
@@ -1111,7 +1111,7 @@ public:
 #ifdef __BUFF_1107
 	CBuffMgr	m_buffs;
 #else	// __BUFF_1107
-	CSkillInfluence m_SkillState;				// Áö¼Ó¼ºÀ» °®´Â ½ºÅ³ÀÇ »óÅÂ Ã³¸®(¿¹:ÇÁ·ÎÅØ¼Ç ??ÃÊµ¿¾È ¹æ¾î·Â ¾ó¸¶ Áõ°¡)
+	CSkillInfluence m_SkillState;				// ì§€ì†ì„±ì„ ê°–ëŠ” ìŠ¤í‚¬ì˜ ìƒíƒœ ì²˜ë¦¬(ì˜ˆ:í”„ë¡œí…ì…˜ ??ì´ˆë™ì•ˆ ë°©ì–´ë ¥ ì–¼ë§ˆ ì¦ê°€)
 #endif	// __BUFF_1107
 
 	EQUIP_INFO		m_aEquipInfo[MAX_HUMAN_PARTS];
@@ -1123,7 +1123,7 @@ public:
 	}
 	
 	DWORD			m_dwStateMode;
-	OBJID			m_dwUseItemId;					// ºñÇà ½ÃÀü ½Ã°£
+	OBJID			m_dwUseItemId;					// ë¹„í–‰ ì‹œì „ ì‹œê°„
 	LPQUEST			m_aQuest;
 	LPWORD			m_aCompleteQuest; 
 	BYTE			m_nQuestSize;

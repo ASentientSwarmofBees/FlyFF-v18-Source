@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "NpcScript.h"
 
 struct TABLES
@@ -4282,7 +4282,7 @@ void CNpcScript::AddAnswer( DWORD szWord )
 	pTable->AddAnswer( m_pInfo, lpszWord, "", 0 );
 }
 
-void CNpcScript::RemoveKey(DWORD szKey )  // RemoveKey( "µ¥Ä«³×½º" );
+void CNpcScript::RemoveKey(DWORD szKey )  // RemoveKey( "ë°ì¹´ë„¤ìŠ¤" );
 {
 	LPCTSTR lpszKey = GetDialogText( szKey );
 
@@ -4443,7 +4443,7 @@ int CNpcScript::GetHour()
 	return pTable->GetHour( m_pInfo );
 }
 
-// AddCondKey( "¾Æ¹öÁöÀÇ Áü","CARGO" );
+// AddCondKey( "ì•„ë²„ì§€ì˜ ì§","CARGO" );
 void CNpcScript::AddCondKey( DWORD szWord, DWORD szKey )  
 {
 	LPCTSTR lpszWord = GetDialogText( szWord );

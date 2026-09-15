@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "definetext.h"
 #include "AppDefine.h"
 #include "wndvendor.h"
@@ -8,10 +8,10 @@ extern	CDPClient	g_DPlay;
 
 
 /*
-  WndId : APP_VENDOR_BUY - ±¸ÀÔ È®ÀÎ
-  CtrlId : WIDC_EDIT1 - °³¼ö ÀÔ·Â Ã¢
-  CtrlId : WIDC_STATIC4 - »ç´Â °¡°Ý
-  CtrlId : WIDC_STATIC6 - ´Ü°¡
+  WndId : APP_VENDOR_BUY - êµ¬ìž… í™•ì¸
+  CtrlId : WIDC_EDIT1 - ê°œìˆ˜ ìž…ë ¥ ì°½
+  CtrlId : WIDC_STATIC4 - ì‚¬ëŠ” ê°€ê²©
+  CtrlId : WIDC_STATIC6 - ë‹¨ê°€
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
 */
@@ -191,7 +191,7 @@ BOOL CWndVendorBuy::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		pWndStatic	= (CWndStatic*)GetDlgItem( WIDC_BUYNUM );
 		CWndVendor* pWndVendor	= (CWndVendor*)GetParentWnd();
 		int nNum	= atoi( pWndStatic->GetTitle() );
-		if( nNum < 1 )	return TRUE;	// °³¼ö°¡ ³Ê¹« ÀÛ½À´Ï´Ù.
+		if( nNum < 1 )	return TRUE;	// ê°œìˆ˜ê°€ ë„ˆë¬´ ìž‘ìŠµë‹ˆë‹¤.
 #if __VER >= 8 // __S8_VENDOR_REVISION
 		int nBufNum = nNum;
 		if( nNum > m_pItemBase->GetExtra() )

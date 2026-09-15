@@ -1,4 +1,4 @@
-#ifndef __AR_H__
+﻿#ifndef __AR_H__
 #define __AR_H__
 
 #pragma once

@@ -1,4 +1,4 @@
-#ifndef _QUERY_H_
+ï»¿#ifndef _QUERY_H_
 #define _QUERY_H_
 
 #include <sql.h>
@@ -20,40 +20,40 @@ public:
 	char DBId[256];
 	char DBPass[256];
 
-	// ÃÖ´ë ÄÃ·³¼ö, BLOB ÀÔÃâ·Â ´ÜÀ§, NULL ÇÊµå°ª
+	// ìµœëŒ€ ì»¬ëŸ¼ìˆ˜, BLOB ì…ì¶œë ¥ ë‹¨ìœ„, NULL í•„ë“œê°’
 	enum { MAXCOL=256, BLOBBATCH=10000, CQUERYNULL=-100, CQUERYEOF=-101, 
 		CQUERYNOCOL=-102, CQUERYERROR=-103 };
 private:
-	SQLHENV hEnv;							// È¯°æ ÇÚµé
-	SQLHDBC hDbc;							// ¿¬°á ÇÚµé
-	char*	Col[MAXCOL];					// ¹ÙÀÎµùµÉ ÄÃ·³ Á¤º¸
+	SQLHENV hEnv;							// í™˜ê²½ í•¸ë“¤
+	SQLHDBC hDbc;							// ì—°ê²° í•¸ë“¤
+	char*	Col[MAXCOL];					// ë°”ì¸ë”©ë  ì»¬ëŸ¼ ì •ë³´
 
-	int FindCol(char *name);				// ÄÃ·³ÀÇ ÀÌ¸§À¸·ÎºÎÅÍ ¹øÈ£¸¦ Ã£¾ÆÁØ´Ù.
+	int FindCol(char *name);				// ì»¬ëŸ¼ì˜ ì´ë¦„ìœ¼ë¡œë¶€í„° ë²ˆí˜¸ë¥¼ ì°¾ì•„ì¤€ë‹¤.
 
 public:
-	SQLHSTMT hStmt;							// ¸í·É ÇÚµé. Á÷Á¢ »ç¿ëÇÒ ¼öµµ ÀÖÀ¸¹Ç·Î publicÀ¸·Î Á¤ÀÇ
-	SQLSMALLINT nCol;						// ÄÃ·³ °³¼ö
-	SQLCHAR ColName[MAXCOL][50];			// ÄÃ·³ÀÇ ÀÌ¸§µé
-	SQLINTEGER lCol[MAXCOL];				// ÄÃ·³ÀÇ ±æÀÌ/»óÅÂ Á¤º¸
+	SQLHSTMT hStmt;							// ëª…ë ¹ í•¸ë“¤. ì§ì ‘ ì‚¬ìš©í•  ìˆ˜ë„ ìˆìœ¼ë¯€ë¡œ publicìœ¼ë¡œ ì •ì˜
+	SQLSMALLINT nCol;						// ì»¬ëŸ¼ ê°œìˆ˜
+	SQLCHAR ColName[MAXCOL][50];			// ì»¬ëŸ¼ì˜ ì´ë¦„ë“¤
+	SQLINTEGER lCol[MAXCOL];				// ì»¬ëŸ¼ì˜ ê¸¸ì´/ìƒíƒœ ì •ë³´
 
-	CQuery();								// »ı¼ºÀÚ
-	~CQuery();								// ÆÄ±«ÀÚ:¿¬°á ÇÚµéÀ» ÇØÁ¦ÇÑ´Ù.
+	CQuery();								// ìƒì„±ì
+	~CQuery();								// íŒŒê´´ì:ì—°ê²° í•¸ë“¤ì„ í•´ì œí•œë‹¤.
 
-	void PrintDiag( LPCTSTR szSQL, SQLSMALLINT type = SQL_HANDLE_DBC );						// Áø´Ü Á¤º¸ Ãâ·Â
-	BOOL Connect(int Type, char *ConStr, char *UID=NULL, const char *PWD=NULL);	// µ¥ÀÌÅÍ ¼Ò½º¿¡ ¿¬°áÇÑ´Ù.
-	void DisConnect();						// µ¥ÀÌÅÍ ¼Ò½º ¿¬°áÀ» ²÷´Â´Ù
-	BOOL Exec(LPCTSTR szSQL);				// SQL¹®À» ½ÇÇàÇÑ´Ù.
+	void PrintDiag( LPCTSTR szSQL, SQLSMALLINT type = SQL_HANDLE_DBC );						// ì§„ë‹¨ ì •ë³´ ì¶œë ¥
+	BOOL Connect(int Type, char *ConStr, char *UID=NULL, const char *PWD=NULL);	// ë°ì´í„° ì†ŒìŠ¤ì— ì—°ê²°í•œë‹¤.
+	void DisConnect();						// ë°ì´í„° ì†ŒìŠ¤ ì—°ê²°ì„ ëŠëŠ”ë‹¤
+	BOOL Exec(LPCTSTR szSQL);				// SQLë¬¸ì„ ì‹¤í–‰í•œë‹¤.
 	BOOL Exec(LPCTSTR szSQL, int nCount, QUERY_BINDINFO info[]);
 	BOOL PrepareFetch();
 
 	BOOL	Execute( LPCTSTR lpszFormat, ... );
 
-	int ExecGetInt(LPCTSTR szSQL);			// SQL¹®À» ½ÇÇàÇÏ°í Ã¹¹øÂ° ÄÃ·³ÀÇ Á¤¼ö ÀĞÀ½
-	void ExecGetStr(LPCTSTR szSQL, char *buf);		// SQL¹®À» ½ÇÇàÇÏ°í Ã¹¹øÂ° ÄÃ·³ÀÇ ¹®ÀÚ¿­ ÀĞÀ½
-	BOOL Fetch();						// ÇÑ Çà °¡Á®¿À±â
-	void Clear();							// Ä¿¼­ ÇØÁ¦ ¹× ¾ğ ¹ÙÀÎµù
-	int GetInt(int nCol);					// Á¤¼öÇü ÄÃ·³ ÀĞ±â
-	int GetInt(char *sCol);					// Á¤¼öÇü ÄÃ·³ ÀĞ±â
+	int ExecGetInt(LPCTSTR szSQL);			// SQLë¬¸ì„ ì‹¤í–‰í•˜ê³  ì²«ë²ˆì§¸ ì»¬ëŸ¼ì˜ ì •ìˆ˜ ì½ìŒ
+	void ExecGetStr(LPCTSTR szSQL, char *buf);		// SQLë¬¸ì„ ì‹¤í–‰í•˜ê³  ì²«ë²ˆì§¸ ì»¬ëŸ¼ì˜ ë¬¸ìì—´ ì½ìŒ
+	BOOL Fetch();						// í•œ í–‰ ê°€ì ¸ì˜¤ê¸°
+	void Clear();							// ì»¤ì„œ í•´ì œ ë° ì–¸ ë°”ì¸ë”©
+	int GetInt(int nCol);					// ì •ìˆ˜í˜• ì»¬ëŸ¼ ì½ê¸°
+	int GetInt(char *sCol);					// ì •ìˆ˜í˜• ì»¬ëŸ¼ ì½ê¸°
 
 	__int64		GetInt64( int nCol );
 	__int64		GetInt64( char* sCol );
@@ -69,12 +69,12 @@ public:
 			return GetInt( sCol );
 		}
 
-	float GetFloat(int nCol);					// ½Ç¼öÇü ÄÃ·³ ÀĞ±â
-	float GetFloat(char *sCol);				// ½Ç¼öÇü ÄÃ·³ ÀĞ±â
-	char GetChar(int nCol);					// ½Ç¼öÇü ÄÃ·³ ÀĞ±â
-	char GetChar(char *sCol);				// ½Ç¼öÇü ÄÃ·³ ÀĞ±â
-	void GetStr(int nCol, char *buf);		// ¹®ÀÚ¿­Çü ÄÃ·³ ÀĞ±â
-	void GetStr(char *sCol, char *buf);		// ¹®ÀÚ¿­Çü ÄÃ·³ ÀĞ±â
+	float GetFloat(int nCol);					// ì‹¤ìˆ˜í˜• ì»¬ëŸ¼ ì½ê¸°
+	float GetFloat(char *sCol);				// ì‹¤ìˆ˜í˜• ì»¬ëŸ¼ ì½ê¸°
+	char GetChar(int nCol);					// ì‹¤ìˆ˜í˜• ì»¬ëŸ¼ ì½ê¸°
+	char GetChar(char *sCol);				// ì‹¤ìˆ˜í˜• ì»¬ëŸ¼ ì½ê¸°
+	void GetStr(int nCol, char *buf);		// ë¬¸ìì—´í˜• ì»¬ëŸ¼ ì½ê¸°
+	void GetStr(char *sCol, char *buf);		// ë¬¸ìì—´í˜• ì»¬ëŸ¼ ì½ê¸°
 	int ReadBlob(LPCTSTR szSQL, void *buf);
 	void WriteBlob(LPCTSTR szSQL, void *buf, int size);
 	BOOL BindParameter(SQLUSMALLINT parameterNumber,
@@ -93,8 +93,8 @@ public:
 	void WriteLogFile(char *strLog,...);
 	static BOOL EnableConnectionPooling();
 };
-// TODO: ¸ğµâ ºĞ¸® 
-// ¾ÏÈ£È­µÈ ÅäÅ«À» ÇØµ¶ÇØ¼­ ÆĞ½º¿öµå·Î ¾ò´Â´Ù.
-// ¿¹: ÅäÅ« - 3A08DB22
+// TODO: ëª¨ë“ˆ ë¶„ë¦¬ 
+// ì•”í˜¸í™”ëœ í† í°ì„ í•´ë…í•´ì„œ íŒ¨ìŠ¤ì›Œë“œë¡œ ì–»ëŠ”ë‹¤.
+// ì˜ˆ: í† í° - 3A08DB22
 extern BOOL GetPWDFromToken( const char* szToken, char* szPWD );
 #endif

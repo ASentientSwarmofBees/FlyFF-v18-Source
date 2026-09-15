@@ -1,4 +1,4 @@
-// PCBang.h: interface for the CPCBang class.
+ï»¿// PCBang.h: interface for the CPCBang class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -61,25 +61,25 @@ public:
 	
 	BOOL	LoadScript();		
 
-	void	SetPCBangPlayer( CUser* pUser, DWORD dwPCBangClass );	// PC¹æ À¯Àú¸¦ ¸ñ·Ï¿¡ Ãß°¡ÇÑ´Ù.
-	void	DestroyPCBangPlayer( DWORD dwPlayerId );	// Á¢¼ÓÇØÁ¦ ½Ã°£À» ÀúÀåÇÑ´Ù.
+	void	SetPCBangPlayer( CUser* pUser, DWORD dwPCBangClass );	// PCë°© ìœ ì €ë¥¼ ëª©ë¡ì— ì¶”ê°€í•œë‹¤.
+	void	DestroyPCBangPlayer( DWORD dwPlayerId );	// ì ‘ì†í•´ì œ ì‹œê°„ì„ ì €ì¥í•œë‹¤.
 	DWORD	GetPCBangClass( DWORD dwPlayerId );
-	void	ProcessPCBang();							// Á¢¼Ó ÇØÁ¦ ÈÄ 10ºĞÀÌ °æ°úµÈ À¯Àú¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
+	void	ProcessPCBang();							// ì ‘ì† í•´ì œ í›„ 10ë¶„ì´ ê²½ê³¼ëœ ìœ ì €ë¥¼ ì´ˆê¸°í™” í•œë‹¤.
 	float	GetExpInfo( DWORD dwHour );
-	float	GetExpFactor( CUser* pUser );				// Áõ°¡µÉ °æÇèÄ¡¸¦ ¾ò¾î¿Â´Ù.
+	float	GetExpFactor( CUser* pUser );				// ì¦ê°€ë  ê²½í—˜ì¹˜ë¥¼ ì–»ì–´ì˜¨ë‹¤.
 	float	GetPartyExpFactor( CUser* apUser[], int nMemberSize );
 	float	GetPieceItemDropInfo( DWORD dwHour );
-	float	GetPieceItemDropFactor( CUser* pUser );		// Áõ°¡µÉ ¾ÆÀÌÅÛ µå·Ó·üÀ» °¡Á®¿Â´Ù.
+	float	GetPieceItemDropFactor( CUser* pUser );		// ì¦ê°€ë  ì•„ì´í…œ ë“œë¡­ë¥ ì„ ê°€ì ¸ì˜¨ë‹¤.
 	void	SetApply( BOOL bApply );
 	BOOL	IsApply()				{ return m_bApply; }
 	
 private:
-	CPCBangInfo*	GetPCBangInfo( DWORD dwPlayerId );			// PC¹æ À¯ÀúÀÎ°¡?
-	int		GetPlayTime( DWORD dwConnectTime ) { return ( g_tmCurrent - dwConnectTime ) / MIN(60); }	// Á¢¼ÓÀÌÈÄ ÃÑ ÇÃ·¹ÀÌ ½Ã°£
+	CPCBangInfo*	GetPCBangInfo( DWORD dwPlayerId );			// PCë°© ìœ ì €ì¸ê°€?
+	int		GetPlayTime( DWORD dwConnectTime ) { return ( g_tmCurrent - dwConnectTime ) / MIN(60); }	// ì ‘ì†ì´í›„ ì´ í”Œë ˆì´ ì‹œê°„
 	
-	MAPPBI m_mapPCBang;	// PC¹æ »ç¿ëÀÚ Á¤º¸
-	vector<float>	m_vecfExp;			// ½Ã°£´ëº° °æÇèÄ¡
-	vector<float>	m_vecfDropRate;		// ½Ã°£´ëº° ¾ÆÀÌÅÛ µå·Ó·ü
+	MAPPBI m_mapPCBang;	// PCë°© ì‚¬ìš©ì ì •ë³´
+	vector<float>	m_vecfExp;			// ì‹œê°„ëŒ€ë³„ ê²½í—˜ì¹˜
+	vector<float>	m_vecfDropRate;		// ì‹œê°„ëŒ€ë³„ ì•„ì´í…œ ë“œë¡­ë¥ 
 	BOOL	m_bApply;
 };
 #endif // __WORLDSERVER

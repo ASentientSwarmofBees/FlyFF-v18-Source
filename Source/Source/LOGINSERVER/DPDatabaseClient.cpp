@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #if __VER >= 15 // __2ND_PASSWORD_SYSTEM
 #include "dpcoreclient.h"
 #endif // __2ND_PASSWORD_SYSTEM

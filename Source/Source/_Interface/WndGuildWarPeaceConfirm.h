@@ -1,4 +1,4 @@
-#ifndef __WNDGUILDWARPEACECONFIRM__H
+﻿#ifndef __WNDGUILDWARPEACECONFIRM__H
 #define __WNDGUILDWARPEACECONFIRM__H
 
 class CWndGuildWarPeaceConfirm : public CWndNeuz 

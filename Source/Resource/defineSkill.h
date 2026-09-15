@@ -1,10 +1,10 @@
-#ifndef __DEFINE_SKILL
+ï»¿#ifndef __DEFINE_SKILL
 #define __DEFINE_SKILL
 
 // Skill
-// ½ºÅ³¹øÈ£ 0¹øÀº ¾²Áö ¸»°Í. - ¾ø´Â°ÍÀ¸·Î °£ÁÖÇÔ
+// ìŠ¤í‚¬ë²ˆí˜¸ 0ë²ˆì€ ì“°ì§€ ë§ê²ƒ. - ì—†ëŠ”ê²ƒìœ¼ë¡œ ê°„ì£¼í•¨
 
-// ±Ø´Ü ½ºÅ³
+// ê·¹ë‹¨ ìŠ¤í‚¬
 #define ST_CALL                            1
 #define ST_BLITZ                           2
 #define ST_RETREAT                         3
@@ -15,7 +15,7 @@
 #define ST_STRETCHING                      7
 #define ST_GIFTBOX                         8
 
-// Á÷¾÷ ½ºÅ³
+// ì§ì—… ìŠ¤í‚¬
 #define SI_VAG_ONE_CLEANHIT                1
 #define SI_VAG_ONE_BRANDISH                2
 #define SI_VAG_ONE_OVERCUTTER              3
@@ -73,7 +73,7 @@
 #define SI_MAG_EARTH_ROCKCRASH            36
 #define SI_MAG_EARTH_LOOTING              37
 
-//½ºÅ³µé Ãß°¡
+//ìŠ¤í‚¬ë“¤ ì¶”ê°€
 
 #define SI_ASS_KNU_TAMPINGHOLE           104
 #define SI_ASS_KNU_BURSTCRACK            105
@@ -145,13 +145,13 @@
 #define SI_ELE_MULTY_SANDSTORM		185
 #define SI_ELE_MULTY_AVALANCHE		186
 
-// Æ®·¦¿ë
+// íŠ¸ëž©ìš©
 #define SI_GEN_FLASH				187
 #define SI_GEN_DAMAGE				188
 #define SI_GEN_STUNSINGLE			189
 #define SI_GEN_STUNGROUP			190
 
-//¾ÆÅ©·Î¹î ½ÃÀÛ
+//ì•„í¬ë¡œë±ƒ ì‹œìž‘
 #define SI_ACR_SUP_YOYOMASTER		191
 #define SI_ACR_SUP_BOWMASTER		192
 #define SI_ACR_SUP_DARKILLUSION		193
@@ -187,65 +187,65 @@
 #define SI_RAG_SUP_NATURE		221
 #define SI_RAG_BOW_TRIPLESHOT		222
 
-// ¹ü¿ë ½ºÅ³µé
-#define SI_GEN_ATK_COUNTER			223			// ¿ª½À°ø°Ý
-#define SI_GEN_KNOCK_BACK			224			// ¹Ð¾î³»±â.
-#define SI_GEN_FRAMEARROW_BURN		225			// ÇÃ·¹ÀÓ¾Ö·Î¿ìÀÇ ¹ö´×ÇÊµå.
-#define SI_GEN_POISON				226			// µ¶(dog ¾Æ´Ô -_-;;;)
-#define SI_GEN_STONEHAND			227			// ½ºÅæÇÚµåÀÇ ¹ßµ¿È¿°ú
-#define SI_GEN_BLEEDING				228			// ÃâÇ÷
-#define SI_GEN_STEALHP				229			// ÈíÇ÷
+// ë²”ìš© ìŠ¤í‚¬ë“¤
+#define SI_GEN_ATK_COUNTER			223			// ì—­ìŠµê³µê²©
+#define SI_GEN_KNOCK_BACK			224			// ë°€ì–´ë‚´ê¸°.
+#define SI_GEN_FRAMEARROW_BURN		225			// í”Œë ˆìž„ì• ë¡œìš°ì˜ ë²„ë‹í•„ë“œ.
+#define SI_GEN_POISON				226			// ë…(dog ì•„ë‹˜ -_-;;;)
+#define SI_GEN_STONEHAND			227			// ìŠ¤í†¤í•¸ë“œì˜ ë°œë™íš¨ê³¼
+#define SI_GEN_BLEEDING				228			// ì¶œí˜ˆ
+#define SI_GEN_STEALHP				229			// í¡í˜ˆ
 #define SI_GEN_SWORDCROSS			230
-#define SI_GEN_POISONSTING			231			// µ¶Ä§
-#define SI_MOB_BLEEDING				232			// ÃâÇ÷(¸÷ÀÌ»ç¿ë)
+#define SI_GEN_POISONSTING			231			// ë…ì¹¨
+#define SI_MOB_BLEEDING				232			// ì¶œí˜ˆ(ëª¹ì´ì‚¬ìš©)
 
-#define SI_GEN_ATKSPELL_RATESINGLE  233			// °ø°Ý/½ÃÀü ¼Óµµ ÀúÇÏ ´ÜÀÏ °´Ã¼
-#define SI_GEN_ATKSPELL_RATEGROUP   234			// °ø°Ý/½ÃÀü ¼Óµµ ÀúÇÏ ¹üÀ§
+#define SI_GEN_ATKSPELL_RATESINGLE  233			// ê³µê²©/ì‹œì „ ì†ë„ ì €í•˜ ë‹¨ì¼ ê°ì²´
+#define SI_GEN_ATKSPELL_RATEGROUP   234			// ê³µê²©/ì‹œì „ ì†ë„ ì €í•˜ ë²”ìœ„
 
-#define SI_GEN_BUFFBREAK			235			// ¹öÇÁ ÆÄ±«.
-#define SI_GEN_BUFFBREAK_X			236			// ¸ðµç ¹öÇÁ ÆÄ±«.
+#define SI_GEN_BUFFBREAK			235			// ë²„í”„ íŒŒê´´.
+#define SI_GEN_BUFFBREAK_X			236			// ëª¨ë“  ë²„í”„ íŒŒê´´.
 
-// 10Â÷ ¿µ¿õÀü½Â½ºÅ³
-#define SI_BLD_HERO_DEFFENCE			237			// ¹æ¾î·Â ±ÞÁõ°¡, ÀÌµ¿ºÒ°¡.
-#define SI_KNT_HERO_DRAWING			238			// Å¸°ÙÀ» ÀÚ½ÅÀÇ ¾ÕÀ¸·Î ¼ÒÈ¯ÇÏ°í, Å¸°ÙÀ» Å¸°ÙÆÃÀÌ ÇØÁ¦
-#define SI_JST_HERO_SILENCE			239			// ´ë»óÀÇ ¸ðµç ½ºÅ³ »ç¿ëºÒ°¡.
-#define SI_RAG_HERO_HAWKEYE			240			// ±âÁ¸ÀÇ 1.3¹è »ç°Å¸® Áõ°¡
-#define SI_ELE_HERO_CURSEMIND			241			// ´ë»óÀÇ ¸ðµç ¹æ¾î·ÂÀ» 50% ÇÏ¶ô.
-#define SI_PSY_HERO_STONE			242			// ´ë»óÀÇ ¼®È­.
-#define SI_BIL_HERO_DISENCHANT			243			// »ó´ë¹æÀÇ ¹öÇÁ Á¦°Å..
-#define SI_RIG_HERO_RETURN			244			// °¡±î¿î ¸¶À»·Î ÀÌµ¿.
+// 10ì°¨ ì˜ì›…ì „ìŠ¹ìŠ¤í‚¬
+#define SI_BLD_HERO_DEFFENCE			237			// ë°©ì–´ë ¥ ê¸‰ì¦ê°€, ì´ë™ë¶ˆê°€.
+#define SI_KNT_HERO_DRAWING			238			// íƒ€ê²Ÿì„ ìžì‹ ì˜ ì•žìœ¼ë¡œ ì†Œí™˜í•˜ê³ , íƒ€ê²Ÿì„ íƒ€ê²ŸíŒ…ì´ í•´ì œ
+#define SI_JST_HERO_SILENCE			239			// ëŒ€ìƒì˜ ëª¨ë“  ìŠ¤í‚¬ ì‚¬ìš©ë¶ˆê°€.
+#define SI_RAG_HERO_HAWKEYE			240			// ê¸°ì¡´ì˜ 1.3ë°° ì‚¬ê±°ë¦¬ ì¦ê°€
+#define SI_ELE_HERO_CURSEMIND			241			// ëŒ€ìƒì˜ ëª¨ë“  ë°©ì–´ë ¥ì„ 50% í•˜ë½.
+#define SI_PSY_HERO_STONE			242			// ëŒ€ìƒì˜ ì„í™”.
+#define SI_BIL_HERO_DISENCHANT			243			// ìƒëŒ€ë°©ì˜ ë²„í”„ ì œê±°..
+#define SI_RIG_HERO_RETURN			244			// ê°€ê¹Œìš´ ë§ˆì„ë¡œ ì´ë™.
 
 
-//º¸½º¸÷ Àü¿ë
-#define SI_BIGMUSCLE_STUNGROUP		300			// ºò¸Ó½½ ±¤¿ª½ºÅÏ.
-#define SI_KRRR_POISON				301			// Å©¸£¸ª ¿Þ¼Õ µ¶°ø°Ý.
-#define SI_KRRR_STUNGROUP			302			// Å©¸£¸ª ±¤¿ª ½ºÅÏ.
-#define SI_MUSHMOOT_BERSERK			303			// µ¶¹ö¼¸ÀÇ ±¤±â.
-#define SI_MUSHMOOT_WOODENSKIN		304			// ³ª¹«²®Áú·Î º¸È£.
+//ë³´ìŠ¤ëª¹ ì „ìš©
+#define SI_BIGMUSCLE_STUNGROUP		300			// ë¹…ë¨¸ìŠ¬ ê´‘ì—­ìŠ¤í„´.
+#define SI_KRRR_POISON				301			// í¬ë¥´ë¦‰ ì™¼ì† ë…ê³µê²©.
+#define SI_KRRR_STUNGROUP			302			// í¬ë¥´ë¦‰ ê´‘ì—­ ìŠ¤í„´.
+#define SI_MUSHMOOT_BERSERK			303			// ë…ë²„ì„¯ì˜ ê´‘ê¸°.
+#define SI_MUSHMOOT_WOODENSKIN		304			// ë‚˜ë¬´ê»ì§ˆë¡œ ë³´í˜¸.
 
-#define SI_GEN_TG_BUFF_01				305			// ON/OFFÇü DST¹öÇÁ...DSTÀû¿ë Á¾·ù´Â AddSkill¿¡¼­ ·¹º§·Î ÇÑ´Ù.
-#define SI_GEN_TG_BUFF_02				306			// ON/OFFÇü DST¹öÇÁ...DSTÀû¿ë Á¾·ù´Â AddSkill¿¡¼­ ·¹º§·Î ÇÑ´Ù.
-#define SI_GEN_TG_BUFF_03				307			// ON/OFFÇü DST¹öÇÁ...DSTÀû¿ë Á¾·ù´Â AddSkill¿¡¼­ ·¹º§·Î ÇÑ´Ù.
+#define SI_GEN_TG_BUFF_01				305			// ON/OFFí˜• DSTë²„í”„...DSTì ìš© ì¢…ë¥˜ëŠ” AddSkillì—ì„œ ë ˆë²¨ë¡œ í•œë‹¤.
+#define SI_GEN_TG_BUFF_02				306			// ON/OFFí˜• DSTë²„í”„...DSTì ìš© ì¢…ë¥˜ëŠ” AddSkillì—ì„œ ë ˆë²¨ë¡œ í•œë‹¤.
+#define SI_GEN_TG_BUFF_03				307			// ON/OFFí˜• DSTë²„í”„...DSTì ìš© ì¢…ë¥˜ëŠ” AddSkillì—ì„œ ë ˆë²¨ë¡œ í•œë‹¤.
 
-#define SI_GEN_BURN		308			// È­»ó
+#define SI_GEN_BURN		308			// í™”ìƒ
 
-// 10Â÷ masterÀü½Â½ºÅ³
-#define SI_BLD_MASTER_ONEHANDMASTER			309			// ÇÑ¼Õ ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
-#define SI_KNT_MASTER_TWOHANDMASTER			310			// ¾ç¼Õ ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
-#define SI_JST_MASTER_YOYOMASTER			311			// ¿ä¿ä ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
-#define SI_RAG_MASTER_BOWMASTER			312			// º¸¿ì ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
-#define SI_ELE_MASTER_INTMASTER			313			// Áö´É »ó½Â.
-#define SI_PSY_MASTER_INTMASTER			314			// Áö´É »ó½Â.
-#define SI_BIL_MASTER_KNUCKLEMASTER			315			// ³ÊÅ¬ ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
-#define SI_RIG_MASTER_BLESSING			316			// ÆÄÆ¼¿øÀÇ µð¹öÇÁ Á¦°Å.
+// 10ì°¨ masterì „ìŠ¹ìŠ¤í‚¬
+#define SI_BLD_MASTER_ONEHANDMASTER			309			// í•œì† ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
+#define SI_KNT_MASTER_TWOHANDMASTER			310			// ì–‘ì† ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
+#define SI_JST_MASTER_YOYOMASTER			311			// ìš”ìš” ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
+#define SI_RAG_MASTER_BOWMASTER			312			// ë³´ìš° ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
+#define SI_ELE_MASTER_INTMASTER			313			// ì§€ëŠ¥ ìƒìŠ¹.
+#define SI_PSY_MASTER_INTMASTER			314			// ì§€ëŠ¥ ìƒìŠ¹.
+#define SI_BIL_MASTER_KNUCKLEMASTER			315			// ë„ˆí´ ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
+#define SI_RIG_MASTER_BLESSING			316			// íŒŒí‹°ì›ì˜ ë””ë²„í”„ ì œê±°.
 
-// ÀÌº¥Æ®¹öÇÁ
+// ì´ë²¤íŠ¸ë²„í”„
 #define SI_GEN_EVE_QUICKSTEP			317
 #define SI_GEN_EVE_HASTE				318
 #define SI_GEN_EVE_HEAPUP				319
 #define SI_GEN_EVE_ACCURACY				320
 
-// 3Â÷ ÀüÁ÷½ºÅ³
+// 3ì°¨ ì „ì§ìŠ¤í‚¬
 #define	SI_LOD_SUP_PULLING			400
 #define	SI_LOD_ONE_GRANDRAGE		401
 #define	SI_LOD_ONE_SHILDSTRIKE		402
@@ -284,7 +284,7 @@
 #define	SI_ELE_STF_SLIPPING			435
 #define	SI_STORM_DOUBLE_HOLDINGSTORM	436
 
-//¹Ù·ç³ª ÇÇ¾î½Ì ½ºÅ³
+//ë°”ë£¨ë‚˜ í”¼ì–´ì‹± ìŠ¤í‚¬
 #define	SI_SKILL_BARUNA_WEA_HPRUNE		437
 #define	SI_SKILL_BARUNA_WEA_FPRUNE		438
 #define	SI_SKILL_BARUNA_WEA_MPRUNE		439
@@ -439,7 +439,7 @@
 
 
 
-// ½ºÅ³ Ãß°¡·¹º§
+// ìŠ¤í‚¬ ì¶”ê°€ë ˆë²¨
 #define SA_CLEANHIT_L01                 5
 #define SA_CLEANHIT_L02                 6
 #define SA_CLEANHIT_L03                 7
@@ -1038,7 +1038,7 @@
 #define SA_STRONGWIND_L19            1373
 #define SA_STRONGWIND_L20            1374
 
-#define SA_TAMPINGHOLE_L01             2035 // ¾î½Ã½ºÆ® ³ÊÅ¬ ½ºÅ³ Ãß°¡
+#define SA_TAMPINGHOLE_L01             2035 // ì–´ì‹œìŠ¤íŠ¸ ë„ˆí´ ìŠ¤í‚¬ ì¶”ê°€
 #define SA_TAMPINGHOLE_L02             2036
 #define SA_TAMPINGHOLE_L03             2037
 #define SA_TAMPINGHOLE_L04             2038
@@ -1058,7 +1058,7 @@
 #define SA_TAMPINGHOLE_L18             2052
 #define SA_TAMPINGHOLE_L19             2053
 #define SA_TAMPINGHOLE_L20             2054
-#define SA_BURSTCRACK_L01              2055 // ¾î½Ã½ºÆ® ³ÊÅ¬ ½ºÅ³ Ãß°¡
+#define SA_BURSTCRACK_L01              2055 // ì–´ì‹œìŠ¤íŠ¸ ë„ˆí´ ìŠ¤í‚¬ ì¶”ê°€
 #define SA_BURSTCRACK_L02              2056
 #define SA_BURSTCRACK_L03              2057
 #define SA_BURSTCRACK_L04              2058
@@ -1079,7 +1079,7 @@
 #define SA_BURSTCRACK_L19              2073
 #define SA_BURSTCRACK_L20              2074
 
-#define SA_BLINKPOOL_L01               2095 // ¸ÅÁö¼Ç ½ºÅ³ Ãß°¡
+#define SA_BLINKPOOL_L01               2095 // ë§¤ì§€ì…˜ ìŠ¤í‚¬ ì¶”ê°€
 #define SA_BLINKPOOL_L02               2096
 #define SA_BLINKPOOL_L03               2097
 #define SA_BLINKPOOL_L04               2098
@@ -2565,90 +2565,90 @@
 #define SA_ATKSPELL_GROUP_L04 3834
 #define SA_ATKSPELL_GROUP_L05 3835
 
-// ON/OFFÇü DST¹öÇÁ...DSTÀû¿ë Á¾·ù´Â AddSkill¿¡¼­ ·¹º§·Î ÇÑ´Ù.
+// ON/OFFí˜• DSTë²„í”„...DSTì ìš© ì¢…ë¥˜ëŠ” AddSkillì—ì„œ ë ˆë²¨ë¡œ í•œë‹¤.
 #define SA_GEN_TG_BUFF_01_LV01 3836
 #define SA_GEN_TG_BUFF_02_LV01 3837
 #define SA_GEN_TG_BUFF_03_LV01 3838
 
-#define SA_DEFENCE_LV01			3839			// ¹æ¾î·Â ±ÞÁõ°¡, ÀÌµ¿ºÒ°¡.
+#define SA_DEFENCE_LV01			3839			// ë°©ì–´ë ¥ ê¸‰ì¦ê°€, ì´ë™ë¶ˆê°€.
 #define SA_DEFENCE_LV02			3840
 #define SA_DEFENCE_LV03			3841
 #define SA_DEFENCE_LV04			3842
 #define SA_DEFENCE_LV05			3843
-#define SA_DRAWING_LV01			3844			// Å¸°ÙÀ» ÀÚ½ÅÀÇ ¾ÕÀ¸·Î ¼ÒÈ¯ÇÏ°í, Å¸°ÙÀ» Å¸°ÙÆÃÀÌ ÇØÁ¦
+#define SA_DRAWING_LV01			3844			// íƒ€ê²Ÿì„ ìžì‹ ì˜ ì•žìœ¼ë¡œ ì†Œí™˜í•˜ê³ , íƒ€ê²Ÿì„ íƒ€ê²ŸíŒ…ì´ í•´ì œ
 #define SA_DRAWING_LV02			3845
 #define SA_DRAWING_LV03			3846
 #define SA_DRAWING_LV04			3847
 #define SA_DRAWING_LV05			3848
-#define SA_SILENCE_LV01			3849			// ´ë»óÀÇ ¸ðµç ½ºÅ³ »ç¿ëºÒ°¡.
+#define SA_SILENCE_LV01			3849			// ëŒ€ìƒì˜ ëª¨ë“  ìŠ¤í‚¬ ì‚¬ìš©ë¶ˆê°€.
 #define SA_SILENCE_LV02			3850
 #define SA_SILENCE_LV03			3851
 #define SA_SILENCE_LV04			3852
 #define SA_SILENCE_LV05			3853
-#define SA_HAWKEYE_LV01			3854			// ±âÁ¸ÀÇ 1.3¹è »ç°Å¸® Áõ°¡.
+#define SA_HAWKEYE_LV01			3854			// ê¸°ì¡´ì˜ 1.3ë°° ì‚¬ê±°ë¦¬ ì¦ê°€.
 #define SA_HAWKEYE_LV02			3855
 #define SA_HAWKEYE_LV03			3856
 #define SA_HAWKEYE_LV04			3857
 #define SA_HAWKEYE_LV05			3858
-#define SA_CURSEMIND_LV01			3859			// ´ë»óÀÇ ¸ðµç ¹æ¾î·ÂÀ» 50% ÇÏ¶ô.
+#define SA_CURSEMIND_LV01			3859			// ëŒ€ìƒì˜ ëª¨ë“  ë°©ì–´ë ¥ì„ 50% í•˜ë½.
 #define SA_CURSEMIND_LV02			3860
 #define SA_CURSEMIND_LV03			3861
 #define SA_CURSEMIND_LV04			3862
 #define SA_CURSEMIND_LV05			3863
-#define SA_STONE_LV01			3864			// ´ë»óÀÇ ¼®È­.
+#define SA_STONE_LV01			3864			// ëŒ€ìƒì˜ ì„í™”.
 #define SA_STONE_LV02			3865
 #define SA_STONE_LV03			3866
 #define SA_STONE_LV04			3867
 #define SA_STONE_LV05			3868
-#define SA_DISENCHANT_LV01			3869			// »ó´ë¹æÀÇ ¹öÇÁ Á¦°Å.
+#define SA_DISENCHANT_LV01			3869			// ìƒëŒ€ë°©ì˜ ë²„í”„ ì œê±°.
 #define SA_DISENCHANT_LV02			3870
 #define SA_DISENCHANT_LV03			3871
 #define SA_DISENCHANT_LV04			3872
 #define SA_DISENCHANT_LV05			3873
-#define SA_RETURN_LV01			3874			// °¡±î¿î ¸¶À»·Î ÀÌµ¿.
+#define SA_RETURN_LV01			3874			// ê°€ê¹Œìš´ ë§ˆì„ë¡œ ì´ë™.
 #define SA_RETURN_LV02			3875
 #define SA_RETURN_LV03			3876
 #define SA_RETURN_LV04			3877
 #define SA_RETURN_LV05			3878
 
-#define SA_BURN_LV01			3879	// È­»ó
+#define SA_BURN_LV01			3879	// í™”ìƒ
 
-#define SA_ONEHANDMASTER_LV01			3880			// ÇÑ¼Õ ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
+#define SA_ONEHANDMASTER_LV01			3880			// í•œì† ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
 #define SA_ONEHANDMASTER_LV02			3881			
 #define SA_ONEHANDMASTER_LV03			3882			
 #define SA_ONEHANDMASTER_LV04			3883			
 #define SA_ONEHANDMASTER_LV05			3884			
-#define SA_TWOHANDMASTER_LV01			3885			// ¾ç¼Õ ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
+#define SA_TWOHANDMASTER_LV01			3885			// ì–‘ì† ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
 #define SA_TWOHANDMASTER_LV02			3886
 #define SA_TWOHANDMASTER_LV03			3887
 #define SA_TWOHANDMASTER_LV04			3888
 #define SA_TWOHANDMASTER_LV05			3889
-#define SA_YOYOMASTER2_LV01			3890			// ¿ä¿ä ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
+#define SA_YOYOMASTER2_LV01			3890			// ìš”ìš” ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
 #define SA_YOYOMASTER2_LV02			3891
 #define SA_YOYOMASTER2_LV03			3892
 #define SA_YOYOMASTER2_LV04			3893
 #define SA_YOYOMASTER2_LV05			3894
-#define SA_BOWMASTER2_LV01			3895			// º¸¿ì ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
+#define SA_BOWMASTER2_LV01			3895			// ë³´ìš° ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
 #define SA_BOWMASTER2_LV02			3896
 #define SA_BOWMASTER2_LV03			3897
 #define SA_BOWMASTER2_LV04			3898
 #define SA_BOWMASTER2_LV05			3899
-#define SA_ELEINTMASTER_LV01			3900			// Áö´É »ó½Â.
+#define SA_ELEINTMASTER_LV01			3900			// ì§€ëŠ¥ ìƒìŠ¹.
 #define SA_ELEINTMASTER_LV02			3901
 #define SA_ELEINTMASTER_LV03			3902
 #define SA_ELEINTMASTER_LV04			3903
 #define SA_ELEINTMASTER_LV05			3904
-#define SA_PSYINTMASTER_LV01			3905			// Áö´É »ó½Â.
+#define SA_PSYINTMASTER_LV01			3905			// ì§€ëŠ¥ ìƒìŠ¹.
 #define SA_PSYINTMASTER_LV02			3906
 #define SA_PSYINTMASTER_LV03			3907
 #define SA_PSYINTMASTER_LV04			3908
 #define SA_PSYINTMASTER_LV05			3909
-#define SA_KNUCKLEMASTER_LV01			3910			// ³ÊÅ¬ ¹«±â Âø¿ë½Ã °ø°Ý·Â »ó½Â.
+#define SA_KNUCKLEMASTER_LV01			3910			// ë„ˆí´ ë¬´ê¸° ì°©ìš©ì‹œ ê³µê²©ë ¥ ìƒìŠ¹.
 #define SA_KNUCKLEMASTER_LV02			3911
 #define SA_KNUCKLEMASTER_LV03			3912
 #define SA_KNUCKLEMASTER_LV04			3913
 #define SA_KNUCKLEMASTER_LV05			3914
-#define SA_RIGBLESSING_LV01			3915			// ÆÄÆ¼¿øÀÇ µð¹öÇÁ Á¦°Å.
+#define SA_RIGBLESSING_LV01			3915			// íŒŒí‹°ì›ì˜ ë””ë²„í”„ ì œê±°.
 #define SA_RIGBLESSING_LV02			3916
 #define SA_RIGBLESSING_LV03			3917
 #define SA_RIGBLESSING_LV04			3918

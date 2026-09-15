@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "definetext.h"
 #include "defineSound.h"
 #include "AppDefine.h"
@@ -309,7 +309,7 @@ void CWndDialog::OnInitialUpdate()
 	m_bSay = FALSE;
 
 	UpdateButtonEnable();
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rect = GetWindowRect();
 	int nWidth  = rect.Width(); 
@@ -326,10 +326,10 @@ void CWndDialog::OnInitialUpdate()
 #endif // __IMPROVE_QUEST_INTERFACE
 	if( pWndQuest ) pWndQuest->Update();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndDialog::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_DIALOG_EX, WBS_MODAL, CPoint( 0, 0 ), pWndParent );
 #else // __IMPROVE_QUEST_INTERFACE
@@ -440,10 +440,10 @@ void CWndDialog::Say( LPCTSTR lpszString, DWORD dwQuest )
 	{
 		if( string[ i ] == '\\' && string[ i + 1 ] == 'n' )
 		{
-			// Áß°£ÀÇ µÎ°³ÀÇ ÄÚµå¸¦ \n¿Í ' '·Î ´ëÃ¼.
+			// ì¤‘ê°„ì˜ ë‘ê°œì˜ ì½”ë“œë¥¼ \nì™€ ' 'ë¡œ ëŒ€ì²´.
 			string.SetAt( i, '\n' );
 			string.SetAt( i + 1, ' ' );
-			// ±×¸®°í ½ºÆäÀÌ½º ÇÑ°³ »ğÀÔ.
+			// ê·¸ë¦¬ê³  ìŠ¤í˜ì´ìŠ¤ í•œê°œ ì‚½ì….
 			string.Insert( i + 1, " " );
 		}
 	}
@@ -473,7 +473,7 @@ void CWndDialog::ParsingString( LPCTSTR lpszString )
 
 	int nLength = editString.GetLength();
 	
-	// ¿ŞÂÊÀÌ strWord, ¿À¸¥ÂÊÀÌ strOrigital
+	// ì™¼ìª½ì´ strWord, ì˜¤ë¥¸ìª½ì´ strOrigital
 	for( int i = 0; i < nLength; i++ )
 	{
 		if( editString[ i ] == '['  )
@@ -523,7 +523,7 @@ void CWndDialog::ParsingString( LPCTSTR lpszString )
 				{
 					LPCHARACTER lpCharacter = pMover->GetCharacter();
 					CString string;
-					string.Format( "%s¿¡¼­ [%s]¿Í [] »çÀÌ¿¡ Àâ¹®ÀÚ°¡ µé¾îÀÖ°Å³ª ¿¬°áÀÌ ¾ÈµÈ´Ù.", lpCharacter->m_szDialog, strWord );
+					string.Format( "%sì—ì„œ [%s]ì™€ [] ì‚¬ì´ì— ì¡ë¬¸ìê°€ ë“¤ì–´ìˆê±°ë‚˜ ì—°ê²°ì´ ì•ˆëœë‹¤.", lpCharacter->m_szDialog, strWord );
 					AfxMessageBox( string );
 				}
 				strOriginal += editString[ i ];
@@ -669,7 +669,7 @@ void CWndDialog::MakeContextButton()
 		}	
 		y += dwMaxHeight;
 		
-		// Áß°£¿¡ ²÷¾îÁø °æ¿ì 
+		// ì¤‘ê°„ì— ëŠì–´ì§„ ê²½ìš° 
 		if( dwMark == 1 || dwMark == 2 ) //bKeyButton == TRUE )
 		{
 			//bKeyButton = FALSE;
@@ -689,7 +689,7 @@ void CWndDialog::MakeContextButton()
 void CWndDialog::AddKeyButton( LPCTSTR lpszWord, LPCTSTR lpszKey, DWORD dwParam, DWORD dwQuest )
 {
 	WORDBUTTON* lpKeyButton;// = &m_aKeyButton[ m_nKeyButtonNum ];
-	// °°Àº ¿öµå°¡ ¹ß°ßµÇ¸é ¹«½ÃÇÑ´Ù. Å°´Â °°¾Æµµ µÇÁö¸¸ ¿öµå´Â °°À¸¸é ÇÏ³ª´Â ¹«½ÃÇÔ.
+	// ê°™ì€ ì›Œë“œê°€ ë°œê²¬ë˜ë©´ ë¬´ì‹œí•œë‹¤. í‚¤ëŠ” ê°™ì•„ë„ ë˜ì§€ë§Œ ì›Œë“œëŠ” ê°™ìœ¼ë©´ í•˜ë‚˜ëŠ” ë¬´ì‹œí•¨.
 	for( int i = 0; i < m_nKeyButtonNum; i++ )
 	{
 		lpKeyButton = &m_aKeyButton[ i ];
@@ -738,7 +738,7 @@ void CWndDialog::RemoveKeyButton( LPCTSTR lpszKey )
 	}
 	EndSay();
 }
-// ÇÏ¾á»ö ´ëÈ­¿µ¿ª¿¡ ³ª¿À´Â ¹öÆ° 
+// í•˜ì–€ìƒ‰ ëŒ€í™”ì˜ì—­ì— ë‚˜ì˜¤ëŠ” ë²„íŠ¼ 
 void CWndDialog::AddAnswerButton( LPCTSTR lpszWord, LPCTSTR lpszKey, DWORD dwParam, DWORD dwQuest )
 {
 	WORDBUTTON* lpWordButton = &m_aWordButton[ m_nWordButtonNum ];
@@ -803,8 +803,8 @@ void CWndDialog::MakeKeyButton()
 		x += size.cx;
 	}
 }
-// ÇÏ¾á»ö ´ëÈ­¿µ¿ª¿¡ ³ª¿À´Â ¹öÆ° 
-// AddAnswer·Î Ãß°¡ 
+// í•˜ì–€ìƒ‰ ëŒ€í™”ì˜ì—­ì— ë‚˜ì˜¤ëŠ” ë²„íŠ¼ 
+// AddAnswerë¡œ ì¶”ê°€ 
 void CWndDialog::MakeAnswerButton()
 {
 	m_bWordButtonEnable = FALSE;

@@ -1,4 +1,4 @@
-#ifndef __WNDQUEST__H
+﻿#ifndef __WNDQUEST__H
 #define __WNDQUEST__H
 
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if defined(__DBSERVER) || defined(__CORESERVER) || defined(__ACTIVEXPLAYER) || defined(__VPW)
 #include "..\_Network\Objects\Obj.h"
@@ -55,9 +55,9 @@ void CItemElem::Serialize( CAr & ar )	// 18
 		ar << m_nRepair;
 		ar << m_byFlag;
 		ar << m_nAbilityOption;
-		ar << m_idGuild;				// ±æµå¹øÈ£µµ ÀúÀå.
-		ar << m_bItemResist;			// ¾î´À ¼Ó¼º ÀÎ°¡?
-		ar << m_nResistAbilityOption ;	// ¼Ó¼º Ãß°¡ ´É·ÂÄ¡ °¡º¯ ¿É¼Ç
+		ar << m_idGuild;				// ê¸¸ë“œë²ˆí˜¸ë„ ì €ìž¥.
+		ar << m_bItemResist;			// ì–´ëŠ ì†ì„± ì¸ê°€?
+		ar << m_nResistAbilityOption ;	// ì†ì„± ì¶”ê°€ ëŠ¥ë ¥ì¹˜ ê°€ë³€ ì˜µì…˜
 		ar << m_nResistSMItemId;
 		m_piercing.Serialize( ar );
 		ar << m_bCharged;
@@ -173,6 +173,6 @@ void CItem::Serialize( CAr & ar )	// 45
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-// Áö¿üÀ½. µû·Î º¸°üÇÔ...xuzhu
+// ì§€ì› ìŒ. ë”°ë¡œ ë³´ê´€í•¨...xuzhu
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 

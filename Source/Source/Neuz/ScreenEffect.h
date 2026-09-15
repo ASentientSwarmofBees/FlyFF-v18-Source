@@ -1,4 +1,4 @@
-#ifndef __SCREENEFFECT_H
+﻿#ifndef __SCREENEFFECT_H
 #define __SCREENEFFECT_H
 
 class CScreenEffect

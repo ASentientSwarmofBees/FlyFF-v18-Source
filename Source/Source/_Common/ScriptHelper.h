@@ -1,4 +1,4 @@
-#ifndef __SCRIPT_HELPER_H__
+﻿#ifndef __SCRIPT_HELPER_H__
 #define __SCRIPT_HELPER_H__
 
 class CNpcDialogInfo;

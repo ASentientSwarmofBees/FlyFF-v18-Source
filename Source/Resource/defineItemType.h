@@ -1,4 +1,4 @@
-//--------------------------- ¾ÆÀÌÅÛ Å¸ÀÔ1--------------------------------//
+ï»¿//--------------------------- ì•„ì´í…œ íƒ€ìž…1--------------------------------//
 
 #define	TYPE1_NONE				0
 
@@ -10,29 +10,29 @@
 #define	TYPE1_ALLEXCEPTION		6
 #define	TYPE1_COSTUME			7
 #define	TYPE1_POTION			8
-#define	TYPE1_TWOWEAPONMERGE	9		//¾ç¼Õ ¹«±â ÇÕ¼º Ä³½Ã ¾ÆÀÌÅÛ(Àåºñº¸È£)
+#define	TYPE1_TWOWEAPONMERGE	9		//ì–‘ì† ë¬´ê¸° í•©ì„± ìºì‹œ ì•„ì´í…œ(ìž¥ë¹„ë³´í˜¸)
 
-//19Â÷ Àü¿¡ ºÐ·ù ÀÛ¾÷ Ãß°¡·Î ÇÒ °Íµé
-#define	TYPE1_PET				10		//Æê Á¾·ù
+//19ì°¨ ì „ì— ë¶„ë¥˜ ìž‘ì—… ì¶”ê°€ë¡œ í•  ê²ƒë“¤
+#define	TYPE1_PET				10		//íŽ« ì¢…ë¥˜
 
-#define	TYPE1_SMELT				11		//ÀÏ¹Ý Á¦·Ã
-#define	TYPE1_SMELT_ACCESSORY	12		//¾Ç¼¼¼­¸® Á¦·Ã
-#define	TYPE1_SMELT_ELEMENT		13		//¼Ó¼º Á¦·Ã
-#define	TYPE1_BARUNASMELT		14		//¹Ù·ç³ª Á¦·Ã
-#define	TYPE1_ULTIMATE			15		//¾óÅÍ¸Ú º¯È¯
-#define	TYPE1_BARUNAELE			16		//¹Ù·ç³ª ¼Ó¼ºÁ¦·Ã
-#define	TYPE1_AWAKE				17		//¾ÆÀÌÅÛ °¢¼º
-#define	TYPE1_PIERCING			18		//ÇÇ¾î½Ì(Ä«µå)
-#define	TYPE1_PIERCING_BARUNA	19		//ÇÇ¾î½Ì(¹Ù·ç³ª)
-#define	TYPE1_USABLE			20		//»ç¿ë°¡´É ¾ÆÀÌÅÛ
-#define	TYPE1_RIDE				21		//ºñÇàÃ¼
-#define	TYPE1_BOX				22		//¹Ú½º·ù
-#define	TYPE1_FURNITURE			23		//°¡±¸ Á¾·ù
-#define	TYPE1_SCROLL			24		//½ºÅ©·Ñ
-#define	TYPE1_ETC				25		//±âÅ¸Àâ´ÙÇÑ Á¾·ù
+#define	TYPE1_SMELT				11		//ì¼ë°˜ ì œë ¨
+#define	TYPE1_SMELT_ACCESSORY	12		//ì•…ì„¸ì„œë¦¬ ì œë ¨
+#define	TYPE1_SMELT_ELEMENT		13		//ì†ì„± ì œë ¨
+#define	TYPE1_BARUNASMELT		14		//ë°”ë£¨ë‚˜ ì œë ¨
+#define	TYPE1_ULTIMATE			15		//ì–¼í„°ë©‹ ë³€í™˜
+#define	TYPE1_BARUNAELE			16		//ë°”ë£¨ë‚˜ ì†ì„±ì œë ¨
+#define	TYPE1_AWAKE				17		//ì•„ì´í…œ ê°ì„±
+#define	TYPE1_PIERCING			18		//í”¼ì–´ì‹±(ì¹´ë“œ)
+#define	TYPE1_PIERCING_BARUNA	19		//í”¼ì–´ì‹±(ë°”ë£¨ë‚˜)
+#define	TYPE1_USABLE			20		//ì‚¬ìš©ê°€ëŠ¥ ì•„ì´í…œ
+#define	TYPE1_RIDE				21		//ë¹„í–‰ì²´
+#define	TYPE1_BOX				22		//ë°•ìŠ¤ë¥˜
+#define	TYPE1_FURNITURE			23		//ê°€êµ¬ ì¢…ë¥˜
+#define	TYPE1_SCROLL			24		//ìŠ¤í¬ë¡¤
+#define	TYPE1_ETC				25		//ê¸°íƒ€ìž¡ë‹¤í•œ ì¢…ë¥˜
 
 
-//--------------------------- ¾ÆÀÌÅÛ Å¸ÀÔ2--------------------------------//
+//--------------------------- ì•„ì´í…œ íƒ€ìž…2--------------------------------//
 #define TYPE2_NONE				0
 
 #define	TYPE2_WEAPON_ONESWORD			1
@@ -79,13 +79,13 @@
 #define	TYPE2_POTION_SAVE			34
 #define	TYPE2_MATERIAL_ELLDIN			35
 #define	TYPE2_CONSUME_ELLDIN			36
-#define	TYPE2_TWOWEAPONMERGE_PROPTECTION	37		//¾ç¼Õ ¹«±â ÇÕ¼º Ä³½Ã ¾ÆÀÌÅÛ(Àåºñº¸È£)
+#define	TYPE2_TWOWEAPONMERGE_PROPTECTION	37		//ì–‘ì† ë¬´ê¸° í•©ì„± ìºì‹œ ì•„ì´í…œ(ìž¥ë¹„ë³´í˜¸)
 
-//19Â÷ Àü¿¡ ºÐ·ù ÀÛ¾÷ Ãß°¡·Î ÇÒ °Íµé
+//19ì°¨ ì „ì— ë¶„ë¥˜ ìž‘ì—… ì¶”ê°€ë¡œ í•  ê²ƒë“¤
 
-#define	TYPE2_PET_EGG				38		//¾Ë
-#define	TYPE2_PET_REAR				39		//¸®¾îÆê(¸ÔÆê)
-#define	TYPE2_PET_PICKUP			40		//ÇÈ¾÷Æê
-#define	TYPE2_PET_BUFF				41		//¹öÇÁÆê
-#define	TYPE2_PET_SMELTSPRIT		42		//Á¦·ÃÁ¤·É
+#define	TYPE2_PET_EGG				38		//ì•Œ
+#define	TYPE2_PET_REAR				39		//ë¦¬ì–´íŽ«(ë¨¹íŽ«)
+#define	TYPE2_PET_PICKUP			40		//í”½ì—…íŽ«
+#define	TYPE2_PET_BUFF				41		//ë²„í”„íŽ«
+#define	TYPE2_PET_SMELTSPRIT		42		//ì œë ¨ì •ë ¹
 

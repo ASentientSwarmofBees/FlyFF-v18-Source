@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 12 // __LORD
 
@@ -16,19 +16,19 @@ CLordSkillComponentODBC::~CLordSkillComponentODBC()
 }
 
 void CLordSkillComponentODBC::Execute( u_long idPlayer, u_long idTarget, VOID* pParam )
-{	// Æ®·£½º ¼­¹öÀÇ ±ºÁÖ ½ºÅ³ ½ÇÇà
+{	// íŠ¸ëœìŠ¤ ì„œë²„ì˜ êµ°ì£¼ ìŠ¤í‚¬ ì‹¤í–‰
 	int nRet	= 0;
-	if( GetTick() > 0 )		// Àç»ç¿ë ´ë±â ½Ã°£ÀÌ ³²¾ÆÀÖÀ¸¸é ºÒ°¡
+	if( GetTick() > 0 )		// ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ì´ ë‚¨ì•„ìˆìœ¼ë©´ ë¶ˆê°€
 		nRet	= TID_GAME_LORD_SKILL_USE_E005;
 	if( !nRet )
-	{	// Àç»ç¿ë ´ë±â ½Ã°£ ¼³Á¤ Äõ¸® ¿äÃ»
+	{	// ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ ì„¤ì • ì¿¼ë¦¬ ìš”ì²­
 		CLController* pController	= reinterpret_cast<CLController*>( pParam );
 		if( !pController->UpdateLordSkillTick( this, GetCooltime() ) )
 			nRet	= TID_GAME_LORD_SKILL_USE_E006;
 	}
-	if( !nRet )		// Äõ¸® ¼º°øÇÏ¸é Àç»ç¿ë ´ë±â ½Ã°£ ¼³Á¤
+	if( !nRet )		// ì¿¼ë¦¬ ì„±ê³µí•˜ë©´ ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ ì„¤ì •
 		Use();
-	// ¿ùµå ¼­¹ö¿¡ °á°ú Àü¼Û
+	// ì›”ë“œ ì„œë²„ì— ê²°ê³¼ ì „ì†¡
 	CDPTrans::GetInstance()->SendLordSkillUse( idPlayer, idTarget, GetId(), nRet );
 }
 

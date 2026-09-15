@@ -1,4 +1,4 @@
-// MaxEntranceDlg.cpp : implementation file
+﻿// MaxEntranceDlg.cpp : implementation file
 //
 
 #include "stdafx.h"

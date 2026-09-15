@@ -1,4 +1,4 @@
-//
+﻿//
 // FILE: CMcl.h
 //
 // Copyright (c) 1997 by Aaron Michael Cohen and Mike Woodring

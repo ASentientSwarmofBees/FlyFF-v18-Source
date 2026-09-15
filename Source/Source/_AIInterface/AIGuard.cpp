@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #include "AIGuard.h"
 #include "lang.h"
@@ -49,7 +49,7 @@ END_AISTATE_MAP()
 #endif	// __MEM_TRACE
 #endif	// __VM_0820
 
-static DWORD s_tmAttack = SEC(10);		//  m_tmAttack 10ÃÊ 
+static DWORD s_tmAttack = SEC(10);		//  m_tmAttack 10ì´ˆ 
 
 CAIGuard::CAIGuard()
 {
@@ -64,7 +64,7 @@ CAIGuard::~CAIGuard()
 
 void CAIGuard::InitAI()
 {
-	// »óÀ§Å¬·¡½º InitAI()ºÎ¸£´ÂÁö È®ÀÎÇÒ °Í
+	// ìƒìœ„í´ë˜ìŠ¤ InitAI()ë¶€ë¥´ëŠ”ì§€ í™•ì¸í•  ê²ƒ
 }
 
 
@@ -79,40 +79,40 @@ BOOL CAIGuard::MoveProcessIdle( const AIMSG & msg )
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 
-	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
+	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 
 /*
-	if( ÀÌµ¿°æ·Î ÀÖ´Â°¡? )
+	if( ì´ë™ê²½ë¡œ ìˆëŠ”ê°€? )
 	{
-		ºñ½ºÆ®»óÀÇ ÀÌµ¿°æ·Î ³ëµå¸¦ µû¶ó¼­ ÀÌµ¿À» ½ÃÅ´(¸¶À» ¼øÂû)
+		ë¹„ìŠ¤íŠ¸ìƒì˜ ì´ë™ê²½ë¡œ ë…¸ë“œë¥¼ ë”°ë¼ì„œ ì´ë™ì„ ì‹œí‚´(ë§ˆì„ ìˆœì°°)
 	} else
-		ÇöÀç ÀÚ¸®¿¡¼­ ´ë±â;
+		í˜„ì¬ ìë¦¬ì—ì„œ ëŒ€ê¸°;
 */
 
 	{
-		// ·çÆÃ¿É¼ÇÀÌ ÀÖ´Â ¸÷ÀÌ´Ù.
+		// ë£¨íŒ…ì˜µì…˜ì´ ìˆëŠ” ëª¹ì´ë‹¤.
 /*		if( pProp->m_nLoot )
 		{
-			if( (pMover->GetCount() & 63) == 0 )		// °¡²û¾¿ ÁÖº¯À» ½ºÄµÇØ¼­.(63ÀÌ¸é ¾à 4.2ÃÊ)
+			if( (pMover->GetCount() & 63) == 0 )		// ê°€ë”ì”© ì£¼ë³€ì„ ìŠ¤ìº”í•´ì„œ.(63ì´ë©´ ì•½ 4.2ì´ˆ)
 			{	
-				if( pProp->m_nLootProb == 0 || xRandom(100) < pProp->m_nLootProb  )	// µğÆúÆ®°ª(0)Àº 100% / ÀÌ°Å³ª ·çÆÃÈ®·ü¿¡ µé¾î°¡¸é ·çÆÃ½Ãµµ
-					if( m_bLootMove == FALSE )		// ·çÆÃÇÏ·¯ °¡°í ÀÖÀ»¶§ ¶Ç Ã¼Å©ÇÏ¸é ¾ÈŠ•
-						SubItemLoot();		// ¾ÆÀÌÅÛÀ» ·çÆÃÇÔ.
+				if( pProp->m_nLootProb == 0 || xRandom(100) < pProp->m_nLootProb  )	// ë””í´íŠ¸ê°’(0)ì€ 100% / ì´ê±°ë‚˜ ë£¨íŒ…í™•ë¥ ì— ë“¤ì–´ê°€ë©´ ë£¨íŒ…ì‹œë„
+					if( m_bLootMove == FALSE )		// ë£¨íŒ…í•˜ëŸ¬ ê°€ê³  ìˆì„ë•Œ ë˜ ì²´í¬í•˜ë©´ ì•ˆë’˜
+						SubItemLoot();		// ì•„ì´í…œì„ ë£¨íŒ…í•¨.
 			}
 		}
 
 		if( m_bLootMove == TRUE )
 		{
-			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
-			if( IsInvalidObj(pCtrl) )		// ¾ÆÀÌÅÛ ÁıÀ¸·¯ ÀÌµ¿Áß¿¡ ¾ÆÅÛÀÌ ¾ø¾îÁö¸é
+			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
+			if( IsInvalidObj(pCtrl) )		// ì•„ì´í…œ ì§‘ìœ¼ëŸ¬ ì´ë™ì¤‘ì— ì•„í…œì´ ì—†ì–´ì§€ë©´
 			{
-				MoveToDst( pMover->GetPos() );	// Á¦ÀÚ¸®¿¡ ¼¶.
+				MoveToDst( pMover->GetPos() );	// ì œìë¦¬ì— ì„¬.
 			}
 		} */
 
-		// ¼±°ø¼Ó¼ºÀÌ¸é ÁÖº¯À» ´Ã °¨½ÃÇÑ´Ù.
+		// ì„ ê³µì†ì„±ì´ë©´ ì£¼ë³€ì„ ëŠ˜ ê°ì‹œí•œë‹¤.
 		if( GetMover()->m_bActiveAttack )
 		{
 			int nAttackFirstRange = pMover->GetProp()->m_nAttackFirstRange;
@@ -123,19 +123,19 @@ BOOL CAIGuard::MoveProcessIdle( const AIMSG & msg )
 			if( pMover->GetProp()->m_nAttackFirstRange > 10 || pMover->GetProp()->m_nAttackFirstRange <= 0 )
 #endif
 			{
-				Error( "m_nAttackFirstRange ÀÌ»ó:%d %s\n", pMover->GetProp()->m_nAttackFirstRange, pMover->GetName() );
+				Error( "m_nAttackFirstRange ì´ìƒ:%d %s\n", pMover->GetProp()->m_nAttackFirstRange, pMover->GetName() );
 				return TRUE;
 			}
 
 			MoverProp *pProp = GetMover()->GetProp();
-			CMover* pTarget = ScanTarget( pMover, nAttackFirstRange, pProp->m_nScanJob );		// ÀÚ±â Ä«¸£¸¶¿Í ¹İ´ëµÇ´Â À¯Àú °Ë»ö±â´ÉÀ» Ãß°¡.
+			CMover* pTarget = ScanTarget( pMover, nAttackFirstRange, pProp->m_nScanJob );		// ìê¸° ì¹´ë¥´ë§ˆì™€ ë°˜ëŒ€ë˜ëŠ” ìœ ì € ê²€ìƒ‰ê¸°ëŠ¥ì„ ì¶”ê°€.
 			if( IsValidObj( (CObj*)pTarget ) )
 			{
-				// this°¡ ºñÇàÇü ¸ó½ºÅÍ°Å³ª || Å¸°ÙÀÌ ºñÇàÁßÀÌ ¾Æ´Ò¶§¸¸ °ø°İ.
+				// thisê°€ ë¹„í–‰í˜• ëª¬ìŠ¤í„°ê±°ë‚˜ || íƒ€ê²Ÿì´ ë¹„í–‰ì¤‘ì´ ì•„ë‹ë•Œë§Œ ê³µê²©.
 				if( pMover->IsFlyingNPC() || pTarget->m_pActMover->IsFly() == FALSE )	
 				{
 					m_dwIdTarget = pTarget->GetId();
-					// Å¸°ÙÀÌ Á¸ÀçÇÏ¸é ÃßÀû ¸ğµå·Î º¯°æ 
+					// íƒ€ê²Ÿì´ ì¡´ì¬í•˜ë©´ ì¶”ì  ëª¨ë“œë¡œ ë³€ê²½ 
 					if( m_dwIdTarget != NULL_ID )	
 					{
 						g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_ATTACK );
@@ -174,13 +174,13 @@ BOOL CAIGuard::StateIdle( const AIMSG & msg )
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_DAMAGE ) 
-		//ºĞ³ë ¸ğµå·Î º¯°æ!
+		//ë¶„ë…¸ ëª¨ë“œë¡œ ë³€ê²½!
 		if( m_bReturnToBegin == FALSE || (m_bReturnToBegin && (int)(g_tmCurrent - m_tmReturnToBegin) > SEC(5)) )
 		{
 			m_dwIdTarget = msg.dwParam1;
 			MoveToDst( m_dwIdTarget );
 			SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, NULL_ID );
-			m_tmAttack = timeGetTime() + s_tmAttack;	// ´ë±âÁßÀÏ¶§ °ø°İ¹ŞÀ¸¸é 10ÃÊ Å¸ÀÌ¸Ó ½ÃÀÛ
+			m_tmAttack = timeGetTime() + s_tmAttack;	// ëŒ€ê¸°ì¤‘ì¼ë•Œ ê³µê²©ë°›ìœ¼ë©´ 10ì´ˆ íƒ€ì´ë¨¸ ì‹œì‘
 		}
 
 
@@ -196,32 +196,32 @@ BOOL CAIGuard::StateIdle( const AIMSG & msg )
 	OnMessage( AIMSG_ARRIVAL )
 		if( pMover->IsFlyingNPC() )		
 		{
-			// ºñÇà¸÷Àº µµÂøÇÏ°í ³ª¼­ ¸ØÃßÁö ¾Ê´Â´Ù. 8ÀÚºñÇàÀ¸·Î ÀÌµ¿ÆĞÅÏÀÌ ¹Ù²ï´Ù.
+			// ë¹„í–‰ëª¹ì€ ë„ì°©í•˜ê³  ë‚˜ì„œ ë©ˆì¶”ì§€ ì•ŠëŠ”ë‹¤. 8ìë¹„í–‰ìœ¼ë¡œ ì´ë™íŒ¨í„´ì´ ë°”ë€ë‹¤.
 			if( msg.dwParam2 == 1 )
 			{
 				int nPattern = 2;
 				pMover->SetMovePattern( nPattern );
-				// Å¬¶ó·Î Àü¼Û
+				// í´ë¼ë¡œ ì „ì†¡
 				g_UserMng.AddSetMovePattern( pMover, nPattern, pMover->GetPos(), pMover->GetAngle(), pMover->GetAngleX() );
 			}
 		} else
 		{
 			if( m_bReturnToBegin )
-				SetStop( xRandom( SEC( 1 ) ) ); // 1ÃÊ µ¿¾È ¸ØÃç¶ó 
+				SetStop( xRandom( SEC( 1 ) ) ); // 1ì´ˆ ë™ì•ˆ ë©ˆì¶°ë¼ 
 			else
-				SetStop( SEC( 5 ) + xRandom( SEC( 1 ) ) ); // 1ÃÊ µ¿¾È ¸ØÃç¶ó 
+				SetStop( SEC( 5 ) + xRandom( SEC( 1 ) ) ); // 1ì´ˆ ë™ì•ˆ ë©ˆì¶°ë¼ 
 
 			// --------
-			// ÀÌºÎºĞÀº CAIMonsterÀÇ ·çÆ¾À» ±×´ë·Î ¾µ¼ö ÀÖ°Ô ÇÏÀÚ.
-/*			if( m_bLootMove )	// ¾ÆÀÌÅÛ ·çÆÃ¸ğµå¿´À½.
+			// ì´ë¶€ë¶„ì€ CAIMonsterì˜ ë£¨í‹´ì„ ê·¸ëŒ€ë¡œ ì“¸ìˆ˜ ìˆê²Œ í•˜ì.
+/*			if( m_bLootMove )	// ì•„ì´í…œ ë£¨íŒ…ëª¨ë“œì˜€ìŒ.
 			{
-				CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
+				CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
 				if( IsValidObj(pCtrl) )
 				{
 					CItem *pItem = (CItem *)pCtrl;
 					D3DXVECTOR3 vDist = pCtrl->GetPos() - pMover->GetPos();
 					FLOAT fDistSq = D3DXVec3LengthSq( &vDist );
-					if( fDistSq < 3.0f * 3.0f )		// µµÂøÇØ¼­ °Å¸® °Ë»ç ÇÑ¹ø´õ ÇØ¼­ 
+					if( fDistSq < 3.0f * 3.0f )		// ë„ì°©í•´ì„œ ê±°ë¦¬ ê²€ì‚¬ í•œë²ˆë” í•´ì„œ 
 					{
 						pItem->Lock( theLineFile );	// lock
 						if( pItem->IsDelete() )
@@ -232,25 +232,25 @@ BOOL CAIGuard::StateIdle( const AIMSG & msg )
 						CItemElem* pItemElem = (CItemElem *)pItem->m_pItemBase;
 						ItemProp *pItemProp = pItem->GetProp();
 						BOOL bSuccess = FALSE;
-						if( pItemProp->dwItemKind1 == IK1_GOLD )	// ÁÖÀº¾ÆÀÌÅÛÀÌ µ·ÀÌ³Ä?
+						if( pItemProp->dwItemKind1 == IK1_GOLD )	// ì£¼ì€ì•„ì´í…œì´ ëˆì´ëƒ?
 						{
-							//pMover->SetPointParam( DST_GOLD, pMover->GetGold() + pItemElem->m_nItemNum );	// µ·Áõ°¡.
-							pMover->AddGold( pItemElem->m_nItemNum );	// µ·Áõ°¡.
+							//pMover->SetPointParam( DST_GOLD, pMover->GetGold() + pItemElem->m_nItemNum );	// ëˆì¦ê°€.
+							pMover->AddGold( pItemElem->m_nItemNum );	// ëˆì¦ê°€.
 							bSuccess = TRUE;
 						} else
 						// not GOLD
 						{
-							bSuccess = pMover->CreateItem( pItemElem );			// ÁÖÀº ¾ÆÀÌÅÛ »ı¼º.
+							bSuccess = pMover->CreateItem( pItemElem );			// ì£¼ì€ ì•„ì´í…œ ìƒì„±.
 						}
 
 						if( bSuccess )
 						{
-							pItem->Delete();		// ÀÎº¥¿¡±îÁö ³Ö´Âµ¥ ¼º°øÇÏ¸é ¹Ù´ÚÀÇ ¾ÆÀÌÅÛÀº Áö¿ò.
+							pItem->Delete();		// ì¸ë²¤ì—ê¹Œì§€ ë„£ëŠ”ë° ì„±ê³µí•˜ë©´ ë°”ë‹¥ì˜ ì•„ì´í…œì€ ì§€ì›€.
 						}
 						pItem->Unlock( theLineFile );	// unlock
 					}
 				}
-				m_bLootMove = FALSE;		// this°¡ ¾ÆÀÌÅÛ Áı´ÂÁßÀÌ¶ó´Â°Å ÇØÁ¦.
+				m_bLootMove = FALSE;		// thisê°€ ì•„ì´í…œ ì§‘ëŠ”ì¤‘ì´ë¼ëŠ”ê±° í•´ì œ.
 				m_idLootItem = NULL_ID;
 			} */
 		}
@@ -275,10 +275,10 @@ BOOL CAIGuard::StateEvade( const AIMSG & msg )
 
 
 
-// ÀüÅõ¸ğµå¿¡¼­ÀÇ ÇÁ·Î¼¼½º.
+// ì „íˆ¬ëª¨ë“œì—ì„œì˜ í”„ë¡œì„¸ìŠ¤.
 BOOL CAIGuard::MoveProcessRage( const AIMSG & msg )
 {
-	CAIMonster::MoveProcessRage( msg );		// ¸ó½ºÅÍÀÇ ÀüÅõÆĞÅÏÀ» ±×´ë·Î »ç¿ë.
+	CAIMonster::MoveProcessRage( msg );		// ëª¬ìŠ¤í„°ì˜ ì „íˆ¬íŒ¨í„´ì„ ê·¸ëŒ€ë¡œ ì‚¬ìš©.
 	return TRUE;
 }
 
@@ -295,12 +295,12 @@ BOOL CAIGuard::StateRage( const AIMSG & msg )
 		if( msg.dwParam2 != NULL_ID )
 			m_dwIdTarget = msg.dwParam2;
 		m_tmAttack = timeGetTime() + s_tmAttack;
-		m_tmAttackDelay = timeGetTime(); // °ø°İ µô·¹ÀÌ¸¦ ÃÊ±âÈ­. ±×·¸Áö ¾ÊÀ¸¸é Ã³À½ °ø°İÀÌ µô·¹ÀÌ ¸Ô°í µé¾î°£´Ù.
-		SetStop( 0 ); // 0À¸·Î ¼¼ÆÃÇÏ¸é Á¤Áö »óÅÂ°¡ ¹Ù·Î ³¡³ª°Ô µÇ¾î °ø°İÀÌ °¡´ÉÇÏ°Ô µÈ´Ù. 
-		              // Á¤Áö »óÅÂ¿¡¼­´Â Á¤Áö »óÅÂ¸¦ ÀÏÁ¤ ½Ã°£µ¿¾È À¯ÁöÇØÁÖ¾î¾ßÇÏ´Âµ¥, ±×·¸°Ô µÇ¸é °ø°İÀ» ¸øÇÒ ¼ö ÀÖ´Ù.
+		m_tmAttackDelay = timeGetTime(); // ê³µê²© ë”œë ˆì´ë¥¼ ì´ˆê¸°í™”. ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ ì²˜ìŒ ê³µê²©ì´ ë”œë ˆì´ ë¨¹ê³  ë“¤ì–´ê°„ë‹¤.
+		SetStop( 0 ); // 0ìœ¼ë¡œ ì„¸íŒ…í•˜ë©´ ì •ì§€ ìƒíƒœê°€ ë°”ë¡œ ëë‚˜ê²Œ ë˜ì–´ ê³µê²©ì´ ê°€ëŠ¥í•˜ê²Œ ëœë‹¤. 
+		              // ì •ì§€ ìƒíƒœì—ì„œëŠ” ì •ì§€ ìƒíƒœë¥¼ ì¼ì • ì‹œê°„ë™ì•ˆ ìœ ì§€í•´ì£¼ì–´ì•¼í•˜ëŠ”ë°, ê·¸ë ‡ê²Œ ë˜ë©´ ê³µê²©ì„ ëª»í•  ìˆ˜ ìˆë‹¤.
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_INIT_TARGETCLEAR )		// Å¸°ÙÀ» Å¬¸®¾îÇÏ°í ´ë±â¸ğµå·Î µ¹¾Æ°¨.
+	OnMessage( AIMSG_INIT_TARGETCLEAR )		// íƒ€ê²Ÿì„ í´ë¦¬ì–´í•˜ê³  ëŒ€ê¸°ëª¨ë“œë¡œ ëŒì•„ê°.
 		m_dwIdTarget = NULL_ID;
 		SendAIMsg( AIMSG_SETSTATE, STATE_IDLE );
 		
@@ -312,34 +312,34 @@ BOOL CAIGuard::StateRage( const AIMSG & msg )
 	OnMessage( AIMSG_DAMAGE ) 
 		if( IsMove() && m_bGoTarget == FALSE )
 		{
-			if( xRandom( 2 ) == 0 )		// 1/2È®·ü·Î °ø°İÀÚ¸¦ ¶§¸².
+			if( xRandom( 2 ) == 0 )		// 1/2í™•ë¥ ë¡œ ê³µê²©ìë¥¼ ë•Œë¦¼.
 			{
 				m_dwIdTarget = msg.dwParam1;
-				// °ø°İÀÚ¿¡°Ô ¸ñÇ¥¸¦ ¼³Á¤ 
+				// ê³µê²©ìì—ê²Œ ëª©í‘œë¥¼ ì„¤ì • 
 				MoveToDst( m_dwIdTarget );
 			}
 			m_bGoTarget = TRUE;
 		}
 		MoverProp* pMoverProp = pMover->GetProp();
 		int nHPPercent = pMover->GetHitPointPercent( 100 );
-		// µµÁÖ HP ÆÛ¼¾Æ®º¸´Ù ÇöÀç HPÆÛ¼¾Æ®°¡ ÀÛÀ» °æ¿ì µµ¸Á°¡ÀÚ.
+		// ë„ì£¼ HP í¼ì„¼íŠ¸ë³´ë‹¤ í˜„ì¬ HPí¼ì„¼íŠ¸ê°€ ì‘ì„ ê²½ìš° ë„ë§ê°€ì.
 		if( nHPPercent < pMoverProp->m_nRunawayHP )
 		{
-			// µµÁÖ ¸ğµå·Î ¼¼ÆÃ 
+			// ë„ì£¼ ëª¨ë“œë¡œ ì„¸íŒ… 
 			SendAIMsg( AIMSG_SETSTATE, STATE_RUNAWAY );
 			g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_EVADE );
 		}
-		// Call HP ÆÛ¼¾Æ®º¸´Ù ÇöÀç HPÆÛ¼¾Æ®°¡ ÀÛÀ» °æ¿ì µ¿·á¸¦ ºÎ¸£ÀÚ.
-		if( pMoverProp->m_bHelpWho )	// ÇïÇÁAI°¡ ÀÖÀ»°æ¿ì.
+		// Call HP í¼ì„¼íŠ¸ë³´ë‹¤ í˜„ì¬ HPí¼ì„¼íŠ¸ê°€ ì‘ì„ ê²½ìš° ë™ë£Œë¥¼ ë¶€ë¥´ì.
+		if( pMoverProp->m_bHelpWho )	// í—¬í”„AIê°€ ìˆì„ê²½ìš°.
 		{
-			if( timeGetTime() - m_tmHelp > pMoverProp->m_tmUnitHelp )	// ÃÖÃÊ m_tmHelp´Â 0ÀÌ¹Ç·Î ÇïÇÁ¸¦ ÇÑ´Ù.
+			if( timeGetTime() - m_tmHelp > pMoverProp->m_tmUnitHelp )	// ìµœì´ˆ m_tmHelpëŠ” 0ì´ë¯€ë¡œ í—¬í”„ë¥¼ í•œë‹¤.
 			{
 				if( m_bCallHelper == FALSE )
 				{
 					CallHelper( pMoverProp );
 					g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_HELPER );
 					m_tmHelp = timeGetTime();
-					if( pMoverProp->m_tmUnitHelp == 0 )		// 0ÀÌ¸é ÇÑ¹ø¸¸ ºÎ¸£°í ¾ÈºÎ¸§.
+					if( pMoverProp->m_tmUnitHelp == 0 )		// 0ì´ë©´ í•œë²ˆë§Œ ë¶€ë¥´ê³  ì•ˆë¶€ë¦„.
 						m_bCallHelper = TRUE;
 				}
 			}
@@ -383,13 +383,13 @@ BOOL CAIGuard::MoveProcessRunaway()
 	CMover* pMover = GetMover();
 	CWorld* pWorld = GetWorld();
 
-	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
+	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL))
 		return FALSE;
 
-	CCtrl* pTarget = prj.GetCtrl( m_dwIdTarget ); // ¸ñÇ¥¸¦ Àç¼³Á¤ÇØÁØ´Ù.
+	CCtrl* pTarget = prj.GetCtrl( m_dwIdTarget ); // ëª©í‘œë¥¼ ì¬ì„¤ì •í•´ì¤€ë‹¤.
 
-	// Å¸°ÙÀÌ ¹«È¿ÀÎ°¡?
+	// íƒ€ê²Ÿì´ ë¬´íš¨ì¸ê°€?
 	if( IsValidObj( pTarget ) == FALSE )
 	{
 		m_dwIdTarget = NULL_ID;
@@ -408,14 +408,14 @@ BOOL CAIGuard::StateRunaway( const AIMSG & msg )
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_INIT ) 
-		// ÀÌ°æ¿ì Á¤»óÀûÀÎ ¿É¼Ç¿¡ ÀÇÇÑ µµÁÖ°¡ ¾Æ´Ï¶ó, »ó´ë°¡ °ø°İÇÒ ¼ö ¾ø´Â, Áö¸®»ó ÀÕÁ¡ÀÌ ÀÖ´Â Àå¼Ò¿¡
-		// ÀÖ±â ¶§¹®¿¡ ÁÙÇà¶ûÀ» Ä¡´Â °æ¿ì´Ù. 
+		// ì´ê²½ìš° ì •ìƒì ì¸ ì˜µì…˜ì— ì˜í•œ ë„ì£¼ê°€ ì•„ë‹ˆë¼, ìƒëŒ€ê°€ ê³µê²©í•  ìˆ˜ ì—†ëŠ”, ì§€ë¦¬ìƒ ì‡ì ì´ ìˆëŠ” ì¥ì†Œì—
+		// ìˆê¸° ë•Œë¬¸ì— ì¤„í–‰ë‘ì„ ì¹˜ëŠ” ê²½ìš°ë‹¤. 
 		m_bTargetNoMovePos	= msg.dwParam2;
-		// ÇöÀçÀÇ ¹İ´ë ¹æÇâÀ¸·Î µµÁÖ ½ÃÀÛ 
-		// 5µµ ÆøÀ» °¡Áö°í °¢µµ º¯°æ. ÆøÀÌ Å©¸é Å¬¼ö·Ï Áö±×Àç±× ÇüÅÂ·Î ¿òÁ÷ÀÎ´Ù.
+		// í˜„ì¬ì˜ ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ë„ì£¼ ì‹œì‘ 
+		// 5ë„ í­ì„ ê°€ì§€ê³  ê°ë„ ë³€ê²½. í­ì´ í¬ë©´ í´ìˆ˜ë¡ ì§€ê·¸ì¬ê·¸ í˜•íƒœë¡œ ì›€ì§ì¸ë‹¤.
 		pMover->AddAngle( (float)( 180 + ( 20 - xRandom( 40 ) ) ) );
-		// °¢µµ¸¦ ²¨³½ ÈÄ¿¡ ¿¬Àå¼±¿¡ ÀÖ´Â ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
-		CMover* pMoverTarget = (CMover*)prj.GetCtrl( m_dwIdTarget ); // ¸ñÇ¥¸¦ Àç¼³Á¤ÇØÁØ´Ù.
+		// ê°ë„ë¥¼ êº¼ë‚¸ í›„ì— ì—°ì¥ì„ ì— ìˆëŠ” ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
+		CMover* pMoverTarget = (CMover*)prj.GetCtrl( m_dwIdTarget ); // ëª©í‘œë¥¼ ì¬ì„¤ì •í•´ì¤€ë‹¤.
 		if( IsValidObj(pMoverTarget) )
 		{
 			DWORD dwAttackRange = pMoverTarget->GetActiveHandItemProp()->dwAttackRange;
@@ -424,7 +424,7 @@ BOOL CAIGuard::StateRunaway( const AIMSG & msg )
 			D3DXVECTOR3 vDst = pMover->GetPos() + VelocityToVec( fAngle, fRange );
 			MoveToDst( vDst );
 //			SendAIMsg( AIMSG_SETPROCESS, TRUE );
-			m_bFirstRunaway = TRUE; // Ã³À½ µµÁÖÀÎ°¡?
+			m_bFirstRunaway = TRUE; // ì²˜ìŒ ë„ì£¼ì¸ê°€?
 		}
 		else
 			SendAIMsg( AIMSG_SETSTATE, STATE_IDLE );
@@ -438,14 +438,14 @@ BOOL CAIGuard::StateRunaway( const AIMSG & msg )
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_COLLISION )
-		// ÇöÀçÀÇ ¹İ´ë ¹æÇâÀ¸·Î µµÁÖ ½ÃÀÛ 
-		// 5µµ ÆøÀ» °¡Áö°í °¢µµ º¯°æ. ÆøÀÌ Å©¸é Å¬¼ö·Ï Áö±×Àç±× ÇüÅÂ·Î ¿òÁ÷ÀÎ´Ù.
+		// í˜„ì¬ì˜ ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ë„ì£¼ ì‹œì‘ 
+		// 5ë„ í­ì„ ê°€ì§€ê³  ê°ë„ ë³€ê²½. í­ì´ í¬ë©´ í´ìˆ˜ë¡ ì§€ê·¸ì¬ê·¸ í˜•íƒœë¡œ ì›€ì§ì¸ë‹¤.
 		pMover->AddAngle( (float)( 180 + ( 20 - xRandom( 40 ) ) ) );
-		// °¢µµ¸¦ ²¨³½ ÈÄ¿¡ ¿¬Àå¼±¿¡ ÀÖ´Â ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+		// ê°ë„ë¥¼ êº¼ë‚¸ í›„ì— ì—°ì¥ì„ ì— ìˆëŠ” ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
 		FLOAT fAngle = pMover->GetAngle();
 		D3DXVECTOR3 vDst = pMover->GetPos() + VelocityToVec( fAngle, 5 );
 		MoveToDst( vDst );
-		// m_bFirstRunaway = FALSE; <-- 04.10.08 µ¥µå¶ôÀ» À¯¹ßÇÏ´Â °ÍÀ¸·Î »ı°¢µÊ.
+		// m_bFirstRunaway = FALSE; <-- 04.10.08 ë°ë“œë½ì„ ìœ ë°œí•˜ëŠ” ê²ƒìœ¼ë¡œ ìƒê°ë¨.
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_DIE ) 
@@ -457,10 +457,10 @@ BOOL CAIGuard::StateRunaway( const AIMSG & msg )
 
 	OnMessage( AIMSG_ARRIVAL )
 		m_bFirstRunaway = FALSE;
-		//SetStop( xRandom( SEC( 2 ) ) + SEC( 1 ) ); // 2ÃÊ~3ÃÊ µ¿¾È ¸ØÃç¶ó 
+		//SetStop( xRandom( SEC( 2 ) ) + SEC( 1 ) ); // 2ì´ˆ~3ì´ˆ ë™ì•ˆ ë©ˆì¶°ë¼ 
 		MoverProp* pMoverProp = pMover->GetProp();
 		if( pMoverProp->m_dwRunawayDelay )
-			SetStop( pMover->GetProp()->m_dwRunawayDelay + xRandom( SEC( 1 ) ) ); // + xRandomÀº ¾à°£ÀÇ °¡º¯ Â÷ÀÌ¸¦ ÁÖ±â À§ÇÑ °Í.
+			SetStop( pMover->GetProp()->m_dwRunawayDelay + xRandom( SEC( 1 ) ) ); // + xRandomì€ ì•½ê°„ì˜ ê°€ë³€ ì°¨ì´ë¥¼ ì£¼ê¸° ìœ„í•œ ê²ƒ.
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_EXIT )	

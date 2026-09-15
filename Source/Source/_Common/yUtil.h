@@ -1,4 +1,4 @@
-#ifndef		__YUTIL_H__
+﻿#ifndef		__YUTIL_H__
 #define		__YUTIL_H__
 
 class CFLASH

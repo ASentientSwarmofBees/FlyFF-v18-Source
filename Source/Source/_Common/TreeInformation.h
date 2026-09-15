@@ -1,9 +1,9 @@
-#ifndef __TREE_INFORMATION_H__
+ï»¿#ifndef __TREE_INFORMATION_H__
 #define __TREE_INFORMATION_H__
 
 #if __VER >= 15 /* __IMPROVE_QUEST_INTERFACE */ && defined( __CLIENT )
 //-----------------------------------------------------------------------------
-class CTreeInformation // Æ®¸®ÀÇ Á¤º¸( ¾ÆÀÌµğ, Ã¼Å· ¿©ºÎ )
+class CTreeInformation // íŠ¸ë¦¬ì˜ ì •ë³´( ì•„ì´ë””, ì²´í‚¹ ì—¬ë¶€ )
 {
 public:
 	CTreeInformation( void );
@@ -22,7 +22,7 @@ private:
 //-----------------------------------------------------------------------------
 typedef list< CTreeInformation* > TreeInformationList;
 
-class CTreeInformationManager // Æ®¸®ÀÇ Á¤º¸¸¦ ¸®½ºÆ®·Î ±¸¼ºÇØ Àü¿ªÀ¸·Î °ü¸®ÇÏ´Â °ü¸®ÀÚ Å¬·¡½º
+class CTreeInformationManager // íŠ¸ë¦¬ì˜ ì •ë³´ë¥¼ ë¦¬ìŠ¤íŠ¸ë¡œ êµ¬ì„±í•´ ì „ì—­ìœ¼ë¡œ ê´€ë¦¬í•˜ëŠ” ê´€ë¦¬ì í´ë˜ìŠ¤
 {
 public:
 	CTreeInformationManager( void );

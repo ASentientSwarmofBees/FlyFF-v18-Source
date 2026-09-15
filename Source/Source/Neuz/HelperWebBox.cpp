@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+﻿#include "StdAfx.h"
 #ifdef __NEW_WEB_BOX
 #ifdef __CLIENT
 #include "HelperWebBox.h"

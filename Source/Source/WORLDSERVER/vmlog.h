@@ -1,4 +1,4 @@
-#ifndef __VM_LOG_H
+﻿#ifndef __VM_LOG_H
 #define	__VM_LOG_H
 
 class CVMLog

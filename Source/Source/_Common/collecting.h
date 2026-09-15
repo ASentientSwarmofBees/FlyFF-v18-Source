@@ -1,4 +1,4 @@
-#ifndef __COLLECTING_H__
+﻿#ifndef __COLLECTING_H__
 #define	__COLLECTING_H__
 
 typedef	struct	_COLLECTING_ITEM

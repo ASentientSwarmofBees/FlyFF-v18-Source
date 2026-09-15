@@ -1,4 +1,4 @@
-#if __VER >= 8 //__CSC_VER8_2
+﻿#if __VER >= 8 //__CSC_VER8_2
 
 #ifndef __WNDPARTY_QUICK__H
 #define __WNDPARTY_QUICK__H

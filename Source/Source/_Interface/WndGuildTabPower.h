@@ -1,4 +1,4 @@
-
+ï»¿
 //Author : gmpbigsun
 //Date : 2009_11_16
 // Tab winodw ( of guild window )
@@ -9,7 +9,7 @@
 
 class CWndGuildTabPower : public CWndNeuz 
 { 
-	// ±æµåÀ©µµ¿ì¿¡¼­ Ãß°¡µÇ´Â ÅÇ À©µµ¿ì ( ±æµå ÇÏ¿ì½º¿¡ °üÇÑ ±ÇÇÑ ¼³Á¤ )
+	// ê¸¸ë“œìœˆë„ìš°ì—ì„œ ì¶”ê°€ë˜ëŠ” íƒ­ ìœˆë„ìš° ( ê¸¸ë“œ í•˜ìš°ìŠ¤ì— ê´€í•œ ê¶Œí•œ ì„¤ì • )
 public: 
 	CWndGuildTabPower(); 
 	virtual ~CWndGuildTabPower(); 

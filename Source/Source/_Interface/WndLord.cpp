@@ -1,4 +1,4 @@
-
+ï»¿
 #include "stdafx.h"
 #include "resData.h"
 #include "WndLord.h"
@@ -14,7 +14,7 @@
 extern	CDPClient			g_DPlay;
 
 /****************************************************
-  WndId : APP_LORD_STATE - ÈÄº¸ µî·Ï ÇöÈ²
+  WndId : APP_LORD_STATE - í›„ë³´ ë“±ë¡ í˜„í™©
   CtrlId : WIDC_STATIC1 - Static
   CtrlId : WIDC_LISTBOX1 - Listbox
   CtrlId : WIDC_STATIC2 - Level
@@ -74,7 +74,7 @@ void CWndLordState::OnDraw( C2DRender* p2DRender )
 
 BOOL CWndLordState::Process()
 {
-	// 2ÃÊ¿¡ ÇÑ¹ø¾¿¸¸ °»½ÅÇÑ´Ù
+	// 2ì´ˆì— í•œë²ˆì”©ë§Œ ê°±ì‹ í•œë‹¤
 	if(m_tmRefresh > g_tmCurrent) return FALSE;
 
 	m_tmRefresh = g_tmCurrent + 1000;
@@ -95,7 +95,7 @@ BOOL CWndLordState::Process()
 			if(pRanker->GetIdPlayer() > 0)
 			{
 				PlayerData* pPlayerData	= CPlayerDataCenter::GetInstance()->GetPlayerData(pRanker->GetIdPlayer());
-				// ¼øÀ§
+				// ìˆœìœ„
 				if(i == 10)		strName[i-1].Format("  %d       %s", i, pPlayerData->szPlayer);
 				else			strName[i-1].Format("  %d        %s", i, pPlayerData->szPlayer);
 				strClass[i-1].Format("%s", prj.m_aJob[pPlayerData->data.nJob].szName);
@@ -115,23 +115,23 @@ BOOL CWndLordState::Process()
 void CWndLordState::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndLordState::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_LORD_STATE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndLordState::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -169,7 +169,7 @@ BOOL CWndLordState::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			break;
 
-		case WIDC_BUTTON1:// ok¹öÆ°
+		case WIDC_BUTTON1:// okë²„íŠ¼
 			Destroy();
 			break;
 	}
@@ -201,7 +201,7 @@ void CWndLordPledge::OnDraw( C2DRender* p2DRender )
 void CWndLordPledge::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	pWndEdit->SetWndRect( pWndEdit->GetWindowRect( TRUE ), FALSE);
@@ -209,20 +209,20 @@ void CWndLordPledge::OnInitialUpdate()
 	pWndEdit->AddWndStyle( EBS_WANTRETURN );
 	if(m_pRanker->GetPledge()) pWndText->SetString(m_pRanker->GetPledge());
 
-	// ¿¡µğÅÍ´Â ÀÏ´Ü ¼û±ä´Ù
+	// ì—ë””í„°ëŠ” ì¼ë‹¨ ìˆ¨ê¸´ë‹¤
 	pWndEdit->SetVisible(FALSE);
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndLordPledge::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_LORD_PLEDGE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -232,7 +232,7 @@ void CWndLordPledge::SetPledge(LPCTSTR strPledge)
 	pWndText->SetString(strPledge);
 }
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndLordState::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -243,7 +243,7 @@ BOOL CWndLordState::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 */
 BOOL CWndLordPledge::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
 { 
-	// ÀÚ±âÀÚ½Å¸¸ ´õºíÅ¬¸¯À¸·Î °ø¾àÀ» ¼öÁ¤ÇÒ ¼ö ÀÖ´Ù
+	// ìê¸°ìì‹ ë§Œ ë”ë¸”í´ë¦­ìœ¼ë¡œ ê³µì•½ì„ ìˆ˜ì •í•  ìˆ˜ ìˆë‹¤
 	if(dwMessage == WM_LBUTTONDBLCLK && nID == WIDC_TEXT1 && g_pPlayer->m_idPlayer == m_pRanker->GetIdPlayer())
 	{
 		CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
@@ -272,7 +272,7 @@ BOOL CWndLordPledge::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 { 
 	switch(nID)
 	{
-		// °ø¾àÀ» Àü¼ÛÇÑ´Ù
+		// ê³µì•½ì„ ì „ì†¡í•œë‹¤
 		case WIDC_BUTTON2:
 			CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 			CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
@@ -376,7 +376,7 @@ void CWndLordTender::RefreshDeposit()
 void CWndLordTender::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndText*	pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );		
 	CScript		scanner;
 
@@ -386,21 +386,21 @@ void CWndLordTender::OnInitialUpdate()
 	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	pWndEdit->SetString("0");
 	RefreshDeposit();
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndLordTender::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_LORD_TENDER, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndLordState::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -481,11 +481,11 @@ void CWndLordVote::OnDraw( C2DRender* p2DRender )
 			if(pRanker->GetIdPlayer() > 0)
 			{	
 				PlayerData* pPlayerData	= CPlayerDataCenter::GetInstance()->GetPlayerData(pRanker->GetIdPlayer());
-				// ·¹º§
+				// ë ˆë²¨
 				strLevel.Format("%d", pPlayerData->data.nLevel);
-				// ÀÌ¸§
+				// ì´ë¦„
 				strName.Format("%s", pPlayerData->szPlayer);
-				// Å¬·¡½º
+				// í´ë˜ìŠ¤
 				strClass.Format("%s", prj.m_aJob[pPlayerData->data.nJob].szName);
 				p2DRender->TextOut( pCustom->rect.left + 15, pCustom->rect.top + 8 + (i-1)*16, strLevel, dwColor);
 				p2DRender->TextOut( pCustom->rect.left + 60, pCustom->rect.top + 8 + (i-1)*16, strName, dwColor);
@@ -497,7 +497,7 @@ void CWndLordVote::OnDraw( C2DRender* p2DRender )
 
 BOOL CWndLordVote::Process()
 {/*
-	// 2ÃÊ¿¡ ÇÑ¹ø¾¿¸¸ °»½ÅÇÑ´Ù
+	// 2ì´ˆì— í•œë²ˆì”©ë§Œ ê°±ì‹ í•œë‹¤
 	if(m_tmRefresh > g_tmCurrent) return FALSE;
 
 	m_tmRefresh = g_tmCurrent + 1000;
@@ -508,24 +508,24 @@ BOOL CWndLordVote::Process()
 void CWndLordVote::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndLordVote::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_LORD_VOTE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndLordState::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -558,7 +558,7 @@ BOOL CWndLordVote::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	switch(nID)
 	{
 		case WIDC_LISTBOX1:
-			/*// ¸®½ºÆ®¸¦ Å¬¸¯ÇÏ¸é ¿¡µğÆ®¹Ú½º¿¡ ÀÌ¸§ÀÌ ¿Ã¶ó°£´Ù
+			/*// ë¦¬ìŠ¤íŠ¸ë¥¼ í´ë¦­í•˜ë©´ ì—ë””íŠ¸ë°•ìŠ¤ì— ì´ë¦„ì´ ì˜¬ë¼ê°„ë‹¤
 			
 			if(pRanker)
 			{
@@ -572,7 +572,7 @@ BOOL CWndLordVote::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			break;
 
 		case WIDC_BUTTON1:
-			// ÅõÇ¥¸¦ ÇÔ
+			// íˆ¬í‘œë¥¼ í•¨
 			if(((CEditString)pWndEdit->GetString()).IsEmpty()) return FALSE;
 			for(int i = 1; i < 11; ++i)
 			{
@@ -588,14 +588,14 @@ BOOL CWndLordVote::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					}
 				}
 			}
-			// ÀÌ¸§ÀÌ ÀÏÄ¡ÇÏ´Â ÈÄº¸°¡ ¾øÀ½
+			// ì´ë¦„ì´ ì¼ì¹˜í•˜ëŠ” í›„ë³´ê°€ ì—†ìŒ
 			// g_WndMng.OpenMessageBox(prj.GetText(TID_GAME_NO_CANDIDATE));
 			break;
 	};
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
 } 
 
-// ÀÌº¥Æ® Ã¢
+// ì´ë²¤íŠ¸ ì°½
 CWndLordEvent::CWndLordEvent()
 {
 	m_nEEvent = 0;
@@ -681,9 +681,9 @@ void CWndLordEvent::OnDraw( C2DRender* p2DRender )
 void CWndLordEvent::OnInitialUpdate()
 {
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -753,7 +753,7 @@ BOOL CWndLordSkill::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 void CWndLordSkill::OnDraw( C2DRender* p2DRender )
 {
-	// ¾ÆÀÌÄÜ ·»´õ¸µ ÇØ¾ßÇÔ
+	// ì•„ì´ì½˜ ë Œë”ë§ í•´ì•¼í•¨
 	for(int i = 0; i < 8; ++i)
 	{
 		m_aTexSkill[ i ]->Render( p2DRender, m_aWndCtrl[i]->rect.TopLeft(), CPoint( 32, 32 ) );
@@ -763,11 +763,11 @@ void CWndLordSkill::OnDraw( C2DRender* p2DRender )
 void CWndLordSkill::OnInitialUpdate()
 {
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	pWndText->SetString(prj.GetText(TID_GAME_LORD_SKILL_INFO));
 	
-	// ¾ÆÀÌÄÜ ÅØ½ºÃÄ ·Îµù
+	// ì•„ì´ì½˜ í…ìŠ¤ì³ ë¡œë”©
 	CCLord* pLord						= CCLord::Instance();
 	for(int i = 0; i < 8; ++i)
 	{
@@ -785,7 +785,7 @@ void CWndLordSkill::OnInitialUpdate()
 	m_aWndCtrl[7] = GetWndCtrl( WIDC_CUSTOM8 );
 	m_aWndCtrl[8] = GetWndCtrl( WIDC_CUSTOM9 );
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -840,7 +840,7 @@ void CWndLordSkill::OnMouseMove(UINT nFlags, CPoint point)
 		m_GlobalShortcut.m_dwType	   = 0;
 		m_GlobalShortcut.m_dwIndex	   = 0;//dwSkill;
 		m_GlobalShortcut.m_dwData	   = 0;
-		m_GlobalShortcut.m_dwId        = m_nCurSelect; // ÄÃ·±Æ® ¼¿·ºÆ®°¡ °ğ ID³ª ¸¶Âù°¡ÁöÀÓ.
+		m_GlobalShortcut.m_dwId        = m_nCurSelect; // ì»¬ëŸ°íŠ¸ ì…€ë ‰íŠ¸ê°€ ê³§ IDë‚˜ ë§ˆì°¬ê°€ì§€ì„.
 		m_GlobalShortcut.m_pTexture	   = pComponent->GetTexture(); 
 		_tcscpy( m_GlobalShortcut.m_szString, pComponent->GetName());
 	}
@@ -910,7 +910,7 @@ void CWndLordConfirm::OnInitialUpdate()
 	CWndNeuz::OnInitialUpdate();
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	pWndText->SetString(prj.GetText(TID_GAME_MOD_PLEGDE));
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -988,7 +988,7 @@ void CWndLordSkillConfirm::OnInitialUpdate()
 			break;
 	};
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -1037,7 +1037,7 @@ void CWndLordInfo::OnDraw( C2DRender* p2DRender )
 	
 	if(nLordId != NULL_ID)
 	{
-		// ±ºÁÖ°¡ ÀÖÀ»¶§
+		// êµ°ì£¼ê°€ ìˆì„ë•Œ
 		PlayerData* pPlayerData	= CPlayerDataCenter::GetInstance()->GetPlayerData(nLordId);
 
 		pWndName->SetTitle(pPlayerData->szPlayer);
@@ -1054,12 +1054,12 @@ void CWndLordInfo::OnDraw( C2DRender* p2DRender )
 		pWndName->SetTitle("");
 		pWndremainTime->SetTitle("");
 	}
-	// Çö »óÅÂ¸¦ Ç¥½ÃÇØÁØ´Ù.
+	// í˜„ ìƒíƒœë¥¼ í‘œì‹œí•´ì¤€ë‹¤.
 	if(pElection->GetState() == CCElection::eReady) 
 	{
 		if(nLordId != NULL_ID)
 		{
-			// ±ºÁÖ°¡ ÀÖÀ»¶§
+			// êµ°ì£¼ê°€ ìˆì„ë•Œ
 			pWndStatus->SetTitle(prj.GetText(TID_GAME_LORD_STATUS_IS));
 		}
 		else
@@ -1069,21 +1069,21 @@ void CWndLordInfo::OnDraw( C2DRender* p2DRender )
 	}
 	else if(pElection->GetState() == CCElection::eCandidacy)
 	{
-		// ÀÔÈÄº¸ ±â°£
+		// ì…í›„ë³´ ê¸°ê°„
 		pWndStatus->SetTitle(prj.GetText(TID_GAME_LORD_STATUS_L1));
 		
 	}
 	else if(pElection->GetState() == CCElection::eVote)
 	{
-		// ÅõÇ¥ ±â°£
+		// íˆ¬í‘œ ê¸°ê°„
 		pWndStatus->SetTitle(prj.GetText(TID_GAME_LORD_STATUS_L2));
 	}
 	else if(pElection->GetState() == CCElection::eExpired)
 	{
-		// ±ºÁÖ°¡ ¾øÀ»¶§
+		// êµ°ì£¼ê°€ ì—†ì„ë•Œ
 		pWndStatus->SetTitle(prj.GetText(TID_GAME_LORD_STATUS_VA));
 	}
-	// TID_GAME_LORD_STATUS_L1 - ÀÔÈÄº¸ ±â°£
+	// TID_GAME_LORD_STATUS_L1 - ì…í›„ë³´ ê¸°ê°„
 	// TID_GAME_LORD_STATUS_L2
 	// TID_GAME_LORD_STATUS_IS
 	// TID_GAME_LORD_STATUS_VA
@@ -1098,7 +1098,7 @@ void CWndLordInfo::OnInitialUpdate()
 	if(scanner.Load( MakePath( DIR_CLIENT,  _T( "lordInfo.inc" ) )))
 		pWndText->SetString(scanner.m_pProg);
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -1148,7 +1148,7 @@ void CWndLordRPInfo::OnInitialUpdate()
 	if(scanner.Load( MakePath( DIR_CLIENT,  _T( "lordrpInfo.inc" ) )))
 		pWndText->SetString(scanner.m_pProg);
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );

@@ -1,4 +1,4 @@
-//
+﻿//
 // assert.c
 //
 // Provides basic assert services for C and C++ source modules.

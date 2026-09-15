@@ -1,4 +1,4 @@
-#if !defined(AFX_LABEL_H__A4EABEC5_2E8C_11D1_B79F_00805F9ECE10__INCLUDED_)
+ï»¿#if !defined(AFX_LABEL_H__A4EABEC5_2E8C_11D1_B79F_00805F9ECE10__INCLUDED_)
 #define AFX_LABEL_H__A4EABEC5_2E8C_11D1_B79F_00805F9ECE10__INCLUDED_
 
 #if _MSC_VER >= 1000
@@ -11,12 +11,12 @@
 // CLabel window
 enum FlashType {None, Text, Background };
 
-//!CLabel »ç¿ë¹ý
-/*!1. ¼±¾ð<br>
+//!CLabel ì‚¬ìš©ë²•
+/*!1. ì„ ì–¸<br>
 CLabel m_Test;<br><br>
 
-2. »ç¿ë<br>
-m_Test.SetText( "ÁØºñÁß" );<br>
+2. ì‚¬ìš©<br>
+m_Test.SetText( "ì¤€ë¹„ì¤‘" );<br>
 */
 class CLabel : public CStatic
 {

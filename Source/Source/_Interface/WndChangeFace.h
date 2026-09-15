@@ -1,4 +1,4 @@
-#ifndef __WNDCHANGEFACE__H
+﻿#ifndef __WNDCHANGEFACE__H
 #define __WNDCHANGEFACE__H
 
 class CWndChangeFace : public CWndNeuz 

@@ -1,4 +1,4 @@
-#ifndef __WNDADMINCREATEITEM__H
+﻿#ifndef __WNDADMINCREATEITEM__H
 #define __WNDADMINCREATEITEM__H
 
 class CWndAdminCreateItem : public CWndNeuz 

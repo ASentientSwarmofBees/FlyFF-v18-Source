@@ -1,12 +1,12 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndParty.h"
 #include "WndNotice.h"
 #include "WndMessenger.h"
-#include "WndBank.h"		 // ÀºÇà / Ã¢°í
-#include "WndRepairItem.h"	 // ¼ö¸®Ã¢
-#include "WndDebugInfo.h"    // µð¹ö±× Ã¢ 
+#include "WndBank.h"		 // ì€í–‰ / ì°½ê³ 
+#include "WndRepairItem.h"	 // ìˆ˜ë¦¬ì°½
+#include "WndDebugInfo.h"    // ë””ë²„ê·¸ ì°½ 
 #include "WndHelp.h"
 #include "WndWebBox.h"
 #include "WndVendor.h"
@@ -41,20 +41,20 @@
 #include "WndHelperWebBox.h"
 #endif // __NEW_WEB_BOX
 /*
-     ¿©±â¼­ Á¤ÀÇµÈ ¾ÖÇÃ·§ Å¬·¡½º´Â Å×½ºÅ© ¸Å´º¿¡ Ãß°¡µÉ ¼ö ÀÖ´Â ¼¼ÆÃÀ» Æ÷ÇÔÇÑ´Ù.
-	 ÅÂ½ºÅ© ¸Å´º¿¡ ¾ÖÇÃ·¿À» Ãß°¡ÇÏ±â À§ÇØ¼­´Â 
+     ì—¬ê¸°ì„œ ì •ì˜ëœ ì• í”Œëž« í´ëž˜ìŠ¤ëŠ” í…ŒìŠ¤í¬ ë§¤ë‰´ì— ì¶”ê°€ë  ìˆ˜ ìžˆëŠ” ì„¸íŒ…ì„ í¬í•¨í•œë‹¤.
+	 íƒœìŠ¤í¬ ë§¤ë‰´ì— ì• í”Œë ›ì„ ì¶”ê°€í•˜ê¸° ìœ„í•´ì„œëŠ” 
 
-	 Step. 1 - Applet ID Á¤ÀÇ
-	   ResData.h¸¦ ¿­°í Applet ID¸¦ Á¤ÀÇÇÑ´Ù. ¸ÅÀÎÇÁ·Î¼¼¼­´Â Applet ID·Î AppletÀ» ÀÎ½ÄÇÑ´Ù.
-	   ¸¸¾à Daisy¸¦ »ç¿ëÇÒ °æ¿ì¶ó¸é Daisy¿¡¼­ Id¸¦ ÁöÁ¤ÇØÁÖ¸é µÈ´Ù. ÀÌ°æ¿ì Á÷Á¢ ResData.h¸¦ ¼öÁ¤ÇÒ ÇÊ¿ä´Â ¾ø´Ù.
+	 Step. 1 - Applet ID ì •ì˜
+	   ResData.hë¥¼ ì—´ê³  Applet IDë¥¼ ì •ì˜í•œë‹¤. ë§¤ì¸í”„ë¡œì„¸ì„œëŠ” Applet IDë¡œ Appletì„ ì¸ì‹í•œë‹¤.
+	   ë§Œì•½ Daisyë¥¼ ì‚¬ìš©í•  ê²½ìš°ë¼ë©´ Daisyì—ì„œ Idë¥¼ ì§€ì •í•´ì£¼ë©´ ëœë‹¤. ì´ê²½ìš° ì§ì ‘ ResData.hë¥¼ ìˆ˜ì •í•  í•„ìš”ëŠ” ì—†ë‹¤.
 
-	 Step. 2 - DECLAREAPPLET »ý¼ºÀÚ ÇÔ¼ö ¼±¾ðÇÏ±â
-	   DECLAREAPPLET´Â ½ÇÇà ¸í·ÉÀÌ ³»·ÁÁ³À» ¶§ ÇØ´ç class¸¦ ÇÒ´çÇÏ¿© ¸ÅÀÎ ÇÁ·Î¼¼¼­¿¡°Ô Æ÷ÀÎÅÍ¸¦
-	   µ¹·ÁÁÖ´Â ¿ªÇÒÀ» ÇÑ´Ù. ÀÌ ÇÔ¼ö°¡ Á¤ÀÇµÇ¾îÀÖÁö ¾ÊÀ¸¸é ¸ÅÀÎ ÇÁ·Î¼¼¼­´Â class¸¦ ½ÇÇà ½ÃÅ³ ¼ö ¾ø°Ô µÈ´Ù.
-	   DECLAREAPPLETÀº AppMain ÇÔ¼ö¸¦ ¸¸µå´Â °ÍÀ» °£´ÜÇÏ°Ô Á¤ÀÇÇÑ defineÀÌ´Ù. ¿ë¹ýÀº ´ÙÀ½°ú °°´Ù.
-	   DECLAREAPPLET( ÇÔ¼ö¸í, new className ); 
+	 Step. 2 - DECLAREAPPLET ìƒì„±ìž í•¨ìˆ˜ ì„ ì–¸í•˜ê¸°
+	   DECLAREAPPLETëŠ” ì‹¤í–‰ ëª…ë ¹ì´ ë‚´ë ¤ì¡Œì„ ë•Œ í•´ë‹¹ classë¥¼ í• ë‹¹í•˜ì—¬ ë§¤ì¸ í”„ë¡œì„¸ì„œì—ê²Œ í¬ì¸í„°ë¥¼
+	   ëŒë ¤ì£¼ëŠ” ì—­í• ì„ í•œë‹¤. ì´ í•¨ìˆ˜ê°€ ì •ì˜ë˜ì–´ìžˆì§€ ì•Šìœ¼ë©´ ë§¤ì¸ í”„ë¡œì„¸ì„œëŠ” classë¥¼ ì‹¤í–‰ ì‹œí‚¬ ìˆ˜ ì—†ê²Œ ëœë‹¤.
+	   DECLAREAPPLETì€ AppMain í•¨ìˆ˜ë¥¼ ë§Œë“œëŠ” ê²ƒì„ ê°„ë‹¨í•˜ê²Œ ì •ì˜í•œ defineì´ë‹¤. ìš©ë²•ì€ ë‹¤ìŒê³¼ ê°™ë‹¤.
+	   DECLAREAPPLET( í•¨ìˆ˜ëª…, new className ); 
 
-	 Step. 3 - map¿¡ AddÇÏ±â. ¸¶Áö¸· ÇÊµåÀÇ ÅøÆÁ ¼¼ÆÃÀº Resource\textClient.inc¸¦ Âü°í. 
+	 Step. 3 - mapì— Addí•˜ê¸°. ë§ˆì§€ë§‰ í•„ë“œì˜ íˆ´íŒ ì„¸íŒ…ì€ Resource\textClient.incë¥¼ ì°¸ê³ . 
 */
    
 
@@ -153,7 +153,7 @@ DECLAREAPPLET( AppMain_WndHelperWebBox , new CWndHelperWebBox  );
 
 void CWndMgr::AddAllApplet()
 {
-	//             »ý¼ºÀÚ                    ID                            Å¸ÀÌÆ²                    ¾ÆÀÌÄÜ                          ÅøÆÁ ÅØ½ºÆ® 
+	//             ìƒì„±ìž                    ID                            íƒ€ì´í‹€                    ì•„ì´ì½˜                          íˆ´íŒ í…ìŠ¤íŠ¸ 
 	AddAppletFunc( AppMain_WndNavigator    , APP_NAVIGATOR               , _T( "WndNavigator" )    , _T( "Icon_Navigator.dds" )    , GETTEXT( TID_TIP_NAVIGATOR      ),  'N'  );	
 	AddAppletFunc( AppMain_WndStatus       , APP_STATUS1                 , _T( "WndStatus" )       , _T( "Icon_Status.dds"    )    , GETTEXT( TID_TIP_STATUS         ), 'T' );
 #if __VER >= 9  // __INSERT_MAP

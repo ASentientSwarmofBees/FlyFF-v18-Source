@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
 
@@ -167,15 +167,15 @@ void CRainbowRace::SetMiniGame( int nGameNum )
 
 void CRainbowRace::OnMiniGamePacket( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket )
 {
-	if( m_wNowGame != pMiniGamePacket->wNowGame )	// Å¬¶ó·Î ºÎÅÍ ¹ŞÀº ÆĞÅ¶¿¡ ÁöÁ¤µÈ ¹Ì´Ï°ÔÀÓÀÌ ¼­¹ö¿Í ´Ù¸£¸é..
+	if( m_wNowGame != pMiniGamePacket->wNowGame )	// í´ë¼ë¡œ ë¶€í„° ë°›ì€ íŒ¨í‚·ì— ì§€ì •ëœ ë¯¸ë‹ˆê²Œì„ì´ ì„œë²„ì™€ ë‹¤ë¥´ë©´..
 	{
 		pUser->AddDefinedText( TID_GAME_RAINBOWRACE_ISNOTNOWMINIGAME );
 		return;
 	}
 
-	if( m_pMiniGame && m_pMiniGame->Excute( pUser, pMiniGamePacket ) )	// ÀÌ¹ø ¹Ì´Ï°ÔÀÓÀÌ ¿Ï·áµÇ¾úÀ¸¸é...
+	if( m_pMiniGame && m_pMiniGame->Excute( pUser, pMiniGamePacket ) )	// ì´ë²ˆ ë¯¸ë‹ˆê²Œì„ì´ ì™„ë£Œë˜ì—ˆìœ¼ë©´...
 	{
-		SetNowGameComplete( pUser );	// ÀÌ¹ø °ÔÀÓÀ» ¿Ï·á»óÅÂ·Î ¸¸µé°í ´ÙÀ½ °ÔÀÓÀ» ¼ÂÆÃÇÑ´Ù.
+		SetNowGameComplete( pUser );	// ì´ë²ˆ ê²Œì„ì„ ì™„ë£Œìƒíƒœë¡œ ë§Œë“¤ê³  ë‹¤ìŒ ê²Œì„ì„ ì…‹íŒ…í•œë‹¤.
 	}
 }
 
@@ -187,10 +187,10 @@ void CRainbowRace::SetNowGameComplete( CUser* pUser )
 	if( IsAllCompleted() )
 		DestroyGame();
 	else
-		SetNextMiniGame();			// ´ÙÀ½ °ÔÀÓ ¼¼ÆÃ
+		SetNextMiniGame();			// ë‹¤ìŒ ê²Œì„ ì„¸íŒ…
 
-	pUser->AddRainbowRaceState( this );	// Å¬¶ó¿¡ ¾Ë·ÁÁØ´Ù.
-	CRainbowRaceMng::GetInstance()->SetMiniGamePrizeList( pUser->m_idPlayer, GetCompletedGameNum(), GetTickCount() );	// ¹Ì´Ï°ÔÀÓ »óÇ°Áö±Ş
+	pUser->AddRainbowRaceState( this );	// í´ë¼ì— ì•Œë ¤ì¤€ë‹¤.
+	CRainbowRaceMng::GetInstance()->SetMiniGamePrizeList( pUser->m_idPlayer, GetCompletedGameNum(), GetTickCount() );	// ë¯¸ë‹ˆê²Œì„ ìƒí’ˆì§€ê¸‰
 }
 
 int	CRainbowRace::GetCompletedGameNum()
@@ -283,7 +283,7 @@ void CRainbowRaceMng::Process()
 {
 	DWORD dwTick = GetTickCount();
 
-	switch( GetState() )		// ÇöÀç State¿¡¼­ ´ÙÀ½ State·Î ³Ñ¾î°¥¶§ Ã³¸®, m_nState´Â ÇöÀç State
+	switch( GetState() )		// í˜„ì¬ Stateì—ì„œ ë‹¤ìŒ Stateë¡œ ë„˜ì–´ê°ˆë•Œ ì²˜ë¦¬, m_nStateëŠ” í˜„ì¬ State
 	{
 		case RR_CLOSED:
 		{
@@ -307,7 +307,7 @@ void CRainbowRaceMng::Process()
 		{
 			if( !IsApplicationTime() )
 			{
-				//g_DPCoreClient.SendCaption( "·¹ÀÎº¸¿ì ½ÅÃ» ½Ã°£ÀÌ ³¡³µ¾î!!" );	
+				//g_DPCoreClient.SendCaption( "ë ˆì¸ë³´ìš° ì‹ ì²­ ì‹œê°„ì´ ëë‚¬ì–´!!" );	
 				
 				SetNextTime( 0 );
 				SetState( RR_CLOSED );
@@ -347,7 +347,7 @@ void CRainbowRaceMng::Process()
 		{
 			if( GetNextTime() < dwTick )
 			{
-				SetNPC();	// ÁøÇà NPC¸¦ »ı¼º
+				SetNPC();	// ì§„í–‰ NPCë¥¼ ìƒì„±
 				g_DPCoreClient.SendCaption( GETTEXT( TID_GAME_RAINBOWRACE_CAPTION_START ) );
 				SetNextTime( dwTick + static_cast<DWORD>( m_Lua.GetGlobalNumber( "Progress_Time" ) ) );
 				SetState( RR_PROGRESS );
@@ -361,17 +361,17 @@ void CRainbowRaceMng::Process()
 			if( GetNextTime() < dwTick )
 			{
 				RemoveNPC();
-				SetMiniGamePrize( 0 );	// ¹Ì´Ï°ÔÀÓ »óÇ°Áö±Ş ¿¹¾à µÈ°Å ¸ÕÀú Áö±Ş
+				SetMiniGamePrize( 0 );	// ë¯¸ë‹ˆê²Œì„ ìƒí’ˆì§€ê¸‰ ì˜ˆì•½ ëœê±° ë¨¼ì € ì§€ê¸‰
 				g_DPCoreClient.SendCaption( GETTEXT( TID_GAME_RAINBOWRACE_CAPTION_FINISH01 ) );
-				if( m_vecdwRankingId.size() > 0 ) // ¿ì½ÂÀÚ Ãâ·Â
+				if( m_vecdwRankingId.size() > 0 ) // ìš°ìŠ¹ì ì¶œë ¥
 				{
 					char szFinish[256] = {0,};
 					sprintf( szFinish, GETTEXT( TID_GAME_RAINBOWRACE_CAPTION_FINISH02 ), 
-							CPlayerDataCenter::GetInstance()->GetPlayerString( m_vecdwRankingId[0] ) ); // ¿ì½ÂÀÚ ÀÌ¸§
+							CPlayerDataCenter::GetInstance()->GetPlayerString( m_vecdwRankingId[0] ) ); // ìš°ìŠ¹ì ì´ë¦„
 					g_DPCoreClient.SendCaption( szFinish );
 				}
 				SetPrize();
-				g_dpDBClient.SendRainbowRaceRanking( NULL_ID, 0 ); // ·¹ÀÎº¸¿ì ·¹ÀÌ½º Á¾·á - ¿ÏÁÖÀÚ ·©Å· ¹× ÆĞ¹èÀÚµéÀ» DB¿¡ ÀúÀåÇÑ´Ù.
+				g_dpDBClient.SendRainbowRaceRanking( NULL_ID, 0 ); // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ì¢…ë£Œ - ì™„ì£¼ì ë­í‚¹ ë° íŒ¨ë°°ìë“¤ì„ DBì— ì €ì¥í•œë‹¤.
 				SetPrevRanking( m_vecdwRankingId );
 				Clear();
 			}
@@ -439,7 +439,7 @@ void CRainbowRaceMng::SetApplicationUser( CUser* pUser )
 
 	if( GetState() != RR_APPLICATION )
 	{
-		// GMÀº CLOSE »óÅÂ¿¡¼­µµ ½ÅÃ» °¡´ÉÇÔ(Å×½ºÆ® ¿ë)
+		// GMì€ CLOSE ìƒíƒœì—ì„œë„ ì‹ ì²­ ê°€ëŠ¥í•¨(í…ŒìŠ¤íŠ¸ ìš©)
 		if( pUser->IsAuthHigher( AUTH_GAMEMASTER ) && GetState() == RR_CLOSED )
 			pUser->AddText( "GM Application..." );
 		else
@@ -463,12 +463,12 @@ void CRainbowRaceMng::SetApplicationUser( CUser* pUser )
 		return;
 	}
 
-	if( IsApplicant( pUser->m_idPlayer ) )	// ÀÌ¹Ì ½ÅÃ»ÇÑ ³ğÀÌ¸é...
+	if( IsApplicant( pUser->m_idPlayer ) )	// ì´ë¯¸ ì‹ ì²­í•œ ë†ˆì´ë©´...
 	{
 		pUser->AddDefinedText( TID_GAME_RAINBOWRACE_ISAPPLICATIONED );
 		return;
 	}
-	else	// Ã³À½ ½ÅÃ»ÇÏ´Â ³ğÀÌ¸é...
+	else	// ì²˜ìŒ ì‹ ì²­í•˜ëŠ” ë†ˆì´ë©´...
 	{
 		SetApplication( pUser->m_idPlayer );
 		pUser->AddGold( -nPayPenya );
@@ -489,7 +489,7 @@ void CRainbowRaceMng::SetApplication( DWORD dwPlayerId )
 
 BOOL CRainbowRaceMng::SetDropOut( DWORD dwPlayerId )
 {
-	// ÇöÀç Âü°¡ÀÚÀÌ°í ¿ÏÁÖÇÏÁö ¾ÊÀº ³ğÀº Å»¶ô!!
+	// í˜„ì¬ ì°¸ê°€ìì´ê³  ì™„ì£¼í•˜ì§€ ì•Šì€ ë†ˆì€ íƒˆë½!!
 	if( GetState() != RR_PROGRESS )
 		return FALSE;
 	
@@ -594,7 +594,7 @@ void CRainbowRaceMng::SetRanking( CUser* pUser )
 		{
 			if( pRainbowRace->IsAllCompleted() )
 			{
-				pRainbowRace->SetFinish();	// ¿ÏÁÖ ¼³Á¤...
+				pRainbowRace->SetFinish();	// ì™„ì£¼ ì„¤ì •...
 				pUser->AddRainbowRaceState( pRainbowRace );
 				m_vecdwRankingId.push_back( pUser->m_idPlayer );
 				g_dpDBClient.SendRainbowRaceRanking( pUser->m_idPlayer, m_vecdwRankingId.size() );
@@ -639,22 +639,22 @@ void CRainbowRaceMng::SetPrize()
 			itemElem.m_bCharged = itemElem.GetProp()->bCharged;
 		}
 		nPenya = static_cast<int>( m_Lua.GetFieldToNumber( -1, "nPenya" ) * GetApplicantNum() );
-		if( nPenya < 0 ) // overflowÀÌ¸é 0Æä³Ä
+		if( nPenya < 0 ) // overflowì´ë©´ 0í˜ëƒ
 			nPenya = 0;
 		
-		if( (int)( m_vecdwRankingId.size() ) <= nCount )	// ¼øÀ§¾È¿¡ µç »ç¶÷ÀÌ »óÇ° ¹ŞÀ» ¼öº¸´Ù ÀûÀ¸¸é ÁßÁö.
+		if( (int)( m_vecdwRankingId.size() ) <= nCount )	// ìˆœìœ„ì•ˆì— ë“  ì‚¬ëŒì´ ìƒí’ˆ ë°›ì„ ìˆ˜ë³´ë‹¤ ì ìœ¼ë©´ ì¤‘ì§€.
 			break;
 
 		char szTitle[100] = {0,}, szText[255] = {0,}, szTemp[100] = {0,};
 		sprintf( szTitle, GETTEXT( TID_GAME_RAINBOWRACE_POSTPRIZE_TITLE ) );
 		sprintf( szText, GETTEXT( TID_GAME_RAINBOWRACE_POSTPRIZE_TEXT_RANKING ), nCount+1 );
-		if( nPenya > 0 )	// Æä³Ä°¡ Áö±ŞµÇ¸é ¿ìÆí ³»¿ë¿¡ Æä³Ä ±İ¾× Ç¥½Ã
+		if( nPenya > 0 )	// í˜ëƒê°€ ì§€ê¸‰ë˜ë©´ ìš°í¸ ë‚´ìš©ì— í˜ëƒ ê¸ˆì•¡ í‘œì‹œ
 		{
 			sprintf( szTemp, GETTEXT( TID_GAME_RAINBOWRACE_POSTPRIZE_TEXT_PENYA ), nPenya );
 			strcat( szText, szTemp );
 		}
 
-		if( dwItemId != NULL_ID )	// ¾ÆÀÌÅÛÀÌ Áö±ŞµÇ¸é ¿ìÆí ³»¿ë¿¡ ¾ÆÀÌÅÛ¸í°ú °³¼ö Ç¥½Ã
+		if( dwItemId != NULL_ID )	// ì•„ì´í…œì´ ì§€ê¸‰ë˜ë©´ ìš°í¸ ë‚´ìš©ì— ì•„ì´í…œëª…ê³¼ ê°œìˆ˜ í‘œì‹œ
 		{
 			sprintf( szTemp, GETTEXT( TID_GAME_RAINBOWRACE_POSTPRIZE_TEXT_ITEM ), itemElem.GetName(), itemElem.m_nItemNum );
 			strcat( szText, szTemp );
@@ -711,7 +711,7 @@ void CRainbowRaceMng::SetPrevRanking( vector<DWORD> & vecPrevRanking )
 vector<DWORD>	CRainbowRaceMng::GetPrevRanking()
 {
 	vector<DWORD> vecPrevRanking;
-	for( DWORD i=0; (i<5 && i<m_vecPrevRanking.size()); i++ )		// »óÀ§ 5À§±îÁö¸¸...
+	for( DWORD i=0; (i<5 && i<m_vecPrevRanking.size()); i++ )		// ìƒìœ„ 5ìœ„ê¹Œì§€ë§Œ...
 		vecPrevRanking.push_back( m_vecPrevRanking[i] );
 
 	return vecPrevRanking;

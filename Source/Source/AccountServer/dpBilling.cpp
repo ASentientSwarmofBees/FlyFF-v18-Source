@@ -1,9 +1,9 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "account.h"
 #include "dpsrvr.h"
 #include "DPBilling.h"
 #include "BillingMgr.h"
-// TODO_BILLING : KEEPALIVE 5ºĞ¸¶´Ù º¸³»±â¸¸ ÇÑ´Ù. ÀÌ¸¦ °³¼±ÇØ¾ß 
+// TODO_BILLING : KEEPALIVE 5ë¶„ë§ˆë‹¤ ë³´ë‚´ê¸°ë§Œ í•œë‹¤. ì´ë¥¼ ê°œì„ í•´ì•¼ 
 
 extern	CDPSrvr			g_dpSrvr;
 extern	CAccountMng		g_AccountMng;
@@ -12,7 +12,7 @@ static char				g_szServerName[] = "AccountServer";
 const DWORD				MAX_ID_LENGTH	= 30;
 const DWORD				MAX_IP_LENGTH	= 16;
 const DWORD				MAX_SERVERNAME	= 34;
-const int				ENDMARK_LENGTH  = 9;		// @flyff.jpÀÇ ±æÀÌ 
+const int				ENDMARK_LENGTH  = 9;		// @flyff.jpì˜ ê¸¸ì´ 
 
 enum 
 { 
@@ -23,7 +23,7 @@ enum
 	GSCS_START_SEND		= 0x00000005,
 };
 
-// ¹®ÀÚ¿­¿¡ @flyff.jp¸¦ ºÙÀÎ´Ù.
+// ë¬¸ìì—´ì— @flyff.jpë¥¼ ë¶™ì¸ë‹¤.
 void AppendEndMark( LPTSTR lpszDst, LPCTSTR szSrc, size_t length )
 {
 	static char szEndMark[] = "@flyff.jp";
@@ -97,7 +97,7 @@ void CDPBilling::UserMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize, DPI
 	}
 }
 
-// °ú±İÁ¤º¸ REQ
+// ê³¼ê¸ˆì •ë³´ REQ
 void CDPBilling::SendGameStart( LPCTSTR lpszUserID, LPCTSTR lpszUserIP )
 {
 	OutputDebugString("send 0x00000001 - GAME_START\n");
@@ -117,7 +117,7 @@ void CDPBilling::SendGameStart( LPCTSTR lpszUserID, LPCTSTR lpszUserIP )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// °ú±İÁ¤º¸ÀÇ ACK
+// ê³¼ê¸ˆì •ë³´ì˜ ACK
 void CDPBilling::OnGameStartReceive( CAr & ar, DPID dpid )
 {
 	char			szAccount[MAX_ID_LENGTH];
@@ -131,7 +131,7 @@ void CDPBilling::OnGameStartReceive( CAr & ar, DPID dpid )
 	ar.Read( szTimeOverDays, 12 );
 	szTimeOverDays[12] = '\0';
 
-	lResult		= ntohl( lResult );		// È£½ºÆ® ¹ÙÀÌ ¿À´õ·Î º¯È¯ÇÑ´Ù.
+	lResult		= ntohl( lResult );		// í˜¸ìŠ¤íŠ¸ ë°”ì´ ì˜¤ë”ë¡œ ë³€í™˜í•œë‹¤.
 	lRemainDays = ntohl( lRemainDays );
 
 	int i = NULL;
@@ -170,7 +170,7 @@ void CDPBilling::OnGameStartReceive( CAr & ar, DPID dpid )
 	info.szAccount = szAccount;
 	info.dwKey = 0;
 	info.lResult = lResult;
-	info.pTimeOverDays = &tmOverDays;	// tmOverDays´Â lResult°¡ SUCCESSÀÎ °æ¿ì¿¡¸¸ ¼³Á¤µÇ¸é µÈ´Ù.
+	info.pTimeOverDays = &tmOverDays;	// tmOverDaysëŠ” lResultê°€ SUCCESSì¸ ê²½ìš°ì—ë§Œ ì„¤ì •ë˜ë©´ ëœë‹¤.
 	
 	g_AccountMng.SendBillingResult( &info );
 }
@@ -200,7 +200,7 @@ void CDPBilling::OnKeepAliveReceive( CAr & ar, DPID dpid )
 	OutputDebugString("recv 0x00010004 - KEEP_ALIVE\n");
 }
 
-// ºô¸µ¼­¹ö¿¡ connectµÉ ¶§, ÀÌ¸¦ ºô¸µ¼­¹ö¿¡ ¾Ë¸°´Ù.
+// ë¹Œë§ì„œë²„ì— connectë  ë•Œ, ì´ë¥¼ ë¹Œë§ì„œë²„ì— ì•Œë¦°ë‹¤.
 void CDPBilling::SendGSCSStart()
 {
 	OutputDebugString("send 0x00000005 - GSCS_START\n");

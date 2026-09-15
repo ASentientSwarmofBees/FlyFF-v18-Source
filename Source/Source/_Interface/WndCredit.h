@@ -1,4 +1,4 @@
-#ifndef __WNDCREDIT__H
+﻿#ifndef __WNDCREDIT__H
 #define __WNDCREDIT__H
 
 class CWndCredit : public CWndNeuz 

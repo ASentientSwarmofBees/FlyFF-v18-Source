@@ -1,4 +1,4 @@
-#ifndef __SHOP_H
+﻿#ifndef __SHOP_H
 #define __SHOP_H
 
 class CWndItemCtrlVendor : public CWndItemCtrl

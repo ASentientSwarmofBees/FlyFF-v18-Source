@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include ".\minigamepairgame.h"
@@ -46,7 +46,7 @@ BOOL CMiniGamePairgame::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket
 				m_nCorrectCount++;
 				m_strCardStream[nPos_1] = m_strCardStream[nPos_2] = 'x';
 				MP.nState = MP_TRUE;
-				if( m_nCorrectCount == 9 )	// 9½ÖÀ» ¼º°øÇÏ¸é ¿Ï·á!!
+				if( m_nCorrectCount == 9 )	// 9ìŒì„ ì„±ê³µí•˜ë©´ ì™„ë£Œ!!
 				{
 					MP.nState = MP_FINISH;
 					bReturn = TRUE;
@@ -71,7 +71,7 @@ struct PAIR
 string CMiniGamePairgame::MakeGame()
 {
 	vector<PAIR> vecTemp;
-	for( char c=1; c<10; c++ )			// 9Á¾·ù Ä«µå »ı¼º
+	for( char c=1; c<10; c++ )			// 9ì¢…ë¥˜ ì¹´ë“œ ìƒì„±
 		vecTemp.push_back( PAIR(c) );
 
 #ifdef __VS2003

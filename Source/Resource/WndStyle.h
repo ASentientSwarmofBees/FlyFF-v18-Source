@@ -1,4 +1,4 @@
-#ifndef __WNDSTYLE_H
+ï»¿#ifndef __WNDSTYLE_H
 #define __WNDSTYLE_H
 
 #define WTYPE_BASE      0  
@@ -16,31 +16,31 @@
 #define WTYPE_TEXT      12
 
 
-// À©µµ ½ºÅ¸ÀÏ 
-#define WBS_MOVE            0x00010000L // ÀÌµ¿°¡´ÉÇÑ À©µµ 
-#define WBS_CHILD           0x00020000L // ¹öÆ° °°Àº Â÷ÀÏµå 
-#define WBS_NODRAWFRAME     0x00040000L // ±âº» À©µµ
-#define WBS_MODAL           0x00080000L // ´ÙÀÌ¾ó·Î±× À©µµ 
-#define WBS_MANAGER         0x00100000L // ÇÃ·¹ÀÓ À©µµ. ¹Ù´Ú¿¡ ±ò¸®´Â °Íµé 
-#define WBS_NOFRAME         0x00200000L // Å×µÎ¸®°¡ ¾ø´Ù. ÇÔ¼ö´Â È£ÃâÇÏÁö¸¸ ±×¸®Áöµµ ¾Ê´Â´Ù. Å¬¶óÀÌ¾ðÆ® À©µµ »çÀÌÁî¿Í ÀüÃ¼ À©µµ »çÀÌÁî°¡ °°´Ù.
-#define WBS_SOUND           0x00400000L // ¿­¶§ »ç¿îµåÃâ·Â 
-//#define WBS_NOCLING         0x00800000L // °¡ÀåÀÚ¸®¿¡ ´Þ¶óºÙÁö ¾Ê°Ô ÇÏ±â 
-#define WBS_CHILDFRAME      0x00800000L // Â÷ÀÏµå´Â Â÷ÀÏµçµ¥ ÇÁ·¹ÀÓÀÌ ÀÖ´Ù. ÀÌ°Ç Æ¯º°ÇÑ °æ¿îµ¥, À©µµ ¾È¿¡ ¶Ç´Ù¸¥ ¾ÖÇÃ·¿ÀÌ ºÙÀ» °æ¿ì¶ó´ø°¡ ÇÏ´Â °æ¿ì 
-#define WBS_KEY             0x01000000L // Å°º¸µå °ü·Ã ±â´É ¸Ô°Ô ÇÏ±â 
-#define WBS_CAPTION         0x02000000L // ÇÁ·¹ÀÓÀ» ±×¸± °ÍÀÎÁö ¿©ºÎ 
-#define WBS_DOCKING         0x04000000L // ÇÁ·¹ÀÓÀÌ µµÅ·µÈ  À©µµ
-#define WBS_POPUP           0x08000000L // ¸Å´º 
-#define WBS_TOPMOST         0x10000000L // ¾ðÁ¦³ª ÃÖ»óÀ§ À©µµ°¡ µÈ´Ù.
+// ìœˆë„ ìŠ¤íƒ€ì¼ 
+#define WBS_MOVE            0x00010000L // ì´ë™ê°€ëŠ¥í•œ ìœˆë„ 
+#define WBS_CHILD           0x00020000L // ë²„íŠ¼ ê°™ì€ ì°¨ì¼ë“œ 
+#define WBS_NODRAWFRAME     0x00040000L // ê¸°ë³¸ ìœˆë„
+#define WBS_MODAL           0x00080000L // ë‹¤ì´ì–¼ë¡œê·¸ ìœˆë„ 
+#define WBS_MANAGER         0x00100000L // í”Œë ˆìž„ ìœˆë„. ë°”ë‹¥ì— ê¹”ë¦¬ëŠ” ê²ƒë“¤ 
+#define WBS_NOFRAME         0x00200000L // í…Œë‘ë¦¬ê°€ ì—†ë‹¤. í•¨ìˆ˜ëŠ” í˜¸ì¶œí•˜ì§€ë§Œ ê·¸ë¦¬ì§€ë„ ì•ŠëŠ”ë‹¤. í´ë¼ì´ì–¸íŠ¸ ìœˆë„ ì‚¬ì´ì¦ˆì™€ ì „ì²´ ìœˆë„ ì‚¬ì´ì¦ˆê°€ ê°™ë‹¤.
+#define WBS_SOUND           0x00400000L // ì—´ë•Œ ì‚¬ìš´ë“œì¶œë ¥ 
+//#define WBS_NOCLING         0x00800000L // ê°€ìž¥ìžë¦¬ì— ë‹¬ë¼ë¶™ì§€ ì•Šê²Œ í•˜ê¸° 
+#define WBS_CHILDFRAME      0x00800000L // ì°¨ì¼ë“œëŠ” ì°¨ì¼ë“ ë° í”„ë ˆìž„ì´ ìžˆë‹¤. ì´ê±´ íŠ¹ë³„í•œ ê²½ìš´ë°, ìœˆë„ ì•ˆì— ë˜ë‹¤ë¥¸ ì• í”Œë ›ì´ ë¶™ì„ ê²½ìš°ë¼ë˜ê°€ í•˜ëŠ” ê²½ìš° 
+#define WBS_KEY             0x01000000L // í‚¤ë³´ë“œ ê´€ë ¨ ê¸°ëŠ¥ ë¨¹ê²Œ í•˜ê¸° 
+#define WBS_CAPTION         0x02000000L // í”„ë ˆìž„ì„ ê·¸ë¦´ ê²ƒì¸ì§€ ì—¬ë¶€ 
+#define WBS_DOCKING         0x04000000L // í”„ë ˆìž„ì´ ë„í‚¹ëœ  ìœˆë„
+#define WBS_POPUP           0x08000000L // ë§¤ë‰´ 
+#define WBS_TOPMOST         0x10000000L // ì–¸ì œë‚˜ ìµœìƒìœ„ ìœˆë„ê°€ ëœë‹¤.
 #define WBS_VSCROLL         0x20000000L //
 #define WBS_HSCROLL         0x40000000L //
 //#define WBS_DROPICON        0x80000000L // 
 #define WBS_NOFOCUS         0x80000000L // 
 
-//#define WBS_DOCKSTATION     0x00000800L // µµÅ· ½ºÅ×ÀÌ¼Ç À©µµ (ÀÌ°÷¿¡ WBS_DOCKING À©µµ°¡ µµÅ·ÇÑ´Ù)
-//#define WBS_DOCKED          0x00001000L // Å¬¶óÀÌ¾ðÆ®¿¡ µµÅ·µÈ À©µµ
-//#define WBS_DOCKABLE        0x00002000L // Å¬¶óÀÌ¾ðÆ®¿¡ µµÅ·ÇÒ ¼ö ÀÖ´Â À©µµ 
+//#define WBS_DOCKSTATION     0x00000800L // ë„í‚¹ ìŠ¤í…Œì´ì…˜ ìœˆë„ (ì´ê³³ì— WBS_DOCKING ìœˆë„ê°€ ë„í‚¹í•œë‹¤)
+//#define WBS_DOCKED          0x00001000L // í´ë¼ì´ì–¸íŠ¸ì— ë„í‚¹ëœ ìœˆë„
+//#define WBS_DOCKABLE        0x00002000L // í´ë¼ì´ì–¸íŠ¸ì— ë„í‚¹í•  ìˆ˜ ìžˆëŠ” ìœˆë„ 
 
-// ½ºÅÂÆ½ ÄÜÆ®·Ñ ½ºÅ¸ÀÏ 
+// ìŠ¤íƒœí‹± ì½˜íŠ¸ë¡¤ ìŠ¤íƒ€ì¼ 
 #define WSS_GROUPBOX     0x00000001L
 #define WSS_PICTURE      0x00000002L
 #define WSS_MONEY        0x00000004L
@@ -52,11 +52,11 @@
 #define	WSS_ALIGNVCENTER 0x00000040L
 
 //added by gmpbigsun
-#define WSS_NOPICKUP		0x00000080L		//½ºÅÂÆ½ÀÎ°æ¿ì pickup´ë»ó¿¡¼­ Á¦¿Ü½ÃÅ²´Ù ( no tile¹æ½Ä¿¡¼­ )
-#define WSS_TORIGHT_AXISX	0x00000100L		// ¿À¸¥ÂÊÀ¸·Î ¿òÁ÷ÀÌ´Â text
-#define WSS_TOLEFT_AXISX	0x00000200L		// ¿ÞÂÊÀ¸·Î ¿òÁ÷ÀÌ´Â text
+#define WSS_NOPICKUP		0x00000080L		//ìŠ¤íƒœí‹±ì¸ê²½ìš° pickupëŒ€ìƒì—ì„œ ì œì™¸ì‹œí‚¨ë‹¤ ( no tileë°©ì‹ì—ì„œ )
+#define WSS_TORIGHT_AXISX	0x00000100L		// ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì›€ì§ì´ëŠ” text
+#define WSS_TOLEFT_AXISX	0x00000200L		// ì™¼ìª½ìœ¼ë¡œ ì›€ì§ì´ëŠ” text
 
-// ¹öÆ° ½ºÅ¸ÀÏ 
+// ë²„íŠ¼ ìŠ¤íƒ€ì¼ 
 #define WBS_TEXT            0x00000001L
 #define WBS_SPRITE          0x00000002L 
 #define WBS_RADIO           0x00000004L
@@ -69,7 +69,7 @@
 #define WBS_PUSHLIKE        0x00000200L
 #define WBS_NOMENUICON      0x00000400L
 
-// ½ºÅ©·Ñ¹Ù ½ºÅ¸ÀÏ 
+// ìŠ¤í¬ë¡¤ë°” ìŠ¤íƒ€ì¼ 
 #define WBS_HORI            0x00000001L
 #define WBS_VERT            0x00000002L
 /*

@@ -1,4 +1,4 @@
-#ifndef __SLORD_H__
+﻿#ifndef __SLORD_H__
 #define	__SLORD_H__
 
 #if __VER >= 12 // __LORD

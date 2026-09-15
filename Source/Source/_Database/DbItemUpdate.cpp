@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+Ôªø#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -34,7 +34,7 @@ void CDbManager::ItemUpdateThread( void )
 	HANDLE hHandle	= m_hItemUpdateCloseWorker;
 	int nItemYes = 0;
 
-	while( WaitForSingleObject( hHandle, 5000 ) == WAIT_TIMEOUT )	// 10√ 	= 1000 * 10 //1000 * 60 * 5
+	while( WaitForSingleObject( hHandle, 5000 ) == WAIT_TIMEOUT )	// 10Ï¥à	= 1000 * 10 //1000 * 60 * 5
 	{
 		if( nItemYes < m_nItemUpdate )
 		{
@@ -176,14 +176,14 @@ void CDbManager::ChangeMonsterUpdate( CQuery* pQuery )
 		MoverProp* pMoverProp	= prj.m_pPropMover + i;
 		if( pMoverProp->dwID != 0 && pMoverProp->dwAI != AII_NONE && pMoverProp->dwAI != AII_MOVER	)
 		{
-			//	mulcom	BEGIN100406	ITEM_STR I3 MoverName quotation mark ¡¶∞≈
+			//	mulcom	BEGIN100406	ITEM_STR I3 MoverName quotation mark Ï†úÍ±∞
 			//sprintf( szSQL, "ITEM_STR 'I3', %d,'%s','',%d", pMoverProp->dwID, pMoverProp->szName, pMoverProp->dwLevel );
 			CString	strMoverName	= pMoverProp->szName;
 			strMoverName.Replace( "'", " " );
 
 			sprintf( szSQL, "ITEM_STR 'I3', %d,'%s','',%d",
 				pMoverProp->dwID, strMoverName, pMoverProp->dwLevel );
-			//	mulcom	END100406	ITEM_STR I3 MoverName quotation mark ¡¶∞≈
+			//	mulcom	END100406	ITEM_STR I3 MoverName quotation mark Ï†úÍ±∞
 
 			
 			if( FALSE == pQuery->Exec( szSQL ) )

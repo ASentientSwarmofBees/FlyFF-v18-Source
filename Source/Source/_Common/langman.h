@@ -1,4 +1,4 @@
-#ifndef	__LANGMAN_H__
+﻿#ifndef	__LANGMAN_H__
 #define	__LANGMAN_H__
 
 #ifdef __LANG_1013

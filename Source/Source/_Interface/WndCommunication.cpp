@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndCommand.h"
@@ -79,7 +79,7 @@ void CWndEditChat::OnKillFocus(CWndBase* pNewWnd)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Ã¤ÆÃ À©µµ 
+// ì±„íŒ… ìœˆë„ 
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -152,7 +152,7 @@ CWndChat::CWndChat()
 {
 	m_pWndCommand = NULL;
 //	m_timerInsMsg.Set( MIN( 1 ) );
-	m_timerInsMsg.Set( MIN( 2 ) );  // µµ¿ò¸» Ç¥½Ã °£°İ Áõ°¡
+	m_timerInsMsg.Set( MIN( 2 ) );  // ë„ì›€ë§ í‘œì‹œ ê°„ê²© ì¦ê°€
 #ifdef __CSC_GAME_GRADE
 	m_timerAlertGGrade.Set( MIN(60) );
 #endif //__CSC_GAME_GRADE
@@ -191,7 +191,7 @@ void CWndChat::OnDraw(C2DRender* p2DRender)
 		if( m_strArray.GetSize() && m_timerInsMsg.TimeOut() )
 		{
 			m_timerInsMsg.Reset();
-			//string = "[µµ¿ò¸»] ";
+			//string = "[ë„ì›€ë§] ";
 			string  = prj.GetText(TID_SYS_HELP);
 			string += " ";
 			string += m_strArray.GetAt( m_nInsMsgCnt );
@@ -206,7 +206,7 @@ void CWndChat::OnDraw(C2DRender* p2DRender)
 	if(m_timerAlertGGrade.TimeOut())
 	{
 		m_timerAlertGGrade.Reset();
-		//PK¼­¹ö ±¸ºĞ  12¼¼ or 15¼¼
+		//PKì„œë²„ êµ¬ë¶„  12ì„¸ or 15ì„¸
 		if(g_eLocal.GetState( EVE_PK ))
 			g_WndMng.PutString( prj.GetText(TID_SYS_ALERTGGRADE_PK), NULL, 0xffffff00, CHATSTY_HELP );
 		else
@@ -508,7 +508,7 @@ BOOL CWndChat::Process ()
 	{
 		LPCTSTR lpstr = m_wndEdit.GetString();
 		BOOL bCommand = FALSE;
-		if( strcmp( lpstr, "/r " ) == 0 || strcmp( lpstr, "/R " ) == 0 || ( GetLanguage() == LANG_KOR && strcmp( lpstr, "/¤¡ " ) == 0 ) )
+		if( strcmp( lpstr, "/r " ) == 0 || strcmp( lpstr, "/R " ) == 0 || ( GetLanguage() == LANG_KOR && strcmp( lpstr, "/ã„± " ) == 0 ) )
 		{
 			CString strWhisper;
 			strWhisper.Format( "/whisper %s ", g_Neuz.m_szWhisperName );
@@ -628,7 +628,7 @@ void CWndChat::OnDestroyChildWnd( CWndBase* pWndChild )
 	if( m_pWndChatFilter == pWndChild )
 	{
 		SAFE_DELETE( m_pWndChatFilter );
-		//ChatFilter Wnd DestroyÈÄ Focus°¡ World·Î µÇ¾îÀÖÁö ¾Ê¾Æ ÀÌµ¿Å°°¡ ¸ÔÁö ¾Ê±â ¶§¹®¿¡ SetFocusÇØÁÜ.
+		//ChatFilter Wnd Destroyí›„ Focusê°€ Worldë¡œ ë˜ì–´ìˆì§€ ì•Šì•„ ì´ë™í‚¤ê°€ ë¨¹ì§€ ì•Šê¸° ë•Œë¬¸ì— SetFocusí•´ì¤Œ.
 		CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetApplet( APP_WORLD );
 		if( pWndWorld ) 
 			pWndWorld->SetFocus();
@@ -681,18 +681,18 @@ BOOL CWndChat::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 			}
 			break;
-		case WIDC_CHECK1: // Ã¤ÆÃ ÀÔ·ÂÃ¢ Àá±¸±â 
+		case WIDC_CHECK1: // ì±„íŒ… ì…ë ¥ì°½ ì êµ¬ê¸° 
 			{
 				CWndButton* pWndCheck = (CWndButton*)GetDlgItem( WIDC_CHECK1 );
 				m_bChatLock = pWndCheck->GetCheck();
 			}
 			break;
 #if __VER >= 8 //__Y_CHAT_SYSTEM_8
-		case WIDC_CHECK3: // ½Ã½ºÅ½Ã¢
+		case WIDC_CHECK3: // ì‹œìŠ¤íƒì°½
 			{
 				CWndButton* pWndCheck = (CWndButton*)GetDlgItem( WIDC_CHECK3 );
 				BOOL bChatLog = pWndCheck->GetCheck();
-#if __VER >= 8 //__CSC_VER8_1 ¸ğµç À©µµ¿ì¸¦ Áö¿ï¶§ ChatLogÀÇ À¯¹« ±¸º°À» À§ÇØ Ãß°¡.
+#if __VER >= 8 //__CSC_VER8_1 ëª¨ë“  ìœˆë„ìš°ë¥¼ ì§€ìš¸ë•Œ ChatLogì˜ ìœ ë¬´ êµ¬ë³„ì„ ìœ„í•´ ì¶”ê°€.
 				m_bChatLog = bChatLog;
 #endif //_CSC_VER8_1
 				if( g_WndMng.m_pWndChatLog )
@@ -720,7 +720,7 @@ BOOL CWndChat::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			break;
 #endif //__Y_CHAT_SYSTEM_8
-		case WIDC_MOVELOCK: // ÀÌµ¿ Àá±×±â
+		case WIDC_MOVELOCK: // ì´ë™ ì ê·¸ê¸°
 			{
 				CWndButton* pWndCheck = (CWndButton*)GetDlgItem( WIDC_MOVELOCK );
 				m_bMoveLock = pWndCheck->GetCheck();
@@ -776,13 +776,13 @@ BOOL CWndChat::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 				SetFocus();
 			}
-		case WIDC_HEAD: // ¸»¸Ó¸®
+		case WIDC_HEAD: // ë§ë¨¸ë¦¬
 			if( message == EN_RETURN )
 			{
 				g_WndMng.SetFocus();
 			}
 			break;
-		case WIDC_EDIT: // º»¹®
+		case WIDC_EDIT: // ë³¸ë¬¸
 			if( message == EN_UP )		
 			{
 				if( m_strHistory.size() == 0 )
@@ -937,7 +937,7 @@ BOOL CWndChat::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					{
 						CString string; 
 						string = m_wndEdit.m_string.Right( m_wndEdit.m_string.GetLength() - 1 );
-						// Áß°£¿¡ ½ºÆäÀÌ½º°¡ ²¸ ÀÖÀ¸¸é ´İ¾Æ¹ö¸°´Ù.
+						// ì¤‘ê°„ì— ìŠ¤í˜ì´ìŠ¤ê°€ ê»´ ìˆìœ¼ë©´ ë‹«ì•„ë²„ë¦°ë‹¤.
 						if( string.Find( ' ' ) == -1 )
 							m_pWndCommand->SelectString( 0, string );
 						else
@@ -945,20 +945,20 @@ BOOL CWndChat::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 						
 						if( ::GetLanguage() == LANG_KOR )
 						{
-							if( m_wndEdit.m_string == "/¤¾ " )
+							if( m_wndEdit.m_string == "/ã… " )
 							{
 								m_wndEdit.SetString( "/g " );
 							}
-							else if( m_wndEdit.m_string == "/¤Ä " )
+							else if( m_wndEdit.m_string == "/ã…” " )
 							{
 								m_wndEdit.SetString( "/p " );
 							}
-							else if( m_wndEdit.m_string == "/¤¤ " )
+							else if( m_wndEdit.m_string == "/ã„´ " )
 							{
 								m_wndEdit.SetString( "/s " );
 							}
 #if __VER >= 11 // __CSC_VER11_1
-							else if( m_wndEdit.m_string == "/¤¸ " )
+							else if( m_wndEdit.m_string == "/ã…ˆ " )
 							{
 								m_wndEdit.SetString( "/w " );
 							}
@@ -971,16 +971,16 @@ BOOL CWndChat::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					m_pWndCommand->Destroy();
 			}
 			break;
-		case 10000: // ÃÖ¼ÒÈ­ 
+		case 10000: // ìµœì†Œí™” 
 			break;
-		case 10001: // ÃÖ´ëÈ­ 
+		case 10001: // ìµœëŒ€í™” 
 			break;
-		case 10002: // Á¾·á
+		case 10002: // ì¢…ë£Œ
 			Destroy();
 			break;
 	}
 	
-	//¾Æ·¡ Æ¯Á¤ ¹öÆ° ´©¸¦ °æ¿ì Focus°¡ World·Î µÇ¾îÀÖÁö ¾Ê¾Æ ÀÌµ¿Å°°¡ ¸ÔÁö ¾Ê±â ¶§¹®¿¡ SetFocusÇØÁÜ.
+	//ì•„ë˜ íŠ¹ì • ë²„íŠ¼ ëˆ„ë¥¼ ê²½ìš° Focusê°€ Worldë¡œ ë˜ì–´ìˆì§€ ì•Šì•„ ì´ë™í‚¤ê°€ ë¨¹ì§€ ì•Šê¸° ë•Œë¬¸ì— SetFocusí•´ì¤Œ.
 	if(nID == WIDC_CHECK1 || nID == WIDC_CHECK3 || nID == WIDC_MOVELOCK)
 	{
 		CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetApplet( APP_WORLD );
@@ -1029,7 +1029,7 @@ void CWndChat::PutString( LPCTSTR lpszString, DWORD dwColor, DWORD dwPStyle )
 
 	pWndText->AddString( lpszString, dwColor, dwPStyle );
 	pWndText->AddString( "\n", dwColor );// += '\n';
-	// ±Û ³»¿ëÀÌ 1000ÁÙÀ» ³Ñ¾î°¡¸é 500¶óÀÎÀ» Àß¶ó³½´Ù.
+	// ê¸€ ë‚´ìš©ì´ 1000ì¤„ì„ ë„˜ì–´ê°€ë©´ 500ë¼ì¸ì„ ì˜ë¼ë‚¸ë‹¤.
 	if( pWndText->m_string.GetLineCount() >= 1000 )
 	{
 		pWndText->m_string.DeleteLine( 0, 500 );
@@ -1258,7 +1258,7 @@ void CWndChat::OnRButtonDown(UINT nFlags, CPoint point)
 			
 			BOOL bChat = FALSE;
 			
-			// ÀÏ¹İ Ã¤ÆÃ °Ë»ö
+			// ì¼ë°˜ ì±„íŒ… ê²€ìƒ‰
 			int nFindName = str.Find( " :" );
 			if( 0 < nFindName && nFindName < MAX_NAME )
 			{
@@ -1271,7 +1271,7 @@ void CWndChat::OnRButtonDown(UINT nFlags, CPoint point)
 				}
 			}
 			
-			// ±Ó¼Ó¸» °Ë»ö
+			// ê·“ì†ë§ ê²€ìƒ‰
 			if( bChat == FALSE )
 			{
 				int nFindName1 = str.Find( "<- [" );
@@ -1296,7 +1296,7 @@ void CWndChat::OnRButtonDown(UINT nFlags, CPoint point)
 				}
 			}
 			
-			// ¿ÜÄ¡±â °Ë»ö( ¾Ë¸²Àº ºüÁü )
+			// ì™¸ì¹˜ê¸° ê²€ìƒ‰( ì•Œë¦¼ì€ ë¹ ì§ )
 			if( bChat == FALSE )
 			{
 				int nFindName1 = str.Find( "[" );
@@ -1503,7 +1503,7 @@ void CWndChatLog::PutString( LPCTSTR lpszString, DWORD dwColor, DWORD dwPStyle )
 
 	pWndText->AddString( lpszString, dwColor, dwPStyle );
 	pWndText->AddString( "\n", dwColor );// += '\n';
-	// ±Û ³»¿ëÀÌ 1000ÁÙÀ» ³Ñ¾î°¡¸é 500¶óÀÎÀ» Àß¶ó³½´Ù.
+	// ê¸€ ë‚´ìš©ì´ 1000ì¤„ì„ ë„˜ì–´ê°€ë©´ 500ë¼ì¸ì„ ì˜ë¼ë‚¸ë‹¤.
 	if( pWndText->m_string.GetLineCount() >= 1000 )
 	{
 		pWndText->m_string.DeleteLine( 0, 500 );

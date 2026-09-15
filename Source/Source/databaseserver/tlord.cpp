@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 12 // __LORD
 
@@ -15,7 +15,7 @@ extern	AppInfo		g_appInfo;
 #pragma warning ( disable : 4355 )
 
 ////////////////////////////////////////////////////////////////////////////////
-// Æ®·£½º ¼­¹ö¿ë ±ºÁÖ
+// íŠ¸ëœìŠ¤ ì„œë²„ìš© êµ°ì£¼
 CTLord::CTLord()
 : CLord(),
 m_pController( 0 )
@@ -27,22 +27,22 @@ CTLord::~CTLord()
 }
 
 void CTLord::CreateColleagues( void )
-{	// Çù·Â °´Ã¼ÀÇ »ı¼º ¹× ÃÊ±âÈ­
-	// »ı¼º
+{	// í˜‘ë ¥ ê°ì²´ì˜ ìƒì„± ë° ì´ˆê¸°í™”
+	// ìƒì„±
 	m_pController	= new CLController( this );
 	m_pController->CreateDbHandler( MIN( 1 ) );
 	CTElection * pElection	= new CTElection( this );
 	CLEvent* pEvent		= new CLEvent( this );
 	CLordSkill* pSkills		= new CTLordSkill( this );
-	// ½ºÅ©¸³Æ®
+	// ìŠ¤í¬ë¦½íŠ¸
 	pElection->Initialize( "election.inc" );
 	pEvent->Initialize( "lordevent.inc" );
 	pSkills->Initialize( "lordskill.txt" );
-	// ¼³Á¤
+	// ì„¤ì •
 	m_pElection		= pElection;
 	m_pEvent	= pEvent;
 	m_pSkills	= pSkills;
-	// µ¥ÀÌÅÍº£ÀÌ½º·ÎºÎÅÍ ÀÌÀü »óÅÂ º¹¿ø
+	// ë°ì´í„°ë² ì´ìŠ¤ë¡œë¶€í„° ì´ì „ ìƒíƒœ ë³µì›
 	if( !RestoreAll() )
 	{
 		election::OutputDebugString( "CTLord.CreateColleagues" );
@@ -51,7 +51,7 @@ void CTLord::CreateColleagues( void )
 }
 
 void CTLord::DestroyColleagues( void )
-{	// Çù·Â °´Ã¼ÀÇ Á¦°Å
+{	// í˜‘ë ¥ ê°ì²´ì˜ ì œê±°
 	if( m_pController )
 		m_pController->CloseDbHandler();
 
@@ -68,25 +68,25 @@ CTLord* CTLord::Instance( void )
 }
 
 BOOL CTLord::PostRequest( int nQuery, BYTE* lpBuf, int nBufSize, DWORD dwCompletionKey )
-{	// ±ºÁÖ ½º·¹µå¿¡ ÀÛ¾÷À» ¿äÃ»
+{	// êµ°ì£¼ ìŠ¤ë ˆë“œì— ì‘ì—…ì„ ìš”ì²­
 	return m_pController->PostRequest( nQuery, lpBuf, nBufSize, dwCompletionKey );
 }
 
 void CTLord::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey )
-{	// ±ºÁÖ ½º·¹µå°¡ ¼ö½ÅÇÑ ¿äÃ»À» Ã³¸®ÇÑ´Ù
+{	// êµ°ì£¼ ìŠ¤ë ˆë“œê°€ ìˆ˜ì‹ í•œ ìš”ì²­ì„ ì²˜ë¦¬í•œë‹¤
 	switch( pov->nQueryMode )
 	{
-		case eBeginCandidacy:	// ÀÔÈÄº¸ ½ÃÀÛ
+		case eBeginCandidacy:	// ì…í›„ë³´ ì‹œì‘
 			GetElection()->BeginCandidacy();
 			break;
-		case eBeginVote:	// ÅõÇ¥ ½ÃÀÛ
+		case eBeginVote:	// íˆ¬í‘œ ì‹œì‘
 			GetElection()->BeginVote( 0 );
 			break;
-		case eEndVote:	// ÅõÇ¥ Á¾·á
+		case eEndVote:	// íˆ¬í‘œ ì¢…ë£Œ
 			GetElection()->EndVote( 0 );
 			break;
 		//--------------------------------------------------------------------------------
-		case eAddDeposit:	// ±ºÁÖ ÀÔÂû
+		case eAddDeposit:	// êµ°ì£¼ ì…ì°°
 			{
 				u_long idPlayer;
 				__int64 iDeposit;
@@ -95,7 +95,7 @@ void CTLord::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey )
 				GetElection()->AddDeposit( idPlayer, iDeposit, time( NULL ) );
 				break;
 			}
-		case eSetPledge:	// °ø¾à ¼³Á¤
+		case eSetPledge:	// ê³µì•½ ì„¤ì •
 			{
 				u_long idPlayer;
 				char szPledge[CCandidate::nMaxPledgeLen]	= {0, };
@@ -105,7 +105,7 @@ void CTLord::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey )
 				GetElection()->SetPledge( idPlayer, szPledge );
 				break;
 			}
-		case eIncVote:	// ÅõÇ¥
+		case eIncVote:	// íˆ¬í‘œ
 			{
 				u_long idPlayer, idElector;
 				CAr ar( pov->lpBuf, pov->uBufSize );
@@ -114,12 +114,12 @@ void CTLord::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey )
 				break;
 			}
 		//--------------------------------------------------------------------------------
-		case eInit:		// ±ºÁÖ Á¤º¸ Àü¼Û
-								// dwCompletionKey	¼ö½Å ¿ùµå ¼­¹ö dpid
+		case eInit:		// êµ°ì£¼ ì •ë³´ ì „ì†¡
+								// dwCompletionKey	ìˆ˜ì‹  ì›”ë“œ ì„œë²„ dpid
 			CDPTrans::GetInstance()->SendLord( dwCompletionKey );
 			break;
 		//--------------------------------------------------------------------------------
-		case eLEventCreate:		// ±ºÁÖ ÀÌº¥Æ® ½ÃÀÛ
+		case eLEventCreate:		// êµ°ì£¼ ì´ë²¤íŠ¸ ì‹œì‘
 			{
 				u_long idPlayer;
 				int iEEvent, iIEvent;
@@ -128,19 +128,19 @@ void CTLord::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey )
 				GetEvent()->AddComponent( idPlayer, iEEvent, iIEvent );
 				break;
 			}
-		case eLEventInitialize:		// ±ºÁÖ ÀÌº¥Æ® ÃÊ±âÈ­
+		case eLEventInitialize:		// êµ°ì£¼ ì´ë²¤íŠ¸ ì´ˆê¸°í™”
 			{
 				GetEvent()->Initialize();
 				break;
 			}
-		case eLordSkillUse:		// ±ºÁÖ ½ºÅ³ »ç¿ë
+		case eLordSkillUse:		// êµ°ì£¼ ìŠ¤í‚¬ ì‚¬ìš©
 			{
 				u_long idPlayer, idTarget;
 				int nSkill;
 				CAr ar( pov->lpBuf, pov->uBufSize );
 				ar >> idPlayer >> idTarget >>  nSkill;
 				CLordSkillComponentExecutable* pComponent	= GetSkills()->GetSkill( nSkill );
-				if( pComponent )	// ½Ç Å¬·¡½º´Â CLordSkillComponentODBC
+				if( pComponent )	// ì‹¤ í´ë˜ìŠ¤ëŠ” CLordSkillComponentODBC
 					pComponent->Execute( idPlayer, idTarget, static_cast<LPVOID>( GetController() ) );
 				break;
 			}
@@ -148,7 +148,7 @@ void CTLord::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey )
 }
 
 void CTLord::OnTimer()
-{	// Æ½	// ÃÊ´ç 1È¸		// m_pController°¡ È£Ãâ
+{	// í‹±	// ì´ˆë‹¹ 1íšŒ		// m_pControllerê°€ í˜¸ì¶œ
 	TRACE( "CTLord.OnTimer: %d\n", time( NULL ) );
 	CTElection* pElection	= static_cast<CTElection*>( GetElection() );
 	pElection->OnTimer();
@@ -159,12 +159,12 @@ void CTLord::OnTimer()
 }
 
 BOOL CTLord::RestoreAll( void )
-{	// µ¥ÀÌÅÍº£ÀÌ½º·ÎºÎÅÍ ¸ğµç »óÅÂ º¹¿ø
+{	// ë°ì´í„°ë² ì´ìŠ¤ë¡œë¶€í„° ëª¨ë“  ìƒíƒœ ë³µì›
 	return GetController()->Restore();
 };
 
 BOOL CTLord::Restore( CQuery* pQuery )
-{	// ±ºÁÖ º¹¿ø
+{	// êµ°ì£¼ ë³µì›
 	if( !pQuery->Execute( "uspRestoreLord %d", g_appInfo.dwSys ) )
 		return FALSE;
 	if( pQuery->Fetch() )
@@ -173,12 +173,12 @@ BOOL CTLord::Restore( CQuery* pQuery )
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Æ®·£½º ¼­¹ö¿ë ¼±°Å Å¬·¡½º
+// íŠ¸ëœìŠ¤ ì„œë²„ìš© ì„ ê±° í´ë˜ìŠ¤
 CTElection::CTElection( CLord* pLord )
 :
 IElection( pLord ),
 #ifdef __INTERNALSERVER
-m_bRun( FALSE )	// ³»ºÎ ¼­¹ö´Â ±ºÁÖ ÇÁ·Î¼¼½º ºñÈ°¼º
+m_bRun( FALSE )	// ë‚´ë¶€ ì„œë²„ëŠ” êµ°ì£¼ í”„ë¡œì„¸ìŠ¤ ë¹„í™œì„±
 #else	// __INTERNALSERVER
 m_bRun( TRUE )
 #endif	// __INTERNALSERVER
@@ -190,8 +190,8 @@ CTElection::~CTElection()
 }
 
 BOOL CTElection::Initialize( const char* szFile )
-{	// ÃÊ±âÈ­
-	if( !ReadIni( szFile ) )	// ½ºÅ©¸³Æ® ·Îµå
+{	// ì´ˆê¸°í™”
+	if( !ReadIni( szFile ) )	// ìŠ¤í¬ë¦½íŠ¸ ë¡œë“œ
 	{
 		election::OutputDebugString( "CTElection::Initialize(): LoadScript(): file not found: %s", szFile );
 		return FALSE;
@@ -200,7 +200,7 @@ BOOL CTElection::Initialize( const char* szFile )
 }
 
 BOOL CTElection::ReadIni( const char* szFile )
-{	// ½ºÅ©¸³Æ® ·Îµå
+{	// ìŠ¤í¬ë¦½íŠ¸ ë¡œë“œ
 	CScript s;
 	if( s.Load( szFile ) == FALSE )
 		return FALSE;
@@ -284,7 +284,7 @@ time_t CTElection::stot( const char* sz )
 }
 
 BOOL CTElection::Restore( CQuery* pQuery )
-{	// µ¥ÀÌÅÍº£ÀÌ½º·ÎºÎÅÍ ¼±°Å »óÅÂ º¹¿ø
+{	// ë°ì´í„°ë² ì´ìŠ¤ë¡œë¶€í„° ì„ ê±° ìƒíƒœ ë³µì›
 	if( !pQuery->Execute( "uspRestoreElection %d", g_appInfo.dwSys ) )
 		return FALSE;
 	if( pQuery->Fetch() )
@@ -312,12 +312,12 @@ BOOL CTElection::Restore( CQuery* pQuery )
 		time_t tCreate	= pQuery->GetInt( "tCreate" );
 		AddCandidate( idPlayer, iDeposit, szPledge, nVote, tCreate );
 	}
-	if( GetState() == eVote )	// ÅõÇ¥ »óÅÂ¸é
-		SortVote();		// µæÇ¥¼ö·Î Á¤·Ä
-	else	// ±× ¹ÛÀÇ »óÅÂ¶ó¸é
-		SortDeposit();	// ÀÔÂû±İÀ¸·Î Á¤·Ä
+	if( GetState() == eVote )	// íˆ¬í‘œ ìƒíƒœë©´
+		SortVote();		// ë“í‘œìˆ˜ë¡œ ì •ë ¬
+	else	// ê·¸ ë°–ì˜ ìƒíƒœë¼ë©´
+		SortDeposit();	// ì…ì°°ê¸ˆìœ¼ë¡œ ì •ë ¬
 	
-	if( !GetBegin() || GetState() == eExpired )	// ÃÖÃÊ ½ÇÇàÀÌ°Å³ª ¸¸·áµÈ ¼±°Å¶ó¸é
+	if( !GetBegin() || GetState() == eExpired )	// ìµœì´ˆ ì‹¤í–‰ì´ê±°ë‚˜ ë§Œë£Œëœ ì„ ê±°ë¼ë©´
 	{
 		PrepareNext();
 		if( !pQuery->Execute( "uspElectionInitialize %d, %d, %s", g_appInfo.dwSys, GetId(), CTElection::ttos( GetBegin() ) ) )
@@ -330,7 +330,7 @@ BOOL CTElection::Restore( CQuery* pQuery )
 }
 
 float CTElection::GetRetRate( u_long idPlayer )
-{	// ÀÔÂû±İ ¹İÈ¯À²
+{	// ì…ì°°ê¸ˆ ë°˜í™˜ìœ¨
 	int nOrder	= GetOrder( idPlayer );
 	nOrder	= min( nOrder, IElection::nMaxCandidates );
 	if( nOrder < 0 )
@@ -339,7 +339,7 @@ float CTElection::GetRetRate( u_long idPlayer )
 }
 
 BOOL CTElection::DoTestBeginCandidacy( void )
-{	// ÀÔÈÄº¸ °³½Ã »óÅÂÀÇ ÀúÀå ¹× ¿ùµå ¼­¹ö Àü¼Û
+{	// ì…í›„ë³´ ê°œì‹œ ìƒíƒœì˜ ì €ì¥ ë° ì›”ë“œ ì„œë²„ ì „ì†¡
 	// IElection::BeginCandidacy
 	election::OutputDebugString( "CTElection.DoTestBeginCandidacy" );
 	CLController* pController	= m_pLord->GetController();
@@ -350,19 +350,19 @@ BOOL CTElection::DoTestBeginCandidacy( void )
 }
 
 void PostDeposit::operator ()( const SPC & lhs )	const
-{	// ÀÔÂû±İ ¿ìÆí ¹İÈ¯ ÇÔ¼öÀÚ
+{	// ì…ì°°ê¸ˆ ìš°í¸ ë°˜í™˜ í•¨ìˆ˜ì
 	u_long idReceiver	= lhs->GetIdPlayer();
 	CTElection* pElection	= static_cast<CTElection*>( CTLord::Instance()->GetElection() );
 
-	// ÈÄº¸ÀÚ ¼øÀ§¿¡ µû¸¥ ¹İÈ¯±İ ±¸ÇÏ±â
+	// í›„ë³´ì ìˆœìœ„ì— ë”°ë¥¸ ë°˜í™˜ê¸ˆ êµ¬í•˜ê¸°
 	float fRate		= pElection->GetRetRate( idReceiver );
 	if( fRate == 0.0F )
 		return;
-	// 2008/10/31 - Á¤¹Ğµµ ¿À·ù°¡ ¹ß»ıÇÏ¿© ¼öÁ¤ - Ë¬
+	// 2008/10/31 - ì •ë°€ë„ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ìˆ˜ì • - åº·
 //	__int64 iDeposit	= lhs->GetDeposit() * fRate;
 	__int64 iDeposit	= (__int64)( lhs->GetDeposit() / 100 * ( fRate * 100 ) );
 
-	// ÈÄº¸ÀÚÀÇ ¼øÀ§¿¡ µû¶ó ÆíÁö ³»¿ëÀ» ÀÛ¼º
+	// í›„ë³´ìì˜ ìˆœìœ„ì— ë”°ë¼ í¸ì§€ ë‚´ìš©ì„ ì‘ì„±
 	CMail* pMail	= new CMail;
 	pMail->m_tmCreate	= ::time_null();
 	pMail->m_idSender	= 0;	//
@@ -390,7 +390,7 @@ void PostDeposit::operator ()( const SPC & lhs )	const
 			Error( "couldn't execute uspElectionLeaveOut" );
 	}
 	
-	// ¹İÈ¯±İÀ» Æä¸°°ú Æä³Ä·Î ºĞ¸®ÇÏ¿© Ã·ºÎ
+	// ë°˜í™˜ê¸ˆì„ í˜ë¦°ê³¼ í˜ëƒë¡œ ë¶„ë¦¬í•˜ì—¬ ì²¨ë¶€
 	int nPerin	= static_cast<int>( iDeposit / static_cast<__int64>(PERIN_VALUE ) );
 	int nPenya	= static_cast<int>( iDeposit - static_cast<__int64>( PERIN_VALUE ) * static_cast<__int64>( nPerin ) );
 
@@ -403,12 +403,12 @@ void PostDeposit::operator ()( const SPC & lhs )	const
 		pMail->m_pItemElem->SetSerialNumber( xRand() );
 	}
 
-	// ¿ìÆí ¹ß¼Û
+	// ìš°í¸ ë°œì†¡
 	post::Post( idReceiver, pMail, m_pQuery );
 }
 
 void CTElection::DoReturnDeposit( void )
-{	// ¸ğµç ÈÄº¸¿¡ ´ëÇÑ ¿ìÆíÀ» ÅëÇÑ ÀÔÂû±İ ¹İÈ¯
+{	// ëª¨ë“  í›„ë³´ì— ëŒ€í•œ ìš°í¸ì„ í†µí•œ ì…ì°°ê¸ˆ ë°˜í™˜
 	// IElection::BeginVote
 	election::OutputDebugString( "CTElection.DoReturnDeposit" );
 	CLController* pController	= m_pLord->GetController();
@@ -417,7 +417,7 @@ void CTElection::DoReturnDeposit( void )
 }
 
 BOOL CTElection::DoTestBeginVote( int & nRequirement )
-{	// ÅõÇ¥ ½ÃÀÛ »óÅÂÀÇ ÀúÀå ¹× Àü¼Û
+{	// íˆ¬í‘œ ì‹œì‘ ìƒíƒœì˜ ì €ì¥ ë° ì „ì†¡
 	election::OutputDebugString( "CTElection.DoTestBeginVote" );
 	CLController* pController	= m_pLord->GetController();
 	int nTotal	= pController->BeginVote();
@@ -431,28 +431,28 @@ BOOL CTElection::DoTestBeginVote( int & nRequirement )
 }
 
 BOOL CTElection::DoTestEndVote( u_long idPlayer )
-{	// ÅõÇ¥ Á¾·á »óÅÂ Ã³¸®¹× Àü¼Û
+{	// íˆ¬í‘œ ì¢…ë£Œ ìƒíƒœ ì²˜ë¦¬ë° ì „ì†¡
 	// IElection::EndVote
 	election::OutputDebugString( "CTElection.DoTestEndVote" );
 	CLController* pController	= m_pLord->GetController();
-	if( pController->EndVote( idPlayer ) )	// »óÅÂ ÀúÀå
+	if( pController->EndVote( idPlayer ) )	// ìƒíƒœ ì €ì¥
 	{
-		CDPTrans::GetInstance()->SendElectionEndVote( idPlayer );		// Àü¼Û
-		PostDepositToAllCandidate();	// ÀÔÂû±İ ¹İÈ¯
-		PostLordItems( idPlayer );		// ±ºÁÖ ¾ÆÀÌÅÛ Áö±Ş
+		CDPTrans::GetInstance()->SendElectionEndVote( idPlayer );		// ì „ì†¡
+		PostDepositToAllCandidate();	// ì…ì°°ê¸ˆ ë°˜í™˜
+		PostLordItems( idPlayer );		// êµ°ì£¼ ì•„ì´í…œ ì§€ê¸‰
 		return TRUE;
 	}
 	return FALSE;
 }
 
 void CTElection::PostDepositToAllCandidate( void )
-{	// ¸ğµç ÈÄº¸ÀÚ ÀÔÂû±İ ¹İÈ¯
+{	// ëª¨ë“  í›„ë³´ì ì…ì°°ê¸ˆ ë°˜í™˜
 	CLController* pController	= m_pLord->GetController();
 	for_each( m_vCandidates.begin(), m_vCandidates.end(), PostDeposit( pController->GetQueryObject() ) );
 }
 
 BOOL CTElection::DoTestAddDeposit( u_long idPlayer, __int64 iDeposit, time_t tCreate )
-{	// ±ºÁÖ ÀÔÂû ÀúÀå ¹× °á°ú Àü¼Û
+{	// êµ°ì£¼ ì…ì°° ì €ì¥ ë° ê²°ê³¼ ì „ì†¡
 	// IElection::AddDeposit
 	election::OutputDebugString( "CTElection.DoTestAddDeposit: %07d, %I64d, %d", idPlayer, iDeposit, tCreate );
 	CLController* pController	= m_pLord->GetController();
@@ -466,7 +466,7 @@ void CTElection::DoAddDepositComplete( u_long idPlayer, __int64 iDeposit, time_t
 }
 
 BOOL CTElection::DoTestSetPledge( u_long idPlayer, const char* szPledge )
-{	// °ø¾à ¼³Á¤ ÀúÀå ¹× °á°ú Àü¼Û
+{	// ê³µì•½ ì„¤ì • ì €ì¥ ë° ê²°ê³¼ ì „ì†¡
 	// IElection::SetPledge
 	BOOL bRet	= FALSE;
 	election::OutputDebugString( "CTElection.DoTestSetPledge: %07d, %s", idPlayer, szPledge );
@@ -480,7 +480,7 @@ BOOL CTElection::DoTestSetPledge( u_long idPlayer, const char* szPledge )
 }
 
 BOOL CTElection::DoTestIncVote( u_long idPlayer, u_long idElector )
-{	// ÅõÇ¥ ÀúÀå ¹× °á°ú Àü¼Û
+{	// íˆ¬í‘œ ì €ì¥ ë° ê²°ê³¼ ì „ì†¡
 	// IElection::IncVote
 	election::OutputDebugString( "CTElection.DoTestIncVote: %07d, %07d", idPlayer, idElector );
 	CLController* pController	= m_pLord->GetController();
@@ -490,7 +490,7 @@ BOOL CTElection::DoTestIncVote( u_long idPlayer, u_long idElector )
 }
 
 void CTElection::PostLordItems( u_long idLord )
-{	// ±ºÁÖ ¾ÆÀÌÅÛ ¿ìÆí Áö±Ş
+{	// êµ°ì£¼ ì•„ì´í…œ ìš°í¸ ì§€ê¸‰
 	if( idLord != NULL_ID )
 	{
 		BYTE iIndex		= SEX_MALE;
@@ -507,15 +507,15 @@ void CTElection::PostLordItems( u_long idLord )
 		{
 			PostItemStruct pi;
 			pi.nItem	= *i;
-			pi.dwKeepTime	= time( NULL ) + 1209600;	// 14ÀÏ
+			pi.dwKeepTime	= time( NULL ) + 1209600;	// 14ì¼
 			PostItem( idLord, pi );
 		}
 	}
 }
 
 void CTElection::PostItem( u_long idPlayer, PostItemStruct & pi )
-{	// ¿ìÆíÀ» ÅëÇÑ ¾ÆÀÌÅÛ Áö±Ş
-	// ÀÏ¹İÈ­ ´ë»ó
+{	// ìš°í¸ì„ í†µí•œ ì•„ì´í…œ ì§€ê¸‰
+	// ì¼ë°˜í™” ëŒ€ìƒ
 	CMail* pMail	= new CMail;
 	pMail->m_tmCreate	= ::time_null();
 	pMail->m_idSender	= 0;	//
@@ -531,13 +531,13 @@ void CTElection::PostItem( u_long idPlayer, PostItemStruct & pi )
 }
 
 void CTElection::OnTimer( void )
-{	// ¼±°Å Æ½
-	if( !IsRunable() )		// ±ºÁÖ ÇÁ·Î¼¼½º°¡ ½ÇÇàÁßÀÌ ¾Æ´Ï¸é
+{	// ì„ ê±° í‹±
+	if( !IsRunable() )		// êµ°ì£¼ í”„ë¡œì„¸ìŠ¤ê°€ ì‹¤í–‰ì¤‘ì´ ì•„ë‹ˆë©´
 		return;
 	
-	// ÇöÀçÀÇ ¼±°Å »óÅÂ¿Í
-	// ÇöÀç ½Ã°£ ±âÁØ ¼±°Å »óÅÂ°¡ ´Ù¸£¸é
-	// ´ÙÀ½ ´Ü°è·Î ÁøÇà ½ÃÅ²´Ù
+	// í˜„ì¬ì˜ ì„ ê±° ìƒíƒœì™€
+	// í˜„ì¬ ì‹œê°„ ê¸°ì¤€ ì„ ê±° ìƒíƒœê°€ ë‹¤ë¥´ë©´
+	// ë‹¤ìŒ ë‹¨ê³„ë¡œ ì§„í–‰ ì‹œí‚¨ë‹¤
 	if( GetState() != GetPropertyState() )
 	{
 		if( GetState() == eReady )
@@ -550,7 +550,7 @@ void CTElection::OnTimer( void )
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Æ®·£½º ¼­¹ö¿ë ±ºÁÖ ÀÌº¥Æ®
+// íŠ¸ëœìŠ¤ ì„œë²„ìš© êµ°ì£¼ ì´ë²¤íŠ¸
 CLEvent::CLEvent( CLord* pLord )
 :
 ILordEvent( pLord )
@@ -562,7 +562,7 @@ CLEvent::~CLEvent()
 }
 
 BOOL CLEvent::Restore( CQuery* pQuery )
-{	// µ¥ÀÌÅÍº£ÀÌ½º·ÎºÎÅÍ º¹¿ø
+{	// ë°ì´í„°ë² ì´ìŠ¤ë¡œë¶€í„° ë³µì›
 	if( !pQuery->Execute( "uspRestoreLEvent %d", g_appInfo.dwSys ) )
 		return FALSE;
 	while( pQuery->Fetch() )
@@ -578,18 +578,18 @@ BOOL CLEvent::Restore( CQuery* pQuery )
 }
 
 void CLEvent::OnTimer( void )
-{	// Æ½
-	// ¸ğµç ±ºÁÖ ÀÌº¥Æ®ÀÇ ½Ã°£À» °¨¼Ò½ÃÅ²´Ù
+{	// í‹±
+	// ëª¨ë“  êµ°ì£¼ ì´ë²¤íŠ¸ì˜ ì‹œê°„ì„ ê°ì†Œì‹œí‚¨ë‹¤
 	BOOL bExpired	= DecrementAllComponentTick();
 	CDPTrans::GetInstance()->SendLEventTick( this );
-	// ½Ã°£ ¸¸·áµÈ ÀÌº¥Æ®°¡ ÀÖ´Ù¸é Á¦°ÅÇÑ´Ù
+	// ì‹œê°„ ë§Œë£Œëœ ì´ë²¤íŠ¸ê°€ ìˆë‹¤ë©´ ì œê±°í•œë‹¤
 	if( bExpired )	
 		EraseExpiredComponents();
 }
 
 BOOL CLEvent::DecrementAllComponentTick( void )
-{	// ¸ğµç ±ºÁÖ ÀÌº¥Æ®ÀÇ ³²Àº ½Ã°£À» °¨¼Ò½ÃÅ°°í ÀúÀåÇÑ ÈÄ
-	// ³²Àº ½Ã°£ÀÌ 0ÀÎ ÀÌº¥Æ®°¡ ÀÖ´Ù¸é TRUE¸¦ ¹İÈ¯ÇÑ´Ù
+{	// ëª¨ë“  êµ°ì£¼ ì´ë²¤íŠ¸ì˜ ë‚¨ì€ ì‹œê°„ì„ ê°ì†Œì‹œí‚¤ê³  ì €ì¥í•œ í›„
+	// ë‚¨ì€ ì‹œê°„ì´ 0ì¸ ì´ë²¤íŠ¸ê°€ ìˆë‹¤ë©´ TRUEë¥¼ ë°˜í™˜í•œë‹¤
 	BOOL bExpired	= FALSE;
 	for( VLEC::iterator i = m_vComponents.begin(); i != m_vComponents.end(); ++i )
 	{
@@ -601,7 +601,7 @@ BOOL CLEvent::DecrementAllComponentTick( void )
 }
 
 BOOL CLEvent::DoTestAddComponent( CLEComponent* pComponent )
-{	// Ãß°¡µÈ ±ºÁÖ ÀÌº¥Æ®¸¦ ÀúÀåÇÏ°í Àü¼ÛÇÑ´Ù
+{	// ì¶”ê°€ëœ êµ°ì£¼ ì´ë²¤íŠ¸ë¥¼ ì €ì¥í•˜ê³  ì „ì†¡í•œë‹¤
 	// ILordEvent::AddComponent
 	CLController* pController	= m_pLord->GetController();
 	BOOL bResult	= pController->AddLEComponent( pComponent );
@@ -610,7 +610,7 @@ BOOL CLEvent::DoTestAddComponent( CLEComponent* pComponent )
 }
 
 BOOL CLEvent::DoTestInitialize( void )
-{	// ±ºÁÖ ÀÌº¥Æ®¸¦ ÃÊ±âÈ­ÇÏ°í ÀúÀå, Àü¼Û
+{	// êµ°ì£¼ ì´ë²¤íŠ¸ë¥¼ ì´ˆê¸°í™”í•˜ê³  ì €ì¥, ì „ì†¡
 	// ILordEvent::Initialize
 	CLController* pController	= m_pLord->GetController();
 	if( !pController->InitializeLEvent() )
@@ -620,7 +620,7 @@ BOOL CLEvent::DoTestInitialize( void )
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Æ®·£½º¼­¹ö¿¡¼­ ±ºÁÖ¿Í °ü·ÃµÈ ¸ğµç Ã³¸®¸¦ Á÷·ÄÈ­ÇÑ´Ù(±ºÁÖ ½º·¹µå »ı¼º)
+// íŠ¸ëœìŠ¤ì„œë²„ì—ì„œ êµ°ì£¼ì™€ ê´€ë ¨ëœ ëª¨ë“  ì²˜ë¦¬ë¥¼ ì§ë ¬í™”í•œë‹¤(êµ°ì£¼ ìŠ¤ë ˆë“œ ìƒì„±)
 CLController::CLController( CTLord* pLord ) 
 :
 m_pLord( pLord ), 
@@ -633,17 +633,17 @@ CLController::~CLController()
 }
 
 void CLController::Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey )
-{	// ¸ğµç ¿äÃ»À» m_pLord¿¡ À§ÀÓÇÑ´Ù
+{	// ëª¨ë“  ìš”ì²­ì„ m_pLordì— ìœ„ì„í•œë‹¤
 	m_pLord->Handler( pov, dwCompletionKey );
 }
 
 void CLController::OnTimer( void )
-{	// Æ½ÀÌ ¹ß»ıÇÏ¸é m_pLord¿¡ ¾Ë·ÁÁØ´Ù
+{	// í‹±ì´ ë°œìƒí•˜ë©´ m_pLordì— ì•Œë ¤ì¤€ë‹¤
 	m_pLord->OnTimer();
 }
 
 BOOL CLController::Restore( void )
-{	// ¸ğµç ±ºÁÖ ½Ã½ºÅÛ Çù·Â °´Ã¼µéÀÇ º¹¿ø
+{	// ëª¨ë“  êµ°ì£¼ ì‹œìŠ¤í…œ í˜‘ë ¥ ê°ì²´ë“¤ì˜ ë³µì›
 	CQuery* pQuery	= CreateQuery();
 	if( !pQuery )
 		return FALSE;
@@ -662,7 +662,7 @@ BOOL CLController::Restore( void )
 }
 
 BOOL CLController::BeginCandidacy( void )
-{	// ÀÔÈÄº¸ ½ÃÀÛ »óÅÂ ÀúÀå
+{	// ì…í›„ë³´ ì‹œì‘ ìƒíƒœ ì €ì¥
 	char szQuery[255]	= { 0,};
 	IElection* pElection	= m_pLord->GetElection();
 	sprintf( szQuery, "uspElectionBeginCandidacy %d, %d", g_appInfo.dwSys, pElection->GetId() );
@@ -670,7 +670,7 @@ BOOL CLController::BeginCandidacy( void )
 }
 
 int CLController::BeginVote( void )
-{	// ÅõÇ¥ ½ÃÀÛ »óÅÂ ÀúÀå
+{	// íˆ¬í‘œ ì‹œì‘ ìƒíƒœ ì €ì¥
 	int nRequirement	= -1;
 	char szQuery[255]	= { 0,};
 	IElection* pElection	= m_pLord->GetElection();
@@ -681,14 +681,14 @@ int CLController::BeginVote( void )
 }
 
 BOOL CLController::EndVote( u_long idPlayer )
-{	// ÅõÇ¥ Á¾·á »óÅÂ ÀúÀå
+{	// íˆ¬í‘œ ì¢…ë£Œ ìƒíƒœ ì €ì¥
 	IElection* pElection	= m_pLord->GetElection();
 	return GetQueryObject()->Execute( "uspElectionEndVote %d, %d, %d, %s", g_appInfo.dwSys, pElection->GetId(), idPlayer,
 		(LPCSTR)CTElection::ttos( pElection->GetNextBegin() ) );
 }
 
 BOOL CLController::AddDeposit( u_long idPlayer, __int64 iDeposit, time_t tCreate )
-{	// ±ºÁÖ ÀÔÂû ÀúÀå
+{	// êµ°ì£¼ ì…ì°° ì €ì¥
 	char szQuery[255]	= { 0,};
 	IElection* pElection	= m_pLord->GetElection();
 	sprintf( szQuery, "uspElectionAddDeposit %d, %d, %d, %I64d, %d", g_appInfo.dwSys, pElection->GetId(), idPlayer, iDeposit, tCreate );
@@ -696,7 +696,7 @@ BOOL CLController::AddDeposit( u_long idPlayer, __int64 iDeposit, time_t tCreate
 }
 
 BOOL CLController::SetPledge( u_long idPlayer, const char* szPledge )
-{	// °ø¾à ¼³Á¤ ÀúÀå
+{	// ê³µì•½ ì„¤ì • ì €ì¥
 	char szQuery[255]	= { 0,};
 	IElection* pElection	= m_pLord->GetElection();
 	sprintf( szQuery, "{call uspElectionSetPledge( %d, %d, %d, ? )}", g_appInfo.dwSys, pElection->GetId(), idPlayer );
@@ -707,8 +707,8 @@ BOOL CLController::SetPledge( u_long idPlayer, const char* szPledge )
 }
 
 BOOL CLController::IncVote( u_long idPlayer, u_long idElector )
-{	// ÅõÇ¥ ÀúÀå
-	// ÀÌ¹Ì ÅõÇ¥ÇÑ »ç¿ëÀÚ¸é FALSE ¹İÈ¯
+{	// íˆ¬í‘œ ì €ì¥
+	// ì´ë¯¸ íˆ¬í‘œí•œ ì‚¬ìš©ìë©´ FALSE ë°˜í™˜
 	char szQuery[255]	= { 0,};
 	IElection* pElection	= m_pLord->GetElection();
 	sprintf( szQuery, "uspElectionIncVote %d, %d, %d, %d", g_appInfo.dwSys, pElection->GetId(), idPlayer, idElector );
@@ -720,7 +720,7 @@ BOOL CLController::IncVote( u_long idPlayer, u_long idElector )
 }
 
 BOOL CLController::AddLEComponent( CLEComponent* pComponent )
-{	// ±ºÁÖ ÀÌº¥Æ® »ı¼º ÀúÀå
+{	// êµ°ì£¼ ì´ë²¤íŠ¸ ìƒì„± ì €ì¥
 	if( GetQueryObject()->Execute( "uspAddLEComponent %d, %d, %d, %3.2f, %3.2f", g_appInfo.dwSys, pComponent->GetIdPlayer(), pComponent->GetTick(), pComponent->GetEFactor(), pComponent->GetIFactor() ) 
 		&& GetQueryObject()->Fetch() )
 		return static_cast<BOOL>( GetQueryObject()->GetInt( "bResult" ) );
@@ -728,21 +728,21 @@ BOOL CLController::AddLEComponent( CLEComponent* pComponent )
 }
 
 BOOL CLController::InitializeLEvent( void )
-{	// ±ºÁÖ ÀÌº¥Æ® ÃÊ±âÈ­ ÀúÀå
+{	// êµ°ì£¼ ì´ë²¤íŠ¸ ì´ˆê¸°í™” ì €ì¥
 	return GetQueryObject()->Execute( "uspInitializeLEvent %d", g_appInfo.dwSys );
 }
 
 BOOL CLController::UpdateLordSkillTick( CLordSkillComponent* pSkill, int nTick )
-{	// ±ºÁÖ ½ºÅ³ Àç»ç¿ë ´ë±â ½Ã°£ ÀúÀå
+{	// êµ°ì£¼ ìŠ¤í‚¬ ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ ì €ì¥
 	return GetQueryObject()->Execute( "uspLordSkillTick %d, %d, %d", g_appInfo.dwSys, pSkill->GetId(), nTick );
 }
 
 BOOL CLController::UpdateLordEventTick( CLEComponent* pComponent )
-{	// ±ºÁÖ ÀÌº¥Æ® ³²Àº ½Ã°£ ÀúÀå
+{	// êµ°ì£¼ ì´ë²¤íŠ¸ ë‚¨ì€ ì‹œê°„ ì €ì¥
 	return GetQueryObject()->Execute( "uspLordEventTick %d, %d, %d", g_appInfo.dwSys, pComponent->GetIdPlayer(), pComponent->GetTick() );
 }
 ////////////////////////////////////////////////////////////////////////////////
-// Æ®·£½º ¼­¹ö¿ë ±ºÁÖ ½ºÅ³ Á¦¾î Å¬·¡½º
+// íŠ¸ëœìŠ¤ ì„œë²„ìš© êµ°ì£¼ ìŠ¤í‚¬ ì œì–´ í´ë˜ìŠ¤
 CTLordSkill::CTLordSkill( CLord* pLord )
 : CLordSkill( pLord )
 {
@@ -753,13 +753,13 @@ CTLordSkill::~CTLordSkill()
 }
 
 CLordSkillComponentExecutable* CTLordSkill::CreateSkillComponent( int nType )
-{	// Æ®·£½º ¼­¹ö¿¡¼­ÀÇ ¸ğµç ±ºÁÖ ½ºÅ³Àº
+{	// íŠ¸ëœìŠ¤ ì„œë²„ì—ì„œì˜ ëª¨ë“  êµ°ì£¼ ìŠ¤í‚¬ì€
 	// CLordSkillComponentODBC
 	return new CLordSkillComponentODBC;
 }
 
 BOOL CTLordSkill::Restore( CQuery* pQuery )
-{	// µ¥ÀÌÅÍº£ÀÌ½º·ÎºÎÅÍ ±ºÁÖ ½ºÅ³ º¹¿ø
+{	// ë°ì´í„°ë² ì´ìŠ¤ë¡œë¶€í„° êµ°ì£¼ ìŠ¤í‚¬ ë³µì›
 	if( !pQuery->Execute( "uspRestoreLordSkill %d", g_appInfo.dwSys ) )
 		return FALSE;
 	while( pQuery->Fetch() )
@@ -771,16 +771,16 @@ BOOL CTLordSkill::Restore( CQuery* pQuery )
 }
 
 void CTLordSkill::OnTimer( void )
-{	// Æ½
+{	// í‹±
 	CLController* pController	= m_pLord->GetController();
 	for( VLSC::iterator i = m_vComponents.begin(); i != m_vComponents.end(); ++i )
 	{
 		CLordSkillComponentExecutable* pSkill	= *i ;
 		if( pSkill->GetTick() > 0 )
 		{
-			// Àç»ç¿ë ´ë±â ½Ã°£À» °¨¼Ò½ÃÅ²´Ù
+			// ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ì„ ê°ì†Œì‹œí‚¨ë‹¤
 			pSkill->SetTick( pSkill->GetTick() - 1 );
-			// ÀúÀå
+			// ì €ì¥
 			pController->UpdateLordSkillTick( pSkill, pSkill->GetTick() );
 		}
 	}

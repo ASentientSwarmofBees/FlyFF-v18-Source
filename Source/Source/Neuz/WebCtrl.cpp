@@ -1,4 +1,4 @@
-// WebCtrl.cpp: implementation of the CWebCtrl class.
+﻿// WebCtrl.cpp: implementation of the CWebCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 #include "stdafx.h"

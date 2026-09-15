@@ -1,4 +1,4 @@
-#if __VER >= 13 // __HOUSING
+﻿#if __VER >= 13 // __HOUSING
 #ifndef __WNDROOMLIST__H
 #define __WNDROOMLIST__H
 

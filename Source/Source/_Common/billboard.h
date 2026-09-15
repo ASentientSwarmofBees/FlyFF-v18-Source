@@ -1,4 +1,4 @@
-// BeastView.h : interface of the CBeastView class
+ï»¿// BeastView.h : interface of the CBeastView class
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -44,7 +44,7 @@ public:
 	CTexture* GetTexture(void) { return m_pTexture; }
 	virtual BOOL Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmatWorld = NULL );
 	virtual void FrameMove() { }
-	// dx ÃÊ±âÈ­ °ü·Ã 
+	// dx ì´ˆê¸°í™” ê´€ë ¨ 
 	HRESULT InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice, LPBILLBOARD lpBillboard, CTexture* pTexture );
 	HRESULT RestoreDeviceObjects();
 	HRESULT InvalidateDeviceObjects();

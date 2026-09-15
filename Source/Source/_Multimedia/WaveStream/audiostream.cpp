@@ -1,4 +1,4 @@
-// AudioStream.cpp
+ï»¿// AudioStream.cpp
 
 //#define VC_EXTRALEAN
 //#define STRICT
@@ -181,7 +181,7 @@ BOOL AudioStream::Destroy ( void )
   if( m_pdsb )
   {
     m_pdsb->Release ();
-    m_pdsb = NULL;			// ¿Ö ¿¡·¯ ³ªÁö!!!!!!!!!!!!!!!
+    m_pdsb = NULL;			// ì™œ ì—ëŸ¬ ë‚˜ì§€!!!!!!!!!!!!!!!
   }
 
   return fRtn;
@@ -448,7 +448,7 @@ BOOL AudioStream::ServiceBuffer (void)
         }
         else
         {
-          // All of sound has played, m_Repeat°ªÀÌ TRUE¸é ´Ù½Ã ¹İº¹ Àç»ıÇÏ°Å³ª ¾Æ´Ï¸é stop playback
+          // All of sound has played, m_Repeatê°’ì´ TRUEë©´ ë‹¤ì‹œ ë°˜ë³µ ì¬ìƒí•˜ê±°ë‚˜ ì•„ë‹ˆë©´ stop playback
 				  Stop();
 
 					if( m_Repeat==TRUE ) Play();

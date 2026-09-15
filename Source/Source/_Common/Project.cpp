@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineItem.h"
 #include "lang.h"
 #include "Ship.h"
@@ -125,15 +125,15 @@
 
 extern	CWorldMng	g_WorldMng;
 
-FLOAT	CProject::m_fItemDropRate = 1.0f;		// ¸ó½ºÅÍ ¾ÆÀÌÅÛ µå·Ó·ü
-FLOAT	CProject::m_fGoldDropRate = 1.0f;		// ¸ó½ºÅÍ Æä³Ä µå·Ó·ü
-FLOAT	CProject::m_fMonsterExpRate = 1.0f;		// ¸ó½ºÅÍ °æÇèÄ¡·ê
-FLOAT	CProject::m_fMonsterHitRate = 1.0f;		// ¸ó½ºÅÍ °ø°İ·ü
-FLOAT	CProject::m_fShopCost = 1.0f;			// »óÁ¡°¡°İ
+FLOAT	CProject::m_fItemDropRate = 1.0f;		// ëª¬ìŠ¤í„° ì•„ì´í…œ ë“œë¡­ë¥ 
+FLOAT	CProject::m_fGoldDropRate = 1.0f;		// ëª¬ìŠ¤í„° í˜ëƒ ë“œë¡­ë¥ 
+FLOAT	CProject::m_fMonsterExpRate = 1.0f;		// ëª¬ìŠ¤í„° ê²½í—˜ì¹˜ë£°
+FLOAT	CProject::m_fMonsterHitRate = 1.0f;		// ëª¬ìŠ¤í„° ê³µê²©ë¥ 
+FLOAT	CProject::m_fShopCost = 1.0f;			// ìƒì ê°€ê²©
 FLOAT	CProject::m_fSkillExpRate = 1.0f;		
-DWORD	CProject::m_dwVagSP = 1;				// ¹æ¶ûÀÚ ½ºÅ³ÀÇ ·¹º§¾÷¶§ ÇÊ¿äÇÑ SPÆ÷ÀÎÆ®
-DWORD	CProject::m_dwExpertSP = 2;				// 1Â÷Á÷¾÷ ½ºÅ³ÀÇ ·¹º§¾÷¶§ ÇÊ¿äÇÑ SPÆ÷ÀÎÆ®
-DWORD	CProject::m_dwProSP = 3;				// 2Â÷Á÷¾÷ ½ºÅ³ÀÇ ·¹º§¾÷¶§ ÇÊ¿äÇÑ SPÆ÷ÀÎÆ®
+DWORD	CProject::m_dwVagSP = 1;				// ë°©ë‘ì ìŠ¤í‚¬ì˜ ë ˆë²¨ì—…ë•Œ í•„ìš”í•œ SPí¬ì¸íŠ¸
+DWORD	CProject::m_dwExpertSP = 2;				// 1ì°¨ì§ì—… ìŠ¤í‚¬ì˜ ë ˆë²¨ì—…ë•Œ í•„ìš”í•œ SPí¬ì¸íŠ¸
+DWORD	CProject::m_dwProSP = 3;				// 2ì°¨ì§ì—… ìŠ¤í‚¬ì˜ ë ˆë²¨ì—…ë•Œ í•„ìš”í•œ SPí¬ì¸íŠ¸
 
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 QuestGoalData::QuestGoalData( void ) : 
@@ -190,7 +190,7 @@ DROPITEM* CDropItemGenerator::GetAt( int nIndex, BOOL bUniqueMode, float fProbab
 		{
 			dwRand /= 2;
 		}
-		// ·¹º§(À¯´ÏÅ©)ÀÌ ÀÖ³ª °Ë»ç
+		// ë ˆë²¨(ìœ ë‹ˆí¬)ì´ ìˆë‚˜ ê²€ì‚¬
 		if( lpDropItem->dwLevel != 0 )
 		{
 			ItemProp* pItemProp	= prj.GetItemProp( lpDropItem->dwIndex );
@@ -395,7 +395,7 @@ void CProject::LoadSkill()
 	LoadPropItem( "propSkill.txt", &m_aPropSkill );
 #endif // __NEW_PROP_PARAMETER
 	ZeroMemory( m_aJobSkillNum, sizeof( m_aJobSkillNum ) );
-	// °¢°¢ÀÇ ½ºÅ³À» Á¤·ÄÇØ¼­ ¹è¿­¿¡ ´ãÀÚ 
+	// ê°ê°ì˜ ìŠ¤í‚¬ì„ ì •ë ¬í•´ì„œ ë°°ì—´ì— ë‹´ì 
 	for( int i = 1; i < m_aPropSkill.GetSize(); i++ )
 	{
 		ItemProp* pItemProp = (ItemProp*)m_aPropSkill.GetAt( i );
@@ -410,7 +410,7 @@ void CProject::LoadSkill()
 		}
 	}
 
-	// ¼ÒÆ®ÇÏ±â 
+	// ì†ŒíŠ¸í•˜ê¸° 
 	for( int i = 0; i < MAX_JOB; i++ )
 	{
 		ItemProp** apJobSkill = m_aJobSkill[ i ];
@@ -423,7 +423,7 @@ BOOL CProject::LoadMiniGame()
 {
 	if( m_MiniGame.Load_Alphabet() == FALSE )
 	{
-		// ¸Ş¼¼Áö Ã³¸®
+		// ë©”ì„¸ì§€ ì²˜ë¦¬
 	}
 
 	if( m_MiniGame.Load_KawiBawiBo() == FALSE )
@@ -626,7 +626,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 #endif	// __WORLDSERVER
 #endif	// __EVENT_0117
 
-#ifdef __CLIENT	// Å¬¶óÀÌ¾ğÆ®¸¸ ·Îµå
+#ifdef __CLIENT	// í´ë¼ì´ì–¸íŠ¸ë§Œ ë¡œë“œ
 	CEventGeneric::GetInstance()->LoadScript( "propEvent.inc" );
 	LoadFilter( GetLangFileName( ::GetLanguage(), FILE_FILTER ) );
 #ifndef __RULE_0615
@@ -922,7 +922,7 @@ AddSkillProp* CProject::GetAddSkillProp( DWORD dwSubDefine, DWORD dwLevel )
 
 	if( nskillIndex < 0 || nskillIndex >= m_aPropAddSkill.GetSize() )	
 	{
-		Error( "CProject::GetAddSkillProp ¹üÀ§Ä§¹ü. %d", nskillIndex );
+		Error( "CProject::GetAddSkillProp ë²”ìœ„ì¹¨ë²”. %d", nskillIndex );
 		return 0;
 	}
 	
@@ -985,7 +985,7 @@ BOOL CProject::LoadEtc( LPCTSTR lpszFileName )
 
 BOOL CProject::LoadMotionProp( LPCTSTR lpszFileName )
 {
-	// ¹öÀü  ¸ğ¼Ç ÀÎµ¦½º  ¿ä±¸Lv  ¿ä±¸°æÇèÄ¡  Ç¥½Ã´Ü¾î ·çÆ®¸í ¿¬°á´Ü¾î 
+	// ë²„ì „  ëª¨ì…˜ ì¸ë±ìŠ¤  ìš”êµ¬Lv  ìš”êµ¬ê²½í—˜ì¹˜  í‘œì‹œë‹¨ì–´ ë£¨íŠ¸ëª… ì—°ê²°ë‹¨ì–´ 
 	CScript script;
 	if( script.Load( lpszFileName, FALSE ) == FALSE )
 		return FALSE;
@@ -993,7 +993,7 @@ BOOL CProject::LoadMotionProp( LPCTSTR lpszFileName )
 	ZeroMemory( &MotionProp, sizeof( MotionProp ) );
 
 
-	int nVer = script.GetNumber();  // version		061206 ma	8Â÷¿¡ µé¾î°¥ ¸ğ¼Ç°ü¸®¸¦ À§ÇØ ¹öÀü Ãß°¡	propMotion.txt
+	int nVer = script.GetNumber();  // version		061206 ma	8ì°¨ì— ë“¤ì–´ê°ˆ ëª¨ì…˜ê´€ë¦¬ë¥¼ ìœ„í•´ ë²„ì „ ì¶”ê°€	propMotion.txt
 
 	while( script.tok != FINISHED )
 	{
@@ -1009,7 +1009,7 @@ BOOL CProject::LoadMotionProp( LPCTSTR lpszFileName )
 		script.GetToken();  
 		script.GetToken();  
 		if( strlen(script.m_mszToken) >= sizeof(MotionProp.szIconName) )
-			Error( "LoadMotionProp : ¸Ş¸ğ¸®Ä§¹ü. %s ¹öÆÛÅ©±â(%d), ½ºÆ®¸µ±æÀÌ(%d)", script.m_mszToken, sizeof(MotionProp.szIconName), strlen(script.m_mszToken) );
+			Error( "LoadMotionProp : ë©”ëª¨ë¦¬ì¹¨ë²”. %s ë²„í¼í¬ê¸°(%d), ìŠ¤íŠ¸ë§ê¸¸ì´(%d)", script.m_mszToken, sizeof(MotionProp.szIconName), strlen(script.m_mszToken) );
 		strcpy( MotionProp.szIconName, script.m_mszToken );
 		script.GetToken();  
 		MotionProp.dwPlay = (DWORD)script.GetNumber();
@@ -1452,8 +1452,8 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 		#endif
 
 #if __VER >= 9	// __PET_0410
-		propQuest.m_nBeginCondPetLevel	= -1;	// PL_EGG°¡ 0ÀÌ¹Ç·Î ±âº»°ªÀº -1
-		propQuest.m_nEndCondPetLevel	= -1;	// PL_EGG°¡ 0ÀÌ¹Ç·Î ±âº»°ªÀº -1
+		propQuest.m_nBeginCondPetLevel	= -1;	// PL_EGGê°€ 0ì´ë¯€ë¡œ ê¸°ë³¸ê°’ì€ -1
+		propQuest.m_nEndCondPetLevel	= -1;	// PL_EGGê°€ 0ì´ë¯€ë¡œ ê¸°ë³¸ê°’ì€ -1
 #endif	// __PET_0410
 #if __VER >= 12 // __MOD_TUTORIAL
 		propQuest.m_nBeginCondTutorialState		= -1;
@@ -1499,7 +1499,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 			{
 				script.GetToken(); // (
 				script.GetToken(); // key
-#if __VER >= 13 // chipi_090702 : ±¹°¡ ÄÚµå Ãß°¡
+#if __VER >= 13 // chipi_090702 : êµ­ê°€ ì½”ë“œ ì¶”ê°€
 				char szKey[512] = {0,};
 				strcpy( szKey, script.token );
 				
@@ -1516,10 +1516,10 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				}
 				szLinkCharNum = 0;
 				strcpy( szLinkChar[ szLinkCharNum ], szKey ); 
-#else // chipi_090702 : ±¹°¡ ÄÚµå Ãß°¡
+#else // chipi_090702 : êµ­ê°€ ì½”ë“œ ì¶”ê°€
 				szLinkCharNum = 0;
 				strcpy( szLinkChar[ szLinkCharNum ], script.token );
-#endif // chipi_090702 : ±¹°¡ ÄÚµå Ãß°¡
+#endif // chipi_090702 : êµ­ê°€ ì½”ë“œ ì¶”ê°€
 				LPCHARACTER lpCharacter = GetCharacter( szLinkChar[ szLinkCharNum++ ] );
 				if( lpCharacter ) 
 				{
@@ -1546,14 +1546,14 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 					}
 					else
 					{
-						Error( "%s(%d) : %s°¡ Á¸ÀçÇÏÁö ¾ÊÀ½", lpszFileName, script.GetLineNum(), szLinkChar[ szLinkCharNum ] );
+						Error( "%s(%d) : %sê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŒ", lpszFileName, script.GetLineNum(), szLinkChar[ szLinkCharNum ] );
 					}
 					szLinkCharNum++;
 					script.GetToken(); // , or )
 				} while( *script.token != ')' && szLinkCharNum < 10 );
 			}
 			else
-			// ½ÃÀÛ - Á¶°Ç 
+			// ì‹œì‘ - ì¡°ê±´ 
 			if( script.Token == "SetBeginCondSex" )
 			{
 				script.GetToken(); // (
@@ -1586,7 +1586,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nType == 0 && nJobOrItem >= MAX_QUESTCONDITEM )
 				{
 					nJobOrItem = -1;
-					Error( "%s(%d) SetBeginCondNotItem ¹üÀ§ ÃÊ°ú(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
+					Error( "%s(%d) SetBeginCondNotItem ë²”ìœ„ ì´ˆê³¼(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
 				}
 				script.GetToken(); // ,
 				aBeginCondNotItem[ nBeginCondNotItemNum ].m_nSex = nSex;
@@ -1659,7 +1659,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 			if( script.Token == "SetBeginCondPreviousQuest" )
 			{
 				script.GetToken(); // (
-				propQuest.m_nBeginCondPreviousQuestType = script.GetNumber(); // 0 ½ÃÀÛÁß, 1 ÀÌÀü Äù½ºÆ® ¿Ï·á
+				propQuest.m_nBeginCondPreviousQuestType = script.GetNumber(); // 0 ì‹œì‘ì¤‘, 1 ì´ì „ í€˜ìŠ¤íŠ¸ ì™„ë£Œ
 				script.GetToken(); // ,
 				int nCnt = 0;
 				do
@@ -1691,7 +1691,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nType == 0 && nJobOrItem >= MAX_QUESTCONDITEM )
 				{
 					nJobOrItem = -1;
-					Error( "%s(%d) SetBeginCondItem ¹üÀ§ ÃÊ°ú(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
+					Error( "%s(%d) SetBeginCondItem ë²”ìœ„ ì´ˆê³¼(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
 				}
 				script.GetToken(); // ,
 				aBeginCondItem[ nBeginCondItemNum ].m_nSex = nSex;
@@ -1710,7 +1710,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 			}
 			else
 			//////////////////////////////////////////////////////////////////
-			// ½ÃÀÛ - Ãß°¡ ¹× º¯°æ 
+			// ì‹œì‘ - ì¶”ê°€ ë° ë³€ê²½ 
 			//////////////////////////////////////////////////////////////////
 			if( script.Token == "SetBeginSetDisguise" )
 			{
@@ -1731,7 +1731,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nIdx < 0 || nIdx > 3 )
 				{
 					nIdx = 0;
-					Error( "%s(%d) SetBeginSetAddItem Idx °ª ¹üÀ§ ÃÊ°ú(0~3)", lpszFileName, script.GetLineNum() ); 
+					Error( "%s(%d) SetBeginSetAddItem Idx ê°’ ë²”ìœ„ ì´ˆê³¼(0~3)", lpszFileName, script.GetLineNum() ); 
 				}
 				script.GetToken(); // ,
 				propQuest.m_nBeginSetAddItemIdx[nIdx] = script.GetNumber();
@@ -1765,7 +1765,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 			}
 #endif // __CAMPUS
 			else 
-			////////////////////////// Á¾·á - Á¶°Ç 
+			////////////////////////// ì¢…ë£Œ - ì¡°ê±´ 
 			if( script.Token == "SetEndCondParty" ) 
 			{
 				script.GetToken(); // (
@@ -1825,7 +1825,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				script.GetToken(); // ,
 				propQuest.m_nEndCondLevelMax = script.GetNumber();
 			}
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 			else
 			if( script.Token == "SetEndCondExpPercent" )
 			{
@@ -1834,7 +1834,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				script.GetToken(); // ,
 				propQuest.m_nEndCondExpPercentMax = script.GetNumber();
 			}
-#endif//	__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif//	__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 			else
 			if( script.Token == "SetEndCondGold" )
 			{
@@ -1853,7 +1853,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nType == 0 && nJobOrItem >= MAX_QUESTCONDITEM )
 				{
 					nJobOrItem = -1;
-					Error( "%s(%d) SetEndCondOneItem ¹üÀ§ ÃÊ°ú(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
+					Error( "%s(%d) SetEndCondOneItem ë²”ìœ„ ì´ˆê³¼(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
 				}
 				script.GetToken(); // ,
 				
@@ -1899,7 +1899,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nType == 0 && nJobOrItem >= MAX_QUESTCONDITEM )
 				{
 					nJobOrItem = -1;
-					Error( "%s(%d) SetEndCondItem ¹üÀ§ ÃÊ°ú(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
+					Error( "%s(%d) SetEndCondItem ë²”ìœ„ ì´ˆê³¼(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
 				}
 				script.GetToken(); // ,
 
@@ -1936,7 +1936,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nIdx < 0 || nIdx > MAX_QUEST_COND_KILL )
 				{
 					nIdx = 0;
-					Error( "%s(%d) SetEndCondKillNPC¿¡¼­ Idx °ª ¹üÀ§ ÃÊ°ú(0~1)", lpszFileName, script.GetLineNum() ); 
+					Error( "%s(%d) SetEndCondKillNPCì—ì„œ Idx ê°’ ë²”ìœ„ ì´ˆê³¼(0~1)", lpszFileName, script.GetLineNum() ); 
 				}
 				script.GetToken(); // ,
 				propQuest.m_nEndCondKillNPCIdx[nIdx] = script.GetNumber();
@@ -1998,7 +1998,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 			{
 				script.GetToken(); // (
 				script.GetToken(); // "key"
-				// ½ºÆ®¸µÀÌ ¾øÀ¸¸é szLinkChar¿¡ ¼¼ÆÃµÈ °ÍÀ¸·Î ´ëÃ¼ÇÑ´Ù. Áï ÀÚ±â ÀÚ½ÅÀÌ´Ù.
+				// ìŠ¤íŠ¸ë§ì´ ì—†ìœ¼ë©´ szLinkCharì— ì„¸íŒ…ëœ ê²ƒìœ¼ë¡œ ëŒ€ì²´í•œë‹¤. ì¦‰ ìê¸° ìì‹ ì´ë‹¤.
 				if( strlen( script.token ) == 0 )
 					strcpy( propQuest.m_szEndCondCharacter, szLinkChar[ 0 ] );
 				else
@@ -2067,7 +2067,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 					}
 					else
 					{
-						Error( "%s(%d) : %s°¡ Á¸ÀçÇÏÁö ¾ÊÀ½", lpszFileName, script.GetLineNum(), szLinkChar[ szLinkCharNum ] );
+						Error( "%s(%d) : %sê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŒ", lpszFileName, script.GetLineNum(), szLinkChar[ szLinkCharNum ] );
 					}
 					szEndCondCharNum++;
 					script.GetToken(); // , or )
@@ -2124,7 +2124,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nIdx < 0 || nIdx > 3 )
 				{
 					nIdx = 0;
-					Error( "%s(%d) SetParam Idx °ª ¹üÀ§ ÃÊ°ú(0~3)", lpszFileName, script.GetLineNum() ); 
+					Error( "%s(%d) SetParam Idx ê°’ ë²”ìœ„ ì´ˆê³¼(0~3)", lpszFileName, script.GetLineNum() ); 
 				}
 				script.GetToken(); // ,
 				propQuest.m_nParam[ nIdx ] = script.GetNumber();
@@ -2138,7 +2138,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 			}
 #endif // __CAMPUS
 			else
-			////////////////////////// ´ëÈ­ - º¸»ó 
+			////////////////////////// ëŒ€í™” - ë³´ìƒ 
 			if( script.Token == "SetDlgRewardItem" )
 			{
 				script.GetToken(); // (
@@ -2146,7 +2146,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nIdx < 0 || nIdx > 3 )
 				{
 					nIdx = 0;
-					Error( "%s(%d) SetDlgRewardItem Idx °ª ¹üÀ§ ÃÊ°ú(0~3)", lpszFileName, script.GetLineNum() ); 
+					Error( "%s(%d) SetDlgRewardItem Idx ê°’ ë²”ìœ„ ì´ˆê³¼(0~3)", lpszFileName, script.GetLineNum() ); 
 				}
 				script.GetToken(); // ,
 				propQuest.m_nDlgRewardItemIdx[ nIdx ] = script.GetNumber();
@@ -2167,7 +2167,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nType == 0 && nJobOrItem >= MAX_QUESTCONDITEM )
 				{
 					nJobOrItem = -1;
-					Error( "%s(%d) SetEndRewardItem °ª ¹üÀ§ ÃÊ°ú(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
+					Error( "%s(%d) SetEndRewardItem ê°’ ë²”ìœ„ ì´ˆê³¼(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
 				}
 				script.GetToken(); // ,
 
@@ -2179,7 +2179,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				aEndRewardItem[ nEndRewardItemNum ].m_nItemNum = script.GetNumber();
 #if __VER >= 13 // __CHIPI_QUESTITEM_FLAG
 				script.GetToken();
-				if( script.Token == "," )	// , (±Í¼Ó¼³Á¤)
+				if( script.Token == "," )	// , (ê·€ì†ì„¤ì •)
 					aEndRewardItem[ nEndRewardItemNum ].m_byFlag = static_cast<BYTE>( script.GetNumber() );
 #endif // __CHIPI_QUESTITEM_FLAG
 			
@@ -2197,7 +2197,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nType == 0 && nJobOrItem >= MAX_QUESTCONDITEM )
 				{
 					nJobOrItem	= -1;
-					Error( "%s(%d) SetEndRewardItem °ª ¹üÀ§ ÃÊ°ú(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
+					Error( "%s(%d) SetEndRewardItem ê°’ ë²”ìœ„ ì´ˆê³¼(0~%d)", lpszFileName, script.GetLineNum(), MAX_QUESTCONDITEM ); 
 				}
 				script.GetToken();	// ,
 				aEndRewardItem[nEndRewardItemNum].m_nSex	= nSex;
@@ -2210,7 +2210,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				aEndRewardItem[nEndRewardItemNum].m_nAbilityOption	= script.GetNumber();
 #if __VER >= 13 // __CHIPI_QUESTITEM_FLAG
 				script.GetToken();
-				if( script.Token == "," )	// , (±Í¼Ó¼³Á¤)
+				if( script.Token == "," )	// , (ê·€ì†ì„¤ì •)
 					aEndRewardItem[ nEndRewardItemNum ].m_byFlag = static_cast<BYTE>( script.GetNumber() );
 #endif // __CHIPI_QUESTITEM_FLAG
 			
@@ -2285,7 +2285,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				propQuest.m_bEndRewardHide = ( script.GetNumber() != 0 );
 			}
 			else
-			// Á¾·á Äù½ºÆ® Á¦°Å 
+			// ì¢…ë£Œ í€˜ìŠ¤íŠ¸ ì œê±° 
 			if( script.Token == "SetEndRemoveQuest" )
 			{
 				script.GetToken(); // (
@@ -2297,7 +2297,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				} while( *script.token != ')' && nRemoveQuestIdx < MAX_QUESTREMOVE );
 			}
 			else
-			// Á¾·á ¾ÆÀÌÅÛ Á¦°Å 
+			// ì¢…ë£Œ ì•„ì´í…œ ì œê±° 
 			if( script.Token == "SetEndRemoveItem" )
 			{
 				script.GetToken(); // (
@@ -2305,7 +2305,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( nIdx < 0 || nIdx > 7 )
 				{
 					nIdx = 0;
-					Error( "%s(%d) SetEndRemoveItem Idx °ª ¹üÀ§ ÃÊ°ú(0~3)", lpszFileName, script.GetLineNum() ); 
+					Error( "%s(%d) SetEndRemoveItem Idx ê°’ ë²”ìœ„ ì´ˆê³¼(0~3)", lpszFileName, script.GetLineNum() ); 
 				}
 				script.GetToken(); // ,
 				propQuest.m_nEndRemoveItemIdx[ nIdx ] = script.GetNumber();
@@ -2382,7 +2382,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				if( string.GetLength() < 64 )
 					strcpy( propQuest.m_szPatrolZoneName, string );
 				else
-					Error( "%s(%d) SetPatrolZoneName ½ºÆ®¸µ 64¹ÙÀÌÆ® ÃÊ°ú", lpszFileName, script.GetLineNum() ); 
+					Error( "%s(%d) SetPatrolZoneName ìŠ¤íŠ¸ë§ 64ë°”ì´íŠ¸ ì´ˆê³¼", lpszFileName, script.GetLineNum() ); 
 			}
 			else
 			if( script.Token == "SetHeadQuest" )
@@ -2477,10 +2477,10 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 					{
 						script.GetToken(); // (
 						CString string = GetLangScript( script );
-						if( string.GetLength() < 512 ) // null ¶§¹®¿¡ 255
+						if( string.GetLength() < 512 ) // null ë•Œë¬¸ì— 255
 							strcpy(	pQuestState->m_szDesc, string );
 						else
-							Error( "%s(%d) LoadPropQuestÀÇ SetDesc ±æÀÌ ÃÊ°ú", lpszFileName, script.GetLineNum() ); 
+							Error( "%s(%d) LoadPropQuestì˜ SetDesc ê¸¸ì´ ì´ˆê³¼", lpszFileName, script.GetLineNum() ); 
 
 					}
 					else
@@ -2499,10 +2499,10 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 				}
 			}
 		}
-		// EndCondCharacter¼¼ÆÃÀÌ ¾ÈµÆ´Ù¸é LinkChar·Î ´ëÃ¼ÇÑ´Ù.
+		// EndCondCharacterì„¸íŒ…ì´ ì•ˆëë‹¤ë©´ LinkCharë¡œ ëŒ€ì²´í•œë‹¤.
 		if( bEndCondCharacter == FALSE )
 		{
-			// ½ºÆ®¸µÀÌ ¾øÀ¸¸é szLinkChar¿¡ ¼¼ÆÃµÈ °ÍÀ¸·Î ´ëÃ¼ÇÑ´Ù. Áï ÀÚ±â ÀÚ½ÅÀÌ´Ù.
+			// ìŠ¤íŠ¸ë§ì´ ì—†ìœ¼ë©´ szLinkCharì— ì„¸íŒ…ëœ ê²ƒìœ¼ë¡œ ëŒ€ì²´í•œë‹¤. ì¦‰ ìê¸° ìì‹ ì´ë‹¤.
 			if( szLinkCharNum == 1 )
 			{
 				LPCHARACTER lpCharacter = GetCharacter( szLinkChar[ 0 ] );
@@ -2565,7 +2565,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 		}
 
 		BOOL bAdd	= TRUE;
-		// °¡À§ ¹ÙÀ§ º¸ Äù½ºÆ®´Â ´ë¸¸¿¡ ÇÑÇÔ	// Äù½ºÆ® »èÁ¦
+		// ê°€ìœ„ ë°”ìœ„ ë³´ í€˜ìŠ¤íŠ¸ëŠ” ëŒ€ë§Œì— í•œí•¨	// í€˜ìŠ¤íŠ¸ ì‚­ì œ
 		if( //::GetLanguage() != LANG_TWN && 
 			nQuest == QUEST_KAWIBAWIBO01 )
 			bAdd	= FALSE;
@@ -2581,7 +2581,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 }
 
 const DWORD	dwDefault	= (DWORD)0xFFFFFFFF;
-// propSkill.txt ·Îµù ÀÌÈÄ¿¡ ÇØ¾ßÇÑ´Ù.
+// propSkill.txt ë¡œë”© ì´í›„ì— í•´ì•¼í•œë‹¤.
 BOOL CProject::LoadPropAddSkill( LPCTSTR lpszFileName )
 {
 	CScript script;
@@ -2591,7 +2591,7 @@ BOOL CProject::LoadPropAddSkill( LPCTSTR lpszFileName )
 	int i = script.GetNumber( TRUE ); // id
 	while ( script.tok != FINISHED )
 	{
-		if( i == 0 )			// ÀÌ°Å ¾øÀ¸´Ï±î ÆÄÀÏµÚ¿¡ °ø¹éÀÖ´Â°Íµµ ÁÙÁÙÈ÷ ÀĞ´õ¶ó
+		if( i == 0 )			// ì´ê±° ì—†ìœ¼ë‹ˆê¹Œ íŒŒì¼ë’¤ì— ê³µë°±ìˆëŠ”ê²ƒë„ ì¤„ì¤„íˆ ì½ë”ë¼
 			break;
 		propAddSkill.dwID = i;
 		propAddSkill.dwName = script.GetNumber( TRUE );
@@ -2599,8 +2599,8 @@ BOOL CProject::LoadPropAddSkill( LPCTSTR lpszFileName )
 		propAddSkill.dwAbilityMin = script.GetNumber( TRUE );
 		propAddSkill.dwAbilityMax = script.GetNumber( TRUE );
 #if __VER >= 9	// __SKILL_0706
-		propAddSkill.dwAbilityMinPVP	= script.GetNumber( TRUE );		// ´ëÀÎ È¿°ú ÃÖ¼Ò
-		propAddSkill.dwAbilityMaxPVP	= script.GetNumber( TRUE );		// ´ëÀÎ È¿°ú ÃÖ´ë
+		propAddSkill.dwAbilityMinPVP	= script.GetNumber( TRUE );		// ëŒ€ì¸ íš¨ê³¼ ìµœì†Œ
+		propAddSkill.dwAbilityMaxPVP	= script.GetNumber( TRUE );		// ëŒ€ì¸ íš¨ê³¼ ìµœëŒ€
 #endif	// __SKILL_0706
 		propAddSkill.dwAttackSpeed = script.GetNumber( TRUE );
 		propAddSkill.dwDmgShift = script.GetNumber( TRUE );
@@ -2688,11 +2688,11 @@ BOOL CProject::LoadPropMoverEx( LPCTSTR szFileName )
 		MoverProp* pProp = GetMoverProp( nVal );
 		if(pProp == NULL)
 		{
-			TRACE("MoverAddProp¿¡¼­ Á¸ÀçÇØ¾ßµÉ base Property %s°¡ ¾ø´Ù. %s\n",script.Token);
+			TRACE("MoverAddPropì—ì„œ ì¡´ì¬í•´ì•¼ë  base Property %sê°€ ì—†ë‹¤. %s\n",script.Token);
 			continue;
 		}
 		
-		// ÃÊ±âÈ­
+		// ì´ˆê¸°í™”
 		pProp->m_nEvasionHP        = 0;
 		pProp->m_nEvasionSec       = 0;
 		pProp->m_nRunawayHP        = -1;
@@ -2719,12 +2719,12 @@ BOOL CProject::LoadPropMoverEx( LPCTSTR szFileName )
 				script.GetToken(); 
 				continue; 
 			} 
-			if( strcmpi( script.Token, "AI" ) == 0 )		// AIºí·°
+			if( strcmpi( script.Token, "AI" ) == 0 )		// AIë¸”ëŸ­
 			{
 				BOOL bRet = LoadPropMoverEx_AI( szFileName, script, nVal );
 				if ( bRet == FALSE )
 				{
-					Error( "%s : MoverID %s(%d)ÀÇ AI{} ºí·° ÀĞ±â ½ÇÆĞ", szFileName, pProp->szName, nVal );
+					Error( "%s : MoverID %s(%d)ì˜ AI{} ë¸”ëŸ­ ì½ê¸° ì‹¤íŒ¨", szFileName, pProp->szName, nVal );
 					return FALSE;
 				}
 			}
@@ -2740,7 +2740,7 @@ BOOL CProject::LoadPropMoverEx( LPCTSTR szFileName )
 				if (pProp->m_nAttackFirstRange > 10 || pProp->m_nAttackFirstRange <= 0)
 #endif
 				{
-					Error( "LoadPropMoverEx::m_nAttackFirstRange ÀÌ»ó:%d\n", pProp->m_nAttackFirstRange );
+					Error( "LoadPropMoverEx::m_nAttackFirstRange ì´ìƒ:%d\n", pProp->m_nAttackFirstRange );
 			}
 			}
 			else
@@ -2882,7 +2882,7 @@ BOOL CProject::LoadPropMoverEx( LPCTSTR szFileName )
 				script.GetToken();	// (
 				di.dwIndex	= script.GetNumber();	// specific item index
 				if( di.dwIndex == 0 )
-					Error( "%s : %s°¡ defineItem.h¿¡ Á¤ÀÇµÇÁö ¾Ê¾ÒÀ½", szFileName, script.token );
+					Error( "%s : %sê°€ defineItem.hì— ì •ì˜ë˜ì§€ ì•Šì•˜ìŒ", szFileName, script.token );
 				ASSERT( di.dwIndex != 0 );
 				script.GetToken();	// ,
 				di.dwProbability	= script.GetNumber();	// probability
@@ -2906,7 +2906,7 @@ BOOL CProject::LoadPropMoverEx( LPCTSTR szFileName )
 				int a = script.GetNumber();
 				script.GetToken();	// ,
 				int b = script.GetNumber();
-				dropKind.nMinUniq = (short)( pProp->dwLevel - 5 );		// ÀÚ±â·¹º§º¸´Ù 2~5·¹º§ ³·Àº ÅÛÀÌ µå¶øµÇµµ·Ï.
+				dropKind.nMinUniq = (short)( pProp->dwLevel - 5 );		// ìê¸°ë ˆë²¨ë³´ë‹¤ 2~5ë ˆë²¨ ë‚®ì€ í…œì´ ë“œëë˜ë„ë¡.
 				dropKind.nMaxUniq = (short)( pProp->dwLevel - 2 );
 				if( dropKind.nMinUniq < 1 )		
 					dropKind.nMinUniq = 1;
@@ -2923,7 +2923,7 @@ BOOL CProject::LoadPropMoverEx( LPCTSTR szFileName )
 				DROPITEM di;
 				memset( &di, 0, sizeof(DROPITEM) );	// clear
 				di.dtType = DROPTYPE_SEED;
-				di.dwProbability = 0xFFFFFFFF;	// ¹«Á¶°Ç ³ª¿À°Ô.
+				di.dwProbability = 0xFFFFFFFF;	// ë¬´ì¡°ê±´ ë‚˜ì˜¤ê²Œ.
 				script.GetToken();	// (
 				di.dwNumber = script.GetNumber();	// gold min
 				script.GetToken();	// ,
@@ -2967,9 +2967,9 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 	{
 		lpCharacter = new CHARACTER;
 		lpCharacter->Clear();
-		// ¸Ê¿¡ Ãß°¡µÇ´Â °ÍÀº lowercase´Ù. ±×·±µ¥, À¯ÀÏÇÑ key ½ºÆ®¸µÀÌ lowercase·Î ¸Ê¿¡ Ãß°¡µÇ¸é
-		// ¿øº» ÀÚÃ¼°¡ ¼Õ»óµÇ´Â °á°ú±¸ ±× ¸®½ºÆ®¸¦ »Ì¾Æ³¾ ¶§µµ ¸ğµÎ lowercase°¡ µÇ¹Ç·Î ¿øº»À» m_szKey¿¡
-		// º¸°üÇØµÎ´Â °ÍÀÌ´Ù.
+		// ë§µì— ì¶”ê°€ë˜ëŠ” ê²ƒì€ lowercaseë‹¤. ê·¸ëŸ°ë°, ìœ ì¼í•œ key ìŠ¤íŠ¸ë§ì´ lowercaseë¡œ ë§µì— ì¶”ê°€ë˜ë©´
+		// ì›ë³¸ ìì²´ê°€ ì†ìƒë˜ëŠ” ê²°ê³¼êµ¬ ê·¸ ë¦¬ìŠ¤íŠ¸ë¥¼ ë½‘ì•„ë‚¼ ë•Œë„ ëª¨ë‘ lowercaseê°€ ë˜ë¯€ë¡œ ì›ë³¸ì„ m_szKeyì—
+		// ë³´ê´€í•´ë‘ëŠ” ê²ƒì´ë‹¤.
 		_tcscpy( lpCharacter->m_szKey, strName );
 		strName.MakeLower();
 
@@ -2984,7 +2984,7 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 #ifdef _DEBUG
 		if( m_mapCharacter.Lookup( strName, (void*&)lpCharacter ) )
 		{
-			Error( "%s¿¡¼­ µ¿ÀÏÇÑ %s ¹ß°ß", szFileName, strName );
+			Error( "%sì—ì„œ ë™ì¼í•œ %s ë°œê²¬", szFileName, strName );
 		}
 #endif
 		m_mapCharacter.SetAt( strName, lpCharacter);
@@ -3061,7 +3061,7 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 				lpCharacter->m_nStructure = script.GetNumber();
 			}
 			else
-			if(script.Token == "m_szChar") // "SetImage"¶û °°´Ù Â÷ÈÄ »èÁ¦ ¿¹Á¤ 
+			if(script.Token == "m_szChar") // "SetImage"ë‘ ê°™ë‹¤ ì°¨í›„ ì‚­ì œ ì˜ˆì • 
 			{ 
 				script.GetToken();
 				CString filename = GetLangScript( script );
@@ -3119,7 +3119,7 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 					lpCharacter->m_abMoverMenu[ nMMI ] = TRUE;
 			}
 			else
-			if(script.Token == "AddVenderSlot" ) // "AddVendorSlot"¶û °°´Ù »èÁ¦ ¿¹Á¤ 
+			if(script.Token == "AddVenderSlot" ) // "AddVendorSlot"ë‘ ê°™ë‹¤ ì‚­ì œ ì˜ˆì • 
 			{
 				script.GetToken(); // (
 				int nSlot = script.GetNumber(); script.GetToken(); // 
@@ -3136,7 +3136,7 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 				lpCharacter->m_venderSlot[ nSlot ] = GetLangScript( script );
 			}
 #ifdef __RULE_0615
-			// ±¹°¡º° ÆÇ¸Å ¾ÆÀÌÅÛ µî·Ï
+			// êµ­ê°€ë³„ íŒë§¤ ì•„ì´í…œ ë“±ë¡
 			else if( script.Token == "AddVendorSlotLang" )
 			{
 				script.GetToken(); // (
@@ -3322,7 +3322,7 @@ BOOL CProject::SetPlayerID( u_long idPlayer, const CHAR* lpszPlayer )
 {
 	if( GetPlayerString( idPlayer ) == NULL )
 	{
-		m_str2ulong.erase( lpszPlayer );	// Ë¬	// 2006/09/18
+		m_str2ulong.erase( lpszPlayer );	// åº·	// 2006/09/18
 		m_str2ulong.insert( STRING2ULONG::value_type( lpszPlayer, idPlayer ) );
 		m_ulong2str.insert( ULONG2STRING::value_type( idPlayer, lpszPlayer ) );
 		return TRUE;
@@ -3543,9 +3543,9 @@ BOOL CProject::LoadExpTable( LPCTSTR lpszFileName )
 			}
 
 			if( j != 6 )
-				Error( "CProject::LoadExpTable : expUpitem ºí·°ÀÇ µ¥ÀÌÅ¸ ¿­°³¼ö°¡ ¸ÂÁö ¾Ê´Ù. %d", j );
+				Error( "CProject::LoadExpTable : expUpitem ë¸”ëŸ­ì˜ ë°ì´íƒ€ ì—´ê°œìˆ˜ê°€ ë§ì§€ ì•Šë‹¤. %d", j );
 			if( i != 21 )
-				Error( "CProject::LoadExpTable : expUpitem ºí·°ÀÇ µ¥ÀÌÅ¸ Çà°³¼ö°¡ ¸ÂÁö ¾Ê´Ù. %d", j );
+				Error( "CProject::LoadExpTable : expUpitem ë¸”ëŸ­ì˜ ë°ì´íƒ€ í–‰ê°œìˆ˜ê°€ ë§ì§€ ì•Šë‹¤. %d", j );
 			
 
 		} // expUpitem
@@ -3638,10 +3638,10 @@ ObjProp* CProject::GetProp( int nType, int nIndex )
 	return NULL;
 }
 
-// ÇÁ·ÎÆÛÆ¼ ¸Ş¸ğ¸®¸¦ ÀĞ±âÀü¿ëÀ¸·Î º¯°æÇÑ´Ù.
+// í”„ë¡œí¼í‹° ë©”ëª¨ë¦¬ë¥¼ ì½ê¸°ì „ìš©ìœ¼ë¡œ ë³€ê²½í•œë‹¤.
 void CProject::ProtectPropMover()
 {
-// ¹é¿£µå ½Ã½ºÅÛÀ» À§ÇØ¼­ ¸·¾ÆµĞ´Ù.
+// ë°±ì—”ë“œ ì‹œìŠ¤í…œì„ ìœ„í•´ì„œ ë§‰ì•„ë‘”ë‹¤.
 //	DWORD dwOld;
 //	::VirtualProtect( m_pPropMover, sizeof(MoverProp) * MAX_PROPMOVER, PAGE_READONLY, &dwOld );
 }
@@ -3740,7 +3740,7 @@ BOOL CProject::LoadDropEvent( LPCTSTR lpszFileName )
 
 BOOL CProject::SortDropItem( void )
 {
-	// DROPITEMÀÇ dwProbability ³»¸²Â÷¼øÀ¸·Î Sortting 
+	// DROPITEMì˜ dwProbability ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ Sortting 
 	for( int i = 0; i < m_nMoverPropSize; i++ )
 	{
 		MoverProp* pProp	= m_pPropMover + i;
@@ -4006,7 +4006,7 @@ BOOL CProject::LoadGiftbox( LPCTSTR lpszFileName )
 				dwProbability	= s.GetNumber();
 				nNum	= s.GetNumber();
 				nFlag	= s.GetNumber();
-				nSpan	= s.GetNumber();	// ±â°£
+				nSpan	= s.GetNumber();	// ê¸°ê°„
 				
 				if( !CGiftboxMan::GetInstance()->AddItem( dwGiftbox, dwItem, dwProbability * dwPrecision, nNum, nFlag, nSpan ) )
 					return FALSE;
@@ -4023,7 +4023,7 @@ BOOL CProject::LoadGiftbox( LPCTSTR lpszFileName )
 				dwProbability	= s.GetNumber();
 				nNum	= s.GetNumber();
 				nFlag	= s.GetNumber();
-				nSpan	= s.GetNumber();	// ±â°£
+				nSpan	= s.GetNumber();	// ê¸°ê°„
 				nAbilityOption	= s.GetNumber();	// +
 				
 				if( !CGiftboxMan::GetInstance()->AddItem( dwGiftbox, dwItem, dwProbability * 10, nNum, nFlag, nSpan, nAbilityOption ) )
@@ -4577,21 +4577,21 @@ void CRandomOptItemGen::Arrange( void )
 		nPrevious	= i;
 	}
 
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
-#if __VER >= 15 // __HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 15 // __HERO129_VER15				// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 	
 	for( int i = nLevel; i <= MAX_MONSTER_LEVEL; i++ )
 		m_anIndex[i-1]	= nPrevious;
-	#else	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+	#else	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 	for( int i = nLevel; i <= MAX_LEGEND_LEVEL; i++ )
 		m_anIndex[i-1]	= nPrevious;
-	#endif	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+	#endif	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	for( int i = nLevel; i <= MAX_GENERAL_LEVEL; i++ )
 		m_anIndex[i-1]	= nPrevious;
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 }
 
 int CRandomOptItemGen::GenRandomOptItem( int nLevel, FLOAT fPenalty, ItemProp* pItemProp, DWORD dwClass )
@@ -4602,10 +4602,10 @@ int CRandomOptItemGen::GenRandomOptItem( int nLevel, FLOAT fPenalty, ItemProp* p
 	if( pItemProp->dwItemKind1 != IK1_WEAPON && pItemProp->dwItemKind1 != IK1_ARMOR )
 		return 0;
 
-#if __VER >= 15 // __HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 15 // __HERO129_VER15				// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 	if( nLevel >= MAX_MONSTER_LEVEL )
 		nLevel = MAX_MONSTER_LEVEL - 1 ;
-#endif	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#endif	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 
 	int i	= m_anIndex[nLevel];
 
@@ -4614,7 +4614,7 @@ int CRandomOptItemGen::GenRandomOptItem( int nLevel, FLOAT fPenalty, ItemProp* p
 		int nIndex	= xRandom( i + 1 );
 		DWORD dwRandom	= xRandom( 3000000000 );
 		if( dwClass == RANK_MIDBOSS )
-			dwRandom	/= 5;	// ÁØ º¸½º ¸ó½ºÅÍ ·£´ı ¿É¼Ç È®·ü 500%
+			dwRandom	/= 5;	// ì¤€ ë³´ìŠ¤ ëª¬ìŠ¤í„° ëœë¤ ì˜µì…˜ í™•ë¥  500%
 		DWORD dwProbability	= (DWORD)(m_aRandomOptItem[nIndex].dwProbability * fPenalty);
 		if( dwRandom < dwProbability )
 			return m_aRandomOptItem[nIndex].nId;
@@ -4658,7 +4658,7 @@ BOOL CProject::IsGuildQuestRegion( const D3DXVECTOR3 & vPos )
 }
 
 
-//LoadPropItem¸¦ È£ÃâÇÏ°í ÈÄÃ³¸®¸¦ ÇÑ´Ù.
+//LoadPropItemë¥¼ í˜¸ì¶œí•˜ê³  í›„ì²˜ë¦¬ë¥¼ í•œë‹¤.
 void CProject::OnAfterLoadPropItem()
 {
 	for( int i = 0; i < m_aPropItem.GetSize(); i++ )
@@ -4789,7 +4789,7 @@ BOOL CProject::LoadExcept( LPCTSTR lpszFilename )
 						}
 #endif	// __JEFF_9_20
 						else if( s.Token == "dwSkillReadyType" )
-						{	// ±İ¶õÁö±³
+						{	// ê¸ˆë€ì§€êµ
 							s.GetToken();	// =
 							pItemProp->dwSkillReadyType		= s.GetNumber();
 							s.GetToken();	// ;
@@ -4818,7 +4818,7 @@ JobProp* CProject::GetJobProp( int nIndex )
 {
 	if( nIndex < 0 || nIndex >= MAX_JOB )
 	{
-		LPCTSTR szErr = Error( "CProject::GetJobProp ¹üÀ§Ä§¹ü. %d", nIndex );
+		LPCTSTR szErr = Error( "CProject::GetJobProp ë²”ìœ„ì¹¨ë²”. %d", nIndex );
 		ADDERRORMSG( szErr );
 		return NULL;
 	}
@@ -4832,8 +4832,8 @@ BOOL CProject::LoadPropEnchant( LPCTSTR lpszFileName )
 	if( scanner.Load( lpszFileName, FALSE ) == FALSE )
 	{
 #ifdef __CLIENT
-		MessageBox( g_Neuz.GetSafeHwnd(), "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Enchant", "ÇÁ¸®ÇÁ", MB_OK );
-		ADDERRORMSG( "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Enchant" );
+		MessageBox( g_Neuz.GetSafeHwnd(), "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Enchant", "í”„ë¦¬í”„", MB_OK );
+		ADDERRORMSG( "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Enchant" );
 #endif //__CLIENT
 		return FALSE;
 	}
@@ -4889,15 +4889,15 @@ BOOL CProject::LoadPropEnchant( LPCTSTR lpszFileName )
 #endif //__Y_ADV_ENCHANT_EFFECT
 
 
-// propJob.inc¸¦ ÀĞ¾îµéÀÎ´Ù.
+// propJob.incë¥¼ ì½ì–´ë“¤ì¸ë‹¤.
 BOOL CProject::LoadPropJob( LPCTSTR lpszFileName )
 {
 	CScript scanner;
 	if( scanner.Load( lpszFileName, FALSE ) == FALSE )
 	{
 #ifdef __CLIENT
-		MessageBox( g_Neuz.GetSafeHwnd(), "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Job", "ÇÁ¸®ÇÁ", MB_OK );
-		ADDERRORMSG( "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Job" );
+		MessageBox( g_Neuz.GetSafeHwnd(), "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Job", "í”„ë¦¬í”„", MB_OK );
+		ADDERRORMSG( "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Job" );
 #endif //__CLIENT
 		return FALSE;
 	}
@@ -4937,8 +4937,8 @@ BOOL CProject::LoadPropCtrl( LPCTSTR lpszFileName, CFixedArray<CtrlProp>*	apObjP
 	if( scanner.Load( lpszFileName, FALSE ) == FALSE )
 	{
 #ifdef __CLIENT
-		MessageBox( g_Neuz.GetSafeHwnd(), "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Ctrl", "ÇÁ¸®ÇÁ", MB_OK );
-		ADDERRORMSG( "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Ctrl" );
+		MessageBox( g_Neuz.GetSafeHwnd(), "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Ctrl", "í”„ë¦¬í”„", MB_OK );
+		ADDERRORMSG( "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Ctrl" );
 #endif //__CLIENT
 		return FALSE;
 	}
@@ -4953,7 +4953,7 @@ BOOL CProject::LoadPropCtrl( LPCTSTR lpszFileName, CFixedArray<CtrlProp>*	apObjP
 	{
 		ctrlProp.dwID = i;    
 		if( i <= 0 )
-			Error( "%s ÀĞ´Ù°¡ ID°¡ %dÀÌ³ª¿Ô´Ù. ¸¶Áö¸·À¸·Î ÀĞÀº°Í %s", lpszFileName, i, szTemp );
+			Error( "%s ì½ë‹¤ê°€ IDê°€ %dì´ë‚˜ì™”ë‹¤. ë§ˆì§€ë§‰ìœ¼ë¡œ ì½ì€ê²ƒ %s", lpszFileName, i, szTemp );
 		scanner.GetToken();
 		TRACE( "PropCtrl = %d, %s\n", i, scanner.token );
 		_tcscpy( ctrlProp.szName, scanner.token );
@@ -4964,7 +4964,7 @@ BOOL CProject::LoadPropCtrl( LPCTSTR lpszFileName, CFixedArray<CtrlProp>*	apObjP
 		ctrlProp.dwSfxCtrl = scanner.GetNumber();
 		ctrlProp.dwSndDamage = scanner.GetNumber();
 
-		scanner.GetToken();		// skip szCommand (»ç¿ëÇÏÁö ¾Ê´Â´Ù. )
+		scanner.GetToken();		// skip szCommand (ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤. )
 		apObjProp->SetAtGrow( i, &ctrlProp);
 		i = scanner.GetNumber(); 
 	}
@@ -5149,8 +5149,8 @@ BOOL CProject::LoadPropKarma( LPCTSTR lpszFileName )
 	if( scanner.Load( lpszFileName, FALSE ) == FALSE )
 	{
 #ifdef __CLIENT
-		MessageBox( g_Neuz.GetSafeHwnd(), "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Karma", "ÇÁ¸®ÇÁ", MB_OK );
-		ADDERRORMSG( "ÇÁ·ÎÆÛÆ¼ ÀĞ±â½ÇÆĞ : Karma" );
+		MessageBox( g_Neuz.GetSafeHwnd(), "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Karma", "í”„ë¦¬í”„", MB_OK );
+		ADDERRORMSG( "í”„ë¡œí¼í‹° ì½ê¸°ì‹¤íŒ¨ : Karma" );
 #endif //__CLIENT
 		return FALSE;
 	}
@@ -5163,7 +5163,7 @@ BOOL CProject::LoadPropKarma( LPCTSTR lpszFileName )
 	while( scanner.tok != FINISHED )
 	{
 		if( dwCount >= MAX_KARMAPROP )
-			Error( "ÃÖ´ëÀĞÀ»¼ö ÀÖ´Â ¹è¿­ ¹üÀ§ ¹ş¾î³²(PropKarma) : Max %d", MAX_KARMAPROP );
+			Error( "ìµœëŒ€ì½ì„ìˆ˜ ìˆëŠ” ë°°ì—´ ë²”ìœ„ ë²—ì–´ë‚¨(PropKarma) : Max %d", MAX_KARMAPROP );
 
 		karmaProp.nGrade = i;
 		scanner.GetToken();
@@ -5295,7 +5295,7 @@ int CProject::GetExpUpItem( DWORD dwItemKind3, int nOption )
 		return m_aExpUpItem[5][ nOption ];
 	}
 
-	Error( "GetExpUpItem : itemkind¿À·ù %d, %d", dwItemKind3, nOption );
+	Error( "GetExpUpItem : itemkindì˜¤ë¥˜ %d, %d", dwItemKind3, nOption );
 	return 0;
 }
 
@@ -5353,7 +5353,7 @@ BOOL	CProject::LoadServerScript( const char* sFile )
 	s.GetToken();	// subject or FINISHED
 	while( s.tok != FINISHED )
 	{
-		if( s.Token == _T( "Accessory_Probability" ) )	// ¾ÆÀÌÅÛ °¢¼º
+		if( s.Token == _T( "Accessory_Probability" ) )	// ì•„ì´í…œ ê°ì„±
 		{
 			CAccessoryProperty* pProperty	= CAccessoryProperty::GetInstance();
 			LPDWORD ptr	= pProperty->GetProbabilityPtr();
@@ -5424,7 +5424,7 @@ BOOL	CProject::LoadServerScript( const char* sFile )
 		{
 			CPetProperty* pProperty		= CPetProperty::GetInstance();
 			vector<WORD>* ptr	= pProperty->GetAddLifeProbabilityPtr();
-			// ¼ö¸í È¸º¹¾× È®·ü	// Ãß°¡ µÉ °æ¿ì ÇÕÀÌ 100ÀÌ µÇµµ·Ï È®Àå
+			// ìˆ˜ëª… íšŒë³µì•¡ í™•ë¥ 	// ì¶”ê°€ ë  ê²½ìš° í•©ì´ 100ì´ ë˜ë„ë¡ í™•ì¥
 			// 	50	// +1
 			s.GetToken();	// {
 			WORD wProbability	= s.GetNumber();

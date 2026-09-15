@@ -1,4 +1,4 @@
-// EventMonster.h: interface for the CEventMonster class.
+﻿// EventMonster.h: interface for the CEventMonster class.
 //
 //////////////////////////////////////////////////////////////////////
 

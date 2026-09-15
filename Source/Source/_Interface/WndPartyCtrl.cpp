@@ -1,4 +1,4 @@
-// WndBase.cpp: implementation of the CWndBase class.
+ï»¿// WndBase.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -100,7 +100,7 @@ void CWndPartyCtrl::OnDraw( C2DRender* p2DRender )
 	CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );
 	
 	int nMax = g_Party.m_nSizeofMember;
-	// ´«¿¡ º¸ÀÌ´Â °¹¼ö°¡ ÆäÀÌÁö¶óÀÎ¼ö º¸´Ù Å©¸é º¸ÀÌ´Â °¹¼ö¸¦ ÆäÀÌÁö¶óÀÎ¼ö·Î Á¶Á¤ 
+	// ëˆˆì— ë³´ì´ëŠ” ê°¯ìˆ˜ê°€ íŽ˜ì´ì§€ë¼ì¸ìˆ˜ ë³´ë‹¤ í¬ë©´ ë³´ì´ëŠ” ê°¯ìˆ˜ë¥¼ íŽ˜ì´ì§€ë¼ì¸ìˆ˜ë¡œ ì¡°ì • 
 	if( nMax - m_wndScrollBar.GetScrollPos() > m_wndScrollBar.GetScrollPage() )
 		nMax = m_wndScrollBar.GetScrollPage() + m_wndScrollBar.GetScrollPos();
 	if( nMax < m_wndScrollBar.GetScrollPos() )
@@ -122,22 +122,22 @@ void CWndPartyCtrl::OnDraw( C2DRender* p2DRender )
 		int nSex	= g_Party.m_aMember[ i ].m_nSex;
 #endif	// __SYS_PLAYER_DATA
 		
-		// »óÅÂ¿¡ µû¶ó »ö º¯°æ
+		// ìƒíƒœì— ë”°ë¼ ìƒ‰ ë³€ê²½
 		DWORD dwColor = 0xff000000;
 		if( IsValidObj(pObjMember) )
 		{
 			if( pObjMember->GetHitPoint() == 0 ) 
-				dwColor = 0xffff0000; // Á×Àº³ð
+				dwColor = 0xffff0000; // ì£½ì€ë†ˆ
 			else 
 				if( ((FLOAT)pObjMember->GetHitPoint()) / ((FLOAT)pObjMember->GetMaxHitPoint()) < 0.1f ) 
-					dwColor = 0xffffff00; // HP 10% ÀÌÇÏÀÎ ³ð
+					dwColor = 0xffffff00; // HP 10% ì´í•˜ì¸ ë†ˆ
 			strMember.Format( "%d %s", pObjMember->GetLevel(), pObjMember->GetName() );
 		}
 		else
 		{
-			dwColor = 0xff878787; // µðÆúÆ®´Â ÁÖÀ§¿¡ ¾ø´Â ³ð
+			dwColor = 0xff878787; // ë””í´íŠ¸ëŠ” ì£¼ìœ„ì— ì—†ëŠ” ë†ˆ
 			if( g_Party.m_aMember[ i ].m_bRemove ) 
-				dwColor = 0xff000000; // ¼­¹ö¿¡ ¾ø´Â ³ð
+				dwColor = 0xff000000; // ì„œë²„ì— ì—†ëŠ” ë†ˆ
 #if __VER >= 11 // __SYS_PLAYER_DATA
 			strMember.Format( "?? %s", pPlayerData->szPlayer );
 #else	// __SYS_PLAYER_DATA
@@ -209,7 +209,7 @@ void CWndPartyCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 			if( g_pPlayer != pObjMember ) 
 			{
 				if( IsValidObj(pObjMember ) ) 
-				{ // È­¸é¿¡ ¾ø´Â³ðÀº ÆÐ½º...
+				{ // í™”ë©´ì— ì—†ëŠ”ë†ˆì€ íŒ¨ìŠ¤...
 					g_WorldMng()->SetObjFocus( pObjMember );
 					return;
 				}
@@ -228,7 +228,7 @@ void CWndPartyCtrl::OnLButtonDblClk( UINT nFlags, CPoint point )
 	CRect rect;
 	
 	int nMax = g_Party.m_nSizeofMember;
-	// ´«¿¡ º¸ÀÌ´Â °¹¼ö°¡ ÆäÀÌÁö¶óÀÎ¼ö º¸´Ù Å©¸é º¸ÀÌ´Â °¹¼ö¸¦ ÆäÀÌÁö¶óÀÎ¼ö·Î Á¶Á¤ 
+	// ëˆˆì— ë³´ì´ëŠ” ê°¯ìˆ˜ê°€ íŽ˜ì´ì§€ë¼ì¸ìˆ˜ ë³´ë‹¤ í¬ë©´ ë³´ì´ëŠ” ê°¯ìˆ˜ë¥¼ íŽ˜ì´ì§€ë¼ì¸ìˆ˜ë¡œ ì¡°ì • 
 	if( nMax - m_wndScrollBar.GetScrollPos() > m_wndScrollBar.GetScrollPage() )
 		nMax = m_wndScrollBar.GetScrollPage();
 	

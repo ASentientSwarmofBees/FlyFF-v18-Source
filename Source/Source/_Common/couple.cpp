@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "couple.h"
 
 #if __VER >= 13 // __COUPLE_1117
@@ -259,7 +259,7 @@ void CCoupleProperty::LoadLevel( CScript & s )
 	while( *s.token != '}' )
 	{
 #ifndef __MAINSERVER
-		nExp	/= 100;	// Á¤½Ä ¼­¹ö°¡ ¾Æ´Ï¶ó¸é Å×½ºÆ®¸¦ À§ÇØ¼­ ½Ã°£À» 1/100·Î ÁÙÀÎ´Ù.
+		nExp	/= 100;	// ì •ì‹ ì„œë²„ê°€ ì•„ë‹ˆë¼ë©´ í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•´ì„œ ì‹œê°„ì„ 1/100ë¡œ ì¤„ì¸ë‹¤.
 #endif	// __MAINSERVER
 		m_vExp.push_back( nExp );
 		nExp	= s.GetNumber();

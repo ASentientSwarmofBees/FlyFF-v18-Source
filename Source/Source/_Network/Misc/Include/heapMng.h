@@ -1,4 +1,4 @@
-#ifndef __HEAPMNG_H__
+﻿#ifndef __HEAPMNG_H__
 #define __HEAPMNG_H__
 
 #pragma once

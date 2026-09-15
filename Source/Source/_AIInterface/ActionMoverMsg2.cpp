@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ActionMover.h"
 
 #ifdef __CLIENT
@@ -22,10 +22,10 @@ extern	CDPCoreClient		g_DPCoreClient;
 
 //
 //	Action Message Process
-//	¾×¼Ç ¸Þ½ÃÁö¸¦ ¹Þ¾Æ Ã³¸®ÇÑ´Ù.
-//	¾î¶² ÇàÀ§°¡ ¹ß»ýÇÏ´Â ½ÃÁ¡¿¡ ´ëÇÑ Ã³¸®¸¦ ´ã´ç.
-//	ÃÖÀûÈ­¸¦ À§ÇØ¼­ ÀÌ¹Ì ¼³Á¤µÇ¾î ÀÖ´Â »óÅÂ¸é Áßº¹ Ã³¸® ÇÏÁö ¾ÊÀ½
-//	ºøÀÚ·ç ºñÇà¿ë
+//	ì•¡ì…˜ ë©”ì‹œì§€ë¥¼ ë°›ì•„ ì²˜ë¦¬í•œë‹¤.
+//	ì–´ë–¤ í–‰ìœ„ê°€ ë°œìƒí•˜ëŠ” ì‹œì ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ ë‹´ë‹¹.
+//	ìµœì í™”ë¥¼ ìœ„í•´ì„œ ì´ë¯¸ ì„¤ì •ë˜ì–´ ìžˆëŠ” ìƒíƒœë©´ ì¤‘ë³µ ì²˜ë¦¬ í•˜ì§€ ì•ŠìŒ
+//	ë¹—ìžë£¨ ë¹„í–‰ìš©
 //
 int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, int nParam2, int nParam3, int nParam4, int nParam5 )
 {
@@ -33,26 +33,26 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 
 	switch( dwMsg )
 	{
-	// ÆòÈ­¸ðµå ºøÀÚ·ç Á¦ÀÚ¸® ´ë±â
+	// í‰í™”ëª¨ë“œ ë¹—ìžë£¨ ì œìžë¦¬ ëŒ€ê¸°
 	case OBJMSG_STAND:
 		{
 		#ifdef __Y_INTERFACE_VER3
-			if( (GetMoveState() == OBJSTA_FMOVE) || (GetMoveState() == OBJSTA_BMOVE) || (GetMoveState() == OBJSTA_LMOVE) || (GetMoveState() == OBJSTA_RMOVE) )	// Àü/ÈÄÁøÁßÀÏ¶§ Á¦ÀÚ¸®¿¡ ¼¼¿î´Ù.
+			if( (GetMoveState() == OBJSTA_FMOVE) || (GetMoveState() == OBJSTA_BMOVE) || (GetMoveState() == OBJSTA_LMOVE) || (GetMoveState() == OBJSTA_RMOVE) )	// ì „/í›„ì§„ì¤‘ì¼ë•Œ ì œìžë¦¬ì— ì„¸ìš´ë‹¤.
 		#else //__Y_INTERFACE_VER3
-			if( (GetMoveState() == OBJSTA_FMOVE) || (GetMoveState() == OBJSTA_BMOVE) )	// Àü/ÈÄÁøÁßÀÏ¶§ Á¦ÀÚ¸®¿¡ ¼¼¿î´Ù.
+			if( (GetMoveState() == OBJSTA_FMOVE) || (GetMoveState() == OBJSTA_BMOVE) )	// ì „/í›„ì§„ì¤‘ì¼ë•Œ ì œìžë¦¬ì— ì„¸ìš´ë‹¤.
 		#endif //__Y_INTERFACE_VER3
 			{
 				ResetState( OBJSTA_MOVE_ALL );		
 			}
-			if( GetMoveState() == OBJSTA_STAND )	return 0;	// ÀÌ¹Ì ´ë±â»óÅÂÀÌ¸é Ãë¼Ò
-			if( IsActAttack() )		return -2;	// °ø°Ý µ¿ÀÛ»óÅÂ¸é Ãë¼Ò
+			if( GetMoveState() == OBJSTA_STAND )	return 0;	// ì´ë¯¸ ëŒ€ê¸°ìƒíƒœì´ë©´ ì·¨ì†Œ
+			if( IsActAttack() )		return -2;	// ê³µê²© ë™ìž‘ìƒíƒœë©´ ì·¨ì†Œ
 			if( IsActTurn() )		return 0;
 			if( !pItemProp )
 				Error( "ItemProp is NULL in ProcessActMsg2() %d", m_pMover->m_dwRideItemIdx );
-			SetMoveState( OBJSTA_STAND );	// »óÅÂ¼³Á¤
+			SetMoveState( OBJSTA_STAND );	// ìƒíƒœì„¤ì •
 			BOOL ret;
 			if( pItemProp )
-				ret = pMover->SetMotion( pItemProp->dwUseMotion + MTA_FSTAND1, ANILOOP_LOOP, MOP_FIXED );		// ¾Ö´Ï¸ÞÀÌ¼Ç ¼³Á¤
+				ret = pMover->SetMotion( pItemProp->dwUseMotion + MTA_FSTAND1, ANILOOP_LOOP, MOP_FIXED );		// ì• ë‹ˆë©”ì´ì…˜ ì„¤ì •
 			if( ret == TRUE )
 				if( pMover->m_pRide )	pMover->m_pRide->m_fFrameCurrent	= 0;
 			break;
@@ -60,28 +60,28 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 	case OBJMSG_STOP:		
 	case OBJMSG_ASTOP:
 	#ifdef __Y_INTERFACE_VER3
-		if( (GetMoveState() == OBJSTA_FMOVE) || (GetMoveState() == OBJSTA_BMOVE) || (GetMoveState() == OBJSTA_LMOVE) || (GetMoveState() == OBJSTA_RMOVE) )	// Àü/ÈÄÁøÁßÀÏ¶§ Á¦ÀÚ¸®¿¡ ¼¼¿î´Ù.
+		if( (GetMoveState() == OBJSTA_FMOVE) || (GetMoveState() == OBJSTA_BMOVE) || (GetMoveState() == OBJSTA_LMOVE) || (GetMoveState() == OBJSTA_RMOVE) )	// ì „/í›„ì§„ì¤‘ì¼ë•Œ ì œìžë¦¬ì— ì„¸ìš´ë‹¤.
 	#else //__Y_INTERFACE_VER3
-		if( (GetMoveState() == OBJSTA_FMOVE) || (GetMoveState() == OBJSTA_BMOVE) )	// Àü/ÈÄÁøÁßÀÏ¶§ Á¦ÀÚ¸®¿¡ ¼¼¿î´Ù.
+		if( (GetMoveState() == OBJSTA_FMOVE) || (GetMoveState() == OBJSTA_BMOVE) )	// ì „/í›„ì§„ì¤‘ì¼ë•Œ ì œìžë¦¬ì— ì„¸ìš´ë‹¤.
 	#endif //__Y_INTERFACE_VER3
 		{
-			pMover->ClearDest();				// ¸ñÇ¥ ÁÂÇ¥ Å¬¸®¾î.
-			SendActMsg( OBJMSG_ACC_STOP );		// °¡¼Ó ÁßÁö
+			pMover->ClearDest();				// ëª©í‘œ ì¢Œí‘œ í´ë¦¬ì–´.
+			SendActMsg( OBJMSG_ACC_STOP );		// ê°€ì† ì¤‘ì§€
 			ResetState( OBJSTA_MOVE_ALL );		
 		}
 		break;
-		// ÀüÁøÇØ¶ó!
+		// ì „ì§„í•´ë¼!
 	case OBJMSG_FORWARD:
-		if( GetMoveState() == OBJSTA_FMOVE )	return 0;// ÀÌ¹Ì ÀüÁø»óÅÂ¸é Ãß°¡·Î Ã³¸® ÇÏÁö ¾ÊÀ½
+		if( GetMoveState() == OBJSTA_FMOVE )	return 0;// ì´ë¯¸ ì „ì§„ìƒíƒœë©´ ì¶”ê°€ë¡œ ì²˜ë¦¬ í•˜ì§€ ì•ŠìŒ
 		SetMoveState( OBJSTA_FMOVE );		// 
 		if( IsActTurn() )	break;
 		if( GetState() & OBJSTA_ATK_ALL )	
 			return 1;
 		if( !pItemProp )
 			Error( "ItemProp is NULL in ProcessActMsg2()\n" );
-		pMover->SetMotion( pItemProp->dwUseMotion + MTA_FRUNNING1, ANILOOP_LOOP, MOP_FIXED );	// ÀÏ´ÜÀº ´Ù ´ë±â µ¿ÀÛÀ¸·Î ¾´´Ù
+		pMover->SetMotion( pItemProp->dwUseMotion + MTA_FRUNNING1, ANILOOP_LOOP, MOP_FIXED );	// ì¼ë‹¨ì€ ë‹¤ ëŒ€ê¸° ë™ìž‘ìœ¼ë¡œ ì“´ë‹¤
 		break;
-	// ÁÂ/¿ì ÅÏ ÇØ¶ó! 
+	// ì¢Œ/ìš° í„´ í•´ë¼! 
 	case OBJMSG_LTURN:
 		{
 		FLOAT fTurnAngle = (FLOAT) nParam1 / 100.0f;
@@ -101,7 +101,7 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		if( GetTurnState() == OBJSTA_RTURN && m_fTurnAngle == fTurnAngle )	return 0;
 		m_fTurnAngle = fTurnAngle;
 		SetTurnState( OBJSTA_RTURN );
-		if( GetState() & OBJSTA_ATK_ALL )	return 0;	// °ø°ÝÁß¿£ È¸Àü¸ð¼Ç ÇÏÁö ¾ÊÀ½.
+		if( GetState() & OBJSTA_ATK_ALL )	return 0;	// ê³µê²©ì¤‘ì—” íšŒì „ëª¨ì…˜ í•˜ì§€ ì•ŠìŒ.
 		if( !pItemProp )
 			Error( "ItemProp is NULL in ProcessActMsg2()\n" );
 		if( fTurnAngle > 1.0f )
@@ -109,9 +109,9 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		}
 		break;
 	case OBJMSG_STOP_TURN:
-		if( GetTurnState() == 0 )		return 0;		// ÀÌ¹Ì ÅÏ »óÅÂ°¡ ¾ø´Ù¸é Ã³¸® ¾ÈÇÔ
+		if( GetTurnState() == 0 )		return 0;		// ì´ë¯¸ í„´ ìƒíƒœê°€ ì—†ë‹¤ë©´ ì²˜ë¦¬ ì•ˆí•¨
 		m_fTurnAngle = 0.0f;
-		SetTurnState( 0 );		// ÅÏÀ» ÁßÁö
+		SetTurnState( 0 );		// í„´ì„ ì¤‘ì§€
 		if( GetState() & OBJSTA_ATK_ALL )	return 0;
 		if( !pItemProp )
 			Error( "ItemProp is NULL in ProcessActMsg2()\n" );
@@ -120,7 +120,7 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		else
 			pMover->SetMotion( pItemProp->dwUseMotion + MTA_FSTAND1, ANILOOP_LOOP, MOP_FIXED );
 		break;
-	// ±â¼ö À§¾Æ·¡·Î µé±â
+	// ê¸°ìˆ˜ ìœ„ì•„ëž˜ë¡œ ë“¤ê¸°
 	case OBJMSG_LOOKUP:
 		if( GetLookState() == OBJSTA_LOOKUP )	return 0;
 		SetTurnState( OBJSTA_LOOKUP );
@@ -131,34 +131,34 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		break;
 	case OBJMSG_STOP_LOOK:
 		if( GetLookState() == 0 )		return 0;
-		SetLookState( 0 );		// ·è ÁßÁö
+		SetLookState( 0 );		// ë£© ì¤‘ì§€
 		break;
 
-	// °ø°Ý
-	case OBJMSG_ATK1:	// °ø°Ý 1
+	// ê³µê²©
+	case OBJMSG_ATK1:	// ê³µê²© 1
 		{
-			if( (GetState() & OBJSTA_ATK_ALL) == OBJSTA_ATK1 )	// ÀÌ¹Ì °ø°ÝÁßÀÌ¸é ¸®ÅÏ
+			if( (GetState() & OBJSTA_ATK_ALL) == OBJSTA_ATK1 )	// ì´ë¯¸ ê³µê²©ì¤‘ì´ë©´ ë¦¬í„´
 				return 0;
-			m_objidHit	= (OBJID)nParam1;	// Å¸°ÙÀÇ ¾ÆÀÌµð.
+			m_objidHit	= (OBJID)nParam1;	// íƒ€ê²Ÿì˜ ì•„ì´ë””.
 			CMover* pHitObj	= prj.GetMover( m_objidHit );
-			if( IsInvalidObj( pHitObj ) || pHitObj->IsDie() )	// Å¸°ÙÀÌ °Å½Ã±âÇÏ°Å³ª Á×¾úÀ¸¸é Ãë¼Ò
+			if( IsInvalidObj( pHitObj ) || pHitObj->IsDie() )	// íƒ€ê²Ÿì´ ê±°ì‹œê¸°í•˜ê±°ë‚˜ ì£½ì—ˆìœ¼ë©´ ì·¨ì†Œ
 				return -2;
 
 #ifdef __CLIENT				
-			if( pMover->IsActiveMover() && pMover->IsRangeObj( pHitObj, 3.0f ) == FALSE )	return 0;	// x¹ÌÅÍ ÀÌ³»¿¡ µé¾î¿Í¾ß ÈÖµÎ¸§.
+			if( pMover->IsActiveMover() && pMover->IsRangeObj( pHitObj, 3.0f ) == FALSE )	return 0;	// xë¯¸í„° ì´ë‚´ì— ë“¤ì–´ì™€ì•¼ íœ˜ë‘ë¦„.
 #endif
 #ifdef __WORLDSERVER
 			if( !g_eLocal.GetState( EVE_STEAL ) )
 			{
-				if( pMover->IsSteal( pHitObj ) )	// pHitObj¸¦ ½ºÆ¿ÇÏ·ÁÇÏ¸é ÀÌ°ø°ÝÀº ¹«½Ã.
+				if( pMover->IsSteal( pHitObj ) )	// pHitObjë¥¼ ìŠ¤í‹¸í•˜ë ¤í•˜ë©´ ì´ê³µê²©ì€ ë¬´ì‹œ.
 					return -2;
 			}
 #endif
 			
-			AddStateFlag( OBJSTAF_COMBAT );	// ÀüÅõ¸ðµå·Î ÀüÈ¯.
+			AddStateFlag( OBJSTAF_COMBAT );	// ì „íˆ¬ëª¨ë“œë¡œ ì „í™˜.
 			SetState( OBJSTA_ATK_ALL, OBJSTA_ATK1 );
 			if( pItemProp )
-				pMover->SetMotion( pItemProp->dwUseMotion + MTA_FATK1, ANILOOP_1PLAY, MOP_NO_TRANS | MOP_SWDFORCE | MOP_FIXED );		// ÃÖÃÊ ¸Þ½ÃÁö ÀÔ·Â½Ã µ¿ÀÛ ¼³Á¤
+				pMover->SetMotion( pItemProp->dwUseMotion + MTA_FATK1, ANILOOP_1PLAY, MOP_NO_TRANS | MOP_SWDFORCE | MOP_FIXED );		// ìµœì´ˆ ë©”ì‹œì§€ ìž…ë ¥ì‹œ ë™ìž‘ ì„¤ì •
 			else
 				Error( "ItemProp is NULL in ProcessActMsg2()\n" );
 			pHitObj->SetJJim( pMover );
@@ -171,10 +171,10 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		}
 		
 		break;
-	case OBJMSG_ATK_MAGIC1:	// °ø°Ý 1
+	case OBJMSG_ATK_MAGIC1:	// ê³µê²© 1
 		{
 			if( IsAction() )	return 0;
-			if( GetState() & OBJSTA_ATK_ALL )	return 0;		// ÀÌ¹Ì °ø°Ýµ¿ÀÛÀ» ÇÏ°í ÀÖÀ¸¸é Ãë¼Ò.
+			if( GetState() & OBJSTA_ATK_ALL )	return 0;		// ì´ë¯¸ ê³µê²©ë™ìž‘ì„ í•˜ê³  ìžˆìœ¼ë©´ ì·¨ì†Œ.
 			if( !pItemProp )
 				Error( "ItemProp is NULL in ProcessActMsg2()\n" );
 			CMover* pHitObj		= prj.GetMover( nParam1 );
@@ -183,13 +183,13 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 #ifdef __WORLDSERVER
 			if( !g_eLocal.GetState( EVE_STEAL ) )
 			{
-				if( pMover->IsSteal( pHitObj ) )	// pHitObj¸¦ ½ºÆ¿ÇÏ·ÁÇÏ¸é ÀÌ°ø°ÝÀº ¹«½Ã.
+				if( pMover->IsSteal( pHitObj ) )	// pHitObjë¥¼ ìŠ¤í‹¸í•˜ë ¤í•˜ë©´ ì´ê³µê²©ì€ ë¬´ì‹œ.
 					return -2;
 			}
 #endif
 			if( IsActDamage() )
 				ResetState( OBJSTA_DMG_ALL );
-			AddStateFlag( OBJSTAF_COMBAT );	// ÀüÅõ¸ðµå·Î ÀüÈ¯.
+			AddStateFlag( OBJSTAF_COMBAT );	// ì „íˆ¬ëª¨ë“œë¡œ ì „í™˜.
 			
 			SendActMsg( OBJMSG_STOP_TURN );
 			SendActMsg( OBJMSG_STAND );
@@ -203,7 +203,7 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		break;
 		
 
-	// Á¡ÇÁ
+	// ì í”„
 	case OBJMSG_JUMP:
 		break;
 	case OBJMSG_DAMAGE:
@@ -224,20 +224,20 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 	#ifdef __WORLDSERVER
 		pMover->PostAIMsg( AIMSG_DIE, nParam2 );
 	#endif
-		SendActMsg( OBJMSG_STAND );	// Á×À»¶© Á¦ÀÚ¸®¿¡ ¼­¶ó
-		ResetState( OBJSTA_TURN_ALL );	// Á×À»¶© ÅÏ ¾ø¾Ö¶ó.
+		SendActMsg( OBJMSG_STAND );	// ì£½ì„ë• ì œìžë¦¬ì— ì„œë¼
+		ResetState( OBJSTA_TURN_ALL );	// ì£½ì„ë• í„´ ì—†ì• ë¼.
 		SetState( OBJSTA_DMG_ALL, OBJSTA_DEAD );
 		
-		m_vDelta.x = m_vDelta.z = 0;		// Á×¾úÀ¸¸é µ¨Å¸°ª Å¬¸®¾î.
+		m_vDelta.x = m_vDelta.z = 0;		// ì£½ì—ˆìœ¼ë©´ ë¸íƒ€ê°’ í´ë¦¬ì–´.
 		{
 			CMover *pAttacker = (CMover *)nParam2;	
 			if( pAttacker )
 			{
-				if( pMover->IsPlayer() && pAttacker->IsPlayer() )	// Á×Àº³ð°ú Á×ÀÎ³ðÀÌ ÇÃ·¹ÀÌ¾î°í
+				if( pMover->IsPlayer() && pAttacker->IsPlayer() )	// ì£½ì€ë†ˆê³¼ ì£½ì¸ë†ˆì´ í”Œë ˆì´ì–´ê³ 
 				{
-					if( pMover->m_nDuel == 1 && pMover->m_idDuelOther == pAttacker->GetId() )	// µÑÀÌ µà¾óÁßÀÌ¾úÀ¸¸é
+					if( pMover->m_nDuel == 1 && pMover->m_idDuelOther == pAttacker->GetId() )	// ë‘˜ì´ ë“€ì–¼ì¤‘ì´ì—ˆìœ¼ë©´
 					{
-						pMover->m_nDuel		= 0;	// ¾î´ÀÇÑÂÊÀÌ Á×À¸¸é µà¾ó¸ðµå ÇØÁ¦
+						pMover->m_nDuel		= 0;	// ì–´ëŠí•œìª½ì´ ì£½ìœ¼ë©´ ë“€ì–¼ëª¨ë“œ í•´ì œ
 						pAttacker->m_nDuel	= 0;
 
 						TRACE( "m_nDuel		= 0		// OBJMSG_DIE	// ProcessActMsg2\n" );
@@ -259,7 +259,7 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		break;
 
 	case OBJMSG_ACC_START:
-// ºñÇà¿¬·á 
+// ë¹„í–‰ì—°ë£Œ 
 //		if( pMover->m_nFuel <= 0 )
 //			return 0;
 		AddStateFlag( OBJSTAF_ACC );
@@ -274,18 +274,18 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 			CWorld* pWorld	= pMover->GetWorld();
 			if( pWorld )
 			{
-				int nAttr = pMover->GetWorld()->GetHeightAttribute( pMover->GetPos().x, pMover->GetPos().z );		// ÀÌµ¿ÇÒ À§Ä¡ÀÇ ¼Ó¼º ÀÐÀ½.
-				if( nAttr == HATTR_NOWALK )		// °È±â ±ÝÁö Áö¿ª¿¡¼­ ³»¸®·Á°íÇÏ¸é ¸ø³»¸°´Ù.
+				int nAttr = pMover->GetWorld()->GetHeightAttribute( pMover->GetPos().x, pMover->GetPos().z );		// ì´ë™í•  ìœ„ì¹˜ì˜ ì†ì„± ì½ìŒ.
+				if( nAttr == HATTR_NOWALK )		// ê±·ê¸° ê¸ˆì§€ ì§€ì—­ì—ì„œ ë‚´ë¦¬ë ¤ê³ í•˜ë©´ ëª»ë‚´ë¦°ë‹¤.
 					return 0;
 			}
 		}
 		RemoveStateFlag( OBJSTAF_FLY );
-		RemoveStateFlag( OBJSTAF_ACC );		// °¡¼Ó Á¤Áö.
+		RemoveStateFlag( OBJSTAF_ACC );		// ê°€ì† ì •ì§€.
 		ClearState();
 #ifdef __CLIENT
 		if( pMover->IsActiveMover() && g_WndMng.m_pWndWorld )
 		{
-			g_WndMng.m_pWndWorld->SetMouseMode( 0 );		// ºñÇà¸ðµå ÇØÁ¦µÇ¸é FPS¸ðµåÇØÁ¦
+			g_WndMng.m_pWndWorld->SetMouseMode( 0 );		// ë¹„í–‰ëª¨ë“œ í•´ì œë˜ë©´ FPSëª¨ë“œí•´ì œ
 			g_WndMng.m_pWndWorld->m_fRollAng = 0;
 		}
 #endif		
@@ -305,13 +305,13 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		#endif
 		m_pMover->SetRide( NULL );
 		break;
-	case OBJMSG_MODE_TURBO_ON:		// ÅÍº¸¸ðµå »óÅÂ.
-		if( GetStateFlag() & OBJSTAF_TURBO )		return 0;		// ÀÌ¹Ì ½ÇÇàÁß
-		if( pMover->m_tmAccFuel <= 0 )	return 0;				// °¡¼Ó¿¬·á¾øÀ¸¸é ÅÍº¸ ¸øÇÔ.
+	case OBJMSG_MODE_TURBO_ON:		// í„°ë³´ëª¨ë“œ ìƒíƒœ.
+		if( GetStateFlag() & OBJSTAF_TURBO )		return 0;		// ì´ë¯¸ ì‹¤í–‰ì¤‘
+		if( pMover->m_tmAccFuel <= 0 )	return 0;				// ê°€ì†ì—°ë£Œì—†ìœ¼ë©´ í„°ë³´ ëª»í•¨.
 		AddStateFlag( OBJSTAF_TURBO );
 		break;
-	case OBJMSG_MODE_TURBO_OFF:		// ÅÍº¸¸ðµå ÇØÁ¦.
-		if( (GetStateFlag() & OBJSTAF_TURBO) == 0 )		return 0;		// ÀÌ¹Ì ÇØÁ¦
+	case OBJMSG_MODE_TURBO_OFF:		// í„°ë³´ëª¨ë“œ í•´ì œ.
+		if( (GetStateFlag() & OBJSTAF_TURBO) == 0 )		return 0;		// ì´ë¯¸ í•´ì œ
 		RemoveStateFlag( OBJSTAF_TURBO );
 		break;
 
@@ -342,9 +342,9 @@ int		CActionMover::ProcessActMsg2(  CMover* pMover, OBJMSG dwMsg, int nParam1, i
 		}
 		break;
 	}
-	case OBJMSG_TEMP2:	// µð¹ö±ë¿ë °ø°Ýµ¿ÀÛ¸¸ º¼¶§.
+	case OBJMSG_TEMP2:	// ë””ë²„ê¹…ìš© ê³µê²©ë™ìž‘ë§Œ ë³¼ë•Œ.
 #ifdef __CLIENT
-		if( CMover::GetActiveMover()->IsAuthHigher( AUTH_GAMEMASTER ) )	// ¿µÀÚ °èÁ¤ÀÏ¶§
+		if( CMover::GetActiveMover()->IsAuthHigher( AUTH_GAMEMASTER ) )	// ì˜ìž ê³„ì •ì¼ë•Œ
 		{
 			CObj *pObj = pMover->GetWorld()->GetObjFocus();
 			g_DPlay.SendCorrReq( pObj );

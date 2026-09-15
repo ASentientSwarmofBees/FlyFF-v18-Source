@@ -1,4 +1,4 @@
-// WorldMap.h: interface for the CWorldMap class.
+ï»¿// WorldMap.h: interface for the CWorldMap class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -128,7 +128,7 @@ public:
 	vector< D3DXVECTOR3 > m_cWorldPos;
 	CTexture* m_pTelPosTexture;
 
-	void ProcessingTeleporter( CMover* pFocusMover );			// ¿ùµå¸ÊÀ» ¿­°í, ÁÂÇ¥¿¡ ´ëÇÑ ¹öÆ° »ı¼º/¾÷µ¥ÀÌÆ®
+	void ProcessingTeleporter( CMover* pFocusMover );			// ì›”ë“œë§µì„ ì—´ê³ , ì¢Œí‘œì— ëŒ€í•œ ë²„íŠ¼ ìƒì„±/ì—…ë°ì´íŠ¸
 	void RenderTelPos( C2DRender *p2DRender );
 	void SetTelMode( BOOL bMode );
 	BOOL WorldPosToMapPos( const D3DXVECTOR3& vPos, OUT CPoint& cPos );

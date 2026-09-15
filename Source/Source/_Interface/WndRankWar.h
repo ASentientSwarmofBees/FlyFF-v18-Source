@@ -1,4 +1,4 @@
-#ifndef __WNDRANKWAR__H
+ï»¿#ifndef __WNDRANKWAR__H
 #define __WNDRANKWAR__H
 
 class CWndRankWarTabGiveUp : public CWndNeuz 
@@ -7,8 +7,8 @@ public:
 	CWndRankWarTabGiveUp(); 
 	~CWndRankWarTabGiveUp(); 
 	
-	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
-	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
+	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
+	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
 	
 	virtual BOOL OnMouseWheel( UINT nFlags, short zDelta, CPoint pt );
 	virtual void OnMouseMove(UINT nFlags, CPoint point );
@@ -30,9 +30,9 @@ public:
 	CWndRankWarTabLose(); 
 	~CWndRankWarTabLose(); 
 
-	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
+	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
 //	int		m_nSelect;
-	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
+	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
 	
 	virtual BOOL OnMouseWheel( UINT nFlags, short zDelta, CPoint pt );
 	virtual void OnMouseMove(UINT nFlags, CPoint point );
@@ -54,9 +54,9 @@ public:
 	CWndRankWarTabWin(); 
 	~CWndRankWarTabWin(); 
 
-	int		m_nCurrentList;			// Ãâ·ÂµÉ ¸â¹ö¸®½ºÆ®ÀÇ ½ÃÀÛ ÀÎµ¦½º.
+	int		m_nCurrentList;			// ì¶œë ¥ë  ë©¤ë²„ë¦¬ìŠ¤íŠ¸ì˜ ì‹œì‘ ì¸ë±ìŠ¤.
 //	int		m_nSelect;
-	int		m_nMxOld, m_nMyOld;			// °ú°Å ÁÂÇ¥.
+	int		m_nMxOld, m_nMyOld;			// ê³¼ê±° ì¢Œí‘œ.
 	
 	virtual BOOL OnMouseWheel( UINT nFlags, short zDelta, CPoint pt );
 	virtual void OnMouseMove(UINT nFlags, CPoint point );

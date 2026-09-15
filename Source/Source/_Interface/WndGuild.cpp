@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndGuildTabInfo.h"
@@ -13,7 +13,7 @@ extern	CDPClient	g_DPlay;
 extern	CGuildMng	g_GuildMng;
 
 /****************************************************
-  WndId : APP_GUILD - ±æµåÃ¢
+  WndId : APP_GUILD - ê¸¸ë“œì°½
   CtrlId : WIDC_TABCTRL1 - TabCtrl
 ****************************************************/
 CWndGuild::CWndGuild() 
@@ -43,7 +43,7 @@ void CWndGuild::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndTabCtrl* pWndTabCtrl = (CWndTabCtrl*)GetDlgItem( WIDC_TABCTRL1 );
 	CRect rect = GetClientRect();
@@ -99,7 +99,7 @@ void CWndGuild::OnInitialUpdate()
 	}
 #endif // __S_SERVER_UNIFY
 	
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	MoveParentCenter();
 
 	{
@@ -108,19 +108,19 @@ void CWndGuild::OnInitialUpdate()
 	}	
 
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndGuild::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 	if( g_eLocal.GetState( EVE_SCHOOL ) )
 		return FALSE;
 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	BOOL bFlag = CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD, 0, CPoint( 0, 0 ), pWndParent );
 
 	return bFlag;
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndGuild::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -172,7 +172,7 @@ void CWndGuild::SetCurTab( int index )
 
 
 //---------------------------------------------------------------------------------------------------------------------------
-// ±æµå ÃÊÃ» È®ÀÎÃ¢
+// ê¸¸ë“œ ì´ˆì²­ í™•ì¸ì°½
 //---------------------------------------------------------------------------------------------------------------------------
 CWndGuildConfirm::CWndGuildConfirm() 
 { 
@@ -192,7 +192,7 @@ void CWndGuildConfirm::OnDraw( C2DRender* p2DRender )
 void CWndGuildConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndEdit* pEdit = (CWndEdit*)GetDlgItem( WIDC_STATIC3 );
 	pEdit->SetTitle( strGuildName );
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
@@ -200,10 +200,10 @@ void CWndGuildConfirm::OnInitialUpdate()
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
 	Move( point );		
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndGuildConfirm::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_INVATE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndGuildConfirm::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 

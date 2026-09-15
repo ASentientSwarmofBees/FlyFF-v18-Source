@@ -1,37 +1,37 @@
-// ´ëºÐ·ù
-#define	HI_ELASPED_TIME		1	// ½Ã°£ ´Þ¼º
-#define	HI_COUNT_CHECK		2	// ¼öÄ¡ Ã¼Å©
-#define	HI_EARN_TITLE		3	// ÁöÀ§ È¹µæ
-#define	HI_HUNT_MONSTER		4	// ¸ó½ºÅÍ »ç³É
-#define	HI_USE_ITEM			5	// ¾ÆÀÌÅÛ »ç¿ë
+ï»¿// ëŒ€ë¶„ë¥˜
+#define	HI_ELASPED_TIME		1	// ì‹œê°„ ë‹¬ì„±
+#define	HI_COUNT_CHECK		2	// ìˆ˜ì¹˜ ì²´í¬
+#define	HI_EARN_TITLE		3	// ì§€ìœ„ íšë“
+#define	HI_HUNT_MONSTER		4	// ëª¬ìŠ¤í„° ì‚¬ëƒ¥
+#define	HI_USE_ITEM			5	// ì•„ì´í…œ ì‚¬ìš©
 
-// ½Ã°£´Þ¼º
-#define	HS_COLLECT			51	// Ã¤Áý ½Ã°£
-#define	HS_TRADE			52	// »óÁ¡ ½Ã°£
+// ì‹œê°„ë‹¬ì„±
+#define	HS_COLLECT			51	// ì±„ì§‘ ì‹œê°„
+#define	HS_TRADE			52	// ìƒì  ì‹œê°„
 
-// ¼öÄ¡ Ã¼Å©
-#define	HS_HATCHING_EGG		61	// ¾Ë ºÎÈ­
-#define	HS_COUPLE_COUNT		62	// Ä¿ÇÃ ¸ÎÀº È½¼ö
-#define	HS_COUPLE_LV		63	// Ä¿ÇÃ ·¹º§
-#define	HS_PK_COUNT			64	// PK ¼öÄ¡
-#define	HS_STR				65	// ´É·ÂÄ¡(Èû)
-#define	HS_STA				66	// ´É·ÂÄ¡(Ã¼·Â)
-#define	HS_DEX				67	// ´É·ÂÄ¡(¹ÎÃ¸)
-#define	HS_INT				68	// ´É·ÂÄ¡(Áö´É)
-#define	HS_PVP_POINT01		70	// PVP Á¡¼ö ´Ü°è 1
-#define	HS_PVP_POINT02		71	// PVP Á¡¼ö ´Ü°è 2
-#define	HS_PVP_POINT03		72	// PVP Á¡¼ö ´Ü°è 3
-#define	HS_PVP_POINT04		73	// PVP Á¡¼ö ´Ü°è 4
-#define	HS_PVP_POINT05		74	// PVP Á¡¼ö ´Ü°è 5
-#define	HS_PVP_POINT06		75	// PVP Á¡¼ö ´Ü°è 6
-#define	HS_PVP_POINT07		76	// PVP Á¡¼ö ´Ü°è 7
-#define	HS_PVP_POINT08		77	// PVP Á¡¼ö ´Ü°è 8
-#define	HS_PVP_POINT09		78	// PVP Á¡¼ö ´Ü°è 9
-#define	HS_PVP_POINT10		79	// PVP Á¡¼ö ´Ü°è 10
-#define	HS_JUMP				80	// Á¡ÇÁ¼öÄ¡
+// ìˆ˜ì¹˜ ì²´í¬
+#define	HS_HATCHING_EGG		61	// ì•Œ ë¶€í™”
+#define	HS_COUPLE_COUNT		62	// ì»¤í”Œ ë§ºì€ íšŸìˆ˜
+#define	HS_COUPLE_LV		63	// ì»¤í”Œ ë ˆë²¨
+#define	HS_PK_COUNT			64	// PK ìˆ˜ì¹˜
+#define	HS_STR				65	// ëŠ¥ë ¥ì¹˜(íž˜)
+#define	HS_STA				66	// ëŠ¥ë ¥ì¹˜(ì²´ë ¥)
+#define	HS_DEX				67	// ëŠ¥ë ¥ì¹˜(ë¯¼ì²©)
+#define	HS_INT				68	// ëŠ¥ë ¥ì¹˜(ì§€ëŠ¥)
+#define	HS_PVP_POINT01		70	// PVP ì ìˆ˜ ë‹¨ê³„ 1
+#define	HS_PVP_POINT02		71	// PVP ì ìˆ˜ ë‹¨ê³„ 2
+#define	HS_PVP_POINT03		72	// PVP ì ìˆ˜ ë‹¨ê³„ 3
+#define	HS_PVP_POINT04		73	// PVP ì ìˆ˜ ë‹¨ê³„ 4
+#define	HS_PVP_POINT05		74	// PVP ì ìˆ˜ ë‹¨ê³„ 5
+#define	HS_PVP_POINT06		75	// PVP ì ìˆ˜ ë‹¨ê³„ 6
+#define	HS_PVP_POINT07		76	// PVP ì ìˆ˜ ë‹¨ê³„ 7
+#define	HS_PVP_POINT08		77	// PVP ì ìˆ˜ ë‹¨ê³„ 8
+#define	HS_PVP_POINT09		78	// PVP ì ìˆ˜ ë‹¨ê³„ 9
+#define	HS_PVP_POINT10		79	// PVP ì ìˆ˜ ë‹¨ê³„ 10
+#define	HS_JUMP				80	// ì í”„ìˆ˜ì¹˜
 
-// ÁöÀ§ È¹µæ - definejob¿¡ ÀÖ´Â°Å¶ó ¿©±ä Âü°í¿ëÀ¸·Î ÁÖ¼®Ã³¸®ÇÔ
-#define	HS_LORD				92	// ±ºÁÖ
+// ì§€ìœ„ íšë“ - definejobì— ìžˆëŠ”ê±°ë¼ ì—¬ê¸´ ì°¸ê³ ìš©ìœ¼ë¡œ ì£¼ì„ì²˜ë¦¬í•¨
+#define	HS_LORD				92	// êµ°ì£¼
 // Master
 //#define JOB_KNIGHT_MASTER      		16
 //#define JOB_BLADE_MASTER				17
@@ -53,15 +53,15 @@
 //#define JOB_PSYCHIKEEPER_HERO			30
 //#define JOB_ELEMENTOR_HERO			31
 
-// ¸ó½ºÅÍ »ç³É
-#define HS_KILL_COUNT		1	// ¸ó½ºÅÍ »ç³É
+// ëª¬ìŠ¤í„° ì‚¬ëƒ¥
+#define HS_KILL_COUNT		1	// ëª¬ìŠ¤í„° ì‚¬ëƒ¥
 
-// ¾ÆÀÌÅÛ »ç¿ë
-#define	HS_USE_COUNT		1	// ¾ÆÀÌÅÛ »ç¿ë
+// ì•„ì´í…œ ì‚¬ìš©
+#define	HS_USE_COUNT		1	// ì•„ì´í…œ ì‚¬ìš©
 
-// ±âÅ¸
-#define MONSTER_TITLE_MAX		70		// ¸ó½ºÅÍ °ü·Ã Å¸ÀÌÆ² Á¦ÇÑ ¼öÄ¡
-#define ITEM_TITLE_MAX			70		// ¾ÆÀÌÅÛ °ü·Ã Å¸ÀÌÆ² Á¦ÇÑ ¼öÄ¡
+// ê¸°íƒ€
+#define MONSTER_TITLE_MAX		70		// ëª¬ìŠ¤í„° ê´€ë ¨ íƒ€ì´í‹€ ì œí•œ ìˆ˜ì¹˜
+#define ITEM_TITLE_MAX			70		// ì•„ì´í…œ ê´€ë ¨ íƒ€ì´í‹€ ì œí•œ ìˆ˜ì¹˜
 
-#define	HM_SATISFIED			-1		// ¸®ÅÏ°ª - Å¸ÀÌÆ² È¹µæ ÀÚ°ÝÀ» ¾òÀ½
-#define	HM_NONE					0		// ¸®ÅÏ°ª - ÇØ´ç Å¸ÀÌÆ²ÀÌ ¾øÀ½
+#define	HM_SATISFIED			-1		// ë¦¬í„´ê°’ - íƒ€ì´í‹€ íšë“ ìžê²©ì„ ì–»ìŒ
+#define	HM_NONE					0		// ë¦¬í„´ê°’ - í•´ë‹¹ íƒ€ì´í‹€ì´ ì—†ìŒ

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "CommonCtrl.h"
 #include "defineObj.h"
 #include "CreateObj.h"
@@ -26,8 +26,8 @@ CCommonCtrl::CCommonCtrl()
 	ZeroMemory( &m_CtrlElem, sizeof( m_CtrlElem ) );
 	/////////////////////////////////////////////////////////////////////////////////////////
 /*
-	m_CtrlElem.m_dwMinItemNum			= 1;			//-ÃÖ¼Ò ¹ß»ı ¾ÆÀÌÅÛ ¼ö 
-	m_CtrlElem.m_dwMaxiItemNum			= 3;			//-ÃÖ´ë ¹ß»ı ¾ÆÀÌÅÛ ¼ö 
+	m_CtrlElem.m_dwMinItemNum			= 1;			//-ìµœì†Œ ë°œìƒ ì•„ì´í…œ ìˆ˜ 
+	m_CtrlElem.m_dwMaxiItemNum			= 3;			//-ìµœëŒ€ ë°œìƒ ì•„ì´í…œ ìˆ˜ 
 
 	m_CtrlElem.m_dwInsideItemKind[0] = II_WEA_SWO_FLOWER;
 	m_CtrlElem.m_dwInsideItemPer [0] = 1500000000;
@@ -97,8 +97,8 @@ BOOL CCommonCtrl::Read( CFileIO* pFile )
 	if( dwVersion == 0x90000000 )
 	{
 #if __VER >= 10 // __LEGEND		
-		// ¿¹Àü : 368
-		// ÇöÀç : 432
+		// ì˜ˆì „ : 368
+		// í˜„ì¬ : 432
 		pFile->Read( pCtrlElem, 88 );
 		pFile->Read( ((BYTE*)pCtrlElem + 152), sizeof(CCtrlElem) - 152 );	// 432 - 64 = 368
 #else //__LEGEND
@@ -116,7 +116,7 @@ BOOL CCommonCtrl::Read( CFileIO* pFile )
 void CCommonCtrl::DestroyWall( void )
 {
 #ifdef __WORLDSERVER
-	// ½ÃÀüÀÚÀÇ »çÀÌÅ±¿ù »ı¼ºÁ¤º¸¿¡¼­ Áö¿öÁÜ.
+	// ì‹œì „ìì˜ ì‚¬ì´í‚¥ì›” ìƒì„±ì •ë³´ì—ì„œ ì§€ì›Œì¤Œ.
 	CMover *pAttacker = prj.GetMover( m_idAttacker );
 	if( IsValidObj(pAttacker) )
 	{
@@ -134,7 +134,7 @@ void CCommonCtrl::DestroyWall( void )
 #endif // WorldServer
 }
 
-// ½ÎÀÌÅ± ¿ù
+// ì‹¸ì´í‚¥ ì›”
 void CCommonCtrl::_ProcessWall( void )
 {
 	if( m_nCount == 0 )
@@ -155,7 +155,7 @@ void CCommonCtrl::_ProcessWall( void )
 #endif //__CLIENT
 
 	int nRange = 4;
-	// ÀÏ¹İÀûÀ¸·Î fDepth°¡ °¡Àå ±æ±â¶§¹®¿¡ °Ë»ç ¿µ¿ªÀº fDepth·Î Çß´Ù. 
+	// ì¼ë°˜ì ìœ¼ë¡œ fDepthê°€ ê°€ì¥ ê¸¸ê¸°ë•Œë¬¸ì— ê²€ì‚¬ ì˜ì—­ì€ fDepthë¡œ í–ˆë‹¤. 
 	float fDepth = 3;
 	
 	if( fDepth <= 4.0f )		nRange = 4;
@@ -166,7 +166,7 @@ void CCommonCtrl::_ProcessWall( void )
 #ifdef __WORLDSERVER
 	CMover *pAttacker = prj.GetMover( m_idAttacker );
 	
-	if( IsInvalidObj( pAttacker ) )		// ÀÏ´Ü ¾îÅÂÄ¿°¡ »ç¶óÁö¸é ÄÁÆ®·Ñµµ »ç¶óÁö°Ô ÇÏÀÚ.
+	if( IsInvalidObj( pAttacker ) )		// ì¼ë‹¨ ì–´íƒœì»¤ê°€ ì‚¬ë¼ì§€ë©´ ì»¨íŠ¸ë¡¤ë„ ì‚¬ë¼ì§€ê²Œ í•˜ì.
 	{
 		DestroyWall();
 		return;
@@ -186,15 +186,15 @@ void CCommonCtrl::_ProcessWall( void )
 	FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkDynamic, GetLayer() )
 	{
 		bApply = FALSE;
-		if( pObj->GetType() == OT_MOVER )				// ´ë»óÀÌ ¹«¹öÀÏ¶§¸¸.
+		if( pObj->GetType() == OT_MOVER )				// ëŒ€ìƒì´ ë¬´ë²„ì¼ë•Œë§Œ.
 		{
 			CMover *pTarget = (CMover *)pObj;
-			if( pTarget->IsPeaceful() == FALSE )		// NPC°¡ ¾Æ´Ñ°æ¿ì¸¸ Àû¿ë
+			if( pTarget->IsPeaceful() == FALSE )		// NPCê°€ ì•„ë‹Œê²½ìš°ë§Œ ì ìš©
 				bApply = TRUE;
-#if __VER >= 8 //	#ifdef	__JHMA_VER_8_5_1			 // 8.5Â÷ °æºñº´ ¹üÀ§½ºÅ³ °ø°İÈ¿°ú ºÒ°¡·Î ¼öÁ¤ World
+#if __VER >= 8 //	#ifdef	__JHMA_VER_8_5_1			 // 8.5ì°¨ ê²½ë¹„ë³‘ ë²”ìœ„ìŠ¤í‚¬ ê³µê²©íš¨ê³¼ ë¶ˆê°€ë¡œ ìˆ˜ì • World
 			if( pAttacker->IsPlayer() && pAttacker->IsChaotic() == FALSE && pTarget->GetProp()->dwClass == RANK_GUARD )
 				bApply = FALSE;
-#endif //			#endif // __JHMA_VER_8_5_1			 // 8.5Â÷ °æºñº´ ¹üÀ§½ºÅ³ °ø°İÈ¿°ú ºÒ°¡·Î ¼öÁ¤ World	
+#endif //			#endif // __JHMA_VER_8_5_1			 // 8.5ì°¨ ê²½ë¹„ë³‘ ë²”ìœ„ìŠ¤í‚¬ ê³µê²©íš¨ê³¼ ë¶ˆê°€ë¡œ ìˆ˜ì • World	
 			if( bApply )
 			{
 				if( IsValidObj( pTarget ) && pTarget->IsLive() )
@@ -212,18 +212,18 @@ void CCommonCtrl::_ProcessWall( void )
 							}
 							else
 							{
-								pAttacker->SubExperience( pTarget );		// pTarget¸¦ Á×ÀÌ°í ³­ÈÄÀÇ m_pAttacker °æÇèÄ¡ Ã³¸®.
-								pTarget->DropItemByDied( pAttacker );				// ¸ó½ºÅÍ¿´´Ù¸é ¾ÆÀÌÅÛ µå¶ø.
-								pAttacker->m_nAtkCnt = 0;					// Å¸°ÙÀ» Á×¿´À¸¸é °ø°İÀÚÀÇ ¾îÅÃÄ«¿îÆ® Å¬¸®¾î
-								pTarget->DoDie( pAttacker );				// pTarget Á×¾î¶ó. 
+								pAttacker->SubExperience( pTarget );		// pTargetë¥¼ ì£½ì´ê³  ë‚œí›„ì˜ m_pAttacker ê²½í—˜ì¹˜ ì²˜ë¦¬.
+								pTarget->DropItemByDied( pAttacker );				// ëª¬ìŠ¤í„°ì˜€ë‹¤ë©´ ì•„ì´í…œ ë“œë.
+								pAttacker->m_nAtkCnt = 0;					// íƒ€ê²Ÿì„ ì£½ì˜€ìœ¼ë©´ ê³µê²©ìì˜ ì–´íƒì¹´ìš´íŠ¸ í´ë¦¬ì–´
+								pTarget->DoDie( pAttacker );				// pTarget ì£½ì–´ë¼. 
 								pTarget->m_nHitPoint = 0;
 							}
 						}
-						m_nLife ++;		// ºÎµúÈú¶§¸¶´Ù Ä«¿îÆ® ¿Ã¶ó°¨
+						m_nLife ++;		// ë¶€ë”ªíë•Œë§ˆë‹¤ ì¹´ìš´íŠ¸ ì˜¬ë¼ê°
 						if( m_nLife >= (int)(m_pAddSkillProp->dwSkillLvl / 2) )
 							DestroyWall();
 						
-						// µÚ·Î ¹Ğ¸®±â Ã³¸®.
+						// ë’¤ë¡œ ë°€ë¦¬ê¸° ì²˜ë¦¬.
 #if __VER >= 10	// __AI_0711
 						if( pTarget->IsRank( RANK_MIDBOSS ) == FALSE )
 #endif	// __AI_0711
@@ -240,11 +240,11 @@ void CCommonCtrl::_ProcessWall( void )
 	}
 	END_LINKMAP
 
-	// ÇÃ·¹ÀÌ¾î ¸µÅ©¸ÊÀÌ¹Ç·Î °ø°İÀÚ°¡ ÇÃ·¹ÀÌ¾î¸é PVPÀÌ´Ù.
+	// í”Œë ˆì´ì–´ ë§í¬ë§µì´ë¯€ë¡œ ê³µê²©ìê°€ í”Œë ˆì´ì–´ë©´ PVPì´ë‹¤.
 	BOOL bPVP	= pAttacker->IsPlayer();
 	FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkPlayer, GetLayer() )
 	{
-		if( pObj->GetType() == OT_MOVER )				// ´ë»óÀÌ ¹«¹öÀÏ¶§¸¸.
+		if( pObj->GetType() == OT_MOVER )				// ëŒ€ìƒì´ ë¬´ë²„ì¼ë•Œë§Œ.
 		{
 			CMover *pTarget = (CMover *)pObj;
 			if( pTarget->IsLive() && pAttacker != pTarget )
@@ -256,7 +256,7 @@ void CCommonCtrl::_ProcessWall( void )
 					if( bPVP && pAttacker->IsPVPTarget( pTarget ) )
 						n	= pTarget->m_pActMover->SendDamage( AF_FORCE, pAttacker->GetId(), nDamagePVP, FALSE );	
 					else if( bPVP && (m_bControl || pAttacker->IsGuildCombatTarget( pTarget )
-								/*¾Æ·¹³ª Ãß°¡*/	|| pAttacker->IsArenaTarget( pTarget ) 
+								/*ì•„ë ˆë‚˜ ì¶”ê°€*/	|| pAttacker->IsArenaTarget( pTarget ) 
 						) )
 						n	= pTarget->m_pActMover->SendDamage( AF_FORCE, pAttacker->GetId(), nDamage, FALSE );	
 #else	// __SKILL_0706
@@ -264,11 +264,11 @@ void CCommonCtrl::_ProcessWall( void )
 #endif	// __SKILL_0706
 					if( n > 0 )
 					{
-						m_nLife ++;		// ºÎµúÈú¶§¸¶´Ù Ä«¿îÆ® ¿Ã¶ó°¨
+						m_nLife ++;		// ë¶€ë”ªíë•Œë§ˆë‹¤ ì¹´ìš´íŠ¸ ì˜¬ë¼ê°
 						if( m_nLife >= (int)( m_pAddSkillProp->dwSkillLvl / 2 ) )
 							DestroyWall();
 
-						// µÚ·Î ¹Ğ¸®±â Ã³¸®.
+						// ë’¤ë¡œ ë°€ë¦¬ê¸° ì²˜ë¦¬.
 						FLOAT fPushAngle = pTarget->GetAngle() + 180.0f;
 						FLOAT fPower = 0.825f;
 						AngleToVectorXZ( &pTarget->m_pActMover->m_vDeltaE, fPushAngle, fPower );
@@ -284,22 +284,22 @@ void CCommonCtrl::_ProcessWall( void )
 #ifdef __CLIENT				
 	if( m_pSfxModel )
 	{
-		if( m_pSfxModel->Process() )		// ½ÃÀÛÀÌÆåÆ®°¡ ³¡±îÁö µ¹¾Æ°¡¸é
+		if( m_pSfxModel->Process() )		// ì‹œì‘ì´í™íŠ¸ê°€ ëê¹Œì§€ ëŒì•„ê°€ë©´
 		{
 			if( m_nEvent == 0 )
 			{
-				m_pSfxModel->SetSfx( "sfx_sklpsypsychicwall03" );		// À¯Áö ÀÌÆåÆ®·Î ¹Ù²ñ 
+				m_pSfxModel->SetSfx( "sfx_sklpsypsychicwall03" );		// ìœ ì§€ ì´í™íŠ¸ë¡œ ë°”ë€œ 
 				m_nEvent = 1;
 			} else
 			{
-				m_pSfxModel->m_nCurFrame = 0;		// À¯Áö ÀÌÆåÆ®´Â ¹İº¹
+				m_pSfxModel->m_nCurFrame = 0;		// ìœ ì§€ ì´í™íŠ¸ëŠ” ë°˜ë³µ
 			}
 		}
 	}
 #endif
 
 #ifdef __WORLDSERVER
-	// ½Ã°£ ´ÙµÇ¸é ³¡.
+	// ì‹œê°„ ë‹¤ë˜ë©´ ë.
 	if( (int)(g_tmCurrent - m_tmStart) > (int)m_pAddSkillProp->dwSkillTime )
 	{
 		DestroyWall();
@@ -310,7 +310,7 @@ void CCommonCtrl::_ProcessWall( void )
 
 void CCommonCtrl::Process()
 {
-	if( GetIndex() == CI_PSYCHICWALL )		// ½ÎÀÌÅ±¿ùÀÏ °æ¿ì µû·Î ¿¹¿ÜÃ³¸®
+	if( GetIndex() == CI_PSYCHICWALL )		// ì‹¸ì´í‚¥ì›”ì¼ ê²½ìš° ë”°ë¡œ ì˜ˆì™¸ì²˜ë¦¬
 	{
 		_ProcessWall();
 		m_nCount ++;
@@ -372,7 +372,7 @@ void CCommonCtrl::Process()
 
 	for( int i = 0; i < 4; i++ )
 	{
-		// ¼Ó¼º°Ë»çÇÏ¿© ÀûÀıÇÑ Ã³¸®
+		// ì†ì„±ê²€ì‚¬í•˜ì—¬ ì ì ˆí•œ ì²˜ë¦¬
 		if( ((CModelObject*)m_pModel)->IsAttrHit() )
 			_ProcessAction();
 
@@ -391,7 +391,7 @@ void CCommonCtrl::Process()
 		else
 			m_fFrameCount = m_pModel->m_fFrameCurrent;
 
-		// »ç¶óÁö´Â ÄÁÆ®·Ñ
+		// ì‚¬ë¼ì§€ëŠ” ì»¨íŠ¸ë¡¤
 		if( pProp->dwCtrlKind2 == CK2_FADE )
 		{			
 			if( m_bAlpha )
@@ -409,7 +409,7 @@ void CCommonCtrl::Process()
 			}
 		}
 		else
-		// »ç¶óÁöÁö ¾Ê´Â ÄÁÆ®·²Àº ´Ù½Ã ÀÛµ¿°¡´ÉÇÏ°Ô ¼³Á¤  (¿¹)Æ®¸®°Å
+		// ì‚¬ë¼ì§€ì§€ ì•ŠëŠ” ì»¨íŠ¸ëŸ´ì€ ë‹¤ì‹œ ì‘ë™ê°€ëŠ¥í•˜ê²Œ ì„¤ì •  (ì˜ˆ)íŠ¸ë¦¬ê±°
 		if( pProp->dwCtrlKind2 == CK2_KEEP )
 		{
 			if( m_pModel->m_bEndFrame )
@@ -417,7 +417,7 @@ void CCommonCtrl::Process()
 				Init();
 
 #if __VER >= 15 // __GUILD_HOUSE
-				if( pProp->IsGuildHousingObj( ) )		//gmpbigsun : ±æµå ÇÏ¿ì½º ¿ÀºêÁ§Æ®´Â ¾Ö´Ï¸ŞÀÌ¼Ç µ¹¸² 
+				if( pProp->IsGuildHousingObj( ) )		//gmpbigsun : ê¸¸ë“œ í•˜ìš°ìŠ¤ ì˜¤ë¸Œì íŠ¸ëŠ” ì• ë‹ˆë©”ì´ì…˜ ëŒë¦¼ 
 				{
 					CModel* pModel = (CModel*)GetModel();
 					assert( pModel );
@@ -435,14 +435,14 @@ void CCommonCtrl::Process()
 		
 		if( pProp->dwCtrlKind3 == CK3_HALF )
 		{
-			// Ç®¿¡´Ï¸ŞÀÌ¼ÇÀÌ ¾Æ´Ï¶ó¸é...ÇöÀç ÇÁ·¹ÀÓÀÌ ÀüÃ¼ÀÇ 50%ÀÏ¶§ ¸ØÃá´Ù.
+			// í’€ì—ë‹ˆë©”ì´ì…˜ì´ ì•„ë‹ˆë¼ë©´...í˜„ì¬ í”„ë ˆì„ì´ ì „ì²´ì˜ 50%ì¼ë•Œ ë©ˆì¶˜ë‹¤.
 			if( m_bAniPlay && m_pModel->m_fFrameCurrent == m_pModel->GetMaxFrame()/2 ) 
 			{
 				m_bAniPlay = FALSE;
-				m_dwAniDelay = g_tmCurrent+SEC(20);  //ÀÏÁ¤ ½Ã°£µÚ¿¡ ³ª¸ÓÁö ¿¡´Ï¸ŞÀÌ¼Ç µ¿ÀÛÇÔ
+				m_dwAniDelay = g_tmCurrent+SEC(20);  //ì¼ì • ì‹œê°„ë’¤ì— ë‚˜ë¨¸ì§€ ì—ë‹ˆë©”ì´ì…˜ ë™ì‘í•¨
 			}
 			
-			// ÀÏÁ¤ ½Ã°£ÀÌ Áö³µÀ¸¸é ³ª¸ÓÁö ¿¡´Ï¸ŞÀÌ¼Ç µ¿ÀÛ
+			// ì¼ì • ì‹œê°„ì´ ì§€ë‚¬ìœ¼ë©´ ë‚˜ë¨¸ì§€ ì—ë‹ˆë©”ì´ì…˜ ë™ì‘
 			if( !m_bAniPlay && m_dwAniDelay < g_tmCurrent )
 			{	
 				m_dwAniDelay = 0xffffffff;
@@ -460,14 +460,14 @@ void CCommonCtrl::Process()
 void CCommonCtrl::_ProcessAction()
 {
 #ifdef __WORLDSERVER
-	// Æ®·¦¼³Á¤ 
+	// íŠ¸ë©ì„¤ì • 
 	if( m_bTrap )
 		return;
 
 	m_dwTrapProcessTime = g_tmCurrent + m_CtrlElem.m_dwTrapDelay;
 
 	
-	// ¾ÆÀÌÅÛ, ¸ó½ºÅÍ µå·Ó
+	// ì•„ì´í…œ, ëª¬ìŠ¤í„° ë“œë¡­
 	if( m_CtrlElem.m_dwMinItemNum > 0 && m_CtrlElem.m_dwMaxiItemNum > m_CtrlElem.m_dwMinItemNum )
 	{
 		DropItem();
@@ -481,14 +481,14 @@ void CCommonCtrl::_ProcessTrap()
 {
 #ifdef __WORLDSERVER
 
-	// Æ®·¦¹ßµ¿½Ã°£À» Ã¼Å©ÇÏ¿© ¹ß»ıÇÔ
+	// íŠ¸ë©ë°œë™ì‹œê°„ì„ ì²´í¬í•˜ì—¬ ë°œìƒí•¨
 	if( m_dwTrapProcessTime < g_tmCurrent )
 	{
 		CtrlProp* pProp = GetProp();
 		if( pProp == NULL )
 			return;
 		
-		// »ç¶óÁö´Â ÄÁÆ®·Ñ¸¸ Å¬¶ó¿¡°Ô Àü¼Û
+		// ì‚¬ë¼ì§€ëŠ” ì»¨íŠ¸ë¡¤ë§Œ í´ë¼ì—ê²Œ ì „ì†¡
 		if( pProp->dwCtrlKind2 == CK2_FADE )
 			g_UserMng.AddCommonPlace( this, COMMONPLACE_ALPHA );
 
@@ -496,8 +496,8 @@ void CCommonCtrl::_ProcessTrap()
 		m_dwTrapProcessTime = 0xffffffff;
 
 		
-		// ¹ß»ı ¹æ½Ä¿¡ µû¶ó...
-		if( m_CtrlElem.m_dwTrapOperType == TOT_RANDOM )    // ·£´ı »ı¼º ¹æ½Ä
+		// ë°œìƒ ë°©ì‹ì— ë”°ë¼...
+		if( m_CtrlElem.m_dwTrapOperType == TOT_RANDOM )    // ëœë¤ ìƒì„± ë°©ì‹
 		{
 			if( m_CtrlElem.m_dwTrapRandomPer >= xRandom( 3000000000 ) )
 			{
@@ -505,7 +505,7 @@ void CCommonCtrl::_ProcessTrap()
 			}
 		}
 		else
-		if( m_CtrlElem.m_dwTrapOperType == TOT_NOENDU )  // ³»±¸µµ 0ÀÏ°æ¿ì
+		if( m_CtrlElem.m_dwTrapOperType == TOT_NOENDU )  // ë‚´êµ¬ë„ 0ì¼ê²½ìš°
 		{
 			if( m_CtrlElem.m_dwSetEndu <= 0 )
 			{
@@ -513,7 +513,7 @@ void CCommonCtrl::_ProcessTrap()
 			}
 		}
 
-		// ¸µÅ©µÈ ¿ÀºêÁ§Æ®(ÄÁÆ®·Ñ) ¹ßµ¿
+		// ë§í¬ëœ ì˜¤ë¸Œì íŠ¸(ì»¨íŠ¸ë¡¤) ë°œë™
 		if( m_CtrlElem.m_strLinkCtrlKey[0] != '\0' )
 		{
 			map<string, DWORD>::iterator i = g_MapStrToObjId.find(m_CtrlElem.m_strLinkCtrlKey);
@@ -551,7 +551,7 @@ void CCommonCtrl::_CreateTrapSkill()
 
 		if( m_CtrlElem.m_dwTrapLevel[i] > pSkill->dwExpertMax )
 		{
-			Error( "ÃÖ´ë¼÷·Ã ·¹º§º¸´Ù Å©´Ù : %s, %d", pSkill->szName, m_CtrlElem.m_dwTrapLevel[i] );
+			Error( "ìµœëŒ€ìˆ™ë ¨ ë ˆë²¨ë³´ë‹¤ í¬ë‹¤ : %s, %d", pSkill->szName, m_CtrlElem.m_dwTrapLevel[i] );
 			continue;
 		}
 		
@@ -583,7 +583,7 @@ void CCommonCtrl::_CreateTrapSkill()
 void CCommonCtrl::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 #ifdef __CLIENT
-	if( GetIndex() == CI_PSYCHICWALL )		// ½ÎÀÌÅ±¿ùÀÏ°æ¿ì µû·Î Ã³¸® - ÀÏ´Ü ¶«»§.
+	if( GetIndex() == CI_PSYCHICWALL )		// ì‹¸ì´í‚¥ì›”ì¼ê²½ìš° ë”°ë¡œ ì²˜ë¦¬ - ì¼ë‹¨ ë•œë¹µ.
 	{
 		m_pSfxModel->m_vPos = GetPos();
 		m_pSfxModel->m_vRotate.y = GetAngle();
@@ -596,7 +596,7 @@ void CCommonCtrl::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		
 	CtrlProp *pCtrlProp = GetProp();
 
-	if( GetIndex() == CI_EXPBOX )		// ½ÎÀÌÅ±¿ùÀÏ°æ¿ì µû·Î Ã³¸® - ÀÏ´Ü ¶«»§.
+	if( GetIndex() == CI_EXPBOX )		// ì‹¸ì´í‚¥ì›”ì¼ê²½ìš° ë”°ë¡œ ì²˜ë¦¬ - ì¼ë‹¨ ë•œë¹µ.
 	{
 		AddAngle( 1.0f );
 	}
@@ -608,7 +608,7 @@ void CCommonCtrl::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 void CCommonCtrl::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dwColor )
 {
 #ifndef __WORLDSERVER
-	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
+	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
 	D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
     D3DVIEWPORT9 vp;
 	const BOUND_BOX* pBB = m_pModel->GetBBVector();
@@ -678,7 +678,7 @@ void CCommonCtrl::DropItem()
 		if( pItemProp == NULL )
 		{
 	#ifdef __YDEBUG
-			Error( "CtrlProp(%s)ÀÇ ItemKind(%d)°ªÀÌ Àß¸øµÇ¾ú´Ù.", GetName(), m_CtrlElem.m_dwInsideItemKind[i] );
+			Error( "CtrlProp(%s)ì˜ ItemKind(%d)ê°’ì´ ì˜ëª»ë˜ì—ˆë‹¤.", GetName(), m_CtrlElem.m_dwInsideItemKind[i] );
 	#endif // __YDEBUG
 			return;
 		}
@@ -691,7 +691,7 @@ void CCommonCtrl::DropItem()
 			pItemElem->m_dwItemId	= pItemProp->dwID;
 			pItemElem->m_nItemNum	= 1;
 
-			// ¸¶Áö¸· ½½·ÔÀº ·¹¾î¾ÆÀÌÅÛ¿ë½½·Ô ·¹¾î¾ÆÀÌÅÛÀº 1°³¸¦ ÃÊ°úÇÒ¼ö ¾ø´Ù.
+			// ë§ˆì§€ë§‰ ìŠ¬ë¡¯ì€ ë ˆì–´ì•„ì´í…œìš©ìŠ¬ë¡¯ ë ˆì–´ì•„ì´í…œì€ 1ê°œë¥¼ ì´ˆê³¼í• ìˆ˜ ì—†ë‹¤.
 			if( i == MAX_CTRLDROPITEM-1 )
 			{
 				if( pItemElem->m_nItemNum > 1 )
@@ -743,12 +743,12 @@ void CCommonCtrl::DropNPC()
 		if( pMoverProp == NULL )
 		{
 #ifdef __YDEBUG
-			Error( "CtrlProp(%s)ÀÇ m_dwMonResKind(%d)°ªÀÌ Àß¸øµÇ¾ú´Ù.", GetName(), m_CtrlElem.m_dwMonResKind[i] );
+			Error( "CtrlProp(%s)ì˜ m_dwMonResKind(%d)ê°’ì´ ì˜ëª»ë˜ì—ˆë‹¤.", GetName(), m_CtrlElem.m_dwMonResKind[i] );
 #endif // __YDEBUG
 			return;
 		}
 
-		// ÀÏ¹İ ¸÷ »ı¼º
+		// ì¼ë°˜ ëª¹ ìƒì„±
 		DWORD dwBaseMob = m_CtrlElem.m_dwMonResNum[i]-m_CtrlElem.m_dwMonActAttack[i];
 
 		for( j=0; j<(int)( dwBaseMob ); j++ )
@@ -777,7 +777,7 @@ void CCommonCtrl::DropNPC()
 			GetWorld()->ADDOBJ( pObj, TRUE, GetLayer() );
 		}
 
-		// ¼±°ø ¸÷ »ı¼º
+		// ì„ ê³µ ëª¹ ìƒì„±
 		for( j=0; j<(int)( m_CtrlElem.m_dwMonActAttack[i] ); j++ )
 		{
 			CObj* pObj	= CreateObj( D3DDEVICE, OT_MOVER, pMoverProp->dwID );

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "DefineObj.h"
 #include "defineSkill.h"
 #include "ActionMover.h"
@@ -59,18 +59,18 @@ DWORD CActionMover::OnDamageMsgC( DWORD dwMsg, CMover* pAttacker, DWORD dwAtkFla
 	if( !bValid || IsState( OBJSTA_DIE_ALL ) )
 		return 0;
 
-	if( IsSit() )										// ¾É¾ÆÀÖ´Ù°¡ ¸ÂÀ¸¸é ¾É±âÇØÁ¦ ÇÑ´Ù.
+	if( IsSit() )										// ì•‰ì•„ìžˆë‹¤ê°€ ë§žìœ¼ë©´ ì•‰ê¸°í•´ì œ í•œë‹¤.
 		ResetState( OBJSTA_MOVE_ALL );
 	
 	SendActMsg( OBJMSG_STAND );
 
-	// ³¯¶§¸°³ð¿¡ ´ëÇÑ Á¤º¸¸¦ ±â·ÏÇÔ.
-	if( pMover->IsNPC() && pAttacker->IsPlayer() )		// ¸ÂÀº³ðÀº NPC , ¾îÅÂÄ¿°¡ ÇÃ·¹ÀÌ¾î ÀÏ¶§¸¸ Àû¿ëµÊ
+	// ë‚ ë•Œë¦°ë†ˆì— ëŒ€í•œ ì •ë³´ë¥¼ ê¸°ë¡í•¨.
+	if( pMover->IsNPC() && pAttacker->IsPlayer() )		// ë§žì€ë†ˆì€ NPC , ì–´íƒœì»¤ê°€ í”Œë ˆì´ì–´ ì¼ë•Œë§Œ ì ìš©ë¨
 	{
-		pMover->m_idAttacker = pAttacker->GetId();		// ³¯ ¶§¸°³ÑÀÌ ¾î¶²³ðÀÎ°¡¸¦ ±â·ÏÇÔ.
+		pMover->m_idAttacker = pAttacker->GetId();		// ë‚  ë•Œë¦°ë„˜ì´ ì–´ë–¤ë†ˆì¸ê°€ë¥¼ ê¸°ë¡í•¨.
 		pMover->m_idTargeter = pAttacker->GetId();	
 	}
-	pAttacker->m_idLastHitMover = pMover->GetId();		// ¾îÅÂÄ¿°¡ ¸¶Áö¸·À¸·Î ¶§·È´ø³ÑÀÌ ³ª¶õ°É ±â·ÏÇÔ.
+	pAttacker->m_idLastHitMover = pMover->GetId();		// ì–´íƒœì»¤ê°€ ë§ˆì§€ë§‰ìœ¼ë¡œ ë•Œë ¸ë˜ë„˜ì´ ë‚˜ëž€ê±¸ ê¸°ë¡í•¨.
 
 	if( (dwAtkFlags & AF_GENERIC) )	
 	{
@@ -85,7 +85,7 @@ DWORD CActionMover::OnDamageMsgC( DWORD dwMsg, CMover* pAttacker, DWORD dwAtkFla
 		else
 		{
 			AngleToVectorXZ( &vLocal, pAttacker->GetAngle(), 1.0f );
-			vLocal += pMover->GetPos();		//gmpbigsun : ÇÇ°ÝÀÚ ÀÏ¹Ý effect 09_12_17
+			vLocal += pMover->GetPos();		//gmpbigsun : í”¼ê²©ìž ì¼ë°˜ effect 09_12_17
 			vLocal.y += 1.0f;			// 2006/6/20 xuzhu
 		}
 
@@ -93,7 +93,7 @@ DWORD CActionMover::OnDamageMsgC( DWORD dwMsg, CMover* pAttacker, DWORD dwAtkFla
 			CreateSfx( g_Neuz.m_pd3dDevice, pAttackerProp->dwSfxObj3, vLocal );
 
 		
-		if( pAttackerProp && pAttackerProp->dwSfxObj5 != NULL_ID ) //gmpbigsun: °ø°ÝÀÚ ÀÏ¹Ý effect 09_12_17
+		if( pAttackerProp && pAttackerProp->dwSfxObj5 != NULL_ID ) //gmpbigsun: ê³µê²©ìž ì¼ë°˜ effect 09_12_17
 		{
 			vLocal = pAttacker->GetPos( );		
 			CreateSfx( g_Neuz.m_pd3dDevice, pAttackerProp->dwSfxObj5, vLocal );
@@ -105,7 +105,7 @@ DWORD CActionMover::OnDamageMsgC( DWORD dwMsg, CMover* pAttacker, DWORD dwAtkFla
 		// hitter
 		ItemProp* pAttackerProp = prj.GetItemProp( nParam >> 16 );
 		assert( pAttackerProp );
-		DWORD dwSfxObj = pAttackerProp->dwSfxObj3;		// gmpbigsun:Æ¯¼ö°ø°Ý¿¡ ÀÌÆåÆ®°¡ ÀÖ´Ù¸é 3¹ø»ç¿ë.
+		DWORD dwSfxObj = pAttackerProp->dwSfxObj3;		// gmpbigsun:íŠ¹ìˆ˜ê³µê²©ì— ì´íŽ™íŠ¸ê°€ ìžˆë‹¤ë©´ 3ë²ˆì‚¬ìš©.
 		if( dwSfxObj != NULL_ID )
 			CreateSfx( D3DDEVICE, dwSfxObj, pMover->GetPos() );
 
@@ -115,7 +115,7 @@ DWORD CActionMover::OnDamageMsgC( DWORD dwMsg, CMover* pAttacker, DWORD dwAtkFla
 			CreateSfx( D3DDEVICE, dwSfxObj, pAttacker->GetPos() );
 	}
 
-	pMover->m_nDmgCnt = 10;								// Èçµé¸®´Â ½Ã°£ÀÌ´Ù.
+	pMover->m_nDmgCnt = 10;								// í”ë“¤ë¦¬ëŠ” ì‹œê°„ì´ë‹¤.
 
 	pMover->SetDamagedMotion( pAttacker, dwAtkFlags );
 	return 1;

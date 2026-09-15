@@ -1,9 +1,9 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "xUtil3D.h"
 #include "..\_DirectX\d3dutil.h"
 
 
-// QuaternionRotationToYPW -> ÄõÅÍ´Ï¿Â¿¡¼­ Yaw, Pitch, RollÀ» °®°í ¿Â´Ù
+// QuaternionRotationToYPW -> ì¿¼í„°ë‹ˆì˜¨ì—ì„œ Yaw, Pitch, Rollì„ ê°–ê³  ì˜¨ë‹¤
 void QuaternionRotationToYPW( const D3DXQUATERNION& qRot, D3DXVECTOR3& vYPW )
 {
 	FLOAT pitch, yaw, roll;
@@ -22,7 +22,7 @@ void QuaternionRotationToYPW( const D3DXQUATERNION& qRot, D3DXVECTOR3& vYPW )
 }
 
 
-// boundbox vMin, vMax°ªÀ» 8°³ÀÇ º¤ÅÍ ÁÂÇ¥·Î Ç®¾î³¿
+// boundbox vMin, vMaxê°’ì„ 8ê°œì˜ ë²¡í„° ì¢Œí‘œë¡œ í’€ì–´ëƒ„
 void	SetBB( D3DXVECTOR3 *pBBVList, const D3DXVECTOR3 &vMin, const D3DXVECTOR3 &vMax )
 {
 	pBBVList[0].x = vMin.x;
@@ -61,16 +61,16 @@ void	SetBB( D3DXVECTOR3 *pBBVList, const D3DXVECTOR3 &vMin, const D3DXVECTOR3 &v
 
 //
 //
-// Axis Aligned Bounding Boxes(AABB) ¹æ½Ä Ãæµ¹ °ËÃâ
+// Axis Aligned Bounding Boxes(AABB) ë°©ì‹ ì¶©ëŒ ê²€ì¶œ
 int		IsTouchAABB( const D3DXVECTOR3 &vMin1, const D3DXVECTOR3 &vMax1,  
 					 const D3DXVECTOR3 &vMin2, const D3DXVECTOR3 &vMax2 )
 {
-	if( vMin2.x > vMax1.x )		return 0;		// v2°¡ xÃà ¿À¸¥ÂÊÀ¸·Î ¹ş¾î³µ´Ù.
-	if( vMax2.x < vMin1.x )		return 0;		// v2°¡ xÃà ¿ŞÂÊÀ¸·Î ¹ş¾î³µ´Ù.
-	if( vMin2.z > vMax1.z )		return 0;		// v2°¡ zÃà ¾ÕÀ¸·Î ¹ş¾î³µ´Ù.
-	if( vMax2.z < vMin1.z )		return 0;		// v2°¡ zÃà µÚ·ÎÀ¸·Î ¹ş¾î³µ´Ù.
-	if( vMin2.y > vMax1.y )		return 0;		// v2°¡ yÃà À§·Î ¹ş¾î³µ´Ù.
-	if( vMax2.y < vMin1.y )		return 0;		// v2°¡ yÃà ¾Æ·¡·Î ¹ş¾î³µ´Ù.
+	if( vMin2.x > vMax1.x )		return 0;		// v2ê°€ xì¶• ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë²—ì–´ë‚¬ë‹¤.
+	if( vMax2.x < vMin1.x )		return 0;		// v2ê°€ xì¶• ì™¼ìª½ìœ¼ë¡œ ë²—ì–´ë‚¬ë‹¤.
+	if( vMin2.z > vMax1.z )		return 0;		// v2ê°€ zì¶• ì•ìœ¼ë¡œ ë²—ì–´ë‚¬ë‹¤.
+	if( vMax2.z < vMin1.z )		return 0;		// v2ê°€ zì¶• ë’¤ë¡œìœ¼ë¡œ ë²—ì–´ë‚¬ë‹¤.
+	if( vMin2.y > vMax1.y )		return 0;		// v2ê°€ yì¶• ìœ„ë¡œ ë²—ì–´ë‚¬ë‹¤.
+	if( vMax2.y < vMin1.y )		return 0;		// v2ê°€ yì¶• ì•„ë˜ë¡œ ë²—ì–´ë‚¬ë‹¤.
 
 	return 1;
 }
@@ -116,13 +116,13 @@ static int CalcOutCode( const D3DXVECTOR3 &vMin, const D3DXVECTOR3 &vMax, const 
 }
 
 //
-// ÄÚÇî ¼­´õ·£µå ¶óÀÎÅ¬¸®ÇÎ ¾Ë°í¸®Áò
+// ì½”í—¨ ì„œë”ëœë“œ ë¼ì¸í´ë¦¬í•‘ ì•Œê³ ë¦¬ì¦˜
 //
 // vMin:	AABB min
 // vMax:	AABB max
-// v1:		¶óÀÎ ½ÃÀÛÁ¡
-// v2:		¶óÀÎ ³¡Á¡
-// pvIntercept(OUT):	½ÇÁ¦ ±³Â÷Á¡
+// v1:		ë¼ì¸ ì‹œì‘ì 
+// v2:		ë¼ì¸ ëì 
+// pvIntercept(OUT):	ì‹¤ì œ êµì°¨ì 
 //
 BOOL	IsTouchAABB_Line( const D3DXVECTOR3 &vMin, const D3DXVECTOR3 &vMax, 
 						  const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, 
@@ -203,23 +203,23 @@ BOOL	IsTouchAABB_Line( const D3DXVECTOR3 &vMin, const D3DXVECTOR3 &vMax,
 }
 
 //
-//	OBB - Line Ãæµ¹ °Ë»ç
-//	vMin, vMax : LocalÁÂÇ¥
-//	m : ¿ùµå¸ÅÆ®¸¯½º
-//	v1, v2 : ¿ùµå ÁÂÇ¥
+//	OBB - Line ì¶©ëŒ ê²€ì‚¬
+//	vMin, vMax : Localì¢Œí‘œ
+//	m : ì›”ë“œë§¤íŠ¸ë¦­ìŠ¤
+//	v1, v2 : ì›”ë“œ ì¢Œí‘œ
 //
 BOOL	IsTouchOBB_Line( const D3DXVECTOR3 &vMin, const D3DXVECTOR3 &vMax, const D3DXMATRIX &m, 
 						 const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, D3DXVECTOR3 *pvIntersect )
 {
 
 	D3DXMATRIX	mInv;
-	D3DXMatrixInverse( &mInv, NULL, &m );	// AABBÀÇ È¸Àü ¸ÅÆ®¸¯½ºÀÎ mÀ» ¿ªÈ¸Àü ½ÃÅ°±â À§ÇØ ¿ªÇà·ÄÀ» ¸¸µç´Ù.
+	D3DXMatrixInverse( &mInv, NULL, &m );	// AABBì˜ íšŒì „ ë§¤íŠ¸ë¦­ìŠ¤ì¸ mì„ ì—­íšŒì „ ì‹œí‚¤ê¸° ìœ„í•´ ì—­í–‰ë ¬ì„ ë§Œë“ ë‹¤.
 
 	D3DXVECTOR3	rv1, rv2;
-	D3DXVec3TransformCoord( &rv1, &v1, &mInv );		// ¼±ÀÇ ¾ç ³¡Á¡À» ¿ªÈ¸Àü ½ÃÅ²´Ù.
+	D3DXVec3TransformCoord( &rv1, &v1, &mInv );		// ì„ ì˜ ì–‘ ëì ì„ ì—­íšŒì „ ì‹œí‚¨ë‹¤.
 	D3DXVec3TransformCoord( &rv2, &v2, &mInv );
 
-	BOOL bResult = IsTouchAABB_Line( vMin, vMax, rv1, rv2, pvIntersect );	// AABB - Line ±³Â÷¸¦ Å×½ºÆ®
+	BOOL bResult = IsTouchAABB_Line( vMin, vMax, rv1, rv2, pvIntersect );	// AABB - Line êµì°¨ë¥¼ í…ŒìŠ¤íŠ¸
 	if( bResult) 
 		D3DXVec3TransformCoord( pvIntersect, pvIntersect, &m );
 
@@ -247,7 +247,7 @@ BOOL	IsTouchRayTri( const D3DXVECTOR3 *v0, const D3DXVECTOR3 *v1, const D3DXVECT
     if( det > 0 )
         tvec = *vOrig - *v0;
     else
-		return FALSE;	// ¸éÀÌ ¹İ´ë´Ù.
+		return FALSE;	// ë©´ì´ ë°˜ëŒ€ë‹¤.
 
     if( det < 0.0001f )
         return FALSE;
@@ -279,15 +279,15 @@ BOOL	IsTouchRayTri( const D3DXVECTOR3 *v0, const D3DXVECTOR3 *v1, const D3DXVECT
 }
 
 //
-//	vNÀ» ¹ı¼±º¤ÅÍ·Î °®´Â ¸é¿¡ vDirº¤ÅÍ°¡ ºÎµúÇûÀ» ¶§ Slideº¤ÅÍ¸¦ °è»êÇØ¼­ pOutÀ¸·Î µ¹·ÁÁØ´Ù. 
-//	vNÀº ´ÜÀ§º¤ÅÍ.
+//	vNì„ ë²•ì„ ë²¡í„°ë¡œ ê°–ëŠ” ë©´ì— vDirë²¡í„°ê°€ ë¶€ë”ªí˜”ì„ ë•Œ Slideë²¡í„°ë¥¼ ê³„ì‚°í•´ì„œ pOutìœ¼ë¡œ ëŒë ¤ì¤€ë‹¤. 
+//	vNì€ ë‹¨ìœ„ë²¡í„°.
 //
 
 void	CalcSlideVec( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vDir, const D3DXVECTOR3 &vN )
 {
 	D3DXVECTOR3 vInvN;
-	vInvN.x = -vN.x;	vInvN.y = -vN.y;	vInvN.z = -vN.z;	// ³ë¸»À» µÚÁıÀ½.
-	FLOAT	b = D3DXVec3Dot( &vDir, &vInvN );		// (V dot -N)	Á÷°¢»ï°¢ÇüÀÇ ¹Øº¯ÀÇ ±æÀÌ.
+	vInvN.x = -vN.x;	vInvN.y = -vN.y;	vInvN.z = -vN.z;	// ë…¸ë§ì„ ë’¤ì§‘ìŒ.
+	FLOAT	b = D3DXVec3Dot( &vDir, &vInvN );		// (V dot -N)	ì§ê°ì‚¼ê°í˜•ì˜ ë°‘ë³€ì˜ ê¸¸ì´.
 	*pOut = vDir - (vInvN * b);		// slide vector
 }
 
@@ -301,7 +301,7 @@ Segment3::Segment3( const D3DXVECTOR3& v1, const D3DXVECTOR3& v2 )
 	D3DXVec3Normalize( &Direction, &Direction );
 } 
 
-// vMin, vMax - AABB ·ÎÄÃÁÂÇ¥ 
+// vMin, vMax - AABB ë¡œì»¬ì¢Œí‘œ 
 void BBOX::UpdateMartix( const D3DXVECTOR3& vMin, const D3DXVECTOR3& vMax, 
 						 const D3DXMATRIX& matScale, const D3DXMATRIX& matRotation, const D3DXMATRIX& matWorld )
 {
@@ -412,18 +412,18 @@ IF (
     | (V x D).x | > BoxHalfSize.y * V.z + BoxHalfSize.z * V.y or
     | (V x D).y | > BoxHalfSize.z * V.x + BoxHalfSize.x * V.z or
     | (V x D).z | > BoxHalfSize.x * V.y + BoxHalfSize.y * V.x 
-) ±³Â÷ÇÏÁö ¾ÊÀ½.
+) êµì°¨í•˜ì§€ ì•ŠìŒ.
 
-D : ( RayÀÇ ½ÃÀÛÁ¡ - BoxÀÇ Áß½ÉÁ¡ )
-V : RayÀÇ ¹æÇâº¤ÅÍ
-BoxHalfSize : ( BoxÀÇ Å©±â / 2 )
+D : ( Rayì˜ ì‹œì‘ì  - Boxì˜ ì¤‘ì‹¬ì  )
+V : Rayì˜ ë°©í–¥ë²¡í„°
+BoxHalfSize : ( Boxì˜ í¬ê¸° / 2 )
 */
 
 //
-//	Ray¿Í AABB°£ÀÇ Ãæµ¹
+//	Rayì™€ AABBê°„ì˜ ì¶©ëŒ
 //
-//	Ray : Áß½Éº¤ÅÍ, ¹æÇâº¤ÅÍ
-//	AABB : ¹Ú½º Áß½ÉÁ¡, ¹Ú½º Å©±â
+//	Ray : ì¤‘ì‹¬ë²¡í„°, ë°©í–¥ë²¡í„°
+//	AABB : ë°•ìŠ¤ ì¤‘ì‹¬ì , ë°•ìŠ¤ í¬ê¸°
 //
 BOOL	IsTouchRayAABB( const D3DXVECTOR3& vRayOrig, const D3DXVECTOR3& vRayDir, 
 					    const D3DXVECTOR3& vBoxOrig, const D3DXVECTOR3& vBoxSize )
@@ -453,18 +453,18 @@ BOOL	IsTouchRayAABB( const D3DXVECTOR3& vRayOrig, const D3DXVECTOR3& vRayDir,
 
 				 
 //
-//	Ray¿Í ±¸(Sphere)ÀÇ Ãæµ¹À» °Ë»ç
+//	Rayì™€ êµ¬(Sphere)ì˜ ì¶©ëŒì„ ê²€ì‚¬
 //
 BOOL	IsTouchRaySphere( const D3DXVECTOR3& vRayOrig, const D3DXVECTOR3& vRayDir, 
 						  const D3DXVECTOR3& vPos, float fR )
 {
 	D3DXVECTOR3	vQ;
 
-	vQ = vRayOrig - vPos;		// ray - sphere(½ºÇÇ¾î±âÁØ OrigÁÂÇ¥)
-	float a0 = D3DXVec3Dot( &vQ, &vQ ) - (fR * fR);		// OrigÀÌ ±¸Ã¼¾È¿¡ ÀÖ´Â°¡?
+	vQ = vRayOrig - vPos;		// ray - sphere(ìŠ¤í”¼ì–´ê¸°ì¤€ Origì¢Œí‘œ)
+	float a0 = D3DXVec3Dot( &vQ, &vQ ) - (fR * fR);		// Origì´ êµ¬ì²´ì•ˆì— ìˆëŠ”ê°€?
 	if( a0 <= 0 )
 		return TRUE;
-	float a1 = D3DXVec3Dot( &vRayDir, &vQ );			// RayDirÀÌ ¹İ´ë¹æÇâÀ» º¸°í ÀÖ´Â°¡
+	float a1 = D3DXVec3Dot( &vRayDir, &vQ );			// RayDirì´ ë°˜ëŒ€ë°©í–¥ì„ ë³´ê³  ìˆëŠ”ê°€
 	if( a1 >= 0 )
 		return FALSE;
 
@@ -473,7 +473,7 @@ BOOL	IsTouchRaySphere( const D3DXVECTOR3& vRayOrig, const D3DXVECTOR3& vRayDir,
 }
 
 //
-//	Ray¿Í ±¸(Sphere)ÀÇ Ãæµ¹À» °Ë»ç
+//	Rayì™€ êµ¬(Sphere)ì˜ ì¶©ëŒì„ ê²€ì‚¬
 //
 BOOL	IsTouchRaySphere2( const D3DXVECTOR3& vRayOrig, const D3DXVECTOR3& vRayDir, 
 						  const D3DXVECTOR3& vPos, float fR )
@@ -525,9 +525,9 @@ bool MgcTestIntersection (const MgcRay3& rkRay, const MgcSphere& rkSphere)
 */
 
 //
-//	2D ½ºÅ©¸° ÁÂÇ¥¸¦ 3DÁÂÇ¥°èÀÇ ·¹ÀÌ(ray)·Î ¹Ù²Û´Ù
+//	2D ìŠ¤í¬ë¦° ì¢Œí‘œë¥¼ 3Dì¢Œí‘œê³„ì˜ ë ˆì´(ray)ë¡œ ë°”ê¾¼ë‹¤
 //
-//	Àç·á : ½ºÅ©¸°Å©±â w, h, ¸¶¿ì½ºÁÂÇ¥ x, y, ¸ÅÆ®¸¯½º Åõ¿µ, ºä
+//	ì¬ë£Œ : ìŠ¤í¬ë¦°í¬ê¸° w, h, ë§ˆìš°ìŠ¤ì¢Œí‘œ x, y, ë§¤íŠ¸ë¦­ìŠ¤ íˆ¬ì˜, ë·°
 //			
 //
 void	CalcRay( D3DXVECTOR3 *pvRayOrig, D3DXVECTOR3 *pvRayDir, 
@@ -538,7 +538,7 @@ void	CalcRay( D3DXVECTOR3 *pvRayOrig, D3DXVECTOR3 *pvRayDir,
 	D3DXVECTOR3 v;
 
 	// Compute the vector of the pick ray in screen space
-	// ¸¶¿ì½º ÁÂÇ¥¸¦ °ø°£»óÀÇ ·¹ÀÌ·Î ¹Ù²Û´Ù
+	// ë§ˆìš°ìŠ¤ ì¢Œí‘œë¥¼ ê³µê°„ìƒì˜ ë ˆì´ë¡œ ë°”ê¾¼ë‹¤
 	v.x =  ( ( ( (float)nMouX * 2 ) / nScrW ) - 1 ) / mProj._11;
 	v.y = -( ( ( (float)nMouY * 2 ) / nScrH ) - 1 ) / mProj._22;
 	v.z =  1.0f;
@@ -555,7 +555,7 @@ void	CalcRay( D3DXVECTOR3 *pvRayOrig, D3DXVECTOR3 *pvRayDir,
 	}
 
 	// Transform the screen space pick ray into 3D space
-	// Ä«¸Ş¶ó ÁÂÇ¥°èÀÇ ·¹ÀÌ¸¦ ¿ùµåÁÂÇ¥°è·Î ¹Ù²Û´Ù, ·¹ÀÌ½ÃÀÛÁ¡°ú ¹æÇâÀ» °è»ê
+	// ì¹´ë©”ë¼ ì¢Œí‘œê³„ì˜ ë ˆì´ë¥¼ ì›”ë“œì¢Œí‘œê³„ë¡œ ë°”ê¾¼ë‹¤, ë ˆì´ì‹œì‘ì ê³¼ ë°©í–¥ì„ ê³„ì‚°
 	pvRayDir->x  = v.x * m._11  +  v.y * m._21  +  v.z * m._31;
 	pvRayDir->y  = v.x * m._12  +  v.y * m._22  +  v.z * m._32;
 	pvRayDir->z  = v.x * m._13  +  v.y * m._23  +  v.z * m._33;
@@ -660,8 +660,8 @@ BOOL	IsTouchRayAABB3( const D3DXVECTOR3& vRayOrig, const D3DXVECTOR3& vRayDir,
 	return true;
 }
 //
-// »ï°¢ÇüÀÇ ²ÀÁöÁ¡ v1, v2, v3·ÎºÎÅÍ ¹ı¼± º¤ÅÍ¸¦ °è»êÇØ¼­ pNormal¿¡ ³Ö¾îÁØ´Ù.
-// ¹ı¼±À» ´ÜÀ§º¤ÅÍ·Î ¸¸µé¾î ÁÖÁø ¾Ê´Â´Ù.
+// ì‚¼ê°í˜•ì˜ ê¼­ì§€ì  v1, v2, v3ë¡œë¶€í„° ë²•ì„  ë²¡í„°ë¥¼ ê³„ì‚°í•´ì„œ pNormalì— ë„£ì–´ì¤€ë‹¤.
+// ë²•ì„ ì„ ë‹¨ìœ„ë²¡í„°ë¡œ ë§Œë“¤ì–´ ì£¼ì§„ ì•ŠëŠ”ë‹¤.
 //
 void	CalcFaceNormal( D3DXVECTOR3 *pNormal, const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, const D3DXVECTOR3 &v3 )
 {
@@ -674,7 +674,7 @@ void	CalcFaceNormal( D3DXVECTOR3 *pNormal, const D3DXVECTOR3 &v1, const D3DXVECT
 }
 
 //
-// »ï°¢ÇüÀÇ ²ÀÁöÁ¡ v1, v2, v3·ÎºÎÅÍ ¹ı¼± º¤ÅÍ(´ÜÀ§º¤ÅÍ)¸¦ °è»êÇØ¼­ pNormal¿¡ ³Ö¾îÁØ´Ù.
+// ì‚¼ê°í˜•ì˜ ê¼­ì§€ì  v1, v2, v3ë¡œë¶€í„° ë²•ì„  ë²¡í„°(ë‹¨ìœ„ë²¡í„°)ë¥¼ ê³„ì‚°í•´ì„œ pNormalì— ë„£ì–´ì¤€ë‹¤.
 //
 void	CalcFaceUnitNormal( D3DXVECTOR3 *pNormal, const D3DXVECTOR3 &v1, const D3DXVECTOR3 &v2, const D3DXVECTOR3 &v3 )
 {

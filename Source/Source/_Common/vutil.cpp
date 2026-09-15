@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <wingdi.h>
 #include <tchar.h>
 #include <stdio.h>
@@ -15,7 +15,7 @@ int GetCharLen( const CHAR* pStr )
 	return (int) (pNext - pStr );
 }
 
-// ¿Ü±¹¾îÆ÷ÇÔ ¹®ÀåÀÇ ±æÀÌ¸¦ Àß¶óÁØ´Ù.
+// ì™¸êµ­ì–´í¬í•¨ ë¬¸ì¥ì˜ ê¸¸ì´ë¥¼ ì˜ë¼ì¤€ë‹¤.
 int GetStrCut( const CHAR* pSrc, CHAR* pDest, int nCount )
 {
 	int nOffset = 0;
@@ -33,7 +33,7 @@ int GetStrCut( const CHAR* pSrc, CHAR* pDest, int nCount )
 	return 1;
 }	
 
-// ¿Ü±¹¾îÆ÷ÇÔ ¹®ÀÚ °¹¼ö¸¦ ¾Ë¾Æ³¿
+// ì™¸êµ­ì–´í¬í•¨ ë¬¸ì ê°¯ìˆ˜ë¥¼ ì•Œì•„ëƒ„
 int GetStrLen( const CHAR* pSrc )
 {
 	int nCount = 0;
@@ -71,27 +71,27 @@ BOOL IsNative( LPCTSTR lpszStr )
 
 	LPCWSTR pwSrc = (LPCWSTR) lpszStr;
 
-	if( g_codePage == 874 ) // Å¸ÀÌ 
+	if( g_codePage == 874 ) // íƒ€ì´ 
 	{
 		return (BYTE)*lpszStr >= 0xa1 && (BYTE)*lpszStr <= 0xfb;
 	}
 	else
-	if( g_codePage == 949 ) // ÇÑ±Û 
+	if( g_codePage == 949 ) // í•œê¸€ 
 	{
 		return IsHangul( *pwSrc );
 	}
 	else
-	if( g_codePage == 932 ) // ÀÏº» 
+	if( g_codePage == 932 ) // ì¼ë³¸ 
 	{
 		return IsDBCSLeadByte( (BYTE)( *pwSrc ) );
 	}
 	else
-	if( g_codePage == 936 ) // ÇÑÀÚ : Áß±¹
+	if( g_codePage == 936 ) // í•œì : ì¤‘êµ­
 	{
 		return IsDBCSLeadByte( (BYTE)( *pwSrc ) );
 	}
 	else
-	if( g_codePage == 950 ) // ÇÑÀÚ : ´ë¸¸ 
+	if( g_codePage == 950 ) // í•œì : ëŒ€ë§Œ 
 	{
 //		return IsDBCSLeadByte( *pwSrc );
 
@@ -119,13 +119,13 @@ BOOL IsHangul( WORD word )
 	BYTE l = word & 0xff;
 	BYTE h = word >> 8;
 
-	// Æ¯¼ö ¹®ÀÚ, ÀÏ¾î ±âÅ¸ ¾ğ¾î FALSE
+	// íŠ¹ìˆ˜ ë¬¸ì, ì¼ì–´ ê¸°íƒ€ ì–¸ì–´ FALSE
 	if( h >= 0xa1 && h <= 0xac && l >= 0xa0 && l <= 0xff )
 		return FALSE;
-	// È®Àå ¿Ï¼ºÇü  
+	// í™•ì¥ ì™„ì„±í˜•  
 	if( h >= 0x81 && h <= 0xc6 && l >= 0x41 && l <= 0xfe )
 		return TRUE;
-	// ¿Ï¼ºÇü ÄÚµå 
+	// ì™„ì„±í˜• ì½”ë“œ 
 	if( h >= 0xb0 && h <= 0xc8 && l >= 0xa1 && l <= 0xfe )
 		return TRUE;
 	return FALSE;
@@ -134,14 +134,14 @@ BOOL IsHangul( WORD word )
 void SetStrNull( TCHAR* lpStr, int nNullLength )
 {
 	int nLength = strlen( lpStr );
-	// 0À» ³ÖÀ» Æ÷Áö¼ÇÀÌ ½ÇÁ¦ ½ºÆ®¸µ ±æÀÌº¸´Ù ±æ¸é ½ÇÁ¦ ½ºÆ®¸µ ±æÀÌ·Î ¸ÂÃâ ÇÊ¿ä°¡ ÀÖÀ½
+	// 0ì„ ë„£ì„ í¬ì§€ì…˜ì´ ì‹¤ì œ ìŠ¤íŠ¸ë§ ê¸¸ì´ë³´ë‹¤ ê¸¸ë©´ ì‹¤ì œ ìŠ¤íŠ¸ë§ ê¸¸ì´ë¡œ ë§ì¶œ í•„ìš”ê°€ ìˆìŒ
 	if( nNullLength > nLength )
 		nNullLength = nLength;
 	int i = NULL;
 	for( i = 0; i < nNullLength; )
 	{
 #ifdef __CLIENT
-		if( ::GetLanguage() == LANG_THA && g_codePage == 874 ) // Å¸ÀÌ 
+		if( ::GetLanguage() == LANG_THA && g_codePage == 874 ) // íƒ€ì´ 
 			i++;
 		else if(::GetLanguage() == LANG_VTN && g_codePage == 1258)
 			i++;
@@ -152,7 +152,7 @@ void SetStrNull( TCHAR* lpStr, int nNullLength )
 		else
 			i++;
 	}
-	// i°¡ nLength º¸´Ù Å©´Ù¸é WordÄ³¸¯ÅÍÀÏ °ÍÀÌ°í, ³¡ºÎºĞÀÌ ±úÁ®¼­ ¿ÀÂ÷°¡ »ı±ä °ÍÀÌ´Ù.
+	// iê°€ nLength ë³´ë‹¤ í¬ë‹¤ë©´ Wordìºë¦­í„°ì¼ ê²ƒì´ê³ , ëë¶€ë¶„ì´ ê¹¨ì ¸ì„œ ì˜¤ì°¨ê°€ ìƒê¸´ ê²ƒì´ë‹¤.
 	if( i > nNullLength )
 		lpStr[ i - 2 ] = 0;
 	else
@@ -161,14 +161,14 @@ void SetStrNull( TCHAR* lpStr, int nNullLength )
 void SetStrNull( CString& string, int nNullLength )
 {
 	int nLength = string.GetLength();
-	// 0À» ³ÖÀ» Æ÷Áö¼ÇÀÌ ½ÇÁ¦ ½ºÆ®¸µ ±æÀÌº¸´Ù ±æ¸é ½ÇÁ¦ ½ºÆ®¸µ ±æÀÌ·Î ¸ÂÃâ ÇÊ¿ä°¡ ÀÖÀ½
+	// 0ì„ ë„£ì„ í¬ì§€ì…˜ì´ ì‹¤ì œ ìŠ¤íŠ¸ë§ ê¸¸ì´ë³´ë‹¤ ê¸¸ë©´ ì‹¤ì œ ìŠ¤íŠ¸ë§ ê¸¸ì´ë¡œ ë§ì¶œ í•„ìš”ê°€ ìˆìŒ
 	if( nNullLength > nLength )
 		nNullLength = nLength;
 	int i = NULL;
 	for( i = 0; i < nNullLength; )
 	{
 #ifdef __CLIENT
-		if( ::GetLanguage() == LANG_THA && g_codePage == 874 ) // Å¸ÀÌ 
+		if( ::GetLanguage() == LANG_THA && g_codePage == 874 ) // íƒ€ì´ 
 			i++;
 		else if(::GetLanguage() == LANG_VTN && g_codePage == 1258)
 			i++;
@@ -179,7 +179,7 @@ void SetStrNull( CString& string, int nNullLength )
 		else
 			i++;
 	}
-	// i°¡ nLength º¸´Ù Å©´Ù¸é WordÄ³¸¯ÅÍÀÏ °ÍÀÌ°í, ³¡ºÎºĞÀÌ ±úÁ®¼­ ¿ÀÂ÷°¡ »ı±ä °ÍÀÌ´Ù.
+	// iê°€ nLength ë³´ë‹¤ í¬ë‹¤ë©´ Wordìºë¦­í„°ì¼ ê²ƒì´ê³ , ëë¶€ë¶„ì´ ê¹¨ì ¸ì„œ ì˜¤ì°¨ê°€ ìƒê¸´ ê²ƒì´ë‹¤.
 	if( i > nNullLength )
 		string = string.Left( i - 2 );
 	else
@@ -295,7 +295,7 @@ void PaintTexture( LPVOID pDestData, LPIMAGE pImage, CPoint pt, CSize sizeSurfac
 						BYTE byData1 = pSrc[ dwOffsetSrc + 0 ] >> 4; 
 						BYTE byData2 = pSrc[ dwOffsetSrc + 1 ] >> 4; 
 						BYTE byData3 = pSrc[ dwOffsetSrc + 2 ] >> 4; 
-						// ¿ø·¡ ÀÖ´ø ¹è°æÀ» º¸Á¸ÇÏ±â À§ÇØ¼­ ff00ff¸é ÂïÁö ¾Ê´Â´Ù.
+						// ì›ë˜ ìˆë˜ ë°°ê²½ì„ ë³´ì¡´í•˜ê¸° ìœ„í•´ì„œ ff00ffë©´ ì°ì§€ ì•ŠëŠ”ë‹¤.
 						if( byData1 != 0xf || byData2 != 0 || byData3 != 0xf )
 							pDest[ dwOffsetDest ] = 0xf000 | ( byData3 << 8 ) | ( byData2 << 4 ) | byData1;
 					}
@@ -325,7 +325,7 @@ void PaintTexture( LPVOID pDestData, LPIMAGE pImage, CPoint pt, CSize sizeSurfac
 						
 
 						BYTE byData4 = pSrc[ dwOffsetSrc + 3 ] >> 4; 
-						// ¿ø·¡ ÀÖ´ø ¹è°æÀ» º¸Á¸ÇÏ±â À§ÇØ¼­ ¾ËÆÄ°ªÀÌ ÀüÇô ¾øÀ¸¸é ÂïÁö ¾Ê´Â´Ù.
+						// ì›ë˜ ìˆë˜ ë°°ê²½ì„ ë³´ì¡´í•˜ê¸° ìœ„í•´ì„œ ì•ŒíŒŒê°’ì´ ì „í˜€ ì—†ìœ¼ë©´ ì°ì§€ ì•ŠëŠ”ë‹¤.
 						if( byData4 )
 							pDest[ dwOffsetDest ] = ( byData4 << 12 ) | ( byData3 << 8 ) | ( byData2 << 4 ) | byData1;
 					}
@@ -357,7 +357,7 @@ void PaintTexture( LPVOID pDestData, LPIMAGE pImage, CPoint pt, CSize sizeSurfac
 						BYTE byData1 = pSrc[ dwOffsetSrc + 0 ]; 
 						BYTE byData2 = pSrc[ dwOffsetSrc + 1 ]; 
 						BYTE byData3 = pSrc[ dwOffsetSrc + 2 ]; 
-						// ¿ø·¡ ÀÖ´ø ¹è°æÀ» º¸Á¸ÇÏ±â À§ÇØ¼­ ff00ff¸é ÂïÁö ¾Ê´Â´Ù.
+						// ì›ë˜ ìˆë˜ ë°°ê²½ì„ ë³´ì¡´í•˜ê¸° ìœ„í•´ì„œ ff00ffë©´ ì°ì§€ ì•ŠëŠ”ë‹¤.
 						if( byData1 != 0xff || byData2 != 0 || byData3 != 0xff )
 							pDest[ dwOffsetDest ] = 0xf000 | ( byData3 << 16 ) | ( byData2 << 8 ) | byData1;
 					}
@@ -374,7 +374,7 @@ void PaintTexture( LPVOID pDestData, LPIMAGE pImage, CPoint pt, CSize sizeSurfac
 				{
 					if( dwOffsetDest >= 0 && (DWORD)dwOffsetDest < (DWORD)nSizeSurface )
 					{
-						// ¿ø·¡ ÀÖ´ø ¹è°æÀ» º¸Á¸ÇÏ±â À§ÇØ¼­ ¾ËÆÄ°ªÀÌ ÀüÇô ¾øÀ¸¸é ÂïÁö ¾Ê´Â´Ù.
+						// ì›ë˜ ìˆë˜ ë°°ê²½ì„ ë³´ì¡´í•˜ê¸° ìœ„í•´ì„œ ì•ŒíŒŒê°’ì´ ì „í˜€ ì—†ìœ¼ë©´ ì°ì§€ ì•ŠëŠ”ë‹¤.
 						if( pSrc[ dwOffsetSrc ] & 0xff000000 )
 							pDest[ dwOffsetDest ] = pSrc[ dwOffsetSrc ];//yData4 << 24 ) | ( byData3 << 16 ) | ( byData2 << 8 ) | byData1;
 					}
@@ -388,7 +388,7 @@ void PaintTexture( LPVOID pDestData, LPIMAGE pImage, CPoint pt, CSize sizeSurfac
 
 void AdjustSize( SIZE* pSize )
 {
-	// »çÀÌÁî¸¦ 2ÀÇ ÀÚ½ÂÀ¸·Î ¹Ù²Ù±â 
+	// ì‚¬ì´ì¦ˆë¥¼ 2ì˜ ììŠ¹ìœ¼ë¡œ ë°”ê¾¸ê¸° 
 	WORD dwTemp = 0x8000;
 	for( int i = 0; i < 16; i++ )
 	{
@@ -497,7 +497,7 @@ BOOL LoadBMP( LPCTSTR lpszFileName, LPIMAGE lpImage ) //LPBYTE* lppData, SIZE* p
 		lpData += infoHeader.biClrUsed * 4;
 	}
 
-	LPBYTE lpNewData = new BYTE[ nLgWidth * nLgHeight * bitCount * 2 ]; // ¹ö±× ¶§¹®¿¡ 2 °öÇßÀ½. »çÀÌÁî°¡ 4ÀÇ ¹è¼ö°¡ ¾Æ´Ï¾î¼­ ¹®Á¦ »ı°Ü¼­ * 2 ÇßÀ½ 
+	LPBYTE lpNewData = new BYTE[ nLgWidth * nLgHeight * bitCount * 2 ]; // ë²„ê·¸ ë•Œë¬¸ì— 2 ê³±í–ˆìŒ. ì‚¬ì´ì¦ˆê°€ 4ì˜ ë°°ìˆ˜ê°€ ì•„ë‹ˆì–´ì„œ ë¬¸ì œ ìƒê²¨ì„œ * 2 í–ˆìŒ 
 	lpImage->dwSizeBak	= lpImage->dwSize = nLgWidth * nLgHeight * bitCount * 2;
 
 	int nPgHeight = abs( infoHeader.biHeight );
@@ -542,7 +542,7 @@ BOOL SaveBMP( LPCTSTR lpszFileName, LPBYTE lpData, SIZE size )
 	BMPheader.bfType += 'B';
 	BMPheader.bfReserved1 = 0; 
 	BMPheader.bfReserved2 = 0;
-	// 16ºñÆ®(nBit==2)¶óµµ ÆÈ·¹Æ®°¡ ÀÖ´Â °Í Ã³·³ ¾ÈÇÏ¸é ±×¸²ÀÌ ¹Ğ·Á¼­ Ãâ·ÂÇÑ´Ù. ¾ÆÄÉÀÎ Ä¸Ãç °ü·Ã ¹ö±× 
+	// 16ë¹„íŠ¸(nBit==2)ë¼ë„ íŒ”ë ˆíŠ¸ê°€ ìˆëŠ” ê²ƒ ì²˜ëŸ¼ ì•ˆí•˜ë©´ ê·¸ë¦¼ì´ ë°€ë ¤ì„œ ì¶œë ¥í•œë‹¤. ì•„ì¼€ì¸ ìº¡ì¶° ê´€ë ¨ ë²„ê·¸ 
 	if(nBit == 1 || nBit == 2)
 	{
 		BMPheader.bfSize = ( sizeof(BITMAPFILEHEADER ) + sizeof(BITMAPINFOHEADER) + sizeof(RGBQUAD) * 256 + header.biWidth * abs(header.biHeight) * nBit );
@@ -614,7 +614,7 @@ void GetRayEnd(D3DXVECTOR3* pvPickRayOrig,D3DXVECTOR3* pvPickRayDir,D3DXVECTOR3*
 	FLOAT fyDir  = -pvPickRayDir->y;
 	pvPickRayDir->x = fyOrig * pvPickRayDir->x / fyDir; // vecY : posY = vecX : posX
 	pvPickRayDir->z = fyOrig * pvPickRayDir->z / fyDir; // vecY : posY = vecZ : posZ
-	pvPickRayDir->y = -fyOrig; // ¾Æ·¡ *pvPickRayDir + *pvPickRayOrig¿¡¼­ y°¡ 0ÀÌ ³ª¿À°Ô ÇÏ·Á¸é -fyOrig¸¦ ³Ö¾î¾ß ÇÑ´Ù.
+	pvPickRayDir->y = -fyOrig; // ì•„ë˜ *pvPickRayDir + *pvPickRayOrigì—ì„œ yê°€ 0ì´ ë‚˜ì˜¤ê²Œ í•˜ë ¤ë©´ -fyOrigë¥¼ ë„£ì–´ì•¼ í•œë‹¤.
 	*pvPickRayEnd = *pvPickRayDir + *pvPickRayOrig;
 }
 

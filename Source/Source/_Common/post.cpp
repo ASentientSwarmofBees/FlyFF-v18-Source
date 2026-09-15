@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "post.h"
 #include <afxdisp.h>
 
@@ -114,7 +114,7 @@ void CMail::Serialize( CAr & ar, BOOL bData )
 		{
 			ar >> m_nMail >> m_idSender;
 
-			// ¸ŞÀÏ ·Î±×
+			// ë©”ì¼ ë¡œê·¸
 //			//	BEGINTEST
 // 			Error( _T( "m_nMail:%d, m_idSender:%d" ), m_nMail, m_idSender );
 
@@ -204,8 +204,8 @@ u_long CMailBox::AddMail( CMail* pMail )
 		CMail::s_nMail	= pMail->m_nMail;
 
 
-	// Ë¬: POST: m_nMailÀÌ °°Àº ¸ŞÀÏÀÌ ÀÌ¹Ì ¾ø´ÂÁö È®ÀÎÇØ¾ß ÇÑ´Ù.
-	// ÀÌ¹Ì ÀÖ´Ù¸é º°µµÀÇ ¿¹¿Ü Ã³¸®¸¦ ÇÏÀÚ.
+	// åº·: POST: m_nMailì´ ê°™ì€ ë©”ì¼ì´ ì´ë¯¸ ì—†ëŠ”ì§€ í™•ì¸í•´ì•¼ í•œë‹¤.
+	// ì´ë¯¸ ìˆë‹¤ë©´ ë³„ë„ì˜ ì˜ˆì™¸ ì²˜ë¦¬ë¥¼ í•˜ì.
 
 	push_back( pMail );
 #ifdef __DBSERVER

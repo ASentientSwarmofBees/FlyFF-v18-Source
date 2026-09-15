@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #if __VER >= 12 // __TAX
 #include "Continent.h"
 
-#define TAX_SALES		(BYTE)0	// ÆÇ¸Å ¼¼±İ
-#define	TAX_PURCHASE	(BYTE)1 // ±¸¸Å ¼¼±İ
-#define	TAX_ADMISSION	(BYTE)2 // ÀÔÀå·á(Ãµ»óÀÇ Å¾)
+#define TAX_SALES		(BYTE)0	// íŒë§¤ ì„¸ê¸ˆ
+#define	TAX_PURCHASE	(BYTE)1 // êµ¬ë§¤ ì„¸ê¸ˆ
+#define	TAX_ADMISSION	(BYTE)2 // ì…ì¥ë£Œ(ì²œìƒì˜ íƒ‘)
 
 #ifdef __DBSERVER
 #include "dbcontroller.h"
@@ -29,14 +29,14 @@ public:
 	virtual void	OnTimer();
 
 private:
-	void PayTaxToPost();	// ´çÀÏ ¼¼±İ ¼öÀÔÀ» ¿ìÆíÀ¸·Î º¸³½´Ù.
-	void LoadTaxInfo();		// DB¿¡ ÀúÀåµÈ ¼¼±İ Á¤º¸¸¦ ·Îµù ÈÄ ¿ùµå ¼­¹ö·Î Àü¼Û
-	void InsertToDB();		// º¯°æµÈ Á¤º¸¸¦ DB¿¡ Ãß°¡
-	void UpdateToDB( BYTE nContinent ); // ÇØ´ç ´ë·úÀÇ ¼¼±İ Á¤º¸¸¦ ÀúÀå
+	void PayTaxToPost();	// ë‹¹ì¼ ì„¸ê¸ˆ ìˆ˜ì…ì„ ìš°í¸ìœ¼ë¡œ ë³´ë‚¸ë‹¤.
+	void LoadTaxInfo();		// DBì— ì €ì¥ëœ ì„¸ê¸ˆ ì •ë³´ë¥¼ ë¡œë”© í›„ ì›”ë“œ ì„œë²„ë¡œ ì „ì†¡
+	void InsertToDB();		// ë³€ê²½ëœ ì •ë³´ë¥¼ DBì— ì¶”ê°€
+	void UpdateToDB( BYTE nContinent ); // í•´ë‹¹ ëŒ€ë¥™ì˜ ì„¸ê¸ˆ ì •ë³´ë¥¼ ì €ì¥
 	void UpdateAllToDB();
 
-	int m_nTimes;			// È¸Â÷
-	BOOL m_bLoadTaxInfo;		// DB·Î ºÎÅÍ ·ÎµùÇß´Â°¡?
+	int m_nTimes;			// íšŒì°¨
+	BOOL m_bLoadTaxInfo;		// DBë¡œ ë¶€í„° ë¡œë”©í–ˆëŠ”ê°€?
 };
 #endif // __DBSERVER
 
@@ -73,8 +73,8 @@ struct __TAXINFO
 	{
 		dwId = NULL_ID;
 		bSetTaxRate = TRUE;
-		mapTaxDetail.insert( make_pair( TAX_SALES, new __TAXDETAIL ) );			// ±¸¸Å ¼¼±İÀº ±âº»
-		mapTaxDetail.insert( make_pair( TAX_PURCHASE, new __TAXDETAIL ) );		// ÆÇ¸Å ¼¼±İÀº ±âº»
+		mapTaxDetail.insert( make_pair( TAX_SALES, new __TAXDETAIL ) );			// êµ¬ë§¤ ì„¸ê¸ˆì€ ê¸°ë³¸
+		mapTaxDetail.insert( make_pair( TAX_PURCHASE, new __TAXDETAIL ) );		// íŒë§¤ ì„¸ê¸ˆì€ ê¸°ë³¸
 		dwNextId = NULL_ID;
 	}
 };
@@ -90,16 +90,16 @@ public:
 	static CTax* GetInstance( void );
 	void Serialize( CAr & ar );
 	
-	int m_nMinTaxRate;					// ÃÖ¼Ò ¼¼À²
-	int m_nMaxTaxRate;					// ÃÖ´ë ¼¼À²
+	int m_nMinTaxRate;					// ìµœì†Œ ì„¸ìœ¨
+	int m_nMaxTaxRate;					// ìµœëŒ€ ì„¸ìœ¨
 
-	TAXINFOMAP m_mapTaxInfo;	// °¢ ´ë·úº° Á¡·É±æµå ¼¼À² Á¤º¸ ¹× ¼¼±İ ¼öÀÔ
+	TAXINFOMAP m_mapTaxInfo;	// ê° ëŒ€ë¥™ë³„ ì ë ¹ê¸¸ë“œ ì„¸ìœ¨ ì •ë³´ ë° ì„¸ê¸ˆ ìˆ˜ì…
 
 	__TAXINFO* GetTaxInfo( BYTE nContinent );
 	void SetNextSecretRoomGuild( BYTE nCont, DWORD dwGuildId );
 	void SetNextLord( DWORD dwIdPlayer );
 	void SetNextTaxRate( BYTE nCont, int nSalesTaxRate, int nPurchaseTaxRate );
-	void SetApplyTaxRateNow();	// GM¸í·ÉÀ¸·Î °­Á¦·Î ´ÙÀ½ ¼¼À²À» Àû¿ëÇÑ´Ù.
+	void SetApplyTaxRateNow();	// GMëª…ë ¹ìœ¼ë¡œ ê°•ì œë¡œ ë‹¤ìŒ ì„¸ìœ¨ì„ ì ìš©í•œë‹¤.
 
 	BOOL AddTax( BYTE nCont, int nTax, BYTE nTaxKind );
 
@@ -110,21 +110,21 @@ public:
 
 #ifdef __DBSERVER
 	void LoadScript();
-	BOOL CheckPayTime();		// ¼¼±İ ¼öÀÔ Áö±Ş ½Ã°£ °Ë»ç		
-	void CheckChangeTime( BOOL bPay, BOOL bGameMaster = FALSE );		// ´ÙÀ½ ¼¼À² º¯°æ ½Ã°£ °Ë»ç
-	void SetChangeNextTax();	// ´ÙÀ½ ¼¼À² º¯°æ
-	float GetEarningRate( BYTE nCont, BYTE nTaxKind ); // ¼öÀÍ·ü
+	BOOL CheckPayTime();		// ì„¸ê¸ˆ ìˆ˜ì… ì§€ê¸‰ ì‹œê°„ ê²€ì‚¬		
+	void CheckChangeTime( BOOL bPay, BOOL bGameMaster = FALSE );		// ë‹¤ìŒ ì„¸ìœ¨ ë³€ê²½ ì‹œê°„ ê²€ì‚¬
+	void SetChangeNextTax();	// ë‹¤ìŒ ì„¸ìœ¨ ë³€ê²½
+	float GetEarningRate( BYTE nCont, BYTE nTaxKind ); // ìˆ˜ìµë¥ 
 	void LoadTaxInfo( DWORD dpId );
 
-	int m_nTaxSecretRoomRate;		// ºñ¹ĞÀÇ ¹æ Á¡·É±æµå ¼öÀÍ·ü
-	int m_nTaxLordRate;				// ±ºÁÖ ¼¼±İ ¼öÀÍ·ü
-	int m_nAdmissionSecretRoomRate;	// µ¿ºÎ Á¡·É±æµå ÀÔÀå·á ¼öÀÍ·ü
-	int m_nAdmissionLordRate;		// ±ºÁÖ ÀÔÀå·á ¼öÀÍ·ü
-	int m_nDBSaveCount;				// DB¿¡ ÀúÀå ºóµµ(°Ç¼ö)
+	int m_nTaxSecretRoomRate;		// ë¹„ë°€ì˜ ë°© ì ë ¹ê¸¸ë“œ ìˆ˜ìµë¥ 
+	int m_nTaxLordRate;				// êµ°ì£¼ ì„¸ê¸ˆ ìˆ˜ìµë¥ 
+	int m_nAdmissionSecretRoomRate;	// ë™ë¶€ ì ë ¹ê¸¸ë“œ ì…ì¥ë£Œ ìˆ˜ìµë¥ 
+	int m_nAdmissionLordRate;		// êµ°ì£¼ ì…ì¥ë£Œ ìˆ˜ìµë¥ 
+	int m_nDBSaveCount;				// DBì— ì €ì¥ ë¹ˆë„(ê±´ìˆ˜)
 	
 	CLuaBase m_Lua;
 	CTaxDBController m_taxDBController;
-	string	m_strChangedDate;		// ¸¶Áö¸·À¸·Î ¼¼À²ÀÌ º¯°æµÈ ½Ã°£
+	string	m_strChangedDate;		// ë§ˆì§€ë§‰ìœ¼ë¡œ ì„¸ìœ¨ì´ ë³€ê²½ëœ ì‹œê°„
 #endif // __DBSERVER
 
 #ifndef __DBSERVER
@@ -133,7 +133,7 @@ public:
 	float GetSalesTaxRate( CMover* pMover );
 	float GetPurchaseTaxRate( BYTE nContinent );
 	float GetPurchaseTaxRate( CMover* pMover );
-	BOOL IsApplyTaxRate( CMover* pMover, CItemElem* pItemElem );	// ¼¼À²Àû¿ëÀÌ °¡´ÉÇÑ ¾ÆÀÌÅÛÀÎ°¡?
+	BOOL IsApplyTaxRate( CMover* pMover, CItemElem* pItemElem );	// ì„¸ìœ¨ì ìš©ì´ ê°€ëŠ¥í•œ ì•„ì´í…œì¸ê°€?
 #endif // __DBSERVER
 
 #ifdef __OCCUPATION_SHOPITEM

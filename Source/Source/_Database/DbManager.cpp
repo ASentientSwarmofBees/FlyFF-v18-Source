@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -60,10 +60,10 @@ if( FALSE == VerifyString( lpString, __FILE__, __LINE__, lpszGuild ) )		return;
 #if __VER < 11 // __SYS_PLAYER_DATA
 CMclCritSec	s_cs;
 #endif	// __SYS_PLAYER_DATA
-CDbManager & g_DbManager = CDbManager::GetInstance();							// CDbManager Å¬·¡½º »ı¼º
+CDbManager & g_DbManager = CDbManager::GetInstance();							// CDbManager í´ë˜ìŠ¤ ìƒì„±
 
-// MAX_TASKBAR 300ÀÏ°æ¿ì MAX_APPLETTASKBAR = 5400, MAX_ITEMTASKBAR = 10800
-// MAX_TASKBAR 172ÀÏ°æ¿ì MAX_APPLETTASKBAR = 3096, MAX_ITEMTASKBAR = 6192
+// MAX_TASKBAR 300ì¼ê²½ìš° MAX_APPLETTASKBAR = 5400, MAX_ITEMTASKBAR = 10800
+// MAX_TASKBAR 172ì¼ê²½ìš° MAX_APPLETTASKBAR = 3096, MAX_ITEMTASKBAR = 6192
 extern const int MAX_TASKBAR; 
 extern const int MAX_APPLETTASKBAR; 
 extern const int MAX_ITEMTASKBAR;   
@@ -86,9 +86,9 @@ CDbManager::CDbManager()
 
 	m_idPlayer	= 0;
 #ifndef __TRANS_0413
-	//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ¸Ş¸ğ¸® Ç® »ç¿ë.
+	//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
 	m_pDbIOData		= new MemPooler<DB_OVERLAPPED_PLUS>( 1024 );
-	//	mulcom	END100415	DB_OVERLAPPED_PLUS ¸Ş¸ğ¸® Ç® »ç¿ë.
+	//	mulcom	END100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
 #endif	// __TRANS_0413
 
 
@@ -146,7 +146,7 @@ void CDbManager::CreatePlayer( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedP
 
 	//	 CHARACTER_STR 'I1',@im_idPlayer,@iserverindex,@iaccount,@im_szName,@iplayerslot,@idwWorldID,@im_dwIndex,@im_vPos_x,@im_vPos_y,@im_vPos_z,
 	//	 @im_szCharacterKey,@im_dwSkinSet,@im_dwHairMesh,@im_dwHairColor,@im_dwHeadMesh,@im_dwSex
-	// 	 CHARACTER_STR 'I1','','01','beat','»ûº°°øÁÖ',0,0,0,0,0,0,'',0,0,0,0,0
+	// 	 CHARACTER_STR 'I1','','01','beat','ìƒ›ë³„ê³µì£¼',0,0,0,0,0,0,'',0,0,0,0,0
 	arRead >> nSlot;
 	arRead.ReadString( lpDbOverlappedPlus->AccountInfo.szPlayer, MAX_PLAYER );
 
@@ -166,7 +166,7 @@ void CDbManager::CreatePlayer( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedP
 		return;
 	}
 #ifdef __RULE_0615
-	// ÇØÅ·ÀÌ¹Ç·Î ¹«½Ã
+	// í•´í‚¹ì´ë¯€ë¡œ ë¬´ì‹œ
 	if( prj.IsInvalidName( lpDbOverlappedPlus->AccountInfo.szPlayer ) || prj.IsAllowedLetter( lpDbOverlappedPlus->AccountInfo.szPlayer ) == FALSE )
 	{
 		FreeRequest( lpDbOverlappedPlus );
@@ -221,7 +221,7 @@ void CDbManager::CreatePlayer( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedP
 	}
 
 #ifdef __Chogiha
-	// ÃÊ±âÈ­ ÀÛ¾÷ÇÒ¶§ ¾²ÀÎ´Ù~~~~ Æò»ó½Ã ¾È¾¸
+	// ì´ˆê¸°í™” ì‘ì—…í• ë•Œ ì“°ì¸ë‹¤~~~~ í‰ìƒì‹œ ì•ˆì”€
 	WriteToFile(nSkinSet, nHairMesh, nSex, nJob, nHeadMesh, dwHairColor, lpDbOverlappedPlus->AccountInfo.szPlayer );
 #endif
 
@@ -272,14 +272,14 @@ void CDbManager::CreatePlayer( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedP
 		}
 		else
 		{
-			// Ä³¸¯ÅÍ Áßº¹
+			// ìºë¦­í„° ì¤‘ë³µ
 			g_dpLoginSrvr.SendError( ERROR_USER_EXISTS, lpDbOverlappedPlus->dpid );
 		}
 	}
 	FreeRequest( lpDbOverlappedPlus );
 }
 
-// Ä³¸¯ÅÍ »èÁ¦ 
+// ìºë¦­í„° ì‚­ì œ 
 void CDbManager::RemovePlayer( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
@@ -327,20 +327,20 @@ void CDbManager::RemovePlayer( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedP
 		nError = qry->GetInt( "fError" );
 		switch( nError )
 		{
-			case 1:	// ÁÖ¹Î¹øÈ£Æ²¸²
+			case 1:	// ì£¼ë¯¼ë²ˆí˜¸í‹€ë¦¼
 				g_dpLoginSrvr.SendError( ERROR_NO_SUCH_GROUP, lpDbOverlappedPlus->dpid );
 				g_DbManager.FreeRequest( lpDbOverlappedPlus );
 				return;
-			case 2:	// °èÁ¤¾øÀ½
+			case 2:	// ê³„ì •ì—†ìŒ
 				g_DbManager.FreeRequest( lpDbOverlappedPlus );
 				return;
-			case 3:	// ±æµåÀü Âü°¡
+			case 3:	// ê¸¸ë“œì „ ì°¸ê°€
 				{
 					g_dpLoginSrvr.SendError( ERROR_WARTIME, lpDbOverlappedPlus->dpid );
 					FreeRequest( lpDbOverlappedPlus );
 					return;
 				}
-			case 4:	// ±æµå ¼Ò¼Ó
+			case 4:	// ê¸¸ë“œ ì†Œì†
 				{					
 					u_long idGuild	= qry->GetInt( "fText" );
 					g_dpCoreSrvr.SendDelPlayer( idPlayer, idGuild );
@@ -419,7 +419,7 @@ void CDbManager::ChangeBankPass( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappe
 	FreeRequest( lpDbOverlappedPlus );
 }
 
-// ÇÃ·¹ÀÌ¾î ¸®½ºÆ®¸¦ º¸³¿(ÇÑ°èÁ¤¿¡ ÀÖ´Â ¸ğµç ÇÃ·¹ÀÌ¾î)
+// í”Œë ˆì´ì–´ ë¦¬ìŠ¤íŠ¸ë¥¼ ë³´ëƒ„(í•œê³„ì •ì— ìˆëŠ” ëª¨ë“  í”Œë ˆì´ì–´)
 void CDbManager::SendPlayerList( CQuery* qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_PLAYER_LIST, lpDbOverlappedPlus->dpid );
@@ -491,7 +491,7 @@ void CDbManager::SendPlayerList( CQuery* qry, LPDB_OVERLAPPED_PLUS lpDbOverlappe
 
 		int nError = 0;
 		nError = qry->GetInt( "fError" );
-		if( nError == 1 || nError == 2 )	// 1 : ¾ÏÈ£Æ²¸² 2 : °èÁ¤¾øÀ½
+		if( nError == 1 || nError == 2 )	// 1 : ì•”í˜¸í‹€ë¦¼ 2 : ê³„ì •ì—†ìŒ
 		{
 			WriteLog( "%s, %d\t%s, %s, %d", __FILE__, __LINE__, lpDbOverlappedPlus->AccountInfo.szAccount, lpDbOverlappedPlus->AccountInfo.szPassword, nError );
 //			qry->Clear();
@@ -563,7 +563,7 @@ void CDbManager::SendPlayerList( CQuery* qry, LPDB_OVERLAPPED_PLUS lpDbOverlappe
 		CTime NowTime = CTime::GetCurrentTime();
 		if( NowTime > tEnd_Time )
 		{
-			// Á¢¼ÓÀÌ °¡´ÉÇÑ »óÅÂ
+			// ì ‘ì†ì´ ê°€ëŠ¥í•œ ìƒíƒœ
 			nBlock = 1;
 		}
 
@@ -600,7 +600,7 @@ void CDbManager::SendPlayerList( CQuery* qry, LPDB_OVERLAPPED_PLUS lpDbOverlappe
 				IndexItem = GetOneItem( &BufItemElem, Inven, &CountStr );
 				if( IndexItem == -1 )
 				{
-					Error( "Inventory : << ÇÁ·ÎÆÛÆ¼ ¾øÀ½. %s, %d", mover.m_szName, BufItemElem.m_dwItemId );
+					Error( "Inventory : << í”„ë¡œí¼í‹° ì—†ìŒ. %s, %d", mover.m_szName, BufItemElem.m_dwItemId );
 				}
 				else
 				{
@@ -752,7 +752,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 	}
 	
 	char szQuery[40960];
-	// ÀÎµ¦½º ¾ò¾î¿À±â
+	// ì¸ë±ìŠ¤ ì–»ì–´ì˜¤ê¸°
 	sprintf( szQuery, "uspLoadMaxCombatID '%02d'", g_appInfo.dwSys );
 	if( FALSE == qry.Exec( szQuery ) )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return FALSE; }
@@ -761,7 +761,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 	{
 		m_nGuildCombatIndex = qry.GetInt( "MaxNum" );
 		
-		// °¡Áö°í¿Â ÄÄºª ÀÎµ¦½º°¡ Á¾·áÇÑ ÀÎµ¦½º ÀÎÁö È®ÀÎ
+		// ê°€ì§€ê³ ì˜¨ ì»´ë²³ ì¸ë±ìŠ¤ê°€ ì¢…ë£Œí•œ ì¸ë±ìŠ¤ ì¸ì§€ í™•ì¸
 		sprintf( szQuery, "uspLoadCombatInfo %d, '%02d'", m_nGuildCombatIndex, g_appInfo.dwSys );
 		if( FALSE == qry.Exec( szQuery ) )
 		{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return FALSE; }
@@ -770,7 +770,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 		{
 			int nClose = qry.GetInt( "Status" );
 			
-			if( nClose == 30 || nClose == -100 ) // ±æµå´ëÀü Á¾·á
+			if( nClose == 30 || nClose == -100 ) // ê¸¸ë“œëŒ€ì „ ì¢…ë£Œ
 			{
 				++m_nGuildCombatIndex;
 				sprintf( szQuery, "uspAddNewCombat %d,'%02d'", m_nGuildCombatIndex, g_appInfo.dwSys );
@@ -785,7 +785,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 			{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return FALSE; }
 		}
 		
-		// ÃÖÁ¾ ½Â¸®±æµå ¹× ¿¬½Â ¾ò¾î¿À±â
+		// ìµœì¢… ìŠ¹ë¦¬ê¸¸ë“œ ë° ì—°ìŠ¹ ì–»ì–´ì˜¤ê¸°
 		sprintf( szQuery, "uspLoadWinnerGuildInfo %d,'%02d'", m_nGuildCombatIndex-1, g_appInfo.dwSys );
 		if( FALSE == qry.Exec( szQuery ) )
 		{	WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery );	return FALSE; }
@@ -795,7 +795,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 			m_nWinGuildCount = qry.GetInt( "StraightWin" );
 		}
 
-		// ÃÖÁ¾ º£½ºÆ® ÇÃ·¹ÀÌ¾î ¾ò¾î¿À±â
+		// ìµœì¢… ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ì–»ì–´ì˜¤ê¸°
 		sprintf( szQuery, "uspLoadCombatBestPlayer %d,'%02d'", m_nGuildCombatIndex-1, g_appInfo.dwSys );
 		if( FALSE == qry.Exec( szQuery ) )
 		{	WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery );	return FALSE; }
@@ -804,7 +804,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 			m_uBestPlayer = qry.GetInt( "PlayerID" );
 		}
 		
-		// Âü°¡±æµå ¾ò¾î¿À±â
+		// ì°¸ê°€ê¸¸ë“œ ì–»ì–´ì˜¤ê¸°
 		sprintf( szQuery, "uspLoadCombatGuildList %d, '%02d'", m_nGuildCombatIndex, g_appInfo.dwSys );
 		if( FALSE == qry.Exec( szQuery ) )
 		{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return FALSE; }
@@ -828,7 +828,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 #endif // __S_BUG_GC
 		}
 		
-		// Áö±İ ±îÁö º¸»ó ¹× Âü¿©±İÀ» ¾È¹ŞÀº ±æµå ¹× º£½ºÆ® ÇÃ·¹ÀÌ¾î ¾ò¾î¿À±â
+		// ì§€ê¸ˆ ê¹Œì§€ ë³´ìƒ ë° ì°¸ì—¬ê¸ˆì„ ì•ˆë°›ì€ ê¸¸ë“œ ë° ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ì–»ì–´ì˜¤ê¸°
 		m_GCResultValueGuild.clear();
 		m_GCResultValuePlayer.clear();
 		sprintf( szQuery, "uspLoadCombatUnpaidList '%02d'", g_appInfo.dwSys );
@@ -838,7 +838,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 		{
 			char cFlag;
 			cFlag = qry.GetChar( "Flag" );
-			if( cFlag == 'G' )	// ±æµå
+			if( cFlag == 'G' )	// ê¸¸ë“œ
 			{
 				__GCRESULTVALUEGUILD ResultValueGuild;
 				ResultValueGuild.nCombatID = qry.GetInt( "CombatID" );
@@ -847,7 +847,7 @@ BOOL CDbManager::OpenGuildCombat( void )
 				ResultValueGuild.nReward = qry.GetInt64( "Reward" );
 				m_GCResultValueGuild.push_back( ResultValueGuild );
 			}
-			else				// ÇÃ·¹ÀÌ¾î
+			else				// í”Œë ˆì´ì–´
 			{
 				__GCRESULTVALUEPLAYER ResultValuePlayer;
 				ResultValuePlayer.nCombatID = qry.GetInt( "CombatID" );
@@ -1043,8 +1043,8 @@ BOOL CDbManager::GetMyPartyName( CQuery* qry, LPDB_OVERLAPPED_PLUS lpDbOverlappe
 //          @pAccount       varchar(32),
 //          @pWorldID       int,
 //          @pGold          bigint,
-//          @pLevel         int,  -- Ä³¸¯ÅÍ ·¹º§
-//          @pJob           int, -- Ä³¸¯ÅÍ Á÷¾÷
+//          @pLevel         int,  -- ìºë¦­í„° ë ˆë²¨
+//          @pJob           int, -- ìºë¦­í„° ì§ì—…
 //          @pStartDt       char(14),
 //          @pTotalPlayTime int,
 //          @pRemoteIP      varchar(16)
@@ -1055,11 +1055,11 @@ void CDbManager::LogPlayConnect( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappe
 {
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	int		iServer_No;				// ¼­¹ö ¹øÈ£
-	DWORD	iMap_No;				// ¸Ê ¹øÈ£
-	char	cIP[16] = { 0, };		// Á¢¼ÓÇÑ ³ÑÀÇ ¾ÆÀÌÇÇ
+	int		iServer_No;				// ì„œë²„ ë²ˆí˜¸
+	DWORD	iMap_No;				// ë§µ ë²ˆí˜¸
+	char	cIP[16] = { 0, };		// ì ‘ì†í•œ ë„˜ì˜ ì•„ì´í”¼
 	DWORD	dConnectTime;
-	DWORD	dSeed;					// µ·
+	DWORD	dSeed;					// ëˆ
 	SYSTEMTIME	siIn;
 	u_long	uidPlayer;
 	char szAccount[MAX_ACCOUNT];
@@ -1149,7 +1149,7 @@ void CDbManager::RemoveFriend( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlapp
 	u_long uidPlayer, uidFriend;		
 	arRead >> uidPlayer >> uidFriend;
 
-	// Ä£±¸ »èÁ¦
+	// ì¹œêµ¬ ì‚­ì œ
 	/*  MESSENGER_STR 'D1',@im_idPlayer,@iserverindex,@if_idPlayer
 		MESSENGER_STR 'D1','000001','01','000002' */
 	char szQuery[QUERY_SIZE]	= { 0,};
@@ -1169,7 +1169,7 @@ void CDbManager::RemoveFriend( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlapp
 void CDbManager::GetMessengerFriend( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	pMover->m_Messenger.Clear();
-	// ³»°¡ µî·ÏÇÑ ¾ÆÀÌµğ °¡Áö°í ¿À±â
+	// ë‚´ê°€ ë“±ë¡í•œ ì•„ì´ë”” ê°€ì§€ê³  ì˜¤ê¸°
 	char szQuery[QUERY_SIZE]	= { 0,};
 
 	sprintf( szQuery,
@@ -1194,7 +1194,7 @@ void CDbManager::GetMessengerFriend( CMover* pMover, CQuery *qry, LPDB_OVERLAPPE
 		dwState = qry->GetInt( "m_dwState" );
 		pMover->m_Messenger.AddFriend( uFriendId, nJob, nSex, dwState );
 	}
-	// ³ª¸¦ µ¿·ÏÇÑ ¾ÆÀÌµğ °¡Áö°í ¿À±â
+	// ë‚˜ë¥¼ ë™ë¡í•œ ì•„ì´ë”” ê°€ì§€ê³  ì˜¤ê¸°
 	sprintf( szQuery,
 		"MESSENGER_STR 'S2','%07d','%02d'",
 		pMover->m_idPlayer, g_appInfo.dwSys );
@@ -1221,7 +1221,7 @@ void CDbManager::SaveMessengerFriend( CQuery *qry, CMover* pMover, char* szQuery
 
 		if( pFriend->bSave )
 		{
-			// ¸Ş½ÅÀú Ãß°¡½Ã ¼ºº°ÇÏ°í Á÷¾÷Àº DB¿¡¼­ ÀÚÃ¼ÀûÀ¸·Î JoinÀ» ÇØ¼­ ¼ºº°°ú Á÷¾÷À» °¡Áö°í ¿È
+			// ë©”ì‹ ì € ì¶”ê°€ì‹œ ì„±ë³„í•˜ê³  ì§ì—…ì€ DBì—ì„œ ìì²´ì ìœ¼ë¡œ Joinì„ í•´ì„œ ì„±ë³„ê³¼ ì§ì—…ì„ ê°€ì§€ê³  ì˜´
 			sprintf( szQuery,
 				"MESSENGER_STR @iGu='A1',@im_idPlayer='%07d',@iserverindex='%02d',@if_idPlayer='%07d',@im_dwState=%d", 
 				pMover->m_idPlayer, g_appInfo.dwSys, pFriend->dwUserId, pFriend->dwState ); 
@@ -1273,9 +1273,9 @@ BOOL CDbManager::SendItemtoCharacter( int nSlot, CMover* pMover, CQuery *qry, CQ
 				continue;
 			}
 
-			if( 0 == strcmp( SendItemContents.OneItem, "penya" ) )				// Æä³ÄÀÎÁö È®ÀÎ
+			if( 0 == strcmp( SendItemContents.OneItem, "penya" ) )				// í˜ëƒì¸ì§€ í™•ì¸
 			{
-				// Penya Áö±Ş
+				// Penya ì§€ê¸‰
 				if( SendPenya( qry1, szQuery, pMover, SendItemContents.Item_Count, SendItemContents.nNo ) == FALSE )
 				{
 					WriteLog( "SendItem::SendPenya PlayerName = %s, Item_Count = %d Qry = %s", pMover->m_szName, SendItemContents.Item_Count, szQuery );
@@ -1302,7 +1302,7 @@ BOOL CDbManager::SendItemtoCharacter( int nSlot, CMover* pMover, CQuery *qry, CQ
 #endif // __NOLOG
 				
 			}
-			else	// ¾ÆÀÌÅÛ Áö±Ş
+			else	// ì•„ì´í…œ ì§€ê¸‰
 			{
 				SERIALNUMBER iSerialNumber = SendItem( qry1, szQuery, pMover, SendItemContents );
 				if( iSerialNumber != 0 )
@@ -1354,10 +1354,10 @@ BOOL CDbManager::SendItemtoCharacter( int nSlot, CMover* pMover, CQuery *qry, CQ
 
 BOOL CDbManager::GetSendItem( CQuery *pQry, __SendItemContents * pSendItemContents )
 {
-	pSendItemContents->nNo = pQry->GetInt( "m_nNo" );										// À¯´ÏÅ© ³Ñ¹ö
-	pQry->GetStr( "Item_Name", pSendItemContents->OneItem );								// ÀÌ¸§
+	pSendItemContents->nNo = pQry->GetInt( "m_nNo" );										// ìœ ë‹ˆí¬ ë„˜ë²„
+	pQry->GetStr( "Item_Name", pSendItemContents->OneItem );								// ì´ë¦„
 	
-	pSendItemContents->Item_Count				= pQry->GetInt( "Item_count" );				// °¹¼ö
+	pSendItemContents->Item_Count				= pQry->GetInt( "Item_count" );				// ê°¯ìˆ˜
 #if __VER >= 12 // __EXT_PIERCING
 	int nIndex = atoi( pSendItemContents->OneItem );
 	ItemProp* pItemProp = NULL;
@@ -1427,9 +1427,9 @@ BOOL CDbManager::GetSendItem( CQuery *pQry, __SendItemContents * pSendItemConten
 	}
 #else // __EXT_PIERCING
 	pSendItemContents->m_nAbilityOption			= pQry->GetInt( "m_nAbilityOption" );		// AbilityOption ( + ) Option
-	pSendItemContents->nItemResist				= pQry->GetInt( "m_bItemResist" );			// ¼Ó¼º°ª	
-	pSendItemContents->nResistAbilityOption	= pQry->GetInt( "m_nResistAbilityOption" );	// ¼Ó¼º¿¡ ´ëÇÑ Option°ª
-	pSendItemContents->nCharged				= pQry->GetInt( "m_bCharged" );				// »ó¿ëÈ­ ¾ÆÀÌÅÛÀÎÁö È®ÀÎ 0 : »ó¿ëÈ­, 1 : »ó¿ëÈ­ ¾Æ´Ô
+	pSendItemContents->nItemResist				= pQry->GetInt( "m_bItemResist" );			// ì†ì„±ê°’	
+	pSendItemContents->nResistAbilityOption	= pQry->GetInt( "m_nResistAbilityOption" );	// ì†ì„±ì— ëŒ€í•œ Optionê°’
+	pSendItemContents->nCharged				= pQry->GetInt( "m_bCharged" );				// ìƒìš©í™” ì•„ì´í…œì¸ì§€ í™•ì¸ 0 : ìƒìš©í™”, 1 : ìƒìš©í™” ì•„ë‹˜
 	pSendItemContents->nPiercedSize			= pQry->GetInt( "nPiercedSize" );
 	pSendItemContents->adwItemId0			= pQry->GetInt( "adwItemId0" );
 	pSendItemContents->adwItemId1			= pQry->GetInt( "adwItemId1" );
@@ -1572,7 +1572,7 @@ SERIALNUMBER CDbManager::SendItem( CQuery *pQry, char* szSql, CMover* pMover, __
 
 	iSerialNumber	= CSerialNumber::GetInstance()->Get();
 
-	// À¯Áö½Ã°£ °Ë»ç
+	// ìœ ì§€ì‹œê°„ ê²€ì‚¬
 	DWORD dwKeepTime = 0;
 	// if( pItemElem->m_dwKeepTime != 0 )
 	if( SendItemContents.m_dwKeepTime != 0 )
@@ -1597,10 +1597,10 @@ SERIALNUMBER CDbManager::SendItem( CQuery *pQry, char* szSql, CMover* pMover, __
 		pItemElem->m_dwKeepTime = dwKeepTime;
 	}
 
-	// ÇÇ¾î½Ì °Ë»ç
+	// í”¼ì–´ì‹± ê²€ì‚¬
 	if( pItemElem->IsPiercedItem() )
 	{
-		for( int i=0; i<pItemElem->GetPiercingSize(); i++ )		// ÀÏ¹İ ¾ÆÀÌÅÛ
+		for( int i=0; i<pItemElem->GetPiercingSize(); i++ )		// ì¼ë°˜ ì•„ì´í…œ
 		{
 			if( pItemElem->GetPiercingItem( i ) != 0 )
 			{
@@ -1614,7 +1614,7 @@ SERIALNUMBER CDbManager::SendItem( CQuery *pQry, char* szSql, CMover* pMover, __
 			}
 		}
 
-		for( int i=0; i<pItemElem->GetUltimatePiercingSize(); i++ )		// ¾óÅÍ¸Ú ¿şÆù
+		for( int i=0; i<pItemElem->GetUltimatePiercingSize(); i++ )		// ì–¼í„°ë©‹ ì›¨í°
 		{
 			if( pItemElem->GetUltimatePiercingItem( i ) != 0 )
 			{
@@ -1627,7 +1627,7 @@ SERIALNUMBER CDbManager::SendItem( CQuery *pQry, char* szSql, CMover* pMover, __
 				}
 			}
 		}
-	}	// ÇÇ¾î½Ì °Ë»ç
+	}	// í”¼ì–´ì‹± ê²€ì‚¬
 
 	//m_Inventory.Add( dwId, dwNum, nOption, iSerialNumber, nItemResist, nResistAbilityOption, NULL, NULL, NULL, nCharged, nPiercedSize, adwItemId0, adwItemId1, adwItemId2, adwItemId3, adwItemId4, m_dwKeepTime, iRandomOptItemId )
 	if( !pMover->m_Inventory.Add( pItemElem, NULL, NULL, NULL ) )
@@ -1657,12 +1657,12 @@ SERIALNUMBER CDbManager::SendItem( CQuery *pQry, char* szSql, CMover* pMover, __
 	else
 		pItemProp = prj.GetItemProp( SendItemContents.OneItem );	
 	
-	// ¸¸¾à °­È­ ¾ÆÀÌÅÛÀ» ³Ö¾î¾ß ÇÑ´Ù¸é, Item_Send Å×ÀÌºí¿¡ °­È­ Á¤µµ¸¦ ³ªÅ¸³»´Â ÄÃ·³À» Ãß°¡ÇÏ¿© ÀĞÀº ÈÄ, ÀÌ ÇÔ¼ö ¸¶Áö¸· ÀÎÀÚ(ÇöÀç 0)¸¦  ±× °ªÀ¸·Î ´ëÃ¼ÇÑ´Ù.
+	// ë§Œì•½ ê°•í™” ì•„ì´í…œì„ ë„£ì–´ì•¼ í•œë‹¤ë©´, Item_Send í…Œì´ë¸”ì— ê°•í™” ì •ë„ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ì»¬ëŸ¼ì„ ì¶”ê°€í•˜ì—¬ ì½ì€ í›„, ì´ í•¨ìˆ˜ ë§ˆì§€ë§‰ ì¸ì(í˜„ì¬ 0)ë¥¼  ê·¸ ê°’ìœ¼ë¡œ ëŒ€ì²´í•œë‹¤.
 	if( pItemProp )
 	{
 		iSerialNumber	= CSerialNumber::GetInstance()->Get();
 
-		// À¯Áö½Ã°£ °Ë»ç
+		// ìœ ì§€ì‹œê°„ ê²€ì‚¬
 		DWORD dwKeepTime = 0;
 		if( SendItemContents.m_dwKeepTime != 0 )
 		{
@@ -1684,7 +1684,7 @@ SERIALNUMBER CDbManager::SendItem( CQuery *pQry, char* szSql, CMover* pMover, __
 			}
 		}
 
-		// ÇÇ¾î½Ì °Ë»ç
+		// í”¼ì–´ì‹± ê²€ì‚¬
 		if( SendItemContents.nPiercedSize != 0 )
 		{
 			if( pItemProp->dwItemKind3 != IK3_SUIT
@@ -1749,15 +1749,15 @@ SERIALNUMBER CDbManager::SendItem( CQuery *pQry, char* szSql, CMover* pMover, __
 		
 #if __VER >= 11 // __SYS_IDENTIFY
 #ifdef __SEND_ITEM_ULTIMATE
-		if( pMover->AddItem( ITYPE_ITEM, pItemProp->dwID, SendItemContents.Item_Count, SendItemContents.m_nAbilityOption, iSerialNumber, SendItemContents.nItemResist, SendItemContents.nResistAbilityOption, SendItemContents.nCharged, SendItemContents.nPiercedSize, SendItemContents.adwItemId0, SendItemContents.adwItemId1, SendItemContents.adwItemId2, SendItemContents.adwItemId3, SendItemContents.adwItemId4, dwKeepTime, SendItemContents.iRandomOptItemId ) == FALSE ) // ½ÇÀç·Î ¾ÆÀÌÅÛÀ» ³ÖÀ½
+		if( pMover->AddItem( ITYPE_ITEM, pItemProp->dwID, SendItemContents.Item_Count, SendItemContents.m_nAbilityOption, iSerialNumber, SendItemContents.nItemResist, SendItemContents.nResistAbilityOption, SendItemContents.nCharged, SendItemContents.nPiercedSize, SendItemContents.adwItemId0, SendItemContents.adwItemId1, SendItemContents.adwItemId2, SendItemContents.adwItemId3, SendItemContents.adwItemId4, dwKeepTime, SendItemContents.iRandomOptItemId ) == FALSE ) // ì‹¤ì¬ë¡œ ì•„ì´í…œì„ ë„£ìŒ
 #else // __SEND_ITEM_ULTIMATE
-		if( pMover->AddItem( ITYPE_ITEM, pItemProp->dwID, SendItemContents.Item_Count, SendItemContents.m_nAbilityOption, iSerialNumber, SendItemContents.nItemResist, SendItemContents.nResistAbilityOption, SendItemContents.nCharged, SendItemContents.nPiercedSize, SendItemContents.adwItemId0, SendItemContents.adwItemId1, SendItemContents.adwItemId2, SendItemContents.adwItemId3, dwKeepTime, SendItemContents.iRandomOptItemId ) == FALSE ) // ½ÇÀç·Î ¾ÆÀÌÅÛÀ» ³ÖÀ½
+		if( pMover->AddItem( ITYPE_ITEM, pItemProp->dwID, SendItemContents.Item_Count, SendItemContents.m_nAbilityOption, iSerialNumber, SendItemContents.nItemResist, SendItemContents.nResistAbilityOption, SendItemContents.nCharged, SendItemContents.nPiercedSize, SendItemContents.adwItemId0, SendItemContents.adwItemId1, SendItemContents.adwItemId2, SendItemContents.adwItemId3, dwKeepTime, SendItemContents.iRandomOptItemId ) == FALSE ) // ì‹¤ì¬ë¡œ ì•„ì´í…œì„ ë„£ìŒ
 #endif // __SEND_ITEM_ULTIMATE
 #else	// __SYS_IDENTIFY
 #ifdef __SEND_ITEM_ULTIMATE
-		if( pMover->AddItem( ITYPE_ITEM, pItemProp->dwID, SendItemContents.Item_Count, SendItemContents.m_nAbilityOption, iSerialNumber, SendItemContents.nItemResist, SendItemContents.nResistAbilityOption, SendItemContents.nCharged, SendItemContents.nPiercedSize, SendItemContents.adwItemId0, SendItemContents.adwItemId1, SendItemContents.adwItemId2, SendItemContents.adwItemId3, SendItemContents.adwItemId4, dwKeepTime, SendItemContents.nRandomOptItemId ) == FALSE ) // ½ÇÀç·Î ¾ÆÀÌÅÛÀ» ³ÖÀ½		
+		if( pMover->AddItem( ITYPE_ITEM, pItemProp->dwID, SendItemContents.Item_Count, SendItemContents.m_nAbilityOption, iSerialNumber, SendItemContents.nItemResist, SendItemContents.nResistAbilityOption, SendItemContents.nCharged, SendItemContents.nPiercedSize, SendItemContents.adwItemId0, SendItemContents.adwItemId1, SendItemContents.adwItemId2, SendItemContents.adwItemId3, SendItemContents.adwItemId4, dwKeepTime, SendItemContents.nRandomOptItemId ) == FALSE ) // ì‹¤ì¬ë¡œ ì•„ì´í…œì„ ë„£ìŒ		
 #else // __SEND_ITEM_ULTIMATE
-		if( pMover->AddItem( ITYPE_ITEM, pItemProp->dwID, SendItemContents.Item_Count, SendItemContents.m_nAbilityOption, iSerialNumber, SendItemContents.nItemResist, SendItemContents.nResistAbilityOption, SendItemContents.nCharged, SendItemContents.nPiercedSize, SendItemContents.adwItemId0, SendItemContents.adwItemId1, SendItemContents.adwItemId2, SendItemContents.adwItemId3, dwKeepTime, SendItemContents.nRandomOptItemId ) == FALSE ) // ½ÇÀç·Î ¾ÆÀÌÅÛÀ» ³ÖÀ½
+		if( pMover->AddItem( ITYPE_ITEM, pItemProp->dwID, SendItemContents.Item_Count, SendItemContents.m_nAbilityOption, iSerialNumber, SendItemContents.nItemResist, SendItemContents.nResistAbilityOption, SendItemContents.nCharged, SendItemContents.nPiercedSize, SendItemContents.adwItemId0, SendItemContents.adwItemId1, SendItemContents.adwItemId2, SendItemContents.adwItemId3, dwKeepTime, SendItemContents.nRandomOptItemId ) == FALSE ) // ì‹¤ì¬ë¡œ ì•„ì´í…œì„ ë„£ìŒ
 #endif // __SEND_ITEM_ULTIMATE
 #endif	// __SYS_IDENTIFY
 		{
@@ -1853,7 +1853,7 @@ BOOL CDbManager::RemoveItemtoCharacter( CMover* pMover, CQuery *qry, CQuery *qry
 		if( GetRemoveItem( qry, nNo, OneItem, Item_Count, m_nAbilityOption, nItemResist, nResistAbilityOption, chState ) == FALSE )
 			continue;
 
-		if( 0 == strcmp( OneItem, "penya" ) )				// Æä³ÄÀÎÁö È®ÀÎ
+		if( 0 == strcmp( OneItem, "penya" ) )				// í˜ëƒì¸ì§€ í™•ì¸
 		{
 			if( RemovePenya( qry1, szQuery, pMover, Item_Count, nNo, chState ) == FALSE )
 			{
@@ -1862,12 +1862,12 @@ BOOL CDbManager::RemoveItemtoCharacter( CMover* pMover, CQuery *qry, CQuery *qry
 			}
 			bIsPenya = TRUE;
 		}
-		else												// ¾ÆÀÌÅÛ »èÁ¦
+		else												// ì•„ì´í…œ ì‚­ì œ
 		{
 			iSerialNumber	= RemoveItem( qry1, szQuery, nNo, pMover, OneItem, Item_Count, m_nAbilityOption, nItemResist, nResistAbilityOption, chState );
 		}
 
-		if( bIsPenya )				// Æä³ÄÀÎÁö È®ÀÎ
+		if( bIsPenya )				// í˜ëƒì¸ì§€ í™•ì¸
 		{
 			//sprintf( OneItem, "SEED" );
 			_stprintf( OneItem, "%d", II_GOLD_SEED1 );
@@ -1990,7 +1990,7 @@ BOOL CDbManager::CreateDbWorkers( void )
 			OutputDebugString( "DATABASESERVER.EXE\t// TIMEOUT\t// ODBC\n" );
 	}
 
-	m_hIOCPGuild = CreateIoCompletionPort( INVALID_HANDLE_VALUE, NULL, 0, 0 );	// ±æµå¿ë
+	m_hIOCPGuild = CreateIoCompletionPort( INVALID_HANDLE_VALUE, NULL, 0, 0 );	// ê¸¸ë“œìš©
 	m_hThreadGuild = chBEGINTHREADEX( NULL, 0, _GuildThread, (LPVOID)this, 0, &dwThreadId ); 
 
 	if( WaitForSingleObject( s_hHandle, SEC( 3 ) ) == WAIT_TIMEOUT )
@@ -2343,11 +2343,11 @@ void CDbManager::PutThread( void )	// log
 				break;
 #endif // __S_NEW_SKILL_2
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 			case LOG_GETHONORTIME: 
 				LogGetHonorTime( pQueryLog, lpDbOverlappedPlus );
 				break;
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 #ifdef __RT_1025
 			case QM_ADD_MESSENGER:
 				AddMessenger( pQueryChar, lpDbOverlappedPlus );
@@ -2815,7 +2815,7 @@ void CDbManager::OpenGuild( void )
 	}
 
 	char szSql[1024];		
-	//  ±æµå °¡Á®¿À±â ¸ğµÎ ´Ù~~~
+	//  ê¸¸ë“œ ê°€ì ¸ì˜¤ê¸° ëª¨ë‘ ë‹¤~~~
 	DBQryGuild( szSql, "S1" );	// ORDER BY
 	if( FALSE == pQuery->Exec( szSql ) )
 	{
@@ -2832,14 +2832,14 @@ void CDbManager::OpenGuild( void )
 		pGuild->m_nLevel						= pQuery->GetInt( "m_nLevel" );
 		pGuild->m_dwContributionPxp				= (DWORD)pQuery->GetInt( "m_nGuildPxp" );
 		pGuild->m_dwLogo						= (DWORD)pQuery->GetInt( "m_dwLogo" );
-		//  ±ÇÇÑ
+		//  ê¶Œí•œ
 		pGuild->m_adwPower[GUD_MASTER]			= 0x000000FF;
 		pGuild->m_adwPower[GUD_KINGPIN]			= (DWORD)pQuery->GetInt( "Lv_1" );
 		pGuild->m_adwPower[GUD_CAPTAIN]			= (DWORD)pQuery->GetInt( "Lv_2" );
 		pGuild->m_adwPower[GUD_SUPPORTER]		= (DWORD)pQuery->GetInt( "Lv_3" );
 		pGuild->m_adwPower[GUD_ROOKIE]			= (DWORD)pQuery->GetInt( "Lv_4" );
 		
-		//  ¿ù±Ş·®
+		//  ì›”ê¸‰ëŸ‰
 		pGuild->m_adwPenya[GUD_MASTER]			= (DWORD)pQuery->GetInt( "Pay_0" );
 		pGuild->m_adwPenya[GUD_KINGPIN]			= (DWORD)pQuery->GetInt( "Pay_1" );
 		pGuild->m_adwPenya[GUD_CAPTAIN]			= (DWORD)pQuery->GetInt( "Pay_2" );
@@ -2858,7 +2858,7 @@ void CDbManager::OpenGuild( void )
 		pGuild->m_nLose	= pQuery->GetInt( "m_nLose" );
 		g_GuildMng.AddGuild( pGuild );
 	}
-	// ±æµå ¸â¹ö °¡Áö°í ¿À±â ~~ ±æµå¿¡ µû¸¥ ¸â¹öµéÀÇ Á¤º¸
+	// ê¸¸ë“œ ë©¤ë²„ ê°€ì§€ê³  ì˜¤ê¸° ~~ ê¸¸ë“œì— ë”°ë¥¸ ë©¤ë²„ë“¤ì˜ ì •ë³´
 	DBQryGuild( szSql, "S2" );
 	if( FALSE == pQuery->Exec( szSql ) )
 	{
@@ -2905,7 +2905,7 @@ void CDbManager::OpenGuild( void )
 		}
 	}
 #ifdef __GUILDVOTE
-	//	 GUILD ÅõÇ¥ ÀüºÎ °¡Á®¿À±â  GUILD_VOTE_STR 'S1',	@iserverindex
+	//	 GUILD íˆ¬í‘œ ì „ë¶€ ê°€ì ¸ì˜¤ê¸°  GUILD_VOTE_STR 'S1',	@iserverindex
 	VOTE_QUERYINFO info("S1");
 	DBQryVote( szSql, info );	
 	if( pQuery->Exec( szSql ) )
@@ -2927,7 +2927,7 @@ void CDbManager::OpenGuild( void )
 				continue;
 			}
 
-			cbStatus =  pQuery->GetInt( "m_cbStatus" ); // cbStatus - ÅõÇ¥Áß:1, ÅõÇ¥¿Ï·á:2  
+			cbStatus =  pQuery->GetInt( "m_cbStatus" ); // cbStatus - íˆ¬í‘œì¤‘:1, íˆ¬í‘œì™„ë£Œ:2  
 			pQuery->GetStr( "m_szTitle", info.szTitle );	
 			pQuery->GetStr( "m_szQuestion", info.szQuestion );	
 			pQuery->GetStr( "m_szString1", info.szSelections[0] );	
@@ -2950,7 +2950,7 @@ void CDbManager::OpenGuild( void )
 	}
 #endif // __GUILDVOTE
 
-	// ±æµå ·©Å·Á¤º¸ ¹Ş¾Æ¿À±â
+	// ê¸¸ë“œ ë­í‚¹ì •ë³´ ë°›ì•„ì˜¤ê¸°
 #ifdef __GUILDRANK
 	CGuildRank* pGuildRank = CGuildRank::Instance();
 	pGuildRank->GetRanking( pQuery, szSql );
@@ -3030,7 +3030,7 @@ void CDbManager::UpdateGuildLogo( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverl
 
 void CDbManager::UpdateGuildContribution( CQuery* pQuery, CQuery* pQueryLog, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
-	BYTE nLevelUp;  // ·¹º§¾÷ 1 : 0( ÇßÀ¸¸é 1 )
+	BYTE nLevelUp;  // ë ˆë²¨ì—… 1 : 0( í–ˆìœ¼ë©´ 1 )
 	LONG nMemberLv;
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 	CONTRIBUTION_CHANGED_INFO cci;
@@ -3039,13 +3039,13 @@ void CDbManager::UpdateGuildContribution( CQuery* pQuery, CQuery* pQueryLog, LPD
 	ar >> nMemberLv;
 
 	GUILD_QUERYINFO info("U4");
-	info.idGuild	= cci.idGuild;          // ±æµå ¾÷µ« 
-	info.nGuildPxp	= cci.dwGuildPxpCount;	// ±æµå Pxp
-	info.nGuildGold = cci.dwGuildPenya;		// ±æµå Penya
-	info.nLevel		= cci.nGuildLevel;		// ±æµå ·¹º§
-	info.idPlayer	= cci.idPlayer;			// ±æµå¸â¹ö ¾÷µ« 
-	info.dwLv1		= cci.dwPenya;			// °øÇå Penya
-	info.dwLv2		= cci.dwPxpCount;		// °øÇå Pxp
+	info.idGuild	= cci.idGuild;          // ê¸¸ë“œ ì—…ëƒ 
+	info.nGuildPxp	= cci.dwGuildPxpCount;	// ê¸¸ë“œ Pxp
+	info.nGuildGold = cci.dwGuildPenya;		// ê¸¸ë“œ Penya
+	info.nLevel		= cci.nGuildLevel;		// ê¸¸ë“œ ë ˆë²¨
+	info.idPlayer	= cci.idPlayer;			// ê¸¸ë“œë©¤ë²„ ì—…ëƒ 
+	info.dwLv1		= cci.dwPenya;			// ê³µí—Œ Penya
+	info.dwLv2		= cci.dwPxpCount;		// ê³µí—Œ Pxp
 
 	char szQuery[QUERY_SIZE]	= { 0,};
 	DBQryGuild( szQuery, info);
@@ -3057,8 +3057,8 @@ void CDbManager::UpdateGuildContribution( CQuery* pQuery, CQuery* pQueryLog, LPD
 #ifndef __NOLOG
 	if( info.dwLv1 != 0 )	
 	{
-		// µ·À» ³Ö¾úÀ»°æ¿ì
-		GUILDLOG_QUERYINFO qi( "L2" );	// ±æµå Ã¢°í ·Î±×
+		// ëˆì„ ë„£ì—ˆì„ê²½ìš°
+		GUILDLOG_QUERYINFO qi( "L2" );	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸
 		qi.idGuild = info.idGuild;
 		qi.idPlayer = info.idPlayer;
 		qi.nGuildGold = info.nGuildGold;
@@ -3077,7 +3077,7 @@ void CDbManager::UpdateGuildContribution( CQuery* pQuery, CQuery* pQueryLog, LPD
 			FreeRequest( lpDbOverlappedPlus );
 			return;
 		}
-		GUILDLOG_QUERYINFO qi1( "L4" );	// ±æµå °øÇå ·Î±×
+		GUILDLOG_QUERYINFO qi1( "L4" );	// ê¸¸ë“œ ê³µí—Œ ë¡œê·¸
 		qi1.idGuild = info.idGuild;
 		qi1.idPlayer = info.idPlayer;
 		qi1.nGuildGold = info.nGuildGold;
@@ -3101,7 +3101,7 @@ void CDbManager::UpdateGuildContribution( CQuery* pQuery, CQuery* pQueryLog, LPD
 	}
 	else
 	{
-		// Pxp¸¦ ³Ö¾úÀ» °æ¿ì
+		// Pxpë¥¼ ë„£ì—ˆì„ ê²½ìš°
 		GUILDLOG_QUERYINFO qi2( "L4" );
 		qi2.idGuild = info.idGuild;
 		qi2.idPlayer = info.idPlayer;
@@ -3271,7 +3271,7 @@ void CDbManager::UpdateGuildSetName( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOv
 void CDbManager::OpenQueryGuildBank( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr	ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
-	// 2. Äõ¸®¹®À» »ı¼ºÈÄ ½ÇÇàÇÑ´Ù.
+	// 2. ì¿¼ë¦¬ë¬¸ì„ ìƒì„±í›„ ì‹¤í–‰í•œë‹¤.
 	char szSql[128];
 	sprintf(szSql, "GUILD_BANK_STR 'S1','0','%02d'", g_appInfo.dwSys);
 	if( FALSE == pQuery->Exec( szSql ) )
@@ -3282,24 +3282,24 @@ void CDbManager::OpenQueryGuildBank( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOv
 
 	while( 1 )
 	{
-	// 3. ¿ùµå ¼­¹ö¿¡ Àü¼ÛÇÒ ÆĞÅ¶À» »ı¼ºÇÑ´Ù.
+	// 3. ì›”ë“œ ì„œë²„ì— ì „ì†¡í•  íŒ¨í‚·ì„ ìƒì„±í•œë‹¤.
 	BEFORESENDDUAL( ar2, PACKETTYPE_GUILD_BANK, DPID_UNKNOWN, DPID_UNKNOWN );
 
-	// 4. ·ÎµùÇÒ ±æµåÃ¢°í µ¥ÀÌÅÍ¸¦ ½ºÅÃ¿¡ »ı¼ºÇÑ´Ù.
-//	CItemContainer<CItemElem>	GuildBank;	// ±æµå Ã¢°í
-	int							nGoldGuild; // ±æµå Credit
+	// 4. ë¡œë”©í•  ê¸¸ë“œì°½ê³  ë°ì´í„°ë¥¼ ìŠ¤íƒì— ìƒì„±í•œë‹¤.
+//	CItemContainer<CItemElem>	GuildBank;	// ê¸¸ë“œ ì°½ê³ 
+	int							nGoldGuild; // ê¸¸ë“œ Credit
 	int							nGuildId	= 0;
 	int							nBufsize	= 0;
 	int							nCount		= 0;
 	u_long						ulOffSet	= ar2.GetOffset();
 
-	// 5. Äõ¸®ÇÑ °á°ú¸¦ ÀúÀåÇÑ´Ù.
+	// 5. ì¿¼ë¦¬í•œ ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤.
 	ar2 << static_cast<int>(0);
 	BOOL bFetch	= FALSE;
 	while( bFetch = pQuery->Fetch() )
 	{
 		nCount++;
-		CItemContainer<CItemElem>	GuildBank;	// ±æµå Ã¢°í
+		CItemContainer<CItemElem>	GuildBank;	// ê¸¸ë“œ ì°½ê³ 
 		GuildBank.SetItemContainer( ITYPE_ITEM, MAX_GUILDBANK );
 //		GuildBank.Clear();
 		
@@ -3342,7 +3342,7 @@ void CDbManager::OpenQueryGuildBank( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOv
 			IndexItem = GetOneItem( &BufItemElem, Bank, &CountStr );
 			if( IndexItem == -1 )
 			{
-				Error( "OpenQuery::GuildBank : << ÇÁ·ÎÆÛÆ¼ ¾øÀ½. %d, %d", nGuildId, BufItemElem.m_dwItemId );
+				Error( "OpenQuery::GuildBank : << í”„ë¡œí¼í‹° ì—†ìŒ. %d, %d", nGuildId, BufItemElem.m_dwItemId );
 			}
 			else
 			{
@@ -3460,11 +3460,11 @@ void CDbManager::OpenQueryGuildBank( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOv
 		if( nCount >= 1000 )
 			break;
 	}
-	// ÆĞÅ¶ Çì´õ¸¦ ¼³Á¤ÇÑ´Ù.
+	// íŒ¨í‚· í—¤ë”ë¥¼ ì„¤ì •í•œë‹¤.
 	BYTE* pBuf = ar2.GetBuffer( &nBufsize );
 
 	*(UNALIGNED int*)( pBuf + ulOffSet )	= nCount;
-	// ÆĞÅ¶À» ¿ùµå¼­¹ö¿¡ Àü¼ÛÇÑ´Ù.
+	// íŒ¨í‚·ì„ ì›”ë“œì„œë²„ì— ì „ì†¡í•œë‹¤.
 	SEND( ar2, CDPTrans::GetInstance(), lpDbOverlappedPlus->dpid );
 
 	if( bFetch == FALSE )
@@ -3477,24 +3477,24 @@ void CDbManager::OpenQueryGuildBank( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOv
 void CDbManager::UpdateGuildBankUpdate( CQuery* pQuery, CQuery* pQueryLog, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr							ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
-	CItemContainer<CItemElem>	GuildBank;	// ±æµå Ã¢°í
-	int							nGoldGuild; // ±æµå Credit
+	CItemContainer<CItemElem>	GuildBank;	// ê¸¸ë“œ ì°½ê³ 
+	int							nGoldGuild; // ê¸¸ë“œ Credit
 	int							nGuildId	= 0;
 	BYTE						cbUpdateContribution;
 	u_long						idPlayer, idLogPlayer;
 	int							nMode;		// GUILD_PUT_ITEM, GUILD_GET_ITEM, GUILD_PUT_PENYA, GUILD_GET_PENYA, GUILD_CLOAK
-	DWORD						dwItemId;	// ¾ÆÀÌÅÛ ¾ÆÀÌµğ
-	short						nItemCount; // ¾ÆÀÌÅÛ °¹¼ö
-	int							nAbilityOption;	// ¿É¼Ç
-	SERIALNUMBER	iSerialNumber;	// À¯´ÏÅ© ³Ñ¹ö
-	DWORD						dwPenya;	// °Å·¡ Æä³Ä·®
+	DWORD						dwItemId;	// ì•„ì´í…œ ì•„ì´ë””
+	short						nItemCount; // ì•„ì´í…œ ê°¯ìˆ˜
+	int							nAbilityOption;	// ì˜µì…˜
+	SERIALNUMBER	iSerialNumber;	// ìœ ë‹ˆí¬ ë„˜ë²„
+	DWORD						dwPenya;	// ê±°ë˜ í˜ëƒëŸ‰
 	GuildBank.SetItemContainer( ITYPE_ITEM, MAX_GUILDBANK );
 
 	ar >> nGuildId;
 	ar >> nGoldGuild;
 	GuildBank.Serialize(ar);
-	ar >> cbUpdateContribution;	// ±æµå¸â¹ö °øÇåÆä³Ä¸¦ º¯°æÇØ¾ß ÇÏ´Â°¡?
-	ar >> idPlayer;				// ¹ğÅ©¸¦ ¾÷µ«ÇÑ ÇÃ·¹ÀÌ¾î
+	ar >> cbUpdateContribution;	// ê¸¸ë“œë©¤ë²„ ê³µí—Œí˜ëƒë¥¼ ë³€ê²½í•´ì•¼ í•˜ëŠ”ê°€?
+	ar >> idPlayer;				// ë±…í¬ë¥¼ ì—…ëƒí•œ í”Œë ˆì´ì–´
 	ar >> nMode;
 	ar >> dwItemId;
 	ar >> nAbilityOption;
@@ -3502,8 +3502,8 @@ void CDbManager::UpdateGuildBankUpdate( CQuery* pQuery, CQuery* pQueryLog, LPDB_
 	ar >> nItemCount;
 	ar >> dwPenya;
 
-	idLogPlayer = idPlayer;		// ·Î±×¿¡ ³²±æ ÁÖÃ¼ÀÚ
-	if( cbUpdateContribution != 1 )	// ¸ÁÅä¸¦ »ê°æ¿ì¿¡´Â °øÇåµµ¸¦ °¨¼ÒÇÏÁö ¾Ê´Â´Ù.
+	idLogPlayer = idPlayer;		// ë¡œê·¸ì— ë‚¨ê¸¸ ì£¼ì²´ì
+	if( cbUpdateContribution != 1 )	// ë§í† ë¥¼ ì‚°ê²½ìš°ì—ëŠ” ê³µí—Œë„ë¥¼ ê°ì†Œí•˜ì§€ ì•ŠëŠ”ë‹¤.
 		idPlayer = 0;
 
 	char NullStr[2]				= "$";
@@ -3529,28 +3529,28 @@ void CDbManager::UpdateGuildBankUpdate( CQuery* pQuery, CQuery* pQueryLog, LPDB_
 	switch( nMode )
 	{
 	case GUILD_PUT_ITEM:
-		qi.pszState = "A";		// ¾ÆÀÌÅÛ ³Ö±â
+		qi.pszState = "A";		// ì•„ì´í…œ ë„£ê¸°
 		qi.nItem	= dwItemId;
 		qi.nAbilityOption = nAbilityOption;
 		qi.iUniqueNo = iSerialNumber;
 		qi.nItem_count = nItemCount;
 		break;
 	case GUILD_GET_ITEM:
-		qi.pszState = "D";		// ¾ÆÀÌÅÛ »©±â
+		qi.pszState = "D";		// ì•„ì´í…œ ë¹¼ê¸°
 		qi.nItem	= dwItemId;
 		qi.nAbilityOption = nAbilityOption;
 		qi.iUniqueNo = iSerialNumber;
 		qi.nItem_count = nItemCount;
 		break;
 	case GUILD_CLOAK:
-		qi.pszState = "C";		// ¸ÁÅä »ı¼º
+		qi.pszState = "C";		// ë§í†  ìƒì„±
 		qi.nItem	= dwItemId;
 		qi.nAbilityOption = nAbilityOption;
 		qi.iUniqueNo = iSerialNumber;
 		qi.nItem_count = nItemCount;
 		break;
 	case GUILD_GET_PENYA:
-		qi.pszState = "O";		// µ· »©±â
+		qi.pszState = "O";		// ëˆ ë¹¼ê¸°
 		qi.nItem	= dwPenya;
 		break;
 	case GUILD_QUERY_REMOVE_GUILD_BANK:
@@ -3613,7 +3613,7 @@ void CDbManager::AddGuildVote( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlapp
 			}
 		}
 	}
-	// ¼º°øÀÌ´øÁö, ½ÇÆĞÀÌ´øÁö ÆĞÅ¶À» º¸³½´Ù.
+	// ì„±ê³µì´ë˜ì§€, ì‹¤íŒ¨ì´ë˜ì§€ íŒ¨í‚·ì„ ë³´ë‚¸ë‹¤.
 	VOTE_INSERTED_INFO	info;
 	info.idGuild = idGuild;
 	info.idVote = idVote;
@@ -3626,7 +3626,7 @@ void CDbManager::AddGuildVote( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlapp
 	FreeRequest( lpDbOverlappedPlus );
 }
 
-// ÅõÇ¥Á¦°Å 
+// íˆ¬í‘œì œê±° 
 void CDbManager::RemoveGuildVote( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
@@ -3642,7 +3642,7 @@ void CDbManager::RemoveGuildVote( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverl
 	FreeRequest( lpDbOverlappedPlus );
 }
 
-// ÅõÇ¥ Á¾·á 
+// íˆ¬í‘œ ì¢…ë£Œ 
 void CDbManager::CloseGuildVote( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
@@ -3658,7 +3658,7 @@ void CDbManager::CloseGuildVote( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverla
 	FreeRequest( lpDbOverlappedPlus );
 }
 
-//ÅõÇ¥ÇÏ±â 
+//íˆ¬í‘œí•˜ê¸° 
 void CDbManager::CastGuildVote( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
@@ -3743,7 +3743,7 @@ void CDbManager::WarEnd( CQuery* pQuery, CQuery* pQueryLog, LPDB_OVERLAPPED_PLUS
 #ifndef __NOLOG
 //	@im_idGuild,@im_idPlayer(f_idPlayer),@iserverindex,@im_nGuildGold(m_nCurExp),@im_nLevel(m_nGetExp), 
 //	@im_GuildLv(m_nCurPenya),@iGuildPoint(m_nGetPenya),'',@iState,@im_Item(m_idWar),'',0,0,0,@is_date
-//	LOG_GUILD_STR 'L5','000001', '000001','01',100,10,100,10,'','1',9,'',0,0,0,'20040717123012' @iState : 1 ½Â 2
+//	LOG_GUILD_STR 'L5','000001', '000001','01',100,10,100,10,'','1',9,'',0,0,0,'20040717123012' @iState : 1 ìŠ¹ 2
 	LPCTSTR szState[2];
 
 	switch( nType )
@@ -3856,14 +3856,14 @@ void CDbManager::UpdateGuildRanking( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOv
 {
 	CAr	ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	// ±æµå ·©Å© Á¤º¸¸¦ ¹Ş¾Æ¿Â´Ù.
+	// ê¸¸ë“œ ë­í¬ ì •ë³´ë¥¼ ë°›ì•„ì˜¨ë‹¤.
 	CGuildRank* pGuildRank = CGuildRank::Instance();
 
 	char szQuery[QUERY_SIZE]	= { 0,};
 	pGuildRank->GetRanking( pQuery, szQuery );
 	
-	// ±æµå ·©Å© Á¤º¸°¡ Refresh µÇ¾úÀ»¶§..
-	// Core¼­¹ö¿¡°Ô Á¤º¸¸¦ º¸³»ÁØ´Ù.
+	// ê¸¸ë“œ ë­í¬ ì •ë³´ê°€ Refresh ë˜ì—ˆì„ë•Œ..
+	// Coreì„œë²„ì—ê²Œ ì •ë³´ë¥¼ ë³´ë‚´ì¤€ë‹¤.
 	CDPTrans::GetInstance()->SendUpdateGuildRankFinish();
 
 	FreeRequest( lpDbOverlappedPlus );
@@ -3874,7 +3874,7 @@ void CDbManager::UpdateGuildRankingDB( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDb
 {
 	CAr	ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 	
-	// ±æµå ·©Å© Á¤º¸¸¦ ¹Ş¾Æ¿Â´Ù.
+	// ê¸¸ë“œ ë­í¬ ì •ë³´ë¥¼ ë°›ì•„ì˜¨ë‹¤.
 	CGuildRank* pGuildRank = CGuildRank::Instance();
 
 	char szQuery[QUERY_SIZE]	= { 0,};
@@ -3882,15 +3882,15 @@ void CDbManager::UpdateGuildRankingDB( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDb
 	pGuildRank->RankingDBUpdate( pQuery, szQuery );
 	pGuildRank->GetRanking( pQuery, szQuery );
 	
-	// ±æµå ·©Å© Á¤º¸°¡ Refresh µÇ¾úÀ»¶§..
-	// Core¼­¹ö¿¡°Ô Á¤º¸¸¦ º¸³»ÁØ´Ù.
+	// ê¸¸ë“œ ë­í¬ ì •ë³´ê°€ Refresh ë˜ì—ˆì„ë•Œ..
+	// Coreì„œë²„ì—ê²Œ ì •ë³´ë¥¼ ë³´ë‚´ì¤€ë‹¤.
 	CDPTrans::GetInstance()->SendUpdateGuildRankFinish();
 	
 	FreeRequest( lpDbOverlappedPlus );
 }
 #endif
 
-// ÂÊÁö¸¦ ar¿¡ ±â·ÏÇÑ´Ù.
+// ìª½ì§€ë¥¼ arì— ê¸°ë¡í•œë‹¤.
 void CDbManager::WriteTag(CAr &ar, int count, const TAG_ENTRY* tags)
 {
 	short nTagCount = count;
@@ -3901,9 +3901,9 @@ void CDbManager::WriteTag(CAr &ar, int count, const TAG_ENTRY* tags)
 	{
 		pEntry = &tags[i];
 
-		ar << pEntry->idFrom;					// º¸³½»ç¶÷ 
-		ar << pEntry->dwDate;					// º¸³½½Ã°¢ 
-		ar.WriteString( pEntry->szString );		// ÂÊÁö ³»¿ë 
+		ar << pEntry->idFrom;					// ë³´ë‚¸ì‚¬ëŒ 
+		ar << pEntry->dwDate;					// ë³´ë‚¸ì‹œê° 
+		ar.WriteString( pEntry->szString );		// ìª½ì§€ ë‚´ìš© 
 	}
 }
 
@@ -3927,9 +3927,9 @@ int CDbManager::SelectTag( CQuery* qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus,
 	{
 		TAG_ENTRY *pEntry = &tags[count];
 
-		pEntry->idFrom = qry->GetInt( "f_idPlayer" );	// º¸³½»ç¶÷ 
-		pEntry->dwDate = qry->GetInt( "CreateTime" );	// º¸³½½Ã°¢ 
-		qry->GetStr( "m_Message", pEntry->szString );	// ¸Ş¼¼Áö 
+		pEntry->idFrom = qry->GetInt( "f_idPlayer" );	// ë³´ë‚¸ì‚¬ëŒ 
+		pEntry->dwDate = qry->GetInt( "CreateTime" );	// ë³´ë‚¸ì‹œê° 
+		qry->GetStr( "m_Message", pEntry->szString );	// ë©”ì„¸ì§€ 
 
 		if( ++count >= MAX_TAGS )
 			break;
@@ -3948,7 +3948,7 @@ void CDbManager::InsertTag( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus
 	arRead.ReadString( szString, 256 );
 
 	TRACE( "CDbManager::InsertTag %d %d %s\n", idFrom, idTo, szString );
-	//TAG_STR 'A1','000001','01','000002','¾È³çÇÏ¼¼¿ä?'
+	//TAG_STR 'A1','000001','01','000002','ì•ˆë…•í•˜ì„¸ìš”?'
 	
 	char szQuery[QUERY_SIZE]	= { 0,};
 	sprintf( szQuery,
@@ -3973,9 +3973,9 @@ void CDbManager::InsertTag( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus
 	{
 		int nError = qry->GetInt( "fError" );
 		if (nError == 1)	
-			g_dpCoreSrvr.SendTagResult(idFrom, 0);	// ÂÊÁö°¡ 20°³¸¦ ÃÊ°úÇß¾î¿ä
+			g_dpCoreSrvr.SendTagResult(idFrom, 0);	// ìª½ì§€ê°€ 20ê°œë¥¼ ì´ˆê³¼í–ˆì–´ìš”
 		else
-			g_dpCoreSrvr.SendTagResult(idFrom, 1);	// ¼º°ø 
+			g_dpCoreSrvr.SendTagResult(idFrom, 1);	// ì„±ê³µ 
 	}
 	FreeRequest( lpDbOverlappedPlus );
 }
@@ -4023,10 +4023,10 @@ void CDbManager::SchoolReport( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlapp
 	SCHOOL_ENTRY school[MAX_SCHOOL];
 	ar.Read( &school, sizeof(SCHOOL_ENTRY) * MAX_SCHOOL );
 /*
-	[200407_1_SCHOOL_TBL]  ÀúÀåÇÏ±â
+	[200407_1_SCHOOL_TBL]  ì €ì¥í•˜ê¸°
 	 ex ) 
 	 [200407_1_SCHOOL_STR] @iranking,@im_szGuild,@isurvivor
-	 [200407_1_SCHOOL_STR] 1,'´ë¿ø¿Ü±¹¾î°íµîÇĞ±³',12
+	 [200407_1_SCHOOL_STR] 1,'ëŒ€ì›ì™¸êµ­ì–´ê³ ë“±í•™êµ',12
 */
 	for( int i = 0; i < MAX_SCHOOL; i++ )
 	{
@@ -4043,7 +4043,7 @@ void CDbManager::SchoolReport( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlapp
 	FreeRequest( lpDbOverlappedPlus );
 }
 
-// szDst¿¡ comma¸¦ ºÙÀÌ°í 16Áø¼ö·Î º¯È¯µÈ ¹®ÀÚ¿­À» ºÙÀÎ´Ù.
+// szDstì— commaë¥¼ ë¶™ì´ê³  16ì§„ìˆ˜ë¡œ ë³€í™˜ëœ ë¬¸ìì—´ì„ ë¶™ì¸ë‹¤.
 void CDbManager::SetStrDBFormat( char* szDst, const char* szSrc )
 {
 	char* pCur = szDst + strlen( szDst );
@@ -4154,9 +4154,9 @@ void CDbManager::MakeQueryAddMail( char* szSql, CMail* pMail, u_long idReceiver 
 			"%d, %d, %d, %d, %d"
 			",%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d"
 			",%d"
-			",%d, %d, %d, %d, %d"	// Ãß°¡ ÇÇ¾î½Ì ¾ÆÀÌÅÛ
-			",%d, %d, %d, %d, %d"	// Ãß°¡ ÇÇ¾î½Ì ¾ÆÀÌÅÛ
-			",%d"	// Ãß°¡ ÇÇ¾î½Ì »çÀÌÁî
+			",%d, %d, %d, %d, %d"	// ì¶”ê°€ í”¼ì–´ì‹± ì•„ì´í…œ
+			",%d, %d, %d, %d, %d"	// ì¶”ê°€ í”¼ì–´ì‹± ì•„ì´í…œ
+			",%d"	// ì¶”ê°€ í”¼ì–´ì‹± ì‚¬ì´ì¦ˆ
 			")}",
 
 			pMail->m_nMail, g_appInfo.dwSys, idReceiver, pMail->m_idSender, pMail->m_nGold, pMail->m_tmCreate, pMail->m_byRead,
@@ -4181,9 +4181,9 @@ void CDbManager::MakeQueryAddMail( char* szSql, CMail* pMail, u_long idReceiver 
 			"%d, %d, %d, %d, %d"
 			",%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d"
 			",%d"
-			",%d, %d, %d, %d, %d"	// Ãß°¡ ÇÇ¾î½Ì ¾ÆÀÌÅÛ
-			",%d, %d, %d, %d, %d"	// Ãß°¡ ÇÇ¾î½Ì ¾ÆÀÌÅÛ
-			",%d"	// Ãß°¡ ÇÇ¾î½Ì »çÀÌÁî
+			",%d, %d, %d, %d, %d"	// ì¶”ê°€ í”¼ì–´ì‹± ì•„ì´í…œ
+			",%d, %d, %d, %d, %d"	// ì¶”ê°€ í”¼ì–´ì‹± ì•„ì´í…œ
+			",%d"	// ì¶”ê°€ í”¼ì–´ì‹± ì‚¬ì´ì¦ˆ
 			")}",
 
 			pMail->m_nMail, g_appInfo.dwSys, idReceiver, pMail->m_idSender, pMail->m_nGold, pMail->m_tmCreate, pMail->m_byRead,
@@ -4566,12 +4566,12 @@ void CDbManager::GuildThread( void )
 				GC1to1WarGuild( pQuery, lpDbOverlappedPlus );
 				break;
 #endif // __GUILD_COMBAT_1TO1
-#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
 			case QM_GUILDBANK_LOG_VIEW:
 				GuildBankLogView( pQuery, lpDbOverlappedPlus );
 				break;
-#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 			case QM_SEALCHAR:
 				SealChar( pQuery, lpDbOverlappedPlus );
 				break;
@@ -4584,7 +4584,7 @@ void CDbManager::GuildThread( void )
 			case QM_SEALCHARSET:
 				SealCharSet( pQuery, lpDbOverlappedPlus );
 				break;
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 #ifdef __JEFF_FIX_0
 			case QM_ALL_PLAYER_DATA:
 				{
@@ -4667,7 +4667,7 @@ void CDbManager::SerializeGuildCombat( CAr & ar )
 }
 void CDbManager::SerializeResultValue( CAr & ar )
 {
-	// ±æµå º¸»ó °ü·Ã Á¤º¸ ÁÖ±â
+	// ê¸¸ë“œ ë³´ìƒ ê´€ë ¨ ì •ë³´ ì£¼ê¸°
 	ar << (u_long)m_GCResultValueGuild.size();
 	for( DWORD veci = 0 ; veci < m_GCResultValueGuild.size() ; ++veci )
 	{
@@ -4677,7 +4677,7 @@ void CDbManager::SerializeResultValue( CAr & ar )
 		ar << ResultValueGuild.nReturnCombatFee;
 		ar << ResultValueGuild.nReward;
 	}
-	// º£½ºÆ® ÇÃ·¹ÀÌ¾î º¸»ó °ü·Ã Á¤º¸ ÁÖ±â
+	// ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ë³´ìƒ ê´€ë ¨ ì •ë³´ ì£¼ê¸°
 	ar << (u_long)m_GCResultValuePlayer.size();
 	for( DWORD veci = 0 ; veci < m_GCResultValuePlayer.size() ; ++veci )
 	{
@@ -4690,7 +4690,7 @@ void CDbManager::SerializeResultValue( CAr & ar )
 }
 void CDbManager::SerializePlayerPoint( CAr & ar )
 {
-	// ±æµå´ëÀü °³ÀÎ Æ÷ÀÎÆ®
+	// ê¸¸ë“œëŒ€ì „ ê°œì¸ í¬ì¸íŠ¸
 	ar << (u_long)m_vecGCPlayerPoint.size();
 	for( DWORD veci = 0 ; veci < m_vecGCPlayerPoint.size() ; ++veci )
 	{
@@ -4747,13 +4747,13 @@ void CDbManager::SerializeWanted( CQuery* pQuery, CAr& out )
 	while( pQuery->Fetch() )
 	{
 		idPlayer = pQuery->GetInt( "m_idPlayer" );		// 
-		pQuery->GetStr( "m_szName", szPlayer );			// Çö»ó¹ü ÀÌ¸§ 
-		penya = pQuery->GetInt64( "penya" );			// Çö»ó±İ¾× 
-		pQuery->GetStr( "s_date", szDate );				// ¸¸±âÀÏ 
-		pQuery->GetStr( "szMsg", szBuffer );			// ½ÊÀÚÆò 
+		pQuery->GetStr( "m_szName", szPlayer );			// í˜„ìƒë²” ì´ë¦„ 
+		penya = pQuery->GetInt64( "penya" );			// í˜„ìƒê¸ˆì•¡ 
+		pQuery->GetStr( "s_date", szDate );				// ë§Œê¸°ì¼ 
+		pQuery->GetStr( "szMsg", szBuffer );			// ì‹­ìí‰ 
 
 		GetStrTime( &date, szDate );
-		memcpy( szMsg, szBuffer, WANTED_MSG_MAX );		// Àß¸øµÈ µ¥ÀÌÅ¸¸¦ ¸·±âÀ§ÇÑ ÄÚµå 
+		memcpy( szMsg, szBuffer, WANTED_MSG_MAX );		// ì˜ëª»ëœ ë°ì´íƒ€ë¥¼ ë§‰ê¸°ìœ„í•œ ì½”ë“œ 
 		szMsg[WANTED_MSG_MAX] = '\0';
 
 		out << idPlayer;
@@ -4808,10 +4808,10 @@ BOOL CDbManager::OpenWanted( CAr& ar )
 }
 
 //	WANTED_STR @iGu,@m_idPlayer,@serverindex,@penya,@szMsg
-//	@iGu = 'S1' Çö»ó¹ü ¸®½ºÆ® ¾ò±â (@m_idPlayer,@serverindex ) 
-//	@iGu = 'A1' Çö»ó±İ °É±â (@m_idPlayer,@serverindex,@penya,@szMsg ) 
-//	@iGu = 'D1' Çö»ó¹ü Á¦°Å (@m_idPlayer,@serverindex) 
-//	Çö»ó±İ ½Ã½ºÅÛ µğºñ Ã³¸®¸¦ ÇÑ´Ù.
+//	@iGu = 'S1' í˜„ìƒë²” ë¦¬ìŠ¤íŠ¸ ì–»ê¸° (@m_idPlayer,@serverindex ) 
+//	@iGu = 'A1' í˜„ìƒê¸ˆ ê±¸ê¸° (@m_idPlayer,@serverindex,@penya,@szMsg ) 
+//	@iGu = 'D1' í˜„ìƒë²” ì œê±° (@m_idPlayer,@serverindex) 
+//	í˜„ìƒê¸ˆ ì‹œìŠ¤í…œ ë””ë¹„ ì²˜ë¦¬ë¥¼ í•œë‹¤.
 void CDbManager::WantedOperation( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
@@ -4825,7 +4825,7 @@ void CDbManager::WantedOperation( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverl
 	ar >> byReqType;
 	ar >> idPlayer;
 	ar >> nGold;
-	ar >> nEnd;					// »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+	ar >> nEnd;					// ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	ar.ReadString( szMsg, WANTED_MSG_MAX + 1 );
 
 	FreeRequest( lpDbOverlappedPlus );
@@ -4946,7 +4946,7 @@ void CDbManager::OutGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverla
 void CDbManager::StartGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
-	// ±æµå º¸»ó ¹× ÃâÀü Æä³Ä ¼Ò¸ê
+	// ê¸¸ë“œ ë³´ìƒ ë° ì¶œì „ í˜ëƒ ì†Œë©¸
 	for( DWORD veci = 0 ; veci < m_GCResultValueGuild.size() ; ++veci )
 	{
 		__GCRESULTVALUEGUILD ResultValueGuild = m_GCResultValueGuild[veci];
@@ -4959,7 +4959,7 @@ void CDbManager::StartGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOver
 	}
 	m_GCResultValueGuild.clear();
 
-	// º£½ºÆ® ÇÃ·¹ÀÌ¾î º¸»ó
+	// ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ë³´ìƒ
 	for( DWORD veci = 0 ; veci < m_GCResultValuePlayer.size() ; ++veci )
 	{
 		__GCRESULTVALUEPLAYER ResultValuePlayer = m_GCResultValuePlayer[veci];
@@ -4971,7 +4971,7 @@ void CDbManager::StartGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOver
 	}
 	m_GCResultValueGuild.clear();
 	
-	// ´ëÀü ÀüÀï ½ÃÀÛ
+	// ëŒ€ì „ ì „ìŸ ì‹œì‘
 	char szQuery[QUERY_SIZE]	= { 0,};
 	sprintf( szQuery, "uspStartCombat %d,'%02d'", m_nGuildCombatIndex, g_appInfo.dwSys );
 	if( FALSE == pQuery->Exec( szQuery ) )
@@ -4982,13 +4982,13 @@ void CDbManager::ResultGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOve
 {
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 
-	// ´ëÀü Á¾·á
+	// ëŒ€ì „ ì¢…ë£Œ
 	char szQuery[QUERY_SIZE]	= { 0,};
 	sprintf( szQuery, "uspEndCombat %d,'%02d'", m_nGuildCombatIndex, g_appInfo.dwSys );
 	if( FALSE == pQuery->Exec( szQuery ) )
 	{	WriteLog( "ResultGuildCombat()");	TRACE("ERROR: ResultGuildCombat()\n");	}
 	
-/*	// º£½ºÆ® ÇÃ·¹ÀÌ¾î ÀúÀå
+/*	// ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ì €ì¥
 	u_long uBestPlayer;
 	u_long uBestPlayerGuild;
 	DWORD dwBestPlayerPrize;
@@ -5012,7 +5012,7 @@ void CDbManager::ResultGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOve
 	u_long uidGuild, uSizeGuild;
 	__int64 nPrize;
 	DWORD dwReturnPenya;
-	// ±æµå ÀúÀå
+	// ê¸¸ë“œ ì €ì¥
 	ar >> uSizeGuild;
 	for( DWORD i = 0 ; i < uSizeGuild ; ++i )
 	{
@@ -5027,7 +5027,7 @@ void CDbManager::ResultGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOve
 		if( FALSE == pQuery->Exec( szQuery ) )
 		{	WriteLog( "ResultGuildCombat()");	TRACE("ERROR: ResultGuildCombat()\n");	}
 
-		// ÇÃ·¹ÀÌ¾î ÀúÀå
+		// í”Œë ˆì´ì–´ ì €ì¥
 		u_long uSizePlayer;
 		u_long uidPlayer;
 		int nPlayerPoint;
@@ -5058,12 +5058,12 @@ void CDbManager::ResultGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOve
 #endif // __S_BUG_GC
 	++m_nGuildCombatIndex;
 
-	// ´ÙÀ½´ëÀü ½ÃÀÛ
+	// ë‹¤ìŒëŒ€ì „ ì‹œì‘
 	sprintf( szQuery, "uspAddNewCombat %d,'%02d'", m_nGuildCombatIndex, g_appInfo.dwSys );
 	if( FALSE == pQuery->Exec( szQuery ) )
 	{	WriteLog( "ResultGuildCombat()");	TRACE("ERROR: ResultGuildCombat()\n");	}
 
-	// º¸»ó ¹× Âü¿©±İÀ» ¾È¹ŞÀº ±æµå ¹× º£½ºÆ® ÇÃ·¹ÀÌ¾î ¾ò¾î¿À±â
+	// ë³´ìƒ ë° ì°¸ì—¬ê¸ˆì„ ì•ˆë°›ì€ ê¸¸ë“œ ë° ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ì–»ì–´ì˜¤ê¸°
 	m_GCResultValueGuild.clear();
 	m_GCResultValuePlayer.clear();
 	sprintf( szQuery, "uspLoadCombatUnpaidList '%02d'", g_appInfo.dwSys );
@@ -5073,7 +5073,7 @@ void CDbManager::ResultGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOve
 	{
 		char cFlag;
 		cFlag = pQuery->GetChar( "Flag" );
-		if( cFlag == 'G' )	// ±æµå
+		if( cFlag == 'G' )	// ê¸¸ë“œ
 		{
 			__GCRESULTVALUEGUILD ResultValueGuild;
 			ResultValueGuild.nCombatID = pQuery->GetInt( "CombatID" );
@@ -5082,7 +5082,7 @@ void CDbManager::ResultGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOve
 			ResultValueGuild.nReward = pQuery->GetInt64( "Reward" );
 			m_GCResultValueGuild.push_back( ResultValueGuild );
 		}
-		else				// ÇÃ·¹ÀÌ¾î
+		else				// í”Œë ˆì´ì–´
 		{
 			__GCRESULTVALUEPLAYER ResultValuePlayer;
 			ResultValuePlayer.nCombatID = pQuery->GetInt( "CombatID" );
@@ -5093,7 +5093,7 @@ void CDbManager::ResultGuildCombat( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOve
 		}
 	}	
 	
-	// °³ÀÎ Æ÷ÀÎÆ® °¡Áö°í ¿À±â
+	// ê°œì¸ í¬ì¸íŠ¸ ê°€ì§€ê³  ì˜¤ê¸°
 	m_vecGCPlayerPoint.clear();
 	sprintf( szQuery, "uspRankGuildCombatPlayer '%02d'", g_appInfo.dwSys );
 	if( FALSE == pQuery->Exec( szQuery ) )
@@ -5212,8 +5212,8 @@ BOOL CDbManager::CanJoin( LPCTSTR szAccount, ACCOUNT_CACHE* pAccountCache )
 #ifdef __INVALID_LOGIN_0320
 	if( pAccountCache->IsPlaying() )
 	{
-		// ¸ÖÆ¼ ¼­¹ö ¹øÈ£°¡ ÃÊ±âÈ­µÇÁö ¾Ê´Â °æ¿ì°¡ ÀÖ´Ù.
-		// Á¾·á ÈÄ ½Ã°£ÀÌ 3ºĞ ÀÌ»ó °æ°ú µÇ¾ú´Ù¸é Çã¿ëÇÑ´Ù.
+		// ë©€í‹° ì„œë²„ ë²ˆí˜¸ê°€ ì´ˆê¸°í™”ë˜ì§€ ì•ŠëŠ” ê²½ìš°ê°€ ìˆë‹¤.
+		// ì¢…ë£Œ í›„ ì‹œê°„ì´ 3ë¶„ ì´ìƒ ê²½ê³¼ ë˜ì—ˆë‹¤ë©´ í—ˆìš©í•œë‹¤.
 		if( t > pAccountCache->m_tmPrevent + 180 )
 		{
 			pAccountCache->ChangeMultiServer( 0 );
@@ -5227,7 +5227,7 @@ BOOL CDbManager::CanJoin( LPCTSTR szAccount, ACCOUNT_CACHE* pAccountCache )
 	}
 #endif	// __INVALID_LOGIN_0320
 
-	if( t > pAccountCache->m_tmPrevent )	// ÀÏ¹İ 
+	if( t > pAccountCache->m_tmPrevent )	// ì¼ë°˜ 
 		return TRUE;
 	else
 	{
@@ -5392,9 +5392,9 @@ void CDbManager::DBQryCharacter( char* qryCharacter, char* Gu, u_long idPlaeyr, 
 #ifdef __EVENTLUA_COUPON
 								, int nCoupon
 #endif // __EVENTLUA_COUPON
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
-								, int nHonor					// ´ŞÀÎ¼±ÅÃ 
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
+								, int nHonor					// ë‹¬ì¸ì„ íƒ 
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 #ifdef __LAYER_1015
 								, int nLayer
 #endif	// __LAYER_1015
@@ -5496,11 +5496,11 @@ void CDbManager::DBQryCharacter( char* qryCharacter, char* Gu, u_long idPlaeyr, 
 							nCoupon );
 	strncat( qryCharacter, strCharacter, sizeof(strCharacter) );
 #endif // __EVENTLUA_COUPON
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 	sprintf( strCharacter, ",@im_nHonor=%d",
 							nHonor );
 	strncat( qryCharacter, strCharacter, sizeof(strCharacter) );
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 #ifdef __LAYER_1015
 	sprintf( strCharacter, ",@im_nLayer=%d",
 							nLayer );
@@ -6009,7 +6009,7 @@ void CDbManager::GetItemFromMail( CQuery* pQuery, CItemElem* pItemElem )
 	pItemElem->SetPiercingItem( 4, pQuery->GetInt( "dwItemId5" ) );
 #endif // __ULTIMATE
 #endif // __EXT_PIERCING
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 	if( pItemElem->m_dwItemId == II_SYS_SYS_SCR_SEALCHARACTER )
 	{
 #if __VER >= 11 // __SYS_PLAYER_DATA
@@ -6024,7 +6024,7 @@ void CDbManager::GetItemFromMail( CQuery* pQuery, CItemElem* pItemElem )
 		CPlayerDataCenter::GetInstance()->m_Access.Leave();
 #endif	// __SYS_PLAYER_DATA
 	}
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 
 	BOOL bPet	= pQuery->GetInt( "bPet" );
 	if( bPet )
@@ -6445,14 +6445,14 @@ BOOL CDbManager::Conv( LPCSTR lpFileName )
 
 BOOL CDbManager::RemoveInvalidItem( void )
 {
-	// Äõ¸® °´Ã¼ »ı¼º
+	// ì¿¼ë¦¬ ê°ì²´ ìƒì„±
 	CQuery* pQueryLoad	= new CQuery;
 	if( FALSE == pQueryLoad->Connect( 3, DSN_NAME_CHARACTER01, DB_ADMIN_ID_CHARACTER01, DB_ADMIN_PASS_CHARACTER01 ) )
 	{
 		safe_delete( pQueryLoad );
 		return FALSE;
 	}
-	// ÀÎº¥Åä¸® °Ë»ç ÈÄ Á¦°Å
+	// ì¸ë²¤í† ë¦¬ ê²€ì‚¬ í›„ ì œê±°
 	if( !pQueryLoad->Execute( "SELECT * FROM INVENTORY_TBL a, INVENTORY_EXT_TBL b WHERE b.serverindex = a.serverindex and a.m_idPlayer = b.m_idPlayer" ) )
 	{
 		safe_delete( pQueryLoad );
@@ -6506,7 +6506,7 @@ BOOL CDbManager::RemoveInvalidItem( void )
 		safe_delete( pMover );
 	}
 
-	// ÀºÇà °Ë»ç ÈÄ Á¦°Å
+	// ì€í–‰ ê²€ì‚¬ í›„ ì œê±°
 	if( !pQueryLoad->Execute( "SELECT * FROM BANK_TBL a, BANK_EXT_TBL b WHERE b.serverindex = a.serverindex and a.m_idPlayer = b.m_idPlayer" ) )
 	{
 		safe_delete( pQueryLoad );
@@ -6551,7 +6551,7 @@ BOOL CDbManager::RemoveInvalidItem( void )
 		safe_delete( pMover );
 	}
 
-	// ±æµå Ã¢°í °Ë»ç ÈÄ Á¦°Å
+	// ê¸¸ë“œ ì°½ê³  ê²€ì‚¬ í›„ ì œê±°
 	if( !pQueryLoad->Execute( "SELECT * FROM GUILD_BANK_TBL a, GUILD_BANK_EXT_TBL b WHERE a.serverindex = b.serverindex and a.m_idGuild = b.m_idGuild" ) )
 	{
 		safe_delete( pQueryLoad );
@@ -6598,7 +6598,7 @@ BOOL CDbManager::RemoveInvalidItem( void )
 		}
 	}
 
-	// ÈŞ´ë¿ë °¡¹æ °Ë»ç ÈÄ Á¦°Å
+	// íœ´ëŒ€ìš© ê°€ë°© ê²€ì‚¬ í›„ ì œê±°
 	if( !pQueryLoad->Execute( "SELECT * FROM tblPocket A, tblPocketExt B WHERE A.serverindex = B.serverindex AND A.idPlayer = B.idPlayer AND A.nPocket = B.nPocket ORDER BY A.idPlayer, A.nPocket" ) )
 	{
 		safe_delete( pQueryLoad );
@@ -7607,7 +7607,7 @@ BOOL CDbManager::RestorePetInventory( map<DWORD, int> & mRestore )
 						if( pItemElem->IsFlag( CItemElem::expired ) )
 						{
 							pItemElem->m_byFlag	&= ~CItemElem::expired;
-							nLife--;	// »ç¸ÁÀÌ ¸®¼ÂµÇ¹Ç·Î »ı¸í 1Ãß°¡¿Í °°´Ù.
+							nLife--;	// ì‚¬ë§ì´ ë¦¬ì…‹ë˜ë¯€ë¡œ ìƒëª… 1ì¶”ê°€ì™€ ê°™ë‹¤.
 						}
 						pItemElem->m_pPet->SetLife( pItemElem->m_pPet->GetLife() + nLife );
 						pItemElem->m_pPet->SetEnergy( pItemElem->m_pPet->GetMaxEnergy() );
@@ -7681,7 +7681,7 @@ BOOL CDbManager::RestorePetBank( map<DWORD, int> & mRestore )
 						if( pItemElem->IsFlag( CItemElem::expired ) )
 						{
 							pItemElem->m_byFlag	&= ~CItemElem::expired;
-							nLife--;	// »ç¸ÁÀÌ ¸®¼ÂµÇ¹Ç·Î »ı¸í 1Ãß°¡¿Í °°´Ù.
+							nLife--;	// ì‚¬ë§ì´ ë¦¬ì…‹ë˜ë¯€ë¡œ ìƒëª… 1ì¶”ê°€ì™€ ê°™ë‹¤.
 						}
 						pItemElem->m_pPet->SetLife( pItemElem->m_pPet->GetLife() + nLife );
 						pItemElem->m_pPet->SetEnergy( pItemElem->m_pPet->GetMaxEnergy() );
@@ -7760,7 +7760,7 @@ BOOL CDbManager::RestorePetGuildBank( map<DWORD, int> & mRestore )
 						if( pItemElem->IsFlag( CItemElem::expired ) )
 						{
 							pItemElem->m_byFlag	&= ~CItemElem::expired;
-							nLife--;	// »ç¸ÁÀÌ ¸®¼ÂµÇ¹Ç·Î »ı¸í 1Ãß°¡¿Í °°´Ù.
+							nLife--;	// ì‚¬ë§ì´ ë¦¬ì…‹ë˜ë¯€ë¡œ ìƒëª… 1ì¶”ê°€ì™€ ê°™ë‹¤.
 						}
 						pItemElem->m_pPet->SetLife( pItemElem->m_pPet->GetLife() + nLife );
 						pItemElem->m_pPet->SetEnergy( pItemElem->m_pPet->GetMaxEnergy() );
@@ -7868,21 +7868,21 @@ void CDbManager::LoadGC1to1TenderGuild( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpD
 	vector< CGuildCombat1to1Mng::__GC1TO1TENDER > vecTenderFailGuild;
 	
 	char szQuery[QUERY_SIZE] = {0,};
-	// ÀÎµ¦½º ¾ò¾î¿À±â
+	// ì¸ë±ìŠ¤ ì–»ì–´ì˜¤ê¸°
 	sprintf( szQuery, "usp_Guild_Combat_1to1_CombatID '%02d'", g_appInfo.dwSys );
 	if( FALSE == pQuery->Exec( szQuery ) )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
 	
 	if( pQuery->Fetch() )
 	{
-		prj.m_GuildCombat1to1.m_nCombatId = pQuery->GetInt( "CombatID" );	// °¡Àå ÃÖ±Ù combatId
+		prj.m_GuildCombat1to1.m_nCombatId = pQuery->GetInt( "CombatID" );	// ê°€ì¥ ìµœê·¼ combatId
 		
-		// ÀÔÂû ±æµå
+		// ì…ì°° ê¸¸ë“œ
 		sprintf( szQuery, "usp_Guild_Combat_1to1_Tender '%02d', %d, '%06d', %d, '%c', '%s'",
 				g_appInfo.dwSys, prj.m_GuildCombat1to1.m_nCombatId, 0, 0, ' ', "S1" );
 		if( FALSE == pQuery->Exec( szQuery ) )
 		{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
-		while( pQuery->Fetch() )	// ÀÔÂû ±æµå ¸ñ·Ï
+		while( pQuery->Fetch() )	// ì…ì°° ê¸¸ë“œ ëª©ë¡
 		{
 			CGuildCombat1to1Mng::__GC1TO1TENDER gc1to1Tender;
 			gc1to1Tender.ulGuildId = pQuery->GetInt( "m_idGuild" );
@@ -7890,7 +7890,7 @@ void CDbManager::LoadGC1to1TenderGuild( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpD
 
 			vecTenderGuild.push_back( gc1to1Tender );
 		}
-		for( DWORD i=0; i<vecTenderGuild.size(); i++ )	// ÀÔÂû ±æµå ¼±¼ö ¸ñ·Ï
+		for( DWORD i=0; i<vecTenderGuild.size(); i++ )	// ì…ì°° ê¸¸ë“œ ì„ ìˆ˜ ëª©ë¡
 		{
 			sprintf( szQuery, "usp_Guild_Combat_1to1_Battle_Person '%02d', %d, '%06d', '%07d', %d, '%c', '%s'",
 					g_appInfo.dwSys, prj.m_GuildCombat1to1.m_nCombatId, vecTenderGuild[i].ulGuildId, 0, 0, ' ', "S1" );
@@ -7900,7 +7900,7 @@ void CDbManager::LoadGC1to1TenderGuild( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpD
 				vecTenderGuild[i].vecMemberId.push_back( pQuery->GetInt( "m_idPlayer" ) );
 		}
 
-		// ÀÔÂû ½ÇÆĞ ±æµå
+		// ì…ì°° ì‹¤íŒ¨ ê¸¸ë“œ
 		sprintf( szQuery, "usp_Guild_Combat_1to1_Tender '%02d', %d, '%06d', %d, '%c', '%s'",
 				g_appInfo.dwSys, prj.m_GuildCombat1to1.m_nCombatId, 0, 0, ' ', "S2" );
 		if( FALSE == pQuery->Exec( szQuery ) )
@@ -8044,7 +8044,7 @@ void CDbManager::GC1to1WarGuild( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverla
 }
 #endif // __GUILD_COMBAT_1TO1
 
-#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
 void CDbManager::GuildBankLogView( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
@@ -8159,8 +8159,8 @@ void CDbManager::GuildBankLogView( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOver
 	FreeRequest( lpDbOverlappedPlus );
 
 }
-#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 void CDbManager::SealChar( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
 	CAr ar( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
@@ -8356,4 +8356,4 @@ void CDbManager::LoginProtectCert( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlap
 }
 #endif // __2ND_PASSWORD_SYSTEM
 
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz

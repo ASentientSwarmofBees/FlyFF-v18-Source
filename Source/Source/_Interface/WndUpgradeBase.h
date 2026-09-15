@@ -1,4 +1,4 @@
-#ifndef __WNDUPGRADEBASE__H
+﻿#ifndef __WNDUPGRADEBASE__H
 #define __WNDUPGRADEBASE__H
 
 

@@ -1,4 +1,4 @@
-#ifndef __WIRTEAVI
+ï»¿#ifndef __WIRTEAVI
 #define __WIRTEAVI
 #include <vfw.h>
 
@@ -14,15 +14,15 @@
 // Maker      : Vampyre
 // Date       : 
 // Remarks    :
-//   ÀåÄ¡ µ¶¸³ÀûÀÎ ºñÆ®¸Ê Å¬·¹½º 
+//   ì¥ì¹˜ ë…ë¦½ì ì¸ ë¹„íŠ¸ë§µ í´ë ˆìŠ¤ 
 //
 class CDibBitmap : public CBitmap
 {
 protected:
 	BITMAPINFOHEADER m_infoHeader;
-	LPBYTE m_pData; // ¸Ş¸ğ¸® Æ÷ÀÎÅÍ 
-	int m_nWidth ; // ºñÆ®¸Ê »çÀÌÁî´Â Á¤·Ä ¹æ½Ä¿¡ µû¶ó¼­ 4ÀÇ ¹è¼ö·Î ¼¼ÆÃµÈ´Ù. 
-	int m_nHeight; // ºñÆ®¸Ê »çÀÌÁî´Â Á¤·Ä ¹æ½Ä¿¡ µû¶ó¼­ 4ÀÇ ¹è¼ö·Î ¼¼ÆÃµÈ´Ù. 
+	LPBYTE m_pData; // ë©”ëª¨ë¦¬ í¬ì¸í„° 
+	int m_nWidth ; // ë¹„íŠ¸ë§µ ì‚¬ì´ì¦ˆëŠ” ì •ë ¬ ë°©ì‹ì— ë”°ë¼ì„œ 4ì˜ ë°°ìˆ˜ë¡œ ì„¸íŒ…ëœë‹¤. 
+	int m_nHeight; // ë¹„íŠ¸ë§µ ì‚¬ì´ì¦ˆëŠ” ì •ë ¬ ë°©ì‹ì— ë”°ë¼ì„œ 4ì˜ ë°°ìˆ˜ë¡œ ì„¸íŒ…ëœë‹¤. 
 
 public:
 	CDibBitmap() { m_pData = 0; }
@@ -30,10 +30,10 @@ public:
 	void   CreateDIBSection(CDC* pDC, CDibPalette* pPal,int nWidth,int nHeight,WORD nBitCount = 8);
 	CSize  GetSize      () { return CSize(m_infoHeader.biWidth,-m_infoHeader.biHeight); }
 	LPBYTE GetData      () { return m_pData; }
-	int    GetWidth     () { return m_infoHeader.biWidth      ; } // 4¹è¼öÀÇ ÁøÂ¥ ÀÌ¹ÌÁö »çÀÌÁî 
-	int    GetHeight    () { return abs(m_infoHeader.biHeight); } // ÁøÂ¥ ÀÌ¹ÌÁö »çÀÌÁî 
-	int    GetPgWidth   () { return m_nWidth ; } // ½ÇÁ¦ ÀÔ·ÂÇÑ »çÀÌÁî 
-	int    GetPgHeight  () { return m_nHeight; } // ½ÇÁ¦ ÀÔ·ÂÇÑ »çÀÌÁî 
+	int    GetWidth     () { return m_infoHeader.biWidth      ; } // 4ë°°ìˆ˜ì˜ ì§„ì§œ ì´ë¯¸ì§€ ì‚¬ì´ì¦ˆ 
+	int    GetHeight    () { return abs(m_infoHeader.biHeight); } // ì§„ì§œ ì´ë¯¸ì§€ ì‚¬ì´ì¦ˆ 
+	int    GetPgWidth   () { return m_nWidth ; } // ì‹¤ì œ ì…ë ¥í•œ ì‚¬ì´ì¦ˆ 
+	int    GetPgHeight  () { return m_nHeight; } // ì‹¤ì œ ì…ë ¥í•œ ì‚¬ì´ì¦ˆ 
 	WORD   GetBitCount  () { return m_infoHeader.biBitCount; }
 virtual	BOOL Load(LPCSTR lpszFileName) { return TRUE; }
 virtual void CreateDib(CDC* pDc,CDibPalette* pPal) { };

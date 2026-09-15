@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -134,7 +134,7 @@ void CDbManager::SetDBFormatStr( char* szDst, int nMaxLen, const char* szSrc )
 #endif	// __PET_1024
 
 
-// szSrc - 16Áø¼ö·Î º¯È¯µÈ ¹®ÀÚ¿­, szDst - ascii¹®ÀÚ¿­, n - szSrc¿¡¼­ ÇöÀçÀÛ¾÷ index 
+// szSrc - 16ì§„ìˆ˜ë¡œ ë³€í™˜ëœ ë¬¸ìì—´, szDst - asciië¬¸ìì—´, n - szSrcì—ì„œ í˜„ì¬ì‘ì—… index 
 void CDbManager::GetStrFromDBFormat( char* szDst, const char* szSrc, int& n )
 {
 	char szDigit[3] = {0, };
@@ -144,7 +144,7 @@ void CDbManager::GetStrFromDBFormat( char* szDst, const char* szSrc, int& n )
 #endif // __VS2003
 	
 	const char* pCur = szSrc + n;
-	while( *pCur != '/' && *pCur )		// ¹®ÀÚ¿­Àº '/' ·Î ³¡³­´Ù. ¾ÈÀüÇÏ°Ô NULLµµ °Ë»ç 
+	while( *pCur != '/' && *pCur )		// ë¬¸ìì—´ì€ '/' ë¡œ ëë‚œë‹¤. ì•ˆì „í•˜ê²Œ NULLë„ ê²€ì‚¬ 
 	{
 		szDigit[0] = pCur[0];
 		szDigit[1] = pCur[1];
@@ -159,7 +159,7 @@ void CDbManager::GetStrFromDBFormat( char* szDst, const char* szSrc, int& n )
 		*szDst++ = ch;
 	}
 	*szDst = '\0';
-	n = (pCur - szSrc) + 1;				// +1Àº '/'¸¦ ¹«½ÃÇÏ±â À§ÇØ¼­ 
+	n = (pCur - szSrc) + 1;				// +1ì€ '/'ë¥¼ ë¬´ì‹œí•˜ê¸° ìœ„í•´ì„œ 
 }
 
 BOOL CDbManager::GetBank( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus, int nSlot )
@@ -753,7 +753,7 @@ BOOL CDbManager::GetInventory( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS
 		IndexItem = GetOneItem( &BufItemElem, Inven, &CountStr );
 		if( IndexItem == -1 )
 		{
-			Error( "Inventory : << ÇÁ·ÎÆÛÆ¼ ¾øÀ½. %s, %d", pMover->m_szName, BufItemElem.m_dwItemId );
+			Error( "Inventory : << í”„ë¡œí¼í‹° ì—†ìŒ. %s, %d", pMover->m_szName, BufItemElem.m_dwItemId );
 		}
 		else
 		{
@@ -910,10 +910,10 @@ void CDbManager::LoadPiercingInfo( CItemElem & itemElem, char* szPirecingInven, 
 #endif // __PETVIS
 }
 
-// ¾óÅÍ¸Ú ¿şÆùÀÇ °æ¿ì nPiercedSize°¡ ¾óÅÍ¸Ú ÇÇ¾î½Ì »çÀÌÁîÀÌ°í dwItemId1 ~ 5 ±îÁö´Â ¾óÅÍ¸Ú ÇÇ¾î½Ì ¾ÆÀÌÅÛ(º¸¼®)ÀÌ´Ù.
-// nPiercedSize2°¡ ÀÏ¹İ ÇÇ¾î½Ì »çÀÌÁîÀÌ°í dwItemId6 ~ 15 ±îÁö°¡ ÀÏ¹İ ÇÇ¾î½Ì ¾ÆÀÌÅÛ(Ä«µå)ÀÌ´Ù.
-// ¾óÅÍ¸Ú ¿şÆùÀÌ ¾Æ´Ñ °æ¿ì¿¡´Â nPiercedSize°¡ ÇÇ¾î½Ì »çÀÌÁîÀÌ°í dwItemId1~10 ±îÁö°¡ ÇÇ¾î½Ì ¾ÆÀÌÅÛ(Ä«µå)ÀÌ´Ù.
-// ÀÌ´Â MakeQueryAddMail() ÇÔ¼ö¿¡µµ µ¿ÀÏÇÏ°Ô Àû¿ëµÈ´Ù.
+// ì–¼í„°ë©‹ ì›¨í°ì˜ ê²½ìš° nPiercedSizeê°€ ì–¼í„°ë©‹ í”¼ì–´ì‹± ì‚¬ì´ì¦ˆì´ê³  dwItemId1 ~ 5 ê¹Œì§€ëŠ” ì–¼í„°ë©‹ í”¼ì–´ì‹± ì•„ì´í…œ(ë³´ì„)ì´ë‹¤.
+// nPiercedSize2ê°€ ì¼ë°˜ í”¼ì–´ì‹± ì‚¬ì´ì¦ˆì´ê³  dwItemId6 ~ 15 ê¹Œì§€ê°€ ì¼ë°˜ í”¼ì–´ì‹± ì•„ì´í…œ(ì¹´ë“œ)ì´ë‹¤.
+// ì–¼í„°ë©‹ ì›¨í°ì´ ì•„ë‹Œ ê²½ìš°ì—ëŠ” nPiercedSizeê°€ í”¼ì–´ì‹± ì‚¬ì´ì¦ˆì´ê³  dwItemId1~10 ê¹Œì§€ê°€ í”¼ì–´ì‹± ì•„ì´í…œ(ì¹´ë“œ)ì´ë‹¤.
+// ì´ëŠ” MakeQueryAddMail() í•¨ìˆ˜ì—ë„ ë™ì¼í•˜ê²Œ ì ìš©ëœë‹¤.
 void CDbManager::GetPiercingInfoFromMail( CQuery* pQuery, CItemElem* pItemElem )
 {
 	int nAddCount = 1;
@@ -1097,15 +1097,15 @@ void CDbManager::GetBaseCharacter( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_
 	pMover->m_nDeathLevel = qry->GetInt( "m_nDeathLevel" );
 	pMover->m_nSkillLevel	= qry->GetInt( "m_SkillLv" );
 	pMover->m_nSkillPoint	= qry->GetInt( "m_SkillPoint" );
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 	pMover->m_nHonor	= qry->GetInt( "m_nHonor" );
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 }
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 void	CDbManager::GetHonor( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
-	// ³»°¡ µî·ÏÇÑ ¾ÆÀÌµğ °¡Áö°í ¿À±â
+	// ë‚´ê°€ ë“±ë¡í•œ ì•„ì´ë”” ê°€ì§€ê³  ì˜¤ê¸°
 	char szQuery[QUERY_SIZE]	= { 0,};
 	sprintf( szQuery,
 		"usp_Master_Select '%02d','%07d'",
@@ -1206,11 +1206,11 @@ void	CDbManager::GetHonor( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpD
 	}
 }
 
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 BOOL CDbManager::GetSkill( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus )
 {
-	// ³»°¡ µî·ÏÇÑ ¾ÆÀÌµğ °¡Áö°í ¿À±â
+	// ë‚´ê°€ ë“±ë¡í•œ ì•„ì´ë”” ê°€ì§€ê³  ì˜¤ê¸°
 	char szQuery[QUERY_SIZE]	= { 0,};
 	sprintf( szQuery,
 		"uspLoadCharacterSkill '%02d','%07d'",
@@ -1280,7 +1280,7 @@ BOOL CDbManager::GetQuest( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpD
 	pMover->m_nCheckedQuestSize = IndexQuest;
 #endif // __IMPROVE_QUEST_INTERFACE
 
-	// ±âÁ¸ °ÍÁß¿¡ ¿Ï·áµÈ°ÍÀ» ¿Ï·á ¹è¿­¿¡ ³Ö´Â´Ù.
+	// ê¸°ì¡´ ê²ƒì¤‘ì— ì™„ë£Œëœê²ƒì„ ì™„ë£Œ ë°°ì—´ì— ë„£ëŠ”ë‹¤.
 	for( int i = 0; i < nQuestSize; i++ )
 	{
 		if( pMover->m_aQuest[ i ].m_nState == QS_END )
@@ -1448,7 +1448,7 @@ int CDbManager::GetOneItem( CItemElem* pItemElem, char* pstrItem, int *pLocation
 	pItemElem->m_idGuild = (u_long)GetIntPaFromStr( pstrItem, pLocation );
 	pItemElem->m_nResistSMItemId = GetIntPaFromStr( pstrItem, pLocation );
 	pItemElem->m_dwObjId		= IndexItem;
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 	if( pItemElem->m_dwItemId == II_SYS_SYS_SCR_SEALCHARACTER )
 	{
 	#if __VER >= 11 // __SYS_PLAYER_DATA
@@ -1463,7 +1463,7 @@ int CDbManager::GetOneItem( CItemElem* pItemElem, char* pstrItem, int *pLocation
 		CPlayerDataCenter::GetInstance()->m_Access.Leave();
 	#endif	// __SYS_PLAYER_DATA
 	}
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 	
 
 	++*pLocation;
@@ -1490,8 +1490,8 @@ void CDbManager::GetOneQuest( LPQUEST pQuest, char* pstrQuest, int *pLocation )
 	for (int i = 0; i < MAX_QUEST_COND_KILL; ++i)
 		pQuest->m_nKillNPCNum[i] = (WORD)GetIntPaFromStr(pstrQuest, pLocation);
 #else
-	pQuest->m_nKillNPCNum[0] = (WORD)GetIntPaFromStr(pstrQuest, pLocation);	// chipi_091015 - NPC Kill Quest °¹¼ö È®Àå( BYTE -> WORD )
-	pQuest->m_nKillNPCNum[1] = (WORD)GetIntPaFromStr(pstrQuest, pLocation);	// chipi_091015 - NPC Kill Quest °¹¼ö È®Àå( BYTE -> WORD )
+	pQuest->m_nKillNPCNum[0] = (WORD)GetIntPaFromStr(pstrQuest, pLocation);	// chipi_091015 - NPC Kill Quest ê°¯ìˆ˜ í™•ì¥( BYTE -> WORD )
+	pQuest->m_nKillNPCNum[1] = (WORD)GetIntPaFromStr(pstrQuest, pLocation);	// chipi_091015 - NPC Kill Quest ê°¯ìˆ˜ í™•ì¥( BYTE -> WORD )
 #endif
 
 	pQuest->m_bPatrol			= (BYTE)GetIntPaFromStr( pstrQuest, pLocation );
@@ -1509,14 +1509,14 @@ void CDbManager::GetOneQuest( LPQUEST pQuest, char* pstrQuest, int *pLocation )
 
 BOOL CDbManager::GetRemoveItem( CQuery *pQry, int &nNo, char* pOneItem, int &nItem_Count, int &nAbilityOption, int &nItemResist, int &nResistAbilityOption, char &chState )
 {
-	nNo = pQry->GetInt( "m_nNo" );									// À¯´ÏÅ© ³Ñ¹ö
-	pQry->GetStr( "Item_Name", pOneItem );							// ÀÌ¸§
+	nNo = pQry->GetInt( "m_nNo" );									// ìœ ë‹ˆí¬ ë„˜ë²„
+	pQry->GetStr( "Item_Name", pOneItem );							// ì´ë¦„
 	
-	nItem_Count	= pQry->GetInt( "Item_count" );						// °¹¼ö
+	nItem_Count	= pQry->GetInt( "Item_count" );						// ê°¯ìˆ˜
 	nAbilityOption = pQry->GetInt( "m_nAbilityOption" );			// AbilityOption ( + ) Option
 	chState = pQry->GetChar( "State" );
-	nItemResist = pQry->GetInt( "m_bItemResist" );					// ¼Ó¼º°ª	
-	nResistAbilityOption = pQry->GetInt( "m_nResistAbilityOption" );// ¼Ó¼º¿¡ ´ëÇÑ Option°ª
+	nItemResist = pQry->GetInt( "m_bItemResist" );					// ì†ì„±ê°’	
+	nResistAbilityOption = pQry->GetInt( "m_nResistAbilityOption" );// ì†ì„±ì— ëŒ€í•œ Optionê°’
 	
 	if( 0 == strcmp( pOneItem, "NULL") )
 	{
@@ -1631,12 +1631,12 @@ SERIALNUMBER CDbManager::RemoveItemInventory( ItemProp* pItemProp, CMover* pMove
 	SERIALNUMBER iSerialNumber = 0;
 	CItemElem *pItemElem = pMover->m_Inventory.GetItem( pItemProp, nAbilityOption, nItemResist, nResistAbilityOption );
 	
-	if( pItemElem != NULL ) // ÀÎº¥Åä¸®¿¡ ¾ÆÀÌÅÛÀÌ ÀÖÀ½À» °Ë»ç.
+	if( pItemElem != NULL ) // ì¸ë²¤í† ë¦¬ì— ì•„ì´í…œì´ ìˆìŒì„ ê²€ì‚¬.
 	{
 		iSerialNumber = pItemElem->GetSerialNumber();
-		if( pMover->m_Inventory.IsEquip( pItemElem->m_dwObjId ) )	// Àåºñ¸¦ Âø¿ëÇÏ°í ÀÖ´ÂÁö °Ë»ç
+		if( pMover->m_Inventory.IsEquip( pItemElem->m_dwObjId ) )	// ì¥ë¹„ë¥¼ ì°©ìš©í•˜ê³  ìˆëŠ”ì§€ ê²€ì‚¬
 		{
-			if( !pMover->m_Inventory.UnEquip( pItemProp->dwParts ) ) // Àåºñ ÇØÁ¦
+			if( !pMover->m_Inventory.UnEquip( pItemProp->dwParts ) ) // ì¥ë¹„ í•´ì œ
 			{
 				WriteLog( "Not UnEquip : %s, %s ", pMover->m_szName, pItemProp->szName );
 				return (SERIALNUMBER)0;

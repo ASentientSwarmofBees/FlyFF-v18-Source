@@ -1,11 +1,11 @@
-#ifndef __WNDGUILDBANK__H
+ï»¿#ifndef __WNDGUILDBANK__H
 #define __WNDGUILDBANK__H
 
 #include "WndGuildMerit.h"
 
 class CWndGuildBank : public CWndNeuz 
 { 
-	CWndGuildMerit* m_pwndGuildMerit;		// ±æµå°øÇå.
+	CWndGuildMerit* m_pwndGuildMerit;		// ê¸¸ë“œê³µí—Œ.
 public: 
 	CWndItemCtrl m_wndItemCtrl;
 	CWndGold     m_wndGold;

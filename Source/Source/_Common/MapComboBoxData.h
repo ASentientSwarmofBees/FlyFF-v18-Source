@@ -1,4 +1,4 @@
-#ifndef __MAP_COMBO_BOX_DATA_H__
+﻿#ifndef __MAP_COMBO_BOX_DATA_H__
 #define __MAP_COMBO_BOX_DATA_H__
 
 #ifdef __IMPROVE_MAP_SYSTEM

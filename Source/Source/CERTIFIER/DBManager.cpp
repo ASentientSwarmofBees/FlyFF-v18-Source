@@ -1,4 +1,4 @@
-#include "stdafx.h"
+О╩©#include "stdafx.h"
 #include "dbmanager.h"
 
 #ifdef __GPAUTH
@@ -129,10 +129,10 @@ void CDbManager::DBQryAccount( char* qryAccount, char* szAccount, char* szPass )
 #endif	// __TWN_LOGIN0816
 #endif // __PCBANG
 
-// AccountFlag╦╕ ╬Р╢б╢ы.
-// f18 - ╣П╨Я©║╪╜ ╬Р╢б ╣╔юле╦ 
-//       еб╠╧: 2 - ╧л╪╨ЁБюз, 4 - ╧л╣Н╥о ╪╨юн, 8 - ╣Н╥о╣х ╪╨юн 
-//       ╠в©э: 0 - ╧л╪╨ЁБюз, 1 - ╪╨юн 
+// AccountFlagК╔╪ Л√╩К┼■К▀╓.
+// f18 - К■■К╧└Л≈░Л└° Л√╩К┼■ К█╟Л²╢М┐─ 
+//       М┐°Й╣╜: 2 - К╞╦Л└╠К┘└Л·░, 4 - К╞╦К⌠╠К║² Л└╠Л²╦, 8 - К⌠╠К║²К░° Л└╠Л²╦ 
+//       Й╥╦Л≥╦: 0 - К╞╦Л└╠К┘└Л·░, 1 - Л└╠Л²╦ 
 
 BYTE CDbManager::GetAccountFlag( int f18, LPCTSTR szAccount )
 {
@@ -142,7 +142,7 @@ BYTE CDbManager::GetAccountFlag( int f18, LPCTSTR szAccount )
 	if( ::GetLanguage() == LANG_THA )
 	{
 		if( cb18 & 0x04 )
-			cbAccountFlag |= ACCOUNT_FLAG_UNREGISTER18;		// ╧л╣Н╥о ╪╨юн
+			cbAccountFlag |= ACCOUNT_FLAG_UNREGISTER18;		// К╞╦К⌠╠К║² Л└╠Л²╦
 		else if( cb18 & 0x08 )
 			cbAccountFlag |= ACCOUNT_FLAG_18;
 	}
@@ -264,27 +264,27 @@ void CDbManager::Certify( CQuery & query, LPDB_OVERLAPPED_PLUS pData, CAccountMg
 				OnCertifyQueryOK( query, pData );
 				m_pDbIOData->Free( pData );
 				return;
-			case 1:	// ╬охёф╡╦╡
+			case 1:	// Л∙■М≤╦М▀─К╕╪
 				if( pData->dwIP )
 					accountMgr.SetError( 1 );
 				nCode = ERROR_FLYFF_PASSWORD;
 				break;
-			case 3:	// ╟Ха╓╨М╥╟юл╟еЁ╙ ю╞╥Ах╜ цй╟З
+			case 3:	// ЙЁ└Л═∙К╦■К÷╜Л²╢Й╠╟К┌≤ Л°═Кё▄М≥■ Л╢┬ЙЁ╪
 				nCode = ERROR_BLOCKGOLD_ACCOUNT;				
 				break;
-			case 4:	// ╫г╦МюнаУхд ╟тюса╒╪сюл ╟║╢игу╢о╢ы www.flyff.comю╦╥н а╒╪сгьаж╫й╫ц©ю
+			case 4:	// Л▀╓К╙┘Л²╦Л╕²М⌡└ Й╡▄Л·└Л═▒Л├█Л²╢ Й╟─К┼╔М∙╘К▀┬К▀╓ www.flyff.comЛ°╪К║° Л═▒Л├█М∙╢Лё╪Л▀╜Л▀°Л≤╓
 				nCode = ERROR_FLYFF_AUTH;				
 				break;
-			case 5: // га╦╝га╢б 12╪╪ юл╩С юл©К╟║ юл╧г╥н ╟тюса╒╪сю╩ гр╪Ж ╬Ь╫ю╢о╢ы.
+			case 5: // М■└К╕╛М■└К┼■ 12Л└╦ Л²╢Л┐│ Л²╢Л ╘Й╟─ Л²╢К╞─К║° Й╡▄Л·└Л═▒Л├█Л²└ М∙═Л┬≤ Л≈├Л┼╣К▀┬К▀╓.
 				nCode = ERROR_FLYFF_PERMIT;
 				break;
-			case 6: // 14╪╪ ╧л╦╦ ╟║ютюз ╨п╣Ию╨ ╨н╦П╢т ╣©юг╪╜╦╕ ╨╦Ё╩аж╪е╬ъ ╟тюс а╒╪сюл ╟║╢игу╢о╢ы. www.flyff.com ю╦╥н а╒╪сго╪е╪╜ х╝юнгь аж╪╪©Д.
+			case 6: // 14Л└╦ К╞╦К╖▄ Й╟─Л·┘Л·░ К╤└К⌠╓Л²─ К╤─К╙╗К▀≤ К▐≥Л²≤Л└°К╔╪ КЁ╢К┌╢Лё╪Л┘■Л∙╪ Й╡▄Л·└ Л═▒Л├█Л²╢ Й╟─К┼╔М∙╘К▀┬К▀╓. www.flyff.com Л°╪К║° Л═▒Л├█М∙≤Л┘■Л└° М≥∙Л²╦М∙╢ Лё╪Л└╦Л ■.
 				nCode = ERROR_FLYFF_NEED_AGREEMENT;
 				break;
-			case 7:	// Webе╩еПюз х╦©Ь
+			case 7:	// WebМ┐┬М┤╢Л·░ М ▄Л⌡░
 				nCode = ERROR_FLYFF_NO_MEMBERSHIP;
 				break;
-			case 9:	// ╫г╫ц╟ё ╣╔юлем юш╬В ю╞юЗ
+			case 9:	// Л▀╓Л▀°Й╟└ К█╟Л²╢М└╟ Л·▒Л≈┘ Л°═Л═─
 				nCode = ERROR_FLYFF_DB_JOB_ING;
 				break;
 			case 91:

@@ -1,4 +1,4 @@
-#define	LI_CHEERING		0
+﻿#define	LI_CHEERING		0
 #define	LI_BLESSING		1
 #define	LI_LOVE		2
 #define	LI_SHOUT		3

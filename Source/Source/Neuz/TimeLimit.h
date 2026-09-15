@@ -1,7 +1,7 @@
-#ifndef __TIMELIMIT_H__
+ï»¿#ifndef __TIMELIMIT_H__
 #define __TIMELIMIT_H__
 
-// '5ÃÊ ³»¿¡ 3È¸¸¸ Çã¿ë'°ú °°Àº ½ÃµµÁ¦ÇÑÀ» Ã³¸®ÇÏ´Â Å¬·¡½º  
+// '5ì´ˆ ë‚´ì— 3íšŒë§Œ í—ˆìš©'ê³¼ ê°™ì€ ì‹œë„ì œí•œì„ ì²˜ë¦¬í•˜ëŠ” í´ë˜ìŠ¤  
 class CTimeLimit
 {
 private:
@@ -12,7 +12,7 @@ public:
 	CTimeLimit();
 	CTimeLimit( int nLimit, DWORD dwPeriod );
 
-	BOOL Check();  // Á¦ÇÑÀ» ³Ñ´ÂÁö °Ë»ç  ( TRUE - Á¦ÇÑÀ» ³Ñ¾ú´Ù )
+	BOOL Check();  // ì œí•œì„ ë„˜ëŠ”ì§€ ê²€ì‚¬  ( TRUE - ì œí•œì„ ë„˜ì—ˆë‹¤ )
 	static void	SetLimitation( int nLimit, DWORD dwPeriod );
 };
 

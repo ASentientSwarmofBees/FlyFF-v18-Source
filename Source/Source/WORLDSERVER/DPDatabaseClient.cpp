@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "DPSrvr.h"
 #include "DPCoreClient.h"
 #include "DPDatabaseClient.h"
@@ -133,13 +133,13 @@ CDPDatabaseClient::CDPDatabaseClient()
 	ON_MSG( PACKETTYPE_GC1TO1_OPEN, &CDPDatabaseClient::OnGC1to1Open );
 	ON_MSG( PACKETTYPE_GC1TO1_TENDERTOSRVR, &CDPDatabaseClient::OnGC1to1TenderGuildFromDB );
 #endif // __GUILD_COMBAT_1TO1
-#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
 	ON_MSG( PACKETTYPE_GUILDLOG_VIEW, &CDPDatabaseClient::OnGuildBankLogViewFromDB );
-#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 	ON_MSG( PACKETTYPE_SEALCHAR_REQ, &CDPDatabaseClient::OnSealCharFromDB );
 	ON_MSG( PACKETTYPE_SEALCHARGET_REQ, &CDPDatabaseClient::OnSealCharGetFromDB );
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 
 #if __VER >= 12 // __LORD
 	ON_MSG( PACKETTYPE_ELECTION_ADD_DEPOSIT, &CDPDatabaseClient::OnElectionAddDeposit );
@@ -297,7 +297,7 @@ void CDPDatabaseClient::SavePlayer( CUser* pUser, DWORD dwWorldId, const D3DXVEC
 #endif	// __LAYER_1015
 
 	CObj::SetMethod( METHOD_NONE );
-	// raiders.2006.11.28  ÀúÀåµÉ µ· = ÀÎº¥µ· + ³» °Å·¡Ã¢ µ·
+	// raiders.2006.11.28  ì €ì¥ë  ëˆ = ì¸ë²¤ëˆ + ë‚´ ê±°ë˜ì°½ ëˆ
 	int nTrade = pUser->m_vtInfo.TradeGetGold();
 	pUser->AddGold( nTrade, FALSE );
 	pUser->Serialize( ar );
@@ -357,12 +357,12 @@ void CDPDatabaseClient::SavePlayer( CUser* pUser, DWORD dwWorldId, const D3DXVEC
 
 	SEND( ar, this, DPID_SERVERPLAYER );
 #ifdef __VTN_TIMELIMIT
-	//	mulcom	BEGIN100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+	//	mulcom	BEGIN100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 	if( ::GetLanguage() == LANG_VTN )
 	{
 		SendTimeLimitUpdateReq( pUser->m_playAccount.lpszAccount, pUser->m_nAccountPlayTime );
 	}
-	//	mulcom	END100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+	//	mulcom	END100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 #endif // __VTN_TIMELIMIT
 }
 
@@ -470,14 +470,14 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 	ar << g_GuildCombatMng.m_nWinGuildCount;
 	ar << g_GuildCombatMng.m_uBestPlayer;
 	
-	// ±æµå ÀúÀå
+	// ê¸¸ë“œ ì €ì¥
 #ifdef __S_BUG_GC
 	ar << (u_long)g_GuildCombatMng.m_vecGuildCombatMem.size();
 	for( int gcmi = 0 ; gcmi != g_GuildCombatMng.m_vecGuildCombatMem.size() ; ++gcmi )
 	{
 		CGuildCombat::__GuildCombatMember* pGCMember = g_GuildCombatMng.m_vecGuildCombatMem[gcmi];
 
-		BOOL bSelectGuild = FALSE; // ÃâÀüÇÑ ±æµåÀÎ°¡
+		BOOL bSelectGuild = FALSE; // ì¶œì „í•œ ê¸¸ë“œì¸ê°€
 		for( int veci = 0 ; veci < (int)( g_GuildCombatMng.vecRequestRanking.size() ) ; ++veci )
 		{
 			if( veci >= g_GuildCombatMng.m_nMaxGuild )
@@ -493,9 +493,9 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 
 		ar << pGCMember->uGuildId;
 		ar << pGCMember->nGuildPoint;
-		if( bSelectGuild )	// ÃâÀü ±æµå
+		if( bSelectGuild )	// ì¶œì „ ê¸¸ë“œ
 		{
-			if( g_GuildCombatMng.m_uWinGuildId == pGCMember->uGuildId )	// ½Â¸®ÇÑ ±æµå
+			if( g_GuildCombatMng.m_uWinGuildId == pGCMember->uGuildId )	// ìŠ¹ë¦¬í•œ ê¸¸ë“œ
 			{
 				ar << g_GuildCombatMng.GetPrizePenya( 0 );
 				ar << (DWORD)0;
@@ -510,13 +510,13 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 		}
 		else
 		{
-			if( pGCMember->bRequest )	// ½ÅÃ»Àº Çß´Âµ¥ ÃâÀüÀÌ ¾ÈµÈ ±æµå ¼ö¼ö·á 2%
+			if( pGCMember->bRequest )	// ì‹ ì²­ì€ í–ˆëŠ”ë° ì¶œì „ì´ ì•ˆëœ ê¸¸ë“œ ìˆ˜ìˆ˜ë£Œ 2%
 			{
 				ar << (__int64)0;
 				ar << (DWORD)0; //(DWORD)(pGCMember->dwPenya * fNotRequestPercent );
 				ar << (int)0;
 
-				// ¹Ù·Î ¿ìÆíÇÔÀ¸·Î Áö±Ş
+				// ë°”ë¡œ ìš°í¸í•¨ìœ¼ë¡œ ì§€ê¸‰
 				CGuild* pGuild = g_GuildMng.GetGuild( pGCMember->uGuildId );
 				if( pGuild )
 				{
@@ -528,7 +528,7 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 					SendQueryPostMail( pGuild->m_idMaster, 0, pItemElem, (int)( pGCMember->dwPenya * fNotRequestPercent ), szMsg, szMsg1 );
 				}
 			}
-			else						// Ãë¼ÒÇÑ ±æµå ¼ö¼ö·á 20%
+			else						// ì·¨ì†Œí•œ ê¸¸ë“œ ìˆ˜ìˆ˜ë£Œ 20%
 			{
 				ar << (__int64)0;
 				ar << (DWORD)0; //(DWORD)(pGCMember->dwPenya * fRequstCanclePercent );
@@ -536,7 +536,7 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 			}
 		}
 
-		// Âü°¡ÀÚ Æ÷ÀÎÆ®
+		// ì°¸ê°€ì í¬ì¸íŠ¸
 		ar << (u_long)pGCMember->vecGCSelectMember.size();
 		for( int veci = 0 ; veci < (int)( pGCMember->vecGCSelectMember.size() ) ; ++veci )
 		{
@@ -558,7 +558,7 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 	for( map<u_long, CGuildCombat::__GuildCombatMember*>::iterator it = g_GuildCombatMng.m_GuildCombatMem.begin() ; 
 		it != g_GuildCombatMng.m_GuildCombatMem.end() ; ++it )
 	{
-		BOOL bSelectGuild = FALSE; // ÃâÀüÇÑ ±æµåÀÎ°¡
+		BOOL bSelectGuild = FALSE; // ì¶œì „í•œ ê¸¸ë“œì¸ê°€
 		for( int veci = 0 ; veci < g_GuildCombatMng.vecRequestRanking.size() ; ++veci )
 		{
 			if( veci >= g_GuildCombatMng.m_nMaxGuild )
@@ -575,9 +575,9 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 		CGuildCombat::__GuildCombatMember* pGCMember = it->second;
 		ar << (u_long)it->first;
 		ar << pGCMember->nGuildPoint;
-		if( bSelectGuild )	// ÃâÀü ±æµå
+		if( bSelectGuild )	// ì¶œì „ ê¸¸ë“œ
 		{
-			if( g_GuildCombatMng.m_uWinGuildId == it->first )	// ½Â¸®ÇÑ ±æµå
+			if( g_GuildCombatMng.m_uWinGuildId == it->first )	// ìŠ¹ë¦¬í•œ ê¸¸ë“œ
 			{
 				ar << g_GuildCombatMng.GetPrizePenya( 0 );
 				ar << (DWORD)0;
@@ -592,13 +592,13 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 		}
 		else
 		{
-			if( pGCMember->bRequest )	// ½ÅÃ»Àº Çß´Âµ¥ ÃâÀüÀÌ ¾ÈµÈ ±æµå ¼ö¼ö·á 2%
+			if( pGCMember->bRequest )	// ì‹ ì²­ì€ í–ˆëŠ”ë° ì¶œì „ì´ ì•ˆëœ ê¸¸ë“œ ìˆ˜ìˆ˜ë£Œ 2%
 			{
 				ar << (__int64)0;
 				ar << (DWORD)0; //(DWORD)(pGCMember->dwPenya * fNotRequestPercent );
 				ar << (int)0;
 
-				// ¹Ù·Î ¿ìÆíÇÔÀ¸·Î Áö±Ş
+				// ë°”ë¡œ ìš°í¸í•¨ìœ¼ë¡œ ì§€ê¸‰
 				CGuild* pGuild = g_GuildMng.GetGuild( it->first );
 				if( pGuild )
 				{
@@ -610,7 +610,7 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 					SendQueryPostMail( pGuild->m_idMaster, 0, pItemElem, pGCMember->dwPenya * fNotRequestPercent, szMsg, szMsg1 );
 				}
 			}
-			else						// Ãë¼ÒÇÑ ±æµå ¼ö¼ö·á 20%
+			else						// ì·¨ì†Œí•œ ê¸¸ë“œ ìˆ˜ìˆ˜ë£Œ 20%
 			{
 				ar << (__int64)0;
 				ar << (DWORD)0; //(DWORD)(pGCMember->dwPenya * fRequstCanclePercent );
@@ -618,7 +618,7 @@ void CDPDatabaseClient::SendGuildCombatResult( void )
 			}
 		}
 
-		// Âü°¡ÀÚ Æ÷ÀÎÆ®
+		// ì°¸ê°€ì í¬ì¸íŠ¸
 		ar << (u_long)pGCMember->vecGCSelectMember.size();
 		for( veci = 0 ; veci < pGCMember->vecGCSelectMember.size() ; ++veci )
 		{
@@ -725,16 +725,16 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 		pUser->m_nCheerPoint	= 0;
 		pUser->m_dwTickCheer	= GetTickCount() + TICK_CHEERPOINT;
 		
-		pUser->SetStateNotMode( STATE_BASEMOTION_MODE, STATEMODE_BASEMOTION_CANCEL );	// ™VÆÃ »©±â
+		pUser->SetStateNotMode( STATE_BASEMOTION_MODE, STATEMODE_BASEMOTION_CANCEL );	// ì…‘íŒ… ë¹¼ê¸°
 
 #ifdef __3RD_LEGEND16
 		if( pUser->GetLevel() > MAX_3RD_LEGEND_LEVEL )
 #else // __3RD_LEGEND16
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		if( pUser->GetLevel() > MAX_LEGEND_LEVEL )
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		if( pUser->GetLevel() > MAX_GENERAL_LEVEL )
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #endif // __3RD_LEGEND16
 		{
 			WriteError( "MAX_GENERAL_LEVEL//%s//%d", pUser->GetName(), pUser->GetLevel() );
@@ -746,10 +746,10 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 		if( !pUser->GetPet() )
 			pUser->SetPetId( NULL_ID );
 
-		pUser->m_pActMover->RemoveStateFlag( OBJSTAF_ACC );			// ºñÇàÀº ¸ØÃã»óÅÂ  		
-		pUser->SetAngle( 0.0f );	// °¢µµ ÃÊ±âÈ­, ÀÓ½Ã ÄÚµåÀÌ¹Ç·Î ¿øÀÎÀ» ºĞ¼®ÇÏ¿© ¼öÁ¤ÇÏµµ·Ï ÇÏÀÚ.
+		pUser->m_pActMover->RemoveStateFlag( OBJSTAF_ACC );			// ë¹„í–‰ì€ ë©ˆì¶¤ìƒíƒœ  		
+		pUser->SetAngle( 0.0f );	// ê°ë„ ì´ˆê¸°í™”, ì„ì‹œ ì½”ë“œì´ë¯€ë¡œ ì›ì¸ì„ ë¶„ì„í•˜ì—¬ ìˆ˜ì •í•˜ë„ë¡ í•˜ì.
 
-		// ÀÌ»óÅ¸ ¶«¹æ dwWorldId°¡ 200ÀÌ¸é¼­ ¸ø µé¾î°¡´Â À¯ÀúµéÀÌ »ı±è 
+		// ì´ìƒíƒ€ ë•œë°© dwWorldIdê°€ 200ì´ë©´ì„œ ëª» ë“¤ì–´ê°€ëŠ” ìœ ì €ë“¤ì´ ìƒê¹€ 
 		CWorld* pWorld = g_WorldMng.GetWorld( dwWorldId );
 		if( pWorld && pWorld->VecInWorld( pUser->GetPos() ) == FALSE )
 		{
@@ -791,16 +791,16 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 
 		ar >> nMaximumLevel;
 
-		// ÂÊÁö¸¦ ÀĞ¾îµéÀÎ´Ù.
+		// ìª½ì§€ë¥¼ ì½ì–´ë“¤ì¸ë‹¤.
 		short nTagCount;
 		ar >> nTagCount;
 
 		TAG_ENTRY tags[MAX_TAGS];
 		for( short i=0; i<nTagCount; ++i )
 		{
-			ar >> tags[i].idFrom;					// ´©±¸¿¡°Ô¼­ 
-			ar >> tags[i].dwDate;					// ¾ğÁ¦ 
-			ar.ReadString( tags[i].szString, 256 );		// ÂÊÁö ³»¿ë 
+			ar >> tags[i].idFrom;					// ëˆ„êµ¬ì—ê²Œì„œ 
+			ar >> tags[i].dwDate;					// ì–¸ì œ 
+			ar.ReadString( tags[i].szString, 256 );		// ìª½ì§€ ë‚´ìš© 
 		}
 
 		char GuildMemberTime[15] = {0,};
@@ -864,21 +864,21 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 		if( pUser->m_nHitPoint == 0 )
 			pUser->m_nHitPoint	= pUser->GetMaxHitPoint();
 
-		pUser->SetHitPoint( pUser->GetHitPoint() );			// max³ÑÀº °æ¿ì¸¦ ´ëºñÇÑ´Ù.
-		pUser->SetManaPoint( pUser->GetManaPoint() );		// max³ÑÀº °æ¿ì¸¦ ´ëºñÇÑ´Ù.
-		pUser->SetFatiguePoint( pUser->GetFatiguePoint() ); // max³ÑÀº °æ¿ì¸¦ ´ëºñÇÑ´Ù.
+		pUser->SetHitPoint( pUser->GetHitPoint() );			// maxë„˜ì€ ê²½ìš°ë¥¼ ëŒ€ë¹„í•œë‹¤.
+		pUser->SetManaPoint( pUser->GetManaPoint() );		// maxë„˜ì€ ê²½ìš°ë¥¼ ëŒ€ë¹„í•œë‹¤.
+		pUser->SetFatiguePoint( pUser->GetFatiguePoint() ); // maxë„˜ì€ ê²½ìš°ë¥¼ ëŒ€ë¹„í•œë‹¤.
 
 		pUser->SetId( NULL_ID );
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 		pUser->CheckHonorStat();
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 		if( prj.GetUserByID( pUser->m_idPlayer ) )
 		{
 			WriteLog( "OnJoin(): an ocular spectrum %d", pUser->m_idPlayer );
 			pUser->m_idPlayer	= (u_long)0xffffffff;
 /*
-			1. ÀÌ °æ¿ì´Â ÇöÀç ¹ß»ıÇÏÁö ¾Ê´Â´Ù. ±×·¯³ª ¸¸¾àÀ» ´ëºñÇÏ¿© ÃßÀû ·Î±×¸¦ ³²±âµµ·Ï ÇÑ´Ù.
+			1. ì´ ê²½ìš°ëŠ” í˜„ì¬ ë°œìƒí•˜ì§€ ì•ŠëŠ”ë‹¤. ê·¸ëŸ¬ë‚˜ ë§Œì•½ì„ ëŒ€ë¹„í•˜ì—¬ ì¶”ì  ë¡œê·¸ë¥¼ ë‚¨ê¸°ë„ë¡ í•œë‹¤.
 */
 			return;
 		}
@@ -906,7 +906,7 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 			if( strIp.Find( "116.125.62.148" ) < 0 && strIp.Find( "222.252.24.47" ) < 0 && strIp.Find( "222.255.38.14" ) < 0 )
 				pUser->m_dwAuthorization	= AUTH_GENERAL;
 		}
-		//	mulcom	BEGIN100302	·¯½Ã¾Æ GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
+		//	mulcom	BEGIN100302	ëŸ¬ì‹œì•„ GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
 		else if( ::GetLanguage() == LANG_RUS )
 		{
 			CString strIp	= pUser->m_playAccount.lpAddr;
@@ -915,8 +915,8 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 				pUser->m_dwAuthorization	= AUTH_GENERAL;
 			}
 		}
-		//	mulcom	END100302	·¯½Ã¾Æ GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
-		//	mulcom	BEGIN100304	´ë¸¸ GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
+		//	mulcom	END100302	ëŸ¬ì‹œì•„ GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
+		//	mulcom	BEGIN100304	ëŒ€ë§Œ GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
 		else if( ::GetLanguage() == LANG_TWN )
 		{
 			CString strIp	= pUser->m_playAccount.lpAddr;
@@ -925,8 +925,8 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 				pUser->m_dwAuthorization	= AUTH_GENERAL;
 			}
 		}
-		//	mulcom	END100304	´ë¸¸ GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
-		//	mulcom	BEGIN100305	ÀÏº» GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
+		//	mulcom	END100304	ëŒ€ë§Œ GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
+		//	mulcom	BEGIN100305	ì¼ë³¸ GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
 		else if( ::GetLanguage() == LANG_JAP )
 		{
 			CString strIp	= pUser->m_playAccount.lpAddr;
@@ -940,8 +940,8 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 				pUser->m_dwAuthorization	= AUTH_GENERAL;
 			}
 		}
-		//	mulcom	END100305	ÀÏº» GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
-		//	mulcom	BEGIN100309	À¯·´(µ¶ÀÏ/ÇÁ¶û½º) GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
+		//	mulcom	END100305	ì¼ë³¸ GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
+		//	mulcom	BEGIN100309	ìœ ëŸ½(ë…ì¼/í”„ë‘ìŠ¤) GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
 		else if( ::GetLanguage() == LANG_GER || ::GetLanguage() == LANG_FRE )
 		{
 			CString strIp	= pUser->m_playAccount.lpAddr;
@@ -950,8 +950,8 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 				pUser->m_dwAuthorization	= AUTH_GENERAL;
 			}
 		}
-		//	mulcom	END100309	À¯·´(µ¶ÀÏ/ÇÁ¶û½º) GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
-		//	mulcom	BEGIN100309	ÅÂ±¹ GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
+		//	mulcom	END100309	ìœ ëŸ½(ë…ì¼/í”„ë‘ìŠ¤) GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
+		//	mulcom	BEGIN100309	íƒœêµ­ GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
 		else if( ::GetLanguage() == LANG_THA )
 		{
 			CString strIp	= pUser->m_playAccount.lpAddr;
@@ -963,7 +963,7 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 				pUser->m_dwAuthorization	= AUTH_GENERAL;
 			}
 		}
-		//	mulcom	END100309	ÅÂ±¹ GM ±ÇÇÑ Æ¯Á¤ IP·Î Á¦ÇÑ ¼³Á¤
+		//	mulcom	END100309	íƒœêµ­ GM ê¶Œí•œ íŠ¹ì • IPë¡œ ì œí•œ ì„¤ì •
 */
 
 #ifdef __INTERNALSERVER
@@ -997,16 +997,16 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 #if __VER >= 15 // __GUILD_HOUSE
 			GuildHouseMng->IsLoginAble( pUser, dwWorldId, nLayer ) &&
 #endif // __GUILD_HOUSE
-			pWorld && pWorld->m_linkMap.GetLinkMap( nLayer )							// ÇØ´ç ·¹ÀÌ¾î°¡ Á¸ÀçÇÏ°í
-			&& !CInstanceDungeonHelper::GetInstance()->IsInstanceDungeon( dwWorldId )	// ÀÎ½ºÅÏ½º ´øÀüÀÌ ¾Æ´Ñ °æ¿ì...
+			pWorld && pWorld->m_linkMap.GetLinkMap( nLayer )							// í•´ë‹¹ ë ˆì´ì–´ê°€ ì¡´ì¬í•˜ê³ 
+			&& !CInstanceDungeonHelper::GetInstance()->IsInstanceDungeon( dwWorldId )	// ì¸ìŠ¤í„´ìŠ¤ ë˜ì „ì´ ì•„ë‹Œ ê²½ìš°...
 #ifdef __QUIZ
-			&& dwWorldId != WI_WORLD_QUIZ												// ÄûÁîÀÌº¥Æ® Áö¿ªÀÌ ¾Æ´Ñ °æ¿ì
+			&& dwWorldId != WI_WORLD_QUIZ												// í€´ì¦ˆì´ë²¤íŠ¸ ì§€ì—­ì´ ì•„ë‹Œ ê²½ìš°
 #endif // __QUIZ
 			)
 		{
 			g_UserMng.AddPlayer( pUser, dwWorldId, nLayer );
 		}
-		else	// ·¹ÀÌ¾î°¡ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é ¹«Á¶°Ç ¸¶À»·Î ÀÌµ¿ÇÑ´Ù.
+		else	// ë ˆì´ì–´ê°€ ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´ ë¬´ì¡°ê±´ ë§ˆì„ë¡œ ì´ë™í•œë‹¤.
 		{
 			pUser->m_vPos = D3DXVECTOR3( 6971.984f, 100.0f, 3336.884f );
 			g_UserMng.AddPlayer( pUser, WI_WORLD_MADRIGAL, nDefaultLayer );
@@ -1021,7 +1021,7 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 
 		if( !pUser->IsAuthHigher( AUTH_GAMEMASTER ) )
 		{
-			// ¹«Àû, Åõ¸í, ÃÊÇÊ, ¹İ¹«Àû 
+			// ë¬´ì , íˆ¬ëª…, ì´ˆí•„, ë°˜ë¬´ì  
 			if( pUser->m_dwMode & ( MATCHLESS_MODE | TRANSPARENT_MODE | ONEKILL_MODE | MATCHLESS2_MODE ) )
 			{
 				Error( "Abnormal User!! - %s(%07d), m_dwMode:%08x", pUser->GetName(), pUser->m_idPlayer, pUser->m_dwMode );
@@ -1045,7 +1045,7 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 		nOnError	= 706;
 #endif	// __ON_ERROR
 
-		pUser->AddTag( nTagCount, tags );	// Å¬¶óÀÌ¾ğÆ®¿¡°Ô ÂÊÁö¸¦ º¸³½´Ù.
+		pUser->AddTag( nTagCount, tags );	// í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ìª½ì§€ë¥¼ ë³´ë‚¸ë‹¤.
 
 #ifdef __ON_ERROR
 		nOnError	= 8;
@@ -1073,9 +1073,9 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 #else	// __SYS_PLAYER_DATA
 			pUser->AddPartyMember( pParty );
 #endif	// __SYS_PLAYER_DATA
-			if( pParty->m_idDuelParty )		// µà¾óÁßÀÎ ÆÄÆ¼¿´´Ù¸é.
+			if( pParty->m_idDuelParty )		// ë“€ì–¼ì¤‘ì¸ íŒŒí‹°ì˜€ë‹¤ë©´.
 			{
-				pUser->m_nDuel = 2;			// µà¾ó»óÅÂ¸¦ ¼¼ÆÃ
+				pUser->m_nDuel = 2;			// ë“€ì–¼ìƒíƒœë¥¼ ì„¸íŒ…
 				pUser->m_idDuelParty = pParty->m_idDuelParty;
 			}
 		}
@@ -1096,7 +1096,7 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 #endif // __S1108_BACK_END_SYSTEM
 		
 #ifdef __S_SERVER_UNIFY
-		// ¼­¹ö ÅëÇÕ ÀÛ¾÷
+		// ì„œë²„ í†µí•© ì‘ì—…
 		pUser->SetAllAction();
 #endif // __S_SERVER_UNIFY
 
@@ -1198,7 +1198,7 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 
 #if __VER >= 12 // __PET_0519
 		{
-			// °ÔÀÓ ÁøÀÔ ½Ã ½Ã½ºÅÛ Æê °¢¼º È¿°ú Àû¿ë
+			// ê²Œì„ ì§„ì… ì‹œ ì‹œìŠ¤í…œ í« ê°ì„± íš¨ê³¼ ì ìš©
 			CItemElem* pItem	= pUser->GetPetItem();
 			if( pItem )
 				pUser->SetDestParamRandomOptExtension( pItem );
@@ -1211,7 +1211,7 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 #endif	// __ON_ERROR
 
 #if __VER >= 13 // __RAINBOW_RACE
-		// ¿ÏÁÖÇÏÁö ¾Ê°í Á¢¼ÓÀ» ²÷Àº ³ğÀº Å»¶ôÀÌ¹Ç·Î ¿ÏÁÖÇÑ ³ğ¸¸ Á¤º¸¸¦ ¹Ş°ÔµÈ´Ù. chipi_090317
+		// ì™„ì£¼í•˜ì§€ ì•Šê³  ì ‘ì†ì„ ëŠì€ ë†ˆì€ íƒˆë½ì´ë¯€ë¡œ ì™„ì£¼í•œ ë†ˆë§Œ ì •ë³´ë¥¼ ë°›ê²Œëœë‹¤. chipi_090317
 		if( CRainbowRaceMng::GetInstance()->GetState() == CRainbowRaceMng::RR_PROGRESS )
 		{
 			CRainbowRace* pRainbowRace = CRainbowRaceMng::GetInstance()->GetRainbowRacerPtr( pUser->m_idPlayer );
@@ -1230,26 +1230,26 @@ void CDPDatabaseClient::OnJoin( CAr & ar, DPID dpidCache, DPID dpidUser )
 #endif // __PCBANG
 
 #ifdef __VTN_TIMELIMIT
-		//	mulcom	BEGIN100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+		//	mulcom	BEGIN100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
  		if( ::GetLanguage() == LANG_VTN )
 		{
 			SendTimeLimitInfoReq( pUser->m_idPlayer, pUser->m_playAccount.lpszAccount );
 		}
-		//	mulcom	END100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+		//	mulcom	END100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 #endif // __VTN_TIMELIMIT
 
 #if __VER >= 14 // __INSTANCE_DUNGEON
 		if( CInstanceDungeonHelper::GetInstance()->IsInstanceDungeon( dwWorldId ) )
 		{
-			// ÀÎ´ø ¾È¿¡¼­ Á¢¼Ó Á¾·á ÈÄ ÀçÁ¢¼Ó ½Ã ÇÃ¶ó¸®½º·Î °¡Áö ¾Ê°í ÀÎ´ø Ãâ±¸·Î °­Á¦ ÀÌµ¿
+			// ì¸ë˜ ì•ˆì—ì„œ ì ‘ì† ì¢…ë£Œ í›„ ì¬ì ‘ì† ì‹œ í”Œë¼ë¦¬ìŠ¤ë¡œ ê°€ì§€ ì•Šê³  ì¸ë˜ ì¶œêµ¬ë¡œ ê°•ì œ ì´ë™
 			CInstanceDungeonHelper::GetInstance()->GoOut( pUser );
 		}
 #endif // __INSTANCE_DUNGEON
 #if __VER >= 15 // __GUILD_HOUSE
 		pUser->AddGuildHouseAllInfo( GuildHouseMng->GetGuildHouse( pUser->m_idGuild ) );
 		GuildHouseMng->SetApplyDST( pUser );
-		if( pWorld && GuildHouseMng->IsGuildHouse( pWorld->GetID() ) && pUser->GetLayer() == pUser->m_idGuild )	// Á¢¼ÓÁö°¡ ±æµåÇÏ¿ì½º ÀÌ¸é..
-			pUser->SetIncRestPoint( tLogOut / REST_POINT_TICK * REST_POINT_LOGOUT_INC );	// ·Î±×¾Æ¿ô ÈŞ½Ä Æ÷ÀÎÆ®¸¦ Áõ°¡ ½ÃÄÑÁØ´Ù.
+		if( pWorld && GuildHouseMng->IsGuildHouse( pWorld->GetID() ) && pUser->GetLayer() == pUser->m_idGuild )	// ì ‘ì†ì§€ê°€ ê¸¸ë“œí•˜ìš°ìŠ¤ ì´ë©´..
+			pUser->SetIncRestPoint( tLogOut / REST_POINT_TICK * REST_POINT_LOGOUT_INC );	// ë¡œê·¸ì•„ì›ƒ íœ´ì‹ í¬ì¸íŠ¸ë¥¼ ì¦ê°€ ì‹œì¼œì¤€ë‹¤.
 #endif // __GUILD_HOUSE
 
 #if __VER >= 15 // __CAMPUS
@@ -1292,7 +1292,7 @@ void CDPDatabaseClient::OnGCResultValue( CAr & ar )
 		g_GuildCombatMng.m_GCResultValueGuild.push_back( ResultValueGuild );
 	}
 	
-	// º£½ºÆ® ÇÃ·¹ÀÌ¾î °ü·Ã Á¤º¸
+	// ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ê´€ë ¨ ì •ë³´
 	g_GuildCombatMng.m_GCResultValuePlayer.clear();
 	ar >> uSize;
 	for( i = 0 ; i < (int)( uSize ) ; ++i )
@@ -1308,7 +1308,7 @@ void CDPDatabaseClient::OnGCResultValue( CAr & ar )
 void CDPDatabaseClient::OnGCPlayerPoint( CAr & ar )
 {
 	g_GuildCombatMng.m_vecGCPlayerPoint.clear();
-	// ±æµå´ëÀü °³ÀÎ Æ÷ÀÎÆ®
+	// ê¸¸ë“œëŒ€ì „ ê°œì¸ í¬ì¸íŠ¸
 	u_long uSize;
 	ar >> uSize;
 	for( int i = 0 ; i < (int)( uSize ) ; ++i )
@@ -1331,7 +1331,7 @@ void CDPDatabaseClient::OnAllGuildCombat( CAr & ar, DPID, DPID )
 	ar >> g_GuildCombatMng.m_nWinGuildCount;
 	ar >> g_GuildCombatMng.m_uBestPlayer;
 
-	// Âü°¡ÇÑ ÀÎ¿ø¼ö
+	// ì°¸ê°€í•œ ì¸ì›ìˆ˜
 	ar >> uSize;
 	for( u_long i = 0 ; i < uSize ; ++i )
 	{
@@ -1346,16 +1346,16 @@ void CDPDatabaseClient::OnAllGuildCombat( CAr & ar, DPID, DPID )
 		}
 	}
 
-	// ±æµå º¸»ó °ü·Ã Á¤º¸
+	// ê¸¸ë“œ ë³´ìƒ ê´€ë ¨ ì •ë³´
 	OnGCResultValue( ar );
 
-	// ±æµå´ëÀü ÇÃ·¹ÀÌ¾î Æ÷ÀÎÆ®
+	// ê¸¸ë“œëŒ€ì „ í”Œë ˆì´ì–´ í¬ì¸íŠ¸
 	OnGCPlayerPoint( ar );
 	
 	g_GuildCombatMng.SetNpc();
 
 }
-// Âü°¡ ½ÅÃ»
+// ì°¸ê°€ ì‹ ì²­
 void CDPDatabaseClient::OnInGuildCombat( CAr & ar, DPID, DPID )
 {
 	u_long idGuild;
@@ -1373,14 +1373,14 @@ void CDPDatabaseClient::OnInGuildCombat( CAr & ar, DPID, DPID )
 		{
 			CString str;
 
-			// ÀüÃ¼ Æä³Ä°¡ 0ÀÏ°æ¿ì
+			// ì „ì²´ í˜ëƒê°€ 0ì¼ê²½ìš°
 			if( dwExistingPenya == 0 )
 			{
 				str.Format( prj.GetText(TID_GAME_GUILDCOMBAT_APP_CONFIRM), 0, dwPenya );
 			}
 			else
 			{
-				// ÀüÃ¼ ±İ¾×ÀÌ ÀÖÀ¸¸é Ãß°¡µÇ´Â Æä³Ä¸¦ »©¼­ °è»ê..
+				// ì „ì²´ ê¸ˆì•¡ì´ ìˆìœ¼ë©´ ì¶”ê°€ë˜ëŠ” í˜ëƒë¥¼ ë¹¼ì„œ ê³„ì‚°..
 				str.Format( prj.GetText(TID_GAME_GUILDCOMBAT_APP_CONFIRM), dwExistingPenya, dwPenya-dwExistingPenya  );
 			}
 
@@ -1389,8 +1389,8 @@ void CDPDatabaseClient::OnInGuildCombat( CAr & ar, DPID, DPID )
 		}
 
 		CString strMsg;
-		// ±æµå´ëÀü ½ÅÃ»ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.
-		strMsg.Format( prj.GetText( TID_GAME_GUILDCOMBAT_REQUEST_GUILDCOMBAT ) );	// "¼öÁ¤ÇØ¾ßÇÔ : ±æµå´ëÀü¿¡ ½ÅÃ»ÇÏ¿´½À´Ï´Ù. ¸ÅÁÖ Åä¿äÀÏ 17½Ã¿¡ ±æµå´ëÀüÀÌ ½ÃÀÛµË´Ï´Ù ·Î ¼öÁ¤ÇÒ±î?? ¤¾¤¾ " );
+		// ê¸¸ë“œëŒ€ì „ ì‹ ì²­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.
+		strMsg.Format( prj.GetText( TID_GAME_GUILDCOMBAT_REQUEST_GUILDCOMBAT ) );	// "ìˆ˜ì •í•´ì•¼í•¨ : ê¸¸ë“œëŒ€ì „ì— ì‹ ì²­í•˜ì˜€ìŠµë‹ˆë‹¤. ë§¤ì£¼ í† ìš”ì¼ 17ì‹œì— ê¸¸ë“œëŒ€ì „ì´ ì‹œì‘ë©ë‹ˆë‹¤ ë¡œ ìˆ˜ì •í• ê¹Œ?? ã…ã… " );
 		g_UserMng.AddGuildMsg( pGuild, strMsg );
 		strMsg.Format( prj.GetText(TID_GAME_GUILDCOMBAT_APP) );
 		g_UserMng.AddGuildMsg( pGuild, strMsg );
@@ -1437,12 +1437,12 @@ void CDPDatabaseClient::OnOutGuildCombat( CAr & ar, DPID, DPID )
 			if( IsValidObj( pMaster ) )
 			{
 				CString strMsg;
-				strMsg.Format( prj.GetText( TID_GAME_GUILDCOMBAT_EXPENSE_RETURN ) );	// "¼öÁ¤ÇØ¾ßÇÔ : ´ëÀü Âü°¡ºñ´Â ´ëÀüÀÌ ³¡³ª°í ¹İÈ¯µË´Ï´Ù" );
+				strMsg.Format( prj.GetText( TID_GAME_GUILDCOMBAT_EXPENSE_RETURN ) );	// "ìˆ˜ì •í•´ì•¼í•¨ : ëŒ€ì „ ì°¸ê°€ë¹„ëŠ” ëŒ€ì „ì´ ëë‚˜ê³  ë°˜í™˜ë©ë‹ˆë‹¤" );
 				pMaster->AddText( strMsg );
 			}
 			
 			CString strMsg;
-			//½ÅÃ»ÇÏ½Å ±æµå´ëÀüÀ» Ãë¼ÒÇß½À´Ï´Ù.
+			//ì‹ ì²­í•˜ì‹  ê¸¸ë“œëŒ€ì „ì„ ì·¨ì†Œí–ˆìŠµë‹ˆë‹¤.
 			strMsg.Format( prj.GetText(TID_GAME_GUILDCOMBAT_CANCEL) );
 			g_UserMng.AddGuildMsg( pGuild, strMsg );
 			g_UserMng.AddGCIsRequest( idGuild, g_GuildCombatMng.IsRequestWarGuild( idGuild, TRUE ) );
@@ -1740,25 +1740,25 @@ void CDPDatabaseClient::OnBaseGameSetting( CAr & ar, DPID, DPID )
 			{
 				CRespawnInfo* pRespawnInfo	= &( pRespawner->m_vRespawnInfo[RESPAWNTYPE_REGION][i] );
 		
-				if( pRespawnInfo->m_dwType == OT_MOVER )	// ¸ó½ºÅÍ ¸®½ºÆù
+				if( pRespawnInfo->m_dwType == OT_MOVER )	// ëª¬ìŠ¤í„° ë¦¬ìŠ¤í°
 				{
 					MoverProp* pMoverProp	= prj.GetMoverProp( pRespawnInfo->m_dwIndex );
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
-#if __VER >= 15 // __HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 15 // __HERO129_VER15				// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 					if( pMoverProp && pMoverProp->dwFlying == 0 && pMoverProp->dwLevel > 0 && pMoverProp->dwLevel <= MAX_MONSTER_LEVEL )
-		#else	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+		#else	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 					if( pMoverProp && pMoverProp->dwFlying == 0 && pMoverProp->dwLevel > 0 && pMoverProp->dwLevel <= MAX_LEGEND_LEVEL )
-		#endif	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+		#endif	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 					if( pMoverProp && pMoverProp->dwFlying == 0 && pMoverProp->dwLevel > 0 && pMoverProp->dwLevel <= MAX_GENERAL_LEVEL )
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 					{
 #ifdef _DEBUG
 						TRACE( "%d, (%d, %d, %d, %d)\n", pRespawnInfo->m_dwIndex, pRespawnInfo->m_rect.left, pRespawnInfo->m_rect.top, pRespawnInfo->m_rect.right, pRespawnInfo->m_rect.bottom );
 #endif	// _DEBUG
 						CEventGeneric::GetInstance()->AddRegionGeneric( pMoverProp->dwLevel, pWorld->GetID(), pRespawnInfo );
 #ifdef __EVENTLUA_SPAWN
-						if( pWorld->GetID() == WI_WORLD_MADRIGAL )	// ÇöÀç±îÁö´Â ¸¶µå¸®°¥ ´ë·ú¿¡¸¸ ÃâÇöÇÑ´Ù.
+						if( pWorld->GetID() == WI_WORLD_MADRIGAL )	// í˜„ì¬ê¹Œì§€ëŠ” ë§ˆë“œë¦¬ê°ˆ ëŒ€ë¥™ì—ë§Œ ì¶œí˜„í•œë‹¤.
 							prj.m_EventLua.SetAddSpawnRegion( pWorld->GetID(), pRespawnInfo->m_rect );		
 #endif // __EVENTLUA_SPAWN
 					}	// if
@@ -2009,7 +2009,7 @@ void CDPDatabaseClient::SendLogLevelUp( CMover* pSender, int Action )
 	ar << pSender->m_nInt;
 	ar << pSender->m_nSta;
 	ar << pSender->m_nRemainGP;
-	ar << (LONG)0;					// LP»ç¿ëÇÏÁö ¾Ê´Â´Ù.
+	ar << (LONG)0;					// LPì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	ar << pSender->GetGold();
 	ar << ( (CUser*)pSender )->GetPlayerTime();
 	ar << Action;
@@ -2042,7 +2042,7 @@ void CDPDatabaseClient::SendLogSMItemUse( const char *Action, CUser* pUser, CIte
 		ar.WriteString( szName1 );
 	else 
 		ar.WriteString( pUser->GetName() );
-	// chipi_090623 ¼öÁ¤ - Ã¹ Á¢¼Ó½Ã ¸¸·áµÈ ¹öÇÁÀÎ °æ¿ì ¿ùµå°¡ ¾ø´Â »óÅÂ·Î µé¾î¿Â´Ù. // Begin
+	// chipi_090623 ìˆ˜ì • - ì²« ì ‘ì†ì‹œ ë§Œë£Œëœ ë²„í”„ì¸ ê²½ìš° ì›”ë“œê°€ ì—†ëŠ” ìƒíƒœë¡œ ë“¤ì–´ì˜¨ë‹¤. // Begin
 	// ar << pUser->GetWorld()->GetID();
 	DWORD dwWorldId = pUser->GetWorld() ? pUser->GetWorld()->GetID() : WI_WORLD_NONE;
 	ar << dwWorldId;
@@ -2142,7 +2142,7 @@ void CDPDatabaseClient::SendChangeBankPass( const char* szName, const char *szNe
 
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 void	CDPDatabaseClient::SendLogGetHonorTime(CMover* pMover, int nGetHonor )
 {
 	BEFORESENDDUAL( ar, PACKETTYPE_LOG_GETHONORTIME, DPID_UNKNOWN, DPID_UNKNOWN );
@@ -2150,7 +2150,7 @@ void	CDPDatabaseClient::SendLogGetHonorTime(CMover* pMover, int nGetHonor )
 	ar << pMover->m_idPlayer;
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 void CDPDatabaseClient::SendLogUniqueItem(CMover* pMover, CItem* pItem, int nOption )
 {
@@ -2271,7 +2271,7 @@ void CDPDatabaseClient::SendGuildContribution( CONTRIBUTION_CHANGED_INFO & info,
 {
 	BEFORESENDDUAL( ar, PACKETTYPE_WD_GUILD_CONTRIBUTION, DPID_UNKNOWN, DPID_UNKNOWN );
 	ar << info; 
-	ar << nLevelUp;	// ·¹º§¾÷ 1 : 0( ÇßÀ¸¸é 1 )
+	ar << nLevelUp;	// ë ˆë²¨ì—… 1 : 0( í–ˆìœ¼ë©´ 1 )
 	ar << nMemberLevel;
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
@@ -2287,7 +2287,7 @@ void CDPDatabaseClient::UpdateGuildRanking()
 {
 	BEFORESENDDUAL( ar, PACKETTYPE_UPDATE_GUILD_RANKING, DPID_UNKNOWN, DPID_UNKNOWN );
 	
-	ar << static_cast<int>(1); // ¿ùµå ¼­¹ö¿¡¼­ ¿äÃ»
+	ar << static_cast<int>(1); // ì›”ë“œ ì„œë²„ì—ì„œ ìš”ì²­
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
@@ -2295,7 +2295,7 @@ void CDPDatabaseClient::UpdateGuildRankingUpdate()
 {
 	BEFORESENDDUAL( ar, PACKETTYPE_UPDATE_GUILD_RANKING_DB, DPID_UNKNOWN, DPID_UNKNOWN );
 	
-	ar << static_cast<int>(1); // ¿ùµå ¼­¹ö¿¡¼­ ¿äÃ»
+	ar << static_cast<int>(1); // ì›”ë“œ ì„œë²„ì—ì„œ ìš”ì²­
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 #endif
@@ -2304,19 +2304,19 @@ void CDPDatabaseClient::OnGuildBank( CAr & ar, DPID, DPID )
 {
 	int nCount;
 
-	// 1. ¸î°³ÀÇ ±æµå ¹ğÅ© Á¤º¸°¡ µé¾î¿Ô´ÂÁö SerializeÇÑ´Ù.
+	// 1. ëª‡ê°œì˜ ê¸¸ë“œ ë±…í¬ ì •ë³´ê°€ ë“¤ì–´ì™”ëŠ”ì§€ Serializeí•œë‹¤.
 	ar >> nCount;
 
-	// 2. ·çÇÁ¸¦ µ¹¸ç ±æµåÃ¢°í Á¤º¸¸¦ SerializeÇÑ´Ù.
+	// 2. ë£¨í”„ë¥¼ ëŒë©° ê¸¸ë“œì°½ê³  ì •ë³´ë¥¼ Serializeí•œë‹¤.
 	for (int i=0; i<nCount; ++i)
 	{
 		int nGuildId = 0, nGoldGuild = 0;
 
-		// 2-1 ±æµå ÇÚµé°ªÀ» ¹Ş´Â´Ù.
+		// 2-1 ê¸¸ë“œ í•¸ë“¤ê°’ì„ ë°›ëŠ”ë‹¤.
 		ar >> nGuildId;
 		ar >> nGoldGuild;
 
-		// 2-2 ÇÚµé°ªÀ¸·Î ±æµå¸Å´ÏÁ®¿¡¼­ ±æµå Á¤º¸¸¦ Æ÷ÀÎÆ®ÇÏ¿© Ã¢°íÁ¤º¸¸¦ SerializeÇÑ´Ù.
+		// 2-2 í•¸ë“¤ê°’ìœ¼ë¡œ ê¸¸ë“œë§¤ë‹ˆì ¸ì—ì„œ ê¸¸ë“œ ì •ë³´ë¥¼ í¬ì¸íŠ¸í•˜ì—¬ ì°½ê³ ì •ë³´ë¥¼ Serializeí•œë‹¤.
 		CGuild* pGuild = g_GuildMng.GetGuild( nGuildId );
 		if( pGuild )
 		{
@@ -2325,7 +2325,7 @@ void CDPDatabaseClient::OnGuildBank( CAr & ar, DPID, DPID )
 		}
 		else
 		{
-			// ÀÓ½Ã·Î ÅÛÇÁº¯¼ö ¸¸µé¾î¼­ ¹Ş±â banktmp
+			// ì„ì‹œë¡œ í…œí”„ë³€ìˆ˜ ë§Œë“¤ì–´ì„œ ë°›ê¸° banktmp
 			CGuild tempGuild;
 			tempGuild.m_GuildBank.Serialize( ar );
 		}
@@ -2655,7 +2655,7 @@ void CDPDatabaseClient::OnPostMail( CAr & ar, DPID, DPID )
 		}
 		else
 		{
-			// Ë¬
+			// åº·
 		}
 		SAFE_DELETE( pMail );
 	}
@@ -2700,7 +2700,7 @@ void CDPDatabaseClient::OnGetMailItem( CAr & ar, DPID, DPID )
 			CUser* pUser	= (CUser*)prj.GetUserByID( idReceiver );
 			if( IsValidObj( pUser ) )
 			{
-				if( g_uIdofMulti== uQuery )		// ÆíÁö ¹Ş±â ¿äÃ» ÁÖÃ¼¸é ¾ÆÀÌÅÛ »ı¼º, ¿ìÆí ¾ÆÀÌÅÛ Á¦°Å
+				if( g_uIdofMulti== uQuery )		// í¸ì§€ ë°›ê¸° ìš”ì²­ ì£¼ì²´ë©´ ì•„ì´í…œ ìƒì„±, ìš°í¸ ì•„ì´í…œ ì œê±°
 				{
 					if( pUser->CreateItem( pMail->m_pItemElem ) )
 					{
@@ -2708,7 +2708,7 @@ void CDPDatabaseClient::OnGetMailItem( CAr & ar, DPID, DPID )
 						itemRestore.Empty();
 					}
 				}
-				else	// ¿ìÆí ¾ÆÀÌÅÛ ¹Ş±â ¿äÃ» ÁÖÃ¼°¡ ¾Æ´Ï¸é, ¿ìÆí ¾ÆÀÌÅÛ Á¦°Å
+				else	// ìš°í¸ ì•„ì´í…œ ë°›ê¸° ìš”ì²­ ì£¼ì²´ê°€ ì•„ë‹ˆë©´, ìš°í¸ ì•„ì´í…œ ì œê±°
 				{
 					pUser->AddRemoveMail( nMail, CMail::item );
 					itemRestore.Empty();
@@ -2885,7 +2885,7 @@ void CDPDatabaseClient::OnEventGeneric( CAr & ar, DPID, DPID )
 	{
 		PEVENT_GENERIC pEvent	= *i;
 
-		// Ë¬
+		// åº·
 		char lpOutputString[512]	= { 0, };
 		sprintf( lpOutputString, "dwFlag=0x%08x, nId=%d, nFlag=%d", dwFlag, pEvent->nId, pEvent->nFlag );
 		OutputDebugString( lpOutputString );
@@ -2900,7 +2900,7 @@ void CDPDatabaseClient::OnEventFlag( CAr & ar, DPID, DPID )
 	DWORD dwFlag;
 	ar >> dwFlag;
 
-	// Ë¬
+	// åº·
 	char lpOutputString[100]	= { 0, };
 	sprintf( lpOutputString, "OnEventFlag: dwFlag=0x%08x", dwFlag );
 	OutputDebugString( lpOutputString );
@@ -2965,7 +2965,7 @@ void CDPDatabaseClient::OnEventLuaChanged( CAr & ar, DPID, DPID )
 {
 	prj.m_EventLua.LoadScript();
 	if( prj.m_EventLua.m_bRun )
-		Error( "Event.lua Àç½ÇÇà ¿Ï·á!!!" );
+		Error( "Event.lua ì¬ì‹¤í–‰ ì™„ë£Œ!!!" );
 }
 #endif // __EVENTLUA
 
@@ -3108,7 +3108,7 @@ void CDPDatabaseClient::SendGC1to1WarGuild( DWORD dwWorldId, u_long uGuildId_0, 
 #endif // __GUILD_COMBAT_1TO1
 
 
-#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
 
 void CDPDatabaseClient::SendQueryGetGuildBankLogList( u_long idReceiver, DWORD idGuild, BYTE byListType )
 {
@@ -3145,8 +3145,8 @@ void CDPDatabaseClient::OnGuildBankLogViewFromDB( CAr & ar, DPID, DPID )
 	}
 }
 
-#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 
 void CDPDatabaseClient::SendQueryGetSealChar( u_long idReceiver ,const char* szAccount)
 {
@@ -3230,7 +3230,7 @@ void CDPDatabaseClient::OnSealCharGetFromDB( CAr & ar, DPID, DPID )
 		if( nCount > 2 || nCount < 1)
 		{
 			pUser->AddDefinedText( TID_GAME_SEALCHAR_NO_CHARSEND );
-			g_DPSrvr.QueryDestroyPlayer( pUser->m_Snapshot.dpidCache, pUser->m_Snapshot.dpidUser, pUser->m_dwSerial, pUser->m_idPlayer ); // pUser->m_Snapshot.dpidUser¿¡´Â ¼ÒÄÏ¹øÈ£°¡ µé¾î°¡ ÀÖ´Ù.
+			g_DPSrvr.QueryDestroyPlayer( pUser->m_Snapshot.dpidCache, pUser->m_Snapshot.dpidUser, pUser->m_dwSerial, pUser->m_idPlayer ); // pUser->m_Snapshot.dpidUserì—ëŠ” ì†Œì¼“ë²ˆí˜¸ê°€ ë“¤ì–´ê°€ ìˆë‹¤.
 		}
 		else
 		{
@@ -3286,12 +3286,12 @@ void CDPDatabaseClient::OnSealCharGetFromDB( CAr & ar, DPID, DPID )
 //		g_UserMng.DestroyPlayer( pUser );
 //		g_UserMng.RemoveUser( pUser->m_dwSerial );
 //		g_DPCoreClient.SendKillPlayer( pUser->m_idPlayer, pUser->m_idPlayer );
-				g_DPSrvr.QueryDestroyPlayer( pUser->m_Snapshot.dpidCache, pUser->m_Snapshot.dpidUser, pUser->m_dwSerial, pUser->m_idPlayer ); // pUser->m_Snapshot.dpidUser¿¡´Â ¼ÒÄÏ¹øÈ£°¡ µé¾î°¡ ÀÖ´Ù.
+				g_DPSrvr.QueryDestroyPlayer( pUser->m_Snapshot.dpidCache, pUser->m_Snapshot.dpidUser, pUser->m_dwSerial, pUser->m_idPlayer ); // pUser->m_Snapshot.dpidUserì—ëŠ” ì†Œì¼“ë²ˆí˜¸ê°€ ë“¤ì–´ê°€ ìˆë‹¤.
 			}
 		}
 	}
 }
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 
 #if __VER >= 12 // __LORD
 void CDPDatabaseClient::OnElectionAddDeposit( CAr & ar, DPID, DPID )
@@ -3365,7 +3365,7 @@ void CDPDatabaseClient::OnElectionIncVote( CAr & ar, DPID, DPID )
 		if( IsValidObj( pUser ) )	//
 		{
 			pUser->SetElection( pElection->GetId() );
-			// ÅõÇ¥ Âü¿© ¹öÇÁ
+			// íˆ¬í‘œ ì°¸ì—¬ ë²„í”„
 			ItemProp* pProp		= prj.GetItemProp( II_SYS_SYS_VOTE_THANKS );
 			if( pProp )
 				pUser->DoApplySkill( pUser, pProp, NULL );
@@ -3375,7 +3375,7 @@ void CDPDatabaseClient::OnElectionIncVote( CAr & ar, DPID, DPID )
 	{
 		// *print
 		if( IsValidObj( pUser ) )
-			pUser->AddDefinedText( TID_GAME_ELECTION_INC_VOTE_E004 );	// ÀÌ¹Ì ÅõÇ¥¿¡ Âü¿©ÇÏ¼Ì½À´Ï´Ù.
+			pUser->AddDefinedText( TID_GAME_ELECTION_INC_VOTE_E004 );	// ì´ë¯¸ íˆ¬í‘œì— ì°¸ì—¬í•˜ì…¨ìŠµë‹ˆë‹¤.
 	}
 }
 
@@ -3600,14 +3600,14 @@ void CDPDatabaseClient::OnTaxInfo( CAr & ar, DPID, DPID )
 #endif // __OCCUPATION_SHOPITEM
 	}
 	ar >> bToAllClient;
-	if( bToAllClient )	// ¼¼À² º¯°æ ½ÃÁ¡
+	if( bToAllClient )	// ì„¸ìœ¨ ë³€ê²½ ì‹œì 
 	{
 		g_UserMng.AddTaxInfo();
 #if __VER >= 12 // __SECRET_ROOM
 		if( g_eLocal.GetState( EVE_SECRETROOM ) )
 			g_DPCoreClient.SendCaption( GETTEXT(TID_GAME_TAX_CHANGENEXT) );
 #endif // __SECRET_ROOM
-		// »ç³ÉÅÍ¿ë ºñ¹ĞÀÇ ¹æ¿¡ ÀÖ´Â ³ğµéÀ» ÂÑ¾Æ³½´Ù.
+		// ì‚¬ëƒ¥í„°ìš© ë¹„ë°€ì˜ ë°©ì— ìˆëŠ” ë†ˆë“¤ì„ ì«“ì•„ë‚¸ë‹¤.
 		CWorld* pWorld = g_WorldMng.GetWorld( WI_DUNGEON_SECRET_0 );
 		if( !pWorld )
 			return;
@@ -3711,7 +3711,7 @@ void CDPDatabaseClient::OnRainbowRaceInfo( CAr & ar, DPID, DPID )
 	int nSize;
 	DWORD dwPlayerId;
 	
-	// ½ÅÃ»ÀÚ ¸ñ·ÏÀ» ¹Ş¾Æ¼­ µî·ÏÇÑ´Ù.
+	// ì‹ ì²­ì ëª©ë¡ì„ ë°›ì•„ì„œ ë“±ë¡í•œë‹¤.
 	ar >> nSize;
 	for( int i=0; i<nSize; i++ )
 	{
@@ -3719,7 +3719,7 @@ void CDPDatabaseClient::OnRainbowRaceInfo( CAr & ar, DPID, DPID )
 		CRainbowRaceMng::GetInstance()->SetApplication( dwPlayerId );
 	}
 
-	// ÀÌÀü ´ëÈ¸ ·©Å· Á¤º¸¸¦ ¹Ş¾Æ¿Â´Ù.
+	// ì´ì „ ëŒ€íšŒ ë­í‚¹ ì •ë³´ë¥¼ ë°›ì•„ì˜¨ë‹¤.
 	vector<DWORD> vec_dwPrevRanking;
 	ar >> nSize;
 	for( int i=0; i<nSize; i++ )
@@ -3901,7 +3901,7 @@ void CDPDatabaseClient::OnAddCoupleExperience( CAr & ar, DPID, DPID )
 #endif	// __COUPLE_1117
 
 #ifdef __FUNNY_COIN
-void CDPDatabaseClient::SendFunnyCoinReqUse( DWORD dwPlayerId, CItemElem* pItemElem )	// ÆÛ´ÏÄÚÀÎÀ» »ç¿ëÇßÀ½À» TransServer¿¡ ¾Ë¸°´Ù.
+void CDPDatabaseClient::SendFunnyCoinReqUse( DWORD dwPlayerId, CItemElem* pItemElem )	// í¼ë‹ˆì½”ì¸ì„ ì‚¬ìš©í–ˆìŒì„ TransServerì— ì•Œë¦°ë‹¤.
 {
 	BEFORESENDDUAL( ar, PACKETTYPE_FUNNYCOIN_REQ_USE, DPID_UNKNOWN, DPID_UNKNOWN );
 	ar << dwPlayerId;
@@ -3909,7 +3909,7 @@ void CDPDatabaseClient::SendFunnyCoinReqUse( DWORD dwPlayerId, CItemElem* pItemE
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-void CDPDatabaseClient::OnFunnyCoinAckUse( CAr & ar, DPID, DPID )	// ÆÛ´ÏÄÚÀÎ »ç¿ë¿¡ ´ëÇÑ ÀÀ´äÀ» TranServer·Î ºÎÅÍ ¹Ş¾Ò´Ù.
+void CDPDatabaseClient::OnFunnyCoinAckUse( CAr & ar, DPID, DPID )	// í¼ë‹ˆì½”ì¸ ì‚¬ìš©ì— ëŒ€í•œ ì‘ë‹µì„ TranServerë¡œ ë¶€í„° ë°›ì•˜ë‹¤.
 {
 	CFunnyCoin::GetInstance()->OnFunnyCoinAckUse( ar );
 }
@@ -3944,7 +3944,7 @@ void CDPDatabaseClient::OnTimeLimitInfoAck( CAr & ar, DPID, DPID )
 		pUser->m_nAccountPlayTime = nPlayTime;
 		pUser->AddAccountPlayTime();
 
-		//	mulcom	BEGIN100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+		//	mulcom	BEGIN100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 		if( ::GetLanguage() == LANG_VTN )
 		{
 			if( pUser->m_nAccountPlayTime != -1 )
@@ -3952,7 +3952,7 @@ void CDPDatabaseClient::OnTimeLimitInfoAck( CAr & ar, DPID, DPID )
 				pUser->AddBuff( BUFF_EQUIP, II_VIETNAM_BUFF01, 1, 999999999 );
 			}
 		}
-		//	mulcom	END100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+		//	mulcom	END100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 	}
 }
 
@@ -4003,7 +4003,7 @@ void CDPDatabaseClient::OnQuizEventChanged( CAr & ar, DPID, DPID )
 {
 	CQuiz::GetInstance()->LoadScript();
 	if( !CQuiz::GetInstance()->IsRun() )
-		Error( "QuizEvent.lua Àç½ÇÇà ¿Ï·á!!!" );
+		Error( "QuizEvent.lua ì¬ì‹¤í–‰ ì™„ë£Œ!!!" );
 }
 
 void CDPDatabaseClient::SendQuizEventOpen( int nType )
@@ -4088,7 +4088,7 @@ void CDPDatabaseClient::OnGuildHousePacket( CAr & ar, DPID, DPID )
 			if( pGuildHouse->OnGuildHousePacket( nPacketType, gfi, nIndex ) )
 				pGuildHouse->SendWorldToClient( nPacketType, gfi, nIndex );
 		}
-		else	// Å×½ºÆ®¿ë ÄÚµå
+		else	// í…ŒìŠ¤íŠ¸ìš© ì½”ë“œ
 		{
 			pGuildHouse->AfterFailedGuildHousePacket( nPacketType, gfi, nIndex );
 		}

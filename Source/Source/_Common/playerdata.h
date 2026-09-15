@@ -1,4 +1,4 @@
-#ifndef __PLAYER_DATA_H__
+﻿#ifndef __PLAYER_DATA_H__
 #define	__PLAYER_DATA_H__
 
 #include "ar.h"

@@ -1,4 +1,4 @@
-#ifndef __COMMONCTRL_H__
+ï»¿#ifndef __COMMONCTRL_H__
 #define __COMMONCTRL_H__
 
 #include "Ctrl.h"
@@ -16,37 +16,37 @@
 
 typedef struct CCtrlElem
 {
-	DWORD		m_dwSet;				    //-¿­±âÁ¶°Ç ¼³Á¤ UA_ITEM, UA_LEVEL...
-	DWORD 		m_dwSetItem;				//-¹Ú½º ¿ÀÇÂ Á¶°Ç(¾ÆÀÌÅÛ)								- UA_ITEM
-	DWORD		m_dwSetLevel;				//-¹Ú½º ¿ÀÇÂ Á¶°Ç(·¹º§)									- UA_LEVEL
-	DWORD		m_dwSetQuestNum;			//-¹Ú½º ¿ÀÇÂ Á¶°Ç(Äù½ºÆ® ³Ñ¹ö,Äù½ºÆ® ÇÃ·¡±× ³Ñ¹ö)       - UA_QUEST
+	DWORD		m_dwSet;				    //-ì—´ê¸°ì¡°ê±´ ì„¤ì • UA_ITEM, UA_LEVEL...
+	DWORD 		m_dwSetItem;				//-ë°•ìŠ¤ ì˜¤í”ˆ ì¡°ê±´(ì•„ì´í…œ)								- UA_ITEM
+	DWORD		m_dwSetLevel;				//-ë°•ìŠ¤ ì˜¤í”ˆ ì¡°ê±´(ë ˆë²¨)									- UA_LEVEL
+	DWORD		m_dwSetQuestNum;			//-ë°•ìŠ¤ ì˜¤í”ˆ ì¡°ê±´(í€˜ìŠ¤íŠ¸ ë„˜ë²„,í€˜ìŠ¤íŠ¸ í”Œëž˜ê·¸ ë„˜ë²„)       - UA_QUEST
 	DWORD		m_dwSetFlagNum;
-	DWORD		m_dwSetGender;				//-¹Ú½º ¿ÀÇÂ Á¶°Ç(¼ºº°)									- UA_GENDER
-	BOOL		m_bSetJob[32];			//-¹Ú½º ¿ÀÇÂ Á¶°Ç(Å¬·¡½º)								- UA_CLASS
+	DWORD		m_dwSetGender;				//-ë°•ìŠ¤ ì˜¤í”ˆ ì¡°ê±´(ì„±ë³„)									- UA_GENDER
+	BOOL		m_bSetJob[32];			//-ë°•ìŠ¤ ì˜¤í”ˆ ì¡°ê±´(í´ëž˜ìŠ¤)								- UA_CLASS
 	
-	DWORD		m_dwSetEndu;				//-¹Ú½º ³»±¸µµ ? hp¿Í °°ÀÌ Àû¿ë	
+	DWORD		m_dwSetEndu;				//-ë°•ìŠ¤ ë‚´êµ¬ë„ ? hpì™€ ê°™ì´ ì ìš©	
 	 
-	DWORD		m_dwMinItemNum;				//-ÃÖ¼Ò ¹ß»ý ¾ÆÀÌÅÛ ¼ö 
-	DWORD		m_dwMaxiItemNum;			//-ÃÖ´ë ¹ß»ý ¾ÆÀÌÅÛ ¼ö
-	DWORD		m_dwInsideItemKind[MAX_CTRLDROPITEM];		//-µé¾î°¡´Â ¾ÆÀÌÅÛ Á¾·ù °ª !!!ÁÖÀÇ!!! ¸¶Áö¸· MAX_CTRLDROPITEM-1 Àº ·¹¾î ¾ÆÅÛ°ø°£
-	DWORD		m_dwInsideItemPer [MAX_CTRLDROPITEM];		//-µé¾î°¡´Â ¾ÆÀÌÅÛ ÀÇ ¹ß»ý È®·ê( 3000000000 )
+	DWORD		m_dwMinItemNum;				//-ìµœì†Œ ë°œìƒ ì•„ì´í…œ ìˆ˜ 
+	DWORD		m_dwMaxiItemNum;			//-ìµœëŒ€ ë°œìƒ ì•„ì´í…œ ìˆ˜
+	DWORD		m_dwInsideItemKind[MAX_CTRLDROPITEM];		//-ë“¤ì–´ê°€ëŠ” ì•„ì´í…œ ì¢…ë¥˜ ê°’ !!!ì£¼ì˜!!! ë§ˆì§€ë§‰ MAX_CTRLDROPITEM-1 ì€ ë ˆì–´ ì•„í…œê³µê°„
+	DWORD		m_dwInsideItemPer [MAX_CTRLDROPITEM];		//-ë“¤ì–´ê°€ëŠ” ì•„ì´í…œ ì˜ ë°œìƒ í™•ë£°( 3000000000 )
 	
-	DWORD       m_dwMonResKind  [MAX_CTRLDROPMOB];          //-¸ó½ºÅÍ1 ¹ß»ý Á¾·ù(¸ó½ºÅÍ ¾ÆÀÌµð ÀÔ·Â)
-	DWORD		m_dwMonResNum   [MAX_CTRLDROPMOB];			//-¸ó½ºÅÍ1 ¹ß»ý ¼ö·®
-	DWORD		m_dwMonActAttack[MAX_CTRLDROPMOB];			//-¸ó½ºÅÍ Å¸ÀÔ1¿¡¼­ ¼±°ø ¸ó½ºÅÍ ¹ß»ý ¼ö·®(À§¿¡ ÇÊµå ¼ö·® ÃÊ°úÇØ¼­´Â ¾ÊµÊ)
+	DWORD       m_dwMonResKind  [MAX_CTRLDROPMOB];          //-ëª¬ìŠ¤í„°1 ë°œìƒ ì¢…ë¥˜(ëª¬ìŠ¤í„° ì•„ì´ë”” ìž…ë ¥)
+	DWORD		m_dwMonResNum   [MAX_CTRLDROPMOB];			//-ëª¬ìŠ¤í„°1 ë°œìƒ ìˆ˜ëŸ‰
+	DWORD		m_dwMonActAttack[MAX_CTRLDROPMOB];			//-ëª¬ìŠ¤í„° íƒ€ìž…1ì—ì„œ ì„ ê³µ ëª¬ìŠ¤í„° ë°œìƒ ìˆ˜ëŸ‰(ìœ„ì— í•„ë“œ ìˆ˜ëŸ‰ ì´ˆê³¼í•´ì„œëŠ” ì•Šë¨)
 
-	// Æ®·¦°ü·Ã
-	DWORD		m_dwTrapOperType;              // Æ®·¦ ¹ßµ¿ Å¸ÀÔ TOT_RANDOM, TOT_NOENDU
-	DWORD		m_dwTrapRandomPer;             // Æ®·¦ ¹ßµ¿ È®À²(TOT_RANDOMÀÏ°æ¿ì)
-	DWORD		m_dwTrapDelay;				   // Æ®·¦ ¹ßµ¿ µô·¹ÀÌ 0ÀÌ¸é Áï½Ã ¹ß»ý
+	// íŠ¸ëž©ê´€ë ¨
+	DWORD		m_dwTrapOperType;              // íŠ¸ëž© ë°œë™ íƒ€ìž… TOT_RANDOM, TOT_NOENDU
+	DWORD		m_dwTrapRandomPer;             // íŠ¸ëž© ë°œë™ í™•ìœ¨(TOT_RANDOMì¼ê²½ìš°)
+	DWORD		m_dwTrapDelay;				   // íŠ¸ëž© ë°œë™ ë”œë ˆì´ 0ì´ë©´ ì¦‰ì‹œ ë°œìƒ
 	
-	DWORD		m_dwTrapKind	[MAX_TRAP];    // Æ®·¦ Á¾·ù - °¡»ó ½ºÅ³·Î »ç¿ëÇÔ ¸ðµç Æ®·¦Àº ½ºÅ³ÀÓ (½ºÅ³ÇÁ·ÎÆÛÆ¼ÀÇ ID°ª)
+	DWORD		m_dwTrapKind	[MAX_TRAP];    // íŠ¸ëž© ì¢…ë¥˜ - ê°€ìƒ ìŠ¤í‚¬ë¡œ ì‚¬ìš©í•¨ ëª¨ë“  íŠ¸ëž©ì€ ìŠ¤í‚¬ìž„ (ìŠ¤í‚¬í”„ë¡œí¼í‹°ì˜ IDê°’)
  	DWORD		m_dwTrapLevel	[MAX_TRAP];
-	TCHAR		m_strLinkCtrlKey[MAX_KEY];		// ¿¬°á ÄÁÆ®·ÑÀÇ Å° ÀÌ¸§
-	TCHAR		m_strCtrlKey[MAX_KEY];			// ÄÁÆ®·ÑÀÇ Å° ÀÌ¸§
-	DWORD		m_dwSetQuestNum1;			//-¹Ú½º ¿­°í³­ÈÄ Àû¿ë(Äù½ºÆ® ³Ñ¹ö,Äù½ºÆ® ÇÃ·¡±× ³Ñ¹ö)       - UA_QUEST
+	TCHAR		m_strLinkCtrlKey[MAX_KEY];		// ì—°ê²° ì»¨íŠ¸ë¡¤ì˜ í‚¤ ì´ë¦„
+	TCHAR		m_strCtrlKey[MAX_KEY];			// ì»¨íŠ¸ë¡¤ì˜ í‚¤ ì´ë¦„
+	DWORD		m_dwSetQuestNum1;			//-ë°•ìŠ¤ ì—´ê³ ë‚œí›„ ì ìš©(í€˜ìŠ¤íŠ¸ ë„˜ë²„,í€˜ìŠ¤íŠ¸ í”Œëž˜ê·¸ ë„˜ë²„)       - UA_QUEST
 	DWORD		m_dwSetFlagNum1;
-	DWORD		m_dwSetQuestNum2;			//-¹Ú½º ¿­°í³­ÈÄ Àû¿ë(Äù½ºÆ® ³Ñ¹ö,Äù½ºÆ® ÇÃ·¡±× ³Ñ¹ö)       - UA_QUEST
+	DWORD		m_dwSetQuestNum2;			//-ë°•ìŠ¤ ì—´ê³ ë‚œí›„ ì ìš©(í€˜ìŠ¤íŠ¸ ë„˜ë²„,í€˜ìŠ¤íŠ¸ í”Œëž˜ê·¸ ë„˜ë²„)       - UA_QUEST
 	DWORD		m_dwSetFlagNum2;
 	DWORD 		m_dwSetItemCount;
 	DWORD		m_dwTeleWorldId;
@@ -56,7 +56,7 @@ typedef struct CCtrlElem
 	
 } CCtrlElem, *LPCtrlElem;
 
-/// ÁöÇü À§ÀÇ »óÀÚ, Æ®·¦  
+/// ì§€í˜• ìœ„ì˜ ìƒìž, íŠ¸ëž©  
 class CCommonCtrl : public CCtrl
 {
 public:
@@ -85,12 +85,12 @@ public:
 	CSfxModel *m_pSfxModel;
 	CSfxModel *m_pSfxModel2;
 #endif // __CLIENT
-	OBJID	m_idAttacker;			// »çÀÌÅ± ¿ù ½ÃÀüÀÚ.
+	OBJID	m_idAttacker;			// ì‚¬ì´í‚¥ ì›” ì‹œì „ìž.
 	BOOL	m_bControl;
 	int		m_nCount;
 	int		m_nEvent;
 	DWORD	m_tmStart;
-	int		m_nLife;				// ¸î¹ø ºÎµúÈ÷¸é ¾ø¾îÁö³Ä.
+	int		m_nLife;				// ëª‡ë²ˆ ë¶€ë”ªížˆë©´ ì—†ì–´ì§€ëƒ.
 
 	BOOL	m_bAction;
 	DWORD   m_dwCtrlReadyTime;

@@ -1,4 +1,4 @@
-#ifndef __WNDSUMMONFRIEND__H
+﻿#ifndef __WNDSUMMONFRIEND__H
 #define __WNDSUMMONFRIEND__H
 
 class CWndSummonFriendMsg : public CWndNeuz 

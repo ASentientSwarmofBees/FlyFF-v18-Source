@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "secretroomdbmng.h"
 
 #if __VER >= 12 // __SECRET_ROOM
@@ -112,7 +112,7 @@ void CSecretRoomDbController::LoadSecretRoom( DPID dpId )
 	vector<DWORD> vec_dwGuildId;
 	vector<int>	vec_nPenya;
 
-   	// m_nTimes °¡Á®¿À±â ¾øÀ¸¸é 0
+   	// m_nTimes ê°€ì ¸ì˜¤ê¸° ì—†ìœ¼ë©´ 0
 	sprintf( szQuery, "SECRET_ROOM_STR 'S1', '%02d', 0, 0, '0', 0, 'T', 0, 0, 0", g_appInfo.dwSys );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
@@ -125,7 +125,7 @@ void CSecretRoomDbController::LoadSecretRoom( DPID dpId )
 		return;
 	}
 		
-	// ÀÔÂû Á¤º¸ °¡Á®¿À±â('T')
+	// ì…ì°° ì •ë³´ ê°€ì ¸ì˜¤ê¸°('T')
 	sprintf( szQuery, "SECRET_ROOM_STR 'S2', '%02d', %d, 0, '0', 0, 'T', 0, 0, 0", g_appInfo.dwSys, m_nTimes );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
@@ -141,7 +141,7 @@ void CSecretRoomDbController::LoadSecretRoom( DPID dpId )
 	if( nCount == 0 )
 		m_nTimes++;
 
-	// ±¸¼º¿ø ¸ñ·Ï °¡Á®¿Í¼­ WorldServer·Î Àü¼Û
+	// êµ¬ì„±ì› ëª©ë¡ ê°€ì ¸ì™€ì„œ WorldServerë¡œ ì „ì†¡
 	for( DWORD i=0; i<vec_nContinent.size(); i++ )
 	{
 		vector<DWORD> vec_dwMemberId;
@@ -162,7 +162,7 @@ void CSecretRoomDbController::InsertTenderToDB( BYTE nContinent, DWORD dwGuildId
 	CQuery* pQuery = GetQueryObject();
 	char szQuery[QUERY_SIZE] = {0,};
 
-	// ÀÔÂû Á¤º¸ Insert
+	// ì…ì°° ì •ë³´ Insert
 	sprintf( szQuery, "SECRET_ROOM_STR 'I1', '%02d', %d, %d, '%06d', %d, 'T', 0, 0, 0",
 						g_appInfo.dwSys, m_nTimes, nContinent, dwGuildId, nPenya );
 	if( pQuery->Exec( szQuery ) == FALSE )
@@ -174,11 +174,11 @@ void CSecretRoomDbController::UpdateTenderToDB( BYTE nContinent, DWORD dwGuildId
 	CQuery* pQuery = GetQueryObject();
 	char szQuery[QUERY_SIZE] = {0,};
 
-	// ÀÔÂû Á¤º¸ Update
-	if( chState == 'W' || chState == 'L' )		// ½Â¸®, ÆĞ¹è ÆÇÁ¤
+	// ì…ì°° ì •ë³´ Update
+	if( chState == 'W' || chState == 'L' )		// ìŠ¹ë¦¬, íŒ¨ë°° íŒì •
 		sprintf( szQuery, "SECRET_ROOM_STR 'U2', '%02d', %d, %d, '%06d', %d, '%c', %d, %d, %d",
 				g_appInfo.dwSys, m_nTimes, nContinent, dwGuildId, nPenya, chState, dwWorldId, nWarState, nKillCount );
-	else	// ÀÏ¹İÀûÀÎ Update( ½ÅÃ»±İ Ãß°¡ ¹× Ãë¼Ò )
+	else	// ì¼ë°˜ì ì¸ Update( ì‹ ì²­ê¸ˆ ì¶”ê°€ ë° ì·¨ì†Œ )
 		sprintf( szQuery, "SECRET_ROOM_STR 'U1', '%02d', %d, %d, '%06d', %d, '%c', 0, 0, 0",
 				g_appInfo.dwSys, m_nTimes, nContinent, dwGuildId, nPenya, chState );
 	
@@ -191,13 +191,13 @@ void CSecretRoomDbController::InsertLineUpMemberToDB( BYTE nContinent, DWORD dwG
 	CQuery* pQuery = GetQueryObject();
 	char szQuery[QUERY_SIZE] = {0,};
 
-	// ¿ì¼± ±âÁ¸ Âü°¡ÀÚ ¸ñ·Ï »èÁ¦ÇÏ°í...
+	// ìš°ì„  ê¸°ì¡´ ì°¸ê°€ì ëª©ë¡ ì‚­ì œí•˜ê³ ...
 	sprintf( szQuery, "SECRET_ROOM_MEMBER_STR 'D1', '%02d', %d, %d, '%06d', '0'",
 		g_appInfo.dwSys, m_nTimes, nContinent, dwGuildId );
 	if( pQuery->Exec( szQuery ) == FALSE )
 	{ WriteLog( "%s, %d\t%s", __FILE__, __LINE__, szQuery ); return; }
 
-	// »õ Âü°¡ÀÚ ¸ñ·Ï Insert
+	// ìƒˆ ì°¸ê°€ì ëª©ë¡ Insert
 	for( DWORD i=0; i<vecMemberId.size(); i++ )
 	{
 		sprintf( szQuery, "SECRET_ROOM_MEMBER_STR 'I1', '%02d', %d, %d, '%06d', '%07d'",

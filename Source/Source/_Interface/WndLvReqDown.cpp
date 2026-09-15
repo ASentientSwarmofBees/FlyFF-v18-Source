@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "resData.h"
 #include "WndLvReqDown.h"
 #include "DPClient.h"
@@ -7,7 +7,7 @@
 extern CDPClient g_DPlay;
 
 /****************************************************
-  WndId : APP_LVREQDOWN - Âø¿ë·¹º§ ÇÏ¶ô ÇØÁöÃ¢
+  WndId : APP_LVREQDOWN - ì°©ìš©ë ˆë²¨ í•˜ë½ í•´ì§€ì°½
   CtrlId : WIDC_TEXT1 - 
   CtrlId : WIDC_BUTTON1 - Button
   CtrlId : WIDC_STATIC1 - 
@@ -41,7 +41,7 @@ void CWndLvReqDown::OnDraw( C2DRender* p2DRender )
 void CWndLvReqDown::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndButton* pButton = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
 
 	if(::GetLanguage() == LANG_FRE)
@@ -52,17 +52,17 @@ void CWndLvReqDown::OnInitialUpdate()
 
 	SetDescription();
 	/*
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );*/
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndLvReqDown::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_LVREQDOWN, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -77,7 +77,7 @@ void CWndLvReqDown::OnDestroy()
 }
 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndLvReqDown::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -104,14 +104,14 @@ BOOL CWndLvReqDown::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 { 
 	if( nID == WIDC_BUTTON1 )
 	{
-		//¼­¹ö·Î ½ÃÀÛÀ» ¾Ë¸°´Ù.
+		//ì„œë²„ë¡œ ì‹œìž‘ì„ ì•Œë¦°ë‹¤.
 		if(m_pItemElem != NULL)
 		{
 			CWndButton* pButton;
 			pButton = (CWndButton*)GetDlgItem( WIDC_BUTTON1 );
 			pButton->EnableWindow(FALSE);
 
-			// ¼­¹ö¿¡ Ã³¸® ¿äÃ»ÇÏ´Â ÇÔ¼ö È£ÃâÇØ¾ßÇÔ
+			// ì„œë²„ì— ì²˜ë¦¬ ìš”ì²­í•˜ëŠ” í•¨ìˆ˜ í˜¸ì¶œí•´ì•¼í•¨
 			if(m_pItemElem)
 			{
 				g_DPlay.SendRemoveItemLevelDown(m_pItemElem->m_dwObjId);
@@ -126,7 +126,7 @@ BOOL CWndLvReqDown::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		LPSHORTCUT pShortCut = (LPSHORTCUT)pLResult;
 		pTempElem  = (CItemElem*)g_pPlayer->GetItemId( pShortCut->m_dwId );
 
-		// ÇÏ¶ô »óÅÂ°¡ µÈ ¾ÆÀÌÅÛ¸¸ ¿Ã¸± ¼ö ÀÖ´Ù. 
+		// í•˜ë½ ìƒíƒœê°€ ëœ ì•„ì´í…œë§Œ ì˜¬ë¦´ ìˆ˜ ìžˆë‹¤. 
 		if(m_pItemElem == NULL && pTempElem != NULL)
 		{
 			if(pTempElem->GetLevelDown() < 0)
@@ -166,7 +166,7 @@ BOOL CWndLvReqDown::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	CItemElem* pTempElem;
 	pTempElem  = (CItemElem*)g_pPlayer->GetItemId( pShortcut->m_dwId );
 
-	// ÇÏ¶ô »óÅÂ°¡ µÈ ¾ÆÀÌÅÛ¸¸ ¿Ã¸± ¼ö ÀÖ´Ù. 
+	// í•˜ë½ ìƒíƒœê°€ ëœ ì•„ì´í…œë§Œ ì˜¬ë¦´ ìˆ˜ ìžˆë‹¤. 
 	if( pTempElem != NULL)
 	{
 		if(pTempElem->GetLevelDown() < 0)

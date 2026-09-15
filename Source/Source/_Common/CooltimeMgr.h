@@ -1,11 +1,11 @@
-#ifndef	__COOLTIMEMGR_H__
+ï»¿#ifndef	__COOLTIMEMGR_H__
 #define __COOLTIMEMGR_H__
 
 const int MAX_COOLTIME_TYPE = 3;
 
 struct ItemProp;
 
-// ÄðÅ¸ÀÓ Á¤º¸¸¦ °ü¸®ÇÏ´Â Å¬·¡½º 
+// ì¿¨íƒ€ìž„ ì •ë³´ë¥¼ ê´€ë¦¬í•˜ëŠ” í´ëž˜ìŠ¤ 
 class CCooltimeMgr 
 {
 public:
@@ -29,8 +29,8 @@ public:
 	}
 
 protected:
-	DWORD				m_times[MAX_COOLTIME_TYPE];		// ÃÖÁ¾ »ç¿ë°¡´É ½Ã°¢ 	
-	DWORD				m_bases[MAX_COOLTIME_TYPE];		// ÀÌº¥Æ® ¹ß»ý ½Ã°¢ ( ¾ÆÀÌÅÛÀ» ¸ÔÀº ½Ã°¢ ) 
+	DWORD				m_times[MAX_COOLTIME_TYPE];		// ìµœì¢… ì‚¬ìš©ê°€ëŠ¥ ì‹œê° 	
+	DWORD				m_bases[MAX_COOLTIME_TYPE];		// ì´ë²¤íŠ¸ ë°œìƒ ì‹œê° ( ì•„ì´í…œì„ ë¨¹ì€ ì‹œê° ) 
 };
 
 #endif	__COOLTIMEMGR_H__

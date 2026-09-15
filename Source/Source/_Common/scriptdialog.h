@@ -1,4 +1,4 @@
-#ifndef __SCRIPTDIALOG_H
+Ôªø#ifndef __SCRIPTDIALOG_H
 #define __SCRIPTDIALOG_H
 
 #include "script.h"
@@ -55,7 +55,7 @@ public:
 		lstrcpy( s_pszAfterRun, pszAfterRun );	
 	}
 
-	// √≥¿Ω Ω√¿€ 
+	// Ï≤òÏùå ÏãúÏûë 
 	BOOL Run( LPCTSTR pKey, int* nResult, int nValue = 0, int nDstId = 0, int nSrcId = 0, int nQuestId = 0, int nCaller = WES_DIALOG );
 };
 #endif 

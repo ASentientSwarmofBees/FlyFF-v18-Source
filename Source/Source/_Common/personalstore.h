@@ -1,4 +1,4 @@
-#ifndef __PERSONALSTORE_H__
+﻿#ifndef __PERSONALSTORE_H__
 #define	__PERSONALSTORE_H__
 
 #pragma	once

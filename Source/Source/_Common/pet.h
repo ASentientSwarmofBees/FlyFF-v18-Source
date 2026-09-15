@@ -1,4 +1,4 @@
-#ifndef __PET_H__
+ï»¿#ifndef __PET_H__
 #define	__PET_H__
 
 #if __VER >= 9	// __PET_0410
@@ -8,10 +8,10 @@
 #endif	// __CLIENT
 
 #include "defineitem.h"
-// ±×³É Å¬¶óÀÌ¾ğÆ®¿¡¼­ µû·Î µû·Î ¿òÁ÷¿©µµ »ó°ü ¾øÁö ¾ÊÀ»±î?
-// ÀÌ·¸°Ô µÉ °æ¿ì, (Àü¼Û°ú Ã³¸®°¡ °¡º­¿öÁö´Â ÀåÁ¡ÀÌ ÀÖ´Ù.)
-	// ¼­¹ö´Â Æê ÀÚ·á °´Ã¼¸¸,
-	// Å¬¶óÀÌ¾ğÆ®´Â CPetÀÇ µ¥ÀÌÅÍ¸¦ °¡Áö°í ÀÖ´Â CMover °´Ã¼¸¦ »ı¼ºÇÏ¸é µÈ´Ù.
+// ê·¸ëƒ¥ í´ë¼ì´ì–¸íŠ¸ì—ì„œ ë”°ë¡œ ë”°ë¡œ ì›€ì§ì—¬ë„ ìƒê´€ ì—†ì§€ ì•Šì„ê¹Œ?
+// ì´ë ‡ê²Œ ë  ê²½ìš°, (ì „ì†¡ê³¼ ì²˜ë¦¬ê°€ ê°€ë²¼ì›Œì§€ëŠ” ì¥ì ì´ ìˆë‹¤.)
+	// ì„œë²„ëŠ” í« ìë£Œ ê°ì²´ë§Œ,
+	// í´ë¼ì´ì–¸íŠ¸ëŠ” CPetì˜ ë°ì´í„°ë¥¼ ê°€ì§€ê³  ìˆëŠ” CMover ê°ì²´ë¥¼ ìƒì„±í•˜ë©´ ëœë‹¤.
 
 enum	PETLEVEL	{	PL_EGG,	PL_D,	PL_C,	PL_B,	PL_A,	PL_S,	PL_MAX,	};
 
@@ -40,11 +40,11 @@ typedef struct	_PETPENALTY
 #define	MAX_PET_SHAPE	3
 typedef	struct	_PETAVAILPARAM
 {
-	DWORD	dwDstParam;		// ´É·ÂÄ¡ »ó½Â ÆÄ¶ó¹ÌÅÍ
-	DWORD	m_anParam[MAX_PET_AVAIL_LEVEL];		// ´É·ÂÄ¡ »ó½Â °ª
-	DWORD	m_dwItemId;	// Æê ¾ÆÀÌÅÛ
-	DWORD	m_adwIndex[MAX_PET_SHAPE];	// Æê °´Ã¼ ¸ğ¾ç
-	DWORD	m_dwProbability;	// ºÎÈ­ È®·ü
+	DWORD	dwDstParam;		// ëŠ¥ë ¥ì¹˜ ìƒìŠ¹ íŒŒë¼ë¯¸í„°
+	DWORD	m_anParam[MAX_PET_AVAIL_LEVEL];		// ëŠ¥ë ¥ì¹˜ ìƒìŠ¹ ê°’
+	DWORD	m_dwItemId;	// í« ì•„ì´í…œ
+	DWORD	m_adwIndex[MAX_PET_SHAPE];	// í« ê°ì²´ ëª¨ì–‘
+	DWORD	m_dwProbability;	// ë¶€í™” í™•ë¥ 
 }	PETAVAILPARAM, *PPETAVAILPARAM;
 
 class CPetProperty
@@ -53,12 +53,12 @@ public:
 	CPetProperty();
 	virtual	~CPetProperty();
 
-	PPETAVAILPARAM	GetAvailParam( BYTE nKind );	// Ä¡À¯ ¼Ó¼º Ãß°¡
-	BYTE	GetLevelupAvailLevel( BYTE wLevel );		// ·¹º§ ¾÷ ½Ã »ó½ÂµÇ´Â ´É·ÂÄ¡ ·¹º§(ÀÓÀÇ)
-	WORD	GetFeedEnergy( DWORD dwCost, int nIndex = 0 );		// °¡°İ¿¡ µû¸¥ ¸ÔÀÌ »ı¼º(ÀÓÀÇ)
-	DWORD	GetIncrementExp( BYTE nLevel );	// ºĞ´ç ½Àµæ °æÇèÄ¡
+	PPETAVAILPARAM	GetAvailParam( BYTE nKind );	// ì¹˜ìœ  ì†ì„± ì¶”ê°€
+	BYTE	GetLevelupAvailLevel( BYTE wLevel );		// ë ˆë²¨ ì—… ì‹œ ìƒìŠ¹ë˜ëŠ” ëŠ¥ë ¥ì¹˜ ë ˆë²¨(ì„ì˜)
+	WORD	GetFeedEnergy( DWORD dwCost, int nIndex = 0 );		// ê°€ê²©ì— ë”°ë¥¸ ë¨¹ì´ ìƒì„±(ì„ì˜)
+	DWORD	GetIncrementExp( BYTE nLevel );	// ë¶„ë‹¹ ìŠµë“ ê²½í—˜ì¹˜
 	WORD	GetMaxEnergy( BYTE nLevel );
-	WORD	GetAddLife( void );		// ¼ö¸í È¸º¹¾×¿¡ ÀÇÇÑ »ı¸í Ãß°¡
+	WORD	GetAddLife( void );		// ìˆ˜ëª… íšŒë³µì•¡ì— ì˜í•œ ìƒëª… ì¶”ê°€
 
 #ifdef __JEFF_11_3
 	LPDWORD		GetLevelupAvailLevelProbabilityPtr( void )	{	return &m_adwLevelupAvailLevelProbability[0][0];	}
@@ -73,9 +73,9 @@ public:
 private:
 	PETAVAILPARAM	m_aPetAvailParam[PK_MAX];
 	BYTE	m_anLevelupAvailLevelMax[PL_MAX];
-	DWORD	m_adwLevelupAvailLevelProbability[PL_MAX][MAX_PET_AVAIL_LEVEL];	// È®·ü
-	vector<FEEDENERGY>	m_aFeedEnergy[2];	// ¸ÔÀÌ ¸¸µé±â ½Ã Àü¸® °¡°İ¿¡ µû¸¥ ¸ÔÀÌ ·® 
-	DWORD	m_adwIncrementExp[PL_MAX];		// ºĞ´ç ½Àµæ °æÇèÄ¡
+	DWORD	m_adwLevelupAvailLevelProbability[PL_MAX][MAX_PET_AVAIL_LEVEL];	// í™•ë¥ 
+	vector<FEEDENERGY>	m_aFeedEnergy[2];	// ë¨¹ì´ ë§Œë“¤ê¸° ì‹œ ì „ë¦¬ ê°€ê²©ì— ë”°ë¥¸ ë¨¹ì´ ëŸ‰ 
+	DWORD	m_adwIncrementExp[PL_MAX];		// ë¶„ë‹¹ ìŠµë“ ê²½í—˜ì¹˜
 	WORD	m_awMaxEnergy[PL_MAX];
 	vector<WORD>	m_awAddLifeProbability;
 
@@ -102,7 +102,7 @@ private:
 
 #ifdef __PET_1024
 #define	MAX_PET_NAME_FMT	33	// 16 * 2 + 1
-#define	MAX_PET_NAME	17	// ÇÑ±Û 8ÀÚ
+#define	MAX_PET_NAME	17	// í•œê¸€ 8ì
 #endif	// __PET_1024
 
 class CPet
@@ -152,12 +152,12 @@ public:
 		}
 	CPet&	operator=( CPet & pet );
 private:
-	BYTE	m_nKind;	// Á¾·ù : 0~6
-	BYTE	m_nLevel;	// ·¹º§ : e		// e = 0, d = 1, c = 2, b = 3, a = 4, s = 5
-	DWORD	m_dwExp;	// °æÇèÄ¡ : 0
-	WORD	m_wEnergy;		// ±â·Â : 0
-	WORD	m_wLife;	// »ı¸í :  0 ~ 99	// µğÆúÆ® : 1	// »ı¸íÀÌ 0ÀÎ »óÅÂ¿¡¼­ »ç¸Á ½Ã °´Ã¼ Á¦°Å
-	BYTE	m_anAvailLevel[PL_MAX];	// ´É·ÂÄ¡
+	BYTE	m_nKind;	// ì¢…ë¥˜ : 0~6
+	BYTE	m_nLevel;	// ë ˆë²¨ : e		// e = 0, d = 1, c = 2, b = 3, a = 4, s = 5
+	DWORD	m_dwExp;	// ê²½í—˜ì¹˜ : 0
+	WORD	m_wEnergy;		// ê¸°ë ¥ : 0
+	WORD	m_wLife;	// ìƒëª… :  0 ~ 99	// ë””í´íŠ¸ : 1	// ìƒëª…ì´ 0ì¸ ìƒíƒœì—ì„œ ì‚¬ë§ ì‹œ ê°ì²´ ì œê±°
+	BYTE	m_anAvailLevel[PL_MAX];	// ëŠ¥ë ¥ì¹˜
 #ifdef __PET_1024
 	char	m_szName[MAX_PET_NAME];
 #endif	// __PET_1024
@@ -168,8 +168,8 @@ private:
 class CAIEgg: public CAIInterface
 {
 private:
-	OBJID m_idOwner;	// ÁÖÀÎ´Ô
-	int		m_nState;	// ÇöÀç »óÅÂ.
+	OBJID m_idOwner;	// ì£¼ì¸ë‹˜
+	int		m_nState;	// í˜„ì¬ ìƒíƒœ.
 	void MoveToDst(	OBJID idTarget );
 	void MoveToDst(	D3DXVECTOR3 vDst );
 	BOOL  MoveProcessIdle( const AIMSG & msg );
@@ -196,7 +196,7 @@ public:
 #endif	// __PET_0410
 
 #if __VER >= 12 // __PET_0519
-// º¯È¯ ½Ã ÇÊ¿äÇÑ °³º° ¾ÆÀÌÅÛ ¿ä¼Ò
+// ë³€í™˜ ì‹œ í•„ìš”í•œ ê°œë³„ ì•„ì´í…œ ìš”ì†Œ
 typedef	struct	_TransformStuffComponent
 {
 	int		nItem;
@@ -214,21 +214,21 @@ typedef	struct	_TransformStuffComponent
 }	TransformStuffComponent, *PTransformStuffComponent;
 typedef	vector<TransformStuffComponent>	VTSC;
 
-// º¯È¯ ½Ã ÇÊ¿äÇÑ ¾ÆÀÌÅÛ ÁıÇÕ
+// ë³€í™˜ ì‹œ í•„ìš”í•œ ì•„ì´í…œ ì§‘í•©
 class CTransformStuff
 {
 public:
 	CTransformStuff();
 	CTransformStuff( int nTransform );
 	virtual	~CTransformStuff();
-	void	AddComponent( int nItem, short nNum );		// ÇÊ¿ä ¾ÆÀÌÅÛ ¿ä¼Ò Ãß°¡
+	void	AddComponent( int nItem, short nNum );		// í•„ìš” ì•„ì´í…œ ìš”ì†Œ ì¶”ê°€
 	virtual	void	Serialize( CAr & ar );
-	int		GetTransform( void )		{	return m_nTransform;	}	// º¯È¯ Á¾·ù¸¦ ¹İÈ¯
+	int		GetTransform( void )		{	return m_nTransform;	}	// ë³€í™˜ ì¢…ë¥˜ë¥¼ ë°˜í™˜
 	size_t	GetSize( void )		{	return m_vComponents.size();		}
 	TransformStuffComponent*	GetComponent( int i )	{	return &m_vComponents[i];	}
 private:
-	int	m_nTransform;	// º¯È¯ Á¾·ù
-	VTSC	m_vComponents;	// ÇÊ¿ä ¾ÆÀÌÅÛ ÁıÇÕ
+	int	m_nTransform;	// ë³€í™˜ ì¢…ë¥˜
+	VTSC	m_vComponents;	// í•„ìš” ì•„ì´í…œ ì§‘í•©
 };
 
 #ifdef __WORLDSERVER
@@ -240,15 +240,15 @@ public:
 	virtual	~ITransformer()	= 0;
 	static	ITransformer*	Transformer( int nTransform );
 	virtual	BOOL	IsValidStuff( CUser* pUser, CTransformStuff & stuff );
-	// »ç¿ëÀÚÀÇ ¾ÆÀÌÅÛÀ» º¯È¯ÇÑ´Ù
+	// ì‚¬ìš©ìì˜ ì•„ì´í…œì„ ë³€í™˜í•œë‹¤
 	void	Transform( CUser* pUser, CTransformStuff& stuff );
-	// »ç¿ëÀÚ·ÎºÎÅÍ º¯È¯ Àç·á¸¦ Á¦°ÅÇÑ´Ù
+	// ì‚¬ìš©ìë¡œë¶€í„° ë³€í™˜ ì¬ë£Œë¥¼ ì œê±°í•œë‹¤
 	void	RemoveItem( CUser* pUser, CTransformStuff& stuff );
-	// »ç¿ëÀÚ¿¡°Ô º¯È¯ °á°ú ¾ÆÀÌÅÛÀ» ¸¸µé¾îÁØ´Ù
+	// ì‚¬ìš©ìì—ê²Œ ë³€í™˜ ê²°ê³¼ ì•„ì´í…œì„ ë§Œë“¤ì–´ì¤€ë‹¤
 	void	CreateItem( CUser* pUser, CTransformStuff& stuff );
 };
 
-// ¾Ëº¯È¯ Å¬·¡½º
+// ì•Œë³€í™˜ í´ë˜ìŠ¤
 class CTransformerEgg
 	: public ITransformer
 {
@@ -259,12 +259,12 @@ public:
 	static	CTransformerEgg*	Instance( void );
 };
 
-// º¯È¯ °á°ú ¾ÆÀÌÅÛ ¿ä¼Ò
-// º¯ÇüµÈ ¿øÇü ÆĞÅÏ »ç¿ë
+// ë³€í™˜ ê²°ê³¼ ì•„ì´í…œ ìš”ì†Œ
+// ë³€í˜•ëœ ì›í˜• íŒ¨í„´ ì‚¬ìš©
 typedef	struct _TransformItemElement
 {
-	CItemElem*	pItem;	// º¯È¯ °á°ú ¾ÆÀÌÅÛ
-	int		nProb;	// È®·ü
+	CItemElem*	pItem;	// ë³€í™˜ ê²°ê³¼ ì•„ì´í…œ
+	int		nProb;	// í™•ë¥ 
 	_TransformItemElement( CItemElem* pItem, int nProb )
 	{
 		this->pItem	= pItem;
@@ -274,7 +274,7 @@ typedef	struct _TransformItemElement
 
 typedef	vector<TransformItemElement>	VTIE;
 
-// ÇÏ³ªÀÇ ±¸Ã¼ÀûÀÎ º¯È¯À» ÀÇ¹ÌÇÏ´Â ¿ä¼ÒÀÌ´Ù
+// í•˜ë‚˜ì˜ êµ¬ì²´ì ì¸ ë³€í™˜ì„ ì˜ë¯¸í•˜ëŠ” ìš”ì†Œì´ë‹¤
 class CTransformItemComponent
 {
 private:
@@ -297,7 +297,7 @@ private:
 };
 
 typedef	map<int, CTransformItemComponent*>	MPTIC;
-// ¸ğµç º¯È¯À» °ü¸®ÇÑ´Ù
+// ëª¨ë“  ë³€í™˜ì„ ê´€ë¦¬í•œë‹¤
 class CTransformItemProperty
 {
 public:

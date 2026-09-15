@@ -1,4 +1,4 @@
-#ifndef __SERVER_DESC_H__
+﻿#ifndef __SERVER_DESC_H__
 #define __SERVER_DESC_H__
 
 #pragma once

@@ -1,4 +1,4 @@
-#ifndef __COUPLE_H
+﻿#ifndef __COUPLE_H
 #define	__COUPLE_H
 
 #include "testcase.h"

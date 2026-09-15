@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 13 // __HOUSING
 #include "housing.h"
@@ -7,11 +7,11 @@
 #include "GuildHouse.h"
 #endif
 //
-//	vPosÁöÁ¡ÀÇ ÁöÇü ³ôÀÌ¸¦ °è»ê.  ÁöÇü, ¹è°æ¿ÀºêÁ§Æ® ¸ğµÎ Æ÷ÇÔÀÌ´Ù.
+//	vPosì§€ì ì˜ ì§€í˜• ë†’ì´ë¥¼ ê³„ì‚°.  ì§€í˜•, ë°°ê²½ì˜¤ë¸Œì íŠ¸ ëª¨ë‘ í¬í•¨ì´ë‹¤.
 //
 FLOAT CWorld::GetFullHeight( const D3DXVECTOR3& vPos )
 {
-	static D3DXVECTOR3 vDir( 0.0f, -2000.0f, 0.0f );	// ¾Æ·¡·Î 2000
+	static D3DXVECTOR3 vDir( 0.0f, -2000.0f, 0.0f );	// ì•„ë˜ë¡œ 2000
 	D3DXVECTOR3 vEnd = vPos + vDir;
 	D3DXVECTOR3 vIntersect;
 	FLOAT fDist, fDistMin = 4194304.0f;
@@ -23,13 +23,13 @@ FLOAT CWorld::GetFullHeight( const D3DXVECTOR3& vPos )
 
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
-		// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+		// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 		pModel = pObj->m_pModel;
 		if( pModel->IsTouchOBB_Line( vPos, vEnd, pObj->GetMatrixWorld(), &vIntersect ) == TRUE )
 		{
-			vIntersect -= vPos;							// vPos·ÎºÎÅÍÀÇ »ó´ëº¤ÅÍ
-			fDist = D3DXVec3LengthSq( &vIntersect );	// »ó´ëÀûÀÎ °Å¸®
-			if( fDist < fDistMin )						// ´õ °¡±î¿î³ğÀÌ ÀÖÀ»Áö ¸ğ¸£´Ï °¡Àå °¡±î¿î ¿ÀºêÁ§Æ®¸¦ °³·Á³½´Ù.
+			vIntersect -= vPos;							// vPosë¡œë¶€í„°ì˜ ìƒëŒ€ë²¡í„°
+			fDist = D3DXVec3LengthSq( &vIntersect );	// ìƒëŒ€ì ì¸ ê±°ë¦¬
+			if( fDist < fDistMin )						// ë” ê°€ê¹Œìš´ë†ˆì´ ìˆì„ì§€ ëª¨ë¥´ë‹ˆ ê°€ì¥ ê°€ê¹Œìš´ ì˜¤ë¸Œì íŠ¸ë¥¼ ê°œë ¤ë‚¸ë‹¤.
 			{
 				fDistMin = fDist;
 				pMinObj = pObj;
@@ -38,10 +38,10 @@ FLOAT CWorld::GetFullHeight( const D3DXVECTOR3& vPos )
 	}
 	END_LINKMAP
 	
-	if( pMinObj )	// ·¹ÀÌ¿¡ °É¸° °¡Àå °¡±î¿î ¿ÀºêÁ§Æ®°¡ ÀÖ´Â°¡	
+	if( pMinObj )	// ë ˆì´ì— ê±¸ë¦° ê°€ì¥ ê°€ê¹Œìš´ ì˜¤ë¸Œì íŠ¸ê°€ ìˆëŠ”ê°€	
 	{
 		pModel = pMinObj->m_pModel;
-		// ·¹ÀÌ¿Í »ï°¢ÇüÀ¸·Î ¼¼¹Ğ °Ë»ç
+		// ë ˆì´ì™€ ì‚¼ê°í˜•ìœ¼ë¡œ ì„¸ë°€ ê²€ì‚¬
 	#ifdef __CPU_UTILDOWN_060502
 		D3DXVECTOR3	*pTris[3];
 		((CModelObject *)pModel)->GetObject3D()->FindTouchTriLine( pTris, vPos, vEnd, pMinObj->GetMatrixWorld(), &fDist );
@@ -61,7 +61,7 @@ FLOAT CWorld::GetFullHeight( const D3DXVECTOR3& vPos )
 
 #if __VER >= 13 // __HOUSING
 #ifdef __CLIENT
-// ÇöÀç Ä³¸¯ÅÍ°¡ ÀÖ´Â À§Ä¡ÀÇ ¸Ê¿¡¼­ ÇØ´çÀÌ¸§À» °¡Áø ¿ÀºêÁ§Æ®¸¦ Ã£´Â´Ù
+// í˜„ì¬ ìºë¦­í„°ê°€ ìˆëŠ” ìœ„ì¹˜ì˜ ë§µì—ì„œ í•´ë‹¹ì´ë¦„ì„ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ëŠ”ë‹¤
 CObj *CWorld::GetObjByName(TCHAR* ObjName)
 {
 	CObj* pObj;
@@ -93,10 +93,10 @@ void CWorld::ForceTexture(LPDIRECT3DTEXTURE9 pNewTex)
 
 BOOL	CWorld::ProcessObjCollision(D3DXVECTOR3 vPos, CObj* pTargetObj, CObj* pWallObj)
 {
-	// gmpbigsun: º»ÇÔ¼ö´Â ÇÏ¿ìÂ¡ Àü¿ë Ãæµ¹°ËÃâ ÇÔ¼öÀÓ 
+	// gmpbigsun: ë³¸í•¨ìˆ˜ëŠ” í•˜ìš°ì§• ì „ìš© ì¶©ëŒê²€ì¶œ í•¨ìˆ˜ì„ 
 	CObj	*pObj	= NULL;
 
-	if( TestOBBIntersect( &pWallObj->m_OBB, &pTargetObj->m_OBB ) )  // º® °ú Ãæµ¹ÀÌ ½ÇÆĞ¶ó´Â°ÍÀº ·ëÀ» ¹ş¾î³µ´Ù´Â ..
+	if( TestOBBIntersect( &pWallObj->m_OBB, &pTargetObj->m_OBB ) )  // ë²½ ê³¼ ì¶©ëŒì´ ì‹¤íŒ¨ë¼ëŠ”ê²ƒì€ ë£¸ì„ ë²—ì–´ë‚¬ë‹¤ëŠ” ..
 	{
 		if( TestTriIntersect( pWallObj, pTargetObj ) )
 			return TRUE;
@@ -104,19 +104,19 @@ BOOL	CWorld::ProcessObjCollision(D3DXVECTOR3 vPos, CObj* pTargetObj, CObj* pWall
 	else
 		return TRUE;		// out of room
 
-	// ¿ÀºêÁ§Æ®¸¦ Æú¸®°ï ´ÜÀ§·Î ±³Â÷°Ë»çÇÑ´Ù
-	int nRange = OLD_MPU / m_iMPU;					// gmpbigsun:MPU°¡ 4 ÀÌÇÏÀÏ°æ¿ì ±× ¹üÀ§¼öÄ¡°¡ º¸Á¤µÇ¾î¾ß ÇÔ.
+	// ì˜¤ë¸Œì íŠ¸ë¥¼ í´ë¦¬ê³¤ ë‹¨ìœ„ë¡œ êµì°¨ê²€ì‚¬í•œë‹¤
+	int nRange = OLD_MPU / m_iMPU;					// gmpbigsun:MPUê°€ 4 ì´í•˜ì¼ê²½ìš° ê·¸ ë²”ìœ„ìˆ˜ì¹˜ê°€ ë³´ì •ë˜ì–´ì•¼ í•¨.
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkDynamic, 0 )
 	{
 		if( pObj->GetType() == OT_CTRL )
 		{
 #if __VER >= 15 // __GUILD_HOUSE
-			if( ((CCtrl*)pObj)->GetId( ) != GuildHouse->m_dwSelectedObjID )		//gmpbigsun: À½ Àç¼³Ä¡ÀÇ °æ¿ì º¹»çº»ÀÌ ¿øº»°ú Ãæµ¹ÆĞ½º 
+			if( ((CCtrl*)pObj)->GetId( ) != GuildHouse->m_dwSelectedObjID )		//gmpbigsun: ìŒ ì¬ì„¤ì¹˜ì˜ ê²½ìš° ë³µì‚¬ë³¸ì´ ì›ë³¸ê³¼ ì¶©ëŒíŒ¨ìŠ¤ 
 #endif
 			{
 				if(pObj != pTargetObj)
 				{
-					// ¿ÀºêÁ§Æ® OBB³¢¸® °Ë»ç
+					// ì˜¤ë¸Œì íŠ¸ OBBë¼ë¦¬ ê²€ì‚¬
 					if(TestOBBIntersect(&pObj->m_OBB, &pTargetObj->m_OBB))
 						return TRUE;
 				}
@@ -129,7 +129,7 @@ BOOL	CWorld::ProcessObjCollision(D3DXVECTOR3 vPos, CObj* pTargetObj, CObj* pWall
 // 	{
 // 		if(pWallObj == pObj)
 // 		{
-// 			// pWallObj´Â Æ¯¼öÇÏ°Ô º®ÀüÃ¼¸¦ °¨½Î°í ÀÖ´Â ¹Ú½ºÀÌ±â¶§¹®¿¡ Ãæµ¹¿¡ ½ÇÆĞÇÑ´Ù´Â °ÍÀº ·ë¿¡¼­ ¹ş¾î³­ °÷ÀÌ¶ó´Â ÀÇ¹Ì
+// 			// pWallObjëŠ” íŠ¹ìˆ˜í•˜ê²Œ ë²½ì „ì²´ë¥¼ ê°ì‹¸ê³  ìˆëŠ” ë°•ìŠ¤ì´ê¸°ë•Œë¬¸ì— ì¶©ëŒì— ì‹¤íŒ¨í•œë‹¤ëŠ” ê²ƒì€ ë£¸ì—ì„œ ë²—ì–´ë‚œ ê³³ì´ë¼ëŠ” ì˜ë¯¸
 // 			if(TestOBBIntersect(&pObj->m_OBB, &pTargetObj->m_OBB))
 // 			{
 // 				if(TestTriIntersect(pObj, pTargetObj))
@@ -150,7 +150,7 @@ BOOL	CWorld::TestTriIntersect(CObj* pWallObj, CObj* pTargetObj)
 
 	if(((CModelObject*)pTargetObj->m_pModel)->GetObject3D()->m_CollObject.m_Type != GMT_ERROR)
 	{
-		// Ãæµ¹ ¿ÀºêÁ§Æ®°¡ ÀÖÀ¸¸é Ãæµ¹ ¿ÀºêÁ§Æ®·Î
+		// ì¶©ëŒ ì˜¤ë¸Œì íŠ¸ê°€ ìˆìœ¼ë©´ ì¶©ëŒ ì˜¤ë¸Œì íŠ¸ë¡œ
 		pTargetGm = &((CModelObject*)pTargetObj->m_pModel)->GetObject3D()->m_CollObject;
 	}
 	else
@@ -168,11 +168,11 @@ BOOL	CWorld::TestOBBIntersect(BBOX* BoxA, BBOX* BoxB)
 	float		fReal[3][3];
 	float		ra, rb, t;
 	long		i, k;
-	D3DXVECTOR3 vDist = BoxB->Center - BoxA->Center;	// µÎ ¹Ú½º°£ÀÇ ¶óÀÎ
+	D3DXVECTOR3 vDist = BoxB->Center - BoxA->Center;	// ë‘ ë°•ìŠ¤ê°„ì˜ ë¼ì¸
 	float		fTrans[3]; 
 
 #if __VER >= 15 // __BS_BBOX_ABS_EXTENT
- 	for( i = 0; i < 3; ++i )			//backface°¡ ¾ø´Â°æ¿ì Extent°¡ À½¼ö·Î µé¾î°£´Ù. ExportÇÒ¶§ ÇØ°áÇÏ´Â°Ô...
+ 	for( i = 0; i < 3; ++i )			//backfaceê°€ ì—†ëŠ”ê²½ìš° Extentê°€ ìŒìˆ˜ë¡œ ë“¤ì–´ê°„ë‹¤. Exportí• ë•Œ í•´ê²°í•˜ëŠ”ê²Œ...
  	{
 		if( BoxA->Extent[i] < 0 )
  			BoxA->Extent[i] = -( BoxA->Extent[i] );
@@ -182,14 +182,14 @@ BOOL	CWorld::TestOBBIntersect(BBOX* BoxA, BBOX* BoxB)
 #endif
 
 	for( i = 0; i < 3; ++i)	fTrans[i] = D3DXVec3Dot(&vDist, &BoxA->Axis[i]);
-	//È¸Àü ¸ÅÆ®¸¯½º °è»ê
+	//íšŒì „ ë§¤íŠ¸ë¦­ìŠ¤ ê³„ì‚°
 	for( i=0 ; i<3 ; i++ )
 		for( k=0 ; k<3 ; k++ )
 		{
 			fReal[i][k] = D3DXVec3Dot(&BoxA->Axis[i], &BoxB->Axis[k]); 
 		}
 	
-	//A¹Ú½ºÀÇ ±âº» º¤ÅÍµé °è»ê
+	//Aë°•ìŠ¤ì˜ ê¸°ë³¸ ë²¡í„°ë“¤ ê³„ì‚°
 	for( i=0 ; i<3 ; i++ )
 	{
 		ra = BoxA->Extent[i];
@@ -198,7 +198,7 @@ BOOL	CWorld::TestOBBIntersect(BBOX* BoxA, BBOX* BoxB)
 		if( t > ra + rb )	return FALSE;
 	}
 
-	//B¹Ú½ºÀÇ ±âº» º¤ÅÍµé °è»ê
+	//Bë°•ìŠ¤ì˜ ê¸°ë³¸ ë²¡í„°ë“¤ ê³„ì‚°
 	for( k=0 ; k<3 ; k++ )
 	{
 		ra = BoxA->Extent[0]*fabs(fReal[0][k]) + BoxA->Extent[1]*fabs(fReal[1][k]) + BoxA->Extent[2]*fabs(fReal[2][k]);
@@ -207,7 +207,7 @@ BOOL	CWorld::TestOBBIntersect(BBOX* BoxA, BBOX* BoxB)
 		if( t > ra + rb )	return FALSE;
 	}
 
-	//¿ÜÀû ±¸ÇÏ±â
+	//ì™¸ì  êµ¬í•˜ê¸°
 	ra = BoxA->Extent[1]*fabs(fReal[2][0]) + BoxA->Extent[2]*fabs(fReal[1][0]);
 	rb = BoxB->Extent[1]*fabs(fReal[0][2]) + BoxB->Extent[2]*fabs(fReal[0][1]);
 	t = fabs( fTrans[2]*fReal[1][0] - fTrans[1]*fReal[2][0] );
@@ -270,7 +270,7 @@ BOOL	CWorld::TestOBBIntersect(BBOX* BoxA, BBOX* BoxB)
 
 	if( t > ra + rb )	return FALSE;
 
-	// ÀÏÄ¡ÇÏ´Â ºĞ¸®ÃàÀÌ ÇÏ³ªµµ ¾ø´Ù~ 
+	// ì¼ì¹˜í•˜ëŠ” ë¶„ë¦¬ì¶•ì´ í•˜ë‚˜ë„ ì—†ë‹¤~ 
 
 	return TRUE;
 }
@@ -278,7 +278,7 @@ BOOL	CWorld::TestOBBIntersect(BBOX* BoxA, BBOX* BoxB)
 #endif // __HOUSING
 
 //
-//	vPos¹Ù·Î ¾Æ·¡ÂÊÀÇ ³ôÀÌ °è»ê.  ¹Ù·Î ¾Æ·¡ÂÊ¿¡ °É¸®´Â°Ô ¾ø´Ù¸é ¹«Á¶°Ç ¶¥¹Ù´Ú ³ôÀÌ·Î °è»ê.
+//	vPosë°”ë¡œ ì•„ë˜ìª½ì˜ ë†’ì´ ê³„ì‚°.  ë°”ë¡œ ì•„ë˜ìª½ì— ê±¸ë¦¬ëŠ”ê²Œ ì—†ë‹¤ë©´ ë¬´ì¡°ê±´ ë•…ë°”ë‹¥ ë†’ì´ë¡œ ê³„ì‚°.
 //
 FLOAT CWorld::GetUnderHeight( const D3DXVECTOR3 &vPos )
 {
@@ -293,22 +293,22 @@ FLOAT CWorld::GetUnderHeight( const D3DXVECTOR3 &vPos )
 	int nRange = 0;
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
-		// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+		// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 		pModel = pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			pMinObj = pObj;		// Ã£¾ÒÀ¸¸é ¹Ù·Î Æ¢¾î³ª¿È - ¼Óµµ¶«¿¡ ÀÌ·¨´Ù...
+			pMinObj = pObj;		// ì°¾ì•˜ìœ¼ë©´ ë°”ë¡œ íŠ€ì–´ë‚˜ì˜´ - ì†ë„ë•œì— ì´ë¬ë‹¤...
 			goto LP1;
 		}
 	}
 	END_LINKMAP
 
 LP1:
-	if( pMinObj )	// ·¹ÀÌ¿¡ °É¸° °¡Àå °¡±î¿î ¿ÀºêÁ§Æ®°¡ ÀÖ´Â°¡	
+	if( pMinObj )	// ë ˆì´ì— ê±¸ë¦° ê°€ì¥ ê°€ê¹Œìš´ ì˜¤ë¸Œì íŠ¸ê°€ ìˆëŠ”ê°€	
 	{
 		FLOAT fDist;
 		pModel = pMinObj->m_pModel;
-		// ·¹ÀÌ¿Í »ï°¢ÇüÀ¸·Î ¼¼¹Ğ °Ë»ç
+		// ë ˆì´ì™€ ì‚¼ê°í˜•ìœ¼ë¡œ ì„¸ë°€ ê²€ì‚¬
 		D3DXVECTOR3	*pTri[3];
 		((CModelObject *)pModel)->GetObject3D()->FindTouchTriLine( pTri, vPos, vEnd, pMinObj->GetMatrixWorld(), &fDist );
 		if( *pTri )
@@ -334,15 +334,15 @@ FLOAT	CWorld::GetItemHeight( const D3DXVECTOR3 & vPos )
 	Segment3 segment( vPos, vEnd );
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
-		// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+		// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 		pModel	= pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			// Áß·Â¹æÇâ ¶óÀÎ°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±³Â÷Á¡(³ôÀÌ)À» Ã£Àº ÈÄ ½½¶óÀÌµù º¤ÅÍ¸¦ vOut¿¡ ¹Ş´Â´Ù.
+			// ì¤‘ë ¥ë°©í–¥ ë¼ì¸ê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  êµì°¨ì (ë†’ì´)ì„ ì°¾ì€ í›„ ìŠ¬ë¼ì´ë”© ë²¡í„°ë¥¼ vOutì— ë°›ëŠ”ë‹¤.
 			if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorUnder( &vOut, vPos, vEnd, pObj->GetMatrixWorld(), &vIntersect ) == TRUE )
 			{
 				if( vIntersect.y > fMaxY )
-					fMaxY = vIntersect.y;	// Ãæµ¹ÇÑ Æú¸®°ïÁß¿¡ °¡Àå ³ôÀº °ªÀ» ¾²ÀÚ....ÀÌ·¸°Ô µÇ¼­ Á¹¶ó ´À·ÁÁ³´Ù.
+					fMaxY = vIntersect.y;	// ì¶©ëŒí•œ í´ë¦¬ê³¤ì¤‘ì— ê°€ì¥ ë†’ì€ ê°’ì„ ì“°ì....ì´ë ‡ê²Œ ë˜ì„œ ì¡¸ë¼ ëŠë ¤ì¡Œë‹¤.
 			}
 		}
 	}
@@ -385,10 +385,10 @@ FLOAT CWorld::GetOverHeightForPlayer( D3DXVECTOR3 &vPos, CObj* pExceptionObj )
 	}
 	END_LINKMAP
 LP1:
-	if( pMinObj )	// ·¹ÀÌ¿¡ °É¸° °¡Àå °¡±î¿î ¿ÀºêÁ§Æ®°¡ ÀÖ´Â°¡
+	if( pMinObj )	// ë ˆì´ì— ê±¸ë¦° ê°€ì¥ ê°€ê¹Œìš´ ì˜¤ë¸Œì íŠ¸ê°€ ìˆëŠ”ê°€
 	{
 		pModel = pMinObj->m_pModel;
-		// ·¹ÀÌ¿Í »ï°¢ÇüÀ¸·Î ¼¼¹Ğ °Ë»ç
+		// ë ˆì´ì™€ ì‚¼ê°í˜•ìœ¼ë¡œ ì„¸ë°€ ê²€ì‚¬
 		D3DXVECTOR3	*pTri[3];
 		((CModelObject *)pModel)->GetObject3D()->FindTouchTriLine( pTri, vPos, vEnd, pMinObj->GetMatrixWorld(), &fDist );
 		if( *pTri )
@@ -397,12 +397,12 @@ LP1:
 			return vIntersect.y;
 		}
 	}
-	return 65535.0f;	// °É¸®´Â °Ô ¾øÀ¸¸é ÃÖ´ëÄ¡·Î ¼³Á¤
+	return 65535.0f;	// ê±¸ë¦¬ëŠ” ê²Œ ì—†ìœ¼ë©´ ìµœëŒ€ì¹˜ë¡œ ì„¤ì •
 }
 #endif // __BOUND_BOX_COLLISION
 
 //
-//	vPos¹Ù·Î À§ÂÊÀÇ ³ôÀÌ °è»ê
+//	vPosë°”ë¡œ ìœ„ìª½ì˜ ë†’ì´ ê³„ì‚°
 //
 FLOAT CWorld::GetOverHeight( D3DXVECTOR3 &vPos, CObj* pExceptionObj )
 {
@@ -423,7 +423,7 @@ FLOAT CWorld::GetOverHeight( D3DXVECTOR3 &vPos, CObj* pExceptionObj )
 		pModel = pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			pMinObj = pObj;		// Ã£¾ÒÀ¸¸é ¹Ù·Î Æ¢¾î³ª¿È
+			pMinObj = pObj;		// ì°¾ì•˜ìœ¼ë©´ ë°”ë¡œ íŠ€ì–´ë‚˜ì˜´
 			goto LP1;
 		}
 	}
@@ -431,14 +431,14 @@ FLOAT CWorld::GetOverHeight( D3DXVECTOR3 &vPos, CObj* pExceptionObj )
 #else // __BOUND_BOX_COLLISION
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
-		// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+		// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 		pModel = pObj->m_pModel;
 #if __VER >= 13 &&  defined(__CLIENT) // __HOUSING
 		if(GetID() == WI_WORLD_MINIROOM)
 		{
 			if(pObj != GetObjByName("obj_miniwall01.o3d") &&pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE)
 			{
-				pMinObj = pObj;		// Ã£¾ÒÀ¸¸é ¹Ù·Î Æ¢¾î³ª¿È
+				pMinObj = pObj;		// ì°¾ì•˜ìœ¼ë©´ ë°”ë¡œ íŠ€ì–´ë‚˜ì˜´
 				goto LP1;
 			}
 		}
@@ -450,7 +450,7 @@ FLOAT CWorld::GetOverHeight( D3DXVECTOR3 &vPos, CObj* pExceptionObj )
 			{
 				if(pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE)
 				{
-					pMinObj = pObj;		// Ã£¾ÒÀ¸¸é ¹Ù·Î Æ¢¾î³ª¿È
+					pMinObj = pObj;		// ì°¾ì•˜ìœ¼ë©´ ë°”ë¡œ íŠ€ì–´ë‚˜ì˜´
 					goto LP1;
 				}
 			}
@@ -460,14 +460,14 @@ FLOAT CWorld::GetOverHeight( D3DXVECTOR3 &vPos, CObj* pExceptionObj )
 		{
 			if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 			{
-				pMinObj = pObj;		// Ã£¾ÒÀ¸¸é ¹Ù·Î Æ¢¾î³ª¿È
+				pMinObj = pObj;		// ì°¾ì•˜ìœ¼ë©´ ë°”ë¡œ íŠ€ì–´ë‚˜ì˜´
 				goto LP1;
 			}
 		}
 #else
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			pMinObj = pObj;		// Ã£¾ÒÀ¸¸é ¹Ù·Î Æ¢¾î³ª¿È
+			pMinObj = pObj;		// ì°¾ì•˜ìœ¼ë©´ ë°”ë¡œ íŠ€ì–´ë‚˜ì˜´
 			goto LP1;
 		}
 #endif
@@ -475,10 +475,10 @@ FLOAT CWorld::GetOverHeight( D3DXVECTOR3 &vPos, CObj* pExceptionObj )
 	END_LINKMAP
 #endif // __BOUND_BOX_COLLISION
 LP1:
-	if( pMinObj )	// ·¹ÀÌ¿¡ °É¸° °¡Àå °¡±î¿î ¿ÀºêÁ§Æ®°¡ ÀÖ´Â°¡
+	if( pMinObj )	// ë ˆì´ì— ê±¸ë¦° ê°€ì¥ ê°€ê¹Œìš´ ì˜¤ë¸Œì íŠ¸ê°€ ìˆëŠ”ê°€
 	{
 		pModel = pMinObj->m_pModel;
-		// ·¹ÀÌ¿Í »ï°¢ÇüÀ¸·Î ¼¼¹Ğ °Ë»ç
+		// ë ˆì´ì™€ ì‚¼ê°í˜•ìœ¼ë¡œ ì„¸ë°€ ê²€ì‚¬
 		D3DXVECTOR3	*pTri[3];
 		((CModelObject *)pModel)->GetObject3D()->FindTouchTriLine( pTri, vPos, vEnd, pMinObj->GetMatrixWorld(), &fDist );
 		if( *pTri )
@@ -487,12 +487,12 @@ LP1:
 			return vIntersect.y;
 		}
 	}
-	return 65535.0f;	// °É¸®´Â°Ô ¾øÀ¸¸é ÃÖ´ëÄ¡·Î ¼³Á¤
+	return 65535.0f;	// ê±¸ë¦¬ëŠ”ê²Œ ì—†ìœ¼ë©´ ìµœëŒ€ì¹˜ë¡œ ì„¤ì •
 }
 
 //
-//	vPos-vDirÀÇ ÀÌµ¿º¤ÅÍ¸¦ ¹Ş¾Æ ¹è°æ°úÀÇ Ãæµ¹À» °Ë»çÇÏ°í
-//	±× ÈÄÃ³¸®¸¦ °è»êÇÏ¿© pOutÀ¸·Î ³Ñ°ÜÁØ´Ù.
+//	vPos-vDirì˜ ì´ë™ë²¡í„°ë¥¼ ë°›ì•„ ë°°ê²½ê³¼ì˜ ì¶©ëŒì„ ê²€ì‚¬í•˜ê³ 
+//	ê·¸ í›„ì²˜ë¦¬ë¥¼ ê³„ì‚°í•˜ì—¬ pOutìœ¼ë¡œ ë„˜ê²¨ì¤€ë‹¤.
 //
 #ifdef __LAYER_1015
 BOOL	CWorld::ProcessCollision( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vDir, int nSlideCnt, int nLayer )
@@ -507,7 +507,7 @@ BOOL	CWorld::ProcessCollision( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 	CModel	*pModel = NULL;
 	D3DXVECTOR3	vEnd, vIntersect, vSlide;
 	
-	vEnd = vPos + vDir;		// ·¹ÀÌ¸¦ ¼±ºĞÀ¸·Î ¹Ù²Û´Ù.
+	vEnd = vPos + vDir;		// ë ˆì´ë¥¼ ì„ ë¶„ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
 	Segment3 segment( vPos, vEnd );
 	
 	*pOut = vDir;
@@ -516,7 +516,7 @@ BOOL	CWorld::ProcessCollision( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 	{
 		if( pObj->GetType() == OT_CTRL ) 
 		{
-			// ¼±ºĞ°ú ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.
+			// ì„ ë¶„ê³¼ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.
 			pModel = pObj->m_pModel;
 			if( pModel->TestIntersectionOBB_Line( segment, pObj, FALSE ) == TRUE )
 			{
@@ -533,19 +533,19 @@ BOOL	CWorld::ProcessCollision( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 				if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorXZ2( &vSlide, &vIntersect, vPos, vEnd, pObj->GetMatrixWorld(), 0 ) == TRUE )
 #endif // __HOUSING
 				{
-					// ÁøÇà¹æÇâÀ¸·Î ¹º°¡ Ãæµ¹ÇßÀ¸¸é ÇÑ¹ø´õ µ·´Ù. ¸®Ä¿½Ãºê·Î.
-					D3DXVECTOR3 vE = vIntersect + vSlide;		// ¹Ì²ô·¯Áø ³¡Á¡.
+					// ì§„í–‰ë°©í–¥ìœ¼ë¡œ ë­”ê°€ ì¶©ëŒí–ˆìœ¼ë©´ í•œë²ˆë” ëˆë‹¤. ë¦¬ì»¤ì‹œë¸Œë¡œ.
+					D3DXVECTOR3 vE = vIntersect + vSlide;		// ë¯¸ë„ëŸ¬ì§„ ëì .
 					*pOut = vSlide;
 					if( ++nSlideCnt <= 1 )
 					{
 #ifdef __LAYER_1015
-						int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt, nLayer );	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+						int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt, nLayer );	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 #else	//__LAYER_1015
-						int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt );	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+						int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt );	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 #endif	// __LAYER_1015
 						if( r )
 						{
-							pOut->x = pOut->y = pOut->z = 0;	// 2¹ø ºÎµúÇûÀ¸¸é ¾ÕÀ¸·Î ³ª°¡Áö ¾ÊÀ½.
+							pOut->x = pOut->y = pOut->z = 0;	// 2ë²ˆ ë¶€ë”ªí˜”ìœ¼ë©´ ì•ìœ¼ë¡œ ë‚˜ê°€ì§€ ì•ŠìŒ.
 						}
 					}
 					return 1;
@@ -558,14 +558,14 @@ BOOL	CWorld::ProcessCollision( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 		
  	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
-		// ¼±ºĞ°ú ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.
+		// ì„ ë¶„ê³¼ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.
 		pModel = pObj->m_pModel;
 		
 		//sun!!
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			// ¼±ºĞ°ú »ï°¢ÇüÀÇ ±³Â÷ °Ë»ç.  ±³Â÷ÇÑ´Ù¸é slide vector¸¦ ±¸ÇÏ°í
-			// ±³Â÷ÇÏÁö ¾Ê´Â´Ù¸é °Á FALSE¸¦ ¸®ÅÏÇÑ´Ù.
+			// ì„ ë¶„ê³¼ ì‚¼ê°í˜•ì˜ êµì°¨ ê²€ì‚¬.  êµì°¨í•œë‹¤ë©´ slide vectorë¥¼ êµ¬í•˜ê³ 
+			// êµì°¨í•˜ì§€ ì•ŠëŠ”ë‹¤ë©´ ê± FALSEë¥¼ ë¦¬í„´í•œë‹¤.
 			if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorXZ2( &vSlide, &vIntersect, vPos, vEnd, pObj->GetMatrixWorld() ) == TRUE )
 			{
 				//D3DXVECTOR3 vE = vIntersect + vSlide;
@@ -574,25 +574,25 @@ BOOL	CWorld::ProcessCollision( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 				if( (++nSlideCnt <= 1) && ((D3DXVec3Length(&vDir) < 3.0f)) )
 				{
 #ifdef __LAYER_1015
-					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt, nLayer );	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt, nLayer );	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 #else	// __LAYER_1015
-					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt );	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt );	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 #endif	// __LAYER_1015
-					if( r )	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					if( r )	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 					{
-						pOut->x = pOut->y = pOut->z = 0;	// 2¹ø ºÎµúÇûÀ¸¸é ¾ÕÀ¸·Î ³ª°¡Áö ¾ÊÀ½.
+						pOut->x = pOut->y = pOut->z = 0;	// 2ë²ˆ ë¶€ë”ªí˜”ìœ¼ë©´ ì•ìœ¼ë¡œ ë‚˜ê°€ì§€ ì•ŠìŒ.
 					}
 				}
 				else if( nSlideCnt <= 1 )
 				{	
 #ifdef __LAYER_1015
-					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt, nLayer );	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt, nLayer );	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 #else	// __LAYER_1015
-					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt );	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt );	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 #endif	// __LAYER_1015
-					if( r )	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					if( r )	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 					{
-						pOut->x = pOut->y = pOut->z = 0;	// 2¹ø ºÎµúÇûÀ¸¸é ¾ÕÀ¸·Î ³ª°¡Áö ¾ÊÀ½.
+						pOut->x = pOut->y = pOut->z = 0;	// 2ë²ˆ ë¶€ë”ªí˜”ìœ¼ë©´ ì•ìœ¼ë¡œ ë‚˜ê°€ì§€ ì•ŠìŒ.
 					}
 				}
 			#else
@@ -602,13 +602,13 @@ BOOL	CWorld::ProcessCollision( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 				if( ++nSlideCnt <= 1 )
 				{	
 #ifdef __LAYER_1015
-					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt, nLayer );	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt, nLayer );	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 #else	// __LAYER_1015
-					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt );	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					int r = ProcessCollision( pOut, vPos, vSlide, nSlideCnt );	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 #endif	// __LAYER_1015
-					if( r )	// Ãæµ¹ÇÑ ÁöÁ¡¿¡¼­ ¹Ì²ô·¯ÁøÁöÁ¡±îÁöÀÇ º¤ÅÍ·Î ´Ù½ÃÇÑ¹ø °Ë»ç.
+					if( r )	// ì¶©ëŒí•œ ì§€ì ì—ì„œ ë¯¸ë„ëŸ¬ì§„ì§€ì ê¹Œì§€ì˜ ë²¡í„°ë¡œ ë‹¤ì‹œí•œë²ˆ ê²€ì‚¬.
 					{
-						pOut->x = pOut->y = pOut->z = 0;	// 2¹ø ºÎµúÇûÀ¸¸é ¾ÕÀ¸·Î ³ª°¡Áö ¾ÊÀ½.
+						pOut->x = pOut->y = pOut->z = 0;	// 2ë²ˆ ë¶€ë”ªí˜”ìœ¼ë©´ ì•ìœ¼ë¡œ ë‚˜ê°€ì§€ ì•ŠìŒ.
 					}
 				}
 #endif
@@ -623,8 +623,8 @@ BOOL	CWorld::ProcessCollision( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 
 
 //
-//	vPos-vDirÀÇ ÀÌµ¿º¤ÅÍ¸¦ ¹Ş¾Æ ¹è°æ°úÀÇ Ãæµ¹À» °Ë»çÇÏ°í
-//	±× ÈÄÃ³¸®¸¦ °è»êÇÏ¿© pOutÀ¸·Î ³Ñ°ÜÁØ´Ù.
+//	vPos-vDirì˜ ì´ë™ë²¡í„°ë¥¼ ë°›ì•„ ë°°ê²½ê³¼ì˜ ì¶©ëŒì„ ê²€ì‚¬í•˜ê³ 
+//	ê·¸ í›„ì²˜ë¦¬ë¥¼ ê³„ì‚°í•˜ì—¬ pOutìœ¼ë¡œ ë„˜ê²¨ì¤€ë‹¤.
 //
 BOOL	CWorld::ProcessCollisionReflection( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vDir, int nRecusCnt )
 {
@@ -636,16 +636,16 @@ BOOL	CWorld::ProcessCollisionReflection( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &v
 	FLOAT	fDist;
 	D3DXVECTOR3	*pTri[3];
 
-	vEnd = vPos + vDir;		// ·¹ÀÌ¸¦ ¼±ºĞÀ¸·Î ¹Ù²Û´Ù.
+	vEnd = vPos + vDir;		// ë ˆì´ë¥¼ ì„ ë¶„ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
 	Segment3 segment( vPos, vEnd );
 
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
-		// ¼±ºĞ°ú ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.
+		// ì„ ë¶„ê³¼ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.
 		pModel = pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			// ¼±ºĞ°ú »ï°¢ÇüÀÇ ±³Â÷ °Ë»ç.  pTri¿¡ ´ã°Ü³ª¿Â´Ù.
+			// ì„ ë¶„ê³¼ ì‚¼ê°í˜•ì˜ êµì°¨ ê²€ì‚¬.  pTriì— ë‹´ê²¨ë‚˜ì˜¨ë‹¤.
 			((CModelObject *)pModel)->GetObject3D()->FindTouchTriLine( pTri, vPos, vEnd, pObj->GetMatrixWorld(), &fDist );
 			if( *pTri )
 			{
@@ -655,13 +655,13 @@ BOOL	CWorld::ProcessCollisionReflection( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &v
 				D3DXVec3Cross( &vN, &v1, &vN );
 				mTM = pObj->GetMatrixWorld();
 				mTM._41 = mTM._42 = mTM._43 = 0;
-				D3DXVec3TransformCoord( &vN, &vN, &mTM );	// mTM¿¡ ½ºÄÉÀÏÀÌ ÀÖ´Ù¸é ³ë¸»µµ °°ÀÌ Ä¿Áö±â¶«¿¡ Normalize¸¦ ³ªÁß¿¡ ÇØ¾ß ÇÑ´Ù.
+				D3DXVec3TransformCoord( &vN, &vN, &mTM );	// mTMì— ìŠ¤ì¼€ì¼ì´ ìˆë‹¤ë©´ ë…¸ë§ë„ ê°™ì´ ì»¤ì§€ê¸°ë•œì— Normalizeë¥¼ ë‚˜ì¤‘ì— í•´ì•¼ í•œë‹¤.
 				D3DXVec3Normalize( &vN, &vN );
 				
 				v1.x = -vDir.x;	v1.y = -vDir.y;	v1.z = -vDir.z;	// -D
 				FLOAT fLenN = D3DXVec3Dot( &v1, &vN );			// -D dot N
-				vN *= (fLenN * 2.0f);							// (-D dot N) * 2  ÀÌ¶§ N´Â ´ÜÀ§º¤ÅÍ »óÅÂ¿©¾ßÇÑ´Ù.
-				*pOut = vDir + vN;								// ÃÖÁ¾ ¹İ»çº¤ÅÍ.
+				vN *= (fLenN * 2.0f);							// (-D dot N) * 2  ì´ë•Œ NëŠ” ë‹¨ìœ„ë²¡í„° ìƒíƒœì—¬ì•¼í•œë‹¤.
+				*pOut = vDir + vN;								// ìµœì¢… ë°˜ì‚¬ë²¡í„°.
 
 				if( nRecusCnt++ < 3 )
 					ProcessCollisionReflection( pOut, vPos, *pOut, nRecusCnt );
@@ -674,11 +674,11 @@ BOOL	CWorld::ProcessCollisionReflection( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &v
 
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkAirShip, nDefaultLayer )
 	{
-		// ¼±ºĞ°ú ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.
+		// ì„ ë¶„ê³¼ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.
 		pModel = pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			// ¼±ºĞ°ú »ï°¢ÇüÀÇ ±³Â÷ °Ë»ç.  pTri¿¡ ´ã°Ü³ª¿Â´Ù.
+			// ì„ ë¶„ê³¼ ì‚¼ê°í˜•ì˜ êµì°¨ ê²€ì‚¬.  pTriì— ë‹´ê²¨ë‚˜ì˜¨ë‹¤.
 			((CModelObject *)pModel)->GetObject3D()->FindTouchTriLine( pTri, vPos, vEnd, pObj->GetMatrixWorld(), &fDist );
 			if( *pTri )
 			{
@@ -688,13 +688,13 @@ BOOL	CWorld::ProcessCollisionReflection( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &v
 				D3DXVec3Cross( &vN, &v1, &vN );
 				mTM = pObj->GetMatrixWorld();
 				mTM._41 = mTM._42 = mTM._43 = 0;
-				D3DXVec3TransformCoord( &vN, &vN, &mTM );	// mTM¿¡ ½ºÄÉÀÏÀÌ ÀÖ´Ù¸é ³ë¸»µµ °°ÀÌ Ä¿Áö±â¶«¿¡ Normalize¸¦ ³ªÁß¿¡ ÇØ¾ß ÇÑ´Ù.
+				D3DXVec3TransformCoord( &vN, &vN, &mTM );	// mTMì— ìŠ¤ì¼€ì¼ì´ ìˆë‹¤ë©´ ë…¸ë§ë„ ê°™ì´ ì»¤ì§€ê¸°ë•œì— Normalizeë¥¼ ë‚˜ì¤‘ì— í•´ì•¼ í•œë‹¤.
 				D3DXVec3Normalize( &vN, &vN );
 				
 				v1.x = -vDir.x;	v1.y = -vDir.y;	v1.z = -vDir.z;	// -D
 				FLOAT fLenN = D3DXVec3Dot( &v1, &vN );			// -D dot N
-				vN *= (fLenN * 2.0f);							// (-D dot N) * 2  ÀÌ¶§ N´Â ´ÜÀ§º¤ÅÍ »óÅÂ¿©¾ßÇÑ´Ù.
-				*pOut = vDir + vN;								// ÃÖÁ¾ ¹İ»çº¤ÅÍ.
+				vN *= (fLenN * 2.0f);							// (-D dot N) * 2  ì´ë•Œ NëŠ” ë‹¨ìœ„ë²¡í„° ìƒíƒœì—¬ì•¼í•œë‹¤.
+				*pOut = vDir + vN;								// ìµœì¢… ë°˜ì‚¬ë²¡í„°.
 
 				if( nRecusCnt++ < 3 )
 					ProcessCollisionReflection( pOut, vPos, *pOut, nRecusCnt );
@@ -709,7 +709,7 @@ BOOL	CWorld::ProcessCollisionReflection( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &v
 }
 
 
-// ÁÂÇ¥ ÁÖÀ§ 3x3±×¸®µå ¿µ¿ªÀÇ »ï°¢ÇüÁÂÇ¥¸¦ ½ºÄµÇØ vDir°ú Ãæµ¹ÇÏ´Â »ï°¢ÇüÀ» Ã£¾Æ³½´Ù.
+// ì¢Œí‘œ ì£¼ìœ„ 3x3ê·¸ë¦¬ë“œ ì˜ì—­ì˜ ì‚¼ê°í˜•ì¢Œí‘œë¥¼ ìŠ¤ìº”í•´ vDirê³¼ ì¶©ëŒí•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ì•„ë‚¸ë‹¤.
 D3DXVECTOR3 *FindTouchLandTri( D3DXVECTOR3 *pTris, int nMaxTri, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vDir, FLOAT *pfDist )
 {
 	int		i;
@@ -725,7 +725,7 @@ D3DXVECTOR3 *FindTouchLandTri( D3DXVECTOR3 *pTris, int nMaxTri, const D3DXVECTOR
 		pv2 = pTris++;
 		
 		bRet = IsTouchRayTri( pv0, pv1, pv2, &vPos, &vDir, &fDist );
-		if( bRet && fDist >= 0.0f )	// ¹İ´ë¹æÇâ ¸éÀº °Ë»çÇÏÁö ¾ÊÀ½.
+		if( bRet && fDist >= 0.0f )	// ë°˜ëŒ€ë°©í–¥ ë©´ì€ ê²€ì‚¬í•˜ì§€ ì•ŠìŒ.
 		{
 			*pfDist = fDist;
 			return pv0;
@@ -736,11 +736,11 @@ D3DXVECTOR3 *FindTouchLandTri( D3DXVECTOR3 *pTris, int nMaxTri, const D3DXVECTOR
 }
 
 
-// bSkipTrans:¹İÅõ¸íµÇ´Â ¿ÀºêÁ§Æ®´Â ½ºÅµÇÔ.  bWithTerrain:ÁöÇü±îÁö Æ÷ÇÔÇØ¼­ °Ë»çÇÔ.
+// bSkipTrans:ë°˜íˆ¬ëª…ë˜ëŠ” ì˜¤ë¸Œì íŠ¸ëŠ” ìŠ¤í‚µí•¨.  bWithTerrain:ì§€í˜•ê¹Œì§€ í¬í•¨í•´ì„œ ê²€ì‚¬í•¨.
 //
-//	¶óÀÎ°ú ÁÖº¯¿ÀºêÁ§Æ®¿ÍÀÇ Ãæµ¹À» °Ë»çÇØ¼­, ±³Â÷Á¡À» °è»êÇÑ´Ù.
-// ÁÖÀÇ : °Ë»ö´ë»ó ¿ÀºêÁ§Æ®´Â ½Ã¾ßÀıµÎÃ¼¿¡ µé¾î¿À´Â ¿ÀºêÁ§Æ®¸¸ ´ë»óÀ¸·Î ÇÑ´Ù.
-// Ä«¸Ş¶ó Ãæµ¹Àº ÀÌ°É·Î ÇÏ¸é ¾ÈµÈ´Ù. Ä«¸Ş¶ó°¡ vPos¶ó¼­ ÀıµÎÃ¼¿¡ ¼ÓÇÏ´Â ¿ÀºêÁ§Æ®°¡ °è¼Ó ¹Ù²ï´Ù.
+//	ë¼ì¸ê³¼ ì£¼ë³€ì˜¤ë¸Œì íŠ¸ì™€ì˜ ì¶©ëŒì„ ê²€ì‚¬í•´ì„œ, êµì°¨ì ì„ ê³„ì‚°í•œë‹¤.
+// ì£¼ì˜ : ê²€ìƒ‰ëŒ€ìƒ ì˜¤ë¸Œì íŠ¸ëŠ” ì‹œì•¼ì ˆë‘ì²´ì— ë“¤ì–´ì˜¤ëŠ” ì˜¤ë¸Œì íŠ¸ë§Œ ëŒ€ìƒìœ¼ë¡œ í•œë‹¤.
+// ì¹´ë©”ë¼ ì¶©ëŒì€ ì´ê±¸ë¡œ í•˜ë©´ ì•ˆëœë‹¤. ì¹´ë©”ë¼ê°€ vPosë¼ì„œ ì ˆë‘ì²´ì— ì†í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ê°€ ê³„ì† ë°”ë€ë‹¤.
 //
 BOOL	CWorld::IntersectObjLine( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vEnd, BOOL bSkipTrans, BOOL bWithTerrain, BOOL bWithObject )
 {
@@ -763,10 +763,10 @@ BOOL	CWorld::IntersectObjLine( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 					{
 						if( nNonCullNum >= 10000 )
 						{
-							Error( "CWorld::IntersectObjLine : ¹üÀ§¸¦ ³Ñ¾î¼¶." );
+							Error( "CWorld::IntersectObjLine : ë²”ìœ„ë¥¼ ë„˜ì–´ì„¬." );
 							break;
 						}
-						if( bSkipTrans && pObj->m_pModel->m_pModelElem->m_bTrans )	// ¹İÅõ¸íÀÌ µÇ´Â ¿ÀºêÁ§Æ®´Â °Ë»ç´ë»ó¿¡¼­ Á¦¿ÜÇÔ.
+						if( bSkipTrans && pObj->m_pModel->m_pModelElem->m_bTrans )	// ë°˜íˆ¬ëª…ì´ ë˜ëŠ” ì˜¤ë¸Œì íŠ¸ëŠ” ê²€ì‚¬ëŒ€ìƒì—ì„œ ì œì™¸í•¨.
 							continue;
 						pNonCullObjs[ nNonCullNum++ ] = pObj;
 					}
@@ -808,9 +808,9 @@ BOOL	CWorld::IntersectObjLine( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 
 	BOOL bRet = FALSE;
 	
-	if( bWithTerrain )		// ÁöÇü±îÁö °Ë»çÇÔ.
+	if( bWithTerrain )		// ì§€í˜•ê¹Œì§€ ê²€ì‚¬í•¨.
 	{
-		vDir = vEnd - vPos;		// ·¹ÀÌ¸¦ ¾òÀ½.
+		vDir = vEnd - vPos;		// ë ˆì´ë¥¼ ì–»ìŒ.
 		D3DXVec3Normalize( &vDir, &vDir );
 		FLOAT fDist = IntersectRayTerrain2( vPos, vDir );
 		if( fDist )
@@ -826,9 +826,9 @@ BOOL	CWorld::IntersectObjLine( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 
 
 //
-// vPos¸¦ Áß½ÉÀ¸·Î ÀÏÁ¤ÇÑ ¹İ°æ³»ÀÇ ¿ÀºêÁ§Æ®¸¦ ´ë»óÀ¸·Î °Ë»ö
-// Ä«¸Ş¶ó Ãæµ¹Àº ÀÌ°É·Î ÇØ¾ßÇÑ´Ù.
-// CLIENT Àü¿ë
+// vPosë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ ì¼ì •í•œ ë°˜ê²½ë‚´ì˜ ì˜¤ë¸Œì íŠ¸ë¥¼ ëŒ€ìƒìœ¼ë¡œ ê²€ìƒ‰
+// ì¹´ë©”ë¼ ì¶©ëŒì€ ì´ê±¸ë¡œ í•´ì•¼í•œë‹¤.
+// CLIENT ì „ìš©
 BOOL	CWorld::IntersectObjLine2( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vEnd, BOOL bSkipTrans, BOOL bWithTerrain, BOOL bWithObject )
 {
 	BOOL bRet = FALSE;
@@ -851,12 +851,12 @@ BOOL	CWorld::IntersectObjLine2( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, cons
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
 		bAble = TRUE;
-		if( bSkipTrans && pObj->m_pModel->m_pModelElem->m_bTrans )	// ¹İÅõ¸íÀÌ µÇ´Â ¿ÀºêÁ§Æ®´Â °Ë»ç´ë»ó¿¡¼­ Á¦¿ÜÇÔ.
+		if( bSkipTrans && pObj->m_pModel->m_pModelElem->m_bTrans )	// ë°˜íˆ¬ëª…ì´ ë˜ëŠ” ì˜¤ë¸Œì íŠ¸ëŠ” ê²€ì‚¬ëŒ€ìƒì—ì„œ ì œì™¸í•¨.
 			bAble = FALSE;
 		
 		if( bAble )
 		{
-			// ¼±ºĞ°ú ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.
+			// ì„ ë¶„ê³¼ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.
 			pModel = pObj->m_pModel;
 			if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 			{
@@ -893,12 +893,12 @@ BOOL	CWorld::IntersectObjLine2( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, cons
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
 		bAble = TRUE;
-		if( bSkipTrans && pObj->m_pModel->m_pModelElem->m_bTrans )	// ¹İÅõ¸íÀÌ µÇ´Â ¿ÀºêÁ§Æ®´Â °Ë»ç´ë»ó¿¡¼­ Á¦¿ÜÇÔ.
+		if( bSkipTrans && pObj->m_pModel->m_pModelElem->m_bTrans )	// ë°˜íˆ¬ëª…ì´ ë˜ëŠ” ì˜¤ë¸Œì íŠ¸ëŠ” ê²€ì‚¬ëŒ€ìƒì—ì„œ ì œì™¸í•¨.
 			bAble = FALSE;
 		
 		if( bAble )
 		{
-			// ¼±ºĞ°ú ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.
+			// ì„ ë¶„ê³¼ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.
 			pModel = pObj->m_pModel;
 			if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 			{
@@ -918,22 +918,22 @@ BOOL	CWorld::IntersectObjLine2( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, cons
 	}
 	END_LINKMAP
 #endif
-	// Ë¬: Ä«¸Ş¶ó Ãæµ¹¿¡¼­ »ç¿ëÇÏ´Â Å¬¶óÀÌ¾ğÆ® ÄÚµåÀÌ¹Ç·Î °èÃş °ªÀ» 0À¸·Î ¼³Á¤
+	// åº·: ì¹´ë©”ë¼ ì¶©ëŒì—ì„œ ì‚¬ìš©í•˜ëŠ” í´ë¼ì´ì–¸íŠ¸ ì½”ë“œì´ë¯€ë¡œ ê³„ì¸µ ê°’ì„ 0ìœ¼ë¡œ ì„¤ì •
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkDynamic, nTempLayer )
 	{
 		if( pObj->GetType() == OT_CTRL ) 
 		{
 			bAble = TRUE;
-			if( bSkipTrans && pObj->m_pModel->m_pModelElem->m_bTrans )	// ¹İÅõ¸íÀÌ µÇ´Â ¿ÀºêÁ§Æ®´Â °Ë»ç´ë»ó¿¡¼­ Á¦¿ÜÇÔ.
+			if( bSkipTrans && pObj->m_pModel->m_pModelElem->m_bTrans )	// ë°˜íˆ¬ëª…ì´ ë˜ëŠ” ì˜¤ë¸Œì íŠ¸ëŠ” ê²€ì‚¬ëŒ€ìƒì—ì„œ ì œì™¸í•¨.
 				bAble = FALSE;
 			
 			if( bAble )
 			{
-				// ¼±ºĞ°ú ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.
+				// ì„ ë¶„ê³¼ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.
 				pModel = pObj->m_pModel;
 				if( pModel->TestIntersectionOBB_Line( segment, pObj, FALSE ) == TRUE )
 				{
-					D3DXVECTOR3	*pTri[3];		// ÄÁÆ®·Ñ ¿ÀºêÁ§Æ®´Â Ãæµ¹¸Ş½Ã ¾È¾¸.
+					D3DXVECTOR3	*pTri[3];		// ì»¨íŠ¸ë¡¤ ì˜¤ë¸Œì íŠ¸ëŠ” ì¶©ëŒë©”ì‹œ ì•ˆì”€.
 					((CModelObject *)pModel)->GetObject3D()->FindTouchTriLine( pTri, vPos, vEnd, pObj->GetMatrixWorld(), &fDist, TRUE);
 					if( *pTri )
 					{
@@ -950,9 +950,9 @@ BOOL	CWorld::IntersectObjLine2( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, cons
 	}
 	END_LINKMAP
 	
-	if( bWithTerrain )		// ÁöÇü±îÁö °Ë»çÇÔ.
+	if( bWithTerrain )		// ì§€í˜•ê¹Œì§€ ê²€ì‚¬í•¨.
 	{
-		vDir = vEnd - vPos;		// ·¹ÀÌ¸¦ ¾òÀ½.
+		vDir = vEnd - vPos;		// ë ˆì´ë¥¼ ì–»ìŒ.
 		D3DXVec3Normalize( &vDir, &vDir );
 		FLOAT fDist = IntersectRayTerrain2( vPos, vDir );
 		if( fDist )
@@ -965,7 +965,7 @@ BOOL	CWorld::IntersectObjLine2( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, cons
 	return bRet;
 }
 
-// ÁÖ¾îÁø ·¹ÀÌ¿Í Ãæµ¹ÇÏ´Â ¹Ù´ÚÀ» Ã¼Å©. - ·¹ÀÌÀú °ø°İ¿¡ ¾²ÀÓ.
+// ì£¼ì–´ì§„ ë ˆì´ì™€ ì¶©ëŒí•˜ëŠ” ë°”ë‹¥ì„ ì²´í¬. - ë ˆì´ì € ê³µê²©ì— ì“°ì„.
 FLOAT CWorld::IntersectRayTerrain2( const D3DXVECTOR3 &vPickRayOrig, const D3DXVECTOR3 &vPickRayDir )
 {
 #ifdef __CLIENT	
@@ -1072,7 +1072,7 @@ FLOAT CWorld::IntersectRayTerrain2( const D3DXVECTOR3 &vPickRayOrig, const D3DXV
 BOOL CanSlide( const D3DXVECTOR3& v0, const D3DXVECTOR3& v1, const D3DXVECTOR3& v2,
 				 float fCosine, D3DXVECTOR3* pOut )
 {
-	// 1. ³ë¸» °è»ê 
+	// 1. ë…¸ë§ ê³„ì‚° 
 	D3DXVECTOR3	u = v1 - v0;		
 	D3DXVECTOR3	v = v2 - v0;
 
@@ -1080,12 +1080,12 @@ BOOL CanSlide( const D3DXVECTOR3& v0, const D3DXVECTOR3& v1, const D3DXVECTOR3& 
 	D3DXVec3Cross( &vN, &u, &v );					
 	D3DXVec3Normalize( &vN, &vN );
 
-	// 2. ÀÏÁ¤°¢ ÀÌ»ó ±â¿ï¾îÁø ¸é¸¸ ½½¶óÀÌµå º¤ÅÍ ±¸ÇÔ 
+	// 2. ì¼ì •ê° ì´ìƒ ê¸°ìš¸ì–´ì§„ ë©´ë§Œ ìŠ¬ë¼ì´ë“œ ë²¡í„° êµ¬í•¨ 
 	D3DXVECTOR3	vDir( 0.0f, -1.0f, 0.0f );		
 	if( D3DXVec3Dot( &vN, &vDir ) > fCosine )
 	{
-		vDir.y = -0.2f;									// ¹Ì²ô·¯Áö´Â ¼Óµµ 
-		CalcSlideVec( pOut, vDir, vN );					// ¹Ì²ô·¯Áü º¤ÅÍ ±¸ÇÔ
+		vDir.y = -0.2f;									// ë¯¸ë„ëŸ¬ì§€ëŠ” ì†ë„ 
+		CalcSlideVec( pOut, vDir, vN );					// ë¯¸ë„ëŸ¬ì§ ë²¡í„° êµ¬í•¨
 		return TRUE;
 	}
 	else
@@ -1093,11 +1093,11 @@ BOOL CanSlide( const D3DXVECTOR3& v0, const D3DXVECTOR3& v1, const D3DXVECTOR3& 
 }
 
 //
-// Áß·Â¹æÇâÀÇ Ãæµ¹°Ë»ç ¹× ¹Ì²ô·¯Áü Ã³¸®.
-// Áß·Â¹æÇâÀÇ ¶óÀÎ°ú Ãæµ¹ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±× ÁöÁ¡ÀÇ ÁÂÇ¥¸¦ ¾ò°í Slide°è»êÈÄÀÇ ÁÂÇ¥µµ ¾òÀ½.
+// ì¤‘ë ¥ë°©í–¥ì˜ ì¶©ëŒê²€ì‚¬ ë° ë¯¸ë„ëŸ¬ì§ ì²˜ë¦¬.
+// ì¤‘ë ¥ë°©í–¥ì˜ ë¼ì¸ê³¼ ì¶©ëŒí•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  ê·¸ ì§€ì ì˜ ì¢Œí‘œë¥¼ ì–»ê³  Slideê³„ì‚°í›„ì˜ ì¢Œí‘œë„ ì–»ìŒ.
 FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **ppObj, D3DXVECTOR3 &vPos )
 {
-	D3DXVECTOR3		vDir( 0.0f, -1.5f, 0.0f );	// Å°³ôÀÌ(1.5)
+	D3DXVECTOR3		vDir( 0.0f, -1.5f, 0.0f );	// í‚¤ë†’ì´(1.5)
 	D3DXVECTOR3		vIntersect;
 	float			fMaxY = -65535.0f;			
 	D3DXVECTOR3		vOut( 0.0f, 0.0f, 0.0f );	
@@ -1118,20 +1118,20 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **ppObj, D3DXVECTOR
 		FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkDynamic, nDefaultLayer )
 		{
 
-			// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+			// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 			pModel = pObj->m_pModel;
 			if( pObj->GetType() == OT_CTRL ) 
 			{
 				if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 				{
-					// Áß·Â¹æÇâ ¶óÀÎ°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±³Â÷Á¡(³ôÀÌ)À» Ã£Àº ÈÄ ½½¶óÀÌµù º¤ÅÍ¸¦ vOut¿¡ ¹Ş´Â´Ù.
+					// ì¤‘ë ¥ë°©í–¥ ë¼ì¸ê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  êµì°¨ì (ë†’ì´)ì„ ì°¾ì€ í›„ ìŠ¬ë¼ì´ë”© ë²¡í„°ë¥¼ vOutì— ë°›ëŠ”ë‹¤.
 					if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorUnder( &vOut, vPos, vEnd, pObj->GetMatrixWorld(), &vIntersect ) == TRUE )
 					{
 						if( vIntersect.y > fMaxY )
 						{
-							fMaxY = vIntersect.y;	// Ãæµ¹ÇÑ Æú¸®°ïÁß¿¡ °¡Àå ³ôÀº °ªÀ» ¾²ÀÚ....ÀÌ·¸°Ô µÇ¼­ Á¹¶ó ´À·ÁÁ³´Ù.
+							fMaxY = vIntersect.y;	// ì¶©ëŒí•œ í´ë¦¬ê³¤ì¤‘ì— ê°€ì¥ ë†’ì€ ê°’ì„ ì“°ì....ì´ë ‡ê²Œ ë˜ì„œ ì¡¸ë¼ ëŠë ¤ì¡Œë‹¤.
 							*pOut = vOut;
-							*ppObj = pObj;			// Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®.
+							*ppObj = pObj;			// ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸.
 						}
 					}
 				}
@@ -1142,18 +1142,18 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **ppObj, D3DXVECTOR
 #endif // __HOUSING
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
-		// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+		// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 		pModel = pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			// Áß·Â¹æÇâ ¶óÀÎ°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±³Â÷Á¡(³ôÀÌ)À» Ã£Àº ÈÄ ½½¶óÀÌµù º¤ÅÍ¸¦ vOut¿¡ ¹Ş´Â´Ù.
+			// ì¤‘ë ¥ë°©í–¥ ë¼ì¸ê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  êµì°¨ì (ë†’ì´)ì„ ì°¾ì€ í›„ ìŠ¬ë¼ì´ë”© ë²¡í„°ë¥¼ vOutì— ë°›ëŠ”ë‹¤.
 			if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorUnder( &vOut, vPos, vEnd, pObj->GetMatrixWorld(), &vIntersect ) == TRUE )
 			{
 				if( vIntersect.y > fMaxY )
 				{
-					fMaxY = vIntersect.y;	// Ãæµ¹ÇÑ Æú¸®°ïÁß¿¡ °¡Àå ³ôÀº °ªÀ» ¾²ÀÚ....ÀÌ·¸°Ô µÇ¼­ Á¹¶ó ´À·ÁÁ³´Ù.
+					fMaxY = vIntersect.y;	// ì¶©ëŒí•œ í´ë¦¬ê³¤ì¤‘ì— ê°€ì¥ ë†’ì€ ê°’ì„ ì“°ì....ì´ë ‡ê²Œ ë˜ì„œ ì¡¸ë¼ ëŠë ¤ì¡Œë‹¤.
 					*pOut = vOut;
-					*ppObj = pObj;			// Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®.
+					*ppObj = pObj;			// ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸.
 				}
 			}
 		}
@@ -1162,28 +1162,28 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **ppObj, D3DXVECTOR
 
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkAirShip, nDefaultLayer )
 	{
-		// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+		// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 		pModel = pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			// Áß·Â¹æÇâ ¶óÀÎ°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±³Â÷Á¡(³ôÀÌ)À» Ã£Àº ÈÄ ½½¶óÀÌµù º¤ÅÍ¸¦ vOut¿¡ ¹Ş´Â´Ù.
+			// ì¤‘ë ¥ë°©í–¥ ë¼ì¸ê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  êµì°¨ì (ë†’ì´)ì„ ì°¾ì€ í›„ ìŠ¬ë¼ì´ë”© ë²¡í„°ë¥¼ vOutì— ë°›ëŠ”ë‹¤.
 			if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorUnder( &vOut, vPos, vEnd, pObj->GetMatrixWorld(), &vIntersect ) == TRUE )
 			{
 				if( vIntersect.y > fMaxY )
 				{
-					fMaxY = vIntersect.y;	// Ãæµ¹ÇÑ Æú¸®°ïÁß¿¡ °¡Àå ³ôÀº °ªÀ» ¾²ÀÚ....ÀÌ·¸°Ô µÇ¼­ Á¹¶ó ´À·ÁÁ³´Ù.
+					fMaxY = vIntersect.y;	// ì¶©ëŒí•œ í´ë¦¬ê³¤ì¤‘ì— ê°€ì¥ ë†’ì€ ê°’ì„ ì“°ì....ì´ë ‡ê²Œ ë˜ì„œ ì¡¸ë¼ ëŠë ¤ì¡Œë‹¤.
 					*pOut = vOut;
-					*ppObj = pObj;			// Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®.
+					*ppObj = pObj;			// ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸.
 				}
 			}
 		}
 	}
 	END_LINKMAP
 
-	// ¼öÁ÷º¤ÅÍ¿Í ÁöÇüÀÇ Ãæµ¹ÁöÁ¡ ±¸ÇÔ.
+	// ìˆ˜ì§ë²¡í„°ì™€ ì§€í˜•ì˜ ì¶©ëŒì§€ì  êµ¬í•¨.
 	FLOAT fDist;
 	D3DXVECTOR3 vLandTri[3];
-	GetLandTri( vPos.x, vPos.z, vLandTri );		// ÇöÀç À§Ä¡ÀÇ ÇÏÀÌÆ®¸Ê »ï°¢Çü ÀĞÀ½
+	GetLandTri( vPos.x, vPos.z, vLandTri );		// í˜„ì¬ ìœ„ì¹˜ì˜ í•˜ì´íŠ¸ë§µ ì‚¼ê°í˜• ì½ìŒ
 	BOOL b = IsTouchRayTri( &vLandTri[0], &vLandTri[1], &vLandTri[2], &vPos, &vDir, &fDist );
 	
 #ifdef _DEBUG
@@ -1191,12 +1191,12 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **ppObj, D3DXVECTOR
 		Error( "ProcessUnderCollision - D3DXIntersectTri x:%f z:%f", vPos.x, vPos.z );
 #endif
 	vIntersect.x = vPos.x;
-	vIntersect.y = (vPos.y + fDist * vDir.y);		// ¼öÁ÷·¹ÀÌ¿Í ÁöÇü»ï°¢ÇüÀÇ ±³Â÷Á¡ - ÀÌ°ÍÀº ³ôÀÌ·Îµµ ¾²ÀÎ´Ù.
+	vIntersect.y = (vPos.y + fDist * vDir.y);		// ìˆ˜ì§ë ˆì´ì™€ ì§€í˜•ì‚¼ê°í˜•ì˜ êµì°¨ì  - ì´ê²ƒì€ ë†’ì´ë¡œë„ ì“°ì¸ë‹¤.
 	vIntersect.z = vPos.z;
 
-	if( fMaxY > vIntersect.y )  // ÁöÇüº¸´Ù À§¿¡¼­ ±³Â÷ÁöÁ¡ÀÌ ÀÖÀ¸¸é?
+	if( fMaxY > vIntersect.y )  // ì§€í˜•ë³´ë‹¤ ìœ„ì—ì„œ êµì°¨ì§€ì ì´ ìˆìœ¼ë©´?
 	{		
-		if( pOut->y )			// ÁöÇüº¸´Ù ¾Æ·¡·Î ¹Ì²ø¾î Áú ¼ö ¾ø´Ù.
+		if( pOut->y )			// ì§€í˜•ë³´ë‹¤ ì•„ë˜ë¡œ ë¯¸ëŒì–´ ì§ˆ ìˆ˜ ì—†ë‹¤.
 		{
 			if( pOut->y < vIntersect.y )
 				pOut->y = vIntersect.y;
@@ -1207,12 +1207,12 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **ppObj, D3DXVECTOR
 		*pOut = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
 		fMaxY = vIntersect.y;
 	
-		// ÁöÇü¿¡¼­ ¹Ì²ø¸² - 112µµ ÀÌ»ó ±â¿ï¾îÁ® ÀÖÀ» °æ¿ì¸¸ ¹Ì²ø¾îÁø´Ù. 
+		// ì§€í˜•ì—ì„œ ë¯¸ëŒë¦¼ - 112ë„ ì´ìƒ ê¸°ìš¸ì–´ì ¸ ìˆì„ ê²½ìš°ë§Œ ë¯¸ëŒì–´ì§„ë‹¤. 
 		if( CanSlide( vLandTri[0], vLandTri[1], vLandTri[2], -0.37864f, &vDir ) )	 // -0.37864f = cos(112) 
 		{
-			D3DXVECTOR3 vTris[3 * 9 * 2];							// »ï°¢Çü 54°³
-			int nCount = GetLandTris( vPos.x, vPos.z, vTris ) / 3;	// vPosÁÖÀ§ÀÇ 9°³ ±×¸®µå»ï°¢Çü ÀĞÀ½.
-			// ±³Â÷Á¡¿¡¼­ slide¹æÇâÂÊÀÇ »ï°¢ÇüÀÌ Ãæµ¹ÇÏ´Â°Ô ÀÖ´ÂÁö...
+			D3DXVECTOR3 vTris[3 * 9 * 2];							// ì‚¼ê°í˜• 54ê°œ
+			int nCount = GetLandTris( vPos.x, vPos.z, vTris ) / 3;	// vPosì£¼ìœ„ì˜ 9ê°œ ê·¸ë¦¬ë“œì‚¼ê°í˜• ì½ìŒ.
+			// êµì°¨ì ì—ì„œ slideë°©í–¥ìª½ì˜ ì‚¼ê°í˜•ì´ ì¶©ëŒí•˜ëŠ”ê²Œ ìˆëŠ”ì§€...
 			D3DXVECTOR3* p = FindTouchLandTri( vTris, nCount, vIntersect, vDir, &fDist );	
 			if( p )
 				*pOut = vIntersect + vDir * fDist;
@@ -1227,15 +1227,15 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **ppObj, D3DXVECTOR
 #else // !__SLIDE_060502
 
 //
-// Áß·Â¹æÇâÀÇ Ãæµ¹°Ë»ç ¹× ¹Ì²ô·¯Áü Ã³¸®.
-// Áß·Â¹æÇâÀÇ ¶óÀÎ°ú Ãæµ¹ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±× ÁöÁ¡ÀÇ ÁÂÇ¥¸¦ ¾ò°í Slide°è»êÈÄÀÇ ÁÂÇ¥µµ ¾òÀ½.
-// pType : Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®ÀÇ Å¸ÀÔ. OT_OBJ³Ä OT_SHIPÀÌ³Ä.
+// ì¤‘ë ¥ë°©í–¥ì˜ ì¶©ëŒê²€ì‚¬ ë° ë¯¸ë„ëŸ¬ì§ ì²˜ë¦¬.
+// ì¤‘ë ¥ë°©í–¥ì˜ ë¼ì¸ê³¼ ì¶©ëŒí•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  ê·¸ ì§€ì ì˜ ì¢Œí‘œë¥¼ ì–»ê³  Slideê³„ì‚°í›„ì˜ ì¢Œí‘œë„ ì–»ìŒ.
+// pType : ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ì˜ íƒ€ì…. OT_OBJëƒ OT_SHIPì´ëƒ.
 FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **pObjColl, D3DXVECTOR3 &vPos )
 {
-	D3DXVECTOR3 vDir( 0.0f, -1.5f, 0.0f );	// Å°³ôÀÌ(1.5) +	¿©À¯ºĞ(0.5)
+	D3DXVECTOR3 vDir( 0.0f, -1.5f, 0.0f );	// í‚¤ë†’ì´(1.5) +	ì—¬ìœ ë¶„(0.5)
 	D3DXVECTOR3 vIntersect, vEnd;
-	float	fMaxY = -65535.0f;	// Ãæµ¹ÇÑ ÁÂÇ¥Áß °¡Àå ³ôÀº À§Ä¡¸¦ Ã£±â À§ÇÑ...
-	D3DXVECTOR3 vOut( 0, 0, 0 );		// *pOut¿¡ ÃÖÁ¾ÀûÀ¸·Î ³Ñ°ÜÁÙ °ª.
+	float	fMaxY = -65535.0f;	// ì¶©ëŒí•œ ì¢Œí‘œì¤‘ ê°€ì¥ ë†’ì€ ìœ„ì¹˜ë¥¼ ì°¾ê¸° ìœ„í•œ...
+	D3DXVECTOR3 vOut( 0, 0, 0 );		// *pOutì— ìµœì¢…ì ìœ¼ë¡œ ë„˜ê²¨ì¤„ ê°’.
 
 	CObj* pObj;
 	CObj* pMinObj = NULL;
@@ -1257,20 +1257,20 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **pObjColl, D3DXVEC
 		FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkDynamic, nDefaultLayer )
 		{
 
-			// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+			// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 			pModel = pObj->m_pModel;
 			if( pObj->GetType() == OT_CTRL ) 
 			{
 				if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 				{
-					// Áß·Â¹æÇâ ¶óÀÎ°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±³Â÷Á¡(³ôÀÌ)À» Ã£Àº ÈÄ ½½¶óÀÌµù º¤ÅÍ¸¦ vOut¿¡ ¹Ş´Â´Ù.
+					// ì¤‘ë ¥ë°©í–¥ ë¼ì¸ê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  êµì°¨ì (ë†’ì´)ì„ ì°¾ì€ í›„ ìŠ¬ë¼ì´ë”© ë²¡í„°ë¥¼ vOutì— ë°›ëŠ”ë‹¤.
 					if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorUnder( &vOut, vPos, vEnd, pObj->GetMatrixWorld(), &vIntersect ) == TRUE )
 					{
 						if( vIntersect.y > fMaxY )
 						{
-							fMaxY = vIntersect.y;	// Ãæµ¹ÇÑ Æú¸®°ïÁß¿¡ °¡Àå ³ôÀº °ªÀ» ¾²ÀÚ....ÀÌ·¸°Ô µÇ¼­ Á¹¶ó ´À·ÁÁ³´Ù.
+							fMaxY = vIntersect.y;	// ì¶©ëŒí•œ í´ë¦¬ê³¤ì¤‘ì— ê°€ì¥ ë†’ì€ ê°’ì„ ì“°ì....ì´ë ‡ê²Œ ë˜ì„œ ì¡¸ë¼ ëŠë ¤ì¡Œë‹¤.
 							*pOut = vOut;
-							*pObjColl = pObj;			// Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®.
+							*pObjColl = pObj;			// ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸.
 						}
 					}
 				}
@@ -1281,19 +1281,19 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **pObjColl, D3DXVEC
 #endif // __HOUSING
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkStatic, nDefaultLayer )
 	{
-		// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+		// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 		nCount ++;
 		pModel = pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			// Áß·Â¹æÇâ ¶óÀÎ°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±³Â÷Á¡(³ôÀÌ)À» Ã£Àº ÈÄ ½½¶óÀÌµù º¤ÅÍ¸¦ vOut¿¡ ¹Ş´Â´Ù.
+			// ì¤‘ë ¥ë°©í–¥ ë¼ì¸ê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  êµì°¨ì (ë†’ì´)ì„ ì°¾ì€ í›„ ìŠ¬ë¼ì´ë”© ë²¡í„°ë¥¼ vOutì— ë°›ëŠ”ë‹¤.
 			if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorUnder( &vOut, vPos, vEnd, pObj->GetMatrixWorld(), &vIntersect ) == TRUE )
 			{
 				if( vIntersect.y > fMaxY )
 				{
-					fMaxY = vIntersect.y;	// // Ãæµ¹ÇÑ Æú¸®°ïÁß¿¡ °¡Àå ³ôÀº °ªÀ» ¾²ÀÚ....ÀÌ·¸°Ô µÇ¼­ Á¹¶ó ´À·ÁÁ³´Ù.
+					fMaxY = vIntersect.y;	// // ì¶©ëŒí•œ í´ë¦¬ê³¤ì¤‘ì— ê°€ì¥ ë†’ì€ ê°’ì„ ì“°ì....ì´ë ‡ê²Œ ë˜ì„œ ì¡¸ë¼ ëŠë ¤ì¡Œë‹¤.
 					*pOut = vOut;
-					*pObjColl = pObj;	// Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®.
+					*pObjColl = pObj;	// ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸.
 				}
 			}
 		}
@@ -1302,19 +1302,19 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **pObjColl, D3DXVEC
 
 	FOR_LINKMAP( this, vPos, pObj, nRange, CObj::linkAirShip, nDefaultLayer )
 	{
-		// ·¹ÀÌ(vPos-vDir)¿Í ¿ÀºêÁ§Æ®OBBÀÇ °Ë»ç.  
+		// ë ˆì´(vPos-vDir)ì™€ ì˜¤ë¸Œì íŠ¸OBBì˜ ê²€ì‚¬.  
 		nCount ++;
 		pModel = pObj->m_pModel;
 		if( pModel->TestIntersectionOBB_Line( segment, pObj ) == TRUE )
 		{
-			// Áß·Â¹æÇâ ¶óÀÎ°ú ±³Â÷ÇÏ´Â »ï°¢ÇüÀ» Ã£°í ±³Â÷Á¡(³ôÀÌ)À» Ã£Àº ÈÄ ½½¶óÀÌµù º¤ÅÍ¸¦ vOut¿¡ ¹Ş´Â´Ù.
+			// ì¤‘ë ¥ë°©í–¥ ë¼ì¸ê³¼ êµì°¨í•˜ëŠ” ì‚¼ê°í˜•ì„ ì°¾ê³  êµì°¨ì (ë†’ì´)ì„ ì°¾ì€ í›„ ìŠ¬ë¼ì´ë”© ë²¡í„°ë¥¼ vOutì— ë°›ëŠ”ë‹¤.
 			if( ((CModelObject *)pModel)->GetObject3D()->SlideVectorUnder( &vOut, vPos, vEnd, pObj->GetMatrixWorld(), &vIntersect ) == TRUE )
 			{
 				if( vIntersect.y > fMaxY )
 				{
-					fMaxY = vIntersect.y;	// // Ãæµ¹ÇÑ Æú¸®°ïÁß¿¡ °¡Àå ³ôÀº °ªÀ» ¾²ÀÚ....ÀÌ·¸°Ô µÇ¼­ Á¹¶ó ´À·ÁÁ³´Ù.
+					fMaxY = vIntersect.y;	// // ì¶©ëŒí•œ í´ë¦¬ê³¤ì¤‘ì— ê°€ì¥ ë†’ì€ ê°’ì„ ì“°ì....ì´ë ‡ê²Œ ë˜ì„œ ì¡¸ë¼ ëŠë ¤ì¡Œë‹¤.
 					*pOut = vOut;
-					*pObjColl = pObj;	// Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®.
+					*pObjColl = pObj;	// ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸.
 				}
 			}
 		}
@@ -1322,44 +1322,44 @@ FLOAT CWorld::ProcessUnderCollision( D3DXVECTOR3 *pOut, CObj **pObjColl, D3DXVEC
 	END_LINKMAP
 
 	D3DXVECTOR3	v1, v2;
-	// ÇöÀç À§Ä¡ÀÇ ÇÏÀÌÆ®¸Ê »ï°¢Çü ÀĞÀ½
-	// ¼öÁ÷º¤ÅÍ·Î ÀÎÅÍ¼½Æ® ÁöÁ¡ ±¸ÇÏ°í(³ôÀÌ) ½½¶óÀÌµå °è»ê.
+	// í˜„ì¬ ìœ„ì¹˜ì˜ í•˜ì´íŠ¸ë§µ ì‚¼ê°í˜• ì½ìŒ
+	// ìˆ˜ì§ë²¡í„°ë¡œ ì¸í„°ì„¹íŠ¸ ì§€ì  êµ¬í•˜ê³ (ë†’ì´) ìŠ¬ë¼ì´ë“œ ê³„ì‚°.
 	// 
-	D3DXVECTOR3 pTri[3 * 9 * 2];		// »ï°¢Çü 54°³
+	D3DXVECTOR3 pTri[3 * 9 * 2];		// ì‚¼ê°í˜• 54ê°œ
 	FLOAT	fDist;
 	FLOAT	vx, vz;
 
-	// ¹Ù´Ú ³ë¸» ±¸ÇÔ
+	// ë°”ë‹¥ ë…¸ë§ êµ¬í•¨
 	vx = vPos.x;	vz = vPos.z;
 	GetLandTri( vx, vz, pTri );
-	v1 = pTri[1] - pTri[0];		// ³ë¸» °è»ê ½ÃÀÛ.
+	v1 = pTri[1] - pTri[0];		// ë…¸ë§ ê³„ì‚° ì‹œì‘.
 	v2 = pTri[2] - pTri[0];
-	D3DXVec3Cross( &v1, &v1, &v2 );		// ¹Ù´ÚÀÇ ³ë¸» °è»ê.
-	D3DXVec3Normalize( &v1, &v1 );		// ´ÜÀ§º¤ÅÍ·Î º¯È¯
+	D3DXVec3Cross( &v1, &v1, &v2 );		// ë°”ë‹¥ì˜ ë…¸ë§ ê³„ì‚°.
+	D3DXVec3Normalize( &v1, &v1 );		// ë‹¨ìœ„ë²¡í„°ë¡œ ë³€í™˜
 
-	// ¼öÁ÷º¤ÅÍ¿Í ¹Ù´Ú¸éÀÇ Ãæµ¹ÁöÁ¡ ±¸ÇÔ.
+	// ìˆ˜ì§ë²¡í„°ì™€ ë°”ë‹¥ë©´ì˜ ì¶©ëŒì§€ì  êµ¬í•¨.
 	BOOL b = IsTouchRayTri( &pTri[0], &pTri[1], &pTri[2], &vPos, &vDir, &fDist );
 	vIntersect.x = vx;
 	vIntersect.z = vz;
-	vIntersect.y = (vPos.y + fDist * vDir.y); + 0.01f;		// ¼öÁ÷·¹ÀÌ¿Í ¹Ù´Ú»ï°¢ÇüÀÇ ±³Â÷Á¡ - ÀÌ°ÍÀº ³ôÀÌ·Îµµ ¾²ÀÎ´Ù.
+	vIntersect.y = (vPos.y + fDist * vDir.y); + 0.01f;		// ìˆ˜ì§ë ˆì´ì™€ ë°”ë‹¥ì‚¼ê°í˜•ì˜ êµì°¨ì  - ì´ê²ƒì€ ë†’ì´ë¡œë„ ì“°ì¸ë‹¤.
 	
 #ifdef _XDEBUG
 	if( b == FALSE )
-		Error( "ProcessUnderCollision : Intersect½ÇÆĞ. Ä³¸¯ÅÍÀÇ ÁÂÇ¥°¡ ¸ÊÀ» ¹ş¾î³µ´Ù. %d %d", vPos.x, vPos.z );
+		Error( "ProcessUnderCollision : Intersectì‹¤íŒ¨. ìºë¦­í„°ì˜ ì¢Œí‘œê°€ ë§µì„ ë²—ì–´ë‚¬ë‹¤. %d %d", vPos.x, vPos.z );
 #endif
 	
 	
-	v2.x = v2.z = 0;	v2.y = -1.0f;	// ÀÌ°Ç ¹İµå½Ã ´ÜÀ§º¤ÅÍ¿©¾ß ÇÑ´Ù.
+	v2.x = v2.z = 0;	v2.y = -1.0f;	// ì´ê±´ ë°˜ë“œì‹œ ë‹¨ìœ„ë²¡í„°ì—¬ì•¼ í•œë‹¤.
 	// -0.19080f == cos(101)   -0.37864 == cos(112)
 	D3DXVECTOR3 *p = NULL, vTemp9;
 	int nMaxTri = 0;
-	if( D3DXVec3Dot( &v1, &v2 ) > -0.37864f )	// dot > cos(theta) ÀÏÁ¤°¢ ÀÌ»ó ±â¿ï¾îÁø ¸é¸¸ ½½¶óÀÌµå¸¦ Àû¿ë½ÃÅ²´Ù. µÎº¤ÅÍ´Ù ³ë¸»ÀÌ¾î¾ß ÇÑ´Ù.
+	if( D3DXVec3Dot( &v1, &v2 ) > -0.37864f )	// dot > cos(theta) ì¼ì •ê° ì´ìƒ ê¸°ìš¸ì–´ì§„ ë©´ë§Œ ìŠ¬ë¼ì´ë“œë¥¼ ì ìš©ì‹œí‚¨ë‹¤. ë‘ë²¡í„°ë‹¤ ë…¸ë§ì´ì–´ì•¼ í•œë‹¤.
 	{
 		v2.y = -0.2f;
-		CalcSlideVec( &vOut, v2, v1 );		// ¹Ì²ô·¯Áü º¤ÅÍ ±¸ÇÔ
+		CalcSlideVec( &vOut, v2, v1 );		// ë¯¸ë„ëŸ¬ì§ ë²¡í„° êµ¬í•¨
 		vTemp9 = vOut;
-		nMaxTri = GetLandTris( vx, vz, pTri ) / 3;	// vPosÁÖÀ§ÀÇ 9°³ ±×¸®µå»ï°¢Çü ÀĞÀ½.
-		p = FindTouchLandTri( pTri, nMaxTri, vIntersect, vOut, &fDist );	// ±³Â÷Á¡¿¡¼­ slide¹æÇâÂÊÀÇ »ï°¢ÇüÀÌ Ãæµ¹ÇÏ´Â°Ô ÀÖ´ÂÁö...
+		nMaxTri = GetLandTris( vx, vz, pTri ) / 3;	// vPosì£¼ìœ„ì˜ 9ê°œ ê·¸ë¦¬ë“œì‚¼ê°í˜• ì½ìŒ.
+		p = FindTouchLandTri( pTri, nMaxTri, vIntersect, vOut, &fDist );	// êµì°¨ì ì—ì„œ slideë°©í–¥ìª½ì˜ ì‚¼ê°í˜•ì´ ì¶©ëŒí•˜ëŠ”ê²Œ ìˆëŠ”ì§€...
 		if( p )
 			vOut = vIntersect + vOut * fDist;
 		else

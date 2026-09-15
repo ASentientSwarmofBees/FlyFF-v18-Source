@@ -1,13 +1,13 @@
-#ifndef __WNDDUELCONFIRM__H
+ï»¿#ifndef __WNDDUELCONFIRM__H
 #define __WNDDUELCONFIRM__H
 
 class CWndDuelConfirm : public CWndNeuz 
 { 
 public: 
-	char	m_szSrc[ MAX_NAME ];	// µà¾ó ½ÅÃ»ÀÚÀÌ¸§
+	char	m_szSrc[ MAX_NAME ];	// ë“€ì–¼ ì‹ ì²­ìžì´ë¦„
 	OBJID	m_idSrc;
 	
-	BOOL	m_bDuelParty;			// ÆÄÆ¼ µà¾ó½Ã TRUE
+	BOOL	m_bDuelParty;			// íŒŒí‹° ë“€ì–¼ì‹œ TRUE
 
 	CWndDuelConfirm(); 
 	~CWndDuelConfirm(); 
@@ -22,14 +22,14 @@ public:
 	virtual void OnLButtonDown( UINT nFlags, CPoint point ); 
 }; 
 
-#if __VER >= 8     // 8Â÷ µà¾óÁ¸¿¡ °ü°è¾øÀÌ PVP°¡´ÉÇÏ°ÔÇÔ   Neuz, World
+#if __VER >= 8     // 8ì°¨ ë“€ì–¼ì¡´ì— ê´€ê³„ì—†ì´ PVPê°€ëŠ¥í•˜ê²Œí•¨   Neuz, World
 class CWndDuelResult : public CWndNeuz 
 { 
 public: 
-	char	m_szSrc[ MAX_NAME ];	// µà¾ó ½ÅÃ»ÀÚÀÌ¸§
+	char	m_szSrc[ MAX_NAME ];	// ë“€ì–¼ ì‹ ì²­ìžì´ë¦„
 	OBJID	m_idSrc;
 	
-	BOOL	m_bDuelWin;			//  µà¾ó½Ã ÀÌ°åÀ»¶§TRUE
+	BOOL	m_bDuelWin;			//  ë“€ì–¼ì‹œ ì´ê²¼ì„ë•ŒTRUE
 
 	CWndDuelResult(); 
 	~CWndDuelResult(); 

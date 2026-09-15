@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "langman.h"
 
 #ifdef __LANG_1013

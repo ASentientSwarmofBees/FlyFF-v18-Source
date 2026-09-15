@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 
 #define CODE_PAGE(wCodePage) ( wCodePage ? wCodePage : g_codePage )
@@ -406,7 +406,7 @@ void CEditString::ParsingString( LPCTSTR lpsz, DWORD dwColor, DWORD dwStyle, WOR
 #endif
 {
 	ASSERT( wCodePage );
-	// #cffffffff // Ä®¶ó 
+	// #cffffffff // ì¹¼ë¼ 
 	// #u // underline
 	// #b // bold
 	DWORD dwCurColor = dwColor;
@@ -424,7 +424,7 @@ void CEditString::ParsingString( LPCTSTR lpsz, DWORD dwColor, DWORD dwStyle, WOR
 	
 	for( int i = 0; i < nLen; i++ )
 	{
-		if( lpsz[ i ] == '#' ) // ÀÎ½Ä ÄÚµå
+		if( lpsz[ i ] == '#' ) // ì¸ì‹ ì½”ë“œ
 		{
 			if( ++i >= nLen )
 				break;
@@ -533,10 +533,10 @@ void CEditString::ParsingString( LPCTSTR lpsz, DWORD dwColor, DWORD dwStyle, WOR
 					}
 				}
 				break;
-			default: // ¸í·ÉÄÚµå¸¦ ¹ß°ß ¸øÇßÀ» °æ¿ì 
+			default: // ëª…ë ¹ì½”ë“œë¥¼ ë°œê²¬ ëª»í–ˆì„ ê²½ìš° 
 				if( dwPStyle & PS_USE_MACRO )
 				{
-					// #ÄÚµå¸¦ ³Ö¾îÁØ´Ù
+					// #ì½”ë“œë¥¼ ë„£ì–´ì¤€ë‹¤
 					strTemp += lpsz[ i - 1 ];
 					adwColor.Add( dwCurColor );
 					abyStyle.Add( (BYTE)( dwCurStyle ) );			
@@ -545,7 +545,7 @@ void CEditString::ParsingString( LPCTSTR lpsz, DWORD dwColor, DWORD dwStyle, WOR
 					adwPlayerId.Add( dwCurPlayerId );
 					adwObjId.Add( dwCurObjId );
 #endif
-					// ´ÙÀ½ ¹®ÀÚ¸¦ ³Ö¾îÁØ´Ù.
+					// ë‹¤ìŒ ë¬¸ìë¥¼ ë„£ì–´ì¤€ë‹¤.
 					strTemp += lpsz[ i ];
 					adwColor.Add( dwCurColor );
 					abyStyle.Add( (BYTE)( dwCurStyle ) );
@@ -913,12 +913,12 @@ void CEditString::Init( int nWidth, SIZE sizeFont )
 }
 void CEditString::Init( CD3DFont* pFont, CRect* pRect )
 {
-	TCHAR str[ 3 ] = _T( "°¡" );
+	TCHAR str[ 3 ] = _T( "ê°€" );
 
 	m_sizeFont = pFont->GetTextExtent(str);
 
 	BOOL bAlign = FALSE;
-	// »çÀÌÁî¿Í ÆùÆ® µÑÁß¿¡ ÇÏ³ª¶óµµ ±âÁ¸°Í°ú ´Ù¸£´Ù¸é Á¤·ÄÀ» ÇØÁÖ¾î¾ßÇÑ´Ù.
+	// ì‚¬ì´ì¦ˆì™€ í°íŠ¸ ë‘˜ì¤‘ì— í•˜ë‚˜ë¼ë„ ê¸°ì¡´ê²ƒê³¼ ë‹¤ë¥´ë‹¤ë©´ ì •ë ¬ì„ í•´ì£¼ì–´ì•¼í•œë‹¤.
 	if( m_nWidth != pRect->Width() || m_pFont != pFont )
 		bAlign = TRUE;
 	m_nWidth = pRect->Width();
@@ -933,10 +933,10 @@ void CEditString::Adjust( int nWidth, SIZE sizeFont )
 }
 void CEditString::Adjust( CD3DFont* pFont, CRect* pRect )
 {
-	TCHAR str[ 3 ] = _T( "°¡" );
+	TCHAR str[ 3 ] = _T( "ê°€" );
 	m_sizeFont = pFont->GetTextExtent(str);
 	BOOL bAlign = FALSE;
-	// »çÀÌÁî¿Í ÆùÆ® µÑÁß¿¡ ÇÏ³ª¶óµµ ±âÁ¸°Í°ú ´Ù¸£´Ù¸é Á¤·ÄÀ» ÇØÁÖ¾î¾ßÇÑ´Ù.
+	// ì‚¬ì´ì¦ˆì™€ í°íŠ¸ ë‘˜ì¤‘ì— í•˜ë‚˜ë¼ë„ ê¸°ì¡´ê²ƒê³¼ ë‹¤ë¥´ë‹¤ë©´ ì •ë ¬ì„ í•´ì£¼ì–´ì•¼í•œë‹¤.
 	if( m_nWidth != pRect->Width() || m_pFont != pFont )
 		bAlign = TRUE;
 	m_nWidth = pRect->Width();
@@ -965,7 +965,7 @@ void CEditString::Align( CD3DFont* pFont, int nBeginLine )
 	if( GetLineCount() )
 	{
 		nOffset = GetLineOffset( nBeginLine );
-		//  ¶óÀÎ¿É¼Â °ªÀÌ ÀÌ»ó °ªÀÌ¶ó¸é 
+		//  ë¼ì¸ì˜µì…‹ ê°’ì´ ì´ìƒ ê°’ì´ë¼ë©´ 
 		if( nOffset < 0 || nOffset >= nLength ) 
 			Error( "CEditString::Align : pos = %c, LineCount = %d, Length = %d", nOffset, GetLineCount(), nLength );
 	}
@@ -978,7 +978,7 @@ void CEditString::Align( CD3DFont* pFont, int nBeginLine )
 	int nOffAdd = 0;
 
 	BOOL bWordAlign		= FALSE;
-	// GetLanguage()¸¦ constructor¿¡¼­ È£Ãâ ÇÒ ¼ö ¾ø±â¿¡ ¿©±â¼­ ÇÑ´Ù.
+	// GetLanguage()ë¥¼ constructorì—ì„œ í˜¸ì¶œ í•  ìˆ˜ ì—†ê¸°ì— ì—¬ê¸°ì„œ í•œë‹¤.
 	int nLang	= ::GetLanguage();
 	switch( nLang )
 	{

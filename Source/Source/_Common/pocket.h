@@ -1,4 +1,4 @@
-#ifndef __POCKET_H__
+﻿#ifndef __POCKET_H__
 #define	__POCKET_H__
 
 #if defined(__WORLDSERVER) || defined(__CLIENT)

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 12 // __RANGDA_0521
 #include "rangda.h"
@@ -39,21 +39,21 @@ CRangda::~CRangda()
 }
 
 void CRangda::AddPos( const RANGDA_POS & vPos )
-{	// ÁÂÇ¥ Ãß°¡
+{	// ì¢Œí‘œ ì¶”ê°€
 	m_vvPos.push_back( vPos );
 }
 
 RANGDA_POS CRangda::GetRandomPos( void )
-{	// Ãß°¡µÈ ÁÂÇ¥ Áß ÇÏ³ª¸¦ ÀÓÀÇ·Î ¹İÈ¯
+{	// ì¶”ê°€ëœ ì¢Œí‘œ ì¤‘ í•˜ë‚˜ë¥¼ ì„ì˜ë¡œ ë°˜í™˜
 	ASSERT( !m_vvPos.empty() );
 	
-	// Ãß°¡µÈ ÁÂÇ¥°¡ ÇÏ³ª¶ó¸é ¾Æ·¡ÀÇ ±ÔÄ¢À»
-	// µû¸¦ ¼ö ¾øÀ¸¹Ç·Î ±×´ë·Î ¹İÈ¯
+	// ì¶”ê°€ëœ ì¢Œí‘œê°€ í•˜ë‚˜ë¼ë©´ ì•„ë˜ì˜ ê·œì¹™ì„
+	// ë”°ë¥¼ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ê·¸ëŒ€ë¡œ ë°˜í™˜
 	if( m_vvPos.size() == 1 )
 		return m_vvPos[0];
 	
 	int nPos;
-	do	{	// Ãâ·Â ÁÂÇ¥´Â ±âÁ¸ ÁÂÇ¥¿Í ´Ş¶ó¾ß ÇÑ´Ù
+	do	{	// ì¶œë ¥ ì¢Œí‘œëŠ” ê¸°ì¡´ ì¢Œí‘œì™€ ë‹¬ë¼ì•¼ í•œë‹¤
 		nPos	= xRandom( 0, m_vvPos.size() );
 	}	while( nPos == m_nOldPos );
 
@@ -62,7 +62,7 @@ RANGDA_POS CRangda::GetRandomPos( void )
 }
 
 void CRangda::SetObj( OBJID objid )
-{	// ÇöÀç »ı¼ºµÈ ½Ç °´Ã¼¸¦ ¼³Á¤
+{	// í˜„ì¬ ìƒì„±ëœ ì‹¤ ê°ì²´ë¥¼ ì„¤ì •
 	m_objid		= objid;
 	m_nGenerateCountdown	= m_nInterval;
 	m_nReplaceCountdown		= m_nReplace;
@@ -72,14 +72,14 @@ void CRangda::SetObj( OBJID objid )
 void CRangda::OnTimer( void )
 {
 	CMover* pMonster	= GetMonster();
-	if( IsValidObj( pMonster ) )	// °´Ã¼°¡ Á¸ÀçÇÏ¸é
-		ProcessReplace( pMonster );		// Á¶°ÇÀ» ¸¸Á·ÇÏ¸é ÀÓÀÇÀÇ ÁÂÇ¥·Î ÀÌµ¿½ÃÅ²´Ù
-	else	// °´Ã¼°¡ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é Àç»ı
+	if( IsValidObj( pMonster ) )	// ê°ì²´ê°€ ì¡´ì¬í•˜ë©´
+		ProcessReplace( pMonster );		// ì¡°ê±´ì„ ë§Œì¡±í•˜ë©´ ì„ì˜ì˜ ì¢Œí‘œë¡œ ì´ë™ì‹œí‚¨ë‹¤
+	else	// ê°ì²´ê°€ ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´ ì¬ìƒ
 		ProcessGenerate();
 }
 
 CMover* CRangda::GetMonster( void )
-{	// ½Ç °´Ã¼ÀÇ Æ÷ÀÎÅÍ¸¦ ¹İÈ¯
+{	// ì‹¤ ê°ì²´ì˜ í¬ì¸í„°ë¥¼ ë°˜í™˜
 	if( m_objid != NULL_ID )
 	{
 		CMover* pMonster	= prj.GetMover( m_objid );
@@ -91,50 +91,50 @@ CMover* CRangda::GetMonster( void )
 }
 
 void CRangda::ProcessReplace( CMover* pMonster )
-{	// ÀÓÀÇÀÇ ÁÂÇ¥·Î ÀÌµ¿
+{	// ì„ì˜ì˜ ì¢Œí‘œë¡œ ì´ë™
 	if( m_bReplaceable )
 	{
-		if( IsDamaged( pMonster ) )		// »óÃ³ ÀÔ¾úÀ¸¸é
-			m_bReplaceable	= FALSE;	// ÀÌµ¿½ÃÅ°Áö ¾Ê´Â´Ù
-		else if( HavetoReplace() )	// ÀÌµ¿ÇÒ Á¶°ÇÀ» ¸¸Á·ÇÏ¸é
+		if( IsDamaged( pMonster ) )		// ìƒì²˜ ì…ì—ˆìœ¼ë©´
+			m_bReplaceable	= FALSE;	// ì´ë™ì‹œí‚¤ì§€ ì•ŠëŠ”ë‹¤
+		else if( HavetoReplace() )	// ì´ë™í•  ì¡°ê±´ì„ ë§Œì¡±í•˜ë©´
 		{
 			election::OutputDebugString( "CRangda.ProcessReplace:" );
-			pMonster->Delete();		// Á¦°ÅÇÏ°í
-			CreateMonster();	// »õ·Î »ı¼ºÇÑ´Ù
+			pMonster->Delete();		// ì œê±°í•˜ê³ 
+			CreateMonster();	// ìƒˆë¡œ ìƒì„±í•œë‹¤
 		}
 	}
 }
 
 void CRangda::ProcessGenerate( void )
 {
-	if( HavetoGenerate() )	// Àç»ı Á¶°ÇÀ» ¸¸Á·ÇÏ¸é
+	if( HavetoGenerate() )	// ì¬ìƒ ì¡°ê±´ì„ ë§Œì¡±í•˜ë©´
 	{
 		election::OutputDebugString( "CRangda.ProcessGenerate:" );
-		CreateMonster();	// »õ·Î »ı¼ºÇÑ´Ù
+		CreateMonster();	// ìƒˆë¡œ ìƒì„±í•œë‹¤
 	}
 }
 
 BOOL CRangda::IsDamaged( CMover* pMonster )
-{	// »óÃ³ ÀÔ¾ú³ª?
+{	// ìƒì²˜ ì…ì—ˆë‚˜?
 	return ( pMonster->GetHitPoint() < pMonster->GetMaxHitPoint() );
 }
 
 BOOL CRangda::HavetoReplace( void )
-{	// ÁÂÇ¥¸¦ ¹Ù²Ü ½Ã°£ÀÌ µÇ¾ú³ª?
+{	// ì¢Œí‘œë¥¼ ë°”ê¿€ ì‹œê°„ì´ ë˜ì—ˆë‚˜?
 	if( m_nReplaceCountdown > 0 )
 		m_nReplaceCountdown--;
 	return ( m_nReplaceCountdown == 0 );
 }
 
 BOOL CRangda::HavetoGenerate( void )
-{	// Àç»ı ½Ã°£ÀÌ µÇ¾ú³ª?
+{	// ì¬ìƒ ì‹œê°„ì´ ë˜ì—ˆë‚˜?
 	if( m_nGenerateCountdown > 0 )
 		m_nGenerateCountdown--;
 	return ( m_nGenerateCountdown == 0 );
 }
 
 void CRangda::CreateMonster( void )
-{	// ¸ó½ºÅÍ »ı¼º
+{	// ëª¬ìŠ¤í„° ìƒì„±
 	RANGDA_POS pos	= GetRandomPos();
 	CWorld* pWorld	= g_WorldMng.GetWorld( pos.dwWorldId );
 	if( !pWorld )
@@ -155,7 +155,7 @@ void CRangda::CreateMonster( void )
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// ·£´ı ÀÌº¥Æ® ¸ó½ºÅÍ Á¦¾î Å¬·¡½º
+// ëœë¤ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„° ì œì–´ í´ë˜ìŠ¤
 CRangdaController::CRangdaController()
 {
 }

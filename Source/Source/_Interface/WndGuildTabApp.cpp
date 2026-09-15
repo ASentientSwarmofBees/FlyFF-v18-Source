@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndGuildTabApp.h"
@@ -54,11 +54,11 @@ void CWndGuildTabApp::OnDraw( C2DRender* p2DRender )
 void CWndGuildTabApp::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	UpdateData();
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -237,43 +237,43 @@ BOOL CWndGuildTabApp::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		pWndCheck->GetCheck() ? m_adwPower[GUD_ROOKIE] |= PF_ITEM : m_adwPower[GUD_ROOKIE] &= (~PF_ITEM);
 	}
 
-	// ¼³Àý¹öÆ° ´­·¶À»¶§ ½ÇÇà Å¬¶ó¿¡¼­ ¸ÕÀú °¡Áö°í ÀÖ´Â±ÇÇÑÀÌ ´Ù¸£¸é ¼­¹ö·Î Àü¼Û
-	if( nID == WIDC_BUTTON1 )	// ¸¶½ºÆ®
+	// ì„¤ì ˆë²„íŠ¼ ëˆŒë €ì„ë•Œ ì‹¤í–‰ í´ë¼ì—ì„œ ë¨¼ì € ê°€ì§€ê³  ìžˆëŠ”ê¶Œí•œì´ ë‹¤ë¥´ë©´ ì„œë²„ë¡œ ì „ì†¡
+	if( nID == WIDC_BUTTON1 )	// ë§ˆìŠ¤íŠ¸
 	{
 		SAFE_DELETE(m_pWndGuildPayConfirm);
 		m_pWndGuildPayConfirm = new CWndGuildPayConfirm;
 		m_pWndGuildPayConfirm->Initialize( this );
 		m_pWndGuildPayConfirm->m_dwAppellation = GUD_MASTER;
 	}
-	else if( nID == WIDC_BUTTON2 )  // Å· ÇÉ
+	else if( nID == WIDC_BUTTON2 )  // í‚¹ í•€
 	{
 		SAFE_DELETE(m_pWndGuildPayConfirm);
 		m_pWndGuildPayConfirm = new CWndGuildPayConfirm;
 		m_pWndGuildPayConfirm->Initialize( this );
 		m_pWndGuildPayConfirm->m_dwAppellation = GUD_KINGPIN;
 	}
-	else if( nID == WIDC_BUTTON3 )  // Ä¸ Æ¾
+	else if( nID == WIDC_BUTTON3 )  // ìº¡ í‹´
 	{
 		SAFE_DELETE(m_pWndGuildPayConfirm);
 		m_pWndGuildPayConfirm = new CWndGuildPayConfirm;
 		m_pWndGuildPayConfirm->Initialize( this );
 		m_pWndGuildPayConfirm->m_dwAppellation = GUD_CAPTAIN;
 	}
-	else if( nID == WIDC_BUTTON4 )  // ¼­Æ÷ÅÍ
+	else if( nID == WIDC_BUTTON4 )  // ì„œí¬í„°
 	{
 		SAFE_DELETE(m_pWndGuildPayConfirm);
 		m_pWndGuildPayConfirm = new CWndGuildPayConfirm;
 		m_pWndGuildPayConfirm->Initialize( this );
 		m_pWndGuildPayConfirm->m_dwAppellation = GUD_SUPPORTER;
 	}
-	else if( nID == WIDC_BUTTON5 )  // ·ç Å°
+	else if( nID == WIDC_BUTTON5 )  // ë£¨ í‚¤
 	{
 		SAFE_DELETE(m_pWndGuildPayConfirm);
 		m_pWndGuildPayConfirm = new CWndGuildPayConfirm;
 		m_pWndGuildPayConfirm->Initialize( this );
 		m_pWndGuildPayConfirm->m_dwAppellation = GUD_ROOKIE;
 	}
-	else if( nID == WIDC_OK )	// º¸³»±â
+	else if( nID == WIDC_OK )	// ë³´ë‚´ê¸°
 	{
 		g_DPlay.SendGuildAuthority( pGuild->GetGuildId(), m_adwPower );
 	}
@@ -478,16 +478,16 @@ void CWndGuildPayConfirm::OnDraw( C2DRender* p2DRender )
 void CWndGuildPayConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndGuildPayConfirm::Initialize( CWndBase* pWndParent ) 
 { 
 	LPWNDAPPLET lpWndApplet = m_resMng.GetAt ( APP_GUILD_PAYCONFIRM );
@@ -539,7 +539,7 @@ BOOL CWndGuildPayConfirm::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 
 				if( pGuild )
 				{
-					// Sendº¸³¿
+					// Sendë³´ëƒ„
 					g_DPlay.SendGuilPenya( pGuild->GetGuildId(), m_dwAppellation, dwSendPenya );
 				}
 				Destroy();
@@ -623,7 +623,7 @@ void CWndGuildTabApp::EnableButton(BOOL bEnable)
 	pWndCheck = (CWndButton*)GetDlgItem(WIDC_CHECK25);
 	pWndCheck->EnableWindow(bEnable);
 	
-	// ¹öÆ° ºÎºÐ
+	// ë²„íŠ¼ ë¶€ë¶„
 	pWndCheck = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
 	pWndCheck->EnableWindow(bEnable);
 	pWndCheck = (CWndButton*)GetDlgItem(WIDC_BUTTON2);
@@ -697,7 +697,7 @@ void CWndGuildTabApp::UpdateData()
 		}
 	}
 	
-	// ¸¶½ºÅÍ ºÎºÐÀÇ ¹öÆ°Àº ´©·ê¼ö ¾ø´Ù
+	// ë§ˆìŠ¤í„° ë¶€ë¶„ì˜ ë²„íŠ¼ì€ ëˆ„ë£°ìˆ˜ ì—†ë‹¤
 	CWndButton* pWndCheck = NULL;
 	pWndCheck = (CWndButton*)GetDlgItem(WIDC_CHECK1);
 	pWndCheck->EnableWindow(FALSE);

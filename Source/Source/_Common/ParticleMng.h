@@ -1,4 +1,4 @@
-#ifndef __PARTICLEMNG_H__
+ï»¿#ifndef __PARTICLEMNG_H__
 #define __PARTICLEMNG_H__
 
 struct POINTVERTEX
@@ -69,7 +69,7 @@ public:
     HRESULT Render( LPDIRECT3DDEVICE9 pd3dDevice );
 };
 
-#define		MAX_PARTICLE_TYPE	32		// ÃÖ´ë ÆÄÆ¼Å¬ Á¾·ù.
+#define		MAX_PARTICLE_TYPE	32		// ìµœëŒ€ íŒŒí‹°í´ ì¢…ë¥˜.
 
 class CParticleMng
 {

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AppDefine.h"
 #include "WndCredit.h"
 //#include "version.h" //CCLIENT_VERSION
@@ -280,9 +280,9 @@ void CWndCredit::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 	
-	// ¸ğ·¡½Ã°è·Î Ä¿¼­ º¯°æ
+	// ëª¨ë˜ì‹œê³„ë¡œ ì»¤ì„œ ë³€ê²½
 	SetMouseCursor( CUR_DELAY );
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	{
 		CResFile file; 
 
@@ -317,7 +317,7 @@ void CWndCredit::OnInitialUpdate()
 					*temp++ = *prog++;
 				if( *prog == '\r')
 					prog++; // skim comma
-				// white space¸¦ ½ºÅµ
+				// white spaceë¥¼ ìŠ¤í‚µ
 				if( temp != szString )
 				{
 					temp--;
@@ -366,7 +366,7 @@ void CWndCredit::OnInitialUpdate()
 
 	//m_pFont->RestoreDeviceObjects();//>InvalidateDeviceObjects();
 	//m_mapFont.SetAt( _T( "Arial Black9"), pFont );
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -393,14 +393,14 @@ void CWndCredit::LoadScreenShot()
 	//string.Format( "shotCredit%02d.dds", xRandom( 18 ) );
 	//m_texScreenShot.LoadTexture( m_pApp->m_pd3dDevice, MakePath( DIR_THEME, string ), 0xffff00ff );
 }
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndCredit::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CREDIT, WBS_MODAL, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndCredit::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -450,7 +450,7 @@ void CWndCredit::SetWndRect( CRect rectWnd, BOOL bOnSize )
 }
 
 /****************************************************
-  WndId : APP_ABOUT - ÇÁ¸®ÇÁ¿¡ °üÇØ¼­
+  WndId : APP_ABOUT - í”„ë¦¬í”„ì— ê´€í•´ì„œ
 ****************************************************/
 
 CWndAbout::CWndAbout() 
@@ -475,7 +475,7 @@ void CWndAbout::OnInitialUpdate()
 	CString strName = "WndAboutFlyff.tga";//lpWndApplet->strTexture;
 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	if( lpWndApplet )
 	{
@@ -483,17 +483,17 @@ void CWndAbout::OnInitialUpdate()
 	}
 	
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndAbout::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ABOUT, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndAbout::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 

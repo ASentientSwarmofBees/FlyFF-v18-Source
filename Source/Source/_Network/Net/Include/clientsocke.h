@@ -1,4 +1,4 @@
-#ifndef __CLIENTSOCKE_H__
+﻿#ifndef __CLIENTSOCKE_H__
 #define __CLIENTSOCKE_H__
 
 #pragma once

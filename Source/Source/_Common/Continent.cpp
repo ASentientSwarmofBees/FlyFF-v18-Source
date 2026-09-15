@@ -1,4 +1,4 @@
-// Continent.cpp: implementation of the CContinent class.
+ï»¿// Continent.cpp: implementation of the CContinent class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -31,8 +31,8 @@ void CContinent::Init()
 	m_MapCont.clear();
 	vector<CPoint> vecMap;
 
-#if __VER >= 15 // __USING_CONTINENT_DATA// ´ë·ú °æ°èÁ¤º¸ Data¿¬°áÁß 
-	// ¼¼±İÀÌ³ª ºñ¹ĞÀÇ ¹æ¿¡ °ü¿©ÇÏ´Â ´ë·úÀº ¸¶µå¸®°¥¿¡¸¸(¸ŞÀÎ¿ùµå) Á¸ÀçÇÏ¸ç ¾ÕÀ¸·Îµµ·Î ±×·²²¨¶ó°í °¡Á¤ÇÑ´Ù.
+#if __VER >= 15 // __USING_CONTINENT_DATA// ëŒ€ë¥™ ê²½ê³„ì •ë³´ Dataì—°ê²°ì¤‘ 
+	// ì„¸ê¸ˆì´ë‚˜ ë¹„ë°€ì˜ ë°©ì— ê´€ì—¬í•˜ëŠ” ëŒ€ë¥™ì€ ë§ˆë“œë¦¬ê°ˆì—ë§Œ(ë©”ì¸ì›”ë“œ) ì¡´ì¬í•˜ë©° ì•ìœ¼ë¡œë„ë¡œ ê·¸ëŸ´êº¼ë¼ê³  ê°€ì •í•œë‹¤.
 	const char* szWorldName = "WdMadrigal";				
 	CString strDir = MakePath( DIR_WORLD, szWorldName );
 	CString strFullFileName = strDir + CString( "\\" ) + CString(szWorldName) + CString(".wld.cnt");
@@ -61,8 +61,8 @@ void CContinent::Init()
 
 				pair< map< BYTE, vector<CPoint> >::iterator, BOOL > rst;
 
-				// gmpbigsun(100409): bTownÀÌ TRUE¶ó¸é ÀÌ±¸¿ªÀº ¸¶À»ÀÌ¶ó´Â ÀÇ¹Ì°í, ÇöÀç´Â Client ¸Ê°ü·Ã Á¤º¸¸¦ À§ÇØ »ç¿ëµÇÁö¸¸
-				// Server¿¡¼­µµ ÃæºĞÈ÷ »ç¿ë°¡´ÉÇÏ°í, ºñ¿ëÀÌ ¾ÆÁÖ Àû±â¶§¹®¿¡ Ç®¾îµÒ.
+				// gmpbigsun(100409): bTownì´ TRUEë¼ë©´ ì´êµ¬ì—­ì€ ë§ˆì„ì´ë¼ëŠ” ì˜ë¯¸ê³ , í˜„ì¬ëŠ” Client ë§µê´€ë ¨ ì •ë³´ë¥¼ ìœ„í•´ ì‚¬ìš©ë˜ì§€ë§Œ
+				// Serverì—ì„œë„ ì¶©ë¶„íˆ ì‚¬ìš©ê°€ëŠ¥í•˜ê³ , ë¹„ìš©ì´ ì•„ì£¼ ì ê¸°ë•Œë¬¸ì— í’€ì–´ë‘ .
 				rst = ( bTown ? m_MapContTown.insert( make_pair( id, vecMap ) ) : m_MapCont.insert( make_pair( id, vecMap ) ) ) ;
 	
 				assert( rst.second );
@@ -94,17 +94,17 @@ void CContinent::Init()
 			BOOL bReal = script.GetNumber( );
 			if( !bReal )
 			{
-				//Å¬¶óÀü¿ë ºñÁê¾óº¯È­ µ¥ÀÌÅÍ·Î¸¸ ¾²ÀÎ´Ù. Å¬¶ó´Â ¿ùµå ·Îµå½Ã ÇØ´ç ´ë·ú¸¸ ÀÚµ¿·ÎµåµÊ.
+				//í´ë¼ì „ìš© ë¹„ì¥¬ì–¼ë³€í™” ë°ì´í„°ë¡œë§Œ ì“°ì¸ë‹¤. í´ë¼ëŠ” ì›”ë“œ ë¡œë“œì‹œ í•´ë‹¹ ëŒ€ë¥™ë§Œ ìë™ë¡œë“œë¨.
 				do{
 					script.GetToken( );
-				}while( script.Token != "END" );		//ÇÑ´ë·ú pass 
+				}while( script.Token != "END" );		//í•œëŒ€ë¥™ pass 
 			}
 		} 
 
 	}while( script.tok != FINISHED );
 
 #else	
-	// ÇÃ¶ó¸®½º
+	// í”Œë¼ë¦¬ìŠ¤
 	vecMap.clear();
 	vecMap.push_back( CPoint(6159, 3407) );
 	vecMap.push_back( CPoint(6350, 3825) );
@@ -121,7 +121,7 @@ void CContinent::Init()
 	
 	m_MapCont.insert( make_pair(CONT_FLARIS, vecMap) );
 	
-	// ¼¼ÀÎÆ®¸ğ´×
+	// ì„¸ì¸íŠ¸ëª¨ë‹
 	vecMap.clear();
 	vecMap.push_back( CPoint(7253, 2684) );
 	vecMap.push_back( CPoint(8023, 3496) );
@@ -137,7 +137,7 @@ void CContinent::Init()
 	
 	m_MapCont.insert( make_pair(CONT_SAINTMORNING, vecMap) );
 	
-	// ¸®½Ã½ºÁ¤¿ø
+	// ë¦¬ì‹œìŠ¤ì •ì›
 	vecMap.clear();
 	vecMap.push_back( CPoint(9123, 3339) );
 	vecMap.push_back( CPoint(8922, 3740) );
@@ -152,7 +152,7 @@ void CContinent::Init()
 	
 	m_MapCont.insert( make_pair(CONT_RICIS, vecMap) );
 	
-	// ´ÙÄÜ1,2
+	// ë‹¤ì½˜1,2
 	vecMap.clear();
 	vecMap.push_back( CPoint(4858, 2781) );
 	vecMap.push_back( CPoint(4561, 3613) );
@@ -173,7 +173,7 @@ void CContinent::Init()
 	
 	m_MapCont.insert( make_pair(CONT_DARKON12, vecMap) );
 	
-	// ´ÙÄÜ3
+	// ë‹¤ì½˜3
 	vecMap.clear();
 	vecMap.push_back( CPoint(2834, 5241) );
 	vecMap.push_back( CPoint(3069, 4562) );
@@ -192,7 +192,7 @@ void CContinent::Init()
 	m_MapCont.insert( make_pair(CONT_DARKON3, vecMap) );
 
 #if __VER >= 14 // __NEW_CONTINENT
-	// ÇÏ¸£¸ğ´Ñ
+	// í•˜ë¥´ëª¨ë‹Œ
 	vecMap.clear();
 	vecMap.push_back( CPoint(6037, 4875) );
 	vecMap.push_back( CPoint(6484, 5060) );
@@ -262,8 +262,8 @@ BYTE CContinent::GetContinent( CMover* pMover )
 	switch( pMover->GetWorld()->m_dwWorldID )
 	{
 		case WI_WORLD_MADRIGAL:	return GetContinent( pMover->GetPos() );
-		case WI_WORLD_ARENA:	return CONT_DARKON12;	// ¾Æ·¹³ª´Â ´ÙÄÜ 1, 2 Áö±¸¿¡ Æ÷ÇÔ
-		case WI_WORLD_GUILDWAR : return CONT_FLARIS;	// ±æµå´ëÀüÀåÀº ÇÃ¶ó¸®½º
+		case WI_WORLD_ARENA:	return CONT_DARKON12;	// ì•„ë ˆë‚˜ëŠ” ë‹¤ì½˜ 1, 2 ì§€êµ¬ì— í¬í•¨
+		case WI_WORLD_GUILDWAR : return CONT_FLARIS;	// ê¸¸ë“œëŒ€ì „ì¥ì€ í”Œë¼ë¦¬ìŠ¤
 	}
 
 	return CONT_NODATA;

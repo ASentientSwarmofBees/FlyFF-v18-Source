@@ -1,4 +1,4 @@
-// WaveFile.h
+﻿// WaveFile.h
 
 #ifndef _INC_WAVEFILE
 #define _INC_WAVEFILE

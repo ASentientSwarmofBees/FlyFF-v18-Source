@@ -1,4 +1,4 @@
-#ifndef __RESPAWNER_H__
+ï»¿#ifndef __RESPAWNER_H__
 #define __RESPAWNER_H__
 
 #define RESPAWNTYPE_REGION   0
@@ -19,20 +19,20 @@ public:
 	volatile long	m_cb;
 	volatile long	m_nActiveAttackNum;
 	CRect			m_rect;
-	D3DXVECTOR3		m_vPos; // flyingÀÏ °æ¿ì¸¸ ÀÇ¹Ì°¡ÀÖÀ½ 
+	D3DXVECTOR3		m_vPos; // flyingì¼ ê²½ìš°ë§Œ ì˜ë¯¸ê°€ìˆìŒ 
 	u_short			m_uTime;
 	short			m_cbTime;
 
 	u_short			m_cbRespawn;
 	BOOL			m_bHalf;
 	BOOL			m_bRemove;
-	int m_nItemMin; // ¾ÆÀÌÅÛ ÃÖ¼Ò °¹¼ö  
-	int m_nItemMax; // ¾ÆÀÌÅÛ ÃÖ´ë °¹¼ö  
+	int m_nItemMin; // ì•„ì´í…œ ìµœì†Œ ê°¯ìˆ˜  
+	int m_nItemMax; // ì•„ì´í…œ ìµœëŒ€ ê°¯ìˆ˜  
 	int m_nDayMin;
 	int m_nDayMax;
 	int m_nHourMin;
 	int m_nHourMax;
-	float	m_fY; // ¹ß»ıÇÒ y ÁÂÇ¥
+	float	m_fY; // ë°œìƒí•  y ì¢Œí‘œ
 	CCtrlElem m_CtrlElem;
 
 #ifdef __S1108_BACK_END_SYSTEM
@@ -44,7 +44,7 @@ public:
 	DWORD	m_dwAiState;
 	float	m_fAngle;	
 	DWORD	m_dwPatrolIndex;
-	BYTE    m_bPatrolCycle: 1;			// ÀüÃ¼ ¼øÈ¯ÀÌ³Ä? ³¡->Ã³À½->³¡ ¹æÇâÀÌ³Ä
+	BYTE    m_bPatrolCycle: 1;			// ì „ì²´ ìˆœí™˜ì´ëƒ? ë->ì²˜ìŒ->ë ë°©í–¥ì´ëƒ
 #ifdef __RES0807
 	POINT	m_aResPoint[MAX_RESPOINT_PER_REGION];
 #endif	// __RES0807
@@ -79,7 +79,7 @@ public:
 
 	//	Operations
 private:
-	BOOL	DoRemove( int nRespawnNo, int nType ); // ½ÇÁ¦ Remove¸¦ ¼öÇà 
+	BOOL	DoRemove( int nRespawnNo, int nType ); // ì‹¤ì œ Removeë¥¼ ìˆ˜í–‰ 
 public:
 	int		Add( CRespawnInfo & ri, int nType = RESPAWNTYPE_REGION );
 	CRespawnInfo*	GetRespawnInfo( int nRespawnNo, int nType );

@@ -1,4 +1,4 @@
-// CacheServer.cpp : Defines the entry point for the application.
+﻿// CacheServer.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"

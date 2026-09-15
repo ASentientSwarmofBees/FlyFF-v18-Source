@@ -1,4 +1,4 @@
-#ifndef __WNDBAGEX__H
+﻿#ifndef __WNDBAGEX__H
 #define __WNDBAGEX__H
 
 #if __VER >= 11 // __SYS_POCKET

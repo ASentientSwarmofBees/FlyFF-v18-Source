@@ -1,4 +1,4 @@
-#ifndef __MYSPLASHWND_H__
+﻿#ifndef __MYSPLASHWND_H__
 #define __MYSPLASHWND_H__
 
 #pragma once

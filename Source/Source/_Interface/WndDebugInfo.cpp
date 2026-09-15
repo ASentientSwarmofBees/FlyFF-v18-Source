@@ -1,4 +1,4 @@
-// WndArcane.cpp: implementation of the CWndNeuz class.
+ï»¿// WndArcane.cpp: implementation of the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -10,7 +10,7 @@
 extern	CDPClient	g_DPlay;
 
 /////////////////////////////////////////////////////////////////////////////////////
-// Ä¸Ãç À©µµ 
+// ìº¡ì¶° ìœˆë„ 
 /////////////////////////////////////////////////////////////////////////////////////
 
 CWndDebugInfo::CWndDebugInfo()
@@ -46,7 +46,7 @@ void CWndDebugInfo::OnDraw(C2DRender* p2DRender)
 		p2DRender->TextOut( 2, 55, strDebug, D3DCOLOR_ARGB( 255, 0, 0, 0 ) );
 	}
 
-	// chipi_090814 - ÇÎ Ãâ·ÂÀ» µğ¹ö±× Ã¢À¸·Î ÀÌµ¿
+	// chipi_090814 - í•‘ ì¶œë ¥ì„ ë””ë²„ê·¸ ì°½ìœ¼ë¡œ ì´ë™
 	if( g_pPlayer && g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER ) )
 	{
 		CString string;
@@ -57,7 +57,7 @@ void CWndDebugInfo::OnDraw(C2DRender* p2DRender)
 void CWndDebugInfo::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	CWndButton* pWndButton;
 
@@ -173,12 +173,12 @@ void CWndDebugInfo::OnInitialUpdate()
 */
 BOOL CWndDebugInfo::Initialize(CWndBase* pWndParent,DWORD dwWndId)
 {
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_DEBUGINFO, 0, CPoint( 0, 0 ), pWndParent );
 /*	
 //	CRect rect(0,0,280,190);
 	CRect rect(0,0,280,270);
-	SetTitle("µğ¹ö±× Á¤º¸");
+	SetTitle("ë””ë²„ê·¸ ì •ë³´");
 	return CWndNeuz::Create( 0 | WBS_MOVE | WBS_SOUND | WBS_THICKFRAME | WBS_CAPTION, rect, &g_WndMng, dwWndId);
 	*/
 }

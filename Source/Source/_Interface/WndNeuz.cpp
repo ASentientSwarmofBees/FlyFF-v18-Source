@@ -1,4 +1,4 @@
-// WndArcane.cpp: implementation of the CWndNeuz class.
+ï»¿// WndArcane.cpp: implementation of the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -11,7 +11,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Å¸ÀÌÆ² ¹Ù (Ãà¼Ò, ÃÖ´ë, Á¾·á ¹öÆ°)
+// íƒ€ì´í‹€ ë°” (ì¶•ì†Œ, ìµœëŒ€, ì¢…ë£Œ ë²„íŠ¼)
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,7 +129,7 @@ BOOL CWndTitleBar::OnEraseBkgnd(C2DRender* p2DRender)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Neuz À©µµ ±âº» º£ÀÌ½º Å¬·¹½º 
+// Neuz ìœˆë„ ê¸°ë³¸ ë² ì´ìŠ¤ í´ë ˆìŠ¤ 
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,14 +151,14 @@ CWndNeuz::~CWndNeuz()
 	for( int i = 0; i < m_wndArrayTemp.GetSize(); i++ )
 		safe_delete( (CWndBase*)m_wndArrayTemp.GetAt( i ) );
 #ifdef __CLIENT
-	// ¾ÖÇÃ·¿À¸·Î µî·ÏµÈ À©µµ¸¸ ÆÄ±«ÇÒ ¶§ À©µµÀÇ Á¤º¸¸¦ ÀúÀåÇÑ´Ù. 
+	// ì• í”Œë ›ìœ¼ë¡œ ë“±ë¡ëœ ìœˆë„ë§Œ íŒŒê´´í•  ë•Œ ìœˆë„ì˜ ì •ë³´ë¥¼ ì €ì¥í•œë‹¤. 
 	//if( g_WndMng.GetAppletFunc( GetWndId() ) && m_bPutRegInfo )
 	//	g_WndMng.PutRegInfo( this, 1, FALSE );
 	//	g_WndMng.PutRegInfo( GetWndId(), GetWindowRect( TRUE ), FALSE );
-	// Å¸ÀÏ ÇüÅÂÀÇ À©µµ´Â À©µµ°¡ Á¾·áÇÒ ¶§ ÅØ½ºÃç¸¦ ÆÄ±«ÇØ¾ßÇÑ´Ù.
+	// íƒ€ì¼ í˜•íƒœì˜ ìœˆë„ëŠ” ìœˆë„ê°€ ì¢…ë£Œí•  ë•Œ í…ìŠ¤ì¶°ë¥¼ íŒŒê´´í•´ì•¼í•œë‹¤.
 	if( m_strTexture.IsEmpty() == FALSE )
 	{
-		// Å¸ÀÏ ÇüÅÂ´Â ÆÄÀÏÀ» ÀĞ´Â °ÍÀÌ ¾Æ´Ï¹Ç·Î ÀÚ±â Æ÷ÀÎÅÍ°¡ ÅØ½ºÃç ID·Î »ç¿ëµÇ¾ú´Ù.
+		// íƒ€ì¼ í˜•íƒœëŠ” íŒŒì¼ì„ ì½ëŠ” ê²ƒì´ ì•„ë‹ˆë¯€ë¡œ ìê¸° í¬ì¸í„°ê°€ í…ìŠ¤ì¶° IDë¡œ ì‚¬ìš©ë˜ì—ˆë‹¤.
 		CString strTextureId;
 		strTextureId.Format( "%p", this );
 		m_textureMng.RemoveTexture( strTextureId );
@@ -281,7 +281,7 @@ void CWndNeuz::AdditionalSkinTexture( LPWORD pDest, CSize size1, D3DFORMAT d3dFo
 			lpImage[i] = new IMAGE;
 			lpImage[i]->size.cx = 99;
 			if( LoadImage( MakePath( DIR_THEME, strFileName ), lpImage[i] ) == FALSE )
-				Error( "CWndNeuz::AdditionalSkinTexture¿¡¼­ %s Open1 ½ÇÆĞ", strFileName );
+				Error( "CWndNeuz::AdditionalSkinTextureì—ì„œ %s Open1 ì‹¤íŒ¨", strFileName );
 
 			m_strWndTileMap.SetAt( strFileName, lpImage[i] );
 		}
@@ -338,7 +338,7 @@ BOOL CWndNeuz::Initialize(CWndBase* pWndParent,DWORD dwStyle)
 	CRect rect(0,0,300,300);
 	//m_strMessage = lpszMessage;
 	//m_nType = nType;
-	//SetTitle("¸ŞÁö½Ã À©µµ");
+	//SetTitle("ë©”ì§€ì‹œ ìœˆë„");
 	return CWndBase::Create(dwStyle | WBS_MOVE|/*WBS_MODAL|*/WBS_SOUND|WBS_CAPTION,rect,m_pWndRoot,10);
 }
 BOOL CWndNeuz::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
@@ -351,7 +351,7 @@ BOOL CWndNeuz::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	{
 		switch(nID)
 		{
-			case WTBID_HELP: // ÇÛÇÁ ¹öÆ°
+			case WTBID_HELP: // í•¼í”„ ë²„íŠ¼
 				{
 #ifdef __CLIENT					
 					LPWNDAPPLET lpWndApplet = m_resMng.GetAt ( GetWndId() );
@@ -363,7 +363,7 @@ BOOL CWndNeuz::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					g_WndMng.m_pWndHelpInstant->m_strHelpKey = lpWndApplet->strToolTip;
 					g_WndMng.m_pWndHelpInstant->Initialize();
 #else //__HELP_BUG_FIX
-					// ÇïÇÁ ÀÌÁß»ı¼º ¹æÁö
+					// í—¬í”„ ì´ì¤‘ìƒì„± ë°©ì§€
 					for( int i=0; i<g_vecHelpInsKey.size(); i++ )
 					{
 						if( g_vecHelpInsKey[i] == lpWndApplet->strToolTip )
@@ -373,7 +373,7 @@ BOOL CWndNeuz::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					CWndHelpInstant* pHelpInstant = new CWndHelpInstant;
 					pHelpInstant->m_strHelpKey = lpWndApplet->strToolTip;
 
-					// ÇïÇÁ ÀÌÁß»ı¼º ¹æÁö
+					// í—¬í”„ ì´ì¤‘ìƒì„± ë°©ì§€
 					g_vecHelpInsKey.push_back( pHelpInstant->m_strHelpKey );
 
 					pHelpInstant->Initialize();
@@ -381,19 +381,19 @@ BOOL CWndNeuz::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 #endif
 				}
 				break;
-			case WTBID_MIN: // ÃÖ¼ÒÈ­ 
+			case WTBID_MIN: // ìµœì†Œí™” 
 				break;
-			case WTBID_MAX: // ÃÖ´ëÈ­ 
+			case WTBID_MAX: // ìµœëŒ€í™” 
 				if( m_nWinSize == WSIZE_WINDOW )
 					SetSizeMax();
 				else
 					SetSizeWnd();
 				break;
-			case WTBID_CLOSE: // Á¾·á
+			case WTBID_CLOSE: // ì¢…ë£Œ
 				{
 #ifdef __CLIENT		
 #ifndef __HELP_BUG_FIX
-					// ÇïÇÁ ÀÌÁß»ı¼º ¹æÁö
+					// í—¬í”„ ì´ì¤‘ìƒì„± ë°©ì§€
 					if( GetWndId() == APP_HELP_INSTANT )
 					{
 						CString strKey = ((CWndHelpInstant*)this)->m_strHelpKey;
@@ -518,7 +518,7 @@ void CWndNeuz::OnSize(UINT nType, int cx, int cy)
 //	if( rectOld.Width() != m_rectClient.Width() || rectOld.Height() != m_rectClient.Height() )
 
 
-	// Â÷ÀÏµå À©µµ¿ìµéÀÇ »çÀÌÁî¸¦ Á¶Àı 
+	// ì°¨ì¼ë“œ ìœˆë„ìš°ë“¤ì˜ ì‚¬ì´ì¦ˆë¥¼ ì¡°ì ˆ 
 	/*
 	for(int i = 0; i < m_wndArray.GetSize(); i++)
 	{
@@ -544,8 +544,8 @@ void CWndNeuz::OnNonClientLButtonDblClk( UINT nFlags, CPoint point )
 	if( IsWndStyle( WBS_MAXIMIZEBOX ) )
 		OnChildNotify( WNM_CLICKED, WTBID_MAX, NULL );
 }
-// À©µµ »çÀÌÁî¸¦ ¼¼ÆÃÇÑ´Ù.
-// Å¬¶óÀÌ¾ğÆ® »çÀÌÁîµµ ÀÚµ¿À¸·Î Á¶Á¤µÈ´Ù.
+// ìœˆë„ ì‚¬ì´ì¦ˆë¥¼ ì„¸íŒ…í•œë‹¤.
+// í´ë¼ì´ì–¸íŠ¸ ì‚¬ì´ì¦ˆë„ ìë™ìœ¼ë¡œ ì¡°ì •ëœë‹¤.
 void CWndNeuz::SetWndRect( CRect rectWnd, BOOL bOnSize )
 {
 	CRect rectOld = m_rectClient;

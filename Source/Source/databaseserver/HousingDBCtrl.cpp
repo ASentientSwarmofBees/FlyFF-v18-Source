@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 13 // __HOUSING
 #include "HousingDBCtrl.h"
@@ -83,10 +83,10 @@ void CHousingDBCtrl::LoadHousingInfo( DWORD dwPlayerId, DPID dpId )
 	if( !pHousing )
 	{
 		pHousing = CHousingMng::GetInstance()->CreateHousing( dwPlayerId );
-		if( !pHousing )	// »ý¼º ½ÇÆÐ½Ã ±×³É ¸®ÅÏ..
+		if( !pHousing )	// ìƒì„± ì‹¤íŒ¨ì‹œ ê·¸ëƒ¥ ë¦¬í„´..
 			return;
 
-		// DB ·Îµù...
+		// DB ë¡œë”©...
 		CQuery* pQuery = GetQueryObject();
 		if( pQuery->Execute( "usp_Housing_Load '%02d', '%07d'", g_appInfo.dwSys, dwPlayerId ) )
 		{
@@ -114,16 +114,16 @@ void CHousingDBCtrl::LoadHousingInfo( DWORD dwPlayerId, DPID dpId )
 		}
 	}
 
-	// ÇÏ¿ìÂ¡ Á¤º¸¸¦ ¿ùµå¼­¹ö¿¡ Àü´Þ...
+	// í•˜ìš°ì§• ì •ë³´ë¥¼ ì›”ë“œì„œë²„ì— ì „ë‹¬...
 	CDPTrans::GetInstance()->SendHousingLoadInfo( dwPlayerId, pHousing, dpId );
 }
 
 void CHousingDBCtrl::InsertFurnitureList( DWORD dwPlayerId, DWORD dwItemId, DPID dpId )
 {
-	HOUSINGINFO housingInfo( dwItemId );	// ÀúÀå Á¤º¸¸¦ ¸¸µç´Ù.
+	HOUSINGINFO housingInfo( dwItemId );	// ì €ìž¥ ì •ë³´ë¥¼ ë§Œë“ ë‹¤.
 	// int n = sizeof(time_t);
-	// time_t size°¡ 4¹ÙÀÌÆ®·Î ³ª¿Â´Ù.
-	// VS2003¿¡¼­´Â __int64¶ó°í »ý°¢µÇ´Âµ¥..., ±×·¡¼­ ÀÏ´Ü __int64·Î °­Á¦ casting
+	// time_t sizeê°€ 4ë°”ì´íŠ¸ë¡œ ë‚˜ì˜¨ë‹¤.
+	// VS2003ì—ì„œëŠ” __int64ë¼ê³  ìƒê°ë˜ëŠ”ë°..., ê·¸ëž˜ì„œ ì¼ë‹¨ __int64ë¡œ ê°•ì œ casting
 	if( GetQueryObject()->Execute( "usp_Housing_Insert '%02d', '%07d', %d, %I64d",
 		g_appInfo.dwSys, dwPlayerId, housingInfo.dwItemId, static_cast<__int64>(housingInfo.tKeepTime) ) )
 	{

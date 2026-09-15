@@ -1,4 +1,4 @@
-#ifndef __DBMANAGER_H__
+ï»¿#ifndef __DBMANAGER_H__
 #define	__DBMANAGER_H__
 
 #include "query.h"
@@ -15,14 +15,14 @@ typedef	std::set<string>			SET_STRING;
 
 enum QUERYMODE
 {	
-	ACCOUNT_ON,			// À¯Àú·Î±×ÀÎ 
-	ACCOUNT_OFF,		// À¯Àú·Î±×¾Æ¿ô  
-	LOG_SM_ITEM,		// À¯·áÈ­¾ÆÀÌÅÛ °ü·Ã 
-	QUERY_BILLINGINFO,	// ºô¸µÁ¤º¸¸¦ Äõ¸® 
+	ACCOUNT_ON,			// ìœ ì €ë¡œê·¸ì¸ 
+	ACCOUNT_OFF,		// ìœ ì €ë¡œê·¸ì•„ì›ƒ  
+	LOG_SM_ITEM,		// ìœ ë£Œí™”ì•„ì´í…œ ê´€ë ¨ 
+	QUERY_BILLINGINFO,	// ë¹Œë§ì •ë³´ë¥¼ ì¿¼ë¦¬ 
 	RELOAD_PROJECT,		
 };
 
-// ±æµåÄõ¸®¹®ÀåÀ» ¸¸µç´Ù.
+// ê¸¸ë“œì¿¼ë¦¬ë¬¸ìž¥ì„ ë§Œë“ ë‹¤.
 struct LOG_SM_ITEM_INFO
 {
 	LPCTSTR pszType;
@@ -91,7 +91,7 @@ typedef	struct tagDB_OVERLAPPED_PLUS
 	int				nQueryMode;
 	char			szQuery[4096];
 	char			szAccount[MAX_ACCOUNT];
-	DWORD			dwKey;		// ¿äÃ», ·Î±×¾Æ¿ô, ·Î±×ÀÎ, ÀÀ´äÀÇ ÄÉÀÌ½º¿¡ account¸¦ ±¸ºÐÇÏ±â À§ÇØ¼­ »ç¿ëÇÑ´Ù.
+	DWORD			dwKey;		// ìš”ì²­, ë¡œê·¸ì•„ì›ƒ, ë¡œê·¸ì¸, ì‘ë‹µì˜ ì¼€ì´ìŠ¤ì— accountë¥¼ êµ¬ë¶„í•˜ê¸° ìœ„í•´ì„œ ì‚¬ìš©í•œë‹¤.
 	int				nExtra;
 	BYTE			lpBuf[2048];
 	u_long			uBufSize;
@@ -108,7 +108,7 @@ public:
 	CMemPool<DB_OVERLAPPED_PLUS>*	m_pDbIOData;
 	HANDLE							m_hDbCompletionPort;
 	BOOL							m_bTracking;
-	BOOL							m_bLogItem;		// »ó¿ëÈ­ ¾ÆÀÌÅÛ ·Î±× ( ¿¹Àü - __NOLOG )
+	BOOL							m_bLogItem;		// ìƒìš©í™” ì•„ì´í…œ ë¡œê·¸ ( ì˜ˆì „ - __NOLOG )
 	char							m_szLoginPWD[256];
 	char							m_szLogPWD[256];
 /*

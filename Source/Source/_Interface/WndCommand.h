@@ -1,4 +1,4 @@
-#ifndef __WNDCOMMAND__H
+﻿#ifndef __WNDCOMMAND__H
 #define __WNDCOMMAND__H
 
 class CWndCommand : public CWndListBox //CWndNeuz 

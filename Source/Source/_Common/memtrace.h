@@ -1,4 +1,4 @@
-#ifndef __MEM_TRACE_H
+﻿#ifndef __MEM_TRACE_H
 #define	__MEM_TRACE_H
 
 #pragma warning( disable:4001 )	// nonstandard extension 'single line comment' was used

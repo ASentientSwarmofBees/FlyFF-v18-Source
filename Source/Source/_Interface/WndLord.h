@@ -1,4 +1,4 @@
-#ifndef __WNDLORD__H
+ï»¿#ifndef __WNDLORD__H
 #define __WNDLORD__H
 #if __VER >= 12 // __LORD
 #include "clord.h"
@@ -112,8 +112,8 @@ public:
 class CWndLordEvent : public CWndNeuz 
 { 
 private:
-	int m_nEEvent;	// »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ °æÇèÄ¡ ÀÌº¥Æ® ÀÎµ¦½º, ÃÊ±â°ª 0
-	int m_nDEvent;	// »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ µå·Ó·ü ÀÌº¥Æ® ÀÎµ¦½º, ÃÊ±â°ª 0
+	int m_nEEvent;	// ì‚¬ìš©ìê°€ ì„ íƒí•œ ê²½í—˜ì¹˜ ì´ë²¤íŠ¸ ì¸ë±ìŠ¤, ì´ˆê¸°ê°’ 0
+	int m_nDEvent;	// ì‚¬ìš©ìê°€ ì„ íƒí•œ ë“œë¡­ë¥  ì´ë²¤íŠ¸ ì¸ë±ìŠ¤, ì´ˆê¸°ê°’ 0
 public: 
 	CWndLordEvent(); 
 	~CWndLordEvent(); 

@@ -1,4 +1,4 @@
-// LoginProtect.h: interface for the CLoginProtect class.
+ï»¿// LoginProtect.h: interface for the CLoginProtect class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -17,8 +17,8 @@
 
 enum LOGIN_CHECK
 {
-	LOGIN_OK,				// Æ²¸° ÀûÀÌ ¾ø°Å³ª, Ã³À½ 
-	LOGIN_3TIMES_ERROR,		// 3È¸ Æ²¸² 
+	LOGIN_OK,				// í‹€ë¦° ì ì´ ì—†ê±°ë‚˜, ì²˜ìŒ 
+	LOGIN_3TIMES_ERROR,		// 3íšŒ í‹€ë¦¼ 
 };
 
 class CLoginProtect

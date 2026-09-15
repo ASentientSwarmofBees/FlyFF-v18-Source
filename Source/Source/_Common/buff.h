@@ -1,4 +1,4 @@
-#ifndef __BUFF_H
+﻿#ifndef __BUFF_H
 #define	__BUFF_H
 
 #ifdef __BUFF_1107

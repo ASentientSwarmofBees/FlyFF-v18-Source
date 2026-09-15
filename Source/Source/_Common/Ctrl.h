@@ -1,4 +1,4 @@
-#if !defined(AFX_CTRL_H__A23AD198_7E45_465B_B646_7956A4AE179F__INCLUDED_)
+ï»¿#if !defined(AFX_CTRL_H__A23AD198_7E45_465B_B646_7956A4AE179F__INCLUDED_)
 #define AFX_CTRL_H__A23AD198_7E45_465B_B646_7956A4AE179F__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -18,7 +18,7 @@ class		CWorld;
 class       CSfx;
 class		CShip;
 
-/// ¹è°æ ¿ÀºêÁ§Æ®¸¦ Á¦¿ÜÇÑ ¸ğµç ¿ÀºêÁ§Æ®ÀÇ base class
+/// ë°°ê²½ ì˜¤ë¸Œì íŠ¸ë¥¼ ì œì™¸í•œ ëª¨ë“  ì˜¤ë¸Œì íŠ¸ì˜ base class
 class CCtrl : public CObj
 {
 public:
@@ -30,23 +30,23 @@ public:
 #else 
 protected:
 #endif //__BS_SAFE_WORLD_DELETE
-	OBJID			m_objid;			/// °´Ã¼ ¾ÆÀÌµğ
-	CShip*			m_pIAObjLink;		/// ºñ°øÁ¤ °ü·Ã - this°¡ ¾î´ÀIA¿ÀºêÁ§Æ®¿¡ ¿¬°áÀÌ µÇ¾ú´Â°¡. ³ªÁß¿¡ CShip*Àº CIAObj* ÇüÀ¸·Î ´ëÃ¼µÇ¾î¾ß ÇÑ´Ù.
-	D3DXMATRIX		m_mInvTM;			/// ºñ°øÁ¤ °ü·Ã - m_matWorldÀÇ ¿ªÇà·Ä. pIAObjLink¿Í °öÇØ¼­ ·ÎÄÃÇà·ÄÀ» ¾òÀ½.
+	OBJID			m_objid;			/// ê°ì²´ ì•„ì´ë””
+	CShip*			m_pIAObjLink;		/// ë¹„ê³µì • ê´€ë ¨ - thisê°€ ì–´ëŠIAì˜¤ë¸Œì íŠ¸ì— ì—°ê²°ì´ ë˜ì—ˆëŠ”ê°€. ë‚˜ì¤‘ì— CShip*ì€ CIAObj* í˜•ìœ¼ë¡œ ëŒ€ì²´ë˜ì–´ì•¼ í•œë‹¤.
+	D3DXMATRIX		m_mInvTM;			/// ë¹„ê³µì • ê´€ë ¨ - m_matWorldì˜ ì—­í–‰ë ¬. pIAObjLinkì™€ ê³±í•´ì„œ ë¡œì»¬í–‰ë ¬ì„ ì–»ìŒ.
 
 public:
 
 #ifdef __WORLDSERVER
-	LONG			m_lRespawn;			/// ¸®½ºÆù ¹øÈ£
-	int	            m_nRespawnType;		/// ¸®½ºÆù Å¸ÀÔ 
-	map< DWORD, CUser* > m_2pc;			/// ÁÖº¯ ÇÃ·¹ÀÌ¾î ¸Ê 
-	int				m_nOldCenter[MAX_LINKLEVEL];	/// ¸µÅ©¸Ê °è»ê¿ë 
+	LONG			m_lRespawn;			/// ë¦¬ìŠ¤í° ë²ˆí˜¸
+	int	            m_nRespawnType;		/// ë¦¬ìŠ¤í° íƒ€ì… 
+	map< DWORD, CUser* > m_2pc;			/// ì£¼ë³€ í”Œë ˆì´ì–´ ë§µ 
+	int				m_nOldCenter[MAX_LINKLEVEL];	/// ë§í¬ë§µ ê³„ì‚°ìš© 
 #endif	// __WORLDSERVER
 
 public:
 	virtual BOOL	GetSkillProp( ItemProp **ppSkillProp, AddSkillProp **ppAddSkillProp, int nSkill, DWORD dwLevel, LPCTSTR szErr );
 	virtual int		SendDamage( DWORD dwAtkFlag, OBJID idAttacker, int nParam = 0, BOOL bTarget = TRUE ) { return 0; }
-	virtual int		SendDamageForce( DWORD dwAtkFlags, OBJID idSender, int nParam = 0, BOOL bTarget = TRUE ) { return 0; }	// °­°ø°İ
+	virtual int		SendDamageForce( DWORD dwAtkFlags, OBJID idSender, int nParam = 0, BOOL bTarget = TRUE ) { return 0; }	// ê°•ê³µê²©
 	virtual void	AddItToGlobalId();
 	virtual	void	RemoveItFromGlobalId();
 	virtual void	Process();
@@ -57,28 +57,28 @@ public:
 	void			SetId( OBJID objid )	{ m_objid = objid;  }
 	OBJID			GetId()					{ return m_objid;   }
 	int				TargetSelecter( CCtrl *pTarget );
-	int				ShootSkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp );			// ¹ß»çÇüÅÂÀÇ ½ºÅ³ÀÇ ¹ß»çÃ¼ »ı¼º
-	void			CreateSkillSfx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp );		// ½ºÅ³½ÃÀü½Ã Å¬¶ó¿¡¼­ »ı¼ºµÇ¾î¾ß ÇÒ sfx
+	int				ShootSkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp );			// ë°œì‚¬í˜•íƒœì˜ ìŠ¤í‚¬ì˜ ë°œì‚¬ì²´ ìƒì„±
+	void			CreateSkillSfx( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp );		// ìŠ¤í‚¬ì‹œì „ì‹œ í´ë¼ì—ì„œ ìƒì„±ë˜ì–´ì•¼ í•  sfx
 	int				ApplyDamage( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, int nParam, BOOL bTarget ) ;
 	BOOL			IsPossibleApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp );
-	void			ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProb = false, int nParam = 0, BOOL bOnlyDmg = FALSE, BOOL bTarget = TRUE );		// Å¸°ÙÇÏ³ª´ç ½ÇÁ¦ Àû¿ëµÇ¾î¾ß ÇÏ´Â È¿°ú
+	void			ApplySkill( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProb = false, int nParam = 0, BOOL bOnlyDmg = FALSE, BOOL bTarget = TRUE );		// íƒ€ê²Ÿí•˜ë‚˜ë‹¹ ì‹¤ì œ ì ìš©ë˜ì–´ì•¼ í•˜ëŠ” íš¨ê³¼
 #if __VER >= 8 // __S8_PK
-	int				DoApplySkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, int nParam = 0, BOOL bOnlyDmg = FALSE, BOOL bControl = FALSE );		// ½ºÅ³À» Å¸°ÙÁß½ÉÀ¸·Î Àû¿ë
-	void			ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, BOOL bOnlyDmg = FALSE, CCtrl* pCenter = NULL, BOOL bControl = FALSE );	// vPos¸¦ Áß½ÉÀ¸·Î ½ºÅ³À» Àû¿ë
-	void			ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, BOOL bOnlyDmg = FALSE, FLOAT fRangeCustom = 0.0f, BOOL bControl = FALSE );		// ½ºÅ³À» this¸¦ Áß½ÉÀ¸·Î ÁÖº¯¿¡ Àû¿ë.
+	int				DoApplySkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, int nParam = 0, BOOL bOnlyDmg = FALSE, BOOL bControl = FALSE );		// ìŠ¤í‚¬ì„ íƒ€ê²Ÿì¤‘ì‹¬ìœ¼ë¡œ ì ìš©
+	void			ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, BOOL bOnlyDmg = FALSE, CCtrl* pCenter = NULL, BOOL bControl = FALSE );	// vPosë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ ìŠ¤í‚¬ì„ ì ìš©
+	void			ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, BOOL bOnlyDmg = FALSE, FLOAT fRangeCustom = 0.0f, BOOL bControl = FALSE );		// ìŠ¤í‚¬ì„ thisë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ ì£¼ë³€ì— ì ìš©.
 	void			ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, float fWidth, float fHeight, float fDepth, bool bIgnoreProp = false, BOOL bControl = FALSE );
 #else // __VER >= 8 // __S8_PK
-	int				DoApplySkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, int nParam = 0, BOOL bOnlyDmg = FALSE );		// ½ºÅ³À» Å¸°ÙÁß½ÉÀ¸·Î Àû¿ë
-	void			ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, BOOL bOnlyDmg = FALSE, CCtrl* pCenter = NULL );	// vPos¸¦ Áß½ÉÀ¸·Î ½ºÅ³À» Àû¿ë
-	void			ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, BOOL bOnlyDmg = FALSE, FLOAT fRangeCustom = 0.0f );		// ½ºÅ³À» this¸¦ Áß½ÉÀ¸·Î ÁÖº¯¿¡ Àû¿ë.
+	int				DoApplySkill( CCtrl *pTarget, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, int nParam = 0, BOOL bOnlyDmg = FALSE );		// ìŠ¤í‚¬ì„ íƒ€ê²Ÿì¤‘ì‹¬ìœ¼ë¡œ ì ìš©
+	void			ApplySkillRegion( const D3DXVECTOR3 &vPos, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, BOOL bOnlyDmg = FALSE, CCtrl* pCenter = NULL );	// vPosë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ ìŠ¤í‚¬ì„ ì ìš©
+	void			ApplySkillAround( CCtrl *pSrc, int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false, BOOL bOnlyDmg = FALSE, FLOAT fRangeCustom = 0.0f );		// ìŠ¤í‚¬ì„ thisë¥¼ ì¤‘ì‹¬ìœ¼ë¡œ ì£¼ë³€ì— ì ìš©.
 	void			ApplySkillLine( int nApplyType, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, float fWidth, float fHeight, float fDepth, bool bIgnoreProp = false );
 #endif // __VER >= 8 // __S8_PK
-	int				ApplySkillAroundTroupe( u_long idParty, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false );		// idParty ÆÄÆ¼ ´ë»óÀ¸·Î ½ºÅ³È¿°ú¸¦ Àû¿ë.
+	int				ApplySkillAroundTroupe( u_long idParty, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp, bool bIgnoreProp = false );		// idParty íŒŒí‹° ëŒ€ìƒìœ¼ë¡œ ìŠ¤í‚¬íš¨ê³¼ë¥¼ ì ìš©.
 	BOOL			ApplySkillHardCoding( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSkillProp );
 #if __VER >= 8 // __S8_PK
-	void			DoActiveSkill( DWORD dwSkill, int nLevel, CCtrl *pTarget, bool bIgnoreProb = false, BOOL bControl = FALSE );		// ActiveSkill¹ßµ¿
+	void			DoActiveSkill( DWORD dwSkill, int nLevel, CCtrl *pTarget, bool bIgnoreProb = false, BOOL bControl = FALSE );		// ActiveSkillë°œë™
 #else // __VER >= 8 // __S8_PK
-	void			DoActiveSkill( DWORD dwSkill, int nLevel, CCtrl *pTarget, bool bIgnoreProb = false );		// ActiveSkill¹ßµ¿
+	void			DoActiveSkill( DWORD dwSkill, int nLevel, CCtrl *pTarget, bool bIgnoreProb = false );		// ActiveSkillë°œë™
 #endif // __VER >= 8 // __S8_PK
 	CShip*			GetIAObjLink()			{ return m_pIAObjLink; }
 	void			SetIAObjLink( CShip *pIA );

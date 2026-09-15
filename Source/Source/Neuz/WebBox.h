@@ -1,4 +1,4 @@
-#ifndef __WEBBOX_H__
+ï»¿#ifndef __WEBBOX_H__
 #define __WEBBOX_H__
 
 
@@ -102,7 +102,7 @@ private:
 
 	DWORD       m_Status ; 
 
-	//          ½ÃÀÛ°ü·Ã 
+	//          ì‹œìž‘ê´€ë ¨ 
 	bool        m_bStartWeb  ; 
 	bool        m_bStart ;
 	bool        m_bEnd   ;

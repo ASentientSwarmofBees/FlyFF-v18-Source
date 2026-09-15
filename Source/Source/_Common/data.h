@@ -1,4 +1,4 @@
-#ifndef __DATA_H
+ï»¿#ifndef __DATA_H
 #define __DATA_H
 
 #pragma once
@@ -250,11 +250,11 @@ template <class T> inline void CFixedArray<T>::RemoveAll()
 	SetSize( 100, 100 );
 }
 
-// nNum = ÃÑ°¹¼ö 
-// nMaxIndex = »öÀÎ °¹¼ö 
-// 0 = data,  5 = dataÀÏ °æ¿ì nMaxIndex´Â 0~5±îÁö ÃÑ 6ÀÌ µÇ¸ç,
-// nMaxNum´Â 0,2 ÃÑ 2°³°¡ µÈ´Ù. 
-// ÃÊ±â°ªÀº 100, 100À¸·Î ÁöÁ¤µÇ¾î ÀÖ´Ù.
+// nNum = ì´ê°¯ìˆ˜ 
+// nMaxIndex = ìƒ‰ì¸ ê°¯ìˆ˜ 
+// 0 = data,  5 = dataì¼ ê²½ìš° nMaxIndexëŠ” 0~5ê¹Œì§€ ì´ 6ì´ ë˜ë©°,
+// nMaxNumëŠ” 0,2 ì´ 2ê°œê°€ ëœë‹¤. 
+// ì´ˆê¸°ê°’ì€ 100, 100ìœ¼ë¡œ ì§€ì •ë˜ì–´ ìˆë‹¤.
 template <class T> inline void CFixedArray<T>::SetSize( int nMaxNum, int nMaxIndex )
 {
 	m_pData = new BYTE[ sizeof( T ) * nMaxNum ];
@@ -310,9 +310,9 @@ template <class T> void CFixedArray<T>::SetAtGrow( int nIndex, T* pData, int nSi
 {
 	if( nIndex >= m_nMaxIndex )
 	{
-		LPBYTE* apOffset = new LPBYTE [ nIndex * 2 ]; // µÎ¹è È®Àå 
-		ZeroMemory( apOffset, sizeof( LPBYTE ) * nIndex * 2 ); // ÃÊ±âÈ­ 
-		memcpy( apOffset, m_apOffset, sizeof( LPBYTE ) * ( m_nEndIndex + 1 ) ); // º¹»ç 
+		LPBYTE* apOffset = new LPBYTE [ nIndex * 2 ]; // ë‘ë°° í™•ì¥ 
+		ZeroMemory( apOffset, sizeof( LPBYTE ) * nIndex * 2 ); // ì´ˆê¸°í™” 
+		memcpy( apOffset, m_apOffset, sizeof( LPBYTE ) * ( m_nEndIndex + 1 ) ); // ë³µì‚¬ 
 		SAFE_DELETE_ARRAY( m_apOffset );
 		m_apOffset = apOffset;
 		m_nMaxIndex = nIndex * 2;
@@ -322,15 +322,15 @@ template <class T> void CFixedArray<T>::SetAtGrow( int nIndex, T* pData, int nSi
 	if( m_nCurOffset + nSizeTemp > m_nMaxByte )
 	{
 		m_nMaxByte = m_nCurOffset * 2 + nSizeTemp;
-		LPBYTE pData2 = new BYTE[ m_nMaxByte ]; // µÎ¹è È®Àå 
-		memcpy( pData2, m_pData, m_nCurOffset ); // º¹»ç 
+		LPBYTE pData2 = new BYTE[ m_nMaxByte ]; // ë‘ë°° í™•ì¥ 
+		memcpy( pData2, m_pData, m_nCurOffset ); // ë³µì‚¬ 
 		for( int i = 0; i <= m_nEndIndex; i++ )
 			if( m_apOffset[ i ] )
 				m_apOffset[ i ] = ( m_apOffset[ i ] - m_pData ) + pData2; 
 		SAFE_DELETE_ARRAY( m_pData );
 		m_pData = pData2;
 	}
-	// »çÀÌÁî ÀÚÃ¼¿¡ º¯µ¿ÀÌ ¾ø´Â °æ¿ìÀÓ( T »çÀÌÁî°¡ À¯ÁöµÇ´Â °æ¿ì )
+	// ì‚¬ì´ì¦ˆ ìì²´ì— ë³€ë™ì´ ì—†ëŠ” ê²½ìš°ì„( T ì‚¬ì´ì¦ˆê°€ ìœ ì§€ë˜ëŠ” ê²½ìš° )
 	if( nSize == 0 )
 	{
 		if( m_apOffset[ nIndex ] == NULL )
@@ -344,7 +344,7 @@ template <class T> void CFixedArray<T>::SetAtGrow( int nIndex, T* pData, int nSi
 			memcpy( m_apOffset[ nIndex ], pData, sizeof( T ) );
 		}
 	}
-	// °¢ ±¸Á¶Ã¼ÀÇ »çÀÌÁî°¡ º¯°æµÊ. ex) ½ºÆ®¸µÀÇ ±æÀÌ¿¡ µû¶ó¼­.
+	// ê° êµ¬ì¡°ì²´ì˜ ì‚¬ì´ì¦ˆê°€ ë³€ê²½ë¨. ex) ìŠ¤íŠ¸ë§ì˜ ê¸¸ì´ì— ë”°ë¼ì„œ.
 	else
 	{
 		if( m_apOffset[ nIndex ] == NULL )
@@ -355,7 +355,7 @@ template <class T> void CFixedArray<T>::SetAtGrow( int nIndex, T* pData, int nSi
 		}
 		else
 		{
-			// »çÀÌÁî°¡ º¯°æµÇ´Â ±¸Á¶¿¡¼­´Â ÀÎµ¦½º ³»¿ëÀ» ¹Ù²Ù¸é ¾ÈµÊ.
+			// ì‚¬ì´ì¦ˆê°€ ë³€ê²½ë˜ëŠ” êµ¬ì¡°ì—ì„œëŠ” ì¸ë±ìŠ¤ ë‚´ìš©ì„ ë°”ê¾¸ë©´ ì•ˆë¨.
 			WriteLog( "%s, %d", __FILE__, __LINE__ );
 		}
 	}
@@ -367,10 +367,10 @@ typedef	__int64	EXPINTEGER;
 typedef	double	EXPFLOAT;
 
 #if defined(__WORLDSERVER ) || defined(__CLIENT)
-struct NaviPoint //	³×ºñ°ÔÀÌ¼Ç¿¡ Å¬¸¯À¸·Î À§Ä¡¸¦ Ç¥½ÃÇÏ´Â ±â´ÉÀ» À§ÇÑ ±¸Á¶Ã¼
+struct NaviPoint //	ë„¤ë¹„ê²Œì´ì…˜ì— í´ë¦­ìœ¼ë¡œ ìœ„ì¹˜ë¥¼ í‘œì‹œí•˜ëŠ” ê¸°ëŠ¥ì„ ìœ„í•œ êµ¬ì¡°ì²´
 {
-	D3DXVECTOR3 Pos;		//	ÀÌ À§Ä¡´Â ³×ÀÌ°ÔÀÌÅÍ»óÀÇ À§Ä¡°¡ ¾Æ´Ñ ¿ùµå»óÀÇ À§Ä¡ÀÓÀ» °­Á¶ÇÑ´Ù.
-	short		Time;			//	Æ÷ÀÎÆ®ÀÇ ³²¾ÆÀÖ´Â ½Ã°£
+	D3DXVECTOR3 Pos;		//	ì´ ìœ„ì¹˜ëŠ” ë„¤ì´ê²Œì´í„°ìƒì˜ ìœ„ì¹˜ê°€ ì•„ë‹Œ ì›”ë“œìƒì˜ ìœ„ì¹˜ì„ì„ ê°•ì¡°í•œë‹¤.
+	short		Time;			//	í¬ì¸íŠ¸ì˜ ë‚¨ì•„ìˆëŠ” ì‹œê°„
 	DWORD		objid;		
 	string      Name;
 	NaviPoint()
@@ -398,13 +398,13 @@ typedef vector<NaviPoint> V_NaviPoint;
 namespace SAI79
 {
 	// ************************************
-	// * Å¸ÀÔ ¾øÀ½.	: 0
-	// * ºÒ   ¼Ó¼º	: 1
-	// * ¹°   ¼Ó¼º	: 2
-	// * Àü±â ¼Ó¼º	: 3
-	// * ¹Ù¶÷ ¼Ó¼º	: 4
-	// * ¶¥   ¼Ó¼º	: 5
-	// * ÀÌ   ¼Ó¼º Å¸ÀÔÀ» ePropType·Î ¼³Á¤
+	// * íƒ€ì… ì—†ìŒ.	: 0
+	// * ë¶ˆ   ì†ì„±	: 1
+	// * ë¬¼   ì†ì„±	: 2
+	// * ì „ê¸° ì†ì„±	: 3
+	// * ë°”ëŒ ì†ì„±	: 4
+	// * ë•…   ì†ì„±	: 5
+	// * ì´   ì†ì„± íƒ€ì…ì„ ePropTypeë¡œ ì„¤ì •
 	// ************************************
 	enum	ePropType 	{ NO_PROP = 0, FIRE, WATER, ELECTRICITY, WIND, EARTH, END_PROP };
 } // namespace SAI79

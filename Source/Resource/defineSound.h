@@ -1,7 +1,7 @@
-#ifndef __SOUND_H
+ï»¿#ifndef __SOUND_H
 #define __SOUND_H
 
-#define SND_NONE                   0 //""°¡»ó ¾ÆÀÌµð"""
+#define SND_NONE                   0 //""ê°€ìƒ ì•„ì´ë””"""
 
 #define SND_INF_CLICK              1 //""InfClick.wav"""
 #define SND_INF_OPEN               2 //""InfOpen.wav"""
@@ -18,7 +18,7 @@
 #define SND_INF_UPGRADEFAIL       13 //""InfUpgradeFail.wav"""		
 #define SND_INF_UPGRADESUCCESS    14 //""InfUpgradeSuccess.wav"""		
 
-// 30 ~ 99 ¾ÆÀÌÅÛ ¹× °¢Á¾ ¹è°æ È¿°úÀ½		
+// 30 ~ 99 ì•„ì´í…œ ë° ê°ì¢… ë°°ê²½ íš¨ê³¼ìŒ		
 #define SND_ITEM_GNEATFOOD        30		
 #define SND_ITEM_GNPURFUME        31		
 #define SND_ITEM_ANIMAL           32		
@@ -34,7 +34,7 @@
 #define SND_GEN_WATER             71
 #define SND_GEN_QUAKE             72
 
-// 100 ~ 199 Ä³¸¯ÅÍ È¿°úÀ½
+// 100 ~ 199 ìºë¦­í„° íš¨ê³¼ìŒ
 #define SND_PC_MALEATK1           100
 #define SND_PC_MALEATK2           101
 #define SND_PC_MALEDMG1           102
@@ -58,73 +58,73 @@
 #define SND_PC_FEMFLYATK3         196
 #define SND_PC_FEMFLYDMG1         197
 
-#define SND_PC_DMGSWD             115// Ä® Àú±Þ Á÷Á¢ÇÇÇØ          
-#define SND_PC_DMGSWDB            116// Ä® ÃÊ±Þ Á÷Á¢ÇÇÇØ          
-#define SND_PC_DMGSWDM            117// Ä® Áß±Þ Á÷Á¢ÇÇÇØ          
-#define SND_PC_DMGSWDH            118// Ä® °í±Þ Á÷Á¢ÇÇÇØ          
-#define SND_PC_DMGSWDC            119// Ä® Å©¸®Æ¼ÄÃ ÇÇÇØ          
-#define SND_PC_DMGCHEB            120// Ä¡¾î½ºÆ½ ÃÊ±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGCHEM            121// Ä¡¾î½ºÆ½ Áß±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGCHEH            122// Ä¡¾î½ºÆ½ °í±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGCHEC            123// Ä¡¾î½ºÆ½ Å©¸®Æ¼ÄÃ Á÷Á¢ÇÇÇØ
-#define SND_PC_DMGWANB            124// ¿Ïµå ÃÊ±Þ ÇÇÇØ            
-#define SND_PC_DMGWANM            125// ¿Ïµå Áß±Þ ÇÇÇØ            
-#define SND_PC_DMGWANH            126// ¿Ïµå °í±Þ ÇÇÇØ            
-#define SND_PC_DMGWANC            127// ¿Ïµå Å©¸®Æ¼ÄÃ ÇÇÇØ        
-#define SND_PC_DMGDARB            180// ¾Ï±â ÃÊ±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGDARM            181// ¾Ï±â Áß±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGDARH            182// ¾Ï±â °í±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGDARC            183// ¾Ï±â Å©¸®Æ¼ÄÃ Á÷Á¢ÇÇÇØ
-#define SND_PC_DMGMARB            184// ¸¶¸®¿À³Ý ÃÊ±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGMARM            185// ¸¶¸®¿À³Ý Áß±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGMARH            186// ¸¶¸®¿À³Ý °í±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGMARC            187// ¸¶¸®¿À³Ý Å©¸®Æ¼ÄÃ Á÷Á¢ÇÇÇØ
-#define SND_PC_DMGYOYB            188// ¿ä¿ä ÃÊ±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGYOYM            189// ¿ä¿ä Áß±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGYOYH            99// ¿ä¿ä °í±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGYOYC            98// ¿ä¿ä Å©¸®Æ¼ÄÃ Á÷Á¢ÇÇÇØ
-#define SND_PC_DMGBOWB            97// È° ÃÊ±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGBOWM            96// È° Áß±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGBOWH            95// È° °í±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGBOWC            94// È° Å©¸®Æ¼ÄÃ Á÷Á¢ÇÇÇØ
-#define SND_PC_DMGSWDTWOB         93// ¾ç¼Õ¹«±â µµ³¢ ÃÊ±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGSWDTWOC         92// ¾ç¼Õ¹«±â µµ³¢ ÃÊ±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGAXETWOB         91// ¾ç¼Õ¹«±â Ä® ÃÊ±Þ Á÷Á¢ÇÇÇØ    
-#define SND_PC_DMGAXETWOC         90// ¾ç¼Õ¹«±â Ä® ÃÊ±Þ Á÷Á¢ÇÇÇØ    
+#define SND_PC_DMGSWD             115// ì¹¼ ì €ê¸‰ ì§ì ‘í”¼í•´          
+#define SND_PC_DMGSWDB            116// ì¹¼ ì´ˆê¸‰ ì§ì ‘í”¼í•´          
+#define SND_PC_DMGSWDM            117// ì¹¼ ì¤‘ê¸‰ ì§ì ‘í”¼í•´          
+#define SND_PC_DMGSWDH            118// ì¹¼ ê³ ê¸‰ ì§ì ‘í”¼í•´          
+#define SND_PC_DMGSWDC            119// ì¹¼ í¬ë¦¬í‹°ì»¬ í”¼í•´          
+#define SND_PC_DMGCHEB            120// ì¹˜ì–´ìŠ¤í‹± ì´ˆê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGCHEM            121// ì¹˜ì–´ìŠ¤í‹± ì¤‘ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGCHEH            122// ì¹˜ì–´ìŠ¤í‹± ê³ ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGCHEC            123// ì¹˜ì–´ìŠ¤í‹± í¬ë¦¬í‹°ì»¬ ì§ì ‘í”¼í•´
+#define SND_PC_DMGWANB            124// ì™„ë“œ ì´ˆê¸‰ í”¼í•´            
+#define SND_PC_DMGWANM            125// ì™„ë“œ ì¤‘ê¸‰ í”¼í•´            
+#define SND_PC_DMGWANH            126// ì™„ë“œ ê³ ê¸‰ í”¼í•´            
+#define SND_PC_DMGWANC            127// ì™„ë“œ í¬ë¦¬í‹°ì»¬ í”¼í•´        
+#define SND_PC_DMGDARB            180// ì•”ê¸° ì´ˆê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGDARM            181// ì•”ê¸° ì¤‘ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGDARH            182// ì•”ê¸° ê³ ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGDARC            183// ì•”ê¸° í¬ë¦¬í‹°ì»¬ ì§ì ‘í”¼í•´
+#define SND_PC_DMGMARB            184// ë§ˆë¦¬ì˜¤ë„· ì´ˆê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGMARM            185// ë§ˆë¦¬ì˜¤ë„· ì¤‘ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGMARH            186// ë§ˆë¦¬ì˜¤ë„· ê³ ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGMARC            187// ë§ˆë¦¬ì˜¤ë„· í¬ë¦¬í‹°ì»¬ ì§ì ‘í”¼í•´
+#define SND_PC_DMGYOYB            188// ìš”ìš” ì´ˆê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGYOYM            189// ìš”ìš” ì¤‘ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGYOYH            99// ìš”ìš” ê³ ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGYOYC            98// ìš”ìš” í¬ë¦¬í‹°ì»¬ ì§ì ‘í”¼í•´
+#define SND_PC_DMGBOWB            97// í™œ ì´ˆê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGBOWM            96// í™œ ì¤‘ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGBOWH            95// í™œ ê³ ê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGBOWC            94// í™œ í¬ë¦¬í‹°ì»¬ ì§ì ‘í”¼í•´
+#define SND_PC_DMGSWDTWOB         93// ì–‘ì†ë¬´ê¸° ë„ë¼ ì´ˆê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGSWDTWOC         92// ì–‘ì†ë¬´ê¸° ë„ë¼ ì´ˆê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGAXETWOB         91// ì–‘ì†ë¬´ê¸° ì¹¼ ì´ˆê¸‰ ì§ì ‘í”¼í•´    
+#define SND_PC_DMGAXETWOC         90// ì–‘ì†ë¬´ê¸° ì¹¼ ì´ˆê¸‰ ì§ì ‘í”¼í•´    
 
 
 #define SND_PC_SKILLCASTWPN       130
 #define SND_PC_SKILLCASTLIGHT     131 
-#define SND_PC_SKILLFIREMAGIC1    132 // ÆÄÀÌ¾î°è¿­¸¶¹ý ½ÃÀüÀ½
+#define SND_PC_SKILLFIREMAGIC1    132 // íŒŒì´ì–´ê³„ì—´ë§ˆë²• ì‹œì „ìŒ
 #define SND_PC_SKILLWINDMAGIC     133
 #define SND_PC_SKILLCASTWATER     134
 #define SND_PC_SKILLCASTEARTH     135
 #define SND_PC_MAGICCASTING       136
 #define SND_PC_SKILLFIREMAGIC2    137 
 
-#define SND_ITEM_WPNSWD1          140 // Àú±Þ Ä® °ø°ÝÀ½(ÈÖµÎ¸£´Â ¼Ò¸®)         
-#define SND_ITEM_WPNSWD2          141 // ÃÊ±Þ Ä® °ø°ÝÀ½(ÈÖµÎ¸£´Â ¼Ò¸®)         
-#define SND_ITEM_WPNSWD3          142 // Áß±Þ Ä® °ø°ÝÀ½(ÈÖµÎ¸£´Â ¼Ò¸®)         
-#define SND_ITEM_WPNSWD4          143 // °í±Þ Ä® °ø°ÝÀ½(ÈÖµÎ¸£´Â ¼Ò¸®)         
-#define SND_ITEM_WPNCHE1          144 // ÃÊ±Þ Ä¡¾î½ºÆ½ °ø°ÝÀ½(ÈÖµÎ¸£´Â ¼Ò¸®)   
-#define SND_ITEM_WPNCHE2          145 // Áß±Þ Ä¡¾î½ºÆ½ °ø°ÝÀ½(ÈÖµÎ¸£´Â ¼Ò¸®)   
-#define SND_ITEM_WPNCHE3          146 // °í±Þ Ä¡¾î½ºÆ½ °ø°ÝÀ½(ÈÖµÎ¸£´Â ¼Ò¸®)   
-#define SND_ITEM_WPNCHE4          147 // °í±Þ Ä¡¾î½ºÆ½ °ø°ÝÀ½(ÈÖµÎ¸£´Â ¼Ò¸®)   
-#define SND_ITEM_WPNDAR1          148 // ¾Ï±â ÃÊ±Þ
-#define SND_ITEM_WPNDAR2          149 // ¾Ï±â Áß±Þ
-#define SND_ITEM_WPNDAR3          150 // ¾Ï±â ÃÊ±Þ
-#define SND_ITEM_WPNDAR4          151 // ¾Ï±â Áß±Þ
-#define SND_ITEM_WPNMAR1          152 // ¾Ï±â °í±Þ
-#define SND_ITEM_WPNMAR2          153 // ¾Ï±â °í±Þ
-#define SND_ITEM_WPNMAR3          154 // ¸¶¸®¿À³Ý ÃÊ±Þ
-#define SND_ITEM_WPNMAR4          155 // ¸¶¸®¿À³Ý Áß±Þ
-#define SND_ITEM_WPNWANB1         156 // ÃÊ±Þ ¿Ïµå °ø°ÝÀ½(¹ß»çÃ¼ ¹ß»ç¼Ò¸®) ÀÏ¹Ý
-#define SND_ITEM_WPNWANB2         157 // ÃÊ±Þ ¿Ïµå °ø°ÝÀ½(¹ß»çÃ¼ ¹ß»ç¼Ò¸®) ÃæÀü
-#define SND_ITEM_WPNWANM1         158 // Áß±Þ ¿Ïµå °ø°ÝÀ½(¹ß»çÃ¼ ¹ß»ç¼Ò¸®) ÀÏ¹Ý
-#define SND_ITEM_WPNWANM2         159 // Áß±Þ ¿Ïµå °ø°ÝÀ½(¹ß»çÃ¼ ¹ß»ç¼Ò¸®) ÃæÀü
-#define SND_ITEM_WPNWANH1         160 // °í±Þ ¿Ïµå °ø°ÝÀ½(¹ß»çÃ¼ ¹ß»ç¼Ò¸®) ÀÏ¹Ý
-#define SND_ITEM_WPNWANH2         161 // °í±Þ ¿Ïµå °ø°ÝÀ½(¹ß»çÃ¼ ¹ß»ç¼Ò¸®) ÃæÀü
-#define SND_ITEM_WPNWANAMPLIFY    162 // ¿Ïµå ÃæÀü ¼Ò¸®                        
+#define SND_ITEM_WPNSWD1          140 // ì €ê¸‰ ì¹¼ ê³µê²©ìŒ(íœ˜ë‘ë¥´ëŠ” ì†Œë¦¬)         
+#define SND_ITEM_WPNSWD2          141 // ì´ˆê¸‰ ì¹¼ ê³µê²©ìŒ(íœ˜ë‘ë¥´ëŠ” ì†Œë¦¬)         
+#define SND_ITEM_WPNSWD3          142 // ì¤‘ê¸‰ ì¹¼ ê³µê²©ìŒ(íœ˜ë‘ë¥´ëŠ” ì†Œë¦¬)         
+#define SND_ITEM_WPNSWD4          143 // ê³ ê¸‰ ì¹¼ ê³µê²©ìŒ(íœ˜ë‘ë¥´ëŠ” ì†Œë¦¬)         
+#define SND_ITEM_WPNCHE1          144 // ì´ˆê¸‰ ì¹˜ì–´ìŠ¤í‹± ê³µê²©ìŒ(íœ˜ë‘ë¥´ëŠ” ì†Œë¦¬)   
+#define SND_ITEM_WPNCHE2          145 // ì¤‘ê¸‰ ì¹˜ì–´ìŠ¤í‹± ê³µê²©ìŒ(íœ˜ë‘ë¥´ëŠ” ì†Œë¦¬)   
+#define SND_ITEM_WPNCHE3          146 // ê³ ê¸‰ ì¹˜ì–´ìŠ¤í‹± ê³µê²©ìŒ(íœ˜ë‘ë¥´ëŠ” ì†Œë¦¬)   
+#define SND_ITEM_WPNCHE4          147 // ê³ ê¸‰ ì¹˜ì–´ìŠ¤í‹± ê³µê²©ìŒ(íœ˜ë‘ë¥´ëŠ” ì†Œë¦¬)   
+#define SND_ITEM_WPNDAR1          148 // ì•”ê¸° ì´ˆê¸‰
+#define SND_ITEM_WPNDAR2          149 // ì•”ê¸° ì¤‘ê¸‰
+#define SND_ITEM_WPNDAR3          150 // ì•”ê¸° ì´ˆê¸‰
+#define SND_ITEM_WPNDAR4          151 // ì•”ê¸° ì¤‘ê¸‰
+#define SND_ITEM_WPNMAR1          152 // ì•”ê¸° ê³ ê¸‰
+#define SND_ITEM_WPNMAR2          153 // ì•”ê¸° ê³ ê¸‰
+#define SND_ITEM_WPNMAR3          154 // ë§ˆë¦¬ì˜¤ë„· ì´ˆê¸‰
+#define SND_ITEM_WPNMAR4          155 // ë§ˆë¦¬ì˜¤ë„· ì¤‘ê¸‰
+#define SND_ITEM_WPNWANB1         156 // ì´ˆê¸‰ ì™„ë“œ ê³µê²©ìŒ(ë°œì‚¬ì²´ ë°œì‚¬ì†Œë¦¬) ì¼ë°˜
+#define SND_ITEM_WPNWANB2         157 // ì´ˆê¸‰ ì™„ë“œ ê³µê²©ìŒ(ë°œì‚¬ì²´ ë°œì‚¬ì†Œë¦¬) ì¶©ì „
+#define SND_ITEM_WPNWANM1         158 // ì¤‘ê¸‰ ì™„ë“œ ê³µê²©ìŒ(ë°œì‚¬ì²´ ë°œì‚¬ì†Œë¦¬) ì¼ë°˜
+#define SND_ITEM_WPNWANM2         159 // ì¤‘ê¸‰ ì™„ë“œ ê³µê²©ìŒ(ë°œì‚¬ì²´ ë°œì‚¬ì†Œë¦¬) ì¶©ì „
+#define SND_ITEM_WPNWANH1         160 // ê³ ê¸‰ ì™„ë“œ ê³µê²©ìŒ(ë°œì‚¬ì²´ ë°œì‚¬ì†Œë¦¬) ì¼ë°˜
+#define SND_ITEM_WPNWANH2         161 // ê³ ê¸‰ ì™„ë“œ ê³µê²©ìŒ(ë°œì‚¬ì²´ ë°œì‚¬ì†Œë¦¬) ì¶©ì „
+#define SND_ITEM_WPNWANAMPLIFY    162 // ì™„ë“œ ì¶©ì „ ì†Œë¦¬                        
 #define SND_ITEM_WPNAXE1          163
 #define SND_ITEM_WPNAXE2          164
 #define SND_ITEM_WPNAXE3          165
@@ -134,20 +134,20 @@
 #define SND_ITEM_WPNKNU3          169
 #define SND_ITEM_WPNKNU4          170
 #define SND_ITEM_GNCOLLECTOR      171
-#define SND_ITEM_WPNYOY1          172 // ¿ä¿ä ÈÖµÎ¸£±â1
-#define SND_ITEM_WPNYOY2          173 // ¿ä¿ä ÈÖµÎ¸£±â2
-#define SND_ITEM_WPNBOW1          174 // È° ½î±â
-#define SND_ITEM_WPNCASE1         175 // ¾ç¼ö ¹«±â ÈÖµÎ¸£±â1
-#define SND_ITEM_WPNCASE2         176 // ¾ç¼ö ¹«±â ÈÖµÎ¸£±â2
-#define SND_ITEM_WPNCASE3         177 // ¾ç¼ö ¹«±â ÈÖµÎ¸£±â3
-#define SND_ITEM_WPNCASE4         178 // ¾ç¼ö ¹«±â ÈÖµÎ¸£±â4
-#define SND_ITEM_WPNTWO1          179 // ¾ç¼Õ ¹«±â ÈÖµÎ¸£±â1
-#define SND_ITEM_WPNTWO2          89  // ¾ç¼Õ ¹«±â ÈÖµÎ¸£±â2
-#define SND_ITEM_WPNTWO3          88  // ¾ç¼Õ ¹«±â ÈÖµÎ¸£±â3
-#define SND_ITEM_WPNTWO4          87  // ¾ç¼Õ ¹«±â ÈÖµÎ¸£±â4
+#define SND_ITEM_WPNYOY1          172 // ìš”ìš” íœ˜ë‘ë¥´ê¸°1
+#define SND_ITEM_WPNYOY2          173 // ìš”ìš” íœ˜ë‘ë¥´ê¸°2
+#define SND_ITEM_WPNBOW1          174 // í™œ ì˜ê¸°
+#define SND_ITEM_WPNCASE1         175 // ì–‘ìˆ˜ ë¬´ê¸° íœ˜ë‘ë¥´ê¸°1
+#define SND_ITEM_WPNCASE2         176 // ì–‘ìˆ˜ ë¬´ê¸° íœ˜ë‘ë¥´ê¸°2
+#define SND_ITEM_WPNCASE3         177 // ì–‘ìˆ˜ ë¬´ê¸° íœ˜ë‘ë¥´ê¸°3
+#define SND_ITEM_WPNCASE4         178 // ì–‘ìˆ˜ ë¬´ê¸° íœ˜ë‘ë¥´ê¸°4
+#define SND_ITEM_WPNTWO1          179 // ì–‘ì† ë¬´ê¸° íœ˜ë‘ë¥´ê¸°1
+#define SND_ITEM_WPNTWO2          89  // ì–‘ì† ë¬´ê¸° íœ˜ë‘ë¥´ê¸°2
+#define SND_ITEM_WPNTWO3          88  // ì–‘ì† ë¬´ê¸° íœ˜ë‘ë¥´ê¸°3
+#define SND_ITEM_WPNTWO4          87  // ì–‘ì† ë¬´ê¸° íœ˜ë‘ë¥´ê¸°4
 
 
-// 200 ~ 999 ¸¶¼ú, ½ºÅ³ È¿°úÀ½"
+// 200 ~ 999 ë§ˆìˆ , ìŠ¤í‚¬ íš¨ê³¼ìŒ"
 #define SND_PC_SKILLM_FIREBOOMERANG1  200
 #define SND_PC_SKILLM_FIREBOOMERANG2  201
 #define SND_PC_SKILLM_HOTAIR1         202
@@ -283,7 +283,7 @@
 
 #define SND_PC_BOSS_STUN		332
 
-// 900 ¹è°æ È¿°úÀ½		
+// 900 ë°°ê²½ íš¨ê³¼ìŒ		
 #define SND_BGAB_WATERFALL            900		
 #define SND_BGAB_WINDMILL             901		
 #define SND_BGAB_FOUNTAIN             902
@@ -304,20 +304,20 @@
 #define SND_BGAB_EXCAV2               917
 
 
-// 950 NPC È¿°úÀ½ [75%]
+// 950 NPC íš¨ê³¼ìŒ [75%]
 #define SND_NPCAB_BOBOKU              950
 #define SND_NPCAB_DWARPET             951
 
-// 1000 ~ 1099 °øÅë»ç¿îµå
-#define SND_NPC_COMSLUMP1        1000 // ÀÛÀºÅ©±â
-#define SND_NPC_COMSLUMP2        1001 // Áß°£Å©±â
-#define SND_NPC_COMSLUMP3        1002 // Å« Å©±â
+// 1000 ~ 1099 ê³µí†µì‚¬ìš´ë“œ
+#define SND_NPC_COMSLUMP1        1000 // ìž‘ì€í¬ê¸°
+#define SND_NPC_COMSLUMP2        1001 // ì¤‘ê°„í¬ê¸°
+#define SND_NPC_COMSLUMP3        1002 // í° í¬ê¸°
 #define SND_NPC_COMSLUMP4        1003
 #define SND_NPC_COMSLUMP5        1004
-#define SND_NPC_COMWHISTLE       1006 // ÀÛÀº³Ñ ÈÖ½½
-#define SND_NPC_COMWHISTLE2      1007 // Áß°£³Ñ ÈÖ½½
-#define SND_NPC_COMWHISTLE3      1008 // Å«³Ñ ÈÖ½½
-#define SND_NPC_COMWHISTLE4      1009 // Á¹¶ó Å«³Ñ ³¯¾Æ°¡Áö ¾Ê°í ¹Ð¸®±â
+#define SND_NPC_COMWHISTLE       1006 // ìž‘ì€ë„˜ íœ˜ìŠ¬
+#define SND_NPC_COMWHISTLE2      1007 // ì¤‘ê°„ë„˜ íœ˜ìŠ¬
+#define SND_NPC_COMWHISTLE3      1008 // í°ë„˜ íœ˜ìŠ¬
+#define SND_NPC_COMWHISTLE4      1009 // ì¡¸ë¼ í°ë„˜ ë‚ ì•„ê°€ì§€ ì•Šê³  ë°€ë¦¬ê¸°
 
 #define SND_NPC_COMBLUNTSWING    1010
 #define SND_NPC_COMSWING01       1011
@@ -329,7 +329,7 @@
 #define SND_NPC_COMSWING07       1017
 #define SND_NPC_COMSWING08       1018
 #define SND_NPC_COMSWING09       1019
-#define SND_NPC_COMHIT01         1026 // °ø°Ý¿¡ ÀÇÇØ¼­ ÇÇÇØ¹ÞÀ»¶§ ³ª´Â ¼Ò¸®
+#define SND_NPC_COMHIT01         1026 // ê³µê²©ì— ì˜í•´ì„œ í”¼í•´ë°›ì„ë•Œ ë‚˜ëŠ” ì†Œë¦¬
 #define SND_NPC_COMHIT02         1027
 #define SND_NPC_COMHIT03         1028
 #define SND_NPC_COMHIT04         1029
@@ -360,14 +360,14 @@
 #define SND_CTRL_ITEMBOXOPEN2    1251
 
 
-// 100 ºÎÅÍ ¸ó½ºÅÍ °ü·Ã È¿°úÀ½
+// 100 ë¶€í„° ëª¬ìŠ¤í„° ê´€ë ¨ íš¨ê³¼ìŒ
 #define SND_NPC_BUFFATK1           1300
 #define SND_NPC_BUFFATK2           1301
 #define SND_NPC_BUFFDIE1           1302
-#define SND_NPC_BUFFDIE2           1303 //Äô¼Ò¸®¿Í ÇÔ²²
-#define SND_NPC_BUFFIDLE1          1304 //¸÷ÀÇ °íÀ¯¼Ò¸® ÀÖÀ¸¸é ³Ö°í ¾øÀ¸¸é ¹«½Ã
+#define SND_NPC_BUFFDIE2           1303 //ì¿µì†Œë¦¬ì™€ í•¨ê»˜
+#define SND_NPC_BUFFIDLE1          1304 //ëª¹ì˜ ê³ ìœ ì†Œë¦¬ ìžˆìœ¼ë©´ ë„£ê³  ì—†ìœ¼ë©´ ë¬´ì‹œ
 #define SND_NPC_BUFFIDLE2          1305
-#define SND_NPC_BUFFDMG1           1306 //¸÷ÀÇ °íÀ¯¼Ò¸® ÀÖÀ¸¸é ³Ö°í ¾øÀ¸¸é ¹«½Ã
+#define SND_NPC_BUFFDMG1           1306 //ëª¹ì˜ ê³ ìœ ì†Œë¦¬ ìžˆìœ¼ë©´ ë„£ê³  ì—†ìœ¼ë©´ ë¬´ì‹œ
 #define SND_NPC_BUFFDMG2           1307
 #define SND_NPC_AIBATTATK1         1308
 #define SND_NPC_AIBATTATK2         1309
@@ -513,7 +513,7 @@
 #define SND_NPC_CARDPUPPETDMG2     1449
 #define SND_NPC_CARDPUPPETIDLE1    1450
 #define SND_NPC_CARDPUPPETIDLE2    1451
-#define SND_NPC_DEMIANATK1         1452 // µ¥¹Ì¾È 
+#define SND_NPC_DEMIANATK1         1452 // ë°ë¯¸ì•ˆ 
 #define SND_NPC_DEMIANATK2         1453
 #define SND_NPC_DEMIANDIE1         1454
 #define SND_NPC_DEMIANDIE2         1455
@@ -522,7 +522,7 @@
 #define SND_NPC_DEMIANDMG2         1458
 #define SND_NPC_DEMIANIDLE1        1459
 #define SND_NPC_DEMIANIDLE2        1460
-#define SND_NPC_MUSHPANGATK1       1461 // ¸Ó½´ÆÎ
+#define SND_NPC_MUSHPANGATK1       1461 // ë¨¸ìŠˆíŒ¡
 #define SND_NPC_MUSHPANGATK2       1462
 #define SND_NPC_MUSHPANGDIE1       1463
 #define SND_NPC_MUSHPANGDIE2       1464
@@ -531,7 +531,7 @@
 #define SND_NPC_MUSHPANGDMG2       1467
 #define SND_NPC_MUSHPANGIDLE1      1468
 #define SND_NPC_MUSHPANGIDLE2      1469
-#define SND_NPC_ROCKMUSCLEATK1     1470 // ¶ô¸Ó½½
+#define SND_NPC_ROCKMUSCLEATK1     1470 // ë½ë¨¸ìŠ¬
 #define SND_NPC_ROCKMUSCLEATK2     1471
 #define SND_NPC_ROCKMUSCLEDIE1     1472    
 #define SND_NPC_ROCKMUSCLEDIE2     1473
@@ -540,7 +540,7 @@
 #define SND_NPC_ROCKMUSCLEDMG2     1476
 #define SND_NPC_ROCKMUSCLEIDLE1    1477
 #define SND_NPC_ROCKMUSCLEIDLE2    1478
-#define SND_NPC_TOMBSTONEBEARERATK1     1479   // Åù½ºÅæº£¾î·¯
+#define SND_NPC_TOMBSTONEBEARERATK1     1479   // íˆ¼ìŠ¤í†¤ë² ì–´ëŸ¬
 #define SND_NPC_TOMBSTONEBEARERATK2     1480
 #define SND_NPC_TOMBSTONEBEARERDIE1     1481    
 #define SND_NPC_TOMBSTONEBEARERDIE2     1482
@@ -549,7 +549,7 @@
 #define SND_NPC_TOMBSTONEBEARERDMG2     1485
 #define SND_NPC_TOMBSTONEBEARERIDLE1    1486
 #define SND_NPC_TOMBSTONEBEARERIDLE2    1487
-#define SND_NPC_STEAMWALKERATK1         1488 // ½ºÆÀ¿öÄ¿
+#define SND_NPC_STEAMWALKERATK1         1488 // ìŠ¤íŒ€ì›Œì»¤
 #define SND_NPC_STEAMWALKERATK2         1489
 #define SND_NPC_STEAMWALKERDIE1         1490
 #define SND_NPC_STEAMWALKERDIE2         1491
@@ -1185,7 +1185,7 @@
 #define SND_NPC_KIMERADONDMGLIVE1		2109	
 #define SND_NPC_KIMERADONGROOGY1		2110	
 #define SND_NPC_KIMERADONIDLE1			2111
-// 12Â÷ Ãß°¡ È¿°úÀ½			
+// 12ì°¨ ì¶”ê°€ íš¨ê³¼ìŒ			
 #define SND_NPC_ABRAXASATK1		2112	
 #define SND_NPC_ABRAXASATK2		2113	
 #define SND_NPC_ABRAXASDIE1		2114	
@@ -1706,9 +1706,9 @@
 
 
 
-//16Â÷ Ä«ÀÏ·é ÃÊ¿ø ¸ó½ºÅÍ				
+//16ì°¨ ì¹´ì¼ë£¬ ì´ˆì› ëª¬ìŠ¤í„°				
 
-// ÆÛÆê ¿ïÇÁ				
+// í¼íŽ« ìš¸í”„				
 #define	SND_NPC_PUPPETWOLFATK1			2570
 #define	SND_NPC_PUPPETWOLFATK2			2571
 #define	SND_NPC_PUPPETWOLFDIE1			2572
@@ -1717,7 +1717,7 @@
 #define	SND_NPC_PUPPETWOLFFLYDIE1		2575	
 #define	SND_NPC_PUPPETWOLFIDLE1			2576
 
-// ¶óÀÌÄ­ º¸ÃÊº´				
+// ë¼ì´ì¹¸ ë³´ì´ˆë³‘				
 #define	SND_NPC_RYSENTRYATK1			2577
 #define	SND_NPC_RYSENTRYATK2			2578
 #define	SND_NPC_RYSENTRYDIE1			2579
@@ -1726,7 +1726,7 @@
 #define	SND_NPC_RYSENTRYFLYDIE1			2582
 #define	SND_NPC_RYSENTRYIDLE1			2583
 
-// ¶óÀÌÄ­ °æ°èº´					
+// ë¼ì´ì¹¸ ê²½ê³„ë³‘					
 #define	SND_NPC_RYGUARDATK1				2584
 #define	SND_NPC_RYGUARDATK2				2585
 #define	SND_NPC_RYGUARDDIE1				2586
@@ -1735,7 +1735,7 @@
 #define	SND_NPC_RYGUARDFLYDIE1			2589	
 #define	SND_NPC_RYGUARDIDLE1			2590	
 
-// ¶óÀÌÄ­ ±Ã»ç					
+// ë¼ì´ì¹¸ ê¶ì‚¬					
 #define	SND_NPC_RYARCHERATK1			2591	
 #define	SND_NPC_RYARCHERATK2			2592	
 #define	SND_NPC_RYARCHERDIE1			2593	
@@ -1744,7 +1744,7 @@
 #define	SND_NPC_RYARCHERFLYDIE1			2596	
 #define	SND_NPC_RYARCHERIDLE1			2597	
 
-// ¶óÀÌÄ­ ÁÖ¼ú»ç					
+// ë¼ì´ì¹¸ ì£¼ìˆ ì‚¬					
 #define	SND_NPC_RYMAGIATK1				2598
 #define	SND_NPC_RYMAGIATK2				2599
 #define	SND_NPC_RYMAGIDIE1				2600
@@ -1753,7 +1753,7 @@
 #define	SND_NPC_RYMAGIFLYDIE1			2603	
 #define	SND_NPC_RYMAGIIDLE1				2604
 
-// ¶óÀÌÄ­ ÀüÅõº´					
+// ë¼ì´ì¹¸ ì „íˆ¬ë³‘					
 #define	SND_NPC_RYWARRIORATK1			2605	
 #define	SND_NPC_RYWARRIORATK2			2606	
 #define	SND_NPC_RYWARRIORDIE1			2607	
@@ -1763,7 +1763,7 @@
 #define	SND_NPC_RYWARRIORIDLE1			2611
 
 
-// ¶óÀÌÄ­ ¹Ù¸£°¡
+// ë¼ì´ì¹¸ ë°”ë¥´ê°€
 #define	SND_NPC_RYBARGAATK1			2612
 #define	SND_NPC_RYBARGAATK2			2613
 #define	SND_NPC_RYBARGAATK3			2614
@@ -1775,9 +1775,9 @@
 
 
 
-//16Â÷ º£È÷¸ð½º ¸ó½ºÅÍ				
+//16ì°¨ ë² ížˆëª¨ìŠ¤ ëª¬ìŠ¤í„°				
 
-// ÀúÁÖ¹ÞÀº ¼®»ó				
+// ì €ì£¼ë°›ì€ ì„ìƒ				
 #define	SND_NPC_STATUEATK1				2620
 #define	SND_NPC_STATUEATK2				2621
 #define	SND_NPC_STATUEDIE1				2622
@@ -1786,16 +1786,16 @@
 #define	SND_NPC_STATUEFLYDIE1			2625	
 #define	SND_NPC_STATUEIDLE1				2626
 
-// Á×À½ÀÇ Á¤·É Åø¶ó				
-#define	SND_NPC_SPIRITTULAATK1			2627 //ÇÁ·¹ÀÓ ¼öÁ¤
-#define	SND_NPC_SPIRITTULAATK2			2628 //ÇÁ·¹ÀÓ ¼öÁ¤
+// ì£½ìŒì˜ ì •ë ¹ íˆ´ë¼				
+#define	SND_NPC_SPIRITTULAATK1			2627 //í”„ë ˆìž„ ìˆ˜ì •
+#define	SND_NPC_SPIRITTULAATK2			2628 //í”„ë ˆìž„ ìˆ˜ì •
 #define	SND_NPC_SPIRITTULADIE1			2629
 #define	SND_NPC_SPIRITTULADMG1			2630
 #define	SND_NPC_SPIRITTULADMG2			2631
-#define	SND_NPC_SPIRITTULAFLYDIE1		2632 //ÇÁ·¹ÀÓ ¼öÁ¤
+#define	SND_NPC_SPIRITTULAFLYDIE1		2632 //í”„ë ˆìž„ ìˆ˜ì •
 #define	SND_NPC_SPIRITTULAIDLE1			2633
 
-// Á×À½ÀÇ Á¤·É ¿òÅø¶ó	
+// ì£½ìŒì˜ ì •ë ¹ ì›€íˆ´ë¼	
 #define	SND_NPC_SPIRITUMTULAATK1			2634
 #define	SND_NPC_SPIRITUMTULAATK2			2635
 #define	SND_NPC_SPIRITUMTULADIE1			2636
@@ -1805,7 +1805,7 @@
 #define	SND_NPC_SPIRITUMTULAIDLE1			2640
 
 
-// Á×À½ÀÇ Á¤·É ¹Ù±×´Ï½º				
+// ì£½ìŒì˜ ì •ë ¹ ë°”ê·¸ë‹ˆìŠ¤				
 #define	SND_NPC_SPIRITBAGNISATK1		2641
 #define	SND_NPC_SPIRITBAGNISATK2		2642
 #define	SND_NPC_SPIRITBAGNISDIE1		2643
@@ -1814,7 +1814,7 @@
 #define	SND_NPC_SPIRITBAGNISFLYDIE1		2646	
 #define	SND_NPC_SPIRITBAGNISIDLE1		2647
 
-// Á×À½ÀÇ Á¤·É ¿É´Ï½º ( ¸ó½ºÅÍ ¸ñ¼Ò¸® °íÀ½À¸·Î ¼öÁ¤¿äÃ»)			
+// ì£½ìŒì˜ ì •ë ¹ ì˜µë‹ˆìŠ¤ ( ëª¬ìŠ¤í„° ëª©ì†Œë¦¬ ê³ ìŒìœ¼ë¡œ ìˆ˜ì •ìš”ì²­)			
 #define	SND_NPC_SPIRITOBNISATK1			2648
 #define	SND_NPC_SPIRITOBNISATK2			2649
 #define	SND_NPC_SPIRITOBNISDIE1			2650
@@ -1823,7 +1823,7 @@
 #define	SND_NPC_SPIRITOBNISFLYDIE1		2653	
 #define	SND_NPC_SPIRITOBNISIDLE1		2654
 
-// º£È÷¸ð½º ¼öÈ£ÀÚ				
+// ë² ížˆëª¨ìŠ¤ ìˆ˜í˜¸ìž				
 #define	SND_NPC_BEGUARDIANATK1			2655
 #define	SND_NPC_BEGUARDIANATK2			2656
 #define	SND_NPC_BEGUARDIANDIE1			2657
@@ -1832,7 +1832,7 @@
 #define	SND_NPC_BEGUARDIANFLYDIE1		2660	
 #define	SND_NPC_BEGUARDIANIDLE1			2661
 
-// º£È÷¸ð½º				
+// ë² ížˆëª¨ìŠ¤				
 
 #define	SND_NPC_BEHEMOTHATK1			2662
 #define	SND_NPC_BEHEMOTHATK2			2663
@@ -1844,9 +1844,9 @@
 #define	SND_NPC_BEHEMOTHIDLE1			2669
 
 
-//17Â÷ ¹ÙÇÏ¶ó »ç¸· ¸ó½ºÅÍ
+//17ì°¨ ë°”í•˜ë¼ ì‚¬ë§‰ ëª¬ìŠ¤í„°
 
-// ¸ð·¡ ¹Ù¶÷ÀÇ ·ç°¥·ç
+// ëª¨ëž˜ ë°”ëžŒì˜ ë£¨ê°ˆë£¨
 #define	SND_NPC_BAHARARUGALWINDATK1			2670
 #define	SND_NPC_BAHARARUGALWINDATK2			2671
 #define	SND_NPC_BAHARARUGALWINDDIE1			2672
@@ -1855,7 +1855,7 @@
 #define	SND_NPC_BAHARARUGALWINDFLYDIE1		2675	
 #define	SND_NPC_BAHARARUGALWINDIDLE1		2676
 
-// Æø¿°ÀÇ ·ç°¥·ç				
+// í­ì—¼ì˜ ë£¨ê°ˆë£¨				
 #define	SND_NPC_BAHARARUGALHEATATK1			2677
 #define	SND_NPC_BAHARARUGALHEATATK2			2678
 #define	SND_NPC_BAHARARUGALHEATDIE1			2679
@@ -1864,7 +1864,7 @@
 #define	SND_NPC_BAHARARUGALHEATFLYDIE1		2682	
 #define	SND_NPC_BAHARARUGALHEATIDLE1		2683
 
-// »ç¸·ÀÇ Á¤·É Äñ			
+// ì‚¬ë§‰ì˜ ì •ë ¹ ì¿°			
 #define	SND_NPC_RUGALKUMAATK1			2684
 #define	SND_NPC_RUGALKUMAATK2			2685
 #define	SND_NPC_RUGALKUMADIE1			2686
@@ -1873,7 +1873,7 @@
 #define	SND_NPC_RUGALKUMAFLYDIE1		2689	
 #define	SND_NPC_RUGALKUMAIDLE1			2690
 
-// »ç¸·ÀÇ Á¤·É ¸²			
+// ì‚¬ë§‰ì˜ ì •ë ¹ ë¦¼			
 #define	SND_NPC_RUGALRIMAATK1			2691
 #define	SND_NPC_RUGALRIMAATK2			2692
 #define	SND_NPC_RUGALRIMADIE1			2693
@@ -1882,7 +1882,7 @@
 #define	SND_NPC_RUGALRIMAFLYDIE1		2696	
 #define	SND_NPC_RUGALRIMAIDLE1			2697
 
-// ±æµé¿©Áø ¸ð·¡ ¹Ù¶÷ÀÇ ·ç°¥·ç			
+// ê¸¸ë“¤ì—¬ì§„ ëª¨ëž˜ ë°”ëžŒì˜ ë£¨ê°ˆë£¨			
 #define	SND_NPC_RUGALWIND01ATK1			2698
 #define	SND_NPC_RUGALWIND01ATK2			2699
 #define	SND_NPC_RUGALWIND01DIE1			2700
@@ -1891,7 +1891,7 @@
 #define	SND_NPC_RUGALWIND01FLYDIE1		2703	
 #define	SND_NPC_RUGALWIND01IDLE1		2704
 
-// ±æµé¿©Áø Æø¿°ÀÇ ·ç°¥·ç			
+// ê¸¸ë“¤ì—¬ì§„ í­ì—¼ì˜ ë£¨ê°ˆë£¨			
 #define	SND_NPC_RUGALHEAT01ATK1			2705
 #define	SND_NPC_RUGALHEAT01ATK2			2706
 #define	SND_NPC_RUGALHEAT01DIE1			2707
@@ -1900,7 +1900,7 @@
 #define	SND_NPC_RUGALHEAT01FLYDIE1		2710	
 #define	SND_NPC_RUGALHEAT01IDLE1		2711
 
-// ·ç°¥·ç ¸¶½ºÅÍ Äí¸¶				
+// ë£¨ê°ˆë£¨ ë§ˆìŠ¤í„° ì¿ ë§ˆ				
 #define	SND_NPC_RUGALKUMA01ATK1			2712
 #define	SND_NPC_RUGALKUMA01ATK2			2713
 #define	SND_NPC_RUGALKUMA01DIE1			2714
@@ -1909,7 +1909,7 @@
 #define	SND_NPC_RUGALKUMA01FLYDIE1		2717	
 #define	SND_NPC_RUGALKUMA01IDLE1		2718
 
-// ·ç°¥·ç ¸¶½ºÅÍ ¸®¸¶				
+// ë£¨ê°ˆë£¨ ë§ˆìŠ¤í„° ë¦¬ë§ˆ				
 #define	SND_NPC_RUGALRIMA01ATK1			2719
 #define	SND_NPC_RUGALRIMA01ATK2			2720
 #define	SND_NPC_RUGALRIMA01DIE1			2721
@@ -1918,7 +1918,7 @@
 #define	SND_NPC_RUGALRIMA01FLYDIE1		2724	
 #define	SND_NPC_RUGALRIMA01IDLE1		2725
 
-// ¹Ù½Ç¸®½ºÅ©				
+// ë°”ì‹¤ë¦¬ìŠ¤í¬				
 #define	SND_NPC_BASILISKATK1			2726
 #define	SND_NPC_BASILISKATK2			2727
 #define	SND_NPC_BASILISKATK3			2789
@@ -1928,9 +1928,9 @@
 #define	SND_NPC_BASILISKFLYDIE1			2731	
 #define	SND_NPC_BASILISKIDLE1			2732
 
-//17Â÷ Ä®°¡½º µ¿±¼ ¸ó½ºÅÍ
+//17ì°¨ ì¹¼ê°€ìŠ¤ ë™êµ´ ëª¬ìŠ¤í„°
 
-// ÁöÇÏÀÇ ¸Á·É Äí¸¶
+// ì§€í•˜ì˜ ë§ë ¹ ì¿ ë§ˆ
 #define	SND_NPC_KALGASKUMAATK1			2733
 #define	SND_NPC_KALGASKUMAATK2			2734
 #define	SND_NPC_KALGASKUMADIE1			2735
@@ -1939,7 +1939,7 @@
 #define	SND_NPC_KALGASKUMAFLYDIE1		2738	
 #define	SND_NPC_KALGASKUMAIDLE1			2739
 
-// ÁöÇÏÀÇ ¸Á·É ¸®¸¶				
+// ì§€í•˜ì˜ ë§ë ¹ ë¦¬ë§ˆ				
 #define	SND_NPC_KALGASRUMAATK1			2740
 #define	SND_NPC_KALGASRUMAATK2			2741
 #define	SND_NPC_KALGASRUMADIE1			2742
@@ -1948,7 +1948,7 @@
 #define	SND_NPC_KALGASRUMAFLYDIE1		2745	
 #define	SND_NPC_KALGASRUMAIDLE1			2746
 
-// º£È÷ºñ Ä«¸£°í			
+// ë² ížˆë¹„ ì¹´ë¥´ê³ 			
 #define	SND_NPC_KALGASBABYATK1			2747
 #define	SND_NPC_KALGASBABYATK2			2748
 #define	SND_NPC_KALGASBABYDIE1			2749
@@ -1957,7 +1957,7 @@
 #define	SND_NPC_KALGASBABYFLYDIE1		2752	
 #define	SND_NPC_KALGASBABYIDLE1			2753
 
-// ÇÃ¶óÀÌ Ä«¸£°í			
+// í”Œë¼ì´ ì¹´ë¥´ê³ 			
 #define	SND_NPC_KALGASFLYATK1			2754
 #define	SND_NPC_KALGASFLYATK2			2755
 #define	SND_NPC_KALGASFLYDIE1			2756
@@ -1966,7 +1966,7 @@
 #define	SND_NPC_KALGASFLYFLYDIE1		2759	
 #define	SND_NPC_KALGASFLYIDLE1			2760
 
-// ·¹¼­ Ä®°¡½º			
+// ë ˆì„œ ì¹¼ê°€ìŠ¤			
 #define	SND_NPC_LESSERATK1				2761
 #define	SND_NPC_LESSERATK2				2762
 #define	SND_NPC_LESSERDIE1				2763
@@ -1975,7 +1975,7 @@
 #define	SND_NPC_LESSERFLYDIE1			2766	
 #define	SND_NPC_LESSERIDLE1				2767
 
-// °á°èÀÇ ¼öÈ£ÀÚ ¿¡Å²			
+// ê²°ê³„ì˜ ìˆ˜í˜¸ìž ì—í‚¨			
 #define	SND_NPC_KALGASAKINATK1			2768
 #define	SND_NPC_KALGASAKINATK2			2769
 #define	SND_NPC_KALGASAKINDIE1			2770
@@ -1984,7 +1984,7 @@
 #define	SND_NPC_KALGASAKINFLYDIE1		2773	
 #define	SND_NPC_KALGASAKINIDLE1			2774
 
-// °á°èÀÇ ¼öÈ£ÀÚ ¹ßÆ®				
+// ê²°ê³„ì˜ ìˆ˜í˜¸ìž ë°œíŠ¸				
 #define	SND_NPC_KALGASBALTATK1			2775
 #define	SND_NPC_KALGASBALTATK2			2776
 #define	SND_NPC_KALGASBALTDIE1			2777
@@ -1993,7 +1993,7 @@
 #define	SND_NPC_KALGASBALTFLYDIE1		2780	
 #define	SND_NPC_KALGASBALTIDLE1			2781
 
-// ³¯Ä«·Î¿î ¼Û°÷´ÏÀÇ Ä®°¡½º				
+// ë‚ ì¹´ë¡œìš´ ì†¡ê³³ë‹ˆì˜ ì¹¼ê°€ìŠ¤				
 #define	SND_NPC_KALGASTOOTHATK1			2782
 #define	SND_NPC_KALGASTOOTHATK2			2783
 #define	SND_NPC_KALGASTOOTHATK3			2790
@@ -2004,9 +2004,9 @@
 #define	SND_NPC_KALGASTOOTHIDLE1		2788
 
 
-// ´ÙÀ½ »ç¿îµå Ãß°¡´Â 2791¹øºÎÅÍ ÇÏ½Ã¸éµË´Ï´Ù.
+// ë‹¤ìŒ ì‚¬ìš´ë“œ ì¶”ê°€ëŠ” 2791ë²ˆë¶€í„° í•˜ì‹œë©´ë©ë‹ˆë‹¤.
 
-//ÀÌº¥Æ® °¨ÀÚº¸½º
+//ì´ë²¤íŠ¸ ê°ìžë³´ìŠ¤
 #define	SND_NPC_COLOBOSS01ATK1			2791
 #define	SND_NPC_COLOBOSS01ATK2			2792
 #define	SND_NPC_COLOBOSS01ATK3			2793
@@ -2016,13 +2016,13 @@
 #define	SND_NPC_COLOBOSS01FLYDIE1		2797	
 #define	SND_NPC_COLOBOSS01IDLE1			2798
 
-//17Â÷ ¿¡Å² ¹ßÆ® ¼®»ó »ç¿îµå
+//17ì°¨ ì—í‚¨ ë°œíŠ¸ ì„ìƒ ì‚¬ìš´ë“œ
 #define	SND_NPC_KALGASSTELE01DIE1		2799
 #define	SND_NPC_KALGASSTELE02DIE1		2800
 #define SND_NPC_KALGASEGG01DIE1			2801
 
 
-//18Â÷ À¯ÇÁ·¹½Ã¾Æ ¸ó½ºÅÍ »ç¿îµå
+//18ì°¨ ìœ í”„ë ˆì‹œì•„ ëª¬ìŠ¤í„° ì‚¬ìš´ë“œ
 
 #define	SND_NPC_DREAMRAPRAATK1			2802
 #define	SND_NPC_DREAMRAPRAATK2			2803
@@ -2082,7 +2082,7 @@
 #define	SND_NPC_DREAMQEENFLYDIE1		2851
 
 
-//18Â÷ Çì¸£³×¿À½º ¸ó½ºÅÍ »ç¿îµå
+//18ì°¨ í—¤ë¥´ë„¤ì˜¤ìŠ¤ ëª¬ìŠ¤í„° ì‚¬ìš´ë“œ
 
 #define	SND_NPC_DREAMHERNSHARKATK1		2852
 #define	SND_NPC_DREAMHERNSHARKATK2		2853
@@ -2133,7 +2133,7 @@
 #define	SND_NPC_DREAMHERNKRAKENDMG2		2887
 #define	SND_NPC_DREAMHERNKRAKENFLYDIE1		2888
 
-//18Â÷ »êÇÁ·¹½ºÈ£ ¸ó½ºÅÍ »ç¿îµå
+//18ì°¨ ì‚°í”„ë ˆìŠ¤í˜¸ ëª¬ìŠ¤í„° ì‚¬ìš´ë“œ
 
 #define	SND_NPC_DREAMSHIPMAUGUSATK1		2889
 #define	SND_NPC_DREAMSHIPMAUGUSATK2		2890
@@ -2201,7 +2201,7 @@
 #define	SND_NPC_DREAMSHIPBLUEHARPYFLYDIE1	2944
 
 
-//Çì¸£³×¿À½º Ãß°¡ºÐ
+//í—¤ë¥´ë„¤ì˜¤ìŠ¤ ì¶”ê°€ë¶„
 #define	SND_NPC_DREAMHERNMERMAN02ATK1		2946
 #define	SND_NPC_DREAMHERNMERMAN02ATK2		2947
 #define	SND_NPC_DREAMHERNMERMAN02IDLE1		2948
@@ -2221,7 +2221,7 @@
 
 
 
-// ÀÏº» À½¼º ³²¼º 3001, ¿©¼º=³²¼º+500"
+// ì¼ë³¸ ìŒì„± ë‚¨ì„± 3001, ì—¬ì„±=ë‚¨ì„±+500"
 #define VOC_M_ONE_CLEANHIT                3001
 #define VOC_M_ONE_BRANDISH                3002
 #define VOC_M_ONE_OVERCUTTER              3003
@@ -2440,8 +2440,8 @@
 #define SND_PC_CHAOS                      3608
 
 
-// 16 ½ºÅ³ »ç¿îµå
-//·Îµå ÅÛÇÃ·¯ ½º Å³
+// 16 ìŠ¤í‚¬ ì‚¬ìš´ë“œ
+//ë¡œë“œ í…œí”ŒëŸ¬ ìŠ¤ í‚¬
 #define SND_PC_SKILLM_PULLING1_01          3609
 #define SND_PC_SKILLM_PULLING1_02          3610
 #define SND_PC_SKILLM_PULLING1_03          3611
@@ -2456,7 +2456,7 @@
 #define SND_PC_SKILLM_HOLYARMOR_02         3620	
 #define SND_PC_SKILLM_SCOPESTRIKE_01       3621	
 #define SND_PC_SKILLM_SCOPESTRIKE_02       3622		
-//½ºÅèºí·¹ÀÌµå
+//ìŠ¤í†°ë¸”ë ˆì´ë“œ
 #define SND_PC_SKILLM_CROSSBLOOD_01        3623	
 #define SND_PC_SKILLM_CROSSBLOOD_02        3624		
 #define SND_PC_SKILLM_STORMBLAST_01        3625	
@@ -2470,13 +2470,13 @@
 #define SND_PC_SKILLM_HOLDINGSTORM_03      3633	
 #define SND_PC_SKILLM_HOLDINGSTORM_04      3634	
 #define SND_PC_SKILLM_HOLDINGSTORM_05      3635	
-//À©µå·¯Ä¿
+//ìœˆë“œëŸ¬ì»¤
 #define SND_PC_SKILLM_MADHURRICANE_01      3636	
 #define SND_PC_SKILLM_EVASIONINCREASE_01   3637
 #define SND_PC_SKILLM_CONTROLINCREASE1_01  3638	
 #define SND_PC_SKILLM_BACKSTEP_01          3639	
 #define SND_PC_SKILLM_BACKSTEP_02          3640	
-//Å©·¢½´ÅÍ
+//í¬ëž™ìŠˆí„°
 #define SND_PC_SKILLM_RANGESTRIKE_01       3641	
 #define SND_PC_SKILLM_RANGESTRIKE_02       3642	
 #define SND_PC_SKILLM_RANGESTRIKE_03       3643	
@@ -2485,7 +2485,7 @@
 #define SND_PC_SKILLM_CONTROLINCREASE2_01  3646
 #define SND_PC_SKILLM_HAWKEYE_01           3647	
 #define SND_PC_SKILLM_HAWKEYE_02           3648	
-//ÇÃ·Î¸®½ºÆ®
+//í”Œë¡œë¦¬ìŠ¤íŠ¸
 #define SND_PC_SKILLM_DOT_01               3649	
 #define SND_PC_SKILLM_DOT_02               3650	
 #define SND_PC_SKILLM_BLESSSTEP_01         3651	
@@ -2498,7 +2498,7 @@
 #define SND_PC_SKILLM_ABSOLUTE_02          3658
 #define SND_PC_SKILLM_PATTERS_01           3659
 #define SND_PC_SKILLM_PATTERS_02           3660
-//Æ÷½º¸¶½ºÅÍ
+//í¬ìŠ¤ë§ˆìŠ¤í„°
 #define SND_PC_SKILLM_FORCETENACITY_01     3661
 #define SND_PC_SKILLM_FORCETENACITY_02     3662
 #define SND_PC_SKILLM_FORCEANGER_01        3663	
@@ -2507,7 +2507,7 @@
 #define SND_PC_SKILLM_FORCESPEED_02        3666	
 #define SND_PC_SKILLM_FORCEMAD_01          3667	
 #define SND_PC_SKILLM_FORCEMAD_02          3668	
-//¸àÅ»¸®½ºÆ®
+//ë©˜íƒˆë¦¬ìŠ¤íŠ¸
 #define SND_PC_SKILLM_FEARSCREAM_01        3669	
 #define SND_PC_SKILLM_FEARSCREAM_02        3670	
 #define SND_PC_SKILLM_FEARSCREAM_03        3671	
@@ -2516,7 +2516,7 @@
 #define SND_PC_SKILLM_ATKDECREASE_01       3674
 #define SND_PC_SKILLM_DEFDECREASE_01       3675	
 #define SND_PC_SKILLM_SPEDECREASE_01       3676
-//¿¤¸®¸àÅ»·Îµå
+//ì—˜ë¦¬ë©˜íƒˆë¡œë“œ
 #define SND_PC_SKILLM_THUNDERBOLT_01       3677
 #define SND_PC_SKILLM_FINALSPEAR_01        3678
 #define SND_PC_SKILLM_FINALSPEAR_02        3679
@@ -2528,7 +2528,7 @@
 #define SND_PC_SKILLM_SLIPPING_02          3685
 
 
-//ÄÝ·Î¼¼¿ò È¿°úÀ½
+//ì½œë¡œì„¸ì›€ íš¨ê³¼ìŒ
 #define SND_COLO_ALLSTAGECLEAR		   3691
 #define SND_COLO_BOSSAPPEAR		   3692
 #define SND_COLO_EVENTBOSSAPPEAR	   3693
@@ -2538,7 +2538,7 @@
 #define SND_COLO_TIMEOVER		   3697
 #define SND_COLO_PEOPLECHEER		   3698
 
-//¾Æ·¹³ª È¿°úÀ½
+//ì•„ë ˆë‚˜ íš¨ê³¼ìŒ
 #define SND_EVENTARENA_WINNER		   3699
 
 
@@ -2601,27 +2601,27 @@
 #define BGM_IN_LEVEL         		24
 #define BGM_IN_FITUP         		25
 #define BGM_IN_COMPANY      		26
-//½Å±Ô BGM(16Â÷)
+//ì‹ ê·œ BGM(16ì°¨)
 #define BGM_IN_BEHEMOS       		27
 #define BGM_IN_RARTESIA      		28
 #define BGM_IN_ENRIUN        		29
 #define BGM_IN_KAILUN        		30
 
-// Ãß°¡ ÀüÅõ À½¾Ç
+// ì¶”ê°€ ì „íˆ¬ ìŒì•…
 #define BGM_BA_SAINTMORNING  		50
 #define BGM_BA_DARKON        		51
 
-// Ãß°¡ ´øÁ¯ À½¾Ç 
+// ì¶”ê°€ ë˜ì ¼ ìŒì•… 
 #define BGM_DU_INVISIBLE     		70
 
-// Ãß°¡ ÇÊµå ¹ÂÁ÷ 
+// ì¶”ê°€ í•„ë“œ ë®¤ì§ 
 #define BGM_FI_FLARIS        		120
 #define BGM_FI_SAINTMORNING  		121
 #define BGM_FI_DARKON1       		122
 #define BGM_FI_DARKON2       		123
 #define BGM_FI_DARKON3       		124
 
-// Ãß°¡ NPC À½¾Ç 
+// ì¶”ê°€ NPC ìŒì•… 
 #define BGM_NPC_HORROR       		200
 #define BGM_NPC_HORROR2      		201
 #define BGM_NPC_MILD         		202
@@ -2636,20 +2636,20 @@
 #define BGM_DU_RARTESIA01      		3688
 #define BGM_FIELD_KAILUN01    		3689
 
-//ÄÝ·Î¼¼¿ò 
+//ì½œë¡œì„¸ì›€ 
 #define BGM_DU_COLOSSEOUM     		3690
 
-//17Â÷ BGM
+//17ì°¨ BGM
 #define BGM_DU_KALGAS	     		3691
 #define BGM_FLELD_BAHARA	 	3692
 
-//ÀÌº¥Æ® ¾Æ·¹³ª BGM
+//ì´ë²¤íŠ¸ ì•„ë ˆë‚˜ BGM
 #define BGM_BA_FWC			3693
-//»êÇÁ·¹½º Àú·¾ °í·¾
+//ì‚°í”„ë ˆìŠ¤ ì €ë ™ ê³ ë ™
 #define BGM_DU_SANPRES			3700
-//À¯ÇÁ·¹½Ã¾Æ Àú·¾ °í·¾
+//ìœ í”„ë ˆì‹œì•„ ì €ë ™ ê³ ë ™
 #define BGM_DU_UPRESIA			3701
-//Çì¸£³×¿À½º Àú·¾ °í·¾
+//í—¤ë¥´ë„¤ì˜¤ìŠ¤ ì €ë ™ ê³ ë ™
 #define BGM_DU_HERNEOS			3702
 
 /*

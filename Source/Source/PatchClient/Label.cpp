@@ -1,4 +1,4 @@
-// Label.cpp : implementation file
+﻿// Label.cpp : implementation file
 //
 
 #include "stdafx.h"

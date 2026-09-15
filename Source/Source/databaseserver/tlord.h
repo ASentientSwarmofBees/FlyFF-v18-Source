@@ -1,4 +1,4 @@
-#ifndef __TLORD_H__
+ï»¿#ifndef __TLORD_H__
 #define	__TLORD_H__
 
 #if __VER >= 12 // __LORD
@@ -9,30 +9,30 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 class CLController;
-// Æ®·£½º ¼­¹ö¿ë ±ºÁÖ Å¬·¡½º
+// íŠ¸ëœìŠ¤ ì„œë²„ìš© êµ°ì£¼ í´ë˜ìŠ¤
 class CTLord
 	: public CLord
 {
 public:
-	// Ã³¸® ¿äÃ»
+	// ì²˜ë¦¬ ìš”ì²­
 	enum	{	eBeginCandidacy, eBeginVote, eEndVote, eAddDeposit, eSetPledge, eIncVote, eInit, eLEventCreate, eLEventInitialize, eLordSkillUse	};
 public:
 	CTLord();
 	virtual	~CTLord();
 	static	CTLord*	Instance( void );
-	// Çù·Â °´Ã¼ »ı¼º
+	// í˜‘ë ¥ ê°ì²´ ìƒì„±
 	virtual	void	CreateColleagues( void );
-	// Çù·Â °´Ã¼ Á¦°Å
+	// í˜‘ë ¥ ê°ì²´ ì œê±°
 	virtual void	DestroyColleagues( void );
-	// ¸ğµç ±ºÁÖ ½Ã½ºÅÛ Çù·Â °´Ã¼ÀÇ º¹¿ø
+	// ëª¨ë“  êµ°ì£¼ ì‹œìŠ¤í…œ í˜‘ë ¥ ê°ì²´ì˜ ë³µì›
 	BOOL	RestoreAll( void );
-	// ±ºÁÖ º¯¼ö º¹¿ø
+	// êµ°ì£¼ ë³€ìˆ˜ ë³µì›
 	BOOL	Restore( CQuery* pQuery );
-	// ±ºÁÖ ¿¬»ê ¿äÃ»¿¡ ´ëÇÑ ÇÚµé·¯
+	// êµ°ì£¼ ì—°ì‚° ìš”ì²­ì— ëŒ€í•œ í•¸ë“¤ëŸ¬
 	void	Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey );
-	// Æ½
+	// í‹±
 	void	OnTimer( void );
-	// Ã³¸® ¿äÃ»
+	// ì²˜ë¦¬ ìš”ì²­
 	BOOL	PostRequest( int nQuery, BYTE* lpBuf = NULL, int nBufSize = 0, DWORD dwCompletionKey = 0 );
 	virtual	CLController*	GetController( void )	{	return m_pController;	}
 private:
@@ -50,65 +50,65 @@ typedef	struct	_PostItemStruct
 }	PostItemStruct;
 
 class CQuery;
-// Æ®·£½º ¼­¹ö¿ë ¼±°Å Å¬·¡½º
+// íŠ¸ëœìŠ¤ ì„œë²„ìš© ì„ ê±° í´ë˜ìŠ¤
 class CTElection :
 	public IElection
 {
 public:
 	CTElection( CLord* pLord );
 	virtual	~CTElection();
-	// ÃÊ±âÈ­ ¹× ½ºÅ©¸³Æ® ·Îµå
+	// ì´ˆê¸°í™” ë° ìŠ¤í¬ë¦½íŠ¸ ë¡œë“œ
 	BOOL	Initialize( const char* szFile );
-	// ÇØ´ç »ç¿ëÀÚÀÇ ¼øÀ§¿¡ µû¸¥ ÀÔÂû±İ ¹İÈ¯·ü
+	// í•´ë‹¹ ì‚¬ìš©ìì˜ ìˆœìœ„ì— ë”°ë¥¸ ì…ì°°ê¸ˆ ë°˜í™˜ë¥ 
 	float	GetRetRate( u_long idPlayer );
-	// ÇÁ·Î¼¼½º °¡ºÎ ¼³Á¤
+	// í”„ë¡œì„¸ìŠ¤ ê°€ë¶€ ì„¤ì •
 	void	SetRun( BOOL bRun )		{	m_bRun	= bRun;		}
-	// ÇöÀç ±ºÁÖ ÇÁ·Î¼¼½º°¡ ½ÇÇàÁßÀÎ°¡?
+	// í˜„ì¬ êµ°ì£¼ í”„ë¡œì„¸ìŠ¤ê°€ ì‹¤í–‰ì¤‘ì¸ê°€?
 	BOOL	IsRunable( void )	{	return m_bRun;	}
-	// Æ½
+	// í‹±
 	void	OnTimer( void );
-	// º¹¿ø
+	// ë³µì›
 	BOOL	Restore( CQuery* pQuery );
 
 public:
-	// ½Ã°£
+	// ì‹œê°„
 	static	CString	ttos( time_t t );
 	static	time_t	stot( const char* sz );
 
 protected:
-	// ÅÛÇÃ¸´ ¸Ş¼Òµå ÇÔ¼öµé
-	// ÀÔÈÄº¸ ½ÃÀÛ »óÅÂÀÇ ÀúÀå ¹× Àü¼Û
+	// í…œí”Œë¦¿ ë©”ì†Œë“œ í•¨ìˆ˜ë“¤
+	// ì…í›„ë³´ ì‹œì‘ ìƒíƒœì˜ ì €ì¥ ë° ì „ì†¡
 	virtual	BOOL	DoTestBeginCandidacy( void );
-	// ÀÔÂû±İÀÇ ¿ìÆíÀ» ÅëÇÑ ¹İÈ¯
+	// ì…ì°°ê¸ˆì˜ ìš°í¸ì„ í†µí•œ ë°˜í™˜
 	virtual	void	DoReturnDeposit( void );
-	// ÅõÇ¥ ½ÃÀÛ »óÅÂÀÇ ÀúÀå ¹× Àü¼Û
+	// íˆ¬í‘œ ì‹œì‘ ìƒíƒœì˜ ì €ì¥ ë° ì „ì†¡
 	virtual	BOOL	DoTestBeginVote( int & nRequirement );
-	// ÅõÇ¥ Á¾·á »óÅÂÀÇ ÀúÀå ¹× Àü¼Û(±ºÁÖ ¼³Á¤)
+	// íˆ¬í‘œ ì¢…ë£Œ ìƒíƒœì˜ ì €ì¥ ë° ì „ì†¡(êµ°ì£¼ ì„¤ì •)
 	virtual	BOOL	DoTestEndVote( u_long idPlayer );
-	// ±ºÁÖ ÀÔÂû ÀúÀå ¹× °á°ú Àü¼Û
+	// êµ°ì£¼ ì…ì°° ì €ì¥ ë° ê²°ê³¼ ì „ì†¡
 	virtual	BOOL	DoTestAddDeposit( u_long idPlayer, __int64 iDeposit, time_t tCreate );
 	virtual	void	DoAddDepositComplete( u_long idPlayer, __int64 iDeposit, time_t tCreate );
-	// °ø¾à ¼³Á¤ ÀúÀå ¹× °á°ú Àü¼Û
+	// ê³µì•½ ì„¤ì • ì €ì¥ ë° ê²°ê³¼ ì „ì†¡
 	virtual	BOOL	DoTestSetPledge( u_long idPlayer, const char* szPledge );
-	// ÅõÇ¥ ÀúÀå ¹× °á°ú Àü¼Û
+	// íˆ¬í‘œ ì €ì¥ ë° ê²°ê³¼ ì „ì†¡
 	virtual	BOOL	DoTestIncVote( u_long idPlayer, u_long idElector );
 
 private:
-	// ½ºÅ©¸³Æ® ·Îµå
+	// ìŠ¤í¬ë¦½íŠ¸ ë¡œë“œ
 	BOOL	ReadIni( const char* szFile );
-	// ¾ÆÀÌÅÛ ¿ìÆí Áö±Ş	- ¹ü¿ë ÇÔ¼ö·Î º¯°æ ÇÊ¿ä
+	// ì•„ì´í…œ ìš°í¸ ì§€ê¸‰	- ë²”ìš© í•¨ìˆ˜ë¡œ ë³€ê²½ í•„ìš”
 	void	PostItem( u_long idPlayer, PostItemStruct & pi );
-	// ÈÄº¸ÀÚµé¿¡°Ô ÀÔÂû±İ ¹İÈ¯
+	// í›„ë³´ìë“¤ì—ê²Œ ì…ì°°ê¸ˆ ë°˜í™˜
 	void	PostDepositToAllCandidate( void );
-	// ¼±ÃâµÈ ±ºÁÖ¿¡°Ô ±ºÁÖ ¾ÆÀÌÅÛ ¿ìÆí Áö±Ş
+	// ì„ ì¶œëœ êµ°ì£¼ì—ê²Œ êµ°ì£¼ ì•„ì´í…œ ìš°í¸ ì§€ê¸‰
 	void	PostLordItems( u_long idLord );
 
 private:
-	// ÇÁ·Î¼¼½º ½ÇÇà ¿©ºÎ
+	// í”„ë¡œì„¸ìŠ¤ ì‹¤í–‰ ì—¬ë¶€
 	BOOL	m_bRun;
 };
 
-// Æ®·£½º ¼­¹ö¿ë ±ºÁÖ ½ºÅ³
+// íŠ¸ëœìŠ¤ ì„œë²„ìš© êµ°ì£¼ ìŠ¤í‚¬
 class CTLordSkill
 	: public CLordSkill
 {
@@ -116,35 +116,35 @@ public:
 	CTLordSkill( CLord* pLord );
 	virtual	~CTLordSkill();
 	virtual	CLordSkillComponentExecutable*	CreateSkillComponent( int nType );	// template method
-	// º¹¿ø
+	// ë³µì›
 	BOOL	Restore( CQuery* pQuery );
-	// Æ½
+	// í‹±
 	void	OnTimer( void );
 };
 
 ////////////////////////////////////////////////////////////////////////////////
 class CQuery;
-// Æ®·£½º ¼­¹ö¿ë ±ºÁÖ ÀÌº¥Æ®
+// íŠ¸ëœìŠ¤ ì„œë²„ìš© êµ°ì£¼ ì´ë²¤íŠ¸
 class CLEvent : public ILordEvent
 {
 public:
 	CLEvent( CLord* pLord );
 	virtual	~CLEvent();
-	// º¹¿ø
+	// ë³µì›
 	BOOL	Restore( CQuery * pQuery );
-	// Æ½
+	// í‹±
 	void	OnTimer( void );
 protected:
-	// ÅÛÇÃ¸´ ¸Ş¼Òµå ÇÔ¼ö
-	// ±ºÁÖ ÀÌº¥Æ® Ãß°¡¿¡ ´ëÇÑ ÀúÀå ¹× °á°ú Àü¼Û
+	// í…œí”Œë¦¿ ë©”ì†Œë“œ í•¨ìˆ˜
+	// êµ°ì£¼ ì´ë²¤íŠ¸ ì¶”ê°€ì— ëŒ€í•œ ì €ì¥ ë° ê²°ê³¼ ì „ì†¡
 	virtual	BOOL	DoTestAddComponent( CLEComponent* pComponent );
-	// ±ºÁÖ ÀÌº¥Æ® ÃÊ±âÈ­ Àû¿ë ¹× °á°ú Àü¼Û
+	// êµ°ì£¼ ì´ë²¤íŠ¸ ì´ˆê¸°í™” ì ìš© ë° ê²°ê³¼ ì „ì†¡
 	virtual	BOOL	DoTestInitialize( void );
-	// ¸ğµç ±ºÁÖ ÀÌº¥Æ®ÀÇ Áö¼Ó ½Ã°£ °¨¼Ò
+	// ëª¨ë“  êµ°ì£¼ ì´ë²¤íŠ¸ì˜ ì§€ì† ì‹œê°„ ê°ì†Œ
 	BOOL	DecrementAllComponentTick( void );
 };
 
-// ÀÔÂû±İ ¹İÈ¯À» Ã³¸®ÇÏ±â À§ÇÑ ÇÔ¼öÀÚ Å¬·¡½º
+// ì…ì°°ê¸ˆ ë°˜í™˜ì„ ì²˜ë¦¬í•˜ê¸° ìœ„í•œ í•¨ìˆ˜ì í´ë˜ìŠ¤
 struct	PostDeposit:
 	public unary_function< SPC, void >	{
 	void operator() ( const SPC & lhs )	const;
@@ -155,44 +155,44 @@ private:
 
 ////////////////////////////////////////////////////////////////////////////////
 class CLordSkillComponentODBC;
-// ±ºÁÖ¿Í °ü·ÃµÈ ¸ğµç Ã³¸®ÀÇ Á÷·ÄÈ­¸¦ À§ÇÑ Å¬·¡½º
-// º°µµÀÇ ½º·¹µå »ı¼º
-// µ¥ÀÌÅÍº£ÀÌ½º Á¢±Ù °´Ã¼ »ı¼º
+// êµ°ì£¼ì™€ ê´€ë ¨ëœ ëª¨ë“  ì²˜ë¦¬ì˜ ì§ë ¬í™”ë¥¼ ìœ„í•œ í´ë˜ìŠ¤
+// ë³„ë„ì˜ ìŠ¤ë ˆë“œ ìƒì„±
+// ë°ì´í„°ë² ì´ìŠ¤ ì ‘ê·¼ ê°ì²´ ìƒì„±
 class CLController : public CDbController
 {
 public:
 	CLController( CTLord* pLord );
 	virtual	~CLController();
 
-	// º¹¿ø
+	// ë³µì›
 	BOOL	Restore( void );
-	// ÀÔÈÄº¸ ½ÃÀÛ »óÅÂ ÀúÀå
+	// ì…í›„ë³´ ì‹œì‘ ìƒíƒœ ì €ì¥
 	BOOL	BeginCandidacy( void );
-	// ÅõÇ¥ ½ÃÀÛ »óÅÂ ÀúÀå
+	// íˆ¬í‘œ ì‹œì‘ ìƒíƒœ ì €ì¥
 	int		BeginVote( void );
-	// ÅõÇ¥ Á¾·á »óÅÂ ÀúÀå
+	// íˆ¬í‘œ ì¢…ë£Œ ìƒíƒœ ì €ì¥
 	BOOL	EndVote( u_long idPlayer );
-	// ±ºÁÖ ÀÔÂû ÀúÀå
+	// êµ°ì£¼ ì…ì°° ì €ì¥
 	BOOL	AddDeposit( u_long idPlayer, __int64 iDeposit, time_t tCreate );
-	// °ø¾à ¼³Á¤ ÀúÀå
+	// ê³µì•½ ì„¤ì • ì €ì¥
 	BOOL	SetPledge( u_long idPlayer, const char* szPledge );
-	// ÅõÇ¥ ÀúÀå
+	// íˆ¬í‘œ ì €ì¥
 	BOOL	IncVote( u_long idPlayer, u_long idElector );
-	// ±ºÁÖ ÀÌº¥Æ® »ı¼º ÀúÀå
+	// êµ°ì£¼ ì´ë²¤íŠ¸ ìƒì„± ì €ì¥
 	BOOL	AddLEComponent( CLEComponent* pComponent );
-	// ±ºÁÖ ÀÌº¥Æ® ÃÊ±âÈ­ ÀúÀå
+	// êµ°ì£¼ ì´ë²¤íŠ¸ ì´ˆê¸°í™” ì €ì¥
 	BOOL	InitializeLEvent( void );
-	// ±ºÁÖ ½ºÅ³ Àç»ç¿ë ´ë±â ½Ã°£ ÀúÀå
+	// êµ°ì£¼ ìŠ¤í‚¬ ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ ì €ì¥
 	BOOL	UpdateLordSkillTick( CLordSkillComponent* pSkill, int nTick );
-	// ±ºÁÖ ÀÌº¥Æ® Áö¼Ó ½Ã°£ ÀúÀå
+	// êµ°ì£¼ ì´ë²¤íŠ¸ ì§€ì† ì‹œê°„ ì €ì¥
 	BOOL	UpdateLordEventTick( CLEComponent* pComponent );
-	// Ã³¸®¸¦ m_pLord¿¡ À§ÀÓ
+	// ì²˜ë¦¬ë¥¼ m_pLordì— ìœ„ì„
 	virtual	void	Handler( LPDB_OVERLAPPED_PLUS pov, DWORD dwCompletionKey );
-	// Ã³¸®¸¦ m_pLord¿¡ À§ÀÓ
+	// ì²˜ë¦¬ë¥¼ m_pLordì— ìœ„ì„
 	virtual	void	OnTimer( void ); 
 
 private:
-	CTLord*	m_pLord;	// ±ºÁÖ °´Ã¼
+	CTLord*	m_pLord;	// êµ°ì£¼ ê°ì²´
 };
 
 #endif	// __LORD

@@ -1,4 +1,4 @@
-// SndTime.cpp
+﻿// SndTime.cpp
 
 typedef void (*TIMERFUNC)(void);
 

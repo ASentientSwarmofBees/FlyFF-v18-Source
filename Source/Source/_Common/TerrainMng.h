@@ -1,4 +1,4 @@
-#ifndef		__TERRAINMNG_H__
+﻿#ifndef		__TERRAINMNG_H__
 #define		__TERRAINMNG_H__
 
 typedef struct tagTERRAIN

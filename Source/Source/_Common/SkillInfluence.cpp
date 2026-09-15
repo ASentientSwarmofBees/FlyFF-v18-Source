@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #ifndef __BUFF_1107
 
@@ -99,7 +99,7 @@ BOOL CSkillInfluence::InsertBuff(SKILLINFLUENCE *pNode, WORD wType, WORD wID, DW
 #endif	// __PET_0410
 	{
 		pItem = prj.GetSkillProp(pFirstSBuff->wID);
-		if(pItem != NULL && pItem->nEvildoing >= 0) //¸Ç Ã³À½ ¹öÇÁ°¡ µğ¹öÇÁÀÏ °æ¿ì ¹Ğ ¼ö ¾ø´Ù.
+		if(pItem != NULL && pItem->nEvildoing >= 0) //ë§¨ ì²˜ìŒ ë²„í”„ê°€ ë””ë²„í”„ì¼ ê²½ìš° ë°€ ìˆ˜ ì—†ë‹¤.
 		{
 			RemoveSkillInfluence(pFirstSBuff->wType, pFirstSBuff->wID);
 #ifdef __PVPDEBUFSKILL
@@ -133,14 +133,14 @@ LPSKILLINFLUENCE CSkillInfluence::GetItemBuf( DWORD dwItemKind3 )
 		ItemProp *pItemProp = prj.GetItemProp( m_aSkillInfluence[i].wID );
 		if( pItemProp == NULL || pItemProp->dwItemKind3 != dwItemKind3 )
 			continue;
-		//Ã£À½
+		//ì°¾ìŒ
 		return &m_aSkillInfluence[i];
 	}
 	return NULL;
 }
 
 //
-// »õ·Î¿î ½ºÅ³ »óÅÂ¸¦ Ãß°¡ÇÑ´Ù.
+// ìƒˆë¡œìš´ ìŠ¤í‚¬ ìƒíƒœë¥¼ ì¶”ê°€í•œë‹¤.
 //
 #ifdef __PVPDEBUFSKILL
 BOOL CSkillInfluence::Set( WORD wType, WORD wID, DWORD dwLevel, DWORD dwTime, OBJID dwAttackerID )
@@ -173,22 +173,22 @@ BOOL CSkillInfluence::Set( WORD wType, WORD wID, DWORD dwLevel, DWORD dwTime )
 	}
 #endif //__Y_FLAG_SKILL_BUFF
 	
-	pNode = Find( wType, wID );		// ÀÌ¹Ì °°Àº ½ºÅ³»óÅÂ°¡ ÀÖ¾ú´ÂÁö Ã£À½.
+	pNode = Find( wType, wID );		// ì´ë¯¸ ê°™ì€ ìŠ¤í‚¬ìƒíƒœê°€ ìˆì—ˆëŠ”ì§€ ì°¾ìŒ.
 
 #if __VER >= 8 //__CSC_VER8_3
-	if( pNode && pNode->dwLevel == dwLevel ) // 8Â÷ Level Check Add.
+	if( pNode && pNode->dwLevel == dwLevel ) // 8ì°¨ Level Check Add.
 #else
-	if( pNode )		// ÀÖ¾úÀ¸¸é ½Ã°£¸¸ Àç ¼¼ÆÃÇÔ.
+	if( pNode )		// ìˆì—ˆìœ¼ë©´ ì‹œê°„ë§Œ ì¬ ì„¸íŒ…í•¨.
 #endif //__CSC_VER8_3
 	{
-		DWORD dwTimeRemain = pNode->tmCount - ( ::timeGetTime() - pNode->tmTime ); // ÇöÀç ½ºÅ³ ³²Àº ½Ã°£
+		DWORD dwTimeRemain = pNode->tmCount - ( ::timeGetTime() - pNode->tmTime ); // í˜„ì¬ ìŠ¤í‚¬ ë‚¨ì€ ì‹œê°„
 #ifdef __PVPDEBUFSKILL
 #ifdef __JEFF_11_1
 		if( pNode ->wType == BUFF_ITEM && 
 			( pNode->wID == II_SYS_SYS_SCR_PET_FEED_POCKET02 
 #if __VER >= 12 // __PET_0519
-				// Æê ¿µ¾çÁ¦°¡ Áßº¹ »ç¿ëµÉ ¼ö ÀÖµµ·Ï ¼öÁ¤
-				// ÀÌ ÈÄ ´õ Ãß°¡µÈ´Ù¸é ÇÁ·ÎÆÛÆ¼¸¦ È®ÀÎÇÏ´Â ¹æ¹ıÀ¸·Î ¼öÁ¤ÇÏÀÚ
+				// í« ì˜ì–‘ì œê°€ ì¤‘ë³µ ì‚¬ìš©ë  ìˆ˜ ìˆë„ë¡ ìˆ˜ì •
+				// ì´ í›„ ë” ì¶”ê°€ëœë‹¤ë©´ í”„ë¡œí¼í‹°ë¥¼ í™•ì¸í•˜ëŠ” ë°©ë²•ìœ¼ë¡œ ìˆ˜ì •í•˜ì
 				|| pNode->wID == II_SYS_SYS_SCR_PET_TONIC_A
 				|| pNode->wID == II_SYS_SYS_SCR_PET_TONIC_B 
 #endif	// __PET_0519
@@ -197,14 +197,14 @@ BOOL CSkillInfluence::Set( WORD wType, WORD wID, DWORD dwLevel, DWORD dwTime )
 			dwTime	+= dwTimeRemain;
 #endif	// __JEFF_11_1
 
-		if(	dwTime > dwTimeRemain )	// ³²Àº ½Ã°£ÀÌ ´õ ÀûÀº °æ¿ì¸¸ ½Ã°£ Àç¼¼ÆÃ
-			Set( pNode, pNode->wType, pNode->wID, pNode->dwLevel, dwTime, dwAttackerID );		// ½ÃÀÛ ½Ã°£À» Àç ¼¼ÆÃ.
+		if(	dwTime > dwTimeRemain )	// ë‚¨ì€ ì‹œê°„ì´ ë” ì ì€ ê²½ìš°ë§Œ ì‹œê°„ ì¬ì„¸íŒ…
+			Set( pNode, pNode->wType, pNode->wID, pNode->dwLevel, dwTime, dwAttackerID );		// ì‹œì‘ ì‹œê°„ì„ ì¬ ì„¸íŒ….
 #else // __PVPDEBUFSKILL
-		Set( pNode, pNode->wType, pNode->wID, pNode->dwLevel, dwTime );		// ½ÃÀÛ ½Ã°£À» Àç ¼¼ÆÃ.
+		Set( pNode, pNode->wType, pNode->wID, pNode->dwLevel, dwTime );		// ì‹œì‘ ì‹œê°„ì„ ì¬ ì„¸íŒ….
 #endif // __PVPDEBUFSKILL
 		return FALSE;
 	}
-	else	// ¾ø¾úÀ¸¸é Ãß°¡ÇÔ.
+	else	// ì—†ì—ˆìœ¼ë©´ ì¶”ê°€í•¨.
 	{
 		int		i = MAX_SKILLINFLUENCE;
 #if __VER < 8 //__CSC_VER8_3		
@@ -217,8 +217,8 @@ BOOL CSkillInfluence::Set( WORD wType, WORD wID, DWORD dwLevel, DWORD dwTime )
 #endif // __PVPDEBUFSKILL
 			{
 				bAdd = TRUE;
-				// À±»óÀÌ È®ÀÎ - Set¿¡ ¼º°øÇßÀ» °æ¿ì¿¡¸¸ m_pEmptyNode¸¦ NULL·Î ÃÊ±âÈ­ ÇØ¾ß ÇÏÁö ¾ÊÀ»±î?
-				m_pEmptyNode = NULL;	// ºó°÷¿¡ ³Ö¾úÀ¸´Ï Áö¿öÁà¾ß ÇÑ´Ù.
+				// ìœ¤ìƒì´ í™•ì¸ - Setì— ì„±ê³µí–ˆì„ ê²½ìš°ì—ë§Œ m_pEmptyNodeë¥¼ NULLë¡œ ì´ˆê¸°í™” í•´ì•¼ í•˜ì§€ ì•Šì„ê¹Œ?
+				m_pEmptyNode = NULL;	// ë¹ˆê³³ì— ë„£ì—ˆìœ¼ë‹ˆ ì§€ì›Œì¤˜ì•¼ í•œë‹¤.
 			}
 		} 
 		else
@@ -229,7 +229,7 @@ BOOL CSkillInfluence::Set( WORD wType, WORD wID, DWORD dwLevel, DWORD dwTime )
 			{
 				if(pNode)
 					RemoveSkillInfluence(pNode->wType, pNode->wID);
-				// À±»óÀÌ È®ÀÎ - ¹öÇÁ°¡ ²Ë Â÷ ÀÖ´Â °æ¿ì InsertBuff¿¡ ½ÇÆĞÇå´Ù. ±×·² °æ¿ì bAdd°¡ TRUE¸é ¹öÇÁ´Â µé¾î°¡Áö ¾ÊÀ¸³ª, DST PARAMÀº Àû¿ëµÇ¾î ÇØÁ¦µÇÁö ¾Ê´Â´Ù.
+				// ìœ¤ìƒì´ í™•ì¸ - ë²„í”„ê°€ ê½‰ ì°¨ ìˆëŠ” ê²½ìš° InsertBuffì— ì‹¤íŒ¨í—Œë‹¤. ê·¸ëŸ´ ê²½ìš° bAddê°€ TRUEë©´ ë²„í”„ëŠ” ë“¤ì–´ê°€ì§€ ì•Šìœ¼ë‚˜, DST PARAMì€ ì ìš©ë˜ì–´ í•´ì œë˜ì§€ ì•ŠëŠ”ë‹¤.
 #ifdef __PVPDEBUFSKILL
 				if( InsertBuff(pNextNode, wType, wID, dwLevel, dwTime, dwAttackerID) )
 #else // __PVPDEBUFSKILL
@@ -245,7 +245,7 @@ BOOL CSkillInfluence::Set( WORD wType, WORD wID, DWORD dwLevel, DWORD dwTime )
 			while( i-- )
 			{
 				pNode = pList++;
-				if( (int)pNode->wID > 0 )	continue;	// ºñ¾îÀÖ´Â °ø°£À» Ã£À½.
+				if( (int)pNode->wID > 0 )	continue;	// ë¹„ì–´ìˆëŠ” ê³µê°„ì„ ì°¾ìŒ.
 
 #ifdef __PVPDEBUFSKILL
 				Set( pNode, wType, wID, dwLevel, dwTime, dwAttackerID );
@@ -275,7 +275,7 @@ BOOL CSkillInfluence::Set( SKILLINFLUENCE *pNode, WORD wType, WORD wID, DWORD dw
 //	locked
 	if( pNode == NULL )
 	{
-		Error( "CSkillInfluence::Set : pNode°¡ NULL" );
+		Error( "CSkillInfluence::Set : pNodeê°€ NULL" );
 		return FALSE;
 	}
 	
@@ -310,7 +310,7 @@ BOOL CSkillInfluence::Set( SKILLINFLUENCE *pNode, WORD wType, WORD wID, DWORD dw
 		)
 	{
 		ItemProp *pItemProp = prj.GetItemProp( pNode->wID );
-		if( pItemProp && pItemProp->bCharged ) // »ó¿ëÈ­ ¾ÆÀÌÅÛÀº Á¾·á°¡ ¾ÈµÇ°Ô ¼öÁ¤
+		if( pItemProp && pItemProp->bCharged ) // ìƒìš©í™” ì•„ì´í…œì€ ì¢…ë£Œê°€ ì•ˆë˜ê²Œ ìˆ˜ì •
 			bCharged = TRUE;
 	}
 #if __VER >= 9	// __PET_0410
@@ -339,7 +339,7 @@ void CSkillInfluence::Serialize( CAr & ar )
 
 	if( ar.IsStoring() )	// Saving
 	{
-		for( j = 0; j < MAX_SKILLINFLUENCE; j++ )		// µ¥ÀÌÅ¸ ÀÖ´Â°Í¸¸ °³¼ö ¼À.
+		for( j = 0; j < MAX_SKILLINFLUENCE; j++ )		// ë°ì´íƒ€ ìˆëŠ”ê²ƒë§Œ ê°œìˆ˜ ì…ˆ.
 			if( m_aSkillInfluence[j].wID > 0 )
 				nMax ++;
 
@@ -367,14 +367,14 @@ void CSkillInfluence::Serialize( CAr & ar )
 				if( m_aSkillInfluence[j].tmCount )
 				{
 					if( m_aSkillInfluence[j].tmTime )
-						dwOdd = m_aSkillInfluence[j].tmCount - (timeGetTime() - m_aSkillInfluence[j].tmTime);	// ³²Àº½Ã°£ °è»ê.
+						dwOdd = m_aSkillInfluence[j].tmCount - (timeGetTime() - m_aSkillInfluence[j].tmTime);	// ë‚¨ì€ì‹œê°„ ê³„ì‚°.
 					else
 						dwOdd = m_aSkillInfluence[j].tmCount;
 				}
 				else
 					dwOdd = 0;
 				if( (int)dwOdd < 0 )		dwOdd = 0;
-				ar << dwOdd;		// ³²Àº ½Ã°£À» ÀúÀå.
+				ar << dwOdd;		// ë‚¨ì€ ì‹œê°„ì„ ì €ì¥.
 #else // World
 				ar << m_aSkillInfluence[j].tmCount;
 #endif // not World
@@ -389,7 +389,7 @@ void CSkillInfluence::Serialize( CAr & ar )
 		m_pEmptyNode = NULL;
 #endif //__CSC_VER8_3
 		ar >> nMax;
-		for( j = 0 ; j < nMax; ++j )		// ÀÖ´Â¸¸Å­¸¸ ºÎ¸¥´Ù.
+		for( j = 0 ; j < nMax; ++j )		// ìˆëŠ”ë§Œí¼ë§Œ ë¶€ë¥¸ë‹¤.
 		{
 			ar >> m_aSkillInfluence[j].wType;
 			ar >> m_aSkillInfluence[j].wID;
@@ -417,7 +417,7 @@ void CSkillInfluence::Serialize( CAr & ar )
 				ItemProp *pItemProp = prj.GetItemProp( m_aSkillInfluence[j].wID );
 				if( pItemProp )
 				{
-					if( pItemProp->bCharged ) // »ó¿ëÈ­ ¾ÆÀÌÅÛÀº Á¾·á°¡ ¾ÈµÇ°Ô ¼öÁ¤
+					if( pItemProp->bCharged ) // ìƒìš©í™” ì•„ì´í…œì€ ì¢…ë£Œê°€ ì•ˆë˜ê²Œ ìˆ˜ì •
 						bCharged = TRUE;
 				}
 			}
@@ -436,7 +436,7 @@ void CSkillInfluence::Serialize( CAr & ar )
 				dwOdd = MIN(60);
 			}
 #endif //__WORLDSERVER
-			m_aSkillInfluence[j].tmCount = dwOdd;			// ·ÎµùÇßÀ»¶§ ³²Àº½Ã°£À» ·ÎµùÇØ¼­ ¼¼±â ½ÃÀÛ.
+			m_aSkillInfluence[j].tmCount = dwOdd;			// ë¡œë”©í–ˆì„ë•Œ ë‚¨ì€ì‹œê°„ì„ ë¡œë”©í•´ì„œ ì„¸ê¸° ì‹œì‘.
 		} // for
 
 	}
@@ -449,7 +449,7 @@ void CSkillInfluence::Serialize( CAr & ar )
 void CSkillInfluence::Reset( void )
 {
 	int i;
-	for( i = 0; i < MAX_SKILLINFLUENCE; i ++ )		// ½ÃÀÛÅ¸ÀÌ¸Ó¸¦ Å¬¸®¾î½ÃÄÑ ¹öÇÁ½ºÅ³À» ´Ù½Ã ¼¼ÆÃÇÔ.
+	for( i = 0; i < MAX_SKILLINFLUENCE; i ++ )		// ì‹œì‘íƒ€ì´ë¨¸ë¥¼ í´ë¦¬ì–´ì‹œì¼œ ë²„í”„ìŠ¤í‚¬ì„ ë‹¤ì‹œ ì„¸íŒ…í•¨.
 		m_aSkillInfluence[i].tmTime = 0;
 }
 
@@ -466,11 +466,11 @@ DWORD CSkillInfluence::GetDisguise( void )
 		ItemProp *pItemProp = prj.GetItemProp( m_aSkillInfluence[i].wID );
 		if( pItemProp == NULL || pItemProp->dwItemKind3 != IK3_TEXT_DISGUISE )
 			continue;
-		//º¯½ÅÁßÀÎÁö Ã£´Â´Ù.
+		//ë³€ì‹ ì¤‘ì¸ì§€ ì°¾ëŠ”ë‹¤.
 		char* p1 = strstr( pItemProp->szTextFileName, "/dis ");		//pItemProp->szTextFileName - /dis 20 /nodis
 		if( p1 )
 		{
-			// º¯½Å ¹øÈ£¸¦ Ã£´Â´Ù.
+			// ë³€ì‹  ë²ˆí˜¸ë¥¼ ì°¾ëŠ”ë‹¤.
 			int n = atoi( p1 + 5 );	// +5 - "/dis " skip
 			if( n > 0 )
 			{
@@ -550,7 +550,7 @@ BOOL CSkillInfluence::RemoveAllSkillInfluence()
 			)
 			{
 				ItemProp *pItemProp = prj.GetItemProp( pNode->wID );
-				if( pItemProp && pItemProp->bCharged ) // »ó¿ëÈ­ ¾ÆÀÌÅÛÀº Á¾·á°¡ ¾ÈµÇ°Ô ¼öÁ¤
+				if( pItemProp && pItemProp->bCharged ) // ìƒìš©í™” ì•„ì´í…œì€ ì¢…ë£Œê°€ ì•ˆë˜ê²Œ ìˆ˜ì •
 					continue;
 			}
 #ifdef __VER >= 12
@@ -590,14 +590,14 @@ BOOL CSkillInfluence::IsEmpty()
 */
 	
 //
-// µî·ÏµÈ ½ºÅ³»óÅÂµéÀ» ¸Å ÇÁ·Î¼¼½º °Ë»çÇÏ¿© ½Ã°£ÀÌ Áö³­°ÍµéÀº »èÁ¦ÇÑ´Ù.
+// ë“±ë¡ëœ ìŠ¤í‚¬ìƒíƒœë“¤ì„ ë§¤ í”„ë¡œì„¸ìŠ¤ ê²€ì‚¬í•˜ì—¬ ì‹œê°„ì´ ì§€ë‚œê²ƒë“¤ì€ ì‚­ì œí•œë‹¤.
 //
 void CSkillInfluence::Process( void )
 {
 #if defined(__WORLDSERVER)
-	DWORD dwTimeCurrent	= g_tmCurrent;		// ÇöÀç ½Ã°£ ÀĞÀ½.
-#else	//defined(__WORLDSERVER) //±Ø´Ü½ºÅ³Á¾·á½Ã°£ÆÇ´Ü¹®Á¦·Î Å¬¶óÀÌ¾ğÆ®¸¸ ¼öÁ¤
-	DWORD dwTimeCurrent	= timeGetTime();		// ÇöÀç ½Ã°£ ÀĞÀ½.
+	DWORD dwTimeCurrent	= g_tmCurrent;		// í˜„ì¬ ì‹œê°„ ì½ìŒ.
+#else	//defined(__WORLDSERVER) //ê·¹ë‹¨ìŠ¤í‚¬ì¢…ë£Œì‹œê°„íŒë‹¨ë¬¸ì œë¡œ í´ë¼ì´ì–¸íŠ¸ë§Œ ìˆ˜ì •
+	DWORD dwTimeCurrent	= timeGetTime();		// í˜„ì¬ ì‹œê°„ ì½ìŒ.
 #endif  //defined(__WORLDSERVER)
 
 	CMover *pMover = m_pMover;
@@ -612,11 +612,11 @@ void CSkillInfluence::Process( void )
 	while( i-- )
 	{
 		pNode = pList++;
-		if( (int)pNode->wID <= 0 )	continue;	// ºñ¾îÀÖ´Â °ø°£Àº ½ºÅµ.
+		if( (int)pNode->wID <= 0 )	continue;	// ë¹„ì–´ìˆëŠ” ê³µê°„ì€ ìŠ¤í‚µ.
 
-		// ÇöÀç½Ã°¢¿¡¼­ ½ÃÀÛ½Ã°£À» »©¸é Èå¸¥½Ã°£ÀÌ ³ª¿Â´Ù. Èå¸¥½Ã°£ÀÌ ½ºÅ³Áö¼Ó½Ã°£À» ³Ñ¾î¼­¸é »èÁ¦.
+		// í˜„ì¬ì‹œê°ì—ì„œ ì‹œì‘ì‹œê°„ì„ ë¹¼ë©´ íë¥¸ì‹œê°„ì´ ë‚˜ì˜¨ë‹¤. íë¥¸ì‹œê°„ì´ ìŠ¤í‚¬ì§€ì†ì‹œê°„ì„ ë„˜ì–´ì„œë©´ ì‚­ì œ.
 	#if defined(__WORLDSERVER)
-		// ½Ã°£ÀÌ ´ÙµÇ±âÀü¿¡ ¾î¶²Æ¯Á¤ Á¶°Ç¿¡ ÀÇÇØ¼­ Áß°£ÇØÁ¦°¡ µÇ´Â°æ¿ìÀÇ Ã³¸®.
+		// ì‹œê°„ì´ ë‹¤ë˜ê¸°ì „ì— ì–´ë–¤íŠ¹ì • ì¡°ê±´ì— ì˜í•´ì„œ ì¤‘ê°„í•´ì œê°€ ë˜ëŠ”ê²½ìš°ì˜ ì²˜ë¦¬.
 		if( pMover )
 		{
 			if( pNode->wType == BUFF_SKILL )
@@ -631,9 +631,9 @@ void CSkillInfluence::Process( void )
 #ifdef __3RD_LEGEND16
 				case SI_JST_MASTER_YOYOMASTER:
 #endif
-					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_MELEE_YOYO )		// ¼Õ¿¡µé°í ÀÖ´Â ¹«±â°¡ ¿ä¿ä°¡ ¾Æ´Ò¶§.
+					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_MELEE_YOYO )		// ì†ì—ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ìš”ìš”ê°€ ì•„ë‹ë•Œ.
 					{
-						RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+						RemoveSkillInfluence( pNode );		// í•´ì œ.
 						continue;
 					}
 					break;
@@ -644,28 +644,28 @@ void CSkillInfluence::Process( void )
 				case SI_RAG_HERO_HAWKEYE:
 				case SI_CRA_SUP_HAWKEYE:
 #endif
-					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_RANGE_BOW )		// ¼Õ¿¡µé°í ÀÖ´Â ¹«±â°¡ ³ÊÅ¬ÀÌ ¾Æ´Ò¶§.
+					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_RANGE_BOW )		// ì†ì—ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ë„ˆí´ì´ ì•„ë‹ë•Œ.
 					{
-						RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+						RemoveSkillInfluence( pNode );		// í•´ì œ.
 						continue;
 					}
 					break;
-#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 				case SI_BLD_MASTER_ONEHANDMASTER:
-					if( !pMover->IsDualWeapon() )		// ¼Õ¿¡µé°í ÀÖ´Â ¹«±â°¡ ¾ç¼Õ¹«±â°¡ ¾Æ´Ò¶§.
+					if( !pMover->IsDualWeapon() )		// ì†ì—ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ì–‘ì†ë¬´ê¸°ê°€ ì•„ë‹ë•Œ.
 					{
-						RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+						RemoveSkillInfluence( pNode );		// í•´ì œ.
 						continue;
 					}
 					break;
 				case SI_KNT_MASTER_TWOHANDMASTER:
-					if( pMover->GetActiveHandItemProp()->dwHanded != HD_TWO )		// ¼Õ¿¡µé°í ÀÖ´Â ¹«±â°¡ ¾ç¼Õ¹«±â°¡ ¾Æ´Ò¶§.
+					if( pMover->GetActiveHandItemProp()->dwHanded != HD_TWO )		// ì†ì—ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ì–‘ì†ë¬´ê¸°ê°€ ì•„ë‹ë•Œ.
 					{
-						RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+						RemoveSkillInfluence( pNode );		// í•´ì œ.
 						continue;
 					}
 					break;
-#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 				case SI_MER_SUP_IMPOWERWEAPON:		// 
 					{
 						BOOL bRelease = FALSE;
@@ -673,25 +673,25 @@ void CSkillInfluence::Process( void )
 						CItemElem *pItemElemR = pMover->GetWeaponItem();
 						CItemElem *pItemElemL = pMover->GetLWeaponItem();
 
-						if( pItemElemR && pItemElemL )	// ¾ç¼ÕÁã°í ÀÖÀ»¶§.
+						if( pItemElemR && pItemElemL )	// ì–‘ì†ì¥ê³  ìˆì„ë•Œ.
 						{
-							if( (pItemElemR && pItemElemR->m_bItemResist == SAI79::NO_PROP) &&		// ¾ç¼Õ´Ù ¼Ó¼ºÀÌ ¾øÀ»¶©
+							if( (pItemElemR && pItemElemR->m_bItemResist == SAI79::NO_PROP) &&		// ì–‘ì†ë‹¤ ì†ì„±ì´ ì—†ì„ë•
 								(pItemElemL && pItemElemL->m_bItemResist == SAI79::NO_PROP) )
-								bRelease = TRUE;		// ÇØÁ¦
+								bRelease = TRUE;		// í•´ì œ
 						} else
-						if( pItemElemR && pItemElemL == NULL )	// ¿À¸¥¼Õ¸¸ Áã°í ÀÖÀ»¶§.
+						if( pItemElemR && pItemElemL == NULL )	// ì˜¤ë¥¸ì†ë§Œ ì¥ê³  ìˆì„ë•Œ.
 						{
-							if( pItemElemR && pItemElemR->m_bItemResist == SAI79::NO_PROP )		// ¿À¸¥¼Õ¿¡ ¼Ó¼ºÀÌ ¾øÀ»¶©
-								bRelease = TRUE;		// ÇØÁ¦
+							if( pItemElemR && pItemElemR->m_bItemResist == SAI79::NO_PROP )		// ì˜¤ë¥¸ì†ì— ì†ì„±ì´ ì—†ì„ë•
+								bRelease = TRUE;		// í•´ì œ
 						} else
-						if( pItemElemR == NULL && pItemElemL == NULL )	// ¾ç¼Õ´Ù ¾øÀ»¶§
+						if( pItemElemR == NULL && pItemElemL == NULL )	// ì–‘ì†ë‹¤ ì—†ì„ë•Œ
 						{
-							bRelease = TRUE;		// ÀÌ¶§´Â ¹«Á¶°Ç ÇØÁ¦
+							bRelease = TRUE;		// ì´ë•ŒëŠ” ë¬´ì¡°ê±´ í•´ì œ
 						}
 
 						if( bRelease )
 						{
-							RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+							RemoveSkillInfluence( pNode );		// í•´ì œ.
 							continue;
 						}
 					}
@@ -701,16 +701,16 @@ void CSkillInfluence::Process( void )
 					{
 						CItemElem *pItemElem = pMover->GetLWeaponItem();
 #ifndef __RIGHTHAND_SKILL
-						if( pItemElem && pItemElem->GetProp()->dwWeaponType != WT_MELEE_SWD )		// ¿Ş¼Õ¿¡ ¹«±â¸¦ µé°í ÀÖ°í µé°í ÀÖ´Â ¹«±â°¡ Ä®ÀÌ ¾Æ´Ò¶§.
+						if( pItemElem && pItemElem->GetProp()->dwWeaponType != WT_MELEE_SWD )		// ì™¼ì†ì— ë¬´ê¸°ë¥¼ ë“¤ê³  ìˆê³  ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ì¹¼ì´ ì•„ë‹ë•Œ.
 						{
-							RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+							RemoveSkillInfluence( pNode );		// í•´ì œ.
 							continue;
 						}
 #endif // __RIGHTHAND_SKILL
 					}
-					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_MELEE_SWD )		// ¿À¸¥¼Õ¿¡µé°í ÀÖ´Â ¹«±â°¡ Ä®ÀÌ ¾Æ´Ò¶§.
+					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_MELEE_SWD )		// ì˜¤ë¥¸ì†ì—ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ì¹¼ì´ ì•„ë‹ë•Œ.
 					{
-						RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+						RemoveSkillInfluence( pNode );		// í•´ì œ.
 						continue;
 					}
 					break;
@@ -719,23 +719,23 @@ void CSkillInfluence::Process( void )
 					{
 						CItemElem *pItemElem = pMover->GetLWeaponItem();
 #ifndef __RIGHTHAND_SKILL						
-						if( pItemElem && pItemElem->GetProp()->dwWeaponType != WT_MELEE_AXE )		// ¿Ş¼Õ¿¡ ¹«±â¸¦ µé°í ÀÖ°í µé°í ÀÖ´Â ¹«±â°¡ µµ³¢°¡ ¾Æ´Ò¶§.
+						if( pItemElem && pItemElem->GetProp()->dwWeaponType != WT_MELEE_AXE )		// ì™¼ì†ì— ë¬´ê¸°ë¥¼ ë“¤ê³  ìˆê³  ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ë„ë¼ê°€ ì•„ë‹ë•Œ.
 						{
-							RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+							RemoveSkillInfluence( pNode );		// í•´ì œ.
 							continue;
 						}
 #endif // __RIGHTHAND_SKILL
 					}
-					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_MELEE_AXE )		// ¼Õ¿¡µé°í ÀÖ´Â ¹«±â°¡ µµ³¢°¡ ¾Æ´Ò¶§.
+					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_MELEE_AXE )		// ì†ì—ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ë„ë¼ê°€ ì•„ë‹ë•Œ.
 					{
-						RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+						RemoveSkillInfluence( pNode );		// í•´ì œ.
 						continue;
 					}
 					break;
 				case SI_BIL_PST_ASMODEUS:
-					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_MELEE_KNUCKLE )		// ¼Õ¿¡µé°í ÀÖ´Â ¹«±â°¡ ³ÊÅ¬ÀÌ ¾Æ´Ò¶§.
+					if( pMover->GetActiveHandItemProp()->dwWeaponType != WT_MELEE_KNUCKLE )		// ì†ì—ë“¤ê³  ìˆëŠ” ë¬´ê¸°ê°€ ë„ˆí´ì´ ì•„ë‹ë•Œ.
 					{
-						RemoveSkillInfluence( pNode );		// ÇØÁ¦.
+						RemoveSkillInfluence( pNode );		// í•´ì œ.
 						continue;
 					}
 					break;
@@ -743,12 +743,12 @@ void CSkillInfluence::Process( void )
 			} // BuffSkill
 		} else	// pMover
 		{
-			Error( "CSkillInfluence::Process : pMover°¡ ³Î %d", pNode->wID );
+			Error( "CSkillInfluence::Process : pMoverê°€ ë„ %d", pNode->wID );
 		}
 	#endif // __WORLDSERVER
 
 	#ifdef __CLIENT
-		if( pMover )	// ÀÌ°Ô NULLÀÏ¶§µµ ÀÖ´Ù CWndWorld::m_SkillState ¿¡¼­´Â ¹«¹ö°¡ ¾ø´Ù.
+		if( pMover )	// ì´ê²Œ NULLì¼ë•Œë„ ìˆë‹¤ CWndWorld::m_SkillState ì—ì„œëŠ” ë¬´ë²„ê°€ ì—†ë‹¤.
 		{
 			if( pNode->wType == BUFF_ITEM
 #if __VER >= 11 // __SYS_COLLECTING
@@ -762,10 +762,10 @@ void CSkillInfluence::Process( void )
 
 			if( pProp )
 			{
-				if( pNode->bEffect == FALSE )	// ÀÌÆåÆ® »ı¼º¾ÈµÈ°Å¸é.
+				if( pNode->bEffect == FALSE )	// ì´í™íŠ¸ ìƒì„±ì•ˆëœê±°ë©´.
 				{
-					// °è¼Ó À¯ÁöµÇ´Â ÀÌÆåÆ®´Â dwSfxObj4¸¦ »ç¿ëÇÑ´Ù.
-					float fSkillTime = (float)pNode->tmCount / 1000.0f;		// nCount¸¦ ÃÊ´ÜÀ§·Î º¯È¯.
+					// ê³„ì† ìœ ì§€ë˜ëŠ” ì´í™íŠ¸ëŠ” dwSfxObj4ë¥¼ ì‚¬ìš©í•œë‹¤.
+					float fSkillTime = (float)pNode->tmCount / 1000.0f;		// nCountë¥¼ ì´ˆë‹¨ìœ„ë¡œ ë³€í™˜.
 					pNode->bEffect = TRUE;
 					
 					if( pProp->dwSfxObj4 != NULL_ID )
@@ -782,7 +782,7 @@ void CSkillInfluence::Process( void )
 		}
 	#endif // CLIENT
 		
-		if( m_pMover && pNode->tmTime == 0 )		// LoadingµÇ°í ³­ÈÄ SetDestParamÀÌ ¾ÆÁ÷ ¼¼ÆÃ ¾ÈµÆ´Ù.
+		if( m_pMover && pNode->tmTime == 0 )		// Loadingë˜ê³  ë‚œí›„ SetDestParamì´ ì•„ì§ ì„¸íŒ… ì•ˆëë‹¤.
 		{
 			if( pNode->wType == BUFF_SKILL )
 			{
@@ -792,7 +792,7 @@ void CSkillInfluence::Process( void )
 					pNode->wID, pNode->dwLevel, "CSkillInfluence::Process" );
 				if( bRet )
 				{
-					m_pMover->ApplyParam( m_pMover, pSkillProp, pAddSkillProp, FALSE, 0 );	// SetDestParamÀû¿ë. ÀÌ¶§´Â Å¬¶ó·Î µû·Î º¸³»Áö ¾ÊÀ½.
+					m_pMover->ApplyParam( m_pMover, pSkillProp, pAddSkillProp, FALSE, 0 );	// SetDestParamì ìš©. ì´ë•ŒëŠ” í´ë¼ë¡œ ë”°ë¡œ ë³´ë‚´ì§€ ì•ŠìŒ.
 				}
 			}
 			else if( pNode->wType == BUFF_ITEM )
@@ -800,7 +800,7 @@ void CSkillInfluence::Process( void )
 				ItemProp *pItemProp = prj.GetItemProp( pNode->wID );
 				if( pItemProp )
 				{
-					m_pMover->ApplyParam( m_pMover, pItemProp, NULL, FALSE, 0 );	// SetDestParamÀû¿ë. ÀÌ¶§´Â Å¬¶ó·Î µû·Î º¸³»Áö ¾ÊÀ½.
+					m_pMover->ApplyParam( m_pMover, pItemProp, NULL, FALSE, 0 );	// SetDestParamì ìš©. ì´ë•ŒëŠ” í´ë¼ë¡œ ë”°ë¡œ ë³´ë‚´ì§€ ì•ŠìŒ.
 				}
 			}
 #if __VER >= 9	// __PET_0410
@@ -862,15 +862,15 @@ void CSkillInfluence::Process( void )
 		}
 		else
 #endif	// __SYS_COLLECTING
-		if( bRemove && dwTimeCurrent - pNode->tmTime >= pNode->tmCount )	// tmCount½Ã°£¸¸Å­ °æ°úÇßÀ¸¸é Á¾·á.
+		if( bRemove && dwTimeCurrent - pNode->tmTime >= pNode->tmCount )	// tmCountì‹œê°„ë§Œí¼ ê²½ê³¼í–ˆìœ¼ë©´ ì¢…ë£Œ.
 		{
 #if __VER >= 10
 #ifdef __WORLDSERVER
 			if( pNode->wType == BUFF_SKILL )
 			{
-				if( pNode->wID == SI_GEN_BURN )		// È­»ó
+				if( pNode->wID == SI_GEN_BURN )		// í™”ìƒ
 				{
-					// 5000 µ¥¹ÌÁö ÁÖÀÚ.
+					// 5000 ë°ë¯¸ì§€ ì£¼ì.
 					ItemProp* pSkillProp	= prj.GetSkillProp( SI_GEN_BURN );
 					int nMin	= pSkillProp->dwAbilityMin;
 					int nMax	= pSkillProp->dwAbilityMax;
@@ -903,7 +903,7 @@ void CSkillInfluence::RemoveSkillInfluence( SKILLINFLUENCE *pSkillInfluence )
 {
 	if( m_pMover )
 	{
-		if( pSkillInfluence->wType == BUFF_ITEM		// ¾ÆÀÌÅÛÀÇ Áö¼ÓÈ¿°ú°¡ ´ÙµÇ¾î ³¡³¿.
+		if( pSkillInfluence->wType == BUFF_ITEM		// ì•„ì´í…œì˜ ì§€ì†íš¨ê³¼ê°€ ë‹¤ë˜ì–´ ëëƒ„.
 #if __VER >= 11 // __SYS_COLLECTING
 			|| pSkillInfluence->wType == BUFF_ITEM2
 #endif	// __SYS_COLLECTING
@@ -921,7 +921,7 @@ void CSkillInfluence::RemoveSkillInfluence( SKILLINFLUENCE *pSkillInfluence )
 				if( 0 < strlen( pItemProp->szTextFileName ) && pItemProp->dwItemKind3 != IK3_ANGEL_BUFF )
 				{
 				#if __VER >= 8 //__Y_FLAG_SKILL_BUFF
-					// ÇØ´ç º¯½Å±¸ÀÇ ¹ßµ¿ ½ºÅ³À» °Ë»çÇÏ¿© »èÁ¦½ÃÅ²´Ù..
+					// í•´ë‹¹ ë³€ì‹ êµ¬ì˜ ë°œë™ ìŠ¤í‚¬ì„ ê²€ì‚¬í•˜ì—¬ ì‚­ì œì‹œí‚¨ë‹¤..
 					if( pItemProp->dwActiveSkill != NULL_ID )
 					{
 						RemoveSkillInfluence( BUFF_SKILL, pItemProp->dwActiveSkill );
@@ -935,7 +935,7 @@ void CSkillInfluence::RemoveSkillInfluence( SKILLINFLUENCE *pSkillInfluence )
 					if( nGMCount != -1 )
 						strncpy( szGMCommand, &pItemProp->szTextFileName[nGMCount], szGMText.GetLength() );
 					else
-						Error( "GMText ÇØÁ¦ÇÏ´Â °ÍÀÌ ¾øÀ½ : %d, %s", pItemProp->dwID, pItemProp->szTextFileName );
+						Error( "GMText í•´ì œí•˜ëŠ” ê²ƒì´ ì—†ìŒ : %d, %s", pItemProp->dwID, pItemProp->szTextFileName );
 					ParsingCommand( szGMCommand, (CMover*)m_pMover, TRUE );
 				}
 			}
@@ -943,7 +943,7 @@ void CSkillInfluence::RemoveSkillInfluence( SKILLINFLUENCE *pSkillInfluence )
 		} 
 		else if( pSkillInfluence->wType == BUFF_SKILL )
 		{
-			m_pMover->OnEndSkillState( pSkillInfluence->wID, pSkillInfluence->dwLevel );		// ½ºÅ³»óÅÂ°¡ ÇÏ³ª ³¡³ª¸é ÇÚµé·¯ È£Ãâ.
+			m_pMover->OnEndSkillState( pSkillInfluence->wID, pSkillInfluence->dwLevel );		// ìŠ¤í‚¬ìƒíƒœê°€ í•˜ë‚˜ ëë‚˜ë©´ í•¸ë“¤ëŸ¬ í˜¸ì¶œ.
 		}
 #if __VER >= 9	// __PET_0410
 #ifdef __WORLDSERVER
@@ -959,11 +959,11 @@ void CSkillInfluence::RemoveSkillInfluence( SKILLINFLUENCE *pSkillInfluence )
 #ifdef __WORLDSERVER
 	g_UserMng.AddRemoveSkillInfluence( m_pMover, pSkillInfluence->wType, pSkillInfluence->wID );
 #endif // __WORLDSERVER
-	Remove( pSkillInfluence );	// ÀÌ°É Á© ¸¶Áö¸·¿¡ ºÒ·¯Áà¾ß ÇÑ´Ù. À§¿¡¼­ pSkillInfl->wType ÀÌ·¸°Ô ÂüÁ¶ÇÏ´Ï±ñ.
+	Remove( pSkillInfluence );	// ì´ê±¸ ì ¤ ë§ˆì§€ë§‰ì— ë¶ˆëŸ¬ì¤˜ì•¼ í•œë‹¤. ìœ„ì—ì„œ pSkillInfl->wType ì´ë ‡ê²Œ ì°¸ì¡°í•˜ë‹ˆê¹.
 	
 }
 
-// dwSkillÀ» Ã£¾Æ¼­ ¾ø¾Ú.
+// dwSkillì„ ì°¾ì•„ì„œ ì—†ì•°.
 #ifdef __PVPDEBUFSKILL
 BOOL	CSkillInfluence::RemoveSkillInfluenceFromID( OBJID dwAttackerID )
 {
@@ -978,12 +978,12 @@ BOOL	CSkillInfluence::RemoveSkillInfluenceFromID( OBJID dwAttackerID )
 		pNode = pList++;
 		if( pNode->wType == BUFF_SKILL )
 		{
-			if( ((int)pNode->wID > 0) && (pNode->dwAttackerID == dwAttackerID) )	// ½ºÅ³ ÀÖ´Â°É Ã£À½.
+			if( ((int)pNode->wID > 0) && (pNode->dwAttackerID == dwAttackerID) )	// ìŠ¤í‚¬ ìˆëŠ”ê±¸ ì°¾ìŒ.
 			{
 				ItemProp		*pSkillProp;
 				AddSkillProp	*pAddSkillProp;
 				
-				// ½ºÅ³ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³»¼­.
+				// ìŠ¤í‚¬ í”„ë¡œí¼í‹°ë¥¼ êº¼ë‚´ì„œ.
 				m_pMover->GetSkillProp( &pSkillProp, &pAddSkillProp, pNode->wID, pNode->dwLevel, "RemoveAllSkillDebuff" );
 				if( pSkillProp && pSkillProp->nEvildoing < 0 )
 					RemoveSkillInfluence( pNode );
@@ -1010,7 +1010,7 @@ BOOL	CSkillInfluence::RemoveSkillInfluence( WORD wType, WORD wID )
 	}
 }
 
-// dwChrStateÀÇ »óÅÂ¸¦ °¡Áø ½ºÅ³À» Ã£¾Æ ¸ğµÎ ÇØÁ¦ÇÔ
+// dwChrStateì˜ ìƒíƒœë¥¼ ê°€ì§„ ìŠ¤í‚¬ì„ ì°¾ì•„ ëª¨ë‘ í•´ì œí•¨
 BOOL	CSkillInfluence::RemoveSkillInfluenceState( DWORD dwChrState )
 {
 	int		i = MAX_SKILLINFLUENCE;
@@ -1026,20 +1026,20 @@ BOOL	CSkillInfluence::RemoveSkillInfluenceState( DWORD dwChrState )
 		pNode = pList++;
 		if( pNode->wType == BUFF_SKILL )
 		{
-			if( (int)pNode->wID > 0 )	// ½ºÅ³ ÀÖ´Â°É Ã£À½.
+			if( (int)pNode->wID > 0 )	// ìŠ¤í‚¬ ìˆëŠ”ê±¸ ì°¾ìŒ.
 			{
 				ItemProp		*pSkillProp;
 				AddSkillProp	*pAddSkillProp;
 				
-				// ½ºÅ³ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³»¼­.
+				// ìŠ¤í‚¬ í”„ë¡œí¼í‹°ë¥¼ êº¼ë‚´ì„œ.
 				m_pMover->GetSkillProp( &pSkillProp, &pAddSkillProp, pNode->wID, pNode->dwLevel, "RemoveSkillInfluence" );
 				for( j = 0; j < 2; j ++ )
 				{
-					if( pAddSkillProp->dwDestParam[j] == DST_CHRSTATE )		// DestParamÀ» °Ë»ç.
+					if( pAddSkillProp->dwDestParam[j] == DST_CHRSTATE )		// DestParamì„ ê²€ì‚¬.
 					{
-						if( pAddSkillProp->nAdjParamVal[j] & dwChrState )	// dwChrState »óÅÂ¸¦ °¡Áö°í ÀÖ´Â ½ºÅ³ÀÌ¸é
+						if( pAddSkillProp->nAdjParamVal[j] & dwChrState )	// dwChrState ìƒíƒœë¥¼ ê°€ì§€ê³  ìˆëŠ” ìŠ¤í‚¬ì´ë©´
 						{
-							RemoveSkillInfluence( pNode );		// ÀÌ»óÅÂ ÇØÁ¦
+							RemoveSkillInfluence( pNode );		// ì´ìƒíƒœ í•´ì œ
 							bRet = TRUE;
 							continue;
 						}
@@ -1059,17 +1059,17 @@ BOOL	CSkillInfluence::RemoveSkillInfluenceState( DWORD dwChrState )
 				ItemProp *pItemProp = prj.GetItemProp( pNode->wID );
 				if( pItemProp )
 				{
-//#ifdef __PROP_0827	// ApplyParam¿¡¼­ ÀÎÀÚ 2°³¸¸ Çã¿ëÇßÀ¸¹Ç·Î, 3ÀÌ ¾Æ´Ï´Ù.
+//#ifdef __PROP_0827	// ApplyParamì—ì„œ ì¸ì 2ê°œë§Œ í—ˆìš©í–ˆìœ¼ë¯€ë¡œ, 3ì´ ì•„ë‹ˆë‹¤.
 //					for( j = 0; j < 3; j ++ )
 //#else	// __PROP_0827
 					for( j = 0; j < 2; j ++ )
 //#endif	// __PROP_0827
 					{
-						if( pItemProp->dwDestParam[j] == DST_CHRSTATE )		// DestParamÀ» °Ë»ç.
+						if( pItemProp->dwDestParam[j] == DST_CHRSTATE )		// DestParamì„ ê²€ì‚¬.
 						{
-							if( pItemProp->nAdjParamVal[j] & dwChrState )	// dwChrState »óÅÂ¸¦ °¡Áö°í ÀÖ´Â ½ºÅ³ÀÌ¸é
+							if( pItemProp->nAdjParamVal[j] & dwChrState )	// dwChrState ìƒíƒœë¥¼ ê°€ì§€ê³  ìˆëŠ” ìŠ¤í‚¬ì´ë©´
 							{
-								RemoveSkillInfluence( pNode );		// ÀÌ»óÅÂ ÇØÁ¦
+								RemoveSkillInfluence( pNode );		// ì´ìƒíƒœ í•´ì œ
 								bRet = TRUE;
 								continue;
 							}
@@ -1083,8 +1083,8 @@ BOOL	CSkillInfluence::RemoveSkillInfluenceState( DWORD dwChrState )
 	return bRet;
 }
 
-#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
-// dwDestParam »óÅÂ¸¦ °¡Áø ½ºÅ³À» Ã£¾Æ ¸ğµÎ ÇØÁ¦ÇÔ
+#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+// dwDestParam ìƒíƒœë¥¼ ê°€ì§„ ìŠ¤í‚¬ì„ ì°¾ì•„ ëª¨ë‘ í•´ì œí•¨
 BOOL	CSkillInfluence::RemoveSkillInfluenceDestParam( DWORD dwDestParam )
 {
 	int		i = MAX_SKILLINFLUENCE;
@@ -1100,20 +1100,20 @@ BOOL	CSkillInfluence::RemoveSkillInfluenceDestParam( DWORD dwDestParam )
 		pNode = pList++;
 		if( pNode->wType == BUFF_SKILL )
 		{
-			if( (int)pNode->wID > 0 )	// ½ºÅ³ ÀÖ´Â°É Ã£À½.
+			if( (int)pNode->wID > 0 )	// ìŠ¤í‚¬ ìˆëŠ”ê±¸ ì°¾ìŒ.
 			{
 				ItemProp		*pSkillProp;
 				AddSkillProp	*pAddSkillProp;
 				
-				// ½ºÅ³ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³»¼­.
+				// ìŠ¤í‚¬ í”„ë¡œí¼í‹°ë¥¼ êº¼ë‚´ì„œ.
 				m_pMover->GetSkillProp( &pSkillProp, &pAddSkillProp, pNode->wID, pNode->dwLevel, "RemoveSkillInfluence" );
 				for( j = 0; j < 2; j ++ )
 				{
-					// ÇöÀç´Â ³ª»Û¸¶¹ı ÇØÁ¦¿¡¸¸ »ç¿ëÇÑ´Ù.
-					// ÃßÈÄ ¹ü¿ë »ç¿ëÀÇ °æ¿ì, ÆÄ¶ó¹ÌÅÍ nEvildoingÀ» Æ÷ÇÔÇÑ´Ù.
-					if( pSkillProp->nEvildoing < 0 && pAddSkillProp->dwDestParam[j] == dwDestParam )		// DestParamÀ» °Ë»ç.
+					// í˜„ì¬ëŠ” ë‚˜ìœë§ˆë²• í•´ì œì—ë§Œ ì‚¬ìš©í•œë‹¤.
+					// ì¶”í›„ ë²”ìš© ì‚¬ìš©ì˜ ê²½ìš°, íŒŒë¼ë¯¸í„° nEvildoingì„ í¬í•¨í•œë‹¤.
+					if( pSkillProp->nEvildoing < 0 && pAddSkillProp->dwDestParam[j] == dwDestParam )		// DestParamì„ ê²€ì‚¬.
 					{
-						RemoveSkillInfluence( pNode );		// ÀÌ»óÅÂ ÇØÁ¦
+						RemoveSkillInfluence( pNode );		// ì´ìƒíƒœ í•´ì œ
 						bRet = TRUE;
 						continue;
 					} 
@@ -1124,9 +1124,9 @@ BOOL	CSkillInfluence::RemoveSkillInfluenceDestParam( DWORD dwDestParam )
 	} // loop
 	return bRet;
 }
-#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 
-// dwChrStateÀÇ »óÅÂ¸¦ °¡Áø ½ºÅ³À» Ã£¾Æ ¸ğµÎ ÇØÁ¦ÇÔ
+// dwChrStateì˜ ìƒíƒœë¥¼ ê°€ì§„ ìŠ¤í‚¬ì„ ì°¾ì•„ ëª¨ë‘ í•´ì œí•¨
 BOOL	CSkillInfluence::RemoveAllSkillDebuff( void )
 {
 	int		i = MAX_SKILLINFLUENCE;
@@ -1140,12 +1140,12 @@ BOOL	CSkillInfluence::RemoveAllSkillDebuff( void )
 		pNode = pList++;
 		if( pNode->wType == BUFF_SKILL )
 		{
-			if( (int)pNode->wID > 0 )	// ½ºÅ³ ÀÖ´Â°É Ã£À½.
+			if( (int)pNode->wID > 0 )	// ìŠ¤í‚¬ ìˆëŠ”ê±¸ ì°¾ìŒ.
 			{
 				ItemProp		*pSkillProp;
 				AddSkillProp	*pAddSkillProp;
 				
-				// ½ºÅ³ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³»¼­.
+				// ìŠ¤í‚¬ í”„ë¡œí¼í‹°ë¥¼ êº¼ë‚´ì„œ.
 				m_pMover->GetSkillProp( &pSkillProp, &pAddSkillProp, pNode->wID, pNode->dwLevel, "RemoveAllSkillDebuff" );
 				if( pSkillProp && pSkillProp->nEvildoing < 0 )
 					RemoveSkillInfluence( pNode );
@@ -1169,7 +1169,7 @@ BOOL	CSkillInfluence::RemoveAllSkillDebuff( void )
 	return bRet;
 }
 
-// ¹öÇÁ½ºÅ³µéÀ» Ã£¾Æ ¸ğµÎ Á¦°Å.
+// ë²„í”„ìŠ¤í‚¬ë“¤ì„ ì°¾ì•„ ëª¨ë‘ ì œê±°.
 BOOL	CSkillInfluence::RemoveAllSkillBuff( void )
 {
 	int		i = MAX_SKILLINFLUENCE;
@@ -1183,12 +1183,12 @@ BOOL	CSkillInfluence::RemoveAllSkillBuff( void )
 		pNode = pList++;
 		if( pNode->wType == BUFF_SKILL )
 		{
-			if( (int)pNode->wID > 0 )	// ½ºÅ³ ÀÖ´Â°É Ã£À½.
+			if( (int)pNode->wID > 0 )	// ìŠ¤í‚¬ ìˆëŠ”ê±¸ ì°¾ìŒ.
 			{
 				ItemProp		*pSkillProp;
 				AddSkillProp	*pAddSkillProp;
 				
-				// ½ºÅ³ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³»¼­.
+				// ìŠ¤í‚¬ í”„ë¡œí¼í‹°ë¥¼ êº¼ë‚´ì„œ.
 				m_pMover->GetSkillProp( &pSkillProp, &pAddSkillProp, pNode->wID, pNode->dwLevel, "RemoveAllSkillBuff" );
 				if( pSkillProp && pSkillProp->nEvildoing >= 0 )
 				{
@@ -1212,8 +1212,8 @@ BOOL	CSkillInfluence::RemoveAllSkillBuff( void )
 	
 }
 
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
-// ¸ğµç¹öÇÁµéÀ» Ã£¾Æ ¸ğµÎ Á¦°Å.
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+// ëª¨ë“ ë²„í”„ë“¤ì„ ì°¾ì•„ ëª¨ë‘ ì œê±°.
 BOOL	CSkillInfluence::RemoveAllBuff( void )
 {
 	int		i = MAX_SKILLINFLUENCE;
@@ -1232,10 +1232,10 @@ BOOL	CSkillInfluence::RemoveAllBuff( void )
 	
 	return bRet;
 }
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 
 
-// ¹öÇÁ½ºÅ³(Evildoing >= 0)ÇÏ³ª¸¸ Á¦°Å.
+// ë²„í”„ìŠ¤í‚¬(Evildoing >= 0)í•˜ë‚˜ë§Œ ì œê±°.
 BOOL CSkillInfluence::RemoveOneSkillBuff( void )
 {
 	int		i = MAX_SKILLINFLUENCE;
@@ -1248,12 +1248,12 @@ BOOL CSkillInfluence::RemoveOneSkillBuff( void )
 		pNode = pList++;
 		if( pNode->wType == BUFF_SKILL )
 		{
-			if( (int)pNode->wID > 0 )	// ½ºÅ³ ÀÖ´Â°É Ã£À½.
+			if( (int)pNode->wID > 0 )	// ìŠ¤í‚¬ ìˆëŠ”ê±¸ ì°¾ìŒ.
 			{
 				ItemProp		*pSkillProp;
 				AddSkillProp	*pAddSkillProp;
 				
-				// ½ºÅ³ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³»¼­.
+				// ìŠ¤í‚¬ í”„ë¡œí¼í‹°ë¥¼ êº¼ë‚´ì„œ.
 				m_pMover->GetSkillProp( &pSkillProp, &pAddSkillProp, pNode->wID, pNode->dwLevel, "RemoveAllSkillBuff" );
 				if( pSkillProp && pSkillProp->nEvildoing >= 0 )
 				{

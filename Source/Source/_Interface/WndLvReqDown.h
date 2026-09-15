@@ -1,4 +1,4 @@
-#ifndef __WNDLVREQDOWN__H
+﻿#ifndef __WNDLVREQDOWN__H
 #define __WNDLVREQDOWN__H
 
 class CWndLvReqDown : public CWndNeuz 

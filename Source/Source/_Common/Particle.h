@@ -1,4 +1,4 @@
-// Particle.h: interface for the CParticle class.
+﻿// Particle.h: interface for the CParticle class.
 //
 //////////////////////////////////////////////////////////////////////
 

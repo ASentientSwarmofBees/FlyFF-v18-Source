@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "dpcachesrvr.h"
 #include "dpdatabaseclient.h"
 #include "dpcoresrvr.h"
@@ -94,12 +94,12 @@ CDPCoreSrvr::CDPCoreSrvr()
 
 	ON_MSG( PACKETTYPE_ADDFRIENDNAMEREQEST, &CDPCoreSrvr::OnAddFriendNameReqest );
 	ON_MSG( PACKETTYPE_BLOCK, &CDPCoreSrvr::OnBlock );
-	ON_MSG( PACKETTYPE_WC_GUILDLOGO, &CDPCoreSrvr::OnGuildLogo );				// ·Î°í º¯°æ 
-	ON_MSG( PACKETTYPE_WC_GUILDCONTRIBUTION, &CDPCoreSrvr::OnGuildContribution );	// °øÇåµµ 
-	ON_MSG( PACKETTYPE_WC_GUILDNOTICE, &CDPCoreSrvr::OnGuildNotice );			// °øÁö»çÇ×  
-	ON_MSG( PACKETTYPE_GUILD_DB_REALPENYA, &CDPCoreSrvr::OnGuildRealPenya );	// ¿ù±ŞÀ» ÁÖ¾ú´Ù´Â°ÍÀ» ÄÚ¾î¿Í À¯Àú¿¡°Ô ¾Ë·ÁÁÜ
+	ON_MSG( PACKETTYPE_WC_GUILDLOGO, &CDPCoreSrvr::OnGuildLogo );				// ë¡œê³  ë³€ê²½ 
+	ON_MSG( PACKETTYPE_WC_GUILDCONTRIBUTION, &CDPCoreSrvr::OnGuildContribution );	// ê³µí—Œë„ 
+	ON_MSG( PACKETTYPE_WC_GUILDNOTICE, &CDPCoreSrvr::OnGuildNotice );			// ê³µì§€ì‚¬í•­  
+	ON_MSG( PACKETTYPE_GUILD_DB_REALPENYA, &CDPCoreSrvr::OnGuildRealPenya );	// ì›”ê¸‰ì„ ì£¼ì—ˆë‹¤ëŠ”ê²ƒì„ ì½”ì–´ì™€ ìœ ì €ì—ê²Œ ì•Œë ¤ì¤Œ
 #if __VER < 11 // __SYS_PLAYER_DATA
-	ON_MSG( PACKETTYPE_CHANGEGUILDJOBLEVEL, &CDPCoreSrvr::OnChangeGuildJobLevel ); // ±æµå¿øÀÌ ·¹º§ÀÌ³ª Á÷¾÷ÀÌ ¹Ù²î¾úÀ½
+	ON_MSG( PACKETTYPE_CHANGEGUILDJOBLEVEL, &CDPCoreSrvr::OnChangeGuildJobLevel ); // ê¸¸ë“œì›ì´ ë ˆë²¨ì´ë‚˜ ì§ì—…ì´ ë°”ë€Œì—ˆìŒ
 #endif	// __SYS_PLAYER_DATA
 	ON_MSG( PACKETTYPE_WAR_DEAD, &CDPCoreSrvr::OnWarDead );
 	ON_MSG( PACKETTYPE_WAR_MASTER_ABSENT, &CDPCoreSrvr::OnWarMasterAbsent );
@@ -371,14 +371,14 @@ void CDPCoreSrvr::OnJoin( CAr & ar, DPID dpid, DPID, DPID, u_long )
 	if( bOperator )
 		g_PlayerMng.AddItToSetofOperator( idPlayer );
 
-#if __VER >= 12 // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
+#if __VER >= 12 // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
 	if( pPlayer )
 	{
 		CParty* pParty	= g_PartyMng.GetParty( pPlayer->m_uPartyId );
 		if( pParty )
 			g_dpCoreSrvr.SendSetPartyMode( pParty->m_uPartyId, PARTY_PARSKILL_MODE, FALSE );
 	}
-#endif // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
+#endif // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
 }
 
 void CDPCoreSrvr::SendDuplicate( u_long uWorldSrvr )
@@ -402,8 +402,8 @@ void CDPCoreSrvr::OnWhisper( CAr & ar, DPID dpidFrom, DPID dpidCache, DPID dpidU
 
 	if( pFrom && pTo )
 	{
-		g_DPCacheSrvr.SendWhisper( pFrom->lpszPlayer, pTo->lpszPlayer, idFrom, idTo, lpString, pTo );		// »ó´ë¹æ¿¡°Ô ±Ó¸» º¸³»±â
-		g_DPCacheSrvr.SendWhisper( pFrom->lpszPlayer, pTo->lpszPlayer, idFrom, idTo, lpString, pFrom );	// ³ª¿¡°Ô º¸³¿
+		g_DPCacheSrvr.SendWhisper( pFrom->lpszPlayer, pTo->lpszPlayer, idFrom, idTo, lpString, pTo );		// ìƒëŒ€ë°©ì—ê²Œ ê·“ë§ ë³´ë‚´ê¸°
+		g_DPCacheSrvr.SendWhisper( pFrom->lpszPlayer, pTo->lpszPlayer, idFrom, idTo, lpString, pFrom );	// ë‚˜ì—ê²Œ ë³´ëƒ„
 
 		CPlayer* pSnoop;
 		if( pFrom->m_idSnoop > 0 )
@@ -428,7 +428,7 @@ void CDPCoreSrvr::OnWhisper( CAr & ar, DPID dpidFrom, DPID dpidCache, DPID dpidU
 	else
 	{
 		// player not found
-		g_DPCacheSrvr.SendSay( "", "", idFrom, idTo, "", pFrom, 1 ); // ÇÃ·¹ÀÌ¾î°¡ Á¢¼ÓÁßÀÌÁö ¾Ê½À´Ï´Ù. 
+		g_DPCacheSrvr.SendSay( "", "", idFrom, idTo, "", pFrom, 1 ); // í”Œë ˆì´ì–´ê°€ ì ‘ì†ì¤‘ì´ì§€ ì•ŠìŠµë‹ˆë‹¤. 
 	}
 }
 
@@ -448,12 +448,12 @@ void CDPCoreSrvr::OnSay( CAr & ar, DPID dpidFrom, DPID dpidCache, DPID dpidUser,
 
 	if( pFrom && pTo )
 	{
-		g_DPCacheSrvr.SendSay( pFrom->lpszPlayer, pTo->lpszPlayer, idFrom, idTo, lpString, pTo );		// »ó´ë¹æ¿¡°Ô ±Ó¸» º¸³»±â
-		g_DPCacheSrvr.SendSay( pFrom->lpszPlayer, pTo->lpszPlayer, idFrom, idTo, lpString, pFrom );	// ³ª¿¡°Ô º¸³¿
+		g_DPCacheSrvr.SendSay( pFrom->lpszPlayer, pTo->lpszPlayer, idFrom, idTo, lpString, pTo );		// ìƒëŒ€ë°©ì—ê²Œ ê·“ë§ ë³´ë‚´ê¸°
+		g_DPCacheSrvr.SendSay( pFrom->lpszPlayer, pTo->lpszPlayer, idFrom, idTo, lpString, pFrom );	// ë‚˜ì—ê²Œ ë³´ëƒ„
 	}
 	else
 	{
-		g_DPCacheSrvr.SendSay( "", "", idFrom, idTo, "", pFrom, 1 ); // ÇÃ·¹ÀÌ¾î°¡ Á¢¼ÓÁßÀÌÁö ¾Ê½À´Ï´Ù. 
+		g_DPCacheSrvr.SendSay( "", "", idFrom, idTo, "", pFrom, 1 ); // í”Œë ˆì´ì–´ê°€ ì ‘ì†ì¤‘ì´ì§€ ì•ŠìŠµë‹ˆë‹¤. 
 		// player not found
 	}
 }
@@ -476,7 +476,7 @@ void CDPCoreSrvr::OnModifyMode( CAr & ar, DPID dpidFrom, DPID dpidCache, DPID dp
 	}
 	else
 	{
-		g_DPCacheSrvr.SendSay( "", "", idFrom, idTo, "", pFrom, 1 ); // ÇÃ·¹ÀÌ¾î°¡ Á¢¼ÓÁßÀÌÁö ¾Ê½À´Ï´Ù. 
+		g_DPCacheSrvr.SendSay( "", "", idFrom, idTo, "", pFrom, 1 ); // í”Œë ˆì´ì–´ê°€ ì ‘ì†ì¤‘ì´ì§€ ì•ŠìŠµë‹ˆë‹¤. 
 	}
 }
 
@@ -514,7 +514,7 @@ void CDPCoreSrvr::OnGMSay( CAr& ar, DPID, DPID, DPID, u_long uBufSize )
 		}
 	}
 	if( pFrom && pTo )
-		g_DPCacheSrvr.SendGMSay( "°ÇÀÇ", pTo->lpszPlayer, lpString, pFrom );	// ³ª¿¡°Ô º¸³¿
+		g_DPCacheSrvr.SendGMSay( "ê±´ì˜", pTo->lpszPlayer, lpString, pFrom );	// ë‚˜ì—ê²Œ ë³´ëƒ„
 }
 
 void CDPCoreSrvr::OnPlayMusic( CAr & ar, DPID, DPID, DPID, u_long )
@@ -621,7 +621,7 @@ void CDPCoreSrvr::OnSummonPlayer( CAr & ar, DPID, DPID, DPID, u_long )
 	}
 	else
 	{
-		g_DPCacheSrvr.SendSay( "", "", idOperator, idPlayer, "", pOperator, 1 ); // ÇÃ·¹ÀÌ¾î°¡ Á¢¼ÓÁßÀÌÁö ¾Ê½À´Ï´Ù. 
+		g_DPCacheSrvr.SendSay( "", "", idOperator, idPlayer, "", pOperator, 1 ); // í”Œë ˆì´ì–´ê°€ ì ‘ì†ì¤‘ì´ì§€ ì•ŠìŠµë‹ˆë‹¤. 
 		// player not found
 	}
 }
@@ -641,7 +641,7 @@ void CDPCoreSrvr::OnTeleportPlayer( CAr & ar, DPID, DPID, DPID, u_long )
 	}
 	else
 	{
-		g_DPCacheSrvr.SendSay( "", "", idOperator, idPlayer, "", pOperator, 1 ); // ÇÃ·¹ÀÌ¾î°¡ Á¢¼ÓÁßÀÌÁö ¾Ê½À´Ï´Ù. 
+		g_DPCacheSrvr.SendSay( "", "", idOperator, idPlayer, "", pOperator, 1 ); // í”Œë ˆì´ì–´ê°€ ì ‘ì†ì¤‘ì´ì§€ ì•ŠìŠµë‹ˆë‹¤. 
 	}
 }
 
@@ -660,7 +660,7 @@ void CDPCoreSrvr::OnKillPlayer( CAr & ar, DPID, DPID, DPID, u_long )
 	}
 	else
 	{
-		g_DPCacheSrvr.SendSay( "", "", idOperator, idPlayer, "", pOperator, 1 ); // ÇÃ·¹ÀÌ¾î°¡ Á¢¼ÓÁßÀÌÁö ¾Ê½À´Ï´Ù. 
+		g_DPCacheSrvr.SendSay( "", "", idOperator, idPlayer, "", pOperator, 1 ); // í”Œë ˆì´ì–´ê°€ ì ‘ì†ì¤‘ì´ì§€ ì•ŠìŠµë‹ˆë‹¤. 
 	}
 }
 
@@ -679,7 +679,7 @@ void CDPCoreSrvr::OnGetPlayerAddr( CAr & ar, DPID dpidFrom, DPID dpidCache, DPID
 	}
 	else
 	{
-		g_DPCacheSrvr.SendSay( "", "", idOperator, idPlayer, "", pOperator, 1 ); // ÇÃ·¹ÀÌ¾î°¡ Á¢¼ÓÁßÀÌÁö ¾Ê½À´Ï´Ù. 
+		g_DPCacheSrvr.SendSay( "", "", idOperator, idPlayer, "", pOperator, 1 ); // í”Œë ˆì´ì–´ê°€ ì ‘ì†ì¤‘ì´ì§€ ì•ŠìŠµë‹ˆë‹¤. 
 	}
 }
 
@@ -746,16 +746,16 @@ void CDPCoreSrvr::OnAddPartyExp( CAr & ar, DPID, DPID, DPID, u_long )
 	u_long uPartyId;
 	int nMonLv;
 	BOOL bSuperLeader = FALSE;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	BOOL bLeaderSMPartyExpUp = FALSE;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 	ar >> uPartyId;
 	ar >> nMonLv;
 	ar >> bSuperLeader;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	ar >> bLeaderSMPartyExpUp;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	
 	CMclAutoLock	Lock( g_PartyMng.m_AddRemoveLock );
 	CParty* pParty	= g_PartyMng.GetParty( uPartyId );
@@ -769,10 +769,10 @@ void CDPCoreSrvr::OnAddPartyExp( CAr & ar, DPID, DPID, DPID, u_long )
 				nAddExp		= (int)( nAddExp * s_fPartyExpRate );
 				if( bSuperLeader )
 					nAddExp		*= 2;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 				if( bLeaderSMPartyExpUp )
 					nAddExp	= (int)( nAddExp * 1.5 );
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 				pParty->m_nExp += nAddExp;
 
@@ -791,10 +791,10 @@ void CDPCoreSrvr::OnAddPartyExp( CAr & ar, DPID, DPID, DPID, u_long )
 
 			if( bSuperLeader )
 				nAddExp		*= 2;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 			if( bLeaderSMPartyExpUp )
 				nAddExp		= (int)( nAddExp * 1.5 );
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 			pParty->m_nExp += nAddExp;
 			
@@ -802,9 +802,9 @@ void CDPCoreSrvr::OnAddPartyExp( CAr & ar, DPID, DPID, DPID, u_long )
 			{
 				pParty->m_nExp	-= int( ( ( 50 + pParty->GetLevel() ) * pParty->GetLevel() / 13 ) * 10 );
 				pParty->m_nLevel++;
-#ifdef __MA_VER11_01	// ±Ø´Ü·¹º§¾÷Æ÷ÀÎÆ®º¯°æ
+#ifdef __MA_VER11_01	// ê·¹ë‹¨ë ˆë²¨ì—…í¬ì¸íŠ¸ë³€ê²½
 				pParty->m_nPoint	+= 15;
-#else	//__MA_VER11_01	// ±Ø´Ü·¹º§¾÷Æ÷ÀÎÆ®º¯°æ
+#else	//__MA_VER11_01	// ê·¹ë‹¨ë ˆë²¨ì—…í¬ì¸íŠ¸ë³€ê²½
 				if( 11 <= pParty->m_nLevel && pParty->m_nLevel <= 40 )
 				{
 					pParty->m_nPoint	+= 15;//2;//g_PartyMng.m_aExpParty[nIndex].Point;
@@ -814,7 +814,7 @@ void CDPCoreSrvr::OnAddPartyExp( CAr & ar, DPID, DPID, DPID, u_long )
 				{
 					pParty->m_nPoint	+= 10;//g_PartyMng.m_aExpParty[nIndex].Point;
 				}
-#endif	//__MA_VER11_01	// ±Ø´Ü·¹º§¾÷Æ÷ÀÎÆ®º¯°æ
+#endif	//__MA_VER11_01	// ê·¹ë‹¨ë ˆë²¨ì—…í¬ì¸íŠ¸ë³€ê²½
 
 			}
 		}
@@ -903,7 +903,7 @@ void CDPCoreSrvr::OnPartyLevel( CAr & ar, DPID, DPID, DPID, u_long )
 	if( pParty )
 	{
 		pParty->m_nLevel = dwLevel;
-		pParty->m_nPoint = dwPoint;				// ±Ø´Ü ·¹º§, °æÇèÄ¡, Æ÷ÀÎÆ®
+		pParty->m_nPoint = dwPoint;				// ê·¹ë‹¨ ë ˆë²¨, ê²½í—˜ì¹˜, í¬ì¸íŠ¸
 		pParty->m_nExp = dwExp;
 
 		if( pParty->m_nLevel < MAX_PARTYLEVEL )
@@ -1018,17 +1018,17 @@ void CDPCoreSrvr::OnPartySkillUse( CAr & ar, DPID, DPID, DPID, u_long uBufSize )
 	int nMode;
 	DWORD dwSkillTime;
 	int nRemovePoint;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	int nCachMode;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 	ar >> uidPlayer;
 	ar >> nMode;
 	ar >> dwSkillTime;
 	ar >> nRemovePoint;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	ar >> nCachMode;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 	CPlayer* pSender;
 	
@@ -1037,7 +1037,7 @@ void CDPCoreSrvr::OnPartySkillUse( CAr & ar, DPID, DPID, DPID, u_long uBufSize )
 	
 	if( !pSender )
 	{
-		// »ç¿ëÀÚ Ã£±â ½ÇÆĞ
+		// ì‚¬ìš©ì ì°¾ê¸° ì‹¤íŒ¨
 		return;		
 	}
 	
@@ -1056,30 +1056,30 @@ void CDPCoreSrvr::OnPartySkillUse( CAr & ar, DPID, DPID, DPID, u_long uBufSize )
 				return;
 
 			pParty->m_nPoint -= nRemovePoint;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
-	#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+	#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 			if( nMode == PARTY_PARSKILL_MODE && dwSkillTime == 0 )
 			{
 			    pParty->SetPartyMode( nMode, dwSkillTime , 0 );	
 				SendSetPartyMode( pParty->m_uPartyId, nMode, FALSE );
 				return;
 			}
-	#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+	#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
             pParty->SetPartyMode( nMode, dwSkillTime , nCachMode );		
 			SendSetPartyMode( pParty->m_uPartyId, nMode, TRUE, pParty->m_nPoint, (DWORD)pParty->GetPartyModeTime(nMode) );
-#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 			pParty->SetPartyMode( nMode, dwSkillTime );
 			SendSetPartyMode( pParty->m_uPartyId, nMode, TRUE, pParty->m_nPoint );
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 		}
 		else
 		{
-			// ±Ø´ÜÀÌ ¾ø°Å³ª ±Ø´Ü¿¡ ¼Ò¼ÓµÇ¾î ÀÖÁö ¾Ê´Ù.
+			// ê·¹ë‹¨ì´ ì—†ê±°ë‚˜ ê·¹ë‹¨ì— ì†Œì†ë˜ì–´ ìˆì§€ ì•Šë‹¤.
 		}
 	}
 	else
 	{
-		//±Ø´Ü¿¡ ¼Ò¼ÓµÇ¾î ÀÖÁö ¾Ê´Ù
+		//ê·¹ë‹¨ì— ì†Œì†ë˜ì–´ ìˆì§€ ì•Šë‹¤
 	}
 }
 
@@ -1101,7 +1101,7 @@ void CDPCoreSrvr::OnPartyChat( CAr & ar, DPID, DPID, DPID, u_long uBufSize )
 
 	if( !pSender )
 	{
-		// »ç¿ëÀÚ Ã£±â ½ÇÆĞ
+		// ì‚¬ìš©ì ì°¾ê¸° ì‹¤íŒ¨
 		return;		
 	}
 
@@ -1118,12 +1118,12 @@ void CDPCoreSrvr::OnPartyChat( CAr & ar, DPID, DPID, DPID, u_long uBufSize )
 		}
 		else
 		{
-			// ±Ø´ÜÀÌ ¾ø°Å³ª ±Ø´Ü¿¡ ¼Ò¼ÓµÇ¾î ÀÖÁö ¾Ê´Ù.
+			// ê·¹ë‹¨ì´ ì—†ê±°ë‚˜ ê·¹ë‹¨ì— ì†Œì†ë˜ì–´ ìˆì§€ ì•Šë‹¤.
 		}
 	}
 	else
 	{
-		//±Ø´Ü¿¡ ¼Ò¼ÓµÇ¾î ÀÖÁö ¾Ê´Ù
+		//ê·¹ë‹¨ì— ì†Œì†ë˜ì–´ ìˆì§€ ì•Šë‹¤
 	}
 }
 
@@ -1206,18 +1206,18 @@ void CDPCoreSrvr::SendPlaySound( u_long idsound, DWORD dwWorldID, DPID dpid )
 	ar << dwWorldID;
 	SEND( ar, this, dpid );
 }
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 void CDPCoreSrvr::SendSetPartyMode( u_long idParty, int nMode, BOOL bOnOff, LONG nPoint ,DWORD dwSkillTime )
-#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 void CDPCoreSrvr::SendSetPartyMode( u_long idParty, int nMode, BOOL bOnOff, LONG nPoint )
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 {
 	BEFORESENDDUAL( ar, PACKETTYPE_SETPARTYMODE, DPID_UNKNOWN, DPID_UNKNOWN );
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	ar << idParty << nMode << dwSkillTime << bOnOff;
-#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	ar << idParty << nMode << bOnOff;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	if( bOnOff == TRUE )
 	{
 		ar << nPoint;
@@ -1797,12 +1797,12 @@ void CDPCoreSrvr::OnAddFriendNameReqest( CAr & ar, DPID, DPID, DPID, u_long )
 	CPlayer* pMember = g_PlayerMng.GetPlayer( uMember );
 	if( pLeader && pMember )
 	{
-		// ¹°¾îº½ Ä£±¸µî·ÏÀ» ÇÒ²«Áö
+		// ë¬¼ì–´ë´„ ì¹œêµ¬ë“±ë¡ì„ í• ê»€ì§€
 		g_DPCacheSrvr.SendAddFriend( uLeader, uMember, nLeaderJob, nLeaderSex, szLeaderName, pMember );
 	}
 	else
 	{
-		// Á¢¼ÓµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù.
+		// ì ‘ì†ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤.
 		if( pLeader )
 			g_DPCacheSrvr.SendAddFriendNotFound( szMemberName, pLeader );
 	}
@@ -1864,7 +1864,7 @@ void CDPCoreSrvr::SendAddCastVote( u_long idGuild, u_long idVote, BYTE cbSelecti
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
-// ±æµå·Î°í º¯°æ 
+// ê¸¸ë“œë¡œê³  ë³€ê²½ 
 void CDPCoreSrvr::OnGuildLogo( CAr & ar, DPID, DPID, DPID, u_long )
 {
 	CMclAutoLock	Lock( g_PlayerMng.m_AddRemoveLock );
@@ -1880,10 +1880,10 @@ void CDPCoreSrvr::OnGuildLogo( CAr & ar, DPID, DPID, DPID, u_long )
 	if( pGuild == NULL )
 		return;
 
-	if( pGuild->m_nLevel < 2 )						// 2¹Ì¸¸?
+	if( pGuild->m_nLevel < 2 )						// 2ë¯¸ë§Œ?
 		return;
 
-	if( pGuild->IsMaster( idPlayer ) == FALSE )		// ±æ¸¶?
+	if( pGuild->IsMaster( idPlayer ) == FALSE )		// ê¸¸ë§ˆ?
 		return;
 
 	if( pGuild->GetWar() )
@@ -1906,7 +1906,7 @@ void CDPCoreSrvr::OnGuildLogo( CAr & ar, DPID, DPID, DPID, u_long )
 	}
 }
 
-// ±æµå°øÇåµµ
+// ê¸¸ë“œê³µí—Œë„
 void CDPCoreSrvr::OnGuildContribution( CAr & ar, DPID, DPID, DPID, u_long )
 {
 	CMclAutoLock	Lock( g_PlayerMng.m_AddRemoveLock );
@@ -1922,7 +1922,7 @@ void CDPCoreSrvr::OnGuildContribution( CAr & ar, DPID, DPID, DPID, u_long )
 	if( pGuild == NULL )
 		return;
 
-	if( pGuild->m_szGuild[0] == '\0' )	// ÀÌ¸§ÀÌ ¾øÀ¸¸é °øÇåÇÒ ¼ö ¾ø´Ù.
+	if( pGuild->m_szGuild[0] == '\0' )	// ì´ë¦„ì´ ì—†ìœ¼ë©´ ê³µí—Œí•  ìˆ˜ ì—†ë‹¤.
 		return;
 	
 	pGuild->SetContribution( info );
@@ -1935,7 +1935,7 @@ void CDPCoreSrvr::OnGuildContribution( CAr & ar, DPID, DPID, DPID, u_long )
 	}
 }
 
-// ±æµå °øÁö»çÇ× º¯°æ 
+// ê¸¸ë“œ ê³µì§€ì‚¬í•­ ë³€ê²½ 
 void CDPCoreSrvr::OnGuildNotice( CAr & ar, DPID, DPID, DPID, u_long )
 {
 	CMclAutoLock	Lock( g_PlayerMng.m_AddRemoveLock );
@@ -2013,7 +2013,7 @@ void CDPCoreSrvr::UpdateWantedList()
 #endif
 }
 
-// Çö»ó±İÀ» ´©Àû ¿äÃ»
+// í˜„ìƒê¸ˆì„ ëˆ„ì  ìš”ì²­
 void CDPCoreSrvr::OnWCWantedGold( CAr & ar, DPID, DPID, DPID, u_long )
 {
 	u_long	idPlayer;
@@ -2032,12 +2032,12 @@ void CDPCoreSrvr::OnWCWantedGold( CAr & ar, DPID, DPID, DPID, u_long )
 		UpdateWantedList();
 }
 
-// ÄÚ¾î¼­¹ö¿¡ (Çö»ó±İ¾ò±â & Çö»ó±İ clear) ¿äÃ»  
+// ì½”ì–´ì„œë²„ì— (í˜„ìƒê¸ˆì–»ê¸° & í˜„ìƒê¸ˆ clear) ìš”ì²­  
 void CDPCoreSrvr::OnWCWantedReward( CAr & ar, DPID dpid, DPID, DPID, u_long )
 {
 	u_long	idPlayer, idAttacker;
-	DWORD	dwWorldID;		// ¿ùµå¾ÆÀÌµğ 
-	D3DXVECTOR3 vPos;		// ¾ÆÀÌÅÛÀ» ¶³±¼ À§Ä¡  
+	DWORD	dwWorldID;		// ì›”ë“œì•„ì´ë”” 
+	D3DXVECTOR3 vPos;		// ì•„ì´í…œì„ ë–¨êµ´ ìœ„ì¹˜  
 	char szFormat[256];
 	char szReward[64];
 
@@ -2066,7 +2066,7 @@ void CDPCoreSrvr::OnWCWantedReward( CAr & ar, DPID dpid, DPID, DPID, u_long )
 		sprintf( szGold, "%I64d", nGold );
 
 		CString strGold = GetNumberFormatEx( szGold );
-		//sprintf( szMsg, "%s´ÔÀÌ Çö»ó¹ü %s¸¦ Àâ¾Æ Çö»ó±İ %sÆä³Ä¸¦ ¾ò¾ú½À´Ï´Ù.", szAttacker, szReward, strGold );
+		//sprintf( szMsg, "%së‹˜ì´ í˜„ìƒë²” %së¥¼ ì¡ì•„ í˜„ìƒê¸ˆ %sí˜ëƒë¥¼ ì–»ì—ˆìŠµë‹ˆë‹¤.", szAttacker, szReward, strGold );
 		sprintf( szMsg, szFormat, szReward, strGold );
 		g_DPCacheSrvr.SendSystem( szMsg );
 
@@ -2075,7 +2075,7 @@ void CDPCoreSrvr::OnWCWantedReward( CAr & ar, DPID dpid, DPID, DPID, u_long )
 	}
 }
 
-// Çö»ó±İ ¸®½ºÆ®¸¦ ¿ùµå¼­¹öµé¿¡ º¸³½´Ù.
+// í˜„ìƒê¸ˆ ë¦¬ìŠ¤íŠ¸ë¥¼ ì›”ë“œì„œë²„ë“¤ì— ë³´ë‚¸ë‹¤.
 void CDPCoreSrvr::SendCWWantedList( DPID dpid )
 {
 	BEFORESENDDUAL( ar, PACKETTYPE_CW_WANTED_LIST, DPID_UNKNOWN, DPID_UNKNOWN );

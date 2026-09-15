@@ -1,4 +1,4 @@
-#if !defined(__FSM_H__)
+﻿#if !defined(__FSM_H__)
 #define __FSM_H__
 
 // forward reference

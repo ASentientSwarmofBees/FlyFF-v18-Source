@@ -1,18 +1,18 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "LinkMap.h"
 #include "World.h"
 #include "user.h"
 
 
-// ·£µå½ºÄÉÀÌÇÁÀÇ ±æÀÌ = 512¹ÌÅÍ
-// 512¹ÌÅÍ * 30°³ÀÇ ·£µå½ºÄÉÀÌÇÁ = 15360¹ÌÅÍ ( ÇÏ³ªÀÇ ·£µå½ºÄÉÀÌÇÁ = 512¹ÌÅÍ )
-// ¸Ê: 15360¹ÌÅÍ * 15360¹ÌÅÍ 
+// ëœë“œìŠ¤ì¼€ì´í”„ì˜ ê¸¸ì´ = 512ë¯¸í„°
+// 512ë¯¸í„° * 30ê°œì˜ ëœë“œìŠ¤ì¼€ì´í”„ = 15360ë¯¸í„° ( í•˜ë‚˜ì˜ ëœë“œìŠ¤ì¼€ì´í”„ = 512ë¯¸í„° )
+// ë§µ: 15360ë¯¸í„° * 15360ë¯¸í„° 
 
-// FOR_LINKMAPÀº Ãæµ¹ °ËÃâÀ» À§ÇØ¼­ ¹üÀ§¸¦ 0À¸·Î ÁÖ¾îµµ ·çÇÁ¸¦ 2 * 2 ¸¦ µ·´Ù.
-// ÁöÇü°úÀÇ Ãæµ¹ °ËÃâÀº octree·Î, ±×¿ÜÀÇ °´Ã¼´Â ±âÁ¸ ¸µÅ©¸ÊÀ» ÀÌ¿ëÇÏ°í ½Í´Ù. ( 2*2¸¦ µ¹Áö ¾Ê°Ô²û ¼öÁ¤ ÈÄ)
+// FOR_LINKMAPì€ ì¶©ëŒ ê²€ì¶œì„ ìœ„í•´ì„œ ë²”ìœ„ë¥¼ 0ìœ¼ë¡œ ì£¼ì–´ë„ ë£¨í”„ë¥¼ 2 * 2 ë¥¼ ëˆë‹¤.
+// ì§€í˜•ê³¼ì˜ ì¶©ëŒ ê²€ì¶œì€ octreeë¡œ, ê·¸ì™¸ì˜ ê°ì²´ëŠ” ê¸°ì¡´ ë§í¬ë§µì„ ì´ìš©í•˜ê³  ì‹¶ë‹¤. ( 2*2ë¥¼ ëŒì§€ ì•Šê²Œë” ìˆ˜ì • í›„)
 
 static float g_table[MAX_LINKLEVEL] = { 32.0f, 64.0f, 128.0f, 256.0f, 512.0f, 512.0f, 512.0f };    
-static float fDynamicGrid[MAX_LINKLEVEL] = { 512.0f, 512.0f, 512.0f, 512.0f, 512.0f, 512.0f, 512.0f };	// °­Á¦·Î 0·¹º§¿¡ ³Ö±â À§ÇÑ Å×ÀÌºí 
+static float fDynamicGrid[MAX_LINKLEVEL] = { 512.0f, 512.0f, 512.0f, 512.0f, 512.0f, 512.0f, 512.0f };	// ê°•ì œë¡œ 0ë ˆë²¨ì— ë„£ê¸° ìœ„í•œ í…Œì´ë¸” 
 static float fStaticGrid[MAX_LINKLEVEL]  = { 4.0f, 8.0f, 16.0f, 32.0f, 64.0f, 128.0f, 256.0f };
 
 
@@ -39,7 +39,7 @@ void CLinkMap::Init( int nLandWidth, int nLandHeight, int nView, int nMPU )
 	int nLevel, nType;
 	int nLandscape = MAP_SIZE * m_iMPU;	
 
-	int nCX = nLandscape * nLandWidth;  // ¸ÊÀÇ ÇÑº¯ÀÇ ±æÀÌ (¹ÌÅÍ ´ÜÀ§) = ·£µå½ºÄÉÀÌÇÁ ±æÀÌ * ¸ÊÀÇ ÇÑº¯ ·£µå½ºÄÉÀÌÇÁ °¹¼ö 
+	int nCX = nLandscape * nLandWidth;  // ë§µì˜ í•œë³€ì˜ ê¸¸ì´ (ë¯¸í„° ë‹¨ìœ„) = ëœë“œìŠ¤ì¼€ì´í”„ ê¸¸ì´ * ë§µì˜ í•œë³€ ëœë“œìŠ¤ì¼€ì´í”„ ê°¯ìˆ˜ 
 	float* fDivisor;
 
 	for( nType = 0; nType < MAX_LINKTYPE; nType++  )
@@ -54,8 +54,8 @@ void CLinkMap::Init( int nLandWidth, int nLandHeight, int nView, int nMPU )
 		{
 			int reviseGrid = (int)(fDivisor[ nLevel ] * fMulGrid);
 			assert( reviseGrid > 0 );
-			//pInfo->nWidth[nLevel]  = nLandscape / (int)fDivisor[nLevel];  // ·£µå½ºÄÉÀÌÇÁÀÇ Å©±â¸¦ ±×¸®µåÀÇ Å©±â·Î ³ª´©¸é 
-			pInfo->nWidth[nLevel]  = nLandscape / reviseGrid;  // ·£µå½ºÄÉÀÌÇÁÀÇ Å©±â¸¦ ±×¸®µåÀÇ Å©±â·Î ³ª´©¸é 
+			//pInfo->nWidth[nLevel]  = nLandscape / (int)fDivisor[nLevel];  // ëœë“œìŠ¤ì¼€ì´í”„ì˜ í¬ê¸°ë¥¼ ê·¸ë¦¬ë“œì˜ í¬ê¸°ë¡œ ë‚˜ëˆ„ë©´ 
+			pInfo->nWidth[nLevel]  = nLandscape / reviseGrid;  // ëœë“œìŠ¤ì¼€ì´í”„ì˜ í¬ê¸°ë¥¼ ê·¸ë¦¬ë“œì˜ í¬ê¸°ë¡œ ë‚˜ëˆ„ë©´ 
 
 			int nCount = ( nCX / reviseGrid  ) * ( nCX / reviseGrid );
 			pInfo->apObj[nLevel] = new CObj*[ nCount ];
@@ -85,7 +85,7 @@ void CLinkMap::Release()
 			SAFE_DELETE_ARRAY( m_infos[nType].apObj[nLevel] );
 }
 
-// vPosÀ§Ä¡, dwLinkType, nLinkLevel¿¡ À§Ä¡ÇÑ objÆ÷ÀÎÅÍÀÇ Æ÷ÀÎÅÍ¸¦ ¸®ÅÏ 
+// vPosìœ„ì¹˜, dwLinkType, nLinkLevelì— ìœ„ì¹˜í•œ objí¬ì¸í„°ì˜ í¬ì¸í„°ë¥¼ ë¦¬í„´ 
 CObj** CLinkMap::GetObjPtr( const D3DXVECTOR3 & vPos, DWORD dwLinkType, int nLinkLevel )
 {
 	CObj** aObjLinkMap	= GetObj( dwLinkType, nLinkLevel );
@@ -111,7 +111,7 @@ BOOL CLinkMap::InsertObjLink( CObj* pObj )
 		{
 			if( pObj->m_pNext || pObj->m_pPrev )
 			{
-				Error("Çä InsertObjWorld »õ·Î Ãß°¡µÈ ¿ÀºêÁ§Æ®°¡ Next¿Í Prev¿¡ °ªÀÌ ÀÖ³×?? Type = %d \n", pObj->GetType());
+				Error("í—‰ InsertObjWorld ìƒˆë¡œ ì¶”ê°€ëœ ì˜¤ë¸Œì íŠ¸ê°€ Nextì™€ Prevì— ê°’ì´ ìˆë„¤?? Type = %d \n", pObj->GetType());
 			}
 			pBegObj->InsNextNode(pObj);
 		}
@@ -120,13 +120,13 @@ BOOL CLinkMap::InsertObjLink( CObj* pObj )
 			*ppObj = pObj;
 			if( pObj->m_pNext || pObj->m_pPrev )
 			{
-				Error("Çä InsertObjWorld »õ·Î Ãß°¡µÈ ¿ÀºêÁ§Æ®°¡ Next¿Í Prev¿¡ °ªÀÌ ÀÖ³×?? Type = %d \n", pObj->GetType());
+				Error("í—‰ InsertObjWorld ìƒˆë¡œ ì¶”ê°€ëœ ì˜¤ë¸Œì íŠ¸ê°€ Nextì™€ Prevì— ê°’ì´ ìˆë„¤?? Type = %d \n", pObj->GetType());
 			}
 		}
 	}
 	else
 	{
-		Error("Çä InsObjInFld¿¡¼­ ¹üÀ§¸¦ ¹ş¾î³­°Ô Ãß°¡µÇ·Á°í ÇÏ³×?\n");
+		Error("í—‰ InsObjInFldì—ì„œ ë²”ìœ„ë¥¼ ë²—ì–´ë‚œê²Œ ì¶”ê°€ë˜ë ¤ê³  í•˜ë„¤?\n");
 		return FALSE;
 	}
 	return TRUE;
@@ -677,7 +677,7 @@ void CLinkMap::SetMaxLinkLevel( DWORD dwLinkType, int nLevel )
 	m_infos[dwLinkType].nMaxLevel = nLevel;
 }
 
-// ¸µÅ©·¹º§À» °è»êÇÑ´Ù.
+// ë§í¬ë ˆë²¨ì„ ê³„ì‚°í•œë‹¤.
 DWORD CLinkMap::CalcLinkLevel( CObj* pObj, float fObjWidth )
 {
 	float* fGrid = NULL;

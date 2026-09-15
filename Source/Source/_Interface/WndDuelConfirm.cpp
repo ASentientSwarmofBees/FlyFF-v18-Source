@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndDuelConfirm.h"
@@ -28,7 +28,7 @@ void CWndDuelConfirm::OnDraw( C2DRender* p2DRender )
 void CWndDuelConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	//	CWndStatic* pWndStatic;
@@ -37,18 +37,18 @@ void CWndDuelConfirm::OnInitialUpdate()
 
 	/*
 	if( m_bDuelParty == FALSE )
-		strTemp.Format( _T("%s ´ÔÀÌ µà¾ó½ÅÃ»À» ÇÏ¿´½À´Ï´Ù. Çã¶ôÇÏ°Ú½À´Ï±î?"), m_szSrc ); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+		strTemp.Format( _T("%s ë‹˜ì´ ë“€ì–¼ì‹ ì²­ì„ í•˜ì˜€ìŠµë‹ˆë‹¤. í—ˆë½í•˜ê² ìŠµë‹ˆê¹Œ?"), m_szSrc ); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	else
-		strTemp.Format( _T("%s ´ÔÀÌ ±Ø´Üµà¾ó½ÅÃ»À» ÇÏ¿´½À´Ï´Ù. Çã¶ôÇÏ°Ú½À´Ï±î?"), m_szSrc ); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+		strTemp.Format( _T("%s ë‹˜ì´ ê·¹ë‹¨ë“€ì–¼ì‹ ì²­ì„ í•˜ì˜€ìŠµë‹ˆë‹¤. í—ˆë½í•˜ê² ìŠµë‹ˆê¹Œ?"), m_szSrc ); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	*/
 	if( m_bDuelParty == FALSE )
-		strTemp.Format( _T( prj.GetText(TID_DIAG_0066) ), m_szSrc ); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+		strTemp.Format( _T( prj.GetText(TID_DIAG_0066) ), m_szSrc ); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	else
-		strTemp.Format( _T( prj.GetText(TID_DIAG_0067) ), m_szSrc ); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+		strTemp.Format( _T( prj.GetText(TID_DIAG_0067) ), m_szSrc ); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	
 	pWndText->SetString( strTemp );
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	/*
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
@@ -61,14 +61,14 @@ void CWndDuelConfirm::OnInitialUpdate()
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
 	Move( point );	
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndDuelConfirm::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_DUEL_CONFIRM, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndDuelConfirm::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -98,15 +98,15 @@ BOOL CWndDuelConfirm::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	{
 		if( nID == WIDC_YES ) 
 		{
-			// ¿©±â´Ù°¡ ½Â¶ôÇÏ´Â Ã³¸® Ãß°¡ÇÏ½Ã¿À
-			// ¼­¹ö·Î ½Â¶ô Çß´Ù´Â¸Ş½ÃÁö¸¦ º¸³¿
-			// ¼­¹ö¿¡¼­ ¹ŞÀ¸¸é µÎ Ä³¸¯ÅÍ¿¡°Ô ¸ğµÎ µà¾óÀÌ ½ÃÀÛµÆ´Ù´Â°É º¸³¿
-			// °¢ Å¬¶ó¿¡¼­ ¹ŞÀ¸¸é ½ÃÀÛ.
-			CMover *pSrc = prj.GetMover( m_idSrc );	// µà¾ó ½ÅÃ»ÀÚ.
+			// ì—¬ê¸°ë‹¤ê°€ ìŠ¹ë½í•˜ëŠ” ì²˜ë¦¬ ì¶”ê°€í•˜ì‹œì˜¤
+			// ì„œë²„ë¡œ ìŠ¹ë½ í–ˆë‹¤ëŠ”ë©”ì‹œì§€ë¥¼ ë³´ëƒ„
+			// ì„œë²„ì—ì„œ ë°›ìœ¼ë©´ ë‘ ìºë¦­í„°ì—ê²Œ ëª¨ë‘ ë“€ì–¼ì´ ì‹œì‘ëë‹¤ëŠ”ê±¸ ë³´ëƒ„
+			// ê° í´ë¼ì—ì„œ ë°›ìœ¼ë©´ ì‹œì‘.
+			CMover *pSrc = prj.GetMover( m_idSrc );	// ë“€ì–¼ ì‹ ì²­ì.
 			if( IsValidObj( pSrc ) )
 			{
 
-#if __VER >= 8 // 8Â÷ µà¾ó 061226 ma
+#if __VER >= 8 // 8ì°¨ ë“€ì–¼ 061226 ma
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 				CWndBase* pWndBase = g_WndMng.GetWndBase( APP_DIALOG_EX );
 #else // __IMPROVE_QUEST_INTERFACE
@@ -309,55 +309,55 @@ BOOL CWndDuelConfirm::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					pWndBase->Destroy();
 #endif //__SECRET_ROOM
 
-#endif // __VER >= 8 // 8Â÷ µà¾ó 061226 ma
-				g_DPlay.SendDuelYes( pSrc, g_pPlayer );		// µà¾ó ½ÅÃ» Çã¶ôÇÔ.
+#endif // __VER >= 8 // 8ì°¨ ë“€ì–¼ 061226 ma
+				g_DPlay.SendDuelYes( pSrc, g_pPlayer );		// ë“€ì–¼ ì‹ ì²­ í—ˆë½í•¨.
 			}
 			bResult = TRUE;
 		}
 		else if( nID == WIDC_NO || nID == WTBID_CLOSE ) 
 		{
-			// ¿©±â´Ù°¡ °ÅºÎÇÏ´Â Ã³¸® Ãß°¡ÇÏ½Ã¿À
-			CMover *pSrc = prj.GetMover( m_idSrc );	// µà¾ó ½ÅÃ»ÀÚ.
+			// ì—¬ê¸°ë‹¤ê°€ ê±°ë¶€í•˜ëŠ” ì²˜ë¦¬ ì¶”ê°€í•˜ì‹œì˜¤
+			CMover *pSrc = prj.GetMover( m_idSrc );	// ë“€ì–¼ ì‹ ì²­ì.
 			if( IsValidObj( pSrc ) )
 			{
-				g_DPlay.SendDuelNo( pSrc );		// pSrc¿¡°Ô °ÅºÎÇß´Ù´Â°É ¾Ë¸².
+				g_DPlay.SendDuelNo( pSrc );		// pSrcì—ê²Œ ê±°ë¶€í–ˆë‹¤ëŠ”ê±¸ ì•Œë¦¼.
 			}
 			bResult = TRUE;
 		}
 	} else
-	// ÆÄÆ¼ µà¾ó.
+	// íŒŒí‹° ë“€ì–¼.
 	{
 		if( nID == WIDC_YES ) 
 		{
-			// ¿©±â´Ù°¡ ½Â¶ôÇÏ´Â Ã³¸® Ãß°¡ÇÏ½Ã¿À
-			// ¼­¹ö·Î ½Â¶ô Çß´Ù´Â¸Ş½ÃÁö¸¦ º¸³¿
-			// ¼­¹ö¿¡¼­ ¹ŞÀ¸¸é µÎ Ä³¸¯ÅÍ¿¡°Ô ¸ğµÎ µà¾óÀÌ ½ÃÀÛµÆ´Ù´Â°É º¸³¿
-			// °¢ Å¬¶ó¿¡¼­ ¹ŞÀ¸¸é ½ÃÀÛ.
-			CMover *pSrc = prj.GetMover( m_idSrc );	// µà¾ó ½ÅÃ»ÀÚ.
+			// ì—¬ê¸°ë‹¤ê°€ ìŠ¹ë½í•˜ëŠ” ì²˜ë¦¬ ì¶”ê°€í•˜ì‹œì˜¤
+			// ì„œë²„ë¡œ ìŠ¹ë½ í–ˆë‹¤ëŠ”ë©”ì‹œì§€ë¥¼ ë³´ëƒ„
+			// ì„œë²„ì—ì„œ ë°›ìœ¼ë©´ ë‘ ìºë¦­í„°ì—ê²Œ ëª¨ë‘ ë“€ì–¼ì´ ì‹œì‘ëë‹¤ëŠ”ê±¸ ë³´ëƒ„
+			// ê° í´ë¼ì—ì„œ ë°›ìœ¼ë©´ ì‹œì‘.
+			CMover *pSrc = prj.GetMover( m_idSrc );	// ë“€ì–¼ ì‹ ì²­ì.
 			if( IsValidObj( pSrc ) )
 			{
-				g_DPlay.SendDuelPartyYes( pSrc, g_pPlayer );		// µà¾ó ½ÅÃ» Çã¶ôÇÔ.
+				g_DPlay.SendDuelPartyYes( pSrc, g_pPlayer );		// ë“€ì–¼ ì‹ ì²­ í—ˆë½í•¨.
 			}
 			bResult = TRUE;
 		}
 		else if( nID == WIDC_NO || nID == WTBID_CLOSE ) 
 		{
-			// ¿©±â´Ù°¡ °ÅºÎÇÏ´Â Ã³¸® Ãß°¡ÇÏ½Ã¿À
-			CMover *pSrc = prj.GetMover( m_idSrc );	// µà¾ó ½ÅÃ»ÀÚ.
+			// ì—¬ê¸°ë‹¤ê°€ ê±°ë¶€í•˜ëŠ” ì²˜ë¦¬ ì¶”ê°€í•˜ì‹œì˜¤
+			CMover *pSrc = prj.GetMover( m_idSrc );	// ë“€ì–¼ ì‹ ì²­ì.
 			if( IsValidObj( pSrc ) )
 			{
-				g_DPlay.SendDuelPartyNo( pSrc );		// pSrc¿¡°Ô °ÅºÎÇß´Ù´Â°É ¾Ë¸².
+				g_DPlay.SendDuelPartyNo( pSrc );		// pSrcì—ê²Œ ê±°ë¶€í–ˆë‹¤ëŠ”ê±¸ ì•Œë¦¼.
 			}
 			bResult = TRUE;
 		}
 	}
-	// ¹İµå½Ã!!! TRUE·Î ÇØ¼­ ¸Ş¸ğ¸®¿¡¼­ ³¯¸®ÀÚ!!
+	// ë°˜ë“œì‹œ!!! TRUEë¡œ í•´ì„œ ë©”ëª¨ë¦¬ì—ì„œ ë‚ ë¦¬ì!!
 	if( bResult )
 		Destroy( /*TRUE*/ );
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
 } 
 
-#if __VER >= 8     // 8Â÷ µà¾óÁ¸¿¡ °ü°è¾øÀÌ PVP°¡´ÉÇÏ°ÔÇÔ   Neuz, World
+#if __VER >= 8     // 8ì°¨ ë“€ì–¼ì¡´ì— ê´€ê³„ì—†ì´ PVPê°€ëŠ¥í•˜ê²Œí•¨   Neuz, World
 
 CWndDuelResult::CWndDuelResult() 
 { 
@@ -374,7 +374,7 @@ void CWndDuelResult::OnDraw( C2DRender* p2DRender )
 void CWndDuelResult::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	//	CWndStatic* pWndStatic;
@@ -382,13 +382,13 @@ void CWndDuelResult::OnInitialUpdate()
 	CString strTemp;
 
 	if( m_bDuelWin == FALSE )
-		strTemp.Format( _T( prj.GetText(TID_DIAG_DUELRESULT_LOSE) ), m_szSrc ); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+		strTemp.Format( _T( prj.GetText(TID_DIAG_DUELRESULT_LOSE) ), m_szSrc ); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	else
-		strTemp.Format( _T( prj.GetText(TID_DIAG_DUELRESULT_WIN) ), m_szSrc ); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+		strTemp.Format( _T( prj.GetText(TID_DIAG_DUELRESULT_WIN) ), m_szSrc ); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	
 	pWndText->SetString( strTemp );
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	/*
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
@@ -401,14 +401,14 @@ void CWndDuelResult::OnInitialUpdate()
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
 	Move( point );	
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndDuelResult::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_DUEL_RESULT, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndDuelConfirm::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -446,7 +446,7 @@ BOOL CWndDuelResult::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			g_DPlay.SendPlayerBehavior();
 	}
 
-	// ¹İµå½Ã!!! TRUE·Î ÇØ¼­ ¸Ş¸ğ¸®¿¡¼­ ³¯¸®ÀÚ!!
+	// ë°˜ë“œì‹œ!!! TRUEë¡œ í•´ì„œ ë©”ëª¨ë¦¬ì—ì„œ ë‚ ë¦¬ì!!
 	if( bResult )
 		Destroy( /*TRUE*/ );
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 

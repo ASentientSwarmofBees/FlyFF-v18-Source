@@ -1,7 +1,7 @@
-#ifndef __DEFINE_TEXT
+ï»¿#ifndef __DEFINE_TEXT
 #define __DEFINE_TEXT
 
-// Applet Å¸ÀÌÆ² 
+// Applet íƒ€ì´í‹€ 
 
 #define TID_BLANK                       0
      
@@ -89,18 +89,18 @@
 #define TID_APP_CHARACTER_BASE         158
 #define TID_APP_CHARACTER_DETAIL       159
 #define TID_APP_CHARACTER_JOB          160
-//»ó¿ëÈ­ ITEM ½Ã½ºÅÛ ¾ÆÀÌÄÜ
+//ìƒìš©í™” ITEM ì‹œìŠ¤í…œ ì•„ì´ì½˜
 #define TID_APP_COMMITEM	       161
 #define TID_APP_ITEMMALL	       162
 #define TID_APP_ITEMTIME	       163	
-//´ë¸¸ ¿äÃ» GMHELP ½Ã½ºÅÛ
+//ëŒ€ë§Œ ìš”ì²­ GMHELP ì‹œìŠ¤í…œ
 #define TID_APP_GMHELP		       164
 
 #define TID_APP_POST_SEND		   165
 #define TID_APP_POST_RECEIVE	   166
 
 
-// Applet ÅøÆÁ 
+// Applet íˆ´íŒ 
 #define TID_TIP_NAVIGATOR              201
 #define TID_TIP_STATUS                 202
 #define TID_TIP_INVENTORY              203
@@ -172,11 +172,11 @@
 #define TID_TIP_ADMIN                  327
 
 #define TID_TIP_BEAUTY_SHOP            330
-//»ó¿ëÈ­ ITEM ½Ã½ºÅÛ ¾ÆÀÌÄÜ ¼³¸í ¸Þ½ÃÁö
+//ìƒìš©í™” ITEM ì‹œìŠ¤í…œ ì•„ì´ì½˜ ì„¤ëª… ë©”ì‹œì§€
 #define TID_TIP_ITEMMALL	       331
 #define TID_TIP_ITEMTIME               332
 
-// ½Ã½ºÅÛ ¸Þ½ÃÁö
+// ì‹œìŠ¤í…œ ë©”ì‹œì§€
 
 #define TID_SYS_STARTGAME              400
 #define TID_SYS_ENDGAME                401
@@ -187,7 +187,7 @@
 #define TID_NAME_DWARPET               493
 #define TID_NAME_DWARPETMAS            494
 
-// ÀÌº¥Æ® ¸Þ½ÃÁö
+// ì´ë²¤íŠ¸ ë©”ì‹œì§€
 #define TID_EVE_CHGJOB                 500
 #define TID_EVE_STARTJOB1              501
 #define TID_EVE_ENDJOB1                502
@@ -197,25 +197,25 @@
 #define TID_EVE_ENDQUEST               506
 #define TID_EVE_CANCELQUEST            507
 
-//ÇÐ±³ ´ëÇ×Àü ÀÌº¥Æ® ¸Þ½ÃÁö
+//í•™êµ ëŒ€í•­ì „ ì´ë²¤íŠ¸ ë©”ì‹œì§€
 #define TID_SBEVE_SBWAIT	       508
-#define TID_SBEVE_SBSTART	       509 //¹èÆ²Á¸ ÀÌµ¿
+#define TID_SBEVE_SBSTART	       509 //ë°°í‹€ì¡´ ì´ë™
 #define TID_SBEVE_SBEND		       510
 #define TID_SBEVE_NOTUSEITEM           511		       
 #define TID_SBEVE_DEADNOTCHAT          512
 #define TID_SBEVE_VIEWNOTCHAT	       513 
-#define TID_SBEVE_SBRESULT             514 //Á¾·á»óÅÂ¿¡¼­ÀÇ »ýÁ¸ÀÚ¼ö Ãâ·Â Á¤º¸
+#define TID_SBEVE_SBRESULT             514 //ì¢…ë£Œìƒíƒœì—ì„œì˜ ìƒì¡´ìžìˆ˜ ì¶œë ¥ ì •ë³´
 #define TID_SBEVE_SBREADY	       515
-#define TID_SBEVE_SBSTAY	       516 //´ë±â»óÅÂ¿¡¼­ÀÇ Âü¿©ÀÚ¼ö Ãâ·Â Á¤º¸
-#define TID_SBEVE_SBREALTIME           517 //½Ç½Ã°£ »ýÁ¸ÀÚ¼ö Ãâ·Â Á¤º¸
-#define TID_SBEVE_SBSTART2	       518 //´ëÀü ½ÃÀÛ
-#define TID_SBEVE_SBMOVE               519 //¹èÆ²Á¸ ÀÌµ¿(Å×½ºÆ®¿ë)
-#define TID_SBEVE_SBBATTLE             520 //´ëÀü ½ÃÀÛ  (Å×½ºÆ®¿ë)
-#define TID_SBEVE_SBJOIN	       521 //¼­¹ö ´ëÇ×Àü Âü°¡ È®ÀÎ ¸Þ½ÃÁö
-#define TID_SBEVE_SBNJOIN	       522 //¼­¹ö ´ëÇ×Àü Âü°¡ ½Ã°£ Ã¼Å© ¸Þ½ÃÁö
+#define TID_SBEVE_SBSTAY	       516 //ëŒ€ê¸°ìƒíƒœì—ì„œì˜ ì°¸ì—¬ìžìˆ˜ ì¶œë ¥ ì •ë³´
+#define TID_SBEVE_SBREALTIME           517 //ì‹¤ì‹œê°„ ìƒì¡´ìžìˆ˜ ì¶œë ¥ ì •ë³´
+#define TID_SBEVE_SBSTART2	       518 //ëŒ€ì „ ì‹œìž‘
+#define TID_SBEVE_SBMOVE               519 //ë°°í‹€ì¡´ ì´ë™(í…ŒìŠ¤íŠ¸ìš©)
+#define TID_SBEVE_SBBATTLE             520 //ëŒ€ì „ ì‹œìž‘  (í…ŒìŠ¤íŠ¸ìš©)
+#define TID_SBEVE_SBJOIN	       521 //ì„œë²„ ëŒ€í•­ì „ ì°¸ê°€ í™•ì¸ ë©”ì‹œì§€
+#define TID_SBEVE_SBNJOIN	       522 //ì„œë²„ ëŒ€í•­ì „ ì°¸ê°€ ì‹œê°„ ì²´í¬ ë©”ì‹œì§€
 
 
-// °ÔÀÓ ¸Þ½ÃÁö 
+// ê²Œìž„ ë©”ì‹œì§€ 
 #define TID_GAME_LEVELUP               601
 #define TID_GAME_DEATH                 602
 #define TID_GAME_STRUP                 603
@@ -322,8 +322,8 @@
 #define TID_GAME_NPC		      2302
 #define TID_GAME_MONSTER	      2303
 
-// ÁÖÀÇ!! ÀÌ ºÎºÐ¿¡ Ãß°¡ÇÒ ¶§´Â ÇØ´ç ¾ÆÀÌµðµµ ÀÔ·ÂÇØ¾ßÇÔ.
-// ÅØ½ºÆ®´Â defineNeuz.hÀÇ ¼ø¼­¿Í ÀÏÄ¡ÇØ¾ßÇÔ.
+// ì£¼ì˜!! ì´ ë¶€ë¶„ì— ì¶”ê°€í•  ë•ŒëŠ” í•´ë‹¹ ì•„ì´ë””ë„ ìž…ë ¥í•´ì•¼í•¨.
+// í…ìŠ¤íŠ¸ëŠ” defineNeuz.hì˜ ìˆœì„œì™€ ì¼ì¹˜í•´ì•¼í•¨.
 #define TID_MMI_DIALOG                 7000 
 #define TID_MMI_QUEST                  7001
 #define TID_MMI_TRADE                  7002 
@@ -344,14 +344,14 @@
 #define TID_MMI_RANK_WAR	       7017
 #define TID_MMI_RANK_INFO	       7018
 #define TID_MMI_UPGRADE		       7019
-#define TID_MMI_CHANGEELEM             7020 // »ó¿ë¾ÆÀÌÅÛ ¸Þ´º
-#define TID_MMI_INPUT_REWARD           7021 // Çö»ó±Ý °É±â
-#define TID_MMI_SHOW_REWARD	       7022 // Çö»ó±Ý º¸±â
-#define TID_MMI_PIERCING	       7023 // ÇÇ¾î½Ì
-#define TID_MMI_QUERYEQUIP	       7024 // »ìÆìº¸±â
-#define TID_MMI_POST		       7025 // ¿ìÆíÇÔ
+#define TID_MMI_CHANGEELEM             7020 // ìƒìš©ì•„ì´í…œ ë©”ë‰´
+#define TID_MMI_INPUT_REWARD           7021 // í˜„ìƒê¸ˆ ê±¸ê¸°
+#define TID_MMI_SHOW_REWARD	       7022 // í˜„ìƒê¸ˆ ë³´ê¸°
+#define TID_MMI_PIERCING	       7023 // í”¼ì–´ì‹±
+#define TID_MMI_QUERYEQUIP	       7024 // ì‚´íŽ´ë³´ê¸°
+#define TID_MMI_POST		       7025 // ìš°íŽ¸í•¨
 
-// ±æµå½ÅÃ» °ü·Ã
+// ê¸¸ë“œì‹ ì²­ ê´€ë ¨
 #define TID_MMI_GUILDWAR_APP			   7026 
 #define TID_MMI_GUILDWAR_STATE			   7027 
 #define TID_MMI_GUILDWAR_CANCEL			   7028 
@@ -368,147 +368,147 @@
 #define TID_MMI_GUILDCOMBAT_INFO_BOARD3		   7039
 #define TID_MMI_GUILDCOMBAT_INFO_TEX		   7040
 #define TID_MMI_GUILDCOMBAT_PENYA_RETURN	   7041
-#define TID_MMI_BEAUTYSHOP_SKIN	      		   7042 // ¼ºÇü¼ö¼ú
-#define TID_MMI_SUMMON_ANGEL			7043 //¿£Á©¼ÒÈ¯
-#define TID_MMI_KAWIBAWIBO				7044 //°¡À§¹ÙÀ§º¸ °ÔÀÓ
-#define TID_MMI_FINDWORD				7045 //´Ü¾î¸ÂÃß±â °ÔÀÓ
-#define TID_MMI_FIVESYSTEM				7046 //¿À°ö(ÁÖ»çÀ§) °ÔÀÓ
-#define TID_MMI_REASSEMBLE				7047 //ÆÛÁñ °ÔÀÓ
-#define	TID_MMI_PET_FEED				7048 //Æê ¸ÔÀÌ ÁÖ±â
-#define	TID_MMI_PET_STATUS				7049 //Æê »óÅÂ
-#define	TID_MMI_PET_RELEASE				7050 //Æê ÇØÁ¦
-#define TID_MMI_SMELT_MIXJEWEL			7051 //Á¦·Ã : ¿À¸®Ä®Äñ, ¹®½ºÅæ ÇÕ¼º
-#define TID_MMI_SMELT_JEWEL				7052 //Á¦·Ã : ¾óÅÍ¸Ú ¾ÆÀÌÅÛ º¸¼® Á¦·Ã
-#define TID_MMI_SMELT_EXTRACTION		7053 //Á¦·Ã : º¸¼®ÃßÃâ
-#define TID_MMI_SMELT_CHANGEGWEAPON		7054 //Á¦·Ã : ¹«±â º¯°æ (ÀÏ¹Ý -> À¯´ÏÅ©)
-#define TID_MMI_SMELT_CHANGEUWEAPON		7055 //Á¦·Ã : ¹«±â º¯°æ (À¯´ÏÅ© -> ¾óÅÍ¸Ú)
-#define TID_MMI_LEGEND_SKILLUP			7056 //¿µ¿õ ½ºÅ³¾÷
+#define TID_MMI_BEAUTYSHOP_SKIN	      		   7042 // ì„±í˜•ìˆ˜ìˆ 
+#define TID_MMI_SUMMON_ANGEL			7043 //ì—”ì ¤ì†Œí™˜
+#define TID_MMI_KAWIBAWIBO				7044 //ê°€ìœ„ë°”ìœ„ë³´ ê²Œìž„
+#define TID_MMI_FINDWORD				7045 //ë‹¨ì–´ë§žì¶”ê¸° ê²Œìž„
+#define TID_MMI_FIVESYSTEM				7046 //ì˜¤ê³±(ì£¼ì‚¬ìœ„) ê²Œìž„
+#define TID_MMI_REASSEMBLE				7047 //í¼ì¦ ê²Œìž„
+#define	TID_MMI_PET_FEED				7048 //íŽ« ë¨¹ì´ ì£¼ê¸°
+#define	TID_MMI_PET_STATUS				7049 //íŽ« ìƒíƒœ
+#define	TID_MMI_PET_RELEASE				7050 //íŽ« í•´ì œ
+#define TID_MMI_SMELT_MIXJEWEL			7051 //ì œë ¨ : ì˜¤ë¦¬ì¹¼ì¿°, ë¬¸ìŠ¤í†¤ í•©ì„±
+#define TID_MMI_SMELT_JEWEL				7052 //ì œë ¨ : ì–¼í„°ë©‹ ì•„ì´í…œ ë³´ì„ ì œë ¨
+#define TID_MMI_SMELT_EXTRACTION		7053 //ì œë ¨ : ë³´ì„ì¶”ì¶œ
+#define TID_MMI_SMELT_CHANGEGWEAPON		7054 //ì œë ¨ : ë¬´ê¸° ë³€ê²½ (ì¼ë°˜ -> ìœ ë‹ˆí¬)
+#define TID_MMI_SMELT_CHANGEUWEAPON		7055 //ì œë ¨ : ë¬´ê¸° ë³€ê²½ (ìœ ë‹ˆí¬ -> ì–¼í„°ë©‹)
+#define TID_MMI_LEGEND_SKILLUP			7056 //ì˜ì›… ìŠ¤í‚¬ì—…
 
-#define TID_MMI_EVENT_MAY				7057 //5¿ù ÀÌº¥Æ® - Çàº¹ÇÑ °¡Á¤ÀÇ ´Þ ¸¸µé±â ´ë ÀÛÀü
-#define TID_MMI_PET_FOODMILL			7058 //Æê ¸ÔÀÌ Á¦Á¶±â
-#define TID_MMI_ATTRIBUTE				7059 //¼Ó¼ºÁ¦·Ã Á¦°Å
+#define TID_MMI_EVENT_MAY				7057 //5ì›” ì´ë²¤íŠ¸ - í–‰ë³µí•œ ê°€ì •ì˜ ë‹¬ ë§Œë“¤ê¸° ëŒ€ ìž‘ì „
+#define TID_MMI_PET_FOODMILL			7058 //íŽ« ë¨¹ì´ ì œì¡°ê¸°
+#define TID_MMI_ATTRIBUTE				7059 //ì†ì„±ì œë ¨ ì œê±°
 
-#define TID_MMI_GUILDCOMBAT_1TO1_OFFER			7060 // 1:1±æµå´ëÀü ½ÅÃ»ÇÏ±â
-#define TID_MMI_GUILDCOMBAT_1TO1_CANCEL			7061 // 1:1±æµå´ëÀü Ãë¼ÒÇÏ±â
-#define TID_MMI_GUILDCOMBAT_1TO1_OFFERSTATE		7062 // 1:1±æµå´ëÀü ½ÅÃ»ÇöÈ²
-#define TID_MMI_GUILDCOMBAT_1TO1_SELECTION		7063 // 1:1±æµå´ëÀü Âü°¡ÀÚ ±¸¼º
-#define TID_MMI_GUILDCOMBAT_1TO1_ENTRANCE		7064 // 1:1±æµå´ëÀü ÀÔÀå
-#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_TEX		7065 // 1:1±æµå´ëÀü ¼ö¼ö·á ¾È³»
-#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_PRIZE	7066 // 1:1±æµå´ëÀü »ó±Ý&»óÇ° ¾È³»
-#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_ENTRY	7067 // 1:1±æµå´ëÀü Âü°¡ ¾È³»
-#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_RULE		7068 // 1:1±æµå´ëÀü ±ÔÄ¢ ¾È³»
-#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_WIN		7069 // 1:1±æµå´ëÀü ½Â¸®Á¶°Ç ¾È³»
-#define TID_MMI_GUILDCOMBAT_1TO1_REPAYMENT		7070 // 1:1±æµå´ëÀü ½ÅÃ»±Ý ¹ÝÈ¯
-#define TID_MMI_LVREQDOWN_CANCEL				7071 // Âø¿ë·¹º§ ÇÏ¶ô ¸Þ´º
-#define TID_MMI_SMELT_REMOVE_PIERCING			7072 // ½´Æ®ÀÇ ÇÇ¾î½Ì ¿É¼Ç Á¦°Å
-#define	TID_MMI_ITEM_AWAKENING					7073 // ¾ÆÀÌÅÛ °¢¼º 
-#define	TID_MMI_NPC_BUFF						7074 // NPCÇÑÅ× Buff¹Þ±â
-#define	TID_MMI_COLLECT01				7075 // ÀÏ¹Ý Á¶°¢ ±³È¯
-#define	TID_MMI_COLLECT02				7076 // Ä«µå Á¶°¢ ±³È¯
-#define TID_MMI_PET_RES					7077 // Æê ºÎÈ°ÀÇ Á¶°¢À¸·Î ±³È¯
-#define TID_MMI_PET_RES01				7078 // ºÎÈ°ÀÇ Á¶°¢À» µÎ·ç¸¶¸®·Î ±³È¯
-#define TID_MMI_BLESSING_CANCEL			7079 // ¿©½ÅÀÇ Ãàº¹ Ãë¼Ò
+#define TID_MMI_GUILDCOMBAT_1TO1_OFFER			7060 // 1:1ê¸¸ë“œëŒ€ì „ ì‹ ì²­í•˜ê¸°
+#define TID_MMI_GUILDCOMBAT_1TO1_CANCEL			7061 // 1:1ê¸¸ë“œëŒ€ì „ ì·¨ì†Œí•˜ê¸°
+#define TID_MMI_GUILDCOMBAT_1TO1_OFFERSTATE		7062 // 1:1ê¸¸ë“œëŒ€ì „ ì‹ ì²­í˜„í™©
+#define TID_MMI_GUILDCOMBAT_1TO1_SELECTION		7063 // 1:1ê¸¸ë“œëŒ€ì „ ì°¸ê°€ìž êµ¬ì„±
+#define TID_MMI_GUILDCOMBAT_1TO1_ENTRANCE		7064 // 1:1ê¸¸ë“œëŒ€ì „ ìž…ìž¥
+#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_TEX		7065 // 1:1ê¸¸ë“œëŒ€ì „ ìˆ˜ìˆ˜ë£Œ ì•ˆë‚´
+#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_PRIZE	7066 // 1:1ê¸¸ë“œëŒ€ì „ ìƒê¸ˆ&ìƒí’ˆ ì•ˆë‚´
+#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_ENTRY	7067 // 1:1ê¸¸ë“œëŒ€ì „ ì°¸ê°€ ì•ˆë‚´
+#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_RULE		7068 // 1:1ê¸¸ë“œëŒ€ì „ ê·œì¹™ ì•ˆë‚´
+#define TID_MMI_GUILDCOMBAT_1TO1_GUIDE_WIN		7069 // 1:1ê¸¸ë“œëŒ€ì „ ìŠ¹ë¦¬ì¡°ê±´ ì•ˆë‚´
+#define TID_MMI_GUILDCOMBAT_1TO1_REPAYMENT		7070 // 1:1ê¸¸ë“œëŒ€ì „ ì‹ ì²­ê¸ˆ ë°˜í™˜
+#define TID_MMI_LVREQDOWN_CANCEL				7071 // ì°©ìš©ë ˆë²¨ í•˜ë½ ë©”ë‰´
+#define TID_MMI_SMELT_REMOVE_PIERCING			7072 // ìŠˆíŠ¸ì˜ í”¼ì–´ì‹± ì˜µì…˜ ì œê±°
+#define	TID_MMI_ITEM_AWAKENING					7073 // ì•„ì´í…œ ê°ì„± 
+#define	TID_MMI_NPC_BUFF						7074 // NPCí•œí…Œ Buffë°›ê¸°
+#define	TID_MMI_COLLECT01				7075 // ì¼ë°˜ ì¡°ê° êµí™˜
+#define	TID_MMI_COLLECT02				7076 // ì¹´ë“œ ì¡°ê° êµí™˜
+#define TID_MMI_PET_RES					7077 // íŽ« ë¶€í™œì˜ ì¡°ê°ìœ¼ë¡œ êµí™˜
+#define TID_MMI_PET_RES01				7078 // ë¶€í™œì˜ ì¡°ê°ì„ ë‘ë£¨ë§ˆë¦¬ë¡œ êµí™˜
+#define TID_MMI_BLESSING_CANCEL			7079 // ì—¬ì‹ ì˜ ì¶•ë³µ ì·¨ì†Œ
 
-#define	TID_MMI_ARENA_ENTER				7080	// ¾Æ·¹³ª Áö¿ª ÀÔÀå
-#define	TID_MMI_ARENA_EXIT				7081	// ¾Æ·¹³ª Áö¿ª ÅðÀå
+#define	TID_MMI_ARENA_ENTER				7080	// ì•„ë ˆë‚˜ ì§€ì—­ ìž…ìž¥
+#define	TID_MMI_ARENA_EXIT				7081	// ì•„ë ˆë‚˜ ì§€ì—­ í‡´ìž¥
 
-#define	TID_MMI_EVENT_HAPPY_TWN			7082	// ´ë¸¸ ÇØÇÇ¸Ó´Ï ÀÌº¥Æ®
-#define	TID_MMI_EVENT_HAPPY_USA			7083	// ¹Ì±¹ ÇØÇÇ¸Ó´Ï ÀÌº¥Æ®
+#define	TID_MMI_EVENT_HAPPY_TWN			7082	// ëŒ€ë§Œ í•´í”¼ë¨¸ë‹ˆ ì´ë²¤íŠ¸
+#define	TID_MMI_EVENT_HAPPY_USA			7083	// ë¯¸êµ­ í•´í”¼ë¨¸ë‹ˆ ì´ë²¤íŠ¸
 
-#define TID_MMI_SECRET_OFFER			7084 // ºñ¹ÐÀÇ ¹æ ½ÅÃ»
-#define TID_MMI_SECRET_OFFERSTATE		7085 // ºñ¹ÐÀÇ ¹æ ½ÅÃ»ÇöÈ²
-#define TID_MMI_SECRET_SELECTION		7086 // ºñ¹ÐÀÇ ¹æ Âü°¡ÀÚ ±¸¼º
-#define TID_MMI_SECRET_ENTRANCE			7087	// ºñ¹ÐÀÇ ¹æ ÀÔÀå
-#define TID_MMI_SECRET_TAXRATES_CHANGE	7088 // ¼¼À² º¯°æ
-#define TID_MMI_SECRET_TAXRATES_CHECK	7089 // ¼¼À² È®ÀÎ Ã¢
-#define TID_MMI_SECRET_BOARD			7090 // ºñ¹ÐÀÇ ¹æ ¾È³»
+#define TID_MMI_SECRET_OFFER			7084 // ë¹„ë°€ì˜ ë°© ì‹ ì²­
+#define TID_MMI_SECRET_OFFERSTATE		7085 // ë¹„ë°€ì˜ ë°© ì‹ ì²­í˜„í™©
+#define TID_MMI_SECRET_SELECTION		7086 // ë¹„ë°€ì˜ ë°© ì°¸ê°€ìž êµ¬ì„±
+#define TID_MMI_SECRET_ENTRANCE			7087	// ë¹„ë°€ì˜ ë°© ìž…ìž¥
+#define TID_MMI_SECRET_TAXRATES_CHANGE	7088 // ì„¸ìœ¨ ë³€ê²½
+#define TID_MMI_SECRET_TAXRATES_CHECK	7089 // ì„¸ìœ¨ í™•ì¸ ì°½
+#define TID_MMI_SECRET_BOARD			7090 // ë¹„ë°€ì˜ ë°© ì•ˆë‚´
 
-#define TID_MMI_LORD_STATE				7091 // ±ºÁÖ ÈÄº¸ »óÅÂÃ¢
-#define TID_MMI_LORD_TENDER				7092 // ±ºÁÖ ÀÔÂû Ã¢
-#define TID_MMI_LORD_VOTE				7093 // ±ºÁÖ ÅõÇ¥ Ã¢
-#define TID_MMI_LORD_EVENT				7094 // ±ºÁÖ ÀÌº¥Æ® Ã¢
+#define TID_MMI_LORD_STATE				7091 // êµ°ì£¼ í›„ë³´ ìƒíƒœì°½
+#define TID_MMI_LORD_TENDER				7092 // êµ°ì£¼ ìž…ì°° ì°½
+#define TID_MMI_LORD_VOTE				7093 // êµ°ì£¼ íˆ¬í‘œ ì°½
+#define TID_MMI_LORD_EVENT				7094 // êµ°ì£¼ ì´ë²¤íŠ¸ ì°½
 
-#define TID_MMI_SMELT_REMOVE_JEWEL		7095 // ¾óÅÍ¸Ú ¿þÆù º¸¼® Á¦°Å Ã¢
-#define TID_MMI_PET_EGG01				7096 // ¾Ë º¯È¯ Ã¢
-#define TID_MMI_HEAVEN_TOWER			7097 // ½É¿¬ÀÇ Å¾
-#define	TID_MMI_EXCHANGE_WEAPONCARD		7098 // ¹«±â Ä«µå ±³È¯
-#define	TID_MMI_EXCHANGE_ARMORCARD		7099 // ¹æ¾î±¸ Ä«µå ±³È¯
+#define TID_MMI_SMELT_REMOVE_JEWEL		7095 // ì–¼í„°ë©‹ ì›¨í° ë³´ì„ ì œê±° ì°½
+#define TID_MMI_PET_EGG01				7096 // ì•Œ ë³€í™˜ ì°½
+#define TID_MMI_HEAVEN_TOWER			7097 // ì‹¬ì—°ì˜ íƒ‘
+#define	TID_MMI_EXCHANGE_WEAPONCARD		7098 // ë¬´ê¸° ì¹´ë“œ êµí™˜
+#define	TID_MMI_EXCHANGE_ARMORCARD		7099 // ë°©ì–´êµ¬ ì¹´ë“œ êµí™˜
 
 
-#define TID_MMI_SECRET_ENTRANCE_1		7100 // Àü¿ë »ç³ÉÅÍ ÀÔÀå
+#define TID_MMI_SECRET_ENTRANCE_1		7100 // ì „ìš© ì‚¬ëƒ¥í„° ìž…ìž¥
 
-#define	TID_MMI_LORD_INFO				7101 // ±ºÁÖ Á¤º¸Ã¢
-#define	TID_MMI_LORD_RPINFO				7102 // ±ºÁÖ ¹ÝÈ¯±Ý Á¤º¸Ã¢
-#define TID_MMI_SECRET_CANCEL			7103 // ºñ¹ÐÀÇ ¹æ Ãë¼Ò
-#define TID_MMI_PET_AWAK_CANCEL			7104 // Æê°¢¼º Ãë¼Ò
+#define	TID_MMI_LORD_INFO				7101 // êµ°ì£¼ ì •ë³´ì°½
+#define	TID_MMI_LORD_RPINFO				7102 // êµ°ì£¼ ë°˜í™˜ê¸ˆ ì •ë³´ì°½
+#define TID_MMI_SECRET_CANCEL			7103 // ë¹„ë°€ì˜ ë°© ì·¨ì†Œ
+#define TID_MMI_PET_AWAK_CANCEL			7104 // íŽ«ê°ì„± ì·¨ì†Œ
 
-#define TID_MMI_FASHION_PHP				7105 // ÆÐ¼Ç ÄíÆù ÀÌº¥Æ®
-#define	TID_MMI_EVENT_CARD_KOR			7106 // ÀÌº¥Æ® Ä«µå ±³È¯
+#define TID_MMI_FASHION_PHP				7105 // íŒ¨ì…˜ ì¿ í° ì´ë²¤íŠ¸
+#define	TID_MMI_EVENT_CARD_KOR			7106 // ì´ë²¤íŠ¸ ì¹´ë“œ êµí™˜
 
-#define	TID_MMI_LORD_RAINBOWAPPLICATION		7107 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º Âü°¡ ½ÅÃ»
-#define	TID_MMI_LORD_RAINBOWWAIT			7108 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º ¶õ?
-#define	TID_MMI_LORD_RAINBOWRULE			7109 // ·¹ÀÎº¸¿ì ·¹ÀÌ½ºÀÇ ±ÔÄ¢
-#define	TID_MMI_LORD_RAINBOWTOPTEN			7110 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º Áö³­ ¼øÀ§
-#define	TID_MMI_LORD_RAINBOWWIN				7111 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º »ó±Ý ¼Ò°³
-#define	TID_MMI_LORD_RAINBOWEND				7112 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º Á¾·á È®ÀÎ
-#define	TID_MMI_LORD_RAINBOW_KAWIBAWIBO		7113 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º - °¡À§,¹ÙÀ§,º¸ °ÔÀÓ
-#define	TID_MMI_LORD_RAINBOW_DICE			7114 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º - ÁÖ»çÀ§ ±¼·Á! ±¼·Á!
-#define	TID_MMI_LORD_RAINBOW_ARITHMETIC		7115 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º - »çÄ¢¿¬»ê
-#define	TID_MMI_LORD_RAINBOW_STOPWATCH		7116 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º - ½ºÅé¿öÄ¡ ¼ø¹ß·Â °ÔÀÓ
-#define	TID_MMI_LORD_RAINBOW_TYPING			7117 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º - È²´ç Å¸ÀÚ Ä¡±â
-#define	TID_MMI_LORD_RAINBOW_CARD			7118 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º - ±â¾ïÇØ! Ä«µå ¸ÂÃß±â
-#define	TID_MMI_LORD_RAINBOW_LADDER			7119 // ·¹ÀÎº¸¿ì ·¹ÀÌ½º - ¾Ë ¼ö ¾ø´Â »ç´Ù¸® Å¸±â
+#define	TID_MMI_LORD_RAINBOWAPPLICATION		7107 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ì°¸ê°€ ì‹ ì²­
+#define	TID_MMI_LORD_RAINBOWWAIT			7108 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ëž€?
+#define	TID_MMI_LORD_RAINBOWRULE			7109 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ì˜ ê·œì¹™
+#define	TID_MMI_LORD_RAINBOWTOPTEN			7110 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ì§€ë‚œ ìˆœìœ„
+#define	TID_MMI_LORD_RAINBOWWIN				7111 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ìƒê¸ˆ ì†Œê°œ
+#define	TID_MMI_LORD_RAINBOWEND				7112 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ ì¢…ë£Œ í™•ì¸
+#define	TID_MMI_LORD_RAINBOW_KAWIBAWIBO		7113 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ - ê°€ìœ„,ë°”ìœ„,ë³´ ê²Œìž„
+#define	TID_MMI_LORD_RAINBOW_DICE			7114 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ - ì£¼ì‚¬ìœ„ êµ´ë ¤! êµ´ë ¤!
+#define	TID_MMI_LORD_RAINBOW_ARITHMETIC		7115 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ - ì‚¬ì¹™ì—°ì‚°
+#define	TID_MMI_LORD_RAINBOW_STOPWATCH		7116 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ - ìŠ¤í†±ì›Œì¹˜ ìˆœë°œë ¥ ê²Œìž„
+#define	TID_MMI_LORD_RAINBOW_TYPING			7117 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ - í™©ë‹¹ íƒ€ìž ì¹˜ê¸°
+#define	TID_MMI_LORD_RAINBOW_CARD			7118 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ - ê¸°ì–µí•´! ì¹´ë“œ ë§žì¶”ê¸°
+#define	TID_MMI_LORD_RAINBOW_LADDER			7119 // ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤ - ì•Œ ìˆ˜ ì—†ëŠ” ì‚¬ë‹¤ë¦¬ íƒ€ê¸°
 
-#define	TID_MMI_RENAME_CANCEL				7120 // Æê ÀÛ¸í Ãë¼Ò
+#define	TID_MMI_RENAME_CANCEL				7120 // íŽ« ìž‘ëª… ì·¨ì†Œ
 
-#define	TID_MMI_EVENT_TRADE_KOR			7121  //°¡À§ ¹ÙÀ§ º¸ ÄíÆù ±³È¯
+#define	TID_MMI_EVENT_TRADE_KOR			7121  //ê°€ìœ„ ë°”ìœ„ ë³´ ì¿ í° êµí™˜
 
-#define	TID_MMI_VISIT_MYROOM				7122 // ¸¶ÀÌ·ë ÀÔÀå
-#define	TID_MMI_VISIT_FRIEND				7123 // Ä£±¸ ¸¶ÀÌ·ë ÀÔÀå
-#define	TID_MMI_RETURNTO_WORLD				7124 // ¸¶ÀÌ·ë ÅðÀå
+#define	TID_MMI_VISIT_MYROOM				7122 // ë§ˆì´ë£¸ ìž…ìž¥
+#define	TID_MMI_VISIT_FRIEND				7123 // ì¹œêµ¬ ë§ˆì´ë£¸ ìž…ìž¥
+#define	TID_MMI_RETURNTO_WORLD				7124 // ë§ˆì´ë£¸ í‡´ìž¥
 
-#define	TID_MMI_EVENT_RESTATE01				7125 // ¸®½ºÅ×Æ® ÄíÆù ±³È¯
+#define	TID_MMI_EVENT_RESTATE01				7125 // ë¦¬ìŠ¤í…ŒíŠ¸ ì¿ í° êµí™˜
 
-#define TID_MMI_ITEM_TRANSY					7126 // ¾ÆÀÌÅÛ Æ®·»Áö
+#define TID_MMI_ITEM_TRANSY					7126 // ì•„ì´í…œ íŠ¸ë Œì§€
 
-#define	TID_MMI_EVENT_FIRSTTERM01			7127 // »õÇÐ±â ÀÌº¥Æ®
+#define	TID_MMI_EVENT_FIRSTTERM01			7127 // ìƒˆí•™ê¸° ì´ë²¤íŠ¸
 
-#define	TID_MMI_EVENT_ALICE01				7128 // ±¹³» È°¼ºÈ­ ÀÌº¥Æ®
+#define	TID_MMI_EVENT_ALICE01				7128 // êµ­ë‚´ í™œì„±í™” ì´ë²¤íŠ¸
 
-#define	TID_MMI_EVENT_OASIS01				7129 // ´Þ·Á¶ó ¿îµ¿È¸
-#define	TID_MMI_EVENT_FLOWER01				7130 // »ç¶ûÀÇ Ä«³×ÀÌ¼Ç
+#define	TID_MMI_EVENT_OASIS01				7129 // ë‹¬ë ¤ë¼ ìš´ë™íšŒ
+#define	TID_MMI_EVENT_FLOWER01				7130 // ì‚¬ëž‘ì˜ ì¹´ë„¤ì´ì…˜
 
-#define	TID_MMI_EVENT_ALICE02				7131 // ±¹³» È°¼ºÈ­ ÀÌº¥Æ®
+#define	TID_MMI_EVENT_ALICE02				7131 // êµ­ë‚´ í™œì„±í™” ì´ë²¤íŠ¸
 
-#define	TID_MMI_EVENT_TRADE_USA				7132 // ¹Ì±¹ °¡À§¹ÙÀ§º¸ ÄíÆù±³È¯
+#define	TID_MMI_EVENT_TRADE_USA				7132 // ë¯¸êµ­ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í°êµí™˜
 
-#define	TID_MMI_EVENT_TRADE_ASIA			7133 // È«Äá, ´ë¸¸ °¡À§¹ÙÀ§º¸ ÄíÆù±³È¯
+#define	TID_MMI_EVENT_TRADE_ASIA			7133 // í™ì½©, ëŒ€ë§Œ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í°êµí™˜
 
-#define	TID_MMI_SMELT_SAFETY_GENERAL			7134 // ¾ÈÀüÁ¦·Ã(ÀÏ¹Ý)
-#define	TID_MMI_SMELT_SAFETY_ACCESSORY			7135 // ¾ÈÀüÁ¦·Ã(¾×¼¼¼­¸®)
-#define	TID_MMI_SMELT_SAFETY_PIERCING			7136 // ¾ÈÀüÁ¦·Ã(ÇÇ¾î½Ì)
+#define	TID_MMI_SMELT_SAFETY_GENERAL			7134 // ì•ˆì „ì œë ¨(ì¼ë°˜)
+#define	TID_MMI_SMELT_SAFETY_ACCESSORY			7135 // ì•ˆì „ì œë ¨(ì•¡ì„¸ì„œë¦¬)
+#define	TID_MMI_SMELT_SAFETY_PIERCING			7136 // ì•ˆì „ì œë ¨(í”¼ì–´ì‹±)
 
-#define	TID_MMI_QUIZ_ENTRANCE					7137 // ÄûÁîÀÌº¥Æ® ÀÔÀå
-#define	TID_MMI_QUIZ_TELE_QUIZZONE				7138 // ´ë±âÁ¸¿¡¼­ ÄûÁîÁ¸À¸·Î ÀÌµ¿
-#define	TID_MMI_QUIZ_EXIT						7139 // ´ë±âÁ¸¿¡¼­ ¸¶À»·Î ÀÌµ¿
+#define	TID_MMI_QUIZ_ENTRANCE					7137 // í€´ì¦ˆì´ë²¤íŠ¸ ìž…ìž¥
+#define	TID_MMI_QUIZ_TELE_QUIZZONE				7138 // ëŒ€ê¸°ì¡´ì—ì„œ í€´ì¦ˆì¡´ìœ¼ë¡œ ì´ë™
+#define	TID_MMI_QUIZ_EXIT						7139 // ëŒ€ê¸°ì¡´ì—ì„œ ë§ˆì„ë¡œ ì´ë™
 
 #define TID_MMI_CHANGTICKET01					7140
 
-#define TID_MMI_BUFFPET_STATUS				7141 // ¹öÇÁÆê »óÅÂ
-#define TID_MMI_BUFFPET_RELEASE				7142 // ¹öÇÁÆê ÇØÁ¦ 
+#define TID_MMI_BUFFPET_STATUS				7141 // ë²„í”„íŽ« ìƒíƒœ
+#define TID_MMI_BUFFPET_RELEASE				7142 // ë²„í”„íŽ« í•´ì œ 
 
-#define TID_MMI_GHOUSE_INFO					7143	// °¡±¸ Á¤º¸ 
-#define TID_MMI_GHOUSE_REINSTALL			7144	// °¡±¸ Àç¼³Ä¡ 
-#define TID_MMI_GHOUSE_RECALL				7145	// °¡±¸ È¸¼ö 
+#define TID_MMI_GHOUSE_INFO					7143	// ê°€êµ¬ ì •ë³´ 
+#define TID_MMI_GHOUSE_REINSTALL			7144	// ê°€êµ¬ ìž¬ì„¤ì¹˜ 
+#define TID_MMI_GHOUSE_RECALL				7145	// ê°€êµ¬ íšŒìˆ˜ 
 
-#define TID_MMI_TELEPORTER					7146	// ÅÚ·¹Æ÷ÅÍ
+#define TID_MMI_TELEPORTER					7146	// í…”ë ˆí¬í„°
 
-#define TID_MMI_GUILDHOUSE_SALE			7147	// ±æµåÇÏ¿ì½º ÆÇ¸Å NPC
-#define TID_MMI_GUILDHOUSE_CHARGE		7148	// ±æµåÇÏ¿ì½º À¯Áöºñ
-#define TID_MMI_GUILDHOUSE_ENTER		7149	// ±æµåÇÏ¿ì½º ÀÔÀå
-#define TID_MMI_GUILDHOUSE_OUT			7150	// ±æµåÇÏ¿ì½º ÅðÀå
+#define TID_MMI_GUILDHOUSE_SALE			7147	// ê¸¸ë“œí•˜ìš°ìŠ¤ íŒë§¤ NPC
+#define TID_MMI_GUILDHOUSE_CHARGE		7148	// ê¸¸ë“œí•˜ìš°ìŠ¤ ìœ ì§€ë¹„
+#define TID_MMI_GUILDHOUSE_ENTER		7149	// ê¸¸ë“œí•˜ìš°ìŠ¤ ìž…ìž¥
+#define TID_MMI_GUILDHOUSE_OUT			7150	// ê¸¸ë“œí•˜ìš°ìŠ¤ í‡´ìž¥
 
-#define	TID_MMI_CHANGE_CHRISTMAS01		7153	// À¯·´ Å©¸®½º¸¶½º ÀÌº¥Æ®
+#define	TID_MMI_CHANGE_CHRISTMAS01		7153	// ìœ ëŸ½ í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì´ë²¤íŠ¸
 
 #define	TID_MMI_GHOUSE_BED				7154
 #define	TID_MMI_GHOUSE_TABLE			7155
@@ -535,120 +535,120 @@
 
 #define	TID_MMI_GUILDHOUSE_AUCTION01	7171
 
-#define	TID_MMI_EVENT_HAPPY_USA2010		7172	// ÇØÇÇ¸Ó´Ï ÀÌº¥Æ® 2010 ¹Ì±¹
-#define	TID_MMI_EVENT_WORLDCUP10_KOR	7173	// 2010¿ùµåÄÅ ÀÌº¥Æ® ÇÑ±¹ 
+#define	TID_MMI_EVENT_HAPPY_USA2010		7172	// í•´í”¼ë¨¸ë‹ˆ ì´ë²¤íŠ¸ 2010 ë¯¸êµ­
+#define	TID_MMI_EVENT_WORLDCUP10_KOR	7173	// 2010ì›”ë“œì»µ ì´ë²¤íŠ¸ í•œêµ­ 
 #define	TID_MMI_EVENT_WORLDCUP10_FOR	7174
 
 #define	TID_MMI_EVENT_MATCHMAKER_FOR	7175
 
 #define	TID_MMI_EVENT_ALICE_PHP_FOR		7176
-#define	TID_MMI_EVENT_AROTTO_KOR		7177 //·ÔÅä
+#define	TID_MMI_EVENT_AROTTO_KOR		7177 //ë¡¯í† 
 
-#define	TID_MMI_SUMMON_SMELT			7178	//¹Ù·ç³ª Á¦·Ã
-#define	TID_MMI_SUMMON_EXTRACTOPER		7179	//¿ÀÆÛ ÃßÃâ
-#define	TID_MMI_SUMMON_MAKEOPER			7180	//¿ÀÆÛ Á¦ÀÛ
-#define	TID_MMI_SUMMON_UPGRADECID		7181	//½Ãµå °áÁ¤Ã¼ ¾÷±×·¹ÀÌµå
-#define	TID_MMI_SUMMON_MAKECID			7182	//½Ãµå Á¦ÀÛ
-#define	TID_MMI_SUMMON_MAKEOPERCID		7183	//¿ÀÆÛ½Ãµå Á¦ÀÛ
+#define	TID_MMI_SUMMON_SMELT			7178	//ë°”ë£¨ë‚˜ ì œë ¨
+#define	TID_MMI_SUMMON_EXTRACTOPER		7179	//ì˜¤í¼ ì¶”ì¶œ
+#define	TID_MMI_SUMMON_MAKEOPER			7180	//ì˜¤í¼ ì œìž‘
+#define	TID_MMI_SUMMON_UPGRADECID		7181	//ì‹œë“œ ê²°ì •ì²´ ì—…ê·¸ë ˆì´ë“œ
+#define	TID_MMI_SUMMON_MAKECID			7182	//ì‹œë“œ ì œìž‘
+#define	TID_MMI_SUMMON_MAKEOPERCID		7183	//ì˜¤í¼ì‹œë“œ ì œìž‘
 
 
 
-//±æµå ÇÏ¿ì½º
-#define	TID_MMI_GHOUSE_NOTBIDTERM						7184	//ÀÔÂû±â°£ ¾Æ´Ô
-#define	TID_MMI_GHOUSE_NOTBIDTWON						7185	//ÀÔÂû °¡´ÉÇÑ ¸¶À»ÀÌ ¾Æ´Ô
-#define	TID_MMI_GHOUSE_NOTGUILDNOTMASTER				7186	//±æµå°¡ ¾ø°Å³ª ±æµå¸¶½ºÅÍ°¡ ¾Æ´Ô
-#define	TID_MMI_GHOUSE_ALREADYBID						7187	//ÀÌ¹Ì ÀÔÂûÇßÀ½
-#define	TID_MMI_GHOUSE_ALREADYGHOUSE					7188	//ÀÌ¹Ì µ¿±ÞÀÌ»ó ±æµåÇÏ¿ì½º ¼ÒÀ¯
-#define	TID_MMI_GHOUSE_GHOUSTNOTFOUND					7189	//¼ÒÀ¯ÇÑ ±æµåÇÏ¿ì½º°¡ ¾øÀ½
-#define	TID_MMI_GHOUSE_NOTBIDGHOUSE						7190	//ÀÔÂû °¡´ÉÇÑ ±æµåÇÏ¿ì½º°¡ ¾Æ´Ô
-#define	TID_MMI_GHOUSE_SMALLMONEY						7191	//ÃÖ¼Ò ÀÔÂû ±Ý¾×º¸´Ù ÀûÀ½
-#define	TID_MMI_GHOUSE_BIDSUCCESS						7192	//ÀÔÂû ¼º°ø
-#define	TID_MMI_GHOUSE_BIDFAILED						7240	//ÀÔÂû ½ÇÆÐ
+//ê¸¸ë“œ í•˜ìš°ìŠ¤
+#define	TID_MMI_GHOUSE_NOTBIDTERM						7184	//ìž…ì°°ê¸°ê°„ ì•„ë‹˜
+#define	TID_MMI_GHOUSE_NOTBIDTWON						7185	//ìž…ì°° ê°€ëŠ¥í•œ ë§ˆì„ì´ ì•„ë‹˜
+#define	TID_MMI_GHOUSE_NOTGUILDNOTMASTER				7186	//ê¸¸ë“œê°€ ì—†ê±°ë‚˜ ê¸¸ë“œë§ˆìŠ¤í„°ê°€ ì•„ë‹˜
+#define	TID_MMI_GHOUSE_ALREADYBID						7187	//ì´ë¯¸ ìž…ì°°í–ˆìŒ
+#define	TID_MMI_GHOUSE_ALREADYGHOUSE					7188	//ì´ë¯¸ ë™ê¸‰ì´ìƒ ê¸¸ë“œí•˜ìš°ìŠ¤ ì†Œìœ 
+#define	TID_MMI_GHOUSE_GHOUSTNOTFOUND					7189	//ì†Œìœ í•œ ê¸¸ë“œí•˜ìš°ìŠ¤ê°€ ì—†ìŒ
+#define	TID_MMI_GHOUSE_NOTBIDGHOUSE						7190	//ìž…ì°° ê°€ëŠ¥í•œ ê¸¸ë“œí•˜ìš°ìŠ¤ê°€ ì•„ë‹˜
+#define	TID_MMI_GHOUSE_SMALLMONEY						7191	//ìµœì†Œ ìž…ì°° ê¸ˆì•¡ë³´ë‹¤ ì ìŒ
+#define	TID_MMI_GHOUSE_BIDSUCCESS						7192	//ìž…ì°° ì„±ê³µ
+#define	TID_MMI_GHOUSE_BIDFAILED						7240	//ìž…ì°° ì‹¤íŒ¨
 
-//ÇÒ·ÎÀ© ÀÌº¥Æ® ±³È¯ ¸Å´º ½ÃÀÛ
+//í• ë¡œìœˆ ì´ë²¤íŠ¸ êµí™˜ ë§¤ë‰´ ì‹œìž‘
 #define TID_MMI_ZOMBIES_CHANGE1				7193
 #define TID_MMI_ZOMBIES_CHANGE2				7194
 #define TID_MMI_ZOMBIES_CHANGE3				7195
 #define TID_MMI_ZOMBIES_CHANGE4				7196
-//ÇÒ·ÎÀ© ÀÌº¥Æ® ±³È¯ ¸Å´º ³¡
+//í• ë¡œìœˆ ì´ë²¤íŠ¸ êµí™˜ ë§¤ë‰´ ë
 
-//ÀÏº» ¾ÆÀÌÅÛ ±³È¯ ¸Å´º ½ÃÀÛ
+//ì¼ë³¸ ì•„ì´í…œ êµí™˜ ë§¤ë‰´ ì‹œìž‘
 #define TID_MMI_JAP_CHANGE				7197
 
-//À¯·´ È¦´ý ÀÌº¥Æ® ±³È¯ ¸Þ´º
-#define TID_MMI_HOLDEMEVENT01				7198 // AÄ«µå 4Àå ±³È¯
-#define TID_MMI_HOLDEMEVENT02				7199 // KÄ«µå 4Àå ±³È¯
-#define TID_MMI_HOLDEMEVENT03				7200 // QÄ«µå 4Àå ±³È¯
-#define TID_MMI_HOLDEMEVENT04				7201 // JÄ«µå 4Àå ±³È¯
-#define TID_MMI_HOLDEMEVENT05				7202 // A/K/Q/J Ä«µå 1Àå¾¿ ±³È¯
-#define TID_MMI_SUMMON_PEARCING				7203 //¹Ù·ç³ª ÇÇ¾î½Ì
+//ìœ ëŸ½ í™€ë¤ ì´ë²¤íŠ¸ êµí™˜ ë©”ë‰´
+#define TID_MMI_HOLDEMEVENT01				7198 // Aì¹´ë“œ 4ìž¥ êµí™˜
+#define TID_MMI_HOLDEMEVENT02				7199 // Kì¹´ë“œ 4ìž¥ êµí™˜
+#define TID_MMI_HOLDEMEVENT03				7200 // Qì¹´ë“œ 4ìž¥ êµí™˜
+#define TID_MMI_HOLDEMEVENT04				7201 // Jì¹´ë“œ 4ìž¥ êµí™˜
+#define TID_MMI_HOLDEMEVENT05				7202 // A/K/Q/J ì¹´ë“œ 1ìž¥ì”© êµí™˜
+#define TID_MMI_SUMMON_PEARCING				7203 //ë°”ë£¨ë‚˜ í”¼ì–´ì‹±
 
-//Å©¸®½º¸¶½º Á¤·É ±³È¯ ¸Þ´º
-#define TID_MMI_CHRISTMASFAIRY01				7207 //Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 1°³
-#define TID_MMI_CHRISTMASFAIRY02				7208 //Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 25°³
-#define TID_MMI_CHRISTMASFAIRY03				7209 //Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 50°³
-#define TID_MMI_CHRISTMASFAIRY04				7210 //Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 75°³
-#define TID_MMI_CHRISTMASFAIRY05				7211 //Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 100°³
-
-
+//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ êµí™˜ ë©”ë‰´
+#define TID_MMI_CHRISTMASFAIRY01				7207 //í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 1ê°œ
+#define TID_MMI_CHRISTMASFAIRY02				7208 //í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 25ê°œ
+#define TID_MMI_CHRISTMASFAIRY03				7209 //í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 50ê°œ
+#define TID_MMI_CHRISTMASFAIRY04				7210 //í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 75ê°œ
+#define TID_MMI_CHRISTMASFAIRY05				7211 //í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 100ê°œ
 
 
 
 
-//ÀÏº» ¾ÆÀÌÅÛ ±³È¯ ¸Å´º ³¡
-#define	TID_MMI_GHOUSE_GHOUSELEVELUP					8000	//±æµå ÇÏ¿ì½º ·¹º§¾÷ ¼º°ø
-//ÇÃ¶ó¸®½º ÁßÇü ±æµå ÇÏ¿ì½º ³×ÀÓ
-#define TID_MMI_MAFL_GUILDHOUSE_DOOR_01					8001	// È£¼ý°¡ÀÇ ¾Æ´ÁÇÑ Áý
-#define TID_MMI_MAFL_GUILDHOUSE_DOOR_02					8002	// ±¤Àå ¾ÕÀÇ ±ÇÀ§ ÀÖ´Â Áý
-#define TID_MMI_MAFL_GUILDHOUSE_DOOR_03					8003	// ³ª¹« ¾Õ ±×´Ã Áø Áý
-#define TID_MMI_MAFL_GUILDHOUSE_DOOR_04					8004	// Ç³Â÷°¡ º¸ÀÌ´Â Áý
-#define TID_MMI_MAFL_GUILDHOUSE_DOOR_05					8005	// ¼Ò¿Ü ¹Þ´Â ¿Üµý Áý
-//¼¼ÀÎ½ÃÆ¼ ÁßÇü ±æµå ÇÏ¿ì½º ³×ÀÓ
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_01					8006	// ¼¼ÀÎÆ® È¦ °©ºÎ Áý
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_02					8007	// ÀâÈ­Á¡ ¿· ½Ã²ø¹÷ÀûÇÑ Áý
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_03					8008	// °©ºÎÁý ¿· Àç¹ú Áý
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_04					8009	// ÈÄ¹ÌÁø °÷ÀÇ ´©ÃßÇÑ Áý
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_05					8010	// ¼Ò±¸¼®¿¡ Â¯¹ÚÈù Á¶¿ëÇÑ Áý
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_06					8011	// ÀÇ·Ú¼Ò ¿· ÆòÈ­·Î¿î Áý
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_07					8012	// ¾Æ´ãÇÏ°í ¾Æ´ÁÇÑ Áý
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_08					8013	// ¸®½Ã½ºÀÇ °¡È£°¡ ÇÔ²²ÇÏ´Â Áý
-#define TID_MMI_MASA_GUILDHOUSE_DOOR_09					8014	//°ø¿ø ¾ÕÀÇ ÇÑ°¡ÇÑ Áý
-//¿¤¸®¿ò ÁßÇü ±æµå ÇÏ¿ì½º ³×ÀÓ
-#define TID_MMI_MAEW_GUILDHOUSE_DOOR_01					8015	// »§ ±Á´Â ³¿»õ°¡ Ç³±â´Â È­¸ñÇÑ Áý
-#define TID_MMI_MAEW_GUILDHOUSE_DOOR_02					8016	// ¼³·½ÀÌ °¡µæÇÑ ¹Ì¼ÒÀÇ Áý
-#define TID_MMI_MAEW_GUILDHOUSE_DOOR_03					8017	// Ç®ÇÇ¸® ¼Ò¸®°¡ µé¸®´Â ÆòÈ­·Î¿î Áý
-//±æµåÇÏ¿ì½º ÀÔÀå ¿¡·¯¸Þ½ÃÁö
-#define TID_MMI_GUILD_NOTGUILDWON						8018	// ±æµå¿øÀÌ ¾Æ´Ï´Ù´Â ¸Þ½ÃÁö
 
-//±æµåÇÏ¿ì½º ÀÔÀå ¿¡·¯¸Þ½ÃÁö
-#define TID_MMI_GUILD_NOTGUILD						8019	// ±æµå¾øÀ½.
 
-//ÄÝ·Î¼¼¿ò ÀÔÀå NPC ¸Þ´º
-#define TID_MMI_COLOSSEUM_COLOENTER01	7205 //ÄÝ·Î¼¼¿ò ÀÔÀå
-#define TID_MMI_COLOSSEUM_COLOENTER02	7206 //·©Å·
+//ì¼ë³¸ ì•„ì´í…œ êµí™˜ ë§¤ë‰´ ë
+#define	TID_MMI_GHOUSE_GHOUSELEVELUP					8000	//ê¸¸ë“œ í•˜ìš°ìŠ¤ ë ˆë²¨ì—… ì„±ê³µ
+//í”Œë¼ë¦¬ìŠ¤ ì¤‘í˜• ê¸¸ë“œ í•˜ìš°ìŠ¤ ë„¤ìž„
+#define TID_MMI_MAFL_GUILDHOUSE_DOOR_01					8001	// í˜¸ìˆ«ê°€ì˜ ì•„ëŠ‘í•œ ì§‘
+#define TID_MMI_MAFL_GUILDHOUSE_DOOR_02					8002	// ê´‘ìž¥ ì•žì˜ ê¶Œìœ„ ìžˆëŠ” ì§‘
+#define TID_MMI_MAFL_GUILDHOUSE_DOOR_03					8003	// ë‚˜ë¬´ ì•ž ê·¸ëŠ˜ ì§„ ì§‘
+#define TID_MMI_MAFL_GUILDHOUSE_DOOR_04					8004	// í’ì°¨ê°€ ë³´ì´ëŠ” ì§‘
+#define TID_MMI_MAFL_GUILDHOUSE_DOOR_05					8005	// ì†Œì™¸ ë°›ëŠ” ì™¸ë”´ ì§‘
+//ì„¸ì¸ì‹œí‹° ì¤‘í˜• ê¸¸ë“œ í•˜ìš°ìŠ¤ ë„¤ìž„
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_01					8006	// ì„¸ì¸íŠ¸ í™€ ê°‘ë¶€ ì§‘
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_02					8007	// ìž¡í™”ì  ì˜† ì‹œëŒë²…ì í•œ ì§‘
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_03					8008	// ê°‘ë¶€ì§‘ ì˜† ìž¬ë²Œ ì§‘
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_04					8009	// í›„ë¯¸ì§„ ê³³ì˜ ëˆ„ì¶”í•œ ì§‘
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_05					8010	// ì†Œêµ¬ì„ì— ì§±ë°•ížŒ ì¡°ìš©í•œ ì§‘
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_06					8011	// ì˜ë¢°ì†Œ ì˜† í‰í™”ë¡œìš´ ì§‘
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_07					8012	// ì•„ë‹´í•˜ê³  ì•„ëŠ‘í•œ ì§‘
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_08					8013	// ë¦¬ì‹œìŠ¤ì˜ ê°€í˜¸ê°€ í•¨ê»˜í•˜ëŠ” ì§‘
+#define TID_MMI_MASA_GUILDHOUSE_DOOR_09					8014	//ê³µì› ì•žì˜ í•œê°€í•œ ì§‘
+//ì—˜ë¦¬ì›€ ì¤‘í˜• ê¸¸ë“œ í•˜ìš°ìŠ¤ ë„¤ìž„
+#define TID_MMI_MAEW_GUILDHOUSE_DOOR_01					8015	// ë¹µ êµ½ëŠ” ëƒ„ìƒˆê°€ í’ê¸°ëŠ” í™”ëª©í•œ ì§‘
+#define TID_MMI_MAEW_GUILDHOUSE_DOOR_02					8016	// ì„¤ë ˜ì´ ê°€ë“í•œ ë¯¸ì†Œì˜ ì§‘
+#define TID_MMI_MAEW_GUILDHOUSE_DOOR_03					8017	// í’€í”¼ë¦¬ ì†Œë¦¬ê°€ ë“¤ë¦¬ëŠ” í‰í™”ë¡œìš´ ì§‘
+//ê¸¸ë“œí•˜ìš°ìŠ¤ ìž…ìž¥ ì—ëŸ¬ë©”ì‹œì§€
+#define TID_MMI_GUILD_NOTGUILDWON						8018	// ê¸¸ë“œì›ì´ ì•„ë‹ˆë‹¤ëŠ” ë©”ì‹œì§€
 
-//ÄÚ½º? ÇÕ¼º npc¸Þ´º
-#define TID_MMI_COSTUMEBUY01	7212 // ÄÚ½ºÆ¬ Àç·á ±¸ÀÔ
-#define TID_MMI_COSTUMESELL01	7213 // ÄÚ½ºÆ¬ Àç·á ÆÇ¸Å
-#define TID_MMI_COSTUMEMIX01	7214 // ÄÚ½ºÆ¬ ÇÕ¼º
+//ê¸¸ë“œí•˜ìš°ìŠ¤ ìž…ìž¥ ì—ëŸ¬ë©”ì‹œì§€
+#define TID_MMI_GUILD_NOTGUILD						8019	// ê¸¸ë“œì—†ìŒ.
 
-//Çùµ¿ ±âºÎ NPC ¸Þ´º
-#define TID_MMI_DONATION		7215 // ±âºÎÇÏ±â
-#define TID_MMI_DONATION_RANK	7216	// ±âºÎÀÚ ¼øÀ§ º¸±â
+//ì½œë¡œì„¸ì›€ ìž…ìž¥ NPC ë©”ë‰´
+#define TID_MMI_COLOSSEUM_COLOENTER01	7205 //ì½œë¡œì„¸ì›€ ìž…ìž¥
+#define TID_MMI_COLOSSEUM_COLOENTER02	7206 //ëž­í‚¹
 
-//ÀÏº» ±³È¯ ¸Þ´º
+//ì½”ìŠ¤? í•©ì„± npcë©”ë‰´
+#define TID_MMI_COSTUMEBUY01	7212 // ì½”ìŠ¤íŠ¬ ìž¬ë£Œ êµ¬ìž…
+#define TID_MMI_COSTUMESELL01	7213 // ì½”ìŠ¤íŠ¬ ìž¬ë£Œ íŒë§¤
+#define TID_MMI_COSTUMEMIX01	7214 // ì½”ìŠ¤íŠ¬ í•©ì„±
+
+//í˜‘ë™ ê¸°ë¶€ NPC ë©”ë‰´
+#define TID_MMI_DONATION		7215 // ê¸°ë¶€í•˜ê¸°
+#define TID_MMI_DONATION_RANK	7216	// ê¸°ë¶€ìž ìˆœìœ„ ë³´ê¸°
+
+//ì¼ë³¸ êµí™˜ ë©”ë‰´
 #define TID_MMI_WHITEDAY_EXCHANGE01		7217
 #define TID_MMI_WHITEDAY_EXCHANGE02		7218
 #define TID_MMI_WHITEDAY_EXCHANGE03		7219
 #define TID_MMI_WHITEDAY_EXCHANGE04		7220
 
-//±æµå Ä«Å×°í¸® Ãß°¡
+//ê¸¸ë“œ ì¹´í…Œê³ ë¦¬ ì¶”ê°€
 
 #define TID_MMI_GHOUSE_CABINET				7221
 #define	TID_MMI_GHOUSE_CRYSTAL				7222
 
 
-//±¹³» ½Ä¸ñÀÏ ÀÌº¥Æ®
+//êµ­ë‚´ ì‹ëª©ì¼ ì´ë²¤íŠ¸
 #define	TID_MMI_FIRSEED2011					7223
 #define	TID_MMI_PEARSEED2011				7224
 #define	TID_MMI_PINESEED2011				7225
@@ -658,78 +658,78 @@
 #define	TID_MMI_RIVERCARD2011				7227
 #define	TID_MMI_FLAMECARD2011				7228
 #define	TID_MMI_DESERTCARD2011				7229
-#define	TID_MMI_GENERATERCARD2011			7230//±ÛÀÚ Á¶°¢À¸·Î º¸»ó ¾ÆÀÌÅÛ ±³È¯
+#define	TID_MMI_GENERATERCARD2011			7230//ê¸€ìž ì¡°ê°ìœ¼ë¡œ ë³´ìƒ ì•„ì´í…œ êµí™˜
 #define	TID_MMI_CYCLONECARD2011				7231
 
 
-//±¹³» º¢²É ¸ÂÀÌ ÀÌº¥Æ®
-#define	TID_MMI_EXCHANGEBLOSSOM				7232 //º¢²É¾¾¾Ñ 10°³, 5¸¸ Æä³Ä¸¦ °¡À§¹ÙÀ§º¸ ÄíÆùÀ¸·Î ±³È¯
+//êµ­ë‚´ ë²šê½ƒ ë§žì´ ì´ë²¤íŠ¸
+#define	TID_MMI_EXCHANGEBLOSSOM				7232 //ë²šê½ƒì”¨ì•— 10ê°œ, 5ë§Œ íŽ˜ëƒë¥¼ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í°ìœ¼ë¡œ êµí™˜
 
 
-//ÅÚ·¹Æ÷Æ® Áöµµ ÁöÁ¡ ¸Þ´º
-#define	TID_MMI_TELEPORTPOINTMENU01			7233 //»èÁ¦
-#define	TID_MMI_TELEPORTPOINTMENU02			7234 //ÀüÃ¼»èÁ¦
-#define	TID_MMI_TELEPORTPOINTMENU03			7235 //ÀÌ¸§º¯°æ
-#define	TID_MMI_TELEPORTPOINTMENU04			7236 //´Ý±â
+//í…”ë ˆí¬íŠ¸ ì§€ë„ ì§€ì  ë©”ë‰´
+#define	TID_MMI_TELEPORTPOINTMENU01			7233 //ì‚­ì œ
+#define	TID_MMI_TELEPORTPOINTMENU02			7234 //ì „ì²´ì‚­ì œ
+#define	TID_MMI_TELEPORTPOINTMENU03			7235 //ì´ë¦„ë³€ê²½
+#define	TID_MMI_TELEPORTPOINTMENU04			7236 //ë‹«ê¸°
 
-//¹Ù·ç³ª Á¦·Ã 18Â÷ Ãß°¡
-#define TID_MMI_BARUNA_ELEMENT_SMELT		7237//¹Ù·ç³ª¼Ó¼ºÁ¦·Ã
-#define TID_MMI_BARUNA_WAKEUP				7238//¹Ù·ç³ª°¢¼º
-#define TID_MMI_BARUNA_WAKEUP_CANCEL		7239//¹Ù·ç³ª°¢¼ºÃë¼Ò
+//ë°”ë£¨ë‚˜ ì œë ¨ 18ì°¨ ì¶”ê°€
+#define TID_MMI_BARUNA_ELEMENT_SMELT		7237//ë°”ë£¨ë‚˜ì†ì„±ì œë ¨
+#define TID_MMI_BARUNA_WAKEUP				7238//ë°”ë£¨ë‚˜ê°ì„±
+#define TID_MMI_BARUNA_WAKEUP_CANCEL		7239//ë°”ë£¨ë‚˜ê°ì„±ì·¨ì†Œ
 
-//ÀÌº¥Æ® ¾Æ·¹³ª ÀÔÀå ¸Þ´º
-#define TID_MMI_EVENTARENA_ENTER						7241	//  ÀüÅõ Áö¿ª ÀÔÀå
+//ì´ë²¤íŠ¸ ì•„ë ˆë‚˜ ìž…ìž¥ ë©”ë‰´
+#define TID_MMI_EVENTARENA_ENTER						7241	//  ì „íˆ¬ ì§€ì—­ ìž…ìž¥
 
 
 
-//±¹³» 18Â÷ ¾÷µ¥ÀÌÆ® ÀÌº¥Æ® ±³È¯¸Þ´º
-#define TID_MMI_RETURNSUPDATE						7243	//¸®ÅÏÁî ¾÷µ¥ÀÌÆ® ±â³ä ÁÖÈ­·Î ¾ÆÀÌÅÛ ±³È¯
+//êµ­ë‚´ 18ì°¨ ì—…ë°ì´íŠ¸ ì´ë²¤íŠ¸ êµí™˜ë©”ë‰´
+#define TID_MMI_RETURNSUPDATE						7243	//ë¦¬í„´ì¦ˆ ì—…ë°ì´íŠ¸ ê¸°ë… ì£¼í™”ë¡œ ì•„ì´í…œ êµí™˜
 
-//ÀÎµµ³×½Ã¾Æ µ¶¸³±â³äÀÏ ÀÌº¥Æ®
-#define TID_MMI_TWBOXTRADE01						7242	//±ê¹ßÀ» Ã¥°¡¹æ ¾ÆÀÌÅÛÀ¸·Î ±³È¯
+//ì¸ë„ë„¤ì‹œì•„ ë…ë¦½ê¸°ë…ì¼ ì´ë²¤íŠ¸
+#define TID_MMI_TWBOXTRADE01						7242	//ê¹ƒë°œì„ ì±…ê°€ë°© ì•„ì´í…œìœ¼ë¡œ êµí™˜
 
-//ÇÑ°¡À§ ÀÌº¥Æ® ±³È¯ ¸Þ´º
-#define TID_MMI_HANGAWI_TRADE						7244		//²Ü¼ÛÆí 10°³¿Í 50,000 Æä³Ä¸¦ °¡À§¹ÙÀ§º¸ ÄíÆù 1ÀåÀ¸·Î ±³È¯
+//í•œê°€ìœ„ ì´ë²¤íŠ¸ êµí™˜ ë©”ë‰´
+#define TID_MMI_HANGAWI_TRADE						7244		//ê¿€ì†¡íŽ¸ 10ê°œì™€ 50,000 íŽ˜ëƒë¥¼ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í° 1ìž¥ìœ¼ë¡œ êµí™˜
 
-//°Å·¡Áß°³½ÃÀå ÀÔÀå¸Þ´º
-#define TID_MMI_MARKETJOIN						7245	//½ÃÀåÀ¸·Î ÀÔÀå
+//ê±°ëž˜ì¤‘ê°œì‹œìž¥ ìž…ìž¥ë©”ë‰´
+#define TID_MMI_MARKETJOIN						7245	//ì‹œìž¥ìœ¼ë¡œ ìž…ìž¥
 
-//´ë¸¸ 5ÁÖ³â ±â³ä »óÀÚ ±³È¯ ¸Þ´º
-#define TID_MMI_TWBOXTRADE						7246	// 5ÁÖ³â ±â³ä »óÀÚ ±³È¯
+//ëŒ€ë§Œ 5ì£¼ë…„ ê¸°ë… ìƒìž êµí™˜ ë©”ë‰´
+#define TID_MMI_TWBOXTRADE						7246	// 5ì£¼ë…„ ê¸°ë… ìƒìž êµí™˜
 
-//º£È÷¸ð½º ¿ìµç ¹«±âÀÇ ºñ¹Ð ÀÌº¥Æ®
-#define	TID_MMI_BEHEMOTHSMELTEVENT_TWOSWORD			7247	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ÅõÇÚµå ¼Òµå¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_TWOAXE			7248	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ÅõÇÚµå ¿¢½º¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_ONESWORD			7249	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç¼Òµå¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_ONEAXE			7250	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ¿¢½º¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_BOW				7251	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç º¸¿ì¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_YOYO				7252	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ¿ä¿ä¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_KNUCKLE			7253	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ³ÊÅ¬À» º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_STICK			7254	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ½ºÆ½À» º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_WAND				7255	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ¿Ïµå¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_STAFF			7256	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ½ºÅÂÇÁ¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
+//ë² ížˆëª¨ìŠ¤ ìš°ë“  ë¬´ê¸°ì˜ ë¹„ë°€ ì´ë²¤íŠ¸
+#define	TID_MMI_BEHEMOTHSMELTEVENT_TWOSWORD			7247	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  íˆ¬í•¸ë“œ ì†Œë“œë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_TWOAXE			7248	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  íˆ¬í•¸ë“œ ì—‘ìŠ¤ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_ONESWORD			7249	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“ ì†Œë“œë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_ONEAXE			7250	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ì—‘ìŠ¤ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_BOW				7251	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ë³´ìš°ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_YOYO				7252	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ìš”ìš”ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_KNUCKLE			7253	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ë„ˆí´ì„ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_STICK			7254	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ìŠ¤í‹±ì„ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_WAND				7255	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ì™„ë“œë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_STAFF			7256	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ìŠ¤íƒœí”„ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
 
-//°¡À» ³«¿± ±³È¯ ÀÌº¥Æ®
-#define	TID_MMI_MAPLE_TRADE					7257	// ³«¿±À» º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
+//ê°€ì„ ë‚™ì—½ êµí™˜ ì´ë²¤íŠ¸
+#define	TID_MMI_MAPLE_TRADE					7257	// ë‚™ì—½ì„ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
 
-//°Å·¡ Áß°³ÀÎ NPC °Å·¡ Áß°³ ¸Þ´º
-#define	TID_MMI_MARKET_TRADE					7258	// °Å·¡ Áß°³ ÀÌ¿ë
+//ê±°ëž˜ ì¤‘ê°œì¸ NPC ê±°ëž˜ ì¤‘ê°œ ë©”ë‰´
+#define	TID_MMI_MARKET_TRADE					7258	// ê±°ëž˜ ì¤‘ê°œ ì´ìš©
 
-//¹Ì±¹ °¡À§¹ÙÀ§º¸ ÄíÆù ±³È¯
-#define	TID_MMI_USAKAWIBAWIBOCOUPON2011			7259	// È£¹Ú 10°³¿Í 100,000 Æä³Ä¸¦ °¡À§¹ÙÀ§º¸ ÄíÆùÀ¸·Î ±³È¯
+//ë¯¸êµ­ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í° êµí™˜
+#define	TID_MMI_USAKAWIBAWIBOCOUPON2011			7259	// í˜¸ë°• 10ê°œì™€ 100,000 íŽ˜ëƒë¥¼ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í°ìœ¼ë¡œ êµí™˜
 
-//¾ç¼Õ ¹«±â ÇÕ¼º °ü·Ã
-#define	TID_MMI_TWOHANDEDWEAPONMERGE			7260	//¾ç¼Õ¹«±âÇÕ¼º
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_CANCEL		7261	//¾ç¼Õ¹«±âÇÕ¼ºÃë¼Ò
+//ì–‘ì† ë¬´ê¸° í•©ì„± ê´€ë ¨
+#define	TID_MMI_TWOHANDEDWEAPONMERGE			7260	//ì–‘ì†ë¬´ê¸°í•©ì„±
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_CANCEL		7261	//ì–‘ì†ë¬´ê¸°í•©ì„±ì·¨ì†Œ
 
-//Ç×¾Æ¸® Àü¿ë UI
-#define	TID_MMI_ELLDINPOTION		7262	//Ç×¾Æ¸® Àü¿ë UI
+//í•­ì•„ë¦¬ ì „ìš© UI
+#define	TID_MMI_ELLDINPOTION		7262	//í•­ì•„ë¦¬ ì „ìš© UI
 
-//ÄÝ·Î¼¼¿ò º¸»ó
-#define	TID_MMI_COLOSSEUM_REWARD_MIX			7263	//ÁõÇ¥·Î ±âÅ¸ º¸»ó ¾ÆÀÌÅÛ ±³È¯
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1		7264	// ÁõÇ¥·Î ÃÊ±Þ Åõ»çÀÇ ¹«±â ±³È¯
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2		7265	// ÁõÇ¥·Î Áß±Þ Åõ»çÀÇ ¹«±â ±³È¯
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3		7266	// ÁõÇ¥·Î °í±Þ Åõ»çÀÇ ¹«±â ±³È¯
+//ì½œë¡œì„¸ì›€ ë³´ìƒ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX			7263	//ì¦í‘œë¡œ ê¸°íƒ€ ë³´ìƒ ì•„ì´í…œ êµí™˜
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1		7264	// ì¦í‘œë¡œ ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ë¬´ê¸° êµí™˜
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2		7265	// ì¦í‘œë¡œ ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ë¬´ê¸° êµí™˜
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3		7266	// ì¦í‘œë¡œ ê³ ê¸‰ íˆ¬ì‚¬ì˜ ë¬´ê¸° êµí™˜
 
 #define TID_GAME_TROUPESKILLUSE        800
 #define TID_GAME_TROUPESKILLSTOP       801
@@ -1007,7 +1007,7 @@
 #define TID_GAME_TAGSEND                1200
 #define TID_GAME_MSGMAXUSER             1201
 #define TID_GAME_MSGINVATECOM           1202
-//½ºÅ³ »ç¿ë »óÅÂ
+//ìŠ¤í‚¬ ì‚¬ìš© ìƒíƒœ
 #define TID_GAME_SKILL_SELF             1203 
 #define TID_GAME_SKILL_MATE             1204
 /////////////////////////////////////////////
@@ -1024,7 +1024,7 @@
 #define TID_GAME_MSGERREFUSE            1215
 #define TID_GAME_SHOUTAGREE             1216
 #define TID_GAME_SHOUTREFUSE            1217
-// ±Ø´Ü PvP¿ë ¸Þ½ÃÁö
+// ê·¹ë‹¨ PvPìš© ë©”ì‹œì§€
 #define TID_GAME_PPVP_LEAVE             1218
 #define TID_GAME_PPVP_ADDPARTY          1219
 #define TID_GAME_PPVP_CHANGELEADER      1220
@@ -1037,12 +1037,12 @@
 #define TID_GAME_PPVP_LOSE              1227
 #define TID_GAME_PPVP_STARTEDPPVP       1228
 #define TID_GAME_PARTYNOTEXMEMBER       1229
-//È®ÀÎ ¿äÃ» Á¦ÇÑ
+//í™•ì¸ ìš”ì²­ ì œí•œ
 #define TID_GAME_YETTRADE		1230
 #define TID_GAME_YETFRIEND		1231
 #define TID_GAME_YETPARTY		1232
 #define TID_GAME_YETDUAL		1233
-//¸Þ½ÅÀú ÀÚ°¡ ¼­¹ö Á¤º¸
+//ë©”ì‹ ì € ìžê°€ ì„œë²„ ì •ë³´
 #define TID_GAME_TOOLTIP_MESS		1234
 
 #define TID_GAME_TOOLTIP_GUILDINFO      1235
@@ -1190,7 +1190,7 @@
 #define TID_TOOLTIP_JUMPING             1375
 #define TID_TOOLTIP_AIRJUMP             1376
 #define TID_TOOLTIP_STR                 1377
-//»ó¿ëÈ­ ¾ÆÀÌÅÛ Tool Tip
+//ìƒìš©í™” ì•„ì´í…œ Tool Tip
 #define TID_TOOLTIP_DATE                1378
 #define TID_TOOLTIP_USE                 1379
 #define TID_TOOLTIP_ITEMTIME            1380
@@ -1294,7 +1294,7 @@
 #define TID_DIAG_0073                  2072
 #define TID_DIAG_0074                  2073
 #define TID_DIAG_0075                  2074
-//Ãß°¡ ºÎºÐ////////////////////////////////////////////
+//ì¶”ê°€ ë¶€ë¶„////////////////////////////////////////////
 #define TID_DIAG_0076                  2075
 #define TID_DIAG_0077                  2076
 #define TID_DIAG_0078                  2077
@@ -1305,9 +1305,9 @@
 #define TID_DIAG_0083                  2082
 #define TID_DIAG_0084                  2083
 #define TID_DIAG_0085                  2084
-//»óÁ¡ °Å·¡ Dialog
-#define TID_DIAG_0086                  2085 //»óÁ¡ °Å·¡Áß °³¼ö ÀÌ»ó ¸Þ½ÃÁö
-#define TID_DIAG_0087                  2086 //°³ÀÎ »óÁ¡ °Å·¡ Áß °³¼ö ÀÌ»ó ¸Þ½ÃÁö
+//ìƒì  ê±°ëž˜ Dialog
+#define TID_DIAG_0086                  2085 //ìƒì  ê±°ëž˜ì¤‘ ê°œìˆ˜ ì´ìƒ ë©”ì‹œì§€
+#define TID_DIAG_0087                  2086 //ê°œì¸ ìƒì  ê±°ëž˜ ì¤‘ ê°œìˆ˜ ì´ìƒ ë©”ì‹œì§€
 #define TID_DIAG_NOCHARGING            2087
 #define TID_DIAG_EXPIRY                2088
 #define TID_DIAG_DBERROR1              2089
@@ -1317,10 +1317,10 @@
 #define TID_DIAG_EXPIRYTIME            2093
 #define TID_DIAG_EXPIRYDAYMIN          2094
 
-//»ó¿ëÈ­ ¾ÆÀÌÅÛ DIAG
+//ìƒìš©í™” ì•„ì´í…œ DIAG
 #define TID_DIAG_COMMITEM_DATE         2095
 
-//»ó¿ëÈ­ ¾ÆÀÌÅÛ GAME
+//ìƒìš©í™” ì•„ì´í…œ GAME
 #define TID_GAME_LIMITED_USE           2096
 #define TID_GAME_NOTTRADE	       2097
 #define TID_GAME_NOTDROP               2098
@@ -1328,7 +1328,7 @@
 #define TID_GAME_BATTLE_NOTTRADE       2099
 #define TID_GAME_BATTLE_NOTFRIEND      2100
 
-//Àç·Ã 
+//ìž¬ë ¨ 
 #define TID_UPGRADE_COST			2200 
 #define TID_UPGRADE_SUPPORTM	     		2201
 #define TID_UPGRADE_SUCCESSRATE	     		2202
@@ -1341,7 +1341,7 @@
 #define TID_UPGRADE_CANCLE			2209
 #define TID_UPGRADE_MAXOVER			2210
 
-//¼Ó¼ºÄ«µå ·¹º§
+//ì†ì„±ì¹´ë“œ ë ˆë²¨
 #define TID_ELEMENT_FIRECARD			2211
 #define TID_ELEMENT_WATERCARD			2216
 #define TID_ELEMENT_ELECTRICITYCARD		2221
@@ -1351,7 +1351,7 @@
 
 #define TID_COLLECT_EMPTY			2236
 
-//¼Ó¼º ·¹º§
+//ì†ì„± ë ˆë²¨
 #define TID_UPGRADE_FIRE			2237
 #define TID_UPGRADE_WATER			2238
 #define TID_UPGRADE_ELECTRICITY			2239
@@ -1419,7 +1419,7 @@
 #define TID_GAME_FAST				2347
 #define TID_GAME_VERYFAST			2348
 
-//Äù½ºÆ® ´ÙÀÌ¾î¸®
+//í€˜ìŠ¤íŠ¸ ë‹¤ì´ì–´ë¦¬
 #define TID_GAME_NORQUEST		        2349
 #define TID_GAME_SCEQUEST			2350
 #define TID_GAME_REQQUEST			2351
@@ -1447,7 +1447,7 @@
 #define TID_GAME_SKILLLEVEL			2370
 #define TID_GAME_BASESKILLLEVEL			2371
 #define TID_TIP_RESKILLPOINT_ALERT2		2372
-//»ó¿ëÈ­ 2Â÷ºÐ GAME ¸Þ½ÃÁö
+//ìƒìš©í™” 2ì°¨ë¶„ GAME ë©”ì‹œì§€
 #define TID_GAME_REMOVEELEMENT                  2373
 #define TID_GAME_NOTEQUALELEM                   2374
 #define TID_GAME_NOTELEMENT                     2375
@@ -1462,10 +1462,10 @@
 #define TID_RESKILLPOINT_CONTROL2		2385
 #define TID_RESKILLPOINT_NOTDIALOG		2386
 
-//°ÔÀÓ³» °È±â / ¶Ù±â ¸Þ¼¼Áö
+//ê²Œìž„ë‚´ ê±·ê¸° / ë›°ê¸° ë©”ì„¸ì§€
 #define TID_GAME_WALK				2398
 #define TID_GAME_RUN 				2399
-//½ºÅ³ »ç¿ë½Ã ÇÊ¿ä¾ÆÀÌÅÛ ¿ä±¸ ¸Þ¼¼Áö
+//ìŠ¤í‚¬ ì‚¬ìš©ì‹œ í•„ìš”ì•„ì´í…œ ìš”êµ¬ ë©”ì„¸ì§€
 #define TID_TIP_NEEDSKILLITEM			2400 
 
 #define TID_CHANGEFACE_ONE			2401
@@ -1475,16 +1475,16 @@
 
 #define TID_ERROR_NOFLY				2405
 
-//¾ÆÀÌÅÛ ¹Ú½º °ü·Ã ¸Þ¼¼Áö
+//ì•„ì´í…œ ë°•ìŠ¤ ê´€ë ¨ ë©”ì„¸ì§€
 #define TID_ITEMBOX_MESSAGE1			2406
 #define TID_ITEMBOX_MESSAGE2			2407
 #define TID_ITEMBOX_MESSAGE3			2408
 #define TID_ITEMBOX_MESSAGE4			2409
 #define TID_ITEMBOX_MESSAGE5			2410
-//ÄÚ½ºÆ®
+//ì½”ìŠ¤íŠ¸
 #define TID_GAME_TOOLTIP_COST2			2411
 #define TID_GAME_TOOLTIP_SHELLCOST2		2412
-//½ºÅ³ ÀçºÐ¹è
+//ìŠ¤í‚¬ ìž¬ë¶„ë°°
 #define TID_GAME_NOTUSESKILL			2413
 #define TID_GAME_LIMITFP			2414
 
@@ -1494,7 +1494,7 @@
 #define TID_GAME_TOOLTIP_MOTION                 2418
 #define TID_GAME_TOOLTIP_EMOTICON               2419
 #define TID_GAME_GAME_RESETTING                 2420
-//¸í¼º È£Äª Ãß°¡
+//ëª…ì„± í˜¸ì¹­ ì¶”ê°€
 #define TID_GAME_MER_FAME06             2421
 #define TID_GAME_MER_FAME07             2422
 #define TID_GAME_MER_FAME08             2423
@@ -1520,7 +1520,7 @@
 #define TID_GAME_ACR_FAME08             2443
 #define TID_GAME_ACR_FAME09             2444
 #define TID_GAME_ACR_FAME10             2445
-//P.K ½Ã½ºÅÛ °ü·Ã
+//P.K ì‹œìŠ¤í…œ ê´€ë ¨
 #define TID_PK_DEATH_MESSAGE1           2446
 #define TID_PK_DEATH_MESSAGE2           2447
 #define TID_PK_ITEM_MESSAGE1		2448 
@@ -1541,7 +1541,7 @@
 #define TID_FRS_MOVE2   	       2462
 #define TID_FRS_DELETE                 2463
 #define TID_FRS_BLOCKRESTORE           2464
-//p.k½Ã½ºÅÛ
+//p.kì‹œìŠ¤í…œ
 #define TID_PK_REWARD_NO               2465
 #define TID_PK_POINT_SHOW               2466
 #define TID_PK_WASTE_SHOW               2467
@@ -1550,11 +1550,11 @@
 #define TID_PK_COMBAT_END               2470
 #define TID_PK_TIME_END                 2471
 #define TID_GAME_TOOLTIP_BLOCK 		2472
-#define	TID_GAME_REQ_DARK		2473  //´ÙÅ©ÀÏ·çÀü »óÅÂ°¡ ¾Æ´Õ´Ï´Ù.
-#define TID_GAME_NEVERKILLSTOP		2474  //´ÙÅ©ÀÏ·çÀüÀ» ½ÃÀüÇÒ ¼ö ¾ø½À´Ï´Ù.
-//Äù½ºÆ® ¾ÆÀÌÅÛ °æ°í
+#define	TID_GAME_REQ_DARK		2473  //ë‹¤í¬ì¼ë£¨ì „ ìƒíƒœê°€ ì•„ë‹™ë‹ˆë‹¤.
+#define TID_GAME_NEVERKILLSTOP		2474  //ë‹¤í¬ì¼ë£¨ì „ì„ ì‹œì „í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+//í€˜ìŠ¤íŠ¸ ì•„ì´í…œ ê²½ê³ 
 #define TID_GAME_QUEITMWARNING		2475
-//p.k½Ã½ºÅÛ
+//p.kì‹œìŠ¤í…œ
 #define TID_PK_POINT_SAME               2476
 #define TID_PK_POINT_DIFFER             2477
 #define TID_PK_REWARD_NO2               2478
@@ -1564,7 +1564,7 @@
 #define TID_PK_INPUT_TIMEWARN           2482
 
 #define TID_TOOLTIP_COOLTIME			2483
-//p.k½Ã½ºÅÛ 2630±îÁö
+//p.kì‹œìŠ¤í…œ 2630ê¹Œì§€
 #define TID_PK_BLINK_LIMIT              2484
 #define TID_PK_STAND_LIMIT              2485
 #define TID_PK_PARTY_LIMIT              2486
@@ -1583,7 +1583,7 @@
 #define TID_PK_LEVEL_GAP				2499
 
 
-// 2500ºÎÅÍ 
+// 2500ë¶€í„° 
 #define TID_GAME_YES					2500
 #define TID_GAME_NO  					2501
 #define TID_GAME_CANCEL					2502
@@ -1630,7 +1630,7 @@
 #define TID_QUEST_COMPLETED             2543 
 #define TID_QUEST_FAILURE               2544 
 #define TID_QUEST_DISQUISE_NOTFLY		2545
-// 2600±îÁö ¿¹¾à
+// 2600ê¹Œì§€ ì˜ˆì•½
 #define TID_PK_SAFETY_NO		2601
 #define TID_PK_SAME_NO			2602
 #define TID_PK_CHANGEJOB_NO		2603
@@ -1642,7 +1642,7 @@
 #define TID_PK_MARKETNOUSE              2609
 #define TID_LIMIT_CHANGEJOBLEVEL	2610
 #define TID_GAME_TOOLTIP_BLOCKRANGE	2611
-//»ó¿ë ¾ÆÀÌÅÛ 3Â÷ºÐ
+//ìƒìš© ì•„ì´í…œ 3ì°¨ë¶„
 #define TID_GAME_CHANGENAME		2612
 #define TID_GAME_CHANGECLASS		2613
 #define TID_GAME_GETKARMA		2614
@@ -1663,12 +1663,12 @@
 #define TID_GAME_TOOLTIPCONDITIONRATE	2628
 #define TID_GAME_TOOLTIPALLSTAT		2629
 
-//»ó¿ë ¾ÆÀÌÅÛ 3Â÷ºÐ Ãß°¡
+//ìƒìš© ì•„ì´í…œ 3ì°¨ë¶„ ì¶”ê°€
 #define TID_GAME_NOTUSEVAG		2630
 #define TID_GAME_EQUALJOB		2631
 #define TID_GAME_TOOLTIP_OGNPOINT	2632
 
-//Á¦·Ã
+//ì œë ¨
 #define TID_PIERCING_POSSIBLE		2633
 #define TID_PIERCING_POSSIBLE_ITEM	2634
 
@@ -1681,7 +1681,7 @@
 #define TID_PIERCING_ERROR_NOTICE	2641
 #define	TID_PIERCING_ERROR_NOPIERCING	2642
 
-//ÀÀ¿ø ½Ã½ºÅÛ °ü·Ã ÅØ½ºÆ®
+//ì‘ì› ì‹œìŠ¤í…œ ê´€ë ¨ í…ìŠ¤íŠ¸
 #define	TID_CHEER_MESSAGE1	        2643
 #define	TID_CHEER_MESSAGE2	        2644
 #define	TID_CHEER_MESSAGE3	        2645
@@ -1695,7 +1695,7 @@
 #define TID_MMI_NOTUPGRADE		2652
 #define	TID_CHEER_MESSAGE5	        2653
 
-//»ó¿ë ¾ÆÀÌÅÛ 4Â÷ºÐ Ãß°¡
+//ìƒìš© ì•„ì´í…œ 4ì°¨ë¶„ ì¶”ê°€
 #define TID_GAME_CHANGEGNAME		2654
 #define TID_GAME_DEMOL2_USE		2655
 #define TID_GAME_DEMOL_USE		2656	
@@ -1712,19 +1712,19 @@
 #define TID_TOOLTIP_PERIOD         	2667
 #define TID_TOOLTIO_PERIODOFMIN         2668    
 
-//»ó¿ë ¾ÆÀÌÅÛ ±â°£Á¦
+//ìƒìš© ì•„ì´í…œ ê¸°ê°„ì œ
 #define TID_GAME_DAYUSE			2669	
 #define TID_GAME_TIMEUSE		2670
 #define TID_GAME_ENDUSE			2671
 
-#define TID_GAME_SETITEM		2672	// ¼¼Æ®
+#define TID_GAME_SETITEM		2672	// ì„¸íŠ¸
 
 #define TID_DIAG_0088			2673		
 #define TID_GAME_FATHER			2674		
 #define TID_GAME_MOTHER			2675
 #define TID_GAME_PVPLEAVE		2676
 
-// °íÀ¯ ¹«±â 1Â÷ Ãß°¡
+// ê³ ìœ  ë¬´ê¸° 1ì°¨ ì¶”ê°€
 #define TID_GAME_FASTEST		2677
 
 #define TID_TOOLTIP_DST_CRITICAL_RATE 2678
@@ -1747,7 +1747,7 @@
 #define	TID_TOOLTIP_DST_SWD_DMG		2694
 #define	TID_TOOLTIP_DST_AXE_DMG		2695
 
-//±æµå´ëÀü °ü·Ã
+//ê¸¸ë“œëŒ€ì „ ê´€ë ¨
 #define TID_GAME_GUILDWAR_APP		2696
 #define TID_GAME_GUILDWAR_CANCEL	2697
 #define TID_GAME_GUILDWAR_JOIN		2698
@@ -1784,7 +1784,7 @@
 #define TID_GAME_GUILDCOMBAT_NEXT_COMBAT		2728
 #define TID_GAME_GUILDCOMBAT_ENJOY				2729
 
-// ¹«±â 3Â÷
+// ë¬´ê¸° 3ì°¨
 #define	TID_TOOLTIP_DST_MASTRY_ALL				2730
 
 #define	TID_GAME_CHG_MASTER						2731
@@ -1814,12 +1814,12 @@
 #define TID_PIERCING_CARD_PUTITEM				2751
 #define TID_TOOLTIP_REMOVE_NOTCARD				2752
 
-// ·Î±×ÀÎ Á¦ÇÑ 
+// ë¡œê·¸ì¸ ì œí•œ 
 #define TID_15SEC_PREVENT						2753
 #define TID_15MIN_PREVENT						2754
 #define TID_ERROR_CERT_GENERAL					2755
 
-// ¿ìÆí Ãß°¡
+// ìš°íŽ¸ ì¶”ê°€
 #define	TID_GAME_CANNOT_POST	2756
 #define	TID_GAME_POST_ERROR		2757
 
@@ -1957,39 +1957,39 @@
 #define TID_GAME_GUILDCOMBAT_REQUEST_PENYA		2971
 #define TID_GAME_GUILDCOMBAT_REQUEST_NOTPENYA		2972
 
-#define TID_GAME_GUILDCOMBAT_PLAYER_MAKEUP		2973		// ¼±¼ö ±¸¼ºÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_NOW_PLAYER_MAKEUP	2974		// Áö±ÝºÎÅÍ ±æµå ¸â¹ö ½ÅÃ»À» ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_PROPOSE_CASH		2975		// ¾ó¸¶ ½ÅÃ»ÇßÀ½..¤¾¤¾ -_-;;;
-#define TID_GAME_GUILDCOMBAT_REQUEST_GUILDCOMBAT	2976	// ±æµå´ëÀü¿¡ ½ÅÃ»ÇÏ¿´½À´Ï´Ù. ¸ÅÁÖ Åä¿äÀÏ 17½Ã¿¡ ±æµå´ëÀüÀÌ ½ÃÀÛµË´Ï´Ù ·Î ¼öÁ¤ÇÒ±î?? ¤¾¤¾
-#define TID_GAME_GUILDCOMBAT_EXPENSE_RETURN			2977	// ´ëÀü Âü°¡ºñ´Â ´ëÀüÀÌ ³¡³ª°í ¹ÝÈ¯µË´Ï´Ù
-#define TID_GAME_GUILDCOMBAT_STANDS_NOTUSESKILL		2978	// °üÁß¼®¿¡¼­´Â ½ºÅ³À» »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù
-#define TID_GAME_GUILDCOMBAT_STANDS_NOTUSEITEM		2979	// °üÁß¼®¿¡¼­´Â ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_CANNOT_FRIENDADD		2980	// Ä£±¸Ãß°¡¸¦ ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_NOT_DISSOLVE_GUILD		2981	// ±æµå´ëÀü¿¡ ½ÅÃ»ÇÑ±æµå´Â ±æµåÇØÃ¼¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù
-#define TID_GAME_GUILDCOMBAT_NOT_LEAVE_GUILD		2982	// ±æµå´ëÀü¿¡ ½ÅÃ»ÇÑ±æµå´Â ´ëÀüÁß¿¡´Â ±æµå Å»Åð¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù
-#define TID_GAME_GUILDCOMBAT_NOT_INVITATION_GUILD	2983	// ±æµå´ëÀü¿¡ ½ÅÃ»ÇÑ±æµå´Â ´ëÀüÁß¿¡´Â ±æµå¿ø ÃÊ´ë¸¦ ÇÒ¼ö ¾ø½À´Ï´Ù
-#define TID_GAME_GUILDCOMBAT_NOT_REQUIREMENT		2984	// ¼öÁ¤!! ÇØ´ç»çÇ×ÀÌ ¾ø´Ù!
-#define TID_GAME_GUILDCOMBAT_GET_PRIZE				2985	// ¼öÁ¤!! MVP»ó±ÝÀ¸·Î %dÆä³Ä¸¦ ¹Þ¾Ò½À´Ï´Ù. ÃàÇÏµå¸³´Ï´Ù!
-//#define TID_GAME_GUILDCOMBAT_NOT_MVP				2986	// ¼öÁ¤!! º£½ºÆ® ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ï´Ù!!!
-#define TID_GAME_GUILDCOMBAT_PLAYER_MAKEUP_FINISH	2987	// ¼öÁ¤!!! ±æµå´ëÀü ¸í´ÜÀÛ¼º Á¾·á ¹× ÁØºñ½Ã°£
-#define TID_GAME_GUILDCOMBAT_LIMIT_MIN				2988	// ¼öÁ¤¿ä¸Á : ÃÖ¼Ò±Ý¾×º¸´Ù ´õ µ·À» ³Ö¾î¶ó!!!!
-#define TID_GAME_GUILDCOMBAT_MORE_CURRENT_REQUEST	2989	// ¼öÁ¤¿ä¸Á : ±âÁ¸±Ý¾×º¸´Ù ´õ ¸¹ÀÌ µ·À» ³Ö¾î¶ó!!!!
-#define TID_GAME_GUILDCOMBAT_MORE_REQUEST			2990	// ¼öÁ¤!! ±âÁ¸¿¡ ½ÅÃ»µÈ %dÆä³Ä¿¡¼­ Ãß°¡·Î %dÆä³Ä¸¦ ½ÅÃ»ÇÏ°Ú½À´Ï±î?
-#define TID_GAME_GUILDCOMBAT_REMAKE_MAKEUP			2991	// ¼öÁ¤!! ¼±¼ö ±¸¼ºÀ» ´Ù½Ã ÇÏ½Ã°Ú½À´Ï±î?
-#define TID_GAME_GUILDCOMBAT_CANNOT_MAKEUP			2992	// ¼öÁ¤!!! Áö±ÝÀº ÃâÀüÀÚ¸¦ ¼³Á¤ÇÒ¼ö ¾ø½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_LIMIT_LEVEL_NOTICE		2993	// ¼öÁ¤ÇØ!!! ÃâÀüÀÚ µî·ÏÀº ·¹º§ 30ÀÌ»óÀÌ µÇ¾î¾ßÇÕ´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_NOT_GUILD_MEMBER		2994	// ¼öÁ¤ÇØ!!! ±æµå ¸É¹ö°¡ ¾Æ´Õ´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_ALREADY_ENTRY			2995	// ¼öÁ¤ÇØ!!! ÀÌ¹Ì µî·ÏµÇ¾îÀÖ½À´Ï´Ù. ´Ù½Ã µî·ÏÇØÁÖ¼¼¿ä.
-#define TID_GAME_GUILDCOMBAT_NOT_ASSIGN_DEFENDER	2996	// ¼öÁ¤ÇØ!!! µðÆæ´õ°¡ ÁöÁ¤µÇÁö ¾Ê¾Ò½À´Ï´Ù. µðÆæ´õ¸¦ ÁöÁ¤ÇØÁÖ½Ê½Ã¿ä.
-#define TID_GAME_GUILDCOMBAT_HAVENOT_PLAYER			2997	// ¼öÁ¤!!! ÃâÀüÀÚ°¡ ¾ø½À´Ï´Ù. ÃâÀüÀÚ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.
-#define TID_GAME_GUILDCOMBAT_HAVENOT_MASTER			2998	// ¼öÁ¤!!!! ÃâÀüÀÚ ¸í´ÜÁß¿¡ ¸¶½ºÅÍ ¶Ç´Â Å·ÇÉÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_MASTER_NOT_ASSIGN_DEFENDER	 2999 // ¼öÁ¤!!!! ±æµå¸¶½ºÅÍ´Â µðÆæ´õ°¡ µÉ¼ö ¾ø½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_NOTENTER_VAGRANT		3000	// ¼öÁ¤!!! ¹æ¶ûÀÚ´Â ÀÔÀåÇÒ¼ö ¾ø½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_MAKE_CLOAK				3001	// ¼öÁ¤¿ä¸Á!! ¿ë¸ÁÅä¸¦ »ý¼ºÇÏ½Ã°Ú½À´Ï±î? 1,000Æä³ÄÀÇ Á¦ÀÛ ¼ö¼ö·á°¡ ºÎ°úµË´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_TOOLTIP01                  3002    // ±æµå´ëÀü Ãß°¡ ÅøÆÁ¿ëÀ¸·Î ¸¸µé¾ú´ø °Å (½ÇÁ¦ ÀÛ¾÷Àº µ¥ÀÌÁö·Î ÇßÀ½)
-#define TID_GAME_GUILDCOMBAT_TOOLTIP02                  3003    // ±æµå´ëÀü Ãß°¡ ÅøÆÁ¿ëÀ¸·Î ¸¸µé¾ú´ø °Å (½ÇÁ¦ ÀÛ¾÷Àº µ¥ÀÌÁö·Î ÇßÀ½)
-#define TID_GAME_GUILDCOMBAT_TOOLTIP03                  3004    // ±æµå´ëÀü Ãß°¡ ÅøÆÁ¿ëÀ¸·Î ¸¸µé¾ú´ø °Å (½ÇÁ¦ ÀÛ¾÷Àº µ¥ÀÌÁö·Î ÇßÀ½)
-#define TID_GAME_GUILDCOMBAT_TOOLTIP04                  3005    // ±æµå´ëÀü Ãß°¡ ÅøÆÁ¿ëÀ¸·Î ¸¸µé¾ú´ø °Å (½ÇÁ¦ ÀÛ¾÷Àº µ¥ÀÌÁö·Î ÇßÀ½)
+#define TID_GAME_GUILDCOMBAT_PLAYER_MAKEUP		2973		// ì„ ìˆ˜ êµ¬ì„±ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_NOW_PLAYER_MAKEUP	2974		// ì§€ê¸ˆë¶€í„° ê¸¸ë“œ ë©¤ë²„ ì‹ ì²­ì„ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_PROPOSE_CASH		2975		// ì–¼ë§ˆ ì‹ ì²­í–ˆìŒ..ã…Žã…Ž -_-;;;
+#define TID_GAME_GUILDCOMBAT_REQUEST_GUILDCOMBAT	2976	// ê¸¸ë“œëŒ€ì „ì— ì‹ ì²­í•˜ì˜€ìŠµë‹ˆë‹¤. ë§¤ì£¼ í† ìš”ì¼ 17ì‹œì— ê¸¸ë“œëŒ€ì „ì´ ì‹œìž‘ë©ë‹ˆë‹¤ ë¡œ ìˆ˜ì •í• ê¹Œ?? ã…Žã…Ž
+#define TID_GAME_GUILDCOMBAT_EXPENSE_RETURN			2977	// ëŒ€ì „ ì°¸ê°€ë¹„ëŠ” ëŒ€ì „ì´ ëë‚˜ê³  ë°˜í™˜ë©ë‹ˆë‹¤
+#define TID_GAME_GUILDCOMBAT_STANDS_NOTUSESKILL		2978	// ê´€ì¤‘ì„ì—ì„œëŠ” ìŠ¤í‚¬ì„ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+#define TID_GAME_GUILDCOMBAT_STANDS_NOTUSEITEM		2979	// ê´€ì¤‘ì„ì—ì„œëŠ” ì•„ì´í…œì„ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_CANNOT_FRIENDADD		2980	// ì¹œêµ¬ì¶”ê°€ë¥¼ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_NOT_DISSOLVE_GUILD		2981	// ê¸¸ë“œëŒ€ì „ì— ì‹ ì²­í•œê¸¸ë“œëŠ” ê¸¸ë“œí•´ì²´ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+#define TID_GAME_GUILDCOMBAT_NOT_LEAVE_GUILD		2982	// ê¸¸ë“œëŒ€ì „ì— ì‹ ì²­í•œê¸¸ë“œëŠ” ëŒ€ì „ì¤‘ì—ëŠ” ê¸¸ë“œ íƒˆí‡´ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+#define TID_GAME_GUILDCOMBAT_NOT_INVITATION_GUILD	2983	// ê¸¸ë“œëŒ€ì „ì— ì‹ ì²­í•œê¸¸ë“œëŠ” ëŒ€ì „ì¤‘ì—ëŠ” ê¸¸ë“œì› ì´ˆëŒ€ë¥¼ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+#define TID_GAME_GUILDCOMBAT_NOT_REQUIREMENT		2984	// ìˆ˜ì •!! í•´ë‹¹ì‚¬í•­ì´ ì—†ë‹¤!
+#define TID_GAME_GUILDCOMBAT_GET_PRIZE				2985	// ìˆ˜ì •!! MVPìƒê¸ˆìœ¼ë¡œ %díŽ˜ëƒë¥¼ ë°›ì•˜ìŠµë‹ˆë‹¤. ì¶•í•˜ë“œë¦½ë‹ˆë‹¤!
+//#define TID_GAME_GUILDCOMBAT_NOT_MVP				2986	// ìˆ˜ì •!! ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ê°€ ì•„ë‹ˆë‹¤!!!
+#define TID_GAME_GUILDCOMBAT_PLAYER_MAKEUP_FINISH	2987	// ìˆ˜ì •!!! ê¸¸ë“œëŒ€ì „ ëª…ë‹¨ìž‘ì„± ì¢…ë£Œ ë° ì¤€ë¹„ì‹œê°„
+#define TID_GAME_GUILDCOMBAT_LIMIT_MIN				2988	// ìˆ˜ì •ìš”ë§ : ìµœì†Œê¸ˆì•¡ë³´ë‹¤ ë” ëˆì„ ë„£ì–´ë¼!!!!
+#define TID_GAME_GUILDCOMBAT_MORE_CURRENT_REQUEST	2989	// ìˆ˜ì •ìš”ë§ : ê¸°ì¡´ê¸ˆì•¡ë³´ë‹¤ ë” ë§Žì´ ëˆì„ ë„£ì–´ë¼!!!!
+#define TID_GAME_GUILDCOMBAT_MORE_REQUEST			2990	// ìˆ˜ì •!! ê¸°ì¡´ì— ì‹ ì²­ëœ %díŽ˜ëƒì—ì„œ ì¶”ê°€ë¡œ %díŽ˜ëƒë¥¼ ì‹ ì²­í•˜ê² ìŠµë‹ˆê¹Œ?
+#define TID_GAME_GUILDCOMBAT_REMAKE_MAKEUP			2991	// ìˆ˜ì •!! ì„ ìˆ˜ êµ¬ì„±ì„ ë‹¤ì‹œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+#define TID_GAME_GUILDCOMBAT_CANNOT_MAKEUP			2992	// ìˆ˜ì •!!! ì§€ê¸ˆì€ ì¶œì „ìžë¥¼ ì„¤ì •í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_LIMIT_LEVEL_NOTICE		2993	// ìˆ˜ì •í•´!!! ì¶œì „ìž ë“±ë¡ì€ ë ˆë²¨ 30ì´ìƒì´ ë˜ì–´ì•¼í•©ë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_NOT_GUILD_MEMBER		2994	// ìˆ˜ì •í•´!!! ê¸¸ë“œ ë§´ë²„ê°€ ì•„ë‹™ë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_ALREADY_ENTRY			2995	// ìˆ˜ì •í•´!!! ì´ë¯¸ ë“±ë¡ë˜ì–´ìžˆìŠµë‹ˆë‹¤. ë‹¤ì‹œ ë“±ë¡í•´ì£¼ì„¸ìš”.
+#define TID_GAME_GUILDCOMBAT_NOT_ASSIGN_DEFENDER	2996	// ìˆ˜ì •í•´!!! ë””íŽœë”ê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ë””íŽœë”ë¥¼ ì§€ì •í•´ì£¼ì‹­ì‹œìš”.
+#define TID_GAME_GUILDCOMBAT_HAVENOT_PLAYER			2997	// ìˆ˜ì •!!! ì¶œì „ìžê°€ ì—†ìŠµë‹ˆë‹¤. ì¶œì „ìžë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.
+#define TID_GAME_GUILDCOMBAT_HAVENOT_MASTER			2998	// ìˆ˜ì •!!!! ì¶œì „ìž ëª…ë‹¨ì¤‘ì— ë§ˆìŠ¤í„° ë˜ëŠ” í‚¹í•€ì´ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_MASTER_NOT_ASSIGN_DEFENDER	 2999 // ìˆ˜ì •!!!! ê¸¸ë“œë§ˆìŠ¤í„°ëŠ” ë””íŽœë”ê°€ ë ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_NOTENTER_VAGRANT		3000	// ìˆ˜ì •!!! ë°©ëž‘ìžëŠ” ìž…ìž¥í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_MAKE_CLOAK				3001	// ìˆ˜ì •ìš”ë§!! ìš©ë§í† ë¥¼ ìƒì„±í•˜ì‹œê² ìŠµë‹ˆê¹Œ? 1,000íŽ˜ëƒì˜ ì œìž‘ ìˆ˜ìˆ˜ë£Œê°€ ë¶€ê³¼ë©ë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_TOOLTIP01                  3002    // ê¸¸ë“œëŒ€ì „ ì¶”ê°€ íˆ´íŒìš©ìœ¼ë¡œ ë§Œë“¤ì—ˆë˜ ê±° (ì‹¤ì œ ìž‘ì—…ì€ ë°ì´ì§€ë¡œ í–ˆìŒ)
+#define TID_GAME_GUILDCOMBAT_TOOLTIP02                  3003    // ê¸¸ë“œëŒ€ì „ ì¶”ê°€ íˆ´íŒìš©ìœ¼ë¡œ ë§Œë“¤ì—ˆë˜ ê±° (ì‹¤ì œ ìž‘ì—…ì€ ë°ì´ì§€ë¡œ í–ˆìŒ)
+#define TID_GAME_GUILDCOMBAT_TOOLTIP03                  3004    // ê¸¸ë“œëŒ€ì „ ì¶”ê°€ íˆ´íŒìš©ìœ¼ë¡œ ë§Œë“¤ì—ˆë˜ ê±° (ì‹¤ì œ ìž‘ì—…ì€ ë°ì´ì§€ë¡œ í–ˆìŒ)
+#define TID_GAME_GUILDCOMBAT_TOOLTIP04                  3005    // ê¸¸ë“œëŒ€ì „ ì¶”ê°€ íˆ´íŒìš©ìœ¼ë¡œ ë§Œë“¤ì—ˆë˜ ê±° (ì‹¤ì œ ìž‘ì—…ì€ ë°ì´ì§€ë¡œ í–ˆìŒ)
 #define	TID_GAME_ON_EVENT								3006
 #define	TID_GAME_ITEM_PREMINUMS							3007
 #define	TID_GAME_GUILDCOMBAT_CANNOT_PARTY				3008
@@ -2106,8 +2106,8 @@
 
 #define	TID_GAME_EVENT_MAIL_CALLTHEROLL_TITLE	3117
 #define	TID_GAME_EVENT_INSTANCE_TITLE		3118
-#define TID_GAME_TRADENOTFACESHOP     		3119 //°Å·¡Áß ¼ºÇü¼ö¼ú ºÒ°¡
-#define TID_GAME_FACESHOPUSING        		3120 //¼ºÇü¼ö¼ú ÀÌ¹Ì »ç¿ëÁß
+#define TID_GAME_TRADENOTFACESHOP     		3119 //ê±°ëž˜ì¤‘ ì„±í˜•ìˆ˜ìˆ  ë¶ˆê°€
+#define TID_GAME_FACESHOPUSING        		3120 //ì„±í˜•ìˆ˜ìˆ  ì´ë¯¸ ì‚¬ìš©ì¤‘
 #define TID_GAME_CHARACTTER_PVP0		3121
 #define TID_GAME_CHARACTTER_PVP1		3122
 #define TID_GAME_CHARACTTER_PVP2		3123
@@ -2130,8 +2130,8 @@
 #define TID_GAME_TIP_ANGEL_PLAIN		3140
 #define TID_GAME_VENDOR_MAX_ONE_GOLD		3141
 #define TID_GAME_VENDOR_MAX_ALL_GOLD		3142
-#define TID_GAME_NOTREADY_USESHOP		3143 //°¡¹ß ¹× ±âÅ¸ ¸Ó¸®¿¡ ¾²´Â ¾ÆÀÌÅÛ Âø¿ë ½Ã Çì¾î¼¥/¼ºÇü¼ö¼ú ÁøÀÔ ºÒ°¡
-#define TID_GAME_DONOTUSE_SHOP			3144 //Çì¾î˜? ¼ºÇü¼ö¼ú ÀÌ¿ë ½Ã ¸Ó¸®¿¡ ¾²´Â ¾ÆÀÌÅÛ »ç¿ë ºÒ°¡
+#define TID_GAME_NOTREADY_USESHOP		3143 //ê°€ë°œ ë° ê¸°íƒ€ ë¨¸ë¦¬ì— ì“°ëŠ” ì•„ì´í…œ ì°©ìš© ì‹œ í—¤ì–´ìƒµ/ì„±í˜•ìˆ˜ìˆ  ì§„ìž… ë¶ˆê°€
+#define TID_GAME_DONOTUSE_SHOP			3144 //í—¤ì–´? ì„±í˜•ìˆ˜ìˆ  ì´ìš© ì‹œ ë¨¸ë¦¬ì— ì“°ëŠ” ì•„ì´í…œ ì‚¬ìš© ë¶ˆê°€
 #define TID_GAME_COMPLETE_ANGEL			3145	
 #define TID_GAME_NOT_INVEN_ANGEL		3146	
 #define TID_GAME_NOT_QUEST_ANGEL		3147	
@@ -2140,62 +2140,62 @@
 #define TID_DIAG_DUELRESULT_LOSE                  3150
 #define TID_GAME_PK_ATTACKER			3151
 #define TID_GAME_PK_DEFENDER			3152
-#define TID_GAME_ANGELEXP_END			3153 //AngelÀÇ °æÇèÄ¡ ¿Ï·á¸¦ Noti.
-#define TID_QUEST_PK_REWARD_PKVALUE		3154 // ÂüÈ¸Äù½ºÆ® º¸»ó
-#define TID_QUEST_COND_ITEM			3155 // Äù½ºÆ® ÇÊ¿ä ¾ÆÀÌÅÛ Á¶°Ç
-#define TID_GAME_CREATECHAR_WARNNING	3156 //¼­¹öÅëÇÕ °ü·Ã Æ¯Á¤ ±â°£ Ä³¸¯ÅÍ »ý¼º ±ÝÁö.
-#define TID_GAME_WARNNING_COUPON		3157 //Çì¾î,¼ºÇü ÄíÆù »ç¿ë½Ã ¿À·ù¸Þ¼¼Áö.
-#define TID_GAME_NOWUSING_COUPON		3158 //ÄíÆù»ç¿ëÁß!
-#define TID_GAME_ASKUSE_COUPON1			3159 //ÄíÆùÀ» »ç¿ëÇÒ °ÍÀÎ°¡?
-#define TID_GAME_ASKUSE_COUPON2			3160 //ÄíÆùÀ» »ç¿ëÇÒ °ÍÀÎ°¡?
-#define TID_GAME_WARNNING_USE_COUPON	3161 //ÄíÆù¼Ò¸ð °æ°í
-#define TID_GAME_GUILDCOMBAT_PRIZEMSG   3162 // ÇØ¿À¸§ ±æµå´Â 3¿¬½Â ÇÏ¿´½À´Ï´Ù.
-#define TID_GAME_GUILDCOMBAT_PRIZEMSG1  3163 // »óÇ°À¸·Î 
-#define TID_GAME_GUILDCOMBAT_PRIZEMSG2  3164 // ±æµå Ã¢°í·Î Áö±ÞÇÏ¿´½À´Ï´Ù.
-#define TID_GAME_KAWIBAWIBO_STARTGUID1	3165 //°¡À§¹ÙÀ§º¸ ½ÃÀÛ °¡ÀÌµå ¸Þ¼¼Áö1.
-#define TID_GAME_KAWIBAWIBO_STARTGUID2	3166 //°¡À§¹ÙÀ§º¸ ½ÃÀÛ °¡ÀÌµå ¸Þ¼¼Áö2.
-#define TID_GAME_KAWIBAWIBO_GUID1		3167 //°¡À§¹ÙÀ§º¸ ¹Ì´Ï°ÔÀÓ ½Â¸®½Ã °¡ÀÌµå1
-#define TID_GAME_KAWIBAWIBO_GUID2		3168 //°¡À§¹ÙÀ§º¸ ¹Ì´Ï°ÔÀÓ ½Â¸®½Ã °¡ÀÌµå2
-#define TID_GAME_KAWIBAWIBO_WIN			3169 //°¡À§¹ÙÀ§º¸ °ÔÀÓ¿¡¼­ ½Â¸® ÈÄ »óÇ°À» Áö±Þ ¹ÞÀ» ¶§ÀÇ ¸Þ¼¼Áö.
-#define TID_GAME_KAWIBAWIBO_DEFEAT		3170 //°¡À§¹ÙÀ§º¸ °ÔÀÓ¿¡¼­ ÆÐ¹èÇßÀ» ¶§ÀÇ ¸Þ¼¼Áö.
-#define TID_GAME_DICETENDER_ERROR		3171 //ÁÖ»çÀ§ °ÔÀÓ ÀÔÂû½Ã ¿¡·¯ ¸Þ¼¼Áö.	
-#define TID_GAME_MINIGAME_EMPTY_ERROR	3172 //´Ü¾î¸ÂÃß±â, ÆÛÁñ °ÔÀÓ½Ã ºó°ø°£¿¡ ´ëÇÑ ¿¡·¯ ¸Þ¼¼Áö.	
-#define TID_GAME_PUZZLE_GIVEPRESENT		3173 //ÆÛÁñ°ÔÀÓ½Ã »óÇ°Áö±Þ¿¡ ´ëÇÑ ¸Þ¼¼Áö.
-#define TID_GAME_DICEGAME_FAIL			3174 //ÁÖ»çÀ§ °ÔÀÓ½Ã ¸ðµç ¼ýÀÚ ºÒÀÏÄ¡ ¸Þ¼¼Áö.
-#define TID_GAME_DICEGAME_SUCCESS		3175 //ÁÖ»çÀ§ °ÔÀÓ½Ã ÀÏÄ¡µÈ ¼ýÀÚ¿¡ ´ëÇÑ ¸Þ¼¼Áö.
-#define TID_GAME_FINDWORD_FAIL			3176 //´Ü¾î¸ÂÃß±â °ÔÀÓ¿¡¼­ ¿À´ä¿¡ ´ëÇÑ ¸Þ¼¼Áö.
-#define TID_GAME_DICEGAME_ERROR			3177 //ÁÖ»çÀ§ °ÔÀÓ½Ã ÇÑ°³ ÀÌ»ó ÀÔÂûÀÌ ¾ÈµÇ¾úÀ» °æ¿ì ¿¡·¯ ¸Þ¼¼Áö.
-#define TID_GAME_MINIGAMEUSING			3178 //°ÔÀÓ ÁøÇà Áß »õ·Î¿î Ã¢À» ¶ç¿ï ¼ö ¾øÀ½.
+#define TID_GAME_ANGELEXP_END			3153 //Angelì˜ ê²½í—˜ì¹˜ ì™„ë£Œë¥¼ Noti.
+#define TID_QUEST_PK_REWARD_PKVALUE		3154 // ì°¸íšŒí€˜ìŠ¤íŠ¸ ë³´ìƒ
+#define TID_QUEST_COND_ITEM			3155 // í€˜ìŠ¤íŠ¸ í•„ìš” ì•„ì´í…œ ì¡°ê±´
+#define TID_GAME_CREATECHAR_WARNNING	3156 //ì„œë²„í†µí•© ê´€ë ¨ íŠ¹ì • ê¸°ê°„ ìºë¦­í„° ìƒì„± ê¸ˆì§€.
+#define TID_GAME_WARNNING_COUPON		3157 //í—¤ì–´,ì„±í˜• ì¿ í° ì‚¬ìš©ì‹œ ì˜¤ë¥˜ë©”ì„¸ì§€.
+#define TID_GAME_NOWUSING_COUPON		3158 //ì¿ í°ì‚¬ìš©ì¤‘!
+#define TID_GAME_ASKUSE_COUPON1			3159 //ì¿ í°ì„ ì‚¬ìš©í•  ê²ƒì¸ê°€?
+#define TID_GAME_ASKUSE_COUPON2			3160 //ì¿ í°ì„ ì‚¬ìš©í•  ê²ƒì¸ê°€?
+#define TID_GAME_WARNNING_USE_COUPON	3161 //ì¿ í°ì†Œëª¨ ê²½ê³ 
+#define TID_GAME_GUILDCOMBAT_PRIZEMSG   3162 // í•´ì˜¤ë¦„ ê¸¸ë“œëŠ” 3ì—°ìŠ¹ í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define TID_GAME_GUILDCOMBAT_PRIZEMSG1  3163 // ìƒí’ˆìœ¼ë¡œ 
+#define TID_GAME_GUILDCOMBAT_PRIZEMSG2  3164 // ê¸¸ë“œ ì°½ê³ ë¡œ ì§€ê¸‰í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define TID_GAME_KAWIBAWIBO_STARTGUID1	3165 //ê°€ìœ„ë°”ìœ„ë³´ ì‹œìž‘ ê°€ì´ë“œ ë©”ì„¸ì§€1.
+#define TID_GAME_KAWIBAWIBO_STARTGUID2	3166 //ê°€ìœ„ë°”ìœ„ë³´ ì‹œìž‘ ê°€ì´ë“œ ë©”ì„¸ì§€2.
+#define TID_GAME_KAWIBAWIBO_GUID1		3167 //ê°€ìœ„ë°”ìœ„ë³´ ë¯¸ë‹ˆê²Œìž„ ìŠ¹ë¦¬ì‹œ ê°€ì´ë“œ1
+#define TID_GAME_KAWIBAWIBO_GUID2		3168 //ê°€ìœ„ë°”ìœ„ë³´ ë¯¸ë‹ˆê²Œìž„ ìŠ¹ë¦¬ì‹œ ê°€ì´ë“œ2
+#define TID_GAME_KAWIBAWIBO_WIN			3169 //ê°€ìœ„ë°”ìœ„ë³´ ê²Œìž„ì—ì„œ ìŠ¹ë¦¬ í›„ ìƒí’ˆì„ ì§€ê¸‰ ë°›ì„ ë•Œì˜ ë©”ì„¸ì§€.
+#define TID_GAME_KAWIBAWIBO_DEFEAT		3170 //ê°€ìœ„ë°”ìœ„ë³´ ê²Œìž„ì—ì„œ íŒ¨ë°°í–ˆì„ ë•Œì˜ ë©”ì„¸ì§€.
+#define TID_GAME_DICETENDER_ERROR		3171 //ì£¼ì‚¬ìœ„ ê²Œìž„ ìž…ì°°ì‹œ ì—ëŸ¬ ë©”ì„¸ì§€.	
+#define TID_GAME_MINIGAME_EMPTY_ERROR	3172 //ë‹¨ì–´ë§žì¶”ê¸°, í¼ì¦ ê²Œìž„ì‹œ ë¹ˆê³µê°„ì— ëŒ€í•œ ì—ëŸ¬ ë©”ì„¸ì§€.	
+#define TID_GAME_PUZZLE_GIVEPRESENT		3173 //í¼ì¦ê²Œìž„ì‹œ ìƒí’ˆì§€ê¸‰ì— ëŒ€í•œ ë©”ì„¸ì§€.
+#define TID_GAME_DICEGAME_FAIL			3174 //ì£¼ì‚¬ìœ„ ê²Œìž„ì‹œ ëª¨ë“  ìˆ«ìž ë¶ˆì¼ì¹˜ ë©”ì„¸ì§€.
+#define TID_GAME_DICEGAME_SUCCESS		3175 //ì£¼ì‚¬ìœ„ ê²Œìž„ì‹œ ì¼ì¹˜ëœ ìˆ«ìžì— ëŒ€í•œ ë©”ì„¸ì§€.
+#define TID_GAME_FINDWORD_FAIL			3176 //ë‹¨ì–´ë§žì¶”ê¸° ê²Œìž„ì—ì„œ ì˜¤ë‹µì— ëŒ€í•œ ë©”ì„¸ì§€.
+#define TID_GAME_DICEGAME_ERROR			3177 //ì£¼ì‚¬ìœ„ ê²Œìž„ì‹œ í•œê°œ ì´ìƒ ìž…ì°°ì´ ì•ˆë˜ì—ˆì„ ê²½ìš° ì—ëŸ¬ ë©”ì„¸ì§€.
+#define TID_GAME_MINIGAMEUSING			3178 //ê²Œìž„ ì§„í–‰ ì¤‘ ìƒˆë¡œìš´ ì°½ì„ ë„ìš¸ ìˆ˜ ì—†ìŒ.
 #define TID_GAME_MINIGAME_ITEM_POST		3179 
 #define TID_GAME_MINIGAME_PENYA_POST	3180
-#define TID_GAME_MIXJEWEL_SUCCESS		3181 //¿À¸®Ä®Äñ, ¹®½ºÅæ ÇÕ¼º ¼º°ø.
-#define TID_GAME_EXTRACTION_ERROR		3182 //º¸¼® ÃßÃâ½Ã ¿¡·¯ ¸Þ¼¼Áö.
-#define	TID_TOOLTIP_DST_EXPERIENCE		3183 //¾óÅÍ¸Ú ¿þÆù ¿É¼Ç - Ãß°¡ °æÇèÄ¡
-#define	TID_TOOLTIP_DST_MELEE_STEALHP	3184 //¾óÅÍ¸Ú ¿þÆù ¿É¼Ç - ÆòÅ¸ ÈíÇ÷
-#define	TID_TOOLTIP_DST_MONSTER_DMG		3185 //¾óÅÍ¸Ú ¿þÆù ¿É¼Ç - »ç³É½Ã µ¥¹ÌÁö
-#define	TID_TOOLTIP_DST_PVP_DMG			3186 //¾óÅÍ¸Ú ¿þÆù ¿É¼Ç - PVP µ¥¹ÌÁö
-#define TID_TOOLTIP_CHANGEW_GENERAL		3187 //ÀÏ¹Ý->À¯´ÏÅ© ¿þÆù º¯°æ °ü·Ã ÅøÆÁ
-#define TID_TOOLTIP_CHANGEW_UNIQUE		3188 //À¯´ÏÅ©->¾óÅÍ¸Ú ¿þÆù º¯°æ °ü·Ã ÅøÆÁ
-#define TID_TOOLTIP_CHANGEW_ORICALCUM	3189 //¹«±â º¯È¯ Ã¢ ¿À¸®Ä®Äñ ÅøÆÁ
-#define TID_TOOLTIP_CHANGEW_JEWEL		3190 //¹«±â º¯È¯ Ã¢ º¸¼® ÅøÆÁ
-#define TID_GAME_CHANGE_NOWUSING		3191 //¹«±â º¯È¯ Ã¢À» ÀÌ¹Ì »ç¿ëÇÒ °æ¿ì ¿¡·¯ ¸Þ¼¼Áö.
-#define TID_GAME_WND_OVERLAPED			3192 //ÀÌ¹Ì ¿­¸° Ã¢À» »ç¿ëÇÏ·Á ½Ãµµ ÇÒ °æ¿ì.
-#define TID_GAME_SMELTJEWEL_SUCCESS		3193 //º¸¼®ÇÕ¼º ¼º°ø ¸Þ¼¼Áö.
-#define TID_GAME_SMELTJEWEL_FAIL		3194 //º¸¼®ÇÕ¼º ½ÇÆÐ ¸Þ¼¼Áö.
-#define TID_GAME_REMOVEJEWEL			3195 //º¸¼®Á¦°Å ¸Þ¼¼Áö.
-#define TID_GAME_REMOVEJ_SUCCESS		3196 //º¸¼®Á¦°Å ¼º°ø ¸Þ¼¼Áö.
-#define TID_GAME_REMOVEJ_FAIL			3197 //º¸¼®Á¦°Å ½ÇÆÐ ¸Þ¼¼Áö.
-#define	TID_GAME_FAIL_TO_OPEN_SHOP		3198 // PVPÁö¿ª ³» °³ÀÎ»óÁ¡ °³¼³ ºÒ°¡
+#define TID_GAME_MIXJEWEL_SUCCESS		3181 //ì˜¤ë¦¬ì¹¼ì¿°, ë¬¸ìŠ¤í†¤ í•©ì„± ì„±ê³µ.
+#define TID_GAME_EXTRACTION_ERROR		3182 //ë³´ì„ ì¶”ì¶œì‹œ ì—ëŸ¬ ë©”ì„¸ì§€.
+#define	TID_TOOLTIP_DST_EXPERIENCE		3183 //ì–¼í„°ë©‹ ì›¨í° ì˜µì…˜ - ì¶”ê°€ ê²½í—˜ì¹˜
+#define	TID_TOOLTIP_DST_MELEE_STEALHP	3184 //ì–¼í„°ë©‹ ì›¨í° ì˜µì…˜ - í‰íƒ€ í¡í˜ˆ
+#define	TID_TOOLTIP_DST_MONSTER_DMG		3185 //ì–¼í„°ë©‹ ì›¨í° ì˜µì…˜ - ì‚¬ëƒ¥ì‹œ ë°ë¯¸ì§€
+#define	TID_TOOLTIP_DST_PVP_DMG			3186 //ì–¼í„°ë©‹ ì›¨í° ì˜µì…˜ - PVP ë°ë¯¸ì§€
+#define TID_TOOLTIP_CHANGEW_GENERAL		3187 //ì¼ë°˜->ìœ ë‹ˆí¬ ì›¨í° ë³€ê²½ ê´€ë ¨ íˆ´íŒ
+#define TID_TOOLTIP_CHANGEW_UNIQUE		3188 //ìœ ë‹ˆí¬->ì–¼í„°ë©‹ ì›¨í° ë³€ê²½ ê´€ë ¨ íˆ´íŒ
+#define TID_TOOLTIP_CHANGEW_ORICALCUM	3189 //ë¬´ê¸° ë³€í™˜ ì°½ ì˜¤ë¦¬ì¹¼ì¿° íˆ´íŒ
+#define TID_TOOLTIP_CHANGEW_JEWEL		3190 //ë¬´ê¸° ë³€í™˜ ì°½ ë³´ì„ íˆ´íŒ
+#define TID_GAME_CHANGE_NOWUSING		3191 //ë¬´ê¸° ë³€í™˜ ì°½ì„ ì´ë¯¸ ì‚¬ìš©í•  ê²½ìš° ì—ëŸ¬ ë©”ì„¸ì§€.
+#define TID_GAME_WND_OVERLAPED			3192 //ì´ë¯¸ ì—´ë¦° ì°½ì„ ì‚¬ìš©í•˜ë ¤ ì‹œë„ í•  ê²½ìš°.
+#define TID_GAME_SMELTJEWEL_SUCCESS		3193 //ë³´ì„í•©ì„± ì„±ê³µ ë©”ì„¸ì§€.
+#define TID_GAME_SMELTJEWEL_FAIL		3194 //ë³´ì„í•©ì„± ì‹¤íŒ¨ ë©”ì„¸ì§€.
+#define TID_GAME_REMOVEJEWEL			3195 //ë³´ì„ì œê±° ë©”ì„¸ì§€.
+#define TID_GAME_REMOVEJ_SUCCESS		3196 //ë³´ì„ì œê±° ì„±ê³µ ë©”ì„¸ì§€.
+#define TID_GAME_REMOVEJ_FAIL			3197 //ë³´ì„ì œê±° ì‹¤íŒ¨ ë©”ì„¸ì§€.
+#define	TID_GAME_FAIL_TO_OPEN_SHOP		3198 // PVPì§€ì—­ ë‚´ ê°œì¸ìƒì  ê°œì„¤ ë¶ˆê°€
 #define	TID_TOOLTIP_DST_HEAL			3199
-#define TID_GAME_NOWUSING				3200 //ÀÌ¹Ì µ¿ÀÏÇÑ Ã¢À» »ç¿ëÁßÀÏ °æ¿ì.
-#define TID_GAME_PETGRADE_E				3201 //Pet µî±Þ ¾Ë»óÅÂ.
-#define TID_GAME_PETGRADE_C				3202 //Pet µî±Þ C±Þ.
-#define TID_GAME_PETGRADE_D				3203 //Pet µî±Þ D±Þ.
-#define TID_GAME_PETGRADE_B				3204 //Pet µî±Þ B±Þ.
-#define TID_GAME_PETGRADE_A				3205 //Pet µî±Þ A±Þ.
-#define TID_GAME_PETGRADE_S				3206 //Pet µî±Þ S±Þ.
-#define TID_GAME_ABILITY				3207 //´É·ÂÄ¡
-#define TID_GAME_NOTFOOD				3208 //Æê ¸ÔÀÌ°¡ µÉ ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÏ °æ¿ì!
+#define TID_GAME_NOWUSING				3200 //ì´ë¯¸ ë™ì¼í•œ ì°½ì„ ì‚¬ìš©ì¤‘ì¼ ê²½ìš°.
+#define TID_GAME_PETGRADE_E				3201 //Pet ë“±ê¸‰ ì•Œìƒíƒœ.
+#define TID_GAME_PETGRADE_C				3202 //Pet ë“±ê¸‰ Cê¸‰.
+#define TID_GAME_PETGRADE_D				3203 //Pet ë“±ê¸‰ Dê¸‰.
+#define TID_GAME_PETGRADE_B				3204 //Pet ë“±ê¸‰ Bê¸‰.
+#define TID_GAME_PETGRADE_A				3205 //Pet ë“±ê¸‰ Aê¸‰.
+#define TID_GAME_PETGRADE_S				3206 //Pet ë“±ê¸‰ Sê¸‰.
+#define TID_GAME_ABILITY				3207 //ëŠ¥ë ¥ì¹˜
+#define TID_GAME_NOTFOOD				3208 //íŽ« ë¨¹ì´ê°€ ë  ìˆ˜ ì—†ëŠ” ì•„ì´í…œì¼ ê²½ìš°!
 
 #define	TID_GAME_CANNOT_FLY_WITH_PET	3209
 #define	TID_GAME_CANNOT_CALL_PET_ON_FLYING	3210
@@ -2209,99 +2209,99 @@
 
 #define	TID_GAME_PET_4EGG				3217
 
-#define TID_GAME_PET_MISTAKE_DESC		3218 //ÆêÅ×ÀÌ¸ÓÀÇ ½Ç¼ö ¼³¸í.
-#define TID_GAME_PET_HATCH_DESC			3219 //ºÎÈ­ÃËÁøÁ¦ ¼³¸í.
-#define TID_GAME_PET_HP					3220 //±â·Â
-#define TID_GAME_PETFOOD_COUNTCONFIRM	3221 //¸î°³ÀÇ »ç·á¸¦ ¿Å±â½Ã°Ú½À´Ï±î?
-#define TID_GAME_PETFOOD_CONFIRM		3222 //»ç·á °³¼ö È®ÀÎ
-#define TID_GAME_POCKETUSING			3223 //¸ÔÀÌÁÖ¸Ó´Ï È°¼º
-#define TID_GAME_PET_FEEDPOCKET_USE		3224 //¸ÔÀÌÁÖ¸Ó´Ï ºñÈ°¼º½Ã ¼³¸í
-#define TID_GAME_PET_FEEDPOCKET			3225 //¸ÔÀÌÁÖ¸Ó´Ï È°¼º½Ã ¼³¸í
-#define TID_GAME_PET_FEED_COUNT			3226 //Æê»ç·á °³¼ö :
-#define TID_GAME_LIMIT_DAY				3227 //%ÀÏ
-#define TID_GAME_LIMIT_HOUR				3228 //%½Ã
-#define TID_GAME_LIMIT_MINUTE			3229 //%ºÐ
-#define TID_GAME_LIMIT_SECOND			3230 //%ÃÊ
+#define TID_GAME_PET_MISTAKE_DESC		3218 //íŽ«í…Œì´ë¨¸ì˜ ì‹¤ìˆ˜ ì„¤ëª….
+#define TID_GAME_PET_HATCH_DESC			3219 //ë¶€í™”ì´‰ì§„ì œ ì„¤ëª….
+#define TID_GAME_PET_HP					3220 //ê¸°ë ¥
+#define TID_GAME_PETFOOD_COUNTCONFIRM	3221 //ëª‡ê°œì˜ ì‚¬ë£Œë¥¼ ì˜®ê¸°ì‹œê² ìŠµë‹ˆê¹Œ?
+#define TID_GAME_PETFOOD_CONFIRM		3222 //ì‚¬ë£Œ ê°œìˆ˜ í™•ì¸
+#define TID_GAME_POCKETUSING			3223 //ë¨¹ì´ì£¼ë¨¸ë‹ˆ í™œì„±
+#define TID_GAME_PET_FEEDPOCKET_USE		3224 //ë¨¹ì´ì£¼ë¨¸ë‹ˆ ë¹„í™œì„±ì‹œ ì„¤ëª…
+#define TID_GAME_PET_FEEDPOCKET			3225 //ë¨¹ì´ì£¼ë¨¸ë‹ˆ í™œì„±ì‹œ ì„¤ëª…
+#define TID_GAME_PET_FEED_COUNT			3226 //íŽ«ì‚¬ë£Œ ê°œìˆ˜ :
+#define TID_GAME_LIMIT_DAY				3227 //%ì¼
+#define TID_GAME_LIMIT_HOUR				3228 //%ì‹œ
+#define TID_GAME_LIMIT_MINUTE			3229 //%ë¶„
+#define TID_GAME_LIMIT_SECOND			3230 //%ì´ˆ
 
-#define TID_GAME_CHANGEWEAPON_UNIQUE	3231 //À¯´ÏÅ© ¿þÆù º¯È¯ Ã¢
-#define TID_GAME_CHANGEWEAPON_ULTIMATE	3232 //¾óÅÍ¸Ú ¿þÆù º¯È¯ Ã¢
-#define TID_GAME_USE_CHANGE_COUPON		3233 //±³È¯±Ç »ç¿ë
-#define TID_GAME_CHANGE_HAIR			3234 //Çì¾îº¯°æ
-#define TID_GAME_CHANGE_FACE			3235 //¸ÞÀÌÅ©¾÷
-#define TID_GAME_CHANGE_HAIR_QUESTION	3236 //Çì¾î¸¦ º¯°æÇÏ½Ã°Ú½À´Ï±î?
-#define TID_GAME_CHANGE_FACE_QUESTION	3237 //¸ÞÀÌÅ©¾÷À» ÇÏ½Ã°Ú½À´Ï±î?
-#define TID_GMAE_KAWIBAWIBO_CUR_PRESENT	3238 //ÇöÀç »óÇ°
-#define TID_GAME_KWAIBAWIBO_NXT_PRESENT	3239 //´ÙÀ½ »óÇ°
-#define TID_GAME_KWAIBAWIBO_WINCOUNT	3240 //¿¬½Â Áß
-#define TID_GAME_KWAIBAWIBO_PRESENT_NUM	3241 //¼ö·® :
+#define TID_GAME_CHANGEWEAPON_UNIQUE	3231 //ìœ ë‹ˆí¬ ì›¨í° ë³€í™˜ ì°½
+#define TID_GAME_CHANGEWEAPON_ULTIMATE	3232 //ì–¼í„°ë©‹ ì›¨í° ë³€í™˜ ì°½
+#define TID_GAME_USE_CHANGE_COUPON		3233 //êµí™˜ê¶Œ ì‚¬ìš©
+#define TID_GAME_CHANGE_HAIR			3234 //í—¤ì–´ë³€ê²½
+#define TID_GAME_CHANGE_FACE			3235 //ë©”ì´í¬ì—…
+#define TID_GAME_CHANGE_HAIR_QUESTION	3236 //í—¤ì–´ë¥¼ ë³€ê²½í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+#define TID_GAME_CHANGE_FACE_QUESTION	3237 //ë©”ì´í¬ì—…ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+#define TID_GMAE_KAWIBAWIBO_CUR_PRESENT	3238 //í˜„ìž¬ ìƒí’ˆ
+#define TID_GAME_KWAIBAWIBO_NXT_PRESENT	3239 //ë‹¤ìŒ ìƒí’ˆ
+#define TID_GAME_KWAIBAWIBO_WINCOUNT	3240 //ì—°ìŠ¹ ì¤‘
+#define TID_GAME_KWAIBAWIBO_PRESENT_NUM	3241 //ìˆ˜ëŸ‰ :
 #define	TID_GAME_CANNOT_DO_USINGITEM	3242
-#define TID_GAME_PETFOODMILL_DESC		3243 //ºÐ¼âÇÒ ¸ÔÀÌ¸¦ ¿Ã·ÁÁÖ¼¼¿ä.
-#define TID_GAME_ITEMCOUNT_CONFIRM		3244 //¾ÆÀÌÅÛ °³¼ö È®ÀÎ
-#define TID_GAME_ITEMCOUNT_QUESTION		3245 //¸î°³ÀÇ ¾ÆÀÌÅÛÀ» ¿Ã¸®½Ã°Ú½À´Ï±î?
+#define TID_GAME_PETFOODMILL_DESC		3243 //ë¶„ì‡„í•  ë¨¹ì´ë¥¼ ì˜¬ë ¤ì£¼ì„¸ìš”.
+#define TID_GAME_ITEMCOUNT_CONFIRM		3244 //ì•„ì´í…œ ê°œìˆ˜ í™•ì¸
+#define TID_GAME_ITEMCOUNT_QUESTION		3245 //ëª‡ê°œì˜ ì•„ì´í…œì„ ì˜¬ë¦¬ì‹œê² ìŠµë‹ˆê¹Œ?
 
-//Çàº¹ÇÑ °¡Á¤ÀÇ ´Þ ¸¸µé±â ´ë ÀÛÀü(±¹³» 5¿ù ÀÌº¥Æ®)
-#define TID_GAME_EVENT_MAY_COND01		3246 //40000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND02		3247 //20000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND03		3248 //15000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND04		3249 //10000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND05		3250 //7000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND06		3251 //5000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND07		3252 //5000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND08		3253 //5000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND09		3254 //1000ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND10		3255 //500ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND11		3256 //300ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND12		3257 //200ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND13		3258 //100ÇØÇÇ
-#define TID_GAME_EVENT_MAY_COND14		3259 //50ÇØÇÇ
+//í–‰ë³µí•œ ê°€ì •ì˜ ë‹¬ ë§Œë“¤ê¸° ëŒ€ ìž‘ì „(êµ­ë‚´ 5ì›” ì´ë²¤íŠ¸)
+#define TID_GAME_EVENT_MAY_COND01		3246 //40000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND02		3247 //20000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND03		3248 //15000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND04		3249 //10000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND05		3250 //7000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND06		3251 //5000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND07		3252 //5000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND08		3253 //5000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND09		3254 //1000í•´í”¼
+#define TID_GAME_EVENT_MAY_COND10		3255 //500í•´í”¼
+#define TID_GAME_EVENT_MAY_COND11		3256 //300í•´í”¼
+#define TID_GAME_EVENT_MAY_COND12		3257 //200í•´í”¼
+#define TID_GAME_EVENT_MAY_COND13		3258 //100í•´í”¼
+#define TID_GAME_EVENT_MAY_COND14		3259 //50í•´í”¼
 
-#define TID_GAME_EVENT_MAY_TEXT01		3260 //5¿ù ÀÌº¥Æ® ¼³¸í 1
-#define TID_GAME_EVENT_MAY_TEXT02		3261 //5¿ù ÀÌº¥Æ® ¼³¸í 2
-#define TID_GAME_EVENT_MAY_TEXT03		3262 //5¿ù ÀÌº¥Æ® ¼³¸í 3
+#define TID_GAME_EVENT_MAY_TEXT01		3260 //5ì›” ì´ë²¤íŠ¸ ì„¤ëª… 1
+#define TID_GAME_EVENT_MAY_TEXT02		3261 //5ì›” ì´ë²¤íŠ¸ ì„¤ëª… 2
+#define TID_GAME_EVENT_MAY_TEXT03		3262 //5ì›” ì´ë²¤íŠ¸ ì„¤ëª… 3
 
-#define	TID_GAME_EVENT_MAY_COND01_SUCCESS	3263 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND01_FAIL		3264 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND02_SUCCESS	3265 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND02_FAIL		3266 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND03_SUCCESS	3267 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND03_FAIL		3268 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND04_SUCCESS	3269 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND04_FAIL		3270 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND05_SUCCESS	3271 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND05_FAIL		3272 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND06_SUCCESS	3273 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND06_FAIL		3274 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND07_SUCCESS	3275 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND07_FAIL		3276 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND08_SUCCESS	3277 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND08_FAIL		3278 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND09_SUCCESS	3279 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND09_FAIL		3280 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND10_SUCCESS	3281 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND10_FAIL		3282 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND11_SUCCESS	3283 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND11_FAIL		3284 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND12_SUCCESS	3285 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND12_FAIL		3286 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND13_SUCCESS	3287 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND13_FAIL		3288 // ½ÇÆÐ
-#define	TID_GAME_EVENT_MAY_COND14_SUCCESS	3289 // ¼º°ø
-#define	TID_GAME_EVENT_MAY_COND14_FAIL		3290 // ½ÇÆÐ
+#define	TID_GAME_EVENT_MAY_COND01_SUCCESS	3263 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND01_FAIL		3264 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND02_SUCCESS	3265 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND02_FAIL		3266 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND03_SUCCESS	3267 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND03_FAIL		3268 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND04_SUCCESS	3269 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND04_FAIL		3270 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND05_SUCCESS	3271 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND05_FAIL		3272 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND06_SUCCESS	3273 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND06_FAIL		3274 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND07_SUCCESS	3275 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND07_FAIL		3276 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND08_SUCCESS	3277 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND08_FAIL		3278 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND09_SUCCESS	3279 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND09_FAIL		3280 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND10_SUCCESS	3281 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND10_FAIL		3282 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND11_SUCCESS	3283 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND11_FAIL		3284 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND12_SUCCESS	3285 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND12_FAIL		3286 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND13_SUCCESS	3287 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND13_FAIL		3288 // ì‹¤íŒ¨
+#define	TID_GAME_EVENT_MAY_COND14_SUCCESS	3289 // ì„±ê³µ
+#define	TID_GAME_EVENT_MAY_COND14_FAIL		3290 // ì‹¤íŒ¨
 
 #define	TID_TOOLTIP_ATKPOWER_VALUE			3291
-#define TID_GAME_PETFEED_MAKE				3292 //Æê ¸ÔÀÌ »ý¼º ¸Þ¼¼Áö.
-#define TID_GAME_PETEGG_HATCH				3293 //¾Ë»óÅÂ Æê °æÇèÄ¡ 100% ¿Ï·á ¸Þ¼¼Áö.
+#define TID_GAME_PETFEED_MAKE				3292 //íŽ« ë¨¹ì´ ìƒì„± ë©”ì„¸ì§€.
+#define TID_GAME_PETEGG_HATCH				3293 //ì•Œìƒíƒœ íŽ« ê²½í—˜ì¹˜ 100% ì™„ë£Œ ë©”ì„¸ì§€.
 
 #define	TID_GAME_PET_CANT_USE_TO_EGG		3294
-#define TID_GAME_PET_USELIFE				3295 //»ý¸í È¸º¹Á¦ »ç¿ë ¹°À½
-#define TID_GAME_POCKET_NOTUSING			3296 //ºñÈ°¼º
-#define TID_GAME_PET_DEAD					3297 //Á×Àº ÆêÀ» Å¬¸¯ÇßÀ» ¶§ ¸Þ¼¼Áö.
+#define TID_GAME_PET_USELIFE				3295 //ìƒëª… íšŒë³µì œ ì‚¬ìš© ë¬¼ìŒ
+#define TID_GAME_POCKET_NOTUSING			3296 //ë¹„í™œì„±
+#define TID_GAME_PET_DEAD					3297 //ì£½ì€ íŽ«ì„ í´ë¦­í–ˆì„ ë•Œ ë©”ì„¸ì§€.
 
-//5¿ù ÀÌº¥Æ® Ãß°¡
+//5ì›” ì´ë²¤íŠ¸ ì¶”ê°€
 #define TID_GAME_EVENT_MAY_COND04_01			3298 
 #define	TID_GAME_EVENT_MAY_COND04_01_SUCCESS	3299
 
-#define TID_GAME_DONOTUSE_PETPOCKET			3300 //±â°£¸¸·á°¡ µÇÁö ¾ÊÀº ¸ÔÀÌÁÖ¸Ó´Ï°¡ ÀÖÀ»°æ¿ì ¿¡·¯¸Þ¼¼Áö. 
+#define TID_GAME_DONOTUSE_PETPOCKET			3300 //ê¸°ê°„ë§Œë£Œê°€ ë˜ì§€ ì•Šì€ ë¨¹ì´ì£¼ë¨¸ë‹ˆê°€ ìžˆì„ê²½ìš° ì—ëŸ¬ë©”ì„¸ì§€. 
 #define	TID_GAME_NPC_RADIUS					3301
 
 //Character Status Window Tooltip
@@ -2323,13 +2323,13 @@
 #define TID_GAME_KAWIBAWIBO_BAWI			3314
 #define TID_GAME_KAWIBAWIBO_BO				3315
 
-// Á¦·Ã °ü·Ã
+// ì œë ¨ ê´€ë ¨
 #define TID_GAME_ULTIMATE_ISEQUIP			3316
 #define TID_GAME_ULTIMATE_GEMSPACE			3317
 
 #define TID_GAME_NOTSIT_BLINK				3318
-#define TID_SYS_ALERTGGRADE_NONPK			3319 //µî±Þ°ü·Ã ¾Ë¸² non PK Server
-#define TID_SYS_ALERTGGRADE_PK				3320 //µî±Þ°ü·Ã ¾Ë¸² PK Server
+#define TID_SYS_ALERTGGRADE_NONPK			3319 //ë“±ê¸‰ê´€ë ¨ ì•Œë¦¼ non PK Server
+#define TID_SYS_ALERTGGRADE_PK				3320 //ë“±ê¸‰ê´€ë ¨ ì•Œë¦¼ PK Server
 
 #define TID_GAME_CUWEAPON_SUCCESS			3321
 #define TID_GAME_CGWEAPON_SUCCESS			3322
@@ -2926,7 +2926,7 @@
 #define	TID_GAME_TRANSFORM_S00				3831
 #define	TID_GAME_TRANSFORM_S01				3832
 
-//¹æ¾î±¸ Ä«µå º¯È¯ ½ºÅ©¸³Æ®
+//ë°©ì–´êµ¬ ì¹´ë“œ ë³€í™˜ ìŠ¤í¬ë¦½íŠ¸
 #define TID_EXCHANGE_ARMORCARD_TEXT01				3833
 #define TID_EXCHANGE_ARMORCARD_TEXT02				3834
 #define TID_EXCHANGE_ARMORCARD_TEXT03				3835
@@ -2976,7 +2976,7 @@
 #define	TID_EXCHANGE_ARMORCARD_COND05_3_SUCCESS		3879
 #define	TID_EXCHANGE_ARMORCARD_COND05_3_FAIL		3880
 
-//¹«±â Ä«µå º¯È¯ ½ºÅ©¸³Æ®
+//ë¬´ê¸° ì¹´ë“œ ë³€í™˜ ìŠ¤í¬ë¦½íŠ¸
 #define TID_EXCHANGE_WEAPONCARD_TEXT01				3881
 #define TID_EXCHANGE_WEAPONCARD_TEXT02				3882
 #define TID_EXCHANGE_WEAPONCARD_TEXT03				3883
@@ -3618,14 +3618,14 @@
 #define	TID_GAME_EVENT_TRADE_KOR2010_COND01		4398
 #define	TID_GAME_EVENT_TRADE_KOR2010_COND02		4399
 
-//»ó¿ë ¾ÆÀÌÅÛ °¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//ìƒìš© ì•„ì´í…œ ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 #define TID_GAME_REGARDLESS_USE01			4400
 
 #define TID_GAME_CHATTING_BLOCKING_LIST_TITLE		4401
 #define TID_GAME_CHATTING_BLOCKING_USERS_TOTAL_NUMBER	4402
 
-//»ó¿ë ¾ÆÀÌÅÛ °¢¼º º¸È£ÀÇ µÎ·ç¸¶¸® Ãß°¡ 
+//ìƒìš© ì•„ì´í…œ ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ ì¶”ê°€ 
 #define TID_GAME_REGARDLESS_USE02			4403
 #define TID_GAME_REGARDLESS_USE03			4404
 #define TID_GAME_REGARDLESS_USE04			4405
@@ -3689,35 +3689,35 @@
 #define TID_GAME_WND_STATUS_TEXT_EXP		4456
 #define TID_GAME_WND_STATUS_TEXT_BT		4457
 
-#define TID_MMI_EVENT_MATCHMAKER_TEXT		4458  //¿ùÇÏ³ëÀÎ
+#define TID_MMI_EVENT_MATCHMAKER_TEXT		4458  //ì›”í•˜ë…¸ì¸
 #define TID_MMI_EVENT_MATCHMAKER_COND		4459
 
-#define TID_MMI_EVENT_ALICE_PHP_FOR_TEXT		4464  //¾î¸Ó´ÏÀÇ ³¯
+#define TID_MMI_EVENT_ALICE_PHP_FOR_TEXT		4464  //ì–´ë¨¸ë‹ˆì˜ ë‚ 
 #define TID_MMI_EVENT_ALICE_PHP_FOR_COND		4465
 
-#define TID_MMI_EVENT_AROTTO_KOR_TEXT			4466  //·ÔÅä
+#define TID_MMI_EVENT_AROTTO_KOR_TEXT			4466  //ë¡¯í† 
 #define TID_MMI_EVENT_AROTTO_KOR_COND			4467
 
-// ±â´É »èÁ¦ ¿äÃ» ¸Þ½ÃÁö
+// ê¸°ëŠ¥ ì‚­ì œ ìš”ì²­ ë©”ì‹œì§€
 
 #define TID_GAME_TOOLTIP_TRADEERROR01		4460
 #define TID_GAME_TOOLTIP_TRADEERROR02 		4461
 #define TID_GAME_TOOLTIP_MAILERROR01 		4462
 #define TID_GAME_TOOLTIP_GUILDBANKERROR01 	4463
 
-// ±â´É »èÁ¦ ¿äÃ» ¸Þ½ÃÁö
+// ê¸°ëŠ¥ ì‚­ì œ ìš”ì²­ ë©”ì‹œì§€
 #define TID_GAME_TOOLTIP_PENAERROR01 	4468
 
-// NPC ¼ÒÈ¯
-#define TID_GAME_SUMMON_NPC_FULL								4470									//¼ÒÈ¯ÇÒ¼ö ÀÖ´Â NPC°¡ ÃÊ°ú µÊ
-#define TID_GAME_CANNOT_SUMMON_NPC_ON_FLYING		4471									//ºñÇàÁß¿¡´Â ¼ÒÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_GAME_CALLED_NPC_NOW_USE						4472									//¼ÒÈ¯µÈ NPC°¡ »ç¿ëÁß ÀÔ´Ï´Ù.
-#define TID_GAME_CALLED_NPC_IS_NOT_MINE					4473									//¼ÒÈ¯µÈ NPC°¡ ³»°ÍÀÌ ¾Æ´Õ´Ï´Ù.
-#define TID_GAME_ALREADY_CALLED_NPC							4474									//ÀÌ¹Ì ¼ÒÈ¯ µÇ¾îÀÖ½À´Ï´Ù.
+// NPC ì†Œí™˜
+#define TID_GAME_SUMMON_NPC_FULL								4470									//ì†Œí™˜í• ìˆ˜ ìžˆëŠ” NPCê°€ ì´ˆê³¼ ë¨
+#define TID_GAME_CANNOT_SUMMON_NPC_ON_FLYING		4471									//ë¹„í–‰ì¤‘ì—ëŠ” ì†Œí™˜í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_GAME_CALLED_NPC_NOW_USE						4472									//ì†Œí™˜ëœ NPCê°€ ì‚¬ìš©ì¤‘ ìž…ë‹ˆë‹¤.
+#define TID_GAME_CALLED_NPC_IS_NOT_MINE					4473									//ì†Œí™˜ëœ NPCê°€ ë‚´ê²ƒì´ ì•„ë‹™ë‹ˆë‹¤.
+#define TID_GAME_ALREADY_CALLED_NPC							4474									//ì´ë¯¸ ì†Œí™˜ ë˜ì–´ìžˆìŠµë‹ˆë‹¤.
 
-//½Å Á¦·Ã ½Ã½ºÅÛ °ü·Ã ¸Þ½ÃÁö Ãß°¡
+//ì‹  ì œë ¨ ì‹œìŠ¤í…œ ê´€ë ¨ ë©”ì‹œì§€ ì¶”ê°€
 
-//½Ãµå Á¦ÀÛ ½Ã½ºÅÛ
+//ì‹œë“œ ì œìž‘ ì‹œìŠ¤í…œ
 #define TID_MMI_NEWSMELT_CID01				4475
 #define TID_MMI_NEWSMELT_CID02				4476
 #define TID_MMI_NEWSMELT_CID03				4477
@@ -3727,26 +3727,26 @@
 #define TID_MMI_NEWSMELT_CID07				4481
 #define TID_MMI_NEWSMELT_CID08				4482
 
-//¿ÀÆÛ Á¦ÀÛ ½Ã½ºÅÛ
+//ì˜¤í¼ ì œìž‘ ì‹œìŠ¤í…œ
 #define TID_MMI_NEWSMELT_OPER01				4483
 #define TID_MMI_NEWSMELT_OPER02				4484
 #define TID_MMI_NEWSMELT_OPER03				4485
 #define TID_MMI_NEWSMELT_OPER04				4486
 
-//¿ÀÆÛ ÃßÃâ ½Ã½ºÅÛ
+//ì˜¤í¼ ì¶”ì¶œ ì‹œìŠ¤í…œ
 #define TID_MMI_NEWSMELT_OPEREXTRACT01		4487
 #define TID_MMI_NEWSMELT_OPEREXTRACT02		4488
 #define TID_MMI_NEWSMELT_OPEREXTRACT03		4489
 #define TID_MMI_NEWSMELT_OPEREXTRACT04		4490
 #define TID_MMI_NEWSMELT_OPEREXTRACT05		4491
 
-//¿ÀÆÛ ½Ãµå ½Ã½ºÅÛ
+//ì˜¤í¼ ì‹œë“œ ì‹œìŠ¤í…œ
 #define TID_MMI_NEWSMELT_OPERCID01		4492
 #define TID_MMI_NEWSMELT_OPERCID02		4493
 #define TID_MMI_NEWSMELT_OPERCID03		4494
 #define TID_MMI_NEWSMELT_OPERCID04		4495
 
-//½Å Á¦·Ã ½Ã½ºÅÛ
+//ì‹  ì œë ¨ ì‹œìŠ¤í…œ
 #define TID_MMI_NEWSMELT_NEWSMELT01		4496
 #define TID_MMI_NEWSMELT_NEWSMELT02		4497
 #define TID_MMI_NEWSMELT_NEWSMELT03		4498
@@ -3755,7 +3755,7 @@
 #define TID_MMI_NEWSMELT_NEWSMELT06		4501
 #define TID_MMI_NEWSMELT_NEWSMELT07		4502
 
-//16 Â÷ ¸Þ½ÃÁö Ãß°¡
+//16 ì°¨ ë©”ì‹œì§€ ì¶”ê°€
 #define TID_MMI_GHOUSE_BARUNASMELPROT	4503
 #define TID_MMI_GHOUSE_OPERPIECE		4504
 #define TID_MMI_GHOUSE_OPERMIX			4505
@@ -3763,63 +3763,63 @@
 #define TID_MMI_GHOUSE_UNSKILL			4507
 #define TID_MMI_ERRORSENCHANT_BARUNA			4508
 
-//3Â÷ ÀüÁ÷ ½ºÅ³ ¾Û¼Ö·çÆ® º£¸®¾î ¸Þ½ÃÁö Ãß°¡
+//3ì°¨ ì „ì§ ìŠ¤í‚¬ ì•±ì†”ë£¨íŠ¸ ë² ë¦¬ì–´ ë©”ì‹œì§€ ì¶”ê°€
 #define TID_MMI_ABSOLUTEBERRIER01			4509
 
-//Äù½ºÆ® °ü·Ã ¿¡·¯ ¸Þ½ÃÁö
+//í€˜ìŠ¤íŠ¸ ê´€ë ¨ ì—ëŸ¬ ë©”ì‹œì§€
 #define TID_MMI_USING_QUEST_GIFT_ITEM		4510		
 
-//ESÁõÆøÀÇ µÎ·ç¸¶¸® 4¹øÂ°, 5¹øÂ° Áßº¹ ¸Þ½ÃÁö Ãß°¡
+//ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬ 4ë²ˆì§¸, 5ë²ˆì§¸ ì¤‘ë³µ ë©”ì‹œì§€ ì¶”ê°€
 #define TID_GAME_EXP_COUTMSG4				4511
 #define TID_GAME_EXP_COUTMSG5				4512
 
-//ESÁõÆøÀÇ µÎ·ç¸¶¸® ·¹º§ ÃÊ°ú·Î ÀÎÇØ »ç¿ë È¿°ú Á¦°Å ¸Þ½ÃÁö
+//ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬ ë ˆë²¨ ì´ˆê³¼ë¡œ ì¸í•´ ì‚¬ìš© íš¨ê³¼ ì œê±° ë©”ì‹œì§€
 
 #define TID_GAME_EXP_LEVELEXCESS01				4513
 
-//ÇÒ·ÎÀ©±³È¯
+//í• ë¡œìœˆêµí™˜
 #define TID_MMI_ZOMBIES_CHANGE2_FOR_TEXT				4514
 
-//ÀÏº» ±³È¯ ¸Å´º
-#define TID_MMI_JAP_CHANGE_FOR_TEXT						4515	// ÀÏº» ±³È¯ ¸Å´º
+//ì¼ë³¸ êµí™˜ ë§¤ë‰´
+#define TID_MMI_JAP_CHANGE_FOR_TEXT						4515	// ì¼ë³¸ êµí™˜ ë§¤ë‰´
 
-//±æµåÇÏ¿ì½º ÁßÇü ¸Þ½ÃÁö Ãß°¡
-#define TID_MMI_GHOUSE_GUILDHOUSEOUT						4516	// ±æµå ÇÏ¿ì½º ÁßÇü ÅðÀå ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_GUILDHOUSESUCCESSFUL					4517	// ±æµå ÇÏ¿ì½º ÁßÇü ³«Âû ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_GUILDHOUSEBIDNOTICE					4518	// ±æµå ÇÏ¿ì½º ÁßÇü ÀÔÂû ¾Ë¸² ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_GUILDHOUSEENDNOTICE					4519	// ±æµå ÇÏ¿ì½º ÁßÇü ÀÔÂû ¸¶°¨ ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_GUILDNOTBID							4520	// ±æµå ÇÏ¿ì½º ÁßÇü ÀÔÂû ±æµå ¾øÀ½ ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_NOTWEEKBIDGUILDHOUSE					4521	// ±ÝÁÖ ÀÔÂû ±æµå ÇÏ¿ì½º ¾ø´Ù´Â ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_GUILDBIDENDMASSAGE					4522	// ±æµåÇÏ¿ì½º ÀÔÂû Á¾·á ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_BIDENDMAILTITLE						4523	// ÀÔÂû Á¾·á ¸ÞÀÏ Å¸ÀÌÆ²
-#define TID_MMI_GHOUSE_BIDENDMAILTITLE01					4524	// ÀÔÂû Á¾·á ¸ÞÀÏ ¾È³»¹®
-#define TID_MMI_GHOUSE_GUILDCHANGECOMPLETE					4525	// ±æµå ÇÏ¿ì½º ¼³¸í º¯°æ ¿Ï·á ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_GUILDCHANGEFAILED					4526	// ±æµå ÇÏ¿ì½º ¼³¸í º¯°æ ½ÇÆÐ ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_GUILDLEVELUPFAILED					4527	// ±æµå ÇÏ¿ì½º ·¹º§¾÷ ½ÇÆÐ ¸Þ½ÃÁö
-#define TID_MMI_GHOUSE_NOTBIDTURMNOTLIST					4528	// ÀÔÂû ±â°£ÀÌ ¾Æ´Ï°Å³ª ÀÔÂû ¸ñ·ÏÀÌ ¾øÀ½
-#define TID_MMI_GHOUSE_NOTMONEYCONDITION					4529	// Àß¸ø µÈ ±Ý¾×À» ÀÔ·ÂÇßÀ» °æ¿ì
-#define TID_MMI_GHOUSE_MONEYEXCESS							4530	// 21¾ï Æä³Ä¸¦ ÃÊ°úÇÏ¿´À» °æ¿ì
-#define TID_MMI_GHOUSE_MINIMUMMONEYBID						4531	// ÃÖ¼Ò ÀÔÂû±Ýº¸´Ù ³·Àº ±Ý¾×À» ÀÔ·ÂÇßÀ» °æ¿ì
-#define TID_MMI_GHOUSE_NOTFOUNDBIDGUILD						4532	// ÀÔÂûÇÑ ±æµå°¡ ¾ø½À´Ï´Ù
-#define TID_GAME_CONT_ELIUN									4533	// ¿¤¸®¿î ¸¶À»
+//ê¸¸ë“œí•˜ìš°ìŠ¤ ì¤‘í˜• ë©”ì‹œì§€ ì¶”ê°€
+#define TID_MMI_GHOUSE_GUILDHOUSEOUT						4516	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ì¤‘í˜• í‡´ìž¥ ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_GUILDHOUSESUCCESSFUL					4517	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ì¤‘í˜• ë‚™ì°° ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_GUILDHOUSEBIDNOTICE					4518	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ì¤‘í˜• ìž…ì°° ì•Œë¦¼ ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_GUILDHOUSEENDNOTICE					4519	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ì¤‘í˜• ìž…ì°° ë§ˆê° ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_GUILDNOTBID							4520	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ì¤‘í˜• ìž…ì°° ê¸¸ë“œ ì—†ìŒ ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_NOTWEEKBIDGUILDHOUSE					4521	// ê¸ˆì£¼ ìž…ì°° ê¸¸ë“œ í•˜ìš°ìŠ¤ ì—†ë‹¤ëŠ” ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_GUILDBIDENDMASSAGE					4522	// ê¸¸ë“œí•˜ìš°ìŠ¤ ìž…ì°° ì¢…ë£Œ ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_BIDENDMAILTITLE						4523	// ìž…ì°° ì¢…ë£Œ ë©”ì¼ íƒ€ì´í‹€
+#define TID_MMI_GHOUSE_BIDENDMAILTITLE01					4524	// ìž…ì°° ì¢…ë£Œ ë©”ì¼ ì•ˆë‚´ë¬¸
+#define TID_MMI_GHOUSE_GUILDCHANGECOMPLETE					4525	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ì„¤ëª… ë³€ê²½ ì™„ë£Œ ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_GUILDCHANGEFAILED					4526	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ì„¤ëª… ë³€ê²½ ì‹¤íŒ¨ ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_GUILDLEVELUPFAILED					4527	// ê¸¸ë“œ í•˜ìš°ìŠ¤ ë ˆë²¨ì—… ì‹¤íŒ¨ ë©”ì‹œì§€
+#define TID_MMI_GHOUSE_NOTBIDTURMNOTLIST					4528	// ìž…ì°° ê¸°ê°„ì´ ì•„ë‹ˆê±°ë‚˜ ìž…ì°° ëª©ë¡ì´ ì—†ìŒ
+#define TID_MMI_GHOUSE_NOTMONEYCONDITION					4529	// ìž˜ëª» ëœ ê¸ˆì•¡ì„ ìž…ë ¥í–ˆì„ ê²½ìš°
+#define TID_MMI_GHOUSE_MONEYEXCESS							4530	// 21ì–µ íŽ˜ëƒë¥¼ ì´ˆê³¼í•˜ì˜€ì„ ê²½ìš°
+#define TID_MMI_GHOUSE_MINIMUMMONEYBID						4531	// ìµœì†Œ ìž…ì°°ê¸ˆë³´ë‹¤ ë‚®ì€ ê¸ˆì•¡ì„ ìž…ë ¥í–ˆì„ ê²½ìš°
+#define TID_MMI_GHOUSE_NOTFOUNDBIDGUILD						4532	// ìž…ì°°í•œ ê¸¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤
+#define TID_GAME_CONT_ELIUN									4533	// ì—˜ë¦¬ìš´ ë§ˆì„
 
-//Àå¹Ù±¸´Ï °ü·Ã ¿¡·¯ ¸Þ¼¼Áö 
-#define TID_CART_ERROR_MSG_1								4534	// Àå¹Ù±¸´Ï°¡ ½½·ÔÀÌ ¸ðµÎ Âü
-#define TID_CART_ERROR_MSG_2								4535	// Àå¹Ù±¸´Ï ½½·ÔÀÌ ºÎÁ·ÇÔ
-#define TID_CART_ERROR_MSG_3								4536	// ¼ÒÁö±Ý¾×ÀÌ ºÎÁ·ÇÔ
-#define TID_CART_ERROR_MSG_4								4537	// ÀÎº¥ ¿©À¯ ½½·ÔÀÌ ºÎÁ·ÇÔ
-#define TID_CART_ERROR_MSG_5								4538	// ÃÖ´ë ±¸¸Å ±Ý¾× ÃÊ°ú
+//ìž¥ë°”êµ¬ë‹ˆ ê´€ë ¨ ì—ëŸ¬ ë©”ì„¸ì§€ 
+#define TID_CART_ERROR_MSG_1								4534	// ìž¥ë°”êµ¬ë‹ˆê°€ ìŠ¬ë¡¯ì´ ëª¨ë‘ ì°¸
+#define TID_CART_ERROR_MSG_2								4535	// ìž¥ë°”êµ¬ë‹ˆ ìŠ¬ë¡¯ì´ ë¶€ì¡±í•¨
+#define TID_CART_ERROR_MSG_3								4536	// ì†Œì§€ê¸ˆì•¡ì´ ë¶€ì¡±í•¨
+#define TID_CART_ERROR_MSG_4								4537	// ì¸ë²¤ ì—¬ìœ  ìŠ¬ë¡¯ì´ ë¶€ì¡±í•¨
+#define TID_CART_ERROR_MSG_5								4538	// ìµœëŒ€ êµ¬ë§¤ ê¸ˆì•¡ ì´ˆê³¼
 
-//Àå¹Ù±¸´Ï 
-#define TID_CART_NOTICE_BUY									4539	// ±¸ÀÔ¿Ï·á
-#define TID_CART_NOTICE_CLOSE								4540	// Àå¹Ù±¸´Ï¿¡ ¾ÆÀÌÅÛÀÌ ÀÖ´Â »óÅÂ¿¡¼­ NPC »óÁ¡ ³ª°¡±â
+//ìž¥ë°”êµ¬ë‹ˆ 
+#define TID_CART_NOTICE_BUY									4539	// êµ¬ìž…ì™„ë£Œ
+#define TID_CART_NOTICE_CLOSE								4540	// ìž¥ë°”êµ¬ë‹ˆì— ì•„ì´í…œì´ ìžˆëŠ” ìƒíƒœì—ì„œ NPC ìƒì  ë‚˜ê°€ê¸°
 
-//À¯·´ È¦´ý ÀÌº¥Æ® NPC ±³È¯ ¸Þ´º
-#define TID_MMI_HOLDEMEVENT01_TEXT				4541 // AÄ«µå 4Àå ±³È¯
-#define TID_MMI_HOLDEMEVENT02_TEXT				4542 // KÄ«µå 4Àå ±³È¯
-#define TID_MMI_HOLDEMEVENT03_TEXT				4543 // QÄ«µå 4Àå ±³È¯
-#define TID_MMI_HOLDEMEVENT04_TEXT				4544 // JÄ«µå 4Àå ±³È¯
-#define TID_MMI_HOLDEMEVENT05_TEXT				4545 // A/K/Q/J Ä«µå 1Àå¾¿ ±³È¯
+//ìœ ëŸ½ í™€ë¤ ì´ë²¤íŠ¸ NPC êµí™˜ ë©”ë‰´
+#define TID_MMI_HOLDEMEVENT01_TEXT				4541 // Aì¹´ë“œ 4ìž¥ êµí™˜
+#define TID_MMI_HOLDEMEVENT02_TEXT				4542 // Kì¹´ë“œ 4ìž¥ êµí™˜
+#define TID_MMI_HOLDEMEVENT03_TEXT				4543 // Qì¹´ë“œ 4ìž¥ êµí™˜
+#define TID_MMI_HOLDEMEVENT04_TEXT				4544 // Jì¹´ë“œ 4ìž¥ êµí™˜
+#define TID_MMI_HOLDEMEVENT05_TEXT				4545 // A/K/Q/J ì¹´ë“œ 1ìž¥ì”© êµí™˜
 
 #define TID_ITEM_CANCEL_CLEAR_EQUIP			4546
 #define TID_ITEM_CANCEL_CLEAR_USE			4547
@@ -3827,21 +3827,21 @@
 #define TID_ITEM_CANCEL_ERROR2				4549
 #define TID_ITEM_CANCEL_ERROR3				4550
 
-//ÀÎº¥Åä¸® È®Àå
+//ì¸ë²¤í† ë¦¬ í™•ìž¥
 #define TID_INVEN_NEWITEM				4551
 #define TID_INVEN_PET					4552
 #define TID_INVEN_COSTUME				4553
 #define TID_INVEN_QUEST					4554
 
-//Á¦·Ã ¼º°ø ½ºÅ©·Ñ °ü·Ã ¾È³»/¿¡·¯ ¸Þ½ÃÁö
-#define TID_SMELTING_NOTICE				4555	//Á¦·Ã ¼º°ø ½ºÅ©·Ñ »ç¿ë ¾È³» ¸Þ½ÃÁö
-#define TID_SMELTING_ERROR1				4556	//Á¦·Ã ¼º°ø ½ºÅ©·Ñ Áßº¹ »ç¿ë ºÒ°¡ ¸Þ½ÃÁö
+//ì œë ¨ ì„±ê³µ ìŠ¤í¬ë¡¤ ê´€ë ¨ ì•ˆë‚´/ì—ëŸ¬ ë©”ì‹œì§€
+#define TID_SMELTING_NOTICE				4555	//ì œë ¨ ì„±ê³µ ìŠ¤í¬ë¡¤ ì‚¬ìš© ì•ˆë‚´ ë©”ì‹œì§€
+#define TID_SMELTING_ERROR1				4556	//ì œë ¨ ì„±ê³µ ìŠ¤í¬ë¡¤ ì¤‘ë³µ ì‚¬ìš© ë¶ˆê°€ ë©”ì‹œì§€
 
-//ÀÎµµ³×½Ã¾Æ °ü·Ã ¸Þ½ÃÁö Ãß°¡
-#define TID_INDONESIA_IDPASSERROR01			4557	//¾ÆÀÌµð ¶Ç´Â ÆÐ½º¿öµå°¡ Æ²·ÈÀ» °æ¿ì ¸Þ½ÃÁö
-#define TID_INDONESIA_LOGINERROR01			4558	//´Ù¸¥ °ÔÀÓ¿¡¼­ ·Î±×ÀÎÇßÀ» °æ¿ì ¸Þ½ÃÁö
+//ì¸ë„ë„¤ì‹œì•„ ê´€ë ¨ ë©”ì‹œì§€ ì¶”ê°€
+#define TID_INDONESIA_IDPASSERROR01			4557	//ì•„ì´ë”” ë˜ëŠ” íŒ¨ìŠ¤ì›Œë“œê°€ í‹€ë ¸ì„ ê²½ìš° ë©”ì‹œì§€
+#define TID_INDONESIA_LOGINERROR01			4558	//ë‹¤ë¥¸ ê²Œìž„ì—ì„œ ë¡œê·¸ì¸í–ˆì„ ê²½ìš° ë©”ì‹œì§€
 
-//--------------- ¹Ù·ç³ª ÇÇ¾î½Ì °ü·Ã TEXT -----------------
+//--------------- ë°”ë£¨ë‚˜ í”¼ì–´ì‹± ê´€ë ¨ TEXT -----------------
 #define TID_BW_PEARCING_CONFIRM_MSG_1			4559
 #define TID_BW_PEARCING_CONFIRM_MSG_2			4560
 #define TID_BW_PEARCING_CONFIRM_MSG_3			4561
@@ -3857,131 +3857,131 @@
 //------------------------------------------------------
 
 
-// Çùµ¿±âºÎ ÀÌº¥Æ® ¸Þ½ÃÁö 
-#define TID_MMI_COOPERATION_DONATION01			4571    // ±âºÎ Á¶°ÇÀÌ µÇÁö ¾Ê¾Æ ±âºÎ¸¦ ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION02			4572    // ±âºÎ ±â°£ÀÌ ¾Æ´Õ´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION03			4573    // ÀÌ¹Ì ±âºÎ¸¦ ÇÏ¿© ´õ ÀÌ»ó ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION04			4574    // ±âºÎ ÇÒ ¾ÆÀÌÅÛÀÌ ÇöÀç »ç¿ë ÁßÀÌ°Å³ª ¼ö·®ÀÌ ºÎÁ·ÇÕ´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION05			4575    // ¼ÒÁöÇÏ°í ÀÖ´Â Æä³Ä°¡ ºÎÁ·ÇÏ¿© ±âºÎ¸¦ ÇÒ ¼ö ¾ø½À´Ï´Ù.
+// í˜‘ë™ê¸°ë¶€ ì´ë²¤íŠ¸ ë©”ì‹œì§€ 
+#define TID_MMI_COOPERATION_DONATION01			4571    // ê¸°ë¶€ ì¡°ê±´ì´ ë˜ì§€ ì•Šì•„ ê¸°ë¶€ë¥¼ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION02			4572    // ê¸°ë¶€ ê¸°ê°„ì´ ì•„ë‹™ë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION03			4573    // ì´ë¯¸ ê¸°ë¶€ë¥¼ í•˜ì—¬ ë” ì´ìƒ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION04			4574    // ê¸°ë¶€ í•  ì•„ì´í…œì´ í˜„ìž¬ ì‚¬ìš© ì¤‘ì´ê±°ë‚˜ ìˆ˜ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION05			4575    // ì†Œì§€í•˜ê³  ìžˆëŠ” íŽ˜ëƒê°€ ë¶€ì¡±í•˜ì—¬ ê¸°ë¶€ë¥¼ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 
-//ÄÝ·Î¼¼¿ò ½Ã½ºÅÛ ¸Þ½ÃÁö
-#define TID_COLOSSEUM_NOTENTERTIME01			4576 	//ÀÔÀå °¡´ÉÇÑ ½Ã°£ÀÌ ¾Æ´Ò °æ¿ì
-#define TID_COLOSSEUM_NOTENTERMATCH01			4577 	//ÀÔÀå Á¶°ÇÀÌ ÀÏÄ¡ÇÏÁö ¾ÊÀ» °æ¿ì
-#define TID_COLOSSEUM_COLOFAILD01				4578 	//ÄÝ·Î¼¼¿ò Á¡·É ½ÇÆÐ½Ã
-#define TID_COLOSSEUM_COLOSUCCESS01				4579 	//°¢ ½ºÅ×ÀÌÁö¸¦ ¼º°øÇßÀ» ¶§
-#define TID_COLOSSEUM_COLOINVITE01				4580 	//ÄÝ·Î¼¼¿òÀ» ¸ðµÎ ¿Ï·áÇßÀ» ¶§
-#define TID_COLOSSEUM_COLOISGUILDJOIN01			4581 	//±Ø´ÜÀåÀÌ ÀÔÀåÀ» À§ÇØ °¢ ÆÄÆ¼¿øÀ»¿¡°Ô ÃÊ´ë ¸Þ½ÃÁö¸¦ ³¯¸± ¶§
-#define TID_COLOSSEUM_COLONOWPLAYING01			4582 	//±Ø´Ü¿¡ °¡ÀÔÇÏÁö ¾ÊÀº »óÅÂ¿¡¼­ ÄÝ·Î¼¼¿ò ÀÔÀå ½Ãµµ½Ã
-#define TID_COLOSSEUM_COLOLV90DOWNNOTENTER01	4583 	//90lvÀÌ»óÀÇ À¯Àú°¡ Àú ·¹º§ ÄÝ·Î¼¼¿ò¿¡ ÀÔÀåÀ» ½ÃµµÇÒ ¶§
-#define TID_COLOSSEUM_COLOGUILDGROUP01			4584 	//±æµå ÆÄÆ¼°¡ ¾Æ´Ñ ÀÏ¹Ý ÆÄÆ¼¿øÀÌ ÄÝ·Î¼¼¿ò ÀÔÀåÀ» ½ÃµµÇÒ ¶§
-#define TID_COLOSSEUM_COLOENTER01				4585 	//ÄÝ·Î¼¼¿ò¿¡ ÀÔÀåÇÏ¿´À» ¶§
-#define TID_COLOSSEUM_WATINGSTAGERESTART01		4586 	//ÄÝ·Î¼¼¿ò Àç µµÀüÀ» ÁøÇàÇÒ ¶§
-#define TID_COLOSSEUM_WATINGSTAGESTART01		4587	//°¢ ´Ü°èº° ½ºÅ×ÀÌÁö°¡ ½ÃÀÛµÈ´Ù´Â ¾Ë¸² ¸Þ½ÃÁö
-#define TID_COLOSSEUM_JINBOSS01					4588 	//º¸½º ÃâÇö È®·ü Áõ°¡ Ä³½Ã ¾ÆÀÌÅÛ »ç¿ë½Ã ¸Þ½ÃÁö
-#define TID_COLOSSEUM_RESTARTITEM01				4589 	//¸Þ¸£µ¥¸£ÀÇ °¡º¸¸¦ º¸À¯ÇÏ°í ÀÖÁö ¾ÊÀº »óÅÂ¿¡¼­ Àç µµÀü ¹öÆ° Å¬¸¯½Ã
-#define TID_COLOSSEUM_TIMEOVERCOLOGATE01		4590 	//½Ã°£ÀÌ °æ°úÇÒ °æ¿ì ÀÚµ¿À¸·Î ÄÝ·Î¼¼¿ò ¹ÛÀ¸·Î ÀÌµ¿ µÉ ¶§ÀÇ ¸Þ½ÃÁö
-#define TID_COLOSSEUM_COLONOTPLAYINGPARTY01		4591 	//ÀÚ½ÅÀÇ ±Ø´ÜÀÌ ÄÝ·Î¼¼¿òÀ» ÁøÇàÇÏÁö ¾Ê°í ÀÖ´Âµ¥ ÀÔÀå ½Ãµµ½Ã
+//ì½œë¡œì„¸ì›€ ì‹œìŠ¤í…œ ë©”ì‹œì§€
+#define TID_COLOSSEUM_NOTENTERTIME01			4576 	//ìž…ìž¥ ê°€ëŠ¥í•œ ì‹œê°„ì´ ì•„ë‹ ê²½ìš°
+#define TID_COLOSSEUM_NOTENTERMATCH01			4577 	//ìž…ìž¥ ì¡°ê±´ì´ ì¼ì¹˜í•˜ì§€ ì•Šì„ ê²½ìš°
+#define TID_COLOSSEUM_COLOFAILD01				4578 	//ì½œë¡œì„¸ì›€ ì ë ¹ ì‹¤íŒ¨ì‹œ
+#define TID_COLOSSEUM_COLOSUCCESS01				4579 	//ê° ìŠ¤í…Œì´ì§€ë¥¼ ì„±ê³µí–ˆì„ ë•Œ
+#define TID_COLOSSEUM_COLOINVITE01				4580 	//ì½œë¡œì„¸ì›€ì„ ëª¨ë‘ ì™„ë£Œí–ˆì„ ë•Œ
+#define TID_COLOSSEUM_COLOISGUILDJOIN01			4581 	//ê·¹ë‹¨ìž¥ì´ ìž…ìž¥ì„ ìœ„í•´ ê° íŒŒí‹°ì›ì„ì—ê²Œ ì´ˆëŒ€ ë©”ì‹œì§€ë¥¼ ë‚ ë¦´ ë•Œ
+#define TID_COLOSSEUM_COLONOWPLAYING01			4582 	//ê·¹ë‹¨ì— ê°€ìž…í•˜ì§€ ì•Šì€ ìƒíƒœì—ì„œ ì½œë¡œì„¸ì›€ ìž…ìž¥ ì‹œë„ì‹œ
+#define TID_COLOSSEUM_COLOLV90DOWNNOTENTER01	4583 	//90lvì´ìƒì˜ ìœ ì €ê°€ ì € ë ˆë²¨ ì½œë¡œì„¸ì›€ì— ìž…ìž¥ì„ ì‹œë„í•  ë•Œ
+#define TID_COLOSSEUM_COLOGUILDGROUP01			4584 	//ê¸¸ë“œ íŒŒí‹°ê°€ ì•„ë‹Œ ì¼ë°˜ íŒŒí‹°ì›ì´ ì½œë¡œì„¸ì›€ ìž…ìž¥ì„ ì‹œë„í•  ë•Œ
+#define TID_COLOSSEUM_COLOENTER01				4585 	//ì½œë¡œì„¸ì›€ì— ìž…ìž¥í•˜ì˜€ì„ ë•Œ
+#define TID_COLOSSEUM_WATINGSTAGERESTART01		4586 	//ì½œë¡œì„¸ì›€ ìž¬ ë„ì „ì„ ì§„í–‰í•  ë•Œ
+#define TID_COLOSSEUM_WATINGSTAGESTART01		4587	//ê° ë‹¨ê³„ë³„ ìŠ¤í…Œì´ì§€ê°€ ì‹œìž‘ëœë‹¤ëŠ” ì•Œë¦¼ ë©”ì‹œì§€
+#define TID_COLOSSEUM_JINBOSS01					4588 	//ë³´ìŠ¤ ì¶œí˜„ í™•ë¥  ì¦ê°€ ìºì‹œ ì•„ì´í…œ ì‚¬ìš©ì‹œ ë©”ì‹œì§€
+#define TID_COLOSSEUM_RESTARTITEM01				4589 	//ë©”ë¥´ë°ë¥´ì˜ ê°€ë³´ë¥¼ ë³´ìœ í•˜ê³  ìžˆì§€ ì•Šì€ ìƒíƒœì—ì„œ ìž¬ ë„ì „ ë²„íŠ¼ í´ë¦­ì‹œ
+#define TID_COLOSSEUM_TIMEOVERCOLOGATE01		4590 	//ì‹œê°„ì´ ê²½ê³¼í•  ê²½ìš° ìžë™ìœ¼ë¡œ ì½œë¡œì„¸ì›€ ë°–ìœ¼ë¡œ ì´ë™ ë  ë•Œì˜ ë©”ì‹œì§€
+#define TID_COLOSSEUM_COLONOTPLAYINGPARTY01		4591 	//ìžì‹ ì˜ ê·¹ë‹¨ì´ ì½œë¡œì„¸ì›€ì„ ì§„í–‰í•˜ì§€ ì•Šê³  ìžˆëŠ”ë° ìž…ìž¥ ì‹œë„ì‹œ
 
-//ÄÝ·Î¼¼¿ò ·©Å· ÇöÀç »ç¿ëºÒ°¡´ÉÇÏ´Ù´Â ¸Þ½ÃÁö
+//ì½œë¡œì„¸ì›€ ëž­í‚¹ í˜„ìž¬ ì‚¬ìš©ë¶ˆê°€ëŠ¥í•˜ë‹¤ëŠ” ë©”ì‹œì§€
 #define TID_COLOSSEUM_COLORANKERROR01			4592
 
-//Å©¸®½º¸¶½º Á¤·É ±³È¯ ¸Þ´º
-#define TID_MMI_CHRISTMASFAIRY01_TEXT			4593 	//Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 1°³
-#define TID_MMI_CHRISTMASFAIRY02_TEXT			4594 	//Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 25°³
-#define TID_MMI_CHRISTMASFAIRY03_TEXT			4595 	//Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 50°³
-#define TID_MMI_CHRISTMASFAIRY04_TEXT			4596 	//Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 75°³
-#define TID_MMI_CHRISTMASFAIRY05_TEXT			4597 	//Å©¸®½º¸¶½º Á¤·É ÅäÅ« ±³È¯ 100°³
+//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ êµí™˜ ë©”ë‰´
+#define TID_MMI_CHRISTMASFAIRY01_TEXT			4593 	//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 1ê°œ
+#define TID_MMI_CHRISTMASFAIRY02_TEXT			4594 	//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 25ê°œ
+#define TID_MMI_CHRISTMASFAIRY03_TEXT			4595 	//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 50ê°œ
+#define TID_MMI_CHRISTMASFAIRY04_TEXT			4596 	//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 75ê°œ
+#define TID_MMI_CHRISTMASFAIRY05_TEXT			4597 	//í¬ë¦¬ìŠ¤ë§ˆìŠ¤ ì •ë ¹ í† í° êµí™˜ 100ê°œ
 
-//ÄÝ·Î¼¼¿ò Áøº¸½º È®·ü Áõ°¡ ¾ÆÀÌÅÛ ¸Þ¼¼Áö
-#define TID_COLOSSEUM_CANT_USE_ITEM			4598 	//Áö±ÝÀº »ç¿ë ÇÒ ¼ö ¾ø½À´Ï´Ù.
+//ì½œë¡œì„¸ì›€ ì§„ë³´ìŠ¤ í™•ë¥  ì¦ê°€ ì•„ì´í…œ ë©”ì„¸ì§€
+#define TID_COLOSSEUM_CANT_USE_ITEM			4598 	//ì§€ê¸ˆì€ ì‚¬ìš© í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 
-//ÄÝ·Î¼¼¿ò ¹Ì¸® ÁøÇàÁßÀÏ ¶§ ±Ø´Ü¿ø¿¡°Ô ¹ß»ýµÇ´Â ¸Þ½ÃÁö
-#define TID_COLOSSEUM_ALREADYPLAYNG			4599 	//ÀÌ¹Ì ¼Ò¼ÓµÈ ±Ø´ÜÀÌ ÄÝ·Î¼¼¿òÀ» ÁøÇàÁßÀÔ´Ï´Ù.
+//ì½œë¡œì„¸ì›€ ë¯¸ë¦¬ ì§„í–‰ì¤‘ì¼ ë•Œ ê·¹ë‹¨ì›ì—ê²Œ ë°œìƒë˜ëŠ” ë©”ì‹œì§€
+#define TID_COLOSSEUM_ALREADYPLAYNG			4599 	//ì´ë¯¸ ì†Œì†ëœ ê·¹ë‹¨ì´ ì½œë¡œì„¸ì›€ì„ ì§„í–‰ì¤‘ìž…ë‹ˆë‹¤.
 
-//±Ø´ÜÀåÀÌ ¾Æ´Ñ ±Ø´Ü¿øÀÌ ÄÝ·Î¼¼¿ò ÀÔÀåÀ» ½ÃµµÇßÀ» °æ¿ì ¸Þ½ÃÁö
-#define TID_COLOSSEUM_NOTPARTYREADERENGER		4600 	//±Ø´Ü¿øÀº ÄÝ·Î¼¼¿ò ÀÔÀåÀ» ½ÅÃ»ÇÒ ¼ö ¾øÀ¸¸ç ±Ø´ÜÀå¸¸ÀÌ °¡´ÉÇÕ´Ï´Ù.
+//ê·¹ë‹¨ìž¥ì´ ì•„ë‹Œ ê·¹ë‹¨ì›ì´ ì½œë¡œì„¸ì›€ ìž…ìž¥ì„ ì‹œë„í–ˆì„ ê²½ìš° ë©”ì‹œì§€
+#define TID_COLOSSEUM_NOTPARTYREADERENGER		4600 	//ê·¹ë‹¨ì›ì€ ì½œë¡œì„¸ì›€ ìž…ìž¥ì„ ì‹ ì²­í•  ìˆ˜ ì—†ìœ¼ë©° ê·¹ë‹¨ìž¥ë§Œì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-//±¸¸Å ¿¹»ó ±Ý¾×ÀÌ ±¸¸Å ÇÑµµ ±Ý¾×ÀÌ¸ç ¾ÆÀÌÅÛ Ãß°¡ ±¸¸Å ½Ãµµ ½Ã ¸Þ½ÃÁö
+//êµ¬ë§¤ ì˜ˆìƒ ê¸ˆì•¡ì´ êµ¬ë§¤ í•œë„ ê¸ˆì•¡ì´ë©° ì•„ì´í…œ ì¶”ê°€ êµ¬ë§¤ ì‹œë„ ì‹œ ë©”ì‹œì§€
 #define TID_CART_ERROR_MSG_6		4601
 
-//±Ø´Ü¿øÀÌ Á×¾úÀ» ¶§ ¶ß´Â ui¿¡ ÅðÀå½Ã°£ °ü·ÃÇÑ ¸Þ½ÃÁö
+//ê·¹ë‹¨ì›ì´ ì£½ì—ˆì„ ë•Œ ëœ¨ëŠ” uiì— í‡´ìž¥ì‹œê°„ ê´€ë ¨í•œ ë©”ì‹œì§€
 #define TID_COLOSSEUM_OUTTIMEMASSAGE		4602
 
-//¹Ù·ç³ª ÇÇ¾î½Ì ¾ÆÀÌÅÛ µî·Ï ¿À·ù¸Þ¼¼Áö
+//ë°”ë£¨ë‚˜ í”¼ì–´ì‹± ì•„ì´í…œ ë“±ë¡ ì˜¤ë¥˜ë©”ì„¸ì§€
 #define TID_BARUNAPEARCING_ERRORMSG			4603
 
-//ÄÝ·Î¼¼¿ò UIÃ¢
-#define TID_COLOSSEUM_HIGHCOLORANKING01		4604    //ÄÝ·Î¼¼¿ò ·©Å·
-#define TID_COLOSSEUM_LOWCOLORANKING01		4605	//Àú ·¹º§ ÄÝ·Î¼¼¿ò ·©Å·
-#define TID_COLOSSEUM_DAYTIMERANKING01		4606	//ÁÖ°£
-#define TID_COLOSSEUM_MONTHLYRANKING01		4607	//¿ù°£
-#define TID_COLOSSEUM_HALLOFFAME01			4608	//¸í¿¹ÀÇ Àü´ç
+//ì½œë¡œì„¸ì›€ UIì°½
+#define TID_COLOSSEUM_HIGHCOLORANKING01		4604    //ì½œë¡œì„¸ì›€ ëž­í‚¹
+#define TID_COLOSSEUM_LOWCOLORANKING01		4605	//ì € ë ˆë²¨ ì½œë¡œì„¸ì›€ ëž­í‚¹
+#define TID_COLOSSEUM_DAYTIMERANKING01		4606	//ì£¼ê°„
+#define TID_COLOSSEUM_MONTHLYRANKING01		4607	//ì›”ê°„
+#define TID_COLOSSEUM_HALLOFFAME01			4608	//ëª…ì˜ˆì˜ ì „ë‹¹
 
 
-//ÄÚ½ºÆ¬ ÇÕ¼º ½Ã½ºÅÛ ¸Þ½ÃÁö
-#define TID_COSTUME_REGISTERNOTITEM				4609    //µî·ÏÇÒ ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÔ´Ï´Ù.
-#define TID_COSTUME_REGISTERNOTSLOT				4610	//µî·Ï °¡´ÉÇÑ ½½·ÔÀÌ ¾Æ´Õ´Ï´Ù.
-#define TID_COSTUME_ITEMOVERLAP					4611	//ÀÌ¹Ì µî·ÏµÇ¾î ÀÖ¾î Áßº¹ µî·ÏÀÌ ºÒ°¡´É ÇÕ´Ï´Ù.
-#define TID_COSTUME_NOTSAMEITEM					4612	//µî·Ï µÈ ÄÚ½ºÆ¬ÀÌ µ¿ÀÏÇÑ ÄÚ½ºÆ¬ÀÌ ¾Æ´Õ´Ï´Ù. È®ÀÎ ÈÄ ´Ù½Ã ½Ãµµ ÇØ ÁÖ¼¼¿ä
-#define TID_COSTUME_NOTINVENTORYSPACE			4613	//ÀÎº¥Åä¸® °ø°£ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. È®ÀÎ ÈÄ ´Ù½Ã ½Ãµµ ÇØ ÁÖ¼¼¿ä.
-#define TID_COSTUME_COSTUMEMIXCOMPLETE			4614	//[****]ÀÇ ÇÕ¼ºÀÌ ¼º°øÀûÀ¸·Î ÀÌ·ç¾îÁ³½À´Ï´Ù.
-#define TID_COSTUME_COSTUMEMIXENTRY01			4623 //ÄÚ½ºÆ¬ ÇÕ¼º UI¿¡ ¾ÆÀÌÅÛÀÌ µî·Ï µÉ °æ¿ì ÀåÂø ºÒ°¡´É ÇÒ °æ¿ì Ãâ·ÂµÇ´Â ¸Þ½ÃÁö
+//ì½”ìŠ¤íŠ¬ í•©ì„± ì‹œìŠ¤í…œ ë©”ì‹œì§€
+#define TID_COSTUME_REGISTERNOTITEM				4609    //ë“±ë¡í•  ìˆ˜ ì—†ëŠ” ì•„ì´í…œìž…ë‹ˆë‹¤.
+#define TID_COSTUME_REGISTERNOTSLOT				4610	//ë“±ë¡ ê°€ëŠ¥í•œ ìŠ¬ë¡¯ì´ ì•„ë‹™ë‹ˆë‹¤.
+#define TID_COSTUME_ITEMOVERLAP					4611	//ì´ë¯¸ ë“±ë¡ë˜ì–´ ìžˆì–´ ì¤‘ë³µ ë“±ë¡ì´ ë¶ˆê°€ëŠ¥ í•©ë‹ˆë‹¤.
+#define TID_COSTUME_NOTSAMEITEM					4612	//ë“±ë¡ ëœ ì½”ìŠ¤íŠ¬ì´ ë™ì¼í•œ ì½”ìŠ¤íŠ¬ì´ ì•„ë‹™ë‹ˆë‹¤. í™•ì¸ í›„ ë‹¤ì‹œ ì‹œë„ í•´ ì£¼ì„¸ìš”
+#define TID_COSTUME_NOTINVENTORYSPACE			4613	//ì¸ë²¤í† ë¦¬ ê³µê°„ì´ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. í™•ì¸ í›„ ë‹¤ì‹œ ì‹œë„ í•´ ì£¼ì„¸ìš”.
+#define TID_COSTUME_COSTUMEMIXCOMPLETE			4614	//[****]ì˜ í•©ì„±ì´ ì„±ê³µì ìœ¼ë¡œ ì´ë£¨ì–´ì¡ŒìŠµë‹ˆë‹¤.
+#define TID_COSTUME_COSTUMEMIXENTRY01			4623 //ì½”ìŠ¤íŠ¬ í•©ì„± UIì— ì•„ì´í…œì´ ë“±ë¡ ë  ê²½ìš° ìž¥ì°© ë¶ˆê°€ëŠ¥ í•  ê²½ìš° ì¶œë ¥ë˜ëŠ” ë©”ì‹œì§€
 
-#define TID_COLOSSEUM_NOTENTER_FLYING		4615	//³ª´Â Áß¿¡´Â ÄÝ·Î¼¼¿ò ÀÔÀåÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù.	
-#define	TID_GAME_INSTANCE_NOT_TELEPORT		4616	//ÀÎ´ø¿¡ ÅÚ·¹Æ÷Æ®ÇÏÁö ¸øÇß½À´Ï´Ù.
+#define TID_COLOSSEUM_NOTENTER_FLYING		4615	//ë‚˜ëŠ” ì¤‘ì—ëŠ” ì½œë¡œì„¸ì›€ ìž…ìž¥ì„ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.	
+#define	TID_GAME_INSTANCE_NOT_TELEPORT		4616	//ì¸ë˜ì— í…”ë ˆí¬íŠ¸í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.
 
-//Çùµ¿±âºÎ ÀÌº¥Æ® ¸Þ½ÃÁö
-#define TID_MMI_COOPERATION_DONATION06			4617 //±âºÎ °¡´ÉÇÑ ·¹º§ÀÌ ¾Æ´Õ´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION07			4618 //±âºÎ °¡´É ÇÑ Á÷¾÷ÀÌ ¾Æ´Õ´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION08			4619 //°¡Áö°í ÀÖ´Â °æÇèÄ¡°¡ ºÎÁ·ÇÏ¿© ±âºÎ¸¦ ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION09			4620 //±âºÎ°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION10			4621 //%s ÀÇ Ãàº¹ÀÌ Àû¿ëµÇ¾ú½À´Ï´Ù.
-#define TID_MMI_COOPERATION_DONATION11			4622 //%s ÀÇ Ãàº¹ÀÌ Àû¿ëµÇ¾úÀ¸¸ç, ¾ÆÀÌÅÛÀº ÀÎº¥Åä¸®·Î
-#define TID_MMI_COOPERATION_DONATION12			4623 //±âºÎ ÇÒ ¼ö ÀÖ´Â °æÇèÄ¡°¡ ºÎÁ·ÇÕ´Ï´Ù.
+//í˜‘ë™ê¸°ë¶€ ì´ë²¤íŠ¸ ë©”ì‹œì§€
+#define TID_MMI_COOPERATION_DONATION06			4617 //ê¸°ë¶€ ê°€ëŠ¥í•œ ë ˆë²¨ì´ ì•„ë‹™ë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION07			4618 //ê¸°ë¶€ ê°€ëŠ¥ í•œ ì§ì—…ì´ ì•„ë‹™ë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION08			4619 //ê°€ì§€ê³  ìžˆëŠ” ê²½í—˜ì¹˜ê°€ ë¶€ì¡±í•˜ì—¬ ê¸°ë¶€ë¥¼ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION09			4620 //ê¸°ë¶€ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION10			4621 //%s ì˜ ì¶•ë³µì´ ì ìš©ë˜ì—ˆìŠµë‹ˆë‹¤.
+#define TID_MMI_COOPERATION_DONATION11			4622 //%s ì˜ ì¶•ë³µì´ ì ìš©ë˜ì—ˆìœ¼ë©°, ì•„ì´í…œì€ ì¸ë²¤í† ë¦¬ë¡œ
+#define TID_MMI_COOPERATION_DONATION12			4623 //ê¸°ë¶€ í•  ìˆ˜ ìžˆëŠ” ê²½í—˜ì¹˜ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.
 
-//ÄÚ½ºÆ¬ ÇÕ¼º ½Ã½ºÅÛ ÆÄ±« ¹æÁö ÁÖ¹®¼­
-#define TID_MMI_COSTUME_SAFEMIXITEM01			4624 // ÄÚ½ºÆ¬ ÇÕ¼º ÆÄ±« ¹æÁö ÁÖ¹®¼­¸¦ »ç¿ëÇÏÁö ¾ÊÀ» °æ¿ì ¾ÆÀÌÅÛÀÌ ¼Ò¸êµÉ ¼ö ÀÖ½À´Ï´Ù. ±×·¡µµ ÇÕ¼ºÀ» ÁøÇàÇÏ½Ã°Ú½À´Ï±î?
-#define TID_MMI_COSTUME_COSTUMEMIXFAILED		4625 // ÇÕ¼º¿¡ ½ÇÆÐÇÏ¿© ¸ðµç ¾ÆÀÌÅÛÀÌ ¼Ò¸êµÇ¾ú½À´Ï´Ù.
+//ì½”ìŠ¤íŠ¬ í•©ì„± ì‹œìŠ¤í…œ íŒŒê´´ ë°©ì§€ ì£¼ë¬¸ì„œ
+#define TID_MMI_COSTUME_SAFEMIXITEM01			4624 // ì½”ìŠ¤íŠ¬ í•©ì„± íŒŒê´´ ë°©ì§€ ì£¼ë¬¸ì„œë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šì„ ê²½ìš° ì•„ì´í…œì´ ì†Œë©¸ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ê·¸ëž˜ë„ í•©ì„±ì„ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+#define TID_MMI_COSTUME_COSTUMEMIXFAILED		4625 // í•©ì„±ì— ì‹¤íŒ¨í•˜ì—¬ ëª¨ë“  ì•„ì´í…œì´ ì†Œë©¸ë˜ì—ˆìŠµë‹ˆë‹¤.
 
-//À¯·á Áöµµ ½Ã½ºÅÛ °ü·Ã ¸Þ½ÃÁö
-#define TID_MMI_CASHMAP_MAPOPEN01			4626 // ½ÅÀÇ ±â¿îÀ¸·Î ÀÎÇÏ¿© ¾ÏÈæÀÇ ±â¿îÀÌ ¸ðµÎ »ç¶óÁ® ÇØ´ç Áö¿ªÀÌ ¹à°Ô ºñÃçÁüÀ» ´À³§´Ï´Ù.
-#define TID_MMI_CASHMAP_ITEMOVERLAB01			4627 // ÇØ´ç ¾ÆÀÌÅÛÀº ÀÌ¹Ì »ç¿ëÁßÀÔ´Ï´Ù. ´Ù½Ã È®ÀÎÇÏ¿© ÁÖ½Ê½Ã¿ä.
-#define TID_MMI_CASHMAP_MAPITEMUSE01			4628 // %s ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ °æ¿ì ÇØ´ç Áöµµ°¡ ÆË¾÷µÇ¸ç ¾ÆÀÌÅÛÀº ¼Ò¸ê µË´Ï´Ù. »ç¿ëÇÏ½Ã°Ú½À´Ï±î?
+//ìœ ë£Œ ì§€ë„ ì‹œìŠ¤í…œ ê´€ë ¨ ë©”ì‹œì§€
+#define TID_MMI_CASHMAP_MAPOPEN01			4626 // ì‹ ì˜ ê¸°ìš´ìœ¼ë¡œ ì¸í•˜ì—¬ ì•”í‘ì˜ ê¸°ìš´ì´ ëª¨ë‘ ì‚¬ë¼ì ¸ í•´ë‹¹ ì§€ì—­ì´ ë°ê²Œ ë¹„ì¶°ì§ì„ ëŠë‚ë‹ˆë‹¤.
+#define TID_MMI_CASHMAP_ITEMOVERLAB01			4627 // í•´ë‹¹ ì•„ì´í…œì€ ì´ë¯¸ ì‚¬ìš©ì¤‘ìž…ë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸í•˜ì—¬ ì£¼ì‹­ì‹œìš”.
+#define TID_MMI_CASHMAP_MAPITEMUSE01			4628 // %s ì•„ì´í…œì„ ì‚¬ìš©í•  ê²½ìš° í•´ë‹¹ ì§€ë„ê°€ íŒì—…ë˜ë©° ì•„ì´í…œì€ ì†Œë©¸ ë©ë‹ˆë‹¤. ì‚¬ìš©í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
 
-//ÄÚ½ºÆ¬ ÇÕ¼º ½Ã½ºÅÛ ½ÇÆÐ ( Ä³½Ã ¾ÆÀÌÅÛ »ç¿ë½Ã )
-#define TID_MMI_COSTUME_SAFEMIXITEM02			4629 // ÄÚ½ºÆ¬ ÆÄ±« ¹æÁö ÁÖ¹®¼­¸¦ »ç¿ëÇÏ¿´½À´Ï´Ù. ¾ÈÀüÇÏ°Ô ÇÕ¼º ÁøÇàÀÌ °¡´ÉÇÕ´Ï´Ù.
-#define TID_MMI_COSTUME_SAFEMIXITEM03			4630 // ÄÚ½ºÆ¬ ÇÕ¼ºÀÌ ½ÇÆÐÇÏ¿´À¸³ª ÄÚ½ºÆ¬ ÆÄ±« ¹æÁö ÁÖ¹®¼­¸¦ ÅëÇØ º¸È£µÇ¾ú½À´Ï´Ù.
+//ì½”ìŠ¤íŠ¬ í•©ì„± ì‹œìŠ¤í…œ ì‹¤íŒ¨ ( ìºì‹œ ì•„ì´í…œ ì‚¬ìš©ì‹œ )
+#define TID_MMI_COSTUME_SAFEMIXITEM02			4629 // ì½”ìŠ¤íŠ¬ íŒŒê´´ ë°©ì§€ ì£¼ë¬¸ì„œë¥¼ ì‚¬ìš©í•˜ì˜€ìŠµë‹ˆë‹¤. ì•ˆì „í•˜ê²Œ í•©ì„± ì§„í–‰ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define TID_MMI_COSTUME_SAFEMIXITEM03			4630 // ì½”ìŠ¤íŠ¬ í•©ì„±ì´ ì‹¤íŒ¨í•˜ì˜€ìœ¼ë‚˜ ì½”ìŠ¤íŠ¬ íŒŒê´´ ë°©ì§€ ì£¼ë¬¸ì„œë¥¼ í†µí•´ ë³´í˜¸ë˜ì—ˆìŠµë‹ˆë‹¤.
 
-//À¯·á Áöµµ ½Ã½ºÅÛ °ü·Ã ¸Þ½ÃÁö
-#define TID_MMI_CASHMAP_MAPCLOSE01			4631 // ¾ÏÈæÀÇ ±â¿îÀ¸·Î ÀÎÇÏ¿© ÇØ´ç Áö¿ªÀ» º¼ ¼ö ¾ø½À´Ï´Ù.
+//ìœ ë£Œ ì§€ë„ ì‹œìŠ¤í…œ ê´€ë ¨ ë©”ì‹œì§€
+#define TID_MMI_CASHMAP_MAPCLOSE01			4631 // ì•”í‘ì˜ ê¸°ìš´ìœ¼ë¡œ ì¸í•˜ì—¬ í•´ë‹¹ ì§€ì—­ì„ ë³¼ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 
-//ÀÏº» ±³È¯ ¸Þ´º
+//ì¼ë³¸ êµí™˜ ë©”ë‰´
 #define TID_MMI_WHITEDAY_EXCHANGE01_TEXT		4636
 #define TID_MMI_WHITEDAY_EXCHANGE02_TEXT		4637
 #define TID_MMI_WHITEDAY_EXCHANGE03_TEXT		4638
 #define TID_MMI_WHITEDAY_EXCHANGE04_TEXT		4639
 
-//ÄÚ½ºÆ¬ ÇÕ¼º ½Ã½ºÅÛ
-#define TID_MMI_COSTUME_UNCONDITIONALINCHANT		4640 // °¢¼ºÀÌ ÁøÇàµÇÁö ¾ÊÀº ÄÚ½ºÆ¬Àº µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù. °¢¼ºÀº ¿©½ÅÀÇ Ãàº¹À» ÅëÇØ °¡´ÉÇÕ´Ï´Ù.
+//ì½”ìŠ¤íŠ¬ í•©ì„± ì‹œìŠ¤í…œ
+#define TID_MMI_COSTUME_UNCONDITIONALINCHANT		4640 // ê°ì„±ì´ ì§„í–‰ë˜ì§€ ì•Šì€ ì½”ìŠ¤íŠ¬ì€ ë“±ë¡í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ê°ì„±ì€ ì—¬ì‹ ì˜ ì¶•ë³µì„ í†µí•´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-//½ºÅ³ ¹öÇÁ ¾ÆÀÌÄÜ Lv Ç¥±â
-#define TID_SKILL_BUFFICONLEVEL01			4641 // ½ºÅ³ ¾ÆÀÌÄÜ Lv. Ç¥±â
+//ìŠ¤í‚¬ ë²„í”„ ì•„ì´ì½˜ Lv í‘œê¸°
+#define TID_SKILL_BUFFICONLEVEL01			4641 // ìŠ¤í‚¬ ì•„ì´ì½˜ Lv. í‘œê¸°
 
-//Ã¢°í º¸°ü ½Ã Æä³Ä/¾ÆÀÌÅÛ UI ÀÌ¸§ ±¸ºÐ
-#define TID_MMI_BANK_SAVEMONEY			4642 // Æä³Ä ÀÌµ¿
-#define TID_MMI_BANK_SAVEITEM			4643 // ¾ÆÀÌÅÛ ÀÌµ¿
-//¹öÇÁ ½Ã°£ Ç¥½Ã
-#define TID_MMI_BUFF_TIME			4644 // ¹öÇÁ ½Ã°£ Ç¥½Ã
+//ì°½ê³  ë³´ê´€ ì‹œ íŽ˜ëƒ/ì•„ì´í…œ UI ì´ë¦„ êµ¬ë¶„
+#define TID_MMI_BANK_SAVEMONEY			4642 // íŽ˜ëƒ ì´ë™
+#define TID_MMI_BANK_SAVEITEM			4643 // ì•„ì´í…œ ì´ë™
+//ë²„í”„ ì‹œê°„ í‘œì‹œ
+#define TID_MMI_BUFF_TIME			4644 // ë²„í”„ ì‹œê°„ í‘œì‹œ
 
-//¹öÇÁ ½Ã°£ Ãß°¡
-#define TID_MMI_BUFFTIME_MINUTE_SECOND			4645 // ¹öÇÁ ½Ã°£ Ç¥½Ã - %dºÐ %dÃÊ
-#define TID_MMI_BUFFTIME_HOUR_MINUTE_SECOND		4646 // ¹öÇÁ ½Ã°£ Ç¥½Ã - %d½Ã %dºÐ %dÃÊ
-#define TID_MMI_BUFFTIME_HOUR_MINUTE_SECOND01		4647 // ¹öÇÁ ½Ã°£ Ç¥½Ã - %.2d½Ã %.2dºÐ %.2dÃÊ
-#define TID_MMI_BUFFTIME_MINUTE_SECOND01		4648 // ¹öÇÁ ½Ã°£ Ç¥½Ã - %.2dºÐ %.2dÃÊ
-#define TID_MMI_BUFFTIME_DAY_HOUR_MINUTE_SECOND		4649 // ¹öÇÁ ½Ã°£ Ç¥½Ã - %.2dÀÏ %.2d½Ã %.2dºÐ %.2dÃÊ
-#define TID_MMI_BUFFTIME_DAY_HOUR_MINUTE_SECOND01	4650 // ¹öÇÁ ½Ã°£ Ç¥½Ã - %.2I64dÀÏ %.2d½Ã %.2dºÐ %.2dÃÊ
+//ë²„í”„ ì‹œê°„ ì¶”ê°€
+#define TID_MMI_BUFFTIME_MINUTE_SECOND			4645 // ë²„í”„ ì‹œê°„ í‘œì‹œ - %dë¶„ %dì´ˆ
+#define TID_MMI_BUFFTIME_HOUR_MINUTE_SECOND		4646 // ë²„í”„ ì‹œê°„ í‘œì‹œ - %dì‹œ %dë¶„ %dì´ˆ
+#define TID_MMI_BUFFTIME_HOUR_MINUTE_SECOND01		4647 // ë²„í”„ ì‹œê°„ í‘œì‹œ - %.2dì‹œ %.2dë¶„ %.2dì´ˆ
+#define TID_MMI_BUFFTIME_MINUTE_SECOND01		4648 // ë²„í”„ ì‹œê°„ í‘œì‹œ - %.2dë¶„ %.2dì´ˆ
+#define TID_MMI_BUFFTIME_DAY_HOUR_MINUTE_SECOND		4649 // ë²„í”„ ì‹œê°„ í‘œì‹œ - %.2dì¼ %.2dì‹œ %.2dë¶„ %.2dì´ˆ
+#define TID_MMI_BUFFTIME_DAY_HOUR_MINUTE_SECOND01	4650 // ë²„í”„ ì‹œê°„ í‘œì‹œ - %.2I64dì¼ %.2dì‹œ %.2dë¶„ %.2dì´ˆ
 
-//±¹³» ½Ä¸ñÀÏ ÀÌº¥Æ®
+//êµ­ë‚´ ì‹ëª©ì¼ ì´ë²¤íŠ¸
 #define	TID_MMI_FIRSEED2011_TEXT				4651
 #define	TID_MMI_PEARSEED2011_TEXT				4652
 #define	TID_MMI_PINESEED2011_TEXT				4653
@@ -3990,434 +3990,434 @@
 #define	TID_MMI_RIVERCARD2011_TEXT				4655
 #define	TID_MMI_FLAMECARD2011_TEXT				4656
 #define	TID_MMI_DESERTCARD2011_TEXT				4657
-#define	TID_MMI_GENERATERCARD2011_TEXT			4658//±ÛÀÚ Á¶°¢À¸·Î º¸»ó ¾ÆÀÌÅÛ ±³È¯
+#define	TID_MMI_GENERATERCARD2011_TEXT			4658//ê¸€ìž ì¡°ê°ìœ¼ë¡œ ë³´ìƒ ì•„ì´í…œ êµí™˜
 #define	TID_MMI_CYCLONECARD2011_TEXT			4659
 
-//¾ÆÀÌÅÛ °¢Á¾ Á¦·Ã °¡´É ¿©ºÎ
-#define	TID_MMI_SMELTING01_TEXT			4660	//°¡´É
-#define	TID_MMI_SMELTING02_TEXT			4661	//ºÒ°¡´É
-#define	TID_MMI_SMELTING03_TEXT			4668	//Á¦·Ã
-#define	TID_MMI_SMELTING04_TEXT			4669	//¼Ó¼ºÁ¦·Ã
-#define	TID_MMI_SMELTING05_TEXT			4670	//º¸¼®Á¦·Ã
-#define	TID_MMI_SMELTING06_TEXT			4671	//ÇÇ¾î½Ì
-#define	TID_MMI_SMELTING07_TEXT			4672	//°¢¼º
+//ì•„ì´í…œ ê°ì¢… ì œë ¨ ê°€ëŠ¥ ì—¬ë¶€
+#define	TID_MMI_SMELTING01_TEXT			4660	//ê°€ëŠ¥
+#define	TID_MMI_SMELTING02_TEXT			4661	//ë¶ˆê°€ëŠ¥
+#define	TID_MMI_SMELTING03_TEXT			4668	//ì œë ¨
+#define	TID_MMI_SMELTING04_TEXT			4669	//ì†ì„±ì œë ¨
+#define	TID_MMI_SMELTING05_TEXT			4670	//ë³´ì„ì œë ¨
+#define	TID_MMI_SMELTING06_TEXT			4671	//í”¼ì–´ì‹±
+#define	TID_MMI_SMELTING07_TEXT			4672	//ê°ì„±
 
-//±¹³» º¢²É ¸ÂÀÌ ÀÌº¥Æ®
-#define	TID_MMI_EXCHANGEBLOSSOM_TEXT	4662 //º¢²É¾¾¾Ñ 10°³, 5¸¸ Æä³Ä¸¦ °¡À§¹ÙÀ§º¸ ÄíÆùÀ¸·Î ±³È¯
+//êµ­ë‚´ ë²šê½ƒ ë§žì´ ì´ë²¤íŠ¸
+#define	TID_MMI_EXCHANGEBLOSSOM_TEXT	4662 //ë²šê½ƒì”¨ì•— 10ê°œ, 5ë§Œ íŽ˜ëƒë¥¼ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í°ìœ¼ë¡œ êµí™˜
 
-//ÅÚ·¹Æ÷Æ® Áöµµ °ü·Ã ¸Þ½ÃÁö
-#define	TID_MMI_TELEPORTERRORTEXT01			4663 //µî·Ï °¡´É Áö¿ªÀÌ ¾Æ´Õ´Ï´Ù.
-#define	TID_MMI_TELEPORTERRORTEXT02			4664 //ÃÖ´ë µî·Ï ¼ö·®À» ÃÊ°úÇÏ¿´½À´Ï´Ù. (5°³)
-#define	TID_MMI_TELEPORTERRORTEXT03			4665 //ÀÌ¸§ ÀÔ·Â ±ÔÄ¢¿¡ À§¹èµÇ¾ú½À´Ï´Ù. ÇÑ±Û 8ÀÚ, ¿µ¹® 16ÀÚ±îÁö °¡´ÉÇÕ´Ï´Ù.
-#define	TID_MMI_TELEPORTERRORTEXT04			4666 //ÀÌµ¿ÀÌ ºÒ°¡´ÉÇÑ ÁöÁ¡ÀÔ´Ï´Ù.
+//í…”ë ˆí¬íŠ¸ ì§€ë„ ê´€ë ¨ ë©”ì‹œì§€
+#define	TID_MMI_TELEPORTERRORTEXT01			4663 //ë“±ë¡ ê°€ëŠ¥ ì§€ì—­ì´ ì•„ë‹™ë‹ˆë‹¤.
+#define	TID_MMI_TELEPORTERRORTEXT02			4664 //ìµœëŒ€ ë“±ë¡ ìˆ˜ëŸ‰ì„ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤. (5ê°œ)
+#define	TID_MMI_TELEPORTERRORTEXT03			4665 //ì´ë¦„ ìž…ë ¥ ê·œì¹™ì— ìœ„ë°°ë˜ì—ˆìŠµë‹ˆë‹¤. í•œê¸€ 8ìž, ì˜ë¬¸ 16ìžê¹Œì§€ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define	TID_MMI_TELEPORTERRORTEXT04			4666 //ì´ë™ì´ ë¶ˆê°€ëŠ¥í•œ ì§€ì ìž…ë‹ˆë‹¤.
 
-#define	TID_MMI_TELEPORTUSERPOINT			4667 //µî·ÏÇÑ À§Ä¡
+#define	TID_MMI_TELEPORTUSERPOINT			4667 //ë“±ë¡í•œ ìœ„ì¹˜
 
-//ÄÚ½ºÆ¬ ÇÕ¼º ½Ã½ºÅÛ ¸Þ½ÃÁö Ãß°¡
-#define	TID_MMI_COSTUME_MIXLEVELDIFFERENT		4673 //µî·Ï µÉ ¾ÆÀÌÅÛÀÇ ÇÕ¼º ´Ü°è ¼öÄ¡°¡ ´Þ¶ó µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù. °°Àº ´Ü°èÀÇ ¾ÆÀÌÅÛÀ» µî·ÏÇØ ÁÖ½Ê½Ã¿ä.
+//ì½”ìŠ¤íŠ¬ í•©ì„± ì‹œìŠ¤í…œ ë©”ì‹œì§€ ì¶”ê°€
+#define	TID_MMI_COSTUME_MIXLEVELDIFFERENT		4673 //ë“±ë¡ ë  ì•„ì´í…œì˜ í•©ì„± ë‹¨ê³„ ìˆ˜ì¹˜ê°€ ë‹¬ë¼ ë“±ë¡í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ê°™ì€ ë‹¨ê³„ì˜ ì•„ì´í…œì„ ë“±ë¡í•´ ì£¼ì‹­ì‹œìš”.
 
-#define	TID_MMI_COSTUME_MIXLEVELOVER		4674 //ÄÚ½ºÆ¬ ÇÕ¼º ¿É¼ÇÀÇ ÃÖ´ë °³¼ö¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù.
-#define	TID_MMI_COSTUME_SELFBAGDRAGDROP		4675 //ÀÎº¥Åä¸®¿¡ ÀÖ´Â ÄÚ½ºÆ¬¸¸ µî·Ï °¡´ÉÇÕ´Ï´Ù.
+#define	TID_MMI_COSTUME_MIXLEVELOVER		4674 //ì½”ìŠ¤íŠ¬ í•©ì„± ì˜µì…˜ì˜ ìµœëŒ€ ê°œìˆ˜ë¥¼ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define	TID_MMI_COSTUME_SELFBAGDRAGDROP		4675 //ì¸ë²¤í† ë¦¬ì— ìžˆëŠ” ì½”ìŠ¤íŠ¬ë§Œ ë“±ë¡ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-//¼ÒÁöÇÑ ±Ý¾×, °¡°Ý, ·¹µåÄ¨ Ãß°¡( ÄÚµå¿¡ ¹ÚÇôÀÖ¾î¼­ µû·Î ÀÌ¹ø¿¡ ÅØ½ºÆ®·Î »­-11.04.26 )
+//ì†Œì§€í•œ ê¸ˆì•¡, ê°€ê²©, ë ˆë“œì¹© ì¶”ê°€( ì½”ë“œì— ë°•í˜€ìžˆì–´ì„œ ë”°ë¡œ ì´ë²ˆì— í…ìŠ¤íŠ¸ë¡œ ëºŒ-11.04.26 )
 
-#define	TID_MMI_POSSESSIONMONEY			4676 // ¼ÒÁöÇÑ ±Ý¾×
-#define	TID_MMI_PRICE				4677 // °¡°Ý
-#define	TID_MMI_REDCHIP				4678 // ·¹µåÄ¨
+#define	TID_MMI_POSSESSIONMONEY			4676 // ì†Œì§€í•œ ê¸ˆì•¡
+#define	TID_MMI_PRICE				4677 // ê°€ê²©
+#define	TID_MMI_REDCHIP				4678 // ë ˆë“œì¹©
 
-//Çùµ¿ ±âºÎ ÀÌº¥Æ® ¼³Á¤
-#define TID_MMI_DONATION_TITLE			4632 // Çùµ¿ ±âºÎ ÀÌº¥Æ® ÀÌ¸§
-#define TID_MMI_DONATION_GOAL			4633 // Çùµ¿ ±âºÎ ÀÌº¥Æ® Á¶°Ç
-#define TID_MMI_DONATION_REWARD01		4634 // Çùµ¿ ±âºÎ ÀÌº¥Æ® º¸»ó1
-#define TID_MMI_DONATION_REWARD02		4635 // Çùµ¿ ±âºÎ ÀÌº¥Æ® º¸»ó2
-#define TID_MMI_DONATION_REWARD03		4679 // Çùµ¿ ±âºÎ ÀÌº¥Æ® º¸»ó3
-#define TID_MMI_DONATION_REWARD04		4680 // Çùµ¿ ±âºÎ ÀÌº¥Æ® º¸»ó4
-#define TID_MMI_DONATION_CONITEM		4681 // ±âºÎ ¾ÆÀÌÅÛ
-#define TID_MMI_DONATION_CONMONEY		4682 // ±âºÎ ±Ý¾×
+//í˜‘ë™ ê¸°ë¶€ ì´ë²¤íŠ¸ ì„¤ì •
+#define TID_MMI_DONATION_TITLE			4632 // í˜‘ë™ ê¸°ë¶€ ì´ë²¤íŠ¸ ì´ë¦„
+#define TID_MMI_DONATION_GOAL			4633 // í˜‘ë™ ê¸°ë¶€ ì´ë²¤íŠ¸ ì¡°ê±´
+#define TID_MMI_DONATION_REWARD01		4634 // í˜‘ë™ ê¸°ë¶€ ì´ë²¤íŠ¸ ë³´ìƒ1
+#define TID_MMI_DONATION_REWARD02		4635 // í˜‘ë™ ê¸°ë¶€ ì´ë²¤íŠ¸ ë³´ìƒ2
+#define TID_MMI_DONATION_REWARD03		4679 // í˜‘ë™ ê¸°ë¶€ ì´ë²¤íŠ¸ ë³´ìƒ3
+#define TID_MMI_DONATION_REWARD04		4680 // í˜‘ë™ ê¸°ë¶€ ì´ë²¤íŠ¸ ë³´ìƒ4
+#define TID_MMI_DONATION_CONITEM		4681 // ê¸°ë¶€ ì•„ì´í…œ
+#define TID_MMI_DONATION_CONMONEY		4682 // ê¸°ë¶€ ê¸ˆì•¡
 
 
-//ÅÚ·¹Æ÷Æ® Áöµµ °ü·Ã ¸Þ½ÃÁö Ãß°¡
-#define	TID_MMI_TELEPORTERRORTEXT05			4683//ÀÌ¹Ì µî·ÏµÈ ÁöÁ¡°ú ³Ê¹« °¡±î¿ö¼­ µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
+//í…”ë ˆí¬íŠ¸ ì§€ë„ ê´€ë ¨ ë©”ì‹œì§€ ì¶”ê°€
+#define	TID_MMI_TELEPORTERRORTEXT05			4683//ì´ë¯¸ ë“±ë¡ëœ ì§€ì ê³¼ ë„ˆë¬´ ê°€ê¹Œì›Œì„œ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 
-//ÄÚ½ºÆ¬ ÇÕ¼º ½Ã½ºÅÛ ¸Þ¼¼Áö (ÀÓÀÇ·Î ³ÖÀº ³×ÀÌ¹ÖÀÓ- ¼öÁ¤¹Ù¶÷)
+//ì½”ìŠ¤íŠ¬ í•©ì„± ì‹œìŠ¤í…œ ë©”ì„¸ì§€ (ìž„ì˜ë¡œ ë„£ì€ ë„¤ì´ë°ìž„- ìˆ˜ì •ë°”ëžŒ)
 #define TID_MMI_COSTUME_UNCONDITIONALINCHANT02		4684
 
-//ÀÌº¥Æ® ¾Æ·¹³ª °ü·Ã °¢Á¾ ÅØ½ºÆ®µé
-#define TID_MMI_EVENTARENA_CALLADMIN				4685 // ¼±¼ö ¼ÒÈ¯ÀÌ ÁøÇà ÁßÀÔ´Ï´Ù.
-#define TID_MMI_EVENTARENA_CALLADMIN_TITLE			4686 // ¼±¼ö ¼ÒÈ¯Ã¢ Å¸ÀÌÆ²
-#define TID_MMI_EVENTARENA_MEMBERENTER				4687 // ¼±¼ö ÀÔÀåÀÌ ÁøÇà ÁßÀÔ´Ï´Ù.
-#define TID_MMI_EVENTARENA_MEMBERENTER_TITLE		4688 // ¼±¼ö ÀÔÀåÃ¢ Å¸ÀÌÆ²
-#define TID_MMI_EVENTARENA_CALLMEMBER				4689 // ¾Æ·¹³ªÀÇ ´ë±â Áö¿ªÀ¸·Î ¼ÒÈ¯µË´Ï´Ù.
-#define TID_MMI_EVENTARENA_MATCHSTOP				4690 // Áö±Ý ÁøÇà ÁßÀÎ °æ±â¸¦ Áß´ÜÇÏ½Ã°Ú½À´Ï±î? Áß´Ü ÇÏ½Ã·Á¸é ÀÔ·Â Ã¢¿¡ %s À» ÀÔ·ÂÇØÁÖ¼¼¿ä.
-#define TID_MMI_EVENTARENA_MATCHSTOP_MESSAGE		4691 // °æ±â°¡ Áß´ÜµÇ¾î ¼±¼öµéÀº °ü¶÷ Áö¿ªÀ¸·Î ÀÌµ¿µË´Ï´Ù.
-#define TID_MMI_EVENTARENA_STARTCOUNT				4692 // °æ±â ½ÃÀÛ %d Àü ÀÔ´Ï´Ù.
-#define TID_MMI_EVENTARENA_WINNER					4693 // %s ÆÀÀÌ ½Â¸®ÇÏ¿´½À´Ï´Ù.
-#define TID_MMI_EVENTARENA_FINALWINNER				4694 // %s ÆÀÀÌ ÃÖÁ¾ ½Â¸®ÇÏ¿´½À´Ï´Ù.
+//ì´ë²¤íŠ¸ ì•„ë ˆë‚˜ ê´€ë ¨ ê°ì¢… í…ìŠ¤íŠ¸ë“¤
+#define TID_MMI_EVENTARENA_CALLADMIN				4685 // ì„ ìˆ˜ ì†Œí™˜ì´ ì§„í–‰ ì¤‘ìž…ë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_CALLADMIN_TITLE			4686 // ì„ ìˆ˜ ì†Œí™˜ì°½ íƒ€ì´í‹€
+#define TID_MMI_EVENTARENA_MEMBERENTER				4687 // ì„ ìˆ˜ ìž…ìž¥ì´ ì§„í–‰ ì¤‘ìž…ë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_MEMBERENTER_TITLE		4688 // ì„ ìˆ˜ ìž…ìž¥ì°½ íƒ€ì´í‹€
+#define TID_MMI_EVENTARENA_CALLMEMBER				4689 // ì•„ë ˆë‚˜ì˜ ëŒ€ê¸° ì§€ì—­ìœ¼ë¡œ ì†Œí™˜ë©ë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_MATCHSTOP				4690 // ì§€ê¸ˆ ì§„í–‰ ì¤‘ì¸ ê²½ê¸°ë¥¼ ì¤‘ë‹¨í•˜ì‹œê² ìŠµë‹ˆê¹Œ? ì¤‘ë‹¨ í•˜ì‹œë ¤ë©´ ìž…ë ¥ ì°½ì— %s ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.
+#define TID_MMI_EVENTARENA_MATCHSTOP_MESSAGE		4691 // ê²½ê¸°ê°€ ì¤‘ë‹¨ë˜ì–´ ì„ ìˆ˜ë“¤ì€ ê´€ëžŒ ì§€ì—­ìœ¼ë¡œ ì´ë™ë©ë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_STARTCOUNT				4692 // ê²½ê¸° ì‹œìž‘ %d ì „ ìž…ë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_WINNER					4693 // %s íŒ€ì´ ìŠ¹ë¦¬í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_FINALWINNER				4694 // %s íŒ€ì´ ìµœì¢… ìŠ¹ë¦¬í•˜ì˜€ìŠµë‹ˆë‹¤.
 
-#define TID_MMI_EVENTARENA_DUPLICATIONADMIN			4695 // °ü¸®Ã¢À» ´Ù¸¥ ¿î¿µÀÚ°¡ ¿ÀÇÂ Áß¿¡ ÀÖ½À´Ï´Ù.
-#define TID_MMI_EVENTARENA_TEAMCHECK				4696 // %s ÆÀÀ» ¼±ÅÃÇØ¾ß Ã¼Å©°¡ °¡´ÉÇÕ´Ï´Ù.
-#define TID_MMI_EVENTARENA_CLOSEADMIN				4698 // ¾Æ·¹³ª °æ±â °ü¸® Ã¢À» ´Ý°Ú½À´Ï±î? Ã¢À» ´ÝÀ» °æ¿ì °æ±â°¡ Áß´ÜµÇ¸ç UI ¼³Á¤ÀÌ ÃÊ±âÈ­µË´Ï´Ù.
+#define TID_MMI_EVENTARENA_DUPLICATIONADMIN			4695 // ê´€ë¦¬ì°½ì„ ë‹¤ë¥¸ ìš´ì˜ìžê°€ ì˜¤í”ˆ ì¤‘ì— ìžˆìŠµë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_TEAMCHECK				4696 // %s íŒ€ì„ ì„ íƒí•´ì•¼ ì²´í¬ê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_CLOSEADMIN				4698 // ì•„ë ˆë‚˜ ê²½ê¸° ê´€ë¦¬ ì°½ì„ ë‹«ê² ìŠµë‹ˆê¹Œ? ì°½ì„ ë‹«ì„ ê²½ìš° ê²½ê¸°ê°€ ì¤‘ë‹¨ë˜ë©° UI ì„¤ì •ì´ ì´ˆê¸°í™”ë©ë‹ˆë‹¤.
 
-#define TID_MMI_EVENTARENA_REDTEAM					4699 // ·¹µå
-#define TID_MMI_EVENTARENA_BLUETEAM					4700 // ºí·ç
+#define TID_MMI_EVENTARENA_REDTEAM					4699 // ë ˆë“œ
+#define TID_MMI_EVENTARENA_BLUETEAM					4700 // ë¸”ë£¨
 #define TID_MMI_EVENTARENA_MATCHSTART				4701 // START
-#define TID_MMI_EVENTARENA_MATCHSTOPWORD			4702 // °æ±â Áß´Ü
+#define TID_MMI_EVENTARENA_MATCHSTOPWORD			4702 // ê²½ê¸° ì¤‘ë‹¨
 
-#define	TID_MMI_BARUNA_ELESMELT_TEXT01				4703	//	2 ÀÌÇÏÀÇ ¼Ó¼º Á¦·Ã ¼öÄ¡´Â ¼Ó¼º Á¦·Ã ½Ã 100% ¼º°øÇÏ°Ô µÊÀ¸·Î ÇöÀç µî·ÏµÈ ¿ø¼Ò È°¼ºÁ¦´Â Á¦°ÅÇÏ½Ã´Â °ÍÀÌ ÁÁ½À´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_TEXT02				4704	//	Á¦·Ã¿¡ ¼º°øÇÏ¿© ¼Ó¼º Á¦·Ã ¼öÄ¡°¡ + 1 Áõ°¡ÇÏ¿´½À´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_TEXT03				4705	//	Á¦·Ã¿¡ ½ÇÆÐÇÏ¿© ¼Ó¼º Á¦·Ã ¼öÄ¡°¡ -1 °¨¼ÒÇÏ¿´½À´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_TEXT04				4706	//	Á¦·Ã¿¡ ½ÇÆÐÇÏ¿© ¹Ù·ç³ª ¾ÆÀÌÅÛÀÌ ÆÄ±«µÇ¾ú½À´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_Q_TEXT01			4707	//	µî·ÏµÈ ¹Ù·ç³ª ¾ÆÀÌÅÛÀÌ 2ÀÌÇÏÀÇ ¼Ó¼º Á¦·Ã ¼öÄ¡¶ó ÇØ´ç ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ   ÇÊ¿ä°¡ ¾ø½À´Ï´Ù. ±×·¡µµ »ç¿ëÇÏ½Ã°Ú½À´Ï±î?
-#define	TID_MMI_BARUNA_ELESMELT_Q_TEXT02			4708	//	¹Ù·ç³ªÀÇ ÀºÃÑÀÌ µî·ÏµÇÁö ¾Ê¾Æ, Á¦·Ã ½ÇÆÐ ½Ã ÇØ´ç ¾ÆÀÌÅÛÀÌ ÆÄ±«µÉ ¼ö ÀÖ½À´Ï´Ù. ±×·¡µµ °è¼Ó ÁøÇàÇÏ½Ã°Ú½À´Ï±î?
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT01			4709	//	ÇØ´ç ½½·ÔÀº ¹Ù·ç³ª ¾ÆÀÌÅÛ¸¸ µî·ÏÇÒ ¼ö ÀÖ½À´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT02			4710	//	ÀÌ¹Ì µî·ÏµÇ¾î ÀÖ´Â ¾ÆÀÌÅÛÀÌ ÀÖ½À´Ï´Ù. 
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT03			4711	//	ÇØ´ç ¾ÆÀÌÅÛÀº Á¦·Ã °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ ¾Æ´Õ´Ï´Ù. ¾ÆÀÌÅÛ Á¤º¸¸¦ È®ÀÎÇÏ¼¼¿ä.
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT04			4712	//	ÇØ´ç ¾ÆÀÌÅÛÀº ÀÌ¹Ì ¼Ó¼º Á¦·ÃÀ» 20±îÁö ÇÑ ¾ÆÀÌÅÛÀ¸·Î ´õ ÀÌ»ó Á¦·ÃÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT05			4713	//	ÀÌ¹Ì µî·ÏµÇ¾î ÀÖ´Â ¼Ó¼º ¿Àºê¿Í ÇØ´ç ¾ÆÀÌÅÛÀÇ ¼Ó¼ºÀÌ µ¿ÀÏÇÏÁö ¾Ê½À´Ï´Ù. È®ÀÎ ÈÄ ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT06			4714	//	µî·ÏµÇ¾î ÀÖ´Â ¿ø¼Ò È°·ÂÁ¦ÀÇ »ç¿ë °¡´É ¼Ó¼º Á¦·Ã ¼öÄ¡º¸´Ù ³ôÀº ¾ÆÀÌÅÛÀ» µî·ÏÇÏ¼Ì½À´Ï´Ù. È®ÀÎ ÈÄ ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä.
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT07			4715	//	ÇØ´ç ½½·ÔÀº ¼Ó¼º ¿Àºê¸¸ µî·Ï ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT08			4716	//	µî·ÏµÇ¾î ÀÖ´Â Àåºñ ¾ÆÀÌÅÛ°ú ÇØ´ç ¾ÆÀÌÅÛÀÇ ¼Ó¼ºÀÌ µ¿ÀÏÇÏÁö ¾Ê½À´Ï´Ù. È®ÀÎ ÈÄ ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT09			4717	//	ÇØ´ç ¾ÆÀÌÅÛÀº ¹Ù·ç³ªÀÇ ÀºÃÑ or Ãàº¹¹ÞÀº ¹Ù·ç³ªÀÇ ÀºÃÑ¸¸ µî·Ï °¡´ÉÇÕ´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT10			4718	//	ÇØ´ç ¾ÆÀÌÅÛÀº ¿ø¼Ò È°·ÂÁ¦ Á¾·ù¸¸ µî·Ï °¡´ÉÇÕ´Ï´Ù.
-#define	TID_MMI_BARUNA_ELESMELT_E_TEXT11			4719	//	µî·ÏµÇ¾î ÀÖ´Â ¹Ù·ç³ª ÀåºñÀÇ ¼Ó¼º Á¦·Ã ¼öÄ¡°¡ ³ô¾Æ ÇØ´ç ¾ÆÀÌÅÛÀ¸·Î´Â È¿°ú¸¦ º¸Áö ¸øÇÔÀ¸·Î µî·Ï¿¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù.
-#define	TID_MMI_BARUNA_WAKEUP_E_TEXT01				4720	//	¹Ù·ç³ª ¹«±â ¹× ¹æ¾î±¸¸¸ µî·Ï °¡´ÉÇÕ´Ï´Ù.
-#define	TID_MMI_BARUNA_WAKEUP_E_TEXT02				4721	//	ÀÌ¹Ì µî·Ï µÈ ¾ÆÀÌÅÛÀÌ ÀÖ½À´Ï´Ù.
-#define	TID_MMI_BARUNA_WAKEUP_E_TEXT03				4722	//	°¢¼º °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ ¾Æ´Õ´Ï´Ù. ¾ÆÀÌÅÛÀ» È®ÀÎÇØ ÁÖ¼¼¿ä.
-#define	TID_MMI_BARUNA_WAKEUP_E_TEXT04				4723	//	ÀÌ¹Ì °¢¼ºµÇ¾îÀÖ´Â ¾ÆÀÌÅÛÀÔ´Ï´Ù. °¢¼º Ãë¼Ò ÈÄ »ç¿ëÇØ ÁÖ¼¼¿ä.
-#define	TID_MMI_BARUNA_WAKEUP_E_TEXT05				4724	//	°¢¼ºÀ» ÇÏ±â À§ÇØ¼­´Â 10¸¸ Æä³Ä°¡ ÇÊ¿äÇÕ´Ï´Ù. 
-#define	TID_MMI_BARUNA_WAKEUP_TEXT01				4725	//	%s ¾ÆÀÌÅÛÀÌ °¢¼ºµÇ¾ú½À´Ï´Ù.
-#define	TID_MMI_BARUNA_WAKEUPCANCEL_E_TEXT01		4726	//	°¢¼ºµÈ Àåºñ¸¸ µî·Ï °¡´ÉÇÕ´Ï´Ù. ¾ÆÀÌÅÛÀ» È®ÀÎÇØ ÁÖ¼¼¿ä.
-#define	TID_MMI_BARUNA_WAKEUPCANCEL_E_TEXT02		4727	//	ÇØ´ç ½½·ÔÀº ¹Ù·ç³ªÀÇ ¸Á°¢Á¦¸¸ µî·Ï °¡´ÉÇÕ´Ï´Ù.
-#define	TID_MMI_BARUNA_WAKEUPCANCEL_TEXT01			4728	//	%s ¾ÆÀÌÅÛÀÇ °¢¼ºÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù.
-#define	TID_MMI_BARUNA_WAKEUP_E_TEXT06				4729	//	ÇØ´ç ¾ÆÀÌÅÛÀº ¹Ù·ç³ª µî±ÞÀÌ ¾Æ´Ï¶ó¼­ µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù.
+#define	TID_MMI_BARUNA_ELESMELT_TEXT01				4703	//	2 ì´í•˜ì˜ ì†ì„± ì œë ¨ ìˆ˜ì¹˜ëŠ” ì†ì„± ì œë ¨ ì‹œ 100% ì„±ê³µí•˜ê²Œ ë¨ìœ¼ë¡œ í˜„ìž¬ ë“±ë¡ëœ ì›ì†Œ í™œì„±ì œëŠ” ì œê±°í•˜ì‹œëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_TEXT02				4704	//	ì œë ¨ì— ì„±ê³µí•˜ì—¬ ì†ì„± ì œë ¨ ìˆ˜ì¹˜ê°€ + 1 ì¦ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_TEXT03				4705	//	ì œë ¨ì— ì‹¤íŒ¨í•˜ì—¬ ì†ì„± ì œë ¨ ìˆ˜ì¹˜ê°€ -1 ê°ì†Œí•˜ì˜€ìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_TEXT04				4706	//	ì œë ¨ì— ì‹¤íŒ¨í•˜ì—¬ ë°”ë£¨ë‚˜ ì•„ì´í…œì´ íŒŒê´´ë˜ì—ˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_Q_TEXT01			4707	//	ë“±ë¡ëœ ë°”ë£¨ë‚˜ ì•„ì´í…œì´ 2ì´í•˜ì˜ ì†ì„± ì œë ¨ ìˆ˜ì¹˜ë¼ í•´ë‹¹ ì•„ì´í…œì„ ì‚¬ìš©í•    í•„ìš”ê°€ ì—†ìŠµë‹ˆë‹¤. ê·¸ëž˜ë„ ì‚¬ìš©í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+#define	TID_MMI_BARUNA_ELESMELT_Q_TEXT02			4708	//	ë°”ë£¨ë‚˜ì˜ ì€ì´ì´ ë“±ë¡ë˜ì§€ ì•Šì•„, ì œë ¨ ì‹¤íŒ¨ ì‹œ í•´ë‹¹ ì•„ì´í…œì´ íŒŒê´´ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ê·¸ëž˜ë„ ê³„ì† ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT01			4709	//	í•´ë‹¹ ìŠ¬ë¡¯ì€ ë°”ë£¨ë‚˜ ì•„ì´í…œë§Œ ë“±ë¡í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT02			4710	//	ì´ë¯¸ ë“±ë¡ë˜ì–´ ìžˆëŠ” ì•„ì´í…œì´ ìžˆìŠµë‹ˆë‹¤. 
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT03			4711	//	í•´ë‹¹ ì•„ì´í…œì€ ì œë ¨ ê°€ëŠ¥í•œ ì•„ì´í…œì´ ì•„ë‹™ë‹ˆë‹¤. ì•„ì´í…œ ì •ë³´ë¥¼ í™•ì¸í•˜ì„¸ìš”.
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT04			4712	//	í•´ë‹¹ ì•„ì´í…œì€ ì´ë¯¸ ì†ì„± ì œë ¨ì„ 20ê¹Œì§€ í•œ ì•„ì´í…œìœ¼ë¡œ ë” ì´ìƒ ì œë ¨ì´ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT05			4713	//	ì´ë¯¸ ë“±ë¡ë˜ì–´ ìžˆëŠ” ì†ì„± ì˜¤ë¸Œì™€ í•´ë‹¹ ì•„ì´í…œì˜ ì†ì„±ì´ ë™ì¼í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. í™•ì¸ í›„ ë‹¤ì‹œ ì‹œë„í•´ ì£¼ì„¸ìš”
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT06			4714	//	ë“±ë¡ë˜ì–´ ìžˆëŠ” ì›ì†Œ í™œë ¥ì œì˜ ì‚¬ìš© ê°€ëŠ¥ ì†ì„± ì œë ¨ ìˆ˜ì¹˜ë³´ë‹¤ ë†’ì€ ì•„ì´í…œì„ ë“±ë¡í•˜ì…¨ìŠµë‹ˆë‹¤. í™•ì¸ í›„ ë‹¤ì‹œ ì‹œë„í•´ ì£¼ì„¸ìš”.
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT07			4715	//	í•´ë‹¹ ìŠ¬ë¡¯ì€ ì†ì„± ì˜¤ë¸Œë§Œ ë“±ë¡ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT08			4716	//	ë“±ë¡ë˜ì–´ ìžˆëŠ” ìž¥ë¹„ ì•„ì´í…œê³¼ í•´ë‹¹ ì•„ì´í…œì˜ ì†ì„±ì´ ë™ì¼í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. í™•ì¸ í›„ ë‹¤ì‹œ ì‹œë„í•´ ì£¼ì„¸ìš”
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT09			4717	//	í•´ë‹¹ ì•„ì´í…œì€ ë°”ë£¨ë‚˜ì˜ ì€ì´ or ì¶•ë³µë°›ì€ ë°”ë£¨ë‚˜ì˜ ì€ì´ë§Œ ë“±ë¡ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT10			4718	//	í•´ë‹¹ ì•„ì´í…œì€ ì›ì†Œ í™œë ¥ì œ ì¢…ë¥˜ë§Œ ë“±ë¡ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_ELESMELT_E_TEXT11			4719	//	ë“±ë¡ë˜ì–´ ìžˆëŠ” ë°”ë£¨ë‚˜ ìž¥ë¹„ì˜ ì†ì„± ì œë ¨ ìˆ˜ì¹˜ê°€ ë†’ì•„ í•´ë‹¹ ì•„ì´í…œìœ¼ë¡œëŠ” íš¨ê³¼ë¥¼ ë³´ì§€ ëª»í•¨ìœ¼ë¡œ ë“±ë¡ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_WAKEUP_E_TEXT01				4720	//	ë°”ë£¨ë‚˜ ë¬´ê¸° ë° ë°©ì–´êµ¬ë§Œ ë“±ë¡ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_WAKEUP_E_TEXT02				4721	//	ì´ë¯¸ ë“±ë¡ ëœ ì•„ì´í…œì´ ìžˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_WAKEUP_E_TEXT03				4722	//	ê°ì„± ê°€ëŠ¥í•œ ì•„ì´í…œì´ ì•„ë‹™ë‹ˆë‹¤. ì•„ì´í…œì„ í™•ì¸í•´ ì£¼ì„¸ìš”.
+#define	TID_MMI_BARUNA_WAKEUP_E_TEXT04				4723	//	ì´ë¯¸ ê°ì„±ë˜ì–´ìžˆëŠ” ì•„ì´í…œìž…ë‹ˆë‹¤. ê°ì„± ì·¨ì†Œ í›„ ì‚¬ìš©í•´ ì£¼ì„¸ìš”.
+#define	TID_MMI_BARUNA_WAKEUP_E_TEXT05				4724	//	ê°ì„±ì„ í•˜ê¸° ìœ„í•´ì„œëŠ” 10ë§Œ íŽ˜ëƒê°€ í•„ìš”í•©ë‹ˆë‹¤. 
+#define	TID_MMI_BARUNA_WAKEUP_TEXT01				4725	//	%s ì•„ì´í…œì´ ê°ì„±ë˜ì—ˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_WAKEUPCANCEL_E_TEXT01		4726	//	ê°ì„±ëœ ìž¥ë¹„ë§Œ ë“±ë¡ ê°€ëŠ¥í•©ë‹ˆë‹¤. ì•„ì´í…œì„ í™•ì¸í•´ ì£¼ì„¸ìš”.
+#define	TID_MMI_BARUNA_WAKEUPCANCEL_E_TEXT02		4727	//	í•´ë‹¹ ìŠ¬ë¡¯ì€ ë°”ë£¨ë‚˜ì˜ ë§ê°ì œë§Œ ë“±ë¡ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_WAKEUPCANCEL_TEXT01			4728	//	%s ì•„ì´í…œì˜ ê°ì„±ì´ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_BARUNA_WAKEUP_E_TEXT06				4729	//	í•´ë‹¹ ì•„ì´í…œì€ ë°”ë£¨ë‚˜ ë“±ê¸‰ì´ ì•„ë‹ˆë¼ì„œ ë“±ë¡í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 
-#define TID_MMI_EVENTARENA_NPCENTERERROR			4730	//  ¼Ò¼ÓÇÑ ÆÀÀÇ °æ±â°¡ ÀÖ´Â °æ¿ì¿¡¸¸ ÀÔÀåÀÌ °¡´ÉÇÕ´Ï´Ù.
-#define TID_MMI_EVENTARENA_PARTYNUMBER				4731	//  ±Ø´Ü %d
+#define TID_MMI_EVENTARENA_NPCENTERERROR			4730	//  ì†Œì†í•œ íŒ€ì˜ ê²½ê¸°ê°€ ìžˆëŠ” ê²½ìš°ì—ë§Œ ìž…ìž¥ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_PARTYNUMBER				4731	//  ê·¹ë‹¨ %d
 
-#define TID_MMI_CREATECHAR_OVERFLOW					4732	//  ´õ ÀÌ»ó Ä³¸¯ÅÍ¸¦ »ý¼ºÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_MMI_DELETECHAR_ERROR					4734	//  ÇØ´ç Ä³¸¯ÅÍ¸¦ »èÁ¦ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_MMI_BARUNA_ELESMELT_E_TEXT12			4733	//  ÇØ´ç ½½·ÔÀº ¹Ù·ç³ª ¹æ¾î±¸ Áß ½´Æ®¸¸ µî·ÏÇÒ ¼ö ÀÖ½À´Ï´Ù.
-#define TID_MMI_BARUNA_ELESMELT_TEXT05				4735	//  2 ÀÌÇÏÀÇ ¼Ó¼º Á¦·Ã ¼öÄ¡´Â ¼Ó¼º Á¦·Ã ½Ã ¾ÆÀÌÅÛÀÌ ÆÄ±«µÇÁö ¾Ê±â ¶§¹®¿¡ ÇöÀç µî·ÏµÈ ¹Ù·ç³ªÀÇ ÀºÃÑÀº Á¦°ÅÇÏ½Ã´Â °ÍÀÌ ÁÁ½À´Ï´Ù.
+#define TID_MMI_CREATECHAR_OVERFLOW					4732	//  ë” ì´ìƒ ìºë¦­í„°ë¥¼ ìƒì„±í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_MMI_DELETECHAR_ERROR					4734	//  í•´ë‹¹ ìºë¦­í„°ë¥¼ ì‚­ì œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_MMI_BARUNA_ELESMELT_E_TEXT12			4733	//  í•´ë‹¹ ìŠ¬ë¡¯ì€ ë°”ë£¨ë‚˜ ë°©ì–´êµ¬ ì¤‘ ìŠˆíŠ¸ë§Œ ë“±ë¡í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define TID_MMI_BARUNA_ELESMELT_TEXT05				4735	//  2 ì´í•˜ì˜ ì†ì„± ì œë ¨ ìˆ˜ì¹˜ëŠ” ì†ì„± ì œë ¨ ì‹œ ì•„ì´í…œì´ íŒŒê´´ë˜ì§€ ì•Šê¸° ë•Œë¬¸ì— í˜„ìž¬ ë“±ë¡ëœ ë°”ë£¨ë‚˜ì˜ ì€ì´ì€ ì œê±°í•˜ì‹œëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.
 
-//¾Æ·¹³ª °ü·Ã ÅØ½ºÆ® Ãß°¡
-#define TID_MMI_EVENTARENA_STANDBY					4736	 // °æ±â ÁØºñ ÁßÀÔ´Ï´Ù.
-#define TID_MMI_EVENTARENA_PLAYERCALL				4737	 // °æ±â ½ÃÀÛÀ» À§ÇØ ¼±¼öµéÀÌ ´ë±â Áö¿ªÀ¸·Î ÀÔÀåÇÏ¿´½À´Ï´Ù.
-#define TID_MMI_EVENTARENA_PLAYERENTER				4738	 // °æ±â ÁøÇàÀ» À§ÇØ ¼±¼öµéÀÌ ÀüÅõ Áö¿ª¿¡ ÀÔÀåÇÏ¿´½À´Ï´Ù.
-#define TID_MMI_EVENTARENA_PLAYERFIGHT				4739	 // °æ±â°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.
-#define TID_MMI_EVENTARENA_REINSTATEERROR			4740	 // °æ±â°¡ Á¾·áµÇ¾î ºÎÈ°ÇÒ ¼ö ¾ø½À´Ï´Ù.
+//ì•„ë ˆë‚˜ ê´€ë ¨ í…ìŠ¤íŠ¸ ì¶”ê°€
+#define TID_MMI_EVENTARENA_STANDBY					4736	 // ê²½ê¸° ì¤€ë¹„ ì¤‘ìž…ë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_PLAYERCALL				4737	 // ê²½ê¸° ì‹œìž‘ì„ ìœ„í•´ ì„ ìˆ˜ë“¤ì´ ëŒ€ê¸° ì§€ì—­ìœ¼ë¡œ ìž…ìž¥í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_PLAYERENTER				4738	 // ê²½ê¸° ì§„í–‰ì„ ìœ„í•´ ì„ ìˆ˜ë“¤ì´ ì „íˆ¬ ì§€ì—­ì— ìž…ìž¥í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_PLAYERFIGHT				4739	 // ê²½ê¸°ê°€ ì‹œìž‘ë˜ì—ˆìŠµë‹ˆë‹¤.
+#define TID_MMI_EVENTARENA_REINSTATEERROR			4740	 // ê²½ê¸°ê°€ ì¢…ë£Œë˜ì–´ ë¶€í™œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 
-//±æµåÇÏ¿ì½º ±æµå °¡±¸(ÅÚ·¹Æ÷Æ® ÆùÆ®)
+//ê¸¸ë“œí•˜ìš°ìŠ¤ ê¸¸ë“œ ê°€êµ¬(í…”ë ˆí¬íŠ¸ í°íŠ¸)
 #define TID_MMI_GUILDHOUSE_TELEPORTER			4741	 // Teleporter
 
-//º¸¹° »óÀÚ ½Ã½ºÅÛ ÅØ½ºÆ® ¸Þ½ÃÁö
-#define TID_MMI_TREASURE_ERRORTKEY				4742	 // º¸¹° »óÀÚ´Â ¿­¼è ¾ÆÀÌÅÛÀ¸·Î¸¸ ¿­ ¼ö ÀÖ½À´Ï´Ù.
-#define TID_MMI_TREASURE_ERRORCOMBINE			4743	 // ÀÌ ¿­¼è´Â ÇØ´ç º¸¹° »óÀÚ¿Í ¸ÂÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ÇÑ¹ø È®ÀÎÇØÁÖ¼¼¿ä.
-#define TID_MMI_TREASURE_TREASUREITEM			4744	 // ÃàÇÏÇÕ´Ï´Ù~! º¸¹° »óÀÚ¿¡¼­ [ %s ] ¾ÆÀÌÅÛÀ» È¹µæÇÏ¿´½À´Ï´Ù.
-#define TID_MMI_TREASURE_NOTICETREASUREITEM		4745	 // [ %s ] ´ÔÀÌ º¸¹° »óÀÚ¿¡¼­ [ %s ] ¾ÆÀÌÅÛÀ» È¹µæÇÏ¿´½À´Ï´Ù.
+//ë³´ë¬¼ ìƒìž ì‹œìŠ¤í…œ í…ìŠ¤íŠ¸ ë©”ì‹œì§€
+#define TID_MMI_TREASURE_ERRORTKEY				4742	 // ë³´ë¬¼ ìƒìžëŠ” ì—´ì‡  ì•„ì´í…œìœ¼ë¡œë§Œ ì—´ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define TID_MMI_TREASURE_ERRORCOMBINE			4743	 // ì´ ì—´ì‡ ëŠ” í•´ë‹¹ ë³´ë¬¼ ìƒìžì™€ ë§žì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ í•œë²ˆ í™•ì¸í•´ì£¼ì„¸ìš”.
+#define TID_MMI_TREASURE_TREASUREITEM			4744	 // ì¶•í•˜í•©ë‹ˆë‹¤~! ë³´ë¬¼ ìƒìžì—ì„œ [ %s ] ì•„ì´í…œì„ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define TID_MMI_TREASURE_NOTICETREASUREITEM		4745	 // [ %s ] ë‹˜ì´ ë³´ë¬¼ ìƒìžì—ì„œ [ %s ] ì•„ì´í…œì„ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.
 
 
-//FWC ÄÝ·Î¼¼¿ò ÁõÇ¥ ±³È¯ ¸Þ½ÃÁö
-#define	TID_MMI_FWCCHIPTRADE_TEXT01			4746	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 3000 °³¸¦ ¼öÈ£ ¹«±â ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT02			4747	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 4500 °³¸¦ À¯¼­ ¹«±â ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT03			4748	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 5500 °³¸¦ Ãµ»ç ¹«±â ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT04			4749	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 6500 °³¸¦ Àü¼³ ¹«±â ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT05			4750	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 22500 °³¸¦ ·çÁöÄ« ¹«±â ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT06			4751	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 27000 °³¸¦ ·çÁöÄ« ¹«±â(M) ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT07			4752	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 25000 °³¸¦ ¹ìÆÄÀÌ¾î ¹«±â ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT08			4753	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 30000 °³¸¦ °í´ë ¹«±â ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT09			4754	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 33500 °³¸¦ º£È÷¸ð½º ¹«±â ·£´ý ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT10			4755	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 250 °³¸¦ ¿À¸®Ä®Äñ 10°³ ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT11			4756	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 250 °³¸¦ ¹®½ºÅæ 10°³ ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT12			4757	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 4000 °³¸¦ ¿ÀÆÛ½Ãµå 10°³ ¹Ú½º·Î ±³È¯
-#define	TID_MMI_FWCCHIPTRADE_TEXT13			4758	 //	¿ë¸ÍÇÔÀÇ ÁõÇ¥ 2000 °³¸¦ ºû³ª´Â ¿À¸®Ä®Äñ 10°³ ¹Ú½º·Î ±³È¯
+//FWC ì½œë¡œì„¸ì›€ ì¦í‘œ êµí™˜ ë©”ì‹œì§€
+#define	TID_MMI_FWCCHIPTRADE_TEXT01			4746	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 3000 ê°œë¥¼ ìˆ˜í˜¸ ë¬´ê¸° ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT02			4747	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 4500 ê°œë¥¼ ìœ ì„œ ë¬´ê¸° ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT03			4748	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 5500 ê°œë¥¼ ì²œì‚¬ ë¬´ê¸° ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT04			4749	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 6500 ê°œë¥¼ ì „ì„¤ ë¬´ê¸° ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT05			4750	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 22500 ê°œë¥¼ ë£¨ì§€ì¹´ ë¬´ê¸° ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT06			4751	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 27000 ê°œë¥¼ ë£¨ì§€ì¹´ ë¬´ê¸°(M) ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT07			4752	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 25000 ê°œë¥¼ ë±€íŒŒì´ì–´ ë¬´ê¸° ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT08			4753	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 30000 ê°œë¥¼ ê³ ëŒ€ ë¬´ê¸° ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT09			4754	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 33500 ê°œë¥¼ ë² ížˆëª¨ìŠ¤ ë¬´ê¸° ëžœë¤ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT10			4755	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 250 ê°œë¥¼ ì˜¤ë¦¬ì¹¼ì¿° 10ê°œ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT11			4756	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 250 ê°œë¥¼ ë¬¸ìŠ¤í†¤ 10ê°œ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT12			4757	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 4000 ê°œë¥¼ ì˜¤í¼ì‹œë“œ 10ê°œ ë°•ìŠ¤ë¡œ êµí™˜
+#define	TID_MMI_FWCCHIPTRADE_TEXT13			4758	 //	ìš©ë§¹í•¨ì˜ ì¦í‘œ 2000 ê°œë¥¼ ë¹›ë‚˜ëŠ” ì˜¤ë¦¬ì¹¼ì¿° 10ê°œ ë°•ìŠ¤ë¡œ êµí™˜
 
 
-//º¸¹° »óÀÚ ½Ã½ºÅÛ Ãß°¡ ÅØ½ºÆ®
-#define TID_MMI_TREASURE_NOTCLOSEDUI		4759	 // °á°úÃ¢ÀÌ ¿­·ÁÀÖ½À´Ï´Ù. Ã¢À» ´Ý°í ´Ù½Ã ½ÃµµÇØÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+//ë³´ë¬¼ ìƒìž ì‹œìŠ¤í…œ ì¶”ê°€ í…ìŠ¤íŠ¸
+#define TID_MMI_TREASURE_NOTCLOSEDUI		4759	 // ê²°ê³¼ì°½ì´ ì—´ë ¤ìžˆìŠµë‹ˆë‹¤. ì°½ì„ ë‹«ê³  ë‹¤ì‹œ ì‹œë„í•´ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
 
-//¾ÆÀÌÅÛ ÅøÆÁ ·¹º§ Ç¥½Ã
+//ì•„ì´í…œ íˆ´íŒ ë ˆë²¨ í‘œì‹œ
 #define TID_MMI_TOOLTIP_LEVEL				4760	 // %d ~ %d
 
-//ÀÌº¥Æ® ¾Æ·¹³ª Ãß°¡ ÅØ½ºÆ®
-#define TID_MMI_EVENTARENA_SELECTSAMETEAM		4761	 // ·¹µå/ºí·çÆÀÀ» ´Ù½Ã ÇÑ¹ø È®ÀÎÇØÁÖ¼¼¿ä. °°Àº ÆÀÀÌ ¼³Á¤µÇ¾î ÀÖ½À´Ï´Ù!!
-#define TID_MMI_EVENTARENA_SELECTTEAM			4762	 // ÆÀÀ» ¼±ÅÃÇØ¾ß Ã¼Å©°¡ °¡´ÉÇÕ´Ï´Ù.
+//ì´ë²¤íŠ¸ ì•„ë ˆë‚˜ ì¶”ê°€ í…ìŠ¤íŠ¸
+#define TID_MMI_EVENTARENA_SELECTSAMETEAM		4761	 // ë ˆë“œ/ë¸”ë£¨íŒ€ì„ ë‹¤ì‹œ í•œë²ˆ í™•ì¸í•´ì£¼ì„¸ìš”. ê°™ì€ íŒ€ì´ ì„¤ì •ë˜ì–´ ìžˆìŠµë‹ˆë‹¤!!
+#define TID_MMI_EVENTARENA_SELECTTEAM			4762	 // íŒ€ì„ ì„ íƒí•´ì•¼ ì²´í¬ê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-//±¹³» 18Â÷ ¾÷µ¥ÀÌÆ® ÀÌº¥Æ®
+//êµ­ë‚´ 18ì°¨ ì—…ë°ì´íŠ¸ ì´ë²¤íŠ¸
 
-#define	TID_MMI_RETURNSUPDATE_TEXT01			4763 //¸®ÅÏÁî ¾÷µ¥ÀÌÆ® ±â³ä ÁÖÈ­ 10°³¸¦ ¸®ÅÏÁî ±â³ä »óÀÚ·Î ±³È¯
-#define	TID_MMI_RETURNSUPDATE_TEXT02			4764 //¸®ÅÏÁî ¾÷µ¥ÀÌÆ® ±â³ä ÁÖÈ­ 1000°³¸¦ Çà¿îÀÇ ÇÇ¾î½Ì Ä«µå »óÀÚ·Î ±³È¯
-#define	TID_MMI_RETURNSUPDATE_TEXT03			4765 //¸®ÅÏÁî ¾÷µ¥ÀÌÆ® ±â³ä ÁÖÈ­ 3000°³¸¦ ÇÇ¾î½Ì Ä«µå »óÀÚ·Î ±³È¯
-#define	TID_MMI_RETURNSUPDATE_TEXT04			4766 //¸®ÅÏÁî ¾÷µ¥ÀÌÆ® ±â³ä ÁÖÈ­ 4000°³¸¦ ¿ë¸ÁÅä(±Í¼Ó)À¸·Î ±³È¯
-
-
-#define TID_MMI_FWCWORDEVENT_TEXT01				4767//±ÛÀÚ Á¶°¢ F, L, Y °¢°¢ 1°³¾¿ -> FLY Ä«µå·Î ±³È¯
-#define TID_MMI_FWCWORDEVENT_TEXT02				4768//±ÛÀÚ Á¶°¢ F, O, R °¢°¢ 1°³¾¿ -> FOR Ä«µå·Î ±³È¯
-#define TID_MMI_FWCWORDEVENT_TEXT03				4769//±ÛÀÚ Á¶°¢ F, U, N °¢°¢ 1°³¾¿ -> FUN Ä«µå·Î ±³È¯
-#define TID_MMI_FWCWORDEVENT_TEXT04				4770//±ÛÀÚ Á¶°¢ 20, 11  °¢°¢ 1°³¾¿ -> 2011 Ä«µå·Î ±³È¯
-#define TID_MMI_FWCWORDEVENT_TEXT05				4771//±ÛÀÚ Á¶°¢ F, W, C °¢°¢ 1°³¾¿ -> FWC Ä«µå·Î ±³È¯
-#define TID_MMI_FWCWORDEVENT_TEXT06				4772//±ÛÀÚ Á¶°¢ 20, 11, F, W, C °¢°¢ 1°³¾¿ -> 2011 FWC Ä«µå·Î ±³È¯
-
-//ÄíÆù ÀÔ·ÂÃ¢ ´ÝÀ»¶§ ¸Þ½ÃÁö
-#define TID_MMI_EVENT_AROTTO_KOR_COND_CLOSE		4773//ÄíÆù ÀÔ·ÂÃ¢À» ´ÝÀ¸½Ã°Ú½À´Ï±î?
-
-//°Å·¡ Áß°³ ½Ã½ºÅÛ ÆÇ¸Å µî·Ï ÁøÇà½Ã Ãâ·Â ¸Þ½ÃÁö
-#define TID_MMI_TRADESYSTEM_SELLTEXT01		4805//	ÃÖ¼Ò µî·Ï ±Ý¾×Àº 1¿øÀÔ´Ï´Ù. ´Ù½Ã È®ÀÎ ÇÏ½Ã½Ê½Ã¿ä.
-#define TID_MMI_TRADESYSTEM_SELLTEXT02		4774//	´õ ÀÌ»ó ¾ÆÀÌÅÛÀ» µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù. ÀåÀÎÀÇ °è¾à¼­¸¦ »ç¿ëÇÏ½Ã¸é ¾ÆÀÌÅÛÀ» Ãß°¡ÀûÀ¸·Î µî·ÏÇÒ ¼ö ÀÖ½À´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_SELLTEXT03		4775//	µî·Ï °³¼ö ÇÑµµ¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù. 50°³ ÀÌ»ó µî·ÏÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_SELLTEXT04		4776//	21¾ï ÀÌ»ó ±Ý¾×À» ÀÔ·ÂÇÏ½Ç ¼ö ¾ø½À´Ï´Ù. 21¾ï±îÁö ÀÔ·Â °¡´ÉÇÕ´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_SELLTEXT05		4777//	¾ÆÀÌÅÛ ÆÇ¸Å µî·ÏÀÌ Á¤»óÀûÀ¸·Î ÀÌ·ç¾îÁ³½À´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_SELLTEXT06		4778//	¾ÆÀÌÅÛ ÆÇ¸Å ±â°£ÀÌ Á¾·áµÇ¾ú½À´Ï´Ù. ÆÇ¸Å Á¾·á µÈ ¾ÆÀÌÅÛÀº UI¿¡ ±×´ë·Î º¸Á¸µË´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_SELLTEXT07		4779//	%d ¾ÆÀÌÅÛÀÌ ÆÇ¸Å µÇ¾ú½À´Ï´Ù. ÆÇ¸Å µÈ ¾ÆÀÌÅÛÀº ¿ìÆíÀ¸·Î Áö±ÞµÇ¸ç 15ÀÏ ³»¿¡ Ã£¾Æ°¡Áö ¾ÊÀ¸½Ç °æ¿ì ¼Ò¸ê µÉ ¼ö ÀÖ½À´Ï´Ù.
-
-//°Å·¡ Áß°³ ½Ã½ºÅÛ ¾ÆÀÌÅÛ ±¸¸Å ÁøÇà½Ã Ãâ·Â ¸Þ½ÃÁö
-#define TID_MMI_TRADESYSTEM_BUYTEXT01		4780//	º¸À¯ÇÏ½Å ±Ý¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ´Ù½Ã È®ÀÎ ÇØ ÁÖ½Ê½Ã¿ä.
-#define TID_MMI_TRADESYSTEM_BUYTEXT02		4781//	±¸¸Å ½ÃµµÇÑ ¹°Ç°ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ´Ù¸¥ ¹°ÇÄÀ» ±¸¸ÅÇØ ÁÖ½Ê½Ã¿ä.
-#define TID_MMI_TRADESYSTEM_BUYTEXT03		4782//	%d ¾ÆÀÌÅÛ ±¸¸Å°¡ ¿Ï·áµÇ¾úÀ¸¸ç ¿ìÆíÀ¸·Î Áö±ÞµÇ¾ú½À´Ï´Ù. 15ÀÏ ÀÌ³» Ã£¾Æ°¡Áö ¾ÊÀ» °æ¿ì ¼Ò¸ê µÉ ¼ö ÀÖ½À´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_BUYTEXT04		4783//	%d´Â 200,000,000¿øÀÔ´Ï´Ù.±¸¸Å ÇÒ °æ¿ì Ãë¼Ò°¡ ºÒ°¡´ÉÇÏ¸ç ±¸¸Å ±Ý¾×Àº ¹ÝÈ¯µÇÁö ¾Ê½À´Ï´Ù. ±¸¸ÅÇÏ½Ã°Ú½À´Ï±î?
-
-//°Å·¡ Áß°³ ½Ã½ºÅÛ ¾ÆÀÌÅÛ Á¤»ê ÁøÇà½Ã Ãâ·Â ¸Þ½ÃÁö
-#define TID_MMI_TRADESYSTEM_SUMTEXT01		4784//	ÆÇ¸Å ´ë±ÝÀÌ ¿ìÆíÀ¸·Î Á¤»ó Áö±ÞµÇ¾ú½À´Ï´Ù. 15ÀÏ ³»¿¡ Ã£¾Æ °¡Áö ¾ÊÀ» °æ¿ì ¼Ò¸ê µÉ ¼ö ÀÖ½À´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_SUMTEXT02		4785//	ÀüÃ¼ Á¤»ê ±Ý¾×ÀÌ 21¾ïÀ» ÃÊ°úÇÏ¿´½À´Ï´Ù. °³º° Á¤»êÀ» ÅëÇØ ÁøÇàÇØ ÁÖ½Ê½Ã¿ä.
-#define TID_MMI_TRADESYSTEM_SUMTEXT03		4786//	Á¤»êÀ» ÇÏ½Ã°Ú½À´Ï±î? Á¤»êÀÌ ¿Ï·áµÇ¸é ¿ìÆíÀ¸·Î Á¤»ê ±Ý¾×ÀÌ Áö±ÞµÇ¸ç 15ÀÏ ³»¿¡ Ã£¾Æ°¡Áö ¾ÊÀ» °æ¿ì ¼Ò¸ê µÉ ¼ö ÀÖ½À´Ï´Ù.
-
-//°Å·¡ Áß°³ ½Ã½ºÅÛ ¾ÆÀÌÅÛ µî·ÏÃë¼Ò ÁøÇà½Ã Ãâ·Â ¸Þ½ÃÁö
-#define TID_MMI_TRADESYSTEM_CANCELTEXT01	4787//	%d ¾ÆÀÌÅÛÀ» µî·Ï ÇØÁ¦ ÇÏ½Ã°Ú½À´Ï±î? µî·Ï ÇØÁ¦ µÈ ¾ÆÀÌÅÛÀº ¿ìÆíÀ¸·Î Áö±ÞµÇ¸ç 15ÀÏ ÀÌ³»¿¡ Ã£¾Æ°¡Áö ¾ÊÀ¸½Ç °æ¿ì ¼Ò¸ê µÉ ¼ö ÀÖ½À´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_CANCELTEXT02	4788//	¾ÆÀÌÅÛ µî·ÏÀÌ ÇØÁ¦ µÇ¾ú½À´Ï´Ù. µî·Ï ÇØÁ¦ µÈ ¾ÆÀÌÅÛÀº ¿ìÆíÀ¸·Î Áö±ÞµÇ¸ç 15ÀÏ ÀÌ³»¿¡ Ã£¾Æ°¡Áö ¾ÊÀ¸½Ç °æ¿ì ¼Ò¸êµÉ ¼ö ÀÖ½À´Ï´Ù.
-
-//°Å·¡ Áß°³ ½Ã½ºÅÛ °ü·Ã ±âÅ¸ ¸Þ½ÃÁö
-#define TID_MMI_TRADESYSTEM_EXCEPTIONTEXT01	4789// ¾ÆÀÌÅÛ ¸®½ºÆ®¸¦ °Ë»ö ÁßÀÔ´Ï´Ù. Àá½Ã¸¸ ±â´Ù·ÁÁÖ½Ê½Ã¿ä.
+#define	TID_MMI_RETURNSUPDATE_TEXT01			4763 //ë¦¬í„´ì¦ˆ ì—…ë°ì´íŠ¸ ê¸°ë… ì£¼í™” 10ê°œë¥¼ ë¦¬í„´ì¦ˆ ê¸°ë… ìƒìžë¡œ êµí™˜
+#define	TID_MMI_RETURNSUPDATE_TEXT02			4764 //ë¦¬í„´ì¦ˆ ì—…ë°ì´íŠ¸ ê¸°ë… ì£¼í™” 1000ê°œë¥¼ í–‰ìš´ì˜ í”¼ì–´ì‹± ì¹´ë“œ ìƒìžë¡œ êµí™˜
+#define	TID_MMI_RETURNSUPDATE_TEXT03			4765 //ë¦¬í„´ì¦ˆ ì—…ë°ì´íŠ¸ ê¸°ë… ì£¼í™” 3000ê°œë¥¼ í”¼ì–´ì‹± ì¹´ë“œ ìƒìžë¡œ êµí™˜
+#define	TID_MMI_RETURNSUPDATE_TEXT04			4766 //ë¦¬í„´ì¦ˆ ì—…ë°ì´íŠ¸ ê¸°ë… ì£¼í™” 4000ê°œë¥¼ ìš©ë§í† (ê·€ì†)ìœ¼ë¡œ êµí™˜
 
 
-//³°Àº ¼öÈ£¹«±â ±³È¯
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT01	4790		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ °Ë ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT02	4791		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ ¾ç¼Õ°Ë ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT03	4792		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ µµ³¢ ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT04	4793		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ ¾ç¼Õµµ³¢ ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT05	4794		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ ³ÊÅ¬ ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT06	4795		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ ½ºÆ½ ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT07	4796		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ ¿Ïµå ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT08	4797		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ ½ºÅÂÇÁ ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT09	4798		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ º¸¿ì ±¸ÀÔ
-#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT10	4799		//50,000 Æä³Ä·Î ³°Àº ¼öÈ£ÀÇ ¿ä¿ä ±¸ÀÔ
-#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT01		4800	//30,000 Æä³Ä·Î ¸®¹ö Ä«µå ±¸ÀÔ
-#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT02		4801	//30,000 Æä³Ä·Î ÇÃ·¹ÀÓ Ä«µå ±¸ÀÔ
-#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT03		4802	//30,000 Æä³Ä·Î µ¥ÀúÆ® Ä«µå ±¸ÀÔ
-#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT04		4803	//30,000 Æä³Ä·Î Á¦³Ê·¹ÀÌÅÍ Ä«µå ±¸ÀÔ
-#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT05		4804	//30,000 Æä³Ä·Î »çÀÌÅ¬·Ð Ä«µå ±¸ÀÔ
+#define TID_MMI_FWCWORDEVENT_TEXT01				4767//ê¸€ìž ì¡°ê° F, L, Y ê°ê° 1ê°œì”© -> FLY ì¹´ë“œë¡œ êµí™˜
+#define TID_MMI_FWCWORDEVENT_TEXT02				4768//ê¸€ìž ì¡°ê° F, O, R ê°ê° 1ê°œì”© -> FOR ì¹´ë“œë¡œ êµí™˜
+#define TID_MMI_FWCWORDEVENT_TEXT03				4769//ê¸€ìž ì¡°ê° F, U, N ê°ê° 1ê°œì”© -> FUN ì¹´ë“œë¡œ êµí™˜
+#define TID_MMI_FWCWORDEVENT_TEXT04				4770//ê¸€ìž ì¡°ê° 20, 11  ê°ê° 1ê°œì”© -> 2011 ì¹´ë“œë¡œ êµí™˜
+#define TID_MMI_FWCWORDEVENT_TEXT05				4771//ê¸€ìž ì¡°ê° F, W, C ê°ê° 1ê°œì”© -> FWC ì¹´ë“œë¡œ êµí™˜
+#define TID_MMI_FWCWORDEVENT_TEXT06				4772//ê¸€ìž ì¡°ê° 20, 11, F, W, C ê°ê° 1ê°œì”© -> 2011 FWC ì¹´ë“œë¡œ êµí™˜
 
-//ÀÎµµ³×½Ã¾Æ µ¶¸³±â³äÀÏ ÀÌº¥Æ® ±³È¯ ¸Þ´º
-#define	TID_MMI_INDNATIONALFALGEXCHANGE_TEXT01	4806		//±ê¹ß 50°³¸¦ ³ë¶õÃ¥°¡¹æÀ¸·Î ±³È¯
-#define	TID_MMI_INDNATIONALFALGEXCHANGE_TEXT02	4807		//±ê¹ß 100°³¸¦ ÆÄ¶õÃ¥°¡¹æÀ¸·Î ±³È¯
-#define	TID_MMI_INDNATIONALFALGEXCHANGE_TEXT03	4808		//±ê¹ß 200°³¸¦ »¡°£Ã¥°¡¹æÀ¸·Î ±³È¯
-//FWC ÁõÇ¥ ±³È¯ ¸Þ´º
-#define TID_MMI_FWCCHIPTRADE						4809	//  ¿ë¸ÍÇÔÀÇ ÁõÇ¥¸¦ º¸»ó ¾ÆÀÌÅÛÀ¸·Î ±³È¯
+//ì¿ í° ìž…ë ¥ì°½ ë‹«ì„ë•Œ ë©”ì‹œì§€
+#define TID_MMI_EVENT_AROTTO_KOR_COND_CLOSE		4773//ì¿ í° ìž…ë ¥ì°½ì„ ë‹«ìœ¼ì‹œê² ìŠµë‹ˆê¹Œ?
 
-//°Å·¡Áß°³½ÃÀå ÀÔÀå ¸Þ´º
-#define TID_MMI_MARKETJOIN_TEXT01			4810		//½ÃÀåÀ¸·Î ÀÔÀåÇÏ½Ã°Ú½À´Ï±î?
+//ê±°ëž˜ ì¤‘ê°œ ì‹œìŠ¤í…œ íŒë§¤ ë“±ë¡ ì§„í–‰ì‹œ ì¶œë ¥ ë©”ì‹œì§€
+#define TID_MMI_TRADESYSTEM_SELLTEXT01		4805//	ìµœì†Œ ë“±ë¡ ê¸ˆì•¡ì€ 1ì›ìž…ë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸ í•˜ì‹œì‹­ì‹œìš”.
+#define TID_MMI_TRADESYSTEM_SELLTEXT02		4774//	ë” ì´ìƒ ì•„ì´í…œì„ ë“±ë¡í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ìž¥ì¸ì˜ ê³„ì•½ì„œë¥¼ ì‚¬ìš©í•˜ì‹œë©´ ì•„ì´í…œì„ ì¶”ê°€ì ìœ¼ë¡œ ë“±ë¡í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_SELLTEXT03		4775//	ë“±ë¡ ê°œìˆ˜ í•œë„ë¥¼ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤. 50ê°œ ì´ìƒ ë“±ë¡ì´ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_SELLTEXT04		4776//	21ì–µ ì´ìƒ ê¸ˆì•¡ì„ ìž…ë ¥í•˜ì‹¤ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. 21ì–µê¹Œì§€ ìž…ë ¥ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_SELLTEXT05		4777//	ì•„ì´í…œ íŒë§¤ ë“±ë¡ì´ ì •ìƒì ìœ¼ë¡œ ì´ë£¨ì–´ì¡ŒìŠµë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_SELLTEXT06		4778//	ì•„ì´í…œ íŒë§¤ ê¸°ê°„ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤. íŒë§¤ ì¢…ë£Œ ëœ ì•„ì´í…œì€ UIì— ê·¸ëŒ€ë¡œ ë³´ì¡´ë©ë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_SELLTEXT07		4779//	%d ì•„ì´í…œì´ íŒë§¤ ë˜ì—ˆìŠµë‹ˆë‹¤. íŒë§¤ ëœ ì•„ì´í…œì€ ìš°íŽ¸ìœ¼ë¡œ ì§€ê¸‰ë˜ë©° 15ì¼ ë‚´ì— ì°¾ì•„ê°€ì§€ ì•Šìœ¼ì‹¤ ê²½ìš° ì†Œë©¸ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-//Ä³¸¯ÅÍ ¼­¹ö ÀÌµ¿°ü·Ã ¿¡·¯¸Þ½ÃÁö
-#define TID_MMI_WORLDCHANGEERROR_TEXT01		4811		//ÀÌµ¿ÀÌ Á¦ÇÑµÈ ¾ÆÀÌÅÛÀ» º¸À¯ÇÏ°í ÀÖ½À´Ï´Ù. ´Ù½Ã ÇÑ¹ø È®ÀÎÇØ ÁÖ¼¼¿ä.
-#define TID_MMI_WORLDCHANGEERROR_TEXT02		4812		//±æµå¿¡ °¡ÀÔÇÏ°Å³ª Ä¿ÇÃ, »çÁ¦°ü°è¸¦ ¸Î°í ÀÖÀ¸¸é »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_MMI_WORLDCHANGEERROR_TEXT03		4813		//±ºÁÖ Áý±Ç ±â°£ µ¿¾ÈÀº »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define TID_MMI_WORLDCHANGEERROR_TEXT04		4814		//»ç¿ëÇÒ ¼ö ¾ø´Â ¾ÆÀÌµðÀÔ´Ï´Ù. ´Ù¸¥ ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.
-#define TID_MMI_WORLDCHANGEERROR_TEXT05		4815		//¾ÆÀÌµð´Â ÃÖ¼Ò 2±ÛÀÚ ÀÌ»ó ÀÔ·Â ÇØ¾ß ÇÕ´Ï´Ù.
-#define TID_MMI_WORLDCHANGEERROR_TEXT06		4816		//¼­¹ö ¼±ÅÃÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+//ê±°ëž˜ ì¤‘ê°œ ì‹œìŠ¤í…œ ì•„ì´í…œ êµ¬ë§¤ ì§„í–‰ì‹œ ì¶œë ¥ ë©”ì‹œì§€
+#define TID_MMI_TRADESYSTEM_BUYTEXT01		4780//	ë³´ìœ í•˜ì‹  ê¸ˆì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸ í•´ ì£¼ì‹­ì‹œìš”.
+#define TID_MMI_TRADESYSTEM_BUYTEXT02		4781//	êµ¬ë§¤ ì‹œë„í•œ ë¬¼í’ˆì´ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ë¥¸ ë¬¼í””ì„ êµ¬ë§¤í•´ ì£¼ì‹­ì‹œìš”.
+#define TID_MMI_TRADESYSTEM_BUYTEXT03		4782//	%d ì•„ì´í…œ êµ¬ë§¤ê°€ ì™„ë£Œë˜ì—ˆìœ¼ë©° ìš°íŽ¸ìœ¼ë¡œ ì§€ê¸‰ë˜ì—ˆìŠµë‹ˆë‹¤. 15ì¼ ì´ë‚´ ì°¾ì•„ê°€ì§€ ì•Šì„ ê²½ìš° ì†Œë©¸ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_BUYTEXT04		4783//	%dëŠ” 200,000,000ì›ìž…ë‹ˆë‹¤.êµ¬ë§¤ í•  ê²½ìš° ì·¨ì†Œê°€ ë¶ˆê°€ëŠ¥í•˜ë©° êµ¬ë§¤ ê¸ˆì•¡ì€ ë°˜í™˜ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤. êµ¬ë§¤í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
 
-//ÄÝ·Î¼¼¿ò ÀÔÀå ÀÎ¿ø °ü·Ã ¸Þ½ÃÁö
-#define TID_MMI_COLOMAX				4817		//ÃÖ´ë ÀÔÀåÇÒ ¼ö ÀÖ´Â ÀÎ¿øÀ» ÃÊ°úÇÏ¿© ´õ ÀÌ»ó ÀÔÀåÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù.
+//ê±°ëž˜ ì¤‘ê°œ ì‹œìŠ¤í…œ ì•„ì´í…œ ì •ì‚° ì§„í–‰ì‹œ ì¶œë ¥ ë©”ì‹œì§€
+#define TID_MMI_TRADESYSTEM_SUMTEXT01		4784//	íŒë§¤ ëŒ€ê¸ˆì´ ìš°íŽ¸ìœ¼ë¡œ ì •ìƒ ì§€ê¸‰ë˜ì—ˆìŠµë‹ˆë‹¤. 15ì¼ ë‚´ì— ì°¾ì•„ ê°€ì§€ ì•Šì„ ê²½ìš° ì†Œë©¸ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_SUMTEXT02		4785//	ì „ì²´ ì •ì‚° ê¸ˆì•¡ì´ 21ì–µì„ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤. ê°œë³„ ì •ì‚°ì„ í†µí•´ ì§„í–‰í•´ ì£¼ì‹­ì‹œìš”.
+#define TID_MMI_TRADESYSTEM_SUMTEXT03		4786//	ì •ì‚°ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ? ì •ì‚°ì´ ì™„ë£Œë˜ë©´ ìš°íŽ¸ìœ¼ë¡œ ì •ì‚° ê¸ˆì•¡ì´ ì§€ê¸‰ë˜ë©° 15ì¼ ë‚´ì— ì°¾ì•„ê°€ì§€ ì•Šì„ ê²½ìš° ì†Œë©¸ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-//Ä³¸¯ÅÍ ¼­¹ö ÀÌµ¿°ü·Ã ¿¡·¯¸Þ½ÃÁö Ãß°¡
-#define TID_MMI_WORLDCHANGEERROR_TEXT07		4818		//ÀÌµ¿ °¡´ÉÇÑ Æä³Ä´Â ÃÖ´ë 21¾ï Æä³ÄÀÔ´Ï´Ù. ´Ù½Ã ÇÑ¹ø È®ÀÎÇØ ÁÖ¼¼¿ä.
-#define TID_MMI_WORLDCHANGEERROR_TEXT08		4819		//%s ¼­¹ö¿¡¼­ %s ¼­¹ö·Î ÀÌÀüÀÌ ¿Ï·áµÇ¾î ¼­¹ö·ÎºÎÅÍ Á¢¼ÓÀÌ ÇØÁ¦µÇ¾ú½À´Ï´Ù.
+//ê±°ëž˜ ì¤‘ê°œ ì‹œìŠ¤í…œ ì•„ì´í…œ ë“±ë¡ì·¨ì†Œ ì§„í–‰ì‹œ ì¶œë ¥ ë©”ì‹œì§€
+#define TID_MMI_TRADESYSTEM_CANCELTEXT01	4787//	%d ì•„ì´í…œì„ ë“±ë¡ í•´ì œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ? ë“±ë¡ í•´ì œ ëœ ì•„ì´í…œì€ ìš°íŽ¸ìœ¼ë¡œ ì§€ê¸‰ë˜ë©° 15ì¼ ì´ë‚´ì— ì°¾ì•„ê°€ì§€ ì•Šìœ¼ì‹¤ ê²½ìš° ì†Œë©¸ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_CANCELTEXT02	4788//	ì•„ì´í…œ ë“±ë¡ì´ í•´ì œ ë˜ì—ˆìŠµë‹ˆë‹¤. ë“±ë¡ í•´ì œ ëœ ì•„ì´í…œì€ ìš°íŽ¸ìœ¼ë¡œ ì§€ê¸‰ë˜ë©° 15ì¼ ì´ë‚´ì— ì°¾ì•„ê°€ì§€ ì•Šìœ¼ì‹¤ ê²½ìš° ì†Œë©¸ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-//ÇÑ°¡À§ ±³È¯ ÀÌº¥Æ®
-#define TID_MMI_HANGAWI_TRADE_TEXT01		4820		//²Ü¼ÛÆí 10°³¿Í 50,000 Æä³Ä¸¦ °¡À§¹ÙÀ§º¸ ÄíÆù 1ÀåÀ¸·Î ±³È¯
+//ê±°ëž˜ ì¤‘ê°œ ì‹œìŠ¤í…œ ê´€ë ¨ ê¸°íƒ€ ë©”ì‹œì§€
+#define TID_MMI_TRADESYSTEM_EXCEPTIONTEXT01	4789// ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë¥¼ ê²€ìƒ‰ ì¤‘ìž…ë‹ˆë‹¤. ìž ì‹œë§Œ ê¸°ë‹¤ë ¤ì£¼ì‹­ì‹œìš”.
 
-//°Å·¡ Áß°³ ½Ã½ºÅÛ ¸Þ½ÃÁö Ãß°¡
-#define TID_MMI_TRADESYSTEM_ITEMBUTNOTFOUND		4821		//±¸¸Å¸¦ ½ÃµµÇÑ ¹°Ç°ÀÌ ¾ø¾î ±¸¸Å¸¦ ¿Ï·áÇÏÁö ¸øÇÏ¿´½À´Ï´Ù. ±¸¸Å¿¡ »ç¿ë µÈ Æä³Ä´Â ¿ìÆíÀ¸·Î Áö±ÞµÇ¸ç 15ÀÏ ÀÌ³»¿¡ Ã£¾Æ°¡Áö ¾ÊÀ» °æ¿ì ¼Ò¸ê µË´Ï´Ù.
 
-//°Å·¡ Áß°³ ¾ÆÀÌÅÛ ¸ñ·Ï ¸®½ºÆ®
-#define TID_MMI_TRADESYSTEM_ITEMLISTWEAPON01			4822	//¹«±â
-#define TID_MMI_TRADESYSTEM_ITEMLISTAOMOR02			4823	//¹æ¾î±¸
-#define TID_MMI_TRADESYSTEM_ITEMLISTACCESSORY03			4824	//¾×¼¼¼­¸®
-#define TID_MMI_TRADESYSTEM_ITEMLISTMATERIAL04			4825	//Àç·á
-#define TID_MMI_TRADESYSTEM_ITEMLISTCONSUME05			4826	//¼Ò¸ðÇ°
-#define TID_MMI_TRADESYSTEM_ITEMLISTALLEXCEPTION06		4827	//±âÅ¸
-#define TID_MMI_TRADESYSTEM_ITEMLISTCOSTUME07			4828	//ÄÚ½ºÆ¬
-#define TID_MMI_TRADESYSTEM_ITEMLIST08				4829	//ÇÑ¼Õ°Ë
-#define TID_MMI_TRADESYSTEM_ITEMLIST09				4830	//¾ç¼Õ°Ë
-#define TID_MMI_TRADESYSTEM_ITEMLIST10				4831	//ÇÑ¼Õµµ³¢
-#define TID_MMI_TRADESYSTEM_ITEMLIST11				4832	//¾ç¼Õµµ³¢
-#define TID_MMI_TRADESYSTEM_ITEMLIST12				4833	//³ÊÅ¬
-#define TID_MMI_TRADESYSTEM_ITEMLIST13				4834	//½ºÆ½
-#define TID_MMI_TRADESYSTEM_ITEMLIST14				4835	//º¸¿ì
-#define TID_MMI_TRADESYSTEM_ITEMLIST15				4836	//½ºÅÂÇÁ
-#define TID_MMI_TRADESYSTEM_ITEMLIST16				4837	//¿ä¿ä
-#define TID_MMI_TRADESYSTEM_ITEMLIST17				4838	//¿Ïµå
-#define TID_MMI_TRADESYSTEM_ITEMLIST18				4839	//Æ÷½ºÀë
-#define TID_MMI_TRADESYSTEM_ITEMLIST19				4840	//¹ý¼­
-#define TID_MMI_TRADESYSTEM_ITEMLIST20				4841	//±âÅ¸
-#define TID_MMI_TRADESYSTEM_ITEMLIST21				4842	//Çï¸ä
-#define TID_MMI_TRADESYSTEM_ITEMLIST22				4843	//½´Æ®
-#define TID_MMI_TRADESYSTEM_ITEMLIST23				4844	//°ÇÆ²·¿
-#define TID_MMI_TRADESYSTEM_ITEMLIST24				4845	//ºÎÃ÷
-#define TID_MMI_TRADESYSTEM_ITEMLIST25				4846	//¹æÆÐ
-#define TID_MMI_TRADESYSTEM_ITEMLIST26				4847	//¹ÝÁö
-#define TID_MMI_TRADESYSTEM_ITEMLIST27				4848	//±Í°ÉÀÌ
-#define TID_MMI_TRADESYSTEM_ITEMLIST28				4849	//¸ñ°ÉÀÌ
-#define TID_MMI_TRADESYSTEM_ITEMLIST29				4850	//Àç·á
-#define TID_MMI_TRADESYSTEM_ITEMLIST30				4851	//¹°¾à
-#define TID_MMI_TRADESYSTEM_ITEMLIST31				4852	//ÁÖ¹®¼­
-#define TID_MMI_TRADESYSTEM_ITEMLIST32				4853	//Æ÷½ºÅÍ
-#define TID_MMI_TRADESYSTEM_ITEMLIST33				4854	//±âÅ¸
-#define TID_MMI_TRADESYSTEM_ITEMLIST34				4855	//±âÅ¸
-#define TID_MMI_TRADESYSTEM_ITEMLIST35				4856	//¸¶½ºÅ©
-#define TID_MMI_TRADESYSTEM_ITEMLIST36				4857	//¸ÁÅä
-#define TID_MMI_TRADESYSTEM_ITEMLIST37				4858	//¸Ó¸®
-#define TID_MMI_TRADESYSTEM_ITEMLIST38				4859	//ÀÇ»ó
-#define TID_MMI_TRADESYSTEM_ITEMLIST39				4860	//Àå°©
-#define TID_MMI_TRADESYSTEM_ITEMLIST40				4861	//½Å¹ß
+//ë‚¡ì€ ìˆ˜í˜¸ë¬´ê¸° êµí™˜
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT01	4790		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ê²€ êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT02	4791		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ì–‘ì†ê²€ êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT03	4792		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ë„ë¼ êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT04	4793		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ì–‘ì†ë„ë¼ êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT05	4794		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ë„ˆí´ êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT06	4795		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ìŠ¤í‹± êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT07	4796		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ì™„ë“œ êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT08	4797		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ìŠ¤íƒœí”„ êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT09	4798		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ë³´ìš° êµ¬ìž…
+#define	TID_MMI_BADSUHOWEAPONTRADE_TEXT10	4799		//50,000 íŽ˜ëƒë¡œ ë‚¡ì€ ìˆ˜í˜¸ì˜ ìš”ìš” êµ¬ìž…
+#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT01		4800	//30,000 íŽ˜ëƒë¡œ ë¦¬ë²„ ì¹´ë“œ êµ¬ìž…
+#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT02		4801	//30,000 íŽ˜ëƒë¡œ í”Œë ˆìž„ ì¹´ë“œ êµ¬ìž…
+#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT03		4802	//30,000 íŽ˜ëƒë¡œ ë°ì €íŠ¸ ì¹´ë“œ êµ¬ìž…
+#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT04		4803	//30,000 íŽ˜ëƒë¡œ ì œë„ˆë ˆì´í„° ì¹´ë“œ êµ¬ìž…
+#define	TID_MMI_BADSUHOEVENTELECARDTRADE_TEXT05		4804	//30,000 íŽ˜ëƒë¡œ ì‚¬ì´í´ë¡  ì¹´ë“œ êµ¬ìž…
 
-#define TID_MMI_TWBOXTRADE_TEXT01			4862	// ³ë·Â»óÀÚ 5°³¸¦ Àº»óÀÚ 1°³·Î ±³È¯
-#define TID_MMI_TWBOXTRADE_TEXT02			4863	// Àº»óÀÚ 5°³¸¦ ±Ý»óÀÚ 1°³·Î ±³È¯
+//ì¸ë„ë„¤ì‹œì•„ ë…ë¦½ê¸°ë…ì¼ ì´ë²¤íŠ¸ êµí™˜ ë©”ë‰´
+#define	TID_MMI_INDNATIONALFALGEXCHANGE_TEXT01	4806		//ê¹ƒë°œ 50ê°œë¥¼ ë…¸ëž€ì±…ê°€ë°©ìœ¼ë¡œ êµí™˜
+#define	TID_MMI_INDNATIONALFALGEXCHANGE_TEXT02	4807		//ê¹ƒë°œ 100ê°œë¥¼ íŒŒëž€ì±…ê°€ë°©ìœ¼ë¡œ êµí™˜
+#define	TID_MMI_INDNATIONALFALGEXCHANGE_TEXT03	4808		//ê¹ƒë°œ 200ê°œë¥¼ ë¹¨ê°„ì±…ê°€ë°©ìœ¼ë¡œ êµí™˜
+//FWC ì¦í‘œ êµí™˜ ë©”ë‰´
+#define TID_MMI_FWCCHIPTRADE						4809	//  ìš©ë§¹í•¨ì˜ ì¦í‘œë¥¼ ë³´ìƒ ì•„ì´í…œìœ¼ë¡œ êµí™˜
 
-#define TID_MMI_EXCHAGESCRIPTSMELT_TEXT01			4864	// Á¶°Ç¿¡ ¸Â´Â ¾ÆÀÌÅÛÀ» º¸À¯ÇÏ°í ÀÖÁö ¾Ê½À´Ï´Ù.
+//ê±°ëž˜ì¤‘ê°œì‹œìž¥ ìž…ìž¥ ë©”ë‰´
+#define TID_MMI_MARKETJOIN_TEXT01			4810		//ì‹œìž¥ìœ¼ë¡œ ìž…ìž¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
 
-//º£È÷¸ð½º ¿ìµç ¹«±âÀÇ ºñ¹Ð ÀÌº¥Æ®
-#define TID_MMI_BEHEMOTHSMELTEVENT_5_9_TEXT			4865	// ¼Ó¼ºÁ¦·Ã °ª 5 ~ 9 -> °­È­ºñÀü¼­(B) 1°³·Î ±³È¯
-#define TID_MMI_BEHEMOTHSMELTEVENT_10_14_TEXT		4866	// ¼Ó¼ºÁ¦·Ã °ª 10 ~ 14 -> Çà¿îÀÇ ¾È°æ»óÀÚ 1°³·Î ±³È¯
-#define TID_MMI_BEHEMOTHSMELTEVENT_15_19_TEXT		4867	// ¼Ó¼ºÁ¦·Ã °ª 15 ~ 19 -> ¿ë¸ÍÇÑ ¶óÄï ¿ì¸® 1°³·Î ±³È¯
-#define TID_MMI_BEHEMOTHSMELTEVENT_20_TEXT			4868	// ¼Ó¼ºÁ¦·Ã °ª 20 -> +20 ¼Ó¼ºÁ¦·Ã µÈ º£È÷¸ð½º ¹«±â·Î ±³È¯
+//ìºë¦­í„° ì„œë²„ ì´ë™ê´€ë ¨ ì—ëŸ¬ë©”ì‹œì§€
+#define TID_MMI_WORLDCHANGEERROR_TEXT01		4811		//ì´ë™ì´ ì œí•œëœ ì•„ì´í…œì„ ë³´ìœ í•˜ê³  ìžˆìŠµë‹ˆë‹¤. ë‹¤ì‹œ í•œë²ˆ í™•ì¸í•´ ì£¼ì„¸ìš”.
+#define TID_MMI_WORLDCHANGEERROR_TEXT02		4812		//ê¸¸ë“œì— ê°€ìž…í•˜ê±°ë‚˜ ì»¤í”Œ, ì‚¬ì œê´€ê³„ë¥¼ ë§ºê³  ìžˆìœ¼ë©´ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_MMI_WORLDCHANGEERROR_TEXT03		4813		//êµ°ì£¼ ì§‘ê¶Œ ê¸°ê°„ ë™ì•ˆì€ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define TID_MMI_WORLDCHANGEERROR_TEXT04		4814		//ì‚¬ìš©í•  ìˆ˜ ì—†ëŠ” ì•„ì´ë””ìž…ë‹ˆë‹¤. ë‹¤ë¥¸ ì•„ì´ë””ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”.
+#define TID_MMI_WORLDCHANGEERROR_TEXT05		4815		//ì•„ì´ë””ëŠ” ìµœì†Œ 2ê¸€ìž ì´ìƒ ìž…ë ¥ í•´ì•¼ í•©ë‹ˆë‹¤.
+#define TID_MMI_WORLDCHANGEERROR_TEXT06		4816		//ì„œë²„ ì„ íƒì´ ìž˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.
 
-#define	TID_MMI_BEHEMOTHSMELTEVENT_TWOSWORD_DESCRIPTION			4869	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ÅõÇÚµå ¼Òµå¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_TWOAXE_DESCRIPTION			4870	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ÅõÇÚµå ¿¢½º¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_ONESWORD_DESCRIPTION			4871	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç¼Òµå¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_ONEAXE_DESCRIPTION			4872	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ¿¢½º¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_BOW_DESCRIPTION				4873	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç º¸¿ì¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_YOYO_DESCRIPTION				4874	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ¿ä¿ä¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_KNUCKLE_DESCRIPTION			4875	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ³ÊÅ¬À» º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_STICK_DESCRIPTION			4876	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ½ºÆ½À» º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_WAND_DESCRIPTION				4877	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ¿Ïµå¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
-#define	TID_MMI_BEHEMOTHSMELTEVENT_STAFF_DESCRIPTION			4878	// ¼Ó¼ºÁ¦·ÃµÈ º£È÷¸ð½ºÀÇ ¿ìµç ½ºÅÂÇÁ¸¦ º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
+//ì½œë¡œì„¸ì›€ ìž…ìž¥ ì¸ì› ê´€ë ¨ ë©”ì‹œì§€
+#define TID_MMI_COLOMAX				4817		//ìµœëŒ€ ìž…ìž¥í•  ìˆ˜ ìžˆëŠ” ì¸ì›ì„ ì´ˆê³¼í•˜ì—¬ ë” ì´ìƒ ìž…ìž¥ì´ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-//°¡À» ³«¿± ±³È¯ ÀÌº¥Æ®
-#define	TID_MMI_MAPLE_TRADE_TEXT01			4879	// ³ª¹µÀÙ 10°³¸¦ PC zone»óÀÚ 1°³·Î ±³È¯
-#define	TID_MMI_MAPLE_TRADE_TEXT02			4880	// ³ª¹µÀÙ 1000°³¸¦ OMG Ä«¸á·¹¿Â ¸ðÀÚ(ÃÊ·Ï)(7ÀÏ) 1°³·Î ±³È¯
-#define	TID_MMI_MAPLE_TRADE_TEXT03			4881	// ³ª¹µÀÙ 5000°³¸¦ ¼ö½À»ýÀÇ »óÀÚ(1ÀÏ) 1°³·Î ±³È¯
-#define	TID_MMI_MAPLE_TRADE_TEXT04			4882	// ³ª¹µÀÙ 7000°³¸¦ ÇÇ¾î½Ì Ä«µå »óÀÚ 1°³·Î ±³È¯
-#define	TID_MMI_MAPLE_TRADE_TEXT05			4883	// ³ª¹µÀÙÀ» º¸»ó¾ÆÀÌÅÛÀ¸·Î ±³È¯
+//ìºë¦­í„° ì„œë²„ ì´ë™ê´€ë ¨ ì—ëŸ¬ë©”ì‹œì§€ ì¶”ê°€
+#define TID_MMI_WORLDCHANGEERROR_TEXT07		4818		//ì´ë™ ê°€ëŠ¥í•œ íŽ˜ëƒëŠ” ìµœëŒ€ 21ì–µ íŽ˜ëƒìž…ë‹ˆë‹¤. ë‹¤ì‹œ í•œë²ˆ í™•ì¸í•´ ì£¼ì„¸ìš”.
+#define TID_MMI_WORLDCHANGEERROR_TEXT08		4819		//%s ì„œë²„ì—ì„œ %s ì„œë²„ë¡œ ì´ì „ì´ ì™„ë£Œë˜ì–´ ì„œë²„ë¡œë¶€í„° ì ‘ì†ì´ í•´ì œë˜ì—ˆìŠµë‹ˆë‹¤.
 
-//°Å·¡ Áß°³ ½Ã½ºÅÛ °ü·Ã ¸Þ½ÃÁöÃß°¡ 
-#define TID_MMI_TRADESYSTEM_ITEMRESEARCH01		4884//	Àá½Ã ÈÄ ´Ù½Ã ½ÃµµÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
-#define TID_MMI_TRADESYSTEM_ITEMREGISTERERROR01		4885//	%s ¾ÆÀÌÅÛÀº µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù. ´Ù½Ã È®ÀÎ ÇØ ÁÖ½Ê½Ã¿ä.
-#define TID_MMI_TRADESYSTEM_ITEMREGISTERERROR02		4886//	µî·Ï ½ÃµµÇÑ ¾ÆÀÌÅÛÀÇ ÃÖ´ë ¼ö·®À» ÃÊ°úÇÏ¿´½À´Ï´Ù. ´Ù½Ã È®ÀÎ ÇØ ÁÖ½Ê½Ã¿ä.
+//í•œê°€ìœ„ êµí™˜ ì´ë²¤íŠ¸
+#define TID_MMI_HANGAWI_TRADE_TEXT01		4820		//ê¿€ì†¡íŽ¸ 10ê°œì™€ 50,000 íŽ˜ëƒë¥¼ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í° 1ìž¥ìœ¼ë¡œ êµí™˜
 
-#define TID_MMI_TWBOXTRADE_TEXT03			4887	// OMG ¿ë»çÀÇ ÀÇ»ó(³²)À¸·Î ±³È¯
-#define TID_MMI_TWBOXTRADE_TEXT04			4888	// OMG ¿ë»çÀÇ Àå°©(³²)À¸·Î ±³È¯
-#define TID_MMI_TWBOXTRADE_TEXT05			4889	// OMG ¿ë»çÀÇ ½Å¹ß(³²)À¸·Î ±³È¯
-#define TID_MMI_TWBOXTRADE_TEXT06			4890	// OMG ¿ë»çÀÇ ¸ðÀÚ(³²)À¸·Î ±³È¯
-#define TID_MMI_TWBOXTRADE_TEXT07			4891	// OMG ¿ë»çÀÇ ÀÇ»ó(¿©)À¸·Î ±³È¯
-#define TID_MMI_TWBOXTRADE_TEXT08			4892	// OMG ¿ë»çÀÇ Àå°©(¿©)À¸·Î ±³È¯
-#define TID_MMI_TWBOXTRADE_TEXT09			4893	// OMG ¿ë»çÀÇ ½Å¹ß(¿©)À¸·Î ±³È¯
-#define TID_MMI_TWBOXTRADE_TEXT10			4894	// OMG ¿ë»çÀÇ ¸ðÀÚ(¿©)À¸·Î ±³È¯
+//ê±°ëž˜ ì¤‘ê°œ ì‹œìŠ¤í…œ ë©”ì‹œì§€ ì¶”ê°€
+#define TID_MMI_TRADESYSTEM_ITEMBUTNOTFOUND		4821		//êµ¬ë§¤ë¥¼ ì‹œë„í•œ ë¬¼í’ˆì´ ì—†ì–´ êµ¬ë§¤ë¥¼ ì™„ë£Œí•˜ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤. êµ¬ë§¤ì— ì‚¬ìš© ëœ íŽ˜ëƒëŠ” ìš°íŽ¸ìœ¼ë¡œ ì§€ê¸‰ë˜ë©° 15ì¼ ì´ë‚´ì— ì°¾ì•„ê°€ì§€ ì•Šì„ ê²½ìš° ì†Œë©¸ ë©ë‹ˆë‹¤.
 
-//¹Ì±¹ °¡À§¹ÙÀ§º¸ ÄíÆù ±³È¯
-#define	TID_MMI_USAKAWIBAWIBOCOUPON2011_DESCRIPTION	4895	// È£¹Ú 10°³¿Í 100,000 Æä³Ä¸¦ °¡À§¹ÙÀ§º¸ ÄíÆùÀ¸·Î ±³È¯
+//ê±°ëž˜ ì¤‘ê°œ ì•„ì´í…œ ëª©ë¡ ë¦¬ìŠ¤íŠ¸
+#define TID_MMI_TRADESYSTEM_ITEMLISTWEAPON01			4822	//ë¬´ê¸°
+#define TID_MMI_TRADESYSTEM_ITEMLISTAOMOR02			4823	//ë°©ì–´êµ¬
+#define TID_MMI_TRADESYSTEM_ITEMLISTACCESSORY03			4824	//ì•¡ì„¸ì„œë¦¬
+#define TID_MMI_TRADESYSTEM_ITEMLISTMATERIAL04			4825	//ìž¬ë£Œ
+#define TID_MMI_TRADESYSTEM_ITEMLISTCONSUME05			4826	//ì†Œëª¨í’ˆ
+#define TID_MMI_TRADESYSTEM_ITEMLISTALLEXCEPTION06		4827	//ê¸°íƒ€
+#define TID_MMI_TRADESYSTEM_ITEMLISTCOSTUME07			4828	//ì½”ìŠ¤íŠ¬
+#define TID_MMI_TRADESYSTEM_ITEMLIST08				4829	//í•œì†ê²€
+#define TID_MMI_TRADESYSTEM_ITEMLIST09				4830	//ì–‘ì†ê²€
+#define TID_MMI_TRADESYSTEM_ITEMLIST10				4831	//í•œì†ë„ë¼
+#define TID_MMI_TRADESYSTEM_ITEMLIST11				4832	//ì–‘ì†ë„ë¼
+#define TID_MMI_TRADESYSTEM_ITEMLIST12				4833	//ë„ˆí´
+#define TID_MMI_TRADESYSTEM_ITEMLIST13				4834	//ìŠ¤í‹±
+#define TID_MMI_TRADESYSTEM_ITEMLIST14				4835	//ë³´ìš°
+#define TID_MMI_TRADESYSTEM_ITEMLIST15				4836	//ìŠ¤íƒœí”„
+#define TID_MMI_TRADESYSTEM_ITEMLIST16				4837	//ìš”ìš”
+#define TID_MMI_TRADESYSTEM_ITEMLIST17				4838	//ì™„ë“œ
+#define TID_MMI_TRADESYSTEM_ITEMLIST18				4839	//í¬ìŠ¤ìž¼
+#define TID_MMI_TRADESYSTEM_ITEMLIST19				4840	//ë²•ì„œ
+#define TID_MMI_TRADESYSTEM_ITEMLIST20				4841	//ê¸°íƒ€
+#define TID_MMI_TRADESYSTEM_ITEMLIST21				4842	//í—¬ë©§
+#define TID_MMI_TRADESYSTEM_ITEMLIST22				4843	//ìŠˆíŠ¸
+#define TID_MMI_TRADESYSTEM_ITEMLIST23				4844	//ê±´í‹€ë ›
+#define TID_MMI_TRADESYSTEM_ITEMLIST24				4845	//ë¶€ì¸ 
+#define TID_MMI_TRADESYSTEM_ITEMLIST25				4846	//ë°©íŒ¨
+#define TID_MMI_TRADESYSTEM_ITEMLIST26				4847	//ë°˜ì§€
+#define TID_MMI_TRADESYSTEM_ITEMLIST27				4848	//ê·€ê±¸ì´
+#define TID_MMI_TRADESYSTEM_ITEMLIST28				4849	//ëª©ê±¸ì´
+#define TID_MMI_TRADESYSTEM_ITEMLIST29				4850	//ìž¬ë£Œ
+#define TID_MMI_TRADESYSTEM_ITEMLIST30				4851	//ë¬¼ì•½
+#define TID_MMI_TRADESYSTEM_ITEMLIST31				4852	//ì£¼ë¬¸ì„œ
+#define TID_MMI_TRADESYSTEM_ITEMLIST32				4853	//í¬ìŠ¤í„°
+#define TID_MMI_TRADESYSTEM_ITEMLIST33				4854	//ê¸°íƒ€
+#define TID_MMI_TRADESYSTEM_ITEMLIST34				4855	//ê¸°íƒ€
+#define TID_MMI_TRADESYSTEM_ITEMLIST35				4856	//ë§ˆìŠ¤í¬
+#define TID_MMI_TRADESYSTEM_ITEMLIST36				4857	//ë§í† 
+#define TID_MMI_TRADESYSTEM_ITEMLIST37				4858	//ë¨¸ë¦¬
+#define TID_MMI_TRADESYSTEM_ITEMLIST38				4859	//ì˜ìƒ
+#define TID_MMI_TRADESYSTEM_ITEMLIST39				4860	//ìž¥ê°‘
+#define TID_MMI_TRADESYSTEM_ITEMLIST40				4861	//ì‹ ë°œ
 
-//ÀåÀÎÀÇ °è¾à¼­_ °Å·¡ Áß°³ ½Ã½ºÅÛ °ü·Ã ¸Þ½ÃÁö Ãß°¡
-#define	TID_MMI_TRADEREGISTERITEM			4896	// ÀåÀÎÀÇ °è¾à¼­°¡ Á¤»óÀûÀ¸·Î »ç¿ëµÇ¾î µî·Ï °³¼ö°¡ Áõ°¡µÇ¾ú½À´Ï´Ù.
+#define TID_MMI_TWBOXTRADE_TEXT01			4862	// ë…¸ë ¥ìƒìž 5ê°œë¥¼ ì€ìƒìž 1ê°œë¡œ êµí™˜
+#define TID_MMI_TWBOXTRADE_TEXT02			4863	// ì€ìƒìž 5ê°œë¥¼ ê¸ˆìƒìž 1ê°œë¡œ êµí™˜
 
-//¿ÜÇü º¯°æ ½Ã½ºÅÛ °ü·Ã ¸Þ½ÃÁö Ãß°¡
-#define	TID_MMI_LOOKCHANGE01				4897	// ¿ÜÇü º¯°æÀ» Àû¿ëÇÒ ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÔ´Ï´Ù.
-#define	TID_MMI_LOOKCHANGE02				4898	// ¿ÜÇü º¹±¸°¡ ºÒ ÇÊ¿äÇÑ ¾ÆÀÌÅÛÀÔ´Ï´Ù.
-#define	TID_MMI_LOOKCHANGE03				4899	// A½½·Ô¿¡ ¸ÕÀú ¾ÆÀÌÅÛÀ» µî·ÏÇØ¾ß ÇÕ´Ï´Ù. ´Ù½Ã È®ÀÎ ÇØ ÁÖ½Ê½Ã¿ä.
-#define	TID_MMI_LOOKCHANGE04				4900	// ¾ÆÀÌÅÛÀÇ ¿ÜÇüÀÌ ¼º°øÀûÀ¸·Î º¯°æµÇ¾ú½À´Ï´Ù.
-#define	TID_MMI_LOOKCHANGE05				4901	// ¾ÆÀÌÅÛ ¿ÜÇüÀÌ ¼º°øÀûÀ¸·Î º¹±¸µÇ¾ú½À´Ï´Ù.
-#define	TID_MMI_LOOKCHANGE06				4902	// ¿ÜÇü º¯°æÀ» ÇÏ±â À§ÇØ¼± ¸ðµç ½½·Ô¿¡ ¾ÆÀÌÅÛÀ» µî·ÏÇØ¾ß ÇÕ´Ï´Ù.
+#define TID_MMI_EXCHAGESCRIPTSMELT_TEXT01			4864	// ì¡°ê±´ì— ë§žëŠ” ì•„ì´í…œì„ ë³´ìœ í•˜ê³  ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.
 
-//¾ç¼Õ ¹«±â ÇÕ¼º °ü·Ã ¸Þ½ÃÁö Ãß°¡
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT01	4903	//	ÇÕ¼º ¿É¼ÇÀÌ ºÎ¿©µÈ ¾ç¼Õ ¹«±â ¾ÆÀÌÅÛÀº µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT02	4904	//	±â°£Á¦ ¾ÆÀÌÅÛÀº µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT03	4905	//	¾ç¼Õ ¹«±â°¡ ¾Æ´Ñ ¾ÆÀÌÅÛÀº µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT04	4906	//	¹Ù·ç³ª µî±ÞÀÇ ¾ÆÀÌÅÛÀº µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT05	4907	//	ÇÕ¼º ¿É¼ÇÀ» ºÎ¿©ÇÒ ¾ÆÀÌÅÛ°ú ´Ù¸¥ Á¾·ùÀÇ ¾ÆÀÌÅÛÀº µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT06	4908	//	°Å·¡ ºÒ°¡´ÉÇÑ ¾ÆÀÌÅÛÀº µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT07	4909	//	ÇÕ¼º ¿É¼ÇÀ» ºÎ¿©ÇÒ ¾ÆÀÌÅÛº¸´Ù ·¹º§ÀÌ ³ôÀº ¾ÆÀÌÅÛÀº µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT08	4910	//	ÇÕ¼º ¿É¼ÇÀ» ºÎ¿©ÇÒ ¾ÆÀÌÅÛº¸´Ù Àü½Â µî±ÞÀÌ ³ô¾Æ µî·Ï ÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT09	4911	//	ÇÕ¼º ¿É¼ÇÀ» ºÎ¿©ÇÒ ¾ÆÀÌÅÛÀ» ¸ÕÀú µî·ÏÇÏ¿©¾ß ÇÕ´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT10	4912	//	¸¶¹ýÀÇ ¿¬¸¶¼®¸¸ µî·ÏÇÒ ¼ö ÀÖ½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT11	4913	//	ÇÕ¼º ¿É¼ÇÀÌ ºÎ¿©µÇÁö ¾ÊÀº ¾ÆÀÌÅÛÀ» µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT12	4914	//	ÇÕ¼º¿É¼ÇÀ» Á¦°ÅÇÏ·Á¸é %d Æä³Ä°¡ ÇÊ¿äÇÕ´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_FAILTEXT01		4915	//	¾ç¼Õ ¹«±â ÇÕ¼º¿¡ ½ÇÆÐÇÏ¿© µî·ÏµÈ %s °¡ ÆÄ±« µÇ¾ú½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_FAILTEXT02		4916	//	¾ç¼Õ ¹«±â ÇÕ¼º¿¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù.
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_SUCCESSTEXT01	4917	//	¾ç¼Õ ¹«±â ÇÕ¼º¿¡ ¼º°øÇÏ¿´½À´Ï´Ù!
-#define	TID_MMI_TWOHANDEDWEAPONMERGE_SUCCESSTEXT02	4918	//	ÇÕ¼º ¿É¼ÇÀÌ ¼º°øÀûÀ¸·Î Á¦°Å µÇ¾ú½À´Ï´Ù.
+//ë² ížˆëª¨ìŠ¤ ìš°ë“  ë¬´ê¸°ì˜ ë¹„ë°€ ì´ë²¤íŠ¸
+#define TID_MMI_BEHEMOTHSMELTEVENT_5_9_TEXT			4865	// ì†ì„±ì œë ¨ ê°’ 5 ~ 9 -> ê°•í™”ë¹„ì „ì„œ(B) 1ê°œë¡œ êµí™˜
+#define TID_MMI_BEHEMOTHSMELTEVENT_10_14_TEXT		4866	// ì†ì„±ì œë ¨ ê°’ 10 ~ 14 -> í–‰ìš´ì˜ ì•ˆê²½ìƒìž 1ê°œë¡œ êµí™˜
+#define TID_MMI_BEHEMOTHSMELTEVENT_15_19_TEXT		4867	// ì†ì„±ì œë ¨ ê°’ 15 ~ 19 -> ìš©ë§¹í•œ ë¼ì¿¤ ìš°ë¦¬ 1ê°œë¡œ êµí™˜
+#define TID_MMI_BEHEMOTHSMELTEVENT_20_TEXT			4868	// ì†ì„±ì œë ¨ ê°’ 20 -> +20 ì†ì„±ì œë ¨ ëœ ë² ížˆëª¨ìŠ¤ ë¬´ê¸°ë¡œ êµí™˜
 
-//Ç×¾Æ¸® ¾ÆÀÌÅÛ °ü·Ã ¸Þ½ÃÁö Ãß°¡
-#define	TID_MMI_ELLDINPOTION_LOOKCLEAR			4919	//	¹ÐºÀµÈ »óÅÂ¸¦ ÇØÁ¦ ÇÏ½Ã°Ú½À´Ï±î?
-#define	TID_MMI_ELLDINPOTION_TEXT01			4920	//	ÀúÀåµÈ Ã¼·ÂÀÌ ºÎÁ·ÇØ Ä¡·áÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_ELLDINPOTION_TEXT02			4921	//	µî·ÏÇÒ ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÔ´Ï´Ù. ´Ù½Ã È®ÀÎÇØ ÁÖ¼¼¿ä.
-#define	TID_MMI_ELLDINPOTION_TEXT03			4922	//	%d / 1,000,000	Ã¼·ÂÀ» ÀúÀåÇß½À´Ï´Ù.
-#define	TID_MMI_ELLDINPOTION_TEXT04			4923	//	1,000,000 / 1,000,000	ÀúÀåµÈ Ã¼·ÂÀÌ °¡µæÇØ ´õ ÀÌ»ó ÀúÀåÇÒ ¼ö ¾ø½À´Ï´Ù.
-#define	TID_MMI_ELLDINPOTION_TEXT05			4924	//	%d / 1,000,000	Ã¼·ÂÀÌ Ä¡·áµÇ¾ú½À´Ï´Ù.
+#define	TID_MMI_BEHEMOTHSMELTEVENT_TWOSWORD_DESCRIPTION			4869	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  íˆ¬í•¸ë“œ ì†Œë“œë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_TWOAXE_DESCRIPTION			4870	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  íˆ¬í•¸ë“œ ì—‘ìŠ¤ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_ONESWORD_DESCRIPTION			4871	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“ ì†Œë“œë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_ONEAXE_DESCRIPTION			4872	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ì—‘ìŠ¤ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_BOW_DESCRIPTION				4873	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ë³´ìš°ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_YOYO_DESCRIPTION				4874	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ìš”ìš”ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_KNUCKLE_DESCRIPTION			4875	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ë„ˆí´ì„ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_STICK_DESCRIPTION			4876	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ìŠ¤í‹±ì„ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_WAND_DESCRIPTION				4877	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ì™„ë“œë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
+#define	TID_MMI_BEHEMOTHSMELTEVENT_STAFF_DESCRIPTION			4878	// ì†ì„±ì œë ¨ëœ ë² ížˆëª¨ìŠ¤ì˜ ìš°ë“  ìŠ¤íƒœí”„ë¥¼ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
 
-//ÄÝ·Î¼¼¿ò º¸»ó
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_DESCRIPTION			4927	// ÁõÇ¥·Î ±âÅ¸ º¸»ó ¾ÆÀÌÅÛ ±³È¯
+//ê°€ì„ ë‚™ì—½ êµí™˜ ì´ë²¤íŠ¸
+#define	TID_MMI_MAPLE_TRADE_TEXT01			4879	// ë‚˜ë­‡ìžŽ 10ê°œë¥¼ PC zoneìƒìž 1ê°œë¡œ êµí™˜
+#define	TID_MMI_MAPLE_TRADE_TEXT02			4880	// ë‚˜ë­‡ìžŽ 1000ê°œë¥¼ OMG ì¹´ë©œë ˆì˜¨ ëª¨ìž(ì´ˆë¡)(7ì¼) 1ê°œë¡œ êµí™˜
+#define	TID_MMI_MAPLE_TRADE_TEXT03			4881	// ë‚˜ë­‡ìžŽ 5000ê°œë¥¼ ìˆ˜ìŠµìƒì˜ ìƒìž(1ì¼) 1ê°œë¡œ êµí™˜
+#define	TID_MMI_MAPLE_TRADE_TEXT04			4882	// ë‚˜ë­‡ìžŽ 7000ê°œë¥¼ í”¼ì–´ì‹± ì¹´ë“œ ìƒìž 1ê°œë¡œ êµí™˜
+#define	TID_MMI_MAPLE_TRADE_TEXT05			4883	// ë‚˜ë­‡ìžŽì„ ë³´ìƒì•„ì´í…œìœ¼ë¡œ êµí™˜
 
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT01					4928	// Çª¸¥ ÁõÇ¥ 150°³ -> ¿À¸®Ä®Äñ 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT02					4929	// Çª¸¥ ÁõÇ¥ 150°³ -> ¹®½ºÅæ 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT03					4930	// Çª¸¥ ÁõÇ¥ 75°³ ->  ¹«ÀÛÀ§ ¼Ó¼º Ä«µå 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT04					4931	// Çª¸¥ ÁõÇ¥ 50°³, ºÓÀº ÁõÇ¥ 10°³ -> 3µî±Þ ½Ãµå °áÁ¤Ã¼ 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT05					4932	// Çª¸¥ ÁõÇ¥ 900°³, ºÓÀº ÁõÇ¥ 180°³ -> ¹«ÀÛÀ§ 3% Ä«µå 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT06					4933	// Çª¸¥ ÁõÇ¥ 900°³, ºÓÀº ÁõÇ¥ 180°³ -> ¹«ÀÛÀ§ C µî±Þ Ä«µå 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT07					4934	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³ -> ¼Ó¼º ¿Àºê ¹Ú½º 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT08					4935	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 10°³ -> ÅäÆÄÁî 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT09					4936	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 25°³ -> ·çºñ 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT10					4937	// Çª¸¥ ÁõÇ¥ 9000°³, ºÓÀº ÁõÇ¥ 1800°³, Åõ»çÀÇ ÁõÇ¥ 80°³ -> »çÆÄÀÌ¾î 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT11					4938	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 96°³  -> ¿¡¸Þ¶öµå 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT12					4939	// Çª¸¥ ÁõÇ¥ 18000°³, ºÓÀº ÁõÇ¥ 3600°³, Åõ»çÀÇ ÁõÇ¥ 112°³ -> ´ÙÀÌ¾Æ¸óµå 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT13					4940	// Çª¸¥ ÁõÇ¥ 27000°³, ºÓÀº ÁõÇ¥ 5400°³, Åõ»çÀÇ ÁõÇ¥ 128°³ -> ¿µÈ¥ÀÇ ¾Ç¼¼¼­¸® ·£´ý ¹Ú½º 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT14					4941	// Çª¸¥ ÁõÇ¥ 18000°³, ºÓÀº ÁõÇ¥ 3600°³, Åõ»çÀÇ ÁõÇ¥ 120°³ -> ¿ë¸ÁÅä(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT15					4942	// Çª¸¥ ÁõÇ¥ 37800°³, ºÓÀº ÁõÇ¥ 7560°³, Åõ»çÀÇ ÁõÇ¥ 360°³ -> µµÀüÀÇ ¿ë¸ÁÅä(±Í¼Ó) 1°³
+//ê±°ëž˜ ì¤‘ê°œ ì‹œìŠ¤í…œ ê´€ë ¨ ë©”ì‹œì§€ì¶”ê°€ 
+#define TID_MMI_TRADESYSTEM_ITEMRESEARCH01		4884//	ìž ì‹œ í›„ ë‹¤ì‹œ ì‹œë„í•´ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
+#define TID_MMI_TRADESYSTEM_ITEMREGISTERERROR01		4885//	%s ì•„ì´í…œì€ ë“±ë¡í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸ í•´ ì£¼ì‹­ì‹œìš”.
+#define TID_MMI_TRADESYSTEM_ITEMREGISTERERROR02		4886//	ë“±ë¡ ì‹œë„í•œ ì•„ì´í…œì˜ ìµœëŒ€ ìˆ˜ëŸ‰ì„ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸ í•´ ì£¼ì‹­ì‹œìš”.
 
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_DESCRIPTION		4943	// ÁõÇ¥·Î ÃÊ±Þ Åõ»çÀÇ ¹«±â ±³È¯
+#define TID_MMI_TWBOXTRADE_TEXT03			4887	// OMG ìš©ì‚¬ì˜ ì˜ìƒ(ë‚¨)ìœ¼ë¡œ êµí™˜
+#define TID_MMI_TWBOXTRADE_TEXT04			4888	// OMG ìš©ì‚¬ì˜ ìž¥ê°‘(ë‚¨)ìœ¼ë¡œ êµí™˜
+#define TID_MMI_TWBOXTRADE_TEXT05			4889	// OMG ìš©ì‚¬ì˜ ì‹ ë°œ(ë‚¨)ìœ¼ë¡œ êµí™˜
+#define TID_MMI_TWBOXTRADE_TEXT06			4890	// OMG ìš©ì‚¬ì˜ ëª¨ìž(ë‚¨)ìœ¼ë¡œ êµí™˜
+#define TID_MMI_TWBOXTRADE_TEXT07			4891	// OMG ìš©ì‚¬ì˜ ì˜ìƒ(ì—¬)ìœ¼ë¡œ êµí™˜
+#define TID_MMI_TWBOXTRADE_TEXT08			4892	// OMG ìš©ì‚¬ì˜ ìž¥ê°‘(ì—¬)ìœ¼ë¡œ êµí™˜
+#define TID_MMI_TWBOXTRADE_TEXT09			4893	// OMG ìš©ì‚¬ì˜ ì‹ ë°œ(ì—¬)ìœ¼ë¡œ êµí™˜
+#define TID_MMI_TWBOXTRADE_TEXT10			4894	// OMG ìš©ì‚¬ì˜ ëª¨ìž(ì—¬)ìœ¼ë¡œ êµí™˜
 
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT01			4944	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ÇÑ¼Õ°Ë(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT02			4945	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ¾ç¼Õ°Ë(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT03			4946	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ÇÑ¼Õµµ³¢(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT04			4947	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ¾ç¼Õµµ³¢(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT05			4948	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ³ÊÅ¬(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT06			4949	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ½ºÆ½(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT07			4950	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ¿Ïµå(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT08			4951	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ½ºÅÂÇÁ(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT09			4952	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ È°(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT10			4953	// Çª¸¥ ÁõÇ¥ 1800°³, ºÓÀº ÁõÇ¥ 360°³, Åõ»çÀÇ ÁõÇ¥ 6°³ -> ÃÊ±Þ Åõ»çÀÇ ¿ä¿ä(±Í¼Ó) 1°³
+//ë¯¸êµ­ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í° êµí™˜
+#define	TID_MMI_USAKAWIBAWIBOCOUPON2011_DESCRIPTION	4895	// í˜¸ë°• 10ê°œì™€ 100,000 íŽ˜ëƒë¥¼ ê°€ìœ„ë°”ìœ„ë³´ ì¿ í°ìœ¼ë¡œ êµí™˜
 
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_DESCRIPTION		4954	// ÁõÇ¥·Î Áß±Þ Åõ»çÀÇ ¹«±â ±³È¯
+//ìž¥ì¸ì˜ ê³„ì•½ì„œ_ ê±°ëž˜ ì¤‘ê°œ ì‹œìŠ¤í…œ ê´€ë ¨ ë©”ì‹œì§€ ì¶”ê°€
+#define	TID_MMI_TRADEREGISTERITEM			4896	// ìž¥ì¸ì˜ ê³„ì•½ì„œê°€ ì •ìƒì ìœ¼ë¡œ ì‚¬ìš©ë˜ì–´ ë“±ë¡ ê°œìˆ˜ê°€ ì¦ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.
 
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT01			4955	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ÇÑ¼Õ°Ë(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT02			4956	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ¾ç¼Õ°Ë(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT03			4957	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ÇÑ¼Õµµ³¢(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT04			4958	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ¾ç¼Õµµ³¢(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT05			4959	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ³ÊÅ¬(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT06			4960	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ½ºÆ½(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT07			4961	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ¿Ïµå(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT08			4962	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ½ºÅÂÇÁ(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT09			4963	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ È°(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT10			4964	// Çª¸¥ ÁõÇ¥ 5400°³, ºÓÀº ÁõÇ¥ 1080°³, Åõ»çÀÇ ÁõÇ¥ 18°³ -> Áß±Þ Åõ»çÀÇ ¿ä¿ä(±Í¼Ó) 1°³
+//ì™¸í˜• ë³€ê²½ ì‹œìŠ¤í…œ ê´€ë ¨ ë©”ì‹œì§€ ì¶”ê°€
+#define	TID_MMI_LOOKCHANGE01				4897	// ì™¸í˜• ë³€ê²½ì„ ì ìš©í•  ìˆ˜ ì—†ëŠ” ì•„ì´í…œìž…ë‹ˆë‹¤.
+#define	TID_MMI_LOOKCHANGE02				4898	// ì™¸í˜• ë³µêµ¬ê°€ ë¶ˆ í•„ìš”í•œ ì•„ì´í…œìž…ë‹ˆë‹¤.
+#define	TID_MMI_LOOKCHANGE03				4899	// AìŠ¬ë¡¯ì— ë¨¼ì € ì•„ì´í…œì„ ë“±ë¡í•´ì•¼ í•©ë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸ í•´ ì£¼ì‹­ì‹œìš”.
+#define	TID_MMI_LOOKCHANGE04				4900	// ì•„ì´í…œì˜ ì™¸í˜•ì´ ì„±ê³µì ìœ¼ë¡œ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_LOOKCHANGE05				4901	// ì•„ì´í…œ ì™¸í˜•ì´ ì„±ê³µì ìœ¼ë¡œ ë³µêµ¬ë˜ì—ˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_LOOKCHANGE06				4902	// ì™¸í˜• ë³€ê²½ì„ í•˜ê¸° ìœ„í•´ì„  ëª¨ë“  ìŠ¬ë¡¯ì— ì•„ì´í…œì„ ë“±ë¡í•´ì•¼ í•©ë‹ˆë‹¤.
 
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_DESCRIPTION		4965	// ÁõÇ¥·Î °í±Þ Åõ»çÀÇ ¹«±â ±³È¯
+//ì–‘ì† ë¬´ê¸° í•©ì„± ê´€ë ¨ ë©”ì‹œì§€ ì¶”ê°€
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT01	4903	//	í•©ì„± ì˜µì…˜ì´ ë¶€ì—¬ëœ ì–‘ì† ë¬´ê¸° ì•„ì´í…œì€ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT02	4904	//	ê¸°ê°„ì œ ì•„ì´í…œì€ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT03	4905	//	ì–‘ì† ë¬´ê¸°ê°€ ì•„ë‹Œ ì•„ì´í…œì€ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT04	4906	//	ë°”ë£¨ë‚˜ ë“±ê¸‰ì˜ ì•„ì´í…œì€ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT05	4907	//	í•©ì„± ì˜µì…˜ì„ ë¶€ì—¬í•  ì•„ì´í…œê³¼ ë‹¤ë¥¸ ì¢…ë¥˜ì˜ ì•„ì´í…œì€ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT06	4908	//	ê±°ëž˜ ë¶ˆê°€ëŠ¥í•œ ì•„ì´í…œì€ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT07	4909	//	í•©ì„± ì˜µì…˜ì„ ë¶€ì—¬í•  ì•„ì´í…œë³´ë‹¤ ë ˆë²¨ì´ ë†’ì€ ì•„ì´í…œì€ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT08	4910	//	í•©ì„± ì˜µì…˜ì„ ë¶€ì—¬í•  ì•„ì´í…œë³´ë‹¤ ì „ìŠ¹ ë“±ê¸‰ì´ ë†’ì•„ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT09	4911	//	í•©ì„± ì˜µì…˜ì„ ë¶€ì—¬í•  ì•„ì´í…œì„ ë¨¼ì € ë“±ë¡í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT10	4912	//	ë§ˆë²•ì˜ ì—°ë§ˆì„ë§Œ ë“±ë¡í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT11	4913	//	í•©ì„± ì˜µì…˜ì´ ë¶€ì—¬ë˜ì§€ ì•Šì€ ì•„ì´í…œì„ ë“±ë¡í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_ERRORTEXT12	4914	//	í•©ì„±ì˜µì…˜ì„ ì œê±°í•˜ë ¤ë©´ %d íŽ˜ëƒê°€ í•„ìš”í•©ë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_FAILTEXT01		4915	//	ì–‘ì† ë¬´ê¸° í•©ì„±ì— ì‹¤íŒ¨í•˜ì—¬ ë“±ë¡ëœ %s ê°€ íŒŒê´´ ë˜ì—ˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_FAILTEXT02		4916	//	ì–‘ì† ë¬´ê¸° í•©ì„±ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_SUCCESSTEXT01	4917	//	ì–‘ì† ë¬´ê¸° í•©ì„±ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤!
+#define	TID_MMI_TWOHANDEDWEAPONMERGE_SUCCESSTEXT02	4918	//	í•©ì„± ì˜µì…˜ì´ ì„±ê³µì ìœ¼ë¡œ ì œê±° ë˜ì—ˆìŠµë‹ˆë‹¤.
 
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT01			4966	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ÇÑ¼Õ°Ë(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT02			4967	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ¾ç¼Õ°Ë(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT03			4968	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ÇÑ¼Õµµ³¢(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT04			4969	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ¾ç¼Õµµ³¢(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT05			4970	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ³ÊÅ¬(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT06			4971	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ½ºÆ½(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT07			4972	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ¿Ïµå(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT08			4973	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ½ºÅÂÇÁ(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT09			4974	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ È°(±Í¼Ó) 1°³
-#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT10			4975	// Çª¸¥ ÁõÇ¥ 12600°³, ºÓÀº ÁõÇ¥ 2520°³, Åõ»çÀÇ ÁõÇ¥ 40°³ -> °í±Þ Åõ»çÀÇ ¿ä¿ä(±Í¼Ó) 1°³
+//í•­ì•„ë¦¬ ì•„ì´í…œ ê´€ë ¨ ë©”ì‹œì§€ ì¶”ê°€
+#define	TID_MMI_ELLDINPOTION_LOOKCLEAR			4919	//	ë°€ë´‰ëœ ìƒíƒœë¥¼ í•´ì œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+#define	TID_MMI_ELLDINPOTION_TEXT01			4920	//	ì €ìž¥ëœ ì²´ë ¥ì´ ë¶€ì¡±í•´ ì¹˜ë£Œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_ELLDINPOTION_TEXT02			4921	//	ë“±ë¡í•  ìˆ˜ ì—†ëŠ” ì•„ì´í…œìž…ë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸í•´ ì£¼ì„¸ìš”.
+#define	TID_MMI_ELLDINPOTION_TEXT03			4922	//	%d / 1,000,000	ì²´ë ¥ì„ ì €ìž¥í–ˆìŠµë‹ˆë‹¤.
+#define	TID_MMI_ELLDINPOTION_TEXT04			4923	//	1,000,000 / 1,000,000	ì €ìž¥ëœ ì²´ë ¥ì´ ê°€ë“í•´ ë” ì´ìƒ ì €ìž¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+#define	TID_MMI_ELLDINPOTION_TEXT05			4924	//	%d / 1,000,000	ì²´ë ¥ì´ ì¹˜ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.
+
+//ì½œë¡œì„¸ì›€ ë³´ìƒ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_DESCRIPTION			4927	// ì¦í‘œë¡œ ê¸°íƒ€ ë³´ìƒ ì•„ì´í…œ êµí™˜
+
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT01					4928	// í‘¸ë¥¸ ì¦í‘œ 150ê°œ -> ì˜¤ë¦¬ì¹¼ì¿° 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT02					4929	// í‘¸ë¥¸ ì¦í‘œ 150ê°œ -> ë¬¸ìŠ¤í†¤ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT03					4930	// í‘¸ë¥¸ ì¦í‘œ 75ê°œ ->  ë¬´ìž‘ìœ„ ì†ì„± ì¹´ë“œ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT04					4931	// í‘¸ë¥¸ ì¦í‘œ 50ê°œ, ë¶‰ì€ ì¦í‘œ 10ê°œ -> 3ë“±ê¸‰ ì‹œë“œ ê²°ì •ì²´ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT05					4932	// í‘¸ë¥¸ ì¦í‘œ 900ê°œ, ë¶‰ì€ ì¦í‘œ 180ê°œ -> ë¬´ìž‘ìœ„ 3% ì¹´ë“œ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT06					4933	// í‘¸ë¥¸ ì¦í‘œ 900ê°œ, ë¶‰ì€ ì¦í‘œ 180ê°œ -> ë¬´ìž‘ìœ„ C ë“±ê¸‰ ì¹´ë“œ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT07					4934	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ -> ì†ì„± ì˜¤ë¸Œ ë°•ìŠ¤ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT08					4935	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 10ê°œ -> í† íŒŒì¦ˆ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT09					4936	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 25ê°œ -> ë£¨ë¹„ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT10					4937	// í‘¸ë¥¸ ì¦í‘œ 9000ê°œ, ë¶‰ì€ ì¦í‘œ 1800ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 80ê°œ -> ì‚¬íŒŒì´ì–´ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT11					4938	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 96ê°œ  -> ì—ë©”ëž„ë“œ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT12					4939	// í‘¸ë¥¸ ì¦í‘œ 18000ê°œ, ë¶‰ì€ ì¦í‘œ 3600ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 112ê°œ -> ë‹¤ì´ì•„ëª¬ë“œ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT13					4940	// í‘¸ë¥¸ ì¦í‘œ 27000ê°œ, ë¶‰ì€ ì¦í‘œ 5400ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 128ê°œ -> ì˜í˜¼ì˜ ì•…ì„¸ì„œë¦¬ ëžœë¤ ë°•ìŠ¤ 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT14					4941	// í‘¸ë¥¸ ì¦í‘œ 18000ê°œ, ë¶‰ì€ ì¦í‘œ 3600ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 120ê°œ -> ìš©ë§í† (ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_MIX_TEXT15					4942	// í‘¸ë¥¸ ì¦í‘œ 37800ê°œ, ë¶‰ì€ ì¦í‘œ 7560ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 360ê°œ -> ë„ì „ì˜ ìš©ë§í† (ê·€ì†) 1ê°œ
+
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_DESCRIPTION		4943	// ì¦í‘œë¡œ ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ë¬´ê¸° êµí™˜
+
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT01			4944	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ í•œì†ê²€(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT02			4945	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ì–‘ì†ê²€(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT03			4946	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ í•œì†ë„ë¼(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT04			4947	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ì–‘ì†ë„ë¼(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT05			4948	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ë„ˆí´(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT06			4949	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ìŠ¤í‹±(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT07			4950	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ì™„ë“œ(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT08			4951	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ìŠ¤íƒœí”„(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT09			4952	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ í™œ(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_1_TEXT10			4953	// í‘¸ë¥¸ ì¦í‘œ 1800ê°œ, ë¶‰ì€ ì¦í‘œ 360ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 6ê°œ -> ì´ˆê¸‰ íˆ¬ì‚¬ì˜ ìš”ìš”(ê·€ì†) 1ê°œ
+
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_DESCRIPTION		4954	// ì¦í‘œë¡œ ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ë¬´ê¸° êµí™˜
+
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT01			4955	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ í•œì†ê²€(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT02			4956	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ì–‘ì†ê²€(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT03			4957	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ í•œì†ë„ë¼(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT04			4958	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ì–‘ì†ë„ë¼(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT05			4959	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ë„ˆí´(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT06			4960	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ìŠ¤í‹±(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT07			4961	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ì™„ë“œ(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT08			4962	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ìŠ¤íƒœí”„(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT09			4963	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ í™œ(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_2_TEXT10			4964	// í‘¸ë¥¸ ì¦í‘œ 5400ê°œ, ë¶‰ì€ ì¦í‘œ 1080ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 18ê°œ -> ì¤‘ê¸‰ íˆ¬ì‚¬ì˜ ìš”ìš”(ê·€ì†) 1ê°œ
+
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_DESCRIPTION		4965	// ì¦í‘œë¡œ ê³ ê¸‰ íˆ¬ì‚¬ì˜ ë¬´ê¸° êµí™˜
+
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT01			4966	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ í•œì†ê²€(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT02			4967	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ ì–‘ì†ê²€(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT03			4968	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ í•œì†ë„ë¼(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT04			4969	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ ì–‘ì†ë„ë¼(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT05			4970	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ ë„ˆí´(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT06			4971	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ ìŠ¤í‹±(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT07			4972	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ ì™„ë“œ(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT08			4973	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ ìŠ¤íƒœí”„(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT09			4974	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ í™œ(ê·€ì†) 1ê°œ
+#define	TID_MMI_COLOSSEUM_REWARD_WEAPON_3_TEXT10			4975	// í‘¸ë¥¸ ì¦í‘œ 12600ê°œ, ë¶‰ì€ ì¦í‘œ 2520ê°œ, íˆ¬ì‚¬ì˜ ì¦í‘œ 40ê°œ -> ê³ ê¸‰ íˆ¬ì‚¬ì˜ ìš”ìš”(ê·€ì†) 1ê°œ
 
 
 #endif

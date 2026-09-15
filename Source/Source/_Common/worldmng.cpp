@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineObj.h"
 #include "WorldMng.h"
 #include "World.h"
@@ -596,7 +596,7 @@ PRegionElem CWorldMng::GetNearRevivalPosChao( DWORD dwWorldId, D3DXVECTOR3 & vPo
 		}
 	}
 
-	if( ptr == NULL )	// °°Àº ¼­¹ö¿¡ Ã£Áö¸¦ ¸øÇßÀ» °æ¿ì ´Ù¸¥¼­¹ö°Ë»ö
+	if( ptr == NULL )	// ê°™ì€ ì„œë²„ì— ì°¾ì§€ë¥¼ ëª»í–ˆì„ ê²½ìš° ë‹¤ë¥¸ì„œë²„ê²€ìƒ‰
 	{
 		for( int i = 0; i < nSize; i++ )
 		{
@@ -604,7 +604,7 @@ PRegionElem CWorldMng::GetNearRevivalPosChao( DWORD dwWorldId, D3DXVECTOR3 & vPo
 			if( dwWorldId != pRgnElem->m_dwWorldId && pRgnElem->m_bChaoKey )
 			{
 				ptr		= pRgnElem;
-				break;			// °Å¸®°è»êÀº ÇÊ¿ä¾øÀ½
+				break;			// ê±°ë¦¬ê³„ì‚°ì€ í•„ìš”ì—†ìŒ
 			}
 		}
 	}
@@ -691,7 +691,7 @@ BOOL CWorldMng::HasNobody_Replace( DWORD dwWorldId, int nLayer )
 }
 #endif // __GUILD_HOUSE
 
-// ¸ğµç ¿ùµåÀÇ ¿ÀºêÁ§Æ® Ä«¿îÆ®¸¦ ¾ò´Â´Ù.
+// ëª¨ë“  ì›”ë“œì˜ ì˜¤ë¸Œì íŠ¸ ì¹´ìš´íŠ¸ë¥¼ ì–»ëŠ”ë‹¤.
 DWORD CWorldMng::GetObjCount()
 {
 	DWORD dwCount = 0;
@@ -772,12 +772,12 @@ void CWorldMng::CheckMapKey( CUser* pUser, const char* szFileName, const char* s
 	map<string, string>::iterator it = m_mapMapKey.find( szFileName );
 	if( it != m_mapMapKey.end() )
 	{
-		if( !strcmpi( szMapKey, it->second.c_str() ) )	// ¸Ê ÀÎÁõ ¼º°ø!
+		if( !strcmpi( szMapKey, it->second.c_str() ) )	// ë§µ ì¸ì¦ ì„±ê³µ!
 			return;
 	}
 
 	
-	// ¸Ê ÀÎÁõ ½ÇÆĞ Á¢¼ÓÀ» ²÷¾î¹ö·Á¾ß ÇÑ´Ù.
+	// ë§µ ì¸ì¦ ì‹¤íŒ¨ ì ‘ì†ì„ ëŠì–´ë²„ë ¤ì•¼ í•œë‹¤.
 #if __VER >= 15
 	int x = int( pUser->GetPos().x ) / ( MAP_SIZE * pUser->GetWorld()->m_iMPU );
 	int z = int( pUser->GetPos().z ) / ( MAP_SIZE * pUser->GetWorld()->m_iMPU );
@@ -793,12 +793,12 @@ void CWorldMng::CheckMapKey( CUser* pUser, const char* szFileName, const char* s
 
 	Error( "Invalid Map Key - [User : %s, %07d], [Land : %s%02d-%02d]", pUser->GetName(), pUser->m_idPlayer, szLandFile, x, z );
 
-	//	mulcom	BEGIN100330	¸Êº¯Á¶ È®ÀÎ µ¶ÀÏÀº Á¦¿Ü ½ÃÅ´
+	//	mulcom	BEGIN100330	ë§µë³€ì¡° í™•ì¸ ë…ì¼ì€ ì œì™¸ ì‹œí‚´
 	if( ::GetLanguage() != LANG_GER )
 	{
 		g_DPSrvr.QueryDestroyPlayer( pUser->m_Snapshot.dpidCache, pUser->m_Snapshot.dpidUser, pUser->m_dwSerial, pUser->m_idPlayer );
 	}
-	//	mulcom	BEGIN100330	¸Êº¯Á¶ È®ÀÎ µ¶ÀÏÀº Á¦¿Ü ½ÃÅ´
+	//	mulcom	BEGIN100330	ë§µë³€ì¡° í™•ì¸ ë…ì¼ì€ ì œì™¸ ì‹œí‚´
 }
 #endif // __WORLDSERVER
 #endif // __MAP_SECURITY

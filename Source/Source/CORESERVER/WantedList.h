@@ -1,4 +1,4 @@
-#ifndef __WANTEDLIST__H
+ï»¿#ifndef __WANTEDLIST__H
 #define __WANTEDLIST__H
 
 #include "misc.h"		// WANTED_ENTRY
@@ -7,7 +7,7 @@
 typedef std::map<u_long, WANTED_ENTRY *>	WANTED_ENTRY_LIST;
 
 
-// Æ÷»ó±İ ¸®½ºÆ®°´Ã¼ 
+// í¬ìƒê¸ˆ ë¦¬ìŠ¤íŠ¸ê°ì²´ 
 class CWantedList  
 {
 public:
@@ -16,7 +16,7 @@ public:
 protected:
 	WANTED_ENTRY_LIST		m_wantedList;
 	CMclCritSec				m_AccessLock;
-	__int64					m_nMinGold;			// Ç¥½Ã ¸®½ºÆ®ÀÇ ÃÖ¼Ò Çö»ó±İ 
+	__int64					m_nMinGold;			// í‘œì‹œ ë¦¬ìŠ¤íŠ¸ì˜ ìµœì†Œ í˜„ìƒê¸ˆ 
 
 public:
 	static CWantedList&		GetInstance();

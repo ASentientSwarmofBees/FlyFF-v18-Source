@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "resData.h"
 #include "WndSummonFriend.h"
 #include "dpclient.h"
@@ -14,7 +14,7 @@ extern		CDPClient		g_DPlay;
 
 
 /****************************************************
-  WndId : APP_MESSAGEBOX_SUMMONFRINED - ¼ÒÈ¯
+  WndId : APP_MESSAGEBOX_SUMMONFRINED - ì†Œí™˜
   CtrlId : WIDC_STATIC1 - Static
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
@@ -33,21 +33,21 @@ void CWndSummonFriendMsg::OnDraw( C2DRender* p2DRender )
 void CWndSummonFriendMsg::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_objid = 0;
 	m_dwData = 0;
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSummonFriendMsg::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MESSAGEBOX_SUMMONFRINED, 0, CPoint( 0, 0 ), pWndParent );
 } 
 void CWndSummonFriendMsg::SetData( OBJID objid, DWORD dwData, char* szName, char* szWorldName )
@@ -95,10 +95,10 @@ BOOL CWndSummonFriendMsg::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 } 
 
 /****************************************************
-  WndId : APP_SUMMON_FRIEND - ¼ÒÈ¯
+  WndId : APP_SUMMON_FRIEND - ì†Œí™˜
   CtrlId : WIDC_EDIT1 - Edit
-  CtrlId : WIDC_STATIC1 - ÀÌ ¸§ :
-  CtrlId : WIDC_STATIC2 - ¼ÒÈ¯ÇÒ Ä³¸¯ÅÍ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä
+  CtrlId : WIDC_STATIC1 - ì´ ë¦„ :
+  CtrlId : WIDC_STATIC2 - ì†Œí™˜í•  ìºë¦­í„° ì´ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš”
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
 ****************************************************/
@@ -115,7 +115,7 @@ void CWndSummonFriend::OnDraw( C2DRender* p2DRender )
 void CWndSummonFriend::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_dwData	= 0;
 
 	CWndComboBox* pWndCombo		= (CWndComboBox*)GetDlgItem( WIDC_COMBOBOX1 );
@@ -150,17 +150,17 @@ void CWndSummonFriend::OnInitialUpdate()
 	}
 	pWndCombo->SetFocus();
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSummonFriend::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SUMMON_FRIEND, 0, CPoint( 0, 0 ), pWndParent );
 } 
 void CWndSummonFriend::SetData( WORD wId, WORD wReset )
@@ -229,7 +229,7 @@ BOOL CWndSummonFriend::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 } 
 
 /****************************************************
-  WndId : APP_MESSAGEBOX_SUMMONPARTY - ±Ø´Ü¼ÒÈ¯
+  WndId : APP_MESSAGEBOX_SUMMONPARTY - ê·¹ë‹¨ì†Œí™˜
   CtrlId : WIDC_TEXT1 - 
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
@@ -257,22 +257,22 @@ void CWndSummonPartyMsg::OnDraw( C2DRender* p2DRender )
 void CWndSummonPartyMsg::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	ItemProp* pItemProp = prj.GetItemProp( II_SYS_SYS_SCR_PARTYSUMMON );
 	if( pItemProp )
 		m_Texture.LoadTexture(g_Neuz.m_pd3dDevice, MakePath( DIR_ITEM, pItemProp->szIcon ), 0xffff00ff );
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSummonPartyMsg::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MESSAGEBOX_SUMMONPARTY, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndSummonPartyMsg::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -338,20 +338,20 @@ void CWndSummonParty::OnDraw( C2DRender* p2DRender )
 void CWndSummonParty::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_dwData	= 0;
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSummonParty::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SUMMON_PARTY, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndSummonParty::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -414,7 +414,7 @@ void CWndSummonParty::SetData( WORD wId, WORD wReset )
 }
 
 /****************************************************
-WndId : APP_SUMMON_PARTY_USE - ±Ø´Ü¼ÒÈ¯
+WndId : APP_SUMMON_PARTY_USE - ê·¹ë‹¨ì†Œí™˜
 CtrlId : WIDC_TEXT1 - 
 CtrlId : WIDC_OK - Button
 CtrlId : WIDC_CANCEL - Button
@@ -432,27 +432,27 @@ void CWndSummonPartyUse::OnDraw( C2DRender* p2DRender )
 void CWndSummonPartyUse::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	CString strMsg;
 	strMsg.Format( prj.GetText(TID_DIAG_SUMMONPARTY_USE) , g_Neuz.m_szSummonPartyWorldName );
 	pWndText->SetString( strMsg );		
 	
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSummonPartyUse::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SUMMON_PARTY_USE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndSummonPartyUse::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 CRect rectWindow = m_pWndRoot->GetWindowRect(); 

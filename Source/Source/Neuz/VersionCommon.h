@@ -1,4 +1,4 @@
-#ifndef __VERSION_COMMON_H__
+ï»¿#ifndef __VERSION_COMMON_H__
 #define __VERSION_COMMON_H__
 #define __MAINSERVER
 #define	__VER	18
@@ -41,469 +41,469 @@
 
 //|: ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
-#define		__BS_ADDOBJATTR_INVISIBLE	// CObj Invisible ¿¡ °üÇÑ ¼Ó¼ºÃß°¡   --> 16Â÷ ¿¹Á¤ 
-#define		__BS_EFFECT_LUA				// ¿ÀºêÁ§Æ® »óÅÂº° È¿°ú¿¬Ãâ ( Lua base )
-#define		__BS_ADD_CONTINENT_WEATHER	// ´ë·ú ³¯¾¾ Ãß°¡ ( ¿Â³­È­·Î ÀÎÇÑ ÅÂ¾ç³¯¾¾, ´Ù¸¥ ¾î¶²ÀÌÀ¯·Îµç º¯ÇÏÁö ¾ÊÀ½ )
-#define		__BS_CHANGEABLE_WORLD_SEACLOUD	// º¯°æ°¡´ÉÇÑ ¿ùµå ¹Ù´Ù±¸¸§ 
+#define		__BS_ADDOBJATTR_INVISIBLE	// CObj Invisible ì— ê´€í•œ ì†ì„±ì¶”ê°€   --> 16ì°¨ ì˜ˆì • 
+#define		__BS_EFFECT_LUA				// ì˜¤ë¸Œì íŠ¸ ìƒíƒœë³„ íš¨ê³¼ì—°ì¶œ ( Lua base )
+#define		__BS_ADD_CONTINENT_WEATHER	// ëŒ€ë¥™ ë‚ ì”¨ ì¶”ê°€ ( ì˜¨ë‚œí™”ë¡œ ì¸í•œ íƒœì–‘ë‚ ì”¨, ë‹¤ë¥¸ ì–´ë–¤ì´ìœ ë¡œë“  ë³€í•˜ì§€ ì•ŠìŒ )
+#define		__BS_CHANGEABLE_WORLD_SEACLOUD	// ë³€ê²½ê°€ëŠ¥í•œ ì›”ë“œ ë°”ë‹¤êµ¬ë¦„ 
 #define		__TRANSFER_ERROR_TEXT
 #define		__CRC
 #define		__PROTOCOL0910
 #define		__PROTOCOL1021
-#define		__INFO_SOCKLIB0516			// ³×Æ®¿öÅ© ¿¡·¯¾ò±â 
-#define		__S1108_BACK_END_SYSTEM		// Trans, World, Neuz : ¹é¾Øµå½Ã½ºÅÛ 
-#define		__THROUGHPORTAL0810			// À¥¿¡ ÀÇÇÑ ½ÇÇà
-#define		__TWN_LOGIN0816				// ´ë¸¸ ·Î±×ÀÎ ÇÁ·ÎÅäÄÝ º¯°æ	// Å¬¶ó/ÀÎÁõ
-#define		__FIX_WND_1109				// Ã¢ »ý¼º ½Ã ºÎ¸ðÃ¢ ÁöÁ¤ ¿À·ù ¼öÁ¤
-#define		__EVENT_1101				// ÃâÃ½ ÀÌº¥Æ®
-#define		__EVE_NEWYEAR				// ½Å³â È¿°ú
+#define		__INFO_SOCKLIB0516			// ë„¤íŠ¸ì›Œí¬ ì—ëŸ¬ì–»ê¸° 
+#define		__S1108_BACK_END_SYSTEM		// Trans, World, Neuz : ë°±ì•¤ë“œì‹œìŠ¤í…œ 
+#define		__THROUGHPORTAL0810			// ì›¹ì— ì˜í•œ ì‹¤í–‰
+#define		__TWN_LOGIN0816				// ëŒ€ë§Œ ë¡œê·¸ì¸ í”„ë¡œí† ì½œ ë³€ê²½	// í´ë¼/ì¸ì¦
+#define		__FIX_WND_1109				// ì°½ ìƒì„± ì‹œ ë¶€ëª¨ì°½ ì§€ì • ì˜¤ë¥˜ ìˆ˜ì •
+#define		__EVENT_1101				// ì¶œì²µ ì´ë²¤íŠ¸
+#define		__EVE_NEWYEAR				// ì‹ ë…„ íš¨ê³¼
 
-#define		__S_SERVER_UNIFY			// ¼­¹ö ÅëÇÕ Neuz, World
-#define		__LANG_IME_0327				// ±¹°¡º° imeÇ¥½Ã Ã¢ Ãâ·Â ±¸ºÐ
+#define		__S_SERVER_UNIFY			// ì„œë²„ í†µí•© Neuz, World
+#define		__LANG_IME_0327				// êµ­ê°€ë³„ imeí‘œì‹œ ì°½ ì¶œë ¥ êµ¬ë¶„
 #define		__STL_0402					// stl
 
-#define		__NEWYEARDAY_EVENT_COUPON	// ¼³ ÀÌº¥Æ® - Çì¾î˜Þ, ¼ºÇü ¹«·áÀÌ¿ë±Ç °ü·Ã.
-// ÇØ¿Ü 6Â÷ Àû¿ë
-#define		__LANG_1013					// ÇØ¿Ü ¹öÀü ½Å±Ô Ãß°¡ ½ºÅ©¸³Æ®
+#define		__NEWYEARDAY_EVENT_COUPON	// ì„¤ ì´ë²¤íŠ¸ - í—¤ì–´ìƒ¾, ì„±í˜• ë¬´ë£Œì´ìš©ê¶Œ ê´€ë ¨.
+// í•´ì™¸ 6ì°¨ ì ìš©
+#define		__LANG_1013					// í•´ì™¸ ë²„ì „ ì‹ ê·œ ì¶”ê°€ ìŠ¤í¬ë¦½íŠ¸
 
-#define		__ITEMDROPRATE				// ÀÌº¥Æ® ¾ÆÀÌÅÛ µå·Ó·ü Á¶Á¤
+#define		__ITEMDROPRATE				// ì´ë²¤íŠ¸ ì•„ì´í…œ ë“œë¡­ë¥  ì¡°ì •
 
 
 // 10
-#define		__TRADESYS					// ±³È¯ ¾ÆÀÌÅÛ ½ºÅ©¸³Æ®(ÀÌº¥Æ®, Äù½ºÆ®, ... ) Neuz, World
-#define		__EVE_BALLOON				// Ç³¼± ÀÌº¥Æ® °ü·Ã
-#define		__CSC_GAME_GRADE			// °ÔÀÓ¹°µî±Þ°ü·Ã Ã¤ÆÃÃ¢ ¾Ë¸² ¹× ÀÌ¹ÌÁö º¯°æ.
+#define		__TRADESYS					// êµí™˜ ì•„ì´í…œ ìŠ¤í¬ë¦½íŠ¸(ì´ë²¤íŠ¸, í€˜ìŠ¤íŠ¸, ... ) Neuz, World
+#define		__EVE_BALLOON				// í’ì„  ì´ë²¤íŠ¸ ê´€ë ¨
+#define		__CSC_GAME_GRADE			// ê²Œìž„ë¬¼ë“±ê¸‰ê´€ë ¨ ì±„íŒ…ì°½ ì•Œë¦¼ ë° ì´ë¯¸ì§€ ë³€ê²½.
 
-#define		__PK_PVP_SKILL_REGION		// PK±ÝÁö±¸¿ª¿¡¼­ ¾ÇÇà ½ºÅ³Àº PVP»ó´ë¿¡°Ô¸¸ °¡´ÉÇÏµµ·Ï..
-#define		__EVENT_1101_2				// ÃâÃ½ ÀÌº¥Æ® 64ºñÆ® º¯°æ
-#define		__S_RECOMMEND_EVE			// ÃßÃµ ÀÌº¥Æ® Neuz, Trans, World
-#define		__EVE_MINIGAME				// Mini Game 4Á¾ ÀÌº¥Æ® Ãß°¡ °ü·Ã.
-#define		__S_ADD_EXP					// EXP_S ¾ÆÀÌÅÛ »ý¼º
+#define		__PK_PVP_SKILL_REGION		// PKê¸ˆì§€êµ¬ì—­ì—ì„œ ì•…í–‰ ìŠ¤í‚¬ì€ PVPìƒëŒ€ì—ê²Œë§Œ ê°€ëŠ¥í•˜ë„ë¡..
+#define		__EVENT_1101_2				// ì¶œì²µ ì´ë²¤íŠ¸ 64ë¹„íŠ¸ ë³€ê²½
+#define		__S_RECOMMEND_EVE			// ì¶”ì²œ ì´ë²¤íŠ¸ Neuz, Trans, World
+#define		__EVE_MINIGAME				// Mini Game 4ì¢… ì´ë²¤íŠ¸ ì¶”ê°€ ê´€ë ¨.
+#define		__S_ADD_EXP					// EXP_S ì•„ì´í…œ ìƒì„±
 
-#define		__RULE_0615					// ¸í¸í ±ÔÄ¢ Á¤¸®
-#define		__FILTER_0705				// ÇÊÅÍ¸µ ±ÔÄ¢ º¯°æ
-#define		__S_BUG_GC					// ±æµå´ëÀü ½ÅÃ»½Ã °°Àº ±Ý¾×À» ½ÅÃ»ÇÏ¸é ±æµå¾ÆÀÌµð·Î ¼îÆ® µÇ¼­ ¼øÀ§°¡ ¹Ù²î´Â ¹®Á¦ ¼öÁ¤( map -> vector ) 
-#define		__S_ADD_RESTATE				// »ó¿ëÈ­ ¾ÆÀÌÅÛ »ý¼º( ¸®½ºÅ×Æ® Èû, ¹ÎÃ¸, Ã¼·Â, Áö´É )
+#define		__RULE_0615					// ëª…ëª… ê·œì¹™ ì •ë¦¬
+#define		__FILTER_0705				// í•„í„°ë§ ê·œì¹™ ë³€ê²½
+#define		__S_BUG_GC					// ê¸¸ë“œëŒ€ì „ ì‹ ì²­ì‹œ ê°™ì€ ê¸ˆì•¡ì„ ì‹ ì²­í•˜ë©´ ê¸¸ë“œì•„ì´ë””ë¡œ ì‡¼íŠ¸ ë˜ì„œ ìˆœìœ„ê°€ ë°”ë€ŒëŠ” ë¬¸ì œ ìˆ˜ì •( map -> vector ) 
+#define		__S_ADD_RESTATE				// ìƒìš©í™” ì•„ì´í…œ ìƒì„±( ë¦¬ìŠ¤í…ŒíŠ¸ íž˜, ë¯¼ì²©, ì²´ë ¥, ì§€ëŠ¥ )
 
-#define		__PROP_0827					// ¾ÆÀÌÅÛ ÇÁ·ÎÆÛÆ¼ Àû¿ë ÆÄ¶ó¹ÌÅÍ È®Àå
+#define		__PROP_0827					// ì•„ì´í…œ í”„ë¡œí¼í‹° ì ìš© íŒŒë¼ë¯¸í„° í™•ìž¥
 
-#define		__PKSERVER_USE_ANGEL		// PK¼­¹ö¿¡¼­¸¸ ¿£Á©°ü·Ã ¾ÆÀÌÅÛ,¹öÇÁ »ç¿ë
-#define		__CSC_ENCHANT_EFFECT_2		// ±âÁ¸ ÀÌÆåÆ® + Çâ»óµÈ ÀÌÆåÆ®
+#define		__PKSERVER_USE_ANGEL		// PKì„œë²„ì—ì„œë§Œ ì—”ì ¤ê´€ë ¨ ì•„ì´í…œ,ë²„í”„ ì‚¬ìš©
+#define		__CSC_ENCHANT_EFFECT_2		// ê¸°ì¡´ ì´íŽ™íŠ¸ + í–¥ìƒëœ ì´íŽ™íŠ¸
 
-//11Â÷
-//	#define		__MA_VER11_02				// ¼öÇ¥ ±â´É Æä¸° °ü·Ã
-//	#define		__MA_VER11_03				// neuz±Ø´ÜÃ¢(B)¿¡¼­ ±Ø´Ü¿øÀÌ ¸Ö¸® ¶³¾îÁ® ÀÖ¾îµµ ·¹º§ÀÌ Ç¥½Ã µÇµµ·Ï
-//	#define		__MA_VER11_04				// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-//	#define		__MA_VER11_05				// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
-//	#define		__MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
-//	#define		__CSC_VER11_1				// <·¹º§??> »èÁ¦, Ã¤ÆÃÃ¢ ¼öÁ¤, Æä³Ä°Å·¡ Ãë¼Ò¹öÆ° »èÁ¦
-//	#define		__CSC_VER11_2				// Å¸°Ù Ç¥½Ã ¹æ¹ý º¯°æ
-//	#define		__CSC_VER11_3				// Ä¨À¸·Î »óÁ¡ ÀÌ¿ë ÇÏ±â (±æµå ´ëÀü °ü·Ã)
-//	#define		__CSC_VER11_4				// ¸Þ½ÅÀúÃ¢ °³¼±
-//	#define		__CSC_VER11_5				// ÅÂ½ºÅ©¹Ù È®Àå
-//	#define		__GUILDCOMBATCHIP			// ±æµå´ëÀü Ä¨º¸»ó ¹× Ä¨À» ÅëÇÑ »óÁ¡ ÀÌ¿ë
-//	#define		__GUILD_COMBAT_1TO1			// ÀÏ´ëÀÏ ±æµå ´ëÀü
-//	#define		__GUILD_BANK_LOG			// ±æµå¹ðÅ© ·Î±×Ã¢ Ãß°¡
-//	#define		__EXPITEM_TOOLTIP_CHANGE	// °æÇèÄ¡ ¾ÆÀÌÅÛ Ç¥±â ¹æ¹ý º¯°æ
-//	#define		__REMOVE_ENDURANCE			// ¾ÆÀÌÅÛ ³»±¸·Â °³³ä Á¦°Å
-//	#define		__PIERCING_REMOVE			// ÇÇ¾î½Ì ¿É¼Ç Á¦°Å
-//	#define		__CHIPI_071210				// ±â°£Á¦ ¾ÆÀÌÅÛ Áö¼Ó½Ã°£ ÃÊ´ÜÀ§ Ç¥±â
+//11ì°¨
+//	#define		__MA_VER11_02				// ìˆ˜í‘œ ê¸°ëŠ¥ íŽ˜ë¦° ê´€ë ¨
+//	#define		__MA_VER11_03				// neuzê·¹ë‹¨ì°½(B)ì—ì„œ ê·¹ë‹¨ì›ì´ ë©€ë¦¬ ë–¨ì–´ì ¸ ìžˆì–´ë„ ë ˆë²¨ì´ í‘œì‹œ ë˜ë„ë¡
+//	#define		__MA_VER11_04				// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+//	#define		__MA_VER11_05				// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
+//	#define		__MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+//	#define		__CSC_VER11_1				// <ë ˆë²¨??> ì‚­ì œ, ì±„íŒ…ì°½ ìˆ˜ì •, íŽ˜ëƒê±°ëž˜ ì·¨ì†Œë²„íŠ¼ ì‚­ì œ
+//	#define		__CSC_VER11_2				// íƒ€ê²Ÿ í‘œì‹œ ë°©ë²• ë³€ê²½
+//	#define		__CSC_VER11_3				// ì¹©ìœ¼ë¡œ ìƒì  ì´ìš© í•˜ê¸° (ê¸¸ë“œ ëŒ€ì „ ê´€ë ¨)
+//	#define		__CSC_VER11_4				// ë©”ì‹ ì €ì°½ ê°œì„ 
+//	#define		__CSC_VER11_5				// íƒœìŠ¤í¬ë°” í™•ìž¥
+//	#define		__GUILDCOMBATCHIP			// ê¸¸ë“œëŒ€ì „ ì¹©ë³´ìƒ ë° ì¹©ì„ í†µí•œ ìƒì  ì´ìš©
+//	#define		__GUILD_COMBAT_1TO1			// ì¼ëŒ€ì¼ ê¸¸ë“œ ëŒ€ì „
+//	#define		__GUILD_BANK_LOG			// ê¸¸ë“œë±…í¬ ë¡œê·¸ì°½ ì¶”ê°€
+//	#define		__EXPITEM_TOOLTIP_CHANGE	// ê²½í—˜ì¹˜ ì•„ì´í…œ í‘œê¸° ë°©ë²• ë³€ê²½
+//	#define		__REMOVE_ENDURANCE			// ì•„ì´í…œ ë‚´êµ¬ë ¥ ê°œë… ì œê±°
+//	#define		__PIERCING_REMOVE			// í”¼ì–´ì‹± ì˜µì…˜ ì œê±°
+//	#define		__CHIPI_071210				// ê¸°ê°„ì œ ì•„ì´í…œ ì§€ì†ì‹œê°„ ì´ˆë‹¨ìœ„ í‘œê¸°
 
-#define		__EVENTLUA_COUPON			// ÄíÆù ÀÌº¥Æ®
-#define		__NOLIMIT_RIDE_ITEM			// ·¹º§ Á¦ÇÑ ¾ø´Â ºñÇàÃ¼ ¾ÆÀÌÅÛ
-#define		__NPC_BUFF					// NPC¸¦ ÅëÇØ ¹öÇÁ¹Þ±â
+#define		__EVENTLUA_COUPON			// ì¿ í° ì´ë²¤íŠ¸
+#define		__NOLIMIT_RIDE_ITEM			// ë ˆë²¨ ì œí•œ ì—†ëŠ” ë¹„í–‰ì²´ ì•„ì´í…œ
+#define		__NPC_BUFF					// NPCë¥¼ í†µí•´ ë²„í”„ë°›ê¸°
 
-//	#define		__SYS_POCKET				// ÁÖ¸Ó´Ï
-//	#define		__SYS_COLLECTING			// Ã¤Áý ½Ã½ºÅÛ
-//	#define		__SYS_IDENTIFY				// °¢¼º, Ãàº¹
-//	#define		__FIX_ROTATE				// ºñ½ºÆ®¿¡¼­ ¹ß°ßµÈ ¿À·ù ¼öÁ¤
-//	#define		__ADD_ZOOMOPT				// ÁÜ¿É¼Ç Ãß°¡ 
-//	#define		__MOD_VENDOR				// °³ÀÎ»óÁ¡ °³¼±
-//	#define		__FIX_COLLISION				// Ãæµ¹ ¹®Á¦ ¼öÁ¤
-//	#define		__FIX_PICKING				// ÇÇÅ· ¹®Á¦ ¼öÁ¤
-//	#define		__CAPTURE_JPG				// JPGÆ÷¸ËÀ¸·Î Ä¸ÃÄ
+//	#define		__SYS_POCKET				// ì£¼ë¨¸ë‹ˆ
+//	#define		__SYS_COLLECTING			// ì±„ì§‘ ì‹œìŠ¤í…œ
+//	#define		__SYS_IDENTIFY				// ê°ì„±, ì¶•ë³µ
+//	#define		__FIX_ROTATE				// ë¹„ìŠ¤íŠ¸ì—ì„œ ë°œê²¬ëœ ì˜¤ë¥˜ ìˆ˜ì •
+//	#define		__ADD_ZOOMOPT				// ì¤Œì˜µì…˜ ì¶”ê°€ 
+//	#define		__MOD_VENDOR				// ê°œì¸ìƒì  ê°œì„ 
+//	#define		__FIX_COLLISION				// ì¶©ëŒ ë¬¸ì œ ìˆ˜ì •
+//	#define		__FIX_PICKING				// í”¼í‚¹ ë¬¸ì œ ìˆ˜ì •
+//	#define		__CAPTURE_JPG				// JPGí¬ë§·ìœ¼ë¡œ ìº¡ì³
 
-#define		__SYS_TICKET				// ÀÔÀå±Ç
-//	#define		__SYS_PLAYER_DATA			// Ä³¸¯ÅÍ Á¤º¸ ÅëÇÕ
-#define		__HACK_1023					// ¸®¼Ò½º º¯Á¶ // ³¯°Í ¼Óµµ, ¹«±â °ø°Ý ¼Óµµ
-#define		__RT_1025					// ¸Þ½ÅÀú
-#define		__VENDOR_1106				// °³ÀÎ»óÁ¡ Çã¿ë ¹®ÀÚ
+#define		__SYS_TICKET				// ìž…ìž¥ê¶Œ
+//	#define		__SYS_PLAYER_DATA			// ìºë¦­í„° ì •ë³´ í†µí•©
+#define		__HACK_1023					// ë¦¬ì†ŒìŠ¤ ë³€ì¡° // ë‚ ê²ƒ ì†ë„, ë¬´ê¸° ê³µê²© ì†ë„
+#define		__RT_1025					// ë©”ì‹ ì €
+#define		__VENDOR_1106				// ê°œì¸ìƒì  í—ˆìš© ë¬¸ìž
 #define		__JEFF_11
 
-#define		__JEFF_9_20					// ºñÇà ½Ã°£À» Ä§¹¬ ½Ã°£À¸·Î Àü¿ë
-#define		__JEFF_11_4					// ¾Æ·¹³ª
-#define		__JEFF_11_5					// ¸Þ¸ð¸® ´©¼ö
-#define		__JEFF_11_6					// ¹Ùº¸ ¸ó½ºÅÍ
-#define		__DST_GIFTBOX				// Âø¿ë ¾ÆÀÌÅÛ¿¡ ±âÇÁÆ® ¹Ú½º ±â´É Ãß°¡ 
+#define		__JEFF_9_20					// ë¹„í–‰ ì‹œê°„ì„ ì¹¨ë¬µ ì‹œê°„ìœ¼ë¡œ ì „ìš©
+#define		__JEFF_11_4					// ì•„ë ˆë‚˜
+#define		__JEFF_11_5					// ë©”ëª¨ë¦¬ ëˆ„ìˆ˜
+#define		__JEFF_11_6					// ë°”ë³´ ëª¬ìŠ¤í„°
+#define		__DST_GIFTBOX				// ì°©ìš© ì•„ì´í…œì— ê¸°í”„íŠ¸ ë°•ìŠ¤ ê¸°ëŠ¥ ì¶”ê°€ 
 
-#define		__SFX_OPT					// ÀÌÆåÆ®(ÆÄÆ¼Å¬) ÃÖÀûÈ­ °ü·Ã
+#define		__SFX_OPT					// ì´íŽ™íŠ¸(íŒŒí‹°í´) ìµœì í™” ê´€ë ¨
 //#define		__PERF_0229
 
-#define		__HELP_BUG_FIX				// µµ¿ò¸»°ü·Ã ¹ö±× ¼öÁ¤ (µµ¿ò¸» ÇÑ°³¸¸ ¶ç¿ì±â ÀÎ½ºÅÏ½º °ü¸®)
+#define		__HELP_BUG_FIX				// ë„ì›€ë§ê´€ë ¨ ë²„ê·¸ ìˆ˜ì • (ë„ì›€ë§ í•œê°œë§Œ ë„ìš°ê¸° ì¸ìŠ¤í„´ìŠ¤ ê´€ë¦¬)
 
-#define		__CHIPI_DYO					// NPC¸¦ Æ¯Á¤±¹°¡¿¡¼­¸¸ Ãâ·ÂÇÒ ¼ö ÀÖ°Ô character.inc¿¡ ¼³Á¤ 
+#define		__CHIPI_DYO					// NPCë¥¼ íŠ¹ì •êµ­ê°€ì—ì„œë§Œ ì¶œë ¥í•  ìˆ˜ ìžˆê²Œ character.incì— ì„¤ì • 
 
-// 12Â÷
+// 12ì°¨
 
-//	#define		__SECRET_ROOM				// ºñ¹ÐÀÇ ¹æ
-//	#define		__TAX						// ¼¼±Ý
-//	#define		__CSC_VER12_1				// °³ÀÎ»óÁ¡ Áß ÇÃ·¹ÀÌ¾î »ìÆìº¸±â ¸Þ´º °¡´ÉÇÏµµ·Ï ¼öÁ¤ & »ìÆìº¸±â Ã¢ À¯ÁöÇÏ±â
-//	#define		__CSC_VER12_2				// ±æµå Ã¢ÀÇ ¸â¹ö ÅÜ¿¡ Ç×¸ñº° Á¤·ÄÀÌ °¡´ÉÇÏµµ·Ï Ãß°¡
-//	#define		__CSC_VER12_3				// Äù½ºÆ®°¡ ¸¹À» °æ¿ì Äù½ºÆ® Ç×¸ñÀÌ Àß¸®´Â Çö»ó ¶§¹®¿¡ ´ëÈ­Ã¢ ´Ã¸²
-//	#define		__CSC_VER12_4				// ÇÇ¾î½Ì Á¦°Å Ã¢ °³¼± ¹× ¾óÅÍ¸Ú º¸¼® Á¦°Å Ã¢ Ãß°¡
-//	#define		__CSC_VER12_5				// Æê ¾Ë º¯È¯ ±â´É Ãß°¡
-//	#define		__HEAVEN_TOWER				// ½É¿¬ÀÇ Å¾
-//	#define		__EXT_PIERCING				// ¹«±â ÇÇ¾î½Ì
-//	#define		__NEW_SUMMON_RULE			// ¸ó½ºÅÍ ¼ÒÈ¯ ±ÔÄ¢ º¯°æ
-//	#define		__MOD_TUTORIAL				// Æ©Åä¸®¾ó °³¼±
-//	#define		__LORD						// ±ºÁÖ
-//	#define		__PET_0519	// Æê °¢¼º
-//	#define		__J12_0		// °¢¼º, Ãàº¹ °¡´É ÆÄÃ÷ Ãß°¡
-//	#define		__UPDATE_OPT				// ¿É¼ÇÃ¢ °³¼±
-//	#define		__CAM_FAST_RECOVER			// Ä«¸Þ¶ó º¹¿ø¼Óµµ Áõ°¡
-//	#define		__JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
-//	#define		__ITEMCREATEMON_S0602		// ¸ó½ºÅÍ »ý¼º Neuz, World
-//	#define		__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+//	#define		__SECRET_ROOM				// ë¹„ë°€ì˜ ë°©
+//	#define		__TAX						// ì„¸ê¸ˆ
+//	#define		__CSC_VER12_1				// ê°œì¸ìƒì  ì¤‘ í”Œë ˆì´ì–´ ì‚´íŽ´ë³´ê¸° ë©”ë‰´ ê°€ëŠ¥í•˜ë„ë¡ ìˆ˜ì • & ì‚´íŽ´ë³´ê¸° ì°½ ìœ ì§€í•˜ê¸°
+//	#define		__CSC_VER12_2				// ê¸¸ë“œ ì°½ì˜ ë©¤ë²„ í…ì— í•­ëª©ë³„ ì •ë ¬ì´ ê°€ëŠ¥í•˜ë„ë¡ ì¶”ê°€
+//	#define		__CSC_VER12_3				// í€˜ìŠ¤íŠ¸ê°€ ë§Žì„ ê²½ìš° í€˜ìŠ¤íŠ¸ í•­ëª©ì´ ìž˜ë¦¬ëŠ” í˜„ìƒ ë•Œë¬¸ì— ëŒ€í™”ì°½ ëŠ˜ë¦¼
+//	#define		__CSC_VER12_4				// í”¼ì–´ì‹± ì œê±° ì°½ ê°œì„  ë° ì–¼í„°ë©‹ ë³´ì„ ì œê±° ì°½ ì¶”ê°€
+//	#define		__CSC_VER12_5				// íŽ« ì•Œ ë³€í™˜ ê¸°ëŠ¥ ì¶”ê°€
+//	#define		__HEAVEN_TOWER				// ì‹¬ì—°ì˜ íƒ‘
+//	#define		__EXT_PIERCING				// ë¬´ê¸° í”¼ì–´ì‹±
+//	#define		__NEW_SUMMON_RULE			// ëª¬ìŠ¤í„° ì†Œí™˜ ê·œì¹™ ë³€ê²½
+//	#define		__MOD_TUTORIAL				// íŠœí† ë¦¬ì–¼ ê°œì„ 
+//	#define		__LORD						// êµ°ì£¼
+//	#define		__PET_0519	// íŽ« ê°ì„±
+//	#define		__J12_0		// ê°ì„±, ì¶•ë³µ ê°€ëŠ¥ íŒŒì¸  ì¶”ê°€
+//	#define		__UPDATE_OPT				// ì˜µì…˜ì°½ ê°œì„ 
+//	#define		__CAM_FAST_RECOVER			// ì¹´ë©”ë¼ ë³µì›ì†ë„ ì¦ê°€
+//	#define		__JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+//	#define		__ITEMCREATEMON_S0602		// ëª¬ìŠ¤í„° ìƒì„± Neuz, World
+//	#define		__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 //	#define		__LEAK_0827
 
 
-// 13Â÷
-//	#define		__EXT_ENCHANT				// Á¦·Ã È®Àå(¼Ó¼º, ÀÏ¹Ý)
-//	#define		__RAINBOW_RACE				// ·¹ÀÎº¸¿ì ·¹ÀÌ½º
-	#define		__HOUSING					// ÇÏ¿ìÂ¡ ½Ã½ºÅÛ
-//	#define		__QUEST_HELPER				// Äù½ºÆ® NPCÀ§Ä¡ ¾Ë¸².
+// 13ì°¨
+//	#define		__EXT_ENCHANT				// ì œë ¨ í™•ìž¥(ì†ì„±, ì¼ë°˜)
+//	#define		__RAINBOW_RACE				// ë ˆì¸ë³´ìš° ë ˆì´ìŠ¤
+	#define		__HOUSING					// í•˜ìš°ì§• ì‹œìŠ¤í…œ
+//	#define		__QUEST_HELPER				// í€˜ìŠ¤íŠ¸ NPCìœ„ì¹˜ ì•Œë¦¼.
 //	#define		__CHIPI_QUESTITEM_FLAG
-//	#define		__RENEW_CHARINFO			// Ä³¸¯ÅÍÁ¤º¸Ã¢ ¸®´º¾ó
-//	#define		__HONORABLE_TITLE			// ´ÞÀÎ
-	#define		__MAX_BUY_ITEM9999			// È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
-//	#define		__REMOVE_JOINPARTYMEMBER_ANI			// ÆÄÆ¼¸É¹öÁ¶ÀÎ½Ã ¾Ö´Ï »©±â
-//	#define		__CSC_VER13_1				// WorldMap ¸ó½ºÅÍ Ç¥½Ã
-//	#define		__CSC_VER13_2				// Ä¿ÇÃ ½Ã½ºÅÛ
-//	#define		__COUPLE_1117				// Ä¿ÇÃ ½Ã½ºÅÛ
-//	#define		__COUPLE_1202				// Ä¿ÇÃ º¸»ó
+//	#define		__RENEW_CHARINFO			// ìºë¦­í„°ì •ë³´ì°½ ë¦¬ë‰´ì–¼
+//	#define		__HONORABLE_TITLE			// ë‹¬ì¸
+	#define		__MAX_BUY_ITEM9999			// í™”ì‚´í¬ìŠ¤í„°êµ¬ìž…ê°¯ìˆ˜9999ê°œ
+//	#define		__REMOVE_JOINPARTYMEMBER_ANI			// íŒŒí‹°ë§´ë²„ì¡°ì¸ì‹œ ì• ë‹ˆ ë¹¼ê¸°
+//	#define		__CSC_VER13_1				// WorldMap ëª¬ìŠ¤í„° í‘œì‹œ
+//	#define		__CSC_VER13_2				// ì»¤í”Œ ì‹œìŠ¤í…œ
+//	#define		__COUPLE_1117				// ì»¤í”Œ ì‹œìŠ¤í…œ
+//	#define		__COUPLE_1202				// ì»¤í”Œ ë³´ìƒ
 
-#define		__LAYER_1020				// __LAYER_1015 Å×½ºÆ®
-#define		__AZRIA_1023				// ÀÔÀå±Ç °èÃþ Àû¿ë
-#define		__PET_1024					// Æê ÀÛ¸í
+#define		__LAYER_1020				// __LAYER_1015 í…ŒìŠ¤íŠ¸
+#define		__AZRIA_1023				// ìž…ìž¥ê¶Œ ê³„ì¸µ ì ìš©
+#define		__PET_1024					// íŽ« ìž‘ëª…
 #define		__BUFF_1107
-#define		__SYNC_1217					// ºñµ¿±â ¼öÁ¤(ÇÊ¸®ÇÉ º¸°í)
-#define		__SYS_ITEMTRANSY			// NPC¸Þ´º ¾ÆÀÌÅÛ Æ®·»Áö ±â´É
+#define		__SYNC_1217					// ë¹„ë™ê¸° ìˆ˜ì •(í•„ë¦¬í•€ ë³´ê³ )
+#define		__SYS_ITEMTRANSY			// NPCë©”ë‰´ ì•„ì´í…œ íŠ¸ë Œì§€ ê¸°ëŠ¥
 
-#define		__SPEED_SYNC_0108		// ResetDestParam speed ¼öÁ¤ ´À·ÁÁö°Ô º¸ÀÌ´Â°Í ¼öÁ¤ Å¸À¯ÀúÀÇ ÃÊ±â½ºÇÇµåºñµ¿±âµµ ¼öÁ¤ ¿¹Á¤ 
-#define		__PARTY_DEBUG_0129		// ±Ø´ÜÀå Æ¨±â´Â Çö»ó µð¹ö±ë neuz
+#define		__SPEED_SYNC_0108		// ResetDestParam speed ìˆ˜ì • ëŠë ¤ì§€ê²Œ ë³´ì´ëŠ”ê²ƒ ìˆ˜ì • íƒ€ìœ ì €ì˜ ì´ˆê¸°ìŠ¤í”¼ë“œë¹„ë™ê¸°ë„ ìˆ˜ì • ì˜ˆì • 
+#define		__PARTY_DEBUG_0129		// ê·¹ë‹¨ìž¥ íŠ•ê¸°ëŠ” í˜„ìƒ ë””ë²„ê¹… neuz
 
-#define		__FUNNY_COIN			// ÆÛ´Ï ÄÚÀÎ
+#define		__FUNNY_COIN			// í¼ë‹ˆ ì½”ì¸
 
 #define		__GPAUTH
 #define		__GPAUTH_01
 #define		__GPAUTH_02
 #define		__EUROPE_0514
-#define		__WINDOW_INTERFACE_BUG		// ¿ùµå ÀÌµ¿ »óÈ²¿¡¼­ ¾ÆÀÌÅÛ °É¸° À©µµ¿ì Ã¢ ¶ç¿öÁ® ÀÖÀ¸¸é Å¬¶óÀÌ¾ðÆ® Å©·¡½¬µÇ´Â ¹®Á¦ ¼öÁ¤
+#define		__WINDOW_INTERFACE_BUG		// ì›”ë“œ ì´ë™ ìƒí™©ì—ì„œ ì•„ì´í…œ ê±¸ë¦° ìœˆë„ìš° ì°½ ë„ì›Œì ¸ ìžˆìœ¼ë©´ í´ë¼ì´ì–¸íŠ¸ í¬ëž˜ì‰¬ë˜ëŠ” ë¬¸ì œ ìˆ˜ì •
 
-#define		__MAP_SECURITY				// ¸ÊÅø·Î º¯Á¶ÇÑ ¸Ê °Ë»ç
+#define		__MAP_SECURITY				// ë§µíˆ´ë¡œ ë³€ì¡°í•œ ë§µ ê²€ì‚¬
 
-// 14Â÷
-	#define		__NEW_CONTINENT				// 14Â÷ ½Å±Ô´ë·ú ÇÏ¸£¸ð´Ñ Ãß°¡
-	#define		__SMELT_SAFETY				// 14Â÷ ¾ÈÀüÁ¦·Ã
-	#define		__INSTANCE_DUNGEON			// 14Â÷ ÀÎ½ºÅÏ½º ´øÀü
-	#define		__EQUIP_BIND				// ÀåÂø¾ÆÀÌÅÛ Âø¿ë½Ã ±Í¼Ó
-	#define		__EXT_ATTRIBUTE				// ¼Ó¼ºÁ¦·Ã °ø½Ä È®Àå ¹× º¯°æ
-	#define		__NEW_ITEM_LIMIT_LEVEL		// ¾ÆÀÌÅÛ Âø¿ë·¹º§ ±ÔÄ¢ º¯°æ(MASTER, HEROµµ ·¹º§ Àû¿ëÀ» ¹Þ°í ÇÏÀ§ Å¬·¡½º ¹«±â´Â ¹«Á¶°Ç ÀåÂø °¡´É)
-	#define		__WATER_EXT					// ¹° Ç¥Çö È®Àå (¹° ÅØ½ºÃÄÀÇ Á¾·ù ¹× ÇÁ·¹ÀÓ¼Óµµ º¯°æ Ãß°¡)
-	#define		__WND_EDIT_NUMBER_MODE		// ¿¡µðÆ® ÄÁÆ®·Ñ ¼ýÀÚ¸¸ ÀÔ·Â¹Þ°Ô ÇÏ´Â ¸ðµå
-#define		__SHIFT_KEY_CORRECTION		// ½¬ÇÁÆ® Å° ÀÔ·Â ¹®Á¦ ¼öÁ¤
-	#define		__STATIC_ALIGN				// ½ºÅÂÆ½ ÄÁÆ®·Ñ¿¡ Á¤±³ÇÑ Á¤·Ä ±â´É Ãß°¡
-	#define		__ITEM_DROP_SOUND			// ¾ÆÀÌÅÛ µå·Ó ½Ã È¿°úÀ½ ½ºÅ©¸³Æ®·Î Ã³¸®
-	#define		__JOB_TEXT					// ¸¶½ºÅÍ, È÷¾î·Î °ü·Ã ¾ÆÀÌÅÛ¿¡ 'ÇÊ¿ä Á÷¾÷' ÅØ½ºÆ® Ãâ·ÂµÇµµ·Ï ¼öÁ¤
-	#define		__RESTATE_CONFIRM			// ¸®½ºÅ×Æ® »ç¿ë ½Ã, È®ÀÎ Ã¢ Ãâ·Â
-	#define		__PREVENTION_TOOLTIP_BUG	// ÇÁ¸®º¥¼Ç ÅøÆÁ¿¡ ÀÇ¹Ì ¾ø´Â ÅØ½ºÆ® Ãâ·ÂµÇ´Â ¹®Á¦ ¼öÁ¤
-	#define		__DROP_CONFIRM_BUG			// ¾ÆÀÌÅÛ °ü·Ã È®ÀÎ Ã¢ÀÌ ¿­¸° »óÅÂ¿¡¼­ ÀÏ¾î³ª´Â °¢Á¾ ¿À·ù ¼öÁ¤
-	#define		__CLOUD_ANIMATION_BUG		// ±¸¸§ ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ Æ¯Á¤ ¿µ¿ª¿¡¼­¸¸ ¼öÇàµÇ´Â ¹®Á¦ ¼öÁ¤
-	#define		__BUFF_CRASH				// ¹öÇÁ ·»´õ¸µ °ü·ÃÇÏ¿© Å¬¶óÀÌ¾ðÆ® Å©·¡½¬µÇ´Â ¹®Á¦ ¼öÁ¤
-	#define		__BS_FIX_SHADOW_ONOBJECT	// ¿ÀºêÁ§Æ® ±×¸²ÀÚ ¸®½Ã¹ö Á¶°Ç°Ë»ç ¼³Á¤ ( ÁÖÀÎ°ø À§ÁÖ, ÀÎ´ø ÃµÁ¤ ±×¸²ÀÚ Á¦°Å )
-	#define		__BS_FIX_HAIR_AMBIENT		// Ä³¸¯ÅÍ Çì¾î ambient Á¶Á¤ ( ÀÎ´ø¿¡¼­ ¸Ó¸®Ä«¶ô »ö±ò ±î¸Ä°Ô ³ª¿À´Â ¹®Á¦ ¼öÁ¤ )
-	#define		__BALLOON_CODE_IMPROVEMENT	// Ç³¼± °ü·Ã ÄÚµå °³¼±
-	#define		__WING_ITEM					// ³¯°³ ¾ÆÀÌÅÛ
+// 14ì°¨
+	#define		__NEW_CONTINENT				// 14ì°¨ ì‹ ê·œëŒ€ë¥™ í•˜ë¥´ëª¨ë‹Œ ì¶”ê°€
+	#define		__SMELT_SAFETY				// 14ì°¨ ì•ˆì „ì œë ¨
+	#define		__INSTANCE_DUNGEON			// 14ì°¨ ì¸ìŠ¤í„´ìŠ¤ ë˜ì „
+	#define		__EQUIP_BIND				// ìž¥ì°©ì•„ì´í…œ ì°©ìš©ì‹œ ê·€ì†
+	#define		__EXT_ATTRIBUTE				// ì†ì„±ì œë ¨ ê³µì‹ í™•ìž¥ ë° ë³€ê²½
+	#define		__NEW_ITEM_LIMIT_LEVEL		// ì•„ì´í…œ ì°©ìš©ë ˆë²¨ ê·œì¹™ ë³€ê²½(MASTER, HEROë„ ë ˆë²¨ ì ìš©ì„ ë°›ê³  í•˜ìœ„ í´ëž˜ìŠ¤ ë¬´ê¸°ëŠ” ë¬´ì¡°ê±´ ìž¥ì°© ê°€ëŠ¥)
+	#define		__WATER_EXT					// ë¬¼ í‘œí˜„ í™•ìž¥ (ë¬¼ í…ìŠ¤ì³ì˜ ì¢…ë¥˜ ë° í”„ë ˆìž„ì†ë„ ë³€ê²½ ì¶”ê°€)
+	#define		__WND_EDIT_NUMBER_MODE		// ì—ë””íŠ¸ ì»¨íŠ¸ë¡¤ ìˆ«ìžë§Œ ìž…ë ¥ë°›ê²Œ í•˜ëŠ” ëª¨ë“œ
+#define		__SHIFT_KEY_CORRECTION		// ì‰¬í”„íŠ¸ í‚¤ ìž…ë ¥ ë¬¸ì œ ìˆ˜ì •
+	#define		__STATIC_ALIGN				// ìŠ¤íƒœí‹± ì»¨íŠ¸ë¡¤ì— ì •êµí•œ ì •ë ¬ ê¸°ëŠ¥ ì¶”ê°€
+	#define		__ITEM_DROP_SOUND			// ì•„ì´í…œ ë“œë¡­ ì‹œ íš¨ê³¼ìŒ ìŠ¤í¬ë¦½íŠ¸ë¡œ ì²˜ë¦¬
+	#define		__JOB_TEXT					// ë§ˆìŠ¤í„°, ížˆì–´ë¡œ ê´€ë ¨ ì•„ì´í…œì— 'í•„ìš” ì§ì—…' í…ìŠ¤íŠ¸ ì¶œë ¥ë˜ë„ë¡ ìˆ˜ì •
+	#define		__RESTATE_CONFIRM			// ë¦¬ìŠ¤í…ŒíŠ¸ ì‚¬ìš© ì‹œ, í™•ì¸ ì°½ ì¶œë ¥
+	#define		__PREVENTION_TOOLTIP_BUG	// í”„ë¦¬ë²¤ì…˜ íˆ´íŒì— ì˜ë¯¸ ì—†ëŠ” í…ìŠ¤íŠ¸ ì¶œë ¥ë˜ëŠ” ë¬¸ì œ ìˆ˜ì •
+	#define		__DROP_CONFIRM_BUG			// ì•„ì´í…œ ê´€ë ¨ í™•ì¸ ì°½ì´ ì—´ë¦° ìƒíƒœì—ì„œ ì¼ì–´ë‚˜ëŠ” ê°ì¢… ì˜¤ë¥˜ ìˆ˜ì •
+	#define		__CLOUD_ANIMATION_BUG		// êµ¬ë¦„ ì• ë‹ˆë©”ì´ì…˜ì´ íŠ¹ì • ì˜ì—­ì—ì„œë§Œ ìˆ˜í–‰ë˜ëŠ” ë¬¸ì œ ìˆ˜ì •
+	#define		__BUFF_CRASH				// ë²„í”„ ë Œë”ë§ ê´€ë ¨í•˜ì—¬ í´ë¼ì´ì–¸íŠ¸ í¬ëž˜ì‰¬ë˜ëŠ” ë¬¸ì œ ìˆ˜ì •
+	#define		__BS_FIX_SHADOW_ONOBJECT	// ì˜¤ë¸Œì íŠ¸ ê·¸ë¦¼ìž ë¦¬ì‹œë²„ ì¡°ê±´ê²€ì‚¬ ì„¤ì • ( ì£¼ì¸ê³µ ìœ„ì£¼, ì¸ë˜ ì²œì • ê·¸ë¦¼ìž ì œê±° )
+	#define		__BS_FIX_HAIR_AMBIENT		// ìºë¦­í„° í—¤ì–´ ambient ì¡°ì • ( ì¸ë˜ì—ì„œ ë¨¸ë¦¬ì¹´ë½ ìƒ‰ê¹” ê¹Œë§£ê²Œ ë‚˜ì˜¤ëŠ” ë¬¸ì œ ìˆ˜ì • )
+	#define		__BALLOON_CODE_IMPROVEMENT	// í’ì„  ê´€ë ¨ ì½”ë“œ ê°œì„ 
+	#define		__WING_ITEM					// ë‚ ê°œ ì•„ì´í…œ
 	#define		__USE_SOUND_LIB_FMOD		// use FMod sound lib
-	#define		__PCBANG					// PC¹æ ÇýÅÃ
+	#define		__PCBANG					// PCë°© í˜œíƒ
 //	end 14th
 
-// 15Â÷ ZU TEST ZWECKEN AUSDEKLARIERUNG ENTFERNT!
-	#define		__DYNAMIC_MPU				// º¯°æ°¡´ÉÇÑ MPU !!
-	#define		__BOUND_BOX_COLLISION		// ¹Ù¿îµå ¹Ú½º Ãæµ¹ ·çÆ¾ °³¼±
-	#define		__BS_CHANGING_ENVIR			// ´ë·úº° È¯°æ º¯°æ ( light, fog, sky, weather, 24hours light ... ) <<< ONLY CLIENT!!!! >>>
-	#define		__USING_CONTINENT_DATA		// ´ë·ú °æ°èµ¥ÀÌÅÍ ¿ÜºÎ¿¡¼­ ±Ü¾î¿È! 
-	#define		__IMPROVE_QUEST_INTERFACE	// 15Â÷ Çâ»óµÈ Äù½ºÆ® ÀÎÅÍÆäÀÌ½º ½Ã½ºÅÛ
-	#define		__IMPROVE_SYSTEM_VER15		// 15Â÷ °³¼± »çÇ×
-	#define		__15TH_INSTANCE_DUNGEON		// 15Â÷ ÀÎ½ºÅÏ½º ´øÀü
-	#define		__PETVIS					// 15Â÷ ºñ½ºÆê
-	#define		__GUILD_HOUSE				// 15Â÷ ±æµåÇÏ¿ì½º
-	#define		__TELEPORTER				// 15Â÷ ÅÚ·¹Æ÷ÅÍ
-	#define		__FIND_OBJ_INSIGHT			// ½Ã¾ß°Å¸® ¾ÈÀÇ µ¿Àû¿ÀºêÁ§Æ® Ãâ·Â( ¹Ì´Ï¸Ê ¿À¸¥ÂÊ¹öÆ° Å¬¸¯ )
-	#define		__HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
-	#define		__MUSIC2					// ¸¶ÀÏÁî 7.2g ver ¾÷µ¥ÀÌÆ® ( OGG Àç»ý °¡´É ¹öÁ¯  ) Â÷ÈÄ Lib¾÷µ¥ÀÌÆ®½Ã¿¡ °°ÀÌ Ç®¾îÁà¾ßÇÔ.
-#define		__NEW_CONTINENT15			// Ãß°¡ ´ë·ú ( Çù°î )
-	#define		__BS_BBOX_ABS_EXTENT		// BBOX ±æÀÌ Àý´ë°ªÀ¸·Î ¼öÁ¤
-	#define		__CAMPUS					// 15Â÷ »çÁ¦ ½Ã½ºÅÛ
-	#define		__BS_FIXED_KNOCKBACK		// ³Ë¹é½Ã »óÅÂ ²¿ÀÓÇö»ó ¼öÁ¤ 
-	#define		__BS_FIXED_EQUIPMOTION		// ¾ÆÀÌÅÛ Àå/Å» ÂøÁß ±âÁ¸¸ð¼ÇÀÌ À¯ÁöµÇ´ÂÇö»ó ¼öÁ¤ 
-	#define		__15_5TH_ELEMENTAL_SMELT_SAFETY	// 15.5Â÷ ¼Ó¼º ¾ÈÀü Á¦·Ã Ãß°¡
-	#define		__2ND_PASSWORD_SYSTEM		// 2Â÷ ºñ¹Ð¹øÈ£ ½Ã½ºÅÛ
+// 15ì°¨ ZU TEST ZWECKEN AUSDEKLARIERUNG ENTFERNT!
+	#define		__DYNAMIC_MPU				// ë³€ê²½ê°€ëŠ¥í•œ MPU !!
+	#define		__BOUND_BOX_COLLISION		// ë°”ìš´ë“œ ë°•ìŠ¤ ì¶©ëŒ ë£¨í‹´ ê°œì„ 
+	#define		__BS_CHANGING_ENVIR			// ëŒ€ë¥™ë³„ í™˜ê²½ ë³€ê²½ ( light, fog, sky, weather, 24hours light ... ) <<< ONLY CLIENT!!!! >>>
+	#define		__USING_CONTINENT_DATA		// ëŒ€ë¥™ ê²½ê³„ë°ì´í„° ì™¸ë¶€ì—ì„œ ê¸ì–´ì˜´! 
+	#define		__IMPROVE_QUEST_INTERFACE	// 15ì°¨ í–¥ìƒëœ í€˜ìŠ¤íŠ¸ ì¸í„°íŽ˜ì´ìŠ¤ ì‹œìŠ¤í…œ
+	#define		__IMPROVE_SYSTEM_VER15		// 15ì°¨ ê°œì„  ì‚¬í•­
+	#define		__15TH_INSTANCE_DUNGEON		// 15ì°¨ ì¸ìŠ¤í„´ìŠ¤ ë˜ì „
+	#define		__PETVIS					// 15ì°¨ ë¹„ìŠ¤íŽ«
+	#define		__GUILD_HOUSE				// 15ì°¨ ê¸¸ë“œí•˜ìš°ìŠ¤
+	#define		__TELEPORTER				// 15ì°¨ í…”ë ˆí¬í„°
+	#define		__FIND_OBJ_INSIGHT			// ì‹œì•¼ê±°ë¦¬ ì•ˆì˜ ë™ì ì˜¤ë¸Œì íŠ¸ ì¶œë ¥( ë¯¸ë‹ˆë§µ ì˜¤ë¥¸ìª½ë²„íŠ¼ í´ë¦­ )
+	#define		__HERO129_VER15				// 15ì°¨ ížˆì–´ë¡œ ë ˆë²¨í™•ìž¥
+	#define		__MUSIC2					// ë§ˆì¼ì¦ˆ 7.2g ver ì—…ë°ì´íŠ¸ ( OGG ìž¬ìƒ ê°€ëŠ¥ ë²„ì ¼  ) ì°¨í›„ Libì—…ë°ì´íŠ¸ì‹œì— ê°™ì´ í’€ì–´ì¤˜ì•¼í•¨.
+#define		__NEW_CONTINENT15			// ì¶”ê°€ ëŒ€ë¥™ ( í˜‘ê³¡ )
+	#define		__BS_BBOX_ABS_EXTENT		// BBOX ê¸¸ì´ ì ˆëŒ€ê°’ìœ¼ë¡œ ìˆ˜ì •
+	#define		__CAMPUS					// 15ì°¨ ì‚¬ì œ ì‹œìŠ¤í…œ
+	#define		__BS_FIXED_KNOCKBACK		// ë„‰ë°±ì‹œ ìƒíƒœ ê¼¬ìž„í˜„ìƒ ìˆ˜ì • 
+	#define		__BS_FIXED_EQUIPMOTION		// ì•„ì´í…œ ìž¥/íƒˆ ì°©ì¤‘ ê¸°ì¡´ëª¨ì…˜ì´ ìœ ì§€ë˜ëŠ”í˜„ìƒ ìˆ˜ì • 
+	#define		__15_5TH_ELEMENTAL_SMELT_SAFETY	// 15.5ì°¨ ì†ì„± ì•ˆì „ ì œë ¨ ì¶”ê°€
+	#define		__2ND_PASSWORD_SYSTEM		// 2ì°¨ ë¹„ë°€ë²ˆí˜¸ ì‹œìŠ¤í…œ
  // end 15th
 
-	#define		__QUIZ						// ÄûÁî ÀÌº¥Æ® ½Ã½ºÅÛ
+	#define		__QUIZ						// í€´ì¦ˆ ì´ë²¤íŠ¸ ì‹œìŠ¤í…œ
 
-	#define		__EVENTLUA_RAIN				// Àå¸¶ ÀÌº¥Æ® -> ·ç¾Æ·Î º¯°æ
+	#define		__EVENTLUA_RAIN				// ìž¥ë§ˆ ì´ë²¤íŠ¸ -> ë£¨ì•„ë¡œ ë³€ê²½
 
-	#define		__EVENTLUA_SNOW				// °­¼³ ÀÌº¥Æ®
+	#define		__EVENTLUA_SNOW				// ê°•ì„¤ ì´ë²¤íŠ¸
 
-	#define		__ADD_RESTATE_LOW			// »ó¿ëÈ­ ¾ÆÀÌÅÛ »ý¼º( ¸®½ºÅ×Æ® ÇÏ±Þ Èû, ¹ÎÃ¸, Ã¼·Â, Áö´É )
+	#define		__ADD_RESTATE_LOW			// ìƒìš©í™” ì•„ì´í…œ ìƒì„±( ë¦¬ìŠ¤í…ŒíŠ¸ í•˜ê¸‰ íž˜, ë¯¼ì²©, ì²´ë ¥, ì§€ëŠ¥ )
 
-	#define		__YS_CHATTING_BLOCKING_SYSTEM	// Ä³¸¯ÅÍ Ã¤ÆÃ Â÷´Ü ½Ã½ºÅÛ
-	#define		__BAN_CHATTING_SYSTEM			// ¿¬¼Ó Ã¤ÆÃ ±ÝÁö ½Ã½ºÅÛ
+	#define		__YS_CHATTING_BLOCKING_SYSTEM	// ìºë¦­í„° ì±„íŒ… ì°¨ë‹¨ ì‹œìŠ¤í…œ
+	#define		__BAN_CHATTING_SYSTEM			// ì—°ì† ì±„íŒ… ê¸ˆì§€ ì‹œìŠ¤í…œ
 
 
-	#define __ENCRYPT_PASSWORD	//	mulcom	BEGIN100218	ÆÐ½º¿öµå ¾ÏÈ£È­
+	#define __ENCRYPT_PASSWORD	//	mulcom	BEGIN100218	íŒ¨ìŠ¤ì›Œë“œ ì•”í˜¸í™”
 
-//	#define		__CERTIFIER_COLLECTING_SYSTEM	// ÀÎÁõ ¼­¹ö ¼öÁý ½Ã½ºÅÛ
+//	#define		__CERTIFIER_COLLECTING_SYSTEM	// ì¸ì¦ ì„œë²„ ìˆ˜ì§‘ ì‹œìŠ¤í…œ
 
-	#define		__DELETE_CHAR_CHANGE_KEY_VALUE	// ¹öµð¹öµð i_PIN µµÀÔÀ¸·Î ÀÎÇÑ Ä³¸¯ÅÍ»èÁ¦ Å°°ª º¯°æ(±¹³», ÁÖ¹Î¹øÈ£ -> 2Â÷ºñ¹ø)
-	#define		__BS_ADJUST_SYNC			// mover°£ µ¿±âÈ­ °³¼± 
+	#define		__DELETE_CHAR_CHANGE_KEY_VALUE	// ë²„ë””ë²„ë”” i_PIN ë„ìž…ìœ¼ë¡œ ì¸í•œ ìºë¦­í„°ì‚­ì œ í‚¤ê°’ ë³€ê²½(êµ­ë‚´, ì£¼ë¯¼ë²ˆí˜¸ -> 2ì°¨ë¹„ë²ˆ)
+	#define		__BS_ADJUST_SYNC			// moverê°„ ë™ê¸°í™” ê°œì„  
 
-	#define		__SHOP_COST_RATE			// »óÁ¡ °¡°Ý Á¶Á¤
+	#define		__SHOP_COST_RATE			// ìƒì  ê°€ê²© ì¡°ì •
 
-//	#define		__NEW_WEB_BOX				// »õ·Î¿î À¥ Ç¥Çö Ã¢
-	#define		__PROTECT_AWAKE				//°¢¼ºº¸È£
-	#define		__MAIL_REQUESTING_BOX		// ¸ÞÀÏ ¿äÃ» ¹Ú½º
-	#define     __BS_SAFE_WORLD_DELETE		// CWorld::Process¿¡¼­ safe delete obj( sfx ·ù·Î È®ÀÎ´ï )
-//	#define		__GAME_GRADE_SYSTEM			// °ÔÀÓ¹° µî±Þ Ç¥½Ã ½Ã½ºÅÛ
-	#define		__BS_FIX_ARRIVEPOS_ALGO		// ¸¶¿ì½º ÀÌµ¿½Ã µµÂø °Ë»ç·çÆ¾ °³¼± ( Á¤“‡Çâ ÃàÀ¸·Î ÇÑ°÷¸¸ µµÂøÇßÀ»¶§ ¸ØÃß´Â ¹®Á¦°¡ÀÖ¾úÀ½ )
-	#define		__BS_ITEM_UNLIMITEDTIME		// ¾ÆÀÌÅÛ À¯Áö½Ã°£ ( 999999999 >= ÀÏ°æ¿ì ¹«Á¦ÇÑ Ç¥±â )
+//	#define		__NEW_WEB_BOX				// ìƒˆë¡œìš´ ì›¹ í‘œí˜„ ì°½
+	#define		__PROTECT_AWAKE				//ê°ì„±ë³´í˜¸
+	#define		__MAIL_REQUESTING_BOX		// ë©”ì¼ ìš”ì²­ ë°•ìŠ¤
+	#define     __BS_SAFE_WORLD_DELETE		// CWorld::Processì—ì„œ safe delete obj( sfx ë¥˜ë¡œ í™•ì¸ëŒ )
+//	#define		__GAME_GRADE_SYSTEM			// ê²Œìž„ë¬¼ ë“±ê¸‰ í‘œì‹œ ì‹œìŠ¤í…œ
+	#define		__BS_FIX_ARRIVEPOS_ALGO		// ë§ˆìš°ìŠ¤ ì´ë™ì‹œ ë„ì°© ê²€ì‚¬ë£¨í‹´ ê°œì„  ( ì •ë±¡í–¥ ì¶•ìœ¼ë¡œ í•œê³³ë§Œ ë„ì°©í–ˆì„ë•Œ ë©ˆì¶”ëŠ” ë¬¸ì œê°€ìžˆì—ˆìŒ )
+	#define		__BS_ITEM_UNLIMITEDTIME		// ì•„ì´í…œ ìœ ì§€ì‹œê°„ ( 999999999 >= ì¼ê²½ìš° ë¬´ì œí•œ í‘œê¸° )
 	
 	#define		__ENVIRONMENT_EFFECT
 
-// 8.5Â÷
-#if	  defined(__INTERNALSERVER)	// ³»ºÎ »ç¹«½Ç Å×½ºÆ®¼­¹ö 
+// 8.5ì°¨
+#if	  defined(__INTERNALSERVER)	// ë‚´ë¶€ ì‚¬ë¬´ì‹¤ í…ŒìŠ¤íŠ¸ì„œë²„ 
 //	#define	__RULE_0615
 
 	#define		NO_GAMEGUARD
 	#undef		__TRANSFER_ERROR_TEXT
 
-	#define		__CPU_UTILDOWN_060502		// CPU »ç¿ë·ü °¨¼ÒÀÛ¾÷ 
-	#define		__SLIDE_060502				// ¶¥À¸·Î ²¨Áö´Â ¹®Á¦ ¼öÁ¤ 
-	#define		__GUILDVOTE					// ±æµå ÅõÇ¥ 
-	#define		__IAOBJ0622					// »ó´ë ¸ñÇ¥ ÁÂÇ¥ Àü¼Û	// ¿ùµå, ´ºÁî
-	#define		__YNOTICE_UNI1026			// °øÁö»çÇ× À¯´ÏÄÚµå Áö¿ø
+	#define		__CPU_UTILDOWN_060502		// CPU ì‚¬ìš©ë¥  ê°ì†Œìž‘ì—… 
+	#define		__SLIDE_060502				// ë•…ìœ¼ë¡œ êº¼ì§€ëŠ” ë¬¸ì œ ìˆ˜ì • 
+	#define		__GUILDVOTE					// ê¸¸ë“œ íˆ¬í‘œ 
+	#define		__IAOBJ0622					// ìƒëŒ€ ëª©í‘œ ì¢Œí‘œ ì „ì†¡	// ì›”ë“œ, ë‰´ì¦ˆ
+	#define		__YNOTICE_UNI1026			// ê³µì§€ì‚¬í•­ ìœ ë‹ˆì½”ë“œ ì§€ì›
 //	#define		__YENV
 //	#define		__YENV_WITHOUT_BUMP
-	#define		__SKILL0517					// ½ºÅ³ ·¹º§ ÆÄ¶ó¹ÌÅÍ
-	#define		__YAIMONSTER_EX				// AI±â´É Ãß°¡ - Neuz, World
-//	#define		__Y_INTERFACE_VER3			// ÀÎÅÍÆäÀÌ½º ¹öÀü 3.0 - Neuz
+	#define		__SKILL0517					// ìŠ¤í‚¬ ë ˆë²¨ íŒŒë¼ë¯¸í„°
+	#define		__YAIMONSTER_EX				// AIê¸°ëŠ¥ ì¶”ê°€ - Neuz, World
+//	#define		__Y_INTERFACE_VER3			// ì¸í„°íŽ˜ì´ìŠ¤ ë²„ì „ 3.0 - Neuz
 	#define		__VERIFY_MEMPOOL
-//	#define		__S_NEW_SKILL_2				// ½ºÅ³ °³¼± ÆÐÅ¶ Àü¼Û Neuz, World, Trans
-	#define		__Y_ROTXZ					// È¸Àü Ãß°¡ Neuz, World
-	#define		__Y_PATROL					// Á¤Âû...Neuz. World
-	#define		__Y_CHARACTER_TEXT			// Ä³¸¯ÅÍ Á¤º¸Ã¢ ÇÁ·Î±×·¥ ÅØ½ºÆ® Ãâ·Â..Neuz
-	#define		__Y_RENDER_NAME_OPTION		// ÀÌ¸§ Ãâ·Â ¼±ÅÃ UI.Neuz
+//	#define		__S_NEW_SKILL_2				// ìŠ¤í‚¬ ê°œì„  íŒ¨í‚· ì „ì†¡ Neuz, World, Trans
+	#define		__Y_ROTXZ					// íšŒì „ ì¶”ê°€ Neuz, World
+	#define		__Y_PATROL					// ì •ì°°...Neuz. World
+	#define		__Y_CHARACTER_TEXT			// ìºë¦­í„° ì •ë³´ì°½ í”„ë¡œê·¸ëž¨ í…ìŠ¤íŠ¸ ì¶œë ¥..Neuz
+	#define		__Y_RENDER_NAME_OPTION		// ì´ë¦„ ì¶œë ¥ ì„ íƒ UI.Neuz
 	#define		__V060721_TEXTDRAG
 	#define		__Y_MAPVIEW_EX
-	#define		__Y_BEAUTY_SHOP_CHARGE		// ºäÆ¼¼¥, °³ÀÎ»óÁ¡ À¯·á¾ÆÀÌÅÛÈ­..Neuz, World
-//	#define		__EVENT_FALL				// ´ÜÇ³ ÀÌº¥Æ® - ¸ðµ¨±³Ã¼ Neuz, World
-//	#define		__LANG_1013					// ÇØ¿Ü ¹öÀü Ãß°¡ ½ºÅ©¸³Æ®
-//	#define		__KWCSC_UPDATE				// ½ºÅ³ ¹ßµ¿ °ü·Ã ¹®Á¦ ¼öÁ¤ Neuz
-//	#define		__CSC_VER8_1				// 8Â÷ 'T'Å° »ç¿ë, »ó´ë¹æ ·¹º§ ¾Èº¸ÀÌ±â, È­¸é ¸ðµç Ã¢ On/Off Neuz
-//	#define		__CSC_VER8_2				// 8Â÷ ÆÄÆ¼Ã¢ °ü·Ã Àû¿ë Neuz
-//	#define		__JEFF_VER_8				// 8Â÷ ÀÛ¾÷
-//	#define		__Y_FLAG_SKILL_BUFF			// ÆÖ, º¯½Å ¾ÆÀÌÅÛ Åä±Û¹öÇÁ Àû¿ë... Neuz, World
-//	#define		__Y_GAMMA_CONTROL_8			// ¹à±â, °¨¸¶, ¸í¾Ï Á¶Àý Neuz
-//	#define		__Y_CHAT_SYSTEM_8			// ½Ã½ºÅÛ ¸Þ¼¼Áö À©µµ¿ìÈ­... Neuz
-//	#define		__Y_EYE_FLASH_8				// ´«±ô¹Ú°Å¸®±â... Neuz
-//	#define		__Y_CAMERA_SLOW_8			// 8Â÷ Å°/¸¶¿ì½º XÃà È¸Àü½Ã º¸°£À¸·Î È¸ÀüÇÏ±â..Neuz
-//	#define		__Y_MAX_GENERAL_LEVEL_8				// ¸¸·¦ 120À¸·Î Á¶Á¤... Neuz, World, Trans
-//	#define		__CSC_VER8_3				// 8Â÷ ¹öÇÁÃ¢ °ü·Ã Àû¿ë, Key Down½Ã ½ºÅ³¹ßµ¿ 1.5ÃÊ°£ µô·¹ÀÌ·Î Áö¼ÓµÇ°Ô º¯°æ Neuz
-//	#define		__CSC_VER8_4				// 8Â÷ Çì¾î¼¥°ü·Ã ¼öÁ¤ ¹× ¼ºÇü¼ö¼ú ±â´É Ãß°¡.
-//	#define		__JHMA_VER_8_1				// 8Â÷ °ÔÀÓ³»µ·µå·Ó±ÝÁö	Neuz, World
-//	#define		__JHMA_VER_8_2				// 8Â÷ °ÔÀÓ³»¾ÆÀÌÅÛÆÇ¸Å°¡°ÝÁ¦ÇÑÇ®±â	Neuz, World
-	#define		__FIX_WND_1109				// ÀÚ½Ä Ã¢ ÃÊ±âÈ­ ¿À·ù ¼öÁ¤
-//	#define		__JHMA_VER_8_3				// 8Â÷ ctrl ÀÚµ¿°ø°Ý±â´É »èÁ¦	Neuz
-//	#define		__JHMA_VER_8_4				// 8Â÷ Å¸°ÙÅ¬¸¯ÀÚµ¿°ø°Ý ÀÌ¸ðÆ¼ÄÜ	Neuz
-//	#define		__JHMA_VER_8_5				// 8Â÷ ½ºÅ³°æÇèÄ¡´Ù¿îº¯°æ	Neuz, World
-//	#define		__JHMA_VER_8_7				// 8Â÷ µà¾óÁ¸¿¡ °ü°è¾øÀÌ PVP°¡´ÉÇÏ°ÔÇÔ   Neuz, World
+	#define		__Y_BEAUTY_SHOP_CHARGE		// ë·°í‹°ìƒµ, ê°œì¸ìƒì  ìœ ë£Œì•„ì´í…œí™”..Neuz, World
+//	#define		__EVENT_FALL				// ë‹¨í’ ì´ë²¤íŠ¸ - ëª¨ë¸êµì²´ Neuz, World
+//	#define		__LANG_1013					// í•´ì™¸ ë²„ì „ ì¶”ê°€ ìŠ¤í¬ë¦½íŠ¸
+//	#define		__KWCSC_UPDATE				// ìŠ¤í‚¬ ë°œë™ ê´€ë ¨ ë¬¸ì œ ìˆ˜ì • Neuz
+//	#define		__CSC_VER8_1				// 8ì°¨ 'T'í‚¤ ì‚¬ìš©, ìƒëŒ€ë°© ë ˆë²¨ ì•ˆë³´ì´ê¸°, í™”ë©´ ëª¨ë“  ì°½ On/Off Neuz
+//	#define		__CSC_VER8_2				// 8ì°¨ íŒŒí‹°ì°½ ê´€ë ¨ ì ìš© Neuz
+//	#define		__JEFF_VER_8				// 8ì°¨ ìž‘ì—…
+//	#define		__Y_FLAG_SKILL_BUFF			// íŒ», ë³€ì‹  ì•„ì´í…œ í† ê¸€ë²„í”„ ì ìš©... Neuz, World
+//	#define		__Y_GAMMA_CONTROL_8			// ë°ê¸°, ê°ë§ˆ, ëª…ì•” ì¡°ì ˆ Neuz
+//	#define		__Y_CHAT_SYSTEM_8			// ì‹œìŠ¤í…œ ë©”ì„¸ì§€ ìœˆë„ìš°í™”... Neuz
+//	#define		__Y_EYE_FLASH_8				// ëˆˆê¹œë°•ê±°ë¦¬ê¸°... Neuz
+//	#define		__Y_CAMERA_SLOW_8			// 8ì°¨ í‚¤/ë§ˆìš°ìŠ¤ Xì¶• íšŒì „ì‹œ ë³´ê°„ìœ¼ë¡œ íšŒì „í•˜ê¸°..Neuz
+//	#define		__Y_MAX_GENERAL_LEVEL_8				// ë§Œëž© 120ìœ¼ë¡œ ì¡°ì •... Neuz, World, Trans
+//	#define		__CSC_VER8_3				// 8ì°¨ ë²„í”„ì°½ ê´€ë ¨ ì ìš©, Key Downì‹œ ìŠ¤í‚¬ë°œë™ 1.5ì´ˆê°„ ë”œë ˆì´ë¡œ ì§€ì†ë˜ê²Œ ë³€ê²½ Neuz
+//	#define		__CSC_VER8_4				// 8ì°¨ í—¤ì–´ìƒµê´€ë ¨ ìˆ˜ì • ë° ì„±í˜•ìˆ˜ìˆ  ê¸°ëŠ¥ ì¶”ê°€.
+//	#define		__JHMA_VER_8_1				// 8ì°¨ ê²Œìž„ë‚´ëˆë“œë¡­ê¸ˆì§€	Neuz, World
+//	#define		__JHMA_VER_8_2				// 8ì°¨ ê²Œìž„ë‚´ì•„ì´í…œíŒë§¤ê°€ê²©ì œí•œí’€ê¸°	Neuz, World
+	#define		__FIX_WND_1109				// ìžì‹ ì°½ ì´ˆê¸°í™” ì˜¤ë¥˜ ìˆ˜ì •
+//	#define		__JHMA_VER_8_3				// 8ì°¨ ctrl ìžë™ê³µê²©ê¸°ëŠ¥ ì‚­ì œ	Neuz
+//	#define		__JHMA_VER_8_4				// 8ì°¨ íƒ€ê²Ÿí´ë¦­ìžë™ê³µê²© ì´ëª¨í‹°ì½˜	Neuz
+//	#define		__JHMA_VER_8_5				// 8ì°¨ ìŠ¤í‚¬ê²½í—˜ì¹˜ë‹¤ìš´ë³€ê²½	Neuz, World
+//	#define		__JHMA_VER_8_7				// 8ì°¨ ë“€ì–¼ì¡´ì— ê´€ê³„ì—†ì´ PVPê°€ëŠ¥í•˜ê²Œí•¨   Neuz, World
 
 
-//	#define		__CSC_VER8_5				// 8Â÷ ¿£Á© ¼ÒÈ¯ Neuz, World, Trans
+//	#define		__CSC_VER8_5				// 8ì°¨ ì—”ì ¤ ì†Œí™˜ Neuz, World, Trans
 
-	#define		__TRAFIC_1218				// ¼­¹ö¿¡¼­ º¸³½ ÆÐÅ¶ Á¤º¸
+	#define		__TRAFIC_1218				// ì„œë²„ì—ì„œ ë³´ë‚¸ íŒ¨í‚· ì •ë³´
 	#define		__Y_HAIR_BUG_FIX
-	#define		__FOR_PROLOGUE_UPDATE		// ÅÂ±¹,´ë¸¸,¹Ì±¹,µ¶ÀÏ PrologueÃß°¡
-//	#define		__NEWYEARDAY_EVENT_COUPON	// ¼³ ÀÌº¥Æ® - Çì¾î˜Þ, ¼ºÇü ¹«·áÀÌ¿ë±Ç °ü·Ã.
-	#define		__TRAFIC_1215				// Àü¼Û·® °¨¼Ò
+	#define		__FOR_PROLOGUE_UPDATE		// íƒœêµ­,ëŒ€ë§Œ,ë¯¸êµ­,ë…ì¼ Prologueì¶”ê°€
+//	#define		__NEWYEARDAY_EVENT_COUPON	// ì„¤ ì´ë²¤íŠ¸ - í—¤ì–´ìƒ¾, ì„±í˜• ë¬´ë£Œì´ìš©ê¶Œ ê´€ë ¨.
+	#define		__TRAFIC_1215				// ì „ì†¡ëŸ‰ ê°ì†Œ
 
-//	#define     __Y_NEW_ENCHANT				// Á¦·Ã ¾ÆÀÌÅÛ º¯°æ, Neuz, World
+//	#define     __Y_NEW_ENCHANT				// ì œë ¨ ì•„ì´í…œ ë³€ê²½, Neuz, World
 
-//	#define		__ULTIMATE					// 9,10Â÷ Á¦·Ã
-//	#define		__LEGEND					// 10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
-//	#define		__CSC_VER9_1				// 9Â÷ Àü½Â°ü·Ã Clienet - Neuz
+//	#define		__ULTIMATE					// 9,10ì°¨ ì œë ¨
+//	#define		__LEGEND					// 10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+//	#define		__CSC_VER9_1				// 9ì°¨ ì „ìŠ¹ê´€ë ¨ Clienet - Neuz
 
-//	#define		__PET_0410					// 9, 10Â÷ Æê
-	#define		__HACK_0516					// ¹Ì±¹ ÇØÅ· 2Â÷
-//	#define		__AI_0509					// ¸ó½ºÅÍ ÀÎ°øÁö´É
+//	#define		__PET_0410					// 9, 10ì°¨ íŽ«
+	#define		__HACK_0516					// ë¯¸êµ­ í•´í‚¹ 2ì°¨
+//	#define		__AI_0509					// ëª¬ìŠ¤í„° ì¸ê³µì§€ëŠ¥
 
-//	#define		__CSC_VER9_RESOLUTION		// Wide¹× °íÇØ»óµµ Ãß°¡
-//	#define		__Y_ADV_ENCHANT_EFFECT		// Á¦·Ã ÀÌÆÑÆ® Çâ»ó ¹öÀü
-//	#define		__S_9_ADD					// 9Â÷ Ãß°¡ºÐ
-//	#define		__RECOVERY10				// 9Â÷ Ãß°¡ (Å¸°Ý, ÇÇ°Ý 10ÃÊ ÈÄ ÀÚµ¿ È¸º¹)
+//	#define		__CSC_VER9_RESOLUTION		// Wideë° ê³ í•´ìƒë„ ì¶”ê°€
+//	#define		__Y_ADV_ENCHANT_EFFECT		// ì œë ¨ ì´íŒ©íŠ¸ í–¥ìƒ ë²„ì „
+//	#define		__S_9_ADD					// 9ì°¨ ì¶”ê°€ë¶„
+//	#define		__RECOVERY10				// 9ì°¨ ì¶”ê°€ (íƒ€ê²©, í”¼ê²© 10ì´ˆ í›„ ìžë™ íšŒë³µ)
 
-//	#define		__CSC_VER9_2				// 9Â÷ »óÅÂÃ¢ º¯°æ °ü·Ã Neuz, World
-//	#define		__CSC_VER9_3				// 9Â÷ Ã¤ÆÃ»óÈ²¿¡¼­ Function Key »ç¿ë °¡´É
-//	#define		__CSC_VER9_4				// Å¬¶óÀÌ¾ðÆ® ±¸µ¿ ½Ã °ø¹é½Ã°£¿¡ ÀÌ¹ÌÁö Ãß°¡.
-//	#define		__CSC_VER9_5				// 9Â÷ Á¦·Ã°ü·Ã (Ãß°¡ °Ë±¤ ±â´É)
+//	#define		__CSC_VER9_2				// 9ì°¨ ìƒíƒœì°½ ë³€ê²½ ê´€ë ¨ Neuz, World
+//	#define		__CSC_VER9_3				// 9ì°¨ ì±„íŒ…ìƒí™©ì—ì„œ Function Key ì‚¬ìš© ê°€ëŠ¥
+//	#define		__CSC_VER9_4				// í´ë¼ì´ì–¸íŠ¸ êµ¬ë™ ì‹œ ê³µë°±ì‹œê°„ì— ì´ë¯¸ì§€ ì¶”ê°€.
+//	#define		__CSC_VER9_5				// 9ì°¨ ì œë ¨ê´€ë ¨ (ì¶”ê°€ ê²€ê´‘ ê¸°ëŠ¥)
 
-//	#define		__Y_DRAGON_FIRE				// ¸ÞÅ×¿À´ÏÄ¿ ÆÄÀÌ¾î ¹ß»ç!!!
+//	#define		__Y_DRAGON_FIRE				// ë©”í…Œì˜¤ë‹ˆì»¤ íŒŒì´ì–´ ë°œì‚¬!!!
 
-//	#define		__LUASCRIPT					// ·ç¾Æ ½ºÅ©¸³Æ® »ç¿ë (World, Trans, Neuz)
-//	#define		__EVENTLUA					// ÀÌº¥Æ® (·ç¾Æ ½ºÅ©¸³Æ® Àû¿ë) - World, Trans, Neuz
+//	#define		__LUASCRIPT					// ë£¨ì•„ ìŠ¤í¬ë¦½íŠ¸ ì‚¬ìš© (World, Trans, Neuz)
+//	#define		__EVENTLUA					// ì´ë²¤íŠ¸ (ë£¨ì•„ ìŠ¤í¬ë¦½íŠ¸ ì ìš©) - World, Trans, Neuz
 
 //	#define		__METEONYKER_0608
-//	#define		__CSC_UPDATE_WORLD3D		// World3D Object CullingºÎºÐ ¾÷µ¥ÀÌÆ®
-//	#define		__CSC_VER9_REMOVE_PKSETTING	// ¿É¼Ç ¼³Á¤ Ã¢¿¡¼­ PK¼³Á¤ Á¦°Å (¹«Á¶°Ç CtrlÅ° ´©¸¥ »óÅÂ¿¡¼­¸¸ °ø°Ý)
+//	#define		__CSC_UPDATE_WORLD3D		// World3D Object Cullingë¶€ë¶„ ì—…ë°ì´íŠ¸
+//	#define		__CSC_VER9_REMOVE_PKSETTING	// ì˜µì…˜ ì„¤ì • ì°½ì—ì„œ PKì„¤ì • ì œê±° (ë¬´ì¡°ê±´ Ctrlí‚¤ ëˆ„ë¥¸ ìƒíƒœì—ì„œë§Œ ê³µê²©)
 
-	#define		__SECURITY_0628				// ¸®¼Ò½º ¹öÀü ÀÎÁõ not contained
+	#define		__SECURITY_0628				// ë¦¬ì†ŒìŠ¤ ë²„ì „ ì¸ì¦ not contained
 
-//	#define		__INSERT_MAP				// ½ºÅ¸Æ®¸Þ´º¿¡ ÀüÃ¼Áöµµ ¸Þ´º Ãß°¡ 
+//	#define		__INSERT_MAP				// ìŠ¤íƒ€íŠ¸ë©”ë‰´ì— ì „ì²´ì§€ë„ ë©”ë‰´ ì¶”ê°€ 
 
 	#define		__GLOBAL_COUNT_0705			// CTime::GetTimer
 	
-//	#define		__SKILL_0706				// ´ëÀÎ¿ë AddSkillProp ÄÃ·³ Ãß°¡ ¹× Àû¿ë
+//	#define		__SKILL_0706				// ëŒ€ì¸ìš© AddSkillProp ì»¬ëŸ¼ ì¶”ê°€ ë° ì ìš©
 
-//	#define		__AI_0711					// ¸ÞÅ×¿À´ÏÄ¿ AI ¼öÁ¤
+//	#define		__AI_0711					// ë©”í…Œì˜¤ë‹ˆì»¤ AI ìˆ˜ì •
 
-//	#define		__REMOVE_ATTRIBUTE			// ¼Ó¼ºÁ¦·Ã Á¦°Å(10Â÷·Î º¯°æ)
-//	#define		__CSC_ENCHANT_EFFECT_2		// ±âÁ¸ ÀÌÆåÆ® + Çâ»óµÈ ÀÌÆåÆ®
+//	#define		__REMOVE_ATTRIBUTE			// ì†ì„±ì œë ¨ ì œê±°(10ì°¨ë¡œ ë³€ê²½)
+//	#define		__CSC_ENCHANT_EFFECT_2		// ê¸°ì¡´ ì´íŽ™íŠ¸ + í–¥ìƒëœ ì´íŽ™íŠ¸
 	
-//	#define		__SYS_TICKET				// ÀÔÀå±Ç
-//	#define		__SYS_PLAYER_DATA			// Ä³¸¯ÅÍ Á¤º¸ ÅëÇÕ
-//	#define		__HACK_1023					// ¸®¼Ò½º º¯Á¶ // ³¯°Í ¼Óµµ, ¹«±â °ø°Ý ¼Óµµ
+//	#define		__SYS_TICKET				// ìž…ìž¥ê¶Œ
+//	#define		__SYS_PLAYER_DATA			// ìºë¦­í„° ì •ë³´ í†µí•©
+//	#define		__HACK_1023					// ë¦¬ì†ŒìŠ¤ ë³€ì¡° // ë‚ ê²ƒ ì†ë„, ë¬´ê¸° ê³µê²© ì†ë„
 
-//	#define		__RT_1025					// ¸Þ½ÅÀú
+//	#define		__RT_1025					// ë©”ì‹ ì €
 
-//  #define		__LINK_PORTAL				// ¿ÜºÎ Æ÷Å» ¿¬°á ½Ã ¹«ÀÎÀÚ Ã³¸®
+//  #define		__LINK_PORTAL				// ì™¸ë¶€ í¬íƒˆ ì—°ê²° ì‹œ ë¬´ì¸ìž ì²˜ë¦¬
 
-//	#define		__VENDOR_1106				// °³ÀÎ»óÁ¡ Çã¿ë ¹®ÀÚ
+//	#define		__VENDOR_1106				// ê°œì¸ìƒì  í—ˆìš© ë¬¸ìž
 //	#define		__JEFF_11
 
 	#define		__JEFF_11_1
 
-//	#define		__JEFF_11_4					// ¾Æ·¹³ª
-//	#define		__JEFF_11_5					// ¸Þ¸ð¸® ´©¼ö
+//	#define		__JEFF_11_4					// ì•„ë ˆë‚˜
+//	#define		__JEFF_11_5					// ë©”ëª¨ë¦¬ ëˆ„ìˆ˜
 
-//	#define		__DST_GIFTBOX				// Âø¿ë ¾ÆÀÌÅÛ¿¡ ±âÇÁÆ® ¹Ú½º ±â´É Ãß°¡ 
-	#define		__DISABLE_GAMMA_WND			// À©µµ¿ì ¸ðµå¿¡¼­ °¨¸¶ Á¶Àý ºÒ°¡ÇÏ°Ô ¼öÁ¤
+//	#define		__DST_GIFTBOX				// ì°©ìš© ì•„ì´í…œì— ê¸°í”„íŠ¸ ë°•ìŠ¤ ê¸°ëŠ¥ ì¶”ê°€ 
+	#define		__DISABLE_GAMMA_WND			// ìœˆë„ìš° ëª¨ë“œì—ì„œ ê°ë§ˆ ì¡°ì ˆ ë¶ˆê°€í•˜ê²Œ ìˆ˜ì •
 
-	#define		__ATTACH_MODEL				// ¸ðµ¨¿¡ ´Ù¸¥ ¸ðµ¨ ºÙÀÌ±â (³¯°³...)
+	#define		__ATTACH_MODEL				// ëª¨ë¸ì— ë‹¤ë¥¸ ëª¨ë¸ ë¶™ì´ê¸° (ë‚ ê°œ...)
 	#define		__NEW_PROFILE
 
-	#define		__VTN_TIMELIMIT				// º£Æ®³² ÇÃ·¹ÀÌ ½Ã°£ Á¦ÇÑ
+	#define		__VTN_TIMELIMIT				// ë² íŠ¸ë‚¨ í”Œë ˆì´ ì‹œê°„ ì œí•œ
 
 //	#define		__FLYFF_INITPAGE_EXT
 
-	#define		__BS_CHECKLEAK				// ¸Þ¸ð¸® ´©¼ö Å½Áö¹× ¶óÀÎ È®ÀÎ 2009/07/14
-	#define		__BS_ADJUST_COLLISION		// Ãæµ¹ ·çÆ¾ °³¼± ( 2009. 07. 28 )
-//	#define		__BS_PUTNAME_QUESTARROW		// Äù½ºÆ® Å¬¸¯½Ã º¸»ó NPC È­»ìÇ¥ Ç¥ÇöÁß ÀÌ¸§ Ãß°¡			( 09_1228 Á¦°Å )
+	#define		__BS_CHECKLEAK				// ë©”ëª¨ë¦¬ ëˆ„ìˆ˜ íƒì§€ë° ë¼ì¸ í™•ì¸ 2009/07/14
+	#define		__BS_ADJUST_COLLISION		// ì¶©ëŒ ë£¨í‹´ ê°œì„  ( 2009. 07. 28 )
+//	#define		__BS_PUTNAME_QUESTARROW		// í€˜ìŠ¤íŠ¸ í´ë¦­ì‹œ ë³´ìƒ NPC í™”ì‚´í‘œ í‘œí˜„ì¤‘ ì´ë¦„ ì¶”ê°€			( 09_1228 ì œê±° )
 
-	#define		__JAPAN_AUTH				// ÀÏº» ÀÎÁõ º¯°æ(À¥ÀÎÁõ)
-	#define		__IMPROVE_MAP_SYSTEM		// Çâ»óµÈ Áöµµ ½Ã½ºÅÛ
+	#define		__JAPAN_AUTH				// ì¼ë³¸ ì¸ì¦ ë³€ê²½(ì›¹ì¸ì¦)
+	#define		__IMPROVE_MAP_SYSTEM		// í–¥ìƒëœ ì§€ë„ ì‹œìŠ¤í…œ
 
-//	#define		__BS_NO_CREATION_POST		// ÀÓ½Ã : ¿ìÃ¼Åë »ý¼º ¹«½Ã
+//	#define		__BS_NO_CREATION_POST		// ìž„ì‹œ : ìš°ì²´í†µ ìƒì„± ë¬´ì‹œ
 
 
 	#undef		__VER
 	#define		__VER 15
 
-	#define		__GUILD_HOUSE_MIDDLE		// ±æµåÇÏ¿ì½º ÁßÇü
-	#define		__BS_ADDOBJATTR_INVISIBLE	// CObj Invisible ¿¡ °üÇÑ ¼Ó¼ºÃß°¡   --> 16Â÷ ¿¹Á¤ 
-	#define		__BS_DEATH_ACTION			// die »óÅÂ·Î ÁøÀÔ½Ã ¿¬Ãâ È¿°ú ( client only )
-	#define		__BS_EFFECT_LUA				// ¿ÀºêÁ§Æ® »óÅÂº° È¿°ú¿¬Ãâ ( Lua base )
-	#define		__BS_ADD_CONTINENT_WEATHER	// ´ë·ú ³¯¾¾ Ãß°¡ ( ¿Â³­È­·Î ÀÎÇÑ ÅÂ¾ç³¯¾¾, ´Ù¸¥ ¾î¶²ÀÌÀ¯·Îµç º¯ÇÏÁö ¾ÊÀ½ )
-	#define		__BS_CHANGEABLE_WORLD_SEACLOUD	// º¯°æ°¡´ÉÇÑ ¿ùµå ¹Ù´Ù±¸¸§ 
+	#define		__GUILD_HOUSE_MIDDLE		// ê¸¸ë“œí•˜ìš°ìŠ¤ ì¤‘í˜•
+	#define		__BS_ADDOBJATTR_INVISIBLE	// CObj Invisible ì— ê´€í•œ ì†ì„±ì¶”ê°€   --> 16ì°¨ ì˜ˆì • 
+	#define		__BS_DEATH_ACTION			// die ìƒíƒœë¡œ ì§„ìž…ì‹œ ì—°ì¶œ íš¨ê³¼ ( client only )
+	#define		__BS_EFFECT_LUA				// ì˜¤ë¸Œì íŠ¸ ìƒíƒœë³„ íš¨ê³¼ì—°ì¶œ ( Lua base )
+	#define		__BS_ADD_CONTINENT_WEATHER	// ëŒ€ë¥™ ë‚ ì”¨ ì¶”ê°€ ( ì˜¨ë‚œí™”ë¡œ ì¸í•œ íƒœì–‘ë‚ ì”¨, ë‹¤ë¥¸ ì–´ë–¤ì´ìœ ë¡œë“  ë³€í•˜ì§€ ì•ŠìŒ )
+	#define		__BS_CHANGEABLE_WORLD_SEACLOUD	// ë³€ê²½ê°€ëŠ¥í•œ ì›”ë“œ ë°”ë‹¤êµ¬ë¦„ 
 
 	
-#elif defined(__TESTSERVER)  // ¿ÜºÎ À¯Àú Å×½ºÆ®¼­¹ö 
+#elif defined(__TESTSERVER)  // ì™¸ë¶€ ìœ ì € í…ŒìŠ¤íŠ¸ì„œë²„ 
 
 	#define		NO_GAMEGUARD
 
-	#define		__CPU_UTILDOWN_060502		// CPU »ç¿ë·ü °¨¼ÒÀÛ¾÷ 
-	#define		__SLIDE_060502				// ¶¥À¸·Î ²¨Áö´Â ¹®Á¦ ¼öÁ¤ 
-	#define     __GUILDVOTE					// ±æµå ÅõÇ¥
-//	#define		__SKILL0517					// ½ºÅ³ ·¹º§ ÆÄ¶ó¹ÌÅÍ
-	#define		__Y_CHARACTER_TEXT			// Ä³¸¯ÅÍ Á¤º¸Ã¢ ÇÁ·Î±×·¥ ÅØ½ºÆ® Ãâ·Â..Neuz
-	#define		__V060721_TEXTDRAG			// ±ÛÀÚ¿¡ È¿°úÁÖ±â
-	#define		__Y_ROTXZ					// È¸Àü Ãß°¡ Neuz, World
-	#define		__Y_PATROL					// Á¤Âû...Neuz. World
-	#define		__Y_BEAUTY_SHOP_CHARGE		// ºäÆ¼¼¥, °³ÀÎ»óÁ¡ À¯·á¾ÆÀÌÅÛÈ­..Neuz, World
-	#define		__TRAFIC_1215				// Àü¼Û·® °¨¼Ò
+	#define		__CPU_UTILDOWN_060502		// CPU ì‚¬ìš©ë¥  ê°ì†Œìž‘ì—… 
+	#define		__SLIDE_060502				// ë•…ìœ¼ë¡œ êº¼ì§€ëŠ” ë¬¸ì œ ìˆ˜ì • 
+	#define     __GUILDVOTE					// ê¸¸ë“œ íˆ¬í‘œ
+//	#define		__SKILL0517					// ìŠ¤í‚¬ ë ˆë²¨ íŒŒë¼ë¯¸í„°
+	#define		__Y_CHARACTER_TEXT			// ìºë¦­í„° ì •ë³´ì°½ í”„ë¡œê·¸ëž¨ í…ìŠ¤íŠ¸ ì¶œë ¥..Neuz
+	#define		__V060721_TEXTDRAG			// ê¸€ìžì— íš¨ê³¼ì£¼ê¸°
+	#define		__Y_ROTXZ					// íšŒì „ ì¶”ê°€ Neuz, World
+	#define		__Y_PATROL					// ì •ì°°...Neuz. World
+	#define		__Y_BEAUTY_SHOP_CHARGE		// ë·°í‹°ìƒµ, ê°œì¸ìƒì  ìœ ë£Œì•„ì´í…œí™”..Neuz, World
+	#define		__TRAFIC_1215				// ì „ì†¡ëŸ‰ ê°ì†Œ
 
-//	#define		__ULTIMATE					// 9,10Â÷ Á¦·Ã
-//	#define		__LEGEND					// 10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
-//	#define		__CSC_VER9_1				// 9Â÷ Àü½Â°ü·Ã Clienet - Neuz
+//	#define		__ULTIMATE					// 9,10ì°¨ ì œë ¨
+//	#define		__LEGEND					// 10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+//	#define		__CSC_VER9_1				// 9ì°¨ ì „ìŠ¹ê´€ë ¨ Clienet - Neuz
 
-//	#define		__CSC_VER9_RESOLUTION		// Wide¹× °íÇØ»óµµ Ãß°¡
-//	#define		__Y_ADV_ENCHANT_EFFECT		// Á¦·Ã ÀÌÆÑÆ® Çâ»ó ¹öÀü
-//	#define		__S_9_ADD					// 9Â÷ Ãß°¡ºÐ
-//	#define		__RECOVERY10				// 9Â÷ Ãß°¡ (Å¸°Ý, ÇÇ°Ý 10ÃÊ ÈÄ ÀÚµ¿ È¸º¹)
+//	#define		__CSC_VER9_RESOLUTION		// Wideë° ê³ í•´ìƒë„ ì¶”ê°€
+//	#define		__Y_ADV_ENCHANT_EFFECT		// ì œë ¨ ì´íŒ©íŠ¸ í–¥ìƒ ë²„ì „
+//	#define		__S_9_ADD					// 9ì°¨ ì¶”ê°€ë¶„
+//	#define		__RECOVERY10				// 9ì°¨ ì¶”ê°€ (íƒ€ê²©, í”¼ê²© 10ì´ˆ í›„ ìžë™ íšŒë³µ)
 
-//	#define		__CSC_VER9_2				// 9Â÷ »óÅÂÃ¢ º¯°æ °ü·Ã Neuz, World
-//	#define		__CSC_VER9_3				// 9Â÷ Ã¤ÆÃ»óÈ²¿¡¼­ Function Key »ç¿ë °¡´É
-//	#define		__CSC_VER9_4				// Å¬¶óÀÌ¾ðÆ® ±¸µ¿ ½Ã °ø¹é½Ã°£¿¡ ÀÌ¹ÌÁö Ãß°¡.
-//	#define		__CSC_VER9_5				// 9Â÷ Á¦·Ã°ü·Ã (Ãß°¡ °Ë±¤ ±â´É)
+//	#define		__CSC_VER9_2				// 9ì°¨ ìƒíƒœì°½ ë³€ê²½ ê´€ë ¨ Neuz, World
+//	#define		__CSC_VER9_3				// 9ì°¨ ì±„íŒ…ìƒí™©ì—ì„œ Function Key ì‚¬ìš© ê°€ëŠ¥
+//	#define		__CSC_VER9_4				// í´ë¼ì´ì–¸íŠ¸ êµ¬ë™ ì‹œ ê³µë°±ì‹œê°„ì— ì´ë¯¸ì§€ ì¶”ê°€.
+//	#define		__CSC_VER9_5				// 9ì°¨ ì œë ¨ê´€ë ¨ (ì¶”ê°€ ê²€ê´‘ ê¸°ëŠ¥)
 
-//	#define		__Y_DRAGON_FIRE				// ¸ÞÅ×¿À´ÏÄ¿ ÆÄÀÌ¾î ¹ß»ç!!!
-	#define		__HACK_0516					// ¹Ì±¹ ÇØÅ· 2Â÷
+//	#define		__Y_DRAGON_FIRE				// ë©”í…Œì˜¤ë‹ˆì»¤ íŒŒì´ì–´ ë°œì‚¬!!!
+	#define		__HACK_0516					// ë¯¸êµ­ í•´í‚¹ 2ì°¨
 
-//	#define		__LUASCRIPT					// ·ç¾Æ ½ºÅ©¸³Æ® »ç¿ë (World, Trans, Neuz)
-//	#define		__EVENTLUA					// ÀÌº¥Æ® (·ç¾Æ ½ºÅ©¸³Æ® Àû¿ë) - World, Trans, Neuz
-//	#define		__CSC_VER9_REMOVE_PKSETTING	// ¿É¼Ç ¼³Á¤ Ã¢¿¡¼­ PK¼³Á¤ Á¦°Å (¹«Á¶°Ç CtrlÅ° ´©¸¥ »óÅÂ¿¡¼­¸¸ °ø°Ý)
+//	#define		__LUASCRIPT					// ë£¨ì•„ ìŠ¤í¬ë¦½íŠ¸ ì‚¬ìš© (World, Trans, Neuz)
+//	#define		__EVENTLUA					// ì´ë²¤íŠ¸ (ë£¨ì•„ ìŠ¤í¬ë¦½íŠ¸ ì ìš©) - World, Trans, Neuz
+//	#define		__CSC_VER9_REMOVE_PKSETTING	// ì˜µì…˜ ì„¤ì • ì°½ì—ì„œ PKì„¤ì • ì œê±° (ë¬´ì¡°ê±´ Ctrlí‚¤ ëˆ„ë¥¸ ìƒíƒœì—ì„œë§Œ ê³µê²©)
 
-//	#define		__INSERT_MAP				// ½ºÅ¸Æ®¸Þ´º¿¡ ÀüÃ¼Áöµµ ¸Þ´º Ãß°¡ 
+//	#define		__INSERT_MAP				// ìŠ¤íƒ€íŠ¸ë©”ë‰´ì— ì „ì²´ì§€ë„ ë©”ë‰´ ì¶”ê°€ 
 
-//	#define		__PET_0410					// 9, 10Â÷ Æê
-//	#define		__AI_0509					// ¸ó½ºÅÍ ÀÎ°øÁö´É
+//	#define		__PET_0410					// 9, 10ì°¨ íŽ«
+//	#define		__AI_0509					// ëª¬ìŠ¤í„° ì¸ê³µì§€ëŠ¥
 //	#define		__METEONYKER_0608
-//	#define		__SKILL_0706				// ´ëÀÎ¿ë AddSkillProp ÄÃ·³ Ãß°¡ ¹× Àû¿ë
-//	#define		__AI_0711					// ¸ÞÅ×¿À´ÏÄ¿ AI ¼öÁ¤
+//	#define		__SKILL_0706				// ëŒ€ì¸ìš© AddSkillProp ì»¬ëŸ¼ ì¶”ê°€ ë° ì ìš©
+//	#define		__AI_0711					// ë©”í…Œì˜¤ë‹ˆì»¤ AI ìˆ˜ì •
 	#define		__GLOBAL_COUNT_0705			// CTime::GetTimer
 
 //	#undef		__VER
-//	#define		__VER	11					// 11Â÷
+//	#define		__VER	11					// 11ì°¨
 
 	#define		__JEFF_11_1
-//	#define		__JEFF_11_4					// ¾Æ·¹³ª
-//	#define		__JEFF_11_5					// ¸Þ¸ð¸® ´©¼ö
+//	#define		__JEFF_11_4					// ì•„ë ˆë‚˜
+//	#define		__JEFF_11_5					// ë©”ëª¨ë¦¬ ëˆ„ìˆ˜
 
-//	#define		__JAPAN_SAKURA				// ¹þ²É ÀÌº¥Æ®
+//	#define		__JAPAN_SAKURA				// ë²—ê½ƒ ì´ë²¤íŠ¸
 
 
 //   VER 16 __TESTSERVER begin
-	#define		__GUILD_HOUSE_MIDDLE		// ±æµåÇÏ¿ì½º ÁßÇü
-	#define		__BS_ADDOBJATTR_INVISIBLE	// CObj Invisible ¿¡ °üÇÑ ¼Ó¼ºÃß°¡   --> 16Â÷ ¿¹Á¤ 
-	#define		__BS_DEATH_ACTION			// die »óÅÂ·Î ÁøÀÔ½Ã ¿¬Ãâ È¿°ú ( client only )
-//	#define		__BS_EFFECT_LUA				// ¿ÀºêÁ§Æ® »óÅÂº° È¿°ú¿¬Ãâ ( Lua base )
-	#define		__BS_ADD_CONTINENT_WEATHER	// ´ë·ú ³¯¾¾ Ãß°¡ ( ¿Â³­È­·Î ÀÎÇÑ ÅÂ¾ç³¯¾¾, ´Ù¸¥ ¾î¶²ÀÌÀ¯·Îµç º¯ÇÏÁö ¾ÊÀ½ )
-	#define		__BS_CHANGEABLE_WORLD_SEACLOUD	// º¯°æ°¡´ÉÇÑ ¿ùµå ¹Ù´Ù±¸¸§ 
+	#define		__GUILD_HOUSE_MIDDLE		// ê¸¸ë“œí•˜ìš°ìŠ¤ ì¤‘í˜•
+	#define		__BS_ADDOBJATTR_INVISIBLE	// CObj Invisible ì— ê´€í•œ ì†ì„±ì¶”ê°€   --> 16ì°¨ ì˜ˆì • 
+	#define		__BS_DEATH_ACTION			// die ìƒíƒœë¡œ ì§„ìž…ì‹œ ì—°ì¶œ íš¨ê³¼ ( client only )
+//	#define		__BS_EFFECT_LUA				// ì˜¤ë¸Œì íŠ¸ ìƒíƒœë³„ íš¨ê³¼ì—°ì¶œ ( Lua base )
+	#define		__BS_ADD_CONTINENT_WEATHER	// ëŒ€ë¥™ ë‚ ì”¨ ì¶”ê°€ ( ì˜¨ë‚œí™”ë¡œ ì¸í•œ íƒœì–‘ë‚ ì”¨, ë‹¤ë¥¸ ì–´ë–¤ì´ìœ ë¡œë“  ë³€í•˜ì§€ ì•ŠìŒ )
+	#define		__BS_CHANGEABLE_WORLD_SEACLOUD	// ë³€ê²½ê°€ëŠ¥í•œ ì›”ë“œ ë°”ë‹¤êµ¬ë¦„ 
 //   VER 16 __TESTSERVER end
 
 	
-#elif defined(__MAINSERVER)  // ¿ÜºÎ º»¼·
-//	#define		__TMP_POCKET				// ÈÞ´ë °¡¹æ ÀÏ½ÃÀûÀ¸·Î ¸·±â
-	#define		__Y_BEAUTY_SHOP_CHARGE		// ºäÆ¼¼¥, °³ÀÎ»óÁ¡ À¯·á¾ÆÀÌÅÛÈ­..Neuz, World
+#elif defined(__MAINSERVER)  // ì™¸ë¶€ ë³¸ì„­
+//	#define		__TMP_POCKET				// íœ´ëŒ€ ê°€ë°© ì¼ì‹œì ìœ¼ë¡œ ë§‰ê¸°
+	#define		__Y_BEAUTY_SHOP_CHARGE		// ë·°í‹°ìƒµ, ê°œì¸ìƒì  ìœ ë£Œì•„ì´í…œí™”..Neuz, World
 	#define		__TRAFIC_1215
-//	#define     __Y_NEW_ENCHANT				// Á¦·Ã ¾ÆÀÌÅÛ º¯°æ, Neuz, World
-//	#define		__EVENT_FALL				// ´ÜÇ³
-//	#define		__JAPAN_SAKURA				// ¹þ²É ÀÌº¥Æ®
+//	#define     __Y_NEW_ENCHANT				// ì œë ¨ ì•„ì´í…œ ë³€ê²½, Neuz, World
+//	#define		__EVENT_FALL				// ë‹¨í’
+//	#define		__JAPAN_SAKURA				// ë²—ê½ƒ ì´ë²¤íŠ¸
 
 	#define		__JEFF_11_1
-//	#define		__RAIN_EVENT				// Àå¸¶ ÀÌº¥Æ®(ºñ¿À´Â µ¿¾È °æÇèÄ¡ 2¹è)
+//	#define		__RAIN_EVENT				// ìž¥ë§ˆ ì´ë²¤íŠ¸(ë¹„ì˜¤ëŠ” ë™ì•ˆ ê²½í—˜ì¹˜ 2ë°°)
 
-#endif	// end - ¼­¹öÁ¾·ùº° define 
+#endif	// end - ì„œë²„ì¢…ë¥˜ë³„ define 
 
 #ifndef NO_GAMEGUARD 
 	#define	__NPROTECT_VER	4	

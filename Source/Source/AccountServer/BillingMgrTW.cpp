@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "BillingMgrTW.h"
 #include "MsgHdr.h"
 #include "account.h"
@@ -34,35 +34,35 @@ BOOL CBillingMgrTW::SetConfig( BILLING_ENUM id, DWORD data )
 	return TRUE;
 }
 
-// ÃÊ±âÈ­: ºô¸µ ¼­¹ö¿ÍÀÇ ¿¬°á °´Ã¼¸¦ ÇÒ´çÇØ µĞ´Ù.
+// ì´ˆê¸°í™”: ë¹Œë§ ì„œë²„ì™€ì˜ ì—°ê²° ê°ì²´ë¥¼ í• ë‹¹í•´ ë‘”ë‹¤.
 bool CBillingMgrTW::Init( HWND hWnd )
 {
 	::SetTimer( hWnd, IDT_KICKOUT, 1000 * 60, NULL );
 	return true;
 }
 
-// ÇÒ´çµÈ ÀÚ¿øÀ» ¹İ³³ÇÑ´Ù.
+// í• ë‹¹ëœ ìì›ì„ ë°˜ë‚©í•œë‹¤.
 void CBillingMgrTW::Release()
 {
 	safe_delete( this );
 }
 
-// ºô¸µÁ¤º¸¸¦ °Ë»çÇÑ´Ù.
+// ë¹Œë§ì •ë³´ë¥¼ ê²€ì‚¬í•œë‹¤.
 BYTE CBillingMgrTW::CheckAccount( int nType, DWORD dwKey, const char* szAccount, const char* szAddr )
 {
 	g_DbManager.PostBillingQuery( szAccount, dwKey, 1 );
 	return ACCOUNT_BILLING_WAIT_ACK;
 
 /*
-	if( nType != GetFreePass() )  // ¹«·áÀ¯Àú? 
+	if( nType != GetFreePass() )  // ë¬´ë£Œìœ ì €? 
 	{ 
-		// À¯·áÀ¯Àú´Â µğºñ¿¡ Äõ¸® 
+		// ìœ ë£Œìœ ì €ëŠ” ë””ë¹„ì— ì¿¼ë¦¬ 
 		g_DbManager.PostBillingQuery( szAccount, dwKey, 1 );
 		return ACCOUNT_BILLING_WAIT_ACK;
 	}
 	else														
 	{
-		// ¹«·áÀ¯Àú´Â TRACE
+		// ë¬´ë£Œìœ ì €ëŠ” TRACE
 		char szTrace[1024];
 		sprintf( szTrace, "FreePass - Account:%s fCheck:%d", szAccount, nType );
 		OutputDebugString( szTrace );
@@ -73,7 +73,7 @@ BYTE CBillingMgrTW::CheckAccount( int nType, DWORD dwKey, const char* szAccount,
 }
 
 
-// ºô¸µ¿¡ °ü·ÃµÈ À©µµ¿ì ¸Ş¼¼Áö°¡ Ã³¸®µÇ°Ô ÇÑ´Ù.
+// ë¹Œë§ì— ê´€ë ¨ëœ ìœˆë„ìš° ë©”ì„¸ì§€ê°€ ì²˜ë¦¬ë˜ê²Œ í•œë‹¤.
 BOOL CBillingMgrTW::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam ) 
 {
 	switch( message ) 
@@ -83,7 +83,7 @@ BOOL CBillingMgrTW::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam,
 				switch( wParam )
 				{
 				case IDT_KICKOUT:
-					g_AccountMng.KickOutCheck();	// ÃÖÁ¾ÀûÀ¸·Î CBillingMgrTW::OnTimer°¡ È£ÃâµÈ´Ù.	
+					g_AccountMng.KickOutCheck();	// ìµœì¢…ì ìœ¼ë¡œ CBillingMgrTW::OnTimerê°€ í˜¸ì¶œëœë‹¤.	
 					return TRUE;
 				}
 			}
@@ -98,27 +98,27 @@ BOOL CBillingMgrTW::PreTranslateMessage( HWND hWnd, UINT message, WPARAM wParam,
 void CBillingMgrTW::OnTimer( CAccount* pAccount )
 {
 	CTime tm = 0;
-	if( pAccount->m_TimeOverDays == tm )		// login ¹ÌÃ³¸®ÀÚ or timeover skip
+	if( pAccount->m_TimeOverDays == tm )		// login ë¯¸ì²˜ë¦¬ì or timeover skip
 		return;		
 
 	CTime cur = CTime::GetCurrentTime();
-	if( pAccount->m_TimeOverDays <= cur )		// timerover Ã³¸® 
+	if( pAccount->m_TimeOverDays <= cur )		// timerover ì²˜ë¦¬ 
 	{	
 		pAccount->m_nStatus = ACCOUNT_STATUS_SECONDQUERY;	
 		g_DbManager.PostBillingQuery( pAccount->m_lpszAccount, pAccount->m_dwAuthKey, 2 );
 	}
 	else
 	{
-		if( pAccount->m_cbLastOneLogon == 'Y' )	// Billing-Game ÇùÀÇ¼­_20041104.doc 4page ÂüÁ¶ 
+		if( pAccount->m_cbLastOneLogon == 'Y' )	// Billing-Game í˜‘ì˜ì„œ_20041104.doc 4page ì°¸ì¡° 
 		{
-			// 30ºĞÁ¤µµ ³²¾ÒÀ» ¶§ - ³²Àº ½Ã°£ ÅëÁö
+			// 30ë¶„ì •ë„ ë‚¨ì•˜ì„ ë•Œ - ë‚¨ì€ ì‹œê°„ í†µì§€
 			CTimeSpan ts = pAccount->m_TimeOverDays - cur;
 			if ( ts.GetTotalMinutes() >= 29 && ts.GetTotalMinutes() <= 31 && 
 				 pAccount->m_nStatus != ACCOUNT_STATUS_NOTIFIED &&
 				 pAccount->m_fRoute == TRUE )
 			{
 				pAccount->m_nStatus = ACCOUNT_STATUS_NOTIFIED;				
-				g_dpDbSrvr.SendOneHourNotify( pAccount );	// TRANS¿¡ º¸³½´Ù.
+				g_dpDbSrvr.SendOneHourNotify( pAccount );	// TRANSì— ë³´ë‚¸ë‹¤.
 			}
 		}
 	}			
@@ -126,12 +126,12 @@ void CBillingMgrTW::OnTimer( CAccount* pAccount )
 
 /*
     bill           int 
-		0: °ÔÀÓÁ¤Áö ´çÇÑÀ¯Àú,·Î±×ÀÎÀ» ÇÒ¼ö¾øÀ½
-		151: ·Î±×ÀÎÀ» ÇÒ¼öÀÖ´ÂÀ¯Àú
-		156: À¯ÀúÀÇ ÀÚ·á°¡ºÎÁ·ÇÔÀ¸·Î,·Î±×ÀÎÀÌ¾ÈµÊ
+		0: ê²Œì„ì •ì§€ ë‹¹í•œìœ ì €,ë¡œê·¸ì¸ì„ í• ìˆ˜ì—†ìŒ
+		151: ë¡œê·¸ì¸ì„ í• ìˆ˜ìˆëŠ”ìœ ì €
+		156: ìœ ì €ì˜ ìë£Œê°€ë¶€ì¡±í•¨ìœ¼ë¡œ,ë¡œê·¸ì¸ì´ì•ˆë¨
     End_Time       datetime
     LastOneLogon   char(1)
-		'Y': ¸¶Áö¸·À¸·Î °ÔÀÓ¿¡ ·Î±×ÀÎÀÌµÊ
+		'Y': ë§ˆì§€ë§‰ìœ¼ë¡œ ê²Œì„ì— ë¡œê·¸ì¸ì´ë¨
 
     select @account      as account,
            @bill         as bill,
@@ -218,7 +218,7 @@ void CBillingMgrTW::OnDBQuery( CQuery& query, tagDB_OVERLAPPED_PLUS* pOV )
 	info.szAccount = pOV->szAccount;
 	info.dwKey = pOV->dwKey;
 	info.lResult = lResult;
-	info.pTimeOverDays = &endDay;	// endDay´Â lResult°¡ SUCCESSÀÎ °æ¿ì¿¡¸¸ ¼³Á¤µÇ¸é µÈ´Ù.
+	info.pTimeOverDays = &endDay;	// endDayëŠ” lResultê°€ SUCCESSì¸ ê²½ìš°ì—ë§Œ ì„¤ì •ë˜ë©´ ëœë‹¤.
 	info.cbLastOneLogon = szLastOneLogon[0];
 
 	g_AccountMng.SendBillingResult( &info );

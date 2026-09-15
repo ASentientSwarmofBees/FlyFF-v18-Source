@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 11 // __SYS_POCKET
 
@@ -231,7 +231,7 @@ int		CPocketController::GetEmptyCount( void )
 	return nCount;
 }
 
-//	Æ÷ÄÏÀÌ ¿ÏÀüÈ÷ ºñ¾îÀÖ´ÂÁö °Ë»ç
+//	í¬ì¼“ì´ ì™„ì „íˆ ë¹„ì–´ìˆëŠ”ì§€ ê²€ì‚¬
 BOOL	CPocketController::IsAllClean( void )
 {
 	int nCount	= 0,nCountMax = 0;

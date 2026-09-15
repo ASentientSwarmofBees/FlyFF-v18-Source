@@ -1,4 +1,4 @@
-#if !defined(AFX_PROJECT_H__3C837668_F3CC_430F_87E6_792AF43D7626__INCLUDED_)
+ï»¿#if !defined(AFX_PROJECT_H__3C837668_F3CC_430F_87E6_792AF43D7626__INCLUDED_)
 #define AFX_PROJECT_H__3C837668_F3CC_430F_87E6_792AF43D7626__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -122,9 +122,9 @@ struct QuestProp
 	TCHAR	m_szNpcName[ 32 ];
 	WORD	m_nHeadQuest;
 	CHAR	m_nQuestType;
-	bool	m_bNoRemove; // TRUEÀÏ °æ¿ì »èÁ¦ ºÒ°¡ 
+	bool	m_bNoRemove; // TRUEì¼ ê²½ìš° ì‚­ì œ ë¶ˆê°€ 
 
-	// ½ÃÀÛ - Á¶°Ç 
+	// ì‹œì‘ - ì¡°ê±´ 
 	int		m_nParam[ 4 ];
 	char    m_nBeginCondPreviousQuestType;
 	WORD	m_anBeginCondPreviousQuest[ 6 ];
@@ -156,7 +156,7 @@ struct QuestProp
 	char	m_nBeginCondChaotic; 
 #endif // __VER >= 8 // __S8_PK
 	int		m_nBeginCondDisguiseMoverIndex;
-	// ½ÃÀÛ - Ãß°¡ 
+	// ì‹œì‘ - ì¶”ê°€ 
 	int  	m_nBeginSetAddItemIdx[ 4 ];
 	char	m_nBeginSetAddItemNum[ 4 ];
 	int		m_nBeginSetAddGold;
@@ -171,8 +171,8 @@ struct QuestProp
 #if __VER >= 15 // __CAMPUS
 	int		m_nBeginCondTSP;
 #endif // __CAMPUS
-	// Á¾·á - Á¶°Ç  
-	int     m_nEndCondLimitTime; //  Äù½ºÆ® ¼öÇà Á¦ÇÑ ½Ã°£ 
+	// ì¢…ë£Œ - ì¡°ê±´  
+	int     m_nEndCondLimitTime; //  í€˜ìŠ¤íŠ¸ ìˆ˜í–‰ ì œí•œ ì‹œê°„ 
 	QuestPropItem* m_paEndCondItem; 
 	char	m_nEndCondItemNum;
 
@@ -181,24 +181,24 @@ struct QuestProp
 	int     m_nEndCondKillNPCNum[ MAX_QUEST_COND_KILL ];   
 	QuestGoalData m_KillNPCGoalData[ MAX_QUEST_COND_KILL ];
 #else
-	int     m_nEndCondKillNPCIdx[ 2 ]; // Á×¿©¾ßÇÒ NPC ÀÎµ¦½º - ÃÑ 2°³ 
-	int     m_nEndCondKillNPCNum[ 2 ]; // Á×¿©¾ßÇÒ NPC °¹¼ö - ÃÑ 2°³    
+	int     m_nEndCondKillNPCIdx[ 2 ]; // ì£½ì—¬ì•¼í•  NPC ì¸ë±ìŠ¤ - ì´ 2ê°œ 
+	int     m_nEndCondKillNPCNum[ 2 ]; // ì£½ì—¬ì•¼í•  NPC ê°¯ìˆ˜ - ì´ 2ê°œ    
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
-	QuestGoalData m_KillNPCGoalData[ 2 ]; // Á×¿©¾ß ÇÒ NPC ¸ñÇ¥ µ¥ÀÌÅÍ
+	QuestGoalData m_KillNPCGoalData[ 2 ]; // ì£½ì—¬ì•¼ í•  NPC ëª©í‘œ ë°ì´í„°
 #endif // __IMPROVE_QUEST_INTERFACE
 #endif
-	DWORD   m_dwEndCondPatrolWorld; // Á¤ÂûÇØ¾ßµÉ ¸Ê 
+	DWORD   m_dwEndCondPatrolWorld; // ì •ì°°í•´ì•¼ë  ë§µ 
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
-	DWORD	m_dwPatrolDestinationID;	// Á¤Âû ¸ñÀûÁö ÀÌ¸§À» Ã£±â À§ÇÑ ID
-	QuestGoalData m_PatrolWorldGoalData; // Á¤ÂûÇØ¾ß ÇÒ Áö¿ª ¸ñÇ¥ µ¥ÀÌÅÍ
+	DWORD	m_dwPatrolDestinationID;	// ì •ì°° ëª©ì ì§€ ì´ë¦„ì„ ì°¾ê¸° ìœ„í•œ ID
+	QuestGoalData m_PatrolWorldGoalData; // ì •ì°°í•´ì•¼ í•  ì§€ì—­ ëª©í‘œ ë°ì´í„°
 #endif // __IMPROVE_QUEST_INTERFACE
-	CRect   m_rectEndCondPatrol; // Á¤ÂûÇØ¾ßµÉ Àå¼Ò ¿µ¿ª 
-	CHAR    m_szEndCondCharacter[64]; // Äù½ºÆ®¸¦ ¿Ï¼ö¸¦ ÆÇ´ÜÇÒ Ä³¸¯ÅÍ Å°(NULLÀÌ¸é ÀÚ½Å)
+	CRect   m_rectEndCondPatrol; // ì •ì°°í•´ì•¼ë  ì¥ì†Œ ì˜ì—­ 
+	CHAR    m_szEndCondCharacter[64]; // í€˜ìŠ¤íŠ¸ë¥¼ ì™„ìˆ˜ë¥¼ íŒë‹¨í•  ìºë¦­í„° í‚¤(NULLì´ë©´ ìì‹ )
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 #ifdef __KIA_GOALDATA_FIX
 	characterQuestGoalData m_MeetCharacterGoalData;
 #else
-	QuestGoalData m_MeetCharacterGoalData; // Äù½ºÆ® ¿Ï¼ö¸¦ ÆÇ´ÜÇÒ Ä³¸¯ÅÍ ¸ñÇ¥ µ¥ÀÌÅÍ
+	QuestGoalData m_MeetCharacterGoalData; // í€˜ìŠ¤íŠ¸ ì™„ìˆ˜ë¥¼ íŒë‹¨í•  ìºë¦­í„° ëª©í‘œ ë°ì´í„°
 #endif
 #endif // __IMPROVE_QUEST_INTERFACE
 	CHAR*   m_lpszEndCondMultiCharacter; 
@@ -210,10 +210,10 @@ struct QuestProp
 	int		m_nEndCondGold;
 	BYTE	m_nEndCondLevelMin;	
 	BYTE	m_nEndCondLevelMax;
-	#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+	#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	int		m_nEndCondExpPercentMin;	
 	int		m_nEndCondExpPercentMax;
-	#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+	#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #else // __VER >= 8 // __S8_PK
 	char	m_nEndCondKarmaComp;
 	int		m_nEndCondKarmaPoint;
@@ -225,8 +225,8 @@ struct QuestProp
 	int		m_nEndCondPetExp;
 #endif	// __PET_0410
 
-	int		m_nEndCondDisguiseMoverIndex; // º¯½Å 
-	char	m_nEndCondParty; // ÆÄÆ¼ ¿©ºÎ (¼Ö·Î,ÆÄÆ¼,±æµå)  
+	int		m_nEndCondDisguiseMoverIndex; // ë³€ì‹  
+	char	m_nEndCondParty; // íŒŒí‹° ì—¬ë¶€ (ì†”ë¡œ,íŒŒí‹°,ê¸¸ë“œ)  
 	char 	m_nEndCondPartyNumComp; 
 	WORD 	m_nEndCondPartyNum; 
 	char	m_nEndCondPartyLeader;
@@ -234,22 +234,22 @@ struct QuestProp
 	char 	m_nEndCondGuildNumComp; 
 	WORD	m_nEndCondGuildNum; 
 	char	m_nEndCondGuildLeader; 
-	BYTE	m_nEndCondState; // ½ºÅ×ÀÌÆ® ¿©ºÎ  
+	BYTE	m_nEndCondState; // ìŠ¤í…Œì´íŠ¸ ì—¬ë¶€  
 	BYTE    m_nEndCondCompleteQuestOper; // 0 = or, 1 = and
-	WORD	m_nEndCondCompleteQuest[ 6 ]; // ¿Ï·á Äù½ºÆ® ¿©ºÎ. ½Ã³ª¸®¿À Äù½ºÆ®¿¡ ÇÊ¿ä 
+	WORD	m_nEndCondCompleteQuest[ 6 ]; // ì™„ë£Œ í€˜ìŠ¤íŠ¸ ì—¬ë¶€. ì‹œë‚˜ë¦¬ì˜¤ í€˜ìŠ¤íŠ¸ì— í•„ìš” 
 	CHAR    m_szEndCondDlgCharKey[ 64 ];
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
-	QuestGoalData m_DialogCharacterGoalData; // ´ëÈ­ÇØ¾ß ÇÒ Ä³¸¯ÅÍ ¸ñÇ¥ µ¥ÀÌÅÍ
+	QuestGoalData m_DialogCharacterGoalData; // ëŒ€í™”í•´ì•¼ í•  ìºë¦­í„° ëª©í‘œ ë°ì´í„°
 #endif // __IMPROVE_QUEST_INTERFACE
 	CHAR    m_szEndCondDlgAddKey[ 64 ];
 	CHAR    m_szPatrolZoneName[ 64 ];
 #if __VER >= 15 // __CAMPUS
 	int		m_nEndCondTSP;
 #endif // __CAMPUS
-	// EndDialog ´ëÈ­½Ã Áö±ŞÇÒ ¾ÆÀÌÅÛ(ÀÏÁ¾ÀÇ º¸»ó)
+	// EndDialog ëŒ€í™”ì‹œ ì§€ê¸‰í•  ì•„ì´í…œ(ì¼ì¢…ì˜ ë³´ìƒ)
 	int		m_nDlgRewardItemIdx[ 4 ];
 	int		m_nDlgRewardItemNum[ 4 ];
-	// Á¾·á - Á¦°Å 
+	// ì¢…ë£Œ - ì œê±° 
 	int		m_nEndRemoveItemIdx[ 8 ];
 	int		m_nEndRemoveItemNum[ 8 ];
 	int		m_nEndRemoveGold;
@@ -257,7 +257,7 @@ struct QuestProp
 #if __VER >= 15 // __CAMPUS
 	int		m_nEndRemoveTSP;
 #endif // __CAMPUS
-	// º¸»ó 
+	// ë³´ìƒ 
 	QuestPropItem* m_paEndRewardItem; 
 	int		m_nEndRewardItemNum;
 	int		m_nEndRewardGoldMin;
@@ -269,7 +269,7 @@ struct QuestProp
 	int		m_nEndRewardPKValueMax;
 #else // __VER >= 8 // __S8_PK
 	int     m_nEndRewardKarmaPoint;
-	char	m_nEndRewardKarmaStyle; // 0Àº Àû¿ë ¾ÈÇÔ, 1Àº ¼¼ÆÃ, 2´Â Ãß°¡ 
+	char	m_nEndRewardKarmaStyle; // 0ì€ ì ìš© ì•ˆí•¨, 1ì€ ì„¸íŒ…, 2ëŠ” ì¶”ê°€ 
 #endif // __VER >= 8 // __S8_PK
 #if __VER >= 9 // __S_9_ADD
 	int		m_nEndRewardTeleport;
@@ -279,7 +279,7 @@ struct QuestProp
 	BOOL	m_bEndRewardPetLevelup;
 #endif	// __PET_0410
 	int		m_nEndRewardSkillPoint;
-	bool    m_bEndRewardHide; // º¸»ó ¸ñ·ÏÀ» º¸ÀÏÁö ¿©ºÎ
+	bool    m_bEndRewardHide; // ë³´ìƒ ëª©ë¡ì„ ë³´ì¼ì§€ ì—¬ë¶€
 	bool    m_bRepeat;
 #if __VER >= 15 // __CAMPUS
 	int		m_nEndRewardTSP;
@@ -347,7 +347,7 @@ typedef struct tagATKSTYLE
 
 typedef struct tagADDEXPPARTY
 {
-	DWORD	Exp, Level;	//  Çùµ¿ Ãß°¡ °æÇèÄ¡ / Á¦°ø·¹º§
+	DWORD	Exp, Level;	//  í˜‘ë™ ì¶”ê°€ ê²½í—˜ì¹˜ / ì œê³µë ˆë²¨
 } ADDEXPPARTY,* LPADDEXPPARTY;
 
 
@@ -358,13 +358,13 @@ struct MotionProp
 	DWORD	dwAction;
 	DWORD	dwMotion;
 	DWORD	dwPlay;				// 0:1play    1:cont		2:loop
-	DWORD	dwRequireLv;		// ¿©±¸ ·¹º§ 
-	DWORD	dwRequireExp;		// ¿ä±¸ °æÇèÄ¡ 
-	TCHAR	szName[ 32 ];		// Ç¥½Ã ´Ü¾î 
-	TCHAR	szRoot[ 32 ];		// ·çÆ® ¸íÄª 
-	TCHAR	szLink[ 128];		// ¸µÅ© ´Ü¾î 
-	TCHAR	szIconName[ 32 ];	// ¾ÆÀÌÄÜ ÆÄÀÏ ³×ÀÓ 
-	TCHAR	szDesc[ 128 ];		// ¼³¸í 
+	DWORD	dwRequireLv;		// ì—¬êµ¬ ë ˆë²¨ 
+	DWORD	dwRequireExp;		// ìš”êµ¬ ê²½í—˜ì¹˜ 
+	TCHAR	szName[ 32 ];		// í‘œì‹œ ë‹¨ì–´ 
+	TCHAR	szRoot[ 32 ];		// ë£¨íŠ¸ ëª…ì¹­ 
+	TCHAR	szLink[ 128];		// ë§í¬ ë‹¨ì–´ 
+	TCHAR	szIconName[ 32 ];	// ì•„ì´ì½˜ íŒŒì¼ ë„¤ì„ 
+	TCHAR	szDesc[ 128 ];		// ì„¤ëª… 
 	CTexture*	pTexture;
 };
 
@@ -398,7 +398,7 @@ typedef struct tagCHARACTER
 	CString			m_strName;
 	CHAR			m_szChar[ 64 ];
 	CHAR			m_szDialog[ 64 ];
-	CHAR			m_szDlgQuest[ 64 ];		// TODO_raiders: »ç¿ëÇÏÁö ¾Ê´Â´Ù. Á¦°Å 
+	CHAR			m_szDlgQuest[ 64 ];		// TODO_raiders: ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤. ì œê±° 
 	int				m_nStructure;
 	int				m_nEquipNum;
 	DWORD			m_dwMoverIdx;
@@ -412,8 +412,8 @@ typedef struct tagCHARACTER
 	CString			m_venderSlot[ 4 ];
 	CPtrArray		m_venderItemAry[ 4 ];
 
-	CWordArray		m_awSrcQuest; // ÀÌ Ä³¸¯ÅÍ°¡ ¼ÒÀ¯ÇÑ Äù½ºÆ® ¾ÆÀÌµğ ¸ñ·Ï 
-	CWordArray		m_awDstQuest; // ÀÌ Ä³¸¯ÅÍ°¡ ¼ÒÀ¯ÇÑ Äù½ºÆ® ¾ÆÀÌµğ ¸ñ·Ï 
+	CWordArray		m_awSrcQuest; // ì´ ìºë¦­í„°ê°€ ì†Œìœ í•œ í€˜ìŠ¤íŠ¸ ì•„ì´ë”” ëª©ë¡ 
+	CWordArray		m_awDstQuest; // ì´ ìºë¦­í„°ê°€ ì†Œìœ í•œ í€˜ìŠ¤íŠ¸ ì•„ì´ë”” ëª©ë¡ 
 	CUIntArray		m_anSrcQuestItem; 
 	CUIntArray		m_anDstQuestItem; 
 	void Clear();
@@ -502,17 +502,17 @@ typedef struct _DIE_PENALTY
 #if __VER >= 8 // __S8_PK
 typedef struct _CHAO_PROPENSITY
 {
-	DWORD	dwPropensityMin;		/// ¼ºÇâ ¼öÄ¡ Min
-	DWORD	dwPropensityMax;		/// ¼ºÇâ ¼öÄ¡ Max
-	int		nEquipDorpMin;			/// Âø¿ë¾ÆÀÌÅÛ µå·Ó °³¼ö Min
-	int		nEquipDorpMax;			/// Âø¿ë¾ÆÀÌÅÛ µå·Ó °³¼ö Max
-	int		nInvenDorpMin;			/// ÀÎº¥¾ÆÀÌÅÛ µå·Ó °³¼ö Min
-	int		nInvenDorpMax;			/// ÀÎº¥¾ÆÀÌÅÛ µå·Ó °³¼ö Max
-	int		nShop;					/// »óÁ¡ ÀÌ¿ë À¯/¹«
-	int		nBank;					/// Ã¢°í ÀÌ¿ë À¯/¹«
-	int		nFly;					/// ºñÇà ÀÌ¿ë À¯/¹«
-	int		nGuardAttack;			/// °æºñº´ °ø°İ À¯/¹«
-	int		nVendor;				/// °³ÀÎ»óÁ¡ ÀÌ¿ë ¹× °³¼³ À¯/¹«
+	DWORD	dwPropensityMin;		/// ì„±í–¥ ìˆ˜ì¹˜ Min
+	DWORD	dwPropensityMax;		/// ì„±í–¥ ìˆ˜ì¹˜ Max
+	int		nEquipDorpMin;			/// ì°©ìš©ì•„ì´í…œ ë“œë¡­ ê°œìˆ˜ Min
+	int		nEquipDorpMax;			/// ì°©ìš©ì•„ì´í…œ ë“œë¡­ ê°œìˆ˜ Max
+	int		nInvenDorpMin;			/// ì¸ë²¤ì•„ì´í…œ ë“œë¡­ ê°œìˆ˜ Min
+	int		nInvenDorpMax;			/// ì¸ë²¤ì•„ì´í…œ ë“œë¡­ ê°œìˆ˜ Max
+	int		nShop;					/// ìƒì  ì´ìš© ìœ /ë¬´
+	int		nBank;					/// ì°½ê³  ì´ìš© ìœ /ë¬´
+	int		nFly;					/// ë¹„í–‰ ì´ìš© ìœ /ë¬´
+	int		nGuardAttack;			/// ê²½ë¹„ë³‘ ê³µê²© ìœ /ë¬´
+	int		nVendor;				/// ê°œì¸ìƒì  ì´ìš© ë° ê°œì„¤ ìœ /ë¬´
 	_CHAO_PROPENSITY()
 	{
 		dwPropensityMin = 0;
@@ -530,16 +530,16 @@ typedef struct _CHAO_PROPENSITY
 } CHAO_PROPENSITY, *PCHAO_PROPENSITY;
 typedef struct _PK_SETTING
 {
-	DWORD	dwGeneralColor;			/// »ö : ÀÏ¹İ(Èò»ö)
-	DWORD	dwReadyColor;			/// »ö : ÁØÄ«¿À(ÇÎÅ©»ö)
-	DWORD	dwChaoColor;			/// »ö : Ä«¿À(·¹µå»ö)
-	int		nGeneralAttack;			/// ÀÏ¹İÀÎÀ» °ø°İÇßÀ»½Ã ÁØÄ«¿À°¡ µÇ´Â ½Ã°£
-	int		nReadyAttack;			/// ÁØÄ«¿À¸¦ °ø°İÇßÀ»½Ã ÁØÄ«¿À°¡ µÇ´Â ½Ã°£
-	int     nLimitLevel;			/// Ä«¿À¸¦ ÇÒ¼ö ÀÖ´Â ·¹º§
-	int		nDiePropensityMin;		/// Á×À¸¸é ¼ºÇâÄ¡ ±ïÀÌ´Â Min
-	int		nDiePropensityMax;		/// Á×À¸¸é ¼ºÇâÄ¡ ±ïÀÌ´Â Max
-	map<int, CHAO_PROPENSITY> mapPropensityPenalty;	/// ¼ºÇâ¼öÄ¡ ´Ü°èº° Penalty
-	map<int, DWORD> mapLevelExp;					/// ·¹º§¿¡ µû¸¥ °æÇèÄ¡
+	DWORD	dwGeneralColor;			/// ìƒ‰ : ì¼ë°˜(í°ìƒ‰)
+	DWORD	dwReadyColor;			/// ìƒ‰ : ì¤€ì¹´ì˜¤(í•‘í¬ìƒ‰)
+	DWORD	dwChaoColor;			/// ìƒ‰ : ì¹´ì˜¤(ë ˆë“œìƒ‰)
+	int		nGeneralAttack;			/// ì¼ë°˜ì¸ì„ ê³µê²©í–ˆì„ì‹œ ì¤€ì¹´ì˜¤ê°€ ë˜ëŠ” ì‹œê°„
+	int		nReadyAttack;			/// ì¤€ì¹´ì˜¤ë¥¼ ê³µê²©í–ˆì„ì‹œ ì¤€ì¹´ì˜¤ê°€ ë˜ëŠ” ì‹œê°„
+	int     nLimitLevel;			/// ì¹´ì˜¤ë¥¼ í• ìˆ˜ ìˆëŠ” ë ˆë²¨
+	int		nDiePropensityMin;		/// ì£½ìœ¼ë©´ ì„±í–¥ì¹˜ ê¹ì´ëŠ” Min
+	int		nDiePropensityMax;		/// ì£½ìœ¼ë©´ ì„±í–¥ì¹˜ ê¹ì´ëŠ” Max
+	map<int, CHAO_PROPENSITY> mapPropensityPenalty;	/// ì„±í–¥ìˆ˜ì¹˜ ë‹¨ê³„ë³„ Penalty
+	map<int, DWORD> mapLevelExp;					/// ë ˆë²¨ì— ë”°ë¥¸ ê²½í—˜ì¹˜
 	_PK_SETTING()
 	{
 		dwGeneralColor = 0;
@@ -587,7 +587,7 @@ inline void LOG_CALLSTACK()
 #endif
 
 #if defined(__INTERNALSERVER)
-	int *p = NULL;		// Äİ½ºÅÃÀ» ÃßÀûÇÏ±â À§ÇØ Á×ÀÎ´Ù
+	int *p = NULL;		// ì½œìŠ¤íƒì„ ì¶”ì í•˜ê¸° ìœ„í•´ ì£½ì¸ë‹¤
 	*p = 1;
 #endif
 }
@@ -621,32 +621,32 @@ const int MAX_KARMAPROP = 13;
 
 enum SLAUGHTER_GRADE
 {
-	SLAUGHTER_NORMAL,			// ÀÏ¹İÀ¯Àú 
-	SLAUGHTER_SEMI_CHAOTIC,		// ÁØ Ä«¿À 
-	SLAUGHTER_CHAOTIC,			// Ä«¿À 
+	SLAUGHTER_NORMAL,			// ì¼ë°˜ìœ ì € 
+	SLAUGHTER_SEMI_CHAOTIC,		// ì¤€ ì¹´ì˜¤ 
+	SLAUGHTER_CHAOTIC,			// ì¹´ì˜¤ 
 };
 
-// Ä«¸£¸¶º° ÇÁ·ÎÆÛÆ¼ 
+// ì¹´ë¥´ë§ˆë³„ í”„ë¡œí¼í‹° 
 struct KarmaProp
 {
-	int		nGrade;					// µî±Ş
-	TCHAR	szName[64];				// ¸íÄª 
-	DWORD   dwKarmaRecoverPoint;	// Ä«¸£¸¶ È¸º¹ ¼öÄ¡ (ÃÊ ´ÜÀ§)
-	int		nKarmaPoint;			// Æ÷ÀÎÆ®
-	DWORD	dwKarmaGrade;			// À¯Àú µî±Ş ( 0 - ÀÏ¹İ, 1 - ÁØÄ«¿À, 2 - Ä«¿À )
-	DWORD   dwColor;				// ¸íÄª »ö±ò
-	FLOAT   fDiscountRate;			// »óÁ¡ ¹°Ç° ±¸ÀÔ ÇÒÀÎ
-	FLOAT   fSellPenaltyRate;		// »óÁ¡ ¹°Ç° ÆÇ¸Å ÆĞ³ÎÆ¼
-	BOOL    bGuardReaction;			// °æºñº´ ¹İÀÀ
-	int		nSubtractExpRate;		// °æÇèÄ¡ ÇÏ¶ô·ü 
-	int		nDropGoldPercent;		// ¼ÒÁö Æä³ÄÁß µå·ÓÇÒ ºñÀ² 
-	int		nDropItem;				// µå·ÓÇÒ ¾ÆÀÌÅÛ °¹¼ö 
-	int		nDropPercent;			// ¾ÆÀÌÅÛ µå·ÓÇÒ È®·ü 
-	int		nKarmaRecoverNum;		// Ä«¸£¸¶ È¸º¹¼öÄ¡
-	DWORD	dwStatLimitTime;		// ½ºÅÈ Á¦ÇÑ ½Ã°£
-	int		nStatLimitNum;			// ½ºÅÈ Á¦ÇÑ °¹¼ö
-	int		nStatLimitRate;			// ½ºÅÈ Á¦ÇÑ ºñÀ²
-	TCHAR	szCommand [128];		// ¼³¸í
+	int		nGrade;					// ë“±ê¸‰
+	TCHAR	szName[64];				// ëª…ì¹­ 
+	DWORD   dwKarmaRecoverPoint;	// ì¹´ë¥´ë§ˆ íšŒë³µ ìˆ˜ì¹˜ (ì´ˆ ë‹¨ìœ„)
+	int		nKarmaPoint;			// í¬ì¸íŠ¸
+	DWORD	dwKarmaGrade;			// ìœ ì € ë“±ê¸‰ ( 0 - ì¼ë°˜, 1 - ì¤€ì¹´ì˜¤, 2 - ì¹´ì˜¤ )
+	DWORD   dwColor;				// ëª…ì¹­ ìƒ‰ê¹”
+	FLOAT   fDiscountRate;			// ìƒì  ë¬¼í’ˆ êµ¬ì… í• ì¸
+	FLOAT   fSellPenaltyRate;		// ìƒì  ë¬¼í’ˆ íŒë§¤ íŒ¨ë„í‹°
+	BOOL    bGuardReaction;			// ê²½ë¹„ë³‘ ë°˜ì‘
+	int		nSubtractExpRate;		// ê²½í—˜ì¹˜ í•˜ë½ë¥  
+	int		nDropGoldPercent;		// ì†Œì§€ í˜ëƒì¤‘ ë“œë¡­í•  ë¹„ìœ¨ 
+	int		nDropItem;				// ë“œë¡­í•  ì•„ì´í…œ ê°¯ìˆ˜ 
+	int		nDropPercent;			// ì•„ì´í…œ ë“œë¡­í•  í™•ë¥  
+	int		nKarmaRecoverNum;		// ì¹´ë¥´ë§ˆ íšŒë³µìˆ˜ì¹˜
+	DWORD	dwStatLimitTime;		// ìŠ¤íƒ¯ ì œí•œ ì‹œê°„
+	int		nStatLimitNum;			// ìŠ¤íƒ¯ ì œí•œ ê°¯ìˆ˜
+	int		nStatLimitRate;			// ìŠ¤íƒ¯ ì œí•œ ë¹„ìœ¨
+	TCHAR	szCommand [128];		// ì„¤ëª…
 };
 #endif // __VER < 8 // __S8_PK
 
@@ -888,15 +888,15 @@ class CRandomOptItemGen
 	RANDOMOPTITEM	m_aRandomOptItem[MAX_RANDOMOPTITEM];
 	map<int, int>	m_mapid;
 
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
-#if __VER >= 15 // __HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+#if __VER >= 15 // __HERO129_VER15				// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 	int		m_anIndex[MAX_MONSTER_LEVEL];
-	#else	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+	#else	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 	int		m_anIndex[MAX_LEGEND_LEVEL];
-	#endif	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+	#endif	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	int		m_anIndex[MAX_GENERAL_LEVEL];
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
 public:
 //	Constructions
@@ -952,24 +952,24 @@ private:
 	map<string, DWORD>			m_mapMVI;
 	map<string, DWORD>			m_mapCtrl;
 #ifdef __CLIENT
-	CDWordArray					m_aStateQuest; // ½ºÅ×ÀÌÆ® »ç¿ë ¿©ºÎ¸¦ Ã¼Å©ÇÒ ¹è¿­ 
+	CDWordArray					m_aStateQuest; // ìŠ¤í…Œì´íŠ¸ ì‚¬ìš© ì—¬ë¶€ë¥¼ ì²´í¬í•  ë°°ì—´ 
 #endif
 
 #if __VER >= 15 /* __IMPROVE_QUEST_INTERFACE */ && defined( __CLIENT )
-	map< int, CString >			m_mapQuestDestination;		// Äù½ºÆ® ¸ñÀûÁö ¼³¸í
-	map< int, CString >			m_mapPatrolDestination;		// Á¤Âû ¸ñÀûÁö ÀÌ¸§
+	map< int, CString >			m_mapQuestDestination;		// í€˜ìŠ¤íŠ¸ ëª©ì ì§€ ì„¤ëª…
+	map< int, CString >			m_mapPatrolDestination;		// ì •ì°° ëª©ì ì§€ ì´ë¦„
 #endif // defined( __IMPROVE_QUEST_INTERFACE ) && defined( __CLIENT )
 
 public:
-	static FLOAT				m_fItemDropRate;			// ¸ó½ºÅÍ ¾ÆÀÌÅÛ µå·Ó·ü
-	static FLOAT				m_fGoldDropRate;			// ¸ó½ºÅÍ Æä³Ä µå·Ó·ü
-	static FLOAT				m_fMonsterExpRate;			// ¸ó½ºÅÍ °æÇèÄ¡·ê
-	static FLOAT				m_fMonsterHitRate;			// ¸ó½ºÅÍ °ø°İ·ü
-	static FLOAT				m_fShopCost;				// »óÁ¡°¡°İ
+	static FLOAT				m_fItemDropRate;			// ëª¬ìŠ¤í„° ì•„ì´í…œ ë“œë¡­ë¥ 
+	static FLOAT				m_fGoldDropRate;			// ëª¬ìŠ¤í„° í˜ëƒ ë“œë¡­ë¥ 
+	static FLOAT				m_fMonsterExpRate;			// ëª¬ìŠ¤í„° ê²½í—˜ì¹˜ë£°
+	static FLOAT				m_fMonsterHitRate;			// ëª¬ìŠ¤í„° ê³µê²©ë¥ 
+	static FLOAT				m_fShopCost;				// ìƒì ê°€ê²©
 	static FLOAT				m_fSkillExpRate;		
-	static DWORD				m_dwVagSP;					// ¹æ¶ûÀÚ ½ºÅ³ÀÇ ·¹º§¾÷¶§ ÇÊ¿äÇÑ SPÆ÷ÀÎÆ®
-	static DWORD				m_dwExpertSP;				// 1Â÷Á÷¾÷ ½ºÅ³ÀÇ ·¹º§¾÷¶§ ÇÊ¿äÇÑ SPÆ÷ÀÎÆ®
-	static DWORD				m_dwProSP;					// 2Â÷Á÷¾÷ ½ºÅ³ÀÇ ·¹º§¾÷¶§ ÇÊ¿äÇÑ SPÆ÷ÀÎÆ®
+	static DWORD				m_dwVagSP;					// ë°©ë‘ì ìŠ¤í‚¬ì˜ ë ˆë²¨ì—…ë•Œ í•„ìš”í•œ SPí¬ì¸íŠ¸
+	static DWORD				m_dwExpertSP;				// 1ì°¨ì§ì—… ìŠ¤í‚¬ì˜ ë ˆë²¨ì—…ë•Œ í•„ìš”í•œ SPí¬ì¸íŠ¸
+	static DWORD				m_dwProSP;					// 2ì°¨ì§ì—… ìŠ¤í‚¬ì˜ ë ˆë²¨ì—…ë•Œ í•„ìš”í•œ SPí¬ì¸íŠ¸
 #ifdef __NEW_STACKABLE_AMPS
 	MAPAMPSTORE m_mapAmpStore;
 #endif // __NEW_STACKABLE_AMPS
@@ -977,7 +977,7 @@ public:
 	CObjMap						m_objmap;
 	CModelMng					m_modelMng;
 	int							m_nMoverPropSize;
-	MoverProp*					m_pPropMover;				// m_aPropMover¹è¿­¿¡ ¸Ş¸ğ¸® Ä§¹üÀÌ ÀÖ¾î¼­ ¼öÁ¤ÇÔ.04.10.14
+	MoverProp*					m_pPropMover;				// m_aPropMoverë°°ì—´ì— ë©”ëª¨ë¦¬ ì¹¨ë²”ì´ ìˆì–´ì„œ ìˆ˜ì •í•¨.04.10.14
 	CFixedArray< ItemProp >		m_aPartySkill;
 	CFixedArray< CtrlProp >		m_aPropCtrl;
 	CFixedArray< MotionProp >	m_aPropMotion;
@@ -1014,7 +1014,7 @@ public:
 #ifdef __NEW_ITEM_VARUNA
 	int							m_aExpUpItem[6][21];
 #else // __NEW_ITEM_VARUNA
-	int							m_aExpUpItem[6][11];	// +0 ~ +10±îÁöÀÇ Ãß°¡´É·ÂÄ¡.
+	int							m_aExpUpItem[6][11];	// +0 ~ +10ê¹Œì§€ì˜ ì¶”ê°€ëŠ¥ë ¥ì¹˜.
 #endif // __NEW_ITEM_VARUNA
 	DWORD						m_adwExpDropLuck[122][11];
 	SETITEMAVAIL				m_aSetItemAvail[11];
@@ -1039,10 +1039,10 @@ public:
 #endif
 	
 #ifdef __S1108_BACK_END_SYSTEM
-	FLOAT						m_fMonsterRebirthRate;	// ¸ó½ºÅÍ ¸®½ºÆù·ü(½Ã°£)
-	FLOAT						m_fMonsterHitpointRate;	// ¸ó½ºÅÍ »ı¸í·Â·ü
-	FLOAT						m_fMonsterAggressiveRate;	// ¼±°ø¸ó½ºÅÍ·ü
-	FLOAT						m_fMonsterRespawnRate;	// ¸ó½ºÅÍ ¸®½ºÆù·ü(¸ó½ºÅÍ¼ıÀÚ)
+	FLOAT						m_fMonsterRebirthRate;	// ëª¬ìŠ¤í„° ë¦¬ìŠ¤í°ë¥ (ì‹œê°„)
+	FLOAT						m_fMonsterHitpointRate;	// ëª¬ìŠ¤í„° ìƒëª…ë ¥ë¥ 
+	FLOAT						m_fMonsterAggressiveRate;	// ì„ ê³µëª¬ìŠ¤í„°ë¥ 
+	FLOAT						m_fMonsterRespawnRate;	// ëª¬ìŠ¤í„° ë¦¬ìŠ¤í°ë¥ (ëª¬ìŠ¤í„°ìˆ«ì)
 	MONSTER_PROP				m_aMonsterProp[MAX_MONSTER_PROP];	// Monster Prop
 	MONSTER_PROP				m_aAddProp[MAX_MONSTER_PROP];	// Monster Prop
 	char						m_aRemoveProp[MAX_MONSTER_PROP][32];	// Monster Prop
@@ -1058,7 +1058,7 @@ public:
 #endif //__Y_ADV_ENCHANT_EFFECT
 
 #ifdef __EVE_MINIGAME
-	CMiniGame		m_MiniGame;			// ¹Ì´Ï°ÔÀÓ
+	CMiniGame		m_MiniGame;			// ë¯¸ë‹ˆê²Œì„
 #endif // __EVE_MINIGAEM
 
 #if __VER >= 9 // __ULTIMATE
@@ -1229,7 +1229,7 @@ public:
 	CString			GetWordToolTip( LPCTSTR lpStr );
 	CSfx*			GetSfx( OBJID objid );
 #ifndef __RULE_0615
-	// Ë¬
+	// åº·
 	set<string>		m_sInvalidNames;
 	BOOL	LoadInvalidName( void );
 	BOOL	IsInvalidName( LPCSTR szName );
@@ -1308,7 +1308,7 @@ inline CHAO_PROPENSITY CProject::GetPropensityPenalty( DWORD dwPropensity )
 			return Propensity;
 	}
 	
-	it = m_PKSetting.mapPropensityPenalty.find( 8 );	// ¸øÃ£À¸¸é ¸¶Áö¸· 8´Ü°è·Î º¸³¿ // ²À ÀÖ¾î¾ßÇÔ
+	it = m_PKSetting.mapPropensityPenalty.find( 8 );	// ëª»ì°¾ìœ¼ë©´ ë§ˆì§€ë§‰ 8ë‹¨ê³„ë¡œ ë³´ëƒ„ // ê¼­ ìˆì–´ì•¼í•¨
 	if( it != m_PKSetting.mapPropensityPenalty.end() )
 		return it->second;
 

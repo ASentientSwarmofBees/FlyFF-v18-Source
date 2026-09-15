@@ -1,4 +1,4 @@
-// InstanceDungeonBase.h: interface for the CInstanceDungeonBase class.
+ï»¿// InstanceDungeonBase.h: interface for the CInstanceDungeonBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -86,7 +86,7 @@ public:
 	BOOL	CreateDungeon( ID_INFO ID_Info, DWORD dwDungeonId );
 	BOOL	DestroyDungeon( ID_INFO ID_Info, DWORD dwDungeonId );
 	void	DestroyAllDungeonByDungeonID( DWORD dwDungeonId );
-	void	DestroyAllDungeonByMultiKey( ULONG uMultiKey );		//ÇöÀç±îÁö´Â CoreServer¸¸ »ç¿ë.
+	void	DestroyAllDungeonByMultiKey( ULONG uMultiKey );		//í˜„ìž¬ê¹Œì§€ëŠ” CoreServerë§Œ ì‚¬ìš©.
 
 	void	SetDungeonCoolTimeInfo( COOLTIME_INFO CT_Info, DWORD dwPlayerId );
 	void	ResetDungeonCoolTimeInfo( DWORD dwWorldId, DWORD dwDungeonId );

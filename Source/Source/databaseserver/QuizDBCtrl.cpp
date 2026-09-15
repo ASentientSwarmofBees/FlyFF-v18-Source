@@ -1,4 +1,4 @@
-// QuizDBCtrl.cpp: implementation of the CQuizDBCtrl class.
+ï»¿// QuizDBCtrl.cpp: implementation of the CQuizDBCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -165,7 +165,7 @@ void CQuizDBCtrl::DeleteWorldData( DPID dpId, int nState )
 		CQuiz::GetInstance()->SetRun( FALSE );
 		CQuiz::GetInstance()->m_vecQuizList.clear();
 		CQuiz::GetInstance()->m_nQuizSize = 0;
-		// ÄûÁî ¹®Á¦ »ç¿ë ¾ÈÇÔ ¾÷µ¥ÀÌÆ®
+		// í€´ì¦ˆ ë¬¸ì œ ì‚¬ìš© ì•ˆí•¨ ì—…ë°ì´íŠ¸
 		CQuery* pQuery = GetQueryObject();
 		char szQuery[QUERY_SIZE] = {0, };
 		

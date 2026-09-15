@@ -1,18 +1,18 @@
-#ifndef __CREATEOBJ_H__
+ï»¿#ifndef __CREATEOBJ_H__
 #define __CREATEOBJ_H__
 
 #ifdef __CLIENT
 
 #include "Sfx.h"
 
-// SFX¸¦ »ý¼º½ÃÅ°·Á¸é ÀÌ³ðÀ» È£ÃâÇÑ´Ù.
+// SFXë¥¼ ìƒì„±ì‹œí‚¤ë ¤ë©´ ì´ë†ˆì„ í˜¸ì¶œí•œë‹¤.
 // 
-// pd3dDevice d3dµð¹ÙÀÌ½º
-// dwSfxObj SFXÀÇ ID
-// vPosSrc ½ð À§Ä¡
-// idSrc ½ð³ð ID
-// vPosDest ¸ÂÀ» À§Ä¡
-// idDest ¸ÂÀ»³ð ID
+// pd3dDevice d3dë””ë°”ì´ìŠ¤
+// dwSfxObj SFXì˜ ID
+// vPosSrc ìœ ìœ„ì¹˜
+// idSrc ìœë†ˆ ID
+// vPosDest ë§žì„ ìœ„ì¹˜
+// idDest ë§žì„ë†ˆ ID
 CSfx* CreateSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj, D3DXVECTOR3& vPosSrc, OBJID idSrc = NULL_ID, D3DXVECTOR3& vPosDest = D3DXVECTOR3( 0, 0, 0), OBJID idDest = NULL_ID, int nSec = 0 );				
 CSfx* CreateItemReadySfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj, D3DXVECTOR3& vPosSrc, OBJID idSrc = NULL_ID, D3DXVECTOR3& vPosDest = D3DXVECTOR3( 0, 0, 0), OBJID idDest = NULL_ID, int nSec = 0 );
 CSfxShoot* CreateShootSfx( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwSfxObj, D3DXVECTOR3& vPosSrc, OBJID idSrc = NULL_ID, D3DXVECTOR3& vPosDest = D3DXVECTOR3( 0, 0, 0), OBJID idDest = NULL_ID, int nSec = 0 );

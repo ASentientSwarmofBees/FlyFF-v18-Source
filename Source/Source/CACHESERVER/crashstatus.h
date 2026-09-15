@@ -1,4 +1,4 @@
-#ifndef __CRASH_STATUS
+﻿#ifndef __CRASH_STATUS
 #define	__CRASH_STATUS
 
 #ifdef __CRASH_0404

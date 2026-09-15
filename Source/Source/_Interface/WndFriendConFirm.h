@@ -1,4 +1,4 @@
-#ifndef __WNDFRIENDCONFIRM__H
+﻿#ifndef __WNDFRIENDCONFIRM__H
 #define __WNDFRIENDCONFIRM__H
 
 class CWndFriendConFirm : public CWndNeuz 

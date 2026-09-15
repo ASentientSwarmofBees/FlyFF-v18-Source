@@ -1,4 +1,4 @@
-#ifndef __SERVERSOCK_H__
+﻿#ifndef __SERVERSOCK_H__
 #define __SERVERSOCK_H__
 
 #pragma once

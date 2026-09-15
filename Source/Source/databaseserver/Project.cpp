@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineObj.h"
 #include "project.h"
 //#include "company.h"
@@ -341,7 +341,7 @@ void CProject::LoadBeginPos( void )
 
 void CProject::AddBeginPos( const CHAR* lpszWorld, const D3DXVECTOR3 & vPos )
 {
-	// ¸ÊÀÌ¸§À¸·Î ¹è¿­ Ã£±â, ¸ÊÀÌ¸§ ¾øÀ¸¸é, »ı¼ºÇØ¼­ ³ÖÀºµÚ, Ã¹¹øÂ° Æ÷½º ¹è¿­¿¡ ÁÂÇ¥ ³Ö±â,
+	// ë§µì´ë¦„ìœ¼ë¡œ ë°°ì—´ ì°¾ê¸°, ë§µì´ë¦„ ì—†ìœ¼ë©´, ìƒì„±í•´ì„œ ë„£ì€ë’¤, ì²«ë²ˆì§¸ í¬ìŠ¤ ë°°ì—´ì— ì¢Œí‘œ ë„£ê¸°,
 
 	CMapStrToPtr::iterator i	= m_mapBeginPos.find( lpszWorld );
 	if( i == m_mapBeginPos.end() )
@@ -386,7 +386,7 @@ BOOL CProject::LoadDefOfWorld( LPCTSTR lpszFileName )
 	while( nBrace )
 	{
 		if( MAX_WORLD <= i )
-			Error( "Error LoadDefOfWorld i = %d Max°ªº¸´Ù ¸¹À½", i );
+			Error( "Error LoadDefOfWorld i = %d Maxê°’ë³´ë‹¤ ë§ìŒ", i );
 
 		if( *s.token == '}' || s.tok == FINISHED )
 		{

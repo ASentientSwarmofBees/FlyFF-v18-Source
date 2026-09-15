@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include ".\itemupgrade.h"
 
 #if __VER >= 12 // __EXT_PIERCING
@@ -62,7 +62,7 @@ void CItemUpgrade::LoadScript()
 		ASSERT(0);
 	}
 
-	// ¹æ¾î±¸ ÇÇ¾î½Ì
+	// ë°©ì–´êµ¬ í”¼ì–´ì‹±
 	lua.GetGloabal( "tSuitProb" );
 	lua.PushNil();
 	while( lua.TableLoop( -2 ) )
@@ -72,7 +72,7 @@ void CItemUpgrade::LoadScript()
 	}
 	lua.Pop(0);
 
-	// ¹«±â ÇÇ¾î½Ì
+	// ë¬´ê¸° í”¼ì–´ì‹±
 	lua.GetGloabal( "tWeaponProb" );
 	lua.PushNil();
 	while( lua.TableLoop( -2 ) )
@@ -83,7 +83,7 @@ void CItemUpgrade::LoadScript()
 	lua.Pop(0);
 	
 #if __VER >= 13 // __EXT_ENCHANT
-	// ÀÏ¹İÁ¦·Ã
+	// ì¼ë°˜ì œë ¨
 	lua.GetGloabal( "tGeneral" );
 	lua.PushNil();
 	while( lua.TableLoop( -2 ) )
@@ -93,7 +93,7 @@ void CItemUpgrade::LoadScript()
 	}
 	lua.Pop(0);
 
- 	// ¼Ó¼ºÁ¦·Ã
+ 	// ì†ì„±ì œë ¨
 	lua.GetGloabal( "tAttribute" );
  	lua.PushNil();
  	while( lua.TableLoop( -2 ) )
@@ -187,7 +187,7 @@ void CItemUpgrade::OnPiercingSize( CUser* pUser, DWORD dwId1, DWORD dwId2, DWORD
 	if( IsUsableItem( pItemElem0 ) == FALSE || IsUsableItem( pItemElem1 ) == FALSE )
 		return;
 
-	if( pUser->m_vtInfo.GetOther() || pUser->m_vtInfo.VendorIsVendor() ) // °Å·¡ ÁßÀÌ¸é...
+	if( pUser->m_vtInfo.GetOther() || pUser->m_vtInfo.VendorIsVendor() ) // ê±°ë˜ ì¤‘ì´ë©´...
 		return;	
 	
 	if( pUser->m_Inventory.IsEquip( pItemElem0->m_dwObjId ) )
@@ -196,7 +196,7 @@ void CItemUpgrade::OnPiercingSize( CUser* pUser, DWORD dwId1, DWORD dwId2, DWORD
 		return;
 	}	
 
-	//////////////// Ã¹¹øÂ° ¾ÆÀÌÅÛ //////////////// 
+	//////////////// ì²«ë²ˆì§¸ ì•„ì´í…œ //////////////// 
 	if( !pItemElem0->IsPierceAble( NULL_ID, TRUE ) )
 	{
 		pUser->AddDefinedText( TID_PIERCING_POSSIBLE_ITEM );
@@ -213,13 +213,13 @@ void CItemUpgrade::OnPiercingSize( CUser* pUser, DWORD dwId1, DWORD dwId2, DWORD
 	if( pItemElem1->GetProp()->dwID != II_GEN_MAT_MOONSTONE 
 		&& pItemElem1->GetProp()->dwID != II_GEN_MAT_MOONSTONE_1 )
 	{
-		pUser->AddDefinedText( TID_SBEVE_NOTUSEITEM );			// ÇÇ¾î½Ì¿¡ ÇÊ¿äÇÑ ÁÖ»çÀ§°¡ ¾Æ´Ï¸é ºÒ°¡´É
+		pUser->AddDefinedText( TID_SBEVE_NOTUSEITEM );			// í”¼ì–´ì‹±ì— í•„ìš”í•œ ì£¼ì‚¬ìœ„ê°€ ì•„ë‹ˆë©´ ë¶ˆê°€ëŠ¥
 		return;
 	}
 	
 	if( IsUsableItem( pItemElem2 ) && pItemElem2->m_dwItemId != II_SYS_SYS_SCR_PIEPROT )
 	{
-		pUser->AddDefinedText( TID_SBEVE_NOTUSEITEM );			// »ó¿ë¾ÆÀÌÅÛÀÌ ¾Æ´Ï¸é ºÒ°¡´É
+		pUser->AddDefinedText( TID_SBEVE_NOTUSEITEM );			// ìƒìš©ì•„ì´í…œì´ ì•„ë‹ˆë©´ ë¶ˆê°€ëŠ¥
 		return;
 	}
 
@@ -260,8 +260,8 @@ void CItemUpgrade::OnPiercingSize( CUser* pUser, DWORD dwId1, DWORD dwId2, DWORD
 		nPersent = GetSizeProb( pItemElem0 );
 
 	if( nPersent < (int)( xRandom( 10000 ) ) )
-	{	// ½ÇÆĞ
-		if( pItemElem2 )								// »ó¿ëÈ­ ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ¿´À¸¸é...
+	{	// ì‹¤íŒ¨
+		if( pItemElem2 )								// ìƒìš©í™” ì•„ì´í…œì„ ì‚¬ìš©í•˜ì˜€ìœ¼ë©´...
 			aLogItem.RecvName = "PIERCING_PROTECTED";
 		aLogItem.Action = "!";
 		g_DPSrvr.OnLogItem( aLogItem, pItemElem0, pItemElem0->m_nItemNum );
@@ -271,11 +271,11 @@ void CItemUpgrade::OnPiercingSize( CUser* pUser, DWORD dwId1, DWORD dwId2, DWORD
 		g_UserMng.AddCreateSfxObj((CMover *)pUser, XI_INT_FAIL, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z);
 		pUser->AddDefinedText( TID_MMI_PIERCINGFAIL , "" );
 		
-		if( pItemElem2 == NULL )								// »ó¿ëÈ­ ¾ÆÀÌÅÛÀ» »ç¿ëÇÏÁö ¾Ê¾Ò´Ù¸é 
-			pUser->RemoveItem( (BYTE)( dwId1 ), (short)1 );	// ÇÇ¾î½Ì ´ë»ó ¾ÆÀÌÅÛÀº »èÁ¦µÈ´Ù.			
+		if( pItemElem2 == NULL )								// ìƒìš©í™” ì•„ì´í…œì„ ì‚¬ìš©í•˜ì§€ ì•Šì•˜ë‹¤ë©´ 
+			pUser->RemoveItem( (BYTE)( dwId1 ), (short)1 );	// í”¼ì–´ì‹± ëŒ€ìƒ ì•„ì´í…œì€ ì‚­ì œëœë‹¤.			
 	}
 	else
-	{	// ¼º°ø			
+	{	// ì„±ê³µ			
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );			
 		g_UserMng.AddCreateSfxObj((CMover *)pUser, XI_INT_SUCCESS, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z);			
 		pUser->UpdateItem( (BYTE)pItemElem0->m_dwObjId, UI_PIERCING_SIZE, pItemElem0->GetPiercingSize() + 1 );
@@ -287,7 +287,7 @@ void CItemUpgrade::OnPiercingSize( CUser* pUser, DWORD dwId1, DWORD dwId2, DWORD
 	aLogItem.Action = "!";
 	g_DPSrvr.OnLogItem( aLogItem, pItemElem1, pItemElem1->m_nItemNum );
 
-	// ´ÙÀÌ½º¿Í À¯·á¾ÆÀÌÅÛ »èÁ¦ÇÑ´Ù.
+	// ë‹¤ì´ìŠ¤ì™€ ìœ ë£Œì•„ì´í…œ ì‚­ì œí•œë‹¤.
 	pUser->RemoveItem( (BYTE)( dwId2 ), (short)1 );
 
 	if( dwId3 != NULL_ID )
@@ -308,7 +308,7 @@ void CItemUpgrade::OnPiercingSize( CUser* pUser, DWORD dwId1, DWORD dwId2, DWORD
 
 int CItemUpgrade::GetSizeProb( CItemElem* pItemElem )
 {
-	// Æí¹ıÀ¸·Î...IK3_SOCKETCARD°¡ Á¤»óÀÌ¸é ½´Æ®...
+	// í¸ë²•ìœ¼ë¡œ...IK3_SOCKETCARDê°€ ì •ìƒì´ë©´ ìŠˆíŠ¸...
 	if( pItemElem->IsPierceAble( IK3_SOCKETCARD ) )
 	{
 		//return m_vecSuitProb.size() >= pItemElem->GetPiercingSize() ? m_vecSuitProb[pItemElem->GetPiercingSize()] : 0;
@@ -317,7 +317,7 @@ int CItemUpgrade::GetSizeProb( CItemElem* pItemElem )
 			return it->second;
 	}
 	
-	// Æí¹ıÀ¸·Î...IK3_SOCKETCARD2°¡ Á¤»óÀÌ¸é ¹«±âÂÊ...
+	// í¸ë²•ìœ¼ë¡œ...IK3_SOCKETCARD2ê°€ ì •ìƒì´ë©´ ë¬´ê¸°ìª½...
 	if( pItemElem->IsPierceAble( IK3_SOCKETCARD2 ) )
 	{
 		//return m_vecWeaponProb.size() >= pItemElem->GetPiercingSize() ? m_vecWeaponProb[pItemElem->GetPiercingSize()] : 0;
@@ -331,20 +331,20 @@ int CItemUpgrade::GetSizeProb( CItemElem* pItemElem )
 
 void CItemUpgrade::OnPiercing( CUser* pUser, DWORD dwItemId, DWORD dwSocketCard )
 {
-	// ÀÎº¥Åä¸®¿¡ ÀÖ´ÂÁö ÀåÂøµÇ¾î ÀÖ´ÂÁö È®ÀÎÀ» ÇØ¾ß ÇÔ
+	// ì¸ë²¤í† ë¦¬ì— ìˆëŠ”ì§€ ì¥ì°©ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸ì„ í•´ì•¼ í•¨
 	CItemElem* pItemElem0	= pUser->m_Inventory.GetAtId( dwItemId );
 	CItemElem* pItemElem1	= pUser->m_Inventory.GetAtId( dwSocketCard );
 	if( IsUsableItem( pItemElem0 ) == FALSE || IsUsableItem( pItemElem1 ) == FALSE )
 		return;
 
-	// ÀåÂøµÇ¾î ÀÖ´Â ¾ÆÀÌÅÛÀº ÇÇ¾î½Ì ¸øÇÔ
+	// ì¥ì°©ë˜ì–´ ìˆëŠ” ì•„ì´í…œì€ í”¼ì–´ì‹± ëª»í•¨
 	if( pUser->m_Inventory.IsEquip( dwItemId ) )
 	{
 		pUser->AddDefinedText( TID_GAME_EQUIPPUT , "" );
 		return;
 	}			
 
-	// Ä«µå°¡ µé¾î°¥ ¾ÆÀÌÅÛÀÌ ÇÇ¾î½Ì °¡´ÉÇÑÁö °Ë»ç
+	// ì¹´ë“œê°€ ë“¤ì–´ê°ˆ ì•„ì´í…œì´ í”¼ì–´ì‹± ê°€ëŠ¥í•œì§€ ê²€ì‚¬
 	if( !pItemElem0->IsPierceAble() )
 	{
 		pUser->AddDefinedText(  TID_PIERCING_POSSIBLE_ITEM, "" );
@@ -358,14 +358,14 @@ void CItemUpgrade::OnPiercing( CUser* pUser, DWORD dwItemId, DWORD dwSocketCard 
 	}
 #endif // __NEW_ITEM_VARUNA
 
-	//  IK3_SOCKETCARD?°¡ ¾Æ´Ï¸é ÇÇ¾î½Ì ¸øÇÔ
+	//  IK3_SOCKETCARD?ê°€ ì•„ë‹ˆë©´ í”¼ì–´ì‹± ëª»í•¨
 	if( !pItemElem0->IsPierceAble( pItemElem1->GetProp()->dwItemKind3 ) )
 	{
 		pUser->AddDefinedText( TID_UPGRADE_ERROR_WRONGUPLEVEL , "" );			
 		return;					
 	}
 
-	// ÃÑ ÇÇ¾î½ÌµÈ¼ö¿Í ÀüÃ¼ ¼ö¸¦ ºñ±³ÇÑ´Ù.
+	// ì´ í”¼ì–´ì‹±ëœìˆ˜ì™€ ì „ì²´ ìˆ˜ë¥¼ ë¹„êµí•œë‹¤.
 	int nSize = pItemElem0->GetPiercingSize();
 
 	int nCount = 0;
@@ -375,17 +375,17 @@ void CItemUpgrade::OnPiercing( CUser* pUser, DWORD dwItemId, DWORD dwSocketCard 
 			nCount++;
 	}
 
-	// ºó°÷ÀÌ ¾øÀ¸¸é Áß´Ü
+	// ë¹ˆê³³ì´ ì—†ìœ¼ë©´ ì¤‘ë‹¨
 	if( nCount == nSize )
 	{
 		pUser->AddDefinedText( TID_PIERCING_ERROR_NOPIERCING, "" );
 		return;
 	}
 
-	// Ë¬
-	if( pUser->m_vtInfo.GetOther() )	// °Å·¡ÁßÀÎ ´ë»óÀÌ ÀÖÀ¸¸é?
+	// åº·
+	if( pUser->m_vtInfo.GetOther() )	// ê±°ë˜ì¤‘ì¸ ëŒ€ìƒì´ ìˆìœ¼ë©´?
 		return;
-	if( pUser->m_vtInfo.VendorIsVendor() )		// ³»°¡ ÆÈ°í ÀÖÀ¸¸é?
+	if( pUser->m_vtInfo.VendorIsVendor() )		// ë‚´ê°€ íŒ”ê³  ìˆìœ¼ë©´?
 		return;
 
 	LogItemInfo aLogItem;
@@ -401,10 +401,10 @@ void CItemUpgrade::OnPiercing( CUser* pUser, DWORD dwItemId, DWORD dwSocketCard 
 		aLogItem.Action = "!";
 		g_DPSrvr.OnLogItem( aLogItem, pItemElem1, pItemElem1->m_nItemNum );
 
-		// ¾ÆÀÌÅÛ ¹Ú±â ¼º°ø~
+		// ì•„ì´í…œ ë°•ê¸° ì„±ê³µ~
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
 		g_UserMng.AddCreateSfxObj((CMover *)pUser, XI_INT_SUCCESS, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z);
-		// Àç·á ¾ÆÀÌÅÛ »èÁ¦
+		// ì¬ë£Œ ì•„ì´í…œ ì‚­ì œ
 		pUser->RemoveItem( (BYTE)( dwSocketCard ), (short)1 );
 	}
 
@@ -419,7 +419,7 @@ void CItemUpgrade::OnPiercingRemove( CUser* pUser, DWORD objId )
 	if( pUser->m_Inventory.IsEquip( objId ) )
 		return;
 
-	// ÇÇ¾î½Ì ¿É¼ÇÀÌ ¾ø´Â °æ¿ì
+	// í”¼ì–´ì‹± ì˜µì…˜ì´ ì—†ëŠ” ê²½ìš°
 	if( pItemElem->GetPiercingSize() == 0 || pItemElem->GetPiercingItem( 0 ) == 0 )
 	{
 		pUser->AddDefinedText( TID_GAME_REMOVE_PIERCING_ERROR );
@@ -432,8 +432,8 @@ void CItemUpgrade::OnPiercingRemove( CUser* pUser, DWORD objId )
 	}
 #endif // __NEW_ITEM_VARUNA
 
-	int nPayPenya = 1000000; // ÁöºÒÇÒ Æä³Ä
-	if( pUser->GetGold() < nPayPenya )	// Æä³Ä°¡ ºÎÁ·ÇÏ´Ù.
+	int nPayPenya = 1000000; // ì§€ë¶ˆí•  í˜ëƒ
+	if( pUser->GetGold() < nPayPenya )	// í˜ëƒê°€ ë¶€ì¡±í•˜ë‹¤.
 	{
 		pUser->AddDefinedText( TID_GAME_LACKMONEY );
 		return;
@@ -443,7 +443,7 @@ void CItemUpgrade::OnPiercingRemove( CUser* pUser, DWORD objId )
 	{
 		if( pItemElem->GetPiercingItem( i ) != 0 )
 		{
-			pUser->AddGold( -nPayPenya );	// Æä³Ä ÁöºÒ
+			pUser->AddGold( -nPayPenya );	// í˜ëƒ ì§€ë¶ˆ
 			pUser->AddDefinedText( TID_GAME_REMOVE_PIERCING_SUCCESS );
 			pUser->UpdateItem( (BYTE)( pItemElem->m_dwObjId ), UI_PIERCING, MAKELONG( i, 0 ) );
 
@@ -468,7 +468,7 @@ void	CItemUpgrade::OnEnchant( CUser* pUser, CItemElem* pItemMain, CItemElem* pIt
 #if __VER >= 14 // __SMELT_SAFETY
 	if( !IsUsableItem( pItemMain ) || !IsUsableItem( pItemMaterial ) )
 		return;
-	// ´ë»óÀÌ ÀåÂøÁßÀÎ°¡?
+	// ëŒ€ìƒì´ ì¥ì°©ì¤‘ì¸ê°€?
 	if( pUser->m_Inventory.IsEquip( pItemMain->m_dwObjId ) )
 	{
 		pUser->AddDefinedText( TID_GAME_EQUIPPUT , "" );
@@ -514,25 +514,25 @@ BYTE	CItemUpgrade::OnSmeltSafety( CUser* pUser, CItemElem* pItemMain, CItemElem*
 		return 0;
 	}
 #endif // __NEW_ITEM_VARUNA
-	// Àç·á¿¡ µû¶ó ºĞ±â
+	// ì¬ë£Œì— ë”°ë¼ ë¶„ê¸°
 	switch( pItemMaterial->GetProp()->dwItemKind3 )
 	{
-		//	¿À¸®Ä®ÄñÀÏ¶§
+		//	ì˜¤ë¦¬ì¹¼ì¿°ì¼ë•Œ
 		case IK3_ENCHANT:
-			//	ÀÏ¹İÁ¦·Ã(ÀÏ¹İ or ¾óÅÍ¸Ú¿şÆùÀÎÁö Àç°Ë»ç)
+			//	ì¼ë°˜ì œë ¨(ì¼ë°˜ or ì–¼í„°ë©‹ì›¨í°ì¸ì§€ ì¬ê²€ì‚¬)
 			return SmeltSafetyNormal( pUser, pItemMain, pItemMaterial, pItemProtScr, pItemSmeltScr );
 
-		//	¹®½ºÅæÀÏ¶§
+		//	ë¬¸ìŠ¤í†¤ì¼ë•Œ
 		case IK3_PIERDICE:
-			//	¾Ç¼¼¼­¸®ÀÎ°¡
+			//	ì•…ì„¸ì„œë¦¬ì¸ê°€
 			if( pItemMain->IsAccessory() )
 				return SmeltSafetyAccessory( pUser, pItemMain, pItemMaterial, pItemProtScr );
-			//	ÇÇ¾î½ÌÀÎ°¡
+			//	í”¼ì–´ì‹±ì¸ê°€
 			else if( pItemMain->IsPierceAble( NULL_ID, TRUE ) )
 				return SmeltSafetyPiercingSize( pUser, pItemMain, pItemMaterial, pItemProtScr );
 
 #if __VER >= 15 // __15_5TH_ELEMENTAL_SMELT_SAFETY
-		// ¼Ó¼ºÄ«µå ÀÏ¶§
+		// ì†ì„±ì¹´ë“œ ì¼ë•Œ
 		case IK3_ELECARD:
 			return SmeltSafetyAttribute( pUser, pItemMain, pItemMaterial, pItemProtScr, pItemSmeltScr );
 #endif // __15_5TH_ELEMENTAL_SMELT_SAFETY
@@ -545,15 +545,15 @@ BYTE	CItemUpgrade::OnSmeltSafety( CUser* pUser, CItemElem* pItemMain, CItemElem*
 
 BYTE	CItemUpgrade::SmeltSafetyNormal( CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial, CItemElem* pItemProtScr, CItemElem* pItemSmeltScr )
 {
-	//	¿À¸®Ä®ÄñÀÎ°¡, ºû³ª´Â ¿À¸®Ä®ÄñÀÎ°¡
+	//	ì˜¤ë¦¬ì¹¼ì¿°ì¸ê°€, ë¹›ë‚˜ëŠ” ì˜¤ë¦¬ì¹¼ì¿°ì¸ê°€
 	switch( pItemMaterial->GetProp()->dwID )
 	{
-		//	¿À¸®Ä®ÄñÀÏ¶§ ÀÏ¹İÁ¦·Ã
+		//	ì˜¤ë¦¬ì¹¼ì¿°ì¼ë•Œ ì¼ë°˜ì œë ¨
 		case II_GEN_MAT_ORICHALCUM01:
 		case II_GEN_MAT_ORICHALCUM01_1:
 			return SmeltSafetyGeneral( pUser, pItemMain, pItemMaterial, pItemProtScr, pItemSmeltScr );
 
-		//	ºû³ª´Â ¿À¸®Ä®ÄñÀÏ¶§ ¾óÅÍ¸Ú¿şÆù Á¦·Ã
+		//	ë¹›ë‚˜ëŠ” ì˜¤ë¦¬ì¹¼ì¿°ì¼ë•Œ ì–¼í„°ë©‹ì›¨í° ì œë ¨
 		case II_GEN_MAT_ORICHALCUM02:
 			return prj.m_UltimateWeapon.SmeltSafetyUltimate( pUser, pItemMain, pItemMaterial, pItemProtScr );
 
@@ -565,14 +565,14 @@ BYTE	CItemUpgrade::SmeltSafetyNormal( CUser* pUser, CItemElem* pItemMain, CItemE
 
 BYTE	CItemUpgrade::SmeltSafetyGeneral( CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial, CItemElem* pItemProtScr, CItemElem* pItemSmeltScr )
 {
-	//	Á¦·Ã°¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ ¾Æ´Ò°æ¿ì ¸®ÅÏ
+	//	ì œë ¨ê°€ëŠ¥í•œ ì•„ì´í…œì´ ì•„ë‹ê²½ìš° ë¦¬í„´
 	if( !CItemElem::IsDiceRefineryAble(pItemMain->GetProp()) )
 	{
 		//pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
 		return 0;
 	}
 	
-	//	¾óÅÍ¸Ú¿şÆù ÀÌ°Å³ª ÀÏ¹İº¸È£ÀÇ µÎ·ç¸¶¸®°¡ ¾Æ´Ò°æ¿ì ¸®ÅÏ
+	//	ì–¼í„°ë©‹ì›¨í° ì´ê±°ë‚˜ ì¼ë°˜ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ê°€ ì•„ë‹ê²½ìš° ë¦¬í„´
 	if( pItemMain->GetProp()->dwReferStat1 == WEAPON_ULTIMATE || pItemProtScr->GetProp()->dwID != II_SYS_SYS_SCR_SMELPROT )
 	{
 		//pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
@@ -586,23 +586,23 @@ BYTE	CItemUpgrade::SmeltSafetyGeneral( CUser* pUser, CItemElem* pItemMain, CItem
 	}
 #endif // __NEW_ITEM_VARUNA
 
-	//	Á¦·Ã¼öÄ¡°¡ maxÄ¡¸¦ ³Ñ¾úÀ»¶§ ¸®ÅÏ
+	//	ì œë ¨ìˆ˜ì¹˜ê°€ maxì¹˜ë¥¼ ë„˜ì—ˆì„ë•Œ ë¦¬í„´
 	if( pItemMain->GetAbilityOption() >= GetMaxGeneralEnchantSize() )
 	{
 		//pUser->AddDefinedText( TID_UPGRADE_MAXOVER );
 		return 3;
 	}
 	
-	// 1000´ÜÀ§ÀÇ ¼º°ø ÆÛ¼¾Æ®
+	// 1000ë‹¨ìœ„ì˜ ì„±ê³µ í¼ì„¼íŠ¸
 	int nPercent = GetGeneralEnchantProb( pItemMain->GetAbilityOption() );
 	
-	//	Á¦·ÃÀÇ µÎ·ç¸¶¸®¸¦ »ç¿ëÇß´Ù¸é
+	//	ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ë¥¼ ì‚¬ìš©í–ˆë‹¤ë©´
 	if( pItemSmeltScr != NULL )
 	{
-		//	Á¦·ÃÀÇ µÎ·ç¸¶¸®°¡ ¸Â´ÂÁö È®ÀÎ
+		//	ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ê°€ ë§ëŠ”ì§€ í™•ì¸
 		if( IsUsableItem( pItemSmeltScr ) && pItemSmeltScr->GetProp()->dwID == II_SYS_SYS_SCR_SMELTING )
 		{
-			//	Á¦·ÃÀÇ µÎ·ç¸¶¸® »ç¿ë°¡´É ¼öÄ¡ÀÎ°¡
+			//	ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ ì‚¬ìš©ê°€ëŠ¥ ìˆ˜ì¹˜ì¸ê°€
 			if( pItemMain->GetAbilityOption() < 7 )
 			{
 				nPercent += 1000;
@@ -615,7 +615,7 @@ BYTE	CItemUpgrade::SmeltSafetyGeneral( CUser* pUser, CItemElem* pItemMain, CItem
 				pUser->RemoveItem( (BYTE)( pItemSmeltScr->m_dwObjId ), 1 );
 			}
 		}
-		//	Á¦·ÃÀÇ µÎ·ç¸¶¸®°¡ ¾Æ´Ò¶§
+		//	ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ê°€ ì•„ë‹ë•Œ
 		else
 			return 0;
 	}
@@ -629,9 +629,9 @@ BYTE	CItemUpgrade::SmeltSafetyGeneral( CUser* pUser, CItemElem* pItemMain, CItem
 	aLogItem.Gold2 = pUser->GetGold();
 
 	g_DPSrvr.OnLogItem( aLogItem, pItemMaterial, pItemMaterial->m_nItemNum );
-	// Á¦·Ã¾ÆÅÛ »èÁ¦ - ¼º°øÀÌ´ø, ½ÇÆĞ´ø...
+	// ì œë ¨ì•„í…œ ì‚­ì œ - ì„±ê³µì´ë˜, ì‹¤íŒ¨ë˜...
 	pUser->RemoveItem( (BYTE)( pItemMaterial->m_dwObjId ), 1 );
-	//	º¸È£ÀÇ µÎ·ç¸¶¸® ·Î±×³²±æ°Í
+	//	ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ ë¡œê·¸ë‚¨ê¸¸ê²ƒ
 	ItemProp* pItemProp = pItemProtScr->GetProp();
 	if( pItemProp )
 	{
@@ -640,10 +640,10 @@ BYTE	CItemUpgrade::SmeltSafetyGeneral( CUser* pUser, CItemElem* pItemMain, CItem
 	}
 	pUser->RemoveItem( (BYTE)( pItemProtScr->m_dwObjId ), 1 );
 
-	// ÇØ´ç ¾ÆÀÌÅÛÀÇ ¼Ó¼º, ÀÏ¹İ ·¹º§À» ¾ò¾î È®À²À» ²¨³½´Ù.
+	// í•´ë‹¹ ì•„ì´í…œì˜ ì†ì„±, ì¼ë°˜ ë ˆë²¨ì„ ì–»ì–´ í™•ìœ¨ì„ êº¼ë‚¸ë‹¤.
 	if( (int)( xRandom( 10000 ) ) > nPercent )
 	{
-		// ½ÇÆĞ ¸Ş¼¼Áö Ãâ·Â
+		// ì‹¤íŒ¨ ë©”ì„¸ì§€ ì¶œë ¥
 		//pUser->AddDefinedText( TID_UPGRADE_FAIL );
 		pUser->AddPlaySound( SND_INF_UPGRADEFAIL );
 		
@@ -657,7 +657,7 @@ BYTE	CItemUpgrade::SmeltSafetyGeneral( CUser* pUser, CItemElem* pItemMain, CItem
 	}
 	else
 	{
-		// ¼º°ø
+		// ì„±ê³µ
 		//pUser->AddDefinedText( TID_UPGRADE_SUCCEEFUL );
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
 		
@@ -675,19 +675,19 @@ BYTE	CItemUpgrade::SmeltSafetyGeneral( CUser* pUser, CItemElem* pItemMain, CItem
 
 BYTE	CItemUpgrade::SmeltSafetyAccessory(CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial, CItemElem* pItemProtScr )
 {
-	// Àç·á°¡ ¹®½ºÅæÀÎ°¡?
+	// ì¬ë£Œê°€ ë¬¸ìŠ¤í†¤ì¸ê°€?
 	if( pItemMaterial->GetProp()->dwID != II_GEN_MAT_MOONSTONE && pItemMaterial->GetProp()->dwID != II_GEN_MAT_MOONSTONE_1 )
 	{
 		//pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
 		return 0;
 	}
-	//	¾Ç¼¼¼­¸® º¸È£ÀÇ µÎ·ç¸¶¸®°¡ ¾Æ´Ò°æ¿ì ¸®ÅÏ
+	//	ì•…ì„¸ì„œë¦¬ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ê°€ ì•„ë‹ê²½ìš° ë¦¬í„´
 	if( pItemProtScr->GetProp()->dwID != II_SYS_SYS_SCR_SMELPROT4 )
 	{
 		//pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
 		return 0;
 	}
-	//	Á¦·Ã¼öÄ¡°¡ maxÄ¡¸¦ ³Ñ¾úÀ»¶§ ¸®ÅÏ
+	//	ì œë ¨ìˆ˜ì¹˜ê°€ maxì¹˜ë¥¼ ë„˜ì—ˆì„ë•Œ ë¦¬í„´
 	if( pItemMain->GetAbilityOption() >= MAX_AAO )	// 20
 	{
 		//pUser->AddDefinedText( TID_GAME_ACCESSORY_MAX_AAO );
@@ -705,7 +705,7 @@ BYTE	CItemUpgrade::SmeltSafetyAccessory(CUser* pUser, CItemElem* pItemMain, CIte
 	aLogItem.Action	= "N";
 	g_DPSrvr.OnLogItem( aLogItem, pItemMaterial, pItemMaterial->m_nItemNum );
 	pUser->RemoveItem( (BYTE)( pItemMaterial->m_dwObjId ), 1 );
-	// ¾×¼¼¼­¸® º¸È£ÀÇ µÎ·ç¸¶¸® ·Î±× ³²±æ°Í
+	// ì•¡ì„¸ì„œë¦¬ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ ë¡œê·¸ ë‚¨ê¸¸ê²ƒ
 	ItemProp* pItemProp = pItemProtScr->GetProp();
 	if( pItemProp )
 	{
@@ -714,10 +714,10 @@ BYTE	CItemUpgrade::SmeltSafetyAccessory(CUser* pUser, CItemElem* pItemMain, CIte
 	}
 	pUser->RemoveItem( (BYTE)( pItemProtScr->m_dwObjId ), 1 );
 
-	// Á¦·Ã È®·ü
+	// ì œë ¨ í™•ë¥ 
 	DWORD dwProbability = CAccessoryProperty::GetInstance()->GetProbability( pItemMain->GetAbilityOption() );
 
-	if( xRandom( 10000 ) > dwProbability )	// ½ÇÆĞ
+	if( xRandom( 10000 ) > dwProbability )	// ì‹¤íŒ¨
 	{
 		pUser->AddPlaySound( SND_INF_UPGRADEFAIL );
 		if( pUser->IsMode( TRANSPARENT_MODE ) == 0 )
@@ -728,7 +728,7 @@ BYTE	CItemUpgrade::SmeltSafetyAccessory(CUser* pUser, CItemElem* pItemMain, CIte
 
 		return 2;
 	}
-	else	// ¼º°ø
+	else	// ì„±ê³µ
 	{
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
 			
@@ -747,16 +747,16 @@ BYTE	CItemUpgrade::SmeltSafetyAccessory(CUser* pUser, CItemElem* pItemMain, CIte
 
 BYTE	CItemUpgrade::SmeltSafetyPiercingSize(CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial, CItemElem* pItemProtScr )
 {
-	// Àç·á°¡ ¹®½ºÅæÀÎ°¡?
+	// ì¬ë£Œê°€ ë¬¸ìŠ¤í†¤ì¸ê°€?
 	if( pItemMaterial->GetProp()->dwID != II_GEN_MAT_MOONSTONE && pItemMaterial->GetProp()->dwID != II_GEN_MAT_MOONSTONE_1 )
 	{
 		//pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
 		return 0;
 	}
-	//	ÇÇ¾î½Ì º¸È£ÀÇ µÎ·ç¸¶¸®ÀÎ°¡
+	//	í”¼ì–´ì‹± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ì¸ê°€
 	if( pItemProtScr->m_dwItemId != II_SYS_SYS_SCR_PIEPROT )
 	{
-		//pUser->AddDefinedText( TID_SBEVE_NOTUSEITEM );			// »ó¿ë¾ÆÀÌÅÛÀÌ ¾Æ´Ï¸é ºÒ°¡´É
+		//pUser->AddDefinedText( TID_SBEVE_NOTUSEITEM );			// ìƒìš©ì•„ì´í…œì´ ì•„ë‹ˆë©´ ë¶ˆê°€ëŠ¥
 		return 0;
 	}
 #ifdef __NEW_ITEM_VARUNA
@@ -797,11 +797,11 @@ BYTE	CItemUpgrade::SmeltSafetyPiercingSize(CUser* pUser, CItemElem* pItemMain, C
 	}
 	aLogItem.Gold = aLogItem.Gold2 = pUser->GetGold();
 
-	// Àç·á¿Í µÎ·ç¸¶¸® »èÁ¦.
+	// ì¬ë£Œì™€ ë‘ë£¨ë§ˆë¦¬ ì‚­ì œ.
 	aLogItem.Action = "!";
 	g_DPSrvr.OnLogItem( aLogItem, pItemMaterial, pItemMaterial->m_nItemNum );
 	pUser->RemoveItem( (BYTE)( pItemMaterial->m_dwObjId ), 1 );
-	//	ÇÇ¾î½Ì º¸È£ÀÇ µÎ·ç¸¶¸® ·Î±× ³²±æ°Í
+	//	í”¼ì–´ì‹± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬ ë¡œê·¸ ë‚¨ê¸¸ê²ƒ
 	ItemProp* pItemProp = pItemProtScr->GetProp();
 	if( pItemProp )
 	{
@@ -813,7 +813,7 @@ BYTE	CItemUpgrade::SmeltSafetyPiercingSize(CUser* pUser, CItemElem* pItemMain, C
 	int nPercent = GetSizeProb( pItemMain );
 
 	if( nPercent < (int)( xRandom( 10000 ) ) )
-	{	// ½ÇÆĞ
+	{	// ì‹¤íŒ¨
 		//pUser->AddDefinedText( TID_MMI_PIERCINGFAIL );
 		pUser->AddPlaySound( SND_INF_UPGRADEFAIL );
 		if( pUser->IsMode( TRANSPARENT_MODE ) == 0)
@@ -825,7 +825,7 @@ BYTE	CItemUpgrade::SmeltSafetyPiercingSize(CUser* pUser, CItemElem* pItemMain, C
 		return 2;
 	}
 	else
-	{	// ¼º°ø
+	{	// ì„±ê³µ
 		//pUser->AddDefinedText( TID_MMI_PIERCINGSUCCESS );
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
 		if( pUser->IsMode( TRANSPARENT_MODE ) == 0)
@@ -842,7 +842,7 @@ BYTE	CItemUpgrade::SmeltSafetyPiercingSize(CUser* pUser, CItemElem* pItemMain, C
 
 void	CItemUpgrade::RefineAccessory( CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial )
 {
-	// Àç·á°¡ ¹®½ºÅæÀÎ°¡?
+	// ì¬ë£Œê°€ ë¬¸ìŠ¤í†¤ì¸ê°€?
 	if( pItemMaterial->GetProp()->dwID != II_GEN_MAT_MOONSTONE && pItemMaterial->GetProp()->dwID != II_GEN_MAT_MOONSTONE_1 )
 	{
 		pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
@@ -863,7 +863,7 @@ void	CItemUpgrade::RefineAccessory( CUser* pUser, CItemElem* pItemMain, CItemEle
 	aLogItem.Gold2	= pUser->GetGold();
 
 	DWORD dwProbability		= CAccessoryProperty::GetInstance()->GetProbability( pItemMain->GetAbilityOption() );
-	// ¾×¼¼¼­¸® º¸È£ÀÇ µÎ·ç¸¶¸®
+	// ì•¡ì„¸ì„œë¦¬ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 	BOOL bSmelprot	= FALSE;
 	if( pUser->HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_SMELPROT4 ) )
 	{
@@ -874,7 +874,7 @@ void	CItemUpgrade::RefineAccessory( CUser* pUser, CItemElem* pItemMain, CItemEle
 			g_dpDBClient.SendLogSMItemUse( "2", pUser, NULL, pItemProp );
 	}
 
-	if( xRandom( 10000 ) < dwProbability )	// ¼º°ø
+	if( xRandom( 10000 ) < dwProbability )	// ì„±ê³µ
 	{
 		pUser->AddDefinedText( TID_UPGRADE_SUCCEEFUL );
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
@@ -887,7 +887,7 @@ void	CItemUpgrade::RefineAccessory( CUser* pUser, CItemElem* pItemMain, CItemEle
 		aLogItem.Action		= "H";
 		g_DPSrvr.OnLogItem( aLogItem, pItemMain, pItemMain->m_nItemNum );
 	}
-	else	// ½ÇÆĞ
+	else	// ì‹¤íŒ¨
 	{
 		pUser->AddDefinedText( TID_UPGRADE_FAIL );
 		pUser->AddPlaySound( SND_INF_UPGRADEFAIL );
@@ -896,7 +896,7 @@ void	CItemUpgrade::RefineAccessory( CUser* pUser, CItemElem* pItemMain, CItemEle
 
 		if( !bSmelprot )
 		{
-			if( pItemMain->GetAbilityOption() >= 3 )		// »èÁ¦
+			if( pItemMain->GetAbilityOption() >= 3 )		// ì‚­ì œ
 			{
 				aLogItem.Action	= "L";
 				g_DPSrvr.OnLogItem( aLogItem, pItemMain, pItemMain->m_nItemNum );
@@ -911,7 +911,7 @@ void	CItemUpgrade::RefineAccessory( CUser* pUser, CItemElem* pItemMain, CItemEle
 
 void	CItemUpgrade::RefineCollector( CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial )
 {
-	// Àç·á°¡ ¹®½ºÅæÀÎ°¡?
+	// ì¬ë£Œê°€ ë¬¸ìŠ¤í†¤ì¸ê°€?
 	if( pItemMaterial->GetProp()->dwID != II_GEN_MAT_MOONSTONE && pItemMaterial->GetProp()->dwID != II_GEN_MAT_MOONSTONE_1 )
 	{
 		pUser->AddDefinedText( TID_GAME_NOTEQUALITEM );
@@ -964,18 +964,18 @@ void	CItemUpgrade::RefineCollector( CUser* pUser, CItemElem* pItemMain, CItemEle
 #if __VER >= 15 // __15_5TH_ELEMENTAL_SMELT_SAFETY
 BYTE	CItemUpgrade::SmeltSafetyAttribute(CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial, CItemElem* pItemProtScr, CItemElem* pItemSmeltScr )
 {
-	// ¼Ó¼º Á¦·ÃÀÌ °¡´ÉÇÑ°¡
+	// ì†ì„± ì œë ¨ì´ ê°€ëŠ¥í•œê°€
 	if( !CItemElem::IsEleRefineryAble( pItemMain->GetProp() ) )
 		return 0;
 
-	// ¼Ó¼ºÀº ÇÑ°¡Áö¸¸
+	// ì†ì„±ì€ í•œê°€ì§€ë§Œ
 	if( pItemMain->m_bItemResist != SAI79::NO_PROP )
 	{
 		if( pItemMain->m_bItemResist != pItemMaterial->GetProp()->eItemType )
 			return 0;
 	}
 
-	// ¼Ó¼º ´ç ÇÏ³ªÀÇ ¼Ó¼º Á¦·Ã Ä«µå¸¦ »ç¿ëÇÏµµ·Ï ¼öÁ¤
+	// ì†ì„± ë‹¹ í•˜ë‚˜ì˜ ì†ì„± ì œë ¨ ì¹´ë“œë¥¼ ì‚¬ìš©í•˜ë„ë¡ ìˆ˜ì •
 	if( pItemMaterial->GetProp()->dwID != WhatEleCard( pItemMaterial->GetProp()->eItemType ) )
 		return 0;
 
@@ -986,24 +986,24 @@ BYTE	CItemUpgrade::SmeltSafetyAttribute(CUser* pUser, CItemElem* pItemMain, CIte
 	}
 #endif // __NEW_ITEM_VARUNA
 
-	// ÃÖ´ë °ªÀ» ³Ñ´Â °æ¿ì Áß´Ü
+	// ìµœëŒ€ ê°’ì„ ë„˜ëŠ” ê²½ìš° ì¤‘ë‹¨
 	if( pItemMain->m_nResistAbilityOption >= GetMaxAttributeEnchantSize() )
 		return 3;
 	
-	// 10000´ÜÀ§ÀÇ ¼º°ø ÆÛ¼¾Æ®
+	// 10000ë‹¨ìœ„ì˜ ì„±ê³µ í¼ì„¼íŠ¸
 	int nPercent = GetAttributeEnchantProb( pItemMain->m_nResistAbilityOption );
 
-	//	¼Ó¼º Á¦·ÃÀÇ µÎ·ç¸¶¸®¸¦ »ç¿ëÇß´Ù¸é
+	//	ì†ì„± ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ë¥¼ ì‚¬ìš©í–ˆë‹¤ë©´
 	if( pItemSmeltScr != NULL )
 	{
-		//	¼Ó¼º Á¦·ÃÀÇ µÎ·ç¸¶¸®°¡ ¸Â´ÂÁö È®ÀÎ
+		//	ì†ì„± ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ê°€ ë§ëŠ”ì§€ í™•ì¸
 		if( IsUsableItem( pItemSmeltScr ) && pItemSmeltScr->GetProp()->dwID == II_SYS_SYS_SCR_SMELTING2 )
 		{
-			//	¼Ó¼º Á¦·ÃÀÇ µÎ·ç¸¶¸® »ç¿ë°¡´É ¼öÄ¡ÀÎ°¡
+			//	ì†ì„± ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ ì‚¬ìš©ê°€ëŠ¥ ìˆ˜ì¹˜ì¸ê°€
 			if( pItemMain->m_nResistAbilityOption < 10 )
 			{
 				nPercent	+= 1000;
-				//	¼Ó¼º Á¦·ÃÀÇ µÎ·ç¸¶¸® ·Î±× ³²±æ°Í
+				//	ì†ì„± ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ ë¡œê·¸ ë‚¨ê¸¸ê²ƒ
 				ItemProp* pItemProp = pItemSmeltScr->GetProp();
 				if( pItemProp )
 				{
@@ -1013,7 +1013,7 @@ BYTE	CItemUpgrade::SmeltSafetyAttribute(CUser* pUser, CItemElem* pItemMain, CIte
 				pUser->RemoveItem( (BYTE)( pItemSmeltScr->m_dwObjId ), 1 );
 			}
 		}
-		//	¼Ó¼º Á¦·ÃÀÇ µÎ·ç¸¶¸®°¡ ¾Æ´Ò¶§
+		//	ì†ì„± ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬ê°€ ì•„ë‹ë•Œ
 		else
 			return 0;
 	}
@@ -1038,10 +1038,10 @@ BYTE	CItemUpgrade::SmeltSafetyAttribute(CUser* pUser, CItemElem* pItemMain, CIte
 	}
 	pUser->RemoveItem( (BYTE)( pItemProtScr->m_dwObjId ), 1 );
 
-	// ÇØ´ç ¾ÆÀÌÅÛÀÇ ¼Ó¼º, ÀÏ¹İ ·¹º§À» ¾ò¾î È®À²À» ²¨³½´Ù.
+	// í•´ë‹¹ ì•„ì´í…œì˜ ì†ì„±, ì¼ë°˜ ë ˆë²¨ì„ ì–»ì–´ í™•ìœ¨ì„ êº¼ë‚¸ë‹¤.
 	if( (int)( xRandom( 10000 ) ) > nPercent )
 	{
-		// ½ÇÆĞ
+		// ì‹¤íŒ¨
 		pUser->AddPlaySound( SND_INF_UPGRADEFAIL );
 
 		if( !pUser->IsMode( TRANSPARENT_MODE ) )
@@ -1054,7 +1054,7 @@ BYTE	CItemUpgrade::SmeltSafetyAttribute(CUser* pUser, CItemElem* pItemMain, CIte
 	}
 	else
 	{
-		// ¼º°ø
+		// ì„±ê³µ
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
 
 		if( !pUser->IsMode( TRANSPARENT_MODE ) )
@@ -1078,7 +1078,7 @@ void	CItemUpgrade::EnchantGeneral( CUser* pUser, CItemElem* pItemMain, CItemElem
 	if( pAbilityOption == NULL )
 		return;
 
-	// ÀÏ¹İÁ¦·ÃÀº ¹æ¾î±¸, ¹«±â
+	// ì¼ë°˜ì œë ¨ì€ ë°©ì–´êµ¬, ë¬´ê¸°
 #if __VER >= 9 // __ULTIMATE
 	if( pItemMain->GetProp()->dwReferStat1 == WEAPON_ULTIMATE )
 	{
@@ -1112,7 +1112,7 @@ void	CItemUpgrade::EnchantGeneral( CUser* pUser, CItemElem* pItemMain, CItemElem
 		return;
 	}
 
-	// 1000´ÜÀ§ÀÇ ¼º°ø ÆÛ¼¾Æ® 
+	// 1000ë‹¨ìœ„ì˜ ì„±ê³µ í¼ì„¼íŠ¸ 
 	int nPercent = GetGeneralEnchantProb( *pAbilityOption );
 
 	LogItemInfo aLogItem;
@@ -1202,21 +1202,21 @@ void	CItemUpgrade::EnchantGeneral( CUser* pUser, CItemElem* pItemMain, CItemElem
 		}
 	}
 #endif // __UPGRADE_SUCCESS_SCROLL
-	// ÇØ´ç ¾ÆÀÌÅÛÀÇ ¼Ó¼º, ÀÏ¹İ ·¹º§À» ¾ò¾î È®À²À» ²¨³½´Ù.
+	// í•´ë‹¹ ì•„ì´í…œì˜ ì†ì„±, ì¼ë°˜ ë ˆë²¨ì„ ì–»ì–´ í™•ìœ¨ì„ êº¼ë‚¸ë‹¤.
 	if( (int)( xRandom( 10000 ) ) > nPercent )
 	{
-		// ½ÇÆĞ ¸Ş¼¼Áö Ãâ·Â
+		// ì‹¤íŒ¨ ë©”ì„¸ì§€ ì¶œë ¥
 		pUser->AddDefinedText( TID_UPGRADE_FAIL );
 		pUser->AddPlaySound( SND_INF_UPGRADEFAIL );
 
 		if((pUser->IsMode( TRANSPARENT_MODE ) ) == 0)
 			g_UserMng.AddCreateSfxObj((CMover *)pUser, XI_INT_FAIL, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z);
 
-		// ½ÇÆĞÇÏ¸é 3ÀÌ»óÀÌ¸é ¾ÆÀÌÅÛ »èÁ¦
+		// ì‹¤íŒ¨í•˜ë©´ 3ì´ìƒì´ë©´ ì•„ì´í…œ ì‚­ì œ
 		if( *pAbilityOption >= 3 )
 		{
 			if( !bSmelprot )
-			{	// »ç¿ë¾ÈÇÏ¸é µé¾î¿È.. ´ë»ó ¾ÆÀÌÅÛ »èÁ¦ ½ÇÆĞ ·Î±×
+			{	// ì‚¬ìš©ì•ˆí•˜ë©´ ë“¤ì–´ì˜´.. ëŒ€ìƒ ì•„ì´í…œ ì‚­ì œ ì‹¤íŒ¨ ë¡œê·¸
 #ifdef __SM_ITEM_2ND_EX
 				if( bSmelprot2 )
 				{
@@ -1241,7 +1241,7 @@ void	CItemUpgrade::EnchantGeneral( CUser* pUser, CItemElem* pItemMain, CItemElem
 	}
 	else
 	{
-		// ¼º°ø
+		// ì„±ê³µ
 		pUser->AddDefinedText( TID_UPGRADE_SUCCEEFUL );
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
 
@@ -1255,7 +1255,7 @@ void	CItemUpgrade::EnchantGeneral( CUser* pUser, CItemElem* pItemMain, CItemElem
 
 	aLogItem.Action = "N";
 	g_DPSrvr.OnLogItem( aLogItem, pItemMaterial, pItemMaterial->m_nItemNum );
-	// Á¦·Ã¾ÆÅÛ »èÁ¦ - ¼º°øÀÌ´ø, ½ÇÆĞ´ø...
+	// ì œë ¨ì•„í…œ ì‚­ì œ - ì„±ê³µì´ë˜, ì‹¤íŒ¨ë˜...
 	pUser->RemoveItem( (BYTE)( pItemMaterial->m_dwObjId ), (short)1 );
 }
 
@@ -1267,7 +1267,7 @@ int		CItemUpgrade::GetGeneralEnchantProb( int nAbilityOption )
 	if( it != m_mapGeneralEnchant.end() )
 		nProb = it->second;
 
-	if( ::GetLanguage() != LANG_KOR && nAbilityOption >= 3 )	// Á¦·Ã 4ºÎÅÍ 10% È®·ü °¨¼Ò(ÇØ¿Ü¸¸)
+	if( ::GetLanguage() != LANG_KOR && nAbilityOption >= 3 )	// ì œë ¨ 4ë¶€í„° 10% í™•ë¥  ê°ì†Œ(í•´ì™¸ë§Œ)
 		nProb = static_cast<int>(static_cast<float>(nProb) * 0.9f);
 	
 	return nProb;
@@ -1639,7 +1639,7 @@ void	CItemUpgrade::EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemEl
 	if( pAbilityOption == NULL )
 		return;
 
-	// 2°¡Áö ¼Ó¼ºÀº Á¦·ÃÇÒ¼ö ¾øÀ½
+	// 2ê°€ì§€ ì†ì„±ì€ ì œë ¨í• ìˆ˜ ì—†ìŒ
 	if( pItemMain->m_bItemResist != SAI79::NO_PROP )
 	{
 		if( pItemMain->m_bItemResist != pItemMaterial->GetProp()->eItemType )
@@ -1656,7 +1656,7 @@ void	CItemUpgrade::EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemEl
 	}
 
 #if __VER >= 12 // __J12_0
-	// ¼Ó¼º ´ç ÇÏ³ªÀÇ ¼Ó¼º Á¦·Ã Ä«µå¸¦ »ç¿ëÇÏµµ·Ï ¼öÁ¤
+	// ì†ì„± ë‹¹ í•˜ë‚˜ì˜ ì†ì„± ì œë ¨ ì¹´ë“œë¥¼ ì‚¬ìš©í•˜ë„ë¡ ìˆ˜ì •
 	DWORD dwReqCard	= WhatEleCard( pItemMaterial->GetProp()->eItemType );
 #else	// __J12_0
 	DWORD dwReqCard = WhatEleCard( *pAbilityOption, pItemMaterial->GetProp()->eItemType );
@@ -1668,13 +1668,13 @@ void	CItemUpgrade::EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemEl
 		return;					
 	}
 
-	// ÃÖ´ë °ªÀ» ³Ñ´Â °æ¿ì Áß´Ü
+	// ìµœëŒ€ ê°’ì„ ë„˜ëŠ” ê²½ìš° ì¤‘ë‹¨
 	if( *pAbilityOption >= GetMaxAttributeEnchantSize() )
 	{
 		pUser->AddDefinedText( TID_UPGRADE_MAXOVER );			
 		return;
 	}
-	// 10000´ÜÀ§ÀÇ ¼º°ø ÆÛ¼¾Æ® 
+	// 10000ë‹¨ìœ„ì˜ ì„±ê³µ í¼ì„¼íŠ¸ 
 	int nPercent = GetAttributeEnchantProb( *pAbilityOption );
 
 	LogItemInfo aLogItem;
@@ -1697,9 +1697,9 @@ void	CItemUpgrade::EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemEl
 	}
 	
 #if __VER >= 14 // __EXT_ATTRIBUTE
-	if( pUser->HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_SMELTING2 ) )	// ¼Ó¼º Á¦·ÃÀÇ µÎ·ç¸¶¸®
+	if( pUser->HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_SMELTING2 ) )	// ì†ì„± ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬
 #else // __EXT_ATTRIBUTE
-	if( pUser->HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_SMELTING ) ) // Á¦·ÃÀÇ µÎ·ç¸¶¸®
+	if( pUser->HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_SMELTING ) ) // ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬
 #endif // __EXT_ATTRIBUTE
 	{
 #if __VER >= 14 // __EXT_ATTRIBUTE
@@ -1761,21 +1761,21 @@ void	CItemUpgrade::EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemEl
 		}
 	}
 #endif // __UPGRADE_SUCCESS_SCROLL
-	// ÇØ´ç ¾ÆÀÌÅÛÀÇ ¼Ó¼º, ÀÏ¹İ ·¹º§À» ¾ò¾î È®À²À» ²¨³½´Ù.
+	// í•´ë‹¹ ì•„ì´í…œì˜ ì†ì„±, ì¼ë°˜ ë ˆë²¨ì„ ì–»ì–´ í™•ìœ¨ì„ êº¼ë‚¸ë‹¤.
 	if( (int)( xRandom( 10000 ) ) > nPercent )
 	{
-		// ½ÇÆĞ ¸Ş¼¼Áö Ãâ·Â
+		// ì‹¤íŒ¨ ë©”ì„¸ì§€ ì¶œë ¥
 		pUser->AddDefinedText( TID_UPGRADE_FAIL );
 		pUser->AddPlaySound( SND_INF_UPGRADEFAIL );
 
 		if((pUser->IsMode( TRANSPARENT_MODE ) ) == 0)
 			g_UserMng.AddCreateSfxObj((CMover *)pUser, XI_INT_FAIL, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z);
 
-		// ½ÇÆĞÇÏ¸é nLevDownÀÌ»óÀÌ¸é ¾ÆÀÌÅÛ »èÁ¦
+		// ì‹¤íŒ¨í•˜ë©´ nLevDownì´ìƒì´ë©´ ì•„ì´í…œ ì‚­ì œ
 		if( *pAbilityOption >= 3 )
 		{
 			if( !bSmelprot )
-			{	// »ç¿ë¾ÈÇÏ¸é µé¾î¿È.. ´ë»ó ¾ÆÀÌÅÛ »èÁ¦ ½ÇÆĞ ·Î±×
+			{	// ì‚¬ìš©ì•ˆí•˜ë©´ ë“¤ì–´ì˜´.. ëŒ€ìƒ ì•„ì´í…œ ì‚­ì œ ì‹¤íŒ¨ ë¡œê·¸
 #ifdef __SM_ITEM_2ND_EX
 				if( bSmelprot2  )
 				{
@@ -1793,14 +1793,14 @@ void	CItemUpgrade::EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemEl
 			}
 		}
 		else
-		{	// »ç¿ëÀ» ÇÏ¸é ½ÇÆĞ ·Î±×
+		{	// ì‚¬ìš©ì„ í•˜ë©´ ì‹¤íŒ¨ ë¡œê·¸
 			aLogItem.Action = "J";
 			g_DPSrvr.OnLogItem( aLogItem, pItemMain, pItemMain->m_nItemNum );
 		}
 	}
 	else
 	{
-		// ¼º°ø
+		// ì„±ê³µ
 		pUser->AddDefinedText( TID_UPGRADE_SUCCEEFUL );
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
 
@@ -1815,7 +1815,7 @@ void	CItemUpgrade::EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemEl
 
 	aLogItem.Action = "N";
 	g_DPSrvr.OnLogItem( aLogItem, pItemMaterial, pItemMaterial->m_nItemNum );
-	// Á¦·Ã¾ÆÅÛ »èÁ¦ - ¼º°øÀÌ´ø, ½ÇÆĞ´ø...
+	// ì œë ¨ì•„í…œ ì‚­ì œ - ì„±ê³µì´ë˜, ì‹¤íŒ¨ë˜...
 	pUser->RemoveItem( (BYTE)( pItemMaterial->m_dwObjId ), (short)1 );
 }
 
@@ -1824,9 +1824,9 @@ void CItemUpgrade::ChangeAttribute( CUser* pUser, OBJID dwTargetItem, OBJID dwUs
 	CItemElem* pTargetItemElem	= pUser->m_Inventory.GetAtId( dwTargetItem );
 	CItemElem* pUseItemElem = pUser->m_Inventory.GetAtId( dwUseItem );		
 
-	if( pUser->m_vtInfo.GetOther() )	// °Å·¡ÁßÀÎ ´ë»óÀÌ ÀÖÀ¸¸é?
+	if( pUser->m_vtInfo.GetOther() )	// ê±°ë˜ì¤‘ì¸ ëŒ€ìƒì´ ìˆìœ¼ë©´?
 		return;
-	if( pUser->m_vtInfo.VendorIsVendor() )		// ³»°¡ ÆÈ°í ÀÖÀ¸¸é?
+	if( pUser->m_vtInfo.VendorIsVendor() )		// ë‚´ê°€ íŒ”ê³  ìˆìœ¼ë©´?
 		return;
 
 #if __VER >= 11 // __SYS_COLLECTING
@@ -1838,23 +1838,23 @@ void CItemUpgrade::ChangeAttribute( CUser* pUser, OBJID dwTargetItem, OBJID dwUs
 	if( !IsUsableItem( pTargetItemElem ) || !IsUsableItem( pUseItemElem ) )
 		return;
 
-	// ´ë»óÀÌ ÀåÂøÁßÀÎ°¡?
+	// ëŒ€ìƒì´ ì¥ì°©ì¤‘ì¸ê°€?
 	if( pUser->m_Inventory.IsEquip( dwTargetItem ) )
 	{
 		pUser->AddDefinedText( TID_GAME_EQUIPPUT , "" );
 		return;
 	}
 	
-	if( !CItemElem::IsEleRefineryAble( pTargetItemElem->GetProp() ) )	// ¼Ó¼ºÁ¦·Ã °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ ¾Æ´Ï¿ä..
+	if( !CItemElem::IsEleRefineryAble( pTargetItemElem->GetProp() ) )	// ì†ì„±ì œë ¨ ê°€ëŠ¥í•œ ì•„ì´í…œì´ ì•„ë‹ˆìš”..
 		return;
 
-	if( pUseItemElem->m_dwItemId != II_SYS_SYS_SCR_SOKCHANG )	// ¼Ó¼ºº¯°æ ¾ÆÀÌÅÛÀÌ ¾Æ´Ï³×...
+	if( pUseItemElem->m_dwItemId != II_SYS_SYS_SCR_SOKCHANG )	// ì†ì„±ë³€ê²½ ì•„ì´í…œì´ ì•„ë‹ˆë„¤...
 		return;
 
 	if( nAttribute >= SAI79::END_PROP || nAttribute <= SAI79::NO_PROP )
 		return;
 
-	if( pTargetItemElem->m_bItemResist == nAttribute )	// °°Àº ¼Ó¼ºÀÎ °æ¿ì ¼Ó¼ºº¯°æ ºÒ°¡!!
+	if( pTargetItemElem->m_bItemResist == nAttribute )	// ê°™ì€ ì†ì„±ì¸ ê²½ìš° ì†ì„±ë³€ê²½ ë¶ˆê°€!!
 	{
 		pUser->AddDefinedText( TID_GAME_NOCHANGE_SAME_ATTRIBUTE );
 		return;
@@ -1865,9 +1865,9 @@ void CItemUpgrade::ChangeAttribute( CUser* pUser, OBJID dwTargetItem, OBJID dwUs
 		pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );
 		if( ( pUser->IsMode( TRANSPARENT_MODE ) ) == 0 )
 			g_UserMng.AddCreateSfxObj((CMover *)pUser, XI_INT_SUCCESS, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z);
-		pUser->UpdateItem( (BYTE)pTargetItemElem->m_dwObjId, UI_IR,  nAttribute );	// ¼Ó¼º º¯°æ
+		pUser->UpdateItem( (BYTE)pTargetItemElem->m_dwObjId, UI_IR,  nAttribute );	// ì†ì„± ë³€ê²½
 
-		// ¼Ó¼ºÁ¦·Ã º¯°æ ¼º°ø ·Î±×
+		// ì†ì„±ì œë ¨ ë³€ê²½ ì„±ê³µ ë¡œê·¸
 		LogItemInfo aLogItem;
 		aLogItem.SendName = pUser->GetName();
 		aLogItem.RecvName = "CHANGE_ATTRIBUTE_TARGET";
@@ -1879,7 +1879,7 @@ void CItemUpgrade::ChangeAttribute( CUser* pUser, OBJID dwTargetItem, OBJID dwUs
 		
 		aLogItem.RecvName = "CHANGE_ATTRIBUTE_MATERIAL";
 		g_DPSrvr.OnLogItem( aLogItem, pUseItemElem );
-		pUser->RemoveItem( (BYTE)( dwUseItem ), 1 );	// À¯·á ¾ÆÀÌÅÛ »èÁ¦
+		pUser->RemoveItem( (BYTE)( dwUseItem ), 1 );	// ìœ ë£Œ ì•„ì´í…œ ì‚­ì œ
 	}
 	else
 		pUser->AddDefinedText( TID_GAME_NOTELEMENT );
@@ -1933,8 +1933,8 @@ int CItemUpgrade::GetAttributeAddAtkDmgFactor( int nAbilityOption )
 #endif // __EXT_ATTRIBUTE
 
 DWORD CItemUpgrade::WhatEleCard( DWORD dwItemType )
-{	// ¼Ó¼º Á¦·Ã ¿ë Ä«µåÀÇ Á¾·ù°¡ 
-	// ¼Ó¼º ´ç ÇÏ³ª·Î ÅëÇÕµÊ
+{	// ì†ì„± ì œë ¨ ìš© ì¹´ë“œì˜ ì¢…ë¥˜ê°€ 
+	// ì†ì„± ë‹¹ í•˜ë‚˜ë¡œ í†µí•©ë¨
 	switch( dwItemType )
 	{
 	case SAI79::FIRE:
@@ -1960,7 +1960,7 @@ void CItemUpgrade::OnItemTransy( CUser* pUser, OBJID objidTarget, OBJID objidTra
 	if( !IsUsableItem( pItemElemTarget ) )
 		return;
 
-	// ÀåÂøµÇ¾î ÀÖ´Â ¾ÆÀÌÅÛÀÌ¸é ¸®ÅÏ( ¿À¶óÀÌ~~~ ¤»¤» )
+	// ì¥ì°©ë˜ì–´ ìˆëŠ” ì•„ì´í…œì´ë©´ ë¦¬í„´( ì˜¤ë¼ì´~~~ ã…‹ã…‹ )
 	if( pUser->m_Inventory.IsEquip( objidTarget ) )
 	{
 		pUser->AddDefinedText( TID_GAME_EQUIPPUT , "" );
@@ -1973,11 +1973,11 @@ void CItemUpgrade::OnItemTransy( CUser* pUser, OBJID objidTarget, OBJID objidTra
 		if( !IsUsableItem( pItemElemTransy ) )
 			return;
 
-		// Àç·á°¡ Æ®·£Áö(ITM)ÀÎÁö °Ë»ç
+		// ì¬ë£Œê°€ íŠ¸ëœì§€(ITM)ì¸ì§€ ê²€ì‚¬
 		if( pItemElemTransy->GetProp()->dwID != II_CHR_SYS_SCR_ITEMTRANSY_A && pItemElemTransy->GetProp()->dwID != II_CHR_SYS_SCR_ITEMTRANSY_B )
 			return;
 		
-		// ·¹º§ °Ë»ç
+		// ë ˆë²¨ ê²€ì‚¬
 		if( pItemElemTransy->GetProp()->dwID == II_CHR_SYS_SCR_ITEMTRANSY_A )
 		{
 			if( pItemElemTarget->GetProp()->dwLimitLevel1 > 60 )
@@ -1992,12 +1992,12 @@ void CItemUpgrade::OnItemTransy( CUser* pUser, OBJID objidTarget, OBJID objidTra
 		if( RunItemTransy( pUser, pItemElemTarget, dwChangeId ) )
 		{
 			g_dpDBClient.SendLogSMItemUse( "1", pUser, pItemElemTransy, pItemElemTransy->GetProp(), "RemoveItem" );	
-			pUser->RemoveItem( (BYTE)( objidTransy ), (short)1 );		// ±âÁ¸ ¾ÆÀÌÅÛ Àç·á »èÁ¦
+			pUser->RemoveItem( (BYTE)( objidTransy ), (short)1 );		// ê¸°ì¡´ ì•„ì´í…œ ì¬ë£Œ ì‚­ì œ
 		}
 	}
 	else
 	{
-		//	mulcom	BEGIN100312	Æä³Ä·Î ¾ÆÀÌÅÛ Æ®·»Áö ±İÁö.
+		//	mulcom	BEGIN100312	í˜ëƒë¡œ ì•„ì´í…œ íŠ¸ë Œì§€ ê¸ˆì§€.
 		#ifdef	__ITEMTRANSY_PENYA
 			int nPayPenya = 0;
 			if( pItemElemTarget->GetProp()->dwLimitLevel1 < 61 )
@@ -2017,7 +2017,7 @@ void CItemUpgrade::OnItemTransy( CUser* pUser, OBJID objidTarget, OBJID objidTra
 				g_DPSrvr.PutPenyaLog( pUser, "O", "TRANSYITEM_PAY", nPayPenya );
 			}
 		#endif
-		//	mulcom	END100312	Æä³Ä·Î ¾ÆÀÌÅÛ Æ®·»Áö ±İÁö.
+		//	mulcom	END100312	í˜ëƒë¡œ ì•„ì´í…œ íŠ¸ë Œì§€ ê¸ˆì§€.
 	}
 }
 
@@ -2026,7 +2026,7 @@ BOOL CItemUpgrade::RunItemTransy( CUser* pUser, CItemElem* pItemElemTarget, DWOR
 	ItemProp* pItemProp = pItemElemTarget->GetProp();
 	ItemProp* pItemPropChange = prj.GetItemProp( dwChangeId );
 	
-	// º¯°æµÉ ¾ÆÀÌÅÛÀÇ Á¶°ÇÀÌ ¸Â´ÂÁö °Ë»ç.
+	// ë³€ê²½ë  ì•„ì´í…œì˜ ì¡°ê±´ì´ ë§ëŠ”ì§€ ê²€ì‚¬.
 	if( !pItemProp || !pItemPropChange || pItemProp->dwID == pItemPropChange->dwID 
 		|| ( pItemProp->dwItemKind2 != IK2_ARMOR && pItemProp->dwItemKind2 != IK2_ARMORETC )
 		|| ( pItemProp->dwItemSex != SEX_MALE && pItemProp->dwItemSex != SEX_FEMALE )
@@ -2042,24 +2042,24 @@ BOOL CItemUpgrade::RunItemTransy( CUser* pUser, CItemElem* pItemElemTarget, DWOR
 		return FALSE;
 
 
-	// ¾ÆÀÌÅÛ Æ®·£Áö ¼º°ø
+	// ì•„ì´í…œ íŠ¸ëœì§€ ì„±ê³µ
 	pUser->AddPlaySound( SND_INF_UPGRADESUCCESS );			
 	g_UserMng.AddCreateSfxObj((CMover *)pUser, XI_INT_SUCCESS, pUser->GetPos().x, pUser->GetPos().y, pUser->GetPos().z);			
 
-	// ±âÁ¸ ¾ÆÀÌÅÛÀÇ Elem Á¤º¸¸¦ ÀúÀå ÇÏ°í ÀÕÀ½...
+	// ê¸°ì¡´ ì•„ì´í…œì˜ Elem ì •ë³´ë¥¼ ì €ì¥ í•˜ê³  ì‡ìŒ...
 	CItemElem ItemElemSend;
 	ItemElemSend = *pItemElemTarget;
 	ItemElemSend.m_dwItemId = pItemPropChange->dwID;
-	ItemElemSend.m_nHitPoint	= pItemPropChange->dwEndurance;		// ³»±¸·Â 100%
+	ItemElemSend.m_nHitPoint	= pItemPropChange->dwEndurance;		// ë‚´êµ¬ë ¥ 100%
 
 	g_dpDBClient.SendLogSMItemUse( "1", pUser, pItemElemTarget, pItemElemTarget->GetProp(), "RemoveItem" );	
 	g_dpDBClient.SendLogSMItemUse( "1", pUser, &ItemElemSend, ItemElemSend.GetProp(), "CreateItem" );	
 	pUser->AddDefinedText( TID_GAME_ITEM_TRANSY_SUCCESS, "\"%s\" \"%s\"", pItemElemTarget->GetProp()->szName, ItemElemSend.GetProp()->szName );
 
-	// ±âÁ¸ ¾ÆÀÌÅÛ Àç·á »èÁ¦
+	// ê¸°ì¡´ ì•„ì´í…œ ì¬ë£Œ ì‚­ì œ
 	pUser->RemoveItem( (BYTE)( pItemElemTarget->m_dwObjId ), (short)1 );
 	
-	// »õ·Î¿î ¾ÆÀÌÅÛ Áö±Ş
+	// ìƒˆë¡œìš´ ì•„ì´í…œ ì§€ê¸‰
 	pUser->CreateItem( &ItemElemSend );
 	
 	return TRUE;
@@ -2088,7 +2088,7 @@ void CItemUpgrade::PetVisSize( CUser* pUser, OBJID objIdMaterial )
 		return;
 
 
-	if( !pItemElemPet->IsPierceAble( NULL_ID, TRUE ) ) // ºñ½º ½½·Ô È®Àå °¡´É °Ë»ç
+	if( !pItemElemPet->IsPierceAble( NULL_ID, TRUE ) ) // ë¹„ìŠ¤ ìŠ¬ë¡¯ í™•ì¥ ê°€ëŠ¥ ê²€ì‚¬
 	{
 		pUser->AddDefinedText( TID_GAME_BUFFPET_EXPANSION );
 		return;
@@ -2123,14 +2123,14 @@ void CItemUpgrade::SetPetVisItem( CUser* pUser, OBJID objIdVis )
 	if( !pVisProp )
 		return;
 
-	if( !pItemElemPet->IsPierceAble( pVisProp->dwItemKind3 ) )	// ºñ½º ÀåÂø °¡´É °Ë»ç.
+	if( !pItemElemPet->IsPierceAble( pVisProp->dwItemKind3 ) )	// ë¹„ìŠ¤ ì¥ì°© ê°€ëŠ¥ ê²€ì‚¬.
 		return;
 
 	int nFirstEmptySlot = NULL_ID;
 	for( int i=0; i<pItemElemPet->GetPiercingSize(); i++ )
 	{
 		DWORD dwVisId = pItemElemPet->GetPiercingItem( i );
-		if( dwVisId == pVisProp->dwID )	// ÀÌ¹Ì °°Àº Á¾·ùÀÇ ºñ½º°¡ ÀåÂøµÇ¾î ÀÖ´Ù.
+		if( dwVisId == pVisProp->dwID )	// ì´ë¯¸ ê°™ì€ ì¢…ë¥˜ì˜ ë¹„ìŠ¤ê°€ ì¥ì°©ë˜ì–´ ìˆë‹¤.
 		{
 			pUser->AddDefinedText( TID_GAME_BUFFPET_EQUIPVIS );
 			return;
@@ -2140,7 +2140,7 @@ void CItemUpgrade::SetPetVisItem( CUser* pUser, OBJID objIdVis )
 			nFirstEmptySlot = i;
 	}
 
-	if( nFirstEmptySlot == NULL_ID )	// ºñ¾îÀÖ´Â ºñ½º ½½·ÔÀÌ ¾ø´Ù.
+	if( nFirstEmptySlot == NULL_ID )	// ë¹„ì–´ìˆëŠ” ë¹„ìŠ¤ ìŠ¬ë¡¯ì´ ì—†ë‹¤.
 	{
 		pUser->AddDefinedText( TID_GAME_BUFFPET_LACKSLOT );
 		return;
@@ -2156,7 +2156,7 @@ void CItemUpgrade::SetPetVisItem( CUser* pUser, OBJID objIdVis )
 	pUser->ResetPetVisDST( pItemElemPet );
 	pUser->UpdateItem( (BYTE)( pItemElemPet->m_dwObjId ), UI_PETVIS_ITEM, MAKELONG( nFirstEmptySlot, pItemElemVis->m_dwItemId ), pVisProp->dwAbilityMin );
 	PutPetVisItemLog( pUser, "!", "VIS_MATERIAL", pItemElemPet, nFirstEmptySlot );
-	if( pItemElemVis->m_bCharged )		// »ó¿ëÈ­ ¾ÆÀÌÅÛ ·Î±×
+	if( pItemElemVis->m_bCharged )		// ìƒìš©í™” ì•„ì´í…œ ë¡œê·¸
 		g_dpDBClient.SendLogSMItemUse( "1", pUser, pItemElemVis, pVisProp );		
 	g_DPSrvr.PutItemLog( pUser, "$", "VIS_PIERCING", pItemElemPet );
 	pUser->RemoveItem( (BYTE)( objIdVis ), 1 );
@@ -2174,7 +2174,7 @@ void CItemUpgrade::RemovePetVisItem( CUser* pUser, int nPosition, BOOL bExpired 
 		return;
 
 	DWORD dwItemId = pItemElemPet->GetPiercingItem( nPosition );
-	if( dwItemId  == 0 )	// ÀÌ¹Ì ºñ¾îÀÖ´Â ½½·Ô
+	if( dwItemId  == 0 )	// ì´ë¯¸ ë¹„ì–´ìˆëŠ” ìŠ¬ë¡¯
 		return;
 
 	pUser->ResetPetVisDST( pItemElemPet );
@@ -2182,7 +2182,7 @@ void CItemUpgrade::RemovePetVisItem( CUser* pUser, int nPosition, BOOL bExpired 
 		PutPetVisItemLog( pUser, "$", "VIS_REMOVE_EXPIRED", pItemElemPet, nPosition );
 	else
 		PutPetVisItemLog( pUser, "$", "VIS_REMOVE_BYUSER", pItemElemPet, nPosition );
-	pUser->UpdateItem( (BYTE)( pItemElemPet->m_dwObjId ), UI_PETVIS_ITEM, MAKELONG( nPosition, 0 ), 0 ); // ÇØ´ç ½½·ÔÀ» ºñ¿î´Ù.
+	pUser->UpdateItem( (BYTE)( pItemElemPet->m_dwObjId ), UI_PETVIS_ITEM, MAKELONG( nPosition, 0 ), 0 ); // í•´ë‹¹ ìŠ¬ë¡¯ì„ ë¹„ìš´ë‹¤.
 	ItemProp* pItemProp = prj.GetItemProp( dwItemId );
 	if( pItemProp )
 		pUser->AddDefinedText( TID_GAME_BUFFPET_REMOVEVIS, "\"%s\"", pItemProp->szName );
@@ -2191,12 +2191,12 @@ void CItemUpgrade::RemovePetVisItem( CUser* pUser, int nPosition, BOOL bExpired 
 }
 
 void CItemUpgrade::PutPetVisItemLog( CUser* pUser, const char* szAction, const char* szContext, CItemElem* pItem, int nPosition )
-{	// ¾ÆÀÌÅÛÀÌ Á¦°ÅµÈ ÀÌÈÄ¿¡ È£ÃâµÇÁö ¾Êµµ·Ï ÁÖÀÇÇØ¾ß ÇÔ
+{	// ì•„ì´í…œì´ ì œê±°ëœ ì´í›„ì— í˜¸ì¶œë˜ì§€ ì•Šë„ë¡ ì£¼ì˜í•´ì•¼ í•¨
 	LogItemInfo	log;
 	log.Action	=  szAction;
 	log.SendName	= pUser->GetName();
 	log.RecvName	= szContext;
-	log.WorldId		= pUser->GetWorld() ? pUser->GetWorld()->GetID() : WI_WORLD_NONE;	// chipi_090623 ¼öÁ¤ - Ã¹ Á¢¼Ó½Ã ¸¸·áµÈ ¹öÇÁÀÎ °æ¿ì ¿ùµå°¡ ¾ø´Â »óÅÂ·Î µé¾î¿Â´Ù. 
+	log.WorldId		= pUser->GetWorld() ? pUser->GetWorld()->GetID() : WI_WORLD_NONE;	// chipi_090623 ìˆ˜ì • - ì²« ì ‘ì†ì‹œ ë§Œë£Œëœ ë²„í”„ì¸ ê²½ìš° ì›”ë“œê°€ ì—†ëŠ” ìƒíƒœë¡œ ë“¤ì–´ì˜¨ë‹¤. 
 	log.Gold	= pUser->GetGold();
 	log.Gold2	= pItem->GetVisKeepTime( nPosition ) - time_null();
 	g_DPSrvr.OnLogItem( log, pItem, pItem->m_nItemNum );
@@ -2214,7 +2214,7 @@ void CItemUpgrade::SwapVis( CUser* pUser, int nPos1, int nPos2 )
 	pUser->UpdateItem( (BYTE)( pItemElemPet->m_dwObjId ), UI_PETVIS_ITEMSWAP, MAKELONG( nPos1, nPos2 ) );
 }
 
-// ÃÖ°í·¹º§ ºñ½º¿¡ º¯È­°¡ »ı±ä °æ¿ì SFX¸¦ º¯È­½ÃÅ²´Ù.
+// ìµœê³ ë ˆë²¨ ë¹„ìŠ¤ì— ë³€í™”ê°€ ìƒê¸´ ê²½ìš° SFXë¥¼ ë³€í™”ì‹œí‚¨ë‹¤.
 void CItemUpgrade::ChangeVisPetSfx( CUser* pUser, CItemElem* pItemElemPet )
 {
 	CMover* pVisPet = prj.GetMover( pUser->GetEatPetId() );
@@ -2247,7 +2247,7 @@ void CItemUpgrade::TransFormVisPet( CUser* pUser, OBJID objIdMaterial )
 					return;
 				}
 								
-				if( pItemMaterial->m_bCharged )		// »ó¿ëÈ­ ¾ÆÀÌÅÛ ·Î±×
+				if( pItemMaterial->m_bCharged )		// ìƒìš©í™” ì•„ì´í…œ ë¡œê·¸
 					g_dpDBClient.SendLogSMItemUse( "1", pUser, pItemMaterial, pItemMaterial->GetProp() );
 				pUser->RemoveItem( (BYTE)( objIdMaterial ), 1 );
 				pUser->UpdateItem( (BYTE)( pItemEatPet->m_dwObjId ), UI_TRANSFORM_VISPET, TRUE );

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include <mmsystem.h>
 //#include <fstream.h>
 #include <fstream>

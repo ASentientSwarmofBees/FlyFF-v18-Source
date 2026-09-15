@@ -1,4 +1,4 @@
-#ifndef __PATH_H
+﻿#ifndef __PATH_H
 #define __PATH_H
 
 //CString MakePath( LPCTSTR lpszFileName );

@@ -1,4 +1,4 @@
-#ifndef __DPCERTIFIED_H__
+﻿#ifndef __DPCERTIFIED_H__
 #define	__DPCERTIFIED_H__
 
 #include "dpmng.h"

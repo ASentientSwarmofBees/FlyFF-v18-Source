@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 12 // __LORD
 
@@ -183,10 +183,10 @@ void IElection::SetNextBegin( void )
 
 time_t IElection::GetNextBegin( void )
 {
-	// °£°İ ¼³Á¤
+	// ê°„ê²© ì„¤ì •
 	CTime timeNext	= CTime( GetBegin() ) + CTimeSpan( property.nDays, 0, 0, 0 );
-	if( !GetBegin() )	// ÃÖÃÊ ¼±°Å¶ó¸é
-	{	// ÇöÀç ½Ã°£ ÀÌ ÈÄ °¡Àå °¡±î¿î ½ÃÀÛ ½Ã°£À» °è»ê
+	if( !GetBegin() )	// ìµœì´ˆ ì„ ê±°ë¼ë©´
+	{	// í˜„ì¬ ì‹œê°„ ì´ í›„ ê°€ì¥ ê°€ê¹Œìš´ ì‹œì‘ ì‹œê°„ì„ ê³„ì‚°
 		CTime timeCur	= CTime::GetCurrentTime();
 		int nDayOfWeek	= timeCur.GetDayOfWeek();
 		int d	= property.nDayOfWeek - nDayOfWeek;
@@ -245,15 +245,15 @@ void IElection::EndVote( u_long idPlayer )
 	SortVote();
 
 	if( idPlayer == 0 )
-		idPlayer	= GetResult();	// ÅõÇ¥ °á°ú ¹İÈ¯
+		idPlayer	= GetResult();	// íˆ¬í‘œ ê²°ê³¼ ë°˜í™˜
 	if( DoTestEndVote( idPlayer ) )
 	{
-		m_pLord->Set( idPlayer );	// ±ºÁÖ ¼³Á¤
-		m_pLord->ResetSkill();	// ±ºÁÖ ½ºÅ³ ´ë±â ½Ã°£ ÃÊ±âÈ­
-		PrepareNext();	// ¼±°Å ÁØºñ »óÅÂ·Î º¯°æ
-									// ÀÔÈÄº¸ÀÚ ¸ñ·Ï ÃÊ±âÈ­
-									// °³½Ã ½Ã°£ ¼³Á¤
-									// ¼±°Å ½Äº°ÀÚ Áõ°¡
+		m_pLord->Set( idPlayer );	// êµ°ì£¼ ì„¤ì •
+		m_pLord->ResetSkill();	// êµ°ì£¼ ìŠ¤í‚¬ ëŒ€ê¸° ì‹œê°„ ì´ˆê¸°í™”
+		PrepareNext();	// ì„ ê±° ì¤€ë¹„ ìƒíƒœë¡œ ë³€ê²½
+									// ì…í›„ë³´ì ëª©ë¡ ì´ˆê¸°í™”
+									// ê°œì‹œ ì‹œê°„ ì„¤ì •
+									// ì„ ê±° ì‹ë³„ì ì¦ê°€
 	}
 	DoEndVoteComplete();
 }
@@ -494,7 +494,7 @@ float ILordEvent::GetEFactor( int iEEvent )
 {
 	if( iEEvent >= (int)( m_vEFactor.size() ) )
 		return 1.0F;
-	// second·Î µÇÀÖÀÌ¼­ ¼öÁ¤Çß½À´Ï´Ù~ 
+	// secondë¡œ ë˜ìˆì´ì„œ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤~ 
 	return m_vEFactor[iEEvent].first;
 }
 

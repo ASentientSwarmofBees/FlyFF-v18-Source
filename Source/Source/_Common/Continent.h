@@ -1,4 +1,4 @@
-// Continent.h: interface for the CContinent class.
+ï»¿// Continent.h: interface for the CContinent class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -29,19 +29,19 @@
 #include "ContinentDef.h"
 #else // __USING_CONTINENT_DATA
 const BYTE CONT_NODATA			= 0x00;
-const BYTE CONT_FLARIS			= 0x01;	// ÇÃ¶ó¸®½º 
-const BYTE CONT_SAINTMORNING	= 0x02; // ¼¼ÀÎÆ®¸ğ´×
-const BYTE CONT_RICIS			= 0x04; // ¸®½Ã½ºÀÇ Á¤¿ø
-const BYTE CONT_EAST			= 0x0f; // µ¿ºÎ
+const BYTE CONT_FLARIS			= 0x01;	// í”Œë¼ë¦¬ìŠ¤ 
+const BYTE CONT_SAINTMORNING	= 0x02; // ì„¸ì¸íŠ¸ëª¨ë‹
+const BYTE CONT_RICIS			= 0x04; // ë¦¬ì‹œìŠ¤ì˜ ì •ì›
+const BYTE CONT_EAST			= 0x0f; // ë™ë¶€
 
-const BYTE CONT_DARKON12		= 0x10; // ´ÙÄÜ 1, 2
-const BYTE CONT_DARKON3			= 0x20; // ´ÙÄÜ 3
+const BYTE CONT_DARKON12		= 0x10; // ë‹¤ì½˜ 1, 2
+const BYTE CONT_DARKON3			= 0x20; // ë‹¤ì½˜ 3
 #if __VER >= 14 // __NEW_CONTINENT
-const BYTE CONT_HARMONIN		= 0x40; // ÇÏ¸£¸ğ´Ñ
+const BYTE CONT_HARMONIN		= 0x40; // í•˜ë¥´ëª¨ë‹Œ
 #endif // __NEW_CONTINENT
-const BYTE CONT_WEST			= 0xf0; // ¼­ºÎ
+const BYTE CONT_WEST			= 0xf0; // ì„œë¶€
 
-const BYTE CONT_ALL				= 0xff; // ±ºÁÖ
+const BYTE CONT_ALL				= 0xff; // êµ°ì£¼
 #endif	//__USING_CONTINENT_DATA
 
 #if __VER >= 12 // __SECRET_ROOM
@@ -54,8 +54,8 @@ public:
 
 	static CContinent*	GetInstance( void );
 #ifndef __DBSERVER	
-	BYTE GetContinent( CMover* pMover );	// ÇöÀç Ä³¸¯ÅÍ°¡ À§Ä¡ÇÏ°í ÀÖ´Â ´ë·ú
-	BYTE GetArea( CMover* pMover );			// ÇöÀç Ä³¸¯ÅÍ°¡ À§Ä¡ÇÏ°í ÀÖ´Â ´ë·úÀÇ Áö¿ª(µ¿ºÎ, ¼­ºÎ...)
+	BYTE GetContinent( CMover* pMover );	// í˜„ì¬ ìºë¦­í„°ê°€ ìœ„ì¹˜í•˜ê³  ìˆëŠ” ëŒ€ë¥™
+	BYTE GetArea( CMover* pMover );			// í˜„ì¬ ìºë¦­í„°ê°€ ìœ„ì¹˜í•˜ê³  ìˆëŠ” ëŒ€ë¥™ì˜ ì§€ì—­(ë™ë¶€, ì„œë¶€...)
 	static BOOL	IsValidObj( CMover* pMover );
 #endif // !__DBSERVER
 	CString GetContinentName( BYTE nCont ); 
@@ -91,7 +91,7 @@ private:
 	map< BYTE, vector<CPoint> > m_MapCont;
 	map< BYTE, vector<CPoint> > m_MapContTown;
 public:
-	BYTE GetTown( const D3DXVECTOR3& vPos );		//world pos·Î get town id!
+	BYTE GetTown( const D3DXVECTOR3& vPos );		//world posë¡œ get town id!
 };
 
 #endif // __SECRET_ROOM

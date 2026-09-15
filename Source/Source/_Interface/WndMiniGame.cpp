@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndManager.h"
@@ -52,7 +52,7 @@ BOOL CWndKawiBawiBoGame::Process()
 {
 	int nCom = -1;
 	
-	if(m_nStatus == 1) //Start¹öÆ° ´©¸¦ °æ¿ì ÄÄÇ»ÅÍÀÇ ¼±ÅÃÀÌ È¸ÀüÇÏµµ·Ï ÇÔ.
+	if(m_nStatus == 1) //Startë²„íŠ¼ ëˆ„ë¥¼ ê²½ìš° ì»´í“¨í„°ì˜ ì„ íƒì´ íšŒì „í•˜ë„ë¡ í•¨.
 	{
 		if(m_nCount > m_nDelay)
 		{
@@ -84,7 +84,7 @@ BOOL CWndKawiBawiBoGame::Process()
 		}
 		m_nCount++;
 	}
-	else if(m_nStatus == 2) //ComÀÇ °á°ú°¡ º¸¿©Áö°í ¹Ù·Î »ç¶óÁö°Å³ª ÇÏ±â ¶§¹®¿¡ ¾à°£ÀÇ Delay¸¦ ÁÜ
+	else if(m_nStatus == 2) //Comì˜ ê²°ê³¼ê°€ ë³´ì—¬ì§€ê³  ë°”ë¡œ ì‚¬ë¼ì§€ê±°ë‚˜ í•˜ê¸° ë•Œë¬¸ì— ì•½ê°„ì˜ Delayë¥¼ ì¤Œ
 	{
 		if(m_nCount > m_nDelay)
 		{
@@ -178,7 +178,7 @@ void CWndKawiBawiBoGame::OnDraw( C2DRender* p2DRender )
 void CWndKawiBawiBoGame::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_pStWinningCount = (CWndStatic*)GetDlgItem( WIDC_WINNING_COUNT );
 	m_pStMyChoice = (CWndStatic*)GetDlgItem( WIDC_MY_CHOICE );
 	m_pStComChoice = (CWndStatic*)GetDlgItem( WIDC_COM_CHOICE );
@@ -190,7 +190,7 @@ void CWndKawiBawiBoGame::OnInitialUpdate()
 
 BOOL CWndKawiBawiBoGame::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MINIGAME_KAWIBAWIBO, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -237,8 +237,8 @@ BOOL CWndKawiBawiBoGame::OnChildNotify( UINT message, UINT nID, LRESULT* pLResul
 				}
 				
 				DisableAllBtn();				
-				m_nStatus = 1;						//ÄÄÇ»ÅÍÀÇ ¼±ÅÃÀ» È­¸é»ó¿¡ µ¹¸®±â À§ÇÔ.
-				g_DPlay.SendKawibawiboStart();		//DpClient¿¡ Á¤º¸¸¦ ³Ñ°Ü °¡À§¹ÙÀ§º¸ °á°ú¸¦ ±â´Ù¸².
+				m_nStatus = 1;						//ì»´í“¨í„°ì˜ ì„ íƒì„ í™”ë©´ìƒì— ëŒë¦¬ê¸° ìœ„í•¨.
+				g_DPlay.SendKawibawiboStart();		//DpClientì— ì •ë³´ë¥¼ ë„˜ê²¨ ê°€ìœ„ë°”ìœ„ë³´ ê²°ê³¼ë¥¼ ê¸°ë‹¤ë¦¼.
 				break;
 			case WTBID_CLOSE:
 				if( m_nWinningCount > 0 || m_nStatus != 0 || m_nPrevResult == CMiniGame::KAWIBAWIBO_DRAW )
@@ -414,7 +414,7 @@ void CWndKawiBawiBoGameWin::OnMouseWndSurface(CPoint point)
 void CWndKawiBawiBoGameWin::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	CWndKawiBawiBoGame* pWndGame = (CWndKawiBawiBoGame*)GetWndBase( APP_MINIGAME_KAWIBAWIBO );
 	if(pWndGame != NULL)
@@ -456,7 +456,7 @@ void CWndKawiBawiBoGameWin::OnInitialUpdate()
 BOOL CWndKawiBawiBoGameWin::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 	m_pWndGame  = (CWndKawiBawiBoGame*)pWndParent;	
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MINIGAME_KAWIBAWIBO_WIN, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -484,7 +484,7 @@ BOOL CWndKawiBawiBoGameWin::OnChildNotify( UINT message, UINT nID, LRESULT* pLRe
 	{
 		switch(nID) 
 		{
-			case WIDC_BTN_END: //EndÀÏ °æ¿ì »óÇ°À» ¹Ş´Â´Ù.
+			case WIDC_BTN_END: //Endì¼ ê²½ìš° ìƒí’ˆì„ ë°›ëŠ”ë‹¤.
 				g_DPlay.SendKawibawiboGetItem();
 				if(m_pWndGame != NULL)
 				{
@@ -493,7 +493,7 @@ BOOL CWndKawiBawiBoGameWin::OnChildNotify( UINT message, UINT nID, LRESULT* pLRe
 				}
 				Destroy();
 				break;
-			case WIDC_BTN_NEXT: //NextÀÏ °æ¿ì ½Â¼ö¸¦ Áõ°¡½ÃÅ°°í ´Ù½Ã °ÔÀÓÀ» ÁøÇàÇÑ´Ù.
+			case WIDC_BTN_NEXT: //Nextì¼ ê²½ìš° ìŠ¹ìˆ˜ë¥¼ ì¦ê°€ì‹œí‚¤ê³  ë‹¤ì‹œ ê²Œì„ì„ ì§„í–‰í•œë‹¤.
 				if(m_pWndGame != NULL)
 				{
 					//m_pWndGame->m_nWinningCount++;
@@ -546,7 +546,7 @@ void CWndKawiBawiBoGameConfirm::OnDraw( C2DRender* p2DRender )
 void CWndKawiBawiBoGameConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate();
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CRect rect = GetClientRect();
 	int x = m_rectClient.Width() / 2;
 	int y = m_rectClient.Height() - 30;
@@ -571,10 +571,10 @@ void CWndKawiBawiBoGameConfirm::OnInitialUpdate()
 
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndKawiBawiBoGameConfirm::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MESSAGEBOX, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndKawiBawiBoGameConfirm::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -601,7 +601,7 @@ BOOL CWndKawiBawiBoGameConfirm::OnChildNotify( UINT message, UINT nID, LRESULT* 
 	}
 	else if( nID == IDCANCEL )
 	{
-		//±×³É Á¾·á
+		//ê·¸ëƒ¥ ì¢…ë£Œ
 	}
 	Destroy();
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
@@ -691,11 +691,11 @@ void CWndFindWordGame::OnDraw( C2DRender* p2DRender )
 	ItemProp* pItemProp;
 	CTexture* pTexture;
 	
-	//ÇöÀç ¼±ÅÃµÈ Ctrl ±â¾ïÇÏ±â.
+	//í˜„ì¬ ì„ íƒëœ Ctrl ê¸°ì–µí•˜ê¸°.
 	CPoint point = GetMousePoint();
 	m_nSelectCtrl = HitTest( point );
 			
-	//Server·Î ºÎÅÍ ¹ŞÀº ÈùÆ® ´Ü¾î´Â Èå¸®°Ô ±×¸®±â.
+	//Serverë¡œ ë¶€í„° ë°›ì€ íŒíŠ¸ ë‹¨ì–´ëŠ” íë¦¬ê²Œ ê·¸ë¦¬ê¸°.
 	if(m_bGetFirst)
 	{
 		pItemProp = prj.GetItemProp( m_firstwordID );
@@ -707,7 +707,7 @@ void CWndFindWordGame::OnDraw( C2DRender* p2DRender )
 		}
 	}
 	
-	//³ª¸ÓÁö ¿Ã·ÁÁø ´Ü¾î ±×¸®±â.
+	//ë‚˜ë¨¸ì§€ ì˜¬ë ¤ì§„ ë‹¨ì–´ ê·¸ë¦¬ê¸°.
 	for(int i=0; i<5; i++)
 	{
 		if(m_pItemElem[i] != NULL)
@@ -779,7 +779,7 @@ void CWndFindWordGame::SetWord(CItemElem* pItemElem)
 void CWndFindWordGame::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT_DESC );
 
 	m_nQuestionID = 0;
@@ -801,7 +801,7 @@ void CWndFindWordGame::OnInitialUpdate()
 
 BOOL CWndFindWordGame::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MINIGAME_WORD, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -843,10 +843,10 @@ BOOL CWndFindWordGame::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 				pButton = (CWndButton*)GetDlgItem( WIDC_BTN_START );
 				pButton->EnableWindow(FALSE);
 				
-				g_DPlay.SendAlphabetStart(m_itemID , 5, m_nQuestionID); //¼­¹ö·Î ÇØ´ç ±ÛÀÚµéÀÇ ID¸¦ ¹­¾î¼­ º¸³½´Ù.
+				g_DPlay.SendAlphabetStart(m_itemID , 5, m_nQuestionID); //ì„œë²„ë¡œ í•´ë‹¹ ê¸€ìë“¤ì˜ IDë¥¼ ë¬¶ì–´ì„œ ë³´ë‚¸ë‹¤.
 			}
 			else	
-				g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_MINIGAME_EMPTY_ERROR ) ); //±ÛÀÚ°¡ ºüÁ®ÀÖ´Ù¸é Error Message¸¦ ¶ç¿î´Ù.
+				g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_MINIGAME_EMPTY_ERROR ) ); //ê¸€ìê°€ ë¹ ì ¸ìˆë‹¤ë©´ Error Messageë¥¼ ë„ìš´ë‹¤.
 		}
 	}
 	
@@ -1027,7 +1027,7 @@ void CWndDiceGame::OnDraw( C2DRender* p2DRender )
 		}
 	}
 
-	//¼±ÅÃµÈ ¼ıÀÚ¿¡ ´ëÇÑ Ç¥½Ã.
+	//ì„ íƒëœ ìˆ«ìì— ëŒ€í•œ í‘œì‹œ.
 	if(m_bEnd)
 	{
 		if(m_nDiceChoiceNum > -1)
@@ -1069,7 +1069,7 @@ void CWndDiceGame::OnDraw( C2DRender* p2DRender )
 
 			lpWndCtrl = GetWndCtrl( m_pStaticNum[m_nDiceChoiceNum] );
 			rect = lpWndCtrl->rect;
-			rect.bottom -= 3; //½ÇÁ¦ ÀÌ¹ÌÁö°¡ rectº¸´Ù °ø°£ÀÌ ³²À¸¹Ç·Î Á¶Á¤
+			rect.bottom -= 3; //ì‹¤ì œ ì´ë¯¸ì§€ê°€ rectë³´ë‹¤ ê³µê°„ì´ ë‚¨ìœ¼ë¯€ë¡œ ì¡°ì •
 			rect.right -= 3;
 			p2DRender->RenderFillRect( rect, color );
 		}
@@ -1079,7 +1079,7 @@ void CWndDiceGame::OnDraw( C2DRender* p2DRender )
 void CWndDiceGame::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_pCost[0] = (CWndText*)GetDlgItem( WIDC_COST_NUM1 );
 	m_pCost[1] = (CWndText*)GetDlgItem( WIDC_COST_NUM2 );
 	m_pCost[2] = (CWndText*)GetDlgItem( WIDC_COST_NUM3 );
@@ -1109,7 +1109,7 @@ void CWndDiceGame::OnInitialUpdate()
 
 	RefreshInfo();
 
-	//¼­¹ö·Î Ã¢ÀÌ ¿­·ÈÀ½À» º¸³½´Ù.
+	//ì„œë²„ë¡œ ì°½ì´ ì—´ë ¸ìŒì„ ë³´ë‚¸ë‹¤.
 	g_DPlay.SendFiveSystemOpenWnd();
 	
 	MoveParentCenter();
@@ -1117,7 +1117,7 @@ void CWndDiceGame::OnInitialUpdate()
 
 BOOL CWndDiceGame::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MINIGAME_DICE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -1186,7 +1186,7 @@ BOOL CWndDiceGame::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 						pButton->EnableWindow(FALSE);		
 					}
 					
-					m_nStatus = 0;		//ÄÄÇ»ÅÍÀÇ ¼±ÅÃÀ» È­¸é»ó¿¡ µ¹¸®±â À§ÇÔ.
+					m_nStatus = 0;		//ì»´í“¨í„°ì˜ ì„ íƒì„ í™”ë©´ìƒì— ëŒë¦¬ê¸° ìœ„í•¨.
 				}
 				else
 					g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_DICEGAME_ERROR ) );
@@ -1195,7 +1195,7 @@ BOOL CWndDiceGame::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		
 		if(m_nSelectCtrl >= 0 && m_nSelectCtrl < 6)
 		{
-			//±İ¾× ÀÓ·Â Ã¢À» ¶ç¿î´Ù.
+			//ê¸ˆì•¡ ì„ë ¥ ì°½ì„ ë„ìš´ë‹¤.
 			if(m_pWndDiceTender != NULL)
 				SAFE_DELETE(m_pWndDiceTender);
 				
@@ -1242,7 +1242,7 @@ void CWndDiceGame::RefreshCtrl()
 
 void CWndDiceGame::CheckPenyaUsuable(int nPenya, int nSelect)
 {
-	//¼­¹ö·Î ÇØ´ç ±İ¾×À» Àü¼ÛÇÏ¿© À¯È¿¼º ¿©ºÎ¸¦ °Ë»ç ¹Ş´Â´Ù.	
+	//ì„œë²„ë¡œ í•´ë‹¹ ê¸ˆì•¡ì„ ì „ì†¡í•˜ì—¬ ìœ íš¨ì„± ì—¬ë¶€ë¥¼ ê²€ì‚¬ ë°›ëŠ”ë‹¤.	
 	g_DPlay.SendFiveSystemBet(nSelect, nPenya);
 }
 
@@ -1253,7 +1253,7 @@ void CWndDiceGame::SetTenderPenya(int nSelect, int nPenya)
 		m_nPenya[nSelect] = nPenya;
 		RefreshInfo();	
 	}
-	//³ª¸ÓÁö °ªÀÌ ¿Ã°æ¿ì Error°ªÀÓ.
+	//ë‚˜ë¨¸ì§€ ê°’ì´ ì˜¬ê²½ìš° Errorê°’ì„.
 }
 
 void CWndDiceGame::ReceiveResult(int nDiceNum, int nPenya)
@@ -1269,7 +1269,7 @@ void CWndDiceGame::ReceiveResult(int nDiceNum, int nPenya)
 
 BOOL CWndDiceGame::Process()
 {
-	//Start¹öÆ° ´©¸¦ °æ¿ì ÄÄÇ»ÅÍÀÇ ¼±ÅÃÀÌ È¸ÀüÇÏµµ·Ï ÇÔ.
+	//Startë²„íŠ¼ ëˆ„ë¥¼ ê²½ìš° ì»´í“¨í„°ì˜ ì„ íƒì´ íšŒì „í•˜ë„ë¡ í•¨.
 	if(m_nStatus == 0)
 	{
 		if(m_nCount%4 == 0)
@@ -1323,7 +1323,7 @@ BOOL CWndDiceGame::Process()
 		}
 		m_nCount++;
 	}
-	else if(m_nStatus == 2) //ComÀÇ °á°ú°¡ º¸¿©Áö°í ¹Ù·Î »ç¶óÁö°Å³ª ÇÏ±â ¶§¹®¿¡ ¾à°£ÀÇ Delay¸¦ ÁÜ
+	else if(m_nStatus == 2) //Comì˜ ê²°ê³¼ê°€ ë³´ì—¬ì§€ê³  ë°”ë¡œ ì‚¬ë¼ì§€ê±°ë‚˜ í•˜ê¸° ë•Œë¬¸ì— ì•½ê°„ì˜ Delayë¥¼ ì¤Œ
 	{
 		if(m_nCount > m_nDelay)
 		{
@@ -1353,7 +1353,7 @@ BOOL CWndDiceGame::Process()
 			}
 			else
 			{
-				if(!m_bSendStart) //¼­¹ö·Î ÁÖ»çÀ§ °ÔÀÓÀÇ ½ÃÀÛÀ» ¾Ë¸°´Ù.
+				if(!m_bSendStart) //ì„œë²„ë¡œ ì£¼ì‚¬ìœ„ ê²Œì„ì˜ ì‹œì‘ì„ ì•Œë¦°ë‹¤.
 				{
 					g_DPlay.SendFiveSystemStart();
 					m_bSendStart = TRUE;
@@ -1411,7 +1411,7 @@ void CWndDiceGameTender::OnDraw( C2DRender* p2DRender )
 void CWndDiceGameTender::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT );
 	pWndEdit->SetFocus();
 	MoveParentCenter();
@@ -1426,7 +1426,7 @@ void CWndDiceGameTender::SetMinMaxPenya(int nMinPenya, int nMaxPenya)
 BOOL CWndDiceGameTender::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 	m_pDiceGame = (CWndDiceGame*)pWndParent;
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_TRADE_GOLD, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -1483,7 +1483,7 @@ BOOL CWndDiceGameTender::OnChildNotify( UINT message, UINT nID, LRESULT* pLResul
 		CString string = pWndEdit->GetString();
 		int m_nTenderPenya = _ttoi( string );
 
-		if(m_nTenderPenya > m_nMaxPenya) //ÀÔÂû ±İ¾×ÀÌ ÃÖ´ë ÀÔÂû ±İ¾×À» ÃÊ°úÇÒ °æ¿ì
+		if(m_nTenderPenya > m_nMaxPenya) //ì…ì°° ê¸ˆì•¡ì´ ìµœëŒ€ ì…ì°° ê¸ˆì•¡ì„ ì´ˆê³¼í•  ê²½ìš°
 			m_nTenderPenya = m_nMaxPenya;			
 
 		string.Format("%d", m_nTenderPenya);
@@ -1527,7 +1527,7 @@ void CWndDiceGameMessage::OnDraw( C2DRender* p2DRender )
 void CWndDiceGameMessage::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate();
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CRect rect = GetClientRect();
 	int x = m_rectClient.Width() / 2;
 	int y = m_rectClient.Height() - 30;
@@ -1555,10 +1555,10 @@ void CWndDiceGameMessage::OnInitialUpdate()
 		Move( ptMove );
 	}
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndDiceGameMessage::Initialize( LPCTSTR lpszMessage, CWndBase* pWndParent, DWORD nType ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	m_strText = lpszMessage;
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MESSAGEBOX, 0, CPoint( 0, 0 ), pWndParent );
 } 
@@ -1679,11 +1679,11 @@ BOOL CWndPuzzleGame::Process()
 
 void CWndPuzzleGame::OnDraw( C2DRender* p2DRender ) 
 { 
-	//ÇöÀç ¼±ÅÃµÈ Ctrl ±â¾ïÇÏ±â.
+	//í˜„ì¬ ì„ íƒëœ Ctrl ê¸°ì–µí•˜ê¸°.
 	CPoint point = GetMousePoint();
 	m_nSelectCtrl = HitTest( point );
 	
-	//³ª¸ÓÁö ¿Ã·ÁÁø ÆÛÁñ ±×¸®±â.
+	//ë‚˜ë¨¸ì§€ ì˜¬ë ¤ì§„ í¼ì¦ ê·¸ë¦¬ê¸°.
 	ItemProp* pItemProp;
 	CTexture* pTexture;
 	
@@ -1694,7 +1694,7 @@ void CWndPuzzleGame::OnDraw( C2DRender* p2DRender )
 			pItemProp = prj.GetItemProp( m_itemID[i] );
 			if(pItemProp != NULL)
 			{
-				//¾ÆÀÌÅÛ ¾ÆÀÌÄÜÀÌ ¾Æ´Ñ Å« Å©±âÀÇ ±×¸²ÀÌ µû·Î µé¾î°¥ °æ¿ì ¿©±â¸¦ ¼öÁ¤.
+				//ì•„ì´í…œ ì•„ì´ì½˜ì´ ì•„ë‹Œ í° í¬ê¸°ì˜ ê·¸ë¦¼ì´ ë”°ë¡œ ë“¤ì–´ê°ˆ ê²½ìš° ì—¬ê¸°ë¥¼ ìˆ˜ì •.
 				pTexture = CWndBase::m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ITEM, pItemProp->szIcon), 0xffff00ff );
 				if(pTexture != NULL)
 					pTexture->Render( p2DRender, CPoint( GetWndCtrl( m_pStaticID[i] )->rect.left, GetWndCtrl( m_pStaticID[i] )->rect.top ) );
@@ -1840,7 +1840,7 @@ void CWndPuzzleGame::SetPicture(CItemElem* pItemElem)
 void CWndPuzzleGame::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_pText = (CWndText *)GetDlgItem( WIDC_TEXT_DESC );
 	
 	CWndButton* pButton;
@@ -1855,7 +1855,7 @@ void CWndPuzzleGame::OnInitialUpdate()
 
 BOOL CWndPuzzleGame::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MINIGAME_PUZZLE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -1895,7 +1895,7 @@ BOOL CWndPuzzleGame::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				pButton = (CWndButton*)GetDlgItem( WIDC_BTN_START );
 				pButton->EnableWindow(FALSE);
 				
-				//¼­¹ö·Î ÇØ´ç ±ÛÀÚµéÀÇ ID¸¦ ¹­¾î¼­ º¸³½´Ù.
+				//ì„œë²„ë¡œ í•´ë‹¹ ê¸€ìë“¤ì˜ IDë¥¼ ë¬¶ì–´ì„œ ë³´ë‚¸ë‹¤.
 				for(int i=0; i<9; i++)
 				{
 					m_objItemID[i] = m_pItemElem[i]->m_dwObjId;
@@ -1904,7 +1904,7 @@ BOOL CWndPuzzleGame::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			else
 			{
-				//±ÛÀÚ°¡ ºüÁ®ÀÖ´Ù¸é Error Message¸¦ ¶ç¿î´Ù.
+				//ê¸€ìê°€ ë¹ ì ¸ìˆë‹¤ë©´ Error Messageë¥¼ ë„ìš´ë‹¤.
 				g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_MINIGAME_EMPTY_ERROR ) );
 			}
 		}

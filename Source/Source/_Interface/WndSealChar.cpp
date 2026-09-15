@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndSealChar.h"
@@ -25,7 +25,7 @@ void CWndSealChar::OnDraw( C2DRender* p2DRender )
 void CWndSealChar::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	//	CWndStatic* pWndStatic;
@@ -33,11 +33,11 @@ void CWndSealChar::OnInitialUpdate()
 	CString strTemp;
 
 
-	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_TEXT01) ) ); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_TEXT01) ) ); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	
 	pWndText->SetString( strTemp );
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	/*
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
@@ -50,10 +50,10 @@ void CWndSealChar::OnInitialUpdate()
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
 	Move( point );	
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSealChar::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SEAL_CHAR, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
@@ -78,10 +78,10 @@ BOOL CWndSealChar::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	BOOL bResult = FALSE;
 	if( nID == WIDC_OK ) 
 	{
-		g_DPlay.SendSealChar(  );		// ÄÉ¸¯ºÀÀÎ½ÅÃ»
+		g_DPlay.SendSealChar(  );		// ì¼€ë¦­ë´‰ì¸ì‹ ì²­
 		bResult = TRUE;
 	}
-	// ¹İµå½Ã!!! TRUE·Î ÇØ¼­ ¸Ş¸ğ¸®¿¡¼­ ³¯¸®ÀÚ!!
+	// ë°˜ë“œì‹œ!!! TRUEë¡œ í•´ì„œ ë©”ëª¨ë¦¬ì—ì„œ ë‚ ë¦¬ì!!
 	if( bResult )
 		Destroy( /*TRUE*/ );
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
@@ -107,14 +107,14 @@ void CWndSealCharSelect::OnDraw( C2DRender* p2DRender )
 void CWndSealCharSelect::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	//	CWndStatic* pWndStatic;
 	//	pWndStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC1 );
 	CString strTemp,strName1,strName2;
 
-	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_SELECT_TEXT01) ) ); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_SELECT_TEXT01) ) ); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	pWndText->SetString( strTemp );
 
 	CWndButton* pWndButton[ 2 ];
@@ -127,7 +127,7 @@ void CWndSealCharSelect::OnInitialUpdate()
 
 
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	/*
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
@@ -140,10 +140,10 @@ void CWndSealCharSelect::OnInitialUpdate()
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
 	Move( point );	
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSealCharSelect::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SEAL_CHAR_SELECT, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
@@ -193,11 +193,11 @@ BOOL CWndSealCharSelect::OnChildNotify( UINT message, UINT nID, LRESULT* pLResul
 			else if(i == 1)
 				pWndCWndSealCharSend->SetData(m_idSrc2,m_szSrc2);
 
-	//		g_DPlay.SendSealChar(  );		// ÄÉ¸¯ºÀÀÎ½ÅÃ»
+	//		g_DPlay.SendSealChar(  );		// ì¼€ë¦­ë´‰ì¸ì‹ ì²­
 			bResult = TRUE;
 		}
 	}
-	// ¹İµå½Ã!!! TRUE·Î ÇØ¼­ ¸Ş¸ğ¸®¿¡¼­ ³¯¸®ÀÚ!!
+	// ë°˜ë“œì‹œ!!! TRUEë¡œ í•´ì„œ ë©”ëª¨ë¦¬ì—ì„œ ë‚ ë¦¬ì!!
 	if( bResult )
 		Destroy( /*TRUE*/ );
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
@@ -238,18 +238,18 @@ void CWndSealCharSend::OnDraw( C2DRender* p2DRender )
 void CWndSealCharSend::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	//	CWndStatic* pWndStatic;
 	//	pWndStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC1 );
 	CString strTemp;
 
-	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_SEND_TEXT01) ), m_szSrc1); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_SEND_TEXT01) ), m_szSrc1); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	pWndText->SetString( strTemp );
 
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	/*
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
@@ -262,10 +262,10 @@ void CWndSealCharSend::OnInitialUpdate()
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
 	Move( point );	
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSealCharSend::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SEAL_CHAR_SEND, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
@@ -291,12 +291,12 @@ BOOL CWndSealCharSend::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 	if( nID == WIDC_YES ) 
 	{
 
-		g_DPlay.SendSealCharConm( m_idSrc1 );		// ÄÉ¸¯ºÀÀÎ½ÅÃ»
+		g_DPlay.SendSealCharConm( m_idSrc1 );		// ì¼€ë¦­ë´‰ì¸ì‹ ì²­
 		bResult = TRUE;
-//		g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//¼­¹ö·ÎºÎÅÍ Á¢¼ÓÀÌ ÇØÁ¦µÇ¾ú½À´Ï´Ù.		  
+//		g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//ì„œë²„ë¡œë¶€í„° ì ‘ì†ì´ í•´ì œë˜ì—ˆìŠµë‹ˆë‹¤.		  
 
 	}
-	// ¹İµå½Ã!!! TRUE·Î ÇØ¼­ ¸Ş¸ğ¸®¿¡¼­ ³¯¸®ÀÚ!!
+	// ë°˜ë“œì‹œ!!! TRUEë¡œ í•´ì„œ ë©”ëª¨ë¦¬ì—ì„œ ë‚ ë¦¬ì!!
 	if( bResult )
 		Destroy( /*TRUE*/ );
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
@@ -311,7 +311,7 @@ void CWndSealCharSend::SetData( u_long uPlayerID1, char* szName1 )
 
 	CString strTemp;
 
-	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_SEND_TEXT01) ), m_szSrc1); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_SEND_TEXT01) ), m_szSrc1); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	pWndText->SetString( strTemp );
 
 }
@@ -332,19 +332,19 @@ void CWndSealCharSet::OnDraw( C2DRender* p2DRender )
 void CWndSealCharSet::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndText* pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 	//	CWndStatic* pWndStatic;
 	//	pWndStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC1 );
 	CString strTemp;
 
-	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_SET_TEXT01) ), m_szSrc1); // ¸Ş½ÃÁö ¹Ù²Ù·Á¸é ÀÌ°É ¹Ù²Ù½Ã¿À
+	strTemp.Format( _T( prj.GetText(TID_DIAG_SEAL_CHAR_SET_TEXT01) ), m_szSrc1); // ë©”ì‹œì§€ ë°”ê¾¸ë ¤ë©´ ì´ê±¸ ë°”ê¾¸ì‹œì˜¤
 	pWndText->SetString( strTemp );
 
 	m_dwData	= 0;
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	/*
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
@@ -357,10 +357,10 @@ void CWndSealCharSet::OnInitialUpdate()
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
 	Move( point );	
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndSealCharSet::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_SEAL_CHAR_SET, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
@@ -387,10 +387,10 @@ BOOL CWndSealCharSet::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	{
 		g_DPlay.SendSealCharSet(m_dwData);
 	
-//		g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//¼­¹ö·ÎºÎÅÍ Á¢¼ÓÀÌ ÇØÁ¦µÇ¾ú½À´Ï´Ù.		
+//		g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//ì„œë²„ë¡œë¶€í„° ì ‘ì†ì´ í•´ì œë˜ì—ˆìŠµë‹ˆë‹¤.		
 
 	}
-	// ¹İµå½Ã!!! TRUE·Î ÇØ¼­ ¸Ş¸ğ¸®¿¡¼­ ³¯¸®ÀÚ!!
+	// ë°˜ë“œì‹œ!!! TRUEë¡œ í•´ì„œ ë©”ëª¨ë¦¬ì—ì„œ ë‚ ë¦¬ì!!
 	if( bResult )
 		Destroy( /*TRUE*/ );
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 

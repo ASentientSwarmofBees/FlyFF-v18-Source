@@ -1,4 +1,4 @@
-#ifndef _TOOLTIP_H_
+ï»¿#ifndef _TOOLTIP_H_
 #define _TOOLTIP_H_
 
 enum 
@@ -97,25 +97,25 @@ public:
 #endif // __IMPROVE_SYSTEM_VER15
 };
 /*
-#define TOOLTIP_COMBATMODE   1  // "ÀüÅõ/ÆòÈ­\n´ÜÃàÅ°[C]"
-#define TOOLTIP_INVENTORY    2  // "¼ÒÁöÇ°\n´ÜÃàÅ°[I]"
-#define TOOLTIP_OPTION       3  // "Á¾·á\n´ÜÃàÅ°[ALT-X]"
-#define TOOLTIP_STATUS       4  // "´É·ÂÄ¡º¸±â\n´ÜÃàÅ°[S]"
+#define TOOLTIP_COMBATMODE   1  // "ì „íˆ¬/í‰í™”\në‹¨ì¶•í‚¤[C]"
+#define TOOLTIP_INVENTORY    2  // "ì†Œì§€í’ˆ\në‹¨ì¶•í‚¤[I]"
+#define TOOLTIP_OPTION       3  // "ì¢…ë£Œ\në‹¨ì¶•í‚¤[ALT-X]"
+#define TOOLTIP_STATUS       4  // "ëŠ¥ë ¥ì¹˜ë³´ê¸°\në‹¨ì¶•í‚¤[S]"
 
-#define TOOLTIP_EQUIPMENT    5  // "ÀåºñÀåÂø\n´ÜÃàÅ°[E]"
-#define TOOLTIP_KNOWLEDGE    6  // "Áö½Ä»ç¿ë\n´ÜÃàÅ°[K]"
-#define TOOLTIP_LOOK         7  // "ÀÚ¼¼È÷º¸±â\n´ÜÃàÅ°[L]"
+#define TOOLTIP_EQUIPMENT    5  // "ìž¥ë¹„ìž¥ì°©\në‹¨ì¶•í‚¤[E]"
+#define TOOLTIP_KNOWLEDGE    6  // "ì§€ì‹ì‚¬ìš©\në‹¨ì¶•í‚¤[K]"
+#define TOOLTIP_LOOK         7  // "ìžì„¸ížˆë³´ê¸°\në‹¨ì¶•í‚¤[L]"
 
-#define TOOLTIP_SLOT         8  // "¾ÆÀÌÅÛ ½½·Ô"  
-#define TOOLTIP_SLOT_F1      9  // "1¹ø ½½·Ô ¼±ÅÃ\n´ÜÃàÅ°[F1]"
-#define TOOLTIP_SLOT_F2      10 // "2¹ø ½½·Ô ¼±ÅÃ\n´ÜÃàÅ°[F2]"
-#define TOOLTIP_SLOT_F3      11 // "3¹ø ½½·Ô ¼±ÅÃ\n´ÜÃàÅ°[F3]"
+#define TOOLTIP_SLOT         8  // "ì•„ì´í…œ ìŠ¬ë¡¯"  
+#define TOOLTIP_SLOT_F1      9  // "1ë²ˆ ìŠ¬ë¡¯ ì„ íƒ\në‹¨ì¶•í‚¤[F1]"
+#define TOOLTIP_SLOT_F2      10 // "2ë²ˆ ìŠ¬ë¡¯ ì„ íƒ\në‹¨ì¶•í‚¤[F2]"
+#define TOOLTIP_SLOT_F3      11 // "3ë²ˆ ìŠ¬ë¡¯ ì„ íƒ\në‹¨ì¶•í‚¤[F3]"
 
-#define TOOLTIP_CHAT         12 // "Ã¤ÆÃ ÀÔ·ÂÃ¢\n´ÜÃàÅ°[ENTER]"
-#define TOOLTIP_CHAT1        14 // "ÀÏ¹Ý Ã¤ÆÃ"
-#define TOOLTIP_CHAT2        15 // "±Ó¼Ó¸»"
+#define TOOLTIP_CHAT         12 // "ì±„íŒ… ìž…ë ¥ì°½\në‹¨ì¶•í‚¤[ENTER]"
+#define TOOLTIP_CHAT1        14 // "ì¼ë°˜ ì±„íŒ…"
+#define TOOLTIP_CHAT2        15 // "ê·“ì†ë§"
 #define TOOLTIP_CHAT3        16 // 
 
-#define TOOLTIP_MESSAGE      17 // "¸Þ½ÃÁö Ãâ·ÂÃ¢"
+#define TOOLTIP_MESSAGE      17 // "ë©”ì‹œì§€ ì¶œë ¥ì°½"
 */
 #endif

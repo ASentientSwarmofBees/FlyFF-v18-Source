@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndPartyQuick.h"
@@ -61,7 +61,7 @@ void CWndPartyQuick::SerializeRegInfo( CAr& ar, DWORD& dwVersion )
 
 void CWndPartyQuick::OnDraw( C2DRender* p2DRender ) 
 { 
-	// ÆÄÆ¼ Á¤º¸ Ãâ·Â
+	// íŒŒí‹° ì •ë³´ ì¶œë ¥
 	//Static control
 	int nMax = g_Party.m_nSizeofMember;
 	int i;
@@ -79,27 +79,27 @@ void CWndPartyQuick::OnDraw( C2DRender* p2DRender )
 		if(m_pFocusMember == pObjMember)
 			p2DRender->RenderFillRect( rect, 0x60ffff00 );
 
-		// »óÅÂ¿¡ µû¶ó »ö º¯°æ
+		// ìƒíƒœì— ë”°ë¼ ìƒ‰ ë³€ê²½
 		DWORD dwColor = 0xff000000;
 		u_long  nLeadMember = g_Party.m_aMember[i].m_uPlayerId;
 		if( IsValidObj(pObjMember) )
 		{
 			if( pObjMember->GetHitPoint() == 0 ) 
-				dwColor = 0xffff0000; // Á×Àº³ğ
+				dwColor = 0xffff0000; // ì£½ì€ë†ˆ
 			else if( ((FLOAT)pObjMember->GetHitPoint()) / ((FLOAT)pObjMember->GetMaxHitPoint()) <.1f ) 
-				dwColor = 0xffffff00; // HP 10% ÀÌÇÏÀÎ³ğ
+				dwColor = 0xffffff00; // HP 10% ì´í•˜ì¸ë†ˆ
 			if(g_Party.IsLeader(nLeadMember)) //Leader Color Set
 			{
-				dwColor = 0xff1fb72d; //±½°Ô ÇØ¾ßÇÔ...
+				dwColor = 0xff1fb72d; //êµµê²Œ í•´ì•¼í•¨...
 #if __VER >= 10 // __LEGEND
 				if(pObjMember->IsMaster())
 					strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_MASTER ), pObjMember->GetLevel(), pObjMember->GetName() );
 				else if(pObjMember->IsHero())
-#if __VER >= 15 // __HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 15 // __HERO129_VER15				// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 					strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO ), pObjMember->GetLevel(), pObjMember->GetName() );
-	#else	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+	#else	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 					strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO_BEFORE ), pObjMember->GetName() );
-	#endif	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+	#endif	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 #ifdef __3RD_LEGEND16
 				else if(pObjMember->IsLegendHero())
 					strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO ), pObjMember->GetLevel(), pObjMember->GetName() );
@@ -116,11 +116,11 @@ void CWndPartyQuick::OnDraw( C2DRender* p2DRender )
 				if(pObjMember->IsMaster())
 					strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_MASTER ), pObjMember->GetLevel(), pObjMember->GetName() );
 				else if(pObjMember->IsHero())
-#if __VER >= 15 // __HERO129_VER15				// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 15 // __HERO129_VER15				// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 					strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO ), pObjMember->GetLevel(), pObjMember->GetName() );
-	#else	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+	#else	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 					strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO_BEFORE ), pObjMember->GetName() );
-	#endif	// 15Â÷ È÷¾î·Î ·¹º§È®Àå
+	#endif	// 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 #ifdef __3RD_LEGEND16
 				else if(pObjMember->IsLegendHero())
 					strMember.Format( prj.GetText( TID_GAME_QUICK_MARK_HERO ), pObjMember->GetLevel(), pObjMember->GetName() );
@@ -134,16 +134,16 @@ void CWndPartyQuick::OnDraw( C2DRender* p2DRender )
 		}
 		else
 		{
-			dwColor = 0xff878787; // µğÆúÆ®´Â ÁÖÀ§¿¡ ¾ø´Â³ğ
+			dwColor = 0xff878787; // ë””í´íŠ¸ëŠ” ì£¼ìœ„ì— ì—†ëŠ”ë†ˆ
 			if( g_Party.m_aMember[i].m_bRemove ) 
-				dwColor = 0xff000000; // ¼­¹ö¿¡ ¾ø´Â³ğ
+				dwColor = 0xff000000; // ì„œë²„ì— ì—†ëŠ”ë†ˆ
 #if __VER >= 11 // __SYS_PLAYER_DATA
 			const char* pszPlayer	= CPlayerDataCenter::GetInstance()->GetPlayerString( g_Party.m_aMember[i].m_uPlayerId );
 #else	// __SYS_PLAYER_DATA
 			const char* pszPlayer	= g_Party.m_aMember[i].m_szName;
 #endif	// __SYS_PLAYER_DATA
 
-#if __VER >= 11 // __MA_VER11_03	// neuz±Ø´ÜÃ¢(B)¿¡¼­ ±Ø´Ü¿øÀÌ ¸Ö¸® ¶³¾îÁ® ÀÖ¾îµµ ·¹º§ÀÌ Ç¥½Ã µÇµµ·Ï
+#if __VER >= 11 // __MA_VER11_03	// neuzê·¹ë‹¨ì°½(B)ì—ì„œ ê·¹ë‹¨ì›ì´ ë©€ë¦¬ ë–¨ì–´ì ¸ ìˆì–´ë„ ë ˆë²¨ì´ í‘œì‹œ ë˜ë„ë¡
 			CString	strTemp2;
 	#if __VER >= 11 // __SYS_PLAYER_DATA
 			PlayerData* pPlayerData	= CPlayerDataCenter::GetInstance()->GetPlayerData( g_Party.m_aMember[i].m_uPlayerId );
@@ -157,29 +157,29 @@ void CWndPartyQuick::OnDraw( C2DRender* p2DRender )
 			if( MAX_PROFESSIONAL <= nJob && nJob < MAX_MASTER )
 				strTemp2.Format( "%d%s", nLevel, prj.GetText( TID_GAME_TOOLTIP_MARK_MASTER ) );
 			else if( MAX_MASTER <= nJob )
-#if __VER >= 15 // __HERO129_VER15 // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 15 // __HERO129_VER15 // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 				strTemp2.Format( "%d%s", nLevel, prj.GetText( TID_GAME_TOOLTIP_MARK_HERO ) );
-#else // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#else // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 				strTemp2 = prj.GetText( TID_GAME_TOOLTIP_MARK_HERO_BEFORE );
-#endif // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#endif // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 			else 
 				strTemp2.Format( "%d", nLevel );
 
-			if(g_Party.IsLeader(nLeadMember)) //Leader Set ±½°Ô ÇØ¾ßÇÔ...
+			if(g_Party.IsLeader(nLeadMember)) //Leader Set êµµê²Œ í•´ì•¼í•¨...
 				strMember.Format( "%s. %s", strTemp2,pszPlayer );
 			else
 				strMember.Format( "%s. %s", strTemp2,pszPlayer );
 
-#else	//	__MA_VER11_03	// neuz±Ø´ÜÃ¢(B)¿¡¼­ ±Ø´Ü¿øÀÌ ¸Ö¸® ¶³¾îÁ® ÀÖ¾îµµ ·¹º§ÀÌ Ç¥½Ã µÇµµ·Ï
-			if(g_Party.IsLeader(nLeadMember)) //Leader Set ±½°Ô ÇØ¾ßÇÔ...
+#else	//	__MA_VER11_03	// neuzê·¹ë‹¨ì°½(B)ì—ì„œ ê·¹ë‹¨ì›ì´ ë©€ë¦¬ ë–¨ì–´ì ¸ ìˆì–´ë„ ë ˆë²¨ì´ í‘œì‹œ ë˜ë„ë¡
+			if(g_Party.IsLeader(nLeadMember)) //Leader Set êµµê²Œ í•´ì•¼í•¨...
 				strMember.Format( "??. %s", pszPlayer );
 			else
 				strMember.Format( "??. %s", pszPlayer );
-#endif	//	__MA_VER11_03	// neuz±Ø´ÜÃ¢(B)¿¡¼­ ±Ø´Ü¿øÀÌ ¸Ö¸® ¶³¾îÁ® ÀÖ¾îµµ ·¹º§ÀÌ Ç¥½Ã µÇµµ·Ï
+#endif	//	__MA_VER11_03	// neuzê·¹ë‹¨ì°½(B)ì—ì„œ ê·¹ë‹¨ì›ì´ ë©€ë¦¬ ë–¨ì–´ì ¸ ìˆì–´ë„ ë ˆë²¨ì´ í‘œì‹œ ë˜ë„ë¡
 
 		}
 		//Member - Level, Name Draw
-		//±ä ÀÌ¸§Àº ... À¸·Î.
+		//ê¸´ ì´ë¦„ì€ ... ìœ¼ë¡œ.
 		if( strMember.GetLength() > 13 ) 
 		{
 			int	nReduceCount = 0;
@@ -215,7 +215,7 @@ void CWndPartyQuick::OnDraw( C2DRender* p2DRender )
 void CWndPartyQuick::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_pBtnParty = (CWndButton*)GetDlgItem( WIDC_BUTTON1 );
 
 	for(int i=0; i<MAX_PARTY_MEMBER; i++)
@@ -232,11 +232,11 @@ void CWndPartyQuick::OnInitialUpdate()
 	CPoint point( 30, (rectRoot.bottom - rectRoot.top) / 4);
 	Move( point );
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndPartyQuick::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
-	if(g_Party.GetSizeofMember() < 2) //½ÃÀÛ°ú ÇÔ²² ¿­¸± °æ¿ì QuickÃ¢Àº ¿­Áö ¾Êµµ·Ï ÇÑ´Ù. PartyÁ¤º¸°¡ ¾ø¾î ¼¼ÆÃ ºÒ°¡.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
+	if(g_Party.GetSizeofMember() < 2) //ì‹œì‘ê³¼ í•¨ê»˜ ì—´ë¦´ ê²½ìš° Quickì°½ì€ ì—´ì§€ ì•Šë„ë¡ í•œë‹¤. Partyì •ë³´ê°€ ì—†ì–´ ì„¸íŒ… ë¶ˆê°€.
 		return FALSE;
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PARTY_QUICK, 0, CPoint( 0, 0 ), pWndParent );
 } 
@@ -268,7 +268,7 @@ void CWndPartyQuick::OnLButtonUp( UINT nFlags, CPoint point )
 		rect = lpWndCtrl->rect;
 		if( rect.PtInRect( point ) )
 		{
-			((CWndWorld*)g_WndMng.m_pWndWorld)->m_pSelectRenderObj = NULL; //¸¶¿ì½º¿¡ °É·Á ±×·ÁÁø³ğÀ» Áö¿ì°í Å¸°ÙÀ» Àâ¾Æ¾ß ¾È°ãÄ£´Ù..
+			((CWndWorld*)g_WndMng.m_pWndWorld)->m_pSelectRenderObj = NULL; //ë§ˆìš°ìŠ¤ì— ê±¸ë ¤ ê·¸ë ¤ì§„ë†ˆì„ ì§€ìš°ê³  íƒ€ê²Ÿì„ ì¡ì•„ì•¼ ì•ˆê²¹ì¹œë‹¤..
 			m_pFocusMember = prj.GetUserByID( g_Party.m_aMember[ i ].m_uPlayerId );
 			if( g_pPlayer != m_pFocusMember ) 
 			{

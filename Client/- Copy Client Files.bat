@@ -42,4 +42,4 @@ if exist "%SOURCE_NEUZ_DIR%\Neuz.exe" (
 
 echo.
 echo Success! All client resources and Neuz.exe updated successfully.
-timeout /t 3 >nul
+timeout /t 1 >nul

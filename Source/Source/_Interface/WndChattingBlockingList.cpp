@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "WndChattingBlockingList.h"
 #include "playerdata.h"
 #include "ResData.h"
@@ -27,7 +27,7 @@ void CWndChattingBlockingList::OnInitialUpdate( void )
 	if( g_pPlayer )
 	{
 		CString strTitle = _T( "" );
-		// [ %s ] ´ÔÀÇ Â÷´Ü ¸ñ·Ï
+		// [ %s ] ë‹˜ì˜ ì°¨ë‹¨ ëª©ë¡
 		strTitle.Format( prj.GetText( TID_GAME_CHATTING_BLOCKING_LIST_TITLE ), g_pPlayer->GetName() );
 		SetTitle( strTitle );
 	}
@@ -43,7 +43,7 @@ void CWndChattingBlockingList::UpdateInformation( void )
 	if( pWndGroupBox )
 	{
 		CString strBlockedUsersTotalNumber = _T( "" );
-		// Â÷´ÜµÈ ÃÑ ÀÎ¿ø %d¸í
+		// ì°¨ë‹¨ëœ ì´ ì¸ì› %dëª…
 		strBlockedUsersTotalNumber.Format( prj.GetText( TID_GAME_CHATTING_BLOCKING_USERS_TOTAL_NUMBER ), static_cast< int >( prj.m_setBlockedUserID.size() ) );
 		pWndGroupBox->SetTitle( strBlockedUsersTotalNumber );
 	}

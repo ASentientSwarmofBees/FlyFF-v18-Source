@@ -1,4 +1,4 @@
-#ifndef __DPADBILL_H__
+ï»¿#ifndef __DPADBILL_H__
 #define	__DPADBILL_H__
 
 #include "dpmng.h"
@@ -101,12 +101,12 @@ public:
 					sprintf( lpOutputString, "ACCOUNTSERVER.EXE\t// timeout\t// dwPlayerId = %07d\t// dwItemId = %d", ptr->dwPlayerId, ptr->dwItemId );
 					OutputDebugString( lpOutputString );
 					/*
-					ptr->szBxaid		// ±¸¸Å ¹øÈ£
-					ptr->dwItemId	// ¾ÆÀÌÅÛ ÀÎµ¦½º
-					ptr->dwItemNum	// ¾ÆÀÌÅÛ °³¼ö
-					ptr->dwServerIndex	// ¼­¹ö ÀÎµ¦½º
-					ptr->dwPlayerId		// ÇÃ·¹ÀÌ¾î ½Äº°ÀÚ
-					ptr->dwRetVal	// Áö±Þ ¼º°ø ¿©ºÎ, ¼º°ø : 1, ½ÇÆÐ : 0
+					ptr->szBxaid		// êµ¬ë§¤ ë²ˆí˜¸
+					ptr->dwItemId	// ì•„ì´í…œ ì¸ë±ìŠ¤
+					ptr->dwItemNum	// ì•„ì´í…œ ê°œìˆ˜
+					ptr->dwServerIndex	// ì„œë²„ ì¸ë±ìŠ¤
+					ptr->dwPlayerId		// í”Œë ˆì´ì–´ ì‹ë³„ìž
+					ptr->dwRetVal	// ì§€ê¸‰ ì„±ê³µ ì—¬ë¶€, ì„±ê³µ : 1, ì‹¤íŒ¨ : 0
 					*/
 					BUYING_INFO2	bi2;
 					DWORD sn = 0;

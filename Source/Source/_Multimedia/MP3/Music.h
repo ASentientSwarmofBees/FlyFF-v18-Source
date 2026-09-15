@@ -1,4 +1,4 @@
-#ifndef __MUSIC_H
+﻿#ifndef __MUSIC_H
 #define __MUSIC_H
 
 #include "crc.h"

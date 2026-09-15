@@ -1,4 +1,4 @@
-// WndWebBox.cpp: implementation of the CWndWebBox class.
+ï»¿// WndWebBox.cpp: implementation of the CWndWebBox class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -63,7 +63,7 @@ BOOL CWndWebBox::Initialize( CWndBase* pWndParent, DWORD nType )
 #endif //defined(__INTERNALSERVER) || defined(__TESTSERVER)
 
 #if __VER < 9 // __S_9_ADD
-	if( g_pPlayer && g_pPlayer->IsDie() )	// Á×Àº »óÅÂ¿¡¼­ À¯·á»óÁ¡À» ÀÌ¿ë ºÒ°¡´ÉÇÏ°Ô ¼öÁ¤ 
+	if( g_pPlayer && g_pPlayer->IsDie() )	// ì£½ì€ ìƒíƒœì—ì„œ ìœ ë£Œìƒì ì„ ì´ìš© ë¶ˆê°€ëŠ¥í•˜ê²Œ ìˆ˜ì • 
 	{
 		m_rectOldBackup = CWndTaskBar::m_pWndRoot->m_rectLayout;
 		Destroy();
@@ -106,7 +106,7 @@ BOOL CWndWebBox::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 {
 	switch(nID)
 	{
-	case WTBID_CLOSE: // Á¾·á
+	case WTBID_CLOSE: // ì¢…ë£Œ
 
 		CRect rect = g_Neuz.GetDeviceRect();
 		rect.top = rect.bottom - TASKBAR_HEIGHT;
@@ -257,7 +257,7 @@ BOOL CWndWebBox2::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 {
 	switch(nID)
 	{
-	case WTBID_CLOSE: // Á¾·á
+	case WTBID_CLOSE: // ì¢…ë£Œ
 
 		CRect rect = g_Neuz.GetDeviceRect();
 		rect.top = rect.bottom - TASKBAR_HEIGHT;

@@ -1,4 +1,4 @@
-#ifndef __NPCSCRIPT_H__
+﻿#ifndef __NPCSCRIPT_H__
 #define __NPCSCRIPT_H__
 
 #include "FunctionsInfo.h"

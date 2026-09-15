@@ -1,4 +1,4 @@
-#ifndef _FMOD_ERRORS_H
+﻿#ifndef _FMOD_ERRORS_H
 #define _FMOD_ERRORS_H
 
 static char *FMOD_ErrorString(int errcode)

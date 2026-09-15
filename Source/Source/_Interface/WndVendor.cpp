@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndVendor.h"
@@ -15,13 +15,13 @@ extern	CChatting g_Chatting;
 
 
 /*
-	WndId : APP_VENDOR - °³ÀÎ»óÁ¡
+	WndId : APP_VENDOR - ê°œì¸ìƒì 
 	CtrlId : WIDC_EDIT1 - 
-	CtrlId : WIDC_STATIC1 - »óÁ¡ÀÌ¸§
+	CtrlId : WIDC_STATIC1 - ìƒì ì´ë¦„
 	CtrlId : WIDC_EDIT2 - 
-	CtrlId : WIDC_STATIC2 - ÆÇ¸Å¸ñ·Ï
-	CtrlId : WIDC_OK - È®ÀÎ
-	CtrlId : WIDC_CANCEL - Ãë¼Ò
+	CtrlId : WIDC_STATIC2 - íŒë§¤ëª©ë¡
+	CtrlId : WIDC_OK - í™•ì¸
+	CtrlId : WIDC_CANCEL - ì·¨ì†Œ
 */
 
 
@@ -147,7 +147,7 @@ void CWndVendor::OnInitialUpdate()
 void CWndVendor::ReloadItemList()
 {
 #if __VER >= 11 // __MOD_VENDOR
-	// ¹é¾÷ÇØ µÐ ¸®½ºÆ®¸¦ ·ÎµåÇÑ´Ù 	
+	// ë°±ì—…í•´ ë‘” ë¦¬ìŠ¤íŠ¸ë¥¼ ë¡œë“œí•œë‹¤ 	
 	if( !g_pPlayer->m_vtInfo.IsVendorOpen() )
 	{
 		for( int i = 0; i < MAX_VENDITEM; i++ )
@@ -162,7 +162,7 @@ void CWndVendor::ReloadItemList()
 					if( g_Neuz.m_aSavedInven[i].m_dwObjId == pItemElem->m_dwObjId 
 					&& g_Neuz.m_aSavedInven[i].m_dwItemId == pItemElem->m_dwItemId )
 					{
-						// °¹¼ö°¡ ´Ù¸£¸é °¹¼ö¸¦ Á¶Á¤ÇÑ´Ù 	
+						// ê°¯ìˆ˜ê°€ ë‹¤ë¥´ë©´ ê°¯ìˆ˜ë¥¼ ì¡°ì •í•œë‹¤ 	
 						if(g_Neuz.m_aSavedInven[i].m_nExtra > pItemElem->m_nItemNum)
 						{
 							//g_Neuz.m_aSavedInven[i].m_nExtra = pItemElem->m_nItemNum;
@@ -186,7 +186,7 @@ void CWndVendor::ReloadItemList()
 BOOL CWndVendor::Process()
 {
 #if __VER >= 11 // __MOD_VENDOR
-	// Àå»ç¸¦ ½ÃÀÛÇÏ¸é ¸®¼Â¹öÆ°Àº º¸ÀÌÁö ¾Ê°Ô ÇÔ 
+	// ìž¥ì‚¬ë¥¼ ì‹œìž‘í•˜ë©´ ë¦¬ì…‹ë²„íŠ¼ì€ ë³´ì´ì§€ ì•Šê²Œ í•¨ 
 	CWndButton* pButton	= (CWndButton*)GetDlgItem( WIDC_RESET );
 	if(g_pPlayer->m_vtInfo.IsVendorOpen())
 		pButton->SetVisible( FALSE );
@@ -205,12 +205,12 @@ BOOL CWndVendor::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 	{
 		return FALSE;
 	}
-#if __VER >= 8 // 8Â÷ µà¾ó 061226 ma
+#if __VER >= 8 // 8ì°¨ ë“€ì–¼ 061226 ma
 	if( g_pPlayer->m_nDuel )
 	{
 		return FALSE;
 	}
-#endif // __VER >= 8 // 8Â÷ µà¾ó 061226 ma
+#endif // __VER >= 8 // 8ì°¨ ë“€ì–¼ 061226 ma
 
 #if __VER >= 8 // __S8_VENDOR_REVISION
 	return InitDialog( g_Neuz.GetSafeHwnd(), APP_VENDOR_REVISION, 0, 0, pWndParent );
@@ -258,10 +258,10 @@ BOOL CWndVendor::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					if( pItemBase->GetProp()->dwItemKind3 == IK3_CLOAK && ( (CItemElem*)pItemBase )->m_idGuild != 0 )
 						return FALSE;
 
-//#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz	
+//#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz	
 //					if( pItemBase->m_dwItemId == II_SYS_SYS_SCR_SEALCHARACTER )
-//						return FALSE;	// °³ÀÎ»óÁ¡ÆÇ¸ÅÇã¿ë
-//#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+//						return FALSE;	// ê°œì¸ìƒì íŒë§¤í—ˆìš©
+//#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ëž˜ ê¸°ëŠ¥ world,database,neuz
 
 #if __VER >= 9 // __CSC_VER9_1
 //					ItemProp* pItemProp = pItemBase->GetProp();
@@ -269,7 +269,7 @@ BOOL CWndVendor::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					if( pItemElem->IsFlag( CItemElem::expired ) )
 						return TRUE;
 					/*
-					if(pItemProp->dwItemKind3 == IK3_EGG && pItemElem->m_pPet) //»ç¸ÁÇÑ ÆêÀº °Å·¡ ºÒ°¡
+					if(pItemProp->dwItemKind3 == IK3_EGG && pItemElem->m_pPet) //ì‚¬ë§í•œ íŽ«ì€ ê±°ëž˜ ë¶ˆê°€
 					{
 						if(pItemElem->m_pPet->GetLife() <= 0)
 							return FALSE;
@@ -317,7 +317,7 @@ BOOL CWndVendor::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			strVendor.TrimRight();
 
 		#if __VER >= 11 // __MOD_VENDOR
-			// ¸Å¹° ¾×¼ö ÃÑÇÕ + ÇöÀç ¼ÒÁö±ÝÀÌ 2¾ï1ÃµÀÌ ³ÑÀ¸¸é °æ°í¶ç¿ì°í ¸®ÅÏ½ÃÅ´.
+			// ë§¤ë¬¼ ì•¡ìˆ˜ ì´í•© + í˜„ìž¬ ì†Œì§€ê¸ˆì´ 2ì–µ1ì²œì´ ë„˜ìœ¼ë©´ ê²½ê³ ë„ìš°ê³  ë¦¬í„´ì‹œí‚´.
 			int nGold = g_pPlayer->GetGold();
 
 			for( int iv = 0 ; iv < MAX_VENDITEM ; ++iv )
@@ -446,7 +446,7 @@ BOOL CWndVendor::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			//{
 				for( int i = 0; i < MAX_VENDITEM; i++ )
 				{
-					// ¸®½ºÆ®¸¦ Å¬¸®¾î ÇÑ´Ù. 
+					// ë¦¬ìŠ¤íŠ¸ë¥¼ í´ë¦¬ì–´ í•œë‹¤. 
 					CItemBase* pItemBase = g_pPlayer->m_vtInfo.GetItem(i);
 					if( pItemBase != NULL )
 					{
@@ -455,7 +455,7 @@ BOOL CWndVendor::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					}
 				}
 
-				// ÀúÀå¹öÆÛµµ Å¬¸®¾î
+				// ì €ìž¥ë²„í¼ë„ í´ë¦¬ì–´
 				memset(g_Neuz.m_aSavedInven, 0, sizeof(g_Neuz.m_aSavedInven));
 			//}
 		}
@@ -483,7 +483,7 @@ void CWndVendor::OnDestroyChildWnd( CWndBase* pWndChild )
 void CWndVendor::OnDestroy( void )
 {
 #if __VER >= 11 // __MOD_VENDOR
-	// ¸®½ºÆ®¸¦ ¹é¾÷ÇØµÐ´Ù
+	// ë¦¬ìŠ¤íŠ¸ë¥¼ ë°±ì—…í•´ë‘”ë‹¤
 	for( int i = 0; i < MAX_VENDITEM; i++ )
 	{
 		CItemBase* pItemBase = g_pPlayer->m_vtInfo.GetItem(i);
@@ -553,7 +553,7 @@ void CWndVendorMessage::OnInitialUpdate()
 	m_wndChat.AddWndStyle(WBS_VSCROLL);
 	
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_APP_DIALOG); //"´ëÈ­"
+	tabTabItem.pszText = prj.GetText(TID_APP_DIALOG); //"ëŒ€í™”"
 	tabTabItem.pWndBase = &m_wndChat;
 	pWndTabCtrl->InsertItem( 0, &tabTabItem );
 
@@ -562,7 +562,7 @@ void CWndVendorMessage::OnInitialUpdate()
 		m_wndInfo.Create(WBS_NODRAWFRAME, CRect( 0, 0, 300, 220 ), pWndTabCtrl, 11 );
 		m_wndInfo.AddWndStyle(WBS_VSCROLL);
 		tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-		tabTabItem.pszText = prj.GetText(TID_APP_INFOMATION); //"Á¤º¸"
+		tabTabItem.pszText = prj.GetText(TID_APP_INFOMATION); //"ì •ë³´"
 		tabTabItem.pWndBase = &m_wndInfo;
 		pWndTabCtrl->InsertItem( 1, &tabTabItem );
 	}
@@ -583,10 +583,10 @@ void CWndVendorMessage::InitSize( void )
 	Move( point );
 	MoveParentCenter();
 }
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndVendorMessage::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_VENDOREX_CHAT, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndVendorMessage::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -613,7 +613,7 @@ BOOL CWndVendorMessage::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 	CWndEdit* pWndText = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	switch(nID)
 	{
-		case WIDC_EDIT1: // º»¹® 
+		case WIDC_EDIT1: // ë³¸ë¬¸ 
 			if( message == EN_RETURN)
 			{
 				if( pWndText->m_string.IsEmpty() == FALSE )
@@ -633,7 +633,7 @@ BOOL CWndVendorMessage::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 				}
 			}
 			break;
-		case WIDC_BUTTON1: // º»¹® 
+		case WIDC_BUTTON1: // ë³¸ë¬¸ 
 			{
 				if( pWndText->m_string.IsEmpty() == FALSE )
 				{
@@ -672,7 +672,7 @@ void CWndVendorMessage::AddMessage( LPCTSTR lpszFrom, LPCTSTR lpszMessage )
 		strMessage.Format( "#cffff0000%s%s :#nc\n  %s\n", lpszFrom, prj.GetText(TID_GAME_FROM3), lpszMessage );
 	else
 		strMessage.Format( "#cff0000ff%s%s :#nc\n  %s\n", lpszFrom, prj.GetText(TID_GAME_FROM3), lpszMessage );
-	//  	strMessage.Format( "#cff0000ff%s´ÔÀÇ ¸» :#nc\n  %s\n", lpszFrom, lpszMessage );
+	//  	strMessage.Format( "#cff0000ff%së‹˜ì˜ ë§ :#nc\n  %s\n", lpszFrom, lpszMessage );
 	
 	m_wndChat.AddString( strMessage );
 	m_wndChat.m_wndScrollBar.SetMaxScrollPos();
@@ -685,7 +685,7 @@ void CWndVendorMessage::AddMessage( LPCTSTR lpszFrom, LPCTSTR lpszMessage )
 		strMessage.Format( "#cffff0000%s%s :#nc\n  %s\n", lpszFrom, prj.GetText(TID_GAME_FROM3), lpszMessage );
 	else
 		strMessage.Format( "#cff0000ff%s%s :#nc\n  %s\n", lpszFrom, prj.GetText(TID_GAME_FROM3), lpszMessage );
-	//  	strMessage.Format( "#cff0000ff%s´ÔÀÇ ¸» :#nc\n  %s\n", lpszFrom, lpszMessage );
+	//  	strMessage.Format( "#cff0000ff%së‹˜ì˜ ë§ :#nc\n  %s\n", lpszFrom, lpszMessage );
 	
 	pWndText->AddString( strMessage );
 	pWndText->m_wndScrollBar.SetMaxScrollPos();

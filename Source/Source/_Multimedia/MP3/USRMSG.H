@@ -1,4 +1,4 @@
-
+﻿
 
 /* USER DEFINE MESSAGE */
 //#define SCROLL_POS (WM_USER + 1)

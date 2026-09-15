@@ -1,4 +1,4 @@
-#if !defined(AFX_WNDFIELD_H__A93F3186_63D6_43C1_956F_EC8691E0C7D9__INCLUDED_)
+ï»¿#if !defined(AFX_WNDFIELD_H__A93F3186_63D6_43C1_956F_EC8691E0C7D9__INCLUDED_)
 #define AFX_WNDFIELD_H__A93F3186_63D6_43C1_956F_EC8691E0C7D9__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -24,7 +24,7 @@ const int MAX_WANTED_LIST =	100;
 #include "WndMailRequestingBox.h"
 #endif // __MAIL_REQUESTING_BOX
 //////////////////////////////////////////////////////////////////////////////////////
-// ¾ÖÇÃ·§ À©µµ 
+// ì• í”Œë« ìœˆë„ 
 //
 class CWndApplet : public CWndNeuz
 {
@@ -49,7 +49,7 @@ public:
 };
 
 //////////////////////////////////////////////////////////////////////////////////////
-// µå·Ó¾ÆÀÌÅÛ 
+// ë“œë¡­ì•„ì´í…œ 
 //
 class CWndDropItem : public CWndNeuz 
 { 
@@ -137,7 +137,7 @@ public:
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-//  Äù½ºÆ® ¾ÆÀÌÅÛ Á¤º¸ Ã¢
+//  í€˜ìŠ¤íŠ¸ ì•„ì´í…œ ì •ë³´ ì°½
 //
 class CWndQuestItemInfo : public CWndNeuz
 {
@@ -163,7 +163,7 @@ public:
 };
 
 //////////////////////////////////////////////////////////////////////////////////////
-// ÀÎº¥Åä¸® 
+// ì¸ë²¤í† ë¦¬ 
 //
 #if __VER >= 9 // __CSC_VER9_1
 class CWndRemoveJewelConfirm;
@@ -281,7 +281,7 @@ public:
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-// »óÅÂ 
+// ìƒíƒœ 
 //
 class CWndStateConfirm : public CWndNeuz 
 { 
@@ -413,7 +413,7 @@ public:
 	CWndChangeJob* m_pWndChangeJob;
 	BOOL	m_fWaitingConfirm;
 	BOOL m_bExpert;
-	int m_nDisplay;			// Á÷¾÷Ã¢ È­¸é ¿É¼Ç
+	int m_nDisplay;			// ì§ì—…ì°½ í™”ë©´ ì˜µì…˜
 
 	CWndPvpBase();
 	virtual ~CWndPvpBase();
@@ -603,19 +603,19 @@ public:
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-// ½ºÅ³ EX 
+// ìŠ¤í‚¬ EX 
 //
 #ifdef __NEW_SKILL_TREE
 class CWndSkillTreeEx : public CWndNeuz
 {
 protected:
-	BOOL			m_bDrag;					//¸¶¿ì½º·Î Å¬¸¯Çß´Âµ¥ ½ºÅ³¾ÆÀÌÄÜ ¿µ¿ª ¾È ÀÎ °æ¿ì TRUE
-	LPSKILL			m_pFocusItem;				//¼±ÅÃµÈ ¾ÆÀÌÅÛ : Áï ½ºÅ³À» ´õºíÅ¬¸¯ÇÏ°Å³ª ÇØ¼­ ·¹º§À» ¿Ã¸±¼öÀÖ´Â »óÅÂ·Î ¸¸µç ½ºÅ³¾ÆÀÌÅÛ
-	int				m_nCurrSkillPoint;		//ÇöÀç ³²Àº ½ºÅ³Æ÷ÀÎÆ®
-	CTexturePack	m_textPackNum;			//½ºÅ³ ·¹º§¼ıÀÚ Ç¥½Ã¿ë ±×¸² ( 1, 2,..... max )
-	DWORD			m_dwMouseSkill;			//¸¶¿ì½º¿¡ À§Ä¡ÇÑ ½ºÅ³
+	BOOL			m_bDrag;					//ë§ˆìš°ìŠ¤ë¡œ í´ë¦­í–ˆëŠ”ë° ìŠ¤í‚¬ì•„ì´ì½˜ ì˜ì—­ ì•ˆ ì¸ ê²½ìš° TRUE
+	LPSKILL			m_pFocusItem;				//ì„ íƒëœ ì•„ì´í…œ : ì¦‰ ìŠ¤í‚¬ì„ ë”ë¸”í´ë¦­í•˜ê±°ë‚˜ í•´ì„œ ë ˆë²¨ì„ ì˜¬ë¦´ìˆ˜ìˆëŠ” ìƒíƒœë¡œ ë§Œë“  ìŠ¤í‚¬ì•„ì´í…œ
+	int				m_nCurrSkillPoint;		//í˜„ì¬ ë‚¨ì€ ìŠ¤í‚¬í¬ì¸íŠ¸
+	CTexturePack	m_textPackNum;			//ìŠ¤í‚¬ ë ˆë²¨ìˆ«ì í‘œì‹œìš© ê·¸ë¦¼ ( 1, 2,..... max )
+	DWORD			m_dwMouseSkill;			//ë§ˆìš°ìŠ¤ì— ìœ„ì¹˜í•œ ìŠ¤í‚¬
 	CWndButton*		m_pWndButton[4];		//+, -, reset, finish
-	LPSKILL			m_apSkill;				//½ºÅ³ ¸ñ·Ï
+	LPSKILL			m_apSkill;				//ìŠ¤í‚¬ ëª©ë¡
 	CTexture*		m_atexSkill[ MAX_SKILL_JOB ];
 	CTexture*		m_aTexSkillTrees[ 4 ];
 	char			m_cOldJob;
@@ -665,24 +665,24 @@ public:
 class CWndSkillTreeEx : public CWndNeuz
 {
 protected:
-	int			  m_nCount;					//ÇöÀç Á÷¾÷¿¡ ÇØ´çÇÏ´Â ½ºÅ³ ÃÑ °¹¼ö
+	int			  m_nCount;					//í˜„ì¬ ì§ì—…ì— í•´ë‹¹í•˜ëŠ” ìŠ¤í‚¬ ì´ ê°¯ìˆ˜
 
-	int           m_nCurSelect  ;			//À× ¾È¾²°íÀÖ´Âµ¥?
-	BOOL          m_bDrag;					//¸¶¿ì½º·Î Å¬¸¯Çß´Âµ¥ ½ºÅ³¾ÆÀÌÄÜ ¿µ¿ª ¾È ÀÎ °æ¿ì TRUE
-	LPSKILL       m_pFocusItem;				//¼±ÅÃµÈ ¾ÆÀÌÅÛ : Áï ½ºÅ³À» ´õºíÅ¬¸¯ÇÏ°Å³ª ÇØ¼­ ·¹º§À» ¿Ã¸±¼öÀÖ´Â »óÅÂ·Î ¸¸µç ½ºÅ³¾ÆÀÌÅÛ
-	int				m_nCurrSkillPoint;		//ÇöÀç ³²Àº ½ºÅ³Æ÷ÀÎÆ®
-	CTexturePack	m_textPackNum;			//½ºÅ³ ·¹º§¼ıÀÚ Ç¥½Ã¿ë ±×¸² ( 1, 2,..... max )
-	DWORD			m_dwMouseSkill;			//¸¶¿ì½º¿¡ À§Ä¡ÇÑ ½ºÅ³
+	int           m_nCurSelect  ;			//ì‰ ì•ˆì“°ê³ ìˆëŠ”ë°?
+	BOOL          m_bDrag;					//ë§ˆìš°ìŠ¤ë¡œ í´ë¦­í–ˆëŠ”ë° ìŠ¤í‚¬ì•„ì´ì½˜ ì˜ì—­ ì•ˆ ì¸ ê²½ìš° TRUE
+	LPSKILL       m_pFocusItem;				//ì„ íƒëœ ì•„ì´í…œ : ì¦‰ ìŠ¤í‚¬ì„ ë”ë¸”í´ë¦­í•˜ê±°ë‚˜ í•´ì„œ ë ˆë²¨ì„ ì˜¬ë¦´ìˆ˜ìˆëŠ” ìƒíƒœë¡œ ë§Œë“  ìŠ¤í‚¬ì•„ì´í…œ
+	int				m_nCurrSkillPoint;		//í˜„ì¬ ë‚¨ì€ ìŠ¤í‚¬í¬ì¸íŠ¸
+	CTexturePack	m_textPackNum;			//ìŠ¤í‚¬ ë ˆë²¨ìˆ«ì í‘œì‹œìš© ê·¸ë¦¼ ( 1, 2,..... max )
+	DWORD			m_dwMouseSkill;			//ë§ˆìš°ìŠ¤ì— ìœ„ì¹˜í•œ ìŠ¤í‚¬
 	CWndButton*		m_pWndButton[4];		//+, -, reset, finish
-	LPSKILL       m_apSkill;				//½ºÅ³ ¸ñ·Ï
+	LPSKILL       m_apSkill;				//ìŠ¤í‚¬ ëª©ë¡
 	CTexture*     m_atexSkill[ MAX_SKILL_JOB ];
 	CTexture*	  m_aSkillLevel[ 3 ];
 	//CTexture*     m_atexJobPannel[ 2 ];
 	LPIMAGE       m_atexJobPannel[ 2 ];
 #if __VER >= 10 // __CSC_VER9_1
-	CString		  m_strHeroSkilBg;			//È÷¾î·Î ÀÌ¹ÌÁö ÆÄÀÏ ÀÌ¸§
+	CString		  m_strHeroSkilBg;			//íˆì–´ë¡œ ì´ë¯¸ì§€ íŒŒì¼ ì´ë¦„
 #endif //__CSC_VER9_1
-	int           m_nJob         ;			//class ¹øÈ£
+	int           m_nJob         ;			//class ë²ˆí˜¸
 	
 	CTexture m_texGauEmptyNormal ;
 	CTexture m_texGauFillNormal  ;
@@ -698,7 +698,7 @@ protected:
 #endif //__CSC_VER9_1
 
 #if __VER >= 10 // __CSC_VER9_1
-	BOOL m_bLegend;							//Àü½Â
+	BOOL m_bLegend;							//ì „ìŠ¹
 	CWndStatic* m_pWndHeroStatic[2];
 #endif //__CSC_VER9_1
 
@@ -744,7 +744,7 @@ public:
 #endif
 
 //////////////////////////////////////////////////////////////////////////////////////
-// ¸Å½ÅÀú  
+// ë§¤ì‹ ì €  
 //
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -776,8 +776,8 @@ class CWndNavigator : public CWndNeuz
 		if ( m_iFrame >= 4 )
 			m_iFrame = 0;
 	};
-	void RenderMark( C2DRender* p2DRender, CMover* Player );	//	ÂüÁ¶µÇ´Â º¯¼ö´Â ÇÃ·¹ÀÌ¾î¿Í ÆÄÆ¼ÇÃ·¹ÀÌ¾î¸¦ ¾òÀ» ¼ö ÀÖ´Â °ÍÀÌ¾î¾ß ÇÏÁö¸¸ 
-																//	ÇöÀç´Â ÀÚ½Å¸¸À» Âï´Â °ÍÀ» ÇÏ°í ±× ´ÙÀ½¿¡ ÆÄÆ¼ ÇÃ·¹ÀÌ¾îµéÀ» Ã£À»¼ö ÀÖ´Â ¹æ¹ıÀ» Ã£¾Æ º¸ÀÚ²Ù³ª
+	void RenderMark( C2DRender* p2DRender, CMover* Player );	//	ì°¸ì¡°ë˜ëŠ” ë³€ìˆ˜ëŠ” í”Œë ˆì´ì–´ì™€ íŒŒí‹°í”Œë ˆì´ì–´ë¥¼ ì–»ì„ ìˆ˜ ìˆëŠ” ê²ƒì´ì–´ì•¼ í•˜ì§€ë§Œ 
+																//	í˜„ì¬ëŠ” ìì‹ ë§Œì„ ì°ëŠ” ê²ƒì„ í•˜ê³  ê·¸ ë‹¤ìŒì— íŒŒí‹° í”Œë ˆì´ì–´ë“¤ì„ ì°¾ì„ìˆ˜ ìˆëŠ” ë°©ë²•ì„ ì°¾ì•„ ë³´ìê¾¸ë‚˜
 	void RenderMarkAll( C2DRender* p2DRender , CMover* Player );
 	CBillboard m_billArrow;
 	CSize      m_size;
@@ -798,7 +798,7 @@ public:
 	
 
 	void RenderPartyMember( C2DRender* p2DRender, TEXTUREVERTEX** pVertices, CRect rect, D3DXVECTOR3 vPos, u_long uIdPlayer, LPCTSTR lpStr );
-	void SetRegionName( TCHAR *tszName );		// Áö¿ª
+	void SetRegionName( TCHAR *tszName );		// ì§€ì—­
 		
 	virtual void SerializeRegInfo( CAr& ar, DWORD& dwVersion );
 	
@@ -921,7 +921,7 @@ public:
 	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ); 
 };	
 
-//DECLARE_WNDMESSAGEBOX( CWndLogOut    ) // ·Î±×¾Æ¿ô Ã³¸®ÇÏ´Â ¸Ş½ÃÁö ¹Ú½º Å¬·¹½º 
+//DECLARE_WNDMESSAGEBOX( CWndLogOut    ) // ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬í•˜ëŠ” ë©”ì‹œì§€ ë°•ìŠ¤ í´ë ˆìŠ¤ 
 
 //BEGIN_WNDCLASS( CWndMacro )
 //END_WNDCLASS
@@ -1101,10 +1101,10 @@ public:
 
 struct WANTEDLIST
 {
-	char	 szName[ MAX_NAME ];		// ÀÌ¸§.
-	__int64	 nGold;						// Çö»ó±İ
+	char	 szName[ MAX_NAME ];		// ì´ë¦„.
+	__int64	 nGold;						// í˜„ìƒê¸ˆ
 	char     szDate[32];
-	char	 szMsg[WANTED_MSG_MAX + 1];	// ½ÊÀÚÆò 
+	char	 szMsg[WANTED_MSG_MAX + 1];	// ì‹­ìí‰ 
 };
 
 class CWndWanted : public CWndNeuz 
@@ -1387,8 +1387,8 @@ public:
 
 struct GUILDLIST
 {
-	char	 szGuild[ MAX_NAME ];		// ÀÌ¸§.
-	char	 szName[ MAX_NAME ];		// ÀÌ¸§.
+	char	 szGuild[ MAX_NAME ];		// ì´ë¦„.
+	char	 szName[ MAX_NAME ];		// ì´ë¦„.
 	int		 nNum;
 };
 
@@ -1496,10 +1496,10 @@ public:
 class CWndGuildCombatSelection : public CWndNeuz
 {
 protected:	
-	multimap<int, CGuildMember*>	m_mapSelectPlayer;   // ±æµå¸®½ºÆ®...·¹º§¼ÒÆÃ
+	multimap<int, CGuildMember*>	m_mapSelectPlayer;   // ê¸¸ë“œë¦¬ìŠ¤íŠ¸...ë ˆë²¨ì†ŒíŒ…
 
-	vector<u_long>					m_vecGuildList   ;   // ±æµå ¸®½ºÆ®
-	vector<u_long>					m_vecSelectPlayer;   // Âü°¡ÀÚ ¸®½ºÆ®..
+	vector<u_long>					m_vecGuildList   ;   // ê¸¸ë“œ ë¦¬ìŠ¤íŠ¸
+	vector<u_long>					m_vecSelectPlayer;   // ì°¸ê°€ì ë¦¬ìŠ¤íŠ¸..
 
 	u_long							m_uidDefender;
 	CTexture						m_TexDefender;
@@ -1718,7 +1718,7 @@ public:
 
 struct GUILDNAME
 {
-	char	 szGuild[ MAX_NAME ];		// ÀÌ¸§.
+	char	 szGuild[ MAX_NAME ];		// ì´ë¦„.
 };
 
 class CWndGuildCombatRanking : public CWndNeuz 
@@ -1753,7 +1753,7 @@ public:
 	virtual void OnLButtonDblClk( UINT nFlags, CPoint point);	
 }; 
 
-// ±æµå °á°ú ·Î±× - ±æµå
+// ê¸¸ë“œ ê²°ê³¼ ë¡œê·¸ - ê¸¸ë“œ
 class CWndGuildCombatTabResultRate : public CWndNeuz 
 { 
 public: 
@@ -1766,7 +1766,7 @@ public:
 	virtual	void OnInitialUpdate(); 
 	virtual BOOL OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ); 
 }; 
-// ±æµå °á°ú ·Î±× - °³ÀÎ
+// ê¸¸ë“œ ê²°ê³¼ ë¡œê·¸ - ê°œì¸
 class CWndGuildCombatTabResultLog : public CWndNeuz 
 { 
 public: 
@@ -1780,7 +1780,7 @@ public:
 	virtual BOOL OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ); 
 }; 
 
-// ±æµå °á°ú ·Î±×Ã¢
+// ê¸¸ë“œ ê²°ê³¼ ë¡œê·¸ì°½
 class CWndGuildCombatResult : public CWndNeuz 
 { 
 public: 
@@ -1824,7 +1824,7 @@ typedef struct __GUILDCOMBAT_RANK_INFO2
 #define MAX_GUILDCOMBAT_RANK		  100
 
 
-// ±æµå ·©Å· ÅÇ- Á÷¾÷º°
+// ê¸¸ë“œ ë­í‚¹ íƒ­- ì§ì—…ë³„
 class CWndGuildCombatRank_Class : public CWndNeuz 
 { 
 public: 
@@ -1851,7 +1851,7 @@ public:
 	virtual	void OnLButtonDown( UINT nFlags, CPoint point );
 }; 
 
-// ±æµå ·©Å· - Á÷¾÷º°
+// ê¸¸ë“œ ë­í‚¹ - ì§ì—…ë³„
 class CWndGuildCombatRank_Person : public CWndNeuz 
 { 
 public: 
@@ -1953,7 +1953,7 @@ public:
 
 #if __VER >= 9 // __CSC_VER9_1
 /*******************************
-	Á¦·Ã ½Ã½ºÅÛ °ü·Ã Window
+	ì œë ¨ ì‹œìŠ¤í…œ ê´€ë ¨ Window
 ********************************/
 #include "WndSummonAngel.h"
 
@@ -2153,7 +2153,7 @@ public:
 
 #if __VER >= 10 // __CSC_VER9_1 -> __LEGEND
 /*******************************
-	Àü½Â ½Ã½ºÅÛ °ü·Ã Window
+	ì „ìŠ¹ ì‹œìŠ¤í…œ ê´€ë ¨ Window
 ********************************/
 class CWndHeroSkillUp : public CWndNeuz
 {

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "httpdownload.h"
 #include "patchmanager.h"
 #include "betapatchclientdlg.h"
@@ -211,7 +211,7 @@ UINT CHttpDownload::_ThreadFunc( LPVOID pParam )
 void CHttpDownload::ThreadFunc()
 {
 	m_nRecvdFile = 0;
-	FileContainerIterator it = m_pPatchManager->m_files.begin();	// ÆĞÄ¡ ¹ŞÀ» ¹İº¹ÀÚ ¼³Á¤
+	FileContainerIterator it = m_pPatchManager->m_files.begin();	// íŒ¨ì¹˜ ë°›ì„ ë°˜ë³µì ì„¤ì •
 
 	SetTextFileNum( m_nRecvdFile+1, m_pPatchManager->m_files.size() );
 
@@ -288,7 +288,7 @@ void CHttpDownload::OnError( UINT nResult )
 	}
 	else if( nResult == DOWNLOAD_ERROR_WRITEFILE )
 	{
-		sprintf( szBuffer, "ERROR: Disk Full");	//"ÀúÀåÇÒ °ø°£ÀÌ ºÎÁ·ÇÕ´Ï´Ù. È®ÀÎÇØÁÖ½Ê½Ã¿ä"		
+		sprintf( szBuffer, "ERROR: Disk Full");	//"ì €ì¥í•  ê³µê°„ì´ ë¶€ì¡±í•©ë‹ˆë‹¤. í™•ì¸í•´ì£¼ì‹­ì‹œìš”"		
 	}
 	else if( nResult == DOWNLOAD_ERROR_HTTP_STATUS_NG )
 	{
@@ -467,14 +467,14 @@ UINT CHttpDownload::DownloadFile( FILE_INFO& info )
 
 	if( info.ft.dwHighDateTime && info.ft.dwLowDateTime )
 	{
-		// ÆÄÀÏ½Ã°¢ ¹Ù²Ù±â 
+		// íŒŒì¼ì‹œê° ë°”ê¾¸ê¸° 
 		if( !fileToWrite.Open( info.szPath, CFile::modeWrite | CFile::shareDenyNone) )
 		{
 			AfxMessageBox( info.szPath );
 			return DOWNLOAD_ERROR_SETFILEDATE;
 		}
 
-		// info.ft´Â GMT±âÁØÀÌ´Ù.
+		// info.ftëŠ” GMTê¸°ì¤€ì´ë‹¤.
 		SetFileTime( (HANDLE)fileToWrite.m_hFile, &info.ft, &info.ft, &info.ft );
 		fileToWrite.Close();
 	}

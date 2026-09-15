@@ -1,42 +1,42 @@
-#ifndef PATCH_H
+ï»¿#ifndef PATCH_H
 #define PATCH_H
 
 class CLandscape;
 
 
-// ÆĞÄ¡ Å¬·¡½º
-// ·£µå½ºÄÉÀÌÇÁ¸¦ ±¸¼ºÇÏ´Â ÀÏÁ¾ÀÇ Å¸ÀÏ
+// íŒ¨ì¹˜ í´ë˜ìŠ¤
+// ëœë“œìŠ¤ì¼€ì´í”„ë¥¼ êµ¬ì„±í•˜ëŠ” ì¼ì¢…ì˜ íƒ€ì¼
 
 class CPatch
 {
 protected:
-	FLOAT *m_pHeightMap;			// ³ôÀÌ ¸Ê (ÀÌ ÆĞÄ¡¿¡ »ç¿ëµÉ ÁÖ¼Ò)
+	FLOAT *m_pHeightMap;			// ë†’ì´ ë§µ (ì´ íŒ¨ì¹˜ì— ì‚¬ìš©ë  ì£¼ì†Œ)
 
-	BOOL m_bDirty;					// ¹öÅØ½º ¹öÆÛ¸¦ ¼öÁ¤ÇÒ ÇÊ¿ä°¡ ÀÖÀ» °æ¿ì TRUE·Î ¼¼Æ®
+	BOOL m_bDirty;					// ë²„í…ìŠ¤ ë²„í¼ë¥¼ ìˆ˜ì •í•  í•„ìš”ê°€ ìˆì„ ê²½ìš° TRUEë¡œ ì„¸íŠ¸
 
-	BOOL m_bVisible;				// ÄÃ¸µµÈ °á°ú
-	D3DXVECTOR3  m_avBounds[8];		// ÄÃ¸µ¿¡ »ç¿ëÇÒ ¹Ù¿îµå ¹Ú½º º¤ÅÍ
-	D3DXPLANE    m_aplaneBounds[6];	// ÄÃ¸µ¿¡ »ç¿ëÇÒ ¹Ù¿îµå ¹Ú½º Æò¸é
+	BOOL m_bVisible;				// ì»¬ë§ëœ ê²°ê³¼
+	D3DXVECTOR3  m_avBounds[8];		// ì»¬ë§ì— ì‚¬ìš©í•  ë°”ìš´ë“œ ë°•ìŠ¤ ë²¡í„°
+	D3DXPLANE    m_aplaneBounds[6];	// ì»¬ë§ì— ì‚¬ìš©í•  ë°”ìš´ë“œ ë°•ìŠ¤ í‰ë©´
 
-	D3DXVECTOR3 m_vCenter;          // ÄÃ¸µ¿¡ »ç¿ëÇÒ ÀÌ ÆĞÄ¡ÀÇ Áß½É
+	D3DXVECTOR3 m_vCenter;          // ì»¬ë§ì— ì‚¬ìš©í•  ì´ íŒ¨ì¹˜ì˜ ì¤‘ì‹¬
 
 public:
-	int m_nWorldX,m_nWorldY;		// ÀÌ ÆĞÄ¡ÀÇ ÁÂÇÏ´Ü ¿ùµåÁÂÇ¥
+	int m_nWorldX,m_nWorldY;		// ì´ íŒ¨ì¹˜ì˜ ì¢Œí•˜ë‹¨ ì›”ë“œì¢Œí‘œ
 
-	int m_nLevel;           // ÀÌ ÆĞÄ¡ÀÇ LOD ·¹º§
-	int m_nTopLevel;        // ÀÌ ÆĞÄ¡ »ó´ÜºÎÀÇ LOD ·¹º§
-	int m_nLeftLevel;       // ÀÌ ÆĞÄ¡ ÁÂ´ÜºÎÀÇ LOD ·¹º§
-	int m_nRightLevel;      // ÀÌ ÆĞÄ¡ ¿ì´ÜºÎÀÇ LOD ·¹º§
-	int m_nBottomLevel;     // ÀÌ ÆĞÄ¡ ÇÏ´ÜºÎÀÇ LOD ·¹º§
+	int m_nLevel;           // ì´ íŒ¨ì¹˜ì˜ LOD ë ˆë²¨
+	int m_nTopLevel;        // ì´ íŒ¨ì¹˜ ìƒë‹¨ë¶€ì˜ LOD ë ˆë²¨
+	int m_nLeftLevel;       // ì´ íŒ¨ì¹˜ ì¢Œë‹¨ë¶€ì˜ LOD ë ˆë²¨
+	int m_nRightLevel;      // ì´ íŒ¨ì¹˜ ìš°ë‹¨ë¶€ì˜ LOD ë ˆë²¨
+	int m_nBottomLevel;     // ì´ íŒ¨ì¹˜ í•˜ë‹¨ë¶€ì˜ LOD ë ˆë²¨
 
 	CPatch() { m_pHeightMap = NULL; m_nBottomLevel = m_nRightLevel = m_nLeftLevel = m_nTopLevel = m_nLevel = 0; }
 	~CPatch();
 
-//	void SetExPatch(BOOL bEnable); // ÀÌ°Å ÀÌÁ¦ ¾È¾´´Ù. Àü¿¡ ±â´É Ãß°¡Çß´Ù°¡ »èÁ¦µÆÀ½.
+//	void SetExPatch(BOOL bEnable); // ì´ê±° ì´ì œ ì•ˆì“´ë‹¤. ì „ì— ê¸°ëŠ¥ ì¶”ê°€í–ˆë‹¤ê°€ ì‚­ì œëìŒ.
 
-	void Init( int heightX, int heightY, int worldX, int worldY, FLOAT *hMap ); // ÆĞÄ¡ ÃÊ±âÈ­. (ÀüÃ¼ ¿ùµå¿¡¼­ÀÇ À§Ä¡¿Í ÀÌ ÆĞÄ¡°¡ »ç¿ëÇÒ ³ôÀÌ ¸ÊÀÇ ÁÖ¼Ò¸¦ ÁöÁ¤ÇÑ´Ù.)
-	BOOL isVisibile( ) { return m_bVisible; } // ÄÃ¸µµÈ °á°ú¸¦ µ¹·ÁÁØ´Ù.
-	BOOL isDirty( ) { return m_bDirty; } // ÇÏÀÌÆ®¸ÊÀÇ ³»¿ë µîÀÌ º¯°æµÈ °æ¿ì ¹öÅØ½º ¹öÆÛ, ¶óÀÌÆ®¸ÊÀ» ¼öÁ¤ÇÑ´Ù.
+	void Init( int heightX, int heightY, int worldX, int worldY, FLOAT *hMap ); // íŒ¨ì¹˜ ì´ˆê¸°í™”. (ì „ì²´ ì›”ë“œì—ì„œì˜ ìœ„ì¹˜ì™€ ì´ íŒ¨ì¹˜ê°€ ì‚¬ìš©í•  ë†’ì´ ë§µì˜ ì£¼ì†Œë¥¼ ì§€ì •í•œë‹¤.)
+	BOOL isVisibile( ) { return m_bVisible; } // ì»¬ë§ëœ ê²°ê³¼ë¥¼ ëŒë ¤ì¤€ë‹¤.
+	BOOL isDirty( ) { return m_bDirty; } // í•˜ì´íŠ¸ë§µì˜ ë‚´ìš© ë“±ì´ ë³€ê²½ëœ ê²½ìš° ë²„í…ìŠ¤ ë²„í¼, ë¼ì´íŠ¸ë§µì„ ìˆ˜ì •í•œë‹¤.
 	void SetDirty( BOOL bDirty ) { m_bDirty=bDirty; }
 	void Render(LPDIRECT3DDEVICE9 pd3dDevice,int X,int Y);
 

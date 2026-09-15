@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ResData.h"
 #include "WndGuildWarPeaceConfirm.h"
 #include "dpclient.h"
@@ -7,11 +7,11 @@ extern	CDPClient	g_DPlay;
 
 
 /****************************************************
-  WndId : APP_GUILD_WARPEACECONFIRM - ÈÞÀü½ÂÀÎÃ¢
+  WndId : APP_GUILD_WARPEACECONFIRM - íœ´ì „ìŠ¹ì¸ì°½
   CtrlId : WIDC_YES - Yes
   CtrlId : WIDC_NO - No
-  CtrlId : WIDC_STATIC1 - ÈÞÀü¿äÃ»ÀÌ µé¾î¿Ô½À´Ï´Ù.
-  CtrlId : WIDC_STATIC2 - ½ÂÀÎÇÏ½Ã°Ú½À´Ï±î?
+  CtrlId : WIDC_STATIC1 - íœ´ì „ìš”ì²­ì´ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.
+  CtrlId : WIDC_STATIC2 - ìŠ¹ì¸í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
 ****************************************************/
 
 CWndGuildWarPeaceConfirm::CWndGuildWarPeaceConfirm() 
@@ -26,24 +26,24 @@ void CWndGuildWarPeaceConfirm::OnDraw( C2DRender* p2DRender )
 void CWndGuildWarPeaceConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndGuildWarPeaceConfirm::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_WARPEACECONFIRM, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndGuildWarPeaceConfirm::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -71,7 +71,7 @@ BOOL CWndGuildWarPeaceConfirm::OnChildNotify( UINT message, UINT nID, LRESULT* p
 	switch( nID )
 	{
 	case WIDC_YES:
-		// ÈÞÀüÀ» ½Â¶ô ÇÑ´Ù´Â°ÍÀ» ¼­¹ö·Î º¸³¿.
+		// íœ´ì „ì„ ìŠ¹ë½ í•œë‹¤ëŠ”ê²ƒì„ ì„œë²„ë¡œ ë³´ëƒ„.
 		if( g_pPlayer )
 			g_DPlay.SendAcptTruce( g_pPlayer->m_idPlayer );
 		Destroy();

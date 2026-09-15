@@ -1,4 +1,4 @@
-#ifndef __SFXHITARRAY_H__
+Ôªø#ifndef __SFXHITARRAY_H__
 #define __SFXHITARRAY_H__
 
 typedef	struct	tagSfxHit
@@ -22,7 +22,7 @@ public:
 	CSfxHitArray();
 	~CSfxHitArray();
 //	Operations
-	int		Add( int id, OBJID objid, DWORD dwAtkFlags, DWORD dwSkill = 0xffffffff, int nMaxDmgCnt = 1 );	// return id, Ω∫≈≥¿œ∞ÊøÏ dwSkillø° ∞™ ≥÷¿ª∞Õ.
+	int		Add( int id, OBJID objid, DWORD dwAtkFlags, DWORD dwSkill = 0xffffffff, int nMaxDmgCnt = 1 );	// return id, Ïä§ÌÇ¨ÏùºÍ≤ΩÏö∞ dwSkillÏóê Í∞í ÎÑ£ÏùÑÍ≤É.
 	PSfxHit		GetSfxHit( int id );
 	BOOL	RemoveSfxHit( int id, BOOL bForce = FALSE );
 

@@ -1,4 +1,4 @@
-//-----------------------------------------------------------------------------
+ï»¿//-----------------------------------------------------------------------------
 // File: DSUtil.cpp
 //
 // Desc: DirectSound framework classes for reading and writing wav files and
@@ -37,7 +37,7 @@ BOOL CSoundManager::Play( int nId, D3DXVECTOR3* pvPosition, D3DXVECTOR3* pvVeloc
 	}
 	return FALSE;
 }
-// »ç¿îµå ÇÁ·ÎÆÛÆ¼¸¦ À§ÇÑ °Íµé 
+// ì‚¬ìš´ë“œ í”„ë¡œí¼í‹°ë¥¼ ìœ„í•œ ê²ƒë“¤ 
 BOOL CSoundManager::LoadScript( LPCTSTR lpszFileName )
 {
 	if( !m_bSuccess )

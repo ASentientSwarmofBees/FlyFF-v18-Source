@@ -1,4 +1,4 @@
-#ifndef __USERMACRO_H__
+﻿#ifndef __USERMACRO_H__
 #define __USERMACRO_H__
 
 #define ALLOCBLOCK( ar )	\

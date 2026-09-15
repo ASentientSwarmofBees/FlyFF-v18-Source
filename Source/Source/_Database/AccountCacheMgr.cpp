@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "..\_network\objects\Obj.h"
 #include "dbmanager.h"
 #include "AccountCacheMgr.h"
@@ -11,8 +11,8 @@
 #endif
 
 
-// TODO: list¿Í mapÀ» µÎ°³ µÎ°í ÇÏÁö ¸»°í, ÇÏ³ª·Î ÇÏ´Â °ÍÀÌ ÁÁÀ» °Í °°´Ù.
-//       ±×¸®°í, m_2AccountPtrµµ Á¦°ÅÇÏÀÚ. ( Ã£Àº °ÍÀ» ¾ÕÀ¸·Î µÎ¸é °Ë»öµµ ºü¸¦ ¼ö ÀÖÀ» °Í °°´Ù. )
+// TODO: listì™€ mapì„ ë‘ê°œ ë‘ê³  í•˜ì§€ ë§ê³ , í•˜ë‚˜ë¡œ í•˜ëŠ” ê²ƒì´ ì¢‹ì„ ê²ƒ ê°™ë‹¤.
+//       ê·¸ë¦¬ê³ , m_2AccountPtrë„ ì œê±°í•˜ì. ( ì°¾ì€ ê²ƒì„ ì•ìœ¼ë¡œ ë‘ë©´ ê²€ìƒ‰ë„ ë¹ ë¥¼ ìˆ˜ ìˆì„ ê²ƒ ê°™ë‹¤. )
 CAccountCacheMgr::CAccountCacheMgr()
 {
 	m_nAlloc = 0;
@@ -106,7 +106,7 @@ ACCOUNT_CACHE* CAccountCacheMgr::GetAccount( LPCTSTR szAccount, BOOL *pbCacheHit
 		list< ACCOUNT_CACHE* >::iterator where = std::find( m_list.begin(), m_list.end(), pCache );
 		assert( where != m_list.end() );
 		m_list.erase( where );
-		m_list.push_front( pCache );					// °¡Àå ÃÖ½Å¿¡ »ç¿ëÇÑ °ÍÀ¸·Î ¼³Á¤ 
+		m_list.push_front( pCache );					// ê°€ì¥ ìµœì‹ ì— ì‚¬ìš©í•œ ê²ƒìœ¼ë¡œ ì„¤ì • 
 		pCache->m_tmLastAccess	= ::time( NULL );
 	}
 	else
@@ -132,10 +132,10 @@ ACCOUNT_CACHE* CAccountCacheMgr::GetAccount( LPCTSTR szAccount, BOOL *pbCacheHit
 			if( cbList == 0 )
 				pCache	= new ACCOUNT_CACHE;
 		}
-		m_list.push_front( pCache );					// °¡Àå ÃÖ½Å¿¡ »ç¿ëÇÑ °ÍÀ¸·Î ¼³Á¤ 
+		m_list.push_front( pCache );					// ê°€ì¥ ìµœì‹ ì— ì‚¬ìš©í•œ ê²ƒìœ¼ë¡œ ì„¤ì • 
 
 		pCache->m_strAccount = szAccount; 
-		pCache->Init();									// ¹ğÅ© ¸Ş¸ğ¸® ÇØÁ¦
+		pCache->Init();									// ë±…í¬ ë©”ëª¨ë¦¬ í•´ì œ
 	}
 
 	return pCache;

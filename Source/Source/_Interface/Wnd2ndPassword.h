@@ -1,4 +1,4 @@
-#ifndef __WND_2ND_PASSWORD__
+﻿#ifndef __WND_2ND_PASSWORD__
 #define __WND_2ND_PASSWORD__
 
 #if __VER >= 15 /* __2ND_PASSWORD_SYSTEM */ && defined( __CLIENT )

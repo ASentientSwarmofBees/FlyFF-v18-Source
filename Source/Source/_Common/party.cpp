@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "defineSkill.h"
 #include "party.h"
@@ -55,7 +55,7 @@ CParty::CParty()
 	m_nLevel = 1;
 	m_nExp = m_nPoint = 0;
 	m_nTroupsShareExp = m_nTroupeShareItem = 0;
-	m_nKindTroup = 0;							// ´Ü¸·±Ø´Ü
+	m_nKindTroup = 0;							// ë‹¨ë§‰ê·¹ë‹¨
 	m_nReferens = 0;
 	m_nGetItemPlayerId = 0;
 	for( int i = 0 ; i < MAX_PARTYMODE ; i++ )
@@ -80,7 +80,7 @@ void CParty::InitParty()
 	m_nLevel = 1;
 	m_nExp = m_nPoint = 0;
 	m_nTroupsShareExp = m_nTroupeShareItem = 0;
-	m_nKindTroup = 0;							// ´Ü¸·±Ø´Ü
+	m_nKindTroup = 0;							// ë‹¨ë§‰ê·¹ë‹¨
 	m_nReferens = 0;	
 	for( int i = 0 ; i < MAX_PTMEMBER_SIZE ; i++ )
 	{
@@ -98,10 +98,10 @@ void CParty::InitParty()
 CMover* CParty::GetLeader( void ) 
 { 
 #ifdef __WORLDSERVER
-	CMover *pLeader = (CMover *)g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+	CMover *pLeader = (CMover *)g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 	return pLeader;
 #else
-	CMover *pLeader = (CMover *)prj.GetUserByID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+	CMover *pLeader = (CMover *)prj.GetUserByID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 	return pLeader;
 #endif
 }
@@ -235,7 +235,7 @@ void CParty::SwapPartyMember( int first, int Second )
 	memcpy( &m_aMember[Second], &PartyMemberBuf, sizeof(PartyMember) );
 }
 
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 int CParty::GetPartyModeTime( int nMode )
 {
 	return m_nModeTime[nMode];	
@@ -247,12 +247,12 @@ void CParty::SetPartyMode( int nMode, DWORD dwSkillTime ,int nCachMode )
 	else
 		m_nModeTime[nMode] = (int)dwSkillTime;	
 }
-#else	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 void CParty::SetPartyMode( int nMode, DWORD dwSkillTime )
 {
 	m_nModeTime[nMode] = (int)dwSkillTime;	
 }
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 #ifdef __WORLDSERVER
 void CParty::SetPartyLevel( CUser* pUser, DWORD dwLevel, DWORD dwPoint, DWORD dwExp )
@@ -270,9 +270,9 @@ void CParty::GetPoint( int nTotalLevel, int nMemberSize, int nDeadLeavel )
 	{
 		BOOL bExpResult = TRUE;
 		BOOL bSuperLeader = FALSE;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 		BOOL bLeaderSMExpUp = FALSE;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 		if( m_nKindTroup == 0 && m_nLevel >= MAX_PARTYLEVEL )
 			bExpResult = FALSE;
 
@@ -281,7 +281,7 @@ void CParty::GetPoint( int nTotalLevel, int nMemberSize, int nDeadLeavel )
 		{
 			bSuperLeader = TRUE;
 		}
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 		#define II_SYS_SYS_SCR_PARTYEXPUP01_01 20296
 		#define II_SYS_SYS_SCR_PARTYSKILLUP01_01 20297
 		if( pMover && ( pMover->HasBuff( BUFF_ITEM2, II_SYS_SYS_SCR_PARTYEXPUP01 ) || pMover->HasBuff( BUFF_ITEM2, II_SYS_SYS_SCR_PARTYEXPUP02 )
@@ -289,14 +289,14 @@ void CParty::GetPoint( int nTotalLevel, int nMemberSize, int nDeadLeavel )
 		{
 			bLeaderSMExpUp = TRUE;
 		}
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 		if( bExpResult )
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 			g_DPCoreClient.SendAddPartyExp( m_uPartyId, nDeadLeavel, bSuperLeader , bLeaderSMExpUp );
-#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 			g_DPCoreClient.SendAddPartyExp( m_uPartyId, nDeadLeavel, bSuperLeader );
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	}
 #endif // __WORLDSERVER
 }
@@ -317,8 +317,8 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 #endif // __PARTYDEBUG
 			{
 #ifndef __PARTYDEBUG
-	#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
-				CUser *pLeadertmp = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+	#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
+				CUser *pLeadertmp = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 				if( IsValidObj( pLeadertmp ) == FALSE )
 					return;
 				int nHasCashSkill = 0,nFPoint = 0;
@@ -338,9 +338,9 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 
 				nFPoint	= int( GetPoint() - pItemProp->dwExp);
 #if __VER >= 12 // __LORD
-				// ±ºÁÖÀÇ ±Ø´Ü
-				// ±ºÁÖ°¡ ±Ø´ÜÀå À¸·Î½á ±Ø´Ü½ºÅ³ »ç¿ë ½Ã,
-				// Áö¼Ó½Ã°£ 4¹è Áõ°¡(¼Ò¸ğ Æ÷ÀÎÆ®´Â µ¿ÀÏ)
+				// êµ°ì£¼ì˜ ê·¹ë‹¨
+				// êµ°ì£¼ê°€ ê·¹ë‹¨ì¥ ìœ¼ë¡œì¨ ê·¹ë‹¨ìŠ¤í‚¬ ì‚¬ìš© ì‹œ,
+				// ì§€ì†ì‹œê°„ 4ë°° ì¦ê°€(ì†Œëª¨ í¬ì¸íŠ¸ëŠ” ë™ì¼)
 				if( CSLord::Instance()->IsLord( uLeaderid ) )
 					dwSkillTime		*= 4;
 #endif	// __LORD
@@ -348,7 +348,7 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 				if( nFPoint >= 0 )
 	#else
 				if( int( GetPoint() - pItemProp->dwExp) >= 0 )
-	#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+	#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 #endif // __PARTYDEBUG
 				{
 					switch( nSkill )
@@ -356,23 +356,23 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 					case ST_CALL:
 						{
 							g_DPCoreClient.SendRemovePartyPoint( uPartyId, pItemProp->dwExp );
-							CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+							CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 							if( IsValidObj( pLeader ) == FALSE )
 								break;
 
-							// ´ÜÀå Áß½ÉÀ¸·Î ¸ğ¿©´Ş¶ó´Â Ç¥½Ã
-							for( i = 0; i < m_nSizeofMember; i ++ )		// ´ÜÀå(0)¿¡°Ô´Â º¸³¾ÇÊ¿ä ¾ø´Ù.
+							// ë‹¨ì¥ ì¤‘ì‹¬ìœ¼ë¡œ ëª¨ì—¬ë‹¬ë¼ëŠ” í‘œì‹œ
+							for( i = 0; i < m_nSizeofMember; i ++ )		// ë‹¨ì¥(0)ì—ê²ŒëŠ” ë³´ë‚¼í•„ìš” ì—†ë‹¤.
 							{
 								pMember		= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
-								// ´ÜÀå ¾î¶ó¿îµå Áö¿ª¿¡ ÀÖ´Â »ç¶÷¿¡°Ô¸¸ º¸³½´Ù
+								// ë‹¨ì¥ ì–´ë¼ìš´ë“œ ì§€ì—­ì— ìˆëŠ” ì‚¬ëŒì—ê²Œë§Œ ë³´ë‚¸ë‹¤
 								if( IsValidObj( (CObj*)pMember ) )
-									pMember->AddPartySkillCall( pLeader->GetPos() );		// °¢ ¸â¹öµé¿¡°Ô ´ÜÀåÀÌ ÁÂÇ¥¸¦ Àü¼ÛÇÔ.
+									pMember->AddPartySkillCall( pLeader->GetPos() );		// ê° ë©¤ë²„ë“¤ì—ê²Œ ë‹¨ì¥ì´ ì¢Œí‘œë¥¼ ì „ì†¡í•¨.
 							}
 						}
 						break;
 					case ST_BLITZ:
 						{
-							CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+							CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 							if( IsValidObj( pLeader ) == FALSE )
 								break;
 
@@ -382,7 +382,7 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 								if( pT && !pT->IsPlayer() )
 								{
 									g_DPCoreClient.SendRemovePartyPoint( uPartyId, pItemProp->dwExp );
-									// ´ÜÀåÀÌ Å¸°ÙÀ¸·Î ÁıÁß°ø°İ Ç¥½Ã
+									// ë‹¨ì¥ì´ íƒ€ê²Ÿìœ¼ë¡œ ì§‘ì¤‘ê³µê²© í‘œì‹œ
 									for( i = 0; i < m_nSizeofMember; i ++ )
 									{
 										pMember		= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
@@ -390,12 +390,12 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 										{
 											if( m_nModeTime[PARTY_GIFTBOX_MODE] || m_nModeTime[PARTY_FORTUNECIRCLE_MODE] )
 											{
-												pMember->AddPartySkillBlitz( pLeader->m_idSetTarget );		// °¢ ¸â¹öµé¿¡°Ô ´ÜÀåÅ¸°ÙÀ¸·Î ÀâÀº ¹«¹öÀÇ ¾ÆÀÌµğ¸¦ º¸³¿.
+												pMember->AddPartySkillBlitz( pLeader->m_idSetTarget );		// ê° ë©¤ë²„ë“¤ì—ê²Œ ë‹¨ì¥íƒ€ê²Ÿìœ¼ë¡œ ì¡ì€ ë¬´ë²„ì˜ ì•„ì´ë””ë¥¼ ë³´ëƒ„.
 											}
 											else
 											{
 												if( pLeader->IsNearPC( pMember ) )
-													pMember->AddPartySkillBlitz( pLeader->m_idSetTarget );		// °¢ ¸â¹öµé¿¡°Ô ´ÜÀåÅ¸°ÙÀ¸·Î ÀâÀº ¹«¹öÀÇ ¾ÆÀÌµğ¸¦ º¸³¿.
+													pMember->AddPartySkillBlitz( pLeader->m_idSetTarget );		// ê° ë©¤ë²„ë“¤ì—ê²Œ ë‹¨ì¥íƒ€ê²Ÿìœ¼ë¡œ ì¡ì€ ë¬´ë²„ì˜ ì•„ì´ë””ë¥¼ ë³´ëƒ„.
 											}
 										}
 									}
@@ -408,15 +408,15 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 							else
 							{
 								pLeader->AddSendErrorParty( ERROR_NOTTARGET, ST_BLITZ );
-								// Å¸°ÙÀ» ¾ÈÀâ¾Ò´Ù.
+								// íƒ€ê²Ÿì„ ì•ˆì¡ì•˜ë‹¤.
 							}
 						}
 						break;
 					case ST_RETREAT:
 						{
 							g_DPCoreClient.SendRemovePartyPoint( uPartyId, pItemProp->dwExp );
-							// ÈÄÅğ Ç¥½Ã
-							CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+							// í›„í‡´ í‘œì‹œ
+							CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 							if( IsValidObj( pLeader ) == FALSE )
 								break;
 
@@ -440,8 +440,8 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 						break;
 					case ST_SPHERECIRCLE:
 						{
-							// Å©¸®Æ¼ÄÃ È®·ü
-							CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+							// í¬ë¦¬í‹°ì»¬ í™•ë¥ 
+							CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 							if( IsValidObj( pLeader ) == FALSE )
 								break;
 							
@@ -475,69 +475,69 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 								else
 								{
 									pLeader->AddSendErrorParty( ERROR_NOTTARGET, ST_SPHERECIRCLE );
-									// Å¸°ÙÀÌ ¸ó½ºÅÍ°¡ ¾Æ´Ï´Ù
+									// íƒ€ê²Ÿì´ ëª¬ìŠ¤í„°ê°€ ì•„ë‹ˆë‹¤
 								}
 							}
 							else
 							{
 								pLeader->AddSendErrorParty( ERROR_NOTTARGET, ST_SPHERECIRCLE );
-								// Å¸°ÙÀ» ¾ÈÀâ¾Ò´Ù.
+								// íƒ€ê²Ÿì„ ì•ˆì¡ì•˜ë‹¤.
 							}
 //							g_DPCoreClient.SendSetPartyExp( uLeaderid, m_nPoint );
 						}
 						break;
 
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 					case ST_LINKATTACK:
 						{
-							// µ¥¹ÌÁö Áõ°¡
+							// ë°ë¯¸ì§€ ì¦ê°€
 							g_DPCoreClient.SendUserPartySkill( uLeaderid, PARTY_LINKATTACK_MODE, dwSkillTime, nRemovePoint, nHasCashSkill );
 						}
 						break;
 					case ST_FORTUNECIRCLE:
 						{
-							// À¯´ÏÅ© ¾ÆÀÌÅÛ ¹ß»ıÈ®·ü Áõ°¡
+							// ìœ ë‹ˆí¬ ì•„ì´í…œ ë°œìƒí™•ë¥  ì¦ê°€
 								g_DPCoreClient.SendUserPartySkill( uLeaderid, PARTY_FORTUNECIRCLE_MODE, dwSkillTime, nRemovePoint, nHasCashSkill );
 						}
 						break;
 					case ST_STRETCHING:
 						{
-							// ½¬´Â°æ¿ì È¸º¹¼Óµµ ³ô¿©ÁÜ
+							// ì‰¬ëŠ”ê²½ìš° íšŒë³µì†ë„ ë†’ì—¬ì¤Œ
 							g_DPCoreClient.SendUserPartySkill( uLeaderid, PARTY_STRETCHING_MODE, dwSkillTime, nRemovePoint, nHasCashSkill );
 						}
 						break;
 					case ST_GIFTBOX:
 						{
-							// ¾ÆÀÌÅÛ ¾çÀÌ µÎ¹è
+							// ì•„ì´í…œ ì–‘ì´ ë‘ë°°
 							g_DPCoreClient.SendUserPartySkill( uLeaderid, PARTY_GIFTBOX_MODE, dwSkillTime, nRemovePoint, nHasCashSkill );
 						}
 						break;
-#else	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 					case ST_LINKATTACK:
 						{
-							// µ¥¹ÌÁö Áõ°¡
+							// ë°ë¯¸ì§€ ì¦ê°€
 							g_DPCoreClient.SendUserPartySkill( uLeaderid, PARTY_LINKATTACK_MODE, dwSkillTime, nRemovePoint );
 						}
 						break;
 					case ST_FORTUNECIRCLE:
 						{
-							// À¯´ÏÅ© ¾ÆÀÌÅÛ ¹ß»ıÈ®·ü Áõ°¡
+							// ìœ ë‹ˆí¬ ì•„ì´í…œ ë°œìƒí™•ë¥  ì¦ê°€
 								g_DPCoreClient.SendUserPartySkill( uLeaderid, PARTY_FORTUNECIRCLE_MODE, dwSkillTime, nRemovePoint );
 						}
 						break;
 					case ST_STRETCHING:
 						{
-							// ½¬´Â°æ¿ì È¸º¹¼Óµµ ³ô¿©ÁÜ
+							// ì‰¬ëŠ”ê²½ìš° íšŒë³µì†ë„ ë†’ì—¬ì¤Œ
 							g_DPCoreClient.SendUserPartySkill( uLeaderid, PARTY_STRETCHING_MODE, dwSkillTime, nRemovePoint );
 						}
 						break;
 					case ST_GIFTBOX:
 						{
-							// ¾ÆÀÌÅÛ ¾çÀÌ µÎ¹è
+							// ì•„ì´í…œ ì–‘ì´ ë‘ë°°
 							g_DPCoreClient.SendUserPartySkill( uLeaderid, PARTY_GIFTBOX_MODE, dwSkillTime, nRemovePoint );
 						}
 						break;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 					default:
 						break;
 					}
@@ -545,12 +545,12 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 #ifndef __PARTYDEBUG
 				else
 				{
-					CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+					CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 					if( IsValidObj( pLeader ) )
 					{
 						pLeader->AddSendErrorParty( ERROR_NOTPARTYPOINT );
 					}
-					//Æ÷ÀÎÆ®°¡ ¸ğÀÚ¶ó ½ºÅ³À»»ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù.
+					//í¬ì¸íŠ¸ê°€ ëª¨ìë¼ ìŠ¤í‚¬ì„ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 					
 				}
 #endif // __PARTYDEBUG
@@ -558,26 +558,26 @@ void CParty::DoUsePartySkill( u_long uPartyId, u_long uLeaderid, int nSkill )
 #ifndef __PARTYDEBUG
 			else
 			{
-				CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ¸®´õÀÇ Æ÷ÀÎÅÍ
+				CUser *pLeader = g_UserMng.GetUserByPlayerID( m_aMember[0].m_uPlayerId );	// ë¦¬ë”ì˜ í¬ì¸í„°
 				if( IsValidObj( pLeader ) )
 				{
 					pLeader->AddSendErrorParty( ERROR_NOTPARTYSKILL );
 				}
-				//ÀÌ ½ºÅ³Àº ¹è¿ìÁö¸¦ ¸øÇß½À´Ï´Ù.
+				//ì´ ìŠ¤í‚¬ì€ ë°°ìš°ì§€ë¥¼ ëª»í–ˆìŠµë‹ˆë‹¤.
 			}
 #endif // __PARTYDEBUG
 		}
 	}
 	else
 	{
-		// ¸®´õ°¡ ¾Æ´Ï°Å³ª ¼øÈ¸±Ø´ÜÀÌ ¾Æ´Ñ°æ¿ì
+		// ë¦¬ë”ê°€ ì•„ë‹ˆê±°ë‚˜ ìˆœíšŒê·¹ë‹¨ì´ ì•„ë‹Œê²½ìš°
 	}
 #endif	// __WORLDSERVER
 }
 
 //
 //
-// idDstParty°¡ thisÆÄÆ¼°¡ °áÅõ¸¦ ½ÃÀÛÇß´Ù´Â°É ¸ğµç ¸â¹öµé¿¡°Ô ¾Ë¸².
+// idDstPartyê°€ thisíŒŒí‹°ê°€ ê²°íˆ¬ë¥¼ ì‹œì‘í–ˆë‹¤ëŠ”ê±¸ ëª¨ë“  ë©¤ë²„ë“¤ì—ê²Œ ì•Œë¦¼.
 #ifdef __WORLDSERVER
 void CParty::DoDuelPartyStart( CParty *pDst )
 {
@@ -585,16 +585,16 @@ void CParty::DoDuelPartyStart( CParty *pDst )
 	OBJID	pDstMember[ MAX_PTMEMBER_SIZE ];
 	memset( pDstMember, 0xff, sizeof(pDstMember) );
 	
-	m_idDuelParty = pDst->m_uPartyId;		// thisÆÄÆ¼ÀÇ »ó´ë
+	m_idDuelParty = pDst->m_uPartyId;		// thisíŒŒí‹°ì˜ ìƒëŒ€
 	
 	CMover *pMember, *pMember2;
 
 	LPCSTR pszLeader;
-	if( pDst->m_nKindTroup )	// ¼øÈ¸±Ø´Ü ±Ø´Ü ÀÌ¸§ º¸³¿
+	if( pDst->m_nKindTroup )	// ìˆœíšŒê·¹ë‹¨ ê·¹ë‹¨ ì´ë¦„ ë³´ëƒ„
 	{
 		pszLeader = pDst->m_sParty;
 	}
-	else	// ´Ü¸·±Ø´Ü ÀÏ¶§´Â ¸®´õÀÌ¸§À» º¸³¿
+	else	// ë‹¨ë§‰ê·¹ë‹¨ ì¼ë•ŒëŠ” ë¦¬ë”ì´ë¦„ì„ ë³´ëƒ„
 	{
 #if __VER >= 11 // __SYS_PLAYER_DATA
 		pszLeader	= CPlayerDataCenter::GetInstance()->GetPlayerString( pDst->GetPlayerId( 0 ) );
@@ -609,29 +609,29 @@ void CParty::DoDuelPartyStart( CParty *pDst )
 		return;
 	}
 
-	for( i = 0; i < m_nSizeofMember; i ++ )		// ±Ø´Ü¿øµé ·çÇÁ.
+	for( i = 0; i < m_nSizeofMember; i ++ )		// ê·¹ë‹¨ì›ë“¤ ë£¨í”„.
 	{
 		pMember	= (CMover *)g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 		if( IsValidObj( pMember ) )
 		{
-			pMember->m_nDuel = 2;		// 2´Â ÆÄÆ¼µà¾óÁß.
+			pMember->m_nDuel = 2;		// 2ëŠ” íŒŒí‹°ë“€ì–¼ì¤‘.
 			pMember->m_idDuelParty = m_idDuelParty;
 			pMember->m_nDuelState = 104;
-			// »ó´ë¹æ ÆÄÆ¼ÀÇ ¸â¹ö¾ÆÀÌµğ¸¦ ´Ù ²¨³¿.
+			// ìƒëŒ€ë°© íŒŒí‹°ì˜ ë©¤ë²„ì•„ì´ë””ë¥¼ ë‹¤ êº¼ëƒ„.
 			for( j = 0; j < pDst->m_nSizeofMember; j ++ )
 			{
 				pMember2 = (CMover *)g_UserMng.GetUserByPlayerID( pDst->m_aMember[j].m_uPlayerId );
 				if( IsValidObj(pMember2) )
 					pDstMember[j] = pMember2->GetId();
 			}
-			// »ó´ë ÆÄÆ¼¿¡ ´ëÇÑ Á¤º¸¸¦ ¿ì¸®¸â¹öµé¿¡°Ô º¸³¿
-			((CUser *)pMember)->AddDuelPartyStart( pszLeader , pDst->m_nSizeofMember, pDstMember, pDst->m_uPartyId );		// »ó´ë¹æ ¸â¹öÀÇ ID¸¦ ´Ùº¸³½´Ù.
+			// ìƒëŒ€ íŒŒí‹°ì— ëŒ€í•œ ì •ë³´ë¥¼ ìš°ë¦¬ë©¤ë²„ë“¤ì—ê²Œ ë³´ëƒ„
+			((CUser *)pMember)->AddDuelPartyStart( pszLeader , pDst->m_nSizeofMember, pDstMember, pDst->m_uPartyId );		// ìƒëŒ€ë°© ë©¤ë²„ì˜ IDë¥¼ ë‹¤ë³´ë‚¸ë‹¤.
 		}
 	}
 }	
 
 //
-// ÆÄÆ¼¿øµé¿¡°Ô bWin¿¡ µû¶ó ½Â/ÆĞ »ç½ÇÀ» ¾Ë¸®°í µà¾óÀ» Á¾·á½ÃÅ´.
+// íŒŒí‹°ì›ë“¤ì—ê²Œ bWinì— ë”°ë¼ ìŠ¹/íŒ¨ ì‚¬ì‹¤ì„ ì•Œë¦¬ê³  ë“€ì–¼ì„ ì¢…ë£Œì‹œí‚´.
 //
 void CParty::DoDuelResult( CParty *pDuelOther, BOOL bWin, int nAddFame, float fSubFameRatio )
 {
@@ -643,13 +643,13 @@ void CParty::DoDuelResult( CParty *pDuelOther, BOOL bWin, int nAddFame, float fS
 		pMember = g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 		if( IsValidObj( pMember ) )
 		{
-			pMember->AddDuelPartyResult( pDuelOther, bWin );		// °¢ ¸â¹öµé¿¡°Ô ½Â/ÆĞ »ç½ÇÀ» ¾Ë¸². / »ó´ëÆÄÆ¼¿ø ¸®½ºÆ®µµ º¸³¿.
+			pMember->AddDuelPartyResult( pDuelOther, bWin );		// ê° ë©¤ë²„ë“¤ì—ê²Œ ìŠ¹/íŒ¨ ì‚¬ì‹¤ì„ ì•Œë¦¼. / ìƒëŒ€íŒŒí‹°ì› ë¦¬ìŠ¤íŠ¸ë„ ë³´ëƒ„.
 			pMember->ClearDuelParty();
 
 			if( bWin )
 			{
-				pMember->m_nFame += nAddFame;	// ÀÌ±äÃøÀÌ¸é ¸í¼º Áõ°¡
-				pMember->AddDefinedText( TID_GAME_GETFAMEPOINT, "%d", nAddFame );	// xxx ¸í¼º Æ÷ÀÎÆ®°¡ Áõ°¡
+				pMember->m_nFame += nAddFame;	// ì´ê¸´ì¸¡ì´ë©´ ëª…ì„± ì¦ê°€
+				pMember->AddDefinedText( TID_GAME_GETFAMEPOINT, "%d", nAddFame );	// xxx ëª…ì„± í¬ì¸íŠ¸ê°€ ì¦ê°€
 #ifdef __WORLDSERVER
 				g_dpDBClient.SendLogPkPvp( pMember, NULL, nAddFame, 'E' );
 #endif // __WORLDSERVER
@@ -657,18 +657,18 @@ void CParty::DoDuelResult( CParty *pDuelOther, BOOL bWin, int nAddFame, float fS
 			else
 			{
 				int nDecVal;
-				fSubFameRatio = fSubFameRatio / 100.0f;	// ºñÀ²·Î È¯»ê.
+				fSubFameRatio = fSubFameRatio / 100.0f;	// ë¹„ìœ¨ë¡œ í™˜ì‚°.
 				nDecVal = (int)(pMember->m_nFame * fSubFameRatio);
 				if( nDecVal == 0 )	nDecVal = 1;
 				pMember->m_nFame -= nDecVal;
 				if( pMember->m_nFame < 0 )	pMember->m_nFame = 0;
-				pMember->AddDefinedText( TID_GAME_DECFAMEPOINT, "%d", nDecVal );	// xxx ¸í¼º Æ÷ÀÎÆ®°¡ °¨¼Ò.
+				pMember->AddDefinedText( TID_GAME_DECFAMEPOINT, "%d", nDecVal );	// xxx ëª…ì„± í¬ì¸íŠ¸ê°€ ê°ì†Œ.
 #ifdef __WORLDSERVER
 				g_dpDBClient.SendLogPkPvp( NULL, pMember, nAddFame, 'E' );
 #endif // __WORLDSERVER
 			}
 			
-			// ¹Ù²ï ¸í¼ºÄ¡¸¦ pMemberÀÇ ÁÖÀ§¿¡ ³¯·ÁÁÜ.
+			// ë°”ë€ ëª…ì„±ì¹˜ë¥¼ pMemberì˜ ì£¼ìœ„ì— ë‚ ë ¤ì¤Œ.
 			g_UserMng.AddSetFame( pMember, pMember->m_nFame );
 		}
 	}
@@ -686,7 +686,7 @@ void CParty::DoUsePartyReCall( u_long uPartyId, u_long uLeaderid, int nSkill )
 	if( !IsValidObj( (CObj*)pUser ) )
 		return;
 	
-	for( i = 0; i < m_nSizeofMember; i ++ )		// ´ÜÀå(0)¿¡°Ô´Â º¸³¾ÇÊ¿ä ¾ø´Ù.
+	for( i = 0; i < m_nSizeofMember; i ++ )		// ë‹¨ì¥(0)ì—ê²ŒëŠ” ë³´ë‚¼í•„ìš” ì—†ë‹¤.
 	{
 		pMember		= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 		if( IsValidObj( (CObj*)pMember ) )
@@ -704,7 +704,7 @@ void CParty::DoUsePartyReCall( u_long uPartyId, u_long uLeaderid, int nSkill )
 #endif // worldserver
 
 //
-// ±Ø´Ü µà¾ó ÇØÁ¦
+// ê·¹ë‹¨ ë“€ì–¼ í•´ì œ
 // 
 void CParty::DoDuelPartyCancel( CParty* pDuelParty )
 {
@@ -712,7 +712,7 @@ void CParty::DoDuelPartyCancel( CParty* pDuelParty )
 	int		i;
 	
 	CMover *pMember;
-	for( i = 0; i < m_nSizeofMember; i ++ )		// ±Ø´Ü¿ø ¸ğµÎ¿¡°Ô µà¾ó ÇØÁ¦¸¦ ¼¼ÆÃÇÏ°í Å¬¶ó¿¡µµ ¾Ë¸².
+	for( i = 0; i < m_nSizeofMember; i ++ )		// ê·¹ë‹¨ì› ëª¨ë‘ì—ê²Œ ë“€ì–¼ í•´ì œë¥¼ ì„¸íŒ…í•˜ê³  í´ë¼ì—ë„ ì•Œë¦¼.
 	{
 #ifdef __WORLDSERVER
 		pMember	= (CMover *)g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
@@ -725,16 +725,16 @@ void CParty::DoDuelPartyCancel( CParty* pDuelParty )
 		{
 #ifdef __WORLDSERVER
 			if( pDuelParty )
-				((CUser *)pMember)->AddDuelPartyCancel( pDuelParty );		// °¢ ¸â¹öµé¿¡°Ô µà¾óÀÌ Ãë¼ÒµÇ¾ú´Ù°í ¾Ë¸².
+				((CUser *)pMember)->AddDuelPartyCancel( pDuelParty );		// ê° ë©¤ë²„ë“¤ì—ê²Œ ë“€ì–¼ì´ ì·¨ì†Œë˜ì—ˆë‹¤ê³  ì•Œë¦¼.
 			else
-				((CUser *)pMember)->AddDuelPartyCancel( NULL );		// °¢ ¸â¹öµé¿¡°Ô µà¾óÀÌ Ãë¼ÒµÇ¾ú´Ù°í ¾Ë¸².
+				((CUser *)pMember)->AddDuelPartyCancel( NULL );		// ê° ë©¤ë²„ë“¤ì—ê²Œ ë“€ì–¼ì´ ì·¨ì†Œë˜ì—ˆë‹¤ê³  ì•Œë¦¼.
 			if( pMember->m_idDuelParty != m_idDuelParty )
-				Error( "CParty::DoDuelPartyCancel : ÆÄÆ¼¸â¹ö %sÀÇ Á¤º¸ÀÌ»ó. %d %d", pMember->GetName(), pMember->m_idDuelParty, m_idDuelParty );
+				Error( "CParty::DoDuelPartyCancel : íŒŒí‹°ë©¤ë²„ %sì˜ ì •ë³´ì´ìƒ. %d %d", pMember->GetName(), pMember->m_idDuelParty, m_idDuelParty );
 			pMember->ClearDuelParty();
 #endif // worldserver
 		}
 	}
-	m_idDuelParty = 0;		// ÆÄÆ¼ ÇØÁ¦
+	m_idDuelParty = 0;		// íŒŒí‹° í•´ì œ
 #endif	// __CORESERVER
 }	
 
@@ -743,7 +743,7 @@ void CParty::ReplaceLodestar( const CRect &rect )
 {
 	// locked
 	CUser* pUser;
-	for( int i = 0; i < m_nSizeofMember; i ++ )		// ±Ø´Ü¿ø ¸ğµÎ¿¡°Ô µà¾ó ÇØÁ¦¸¦ ¼¼ÆÃÇÏ°í Å¬¶ó¿¡µµ ¾Ë¸².
+	for( int i = 0; i < m_nSizeofMember; i ++ )		// ê·¹ë‹¨ì› ëª¨ë‘ì—ê²Œ ë“€ì–¼ í•´ì œë¥¼ ì„¸íŒ…í•˜ê³  í´ë¼ì—ë„ ì•Œë¦¼.
 	{
 		pUser	= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 
@@ -771,7 +771,7 @@ void CParty::ReplaceLodestar( const CRect &rect )
 void CParty::Replace( DWORD dwWorldId, D3DXVECTOR3 & vPos, BOOL bMasterAround )
 {
 	CUser *pMember;
-	for( int i = 0; i < m_nSizeofMember; i ++ )		// ±Ø´Ü¿ø ¸ğµÎ¿¡°Ô µà¾ó ÇØÁ¦¸¦ ¼¼ÆÃÇÏ°í Å¬¶ó¿¡µµ ¾Ë¸².
+	for( int i = 0; i < m_nSizeofMember; i ++ )		// ê·¹ë‹¨ì› ëª¨ë‘ì—ê²Œ ë“€ì–¼ í•´ì œë¥¼ ì„¸íŒ…í•˜ê³  í´ë¼ì—ë„ ì•Œë¦¼.
 	{
 		pMember	= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 
@@ -800,7 +800,7 @@ void CParty::Replace( DWORD dwWorldId, D3DXVECTOR3 & vPos, BOOL bMasterAround )
 void CParty::Replace( DWORD dwWorldId, LPCTSTR sKey )
 {
 	CUser *pMember;
-	for( int i = 0; i < m_nSizeofMember; i ++ )		// ±Ø´Ü¿ø ¸ğµÎ¿¡°Ô µà¾ó ÇØÁ¦¸¦ ¼¼ÆÃÇÏ°í Å¬¶ó¿¡µµ ¾Ë¸².
+	for( int i = 0; i < m_nSizeofMember; i ++ )		// ê·¹ë‹¨ì› ëª¨ë‘ì—ê²Œ ë“€ì–¼ í•´ì œë¥¼ ì„¸íŒ…í•˜ê³  í´ë¼ì—ë„ ì•Œë¦¼.
 	{
 		pMember	= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 		
@@ -816,7 +816,7 @@ void CParty::Replace( DWORD dwWorldId, LPCTSTR sKey )
 BOOL CParty::ReplaceChkLv( int Lv )
 {
 	CUser *pMember;
-	for( int i = 0; i < m_nSizeofMember; i ++ )		// ±Ø´Ü¿ø ¸ğµÎ¿¡°Ô µà¾ó ÇØÁ¦¸¦ ¼¼ÆÃÇÏ°í Å¬¶ó¿¡µµ ¾Ë¸².
+	for( int i = 0; i < m_nSizeofMember; i ++ )		// ê·¹ë‹¨ì› ëª¨ë‘ì—ê²Œ ë“€ì–¼ í•´ì œë¥¼ ì„¸íŒ…í•˜ê³  í´ë¼ì—ë„ ì•Œë¦¼.
 	{
 		pMember	= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 		
@@ -883,9 +883,9 @@ void CPartyMng::Clear( void )
 #endif	// __WORLDSERVER
 }
 
-// ±Ø´Ü »ı¼º
-// uLeaderPlayerId : ´ÜÀå, uPartyId : 1¹øÂ° ´Ü¿ø
-// ±Ø´Ü¸¦ »ı¼³ÇÒ¶§´Â 2¸íÀ¸·Î »ı¼ºÇÔ( È¥ÀÚ¼­´Â ±Ø´Ü¸¦ »ı¼ºÇÒ¼ö ¾øÀ½ )
+// ê·¹ë‹¨ ìƒì„±
+// uLeaderPlayerId : ë‹¨ì¥, uPartyId : 1ë²ˆì§¸ ë‹¨ì›
+// ê·¹ë‹¨ë¥¼ ìƒì„¤í• ë•ŒëŠ” 2ëª…ìœ¼ë¡œ ìƒì„±í•¨( í˜¼ìì„œëŠ” ê·¹ë‹¨ë¥¼ ìƒì„±í• ìˆ˜ ì—†ìŒ )
 u_long	CPartyMng::NewParty( u_long uLeaderId, LONG nLeaderLevel, LONG nLeaderJob, BYTE nLeaderSex, LPSTR szLeaderName, u_long uMemberId, LONG nMemberLevel, LONG nMemberJob, BYTE nMemberSex, LPSTR szMembername, u_long uPartyId )
 {
 //	locked
@@ -899,7 +899,7 @@ u_long	CPartyMng::NewParty( u_long uLeaderId, LONG nLeaderLevel, LONG nLeaderJob
 	}
 
 	
-	if( NULL == GetParty( m_id ) ) // NULL ÀÌ¸é ±Ø´ÜÀÌ ¾øÀ¸¹Ç·Î ¸¸µé¾î¾ß ÇÑ´Ù
+	if( NULL == GetParty( m_id ) ) // NULL ì´ë©´ ê·¹ë‹¨ì´ ì—†ìœ¼ë¯€ë¡œ ë§Œë“¤ì–´ì•¼ í•œë‹¤
 	{
 		CParty* pParty	= new CParty;
 		
@@ -917,7 +917,7 @@ u_long	CPartyMng::NewParty( u_long uLeaderId, LONG nLeaderLevel, LONG nLeaderJob
 //			pParty->Unlock();
 			return m_id;
 		}
-		else // ±Ø´Ü¿¡ ¼Ò¼ÓµÇ¾î ÀÖ´Ù
+		else // ê·¹ë‹¨ì— ì†Œì†ë˜ì–´ ìˆë‹¤
 		{
 //			pParty->Unlock();
 			safe_delete( pParty );
@@ -926,30 +926,30 @@ u_long	CPartyMng::NewParty( u_long uLeaderId, LONG nLeaderLevel, LONG nLeaderJob
 	return 0;
 }
 
-// ±Ø´Ü ÇØÃ¼
-// ÇØÃ¼´Â »ç¶÷ÀÌ ºÎÁ·ÇÏ¿© ÀÚµ¿À¸·Î ÇØÃ¼
-// ´Üµ¶ÀûÀ¸·Î ÇØÃ¼ÇÒ¼ö ¾øÀ½
+// ê·¹ë‹¨ í•´ì²´
+// í•´ì²´ëŠ” ì‚¬ëŒì´ ë¶€ì¡±í•˜ì—¬ ìë™ìœ¼ë¡œ í•´ì²´
+// ë‹¨ë…ì ìœ¼ë¡œ í•´ì²´í• ìˆ˜ ì—†ìŒ
 BOOL CPartyMng::DeleteParty( u_long uPartyId )
 {
 	CParty* pParty = GetParty( uPartyId );
 	if( pParty )
 	{
-		if( pParty->m_idDuelParty )		// ±Ø´Üµà¾óÁßÀÏ¶§ ±Ø´ÜÀÌ ÇØÃ¼µÇ¾úÀ¸¸é
+		if( pParty->m_idDuelParty )		// ê·¹ë‹¨ë“€ì–¼ì¤‘ì¼ë•Œ ê·¹ë‹¨ì´ í•´ì²´ë˜ì—ˆìœ¼ë©´
 		{
-			CParty *pDstParty = GetParty( pParty->m_idDuelParty );		// »ó´ë ÆÄÆ¼¿øµé¿¡°Ôµµ thisÆÄÆ¼°¡ ÇØÃ¼µÇ¾î µà¾óÀÌÇØÁ¦µÆ´Ù´Â°É ¾Ë¸².
+			CParty *pDstParty = GetParty( pParty->m_idDuelParty );		// ìƒëŒ€ íŒŒí‹°ì›ë“¤ì—ê²Œë„ thisíŒŒí‹°ê°€ í•´ì²´ë˜ì–´ ë“€ì–¼ì´í•´ì œëë‹¤ëŠ”ê±¸ ì•Œë¦¼.
 			if( pDstParty )
 			{
 				pDstParty->DoDuelPartyCancel( pParty );
 			} 
 			else
 			{
-				Error( "CPartyMng::DeleteParty : »ó´ëÆÄÆ¼¸¦ Ã£À» ¼ö ¾øÀ½ %d", pParty->m_idDuelParty );
+				Error( "CPartyMng::DeleteParty : ìƒëŒ€íŒŒí‹°ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŒ %d", pParty->m_idDuelParty );
 			}
 
 	#ifdef __WORLDSERVER
 			g_DPCoreClient.SendSetPartyDuel( pParty->m_uPartyId, pParty->m_idDuelParty, FALSE );
 	#endif // __WORLDSERVER
-			pParty->DoDuelPartyCancel( pDstParty );	// thisÆÄÆ¼¿øµé¿¡°Ôµµ µà¾óÇØÁ¦µÆ´Ù´Â°É ¾Ë¸².
+			pParty->DoDuelPartyCancel( pDstParty );	// thisíŒŒí‹°ì›ë“¤ì—ê²Œë„ ë“€ì–¼í•´ì œëë‹¤ëŠ”ê±¸ ì•Œë¦¼.
 		}
 #ifdef __WORLDSERVER
 #if __VER >= 14 // __INSTANCE_DUNGEON
@@ -1148,15 +1148,15 @@ void CPartyMng::Worker( void )
 				}	// for
 			}	// if
 
-			// ÆÄÆ¼¸ğµå¸¦ Ã¼Å©
+			// íŒŒí‹°ëª¨ë“œë¥¼ ì²´í¬
 			for( int j = 0 ; j < MAX_PARTYMODE ; j++ )
 			{
 				if( pParty->m_nModeTime[j] )
 				{
-#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 					if( j == PARTY_PARSKILL_MODE)
 						continue;
-#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 					pParty->m_nModeTime[j] -= 1000;
 					if( pParty->m_nModeTime[j] <= 0 )
 					{
@@ -1218,10 +1218,10 @@ void CPartyMng::RemoveConnection( CPlayer* pPlayer )
 		ar << pPlayer->m_uPartyId << pPlayer->uKey;
 		SEND( ar, &g_dpCoreSrvr, DPID_ALLPLAYERS );
 
-#if __VER >= 12 // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
+#if __VER >= 12 // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
 		if( pParty->m_nModeTime[PARTY_PARSKILL_MODE] )
 			g_dpCoreSrvr.SendSetPartyMode( pParty->m_uPartyId, PARTY_PARSKILL_MODE, FALSE );
-#endif // __PARSKILL1001 090917 mirchang - ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤
+#endif // __PARSKILL1001 090917 mirchang - íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •
 
 		if( i == 0 )
 		{
@@ -1235,7 +1235,7 @@ void CPartyMng::RemoveConnection( CPlayer* pPlayer )
 					break;
 				}
 			}
-#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 			for( int k = 0 ; k < MAX_PARTYMODE ; k++ )
 			{
 				if( pParty->m_nModeTime[k] )
@@ -1245,7 +1245,7 @@ void CPartyMng::RemoveConnection( CPlayer* pPlayer )
 					pParty->m_nModeTime[k] = 0;
 				}
 			}
-#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 
 			if( fRemoveParty )
 			{
@@ -1267,7 +1267,7 @@ void CPartyMng::RemoveConnection( CPlayer* pPlayer )
 
 void CPartyMng::PartyMapInfo( )
 {
-	const float PARTY_MAP_AROUND = 32.0f * 32.0f;	// m_nVisibilityRange¿¡ ¿µÇâÀ» ¹Ş´Â´Ù.
+	const float PARTY_MAP_AROUND = 32.0f * 32.0f;	// m_nVisibilityRangeì— ì˜í–¥ì„ ë°›ëŠ”ë‹¤.
 
 	if( ++m_nSecCount < PARTY_MAP_SEC )
 		return;

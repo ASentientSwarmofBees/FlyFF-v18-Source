@@ -1,4 +1,4 @@
-#ifndef NPKCRYPT_H
+ï»¿#ifndef NPKCRYPT_H
 #define NPKCRYPT_H
 
 #ifndef NPKAPI
@@ -15,7 +15,7 @@ typedef VOID (CALLBACK *FCryptAction)(PVOID, LPBYTE, DWORD);
 
 #define WM_HOOKNOTIFY		(WM_APP+14)
 
-// ½ÇÁ¦ ¿¡·¯ÄÚµå Á¤ÀÇ
+// ì‹¤ì œ ì—ëŸ¬ì½”ë“œ ì •ì˜
 #define NPK_ERROR_BASE			0x20000000
 #define NPK_ERROR_NOTADMIN		0xE0010001
 #define NPK_ERROR_DRIVERVERSION	0xE0010002

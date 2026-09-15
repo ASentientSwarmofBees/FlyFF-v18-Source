@@ -1,4 +1,4 @@
-#ifndef __PROJECTCMN_H__
+ï»¿#ifndef __PROJECTCMN_H__
 #define	__PROJECTCMN_H__
 
 #define	MAX_OBJARRAY			8
@@ -34,14 +34,14 @@
 #define MAX_PARTYLEVEL			10
 #define MAX_ADDEXPPARTY			16
 #define MAX_RENEWEVENT			8000
-#define MAX_REALITEM			8			// ÀÌº¥Æ® »óÇ° ¾ÆÀÌÅÛ
+#define MAX_REALITEM			8			// ì´ë²¤íŠ¸ ìƒí’ˆ ì•„ì´í…œ
 #define MAX_EVENTREALITEM		4096
 #define MAX_EXPJOBLEVEL			90
 #define	ITEM_KIND_MAX			100
 
-const int	MAX_PROPMOVER =		14900;		// MoverProp¹è¿­ÀÇ ÃÖ´ë°¹¼ö 
+const int	MAX_PROPMOVER =		14900;		// MoverPropë°°ì—´ì˜ ìµœëŒ€ê°¯ìˆ˜ 
 
-#define	MAX_HONOR_TITLE		150	// ´ŞÀÎÅ¸ÀÌÆ² Á¦ÇÑ
+#define	MAX_HONOR_TITLE		150	// ë‹¬ì¸íƒ€ì´í‹€ ì œí•œ
 
 #if __VER >= 8 // __S8_VENDOR_REVISION
 #define MAX_VENDOR_REVISION		20
@@ -84,8 +84,8 @@ struct tagColorText
 
 struct ObjProp
 {
-	DWORD	dwID;		// º¯¼ö¸í	
-	TCHAR	szName[64];	// ÇÑ±Û¸íÄª 
+	DWORD	dwID;		// ë³€ìˆ˜ëª…	
+	TCHAR	szName[64];	// í•œê¸€ëª…ì¹­ 
 	DWORD	dwType; 
 	DWORD	dwAI;		// AIInterface
 	DWORD	dwHP;
@@ -109,51 +109,51 @@ struct CtrlProp : ObjProp
 	}
 
 #if __VER >= 15 // __GUILD_HOUSE
-	BOOL IsGuildHousingObj( )	{ return CK1_GUILD_HOUSE == dwCtrlKind1; } //±æµå ÇÏ¿ìÂ¡ Àü¿ë ¿ÀºêÁ§Æ® ÀÎ°¡?
-	BOOL IsHousingObj( )		{ return CK1_HOUSING == dwCtrlKind1; }		//°³ÀÎ ÇÏ¿ìÂ¡ Àü¿ë ¿ÀºêÁ§Æ® 
+	BOOL IsGuildHousingObj( )	{ return CK1_GUILD_HOUSE == dwCtrlKind1; } //ê¸¸ë“œ í•˜ìš°ì§• ì „ìš© ì˜¤ë¸Œì íŠ¸ ì¸ê°€?
+	BOOL IsHousingObj( )		{ return CK1_HOUSING == dwCtrlKind1; }		//ê°œì¸ í•˜ìš°ì§• ì „ìš© ì˜¤ë¸Œì íŠ¸ 
 #endif // __GUILD_HOUSE
 };
 
 struct AddSkillProp
 {
-	DWORD	dwID;				// º¯¼ö¸í	
-	DWORD	dwName;				// ¸íÄª
-	DWORD	dwSkillLvl;			// ½ºÅ³·¹º§
-	DWORD	dwAbilityMin;		// ÃÖ¼Ò´É·Â
-	DWORD	dwAbilityMax;		// ÃÖ´ë´É·Â
-	DWORD	dwAttackSpeed;		// °ø°İ¼Óµµ
-	DWORD	dwDmgShift;			// Å¸°İ½Ã ¹İµ¿
-	DWORD	nProbability;		// ¹ßµ¿ È®·ü
-	DWORD	dwTaunt;			// Å¸¿îÆ®
-	DWORD	dwDestParam[2];		// Àû¿ë´ë»ó1
-	DWORD	nAdjParamVal[2];	// Àû¿ë°ª1;
-	DWORD	dwChgParamVal[2];	//Àû¿ëº¯È­°ª1
-	int		nDestData1[3];		// Àû¿ëµ¥ÀÌÅ¸3°³, DestParam[0]¿¡ ÇØ´ç.
-	DWORD	dwActiveSkill;		// ¹ßµ¿ ¸¶¹ı
-	DWORD	dwActiveSkillRate;	// ¹ßµ¿ ¸¶¹ı È®·ü.
+	DWORD	dwID;				// ë³€ìˆ˜ëª…	
+	DWORD	dwName;				// ëª…ì¹­
+	DWORD	dwSkillLvl;			// ìŠ¤í‚¬ë ˆë²¨
+	DWORD	dwAbilityMin;		// ìµœì†ŒëŠ¥ë ¥
+	DWORD	dwAbilityMax;		// ìµœëŒ€ëŠ¥ë ¥
+	DWORD	dwAttackSpeed;		// ê³µê²©ì†ë„
+	DWORD	dwDmgShift;			// íƒ€ê²©ì‹œ ë°˜ë™
+	DWORD	nProbability;		// ë°œë™ í™•ë¥ 
+	DWORD	dwTaunt;			// íƒ€ìš´íŠ¸
+	DWORD	dwDestParam[2];		// ì ìš©ëŒ€ìƒ1
+	DWORD	nAdjParamVal[2];	// ì ìš©ê°’1;
+	DWORD	dwChgParamVal[2];	//ì ìš©ë³€í™”ê°’1
+	int		nDestData1[3];		// ì ìš©ë°ì´íƒ€3ê°œ, DestParam[0]ì— í•´ë‹¹.
+	DWORD	dwActiveSkill;		// ë°œë™ ë§ˆë²•
+	DWORD	dwActiveSkillRate;	// ë°œë™ ë§ˆë²• í™•ë¥ .
 #if __VER >= 9	// __SKILL_0706
-	DWORD	dwActiveSkillRatePVP;	// ´ëÀÎ ¹ßµ¿ ¸¶¹ı È®·ü.
+	DWORD	dwActiveSkillRatePVP;	// ëŒ€ì¸ ë°œë™ ë§ˆë²• í™•ë¥ .
 #endif	// __SKILL_0706
-	int		nReqMp;				//ÇÊ¿äMP
-	int		nReqFp;				//ÇÊ¿äFP
+	int		nReqMp;				//í•„ìš”MP
+	int		nReqFp;				//í•„ìš”FP
 #if __VER >= 9	// __SKILL_0706
-	DWORD	dwCooldown;		// Äğ´Ù¿î
-	DWORD	dwCastingTime;		//±â¼ú ÁØºñ½Ã°£
+	DWORD	dwCooldown;		// ì¿¨ë‹¤ìš´
+	DWORD	dwCastingTime;		//ê¸°ìˆ  ì¤€ë¹„ì‹œê°„
 #else	// __SKILL_0706
-	DWORD	dwSkillReady;		//±â¼ú ÁØºñ½Ã°£
+	DWORD	dwSkillReady;		//ê¸°ìˆ  ì¤€ë¹„ì‹œê°„
 #endif	// __SKILL_0706
-	DWORD	dwSkillRange;		// ±â¼ú ½ÃÀü°Å¸®	
-	DWORD	dwCircleTime;		//À¯Áö½Ã°£
-	DWORD   dwPainTime;         // Áö¼Ó ÇÇÇØ½Ã°£
-	DWORD	dwSkillTime;		//Áö¼Ó½Ã°£
-	int		nSkillCount;		// ¹ß»çÃ¼ ¹ß»ç °³¼ö. °³´ç°ø°İ·Â = ÃÑ°ø°İ·Â / nSkillCount;
-	DWORD   dwSkillExp;         //½ºÅ³ °æÇèÄ¡
-	DWORD	dwExp;				//ÇöÀç°æÇèÄ¡
-	DWORD	dwComboSkillTime;	//ÄŞº¸½ºÅ³Å¸ÀÓ
+	DWORD	dwSkillRange;		// ê¸°ìˆ  ì‹œì „ê±°ë¦¬	
+	DWORD	dwCircleTime;		//ìœ ì§€ì‹œê°„
+	DWORD   dwPainTime;         // ì§€ì† í”¼í•´ì‹œê°„
+	DWORD	dwSkillTime;		//ì§€ì†ì‹œê°„
+	int		nSkillCount;		// ë°œì‚¬ì²´ ë°œì‚¬ ê°œìˆ˜. ê°œë‹¹ê³µê²©ë ¥ = ì´ê³µê²©ë ¥ / nSkillCount;
+	DWORD   dwSkillExp;         //ìŠ¤í‚¬ ê²½í—˜ì¹˜
+	DWORD	dwExp;				//í˜„ì¬ê²½í—˜ì¹˜
+	DWORD	dwComboSkillTime;	//ì½¤ë³´ìŠ¤í‚¬íƒ€ì„
 #if __VER >= 9	// __SKILL_0706
-	DWORD	dwAbilityMinPVP;	// ÃÖ¼Ò´É·Â(´ëÀÎ)
-	DWORD	dwAbilityMaxPVP;	// ÃÖ´ë´É·Â(´ëÀÎ)
-	DWORD	nProbabilityPVP;	// ¹ßµ¿ È®·ü(´ëÀÎ)
+	DWORD	dwAbilityMinPVP;	// ìµœì†ŒëŠ¥ë ¥(ëŒ€ì¸)
+	DWORD	dwAbilityMaxPVP;	// ìµœëŒ€ëŠ¥ë ¥(ëŒ€ì¸)
+	DWORD	nProbabilityPVP;	// ë°œë™ í™•ë¥ (ëŒ€ì¸)
 #endif	// __SKILL_0706
 
 	AddSkillProp()
@@ -180,25 +180,25 @@ struct AddSkillProp
 
 struct PartySkillProp
 {
-	DWORD	dwID;				// º¯¼ö¸í	
-	DWORD	dwName;				// ¸íÄª
-	DWORD	dwSkillLvl;			// ½ºÅ³·¹º§
-	DWORD	dwAbilityMin;		// ÃÖ¼Ò´É·Â
-	DWORD	dwAtkAbilityMax;	// ÃÖ´ë´É·Â
-	DWORD	dwAttackSpeed;		// °ø°İ¼Óµµ
-	DWORD	dwDmgShift;			// Å¸°İ½Ã ¹İµ¿
-	DWORD	dwGroggy;			// ±×·ÎÅ°
-	DWORD	dwTaunt;			// Å¸¿îÆ®
-	DWORD	dwDestParam[2];		// Àû¿ë´ë»ó1
-	DWORD	nAdjParamVal[2];	// Àû¿ë°ª1;
-	DWORD	dwChgParamVal[2];	//Àû¿ëº¯È­°ª1
-	DWORD	dwReqMp;			//ÇÊ¿äMP
-	DWORD	dwReqFp;			//ÇÊ¿äFP
-	DWORD	dwSkillReady;		//±â¼ú ÁØºñ½Ã°£
-	DWORD	dwCircleTime;		//À¯Áö½Ã°£
-	DWORD	dwSkillTime;		//Áö¼Ó½Ã°£
-	DWORD	dwExp;				//ÇöÀç°æÇèÄ¡
-	DWORD	dwComboSkillTime;	//ÄŞº¸½ºÅ³Å¸ÀÓ
+	DWORD	dwID;				// ë³€ìˆ˜ëª…	
+	DWORD	dwName;				// ëª…ì¹­
+	DWORD	dwSkillLvl;			// ìŠ¤í‚¬ë ˆë²¨
+	DWORD	dwAbilityMin;		// ìµœì†ŒëŠ¥ë ¥
+	DWORD	dwAtkAbilityMax;	// ìµœëŒ€ëŠ¥ë ¥
+	DWORD	dwAttackSpeed;		// ê³µê²©ì†ë„
+	DWORD	dwDmgShift;			// íƒ€ê²©ì‹œ ë°˜ë™
+	DWORD	dwGroggy;			// ê·¸ë¡œí‚¤
+	DWORD	dwTaunt;			// íƒ€ìš´íŠ¸
+	DWORD	dwDestParam[2];		// ì ìš©ëŒ€ìƒ1
+	DWORD	nAdjParamVal[2];	// ì ìš©ê°’1;
+	DWORD	dwChgParamVal[2];	//ì ìš©ë³€í™”ê°’1
+	DWORD	dwReqMp;			//í•„ìš”MP
+	DWORD	dwReqFp;			//í•„ìš”FP
+	DWORD	dwSkillReady;		//ê¸°ìˆ  ì¤€ë¹„ì‹œê°„
+	DWORD	dwCircleTime;		//ìœ ì§€ì‹œê°„
+	DWORD	dwSkillTime;		//ì§€ì†ì‹œê°„
+	DWORD	dwExp;				//í˜„ì¬ê²½í—˜ì¹˜
+	DWORD	dwComboSkillTime;	//ì½¤ë³´ìŠ¤í‚¬íƒ€ì„
 	PartySkillProp()
 	{
 		dwID = dwName = 0;
@@ -239,9 +239,9 @@ enum
 // Item Property Type
 enum IP_TYPE 
 {
-	IP_FLAG_NONE	= 0x00,				// ÇÃ·¡±× ¾øÀ½ 
-	IP_FLAG_BINDS	= 0x01,				// 1 - ±Í¼Ó ¾ÆÀÌÅÛ 
-	IP_FLAG_UNDESTRUCTABLE	= 0x02	//	2 - »èÁ¦ ºÒ°¡ ¾ÆÀÌÅÛ
+	IP_FLAG_NONE	= 0x00,				// í”Œë˜ê·¸ ì—†ìŒ 
+	IP_FLAG_BINDS	= 0x01,				// 1 - ê·€ì† ì•„ì´í…œ 
+	IP_FLAG_UNDESTRUCTABLE	= 0x02	//	2 - ì‚­ì œ ë¶ˆê°€ ì•„ì´í…œ
 #if __VER >= 14 // __EQUIP_BIND
 	,IP_FLAG_EQUIP_BIND	= 0x04
 #endif // __EQUIP_BIND
@@ -250,135 +250,135 @@ enum IP_TYPE
 
 struct ItemProp : CtrlProp
 {
-	DWORD	dwMotion;			// µ¿ÀÛ 
-	DWORD	dwNum;				// ±âº»»ı¼º°³¼ö	
-	DWORD	dwPackMax;			// ÃÖ´ëÈÄ§°³¼ö	
-	DWORD	dwItemKind1;		// 1Â÷¾ÆÀÌÅÛÁ¾·ù	
-	DWORD	dwItemKind2;		// 2Â÷¾ÆÀÌÅÛÁ¾·ù	
-	DWORD	dwItemKind3;		// 3Â÷¾ÆÀÌÅÛÁ¾·ù	
-	DWORD	dwItemJob;			// ¾ÆÀÌÅÛÁ÷¾÷¼Ò¼Ó 
-	BOOL	bPermanence;		// ¼ÒºñºÒ°¡	
-	DWORD	dwUseable;			// »ç¿ë½ÃÁ¡	
-	DWORD	dwItemSex;			// »ç¿ë¼ºº°	
-	DWORD	dwCost;				// °¡°İ	 
-	DWORD	dwEndurance;		// ³»±¸·Â	
-	int		nLog;				// ·Î±×
-	int		nAbrasion;			// ¸¶¸ğÀ²
-	int		nMaxRepair;			// ¼ö¸®È½¼ö
-	DWORD	dwHanded;			// Àâ´ÂÇü½Ä	
-	DWORD	dwFlag;				// ´Ù¸ñÀû ÇÃ·¡±×	
-	DWORD	dwParts;			// ÀåÂøÀ§Ä¡	
-	DWORD	dwPartsub;			// ÀåÂøÀ§Ä¡	
-	DWORD	bPartsFile;			// ÆÄÃ÷ÆÄÀÏ »ç¿ë¿©ºÎ 
-	DWORD	dwExclusive;		// Á¦°ÅµÉÀ§Ä¡	
+	DWORD	dwMotion;			// ë™ì‘ 
+	DWORD	dwNum;				// ê¸°ë³¸ìƒì„±ê°œìˆ˜	
+	DWORD	dwPackMax;			// ìµœëŒ€ê³‚ì¹¨ê°œìˆ˜	
+	DWORD	dwItemKind1;		// 1ì°¨ì•„ì´í…œì¢…ë¥˜	
+	DWORD	dwItemKind2;		// 2ì°¨ì•„ì´í…œì¢…ë¥˜	
+	DWORD	dwItemKind3;		// 3ì°¨ì•„ì´í…œì¢…ë¥˜	
+	DWORD	dwItemJob;			// ì•„ì´í…œì§ì—…ì†Œì† 
+	BOOL	bPermanence;		// ì†Œë¹„ë¶ˆê°€	
+	DWORD	dwUseable;			// ì‚¬ìš©ì‹œì 	
+	DWORD	dwItemSex;			// ì‚¬ìš©ì„±ë³„	
+	DWORD	dwCost;				// ê°€ê²©	 
+	DWORD	dwEndurance;		// ë‚´êµ¬ë ¥	
+	int		nLog;				// ë¡œê·¸
+	int		nAbrasion;			// ë§ˆëª¨ìœ¨
+	int		nMaxRepair;			// ìˆ˜ë¦¬íšŸìˆ˜
+	DWORD	dwHanded;			// ì¡ëŠ”í˜•ì‹	
+	DWORD	dwFlag;				// ë‹¤ëª©ì  í”Œë˜ê·¸	
+	DWORD	dwParts;			// ì¥ì°©ìœ„ì¹˜	
+	DWORD	dwPartsub;			// ì¥ì°©ìœ„ì¹˜	
+	DWORD	bPartsFile;			// íŒŒì¸ íŒŒì¼ ì‚¬ìš©ì—¬ë¶€ 
+	DWORD	dwExclusive;		// ì œê±°ë ìœ„ì¹˜	
 	DWORD	dwBasePartsIgnore;
-	DWORD	dwItemLV;			// ¾ÆÀÌÅÛ·¹º§	
-	DWORD	dwItemRare;			// Èñ±Í¼º	
+	DWORD	dwItemLV;			// ì•„ì´í…œë ˆë²¨	
+	DWORD	dwItemRare;			// í¬ê·€ì„±	
 	DWORD   dwShopAble;
-	int		nShellQuantity;		// ÃÖ´ëÀåÀü°³¼ö	- IK°¡ Ã¤Áıµµ±¸ÀÏ¶§´Â ÃÖ´ë Ã¤Áı·®ÀÌ µÈ´Ù.(»èÁ¦ ¿¹Á¤)
-	DWORD	dwActiveSkillLv;	// ¹ßµ¿ ¸¶¹ı ·¹º§
-	DWORD   dwFuelRe;			// ÆÑ´ç¿¬·áÃæÀü·®
-	DWORD	dwAFuelReMax;		// °¡¼Ó¿¬·áÃæÀü·®
-	DWORD	dwSpellType;		// ¸¶¹ı¼Ó¼º	
-	DWORD	dwLinkKindBullet;	// ÇÊ¿ä ¼Ò¸ğÀåºñ ¾ÆÀÌÅÛ	
-	DWORD	dwLinkKind;			// ÇÊ¿ä ¾ÆÀÌÅÛÁ¾·ù
-	DWORD	dwAbilityMin;		// ÃÖ¼Ò´É·ÂÄ¡ - °ø°İ·Â, ¹æ¾î·Â, ¼º´É ±âÅ¸µîµî 
-	DWORD	dwAbilityMax;		// ÃÖ´ë´É·ÂÄ¡ - °ø°İ·Â, ¹æ¾î·Â, ¼º´É ±âÅ¸µîµî 
+	int		nShellQuantity;		// ìµœëŒ€ì¥ì „ê°œìˆ˜	- IKê°€ ì±„ì§‘ë„êµ¬ì¼ë•ŒëŠ” ìµœëŒ€ ì±„ì§‘ëŸ‰ì´ ëœë‹¤.(ì‚­ì œ ì˜ˆì •)
+	DWORD	dwActiveSkillLv;	// ë°œë™ ë§ˆë²• ë ˆë²¨
+	DWORD   dwFuelRe;			// íŒ©ë‹¹ì—°ë£Œì¶©ì „ëŸ‰
+	DWORD	dwAFuelReMax;		// ê°€ì†ì—°ë£Œì¶©ì „ëŸ‰
+	DWORD	dwSpellType;		// ë§ˆë²•ì†ì„±	
+	DWORD	dwLinkKindBullet;	// í•„ìš” ì†Œëª¨ì¥ë¹„ ì•„ì´í…œ	
+	DWORD	dwLinkKind;			// í•„ìš” ì•„ì´í…œì¢…ë¥˜
+	DWORD	dwAbilityMin;		// ìµœì†ŒëŠ¥ë ¥ì¹˜ - ê³µê²©ë ¥, ë°©ì–´ë ¥, ì„±ëŠ¥ ê¸°íƒ€ë“±ë“± 
+	DWORD	dwAbilityMax;		// ìµœëŒ€ëŠ¥ë ¥ì¹˜ - ê³µê²©ë ¥, ë°©ì–´ë ¥, ì„±ëŠ¥ ê¸°íƒ€ë“±ë“± 
 	BOOL	bCharged;		
 	SAI79::ePropType	eItemType;
-	short	wItemEatk;			// ¼Ó¼º µ¥¹ÌÁö( À§ ¼Ó¼º Å¸ÀÔÀ¸·Î °ø°İ·ÂÀ» ¼³Á¤ÇÑ´Ù. )
-	DWORD   dwParry;			// È¸ÇÇÀ² 
-	DWORD   dwblockRating;		// ºí·° ¼öÄ¡ 
-	int		nAddSkillMin;		// ÃÖ¼Ò Ãß°¡ ½ºÅ³
-	int		nAddSkillMax;		// ÃÖ´ë Ãß°¡ ½ºÅ³.
-	DWORD	dwAtkStyle;			// °ø°İ ½ºÅ¸ÀÏ 
-	DWORD	dwWeaponType;		// ¹«±âÁ¾·ù 
-	DWORD	dwItemAtkOrder1;	// ¾ÆÀÌÅÛ1Â÷°ø°İ¼ø¼­
-	DWORD	dwItemAtkOrder2;	// ¾ÆÀÌÅÛ2Â÷°ø°İ¼ø¼­
-	DWORD	dwItemAtkOrder3;	// ¾ÆÀÌÅÛ3Â÷°ø°İ¼ø¼­
-	DWORD	dwItemAtkOrder4;	// ¾ÆÀÌÅÛ4Â÷°ø°İ¼ø¼­
-    DWORD	tmContinuousPain;	// Áö¼Ó ÇÇÇØ 
-	DWORD	dwRecoil;			// ¹İµ¿	
-	DWORD	dwLoadingTime;		// ÀåÀü½Ã°£	- IK°¡ Ã¤Áıµµ±¸ÀÏ¶§´Â Ã¤Áı¼Óµµ(´É·Â)ÀÌ µÈ´Ù.
-	LONG	nAdjHitRate;		// Ãß°¡°ø°İ¼º°ø·ü	
-	FLOAT	fAttackSpeed;		// °ø°İ¼Óµµ	
-	DWORD	dwDmgShift;			// Å¸°İ½Ã ¹İµ¿	
-	DWORD	dwAttackRange;		// °ø°İ¹üÀ§	
-	int		nProbability;		// Àû¿ëÈ®·ü
+	short	wItemEatk;			// ì†ì„± ë°ë¯¸ì§€( ìœ„ ì†ì„± íƒ€ì…ìœ¼ë¡œ ê³µê²©ë ¥ì„ ì„¤ì •í•œë‹¤. )
+	DWORD   dwParry;			// íšŒí”¼ìœ¨ 
+	DWORD   dwblockRating;		// ë¸”ëŸ­ ìˆ˜ì¹˜ 
+	int		nAddSkillMin;		// ìµœì†Œ ì¶”ê°€ ìŠ¤í‚¬
+	int		nAddSkillMax;		// ìµœëŒ€ ì¶”ê°€ ìŠ¤í‚¬.
+	DWORD	dwAtkStyle;			// ê³µê²© ìŠ¤íƒ€ì¼ 
+	DWORD	dwWeaponType;		// ë¬´ê¸°ì¢…ë¥˜ 
+	DWORD	dwItemAtkOrder1;	// ì•„ì´í…œ1ì°¨ê³µê²©ìˆœì„œ
+	DWORD	dwItemAtkOrder2;	// ì•„ì´í…œ2ì°¨ê³µê²©ìˆœì„œ
+	DWORD	dwItemAtkOrder3;	// ì•„ì´í…œ3ì°¨ê³µê²©ìˆœì„œ
+	DWORD	dwItemAtkOrder4;	// ì•„ì´í…œ4ì°¨ê³µê²©ìˆœì„œ
+    DWORD	tmContinuousPain;	// ì§€ì† í”¼í•´ 
+	DWORD	dwRecoil;			// ë°˜ë™	
+	DWORD	dwLoadingTime;		// ì¥ì „ì‹œê°„	- IKê°€ ì±„ì§‘ë„êµ¬ì¼ë•ŒëŠ” ì±„ì§‘ì†ë„(ëŠ¥ë ¥)ì´ ëœë‹¤.
+	LONG	nAdjHitRate;		// ì¶”ê°€ê³µê²©ì„±ê³µë¥ 	
+	FLOAT	fAttackSpeed;		// ê³µê²©ì†ë„	
+	DWORD	dwDmgShift;			// íƒ€ê²©ì‹œ ë°˜ë™	
+	DWORD	dwAttackRange;		// ê³µê²©ë²”ìœ„	
+	int		nProbability;		// ì ìš©í™•ë¥ 
 #ifndef __PROP_0827
-	DWORD	dwDestParam[2];		// Àû¿ë´ë»ó1	
-	LONG	nAdjParamVal[2];	// Àû¿ë°ª1	
-	DWORD	dwChgParamVal[2];	// Àû¿ëº¯È­°ª1	
+	DWORD	dwDestParam[2];		// ì ìš©ëŒ€ìƒ1	
+	LONG	nAdjParamVal[2];	// ì ìš©ê°’1	
+	DWORD	dwChgParamVal[2];	// ì ìš©ë³€í™”ê°’1	
 #else	// __PROP_0827
-	DWORD	dwDestParam[3];		// Àû¿ë´ë»ó1	
-	LONG	nAdjParamVal[3];	// Àû¿ë°ª1	
-	DWORD	dwChgParamVal[3];	// Àû¿ëº¯È­°ª1	
+	DWORD	dwDestParam[3];		// ì ìš©ëŒ€ìƒ1	
+	LONG	nAdjParamVal[3];	// ì ìš©ê°’1	
+	DWORD	dwChgParamVal[3];	// ì ìš©ë³€í™”ê°’1	
 #endif	// __PROP_0827
-	int		nDestData1[3];		// Àû¿ëµ¥ÀÌÅ¸°ª 3°³, destParam1¿¡¸¸ ÇØ´çµÊ.
-	DWORD	dwActiveSkill;		// ¹ßµ¿ ¸¶¹ı
-	DWORD	dwActiveSkillRate;	// ¹ßµ¿ ¸¶¹ı È®·ü.
-	DWORD	dwReqMp;			// ÇÊ¿äMP	
-	DWORD	dwReqFp;			// ÇÊ¿äFP	
+	int		nDestData1[3];		// ì ìš©ë°ì´íƒ€ê°’ 3ê°œ, destParam1ì—ë§Œ í•´ë‹¹ë¨.
+	DWORD	dwActiveSkill;		// ë°œë™ ë§ˆë²•
+	DWORD	dwActiveSkillRate;	// ë°œë™ ë§ˆë²• í™•ë¥ .
+	DWORD	dwReqMp;			// í•„ìš”MP	
+	DWORD	dwReqFp;			// í•„ìš”FP	
 	DWORD	dwReqDisLV;
 	DWORD   dwReSkill1;
 	DWORD   dwReSkillLevel1;
 	DWORD   dwReSkill2;
 	DWORD   dwReSkillLevel2;
 	DWORD	dwSkillReadyType;
-	DWORD	dwSkillReady;		// ±â¼ú ÁØºñ½Ã°£	
-	DWORD	_dwSkillRange;		// ±â¼ú ½ÃÀü°Å¸®	
+	DWORD	dwSkillReady;		// ê¸°ìˆ  ì¤€ë¹„ì‹œê°„	
+	DWORD	_dwSkillRange;		// ê¸°ìˆ  ì‹œì „ê±°ë¦¬	
 	DWORD	dwSfxElemental;
-	DWORD	dwSfxObj;			// »ı¼ºÇÒ È¿°ú ¿ÀºêÁ§Æ® 
-	DWORD	dwSfxObj2;			// »ı¼ºÇÒ È¿°ú ¿ÀºêÁ§Æ® 
-	DWORD	dwSfxObj3;			// ¹ßµ¿È¿°ú, Å¸°Ù
-	DWORD	dwSfxObj4;			// Áö¼ÓµÇ´Â È¿°ú ÀÌÆåÆ®.
-	DWORD	dwSfxObj5;			// ¹ßµ¿È¿°ú, ½ÃÀüÀÚ 
-	DWORD	dwUseMotion;		// »ç¿ë ¸ğ¼Ç
-	DWORD	dwCircleTime;		// À¯Áö½Ã°£ 
-	DWORD	dwSkillTime;		// Áö¼Ó½Ã°£	
+	DWORD	dwSfxObj;			// ìƒì„±í•  íš¨ê³¼ ì˜¤ë¸Œì íŠ¸ 
+	DWORD	dwSfxObj2;			// ìƒì„±í•  íš¨ê³¼ ì˜¤ë¸Œì íŠ¸ 
+	DWORD	dwSfxObj3;			// ë°œë™íš¨ê³¼, íƒ€ê²Ÿ
+	DWORD	dwSfxObj4;			// ì§€ì†ë˜ëŠ” íš¨ê³¼ ì´í™íŠ¸.
+	DWORD	dwSfxObj5;			// ë°œë™íš¨ê³¼, ì‹œì „ì 
+	DWORD	dwUseMotion;		// ì‚¬ìš© ëª¨ì…˜
+	DWORD	dwCircleTime;		// ìœ ì§€ì‹œê°„ 
+	DWORD	dwSkillTime;		// ì§€ì†ì‹œê°„	
 	DWORD	dwExeTarget;
 	DWORD	dwUseChance;
-	DWORD	dwSpellRegion;		// ¸¶¹ı ¹üÀ§ 
+	DWORD	dwSpellRegion;		// ë§ˆë²• ë²”ìœ„ 
 	DWORD   dwReferStat1;
 	DWORD   dwReferStat2;
 	DWORD   dwReferTarget1;
 	DWORD   dwReferTarget2;
 	DWORD   dwReferValue1;
 	DWORD   dwReferValue2;
-	DWORD	dwSkillType;		// ±â¼ú¼Ó¼º	
+	DWORD	dwSkillType;		// ê¸°ìˆ ì†ì„±	
 	int		nItemResistElecricity;
 	int		nItemResistDark;
 	int		nItemResistFire;
 	int		nItemResistWind;
 	int		nItemResistWater;
 	int		nItemResistEarth;
-	LONG	nEvildoing;			// ¾ÇÇà	
+	LONG	nEvildoing;			// ì•…í–‰	
 	DWORD	dwExpertLV;	
-	DWORD	dwExpertMax;		// ÃÖ´ë¼÷·Ã·¹º§ 
+	DWORD	dwExpertMax;		// ìµœëŒ€ìˆ™ë ¨ë ˆë²¨ 
 	DWORD	dwSubDefine;
-	DWORD	dwExp;				// ÇöÀç°æÇèÄ¡	
+	DWORD	dwExp;				// í˜„ì¬ê²½í—˜ì¹˜	
 	DWORD	dwComboStyle;
-	FLOAT	fFlightSpeed;		// ºñÇàÃßÁø·Â(¼Óµµ)
-	FLOAT	fFlightLRAngle;		// ÁÂ¿ì ÅÏ °¢µµ.
-	FLOAT	fFlightTBAngle;		// »óÇÏ ÅÏ °¢µµ.
-	DWORD	dwFlightLimit;		// ºñÇàÁ¦ÇÑ·¹º§
-	DWORD	dwFFuelReMax;		// ºñÇà¿¬·áÃæÀü·®
-	DWORD	dwLimitLevel1;		// Á¦ÇÑ·¹º§1
-	int		nReflect;			// ¸®ÇÃ·º¼Ç ¿É¼Ç.
-	DWORD	dwSndAttack1;		// È¿°úÀ½ : °ø°İ 1
-	DWORD	dwSndAttack2;		// È¿°úÀ½ : °ø°İ 2
+	FLOAT	fFlightSpeed;		// ë¹„í–‰ì¶”ì§„ë ¥(ì†ë„)
+	FLOAT	fFlightLRAngle;		// ì¢Œìš° í„´ ê°ë„.
+	FLOAT	fFlightTBAngle;		// ìƒí•˜ í„´ ê°ë„.
+	DWORD	dwFlightLimit;		// ë¹„í–‰ì œí•œë ˆë²¨
+	DWORD	dwFFuelReMax;		// ë¹„í–‰ì—°ë£Œì¶©ì „ëŸ‰
+	DWORD	dwLimitLevel1;		// ì œí•œë ˆë²¨1
+	int		nReflect;			// ë¦¬í”Œë ‰ì…˜ ì˜µì…˜.
+	DWORD	dwSndAttack1;		// íš¨ê³¼ìŒ : ê³µê²© 1
+	DWORD	dwSndAttack2;		// íš¨ê³¼ìŒ : ê³µê²© 2
 	DWORD	dwQuestId;
-	TCHAR	szTextFileName[64];	// item¿¡ GM command¿¡ ³Ö´Â °Í¿¡ »ç¿ë
+	TCHAR	szTextFileName[64];	// itemì— GM commandì— ë„£ëŠ” ê²ƒì— ì‚¬ìš©
 
 #ifdef __CLIENT
-    TCHAR	szIcon[64];			// ddsÆÄÀÏ ÀÌ¸§ 
-	TCHAR	szCommand[256];		// ¼³¸í¹® 
+    TCHAR	szIcon[64];			// ddsíŒŒì¼ ì´ë¦„ 
+	TCHAR	szCommand[256];		// ì„¤ëª…ë¬¸ 
 #endif
 	int		nVer;
 
 #ifdef __VERIFY_0201
 	TCHAR	szIcon[64];
-	TCHAR	szCommand[256];		// ¼³¸í¹® 
+	TCHAR	szCommand[256];		// ì„¤ëª…ë¬¸ 
 #endif	// __VERIFY_0201
 
 #ifdef __NEW_PROP_PARAMETER
@@ -486,7 +486,7 @@ struct ItemProp : CtrlProp
 };
 
 
-// Á÷¾÷¿¡ µû¸¥ factor ENUM
+// ì§ì—…ì— ë”°ë¥¸ factor ENUM
 enum JOB_PROP_TYPE
 {
 	JOB_PROP_SWD,
@@ -500,26 +500,26 @@ enum JOB_PROP_TYPE
 	JOB_PROP_CRITICAL,
 };
 
-// Á÷¾÷¿¡ µû¸¥ ÇÁ·ÎÆÛÆ¼ ( propJob.inc¿¡¼­ ÀĞ¾îµéÀÓ )
+// ì§ì—…ì— ë”°ë¥¸ í”„ë¡œí¼í‹° ( propJob.incì—ì„œ ì½ì–´ë“¤ì„ )
 struct JobProp
 {
-	float	fAttackSpeed;			//°ø¼Ó 
-	float	fFactorMaxHP;			//ÃÖ´ë HP °è»ê¿¡ »ç¿ëµÇ´Â factor
-	float	fFactorMaxMP;			//ÃÖ´ë MP °è»ê¿¡ »ç¿ëµÇ´Â factor
-	float	fFactorMaxFP;			//ÃÖ´ë FP °è»ê¿¡ »ç¿ëµÇ´Â factor
-	float   fFactorDef;				//¹°¸® ¹æ¾î·Â °è»ê¿¡ »ç¿ëµÇ´Â factor
-	float	fFactorHPRecovery;		//HPÈ¸º¹ factor
-	float	fFactorMPRecovery;		//MPÈ¸º¹ factor
-	float	fFactorFPRecovery;		//FPÈ¸º¹ factor
-	float	fMeleeSWD;				//WT_MELEE_SWDÀÇ ATK factor
-	float	fMeleeAXE;				//WT_MELEE_AXEÀÇ ATK factor
-	float   fMeleeSTAFF; 			//WT_MELEE_STAFFÀÇ ATK factor
-	float   fMeleeSTICK;			//WT_MELEE_STICKÀÇ ATK factor
-	float   fMeleeKNUCKLE;			//WT_MELEE_KNUCKLEÀÇ ATK factor
-	float   fMagicWAND;				//WT_MAGIC_WANDÀÇ ATK factor 
-	float   fBlocking;				//ºí·ÏÅ· factor
-	float	fMeleeYOYO;				//¿ä¿äÀÇ ATK factor 
-	float   fCritical;				//Å©¸®Æ¼ÄÃ Ã³¸®
+	float	fAttackSpeed;			//ê³µì† 
+	float	fFactorMaxHP;			//ìµœëŒ€ HP ê³„ì‚°ì— ì‚¬ìš©ë˜ëŠ” factor
+	float	fFactorMaxMP;			//ìµœëŒ€ MP ê³„ì‚°ì— ì‚¬ìš©ë˜ëŠ” factor
+	float	fFactorMaxFP;			//ìµœëŒ€ FP ê³„ì‚°ì— ì‚¬ìš©ë˜ëŠ” factor
+	float   fFactorDef;				//ë¬¼ë¦¬ ë°©ì–´ë ¥ ê³„ì‚°ì— ì‚¬ìš©ë˜ëŠ” factor
+	float	fFactorHPRecovery;		//HPíšŒë³µ factor
+	float	fFactorMPRecovery;		//MPíšŒë³µ factor
+	float	fFactorFPRecovery;		//FPíšŒë³µ factor
+	float	fMeleeSWD;				//WT_MELEE_SWDì˜ ATK factor
+	float	fMeleeAXE;				//WT_MELEE_AXEì˜ ATK factor
+	float   fMeleeSTAFF; 			//WT_MELEE_STAFFì˜ ATK factor
+	float   fMeleeSTICK;			//WT_MELEE_STICKì˜ ATK factor
+	float   fMeleeKNUCKLE;			//WT_MELEE_KNUCKLEì˜ ATK factor
+	float   fMagicWAND;				//WT_MAGIC_WANDì˜ ATK factor 
+	float   fBlocking;				//ë¸”ë¡í‚¹ factor
+	float	fMeleeYOYO;				//ìš”ìš”ì˜ ATK factor 
+	float   fCritical;				//í¬ë¦¬í‹°ì»¬ ì²˜ë¦¬
 };
 
 typedef	struct	tagRANDOM_ITEM
@@ -529,15 +529,15 @@ typedef	struct	tagRANDOM_ITEM
 	void	SetItemKind( int nItemKind,BOOL bBool );
 	BOOL	IsItemKind( int nItemKind );
 
-	BYTE	m_nTotalNum;	// ¹ß»ı ¾ÆÀÌÅÛ °¹¼ö 
-	BYTE	m_nUniqueMax;	// À¯´ÏÅ© ¾ÆÀÌÅÛ ÃÖ´ë 
-	BYTE	m_nUniqueMin;	// À¯´ÏÅ© ¾ÆÀÌÅÛ ÃÖ¼Ò  
-	WORD	m_nGoldMax;		// °ñµå ¸Æ½º 
-	WORD	m_nAmmoMax;		// ÃÑ¾Ë ¸Æ½º 
-	WORD	m_nDartMax;		// Ç¥Ã¢ ¸Æ½º 
-	WORD	m_nGoldMin;		// °ñµå ¸Æ½º 
-	WORD	m_nAmmoMin;	// ÃÑ¾Ë ¸Æ½º 
-	WORD	m_nDartMin;	// Ç¥Ã¢ ¸Æ½º 
+	BYTE	m_nTotalNum;	// ë°œìƒ ì•„ì´í…œ ê°¯ìˆ˜ 
+	BYTE	m_nUniqueMax;	// ìœ ë‹ˆí¬ ì•„ì´í…œ ìµœëŒ€ 
+	BYTE	m_nUniqueMin;	// ìœ ë‹ˆí¬ ì•„ì´í…œ ìµœì†Œ  
+	WORD	m_nGoldMax;		// ê³¨ë“œ ë§¥ìŠ¤ 
+	WORD	m_nAmmoMax;		// ì´ì•Œ ë§¥ìŠ¤ 
+	WORD	m_nDartMax;		// í‘œì°½ ë§¥ìŠ¤ 
+	WORD	m_nGoldMin;		// ê³¨ë“œ ë§¥ìŠ¤ 
+	WORD	m_nAmmoMin;	// ì´ì•Œ ë§¥ìŠ¤ 
+	WORD	m_nDartMin;	// í‘œì°½ ë§¥ìŠ¤ 
 	tagRANDOM_ITEM()
 	{
 		m_nTotalNum		= 0;
@@ -567,7 +567,7 @@ typedef struct	tagDROPITEM
 	DWORD	dwProbability;
 	DWORD	dwLevel;
 	DWORD	dwNumber;
-	DWORD	dwNumber2;	// Min, MaxÁß Max·Î ¾¸.
+	DWORD	dwNumber2;	// Min, Maxì¤‘ Maxë¡œ ì”€.
 }
 DROPITEM,	*LPDROPITEM;
 
@@ -661,67 +661,67 @@ struct MonsterTransform
 
 struct MoverProp : CtrlProp
 {
-	DWORD	dwStr;	// Èû,                  
-	DWORD	dwSta;	// Ã¼·Â,
-	DWORD	dwDex;	// ¹ÎÃ¸,
-	DWORD	dwInt;	// Áö´É,
+	DWORD	dwStr;	// í˜,                  
+	DWORD	dwSta;	// ì²´ë ¥,
+	DWORD	dwDex;	// ë¯¼ì²©,
+	DWORD	dwInt;	// ì§€ëŠ¥,
 	DWORD	dwHR;
 	DWORD   dwER;
-	DWORD	dwRace;		// Á¾Á·,
-	DWORD	dwBelligerence;		// È£Àü¼º,
-	DWORD	dwGender;	// ¼ºº°,
-	DWORD	dwLevel;	// ·¹º§,
-	DWORD	dwFlightLevel;	// ºñÇà·¹º§
-	DWORD	dwSize;		// Å©±â,
+	DWORD	dwRace;		// ì¢…ì¡±,
+	DWORD	dwBelligerence;		// í˜¸ì „ì„±,
+	DWORD	dwGender;	// ì„±ë³„,
+	DWORD	dwLevel;	// ë ˆë²¨,
+	DWORD	dwFlightLevel;	// ë¹„í–‰ë ˆë²¨
+	DWORD	dwSize;		// í¬ê¸°,
 	DWORD   dwClass;
-	BOOL	bIfParts;	// ÆÄÃ÷³Ä?
-	int		nChaotic;	// ³ª»Û³ğ ¸¶ÀÌ³Ê½º/ ÁÁÀº³Ñ ÇÃ·¯½º
+	BOOL	bIfParts;	// íŒŒì¸ ëƒ?
+	int		nChaotic;	// ë‚˜ìœë†ˆ ë§ˆì´ë„ˆìŠ¤/ ì¢‹ì€ë„˜ í”ŒëŸ¬ìŠ¤
 #ifdef __S1108_BACK_END_SYSTEM
-	DWORD	dwUseable;	// ¹æ¾î Ä³¸¯¼ö,
+	DWORD	dwUseable;	// ë°©ì–´ ìºë¦­ìˆ˜,
 #else // __S1108_BACK_END_SYSTEM
-	DWORD	dwDefExtent;	// ¹æ¾î Ä³¸¯¼ö,
+	DWORD	dwDefExtent;	// ë°©ì–´ ìºë¦­ìˆ˜,
 #endif // __S1108_BACK_END_SYSTEM
-	DWORD	dwActionRadius;		// ÀüÅõÇàµ¿¹ø°æ,
-	DWORD	dwAtkMin;	// ÃÖ¼ÒÅ¸°İÄ¡,
-	DWORD	dwAtkMax;	// ÃÖ´ëÅ¸°İÄ¡,
+	DWORD	dwActionRadius;		// ì „íˆ¬í–‰ë™ë²ˆê²½,
+	DWORD	dwAtkMin;	// ìµœì†Œíƒ€ê²©ì¹˜,
+	DWORD	dwAtkMax;	// ìµœëŒ€íƒ€ê²©ì¹˜,
 	DWORD	dwAtk1;
 	DWORD	dwAtk2;
 	DWORD	dwAtk3;
-	DWORD	dwAtk4;		// dwHorizontalRate°¡ ÀÌ°É·Î ¹Ù²ñ.
+	DWORD	dwAtk4;		// dwHorizontalRateê°€ ì´ê±¸ë¡œ ë°”ë€œ.
 #if __VER >= 9	//__AI_0509
-	FLOAT	fFrame;	// ÀÌµ¿ ½Ã ÇÁ·¹ÀÓ °¡ÁßÄ¡
+	FLOAT	fFrame;	// ì´ë™ ì‹œ í”„ë ˆì„ ê°€ì¤‘ì¹˜
 	DWORD	dwOrthograde;
 #else	// __AI_0509
-	DWORD	dwVerticalRate;		// ¼¼·ÎºñÀ²,
-	DWORD	dwDiagonalRate;		// »ç¼±ºñÀ²,
+	DWORD	dwVerticalRate;		// ì„¸ë¡œë¹„ìœ¨,
+	DWORD	dwDiagonalRate;		// ì‚¬ì„ ë¹„ìœ¨,
 #endif	// __AI_0509
-	DWORD	dwThrustRate;	// Âî¸£±âºñÀ²,
+	DWORD	dwThrustRate;	// ì°Œë¥´ê¸°ë¹„ìœ¨,
 
 	DWORD	dwChestRate;
 	DWORD	dwHeadRate;  
 	DWORD	dwArmRate;
 	DWORD	dwLegRate;
 
-	DWORD	dwAttackSpeed;	// °ø°İ¼Óµµ,
+	DWORD	dwAttackSpeed;	// ê³µê²©ì†ë„,
 	DWORD	dwReAttackDelay;
 	DWORD	dwAddHp;		// ,
 	DWORD	dwAddMp;		// ,
-	DWORD	dwNaturalArmor;	// ÀÚ¿¬¹æ¾î·Â 
-	int		nAbrasion;	// ¸¶¸ğµµ
-	int		nHardness;	// °æµµ
-	DWORD	dwAdjAtkDelay;	// Ãß°¡°ø°İ¼ÓµµÀúÇÏ,
+	DWORD	dwNaturalArmor;	// ìì—°ë°©ì–´ë ¥ 
+	int		nAbrasion;	// ë§ˆëª¨ë„
+	int		nHardness;	// ê²½ë„
+	DWORD	dwAdjAtkDelay;	// ì¶”ê°€ê³µê²©ì†ë„ì €í•˜,
 
 	SAI79::ePropType	eElementType;
-	short				wElementAtk;		// ¼Ó¼º µ¥¹ÌÁö( À§ ¼Ó¼º Å¸ÀÔÀ¸·Î °ø°İ·ÂÀ» ¼³Á¤ÇÑ´Ù. )
+	short				wElementAtk;		// ì†ì„± ë°ë¯¸ì§€( ìœ„ ì†ì„± íƒ€ì…ìœ¼ë¡œ ê³µê²©ë ¥ì„ ì„¤ì •í•œë‹¤. )
 
-	DWORD	dwHideLevel;	// ·¹º§ ¾Èº¸ÀÌ´Â³ÑÀÌ³Ä..
-	FLOAT	fSpeed;	// ÀÌµ¿¼Óµµ,
-	DWORD	dwShelter;	// °ÅÁÖÁö¿ª,
-	DWORD	dwFlying;	// ºñÇàÀ¯¹«,
-	DWORD	dwJumpIng;	// ³ôÀÌ¶Ù±â 
-	DWORD	dwAirJump;	// ¸Ö¸®¶Ù±â
-	DWORD	bTaming;	// Á¶·ÃÀ¯¹« 
-	DWORD	dwResisMgic;	//¸¶¹ıÀúÇ× 
+	DWORD	dwHideLevel;	// ë ˆë²¨ ì•ˆë³´ì´ëŠ”ë„˜ì´ëƒ..
+	FLOAT	fSpeed;	// ì´ë™ì†ë„,
+	DWORD	dwShelter;	// ê±°ì£¼ì§€ì—­,
+	DWORD	dwFlying;	// ë¹„í–‰ìœ ë¬´,
+	DWORD	dwJumpIng;	// ë†’ì´ë›°ê¸° 
+	DWORD	dwAirJump;	// ë©€ë¦¬ë›°ê¸°
+	DWORD	bTaming;	// ì¡°ë ¨ìœ ë¬´ 
+	DWORD	dwResisMgic;	//ë§ˆë²•ì €í•­ 
 
 	int		nResistElecricity;
 	int		nResistDark;
@@ -730,17 +730,17 @@ struct MoverProp : CtrlProp
 	int		nResistWater;
 	int		nResistEarth;
 	
-	DWORD	dwCash;		// Á¦°ø±İ¾×
-	DWORD	dwSourceMaterial;	// Á¦°øÀç·á
-	DWORD	dwMaterialAmount;	// Àç·á¾ç
-	DWORD	dwCohesion;	// Àç·áÀÀÁıµµ
-	DWORD	dwHoldingTime;	// ½ÃÃ¼À¯Áö½Ã°£
-	DWORD	dwCorrectionValue;	// ¾ÆÀÌÅÛ»ı¼ºº¸Á¤°ª
+	DWORD	dwCash;		// ì œê³µê¸ˆì•¡
+	DWORD	dwSourceMaterial;	// ì œê³µì¬ë£Œ
+	DWORD	dwMaterialAmount;	// ì¬ë£Œì–‘
+	DWORD	dwCohesion;	// ì¬ë£Œì‘ì§‘ë„
+	DWORD	dwHoldingTime;	// ì‹œì²´ìœ ì§€ì‹œê°„
+	DWORD	dwCorrectionValue;	// ì•„ì´í…œìƒì„±ë³´ì •ê°’
 	EXPINTEGER	nExpValue;
-	int		nFxpValue;		// ºñÇà°æÇèÄ¡.
-	DWORD	nBodyState;		// ¸ö»óÅÂ,
-	DWORD	dwAddAbility;	// Ãß°¡´É·Â,
-	DWORD	bKillable;	// Á×À½À¯¹«,
+	int		nFxpValue;		// ë¹„í–‰ê²½í—˜ì¹˜.
+	DWORD	nBodyState;		// ëª¸ìƒíƒœ,
+	DWORD	dwAddAbility;	// ì¶”ê°€ëŠ¥ë ¥,
+	DWORD	bKillable;	// ì£½ìŒìœ ë¬´,
 
 	DWORD	dwVirtItem[3];
 	DWORD	bVirtType[3]; 
@@ -757,12 +757,12 @@ struct MoverProp : CtrlProp
 
 	short   m_nEvasionHP;
 	short	m_nEvasionSec;
-	short   m_nRunawayHP          ; // HP°¡ 10 ÀÌÇÏ¸é µµÁÖ 
-	short   m_nCallHelperMax       ; // ÃÑ °¹¼ö 
-	short   m_nCallHP              ; // µµ¿ò¿äÃ»ÇÏ±â À§ÇÑ HP
-	short   m_nCallHelperIdx  [ 5 ]; // µµ¿ò¿äÃ»ÇÏ±â Id
-	short   m_nCallHelperNum  [ 5 ]; // µµ¿ò¿äÃ»ÇÏ±â Id
-	short   m_bCallHelperParty[ 5 ]; // µµ¿ò¿äÃ»ÇÏ±â Id
+	short   m_nRunawayHP          ; // HPê°€ 10 ì´í•˜ë©´ ë„ì£¼ 
+	short   m_nCallHelperMax       ; // ì´ ê°¯ìˆ˜ 
+	short   m_nCallHP              ; // ë„ì›€ìš”ì²­í•˜ê¸° ìœ„í•œ HP
+	short   m_nCallHelperIdx  [ 5 ]; // ë„ì›€ìš”ì²­í•˜ê¸° Id
+	short   m_nCallHelperNum  [ 5 ]; // ë„ì›€ìš”ì²­í•˜ê¸° Id
+	short   m_bCallHelperParty[ 5 ]; // ë„ì›€ìš”ì²­í•˜ê¸° Id
 
 	short   m_dwAttackMoveDelay;
 	short   m_dwRunawayDelay;
@@ -770,39 +770,39 @@ struct MoverProp : CtrlProp
 	short   m_nHelperNum;
 
 #if !defined(__CORESERVER) 
-	int		m_nScanJob;		// Å¸°ÙÀ» °Ë»öÇÒ¶§ Æ¯Á¤ Á÷¾÷À¸·Î °Ë»öÇÏ´Â°¡. 0 ÀÌ¸é ALL
-	// °ø°İÁ¶°ÇµéÀº ºñ½ºÆ®¿¡¼­ ¼±°øÀ¸·Î ÁöÁ¤µÇ¾î ÀÖÀ»¶§ ¾ê±â´Ù.
-	int		m_nHPCond;		// Å¸°ÙÀÌ hp% ÀÌÇÏÀÏ¶§ °ø°İÀ» ÇÔ.
-	int		m_nLvCond;		// Å¸°Ù°ú ·¹º§ºñ±³ÇÏ¿© ³·À¸¸é °ø°İÀ» ÇÔ.
-	int		m_nRecvCondMe;	// È¸º¹ Á¶°Ç.  ³»hp°¡ ¸î%ÀÌÇÏ·Î ¶³¾îÁ³À»¶§?
-	int		m_nRecvCondHow;	// È¸º¹ÇÒ¶§ È¸º¹ÇÒ ¾ç %´ÜÀ§
-	int		m_nRecvCondMP;	// È¸º¹ÇÒ¶§ MP¼Ò¸ğ·® %´ÜÀ§
-	BYTE	m_bMeleeAttack;	// ±ÙÁ¢ °ø°İ AI°¡ ÀÖ´Â°¡?
-	BYTE	m_bRecvCondWho;	// ´©±¸¸¦ Ä¡·áÇÒ²¨³Ä. 0:ÁöÁ¤¾ÈµÊ 1:´Ù¸¥³ğ 2:³ª 3:¸ğµÎ.
-	BYTE	m_bRecvCond;	// Ä¡·áÇÏ³Ä? 0:Ä¡·á¾ÈÇÔ 1:ÀüÅõÁß¿¡¸¸ Ä¡·áÇÔ 2:ÀüÅõ/ºñÀüÅõ ¸ğµÎ Ä¡·á
-	BYTE	m_bHelpWho;		// µµ¿ò¿äÃ»½Ã - 0:ºÎ¸£Áö¾ÊÀ½ 1:¾Æ¹«³ª  2:°°ÀºÁ¾Á·¸¸.
-	BYTE	m_bRangeAttack[ MAX_JOB ];		// °¢ Á÷¾÷º° ¿ø°Å¸® °ø°İ °Å¸®.
-	int		m_nSummProb;	// ¼ÒÈ¯ È®·ü : 0ÀÌ¸é ¼ÒÈ¯´É·Â ¾øÀ½.
-	int		m_nSummNum;		// ÇÑ¹ø¿¡ ¸î¸¶¸®³ª ¼ÒÈ¯ÇÏ³Ä.
-	int		m_nSummID;		// ¾î¶² ¸ó½ºÅÍ?
-	int		m_nHelpRangeMul;	// µµ¿ò¿äÃ» °Å¸®. ½Ã¾ßÀÇ ¹è¼ö
-	DWORD	m_tmUnitHelp;			// ÇïÇÁ Å¸ÀÌ¸Ó.
-	int		m_nBerserkHP;		// ¹ö¼­Ä¿°¡ µÇ±â À§ÇÑ HP%
-	float	m_fBerserkDmgMul;	// ¹ö¼­Ä¿°¡ µÇ¾úÀ»¶§ µ¥¹ÌÁö ¹è¼ö.
-	int		m_nLoot;			// ·çÆÃ¸÷ÀÎ°¡.
-	int		m_nLootProb;		// ·çÆÃ È®·ü
+	int		m_nScanJob;		// íƒ€ê²Ÿì„ ê²€ìƒ‰í• ë•Œ íŠ¹ì • ì§ì—…ìœ¼ë¡œ ê²€ìƒ‰í•˜ëŠ”ê°€. 0 ì´ë©´ ALL
+	// ê³µê²©ì¡°ê±´ë“¤ì€ ë¹„ìŠ¤íŠ¸ì—ì„œ ì„ ê³µìœ¼ë¡œ ì§€ì •ë˜ì–´ ìˆì„ë•Œ ì–˜ê¸°ë‹¤.
+	int		m_nHPCond;		// íƒ€ê²Ÿì´ hp% ì´í•˜ì¼ë•Œ ê³µê²©ì„ í•¨.
+	int		m_nLvCond;		// íƒ€ê²Ÿê³¼ ë ˆë²¨ë¹„êµí•˜ì—¬ ë‚®ìœ¼ë©´ ê³µê²©ì„ í•¨.
+	int		m_nRecvCondMe;	// íšŒë³µ ì¡°ê±´.  ë‚´hpê°€ ëª‡%ì´í•˜ë¡œ ë–¨ì–´ì¡Œì„ë•Œ?
+	int		m_nRecvCondHow;	// íšŒë³µí• ë•Œ íšŒë³µí•  ì–‘ %ë‹¨ìœ„
+	int		m_nRecvCondMP;	// íšŒë³µí• ë•Œ MPì†Œëª¨ëŸ‰ %ë‹¨ìœ„
+	BYTE	m_bMeleeAttack;	// ê·¼ì ‘ ê³µê²© AIê°€ ìˆëŠ”ê°€?
+	BYTE	m_bRecvCondWho;	// ëˆ„êµ¬ë¥¼ ì¹˜ë£Œí• êº¼ëƒ. 0:ì§€ì •ì•ˆë¨ 1:ë‹¤ë¥¸ë†ˆ 2:ë‚˜ 3:ëª¨ë‘.
+	BYTE	m_bRecvCond;	// ì¹˜ë£Œí•˜ëƒ? 0:ì¹˜ë£Œì•ˆí•¨ 1:ì „íˆ¬ì¤‘ì—ë§Œ ì¹˜ë£Œí•¨ 2:ì „íˆ¬/ë¹„ì „íˆ¬ ëª¨ë‘ ì¹˜ë£Œ
+	BYTE	m_bHelpWho;		// ë„ì›€ìš”ì²­ì‹œ - 0:ë¶€ë¥´ì§€ì•ŠìŒ 1:ì•„ë¬´ë‚˜  2:ê°™ì€ì¢…ì¡±ë§Œ.
+	BYTE	m_bRangeAttack[ MAX_JOB ];		// ê° ì§ì—…ë³„ ì›ê±°ë¦¬ ê³µê²© ê±°ë¦¬.
+	int		m_nSummProb;	// ì†Œí™˜ í™•ë¥  : 0ì´ë©´ ì†Œí™˜ëŠ¥ë ¥ ì—†ìŒ.
+	int		m_nSummNum;		// í•œë²ˆì— ëª‡ë§ˆë¦¬ë‚˜ ì†Œí™˜í•˜ëƒ.
+	int		m_nSummID;		// ì–´ë–¤ ëª¬ìŠ¤í„°?
+	int		m_nHelpRangeMul;	// ë„ì›€ìš”ì²­ ê±°ë¦¬. ì‹œì•¼ì˜ ë°°ìˆ˜
+	DWORD	m_tmUnitHelp;			// í—¬í”„ íƒ€ì´ë¨¸.
+	int		m_nBerserkHP;		// ë²„ì„œì»¤ê°€ ë˜ê¸° ìœ„í•œ HP%
+	float	m_fBerserkDmgMul;	// ë²„ì„œì»¤ê°€ ë˜ì—ˆì„ë•Œ ë°ë¯¸ì§€ ë°°ìˆ˜.
+	int		m_nLoot;			// ë£¨íŒ…ëª¹ì¸ê°€.
+	int		m_nLootProb;		// ë£¨íŒ… í™•ë¥ 
 	DWORD   m_dwScanQuestId; 
 	DWORD   m_dwScanItemIdx; 
-	int		m_nScanChao;		// Ä«¿À, ºñÄ«¿À °Ë»ö
+	int		m_nScanChao;		// ì¹´ì˜¤, ë¹„ì¹´ì˜¤ ê²€ìƒ‰
 #endif // !__CORESERVER
 	
 #ifdef __S1108_BACK_END_SYSTEM
-	float	m_fHitPoint_Rate;		// ¸ó½ºÅÍ ÃÖ´ë HP·ü // dwAddHp * m_nHitPoint_Rate
-	float	m_fAttackPower_Rate;	// ¸ó½ºÅÍ ÃÖ´ë °ø°İ·ü // dwAtkMin * m_nAttackPower_Rate
-	float	m_fDefence_Rate;		// ¸ó½ºÅÍ ÃÖ´ë ¹æ¾î·ü // dwAddHp * m_nDefence_Rate
-	float	m_fExp_Rate;			// ¸ó½ºÅÍ ÃÖ´ë °æÇèÄ¡·ü // dwAddHp * m_nExp_Rate
-	float	m_fItemDrop_Rate;		// ¸ó½ºÅÍ ÃÖ´ë ¾ÆÀÌÅÛ µå·Ó·ü // dwAddHp * m_nItemDrop_Rate
-	float	m_fPenya_Rate;			// ¸ó½ºÅÍ ÃÖ´ë Æä³Ä·ü // dwAddHp * m_nPenya_Rate
+	float	m_fHitPoint_Rate;		// ëª¬ìŠ¤í„° ìµœëŒ€ HPë¥  // dwAddHp * m_nHitPoint_Rate
+	float	m_fAttackPower_Rate;	// ëª¬ìŠ¤í„° ìµœëŒ€ ê³µê²©ë¥  // dwAtkMin * m_nAttackPower_Rate
+	float	m_fDefence_Rate;		// ëª¬ìŠ¤í„° ìµœëŒ€ ë°©ì–´ë¥  // dwAddHp * m_nDefence_Rate
+	float	m_fExp_Rate;			// ëª¬ìŠ¤í„° ìµœëŒ€ ê²½í—˜ì¹˜ë¥  // dwAddHp * m_nExp_Rate
+	float	m_fItemDrop_Rate;		// ëª¬ìŠ¤í„° ìµœëŒ€ ì•„ì´í…œ ë“œë¡­ë¥  // dwAddHp * m_nItemDrop_Rate
+	float	m_fPenya_Rate;			// ëª¬ìŠ¤í„° ìµœëŒ€ í˜ëƒë¥  // dwAddHp * m_nPenya_Rate
 	BOOL	m_bRate;
 #endif // __S1108_BACK_END_SYSTEM
 
@@ -1041,7 +1041,7 @@ typedef struct tagSHORTCUT
 	DWORD     m_dwIndex    ; 
 	DWORD     m_dwUserId   ; 
 	DWORD     m_dwData     ; 
-	TCHAR     m_szString[MAX_SHORTCUT_STRING]; // SHORTCUT_CHATÀÏ °æ¿ì ÀúÀå.
+	TCHAR     m_szString[MAX_SHORTCUT_STRING]; // SHORTCUT_CHATì¼ ê²½ìš° ì €ì¥.
 	BOOL IsEmpty() { return m_dwShortcut == SHORTCUT_NONE; }
 	void Empty() { m_dwShortcut = SHORTCUT_NONE; }
 } SHORTCUT,* LPSHORTCUT;

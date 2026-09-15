@@ -1,4 +1,4 @@
-// GuildHouse.cpp: implementation of the CGuildHouse class.
+ï»¿// GuildHouse.cpp: implementation of the CGuildHouse class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -169,12 +169,12 @@ void CGuildHouseBase::Setup( const HOUSING_ITEM& kInfo )
 	SendClientToWorld( GUILDHOUSE_PCKTTYPE_SETUP, kSendInfo, kInfo.m_nSlotIndex );
 	m_dwSelectedObjID = NULL_ID;
 	m_iMode = 0;
-	//m_nExtraExp = 0;		//gmpbigsun: ¹öºíÅ¸ÀÓ °ÔÀÌÁö°¡ ÃÊ±âÈ­µÇ´Â Çö»ó-_-;»ı°¢¾øÀÌ ÃÊ±âÈ­¸¦ ÇÑ°Í °°±º...
+	//m_nExtraExp = 0;		//gmpbigsun: ë²„ë¸”íƒ€ì„ ê²Œì´ì§€ê°€ ì´ˆê¸°í™”ë˜ëŠ” í˜„ìƒ-_-;ìƒê°ì—†ì´ ì´ˆê¸°í™”ë¥¼ í•œê²ƒ ê°™êµ°...
 }
 
 void CGuildHouseBase::Reset( )
 {
-	// °¡±¸ ÆíÁı¸ğµå¸¦ ºÒ·¯ÁÖ´Â ÇÔ¼ö 
+	// ê°€êµ¬ í¸ì§‘ëª¨ë“œë¥¼ ë¶ˆëŸ¬ì£¼ëŠ” í•¨ìˆ˜ 
 	GH_Fntr_Info* pInfo = Find( m_dwSelectedObjID );
 	if( !pInfo )
 		return;
@@ -196,12 +196,12 @@ void CGuildHouseBase::Reset( )
 
 	GuildDeploy()->LoadToDeploy(pItemProp->dwLinkKind, kItem );
 
-	m_iMode = GUILDHOUSE_PCKTTYPE_RESET;		//ÆĞÅ¶À» ½ÇÁ¦·Î º¸³»±âÀü¿¡ ¸ğµå¸¦ ¼¼ÆÃ ( ACQ ÈÄ¿¡´Â ¾Æ¹« ÀÇ¹Ì¾ø´Â °ªÀÌ´Ù )
+	m_iMode = GUILDHOUSE_PCKTTYPE_RESET;		//íŒ¨í‚·ì„ ì‹¤ì œë¡œ ë³´ë‚´ê¸°ì „ì— ëª¨ë“œë¥¼ ì„¸íŒ… ( ACQ í›„ì—ëŠ” ì•„ë¬´ ì˜ë¯¸ì—†ëŠ” ê°’ì´ë‹¤ )
 }
 
 void CGuildHouseBase::Reset( const HOUSING_ITEM& kInfo )
 {
-	// ½ÇÁ¦·Î Àç¼³Ä¡ ÆĞÅ¶À» Àü¼ÛÇÏ´Â ÇÔ¼ö 
+	// ì‹¤ì œë¡œ ì¬ì„¤ì¹˜ íŒ¨í‚·ì„ ì „ì†¡í•˜ëŠ” í•¨ìˆ˜ 
 	GH_Fntr_Info kSendInfo;
 	kSendInfo.dwItemId = kInfo.m_nIndex;
 	kSendInfo.bSetup = kInfo.m_bDeploy;	
@@ -241,7 +241,7 @@ void CGuildHouseBase::ApplyEFTexture( )
 	if( !pWorld->IsWorldGuildHouse() )
 		return;
 
-	// º®Áö, ÀåÆÇ ÇØÃ¼½Ã º¹±¸flag
+	// ë²½ì§€, ì¥íŒ í•´ì²´ì‹œ ë³µêµ¬flag
 	BOOL bWallTex = FALSE;
 	BOOL bTileTex = FALSE;
 
@@ -279,7 +279,7 @@ void CGuildHouseBase::ApplyEFTexture( )
 		}
 	}
 
-		//ÀåÆÇ, º®Áö°¡ ¼³Ä¡µÈ°Ô ¾ø´Ù¸é default·Î 
+		//ì¥íŒ, ë²½ì§€ê°€ ì„¤ì¹˜ëœê²Œ ì—†ë‹¤ë©´ defaultë¡œ 
 	if( !bWallTex )
 		GuildDeploy()->ChangeWallTex( );
 
@@ -318,7 +318,7 @@ BOOL CGuildHouseBase::CreateGuildHouseRoom()
 			if( m_vecFntInfo[i].bSetup )
 			{
 				SetupFurnitureCtrl( i, m_vecFntInfo[i] );
-				SendWorldToClient( GUILDHOUSE_PCKTTYPE_REFRESH, m_vecFntInfo[i], i );	// OBJID¿Í ³²Àº ½Ã°£À» °»½Å½ÃÅ²´Ù.
+				SendWorldToClient( GUILDHOUSE_PCKTTYPE_REFRESH, m_vecFntInfo[i], i );	// OBJIDì™€ ë‚¨ì€ ì‹œê°„ì„ ê°±ì‹ ì‹œí‚¨ë‹¤.
 			}
 		}
 		return TRUE;
@@ -338,7 +338,7 @@ BOOL CGuildHouseBase::DestroyGuildHouseRoom()
 		if( m_vecFntInfo[i].bSetup )
 		{
 			m_vecFntInfo[i].objId = NULL_ID;
-			SendWorldToClient( GUILDHOUSE_PCKTTYPE_REFRESH, m_vecFntInfo[i], i );	// OBJID¸¦ ÃÊ±âÈ­ ½ÃÅ°°í ³²Àº ½Ã°£À» °»½Å½ÃÅ²´Ù.
+			SendWorldToClient( GUILDHOUSE_PCKTTYPE_REFRESH, m_vecFntInfo[i], i );	// OBJIDë¥¼ ì´ˆê¸°í™” ì‹œí‚¤ê³  ë‚¨ì€ ì‹œê°„ì„ ê°±ì‹ ì‹œí‚¨ë‹¤.
 		}
 	}
 
@@ -348,7 +348,7 @@ BOOL CGuildHouseBase::DestroyGuildHouseRoom()
 
 BOOL CGuildHouseBase::IsEnteranceAble( CUser* pUser )
 {
-	if( m_tUpkeepTime == 0 )	// À¯Áö ±â°£ÀÌ ¸¸·áµÇ¾ú´Ù.
+	if( m_tUpkeepTime == 0 )	// ìœ ì§€ ê¸°ê°„ì´ ë§Œë£Œë˜ì—ˆë‹¤.
 	{
 		pUser->AddDefinedText( TID_GAME_GUILDHOUSE_EXPIRATION );
 		return FALSE;
@@ -357,7 +357,7 @@ BOOL CGuildHouseBase::IsEnteranceAble( CUser* pUser )
 	if( !IsValidObj( pUser ) || pUser->m_idGuild != m_dwGuildId )
 		return FALSE;
 
-	if( CreateGuildHouseRoom() )	// ÀÔÀåÀÚ°¡ ÇÑ¸íµµ ¾ø¾î¼­ ¹æÀÌ »ı¼ºµÇÁö ¾ÊÀº °æ¿ì »ı¼º½ÃÅ²´Ù.
+	if( CreateGuildHouseRoom() )	// ì…ì¥ìê°€ í•œëª…ë„ ì—†ì–´ì„œ ë°©ì´ ìƒì„±ë˜ì§€ ì•Šì€ ê²½ìš° ìƒì„±ì‹œí‚¨ë‹¤.
 		return TRUE;
 
 	return FALSE;
@@ -393,7 +393,7 @@ void CGuildHouseBase::CheckDestroyRoom( CUser* pUser )
 		CObj* pObj;
 		FOR_LINKMAP( pWorld, vPosCenter, pObj, nRange, CObj::linkPlayer, static_cast<int>( m_dwGuildId ) )
 		{
-			if( pObj->GetType() == OT_MOVER && static_cast<CMover*>( pObj )->IsPlayer() && pUser != pObj )	// ³»°¡ ¾Æ´Ñ ´Ù¸¥ »ç¶÷ÀÌ ³²¾ÆÀÖ´Â °æ¿ì´Ù.
+			if( pObj->GetType() == OT_MOVER && static_cast<CMover*>( pObj )->IsPlayer() && pUser != pObj )	// ë‚´ê°€ ì•„ë‹Œ ë‹¤ë¥¸ ì‚¬ëŒì´ ë‚¨ì•„ìˆëŠ” ê²½ìš°ë‹¤.
 				return;
 		}
 		END_LINKMAP
@@ -401,7 +401,7 @@ void CGuildHouseBase::CheckDestroyRoom( CUser* pUser )
 		if( g_UserMng.HasUserSameWorldnLayer( pUser ) )
 			return;
 
-		DestroyGuildHouseRoom();	// ÇÑ¸íµµ ³²¾ÆÀÖÁö ¾ÊÀº °æ¿ì - ¹æ¸¸ ÆÄ±«½ÃÅ²´Ù.
+		DestroyGuildHouseRoom();	// í•œëª…ë„ ë‚¨ì•„ìˆì§€ ì•Šì€ ê²½ìš° - ë°©ë§Œ íŒŒê´´ì‹œí‚¨ë‹¤.
 	}
 }
 
@@ -411,7 +411,7 @@ BOOL CGuildHouseBase::IsAuthority( CUser* pUser, int nPacketType )
 	CGuild* pGuild = g_GuildMng.GetGuild( m_dwGuildId );
 	if( !pGuild )	return FALSE;
 
-	if( nPacketType == GUILDHOUSE_PCKTTYPE_UPKEEP ) // À¯Áöºñ´Â ±ÇÇÑ¸¸ ÀÖÀ¸¸é OK!
+	if( nPacketType == GUILDHOUSE_PCKTTYPE_UPKEEP ) // ìœ ì§€ë¹„ëŠ” ê¶Œí•œë§Œ ìˆìœ¼ë©´ OK!
 	{
 		if( !pGuild->IsAuthority( pUser->m_idPlayer, PF_GUILDHOUSE_UPKEEP ) )
 		{
@@ -421,12 +421,12 @@ BOOL CGuildHouseBase::IsAuthority( CUser* pUser, int nPacketType )
 	}
 	else 
 	{
-		if( !pGuild->IsAuthority( pUser->m_idPlayer, PF_GUILDHOUSE_FURNITURE ) )	// °¡±¸ Á¦¾î ±ÇÇÑ °Ë»ç(ÅÚ·¹Æ÷ÅÍ Æ÷ÇÔ)
+		if( !pGuild->IsAuthority( pUser->m_idPlayer, PF_GUILDHOUSE_FURNITURE ) )	// ê°€êµ¬ ì œì–´ ê¶Œí•œ ê²€ì‚¬(í…”ë ˆí¬í„° í¬í•¨)
 		{
 			pUser->AddDefinedText( TID_GAME_GUILDHOUSE_INSIDE_INSTALL_LEVEL );
 			return FALSE;
 		}
-		else if( pUser->GetWorld()->GetID() != m_dwWorldId || pUser->GetLayer() != m_dwGuildId )	// ÇöÀç À¯Àú°¡ ±æµåÇÏ¿ì½º ³»¿¡ ÀÖ´Â°¡?
+		else if( pUser->GetWorld()->GetID() != m_dwWorldId || pUser->GetLayer() != m_dwGuildId )	// í˜„ì¬ ìœ ì €ê°€ ê¸¸ë“œí•˜ìš°ìŠ¤ ë‚´ì— ìˆëŠ”ê°€?
 			return FALSE;
 	}
 	
@@ -435,7 +435,7 @@ BOOL CGuildHouseBase::IsAuthority( CUser* pUser, int nPacketType )
 
 BOOL CGuildHouseBase::PreCheckPacket( CUser* pUser, int nPacketType, GH_Fntr_Info& gfi, int nIndex )
 {
-	// ±æµåÇÏ¿ì½º °ü·Ã ±ÇÇÑ °Ë»ç
+	// ê¸¸ë“œí•˜ìš°ìŠ¤ ê´€ë ¨ ê¶Œí•œ ê²€ì‚¬
 	if( !IsAuthority( pUser, nPacketType ) )
 		return FALSE;
 					
@@ -495,8 +495,8 @@ BOOL CGuildHouseBase::PreCheckPacket( CUser* pUser, int nPacketType, GH_Fntr_Inf
 	
 		case GUILDHOUSE_PCKTTYPE_UPKEEP:
 			{
-				gfi.tKeepTime = gfi.dwItemId * UPKEEP_DAY_TIME + ( GetUpkeepTime() ? GetUpkeepTime() : time_null() );	// ÃÖÁ¾ ¼³Á¤µÉ À¯Áö±â°£(ÃÊ) : ¸¸·á½Ã°£
-				int nTotalDays = ( gfi.tKeepTime - time_null() ) / UPKEEP_DAY_TIME;	// ÃÑ ³²Àº À¯Áö±â°£(ÀÏ) : ÇöÀç + Ãß°¡
+				gfi.tKeepTime = gfi.dwItemId * UPKEEP_DAY_TIME + ( GetUpkeepTime() ? GetUpkeepTime() : time_null() );	// ìµœì¢… ì„¤ì •ë  ìœ ì§€ê¸°ê°„(ì´ˆ) : ë§Œë£Œì‹œê°„
+				int nTotalDays = ( gfi.tKeepTime - time_null() ) / UPKEEP_DAY_TIME;	// ì´ ë‚¨ì€ ìœ ì§€ê¸°ê°„(ì¼) : í˜„ì¬ + ì¶”ê°€
 				if( nTotalDays >= MAX_UPKEEP_DAY || nTotalDays <= 0 )
 				{
 					pUser->AddDefinedText( TID_GAME_GUILDHOUSE_TAX_MAX, "%d", MAX_UPKEEP_DAY );
@@ -766,7 +766,7 @@ BOOL CGuildHouseBase::OnGuildHousePacket( int nPacketType, GuildHouse_Furniture_
 				if( pProp )
 				{
 					CString str;
-					str.Format( GETTEXT( TID_GAME_GUILDHOUSE_FUR_INSTALL_SUCCESS ), pProp->szName );		//¼³Ä¡¼º°ø 
+					str.Format( GETTEXT( TID_GAME_GUILDHOUSE_FUR_INSTALL_SUCCESS ), pProp->szName );		//ì„¤ì¹˜ì„±ê³µ 
 					g_WndMng.PutString( str, NULL, prj.GetTextColor( TID_GAME_GUILDHOUSE_FUR_INSTALL_SUCCESS ) );
 				}
 			}
@@ -784,7 +784,7 @@ BOOL CGuildHouseBase::OnGuildHousePacket( int nPacketType, GuildHouse_Furniture_
 				if( pProp )
 				{
 					CString str;
-					str.Format( GETTEXT( TID_GAME_GUILDHOUSE_FUR_DISMANTLE_SUCCESS ), pProp->szName );	//ÇØÃ¼ ¼º°ø  
+					str.Format( GETTEXT( TID_GAME_GUILDHOUSE_FUR_DISMANTLE_SUCCESS ), pProp->szName );	//í•´ì²´ ì„±ê³µ  
 					g_WndMng.PutString( str, NULL, prj.GetTextColor( TID_GAME_GUILDHOUSE_FUR_DISMANTLE_SUCCESS ) );
 				}
 			}
@@ -801,7 +801,7 @@ BOOL CGuildHouseBase::OnGuildHousePacket( int nPacketType, GuildHouse_Furniture_
 				if( pProp )
 				{
 					CString str;
-					str.Format( GETTEXT( TID_GAME_GUILDHOUSE_FUR_REINSTALL_SUCCESS ), pProp->szName );	//Àç¼³Ä¡ ¼º°ø 
+					str.Format( GETTEXT( TID_GAME_GUILDHOUSE_FUR_REINSTALL_SUCCESS ), pProp->szName );	//ì¬ì„¤ì¹˜ ì„±ê³µ 
 					g_WndMng.PutString( str, NULL, prj.GetTextColor( TID_GAME_GUILDHOUSE_FUR_REINSTALL_SUCCESS ) );
 				}
 			}
@@ -856,12 +856,12 @@ BOOL CGuildHouseBase::SetupFurnitureCtrl( int nIndex, GuildHouse_Furniture_Info 
 	if( !pItemProp )	return FALSE;
 
 #ifdef __WORLDSERVER
-	// ·¹ÀÌ¾î°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÏ°í °¡±¸ ÄÁÆ®·Ñ »ı¼º...
+	// ë ˆì´ì–´ê°€ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸í•˜ê³  ê°€êµ¬ ì»¨íŠ¸ë¡¤ ìƒì„±...
 	CWorld* pWorld = g_WorldMng.GetWorld( m_dwWorldId );
 	if( pWorld && pWorld->m_linkMap.GetLinkMap( static_cast<int>( m_dwGuildId ) ) )
 	{
 		CCtrl* pCtrl = NULL;
-		if( pItemProp->dwItemKind2 == IK2_GUILDHOUSE_NPC )	// ÅÚ·¹Æ÷ÅÍ´Â NPCÀÌ±â ¶§¹®¿¡ ¹«¹ö¸¦ »ı¼ºÇØ¾ß ÇÑ´Ù.
+		if( pItemProp->dwItemKind2 == IK2_GUILDHOUSE_NPC )	// í…”ë ˆí¬í„°ëŠ” NPCì´ê¸° ë•Œë¬¸ì— ë¬´ë²„ë¥¼ ìƒì„±í•´ì•¼ í•œë‹¤.
 		{
 			pCtrl = static_cast<CCtrl*>( CreateObj( D3DDEVICE, OT_MOVER, pItemProp->dwLinkKind ) );
 			CMover* pMover = static_cast<CMover*>( pCtrl );
@@ -887,8 +887,8 @@ BOOL CGuildHouseBase::SetupFurnitureCtrl( int nIndex, GuildHouse_Furniture_Info 
 		}
 	}
 
-	if( !m_vecFntInfo[nIndex].bSetup )	// ÇöÀç ÇØÁ¦µÇ¾î ÀÖ´ø°Å¸¸ ´É·ÂÄ¡ ¼³Á¤
-		SetDSTFunriture( pItemProp );	// °¡±¸ ´É·ÂÄ¡ ¼³Á¤
+	if( !m_vecFntInfo[nIndex].bSetup )	// í˜„ì¬ í•´ì œë˜ì–´ ìˆë˜ê±°ë§Œ ëŠ¥ë ¥ì¹˜ ì„¤ì •
+		SetDSTFunriture( pItemProp );	// ê°€êµ¬ ëŠ¥ë ¥ì¹˜ ì„¤ì •
 #endif // __WORLDSERVER
 
 	m_vecFntInfo[nIndex] = gfi;
@@ -905,14 +905,14 @@ BOOL CGuildHouseBase::RemoveFurnitureCtrl( int nIndex, GuildHouse_Furniture_Info
 	CWorld* pWorld = g_WorldMng.GetWorld( m_dwWorldId );
 	if( pWorld && pWorld->m_linkMap.GetLinkMap( static_cast<int>( m_dwGuildId ) ) )
 	{
-		// °¡±¸ ÄÁÆ®·ÑÀ» Ã£¾Æ¼­ »èÁ¦
+		// ê°€êµ¬ ì»¨íŠ¸ë¡¤ì„ ì°¾ì•„ì„œ ì‚­ì œ
 		CCtrl* pCtrl = prj.GetCtrl( m_vecFntInfo[nIndex].objId );
 		if( pCtrl )
 			pCtrl->Delete();
 	}
 	
-	if( m_vecFntInfo[nIndex].bSetup )	// ÇöÀç ¼³Ä¡µÇ¾î ÀÖ´ø°Å¸¸ ´É·ÂÄ¡ ÇØÁ¦
-		ResetDSTFunriture( pItemProp );	// °¡±¸ ´É·ÂÄ¡ ÇØÁ¦
+	if( m_vecFntInfo[nIndex].bSetup )	// í˜„ì¬ ì„¤ì¹˜ë˜ì–´ ìˆë˜ê±°ë§Œ ëŠ¥ë ¥ì¹˜ í•´ì œ
+		ResetDSTFunriture( pItemProp );	// ê°€êµ¬ ëŠ¥ë ¥ì¹˜ í•´ì œ
 #endif // __WORLDSERVER
 	m_vecFntInfo[nIndex] = gfi;
 	return TRUE;
@@ -929,12 +929,12 @@ BOOL CGuildHouseBase::ResetFurnitureCtrl( int nIndex, GuildHouse_Furniture_Info 
 	CWorld* pWorld = g_WorldMng.GetWorld( m_dwWorldId );
 	if( pWorld && pWorld->m_linkMap.GetLinkMap( static_cast<int>( m_dwGuildId ) ) )
 	{
-		// ÀÏ´Ü ¸ÕÀú Àç¹èÄ¡ÇÒ °¡±¸¸¦ »èÁ¦ÇÑ´Ù.
+		// ì¼ë‹¨ ë¨¼ì € ì¬ë°°ì¹˜í•  ê°€êµ¬ë¥¼ ì‚­ì œí•œë‹¤.
 		CCtrl* pCtrl	= prj.GetCtrl( m_vecFntInfo[nIndex].objId );
 		if( pCtrl )
 		{
-			pCtrl->Delete();	// »èÁ¦
-			// ±×¸®°í ´Ù½Ã »ı¼º!!!
+			pCtrl->Delete();	// ì‚­ì œ
+			// ê·¸ë¦¬ê³  ë‹¤ì‹œ ìƒì„±!!!
 			pCtrl = (CCtrl*)CreateObj( D3DDEVICE, OT_CTRL, pItemProp->dwLinkKind );
 			if( pCtrl )
 			{
@@ -1006,7 +1006,7 @@ int	CGuildHouseSmall::GetMaxListUpNum( ItemProp* pItemProp )
 	return MAX_LISTUP_NUM;
 }
 
-// ¼ÒÇü ±æµåÇÏ¿ì½º´Â Á¾·ùº° °³¼ö Á¦ÇÑ¸¸ ÀÖ´Ù.
+// ì†Œí˜• ê¸¸ë“œí•˜ìš°ìŠ¤ëŠ” ì¢…ë¥˜ë³„ ê°œìˆ˜ ì œí•œë§Œ ìˆë‹¤.
 BOOL CGuildHouseSmall::IsSetupAble( CUser* pUser, int nIndex )
 {	
 	ItemProp* pItemProp = prj.GetItemProp( m_vecFntInfo[nIndex].dwItemId );
@@ -1112,7 +1112,7 @@ CGuildHouseBase* CGuildHouseMng::MakeGuildHouse( DWORD dwGuildId, DWORD dwWorldI
 	{
 		case WI_GUILDHOUSE_SMALL:	return new CGuildHouseSmall( dwGuildId );
 		case WI_GUILDHOUSE_MIDDLE:	return new CGuildHouseMiddle( dwGuildId );
-//		case WI_GUILDHOUSE_LARGE:	return new CGuildHouseLarge( dwGuildId );	// 15Â÷ ÇöÀç - ¾ÆÁ÷ ÇÊ¿äÇÏÁö ¾Ê´Ù.
+//		case WI_GUILDHOUSE_LARGE:	return new CGuildHouseLarge( dwGuildId );	// 15ì°¨ í˜„ì¬ - ì•„ì§ í•„ìš”í•˜ì§€ ì•Šë‹¤.
 	}
 
 	return NULL;
@@ -1246,7 +1246,7 @@ void CGuildHouseMng::ReqBuyGuildHouse( CUser* pUser )
 	if( IsBuyAble( pUser ) )
 	{
 		pUser->AddGold( -BUY_PENYA );
-		g_DPSrvr.PutPenyaLog( pUser, "f", "GUILDHOUSE_BUY", BUY_PENYA ); // Æä³Ä ·Î±×
+		g_DPSrvr.PutPenyaLog( pUser, "f", "GUILDHOUSE_BUY", BUY_PENYA ); // í˜ëƒ ë¡œê·¸
 
 		BEFORESENDDUAL( ar, PACKETTYPE_GUILDHOUSE_BUY, DPID_UNKNOWN, DPID_UNKNOWN );
 		ar << pUser->m_idPlayer << pUser->m_idGuild;
@@ -1299,7 +1299,7 @@ void CGuildHouseMng::OnBuyGuildHouse( CAr & ar )
 		if( IsValidObj( pUser ) )
 		{
 			pUser->AddGold( BUY_PENYA );
-			// g_DPSrvr.PutPenyaLog( pUser, '1', "BuyGuildHouse_Reapir", BUY_PENYA ); // Æä³Ä ·Î±×
+			// g_DPSrvr.PutPenyaLog( pUser, '1', "BuyGuildHouse_Reapir", BUY_PENYA ); // í˜ëƒ ë¡œê·¸
 			pUser->AddDefinedText( TID_GAME_GUILDHOUSE_BUY_HAVE );
 		}
 	}
@@ -1354,14 +1354,14 @@ BOOL CGuildHouseMng::IsGuildHouse( DWORD dwWorldId )
 
 BOOL CGuildHouseMng::IsLoginAble( CUser* pUser, DWORD dwWorldId, int nLayer )
 {
-	if( !IsGuildHouse( dwWorldId ) )	// Á¢¼ÓÇÒ¶§ World°¡ ±æµåÇÏ¿ì½º°¡ ¾Æ´Ï¸é ÆĞ½º!!!
+	if( !IsGuildHouse( dwWorldId ) )	// ì ‘ì†í• ë•Œ Worldê°€ ê¸¸ë“œí•˜ìš°ìŠ¤ê°€ ì•„ë‹ˆë©´ íŒ¨ìŠ¤!!!
 		return TRUE;
 
-	if( pUser->m_idGuild != nLayer )	// ÀÏ´Ü ±æµåÇÏ¿ì½º¶ó¸é ÃÖÁ¾ Á¢¼Ó ·¹ÀÌ¾î°¡ Ä³¸¯ÅÍÀÇ ±æµåID¿Í ÀÏÄ¡ÇØ¾ß ÇÑ´Ù.
+	if( pUser->m_idGuild != nLayer )	// ì¼ë‹¨ ê¸¸ë“œí•˜ìš°ìŠ¤ë¼ë©´ ìµœì¢… ì ‘ì† ë ˆì´ì–´ê°€ ìºë¦­í„°ì˜ ê¸¸ë“œIDì™€ ì¼ì¹˜í•´ì•¼ í•œë‹¤.
 		return FALSE;
 	
 	CGuildHouseBase* pGuildHouse = GetGuildHouse( pUser->m_idGuild );
-	if( pGuildHouse )	// ÀÔÀå °¡´ÉÇÑ Ä³¸¯ÅÍÀÌ¸é ÈŞ½Ä Æ÷ÀÎÆ®¸¦ ¿äÃ»ÇÑ´Ù.
+	if( pGuildHouse )	// ì…ì¥ ê°€ëŠ¥í•œ ìºë¦­í„°ì´ë©´ íœ´ì‹ í¬ì¸íŠ¸ë¥¼ ìš”ì²­í•œë‹¤.
 		return pGuildHouse->IsEnteranceAble( pUser );
 	
 	return FALSE;
@@ -1378,7 +1378,7 @@ BOOL CGuildHouseMng::EnteranceGuildHouse( CUser* pUser, DWORD dwComebackItemId )
 
 	switch( dwComebackItemId )
 	{
-		case NULL_ID :	// ±æµåÇÏ¿ì½º ±ÍÈ¯ ÁÖ¹®¼­¸¦ »ç¿ëÇÏÁö ¾ÊÀº °æ¿ì(NPC ÀÔÀå ¸Ş´º ¼±ÅÃ)
+		case NULL_ID :	// ê¸¸ë“œí•˜ìš°ìŠ¤ ê·€í™˜ ì£¼ë¬¸ì„œë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šì€ ê²½ìš°(NPC ì…ì¥ ë©”ë‰´ ì„ íƒ)
 			{
 				if( CNpcChecker::GetInstance()->IsCloseNpc( MMI_GUILDHOUSE_ENTER, pUser->GetWorld(), pUser->GetPos() ) )
 					pUser->SetMarkingPos();
@@ -1468,8 +1468,8 @@ void CGuildHouseMng::ProcessExpired()
 {
 	for( MapGuildHouse::iterator it=m_mapGuildHouse.begin(); it!=m_mapGuildHouse.end(); it++ )
 	{
-		int nIndex = it->second->GetFirstExpiredFurnitureIndex();	// ±â°£ÀÌ ¸¸·áµÈ °¡±¸ ÇÑ°³¸¦ °¡Á®¿Â´Ù.
-		if( nIndex != NULL_ID )	// ±â°£ÀÌ ¸¸·áµÈ °¡±¸°¡ ÀÖ´Â °æ¿ì ¸®½ºÆ®¿¡¼­ Á¦°ÅÇÑ´Ù.
+		int nIndex = it->second->GetFirstExpiredFurnitureIndex();	// ê¸°ê°„ì´ ë§Œë£Œëœ ê°€êµ¬ í•œê°œë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+		if( nIndex != NULL_ID )	// ê¸°ê°„ì´ ë§Œë£Œëœ ê°€êµ¬ê°€ ìˆëŠ” ê²½ìš° ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°í•œë‹¤.
 		{
 			CAr ar;
 			ar << it->first << GUILDHOUSE_PCKTTYPE_LISTDROP << nIndex;
@@ -1479,9 +1479,9 @@ void CGuildHouseMng::ProcessExpired()
 			GuildHouseDBMng->PostRequest( GUILDHOUSE_DEFAULT_PACKET, lpBuf, nBufSize );
 		}
 
-		if( it->second->GetUpkeepTime() <= time_null() )	// ±æµåÇÏ¿ì½º À¯Áö ±â°£ÀÌ ¸¸·áµÈ °æ¿ì
+		if( it->second->GetUpkeepTime() <= time_null() )	// ê¸¸ë“œí•˜ìš°ìŠ¤ ìœ ì§€ ê¸°ê°„ì´ ë§Œë£Œëœ ê²½ìš°
 		{
-			if( it->second->GetUpkeepTime() > 0 )	// ±æµåÇÏ¿ì½º°¡ È°¼ºÈ­ µÇ¾îÀÖ´Â »óÅÂÀÌ¸é ºñÈ°¼ºÈ­ ½ÃÅ²´Ù.
+			if( it->second->GetUpkeepTime() > 0 )	// ê¸¸ë“œí•˜ìš°ìŠ¤ê°€ í™œì„±í™” ë˜ì–´ìˆëŠ” ìƒíƒœì´ë©´ ë¹„í™œì„±í™” ì‹œí‚¨ë‹¤.
 			{
 #ifdef __GUILD_HOUSE_MIDDLE
 				CAr ar;
@@ -1499,8 +1499,8 @@ void CGuildHouseMng::ProcessExpired()
 				GuildHouseDBMng->PostRequest( GUILDHOUSE_DEFAULT_PACKET, lpBuf, nBufSize );
 #endif // __GUILD_HOUSE_MIDDLE
 			}
-		//	±â´É Á¦°Å(³ªÁß¿¡ ÇÊ¿äÇÒÁö ¸ô¶ó¼­... ³²°ÜµÒ...
-		//	else if( it->second->GetFurnitureListSize() == 0 )	// ±æµåÇÏ¿ì½º°¡ ºñÈ°¼ºÈ¸ »óÅÂÀÌ°í °¡±¸ ¸ñ·ÏÀÌ ºñ¾îÀÖ´Â °æ¿ì´Â ±æµåÇÏ¿ì½º¸¦ ÆÄ±«ÇÑ´Ù.
+		//	ê¸°ëŠ¥ ì œê±°(ë‚˜ì¤‘ì— í•„ìš”í• ì§€ ëª°ë¼ì„œ... ë‚¨ê²¨ë‘ ...
+		//	else if( it->second->GetFurnitureListSize() == 0 )	// ê¸¸ë“œí•˜ìš°ìŠ¤ê°€ ë¹„í™œì„±íšŒ ìƒíƒœì´ê³  ê°€êµ¬ ëª©ë¡ì´ ë¹„ì–´ìˆëŠ” ê²½ìš°ëŠ” ê¸¸ë“œí•˜ìš°ìŠ¤ë¥¼ íŒŒê´´í•œë‹¤.
 		//		GuildHouseDBMng->PostRequest( GUILDHOUSE_REMOVE, NULL, 0, it->first );
 		}
 	}
@@ -1769,7 +1769,7 @@ void CGuildHouseMng::ProcessTender( DWORD dwGHType )
 				}
 				else
 				{
-					g_dpCoreSrvr.SendNoticeMessage( "±İÁÖ ÁßÇü±æµåÇÏ¿ì½º ÀÔÂû ¾øÀ½" );
+					g_dpCoreSrvr.SendNoticeMessage( "ê¸ˆì£¼ ì¤‘í˜•ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° ì—†ìŒ" );
 					SetTenderState( dwGHType, GH_TENDER_CANCEL );
 				}
 			}
@@ -1807,7 +1807,7 @@ void CGuildHouseMng::ProcessTender( DWORD dwGHType )
 			}
 			if( dwTick >= pTenderData->dwNoticeTick + pTenderData->dwPrevNoticeTick )
 			{
-				g_dpCoreSrvr.SendNoticeMessage( "±İÁÖ ÁßÇü±æµåÇÏ¿ì½º ÀÔÂû ÀÖÀ½" );
+				g_dpCoreSrvr.SendNoticeMessage( "ê¸ˆì£¼ ì¤‘í˜•ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° ìˆìŒ" );
 				pTenderData->dwNoticeTick = dwTick;
 			}
 		}
@@ -1826,14 +1826,14 @@ void CGuildHouseMng::ProcessTender( DWORD dwGHType )
 		{
 			if( IsEndTenderTime( dwGHType ) == TRUE )
 			{
-				g_dpCoreSrvr.SendNoticeMessage( "±İÁÖ ÁßÇü±æµåÇÏ¿ì½º ÀÔÂû ¸¶°¨" );
+				g_dpCoreSrvr.SendNoticeMessage( "ê¸ˆì£¼ ì¤‘í˜•ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° ë§ˆê°" );
 				GetHighestTenderGuild( dwGHType );
 				ReturnPenyaTenderFailGuild( dwGHType );
 				CloseTender( dwGHType );
 			}
 			if( dwTick >= pTenderData->dwNoticeTick + pTenderData->dwTenderNoticeTick )
 			{
-				g_dpCoreSrvr.SendNoticeMessage( "±İÁÖ ÁßÇü±æµåÇÏ¿ì½º ÀÔÂû ÁøÇàÁß" );
+				g_dpCoreSrvr.SendNoticeMessage( "ê¸ˆì£¼ ì¤‘í˜•ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° ì§„í–‰ì¤‘" );
 				pTenderData->dwNoticeTick = dwTick;
 			}
 		}
@@ -2100,7 +2100,7 @@ bool CGuildHouseMng::IsTenderAble( CUser* pUser, OBJID objGHId, int nTenderPerin
 
 		if( GetGuildHouseTender( pGuild->m_idGuild ) != NULL )
 		{
-			pUser->AddText( "ÀÌ¹Ì ÀÔÂûÇßÀ½" );
+			pUser->AddText( "ì´ë¯¸ ì…ì°°í–ˆìŒ" );
 			return FALSE;
 		}
 
@@ -2114,19 +2114,19 @@ bool CGuildHouseMng::IsTenderAble( CUser* pUser, OBJID objGHId, int nTenderPerin
 			}
 			if( pGuildHouse->GetUpkeepTime() <= 0 )
 			{
-				pUser->AddText( "¼ÒÀ¯ÇÑ ±æµåÇÏ¿ì½ºÀÇ À¯Áö±â°£ Á¾·á" );
+				pUser->AddText( "ì†Œìœ í•œ ê¸¸ë“œí•˜ìš°ìŠ¤ì˜ ìœ ì§€ê¸°ê°„ ì¢…ë£Œ" );
 				return FALSE;
 			}
 		}
 		else
 		{
-			pUser->AddText( "¼ÒÀ¯ÇÑ ±æµåÇÏ¿ì½º°¡ ¾øÀ½" );
+			pUser->AddText( "ì†Œìœ í•œ ê¸¸ë“œí•˜ìš°ìŠ¤ê°€ ì—†ìŒ" );
 			return FALSE;
 		}
 
 		if( IsTenderAbleGuildHouse( pGHData->dwGHType, objGHId ) == FALSE )
 		{
-			pUser->AddText( "ÀÔÂû°¡´ÉÇÑ ±æµåÇÏ¿ì½º°¡ ¾Æ´Ô" );
+			pUser->AddText( "ì…ì°°ê°€ëŠ¥í•œ ê¸¸ë“œí•˜ìš°ìŠ¤ê°€ ì•„ë‹˜" );
 			Error( "IsTenderAble - Invalid GHId. User : %07d, GHId : %d", pUser->m_idPlayer, objGHId );
 			return FALSE;
 		}
@@ -2156,7 +2156,7 @@ bool CGuildHouseMng::IsTenderAble( CUser* pUser, OBJID objGHId, int nTenderPerin
 		__int64 nTotalPenya = ( PERIN_VALUE * nTenderPerin ) + nTenderPenya;
 		if( nTotalPenya < pTenderData->nMinPenya )
 		{
-			pUser->AddText( "ÃÖ¼Ò ÀÔÂû ±İ¾×º¸´Ù ÀûÀ½" );
+			pUser->AddText( "ìµœì†Œ ì…ì°° ê¸ˆì•¡ë³´ë‹¤ ì ìŒ" );
 			return FALSE;
 		}
 		return TRUE;
@@ -2296,7 +2296,7 @@ void CGuildHouseMng::OnGuildHouseTenderJoin( CAr & ar )
 			if( IsValidObj( pUser ) == TRUE )
 			{
 				pUser->AddGuildHouseTenderResult( objGHId, TRUE );
-				pUser->AddText( "ÀÔÂû ¼º°ø!" );
+				pUser->AddText( "ì…ì°° ì„±ê³µ!" );
 			}
 		}
 		else
@@ -2310,7 +2310,7 @@ void CGuildHouseMng::OnGuildHouseTenderJoin( CAr & ar )
 		if( IsValidObj( pUser ) == TRUE )
 		{
 			pUser->AddGuildHouseTenderResult( objGHId, FALSE );
-			pUser->AddText( "ÀÔÂû ½ÇÆĞ!" );
+			pUser->AddText( "ì…ì°° ì‹¤íŒ¨!" );
 		}
 	}
 }
@@ -2370,7 +2370,7 @@ void CGuildHouseMng::OnGuildHouseTenderResult( CAr & ar )
 						// send post
 						char szTitle[MAX_MAILTITLE] = {0, };
 						char szSub[MAX_MAILTEXT] = {0, };
-						_stprintf( szTitle, "±æµåÇÏ¿ì½º ÀÔÂû ¼º°ø" );
+						_stprintf( szTitle, "ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° ì„±ê³µ" );
 						//_stprintf( szTitle, prj.GetText(  ) );
 						//_stprintf( szSub, prj.GetText(  ) );
 						CItemElem itemElem;
@@ -2402,7 +2402,7 @@ void CGuildHouseMng::OnGuildHouseTenderResult( CAr & ar )
 
 						char szTitle[MAX_MAILTITLE] = {0, };
 						char szSub[MAX_MAILTEXT] = {0, };
-						_stprintf( szTitle, "±æµåÇÏ¿ì½º ÀÔÂû ½ÇÆĞ" );
+						_stprintf( szTitle, "ê¸¸ë“œí•˜ìš°ìŠ¤ ì…ì°° ì‹¤íŒ¨" );
 						//_stprintf( szTitle, prj.GetText(  ) );
 						//_stprintf( szSub, prj.GetText(  ) );
 						CItemElem itemElem;
@@ -2475,7 +2475,7 @@ void CGuildHouseMng::OnGuildHouseLevelUpdate( CAr & ar )
 			CUser* pUser = static_cast<CUser*>( prj.GetUserByID( dwPlayerId ) );
 			if( IsValidObj( pUser ) == TRUE )
 			{
-				pUser->AddText( "±æµåÇÏ¿ì½º ·¹º§¾÷ ¼º°ø" );
+				pUser->AddText( "ê¸¸ë“œí•˜ìš°ìŠ¤ ë ˆë²¨ì—… ì„±ê³µ" );
 				pUser->AddGuildHouseAllInfo( pGuildHouse );
 			}
 		}
@@ -2485,7 +2485,7 @@ void CGuildHouseMng::OnGuildHouseLevelUpdate( CAr & ar )
 		CUser* pUser = static_cast<CUser*>( prj.GetUserByID( dwPlayerId ) );
 		if( IsValidObj( pUser ) == TRUE )
 		{
-			pUser->AddText( "±æµåÇÏ¿ì½º ·¹º§¾÷ ½ÇÆĞ" );
+			pUser->AddText( "ê¸¸ë“œí•˜ìš°ìŠ¤ ë ˆë²¨ì—… ì‹¤íŒ¨" );
 		}
 	}
 }
@@ -2567,7 +2567,7 @@ void CGuildHouseMng::CheckGuildHouseQuest( CUser* pUser, int nQuestId )
 					}
 					else
 					{
-						pUser->AddText( "ÇØ´ç ±æµåÇÏ¿ì½º ·¹º§°ú µ¿±ŞÀÌ»ó" );
+						pUser->AddText( "í•´ë‹¹ ê¸¸ë“œí•˜ìš°ìŠ¤ ë ˆë²¨ê³¼ ë™ê¸‰ì´ìƒ" );
 					}
 				}
 			}

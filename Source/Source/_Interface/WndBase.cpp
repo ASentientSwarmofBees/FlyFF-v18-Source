@@ -1,4 +1,4 @@
-// WndBase.cpp: implementation of the CWndBase class.
+ï»¿// WndBase.cpp: implementation of the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -175,9 +175,9 @@ CWndBase::~CWndBase()
 
 	if(IsWndRoot())
 	{
-		// Destroy ¼³Á¤µÈ °Í ¸ğµÎ Á¦°Å 
+		// Destroy ì„¤ì •ëœ ê²ƒ ëª¨ë‘ ì œê±° 
 		RemoveDestroyWnd();
-		// ³ª¸ÓÁö ÆÄ±« ¾ÈµÈ À©µµ »èÁ¦ 
+		// ë‚˜ë¨¸ì§€ íŒŒê´´ ì•ˆëœ ìœˆë„ ì‚­ì œ 
 		DestroyAllWnd(this);
 	}
 	m_pParentWnd = NULL;
@@ -185,7 +185,7 @@ CWndBase::~CWndBase()
 }
 void CWndBase::AddWnd( CWndBase* pWndBase )
 {
-	// µÎ°³°¡ °°´Ù¸é ·çÆ® À©µµ´Ù.
+	// ë‘ê°œê°€ ê°™ë‹¤ë©´ ë£¨íŠ¸ ìœˆë„ë‹¤.
 	if(pWndBase != this)
 	{
 		m_wndArray.Add(pWndBase);
@@ -279,7 +279,7 @@ void CWndBase::RemoveWnd(CWndBase* pWndBase)
 			int nidx = m_wndArray.GetUpperBound();
 			if( nidx < 0 || nidx >= nSize )
 			{
-				LPCTSTR szErr = Error( "CWndBase::RemoveWnd m_wndArray ¹üÀ§Ä§¹ü %d %d", nidx, nSize );
+				LPCTSTR szErr = Error( "CWndBase::RemoveWnd m_wndArray ë²”ìœ„ì¹¨ë²” %d %d", nidx, nSize );
 				ADDERRORMSG( szErr );
 			}
 		}
@@ -446,7 +446,7 @@ void CWndBase::OnDraw(C2DRender* p2DRender)
 }
 BOOL CWndBase::OnDrawIcon(CWndBase* pWndBase,C2DRender* p2DRender)
 {
-	return FALSE; // iconÀ» ±×·ÈÀ¸¸é TRUE·Î µ¹·ÁÁØ´Ù.
+	return FALSE; // iconì„ ê·¸ë ¸ìœ¼ë©´ TRUEë¡œ ëŒë ¤ì¤€ë‹¤.
 }
 void CWndBase::PaintRoot( C2DRender* p2DRender )
 {
@@ -457,7 +457,7 @@ void CWndBase::PaintRoot( C2DRender* p2DRender )
 	CPoint ptViewPortOld = p2DRender->GetViewportOrg();
 	m_bFullWnd = FALSE; 
 	/*
-	// ·çÆ® À©µµ ÆäÀÎÆ® 
+	// ë£¨íŠ¸ ìœˆë„ í˜ì¸íŠ¸ 
 	if( IsVisible() )
 	{
 		//p2DRender->m_clipRect.OffsetRect(pWnd->m_pParentWnd->m_rectWindow.TopLeft());
@@ -471,7 +471,7 @@ void CWndBase::PaintRoot( C2DRender* p2DRender )
 			Paint(p2DRender, FALSE);
 		}
 	}
-	// ¿ùµå À©µµ ÆäÀÎÆ® 
+	// ì›”ë“œ ìœˆë„ í˜ì¸íŠ¸ 
 	if( m_pWndWorld && m_pWndWorld->IsVisible() )
 	{
 		//p2DRender->m_clipRect.OffsetRect(pWnd->m_pParentWnd->m_rectWindow.TopLeft());
@@ -492,8 +492,8 @@ void CWndBase::PaintRoot( C2DRender* p2DRender )
 	m_pApp->m_pd3dDevice->SetRenderState( D3DRS_LIGHTING, FALSE );
 	m_pApp->m_pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 	
-	// m_wndOrder ¸®½ºÆ®¿¡ ÀÖ´Â À©µµ´Â Â÷ÀÏµå(Á¾¼Ó) À©µµ°¡ ¾Æ´Ï±â ¶§¹®¿¡
-	// ÁÂÇ¥°è ÀÌµ¿ÀÌ ÇÊ¿ä ¾ø°í ´ÜÁö Å¬¸³ ¿µ¿ª¸¸ ÁöÁ¤ÇØ ÁÖ¸é µÈ´Ù.
+	// m_wndOrder ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ” ìœˆë„ëŠ” ì°¨ì¼ë“œ(ì¢…ì†) ìœˆë„ê°€ ì•„ë‹ˆê¸° ë•Œë¬¸ì—
+	// ì¢Œí‘œê³„ ì´ë™ì´ í•„ìš” ì—†ê³  ë‹¨ì§€ í´ë¦½ ì˜ì—­ë§Œ ì§€ì •í•´ ì£¼ë©´ ëœë‹¤.
 	int nSize = m_wndOrder.GetSize();
 	for( int i = 0; i < nSize; i++ )
 	{
@@ -537,11 +537,11 @@ void CWndBase::Paint(C2DRender* p2DRender, BOOL bPaintChild)
 	else
 	if( IsWndStyle( WBS_CAPTION ) )
 	{
-		// ¿©±â´Â ÄÜÆ®·ÑÀÇ Å¸ÀÌÆ²À» Ãâ·ÂÇÏ´Â °÷ 
+		// ì—¬ê¸°ëŠ” ì½˜íŠ¸ë¡¤ì˜ íƒ€ì´í‹€ì„ ì¶œë ¥í•˜ëŠ” ê³³ 
 	}
 	CRectClip rectOld = p2DRender->m_clipRect;
 	CRectClip rectNew = m_rectCurrentClient;
-	// rectNew¸¦ rectOld·Î Å¬¸®ÇÎ ÇÑ´Ù.
+	// rectNewë¥¼ rectOldë¡œ í´ë¦¬í•‘ í•œë‹¤.
 	if( rectOld.Clipping( rectNew ) )
 	{
 		//if( !IsWndStyle( WBS_NODRAWFRAME ) && ( IsWndStyle(WBS_CHILD) == FALSE || IsWndStyle(WBS_DOCKED) == TRUE ) )
@@ -581,7 +581,7 @@ void CWndBase::PaintFrame(C2DRender* p2DRender)
 		if( m_pTexture )
 		{
 			RenderWnd();
-			// ¿©±â´Â Å¸ÀÌÆ² ¹ÙÀÇ ÅØ½ºÆ®¸¦ Ãâ·ÂÇÏ´Â °÷ 
+			// ì—¬ê¸°ëŠ” íƒ€ì´í‹€ ë°”ì˜ í…ìŠ¤íŠ¸ë¥¼ ì¶œë ¥í•˜ëŠ” ê³³ 
 			if( IsWndStyle( WBS_CAPTION ) )	
 			{
 				CD3DFont* pOldFont = p2DRender->GetFont();
@@ -597,7 +597,7 @@ void CWndBase::PaintFrame(C2DRender* p2DRender)
 			m_pTheme->RenderWndBaseFrame( p2DRender, &rect );
 			if( IsWndStyle( WBS_CAPTION ) )
 			{
-				// Å¸ÀÌÆ² ¹Ù 
+				// íƒ€ì´í‹€ ë°” 
 				rect.bottom = 21;
 				{
 					m_pTheme->RenderWndBaseTitleBar( p2DRender, &rect, m_strTitle, m_dwColor );
@@ -654,7 +654,7 @@ BOOL CWndBase::Process()
 {
 	if(IsWndRoot())
 	{
-		// À©µµ ÆÄ±« 
+		// ìœˆë„ íŒŒê´´ 
 		RemoveDestroyWnd();
 	}
 	CALL_CHILD_WND( Process() );
@@ -781,8 +781,8 @@ CRect CWndBase::GetRealClientRect()
 {
 	CWndBase* pWndCur = this;
 	CRect rect = pWndCur->m_rectWindow;
-	// ÇØ´ç À©µµ°¡ Â÷ÀÏµå À©µµ(ÄÜÆ®ñÅ¸ÀÔ)ÀÏ °æ¿ì¿¡¸¸ ÆĞ¾î·±Æ® 
-	// À©µµ ÁÂÇ¥ÀÇ ¿µÇâÀ» ¹ŞÀ¸¹Ç·Î Æä¾î·±Æ® À©µµ ÁÂÇ¥¸¦ ´õÇØÁÖ¾î¾ßÇÑ´Ù.
+	// í•´ë‹¹ ìœˆë„ê°€ ì°¨ì¼ë“œ ìœˆë„(ì½˜íŠ¸ë¡µíƒ€ì…)ì¼ ê²½ìš°ì—ë§Œ íŒ¨ì–´ëŸ°íŠ¸ 
+	// ìœˆë„ ì¢Œí‘œì˜ ì˜í–¥ì„ ë°›ìœ¼ë¯€ë¡œ í˜ì–´ëŸ°íŠ¸ ìœˆë„ ì¢Œí‘œë¥¼ ë”í•´ì£¼ì–´ì•¼í•œë‹¤.
 	if(IsWndStyle(WBS_CHILD))
 	{
 		while(pWndCur != m_pWndRoot) 
@@ -797,8 +797,8 @@ CRect CWndBase::GetRealWindowRect()
 {
 	CWndBase* pWndCur = this;
 	CRect rect = pWndCur->m_rectWindow;
-	// ÇØ´ç À©µµ°¡ Â÷ÀÏµå À©µµ(ÄÜÆ®ñÅ¸ÀÔ)ÀÏ °æ¿ì¿¡¸¸ ÆĞ¾î·±Æ® 
-	// À©µµ ÁÂÇ¥ÀÇ ¿µÇâÀ» ¹ŞÀ¸¹Ç·Î Æä¾î·±Æ® À©µµ ÁÂÇ¥¸¦ ´õÇØÁÖ¾î¾ßÇÑ´Ù.
+	// í•´ë‹¹ ìœˆë„ê°€ ì°¨ì¼ë“œ ìœˆë„(ì½˜íŠ¸ë¡µíƒ€ì…)ì¼ ê²½ìš°ì—ë§Œ íŒ¨ì–´ëŸ°íŠ¸ 
+	// ìœˆë„ ì¢Œí‘œì˜ ì˜í–¥ì„ ë°›ìœ¼ë¯€ë¡œ í˜ì–´ëŸ°íŠ¸ ìœˆë„ ì¢Œí‘œë¥¼ ë”í•´ì£¼ì–´ì•¼í•œë‹¤.
 	if(IsWndStyle(WBS_CHILD))
 	{
 		while(pWndCur != m_pWndRoot) 
@@ -814,8 +814,8 @@ CRect CWndBase::GetScreenRect()
 {
 	CWndBase* pWndCur = this;
 	CRect rect = pWndCur->m_rectWindow;
-	// ÇØ´ç À©µµ°¡ Â÷ÀÏµå À©µµ(ÄÜÆ®ñÅ¸ÀÔ)ÀÏ °æ¿ì¿¡¸¸ ÆĞ¾î·±Æ® 
-	// À©µµ ÁÂÇ¥ÀÇ ¿µÇâÀ» ¹ŞÀ¸¹Ç·Î Æä¾î·±Æ® À©µµ ÁÂÇ¥¸¦ ´õÇØÁÖ¾î¾ßÇÑ´Ù.
+	// í•´ë‹¹ ìœˆë„ê°€ ì°¨ì¼ë“œ ìœˆë„(ì½˜íŠ¸ë¡µíƒ€ì…)ì¼ ê²½ìš°ì—ë§Œ íŒ¨ì–´ëŸ°íŠ¸ 
+	// ìœˆë„ ì¢Œí‘œì˜ ì˜í–¥ì„ ë°›ìœ¼ë¯€ë¡œ í˜ì–´ëŸ°íŠ¸ ìœˆë„ ì¢Œí‘œë¥¼ ë”í•´ì£¼ì–´ì•¼í•œë‹¤.
 	while( pWndCur != m_pWndRoot && pWndCur->IsWndStyle( WBS_CHILD ) )
 	{
 		if( pWndCur->IsWndStyle( WBS_DOCKING ) )
@@ -879,7 +879,7 @@ CWndBase* CWndBase::GetChildFocus( CWndBase* pWndBase, POINT point )
 	}
 	return pWndSelect;
 }
-// ÀÌ ÇÔ¼ö´Â ÁÂÇ¥°è ¼¼ÆÃ°ú ¸Ş½ÃÁö ÇÊÅÍ¸µÀ» ÇÑ´Ù.
+// ì´ í•¨ìˆ˜ëŠ” ì¢Œí‘œê³„ ì„¸íŒ…ê³¼ ë©”ì‹œì§€ í•„í„°ë§ì„ í•œë‹¤.
 LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 {
 	if( m_pApp == NULL )
@@ -892,7 +892,7 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 	CPoint ptClient = point - m_rectCurrentClient.TopLeft();
 	CPoint ptWindow = point - m_rectCurrentWindow.TopLeft();
 	m_ptMouse = ptClient;
-	// WM_MOUSEMOVE ¸Å½ÃÁöÁö¸¸ ¸¶¿ì½º Æ÷ÀÎÆ®°¡ ¿òÁ÷ÀÌÁö ¾Ê¾Ò´Ù¸é ¹«È¿È­ 
+	// WM_MOUSEMOVE ë§¤ì‹œì§€ì§€ë§Œ ë§ˆìš°ìŠ¤ í¬ì¸íŠ¸ê°€ ì›€ì§ì´ì§€ ì•Šì•˜ë‹¤ë©´ ë¬´íš¨í™” 
 	if( message == WM_MOUSEMOVE )
 	{
 		static CPoint ptOld;
@@ -900,16 +900,16 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 			return 0;
 		ptOld = point;
 	}
-	// ·çÆ®¿¡¼­ Æ÷Ä¿½º ¸Ş½ÃÁö°¡ ³¯¾Æ¿À¸é À©µµ°¡ ³¯¸° ¸Ş½ÃÁö´Ù. Æ÷Ä¿½º´Â CWndBase¿¡¼­¸¸ µû·Î »ç¿ëÇÑ´Ù. µû¶ó¼­ ±×³É ¸®ÅÏ 
+	// ë£¨íŠ¸ì—ì„œ í¬ì»¤ìŠ¤ ë©”ì‹œì§€ê°€ ë‚ ì•„ì˜¤ë©´ ìœˆë„ê°€ ë‚ ë¦° ë©”ì‹œì§€ë‹¤. í¬ì»¤ìŠ¤ëŠ” CWndBaseì—ì„œë§Œ ë”°ë¡œ ì‚¬ìš©í•œë‹¤. ë”°ë¼ì„œ ê·¸ëƒ¥ ë¦¬í„´ 
 	if(message == WM_SETFOCUS || message == WM_KILLFOCUS || message == WM_GETFONT || message == WM_CAPTURECHANGED )
 		return 0;
-	// IME ¸Ş½ÃÁö °É·¯³»±â 
+	// IME ë©”ì‹œì§€ ê±¸ëŸ¬ë‚´ê¸° 
 	if(message == WM_IME_SETCONTEXT || message == WM_IME_NOTIFY || message == WM_IME_CONTROL || message == WM_IME_COMPOSITIONFULL || message == WM_IME_SELECT)
 		return 0;
 	if(message == WM_GETFONT || message == WM_GETTEXT || message == WM_IME_NOTIFY ||  message == WM_IME_CHAR || message == WM_IME_KEYDOWN || message == WM_IME_KEYUP || message == 0x287)
 		return 0;
 
-	// OnSetCursor¿Í OnMouseMove ¸Ş½ÃÁö º¸³»±â 
+	// OnSetCursorì™€ OnMouseMove ë©”ì‹œì§€ ë³´ë‚´ê¸° 
 	CWndBase* pWndOnMouseMain  = NULL;
 	CWndBase* pWndOnMouseChild = NULL;
 	m_pWndOnSetCursor = NULL;
@@ -921,7 +921,7 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 		pWndOnMouseMain = m_pWndCapture;
 	}
 	else
-	// Å¬¸¯ÇÒ ¶§¸¸ À©µµ¸¦ °Ë»öÇÏ´Â ÃÖÀûÈ­°¡ ÇÊ¿äÇÔ.
+	// í´ë¦­í•  ë•Œë§Œ ìœˆë„ë¥¼ ê²€ìƒ‰í•˜ëŠ” ìµœì í™”ê°€ í•„ìš”í•¨.
 	for( int i = m_wndOrder.GetSize() - 1; i >= 0 ; i-- )
 	{
 		CWndBase* pWndBase = (CWndBase*)m_wndOrder[ i ];
@@ -930,11 +930,11 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 			CRect rect = pWndBase->GetScreenRect();
 			if( rect.PtInRect( ptClient ) ) 
 			{
-				// ¸¶¿ì½º°¡ ÀÖ´Â À©µµ¸¦ °ñ¶ú´Ù. 
+				// ë§ˆìš°ìŠ¤ê°€ ìˆëŠ” ìœˆë„ë¥¼ ê³¨ëë‹¤. 
 				pWndOnMouseMain = pWndBase;
 				if( m_pWndCapture == NULL )
 				{
-					// Â÷ÀÏµå, Â÷ÀÏµåÇÁ·¹ÀÓ ¸ğµÎ Æ÷ÇÔ 
+					// ì°¨ì¼ë“œ, ì°¨ì¼ë“œí”„ë ˆì„ ëª¨ë‘ í¬í•¨ 
 					CWndBase* pWndChild = GetChildFocus( pWndBase, ptClient );
 					if( pWndBase != pWndChild )
 					{
@@ -948,7 +948,7 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 			}
 		}
 	}
-	// ½Ã½ºÅÛ Ã³¸®ºÎ 
+	// ì‹œìŠ¤í…œ ì²˜ë¦¬ë¶€ 
 	switch(message)	
 	{
 	case WM_LBUTTONDOWN: case WM_RBUTTONDOWN: case WM_MBUTTONDOWN: case WM_RBUTTONDBLCLK: case WM_LBUTTONDBLCLK:
@@ -959,7 +959,7 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 		g_toolTipSub2.CancelToolTip();
 #endif // __IMPROVE_SYSTEM_VER15
 #endif
-		// Áö±İ Æ÷Ä¿½º°¡ BWS_MODAL ½ºÅ¸ÀÏÀÌ¶ó¸é Æ÷Ä¿½º¿Í ¼ø¼­¸¦ º¯°æÇÏÁö ¾Ê´Â´Ù.
+		// ì§€ê¸ˆ í¬ì»¤ìŠ¤ê°€ BWS_MODAL ìŠ¤íƒ€ì¼ì´ë¼ë©´ í¬ì»¤ìŠ¤ì™€ ìˆœì„œë¥¼ ë³€ê²½í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		if( m_pWndFocus && m_pWndFocus->m_dwStyle & WBS_MODAL )
 		{
 			GetChildFocus( m_pWndFocus, ptClient )->SetFocus();
@@ -967,8 +967,8 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 		}
 		if( pWndOnMouseMain )
 			pWndOnMouseMain->SetFocus();
-		// pWndOnMouseChildFramer°ú pWndOnMouseChild°¡ °°À» ¼ö ÀÖ´Ù. 
-		// °°´Ù¸é ±¸Áö pWndOnMouseChild¿¡ ¼ÂÆ÷Ä¿½º¸¦ ÇÒ ÇÊ¿ä´Â ¾ø´Ù
+		// pWndOnMouseChildFramerê³¼ pWndOnMouseChildê°€ ê°™ì„ ìˆ˜ ìˆë‹¤. 
+		// ê°™ë‹¤ë©´ êµ¬ì§€ pWndOnMouseChildì— ì…‹í¬ì»¤ìŠ¤ë¥¼ í•  í•„ìš”ëŠ” ì—†ë‹¤
 		if( pWndOnMouseChild )//!= pWndOnMouseChildFrame )
 			pWndOnMouseChild->SetFocus();
 		/*
@@ -980,10 +980,10 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 				CRect rect = pWnd->GetScreenRect();
 				if( rect.PtInRect( ptClient ) ) 
 				{
-					pWnd->SetFocus(); // ÇöÀç À©µµ¿¡ Æ÷Ä¿½º ÁÖ±â 
+					pWnd->SetFocus(); // í˜„ì¬ ìœˆë„ì— í¬ì»¤ìŠ¤ ì£¼ê¸° 
 					CWndBase* pWndChild = GetChildFocus( pWnd, ptClient );
 					if( pWnd != pWndChild )
-						pWndChild->SetFocus(); // ÇöÀç À©µµÀÇ Â÷ÀÌµéÁß¿¡ Â÷ÀÏµå Æ÷Ä¿½º ÁÖ±â 
+						pWndChild->SetFocus(); // í˜„ì¬ ìœˆë„ì˜ ì°¨ì´ë“¤ì¤‘ì— ì°¨ì¼ë“œ í¬ì»¤ìŠ¤ ì£¼ê¸° 
 					break;
 				}
 			}
@@ -999,7 +999,7 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 			{
 				//pWndOnMouseChild->SetFocus();
 				pWndOnMouseChild->OnDropIcon( &m_GlobalShortcut, pWndOnMouseChild->GetMousePoint() );
-				// Áö±İ Æ÷Ä¿½º°¡ ¸Å´º¶ó¸é ¸Å´ºÀÇ Æä¾î·±Æ®¿¡ Æ÷Ä¿½º¸¦ ¿Å±ä´Ù.(°á°ú ¸Å´º¸¦ ´İ°Ô µÈ´Ù.)
+				// ì§€ê¸ˆ í¬ì»¤ìŠ¤ê°€ ë§¤ë‰´ë¼ë©´ ë§¤ë‰´ì˜ í˜ì–´ëŸ°íŠ¸ì— í¬ì»¤ìŠ¤ë¥¼ ì˜®ê¸´ë‹¤.(ê²°ê³¼ ë§¤ë‰´ë¥¼ ë‹«ê²Œ ëœë‹¤.)
 				if( pWndOnMouseChild->IsWndStyle( WBS_POPUP ) ) 
 				{
 					CWndBase* pWndTemp = pWndOnMouseChild;
@@ -1019,7 +1019,7 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 					{
 						CWndBase* pWndFocus = GetChildFocus( pWndBase, ptClient );
 						pWndFocus->OnDropIcon( &m_GlobalShortcut, pWndFocus->GetMousePoint() );
-						// Áö±İ Æ÷Ä¿½º°¡ ¸Å´º¶ó¸é ¸Å´ºÀÇ Æä¾î·±Æ®¿¡ Æ÷Ä¿½º¸¦ ¿Å±ä´Ù.(°á°ú ¸Å´º¸¦ ´İ°Ô µÈ´Ù.)
+						// ì§€ê¸ˆ í¬ì»¤ìŠ¤ê°€ ë§¤ë‰´ë¼ë©´ ë§¤ë‰´ì˜ í˜ì–´ëŸ°íŠ¸ì— í¬ì»¤ìŠ¤ë¥¼ ì˜®ê¸´ë‹¤.(ê²°ê³¼ ë§¤ë‰´ë¥¼ ë‹«ê²Œ ëœë‹¤.)
 						if( m_pWndFocus->IsWndStyle( WBS_POPUP ) ) 
 						{
 							CWndBase* pWndTemp = m_pWndFocus;
@@ -1038,7 +1038,7 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 	}
 	return WindowProc( message, wParam, lParam );
 }
-// ÀÌ ÇÔ¼ö´Â ÁÂÇ¥°è ¼¼ÆÃ°ú ¸Ş½ÃÁö ÇÊÅÍ¸µÀ» ÇÑ´Ù.
+// ì´ í•¨ìˆ˜ëŠ” ì¢Œí‘œê³„ ì„¸íŒ…ê³¼ ë©”ì‹œì§€ í•„í„°ë§ì„ í•œë‹¤.
 LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 {
 	if( m_pParentWnd && IsWndStyle( WBS_CHILD ) )
@@ -1078,13 +1078,13 @@ LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 
 	if( IsVisible() )
 	{
-		// °¢°¢ÀÇ Â÷ÀÏµå À©µµ¸¦ Ã³¸®ÇÑ´Ù.
-		// Åø¸³ Ãâ·Â 
+		// ê°ê°ì˜ ì°¨ì¼ë“œ ìœˆë„ë¥¼ ì²˜ë¦¬í•œë‹¤.
+		// íˆ´ë¦½ ì¶œë ¥ 
 #ifdef __CLIENT
 		if( m_pWndOnMouseMove == this && m_strToolTip.IsEmpty() == FALSE )
 			g_toolTip.PutToolTip((DWORD)this,m_strToolTip,m_rectCurrentClient,point,m_nToolTipPos);
 #endif
-		// Æ÷Ä¿½º À©µµÀÌ°Å³ª || ÆĞ¾î·±Æ®°¡ Æ÷Ä¿½º À©µµÀÏ °æ¿ì
+		// í¬ì»¤ìŠ¤ ìœˆë„ì´ê±°ë‚˜ || íŒ¨ì–´ëŸ°íŠ¸ê°€ í¬ì»¤ìŠ¤ ìœˆë„ì¼ ê²½ìš°
 		//if(m_pWndFocus == this || IsWndRoot() || (IsParentWnd(m_pWndFocus) && m_pParentWnd->m_pWndFocusChild == this))// && (m_rectWindow.PtInRect(point) || m_bCapture))
 		//if( ( m_pWndFocus == this && m_pWndFocusChild == NULL ) || ( IsParentWnd( m_pWndFocus ) && m_pParentWnd->m_pWndFocusChild == this ) )
 		if( m_pCurFocus == this )//|| ( IsParentWnd( m_pWndFocus ) && m_pParentWnd->m_pWndFocusChild == this ) )
@@ -1111,13 +1111,13 @@ LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 				OnMouseMove( wParam, ptClient );
 			OnMouseWndSurface( ptClient );
 		}
-		// À©µµ¸¦ ¹ş¾î³ªÀÖ´Ù¸é...
+		// ìœˆë„ë¥¼ ë²—ì–´ë‚˜ìˆë‹¤ë©´...
 	//	else
 	//		m_bPush = FALSE;
 		if( IsWindowEnabled() )	
 		{
-			//gmpbigsun: ¸ÕÁ® °É¸®´Â À©µµ¿ì¿¡°Ô ¸Ş¼¼Áö¸¦ Àü´ŞÇÑ´Ù. ±æµåÃ¢ÀÇ ÅÇÄÜÆ®·ÑÀº ±× Àü¿¡ ´Ù¸¥ÄÜÆ®·ÑÀÌ °É¸®±â¶§¹®¿¡ ´ë·« ÅÂÄÜÆ®·ÑÀ» Âï¾î¾ß
-			 //½ÇÁ¦·Î µÚ¿¡ÀÖ´Â ÅÇ ÄÜÆ®·Ñ¿¡ °É¸®°Ô µÈ´Ù.¶ó°í ÆÄ¾ÇµÈ´Ù..-_-;
+			//gmpbigsun: ë¨¼ì ¸ ê±¸ë¦¬ëŠ” ìœˆë„ìš°ì—ê²Œ ë©”ì„¸ì§€ë¥¼ ì „ë‹¬í•œë‹¤. ê¸¸ë“œì°½ì˜ íƒ­ì½˜íŠ¸ë¡¤ì€ ê·¸ ì „ì— ë‹¤ë¥¸ì½˜íŠ¸ë¡¤ì´ ê±¸ë¦¬ê¸°ë•Œë¬¸ì— ëŒ€ëµ íƒœì½˜íŠ¸ë¡¤ì„ ì°ì–´ì•¼
+			 //ì‹¤ì œë¡œ ë’¤ì—ìˆëŠ” íƒ­ ì½˜íŠ¸ë¡¤ì— ê±¸ë¦¬ê²Œ ëœë‹¤.ë¼ê³  íŒŒì•…ëœë‹¤..-_-;
 			BOOL bMouseInChildWindow = FALSE;
 			CWndBase* pWndMouseInChildWindow = NULL;
 			for(i = m_wndArray.GetSize() - 1; i >= 0; i--)
@@ -1160,14 +1160,14 @@ LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 			m_bMButtonDown = FALSE;
 			break;
 	}
-	// ¾îµğ¼±°¡ ÀÓÀÇ·Î »çÀÌÁî Á¶Á¤ÀÌ ÀÖ¾ú´Ù.
+	// ì–´ë””ì„ ê°€ ì„ì˜ë¡œ ì‚¬ì´ì¦ˆ ì¡°ì •ì´ ìˆì—ˆë‹¤.
 	if(rectWnd != m_rectWindow)
 	{
 		SetWndRect(m_rectWindow);
 		rectWnd = m_rectWindow;
 	}
 	else
-	//»çÀÌÁî Á¶Á¤
+	//ì‚¬ì´ì¦ˆ ì¡°ì •
 	if(m_nResizeDir)
 	{
 		// 1 = top
@@ -1199,7 +1199,7 @@ LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 		pt.y = ( pt.y / 16 ) * 16;
 //#endif
 		//CPoint pt = point - m_pointOld;
-		if(m_nWinSize == 0) // Á¤»ó À©µµ 
+		if(m_nWinSize == 0) // ì •ìƒ ìœˆë„ 
 		{
 			switch(m_nResizeDir)
 			{
@@ -1229,12 +1229,12 @@ LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 			}
 		}
 		else
-		if(m_nWinSize == 2) // ÃÖ´ë 
+		if(m_nWinSize == 2) // ìµœëŒ€ 
 		{
 			if(m_nResizeDir == 3)
 			{
 				rectWnd.left += pt.x; 
-				// ´Ù¸¥ È®´ë À©µµµµ ÇöÀç À©µµ¿Í °°Àº »çÀÌÁî·Î ¸ÂÃá´Ù.
+				// ë‹¤ë¥¸ í™•ëŒ€ ìœˆë„ë„ í˜„ì¬ ìœˆë„ì™€ ê°™ì€ ì‚¬ì´ì¦ˆë¡œ ë§ì¶˜ë‹¤.
 				for( int i = 0; i < m_wndOrder.GetSize(); i++)
 				{
 					CWndBase* pWnd = (CWndBase*) m_wndOrder.GetAt( i );
@@ -1247,7 +1247,7 @@ LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 	//	m_pointOld = point - m_rectWindow.TopLeft();
 	}
 	else
-	// ¿òÁ÷ÀÌ´Â À©µµ Ã³¸® 
+	// ì›€ì§ì´ëŠ” ìœˆë„ ì²˜ë¦¬ 
 	if(m_bPickup == TRUE)
 	{
 		if(m_nWinSize == 0)
@@ -1278,9 +1278,9 @@ LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 	}
 	if( IsWndRoot() )
 	{
-		// À©µµ ÆÄ±« 
+		// ìœˆë„ íŒŒê´´ 
 		RemoveDestroyWnd();
-		// Æ÷½ºÆ® ¸Ş½ÃÁö Ã³¸® 
+		// í¬ìŠ¤íŠ¸ ë©”ì‹œì§€ ì²˜ë¦¬ 
 		for( i = 0; i < m_postMessage.GetSize(); i++ )
 		{
 			LPWNDMESSAGE lpWndMessage = (LPWNDMESSAGE)m_postMessage.GetAt(i);
@@ -1301,7 +1301,7 @@ LRESULT CWndBase::DefWindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 	CPoint ptWindow = point - m_rectCurrentWindow.TopLeft();
 	CRect rectWnd = m_rectWindow;
 
-	// ¸Ş½ÃÁö Ã³¸®ºÎ 
+	// ë©”ì‹œì§€ ì²˜ë¦¬ë¶€ 
 	switch(message)
 	{
 		case WM_LBUTTONUP:		
@@ -1563,7 +1563,7 @@ LRESULT CWndBase::DefWindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 			{
 				//if(m_pWndFocusChild == this)
 				{
-					// ÅÜ ½ºÅé Ã³¸® 
+					// í… ìŠ¤í†± ì²˜ë¦¬ 
 					if(wParam == VK_TAB)
 					{
 						CWndBase* pWndTemp = m_pWndFocus;//->m_pWndFocusChild;// ? this : m_pParentWnd;
@@ -1635,7 +1635,7 @@ void CWndBase::SetFocus()
 	{
 		if( m_pParentWnd->m_pWndFocusChild != this )
 		{
-			// À©µµ Æ÷Ä¿½º º¯°æ 
+			// ìœˆë„ í¬ì»¤ìŠ¤ ë³€ê²½ 
 			if(m_pParentWnd->m_pWndFocusChild) 
 				m_pParentWnd->m_pWndFocusChild->OnKillFocus(this);
 			OnSetFocus(m_pParentWnd->m_pWndFocusChild);
@@ -1680,7 +1680,7 @@ void CWndBase::SetFocus()
 			CWndBase* pWndOld = m_pWndFocus;
 			if(m_pWndFocusChild)
 				m_pWndFocusChild->OnSetFocus(m_pWndFocus->m_pWndFocusChild);
-			// À©µµ Æ÷Ä¿½º º¯°æ 
+			// ìœˆë„ í¬ì»¤ìŠ¤ ë³€ê²½ 
 			m_pWndFocus = this;
 			m_pCurFocus = this;
 			OnSetFocus( pWndOld );
@@ -1828,8 +1828,8 @@ void CWndBase::SetWndSize( int cx, int cy)
 	m_rectWindow.bottom = m_rectWindow.top + cy;
 	SetWndRect( m_rectWindow );
 }
-// À©µµ »çÀÌÁî¸¦ ¼¼ÆÃÇÑ´Ù.
-// Å¬¶óÀÌ¾ğÆ® »çÀÌÁîµµ ÀÚµ¿À¸·Î Á¶Á¤µÈ´Ù.
+// ìœˆë„ ì‚¬ì´ì¦ˆë¥¼ ì„¸íŒ…í•œë‹¤.
+// í´ë¼ì´ì–¸íŠ¸ ì‚¬ì´ì¦ˆë„ ìë™ìœ¼ë¡œ ì¡°ì •ëœë‹¤.
 
 void CWndBase::SetWndRect( CRect rectWnd, BOOL bOnSize )
 {
@@ -1923,12 +1923,12 @@ void CWndBase::ClipStrArray(C2DRender* p2DRender,CRect rect,int nLineHeight,CStr
 				do 
 				{
 					chr = string[c++];
-					// ½ºÆäÀÌ½º¸¦ ¹ß°ßÇÏ¸é? (¿µ¾î½Ä Ãâ·ÂÀ» À§ÇØ)
+					// ìŠ¤í˜ì´ìŠ¤ë¥¼ ë°œê²¬í•˜ë©´? (ì˜ì–´ì‹ ì¶œë ¥ì„ ìœ„í•´)
 //					if(chr == ' ');
-					// ¿£ÅÍÄÚµå¸é ½ºÅµ 
+					// ì—”í„°ì½”ë“œë©´ ìŠ¤í‚µ 
 					if(chr != '\r')
 						strTemp += chr;
-					// ÇÑ±Û ÄÚµå¸é °è¼Ó
+					// í•œê¸€ ì½”ë“œë©´ ê³„ì†
 					if(chr & 0x80 && bHangul == FALSE) 
 						bHangul = TRUE;
 					else
@@ -1960,7 +1960,7 @@ void CWndBase::GetLogFont(C2DRender* p2DRender,LOGFONT* pLogFont)
 int CWndBase::GetFontHeight()
 {
 	//CSize size;
-	//m_pFont->GetTextExtent("°¡",&size);
+	//m_pFont->GetTextExtent("ê°€",&size);
 	//return abs(size.cy);
 	return m_pFont->GetMaxHeight();
 }
@@ -2008,7 +2008,7 @@ BOOL CWndBase::IsPickupSpace(CPoint ptWindow)
 	if(rect.PtInRect(ptWindow))
 	{
 		/*
-		// pt°¡ ÇÏºÎ À©µµ(¹öÆ°)¿¡ ¼ÓÇÏ°í ÀÖ´Ù¸é PickupSpace¿¡¼­ Á¦¿ÜÇÑ´Ù.
+		// ptê°€ í•˜ë¶€ ìœˆë„(ë²„íŠ¼)ì— ì†í•˜ê³  ìˆë‹¤ë©´ PickupSpaceì—ì„œ ì œì™¸í•œë‹¤.
 		CWndBase* pWnd;
 		for(int i = 0; i < m_wndArray.GetSize(); i++)
 		{
@@ -2052,7 +2052,7 @@ CWndBase* CWndBase::GetWndBase()
 		CWndBase* pWnd = (CWndBase*)m_wndOrder.GetAt(i);
 		if(pWnd && pWnd->IsVisible() && !pWnd->IsWndStyle(WBS_MANAGER|WBS_TOPMOST) )
 		{
-			// »óÅÂÃ¢°ú ³×ºñ°ÔÀÌ¼ÇÀº °É·¯³½´Ù...
+			// ìƒíƒœì°½ê³¼ ë„¤ë¹„ê²Œì´ì…˜ì€ ê±¸ëŸ¬ë‚¸ë‹¤...
 #if __VER >= 10 // __CSC_VER9_1
 #ifdef __NEW_SKILL_TREE
 			if( pWnd->GetWndId() == APP_SKILL4 )
@@ -2065,7 +2065,7 @@ CWndBase* CWndBase::GetWndBase()
 			{
 				CWndBase* pWndBase = (CWndBase*)g_WndMng.GetWndBase( APP_QUEITMWARNING );	
 				if( pWndBase )
-					return NULL;			// ½ºÅ³ È®ÀÎÃ¢ÀÌ¸é ½ºÅ³Ã¢À» ´İÀ»¼ö°¡ ¾øÀ½.
+					return NULL;			// ìŠ¤í‚¬ í™•ì¸ì°½ì´ë©´ ìŠ¤í‚¬ì°½ì„ ë‹«ì„ìˆ˜ê°€ ì—†ìŒ.
 				if( ((CWndSkillTreeEx*)pWnd)->GetCurrSkillPoint() != g_pPlayer->m_nSkillPoint )
 				{
 					if( pWndBase == NULL )
@@ -2263,7 +2263,7 @@ void CWndBase::OnClose()
 void CWndBase::OnDestroy()
 {
 #ifdef __CLIENT
-	// Ã¢ÀÌ ´İÈú ¶§ ÅøÆÁ Á¦°Å. ÀÌ°Å ÇÏÁö ¾ÊÀ½ ÅøÆÁÀÌ ³²¾Æ ÀÖ°Ô µÈ´Ù.
+	// ì°½ì´ ë‹«í ë•Œ íˆ´íŒ ì œê±°. ì´ê±° í•˜ì§€ ì•ŠìŒ íˆ´íŒì´ ë‚¨ì•„ ìˆê²Œ ëœë‹¤.
 	g_toolTip.CancelToolTip();
 #if __VER >= 15 // __IMPROVE_SYSTEM_VER15
 	g_toolTipSub1.CancelToolTip();
@@ -2311,7 +2311,7 @@ BOOL CWndBase::OnEraseBkgnd( C2DRender* p2DRender )
 		m_pTheme->RenderWndBaseBkgr( p2DRender, &rect );
 	}
 /*
-	// Å×µÎ¸® ¹Ú½º 
+	// í…Œë‘ë¦¬ ë°•ìŠ¤ 
 	DWORD dwColor1t = D3DCOLOR_TEMP( 255, 250, 250, 255 );
 	DWORD dwColor1b = D3DCOLOR_TEMP( 255, 200, 200, 210 );
 	DWORD dwColor2b = D3DCOLOR_TEMP( 255, 143, 173, 245 );
@@ -2360,14 +2360,14 @@ LRESULT CWndBase::WndMsgProc(UINT message,WPARAM wParam,LPARAM lParam)
 void CWndBase::OnMouseWndSurface( CPoint point )
 {
 }
-// ¸¶¿ì½º¸¦ Ä¸Ãç Àâ´Â´Ù.
+// ë§ˆìš°ìŠ¤ë¥¼ ìº¡ì¶° ì¡ëŠ”ë‹¤.
 void CWndBase::SetCapture() 
 { 
 	//m_bCapture = TRUE; 
 	m_pWndCapture = this;
 	::SetCapture( m_pApp->GetSafeHwnd() );
 } 
-// Ä¸Ãç ÀâÀº °ÍÀ» Ç®¾î ³õ´Â´Ù.
+// ìº¡ì¶° ì¡ì€ ê²ƒì„ í’€ì–´ ë†“ëŠ”ë‹¤.
 void CWndBase::ReleaseCapture() 
 { 
 	//m_bCapture = FALSE; 
@@ -2538,7 +2538,7 @@ void CWndBase::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFORMAT
 		{
 			lpImage = new IMAGE;
 			if( LoadImage( MakePath( DIR_THEME, m_strTexture ), lpImage ) == FALSE )
-				Error( "CWndBase::AdditionalSkinTexture¿¡¼­ %s Open1 ½ÇÆĞ", m_strTexture );
+				Error( "CWndBase::AdditionalSkinTextureì—ì„œ %s Open1 ì‹¤íŒ¨", m_strTexture );
 			m_strWndTileMap.SetAt( m_strTexture, lpImage );
 		}
 		///////////////////////////////////////////////////////
@@ -2563,7 +2563,7 @@ void CWndBase::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFORMAT
 		{
 			lpImage[i] = new IMAGE;
 			if( LoadImage( MakePath( DIR_THEME, strFileName ), lpImage[i] ) == FALSE )
-				Error( "CWndBase::AdditionalSkinTexture¿¡¼­ %s Open2 ½ÇÆĞ", strFileName );
+				Error( "CWndBase::AdditionalSkinTextureì—ì„œ %s Open2 ì‹¤íŒ¨", strFileName );
 			m_strWndTileMap.SetAt( strFileName, lpImage[i] );
 		}
 	}
@@ -2631,7 +2631,7 @@ void CWndBase::AdjustWndBase( D3DFORMAT d3dFormat ) //= D3DFMT_A4R4G4B4 )
 	if( m_strTexture.IsEmpty() || IsVisible() == FALSE || IsWndStyle( WBS_NODRAWFRAME ) )
 		return;
 
-	// ÅØ½ºÃç ¸¸µé±â 
+	// í…ìŠ¤ì¶° ë§Œë“¤ê¸° 
 	CString strTextureId;
 	strTextureId.Format( "%p", this );
 	m_textureMng.RemoveTexture( strTextureId );

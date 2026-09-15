@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "yUtil.h"
 
 #define MAX_ALPHA		230
@@ -33,16 +33,16 @@ void CFLASH::RenderFlash( C2DRender* p2DRender )
 
 	if( m_bAction )
 	{
-		// Èò»öÀ¸·Î ¸¸µç´Ù.
+		// í°ìƒ‰ìœ¼ë¡œ ë§Œë“ ë‹¤.
 		if( m_bFade == FALSE )
 		{
 			m_nAlphaCount+=m_nAlphaAcc;
 			m_nAlphaAcc+=20;
 		}
-		// ÆäÀÌµå ¾Æ¿ôÇÔ( Á¤Áö½Ã°£, Áö¼Ó½Ã°£ )
+		// íŽ˜ì´ë“œ ì•„ì›ƒí•¨( ì •ì§€ì‹œê°„, ì§€ì†ì‹œê°„ )
 		else
 		{
-			// Ã³À½¿¡ ÇÑ¹ø¸¸ Á¤Áö À¯Áö½Ã°£ ÀÔ·Â
+			// ì²˜ìŒì— í•œë²ˆë§Œ ì •ì§€ ìœ ì§€ì‹œê°„ ìž…ë ¥
 			if( !m_bStopTime )
 			{
 				m_dwStopTime = timeGetTime()+m_dwStopTime;
@@ -51,7 +51,7 @@ void CFLASH::RenderFlash( C2DRender* p2DRender )
 
 			if( timeGetTime() > m_dwStopTime )
 			{
-				//Ã³À½¿¡ ÇÑ¹ø¸¸ Áö¼ÓÀ¯Áö½Ã°£ ÀÔ·Â
+				//ì²˜ìŒì— í•œë²ˆë§Œ ì§€ì†ìœ ì§€ì‹œê°„ ìž…ë ¥
 				DWORD dwSaveTime = timeGetTime();
 				
 				BOOL bBackup = m_bRunTime;
@@ -68,7 +68,7 @@ void CFLASH::RenderFlash( C2DRender* p2DRender )
 				D3DXCOLOR dwStartColor = D3DCOLOR_RGBA( 255, 255, 255, 0 );
 				D3DXCOLOR dwEndColor   = D3DCOLOR_RGBA( 255, 255, 255, 255  );
 				
-				// Áö³ª¿Â½Ã°£°ú ¿Ï·á½Ã°£»çÀÌÀÇ º¸°£
+				// ì§€ë‚˜ì˜¨ì‹œê°„ê³¼ ì™„ë£Œì‹œê°„ì‚¬ì´ì˜ ë³´ê°„
 				D3DXColorLerp( &dwColor, &dwStartColor, &dwEndColor, fLerp );
 				
 				m_nAlphaCount = (int)( dwColor.a * 255 );
@@ -81,7 +81,7 @@ void CFLASH::RenderFlash( C2DRender* p2DRender )
 			}
 		}
 		
-		// °¡Àå ¹àÀº »öÀÌ µÇ¸é ÆäÀÌµå ¾Æ¿ôÀ» ½Ç½ÃÇÔ
+		// ê°€ìž¥ ë°ì€ ìƒ‰ì´ ë˜ë©´ íŽ˜ì´ë“œ ì•„ì›ƒì„ ì‹¤ì‹œí•¨
 		if( m_nAlphaCount > MAX_ALPHA )
 		{
 			m_bFade = TRUE;

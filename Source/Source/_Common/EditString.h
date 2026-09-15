@@ -1,4 +1,4 @@
-#ifndef __EDITSTRING_H
+﻿#ifndef __EDITSTRING_H
 #define __EDITSTRING_H 
 
 #include "vutil.h"

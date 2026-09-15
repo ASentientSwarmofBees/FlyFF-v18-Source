@@ -1,4 +1,4 @@
-
+﻿
 //InfoCritSect.h Header File
 
 #ifndef __INFOCRITSECT_H__

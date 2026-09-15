@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "serialnumber.h"
 
 CSerialNumber*	CSerialNumber::GetInstance( void )

@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -76,7 +76,7 @@ void CDbManager::ConvSkill_11_MONTH_POINT( void )
 		u_long si	= pQueryChar->GetInt( "serverindex" );
 		pMover->m_nJob	= nJob;
 
-		// 1. Á÷¾÷ ½ºÅ³ ·Îµå
+		// 1. ì§ì—… ìŠ¤í‚¬ ë¡œë“œ
 		int CountStr	= 0;
 		int IndexJobSkill	= 0;
 		char JobSkill[1024]	= {0,};
@@ -163,7 +163,7 @@ void CDbManager::ConvSkill_11_MONTH( void )
 
 		CMover* pMover	= new CMover;
 
-		// 0. ½ºÅ³ ÃÊ±âÈ­
+		// 0. ìŠ¤í‚¬ ì´ˆê¸°í™”
 		for( int i = MAX_JOB_SKILL; i < MAX_SKILL_JOB; i++ )
 		{
 			pMover->m_aJobSkill[i].dwSkill	= NULL_ID;
@@ -176,7 +176,7 @@ void CDbManager::ConvSkill_11_MONTH( void )
 		u_long si	= pQueryChar->GetInt( "serverindex" );
 		pMover->m_nJob	= nJob;
 
-		// 1. Á÷¾÷ ½ºÅ³ ·Îµå
+		// 1. ì§ì—… ìŠ¤í‚¬ ë¡œë“œ
 		int CountStr	= 0;
 		int IndexJobSkill	= 0;
 		char JobSkill[512]	= { 0, };
@@ -208,14 +208,14 @@ void CDbManager::ConvSkill_11_MONTH( void )
 				m_aJobSkill[IndexJobSkill].dwSkill	= dwSkill;
 				m_aJobSkill[IndexJobSkill].bStop	= bStop;
 				++IndexJobSkill;
-				if( 3 < IndexJobSkill ) // ¹æ¶ûÀÚ ±îÁö »­
+				if( 3 < IndexJobSkill ) // ë°©ë‘ì ê¹Œì§€ ëºŒ
 				{
 					break;
 				}
 			}
 		}
 
-		memcpy( &pMover->m_aJobSkill[0], &m_aJobSkill[0], sizeof( SKILL ) * 3 ); // ¹æ¶ûÀÚ ½ºÅ³ º¹»ç
+		memcpy( &pMover->m_aJobSkill[0], &m_aJobSkill[0], sizeof( SKILL ) * 3 ); // ë°©ë‘ì ìŠ¤í‚¬ ë³µì‚¬
 
 		ItemProp** apSkillProp	= prj.m_aJobSkill[pMover->m_nJob];
 		int nJobNum	= prj.m_aJobSkillNum[pMover->m_nJob];
@@ -230,7 +230,7 @@ void CDbManager::ConvSkill_11_MONTH( void )
 			k++;
 		}
 
-		// 3. ÀúÀåÇÑ´Ù.
+		// 3. ì €ì¥í•œë‹¤.
 		*JobSkill	= '\0';
 		for( i = 0; i < ( MAX_SKILL_JOB ); i++ )
 		{
@@ -619,7 +619,7 @@ BOOL CALLBACK VerifyPlayerDlgProc( HWND hDlg, UINT iMessage, WPARAM wParam, LPAR
 
 
 #ifdef __S0707_ITEM_CONV
-// ¾ÆÀÌÅÛ ÇÁ·ÎÆÛÆ¼°¡ ¹Ù²î¾úÀ»½Ã »ç¿ë
+// ì•„ì´í…œ í”„ë¡œí¼í‹°ê°€ ë°”ë€Œì—ˆì„ì‹œ ì‚¬ìš©
 BOOL CDbManager::ConvItem( void )
 {
 	CQuery* pQueryChar	= new CQuery;
@@ -764,7 +764,7 @@ BOOL CDbManager::ConvItem( void )
 					ItemProp *pProp = prj.GetItemProp( pMover->m_Inventory.m_apItem[ch].m_dwItemId );
 					if( pProp )
 					{
-						if( pProp->dwItemKind3 == IK3_CLOAK )	// ¸ÁÅäÀÏ°æ¿ì
+						if( pProp->dwItemKind3 == IK3_CLOAK )	// ë§í† ì¼ê²½ìš°
 						{
 							sprintf(OneItem, "%d,%d,%d,%d,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d/",
 								pMover->m_Inventory.m_apItem[ch].m_dwObjId, pMover->m_Inventory.m_apItem[ch].m_dwItemId,
@@ -792,10 +792,10 @@ BOOL CDbManager::ConvItem( void )
 					}
 					else
 					{
-						Error( "ConvItem::InventorySave: << ÇÁ·ÎÆÛÆ¼ ¾øÀ½. %s -> %d", pMover->m_szName, pMover->m_Inventory.m_apItem[ch].m_dwItemId );
+						Error( "ConvItem::InventorySave: << í”„ë¡œí¼í‹° ì—†ìŒ. %s -> %d", pMover->m_szName, pMover->m_Inventory.m_apItem[ch].m_dwItemId );
 						SAFE_DELETE( pQueryChar );
 						SAFE_DELETE( pQuerySave );
-						AfxMessageBox( "ÇÁ·ÎÆÛÆ¼", MB_OK );
+						AfxMessageBox( "í”„ë¡œí¼í‹°", MB_OK );
 						return FALSE;
 					}
 				}
@@ -912,7 +912,7 @@ BOOL CDbManager::ConvItem( void )
 					ItemProp *pProp = prj.GetItemProp( pMover->m_Bank.m_apItem[ch].m_dwItemId );
 					if( pProp )
 					{
-						if( pProp->dwItemKind3 == IK3_CLOAK )	// ¸ÁÅäÀÏ°æ¿ì
+						if( pProp->dwItemKind3 == IK3_CLOAK )	// ë§í† ì¼ê²½ìš°
 						{
 							sprintf(OneItem, "%d,%d,%d,%d,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d/",
 								pMover->m_Bank.m_apItem[ch].m_dwObjId, pMover->m_Bank.m_apItem[ch].m_dwItemId,
@@ -940,10 +940,10 @@ BOOL CDbManager::ConvItem( void )
 					}
 					else
 					{
-						Error( "ConvItem::BankSave: << ÇÁ·ÎÆÛÆ¼ ¾øÀ½. %s -> %d", pMover->m_szName, pMover->m_Bank.m_apItem[ch].m_dwItemId );
+						Error( "ConvItem::BankSave: << í”„ë¡œí¼í‹° ì—†ìŒ. %s -> %d", pMover->m_szName, pMover->m_Bank.m_apItem[ch].m_dwItemId );
 						SAFE_DELETE( pQueryChar );
 						SAFE_DELETE( pQuerySave );
-						AfxMessageBox( "ÇÁ·ÎÆÛÆ¼", MB_OK );
+						AfxMessageBox( "í”„ë¡œí¼í‹°", MB_OK );
 						return FALSE;
 					}
 				}
@@ -1019,7 +1019,7 @@ BOOL CDbManager::ConvItem( void )
 		SendMessage( hwndPB, PBM_SETPOS, (WPARAM)(int( float( (float)nStarted / (float)dwMaxConv ) * 100.0f )), 0 );
 		
 
-		CItemContainer<CItemElem>	GuildBank;	// ±æµå Ã¢°í
+		CItemContainer<CItemElem>	GuildBank;	// ê¸¸ë“œ ì°½ê³ 
 		int							nGuildId	= 0;
 		
 		GuildBank.SetItemContainer( ITYPE_ITEM, MAX_GUILDBANK );
@@ -1075,7 +1075,7 @@ BOOL CDbManager::ConvItem( void )
 					ItemProp *pProp = prj.GetItemProp( GuildBank.m_apItem[ch].m_dwItemId );
 					if( pProp )
 					{
-						if( pProp->dwItemKind3 == IK3_CLOAK )	// ¸ÁÅäÀÏ°æ¿ì
+						if( pProp->dwItemKind3 == IK3_CLOAK )	// ë§í† ì¼ê²½ìš°
 						{
 							sprintf(OneItem, "%d,%d,%d,%d,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d/",
 								GuildBank.m_apItem[ch].m_dwObjId, GuildBank.m_apItem[ch].m_dwItemId,
@@ -1103,10 +1103,10 @@ BOOL CDbManager::ConvItem( void )
 					}
 					else
 					{
-						Error( "GuileSave GuildBank: << ÇÁ·ÎÆÛÆ¼ ¾øÀ½. GuildBank -> %d", GuildBank.m_apItem[ch].m_dwItemId );
+						Error( "GuileSave GuildBank: << í”„ë¡œí¼í‹° ì—†ìŒ. GuildBank -> %d", GuildBank.m_apItem[ch].m_dwItemId );
 						SAFE_DELETE( pQueryChar );
 						SAFE_DELETE( pQuerySave );
-						AfxMessageBox( "GuildBank ÇÁ·ÎÆÛÆ¼", MB_OK );
+						AfxMessageBox( "GuildBank í”„ë¡œí¼í‹°", MB_OK );
 						return FALSE;
 					}
 					
@@ -1299,7 +1299,7 @@ void CDbManager::ConvSkill( void )
 
 		CMover* pMover	= new CMover;
 
-		// 0. ½ºÅ³ ÃÊ±âÈ­
+		// 0. ìŠ¤í‚¬ ì´ˆê¸°í™”
 		for( int i = 0; i < MAX_JOB_SKILL + MAX_EXPERT_SKILL; i++ )
 		{
 			pMover->m_aJobSkill[i].dwSkill	= NULL_ID;
@@ -1312,7 +1312,7 @@ void CDbManager::ConvSkill( void )
 		u_long si	= pQueryChar->GetInt( "serverindex" );
 		pMover->m_nJob	= nJob;
 
-		// 1. Á÷¾÷ ½ºÅ³ ·Îµå
+		// 1. ì§ì—… ìŠ¤í‚¬ ë¡œë“œ
 		int CountStr	= 0;
 		int IndexJobSkill	= 0;
 		char JobSkill[512]	= { 0, };
@@ -1349,7 +1349,7 @@ void CDbManager::ConvSkill( void )
 			}
 		}
 
-		memcpy( &pMover->m_aJobSkill[0], &m_aJobSkill[0], sizeof( SKILL ) * 3 ); // ¹æ¶ûÀÚ ½ºÅ³ º¹»ç
+		memcpy( &pMover->m_aJobSkill[0], &m_aJobSkill[0], sizeof( SKILL ) * 3 ); // ë°©ë‘ì ìŠ¤í‚¬ ë³µì‚¬
 
 		ItemProp** apSkillProp	= prj.m_aJobSkill[pMover->m_nJob];
 		int nJobNum	= prj.m_aJobSkillNum[pMover->m_nJob];
@@ -1362,7 +1362,7 @@ void CDbManager::ConvSkill( void )
 			{
 				if( pSkillProp->dwID == m_aJobSkill[j].dwSkill )
 				{
-					// ÀÌ¹Ì ÀÖ´Â ½ºÅ³
+					// ì´ë¯¸ ìˆëŠ” ìŠ¤í‚¬
 					bIs = TRUE;
 					memcpy( &pMover->m_aJobSkill[k], &m_aJobSkill[j], sizeof(SKILL) );
 					break;
@@ -1380,7 +1380,7 @@ void CDbManager::ConvSkill( void )
 			k++;
 		}
 
-		// 3. ÀúÀåÇÑ´Ù.
+		// 3. ì €ì¥í•œë‹¤.
 		*JobSkill	= '\0';
 		for( i = 0; i < ( MAX_JOB_SKILL + MAX_EXPERT_SKILL ); i++ )
 		{
@@ -1450,7 +1450,7 @@ void CDbManager::ConvSkillStop( void )
 		pMover->m_idPlayer	= pQueryChar->GetInt( "m_idPlayer" );
 		u_long si	= pQueryChar->GetInt( "serverindex" );
 
-		// 1. Á÷¾÷ ½ºÅ³ ·Îµå
+		// 1. ì§ì—… ìŠ¤í‚¬ ë¡œë“œ
 		int CountStr	= 0;
 		int IndexJobSkill	= 0;
 		char JobSkill[512]	= { 0, };
@@ -1478,7 +1478,7 @@ void CDbManager::ConvSkillStop( void )
 			pMover->m_aJobSkill[IndexJobSkill].bStop = TRUE;
 		}
 
-		// 3. ÀúÀåÇÑ´Ù.
+		// 3. ì €ì¥í•œë‹¤.
 		*JobSkill	= '\0';
 		for( int i = 0; i < ( MAX_JOB_SKILL + MAX_EXPERT_SKILL ); i++ )
 		{
@@ -1494,7 +1494,7 @@ void CDbManager::ConvSkillStop( void )
 		if( FALSE == pQuery->Exec( szSQL ) )
 		{
 			char lpString[260]	= { 0, };
-			sprintf( lpString, "¾÷µ¥ÀÌÆ® ½ÇÆĞ, m_idPlayer = %d", pMover->m_idPlayer );
+			sprintf( lpString, "ì—…ë°ì´íŠ¸ ì‹¤íŒ¨, m_idPlayer = %d", pMover->m_idPlayer );
 			AfxMessageBox( lpString );
 		}
 
@@ -1611,7 +1611,7 @@ BOOL CDbManager::SN( void )
 		}
 
 		/*
-		// 2. ÀÌÁ¦ºÎÅÍ ÀåÂø ÇÑ ¾ÆÀÌÅÛÀ» ´Ù ³»·Á ³õ°í,
+		// 2. ì´ì œë¶€í„° ì¥ì°© í•œ ì•„ì´í…œì„ ë‹¤ ë‚´ë ¤ ë†“ê³ ,
 		for( DWORD dwParts	= 0; dwParts < MAX_HUMAN_PARTS; dwParts++ )
 		{
 			if( pMover->m_Inventory.GetEquip( dwParts ) )
@@ -1628,7 +1628,7 @@ BOOL CDbManager::SN( void )
 			}
 		}
 		*/
-		// 2. ÀÌÁ¦ºÎÅÍ ÀÇ¹ÌÀÖ´Â ½Ã¸®¾ó ³Ñ¹ö¸¦ ºÎ¿©ÇÏ°í,
+		// 2. ì´ì œë¶€í„° ì˜ë¯¸ìˆëŠ” ì‹œë¦¬ì–¼ ë„˜ë²„ë¥¼ ë¶€ì—¬í•˜ê³ ,
 		for( int i = 0; i < pMover->m_Inventory.m_dwItemMax; i++ )
 		{
 			CItemElem* pItemElem	= pMover->m_Inventory.GetAtId( i );
@@ -1639,7 +1639,7 @@ BOOL CDbManager::SN( void )
 			}
 		}
 
-		// 3. ÀúÀåÇÑ´Ù.
+		// 3. ì €ì¥í•œë‹¤.
 		char NullStr[2] = "$";
 		*Inven	= '\0';
 		*m_apIndex	= '\0';

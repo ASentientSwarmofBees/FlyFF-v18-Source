@@ -1,4 +1,4 @@
-// ProfileInfo.cpp: implementation of the CProfileInfo class.
+ï»¿// ProfileInfo.cpp: implementation of the CProfileInfo class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -64,7 +64,7 @@ void CProfileInfo::SetProfileInfo()
 	CProfileManager::Release_Iterator( it );
 	Reset();
 
-	if( fTotal * 1000 > SEC( 1 ) )	// 1ÃÊÀÌ»ó Áö¿¬µÇ¸é ·Î±× ³²±è
+	if( fTotal * 1000 > SEC( 1 ) )	// 1ì´ˆì´ìƒ ì§€ì—°ë˜ë©´ ë¡œê·¸ ë‚¨ê¹€
 		FileOut( "..\\profile.txt" );
 }
 void CProfileInfo::Clear()

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AppDefine.h"
 #include "WndCommand.h"
 #include "FuncTextCmd.h"
@@ -52,7 +52,7 @@ void CWndCommand::OnInitialUpdate()
 	while( m_textCmdFunc[ nCount ].m_pFunc )
 	{
 		TextCmdFunc* pTextCmdFunc = &m_textCmdFunc[nCount];
-		if( ::GetLanguage() != LANG_KOR )			// ÇÑ±¹ÀÌ¿Ü¿¡¼­´Â »ç¿ëÁ¦ÇÑ 
+		if( ::GetLanguage() != LANG_KOR )			// í•œêµ­ì´ì™¸ì—ì„œëŠ” ì‚¬ìš©ì œí•œ 
 		{
 			if( memcmp( pTextCmdFunc->m_pCommand, "open", 4 ) == 0 )
 				break;
@@ -93,7 +93,7 @@ void CWndCommand::OnInitialUpdate()
 	m_pWndEdit->SetFocus();
 } 
 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndCommand::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect();
@@ -107,7 +107,7 @@ BOOL CWndCommand::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ )
 	return TRUE;
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndCommand::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 

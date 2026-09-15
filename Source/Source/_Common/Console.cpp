@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 
 #ifdef __BS_CONSOLE
 
@@ -97,12 +97,12 @@ LRESULT CALLBACK EditSubProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam
 	case WM_KEYDOWN:
 		if (wParam==VK_RETURN)
 		{   
-			GetWindowText(hWnd,str,256);//¿¡µğÅÍ ¹Ú½º¿¡¼­ ¹®ÀÚ¿­À» °¡Á®¿È
+			GetWindowText(hWnd,str,256);//ì—ë””í„° ë°•ìŠ¤ì—ì„œ ë¬¸ìì—´ì„ ê°€ì ¸ì˜´
 			if( strlen( str ) == 0 )
 				gConsole()->Hide( );
 
 			gConsole()->AddString( str );
-			SetWindowText(hWnd,"");//¿¡µğÅÍ ¹Ú½º ¹®ÀÚ¿­À» Áö¿ò
+			SetWindowText(hWnd,"");//ì—ë””í„° ë°•ìŠ¤ ë¬¸ìì—´ì„ ì§€ì›€
 			gConsole()->Parsing( str );
 		}
 
@@ -201,13 +201,13 @@ int DlgConsole::Log( char* fmt, ... )
 //	_strtime( time );
 	vsprintf( buff, fmt, (char *)(&fmt+1) );
 /*
-	// Console¿¡ Ãâ·ÂÇÒ °æ¿ì 
+	// Consoleì— ì¶œë ¥í•  ê²½ìš° 
 	if( m_nTarget & ZF_LOG_TARGET_CONSOLE )
 	{
 		printf( "(date[%s] time[%s]) : %s\n", date, time, buff );
 	}
 
-	// Log File¿¡ Ãâ·ÂÇÒ °æ¿ì
+	// Log Fileì— ì¶œë ¥í•  ê²½ìš°
 	if( m_nTarget & ZF_LOG_TARGET_FILE )
 	{
 		FILE*	fp = NULL;
@@ -219,7 +219,7 @@ int DlgConsole::Log( char* fmt, ... )
 		}
 	} */
 
-	// Log Window¿¡ Ãâ·ÂÇÒ °æ¿ì 
+	// Log Windowì— ì¶œë ¥í•  ê²½ìš° 
 //	if( m_nTarget & ZF_LOG_TARGET_WINDOW )
 //	{
 		HWND hList = ::GetDlgItem( _hWnd, IDC_CONSOLE_LIST );
@@ -239,7 +239,7 @@ int DlgConsole::Log( char* fmt, ... )
 
 void DlgConsole::Parsing( const char* str )
 {
-	//TODO : ¸í·É ¹®ÀÚ¿­ ÆÄ½ÌÇØ¼­ ÇØ´ç ÇÔ¼ö ºÒ·¯ÁÖ±â 
+	//TODO : ëª…ë ¹ ë¬¸ìì—´ íŒŒì‹±í•´ì„œ í•´ë‹¹ í•¨ìˆ˜ ë¶ˆëŸ¬ì£¼ê¸° 
 	char key[ 64 ] = "";
 	char val[ 64 ] = "";
 	sscanf( str, "%s%s", key, val );

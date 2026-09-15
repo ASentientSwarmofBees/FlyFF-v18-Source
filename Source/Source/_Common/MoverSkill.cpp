@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineItem.h"
 #include "defineSkill.h"
 #include "defineSound.h"
@@ -32,9 +32,9 @@
 #include "playerdata.h"
 #endif	// __SYS_PLAYER_DATA
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 	#include "honor.h"
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 #ifdef __FUNNY_COIN
 #include "FunnyCoin.h"
@@ -60,7 +60,7 @@ extern void __SetQuest( DWORD dwIdMover, int nQuest );
 
 #ifdef __WORLDSERVER
 
-#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 void	CMover::SetMasterSkillPointUp()
 {
 	if( m_nLevel != 72 && m_nLevel != 84 && m_nLevel != 96 && m_nLevel != 108 )
@@ -94,9 +94,9 @@ void	CMover::SetMasterSkillPointUp()
 	g_dpDBClient.SaveSkill( this );
 #endif // __S_NEW_SKILL_2
 }
-#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
-// ½ºÅ³Å¥¿¡ µé¾î ÀÖ´Â ¸¶¹ıµéÀÇ ÃÑ Ä³½ºÆÃ ½Ã°£À» °è»ê.
+// ìŠ¤í‚¬íì— ë“¤ì–´ ìˆëŠ” ë§ˆë²•ë“¤ì˜ ì´ ìºìŠ¤íŒ… ì‹œê°„ì„ ê³„ì‚°.
 int		CMover::GetQueueCastingTime()
 {
 	if( IsNPC() )	
@@ -114,31 +114,31 @@ int		CMover::GetQueueCastingTime()
 			LPSKILL pSkill = GetSkill( 0, pSlotQueue[i].m_dwId );
 			
 			ItemProp *pSkillProp;
-			if( !( pSkillProp = pSkill->GetProp() ) )					// JobSkill ¸®½ºÆ®¿¡¼­ ²¨³½ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³¿.
+			if( !( pSkillProp = pSkill->GetProp() ) )					// JobSkill ë¦¬ìŠ¤íŠ¸ì—ì„œ êº¼ë‚¸ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹°ë¥¼ êº¼ëƒ„.
 			{
-				Error( "CMover::GetQueueCastingTime : %s. ½ºÅ³(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾ø´Ù.", m_szName, pSkill->dwSkill );
+				Error( "CMover::GetQueueCastingTime : %s. ìŠ¤í‚¬(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—†ë‹¤.", m_szName, pSkill->dwSkill );
 				return FALSE;	// property not found
 			}
 			
 			AddSkillProp* pAddSkillProp;
 			
 		#ifdef __SKILL0517
-			if( !( pAddSkillProp	= prj.GetAddSkillProp( pSkillProp->dwSubDefine, GetSkillLevel( pSkill ) ) ) )					// JobSkill ¸®½ºÆ®¿¡¼­ ²¨³½ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³¿.
+			if( !( pAddSkillProp	= prj.GetAddSkillProp( pSkillProp->dwSubDefine, GetSkillLevel( pSkill ) ) ) )					// JobSkill ë¦¬ìŠ¤íŠ¸ì—ì„œ êº¼ë‚¸ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹°ë¥¼ êº¼ëƒ„.
 		#else	// __SKILL0517
-			if( !( pAddSkillProp	= prj.GetAddSkillProp( pSkillProp->dwSubDefine, pSkill->dwLevel ) ) )					// JobSkill ¸®½ºÆ®¿¡¼­ ²¨³½ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼¸¦ ²¨³¿.
+			if( !( pAddSkillProp	= prj.GetAddSkillProp( pSkillProp->dwSubDefine, pSkill->dwLevel ) ) )					// JobSkill ë¦¬ìŠ¤íŠ¸ì—ì„œ êº¼ë‚¸ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹°ë¥¼ êº¼ëƒ„.
 		#endif	// __SKILL0517
 			{
-				Error( "CMover::GetQueueCastingTime : %s. ¾Öµå½ºÅ³(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾ø´Ù.", m_szName, pSkill->dwSkill );
+				Error( "CMover::GetQueueCastingTime : %s. ì• ë“œìŠ¤í‚¬(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—†ë‹¤.", m_szName, pSkill->dwSkill );
 				return FALSE;	// property not found
 			}
 
 		#ifdef _DEBUG
 		#if __VER >= 9	// __SKILL_0706
 			if( (int)pAddSkillProp->dwCastingTime <= 0 )
-				Error( "GetQueueCastingTime : %sÀÇ addProp dwCastingTimeÀÌ %d", pSkillProp->szName, pAddSkillProp->dwCastingTime );
+				Error( "GetQueueCastingTime : %sì˜ addProp dwCastingTimeì´ %d", pSkillProp->szName, pAddSkillProp->dwCastingTime );
 		#else	// __SKILL_0706
 			if( (int)pAddSkillProp->dwSkillReady <= 0 )
-				Error( "GetQueueCastingTime : %sÀÇ addProp dwSkillReady°¡ %d", pSkillProp->szName, pAddSkillProp->dwSkillReady );
+				Error( "GetQueueCastingTime : %sì˜ addProp dwSkillReadyê°€ %d", pSkillProp->szName, pAddSkillProp->dwSkillReady );
 		#endif	// __SKILL_0706
 		#endif
 #if __VER >= 9	// __SKILL_0706
@@ -149,8 +149,8 @@ int		CMover::GetQueueCastingTime()
 		}
 	}
 
-	nTotalTime = (int)(nTotalTime * 0.7f);		// 70ÇÁ·Î Àû¿ëÇÑÈÄ.
-	nTotalTime = (int)( (nTotalTime / 1000.0f) * SEC1 );	// Ä³½ºÆÃ´ÜÀ§ ½Ã°£À¸·Î º¯È¯.
+	nTotalTime = (int)(nTotalTime * 0.7f);		// 70í”„ë¡œ ì ìš©í•œí›„.
+	nTotalTime = (int)( (nTotalTime / 1000.0f) * SEC1 );	// ìºìŠ¤íŒ…ë‹¨ìœ„ ì‹œê°„ìœ¼ë¡œ ë³€í™˜.
 	nTotalTime	= GetCastingTime( nTotalTime );
 
 	return nTotalTime;
@@ -159,9 +159,9 @@ int		CMover::GetQueueCastingTime()
 #endif // worldserver
 
 
-// ÃÖÃÊÀÇ ½ºÅ³ »ç¿ë ¸í·ÉÀÌ ³»¸®Áü
-// Mover°¡ »ç¿ë°¡´ÉÇÑ ½ºÅ³¹è¿­(m_aJobSkill[3+14])¿¡¼­ nIdx¿¡ ÇØ´çÇÏ´Â ½ºÅ³À» ²¨³» ±×°ÍÀ» ½ÇÇàÇÑ´Ù.
-// sutType : ½ºÅ³»ç¿ë½Ã ´ÜÃàÅ°/½ºÅ³Å¥ÀÇ ¿©ºÎ¸¦ Å¬¶ó·ÎºÎÅÍ ¹Ş¾Æ¼­ Ã³¸®.  Ä³½ºÆÃÅ¸ÀÓ °è»êÀÌ ´Ù¸£´Ù.
+// ìµœì´ˆì˜ ìŠ¤í‚¬ ì‚¬ìš© ëª…ë ¹ì´ ë‚´ë¦¬ì§
+// Moverê°€ ì‚¬ìš©ê°€ëŠ¥í•œ ìŠ¤í‚¬ë°°ì—´(m_aJobSkill[3+14])ì—ì„œ nIdxì— í•´ë‹¹í•˜ëŠ” ìŠ¤í‚¬ì„ êº¼ë‚´ ê·¸ê²ƒì„ ì‹¤í–‰í•œë‹¤.
+// sutType : ìŠ¤í‚¬ì‚¬ìš©ì‹œ ë‹¨ì¶•í‚¤/ìŠ¤í‚¬íì˜ ì—¬ë¶€ë¥¼ í´ë¼ë¡œë¶€í„° ë°›ì•„ì„œ ì²˜ë¦¬.  ìºìŠ¤íŒ…íƒ€ì„ ê³„ì‚°ì´ ë‹¤ë¥´ë‹¤.
 //
 #ifdef __CLIENT
 #if __VER >= 8 // __S8_PK
@@ -178,7 +178,7 @@ int		CMover::GetQueueCastingTime()
 #endif // __CLIENT
 {
 	if( IsNPC() )	
-		return FALSE;		// ¿£ÇÇ¾¾´Â ÀÌÂÊÀ» Å¸¸é ¾ÈµÈ´Ù.
+		return FALSE;		// ì—”í”¼ì”¨ëŠ” ì´ìª½ì„ íƒ€ë©´ ì•ˆëœë‹¤.
 
 #ifdef __WORLDSERVER
 	DWORD dwSkill = 0, dwLevel;
@@ -189,7 +189,7 @@ int		CMover::GetQueueCastingTime()
 		LPSKILL pSkill = GetSkill( nType, nIdx );
 		if( pSkill == NULL )
 		{
-			Error( "CMover::DoUseSkill : %s´Â nIdx¿¡ ½ºÅ³À» °¡Áö°í ÀÖÁö ¾Ê´Ù. %d", m_szName, nIdx );
+			Error( "CMover::DoUseSkill : %sëŠ” nIdxì— ìŠ¤í‚¬ì„ ê°€ì§€ê³  ìˆì§€ ì•Šë‹¤. %d", m_szName, nIdx );
 			return FALSE;
 		}
 		dwSkill	= pSkill->dwSkill;
@@ -205,7 +205,7 @@ int		CMover::GetQueueCastingTime()
 		if( dwLevel <= 0 )
 			return FALSE;
 /*
-#ifdef __GUILD_COMBAT_1TO1 // chipi_071227 ÀÓ½Ã·Î ¸·À½
+#ifdef __GUILD_COMBAT_1TO1 // chipi_071227 ì„ì‹œë¡œ ë§‰ìŒ
 		if( dwSkill == SI_KNT_HERO_DRAWING )
 		{
 		#ifdef __CLIENT
@@ -240,29 +240,29 @@ int		CMover::GetQueueCastingTime()
 	
 	if( pSkillProp->dwSkillType == KT_MAGIC )
 	{
-		if( sutType == SUT_QUEUESTART )		// ½ºÅ³Å¥ ½ÃÀÛ ½ºÅ³
+		if( sutType == SUT_QUEUESTART )		// ìŠ¤í‚¬í ì‹œì‘ ìŠ¤í‚¬
 		{
 		#ifdef __WORLDSERVER
-			nCastingTime = GetQueueCastingTime();	// Å¥³»ÀÇ ¸ğµç ½ºÅ³ÀÇ Ä³½ºÆÃÀ» ¸ô¾Æ¼­ ÇÑ´Ù.
+			nCastingTime = GetQueueCastingTime();	// íë‚´ì˜ ëª¨ë“  ìŠ¤í‚¬ì˜ ìºìŠ¤íŒ…ì„ ëª°ì•„ì„œ í•œë‹¤.
 		#endif
 			dwMsg = OBJMSG_MAGICCASTING;
 		} 
-		else if( sutType == SUT_QUEUEING )	// ½ºÅ³Å¥ ÁøÇàÁß ½ºÅ³
+		else if( sutType == SUT_QUEUEING )	// ìŠ¤í‚¬í ì§„í–‰ì¤‘ ìŠ¤í‚¬
 		{
 		#ifdef __WORLDSERVER
-			nCastingTime = 0;						// Ä³½ºÆÃ µ¿ÀÛ¾øÀÌ ½ÃÀü.
+			nCastingTime = 0;						// ìºìŠ¤íŒ… ë™ì‘ì—†ì´ ì‹œì „.
 		#endif
 			nMotion += 2;
 			dwMsg = OBJMSG_MAGICSKILL;
 		} 
 		else
-		{									// ÀÏ¹İÀûÀÎ ¸¶¹ı ½ºÅ³ »ç¿ë
+		{									// ì¼ë°˜ì ì¸ ë§ˆë²• ìŠ¤í‚¬ ì‚¬ìš©
 		#ifdef __WORLDSERVER
 		
 		#if __VER >= 9	// __SKILL_0706
-			nCastingTime	= (int)( ( pAddSkillProp->dwCastingTime / 1000.0f ) * SEC1 );	// Ä³½ºÆÃ µ¿ÀÛ ÀÖÀ½.
+			nCastingTime	= (int)( ( pAddSkillProp->dwCastingTime / 1000.0f ) * SEC1 );	// ìºìŠ¤íŒ… ë™ì‘ ìˆìŒ.
 		#else	// __SKILL_0706
-			nCastingTime = (int)((pAddSkillProp->dwSkillReady / 1000.0f) * SEC1);	// Ä³½ºÆÃ µ¿ÀÛ ÀÖÀ½.
+			nCastingTime = (int)((pAddSkillProp->dwSkillReady / 1000.0f) * SEC1);	// ìºìŠ¤íŒ… ë™ì‘ ìˆìŒ.
 		#endif	// __SKILL_0706
 		
 			nCastingTime = GetCastingTime( nCastingTime );
@@ -285,8 +285,8 @@ int		CMover::GetQueueCastingTime()
 	return  bSuccess;
 }
 
-// dwSkill,nLevel¸¸ ÀÖÀ¸¸é ¾îµğ¼­µçÁö »ç¿ë°¡´ÉÇÑ ¹öÀü	
-// ¸ó½ºÅÍ±îÁö »ç¿ë°¡´É
+// dwSkill,nLevelë§Œ ìˆìœ¼ë©´ ì–´ë””ì„œë“ ì§€ ì‚¬ìš©ê°€ëŠ¥í•œ ë²„ì „	
+// ëª¬ìŠ¤í„°ê¹Œì§€ ì‚¬ìš©ê°€ëŠ¥
 #if __VER >= 8 // __S8_PK
 BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETYPE sutType, BOOL bControl, const int nCastingTime )
 #else // __VER >= 8 // __S8_PK
@@ -296,7 +296,7 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	if( IsDie() )	return FALSE;
 	if( m_pActMover->IsFly() )	return FALSE;
 	if( m_dwFlag & MVRF_NOATTACK )	
-		return FALSE;		// °ø°İ±İÁö »óÅÂ¿¡¼± ½ºÅ³ ¸ø¾¸.
+		return FALSE;		// ê³µê²©ê¸ˆì§€ ìƒíƒœì—ì„  ìŠ¤í‚¬ ëª»ì”€.
 
 #ifdef __QUIZ
 	if( GetWorld() && GetWorld()->GetID() == WI_WORLD_QUIZ )
@@ -304,14 +304,14 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 #endif // __QUIZ
 	
 #if defined(__WORLDSERVER)	
-	// ±æµå´ëÀü¸Ê¿¡¼­ ¼±¼ö¸¸ »ç¿ë
+	// ê¸¸ë“œëŒ€ì „ë§µì—ì„œ ì„ ìˆ˜ë§Œ ì‚¬ìš©
 	CWorld* pWorld	= GetWorld();
 	if( pWorld && pWorld->GetID() == WI_WORLD_GUILDWAR )
 	{		
 		if( m_nGuildCombatState == 0 )
 		{
 			if( IsPlayer() )
-				((CUser*) this)->AddText( prj.GetText( TID_GAME_GUILDCOMBAT_STANDS_NOTUSESKILL ) );	//"¼öÁ¤ÇØ¾ßÇÔ : °üÁß¼®¿¡¼­´Â ½ºÅ³À» »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù" );
+				((CUser*) this)->AddText( prj.GetText( TID_GAME_GUILDCOMBAT_STANDS_NOTUSESKILL ) );	//"ìˆ˜ì •í•´ì•¼í•¨ : ê´€ì¤‘ì„ì—ì„œëŠ” ìŠ¤í‚¬ì„ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤" );
 			return FALSE;
 		}
 	}
@@ -324,7 +324,7 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	GetSkillProp( &pSkillProp, &pAddSkillProp, dwSkill, nLevel, "DoUseSkill" );
 
 #ifdef __CLIENT
-	// ÀÏ´ëÀÏ ±æµå´ëÀü ½Ã ºí¸µÅ©Ç® »ç¿ë ±İÁö
+	// ì¼ëŒ€ì¼ ê¸¸ë“œëŒ€ì „ ì‹œ ë¸”ë§í¬í’€ ì‚¬ìš© ê¸ˆì§€
 	DWORD dwWorldID(GetWorld()->GetID());
 	if(dwWorldID >= WI_WORLD_GUILDWAR1TO1_0 && dwWorldID <= WI_WORLD_GUILDWAR1TO1_L)
 	{
@@ -336,11 +336,11 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	}
 #endif // __CLIENT
 
-	CMover* pTarget = prj.GetMover( idFocusObj );	// Å¸°ÙÀÇ Æ÷ÀÎÅÍ¸¦ ¾ò¾î³¿.
+	CMover* pTarget = prj.GetMover( idFocusObj );	// íƒ€ê²Ÿì˜ í¬ì¸í„°ë¥¼ ì–»ì–´ëƒ„.
 	if( IsInvalidObj( pTarget ) )	
 		return FALSE;
 
-	if( pSkillProp->dwID == SI_ASS_HEAL_HEALING )	// Èú¸µ »ó´ë°¡ Á×¾úÀ¸¸é Ãë¼Ò
+	if( pSkillProp->dwID == SI_ASS_HEAL_HEALING )	// íë§ ìƒëŒ€ê°€ ì£½ì—ˆìœ¼ë©´ ì·¨ì†Œ
 	{
 		if( pTarget->IsDie() )
 			return FALSE;
@@ -348,11 +348,11 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 
 #ifdef __WORLDSERVER
 #ifdef __PK_PVP_SKILL_REGION
-	if( pSkillProp->nEvildoing < 0 )	//PK ±İÁö±¸¿ª¿¡¼­ ¾ÇÇà Á¾·ùÀÇ ½ºÅ³Àº PVP »ó´ë¿¡°Ô¸¸ »ç¿ëÇÏµµ·Ï..
+	if( pSkillProp->nEvildoing < 0 )	//PK ê¸ˆì§€êµ¬ì—­ì—ì„œ ì•…í–‰ ì¢…ë¥˜ì˜ ìŠ¤í‚¬ì€ PVP ìƒëŒ€ì—ê²Œë§Œ ì‚¬ìš©í•˜ë„ë¡..
 	{
 		int nAttackerPK, nDefenderPK;
 		nAttackerPK = nDefenderPK = 0;
-		if( IsPlayer() && pTarget->IsPlayer() && (this != pTarget) ) //(this!=pTarget) - Å¸°ÙÀ» ¾ÈÂï´Â ½ºÅ³Àº Å¸°ÙÀÌ ½ÃÀüÀÚÀÌ´Ù.
+		if( IsPlayer() && pTarget->IsPlayer() && (this != pTarget) ) //(this!=pTarget) - íƒ€ê²Ÿì„ ì•ˆì°ëŠ” ìŠ¤í‚¬ì€ íƒ€ê²Ÿì´ ì‹œì „ìì´ë‹¤.
 		{
 			DWORD dwRegionAttr	= GetPKPVPRegionAttr();
 			nAttackerPK = IsPKPVPInspectionBase( dwRegionAttr, FALSE );
@@ -373,7 +373,7 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		}
 	}
 #endif // __PK_PVP_SKILL_REGION
-	if( HasBuff( BUFF_SKILL, SI_BLD_SUP_BERSERK ) )		// ¹ö¼­Å©°¡ °É·ÁÀÖ´Â »óÅÂ¿¡¼± ½ºÅ³»ç¿ë ±İÁö.
+	if( HasBuff( BUFF_SKILL, SI_BLD_SUP_BERSERK ) )		// ë²„ì„œí¬ê°€ ê±¸ë ¤ìˆëŠ” ìƒíƒœì—ì„  ìŠ¤í‚¬ì‚¬ìš© ê¸ˆì§€.
 		return FALSE;
 
 #ifdef __NPC_BUFF
@@ -388,12 +388,12 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	}
 #endif // __NPC_BUFF
 
-	if( pSkillProp->dwID == SI_ACR_YOYO_SNITCH || pSkillProp->dwID == SI_JST_YOYO_VATALSTAB )	// °­Å», È¥½ÅÀÇ ÀÏ°İ½ºÅ³ÀÌ¸é ´ÙÀÌÀÏ·çÁ¯»óÅÂÀÎÁö °Ë»çÇÑ´Ù.
+	if( pSkillProp->dwID == SI_ACR_YOYO_SNITCH || pSkillProp->dwID == SI_JST_YOYO_VATALSTAB )	// ê°•íƒˆ, í˜¼ì‹ ì˜ ì¼ê²©ìŠ¤í‚¬ì´ë©´ ë‹¤ì´ì¼ë£¨ì ¼ìƒíƒœì¸ì§€ ê²€ì‚¬í•œë‹¤.
 	{
-		if( !HasBuff( BUFF_SKILL, SI_ACR_SUP_DARKILLUSION ) )		// ´ÙÅ©ÀÏ·çÁ¯ »óÅÂ°¡ ¾Æ´Ï¸é »ç¿ë¸øÇÔ
+		if( !HasBuff( BUFF_SKILL, SI_ACR_SUP_DARKILLUSION ) )		// ë‹¤í¬ì¼ë£¨ì ¼ ìƒíƒœê°€ ì•„ë‹ˆë©´ ì‚¬ìš©ëª»í•¨
 		{
 			if( IsPlayer() )
-				((CUser*)this)->AddDefinedText( TID_GAME_REQ_DARK, "" );		// ´ÙÅ©ÀÏ·çÁ¯»óÅÂ¿¡¼­ °¡´ÉÇÕ´Ï´Ù.
+				((CUser*)this)->AddDefinedText( TID_GAME_REQ_DARK, "" );		// ë‹¤í¬ì¼ë£¨ì ¼ìƒíƒœì—ì„œ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 			return FALSE;
 		}
 	}
@@ -423,57 +423,57 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 
 	MoverProp *pMoverProp = pTarget->GetProp();
 	if( pMoverProp == NULL )
-		Error( "DoUseSkill : %s , Å¸°Ù %s ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾ø´Ù", m_szName, pTarget->m_szName );
+		Error( "DoUseSkill : %s , íƒ€ê²Ÿ %s ì˜ í”„ë¡œí¼í‹°ê°€ ì—†ë‹¤", m_szName, pTarget->m_szName );
 	
-	if( pTarget != this )	// Å¸ÀÎ¿¡°Ô ¾²´Â Á¾·ùÀÏ¶§¸¸ ¾Æ·¡°Ë»ç¸¦ ÇÔ.
+	if( pTarget != this )	// íƒ€ì¸ì—ê²Œ ì“°ëŠ” ì¢…ë¥˜ì¼ë•Œë§Œ ì•„ë˜ê²€ì‚¬ë¥¼ í•¨.
 	{
 	#ifdef __WORLDSERVER
-		if( pSkillProp->dwUseChance == WUI_NOW )	// Ë¬ - ¸®¼Ò½º ÇØÅ·
+		if( pSkillProp->dwUseChance == WUI_NOW )	// åº· - ë¦¬ì†ŒìŠ¤ í•´í‚¹
 			return FALSE;
 		if( pSkillProp->dwExeTarget == EXT_SELFCHGPARAMET )
 			return FALSE;
 
 		if( pTarget->IsNPC() && pTarget->IsPeaceful() )	
-			return FALSE;	// NPCÁö¸¸ Ä£ÇÑ?NPC¿¡°Õ ½ºÅ³ »ç¿ë ±İÁö
+			return FALSE;	// NPCì§€ë§Œ ì¹œí•œ?NPCì—ê² ìŠ¤í‚¬ ì‚¬ìš© ê¸ˆì§€
 		
 		if( !g_eLocal.GetState( EVE_STEAL ) )
 		{
-			if( pSkillProp->nEvildoing < 0 )	// ³ª»Û¸¶¹ıÀ» ¾²·ÁÇÒ¶§
-				if( IsSteal( pTarget ) )	// pTarget¸¦ ½ºÆ¿ ÇÏ·ÁÇÏ¸é 
+			if( pSkillProp->nEvildoing < 0 )	// ë‚˜ìœë§ˆë²•ì„ ì“°ë ¤í• ë•Œ
+				if( IsSteal( pTarget ) )	// pTargetë¥¼ ìŠ¤í‹¸ í•˜ë ¤í•˜ë©´ 
 					return FALSE;
 		}
 #ifdef __JEFF_11_4
-		if(  pWorld && pWorld->IsArena() == FALSE )		// ¾Æ·¹³ª°¡ ¾Æ´Ï¸é,
+		if(  pWorld && pWorld->IsArena() == FALSE )		// ì•„ë ˆë‚˜ê°€ ì•„ë‹ˆë©´,
 #endif	// __JEFF_11_4
 		{
-			if( pSkillProp->nEvildoing > 0 )	// ÁÁÀº ¸¶¹ıÀ»
+			if( pSkillProp->nEvildoing > 0 )	// ì¢‹ì€ ë§ˆë²•ì„
 			{
 				HITTYPE hy;
 #if __VER >= 8 // __S8_PK
-				if( (hy = GetHitType2( pTarget, TRUE, TRUE)) != HITTYPE_FAIL )  	// Àû´ëÀûÀÎ ´ë»ó¿¡°Ô ¾²·ÁÇÒ¶§
+				if( (hy = GetHitType2( pTarget, TRUE, TRUE)) != HITTYPE_FAIL )  	// ì ëŒ€ì ì¸ ëŒ€ìƒì—ê²Œ ì“°ë ¤í• ë•Œ
 #else // __VER >= 8 // __S8_PK
-				if( (hy = GetHitType2( pTarget, TRUE)) != HITTYPE_FAIL )  	// Àû´ëÀûÀÎ ´ë»ó¿¡°Ô ¾²·ÁÇÒ¶§
+				if( (hy = GetHitType2( pTarget, TRUE)) != HITTYPE_FAIL )  	// ì ëŒ€ì ì¸ ëŒ€ìƒì—ê²Œ ì“°ë ¤í• ë•Œ
 #endif // __VER >= 8 // __S8_PK
 				{
 					if( IsPlayer() )
-						((CUser*)this)->AddDefinedText( TID_GAME_NEVERKILLSTOP, "" );		// ½ºÅ³À» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-					return FALSE;		// ½ºÅ³ Ãë¼Ò
+						((CUser*)this)->AddDefinedText( TID_GAME_NEVERKILLSTOP, "" );		// ìŠ¤í‚¬ì„ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+					return FALSE;		// ìŠ¤í‚¬ ì·¨ì†Œ
 				}
 			}
 		}
 		
 	#endif
-		SetAngle( GetDegree(pTarget->GetPos(), GetPos()) );		// ¸ñÇ¥ÂÊÀ¸·Î ¸öÀ» µ¹¸².
+		SetAngle( GetDegree(pTarget->GetPos(), GetPos()) );		// ëª©í‘œìª½ìœ¼ë¡œ ëª¸ì„ ëŒë¦¼.
 	}
 	
-	// ±æµåÄÄ¹îÁß¿¡´Â ºÎÈ°½ºÅ³ ±İÁö
+	// ê¸¸ë“œì»´ë±ƒì¤‘ì—ëŠ” ë¶€í™œìŠ¤í‚¬ ê¸ˆì§€
 	if( GetWorld()->GetID() == WI_WORLD_GUILDWAR )
 	{
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		if( pSkillProp->dwID == SI_MAG_MAG_BLINKPOOL || pSkillProp->dwID == SI_RIG_HERO_RETURN )
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		if( pSkillProp->dwID == SI_MAG_MAG_BLINKPOOL )
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 			return FALSE;
 
 		if( g_GuildCombatMng.m_nState != CGuildCombat::WAR_STATE )
@@ -486,16 +486,16 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 #ifdef __WORLDSERVER
 
 /*
----- 2008.03.25 µå·ÎÀ×½ºÅ³ ¹ö±× »èÁ¦
-	#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+---- 2008.03.25 ë“œë¡œì‰ìŠ¤í‚¬ ë²„ê·¸ ì‚­ì œ
+	#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	if( pSkillProp->dwID == SI_KNT_HERO_DRAWING )
 	{
 		CParty* pParty	= g_PartyMng.GetParty( ((CUser*)this)->m_idparty );
 		if( pParty )
 			pParty->DoUsePartyReCall( ((CUser*)this)->m_idparty, ((CUser*)this)->m_idPlayer, 0);
 	}
-	#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
----- 2008.03.25 µå·ÎÀ×½ºÅ³ ¹ö±× »èÁ¦
+	#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+---- 2008.03.25 ë“œë¡œì‰ìŠ¤í‚¬ ë²„ê·¸ ì‚­ì œ
 */
 	if( g_eLocal.GetState( EVE_SCHOOL ) )
 	{
@@ -503,11 +503,11 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 			return FALSE;
 	}
 
-	// ½ºÅ³À» »ç¿ëÇÒ¶§ ÀûÇÕÇÑ ¹«±â¸¦ µé°í ÀÖ´Â°¡ °Ë»ç
+	// ìŠ¤í‚¬ì„ ì‚¬ìš©í• ë•Œ ì í•©í•œ ë¬´ê¸°ë¥¼ ë“¤ê³  ìˆëŠ”ê°€ ê²€ì‚¬
 	ItemProp* pItemProp = NULL;
 	DWORD	dwItemKind3;
 
-	if( pSkillProp->dwLinkKind == IK3_SHIELD || pSkillProp->dwLinkKind == IK3_MAGICBARUNA || pSkillProp->dwLinkKind == IK3_ZEMBARUNA )	// ÇÊ¿ä¾Æ¾ÆÀÌÅÛÀÌ ¹æÆĞÀÏ¶§
+	if( pSkillProp->dwLinkKind == IK3_SHIELD || pSkillProp->dwLinkKind == IK3_MAGICBARUNA || pSkillProp->dwLinkKind == IK3_ZEMBARUNA )	// í•„ìš”ì•„ì•„ì´í…œì´ ë°©íŒ¨ì¼ë•Œ
 	{
 		CItemElem *pItemElem = GetEquipItem( PARTS_SHIELD );
 		if( pItemElem )
@@ -517,13 +517,13 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		} else
 			dwItemKind3 = NULL_ID;
 	}
-	else	// ÇÊ¿ä¾ÆÀÌÅÛÀÌ ¹æÆĞ°¡ ¾Æ´Ò¶§´Â ¾×Æ¼ºê ¾ÆÀÌÅÛÀ»...
+	else	// í•„ìš”ì•„ì´í…œì´ ë°©íŒ¨ê°€ ì•„ë‹ë•ŒëŠ” ì•¡í‹°ë¸Œ ì•„ì´í…œì„...
 	{
 		pItemProp = GetActiveHandItemProp();
 		dwItemKind3 = pItemProp->dwItemKind3;
 	}
 	
-	switch( pSkillProp->dwLinkKind )	// ½ºÅ³ÀÌ ÇÊ¿ä·ÎÇÏ´Â ¹«±â.
+	switch( pSkillProp->dwLinkKind )	// ìŠ¤í‚¬ì´ í•„ìš”ë¡œí•˜ëŠ” ë¬´ê¸°.
 	{
 	case IK3_ENCHANTWEAPON:
 		{
@@ -534,32 +534,32 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 				CItemElem *pItemElemR = GetWeaponItem();
 				CItemElem *pItemElemL = GetLWeaponItem();
 
-				if( pItemElemR && pItemElemL )	// ¾ç¼ÕÁã°í ÀÖÀ»¶§.
-				{	// ¾ç¼Õ´Ù ¼Ó¼ºÀÌ ¾øÀ»¶©
+				if( pItemElemR && pItemElemL )	// ì–‘ì†ì¥ê³  ìˆì„ë•Œ.
+				{	// ì–‘ì†ë‹¤ ì†ì„±ì´ ì—†ì„ë•
 					if( (pItemElemR && pItemElemR->m_bItemResist == SAI79::NO_PROP) &&		
 						(pItemElemL && pItemElemL->m_bItemResist == SAI79::NO_PROP) )
-						bFail = TRUE;		// »ç¿ë±İÁö
+						bFail = TRUE;		// ì‚¬ìš©ê¸ˆì§€
 				} 
-				else if( pItemElemR && pItemElemL == NULL )	// ¿À¸¥¼Õ¸¸ Áã°í ÀÖÀ»¶§.
+				else if( pItemElemR && pItemElemL == NULL )	// ì˜¤ë¥¸ì†ë§Œ ì¥ê³  ìˆì„ë•Œ.
 				{
-					if( pItemElemR && pItemElemR->m_bItemResist == SAI79::NO_PROP )		// ¿À¸¥¼Õ¿¡ ¼Ó¼ºÀÌ ¾øÀ»¶©
-						bFail = TRUE;		// »ç¿ë±İÁö
+					if( pItemElemR && pItemElemR->m_bItemResist == SAI79::NO_PROP )		// ì˜¤ë¥¸ì†ì— ì†ì„±ì´ ì—†ì„ë•
+						bFail = TRUE;		// ì‚¬ìš©ê¸ˆì§€
 				} 
-				else if( pItemElemR == NULL && pItemElemL == NULL )	// ¾ç¼Õ´Ù ¾øÀ»¶§
+				else if( pItemElemR == NULL && pItemElemL == NULL )	// ì–‘ì†ë‹¤ ì—†ì„ë•Œ
 				{
-					bFail = TRUE;		// ÀÌ¶§´Â ¹«Á¶°Ç »ç¿ë±İÁö
+					bFail = TRUE;		// ì´ë•ŒëŠ” ë¬´ì¡°ê±´ ì‚¬ìš©ê¸ˆì§€
 				}
 
 				if( bFail )
 				{
-					( (CUser*)this )->AddDefinedText( TID_SKILL_NOTELEWEAPON, "" );	// ¼Ó¼º¹«±â°¡ ¾ø¾î »ç¿ë¸øÇÔ.
+					( (CUser*)this )->AddDefinedText( TID_SKILL_NOTELEWEAPON, "" );	// ì†ì„±ë¬´ê¸°ê°€ ì—†ì–´ ì‚¬ìš©ëª»í•¨.
 					return FALSE;
 				}
 			}
 		}
 		break;
 	case IK3_MAGICBOTH:
-		if( dwItemKind3 != IK3_WAND  && dwItemKind3 != IK3_STAFF )	// ¼Õ¿¡µç ¹«±â°¡ ¿Ïµåµµ ½ºÅÂÇÁµµ ¾Æ´Ï¸é
+		if( dwItemKind3 != IK3_WAND  && dwItemKind3 != IK3_STAFF )	// ì†ì—ë“  ë¬´ê¸°ê°€ ì™„ë“œë„ ìŠ¤íƒœí”„ë„ ì•„ë‹ˆë©´
 		{
 			if( IsPlayer() )
 				( (CUser*)this )->AddDefinedText( TID_GAME_WRONGITEM, "" );
@@ -589,7 +589,7 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		break;
 #endif // __CROSSBOW
 	default:
-		if( pSkillProp->dwLinkKind != NULL_ID && pSkillProp->dwLinkKind != dwItemKind3 )	// ±×¿Ü´Â IK3¸¦ ºñ±³ÇØ¼­ Æ²¸®¸é ¿¡·¯.
+		if( pSkillProp->dwLinkKind != NULL_ID && pSkillProp->dwLinkKind != dwItemKind3 )	// ê·¸ì™¸ëŠ” IK3ë¥¼ ë¹„êµí•´ì„œ í‹€ë¦¬ë©´ ì—ëŸ¬.
 		{
 			if( IsPlayer() )
 				( (CUser*)this )->AddDefinedText( TID_GAME_WRONGITEM, "" );
@@ -598,7 +598,7 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		break;
 	}
 
-#if __VER >= 8 //__CSC_VER8_3 //Å¸°ÙÀÇ ¹öÇÁÁß ÀÌ¹Ì °É¸° ¹öÇÁ°¡ ·¹º§ÀÌ ³ôÀ» °æ¿ì °ÉÁö ¸øÇÏ°Ô ÇÔ.
+#if __VER >= 8 //__CSC_VER8_3 //íƒ€ê²Ÿì˜ ë²„í”„ì¤‘ ì´ë¯¸ ê±¸ë¦° ë²„í”„ê°€ ë ˆë²¨ì´ ë†’ì„ ê²½ìš° ê±¸ì§€ ëª»í•˜ê²Œ í•¨.
 	if(pSkillProp->dwSkillType == BUFF_SKILL)
 	{
 		CMover* searchMover;
@@ -619,7 +619,7 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 			if( hasSkill->dwLevel > nLevel )
 #endif	// __BUFF_1107
 			{
-				if( IsPlayer() ) // À±»óÀÌ	// this°¡ CUser°¡ ¾Æ´Ò ¼ö ÀÖÀ½.
+				if( IsPlayer() ) // ìœ¤ìƒì´	// thisê°€ CUserê°€ ì•„ë‹ ìˆ˜ ìˆìŒ.
 					( (CUser*)this )->AddDefinedText( TID_GAME_DONOTUSEBUFF, "" );
 				return FALSE;
 			}
@@ -627,22 +627,22 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	}
 #endif //__CSC_VER8_3
 
-	// ÅõÇÚµå¿ëÀÌ³Ä ¿øÇÚµå¿ëÀÌ³ÄÀÇ Á¶°Ç°Ë»ç.
+	// íˆ¬í•¸ë“œìš©ì´ëƒ ì›í•¸ë“œìš©ì´ëƒì˜ ì¡°ê±´ê²€ì‚¬.
 	if( pSkillProp->dwHanded != NULL_ID )
 	{
 		if( pItemProp )
 		{
 			if( IsPlayer() )
 			{
-				if( pSkillProp->dwHanded == HD_DUAL )		// µà¾ó¿ë ½ºÅ³ÀÎµ¥
+				if( pSkillProp->dwHanded == HD_DUAL )		// ë“€ì–¼ìš© ìŠ¤í‚¬ì¸ë°
 				{
-					if( IsDualWeapon() == FALSE )			// µà¾ó·Î ¾ÈÂ÷°í ÀÖ´Ù.
+					if( IsDualWeapon() == FALSE )			// ë“€ì–¼ë¡œ ì•ˆì°¨ê³  ìˆë‹¤.
 					{
 						((CUser*)this)->AddDefinedText( TID_GAME_WRONGITEM, "" );
 						return FALSE;
 					}
 				} 
-				else if( pItemProp->dwHanded != pSkillProp->dwHanded )	// ½ºÅ³°ú Áã°í ÀÖ´Â ¾ÆÀÌÅÛÀÇ Handed Á¾·ù°¡ ´Ù¸£¸é ¿¡·¯
+				else if( pItemProp->dwHanded != pSkillProp->dwHanded )	// ìŠ¤í‚¬ê³¼ ì¥ê³  ìˆëŠ” ì•„ì´í…œì˜ Handed ì¢…ë¥˜ê°€ ë‹¤ë¥´ë©´ ì—ëŸ¬
 				{
 					((CUser*)this)->AddDefinedText( TID_GAME_WRONGITEM, "" );
 					return FALSE;
@@ -651,23 +651,23 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		}
 	}
 
-	// ÇÊ¿äÃÑ¾ËÁ¾·ù°¡ ÁöÁ¤µÇ¾î ÀÖ´Ù¸é
+	// í•„ìš”ì´ì•Œì¢…ë¥˜ê°€ ì§€ì •ë˜ì–´ ìˆë‹¤ë©´
 	if( IsBullet( pSkillProp ) == FALSE )
 		return FALSE;
 
 	if( IsPlayer() )
 	{
-#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #ifdef __3RD_LEGEND16
 		if( pSkillProp->dwReqDisLV != NULL_ID && GetLevel() < (int)( pSkillProp->dwReqDisLV )  && !IsMaster() && !IsHero() && !IsLegendHero() )
 #else // __3RD_LEGEND16
 		if( pSkillProp->dwReqDisLV != NULL_ID && GetLevel() < (int)( pSkillProp->dwReqDisLV )  && !IsMaster() && !IsHero() )
 #endif // __3RD_LEGEND16
 			return FALSE;
-#else //__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		if( pSkillProp->dwReqDisLV != NULL_ID && GetLevel() < pSkillProp->dwReqDisLV )
 			return FALSE;
-#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		
 		if( pSkillProp->dwReSkill1 != 0xffffffff )
 		{
@@ -706,25 +706,25 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		}
 	}
 
-	if( pSkillProp->dwID == SI_BIL_PST_ASALRAALAIKUM )	// ¾Ñ»ì¶óÀÇ °æ¿ì ¿¹¿ÜÃ³¸®.
+	if( pSkillProp->dwID == SI_BIL_PST_ASALRAALAIKUM )	// ì•—ì‚´ë¼ì˜ ê²½ìš° ì˜ˆì™¸ì²˜ë¦¬.
 	{
-		//if( GetFatiguePoint() <= 0  )		// FP°¡ ÇÏ³ªµµ ¾øÀ¸¸é »ç¿ë¾ÈµÊ. // chipi_090917 Á¦°Å
-		if( IsPlayer() && GetFatiguePoint() < GetReqFp( pAddSkillProp->nReqFp )  )		// chipi_090917 ÇÊ¿ä FP °Ë»ç
+		//if( GetFatiguePoint() <= 0  )		// FPê°€ í•˜ë‚˜ë„ ì—†ìœ¼ë©´ ì‚¬ìš©ì•ˆë¨. // chipi_090917 ì œê±°
+		if( IsPlayer() && GetFatiguePoint() < GetReqFp( pAddSkillProp->nReqFp )  )		// chipi_090917 í•„ìš” FP ê²€ì‚¬
 		{
 			((CUser*)this)->AddDefinedText( TID_GAME_REQFP ); // chipi_00917
 			return FALSE;
 		}
 	}
 
-	// ÄğÅ¸ÀÓ °Ë»ç.
+	// ì¿¨íƒ€ì„ ê²€ì‚¬.
 	{
-		int nSkillIdx = GetSkillIdx( dwSkill );		// ½ºÅ³¸®½ºÆ® ÀÎµ¦½º¸¦ Ã£À½.
+		int nSkillIdx = GetSkillIdx( dwSkill );		// ìŠ¤í‚¬ë¦¬ìŠ¤íŠ¸ ì¸ë±ìŠ¤ë¥¼ ì°¾ìŒ.
 		if( nSkillIdx >= 0 )
 		{
-			if( GetReuseDelay( nSkillIdx ) )		// ¾²·Á°í ÇÏ´Â ½ºÅ³ ÄğÅ¸ÀÓÀÌ ³²¾ÆÀÖÀ¸¸é ½ÇÇà¾ÈµÊ.
+			if( GetReuseDelay( nSkillIdx ) )		// ì“°ë ¤ê³  í•˜ëŠ” ìŠ¤í‚¬ ì¿¨íƒ€ì„ì´ ë‚¨ì•„ìˆìœ¼ë©´ ì‹¤í–‰ì•ˆë¨.
 			{
 				if( IsPlayer() )
-					((CUser*)this)->AddDefinedText( TID_GAME_SKILLWAITTIME, "" );	// ¾ÆÁ÷ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
+					((CUser*)this)->AddDefinedText( TID_GAME_SKILLWAITTIME, "" );	// ì•„ì§ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 				return FALSE;
 			}
 		}
@@ -775,12 +775,12 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	OBJMSG dwMsg = OBJMSG_NONE;
 	int nMotion = (int)pSkillProp->dwUseMotion;
 	
-	//--- ¸¶³ª°¡ ÃæºĞÇÑÁö °Ë»ç...
+	//--- ë§ˆë‚˜ê°€ ì¶©ë¶„í•œì§€ ê²€ì‚¬...
 	if( pSkillProp->dwSkillType == KT_SKILL )
 	{
 	#ifdef __WORLDSERVER
 
-		#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+		#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 			if(GetReqFp( pAddSkillProp->nReqFp ) == 9999999)
 			{
 				if( GetManaPoint() != GetMaxManaPoint())
@@ -798,17 +798,17 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 			}
 			else
 			{
-				if( GetFatiguePoint() - GetReqFp( pAddSkillProp->nReqFp ) < 0 )	// FP°¡ ¸ğÀÚ¸£¹Ç·Î Ãë¼Ò
+				if( GetFatiguePoint() - GetReqFp( pAddSkillProp->nReqFp ) < 0 )	// FPê°€ ëª¨ìë¥´ë¯€ë¡œ ì·¨ì†Œ
 				{
 					if( TRUE == IsPlayer() )
 						( (CUser*)this )->AddDefinedText( TID_GAME_REQFP, "" );
 					return FALSE;
 				}
 
-				// KT_SKILLÁß¿¡ MP°¡ ¼Ò¸ğµÇ´Â °ªÀÌÀÖÀ¸¸é FP¿Í °°ÀÌ ¼Ò¸ğ½ÃÄÑÁØ´Ù.
+				// KT_SKILLì¤‘ì— MPê°€ ì†Œëª¨ë˜ëŠ” ê°’ì´ìˆìœ¼ë©´ FPì™€ ê°™ì´ ì†Œëª¨ì‹œì¼œì¤€ë‹¤.
 				if( (int)pAddSkillProp->nReqMp > 0 )
 				{
-					if( GetManaPoint() - GetReqMp( pAddSkillProp->nReqMp ) < 0 )		// ¸¶³ª°¡ ¸ğÀÚ¸£¹Ç·Î Ãë¼Ò
+					if( GetManaPoint() - GetReqMp( pAddSkillProp->nReqMp ) < 0 )		// ë§ˆë‚˜ê°€ ëª¨ìë¥´ë¯€ë¡œ ì·¨ì†Œ
 					{
 						if( TRUE == IsPlayer() )
 							( (CUser*)this )->AddDefinedText( TID_GAME_REQMP, "" );
@@ -816,36 +816,36 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 					}
 				}
 			}
-		#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
-			if( GetFatiguePoint() - GetReqFp( pAddSkillProp->nReqFp ) < 0 )	// FP°¡ ¸ğÀÚ¸£¹Ç·Î Ãë¼Ò
+		#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+			if( GetFatiguePoint() - GetReqFp( pAddSkillProp->nReqFp ) < 0 )	// FPê°€ ëª¨ìë¥´ë¯€ë¡œ ì·¨ì†Œ
 			{
 				if( TRUE == IsPlayer() )
 					( (CUser*)this )->AddDefinedText( TID_GAME_REQFP, "" );
 				return FALSE;
 			}
 
-			// KT_SKILLÁß¿¡ MP°¡ ¼Ò¸ğµÇ´Â °ªÀÌÀÖÀ¸¸é FP¿Í °°ÀÌ ¼Ò¸ğ½ÃÄÑÁØ´Ù.
+			// KT_SKILLì¤‘ì— MPê°€ ì†Œëª¨ë˜ëŠ” ê°’ì´ìˆìœ¼ë©´ FPì™€ ê°™ì´ ì†Œëª¨ì‹œì¼œì¤€ë‹¤.
 			if( (int)pAddSkillProp->nReqMp > 0 )
 			{
-				if( GetManaPoint() - GetReqMp( pAddSkillProp->nReqMp ) < 0 )		// ¸¶³ª°¡ ¸ğÀÚ¸£¹Ç·Î Ãë¼Ò
+				if( GetManaPoint() - GetReqMp( pAddSkillProp->nReqMp ) < 0 )		// ë§ˆë‚˜ê°€ ëª¨ìë¥´ë¯€ë¡œ ì·¨ì†Œ
 				{
 					if( TRUE == IsPlayer() )
 						( (CUser*)this )->AddDefinedText( TID_GAME_REQMP, "" );
 					return FALSE;
 				}
 			}
-		#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+		#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
 	#endif
-		dwMsg = OBJMSG_MELEESKILL;	// Å¬¶ó¿¡¼­µµ ½ÇÇàÇØ¾ßÇÔ
+		dwMsg = OBJMSG_MELEESKILL;	// í´ë¼ì—ì„œë„ ì‹¤í–‰í•´ì•¼í•¨
 	} 
 	else if( pSkillProp->dwSkillType == KT_MAGIC )
 	{
 	#ifdef __WORLDSERVER
-		if( GetAdjParam( DST_CHRSTATE ) & CHS_SILENT )		// Ä§¹¬»óÅÂ¿¡¼± ¸ÅÁ÷½ºÅ³ ¾µ ¼ö ¾øÀ½.
+		if( GetAdjParam( DST_CHRSTATE ) & CHS_SILENT )		// ì¹¨ë¬µìƒíƒœì—ì„  ë§¤ì§ìŠ¤í‚¬ ì“¸ ìˆ˜ ì—†ìŒ.
 			return FALSE;
 
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		if(GetReqMp( pAddSkillProp->nReqMp ) == 9999999)
 		{
 			if( GetManaPoint() != GetMaxManaPoint())
@@ -863,54 +863,54 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		}
 		else
 		{
-			if( GetManaPoint() - GetReqMp( pAddSkillProp->nReqMp ) < 0 )		// ¸¶³ª°¡ ¸ğÀÚ¸£¹Ç·Î Ãë¼Ò
+			if( GetManaPoint() - GetReqMp( pAddSkillProp->nReqMp ) < 0 )		// ë§ˆë‚˜ê°€ ëª¨ìë¥´ë¯€ë¡œ ì·¨ì†Œ
 			{
 				if( TRUE == IsPlayer() )
 					( (CUser*)this )->AddDefinedText( TID_GAME_REQMP, "" );
 				return FALSE;
 			}
 		}
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
-		if( GetManaPoint() - GetReqMp( pAddSkillProp->nReqMp ) < 0 )		// ¸¶³ª°¡ ¸ğÀÚ¸£¹Ç·Î Ãë¼Ò
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+		if( GetManaPoint() - GetReqMp( pAddSkillProp->nReqMp ) < 0 )		// ë§ˆë‚˜ê°€ ëª¨ìë¥´ë¯€ë¡œ ì·¨ì†Œ
 		{
 			if( TRUE == IsPlayer() )
 				( (CUser*)this )->AddDefinedText( TID_GAME_REQMP, "" );
 			return FALSE;
 		}
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
 	#endif // worldserver
-		if( sutType == SUT_QUEUESTART )		// ½ºÅ³Å¥ ½ÃÀÛ ½ºÅ³. - Å¥³»ÀÇ ¸ğµç ½ºÅ³ÀÇ Ä³½ºÆÃÀ» ¸ô¾Æ¼­ ÇÑ´Ù.
+		if( sutType == SUT_QUEUESTART )		// ìŠ¤í‚¬í ì‹œì‘ ìŠ¤í‚¬. - íë‚´ì˜ ëª¨ë“  ìŠ¤í‚¬ì˜ ìºìŠ¤íŒ…ì„ ëª°ì•„ì„œ í•œë‹¤.
 		{
 			if( IsPlayer() )
 				dwMsg = OBJMSG_MAGICCASTING;
 		} 
-		else if( sutType == SUT_QUEUEING )	// ½ºÅ³Å¥ ÁøÇàÁß ½ºÅ³. - Ä³½ºÆÃ µ¿ÀÛ¾øÀÌ ½ÃÀü.
+		else if( sutType == SUT_QUEUEING )	// ìŠ¤í‚¬í ì§„í–‰ì¤‘ ìŠ¤í‚¬. - ìºìŠ¤íŒ… ë™ì‘ì—†ì´ ì‹œì „.
 		{
 			nMotion += 2;
 			dwMsg = OBJMSG_MAGICSKILL;
 		} 
 		else
-		{									// ÀÏ¹İÀûÀÎ ¸¶¹ı ½ºÅ³ »ç¿ë - Ä³½ºÆÃ µ¿ÀÛ ÀÖÀ½.
+		{									// ì¼ë°˜ì ì¸ ë§ˆë²• ìŠ¤í‚¬ ì‚¬ìš© - ìºìŠ¤íŒ… ë™ì‘ ìˆìŒ.
 			dwMsg = OBJMSG_MAGICCASTING;
 		}
 	}
 	else
-		Error( "DoUseSkill : %s dwSkillType = %d", m_szName, pSkillProp->dwSkillType );	// ÇÁ·ÎÆÛÆ¼°ªÀÌ ÀÌ»óÇÔ.
+		Error( "DoUseSkill : %s dwSkillType = %d", m_szName, pSkillProp->dwSkillType );	// í”„ë¡œí¼í‹°ê°’ì´ ì´ìƒí•¨.
 
 	if( sutType != SUT_QUEUEING && nCastingTime == 0 && pSkillProp->dwID != SI_GEN_ATK_COUNTER )
 		nMotion += 2;
 	
-	//--- µ¿ÀÛ ½ÃÀÛ -----------------------------------------------------------------
-#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+	//--- ë™ì‘ ì‹œì‘ -----------------------------------------------------------------
+#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	int nRet = m_pActMover->SendActMsg( dwMsg, nMotion, idFocusObj, nCastingTime, dwSkill );
-#else //__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	int nRet = m_pActMover->SendActMsg( dwMsg, nMotion, idFocusObj, nCastingTime );
-#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
-	if( nRet == 1 )	// ½ºÅ³ µ¿ÀÛ ½ÃÀÛ.
+	if( nRet == 1 )	// ìŠ¤í‚¬ ë™ì‘ ì‹œì‘.
 	{
-		// ¸í·É¼öÇàÁß ÇÊ¿äÇÑ ÆÄ¶ó¸ŞÅÍ¼¼ÆÃ.
+		// ëª…ë ¹ìˆ˜í–‰ì¤‘ í•„ìš”í•œ íŒŒë¼ë©”í„°ì„¸íŒ….
 		SetActParam( OBJACT_USESKILL, dwSkill, idFocusObj );	
 		m_nAParam[3]	= nLevel;
 #if __VER >= 8 // __S8_PK
@@ -920,9 +920,9 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	#ifdef __WORLDSERVER
 		if( pSkillProp->dwSkillType == KT_SKILL )
 		{
-			// ±ÙÁ¢½ºÅ³Àº »ç¿ëÇÏ´Â Áï½Ã fp°¨¼Ò.
+			// ê·¼ì ‘ìŠ¤í‚¬ì€ ì‚¬ìš©í•˜ëŠ” ì¦‰ì‹œ fpê°ì†Œ.
 			if( (int)pAddSkillProp->nReqFp > 0 )
-				IncFatiguePoint( -GetReqFp( pAddSkillProp->nReqFp ) );			// FP°¨¼Ò
+				IncFatiguePoint( -GetReqFp( pAddSkillProp->nReqFp ) );			// FPê°ì†Œ
 
 			int nReqMp	= GetReqMp( pAddSkillProp->nReqMp );
 			if( nReqMp > 0 )
@@ -930,46 +930,46 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 				IncManaPoint( -nReqMp );
 			}
 		}
-	#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+	#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		if( pSkillProp->dwSkillType == KT_MAGIC )
 		{
 			if( GetReqMp( pAddSkillProp->nReqMp ) == 9999999 )
 			{
-				IncFatiguePoint( -GetFatiguePoint() );			// FP°¨¼Ò
+				IncFatiguePoint( -GetFatiguePoint() );			// FPê°ì†Œ
 				IncManaPoint( -GetManaPoint() );
 			}
 		}
-	#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+	#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		
-		if( pSkillProp->dwLinkKindBullet != NULL_ID )	// ÃÑ¾Ë(?)À» ÇÊ¿ä·Î ÇÏ´Â°Å¸é
+		if( pSkillProp->dwLinkKindBullet != NULL_ID )	// ì´ì•Œ(?)ì„ í•„ìš”ë¡œ í•˜ëŠ”ê±°ë©´
 		{
 			CItemElem *pItemElem = GetEquipItem( PARTS_BULLET );
 			if( pItemElem )
 				ArrowDown( 1 );
 		}
 
-		if( pSkillProp->nEvildoing < 0 )		// ³ª»Û¸¶¹ıÀ¸·Î¸¸ ¸ó½ºÅÍ³ª ÇÃ·¹ÀÌ¾î¸¦ ÂòÇÒ¼öÀÖ´Ù.
+		if( pSkillProp->nEvildoing < 0 )		// ë‚˜ìœë§ˆë²•ìœ¼ë¡œë§Œ ëª¬ìŠ¤í„°ë‚˜ í”Œë ˆì´ì–´ë¥¼ ì°œí• ìˆ˜ìˆë‹¤.
 		{
-			pTarget->SetJJim( this );			// pTarget¸¦ ÂòÇß´Ù´Â°É Ç¥½Ã.
-			m_nAtkCnt = 1;						// ºøÀÚ·ç µô·¹ÀÌ¸¦ À§ÇÑ °ø°İ Ä«¿îÅÍ ½ÃÀÛ.
+			pTarget->SetJJim( this );			// pTargetë¥¼ ì°œí–ˆë‹¤ëŠ”ê±¸ í‘œì‹œ.
+			m_nAtkCnt = 1;						// ë¹—ìë£¨ ë”œë ˆì´ë¥¼ ìœ„í•œ ê³µê²© ì¹´ìš´í„° ì‹œì‘.
 		}
 
-		// DST paramÀÌ Àû¿ëµÇ´Â ½ºÅ³Àº ¿©±â¼­ Àû¿ëÇÔ.
+		// DST paramì´ ì ìš©ë˜ëŠ” ìŠ¤í‚¬ì€ ì—¬ê¸°ì„œ ì ìš©í•¨.
 		g_UserMng.AddUseSkill( this, dwSkill, nLevel, idFocusObj, sutType, nCastingTime );
 	#endif	// __WORLDSERVER
 	} 
-	else if( nRet == -2 )	// 0:Å¥¿¡ ½×´Â´Ù -1:¸ğ¸§  -2:¿ÏÀü½ÇÆĞÇÏ¿© Ãë¼Ò½ÃÅ´   -3:¸ğ¸§
+	else if( nRet == -2 )	// 0:íì— ìŒ“ëŠ”ë‹¤ -1:ëª¨ë¦„  -2:ì™„ì „ì‹¤íŒ¨í•˜ì—¬ ì·¨ì†Œì‹œí‚´   -3:ëª¨ë¦„
 	{
 		return FALSE;
 	}
 	
-	m_dwFlag |= MVRF_SKILL;		// ½ºÅ³»ç¿ë ¸í·ÉÀÌ ½ÃÀÛµÆ´Ù.
+	m_dwFlag |= MVRF_SKILL;		// ìŠ¤í‚¬ì‚¬ìš© ëª…ë ¹ì´ ì‹œì‘ëë‹¤.
 #ifdef __CLIENT
-	if( IsActiveMover() )		// g_pPlayerÀÏ°æ¿ì 
+	if( IsActiveMover() )		// g_pPlayerì¼ê²½ìš° 
 	{
 		CWndTaskBar* pTaskBar = g_WndMng.m_pWndTaskBar;
-		if( pTaskBar->m_nExecute == 1 )		// ½ºÅ³¹Ù »ç¿ë ´ë±âÁß»óÅÂ¿´À¸¸é
-			pTaskBar->m_nExecute = 2;		// ½ÇÁ¦ ½ºÅ³¹Ù »ç¿ëÁßÀ¸·Î ÀüÈ¯.
+		if( pTaskBar->m_nExecute == 1 )		// ìŠ¤í‚¬ë°” ì‚¬ìš© ëŒ€ê¸°ì¤‘ìƒíƒœì˜€ìœ¼ë©´
+			pTaskBar->m_nExecute = 2;		// ì‹¤ì œ ìŠ¤í‚¬ë°” ì‚¬ìš©ì¤‘ìœ¼ë¡œ ì „í™˜.
 	}
 #endif
 
@@ -977,13 +977,13 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	{
 		DWORD dwLinkSfxDouble = NULL_ID;
 		switch( dwSkill )
-		{	// ¿©±â´Ù XI_ Ãß°¡ÇÏ¸é CreateSfxÀÇ CSfxPartsLink()¿¡µµ Ãß°¡½ÃÄÑ¾ß ÇÔ/
+		{	// ì—¬ê¸°ë‹¤ XI_ ì¶”ê°€í•˜ë©´ CreateSfxì˜ CSfxPartsLink()ì—ë„ ì¶”ê°€ì‹œì¼œì•¼ í•¨/
 		case SI_BLD_DOUBLEAX_SPRINGATTACK:	dwLinkSfxDouble = XI_SKILL_BLD_DOUBLEAX_SPRINGATTACK01;	break;
 		case SI_BLD_DOUBLE_SONICBLADE:		dwLinkSfxDouble = XI_SKILL_BLD_DOUBLE_SONICBLADE01;	break;
 		case SI_KNT_TWOSW_CHARGE:			dwLinkSfxDouble = XI_SKILL_KNT_TWOSW_CHARGE01;	break;
 		case SI_BLD_DOUBLESW_BLADEDANCE:	dwLinkSfxDouble = XI_SKILL_BLD_DOUBLESW_BLADEDANCE01;      break;
 
-		// Á¦½ºÅÍ ¾ç¼Õ ÀÌÆåÆ® : sfxÇÁ·¹ÀÓÀÌ ³¡ÀÌ¸é ¼Ò¸êÇÔ
+		// ì œìŠ¤í„° ì–‘ì† ì´í™íŠ¸ : sfxí”„ë ˆì„ì´ ëì´ë©´ ì†Œë©¸í•¨
 		case SI_JST_YOYO_VATALSTAB:	dwLinkSfxDouble = XI_SKILL_JST_YOYO_VATALSTAB01;	break;
 		case SI_JST_YOYO_HITOFPENYA:	dwLinkSfxDouble = XI_SKILL_JST_YOYO_HITOFPENYA01;	break;
 
@@ -997,21 +997,21 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		}
 		if( dwLinkSfxDouble != NULL_ID )
 		{
-			CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, dwLinkSfxDouble, GetPos(), GetId() );  // ½ÃÀüµ¿ÀÛÀÌ±â¶§¹®¿¡ ¹«Á¶°Ç ÀÚ±â¿¡°Ô ³ªÅ¸³­´Ù.
+			CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, dwLinkSfxDouble, GetPos(), GetId() );  // ì‹œì „ë™ì‘ì´ê¸°ë•Œë¬¸ì— ë¬´ì¡°ê±´ ìê¸°ì—ê²Œ ë‚˜íƒ€ë‚œë‹¤.
 			if( pSfx )
 			{
-				pSfx->SetPartLink( 0 );		// ¿À¸¥¼Õ¿¡ ¸µÅ©.
-				pSfx = CreateSfx( g_Neuz.m_pd3dDevice, dwLinkSfxDouble, GetPos(), GetId() );  // ¸µÅ©ÀÌÆå ÇÏ³ª´õ »ı¼º.
+				pSfx->SetPartLink( 0 );		// ì˜¤ë¥¸ì†ì— ë§í¬.
+				pSfx = CreateSfx( g_Neuz.m_pd3dDevice, dwLinkSfxDouble, GetPos(), GetId() );  // ë§í¬ì´í™ í•˜ë‚˜ë” ìƒì„±.
 				if( pSfx )
-					pSfx->SetPartLink( 1 );		// ¼Õ¿¡ ¸µÅ©.
+					pSfx->SetPartLink( 1 );		// ì†ì— ë§í¬.
 			}
 		}
 	}
 
-	// ¿Ş¼Õ ¸µÅ© ÀÌÆå
+	// ì™¼ì† ë§í¬ ì´í™
 	DWORD dwLinkSfxLeft = NULL_ID;
 	switch( dwSkill )
-	{	// ¾ÆÅ©·Îºª ½ºÅ³ÀÌ¸é È° ½ÃÀü ÀÌÆåÆ® ¿Ş¼Õ¿¡ ¸µÅ©ÇÑ´Ù
+	{	// ì•„í¬ë¡œë²³ ìŠ¤í‚¬ì´ë©´ í™œ ì‹œì „ ì´í™íŠ¸ ì™¼ì†ì— ë§í¬í•œë‹¤
 	case SI_RAG_BOW_ICEARROW:	dwLinkSfxLeft = XI_SKILL_RAG_BOW_ICEARROW01;	break;
 	case SI_ACR_BOW_JUNKBOW:	dwLinkSfxLeft = XI_SKILL_ACR_BOW_JUNKBOW01;	break;
 	case SI_ACR_BOW_AIMEDSHOT:	dwLinkSfxLeft = XI_SKILL_ACR_BOW_AIMEDSHOT01;	break;
@@ -1031,12 +1031,12 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	
 	if( dwLinkSfxLeft != NULL_ID )
 	{
-		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, dwLinkSfxLeft, GetPos(), GetId() );  // ½ÃÀüµ¿ÀÛÀÌ±â¶§¹®¿¡ ¹«Á¶°Ç ÀÚ±â¿¡°Ô ³ªÅ¸³­´Ù.
+		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, dwLinkSfxLeft, GetPos(), GetId() );  // ì‹œì „ë™ì‘ì´ê¸°ë•Œë¬¸ì— ë¬´ì¡°ê±´ ìê¸°ì—ê²Œ ë‚˜íƒ€ë‚œë‹¤.
 		if( pSfx )
-			pSfx->SetPartLink( 1 );		// ¿Ş¼Õ¿¡ ¸µÅ©.
+			pSfx->SetPartLink( 1 );		// ì™¼ì†ì— ë§í¬.
 	}
 
-	// ¿À¸¥¼Õ ¸µÅ© ÀÌÆå
+	// ì˜¤ë¥¸ì† ë§í¬ ì´í™
 	DWORD dwLinkSfxRight = NULL_ID;
 	switch( dwSkill )
 	{
@@ -1053,19 +1053,19 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 	
 	if( dwLinkSfxRight != NULL_ID )
 	{
-		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, dwLinkSfxRight, GetPos(), GetId() );  // ½ÃÀüµ¿ÀÛÀÌ±â¶§¹®¿¡ ¹«Á¶°Ç ÀÚ±â¿¡°Ô ³ªÅ¸³­´Ù.
+		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, dwLinkSfxRight, GetPos(), GetId() );  // ì‹œì „ë™ì‘ì´ê¸°ë•Œë¬¸ì— ë¬´ì¡°ê±´ ìê¸°ì—ê²Œ ë‚˜íƒ€ë‚œë‹¤.
 		if( pSfx )
-			pSfx->SetPartLink( 0 );		// ¿À¸¥¼Õ¿¡ ¸µÅ©.
+			pSfx->SetPartLink( 0 );		// ì˜¤ë¥¸ì†ì— ë§í¬.
 	}
 
-	// ¸¶¹ı È¤Àº ÀüÅõ½ºÅ³ÀÇ ¹ßµ¿½ÃÀÛ ÀÌÆåÆ®¹ß»ı
-	// ÀÚ±âid GetId()
-	// Å¸°Ùid idFocusObj
+	// ë§ˆë²• í˜¹ì€ ì „íˆ¬ìŠ¤í‚¬ì˜ ë°œë™ì‹œì‘ ì´í™íŠ¸ë°œìƒ
+	// ìê¸°id GetId()
+	// íƒ€ê²Ÿid idFocusObj
 	if( pSkillProp->dwSfxObj != NULL_ID )
 	{
-		CreateSfx( g_Neuz.m_pd3dDevice, pSkillProp->dwSfxObj, GetPos(), GetId() );  // ½ÃÀüµ¿ÀÛÀÌ±â¶§¹®¿¡ ¹«Á¶°Ç ÀÚ±â¿¡°Ô ³ªÅ¸³­´Ù.
+		CreateSfx( g_Neuz.m_pd3dDevice, pSkillProp->dwSfxObj, GetPos(), GetId() );  // ì‹œì „ë™ì‘ì´ê¸°ë•Œë¬¸ì— ë¬´ì¡°ê±´ ìê¸°ì—ê²Œ ë‚˜íƒ€ë‚œë‹¤.
 	}	
-	// °ø°İ½ºÅ³°ú Å¸°ÙÀÌ ¸ó½ºÅÍ ÀÌ¸é È­¸é¿¡ Ãâ·ÂÀ» ¾ÈÇÔ
+	// ê³µê²©ìŠ¤í‚¬ê³¼ íƒ€ê²Ÿì´ ëª¬ìŠ¤í„° ì´ë©´ í™”ë©´ì— ì¶œë ¥ì„ ì•ˆí•¨
 	if( pSkillProp->dwExeTarget != EXT_MELEEATK && 
 		pSkillProp->dwExeTarget != EXT_MAGICATK && 
 		pSkillProp->dwExeTarget != EXT_AROUNDATK &&  
@@ -1073,13 +1073,13 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 		pTarget->IsPlayer() )
 	{
 		CString str;
-		if( this == g_pPlayer ) // ³»°¡ ¾´°Í
+		if( this == g_pPlayer ) // ë‚´ê°€ ì“´ê²ƒ
 		{
 			str.Format( prj.GetText( TID_GAME_SKILL_SELF ), pSkillProp->szName );
 			g_WndMng.PutString( (LPCTSTR)str, NULL, prj.GetTextColor( TID_GAME_SKILL_SELF ) );	
 		}
 		else
-		if( pTarget == g_pPlayer && ( this != pTarget || pSkillProp->dwID == SI_ASS_CHEER_CIRCLEHEALING ) ) // ³»°¡ ¾´°ÍÀÌ ¾Æ´Ï¶ó¸é
+		if( pTarget == g_pPlayer && ( this != pTarget || pSkillProp->dwID == SI_ASS_CHEER_CIRCLEHEALING ) ) // ë‚´ê°€ ì“´ê²ƒì´ ì•„ë‹ˆë¼ë©´
 		{
 			str.Format( prj.GetText( TID_GAME_SKILL_MATE ), GetName(), pSkillProp->szName );
 			g_WndMng.PutString( (LPCTSTR)str, NULL, prj.GetTextColor( TID_GAME_SKILL_MATE ) );	
@@ -1134,26 +1134,26 @@ BOOL CMover::DoUseSkill( DWORD dwSkill, int nLevel, OBJID idFocusObj, SKILLUSETY
 }
 
 //
-//	Áö¼Ó¼ºÀ» °®´Â ½ºÅ³ÀÌ ½Ã°£ÀÌ ´ÙµÇ ³¡³µÀ»¶§ È£ÃâµÊ.
+//	ì§€ì†ì„±ì„ ê°–ëŠ” ìŠ¤í‚¬ì´ ì‹œê°„ì´ ë‹¤ë˜ ëë‚¬ì„ë•Œ í˜¸ì¶œë¨.
 //
 void	CMover::OnEndSkillState( DWORD dwSkill, DWORD dwLevel )
 {
 	if( dwSkill < 0 || (int)( dwSkill ) > prj.m_aPropSkill.GetSize() )
 	{
-		Error( "OnEndSkillState : ½ºÅ³ÀÇ ¹üÀ§¸¦ ³Ñ¾î¼¶. %d", dwSkill );
+		Error( "OnEndSkillState : ìŠ¤í‚¬ì˜ ë²”ìœ„ë¥¼ ë„˜ì–´ì„¬. %d", dwSkill );
 		return;
 	}
 	ItemProp* pSkillProp = NULL;
 	AddSkillProp *pAddSkillProp = NULL;
 	GetSkillProp( &pSkillProp, &pAddSkillProp, dwSkill, dwLevel, "OnEndSkillState" );
 
-	if( dwSkill == SI_ACR_YOYO_COUNTER )	// Ä«¿îÅÍ ¾îÅÃ½ºÅ³ÀÇ °æ¿ì
+	if( dwSkill == SI_ACR_YOYO_COUNTER )	// ì¹´ìš´í„° ì–´íƒìŠ¤í‚¬ì˜ ê²½ìš°
 	{
-		m_pActMover->ResetState( OBJSTA_ATK_ALL );		// °ø°İµ¿ÀÛ Áß´Ü½ÃÅ´.  (ÀÌ·± ÆĞÅÏÀÇ ½ºÅ³Àº ¾ÕÀ¸·Î ÀÏ¹İÈ­ ½ÃÅ°ÀÚ)
+		m_pActMover->ResetState( OBJSTA_ATK_ALL );		// ê³µê²©ë™ì‘ ì¤‘ë‹¨ì‹œí‚´.  (ì´ëŸ° íŒ¨í„´ì˜ ìŠ¤í‚¬ì€ ì•ìœ¼ë¡œ ì¼ë°˜í™” ì‹œí‚¤ì)
 	}
 #if defined( __CLIENT ) 
-/*	// 091022 mirchang - ÇÁ·ÎÅØ¼Ç, Ææ¹Ù¸®¾î ½ºÅ³ ¹öÇÁ ÇØÁ¦ ½Ã sfx »èÁ¦
-	#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+/*	// 091022 mirchang - í”„ë¡œí…ì…˜, íœë°”ë¦¬ì–´ ìŠ¤í‚¬ ë²„í”„ í•´ì œ ì‹œ sfx ì‚­ì œ
+	#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 	if(	dwSkill == SI_MAG_FIRE_HOTAIR)
 	{
 		SetRemoveSfxObj( pSkillProp->dwSfxObj2 );
@@ -1165,9 +1165,9 @@ void	CMover::OnEndSkillState( DWORD dwSkill, DWORD dwLevel )
 	{
 		SetRemoveSfxObj( pSkillProp->dwSfxObj4 );
 	}
-	#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
-*/	// 091022 mirchang - ÇÁ·ÎÅØ¼Ç, Ææ¹Ù¸®¾î ½ºÅ³ ¹öÇÁ ÇØÁ¦ ½Ã sfx »èÁ¦
-	switch( dwSkill )	// 091022 mirchang - ÇÁ·ÎÅØ¼Ç, Ææ¹Ù¸®¾î ½ºÅ³ ¹öÇÁ ÇØÁ¦ ½Ã sfx »èÁ¦
+	#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+*/	// 091022 mirchang - í”„ë¡œí…ì…˜, íœë°”ë¦¬ì–´ ìŠ¤í‚¬ ë²„í”„ í•´ì œ ì‹œ sfx ì‚­ì œ
+	switch( dwSkill )	// 091022 mirchang - í”„ë¡œí…ì…˜, íœë°”ë¦¬ì–´ ìŠ¤í‚¬ ë²„í”„ í•´ì œ ì‹œ sfx ì‚­ì œ
 	{
 		case SI_MAG_FIRE_HOTAIR :
 			SetRemoveSfxObj( pSkillProp->dwSfxObj2 );
@@ -1182,7 +1182,7 @@ void	CMover::OnEndSkillState( DWORD dwSkill, DWORD dwLevel )
 
 	BOOL	bSend = FALSE;
 #ifdef __WORLDSERVER
-	bSend = TRUE;			// ¼­¹öÀÏ°æ¿ì À¯Àúµé¿¡°Ô º¸³»ÁÜ.
+	bSend = TRUE;			// ì„œë²„ì¼ê²½ìš° ìœ ì €ë“¤ì—ê²Œ ë³´ë‚´ì¤Œ.
 
 #ifdef __3RD_LEGEND16
 	if( dwSkill == SI_FLO_SUP_ABSOLUTE )
@@ -1198,7 +1198,7 @@ void	CMover::OnEndSkillState( DWORD dwSkill, DWORD dwLevel )
 
 }
 
-// ÀÏ¹İ °ø°İ µ¿ÀÛÀÌ ³¡³µÀ»¶§ È£Ãâ.
+// ì¼ë°˜ ê³µê²© ë™ì‘ì´ ëë‚¬ì„ë•Œ í˜¸ì¶œ.
 void	CMover::OnEndMeleeAttack( DWORD dwState )
 {
 #ifdef __WORLDSERVER
@@ -1206,7 +1206,7 @@ void	CMover::OnEndMeleeAttack( DWORD dwState )
 #endif // WorldServer
 }
 
-#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 DWORD	CMover::GetRemoveSfxObj(DWORD	dwRemoveSfxObjID)
 {
 	DWORD	dwResult = 0;
@@ -1238,7 +1238,7 @@ void	CMover::SetRemoveSfxObj(DWORD	dwRemoveSfxObjID)
 		}
 	}
 }
-#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 /*--------------------------------------------------------------------------------------------------------
 
 
@@ -1247,11 +1247,11 @@ void	CMover::SetRemoveSfxObj(DWORD	dwRemoveSfxObjID)
 
 ----------------------------------------------------------------------------------------------------------*/
 
-// ¾ÆÀÌÅÛ ID·Î ¾ÆÀÌÅÛ »ı¼º(ÀÎº¥Åä¸®¿Í »ó°ü¾øÀÌ »ç¿ë)
+// ì•„ì´í…œ IDë¡œ ì•„ì´í…œ ìƒì„±(ì¸ë²¤í† ë¦¬ì™€ ìƒê´€ì—†ì´ ì‚¬ìš©)
 BOOL CMover::DoUseItemVirtual( DWORD dwItemId, BOOL bEffectSkip )
 {
 #ifdef __WORLDSERVER
-	//ÀÎº¥¾ø´Â ¾ÆÅÛ »ç¿ë½Ã´Â Á×À½°ú °ü°è¾øÀÌ ½ÇÇà°¡´ÉÇÏ°ÔÇÑ´Ù.
+	//ì¸ë²¤ì—†ëŠ” ì•„í…œ ì‚¬ìš©ì‹œëŠ” ì£½ìŒê³¼ ê´€ê³„ì—†ì´ ì‹¤í–‰ê°€ëŠ¥í•˜ê²Œí•œë‹¤.
 
 	ItemProp* pItemProp = prj.GetItemProp( dwItemId );
 
@@ -1264,7 +1264,7 @@ BOOL CMover::DoUseItemVirtual( DWORD dwItemId, BOOL bEffectSkip )
 
 		if( dwItemId == II_SYS_SYS_SCR_RETURN )
 		{
-			// µ¹¾Æ°¡±â 
+			// ëŒì•„ê°€ê¸° 
 			if( HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_RETURN ) )
 				RemoveBuff( BUFF_ITEM, II_SYS_SYS_SCR_RETURN );
 
@@ -1292,9 +1292,9 @@ BOOL CMover::DoUseItemVirtual( DWORD dwItemId, BOOL bEffectSkip )
 		}
 
 		DWORD	dwSfxID = pItemProp->dwSfxObj3;
-		if( dwSfxID != NULL_ID && !bEffectSkip )		// ¾ÆÀÌÅÛ »ç¿ë½Ã¿¡ »ı¼ºµÉ ÀÌÆåÆ®
+		if( dwSfxID != NULL_ID && !bEffectSkip )		// ì•„ì´í…œ ì‚¬ìš©ì‹œì— ìƒì„±ë  ì´í™íŠ¸
 		{
-			g_UserMng.AddCreateSfxObj( this, dwSfxID, sPos.x, sPos.y, sPos.z );	// Àı´ëÁÂÇ¥·Î ÇÏÀÚ.
+			g_UserMng.AddCreateSfxObj( this, dwSfxID, sPos.x, sPos.y, sPos.z );	// ì ˆëŒ€ì¢Œí‘œë¡œ í•˜ì.
 		}	
 	}
 #endif //__WORLDSERVER
@@ -1302,7 +1302,7 @@ BOOL CMover::DoUseItemVirtual( DWORD dwItemId, BOOL bEffectSkip )
 	return TRUE;
 }
 
-// ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ´Â ½ÃÁ¡¿¡ È£ÃâµÈ´Ù. 
+// ì•„ì´í…œì„ ì‚¬ìš©í•˜ëŠ” ì‹œì ì— í˜¸ì¶œëœë‹¤. 
 void CMover::OnAfterUseItem( const ItemProp* pItemProp )
 {
 #ifdef __WORLDSERVER
@@ -1310,9 +1310,9 @@ void CMover::OnAfterUseItem( const ItemProp* pItemProp )
 		return;
 
 	D3DXVECTOR3 sPos = D3DXVECTOR3(0.0f,0.0f,0.0f);
-	DWORD dwSfxID = pItemProp->dwSfxObj3;		// ¾ÆÀÌÅÛ »ç¿ë½Ã¿¡ »ı¼ºµÉ ÀÌÆåÆ®
+	DWORD dwSfxID = pItemProp->dwSfxObj3;		// ì•„ì´í…œ ì‚¬ìš©ì‹œì— ìƒì„±ë  ì´í™íŠ¸
 
-	if(	pItemProp->dwItemKind3 == IK3_MAGICTRICK ) // ÀÌÆåÆ® ¾ÆÀÌÅÛ·ù
+	if(	pItemProp->dwItemKind3 == IK3_MAGICTRICK ) // ì´í™íŠ¸ ì•„ì´í…œë¥˜
 	{
 		float	fTheta = D3DXToRadian( GetAngle() );
 		switch( pItemProp->dwID )
@@ -1322,7 +1322,7 @@ void CMover::OnAfterUseItem( const ItemProp* pItemProp )
 		case II_CHR_MAG_TRI_ROCKETBOMB:
 		case II_CHR_MAG_TRI_HEARTBOMB:
 		case II_CHR_MAG_TRI_TWISTERBOMB:
-			sPos.x = GetPos().x + sinf(fTheta) * 3.0f;			// ¹Ù¶óº¸´Â ¹æÇâ 1¹ÌÅÍ ¾Õ¿¡´Ù ¹ß»ı½ÃÅ´.
+			sPos.x = GetPos().x + sinf(fTheta) * 3.0f;			// ë°”ë¼ë³´ëŠ” ë°©í–¥ 1ë¯¸í„° ì•ì—ë‹¤ ë°œìƒì‹œí‚´.
 			sPos.z = GetPos().z + -cosf(fTheta) * 3.0f;
 			sPos.y = GetPos().y + 1.5f;
 			sPos.y = GetWorld()->GetUnderHeight( D3DXVECTOR3(sPos.x,sPos.y,sPos.z) );
@@ -1338,15 +1338,15 @@ void CMover::OnAfterUseItem( const ItemProp* pItemProp )
 	}
 
 	if( dwSfxID != NULL_ID )		
-		g_UserMng.AddCreateSfxObj( this, dwSfxID, sPos.x, sPos.y, sPos.z );	// Àı´ëÁÂÇ¥·Î ÇÏÀÚ.
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+		g_UserMng.AddCreateSfxObj( this, dwSfxID, sPos.x, sPos.y, sPos.z );	// ì ˆëŒ€ì¢Œí‘œë¡œ í•˜ì.
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 	if( IsPlayer() )
 		((CUser*)this)->SetHonorAdd(pItemProp->dwID,HI_USE_ITEM);
 #ifndef __MAINSERVER
 	else
 		FILEOUT( "..\\HonorError.txt", "OnAfterUseItem()\n" );
 #endif	// __MAINSERVER
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 #endif // __WORLDSERVER
 }
@@ -1382,31 +1382,31 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 	DWORD dwItemKind2    = pItemProp->dwItemKind2;
 	DWORD dwItemKind3    = pItemProp->dwItemKind3;
 
-	// ±æµå´ëÀü¸Ê¿¡¼­ ¼±¼ö¸¸ »ç¿ë
+	// ê¸¸ë“œëŒ€ì „ë§µì—ì„œ ì„ ìˆ˜ë§Œ ì‚¬ìš©
 	CWorld* pWorld	= GetWorld();
 	if( pWorld && pWorld->GetID() == WI_WORLD_GUILDWAR )
 	{			
 		if( m_nGuildCombatState == 0 )
 		{
 			if( IsPlayer() )
-				((CUser*) this)->AddText( prj.GetText( TID_GAME_GUILDCOMBAT_STANDS_NOTUSEITEM ) );	//"¼öÁ¤ÇØ¾ßÇÔ : °üÁß¼®¿¡¼­´Â ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù" );
+				((CUser*) this)->AddText( prj.GetText( TID_GAME_GUILDCOMBAT_STANDS_NOTUSEITEM ) );	//"ìˆ˜ì •í•´ì•¼í•¨ : ê´€ì¤‘ì„ì—ì„œëŠ” ì•„ì´í…œì„ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤" );
 			return FALSE;
 		}
 	}
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans ¼®È­µğ¹öÇÁ¿¡ °É¸®¸é ¾ÆÀÌÅÛ »ç¿ë±İÁö
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans ì„í™”ë””ë²„í”„ì— ê±¸ë¦¬ë©´ ì•„ì´í…œ ì‚¬ìš©ê¸ˆì§€
 	if( GetAdjParam( DST_CHRSTATE ) & CHS_SETSTONE)
 		return FALSE;
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	if( pItemProp->dwParts != NULL_ID )
 	{
 		// armor, weapon
-		if( m_pActMover->IsActAttack() == FALSE )	// °ø°İÁß¿£ Àåºñ ¸ø¹Ù²Ş.
+		if( m_pActMover->IsActAttack() == FALSE )	// ê³µê²©ì¤‘ì—” ì¥ë¹„ ëª»ë°”ê¿ˆ.
 		{
 			DoUseEquipmentItem( pItemElem, dwId, nPart );
 		}
-		// ÀåÂø ¾ÆÀÌÅÛÀº Å»Âø °¡´ÉÇØ¾ßÇÏ¹Ç·Î ±â°£ ¸¸·á¿¡ ÀÇÇÑ »ç¿ë Á¦ÇÑ ¾øÀ½.
+		// ì¥ì°© ì•„ì´í…œì€ íƒˆì°© ê°€ëŠ¥í•´ì•¼í•˜ë¯€ë¡œ ê¸°ê°„ ë§Œë£Œì— ì˜í•œ ì‚¬ìš© ì œí•œ ì—†ìŒ.
 	}
-	else	// ÀÏ¹İÀûÀÎ ¾ÆÀÌÅÛ »ç¿ë 
+	else	// ì¼ë°˜ì ì¸ ì•„ì´í…œ ì‚¬ìš© 
 	{
 		if( IsItemRedyTime( pItemProp, pItemElem->m_dwObjId, TRUE ) == FALSE )
 			return FALSE;
@@ -1427,7 +1427,7 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 			}
 		}
 
-		// ºñ »ó¿ëÈ­ ¾ÆÀÌÅÛ
+		// ë¹„ ìƒìš©í™” ì•„ì´í…œ
 		switch( pItemProp->dwItemKind2 )
 		{
 #if __VER >= 15 // __GUILD_HOUSE
@@ -1454,7 +1454,7 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 				{
 					if(	CHousingMng::GetInstance()->ReqSetFurnitureList( (CUser*)this, pItemElem->m_dwItemId ) )
 					{
-						// ÇÏ¿ìÂ¡ ¸®½ºÆ® Ãß°¡ ·Î±×
+						// í•˜ìš°ì§• ë¦¬ìŠ¤íŠ¸ ì¶”ê°€ ë¡œê·¸
 						LogItemInfo aLogItem;
 						aLogItem.SendName	= GetName();
 						aLogItem.RecvName = "HOUSING_USE";
@@ -1499,7 +1499,7 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 				{
 					if( IsDoUseBuff( pItemProp ) != 0 )
 						return FALSE;
-					DoApplySkill( this, pItemProp, NULL );		// ´ë»ó¿¡°Ô ¾ÆÀÌÅÛÈ¿°ú¸¦ Àû¿ëÇÔ. 
+					DoApplySkill( this, pItemProp, NULL );		// ëŒ€ìƒì—ê²Œ ì•„ì´í…œíš¨ê³¼ë¥¼ ì ìš©í•¨. 
 #if __VER >= 8 //__CSC_VER8_5
 					if( pItemProp->dwItemKind3 == IK3_ANGEL_BUFF )
 					{
@@ -1524,8 +1524,8 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 #endif // __CSC_VER8_5
 				}
 				break;
-			case IK2_TEXT: //ÅØ½ºÆ® ¹®¼­ Ã³¸® 
-				// Äù½ºÆ®°¡ ÀÖÀ¸¸é Äù½ºÆ® ½ÃÀÛ 
+			case IK2_TEXT: //í…ìŠ¤íŠ¸ ë¬¸ì„œ ì²˜ë¦¬ 
+				// í€˜ìŠ¤íŠ¸ê°€ ìˆìœ¼ë©´ í€˜ìŠ¤íŠ¸ ì‹œì‘ 
 				if( pItemProp->dwQuestId && pItemElem->m_bItemResist == FALSE )
 				{
 					::__SetQuest( GetId(), pItemProp->dwQuestId );
@@ -1554,11 +1554,11 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 						{
 							if( nResult == 2 )
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // »ç¿ëÁßÀÌ¾î¼­ »ç¿ëÇÒ¼ö ¾øÀ½
+								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // ì‚¬ìš©ì¤‘ì´ì–´ì„œ ì‚¬ìš©í• ìˆ˜ ì—†ìŒ
 							}
 							else if( nResult == 3 )
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_NOTOVERLAP_USE, "" ); // ÀÌ ¾ÆÀÌÅÛ°ú´Â Áßº¹ÇÏ¿© »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù
+								((CUser*)this)->AddDefinedText( TID_GAME_NOTOVERLAP_USE, "" ); // ì´ ì•„ì´í…œê³¼ëŠ” ì¤‘ë³µí•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤
 							}
 							return FALSE;
 						}
@@ -1570,8 +1570,8 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 							}
 
 							//////////////////////////////////////////////////////////////////////////
-							//	mulcom	BEGIN100125	ÀÌº¥Æ®¿ë ¸®½ºÅ³ ¹× ÀÌº¥Æ®¿ë ¸®½ºÅ×Æ® »ç¿ë ³»¿ª¿¡ ´ëÇÑ ·Î±× Ãß°¡
-							//						( e-mail : [À¯·´] ¾ÆÀÌÅÛ ·Î±× Ãß°¡ ( 2010-01-25 17:33 ) Âü°í )
+							//	mulcom	BEGIN100125	ì´ë²¤íŠ¸ìš© ë¦¬ìŠ¤í‚¬ ë° ì´ë²¤íŠ¸ìš© ë¦¬ìŠ¤í…ŒíŠ¸ ì‚¬ìš© ë‚´ì—­ì— ëŒ€í•œ ë¡œê·¸ ì¶”ê°€
+							//						( e-mail : [ìœ ëŸ½] ì•„ì´í…œ ë¡œê·¸ ì¶”ê°€ ( 2010-01-25 17:33 ) ì°¸ê³  )
 							else if( pItemElem->m_dwItemId == II_SYS_SYS_SCR_RECCURENCE && pItemElem->m_bCharged != TRUE )
 							{
 								g_DPSrvr.PutItemLog( (CUser*)( this ), "w", "USE_RECCURENCE_ITEM", pItemElem, 1 );
@@ -1580,7 +1580,7 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 							{
 								g_DPSrvr.PutItemLog( (CUser*)( this ), "w", "USE_RESTATE_ITEM", pItemElem, 1 );
 							}
-							//	mulcom	END100125	ÀÌº¥Æ®¿ë ¸®½ºÅ³ ¹× ÀÌº¥Æ®¿ë ¸®½ºÅ×Æ® »ç¿ë ³»¿ª¿¡ ´ëÇÑ ·Î±× Ãß°¡
+							//	mulcom	END100125	ì´ë²¤íŠ¸ìš© ë¦¬ìŠ¤í‚¬ ë° ì´ë²¤íŠ¸ìš© ë¦¬ìŠ¤í…ŒíŠ¸ ì‚¬ìš© ë‚´ì—­ì— ëŒ€í•œ ë¡œê·¸ ì¶”ê°€
 							//////////////////////////////////////////////////////////////////////////
 						}
 					}
@@ -1596,11 +1596,11 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 						{
 							if( nResult == 2 )
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // »ç¿ëÁßÀÌ¾î¼­ »ç¿ëÇÒ¼ö ¾øÀ½
+								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // ì‚¬ìš©ì¤‘ì´ì–´ì„œ ì‚¬ìš©í• ìˆ˜ ì—†ìŒ
 							}
 							else if( nResult == 3 )
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_NOTOVERLAP_USE, "" ); // ÀÌ ¾ÆÀÌÅÛ°ú´Â Áßº¹ÇÏ¿© »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù
+								((CUser*)this)->AddDefinedText( TID_GAME_NOTOVERLAP_USE, "" ); // ì´ ì•„ì´í…œê³¼ëŠ” ì¤‘ë³µí•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤
 							}
 							return FALSE;
 						}
@@ -1617,11 +1617,11 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 						{
 							if( nResult == 2 )
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // »ç¿ëÁßÀÌ¾î¼­ »ç¿ëÇÒ¼ö ¾øÀ½
+								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // ì‚¬ìš©ì¤‘ì´ì–´ì„œ ì‚¬ìš©í• ìˆ˜ ì—†ìŒ
 							}
 							else if( nResult == 3 )
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_NOTOVERLAP_USE, "" ); // ÀÌ ¾ÆÀÌÅÛ°ú´Â Áßº¹ÇÏ¿© »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù
+								((CUser*)this)->AddDefinedText( TID_GAME_NOTOVERLAP_USE, "" ); // ì´ ì•„ì´í…œê³¼ëŠ” ì¤‘ë³µí•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤
 							}
 							return FALSE;
 						}
@@ -1642,7 +1642,7 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 							}
 							else if( nResult == 2 )
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // »ç¿ëÁßÀÌ¾î¼­ »ç¿ëÇÒ¼ö ¾øÀ½
+								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // ì‚¬ìš©ì¤‘ì´ì–´ì„œ ì‚¬ìš©í• ìˆ˜ ì—†ìŒ
 								return FALSE;
 							}
 							else if( nResult == 3 )
@@ -1652,7 +1652,7 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 								CString szMaxBuf;
 								szMaxBuf.Format( "%d", pItemProp->nMaxDuplication );
 								((CUser*)this)->AddDefinedText( TID_GAME_EXP_NOTUSE, "\"%s\" \"%s\"", str, szMaxBuf ); // 
-								//((CUser*)this)->AddDefinedText( TID_GAME_NOTOVERLAP_USE, "" ); // ÀÌ ¾ÆÀÌÅÛ°ú´Â Áßº¹ÇÏ¿© »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù
+								//((CUser*)this)->AddDefinedText( TID_GAME_NOTOVERLAP_USE, "" ); // ì´ ì•„ì´í…œê³¼ëŠ” ì¤‘ë³µí•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤
 								return FALSE;
 							}
 							else if( nResult == 4 )
@@ -1706,7 +1706,7 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 					break;
 				}
 			case IK2_POTION:
-				if( pItemProp->dwCircleTime != (DWORD)-1 )	// »ó¿ë¾ÆÀÌÅÛÀº dwCircleTimeÀ» ½è´õ¶ó. ³ªÁß¿¡ dwSkillTimeÀ¸·Î ÅëÇÕ¿¹Á¤.
+				if( pItemProp->dwCircleTime != (DWORD)-1 )	// ìƒìš©ì•„ì´í…œì€ dwCircleTimeì„ ì¼ë”ë¼. ë‚˜ì¤‘ì— dwSkillTimeìœ¼ë¡œ í†µí•©ì˜ˆì •.
 				{
 					if( IsSMMode( SM_MAINTAIN_FP ) == FALSE && SetSMMode( SM_MAINTAIN_FP, pItemProp->dwCircleTime ) )
 					{
@@ -1729,34 +1729,34 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 				if( DoUseItemFood( pItemProp, pItemElem ) == FALSE )
 					return FALSE;
 				break;
-			case IK2_AIRFUEL:	// ºñÇà¿¬·á·ù
+			case IK2_AIRFUEL:	// ë¹„í–‰ì—°ë£Œë¥˜
 				{
-					ItemProp *pRideProp = prj.GetItemProp( m_dwRideItemIdx );	// ºøÀÚ·ç ÇÁ·ÎÆÛÆ¼
+					ItemProp *pRideProp = prj.GetItemProp( m_dwRideItemIdx );	// ë¹—ìë£¨ í”„ë¡œí¼í‹°
 					if( pRideProp && TRUE == IsPlayer() && m_pActMover->IsFly() )
 					{
-						if( pItemProp->dwItemKind3 == IK3_ACCEL )	// °¡¼Ó ¿¬·á
+						if( pItemProp->dwItemKind3 == IK3_ACCEL )	// ê°€ì† ì—°ë£Œ
 						{
-							m_tmAccFuel = pItemProp->dwAFuelReMax * 1000;;	// ¸îÃÊ°£ °¡¼ÓÇÒ¼ö ÀÖ³Ä.
+							m_tmAccFuel = pItemProp->dwAFuelReMax * 1000;;	// ëª‡ì´ˆê°„ ê°€ì†í• ìˆ˜ ìˆëƒ.
 						}
 						else
-						{	// ºñÇà¿¬·á
-							if( pRideProp->dwItemKind3 == IK3_BOARD && pItemProp->dwItemKind3 == IK3_CFLIGHT )	// Å¸°íÀÖ´Â°Ç º¸µå / »ç¿ëÇÏ·Á´Â°Ç ºøÀÚ·ç¿ë
+						{	// ë¹„í–‰ì—°ë£Œ
+							if( pRideProp->dwItemKind3 == IK3_BOARD && pItemProp->dwItemKind3 == IK3_CFLIGHT )	// íƒ€ê³ ìˆëŠ”ê±´ ë³´ë“œ / ì‚¬ìš©í•˜ë ¤ëŠ”ê±´ ë¹—ìë£¨ìš©
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_COMBFUEL, "" );	// ÀÌ°Ç ºøÀÚ·ç¿ëÀÌ¿©~
+								((CUser*)this)->AddDefinedText( TID_GAME_COMBFUEL, "" );	// ì´ê±´ ë¹—ìë£¨ìš©ì´ì—¬~
 								return FALSE;
 							}
 							else
-							if( pRideProp->dwItemKind3 == IK3_STICK && pItemProp->dwItemKind3 == IK3_BFLIGHT )	// Å¸°íÀÖ´Â°Ç ºøÀÚ·ç / »ç¿ëÇÏ·Á´Â°Ç º¸µå¿ë
+							if( pRideProp->dwItemKind3 == IK3_STICK && pItemProp->dwItemKind3 == IK3_BFLIGHT )	// íƒ€ê³ ìˆëŠ”ê±´ ë¹—ìë£¨ / ì‚¬ìš©í•˜ë ¤ëŠ”ê±´ ë³´ë“œìš©
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_BOARDFUEL, "" );	// ÀÌ°Ç º¸µå¿ëÀÌ¿©~
+								((CUser*)this)->AddDefinedText( TID_GAME_BOARDFUEL, "" );	// ì´ê±´ ë³´ë“œìš©ì´ì—¬~
 								return FALSE;
 							}
 								
-							m_nFuel += pItemProp->dwFuelRe;		// ÃæÀü·®.
-							if( (DWORD)( m_nFuel ) >= pRideProp->dwFFuelReMax )	// ºøÀÚ·ç ¿¬·áÅëº¸´Ù Å©¸é ³¡.
+							m_nFuel += pItemProp->dwFuelRe;		// ì¶©ì „ëŸ‰.
+							if( (DWORD)( m_nFuel ) >= pRideProp->dwFFuelReMax )	// ë¹—ìë£¨ ì—°ë£Œí†µë³´ë‹¤ í¬ë©´ ë.
 								m_nFuel = pRideProp->dwFFuelReMax;
 						}
-						((CUser *)this)->AddSetFuel( m_nFuel, m_tmAccFuel );		// º¯È­µÈ ·®À» Àü¼Û. - SetPointParam¿¡´Ù ÇÕÃÄµµ ±¦ÂúÀ»µí?
+						((CUser *)this)->AddSetFuel( m_nFuel, m_tmAccFuel );		// ë³€í™”ëœ ëŸ‰ì„ ì „ì†¡. - SetPointParamì—ë‹¤ í•©ì³ë„ ê´œì°®ì„ë“¯?
 					} else
 						return FALSE;
 				}
@@ -1765,32 +1765,32 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 			case IK2_GMTEXT:
 				{
 					BOOL bGMTime = TRUE;
-					if( pItemProp->dwSkillTime != NULL_ID )		// Áö¼Ó½Ã°£ÀÌ ÀÖ´Â ¾ÆÀÌÅÛ
+					if( pItemProp->dwSkillTime != NULL_ID )		// ì§€ì†ì‹œê°„ì´ ìˆëŠ” ì•„ì´í…œ
 					{
-						if( pItemProp->dwItemKind3 == IK3_TEXT_DISGUISE )	// º¯½Å ¾ÆÀÌÅÛÀº ºñÇàÁß¿¡´Â »ç¿ëÇÒ¼ö ¾øÀ½.
+						if( pItemProp->dwItemKind3 == IK3_TEXT_DISGUISE )	// ë³€ì‹  ì•„ì´í…œì€ ë¹„í–‰ì¤‘ì—ëŠ” ì‚¬ìš©í• ìˆ˜ ì—†ìŒ.
 						{
 							if( IsFly() )
 							{
-								((CUser*)this)->AddDefinedText( TID_PK_FLIGHT_NOUSE, "" ); // ºñÇà Áß¿¡´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
+								((CUser*)this)->AddDefinedText( TID_PK_FLIGHT_NOUSE, "" ); // ë¹„í–‰ ì¤‘ì—ëŠ” ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 								bGMTime = FALSE;
 							}
-#if __VER >= 14	// __INSTANCE_DUNGEON	// ÀÎ´ø ³» ¶Ç´Â ÀÔÀå½Ã º¯½Å±¸ »ç¿ë ±İÁö
+#if __VER >= 14	// __INSTANCE_DUNGEON	// ì¸ë˜ ë‚´ ë˜ëŠ” ì…ì¥ì‹œ ë³€ì‹ êµ¬ ì‚¬ìš© ê¸ˆì§€
 							else if( CInstanceDungeonHelper::GetInstance()->IsInstanceDungeon( GetWorld()->GetID() ) )
 							{
 								((CUser*)this)->AddDefinedText( TID_GAME_INSTANCE_DISGUISE01 );
 								bGMTime = FALSE;
 							}
-#endif // __INSTANCE_DUNGEON	// ÀÎ´ø ³» ¶Ç´Â ÀÔÀå½Ã º¯½Å±¸ »ç¿ë ±İÁö
+#endif // __INSTANCE_DUNGEON	// ì¸ë˜ ë‚´ ë˜ëŠ” ì…ì¥ì‹œ ë³€ì‹ êµ¬ ì‚¬ìš© ê¸ˆì§€
 						}
 						if( bGMTime )
 						{
 							if( !HasBuffByIk3( pItemProp->dwItemKind3 ) )
 							{
-								DoApplySkill( this, pItemProp, NULL );		// ´ë»ó¿¡°Ô ¾ÆÀÌÅÛÈ¿°ú¸¦ Àû¿ëÇÔ. 
+								DoApplySkill( this, pItemProp, NULL );		// ëŒ€ìƒì—ê²Œ ì•„ì´í…œíš¨ê³¼ë¥¼ ì ìš©í•¨. 
 							}
 							else
 							{
-								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // »ç¿ëÁßÀÌ¾î¼­ »ç¿ëÇÒ¼ö ¾øÀ½
+								((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // ì‚¬ìš©ì¤‘ì´ì–´ì„œ ì‚¬ìš©í• ìˆ˜ ì—†ìŒ
 								bGMTime = FALSE;
 							}
 						}								
@@ -1828,16 +1828,16 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 				{
 					BOOL bUseItem = FALSE;
 					DWORD dwActiveSkill = pItemProp->dwActiveSkill;
-					if( dwActiveSkill != NULL_ID )		// Ãß°¡ ¹ßµ¿ ½ºÅ³ÀÌ ÀÖ´Ù.
+					if( dwActiveSkill != NULL_ID )		// ì¶”ê°€ ë°œë™ ìŠ¤í‚¬ì´ ìˆë‹¤.
 					{
 						if( pItemProp->dwActiveSkillRate == NULL_ID ||
-							xRandom(100) < pItemProp->dwActiveSkillRate )	// ¹ßµ¿È®·ü¿¡ °É·È´Â°¡.
+							xRandom(100) < pItemProp->dwActiveSkillRate )	// ë°œë™í™•ë¥ ì— ê±¸ë ¸ëŠ”ê°€.
 						{
 							ItemProp* pSkillProp;
 							pSkillProp = (ItemProp *)prj.GetSkillProp( dwActiveSkill );
 							if( pSkillProp )
 							{
-								if( pSkillProp->dwUseChance == WUI_TARGETINGOBJ )	// Å¸°Ù¿¡°Ô »ç¿ëÇÏ´Â ¹æ½Ä.
+								if( pSkillProp->dwUseChance == WUI_TARGETINGOBJ )	// íƒ€ê²Ÿì—ê²Œ ì‚¬ìš©í•˜ëŠ” ë°©ì‹.
 								{
 									if( IsPlayer() )
 									{
@@ -1845,13 +1845,13 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 										CMover *pTarget = prj.GetMover( idTarget );
 										if( IsValidObj( pTarget ) )
 										{
-											DoActiveSkill( dwActiveSkill, pItemProp->dwActiveSkillLv, pTarget );	// dwActiveSkill ¹ßµ¿.
+											DoActiveSkill( dwActiveSkill, pItemProp->dwActiveSkillLv, pTarget );	// dwActiveSkill ë°œë™.
 										}
 									}
 								} else
-								if( pSkillProp->dwUseChance == WUI_NOW )		// ÀÚ½Å¿¡°Ô¸¸ »ç¿ëÇÏ´Â ¹æ½Ä.
+								if( pSkillProp->dwUseChance == WUI_NOW )		// ìì‹ ì—ê²Œë§Œ ì‚¬ìš©í•˜ëŠ” ë°©ì‹.
 								{
-									DoActiveSkill( dwActiveSkill, pItemProp->dwActiveSkillLv, this );	// ¹ßµ¿
+									DoActiveSkill( dwActiveSkill, pItemProp->dwActiveSkillLv, this );	// ë°œë™
 								}
 							} else
 								Error( "DoUseItem, IK2_SKILL, item %s -> %d skill not prop", pItemProp->szName, dwActiveSkill );
@@ -1864,9 +1864,9 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 #endif // __TREASUREBOX
 			default:
 				{
-					if( pItemProp->dwSkillTime != NULL_ID )		// Áö¼Ó½Ã°£ÀÌ ÀÖ´Â ¾ÆÀÌÅÛ
+					if( pItemProp->dwSkillTime != NULL_ID )		// ì§€ì†ì‹œê°„ì´ ìˆëŠ” ì•„ì´í…œ
 					{
-						DoApplySkill( this, pItemProp, NULL );		// ´ë»ó¿¡°Ô ¾ÆÀÌÅÛÈ¿°ú¸¦ Àû¿ëÇÔ. 
+						DoApplySkill( this, pItemProp, NULL );		// ëŒ€ìƒì—ê²Œ ì•„ì´í…œíš¨ê³¼ë¥¼ ì ìš©í•¨. 
 					}
 				}
 		} // switch ik2
@@ -1889,18 +1889,18 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 		OnAfterUseItem( pItemProp );	// raiders 06.04.20
 		pItemElem->UseItem();			// --m_nItemNum;
 
-		if( pItemElem->m_bCharged )		// »ó¿ëÈ­ ¾ÆÀÌÅÛ ·Î±×
+		if( pItemElem->m_bCharged )		// ìƒìš©í™” ì•„ì´í…œ ë¡œê·¸
 			g_dpDBClient.SendLogSMItemUse( "1", (CUser*)this, pItemElem, pItemProp );		
 
 		CHAR cUIParam = UI_NUM;
-		if( dwGroup )	// ÄğÅ¸ÀÓ ¾ÆÀÌÅÛÀÌ¸é »ç¿ë½Ã°¢À» ±â·ÏÇÑ´Ù.
+		if( dwGroup )	// ì¿¨íƒ€ì„ ì•„ì´í…œì´ë©´ ì‚¬ìš©ì‹œê°ì„ ê¸°ë¡í•œë‹¤.
 		{
 			CUser* pUser = (CUser*)this;
 			pUser->m_cooltimeMgr.SetTime( dwGroup, pItemProp->GetCoolTime() );	
 			cUIParam = UI_COOLTIME;
 		}
 
-		UpdateItem( (BYTE)( dwId ), cUIParam, pItemElem->m_nItemNum );	// °¹¼ö°¡ 0ÀÌ¸é  ¾ÆÀÌÅÛ »èÁ¦ , Àü¼Û 
+		UpdateItem( (BYTE)( dwId ), cUIParam, pItemElem->m_nItemNum );	// ê°¯ìˆ˜ê°€ 0ì´ë©´  ì•„ì´í…œ ì‚­ì œ , ì „ì†¡ 
 	}
 	
 #endif // WORLDSERVER
@@ -1908,11 +1908,11 @@ BOOL CMover::DoUseItem( DWORD dwData, DWORD dwFocusId, int nPart  )
 	return TRUE;
 }
 
-// IK2_BLINKWINGÀÇ Ã³¸®.
+// IK2_BLINKWINGì˜ ì²˜ë¦¬.
 BOOL CMover::DoUseItemBlinkWing( ItemProp *pItemProp, CItemElem* pItemElem, BOOL bUse )
 {
 #ifdef __WORLDSERVER
-	if( m_pActMover->IsSit() ) // 2005.12.08 raiders ¾É¾Æ ÀÖÀ¸¸é ¾ÈµÇ°Ô 
+	if( m_pActMover->IsSit() ) // 2005.12.08 raiders ì•‰ì•„ ìˆìœ¼ë©´ ì•ˆë˜ê²Œ 
 		return FALSE;
 
 	if( IsStateMode( STATE_BASEMOTION_MODE ) ) 
@@ -1955,11 +1955,11 @@ BOOL CMover::DoUseItemBlinkWing( ItemProp *pItemProp, CItemElem* pItemElem, BOOL
 #endif // __RAINBOW_RACE
 
 #if __VER >= 13 // __HOUSING
-	if( GetWorld()->GetID() == WI_WORLD_MINIROOM )	// ÇÏ¿ìÂ¡¿¡¼­´Â ºí¸µÅ©À® ±İÁö.
+	if( GetWorld()->GetID() == WI_WORLD_MINIROOM )	// í•˜ìš°ì§•ì—ì„œëŠ” ë¸”ë§í¬ìœ™ ê¸ˆì§€.
 		return FALSE;
 #endif // __HOUSING
 
-	// Á¦ÇÑ·¹º§ÀÌ °É·ÁÀÖÀ»¶§.
+	// ì œí•œë ˆë²¨ì´ ê±¸ë ¤ìˆì„ë•Œ.
  	if( pItemProp->dwLimitLevel1 != NULL_ID && (int)( pItemProp->dwLimitLevel1 ) > GetLevel() )
 	{
 		if( TRUE == IsPlayer() )
@@ -2232,14 +2232,14 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 	case II_CHR_SYS_SCR_PSKILLFULL1:
 		{
 			if( !( IsSMMode( SM_PARTYSKILL1 ) || IsSMMode( SM_PARTYSKILL15 ) || IsSMMode( SM_PARTYSKILL30 ) ) )
-#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 			{
 				SetSMMode( SM_PARTYSKILL1, pItemProp->dwCircleTime );
 				g_DPCoreClient.SendUserPartySkill( m_idPlayer, PARTY_PARSKILL_MODE, 1000, 0, 1 );
 			}
-#else	//__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#else	//__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 				SetSMMode( SM_PARTYSKILL1, pItemProp->dwCircleTime );
-#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 			else
 				nResult = 2;
 		}
@@ -2247,14 +2247,14 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 	case II_CHR_SYS_SCR_PSKILLFULL15:
 		{
 			if( !( IsSMMode( SM_PARTYSKILL1 ) || IsSMMode( SM_PARTYSKILL15 ) || IsSMMode( SM_PARTYSKILL30 ) ) )
-#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 			{
 				SetSMMode( SM_PARTYSKILL15, pItemProp->dwCircleTime );
 				g_DPCoreClient.SendUserPartySkill( m_idPlayer, PARTY_PARSKILL_MODE, 1000, 0, 1 );
 			}
-#else	//__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#else	//__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 				SetSMMode( SM_PARTYSKILL15, pItemProp->dwCircleTime );
-#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 			else
 				nResult = 2;
 		}
@@ -2262,14 +2262,14 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 	case II_CHR_SYS_SCR_PSKILLFULL30:
 		{
 			if( !( IsSMMode( SM_PARTYSKILL1 ) || IsSMMode( SM_PARTYSKILL15 ) || IsSMMode( SM_PARTYSKILL30 ) ) )
-#if __VER >= 12 // __PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#if __VER >= 12 // __PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 			{
 				SetSMMode( SM_PARTYSKILL30, pItemProp->dwCircleTime );
 				g_DPCoreClient.SendUserPartySkill( m_idPlayer, PARTY_PARSKILL_MODE, 1000, 0, 1 );
 			}
-#else	//__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#else	//__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 				SetSMMode( SM_PARTYSKILL30, pItemProp->dwCircleTime );
-#endif //__PARSKILL1001	//12Â÷ ÆÄ½ºÅ³ ¾ÆÀÌÅÛ ¼öÁ¤  world,core,neuz
+#endif //__PARSKILL1001	//12ì°¨ íŒŒìŠ¤í‚¬ ì•„ì´í…œ ìˆ˜ì •  world,core,neuz
 			else
 				nResult = 2;
 		}
@@ -2331,13 +2331,13 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 			if( IsChaotic() )
 			{
 				UpgradeKarma();
-				((CUser*)this)->AddDefinedText( TID_GAME_GETKARMA );	// Ä«¸£¸¶°¡ 1´Ü°è È¸º¹µÇ¾ú½À´Ï´Ù						
+				((CUser*)this)->AddDefinedText( TID_GAME_GETKARMA );	// ì¹´ë¥´ë§ˆê°€ 1ë‹¨ê³„ íšŒë³µë˜ì—ˆìŠµë‹ˆë‹¤						
 			}
 			else
 			{
-				// Ä«¿ÀÆ½ ÇÃ·¹ÀÌ¾îÀÇ °æ¿ì¸¸ »ç¿ë ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+				// ì¹´ì˜¤í‹± í”Œë ˆì´ì–´ì˜ ê²½ìš°ë§Œ ì‚¬ìš© í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 				((CUser*)this)->AddDefinedText( TID_GAME_NOTCHOAS );
-				nResult = 1;		// 1 - ¾ÆÀÌÅÛÀÌ »ç¿ë¾ÈµÇ°Ô ÇÑ´Ù.
+				nResult = 1;		// 1 - ì•„ì´í…œì´ ì‚¬ìš©ì•ˆë˜ê²Œ í•œë‹¤.
 			}
 		}
 		break;
@@ -2356,7 +2356,7 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 			pParty = g_PartyMng.GetParty( GetPartyId() );
 			if( pParty )
 			{
-				if( pParty->m_nLevel < MAX_PARTYLEVEL )	// ´Ü¸·±Ø´ÜÀÏ¶§¸¸ »ç¿ë°¡´É
+				if( pParty->m_nLevel < MAX_PARTYLEVEL )	// ë‹¨ë§‰ê·¹ë‹¨ì¼ë•Œë§Œ ì‚¬ìš©ê°€ëŠ¥
 					pParty->SetPartyLevel( ((CUser*)this), 10, 180, 0 );
 				else
 					nResult = 1;
@@ -2397,9 +2397,9 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 		}
 		break;
 #ifndef __NEW_STACKABLE_AMPS
-	case II_SYS_SYS_SCR_AMPES:	// "ESÁõÆøÀÇ µÎ·ç¸¶¸®"		
+	case II_SYS_SYS_SCR_AMPES:	// "ESì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬"		
 		{
-			// ES, EMÀº µ¿ÀÏ¾È ¾ÆÀÌÅÛ.. I´Â °°ÀÌ »ç¿ëÇÒ¼ö ¾÷½À´Ï´Ù.
+			// ES, EMì€ ë™ì¼ì•ˆ ì•„ì´í…œ.. IëŠ” ê°™ì´ ì‚¬ìš©í• ìˆ˜ ì—…ìŠµë‹ˆë‹¤.
 			if( HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPES ) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPEM ) ||
 				HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESA ) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESA1) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESA2) ||
 				HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESB ) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESB1) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESB2) ||
@@ -2431,7 +2431,7 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 			else if( HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPI ) )
 				nResult = 3;
 
-			// ·¹º§ °Ë»ç
+			// ë ˆë²¨ ê²€ì‚¬
 			int nLevel = GetLevel();
 
 			CString str;
@@ -2664,9 +2664,9 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 			}
 		}
 		break;
-	case II_SYS_SYS_SCR_AMPEM:	// "EMÁõÆøÀÇ µÎ·ç¸¶¸®"		
+	case II_SYS_SYS_SCR_AMPEM:	// "EMì¦í­ì˜ ë‘ë£¨ë§ˆë¦¬"		
 		{
-			// ES, EMÀº µ¿ÀÏ¾È ¾ÆÀÌÅÛ.. I´Â °°ÀÌ »ç¿ëÇÒ¼ö ¾÷½À´Ï´Ù.
+			// ES, EMì€ ë™ì¼ì•ˆ ì•„ì´í…œ.. IëŠ” ê°™ì´ ì‚¬ìš©í• ìˆ˜ ì—…ìŠµë‹ˆë‹¤.
 			if( HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPES ) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPEM ) ||
 				HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESA ) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESA1) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESA2) ||
 				HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESB ) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESB1) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_AMPESB2) ||
@@ -2691,27 +2691,27 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 		}
 		break;
 #endif // __Y_BEAUTY_SHOP_CHARGE
-	case II_SYS_SYS_SCR_GLVCHEER:	// ÀÀ¿øÀÇ Èò Àå°©
-	case II_SYS_SYS_SCR_SMELPROT:	// "º¸È£ÀÇ µÎ·ç¸¶¸®"		
+	case II_SYS_SYS_SCR_GLVCHEER:	// ì‘ì›ì˜ í° ì¥ê°‘
+	case II_SYS_SYS_SCR_SMELPROT:	// "ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬"		
 #ifdef __SM_ITEM_2ND_EX
 	case II_SYS_SYS_SCR_SMELPROT2:
 #endif	// __SM_ITEM_2ND_EX
 #if __VER >= 9 // __ULTIMATE
-	case II_SYS_SYS_SCR_SMELPROT3: // " º¸È£ÀÇ µÎ·ç¸¶¸®(ÃÖ»ó±Ş)
+	case II_SYS_SYS_SCR_SMELPROT3: // " ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬(ìµœìƒê¸‰)
 #endif // __ULTIMATE
 #if __VER >= 11 // __SYS_COLLECTING
-	case II_SYS_SYS_SCR_SMELPROT4:	// ¾Ç¼¼»ç¸® º¸È£ÀÇ µÎ·ç¸¶¸®
+	case II_SYS_SYS_SCR_SMELPROT4:	// ì•…ì„¸ì‚¬ë¦¬ ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 #endif	// __SYS_COLLECTING
-	case II_SYS_SYS_SCR_SMELTING:	// "Á¦·ÃÀÇ µÎ·ç¸¶¸®"	
-	case II_SYS_SYS_SCR_SUPERLEADERPARTY:	// "´ÜÀåÀÇ Ãàº¹"		
-	case II_SYS_SYS_SCR_SUPERSMELTING:	// "Á¦·Ã µÎ·ç¸¶¸®(Áø)"
+	case II_SYS_SYS_SCR_SMELTING:	// "ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬"	
+	case II_SYS_SYS_SCR_SUPERLEADERPARTY:	// "ë‹¨ì¥ì˜ ì¶•ë³µ"		
+	case II_SYS_SYS_SCR_SUPERSMELTING:	// "ì œë ¨ ë‘ë£¨ë§ˆë¦¬(ì§„)"
 	case II_SYS_SYS_SCR_FONTEDIT:	// "Font Edit"		
 #ifdef __Y_BEAUTY_SHOP_CHARGE
 	case II_SYS_SYS_SCR_VENDOR:	// "Vendor Charge"		
 #endif //__Y_BEAUTY_SHOP_CHARGE
-	case II_SYS_SYS_SCR_SKLINSTRUCT:	// "±â¼úÀÇ Àü¼öÀÚ"
+	case II_SYS_SYS_SCR_SKLINSTRUCT:	// "ê¸°ìˆ ì˜ ì „ìˆ˜ì"
 #if __VER >= 14 // __EXT_ATTRIBUTE
-	case II_SYS_SYS_SCR_SMELTING2:	// ¼Ó¼º Á¦·ÃÀÇ µÎ·ç¸¶¸®
+	case II_SYS_SYS_SCR_SMELTING2:	// ì†ì„± ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬
 #endif // __EXT_ATTRIBUTE
 
 		{
@@ -2721,7 +2721,7 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 				DoApplySkill( (CCtrl*)this, pItemProp, NULL );
 		}
 		break;
-		//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+		//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 #ifdef	__PROTECT_AWAKE
 	case	II_SYS_SYS_SCR_AWAKESAFE:
 		{
@@ -2736,14 +2736,14 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 		}
 		break;
 #endif	//__PROTECT_AWAKE
-		//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+		//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 
 #if __VER >= 9	// __PET_0410
 	case II_SYS_SYS_SCR_PET_TONIC_A:
 	case II_SYS_SYS_SCR_PET_TONIC_B:
 #if __VER >= 12 // __PET_0519
-		nResult		= DoUseItemPetTonic( pItemElem );	// Æê ¿µ¾çÁ¦ »ç¿ë
+		nResult		= DoUseItemPetTonic( pItemElem );	// í« ì˜ì–‘ì œ ì‚¬ìš©
 		break;
 #else	// __PET_0519
 		if( HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_PET_TONIC_A ) || HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_PET_TONIC_B ) )
@@ -2793,7 +2793,7 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 		}
 		break;
 #endif // __II_SYS_SYS_SCR_GET
-	case II_SYS_SYS_SCR_RETURN:		// "±ÍÈ¯ÀÇ µÎ·ç¸¶¸®"		
+	case II_SYS_SYS_SCR_RETURN:		// "ê·€í™˜ì˜ ë‘ë£¨ë§ˆë¦¬"		
 		{
 			if( IsPlayer() )
 			{
@@ -2806,7 +2806,7 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 						return 0;
 
 					D3DXVECTOR3 vPos = GetPos();
-					//Å¬¶ô¿öÅ© µ¼/ ÄÉ¹Ù¶ó½º¿¡¼­´Â ÀÌ ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ¾øÀ¸¸ç ¸¸¾à »ç¿ëÇÏ·Á ½Ãµµ ½Ã 'ÀÌ Áö¿ªÀº Á¦ÇÑ Áö¿ªÀÌ¹Ç·Î ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.'¶ó´Â ¸Ş½ÃÁö¸¦ Ãâ·ÂÇÑ´Ù
+					//í´ë½ì›Œí¬ ë”/ ì¼€ë°”ë¼ìŠ¤ì—ì„œëŠ” ì´ ì•„ì´í…œì„ ì‚¬ìš©í•  ìˆ˜ ì—†ìœ¼ë©° ë§Œì•½ ì‚¬ìš©í•˜ë ¤ ì‹œë„ ì‹œ 'ì´ ì§€ì—­ì€ ì œí•œ ì§€ì—­ì´ë¯€ë¡œ ì•„ì´í…œì„ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.'ë¼ëŠ” ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•œë‹¤
 					if( pWorld->GetID() == WI_WORLD_GUILDWAR || pWorld->GetID() == WI_WORLD_KEBARAS || prj.IsGuildQuestRegion( vPos ) )
 					{			
 						((CUser*) this)->AddDefinedText( TID_GAME_LIMITZONE_USE );
@@ -2823,9 +2823,9 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 
 					((CUser*) this)->SetReturnPos( vPos );
 
-					//1.±ÍÈ¯¸ğµå·Î ¼³Á¤ 
+					//1.ê·€í™˜ëª¨ë“œë¡œ ì„¤ì • 
 					DoApplySkill( (CCtrl*)this, pItemProp, NULL );
-					//2. ¼±ÅÃµÈ ¸¶À»·Î ÀÌµ¿ 
+					//2. ì„ íƒëœ ë§ˆì„ë¡œ ì´ë™ 
 					LPCTSTR lpszKey = ((CUser*)this)->m_lpszVillage;
 					if( lpszKey )
 					{
@@ -2862,15 +2862,15 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 			if( nState != 0 )
 			{
 				DWORD dwMsgId = 0;
-				if( nState == 1 )	// °Å·¡Áß
+				if( nState == 1 )	// ê±°ë˜ì¤‘
 					dwMsgId = TID_GAME_TRADE_NOTUSE;
-				else if( nState == 2 ) // Á×À½
+				else if( nState == 2 ) // ì£½ìŒ
 					dwMsgId = TID_GAME_DIE_NOTUSE;
-				else if( nState == 3 ) // °³ÀÎ»óÁ¡ Áß
+				else if( nState == 3 ) // ê°œì¸ìƒì  ì¤‘
 					dwMsgId = TID_GAME_VENDOR_NOTUSE;
-				else if( nState == 4 ) // ÀüÅõÁß
+				else if( nState == 4 ) // ì „íˆ¬ì¤‘
 					dwMsgId = TID_GAME_ATTACK_NOTUSE;
-				else if( nState == 5 ) // ºñÇàÁß
+				else if( nState == 5 ) // ë¹„í–‰ì¤‘
 					dwMsgId = TID_GAME_FLY_NOTUSE;
 				
 				((CUser*) this)->AddDefinedText( TID_GAME_STATE_NOTUSE , "\"%s\"", prj.GetText( dwMsgId ) );
@@ -2889,22 +2889,22 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 		}
 		break;
 
-#if __VER >= 11 // __MA_VER11_02	// ¼öÇ¥ °³³ä È­Æä 'Æä¸°' Ãß°¡
+#if __VER >= 11 // __MA_VER11_02	// ìˆ˜í‘œ ê°œë… í™”í˜ 'í˜ë¦°' ì¶”ê°€
 	case II_SYS_SYS_SCR_PERIN:
 		{
 			int nState = GetSummonState();
 			if( nState != 0 )
 			{
 				DWORD dwMsgId = 0;
-				if( nState == 1 )	// °Å·¡Áß
+				if( nState == 1 )	// ê±°ë˜ì¤‘
 					dwMsgId = TID_GAME_TRADE_NOTUSE;
-				else if( nState == 2 ) // Á×À½
+				else if( nState == 2 ) // ì£½ìŒ
 					dwMsgId = TID_GAME_DIE_NOTUSE;
-				else if( nState == 3 ) // °³ÀÎ»óÁ¡ Áß
+				else if( nState == 3 ) // ê°œì¸ìƒì  ì¤‘
 					dwMsgId = TID_GAME_VENDOR_NOTUSE;
-				else if( nState == 4 ) // ÀüÅõÁß
+				else if( nState == 4 ) // ì „íˆ¬ì¤‘
 					dwMsgId = TID_GAME_ATTACK_NOTUSE;
-				else if( nState == 5 ) // ºñÇàÁß
+				else if( nState == 5 ) // ë¹„í–‰ì¤‘
 					dwMsgId = TID_GAME_FLY_NOTUSE;
 				
 				((CUser*) this)->AddDefinedText( TID_GAME_STATE_NOTUSE , "\"%s\"", prj.GetText( dwMsgId ) );
@@ -2922,7 +2922,7 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 				{
 					((CUser*) this)->AddGold(100000000,true);
 
-					// chipi080711 - Æä¸°»ç¿ë ·Î±×
+					// chipi080711 - í˜ë¦°ì‚¬ìš© ë¡œê·¸
 					LogItemInfo aLogItem;
 					aLogItem.Action = "C";
 					aLogItem.SendName = ((CUser*) this)->GetName();
@@ -3253,7 +3253,7 @@ BOOL CMover::IsDoUseBuff( ItemProp* pItemProp )
 			nResult = 1;
 	}
 #endif // __SYS_COLLECTING
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	#define II_SYS_SYS_SCR_PARTYEXPUP01_01 20296
 #define II_SYS_SYS_SCR_PARTYSKILLUP01_01 20297
 	else if( pItemProp->dwID == II_SYS_SYS_SCR_PARTYEXPUP01
@@ -3285,12 +3285,12 @@ BOOL CMover::IsDoUseBuff( ItemProp* pItemProp )
 			)
 			nResult = 1;
 	}
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	
 	switch( nResult )
 	{
 	case 1:
-		((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // »ç¿ëÁßÀÌ¾î¼­ »ç¿ëÇÒ¼ö ¾øÀ½
+		((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" ); // ì‚¬ìš©ì¤‘ì´ì–´ì„œ ì‚¬ìš©í• ìˆ˜ ì—†ìŒ
 		break;
 #if __VER >= 8 //__CSC_VER8_5
 	case 2:
@@ -3308,11 +3308,11 @@ BOOL CMover::IsDoUseBuff( ItemProp* pItemProp )
 }
 #endif // __WORLDSERVER
 
-// ¼Ò½ºº¸±â Çò°¥¸®´Ï±î À¯·á¾ÆÀÌÅÛ¸¸ µû·Î »¯´Ù.
+// ì†ŒìŠ¤ë³´ê¸° í—·ê°ˆë¦¬ë‹ˆê¹Œ ìœ ë£Œì•„ì´í…œë§Œ ë”°ë¡œ ëºë‹¤.
 BOOL	CMover::DoUseItemFood_SM( ItemProp *pItemProp, CItemElem* pItemElem )
 {
 #ifdef __WORLDSERVER
-	if( !( IsSMMode( SM_MAX_HP ) || IsSMMode( SM_MAX_HP50 ) ) )		// MAXHP ¹öÇÁ°¡ ¾øÀ»¶§¸¸ »ç¿ëµÊ.
+	if( !( IsSMMode( SM_MAX_HP ) || IsSMMode( SM_MAX_HP50 ) ) )		// MAXHP ë²„í”„ê°€ ì—†ì„ë•Œë§Œ ì‚¬ìš©ë¨.
 	{
 		DWORD nAdjParamVal;
 		int nType;
@@ -3335,7 +3335,7 @@ BOOL	CMover::DoUseItemFood_SM( ItemProp *pItemProp, CItemElem* pItemElem )
 	}
 	else
 	{
-		((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" );	// »ç¿ëÁßÀÎ »ó¿ë ¾ÆÀÌÅÛ
+		((CUser*)this)->AddDefinedText( TID_GAME_LIMITED_USE, "" );	// ì‚¬ìš©ì¤‘ì¸ ìƒìš© ì•„ì´í…œ
 		return FALSE;
 	}
 #endif
@@ -3369,7 +3369,7 @@ BOOL	CMover::DoUseItemFood( ItemProp *pItemProp, CItemElem* pItemElem )
 			nHPMax = GetMaxPoint( pItemProp->dwDestParam[i]);
 			nMax   = pItemProp->dwAbilityMin;
 			
-			if( pItemProp->dwCircleTime != -1)	// À¯·á¾ÆÀÌÅÛ¸¸ dwCircleTimeÀ¸·Î ´Ù ½è´õ¶ó....
+			if( pItemProp->dwCircleTime != -1)	// ìœ ë£Œì•„ì´í…œë§Œ dwCircleTimeìœ¼ë¡œ ë‹¤ ì¼ë”ë¼....
 			{
 				BOOL bRet = DoUseItemFood_SM( pItemProp, pItemElem );
 				if( bRet == FALSE )	return FALSE;
@@ -3404,7 +3404,7 @@ BOOL	CMover::DoUseItemFood( ItemProp *pItemProp, CItemElem* pItemElem )
 						}
 						else
 						{
-							if( nHP + nPoint >= nHPMax )	// Æ÷ÀÎÆ® ´õÇßÀ»¶§ ¿À¹ÙµÇ´Â°É Ã³¸®.
+							if( nHP + nPoint >= nHPMax )	// í¬ì¸íŠ¸ ë”í–ˆì„ë•Œ ì˜¤ë°”ë˜ëŠ”ê±¸ ì²˜ë¦¬.
 								nHP = nHPMax;
 							else
 								nHP = nHP + nPoint;
@@ -3461,8 +3461,8 @@ BOOL CMover::DoUseItemSexChange( int nFace )
 	SetTypeIndex( D3DDEVICE, OT_MOVER, dwIndex );
 	ResetScale();
 	SetMotion( MTI_WALK );
-	//RedoEquip( FALSE );		// chipi_091125 Á¦°Å
-	RedoEquip( FALSE, FALSE );	// chipi_091125 Ãß°¡ - ¾Ç¼¼»ç¸®, ¹«±â µîÀÇ ¾ÆÀÌÅÛÀº Âø¿ë »óÅÂ·Î Æ®·£Áö°¡ °¡´ÉÇÑµ¥ ´É·ÂÄ¡¸¦ ´Ù½Ã(Áßº¹) Àû¿ë½ÃÅ°´Â ¹®Á¦°¡ ÀÖ¾ú´Ù.
+	//RedoEquip( FALSE );		// chipi_091125 ì œê±°
+	RedoEquip( FALSE, FALSE );	// chipi_091125 ì¶”ê°€ - ì•…ì„¸ì‚¬ë¦¬, ë¬´ê¸° ë“±ì˜ ì•„ì´í…œì€ ì°©ìš© ìƒíƒœë¡œ íŠ¸ëœì§€ê°€ ê°€ëŠ¥í•œë° ëŠ¥ë ¥ì¹˜ë¥¼ ë‹¤ì‹œ(ì¤‘ë³µ) ì ìš©ì‹œí‚¤ëŠ” ë¬¸ì œê°€ ìˆì—ˆë‹¤.
 	UpdateLocalMatrix();
 
 	// 3.
@@ -3488,16 +3488,16 @@ BOOL CMover::DoUseItemSexChange( int nFace )
 
 ----------------------------------------------------------------------------------------------------------*/
 //
-// ¿Ïµå¾îÅÃÀ» ÇÏ¶ó!
+// ì™„ë“œì–´íƒì„ í•˜ë¼!
 //
 int	 CMover::DoAttackMagic( CObj *pTargetObj, int nMagicPower, int idSfxHit )
 {
-	if( IsInvalidObj(pTargetObj) )		// Å¸°ÙÀÌ °Å½Ã±â ÇÏ¸é ¸®ÅÏ
+	if( IsInvalidObj(pTargetObj) )		// íƒ€ê²Ÿì´ ê±°ì‹œê¸° í•˜ë©´ ë¦¬í„´
 		return( -1 );
 
 	ItemProp* pItemProp;
 #ifndef __CLIENT
-	CItemElem* pItemElem = GetWeaponItem();	// ¼Õ¿¡µç ¹«±â°¡ ¾øÀ¸¸é ¸®ÅÏ
+	CItemElem* pItemElem = GetWeaponItem();	// ì†ì—ë“  ë¬´ê¸°ê°€ ì—†ìœ¼ë©´ ë¦¬í„´
 	if( pItemElem == NULL )
 		return( - 1 ) ;
 	pItemProp	= pItemElem->GetProp();
@@ -3516,11 +3516,11 @@ int	 CMover::DoAttackMagic( CObj *pTargetObj, int nMagicPower, int idSfxHit )
 	}
 #endif	// __CLIENT
 
-	if( pItemProp->dwItemKind3 != IK3_WAND )		// µé°íÀÖ´Â ¹«±â°¡ ¿Ïµå°¡ ¾Æ´Ï¸é ¿¡·¯.
+	if( pItemProp->dwItemKind3 != IK3_WAND )		// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ê°€ ì™„ë“œê°€ ì•„ë‹ˆë©´ ì—ëŸ¬.
 		return( -1 );
 
 #ifdef __CLIENT
-	// ÇöÀç ÁöÁ¡°ú ¸ñÇ¥ÁöÁ¡±îÁö ¸·È÷´Â°Ô ÀÖÀ¸¸é ¸Ş½ÃÁö Ãâ·ÂÇÏ°í ¸®ÅÏ
+	// í˜„ì¬ ì§€ì ê³¼ ëª©í‘œì§€ì ê¹Œì§€ ë§‰íˆëŠ”ê²Œ ìˆìœ¼ë©´ ë©”ì‹œì§€ ì¶œë ¥í•˜ê³  ë¦¬í„´
 	CWorld *pWorld = GetWorld();
 	D3DXVECTOR3 vStart = GetPos();				vStart.y += 0.5f;
 	D3DXVECTOR3 vEnd   = pTargetObj->GetPos();	vEnd.y += 0.5f;
@@ -3535,14 +3535,14 @@ int	 CMover::DoAttackMagic( CObj *pTargetObj, int nMagicPower, int idSfxHit )
 	OBJID	idTarget = ((CCtrl*)pTargetObj)->GetId();
 
 	int nError;
-	if( ( nError = m_pActMover->SendActMsg( OBJMSG_ATK_MAGIC1, idTarget ) ) == 1 )	// ¿Ïµå°ø°İ µ¿ÀÛ ½ÃÀÛ.
+	if( ( nError = m_pActMover->SendActMsg( OBJMSG_ATK_MAGIC1, idTarget ) ) == 1 )	// ì™„ë“œê³µê²© ë™ì‘ ì‹œì‘.
 	{
 		if( m_pActMover->IsFly() == FALSE )		
-			SetAngle( GetDegree(pTargetObj->GetPos(), GetPos()) );		// ¸ñÇ¥ÂÊÀ¸·Î ¸öÀ» µ¹¸².
-		SetActParam( OBJACT_MAGIC_ATTACK, idTarget, nMagicPower );		// ½ÇÇàÁß »ç¿ëÇÒ ÆÄ¶ó¸ŞÅÍ µî·Ï
+			SetAngle( GetDegree(pTargetObj->GetPos(), GetPos()) );		// ëª©í‘œìª½ìœ¼ë¡œ ëª¸ì„ ëŒë¦¼.
+		SetActParam( OBJACT_MAGIC_ATTACK, idTarget, nMagicPower );		// ì‹¤í–‰ì¤‘ ì‚¬ìš©í•  íŒŒë¼ë©”í„° ë“±ë¡
 		
 #ifdef __CLIENT	
-		if( nMagicPower >= 1 )	// ·¹º§ 2ÀÌ»óÀ» ¾²¸é ¾×¼ÇÆ÷ÀÎÆ® ÇÏ³ª ¿Ã¶ó°¨.
+		if( nMagicPower >= 1 )	// ë ˆë²¨ 2ì´ìƒì„ ì“°ë©´ ì•¡ì…˜í¬ì¸íŠ¸ í•˜ë‚˜ ì˜¬ë¼ê°.
 		{
 			if( g_WndMng.m_pWndTaskBar->m_nActionPoint < 100 )
 				g_WndMng.m_pWndTaskBar->m_nActionPoint ++;
@@ -3552,16 +3552,16 @@ int	 CMover::DoAttackMagic( CObj *pTargetObj, int nMagicPower, int idSfxHit )
 #ifdef __WORLDSERVER
 		if( IsPlayer() )
 		{
-			if( nMagicPower >= 1 && ((CUser*)this)->m_playTaskBar.m_nActionPoint < 100 )	// 2´Ü°èÃæÀüÀÌ»ó »ç¿ëÇÏ¸é ¾×¼ÇÆ÷ÀÎÆ® ¿Ã¶ó°¨.
+			if( nMagicPower >= 1 && ((CUser*)this)->m_playTaskBar.m_nActionPoint < 100 )	// 2ë‹¨ê³„ì¶©ì „ì´ìƒ ì‚¬ìš©í•˜ë©´ ì•¡ì…˜í¬ì¸íŠ¸ ì˜¬ë¼ê°.
 				((CUser*)this)->m_playTaskBar.m_nActionPoint ++;
 		}
-		if( nMagicPower == 3 )		// 4´Ü°èÂ¥¸®¸¦ ¾²¸é ¸¶³ª 5Æ÷ÀÎÆ® °¨¼Ò
+		if( nMagicPower == 3 )		// 4ë‹¨ê³„ì§œë¦¬ë¥¼ ì“°ë©´ ë§ˆë‚˜ 5í¬ì¸íŠ¸ ê°ì†Œ
 			IncManaPoint( -GetReqMp( pItemProp->dwReqMp ) );	
 		g_UserMng.AddMagicAttack( this, OBJMSG_ATK_MAGIC1, idTarget, 0, 0, nMagicPower, idSfxHit );
 #else	// __WORLDSERVER
 #ifdef __CLIENT
 		if( IsActiveMover() ) {
-			SetActParam( OBJACT_MAGIC_ATTACK, idTarget, nMagicPower );	// È¿°ú ½Äº°ÀÚ µî·Ï
+			SetActParam( OBJACT_MAGIC_ATTACK, idTarget, nMagicPower );	// íš¨ê³¼ ì‹ë³„ì ë“±ë¡
 			g_DPlay.SendMagicAttack( OBJMSG_ATK_MAGIC1, ( (CCtrl*)pTargetObj )->GetId(), 0, 0, nMagicPower, m_idSfxHit );
 		}
 #endif	// __CLIENT
@@ -3578,8 +3578,8 @@ int	 CMover::DoAttackMagic( CObj *pTargetObj, int nMagicPower, int idSfxHit )
 
 ----------------------------------------------------------------------------------------------------------*/
 //
-// ·¹ÀÎÁö¾îÅÃÀ» ÇÏ¶ó!
-// dwItemID : ¹«±â¾ÆÀÌÅÛ ¾ÆÀÌµğ
+// ë ˆì¸ì§€ì–´íƒì„ í•˜ë¼!
+// dwItemID : ë¬´ê¸°ì•„ì´í…œ ì•„ì´ë””
 //
 int	 CMover::DoAttackRange( CObj *pTargetObj, DWORD dwItemID, int idSfxHit )
 {
@@ -3593,7 +3593,7 @@ int	 CMover::DoAttackRange( CObj *pTargetObj, DWORD dwItemID, int idSfxHit )
 #ifdef __CLIENT
 	if( IsActiveMover() )
 	{
-		// ÇöÀç ÁöÁ¡°ú ¸ñÇ¥ÁöÁ¡±îÁö ¸·È÷´Â°Ô ÀÖÀ¸¸é ¸Ş½ÃÁö Ãâ·ÂÇÏ°í ¸®ÅÏ
+		// í˜„ì¬ ì§€ì ê³¼ ëª©í‘œì§€ì ê¹Œì§€ ë§‰íˆëŠ”ê²Œ ìˆìœ¼ë©´ ë©”ì‹œì§€ ì¶œë ¥í•˜ê³  ë¦¬í„´
 		CWorld *pWorld = GetWorld();
 		D3DXVECTOR3 vStart = GetPos();				vStart.y += 0.5f;
 		D3DXVECTOR3 vEnd   = pTargetObj->GetPos();	vEnd.y += 0.5f;
@@ -3614,7 +3614,7 @@ int	 CMover::DoAttackRange( CObj *pTargetObj, DWORD dwItemID, int idSfxHit )
 		nPower = dwItemID;
 
 	#ifdef __WORLDSERVER
-		CItemElem* pItemElem = m_Inventory.GetEquip( PARTS_BULLET );	// È­»ìÀÌ ÀÖ´ÂÁö Ã¼Å©
+		CItemElem* pItemElem = m_Inventory.GetEquip( PARTS_BULLET );	// í™”ì‚´ì´ ìˆëŠ”ì§€ ì²´í¬
 		if( pItemElem == NULL || pItemElem->GetProp()->dwItemKind3 != IK3_ARROW )
 			return -1;
 	#endif // __WORLDSERVER
@@ -3622,7 +3622,7 @@ int	 CMover::DoAttackRange( CObj *pTargetObj, DWORD dwItemID, int idSfxHit )
 	else
 	{
 		if( dwItemID == NULL_ID || dwItemID == 0 )	
-			pItemProp = GetActiveHandItemProp();		// ÀÌ·±°æ¿ì´Â °Á ¼Õ¿¡ µç ¹«±â(È¤Àº ±âº»¾ÆÀÌÅÛ)
+			pItemProp = GetActiveHandItemProp();		// ì´ëŸ°ê²½ìš°ëŠ” ê± ì†ì— ë“  ë¬´ê¸°(í˜¹ì€ ê¸°ë³¸ì•„ì´í…œ)
 		else
 			pItemProp = prj.GetItemProp( dwItemID );
 	}
@@ -3633,7 +3633,7 @@ int	 CMover::DoAttackRange( CObj *pTargetObj, DWORD dwItemID, int idSfxHit )
 		return -1;
 	}
 
-	if( pItemProp->dwWeaponType != WT_RANGE && pItemProp->dwWeaponType != WT_RANGE_BOW )		// µé°íÀÖ´Â ¹«±â°¡ RANGE°¡ ¾Æ´Ï¸é ¸®ÅÏ
+	if( pItemProp->dwWeaponType != WT_RANGE && pItemProp->dwWeaponType != WT_RANGE_BOW )		// ë“¤ê³ ìˆëŠ” ë¬´ê¸°ê°€ RANGEê°€ ì•„ë‹ˆë©´ ë¦¬í„´
 	{
 		return -1;
 	}
@@ -3648,30 +3648,30 @@ int	 CMover::DoAttackRange( CObj *pTargetObj, DWORD dwItemID, int idSfxHit )
 		else
 		{
 			Error( "DoAttackRange : %s [%d]'s dwUseMotion = NULL_ID", m_szName, pItemProp->dwID );
-			dwUseMotion = MTI_ATK1;		// ÇÁ·ÎÆÛÆ¼¿¡ Àå°Å¸® °ø°İ ¸ğ¼ÇÀÌ ÁöÁ¤µÇÁö ¾Ê¾ÒÀ¸¸é ±âº» ¸ğ¼ÇÀ¸·Î ÇÑ´Ù.
+			dwUseMotion = MTI_ATK1;		// í”„ë¡œí¼í‹°ì— ì¥ê±°ë¦¬ ê³µê²© ëª¨ì…˜ì´ ì§€ì •ë˜ì§€ ì•Šì•˜ìœ¼ë©´ ê¸°ë³¸ ëª¨ì…˜ìœ¼ë¡œ í•œë‹¤.
 		}
 	}
 
 	OBJID	idTarget = ((CCtrl*)pTargetObj)->GetId();
 
 	int nError;
-	if( ( nError = m_pActMover->SendActMsg( OBJMSG_ATK_RANGE1, idTarget, (int)dwUseMotion ) ) == 1 )	// Àå°Å¸®°ø°İ.
+	if( ( nError = m_pActMover->SendActMsg( OBJMSG_ATK_RANGE1, idTarget, (int)dwUseMotion ) ) == 1 )	// ì¥ê±°ë¦¬ê³µê²©.
 	{
-		SetAngle( GetDegree(pTargetObj->GetPos(), GetPos()) );			// ¸ñÇ¥ÂÊÀ¸·Î ¸öÀ» µ¹¸².
-		SetActParam( OBJACT_RANGE_ATTACK, idTarget, dwItemID, idSfxHit );	// È¿°ú ½Äº°ÀÚ µî·Ï
+		SetAngle( GetDegree(pTargetObj->GetPos(), GetPos()) );			// ëª©í‘œìª½ìœ¼ë¡œ ëª¸ì„ ëŒë¦¼.
+		SetActParam( OBJACT_RANGE_ATTACK, idTarget, dwItemID, idSfxHit );	// íš¨ê³¼ ì‹ë³„ì ë“±ë¡
 		
 	#ifdef __WORLDSERVER
 		g_UserMng.AddRangeAttack( this, OBJMSG_ATK_RANGE1, idTarget, dwItemID, 0, idSfxHit );
-		ArrowDown( 1 );		// È­»ì 1°³ ¾ø¾Ú
+		ArrowDown( 1 );		// í™”ì‚´ 1ê°œ ì—†ì•°
 	#else	// __WORLDSERVER
-		if( IsActiveMover() )	// Å¬¶ó¿¡¼­ ÇÃ·¹ÀÌ¾î°¡ »ç¿ëÇÑ°Å¶ó¸é ¼­¹ö·Î Á¤º¸ º¸³¿.
+		if( IsActiveMover() )	// í´ë¼ì—ì„œ í”Œë ˆì´ì–´ê°€ ì‚¬ìš©í•œê±°ë¼ë©´ ì„œë²„ë¡œ ì •ë³´ ë³´ëƒ„.
 			g_DPlay.SendRangeAttack( OBJMSG_ATK_RANGE1, ( (CCtrl*)pTargetObj )->GetId(), dwItemID, m_idSfxHit ); 
 	#endif	// __WORLDSERVER
 	}
 	return nError;
 }
 
-// ¸ó½ºÅÍ Æ¯¼ö°ø°İ
+// ëª¬ìŠ¤í„° íŠ¹ìˆ˜ê³µê²©
 int		CMover::DoAttackSP( CObj *pTargetObj, DWORD dwItemID )
 {
 	if( IsInvalidObj(pTargetObj) )
@@ -3679,41 +3679,41 @@ int		CMover::DoAttackSP( CObj *pTargetObj, DWORD dwItemID )
 	
 	ItemProp* pItemProp;
 	if( dwItemID == NULL_ID || dwItemID == 0 )	
-		pItemProp = GetActiveHandItemProp();	// ÀÌ·±°æ¿ì´Â °Á ¼Õ¿¡ µç ¹«±â(È¤Àº ±âº»¾ÆÀÌÅÛ)
+		pItemProp = GetActiveHandItemProp();	// ì´ëŸ°ê²½ìš°ëŠ” ê± ì†ì— ë“  ë¬´ê¸°(í˜¹ì€ ê¸°ë³¸ì•„ì´í…œ)
 	else
-		pItemProp = prj.GetItemProp( dwItemID );	// Á÷Á¢ ¾ÆÀÌÅÛÀ» ÁöÁ¤ÇÑ °æ¿ì´Â ±×°É·Î °ø°İÇÔ(¸ó½ºÅÍ°¡ ÁÖ·Î »ç¿ëÇÔ)
+		pItemProp = prj.GetItemProp( dwItemID );	// ì§ì ‘ ì•„ì´í…œì„ ì§€ì •í•œ ê²½ìš°ëŠ” ê·¸ê±¸ë¡œ ê³µê²©í•¨(ëª¬ìŠ¤í„°ê°€ ì£¼ë¡œ ì‚¬ìš©í•¨)
 	if( pItemProp == NULL )
 	{
-		Error( "DoAttackSP : %s ÀÇ ItemPropÀÌ NULL %d", m_szName, (int)dwItemID );
+		Error( "DoAttackSP : %s ì˜ ItemPropì´ NULL %d", m_szName, (int)dwItemID );
 		return FALSE;
 	}
 
 	DWORD dwUseMotion = pItemProp->dwUseMotion;
 	if( dwUseMotion == NULL_ID )
 	{
-		Error( "DoAttackSP : %sÀÇ °ø°İ%dÀÇ dwUseMotionÀÌ ÁöÁ¤µÇÁö ¾Ê¾Ò´Ù", m_szName, pItemProp->dwID );
-		dwUseMotion = MTI_ATK1;		// ÇÁ·ÎÆÛÆ¼¿¡ Àå°Å¸® °ø°İ ¸ğ¼ÇÀÌ ÁöÁ¤µÇÁö ¾Ê¾ÒÀ¸¸é ±âº» ¸ğ¼ÇÀ¸·Î ÇÑ´Ù.
+		Error( "DoAttackSP : %sì˜ ê³µê²©%dì˜ dwUseMotionì´ ì§€ì •ë˜ì§€ ì•Šì•˜ë‹¤", m_szName, pItemProp->dwID );
+		dwUseMotion = MTI_ATK1;		// í”„ë¡œí¼í‹°ì— ì¥ê±°ë¦¬ ê³µê²© ëª¨ì…˜ì´ ì§€ì •ë˜ì§€ ì•Šì•˜ìœ¼ë©´ ê¸°ë³¸ ëª¨ì…˜ìœ¼ë¡œ í•œë‹¤.
 	}
 	
 	OBJID	idTarget = ((CCtrl*)pTargetObj)->GetId();
 	
 	int nError;
-	if( ( nError = m_pActMover->SendActMsg( OBJMSG_SP_ATK1, idTarget, (int)dwItemID, (int)dwUseMotion ) ) == 1 )	// Àå°Å¸®°ø°İ.
+	if( ( nError = m_pActMover->SendActMsg( OBJMSG_SP_ATK1, idTarget, (int)dwItemID, (int)dwUseMotion ) ) == 1 )	// ì¥ê±°ë¦¬ê³µê²©.
 	{
-		SetAngle( GetDegree(pTargetObj->GetPos(), GetPos()) );		// ¸ñÇ¥ÂÊÀ¸·Î ¸öÀ» µ¹¸².
-		SetActParam( OBJACT_SP_ATTACK, idTarget, (int)dwItemID );	// È¿°ú ½Äº°ÀÚ µî·Ï
+		SetAngle( GetDegree(pTargetObj->GetPos(), GetPos()) );		// ëª©í‘œìª½ìœ¼ë¡œ ëª¸ì„ ëŒë¦¼.
+		SetActParam( OBJACT_SP_ATTACK, idTarget, (int)dwItemID );	// íš¨ê³¼ ì‹ë³„ì ë“±ë¡
 		
 #ifdef __WORLDSERVER
 		g_UserMng.AddAttackSP( this, OBJMSG_SP_ATK1, idTarget, dwItemID, 0 );
 #else	// __WORLDSERVER
 	
-#if 0 //2009_12_18 ±âÈ¹¿¡¼­ Á¦°Å ¿äÃ» : ¹ßµ¿Å¸ÀÓ¿¡ Å¸°Ù¿¡ ´ëÇØ ÀÌÆåÆ® ÇÊ¿ä¾øÀ½ 
-		DWORD dwSfxObj = pItemProp->dwSfxObj3;		// Æ¯¼ö°ø°İ¿¡ ¹ßµ¿ÀÌÆåÆ®°¡ ÀÖ´Ù¸é 3¹ø»ç¿ë.
+#if 0 //2009_12_18 ê¸°íšì—ì„œ ì œê±° ìš”ì²­ : ë°œë™íƒ€ì„ì— íƒ€ê²Ÿì— ëŒ€í•´ ì´í™íŠ¸ í•„ìš”ì—†ìŒ 
+		DWORD dwSfxObj = pItemProp->dwSfxObj3;		// íŠ¹ìˆ˜ê³µê²©ì— ë°œë™ì´í™íŠ¸ê°€ ìˆë‹¤ë©´ 3ë²ˆì‚¬ìš©.
 		if( dwSfxObj != NULL_ID )
 			CreateSfx( D3DDEVICE, dwSfxObj, GetPos(), GetId(), D3DXVECTOR3(0,0,0), idTarget );
 #endif 
 
-	//gmpbigsun: ¹ßµ¿½Ã °ø°İÀÚ¿¡ ´ëÇÑ ¹ßµ¿ effect
+	//gmpbigsun: ë°œë™ì‹œ ê³µê²©ìì— ëŒ€í•œ ë°œë™ effect
 	DWORD dwSfxObj = pItemProp->dwSfxObj;
 	if( NULL_ID != dwSfxObj )
 		CreateSfx( D3DDEVICE, dwSfxObj, GetPos() );
@@ -3727,27 +3727,27 @@ int		CMover::DoAttackSP( CObj *pTargetObj, DWORD dwItemID )
 
 int		CMover::DoAttackMelee( CMover *pTarget, OBJMSG dwMsg, DWORD dwItemID )
 {
-	SendActMsg( OBJMSG_STOP );		// Á¦ÀÚ¸® ¸ØÃã.
+	SendActMsg( OBJMSG_STOP );		// ì œìë¦¬ ë©ˆì¶¤.
 
 	if( IsInvalidObj(pTarget) )
 		return 0;
 	
 	ItemProp* pItemProp;
 	if( dwItemID == NULL_ID || dwItemID == 0 )	
-		pItemProp = GetActiveHandItemProp();	// ÀÌ·±°æ¿ì´Â °Á ¼Õ¿¡ µç ¹«±â(È¤Àº ±âº»¾ÆÀÌÅÛ)
+		pItemProp = GetActiveHandItemProp();	// ì´ëŸ°ê²½ìš°ëŠ” ê± ì†ì— ë“  ë¬´ê¸°(í˜¹ì€ ê¸°ë³¸ì•„ì´í…œ)
 	else
-		pItemProp = prj.GetItemProp( dwItemID );	// Á÷Á¢ ¾ÆÀÌÅÛÀ» ÁöÁ¤ÇÑ °æ¿ì´Â ±×°É·Î °ø°İÇÔ(¸ó½ºÅÍ°¡ ÁÖ·Î »ç¿ëÇÔ)
+		pItemProp = prj.GetItemProp( dwItemID );	// ì§ì ‘ ì•„ì´í…œì„ ì§€ì •í•œ ê²½ìš°ëŠ” ê·¸ê±¸ë¡œ ê³µê²©í•¨(ëª¬ìŠ¤í„°ê°€ ì£¼ë¡œ ì‚¬ìš©í•¨)
 	if( pItemProp == NULL )
 	{
-		Error( "DoAttackMelee : %s ÀÇ ItemPropÀÌ NULL %d", GetName(), (int)dwItemID );
+		Error( "DoAttackMelee : %s ì˜ ItemPropì´ NULL %d", GetName(), (int)dwItemID );
 		return FALSE;
 	}
 
-	// ¸ğ¼Ç ½ÃÀÛÇÏ°í.
+	// ëª¨ì…˜ ì‹œì‘í•˜ê³ .
 	int nError	= SendActMsg( dwMsg, pTarget->GetId(), MAKELONG( 0, 0 ), MAKELONG( 0, 0 ) );
 	if( nError > 0 )
 	{
-		SetActParam( OBJACT_MELEE_ATTACK, pTarget->GetId(), (int)dwItemID );	// OnAttackMelee¿¡¼­ ¾µ¼ö ÀÖµµ·Ï ÆÄ¶ó¸ŞÅÍ µî·Ï.
+		SetActParam( OBJACT_MELEE_ATTACK, pTarget->GetId(), (int)dwItemID );	// OnAttackMeleeì—ì„œ ì“¸ìˆ˜ ìˆë„ë¡ íŒŒë¼ë©”í„° ë“±ë¡.
 
 #ifdef __CLIENT
 #ifdef __HACK_1023
@@ -3781,12 +3781,12 @@ int		CMover::DoAttackMelee( CMover *pTarget, OBJMSG dwMsg, DWORD dwItemID )
 
 
 
-// ÁÖº¯¿¡ ÀÖ´Â ¾ÆÀÌÅÛÁß ÇÏ³ª¸¦ Áı´Â´Ù.
+// ì£¼ë³€ì— ìˆëŠ” ì•„ì´í…œì¤‘ í•˜ë‚˜ë¥¼ ì§‘ëŠ”ë‹¤.
 void	CMover::DoPickupItemAround()
 {
 #ifdef __CLIENT
-	if( m_pActMover->IsActAttack() )	return;		// °ø°İÁß »ç¿ë¾ÈµÊ.
-	if( IsDie() )		return;						// Á×¾úÀ»¶© »ç¿ë¾ÈµÊ.
+	if( m_pActMover->IsActAttack() )	return;		// ê³µê²©ì¤‘ ì‚¬ìš©ì•ˆë¨.
+	if( IsDie() )		return;						// ì£½ì—ˆì„ë• ì‚¬ìš©ì•ˆë¨.
 	
 	int nRange	= 4;	// 4m
 	float fDistMin = 99999.0f, fDistSq;
@@ -3797,11 +3797,11 @@ void	CMover::DoPickupItemAround()
 	{
 		if( pObj->GetType() == OT_ITEM )
 		{
-			vDist = pObj->GetPos() - vPos;		// this -> ¾ÆÀÌÅÛ±îÁöÀÇ º¤ÅÍ
+			vDist = pObj->GetPos() - vPos;		// this -> ì•„ì´í…œê¹Œì§€ì˜ ë²¡í„°
 			fDistSq = D3DXVec3LengthSq( &vDist );
-			if( fDistSq < 4.0f * 4.0f )		// ¾ÆÀÌÅÛ°úÀÇ °Å¸®°¡ x¹ÌÅÍ ÀÌ³»ÀÎ°ÍÀ» ´ë»óÀ¸·Î.
+			if( fDistSq < 4.0f * 4.0f )		// ì•„ì´í…œê³¼ì˜ ê±°ë¦¬ê°€ xë¯¸í„° ì´ë‚´ì¸ê²ƒì„ ëŒ€ìƒìœ¼ë¡œ.
 			{
-				if( fDistSq < fDistMin )	// ±×Áß Á© °¡±î¿î³ğÀ¸·Î ¼±ÅÃ
+				if( fDistSq < fDistMin )	// ê·¸ì¤‘ ì ¤ ê°€ê¹Œìš´ë†ˆìœ¼ë¡œ ì„ íƒ
 				{
 					fDistMin = fDistSq;
 					pMinObj = pObj;
@@ -3811,7 +3811,7 @@ void	CMover::DoPickupItemAround()
 	}
 	END_LINKMAP
 
-	// ¾ÆÀÌÅÛ ÁıÀ»°Ô ÀÖ´Ù.
+	// ì•„ì´í…œ ì§‘ì„ê²Œ ìˆë‹¤.
 	if( pMinObj )
 	{
 		CMD_SetUseItem( (CCtrl*)pMinObj );
@@ -3820,15 +3820,15 @@ void	CMover::DoPickupItemAround()
 }
 
 
-// this¸¦ Å¸°ÙÀ¸·Î ÁÖº¯¿¡ µ¥¹ÌÁö¸¦ ÁØ´Ù.
+// thisë¥¼ íƒ€ê²Ÿìœ¼ë¡œ ì£¼ë³€ì— ë°ë¯¸ì§€ë¥¼ ì¤€ë‹¤.
 // ------------------------------------------
-// nDmgType : µ¥¹ÌÁö Å¸ÀÔ ex) AF_MAGICSKILL
-// pAttacker : °ø°İÀÚ(½ÃÀüÀÚ) - ¾ÕÀ¸·Î CCtrl*·Î ¹Ù²ã¾ß ÇÑ´Ù
-// nApplyType : Àû¿ë´ë»ó. ex) OBJTYPE_PLAYER | OBJTYPE_MONSTER
-// nSkill : »ç¿ëÇÑ ½ºÅ³Á¾·ù
-// fRange : Å¸°ÙÀ» Áß½ÉÀ¸·ÎÇÑ µ¥¹ÌÁö ¹üÀ§(¹ÌÅÍ)
-// fTargetRatio : Å¸°Ù¿¡°Ô Àû¿ëµÇ´Â µ¥¹ÌÁö ºñÀ²
-// fAroundRatio : ÁÖº¯¿¡ Àû¿ëµÇ´Â µ¥¹ÌÁö ºñÀ²
+// nDmgType : ë°ë¯¸ì§€ íƒ€ì… ex) AF_MAGICSKILL
+// pAttacker : ê³µê²©ì(ì‹œì „ì) - ì•ìœ¼ë¡œ CCtrl*ë¡œ ë°”ê¿”ì•¼ í•œë‹¤
+// nApplyType : ì ìš©ëŒ€ìƒ. ex) OBJTYPE_PLAYER | OBJTYPE_MONSTER
+// nSkill : ì‚¬ìš©í•œ ìŠ¤í‚¬ì¢…ë¥˜
+// fRange : íƒ€ê²Ÿì„ ì¤‘ì‹¬ìœ¼ë¡œí•œ ë°ë¯¸ì§€ ë²”ìœ„(ë¯¸í„°)
+// fTargetRatio : íƒ€ê²Ÿì—ê²Œ ì ìš©ë˜ëŠ” ë°ë¯¸ì§€ ë¹„ìœ¨
+// fAroundRatio : ì£¼ë³€ì— ì ìš©ë˜ëŠ” ë°ë¯¸ì§€ ë¹„ìœ¨
 // (AF_MAGICSKILL, this, nSkill, 5.0f, 0.0, 1.0f )
 void	CMover::SendDamageAround( int nDmgType, CMover *pAttacker, int nApplyType, int nAttackID, float fRange, float fTargetRatio, float fAroundRatio )
 {
@@ -3849,24 +3849,24 @@ void	CMover::SendDamageAround( int nDmgType, CMover *pAttacker, int nApplyType, 
 	else
 		nRange = 32;
 	
-	if( fRange <= 0 )	// ¹üÀ§°¡ 0ÀÌ°Å³ª À½¼öÀÏ¼ö´Â ¾ø´Ù.
+	if( fRange <= 0 )	// ë²”ìœ„ê°€ 0ì´ê±°ë‚˜ ìŒìˆ˜ì¼ìˆ˜ëŠ” ì—†ë‹¤.
 		Error( "CMover::SendDamageAround : D:%s A:%s %d %f", GetName(), pAttacker->GetName(), nAttackID, fRange );
 
 	ItemProp* pProp;
 	if( nDmgType == AF_MAGICSKILL )
 	{
-		pProp = prj.GetSkillProp( nAttackID );		// UseSkill¿¡¼­ »ç¿ëÇÑ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
+		pProp = prj.GetSkillProp( nAttackID );		// UseSkillì—ì„œ ì‚¬ìš©í•œ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
 		if( pProp == NULL )
 		{
-			Error( "CMover::SendDamageAround : %s. ½ºÅ³(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾÷´Ù.", m_szName, nAttackID );
+			Error( "CMover::SendDamageAround : %s. ìŠ¤í‚¬(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—…ë‹¤.", m_szName, nAttackID );
 			return;	// property not found
 		}
 	} else
 	{
-		pProp = prj.GetItemProp( nAttackID );		// ¾ÆÀÌÅÛ ÇÁ·ÎÆÛÆ¼²¨³¿
+		pProp = prj.GetItemProp( nAttackID );		// ì•„ì´í…œ í”„ë¡œí¼í‹°êº¼ëƒ„
 		if( pProp == NULL )
 		{
-			Error( "CMover::SendDamageAround : %s. ¾ÆÀÌÅÛ(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾÷´Ù.", m_szName, nAttackID );
+			Error( "CMover::SendDamageAround : %s. ì•„ì´í…œ(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—…ë‹¤.", m_szName, nAttackID );
 			return;	// property not found
 		}
 	}
@@ -3874,7 +3874,7 @@ void	CMover::SendDamageAround( int nDmgType, CMover *pAttacker, int nApplyType, 
 	BOOL	bDamage = FALSE;
 	BOOL	bTarget = FALSE;
 
-	if( nApplyType & OBJTYPE_PLAYER )	// Àû¿ë´ë»óÀÌ ÇÃ·¹ÀÌ¾îÀÎ°¡ 
+	if( nApplyType & OBJTYPE_PLAYER )	// ì ìš©ëŒ€ìƒì´ í”Œë ˆì´ì–´ì¸ê°€ 
 	{
 		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkPlayer, GetLayer() )
 		{
@@ -3884,15 +3884,15 @@ void	CMover::SendDamageAround( int nDmgType, CMover *pAttacker, int nApplyType, 
 
 				if( bDamage )
 				{
-					vDist = pObj->GetPos() - vPos;		// this -> Å¸°Ù±îÁöÀÇ º¤ÅÍ
+					vDist = pObj->GetPos() - vPos;		// this -> íƒ€ê²Ÿê¹Œì§€ì˜ ë²¡í„°
 					fDistSq = D3DXVec3LengthSq( &vDist );
-					if( fDistSq < fRange * fRange )		// Å¸°Ù°úÀÇ °Å¸®°¡ fRange¹ÌÅÍ ÀÌ³»ÀÎ°ÍÀ» ´ë»óÀ¸·Î.
+					if( fDistSq < fRange * fRange )		// íƒ€ê²Ÿê³¼ì˜ ê±°ë¦¬ê°€ fRangeë¯¸í„° ì´ë‚´ì¸ê²ƒì„ ëŒ€ìƒìœ¼ë¡œ.
 					{
-						if( pObj == this && fTargetRatio == 0.0f )	// Å¸°Ùµ¥¹ÌÁö ºñÀ²ÀÌ 0ÀÌ¸é ÀÚ±âÀÚ½Å(Å¸°Ù)Àº µ¥¹ÌÁö¸¦ ÁÖÁö¾ÊÀ½.
+						if( pObj == this && fTargetRatio == 0.0f )	// íƒ€ê²Ÿë°ë¯¸ì§€ ë¹„ìœ¨ì´ 0ì´ë©´ ìê¸°ìì‹ (íƒ€ê²Ÿ)ì€ ë°ë¯¸ì§€ë¥¼ ì£¼ì§€ì•ŠìŒ.
 						{
 						} else
 						{
-							if( pObj != pAttacker )		// ¾îÅÂÄ¿´Â °Ë»ö´ë»ó¿¡¼­ Á¦¿Ü.
+							if( pObj != pAttacker )		// ì–´íƒœì»¤ëŠ” ê²€ìƒ‰ëŒ€ìƒì—ì„œ ì œì™¸.
 							{
 								pTarget = (CMover *)pObj;
 								bTarget = ( pTarget == this );
@@ -3907,29 +3907,29 @@ void	CMover::SendDamageAround( int nDmgType, CMover *pAttacker, int nApplyType, 
 						}
 					}
 					
-					bDamage = FALSE;	// ´ÙÀ½ ·çÇÁ¸¦ À§ÇØ¼­ ÃÊ±âÈ­.
+					bDamage = FALSE;	// ë‹¤ìŒ ë£¨í”„ë¥¼ ìœ„í•´ì„œ ì´ˆê¸°í™”.
 				} // bDamage
 			}
 		}
 		END_LINKMAP
 	}
 
-	// Àû¿ë´ë»óÀÌ ¸ó½ºÅÍÀÎ°¡.
+	// ì ìš©ëŒ€ìƒì´ ëª¬ìŠ¤í„°ì¸ê°€.
 	if( nApplyType & OBJTYPE_MONSTER )
 	{
 		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkDynamic, GetLayer() )
 		{
 			if( pObj->GetType() == OT_MOVER && ((CMover *)pObj)->IsPeaceful() == FALSE )
 			{
-				vDist = pObj->GetPos() - vPos;		// this -> Å¸°Ù±îÁöÀÇ º¤ÅÍ
+				vDist = pObj->GetPos() - vPos;		// this -> íƒ€ê²Ÿê¹Œì§€ì˜ ë²¡í„°
 				fDistSq = D3DXVec3LengthSq( &vDist );
-				if( fDistSq < fRange * fRange )		// Å¸°Ù°úÀÇ °Å¸®°¡ fRange¹ÌÅÍ ÀÌ³»ÀÎ°ÍÀ» ´ë»óÀ¸·Î.
+				if( fDistSq < fRange * fRange )		// íƒ€ê²Ÿê³¼ì˜ ê±°ë¦¬ê°€ fRangeë¯¸í„° ì´ë‚´ì¸ê²ƒì„ ëŒ€ìƒìœ¼ë¡œ.
 				{
-					if( pObj == this && fTargetRatio == 0.0f )	// Å¸°Ùµ¥¹ÌÁö ºñÀ²ÀÌ 0ÀÌ¸é ÀÚ±âÀÚ½Å(Å¸°Ù)Àº µ¥¹ÌÁö¸¦ ÁÖÁö¾ÊÀ½.
+					if( pObj == this && fTargetRatio == 0.0f )	// íƒ€ê²Ÿë°ë¯¸ì§€ ë¹„ìœ¨ì´ 0ì´ë©´ ìê¸°ìì‹ (íƒ€ê²Ÿ)ì€ ë°ë¯¸ì§€ë¥¼ ì£¼ì§€ì•ŠìŒ.
 					{
 					} else
 					{
-						if( pObj != pAttacker )		// °ø°İÀÚ´Â °Ë»ç´ë»ó¿¡¼­ Á¦¿Ü.
+						if( pObj != pAttacker )		// ê³µê²©ìëŠ” ê²€ì‚¬ëŒ€ìƒì—ì„œ ì œì™¸.
 						{
 							pTarget = (CMover *)pObj;
 							if( IsValidObj( (CObj*)pTarget ) && pTarget->IsLive() )
@@ -3962,11 +3962,11 @@ BOOL	CMover::DoCollect( CMover *pTarget )
 
 
 // 
-// Æø, ³ôÀÌ, ±æÀÌ¸¦ ¼³Á¤ÇÏ¿© À°¸éÃ¼ ÇüÅÂÀÇ µ¥¹ÌÁö ¿µ¿ªÀ» »ı¼º.
+// í­, ë†’ì´, ê¸¸ì´ë¥¼ ì„¤ì •í•˜ì—¬ ìœ¡ë©´ì²´ í˜•íƒœì˜ ë°ë¯¸ì§€ ì˜ì—­ì„ ìƒì„±.
 // nDmgType : AF_???
 // nApplyType : OBJTYPE_PLAYER , MONSTER
-// nAttackID : ½ºÅ³ÀÌ³ª ¾ÆÀÌÅÛ ID
-// fWidth, fHeight, fDepth : Æø, ³ôÀÌ, ±æÀÌ.
+// nAttackID : ìŠ¤í‚¬ì´ë‚˜ ì•„ì´í…œ ID
+// fWidth, fHeight, fDepth : í­, ë†’ì´, ê¸¸ì´.
 // this == Attacker
 void	CMover::SendDamageLine( int nDmgType, int nApplyType, int nAttackID, 
 								float fWidth, float fHeight, float fDepth )
@@ -3979,22 +3979,22 @@ void	CMover::SendDamageLine( int nDmgType, int nApplyType, int nAttackID,
 	D3DXVECTOR3 vPos = GetPos();
 	D3DXVECTOR3 vDist;
 
-	// µ¥¹ÌÁö ¿µ¿ª Local AABB.
+	// ë°ë¯¸ì§€ ì˜ì—­ Local AABB.
 	D3DXVECTOR3 vMin1 = D3DXVECTOR3( -fWidth / 2.0f, -fHeight / 2.0f, -fDepth );
 	D3DXVECTOR3 vMax1 = D3DXVECTOR3(  fWidth / 2.0f,  fHeight / 2.0f, 0 );
 
-	D3DXMATRIX mInv;		// °ø°İÀÚÃø ¿ùµå¿ªÇà·Ä
+	D3DXMATRIX mInv;		// ê³µê²©ìì¸¡ ì›”ë“œì—­í–‰ë ¬
 	D3DXMATRIX m1, m2, m3;
 	D3DXMatrixRotationY( &m1, D3DXToRadian( -GetAngle() ) );
 	D3DXMatrixTranslation( &m2, GetPos().x, GetPos().y, GetPos().z );
 	D3DXMatrixMultiply( &m3, &m1, &m2 );	// world = rot * trans
 	
-	D3DXMatrixInverse( &mInv, NULL, &m3 );		// °ø°İÀÚÀÇ ¿ªÇà·Ä ¸¸µë.
+	D3DXMatrixInverse( &mInv, NULL, &m3 );		// ê³µê²©ìì˜ ì—­í–‰ë ¬ ë§Œë“¬.
 
-	// Å¸°ÙÀÇ ÁÂÇ¥¸¦ °ø°İÀÚÃø ±âÁØÀ¸·Î ¿ªº¯È¯ ÇÑ°Í.
+	// íƒ€ê²Ÿì˜ ì¢Œí‘œë¥¼ ê³µê²©ìì¸¡ ê¸°ì¤€ìœ¼ë¡œ ì—­ë³€í™˜ í•œê²ƒ.
 	D3DXVECTOR3 vDestLocal;
 
-	// ÀÏ¹İÀûÀ¸·Î fDepth°¡ °¡Àå ±æ±â¶§¹®¿¡ °Ë»ç ¿µ¿ªÀº fDepth·Î Çß´Ù. 
+	// ì¼ë°˜ì ìœ¼ë¡œ fDepthê°€ ê°€ì¥ ê¸¸ê¸°ë•Œë¬¸ì— ê²€ì‚¬ ì˜ì—­ì€ fDepthë¡œ í–ˆë‹¤. 
 	if( fDepth <= 4.0f )
 		nRange = 4;
 	else if( fDepth <= 8.0f )
@@ -4004,31 +4004,31 @@ void	CMover::SendDamageLine( int nDmgType, int nApplyType, int nAttackID,
 	else
 		nRange = 32;
 	
-	if( fDepth <= 0 )	// ¹üÀ§°¡ 0ÀÌ°Å³ª À½¼öÀÏ¼ö´Â ¾ø´Ù.
+	if( fDepth <= 0 )	// ë²”ìœ„ê°€ 0ì´ê±°ë‚˜ ìŒìˆ˜ì¼ìˆ˜ëŠ” ì—†ë‹¤.
 		Error( "CMover::SendDamageLine : D:%s A:%s %d %f", GetName(), nAttackID, fDepth );
 
 	ItemProp* pProp;
 	if( nDmgType == AF_MAGICSKILL )
 	{
-		pProp = prj.GetSkillProp( nAttackID );		// UseSkill¿¡¼­ »ç¿ëÇÑ ½ºÅ³ÀÇ ÇÁ·ÎÆÛÆ¼ ²¨³¿
+		pProp = prj.GetSkillProp( nAttackID );		// UseSkillì—ì„œ ì‚¬ìš©í•œ ìŠ¤í‚¬ì˜ í”„ë¡œí¼í‹° êº¼ëƒ„
 		if( pProp == NULL )
 		{
-			Error( "CMover::SendDamageLine : %s. ½ºÅ³(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾÷¤²´Ù.", m_szName, nAttackID );
+			Error( "CMover::SendDamageLine : %s. ìŠ¤í‚¬(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—…ã…‚ë‹¤.", m_szName, nAttackID );
 			return;	// property not found
 		}
 	} else
 	{
-		pProp = prj.GetItemProp( nAttackID );		// ¾ÆÀÌÅÛ ÇÁ·ÎÆÛÆ¼²¨³¿
+		pProp = prj.GetItemProp( nAttackID );		// ì•„ì´í…œ í”„ë¡œí¼í‹°êº¼ëƒ„
 		if( pProp == NULL )
 		{
-			Error( "CMover::SendDamageLine : %s. ¾ÆÀÌÅÛ(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾÷¤²´Ù.", m_szName, nAttackID );
+			Error( "CMover::SendDamageLine : %s. ì•„ì´í…œ(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—…ã…‚ë‹¤.", m_szName, nAttackID );
 			return;	// property not found
 		}
 	}
 	
 	BOOL	bDamage = FALSE;
 
-	if( nApplyType & OBJTYPE_PLAYER )	// Àû¿ë´ë»óÀÌ ÇÃ·¹ÀÌ¾îÀÎ°¡ 
+	if( nApplyType & OBJTYPE_PLAYER )	// ì ìš©ëŒ€ìƒì´ í”Œë ˆì´ì–´ì¸ê°€ 
 	{
 		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkPlayer, GetLayer() )
 		{
@@ -4036,17 +4036,17 @@ void	CMover::SendDamageLine( int nDmgType, int nApplyType, int nAttackID,
 			{
 				bDamage = TRUE;	
 
-				if( bDamage && pObj != this )		// this´Â °ø°İ´ë»ó¿¡¼­ Á¦¿Ü.
+				if( bDamage && pObj != this )		// thisëŠ” ê³µê²©ëŒ€ìƒì—ì„œ ì œì™¸.
 				{
 					pTarget = (CMover *)pObj;
 					if( IsValidObj( pTarget ) && pTarget->IsLive() )
 					{
-						// Å¸°ÙÃø ÁÂÇ¥¸¦ ¿ªº¯È¯.
+						// íƒ€ê²Ÿì¸¡ ì¢Œí‘œë¥¼ ì—­ë³€í™˜.
 						D3DXVec3TransformCoord( &vDestLocal, &pTarget->GetPos(), &mInv );
-						// Å¸°ÙÃø AABB
+						// íƒ€ê²Ÿì¸¡ AABB
 						D3DXVECTOR3 vMin2 = vDestLocal + pTarget->m_pModel->m_vMin;
 						D3DXVECTOR3 vMax2 = vDestLocal + pTarget->m_pModel->m_vMax;
-						if( ::IsTouchAABB( vMin1, vMax1, vMin2, vMax2 ) )		// AABBÃæµ¹°Ë»ç.
+						if( ::IsTouchAABB( vMin1, vMax1, vMin2, vMax2 ) )		// AABBì¶©ëŒê²€ì‚¬.
 						{
 						//	if( pProp->dwComboStyle == CT_FINISH )
 						//		pTarget->m_pActMover->SendDamageForce( nDmgType, pAttacker->GetId(), (nAttackID << 16) );
@@ -4060,7 +4060,7 @@ void	CMover::SendDamageLine( int nDmgType, int nApplyType, int nAttackID,
 		END_LINKMAP
 	}
 
-	// Àû¿ë´ë»óÀÌ ¸ó½ºÅÍÀÎ°¡.
+	// ì ìš©ëŒ€ìƒì´ ëª¬ìŠ¤í„°ì¸ê°€.
 	if( nApplyType & OBJTYPE_MONSTER )
 	{
 		FOR_LINKMAP( GetWorld(), vPos, pObj, nRange, CObj::linkDynamic, GetLayer() )
@@ -4070,12 +4070,12 @@ void	CMover::SendDamageLine( int nDmgType, int nApplyType, int nAttackID,
 				pTarget = (CMover *)pObj;
 				if( IsValidObj( pTarget ) && pTarget->IsLive() )
 				{
-					// Å¸°ÙÃø ÁÂÇ¥¸¦ ¿ªº¯È¯.
+					// íƒ€ê²Ÿì¸¡ ì¢Œí‘œë¥¼ ì—­ë³€í™˜.
 					D3DXVec3TransformCoord( &vDestLocal, &pTarget->GetPos(), &mInv );
-					// Å¸°ÙÃø AABB
+					// íƒ€ê²Ÿì¸¡ AABB
 					D3DXVECTOR3 vMin2 = vDestLocal + pTarget->m_pModel->m_vMin;
 					D3DXVECTOR3 vMax2 = vDestLocal + pTarget->m_pModel->m_vMax;
-					if( ::IsTouchAABB( vMin1, vMax1, vMin2, vMax2 ) )		// AABBÃæµ¹°Ë»ç.
+					if( ::IsTouchAABB( vMin1, vMax1, vMin2, vMax2 ) )		// AABBì¶©ëŒê²€ì‚¬.
 					{
 						if( pProp->dwComboStyle == CT_FINISH )
 							pTarget->m_pActMover->SendDamageForce( nDmgType, GetId(), (nAttackID << 16) );
@@ -4200,17 +4200,17 @@ BOOL CMover::DoUseItemWarp( ItemProp* pItemProp, CItemElem* pItemElem )
 }
 #endif	// __WORLDSERVER
 
-// nIndex skillÀÇ Àç»ç¿ë µô·¹ÀÌ¸¦ ¸®ÅÏÇÑ´Ù. 
-// nIndex - skillÀÇ index, ( m_tmReUseDelay, m_aJobSkillÀÇ ÀÎµ¦½º´Â °°Àº ÀÇ¹Ì )
+// nIndex skillì˜ ì¬ì‚¬ìš© ë”œë ˆì´ë¥¼ ë¦¬í„´í•œë‹¤. 
+// nIndex - skillì˜ index, ( m_tmReUseDelay, m_aJobSkillì˜ ì¸ë±ìŠ¤ëŠ” ê°™ì€ ì˜ë¯¸ )
 DWORD CMover::GetReuseDelay( int nIndex )
 {
 	ASSERT( nIndex >= 0 );	
 
 	DWORD dwCur = ::timeGetTime();
-	if( dwCur > m_tmReUseDelay[nIndex] )	// Á¾·á½Ã°¢ º¸´Ù ÇöÀç ½Ã°¢ÀÌ Å©¸é 
-		return 0;								// µô·¹ÀÌ ¾ø´Ù.
-	else									// ¾Æ´Ï¸é 
-		return m_tmReUseDelay[nIndex] - dwCur;	// Á¾·á½Ã°¢ - ÇöÀç½Ã°¢ 
+	if( dwCur > m_tmReUseDelay[nIndex] )	// ì¢…ë£Œì‹œê° ë³´ë‹¤ í˜„ì¬ ì‹œê°ì´ í¬ë©´ 
+		return 0;								// ë”œë ˆì´ ì—†ë‹¤.
+	else									// ì•„ë‹ˆë©´ 
+		return m_tmReUseDelay[nIndex] - dwCur;	// ì¢…ë£Œì‹œê° - í˜„ì¬ì‹œê° 
 }
 
 #if __VER >= 9	// __PET_0410
@@ -4226,7 +4226,7 @@ int CMover::DoUseItemFeedPocket( CItemElem* pPocket )
 		return	4;
 	}
 #endif	// __JEFF_11_1
-	// È°¼ºÈ­ °Ë»ç
+	// í™œì„±í™” ê²€ì‚¬
 	if( HasBuff( BUFF_ITEM, (WORD)( pPocket->m_dwItemId ) ) )
 	{
 		if( pPocket->m_dwKeepTime != 0 )
@@ -4240,7 +4240,7 @@ int CMover::DoUseItemFeedPocket( CItemElem* pPocket )
 	else
 	{
 		ItemProp* pProp	= pPocket->GetProp();
-		if( pPocket->m_dwKeepTime == 0 )	// ¸¸·á ½Ã°£ÀÌ ¼³Á¤µÇ¾î ÀÖÁö ¾ÊÀ¸¹Ç·Î ÃÖÃÊ »ç¿ëÀÌ´Ù.
+		if( pPocket->m_dwKeepTime == 0 )	// ë§Œë£Œ ì‹œê°„ì´ ì„¤ì •ë˜ì–´ ìˆì§€ ì•Šìœ¼ë¯€ë¡œ ìµœì´ˆ ì‚¬ìš©ì´ë‹¤.
 		{
 			int nMax	= m_Inventory.GetMax();
 			CItemElem* pItemElem;
@@ -4253,7 +4253,7 @@ int CMover::DoUseItemFeedPocket( CItemElem* pPocket )
 					&& !pItemElem->IsFlag( CItemElem::expired )
 					)
 				{
-					// ±â°£ÀÌ ¸¸·áµÇÁö ¾ÊÀº µ¿ÀÏ ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏ¿© »ç¿ëÇÒ ¼ö ¾ø´Ù.
+					// ê¸°ê°„ì´ ë§Œë£Œë˜ì§€ ì•Šì€ ë™ì¼ ì•„ì´í…œì´ ì¡´ì¬í•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤.
 					( (CUser*)this )->AddDefinedText( TID_GAME_DONOTUSE_PETPOCKET, "" );
 					nResult = 4;
 					return nResult;
@@ -4291,8 +4291,8 @@ void CMover::ActivateSystemPet( CItemElem* pItemElem )
 	}
 	SetPetId( pItemElem->m_dwObjId );
 
-//#if __VER >= 12 // __PET_0519	// CMover::ProcessPetAvail()·Î ÀÌµ¿
-//	SetDestParamRandomOptExtension( pItemElem );	// ½Ã½ºÅÛ Æê È°¼ºÈ­ ½Ã °¢¼º È¿°ú Àû¿ë
+//#if __VER >= 12 // __PET_0519	// CMover::ProcessPetAvail()ë¡œ ì´ë™
+//	SetDestParamRandomOptExtension( pItemElem );	// ì‹œìŠ¤í…œ í« í™œì„±í™” ì‹œ ê°ì„± íš¨ê³¼ ì ìš©
 //#endif	// __PET_0519
 	g_dpDBClient.CalluspPetLog( m_idPlayer, pItemElem->GetSerialNumber(), 0, PETLOGTYPE_CALL, pItemElem->m_pPet );
 	// pet, log
@@ -4371,15 +4371,15 @@ void CMover::ActivateEatPet( CItemElem* pItemElem )
 			pAIPet->SetOwner( GetId() );
 			SetEatPetId( pEatPet->GetId() );
 #if __VER >= 12 // __PET_0519
-			pAIPet->SetItem( this, pItemElem );		// ¸ÔÆê È°¼ºÈ­ ½Ã °¢¼º È¿°ú Àû¿ë
+			pAIPet->SetItem( this, pItemElem );		// ë¨¹í« í™œì„±í™” ì‹œ ê°ì„± íš¨ê³¼ ì ìš©
 #endif	// __PET_0519
 #if __VER >= 15 // __PETVIS
 			if( pItemElem->IsVisPet() )
 			{
-				if( pItemElem->GetPiercingSize() <= 0 )	// Ã¹ ¼ÒÈ¯½Ã ºñ½ºÆêÀÌ¸é ºñ½º ½½·Ô 2°³(±âº») ¶Õ¾îÁÜ
+				if( pItemElem->GetPiercingSize() <= 0 )	// ì²« ì†Œí™˜ì‹œ ë¹„ìŠ¤í«ì´ë©´ ë¹„ìŠ¤ ìŠ¬ë¡¯ 2ê°œ(ê¸°ë³¸) ëš«ì–´ì¤Œ
 					UpdateItem( (BYTE)( pItemElem->m_dwObjId ), UI_PETVIS_SIZE, PETVIS_DEFAULT_VIS_SLOT_SZIE );
 
-				SetVisPetItem( pItemElem->m_dwObjId );	// ÇØ´ç ¸ÔÆêÀÌ ºñ½ºÆêÀÌ¸é ºñ½ºÀÇ ´É·ÂÄ¡¸¦ Àû¿ëÇÏ°í ÀÌÆåÆ®¸¦ ÁöÁ¤ÇÑ´Ù.
+				SetVisPetItem( pItemElem->m_dwObjId );	// í•´ë‹¹ ë¨¹í«ì´ ë¹„ìŠ¤í«ì´ë©´ ë¹„ìŠ¤ì˜ ëŠ¥ë ¥ì¹˜ë¥¼ ì ìš©í•˜ê³  ì´í™íŠ¸ë¥¼ ì§€ì •í•œë‹¤.
 				SetPetVisDST( pItemElem );
 				pEatPet->m_dwMoverSfxId = pItemElem->GetVisPetSfxId();
 				static_cast<CUser*>(this)->AddActivateVisPet( pItemElem->m_dwObjId, GetEatPetId() );
@@ -4395,7 +4395,7 @@ void CMover::InactivateEatPet( void )
 	if( IsValidObj( pEatPet ) )
 	{
 #if __VER >= 12 // __PET_0519
-		// ¸ÔÆê ¼ÒÈ¯ Á¾·á ½Ã °¢¼º È¿°ú Á¦°Å
+		// ë¨¹í« ì†Œí™˜ ì¢…ë£Œ ì‹œ ê°ì„± íš¨ê³¼ ì œê±°
 		CAIPet *pAIPet	= static_cast<CAIPet*>( pEatPet->m_pAIInterface );
 		if( pAIPet )
 		{
@@ -4637,7 +4637,7 @@ BYTE CMover::IsSatisfyNeedVis( CItemElem* pItemElemVisPet, ItemProp* pItemPropVi
 			return SUCCSESS_NEEDVIS;
 		
 		vector<BYTE> vecValidTable = GetValidVisTable( pItemElemVisPet );
-		for( int i=0; i<pItemElemVisPet->GetPiercingSize(); i++ )	// ÇÊ¿ä ºñ½º°¡ ÃæÁ·µÇÁö ¾ÊÀº °æ¿ì´Â ´É·ÂÄ¡°¡ Àû¿ëµÇÁö ¾Ê¾ÒÀ¸¹Ç·Î ´É·ÂÄ¡¸¦ »©¸é ¾ÈµÈ´Ù.
+		for( int i=0; i<pItemElemVisPet->GetPiercingSize(); i++ )	// í•„ìš” ë¹„ìŠ¤ê°€ ì¶©ì¡±ë˜ì§€ ì•Šì€ ê²½ìš°ëŠ” ëŠ¥ë ¥ì¹˜ê°€ ì ìš©ë˜ì§€ ì•Šì•˜ìœ¼ë¯€ë¡œ ëŠ¥ë ¥ì¹˜ë¥¼ ë¹¼ë©´ ì•ˆëœë‹¤.
 		{
 			DWORD dwVis = pItemElemVisPet->GetPiercingItem( i );
 			if( dwNeeds[0] == dwVis && vecValidTable[i] == SUCCSESS_NEEDVIS && time_null() < pItemElemVisPet->GetVisKeepTime( i ) )	dwNeeds[0] = NULL_ID;
@@ -4657,16 +4657,16 @@ BYTE CMover::IsSatisfyNeedVis( CItemElem* pItemElemVisPet, ItemProp* pItemPropVi
 #endif // __PETVIS
 
 #if __VER >= 12 // __PET_0519
-// Æê ¿µ¾çÁ¦ »ç¿ë
+// í« ì˜ì–‘ì œ ì‚¬ìš©
 int CMover::DoUseItemPetTonic( CItemElem* pItemElem )
 {
-	// Æê ¿µ¾çÁ¦ µÎ Á¾·ù¸¦ ¼¯¾î¼­ »ç¿ëÇÒ ¼ö ¾ø´Ù
+	// í« ì˜ì–‘ì œ ë‘ ì¢…ë¥˜ë¥¼ ì„ì–´ì„œ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤
 	if( ( pItemElem->m_dwItemId == II_SYS_SYS_SCR_PET_TONIC_A && HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_PET_TONIC_B ) )
 		|| ( pItemElem->m_dwItemId == II_SYS_SYS_SCR_PET_TONIC_B && HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_PET_TONIC_A ) )
 	)
 		return 2;
 
-	// ½Ã°£ ¿À¹öÇÃ·Î¿ì ¸·±â
+	// ì‹œê°„ ì˜¤ë²„í”Œë¡œìš° ë§‰ê¸°
 	DWORD dwCurr	= ::timeGetTime();
 #ifdef __BUFF_1107
 	IBuff* pBuff	= m_buffs.GetBuff( BUFF_ITEM, (WORD)( pItemElem->m_dwItemId ) );
@@ -4678,7 +4678,7 @@ int CMover::DoUseItemPetTonic( CItemElem* pItemElem )
 		return 1;
 #endif	// __BUFF_1107
 
-	// È¿°ú Àû¿ë
+	// íš¨ê³¼ ì ìš©
 	DoApplySkill( this, pItemElem->GetProp(), NULL );
 	return 0;
 }

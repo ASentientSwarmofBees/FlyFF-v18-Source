@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #ifdef __IMPROVE_MAP_SYSTEM
 #ifdef __CLIENT
 #include "MapMonsterInformationPack.h"
@@ -93,7 +93,7 @@ BOOL CMapMonsterInformationPack::LoadScript( const CString& strFileName )
 		{
 			if( dwCount >= m_dwNumber )
 			{
-				Error( _T( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d" ), strFileName, m_dwNumber, dwCount );
+				Error( _T( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d" ), strFileName, m_dwNumber, dwCount );
 				return FALSE;
 			}
 			int nCount = 0;
@@ -116,7 +116,7 @@ BOOL CMapMonsterInformationPack::LoadScript( const CString& strFileName )
 					{
 						if( dwCount >= m_dwNumber )
 						{
-							Error( _T( "%s ¿¡·¯, ÇÒ´ç :%d, ½ÇÁ¦°¹¼ö : %d" ), strFileName, m_dwNumber, dwCount );
+							Error( _T( "%s ì—ëŸ¬, í• ë‹¹ :%d, ì‹¤ì œê°¯ìˆ˜ : %d" ), strFileName, m_dwNumber, dwCount );
 							return FALSE;
 						}
 

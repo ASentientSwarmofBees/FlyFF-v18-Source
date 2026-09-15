@@ -1,4 +1,4 @@
-#ifndef __NEUZAPP_H 
+ï»¿#ifndef __NEUZAPP_H 
 #define __NEUZAPP_H
 
 #define WM_LOGOUT ( WM_USER + 10 )
@@ -28,7 +28,7 @@ struct LOGIN_STEP_INFO
 {
 	LPCTSTR		pszAccount;			// account
 	LPCTSTR		pszPassword;		// password
-	DWORD		dwID;				// pServerDesc->dwID ¼­¹ö¹øÈ£ 
+	DWORD		dwID;				// pServerDesc->dwID ì„œë²„ë²ˆí˜¸ 
 	int			nCount;				// 
 };
 
@@ -64,7 +64,7 @@ public:
 	BOOL					m_bLButtonDown;
 	BOOL					m_bRButtonDown;
 	CBackCamera				m_camera;
-	BOOL					m_bFrameSkip;			// ÇÁ·¹ÀÓ ½ºÅ°ÇÎ ÇÃ·¡±×
+	BOOL					m_bFrameSkip;			// í”„ë ˆìž„ ìŠ¤í‚¤í•‘ í”Œëž˜ê·¸
 	CTexture				m_TextureGauge[5];
 	CTexture				m_TextureTurboGauge[2];
 	CTexture				m_TextureCastingGauge[2];
@@ -72,7 +72,7 @@ public:
 	int						m_nPVPCount;
 	DWORD					m_dwPVPTime;
 	CStringArray			m_strArray;
-	TCHAR					m_lpCertifierAddr[64];				// ¼­¹ö IP Address
+	TCHAR					m_lpCertifierAddr[64];				// ì„œë²„ IP Address
 	TCHAR					m_lpCacheAddr[16];
 	u_short					m_uCachePort;						// 15400, 5400
 	LOGIN_STEP_INFO			m_loginSI;
@@ -112,9 +112,9 @@ public:
 	char					m_strTagMessage[ 20 ][ 256 ];
 	DWORD					m_dwPingTime;
 	short					m_nPingCount;
-	BYTE					m_cbAccountFlag;	// 18¼¼ÀÌ»ó, ÇÐ±³´ëÇ×Àü, 24½Ã°£ÇÃ·¹ÀÌ ÇÃ·¡±× 
+	BYTE					m_cbAccountFlag;	// 18ì„¸ì´ìƒ, í•™êµëŒ€í•­ì „, 24ì‹œê°„í”Œë ˆì´ í”Œëž˜ê·¸ 
 	DWORD					m_dwCurTick;
-	DWORD					m_dwTimeLeft;		// ÇÃ·¹ÀÌÇÒ ¼ö ÀÖ°Ô ³²Àº ½Ã°£ (ÅÂ±¹ÀÇ °æ¿ì)
+	DWORD					m_dwTimeLeft;		// í”Œë ˆì´í•  ìˆ˜ ìžˆê²Œ ë‚¨ì€ ì‹œê°„ (íƒœêµ­ì˜ ê²½ìš°)
 	UINT					m_nLeftTimeNotifyStatus;
 	DWORD					m_dwShoutLimitSecond;
 	int						m_nShoutLimitCount;
@@ -162,7 +162,7 @@ public:
 	CTexture				m_TextureAngelGauge[2];
 #endif //__CSC_VER8_5
 
-	TCHAR					m_szWhisperName[MAX_NAME];			// ±Ó¼Ó¸» º¸³¾ ÀÌ¸§
+	TCHAR					m_szWhisperName[MAX_NAME];			// ê·“ì†ë§ ë³´ë‚¼ ì´ë¦„
 	
 #if __VER >= 12 // __ITEMCREATEMON_S0602
 	D3DXVECTOR3				m_vCursorPos;

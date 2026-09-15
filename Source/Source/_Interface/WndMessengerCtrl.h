@@ -1,4 +1,4 @@
-#if __VER >= 11 // __CSC_VER11_4
+﻿#if __VER >= 11 // __CSC_VER11_4
 
 #ifndef __WNDMESSENGERCTRL_H
 #define __WNDMESSENGERCTRL_H

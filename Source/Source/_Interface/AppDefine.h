@@ -1,7 +1,7 @@
-#ifndef __APPDEFINE_H__
+ï»¿#ifndef __APPDEFINE_H__
 #define __APPDEFINE_H__
 
-#include "ResData.h"           // À©µµ °íÀ¯ ID ¸ğÀ½ 
+#include "ResData.h"           // ìœˆë„ ê³ ìœ  ID ëª¨ìŒ 
 
 const int APP_SHOP_   = APP_SHOPEX;
 const int APP_CONFIRM_BUY_ = APP_CONFIRM_BUYEX;

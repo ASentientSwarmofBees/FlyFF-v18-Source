@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AppDefine.h"
 #include "wndvendorctrl.h"
 #include "wndvendor.h"
@@ -78,7 +78,7 @@ CString CWndVendorCtrl::GetNumberFormatSelling( LPCTSTR szNumber )
 
 void CWndVendorCtrl::OnDrawItemInfo( C2DRender* p2DRender, CItemElem* pItemElem, int nX, int nY )
 {
-	// ¾ÆÀÌÅÛ ÀÌ¸§ ¹× °¡°İ
+	// ì•„ì´í…œ ì´ë¦„ ë° ê°€ê²©
 	CString strItem;
 	if( pItemElem->GetAbilityOption() )
 		strItem.Format( "%s +%d", pItemElem->GetName(), pItemElem->GetAbilityOption());
@@ -113,7 +113,7 @@ void CWndVendorCtrl::OnDrawItemInfo( C2DRender* p2DRender, CItemElem* pItemElem,
 		strItem		= strOld + "...";
 	}
 /*
-	// ¾ÆÀÌÅÛ ¸íÀÌ ³Ê¹« ±æ °æ¿ì ...À¸·Î.
+	// ì•„ì´í…œ ëª…ì´ ë„ˆë¬´ ê¸¸ ê²½ìš° ...ìœ¼ë¡œ.
 	if( strItem.GetLength() > 18 ) 
 	{
 		int	nReduceCount = 0;
@@ -140,15 +140,15 @@ void CWndVendorCtrl::OnDrawItemInfo( C2DRender* p2DRender, CItemElem* pItemElem,
 		strItem = GetNumberFormatEx(szCost);
 	
 	DWORD dwCostColor = 0xff000000;
-	if( dwCostTem >= 1000000000 ) // 10¾ï
+	if( dwCostTem >= 1000000000 ) // 10ì–µ
 		dwCostColor = 0xff990099;
-	else if( dwCostTem >= 100000000 ) // 1¾ï
+	else if( dwCostTem >= 100000000 ) // 1ì–µ
 		dwCostColor = 0xffCC0303;
-	else if( dwCostTem >= 10000000 ) // 1000¸¸
+	else if( dwCostTem >= 10000000 ) // 1000ë§Œ
 		dwCostColor = 0xffFF6600;
-	else if( dwCostTem >= 1000000 ) // 100¸¸
+	else if( dwCostTem >= 1000000 ) // 100ë§Œ
 		dwCostColor = 0xff3333FF;
-	else if( dwCostTem >= 100000 ) // 10¸¸
+	else if( dwCostTem >= 100000 ) // 10ë§Œ
 		dwCostColor = 0xff009900;
 	
 	p2DRender->TextOut( nX + 50, nY + 17, strItem, dwCostColor );
@@ -188,7 +188,7 @@ void CWndVendorCtrl::OnDraw( C2DRender* p2DRender )
 				m_nCurSel = -1;
 				{
 					CPoint ptx = CPoint(nX, nY);
-					m_pTex->Render( p2DRender, ptx );		// ¾ÆÀÌÅÛ Å×µÎ¸® ±×¸®±â
+					m_pTex->Render( p2DRender, ptx );		// ì•„ì´í…œ í…Œë‘ë¦¬ ê·¸ë¦¬ê¸°
 				}
 			}
 		}			
@@ -196,7 +196,7 @@ void CWndVendorCtrl::OnDraw( C2DRender* p2DRender )
 		if( pItemBase )
 		{
 
-			// ÅøÆÁ
+			// íˆ´íŒ
 			float fScal = 1.0f;
 			CPoint point	= GetMousePoint();
 			if( rectHittest.PtInRect( point ) )
@@ -208,13 +208,13 @@ void CWndVendorCtrl::OnDraw( C2DRender* p2DRender )
 				g_WndMng.PutToolTip_Item( pItemBase, point2, &rectHittest, APP_VENDOR );
 			}
 
-			// ¾ÆÀÌÅÛ ¾ÆÀÌÄÜ 
+			// ì•„ì´í…œ ì•„ì´ì½˜ 
 			if( ((CItemElem*)pItemBase)->IsFlag( CItemElem::expired ) )
 				pItemBase->GetTexture()->Render2( p2DRender, CPoint( nX, nY ), D3DCOLOR_XRGB( 255, 100, 100 ) );					
 			else
 				pItemBase->GetTexture()->Render2( p2DRender, CPoint( nX, nY ), D3DCOLOR_XRGB( 255, 255, 255 ), fScal, fScal );
 
-			// ¾ÆÀÌÅÛ ÀÌ¸§, ÆÇ¸Å°¡°İ
+			// ì•„ì´í…œ ì´ë¦„, íŒë§¤ê°€ê²©
 			OnDrawItemInfo( p2DRender, ((CItemElem*)pItemBase), nX, nY );
 
 			if( i == m_nCurSel )

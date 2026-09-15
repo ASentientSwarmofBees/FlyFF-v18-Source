@@ -1,4 +1,4 @@
-#ifndef __WNDPARTY__H
+ï»¿#ifndef __WNDPARTY__H
 #define __WNDPARTY__H
 
 #include "WndPartyChangeTroup.h"
@@ -10,7 +10,7 @@
 class CWndPartyInfo : public CWndNeuz 
 { 
 public: 
-	int m_nSelected; // ÇöÀç ÆÄÆ¼Ã¢¿¡¼­ ¼±ÅÃµÈ ³ğ ÀÎµ¦½º (À§¿¡¼­ºÎÅÍ zero base)
+	int m_nSelected; // í˜„ì¬ íŒŒí‹°ì°½ì—ì„œ ì„ íƒëœ ë†ˆ ì¸ë±ìŠ¤ (ìœ„ì—ì„œë¶€í„° zero base)
 	CWndPartyInfo(); 
 	~CWndPartyInfo(); 
 

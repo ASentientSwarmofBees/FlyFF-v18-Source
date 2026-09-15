@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Ship.h"
 
 #ifdef __WORLDSERVER
@@ -8,7 +8,7 @@ extern	CUserMng	g_UserMng;
 
 
 
-#define		FRIC_AIR	0.011f		// ºñÇàÁß ¸¶Âû°è¼ö
+#define		FRIC_AIR	0.011f		// ë¹„í–‰ì¤‘ ë§ˆì°°ê³„ìˆ˜
 
 CShip::CShip()
 {
@@ -49,7 +49,7 @@ OBJID *CShip::FindCtrl( OBJID idCtrl )
 	for( i = 0; i < MAX_LINKCTRL; i ++ )
 	{
 		pNode = pList++;
-		if( *pNode == 0 ) continue;		// ºó ³ëµå´Â °Ë»çÇÒÇÊ¿ä ¾øÀ½.
+		if( *pNode == 0 ) continue;		// ë¹ˆ ë…¸ë“œëŠ” ê²€ì‚¬í• í•„ìš” ì—†ìŒ.
 		if( *pNode == idCtrl )
 			return pNode;
 	}
@@ -67,17 +67,17 @@ void CShip::AddCtrl( OBJID idCtrl )
 	for( i = 0; i < MAX_LINKCTRL; i ++ )
 	{
 		pNode = pList++;
-		if( *pNode ) continue;		// ºó³ëµå°¡ ¾Æ´Ï¶ó¸é ´Ù¸¥ ³ëµå¸¦ Ã£À½.
-		*pNode = idCtrl;			// ºó ³ëµå¿¡ Ã¤¿ò.
+		if( *pNode ) continue;		// ë¹ˆë…¸ë“œê°€ ì•„ë‹ˆë¼ë©´ ë‹¤ë¥¸ ë…¸ë“œë¥¼ ì°¾ìŒ.
+		*pNode = idCtrl;			// ë¹ˆ ë…¸ë“œì— ì±„ì›€.
 		bSuccess = TRUE;
 		break;
 	}
 
 	if( bSuccess == FALSE )
-		Error( "CShip::AddCtrl : Add½ÇÆÐ." );
+		Error( "CShip::AddCtrl : Addì‹¤íŒ¨." );
 }
 
-// idCtrlÀ» Ã£¾Æ¼­ Áö¿ò.
+// idCtrlì„ ì°¾ì•„ì„œ ì§€ì›€.
 void CShip::RemoveCtrl( OBJID idCtrl )
 {
 	int		i;
@@ -89,7 +89,7 @@ void CShip::RemoveCtrl( OBJID idCtrl )
 		pNode = pList++;
 		if( *pNode == 0 ) continue;
 		if( *pNode == idCtrl )
-			*pNode = 0;			// ³ëµå¸¦ Áö¿ò.
+			*pNode = 0;			// ë…¸ë“œë¥¼ ì§€ì›€.
 		return;
 	}
 }
@@ -110,25 +110,25 @@ void CShip::Control( void )
 	BOOL bUp = g_bKeyTable[ 'S' ];
 	BOOL bBoard = g_bKeyTable[ 'B' ];
 	
-	if( bAcc && !s_bAcced )		// °¡¼Ó/Á¤Áö Åä±Û.
+	if( bAcc && !s_bAcced )		// ê°€ì†/ì •ì§€ í† ê¸€.
 	{
-		if( m_Act.GetMoveState() == OBJSTA_FMOVE )		// ÀüÁøÁßÀÌ¶ó¸é
-			SendActMsg( OBJMSG_STOP );		// ¸ØÃß°í
+		if( m_Act.GetMoveState() == OBJSTA_FMOVE )		// ì „ì§„ì¤‘ì´ë¼ë©´
+			SendActMsg( OBJMSG_STOP );		// ë©ˆì¶”ê³ 
 		else
-			SendActMsg( OBJMSG_FORWARD );	// ¾Æ´Ï¶ó¸é ÀüÁø½ÃÀÛ.
+			SendActMsg( OBJMSG_FORWARD );	// ì•„ë‹ˆë¼ë©´ ì „ì§„ì‹œìž‘.
 	}
 	s_bAcced = bAcc;
 
 	if( bLeft )
 	{
-		SendActMsg( OBJMSG_LTURN );		// ¿ÞÂÊÀ¸·Î ÅÏ
+		SendActMsg( OBJMSG_LTURN );		// ì™¼ìª½ìœ¼ë¡œ í„´
 	} else
 	if( bRight )
 	{
-		SendActMsg( OBJMSG_RTURN );		// ¿À¸¥ÂÊÀ¸·Î ÅÏ.
+		SendActMsg( OBJMSG_RTURN );		// ì˜¤ë¥¸ìª½ìœ¼ë¡œ í„´.
 	} else
 	{
-		SendActMsg( OBJMSG_STOP_TURN );	// ÁÂ/¿ìÅ°°¡ ¾È´­·ÁÁ®ÀÖ´Ù¸é È¸Àü Á¤Áö.
+		SendActMsg( OBJMSG_STOP_TURN );	// ì¢Œ/ìš°í‚¤ê°€ ì•ˆëˆŒë ¤ì ¸ìžˆë‹¤ë©´ íšŒì „ ì •ì§€.
 	}
 
 	if( bUp )
@@ -140,10 +140,10 @@ void CShip::Control( void )
 		SendActMsg( OBJMSG_LOOKDOWN );
 	} else
 	{
-		SendActMsg( OBJMSG_STOP_LOOK );	// À§/¾Æ·¡ Å°°¡ ¾È´­·ÁÁ®ÀÖ´Ù¸é »ó½Â/ÇÏ°­ Á¤Áö.
+		SendActMsg( OBJMSG_STOP_LOOK );	// ìœ„/ì•„ëž˜ í‚¤ê°€ ì•ˆëˆŒë ¤ì ¸ìžˆë‹¤ë©´ ìƒìŠ¹/í•˜ê°• ì •ì§€.
 	}
 
-	if( bBoard && !s_bBoarded )			// ¹è Á¶Á¾À» ÇØÁ¦ÇÏ±â.
+	if( bBoard && !s_bBoarded )			// ë°° ì¡°ì¢…ì„ í•´ì œí•˜ê¸°.
 	{
 		g_pShip = NULL;
 		SetMover( NULL );
@@ -156,26 +156,26 @@ void CShip::Control( void )
 
 void CShip::Process()
 {
-	D3DXMatrixInverse( GetInvTM(), NULL, &m_matWorld );		// ÁÂÇ¥º¯È¯ÀÌ ÀÌ·ïÁö±âÀü ¸ÅÆ®¸¯½º·Î ¿ªÇà·ÄÀ» ±¸ÇØ³ö¾ß ÇÑ´Ù.
+	D3DXMatrixInverse( GetInvTM(), NULL, &m_matWorld );		// ì¢Œí‘œë³€í™˜ì´ ì´ë¤„ì§€ê¸°ì „ ë§¤íŠ¸ë¦­ìŠ¤ë¡œ ì—­í–‰ë ¬ì„ êµ¬í•´ë†”ì•¼ í•œë‹¤.
 	
 	D3DXVECTOR3	vPos = GetPos();
 	D3DXVECTOR3 vDeltaAccu;
 
-	vDeltaAccu = D3DXVECTOR3(0, 0, 0);		// ´©Àû º¤ÅÍ´Â Ç×»ó ÃÊ±âÈ­ ÇØÁà¾ß ÇÑ´Ù.
+	vDeltaAccu = D3DXVECTOR3(0, 0, 0);		// ëˆ„ì  ë²¡í„°ëŠ” í•­ìƒ ì´ˆê¸°í™” í•´ì¤˜ì•¼ í•œë‹¤.
 
 #ifdef __X15
 	int		i;
 	for( i = 0; i < 4; i ++ )
 #endif	
 	{
-		m_Act.Process();			// ¿ÀºêÁ§Æ®ÀÇ ÇöÀç¿òÁ÷ÀÓ »óÅÂ¸¦ ¼öÇà.
+		m_Act.Process();			// ì˜¤ë¸Œì íŠ¸ì˜ í˜„ìž¬ì›€ì§ìž„ ìƒíƒœë¥¼ ìˆ˜í–‰.
 		
-		m_vDeltaUnit += m_vAcc;			// ÇöÀç ¼Óµµ¿¡ »õ·Î¿î ÈûÀ» ´õÇÔ.
+		m_vDeltaUnit += m_vAcc;			// í˜„ìž¬ ì†ë„ì— ìƒˆë¡œìš´ íž˜ì„ ë”í•¨.
 		m_vDeltaUnit *= (1.0f - FRIC_AIR);
-		vDeltaAccu += m_vDeltaUnit;		// ¼­¹ö 15ÇÁ·¹ÀÓ¿¡¼­¸¸ »ç¿ëµÇ´Â °ÍÀ¸·Î 4¹øÀ» ´©ÀûÇÔ.
+		vDeltaAccu += m_vDeltaUnit;		// ì„œë²„ 15í”„ë ˆìž„ì—ì„œë§Œ ì‚¬ìš©ë˜ëŠ” ê²ƒìœ¼ë¡œ 4ë²ˆì„ ëˆ„ì í•¨.
 	}
 #ifdef __CLIENT
-	FLOAT fLenSq = D3DXVec3Length( &m_vDelta );		// 1/60 sec ¼Óµµ
+	FLOAT fLenSq = D3DXVec3Length( &m_vDelta );		// 1/60 sec ì†ë„
 	extern int g_nFlySpeed;
 	if( m_pMover->IsActiveMover() )
 	{
@@ -185,13 +185,13 @@ void CShip::Process()
 	
 #endif	
 
-	m_vDelta = vDeltaAccu;		// ÀÌ¹øÇÁ·¹ÀÓÀÇ this ÀÌµ¿·®ÀÌµÈ´Ù.  Ç×»ó m_vDelta¿¡ ÃÖÁ¾ ÀÌµ¿·®ÀÌ µé¾î°¡°Ô ÇÏÀÚ.
+	m_vDelta = vDeltaAccu;		// ì´ë²ˆí”„ë ˆìž„ì˜ this ì´ë™ëŸ‰ì´ëœë‹¤.  í•­ìƒ m_vDeltaì— ìµœì¢… ì´ë™ëŸ‰ì´ ë“¤ì–´ê°€ê²Œ í•˜ìž.
 	vPos += m_vDelta;
 	SetPos( vPos );
 	m_fDeltaAng = m_fAccAng;
 	
-	// IA¿ÀºêÁ§Æ®´Â ´Ù¸¥ ¿ÀºêÁ§Æ®¸¦ ÅÂ¿ì°í ´Ù³à¾ß ÇÏ¹Ç·Î
-	// ½Ç½Ã°£À¸·Î ¸ÅÆ®¸¯½º°¡ °»½ÅµÇ¾î¾ß ÇÑ´Ù.
+	// IAì˜¤ë¸Œì íŠ¸ëŠ” ë‹¤ë¥¸ ì˜¤ë¸Œì íŠ¸ë¥¼ íƒœìš°ê³  ë‹¤ë…€ì•¼ í•˜ë¯€ë¡œ
+	// ì‹¤ì‹œê°„ìœ¼ë¡œ ë§¤íŠ¸ë¦­ìŠ¤ê°€ ê°±ì‹ ë˜ì–´ì•¼ í•œë‹¤.
 	UpdateLocalMatrix();		
 
 
@@ -223,22 +223,22 @@ void CShipLoop::Destroy( void )
 //
 void CShipLoop::Process()
 {
-	D3DXMatrixInverse( GetInvTM(), NULL, &m_matWorld );		// ÁÂÇ¥º¯È¯ÀÌ ÀÌ·ïÁö±âÀü ¸ÅÆ®¸¯½º·Î ¿ªÇà·ÄÀ» ±¸ÇØ³ö¾ß ÇÑ´Ù.
+	D3DXMatrixInverse( GetInvTM(), NULL, &m_matWorld );		// ì¢Œí‘œë³€í™˜ì´ ì´ë¤„ì§€ê¸°ì „ ë§¤íŠ¸ë¦­ìŠ¤ë¡œ ì—­í–‰ë ¬ì„ êµ¬í•´ë†”ì•¼ í•œë‹¤.
 	
 	D3DXVECTOR3	vPos = GetPos();
 	D3DXVECTOR3 vDeltaAccu;
 	FLOAT fAng = GetAngle();
 	
-	vDeltaAccu = D3DXVECTOR3(0, 0, 0);		// ´©Àû º¤ÅÍ´Â Ç×»ó ÃÊ±âÈ­ ÇØÁà¾ß ÇÑ´Ù.
+	vDeltaAccu = D3DXVECTOR3(0, 0, 0);		// ëˆ„ì  ë²¡í„°ëŠ” í•­ìƒ ì´ˆê¸°í™” í•´ì¤˜ì•¼ í•œë‹¤.
 	m_fDeltaAng = 0.07f;
 #ifdef __X15
 	int		i;
 	for( i = 0; i < 4; i ++ )
 #endif	
 	{
-		fAng += m_fDeltaAng;		// ¿ÞÂÊÀ¸·Î °è¼Ó È¸Àü
-		AngleToVectorXZ( &m_vAcc, fAng, 0.05f );		// fAng¹æÇâÀ¸·Î ÃßÁø·Â¹ß»ý.
-		vDeltaAccu += m_vAcc;		// ¼­¹ö 15ÇÁ·¹ÀÓ¿¡¼­¸¸ »ç¿ëµÇ´Â °ÍÀ¸·Î 4¹øÀ» ´©ÀûÇÔ.
+		fAng += m_fDeltaAng;		// ì™¼ìª½ìœ¼ë¡œ ê³„ì† íšŒì „
+		AngleToVectorXZ( &m_vAcc, fAng, 0.05f );		// fAngë°©í–¥ìœ¼ë¡œ ì¶”ì§„ë ¥ë°œìƒ.
+		vDeltaAccu += m_vAcc;		// ì„œë²„ 15í”„ë ˆìž„ì—ì„œë§Œ ì‚¬ìš©ë˜ëŠ” ê²ƒìœ¼ë¡œ 4ë²ˆì„ ëˆ„ì í•¨.
 	}
 	
 	m_vDelta = vDeltaAccu;
@@ -251,8 +251,8 @@ void CShipLoop::Process()
 	{
 		OBJID idCtrl = NULL_ID;
 
-		g_UserMng.AddSetPosAngle( this, GetPos(), GetAngle() );		// ¸ÕÀú this(Ship)ÀÇ À§Ä¡¸¦ sync½ÃÅ´.
-		// ¸µÅ©µÇ¾î ÀÖ´Â ¸ðµç ctrlÀÇ À§Ä¡¸¦ ´Ù½Ã sync½ÃÅ´.
+		g_UserMng.AddSetPosAngle( this, GetPos(), GetAngle() );		// ë¨¼ì € this(Ship)ì˜ ìœ„ì¹˜ë¥¼ syncì‹œí‚´.
+		// ë§í¬ë˜ì–´ ìžˆëŠ” ëª¨ë“  ctrlì˜ ìœ„ì¹˜ë¥¼ ë‹¤ì‹œ syncì‹œí‚´.
 		for( i = 0; i < MAX_LINKCTRL; i ++ )		
 		{
 			if( m_LinkCtrl[i] == 0 )	continue;
@@ -261,7 +261,7 @@ void CShipLoop::Process()
 			if( IsValidObj( pCtrl ) )
 			{
 				if( pCtrl->GetIAObjLink() == this )
-					g_UserMng.AddSetPosAngle( pCtrl, pCtrl->GetPos(), pCtrl->GetAngle() );		// this(Ship)ÀÇ À§Ä¡¸¦ sync½ÃÅ´.
+					g_UserMng.AddSetPosAngle( pCtrl, pCtrl->GetPos(), pCtrl->GetAngle() );		// this(Ship)ì˜ ìœ„ì¹˜ë¥¼ syncì‹œí‚´.
 				else
 					RemoveCtrl( pCtrl->GetId() );
 			}
@@ -269,8 +269,8 @@ void CShipLoop::Process()
 	}
 #endif
 	
-	// IA¿ÀºêÁ§Æ®´Â ´Ù¸¥ ¿ÀºêÁ§Æ®¸¦ ÅÂ¿ì°í ´Ù³à¾ß ÇÏ¹Ç·Î
-	// ½Ç½Ã°£À¸·Î ¸ÅÆ®¸¯½º°¡ °»½ÅµÇ¾î¾ß ÇÑ´Ù.
+	// IAì˜¤ë¸Œì íŠ¸ëŠ” ë‹¤ë¥¸ ì˜¤ë¸Œì íŠ¸ë¥¼ íƒœìš°ê³  ë‹¤ë…€ì•¼ í•˜ë¯€ë¡œ
+	// ì‹¤ì‹œê°„ìœ¼ë¡œ ë§¤íŠ¸ë¦­ìŠ¤ê°€ ê°±ì‹ ë˜ì–´ì•¼ í•œë‹¤.
 	UpdateLocalMatrix();		
 
 	m_nCount ++;

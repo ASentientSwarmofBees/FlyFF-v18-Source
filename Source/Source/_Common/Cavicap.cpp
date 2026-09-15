@@ -1,4 +1,4 @@
-//
+﻿//
 // CAVICAP.CPP
 // (c) Vadim Gorbatenko, 1996-99 
 // gvv@mail.tomsknet.ru

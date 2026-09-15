@@ -1,4 +1,4 @@
-#ifndef __WND_QUEST_QUICK_INFO_H__
+﻿#ifndef __WND_QUEST_QUICK_INFO_H__
 #define __WND_QUEST_QUICK_INFO_H__
 
 #if __VER >= 15 /* __IMPROVE_QUEST_INTERFACE */ && defined( __CLIENT )

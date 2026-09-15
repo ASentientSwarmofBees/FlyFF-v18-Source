@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ResData.h"
 #include "WndGuildTabWar.h"
 #include "WndGuildWarDecl.h"
@@ -8,20 +8,20 @@
 #include "defineText.h"
 
 /****************************************************
-  WndId : APP_GUILD_TABGUILDWAR - ±æµåÀü
-  CtrlId : WIDC_STATIC1 - ÀüÀï±æµå¸íÄª :
-  CtrlId : WIDC_STATIC2 - ÀüÀï±æµå·Î°í :
-  CtrlId : WIDC_STATIC3 - ±æµåÀü½Â¸®È½¼ö :
-  CtrlId : WIDC_STATIC4 - ±æµåÀüÆĞ¹èÈ½¼ö :
-  CtrlId : WIDC_STATIC5 - ±æµåÀüÇ×º¹È½¼ö :
+  WndId : APP_GUILD_TABGUILDWAR - ê¸¸ë“œì „
+  CtrlId : WIDC_STATIC1 - ì „ìŸê¸¸ë“œëª…ì¹­ :
+  CtrlId : WIDC_STATIC2 - ì „ìŸê¸¸ë“œë¡œê³  :
+  CtrlId : WIDC_STATIC3 - ê¸¸ë“œì „ìŠ¹ë¦¬íšŸìˆ˜ :
+  CtrlId : WIDC_STATIC4 - ê¸¸ë“œì „íŒ¨ë°°íšŸìˆ˜ :
+  CtrlId : WIDC_STATIC5 - ê¸¸ë“œì „í•­ë³µíšŸìˆ˜ :
   CtrlId : WIDC_CUSTOM1 - Custom
   CtrlId : WIDC_GUILDWARGUILDNAME - 
   CtrlId : WIDC_GUILDWARWIN - 
   CtrlId : WIDC_GUILDWARLOSE - 
   CtrlId : WIDC_GUILDWARGIVEUP - 
-  CtrlId : WIDC_BUTTON1 - ±æµåÀü¼±¾ğ
-  CtrlId : WIDC_BUTTON2 - ÈŞÀü¿äÃ»
-  CtrlId : WIDC_BUTTON3 - ±æµåÀüÇ×º¹
+  CtrlId : WIDC_BUTTON1 - ê¸¸ë“œì „ì„ ì–¸
+  CtrlId : WIDC_BUTTON2 - íœ´ì „ìš”ì²­
+  CtrlId : WIDC_BUTTON3 - ê¸¸ë“œì „í•­ë³µ
 ****************************************************/
 
 CWndGuildTabWar::CWndGuildTabWar() 
@@ -56,7 +56,7 @@ void CWndGuildTabWar::OnDraw( C2DRender* p2DRender )
 	DWORD dwEnemyLogo = 0;
 	u_long	idEnemyGuild = NULL_ID;
 
-	if( pWar->m_Acpt.idGuild != pGuild->m_idGuild )		// Acpt¿Í DeclÃø µÑÁßÇÏ³ª´Â Àû±æµå´Ù.
+	if( pWar->m_Acpt.idGuild != pGuild->m_idGuild )		// Acptì™€ Declì¸¡ ë‘˜ì¤‘í•˜ë‚˜ëŠ” ì ê¸¸ë“œë‹¤.
 		idEnemyGuild = pWar->m_Acpt.idGuild;
 	else
 	if( pWar->m_Decl.idGuild != pGuild->m_idGuild )
@@ -66,15 +66,15 @@ void CWndGuildTabWar::OnDraw( C2DRender* p2DRender )
 	{
 		CGuild *pEnemyGuild = g_GuildMng.GetGuild( idEnemyGuild );
 		if( pEnemyGuild )
-			dwEnemyLogo = pEnemyGuild->m_dwLogo;		// Àû±æµåÀÇ ·Î°í ÀĞ¾î³¿.
+			dwEnemyLogo = pEnemyGuild->m_dwLogo;		// ì ê¸¸ë“œì˜ ë¡œê³  ì½ì–´ëƒ„.
 		else
 		{
-			Error( "CWndGuildTabWar : Àû±æµå¸¦ Ã£À»¼ö ¾øÀ½." );
+			Error( "CWndGuildTabWar : ì ê¸¸ë“œë¥¼ ì°¾ì„ìˆ˜ ì—†ìŒ." );
 			return;
 		}
 	} else
 	{
-		Error( "CWndGuildTabWar : Àû±æµå¸¦ Ã£À»¼ö ¾øÀ½." );
+		Error( "CWndGuildTabWar : ì ê¸¸ë“œë¥¼ ì°¾ì„ìˆ˜ ì—†ìŒ." );
 		return;
 	}
 	
@@ -98,10 +98,10 @@ void CWndGuildTabWar::OnDraw( C2DRender* p2DRender )
 void CWndGuildTabWar::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	UpdateData();
 
-	// ¹Ì±¹ ¹öÆ° ÀÌ¹ÌÁö º¯°æ
+	// ë¯¸êµ­ ë²„íŠ¼ ì´ë¯¸ì§€ ë³€ê²½
 	CWndButton* pWndButton = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
 	if(pWndButton)
 	{
@@ -113,21 +113,21 @@ void CWndGuildTabWar::OnInitialUpdate()
 			pWndButton->SetTexture( m_pApp->m_pd3dDevice, MakePath( DIR_THEME, "ButtGuildDuel.bmp" ), 0xffff00ff );
 	}
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndGuildTabWar::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_GUILD_TABGUILDWAR, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndGuildTabWar::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -158,21 +158,21 @@ BOOL CWndGuildTabWar::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 	switch( nID )
 	{
-	case WIDC_BUTTON1:		// ±æµåÀü ¼±¾ğ
+	case WIDC_BUTTON1:		// ê¸¸ë“œì „ ì„ ì–¸
 		if( !pGuild->IsMaster(g_pPlayer->m_idPlayer) )
 			return FALSE;
 		SAFE_DELETE(m_pWndGuildWarDecl);
 		m_pWndGuildWarDecl = new CWndGuildWarDecl;
 		m_pWndGuildWarDecl->Initialize( this );
 		break;
-	case WIDC_BUTTON2:		// ±æµåÀü ÈŞÀü
+	case WIDC_BUTTON2:		// ê¸¸ë“œì „ íœ´ì „
 		if( !pGuild->IsMaster(g_pPlayer->m_idPlayer) )
 			return FALSE;
 		SAFE_DELETE(m_pWndGuildWarPeace);
 		m_pWndGuildWarPeace = new CWndGuildWarPeace;
 		m_pWndGuildWarPeace->Initialize( this );
 		break;
-	case WIDC_BUTTON3:		// ±æµåÀü Ç×º¹
+	case WIDC_BUTTON3:		// ê¸¸ë“œì „ í•­ë³µ
 		SAFE_DELETE(m_pWndGuildWarGiveUp);
 		m_pWndGuildWarGiveUp = new CWndGuildWarGiveUp;
 		m_pWndGuildWarGiveUp->Initialize( this );
@@ -194,7 +194,7 @@ void CWndGuildTabWar::UpdateData( void )
 		
 		pWndText = GetDlgItem( WIDC_GUILDWARGUILDNAME );
 		if( pEnemyGuild )
-			pWndText->SetTitle( pEnemyGuild->m_szGuild );		// ±æµå¸í
+			pWndText->SetTitle( pEnemyGuild->m_szGuild );		// ê¸¸ë“œëª…
 		else
 			pWndText->SetTitle( "" );
 
@@ -203,13 +203,13 @@ void CWndGuildTabWar::UpdateData( void )
 
 		pWndText = GetDlgItem( WIDC_GUILDWARWIN );
 		strText.Format( prj.GetText( TID_GAME_GUILD_WAR_DATA_WIN ), pGuild->m_nWin );
-		pWndText->SetTitle( strText );		// x ½Â
+		pWndText->SetTitle( strText );		// x ìŠ¹
 		pWndText = GetDlgItem( WIDC_GUILDWARLOSE );
 		strText.Format( prj.GetText( TID_GAME_GUILD_WAR_DATA_LOSE ), pGuild->m_nLose );
-		pWndText->SetTitle( strText );		// x ÆĞ
+		pWndText->SetTitle( strText );		// x íŒ¨
 		pWndText = GetDlgItem( WIDC_GUILDWARGIVEUP );
 		strText.Format( prj.GetText( TID_GAME_GUILD_WAR_DATA_SURRENDER ), pGuild->m_nSurrender );
-		pWndText->SetTitle( strText );		// x È¸
+		pWndText->SetTitle( strText );		// x íšŒ
 	}
 }
 

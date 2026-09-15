@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "user.h"
 #include "dpdatabaseclient.h"
 #include "dpcoreclient.h"
@@ -69,7 +69,7 @@ void CUserMng::Free( void )
 	m_ac2User.clear();
 }
 
-// dpid¸¦ Å°·Î ÄÜÅ×ÀÌ³Ê¿¡ ³Ö´Â´Ù.
+// dpidë¥¼ í‚¤ë¡œ ì½˜í…Œì´ë„ˆì— ë„£ëŠ”ë‹¤.
 BOOL CUserMng::AddUser( DPID dpid, CUser* pUser )
 {
 	ASSERT( dpid == pUser->m_dpid );
@@ -91,10 +91,10 @@ BOOL CUserMng::AddUser( DPID dpid, CUser* pUser )
 		return FALSE;
 }
 
-// pKey Å°·Î ÄÜÅ×ÀÌ³Ê¿¡ ³Ö´Â´Ù.
+// pKey í‚¤ë¡œ ì½˜í…Œì´ë„ˆì— ë„£ëŠ”ë‹¤.
 BOOL CUserMng::AddUser( const char* pKey, CUser* pUser )
 {
-	// lockÀÌ °É¸° »óÅÂ¶ó°í °¡Á¤µÊ 
+	// lockì´ ê±¸ë¦° ìƒíƒœë¼ê³  ê°€ì •ë¨ 
 	bool result = m_ac2User.insert( map<string, CUser*>::value_type( pKey, pUser ) ).second;
 	return ( result == true );
 }

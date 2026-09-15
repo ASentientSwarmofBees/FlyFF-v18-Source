@@ -1,4 +1,4 @@
-// WndArcane.h: interface for the CWndNeuz class.
+ï»¿// WndArcane.h: interface for the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 
 #ifndef __HELP_BUG_FIX
-// ÇïÇÁ ÀÌÁß»ı¼º ¹æÁö
+// í—¬í”„ ì´ì¤‘ìƒì„± ë°©ì§€
 extern vector<CString> g_vecHelpInsKey;
 #endif //__HELP_BUG_FIX
 
@@ -84,11 +84,11 @@ public:
 extern CCapTime g_CapTime;
 extern CCaption g_Caption1;
 //////////////////////////////////////////////////////////////////////////////////////
-// ¿ùµå 
+// ì›”ë“œ 
 //
-#define NEXTSKILL_NONE				0xffffffff	// ´ÙÀ½½ºÅ³ »ç¿ëÇÏÁö ¾ÊÀ½
-#define NEXTSKILL_ACTIONSLOT		0x7fffffff	// ´ÙÀ½½ºÅ³ ¾×¼Ç½½·ÔÀ¸·Î »ç¿ë
-// ±×¿Ü´Â ½ºÅ³ÀÎµ¦½º.
+#define NEXTSKILL_NONE				0xffffffff	// ë‹¤ìŒìŠ¤í‚¬ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ
+#define NEXTSKILL_ACTIONSLOT		0x7fffffff	// ë‹¤ìŒìŠ¤í‚¬ ì•¡ì…˜ìŠ¬ë¡¯ìœ¼ë¡œ ì‚¬ìš©
+// ê·¸ì™¸ëŠ” ìŠ¤í‚¬ì¸ë±ìŠ¤.
 
 typedef struct BUFFSKILL
 {
@@ -111,9 +111,9 @@ SET_NAVIGATOR;
 
 struct BUFFICON_INFO
 {
-	CPoint	pt;			// renderÀ§Ä¡ 
-	int		nCount;		// ±×·ÁÁø °¹¼ö 
-	int		nDelta;		// ÀÌµ¿ÇÒ ÁÂÇ¥ 
+	CPoint	pt;			// renderìœ„ì¹˜ 
+	int		nCount;		// ê·¸ë ¤ì§„ ê°¯ìˆ˜ 
+	int		nDelta;		// ì´ë™í•  ì¢Œí‘œ 
 };
 
 struct BUFFICONRECT_INFO
@@ -122,7 +122,7 @@ struct BUFFICONRECT_INFO
 	DWORD	dwID;
 };
 
-// ¹öÆ°Çü½ÄÀÇ µµ¿ò¸»( Å¬¸¯½Ã ÁöÁ¤µÈ Ã¢ ½ÇÇà )
+// ë²„íŠ¼í˜•ì‹ì˜ ë„ì›€ë§( í´ë¦­ì‹œ ì§€ì •ëœ ì°½ ì‹¤í–‰ )
 #define MAX_ADVBUTTON	10
 
 typedef struct BUTTON_INFO
@@ -222,8 +222,8 @@ public:
 	BOOL	m_bRenderFPS;
 
 #if __VER >= 8 //__CSC_VER8_5
-	BOOL	m_bShiftPushed; //´ÙÀÌ½º ¿Å±æ ¶§ ÇÑ¹ø¿¡ ³Ö±â.
-	BOOL	m_bAngelFinish; //Angel °æÇèÄ¡ ¿Ï·á À¯¹«.
+	BOOL	m_bShiftPushed; //ë‹¤ì´ìŠ¤ ì˜®ê¸¸ ë•Œ í•œë²ˆì— ë„£ê¸°.
+	BOOL	m_bAngelFinish; //Angel ê²½í—˜ì¹˜ ì™„ë£Œ ìœ ë¬´.
 #endif //__CSC_VER8_5
 #if __VER >= 11 // __CSC_VER11_2
 	CObj*	m_pNextTargetObj;
@@ -233,10 +233,10 @@ public:
 //#if __VER >= 9
 //	DWORD	m_dwIdBgmMusicOld;
 //#endif	//
-	CTexturePack m_texTarget;		// Áö»ó¿¡¼­ÀÇ 4±ÍÅüÀÌ Å¸°Ù±×¸²		//sun!
-	CTexturePack m_texTargetFly;	// ºñÇàÁß¿¡¼­ÀÇ 4±ÍÅüÀÌ Å¸°Ù±×¸².
-	CTexturePack m_texTargetArrow;	// Å¸°ÙÀÌ È­¸éÀ» ¹ş¾î³µÀ»¶§ È­»ìÇ¥¹æÇâÇ¥½Ã.
-	CTexturePack m_texGauFlight;	// ºñÇà °ÔÀÌÁö ÀÎÅÍÆäÀÌ½º.
+	CTexturePack m_texTarget;		// ì§€ìƒì—ì„œì˜ 4ê·€í‰ì´ íƒ€ê²Ÿê·¸ë¦¼		//sun!
+	CTexturePack m_texTargetFly;	// ë¹„í–‰ì¤‘ì—ì„œì˜ 4ê·€í‰ì´ íƒ€ê²Ÿê·¸ë¦¼.
+	CTexturePack m_texTargetArrow;	// íƒ€ê²Ÿì´ í™”ë©´ì„ ë²—ì–´ë‚¬ì„ë•Œ í™”ì‚´í‘œë°©í–¥í‘œì‹œ.
+	CTexturePack m_texGauFlight;	// ë¹„í–‰ ê²Œì´ì§€ ì¸í„°í˜ì´ìŠ¤.
 
 	BOOL s_bUped, s_bDowned, s_bLefted, s_bRighted;
 	BOOL s_bCombatKeyed, s_bFlyKeyed, s_bAccKeyed, s_bSitKeyed;
@@ -247,7 +247,7 @@ public:
 	CTimer m_timerLButtonDown;
 	CTimer m_timerRButtonDown;
 	//CTimer m_timerSpell;
-	DWORD  m_dwPowerTick;				// ¸¶¿ì½º¸¦ ´©¸¥ »óÅÂ·Î ÈûÀ» ¸ğ¾Æ °ø°İÇÏ´Â ÆĞÅÏ¿¡ »ç¿ëÇÏ´Â ½ÃÀÛ½Ã°¢ 
+	DWORD  m_dwPowerTick;				// ë§ˆìš°ìŠ¤ë¥¼ ëˆ„ë¥¸ ìƒíƒœë¡œ í˜ì„ ëª¨ì•„ ê³µê²©í•˜ëŠ” íŒ¨í„´ì— ì‚¬ìš©í•˜ëŠ” ì‹œì‘ì‹œê° 
 	CTimer m_timerAutoRun;
 	CTimer m_timerAutoRunPush;
 	CTimer m_timerAutoRunBlock;
@@ -281,7 +281,7 @@ public:
 	LPDIRECT3DVERTEXBUFFER9 m_pVBGauge;
 
 	//CWndTradeGold* m_pWndTradeGold;
-	int		m_nMouseMode;		// ºñÇàÁßÀÏ¶§. 0:¿ì¹öÆ°+µå·¡±× ºøÀÚ·çÈ¸Àü   1:°Áµå·¡±× ºøÀÚ·çÈ¸Àü.
+	int		m_nMouseMode;		// ë¹„í–‰ì¤‘ì¼ë•Œ. 0:ìš°ë²„íŠ¼+ë“œë˜ê·¸ ë¹—ìë£¨íšŒì „   1:ê±ë“œë˜ê·¸ ë¹—ìë£¨íšŒì „.
 	
 	int		ControlPlayer( DWORD dwMessage, CPoint point );
 	int		ControlGround( DWORD dwMessage, CPoint point );
@@ -289,9 +289,9 @@ public:
 	int		ControlShip( DWORD dwMessage, CPoint point );
 	
 	//CTexture m_texTargetGauge;
-	CModelObject m_meshArrow; // Å¸°ÙÀÇ ¹æÇâÀ» ¾Ë·ÁÁÖ´Â È­»ìÇ¥ ¿ÀºêÁ§Æ®ÀÌ´Ù.
+	CModelObject m_meshArrow; // íƒ€ê²Ÿì˜ ë°©í–¥ì„ ì•Œë ¤ì£¼ëŠ” í™”ì‚´í‘œ ì˜¤ë¸Œì íŠ¸ì´ë‹¤.
 	
-	CModelObject	m_meshArrowWanted; // Å¸°ÙÀÇ ¹æÇâÀ» ¾Ë·ÁÁÖ´Â È­»ìÇ¥ ¿ÀºêÁ§Æ®ÀÌ´Ù.
+	CModelObject	m_meshArrowWanted; // íƒ€ê²Ÿì˜ ë°©í–¥ì„ ì•Œë ¤ì£¼ëŠ” í™”ì‚´í‘œ ì˜¤ë¸Œì íŠ¸ì´ë‹¤.
 	BOOL			m_bRenderArrowWanted;
 	DWORD			m_dwRenderArrowTime;
 	D3DXVECTOR3		m_v3Dest;
@@ -305,7 +305,7 @@ public:
 	
 	CDWordArray		m_aFlyTarget;
 
-	DWORD	m_dwNextSkill;		// Ä¡°íÀÖ´ÂÁß¿¡ ½ºÅ³Ä¡±â ¿¹¾à.
+	DWORD	m_dwNextSkill;		// ì¹˜ê³ ìˆëŠ”ì¤‘ì— ìŠ¤í‚¬ì¹˜ê¸° ì˜ˆì•½.
 	vector <BUFFICONRECT_INFO> m_rcCheck;
 
 	CTexture		m_TexGuildWinner;
@@ -359,7 +359,7 @@ public:
 
 	void UseSkill();
 	DWORD m_dwDropTime;
-	CTexturePack m_texFontDigital;	// µğÁöÅ» ¸ğ¾çÀÇ ÆùÆ®(ºñÇà¼Óµµ¿¡ »ç¿ë)
+	CTexturePack m_texFontDigital;	// ë””ì§€íƒˆ ëª¨ì–‘ì˜ í°íŠ¸(ë¹„í–‰ì†ë„ì— ì‚¬ìš©)
 	
 	static D3DXVECTOR3 m_vTerrainPoint;
 	
@@ -378,7 +378,7 @@ public:
 
 	int		GetGMLogoIndex();
 
-	float	m_fRollAng;		// ·Ñ¸µ ¾Ş±Û.
+	float	m_fRollAng;		// ë¡¤ë§ ì•µê¸€.
 	
 #ifdef __YAUTOATTACK
 	BOOL	m_bAttackDbk;
@@ -410,7 +410,7 @@ public:
 	{
 		m_nMouseMode = nMode;
 		if( nMode == 0 )
-			ClipCursor( NULL ); // Ä¿¼­°¡ ´Ù½Ã À©µµ¿ì¸¦ ¹ş¾î³ª°Ô ÇÑ´Ù.
+			ClipCursor( NULL ); // ì»¤ì„œê°€ ë‹¤ì‹œ ìœˆë„ìš°ë¥¼ ë²—ì–´ë‚˜ê²Œ í•œë‹¤.
 	}
 	int	GetMouseMode( void ) { return m_nMouseMode; }
 
@@ -420,7 +420,7 @@ public:
 	CObj* SelectObj( POINT point );
 	CObj* HighlightObj( POINT point );
 
-	int		m_nSelect;		// ÇöÀç ¼±ÅÃµÈ Å¸°Ù ÀÎµ¦½º.
+	int		m_nSelect;		// í˜„ì¬ ì„ íƒëœ íƒ€ê²Ÿ ì¸ë±ìŠ¤.
 	void	ClearFlyTarget( void )
 	{
 		m_aFlyTarget.RemoveAll();
@@ -443,7 +443,7 @@ public:
 	void RenderFocusObj( CRect rect, DWORD dwColor1, DWORD dwColor2 );
 #endif //__CSC_VER11_2
 	void RenderFocusArrow( CPoint pt );
-	void RenderGauFlight( C2DRender* p2DRender );		// ºñÇà¸ğµå½Ã °ÔÀÌÁö ÀÎÅÍÆäÀÌ½º Draw
+	void RenderGauFlight( C2DRender* p2DRender );		// ë¹„í–‰ëª¨ë“œì‹œ ê²Œì´ì§€ ì¸í„°í˜ì´ìŠ¤ Draw
 
 	BOOL						m_bFirstFlying;
 	int                         m_nLimitBuffCount;
@@ -543,7 +543,7 @@ private:
 	void	ShowCCtrlMenu( CCtrl* pCCtrl );		
 #endif 
 #if __VER >= 15 // __IMPROVE_SYSTEM_VER15
-	BOOL MenuException( CPoint point );	// ¸Ş´º¸¦ ¶ç¿ì±â Àü¿¡ Ã³¸®ÇØ Áà¾ß ÇÒ ¿¹¿Ü »çÇ×µé
+	BOOL MenuException( CPoint point );	// ë©”ë‰´ë¥¼ ë„ìš°ê¸° ì „ì— ì²˜ë¦¬í•´ ì¤˜ì•¼ í•  ì˜ˆì™¸ ì‚¬í•­ë“¤
 #endif // __IMPROVE_SYSTEM_VER15
 };
 #endif // !defined(AFX_WNDFIELD_H__A93F3186_63D6_43C1_956F_EC8691E0C7D9__INCLUDED_)

@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+Ôªø#include "StdAfx.h"
 #include "defineObj.h"
 #include "dbmanager.h"
 #include "dploginsrvr.h"
@@ -21,9 +21,9 @@ extern const int MAX_APPLETTASKBAR;
 extern const int MAX_ITEMTASKBAR;   
 extern const char NullStr[2];
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
 	#include "honor.h"
-#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
 
 #include "eveschool.h"
 
@@ -95,7 +95,7 @@ void CDbManager::SavePlayer( CQuery *qry, CQuery* pQueryLog, CMover* pMover, cha
 	char SkillTaskBar[1024] = { 0, };
 	SaveTaskBar( pMover, AppletTaskBar, ItemTaskBar, SkillTaskBar );
 
-	///////// SM ªÛøÎ»≠ æ∆¿Ã≈€
+	///////// SM ÏÉÅÏö©Ìôî ÏïÑÏù¥ÌÖú
 	char szSMTime[3072] = { 0, };
 	SaveSMCode( pMover, szSMTime );
 
@@ -104,7 +104,7 @@ void CDbManager::SavePlayer( CQuery *qry, CQuery* pQueryLog, CMover* pMover, cha
 
 	PutExpLog( pQueryLog, pMover, ( pMover->m_dwPeriodicTick == 0 ? 'O': 'P' ) );
 
-	//	mulcom	100218	¿Ø∑¥ ∆‰≥ƒ ∞¸∑√ CHARACTER_STR U1 ∫Ø∞Ê ( U1 -> C1 )
+	//	mulcom	100218	Ïú†ÎüΩ ÌéòÎÉê Í¥ÄÎ†® CHARACTER_STR U1 Î≥ÄÍ≤Ω ( U1 -> C1 )
 	sprintf( szQuery, "{call CHARACTER_STR('U1','%07d','%02d','',"
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 1
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 2
@@ -134,9 +134,9 @@ void CDbManager::SavePlayer( CQuery *qry, CQuery* pQueryLog, CMover* pMover, cha
 #ifdef __EVENTLUA_COUPON
 					  ",?"
 #endif // __EVENTLUA_COUPON
-#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
 					  ",?"
-#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
 #ifdef __LAYER_1015
 					  ",?"
 #endif	// __LAYER_1015
@@ -186,9 +186,9 @@ int MAX_SAVEPARAM = 88;
 	MAX_SAVEPARAM += 1;
 #endif // __EVENTLUA_COUPON
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
 	MAX_SAVEPARAM += 1;
-#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
 #ifdef __LAYER_1015
 	MAX_SAVEPARAM	+= 1;	// m_nLayer
 #endif	// __LAYER_1015
@@ -356,9 +356,9 @@ int MAX_SAVEPARAM = 88;
 #ifdef __EVENTLUA_COUPON
 	bOK[++j] = qry->BindParameter( ++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER,   0, 0, &pMover->m_nCoupon, 0, 0 );
 #endif // __EVENTLUA_COUPON
-#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
 	bOK[++j] = qry->BindParameter( ++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER,   0, 0, &pMover->m_nHonor, 0, 0 );
-#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
 #ifdef __LAYER_1015
 	int nLayer	= pMover->GetLayer();
 	bOK[++j]	= qry->BindParameter( ++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER,   0, 0, &nLayer, 0, 0 );
@@ -383,7 +383,7 @@ int MAX_SAVEPARAM = 88;
 		#endif
 			WriteLog( szBuffer );
 
-			// chipi_πŸ¿Œµ˘ Ω«∆–Ω√ DB Reconnect
+			// chipi_Î∞îÏù∏Îî© Ïã§Ìå®Ïãú DB Reconnect
 			WriteLog( "try DB Reconnect... - ThreadId : %d", ::GetCurrentThreadId() );
 			qry->DisConnect();
 			if( qry->Connect( 3, qry->DBName, qry->DBId, qry->DBPass ) )
@@ -391,7 +391,7 @@ int MAX_SAVEPARAM = 88;
 			else
 				WriteLog( "DB Reconnect Failed! - ThreadId : %d", ::GetCurrentThreadId() );
 			qry->Clear();
-			// chipi_πŸ¿Œµ˘ Ω«∆–Ω√ DB Reconnect
+			// chipi_Î∞îÏù∏Îî© Ïã§Ìå®Ïãú DB Reconnect
 
 			SAFE_DELETE_ARRAY( bOK );
 			return;
@@ -420,9 +420,9 @@ int MAX_SAVEPARAM = 88;
 	SaveMessengerFriend( qry, pMover, szQuery );
 #endif	// __RT_1025
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
 	SaveHonor( qry, pMover->m_idPlayer, pMover->m_aHonorTitle, szQuery );
-#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
 
 #ifndef __S_NEW_SKILL_2
 #ifdef __SKILL_0205
@@ -433,7 +433,7 @@ int MAX_SAVEPARAM = 88;
 
 #endif // __S_NEW_SKILL_2
 
-	// ¥Ÿ∏• ƒ≥∏Ø≈Õ¿« bank ¿˙¿Â
+	// Îã§Î•∏ Ï∫êÎ¶≠ÌÑ∞Ïùò bank Ï†ÄÏû•
 	for( i = 0 ; i < 3 ; ++i )
 	{
 		if( pMover->m_idPlayerBank[i] != 0 && i != pMover->m_nSlot )
@@ -525,9 +525,9 @@ void CDbManager::AllSaveSkill( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlapp
 	CAr arRead( lpDbOverlappedPlus->lpBuf, lpDbOverlappedPlus->uBufSize );
 	
 	u_long			uidPlayer;
-	EXPINTEGER		nSkillExp = 0;						// Ω∫≈≥∞Ê«Ëƒ°
+	EXPINTEGER		nSkillExp = 0;						// Ïä§ÌÇ¨Í≤ΩÌóòÏπò
 	int				nSkillPoint;					// SP
-	int				nSkillLevel = 0;					// ¡ˆ±›±Ó¡ˆ ø√∏∞ Ω∫≈≥∑π∫ß
+	int				nSkillLevel = 0;					// ÏßÄÍ∏àÍπåÏßÄ Ïò¨Î¶∞ Ïä§ÌÇ¨Î†àÎ≤®
 	SKILL			aJobSkill[ MAX_SKILL_JOB ];
 	BYTE			abUpdateSkill[MAX_SKILL_JOB];
 	BOOL			bSaveSkillState = FALSE;
@@ -599,7 +599,7 @@ void CDbManager::AllSaveSkill( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverlapp
 }
 #endif // __S_NEW_SKIL_2
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#if __VER >= 13 // __HONORABLE_TITLE			// Îã¨Ïù∏
 void	CDbManager::SaveHonor( CQuery *qry, u_long uidPlayer, int * aHonor, char* szQuery )
 {
 	int	aHonorEtc[50] = {0,};
@@ -677,7 +677,7 @@ void	CDbManager::SaveHonor( CQuery *qry, u_long uidPlayer, int * aHonor, char* s
 
 }
 
-#endif	// __HONORABLE_TITLE			// ¥ﬁ¿Œ
+#endif	// __HONORABLE_TITLE			// Îã¨Ïù∏
 
 #ifdef __SKILL_0205
 void CDbManager::SaveSkill( CQuery *qry, u_long uidPlayer, LPSKILL aJobSkill, LPBYTE abUpdateSkill, char* szQuery )
@@ -688,11 +688,11 @@ void CDbManager::SaveSkill( CQuery *qry, u_long uidPlayer, LPSKILL aJobSkill, ch
 #ifdef __3RD_LEGEND16
 	for( int i = 0 ; i < (MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL + MAX_LEGEND_HERO_SKILL ) ; i++)
 #else // __3RD_LEGEND16
-#if __VER >= 10 //__LEGEND	//	10¬˜ ¿¸Ω¬Ω√Ω∫≈€	Neuz, World, Trans
+#if __VER >= 10 //__LEGEND	//	10Ï∞® Ï†ÑÏäπÏãúÏä§ÌÖú	Neuz, World, Trans
 	for( int i = 0 ; i < (MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL ) ; i++)
-#else //__LEGEND	//	10¬˜ ¿¸Ω¬Ω√Ω∫≈€	Neuz, World, Trans
+#else //__LEGEND	//	10Ï∞® Ï†ÑÏäπÏãúÏä§ÌÖú	Neuz, World, Trans
 	for( int i = 0 ; i < (MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL) ; i++)
-#endif	//__LEGEND	//	10¬˜ ¿¸Ω¬Ω√Ω∫≈€	Neuz, World, Trans
+#endif	//__LEGEND	//	10Ï∞® Ï†ÑÏäπÏãúÏä§ÌÖú	Neuz, World, Trans
 #endif // __3RD_LEGEND16
 	{
 #ifdef __SKILL_0205
@@ -712,7 +712,7 @@ void CDbManager::SaveSkill( CQuery *qry, u_long uidPlayer, LPSKILL aJobSkill, ch
 	}
 }
 
-// raiders_todo ¿«πÃ æ¯¿Ω 
+// raiders_todo ÏùòÎØ∏ ÏóÜÏùå 
 void CDbManager::SaveJobLv( CMover* pMover, char* szJobLv )
 {
 	char OneJobLv[16] = {0,};
@@ -1022,7 +1022,7 @@ void CDbManager::SaveTaskBar( CMover* pMover, char* szAppletTaskBar, char* szIte
 	
 	for( int ch = 0; ch < MAX_SLOT_QUEUE; ch++ )
 	{
-		if( pMover->m_UserTaskBar.m_aSlotQueue[ch].m_dwShortcut != SHORTCUT_NONE )		// ∞™¿Ã µÈæÓ¿÷¥¬¡ˆ ∞ÀªÁ
+		if( pMover->m_UserTaskBar.m_aSlotQueue[ch].m_dwShortcut != SHORTCUT_NONE )		// Í∞íÏù¥ Îì§Ïñ¥ÏûàÎäîÏßÄ Í≤ÄÏÇ¨
 		{
 			sprintf( OneSkillTaskBar, "%d,%d,%d,%d,%d,%d,%d/", ch,
 				pMover->m_UserTaskBar.m_aSlotQueue[ch].m_dwShortcut, pMover->m_UserTaskBar.m_aSlotQueue[ch].m_dwId, pMover->m_UserTaskBar.m_aSlotQueue[ch].m_dwType,
@@ -1109,7 +1109,7 @@ void CDbManager::SavePlayTime( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedP
 	arRead.ReadString( lpDbOverlappedPlus->AccountInfo.szAccount, MAX_ACCOUNT );
 	u_long idPlayer;
 	arRead >> idPlayer;
-	arRead >> dwTime; // Ω√∞¢
+	arRead >> dwTime; // ÏãúÍ∞Å
 	dwTime /= 1000;
 
 	char szQuery[QUERY_SIZE]	= { 0,};
@@ -1141,7 +1141,7 @@ void CDbManager::SaveOneItem( CItemElem* pItemElem, PItemStruct pItemStruct )
 
 	if( pItemElem->IsEmpty() == FALSE )
 	{
-#if __VER >= 11 // __MA_VER11_05	// ƒ…∏Ø≈Õ ∫¿¿Œ ∞≈∑° ±‚¥… world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ÏºÄÎ¶≠ÌÑ∞ Î¥âÏù∏ Í±∞Îûò Í∏∞Îä• world,database,neuz
 		if( pItemElem->m_dwItemId == II_SYS_SYS_SCR_SEALCHARACTER )
 			sprintf( pItemStruct->szItem, "%d,%d,%d,%d,,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d/",
 					pItemElem->m_dwObjId, pItemElem->m_dwItemId,
@@ -1166,7 +1166,7 @@ void CDbManager::SaveOneItem( CItemElem* pItemElem, PItemStruct pItemStruct )
   					pItemElem->m_idGuild,
 					pItemElem->m_nResistSMItemId
 				);
-#else	//  __MA_VER11_05	// ƒ…∏Ø≈Õ ∫¿¿Œ ∞≈∑° ±‚¥… world,database,neuz
+#else	//  __MA_VER11_05	// ÏºÄÎ¶≠ÌÑ∞ Î¥âÏù∏ Í±∞Îûò Í∏∞Îä• world,database,neuz
 		// item
 		sprintf( pItemStruct->szItem, "%d,%d,%d,%d,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d/",
 				pItemElem->m_dwObjId, pItemElem->m_dwItemId,
@@ -1179,7 +1179,7 @@ void CDbManager::SaveOneItem( CItemElem* pItemElem, PItemStruct pItemStruct )
   				pItemElem->m_idGuild,
 				pItemElem->m_nResistSMItemId
 			);
-#endif // __MA_VER11_05	// ƒ…∏Ø≈Õ ∫¿¿Œ ∞≈∑° ±‚¥… world,database,neuz
+#endif // __MA_VER11_05	// ÏºÄÎ¶≠ÌÑ∞ Î¥âÏù∏ Í±∞Îûò Í∏∞Îä• world,database,neuz
 
 		// ext
 #if __VER >= 11 // __SYS_IDENTIFY

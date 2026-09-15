@@ -1,4 +1,4 @@
-#ifndef __WORLDMNG_H__
+ï»¿#ifndef __WORLDMNG_H__
 #define __WORLDMNG_H__
 
 #pragma once
@@ -33,7 +33,7 @@ class CWorldMng : public CMyMap2<CWorld*>
 private:
 	CWorld*		m_pFirstActive;
 public:
-	LONG		m_lCount;		// ¿ùµåÀÇ °¹¼ö 
+	LONG		m_lCount;		// ì›”ë“œì˜ ê°¯ìˆ˜ 
 
 	void		Free();
 	CWorld*		GetWorld( DWORD dwWorldID );

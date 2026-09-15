@@ -1,4 +1,4 @@
-// WaveFile.cpp
+﻿// WaveFile.cpp
 
 //#define VC_EXTRALEAN
 //#define STRICT

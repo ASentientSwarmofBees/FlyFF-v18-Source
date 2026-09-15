@@ -1,4 +1,4 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 #include "collecting.h"
 
 CCollectingProperty::CCollectingProperty()
@@ -45,7 +45,7 @@ BOOL CCollectingProperty::LoadScript( LPCTSTR szFile )
 	{
 		if( s.Token == _T( "Cool" ) )
 		{
-			// √ 
+			// Ï¥à
 			s.GetToken();	// {
 			int nCool	= s.GetNumber();
 			while( *s.token != '}' )

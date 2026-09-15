@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ParticleMng.h"
 
 
@@ -106,7 +106,7 @@ HRESULT CParticles::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR szF
 									   D3DX_FILTER_TRIANGLE|D3DX_FILTER_MIRROR, 0, NULL, NULL, &m_pParticleTexture );
 	if( hr == E_FAIL )
 	{
-		Error( "%s ÀĞ±â ½ÇÆĞ", MakePath( DIR_MODELTEX, szFileName ) );
+		Error( "%s ì½ê¸° ì‹¤íŒ¨", MakePath( DIR_MODELTEX, szFileName ) );
 		m_bActive = FALSE;
 	}
 
@@ -190,13 +190,13 @@ HRESULT CParticles::Update( void )
 
         pParticle->m_vPos	+= pParticle->m_vVel;
 		if( m_bGravity )
-			pParticle->m_vVel.y	-= 0.005f;		// Áß·Â.
+			pParticle->m_vVel.y	-= 0.005f;		// ì¤‘ë ¥.
 
         if( pParticle->m_fFade < 0.0f )
             pParticle->m_fFade = 0;
 
         // Kill old particles
-		// Èñ¹ÌÇØÁ® »ç¶óÁ³À»¶§³ª ¹Ù´Ú¿¡ ¶³¾îÁ³À»¶§´Â »èÁ¦µÊ.
+		// í¬ë¯¸í•´ì ¸ ì‚¬ë¼ì¡Œì„ë•Œë‚˜ ë°”ë‹¥ì— ë–¨ì–´ì¡Œì„ë•ŒëŠ” ì‚­ì œë¨.
         if( pParticle->m_fFade <= 0 || (m_bGravity && pParticle->m_vPos.y < pParticle->m_fGroundY) )
         {
             // Kill particle
@@ -263,9 +263,9 @@ HRESULT CParticles::Update2( void )
 }
 
 
-// ÆÄÆ¼Å¬ °´Ã¼ ÇÏ³ª¸¦ »ı¼ºÇÑ´Ù.
-// vPos : »ı¼ºµÇ´Â ½ÃÀÛÀ§Ä¡
-// vVel : ³¯¾Æ°¥ ¹æÇâ.
+// íŒŒí‹°í´ ê°ì²´ í•˜ë‚˜ë¥¼ ìƒì„±í•œë‹¤.
+// vPos : ìƒì„±ë˜ëŠ” ì‹œì‘ìœ„ì¹˜
+// vVel : ë‚ ì•„ê°ˆ ë°©í–¥.
 HRESULT CParticles::CreateParticle( int nType, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vVel, FLOAT fGroundY )
 {
 	if( m_bActive == FALSE )	return S_OK;
@@ -277,34 +277,34 @@ HRESULT CParticles::CreateParticle( int nType, const D3DXVECTOR3 &vPos, const D3
 //    static float fTime = 0.0f;
     //fTime += fSecsPerFrame;
 	
-    // Emit new particles - »õ·Î¿î ÆÄÆ¼Å¬À» »Õ¾î³»´Ù.
+    // Emit new particles - ìƒˆë¡œìš´ íŒŒí‹°í´ì„ ë¿œì–´ë‚´ë‹¤.
 //    DWORD dwParticlesEmit = m_dwParticles + dwNumParticlesToEmit;
-	// ÆÄÆ¼Å¬ °¹¼ö°¡ ¸Æ½ºÄ¡¸¦ ³ÑÄ¡ ¾Ê°Ô.
+	// íŒŒí‹°í´ ê°¯ìˆ˜ê°€ ë§¥ìŠ¤ì¹˜ë¥¼ ë„˜ì¹˜ ì•Šê²Œ.
 	if( m_dwParticles >= m_dwParticlesLim )		return E_FAIL;
     
-    if( m_pParticlesFree )		// ºñ¾îÀÖ´Â ÆÄÆ¼Å¬ Æ÷ÀÎÅÍ°¡ ÀÖ´Â°¡.
+    if( m_pParticlesFree )		// ë¹„ì–´ìˆëŠ” íŒŒí‹°í´ í¬ì¸í„°ê°€ ìˆëŠ”ê°€.
     {
-        pParticle = m_pParticlesFree;		// »ı¼ºµÉ ÆÄÆ¼Å¬À» ºñ¾îÀÖ´Â Æ÷ÀÎÅÍ·Î ¼³Á¤.
-        m_pParticlesFree = pParticle->m_pNext;	// ÆÄÆ¼Å¬ ¸®½ºÆ®¿¡ Ãß°¡.
+        pParticle = m_pParticlesFree;		// ìƒì„±ë  íŒŒí‹°í´ì„ ë¹„ì–´ìˆëŠ” í¬ì¸í„°ë¡œ ì„¤ì •.
+        m_pParticlesFree = pParticle->m_pNext;	// íŒŒí‹°í´ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€.
     }
     else
     {
-//        if( NULL == ( pParticle = new PARTICLE ) )		// ³ªÁß¿¡ ¸Ş¸ğ¸® Ç®·Î ¹Ù²ÙÀÚ.,
+//        if( NULL == ( pParticle = new PARTICLE ) )		// ë‚˜ì¤‘ì— ë©”ëª¨ë¦¬ í’€ë¡œ ë°”ê¾¸ì.,
   //          return E_OUTOFMEMORY;
 		pParticle = &m_pPool[ m_nPoolPtr++ ];
 		if( m_nPoolPtr >= (int)m_dwParticlesLim )
 			m_nPoolPtr = 0;
     }
 	
-    pParticle->m_pNext = m_pParticles;	// »õ·Î »ı¼ºµÈ ÆÄÆ¼Å¬ÀÇ ´ÙÀ½³ëµå¿¡ ÇöÀç ÆÄÆ¼Å¬ ¼³Á¤.
-    m_pParticles = pParticle;			// »õ·Î »ı¼ºµÈ ÆÄÆ¼Å¬À» ÇöÀç ³ëµå¿¡ ¼³Á¤.
-    m_dwParticles++;					// ÆÄÆ¼Å¬ °³¼ö Áõ°¡.
+    pParticle->m_pNext = m_pParticles;	// ìƒˆë¡œ ìƒì„±ëœ íŒŒí‹°í´ì˜ ë‹¤ìŒë…¸ë“œì— í˜„ì¬ íŒŒí‹°í´ ì„¤ì •.
+    m_pParticles = pParticle;			// ìƒˆë¡œ ìƒì„±ëœ íŒŒí‹°í´ì„ í˜„ì¬ ë…¸ë“œì— ì„¤ì •.
+    m_dwParticles++;					// íŒŒí‹°í´ ê°œìˆ˜ ì¦ê°€.
 	
     // Emit new particle
 	
-	// ÃÖÃÊ À§Ä¡ ¼¼ÆÃ
+	// ìµœì´ˆ ìœ„ì¹˜ ì„¸íŒ…
     pParticle->m_vPos = vPos;
-	// ¼Óµµº¤ÅÍ »ı¼º.
+	// ì†ë„ë²¡í„° ìƒì„±.
 	pParticle->m_vVel = vVel;
 	
 	if( m_nType == 0 )
@@ -411,13 +411,13 @@ HRESULT CParticles::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	D3DXVECTOR3 vPos;
 	D3DXVECTOR3 vVel;
 	
-    // ÆÄÆ¼Å¬ ¸®½ºÆ®¸¦ µû¶ó ÆÄÆ¼Å¬À» ·»´õ¸µÇÑ´Ù.
+    // íŒŒí‹°í´ ë¦¬ìŠ¤íŠ¸ë¥¼ ë”°ë¼ íŒŒí‹°í´ì„ ë Œë”ë§í•œë‹¤.
     while( pParticle )
     {
         vPos = pParticle->m_vPos;
         vVel = pParticle->m_vVel;
 /*
-		// ÆÄÆ¼Å¬ÀÇ ÀÜ»óÀ» º¸¿©ÁÖ±â À§ÇÑ ºÎºĞ.
+		// íŒŒí‹°í´ì˜ ì”ìƒì„ ë³´ì—¬ì£¼ê¸° ìœ„í•œ ë¶€ë¶„.
         FLOAT       fLengthSq = D3DXVec3LengthSq(&vVel);
         UINT        dwSteps;
 
@@ -470,7 +470,7 @@ HRESULT CParticles::Render( LPDIRECT3DDEVICE9 pd3dDevice )
                 dwNumParticlesToRender = 0;
             }
 
-//            vPos += vVel;		// ÀÜ»óÃ³¸®¸¦ À§ÇÑ ºÎºĞ.
+//            vPos += vVel;		// ì”ìƒì²˜ë¦¬ë¥¼ ìœ„í•œ ë¶€ë¶„.
         } // for dwSteps
 
         pParticle = pParticle->m_pNext;
@@ -480,7 +480,7 @@ HRESULT CParticles::Render( LPDIRECT3DDEVICE9 pd3dDevice )
     m_pVB->Unlock();
 
     // Render any remaining particles
-    if( dwNumParticlesToRender )		// À§¿¡¼­ 512°³¾¿ Ãâ·ÂÇØÁÖ°í ³²Àº ÆÄÆ¼Å¬À» ¿©±â¼­ ¸¶Àú ´Ù ±×·ÁÁÜ.
+    if( dwNumParticlesToRender )		// ìœ„ì—ì„œ 512ê°œì”© ì¶œë ¥í•´ì£¼ê³  ë‚¨ì€ íŒŒí‹°í´ì„ ì—¬ê¸°ì„œ ë§ˆì € ë‹¤ ê·¸ë ¤ì¤Œ.
     {
         if(FAILED(hr = pd3dDevice->DrawPrimitive( D3DPT_POINTLIST, m_dwBase, dwNumParticlesToRender )))
 			return hr;
@@ -525,7 +525,7 @@ void CParticleMng::Init( void )
 
 void CParticleMng::Destroy( void )
 {
-	// ÀÌ°÷¿¡ ÆÄ±« ÄÚµå¸¦ ³ÖÀ¸¼À.
+	// ì´ê³³ì— íŒŒê´´ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
 
 	Init();
 }
@@ -549,7 +549,7 @@ HRESULT CParticleMng::InvalidateDeviceObjects( void )
 }
 
 //
-// ÆÄÆ¼Å¬ ÇÏ³ª »ı¼º.
+// íŒŒí‹°í´ í•˜ë‚˜ ìƒì„±.
 //
 CParticles *CParticleMng::CreateParticle( int nType, const D3DXVECTOR3 &vPos, const D3DXVECTOR3 &vVel, FLOAT fGroundY )
 {
@@ -557,7 +557,7 @@ CParticles *CParticleMng::CreateParticle( int nType, const D3DXVECTOR3 &vPos, co
 		return NULL;
 	CParticles	*pParticles = &m_Particles[ nType ];
 
-	if( pParticles->m_bActive == FALSE )		// »ı¼º½ÃÅ²ÀûÀÌ ¾ø´Â ÆÄÆ¼Å¬ÀÌ¸é ÃÖÃÊ »ı¼º.
+	if( pParticles->m_bActive == FALSE )		// ìƒì„±ì‹œí‚¨ì ì´ ì—†ëŠ” íŒŒí‹°í´ì´ë©´ ìµœì´ˆ ìƒì„±.
 	{
 		pParticles->Create( 512, 512, nType );
 		char szFileName[32];
@@ -601,13 +601,13 @@ CParticles *CParticleMng::CreateParticle( int nType, const D3DXVECTOR3 &vPos, co
 				strcpy( szFileName, "etc_Particle2.bmp" );	break;
 		}
 
-		pParticles->InitDeviceObjects( m_pd3dDevice, szFileName );		// ÆÄÆ¼Å¬ ÅØ½ºÃÄ ·Îµù.
+		pParticles->InitDeviceObjects( m_pd3dDevice, szFileName );		// íŒŒí‹°í´ í…ìŠ¤ì³ ë¡œë”©.
 		pParticles->RestoreDeviceObjects( m_pd3dDevice );
 		m_nMaxType ++;
 
 	}
 
-	pParticles->CreateParticle( nType, vPos, vVel, fGroundY );		// nTypeÀÇ ÆÄÆ¼Å¬ ÇÏ³ª »ı¼º.
+	pParticles->CreateParticle( nType, vPos, vVel, fGroundY );		// nTypeì˜ íŒŒí‹°í´ í•˜ë‚˜ ìƒì„±.
 
 	return pParticles;
 }

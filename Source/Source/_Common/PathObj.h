@@ -1,13 +1,13 @@
-#ifndef __PATHOBJ_H__
+ï»¿#ifndef __PATHOBJ_H__
 #define __PATHOBJ_H__
 
 typedef struct _VECINFO
 {
-	D3DXVECTOR3		m_vDir;			// ¹æÇâº¤ÅÍ
-	FLOAT			m_fLength;		// °Å¸®
-	DWORD			m_dwState;		// ¸ð¼Ç Á¾·ù
-	DWORD			m_dwDelay;		// Á¤Áö½Ã°£
-	CTimer			m_ctStop;       // Á¤Áö½Ã°£
+	D3DXVECTOR3		m_vDir;			// ë°©í–¥ë²¡í„°
+	FLOAT			m_fLength;		// ê±°ë¦¬
+	DWORD			m_dwState;		// ëª¨ì…˜ ì¢…ë¥˜
+	DWORD			m_dwDelay;		// ì •ì§€ì‹œê°„
+	CTimer			m_ctStop;       // ì •ì§€ì‹œê°„
 } _VECINFO;
 
 class CPatrolPath

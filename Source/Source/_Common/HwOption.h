@@ -1,4 +1,4 @@
-#ifndef __HWOPTION_H__
+ï»¿#ifndef __HWOPTION_H__
 #define	__HWOPTION_H__
 
 class COption
@@ -10,20 +10,20 @@ public:
 	int		m_nResHeight;
 	BOOL	m_bStartFullScreen;
 //	float	m_fMusicVolume;
-	int		m_nTextureQuality;		// ÅØ½ºÃÄ Ç°Áú ³ôÀ½0,Áß°£1,³·À½2
-	int		m_nViewArea;			// ½Ã¾ß¹üÀ§ ¸Ö¸®0,Áß°£1,°¡±õ°Ô2
-	int		m_nObjectDetail;		// ¿ÀºêÁ§Æ® Ç¥Çö¼öÁØ ³ôÀ½0,Áß°£1,³·À½2
-	int     m_nObjectDistant;       // ¿ÀºêÁ§Æ® °Å¸®  ³ôÀ½0,Áß°£1,³·À½2
-	int     m_nShadow; // ±×¸²ÀÚ 
-	int		m_nToggleScreen;		// ¾ËÆ®¿£ÅÍ °¡´É/¸ø°¡´É.  ÀÌ°Ç À¯ÀúµéÀº ¸ð¸¥´Ù.
+	int		m_nTextureQuality;		// í…ìŠ¤ì³ í’ˆì§ˆ ë†’ìŒ0,ì¤‘ê°„1,ë‚®ìŒ2
+	int		m_nViewArea;			// ì‹œì•¼ë²”ìœ„ ë©€ë¦¬0,ì¤‘ê°„1,ê°€ê¹ê²Œ2
+	int		m_nObjectDetail;		// ì˜¤ë¸Œì íŠ¸ í‘œí˜„ìˆ˜ì¤€ ë†’ìŒ0,ì¤‘ê°„1,ë‚®ìŒ2
+	int     m_nObjectDistant;       // ì˜¤ë¸Œì íŠ¸ ê±°ë¦¬  ë†’ìŒ0,ì¤‘ê°„1,ë‚®ìŒ2
+	int     m_nShadow; // ê·¸ë¦¼ìž 
+	int		m_nToggleScreen;		// ì•ŒíŠ¸ì—”í„° ê°€ëŠ¥/ëª»ê°€ëŠ¥.  ì´ê±´ ìœ ì €ë“¤ì€ ëª¨ë¥¸ë‹¤.
 	BOOL    m_bOperator;
 	DWORD   m_dwChatFilter[5];
 	DWORD   m_dwChatFilterEtc;
-	int		m_nBloom;				// »Ç»þ½Ã È¿°ú.	
-	int		m_nMonName;		// ¸ó½ºÅÍ ÀÌ¸§ On / Off
-	int		m_nPlayerName;		    // ÀÚ½Å ÀÌ¸§ On / Off
-	int		m_nOtherPlayerName;		// ´Ù¸¥ ÇÃ·¹ÀÌ¾î ÀÌ¸§ On / Off
-	int		m_nToolTipTexture;		// ÅøÆÁ ÀÎÅÍÆäÀÌ½º ¹Ù²Ù±â
+	int		m_nBloom;				// ë½€ìƒ¤ì‹œ íš¨ê³¼.	
+	int		m_nMonName;		// ëª¬ìŠ¤í„° ì´ë¦„ On / Off
+	int		m_nPlayerName;		    // ìžì‹  ì´ë¦„ On / Off
+	int		m_nOtherPlayerName;		// ë‹¤ë¥¸ í”Œë ˆì´ì–´ ì´ë¦„ On / Off
+	int		m_nToolTipTexture;		// íˆ´íŒ ì¸í„°íŽ˜ì´ìŠ¤ ë°”ê¾¸ê¸°
 	int		m_nToolTipText;
 #ifdef __SFX_OPT
 	int		m_nSfxLevel;	
@@ -35,38 +35,38 @@ public:
 	float	m_fBGMVolume;
 //#endif //__YADDSOUND
 
-	// À©µµ ¿É¼Ç
+	// ìœˆë„ ì˜µì…˜
 	int     m_nWindowAlpha; // 0 ~ 255
-	int     m_nWindowEffect; // 0(ÀÏ¹Ý), 1(¹ÝÅõ¸í), 2(»ç°¢)
+	int     m_nWindowEffect; // 0(ì¼ë°˜), 1(ë°˜íˆ¬ëª…), 2(ì‚¬ê°)
 
-	// ¼Ó¾î ´Ü¾î ÇÊÅÍ
-	int     m_nSlangWord; // 0(±³Ã¼), 1(¼û±è)
+	// ì†ì–´ ë‹¨ì–´ í•„í„°
+	int     m_nSlangWord; // 0(êµì²´), 1(ìˆ¨ê¹€)
 
-	// Ã¤ÆÃ ¸í·É¾î
-	int     m_nChatCommand; // 0(ÇÑ±Û Ç®¹®Àå),1(ÇÑ±ÛÃà¾à¾î),2(¿µ¹®Ç®¹®Àå),3(¿µ¹®Ãà¾à¾î)
+	// ì±„íŒ… ëª…ë ¹ì–´
+	int     m_nChatCommand; // 0(í•œê¸€ í’€ë¬¸ìž¥),1(í•œê¸€ì¶•ì•½ì–´),2(ì˜ë¬¸í’€ë¬¸ìž¥),3(ì˜ë¬¸ì¶•ì•½ì–´)
 	
-	// ÃÊº¸ÀÚ µµ¿ò¸»(Ã¤ÆÃÃ¢¿¡ ³ª¿À´Â °Í)
+	// ì´ˆë³´ìž ë„ì›€ë§(ì±„íŒ…ì°½ì— ë‚˜ì˜¤ëŠ” ê²ƒ)
 	int     m_nInstantHelp; // 
 	
-	// ÀÎÅÍÆäÀÌ½º ¹æ½Ä
-	int		m_nInterface;	// 0 : ±¸¹öÀü 1 : ½Å¹öÀü(¿ìÅ¬¸¯À¸·Î Ä«¸Þ¶ó È¸ÀüÇÏ´Â..)
-	BOOL	m_bRollEffect;	// ºñÇà½Ã ·Ñ¸µ È¿°ú.
+	// ì¸í„°íŽ˜ì´ìŠ¤ ë°©ì‹
+	int		m_nInterface;	// 0 : êµ¬ë²„ì „ 1 : ì‹ ë²„ì „(ìš°í´ë¦­ìœ¼ë¡œ ì¹´ë©”ë¼ íšŒì „í•˜ëŠ”..)
+	BOOL	m_bRollEffect;	// ë¹„í–‰ì‹œ ë¡¤ë§ íš¨ê³¼.
 	
-	BOOL	m_bSay;			// ±Í¼Ó¸» ½ÂÀÎ / °ÅºÎ
-	BOOL	m_bTrade;		// °Å·¡ ½ÂÀÎ / °ÅºÎ
-	BOOL	m_bParty;		// ÆÄÆ¼ ½ÂÀÎ / °ÅºÎ
-	BOOL	m_bShout;		// ¿ÜÄ¡±â Ç¥½Ã ON / OFF
-	BOOL	m_bMessengerJoin; // Messenger ¾Ë¸² Ç¥½Ã On / Off
-	BOOL	m_bMessenger;	// Messenger ½ÂÀÎ / °ÅºÎ
+	BOOL	m_bSay;			// ê·€ì†ë§ ìŠ¹ì¸ / ê±°ë¶€
+	BOOL	m_bTrade;		// ê±°ëž˜ ìŠ¹ì¸ / ê±°ë¶€
+	BOOL	m_bParty;		// íŒŒí‹° ìŠ¹ì¸ / ê±°ë¶€
+	BOOL	m_bShout;		// ì™¸ì¹˜ê¸° í‘œì‹œ ON / OFF
+	BOOL	m_bMessengerJoin; // Messenger ì•Œë¦¼ í‘œì‹œ On / Off
+	BOOL	m_bMessenger;	// Messenger ìŠ¹ì¸ / ê±°ë¶€
 #if __VER >= 15 // __IMPROVE_SYSTEM_VER15
-	BOOL	m_bBattleBGM;	// ÀüÅõ À½¾Ç ON / OFF
+	BOOL	m_bBattleBGM;	// ì „íˆ¬ ìŒì•… ON / OFF
 #endif // __IMPROVE_SYSTEM_VER15
 #ifdef __GAME_GRADE_SYSTEM
 	BOOL	m_bGameGradeRendering;
 #endif // __GAME_GRADE_SYSTEM
 
-	int		m_nSer;		// ÀÌÀü¿¡ Á¢¼ÓÇß´ø ¼­¹ö
-	int		m_nMSer;	// ÀÌÀü¿¡ Á¢¼ÓÇß´ø ¸ÖÆ¼ ¼­¹ö
+	int		m_nSer;		// ì´ì „ì— ì ‘ì†í–ˆë˜ ì„œë²„
+	int		m_nMSer;	// ì´ì „ì— ì ‘ì†í–ˆë˜ ë©€í‹° ì„œë²„
 	
 	BOOL    m_bSaveAccount;
 	TCHAR   m_szAccount[ 64 ];
@@ -113,7 +113,7 @@ public:
 #endif //__CSC_VER8_3
 
 #if __VER >= 11 // __ADD_ZOOMOPT
-	BOOL	m_bZoomLimit;		// ÁÜ Á¦ÇÑ ¿©ºÎ
+	BOOL	m_bZoomLimit;		// ì¤Œ ì œí•œ ì—¬ë¶€
 #endif
 	COption();
 	~COption();

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 #include "accessory.h"
 
 CAccessoryProperty::CAccessoryProperty()
@@ -45,7 +45,7 @@ BOOL CAccessoryProperty::LoadScript( LPCTSTR szFile )
 	s.GetToken();	// subject or FINISHED
 	while( s.tok != FINISHED )
 	{
-		if( s.Token == _T( "Probability" ) )	// æ∆¿Ã≈€ ∞¢º∫
+		if( s.Token == _T( "Probability" ) )	// ÏïÑÏù¥ÌÖú Í∞ÅÏÑ±
 		{
 			int i	= 0;
 			s.GetToken();	// {

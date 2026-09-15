@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ThreadMng.h"
 #include "WorldMng.h"
 #include "DPSrvr.h"
@@ -471,7 +471,7 @@ void CRunObject::Run( void )
 				PROFILE_RUN( r10 );
 
 	#if __VER >= 12 // __RANGDA_0521
-				// ·£´ý ÀÌº¥Æ® ¸ó½ºÅÍ ÃÊ´ç 1È¸ Æ½
+				// ëžœë¤ ì´ë²¤íŠ¸ ëª¬ìŠ¤í„° ì´ˆë‹¹ 1íšŒ í‹±
 				CRangdaController::Instance()->OnTimer();
 	#endif	// __RANGDA_0521
 	#ifdef __EVENTLUA_SPAWN
@@ -484,7 +484,7 @@ void CRunObject::Run( void )
 			}
 
 #ifdef __EVENT_1101
-			if( timeoutCallTheRoll.TimeoutReset( g_tmCurrent ) )	// 1ºÐ´ç 
+			if( timeoutCallTheRoll.TimeoutReset( g_tmCurrent ) )	// 1ë¶„ë‹¹ 
 			{
 				CEventGeneric::GetInstance()->CallTheRoll();
 	#if __VER >= 12 // __NEW_ITEMCREATEMON_SERVER

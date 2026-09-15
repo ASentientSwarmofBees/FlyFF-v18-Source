@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Sfx.h"
 #include "light.h"
 #include "defineobj.h"
@@ -41,9 +41,9 @@ static int g_nEffect = 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ÀÏ¹İ È¿°úµé 
+// ì¼ë°˜ íš¨ê³¼ë“¤ 
 
-// ÀÏ¹İ °ø°İÀ¸·Î µ¥¹ÌÁö ÀÔÀ» ¶§ È¿°ú 
+// ì¼ë°˜ ê³µê²©ìœ¼ë¡œ ë°ë¯¸ì§€ ì…ì„ ë•Œ íš¨ê³¼ 
 CSfxGenNormalDmg01::CSfxGenNormalDmg01()
 {
 }
@@ -52,12 +52,12 @@ CSfxGenNormalDmg01::~CSfxGenNormalDmg01()
 }
 void CSfxGenNormalDmg01::Process()
 {
-	m_nFrame++; // ÇÑ ÇÁ·¹ÀÓ ÁøÇà½ÃÅ°°í
-	if(m_pSfxObj->Process()) // SFXÀÇ ¾Ö´Ï¸ŞÀÌ¼ÇÀ» Ã³¸®ÇØ¼­ SFXÀÇ Àç»ıÀÌ ³¡³µÀ¸¸é
+	m_nFrame++; // í•œ í”„ë ˆì„ ì§„í–‰ì‹œí‚¤ê³ 
+	if(m_pSfxObj->Process()) // SFXì˜ ì• ë‹ˆë©”ì´ì…˜ì„ ì²˜ë¦¬í•´ì„œ SFXì˜ ì¬ìƒì´ ëë‚¬ìœ¼ë©´
 	{
-		Delete(); // ÀÚ½ÅÀ» Áö¿î´Ù
+		Delete(); // ìì‹ ì„ ì§€ìš´ë‹¤
 	}
-	// ÀÌ°ÍÀÌ ProcessÀÇ ±âº». ´Ü¼ø Àç»ı SFX´Â ´ëºÎºĞ ÀÌ ÇüÅÂ¸¦ ÃëÇÑ´Ù.
+	// ì´ê²ƒì´ Processì˜ ê¸°ë³¸. ë‹¨ìˆœ ì¬ìƒ SFXëŠ” ëŒ€ë¶€ë¶„ ì´ í˜•íƒœë¥¼ ì·¨í•œë‹¤.
 }
 void CSfxGenNormalDmg01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
@@ -66,7 +66,7 @@ void CSfxGenNormalDmg01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->m_vScale = GetScale();
 	m_pSfxObj->Render( pd3dDevice );
 }
-// ÀÏ¹İ °ø°İÀ¸·Î µ¥¹ÌÁö ÀÔÀ» ¶§ È¿°ú 
+// ì¼ë°˜ ê³µê²©ìœ¼ë¡œ ë°ë¯¸ì§€ ì…ì„ ë•Œ íš¨ê³¼ 
 CSfxGenSuperDmg01::CSfxGenSuperDmg01()
 {
 }
@@ -80,7 +80,7 @@ void CSfxGenSuperDmg01::Process()
 	{
 		Delete();
 	}
-	// ¿ª½Ã ´Ü¼ø Àç»ı ProcessÀÌ´Ù.
+	// ì—­ì‹œ ë‹¨ìˆœ ì¬ìƒ Processì´ë‹¤.
 }
 void CSfxGenSuperDmg01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
@@ -89,7 +89,7 @@ void CSfxGenSuperDmg01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ½ºÅ³·Î µ¥¹ÌÁö ÀÔÀ» ¶§ È¿°ú 
+// ìŠ¤í‚¬ë¡œ ë°ë¯¸ì§€ ì…ì„ ë•Œ íš¨ê³¼ 
 CSfxGenSkillDmg01::CSfxGenSkillDmg01()
 {
 }
@@ -111,7 +111,7 @@ void CSfxGenSkillDmg01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ¸ó½ºÅÍ°¡ µ¥¹ÌÁö ÀÔÀ» ¶§ È¿°ú 
+// ëª¬ìŠ¤í„°ê°€ ë°ë¯¸ì§€ ì…ì„ ë•Œ íš¨ê³¼ 
 CSfxGenMonsterDmg01::CSfxGenMonsterDmg01()
 {
 }
@@ -120,14 +120,14 @@ CSfxGenMonsterDmg01::~CSfxGenMonsterDmg01()
 }
 void CSfxGenMonsterDmg01::Process()
 {
-	m_nFrame++; // ÇÑÇÁ·¹ÀÓ ÁøÇà½ÃÅ°°í
-	CMover* pObjSrc = (CMover*)prj.GetCtrl( m_idSrc ); // ºÙ¾î´Ù´Ò ³ğ ID·Î MoverÀÇ Æ÷ÀÎÅÍ¸¦ °®°í¿Â´Ù.
-	if(pObjSrc) SetPos(pObjSrc->GetPos()); // ±×³ğÀÌ ÀÖÀ¸¸é ±×³ğÀÇ À§Ä¡·Î ÀÌµ¿½ÃÅ°°í
-	if(m_pSfxObj->Process()) // SFXÀÇ ¾Ö´Ï¸ŞÀÌ¼ÇÀ» Ã³¸®ÇØ¼­ SFXÀÇ Àç»ıÀÌ ³¡³µÀ¸¸é
+	m_nFrame++; // í•œí”„ë ˆì„ ì§„í–‰ì‹œí‚¤ê³ 
+	CMover* pObjSrc = (CMover*)prj.GetCtrl( m_idSrc ); // ë¶™ì–´ë‹¤ë‹ ë†ˆ IDë¡œ Moverì˜ í¬ì¸í„°ë¥¼ ê°–ê³ ì˜¨ë‹¤.
+	if(pObjSrc) SetPos(pObjSrc->GetPos()); // ê·¸ë†ˆì´ ìˆìœ¼ë©´ ê·¸ë†ˆì˜ ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚¤ê³ 
+	if(m_pSfxObj->Process()) // SFXì˜ ì• ë‹ˆë©”ì´ì…˜ì„ ì²˜ë¦¬í•´ì„œ SFXì˜ ì¬ìƒì´ ëë‚¬ìœ¼ë©´
 	{
-		Delete(); // ÀÚ½ÅÀ» Áö¿î´Ù.
+		Delete(); // ìì‹ ì„ ì§€ìš´ë‹¤.
 	}
-	// ÀÌ°ÍÀÌ Æ¯Á¤ Mover¿¡ ºÙ¾î´Ù´Ï´Â SFXÀÇ Process ±âº»ÇüÀÌ´Ù.
+	// ì´ê²ƒì´ íŠ¹ì • Moverì— ë¶™ì–´ë‹¤ë‹ˆëŠ” SFXì˜ Process ê¸°ë³¸í˜•ì´ë‹¤.
 }
 void CSfxGenMonsterDmg01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
@@ -136,7 +136,7 @@ void CSfxGenMonsterDmg01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ºÎÈ° È¿°ú 
+// ë¶€í™œ íš¨ê³¼ 
 CSfxGenRestoration01::CSfxGenRestoration01()
 {
 }
@@ -152,7 +152,7 @@ void CSfxGenRestoration01::Process()
 	{
 		Delete();
 	}
-	// ¿ª½Ã m_idSrc¸¦ µû¶ó´Ù´Ï´Â ProcessÀÌ´Ù.
+	// ì—­ì‹œ m_idSrcë¥¼ ë”°ë¼ë‹¤ë‹ˆëŠ” Processì´ë‹¤.
 }
 void CSfxGenRestoration01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
@@ -162,7 +162,7 @@ void CSfxGenRestoration01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// Ä¡·á È¿°ú 
+// ì¹˜ë£Œ íš¨ê³¼ 
 CSfxGenCure::CSfxGenCure()
 {
 }
@@ -187,7 +187,7 @@ void CSfxGenCure::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// È¿·Â Áõ´ë È¿°ú 
+// íš¨ë ¥ ì¦ëŒ€ íš¨ê³¼ 
 CSfxGenIncrease01::CSfxGenIncrease01()
 {
 }
@@ -213,7 +213,7 @@ void CSfxGenIncrease01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ·¹º§ ¾÷ È¿°ú 
+// ë ˆë²¨ ì—… íš¨ê³¼ 
 CSfxGenLevelUp::CSfxGenLevelUp()
 {
 }
@@ -226,7 +226,7 @@ void CSfxGenLevelUp::Process()
 	CMover* pObjSrc = (CMover*)prj.GetCtrl( m_idSrc );
 	if(pObjSrc) {
 		SetPos(pObjSrc->GetPos()+D3DXVECTOR3(.0f,.1f,.0f));
-		SetAngle(-pObjSrc->GetAngle()); // µû¶ó´Ù´Ï´Â Process¿¡ °¢µµ±îÁö ÀÏÄ¡½ÃÅ°´Â ºÎºĞÀÌ Ãß°¡µÇ¾ú´Ù.
+		SetAngle(-pObjSrc->GetAngle()); // ë”°ë¼ë‹¤ë‹ˆëŠ” Processì— ê°ë„ê¹Œì§€ ì¼ì¹˜ì‹œí‚¤ëŠ” ë¶€ë¶„ì´ ì¶”ê°€ë˜ì—ˆë‹¤.
 	}
 	if(m_pSfxObj->Process())
 	{
@@ -241,7 +241,7 @@ void CSfxGenLevelUp::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ±Ø´Ü½ºÅ³ ÀÌÆåÆ® : ½ºÆ®·¹Äª 01
+// ê·¹ë‹¨ìŠ¤í‚¬ ì´í™íŠ¸ : ìŠ¤íŠ¸ë ˆì¹­ 01
 CSfxTroStretching01::CSfxTroStretching01()
 {
 }
@@ -254,7 +254,7 @@ void CSfxTroStretching01::Process()
 	CMover* pObjSrc = (CMover*)prj.GetCtrl( m_idSrc );
 	if(pObjSrc) {
 		SetPos(pObjSrc->GetPos()+D3DXVECTOR3(.0f,.1f,.0f));
-		SetAngle(-pObjSrc->GetAngle()); // µû¶ó´Ù´Ï´Â Process¿¡ °¢µµ±îÁö ÀÏÄ¡½ÃÅ°´Â ºÎºĞÀÌ Ãß°¡µÇ¾ú´Ù.
+		SetAngle(-pObjSrc->GetAngle()); // ë”°ë¼ë‹¤ë‹ˆëŠ” Processì— ê°ë„ê¹Œì§€ ì¼ì¹˜ì‹œí‚¤ëŠ” ë¶€ë¶„ì´ ì¶”ê°€ë˜ì—ˆë‹¤.
 	}
 	if(m_pSfxObj->Process())
 	{
@@ -266,7 +266,7 @@ void CSfxTroStretching01::Process()
 			
 			ItemProp* pItemProp = prj.GetPartySkill( ST_STRETCHING );
 			
-			CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj2, v, pObjSrc->GetId(), D3DXVECTOR3( 0.0f, 0.0f, 0.0f ), NULL_ID, -1 );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+			CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj2, v, pObjSrc->GetId(), D3DXVECTOR3( 0.0f, 0.0f, 0.0f ), NULL_ID, -1 );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 		}
 		
 	}
@@ -280,7 +280,7 @@ void CSfxTroStretching01::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ±Ø´Ü½ºÅ³ ÀÌÆåÆ® : ½ºÆ®·¹Äª 02
+// ê·¹ë‹¨ìŠ¤í‚¬ ì´í™íŠ¸ : ìŠ¤íŠ¸ë ˆì¹­ 02
 CSfxTroStretching02::CSfxTroStretching02()
 {
 }
@@ -317,7 +317,7 @@ void CSfxTroStretching02::Process()
 		else
 		{
 			SetPos(pObjSrc->GetPos()+D3DXVECTOR3(.0f,.1f,.0f));
-			SetAngle(-pObjSrc->GetAngle()); // µû¶ó´Ù´Ï´Â Process¿¡ °¢µµ±îÁö ÀÏÄ¡½ÃÅ°´Â ºÎºĞÀÌ Ãß°¡µÇ¾ú´Ù.
+			SetAngle(-pObjSrc->GetAngle()); // ë”°ë¼ë‹¤ë‹ˆëŠ” Processì— ê°ë„ê¹Œì§€ ì¼ì¹˜ì‹œí‚¤ëŠ” ë¶€ë¶„ì´ ì¶”ê°€ë˜ì—ˆë‹¤.
 		}
 	}
 	else
@@ -332,7 +332,7 @@ void CSfxTroStretching02::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ±Ø´Ü½ºÅ³ ÀÌÆåÆ® : ºí¸´Ã÷~
+// ê·¹ë‹¨ìŠ¤í‚¬ ì´í™íŠ¸ : ë¸”ë¦¿ì¸ ~
 CSfxTroBlitz::CSfxTroBlitz()
 {
 }
@@ -375,7 +375,7 @@ void CSfxTroBlitz::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ·Î±×ÀÎ È¿°ú 
+// ë¡œê·¸ì¸ íš¨ê³¼ 
 CSfxGenLogin::CSfxGenLogin()
 {
 }
@@ -400,7 +400,7 @@ void CSfxGenLogin::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ¿öÇÁ È¿°ú 
+// ì›Œí”„ íš¨ê³¼ 
 CSfxGenWarp::CSfxGenWarp()
 {
 }
@@ -425,7 +425,7 @@ void CSfxGenWarp::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ÇÃ·¹ÀÌ¾î Á×À» ¶§ È¿°ú 
+// í”Œë ˆì´ì–´ ì£½ì„ ë•Œ íš¨ê³¼ 
 CSfxGenPcDie::CSfxGenPcDie()
 {
 }
@@ -450,7 +450,7 @@ void CSfxGenPcDie::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ¸ó½ºÅÍ ½ºÆù ÇÒ ¶§ È¿°ú 
+// ëª¬ìŠ¤í„° ìŠ¤í° í•  ë•Œ íš¨ê³¼ 
 CSfxGenMonsterSpawn::CSfxGenMonsterSpawn()
 {
 }
@@ -475,7 +475,7 @@ void CSfxGenMonsterSpawn::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ÀÏ¹İ °ø°İÀ¸·Î µ¥¹ÌÁö ÀÔÀ» ¶§ È¿°ú 
+// ì¼ë°˜ ê³µê²©ìœ¼ë¡œ ë°ë¯¸ì§€ ì…ì„ ë•Œ íš¨ê³¼ 
 CSfxGenMoveMark::CSfxGenMoveMark()
 {
 }
@@ -501,7 +501,7 @@ void CSfxGenMoveMark::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render2( pd3dDevice );
 }
 
-// ÀÏ¹İ °ø°İÀ¸·Î µ¥¹ÌÁö ÀÔÀ» ¶§ È¿°ú 
+// ì¼ë°˜ ê³µê²©ìœ¼ë¡œ ë°ë¯¸ì§€ ì…ì„ ë•Œ íš¨ê³¼ 
 CSfxGenWaterCircle::CSfxGenWaterCircle()
 {
 }
@@ -546,7 +546,7 @@ void CSfxGenRainCircle::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 
-// ÀÏ¹İ °ø°İÀ¸·Î µ¥¹ÌÁö ÀÔÀ» ¶§ È¿°ú 
+// ì¼ë°˜ ê³µê²©ìœ¼ë¡œ ë°ë¯¸ì§€ ì…ì„ ë•Œ íš¨ê³¼ 
 CSfxGenWaterCrown::CSfxGenWaterCrown()
 {
 }
@@ -575,13 +575,13 @@ void CSfxGenWaterCrown::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ¾ÆÀÌÅÛ È¿°úµé 
+// ì•„ì´í…œ íš¨ê³¼ë“¤ 
 
-// °øÁßÀü¿¡¼­ ¹ß»çÇÏ´Â ¿ÏµåÀÇ ¹ß»çÃ¼.
+// ê³µì¤‘ì „ì—ì„œ ë°œì‚¬í•˜ëŠ” ì™„ë“œì˜ ë°œì‚¬ì²´.
 CSfxItemWandAtkAir::CSfxItemWandAtkAir()
 {
-	m_SfxObj2.SetSfx( "sfx_HitWand01" ); // ¸Â´Â ¼ø°£ÀÇ SFX¸¦ µû·Î ·ÎµùÇÑ´Ù.
-	m_bHit = FALSE; // ¾ÆÁ÷ ¾È¸Â¾Ò´Ù.
+	m_SfxObj2.SetSfx( "sfx_HitWand01" ); // ë§ëŠ” ìˆœê°„ì˜ SFXë¥¼ ë”°ë¡œ ë¡œë”©í•œë‹¤.
+	m_bHit = FALSE; // ì•„ì§ ì•ˆë§ì•˜ë‹¤.
 }
 CSfxItemWandAtkAir::~CSfxItemWandAtkAir()
 {
@@ -590,17 +590,17 @@ CSfxItemWandAtkAir::~CSfxItemWandAtkAir()
 int CSfxItemWandAtkAir::SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex, 
 								 D3DXVECTOR3& vPosSrc, OBJID idSrc, D3DXVECTOR3& vPosDest, OBJID idDest, int nSec )
 {
-	CSfx::SetSfx( pd3dDevice, nIndex, vPosSrc, idSrc, vPosDest, idDest, nSec );		// ±âº»ÃÊ±âÈ­ ¸ÕÀúÇÏ°í.
+	CSfx::SetSfx( pd3dDevice, nIndex, vPosSrc, idSrc, vPosDest, idDest, nSec );		// ê¸°ë³¸ì´ˆê¸°í™” ë¨¼ì €í•˜ê³ .
 
-	CMover* pObjSrc = prj.GetMover( m_idSrc );		// ¹ß»çÃø.
-	if( IsInvalidObj(pObjSrc) )		return 0;		// ½ÇÆĞ.
-	CMover* pObjDest = prj.GetMover( m_idDest );	// Å¸°ÙÃøÀÇ Æ÷ÀÎÅÍ.
-	if( IsInvalidObj(pObjDest) )	return 0;		// ½ÇÆĞ.
+	CMover* pObjSrc = prj.GetMover( m_idSrc );		// ë°œì‚¬ì¸¡.
+	if( IsInvalidObj(pObjSrc) )		return 0;		// ì‹¤íŒ¨.
+	CMover* pObjDest = prj.GetMover( m_idDest );	// íƒ€ê²Ÿì¸¡ì˜ í¬ì¸í„°.
+	if( IsInvalidObj(pObjDest) )	return 0;		// ì‹¤íŒ¨.
 	
-	// !!!!!!!!!!!! SFX¸¦ SetPosÇÒ¶§ º¹ÀâÇÑ Ã³¸® ÇÏÁö ¾Êµµ·Ï ¹Ù²ÙÀÚ.
-	SetPos( pObjSrc->GetPos() + D3DXVECTOR3( 0, 1.0f, 0 ) );		// ¹ß»çÃøÀÇ ÁÂÇ¥¿¡¼­ ¾à°£ À§¿¡¼­ ¹ß»çµÊ.
+	// !!!!!!!!!!!! SFXë¥¼ SetPosí• ë•Œ ë³µì¡í•œ ì²˜ë¦¬ í•˜ì§€ ì•Šë„ë¡ ë°”ê¾¸ì.
+	SetPos( pObjSrc->GetPos() + D3DXVECTOR3( 0, 1.0f, 0 ) );		// ë°œì‚¬ì¸¡ì˜ ì¢Œí‘œì—ì„œ ì•½ê°„ ìœ„ì—ì„œ ë°œì‚¬ë¨.
 	m_pSfxObj->m_vPos = GetPos();
-	m_vPosDest = pObjDest->GetPos();		// Å¸°ÙÃø Æ÷Áö¼Ç.
+	m_vPosDest = pObjDest->GetPos();		// íƒ€ê²Ÿì¸¡ í¬ì§€ì…˜.
 
 	return 1;
 }
@@ -610,67 +610,67 @@ int CSfxItemWandAtkAir::SetSfx( LPDIRECT3DDEVICE9 pd3dDevice, int nIndex,
 //
 void CSfxItemWandAtkAir::ShootSfx( float fAngXZ, float fAngY, float fSpeed )
 {
-	AngleToVector( &m_vDelta, fAngXZ, fAngY, fSpeed );		// ÃÊ±â ¹ß»çÈû.	- ¿Ïµå°¡ ÇâÇÏ°í ÀÖ´Â ¹æÇâÀ¸·Î ½ê°Ô ¹æÃâ.
+	AngleToVector( &m_vDelta, fAngXZ, fAngY, fSpeed );		// ì´ˆê¸° ë°œì‚¬í˜.	- ì™„ë“œê°€ í–¥í•˜ê³  ìˆëŠ” ë°©í–¥ìœ¼ë¡œ ì„ê²Œ ë°©ì¶œ.
 }
 
 	
 void CSfxItemWandAtkAir::Process()
 {
-	FLOAT	fRadius = 0.6f;		// Å¸°ÙÀÇ ¹İ°æ.
-	CMover* pObjDest = prj.GetMover( m_idDest );		// Å¸°ÙÃøÀÇ Æ÷ÀÎÅÍ.
-	if( IsValidObj(pObjDest) )		// ¸¸¾à ¹ß»çÃ¼°¡ ³¯¾Æ°¡´Â Áß¿¡ Å¸°ÙÀÌ ¾ø¾îÁ³´Ù¸é ¸¶Áö¸· ÀÖ¾ú´ø ÁÂÇ¥·Î ³¯¾Æ°¡¼­ ÆÄ±«µÈ´Ù.
+	FLOAT	fRadius = 0.6f;		// íƒ€ê²Ÿì˜ ë°˜ê²½.
+	CMover* pObjDest = prj.GetMover( m_idDest );		// íƒ€ê²Ÿì¸¡ì˜ í¬ì¸í„°.
+	if( IsValidObj(pObjDest) )		// ë§Œì•½ ë°œì‚¬ì²´ê°€ ë‚ ì•„ê°€ëŠ” ì¤‘ì— íƒ€ê²Ÿì´ ì—†ì–´ì¡Œë‹¤ë©´ ë§ˆì§€ë§‰ ìˆì—ˆë˜ ì¢Œí‘œë¡œ ë‚ ì•„ê°€ì„œ íŒŒê´´ëœë‹¤.
 	{
 		m_vPosDest = pObjDest->GetPos();
 		m_vPosDest.y += 1.0f;
-		if( pObjDest->IsNPC() )		// ¸÷ÀÇ°æ¿ì Å¸°ÙÀÇ Å©±â¸¦ Á»´õ Å©°Ô ÇÏÀÚ.
+		if( pObjDest->IsNPC() )		// ëª¹ì˜ê²½ìš° íƒ€ê²Ÿì˜ í¬ê¸°ë¥¼ ì¢€ë” í¬ê²Œ í•˜ì.
 			fRadius = 3.0f;
 	}
 	
-	if( m_bHit == FALSE )	// ¾ÆÁ÷ ¾È¸ÂÀº »óÅÂÀÌ¸é
+	if( m_bHit == FALSE )	// ì•„ì§ ì•ˆë§ì€ ìƒíƒœì´ë©´
 	{ 
-		m_pSfxObj->Process(); // SFX ¾Ö´Ï¸ŞÀÌ¼ÇÀ» Ã³¸®ÇÏ°í
-		if( m_pSfxObj->m_nCurFrame == 20 ) // ÇöÀç 20ÇÁ·¹ÀÓ±îÁö ÁøÇàÇßÀ¸¸é
+		m_pSfxObj->Process(); // SFX ì• ë‹ˆë©”ì´ì…˜ì„ ì²˜ë¦¬í•˜ê³ 
+		if( m_pSfxObj->m_nCurFrame == 20 ) // í˜„ì¬ 20í”„ë ˆì„ê¹Œì§€ ì§„í–‰í–ˆìœ¼ë©´
 		{
-			m_pSfxObj->m_nCurFrame = 0; // ¸ñÇ¥Á¡¿¡ ¸ÂÀ»¶§±îÁö ·çÇÁ½ÃÅ°±â À§ÇØ ´Ù½Ã 0ÇÁ·¹ÀÓÀ¸·Î µ¹·Á³õ´Â´Ù.
+			m_pSfxObj->m_nCurFrame = 0; // ëª©í‘œì ì— ë§ì„ë•Œê¹Œì§€ ë£¨í”„ì‹œí‚¤ê¸° ìœ„í•´ ë‹¤ì‹œ 0í”„ë ˆì„ìœ¼ë¡œ ëŒë ¤ë†“ëŠ”ë‹¤.
 		}
 
-		// ÇöÀç À§Ä¡¿¡¼­ ¸ñÇ¥¹æÇâÂÊÀ¸·ÎÀÇ º¤ÅÍ ±¸ÇÔ.
+		// í˜„ì¬ ìœ„ì¹˜ì—ì„œ ëª©í‘œë°©í–¥ìª½ìœ¼ë¡œì˜ ë²¡í„° êµ¬í•¨.
 		D3DXVECTOR3 vDist = m_vPosDest - GetPos();
 		D3DXVECTOR3 vDistXZ = vDist;
-		vDistXZ.y = 0;		// XZÆò¸éÀÇ ¼ø¼ö ±æÀÌ¸¦ ±¸ÇÏ±â À§ÇØ.
+		vDistXZ.y = 0;		// XZí‰ë©´ì˜ ìˆœìˆ˜ ê¸¸ì´ë¥¼ êµ¬í•˜ê¸° ìœ„í•´.
 
-		FLOAT fAngXZ = D3DXToDegree( atan2( vDist.x, -vDist.z ) );		// ¸ñÇ¥¹æÇâÂÊÀ¸·ÎÀÇ XZ°¢µµ ±¸ÇÔ.
-		FLOAT fDistXZ = D3DXVec3Length( &vDistXZ );				// ¸ñÇ¥¹æÇâÂÊÀ¸·ÎÀÇ XZÆò¸é¿¡¼­ÀÇ ±æÀÌ.
-		FLOAT fAngH  = D3DXToDegree( atan2( fDistXZ, vDist.y ) );		// ¸ñÇ¥¹æÇâÂÊÀ¸·ÎÀÇ ³ôÀÌ °¢µµ.
+		FLOAT fAngXZ = D3DXToDegree( atan2( vDist.x, -vDist.z ) );		// ëª©í‘œë°©í–¥ìª½ìœ¼ë¡œì˜ XZê°ë„ êµ¬í•¨.
+		FLOAT fDistXZ = D3DXVec3Length( &vDistXZ );				// ëª©í‘œë°©í–¥ìª½ìœ¼ë¡œì˜ XZí‰ë©´ì—ì„œì˜ ê¸¸ì´.
+		FLOAT fAngH  = D3DXToDegree( atan2( fDistXZ, vDist.y ) );		// ëª©í‘œë°©í–¥ìª½ìœ¼ë¡œì˜ ë†’ì´ ê°ë„.
 
 		fAngH -= 90.0f;
 		fAngH = -fAngH;
 		D3DXVECTOR3	vAcc;
-		AngleToVector( &vAcc, fAngXZ, fAngH, 0.007f );		// ½Ç½Ã°£À¸·Î ¸ñÇ¥ÂÊÀ¸·Î ÇâÇÏ´Â Èû.
+		AngleToVector( &vAcc, fAngXZ, fAngH, 0.007f );		// ì‹¤ì‹œê°„ìœ¼ë¡œ ëª©í‘œìª½ìœ¼ë¡œ í–¥í•˜ëŠ” í˜.
 		
-		FLOAT fSpeedSq = D3DXVec3LengthSq( &m_vDelta );		// µğ¹ö±ë¿ë.  ÇöÀç ¹ß»çÃ¼ÀÇ ¼Óµµ¸¦ »êÃâ.
+		FLOAT fSpeedSq = D3DXVec3LengthSq( &m_vDelta );		// ë””ë²„ê¹…ìš©.  í˜„ì¬ ë°œì‚¬ì²´ì˜ ì†ë„ë¥¼ ì‚°ì¶œ.
 		if( fSpeedSq < (0.45f * 0.45f) )
 		{
-			m_vDelta += vAcc;		// ±âÁ¸ °ü¼º¿¡ »õ·Î¿î ÈûÀ» ´õÇÔ.
+			m_vDelta += vAcc;		// ê¸°ì¡´ ê´€ì„±ì— ìƒˆë¡œìš´ í˜ì„ ë”í•¨.
 		}
-		m_vDelta *= 0.985f;		// ¸¶ÂûÀ» Áà¼­ ÀÏÁ¤ÀÌ»ó ¼Óµµ°¡ »¡¶óÁöÁö ¾Êµµ·Ï ÇÏÀÚ.
-		//m_vDelta *= 0.965f;		// ¸¶ÂûÀ» Áà¼­ ÀÏÁ¤ÀÌ»ó ¼Óµµ°¡ »¡¶óÁöÁö ¾Êµµ·Ï ÇÏÀÚ.
+		m_vDelta *= 0.985f;		// ë§ˆì°°ì„ ì¤˜ì„œ ì¼ì •ì´ìƒ ì†ë„ê°€ ë¹¨ë¼ì§€ì§€ ì•Šë„ë¡ í•˜ì.
+		//m_vDelta *= 0.965f;		// ë§ˆì°°ì„ ì¤˜ì„œ ì¼ì •ì´ìƒ ì†ë„ê°€ ë¹¨ë¼ì§€ì§€ ì•Šë„ë¡ í•˜ì.
 		D3DXVECTOR3 vPos = GetPos();
 		vPos += m_vDelta;
-		SetPos( vPos );		// ÇöÀç À§Ä¡ °»½Å.
+		SetPos( vPos );		// í˜„ì¬ ìœ„ì¹˜ ê°±ì‹ .
 
-		m_pSfxObj->m_vRotate.y = m_SfxObj2.m_vRotate.y = fAngXZ;	// sfx modelÀÇ °¢µµµµ º¯È­ ½ÃÄÑÁÜ.
+		m_pSfxObj->m_vRotate.y = m_SfxObj2.m_vRotate.y = fAngXZ;	// sfx modelì˜ ê°ë„ë„ ë³€í™” ì‹œì¼œì¤Œ.
 		
-		if( D3DXVec3LengthSq( &vDist ) < (fRadius * fRadius) )  // ¸ñÇ¥Á¡ÀÇ °Å¸®¿Í xx cmÀÌÇÏÀÎ °æ¿ì¿¡´Â...
+		if( D3DXVec3LengthSq( &vDist ) < (fRadius * fRadius) )  // ëª©í‘œì ì˜ ê±°ë¦¬ì™€ xx cmì´í•˜ì¸ ê²½ìš°ì—ëŠ”...
 		{			
-			m_bHit = TRUE; // ¸ÂÀº °É·Î ÆÇ´ÜÇÑ´Ù.
-			m_SfxObj2.m_vPos = GetPos();		// ÇöÀç À§Ä¡¿¡¼­ Æø¹ß.
-			DamageToTarget(); // ¿©±â¼­ ¸Â´Â¼ø°£Ã³¸®
+			m_bHit = TRUE; // ë§ì€ ê±¸ë¡œ íŒë‹¨í•œë‹¤.
+			m_SfxObj2.m_vPos = GetPos();		// í˜„ì¬ ìœ„ì¹˜ì—ì„œ í­ë°œ.
+			DamageToTarget(); // ì—¬ê¸°ì„œ ë§ëŠ”ìˆœê°„ì²˜ë¦¬
 		}
 
 		if( IsValidObj(pObjDest) )
 		{
-			if( pObjDest == CMover::GetActiveMover() )	// ³¯ Å¸°ÙÀ¸·Î Àâ°í ³¯¾Æ¿À´Â ³ğÀº »¡°£»ö
+			if( pObjDest == CMover::GetActiveMover() )	// ë‚  íƒ€ê²Ÿìœ¼ë¡œ ì¡ê³  ë‚ ì•„ì˜¤ëŠ” ë†ˆì€ ë¹¨ê°„ìƒ‰
 				g_ParticleMng.CreateParticle( 0, GetPos(), D3DXVECTOR3(0,0,0), pObjDest->GetPos().y );
 			else
 				g_ParticleMng.CreateParticle( 1, GetPos(), D3DXVECTOR3(0,0,0), pObjDest->GetPos().y );
@@ -680,9 +680,9 @@ void CSfxItemWandAtkAir::Process()
 	}
 	else 
 	{
-		if( m_SfxObj2.Process() )		// ¸¶Áö¸·À¸·Î ¸Â´Â ¼ø°£ Ãâ·ÂµÇ´Â SFXÀÇ Àç»ıÀÌ ³¡³ª¸é
+		if( m_SfxObj2.Process() )		// ë§ˆì§€ë§‰ìœ¼ë¡œ ë§ëŠ” ìˆœê°„ ì¶œë ¥ë˜ëŠ” SFXì˜ ì¬ìƒì´ ëë‚˜ë©´
 		{ 
-			Delete(); // ÀÚ½ÅÀ» Áö¿î´Ù.
+			Delete(); // ìì‹ ì„ ì§€ìš´ë‹¤.
 		}
 	}
 	m_pSfxObj->m_vPos = GetPos();
@@ -691,9 +691,9 @@ void CSfxItemWandAtkAir::Process()
 	if( m_nFrame >= 60 * 8 )	
 	{
 		m_bHit = TRUE;
-		m_SfxObj2.m_vPos = GetPos();		// ÇöÀç À§Ä¡¿¡¼­ Æø¹ß.
+		m_SfxObj2.m_vPos = GetPos();		// í˜„ì¬ ìœ„ì¹˜ì—ì„œ í­ë°œ.
 		if( g_pPlayer->IsActiveMover() )
-			g_DPlay.SendSfxClear( m_idSfxHit );		// ÀÌ°ÍÀÌ »èÁ¦µÇ¾ú´Ù´Â°É ¼­¹ö¿¡ ¾Ë¸².
+			g_DPlay.SendSfxClear( m_idSfxHit );		// ì´ê²ƒì´ ì‚­ì œë˜ì—ˆë‹¤ëŠ”ê±¸ ì„œë²„ì— ì•Œë¦¼.
 	}
 }
 
@@ -715,10 +715,10 @@ void CSfxItemWandAtkAir::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 CSfxMagicMiAtk1::CSfxMagicMiAtk1()
 {
-	m_SfxObj2.SetSfx( "sfx_HitWand01" ); // ¸Â´Â ¼ø°£ÀÇ SFX¸¦ µû·Î ·ÎµùÇÑ´Ù.
-	m_bHit = FALSE; // ¾ÆÁ÷ ¾È¸Â¾Ò´Ù.
+	m_SfxObj2.SetSfx( "sfx_HitWand01" ); // ë§ëŠ” ìˆœê°„ì˜ SFXë¥¼ ë”°ë¡œ ë¡œë”©í•œë‹¤.
+	m_bHit = FALSE; // ì•„ì§ ì•ˆë§ì•˜ë‹¤.
 	m_fCenter = 0;
-	m_fRadiusXZ = 0.2f;		// µğÆúÆ® 20¼¾Ä¡.
+	m_fRadiusXZ = 0.2f;		// ë””í´íŠ¸ 20ì„¼ì¹˜.
 }
 CSfxMagicMiAtk1::~CSfxMagicMiAtk1()
 {
@@ -727,7 +727,7 @@ CSfxMagicMiAtk1::~CSfxMagicMiAtk1()
 
 void CSfxMagicMiAtk1::Process()
 {
-	// ÀÌ°ÍÀº ¸ñÇ¥Á¡±îÁö ³¯¶ó°¡¼­ ¸Â´Â SFXÀÇ ÀÏ¹İÀûÀÎ ProcessÀÌ´Ù.
+	// ì´ê²ƒì€ ëª©í‘œì ê¹Œì§€ ë‚ ë¼ê°€ì„œ ë§ëŠ” SFXì˜ ì¼ë°˜ì ì¸ Processì´ë‹¤.
 	CMover* pObjDest = (CMover*)prj.GetCtrl( m_idDest );
 	if( pObjDest ) 
 	{
@@ -737,21 +737,21 @@ void CSfxMagicMiAtk1::Process()
 			return;
 		}
 
-		// ¹ß»ç ¸ñÇ¥ÁöÁ¡Àº »ó´ëÀÇ Áß¾Ó.
-		float fHeight = fabs(pObjDest->m_pModel->m_vMax.y) / 2.0f;	// ¾ÆÀÌ¹ÙÆ®°°Àº³ÑÀº °øÁß¿¡ ¶°ÀÖ±â¶«¿¡ ¼ø¼ö ³ôÀÌÀÎ Max°ª¸¸ ÃëÇß´Ù.
+		// ë°œì‚¬ ëª©í‘œì§€ì ì€ ìƒëŒ€ì˜ ì¤‘ì•™.
+		float fHeight = fabs(pObjDest->m_pModel->m_vMax.y) / 2.0f;	// ì•„ì´ë°”íŠ¸ê°™ì€ë„˜ì€ ê³µì¤‘ì— ë– ìˆê¸°ë•œì— ìˆœìˆ˜ ë†’ì´ì¸ Maxê°’ë§Œ ì·¨í–ˆë‹¤.
 		fHeight *= pObjDest->GetScale().x;
 		m_fCenter = fHeight;	
 		
-		m_vPosDest = pObjDest->GetPos();		// Å¸°ÙÀÇ À§Ä¡ °»½Å - Å¸°ÙÀÌ °è¼Ó ¿òÁ÷ÀÌ¹Ç·Î...
+		m_vPosDest = pObjDest->GetPos();		// íƒ€ê²Ÿì˜ ìœ„ì¹˜ ê°±ì‹  - íƒ€ê²Ÿì´ ê³„ì† ì›€ì§ì´ë¯€ë¡œ...
 		m_vPosDest.y += m_fCenter;
 		if( m_nFrame == 0 )
 		{
-			// ¸Ç Ã¹ÇÁ·¹ÀÓ¿¡¼­ °è»ê.
+			// ë§¨ ì²«í”„ë ˆì„ì—ì„œ ê³„ì‚°.
 			FLOAT fLenX = fabs(pObjDest->m_pModel->m_vMax.x - pObjDest->m_pModel->m_vMin.x);
 			FLOAT fLenZ = fabs(pObjDest->m_pModel->m_vMax.z - pObjDest->m_pModel->m_vMin.z);
-			m_fRadiusXZ = ((fLenX + fLenZ) / 2.0f);		// XÅ©±â ZÅ©±â Æò±ÕÀ» ³¿
+			m_fRadiusXZ = ((fLenX + fLenZ) / 2.0f);		// Xí¬ê¸° Zí¬ê¸° í‰ê· ì„ ëƒ„
 			m_fRadiusXZ *= pObjDest->GetScale().x;
-			m_fRadiusXZ /= 3.0f;	// Á¤È®È÷ ¹İÁö¸§À» ¾²Áü¶ó°í ¹İÁö¸§(/2)º¸´Ù Á¶±İ Å©°Ô ¾²ÀÚ 3À» ³ª´®.
+			m_fRadiusXZ /= 3.0f;	// ì •í™•íˆ ë°˜ì§€ë¦„ì„ ì“°ì§ë¼ê³  ë°˜ì§€ë¦„(/2)ë³´ë‹¤ ì¡°ê¸ˆ í¬ê²Œ ì“°ì 3ì„ ë‚˜ëˆ”.
 		}
 	} else
 	{
@@ -760,21 +760,21 @@ void CSfxMagicMiAtk1::Process()
 	}
 
 		
-	if( m_bHit == FALSE )		// ¾ÆÁ÷ ¾È¸ÂÀº »óÅÂÀÌ¸é
+	if( m_bHit == FALSE )		// ì•„ì§ ì•ˆë§ì€ ìƒíƒœì´ë©´
 	{ 
-		m_pSfxObj->Process(); // SFX ¾Ö´Ï¸ŞÀÌ¼ÇÀ» Ã³¸®ÇÏ°í
-		if( m_pSfxObj->m_nCurFrame == 20 ) // ÇöÀç 20ÇÁ·¹ÀÓ±îÁö ÁøÇàÇßÀ¸¸é
+		m_pSfxObj->Process(); // SFX ì• ë‹ˆë©”ì´ì…˜ì„ ì²˜ë¦¬í•˜ê³ 
+		if( m_pSfxObj->m_nCurFrame == 20 ) // í˜„ì¬ 20í”„ë ˆì„ê¹Œì§€ ì§„í–‰í–ˆìœ¼ë©´
 		{
-			m_pSfxObj->m_nCurFrame=0; // ¸ñÇ¥Á¡¿¡ ¸ÂÀ»¶§±îÁö ·çÇÁ½ÃÅ°±â À§ÇØ ´Ù½Ã 0ÇÁ·¹ÀÓÀ¸·Î µ¹·Á³õ´Â´Ù.
+			m_pSfxObj->m_nCurFrame=0; // ëª©í‘œì ì— ë§ì„ë•Œê¹Œì§€ ë£¨í”„ì‹œí‚¤ê¸° ìœ„í•´ ë‹¤ì‹œ 0í”„ë ˆì„ìœ¼ë¡œ ëŒë ¤ë†“ëŠ”ë‹¤.
 		}
 
 		D3DXVECTOR3 vPos = GetPos();
-		D3DXVECTOR3 vDelta = m_vPosDest - vPos;		// ÇöÀç À§Ä¡¿¡¼­ Å¸°Ù¹æÇâÀ¸·ÎÀÇ º¤ÅÍ.
-		D3DXVec3Normalize( &vDelta, &vDelta );		// À¯´Öº¤ÅÍÈ­ - 1¹ÌÅÍÈ­.
-		vPos += (vDelta * 0.4f);					// 20¼¾Ä¡·Î ÁÙ¿©¼­ ÇöÀçÀ§Ä¡¿¡ ´õÇÔ.
+		D3DXVECTOR3 vDelta = m_vPosDest - vPos;		// í˜„ì¬ ìœ„ì¹˜ì—ì„œ íƒ€ê²Ÿë°©í–¥ìœ¼ë¡œì˜ ë²¡í„°.
+		D3DXVec3Normalize( &vDelta, &vDelta );		// ìœ ë‹›ë²¡í„°í™” - 1ë¯¸í„°í™”.
+		vPos += (vDelta * 0.4f);					// 20ì„¼ì¹˜ë¡œ ì¤„ì—¬ì„œ í˜„ì¬ìœ„ì¹˜ì— ë”í•¨.
 		
-		SetPos( vPos );				// ÇöÀç À§Ä¡ °»½Å.
-		m_pSfxObj->m_vPos = vPos;	// SFXModelÀÇ À§Ä¡µµ °»½Å.
+		SetPos( vPos );				// í˜„ì¬ ìœ„ì¹˜ ê°±ì‹ .
+		m_pSfxObj->m_vPos = vPos;	// SFXModelì˜ ìœ„ì¹˜ë„ ê°±ì‹ .
 
 		D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 		D3DXVECTOR3 vDestNor  = m_vPosDest - vPos;
@@ -795,26 +795,26 @@ void CSfxMagicMiAtk1::Process()
 		m_pSfxObj->m_vRotate.z = m_SfxObj2.m_vRotate.z = D3DXToDegree(vYPW.z);
 
 		vDelta = GetPos() - m_vPosDest;
-		if( D3DXVec3LengthSq( &vDelta ) < m_fRadiusXZ * m_fRadiusXZ )		// ¸ñÇ¥Á¡ÀÇ °Å¸®¿Í 20cmÀÌÇÏÀÎ °æ¿ì¿¡´Â...
+		if( D3DXVec3LengthSq( &vDelta ) < m_fRadiusXZ * m_fRadiusXZ )		// ëª©í‘œì ì˜ ê±°ë¦¬ì™€ 20cmì´í•˜ì¸ ê²½ìš°ì—ëŠ”...
 		{ 
-			m_SfxObj2.m_vPos = GetPos();//m_vPosDest;		// Å¸°ÙÀÇ À§Ä¡¿¡ Æø¹ß ÀÌÆåÆ® ÁÂÇ¥.
+			m_SfxObj2.m_vPos = GetPos();//m_vPosDest;		// íƒ€ê²Ÿì˜ ìœ„ì¹˜ì— í­ë°œ ì´í™íŠ¸ ì¢Œí‘œ.
 			m_SfxObj2.m_vPos.y+=1.0f;
-			m_bHit = TRUE; // ¸ÂÀº °É·Î ÆÇ´ÜÇÑ´Ù.
+			m_bHit = TRUE; // ë§ì€ ê±¸ë¡œ íŒë‹¨í•œë‹¤.
 		}
 	}
 	else 
 	{
-		if( m_SfxObj2.m_nCurFrame == 0 )		// m_SfxObj2´Â ¸Â´Â ¼ø°£ Ãâ·ÂµÇ´Â SFXÀÌ´Ù.
+		if( m_SfxObj2.m_nCurFrame == 0 )		// m_SfxObj2ëŠ” ë§ëŠ” ìˆœê°„ ì¶œë ¥ë˜ëŠ” SFXì´ë‹¤.
 		{ 
-			DamageToTarget(); // ¿©±â¼­ ¸Â´Â¼ø°£Ã³¸®
+			DamageToTarget(); // ì—¬ê¸°ì„œ ë§ëŠ”ìˆœê°„ì²˜ë¦¬
 		}
-		if( m_SfxObj2.Process() )		// ¸¶Áö¸·À¸·Î ¸Â´Â ¼ø°£ Ãâ·ÂµÇ´Â SFXÀÇ Àç»ıÀÌ ³¡³ª¸é
+		if( m_SfxObj2.Process() )		// ë§ˆì§€ë§‰ìœ¼ë¡œ ë§ëŠ” ìˆœê°„ ì¶œë ¥ë˜ëŠ” SFXì˜ ì¬ìƒì´ ëë‚˜ë©´
 		{ 
-			Delete(); // ÀÚ½ÅÀ» Áö¿î´Ù.
+			Delete(); // ìì‹ ì„ ì§€ìš´ë‹¤.
 		}
 	}
 	m_nFrame++;
-	if( m_nFrame >= SEC1 * 10 )		// ³Ê¹«¿À·¡ ¦i¾Æ°¡Áö ¾Ê°Ô 10ÃÊÁö³ª¸é ¼Ò¸ê
+	if( m_nFrame >= SEC1 * 10 )		// ë„ˆë¬´ì˜¤ë˜ ì«’ì•„ê°€ì§€ ì•Šê²Œ 10ì´ˆì§€ë‚˜ë©´ ì†Œë©¸
 		Delete();
 }
 void CSfxMagicMiAtk1::Render( LPDIRECT3DDEVICE9 pd3dDevice )
@@ -835,10 +835,10 @@ void CSfxMagicMiAtk1::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 CSfxItemWandAtk1::CSfxItemWandAtk1()
 {
-	m_SfxObj2.SetSfx( "sfx_HitWand01" ); // ¸Â´Â ¼ø°£ÀÇ SFX¸¦ µû·Î ·ÎµùÇÑ´Ù.
-	m_bHit = FALSE; // ¾ÆÁ÷ ¾È¸Â¾Ò´Ù.
+	m_SfxObj2.SetSfx( "sfx_HitWand01" ); // ë§ëŠ” ìˆœê°„ì˜ SFXë¥¼ ë”°ë¡œ ë¡œë”©í•œë‹¤.
+	m_bHit = FALSE; // ì•„ì§ ì•ˆë§ì•˜ë‹¤.
 	m_fCenter = 0;
-	m_fRadiusXZ = 0.2f;		// µğÆúÆ® 20¼¾Ä¡.
+	m_fRadiusXZ = 0.2f;		// ë””í´íŠ¸ 20ì„¼ì¹˜.
 }
 CSfxItemWandAtk1::~CSfxItemWandAtk1()
 {
@@ -856,21 +856,21 @@ void CSfxItemWandAtk1::Process()
 			return;
 		}
 
-		// ¹ß»ç ¸ñÇ¥ÁöÁ¡Àº »ó´ëÀÇ Áß¾Ó.
-		float fHeight = fabs(pObjDest->m_pModel->m_vMax.y) / 2.0f;	// ¾ÆÀÌ¹ÙÆ®°°Àº³ÑÀº °øÁß¿¡ ¶°ÀÖ±â¶«¿¡ ¼ø¼ö ³ôÀÌÀÎ Max°ª¸¸ ÃëÇß´Ù.
+		// ë°œì‚¬ ëª©í‘œì§€ì ì€ ìƒëŒ€ì˜ ì¤‘ì•™.
+		float fHeight = fabs(pObjDest->m_pModel->m_vMax.y) / 2.0f;	// ì•„ì´ë°”íŠ¸ê°™ì€ë„˜ì€ ê³µì¤‘ì— ë– ìˆê¸°ë•œì— ìˆœìˆ˜ ë†’ì´ì¸ Maxê°’ë§Œ ì·¨í–ˆë‹¤.
 		fHeight *= pObjDest->GetScale().x;
 		m_fCenter = fHeight;	
 		
-		m_vPosDest = pObjDest->GetPos();		// Å¸°ÙÀÇ À§Ä¡ °»½Å - Å¸°ÙÀÌ °è¼Ó ¿òÁ÷ÀÌ¹Ç·Î...
+		m_vPosDest = pObjDest->GetPos();		// íƒ€ê²Ÿì˜ ìœ„ì¹˜ ê°±ì‹  - íƒ€ê²Ÿì´ ê³„ì† ì›€ì§ì´ë¯€ë¡œ...
 		m_vPosDest.y += m_fCenter;
 		if( m_nFrame == 0 )
 		{
-			// ¸Ç Ã¹ÇÁ·¹ÀÓ¿¡¼­ °è»ê.
+			// ë§¨ ì²«í”„ë ˆì„ì—ì„œ ê³„ì‚°.
 			FLOAT fLenX = fabs(pObjDest->m_pModel->m_vMax.x - pObjDest->m_pModel->m_vMin.x);
 			FLOAT fLenZ = fabs(pObjDest->m_pModel->m_vMax.z - pObjDest->m_pModel->m_vMin.z);
-			m_fRadiusXZ = ((fLenX + fLenZ) / 2.0f);		// XÅ©±â ZÅ©±â Æò±ÕÀ» ³¿
+			m_fRadiusXZ = ((fLenX + fLenZ) / 2.0f);		// Xí¬ê¸° Zí¬ê¸° í‰ê· ì„ ëƒ„
 			m_fRadiusXZ *= pObjDest->GetScale().x;
-			m_fRadiusXZ /= 3.0f;	// Á¤È®È÷ ¹İÁö¸§À» ¾²Áü¶ó°í ¹İÁö¸§(/2)º¸´Ù Á¶±İ Å©°Ô ¾²ÀÚ 3À» ³ª´®.
+			m_fRadiusXZ /= 3.0f;	// ì •í™•íˆ ë°˜ì§€ë¦„ì„ ì“°ì§ë¼ê³  ë°˜ì§€ë¦„(/2)ë³´ë‹¤ ì¡°ê¸ˆ í¬ê²Œ ì“°ì 3ì„ ë‚˜ëˆ”.
 		}
 	} else
 	{
@@ -879,21 +879,21 @@ void CSfxItemWandAtk1::Process()
 	}
 
 		
-	if( m_bHit == FALSE )		// ¾ÆÁ÷ ¾È¸ÂÀº »óÅÂÀÌ¸é
+	if( m_bHit == FALSE )		// ì•„ì§ ì•ˆë§ì€ ìƒíƒœì´ë©´
 	{ 
-		m_pSfxObj->Process(); // SFX ¾Ö´Ï¸ŞÀÌ¼ÇÀ» Ã³¸®ÇÏ°í
-		if( m_pSfxObj->m_nCurFrame == 20 ) // ÇöÀç 20ÇÁ·¹ÀÓ±îÁö ÁøÇàÇßÀ¸¸é
+		m_pSfxObj->Process(); // SFX ì• ë‹ˆë©”ì´ì…˜ì„ ì²˜ë¦¬í•˜ê³ 
+		if( m_pSfxObj->m_nCurFrame == 20 ) // í˜„ì¬ 20í”„ë ˆì„ê¹Œì§€ ì§„í–‰í–ˆìœ¼ë©´
 		{
-			m_pSfxObj->m_nCurFrame=0; // ¸ñÇ¥Á¡¿¡ ¸ÂÀ»¶§±îÁö ·çÇÁ½ÃÅ°±â À§ÇØ ´Ù½Ã 0ÇÁ·¹ÀÓÀ¸·Î µ¹·Á³õ´Â´Ù.
+			m_pSfxObj->m_nCurFrame=0; // ëª©í‘œì ì— ë§ì„ë•Œê¹Œì§€ ë£¨í”„ì‹œí‚¤ê¸° ìœ„í•´ ë‹¤ì‹œ 0í”„ë ˆì„ìœ¼ë¡œ ëŒë ¤ë†“ëŠ”ë‹¤.
 		}
 
 		D3DXVECTOR3 vPos = GetPos();
-		D3DXVECTOR3 vDelta = m_vPosDest - vPos;		// ÇöÀç À§Ä¡¿¡¼­ Å¸°Ù¹æÇâÀ¸·ÎÀÇ º¤ÅÍ.
-		D3DXVec3Normalize( &vDelta, &vDelta );		// À¯´Öº¤ÅÍÈ­ - 1¹ÌÅÍÈ­.
-		vPos += (vDelta * 0.2f);					// 20¼¾Ä¡·Î ÁÙ¿©¼­ ÇöÀçÀ§Ä¡¿¡ ´õÇÔ.
+		D3DXVECTOR3 vDelta = m_vPosDest - vPos;		// í˜„ì¬ ìœ„ì¹˜ì—ì„œ íƒ€ê²Ÿë°©í–¥ìœ¼ë¡œì˜ ë²¡í„°.
+		D3DXVec3Normalize( &vDelta, &vDelta );		// ìœ ë‹›ë²¡í„°í™” - 1ë¯¸í„°í™”.
+		vPos += (vDelta * 0.2f);					// 20ì„¼ì¹˜ë¡œ ì¤„ì—¬ì„œ í˜„ì¬ìœ„ì¹˜ì— ë”í•¨.
 		
-		SetPos( vPos );				// ÇöÀç À§Ä¡ °»½Å.
-		m_pSfxObj->m_vPos = vPos;	// SFXModelÀÇ À§Ä¡µµ °»½Å.
+		SetPos( vPos );				// í˜„ì¬ ìœ„ì¹˜ ê°±ì‹ .
+		m_pSfxObj->m_vPos = vPos;	// SFXModelì˜ ìœ„ì¹˜ë„ ê°±ì‹ .
 
 		D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 		D3DXVECTOR3 vDestNor  = m_vPosDest - vPos;
@@ -914,26 +914,26 @@ void CSfxItemWandAtk1::Process()
 		m_pSfxObj->m_vRotate.z = m_SfxObj2.m_vRotate.z = D3DXToDegree(vYPW.z);
 
 		vDelta = GetPos() - m_vPosDest;
-		if( D3DXVec3LengthSq( &vDelta ) < m_fRadiusXZ * m_fRadiusXZ )		// ¸ñÇ¥Á¡ÀÇ °Å¸®¿Í 20cmÀÌÇÏÀÎ °æ¿ì¿¡´Â...
+		if( D3DXVec3LengthSq( &vDelta ) < m_fRadiusXZ * m_fRadiusXZ )		// ëª©í‘œì ì˜ ê±°ë¦¬ì™€ 20cmì´í•˜ì¸ ê²½ìš°ì—ëŠ”...
 		{ 
-			m_SfxObj2.m_vPos = GetPos();//m_vPosDest;		// Å¸°ÙÀÇ À§Ä¡¿¡ Æø¹ß ÀÌÆåÆ® ÁÂÇ¥.
+			m_SfxObj2.m_vPos = GetPos();//m_vPosDest;		// íƒ€ê²Ÿì˜ ìœ„ì¹˜ì— í­ë°œ ì´í™íŠ¸ ì¢Œí‘œ.
 			m_SfxObj2.m_vPos.y+=1.0f;
-			m_bHit = TRUE; // ¸ÂÀº °É·Î ÆÇ´ÜÇÑ´Ù.
+			m_bHit = TRUE; // ë§ì€ ê±¸ë¡œ íŒë‹¨í•œë‹¤.
 		}
 	}
 	else 
 	{
-		if( m_SfxObj2.m_nCurFrame == 0 )		// m_SfxObj2´Â ¸Â´Â ¼ø°£ Ãâ·ÂµÇ´Â SFXÀÌ´Ù.
+		if( m_SfxObj2.m_nCurFrame == 0 )		// m_SfxObj2ëŠ” ë§ëŠ” ìˆœê°„ ì¶œë ¥ë˜ëŠ” SFXì´ë‹¤.
 		{ 
-			DamageToTarget(); // ¿©±â¼­ ¸Â´Â¼ø°£Ã³¸®
+			DamageToTarget(); // ì—¬ê¸°ì„œ ë§ëŠ”ìˆœê°„ì²˜ë¦¬
 		}
-		if( m_SfxObj2.Process() )		// ¸¶Áö¸·À¸·Î ¸Â´Â ¼ø°£ Ãâ·ÂµÇ´Â SFXÀÇ Àç»ıÀÌ ³¡³ª¸é
+		if( m_SfxObj2.Process() )		// ë§ˆì§€ë§‰ìœ¼ë¡œ ë§ëŠ” ìˆœê°„ ì¶œë ¥ë˜ëŠ” SFXì˜ ì¬ìƒì´ ëë‚˜ë©´
 		{ 
-			Delete(); // ÀÚ½ÅÀ» Áö¿î´Ù.
+			Delete(); // ìì‹ ì„ ì§€ìš´ë‹¤.
 		}
 	}
 	m_nFrame++;
-	if( m_nFrame >= SEC1 * 10 )		// ³Ê¹«¿À·¡ ¦i¾Æ°¡Áö ¾Ê°Ô 10ÃÊÁö³ª¸é ¼Ò¸ê
+	if( m_nFrame >= SEC1 * 10 )		// ë„ˆë¬´ì˜¤ë˜ ì«’ì•„ê°€ì§€ ì•Šê²Œ 10ì´ˆì§€ë‚˜ë©´ ì†Œë©¸
 		Delete();
 }
 void CSfxItemWandAtk1::Render( LPDIRECT3DDEVICE9 pd3dDevice )
@@ -964,32 +964,32 @@ CSfxItemRangeAtk1::~CSfxItemRangeAtk1()
 
 void CSfxItemRangeAtk1::Process()
 {
-	CMover* pObjDest = (CMover*)prj.GetCtrl( m_idDest );	// À¯µµÅº ÇüÀÌ±â¶§¹®¿¡ Å¸°ÙÀº Ç×»ó ÀĞ¾îºÁ¾ß ÇÑ´Ù.
+	CMover* pObjDest = (CMover*)prj.GetCtrl( m_idDest );	// ìœ ë„íƒ„ í˜•ì´ê¸°ë•Œë¬¸ì— íƒ€ê²Ÿì€ í•­ìƒ ì½ì–´ë´ì•¼ í•œë‹¤.
 	if( IsValidObj(pObjDest) )
 	{
 		m_vPosDest = pObjDest->GetPos() + D3DXVECTOR3( 0, 1.0f, 0 );
 	} else
 	{
-		// ³¯¾Æ°¡´Ù Å¸°ÙÀÌ ¾ø¾îÁ³À¸¸é ¸¶Áö¸·ÁÂÇ¥·Î ³¯¾Æ°¡¼­ ÅÍÁö°Ô.
-		Delete();	// this´Â »èÁ¦.
+		// ë‚ ì•„ê°€ë‹¤ íƒ€ê²Ÿì´ ì—†ì–´ì¡Œìœ¼ë©´ ë§ˆì§€ë§‰ì¢Œí‘œë¡œ ë‚ ì•„ê°€ì„œ í„°ì§€ê²Œ.
+		Delete();	// thisëŠ” ì‚­ì œ.
 		int a = 0;
 	}
 	
 	if( m_bHit == FALSE ) 
 	{
-		if( m_pSfxObj->Process() )		// ¾Ö´Ï¸ŞÀÌ¼ÇÀº ·çÇÁ.
+		if( m_pSfxObj->Process() )		// ì• ë‹ˆë©”ì´ì…˜ì€ ë£¨í”„.
 		{
 			m_pSfxObj->m_nCurFrame = 0;
 		}
 		D3DXVECTOR3 vPos = GetPos();
 		D3DXVECTOR3 vDelta = m_vPosDest - vPos;
-		D3DXVec3Normalize( &vDelta, &vDelta );		// Å¸°ÙÂÊ ´ÜÀ§º¤ÅÍ ±¸ÇØ¼­
-		vPos += vDelta * 0.7f;			// ±× º¤ÅÍ·Î ¼Óµµ¸¦ °áÁ¤ÇØ¼­ ÁÂÇ¥ ÀÌµ¿.
+		D3DXVec3Normalize( &vDelta, &vDelta );		// íƒ€ê²Ÿìª½ ë‹¨ìœ„ë²¡í„° êµ¬í•´ì„œ
+		vPos += vDelta * 0.7f;			// ê·¸ ë²¡í„°ë¡œ ì†ë„ë¥¼ ê²°ì •í•´ì„œ ì¢Œí‘œ ì´ë™.
 		m_pSfxObj->m_vPos = vPos;
 		SetPos( vPos );
 		
 		{
-			// ¸¶¹ı°´Ã¼ ¹æÇâº¤ÅÍ·Î ¸ğµ¨ ¹æÇâ µ¹¸®±â~~~
+			// ë§ˆë²•ê°ì²´ ë°©í–¥ë²¡í„°ë¡œ ëª¨ë¸ ë°©í–¥ ëŒë¦¬ê¸°~~~
 			D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 			D3DXVECTOR3 vDestNor  = m_vPosDest - m_pSfxObj->m_vPos;
 			D3DXVECTOR3 vAxis;
@@ -1012,10 +1012,10 @@ void CSfxItemRangeAtk1::Process()
 		
 		if( m_pTail )
 		{
-			if( m_pTail->GetType() != 2 )	// »ı¼ºµÇ¾ú´ø ²¿¸®°í ÀÏ¹İº¸µå¿ëÀÌ ¾Æ´Ï¸é 
-				m_pTail->ChangeTexture( D3DDEVICE, "etc_Tail2.bmp", 2 );	// ÀÏ¹İº¸µå¿ëÀ¸·Î ÅØ½ºÃÄ ±³Ã¼.
+			if( m_pTail->GetType() != 2 )	// ìƒì„±ë˜ì—ˆë˜ ê¼¬ë¦¬ê³  ì¼ë°˜ë³´ë“œìš©ì´ ì•„ë‹ˆë©´ 
+				m_pTail->ChangeTexture( D3DDEVICE, "etc_Tail2.bmp", 2 );	// ì¼ë°˜ë³´ë“œìš©ìœ¼ë¡œ í…ìŠ¤ì³ êµì²´.
 		}
-		if( m_pTail == NULL )	// ¾ÆÁ÷ ÇÒ´ç ¾ÈµÆÀ¸¸é ÇÒ´çÇÏ°í.
+		if( m_pTail == NULL )	// ì•„ì§ í• ë‹¹ ì•ˆëìœ¼ë©´ í• ë‹¹í•˜ê³ .
 		{
 			m_pTail = (CTailEffectBelt*)g_TailEffectMng.AddEffect( g_Neuz.m_pd3dDevice, "etc_Tail2.bmp", 2, 0.35f );
 		}
@@ -1042,13 +1042,13 @@ void CSfxItemRangeAtk1::Process()
 		if( m_pTail )
 			m_pTail->CreateTail( vPos1, vPos2 );
 		
-		vDelta = m_pSfxObj->m_vPos - m_vPosDest;		// ´ë»ó°úÀÇ °Å¸®
-		if( D3DXVec3LengthSq( &vDelta ) < 0.4f * 0.4f )		// Æø¹ß °Å¸®±îÁö ´Ù°¡°¡¸é Ãæµ¹.
+		vDelta = m_pSfxObj->m_vPos - m_vPosDest;		// ëŒ€ìƒê³¼ì˜ ê±°ë¦¬
+		if( D3DXVec3LengthSq( &vDelta ) < 0.4f * 0.4f )		// í­ë°œ ê±°ë¦¬ê¹Œì§€ ë‹¤ê°€ê°€ë©´ ì¶©ëŒ.
 		{
 			if( m_dwSndHit != NULL_ID )
-				PLAYSND( m_dwSndHit, &GetPos() );		// »ç¿îµå ÇÃ·¹ÀÌ.
+				PLAYSND( m_dwSndHit, &GetPos() );		// ì‚¬ìš´ë“œ í”Œë ˆì´.
 			DamageToTarget();
-			// Æø¹ß ¿ÀºêÁ§Æ® »ı¼º.
+			// í­ë°œ ì˜¤ë¸Œì íŠ¸ ìƒì„±.
 			if( m_dwSfxHit != NULL_ID )
 			{
 				CSfx *pSfx = CreateSfx( D3DDEVICE, m_dwSfxHit, GetPos(), m_idSrc, m_vPosDest, m_idDest, 0 );
@@ -1057,12 +1057,12 @@ void CSfxItemRangeAtk1::Process()
 					pSfx->SetAngle( m_pSfxObj->m_vRotate.y );
 				}
 			}
-			Delete();	// this´Â »èÁ¦.
+			Delete();	// thisëŠ” ì‚­ì œ.
 		}
 	}
 	m_nFrame ++;
 
-	if( m_nFrame >= SEC1 * 10 )		// ³Ê¹«¿À·¡ ¦i¾Æ°¡Áö ¾Ê°Ô 10ÃÊÁö³ª¸é ¼Ò¸ê
+	if( m_nFrame >= SEC1 * 10 )		// ë„ˆë¬´ì˜¤ë˜ ì«’ì•„ê°€ì§€ ì•Šê²Œ 10ì´ˆì§€ë‚˜ë©´ ì†Œë©¸
 		Delete();	
 }
 void CSfxItemRangeAtk1::Render( LPDIRECT3DDEVICE9 pd3dDevice )
@@ -1071,7 +1071,7 @@ void CSfxItemRangeAtk1::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render2( pd3dDevice );
 }
 
-// ¿ä¿ä»ı¼º
+// ìš”ìš”ìƒì„±
 D3DXVECTOR3	CSfxItemYoyoAtk::SplineSlerp( D3DXVECTOR3 *v1, D3DXVECTOR3 *v2, D3DXVECTOR3 *v3, D3DXVECTOR3 *v4, float fSlerp )
 {
 	D3DXVECTOR3		vResult;
@@ -1117,14 +1117,14 @@ CSfxItemYoyoAtk::~CSfxItemYoyoAtk()
 
 void CSfxItemYoyoAtk::MakePath(int nType)
 {
-	// ±æÀÌ 5¹ÌÅÍ
+	// ê¸¸ì´ 5ë¯¸í„°
 	m_fMaxLength = 50.0f;
 	
 	CMover* pObj = (CMover*)prj.GetCtrl( m_idSrc );	
 
 	if( !IsValidObj(pObj) )
 	{
-		Delete();	// this´Â »èÁ¦.
+		Delete();	// thisëŠ” ì‚­ì œ.
 		return;
 	}
 
@@ -1132,10 +1132,10 @@ void CSfxItemYoyoAtk::MakePath(int nType)
 	
 	fLength = D3DXVec3LengthSq( &D3DXVECTOR3(m_vPosDest - GetPos()) );
 
-	if( fLength > 7.0f * 7.0f )  // 7¹ÌÅÍ ÀÌ»ó ¸ø ³¯¶ó°¨
+	if( fLength > 7.0f * 7.0f )  // 7ë¯¸í„° ì´ìƒ ëª» ë‚ ë¼ê°
 		fLength = 49.0f;
 
-	if( fLength < 3.0f * 3.0f )  // 3¹ÌÅÍº¸´Ù ÀÛÀ¸¸é 2¹ÌÅÍ
+	if( fLength < 3.0f * 3.0f )  // 3ë¯¸í„°ë³´ë‹¤ ì‘ìœ¼ë©´ 2ë¯¸í„°
 		fLength = 12.0f;
 
 	fLength /= 5.0f;
@@ -1148,7 +1148,7 @@ void CSfxItemYoyoAtk::MakePath(int nType)
 	m_v3SrcPos = GetPos();
 	D3DXVECTOR3 vLocal;
 	
-	// 5¹ÌÅÍ ¾Õ À§Ä¡±¸ÇÔ
+	// 5ë¯¸í„° ì• ìœ„ì¹˜êµ¬í•¨
 	AngleToVectorXZ( &vLocal, 0, fLength );
 	aNewPos[0] = vLocal;
 	aNewPos[0].y -= 0.2f;
@@ -1161,11 +1161,11 @@ void CSfxItemYoyoAtk::MakePath(int nType)
 	aNewPos[2] = vLocal;
 	aNewPos[2].y -= 0.1f;
 
-	// ³¡Á¡
+	// ëì 
 	AngleToVectorXZ( &vLocal, 0, fLength+1.2f );
 	aNewPos[3] = vLocal;
 
-	// µÚµ¹¾Æ°¡±â
+	// ë’¤ëŒì•„ê°€ê¸°
 	AngleToVectorXZ( &vLocal, 0, fLength+1.0f );
 	aNewPos[4] = vLocal;
 	aNewPos[4].y += 0.1f;
@@ -1185,7 +1185,7 @@ void CSfxItemYoyoAtk::MakePath(int nType)
 	m_nMaxSpline = 0;
 	for( int i = 0; i < nMaxVertex-1; i ++ )
 	{
-		// i ~ i+1»çÀÌ¸¦ º¸°£ÇÑ´Ù.  
+		// i ~ i+1ì‚¬ì´ë¥¼ ë³´ê°„í•œë‹¤.  
 		a = i - 1;		if( a < 0 )	a = 0;
 		b = i;
 		c = i+1;
@@ -1194,7 +1194,7 @@ void CSfxItemYoyoAtk::MakePath(int nType)
 		{
 			if( m_nMaxSpline >= 30 )
 			{
-				LPCTSTR szErr = Error( "CSfxItemYoyoAtk Spline : ¹üÀ§ ÃÊ°ú %d", m_nMaxSpline );
+				LPCTSTR szErr = Error( "CSfxItemYoyoAtk Spline : ë²”ìœ„ ì´ˆê³¼ %d", m_nMaxSpline );
 				ADDERRORMSG( szErr );
 				break;
 			}
@@ -1220,7 +1220,7 @@ void CSfxItemYoyoAtk::MakePath(int nType)
 	D3DXMatrixRotationQuaternion( &mRot, &qRot );
 	///////////////////////////////////////////////////////////////////////////////////////////////
 				
-	// ½ºÇÃ¶óÀÎ º¸°£µÈ Á¡µé ¿ùµå º¯È¯
+	// ìŠ¤í”Œë¼ì¸ ë³´ê°„ëœ ì ë“¤ ì›”ë“œ ë³€í™˜
 	D3DXVECTOR3 vPosPos    = m_v3SrcPos;
 	D3DXMATRIX mScal;
 	D3DXMatrixScaling( &mScal, 1.0f, 1.0f, 1.0f );
@@ -1239,7 +1239,7 @@ void CSfxItemYoyoAtk::Process()
 
 	if( !IsValidObj(pObjSrc) )
 	{
-		Delete();	// this´Â »èÁ¦.
+		Delete();	// thisëŠ” ì‚­ì œ.
 		return;
 	}
 	
@@ -1256,7 +1256,7 @@ void CSfxItemYoyoAtk::Process()
 			return;
 		}
 
-		// ³¯¾Æ°¡´Â ´Ü°è
+		// ë‚ ì•„ê°€ëŠ” ë‹¨ê³„
 		if( m_nStep == 0 )
 		{
 			D3DXVECTOR3 vPos   = GetPos();
@@ -1274,7 +1274,7 @@ void CSfxItemYoyoAtk::Process()
 			}
 		}
 		else
-		// È¸ÀüÇÏ´Â ´Ü°è
+		// íšŒì „í•˜ëŠ” ë‹¨ê³„
 		if( m_nStep == 1 )
 		{
 			D3DXVECTOR3 vPosPos    = m_aSpline[m_nCount];
@@ -1290,7 +1290,7 @@ void CSfxItemYoyoAtk::Process()
 			}
 		}
 		else
-		// µÇµ¹¾Æ ¿À´Â ´Ü°è
+		// ë˜ëŒì•„ ì˜¤ëŠ” ë‹¨ê³„
 		if( m_nStep == 2 )
 		{
 			D3DXVECTOR3 v3SrcPos;
@@ -1299,8 +1299,8 @@ void CSfxItemYoyoAtk::Process()
 			
 			D3DXVECTOR3 vPos   = GetPos();
 			D3DXVECTOR3 vDelta = v3SrcPos - vPos;
-			D3DXVec3Normalize( &vDelta, &vDelta );		// Å¸°ÙÂÊ ´ÜÀ§º¤ÅÍ ±¸ÇØ¼­
-			vPos += vDelta * 0.4f;			// ±× º¤ÅÍ·Î ¼Óµµ¸¦ °áÁ¤ÇØ¼­ ÁÂÇ¥ ÀÌµ¿.
+			D3DXVec3Normalize( &vDelta, &vDelta );		// íƒ€ê²Ÿìª½ ë‹¨ìœ„ë²¡í„° êµ¬í•´ì„œ
+			vPos += vDelta * 0.4f;			// ê·¸ ë²¡í„°ë¡œ ì†ë„ë¥¼ ê²°ì •í•´ì„œ ì¢Œí‘œ ì´ë™.
 			m_pSfxObj->m_vPos = vPos;
 			SetPos( vPos );
 
@@ -1308,9 +1308,9 @@ void CSfxItemYoyoAtk::Process()
 			if( fLen <= 0.1f )
 			{
 				if( m_dwSndHit != NULL_ID )
-					PLAYSND( m_dwSndHit, &GetPos() );		// »ç¿îµå ÇÃ·¹ÀÌ.
+					PLAYSND( m_dwSndHit, &GetPos() );		// ì‚¬ìš´ë“œ í”Œë ˆì´.
 
-				// Æø¹ß ¿ÀºêÁ§Æ® »ı¼º.
+				// í­ë°œ ì˜¤ë¸Œì íŠ¸ ìƒì„±.
 				if( m_dwSfxHit != NULL_ID )
 				{
 					CSfx *pSfx = CreateSfx( D3DDEVICE, m_dwSfxHit, GetPos(), m_idSrc, m_vPosDest, m_idDest, 0 );
@@ -1319,16 +1319,16 @@ void CSfxItemYoyoAtk::Process()
 						pSfx->SetAngle( m_pSfxObj->m_vRotate.y );
 					}
 				}
-				Delete();	// this´Â »èÁ¦.
+				Delete();	// thisëŠ” ì‚­ì œ.
 				return;
 			}
 		}
 
-		if( m_pSfxObj->Process() )		// ¾Ö´Ï¸ŞÀÌ¼ÇÀº ·çÇÁ.
+		if( m_pSfxObj->Process() )		// ì• ë‹ˆë©”ì´ì…˜ì€ ë£¨í”„.
 		{
 			m_pSfxObj->m_nCurFrame = 0;
 		}
-		if( m_pTail == NULL )	// ¾ÆÁ÷ ÇÒ´ç ¾ÈµÆÀ¸¸é ÇÒ´çÇÏ°í.
+		if( m_pTail == NULL )	// ì•„ì§ í• ë‹¹ ì•ˆëìœ¼ë©´ í• ë‹¹í•˜ê³ .
 		{
 			if( m_pSfxObj->m_pSfxBase->Part(0) )
 				m_pTail = (CTailEffectModel*)g_TailEffectMng.AddEffect( g_Neuz.m_pd3dDevice, m_pSfxObj->m_pSfxBase->Part(0)->m_strTex, 100, 30.0f );
@@ -1343,7 +1343,7 @@ void CSfxItemYoyoAtk::Process()
 	}
 	m_nFrame ++;
 
-	if( m_nFrame >= SEC1 * 5 )		// ³Ê¹«¿À·¡ ¦i¾Æ°¡Áö ¾Ê°Ô 5ÃÊÁö³ª¸é ¼Ò¸ê
+	if( m_nFrame >= SEC1 * 5 )		// ë„ˆë¬´ì˜¤ë˜ ì«’ì•„ê°€ì§€ ì•Šê²Œ 5ì´ˆì§€ë‚˜ë©´ ì†Œë©¸
 		Delete();	
 }
 
@@ -1355,7 +1355,7 @@ void CSfxItemYoyoAtk::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 
 
-// ¾ûÅÍ¸® È­»ì »ı¼ºÇÑ´Ù. ÇÏ³ª´Â ÁøÂ¥~
+// ì—‰í„°ë¦¬ í™”ì‚´ ìƒì„±í•œë‹¤. í•˜ë‚˜ëŠ” ì§„ì§œ~
 CSfxItemRangeAtk_JunkBow::CSfxItemRangeAtk_JunkBow() : CSfxShoot()
 {
 	m_pTail[0]			 = NULL;
@@ -1375,33 +1375,33 @@ CSfxItemRangeAtk_JunkBow::~CSfxItemRangeAtk_JunkBow()
 
 void CSfxItemRangeAtk_JunkBow::Process()
 {
-	CMover* pObjDest = (CMover*)prj.GetCtrl( m_idDest );	// À¯µµÅº ÇüÀÌ±â¶§¹®¿¡ Å¸°ÙÀº Ç×»ó ÀĞ¾îºÁ¾ß ÇÑ´Ù.
+	CMover* pObjDest = (CMover*)prj.GetCtrl( m_idDest );	// ìœ ë„íƒ„ í˜•ì´ê¸°ë•Œë¬¸ì— íƒ€ê²Ÿì€ í•­ìƒ ì½ì–´ë´ì•¼ í•œë‹¤.
 	if( IsValidObj(pObjDest) )
 	{
 		m_vPosDest = pObjDest->GetPos() + D3DXVECTOR3( 0, 1.0f, 0 );
 	} else
 	{
-		// ³¯¾Æ°¡´Ù Å¸°ÙÀÌ ¾ø¾îÁ³À¸¸é ¸¶Áö¸·ÁÂÇ¥·Î ³¯¾Æ°¡¼­ ÅÍÁö°Ô.
-		Delete();	// this´Â »èÁ¦.
+		// ë‚ ì•„ê°€ë‹¤ íƒ€ê²Ÿì´ ì—†ì–´ì¡Œìœ¼ë©´ ë§ˆì§€ë§‰ì¢Œí‘œë¡œ ë‚ ì•„ê°€ì„œ í„°ì§€ê²Œ.
+		Delete();	// thisëŠ” ì‚­ì œ.
 		int a = 0;
 	}
 	
 	if( m_bHit == FALSE ) 
 	{
-		if( m_pSfxObj->Process() )		// ¾Ö´Ï¸ŞÀÌ¼ÇÀº ·çÇÁ.
+		if( m_pSfxObj->Process() )		// ì• ë‹ˆë©”ì´ì…˜ì€ ë£¨í”„.
 		{
 			m_pSfxObj->m_nCurFrame = 0;
 		}
 		D3DXVECTOR3 vPos = GetPos();
 		D3DXVECTOR3 vDelta = m_vPosDest - vPos;
-		D3DXVec3Normalize( &vDelta, &vDelta );		// Å¸°ÙÂÊ ´ÜÀ§º¤ÅÍ ±¸ÇØ¼­
-		vPos += vDelta * 0.7f;			// ±× º¤ÅÍ·Î ¼Óµµ¸¦ °áÁ¤ÇØ¼­ ÁÂÇ¥ ÀÌµ¿.
+		D3DXVec3Normalize( &vDelta, &vDelta );		// íƒ€ê²Ÿìª½ ë‹¨ìœ„ë²¡í„° êµ¬í•´ì„œ
+		vPos += vDelta * 0.7f;			// ê·¸ ë²¡í„°ë¡œ ì†ë„ë¥¼ ê²°ì •í•´ì„œ ì¢Œí‘œ ì´ë™.
 		m_pSfxObj->m_vPos = vPos;
 		SetPos( vPos );
 		
 		//if( m_bDir )
 		{
-			// ¸¶¹ı°´Ã¼ ¹æÇâº¤ÅÍ·Î ¸ğµ¨ ¹æÇâ µ¹¸®±â~~~
+			// ë§ˆë²•ê°ì²´ ë°©í–¥ë²¡í„°ë¡œ ëª¨ë¸ ë°©í–¥ ëŒë¦¬ê¸°~~~
 			D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 			D3DXVECTOR3 vDestNor  = m_vPosDest - m_pSfxObj->m_vPos;
 			D3DXVECTOR3 vAxis;
@@ -1426,10 +1426,10 @@ void CSfxItemRangeAtk_JunkBow::Process()
 		{
 			if( m_pTail[i] )
 			{
-				if( m_pTail[i]->GetType() != 2 )	// »ı¼ºµÇ¾ú´ø ²¿¸®°í ÀÏ¹İº¸µå¿ëÀÌ ¾Æ´Ï¸é 
-					m_pTail[i]->ChangeTexture( D3DDEVICE, "etc_Tail2.bmp", 2 );	// ÀÏ¹İº¸µå¿ëÀ¸·Î ÅØ½ºÃÄ ±³Ã¼.
+				if( m_pTail[i]->GetType() != 2 )	// ìƒì„±ë˜ì—ˆë˜ ê¼¬ë¦¬ê³  ì¼ë°˜ë³´ë“œìš©ì´ ì•„ë‹ˆë©´ 
+					m_pTail[i]->ChangeTexture( D3DDEVICE, "etc_Tail2.bmp", 2 );	// ì¼ë°˜ë³´ë“œìš©ìœ¼ë¡œ í…ìŠ¤ì³ êµì²´.
 			}
-			if( m_pTail[i] == NULL )	// ¾ÆÁ÷ ÇÒ´ç ¾ÈµÆÀ¸¸é ÇÒ´çÇÏ°í.
+			if( m_pTail[i] == NULL )	// ì•„ì§ í• ë‹¹ ì•ˆëìœ¼ë©´ í• ë‹¹í•˜ê³ .
 			{
 				m_pTail[i] = (CTailEffectBelt*)g_TailEffectMng.AddEffect( g_Neuz.m_pd3dDevice, "etc_Tail2.bmp", 2, 0.35f );
 			}
@@ -1468,13 +1468,13 @@ void CSfxItemRangeAtk_JunkBow::Process()
 			vPos2.y += 0.5f;
 		}
 		
-		vDelta = m_pSfxObj->m_vPos - m_vPosDest;		// ´ë»ó°úÀÇ °Å¸®
-		if( D3DXVec3LengthSq( &vDelta ) < 0.4f * 0.4f )		// Æø¹ß °Å¸®±îÁö ´Ù°¡°¡¸é Ãæµ¹.
+		vDelta = m_pSfxObj->m_vPos - m_vPosDest;		// ëŒ€ìƒê³¼ì˜ ê±°ë¦¬
+		if( D3DXVec3LengthSq( &vDelta ) < 0.4f * 0.4f )		// í­ë°œ ê±°ë¦¬ê¹Œì§€ ë‹¤ê°€ê°€ë©´ ì¶©ëŒ.
 		{
 			if( m_dwSndHit != NULL_ID )
-				PLAYSND( m_dwSndHit, &GetPos() );		// »ç¿îµå ÇÃ·¹ÀÌ.
+				PLAYSND( m_dwSndHit, &GetPos() );		// ì‚¬ìš´ë“œ í”Œë ˆì´.
 			DamageToTarget();
-			// Æø¹ß ¿ÀºêÁ§Æ® »ı¼º.
+			// í­ë°œ ì˜¤ë¸Œì íŠ¸ ìƒì„±.
 			if( m_dwSfxHit != NULL_ID )
 			{
 				CSfx *pSfx = CreateSfx( D3DDEVICE, m_dwSfxHit, GetPos(), m_idSrc, m_vPosDest, m_idDest, 0 );
@@ -1483,40 +1483,40 @@ void CSfxItemRangeAtk_JunkBow::Process()
 					pSfx->SetAngle( m_pSfxObj->m_vRotate.y );
 				}
 			}
-			Delete();	// this´Â »èÁ¦.
+			Delete();	// thisëŠ” ì‚­ì œ.
 		}
 	}
 	m_nFrame ++;
 
-	if( m_nFrame >= SEC1 * 10 )		// ³Ê¹«¿À·¡ ¦i¾Æ°¡Áö ¾Ê°Ô 10ÃÊÁö³ª¸é ¼Ò¸ê
+	if( m_nFrame >= SEC1 * 10 )		// ë„ˆë¬´ì˜¤ë˜ ì«’ì•„ê°€ì§€ ì•Šê²Œ 10ì´ˆì§€ë‚˜ë©´ ì†Œë©¸
 		Delete();	
 }
 void CSfxItemRangeAtk_JunkBow::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 	m_pSfxObj->m_vScale = GetScale();
 
-	// ÁÂÇ¥ ¹é¾÷
+	// ì¢Œí‘œ ë°±ì—…
 	D3DXVECTOR3 vPosBackup = m_pSfxObj->m_vPos;
-	// ÁøÂ¥ È­»ì
+	// ì§„ì§œ í™”ì‚´
 	m_pSfxObj->Render2( pd3dDevice );
 	
-	// °¡Â¥ 1
+	// ê°€ì§œ 1
 	m_pSfxObj->m_vPos.y += 0.5f;
 	m_pSfxObj->Render2( pd3dDevice );
 
-	// °¡Â¥ 2
+	// ê°€ì§œ 2
 	m_pSfxObj->m_vPos = vPosBackup;
 	m_pSfxObj->m_vPos.y -= 0.5f;
 	m_pSfxObj->Render2( pd3dDevice );
 
 
-	// ÁÂÇ¥º¹±¸
+	// ì¢Œí‘œë³µêµ¬
 	m_pSfxObj->m_vPos = vPosBackup;
 	
 }
 
 
-// ¾Æ·¡·Î ¶³¾îÁö´Â È­»ì ÀÌÆåÆ®
+// ì•„ë˜ë¡œ ë–¨ì–´ì§€ëŠ” í™”ì‚´ ì´í™íŠ¸
 CSfxItemRangeAtk1_Allow::CSfxItemRangeAtk1_Allow() : CSfxShoot()
 {
 	m_nFrame = 0;
@@ -1529,21 +1529,21 @@ CSfxItemRangeAtk1_Allow::~CSfxItemRangeAtk1_Allow()
 
 void CSfxItemRangeAtk1_Allow::Process()
 {
-	if( m_pSfxObj->Process() )		// ¾Ö´Ï¸ŞÀÌ¼ÇÀº ·çÇÁ.
+	if( m_pSfxObj->Process() )		// ì• ë‹ˆë©”ì´ì…˜ì€ ë£¨í”„.
 	{
 		m_pSfxObj->m_nCurFrame = 0;
 	}
 
 	D3DXVECTOR3 vPos = GetPos();
 	D3DXVECTOR3 vDelta = D3DXVECTOR3( 0.0f, -1.0f, 0.0f );
-	D3DXVec3Normalize( &vDelta, &vDelta );		// Å¸°ÙÂÊ ´ÜÀ§º¤ÅÍ ±¸ÇØ¼­
+	D3DXVec3Normalize( &vDelta, &vDelta );		// íƒ€ê²Ÿìª½ ë‹¨ìœ„ë²¡í„° êµ¬í•´ì„œ
 
-	vPos += vDelta * m_fSpeed;			// ±× º¤ÅÍ·Î ¼Óµµ¸¦ °áÁ¤ÇØ¼­ ÁÂÇ¥ ÀÌµ¿.
+	vPos += vDelta * m_fSpeed;			// ê·¸ ë²¡í„°ë¡œ ì†ë„ë¥¼ ê²°ì •í•´ì„œ ì¢Œí‘œ ì´ë™.
 
 	CWorld* pWorld = g_WorldMng.Get();
 	FLOAT fHeight = pWorld->GetLandHeight_Fast( vPos.x, vPos.z );
 
-	// ¶¥ ³ôÀÌº¸´Ù ³·À¸¸é ¾ÈµÊ
+	// ë•… ë†’ì´ë³´ë‹¤ ë‚®ìœ¼ë©´ ì•ˆë¨
 	if( vPos.y < fHeight )
 	{
 		m_nFrame++;
@@ -1565,7 +1565,7 @@ void CSfxItemRangeAtk1_Allow::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 #define MAX_ALLOW		50
 
-// CSfxItemRangeAtk1_Allow»ı¼º °ü¸® - ½ÇÁ¦ »ç¿ëµÇ¾îÁö´Â ºÎºĞ
+// CSfxItemRangeAtk1_Allowìƒì„± ê´€ë¦¬ - ì‹¤ì œ ì‚¬ìš©ë˜ì–´ì§€ëŠ” ë¶€ë¶„
 CSfxItemRangeAtk1_AllowRain::CSfxItemRangeAtk1_AllowRain() : CSfxShoot()
 {
 	m_nFrame = 0;
@@ -1583,7 +1583,7 @@ void CSfxItemRangeAtk1_AllowRain::Process()
 	CWorld* pWorld = g_WorldMng.Get();
 	FLOAT fHeight = pWorld->GetLandHeight_Fast( vPos.x, vPos.z );
 	
-	// 10¹ÌÅÍÀ§¿¡¼­ ¶³¾î¶ß¸²
+	// 10ë¯¸í„°ìœ„ì—ì„œ ë–¨ì–´ëœ¨ë¦¼
 	vPos.y = fHeight + xRandomF(2.0f) + 9.0f;
 
 	m_nFrame++;
@@ -1624,21 +1624,21 @@ CSfxItemRangeAtk1_Stone::~CSfxItemRangeAtk1_Stone()
 
 void CSfxItemRangeAtk1_Stone::Process()
 {
-	if( m_pSfxObj->Process() )		// ¾Ö´Ï¸ŞÀÌ¼ÇÀº ·çÇÁ.
+	if( m_pSfxObj->Process() )		// ì• ë‹ˆë©”ì´ì…˜ì€ ë£¨í”„.
 	{
 		m_pSfxObj->m_nCurFrame = 0;
 	}
 	
 	D3DXVECTOR3 vPos = GetPos();
 	D3DXVECTOR3 vDelta = D3DXVECTOR3( 0.0f, -1.0f, 0.0f );
-	D3DXVec3Normalize( &vDelta, &vDelta );		// Å¸°ÙÂÊ ´ÜÀ§º¤ÅÍ ±¸ÇØ¼­
+	D3DXVec3Normalize( &vDelta, &vDelta );		// íƒ€ê²Ÿìª½ ë‹¨ìœ„ë²¡í„° êµ¬í•´ì„œ
 	
-	vPos += vDelta * m_fSpeed;			// ±× º¤ÅÍ·Î ¼Óµµ¸¦ °áÁ¤ÇØ¼­ ÁÂÇ¥ ÀÌµ¿.
+	vPos += vDelta * m_fSpeed;			// ê·¸ ë²¡í„°ë¡œ ì†ë„ë¥¼ ê²°ì •í•´ì„œ ì¢Œí‘œ ì´ë™.
 	
 	CWorld* pWorld = g_WorldMng.Get();
 	FLOAT fHeight = pWorld->GetLandHeight_Fast( vPos.x, vPos.z );
 	
-	// ¶¥ ³ôÀÌº¸´Ù ³·À¸¸é ¾ÈµÊ
+	// ë•… ë†’ì´ë³´ë‹¤ ë‚®ìœ¼ë©´ ì•ˆë¨
 	if( vPos.y < fHeight+2.5f )
 	{
 		m_nFrame++;
@@ -1664,7 +1664,7 @@ void CSfxItemRangeAtk1_Stone::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 #define MAX_STONE		50
 
-// CSfxItemRangeAtk1_Allow»ı¼º °ü¸® - ½ÇÁ¦ »ç¿ëµÇ¾îÁö´Â ºÎºĞ
+// CSfxItemRangeAtk1_Allowìƒì„± ê´€ë¦¬ - ì‹¤ì œ ì‚¬ìš©ë˜ì–´ì§€ëŠ” ë¶€ë¶„
 CSfxItemRangeAtk1_StoneRain::CSfxItemRangeAtk1_StoneRain() : CSfxShoot()
 {
 	m_nFrame = 0;
@@ -1682,7 +1682,7 @@ void CSfxItemRangeAtk1_StoneRain::Process()
 	CWorld* pWorld = g_WorldMng.Get();
 	FLOAT fHeight = pWorld->GetLandHeight_Fast( vPos.x, vPos.z );
 	
-	// 10¹ÌÅÍÀ§¿¡¼­ ¶³¾î¶ß¸²
+	// 10ë¯¸í„°ìœ„ì—ì„œ ë–¨ì–´ëœ¨ë¦¼
 	vPos.y = fHeight + xRandomF(2.0f) + 40.0f;
 	
 	m_nFrame++;
@@ -1711,7 +1711,7 @@ void CSfxItemRangeAtk1_StoneRain::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 //
-// ÀÏÁ÷¼±À¸·Î »¸¾î³ª°¡´Â ÇüÅÂÀÇ Àå°Å¸® °ø°İ
+// ì¼ì§ì„ ìœ¼ë¡œ ë»—ì–´ë‚˜ê°€ëŠ” í˜•íƒœì˜ ì¥ê±°ë¦¬ ê³µê²©
 //
 CSfxAtkStraight::CSfxAtkStraight()
 {
@@ -1721,15 +1721,15 @@ CSfxAtkStraight::~CSfxAtkStraight()
 {
 }
 
-// ¹ß»çÃ¼ÀÇ ÀÌµ¿Áõ°¡·®À» ¼±°è»êÇÔ. 
+// ë°œì‚¬ì²´ì˜ ì´ë™ì¦ê°€ëŸ‰ì„ ì„ ê³„ì‚°í•¨. 
 void CSfxAtkStraight::ShootSfx( float fAngXZ, float fAngH, float fSpeed, DWORD dwExplosion )
 {
-	m_pSfxObj->m_vPos = GetPos();		// sfx¸ğµ¨ÀÇ À§Ä¡¸¦ ¼¼ÆÃ.
+	m_pSfxObj->m_vPos = GetPos();		// sfxëª¨ë¸ì˜ ìœ„ì¹˜ë¥¼ ì„¸íŒ….
 	m_dwExplosion = dwExplosion;
 
-	AngleToVector( &m_vDelta, fAngXZ, fAngH, fSpeed );		// ÀÌµ¿·® vDelta¸¦ ±¸ÇÔ.
+	AngleToVector( &m_vDelta, fAngXZ, fAngH, fSpeed );		// ì´ë™ëŸ‰ vDeltaë¥¼ êµ¬í•¨.
 
-	// ¸¶¹ı°´Ã¼ ¹æÇâº¤ÅÍ·Î ¸ğµ¨ ¹æÇâ µ¹¸®±â~~~
+	// ë§ˆë²•ê°ì²´ ë°©í–¥ë²¡í„°ë¡œ ëª¨ë¸ ë°©í–¥ ëŒë¦¬ê¸°~~~
 	D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 	D3DXVECTOR3 vDestNor  = m_vDelta;//m_vPosDest - GetPos();
 	D3DXVECTOR3 vAxis;
@@ -1752,11 +1752,11 @@ void CSfxAtkStraight::ShootSfx( float fAngXZ, float fAngH, float fSpeed, DWORD d
 				  
 void CSfxAtkStraight::Process()
 {
-	if( m_pSfxObj->Process() )			// SFX ¾Ö´Ï¸ŞÀÌ¼ÇÀ» Ã³¸®ÇÏ°í
-		m_pSfxObj->m_nCurFrame = 0;		// ¸ñÇ¥Á¡¿¡ ¸ÂÀ»¶§±îÁö ·çÇÁ½ÃÅ°±â À§ÇØ ´Ù½Ã 0ÇÁ·¹ÀÓÀ¸·Î µ¹·Á³õ´Â´Ù.
+	if( m_pSfxObj->Process() )			// SFX ì• ë‹ˆë©”ì´ì…˜ì„ ì²˜ë¦¬í•˜ê³ 
+		m_pSfxObj->m_nCurFrame = 0;		// ëª©í‘œì ì— ë§ì„ë•Œê¹Œì§€ ë£¨í”„ì‹œí‚¤ê¸° ìœ„í•´ ë‹¤ì‹œ 0í”„ë ˆì„ìœ¼ë¡œ ëŒë ¤ë†“ëŠ”ë‹¤.
 	
-	m_pSfxObj->m_vPos += m_vDelta;		// ÁÂÇ¥ ÀÌµ¿.
-	SetPos( m_pSfxObj->m_vPos );		// thisµµ ÁÂÇ¥ °°ÀÌ ÀÌµ¿.
+	m_pSfxObj->m_vPos += m_vDelta;		// ì¢Œí‘œ ì´ë™.
+	SetPos( m_pSfxObj->m_vPos );		// thisë„ ì¢Œí‘œ ê°™ì´ ì´ë™.
 	
 #if __VER >= 10 // __Y_DRAGON_FIRE	
 	#ifdef __CLIENT
@@ -1782,10 +1782,10 @@ void CSfxAtkStraight::Process()
 	#endif
 #endif //__Y_DRAGON_FIRE
 
-	if( IsRangeObj( m_vPosDest, 0 ) )							// ¸ñÇ¥ÁÂÇ¥¿¡ ´Ù´Ù¸£¸é
+	if( IsRangeObj( m_vPosDest, 0 ) )							// ëª©í‘œì¢Œí‘œì— ë‹¤ë‹¤ë¥´ë©´
 	{
-		CreateSfx( D3DDEVICE, m_dwExplosion, m_vPosDest );		// Æø¹ß ÀÌÆåÆ®
-		Delete();												// ³­ »èÁ¦.
+		CreateSfx( D3DDEVICE, m_dwExplosion, m_vPosDest );		// í­ë°œ ì´í™íŠ¸
+		Delete();												// ë‚œ ì‚­ì œ.
 		return;
 	}
 
@@ -1803,7 +1803,7 @@ void CSfxAtkStraight::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 	
@@ -1817,7 +1817,7 @@ void CSfxAtkStraight::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 CSfxItemWandAtk2::CSfxItemWandAtk2()
 {
-	m_SfxObj2.SetSfx("sfx_HitWand01"); // ¸Â´Â ¼ø°£ÀÇ SFX¸¦ µû·Î ·ÎµùÇÑ´Ù.
+	m_SfxObj2.SetSfx("sfx_HitWand01"); // ë§ëŠ” ìˆœê°„ì˜ SFXë¥¼ ë”°ë¡œ ë¡œë”©í•œë‹¤.
 	m_bHit=FALSE;
 }
 CSfxItemWandAtk2::~CSfxItemWandAtk2()
@@ -1857,7 +1857,7 @@ void CSfxItemWandAtk2::Process()
 	}
 	else {
 		if(m_SfxObj2.m_nCurFrame==0) {
-			// ¿©±â´Ù°¡ ¸Â´Â¼ø°£Ã³¸®
+			// ì—¬ê¸°ë‹¤ê°€ ë§ëŠ”ìˆœê°„ì²˜ë¦¬
 			DamageToTarget();
 		}
 		if(m_SfxObj2.Process()) {
@@ -1881,7 +1881,7 @@ void CSfxItemWandAtk2::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 CSfxItemWandAtk3::CSfxItemWandAtk3()
 {
-	m_SfxObj2.SetSfx("sfx_HitWand01"); // ¸Â´Â ¼ø°£ÀÇ SFX¸¦ µû·Î ·ÎµùÇÑ´Ù.
+	m_SfxObj2.SetSfx("sfx_HitWand01"); // ë§ëŠ” ìˆœê°„ì˜ SFXë¥¼ ë”°ë¡œ ë¡œë”©í•œë‹¤.
 	m_bHit=FALSE;
 }
 CSfxItemWandAtk3::~CSfxItemWandAtk3()
@@ -1921,7 +1921,7 @@ void CSfxItemWandAtk3::Process()
 	}
 	else {
 		if(m_SfxObj2.m_nCurFrame==0) {
-			// ¿©±â´Ù°¡ ¸Â´Â¼ø°£Ã³¸®
+			// ì—¬ê¸°ë‹¤ê°€ ë§ëŠ”ìˆœê°„ì²˜ë¦¬
 			DamageToTarget();
 		}
 		if(m_SfxObj2.Process()) {
@@ -1945,7 +1945,7 @@ void CSfxItemWandAtk3::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 CSfxItemWandAtk4::CSfxItemWandAtk4()
 {
-	m_SfxObj2.SetSfx("sfx_HitWand01"); // ¸Â´Â ¼ø°£ÀÇ SFX¸¦ µû·Î ·ÎµùÇÑ´Ù.
+	m_SfxObj2.SetSfx("sfx_HitWand01"); // ë§ëŠ” ìˆœê°„ì˜ SFXë¥¼ ë”°ë¡œ ë¡œë”©í•œë‹¤.
 	m_bHit=FALSE;
 }
 CSfxItemWandAtk4::~CSfxItemWandAtk4()
@@ -1985,7 +1985,7 @@ void CSfxItemWandAtk4::Process()
 	}
 	else {
 		if(m_SfxObj2.m_nCurFrame==0) {
-			// ¿©±â´Ù°¡ ¸Â´Â¼ø°£Ã³¸®
+			// ì—¬ê¸°ë‹¤ê°€ ë§ëŠ”ìˆœê°„ì²˜ë¦¬
 			DamageToTarget();
 		}
 		if(m_SfxObj2.Process()) {
@@ -2015,9 +2015,9 @@ void CSfxItemWandAtk4::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ½ºÅ³ È¿°úµé
+// ìŠ¤í‚¬ íš¨ê³¼ë“¤
 
-// ¹æ¶ûÀÚ ±âº» ½ºÅ³ 1
+// ë°©ë‘ì ê¸°ë³¸ ìŠ¤í‚¬ 1
 CSfxSkillVagOverCutter::CSfxSkillVagOverCutter()
 {
 }
@@ -2033,7 +2033,7 @@ void CSfxSkillVagOverCutter::Process()
 		if( pObjDst && pObjSrc ) 
 		{
 			SetPos( pObjDst->GetPos() + D3DXVECTOR3( .0f, 1.0f, .0f) );
-			SetAngle( 180.0f - pObjSrc->GetAngle() ); // ½ÃÀüÀÚÀÇ ¹æÇâ°ú ÀÏÄ¡½ÃÅ²´Ù.
+			SetAngle( 180.0f - pObjSrc->GetAngle() ); // ì‹œì „ìì˜ ë°©í–¥ê³¼ ì¼ì¹˜ì‹œí‚¨ë‹¤.
 		}
 		if( m_pSfxObj->Process() )
 			Delete();
@@ -2046,7 +2046,7 @@ void CSfxSkillVagOverCutter::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->m_vScale = GetScale();
 	m_pSfxObj->Render( pd3dDevice );
 }
-// ¹æ¶ûÀÚ ±âº» ½ºÅ³ 2
+// ë°©ë‘ì ê¸°ë³¸ ìŠ¤í‚¬ 2
 CSfxSkillVagCleanHit::CSfxSkillVagCleanHit()
 {
 }
@@ -2058,10 +2058,10 @@ void CSfxSkillVagCleanHit::Process()
 	CMover* pObjSrc = (CMover*)prj.GetCtrl( m_idSrc );
 	if( IsValidObj(pObjSrc) ) 
 	{
-		SetPos( m_vPosDest );		// ¸ñÇ¥ÁöÁ¡¿¡ Ç×»ó ¹ß»ıµÇ¾î ÀÖÀ½.
-		SetAngle( 180.0f - pObjSrc->GetAngle() ); // ½ÃÀüÀÚÀÇ ¹æÇâ°ú ÀÏÄ¡½ÃÅ²´Ù.
+		SetPos( m_vPosDest );		// ëª©í‘œì§€ì ì— í•­ìƒ ë°œìƒë˜ì–´ ìˆìŒ.
+		SetAngle( 180.0f - pObjSrc->GetAngle() ); // ì‹œì „ìì˜ ë°©í–¥ê³¼ ì¼ì¹˜ì‹œí‚¨ë‹¤.
 	}
-	if( m_pSfxObj->Process() )		// ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ³¡³ª¸é ³¡.
+	if( m_pSfxObj->Process() )		// ì• ë‹ˆë©”ì´ì…˜ì´ ëë‚˜ë©´ ë.
 		Delete();
 
 	m_nFrame++;
@@ -2076,7 +2076,7 @@ void CSfxSkillVagCleanHit::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 
-// °íÁ¤ÁÂÇ¥ ±âÁØ sfx
+// ê³ ì •ì¢Œí‘œ ê¸°ì¤€ sfx
 CSfxFixed::CSfxFixed()
 {
 }
@@ -2088,21 +2088,21 @@ void CSfxFixed::Process()
 	CMover* pObjSrc = (CMover*)prj.GetCtrl( m_idSrc );
 	if( IsValidObj(pObjSrc) ) 
 	{
-		SetPos( m_vPosDest );		// ¸ñÇ¥ÁöÁ¡¿¡ Ç×»ó ¹ß»ıµÇ¾î ÀÖÀ½.
+		SetPos( m_vPosDest );		// ëª©í‘œì§€ì ì— í•­ìƒ ë°œìƒë˜ì–´ ìˆìŒ.
 	}
-	if( m_nSec == 0 )	// 0Àº 1È¸ ÇÃ·¹ÀÌÈÄ Á¾·á.
+	if( m_nSec == 0 )	// 0ì€ 1íšŒ í”Œë ˆì´í›„ ì¢…ë£Œ.
 	{
-		if( m_pSfxObj->Process() )		// return true´Â ¾Ö´Ï¸ŞÀÌ¼Ç ³¡.
+		if( m_pSfxObj->Process() )		// return trueëŠ” ì• ë‹ˆë©”ì´ì…˜ ë.
 			Delete();
 	}
 	else
 	{
-		// ¹İº¹ ¾Ö´Ï¸ŞÀÌ¼Ç
+		// ë°˜ë³µ ì• ë‹ˆë©”ì´ì…˜
 		if( m_pSfxObj->Process() )		
 			m_pSfxObj->m_nCurFrame = 0;
-		if( m_nSec != -1 )		// ¹«ÇÑ¹İº¹(-1)ÀÌ ¾Æ´Ï¸é
+		if( m_nSec != -1 )		// ë¬´í•œë°˜ë³µ(-1)ì´ ì•„ë‹ˆë©´
 		{
-			if( m_nFrame > ( m_nSec * 60 ) )	// ½Ã°£ Ã¼Å©¸¦ ÇÑ´Ù.
+			if( m_nFrame > ( m_nSec * 60 ) )	// ì‹œê°„ ì²´í¬ë¥¼ í•œë‹¤.
 				Delete();
 		}
 	}
@@ -2118,7 +2118,7 @@ void CSfxFixed::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ¹æ¶ûÀÚ ±âº» ½ºÅ³ 3
+// ë°©ë‘ì ê¸°ë³¸ ìŠ¤í‚¬ 3
 CSfxSkillVagBrandish::CSfxSkillVagBrandish()
 {
 }
@@ -2147,7 +2147,7 @@ void CSfxSkillVagBrandish::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ¸Ó¼Å³Ê¸® ±âº» ½ºÅ³ 1
+// ë¨¸ì…”ë„ˆë¦¬ ê¸°ë³¸ ìŠ¤í‚¬ 1
 CSfxSkillMerKeenWheel::CSfxSkillMerKeenWheel()
 {
 }
@@ -2169,7 +2169,7 @@ void CSfxSkillMerKeenWheel::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->m_vScale = GetScale();
 	m_pSfxObj->Render( pd3dDevice );
 }
-// ¸Ó¼Å³Ê¸® ±âº» ½ºÅ³ 2
+// ë¨¸ì…”ë„ˆë¦¬ ê¸°ë³¸ ìŠ¤í‚¬ 2
 CSfxSkillMerSplmash::CSfxSkillMerSplmash()
 {
 	m_SfxObj2.SetSfx(XI_SKILL_MER_ONE_SPLMASH02);
@@ -2210,7 +2210,7 @@ void CSfxSkillMerSplmash::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			m_SfxObj2.Render( pd3dDevice );
 	}
 }
-// ¸Ó¼Å³Ê¸® ±âº» ½ºÅ³ 3
+// ë¨¸ì…”ë„ˆë¦¬ ê¸°ë³¸ ìŠ¤í‚¬ 3
 CSfxSkillMerBlindSide::CSfxSkillMerBlindSide()
 {
 }
@@ -2233,7 +2233,7 @@ void CSfxSkillMerBlindSide::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ¾î½Ã ³ÊÅ¬½ºÅ³
+// ì–´ì‹œ ë„ˆí´ìŠ¤í‚¬
 CSfxSkillAssBurstcrack::CSfxSkillAssBurstcrack()
 {
 }
@@ -2396,7 +2396,7 @@ void CSfxNpcDirSteam::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 
-// ¸ÅÁö¼Ç ºÒ ÁÖ¹® ¿Ü±â
+// ë§¤ì§€ì…˜ ë¶ˆ ì£¼ë¬¸ ì™¸ê¸°
 CSfxSkillMagFireCasting::CSfxSkillMagFireCasting()
 {
 }
@@ -2502,7 +2502,7 @@ void CSfxSkillAboveTargetDynamic::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 #endif // __3RD_LEGEND16
 
-// ¸ÅÁö¼Ç ¹Ù¶÷ ÁÖ¹® ¿Ü±â
+// ë§¤ì§€ì…˜ ë°”ëŒ ì£¼ë¬¸ ì™¸ê¸°
 CSfxSkillMagWindCasting::CSfxSkillMagWindCasting()
 {
 }
@@ -2525,10 +2525,10 @@ void CSfxSkillMagWindCasting::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->Render( pd3dDevice );
 }
 
-// ¸ÅÁö¼Ç ±âº» ½ºÅ³ 1
+// ë§¤ì§€ì…˜ ê¸°ë³¸ ìŠ¤í‚¬ 1
 CSfxSkillMagStrongWind::CSfxSkillMagStrongWind()
 {
-	m_SfxObj2.SetSfx(XI_SKILL_MAG_WIND_STRONGWIND01_01);		// ¸Â¾ÒÀ»¶§ È¿°ú.
+	m_SfxObj2.SetSfx(XI_SKILL_MAG_WIND_STRONGWIND01_01);		// ë§ì•˜ì„ë•Œ íš¨ê³¼.
 	m_bHit = FALSE;
 	m_fAngle = 0;
 }
@@ -2569,7 +2569,7 @@ void CSfxSkillMagStrongWind::Process()
 			PLAYSND( SND_PC_SKILLM_STRONGWIND2, &GetPos() );     
 			m_bHit = TRUE;
 		} else
-			m_fAngle = fAngle;	// else¿¡´Ù ³ÖÀºÀÌÀ¯´Â ³Ê¹« °¡±îÀÌ ºÙ¾úÀ»¶§ÀÇ °¢µµ´Â ¿ÀÂ÷°¡ ÀÖÀ»¼ö ÀÖ±â¶§¹®¿¡..
+			m_fAngle = fAngle;	// elseì—ë‹¤ ë„£ì€ì´ìœ ëŠ” ë„ˆë¬´ ê°€ê¹Œì´ ë¶™ì—ˆì„ë•Œì˜ ê°ë„ëŠ” ì˜¤ì°¨ê°€ ìˆì„ìˆ˜ ìˆê¸°ë•Œë¬¸ì—..
 	}
 	else {
 		if(m_SfxObj2.m_nCurFrame==0)
@@ -2577,9 +2577,9 @@ void CSfxSkillMagStrongWind::Process()
 			float fDmgPower = 0;
 			ItemProp *pSkillProp = prj.GetSkillProp( m_dwSkill );
 			if( pSkillProp && pSkillProp->dwDmgShift != NULL_ID )
-				fDmgPower = (int)pSkillProp->dwDmgShift * 0.2f;		// Àû´çÇÑ°ªÀ¸·Î º¯È¯ÇØ¼­ »ç¿ë.
+				fDmgPower = (int)pSkillProp->dwDmgShift * 0.2f;		// ì ë‹¹í•œê°’ìœ¼ë¡œ ë³€í™˜í•´ì„œ ì‚¬ìš©.
 			int fAngle = (int)( m_fAngle );
-			if( IsValidObj(pObjDest) )	// º¸½º¸÷Àº ¹Ğ¸®Áö ¾ÊÀ½.
+			if( IsValidObj(pObjDest) )	// ë³´ìŠ¤ëª¹ì€ ë°€ë¦¬ì§€ ì•ŠìŒ.
 			{
 				if( pObjDest->GetProp()->dwClass == RANK_SUPER || pObjDest->GetProp()->dwClass == RANK_MIDBOSS )
 				{
@@ -2588,10 +2588,10 @@ void CSfxSkillMagStrongWind::Process()
 			}
 			
 			DamageToTarget( 0, (float)( fAngle ), fDmgPower );
-			// Å¸°Ù¿¡ ¸ÂÀº¼ø°£ ¸ÂÀº °¢µµ·Î ¿ÜºÎÈû 0.x¸¦ °¡ÇÔ.
+			// íƒ€ê²Ÿì— ë§ì€ìˆœê°„ ë§ì€ ê°ë„ë¡œ ì™¸ë¶€í˜ 0.xë¥¼ ê°€í•¨.
 			if( IsValidObj(pObjDest) )
 			{
-				// µ¥¹ÌÁöÇÃ¶óÀÌ Áß¿£ 
+				// ë°ë¯¸ì§€í”Œë¼ì´ ì¤‘ì—” 
 					if( (pObjDest->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) == 0 )
 						AngleToVectorXZ( &pObjDest->m_pActMover->m_vDeltaE, m_fAngle, fDmgPower );	
 			}
@@ -2615,7 +2615,7 @@ void CSfxSkillMagStrongWind::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			m_SfxObj2.Render( pd3dDevice );
 	}
 }
-// ¸ÅÁö¼Ç ±âº» ½ºÅ³ 2
+// ë§¤ì§€ì…˜ ê¸°ë³¸ ìŠ¤í‚¬ 2
 CSfxSkillMagSwordWind::CSfxSkillMagSwordWind()
 {
 	m_SfxObj2.SetSfx(XI_SKILL_MAG_WIND_SWORDWIND01_01);
@@ -2685,7 +2685,7 @@ void CSfxSkillMagSwordWind::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			m_SfxObj2.Render( pd3dDevice );
 	}
 }
-// ¸ÅÁö¼Ç ±âº» ½ºÅ³ 3
+// ë§¤ì§€ì…˜ ê¸°ë³¸ ìŠ¤í‚¬ 3
 CSfxSkillMagFireBoomerang::CSfxSkillMagFireBoomerang()
 {
 	m_SfxObj2.SetSfx( XI_SKILL_MAG_FIRE_BOOMERANG01_01 );
@@ -2768,7 +2768,7 @@ void CSfxSkillMagFireBoomerang::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 			m_SfxObj2.Render( pd3dDevice );
 	}
 }
-// ¸ÅÁö¼Ç ±âº» ½ºÅ³ 4
+// ë§¤ì§€ì…˜ ê¸°ë³¸ ìŠ¤í‚¬ 4
 CSfxSkillMagFireBomb::CSfxSkillMagFireBomb()
 {
 }
@@ -2790,10 +2790,10 @@ void CSfxSkillMagFireBomb::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->m_vScale = GetScale();
 	m_pSfxObj->Render( pd3dDevice );
 }
-// ¸ÅÁö¼Ç ±âº» ½ºÅ³ 5
+// ë§¤ì§€ì…˜ ê¸°ë³¸ ìŠ¤í‚¬ 5
 CSfxSkillMagHotAir::CSfxSkillMagHotAir()
 {
-	m_SfxObj2.SetSfx(XI_SKILL_MAG_FIRE_HOTAIR01_01);		// Å¸°ÙÃø¿¡¼­ Æã ÅÍÁö¸ç È¸ÀüÇÏ´Â È¿°ú
+	m_SfxObj2.SetSfx(XI_SKILL_MAG_FIRE_HOTAIR01_01);		// íƒ€ê²Ÿì¸¡ì—ì„œ í‘ í„°ì§€ë©° íšŒì „í•˜ëŠ” íš¨ê³¼
 	m_nDmgCnt = 0;
 }
 CSfxSkillMagHotAir::~CSfxSkillMagHotAir()
@@ -2808,7 +2808,7 @@ void CSfxSkillMagHotAir::Process()
 		return;
 	}
 	{
-		m_pSfxObj->m_vPos = pObjSrc->GetPos();		// ¹ß»çÃø¿¡¼­ Å¸°ÙÃøÀ¸·Î ³ªÅ¸³ª´Â È¿°ú
+		m_pSfxObj->m_vPos = pObjSrc->GetPos();		// ë°œì‚¬ì¸¡ì—ì„œ íƒ€ê²Ÿì¸¡ìœ¼ë¡œ ë‚˜íƒ€ë‚˜ëŠ” íš¨ê³¼
 		m_pSfxObj->m_vRotate = D3DXVECTOR3(.0f,-pObjSrc->GetAngle(),.0f);
 	}
 	BOOL res1 = m_pSfxObj->Process();
@@ -2819,7 +2819,7 @@ void CSfxSkillMagHotAir::Process()
 		return;
 	}
 #ifdef __CLIENT
-	#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+	#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 	else
 	{
 		DWORD dwTmpID =  pObjDest->GetRemoveSfxObj(XI_SKILL_MAG_FIRE_HOTAIR01 );
@@ -2829,32 +2829,32 @@ void CSfxSkillMagHotAir::Process()
 			return;
 		}
 	}
-	#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+	#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 #endif	// __CLIENT
 
 	m_SfxObj2.m_vPos = pObjDest->GetPos();
 
 	ItemProp *pSkillProp = prj.GetSkillProp( m_dwSkill );
-	if( pSkillProp == NULL )		// ½ÇÆĞÇÏ¸é °Á¸®ÅÏ.
+	if( pSkillProp == NULL )		// ì‹¤íŒ¨í•˜ë©´ ê±ë¦¬í„´.
 	{
-		Error( "CSfxSkillMagHotAir::Process : ½ºÅ³(%d)ÀÇ ÇÁ·ÎÆÛÆ¼°¡ ¾ø´Ù.", m_dwSkill );
+		Error( "CSfxSkillMagHotAir::Process : ìŠ¤í‚¬(%d)ì˜ í”„ë¡œí¼í‹°ê°€ ì—†ë‹¤.", m_dwSkill );
 		Delete();
 		return;
 	}
-	AddSkillProp *pAddSkillProp = prj.GetAddSkillProp( pSkillProp->dwSubDefine, m_nMagicPower );	// MagicPower°¡ ·¹º§ 
+	AddSkillProp *pAddSkillProp = prj.GetAddSkillProp( pSkillProp->dwSubDefine, m_nMagicPower );	// MagicPowerê°€ ë ˆë²¨ 
 	if( pAddSkillProp == NULL )
 	{
-		Error( "CSfxSkillMagHotAir::Process : ½ºÅ³(%d)ÀÇ ¾Öµå ÇÁ·ÎÆÛÆ¼°¡ ¾ø´Ù.", m_dwSkill );
+		Error( "CSfxSkillMagHotAir::Process : ìŠ¤í‚¬(%d)ì˜ ì• ë“œ í”„ë¡œí¼í‹°ê°€ ì—†ë‹¤.", m_dwSkill );
 		Delete();
 		return;
 	}
 	
 	BOOL bHitFrame = FALSE;
 	int	nPainFrame = (int)((pAddSkillProp->dwPainTime / 1000.0f) * SEC1);
-	if( (m_nFrame % nPainFrame) == 0 )	// nPainFrame ¸¶´Ù ÇÑ¹ø¾¿ µ¥¹ÌÁö ÁÜ.
+	if( (m_nFrame % nPainFrame) == 0 )	// nPainFrame ë§ˆë‹¤ í•œë²ˆì”© ë°ë¯¸ì§€ ì¤Œ.
 	{
-		int	nMaxDmgCnt = (pAddSkillProp->dwSkillTime / pAddSkillProp->dwPainTime) + 1;		// ¸î¹ø µ¥¹ÌÁö¸¦ ¸Ô³Ä.
-		// Ë¬	2006/11/9	// Ã¹¹øÂ°¸¸ Àü¼Û, ÀÌ ÈÄ Áö¼Ó ÇÇÇØ Ã³¸®
+		int	nMaxDmgCnt = (pAddSkillProp->dwSkillTime / pAddSkillProp->dwPainTime) + 1;		// ëª‡ë²ˆ ë°ë¯¸ì§€ë¥¼ ë¨¹ëƒ.
+		// åº·	2006/11/9	// ì²«ë²ˆì§¸ë§Œ ì „ì†¡, ì´ í›„ ì§€ì† í”¼í•´ ì²˜ë¦¬
 //		DamageToTarget( m_nDmgCnt++, 0, 0, nMaxDmgCnt );
 		if( m_nDmgCnt++ == 0 )
 			DamageToTarget( m_nDmgCnt, 0, 0, nMaxDmgCnt );
@@ -2865,7 +2865,7 @@ void CSfxSkillMagHotAir::Process()
 	BOOL res2 = m_SfxObj2.Process();
 	if( res2 )
 		m_SfxObj2.m_nCurFrame = 0;
-	int nFrameMax = (int)((pAddSkillProp->dwSkillTime / 1000.0f) * SEC1);	// ÃÖ´ë Áö¼Ó½Ã°£(ÇÁ·¹ÀÓ´ÜÀ§).
+	int nFrameMax = (int)((pAddSkillProp->dwSkillTime / 1000.0f) * SEC1);	// ìµœëŒ€ ì§€ì†ì‹œê°„(í”„ë ˆì„ë‹¨ìœ„).
 	if( m_nFrame >= nFrameMax )
 	{
 		Delete();
@@ -2887,7 +2887,7 @@ void CSfxDuelParty::Process()
 {
 	CSfx::Process();
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -2897,7 +2897,7 @@ void CSfxDuelParty::Process()
 	{
 	case ENEMY_PVP_PARTY:
 		{
-			// processÁß src¹«¹öÀÇ ±Ø´Üµà¾óÀÌ ³¡³µÀ¸¸é »èÁ¦.
+			// processì¤‘ srcë¬´ë²„ì˜ ê·¹ë‹¨ë“€ì–¼ì´ ëë‚¬ìœ¼ë©´ ì‚­ì œ.
 			if( pMover->m_nDuel != 2 || ( pMover->m_nDuel == 2 && ( pMover->m_nDuelState == 300 || pMover->m_nDuelState == 0 ) ) )		
 			{
 				DeleteSfx( pMover );
@@ -2906,7 +2906,7 @@ void CSfxDuelParty::Process()
 		}
 	case ENEMY_WAR:
 		{
-			if( pMover->m_idWar == 0 )		// processÁß src¹«¹öÀÇ ÀüÀïÀÌ ³¡³µÀ¸¸é ÇØÁ¦.
+			if( pMover->m_idWar == 0 )		// processì¤‘ srcë¬´ë²„ì˜ ì „ìŸì´ ëë‚¬ìœ¼ë©´ í•´ì œ.
 			{
 				DeleteSfx( pMover );
 			}
@@ -2940,7 +2940,7 @@ void CSfxDuelParty::DeleteSfx( CMover* pEnemy )
 void	CSfxDuelParty::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 		return;
 			
 	if( pMover->HasBuff( BUFF_SKILL, SI_ACR_SUP_DARKILLUSION ) || pMover->IsMode( TRANSPARENT_MODE ) )
@@ -2965,7 +2965,7 @@ void CSfxSetItem::Process()
 {
 	CSfx::Process();
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -2983,7 +2983,7 @@ void CSfxSetItem::Process()
 void	CSfxSetItem::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 		return;
 	
 	if( ((pMover->IsMode( TRANSPARENT_MODE ) ) == 0) )
@@ -2996,7 +2996,7 @@ void CSfxCollect::Process()
 	m_nFrame++;
 
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -3011,14 +3011,14 @@ void CSfxCollect::Process()
 		m_pSfxObj->m_nCurFrame = 0;
 
 
-	if( m_pSfxObj->m_nCurFrame >= 145 ) // ±¸°£ ¹İº¹.
-		m_pSfxObj->m_nCurFrame = 30; // ¸ñÇ¥Á¡¿¡ ¸ÂÀ»¶§±îÁö ·çÇÁ½ÃÅ°±â À§ÇØ ´Ù½Ã 0ÇÁ·¹ÀÓÀ¸·Î µ¹·Á³õ´Â´Ù.
+	if( m_pSfxObj->m_nCurFrame >= 145 ) // êµ¬ê°„ ë°˜ë³µ.
+		m_pSfxObj->m_nCurFrame = 30; // ëª©í‘œì ì— ë§ì„ë•Œê¹Œì§€ ë£¨í”„ì‹œí‚¤ê¸° ìœ„í•´ ë‹¤ì‹œ 0í”„ë ˆì„ìœ¼ë¡œ ëŒë ¤ë†“ëŠ”ë‹¤.
 	
-	// ÇÃ·¹ÀÌ¾îÀÇ »óÅÂ°¡ Ã¤ÁıÀÌ ³¡³µÀ¸¸é 
+	// í”Œë ˆì´ì–´ì˜ ìƒíƒœê°€ ì±„ì§‘ì´ ëë‚¬ìœ¼ë©´ 
 	if( pMover->m_pActMover->GetActionState() != OBJSTA_COLLECT )
 	{
-		pMover->m_dwFlag &= (~MVRF_COLLECT);		// SFXÇØÁ¦.
-		Delete();		// sfx »èÁ¦.
+		pMover->m_dwFlag &= (~MVRF_COLLECT);		// SFXí•´ì œ.
+		Delete();		// sfx ì‚­ì œ.
 	}
 }
 
@@ -3030,7 +3030,7 @@ void CSfxCollect::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 	
@@ -3048,12 +3048,12 @@ void CSfxMushmootCharge::Process()
 	m_nFrame++;
 	
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
 	}
-	if( pMover->m_dwFlag & MVRF_HITCONT )		// º¸½º°¡ ·¹ÀÌÀú¸¦ ½î±â ½ÃÀÛÇÏ¸é »èÁ¦ÇÔ.
+	if( pMover->m_dwFlag & MVRF_HITCONT )		// ë³´ìŠ¤ê°€ ë ˆì´ì €ë¥¼ ì˜ê¸° ì‹œì‘í•˜ë©´ ì‚­ì œí•¨.
 	{
 		Delete();
 		return;
@@ -3061,8 +3061,8 @@ void CSfxMushmootCharge::Process()
 	
 	D3DXVECTOR3 vPos;
 	
-	((CModelObject *)pMover->m_pModel)->GetEventPos( &vPos, m_nEventPos );			// ¸¶ºı ÁÂÇ¥.
-	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );	// ¿ùµå°ø°£À¸·Î º¯È¯.
+	((CModelObject *)pMover->m_pModel)->GetEventPos( &vPos, m_nEventPos );			// ë§ˆë¹¡ ì¢Œí‘œ.
+	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );	// ì›”ë“œê³µê°„ìœ¼ë¡œ ë³€í™˜.
 	
 	SetPos( vPos );
 	SetAngle( -pMover->GetAngle() );
@@ -3079,7 +3079,7 @@ void CSfxMushmootCharge::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 	
@@ -3096,12 +3096,12 @@ void CSfxClockWorksCharge::Process()
 	m_nFrame++;
 	
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
 	}
-	if( pMover->m_dwFlag & MVRF_HITCONT )		// º¸½º°¡ ·¹ÀÌÀú¸¦ ½î±â ½ÃÀÛÇÏ¸é »èÁ¦ÇÔ.
+	if( pMover->m_dwFlag & MVRF_HITCONT )		// ë³´ìŠ¤ê°€ ë ˆì´ì €ë¥¼ ì˜ê¸° ì‹œì‘í•˜ë©´ ì‚­ì œí•¨.
 	{
 		Delete();
 		return;
@@ -3109,8 +3109,8 @@ void CSfxClockWorksCharge::Process()
 	
 	D3DXVECTOR3 vPos;
 
-	((CModelObject *)pMover->m_pModel)->GetEventPos( &vPos, 2 );			// ¸¶ºı ÁÂÇ¥.
-	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );	// ¿ùµå°ø°£À¸·Î º¯È¯.
+	((CModelObject *)pMover->m_pModel)->GetEventPos( &vPos, 2 );			// ë§ˆë¹¡ ì¢Œí‘œ.
+	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );	// ì›”ë“œê³µê°„ìœ¼ë¡œ ë³€í™˜.
 	
 	SetPos( vPos );
 	SetAngle( -pMover->GetAngle() );
@@ -3127,7 +3127,7 @@ void CSfxClockWorksCharge::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 	
@@ -3139,13 +3139,13 @@ void CSfxClockWorksCharge::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 ////////////////////////////////////////////////////////////////
-// Å¬¶ô¿öÅ© º¸½º ¿ŞÆÈ¿¡¼­ ¹ß»çÇÒ¶§ ³ª¿À´Â ÀÌÆåÆ®.
+// í´ë½ì›Œí¬ ë³´ìŠ¤ ì™¼íŒ”ì—ì„œ ë°œì‚¬í• ë•Œ ë‚˜ì˜¤ëŠ” ì´í™íŠ¸.
 void CSfxClockWorksCannon::Process()
 {
 	m_nFrame++;
 	
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -3154,15 +3154,15 @@ void CSfxClockWorksCannon::Process()
 	D3DXVECTOR3 vPos;
 	CModelObject *pModel = (CModelObject *)pMover->m_pModel;
 	
-	pModel->GetEventPos( &vPos, 1 );			// ¿Ş¼Õ ÁÂÇ¥.
-	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );	// ¿ùµå°ø°£À¸·Î º¯È¯.
+	pModel->GetEventPos( &vPos, 1 );			// ì™¼ì† ì¢Œí‘œ.
+	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );	// ì›”ë“œê³µê°„ìœ¼ë¡œ ë³€í™˜.
 	
-	D3DXMATRIX mLArm = *(pModel->GetMatrixBone( 9 ));		// 9°¡ L ForeArm
+	D3DXMATRIX mLArm = *(pModel->GetMatrixBone( 9 ));		// 9ê°€ L ForeArm
 	D3DXMatrixMultiply( &mLArm, pMover->GetMatrixWorldPtr(), &mLArm );
 	D3DXQUATERNION qLArm;
 	D3DXVECTOR3 vYPW;
 	
-	D3DXQuaternionRotationMatrix( &qLArm, &mLArm );			// ¿ŞÆÈ ¸ÅÆ®¸¯½º¸¦ ÄõÅÍ´Ï¾ğÀ¸·Î ¹Ù²Ş.
+	D3DXQuaternionRotationMatrix( &qLArm, &mLArm );			// ì™¼íŒ” ë§¤íŠ¸ë¦­ìŠ¤ë¥¼ ì¿¼í„°ë‹ˆì–¸ìœ¼ë¡œ ë°”ê¿ˆ.
 	QuaternionRotationToYPW( qLArm, vYPW );
 	vYPW.y += D3DXToRadian( -90.0f );
 	m_pSfxObj->m_vRotate.x = D3DXToDegree(vYPW.x);
@@ -3183,7 +3183,7 @@ void CSfxClockWorksCannon::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 	
@@ -3199,7 +3199,7 @@ void CSfxClockWorksCannon::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 
 
-// ¸ÅÁö¼Ç Ice Missile
+// ë§¤ì§€ì…˜ Ice Missile
 CSfxSkillMagIceMissile::CSfxSkillMagIceMissile()
 {
 	m_SfxObj2.SetSfx( XI_SKILL_MAG_WATER_ICEMISSILE01_01 );
@@ -3233,7 +3233,7 @@ void CSfxSkillMagIceMissile::Process()
 		SetPos(m_pSfxObj->m_vPos);
 		vDelta=m_pSfxObj->m_vPos - m_SfxObj2.m_vPos;
 		
-	    // ¸¶¹ı°´Ã¼ ¹æÇâº¤ÅÍ·Î ¸ğµ¨ ¹æÇâ µ¹¸®±â~~~
+	    // ë§ˆë²•ê°ì²´ ë°©í–¥ë²¡í„°ë¡œ ëª¨ë¸ ë°©í–¥ ëŒë¦¬ê¸°~~~
 		D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 		D3DXVECTOR3 vDestNor  = m_SfxObj2.m_vPos-m_pSfxObj->m_vPos;
 		D3DXVECTOR3 vAxis;
@@ -3283,7 +3283,7 @@ void CSfxSkillMagIceMissile::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 
-// ¸ÅÁö¼Ç Lightning Ball
+// ë§¤ì§€ì…˜ Lightning Ball
 CSfxSkillMagLightningBall::CSfxSkillMagLightningBall()
 {
 	m_SfxObj2.SetSfx( XI_SKILL_MAG_ELECTRICITY_LIGHTINGBALL01_01  );
@@ -3317,7 +3317,7 @@ void CSfxSkillMagLightningBall::Process()
 		SetPos(m_pSfxObj->m_vPos);
 		vDelta=m_pSfxObj->m_vPos - m_SfxObj2.m_vPos;
 		
-		// ¸¶¹ı°´Ã¼ ¹æÇâº¤ÅÍ·Î ¸ğµ¨ ¹æÇâ µ¹¸®±â~~~
+		// ë§ˆë²•ê°ì²´ ë°©í–¥ë²¡í„°ë¡œ ëª¨ë¸ ë°©í–¥ ëŒë¦¬ê¸°~~~
 		D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 		D3DXVECTOR3 vDestNor  = m_SfxObj2.m_vPos-m_pSfxObj->m_vPos;
 		D3DXVECTOR3 vAxis;
@@ -3366,7 +3366,7 @@ void CSfxSkillMagLightningBall::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	}
 }
 
-// ¸ÅÁö¼Ç Spike Stone
+// ë§¤ì§€ì…˜ Spike Stone
 CSfxSkillMagSpikeStone::CSfxSkillMagSpikeStone()
 {
 	m_SfxObj2.SetSfx( XI_SKILL_MAG_EARTH_SPIKESTONE01_01 );
@@ -3400,7 +3400,7 @@ void CSfxSkillMagSpikeStone::Process()
 		SetPos(m_pSfxObj->m_vPos);
 		vDelta=m_pSfxObj->m_vPos - m_SfxObj2.m_vPos;
 		
-		// ¸¶¹ı°´Ã¼ ¹æÇâº¤ÅÍ·Î ¸ğµ¨ ¹æÇâ µ¹¸®±â~~~
+		// ë§ˆë²•ê°ì²´ ë°©í–¥ë²¡í„°ë¡œ ëª¨ë¸ ë°©í–¥ ëŒë¦¬ê¸°~~~
 		D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 		D3DXVECTOR3 vDestNor  = m_SfxObj2.m_vPos-m_pSfxObj->m_vPos;
 		D3DXVECTOR3 vAxis;
@@ -3455,7 +3455,7 @@ void CSfxRotate::Process()
 	m_nFrame++;
 	
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -3463,7 +3463,7 @@ void CSfxRotate::Process()
 	
 	D3DXVECTOR3 vPos;
 	CModelObject *pModel = (CModelObject *)pMover->m_pModel;
-	pModel->GetEventPos( &vPos, 0 );	// µîµå¸® ÁÂÇ¥
+	pModel->GetEventPos( &vPos, 0 );	// ë“±ë“œë¦¬ ì¢Œí‘œ
 	
 	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );
 
@@ -3473,7 +3473,7 @@ void CSfxRotate::Process()
 	if( m_pSfxObj->Process() )
 		m_pSfxObj->m_nCurFrame = 0;
 	
-	if( m_nSec != -1 )		// ¹«ÇÑ¹İº¹(-1)ÀÌ ¾Æ´Ï¸é
+	if( m_nSec != -1 )		// ë¬´í•œë°˜ë³µ(-1)ì´ ì•„ë‹ˆë©´
 	{
 		if( m_nFrame > ( m_nSec * 60 ) )
 			Delete();
@@ -3488,7 +3488,7 @@ void CSfxRotate::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 	
@@ -3498,7 +3498,7 @@ void CSfxRotate::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 	D3DXVECTOR3 vPos;
 	CModelObject *pModel = (CModelObject *)pMover->m_pModel;
-	pModel->GetEventPos( &vPos, 0 );	// µîµå¸® ÁÂÇ¥
+	pModel->GetEventPos( &vPos, 0 );	// ë“±ë“œë¦¬ ì¢Œí‘œ
 	
 	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );
 	
@@ -3512,7 +3512,7 @@ void CSfxRotate::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 
-// ³¯¾Æ°¡¼­ ¸Â°í ÅÍÁö´Â ÀÏ¹İÀûÀÎ ÀÌÆåÆ®.
+// ë‚ ì•„ê°€ì„œ ë§ê³  í„°ì§€ëŠ” ì¼ë°˜ì ì¸ ì´í™íŠ¸.
 CSfxShoot::CSfxShoot()
 {
 	m_bHit = FALSE;
@@ -3530,7 +3530,7 @@ CSfxShoot::~CSfxShoot()
 	m_dwSfxHit = NULL_ID;
 }
 
-// ¸Â¾ÒÀ»¶§ ÀÌÆåÆ® µî·Ï
+// ë§ì•˜ì„ë•Œ ì´í™íŠ¸ ë“±ë¡
 void CSfxShoot::SetHitSfx( LPCTSTR szFileName, OBJID idSrc, OBJID idDst, FLOAT fScale ) 
 { 
 }
@@ -3539,7 +3539,7 @@ void CSfxShoot::SetHitSfx( DWORD dwIndex, OBJID idSrc, OBJID idDst, FLOAT fScale
 }
 
 
-// ¹æÇâ¼º ÀÖ´Â sfx ÀÎ°¡.
+// ë°©í–¥ì„± ìˆëŠ” sfx ì¸ê°€.
 void CSfxShoot::SetDir( BOOL bDir )
 {
 	m_bDir = bDir;
@@ -3549,7 +3549,7 @@ void CSfxShoot::SetDir( BOOL bDir )
 
 void CSfxShoot::Process()
 {
-	CMover* pObjDest = (CMover*)prj.GetCtrl( m_idDest );	// À¯µµÅº ÇüÀÌ±â¶§¹®¿¡ Å¸°ÙÀº Ç×»ó ÀĞ¾îºÁ¾ß ÇÑ´Ù.
+	CMover* pObjDest = (CMover*)prj.GetCtrl( m_idDest );	// ìœ ë„íƒ„ í˜•ì´ê¸°ë•Œë¬¸ì— íƒ€ê²Ÿì€ í•­ìƒ ì½ì–´ë´ì•¼ í•œë‹¤.
 	if( IsValidObj(pObjDest) )
 	{
 		m_vPosDest = pObjDest->GetPos() + D3DXVECTOR3( 0, 1.0f, 0 );
@@ -3557,20 +3557,20 @@ void CSfxShoot::Process()
 
 	if( m_bHit == FALSE ) 
 	{
-		if( m_pSfxObj->Process() )		// ¾Ö´Ï¸ŞÀÌ¼ÇÀº ·çÇÁ.
+		if( m_pSfxObj->Process() )		// ì• ë‹ˆë©”ì´ì…˜ì€ ë£¨í”„.
 		{
 			m_pSfxObj->m_nCurFrame = 0;
 		}
 		D3DXVECTOR3 vDelta = m_vPosDest - m_pSfxObj->m_vPos;
-		D3DXVec3Normalize( &vDelta, &vDelta );		// Å¸°ÙÂÊ ´ÜÀ§º¤ÅÍ ±¸ÇØ¼­
+		D3DXVec3Normalize( &vDelta, &vDelta );		// íƒ€ê²Ÿìª½ ë‹¨ìœ„ë²¡í„° êµ¬í•´ì„œ
 		D3DXVECTOR3 vPos = GetPos();
-		vPos += vDelta * 0.2f;			// ±× º¤ÅÍ·Î ¼Óµµ¸¦ °áÁ¤ÇØ¼­ ÁÂÇ¥ ÀÌµ¿.
+		vPos += vDelta * 0.2f;			// ê·¸ ë²¡í„°ë¡œ ì†ë„ë¥¼ ê²°ì •í•´ì„œ ì¢Œí‘œ ì´ë™.
 		m_pSfxObj->m_vPos = vPos;
 		SetPos( vPos );
 		
 		if( m_bDir )
 		{
-			// ¸¶¹ı°´Ã¼ ¹æÇâº¤ÅÍ·Î ¸ğµ¨ ¹æÇâ µ¹¸®±â~~~
+			// ë§ˆë²•ê°ì²´ ë°©í–¥ë²¡í„°ë¡œ ëª¨ë¸ ë°©í–¥ ëŒë¦¬ê¸°~~~
 			D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 			D3DXVECTOR3 vDestNor  = m_vPosDest - m_pSfxObj->m_vPos;
 			D3DXVECTOR3 vAxis;
@@ -3590,13 +3590,13 @@ void CSfxShoot::Process()
 			m_pSfxObj->m_vRotate.z = /*m_SfxObj2.m_vRotate.z = */D3DXToDegree(vYPW.z);
 		}
 		
-		vDelta = m_pSfxObj->m_vPos - m_vPosDest;		// ´ë»ó°úÀÇ °Å¸®
-		if( D3DXVec3LengthSq( &vDelta ) < 0.2f * 0.2f )		// Æø¹ß °Å¸®±îÁö ´Ù°¡°¡¸é Ãæµ¹.
+		vDelta = m_pSfxObj->m_vPos - m_vPosDest;		// ëŒ€ìƒê³¼ì˜ ê±°ë¦¬
+		if( D3DXVec3LengthSq( &vDelta ) < 0.2f * 0.2f )		// í­ë°œ ê±°ë¦¬ê¹Œì§€ ë‹¤ê°€ê°€ë©´ ì¶©ëŒ.
 		{
 			if( m_dwSndHit != NULL_ID )
-				PLAYSND( m_dwSndHit, &GetPos() );		// »ç¿îµå ÇÃ·¹ÀÌ.
+				PLAYSND( m_dwSndHit, &GetPos() );		// ì‚¬ìš´ë“œ í”Œë ˆì´.
 			DamageToTarget();
-			// Æø¹ß ¿ÀºêÁ§Æ® »ı¼º.
+			// í­ë°œ ì˜¤ë¸Œì íŠ¸ ìƒì„±.
 			if( m_dwSfxHit != NULL_ID )
 			{
 				CSfx *pSfx = CreateSfx( D3DDEVICE, m_dwSfxHit, GetPos(), m_idSrc, m_vPosDest, m_idDest, 0 );
@@ -3605,7 +3605,7 @@ void CSfxShoot::Process()
 					pSfx->SetAngle( m_pSfxObj->m_vRotate.y );
 				}
 			}
-			Delete();	// this´Â »èÁ¦.
+			Delete();	// thisëŠ” ì‚­ì œ.
 		}
 	}
 	m_nFrame ++;
@@ -3617,7 +3617,7 @@ void CSfxShoot::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 
-// ¶¥¹Ù´Ú¿¡ ºÙ¾î¼­ ³¯¾Æ°¡´Â ÀÌÆåÆ®.
+// ë•…ë°”ë‹¥ì— ë¶™ì–´ì„œ ë‚ ì•„ê°€ëŠ” ì´í™íŠ¸.
 CSfxShootWave::CSfxShootWave()
 {
 	m_bHit = FALSE;
@@ -3637,21 +3637,21 @@ CSfxShootWave::~CSfxShootWave()
 	memset( m_nTailFrame, 0, sizeof(m_nTailFrame) );
 }
 
-// ¸Â¾ÒÀ»¶§ ÀÌÆåÆ® µî·Ï
+// ë§ì•˜ì„ë•Œ ì´í™íŠ¸ ë“±ë¡
 void CSfxShootWave::SetHitSfx( LPCTSTR szFileName, OBJID idSrc, OBJID idDst, FLOAT fScale ) 
 { 
-	m_SfxObj2.SetSfx( szFileName );		// ¸Â°í ÅÍÁú¶§ ÀÌÆåÆ® ·Îµù.
+	m_SfxObj2.SetSfx( szFileName );		// ë§ê³  í„°ì§ˆë•Œ ì´í™íŠ¸ ë¡œë”©.
 
 	m_fHitScale = fScale;
 }
 void CSfxShootWave::SetHitSfx( DWORD dwIndex, OBJID idSrc, OBJID idDst, FLOAT fScale ) 
 { 
-	m_SfxObj2.SetSfx( dwIndex );		// ¸Â°í ÅÍÁú¶§ ÀÌÆåÆ® ·Îµù.
+	m_SfxObj2.SetSfx( dwIndex );		// ë§ê³  í„°ì§ˆë•Œ ì´í™íŠ¸ ë¡œë”©.
 	
 	m_fHitScale = fScale;
 }
 
-// ¹æÇâ¼º ÀÖ´Â sfx ÀÎ°¡.
+// ë°©í–¥ì„± ìˆëŠ” sfx ì¸ê°€.
 void CSfxShootWave::SetDir( BOOL bDir )
 {
 	m_bDir = bDir;
@@ -3665,17 +3665,17 @@ void CSfxShootWave::Process()
 	if( IsValidObj(pObjDest) )
 	{
 		m_SfxObj2.m_vPos = pObjDest->GetPos();
-		m_SfxObj2.m_vScale = D3DXVECTOR3( m_fHitScale, m_fHitScale, m_fHitScale );			// Å©±â´Â fHitScale¹è
+		m_SfxObj2.m_vScale = D3DXVECTOR3( m_fHitScale, m_fHitScale, m_fHitScale );			// í¬ê¸°ëŠ” fHitScaleë°°
 	} else
 	{
-		// ³¯¾Æ°¡´Ù Å¸°ÙÀÌ ¾ø¾îÁ³À¸¸é ¸¶Áö¸·ÁÂÇ¥·Î ³¯¾Æ°¡¼­ ÅÍÁö°Ô.
+		// ë‚ ì•„ê°€ë‹¤ íƒ€ê²Ÿì´ ì—†ì–´ì¡Œìœ¼ë©´ ë§ˆì§€ë§‰ì¢Œí‘œë¡œ ë‚ ì•„ê°€ì„œ í„°ì§€ê²Œ.
 	}
 
 	if( (m_nFrame & 3) == 0 )
 	{
 		for( int i = MAX_SHOOTWAVE_TAIL-1; i > 0; i -- )
 		{
-			m_vTail[i] = m_vTail[i-1];	// µÚ·Î ÇÑÄ­¾¿ ¹Î´Ù.
+			m_vTail[i] = m_vTail[i-1];	// ë’¤ë¡œ í•œì¹¸ì”© ë¯¼ë‹¤.
 			m_nTailFrame[i] = m_nTailFrame[i-1];
 			m_nTailFrame[i]++;
 			if( m_nTailFrame[i] >= 56 )
@@ -3688,7 +3688,7 @@ void CSfxShootWave::Process()
 		m_nTailFrame[0] = 0;
 	}
 
-	if( m_pSfxObj->Process() )		// ¾Ö´Ï¸ŞÀÌ¼ÇÀº ·çÇÁ.
+	if( m_pSfxObj->Process() )		// ì• ë‹ˆë©”ì´ì…˜ì€ ë£¨í”„.
 	{
 		m_pSfxObj->m_nCurFrame = 0;
 	}
@@ -3696,7 +3696,7 @@ void CSfxShootWave::Process()
 	if( m_bHit == FALSE ) 
 	{
 		D3DXVECTOR3 vDelta = m_SfxObj2.m_vPos - m_pSfxObj->m_vPos;
-		D3DXVec3Normalize( &vDelta, &vDelta );		// Å¸°ÙÂÊ ´ÜÀ§º¤ÅÍ ±¸ÇØ¼­
+		D3DXVec3Normalize( &vDelta, &vDelta );		// íƒ€ê²Ÿìª½ ë‹¨ìœ„ë²¡í„° êµ¬í•´ì„œ
 		D3DXVECTOR3 vPos = GetPos(), vTemp;
 
 		CWorld *pWorld = GetWorld();
@@ -3705,18 +3705,18 @@ void CSfxShootWave::Process()
 			Delete();
 			return;
 		}
-		vPos += vDelta * 0.25f;			// ±× º¤ÅÍ·Î ¼Óµµ¸¦ °áÁ¤ÇØ¼­ ÁÂÇ¥ ÀÌµ¿.
+		vPos += vDelta * 0.25f;			// ê·¸ ë²¡í„°ë¡œ ì†ë„ë¥¼ ê²°ì •í•´ì„œ ì¢Œí‘œ ì´ë™.
 		vTemp = vPos;
 		vTemp.y += 1.5f;
-		FLOAT y = pWorld->GetUnderHeight( vTemp );	// ¹Ù´ÚÀ» µû¶ó¼­ °¡°Ô,...
+		FLOAT y = pWorld->GetUnderHeight( vTemp );	// ë°”ë‹¥ì„ ë”°ë¼ì„œ ê°€ê²Œ,...
 		vPos.y = y;
-		vPos.y	= m_SfxObj2.m_vPos.y;		// Ë¬
+		vPos.y	= m_SfxObj2.m_vPos.y;		// åº·
 		m_pSfxObj->m_vPos = vPos;
 		SetPos( vPos );
 		
 		if( m_bDir )
 		{
-			// ¸¶¹ı°´Ã¼ ¹æÇâº¤ÅÍ·Î ¸ğµ¨ ¹æÇâ µ¹¸®±â~~~
+			// ë§ˆë²•ê°ì²´ ë°©í–¥ë²¡í„°ë¡œ ëª¨ë¸ ë°©í–¥ ëŒë¦¬ê¸°~~~
 			D3DXVECTOR3 vDir      = D3DXVECTOR3( 0.0f, 0.0f, 1.0f );
 			D3DXVECTOR3 vDestNor  = m_pSfxObj->m_vPos - m_SfxObj2.m_vPos;
 			D3DXVECTOR3 vAxis;
@@ -3736,18 +3736,18 @@ void CSfxShootWave::Process()
 			m_pSfxObj->m_vRotate.z = m_SfxObj2.m_vRotate.z = D3DXToDegree(vYPW.z);
 		}
 		
-		vDelta = m_pSfxObj->m_vPos - m_SfxObj2.m_vPos;		// ´ë»ó°úÀÇ °Å¸®
-		if( D3DXVec3LengthSq( &vDelta ) < 0.4f * 0.4f )		// Æø¹ß °Å¸®±îÁö ´Ù°¡°¡¸é Ãæµ¹.
+		vDelta = m_pSfxObj->m_vPos - m_SfxObj2.m_vPos;		// ëŒ€ìƒê³¼ì˜ ê±°ë¦¬
+		if( D3DXVec3LengthSq( &vDelta ) < 0.4f * 0.4f )		// í­ë°œ ê±°ë¦¬ê¹Œì§€ ë‹¤ê°€ê°€ë©´ ì¶©ëŒ.
 		{
 			if( m_dwSndHit != NULL_ID )
-				PLAYSND( m_dwSndHit, &GetPos() );		// »ç¿îµå ÇÃ·¹ÀÌ.
+				PLAYSND( m_dwSndHit, &GetPos() );		// ì‚¬ìš´ë“œ í”Œë ˆì´.
 			m_bHit = TRUE;
 			DamageToTarget();
 		}
 	}
 	else 
 	{
-		if( m_SfxObj2.Process() )		// ¾Ö´Ï¸ŞÀÌ¼Ç ´Ù ³¡³µÀ¸¸é Á¾·á.
+		if( m_SfxObj2.Process() )		// ì• ë‹ˆë©”ì´ì…˜ ë‹¤ ëë‚¬ìœ¼ë©´ ì¢…ë£Œ.
 			Delete();
 	}
 	m_nFrame ++;
@@ -3779,13 +3779,13 @@ void CSfxShootWave::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 }
 
 ////////////////////////////////////////////////////////////////
-// ¹«¹öÀÇ Æ¯Á¤ ÆÄÃ÷¿¡ ¸µÅ©µÇ´Â Sfx
+// ë¬´ë²„ì˜ íŠ¹ì • íŒŒì¸ ì— ë§í¬ë˜ëŠ” Sfx
 void CSfxPartsLink::Process()
 {
 	m_nFrame++;
 	
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -3794,9 +3794,9 @@ void CSfxPartsLink::Process()
 	D3DXVECTOR3 vPos;
 
 	CModelObject *pModel = (CModelObject *)pMover->m_pModel;
-	if( m_nPartsLink == 0 )		// ¿À¸¥¼Õ
+	if( m_nPartsLink == 0 )		// ì˜¤ë¥¸ì†
 	{
-		pModel->GetHandPos( &vPos, PARTS_RWEAPON, pMover->GetMatrixWorld() );		// ¿À¸¥¼Õ ÁÖ¸Ô ¿ùµåÁÂÇ¥ ±¸ÇÔ.
+		pModel->GetHandPos( &vPos, PARTS_RWEAPON, pMover->GetMatrixWorld() );		// ì˜¤ë¥¸ì† ì£¼ë¨¹ ì›”ë“œì¢Œí‘œ êµ¬í•¨.
 	} else
 	{
 		pModel->GetHandPos( &vPos, PARTS_LWEAPON, pMover->GetMatrixWorld() );
@@ -3818,7 +3818,7 @@ void CSfxPartsLink::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 	
@@ -3831,37 +3831,37 @@ void CSfxPartsLink::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 
 
-void CSfxPartsLinkBlade::Process() // ºí·¹ÀÌµå ÆÄÃ÷ÀÌÆåÆ®´Â ¹Ğ¸® ½ºÅ³³¡³ª¸é ¼Ò¸ê
+void CSfxPartsLinkBlade::Process() // ë¸”ë ˆì´ë“œ íŒŒì¸ ì´í™íŠ¸ëŠ” ë°€ë¦¬ ìŠ¤í‚¬ëë‚˜ë©´ ì†Œë©¸
 {
 	CSfxPartsLink::Process();
 
 	CMover *pMover = prj.GetMover( m_idSrc );
 	
-	// ¹Ğ¸®½ºÅ³ µ¿ÀÛ ³¡³ª¸é ÇØÁ¦.
+	// ë°€ë¦¬ìŠ¤í‚¬ ë™ì‘ ëë‚˜ë©´ í•´ì œ.
 	if( pMover && (pMover->m_pActMover->GetState() & OBJSTA_ATK_ALL) != OBJSTA_ATK_MELEESKILL )
 	{
-		Delete();		// sfx »èÁ¦.
+		Delete();		// sfx ì‚­ì œ.
 	}
 }
 
-void CSfxPartsLinkJst::Process() // Á¦½ºÅÍ ÆÄÃ÷ÀÌÆåÆ®´Â ³¡ÇÁ·¹ÀÓÀÌ¸é ¼Ò¸ê
+void CSfxPartsLinkJst::Process() // ì œìŠ¤í„° íŒŒì¸ ì´í™íŠ¸ëŠ” ëí”„ë ˆì„ì´ë©´ ì†Œë©¸
 {
 	CSfxPartsLink::Process();
 	
 	if( m_bEndFrame )
 	{
-		Delete();		// sfx »èÁ¦.
+		Delete();		// sfx ì‚­ì œ.
 	}
 }
 
 ////////////////////////////////////////////////////////////////
-// ¾ÆÅ©·Î¹î ¹«¹öÀÇ Æ¯Á¤ ÆÄÃ÷¿¡ ¸µÅ©µÇ´Â Sfx
+// ì•„í¬ë¡œë±ƒ ë¬´ë²„ì˜ íŠ¹ì • íŒŒì¸ ì— ë§í¬ë˜ëŠ” Sfx
 void CSfxAllowPartsLink::Process()
 {
 	m_nFrame++;
 	
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -3870,9 +3870,9 @@ void CSfxAllowPartsLink::Process()
 	D3DXVECTOR3 vPos;
 	
 	CModelObject *pModel = (CModelObject *)pMover->m_pModel;
-	if( m_nPartsLink == 0 )		// ¿À¸¥¼Õ
+	if( m_nPartsLink == 0 )		// ì˜¤ë¥¸ì†
 	{
-		pModel->GetHandPos( &vPos, PARTS_RWEAPON, pMover->GetMatrixWorld() );		// ¿À¸¥¼Õ ÁÖ¸Ô ¿ùµåÁÂÇ¥ ±¸ÇÔ.
+		pModel->GetHandPos( &vPos, PARTS_RWEAPON, pMover->GetMatrixWorld() );		// ì˜¤ë¥¸ì† ì£¼ë¨¹ ì›”ë“œì¢Œí‘œ êµ¬í•¨.
 	} else
 	{
 		pModel->GetHandPos( &vPos, PARTS_LWEAPON, pMover->GetMatrixWorld() );
@@ -3892,7 +3892,7 @@ void CSfxAllowPartsLink::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 
@@ -3907,13 +3907,13 @@ void CSfxReady::Process()
 {
 	CSfx::Process();
 
-	CMover *pSrc = prj.GetMover( m_idSrc );		// ½ÃÀüÀÚ¿¡°Ô ¹ßµ¿.
+	CMover *pSrc = prj.GetMover( m_idSrc );		// ì‹œì „ìì—ê²Œ ë°œë™.
 	if( IsValidObj( pSrc ) )
 	{
-		if( pSrc->IsStateMode( STATE_BASEMOTION_MODE ) == FALSE )	// ½ÃÀüµ¿ÀÛ ³¡³µÀ¸¸é 
-			Delete();		// »èÁ¦.
+		if( pSrc->IsStateMode( STATE_BASEMOTION_MODE ) == FALSE )	// ì‹œì „ë™ì‘ ëë‚¬ìœ¼ë©´ 
+			Delete();		// ì‚­ì œ.
 	} else
-		Delete();		// ½ÃÀüÀÚ°¡ »ç¶óÁ®µµ »èÁ¦.
+		Delete();		// ì‹œì „ìê°€ ì‚¬ë¼ì ¸ë„ ì‚­ì œ.
 }
 
 
@@ -3937,7 +3937,7 @@ void CSfxPartsLinkShoulder::Process()
 	CSfx::Process();
 
 	CMover *pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -3971,27 +3971,27 @@ void	CSfxPartsLinkShoulder::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	
 	CModelObject *pModel = (CModelObject *)pMover->m_pModel;
 
-	if( m_nPartsLink == 0 )		// ¿À¸¥ ¾î±ú
+	if( m_nPartsLink == 0 )		// ì˜¤ë¥¸ ì–´ê¹¨
 	{
 		D3DXMatrixMultiply( &mPartMatrix, (pModel->GetMatrixBone(15)), &(pMover->GetMatrixWorld()) );
 	} 
 	else
-	if( m_nPartsLink == 1 )		// ¿Ş ¾î±ú
+	if( m_nPartsLink == 1 )		// ì™¼ ì–´ê¹¨
 	{
 		D3DXMatrixMultiply( &mPartMatrix, (pModel->GetMatrixBone(11)), &(pMover->GetMatrixWorld()) );
 	}
 	else
-	if( m_nPartsLink == 2 )    // ¿À¸¥ ÆÈ²ŞÄ¡
+	if( m_nPartsLink == 2 )    // ì˜¤ë¥¸ íŒ”ê¿ˆì¹˜
 	{
 		D3DXMatrixMultiply( &mPartMatrix, (pModel->GetMatrixBone(16)), &(pMover->GetMatrixWorld()) );
 	}
 	else
-	if( m_nPartsLink == 3 )	   // ¿Ş ÆÈ²ŞÄ¡
+	if( m_nPartsLink == 3 )	   // ì™¼ íŒ”ê¿ˆì¹˜
 	{
 		D3DXMatrixMultiply( &mPartMatrix, (pModel->GetMatrixBone(12)), &(pMover->GetMatrixWorld()) );
 	}
 	else
-	if( m_nPartsLink == 4 )   // ¿À¸¥ÂÊ¾î±ú + ÆÈ²ŞÄ¡ º¸°£
+	if( m_nPartsLink == 4 )   // ì˜¤ë¥¸ìª½ì–´ê¹¨ + íŒ”ê¿ˆì¹˜ ë³´ê°„
 	{
 		D3DXMATRIX  mMatrix1;
 		D3DXMATRIX  mMatrix2;
@@ -4011,7 +4011,7 @@ void	CSfxPartsLinkShoulder::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		mPartMatrix._43 = vPos3.z; 
 	}
 	else
-	if( m_nPartsLink == 5 )   // ¿ŞÂÊ¾î±ú + ÆÈ²ŞÄ¡ º¸°£
+	if( m_nPartsLink == 5 )   // ì™¼ìª½ì–´ê¹¨ + íŒ”ê¿ˆì¹˜ ë³´ê°„
 	{
 		D3DXMATRIX  mMatrix1;
 		D3DXMATRIX  mMatrix2;
@@ -4031,32 +4031,32 @@ void	CSfxPartsLinkShoulder::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		mPartMatrix._43 = vPos3.z; 
 	}
 	else
-	if( m_nPartsLink == 6 )    // ¸ö Áß°£
+	if( m_nPartsLink == 6 )    // ëª¸ ì¤‘ê°„
 	{
 		D3DXMatrixMultiply( &mPartMatrix, (pModel->GetMatrixBone(2)), &(pMover->GetMatrixWorld()) );
 	}
 	else
-	if( m_nPartsLink == 7 )	   // ¸ö ¾Æ·¡
+	if( m_nPartsLink == 7 )	   // ëª¸ ì•„ë˜
 	{
 		D3DXMatrixMultiply( &mPartMatrix, (pModel->GetMatrixBone(3)), &(pMover->GetMatrixWorld()) );
 	}
 	else
-	if( m_nPartsLink == 8 )    // ¿À¸¥¼Õ
+	if( m_nPartsLink == 8 )    // ì˜¤ë¥¸ì†
 	{
 		D3DXMatrixMultiply( &mPartMatrix, pModel->GetMatrixBone(pModel->GetRHandIdx()), &(pMover->GetMatrixWorld()) );
 	}
 	else
-	if( m_nPartsLink == 9 )	   // ¿Ş¼Õ
+	if( m_nPartsLink == 9 )	   // ì™¼ì†
 	{
 		D3DXMatrixMultiply( &mPartMatrix, pModel->GetMatrixBone(pModel->GetLHandIdx()), &(pMover->GetMatrixWorld()) );
 	}
 	else
-	if( m_nPartsLink == 26 )	   // ¿Ş¼Õ
+	if( m_nPartsLink == 26 )	   // ì™¼ì†
 	{
 		D3DXMatrixMultiply( &mPartMatrix, pModel->GetMatrixBone(m_nPartsLink), &(pMover->GetMatrixWorld()) );
 	}
 	else
-	if( m_nPartsLink == 29 )	   // ¿Ş¼Õ
+	if( m_nPartsLink == 29 )	   // ì™¼ì†
 	{
 		D3DXMatrixMultiply( &mPartMatrix, pModel->GetMatrixBone(m_nPartsLink), &(pMover->GetMatrixWorld()) );
 	}
@@ -4070,7 +4070,7 @@ void	CSfxPartsLinkShoulder::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	
 	SetPos( vPos );
 
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 		return;
 	if( ((pMover->IsMode( TRANSPARENT_MODE ) ) == 0) )
 		CSfx::Render(pd3dDevice);
@@ -4085,12 +4085,12 @@ CSfxCursor::~CSfxCursor()
 }
 void CSfxCursor::Process()
 {
-	SetPos( g_Neuz.m_vCursorPos );		// ¸¶¿ì½º ÁÂÇ¥
+	SetPos( g_Neuz.m_vCursorPos );		// ë§ˆìš°ìŠ¤ ì¢Œí‘œ
 	m_pSfxObj->Process();
 
-	if( m_nSec != 0 )	// 0Àº 1È¸ ÇÃ·¹ÀÌÈÄ Á¾·á.
+	if( m_nSec != 0 )	// 0ì€ 1íšŒ í”Œë ˆì´í›„ ì¢…ë£Œ.
 	{
-		// ¹İº¹ ¾Ö´Ï¸ŞÀÌ¼Ç
+		// ë°˜ë³µ ì• ë‹ˆë©”ì´ì…˜
 		if( m_pSfxObj->Process() )		
 			m_pSfxObj->m_nCurFrame = 0;
 	}
@@ -4114,7 +4114,7 @@ void CSfxLinkMover::Process( )
 	m_nFrame++;
 	
 	CMover* pMover = prj.GetMover( m_idSrc );
-	if( IsInvalidObj( pMover ) )	// processÁß src ¹«¹ö°¡ ¾ø¾îÁ³À¸¸é ÀÚµ¿ »èÁ¦
+	if( IsInvalidObj( pMover ) )	// processì¤‘ src ë¬´ë²„ê°€ ì—†ì–´ì¡Œìœ¼ë©´ ìë™ ì‚­ì œ
 	{
 		Delete();
 		return;
@@ -4138,7 +4138,7 @@ void CSfxLinkMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		UpdateMatrix();
 	
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	if( lpModelElem == NULL )
 		return;
 
@@ -4148,7 +4148,7 @@ void CSfxLinkMover::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 	D3DXVECTOR3 vPos( 0.0f, 0.0f, 0.0f );
 //	CModelObject *pModel = (CModelObject *)pMover->m_pModel;
-//	pModel->GetEventPos( &vPos, 0 );	// µîµå¸® ÁÂÇ¥
+//	pModel->GetEventPos( &vPos, 0 );	// ë“±ë“œë¦¬ ì¢Œí‘œ
 	
 	D3DXVec3TransformCoord( &vPos, &vPos, pMover->GetMatrixWorldPtr() );
 	

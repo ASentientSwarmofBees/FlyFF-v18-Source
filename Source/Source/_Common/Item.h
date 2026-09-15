@@ -1,4 +1,4 @@
-#if !defined(AFX_ITEM_H__80E88B36_BD6B_449B_BE76_34F2B5B77552__INCLUDED_)
+ï»¿#if !defined(AFX_ITEM_H__80E88B36_BD6B_449B_BE76_34F2B5B77552__INCLUDED_)
 #define AFX_ITEM_H__80E88B36_BD6B_449B_BE76_34F2B5B77552__INCLUDED_
 
 #if _MSC_VER > 1000
@@ -28,10 +28,10 @@
 class CItemBase
 {
 public:
-	OBJID       m_dwObjId;		// ¾ÆÀÌÅÛ ÄÜÅ×ÀÌ³Ê ¾È¿¡¼­ÀÇ ID (¾ÆÀÌÅÛÀÇ ID·Î »ç¿ë)
-	DWORD		m_dwObjIndex;	// ¾ÆÀÌÅÛ ÄÜÅ×ÀÌ³Ê ¾È¿¡¼­ÀÇ Index
-	DWORD		m_dwItemId;		// ¾ÆÀÌÅÛ ½Äº° ÀÎµ¦½º( Property¿¡¼­ »ç¿ë )
-	int 		m_nExtra;		// °Å·¡½Ã ¹°Ç°°³¼ö or °³ÀÎ»óÁ¡¿¡ µî·ÏÇÑ °¹¼ö 
+	OBJID       m_dwObjId;		// ì•„ì´í…œ ì½˜í…Œì´ë„ˆ ì•ˆì—ì„œì˜ ID (ì•„ì´í…œì˜ IDë¡œ ì‚¬ìš©)
+	DWORD		m_dwObjIndex;	// ì•„ì´í…œ ì½˜í…Œì´ë„ˆ ì•ˆì—ì„œì˜ Index
+	DWORD		m_dwItemId;		// ì•„ì´í…œ ì‹ë³„ ì¸ë±ìŠ¤( Propertyì—ì„œ ì‚¬ìš© )
+	int 		m_nExtra;		// ê±°ë˜ì‹œ ë¬¼í’ˆê°œìˆ˜ or ê°œì¸ìƒì ì— ë“±ë¡í•œ ê°¯ìˆ˜ 
 	TCHAR       m_szItemText[ 32 ];
 	int			m_nCost;
 
@@ -55,9 +55,9 @@ public:
 	void			SetTexture();
 	void			SetTexture( CTexture* pTexture );
 	CTexture*		GetTexture();						
-	int				GetCost();							// °¡°İÀ» ¾ò´Â´Ù.
-	void			SetExtra( int nExtra );			// È®Àå µ¥ÀÌÅ¸¸¦ ¼¼ÆÃ 
-	int				GetExtra();							// È®Àå µ¥ÀÌÅ¸¸¦ ¾ò±â 
+	int				GetCost();							// ê°€ê²©ì„ ì–»ëŠ”ë‹¤.
+	void			SetExtra( int nExtra );			// í™•ì¥ ë°ì´íƒ€ë¥¼ ì„¸íŒ… 
+	int				GetExtra();							// í™•ì¥ ë°ì´íƒ€ë¥¼ ì–»ê¸° 
 #if __VER >= 11 // __GUILDCOMBATCHIP
 	DWORD			GetChipCost();
 #endif // __GUILDCOMBATCHIP
@@ -115,24 +115,24 @@ public:
 	BOOL	IsPierceAble( DWORD dwTargetItemKind3 = NULL_ID, BOOL bSize = FALSE );
 #endif // __EXT_PIERCING
 
-	int			m_nAbilityOption;	// Ãß°¡ ´É·ÂÄ¡ °¡º¯ ¿É¼Ç
+	int			m_nAbilityOption;	// ì¶”ê°€ ëŠ¥ë ¥ì¹˜ ê°€ë³€ ì˜µì…˜
 
 public:
 	enum	{	expired	= 0x01,	binds	= 0x02,	isusing	= 0x04,	};
 
-	int			m_nRepair;			// ¼ö¸® È½¼ö
+	int			m_nRepair;			// ìˆ˜ë¦¬ íšŸìˆ˜
 	BYTE		m_nRepairNumber;
 	int			m_nHitPoint;
 	short		m_nItemNum; 
 	BYTE		m_byFlag;
-	DWORD		m_idGuild;			// ¾ÆÀÌÅÛ¿¡ ±æµå ¹øÈ£°¡ ºÙ´Â °æ¿ì(¸ÁÅä)
+	DWORD		m_idGuild;			// ì•„ì´í…œì— ê¸¸ë“œ ë²ˆí˜¸ê°€ ë¶™ëŠ” ê²½ìš°(ë§í† )
 	
 #ifdef __CLIENT
 	BOOL		m_bRepair;
 #endif	// __CLIENT
 
-	BYTE   	    m_bItemResist;				// ¾î´À ¼Ó¼º ÀÎ°¡? / TEXTÇüÅÂ·Î ±Ë½ºÆ®¸¦ ÀÛµ¿½ÃÅ°´Â ¾ÆÀÌÅÛ¿¡¼­ TRUEÀÌ¸é ´õÀÌ»ó Äù½ºÆ®¸¦ ÀÛµ¿ÇÒ ¼ö ¾ø°Ô µÈ´Ù.
-	int			m_nResistAbilityOption;		// ¼Ó¼º Ãß°¡ ´É·ÂÄ¡ °¡º¯ ¿É¼Ç
+	BYTE   	    m_bItemResist;				// ì–´ëŠ ì†ì„± ì¸ê°€? / TEXTí˜•íƒœë¡œ ê¶¤ìŠ¤íŠ¸ë¥¼ ì‘ë™ì‹œí‚¤ëŠ” ì•„ì´í…œì—ì„œ TRUEì´ë©´ ë”ì´ìƒ í€˜ìŠ¤íŠ¸ë¥¼ ì‘ë™í•  ìˆ˜ ì—†ê²Œ ëœë‹¤.
+	int			m_nResistAbilityOption;		// ì†ì„± ì¶”ê°€ ëŠ¥ë ¥ì¹˜ ê°€ë³€ ì˜µì…˜
 	int			m_nResistSMItemId;	
 
 #ifdef __WORLDSERVER
@@ -155,14 +155,14 @@ public:
 	BOOL	IsActiveTicket( DWORD dwItemId );
 #endif	// __SYS_COLLECTING
 #if __VER >= 11 // __SYS_IDENTIFY
-	// ºñÆ®º° ¿¬»ê
+	// ë¹„íŠ¸ë³„ ì—°ì‚°
 	// 8|10|8|10|8|10|8	= 64
 private:
 	__int64		m_iRandomOptItemId;
 
-	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 	__int64		m_n64NewRandomOption;
-	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 public:
 	__int64		GetRandomOptItemId( void )	{	return m_iRandomOptItemId;	}
@@ -172,13 +172,13 @@ public:
 	__int64*	GetRandomOptItemIdPtr( void )	{	return &m_iRandomOptItemId;	}
 
 
-	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 	__int64		GetNewRandomOption();
 	__int64*	GetNewRandomOptionPtr();
 	void		ResetNewRandomOption();
 	void		SelectNewRandomOption();
 	bool		SelectRandomOption( BYTE bySelectFlag );
-	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 
 	//	0x8000000000000000
@@ -188,7 +188,7 @@ public:
 	void	SetLevelDown( int i = eNoLevelDown );
 	DWORD	GetLimitLevel( void );
 #if __VER >= 14 // __NEW_ITEM_LIMIT_LEVEL
-	BOOL	IsLimitLevel( CMover* pMover );	// Âø¿ëÀÌ ºÒ°¡´ÉÇÑ ·¹º§ÀÎ°¡?
+	BOOL	IsLimitLevel( CMover* pMover );	// ì°©ìš©ì´ ë¶ˆê°€ëŠ¥í•œ ë ˆë²¨ì¸ê°€?
 #endif // __NEW_ITEM_LIMIT_LEVEL
 #else	// __SYS_IDENTIFY
 private:
@@ -201,18 +201,18 @@ public:
 #endif	// __SYS_IDENTIFY
 /*
 #ifdef __XPET2
-	int	m_nMaxLevel;	// ¼ö¸í
-	int m_nLevel;		// ·¹º§(³ªÀÌ)
-	int m_nStr, m_nDex, m_nInt, m_nSta;		// ½ºÅÈ
-	int m_nHungry;		// ¹è°íÇÂÁ¤µµ -10 ~ 10		-10ÀÌÇÏ´Â Á¸³»¹è°íÇÄ / -10 ~ -5 ¹è°íÇÄ / -5 ~ 5 º¸Åë / 5ÀÌ»ó ¹èºÎ¸§
-	int m_nFeeling;		// ±âºĞ. -10 ~ 10			
-	int m_nHealth;		// °Ç°­ -10 ~ 10
-	int m_nConstitution;	// Ã¼Áú(¿µ¾ç»óÅÂ) -10 ~ 10
+	int	m_nMaxLevel;	// ìˆ˜ëª…
+	int m_nLevel;		// ë ˆë²¨(ë‚˜ì´)
+	int m_nStr, m_nDex, m_nInt, m_nSta;		// ìŠ¤íƒ¯
+	int m_nHungry;		// ë°°ê³ í”ˆì •ë„ -10 ~ 10		-10ì´í•˜ëŠ” ì¡´ë‚´ë°°ê³ í”” / -10 ~ -5 ë°°ê³ í”” / -5 ~ 5 ë³´í†µ / 5ì´ìƒ ë°°ë¶€ë¦„
+	int m_nFeeling;		// ê¸°ë¶„. -10 ~ 10			
+	int m_nHealth;		// ê±´ê°• -10 ~ 10
+	int m_nConstitution;	// ì²´ì§ˆ(ì˜ì–‘ìƒíƒœ) -10 ~ 10
 #endif
 */
 	
 #if __VER >= 9	// __PET_0410
-	CPet*	m_pPet;		// Æê °´Ã¼, Ã¹ ¼ÒÈ¯ ãÁ »ı¼º
+	CPet*	m_pPet;		// í« ê°ì²´, ì²« ì†Œí™˜ æ™‚ ìƒì„±
 	BOOL	IsPet( void )	{	return GetProp()->dwItemKind3 == IK3_EGG;	}
 #endif	// __PET_0410
 	BOOL	IsEatPet( void )	{	return GetProp()->dwItemKind3 == IK3_PET;	}
@@ -228,7 +228,7 @@ public:
 //	Attributes
 	virtual	void			Empty();
 	ItemProp*	GetProp()	{	return prj.GetItemProp( m_dwItemId );	}
-	int			GetAttrOption();		// ¾ÆÀÌÅÛÀÇ +¿É¼Ç°ª°ú ¼Ó¼º/¼Ó¼º·¹º§°ªÀ» ÇÕÃÄ¼­ ¸®ÅÏ.
+	int			GetAttrOption();		// ì•„ì´í…œì˜ +ì˜µì…˜ê°’ê³¼ ì†ì„±/ì†ì„±ë ˆë²¨ê°’ì„ í•©ì³ì„œ ë¦¬í„´.
 	int			GetAbilityOption() { return m_nAbilityOption; }
 #if __VER >= 15 // __15_5TH_ELEMENTAL_SMELT_SAFETY
 	int			GetItemResist( void ) const;
@@ -240,8 +240,8 @@ public:
 
 //	PIERCINGINFO	m_piercingInfo;
 	void	GetPiercingAvail( PPIERCINGAVAIL pPiercingAvail/*input, output*/ );
-	BOOL	m_bCharged;			// »ó¿ëÈ­ ¾ÆÀÌÅÛÀÎÁö È®ÀÎ
-	DWORD	m_dwKeepTime;		// Áö¼Ó½Ã°£
+	BOOL	m_bCharged;			// ìƒìš©í™” ì•„ì´í…œì¸ì§€ í™•ì¸
+	DWORD	m_dwKeepTime;		// ì§€ì†ì‹œê°„
 
 	BOOL	IsExpiring( void )
 		{	
@@ -284,14 +284,14 @@ public:
 #endif // __PETVIS
 };
 
-inline int CItemElem::GetAttrOption()		// ¾ÆÀÌÅÛÀÇ +¿É¼Ç°ª°ú ¼Ó¼º/¼Ó¼º·¹º§°ªÀ» ÇÕÃÄ¼­ ¸®ÅÏ.
+inline int CItemElem::GetAttrOption()		// ì•„ì´í…œì˜ +ì˜µì…˜ê°’ê³¼ ì†ì„±/ì†ì„±ë ˆë²¨ê°’ì„ í•©ì³ì„œ ë¦¬í„´.
 {
 	int nAttr = (int)m_bItemResist;
 	int nOption = m_nResistAbilityOption;
 	int nRet = m_nAbilityOption;
 	
-	nRet |= (nAttr << 16);		// D16~D23 : ¼Ó¼º
-	nRet |= (nOption << 24);	// D24~D31 : ¼Ó¼º·¹º§
+	nRet |= (nAttr << 16);		// D16~D23 : ì†ì„±
+	nRet |= (nOption << 24);	// D24~D31 : ì†ì„±ë ˆë²¨
 	return nRet;
 }
 
@@ -319,10 +319,10 @@ typedef struct tagSkill
 #ifdef __XPET2
 class CPetElem : public CItemBase
 {
-	int m_nMaxLevel;	// ¼ö¸í
-	int m_nLevel;		// ·¹º§(³ªÀÌ)
-	int m_dwHungry;		// ¹è°íÇÂÁ¤µµ -10 ~ 10		-10ÀÌÇÏ´Â Á¸³»¹è°íÇÄ / -10 ~ -5 ¹è°íÇÄ / -5 ~ 5 º¸Åë / 5ÀÌ»ó ¹èºÎ¸§
-	int m_dwFeeling;	// ±âºĞ. -10 ~ 10			
+	int m_nMaxLevel;	// ìˆ˜ëª…
+	int m_nLevel;		// ë ˆë²¨(ë‚˜ì´)
+	int m_dwHungry;		// ë°°ê³ í”ˆì •ë„ -10 ~ 10		-10ì´í•˜ëŠ” ì¡´ë‚´ë°°ê³ í”” / -10 ~ -5 ë°°ê³ í”” / -5 ~ 5 ë³´í†µ / 5ì´ìƒ ë°°ë¶€ë¦„
+	int m_dwFeeling;	// ê¸°ë¶„. -10 ~ 10			
 
 	void Init();
 	void Destroy();
@@ -337,15 +337,15 @@ public:
 */
 
 //////////////////////////////////////////////////////////////////////
-// ÀÌ°ÍÀº ¾ÆÀÌÅÛ ÇÏ³ªÇÏ³ªÀÇ ¿ä¼Ò¸¦ ¹è¿­·Î ¸¸µé¾î Ãß°¡, »èÁ¦ µîÀÇ 
-// ÆíÁıÀÌ °¡´ÉÇÑ ÄÁÅ×ÀÌ³Ê Å¬·¡½º´Ù.
+// ì´ê²ƒì€ ì•„ì´í…œ í•˜ë‚˜í•˜ë‚˜ì˜ ìš”ì†Œë¥¼ ë°°ì—´ë¡œ ë§Œë“¤ì–´ ì¶”ê°€, ì‚­ì œ ë“±ì˜ 
+// í¸ì§‘ì´ ê°€ëŠ¥í•œ ì»¨í…Œì´ë„ˆ í´ë˜ìŠ¤ë‹¤.
 //////////////////////////////////////////////////////////////////////
 template <class T> class CItemContainer  
 {
 public:
 	LPDWORD    m_apIndex;
-	DWORD      m_dwIndexNum; // equpÀ» Á¦¿ÜÇÑ ¼ø¼ö ÄÜÅ×ÀÌ³Ê »çÀÌÁî 
-	DWORD      m_dwItemMax;  // equpÀ» Æ÷ÇÔÇÑ ÀüÃ¼ »çÀÌÁî 
+	DWORD      m_dwIndexNum; // equpì„ ì œì™¸í•œ ìˆœìˆ˜ ì½˜í…Œì´ë„ˆ ì‚¬ì´ì¦ˆ 
+	DWORD      m_dwItemMax;  // equpì„ í¬í•¨í•œ ì „ì²´ ì‚¬ì´ì¦ˆ 
 	T*         m_apItem;
 
 	void SetItemContainer( DWORD dwItemType, DWORD dwItemMax, DWORD dwExtra = NULL_ID );
@@ -393,7 +393,7 @@ public:
 #endif	// __JEFF_VER_8
 #endif	// __CLIENT
 
-	// Equip °ü·Ã 
+	// Equip ê´€ë ¨ 
 	BOOL DoEquip( DWORD dwSrcIndex, DWORD dwDstIndex );
 	BOOL UnEquip( DWORD dwIndex );
 	BOOL IsEquip( DWORD dwObjId );
@@ -512,8 +512,8 @@ template <class T> void CItemContainer<T>::SetItemContainer( DWORD dwItemType, D
 	Clear();
 }
 
-// ÀÎ¼ö¸¦ ¿ÀºêÁ§Æ® ¾ÆÀÌµğ¸¦ »ç¿ëÇØ¼­ ¾ò´Â´Ù.
-// ¿ÀºêÁ§Æ® ¾ÆÀÌµğ´Â ¹è¿­¿¡ ÇÑ¹ø Ãß°¡ÇÒ ¶§ »ı¼ºµÇ¸ç »èÁ¦µÇÁö ¾Ê´Â ÇÑ Àı´ë ¹Ù²îÁö ¾Ê´Â´Ù.
+// ì¸ìˆ˜ë¥¼ ì˜¤ë¸Œì íŠ¸ ì•„ì´ë””ë¥¼ ì‚¬ìš©í•´ì„œ ì–»ëŠ”ë‹¤.
+// ì˜¤ë¸Œì íŠ¸ ì•„ì´ë””ëŠ” ë°°ì—´ì— í•œë²ˆ ì¶”ê°€í•  ë•Œ ìƒì„±ë˜ë©° ì‚­ì œë˜ì§€ ì•ŠëŠ” í•œ ì ˆëŒ€ ë°”ë€Œì§€ ì•ŠëŠ”ë‹¤.
 template <class T> T* CItemContainer<T>::GetAtId( DWORD dwId )
 {
 	if( dwId >= (DWORD)( GetMax() ) ) return NULL;
@@ -546,7 +546,7 @@ template <class T> int CItemContainer<T>::GetAtItemNum( DWORD dwItemId )
 
 template <class T> BOOL CItemContainer<T>::DoEquip( DWORD dwSrcIndex, DWORD dwDstIndex )
 { 
-	dwDstIndex += m_dwIndexNum;		// dwDstIndex = °¡¹æÅ©±â(42) + PARTS_???;
+	dwDstIndex += m_dwIndexNum;		// dwDstIndex = ê°€ë°©í¬ê¸°(42) + PARTS_???;
 
 	if( dwSrcIndex == dwDstIndex )
 		return FALSE;
@@ -560,10 +560,10 @@ template <class T> BOOL CItemContainer<T>::DoEquip( DWORD dwSrcIndex, DWORD dwDs
 		{
 			if( m_apIndex[dwSrcIndex] >= m_dwItemMax )
 				return FALSE;
-			m_apIndex[ dwDstIndex ] = m_apIndex[ dwSrcIndex ];		// °¡¹æ¿¡ ÀÖ´ø index°ªÀ» ÀåÂøºÎÀ§(dwDstIndex)·Î ¿Å±è.
-			m_apIndex[ dwSrcIndex ] = i;							// ¿ø·¡ ¾ÆÅÛÀÌ ÀÖ´ø°÷(dwSrcIndex)Àº ºñ¾îÀÖ°Ô(i) ¸¸µç´Ù.
-			m_apItem[ m_apIndex[ dwSrcIndex ] ].m_dwObjIndex = dwSrcIndex;	// ¿Å°ÜÁ®¼­ ºñ°ÔµÈ°÷ÀÇ m_dwObjIndex¿¡´Â ¿Ö dwSrcIndex¸¦ ³Ö¾îÁÖ´Â°¡?
-			m_apItem[ m_apIndex[ dwDstIndex ] ].m_dwObjIndex = dwDstIndex;	// dwObjIndex´Â apItem¿¡¼­ ¿ªÀ¸·Î apIndexÀÇ index¸¦ ¾Ë±âÀ§ÇÔÀÎ°¡?
+			m_apIndex[ dwDstIndex ] = m_apIndex[ dwSrcIndex ];		// ê°€ë°©ì— ìˆë˜ indexê°’ì„ ì¥ì°©ë¶€ìœ„(dwDstIndex)ë¡œ ì˜®ê¹€.
+			m_apIndex[ dwSrcIndex ] = i;							// ì›ë˜ ì•„í…œì´ ìˆë˜ê³³(dwSrcIndex)ì€ ë¹„ì–´ìˆê²Œ(i) ë§Œë“ ë‹¤.
+			m_apItem[ m_apIndex[ dwSrcIndex ] ].m_dwObjIndex = dwSrcIndex;	// ì˜®ê²¨ì ¸ì„œ ë¹„ê²Œëœê³³ì˜ m_dwObjIndexì—ëŠ” ì™œ dwSrcIndexë¥¼ ë„£ì–´ì£¼ëŠ”ê°€?
+			m_apItem[ m_apIndex[ dwDstIndex ] ].m_dwObjIndex = dwDstIndex;	// dwObjIndexëŠ” apItemì—ì„œ ì—­ìœ¼ë¡œ apIndexì˜ indexë¥¼ ì•Œê¸°ìœ„í•¨ì¸ê°€?
 			return TRUE;
 		}
 	}
@@ -670,7 +670,7 @@ template <class T> BOOL CItemContainer<T>::Add( T* pElem, BYTE* pnId, short* pnN
 	int nId;
 
 	short nNumtmp	= ( (CItemElem*)pElem )->m_nItemNum;
-	if( IsFull( pElem, pItemProp, nNumtmp ) )	// ¾ÆÀÌÅÛÀ» ³ÖÀ»¼ö ÀÖ´ÂÁö °Ë»ç
+	if( IsFull( pElem, pItemProp, nNumtmp ) )	// ì•„ì´í…œì„ ë„£ì„ìˆ˜ ìˆëŠ”ì§€ ê²€ì‚¬
 		return FALSE;
 
 	if( pItemProp->dwPackMax == 1 )
@@ -723,7 +723,7 @@ template <class T> BOOL CItemContainer<T>::Add( T* pElem, BYTE* pnId, short* pnN
 			if( nId < 0 || nId >= (int)( m_dwItemMax ) )
 				continue;
 			pElemtmp	= (CItemElem*)&m_apItem[nId];
-			if( pElemtmp->IsEmpty() )	// ºó°ø°£ÀÎÁö °Ë»ç
+			if( pElemtmp->IsEmpty() )	// ë¹ˆê³µê°„ì¸ì§€ ê²€ì‚¬
 			{
 				*pElemtmp	= *( (CItemElem*)pElem );
 				pElemtmp->m_dwObjId	= nId;
@@ -784,7 +784,7 @@ template <class T> void CItemContainer<T>::SetAtId( OBJID dwObjId, T* pItemElem 
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-// client Àü¿ë 
+// client ì „ìš© 
 #ifdef __CLIENT
 
 template <class T> void CItemContainer<T>::RemoveAt( DWORD dwIndex )
@@ -798,7 +798,7 @@ template <class T> void CItemContainer<T>::RemoveAt( DWORD dwIndex )
 }
 template <class T> void CItemContainer<T>::SetAt( DWORD dwIndex, DWORD dwItemId )
 {
-	// ÀÎµ¦½º°¡ ºñ¾îÀÖ³ª?
+	// ì¸ë±ìŠ¤ê°€ ë¹„ì–´ìˆë‚˜?
 	T* pItemElem = &m_apItem[ m_apIndex[ dwIndex ] ];
 	pItemElem->m_dwItemId = dwItemId;
 	pItemElem->m_dwObjId = m_apIndex[ dwIndex ];
@@ -816,7 +816,7 @@ template <class T> void CItemContainer<T>::SetAt( DWORD dwIndex, T* pItemElem )
 
 
 
-// ¼ø¼öÇÏ°Ô ÀÎµ¦½º ¹è¿­¿¡¼­ CItemElemÀ» ²¨³½´Ù.
+// ìˆœìˆ˜í•˜ê²Œ ì¸ë±ìŠ¤ ë°°ì—´ì—ì„œ CItemElemì„ êº¼ë‚¸ë‹¤.
 template <class T> T* CItemContainer<T>::GetAt( DWORD dwIndex )
 {
 	DWORD dwIdx = m_apIndex[ dwIndex ];
@@ -955,23 +955,23 @@ template <class T> void CItemContainer<T>::Serialize( CAr & ar )	// 0-673	// 466
 #include "mempooler.h"
 typedef MemPooler<CItem> CItemPool;
 
-/// ÁöÇüÀ§¿¡ Á¸ÀçÇÏ´Â ¾ÆÀÌÅÛ 
+/// ì§€í˜•ìœ„ì— ì¡´ì¬í•˜ëŠ” ì•„ì´í…œ 
 class CItem  : public CCtrl
 {
 private:
 #ifdef __CLIENT
-	float	m_fGroundY;		// ¾ÆÀÌÅÛÀÌ »ı¼ºµÉ´ç½Ã ±× À§Ä¡ÀÇ YÁÂÇ¥¸¦ ¹Ì¸® ±¸ÇØ³õÀÚ.
+	float	m_fGroundY;		// ì•„ì´í…œì´ ìƒì„±ë ë‹¹ì‹œ ê·¸ ìœ„ì¹˜ì˜ Yì¢Œí‘œë¥¼ ë¯¸ë¦¬ êµ¬í•´ë†“ì.
 	D3DXVECTOR3	 m_vDelta;	// 
 #endif // __CLIENT
 	
 public:
 	CItemBase* m_pItemBase;
 	u_long	m_idHolder;
-	OBJID	m_idOwn;		// ´©°¡ ÀÌ¾ÆÀÌÅÛÀ» °¡Áú ±Ç¸®°¡ ÀÖ´Â°¡.
-	DWORD	m_dwDropTime;	// µå¶øÇßÀ»¶§ÀÇ ½Ã°£.
-	BOOL	m_bDropMob;		// ¸ó½ºÅÍ°¡ Á×¾î¼­ µå¶øÇÑ°ÍÀÌ³Ä?.
+	OBJID	m_idOwn;		// ëˆ„ê°€ ì´ì•„ì´í…œì„ ê°€ì§ˆ ê¶Œë¦¬ê°€ ìˆëŠ”ê°€.
+	DWORD	m_dwDropTime;	// ë“œëí–ˆì„ë•Œì˜ ì‹œê°„.
+	BOOL	m_bDropMob;		// ëª¬ìŠ¤í„°ê°€ ì£½ì–´ì„œ ë“œëí•œê²ƒì´ëƒ?.
 #ifdef __EVENT_MONSTER
-	BOOL	m_IdEventMonster;	// ÀÌº¥Æ® ¸ó½ºÅÍ°¡ µå¶øÇÑ ¾ÆÀÌÅÛÀÎ°¡?
+	BOOL	m_IdEventMonster;	// ì´ë²¤íŠ¸ ëª¬ìŠ¤í„°ê°€ ë“œëí•œ ì•„ì´í…œì¸ê°€?
 #endif // __EVENT_MONSTER
 
 

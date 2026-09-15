@@ -1,4 +1,4 @@
-// BetaPatchClient.h : main header file for the BETAPATCHCLIENT application
+﻿// BetaPatchClient.h : main header file for the BETAPATCHCLIENT application
 //
 
 #if !defined(AFX_BETAPATCHCLIENT_H__CB6FDBED_0695_4D26_8042_AFE31500A8C5__INCLUDED_)

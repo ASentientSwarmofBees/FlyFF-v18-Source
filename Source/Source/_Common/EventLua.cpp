@@ -1,4 +1,4 @@
-// EventLua.cpp: implementation of the CEventLua class.
+ï»¿// EventLua.cpp: implementation of the CEventLua class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -40,11 +40,11 @@ CEventLua::~CEventLua()
 {
 #ifdef __WORLDSERVER
 #ifdef __EVENTLUA_SPAWN
-	m_mapSpawnList.clear();			// spawn ÀÌº¥Æ® ÁøÇà½Ã »ı¼ºµÉ ¾ÆÀÌÅÛ ¹× ¸ó½ºÅÍ Á¤º¸
-	m_mapMonsterId.clear();			// spawn ÀÌº¥Æ® ÁøÇà½Ã »ı¼ºµÈ ¸ó½ºÅÍ°¡ ÀÌº¥Æ®¿ë ÀÎÁö °Ë»çÇÏ±â À§ÇØ ÇÊ¿ä
-	m_vecSpawnRegion.clear();		// spawn ÀÌº¥Æ® ÁøÇà½Ã ¾ÆÀÌÅÛ ¹× ¸ó½ºÅÍÀÇ »ı¼ºÀ§Ä¡(¿ùµå ¹× ÁÂÇ¥) Á¤º¸
-	m_mapSpawnedMonster.clear();	// spawn ÀÌº¥Æ® ÁøÇà½Ã ½ÇÁ¦·Î »ı¼ºµÈ ¸ó½ºÅÍµéÀÇ ¸ñ·Ï ÀúÀå(ÀÌº¥Æ® Á¾·á½Ã »èÁ¦ÇÏ±â À§ÇØ ÇÊ¿ä)
-	m_vecEndSpawnEvent.clear();		// Á¾·áµÈ ÀÌº¥Æ® ID ¸ñ·Ï( ³²¾ÆÀÖ´Â spawn ¸ó½ºÅÍ°¡ ÀÖÀ¸¸é ´Ù »èÁ¦ÇÑ ÈÄ ID¸¦ Á¦°ÅÇÑ´Ù
+	m_mapSpawnList.clear();			// spawn ì´ë²¤íŠ¸ ì§„í–‰ì‹œ ìƒì„±ë  ì•„ì´í…œ ë° ëª¬ìŠ¤í„° ì •ë³´
+	m_mapMonsterId.clear();			// spawn ì´ë²¤íŠ¸ ì§„í–‰ì‹œ ìƒì„±ëœ ëª¬ìŠ¤í„°ê°€ ì´ë²¤íŠ¸ìš© ì¸ì§€ ê²€ì‚¬í•˜ê¸° ìœ„í•´ í•„ìš”
+	m_vecSpawnRegion.clear();		// spawn ì´ë²¤íŠ¸ ì§„í–‰ì‹œ ì•„ì´í…œ ë° ëª¬ìŠ¤í„°ì˜ ìƒì„±ìœ„ì¹˜(ì›”ë“œ ë° ì¢Œí‘œ) ì •ë³´
+	m_mapSpawnedMonster.clear();	// spawn ì´ë²¤íŠ¸ ì§„í–‰ì‹œ ì‹¤ì œë¡œ ìƒì„±ëœ ëª¬ìŠ¤í„°ë“¤ì˜ ëª©ë¡ ì €ì¥(ì´ë²¤íŠ¸ ì¢…ë£Œì‹œ ì‚­ì œí•˜ê¸° ìœ„í•´ í•„ìš”)
+	m_vecEndSpawnEvent.clear();		// ì¢…ë£Œëœ ì´ë²¤íŠ¸ ID ëª©ë¡( ë‚¨ì•„ìˆëŠ” spawn ëª¬ìŠ¤í„°ê°€ ìˆìœ¼ë©´ ë‹¤ ì‚­ì œí•œ í›„ IDë¥¼ ì œê±°í•œë‹¤
 #endif // __EVENTLUA_SPAWN
 #ifdef __EVENTLUA_KEEPCONNECT
 	m_vecKeepConnectUser.clear();
@@ -195,7 +195,7 @@ void CEventLua::LoadScript()
 	}
 	else
 	{
-		Error( "Event.lua ½ÇÇà ½ÇÆĞ!!!" );
+		Error( "Event.lua ì‹¤í–‰ ì‹¤íŒ¨!!!" );
 	}
 }
 #endif // __WORLDSERVER, __DBSERVER
@@ -553,12 +553,12 @@ void CEventLua::SetLevelUpGift( CUser* pUser, int nLevel )
 
 			
 			if( pUser->CreateItem( &itemElem ) )
-			{	// ·Î±× ³²±è
+			{	// ë¡œê·¸ ë‚¨ê¹€
 				aLogItem.RecvName = "EVENT_LEVELUP_GIFT";
 				g_DPSrvr.OnLogItem( aLogItem, &itemElem, nItemNum );
 			}
 			else
-			{	// ¿ìÆí Áö±Ş
+			{	// ìš°í¸ ì§€ê¸‰
 				g_dpDBClient.SendQueryPostMail( pUser->m_idPlayer, 0, itemElem, 0, "", "" );
 				aLogItem.RecvName = "EVENT_LEVELUP_GIFT_POST";
 				g_DPSrvr.OnLogItem( aLogItem, &itemElem, nItemNum );
@@ -630,7 +630,7 @@ void CEventLua::SetSpawnEvent( BYTE nId, BOOL bState )
 			else
 				it->second.assign( vecTemp.begin(), vecTemp.end() );
 
-			// ¿Ï·á ¸®½ºÆ®¿¡¼­ ÀçÀû¿ëµÈ ÀÌº¥Æ®¸¦ Á¦°ÅÇÑ´Ù.
+			// ì™„ë£Œ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì¬ì ìš©ëœ ì´ë²¤íŠ¸ë¥¼ ì œê±°í•œë‹¤.
 			for( vector<BYTE>::iterator itVec=m_vecEndSpawnEvent.begin(); itVec!=m_vecEndSpawnEvent.end(); )
 			{
 				if( (*itVec) == nId )
@@ -644,7 +644,7 @@ void CEventLua::SetSpawnEvent( BYTE nId, BOOL bState )
 			map<BYTE, VECSPAWNINFO>::iterator it = m_mapSpawnList.find( nId );
 			if( it != m_mapSpawnList.end() )
 			{
-				m_vecEndSpawnEvent.push_back( it->first );	// ¿Ï·á ¸®½ºÆ®¿¡ ÇØ´ç ÀÌº¥Æ® ID¸¦ Ãß°¡ÇÑ´Ù. ½ºÆùµÈ ¸ó½ºÅÍµéÀ» Á¦°ÅÇÏ±â À§ÇØ ÇÊ¿ä.
+				m_vecEndSpawnEvent.push_back( it->first );	// ì™„ë£Œ ë¦¬ìŠ¤íŠ¸ì— í•´ë‹¹ ì´ë²¤íŠ¸ IDë¥¼ ì¶”ê°€í•œë‹¤. ìŠ¤í°ëœ ëª¬ìŠ¤í„°ë“¤ì„ ì œê±°í•˜ê¸° ìœ„í•´ í•„ìš”.
 				m_mapSpawnList.erase( it );
 			}
 		}
@@ -689,7 +689,7 @@ void CEventLua::EventSpawnProcess()
 							pItemElem->m_nItemNum	= 1;
 							pItemElem->m_nHitPoint	= pProp->dwEndurance;
 							pItemElem->SetSerialNumber();
-							( (CItem*)pObj )->m_dwDropTime	= g_tmCurrent + MIN( 1440 );	// 24½Ã°£ À¯Áö
+							( (CItem*)pObj )->m_dwDropTime	= g_tmCurrent + MIN( 1440 );	// 24ì‹œê°„ ìœ ì§€
 							( (CItem*)pObj )->m_pItemBase	= pItemElem;
 							pObj->SetPos( v );
 							pWorld->ADDOBJ( pObj, TRUE, nDefaultLayer );
@@ -728,7 +728,7 @@ void CEventLua::EventSpawnProcess()
 
 void CEventLua::DeleteEndEventProcess()
 {
-	// ÀÌº¥Æ® ¿Ï·á ¸®½ºÆ®¿¡ ÀÖ´Â ½ºÆùµÈ ¸ó½ºÅÍµéÀ» Á¦°ÅÇÑ´Ù.(ÇÁ·Î¼¼½º´ç 100°³¾¿)
+	// ì´ë²¤íŠ¸ ì™„ë£Œ ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ” ìŠ¤í°ëœ ëª¬ìŠ¤í„°ë“¤ì„ ì œê±°í•œë‹¤.(í”„ë¡œì„¸ìŠ¤ë‹¹ 100ê°œì”©)
 	for( vector<BYTE>::iterator itVec=m_vecEndSpawnEvent.begin(); itVec!=m_vecEndSpawnEvent.end(); )
 	{
 		int nDelCount = 0;
@@ -745,14 +745,14 @@ void CEventLua::DeleteEndEventProcess()
 				m_mapSpawnedMonster.erase( itMSM++ );
 
 				nDelCount++;
-				if( nDelCount == (100/m_vecEndSpawnEvent.size()) )	// 100°³°¡ »èÁ¦µÇ¾úÀ¸¸é ´ÙÀ½ ÇÁ·Î¼¼½º¿¡ »èÁ¦ÇÑ´Ù.
+				if( nDelCount == (100/m_vecEndSpawnEvent.size()) )	// 100ê°œê°€ ì‚­ì œë˜ì—ˆìœ¼ë©´ ë‹¤ìŒ í”„ë¡œì„¸ìŠ¤ì— ì‚­ì œí•œë‹¤.
 					break;
 			}
 			else
 				itMSM++;
 		}
 		
-		if( nDelCount == 0 )	// ´õÀÌ»ó »èÁ¦µÉ°ÍÀÌ ¾øÀ¸¸é ÀÌº¥Æ® ¿Ï·á ¸ñ·Ï¿¡¼­ ÇØ´ç ID¸¦ Á¦°ÅÇÑ´Ù.
+		if( nDelCount == 0 )	// ë”ì´ìƒ ì‚­ì œë ê²ƒì´ ì—†ìœ¼ë©´ ì´ë²¤íŠ¸ ì™„ë£Œ ëª©ë¡ì—ì„œ í•´ë‹¹ IDë¥¼ ì œê±°í•œë‹¤.
 		{
 			for( map<DWORD, BYTE>::iterator itMId=m_mapMonsterId.begin(); itMId!=m_mapMonsterId.end(); )
 			{

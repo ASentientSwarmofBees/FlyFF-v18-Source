@@ -1,4 +1,4 @@
-#ifndef __HTTPDOWNLOAD_H__
+﻿#ifndef __HTTPDOWNLOAD_H__
 #define	__HTTPDOWNLOAD_H__
 
 

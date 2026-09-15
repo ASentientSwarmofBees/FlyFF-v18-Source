@@ -1,4 +1,4 @@
-// UserTaskBar.cpp: implementation of the CUserTaskBar class.
+ï»¿// UserTaskBar.cpp: implementation of the CUserTaskBar class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -35,7 +35,7 @@ void CUserTaskBar::InitTaskBarShorcutKind( DWORD dwShortcutKind )
 {
 	for( int i = 0; i < MAX_SLOT_APPLET; i++ )
 	{
-		if( m_aSlotApplet[i].m_dwShortcut == dwShortcutKind )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
+		if( m_aSlotApplet[i].m_dwShortcut == dwShortcutKind )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
 			memset( &m_aSlotApplet[i], 0, sizeof( SHORTCUT ) );
 	}
 
@@ -43,7 +43,7 @@ void CUserTaskBar::InitTaskBarShorcutKind( DWORD dwShortcutKind )
 	{
 		for( int j = 0; j < MAX_SLOT_ITEM; j++ )
 		{
-			if( m_aSlotItem[i][j].m_dwShortcut == dwShortcutKind )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
+			if( m_aSlotItem[i][j].m_dwShortcut == dwShortcutKind )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
 			{
 				memset( &m_aSlotItem[i][j], 0, sizeof( SHORTCUT ) );
 			}
@@ -51,7 +51,7 @@ void CUserTaskBar::InitTaskBarShorcutKind( DWORD dwShortcutKind )
 	}
 	for( int i = 0; i < MAX_SLOT_QUEUE; i++ )
 	{
-		if( m_aSlotQueue[i].m_dwShortcut == dwShortcutKind )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
+		if( m_aSlotQueue[i].m_dwShortcut == dwShortcutKind )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
 		{
 			memset( &m_aSlotQueue[i], 0, sizeof( SHORTCUT ) );
 		}
@@ -67,7 +67,7 @@ void CUserTaskBar::Serialize( CAr &ar )
 		ar << nCount;
 		for( int i = 0; i < MAX_SLOT_APPLET; i++ )
 		{
-			if( m_aSlotApplet[i].m_dwShortcut != SHORTCUT_NONE )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
+			if( m_aSlotApplet[i].m_dwShortcut != SHORTCUT_NONE )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
 			{
 				ar << i;
 				ar << m_aSlotApplet[i].m_dwShortcut <<	m_aSlotApplet[i].m_dwId << m_aSlotApplet[i].m_dwType;
@@ -88,7 +88,7 @@ void CUserTaskBar::Serialize( CAr &ar )
 		{
 			for( int j = 0; j < MAX_SLOT_ITEM; j++ )
 			{
-				if( m_aSlotItem[i][j].m_dwShortcut != SHORTCUT_NONE )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
+				if( m_aSlotItem[i][j].m_dwShortcut != SHORTCUT_NONE )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
 				{
 					ar << i << j;
 					ar << m_aSlotItem[i][j].m_dwShortcut <<	m_aSlotItem[i][j].m_dwId << m_aSlotItem[i][j].m_dwType;
@@ -99,8 +99,8 @@ void CUserTaskBar::Serialize( CAr &ar )
 					
 				}
 
-				// m_aSlotItem[i][j]ÀÌ À¯È¿ÇÑ ¼ôÄÆÀÌ¶ó¸é
-//				ar << i << j << m_aSlotItem[i][j]ÀÇ ÇÊ¿äÇÑ Á¤º¸ ÀúÀå
+				// m_aSlotItem[i][j]ì´ ìœ íš¨í•œ ìˆì»·ì´ë¼ë©´
+//				ar << i << j << m_aSlotItem[i][j]ì˜ í•„ìš”í•œ ì •ë³´ ì €ì¥
 //				if( m_aSlotItem[i][j].m_dwType == SHORTCUT_CHAT )
 //					ar.WriteString(
 			}
@@ -113,7 +113,7 @@ void CUserTaskBar::Serialize( CAr &ar )
 		ar << nCount;
 		for( int i = 0; i < MAX_SLOT_QUEUE; i++ )
 		{
-			if( m_aSlotQueue[i].m_dwShortcut != SHORTCUT_NONE )		// °ªÀÌ µé¾îÀÖ´ÂÁö °Ë»ç
+			if( m_aSlotQueue[i].m_dwShortcut != SHORTCUT_NONE )		// ê°’ì´ ë“¤ì–´ìˆëŠ”ì§€ ê²€ì‚¬
 			{
 				ar << i;
 				ar << m_aSlotQueue[i].m_dwShortcut << m_aSlotQueue[i].m_dwId << m_aSlotQueue[i].m_dwType;
@@ -121,8 +121,8 @@ void CUserTaskBar::Serialize( CAr &ar )
 				nCount++;
 			}
 			
-							// m_aSlotQueue[i]ÀÌ À¯È¿ÇÑ ¼ôÄÆÀÌ¶ó¸é
-//				ar << i << m_aSlotQueue[i]ÀÇ ÇÊ¿äÇÑ Á¤º¸ ÀúÀå
+							// m_aSlotQueue[i]ì´ ìœ íš¨í•œ ìˆì»·ì´ë¼ë©´
+//				ar << i << m_aSlotQueue[i]ì˜ í•„ìš”í•œ ì •ë³´ ì €ì¥
 		}
 		ar << m_nActionPoint;
 		lpBuf	= ar.GetBuffer( &nBufSize );
@@ -143,7 +143,7 @@ void CUserTaskBar::Serialize( CAr &ar )
 			ar >> m_aSlotApplet[nIndex].m_dwIndex >> m_aSlotApplet[nIndex].m_dwUserId >> m_aSlotApplet[nIndex].m_dwData;
 			if( m_aSlotApplet[nIndex].m_dwShortcut == SHORTCUT_CHAT)
 				ar.ReadString( m_aSlotApplet[nIndex].m_szString, MAX_SHORTCUT_STRING );
-//			ar >>  m_aSlotApplet[nIndex]¿¡ ¾Æ±î ³ÖÀº ÇÊ¿äÇÑ Á¤º¸¸¦ ³Ö´Â´Ù.
+//			ar >>  m_aSlotApplet[nIndex]ì— ì•„ê¹Œ ë„£ì€ í•„ìš”í•œ ì •ë³´ë¥¼ ë„£ëŠ”ë‹¤.
 		}
 		ar >> nCount;	// slot item count
 		int nIndex2;
@@ -162,7 +162,7 @@ void CUserTaskBar::Serialize( CAr &ar )
 			ar >> nIndex;
 			ar >> m_aSlotQueue[nIndex].m_dwShortcut >> m_aSlotQueue[nIndex].m_dwId >> m_aSlotQueue[nIndex].m_dwType;
 			ar >> m_aSlotQueue[nIndex].m_dwIndex >> m_aSlotQueue[nIndex].m_dwUserId >> m_aSlotQueue[nIndex].m_dwData;
-//			ar >> m_aSlotQueue[nIndex]¿¡ Á¤º¸¸¦ ³Ö´Â´Ù.
+//			ar >> m_aSlotQueue[nIndex]ì— ì •ë³´ë¥¼ ë„£ëŠ”ë‹¤.
 		}
 		ar >> m_nActionPoint;
 	}
@@ -191,7 +191,7 @@ void CUserTaskBar::SetShortcut( int nIndex, DWORD dwShortcut, DWORD dwType, DWOR
 }
 
 #ifdef __WORLDSERVER
-// ½ºÅ³¹Ù »ç¿ëÀÌ ¿ÏÀüÈ÷ ³¡³µÀ»¶§
+// ìŠ¤í‚¬ë°” ì‚¬ìš©ì´ ì™„ì „íˆ ëë‚¬ì„ë•Œ
 void CUserTaskBar::OnEndSkillQueue( CUser *pUser )
 {
 	m_nUsedSkillQueue = -1;
@@ -202,7 +202,7 @@ void CUserTaskBar::OnEndSkillQueue( CUser *pUser )
 
 int	CUserTaskBar::SetNextSkill( CUser *pUser )
 {
-	m_nUsedSkillQueue ++;		// Å¥ÀÎµ¦½º ´ÙÀ½À¸·Î...
+	m_nUsedSkillQueue ++;		// íì¸ë±ìŠ¤ ë‹¤ìŒìœ¼ë¡œ...
 
 	int nAP = m_nActionPoint;
 
@@ -210,7 +210,7 @@ int	CUserTaskBar::SetNextSkill( CUser *pUser )
 	{
 		switch( m_nUsedSkillQueue )
 		{
-		case 1:	nAP -= 6;	break;		// ¾×¼Ç Æ÷ÀÎÆ® ¼Ò¸ğ·®. ´ÙÀ½½½·ÔÀ» »ç¿ëÇÒ¼öÀÖ´ÂÁö ¹Ì¸® ¾Ë¾Æº¸±â À§ÇÔ.
+		case 1:	nAP -= 6;	break;		// ì•¡ì…˜ í¬ì¸íŠ¸ ì†Œëª¨ëŸ‰. ë‹¤ìŒìŠ¬ë¡¯ì„ ì‚¬ìš©í• ìˆ˜ìˆëŠ”ì§€ ë¯¸ë¦¬ ì•Œì•„ë³´ê¸° ìœ„í•¨.
 		case 2:	nAP -= 8;	break;
 		case 3:	nAP -= 11;	break;
 		case 4:	nAP -= 30;	break;
@@ -219,21 +219,21 @@ int	CUserTaskBar::SetNextSkill( CUser *pUser )
 
 	LPSHORTCUT pShortcut = &m_aSlotQueue[ m_nUsedSkillQueue ];
 	BOOL bResult = nAP < 0;
-	if( ( m_nUsedSkillQueue >= MAX_SLOT_QUEUE) || pShortcut->IsEmpty() || (nAP < 0) )	// Å¥ÁøÇàÀÌ ³¡±îÁö °¬°Å³ª || Å¥°¡ ºñ¾ú°Å³ª || AP°¡ ¾ø°Å³ª.
+	if( ( m_nUsedSkillQueue >= MAX_SLOT_QUEUE) || pShortcut->IsEmpty() || (nAP < 0) )	// íì§„í–‰ì´ ëê¹Œì§€ ê°”ê±°ë‚˜ || íê°€ ë¹„ì—ˆê±°ë‚˜ || APê°€ ì—†ê±°ë‚˜.
 	{
 		OnEndSkillQueue( pUser );
-		return 0;		// Å¥½ÇÇà ³¡.
+		return 0;		// íì‹¤í–‰ ë.
 	} else
 	{
 		if( nAP < 0 )	nAP = 0;
 		m_nActionPoint = nAP;
-		pUser->AddSetActionPoint( nAP );		// ¾×¼ğÆ÷ÀÎÆ® Å¬¶ó¿¡ °»½Å.
+		pUser->AddSetActionPoint( nAP );		// ì•¡ìˆ€í¬ì¸íŠ¸ í´ë¼ì— ê°±ì‹ .
 		OBJID idTarget = pUser->m_idSetTarget;
-		TRACE( "´ÙÀ½½ºÅ³»ç¿ë ½Ãµµ%d, ", pShortcut->m_dwId );
-		if( pUser->CMD_SetUseSkill( idTarget, pShortcut->m_dwId, SUT_QUEUEING ) == 0 )		// ½ÇÇàÇÒ ¸í·ÉÀ» ¼ÂÆÃ. ÀÌµ¿ + ½ºÅ³»ç¿ëÀÌ ÇÕÃÄÁø ¸í·É.
+		TRACE( "ë‹¤ìŒìŠ¤í‚¬ì‚¬ìš© ì‹œë„%d, ", pShortcut->m_dwId );
+		if( pUser->CMD_SetUseSkill( idTarget, pShortcut->m_dwId, SUT_QUEUEING ) == 0 )		// ì‹¤í–‰í•  ëª…ë ¹ì„ ì…‹íŒ…. ì´ë™ + ìŠ¤í‚¬ì‚¬ìš©ì´ í•©ì³ì§„ ëª…ë ¹.
 		{
-			TRACE( "´ÙÀ½½ºÅ³»ç¿ë ½ÇÆĞ %d, ", pShortcut->m_dwId );
-			SetNextSkill( pUser );	// ½ºÅ³»ç¿ë¿¡ ½ÇÆĞÇß´Ù¸é ´ÙÀ½ ½ºÅ³ »ç¿ëÇÏµµ·Ï ³Ñ¾î°¨.
+			TRACE( "ë‹¤ìŒìŠ¤í‚¬ì‚¬ìš© ì‹¤íŒ¨ %d, ", pShortcut->m_dwId );
+			SetNextSkill( pUser );	// ìŠ¤í‚¬ì‚¬ìš©ì— ì‹¤íŒ¨í–ˆë‹¤ë©´ ë‹¤ìŒ ìŠ¤í‚¬ ì‚¬ìš©í•˜ë„ë¡ ë„˜ì–´ê°.
 		}
 		return 1;
 	}

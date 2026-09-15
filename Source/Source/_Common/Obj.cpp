@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "CreateObj.h"
 
 	#include "..\_AIInterface\AIInterface.h"
@@ -51,12 +51,12 @@ m_nLayer( nDefaultLayer )
 	m_pModel		= NULL;
 	m_fAngle		= 0.0f;
 	m_fAngX			= 0.0f;
-	m_fAngZ			= 0.0f;				// ZÃà °¢µµ
+	m_fAngZ			= 0.0f;				// Zì¶• ê°ë„
 	
 	m_vPos			= D3DXVECTOR3(0.0f,0.0f,0.0f);
 	m_vScale		= D3DXVECTOR3(1.0f,1.0f,1.0f);
-	m_pPrev			= NULL; // ÀÌÀü ³ëµå 
-	m_pNext			= NULL; // ´ÙÀ½ ³ëµå 
+	m_pPrev			= NULL; // ì´ì „ ë…¸ë“œ 
+	m_pNext			= NULL; // ë‹¤ìŒ ë…¸ë“œ 
 	m_pWorld		= NULL;
 	
 	m_dwAIInterface      = 0;
@@ -66,8 +66,8 @@ m_nLayer( nDefaultLayer )
 #ifdef __WORLDSERVER
 	m_dwPatrolIndex      = NULL_ID;
 	m_nPatrolIndexCount	 = 0;
-	m_bPatrolCycle		 = 0;			// ÀüÃ¼ ¼øÈ¯ÀÌ³Ä? ³¡->Ã³À½->³¡ ¹æÇâÀÌ³Ä
-	m_bPatrolReverse	 = 0;		// ÇöÀç ÁøÇà¹æÇâ	
+	m_bPatrolCycle		 = 0;			// ì „ì²´ ìˆœí™˜ì´ëƒ? ë->ì²˜ìŒ->ë ë°©í–¥ì´ëƒ
+	m_bPatrolReverse	 = 0;		// í˜„ì¬ ì§„í–‰ë°©í–¥	
 #endif	
 
 	SetUpdateMatrix( TRUE );
@@ -106,8 +106,8 @@ m_nLayer( nDefaultLayer )
 
 CObj::~CObj()
 {
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ °¡´ÉÇÑ °Í¸¸ ¿©±â¼­ ÆÄ±«°¡ °¡´ÉÇÏ´Ù.
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ºÒ°¡´ÉÇÑ °ÍÀº CModelMng¿¡¼­ °ü¸®ÇÏ°í ÆÄ±«ÇÑ´Ù.
+	// ì• ë‹ˆë©”ì´ì…˜ì´ ê°€ëŠ¥í•œ ê²ƒë§Œ ì—¬ê¸°ì„œ íŒŒê´´ê°€ ê°€ëŠ¥í•˜ë‹¤.
+	// ì• ë‹ˆë©”ì´ì…˜ì´ ë¶ˆê°€ëŠ¥í•œ ê²ƒì€ CModelMngì—ì„œ ê´€ë¦¬í•˜ê³  íŒŒê´´í•œë‹¤.
 	if( m_pModel && m_pModel->IsAniable() )
 		SAFE_DELETE( m_pModel );
 
@@ -151,7 +151,7 @@ void CObj::UpdateMatrix()
 
 	if( m_pModel )
 	{
-		// OBBÀÇ ÁßÁ¡°ú ÃàÀ» Àç°è»êÇÑ´Ù.
+		// OBBì˜ ì¤‘ì ê³¼ ì¶•ì„ ì¬ê³„ì‚°í•œë‹¤.
 		m_OBB.UpdateMartix( m_pModel->m_vMin, m_pModel->m_vMax, m_matScale, m_matRotation, m_matWorld );
 	}
 
@@ -179,10 +179,10 @@ void CObj::UpdateMatrix()
 }
 
 // Parameters 
-//   pObj : Ãß°¡ÇÒ ¿ÀºêÁ§Æ® Æ÷ÀÎÅÍ
+//   pObj : ì¶”ê°€í•  ì˜¤ë¸Œì íŠ¸ í¬ì¸í„°
 //  
 // Remarks  
-//   ÇöÀç this ÀÌÀü¿¡ ¿ÀºêÁ§Æ®¸¦ Ãß°¡ÇÑ´Ù.
+//   í˜„ì¬ this ì´ì „ì— ì˜¤ë¸Œì íŠ¸ë¥¼ ì¶”ê°€í•œë‹¤.
 //
 void CObj::InsPrevNode(CObj* pObj)
 {
@@ -194,10 +194,10 @@ void CObj::InsPrevNode(CObj* pObj)
 }
 //
 // Parameters 
-//   pObj : Ãß°¡ÇÒ ¿ÀºêÁ§Æ® Æ÷ÀÎÅÍ
+//   pObj : ì¶”ê°€í•  ì˜¤ë¸Œì íŠ¸ í¬ì¸í„°
 //  
 // Remarks  
-//   ÇöÀç this ´ÙÀ½¿¡ ¿ÀºêÁ§Æ®¸¦ Ãß°¡ÇÑ´Ù.
+//   í˜„ì¬ this ë‹¤ìŒì— ì˜¤ë¸Œì íŠ¸ë¥¼ ì¶”ê°€í•œë‹¤.
 //
 void CObj::InsNextNode(CObj* pObj)
 {
@@ -209,7 +209,7 @@ void CObj::InsNextNode(CObj* pObj)
 }
 //
 // Remarks   
-//   ¿ÀºêÁ§Æ®¸¦ ³ëµå ¿¬°á¿¡¼­ »èÁ¦ÇÑ´Ù. 
+//   ì˜¤ë¸Œì íŠ¸ë¥¼ ë…¸ë“œ ì—°ê²°ì—ì„œ ì‚­ì œí•œë‹¤. 
 //
 void CObj::DelNode()
 {
@@ -233,7 +233,7 @@ void CObj::Process()
 #ifdef __CLIENT
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
 	if( lpModelElem == NULL )
-		return;					// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+		return;					// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 
 	if( lpModelElem->m_dwModelType == MODELTYPE_SFX )
 	{
@@ -243,7 +243,7 @@ void CObj::Process()
 	else
 	{
 		D3DXVECTOR3 vPos = GetPos();
-		m_pModel->FrameMove( &vPos );		// ¿ùµå¼­¹ö¿¡¼± CObj::m_pModelÀÇ FrameMove¸¦ µ¹¸±ÇÊ¿ä ¾ø´Ù.
+		m_pModel->FrameMove( &vPos );		// ì›”ë“œì„œë²„ì—ì„  CObj::m_pModelì˜ FrameMoveë¥¼ ëŒë¦´í•„ìš” ì—†ë‹¤.
 	}
 
 	if( m_pModel->m_pModelElem->m_bTrans )
@@ -255,13 +255,13 @@ void CObj::Process()
 			vPosCam = m_pWorld->m_pCamera->m_vPos;
 			vPosObj = GetPos() - vPosCam;
 			vPosAct = GetActiveObj()->GetPos() - vPosCam;
-			fLengthObj = D3DXVec3LengthSq( &vPosObj );	// Length¸¦ LengthSq·Î ¹Ù²Ş. xuzhu
+			fLengthObj = D3DXVec3LengthSq( &vPosObj );	// Lengthë¥¼ LengthSqë¡œ ë°”ê¿ˆ. xuzhu
 			fLengthAct = D3DXVec3LengthSq( &vPosAct );
 		}		
-		// Ä«¸Ş¶ó¿Í Á¹¶ó ±ÙÁ¢ÇÑ °æ¿ì  
+		// ì¹´ë©”ë¼ì™€ ì¡¸ë¼ ê·¼ì ‘í•œ ê²½ìš°  
 		if( fLengthObj < fLengthAct )
 		{
-			// ³ª¿Í Ä«¸Ş¶ó »çÀÌ¿¡ ÀÖ´Â ¿ÀºêÁ§Æ®¸¦ ·¹ÀÌÃ¼Å©ÇÏ¿© °É¸®¸é »ç¶óÁö°Ô ÇÑ´Ù.
+			// ë‚˜ì™€ ì¹´ë©”ë¼ ì‚¬ì´ì— ìˆëŠ” ì˜¤ë¸Œì íŠ¸ë¥¼ ë ˆì´ì²´í¬í•˜ì—¬ ê±¸ë¦¬ë©´ ì‚¬ë¼ì§€ê²Œ í•œë‹¤.
 			FLOAT fDist;
 			D3DXVECTOR3 vIntersect;
 			D3DXVECTOR3 vPickRayDir = vPosAct;
@@ -312,7 +312,7 @@ void CObj::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	if( IsUpdateMatrix() )
 		UpdateMatrix();
 
-	// ModelÀÌ ¾øÀ¸¸é Ãâ·ÂÇÏÁö ¾ÊÀ½ 
+	// Modelì´ ì—†ìœ¼ë©´ ì¶œë ¥í•˜ì§€ ì•ŠìŒ 
 	LPMODELELEM lpModelElem = prj.m_modelMng.GetModelElem( m_dwType, m_dwIndex );
 	if( lpModelElem == NULL )
 		return;
@@ -369,12 +369,12 @@ void CObj::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	} 
 	else
 	{	
-		pModel->SetGroup( 2 );		// ±×¸²ÀÚ ÂïÀ»¶© °¡Àå ³·Àº ´Ü°è·Î Âï´Â´Ù.
+		pModel->SetGroup( 2 );		// ê·¸ë¦¼ì ì°ì„ë• ê°€ì¥ ë‚®ì€ ë‹¨ê³„ë¡œ ì°ëŠ”ë‹¤.
 	}
 
 	if( pModel->GetType() == MODELTYPE_MESH || pModel->GetType() == MODELTYPE_ANIMATED_MESH )
 	{
-		if( ((CModelObject*)pModel)->m_pModelElem->m_nTextureEx > 0 )		// È®ÀåÅØ½ºÃÄ ¾²´Â³ÑÀÎ°¡?
+		if( ((CModelObject*)pModel)->m_pModelElem->m_nTextureEx > 0 )		// í™•ì¥í…ìŠ¤ì³ ì“°ëŠ”ë„˜ì¸ê°€?
 			((CModelObject*)pModel)->SetTextureEx( ((CModelObject*)pModel)->m_pModelElem->m_nTextureEx );
 		else
 			((CModelObject*)pModel)->SetTextureEx( 0 );
@@ -464,16 +464,16 @@ BOOL CObj::UpdateBoundBox()
 
 
 #ifdef __BS_ADDOBJATTR_INVISIBLE
-enum FD_OBJ_ATTR	 // dataÀÇ ÀúÀå ÀĞ±â¿¡¼­ °ü¿©ÇÏ´Â ¼Ó¼ºµé
+enum FD_OBJ_ATTR	 // dataì˜ ì €ì¥ ì½ê¸°ì—ì„œ ê´€ì—¬í•˜ëŠ” ì†ì„±ë“¤
 {
-	FOA_Invisible_Collision = 0x00010000,		// Ãæµ¹ 0, ·»´õ x
-	FOA_Invisible = 0x00020000,					// Ãæµ¹ x, ·»´õ x
+	FOA_Invisible_Collision = 0x00010000,		// ì¶©ëŒ 0, ë Œë” x
+	FOA_Invisible = 0x00020000,					// ì¶©ëŒ x, ë Œë” x
 };
 #endif
 
 BOOL CObj::Read( CFileIO* pFile )
 {
-	D3DXVECTOR3		vAxis;  // »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+	D3DXVECTOR3		vAxis;  // ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	DWORD			dwMotion;			
 	DWORD			dwAIIntreface;
 	DWORD			dwAI2;
@@ -484,10 +484,10 @@ BOOL CObj::Read( CFileIO* pFile )
 	pFile->Read( &m_vScale,      sizeof( m_vScale ) );
 	pFile->Read( &m_dwType,      sizeof( m_dwType ) ); 
 
-	//gmpbigsun: m_dwType¿¡ Ãß°¡ÀûÀ¸·Î Invisible collision ¼Ó¼ºÀÌ Ãß°¡µÆ´Ù ( since 2009_08_13 ), ±âÁ¸µ¥ÀÌÅÍ¿Í È£È¯ 
+	//gmpbigsun: m_dwTypeì— ì¶”ê°€ì ìœ¼ë¡œ Invisible collision ì†ì„±ì´ ì¶”ê°€ëë‹¤ ( since 2009_08_13 ), ê¸°ì¡´ë°ì´í„°ì™€ í˜¸í™˜ 
 
 #ifdef __BS_ADDOBJATTR_INVISIBLE
-	if( m_dwType & FOA_Invisible_Collision )		// ¼Ó¼ºÀÌ Ãß°¡µÈ °æ¿ì¸¸!!
+	if( m_dwType & FOA_Invisible_Collision )		// ì†ì„±ì´ ì¶”ê°€ëœ ê²½ìš°ë§Œ!!
 	{
 		m_dwType &= ~FOA_Invisible_Collision;
 		SetVisible( FALSE );
@@ -508,7 +508,7 @@ BOOL CObj::Read( CFileIO* pFile )
 	m_fAngX = vAxis.x;
 	m_fAngZ = vAxis.z;
 	
-	InitProp( FALSE );		// FALSE - AI¼³Á¤¾ÈÇÔ  SetAIInterface( pProp->dwAI );
+	InitProp( FALSE );		// FALSE - AIì„¤ì •ì•ˆí•¨  SetAIInterface( pProp->dwAI );
 	if( m_dwType == OT_MOVER )
 	{
 		((CMover* )this)->m_dwMotion = dwMotion;
@@ -517,11 +517,11 @@ BOOL CObj::Read( CFileIO* pFile )
 	#endif 
 	}
 
-	// ºñÀ² Àû¿ëÀ» À§ÇØ¼­ ÀĞÀ» ¶§ º¹¿øÇÑ´Ù. ÀÌ´Â MPU¸¦ ¹Ù²ãÀ» ¶§ ¿ÀºêÁ§Æ®µéÀÌ
-	// ¹Ù²ï ¸ÊÀÌ ÁÂÇ¥ ºñÀ²ÀÌ ÀçÁ¶Á¤µÇ°Ô ÇÏ±â À§ÇÑ °ÍÀÌ´Ù. ¿ÀÁï µğ½ºÅ© ÀúÀå½Ã¿¡¸¸ ÇÊ¿äÇÏ´Ù.
+	// ë¹„ìœ¨ ì ìš©ì„ ìœ„í•´ì„œ ì½ì„ ë•Œ ë³µì›í•œë‹¤. ì´ëŠ” MPUë¥¼ ë°”ê¿”ì„ ë•Œ ì˜¤ë¸Œì íŠ¸ë“¤ì´
+	// ë°”ë€ ë§µì´ ì¢Œí‘œ ë¹„ìœ¨ì´ ì¬ì¡°ì •ë˜ê²Œ í•˜ê¸° ìœ„í•œ ê²ƒì´ë‹¤. ì˜¤ì¦‰ ë””ìŠ¤í¬ ì €ì¥ì‹œì—ë§Œ í•„ìš”í•˜ë‹¤.
 
-	// gmpbigsun : ÀÌ¹Ì¸¸µé¾îÁø ¸Ê¿¡ ´ëÇØ¼­ ºñÀ²Àû¿ëÀÇ ²ŞÀ» Á¢ÀÚ À§¿¡¼­ ¸»ÇÑ´ë·Î ¿øº»½ºÄÉÀÏ±îÁö Á¦´ë·Î ±¸ÇöÇÏÁö ¾ÊÀ»²¨¸é ...¸»ÀÌ´Ù.
-	//				ÀÌÁ¦ Åø¿¡¼­ Àı´ë»ó¼ö OLD_MPU·Î ³ª´«°ªÀ» ´Ü¼øÈ÷ ¿øº»À¸·Î º¹±¸ÇÑ´Ù.
+	// gmpbigsun : ì´ë¯¸ë§Œë“¤ì–´ì§„ ë§µì— ëŒ€í•´ì„œ ë¹„ìœ¨ì ìš©ì˜ ê¿ˆì„ ì ‘ì ìœ„ì—ì„œ ë§í•œëŒ€ë¡œ ì›ë³¸ìŠ¤ì¼€ì¼ê¹Œì§€ ì œëŒ€ë¡œ êµ¬í˜„í•˜ì§€ ì•Šì„êº¼ë©´ ...ë§ì´ë‹¤.
+	//				ì´ì œ íˆ´ì—ì„œ ì ˆëŒ€ìƒìˆ˜ OLD_MPUë¡œ ë‚˜ëˆˆê°’ì„ ë‹¨ìˆœíˆ ì›ë³¸ìœ¼ë¡œ ë³µêµ¬í•œë‹¤.
 	m_vPos.x	*= FLOAT( OLD_MPU );
 	m_vPos.z	*= FLOAT( OLD_MPU );
 
@@ -537,7 +537,7 @@ void CObj::SetPos( const D3DXVECTOR3& vPos )
 	if( m_vPos == vPos )
 		return;
 
-	SetPosChanged( TRUE );		// ÁÂÇ¥°¡ º¯°æµÇ¾úÀ½À» ¼¼ÆÃ 
+	SetPosChanged( TRUE );		// ì¢Œí‘œê°€ ë³€ê²½ë˜ì—ˆìŒì„ ì„¸íŒ… 
 
 	CWorld* pWorld = GetWorld();
 #ifdef __WORLDSERVER
@@ -616,7 +616,7 @@ void CObj::SetPos( const D3DXVECTOR3& vPos )
 			}
 			else
 			{
-				// °°Àº Landscape ¾È¿¡¼­ÀÇ ÀÌµ¿ 
+				// ê°™ì€ Landscape ì•ˆì—ì„œì˜ ì´ë™ 
 				int nWidth = 0;
 				if(m_pModel) 
 					nWidth	= (int)( m_pModel->GetMaxWidth() );
@@ -674,7 +674,7 @@ void CObj::SetAngle( FLOAT fAngle )
 	SetUpdateMatrix( TRUE );
 #else	// not __CLIENT
 	
-	// OT_MOVER´Â interpolate¿¡¼­ 
+	// OT_MOVERëŠ” interpolateì—ì„œ 
 	if( GetType() != OT_MOVER )
 	{
 		D3DXMatrixRotationYawPitchRoll( &m_matRotation, D3DXToRadian( -m_fAngle ), D3DXToRadian( -m_fAngX ), D3DXToRadian( fAngZ ) );
@@ -717,7 +717,7 @@ void CObj::SetScale( const D3DXVECTOR3& vScale )
 }
 
 #ifdef __WORLDSERVER
-// TODO_raiders: dwStateÁ¦°Å, ÇÔ¼ö¸¦ mover·Î ¿Å±âÀÚ 
+// TODO_raiders: dwStateì œê±°, í•¨ìˆ˜ë¥¼ moverë¡œ ì˜®ê¸°ì 
 void CObj::SetAIInterface( DWORD dwAIInterface, DWORD dwState )
 {
 	if( m_dwAIInterface == dwAIInterface && m_dwAIInterfaceState == dwState )
@@ -771,34 +771,34 @@ BOOL CObj::Pick( D3DXVECTOR3* pvPickRayOrig, D3DXVECTOR3* pvPickRayDir, D3DXVECT
 #endif
 
 
-// thisÀÇ ¹İÁö¸§À» °è»êÇÔ - XZÆò¸éÀÇ Å©±â¸¸.
+// thisì˜ ë°˜ì§€ë¦„ì„ ê³„ì‚°í•¨ - XZí‰ë©´ì˜ í¬ê¸°ë§Œ.
 FLOAT	CObj::GetRadiusXZ( void )
 {
 	float	fLenX = fabs(m_pModel->m_vMax.x - m_pModel->m_vMin.x);
 	float	fLenZ = fabs(m_pModel->m_vMax.z - m_pModel->m_vMin.z);
 	
-	float	fRadius = ((fLenX + fLenZ) / 2.0f) / 2.0f;		// this(Dest)¸ğµ¨ÀÇ Æò±Õ(!) ¹İÁö¸§.
-	fRadius *= m_vScale.x;		// ½ºÄÉÀÏ Á¶Á¤.
+	float	fRadius = ((fLenX + fLenZ) / 2.0f) / 2.0f;		// this(Dest)ëª¨ë¸ì˜ í‰ê· (!) ë°˜ì§€ë¦„.
+	fRadius *= m_vScale.x;		// ìŠ¤ì¼€ì¼ ì¡°ì •.
 	
 	return fRadius;
 }
 
 const float INV_6 = 1.0f / 6.0f;
 
-// thisÀÇ ¹İÁö¸§À» °è»êÇÔ. = »ï¸é Æò±ÕÀ» ¹İÁö¸§À¸·Î ¼±ÅÃ 
+// thisì˜ ë°˜ì§€ë¦„ì„ ê³„ì‚°í•¨. = ì‚¼ë©´ í‰ê· ì„ ë°˜ì§€ë¦„ìœ¼ë¡œ ì„ íƒ 
 FLOAT	CObj::GetRadius( void )
 {
 	float fRadius = fabs(m_pModel->m_vMax.x - m_pModel->m_vMin.x);
 	fRadius      += fabs(m_pModel->m_vMax.y - m_pModel->m_vMin.y);
 	fRadius      += fabs(m_pModel->m_vMax.z - m_pModel->m_vMin.z);
 	
-	fRadius *= INV_6;			// 3¸é Æò±ÕÀÇ ¹İÀÌ ¹İÁö¸§ = ((x + y + z) / 3.0f) / 2.0f 
-	fRadius *= m_vScale.x;		// ½ºÄÉÀÏ Á¶Á¤.
+	fRadius *= INV_6;			// 3ë©´ í‰ê· ì˜ ë°˜ì´ ë°˜ì§€ë¦„ = ((x + y + z) / 3.0f) / 2.0f 
+	fRadius *= m_vScale.x;		// ìŠ¤ì¼€ì¼ ì¡°ì •.
 
 	return fRadius;
 }
 
-// thisÀÇ ¹İ°æ + m_nArrivalRange ³»¿¡ pObjÀÇ Áß½ÉÁ¡ÀÌ µé¾î¿ÍÀÖ´Â°¡?
+// thisì˜ ë°˜ê²½ + m_nArrivalRange ë‚´ì— pObjì˜ ì¤‘ì‹¬ì ì´ ë“¤ì–´ì™€ìˆëŠ”ê°€?
 BOOL	CObj::IsRangeObj( CObj *pOther, float fRange )
 {
 	if( m_pModel == NULL )	
@@ -808,42 +808,42 @@ BOOL	CObj::IsRangeObj( CObj *pOther, float fRange )
 		fRange = 1.0f;		
 
 	float fRadius = GetRadius();
-	fRadius *= 0.8f;							// »ï¸é Æò±ÕÀ¸·Î¸¸ ÇÏ´Ï±î ³Ñ Ä¿¼­ Á¶±İ ÁÙ¿´´Ù.
+	fRadius *= 0.8f;							// ì‚¼ë©´ í‰ê· ìœ¼ë¡œë§Œ í•˜ë‹ˆê¹Œ ë„˜ ì»¤ì„œ ì¡°ê¸ˆ ì¤„ì˜€ë‹¤.
 
 	float fOther = pOther->GetRadius();
-	fOther *= 0.8f;								// »ï¸é Æò±ÕÀ¸·Î¸¸ ÇÏ´Ï±î ³Ñ Ä¿¼­ Á¶±İ ÁÙ¿´´Ù.
+	fOther *= 0.8f;								// ì‚¼ë©´ í‰ê· ìœ¼ë¡œë§Œ í•˜ë‹ˆê¹Œ ë„˜ ì»¤ì„œ ì¡°ê¸ˆ ì¤„ì˜€ë‹¤.
 
 	fRadius += (fOther + fRange);
 
-	D3DXVECTOR3 vDist = GetPos() - pOther->GetPos();	// µÎÁÂÇ¥°£ º¤ÅÍ
-	float fDistSq = D3DXVec3LengthSq( &vDist );			// µÎ¿ÀºêÁ§Æ®°£ÀÇ °Å¸®Sq
+	D3DXVECTOR3 vDist = GetPos() - pOther->GetPos();	// ë‘ì¢Œí‘œê°„ ë²¡í„°
+	float fDistSq = D3DXVec3LengthSq( &vDist );			// ë‘ì˜¤ë¸Œì íŠ¸ê°„ì˜ ê±°ë¦¬Sq
 	
-	if( fDistSq < (fRadius * fRadius) )					// µÎÁ¡°£ÀÇ °Å¸®°¡ ¹üÀ§º¸´Ù ÀÛÀ¸¸é Ãæµ¹
+	if( fDistSq < (fRadius * fRadius) )					// ë‘ì ê°„ì˜ ê±°ë¦¬ê°€ ë²”ìœ„ë³´ë‹¤ ì‘ìœ¼ë©´ ì¶©ëŒ
 		return TRUE;
 	
 	return FALSE;
 }
 
 //
-// this(src) + m_nArrivalRange ÀÇ ¹İ°æ ³»¿¡ vDestÀÇ Áß½ÉÁ¡ÀÌ µé¾î¿ÍÀÖ´Â°¡?
+// this(src) + m_nArrivalRange ì˜ ë°˜ê²½ ë‚´ì— vDestì˜ ì¤‘ì‹¬ì ì´ ë“¤ì–´ì™€ìˆëŠ”ê°€?
 //
 BOOL	CObj::IsRangeObj( const D3DXVECTOR3 &vDest, float fRange )
 {
 	if( m_pModel == NULL )	return FALSE;
 
 	float	fRadius = 1.0f;
-	fRadius *= 0.8f;							// »ï¸é Æò±ÕÀ¸·Î¸¸ ÇÏ´Ï±î ³Ñ Ä¿¼­ Á¶±İ ÁÙ¿´´Ù.
+	fRadius *= 0.8f;							// ì‚¼ë©´ í‰ê· ìœ¼ë¡œë§Œ í•˜ë‹ˆê¹Œ ë„˜ ì»¤ì„œ ì¡°ê¸ˆ ì¤„ì˜€ë‹¤.
 
 	float fRadiusSrc = GetRadius();
 	fRadiusSrc *= 0.8f;	
 
-	fRadiusSrc += fRange;						// pSrcÃø¹İÁö¸§¿¡´Ù m_nArrivalRange¸¦ ´õÇÔ.
+	fRadiusSrc += fRange;						// pSrcì¸¡ë°˜ì§€ë¦„ì—ë‹¤ m_nArrivalRangeë¥¼ ë”í•¨.
 	fRadius += fRadiusSrc;
 	
-	D3DXVECTOR3 vDist = vDest - GetPos();				// µÎÁÂÇ¥°£ º¤ÅÍ
-	float fDistSq = D3DXVec3LengthSq( &vDist );			// µÎ¿ÀºêÁ§Æ®°£ÀÇ °Å¸®Sq
+	D3DXVECTOR3 vDist = vDest - GetPos();				// ë‘ì¢Œí‘œê°„ ë²¡í„°
+	float fDistSq = D3DXVec3LengthSq( &vDist );			// ë‘ì˜¤ë¸Œì íŠ¸ê°„ì˜ ê±°ë¦¬Sq
 	
-	if( fDistSq < fRadius * fRadius )					// µÎÁ¡°£ÀÇ °Å¸®°¡ ¹üÀ§º¸´Ù ÀÛÀ¸¸é Ãæµ¹
+	if( fDistSq < fRadius * fRadius )					// ë‘ì ê°„ì˜ ê±°ë¦¬ê°€ ë²”ìœ„ë³´ë‹¤ ì‘ìœ¼ë©´ ì¶©ëŒ
 		return TRUE;
 	
 	return FALSE;
@@ -851,7 +851,7 @@ BOOL	CObj::IsRangeObj( const D3DXVECTOR3 &vDest, float fRange )
 
 
 //
-//	ºñÇà¼±
+//	ë¹„í–‰ì„ 
 //
 void	CObj::ProcessAirShip( void )
 {
@@ -860,7 +860,7 @@ void	CObj::ProcessAirShip( void )
 
 	switch( m_nEvent )
 	{
-	case 0:		// ´ë±â »óÅÂ
+	case 0:		// ëŒ€ê¸° ìƒíƒœ
 		if( g_ShipExp == TRUE )
 		{
 			g_vPosShip = m_vPos;
@@ -868,7 +868,7 @@ void	CObj::ProcessAirShip( void )
 			m_nCnt = 0;
 		}
 		break;
-	case 1:		// Æø¹ß ½ÃÀÛ
+	case 1:		// í­ë°œ ì‹œì‘
 		{
 			int		i;
 			D3DXVECTOR3 vPos = GetPos();
@@ -886,22 +886,22 @@ void	CObj::ProcessAirShip( void )
 				pObj->UpdateLocalMatrix();
 				m_pWorld->AddObj( pObj );
 			}
-			PLAYSND( "CtrlCraftCrash.wav" , NULL );// ¸ÂÀ¸¸é »ç¿îµå ÇÃ·¹ÀÌ
+			PLAYSND( "CtrlCraftCrash.wav" , NULL );// ë§ìœ¼ë©´ ì‚¬ìš´ë“œ í”Œë ˆì´
 		}
 		m_nEvent ++;
 		break;
-	case 2:	// ¶³¾îÁü.
+	case 2:	// ë–¨ì–´ì§.
 		{
 			float	h = m_pWorld->GetLandHeight( vPos.x, vPos.z );
 			m_fAngX += 0.1f;
 			SetAngleX( m_fAngX );
 			if( m_dy > -2.0f )	m_dy -= 0.001f;
 			vPos.y += m_dy;
-			if( vPos.y - 10.0f < h )		// ¹Ù´Ú¿¡ Ã³¹ÚÈû
+			if( vPos.y - 10.0f < h )		// ë°”ë‹¥ì— ì²˜ë°•í˜
 			{
 				m_nEvent ++;
 				m_pWorld->m_pCamera->SetQuake( 60 );
-				PLAYSND( "CtrlCraftCrash.wav" );	// ¸ÂÀ¸¸é »ç¿îµå ÇÃ·¹ÀÌ
+				PLAYSND( "CtrlCraftCrash.wav" );	// ë§ìœ¼ë©´ ì‚¬ìš´ë“œ í”Œë ˆì´
 			}
 			SetPos( vPos );
 			if( (m_nCnt & 7) == 0 )
@@ -920,12 +920,12 @@ void	CObj::ProcessAirShip( void )
 			}
 			if( (m_nCnt & 15) == 0 && m_nCnt < 100 )
 			{
-				PLAYSND( "CtrlAirmine.wav", NULL );// ¸ÂÀ¸¸é »ç¿îµå ÇÃ·¹ÀÌ
+				PLAYSND( "CtrlAirmine.wav", NULL );// ë§ìœ¼ë©´ ì‚¬ìš´ë“œ í”Œë ˆì´
 			}
 
 		}
 		break;
-	case 3:	// ¹Ù´Ú¿¡ Ã³¹ÚÈû
+	case 3:	// ë°”ë‹¥ì— ì²˜ë°•í˜
 		if( g_ShipExp == 0 )
 		{
 			m_nEvent = 0;
@@ -978,10 +978,10 @@ void CObj::SetWorld( CWorld* pWorld )
 #endif //  __WORLDSERVER	
 }
 
-// ¸µÅ©·¹º§À» ¼³Á¤ÇÑ´Ù.
+// ë§í¬ë ˆë²¨ì„ ì„¤ì •í•œë‹¤.
 void CObj::CalcLinkLevel()
 {
-	if( m_pModel == NULL )		// ½ºÅ³¿¡¼­ ¾²´Â °¡»ó¿ÀºêÁ§Æ®¶§¹®¿¡ ¸ğµ¨ÀÌ ¾ø´Â ¿ÀºêÁ§Æ®µµ »ı°å´Ù.
+	if( m_pModel == NULL )		// ìŠ¤í‚¬ì—ì„œ ì“°ëŠ” ê°€ìƒì˜¤ë¸Œì íŠ¸ë•Œë¬¸ì— ëª¨ë¸ì´ ì—†ëŠ” ì˜¤ë¸Œì íŠ¸ë„ ìƒê²¼ë‹¤.
 	{
 		m_dwLinkLevel = 0;
 		return;

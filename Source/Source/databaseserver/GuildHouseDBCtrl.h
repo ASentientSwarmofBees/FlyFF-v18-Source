@@ -1,4 +1,4 @@
-// GuildHouseDBCtrl.h: interface for the CGuildHouseDBCtrl class.
+﻿// GuildHouseDBCtrl.h: interface for the CGuildHouseDBCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 

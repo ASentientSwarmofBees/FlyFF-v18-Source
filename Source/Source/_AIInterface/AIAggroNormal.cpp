@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AIAggroNormal.h"
 #include "lang.h"
 #include "defineObj.h"
@@ -75,9 +75,9 @@ END_AISTATE_MAP()
 #endif	// __VM_0820
 
 #if __VER >= 9	// __JEFF_9
-static DWORD s_tmAttack = SEC(15);		//  m_tmAttack 20ÃÊ 
+static DWORD s_tmAttack = SEC(15);		//  m_tmAttack 20ì´ˆ 
 #else	// __JEFF_9
-static DWORD s_tmAttack = SEC(20);		//  m_tmAttack 20ÃÊ 
+static DWORD s_tmAttack = SEC(20);		//  m_tmAttack 20ì´ˆ 
 #endif	// __JEFF_9
 
 CAIAggroNormal::CAIAggroNormal()
@@ -99,7 +99,7 @@ void CAIAggroNormal::Init()
 	m_dwAtkMethod	= 0;
 	m_bFirstRunaway		= FALSE;
 	m_bCallHelper	= FALSE;
-	m_tmAttack	= TIMEGETTIME + s_tmAttack;		// °ø°İ ÈÄ 20ÃÊ°£ ÃßÀûÇØ¿È.
+	m_tmAttack	= TIMEGETTIME + s_tmAttack;		// ê³µê²© í›„ 20ì´ˆê°„ ì¶”ì í•´ì˜´.
 	m_vOldPos.x	= m_vOldPos.y = m_vOldPos.z = 0;
 	m_bRangeAttack	= FALSE;
 #if __VER < 12 // __NEW_SUMMON_RULE
@@ -167,7 +167,7 @@ void CAIAggroNormal::MoveToDst(	OBJID dwIdTarget )
 	if( IsValidObj( pTarget ) )
 		SetTarget( pTarget->GetId(), pTarget->m_idparty );
 
-	pMover->SetDestObj( dwIdTarget ); // ¸ñÇ¥¸¦ Àç¼³Á¤ÇØÁØ´Ù.
+	pMover->SetDestObj( dwIdTarget ); // ëª©í‘œë¥¼ ì¬ì„¤ì •í•´ì¤€ë‹¤.
 	g_UserMng.AddMoverSetDestObj( (CMover*)pMover, dwIdTarget );
 }
 
@@ -189,21 +189,21 @@ void CAIAggroNormal::MoveToRandom( UINT nState )
 		vDistant.y = 0.0f;
 
 		float fRange = RANGE_MOVE;
-		if( pMover->IsFlyingNPC() )			// ºñÇà¸÷ÀÇ °æ¿ì °Å¸® 3¹è
+		if( pMover->IsFlyingNPC() )			// ë¹„í–‰ëª¹ì˜ ê²½ìš° ê±°ë¦¬ 3ë°°
 			fRange *= 3.0f;
 		
-		if( IsInRange( vDistant, fRange ) )	// 15¹ÌÅÍ ¹İ°æÀ» ¹ş¾î³ªÁö ¸øÇÔ 
+		if( IsInRange( vDistant, fRange ) )	// 15ë¯¸í„° ë°˜ê²½ì„ ë²—ì–´ë‚˜ì§€ ëª»í•¨ 
 		{
 			MoveToDst( vPos );
 		}
 		else
 		{
-			// Áı¿¡°¡´Â Áß¿¡ ·£´ıÈ£ÃâÀÌ¸é Ãæµ¹È¸ÇÇ´Ù. È¸ÇÇÇÏÀÚ.
+			// ì§‘ì—ê°€ëŠ” ì¤‘ì— ëœë¤í˜¸ì¶œì´ë©´ ì¶©ëŒíšŒí”¼ë‹¤. íšŒí”¼í•˜ì.
 			if( m_bReturnToBegin )
 				MoveToDst( vPos );
 			else
 			{
-				// ¸¸¾à ³»°¡ ÀÌ¹Ì ½ºÆù Áö¿ªÀ» ÇÑÂü ¹ş¾î³ªÀÖ´Ù¸é µ¹¾Æ°¡µµ·Ï ½Ãµµ.
+				// ë§Œì•½ ë‚´ê°€ ì´ë¯¸ ìŠ¤í° ì§€ì—­ì„ í•œì°¸ ë²—ì–´ë‚˜ìˆë‹¤ë©´ ëŒì•„ê°€ë„ë¡ ì‹œë„.
 				vDistant = pMover->GetPos() - m_vPosBegin;
 				if( IsInRange( vDistant, fRange ) == FALSE )
 					DoReturnToBegin();
@@ -227,7 +227,7 @@ BOOL CAIAggroNormal::IsInRange( D3DXVECTOR3& vDistant, FLOAT fRange )
 	return TRUE;
 }
 
-// ±ÙÃ³ÀÇ ¾ÆÀÌÅÛÀ» ÁıÀ¸·¯ °£´Ù.
+// ê·¼ì²˜ì˜ ì•„ì´í…œì„ ì§‘ìœ¼ëŸ¬ ê°„ë‹¤.
 BOOL CAIAggroNormal::SubItemLoot()
 {
 	CMover* pMover = GetMover();
@@ -240,7 +240,7 @@ BOOL CAIAggroNormal::SubItemLoot()
 	FLOAT fDistSq;
 	CObj *pMinObj = NULL;
 
-	// ±ÙÃ³ÀÇ ¾ÆÀÌÅÛÀ» °Ë»öÇÔ.
+	// ê·¼ì²˜ì˜ ì•„ì´í…œì„ ê²€ìƒ‰í•¨.
 	FOR_LINKMAP( pWorld, vPos, pObj, nRange, CObj::linkDynamic, pMover->GetLayer() )
 	{
 		if( pObj->GetType() == OT_ITEM )
@@ -254,8 +254,8 @@ BOOL CAIAggroNormal::SubItemLoot()
 				)
 			{
 				vDist = pObj->GetPos() - pMover->GetPos();
-				fDistSq = D3DXVec3LengthSq( &vDist );			// °Å¸® ±¸ÇÔ.
-				if( fDistSq < 10.0f * 10.0f )					// 10¹ÌÅÍ ÀÌ³»°í... random
+				fDistSq = D3DXVec3LengthSq( &vDist );			// ê±°ë¦¬ êµ¬í•¨.
+				if( fDistSq < 10.0f * 10.0f )					// 10ë¯¸í„° ì´ë‚´ê³ ... random
 				{
 					pMinObj = pObj;			
 					goto NEXT;
@@ -268,7 +268,7 @@ BOOL CAIAggroNormal::SubItemLoot()
 NEXT:
 	if( pMinObj )
 	{
-		MoveToDst( pMinObj->GetPos() );		// ¸ñÇ¥ÂÊÀ¸·Î ÀÌµ¿.
+		MoveToDst( pMinObj->GetPos() );		// ëª©í‘œìª½ìœ¼ë¡œ ì´ë™.
 		m_idLootItem = ((CItem *)pMinObj)->GetId();
 		m_bLootMove = TRUE;
 		g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_LOOT );
@@ -282,13 +282,13 @@ BOOL CAIAggroNormal::StateInit( const AIMSG & msg )
 	return TRUE;
 }
 
-// ÅÂ¾î³­ ÁöÁ¡À¸·Î µ¹¾Æ°¡¶ó.
+// íƒœì–´ë‚œ ì§€ì ìœ¼ë¡œ ëŒì•„ê°€ë¼.
 void CAIAggroNormal::DoReturnToBegin( BOOL bReturn )
 {
 	if( bReturn )
 	{
 		m_bReturnToBegin	= TRUE;
-		m_tmReturnToBegin	= TIMEGETTIME;		// µ¹¾Æ°¡¶ó´Â ¸í·ÉÀ» ¹ŞÀº ½Ã°£ ±â·Ï.
+		m_tmReturnToBegin	= TIMEGETTIME;		// ëŒì•„ê°€ë¼ëŠ” ëª…ë ¹ì„ ë°›ì€ ì‹œê°„ ê¸°ë¡.
 		SetTarget( NULL_ID, 0 );
 #if __VER >= 9	//__AI_0509
 		CMover* pMover	= GetMover();
@@ -314,7 +314,7 @@ BOOL CAIAggroNormal::MoveProcessIdle( const AIMSG & msg )
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 
-	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
+	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 
@@ -328,18 +328,18 @@ BOOL CAIAggroNormal::MoveProcessIdle( const AIMSG & msg )
 	}
 #endif // __MOVER_STATE_EFFECT
 
-	// ½ºÆù Àå¼Ò·Î ±ÍÈ¯ 
+	// ìŠ¤í° ì¥ì†Œë¡œ ê·€í™˜ 
 	if( m_bReturnToBegin )
 	{
-		if( IsInRange( m_vPosBegin - pMover->GetPos(), 7.0f ) )		// ½ÃÀÛÁöÁ¡À¸·Î µ¹¾Æ¿Ô´Ù.
+		if( IsInRange( m_vPosBegin - pMover->GetPos(), 7.0f ) )		// ì‹œì‘ì§€ì ìœ¼ë¡œ ëŒì•„ì™”ë‹¤.
 		{
 			DoReturnToBegin( FALSE );
 			SendAIMsg( AIMSG_ARRIVAL, NULL_ID );
 		}
 #if __VER < 9	//__AI_0509
-		else if( m_dwIdTarget != NULL_ID )	// ³î°íÀÖ´ø Áß¿¡ Àü¿¡ ?´ø ÀûÀÌ ÀÖÀ¸¸é Àç°ø°İ
+		else if( m_dwIdTarget != NULL_ID )	// ë†€ê³ ìˆë˜ ì¤‘ì— ì „ì— ?ë˜ ì ì´ ìˆìœ¼ë©´ ì¬ê³µê²©
 		{
-			if( TIMEGETTIME - m_tmReturnToBegin > SEC(5) )		// µ¹¾Æ°¡±â ½ÃÀÛÇÑÁö 5ÃÊ´Â Áö³ª¾ß ´Ù½Ã ¹İ°İÇÑ´Ù.
+			if( TIMEGETTIME - m_tmReturnToBegin > SEC(5) )		// ëŒì•„ê°€ê¸° ì‹œì‘í•œì§€ 5ì´ˆëŠ” ì§€ë‚˜ì•¼ ë‹¤ì‹œ ë°˜ê²©í•œë‹¤.
 			{
 				int nAttackFirstRange = pProp->m_nAttackFirstRange;		//??
 				CMover* pTarget = prj.GetMover( m_dwIdTarget );
@@ -347,16 +347,16 @@ BOOL CAIAggroNormal::MoveProcessIdle( const AIMSG & msg )
 				{
 					D3DXVECTOR3 vDist = pTarget->GetPos() - pMover->GetPos();
 					FLOAT fDistSq = D3DXVec3LengthSq( &vDist );
-					if( fDistSq < (float)(nAttackFirstRange * nAttackFirstRange) )	// Å¸°ÙÀÌ °Å¸®³»¿¡ µé¾î¿À¸é
+					if( fDistSq < (float)(nAttackFirstRange * nAttackFirstRange) )	// íƒ€ê²Ÿì´ ê±°ë¦¬ë‚´ì— ë“¤ì–´ì˜¤ë©´
 					{
 
-#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
+#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
 						if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pMover->IsFlyingNPC() == FALSE )	
 #else	// __VER >= 8  
-						// this¶û Å¸°ÙÀÌ¶û Áö»ó-Áö»ó, ºñÇà-ºñÇà ÀÌ¸é 
+						// thisë‘ íƒ€ê²Ÿì´ë‘ ì§€ìƒ-ì§€ìƒ, ë¹„í–‰-ë¹„í–‰ ì´ë©´ 
 						if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() )	
 #endif	// __VER >= 8  
-							SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, NULL_ID );	// ´Ù½Ã °ø°İ
+							SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, NULL_ID );	// ë‹¤ì‹œ ê³µê²©
 					}
 				}			
 			}
@@ -364,12 +364,12 @@ BOOL CAIAggroNormal::MoveProcessIdle( const AIMSG & msg )
 #endif	// __AI_0509
 
 #if __VER >= 9	//__AI_0509
-		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(20) )		// ÁıÀ¸·Î µ¹¾Æ°¡±â ½ÃÀÛÇÑÁö 10ÃÊ³ª Áö³µ´Ù.
+		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(20) )		// ì§‘ìœ¼ë¡œ ëŒì•„ê°€ê¸° ì‹œì‘í•œì§€ 10ì´ˆë‚˜ ì§€ë‚¬ë‹¤.
 #else	// __AI_0509
-		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(10) )		// ÁıÀ¸·Î µ¹¾Æ°¡±â ½ÃÀÛÇÑÁö 10ÃÊ³ª Áö³µ´Ù.
+		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(10) )		// ì§‘ìœ¼ë¡œ ëŒì•„ê°€ê¸° ì‹œì‘í•œì§€ 10ì´ˆë‚˜ ì§€ë‚¬ë‹¤.
 #endif	// __AI_0509
 		{
-			// Á¦´ë·Î ¸øµ¹¾Æ°¡°í ÀÖ´Ù°í ÆÇ´ÜÇÏ°í ½ÃÀÛÁöÁ¡À¸·Î ¿öÇÁ½ÃÅ´.
+			// ì œëŒ€ë¡œ ëª»ëŒì•„ê°€ê³  ìˆë‹¤ê³  íŒë‹¨í•˜ê³  ì‹œì‘ì§€ì ìœ¼ë¡œ ì›Œí”„ì‹œí‚´.
 			pMover->SetPos( m_vPosBegin );
 			g_UserMng.AddSetPos( pMover, m_vPosBegin );
 			m_tmReturnToBegin	= TIMEGETTIME;
@@ -377,55 +377,55 @@ BOOL CAIAggroNormal::MoveProcessIdle( const AIMSG & msg )
 	}
 	else
 	{
-		if( pMover->GetMovePattern() == 0 )	// ÀÏ¹İ ÆĞÅÏÀÌµ¿ÀÏ¶§¸¸ µé¾î°£´Ù.
+		if( pMover->GetMovePattern() == 0 )	// ì¼ë°˜ íŒ¨í„´ì´ë™ì¼ë•Œë§Œ ë“¤ì–´ê°„ë‹¤.
 		{
-			if( IsEndStop() )						// Á¦ÀÚ¸® ´ë±â ½Ã°£ÀÌ ³¡³µÀ¸¸é
-				MoveToRandom( STATE_IDLE );			// ´ÙÀ½ ¸ñÇ¥¸¦ ÁöÁ¤.
+			if( IsEndStop() )						// ì œìë¦¬ ëŒ€ê¸° ì‹œê°„ì´ ëë‚¬ìœ¼ë©´
+				MoveToRandom( STATE_IDLE );			// ë‹¤ìŒ ëª©í‘œë¥¼ ì§€ì •.
 		}
-		else								// 8ÀÚºñÇàÁß		
+		else								// 8ìë¹„í–‰ì¤‘		
 		{
-			if( pMover->GetMoveEvent() == 99 )		// ÆĞÅÏºñÇà ³¡.
-				pMover->SetMovePattern( 0 );		// ÀÏ¹İÀÌµ¿À¸·Î ÀüÈ¯.
+			if( pMover->GetMoveEvent() == 99 )		// íŒ¨í„´ë¹„í–‰ ë.
+				pMover->SetMovePattern( 0 );		// ì¼ë°˜ì´ë™ìœ¼ë¡œ ì „í™˜.
 		}
 
-		// ·çÆÃ¿É¼ÇÀÌ ÀÖ´Â ¸÷ÀÌ´Ù.
+		// ë£¨íŒ…ì˜µì…˜ì´ ìˆëŠ” ëª¹ì´ë‹¤.
 		if( pProp->m_nLoot )
 		{
-			if( (pMover->GetCount() & 63) == 0 )		// °¡²û¾¿ ÁÖº¯À» ½ºÄµÇØ¼­.(63ÀÌ¸é ¾à 4.2ÃÊ)
+			if( (pMover->GetCount() & 63) == 0 )		// ê°€ë”ì”© ì£¼ë³€ì„ ìŠ¤ìº”í•´ì„œ.(63ì´ë©´ ì•½ 4.2ì´ˆ)
 			{	
-				if(  pProp->m_nLootProb == 0 || xRandom(100) < (DWORD)( pProp->m_nLootProb )  )	// µğÆúÆ®°ª(0)Àº 100% / ÀÌ°Å³ª ·çÆÃÈ®·ü¿¡ µé¾î°¡¸é ·çÆÃ½Ãµµ
-					if( m_bLootMove == FALSE )		// ·çÆÃÇÏ·¯ °¡°í ÀÖÀ»¶§ ¶Ç Ã¼Å©ÇÏ¸é ¾ÈŠ•
-						SubItemLoot();		// ¾ÆÀÌÅÛÀ» ·çÆÃÇÔ.
+				if(  pProp->m_nLootProb == 0 || xRandom(100) < (DWORD)( pProp->m_nLootProb )  )	// ë””í´íŠ¸ê°’(0)ì€ 100% / ì´ê±°ë‚˜ ë£¨íŒ…í™•ë¥ ì— ë“¤ì–´ê°€ë©´ ë£¨íŒ…ì‹œë„
+					if( m_bLootMove == FALSE )		// ë£¨íŒ…í•˜ëŸ¬ ê°€ê³  ìˆì„ë•Œ ë˜ ì²´í¬í•˜ë©´ ì•ˆë’˜
+						SubItemLoot();		// ì•„ì´í…œì„ ë£¨íŒ…í•¨.
 			}
 		}
 
 		if( m_bLootMove == TRUE )
 		{
-			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
-			if( IsInvalidObj(pCtrl) )		// ¾ÆÀÌÅÛ ÁıÀ¸·¯ ÀÌµ¿Áß¿¡ ¾ÆÅÛÀÌ ¾ø¾îÁö¸é
+			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
+			if( IsInvalidObj(pCtrl) )		// ì•„ì´í…œ ì§‘ìœ¼ëŸ¬ ì´ë™ì¤‘ì— ì•„í…œì´ ì—†ì–´ì§€ë©´
 			{
-				MoveToDst( pMover->GetPos() );	// Á¦ÀÚ¸®¿¡ ¼¶.
+				MoveToDst( pMover->GetPos() );	// ì œìë¦¬ì— ì„¬.
 				m_idLootItem = NULL_ID;
 				m_bLootMove = FALSE;
 			}
 		}
 
-		// -1 ÀÌ¸é ¾Æ¹«°Íµµ ½ºÄµÇÏÁö ¾Ê´Â´Ù!!!
+		// -1 ì´ë©´ ì•„ë¬´ê²ƒë„ ìŠ¤ìº”í•˜ì§€ ì•ŠëŠ”ë‹¤!!!
 		if( pProp->m_nScanJob != -1 )
 		{
 			CMover* pTarget = NULL;
 			int nAttackFirstRange = pProp->m_nAttackFirstRange;
 			if( nAttackFirstRange > 80 || nAttackFirstRange <= 0 )
 			{
-				Error( "m_nAttackFirstRange ÀÌ»ó:%d %s\n", pProp->m_nAttackFirstRange, pMover->GetName() );
+				Error( "m_nAttackFirstRange ì´ìƒ:%d %s\n", pProp->m_nAttackFirstRange, pMover->GetName() );
 				return TRUE;
 			}
 
-			// ¾î¶² Á¶°Ç¿¡ ÇØ´çÇÏ´Â ÇÃ·¹ÀÌ¾î°¡ ÀÖ´ÂÁö ½ºÄËÇÑ´Ù.
+			// ì–´ë–¤ ì¡°ê±´ì— í•´ë‹¹í•˜ëŠ” í”Œë ˆì´ì–´ê°€ ìˆëŠ”ì§€ ìŠ¤ì¼„í•œë‹¤.
 			if( pProp->m_nScanJob || pProp->m_dwScanQuestId || pProp->m_dwScanItemIdx || pProp->m_nScanChao )
 				pTarget = ScanTarget( pMover, nAttackFirstRange, pProp->m_nScanJob, pProp->m_dwScanQuestId, pProp->m_dwScanItemIdx, pProp->m_nScanChao );
 
-			// Á¶°Ç¿¡ ¸Â´Â ÇÃ·¹ÀÌ¾î°¡ ¾ø°í ¼±°ø¸÷ÀÌ¸é ¼±°ø¸÷ ÇüÅÂÀÇ ½ºÄËÀ» ÇÑ´Ù.
+			// ì¡°ê±´ì— ë§ëŠ” í”Œë ˆì´ì–´ê°€ ì—†ê³  ì„ ê³µëª¹ì´ë©´ ì„ ê³µëª¹ í˜•íƒœì˜ ìŠ¤ì¼„ì„ í•œë‹¤.
 			if( pTarget == NULL && GetMover()->m_bActiveAttack )//&& GetMover()->IsRegionAttr( RA_SAFETY ) == FALSE )
 				pTarget = ScanTarget( pMover, nAttackFirstRange, JOB_ALL );
 
@@ -434,13 +434,13 @@ BOOL CAIAggroNormal::MoveProcessIdle( const AIMSG & msg )
 				if( IsValidObj( (CObj*)pTarget ) )
 				{
 
-#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
-					if( pMover->IsFlyingNPC() == FALSE || pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pProp->dwClass == RANK_GUARD )	// °¡µå´Â ¹«Á¶°Ç °ø°İ.
+#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
+					if( pMover->IsFlyingNPC() == FALSE || pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pProp->dwClass == RANK_GUARD )	// ê°€ë“œëŠ” ë¬´ì¡°ê±´ ê³µê²©.
 #else	// __VER >= 8  
-					if( (pMover->IsFlyingNPC() || pTarget->m_pActMover->IsFly() == FALSE) || pProp->dwClass == RANK_GUARD )	// °¡µå´Â ¹«Á¶°Ç °ø°İ.
+					if( (pMover->IsFlyingNPC() || pTarget->m_pActMover->IsFly() == FALSE) || pProp->dwClass == RANK_GUARD )	// ê°€ë“œëŠ” ë¬´ì¡°ê±´ ê³µê²©.
 #endif	// __VER >= 8  
 					{
-						// Å¸°ÙÀÌ Á¸ÀçÇÏ¸é ÃßÀû ¸ğµå·Î º¯°æ 
+						// íƒ€ê²Ÿì´ ì¡´ì¬í•˜ë©´ ì¶”ì  ëª¨ë“œë¡œ ë³€ê²½ 
 						if( pTarget )	
 						{
 							g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_ATTACK );
@@ -483,7 +483,7 @@ BOOL CAIAggroNormal::StateIdle( const AIMSG & msg )
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_DAMAGE ) 
-		//ºĞ³ë ¸ğµå·Î º¯°æ
+		//ë¶„ë…¸ ëª¨ë“œë¡œ ë³€ê²½
 
 		if( m_bReturnToBegin == FALSE
 #if __VER < 9	// __AI_0509
@@ -493,72 +493,72 @@ BOOL CAIAggroNormal::StateIdle( const AIMSG & msg )
 		{
 			MoveToDst( msg.dwParam1 );
 			SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, msg.dwParam1 );
-			m_tmAttack	= TIMEGETTIME + s_tmAttack;		// ´ë±âÁßÀÏ¶§ °ø°İ¹ŞÀ¸¸é 20ÃÊ Å¸ÀÌ¸Ó ½ÃÀÛ
+			m_tmAttack	= TIMEGETTIME + s_tmAttack;		// ëŒ€ê¸°ì¤‘ì¼ë•Œ ê³µê²©ë°›ìœ¼ë©´ 20ì´ˆ íƒ€ì´ë¨¸ ì‹œì‘
 #if __VER >= 9	//__AI_0509
 			m_vPosDamage	= pMover->GetPos();
 #endif	// __AI_0509
 		}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_DIE )		// ²Ğ!
+	OnMessage( AIMSG_DIE )		// ê½¥!
 		SendAIMsg( AIMSG_EXIT );
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_COLLISION )  // ³î´Ù°¡ Ãæµ¹ÇßÀ½!"
+	OnMessage( AIMSG_COLLISION )  // ë†€ë‹¤ê°€ ì¶©ëŒí–ˆìŒ!"
 		MoveToRandom( STATE_IDLE );
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_ARRIVAL )
 		if( pMover->IsFlyingNPC() )		
 		{
-			// ºñÇà¸÷Àº µµÂøÇÏ°í ³ª¼­ ¸ØÃßÁö ¾Ê´Â´Ù. 8ÀÚºñÇàÀ¸·Î ÀÌµ¿ÆĞÅÏÀÌ ¹Ù²ï´Ù.
+			// ë¹„í–‰ëª¹ì€ ë„ì°©í•˜ê³  ë‚˜ì„œ ë©ˆì¶”ì§€ ì•ŠëŠ”ë‹¤. 8ìë¹„í–‰ìœ¼ë¡œ ì´ë™íŒ¨í„´ì´ ë°”ë€ë‹¤.
 			if( msg.dwParam2 == 1 )
 			{
 				int nPattern = 2;
 				pMover->SetMovePattern( nPattern );
-				// Å¬¶ó·Î Àü¼Û
+				// í´ë¼ë¡œ ì „ì†¡
 				g_UserMng.AddSetMovePattern( pMover, nPattern, pMover->GetPos(), pMover->GetAngle(), pMover->GetAngleX() );
 			}
 		} 
 		else
 		{
 			if( m_bReturnToBegin )
-				SetStop( xRandom( SEC( 1 ) ) ); // 1ÃÊ µ¿¾È ¸ØÃç¶ó 
+				SetStop( xRandom( SEC( 1 ) ) ); // 1ì´ˆ ë™ì•ˆ ë©ˆì¶°ë¼ 
 			else
-				SetStop( SEC( 5 ) + xRandom( SEC( 1 ) ) ); // 1ÃÊ µ¿¾È ¸ØÃç¶ó 
+				SetStop( SEC( 5 ) + xRandom( SEC( 1 ) ) ); // 1ì´ˆ ë™ì•ˆ ë©ˆì¶°ë¼ 
 
-			if( m_bLootMove )	// ¾ÆÀÌÅÛ ·çÆÃ¸ğµå¿´À½.
+			if( m_bLootMove )	// ì•„ì´í…œ ë£¨íŒ…ëª¨ë“œì˜€ìŒ.
 			{
-				CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
+				CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
 				if( IsValidObj(pCtrl) )
 				{
 					CItem *pItem = (CItem *)pCtrl;
 					D3DXVECTOR3 vDist = pCtrl->GetPos() - pMover->GetPos();
 					FLOAT fDistSq = D3DXVec3LengthSq( &vDist );
-					if( fDistSq < 3.0f * 3.0f )		// µµÂøÇØ¼­ °Å¸® °Ë»ç ÇÑ¹ø´õ ÇØ¼­ 
+					if( fDistSq < 3.0f * 3.0f )		// ë„ì°©í•´ì„œ ê±°ë¦¬ ê²€ì‚¬ í•œë²ˆë” í•´ì„œ 
 					{
 						if( pItem->IsDelete() )
 							return TRUE;
 						CItemElem* pItemElem = (CItemElem *)pItem->m_pItemBase;
 						ItemProp *pItemProp = pItem->GetProp();
 						BOOL bSuccess = FALSE;
-						if( pItemProp->dwItemKind1 == IK1_GOLD )	// ÁÖÀº¾ÆÀÌÅÛÀÌ µ·ÀÌ³Ä?
+						if( pItemProp->dwItemKind1 == IK1_GOLD )	// ì£¼ì€ì•„ì´í…œì´ ëˆì´ëƒ?
 						{
-							pMover->AddGold( pItemElem->GetGold() );	// µ·Áõ°¡.
+							pMover->AddGold( pItemElem->GetGold() );	// ëˆì¦ê°€.
 							bSuccess = TRUE;
 						} 
 						else
 						{
 							// not GOLD
-							bSuccess = pMover->CreateItem( pItemElem );			// ÁÖÀº ¾ÆÀÌÅÛ »ı¼º.
+							bSuccess = pMover->CreateItem( pItemElem );			// ì£¼ì€ ì•„ì´í…œ ìƒì„±.
 						}
 
 						if( bSuccess )
 						{
-							pItem->Delete();		// ÀÎº¥¿¡±îÁö ³Ö´Âµ¥ ¼º°øÇÏ¸é ¹Ù´ÚÀÇ ¾ÆÀÌÅÛÀº Áö¿ò.
+							pItem->Delete();		// ì¸ë²¤ì—ê¹Œì§€ ë„£ëŠ”ë° ì„±ê³µí•˜ë©´ ë°”ë‹¥ì˜ ì•„ì´í…œì€ ì§€ì›€.
 						}
 					}
 				}
-				m_bLootMove = FALSE;		// this°¡ ¾ÆÀÌÅÛ Áı´ÂÁßÀÌ¶ó´Â°Å ÇØÁ¦.
+				m_bLootMove = FALSE;		// thisê°€ ì•„ì´í…œ ì§‘ëŠ”ì¤‘ì´ë¼ëŠ”ê±° í•´ì œ.
 				m_idLootItem = NULL_ID;
 			}
 		}
@@ -604,7 +604,7 @@ BOOL CAIAggroNormal::StateStand( const AIMSG & msg )
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_DAMAGE ) 
-		//ºĞ³ë ¸ğµå·Î º¯°æ
+		//ë¶„ë…¸ ëª¨ë“œë¡œ ë³€ê²½
 
 		if( m_bReturnToBegin == FALSE
 #if __VER < 9	// __AI_0509
@@ -614,7 +614,7 @@ BOOL CAIAggroNormal::StateStand( const AIMSG & msg )
 		{
 			MoveToDst( msg.dwParam1 );
 			SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, msg.dwParam1 );
-			m_tmAttack	= TIMEGETTIME + s_tmAttack;		// ´ë±âÁßÀÏ¶§ °ø°İ¹ŞÀ¸¸é 20ÃÊ Å¸ÀÌ¸Ó ½ÃÀÛ
+			m_tmAttack	= TIMEGETTIME + s_tmAttack;		// ëŒ€ê¸°ì¤‘ì¼ë•Œ ê³µê²©ë°›ìœ¼ë©´ 20ì´ˆ íƒ€ì´ë¨¸ ì‹œì‘
 #if __VER >= 9	//__AI_0509
 			m_vPosDamage	= pMover->GetPos();
 #endif	// __AI_0509
@@ -622,23 +622,23 @@ BOOL CAIAggroNormal::StateStand( const AIMSG & msg )
 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_DIE )		// ²Ğ!
+	OnMessage( AIMSG_DIE )		// ê½¥!
 		SendAIMsg( AIMSG_EXIT );
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_COLLISION )  // ³î´Ù°¡ Ãæµ¹ÇßÀ½!"
+	OnMessage( AIMSG_COLLISION )  // ë†€ë‹¤ê°€ ì¶©ëŒí–ˆìŒ!"
 //		MoveToRandom( STATE_IDLE );
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_ARRIVAL )
 		if( pMover->IsFlyingNPC() )		
 		{
-			// ºñÇà¸÷Àº µµÂøÇÏ°í ³ª¼­ ¸ØÃßÁö ¾Ê´Â´Ù. 8ÀÚºñÇàÀ¸·Î ÀÌµ¿ÆĞÅÏÀÌ ¹Ù²ï´Ù.
+			// ë¹„í–‰ëª¹ì€ ë„ì°©í•˜ê³  ë‚˜ì„œ ë©ˆì¶”ì§€ ì•ŠëŠ”ë‹¤. 8ìë¹„í–‰ìœ¼ë¡œ ì´ë™íŒ¨í„´ì´ ë°”ë€ë‹¤.
 			if( msg.dwParam2 == 1 )
 			{
 				int nPattern = 2;
 				pMover->SetMovePattern( nPattern );
-				// Å¬¶ó·Î Àü¼Û
+				// í´ë¼ë¡œ ì „ì†¡
 				g_UserMng.AddSetMovePattern( pMover, nPattern, pMover->GetPos(), pMover->GetAngle(), pMover->GetAngleX() );
 			}
 		} 
@@ -646,46 +646,46 @@ BOOL CAIAggroNormal::StateStand( const AIMSG & msg )
 		{
 			if( m_bReturnToBegin )
 			{
-				SetStop( xRandom( SEC( 1 ) ) ); // 1ÃÊ µ¿¾È ¸ØÃç¶ó 
+				SetStop( xRandom( SEC( 1 ) ) ); // 1ì´ˆ ë™ì•ˆ ë©ˆì¶°ë¼ 
 			}
 			else
 			{
-				SetStop( SEC( 5 ) + xRandom( SEC( 1 ) ) ); // 1ÃÊ µ¿¾È ¸ØÃç¶ó 
+				SetStop( SEC( 5 ) + xRandom( SEC( 1 ) ) ); // 1ì´ˆ ë™ì•ˆ ë©ˆì¶°ë¼ 
 			}
 
-			if( m_bLootMove )	// ¾ÆÀÌÅÛ ·çÆÃ¸ğµå¿´À½.
+			if( m_bLootMove )	// ì•„ì´í…œ ë£¨íŒ…ëª¨ë“œì˜€ìŒ.
 			{
-				CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
+				CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
 				if( IsValidObj(pCtrl) )
 				{
 					CItem *pItem = (CItem *)pCtrl;
 					D3DXVECTOR3 vDist = pCtrl->GetPos() - pMover->GetPos();
 					FLOAT fDistSq = D3DXVec3LengthSq( &vDist );
-					if( fDistSq < 3.0f * 3.0f )		// µµÂøÇØ¼­ °Å¸® °Ë»ç ÇÑ¹ø´õ ÇØ¼­ 
+					if( fDistSq < 3.0f * 3.0f )		// ë„ì°©í•´ì„œ ê±°ë¦¬ ê²€ì‚¬ í•œë²ˆë” í•´ì„œ 
 					{
 						if( pItem->IsDelete() )
 							return TRUE;
 						CItemElem* pItemElem = (CItemElem *)pItem->m_pItemBase;
 						ItemProp *pItemProp = pItem->GetProp();
 						BOOL bSuccess = FALSE;
-						if( pItemProp->dwItemKind1 == IK1_GOLD )	// ÁÖÀº¾ÆÀÌÅÛÀÌ µ·ÀÌ³Ä?
+						if( pItemProp->dwItemKind1 == IK1_GOLD )	// ì£¼ì€ì•„ì´í…œì´ ëˆì´ëƒ?
 						{
-							pMover->AddGold( pItemElem->GetGold() );	// µ·Áõ°¡.
+							pMover->AddGold( pItemElem->GetGold() );	// ëˆì¦ê°€.
 							bSuccess = TRUE;
 						} 
 						else
 						{
 							// not GOLD
-							bSuccess = pMover->CreateItem( pItemElem );			// ÁÖÀº ¾ÆÀÌÅÛ »ı¼º.
+							bSuccess = pMover->CreateItem( pItemElem );			// ì£¼ì€ ì•„ì´í…œ ìƒì„±.
 						}
 
 						if( bSuccess )
 						{
-							pItem->Delete();		// ÀÎº¥¿¡±îÁö ³Ö´Âµ¥ ¼º°øÇÏ¸é ¹Ù´ÚÀÇ ¾ÆÀÌÅÛÀº Áö¿ò.
+							pItem->Delete();		// ì¸ë²¤ì—ê¹Œì§€ ë„£ëŠ”ë° ì„±ê³µí•˜ë©´ ë°”ë‹¥ì˜ ì•„ì´í…œì€ ì§€ì›€.
 						}
 					}
 				}
-				m_bLootMove = FALSE;		// this°¡ ¾ÆÀÌÅÛ Áı´ÂÁßÀÌ¶ó´Â°Å ÇØÁ¦.
+				m_bLootMove = FALSE;		// thisê°€ ì•„ì´í…œ ì§‘ëŠ”ì¤‘ì´ë¼ëŠ”ê±° í•´ì œ.
 				m_idLootItem = NULL_ID;
 			}
 		}
@@ -733,7 +733,7 @@ BOOL CAIAggroNormal::StatePatrol( const AIMSG & msg )
 		
 	///////////////////////////////////////////////////////////////////////////////////////////////////			
 	OnMessage( AIMSG_DAMAGE ) 
-		//ºĞ³ë ¸ğµå·Î º¯°æ
+		//ë¶„ë…¸ ëª¨ë“œë¡œ ë³€ê²½
 
 		if( m_bReturnToBegin == FALSE
 #if __VER < 9	// __AI_0509
@@ -743,7 +743,7 @@ BOOL CAIAggroNormal::StatePatrol( const AIMSG & msg )
 		{
 			MoveToDst( msg.dwParam1 );
 			SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, msg.dwParam1 );
-			m_tmAttack	= TIMEGETTIME + s_tmAttack;		// ´ë±âÁßÀÏ¶§ °ø°İ¹ŞÀ¸¸é 20ÃÊ Å¸ÀÌ¸Ó ½ÃÀÛ
+			m_tmAttack	= TIMEGETTIME + s_tmAttack;		// ëŒ€ê¸°ì¤‘ì¼ë•Œ ê³µê²©ë°›ìœ¼ë©´ 20ì´ˆ íƒ€ì´ë¨¸ ì‹œì‘
 #if __VER >= 9	//__AI_0509
 			m_vPosDamage	= pMover->GetPos();
 #endif	// __AI_0509
@@ -751,11 +751,11 @@ BOOL CAIAggroNormal::StatePatrol( const AIMSG & msg )
 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_DIE )		// ²Ğ!
+	OnMessage( AIMSG_DIE )		// ê½¥!
 		SendAIMsg( AIMSG_EXIT );
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_COLLISION )  // °æ·Î·Î ¿òÁ÷ÀÌ´Ù°¡ Ãæµ¹ÇßÀ½!"
+	OnMessage( AIMSG_COLLISION )  // ê²½ë¡œë¡œ ì›€ì§ì´ë‹¤ê°€ ì¶©ëŒí–ˆìŒ!"
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_ARRIVAL )
@@ -782,14 +782,14 @@ BOOL CAIAggroNormal::MoveProcessStand( const AIMSG & msg )
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 
-	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
+	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 
-	// ½ºÆù Àå¼Ò·Î ±ÍÈ¯ 
+	// ìŠ¤í° ì¥ì†Œë¡œ ê·€í™˜ 
 	if( m_bReturnToBegin )
 	{
-		if( IsInRange( m_vPosBegin - pMover->GetPos(), 0.1f ) )		// ½ÃÀÛÁöÁ¡À¸·Î µ¹¾Æ¿Ô´Ù.
+		if( IsInRange( m_vPosBegin - pMover->GetPos(), 0.1f ) )		// ì‹œì‘ì§€ì ìœ¼ë¡œ ëŒì•„ì™”ë‹¤.
 		{
 			DoReturnToBegin( FALSE );
 			pMover->SetAngle( m_fAngleBegine );	
@@ -797,9 +797,9 @@ BOOL CAIAggroNormal::MoveProcessStand( const AIMSG & msg )
 			SendAIMsg( AIMSG_ARRIVAL, NULL_ID );
 		}
 #if __VER < 9	// __AI_0509
-		else if( m_dwIdTarget != NULL_ID )	// ³î°íÀÖ´ø Áß¿¡ Àü¿¡ ?´ø ÀûÀÌ ÀÖÀ¸¸é Àç°ø°İ
+		else if( m_dwIdTarget != NULL_ID )	// ë†€ê³ ìˆë˜ ì¤‘ì— ì „ì— ?ë˜ ì ì´ ìˆìœ¼ë©´ ì¬ê³µê²©
 		{
-			if( TIMEGETTIME - m_tmReturnToBegin > SEC(5) )		// µ¹¾Æ°¡±â ½ÃÀÛÇÑÁö 5ÃÊ´Â Áö³ª¾ß ´Ù½Ã ¹İ°İÇÑ´Ù.
+			if( TIMEGETTIME - m_tmReturnToBegin > SEC(5) )		// ëŒì•„ê°€ê¸° ì‹œì‘í•œì§€ 5ì´ˆëŠ” ì§€ë‚˜ì•¼ ë‹¤ì‹œ ë°˜ê²©í•œë‹¤.
 			{
 				int nAttackFirstRange = pProp->m_nAttackFirstRange;		//??
 				CMover* pTarget = prj.GetMover( m_dwIdTarget );
@@ -807,16 +807,16 @@ BOOL CAIAggroNormal::MoveProcessStand( const AIMSG & msg )
 				{
 					D3DXVECTOR3 vDist = pTarget->GetPos() - pMover->GetPos();
 					FLOAT fDistSq = D3DXVec3LengthSq( &vDist );
-					if( fDistSq < (float)(nAttackFirstRange * nAttackFirstRange) )	// Å¸°ÙÀÌ °Å¸®³»¿¡ µé¾î¿À¸é
+					if( fDistSq < (float)(nAttackFirstRange * nAttackFirstRange) )	// íƒ€ê²Ÿì´ ê±°ë¦¬ë‚´ì— ë“¤ì–´ì˜¤ë©´
 					{
 
-#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
+#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
 						if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pMover->IsFlyingNPC() == FALSE )	
 #else	// __VER >= 8  
-						// this¶û Å¸°ÙÀÌ¶û Áö»ó-Áö»ó, ºñÇà-ºñÇà ÀÌ¸é 
+						// thisë‘ íƒ€ê²Ÿì´ë‘ ì§€ìƒ-ì§€ìƒ, ë¹„í–‰-ë¹„í–‰ ì´ë©´ 
 						if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() )	
 #endif	// __VER >= 8  
-							SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, NULL_ID );	// ´Ù½Ã °ø°İ
+							SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, NULL_ID );	// ë‹¤ì‹œ ê³µê²©
 					}
 				}
 			}
@@ -826,10 +826,10 @@ BOOL CAIAggroNormal::MoveProcessStand( const AIMSG & msg )
 #ifdef __AI_0905
 		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(20) )
 #else	// __AI_0905
-		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(10) )	// ÁıÀ¸·Î µ¹¾Æ°¡±â ½ÃÀÛÇÑÁö 10ÃÊ³ª Áö³µ´Ù.
+		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(10) )	// ì§‘ìœ¼ë¡œ ëŒì•„ê°€ê¸° ì‹œì‘í•œì§€ 10ì´ˆë‚˜ ì§€ë‚¬ë‹¤.
 #endif	// __AI_0905
 		{
-			// Á¦´ë·Î ¸øµ¹¾Æ°¡°í ÀÖ´Ù°í ÆÇ´ÜÇÏ°í ½ÃÀÛÁöÁ¡À¸·Î ¿öÇÁ½ÃÅ´.
+			// ì œëŒ€ë¡œ ëª»ëŒì•„ê°€ê³  ìˆë‹¤ê³  íŒë‹¨í•˜ê³  ì‹œì‘ì§€ì ìœ¼ë¡œ ì›Œí”„ì‹œí‚´.
 			pMover->SetPos( m_vPosBegin );
 			g_UserMng.AddSetPos( pMover, m_vPosBegin );
 			m_tmReturnToBegin	= TIMEGETTIME;
@@ -837,53 +837,53 @@ BOOL CAIAggroNormal::MoveProcessStand( const AIMSG & msg )
 	}
 	else
 	{
-		if( pMover->GetMovePattern() == 0 )	// ÀÏ¹İ ÆĞÅÏÀÌµ¿ÀÏ¶§¸¸ µé¾î°£´Ù.
+		if( pMover->GetMovePattern() == 0 )	// ì¼ë°˜ íŒ¨í„´ì´ë™ì¼ë•Œë§Œ ë“¤ì–´ê°„ë‹¤.
 		{
 		}
-		else								// 8ÀÚºñÇàÁß		
+		else								// 8ìë¹„í–‰ì¤‘		
 		{
-			if( pMover->GetMoveEvent() == 99 )		// ÆĞÅÏºñÇà ³¡.
-				pMover->SetMovePattern( 0 );		// ÀÏ¹İÀÌµ¿À¸·Î ÀüÈ¯.
+			if( pMover->GetMoveEvent() == 99 )		// íŒ¨í„´ë¹„í–‰ ë.
+				pMover->SetMovePattern( 0 );		// ì¼ë°˜ì´ë™ìœ¼ë¡œ ì „í™˜.
 		}
 
-		// ·çÆÃ¿É¼ÇÀÌ ÀÖ´Â ¸÷ÀÌ´Ù.
+		// ë£¨íŒ…ì˜µì…˜ì´ ìˆëŠ” ëª¹ì´ë‹¤.
 		if( pProp->m_nLoot )
 		{
-			if( (pMover->GetCount() & 63) == 0 )		// °¡²û¾¿ ÁÖº¯À» ½ºÄµÇØ¼­.(63ÀÌ¸é ¾à 4.2ÃÊ)
+			if( (pMover->GetCount() & 63) == 0 )		// ê°€ë”ì”© ì£¼ë³€ì„ ìŠ¤ìº”í•´ì„œ.(63ì´ë©´ ì•½ 4.2ì´ˆ)
 			{	
-				if( pProp->m_nLootProb == 0 || (int)( xRandom(100) ) < pProp->m_nLootProb  )	// µğÆúÆ®°ª(0)Àº 100% / ÀÌ°Å³ª ·çÆÃÈ®·ü¿¡ µé¾î°¡¸é ·çÆÃ½Ãµµ
-					if( m_bLootMove == FALSE )		// ·çÆÃÇÏ·¯ °¡°í ÀÖÀ»¶§ ¶Ç Ã¼Å©ÇÏ¸é ¾ÈŠ•
-						SubItemLoot();		// ¾ÆÀÌÅÛÀ» ·çÆÃÇÔ.
+				if( pProp->m_nLootProb == 0 || (int)( xRandom(100) ) < pProp->m_nLootProb  )	// ë””í´íŠ¸ê°’(0)ì€ 100% / ì´ê±°ë‚˜ ë£¨íŒ…í™•ë¥ ì— ë“¤ì–´ê°€ë©´ ë£¨íŒ…ì‹œë„
+					if( m_bLootMove == FALSE )		// ë£¨íŒ…í•˜ëŸ¬ ê°€ê³  ìˆì„ë•Œ ë˜ ì²´í¬í•˜ë©´ ì•ˆë’˜
+						SubItemLoot();		// ì•„ì´í…œì„ ë£¨íŒ…í•¨.
 			}
 		}
 
 		if( m_bLootMove == TRUE )
 		{
-			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
-			if( IsInvalidObj(pCtrl) )		// ¾ÆÀÌÅÛ ÁıÀ¸·¯ ÀÌµ¿Áß¿¡ ¾ÆÅÛÀÌ ¾ø¾îÁö¸é
+			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
+			if( IsInvalidObj(pCtrl) )		// ì•„ì´í…œ ì§‘ìœ¼ëŸ¬ ì´ë™ì¤‘ì— ì•„í…œì´ ì—†ì–´ì§€ë©´
 			{
-				MoveToDst( pMover->GetPos() );	// Á¦ÀÚ¸®¿¡ ¼¶.
+				MoveToDst( pMover->GetPos() );	// ì œìë¦¬ì— ì„¬.
 				m_idLootItem = NULL_ID;
 				m_bLootMove = FALSE;
 			}
 		}
 
-		// -1 ÀÌ¸é ¾Æ¹«°Íµµ ½ºÄµÇÏÁö ¾Ê´Â´Ù!!!
+		// -1 ì´ë©´ ì•„ë¬´ê²ƒë„ ìŠ¤ìº”í•˜ì§€ ì•ŠëŠ”ë‹¤!!!
 		if( pProp->m_nScanJob != -1 )
 		{
 			CMover* pTarget = NULL;
 			int nAttackFirstRange = pProp->m_nAttackFirstRange;
 			if( nAttackFirstRange > 80 || nAttackFirstRange <= 0 )
 			{
-				Error( "m_nAttackFirstRange ÀÌ»ó:%d %s\n", pProp->m_nAttackFirstRange, pMover->GetName() );
+				Error( "m_nAttackFirstRange ì´ìƒ:%d %s\n", pProp->m_nAttackFirstRange, pMover->GetName() );
 				return TRUE;
 			}
 
-			// ¾î¶² Á¶°Ç¿¡ ÇØ´çÇÏ´Â ÇÃ·¹ÀÌ¾î°¡ ÀÖ´ÂÁö ½ºÄËÇÑ´Ù.
+			// ì–´ë–¤ ì¡°ê±´ì— í•´ë‹¹í•˜ëŠ” í”Œë ˆì´ì–´ê°€ ìˆëŠ”ì§€ ìŠ¤ì¼„í•œë‹¤.
 			if( pProp->m_nScanJob || pProp->m_dwScanQuestId || pProp->m_dwScanItemIdx || pProp->m_nScanChao )
 				pTarget = ScanTarget( pMover, nAttackFirstRange, pProp->m_nScanJob, pProp->m_dwScanQuestId, pProp->m_dwScanItemIdx, pProp->m_nScanChao );
 
-			// Á¶°Ç¿¡ ¸Â´Â ÇÃ·¹ÀÌ¾î°¡ ¾ø°í ¼±°ø¸÷ÀÌ¸é ¼±°ø¸÷ ÇüÅÂÀÇ ½ºÄËÀ» ÇÑ´Ù.
+			// ì¡°ê±´ì— ë§ëŠ” í”Œë ˆì´ì–´ê°€ ì—†ê³  ì„ ê³µëª¹ì´ë©´ ì„ ê³µëª¹ í˜•íƒœì˜ ìŠ¤ì¼„ì„ í•œë‹¤.
 			if( pTarget == NULL && GetMover()->m_bActiveAttack )
 				pTarget = ScanTarget( pMover, nAttackFirstRange, JOB_ALL );
 
@@ -892,13 +892,13 @@ BOOL CAIAggroNormal::MoveProcessStand( const AIMSG & msg )
 				if( IsValidObj( (CObj*)pTarget ) )
 				{
 
-#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
-					if( pMover->IsFlyingNPC() == FALSE || pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pProp->dwClass == RANK_GUARD )	// °¡µå´Â ¹«Á¶°Ç °ø°İ.
+#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
+					if( pMover->IsFlyingNPC() == FALSE || pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pProp->dwClass == RANK_GUARD )	// ê°€ë“œëŠ” ë¬´ì¡°ê±´ ê³µê²©.
 #else	// __VER >= 8  
-					if( (pMover->IsFlyingNPC() || pTarget->m_pActMover->IsFly() == FALSE) || pProp->dwClass == RANK_GUARD )	// °¡µå´Â ¹«Á¶°Ç °ø°İ.
+					if( (pMover->IsFlyingNPC() || pTarget->m_pActMover->IsFly() == FALSE) || pProp->dwClass == RANK_GUARD )	// ê°€ë“œëŠ” ë¬´ì¡°ê±´ ê³µê²©.
 #endif	// __VER >= 8  
 					{
-						// Å¸°ÙÀÌ Á¸ÀçÇÏ¸é ÃßÀû ¸ğµå·Î º¯°æ 
+						// íƒ€ê²Ÿì´ ì¡´ì¬í•˜ë©´ ì¶”ì  ëª¨ë“œë¡œ ë³€ê²½ 
 						if( pTarget )	
 						{
 							g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_ATTACK );
@@ -918,22 +918,22 @@ BOOL CAIAggroNormal::MoveProcessPatrol( const AIMSG & msg )
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 
-	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
+	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 
-	// ½ºÆù Àå¼Ò·Î ±ÍÈ¯ 
+	// ìŠ¤í° ì¥ì†Œë¡œ ê·€í™˜ 
 	if( m_bReturnToBegin )
 	{
-		if( IsInRange( m_vPosBegin - pMover->GetPos(), 3.0f ) )		// ½ÃÀÛÁöÁ¡À¸·Î µ¹¾Æ¿Ô´Ù.
+		if( IsInRange( m_vPosBegin - pMover->GetPos(), 3.0f ) )		// ì‹œì‘ì§€ì ìœ¼ë¡œ ëŒì•„ì™”ë‹¤.
 		{
 			DoReturnToBegin( FALSE );
 //			SendAIMsg( AIMSG_ARRIVAL, NULL_ID );
 		}
 #if __VER < 9	// __AI_0509
-		else if( m_dwIdTarget != NULL_ID )	// ³î°íÀÖ´ø Áß¿¡ Àü¿¡ ?´ø ÀûÀÌ ÀÖÀ¸¸é Àç°ø°İ
+		else if( m_dwIdTarget != NULL_ID )	// ë†€ê³ ìˆë˜ ì¤‘ì— ì „ì— ?ë˜ ì ì´ ìˆìœ¼ë©´ ì¬ê³µê²©
 		{
-			if( TIMEGETTIME - m_tmReturnToBegin > SEC(5) )		// µ¹¾Æ°¡±â ½ÃÀÛÇÑÁö 5ÃÊ´Â Áö³ª¾ß ´Ù½Ã ¹İ°İÇÑ´Ù.
+			if( TIMEGETTIME - m_tmReturnToBegin > SEC(5) )		// ëŒì•„ê°€ê¸° ì‹œì‘í•œì§€ 5ì´ˆëŠ” ì§€ë‚˜ì•¼ ë‹¤ì‹œ ë°˜ê²©í•œë‹¤.
 			{
 				int nAttackFirstRange = pProp->m_nAttackFirstRange;		//??
 				CMover* pTarget = prj.GetMover( m_dwIdTarget );
@@ -941,25 +941,25 @@ BOOL CAIAggroNormal::MoveProcessPatrol( const AIMSG & msg )
 				{
 					D3DXVECTOR3 vDist = pTarget->GetPos() - pMover->GetPos();
 					FLOAT fDistSq = D3DXVec3LengthSq( &vDist );
-					if( fDistSq < (float)(nAttackFirstRange * nAttackFirstRange) )	// Å¸°ÙÀÌ °Å¸®³»¿¡ µé¾î¿À¸é
+					if( fDistSq < (float)(nAttackFirstRange * nAttackFirstRange) )	// íƒ€ê²Ÿì´ ê±°ë¦¬ë‚´ì— ë“¤ì–´ì˜¤ë©´
 					{
 
-#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
+#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
 						if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pMover->IsFlyingNPC() == FALSE )	
 #else	// __VER >= 8  
-						// this¶û Å¸°ÙÀÌ¶û Áö»ó-Áö»ó, ºñÇà-ºñÇà ÀÌ¸é 
+						// thisë‘ íƒ€ê²Ÿì´ë‘ ì§€ìƒ-ì§€ìƒ, ë¹„í–‰-ë¹„í–‰ ì´ë©´ 
 						if( pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() )	
 #endif	// __VER >= 8  
-							SendAIMsg( AIMSG_SETSTATE, STATE_RAGE_PATROL, NULL_ID );	// ´Ù½Ã °ø°İ
+							SendAIMsg( AIMSG_SETSTATE, STATE_RAGE_PATROL, NULL_ID );	// ë‹¤ì‹œ ê³µê²©
 					}
 				}
 			}
 		}
 #endif	// __AI_0509
 
-		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(10) )	// ÁıÀ¸·Î µ¹¾Æ°¡±â ½ÃÀÛÇÑÁö 10ÃÊ³ª Áö³µ´Ù.
+		if( TIMEGETTIME - m_tmReturnToBegin >= SEC(10) )	// ì§‘ìœ¼ë¡œ ëŒì•„ê°€ê¸° ì‹œì‘í•œì§€ 10ì´ˆë‚˜ ì§€ë‚¬ë‹¤.
 		{
-			// Á¦´ë·Î ¸øµ¹¾Æ°¡°í ÀÖ´Ù°í ÆÇ´ÜÇÏ°í ½ÃÀÛÁöÁ¡À¸·Î ¿öÇÁ½ÃÅ´.
+			// ì œëŒ€ë¡œ ëª»ëŒì•„ê°€ê³  ìˆë‹¤ê³  íŒë‹¨í•˜ê³  ì‹œì‘ì§€ì ìœ¼ë¡œ ì›Œí”„ì‹œí‚´.
 			pMover->SetPos( m_vPosBegin );
 			g_UserMng.AddSetPos( pMover, m_vPosBegin );
 			m_tmReturnToBegin	= TIMEGETTIME;
@@ -967,7 +967,7 @@ BOOL CAIAggroNormal::MoveProcessPatrol( const AIMSG & msg )
 	}
 	else
 	{
-		if( pMover->GetMovePattern() == 0 )	// ÀÏ¹İ ÆĞÅÏÀÌµ¿ÀÏ¶§¸¸ µé¾î°£´Ù.
+		if( pMover->GetMovePattern() == 0 )	// ì¼ë°˜ íŒ¨í„´ì´ë™ì¼ë•Œë§Œ ë“¤ì–´ê°„ë‹¤.
 		{
 			D3DXVECTOR3 vPos1 = pMover->GetPos();
 			D3DXVECTOR3 vPos2 = m_vDestPos;
@@ -977,50 +977,50 @@ BOOL CAIAggroNormal::MoveProcessPatrol( const AIMSG & msg )
 				MoveToDst( m_vDestPos );
 			}
 		}
-		else								// 8ÀÚºñÇàÁß		
+		else								// 8ìë¹„í–‰ì¤‘		
 		{
-			if( pMover->GetMoveEvent() == 99 )		// ÆĞÅÏºñÇà ³¡.
-				pMover->SetMovePattern( 0 );		// ÀÏ¹İÀÌµ¿À¸·Î ÀüÈ¯.
+			if( pMover->GetMoveEvent() == 99 )		// íŒ¨í„´ë¹„í–‰ ë.
+				pMover->SetMovePattern( 0 );		// ì¼ë°˜ì´ë™ìœ¼ë¡œ ì „í™˜.
 		}
 
-		// ·çÆÃ¿É¼ÇÀÌ ÀÖ´Â ¸÷ÀÌ´Ù.
+		// ë£¨íŒ…ì˜µì…˜ì´ ìˆëŠ” ëª¹ì´ë‹¤.
 		if( pProp->m_nLoot )
 		{
-			if( (pMover->GetCount() & 63) == 0 )		// °¡²û¾¿ ÁÖº¯À» ½ºÄµÇØ¼­.(63ÀÌ¸é ¾à 4.2ÃÊ)
+			if( (pMover->GetCount() & 63) == 0 )		// ê°€ë”ì”© ì£¼ë³€ì„ ìŠ¤ìº”í•´ì„œ.(63ì´ë©´ ì•½ 4.2ì´ˆ)
 			{	
-				if( pProp->m_nLootProb == 0 || (int)( xRandom(100) ) < pProp->m_nLootProb  )	// µğÆúÆ®°ª(0)Àº 100% / ÀÌ°Å³ª ·çÆÃÈ®·ü¿¡ µé¾î°¡¸é ·çÆÃ½Ãµµ
-					if( m_bLootMove == FALSE )		// ·çÆÃÇÏ·¯ °¡°í ÀÖÀ»¶§ ¶Ç Ã¼Å©ÇÏ¸é ¾ÈŠ•
-						SubItemLoot();		// ¾ÆÀÌÅÛÀ» ·çÆÃÇÔ.
+				if( pProp->m_nLootProb == 0 || (int)( xRandom(100) ) < pProp->m_nLootProb  )	// ë””í´íŠ¸ê°’(0)ì€ 100% / ì´ê±°ë‚˜ ë£¨íŒ…í™•ë¥ ì— ë“¤ì–´ê°€ë©´ ë£¨íŒ…ì‹œë„
+					if( m_bLootMove == FALSE )		// ë£¨íŒ…í•˜ëŸ¬ ê°€ê³  ìˆì„ë•Œ ë˜ ì²´í¬í•˜ë©´ ì•ˆë’˜
+						SubItemLoot();		// ì•„ì´í…œì„ ë£¨íŒ…í•¨.
 			}
 		}
 
 		if( m_bLootMove == TRUE )
 		{
-			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ±×¾ÆÀÌÅÛÀÌ »ç¶óÁ³À»¼ö ÀÖÀ¸´Ï±î °Ë»çÇÔ.
-			if( IsInvalidObj(pCtrl) )		// ¾ÆÀÌÅÛ ÁıÀ¸·¯ ÀÌµ¿Áß¿¡ ¾ÆÅÛÀÌ ¾ø¾îÁö¸é
+			CCtrl *pCtrl = prj.GetCtrl( m_idLootItem );		// ê·¸ì•„ì´í…œì´ ì‚¬ë¼ì¡Œì„ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ ê²€ì‚¬í•¨.
+			if( IsInvalidObj(pCtrl) )		// ì•„ì´í…œ ì§‘ìœ¼ëŸ¬ ì´ë™ì¤‘ì— ì•„í…œì´ ì—†ì–´ì§€ë©´
 			{
-				MoveToDst( pMover->GetPos() );	// Á¦ÀÚ¸®¿¡ ¼¶.
+				MoveToDst( pMover->GetPos() );	// ì œìë¦¬ì— ì„¬.
 				m_idLootItem = NULL_ID;
 				m_bLootMove = FALSE;
 			}
 		}
 
-		// -1 ÀÌ¸é ¾Æ¹«°Íµµ ½ºÄµÇÏÁö ¾Ê´Â´Ù!!!
+		// -1 ì´ë©´ ì•„ë¬´ê²ƒë„ ìŠ¤ìº”í•˜ì§€ ì•ŠëŠ”ë‹¤!!!
 		if( pProp->m_nScanJob != -1 )
 		{
 			CMover* pTarget = NULL;
 			int nAttackFirstRange = pProp->m_nAttackFirstRange;
 			if( nAttackFirstRange > 80 || nAttackFirstRange <= 0 )
 			{
-				Error( "m_nAttackFirstRange ÀÌ»ó:%d %s\n", pProp->m_nAttackFirstRange, pMover->GetName() );
+				Error( "m_nAttackFirstRange ì´ìƒ:%d %s\n", pProp->m_nAttackFirstRange, pMover->GetName() );
 				return TRUE;
 			}
 
-			// ¾î¶² Á¶°Ç¿¡ ÇØ´çÇÏ´Â ÇÃ·¹ÀÌ¾î°¡ ÀÖ´ÂÁö ½ºÄËÇÑ´Ù.
+			// ì–´ë–¤ ì¡°ê±´ì— í•´ë‹¹í•˜ëŠ” í”Œë ˆì´ì–´ê°€ ìˆëŠ”ì§€ ìŠ¤ì¼„í•œë‹¤.
 			if( pProp->m_nScanJob || pProp->m_dwScanQuestId || pProp->m_dwScanItemIdx || pProp->m_nScanChao )
 				pTarget = ScanTarget( pMover, nAttackFirstRange, pProp->m_nScanJob, pProp->m_dwScanQuestId, pProp->m_dwScanItemIdx, pProp->m_nScanChao );
 
-			// Á¶°Ç¿¡ ¸Â´Â ÇÃ·¹ÀÌ¾î°¡ ¾ø°í ¼±°ø¸÷ÀÌ¸é ¼±°ø¸÷ ÇüÅÂÀÇ ½ºÄËÀ» ÇÑ´Ù.
+			// ì¡°ê±´ì— ë§ëŠ” í”Œë ˆì´ì–´ê°€ ì—†ê³  ì„ ê³µëª¹ì´ë©´ ì„ ê³µëª¹ í˜•íƒœì˜ ìŠ¤ì¼„ì„ í•œë‹¤.
 			if( pTarget == NULL && GetMover()->m_bActiveAttack )
 				pTarget = ScanTarget( pMover, nAttackFirstRange, JOB_ALL );
 
@@ -1029,13 +1029,13 @@ BOOL CAIAggroNormal::MoveProcessPatrol( const AIMSG & msg )
 				if( IsValidObj( (CObj*)pTarget ) )
 				{
 
-#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
-					if( pMover->IsFlyingNPC() == FALSE || pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pProp->dwClass == RANK_GUARD )	// °¡µå´Â ¹«Á¶°Ç °ø°İ.
+#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
+					if( pMover->IsFlyingNPC() == FALSE || pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pProp->dwClass == RANK_GUARD )	// ê°€ë“œëŠ” ë¬´ì¡°ê±´ ê³µê²©.
 #else	// __VER >= 8  
-					if( (pMover->IsFlyingNPC() || pTarget->m_pActMover->IsFly() == FALSE) || pProp->dwClass == RANK_GUARD )	// °¡µå´Â ¹«Á¶°Ç °ø°İ.
+					if( (pMover->IsFlyingNPC() || pTarget->m_pActMover->IsFly() == FALSE) || pProp->dwClass == RANK_GUARD )	// ê°€ë“œëŠ” ë¬´ì¡°ê±´ ê³µê²©.
 #endif	// __VER >= 8  
 					{
-						// Å¸°ÙÀÌ Á¸ÀçÇÏ¸é ÃßÀû ¸ğµå·Î º¯°æ 
+						// íƒ€ê²Ÿì´ ì¡´ì¬í•˜ë©´ ì¶”ì  ëª¨ë“œë¡œ ë³€ê²½ 
 						if( pTarget )	
 						{
 							g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_ATTACK );
@@ -1080,25 +1080,25 @@ void CAIAggroNormal::CallHelper( const MoverProp* pMoverProp )
 
 	///////////////////////////////////////////////////////
 
-	// ÇØ´ç Á¶°Ç¿¡ ¸Â´Â ¸ó½ºÅÍ¸¦ ¼öÁıÇÑ´Ù.
+	// í•´ë‹¹ ì¡°ê±´ì— ë§ëŠ” ëª¬ìŠ¤í„°ë¥¼ ìˆ˜ì§‘í•œë‹¤.
 	int nRange = 20;
 	switch( pMoverProp->m_nHelpRangeMul )
 	{
 	case 0: nRange = pMoverProp->m_nAttackFirstRange / 2;	break;
-	default: nRange = pMoverProp->m_nAttackFirstRange * pMoverProp->m_nHelpRangeMul;	break;	// ½Ã¾ß¹üÀ§ÀÇ ¹è¼ö.
+	default: nRange = pMoverProp->m_nAttackFirstRange * pMoverProp->m_nHelpRangeMul;	break;	// ì‹œì•¼ë²”ìœ„ì˜ ë°°ìˆ˜.
 	}
 
 	FOR_LINKMAP( pMover->GetWorld(), vPos, pObj, nRange / MPU, CObj::linkDynamic, pMover->GetLayer() )
 	{
 		if( pObj != pMover && pObj->GetType() == OT_MOVER )
 		{
-			// FOR_LINKMAP ÀÚÃ¼°¡ ´À¸®±â ¶§¹®¿¡ ÀÌ ·çÇÁ¸¦ ¾ÈÂÊ¿¡ ³Ö¾ú´Ù.
+			// FOR_LINKMAP ìì²´ê°€ ëŠë¦¬ê¸° ë•Œë¬¸ì— ì´ ë£¨í”„ë¥¼ ì•ˆìª½ì— ë„£ì—ˆë‹¤.
 			for( int i = 0; i < pMoverProp->m_nCallHelperMax; i++ )
 			{
 				int nCallHelperIdx = pMoverProp->m_nCallHelperIdx[ i ];
 				int nCallHelperNum = pMoverProp->m_nCallHelperNum[ i ];
-				// ¾Æ¹«³ª ºÎ¸£´Â°ÍÀÌ°Å³ª || °°Àº Á¾Á·¸¸ ºÎ¸£´Â ¿É¼ÇÀÏ¶§ °°Àº ÀÎµ¦½ºÀÎ°¡?
-				// ±×¸®°í.............
+				// ì•„ë¬´ë‚˜ ë¶€ë¥´ëŠ”ê²ƒì´ê±°ë‚˜ || ê°™ì€ ì¢…ì¡±ë§Œ ë¶€ë¥´ëŠ” ì˜µì…˜ì¼ë•Œ ê°™ì€ ì¸ë±ìŠ¤ì¸ê°€?
+				// ê·¸ë¦¬ê³ .............
 				if( (pMoverProp->m_bHelpWho == 1 || (pMoverProp->m_bHelpWho == 2 && pObj->GetIndex() == pMover->GetIndex())) &&
 					( anCountMonster[ i ] < nCallHelperNum || nCallHelperNum == 0 )	)	
 				{
@@ -1112,7 +1112,7 @@ void CAIAggroNormal::CallHelper( const MoverProp* pMoverProp )
 	}
 	END_LINKMAP
 NEXT:
-	// ÆÄÆ¼ °¡´É ¿©ºÎ 
+	// íŒŒí‹° ê°€ëŠ¥ ì—¬ë¶€ 
 	pTarget = prj.GetMover( m_dwIdTarget );
 	for( int i = 0; i < pMoverProp->m_nCallHelperMax; i++ )
 		bParty |= pMoverProp->m_bCallHelperParty[ i ] ? TRUE : FALSE;
@@ -1120,7 +1120,7 @@ NEXT:
 	if( bParty && IsValidObj( (CObj*)pTarget ) )
 	{
 		pParty = g_PartyMng.GetParty( pTarget->m_idparty );
-		// ÆÄÆ¼°¡ È®½ÇÇÏ´Ù¸é ÆÄÆ¼¿øÀ» apPlayer¿¡ ¼öÁıÇÑ´Ù.
+		// íŒŒí‹°ê°€ í™•ì‹¤í•˜ë‹¤ë©´ íŒŒí‹°ì›ì„ apPlayerì— ìˆ˜ì§‘í•œë‹¤.
 		if( pParty )
 		{
 			FOR_LINKMAP( pMover->GetWorld(), vPos, pObj, 20 / MPU, CObj::linkPlayer, pMover->GetLayer() )
@@ -1144,7 +1144,7 @@ NEXT2:
 			{
 				for( int j = 0; j < anCountMonster[ i ]; j++ )
 				{
-					// °¢°¢ÀÇ ¸ó½ºÅÍ¿¡°Ô Å¸°ÙÀ» ·£´ıÀ¸·Î ¹èÁ¤ÇÑ´Ù. 
+					// ê°ê°ì˜ ëª¬ìŠ¤í„°ì—ê²Œ íƒ€ê²Ÿì„ ëœë¤ìœ¼ë¡œ ë°°ì •í•œë‹¤. 
 					CMover* pNewTarget = (CMover*)apPlayer[ rand() % nCountPlayer ];
 					if( pNewTarget )
 						apMonster[ j ][ i ]->PostAIMsg( AIMSG_SETSTATE, STATE_RAGE, pNewTarget->GetId() );
@@ -1165,7 +1165,7 @@ DWORD CAIAggroNormal::GetAtkMethod_Far()
 	MoverProp* pMoverProp = pMover->GetProp();
 	DWORD dwRandom = xRandom( 100 );
 
-	// ÇÊ»ì ÆÇÁ¤ ¼º°ø!
+	// í•„ì‚´ íŒì • ì„±ê³µ!
 	int nDeathblow = (int)( pMover->GetHitPointPercent() / 4.5f );
 	if( nDeathblow )
 	{
@@ -1230,7 +1230,7 @@ DWORD CAIAggroNormal::GetAtkRange( DWORD dwAtkMethod )
 #ifdef _DEBUG
 	if( pItemProp == NULL )
 	{
-		Error( "CAIAggroNormal::GetAtkRange : ItemProp->dwAtk%dÀÌ NULLÀÌ´Ù. (%s)", dwAtkMethod, GetMover()->GetName() );
+		Error( "CAIAggroNormal::GetAtkRange : ItemProp->dwAtk%dì´ NULLì´ë‹¤. (%s)", dwAtkMethod, GetMover()->GetName() );
 	}
 #endif
 	return pItemProp->dwAttackRange;
@@ -1272,23 +1272,23 @@ void CAIAggroNormal::DoAttack( DWORD dwAtkMethod, CMover* pTarget )
 	
 	if( pItemProp->dwAttackRange == AR_RANGE || pItemProp->dwAttackRange == AR_WAND )
 	{
-		// Àå°Å¸® °ø°İÀº, ¼±ÅÃµÈ °ø°İ ¹æ½Ä(dwAtkMethod)ÀÇ ÇØ´ç °ø°İ ¾ÆÀÌÅÛ ¼Ó¼º¿¡¼­ ¼Ó¼ºÀ» ¾ò¾î Àå°Å¸® °ø°İÀÌ¶ó°í ÆÇ´ÜÇÔ.
-		// ¼­¹ö¿¡¼­ idSfx¸¦ ¸¸µé¾î¼­ ÀÚ±âÀÚ½Å¿¡°Ô µî·Ï½ÃÄÑµÒ. ³ªÁß¿¡ Å¬¶ó¿¡¼­ ¸Â¾Æ¼­ ¼­¹ö·Î Á¤º¸°¡ ³Ñ¾î¿À¸é ±×°Í°ú ºñ±³ÇØ¼­ µ¥¹ÌÁö¸¦ ³Ñ°ÜÁÜ.
-		int id = pMover->m_sfxHitArray.Add( 0, pTarget->GetId(), AF_GENERIC, 0 );	// ÀÌºÎºĞÀº DoAttackRange¾ÈÀ¸·Î µé¾î°¡¾ß ÇÒ°Å °°´Ù.
+		// ì¥ê±°ë¦¬ ê³µê²©ì€, ì„ íƒëœ ê³µê²© ë°©ì‹(dwAtkMethod)ì˜ í•´ë‹¹ ê³µê²© ì•„ì´í…œ ì†ì„±ì—ì„œ ì†ì„±ì„ ì–»ì–´ ì¥ê±°ë¦¬ ê³µê²©ì´ë¼ê³  íŒë‹¨í•¨.
+		// ì„œë²„ì—ì„œ idSfxë¥¼ ë§Œë“¤ì–´ì„œ ìê¸°ìì‹ ì—ê²Œ ë“±ë¡ì‹œì¼œë‘ . ë‚˜ì¤‘ì— í´ë¼ì—ì„œ ë§ì•„ì„œ ì„œë²„ë¡œ ì •ë³´ê°€ ë„˜ì–´ì˜¤ë©´ ê·¸ê²ƒê³¼ ë¹„êµí•´ì„œ ë°ë¯¸ì§€ë¥¼ ë„˜ê²¨ì¤Œ.
+		int id = pMover->m_sfxHitArray.Add( 0, pTarget->GetId(), AF_GENERIC, 0 );	// ì´ë¶€ë¶„ì€ DoAttackRangeì•ˆìœ¼ë¡œ ë“¤ì–´ê°€ì•¼ í• ê±° ê°™ë‹¤.
 		DWORD dwItemID = dwAtkItem;
 		if( dwItemID == NULL_ID )
-			Error( "°æ°í : %sÀÇ dwAtk2°¡ ÁöÁ¤µÇÁö ¾Ê¾Ò´Ù", pMover->GetName() );
+			Error( "ê²½ê³  : %sì˜ dwAtk2ê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ë‹¤", pMover->GetName() );
 
 		if( pMover->DoAttackRange( pTarget, dwItemID, id ) != 1 )
-			pMover->m_sfxHitArray.RemoveSfxHit( id, FALSE );	// sfxHitArray.Add³Ö¾ú´ø°ÍÀ» ´Ù½Ã»­. 
+			pMover->m_sfxHitArray.RemoveSfxHit( id, FALSE );	// sfxHitArray.Addë„£ì—ˆë˜ê²ƒì„ ë‹¤ì‹œëºŒ. 
 	}
 	else
 	{
-		// ÇÊ»ì °ø°İÀº, ÇÁ·ÎÆÛÆ¼¿¡¼­ Á¤º¸¸¦ ¾ò¾î¿Ã ¼ö ¾øÀ¸¹Ç·Î °ø°İ ¹æ½Ä(dwAtkMethod)À¸·Î °áÁ¤.
-		// ÇÊ»ì °ø°İ ·çÆ¾Àº ³»ºÎ¿¡¼­ ´Ü°Å¸® °ø°İÀ» ÇÒ ¼öµµ ÀÖ´Ù.
+		// í•„ì‚´ ê³µê²©ì€, í”„ë¡œí¼í‹°ì—ì„œ ì •ë³´ë¥¼ ì–»ì–´ì˜¬ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ê³µê²© ë°©ì‹(dwAtkMethod)ìœ¼ë¡œ ê²°ì •.
+		// í•„ì‚´ ê³µê²© ë£¨í‹´ì€ ë‚´ë¶€ì—ì„œ ë‹¨ê±°ë¦¬ ê³µê²©ì„ í•  ìˆ˜ë„ ìˆë‹¤.
 		DWORD dwItemID = dwAtkItem;
 		if( dwItemID == NULL_ID )
-			Error( "°æ°í : %sÀÇ °ø°İ%d°¡ ÁöÁ¤µÇÁö ¾Ê¾Ò´Ù", pMover->GetName(), dwAtkMethod );
+			Error( "ê²½ê³  : %sì˜ ê³µê²©%dê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ë‹¤", pMover->GetName(), dwAtkMethod );
 		if( dwAtkMethod == 3 )
 			pMover->DoAttackSP( pTarget, dwItemID );
 		else
@@ -1297,16 +1297,16 @@ void CAIAggroNormal::DoAttack( DWORD dwAtkMethod, CMover* pTarget )
 			if( nError > 0 ) 
 				g_UserMng.AddMeleeAttack( pMover, OBJMSG_ATK1, pTarget->GetId(), 0, MAKELONG( 0, (WORD)nError ) );
 			else
-				nError = -1;		// ºê·¹ÀÌÅ© Æ÷ÀÎÆ® ÀâÀ¸·Á°í ÇØ³õÀº°Å.
+				nError = -1;		// ë¸Œë ˆì´í¬ í¬ì¸íŠ¸ ì¡ìœ¼ë ¤ê³  í•´ë†“ì€ê±°.
 		}
 	}
 
-	m_tmAttack	= TIMEGETTIME + s_tmAttack;		// °ø°İ ÈÄ s_tmAttackÃÊ°£ ÃßÀûÇØ¿È.
+	m_tmAttack	= TIMEGETTIME + s_tmAttack;		// ê³µê²© í›„ s_tmAttackì´ˆê°„ ì¶”ì í•´ì˜´.
 }
 
 //
-// ¾îÅÃ µô·¹ÀÌ°¡ ³¡³­ÈÄ ´Ù½Ã ¾îÅÃÂù½º°¡ µ¹¾Æ¿Ã¶§.
-// 11¿ù ½Å¹öÀüÄÚµåÀÔ´Ï´Ù. ±¸¹öÀüÀº ¿©±â´Ù ÄÚµùÇÏÁö ¸¶¼À~ -xuzhu-
+// ì–´íƒ ë”œë ˆì´ê°€ ëë‚œí›„ ë‹¤ì‹œ ì–´íƒì°¬ìŠ¤ê°€ ëŒì•„ì˜¬ë•Œ.
+// 11ì›” ì‹ ë²„ì „ì½”ë“œì…ë‹ˆë‹¤. êµ¬ë²„ì „ì€ ì—¬ê¸°ë‹¤ ì½”ë”©í•˜ì§€ ë§ˆì…ˆ~ -xuzhu-
 BOOL CAIAggroNormal::SubAttackChance( const AIMSG & msg, CMover *pTarget )
 {
 	CMover* pMover = GetMover();
@@ -1314,60 +1314,60 @@ BOOL CAIAggroNormal::SubAttackChance( const AIMSG & msg, CMover *pTarget )
 	MoverProp *pProp = pMover->GetProp();
 	int		nTargetJob = 0;
 	if( pTarget->IsPlayer() )
-		nTargetJob = pTarget->GetJob();		// Å¸°ÙÀÇ Á÷¾÷.
+		nTargetJob = pTarget->GetJob();		// íƒ€ê²Ÿì˜ ì§ì—….
 	
 	BOOL bAttack = TRUE;
 	D3DXVECTOR3	vTargetTo = pTarget->GetPos() - pMover->GetPos();	
 	
-	BOOL bRangeAttack = (pProp->m_bRangeAttack[ nTargetJob ] & 0x7F) ? TRUE : FALSE;	// Àå°Å¸® °ø°İ AI°¡ ÀÖ³Ä.
+	BOOL bRangeAttack = (pProp->m_bRangeAttack[ nTargetJob ] & 0x7F) ? TRUE : FALSE;	// ì¥ê±°ë¦¬ ê³µê²© AIê°€ ìˆëƒ.
 
-	if( pProp->m_bRecvCond )	// È¸º¹ AI°¡ ÀÖ´À³Ä
+	if( pProp->m_bRecvCond )	// íšŒë³µ AIê°€ ìˆëŠëƒ
 	{
-		if( pMover->GetHitPointPercent( 100 ) <= pProp->m_nRecvCondMe )	// HP°¡ m_nRecvCondMe% ÀÌÇÏ·Î ¶³¾îÁ³´Â°¡?
+		if( pMover->GetHitPointPercent( 100 ) <= pProp->m_nRecvCondMe )	// HPê°€ m_nRecvCondMe% ì´í•˜ë¡œ ë–¨ì–´ì¡ŒëŠ”ê°€?
 		{
 			if( pMover->GetManaPoint() > 0 )
 			{
-				// m_nHow% ¸¸Å­ÀÇ HP¸¦ È¸º¹
+				// m_nHow% ë§Œí¼ì˜ HPë¥¼ íšŒë³µ
 				int nHP = (int)(pMover->GetMaxHitPoint() * (pProp->m_nRecvCondHow / 100.0f));	
 				pMover->IncHitPoint( nHP );
 				
 				g_UserMng.AddCreateSfxObj( pMover, XI_GEN_CURE01, pMover->GetPos().x, pMover->GetPos().y, pMover->GetPos().z );	
 				if( pProp->m_nRecvCondMP > 0 )		
 				{
-					// ¸¶³ª¸¦ ¼Ò¸ğ.
+					// ë§ˆë‚˜ë¥¼ ì†Œëª¨.
 					int nMP = pProp->m_nRecvCondMP;			
 					pMover->IncManaPoint( -nMP );
 				} 
 				else
 				{
-					// 0À¸·Î ÁöÁ¤µÇ¾î ÀÖÀ¸¸é ¸ù¶¥ ¼Ò¸ğ.
+					// 0ìœ¼ë¡œ ì§€ì •ë˜ì–´ ìˆìœ¼ë©´ ëª½ë•… ì†Œëª¨.
 					int nMP = pMover->GetMaxManaPoint();	
 					pMover->IncManaPoint( -nMP );
 				}
-				bAttack = FALSE;		// È¸º¹À» ÇßÀ¸¸é °ø°İÀº ´ÙÀ½ÅÏ¿¡.
+				bAttack = FALSE;		// íšŒë³µì„ í–ˆìœ¼ë©´ ê³µê²©ì€ ë‹¤ìŒí„´ì—.
 			}
 		}
-		m_tmAttackDelay = TIMEGETTIME + SEC( 3 );	// 3ÃÊÈÄ¿¡ ´Ù½Ã °ø°İ±âÈ¸.
+		m_tmAttackDelay = TIMEGETTIME + SEC( 3 );	// 3ì´ˆí›„ì— ë‹¤ì‹œ ê³µê²©ê¸°íšŒ.
 	}
 
 	if( bAttack )
 	{
 		if( m_bRangeAttack )
-			m_dwAtkMethod = GetAtkMethod_Far();		// °ø°İ ¹æ¹ı ¼¼ÆÃ 
+			m_dwAtkMethod = GetAtkMethod_Far();		// ê³µê²© ë°©ë²• ì„¸íŒ… 
 		else
-			m_dwAtkMethod = GetAtkMethod_Near();		// °ø°İ ¹æ¹ı ¼¼ÆÃ 
+			m_dwAtkMethod = GetAtkMethod_Near();		// ê³µê²© ë°©ë²• ì„¸íŒ… 
 
 		DWORD dwAtkRange = GetAtkRange( m_dwAtkMethod );
-		// Àå°Å¸® °ø°İ ¼±ÅÃÀÌ¶ó¸é?
+		// ì¥ê±°ë¦¬ ê³µê²© ì„ íƒì´ë¼ë©´?
 		if( dwAtkRange == AR_RANGE || dwAtkRange == AR_WAND )
 		{
-			// À¯È¿ °Å¸® ÆÇ´Ü
+			// ìœ íš¨ ê±°ë¦¬ íŒë‹¨
 			FLOAT fRange = (float)(pProp->m_bRangeAttack[ nTargetJob ] & 0x7F);
-			fRange += 1.0f;		// »ç°Å¸® +1¹ÌÅÍ Á¤µµ´Â °Á ½ğ´Ù.
-			if( IsInRange( vTargetTo, fRange ) == TRUE )		// AI¿¡¼­ ÁöÁ¤ÇÑ °ø°İ°Å¸®±îÁö ´Ù°¡°¬´Â°¡?
+			fRange += 1.0f;		// ì‚¬ê±°ë¦¬ +1ë¯¸í„° ì •ë„ëŠ” ê± ìœë‹¤.
+			if( IsInRange( vTargetTo, fRange ) == TRUE )		// AIì—ì„œ ì§€ì •í•œ ê³µê²©ê±°ë¦¬ê¹Œì§€ ë‹¤ê°€ê°”ëŠ”ê°€?
 			{
-				DoAttack( m_dwAtkMethod, (CMover*)pTarget );	// °ø°İ
-				m_tmAttackDelay	= TIMEGETTIME + SEC( 3 );		// Àå°Å¸® »óÅÂÀÌ´Ù. 3ÃÊ °ø°İ µô·¹ÀÌ ¼³Á¤.
+				DoAttack( m_dwAtkMethod, (CMover*)pTarget );	// ê³µê²©
+				m_tmAttackDelay	= TIMEGETTIME + SEC( 3 );		// ì¥ê±°ë¦¬ ìƒíƒœì´ë‹¤. 3ì´ˆ ê³µê²© ë”œë ˆì´ ì„¤ì •.
 			}
 		} 
 		else
@@ -1375,15 +1375,15 @@ BOOL CAIAggroNormal::SubAttackChance( const AIMSG & msg, CMover *pTarget )
 			FLOAT fRange = pMover->GetAttackRange( dwAtkRange );
 			if( pMover->IsRangeObj( pTarget, fRange ) )
 			{
-				DoAttack( m_dwAtkMethod, pTarget );		//  °ø°İ
-				m_bGoTarget = TRUE;  // <- ÀÌ°Ç ¹¹ÇÏ´Â°Å? 
-				// °ø°İÀ» ÇßÀ¸¸é ¾îÅÃ µô·¹ÀÌ ¸®¼Â.
+				DoAttack( m_dwAtkMethod, pTarget );		//  ê³µê²©
+				m_bGoTarget = TRUE;  // <- ì´ê±´ ë­í•˜ëŠ”ê±°? 
+				// ê³µê²©ì„ í–ˆìœ¼ë©´ ì–´íƒ ë”œë ˆì´ ë¦¬ì…‹.
 				int nDelay = (int)pProp->dwReAttackDelay - SEC( 1 )  + xRandom( SEC( 2 ) );
 				m_tmAttackDelay		= TIMEGETTIME + nDelay;
 				TRACE( "AtkDelay:%d\n", (int)nDelay );
 			}
 		}
-		// ±ÙÁ¢°ø°İÀº ARRIVAL¿¡¼­ Ã³¸®ÇÑ´Ù. ¿©±â¼­ Ã³¸®ÇØµµ ÁÁÁö ¾ÊÀ»±î?
+		// ê·¼ì ‘ê³µê²©ì€ ARRIVALì—ì„œ ì²˜ë¦¬í•œë‹¤. ì—¬ê¸°ì„œ ì²˜ë¦¬í•´ë„ ì¢‹ì§€ ì•Šì„ê¹Œ?
 	}
 	
 	return TRUE;
@@ -1391,9 +1391,9 @@ BOOL CAIAggroNormal::SubAttackChance( const AIMSG & msg, CMover *pTarget )
 
 
 //
-// AI¿¡ µû¸¥ °ø°İ¹æ½Ä ¼±ÅÃ.
+// AIì— ë”°ë¥¸ ê³µê²©ë°©ì‹ ì„ íƒ.
 //
-// return : 0:±Ù°Å¸® 1:¿ø°Å¸®
+// return : 0:ê·¼ê±°ë¦¬ 1:ì›ê±°ë¦¬
 int CAIAggroNormal::SelectAttackType( CMover *pTarget )
 {
 	int nAttackType = 0;
@@ -1405,28 +1405,28 @@ int CAIAggroNormal::SelectAttackType( CMover *pTarget )
 	int		nTargetJob = 0;
 	int		nRange = pProp->m_bRangeAttack[ nTargetJob ] & 0x7F;
 	
-	if( pTarget->IsPlayer() )		nTargetJob = pTarget->GetJob();		// Å¸°ÙÀÇ Á÷¾÷.
+	if( pTarget->IsPlayer() )		nTargetJob = pTarget->GetJob();		// íƒ€ê²Ÿì˜ ì§ì—….
 
-	BOOL bRange = ( pProp->m_bRangeAttack[ nTargetJob ] ) ? TRUE : FALSE;	// AI¿¡ °Å¸®°¡ ÀÖÀ¸¸é ¿ø°Å¸® AIÀÖÀ½.
-	BOOL bMelee = (BOOL)pProp->m_bMeleeAttack;								// AI¿¡ ±Ù°Å¸®°ø°İµµ ÀÖ´ÂÁö.
+	BOOL bRange = ( pProp->m_bRangeAttack[ nTargetJob ] ) ? TRUE : FALSE;	// AIì— ê±°ë¦¬ê°€ ìˆìœ¼ë©´ ì›ê±°ë¦¬ AIìˆìŒ.
+	BOOL bMelee = (BOOL)pProp->m_bMeleeAttack;								// AIì— ê·¼ê±°ë¦¬ê³µê²©ë„ ìˆëŠ”ì§€.
 
 
-	if( bRange && bMelee )		// ¿ø°Å¸®/±Ù°Å¸® µÑ´Ù °¡Áö°í ÀÖÀ½
+	if( bRange && bMelee )		// ì›ê±°ë¦¬/ê·¼ê±°ë¦¬ ë‘˜ë‹¤ ê°€ì§€ê³  ìˆìŒ
 	{
-		D3DXVECTOR3	vDist = pTarget->GetPos() - pMover->GetPos();	// Å¸°Ù°úÀÇ °Å¸®.
+		D3DXVECTOR3	vDist = pTarget->GetPos() - pMover->GetPos();	// íƒ€ê²Ÿê³¼ì˜ ê±°ë¦¬.
 		FLOAT		fDistSq = D3DXVec3LengthSq( &vDist );
 
-		int nHalfRange = nRange / 2;		// »ç°Å¸®ÀÇ ¹İ.
-		if( fDistSq < (nHalfRange * nHalfRange) )	// ³Ê¹« °¡±îÀÌ ºÙ¾îÀÖ¾î °Å¸®À¯Áö°¡ È÷µé¸é.
-			nAttackType = 0;	// ±ÙÁ¢°ø°İÀ¸·Î ÇÏÀÚ.
+		int nHalfRange = nRange / 2;		// ì‚¬ê±°ë¦¬ì˜ ë°˜.
+		if( fDistSq < (nHalfRange * nHalfRange) )	// ë„ˆë¬´ ê°€ê¹Œì´ ë¶™ì–´ìˆì–´ ê±°ë¦¬ìœ ì§€ê°€ íˆë“¤ë©´.
+			nAttackType = 0;	// ê·¼ì ‘ê³µê²©ìœ¼ë¡œ í•˜ì.
 		else
-			nAttackType = 1;	// °Å¸®¿¡ ¿©À¯°¡ ÀÖÀ¸¹Ç·Î ¿ø°Å¸® °ø°İ.
+			nAttackType = 1;	// ê±°ë¦¬ì— ì—¬ìœ ê°€ ìˆìœ¼ë¯€ë¡œ ì›ê±°ë¦¬ ê³µê²©.
 	} else
-	if( bRange && bMelee == FALSE )		// ¿ø°Å¸®¸¸ °¡Áö°í ÀÖÀ½
+	if( bRange && bMelee == FALSE )		// ì›ê±°ë¦¬ë§Œ ê°€ì§€ê³  ìˆìŒ
 	{
 		nAttackType = 1;
 	} else
-	if( bRange == FALSE && bMelee )		// ±Ù°Å¸®¸¸ °¡Áö°í ÀÖÀ½
+	if( bRange == FALSE && bMelee )		// ê·¼ê±°ë¦¬ë§Œ ê°€ì§€ê³  ìˆìŒ
 	{
 		nAttackType = 0;
 	}
@@ -1435,10 +1435,10 @@ int CAIAggroNormal::SelectAttackType( CMover *pTarget )
 }
 
 #if __VER >= 12 // __NEW_SUMMON_RULE
-// SummonAI°¡ ÀÖÀ»¶§ ¼ÒÈ¯À» ½ÃµµÇÑ´Ù. xxÃÊ ¸¶´Ù.
+// SummonAIê°€ ìˆì„ë•Œ ì†Œí™˜ì„ ì‹œë„í•œë‹¤. xxì´ˆ ë§ˆë‹¤.
 void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 {
-	if( TIMEGETTIME - m_tmSummon < SEC(10) )		// 20ÃÊ¸¶´Ù ÇÑ¹ø¾¿ ¼ÒÈ¯À» ½Ãµµ.
+	if( TIMEGETTIME - m_tmSummon < SEC(10) )		// 20ì´ˆë§ˆë‹¤ í•œë²ˆì”© ì†Œí™˜ì„ ì‹œë„.
 		return;
 
 	m_tmSummon = TIMEGETTIME;
@@ -1446,13 +1446,13 @@ void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 	CMover* pMover = GetMover();
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
-	// ¼ÒÈ¯ AI
-	if( pProp && pProp->m_nSummProb )	// °ªÀÌ ÀÖÀ¸¸é ¼ÒÈ¯ AI°¡ ÀÖ´Ù.
+	// ì†Œí™˜ AI
+	if( pProp && pProp->m_nSummProb )	// ê°’ì´ ìˆìœ¼ë©´ ì†Œí™˜ AIê°€ ìˆë‹¤.
 	{
 		for( vector<OBJID>::iterator it = m_vecIdSummon.begin(); it!=m_vecIdSummon.end(); )
 		{
 			CMover *pZako = prj.GetMover( (*it) );
-			if( IsValidObj(pZako) && pZako->IsLive() )	// ±×³ÑµéÀÌ »ì¾ÆÀÖ´ÂÁö±îÁöµµ °Ë»çÇØ¾ßÇÑ´Ù.
+			if( IsValidObj(pZako) && pZako->IsLive() )	// ê·¸ë„˜ë“¤ì´ ì‚´ì•„ìˆëŠ”ì§€ê¹Œì§€ë„ ê²€ì‚¬í•´ì•¼í•œë‹¤.
 				it++;
 			else
 				it = m_vecIdSummon.erase( it );
@@ -1460,16 +1460,16 @@ void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 		
 		if( pProp->m_nSummNum > (int)( m_vecIdSummon.size() ) )
 		{
-			if( (int)( xRandom(100) ) < pProp->m_nSummProb )	// ¼ÒÈ¯ ½Ãµµ.
+			if( (int)( xRandom(100) ) < pProp->m_nSummProb )	// ì†Œí™˜ ì‹œë„.
 			{
 				D3DXVECTOR3 vLocal, vPos;
 				CObj* pObj	= CreateObj( D3DDEVICE, OT_MOVER, (DWORD)pProp->m_nSummID );
 				if( NULL == pObj )	
 				{
-					Error( "SubSummonProcess : ¼ÒÈ¯ ½ÇÆĞ %d", pProp->m_nSummID );
+					Error( "SubSummonProcess : ì†Œí™˜ ì‹¤íŒ¨ %d", pProp->m_nSummID );
 					return;
 				}
-				vLocal.x = 1.5f - xRandomF( 3.0f );		// º¸½º ÁÖÀ§¿¡ ·£´ıÀ¸·Î »ı¼º.
+				vLocal.x = 1.5f - xRandomF( 3.0f );		// ë³´ìŠ¤ ì£¼ìœ„ì— ëœë¤ìœ¼ë¡œ ìƒì„±.
 				vLocal.y = 0;
 				vLocal.z = 1.5f - xRandomF( 3.0f );
 				vPos = pMover->GetPos();
@@ -1477,7 +1477,7 @@ void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 				pObj->SetPos( vPos );
 				pObj->InitMotion( MTI_STAND );
 				pObj->UpdateLocalMatrix();
-				((CMover*)pObj)->m_bActiveAttack = TRUE;	// ºÎÇÏ´Â ¼±°ø ÇüÀ¸·Î ¼ÒÈ¯ÇÏÀÚ.
+				((CMover*)pObj)->m_bActiveAttack = TRUE;	// ë¶€í•˜ëŠ” ì„ ê³µ í˜•ìœ¼ë¡œ ì†Œí™˜í•˜ì.
 				((CMover*)pObj)->AddItToGlobalId();
 				pWorld->ADDOBJ( pObj, FALSE, pMover->GetLayer() );
 				m_vecIdSummon.push_back( ((CMover *)pObj)->GetId() );
@@ -1489,7 +1489,7 @@ void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 #else // __NEW_SUMMON_RULE
 void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 {
-	if( TIMEGETTIME - m_tmSummon < SEC(20) )		// 20ÃÊ¸¶´Ù ÇÑ¹ø¾¿ ¼ÒÈ¯À» ½Ãµµ.
+	if( TIMEGETTIME - m_tmSummon < SEC(20) )		// 20ì´ˆë§ˆë‹¤ í•œë²ˆì”© ì†Œí™˜ì„ ì‹œë„.
 		return;
 
 	m_tmSummon = TIMEGETTIME;
@@ -1497,8 +1497,8 @@ void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 	CMover* pMover = GetMover();
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
-	// ¼ÒÈ¯ AI
-	if( pProp->m_nSummProb )	// °ªÀÌ ÀÖÀ¸¸é ¼ÒÈ¯ AI°¡ ÀÖ´Ù.
+	// ì†Œí™˜ AI
+	if( pProp->m_nSummProb )	// ê°’ì´ ìˆìœ¼ë©´ ì†Œí™˜ AIê°€ ìˆë‹¤.
 	{
 		BOOL bEmpty = TRUE;
 		for( int i = 0; i < MAX_SUMMON; i ++ )
@@ -1508,21 +1508,21 @@ void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 				CMover *pZako = prj.GetMover( m_idSummon[i] );
 				if( IsValidObj(pZako) )
 				{
-					if( pZako->IsLive() )	// ±×³ÑµéÀÌ »ì¾ÆÀÖ´ÂÁö±îÁöµµ °Ë»çÇØ¾ßÇÑ´Ù.
-						bEmpty = FALSE;		// ¾ÆÁ÷ ¼ÒÈ¯µÇ¾î ÀÖ´Â ¾ÖµéÀÌ ÀÖ´Ù.
+					if( pZako->IsLive() )	// ê·¸ë„˜ë“¤ì´ ì‚´ì•„ìˆëŠ”ì§€ê¹Œì§€ë„ ê²€ì‚¬í•´ì•¼í•œë‹¤.
+						bEmpty = FALSE;		// ì•„ì§ ì†Œí™˜ë˜ì–´ ìˆëŠ” ì• ë“¤ì´ ìˆë‹¤.
 					else
 						m_idSummon[i] = NULL_ID;
 				} else
 					m_idSummon[i] = NULL_ID;
 			}
 		}
-		if( bEmpty == TRUE )	// ¼ÒÈ¯µÇ¾î ÀÖ´Â ¾ÖµéÀÌ ¾ø´Â°¡?
+		if( bEmpty == TRUE )	// ì†Œí™˜ë˜ì–´ ìˆëŠ” ì• ë“¤ì´ ì—†ëŠ”ê°€?
 		{
-			if( xRandom(100) < pProp->m_nSummProb )	// ¼ÒÈ¯ ½Ãµµ.
+			if( xRandom(100) < pProp->m_nSummProb )	// ì†Œí™˜ ì‹œë„.
 			{
 				if( pProp->m_nSummNum < 0 || pProp->m_nSummNum >= MAX_SUMMON )
 				{
-					Error( "SubSummonProcess : m_nSummNumÀÇ °ªÀÌ ¹üÀ§ ÃÊ°ú %d", pProp->m_nSummNum );
+					Error( "SubSummonProcess : m_nSummNumì˜ ê°’ì´ ë²”ìœ„ ì´ˆê³¼ %d", pProp->m_nSummNum );
 					pProp->m_nSummNum = 0;
 				}
 				CObj* pObj = NULL;
@@ -1532,10 +1532,10 @@ void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 					pObj	= CreateObj( D3DDEVICE, OT_MOVER, (DWORD)pProp->m_nSummID );
 					if( NULL == pObj )	
 					{
-						Error( "SubSummonProcess : ¼ÒÈ¯ ½ÇÆĞ %d", pProp->m_nSummID );
+						Error( "SubSummonProcess : ì†Œí™˜ ì‹¤íŒ¨ %d", pProp->m_nSummID );
 						break;
 					}
-					vLocal.x = 1.5f - xRandomF( 3.0f );		// º¸½º ÁÖÀ§¿¡ ·£´ıÀ¸·Î »ı¼º.
+					vLocal.x = 1.5f - xRandomF( 3.0f );		// ë³´ìŠ¤ ì£¼ìœ„ì— ëœë¤ìœ¼ë¡œ ìƒì„±.
 					vLocal.y = 0;
 					vLocal.z = 1.5f - xRandomF( 3.0f );
 					vPos = pMover->GetPos();
@@ -1543,10 +1543,10 @@ void CAIAggroNormal::SubSummonProcess( CMover *pTarget )
 					pObj->SetPos( vPos );
 					pObj->InitMotion( MTI_STAND );
 					pObj->UpdateLocalMatrix();
-					((CMover*)pObj)->m_bActiveAttack = TRUE;	// ºÎÇÏ´Â ¼±°ø ÇüÀ¸·Î ¼ÒÈ¯ÇÏÀÚ.
+					((CMover*)pObj)->m_bActiveAttack = TRUE;	// ë¶€í•˜ëŠ” ì„ ê³µ í˜•ìœ¼ë¡œ ì†Œí™˜í•˜ì.
 					((CMover*)pObj)->AddItToGlobalId();
 					pWorld->AddObj( pObj, FALSE );
-					m_idSummon[i] = ((CMover *)pObj)->GetId();	// ¼ÒÈ¯ÇÑ³ÑÀ» ±â¾ïÇÔ.
+					m_idSummon[i] = ((CMover *)pObj)->GetId();	// ì†Œí™˜í•œë„˜ì„ ê¸°ì–µí•¨.
 				}
 				
 			}
@@ -1564,7 +1564,7 @@ BOOL CAIAggroNormal::MoveProcessRage( const AIMSG & msg )
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 	
-	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
+	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 	
@@ -1607,7 +1607,7 @@ BOOL CAIAggroNormal::MoveProcessRage( const AIMSG & msg )
 	}
 
 #if __VER >= 9	//__AI_0509
-	if( pTarget->IsRegionAttr( RA_SAFETY ) && pProp->dwClass != RANK_GUARD )	// Å¸°Ù ¾ÈÀü ¿µ¿ª Ò®
+	if( pTarget->IsRegionAttr( RA_SAFETY ) && pProp->dwClass != RANK_GUARD )	// íƒ€ê²Ÿ ì•ˆì „ ì˜ì—­ å…§
 	{
 		DoReturnToBegin();
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
@@ -1615,10 +1615,10 @@ BOOL CAIAggroNormal::MoveProcessRage( const AIMSG & msg )
 	}
 #endif	// __AI_0509
 
-#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
+#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
 	if( pMover->IsFlyingNPC() != ((CMover*)pTarget)->m_pActMover->IsFly() && pMover->IsFlyingNPC() )	
 #else	// __VER >= 8  
-	if( pMover->IsFlyingNPC() != ((CMover*)pTarget)->m_pActMover->IsFly() )	// this°¡ ºñÇàÇüÀÌ ¾Æ´Ï°í »ó´ë°¡ ºñÇàÁßÀÌ¶ó¸é
+	if( pMover->IsFlyingNPC() != ((CMover*)pTarget)->m_pActMover->IsFly() )	// thisê°€ ë¹„í–‰í˜•ì´ ì•„ë‹ˆê³  ìƒëŒ€ê°€ ë¹„í–‰ì¤‘ì´ë¼ë©´
 #endif	// __VER >= 8  
 	{
 		if( dwAIState == STATE_STAND )
@@ -1628,38 +1628,38 @@ BOOL CAIAggroNormal::MoveProcessRage( const AIMSG & msg )
 		return TRUE;
 	}
 
-	if( TIMEGETTIME > m_tmAttack )	// °ø°İ ¸øÇÑÁö 20ÃÊ Áö³µ³Ä?
+	if( TIMEGETTIME > m_tmAttack )	// ê³µê²© ëª»í•œì§€ 20ì´ˆ ì§€ë‚¬ëƒ?
 	{
-		m_tmAttack	= TIMEGETTIME + s_tmAttack;	// Å¸ÀÌ¸Ó ¸®¼Â
-		// 5ÃÊÀü ÁÂÇ¥¿Í Áö±İ ÁÂÇ¥ÀÇ °Å¸®¸¦ °è»ê.
+		m_tmAttack	= TIMEGETTIME + s_tmAttack;	// íƒ€ì´ë¨¸ ë¦¬ì…‹
+		// 5ì´ˆì „ ì¢Œí‘œì™€ ì§€ê¸ˆ ì¢Œí‘œì˜ ê±°ë¦¬ë¥¼ ê³„ì‚°.
 		D3DXVECTOR3 vDist = pMover->GetPos() - m_vOldPos;
-		vDist.y	= 0;	// ¿·À¸·Î »ìÂ¦¿òÁ÷¿´´Âµ¥ »êÀ§·Î È® ¿Ã¶ó°¬À»¶© °Å¸®°¡ ¾öÃ» ¸Ö¼ö ÀÖ´Ù. ±×·¡¼­ ÀÌ·¸°Ô ÇÑ°Í.
-		if( IsInRange( vDist, 2.0f ) )	// 2¹ÌÅÍ¸¦ ¸ø¹ş¾î³µ´Ù¸é ¾îµò°¡¿¡ °®Çû´Ù´Â ¶æ.
+		vDist.y	= 0;	// ì˜†ìœ¼ë¡œ ì‚´ì§ì›€ì§ì˜€ëŠ”ë° ì‚°ìœ„ë¡œ í™• ì˜¬ë¼ê°”ì„ë• ê±°ë¦¬ê°€ ì—„ì²­ ë©€ìˆ˜ ìˆë‹¤. ê·¸ë˜ì„œ ì´ë ‡ê²Œ í•œê²ƒ.
+		if( IsInRange( vDist, 2.0f ) )	// 2ë¯¸í„°ë¥¼ ëª»ë²—ì–´ë‚¬ë‹¤ë©´ ì–´ë”˜ê°€ì— ê°–í˜”ë‹¤ëŠ” ëœ».
 		{
-			if( pMover->GetSpeed( pMover->m_pActMover->m_fSpeed ) > 0 )		// ¸¶¹ıÀûÀ¸·Î ¿òÁ÷ÀÌÁö ¸øÇÏ°Ô µÈ»óÅÂ¿¡¼± ¿öÇÁÇÏ¸é ¾ÈµÊ.
+			if( pMover->GetSpeed( pMover->m_pActMover->m_fSpeed ) > 0 )		// ë§ˆë²•ì ìœ¼ë¡œ ì›€ì§ì´ì§€ ëª»í•˜ê²Œ ëœìƒíƒœì—ì„  ì›Œí”„í•˜ë©´ ì•ˆë¨.
 			{
 				D3DXVECTOR3 vTarget	= pTarget->GetPos();
-				pMover->SetPos( vTarget );	// °®ÇûÀ¸¸é Å¸°ÙÂÊÀ¸·Î ¹Ù·Î ¿öÇÁ.
+				pMover->SetPos( vTarget );	// ê°–í˜”ìœ¼ë©´ íƒ€ê²Ÿìª½ìœ¼ë¡œ ë°”ë¡œ ì›Œí”„.
 				g_UserMng.AddSetPos( pMover, pMover->GetPos() );
 			} 
 		} 
 #if __VER < 9	// __AI_0509
 		else
 		{
-			m_tmReturnToBegin	= TIMEGETTIME;	// ´Ù½Ã µ¹¾Æ°¥¶© ½Ã°£À» Àç±â½ÃÀÛ.  xÃÊ°£Àº ¸Â¾Æµµ ¹İ°İ¾ÈÇÏ°í °è¼Ó °£´Ù.
+			m_tmReturnToBegin	= TIMEGETTIME;	// ë‹¤ì‹œ ëŒì•„ê°ˆë• ì‹œê°„ì„ ì¬ê¸°ì‹œì‘.  xì´ˆê°„ì€ ë§ì•„ë„ ë°˜ê²©ì•ˆí•˜ê³  ê³„ì† ê°„ë‹¤.
 			if( dwAIState == STATE_STAND )
 				DoReturnToBegin();
 			SendAIMsg( AIMSG_SETSTATE, dwAIState );
 			return TRUE;
 		}
 #endif	// __AI_0509
-		m_vOldPos = pMover->GetPos();	// ÇöÀç ÁÂÇ¥¸¦ ÀúÀåÇÔ.
+		m_vOldPos = pMover->GetPos();	// í˜„ì¬ ì¢Œí‘œë¥¼ ì €ì¥í•¨.
 	}
 
 	D3DXVECTOR3	vTargetTo = pTarget->GetPos() - pMover->GetPos();	
 #if __VER >= 9	//__AI_0509
-	// ¸¶Áö¸· ÇÇ°İ À§Ä¡·Î ºÎÅÍ 40 ¹ÌÅÍ ¶³¾îÁö¸é »ı¼º À§Ä¡·Î µ¹¾Æ°£´Ù.
-	// »ı¼º À§Ä¡·Î ºÎÅÍ 40 + 15 OR 45 ¹ÌÅÍ ¶³¾îÁö¸é »ı¼º À§Ä¡·Î µ¹¾Æ°£´Ù.
+	// ë§ˆì§€ë§‰ í”¼ê²© ìœ„ì¹˜ë¡œ ë¶€í„° 40 ë¯¸í„° ë–¨ì–´ì§€ë©´ ìƒì„± ìœ„ì¹˜ë¡œ ëŒì•„ê°„ë‹¤.
+	// ìƒì„± ìœ„ì¹˜ë¡œ ë¶€í„° 40 + 15 OR 45 ë¯¸í„° ë–¨ì–´ì§€ë©´ ìƒì„± ìœ„ì¹˜ë¡œ ëŒì•„ê°„ë‹¤.
 	D3DXVECTOR3 v1	= pMover->GetPos() - m_vPosBegin;
 	
 	FLOAT fRange	= RANGE_MOVE;
@@ -1676,7 +1676,7 @@ BOOL CAIAggroNormal::MoveProcessRage( const AIMSG & msg )
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
 		return TRUE;
 	}
-	if( m_vPosDamage == D3DXVECTOR3( 0, 0, 0 ) )	// ¼±°ø ¸ó½ºÅÍ Àû °Ë»ö Á÷ÈÄ
+	if( m_vPosDamage == D3DXVECTOR3( 0, 0, 0 ) )	// ì„ ê³µ ëª¬ìŠ¤í„° ì  ê²€ìƒ‰ ì§í›„
 		m_vPosDamage	= pMover->GetPos();
 
 	D3DXVECTOR3 v2	= pMover->GetPos() - m_vPosDamage;
@@ -1691,7 +1691,7 @@ BOOL CAIAggroNormal::MoveProcessRage( const AIMSG & msg )
 		return TRUE;
 	}
 #else	// __AI_0509
-	// ¸¸¾à »ó´ë°¡ °ø°İÇÒ ¼ö ¾ø´Â °÷¿¡ ÀÖ´Ù¸é °ø°İ Æ÷±âÇÏ°í µ¹¾Æ°¡ÀÚ.
+	// ë§Œì•½ ìƒëŒ€ê°€ ê³µê²©í•  ìˆ˜ ì—†ëŠ” ê³³ì— ìˆë‹¤ë©´ ê³µê²© í¬ê¸°í•˜ê³  ëŒì•„ê°€ì.
 	if( IsInRange( vTargetTo, RANGE_CANCEL ) == FALSE
 #if __VER >= 14 // __INSTANCE_DUNGEON
 		&& !CInstanceDungeonHelper::GetInstance()->IsInstanceDungeon( pWorld->GetID() )
@@ -1699,17 +1699,17 @@ BOOL CAIAggroNormal::MoveProcessRage( const AIMSG & msg )
 		)
 	{
 		if( dwAIState == STATE_STAND )
-			DoReturnToBegin();	// SetTarget( NULL_ID, 0 );	// Å¸°ÙÀ» Æ÷±âÇÔ.
+			DoReturnToBegin();	// SetTarget( NULL_ID, 0 );	// íƒ€ê²Ÿì„ í¬ê¸°í•¨.
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
 		return TRUE;
 	}
 #endif	// __AI_0509
-	else if( pTarget->GetType() == OT_MOVER && ((CMover *)pTarget)->IsMode( TRANSPARENT_MODE ) )		// ?°í ÀÖ´ø Å¸°ÙÀÌ Åõ¸íÈ­ »óÅÂ°¡ µÇ¸é 
+	else if( pTarget->GetType() == OT_MOVER && ((CMover *)pTarget)->IsMode( TRANSPARENT_MODE ) )		// ?ê³  ìˆë˜ íƒ€ê²Ÿì´ íˆ¬ëª…í™” ìƒíƒœê°€ ë˜ë©´ 
 	{
 #if __VER >= 14 // __INSTANCE_DUNGEON
 		if( CInstanceDungeonHelper::GetInstance()->IsInstanceDungeon( pWorld->GetID() ) )
 		{
-			CMover* pTarget = ScanTargetNext( pMover, 160, m_dwIdTarget, m_uParty );	// ¹üÀ§ 50¹ÌÅÍ ÀÌ³»¸¦ ½ºÄµÇÑ´Ù.
+			CMover* pTarget = ScanTargetNext( pMover, 160, m_dwIdTarget, m_uParty );	// ë²”ìœ„ 50ë¯¸í„° ì´ë‚´ë¥¼ ìŠ¤ìº”í•œë‹¤.
 			if( pTarget	)
 			{
 				SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, pTarget->GetId() );
@@ -1718,64 +1718,64 @@ BOOL CAIAggroNormal::MoveProcessRage( const AIMSG & msg )
 		}
 #endif // __INSTANCE_DUNGEON
 		if( dwAIState == STATE_STAND )
-			DoReturnToBegin();	// SetTarget( NULL_ID, 0 )// Å¸°ÙÀ» Æ÷±âÇÔ.
+			DoReturnToBegin();	// SetTarget( NULL_ID, 0 )// íƒ€ê²Ÿì„ í¬ê¸°í•¨.
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
 		return TRUE;
 	}
 	else
 	{
-		m_bRangeAttack = SelectAttackType( pTarget );		// AI¿¡µû¸¥ °ø°İ¹æ½Ä ¼±ÅÃ.
+		m_bRangeAttack = SelectAttackType( pTarget );		// AIì—ë”°ë¥¸ ê³µê²©ë°©ì‹ ì„ íƒ.
 
-		if( m_bRangeAttack )	// ¿ø°Å¸® °ø°İÀ¸·Î °áÁ¤µÆÀ½.
+		if( m_bRangeAttack )	// ì›ê±°ë¦¬ ê³µê²©ìœ¼ë¡œ ê²°ì •ëìŒ.
 		{
 			int nTargetJob = pTarget->GetJob();
-			if( nTargetJob < 0 )	nTargetJob = 0;		// µğÆúÆ®·Î -1·Î ÃÊ±âÈ­ ÇÏ±â¶«¿¡ °Ë»çÇØ¾ßÇÔ.
+			if( nTargetJob < 0 )	nTargetJob = 0;		// ë””í´íŠ¸ë¡œ -1ë¡œ ì´ˆê¸°í™” í•˜ê¸°ë•œì— ê²€ì‚¬í•´ì•¼í•¨.
 			if( nTargetJob >= MAX_JOB )
 			{
-				Error( "CAIAggroNormal::MoverProcessRage : ¹üÀ§Ä§¹ü %d", nTargetJob );
+				Error( "CAIAggroNormal::MoverProcessRage : ë²”ìœ„ì¹¨ë²” %d", nTargetJob );
 				nTargetJob = 0;
 			}
 
-			FLOAT	fRange = (FLOAT)(pProp->m_bRangeAttack[ nTargetJob ] & 0x7F);		// »ç°Å¸®
-			BOOL	bKeepRange = (pProp->m_bRangeAttack[ nTargetJob ] & 0x80) ? TRUE : FALSE;	// »óÀ§ 1ºñÆ®°¡ ¿Â?
-			FLOAT	fDist = D3DXVec3Length( &vTargetTo );		// Àû°úÀÇ °Å¸®.
+			FLOAT	fRange = (FLOAT)(pProp->m_bRangeAttack[ nTargetJob ] & 0x7F);		// ì‚¬ê±°ë¦¬
+			BOOL	bKeepRange = (pProp->m_bRangeAttack[ nTargetJob ] & 0x80) ? TRUE : FALSE;	// ìƒìœ„ 1ë¹„íŠ¸ê°€ ì˜¨?
+			FLOAT	fDist = D3DXVec3Length( &vTargetTo );		// ì ê³¼ì˜ ê±°ë¦¬.
 			if( bKeepRange )
 			{
-				if( fabs(fDist - fRange) < 1.0f )	// Àû°úÀÇ °Å¸®¿Í »ç°Å¸®ÀÇ Â÷ÀÌ°¡ 1¹ÌÅÍ ÀÌ³»¸é ´õÀÌ»ó ¿òÁ÷ÀÏ ÇÊ¿ä ¾øÀ½.
+				if( fabs(fDist - fRange) < 1.0f )	// ì ê³¼ì˜ ê±°ë¦¬ì™€ ì‚¬ê±°ë¦¬ì˜ ì°¨ì´ê°€ 1ë¯¸í„° ì´ë‚´ë©´ ë”ì´ìƒ ì›€ì§ì¼ í•„ìš” ì—†ìŒ.
 				{
-					if( pMover->IsEmptyDest() == FALSE )	// ÀÌµ¿ÁßÀÓ.
-						MoveToDst( pMover->GetPos() );		// ÇöÀçÀ§Ä¡·Î ÀÌµ¿ - ¼­¹ö¿¡¼± ½ºÅ¾°ú °°Àº ¸í·É. Å¬¶ó¿¡¼± ¼­¹öÀÇ À§Ä¡·Î ÀÌµ¿.
+					if( pMover->IsEmptyDest() == FALSE )	// ì´ë™ì¤‘ì„.
+						MoveToDst( pMover->GetPos() );		// í˜„ì¬ìœ„ì¹˜ë¡œ ì´ë™ - ì„œë²„ì—ì„  ìŠ¤íƒ‘ê³¼ ê°™ì€ ëª…ë ¹. í´ë¼ì—ì„  ì„œë²„ì˜ ìœ„ì¹˜ë¡œ ì´ë™.
 				} else
 				{
-					// fRangeÀÇ °Å¸®¸¦ À¯ÁöÇÏµµ·Ï ...
+					// fRangeì˜ ê±°ë¦¬ë¥¼ ìœ ì§€í•˜ë„ë¡ ...
 					if( fDist < fRange )	
 					{
-						FLOAT fAngle = GetDegreeX( pMover->GetPos(), pTarget->GetPos() );	// dest, srcÀÇ ÆÄ¶ó¸ŞÅÍ À§Ä¡¸¦ ¹Ù²Ù¸é ¹İ´ë¹æÇâÀÌ ³ª¿Â´Ù.
+						FLOAT fAngle = GetDegreeX( pMover->GetPos(), pTarget->GetPos() );	// dest, srcì˜ íŒŒë¼ë©”í„° ìœ„ì¹˜ë¥¼ ë°”ê¾¸ë©´ ë°˜ëŒ€ë°©í–¥ì´ ë‚˜ì˜¨ë‹¤.
 						D3DXVECTOR3 vDst = pMover->GetPos() + VelocityToVec( fAngle, 10 );
-						MoveToDst( vDst );		// ¹İ´ë¹æÇâÀ¸·Î ´Ş·Á¼­ °Å¸®¸¦ ¹ú¸².
+						MoveToDst( vDst );		// ë°˜ëŒ€ë°©í–¥ìœ¼ë¡œ ë‹¬ë ¤ì„œ ê±°ë¦¬ë¥¼ ë²Œë¦¼.
 					} else
-						MoveToDst( pTarget->GetId() );	// ¸ñÇ¥¿ÍÀÇ °Å¸®°¡ »ç°Å¸®º¸´Ù ´õ ¸Ó´Ï±î ±ÙÁ¢ÇÔ.
+						MoveToDst( pTarget->GetId() );	// ëª©í‘œì™€ì˜ ê±°ë¦¬ê°€ ì‚¬ê±°ë¦¬ë³´ë‹¤ ë” ë¨¸ë‹ˆê¹Œ ê·¼ì ‘í•¨.
 				}
 			} else
 			// not keepRange
 			{
-				if( fDist < fRange )		// »ç°Å¸®¾È¿¡ ÀÖÀ¸¸é Á¦ÀÚ¸®¿¡ ÀÖÀ½.
+				if( fDist < fRange )		// ì‚¬ê±°ë¦¬ì•ˆì— ìˆìœ¼ë©´ ì œìë¦¬ì— ìˆìŒ.
 				{
-					if( pMover->IsEmptyDest() == FALSE )	// ÀÌµ¿ÁßÀÓ.
-						MoveToDst( pMover->GetPos() );		// ÇöÀçÀ§Ä¡·Î ÀÌµ¿ - ¼­¹ö¿¡¼± ½ºÅ¾°ú °°Àº ¸í·É. Å¬¶ó¿¡¼± ¼­¹öÀÇ À§Ä¡·Î ÀÌµ¿.
+					if( pMover->IsEmptyDest() == FALSE )	// ì´ë™ì¤‘ì„.
+						MoveToDst( pMover->GetPos() );		// í˜„ì¬ìœ„ì¹˜ë¡œ ì´ë™ - ì„œë²„ì—ì„  ìŠ¤íƒ‘ê³¼ ê°™ì€ ëª…ë ¹. í´ë¼ì—ì„  ì„œë²„ì˜ ìœ„ì¹˜ë¡œ ì´ë™.
 				} else
-					MoveToDst( pTarget->GetId() );	// »ç°Å¸® ¹ÛÀÌ¸é ¸ñÇ¥ÂÊÀ¸·Î Á¢±Ù.
+					MoveToDst( pTarget->GetId() );	// ì‚¬ê±°ë¦¬ ë°–ì´ë©´ ëª©í‘œìª½ìœ¼ë¡œ ì ‘ê·¼.
 			}
 		} else
-		// ±Ù°Å¸®
+		// ê·¼ê±°ë¦¬
 		{
-			MoveToDst( pTarget->GetId() );		// ±Ù°Å¸®´Â ¹«Á¶°Ç ¸ñÇ¥ÂÊÀ¸·Î Á¢±Ù.
+			MoveToDst( pTarget->GetId() );		// ê·¼ê±°ë¦¬ëŠ” ë¬´ì¡°ê±´ ëª©í‘œìª½ìœ¼ë¡œ ì ‘ê·¼.
 		}
 
-		if( pProp->m_nSummProb )			// Summon AI°¡ ÀÖ´À³Ä?
-			SubSummonProcess( pTarget );	// ¼ÒÈ¯À» ½Ãµµ
+		if( pProp->m_nSummProb )			// Summon AIê°€ ìˆëŠëƒ?
+			SubSummonProcess( pTarget );	// ì†Œí™˜ì„ ì‹œë„
 		
-		// °ø°İ Âù½º.
+		// ê³µê²© ì°¬ìŠ¤.
 		if( TIMEGETTIME > m_tmAttackDelay )
 		{
 			if( SubAttackChance( msg, pTarget ) == FALSE )
@@ -1791,7 +1791,7 @@ BOOL CAIAggroNormal::MoveProcessRagePatrol( const AIMSG & msg )
 	CWorld* pWorld = GetWorld();
 	MoverProp *pProp = pMover->GetProp();
 	
-	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
+	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL) )
 		return FALSE;
 	
@@ -1806,17 +1806,17 @@ BOOL CAIAggroNormal::MoveProcessRagePatrol( const AIMSG & msg )
 		return TRUE;
 	}
 	
-	if( ((CMover*)pTarget)->IsDie() )	// »ó´ë°¡ Á×¾ú´Ù.
+	if( ((CMover*)pTarget)->IsDie() )	// ìƒëŒ€ê°€ ì£½ì—ˆë‹¤.
 	{
 		DoReturnToBegin();	// SetTarget( NULL_ID, 0 );
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
 		return TRUE;
 	}
 
-#ifdef __JHMA_VER_8_6     // 8Â÷ ¸ó½ºÅÍ°¡ Àú°øºñÇàÀ¯Àú¸¦ °ø°İ°¡´ÉÇÏ°ÔÇÔ   World
+#ifdef __JHMA_VER_8_6     // 8ì°¨ ëª¬ìŠ¤í„°ê°€ ì €ê³µë¹„í–‰ìœ ì €ë¥¼ ê³µê²©ê°€ëŠ¥í•˜ê²Œí•¨   World
 	if( pMover->IsFlyingNPC() == TRUE && ((CMover*)pTarget)->m_pActMover->IsFly() == FALSE )	
 #else	// __VER >= 8  
-	if( pMover->IsFlyingNPC() == FALSE && ((CMover*)pTarget)->m_pActMover->IsFly() )	// this°¡ ºñÇàÇüÀÌ ¾Æ´Ï°í »ó´ë°¡ ºñÇàÁßÀÌ¶ó¸é
+	if( pMover->IsFlyingNPC() == FALSE && ((CMover*)pTarget)->m_pActMover->IsFly() )	// thisê°€ ë¹„í–‰í˜•ì´ ì•„ë‹ˆê³  ìƒëŒ€ê°€ ë¹„í–‰ì¤‘ì´ë¼ë©´
 #endif	// __VER >= 8  
 	{
 		DoReturnToBegin();
@@ -1824,45 +1824,45 @@ BOOL CAIAggroNormal::MoveProcessRagePatrol( const AIMSG & msg )
 		return TRUE;
 	}
 
-	if( TIMEGETTIME > m_tmAttack )	// °ø°İ ¸øÇÑÁö 20ÃÊ Áö³µ³Ä?
+	if( TIMEGETTIME > m_tmAttack )	// ê³µê²© ëª»í•œì§€ 20ì´ˆ ì§€ë‚¬ëƒ?
 	{
-		m_tmAttack = TIMEGETTIME + s_tmAttack;		// Å¸ÀÌ¸Ó ¸®¼Â
-		// 5ÃÊÀü ÁÂÇ¥¿Í Áö±İ ÁÂÇ¥ÀÇ °Å¸®¸¦ °è»ê.
+		m_tmAttack = TIMEGETTIME + s_tmAttack;		// íƒ€ì´ë¨¸ ë¦¬ì…‹
+		// 5ì´ˆì „ ì¢Œí‘œì™€ ì§€ê¸ˆ ì¢Œí‘œì˜ ê±°ë¦¬ë¥¼ ê³„ì‚°.
 		D3DXVECTOR3 vDist = pMover->GetPos() - m_vOldPos;
-		vDist.y = 0;					// ¿·À¸·Î »ìÂ¦¿òÁ÷¿´´Âµ¥ »êÀ§·Î È® ¿Ã¶ó°¬À»¶© °Å¸®°¡ ¾öÃ» ¸Ö¼ö ÀÖ´Ù. ±×·¡¼­ ÀÌ·¸°Ô ÇÑ°Í.
-		if( IsInRange( vDist, 2.0f ) )	// 2¹ÌÅÍ¸¦ ¸ø¹ş¾î³µ´Ù¸é ¾îµò°¡¿¡ °®Çû´Ù´Â ¶æ.
+		vDist.y = 0;					// ì˜†ìœ¼ë¡œ ì‚´ì§ì›€ì§ì˜€ëŠ”ë° ì‚°ìœ„ë¡œ í™• ì˜¬ë¼ê°”ì„ë• ê±°ë¦¬ê°€ ì—„ì²­ ë©€ìˆ˜ ìˆë‹¤. ê·¸ë˜ì„œ ì´ë ‡ê²Œ í•œê²ƒ.
+		if( IsInRange( vDist, 2.0f ) )	// 2ë¯¸í„°ë¥¼ ëª»ë²—ì–´ë‚¬ë‹¤ë©´ ì–´ë”˜ê°€ì— ê°–í˜”ë‹¤ëŠ” ëœ».
 		{
-			if( pMover->GetSpeed( pMover->m_pActMover->m_fSpeed ) > 0 )		// ¸¶¹ıÀûÀ¸·Î ¿òÁ÷ÀÌÁö ¸øÇÏ°Ô µÈ»óÅÂ¿¡¼± ¿öÇÁÇÏ¸é ¾ÈµÊ.
+			if( pMover->GetSpeed( pMover->m_pActMover->m_fSpeed ) > 0 )		// ë§ˆë²•ì ìœ¼ë¡œ ì›€ì§ì´ì§€ ëª»í•˜ê²Œ ëœìƒíƒœì—ì„  ì›Œí”„í•˜ë©´ ì•ˆë¨.
 			{
 				D3DXVECTOR3 vTarget = pTarget->GetPos();
-				pMover->SetPos( vTarget );		// °®ÇûÀ¸¸é Å¸°ÙÂÊÀ¸·Î ¹Ù·Î ¿öÇÁ.
+				pMover->SetPos( vTarget );		// ê°–í˜”ìœ¼ë©´ íƒ€ê²Ÿìª½ìœ¼ë¡œ ë°”ë¡œ ì›Œí”„.
 				g_UserMng.AddSetPos( pMover, pMover->GetPos() );
 			} 
 		} 
 		else
 		{
-			m_tmReturnToBegin = TIMEGETTIME;			// ´Ù½Ã µ¹¾Æ°¥¶© ½Ã°£À» Àç±â½ÃÀÛ.  xÃÊ°£Àº ¸Â¾Æµµ ¹İ°İ¾ÈÇÏ°í °è¼Ó °£´Ù.
+			m_tmReturnToBegin = TIMEGETTIME;			// ë‹¤ì‹œ ëŒì•„ê°ˆë• ì‹œê°„ì„ ì¬ê¸°ì‹œì‘.  xì´ˆê°„ì€ ë§ì•„ë„ ë°˜ê²©ì•ˆí•˜ê³  ê³„ì† ê°„ë‹¤.
 			DoReturnToBegin();
 			SendAIMsg( AIMSG_SETSTATE, dwAIState );
 			return TRUE;
 		}
-		m_vOldPos = pMover->GetPos();	// ÇöÀç ÁÂÇ¥¸¦ ÀúÀåÇÔ.
+		m_vOldPos = pMover->GetPos();	// í˜„ì¬ ì¢Œí‘œë¥¼ ì €ì¥í•¨.
 	}
 
 	D3DXVECTOR3	vTargetTo = pTarget->GetPos() - pMover->GetPos();	
-	// ¸¸¾à »ó´ë°¡ °ø°İÇÒ ¼ö ¾ø´Â °÷¿¡ ÀÖ´Ù¸é °ø°İ Æ÷±âÇÏ°í µ¹¾Æ°¡ÀÚ.
+	// ë§Œì•½ ìƒëŒ€ê°€ ê³µê²©í•  ìˆ˜ ì—†ëŠ” ê³³ì— ìˆë‹¤ë©´ ê³µê²© í¬ê¸°í•˜ê³  ëŒì•„ê°€ì.
 	if( IsInRange( vTargetTo, RANGE_CANCEL ) == FALSE )
 	{
-		DoReturnToBegin();	// SetTarget( NULL_ID, 0 );	// Å¸°ÙÀ» Æ÷±âÇÔ.
+		DoReturnToBegin();	// SetTarget( NULL_ID, 0 );	// íƒ€ê²Ÿì„ í¬ê¸°í•¨.
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
 		return TRUE;
 	}
-	else if( pTarget->GetType() == OT_MOVER && ((CMover *)pTarget)->IsMode( TRANSPARENT_MODE ) )		// ?°í ÀÖ´ø Å¸°ÙÀÌ Åõ¸íÈ­ »óÅÂ°¡ µÇ¸é 
+	else if( pTarget->GetType() == OT_MOVER && ((CMover *)pTarget)->IsMode( TRANSPARENT_MODE ) )		// ?ê³  ìˆë˜ íƒ€ê²Ÿì´ íˆ¬ëª…í™” ìƒíƒœê°€ ë˜ë©´ 
 	{
 #if __VER >= 14 // __INSTANCE_DUNGEON
 		if( CInstanceDungeonHelper::GetInstance()->IsInstanceDungeon( pWorld->GetID() ) )
 		{
-			CMover* pTarget = ScanTargetNext( pMover, 160, m_dwIdTarget, m_uParty );	// ¹üÀ§ 50¹ÌÅÍ ÀÌ³»¸¦ ½ºÄµÇÑ´Ù.
+			CMover* pTarget = ScanTargetNext( pMover, 160, m_dwIdTarget, m_uParty );	// ë²”ìœ„ 50ë¯¸í„° ì´ë‚´ë¥¼ ìŠ¤ìº”í•œë‹¤.
 			if( pTarget	)
 			{
 				SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, pTarget->GetId() );
@@ -1871,64 +1871,64 @@ BOOL CAIAggroNormal::MoveProcessRagePatrol( const AIMSG & msg )
 		}
 #endif // __INSTANCE_DUNGEON
 
-		DoReturnToBegin();	// SetTarget( NULL_ID, 0 );	// Å¸°ÙÀ» Æ÷±âÇÔ.
+		DoReturnToBegin();	// SetTarget( NULL_ID, 0 );	// íƒ€ê²Ÿì„ í¬ê¸°í•¨.
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
 		return TRUE;
 	}
 	else
 	{
-		m_bRangeAttack = SelectAttackType( pTarget );		// AI¿¡µû¸¥ °ø°İ¹æ½Ä ¼±ÅÃ.
+		m_bRangeAttack = SelectAttackType( pTarget );		// AIì—ë”°ë¥¸ ê³µê²©ë°©ì‹ ì„ íƒ.
 
-		if( m_bRangeAttack )	// ¿ø°Å¸® °ø°İÀ¸·Î °áÁ¤µÆÀ½.
+		if( m_bRangeAttack )	// ì›ê±°ë¦¬ ê³µê²©ìœ¼ë¡œ ê²°ì •ëìŒ.
 		{
 			int nTargetJob = pTarget->GetJob();
-			if( nTargetJob < 0 )	nTargetJob = 0;		// µğÆúÆ®·Î -1·Î ÃÊ±âÈ­ ÇÏ±â¶«¿¡ °Ë»çÇØ¾ßÇÔ.
+			if( nTargetJob < 0 )	nTargetJob = 0;		// ë””í´íŠ¸ë¡œ -1ë¡œ ì´ˆê¸°í™” í•˜ê¸°ë•œì— ê²€ì‚¬í•´ì•¼í•¨.
 			if( nTargetJob >= MAX_JOB )
 			{
-				Error( "CAIAggroNormal::MoverProcessRage : ¹üÀ§Ä§¹ü %d", nTargetJob );
+				Error( "CAIAggroNormal::MoverProcessRage : ë²”ìœ„ì¹¨ë²” %d", nTargetJob );
 				nTargetJob = 0;
 			}
 
-			FLOAT	fRange = (FLOAT)(pProp->m_bRangeAttack[ nTargetJob ] & 0x7F);		// »ç°Å¸®
-			BOOL	bKeepRange = (pProp->m_bRangeAttack[ nTargetJob ] & 0x80) ? TRUE : FALSE;	// »óÀ§ 1ºñÆ®°¡ ¿Â?
-			FLOAT	fDist = D3DXVec3Length( &vTargetTo );		// Àû°úÀÇ °Å¸®.
+			FLOAT	fRange = (FLOAT)(pProp->m_bRangeAttack[ nTargetJob ] & 0x7F);		// ì‚¬ê±°ë¦¬
+			BOOL	bKeepRange = (pProp->m_bRangeAttack[ nTargetJob ] & 0x80) ? TRUE : FALSE;	// ìƒìœ„ 1ë¹„íŠ¸ê°€ ì˜¨?
+			FLOAT	fDist = D3DXVec3Length( &vTargetTo );		// ì ê³¼ì˜ ê±°ë¦¬.
 			if( bKeepRange )
 			{
-				if( fabs(fDist - fRange) < 1.0f )	// Àû°úÀÇ °Å¸®¿Í »ç°Å¸®ÀÇ Â÷ÀÌ°¡ 1¹ÌÅÍ ÀÌ³»¸é ´õÀÌ»ó ¿òÁ÷ÀÏ ÇÊ¿ä ¾øÀ½.
+				if( fabs(fDist - fRange) < 1.0f )	// ì ê³¼ì˜ ê±°ë¦¬ì™€ ì‚¬ê±°ë¦¬ì˜ ì°¨ì´ê°€ 1ë¯¸í„° ì´ë‚´ë©´ ë”ì´ìƒ ì›€ì§ì¼ í•„ìš” ì—†ìŒ.
 				{
-					if( pMover->IsEmptyDest() == FALSE )	// ÀÌµ¿ÁßÀÓ.
-						MoveToDst( pMover->GetPos() );		// ÇöÀçÀ§Ä¡·Î ÀÌµ¿ - ¼­¹ö¿¡¼± ½ºÅ¾°ú °°Àº ¸í·É. Å¬¶ó¿¡¼± ¼­¹öÀÇ À§Ä¡·Î ÀÌµ¿.
+					if( pMover->IsEmptyDest() == FALSE )	// ì´ë™ì¤‘ì„.
+						MoveToDst( pMover->GetPos() );		// í˜„ì¬ìœ„ì¹˜ë¡œ ì´ë™ - ì„œë²„ì—ì„  ìŠ¤íƒ‘ê³¼ ê°™ì€ ëª…ë ¹. í´ë¼ì—ì„  ì„œë²„ì˜ ìœ„ì¹˜ë¡œ ì´ë™.
 				} else
 				{
-					// fRangeÀÇ °Å¸®¸¦ À¯ÁöÇÏµµ·Ï ...
+					// fRangeì˜ ê±°ë¦¬ë¥¼ ìœ ì§€í•˜ë„ë¡ ...
 					if( fDist < fRange )	
 					{
-						FLOAT fAngle = GetDegreeX( pMover->GetPos(), pTarget->GetPos() );	// dest, srcÀÇ ÆÄ¶ó¸ŞÅÍ À§Ä¡¸¦ ¹Ù²Ù¸é ¹İ´ë¹æÇâÀÌ ³ª¿Â´Ù.
+						FLOAT fAngle = GetDegreeX( pMover->GetPos(), pTarget->GetPos() );	// dest, srcì˜ íŒŒë¼ë©”í„° ìœ„ì¹˜ë¥¼ ë°”ê¾¸ë©´ ë°˜ëŒ€ë°©í–¥ì´ ë‚˜ì˜¨ë‹¤.
 						D3DXVECTOR3 vDst = pMover->GetPos() + VelocityToVec( fAngle, 10 );
-						MoveToDst( vDst );		// ¹İ´ë¹æÇâÀ¸·Î ´Ş·Á¼­ °Å¸®¸¦ ¹ú¸².
+						MoveToDst( vDst );		// ë°˜ëŒ€ë°©í–¥ìœ¼ë¡œ ë‹¬ë ¤ì„œ ê±°ë¦¬ë¥¼ ë²Œë¦¼.
 					} else
-						MoveToDst( pTarget->GetId() );	// ¸ñÇ¥¿ÍÀÇ °Å¸®°¡ »ç°Å¸®º¸´Ù ´õ ¸Ó´Ï±î ±ÙÁ¢ÇÔ.
+						MoveToDst( pTarget->GetId() );	// ëª©í‘œì™€ì˜ ê±°ë¦¬ê°€ ì‚¬ê±°ë¦¬ë³´ë‹¤ ë” ë¨¸ë‹ˆê¹Œ ê·¼ì ‘í•¨.
 				}
 			} else
 			// not keepRange
 			{
-				if( fDist < fRange )		// »ç°Å¸®¾È¿¡ ÀÖÀ¸¸é Á¦ÀÚ¸®¿¡ ÀÖÀ½.
+				if( fDist < fRange )		// ì‚¬ê±°ë¦¬ì•ˆì— ìˆìœ¼ë©´ ì œìë¦¬ì— ìˆìŒ.
 				{
-					if( pMover->IsEmptyDest() == FALSE )	// ÀÌµ¿ÁßÀÓ.
-						MoveToDst( pMover->GetPos() );		// ÇöÀçÀ§Ä¡·Î ÀÌµ¿ - ¼­¹ö¿¡¼± ½ºÅ¾°ú °°Àº ¸í·É. Å¬¶ó¿¡¼± ¼­¹öÀÇ À§Ä¡·Î ÀÌµ¿.
+					if( pMover->IsEmptyDest() == FALSE )	// ì´ë™ì¤‘ì„.
+						MoveToDst( pMover->GetPos() );		// í˜„ì¬ìœ„ì¹˜ë¡œ ì´ë™ - ì„œë²„ì—ì„  ìŠ¤íƒ‘ê³¼ ê°™ì€ ëª…ë ¹. í´ë¼ì—ì„  ì„œë²„ì˜ ìœ„ì¹˜ë¡œ ì´ë™.
 				} else
-					MoveToDst( pTarget->GetId() );	// »ç°Å¸® ¹ÛÀÌ¸é ¸ñÇ¥ÂÊÀ¸·Î Á¢±Ù.
+					MoveToDst( pTarget->GetId() );	// ì‚¬ê±°ë¦¬ ë°–ì´ë©´ ëª©í‘œìª½ìœ¼ë¡œ ì ‘ê·¼.
 			}
 		} else
-		// ±Ù°Å¸®
+		// ê·¼ê±°ë¦¬
 		{
-			MoveToDst( pTarget->GetId() );		// ±Ù°Å¸®´Â ¹«Á¶°Ç ¸ñÇ¥ÂÊÀ¸·Î Á¢±Ù.
+			MoveToDst( pTarget->GetId() );		// ê·¼ê±°ë¦¬ëŠ” ë¬´ì¡°ê±´ ëª©í‘œìª½ìœ¼ë¡œ ì ‘ê·¼.
 		}
 
-		if( pProp->m_nSummProb )			// Summon AI°¡ ÀÖ´À³Ä?
-			SubSummonProcess( pTarget );	// ¼ÒÈ¯À» ½Ãµµ
+		if( pProp->m_nSummProb )			// Summon AIê°€ ìˆëŠëƒ?
+			SubSummonProcess( pTarget );	// ì†Œí™˜ì„ ì‹œë„
 		
-		// °ø°İ Âù½º.
+		// ê³µê²© ì°¬ìŠ¤.
 		if( TIMEGETTIME > m_tmAttackDelay )
 		{
 			if( SubAttackChance( msg, pTarget ) == FALSE )
@@ -1955,12 +1955,12 @@ BOOL CAIAggroNormal::StateRagePatrol( const AIMSG & msg )
 				SetTarget( msg.dwParam2, pTarget->m_idparty );
 		}
 		m_tmAttack = TIMEGETTIME + s_tmAttack;
-		m_tmAttackDelay = TIMEGETTIME; // °ø°İ µô·¹ÀÌ¸¦ ÃÊ±âÈ­. ±×·¸Áö ¾ÊÀ¸¸é Ã³À½ °ø°İÀÌ µô·¹ÀÌ ¸Ô°í µé¾î°£´Ù.
-		SetStop( 0 ); // 0À¸·Î ¼¼ÆÃÇÏ¸é Á¤Áö »óÅÂ°¡ ¹Ù·Î ³¡³ª°Ô µÇ¾î °ø°İÀÌ °¡´ÉÇÏ°Ô µÈ´Ù. 
-		              // Á¤Áö »óÅÂ¿¡¼­´Â Á¤Áö »óÅÂ¸¦ ÀÏÁ¤ ½Ã°£µ¿¾È À¯ÁöÇØÁÖ¾î¾ßÇÏ´Âµ¥, ±×·¸°Ô µÇ¸é °ø°İÀ» ¸øÇÒ ¼ö ÀÖ´Ù.
+		m_tmAttackDelay = TIMEGETTIME; // ê³µê²© ë”œë ˆì´ë¥¼ ì´ˆê¸°í™”. ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ ì²˜ìŒ ê³µê²©ì´ ë”œë ˆì´ ë¨¹ê³  ë“¤ì–´ê°„ë‹¤.
+		SetStop( 0 ); // 0ìœ¼ë¡œ ì„¸íŒ…í•˜ë©´ ì •ì§€ ìƒíƒœê°€ ë°”ë¡œ ëë‚˜ê²Œ ë˜ì–´ ê³µê²©ì´ ê°€ëŠ¥í•˜ê²Œ ëœë‹¤. 
+		              // ì •ì§€ ìƒíƒœì—ì„œëŠ” ì •ì§€ ìƒíƒœë¥¼ ì¼ì • ì‹œê°„ë™ì•ˆ ìœ ì§€í•´ì£¼ì–´ì•¼í•˜ëŠ”ë°, ê·¸ë ‡ê²Œ ë˜ë©´ ê³µê²©ì„ ëª»í•  ìˆ˜ ìˆë‹¤.
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_INIT_TARGETCLEAR )		// Å¸°ÙÀ» Å¬¸®¾îÇÏ°í ´ë±â¸ğµå·Î µ¹¾Æ°¨.
+	OnMessage( AIMSG_INIT_TARGETCLEAR )		// íƒ€ê²Ÿì„ í´ë¦¬ì–´í•˜ê³  ëŒ€ê¸°ëª¨ë“œë¡œ ëŒì•„ê°.
 		SetTarget( NULL_ID, 0 );
 		SendAIMsg( AIMSG_SETSTATE, STATE_PATROL );
 		
@@ -1972,9 +1972,9 @@ BOOL CAIAggroNormal::StateRagePatrol( const AIMSG & msg )
 	OnMessage( AIMSG_DAMAGE ) 
 		if( IsMove() && m_bGoTarget == FALSE )
 		{
-			if( xRandom( 2 ) == 0 )		// 1/2È®·ü·Î °ø°İÀÚ¸¦ ¶§¸².
+			if( xRandom( 2 ) == 0 )		// 1/2í™•ë¥ ë¡œ ê³µê²©ìë¥¼ ë•Œë¦¼.
 			{
-				// °ø°İÀÚ¿¡°Ô ¸ñÇ¥¸¦ ¼³Á¤ 
+				// ê³µê²©ìì—ê²Œ ëª©í‘œë¥¼ ì„¤ì • 
 				MoveToDst( msg.dwParam1 );
 			}
 			m_bGoTarget = TRUE;
@@ -1982,25 +1982,25 @@ BOOL CAIAggroNormal::StateRagePatrol( const AIMSG & msg )
 		MoverProp* pMoverProp = pMover->GetProp();
 		int nHPPercent = pMover->GetHitPointPercent( 100 );
 /*
-		// µµÁÖ HP ÆÛ¼¾Æ®º¸´Ù ÇöÀç HPÆÛ¼¾Æ®°¡ ÀÛÀ» °æ¿ì µµ¸Á°¡ÀÚ.
+		// ë„ì£¼ HP í¼ì„¼íŠ¸ë³´ë‹¤ í˜„ì¬ HPí¼ì„¼íŠ¸ê°€ ì‘ì„ ê²½ìš° ë„ë§ê°€ì.
 		if( nHPPercent < pMoverProp->m_nRunawayHP )
 		{
-			// µµÁÖ ¸ğµå·Î ¼¼ÆÃ 
+			// ë„ì£¼ ëª¨ë“œë¡œ ì„¸íŒ… 
 			SendAIMsg( AIMSG_SETSTATE, STATE_RUNAWAY );
 			g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_EVADE );
 		}
 */
-		// Call HP ÆÛ¼¾Æ®º¸´Ù ÇöÀç HPÆÛ¼¾Æ®°¡ ÀÛÀ» °æ¿ì µ¿·á¸¦ ºÎ¸£ÀÚ.
-		if( pMoverProp->m_bHelpWho )	// ÇïÇÁAI°¡ ÀÖÀ»°æ¿ì.
+		// Call HP í¼ì„¼íŠ¸ë³´ë‹¤ í˜„ì¬ HPí¼ì„¼íŠ¸ê°€ ì‘ì„ ê²½ìš° ë™ë£Œë¥¼ ë¶€ë¥´ì.
+		if( pMoverProp->m_bHelpWho )	// í—¬í”„AIê°€ ìˆì„ê²½ìš°.
 		{
-			if( TIMEGETTIME - m_tmHelp > pMoverProp->m_tmUnitHelp )	// ÃÖÃÊ m_tmHelp´Â 0ÀÌ¹Ç·Î ÇïÇÁ¸¦ ÇÑ´Ù.
+			if( TIMEGETTIME - m_tmHelp > pMoverProp->m_tmUnitHelp )	// ìµœì´ˆ m_tmHelpëŠ” 0ì´ë¯€ë¡œ í—¬í”„ë¥¼ í•œë‹¤.
 			{
 				if( m_bCallHelper == FALSE )
 				{
 					CallHelper( pMoverProp );
 					g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_HELPER );
 					m_tmHelp = TIMEGETTIME;
-					if( pMoverProp->m_tmUnitHelp == 0 )		// 0ÀÌ¸é ÇÑ¹ø¸¸ ºÎ¸£°í ¾ÈºÎ¸§.
+					if( pMoverProp->m_tmUnitHelp == 0 )		// 0ì´ë©´ í•œë²ˆë§Œ ë¶€ë¥´ê³  ì•ˆë¶€ë¦„.
 						m_bCallHelper = TRUE;
 				}
 			}
@@ -2072,12 +2072,12 @@ BOOL CAIAggroNormal::StateRage( const AIMSG & msg )
 				SetTarget( msg.dwParam2, pTarget->m_idparty );
 		}
 		m_tmAttack = TIMEGETTIME + s_tmAttack;
-		m_tmAttackDelay = TIMEGETTIME; // °ø°İ µô·¹ÀÌ¸¦ ÃÊ±âÈ­. ±×·¸Áö ¾ÊÀ¸¸é Ã³À½ °ø°İÀÌ µô·¹ÀÌ ¸Ô°í µé¾î°£´Ù.
-		SetStop( 0 ); // 0À¸·Î ¼¼ÆÃÇÏ¸é Á¤Áö »óÅÂ°¡ ¹Ù·Î ³¡³ª°Ô µÇ¾î °ø°İÀÌ °¡´ÉÇÏ°Ô µÈ´Ù. 
-		              // Á¤Áö »óÅÂ¿¡¼­´Â Á¤Áö »óÅÂ¸¦ ÀÏÁ¤ ½Ã°£µ¿¾È À¯ÁöÇØÁÖ¾î¾ßÇÏ´Âµ¥, ±×·¸°Ô µÇ¸é °ø°İÀ» ¸øÇÒ ¼ö ÀÖ´Ù.
+		m_tmAttackDelay = TIMEGETTIME; // ê³µê²© ë”œë ˆì´ë¥¼ ì´ˆê¸°í™”. ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ ì²˜ìŒ ê³µê²©ì´ ë”œë ˆì´ ë¨¹ê³  ë“¤ì–´ê°„ë‹¤.
+		SetStop( 0 ); // 0ìœ¼ë¡œ ì„¸íŒ…í•˜ë©´ ì •ì§€ ìƒíƒœê°€ ë°”ë¡œ ëë‚˜ê²Œ ë˜ì–´ ê³µê²©ì´ ê°€ëŠ¥í•˜ê²Œ ëœë‹¤. 
+		              // ì •ì§€ ìƒíƒœì—ì„œëŠ” ì •ì§€ ìƒíƒœë¥¼ ì¼ì • ì‹œê°„ë™ì•ˆ ìœ ì§€í•´ì£¼ì–´ì•¼í•˜ëŠ”ë°, ê·¸ë ‡ê²Œ ë˜ë©´ ê³µê²©ì„ ëª»í•  ìˆ˜ ìˆë‹¤.
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	OnMessage( AIMSG_INIT_TARGETCLEAR )		// Å¸°ÙÀ» Å¬¸®¾îÇÏ°í ´ë±â¸ğµå·Î µ¹¾Æ°¨.
+	OnMessage( AIMSG_INIT_TARGETCLEAR )		// íƒ€ê²Ÿì„ í´ë¦¬ì–´í•˜ê³  ëŒ€ê¸°ëª¨ë“œë¡œ ëŒì•„ê°.
 #if __VER >= 9	//__AI_0509
 		CMover* pTarget	= ScanTargetNext( pMover, /*pProp->m_nAttackFirstRange*/ 15, m_dwIdTarget, m_uParty );
 		if( pTarget )
@@ -2159,24 +2159,24 @@ BOOL CAIAggroNormal::StateRage( const AIMSG & msg )
 		MoverProp* pMoverProp = pMover->GetProp();
 		int nHPPercent = pMover->GetHitPointPercent( 100 );
 
-		// µµÁÖ HP ÆÛ¼¾Æ®º¸´Ù ÇöÀç HPÆÛ¼¾Æ®°¡ ÀÛÀ» °æ¿ì µµ¸Á°¡ÀÚ.
+		// ë„ì£¼ HP í¼ì„¼íŠ¸ë³´ë‹¤ í˜„ì¬ HPí¼ì„¼íŠ¸ê°€ ì‘ì„ ê²½ìš° ë„ë§ê°€ì.
 		if( nHPPercent < pMoverProp->m_nRunawayHP )
 		{
-			// µµÁÖ ¸ğµå·Î ¼¼ÆÃ 
+			// ë„ì£¼ ëª¨ë“œë¡œ ì„¸íŒ… 
 			SendAIMsg( AIMSG_SETSTATE, STATE_RUNAWAY );
 			g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_EVADE );
 		}
-		// Call HP ÆÛ¼¾Æ®º¸´Ù ÇöÀç HPÆÛ¼¾Æ®°¡ ÀÛÀ» °æ¿ì µ¿·á¸¦ ºÎ¸£ÀÚ.
-		if( pMoverProp->m_bHelpWho )	// ÇïÇÁAI°¡ ÀÖÀ»°æ¿ì.
+		// Call HP í¼ì„¼íŠ¸ë³´ë‹¤ í˜„ì¬ HPí¼ì„¼íŠ¸ê°€ ì‘ì„ ê²½ìš° ë™ë£Œë¥¼ ë¶€ë¥´ì.
+		if( pMoverProp->m_bHelpWho )	// í—¬í”„AIê°€ ìˆì„ê²½ìš°.
 		{
-			if( TIMEGETTIME - m_tmHelp > pMoverProp->m_tmUnitHelp )	// ÃÖÃÊ m_tmHelp´Â 0ÀÌ¹Ç·Î ÇïÇÁ¸¦ ÇÑ´Ù.
+			if( TIMEGETTIME - m_tmHelp > pMoverProp->m_tmUnitHelp )	// ìµœì´ˆ m_tmHelpëŠ” 0ì´ë¯€ë¡œ í—¬í”„ë¥¼ í•œë‹¤.
 			{
 				if( m_bCallHelper == FALSE )
 				{
 					CallHelper( pMoverProp );
 					g_UserMng.AddDlgEmoticon( pMover, DLGEMOT_HELPER );
 					m_tmHelp = TIMEGETTIME;
-					if( pMoverProp->m_tmUnitHelp == 0 )		// 0ÀÌ¸é ÇÑ¹ø¸¸ ºÎ¸£°í ¾ÈºÎ¸§.
+					if( pMoverProp->m_tmUnitHelp == 0 )		// 0ì´ë©´ í•œë²ˆë§Œ ë¶€ë¥´ê³  ì•ˆë¶€ë¦„.
 						m_bCallHelper = TRUE;
 				}
 			}
@@ -2219,7 +2219,7 @@ BOOL CAIAggroNormal::StateRage( const AIMSG & msg )
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 //	OnMessage( AIMSG_NOMOVE ) 
-		// Å¸°Ù¿¡ °¥ ¼ö°¡ ¾ø´Âµ¥, »ó´ë°¡ ³¯¾Æ ¿Ã¶ú´Ù. ±×·¸´Ù¸é IDLE·Î ¹Ù²Ù°í ±×·¸Áö ¾Ê´Ù¸é µµ¸Á°¡ÀÚ(Àå°Å¸® °ø°İ¼ö°¡ Àå¾Ö¹° À§¿¡ ÀÖ´Â »óÈ²)
+		// íƒ€ê²Ÿì— ê°ˆ ìˆ˜ê°€ ì—†ëŠ”ë°, ìƒëŒ€ê°€ ë‚ ì•„ ì˜¬ëë‹¤. ê·¸ë ‡ë‹¤ë©´ IDLEë¡œ ë°”ê¾¸ê³  ê·¸ë ‡ì§€ ì•Šë‹¤ë©´ ë„ë§ê°€ì(ì¥ê±°ë¦¬ ê³µê²©ìˆ˜ê°€ ì¥ì• ë¬¼ ìœ„ì— ìˆëŠ” ìƒí™©)
 //		MoveToRandom( STATE_RAGE );
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2248,46 +2248,46 @@ BOOL CAIAggroNormal::MoveProcessRunaway()
 	CMover* pMover = GetMover();
 	CWorld* pWorld = GetWorld();
 
-	// µ¥¹ÌÁö »óÅÂ°Å³ª Á×¾úÀ» °æ¿ì ÀÌµ¿ Ã³¸® ¼öÇà ¾ÊÀ½ 
+	// ë°ë¯¸ì§€ ìƒíƒœê±°ë‚˜ ì£½ì—ˆì„ ê²½ìš° ì´ë™ ì²˜ë¦¬ ìˆ˜í–‰ ì•ŠìŒ 
 	if( pMover->IsDie() || (pMover->m_pActMover->GetState() & OBJSTA_DMG_FLY_ALL))
 		return FALSE;
 
 	DWORD dwAIState = pMover->m_dwAIInterfaceState;
 
-	CCtrl* pTarget = prj.GetCtrl( m_dwIdTarget ); // ¸ñÇ¥¸¦ Àç¼³Á¤ÇØÁØ´Ù.
+	CCtrl* pTarget = prj.GetCtrl( m_dwIdTarget ); // ëª©í‘œë¥¼ ì¬ì„¤ì •í•´ì¤€ë‹¤.
 
-	// Å¸°ÙÀÌ ¹«È¿ÀÎ°¡?
+	// íƒ€ê²Ÿì´ ë¬´íš¨ì¸ê°€?
 	if( IsValidObj( pTarget ) == FALSE )
 	{
 		SetTarget( NULL_ID, 0 );
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
 	}
 	else
-	// ¸ØÃã ´ë±â ½Ã°£ÀÌ ³¡³µ³ª?
+	// ë©ˆì¶¤ ëŒ€ê¸° ì‹œê°„ì´ ëë‚¬ë‚˜?
 	if( IsEndStop()  )
 	{
 		CMover* pMoverTarget = (CMover*)pTarget;
 		DWORD dwAttackRange = pMoverTarget->GetActiveHandItemProp()->dwAttackRange;
 		FLOAT fRange = pMoverTarget->GetAttackRange( dwAttackRange ) * 1.7f;
 
-		// ³ª¿Í 20¹ÌÅÍ ¾ÈÂÊ(±ÙÃ³) °Å¸®¿¡ Á¸ÀçÇÏ¸é ÁÙÇà¶û!
+		// ë‚˜ì™€ 20ë¯¸í„° ì•ˆìª½(ê·¼ì²˜) ê±°ë¦¬ì— ì¡´ì¬í•˜ë©´ ì¤„í–‰ë‘!
 		if( IsInRange( pTarget->GetPos() - pMover->GetPos(), fRange ) == TRUE )
 		{
-			// 5µµ ÆøÀ» °¡Áö°í °¢µµ º¯°æ. ÆøÀÌ Å©¸é Å¬¼ö·Ï Áö±×Àç±× ÇüÅÂ·Î ¿òÁ÷ÀÎ´Ù.
+			// 5ë„ í­ì„ ê°€ì§€ê³  ê°ë„ ë³€ê²½. í­ì´ í¬ë©´ í´ìˆ˜ë¡ ì§€ê·¸ì¬ê·¸ í˜•íƒœë¡œ ì›€ì§ì¸ë‹¤.
 			pMover->AddAngle( (float)( 20 - xRandom( 40 ) ) );
-			// °¢µµ¸¦ ²¨³½ ÈÄ¿¡ ¿¬Àå¼±¿¡ ÀÖ´Â ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+			// ê°ë„ë¥¼ êº¼ë‚¸ í›„ì— ì—°ì¥ì„ ì— ìˆëŠ” ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
 			FLOAT fAngle = pMover->GetAngle();
 			D3DXVECTOR3 vDst = pMover->GetPos() + VelocityToVec( fAngle, fRange );
 			MoveToDst( vDst );
 		}
 		if( m_bTargetNoMovePos == FALSE )
 		{
-			// ¿©±â¼­ ÈŞ½Ä ÀÏÁ¤½Ã°£¸¶´Ù HP¸¦ Ã¤¿öÁØ´Ù.
+			// ì—¬ê¸°ì„œ íœ´ì‹ ì¼ì •ì‹œê°„ë§ˆë‹¤ HPë¥¼ ì±„ì›Œì¤€ë‹¤.
 			if( ::TIMEGETTIME > pMover->m_dwTickRecovery )	// .
 			{
 				pMover->m_dwTickRecovery = ::TIMEGETTIME + NEXT_TICK_RECOVERY;
 				pMover->IncHitPoint( pMover->GetHPRecovery() );
-				// Ã¼·ÂÀÌ 80 % ÀÌ»ó µÇ¸é ¹İ°İ ½Ãµµ.
+				// ì²´ë ¥ì´ 80 % ì´ìƒ ë˜ë©´ ë°˜ê²© ì‹œë„.
 				if( pMover->GetHitPointPercent( 100 ) >= 50 )
 					SendAIMsg( AIMSG_SETSTATE, STATE_RAGE, NULL_ID );
 			}
@@ -2307,14 +2307,14 @@ BOOL CAIAggroNormal::StateRunaway( const AIMSG & msg )
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_INIT ) 
-		// ÀÌ°æ¿ì Á¤»óÀûÀÎ ¿É¼Ç¿¡ ÀÇÇÑ µµÁÖ°¡ ¾Æ´Ï¶ó, »ó´ë°¡ °ø°İÇÒ ¼ö ¾ø´Â, Áö¸®»ó ÀÕÁ¡ÀÌ ÀÖ´Â Àå¼Ò¿¡
-		// ÀÖ±â ¶§¹®¿¡ ÁÙÇà¶ûÀ» Ä¡´Â °æ¿ì´Ù. 
+		// ì´ê²½ìš° ì •ìƒì ì¸ ì˜µì…˜ì— ì˜í•œ ë„ì£¼ê°€ ì•„ë‹ˆë¼, ìƒëŒ€ê°€ ê³µê²©í•  ìˆ˜ ì—†ëŠ”, ì§€ë¦¬ìƒ ì‡ì ì´ ìˆëŠ” ì¥ì†Œì—
+		// ìˆê¸° ë•Œë¬¸ì— ì¤„í–‰ë‘ì„ ì¹˜ëŠ” ê²½ìš°ë‹¤. 
 		m_bTargetNoMovePos	= msg.dwParam2;
-		// ÇöÀçÀÇ ¹İ´ë ¹æÇâÀ¸·Î µµÁÖ ½ÃÀÛ 
-		// 5µµ ÆøÀ» °¡Áö°í °¢µµ º¯°æ. ÆøÀÌ Å©¸é Å¬¼ö·Ï Áö±×Àç±× ÇüÅÂ·Î ¿òÁ÷ÀÎ´Ù.
+		// í˜„ì¬ì˜ ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ë„ì£¼ ì‹œì‘ 
+		// 5ë„ í­ì„ ê°€ì§€ê³  ê°ë„ ë³€ê²½. í­ì´ í¬ë©´ í´ìˆ˜ë¡ ì§€ê·¸ì¬ê·¸ í˜•íƒœë¡œ ì›€ì§ì¸ë‹¤.
 		pMover->AddAngle( (float)( 180 + ( 20 - xRandom( 40 ) ) ) );
-		// °¢µµ¸¦ ²¨³½ ÈÄ¿¡ ¿¬Àå¼±¿¡ ÀÖ´Â ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
-		CMover* pMoverTarget = (CMover*)prj.GetCtrl( m_dwIdTarget ); // ¸ñÇ¥¸¦ Àç¼³Á¤ÇØÁØ´Ù.
+		// ê°ë„ë¥¼ êº¼ë‚¸ í›„ì— ì—°ì¥ì„ ì— ìˆëŠ” ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
+		CMover* pMoverTarget = (CMover*)prj.GetCtrl( m_dwIdTarget ); // ëª©í‘œë¥¼ ì¬ì„¤ì •í•´ì¤€ë‹¤.
 		if( IsValidObj(pMoverTarget) )
 		{
 			DWORD dwAttackRange = pMoverTarget->GetActiveHandItemProp()->dwAttackRange;
@@ -2322,7 +2322,7 @@ BOOL CAIAggroNormal::StateRunaway( const AIMSG & msg )
 			FLOAT fAngle = pMover->GetAngle();
 			D3DXVECTOR3 vDst = pMover->GetPos() + VelocityToVec( fAngle, fRange );
 			MoveToDst( vDst );
-			m_bFirstRunaway = TRUE; // Ã³À½ µµÁÖÀÎ°¡?
+			m_bFirstRunaway = TRUE; // ì²˜ìŒ ë„ì£¼ì¸ê°€?
 		}
 		else
 		{
@@ -2342,10 +2342,10 @@ BOOL CAIAggroNormal::StateRunaway( const AIMSG & msg )
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_COLLISION )
-		// ÇöÀçÀÇ ¹İ´ë ¹æÇâÀ¸·Î µµÁÖ ½ÃÀÛ 
-		// 5µµ ÆøÀ» °¡Áö°í °¢µµ º¯°æ. ÆøÀÌ Å©¸é Å¬¼ö·Ï Áö±×Àç±× ÇüÅÂ·Î ¿òÁ÷ÀÎ´Ù.
+		// í˜„ì¬ì˜ ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ë„ì£¼ ì‹œì‘ 
+		// 5ë„ í­ì„ ê°€ì§€ê³  ê°ë„ ë³€ê²½. í­ì´ í¬ë©´ í´ìˆ˜ë¡ ì§€ê·¸ì¬ê·¸ í˜•íƒœë¡œ ì›€ì§ì¸ë‹¤.
 		pMover->AddAngle( (float)( 180 + ( 20 - xRandom( 40 ) ) ) );
-		// °¢µµ¸¦ ²¨³½ ÈÄ¿¡ ¿¬Àå¼±¿¡ ÀÖ´Â ÁÂÇ¥¸¦ ±¸ÇÑ´Ù.
+		// ê°ë„ë¥¼ êº¼ë‚¸ í›„ì— ì—°ì¥ì„ ì— ìˆëŠ” ì¢Œí‘œë¥¼ êµ¬í•œë‹¤.
 		FLOAT fAngle = pMover->GetAngle();
 		D3DXVECTOR3 vDst = pMover->GetPos() + VelocityToVec( fAngle, 5 );
 		MoveToDst( vDst );
@@ -2377,7 +2377,7 @@ BOOL CAIAggroNormal::StateRunaway( const AIMSG & msg )
 		m_bFirstRunaway = FALSE;
 		MoverProp* pMoverProp = pMover->GetProp();
 		if( pMoverProp->m_dwRunawayDelay )
-			SetStop( pMover->GetProp()->m_dwRunawayDelay + xRandom( SEC( 1 ) ) ); // + xRandomÀº ¾à°£ÀÇ °¡º¯ Â÷ÀÌ¸¦ ÁÖ±â À§ÇÑ °Í.
+			SetStop( pMover->GetProp()->m_dwRunawayDelay + xRandom( SEC( 1 ) ) ); // + xRandomì€ ì•½ê°„ì˜ ê°€ë³€ ì°¨ì´ë¥¼ ì£¼ê¸° ìœ„í•œ ê²ƒ.
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	OnMessage( AIMSG_EXIT )	

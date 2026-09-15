@@ -1,4 +1,4 @@
-// InstanceDungeonParty.h: interface for the CInstanceDungeonParty class.
+﻿// InstanceDungeonParty.h: interface for the CInstanceDungeonParty class.
 //
 //////////////////////////////////////////////////////////////////////
 

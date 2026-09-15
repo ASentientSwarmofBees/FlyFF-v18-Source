@@ -1,4 +1,4 @@
-#ifndef __VERSION_COMMON_H__
+ï»¿#ifndef __VERSION_COMMON_H__
 #define __VERSION_COMMON_H__
 #define	__VER 18
 #define __MAINSERVER
@@ -8,20 +8,20 @@
 #endif
 
 #define		__DOS1101
-#define		__SERVER					// Å¬¶óÀÌ¾ğÆ® Àü¿ëÄÚµå¸¦ ºôµåÇÏÁö ¾Ê±â À§ÇÑ define
+#define		__SERVER					// í´ë¼ì´ì–¸íŠ¸ ì „ìš©ì½”ë“œë¥¼ ë¹Œë“œí•˜ì§€ ì•Šê¸° ìœ„í•œ define
 #define		__CRC
-#define		__SO1014					// ¼ÒÄÏ ¿¹¿Ü Ã³¸®( Ä³½¬, ÀÎÁõ, ·Î±×ÀÎ )
+#define		__SO1014					// ì†Œì¼“ ì˜ˆì™¸ ì²˜ë¦¬( ìºì‰¬, ì¸ì¦, ë¡œê·¸ì¸ )
 #define		__PROTOCOL0910
 #define		__PROTOCOL1021
 #define		__VERIFYNETLIB
-#define		__MAP_SIZE					// CServerdesc»ç¿ë ¶§¹®¿¡ 
-#define		__S8_SERVER_PORT			// 2006¿ù 11¿ù 7ÀÏ ¾÷µ¥ÀÌÆ® - World, Cache, CoreServer
+#define		__MAP_SIZE					// CServerdescì‚¬ìš© ë•Œë¬¸ì— 
+#define		__S8_SERVER_PORT			// 2006ì›” 11ì›” 7ì¼ ì—…ë°ì´íŠ¸ - World, Cache, CoreServer
 #define		__STL_0402					// stl
 
 // 11
-#define		__MA_VER11_07				// cache ¼­¹ö¿¡¼­ loginserver·Î À¯ÀúÁ¢¼Ó²÷³¦À» ¾Ë·ÁÁÖ´Â ºÎºĞ
+#define		__MA_VER11_07				// cache ì„œë²„ì—ì„œ loginserverë¡œ ìœ ì €ì ‘ì†ëŠë‚Œì„ ì•Œë ¤ì£¼ëŠ” ë¶€ë¶„
 //#define		__SYS_PLAYER_DATA
-#define		__RT_1025					// ¸Ş½ÅÀú	//
+#define		__RT_1025					// ë©”ì‹ ì €	//
 
 #if (_MSC_VER > 1200)
 #define		__VS2003
@@ -34,15 +34,15 @@
 //#define		__US_LOGIN_0223
 
 
-#if	  defined(__INTERNALSERVER)	// ³»ºÎ »ç¹«½Ç Å×½ºÆ®¼­¹ö 
-	#define		__GUILDVOTE				// ±æµå ÅõÇ¥ 
+#if	  defined(__INTERNALSERVER)	// ë‚´ë¶€ ì‚¬ë¬´ì‹¤ í…ŒìŠ¤íŠ¸ì„œë²„ 
+	#define		__GUILDVOTE				// ê¸¸ë“œ íˆ¬í‘œ 
 	#define		__VERIFY_ARCHIVE1129
-	#define		__CRASH_0404			// Ä³½Ã ¼­¹ö Å©·¡½Ã »óÅÂ Ãâ·Â
-#elif defined(__TESTSERVER)		// ¿ÜºÎ À¯Àú Å×½ºÆ®¼­¹ö 
-	#define		__GUILDVOTE				// ±æµå ÅõÇ¥ 
-#elif defined(__MAINSERVER)		// ¿ÜºÎ º»¼·
+	#define		__CRASH_0404			// ìºì‹œ ì„œë²„ í¬ë˜ì‹œ ìƒíƒœ ì¶œë ¥
+#elif defined(__TESTSERVER)		// ì™¸ë¶€ ìœ ì € í…ŒìŠ¤íŠ¸ì„œë²„ 
+	#define		__GUILDVOTE				// ê¸¸ë“œ íˆ¬í‘œ 
+#elif defined(__MAINSERVER)		// ì™¸ë¶€ ë³¸ì„­
  
-#endif	// end - ¼­¹öÁ¾·ùº° define 
+#endif	// end - ì„œë²„ì¢…ë¥˜ë³„ define 
 
 
 #endif

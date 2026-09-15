@@ -1,22 +1,22 @@
-#ifndef __COMMON_DEFINE__
+ï»¿#ifndef __COMMON_DEFINE__
 #define __COMMON_DEFINE__
 
 #include <windows.h>
 
 //////////////////////////////////////////////////////////////////////////////
-// Å¬¶óÀÌ¾ğÆ® ¿Í ¼­¹ö¿¡¼­ °ø¿ëÀ¸·Î »ç¿ëÇÏ´Â °ª(constant), ÇüÀ» Á¤ÀÇÇÏ´Â ÆÄÀÏ
+// í´ë¼ì´ì–¸íŠ¸ ì™€ ì„œë²„ì—ì„œ ê³µìš©ìœ¼ë¡œ ì‚¬ìš©í•˜ëŠ” ê°’(constant), í˜•ì„ ì •ì˜í•˜ëŠ” íŒŒì¼
 //////////////////////////////////////////////////////////////////////////////
 const int MAX_SHORTCUT_STRING = 128;
 const int MAX_GOLD_COIN = 32767;
 const int MAX_GOLD_REWARD = INT_MAX;
 const int MAX_INPUT_REWARD = 200000000;
 const int MIN_INPUT_REWARD = 1000;
-const int REQ_WANTED_GOLD = 1000;			// Çö»ó¹ü À§Ä¡Á¤º¸ º¸±â µ· 
+const int REQ_WANTED_GOLD = 1000;			// í˜„ìƒë²” ìœ„ì¹˜ì •ë³´ ë³´ê¸° ëˆ 
 
-const unsigned char	REMOVE_VOTE	= 0;		// ÅõÇ¥Á¦°Å 
-const unsigned char	CLOSE_VOTE	= 1;		// ÅõÇ¥Á¾·á 
-const unsigned char	CAST_VOTE	= 2;		// ÅõÇ¥ÇÏ±â 
-const int			TIMEWAIT_CLOSE = 10;	// ºñ ÆòÈ­Áö¿ª Á¾·á´ë±â ½Ã°£  
+const unsigned char	REMOVE_VOTE	= 0;		// íˆ¬í‘œì œê±° 
+const unsigned char	CLOSE_VOTE	= 1;		// íˆ¬í‘œì¢…ë£Œ 
+const unsigned char	CAST_VOTE	= 2;		// íˆ¬í‘œí•˜ê¸° 
+const int			TIMEWAIT_CLOSE = 10;	// ë¹„ í‰í™”ì§€ì—­ ì¢…ë£ŒëŒ€ê¸° ì‹œê°„  
 const	int		TIMEWAIT_RELEASE	= 3600;
 const	int		TIMEWAIT_INSTANT_BANKER		= 180000;
 
@@ -28,23 +28,23 @@ extern int g_MPU;
 
 enum ATK_TYPE 
 {
-	ATK_FORCE,					// ¹Ì¸®°è»êµÈ µ¥¹ÌÁö¸¦ °­Á¦·Î ÁÙ °æ¿ì 
-	ATK_MELEESKILL,				// ¹Ğ¸®½ºÅ³ 
-	ATK_MAGICSKILL,				// ¸ÅÁ÷ ½ºÅ³ 
-	ATK_MAGIC,					// ¿Ïµå °ø°İ 
-	ATK_GENERIC,				// ÀÏ¹İ °ø°İ 
+	ATK_FORCE,					// ë¯¸ë¦¬ê³„ì‚°ëœ ë°ë¯¸ì§€ë¥¼ ê°•ì œë¡œ ì¤„ ê²½ìš° 
+	ATK_MELEESKILL,				// ë°€ë¦¬ìŠ¤í‚¬ 
+	ATK_MAGICSKILL,				// ë§¤ì§ ìŠ¤í‚¬ 
+	ATK_MAGIC,					// ì™„ë“œ ê³µê²© 
+	ATK_GENERIC,				// ì¼ë°˜ ê³µê²© 
 };
 
 class CMover;
 
 struct ATTACK_INFO 
 {
-	CMover*		pAttacker;			// °ø°İÀÚ 
-	CMover*		pDefender;			// ¹æ¾îÀÚ 
-	DWORD		dwAtkFlags;			// °ø°İ ÇÃ·¡±×
-	int			nParam;				// °ø°İ Ãß°¡ ÇÃ·¡±× 
-	int			nParts;				// ¿À¸¥¼ÕÀÎ°¡ ¿Ş¼ÕÀÎ°¡ 
-	int			nDEFFactor;			// ¹æ¾î·Â ÆÑÅÍ 
+	CMover*		pAttacker;			// ê³µê²©ì 
+	CMover*		pDefender;			// ë°©ì–´ì 
+	DWORD		dwAtkFlags;			// ê³µê²© í”Œë˜ê·¸
+	int			nParam;				// ê³µê²© ì¶”ê°€ í”Œë˜ê·¸ 
+	int			nParts;				// ì˜¤ë¥¸ì†ì¸ê°€ ì™¼ì†ì¸ê°€ 
+	int			nDEFFactor;			// ë°©ì–´ë ¥ íŒ©í„° 
 
 	ATK_TYPE	GetAtkType() const;
 	BOOL		CanIgnoreDEF() const;

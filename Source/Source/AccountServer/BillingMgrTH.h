@@ -1,4 +1,4 @@
-#ifndef __BILLINGMGRTH_H__
+﻿#ifndef __BILLINGMGRTH_H__
 #define	__BILLINGMGRTH_H__
 
 #include "BillingMgr.h"

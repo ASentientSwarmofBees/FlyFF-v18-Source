@@ -1,4 +1,4 @@
-#ifndef __ITEMSCRIPT__H__
+﻿#ifndef __ITEMSCRIPT__H__
 #define __ITEMSCRIPT__H__
 
 enum ITEM_OP

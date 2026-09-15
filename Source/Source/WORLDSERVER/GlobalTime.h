@@ -1,4 +1,4 @@
-#ifndef __GLOBALTIME_H__
+﻿#ifndef __GLOBALTIME_H__
 #define __GLOBALTIME_H__
 
 class CStopwatch

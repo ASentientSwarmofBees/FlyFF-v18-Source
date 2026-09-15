@@ -1,4 +1,4 @@
-// WndArcane.h: interface for the CWndNeuz class.
+ï»¿// WndArcane.h: interface for the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -131,7 +131,7 @@ static int m_nSelectCharacter;
 	BOOL m_bDisconnect;
 
 private:
-	BOOL m_CreateApply; //¼­¹öÅëÇÕ °ü·Ã Æ¯Á¤ ±â°£ Ä³¸¯ÅÍ »ı¼º ±İÁö.
+	BOOL m_CreateApply; //ì„œë²„í†µí•© ê´€ë ¨ íŠ¹ì • ê¸°ê°„ ìºë¦­í„° ìƒì„± ê¸ˆì§€.
 
 public:
 	void DeleteCharacter();

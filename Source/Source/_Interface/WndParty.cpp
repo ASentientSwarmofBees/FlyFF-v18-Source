@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndParty.h"
@@ -13,10 +13,10 @@ extern CDPClient	g_DPlay;
 
 
 /****************************************************
-  WndId : APP_PARTY - ±Ø´Ü(Party)
+  WndId : APP_PARTY - ê·¹ë‹¨(Party)
   CtrlId : WIDC_TABCTRL1 - TabCtrl
-  CtrlId : WIDC_LEAVE - Å»Åğ
-  CtrlId : WIDC_CHANGE - ±Ø´ÜÀüÈ¯
+  CtrlId : WIDC_LEAVE - íƒˆí‡´
+  CtrlId : WIDC_CHANGE - ê·¹ë‹¨ì „í™˜
 ****************************************************/
 
 CWndParty::CWndParty() 
@@ -75,19 +75,19 @@ void CWndParty::OnDraw( C2DRender* p2DRender )
 #endif //__CSC_VER8_2
 	}
 
-#ifdef __PARTY_DEBUG_0129		// ±Ø´ÜÀå Æ¨±â´Â Çö»ó µğ¹ö±ë neuz
+#ifdef __PARTY_DEBUG_0129		// ê·¹ë‹¨ì¥ íŠ•ê¸°ëŠ” í˜„ìƒ ë””ë²„ê¹… neuz
 	if( g_Party.GetSizeofMember() < 2 && g_Party.m_nLevel > 1 )
 	{
 		m_pWndLeave->EnableWindow( TRUE );
 	}
-#endif	// __PARTY_DEBUG_0129		// ±Ø´ÜÀå Æ¨±â´Â Çö»ó µğ¹ö±ë neuz
+#endif	// __PARTY_DEBUG_0129		// ê·¹ë‹¨ì¥ íŠ•ê¸°ëŠ” í˜„ìƒ ë””ë²„ê¹… neuz
 
 	if( g_Party.GetLevel() >= 10 && g_Party.IsLeader( g_pPlayer->m_idPlayer ) )
 		m_pWndChange->EnableWindow( TRUE );
 	else
 		m_pWndChange->EnableWindow( FALSE );
 
-	// ÆÄÆ¼ Á¤º¸ Ãâ·Â
+	// íŒŒí‹° ì •ë³´ ì¶œë ¥
 	CWndStatic* pWndStatic;
 	CString strTemp;
 	if(g_Party.m_nKindTroup==0)
@@ -120,7 +120,7 @@ void CWndParty::OnDraw( C2DRender* p2DRender )
 	strTemp.Format("%d",g_Party.m_nPoint);
 	pWndStatic = (CWndStatic*)GetDlgItem( WIDC_POINT );
 	pWndStatic->SetTitle(strTemp);
-	// ¾ÆÀÌÅÛ °æÇèÄ¡ ºĞ¹è¹æ½Ä »óÅÂ °»½Å
+	// ì•„ì´í…œ ê²½í—˜ì¹˜ ë¶„ë°°ë°©ì‹ ìƒíƒœ ê°±ì‹ 
 	CWndButton* pWndButton;
 	switch( g_Party.m_nTroupsShareExp) 
 	{
@@ -210,7 +210,7 @@ void CWndParty::OnDraw( C2DRender* p2DRender )
 void CWndParty::OnInitialUpdate() 
 {
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	m_pWndLeave = (CWndButton*)GetDlgItem( WIDC_LEAVE );
 	m_pWndChange = (CWndButton*)GetDlgItem( WIDC_CHANGE );
@@ -237,7 +237,7 @@ void CWndParty::OnInitialUpdate()
 	rect.left = 5;
 	rect.top = 15;
 
-	//gmpbigsun( 100416 ) : Error Á¦°Å 
+	//gmpbigsun( 100416 ) : Error ì œê±° 
 	//Error( "CWndParty::OnInitialUpdate() - m_wndPartyInfo.Create - IN" );
 	m_wndPartyInfo.Create( WBS_CHILD | WBS_NOFRAME | WBS_NODRAWFRAME, rect, pWndTabCtrl, APP_PARTY_INFO );
 	//Error( "CWndParty::OnInitialUpdate() - m_wndPartyInfo.Create - OUT" );
@@ -249,27 +249,27 @@ void CWndParty::OnInitialUpdate()
 	WTCITEM tabTabItem;
 	
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_APP_INFOMATION);//"Á¤º¸";
+	tabTabItem.pszText = prj.GetText(TID_APP_INFOMATION);//"ì •ë³´";
 	tabTabItem.pWndBase = &m_wndPartyInfo;
 	pWndTabCtrl->InsertItem( 0, &tabTabItem );
 	
-	tabTabItem.pszText = prj.GetText(TID_APP_SKILL);//"½ºÅ³";
+	tabTabItem.pszText = prj.GetText(TID_APP_SKILL);//"ìŠ¤í‚¬";
 	tabTabItem.pWndBase = &m_wndPartySkill;
 	pWndTabCtrl->InsertItem( 1, &tabTabItem );
 
 	MoveParentCenter();
 
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndParty::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 	BOOL bFlag = CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PARTY, 0, CPoint( 0, 0 ), pWndParent );
 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return bFlag;
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndParty::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -295,8 +295,8 @@ void CWndParty::OnLButtonDown( UINT nFlags, CPoint point )
 BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
 { 
 	if( nID == WIDC_LEAVE ) 
-	{ // Å»Åğ ´­·È´Ù...
-		if( g_pPlayer->m_nDuel == 2 )		// ±Ø´Üµà¾óÁßÀÌ¸é Å»Åğ ¾ÈµÊ.
+	{ // íƒˆí‡´ ëˆŒë ¸ë‹¤...
+		if( g_pPlayer->m_nDuel == 2 )		// ê·¹ë‹¨ë“€ì–¼ì¤‘ì´ë©´ íƒˆí‡´ ì•ˆë¨.
 		{
 			DWORD dwText = TID_GAME_PPVP_LEAVE;
 			g_WndMng.PutString( prj.GetText( dwText ), NULL, prj.GetTextColor( dwText ) );
@@ -305,8 +305,8 @@ BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		{
 			if(m_wndPartyInfo.m_nSelected!=-1) 
 			{
-				u_long  nLeaveMember = g_Party.m_aMember[m_wndPartyInfo.m_nSelected].m_uPlayerId; //Å»Åğ½ÃÅ³³ğ ID
-				// ¿©±â´Ù°¡ Å»Åğ
+				u_long  nLeaveMember = g_Party.m_aMember[m_wndPartyInfo.m_nSelected].m_uPlayerId; //íƒˆí‡´ì‹œí‚¬ë†ˆ ID
+				// ì—¬ê¸°ë‹¤ê°€ íƒˆí‡´
 				if( g_Party.m_nSizeofMember != 0 )
 				{
 					CWndPartyLeaveConfirm* pWndPartyLeaveConfirm = (CWndPartyLeaveConfirm*)g_WndMng.GetWndBase( APP_PARTYLEAVE_CONFIRM );
@@ -322,7 +322,7 @@ BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 				else
 				{
-					// ±Ø´ÜÀÌ ±¸¼ºÀÌ ¾ÈµÇ¾îÀÖÀ½
+					// ê·¹ë‹¨ì´ êµ¬ì„±ì´ ì•ˆë˜ì–´ìˆìŒ
 				}
 			}
 			else
@@ -335,12 +335,12 @@ BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					if( g_Party.m_nSizeofMember != 0 )
 						g_WndMng.m_pWndPartyLeaveConfirm->SetLeaveId( g_pPlayer->m_idPlayer );
 				}
-				// ³» ÀÚ½ÅÀ» ±Ø´Ü¿¡¼­ Å»Åğ
+				// ë‚´ ìì‹ ì„ ê·¹ë‹¨ì—ì„œ íƒˆí‡´
 			}
 			m_wndPartyInfo.m_nSelected=-1;
 		}
 	}
-	// ±Ø´ÜÀå ÀÎ°è.
+	// ê·¹ë‹¨ì¥ ì¸ê³„.
 	else if( nID==WIDC_BUTTON1 )
 	{
 		if( g_Party.m_nSizeofMember != 0 )
@@ -352,24 +352,24 @@ BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					u_long  nLeadMember = g_Party.m_aMember[m_wndPartyInfo.m_nSelected].m_uPlayerId;
 					if( g_Party.IsLeader( nLeadMember ) == FALSE )
 					{
-						if( g_pPlayer->m_nDuel == 2 )	// ±Ø´Ü µà¾óÁßÀÏ¶§´Â ±Ø´ÜÀåÀ» ¹Ù²Ü¼ö ¾øÀ½
+						if( g_pPlayer->m_nDuel == 2 )	// ê·¹ë‹¨ ë“€ì–¼ì¤‘ì¼ë•ŒëŠ” ê·¹ë‹¨ì¥ì„ ë°”ê¿€ìˆ˜ ì—†ìŒ
 							g_WndMng.PutString( prj.GetText( TID_PK_NOCHANGE_PARTYLEADER ), NULL, prj.GetTextColor( TID_PK_NOCHANGE_PARTYLEADER ) );
 						else
 							g_DPlay.SendPartyChangeLeader( g_pPlayer->m_idPlayer, nLeadMember );						
 					}
 					else
 					{
-						g_WndMng.PutString( prj.GetText( TID_GAME_PARTY_ALREADYMASTER ), NULL, prj.GetTextColor( TID_GAME_PARTY_ALREADYMASTER ) ); // "ÀÌ¹Ì ´ÜÀåÀ» ÇÏ°í ÀÔ´Ï´Ù"
+						g_WndMng.PutString( prj.GetText( TID_GAME_PARTY_ALREADYMASTER ), NULL, prj.GetTextColor( TID_GAME_PARTY_ALREADYMASTER ) ); // "ì´ë¯¸ ë‹¨ì¥ì„ í•˜ê³  ì…ë‹ˆë‹¤"
 					}
 				}
 				else
 				{
-					g_WndMng.PutString( prj.GetText( TID_GAME_MASTER_AWAY ), NULL, prj.GetTextColor( TID_GAME_MASTER_AWAY ) ); // "´ÜÀåÀÌ ¾Æ´Ï°Å³ª ±Ø´ÜÃ¢¿¡¼­ ´Ü¿øÀ» ¼±ÅÃÀ» ÇØ¾ß ÇÕ´Ï´Ù"					
+					g_WndMng.PutString( prj.GetText( TID_GAME_MASTER_AWAY ), NULL, prj.GetTextColor( TID_GAME_MASTER_AWAY ) ); // "ë‹¨ì¥ì´ ì•„ë‹ˆê±°ë‚˜ ê·¹ë‹¨ì°½ì—ì„œ ë‹¨ì›ì„ ì„ íƒì„ í•´ì•¼ í•©ë‹ˆë‹¤"					
 				}
 			}
 			else
 			{
-				g_WndMng.PutString( prj.GetText( TID_GAME_PARTY_ISNOTMASTER ), NULL, prj.GetTextColor( TID_GAME_PARTY_ISNOTMASTER ) ); // "´ÜÀåÀÌ ¾Æ´Ï°Å³ª ±Ø´ÜÃ¢¿¡¼­ ´Ü¿øÀ» ¼±ÅÃÀ» ÇØ¾ß ÇÕ´Ï´Ù"
+				g_WndMng.PutString( prj.GetText( TID_GAME_PARTY_ISNOTMASTER ), NULL, prj.GetTextColor( TID_GAME_PARTY_ISNOTMASTER ) ); // "ë‹¨ì¥ì´ ì•„ë‹ˆê±°ë‚˜ ê·¹ë‹¨ì°½ì—ì„œ ë‹¨ì›ì„ ì„ íƒì„ í•´ì•¼ í•©ë‹ˆë‹¤"
 			}
 		}
 	}
@@ -377,7 +377,7 @@ BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	{
 		if( g_Party.m_nKindTroup == 0 /* && g_Party.m_nLevel == 10 */ )
 		{
-			// ¼øÈ¸±Ø´ÜÀ¸·Î ¹Ù²Ù±â~
+			// ìˆœíšŒê·¹ë‹¨ìœ¼ë¡œ ë°”ê¾¸ê¸°~
 			SAFE_DELETE( m_WndPartyChangeTroup );
 			m_WndPartyChangeTroup = new CWndPartyChangeTroup;
 #ifdef __FIX_WND_1109
@@ -406,13 +406,13 @@ BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		}
 	}
 #endif //__CSC_VER8_2
-	// ¼øÈ¸±Ø´ÜÀÏ¶§¸¸ ¾ÆÀÌÅÛ °æÇèÄ¡ ºĞ¹è¹æ½Ä °»½Å
+	// ìˆœíšŒê·¹ë‹¨ì¼ë•Œë§Œ ì•„ì´í…œ ê²½í—˜ì¹˜ ë¶„ë°°ë°©ì‹ ê°±ì‹ 
 	else
 	if( g_Party.IsLeader(g_pPlayer->m_idPlayer) )
 	{
 		if( g_Party.m_nKindTroup != 0 )
 		{
-			// °æÇèÄ¡ ºĞ¹è ¹æ½ÄÀº ¼øÈ¸±Ø´Ü ÀÓ
+			// ê²½í—˜ì¹˜ ë¶„ë°° ë°©ì‹ì€ ìˆœíšŒê·¹ë‹¨ ì„
 			int nTroupsShareExp = g_Party.m_nTroupsShareExp;
 			
 			if(nID==WIDC_EXP_SHARE) nTroupsShareExp   = 0;
@@ -432,7 +432,7 @@ BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 			}
 		}
-		// ¾ÆÀÌÅÛ ºĞ¹è ¹æ½ÄÀº ´Ü¸·±Ø´Ü ÀÓ
+		// ì•„ì´í…œ ë¶„ë°° ë°©ì‹ì€ ë‹¨ë§‰ê·¹ë‹¨ ì„
 		int nTroupeShareItem = g_Party.m_nTroupeShareItem;
 
 		if(nID==WIDC_ITEM_SHARE) nTroupeShareItem  = 0;
@@ -457,22 +457,22 @@ BOOL CWndParty::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 }
 
 /****************************************************
-  WndId : APP_PARTY_INFO - °³ÀÎºĞ¹è
-  CtrlId : WIDC_GROUPBOX1 - ±Ø´ÜÁ¤º¸
-  CtrlId : WIDC_GROUPBOX3 - °æÇèÄ¡ºĞ¹è
-  CtrlId : WIDC_GROUPBOX4 - ¾ÆÀÌÅÛºĞ¹è
-  CtrlId : WIDC_ITEM_SHARE - °³ÀÎºĞ¹è
-  CtrlId : WIDC_RADIO2 - ¼ø¼­ºĞ¹è
-  CtrlId : WIDC_RADIO3 - ¼öµ¿ºĞ¹è
-  CtrlId : WIDC_RADIO4 - ·£´øºĞ¹è
-  CtrlId : WIDC_EXP_SHARE - µ¿ÀÏºĞ¹è
-  CtrlId : WIDC_RADIO6 - ±â¿©µµºĞ¹è
-  CtrlId : WIDC_RADIO7 - ÇÇÇØºĞ¹è
-  CtrlId : WIDC_STATIC1 - ±Ø´Ü¸íÄª :
-  CtrlId : WIDC_STATIC2 - ±Ø´Ü·¹º§ :
-  CtrlId : WIDC_STATIC3 - ±Ø´Ü°æÇèÄ¡ :
-  CtrlId : WIDC_STATIC4 - ±Ø´ÜÆ÷ÀÎÆ® :
-  CtrlId : WIDC_NAME - ¸¶½ºÄ¿·¹ÀÌµå
+  WndId : APP_PARTY_INFO - ê°œì¸ë¶„ë°°
+  CtrlId : WIDC_GROUPBOX1 - ê·¹ë‹¨ì •ë³´
+  CtrlId : WIDC_GROUPBOX3 - ê²½í—˜ì¹˜ë¶„ë°°
+  CtrlId : WIDC_GROUPBOX4 - ì•„ì´í…œë¶„ë°°
+  CtrlId : WIDC_ITEM_SHARE - ê°œì¸ë¶„ë°°
+  CtrlId : WIDC_RADIO2 - ìˆœì„œë¶„ë°°
+  CtrlId : WIDC_RADIO3 - ìˆ˜ë™ë¶„ë°°
+  CtrlId : WIDC_RADIO4 - ëœë˜ë¶„ë°°
+  CtrlId : WIDC_EXP_SHARE - ë™ì¼ë¶„ë°°
+  CtrlId : WIDC_RADIO6 - ê¸°ì—¬ë„ë¶„ë°°
+  CtrlId : WIDC_RADIO7 - í”¼í•´ë¶„ë°°
+  CtrlId : WIDC_STATIC1 - ê·¹ë‹¨ëª…ì¹­ :
+  CtrlId : WIDC_STATIC2 - ê·¹ë‹¨ë ˆë²¨ :
+  CtrlId : WIDC_STATIC3 - ê·¹ë‹¨ê²½í—˜ì¹˜ :
+  CtrlId : WIDC_STATIC4 - ê·¹ë‹¨í¬ì¸íŠ¸ :
+  CtrlId : WIDC_NAME - ë§ˆìŠ¤ì»¤ë ˆì´ë“œ
   CtrlId : WIDC_LEVEL - 1
   CtrlId : WIDC_EXP - 90
   CtrlId : WIDC_POINT - 0
@@ -491,13 +491,13 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 {
 	CString strTemp;
 	
-	// ÇöÀç ¼±ÅÃµÈ ³ğ Ç¥½Ã
+	// í˜„ì¬ ì„ íƒëœ ë†ˆ í‘œì‹œ
 	if( m_nSelected != -1 ) 
 	{
 		CRect rect( 5, 8 + m_nSelected * 15, 410, 22 + m_nSelected * 15 );
 		p2DRender->RenderFillRect( rect, 0x60ffff00 );
 	}
-	// ÆÄÆ¼¿ø Á¤º¸ Ãâ·Â
+	// íŒŒí‹°ì› ì •ë³´ ì¶œë ¥
 	if( g_Party.GetSizeofMember() < m_nSelected + 1 ) 
 	{
 		m_nSelected = -1;
@@ -520,28 +520,28 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 		CRect rectTemp,rect;
 		CString strClass(prj.GetText(TID_GAME_MEMBER));
 		CString strName;
-		if( i == 0 ) strClass = prj.GetText(TID_GAME_LEADER); // ¸Ç À§¿¡³ğÀÌ ´ÜÀå
+		if( i == 0 ) strClass = prj.GetText(TID_GAME_LEADER); // ë§¨ ìœ„ì—ë†ˆì´ ë‹¨ì¥
 		rectTemp = CRect( 10, y, 20, y + 10 );
 		p2DRender->RenderFillRect( rectTemp, dwColor );
 		rectTemp = CRect( 11, y + 1, 19, y + 9 );
 
-		// »óÅÂ¿¡ µû¶ó »ö º¯°æ
-		DWORD colorStatus = 0xff0000ff; // µğÆúÆ®´Â ÀÌ»ó¾øÀ½
+		// ìƒíƒœì— ë”°ë¼ ìƒ‰ ë³€ê²½
+		DWORD colorStatus = 0xff0000ff; // ë””í´íŠ¸ëŠ” ì´ìƒì—†ìŒ
 		if( IsValidObj(pObjMember) )
 		{
 			if( pObjMember->GetHitPoint() == 0 ) 
-				colorStatus = 0xffff0000; // Á×Àº³ğ
+				colorStatus = 0xffff0000; // ì£½ì€ë†ˆ
 			else 
 			{
 				if( pObjMember->GetMaxHitPoint() > 0 && ( (FLOAT)pObjMember->GetHitPoint() ) / ( (FLOAT)pObjMember->GetMaxHitPoint() ) <.1f ) 
-					colorStatus = 0xffffff00; // HP 10% ÀÌÇÏÀÎ³ğ
+					colorStatus = 0xffffff00; // HP 10% ì´í•˜ì¸ë†ˆ
 			}
 		}
 		else
 		{
-			colorStatus = 0xff878787; // µğÆúÆ®´Â ÁÖÀ§¿¡ ¾ø´Â³ğ
+			colorStatus = 0xff878787; // ë””í´íŠ¸ëŠ” ì£¼ìœ„ì— ì—†ëŠ”ë†ˆ
 			if( g_Party.m_aMember[ i ].m_bRemove ) 
-				colorStatus = 0xff000000; // ¼­¹ö¿¡ ¾ø´Â³ğ
+				colorStatus = 0xff000000; // ì„œë²„ì— ì—†ëŠ”ë†ˆ
 		}
 		p2DRender->RenderFillRect( rectTemp, colorStatus );
 
@@ -560,18 +560,18 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 				break;
 		}
 
-		// ·¹º§ °è±Ş Á÷¾÷
+		// ë ˆë²¨ ê³„ê¸‰ ì§ì—…
 		if( IsValidObj(pObjMember) )
 		{
 #if __VER >= 10 // __LEGEND
 			if( MAX_PROFESSIONAL <= pObjMember->GetJob() && pObjMember->GetJob() < MAX_MASTER )
 				strTemp.Format( "%d%s", pObjMember->GetLevel(), prj.GetText( TID_GAME_TOOLTIP_MARK_MASTER ) );
 			else if( MAX_MASTER <= pObjMember->GetJob() )
-#if __VER >= 15 // __HERO129_VER15 // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 15 // __HERO129_VER15 // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 				strTemp.Format( "%d%s", pObjMember->GetLevel(), prj.GetText( TID_GAME_TOOLTIP_MARK_HERO ) );
-#else // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#else // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 				strTemp = prj.GetText( TID_GAME_TOOLTIP_MARK_HERO_BEFORE );
-#endif // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#endif // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 			else 
 				strTemp.Format( "%d", pObjMember->GetLevel() );
 			p2DRender->TextOut( 30, y, 1.0f, 1.0f, strTemp, dwColor );
@@ -620,11 +620,11 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 			if( MAX_PROFESSIONAL <= nJob && nJob < MAX_MASTER )
 				strTemp.Format( "%d%s", nLevel, prj.GetText( TID_GAME_TOOLTIP_MARK_MASTER ) );
 			else if( MAX_MASTER <= nJob )
-#if __VER >= 15 // __HERO129_VER15 // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#if __VER >= 15 // __HERO129_VER15 // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 				strTemp.Format( "%d%s", nLevel, prj.GetText( TID_GAME_TOOLTIP_MARK_HERO ) );
-#else // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#else // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 				strTemp = prj.GetText( TID_GAME_TOOLTIP_MARK_HERO_BEFORE );
-#endif // 15Â÷ È÷¾î·Î ·¹º§È®Àå
+#endif // 15ì°¨ íˆì–´ë¡œ ë ˆë²¨í™•ì¥
 			else 
 				strTemp.Format( "%d", nLevel );
 			p2DRender->TextOut(30,y,1.0f,1.0f,strTemp,dwColor);
@@ -663,7 +663,7 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 			strName		= g_Party.m_aMember[i].m_szName;
 #endif //__LEGEND
 		}
-		// ÀÌ¸§Àº 10¹ÙÀÌÆ®Â°¿¡¼­ Â¥¸¥´Ù
+		// ì´ë¦„ì€ 10ë°”ì´íŠ¸ì§¸ì—ì„œ ì§œë¥¸ë‹¤
 		if( strName.GetLength() > 8 ) 
 		{
 			int	nReduceCount = 0;
@@ -676,8 +676,8 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 					nReduceCount++;
 			}
 
-			strName = strName.Left( nReduceCount ); // 10¹ÙÀÌÆ®Â°¿¡¼­ ÇÑ±ÛÀÌ µÎµ¿°­³¯°Å°°À¸¸é 9¹ÙÀÌÆ®¿¡¼­ Â¥¸£±â
-			strName+="..."; // ÀÌ¸§ Â©¸°³ğÀº ÀÌ°Ô ³¡ÀÌ ¾Æ´Ï¶ó°í Ç¥½ÃÇÏÀÚ... ±âÈ¹¿¡´Â ¾øÁö¸¸ ³»¸Ú´ë·Î ºÙ¿´À½
+			strName = strName.Left( nReduceCount ); // 10ë°”ì´íŠ¸ì§¸ì—ì„œ í•œê¸€ì´ ë‘ë™ê°•ë‚ ê±°ê°™ìœ¼ë©´ 9ë°”ì´íŠ¸ì—ì„œ ì§œë¥´ê¸°
+			strName+="..."; // ì´ë¦„ ì§¤ë¦°ë†ˆì€ ì´ê²Œ ëì´ ì•„ë‹ˆë¼ê³  í‘œì‹œí•˜ì... ê¸°íšì—ëŠ” ì—†ì§€ë§Œ ë‚´ë©‹ëŒ€ë¡œ ë¶™ì˜€ìŒ
 		}
 		strTemp.Format("%s",strName);
 #if __VER >= 10		// __LEGEND
@@ -686,12 +686,12 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 		p2DRender->TextOut( 135, y, 1.0f, 1.0f, strTemp, dwColor );	// 50
 #endif //__LEGEND
 		
-		// HP °ÔÀÌÁö
+		// HP ê²Œì´ì§€
 		int nWidth	= ( IsValidObj( pObjMember ) ? 110 * pObjMember->GetHitPoint() / pObjMember->GetMaxHitPoint() : 0 );
 		if( !bSummary )
 			rect.SetRect( 280, y, 280 + 110, y + 12 );
 		else
-			rect.SetRect( 310, y, 310 + 110, y + 12 );	// ¿À¸¥ÂÊÀ¸·Î 30 ÀÌµ¿
+			rect.SetRect( 310, y, 310 + 110, y + 12 );	// ì˜¤ë¥¸ìª½ìœ¼ë¡œ 30 ì´ë™
 
 		rectTemp = rect; 
 		rectTemp.right = rectTemp.left + nWidth;
@@ -703,7 +703,7 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 		if( IsValidObj(pObjMember) )
 			m_pTheme->RenderGauge( p2DRender, &rectTemp, 0x64ff0000, m_pVBGauge, &m_texGauFillNormal );
 	
-		y+=15; // ´ÙÀ½ÁÙ
+		y+=15; // ë‹¤ìŒì¤„
 	}
 } 
 HRESULT CWndPartyInfo::RestoreDeviceObjects()
@@ -729,7 +729,7 @@ HRESULT CWndPartyInfo::DeleteDeviceObjects()
 void CWndPartyInfo::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	RestoreDeviceObjects();
 	m_texGauEmptyNormal.LoadTexture( m_pApp->m_pd3dDevice, MakePath( DIR_THEME, "GauEmptyNormal.bmp" ), 0xffff00ff, TRUE );
@@ -741,14 +741,14 @@ void CWndPartyInfo::OnInitialUpdate()
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndPartyInfo::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PARTY_INFO, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndPartyInfo::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -776,23 +776,23 @@ void CWndPartyInfo::OnLButtonDown( UINT nFlags, CPoint point )
 		return;
 #endif //__CSC_VER11_2
 	
-	// ÆÄÆ¼Ã¢¿¡¼­ ¾î¶²³ğ ´­·¶´ÂÁö »öÃâ
+	// íŒŒí‹°ì°½ì—ì„œ ì–´ë–¤ë†ˆ ëˆŒë €ëŠ”ì§€ ìƒ‰ì¶œ
 	CRect rect( 10, 10, 365, 10 + g_Party.GetSizeofMember() * 15 );
 	if( rect.PtInRect( point ) ) 
 		m_nSelected = ( point.y - 10 ) / 15;
 	else 
 		m_nSelected = -1;
 	if( m_nSelected != -1 ) 
-	{ // ¼±ÅÃµÈ³ğ ÀÖÀ¸¸é
-		// ±×³ğÀ» Å¸°ÙÀ¸·Î
+	{ // ì„ íƒëœë†ˆ ìˆìœ¼ë©´
+		// ê·¸ë†ˆì„ íƒ€ê²Ÿìœ¼ë¡œ
 #if __VER >= 8 //__CSC_VER8_2
-		((CWndWorld*)g_WndMng.m_pWndWorld)->m_pSelectRenderObj = NULL; //¸¶¿ì½º¿¡ °É·Á ±×·ÁÁø³ğÀ» Áö¿ì°í Å¸°ÙÀ» Àâ¾Æ¾ß ¾È°ãÄ£´Ù..
+		((CWndWorld*)g_WndMng.m_pWndWorld)->m_pSelectRenderObj = NULL; //ë§ˆìš°ìŠ¤ì— ê±¸ë ¤ ê·¸ë ¤ì§„ë†ˆì„ ì§€ìš°ê³  íƒ€ê²Ÿì„ ì¡ì•„ì•¼ ì•ˆê²¹ì¹œë‹¤..
 #endif //__CSC_VER8_2
 		CMover* pObjMember = prj.GetUserByID( g_Party.m_aMember[m_nSelected].m_uPlayerId );
 		if(g_pPlayer!=pObjMember) 
 		{
 			if(IsValidObj(pObjMember)) 
-			{ // È­¸é¿¡ ¾ø´Â³ğÀº ÆĞ½º...
+			{ // í™”ë©´ì— ì—†ëŠ”ë†ˆì€ íŒ¨ìŠ¤...
 				g_WorldMng()->SetObjFocus(pObjMember);
 				CWndWorld* pWndWorld = g_WndMng.m_pWndWorld;
 				if(pWndWorld)
@@ -806,7 +806,7 @@ void CWndPartyInfo::OnLButtonDown( UINT nFlags, CPoint point )
 	}
 	else 
 	{
-		// ¾øÀ¸¸é Å¸°Ù Áö¿î´Ù
+		// ì—†ìœ¼ë©´ íƒ€ê²Ÿ ì§€ìš´ë‹¤
 		g_WorldMng()->SetObjFocus(NULL);
 	}
 } 
@@ -816,7 +816,7 @@ BOOL CWndPartyInfo::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 } 
 
 /****************************************************
-  WndId : APP_PARTY_SKILL - ±Ø´Ü½ºÅ³
+  WndId : APP_PARTY_SKILL - ê·¹ë‹¨ìŠ¤í‚¬
 ****************************************************/
 
 CWndPartySkill::CWndPartySkill() 
@@ -850,7 +850,7 @@ void CWndPartySkill::OnDraw( C2DRender* p2DRender )
 					{
 						if( (g_Party.GetPoint() - pItemProp->dwExp) >= 0 )
 						{
-							// »ç¿ë°¡´ÉÇÑ ±â¼ú
+							// ì‚¬ìš©ê°€ëŠ¥í•œ ê¸°ìˆ 
 							p2DRender->TextOut( point1.x, point1.y, pItemProp->szName, 0xff000000 );
 							//m_aSlotQueue[nIndex].m_pTexture = m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_ICON, lpSkill->GetProp()->szIcon/*pItemBase->GetProp()->szIcon*/), 0xffff00ff, FALSE );
 							p2DRender->RenderTexture( point2, m_atexSkill[ i * 3 + j ] );
@@ -858,7 +858,7 @@ void CWndPartySkill::OnDraw( C2DRender* p2DRender )
 						}
 						else
 						{
-							// ±â¼úÀº ÀÍÇûÀ¸³ª Æ÷ÀÎÆ®°¡ ¸ğÀÚ¶ó »ç¿ëÀ» ¸øÇÔ
+							// ê¸°ìˆ ì€ ìµí˜”ìœ¼ë‚˜ í¬ì¸íŠ¸ê°€ ëª¨ìë¼ ì‚¬ìš©ì„ ëª»í•¨
 							p2DRender->TextOut( point1.x, point1.y, pItemProp->szName, 0xff0000ff );
 							p2DRender->RenderTexture( point2, m_atexSkill[ i * 3 + j ] );
 							
@@ -866,7 +866,7 @@ void CWndPartySkill::OnDraw( C2DRender* p2DRender )
 					}
 					else
 					{
-						// ±â¼úÀ» ¸øÀÍÇûÀ½
+						// ê¸°ìˆ ì„ ëª»ìµí˜”ìŒ
 						p2DRender->TextOut( point1.x, point1.y, pItemProp->szName, 0xffff0000 );
 						p2DRender->RenderTexture( point2, m_atexSkill[ i * 3 + j ], 54 );		
 					}
@@ -943,7 +943,7 @@ void CWndPartySkill::OnMouseMove(UINT nFlags, CPoint point)
 			m_GlobalShortcut.m_dwType  = 2;//m_nJob;//(DWORD)pItemElem;//->m_dwItemId;
 			m_GlobalShortcut.m_dwIndex = m_nSkillSelect + 1;//m_nSkillSelect;//m_nCurSelect;//(DWORD)pItemElem;//->m_dwItemId;
 			m_GlobalShortcut.m_dwData  = 0;//pItemElem->m_dwObjId;//(DWORD)pItemElem;
-			m_GlobalShortcut.m_dwId     = m_nSkillSelect + 1; // ÄÃ·±Æ® ¼¿·ºÆ®°¡ °ğ ID³ª ¸¶Âù°¡ÁöÀÓ.
+			m_GlobalShortcut.m_dwId     = m_nSkillSelect + 1; // ì»¬ëŸ°íŠ¸ ì…€ë ‰íŠ¸ê°€ ê³§ IDë‚˜ ë§ˆì°¬ê°€ì§€ì„.
 			m_GlobalShortcut.m_pTexture = m_atexSkill[ m_nSkillSelect ];//L;//pItemElem->m_pTexture;
 			_tcscpy( m_GlobalShortcut.m_szString, pItemProp->szName);
 			//}
@@ -954,7 +954,7 @@ void CWndPartySkill::OnMouseMove(UINT nFlags, CPoint point)
 void CWndPartySkill::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
@@ -962,14 +962,14 @@ void CWndPartySkill::OnInitialUpdate()
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndPartySkill::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_PARTY_SKILL, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndPartySkill::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 

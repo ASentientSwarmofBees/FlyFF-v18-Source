@@ -1,4 +1,4 @@
-#ifndef __WNDCHANGENAME__H
+﻿#ifndef __WNDCHANGENAME__H
 #define __WNDCHANGENAME__H
 
 

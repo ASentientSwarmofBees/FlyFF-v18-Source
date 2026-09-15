@@ -1,4 +1,4 @@
-// MainFrm.cpp : implementation of the CMainFrame class
+ï»¿// MainFrm.cpp : implementation of the CMainFrame class
 //
 
 #include "stdafx.h" 
@@ -112,7 +112,7 @@ void CToolTip::InitTexture()
 // Parameters :
 // Return     :
 // Remarks    :
-//   ÇöÀç ¿­·ÁÁø ÅøÆÁÀ» ÄË½½ÇÑ´Ù.(»ç¶óÁö°Ô ÇÑ´Ù.)
+//   í˜„ìž¬ ì—´ë ¤ì§„ íˆ´íŒì„ ì¼„ìŠ¬í•œë‹¤.(ì‚¬ë¼ì§€ê²Œ í•œë‹¤.)
 //
 void CToolTip::CancelToolTip()
 {
@@ -128,7 +128,7 @@ void CToolTip::CancelToolTip()
 // Parameters :
 // Return     :
 // Remarks    :
-//   ÅøÆÁÀ» ÀÔ·ÂÇÑ´Ù. 0.5ÃÊ°¡ Áö³ª¸é ¾Ë¾Æ¼­ Ãâ·ÂÇÑ´Ù.
+//   íˆ´íŒì„ ìž…ë ¥í•œë‹¤. 0.5ì´ˆê°€ ì§€ë‚˜ë©´ ì•Œì•„ì„œ ì¶œë ¥í•œë‹¤.
 //
 
 void CToolTip::PutToolTip( DWORD dwToolTipId, CString& string, CRect rect, CPoint pt, int nToolTipPos )
@@ -301,14 +301,14 @@ void CToolTip::PutToolTipEx( DWORD dwToolTipId, CEditString& string, CRect rect,
 // Parameters :
 // Return     :
 // Remarks    :
-//   ÅøÆÁÃ³¸®¸¦ ÇÑ´Ù. ½Ã°£ÀÌ Áö³ª¸é ÀÔ·ÂµÈ °ÍÀ» Ãâ·ÂÇÑ´Ù.
+//   íˆ´íŒì²˜ë¦¬ë¥¼ í•œë‹¤. ì‹œê°„ì´ ì§€ë‚˜ë©´ ìž…ë ¥ëœ ê²ƒì„ ì¶œë ¥í•œë‹¤.
 //
 void CToolTip::Process(CPoint pt,C2DRender* p2DRender)
 {
 	CD3DFont* pFont = p2DRender->m_pFont;
 	if(m_bEnable == FALSE)
 		return;
-	// PutÀ» È£ÃâÇÏÁö ¸øÇß´Ù. ±×°Ç Åø¸³ Ãâ·ÂÇÒÀÏÀÌ ¾ø´Ù´Â ¶æ.
+	// Putì„ í˜¸ì¶œí•˜ì§€ ëª»í–ˆë‹¤. ê·¸ê±´ íˆ´ë¦½ ì¶œë ¥í• ì¼ì´ ì—†ë‹¤ëŠ” ëœ».
 	if(m_bPutToolTip == FALSE)
 	{
 		m_dwToolTipId = -1;
@@ -453,14 +453,14 @@ void CToolTip::Paint(C2DRender* p2DRender)
 				break;
 			}
 		}
-		static const int TOOL_TIP_WIDTH_FOR_SLOTS = 194; // ¾ÆÀÌÅÛ º¸¼® ½½·Ô 5°³°¡ ·»´õ¸µµÇ±â À§ÇÑ ÅøÆÁ ±æÀÌ
+		static const int TOOL_TIP_WIDTH_FOR_SLOTS = 194; // ì•„ì´í…œ ë³´ì„ ìŠ¬ë¡¯ 5ê°œê°€ ë Œë”ë§ë˜ê¸° ìœ„í•œ íˆ´íŒ ê¸¸ì´
 		if( m_nSlot > 0 && m_rectRender.right < TOOL_TIP_WIDTH_FOR_SLOTS )
 			m_rectRender.right = TOOL_TIP_WIDTH_FOR_SLOTS;
 		CRect rect( pt.x, pt.y, pt.x + m_rectRender.Width(), pt.y + m_rectRender.Height() );
 #else // __IMPROVE_SYSTEM_VER15
 		CRect rect( pt.x, pt.y, pt.x + m_rectRender.Width(), pt.y + m_rectRender.Height() );
 #endif // __IMPROVE_SYSTEM_VER15
-		// »ç°¢ÇüÀÌ ¸¸µé¾îÁ³Áö¸¸, È­¸érect.Width() °¡ÀåÀÚ¸®¸¦ ¹þ¾î³¯ ¼ö ÀÖ´Ù. ¹þ¾î³ª¸é ¹þ¾î³¯ ¼ö ¾øµµ·Ï ¼öÁ¤ 
+		// ì‚¬ê°í˜•ì´ ë§Œë“¤ì–´ì¡Œì§€ë§Œ, í™”ë©´rect.Width() ê°€ìž¥ìžë¦¬ë¥¼ ë²—ì–´ë‚  ìˆ˜ ìžˆë‹¤. ë²—ì–´ë‚˜ë©´ ë²—ì–´ë‚  ìˆ˜ ì—†ë„ë¡ ìˆ˜ì • 
 #if __VER >= 15 // __IMPROVE_SYSTEM_VER15
 		switch( m_nSubToolTipFlag )
 		{
@@ -508,7 +508,7 @@ void CToolTip::Paint(C2DRender* p2DRender)
 #else // __IMPROVE_SYSTEM_VER15
 		if( rect.right > p2DRender->m_clipRect.right )
 		{
-//			pt.x -= m_rectRender.Width() - m_rect.Width();			// ¹ö±×ÀÎ°Å °°¾Ö¼­ ¾Æ·¡Ã³·³ ¼öÁ¤ÇÔ 2006/6/30 -xuzhu-
+//			pt.x -= m_rectRender.Width() - m_rect.Width();			// ë²„ê·¸ì¸ê±° ê°™ì• ì„œ ì•„ëž˜ì²˜ëŸ¼ ìˆ˜ì •í•¨ 2006/6/30 -xuzhu-
 			pt.x = p2DRender->m_clipRect.Width() - rect.Width() - 8;
 		}
 		if( rect.top < p2DRender->m_clipRect.top )
@@ -582,7 +582,7 @@ void CToolTip::Paint(C2DRender* p2DRender)
 		{
 			for( int j = 0 ; j < nColumnDraw ; ++j )
 			{
-				// Å×µÎ¸® Ã³¸®
+				// í…Œë‘ë¦¬ ì²˜ë¦¬
 				if( i == 0 || j == 0 )
 				{
 					if( j == 0 && i != 0 )
@@ -615,10 +615,10 @@ void CToolTip::Paint(C2DRender* p2DRender)
 					continue;
 				}
 					
-				// °¡¿îµ¥ Ã³¸®
+				// ê°€ìš´ë° ì²˜ë¦¬
 				if( i == nlowDraw - 1 || j == nColumnDraw - 1 )
 				{
-					// ³¡¿¡ ¸ÂÁö ¾ÊÀº ±¸Á¶ Ã³¸® 
+					// ëì— ë§žì§€ ì•Šì€ êµ¬ì¡° ì²˜ë¦¬ 
 					if( i == nlowDraw - 1 && j == nColumnDraw - 1 )
 					{
 						m_apTextureToolTip[ nSetting + 4 ].Render( p2DRender, CPoint( PlusRect.left + ( j * 16 ), PlusRect.top + ( i * 16 ) ),
@@ -833,47 +833,47 @@ void CToolTip::Paint(C2DRender* p2DRender)
 					CString DstText;
 					DWORD dwColorbuf;
 					
-					if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND01 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ01) //HP »ó½Â
+					if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND01 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ01) //HP ìƒìŠ¹
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt1;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_DST_HP_MAX) );
 					}
-					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND02 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ02) //°ø°Ý·Â »ó½Â
+					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND02 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ02) //ê³µê²©ë ¥ ìƒìŠ¹
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt2;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_DST_ATKPOWER) );
 					}
-					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND03 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ03) //¹æ¾î·Â »ó½Â
+					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND03 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ03) //ë°©ì–´ë ¥ ìƒìŠ¹
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt3;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_DST_ADJDEF) );
 					}
-					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND04 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ04) //ÈíÇ÷
+					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND04 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ04) //í¡í˜ˆ
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt4;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_DST_MELEE_STEALHP) );
 					}
-					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND05 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ05) //PvP½Ã ´ë¹ÌÁö Áõ°¡
+					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND05 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ05) //PvPì‹œ ëŒ€ë¯¸ì§€ ì¦ê°€
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt5;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_DST_PVP_DMG) );
 					}
-					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND06 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ06) //ÈûÁõ°¡
+					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND06 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ06) //íž˜ì¦ê°€
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt6;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_STR) );
 					}
-					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND07 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ07) //Ã¼·ÂÁõ°¡
+					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND07 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ07) //ì²´ë ¥ì¦ê°€
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt7;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_STA) );
 					}
-					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND08 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ08) //¹ÎÃ¸Áõ°¡
+					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND08 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ08) //ë¯¼ì²©ì¦ê°€
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt8;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_DEX) );
 					}
-					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND09 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ09) //Áö´ÉÁõ°¡
+					else if(m_nAddedJewel[i] >= II_GEN_MAT_DIAMOND09 && m_nAddedJewel[i] <= II_GEN_MAT_TOPAZ09) //ì§€ëŠ¥ì¦ê°€
 					{
 						dwColorbuf = g_WndMng.dwItemColor[g_Option.m_nToolTipText].dwAddedOpt9;
 						DstText.Format( "%s", prj.GetText(TID_TOOLTIP_INT) );

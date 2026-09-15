@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "heapmng.h"
 
 #ifdef __VM_0819

@@ -1,4 +1,4 @@
-#ifndef __BUFFER_H__
+ï»¿#ifndef __BUFFER_H__
 #define	__BUFFER_H__
 
 #pragma once
@@ -25,8 +25,8 @@
 
 enum BUFFER_TYPE 
 {
-	BUFFER_TYPE_5BYTE,		// ±âÁ¸ 1 + 4¹ÙÀÌÆ® Çì´õ ¹æ½Ä 
-	BUFFER_TYPE_2BYTE,		// 2¹ÙÀÌÆ® Çì´õ ¹æ½Ä 
+	BUFFER_TYPE_5BYTE,		// ê¸°ì¡´ 1 + 4ë°”ì´íŠ¸ í—¤ë” ë°©ì‹ 
+	BUFFER_TYPE_2BYTE,		// 2ë°”ì´íŠ¸ í—¤ë” ë°©ì‹ 
 };
 
 

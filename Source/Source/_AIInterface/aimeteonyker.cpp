@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "aimeteonyker.h"
 
 #if __VER >= 10	// __METEONYKER_0608
@@ -28,7 +28,7 @@ enum
 #define RANGE_MOVE	30.0f
 #define	RANGE_RETURN_TO_BEGIN	120.0F
 
-static DWORD s_tmAttack = SEC(20);	//  m_tmAttack 20ÃÊ 
+static DWORD s_tmAttack = SEC(20);	//  m_tmAttack 20ì´ˆ 
 
 BEGIN_AISTATE_MAP( CAIMeteonyker, CAIInterface )
 	ON_STATE( STATE_INIT, &CAIMeteonyker::StateInit )
@@ -56,17 +56,17 @@ void CAIMeteonyker::Destroy( void )
 	m_mapDamage.clear();
 }
 
-#define	CB_RETALIATION	10	// 30ÃÊ´ç 1È¸
+#define	CB_RETALIATION	10	// 30ì´ˆë‹¹ 1íšŒ
 void CAIMeteonyker::Init( void )
 {
 	SetTarget( NULL_ID, 0 );
-	m_cbRetaliation	= CB_RETALIATION;	// 30ÃÊ´ç 1È¸ ¹ßµ¿
-//	m_bHeal		= FALSE;	// Ä¡À¯Çß³ª?
+	m_cbRetaliation	= CB_RETALIATION;	// 30ì´ˆë‹¹ 1íšŒ ë°œë™
+//	m_bHeal		= FALSE;	// ì¹˜ìœ í–ˆë‚˜?
 	m_dwAtk		= OBJMSG_NONE;
 	m_idLastAttacker	= NULL_ID;
 
 	m_bReturnToBegin	= FALSE;
-	m_tmAttack	= g_tmCurrent + s_tmAttack;	// °ø°İ ÈÄ 20ÃÊ°£ ÃßÀûÇØ¿È.
+	m_tmAttack	= g_tmCurrent + s_tmAttack;	// ê³µê²© í›„ 20ì´ˆê°„ ì¶”ì í•´ì˜´.
 	m_vOldPos.x	= m_vOldPos.y	= m_vOldPos.z	= 0;
 	m_tmRecovery	= m_tmAttackDelay	= m_tmMove = m_tmReturnToBegin	= g_tmCurrent;
 	m_vPosDamage	= D3DXVECTOR3( 0, 0, 0 );
@@ -230,7 +230,7 @@ BOOL CAIMeteonyker::MoveProcessIdle( void )
 			CMover* pTarget		= GetTarget( m_dwIdTarget );
 			if( IsValidObj( (CObj*)pTarget ) )
 			{
-				if( pMover->IsFlyingNPC() == FALSE || pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pProp->dwClass == RANK_GUARD )	// °¡µå´Â ¹«Á¶°Ç °ø°İ.
+				if( pMover->IsFlyingNPC() == FALSE || pMover->IsFlyingNPC() == pTarget->m_pActMover->IsFly() || pProp->dwClass == RANK_GUARD )	// ê°€ë“œëŠ” ë¬´ì¡°ê±´ ê³µê²©.
 				{
 					if( pTarget )	
 					{
@@ -334,7 +334,7 @@ BOOL CAIMeteonyker::StateRage( const AIMSG & msg )
 		m_idLastAttacker	= msg.dwParam1;
 		AddDamage( msg.dwParam1, msg.dwParam2 );
 
-		//   'ÀÏ¹İ °ø°İ2' Ãß°¡ »çÇ× : ºÒÀÇ ¸ŞÅ×¿À´ÏÄ¿ HP 80%, 50%, 30%,10%¸¶´Ù '¿øÅ³'
+		//   'ì¼ë°˜ ê³µê²©2' ì¶”ê°€ ì‚¬í•­ : ë¶ˆì˜ ë©”í…Œì˜¤ë‹ˆì»¤ HP 80%, 50%, 30%,10%ë§ˆë‹¤ 'ì›í‚¬'
 		DWORD dwHPCur	= (DWORD)( ( pMover->GetHitPoint() / ( pMover->GetMaxHitPoint() * 0.01F ) ) );
 		if( dwHPCur != m_dwHPOld )
 		{
@@ -359,7 +359,7 @@ BOOL CAIMeteonyker::StateRage( const AIMSG & msg )
 		{
 			DWORD dwItemId	= 0;
 			MoverProp* pProp	= pMover->GetProp();
-			// ÁØºñµÈ °ø°İ Å¸ÀÔ¿¡ ÀÇÇÑ °ø°İ °³½Ã
+			// ì¤€ë¹„ëœ ê³µê²© íƒ€ì…ì— ì˜í•œ ê³µê²© ê°œì‹œ
 			switch( m_dwAtk )
 			{
 				case OBJMSG_ATK1:	dwItemId	= pProp->dwAtk1;	break;
@@ -369,8 +369,8 @@ BOOL CAIMeteonyker::StateRage( const AIMSG & msg )
 			}
 			if( pMover->DoAttackMelee( m_dwIdTarget, (OBJMSG)m_dwAtk, dwItemId ) == 1 )
 			{
-				// ¿¬Ãâ
-				m_tmAttack	= g_tmCurrent + s_tmAttack;	// °ø°İ ÈÄ 20ÃÊ°£ ÃßÀûÇØ¿È.
+				// ì—°ì¶œ
+				m_tmAttack	= g_tmCurrent + s_tmAttack;	// ê³µê²© í›„ 20ì´ˆê°„ ì¶”ì í•´ì˜´.
 				m_dwAtk		= OBJMSG_NONE;
 			}
 		}
@@ -411,7 +411,7 @@ BOOL CAIMeteonyker::MoveProcessRage( void )
 		}
 		return TRUE;
 	}
-	if( pTarget->IsRegionAttr( RA_SAFETY ) )	// Å¸°Ù ¾ÈÀü ¿µ¿ª Ò®
+	if( pTarget->IsRegionAttr( RA_SAFETY ) )	// íƒ€ê²Ÿ ì•ˆì „ ì˜ì—­ å…§
 	{
 		DoReturnToBegin();
 		SendAIMsg( AIMSG_SETSTATE, dwAIState );
@@ -483,7 +483,7 @@ BOOL CAIMeteonyker::MoveProcessRage( void )
 	}
 	else
 	{
-		// °ø°İ ½ÃÀÛÇÏ¸é °ø°İ Áö¿¬ Àç¼³Á¤
+		// ê³µê²© ì‹œì‘í•˜ë©´ ê³µê²© ì§€ì—° ì¬ì„¤ì •
 		if( g_tmCurrent > (DWORD)( m_tmAttackDelay ) )
 		{
 			CMover* pMover	= GetMover();
@@ -493,11 +493,11 @@ BOOL CAIMeteonyker::MoveProcessRage( void )
 
 			if( ProcessSPAttack() )
 				return TRUE;
-//			//	4. ÀÚ½ÅÀÇ HP°¡ 30%ÀÌÇÏ°¡ µÇ¾úÀ» ½Ã 1È¸¿¡ ÇÑÇØ HP¸¦ 50% È¸º¹ ÇÑ´Ù.
+//			//	4. ìì‹ ì˜ HPê°€ 30%ì´í•˜ê°€ ë˜ì—ˆì„ ì‹œ 1íšŒì— í•œí•´ HPë¥¼ 50% íšŒë³µ í•œë‹¤.
 //			if( ProcessHeal() )
 //				return TRUE;
-			//	5. ÀÚ½ÅÀÇ HP°¡ 2%°¡ µÇ¾úÀ» ½Ã ¸ğµç °ø°İ·Â 2¹è Áõ°¡	- propMoverEx.inc
-			// ÀÏ¹İ °ø°İ
+			//	5. ìì‹ ì˜ HPê°€ 2%ê°€ ë˜ì—ˆì„ ì‹œ ëª¨ë“  ê³µê²©ë ¥ 2ë°° ì¦ê°€	- propMoverEx.inc
+			// ì¼ë°˜ ê³µê²©
 			if( m_dwIdTarget == NULL_ID )
 				SelectTarget();
 			if( m_dwIdTarget != NULL_ID )
@@ -562,11 +562,11 @@ BOOL	CAIMeteonyker::ProcessRetaliation( void )
 		{
 			CMover* pMover	= GetMover();
 			// Mvr_Meteonyker_dmg3.ani
-			// 3¹øÂ° °ø°İ ÆĞÅÏ ½ÃÀÛ
-			// ´ë»óÀº objid
+			// 3ë²ˆì§¸ ê³µê²© íŒ¨í„´ ì‹œì‘
+			// ëŒ€ìƒì€ objid
 			CMover* pDealer	= GetTarget( objid );
 
-			// 30ÃÊ ÃÖ°í µô·¯ °ø°İ ½ÅÈ£
+			// 30ì´ˆ ìµœê³  ë”œëŸ¬ ê³µê²© ì‹ í˜¸
 			char szText[256]	= { 0,};
 			sprintf( szText, prj.GetText( TID_GAME_BOSS_METEONYKER_MSG_03 ), pDealer->GetName() );
 			g_DPCoreClient.SendCaption( szText, pMover->GetWorld()->GetID() );	
@@ -575,7 +575,7 @@ BOOL	CAIMeteonyker::ProcessRetaliation( void )
 			m_dwAtk		= OBJMSG_ATK3;
 			pMover->CMD_SetMeleeAttack( m_dwIdTarget, 0.0F );
 			
-			//   'ÀÏ¹İ °ø°İ2' Ãß°¡ »çÇ× : ºÒÀÇ ¸ŞÅ×¿À´ÏÄ¿ HP 80%, 50%, 30%,10%¸¶´Ù '¿øÅ³'
+			//   'ì¼ë°˜ ê³µê²©2' ì¶”ê°€ ì‚¬í•­ : ë¶ˆì˜ ë©”í…Œì˜¤ë‹ˆì»¤ HP 80%, 50%, 30%,10%ë§ˆë‹¤ 'ì›í‚¬'
 			if( m_bCritical )
 			{
 				pMover->SetMode( ONEKILL_MODE );
@@ -594,11 +594,11 @@ BOOL	CAIMeteonyker::ProcessSummon( BOOL bUnconditional )
 	if( IsValidObj( pTarget ) == FALSE || pTarget->IsDie() )
 		return FALSE;
 
-	// 30m ¹üÀ§ ³»ÀÇ ¸ğµç Ä³¸¯ÅÍ¸¦ ¼ÒÈ¯ÇÏ¿© °ø°İÇÑ´Ù. ¸Å °ø°İ ½Ã 5%ÀÇ È®·ü·Î ¹ßµ¿.
+	// 30m ë²”ìœ„ ë‚´ì˜ ëª¨ë“  ìºë¦­í„°ë¥¼ ì†Œí™˜í•˜ì—¬ ê³µê²©í•œë‹¤. ë§¤ ê³µê²© ì‹œ 5%ì˜ í™•ë¥ ë¡œ ë°œë™.
 	DWORD dwRand	= xRandom( 1, 101 );	// 1 ~ 100
 	if( bUnconditional || dwRand <= 5 )
 	{
-		// ¿©±â¼­ °ø°İ Å¸ÀÔÀ» ¼³Á¤ÇÑ´Ù.
+		// ì—¬ê¸°ì„œ ê³µê²© íƒ€ì…ì„ ì„¤ì •í•œë‹¤.
 		CMover* pMover	= GetMover();
 		CWorld* pWorld	= pMover->GetWorld();
 		D3DXVECTOR3 vPos	= pMover->GetPos();
@@ -615,13 +615,13 @@ BOOL	CAIMeteonyker::ProcessSummon( BOOL bUnconditional )
 		CMover* pPlayer	= NULL;
 		CObj* pObj;
 
-		// ¹İ°æ 30 ¸ğµç »ç¿ëÀÚ ¼ÒÈ¯
+		// ë°˜ê²½ 30 ëª¨ë“  ì‚¬ìš©ì ì†Œí™˜
 		FOR_LINKMAP( pWorld, vPos, pObj, 15, CObj::linkPlayer, pMover->GetLayer() )
 		{
 			pPlayer	= (CMover*)pObj;
 			if( pPlayer->IsLive() )
 			{
-				// ÇÃ·¹ÀÌ¾î ¸µÅ©¸Ê ±âº» ´ÜÀ§°¡ 32¹ÌÅÍÀÌ¹Ç·Î °Å¸® Àç°Ë»ç
+				// í”Œë ˆì´ì–´ ë§í¬ë§µ ê¸°ë³¸ ë‹¨ìœ„ê°€ 32ë¯¸í„°ì´ë¯€ë¡œ ê±°ë¦¬ ì¬ê²€ì‚¬
 				D3DXVECTOR3 vDist	= pMover->GetPos() - pPlayer->GetPos();
 				FLOAT fDistSq	= D3DXVec3LengthSq( &vDist );
 				if( fDistSq <= 225.0F )
@@ -633,13 +633,13 @@ BOOL	CAIMeteonyker::ProcessSummon( BOOL bUnconditional )
 						vPos.y += 7.0f;
 					}
 
-					pPlayer->REPLACE( g_uIdofMulti, pWorld->GetID(), vPos, REPLACE_NORMAL, pMover->GetLayer() );	// ÀÏ´Ü ¸ó½ºÅÍ ÁÂÇ¥·Î ¿öÇÁ ½ÃÅ°ÀÚ.
+					pPlayer->REPLACE( g_uIdofMulti, pWorld->GetID(), vPos, REPLACE_NORMAL, pMover->GetLayer() );	// ì¼ë‹¨ ëª¬ìŠ¤í„° ì¢Œí‘œë¡œ ì›Œí”„ ì‹œí‚¤ì.
 				}
 			}
 		}
 		END_LINKMAP
 		// Mvr_Meteonyker_dmg2.ani
-		// °ø°İ ÆĞÅÏÀº ÁÖº¯ »ç¿ëÀÚ¿¡ ´ëÇÑ ±¤¿ªÀÌ´Ù.
+		// ê³µê²© íŒ¨í„´ì€ ì£¼ë³€ ì‚¬ìš©ìì— ëŒ€í•œ ê´‘ì—­ì´ë‹¤.
 		m_dwAtk		= OBJMSG_ATK2;
 		MoveToDst( pMover->GetPos() );
 //		pMover->PostAIMsg( AIMSG_ARRIVAL );
@@ -654,15 +654,15 @@ BOOL	CAIMeteonyker::ProcessBurn( BOOL bUnconditional )
 	if( IsValidObj( pTarget ) == FALSE || pTarget->IsDie() )
 		return FALSE;
 
-	// WdVolcaneRed ¸Ê¿¡ Á¸ÀçÇÏ´Â ¸ğµç Ä³¸¯ÅÍ¿¡°Ô µ¥¹ÌÁö¸¦ ÁÖ¸ç, 'È­»ó'¿¡ °É¸®°Ô ÇÑ´Ù. ¸ŞÅ×¿À´ÏÄ¿R 
-	// ÀÚ½ÅÀÇ HP°¡ 20%°¡ ÀÌÇÏ°¡ µÇ¾úÀ» ½Ã ºÎÅÍ ¸Å °ø°İ ½Ã 2% È®·ü·Î ¹ßµ¿µÈ´Ù.
+	// WdVolcaneRed ë§µì— ì¡´ì¬í•˜ëŠ” ëª¨ë“  ìºë¦­í„°ì—ê²Œ ë°ë¯¸ì§€ë¥¼ ì£¼ë©°, 'í™”ìƒ'ì— ê±¸ë¦¬ê²Œ í•œë‹¤. ë©”í…Œì˜¤ë‹ˆì»¤R 
+	// ìì‹ ì˜ HPê°€ 20%ê°€ ì´í•˜ê°€ ë˜ì—ˆì„ ì‹œ ë¶€í„° ë§¤ ê³µê²© ì‹œ 2% í™•ë¥ ë¡œ ë°œë™ëœë‹¤.
 	CMover* pMover	= GetMover();
 	if( bUnconditional || pMover->GetHitPointPercent( 100 ) <= 20 )
 	{
 		DWORD dwRand	= xRandom( 1, 101 );	// 1 ~ 100
 		if( bUnconditional || dwRand <= 2 )
 		{
-			// ±¤¿ª °ø°İ X 130%
+			// ê´‘ì—­ ê³µê²© X 130%
 			// Mvr_Meteonyker_dmg4.ani 
 			m_dwAtk	= OBJMSG_ATK4;
 //			PostAIMsg( AIMSG_ARRIVAL );
@@ -677,7 +677,7 @@ BOOL	CAIMeteonyker::ProcessBurn( BOOL bUnconditional )
 BOOL	CAIMeteonyker::ProcessHeal( void )
 {
 	CMover* pMover	= GetMover();
-	// ÀÚ½ÅÀÇ HP°¡ 30%ÀÌÇÏ°¡ µÇ¾úÀ» ½Ã 1È¸¿¡ ÇÑÇØ HP¸¦ 50% È¸º¹ ÇÑ´Ù.
+	// ìì‹ ì˜ HPê°€ 30%ì´í•˜ê°€ ë˜ì—ˆì„ ì‹œ 1íšŒì— í•œí•´ HPë¥¼ 50% íšŒë³µ í•œë‹¤.
 	if( m_bHeal	== FALSE && pMover->GetHitPointPercent() <= 30 )
 	{
 		m_bHeal	= TRUE;
@@ -690,13 +690,13 @@ BOOL	CAIMeteonyker::ProcessHeal( void )
 */
 void	CAIMeteonyker::ProcessRecovery( void )
 {
-// idle »óÅÂ¿¡¼­¸¸ µ¿ÀÛ
-// ¸¶Áö¸· ÇÇ°İ 60ÃÊ ÈÄ 2ÃÊ ´ç 50ÀÇ HP°¡ È¸º¹ µÈ´Ù.
-//	m_tmAttackÀº ¸¶Áö¸· °ø°İ ÈÄ, 20ÃÊ °æ°ú ½Ã°£
-//	time_t	tm	= m_tmAttack + SEC( 40 );	// ¸¶Áö¸· °ø°İ ÈÄ, 1ºĞ °æ°ú ½Ã°£ÀÌ´Ù.
-//	if( g_tmCurrent > tm )	// ¸¶Áö¸· °ø°İ ÈÄ, 1ºĞÀÌ °æ°ú µÇ¾ú´Ù¸é, È¸º¹ °¡´ÉÇÏ´Ù.
+// idle ìƒíƒœì—ì„œë§Œ ë™ì‘
+// ë§ˆì§€ë§‰ í”¼ê²© 60ì´ˆ í›„ 2ì´ˆ ë‹¹ 50ì˜ HPê°€ íšŒë³µ ëœë‹¤.
+//	m_tmAttackì€ ë§ˆì§€ë§‰ ê³µê²© í›„, 20ì´ˆ ê²½ê³¼ ì‹œê°„
+//	time_t	tm	= m_tmAttack + SEC( 40 );	// ë§ˆì§€ë§‰ ê³µê²© í›„, 1ë¶„ ê²½ê³¼ ì‹œê°„ì´ë‹¤.
+//	if( g_tmCurrent > tm )	// ë§ˆì§€ë§‰ ê³µê²© í›„, 1ë¶„ì´ ê²½ê³¼ ë˜ì—ˆë‹¤ë©´, íšŒë³µ ê°€ëŠ¥í•˜ë‹¤.
 //	{
-		if( g_tmCurrent > (DWORD)( m_tmRecovery ) )	// È¸º¹ Æ½ 2ÃÊ°¡ °æ°úÇÑ »óÅÂ¶ó¸é,
+		if( g_tmCurrent > (DWORD)( m_tmRecovery ) )	// íšŒë³µ í‹± 2ì´ˆê°€ ê²½ê³¼í•œ ìƒíƒœë¼ë©´,
 		{
 			m_tmRecovery	= g_tmCurrent + SEC( 2 );
 			CMover* pMover	= GetMover();
@@ -748,7 +748,7 @@ BOOL CAIMeteonyker::SelectTarget( void )
 	}
 	else
 	{
-		DWORD dwNum	= xRandom( 100 );		// 0 ~ 99±îÁöÀ¸ ³­¼ö.
+		DWORD dwNum	= xRandom( 100 );		// 0 ~ 99ê¹Œì§€ìœ¼ ë‚œìˆ˜.
 		DWORD dwAggroRate	= 50;
 		if( IsValidObj( pLastAttacker ) )
 		{
@@ -815,19 +815,19 @@ BOOL CAIMeteonyker::ProcessSPAttack( void )
 {
 	++m_cbAttack;
 	int nCount	= m_cbAttack % 20;
-	if( nCount == 19 )	// ±¤¿ª ¿¹°í
+	if( nCount == 19 )	// ê´‘ì—­ ì˜ˆê³ 
 	{
 		CMover* pMover	= GetMover();
 
 		m_nSPAttackType	= xRand() % 2;
 		if( m_nSPAttackType == 0 )
 		{
-			// ¼ÒÈ¯ °ø°İ ¿¹°í
+			// ì†Œí™˜ ê³µê²© ì˜ˆê³ 
 			g_DPCoreClient.SendCaption( prj.GetText( TID_GAME_BOSS_METEONYKER_MSG_01 ), pMover->GetWorld()->GetID() );	
 		}
 		else
 		{
-			// ±¤¿ª ¹öÇÁ ¿¹°í
+			// ê´‘ì—­ ë²„í”„ ì˜ˆê³ 
 			g_DPCoreClient.SendCaption( prj.GetText( TID_GAME_BOSS_METEONYKER_MSG_02 ), pMover->GetWorld()->GetID() );	
 		}
 	}

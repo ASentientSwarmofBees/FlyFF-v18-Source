@@ -1,4 +1,4 @@
-// WndBase.h: interface for the CWndBase class.
+﻿// WndBase.h: interface for the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 

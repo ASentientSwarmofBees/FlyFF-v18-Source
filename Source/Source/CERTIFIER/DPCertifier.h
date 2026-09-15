@@ -1,4 +1,4 @@
-#ifndef __DPCERTIFIER_H__
+ï»¿#ifndef __DPCERTIFIER_H__
 #define	__DPCERTIFIER_H__
 
 #include "dpmng.h"
@@ -13,7 +13,7 @@ using	namespace	std;
 #undef theParameters
 #define theParameters	CAr & ar, DPID, LPBYTE, u_long
 
-// ÃÊ´ç Á¢¼ÓÀÚ¸¦ Á¦ÇÑÇÑ´Ù.
+// ì´ˆë‹¹ ì ‘ì†ìë¥¼ ì œí•œí•œë‹¤.
 class CLoginLimit
 {
 private:

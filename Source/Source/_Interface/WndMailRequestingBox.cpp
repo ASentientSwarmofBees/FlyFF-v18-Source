@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+﻿#include "StdAfx.h"
 #ifdef __MAIL_REQUESTING_BOX
 #ifdef __CLIENT
 #include "WndMailRequestingBox.h"

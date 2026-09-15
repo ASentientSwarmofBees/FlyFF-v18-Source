@@ -1,4 +1,4 @@
-// stdafx.cpp : source file that includes just the standard includes
+ï»¿// stdafx.cpp : source file that includes just the standard includes
 //	Neuz.pch will be the pre-compiled header
 //	stdafx.obj will contain the pre-compiled type information
 
@@ -16,11 +16,11 @@ CToolTip         g_toolTipSub2;
 #endif // __IMPROVE_SYSTEM_VER15
 CULLINFO         g_cullinfo;
 CMover*          g_pPlayer;
-CShip*			 g_pShip;				// ÇÃ·¹ÀÌ¾î°¡ Á¶Á¾ ÇÏ´Â ºñ°øÁ¤.
-BYTE             g_bKeyTable[256];		// Å° ÀÔ·Â Å×ÀÌºí
-BOOL             g_bSlotSwitchAboutEquipItem[ MAX_SLOT_ITEM ];		// ÀåÂø ¾ÆÀÌÅÛ¿¡ ´ëÇÑ Å° ´­¸² ½ºÀ§Ä¡
+CShip*			 g_pShip;				// í”Œë ˆì´ì–´ê°€ ì¡°ì¢… í•˜ëŠ” ë¹„ê³µì •.
+BYTE             g_bKeyTable[256];		// í‚¤ ì…ë ¥ í…Œì´ë¸”
+BOOL             g_bSlotSwitchAboutEquipItem[ MAX_SLOT_ITEM ];		// ì¥ì°© ì•„ì´í…œì— ëŒ€í•œ í‚¤ ëˆŒë¦¼ ìŠ¤ìœ„ì¹˜
 #ifdef __XKEYEDGE
-BYTE             g_bKeyTable2[256];		// Å° ÀÔ·Â Å×ÀÌºí( Å° ¿§Áö °Ë»ç )
+BYTE             g_bKeyTable2[256];		// í‚¤ ì…ë ¥ í…Œì´ë¸”( í‚¤ ì—£ì§€ ê²€ì‚¬ )
 #endif //__XKEYEDGE
 CModelObject*    g_pBipedMesh;
 CD3DApplication* g_pD3dApp; 
@@ -28,10 +28,10 @@ CGameTimer       g_GameTimer;
 CTickCount       g_TickCount;
 CFlyffEvent      g_eLocal;
 ADDSMMODE        g_AddSMMode;
-DWORD	         g_tmCurrent = 0;		// Àü¿ªÀ¸·Î »ç¿ëÇÒ ÇöÀç ½Ã°£.
+DWORD	         g_tmCurrent = 0;		// ì „ì—­ìœ¼ë¡œ ì‚¬ìš©í•  í˜„ì¬ ì‹œê°„.
 time_t		g_tCurrent;		//	time( NULL )
-int		         g_nRenderCnt = 0;		// ·»´õÈ­¸é¶§¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö
-int		         g_nProcessCnt = 0;		// ÇÁ·Î¼¼½º¸¶´Ù ÇÏ³ª¾¿ Ä«¿îÆ® µÇ´Â º¯¼ö.
+int		         g_nRenderCnt = 0;		// ë Œë”í™”ë©´ë•Œë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜
+int		         g_nProcessCnt = 0;		// í”„ë¡œì„¸ìŠ¤ë§ˆë‹¤ í•˜ë‚˜ì”© ì¹´ìš´íŠ¸ ë˜ëŠ” ë³€ìˆ˜.
 
 #ifdef __BS_CONSOLE
 DlgConsole g_Console;
@@ -41,7 +41,7 @@ DlgConsole g_Console;
 vector< CString > g_vecEncryptedValidCertifierIP;
 #endif // __CERTIFIER_COLLECTING_SYSTEM
 
-CNeuzApp         g_Neuz;                // ¸Ç ¸¶Áö¸·¿¡
+CNeuzApp         g_Neuz;                // ë§¨ ë§ˆì§€ë§‰ì—
 
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
 CGuildCombat1to1Mng g_GuildCombat1to1Mng;

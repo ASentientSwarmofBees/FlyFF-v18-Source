@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "resource.h"
 #include "defineText.h"
 #include "AppDefine.h"
@@ -163,7 +163,7 @@ void InitGlobalVars( HINSTANCE hInstance )
 	strcpy(g_szProtocolVersion, NEUZ_MSGVR);      // g_szProtocolVersion
 	strcpy(g_Neuz.m_lpCertifierAddr, NEUZ_IPSET); // m_lpCertifierAddr
 
-	InitWebGlobalVar();					// WEB_ADDRESS_DEFAULT, WEB_POSTDATA¼³Á¤ 
+	InitWebGlobalVar();					// WEB_ADDRESS_DEFAULT, WEB_POSTDATAì„¤ì • 
 
 	if( ::GetLanguage() == LANG_FRE )
 	{
@@ -190,7 +190,7 @@ void DisableTaskSwitching( HINSTANCE hInstance )
 	versionInformation.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 	if( GetVersionEx( &versionInformation ) )
 	{
-		if( versionInformation.dwPlatformId == VER_PLATFORM_WIN32_NT )		// NT°è¿­ÀÌ¸é Å°º¸µå¸¦ ÈÄÅ·ÇÏ°í
+		if( versionInformation.dwPlatformId == VER_PLATFORM_WIN32_NT )		// NTê³„ì—´ì´ë©´ í‚¤ë³´ë“œë¥¼ í›„í‚¹í•˜ê³ 
 		{
 			g_hHook = SetWindowsHookEx(WH_KEYBOARD_LL, (HOOKPROC)::LowLevelKeyboardProc, hInstance, 0);
 		} 
@@ -198,7 +198,7 @@ void DisableTaskSwitching( HINSTANCE hInstance )
 		{
 			// Disables task switching
 			UINT nPreviousState;
-			::SystemParametersInfo(SPI_SCREENSAVERRUNNING, 1, &nPreviousState, 0);		// 95, 98, Me¸é API¸¦ ¾´´Ù.
+			::SystemParametersInfo(SPI_SCREENSAVERRUNNING, 1, &nPreviousState, 0);		// 95, 98, Meë©´ APIë¥¼ ì“´ë‹¤.
 		}
 	}
 #endif	
@@ -263,7 +263,7 @@ BOOL ParseCmdLine( LPCTSTR lpCmdLine )
 			if(strCmpWord == "__bu")
 			{
 				AfxMessageBox("Stop Shop!");
-				//ÀÓ½Ã·Î ±¸¸Å»çÀÌÆ® Áß´Ü
+				//ì„ì‹œë¡œ êµ¬ë§¤ì‚¬ì´íŠ¸ ì¤‘ë‹¨
 				g_bBuddyFlag = FALSE;
 			}
 		}
@@ -314,14 +314,14 @@ BOOL ParseCmdLine( LPCTSTR lpCmdLine )
 	{
 		g_Neuz.m_bThroughPortal		= TRUE;
 
-		//	mulcom	BEGIN100323	ÀÏº» ÀÎÁõ°ü·Ã
+		//	mulcom	BEGIN100323	ì¼ë³¸ ì¸ì¦ê´€ë ¨
 #ifdef __JAPAN_AUTH
 		if( ::GetLanguage() == LANG_JAP  && lstrcmpi( szArg2, "hangame.co.jp" ) != 0 )
 		{
 			g_Neuz.m_bEncryptPWD = FALSE;
 		}
 #endif // __JAPAN_AUTH
-		//	mulcom	END100323	ÀÏº» ÀÎÁõ°ü·Ã
+		//	mulcom	END100323	ì¼ë³¸ ì¸ì¦ê´€ë ¨
 
 #ifdef __TWN_LOGIN0816
 		g_Neuz.SetAccountInfo( szArg3, szArg4, szArg5 );
@@ -369,7 +369,7 @@ BOOL InitApp()
 //	temp.Format("Os Ver : %d, VGA Vendor Id : %d", versionInfo.dwMajorVersion, Identifier.VendorId);
 //	AfxMessageBox(temp, MB_OK);
 
-	//ATI°è¿­ Ä«µåÀÇ Vistaµå¶óÀÌ¹ö¿¡¼­ Floating Point ExceptionÀÌ ¹ß»ıÇÏ¿© Vista & ATI°¡ ¾Æ´Ò °æ¿ì¸¸ EnableÇÔ
+	//ATIê³„ì—´ ì¹´ë“œì˜ Vistaë“œë¼ì´ë²„ì—ì„œ Floating Point Exceptionì´ ë°œìƒí•˜ì—¬ Vista & ATIê°€ ì•„ë‹ ê²½ìš°ë§Œ Enableí•¨
 	if( bGetOsVr && hres == S_OK && versionInfo.dwMajorVersion != 6 && Identifier.VendorId != 4098 )
 		EnableFloatException();
 
@@ -380,10 +380,10 @@ BOOL InitApp()
 	UINT uPeriod = (TIMERR_NOERROR == timeGetDevCaps(&tc, sizeof(tc))) ? tc.wPeriodMin : 1;  
 	timeBeginPeriod( uPeriod ); 
 
-	xSRand( timeGetTime() );	// ¼Óµµ¸¦ ¿äÇÏ´Â ·£´ıÀº xRandom()À» ¾²µµ·Ï...
-	srand( timeGetTime() );		// c³»Àå rand¸¦ ¾²°í ½Í´Ù¸é random()À» ¾²µµ·Ï...
+	xSRand( timeGetTime() );	// ì†ë„ë¥¼ ìš”í•˜ëŠ” ëœë¤ì€ xRandom()ì„ ì“°ë„ë¡...
+	srand( timeGetTime() );		// cë‚´ì¥ randë¥¼ ì“°ê³  ì‹¶ë‹¤ë©´ random()ì„ ì“°ë„ë¡...
  
-	InitUPS();					// ¾Ö´Ï¸ŞÀÌ¼Ç Å¸ÀÌ¸Ó ÃÊ±âÈ­
+	InitUPS();					// ì• ë‹ˆë©”ì´ì…˜ íƒ€ì´ë¨¸ ì´ˆê¸°í™”
 
 	if( InitializeNetLib() == FALSE )
 		return FALSE;
@@ -397,7 +397,7 @@ BOOL InitApp()
 	//	ENDTEST100111	FFL_DUMP
 	//////////////////////////////////////////////////////////////////////////
 
-	g_Neuz.LoadOption();		// Neuz.ini¸¦ ·Îµù 	
+	g_Neuz.LoadOption();		// Neuz.inië¥¼ ë¡œë”© 	
 	if( lstrlen( g_Option.m_IPAddress ) > 2 )
 		lstrcpy( g_Neuz.m_lpCertifierAddr, g_Option.m_IPAddress );
 
@@ -429,7 +429,7 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 #endif
 
 #ifdef __BS_CHECKLEAK
-	// ¸Ş¸ğ¸® ¸¯ Å½Áö ¹× alloc ¶óÀÎ Ã£±â ( ¸¯ÀÌ ¹ß»ıÇÏ¸é _CrtSetBreakAlloc( )¿¡ ÀÎµ¦½º¸¦ ³Ö¾î¼­ allocÀ» ½ÃµµÇÑ ¶óÀÎ¿¡ ºê·¹ÀÌÅ©°¡ °É¸² )
+	// ë©”ëª¨ë¦¬ ë¦­ íƒì§€ ë° alloc ë¼ì¸ ì°¾ê¸° ( ë¦­ì´ ë°œìƒí•˜ë©´ _CrtSetBreakAlloc( )ì— ì¸ë±ìŠ¤ë¥¼ ë„£ì–´ì„œ allocì„ ì‹œë„í•œ ë¼ì¸ì— ë¸Œë ˆì´í¬ê°€ ê±¸ë¦¼ )
 	_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 	//_CrtSetBreakAlloc( 912154 );
 #endif 
@@ -461,7 +461,7 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 	if( lstrcmp( g_Neuz.m_lpCertifierAddr, "64.127.103.254" ) == 0 )
 		WEB_ADDRESS_DEFAULT = "about:blank";
 
-	// ¹Ì±¹ ¿ÀÇÂ Å×½ºÆ® ¼­¹ö
+	// ë¯¸êµ­ ì˜¤í”ˆ í…ŒìŠ¤íŠ¸ ì„œë²„
 	//	mulcom	BEGIN100422
 	if( lstrcmp( g_Neuz.m_lpCertifierAddr, "204.2.134.200" ) == 0 )
 		WEB_ADDRESS_DEFAULT = "about:blank";
@@ -480,16 +480,16 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 		WEB_ADDRESS_DEFAULT = "about:blank";
 
 	//rus
-	//	mulcom	BEGIN100209	·¯½Ã¾Æ Å×½ºÆ® ¼­¹ö URL º¯°æ
+	//	mulcom	BEGIN100209	ëŸ¬ì‹œì•„ í…ŒìŠ¤íŠ¸ ì„œë²„ URL ë³€ê²½
 	if( lstrcmp( g_Neuz.m_lpCertifierAddr, "91.212.60.104" ) == 0 )
 		WEB_ADDRESS_DEFAULT = "about:blank";
-	//	mulcom	END100209	·¯½Ã¾Æ Å×½ºÆ® ¼­¹ö URL º¯°æ
+	//	mulcom	END100209	ëŸ¬ì‹œì•„ í…ŒìŠ¤íŠ¸ ì„œë²„ URL ë³€ê²½
 
-	//Ä¥·¹ Å×¼·
-	//	mulcom	BEGIN100318	Ä¥·¹ Å×½ºÆ® ¼­¹ö ¾ÆÀÌÅÛ¼¥ URL º¯°æ
+	//ì¹ ë ˆ í…Œì„­
+	//	mulcom	BEGIN100318	ì¹ ë ˆ í…ŒìŠ¤íŠ¸ ì„œë²„ ì•„ì´í…œìƒµ URL ë³€ê²½
 	if( lstrcmp( g_Neuz.m_lpCertifierAddr, "204.2.134.13" ) == 0 )
 		WEB_ADDRESS_DEFAULT = "about:blank";
-	//	mulcom	END100318	Ä¥·¹ Å×½ºÆ® ¼­¹ö ¾ÆÀÌÅÛ¼¥ URL º¯°æ
+	//	mulcom	END100318	ì¹ ë ˆ í…ŒìŠ¤íŠ¸ ì„œë²„ ì•„ì´í…œìƒµ URL ë³€ê²½
 
 
 #ifdef __CERTIFIER_COLLECTING_SYSTEM
@@ -503,7 +503,7 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 	
 #ifdef __CSC_VER9_4
 #ifdef __CLIENT
-	//Openning WndÁ×ÀÌ°í ·Îµù¿Ï·áµÈ º» Å¬¶óÀÌ¾ğÆ®¸¦ º¸¿©ÁÖÀÚ.
+	//Openning Wndì£½ì´ê³  ë¡œë”©ì™„ë£Œëœ ë³¸ í´ë¼ì´ì–¸íŠ¸ë¥¼ ë³´ì—¬ì£¼ì.
 	if(g_OpLoadWnd.GetSafeHwnd() != NULL)
 		DestroyWindow(g_OpLoadWnd.GetSafeHwnd());	
 	

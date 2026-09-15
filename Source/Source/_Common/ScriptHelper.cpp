@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "defineObj.h"
 #include "party.h"
@@ -39,7 +39,7 @@ enum QUEST_ENUM
 
 static map< string, QUEST_ENUM > g_mapKey;
 
-// ¹Ì¸® Á¤ÀÇµÈ Å°µéÀ» À§ÇÑ tableÀ» ¸¸µç´Ù.
+// ë¯¸ë¦¬ ì •ì˜ëœ í‚¤ë“¤ì„ ìœ„í•œ tableì„ ë§Œë“ ë‹¤.
 void InitPredefineKey()
 {
 	g_mapKey[ "QUEST_END" ]          = QE_QUEST_END;
@@ -169,7 +169,7 @@ int __RemoveQuest( int nPcId, int nQuest )
 			pUser->AddDefinedText( TID_EVE_CANCELQUEST, "\"%s\"", pQuestProp->m_szTitle );
 		pUser->RemoveQuest( nQuest );
 		pUser->AddRemoveQuest( nQuest );
-		// ½ÃÀÛ½Ã º¯½ÅÀ» ÇßÀ¸¸é Äù½ºÆ® »èÁ¦½Ã º¯½Å ÇØÁ¦½ÃÅ²´Ù.
+		// ì‹œì‘ì‹œ ë³€ì‹ ì„ í–ˆìœ¼ë©´ í€˜ìŠ¤íŠ¸ ì‚­ì œì‹œ ë³€ì‹  í•´ì œì‹œí‚¨ë‹¤.
 		if( pQuest && pQuestProp->m_nBeginSetDisguiseMoverIndex )
 		{
 			CUser* pUser = prj.GetUser( nPcId );
@@ -227,7 +227,7 @@ int __RunQuest( int nPcId, int nNpcId, int nQuestId )
 			__AddGold( nPcId, pQuestProp->m_nBeginSetAddGold );
 		}
 
-		// Äù½ºÆ® ½ÃÀÛ½Ã º¯½ÅÇÔ 
+		// í€˜ìŠ¤íŠ¸ ì‹œì‘ì‹œ ë³€ì‹ í•¨ 
 		if( pQuestProp->m_nBeginSetDisguiseMoverIndex )
 		{
 			CUser* pUser = prj.GetUser( nPcId );
@@ -253,7 +253,7 @@ int __EndQuest( int nPcId, int nQuestId, BOOL IsEndQuestCondition )
 			if( __IsEndQuestCondition( pUser, nQuestId ) == 0 )
 				return FALSE;
 		}
-		// º¸»ó ¾ÆÀÌÅÛ °¹¼ö ¸¸Å­, ÀÎº¥Åä¸® ¿©À¯°¡ ÀÖ´Â°¡?
+		// ë³´ìƒ ì•„ì´í…œ ê°¯ìˆ˜ ë§Œí¼, ì¸ë²¤í† ë¦¬ ì—¬ìœ ê°€ ìˆëŠ”ê°€?
 		int nItemNum = 0;
 		for( int i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
 		{
@@ -293,14 +293,14 @@ int __EndQuest( int nPcId, int nQuestId, BOOL IsEndQuestCondition )
 		}
 		if( nItemNum > pUser->m_Inventory.GetEmptyCount() ) 
 		{
-			pUser->AddDefinedText( TID_QUEST_NOINVENTORYSPACE ); // ÀÎº¥Åä¸® °ø°£ÀÌ ¾ø¾î¼­ Äù½ºÆ®¸¦ ¿Ï·áÇÒ ¼ö ¾ø½À´Ï´Ù.
+			pUser->AddDefinedText( TID_QUEST_NOINVENTORYSPACE ); // ì¸ë²¤í† ë¦¬ ê³µê°„ì´ ì—†ì–´ì„œ í€˜ìŠ¤íŠ¸ë¥¼ ì™„ë£Œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 			RunScriptFunc rsf;
 			rsf.wFuncType		= FUNCTYPE_EXIT;
 			pUser->AddRunScriptFunc( rsf );
 			return FALSE;
 		}
 		////////////////////////////
-		// º¸»ó Áö±Ş 
+		// ë³´ìƒ ì§€ê¸‰ 
 		////////////////////////////
 		for( int i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
 		{
@@ -389,10 +389,10 @@ int __EndQuest( int nPcId, int nQuestId, BOOL IsEndQuestCondition )
 				pUser->SetPKValue( nPKValue );
 				pUser->AddPKValue();
 				g_dpDBClient.SendLogPkPvp( (CMover*)pUser, NULL, 0, 'P' );
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 				pUser->CheckHonorStat();
 				g_UserMng.AddHonorTitleChange( pUser, pUser->m_nHonor);
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 			}
 		}
 #else // __VER >= 8 // __S8_PK
@@ -412,7 +412,7 @@ int __EndQuest( int nPcId, int nQuestId, BOOL IsEndQuestCondition )
 		if( pQuestProp->m_nEndRewardTeleport != 0 )
 			pUser->REPLACE( g_uIdofMulti, pQuestProp->m_nEndRewardTeleport, pQuestProp->m_nEndRewardTeleportPos, REPLACE_NORMAL, nTempLayer );
 #endif // __S_9_ADD
-		// ½ÃÀÛ½Ã º¯½ÅÀ» ÇßÀ¸¸é Á¾·á½Ã º¯½Å ÇØÁ¦½ÃÅ²´Ù.
+		// ì‹œì‘ì‹œ ë³€ì‹ ì„ í–ˆìœ¼ë©´ ì¢…ë£Œì‹œ ë³€ì‹  í•´ì œì‹œí‚¨ë‹¤.
 		if( pQuestProp->m_nBeginSetDisguiseMoverIndex )
 		{
 			CUser* pUser = prj.GetUser( nPcId );
@@ -427,14 +427,14 @@ int __EndQuest( int nPcId, int nQuestId, BOOL IsEndQuestCondition )
 			g_dpDBClient.SendUpdateCampusPoint( pUser->m_idPlayer, pQuestProp->m_nEndRemoveTSP, FALSE, 'Q' );
 #endif // __CAMPUS
 		////////////////////////////
-		// ¾ÆÀÌÅÛ Á¦°Å 
+		// ì•„ì´í…œ ì œê±° 
 		////////////////////////////
 		for( int i = 0; i < 8; i++ )
 		{
 			if( pQuestProp->m_nEndRemoveItemIdx[ i ] )
 			{
 				int nItemNum = pQuestProp->m_nEndRemoveItemNum[ i ];
-				if( nItemNum > 0x7fff )		// »èÁ¦µÉ ¾ÆÀÌÅÛ °³¼ö°¡ shortÀÇ MAX¸¦ ³ÑÀ¸¸é..
+				if( nItemNum > 0x7fff )		// ì‚­ì œë  ì•„ì´í…œ ê°œìˆ˜ê°€ shortì˜ MAXë¥¼ ë„˜ìœ¼ë©´..
 				{
 					for( ; nItemNum > 0x7fff; )
 					{
@@ -448,7 +448,7 @@ int __EndQuest( int nPcId, int nQuestId, BOOL IsEndQuestCondition )
 		if( pQuestProp->m_nEndRemoveGold )
 			__RemoveGold( nPcId, pQuestProp->m_nEndRemoveGold );
 		////////////////////////////
-		// Äù½ºÆ® Á¦°Å (¿Ï·á,ÁøÇà ¸ğµÎ Á¦°ÅÇÔ)
+		// í€˜ìŠ¤íŠ¸ ì œê±° (ì™„ë£Œ,ì§„í–‰ ëª¨ë‘ ì œê±°í•¨)
 		////////////////////////////
 		for( int i = 0; i < MAX_QUESTREMOVE; i++ )
 		{
@@ -457,7 +457,7 @@ int __EndQuest( int nPcId, int nQuestId, BOOL IsEndQuestCondition )
 				__RemoveQuest( nPcId, pQuestProp->m_anEndRemoveQuest[ i ] );
 			}
 		}
-		// Äù½ºÆ® Á¾·á 
+		// í€˜ìŠ¤íŠ¸ ì¢…ë£Œ 
 		__SetQuestState( nPcId, nQuestId, QS_END );
 	}
 	return 1;
@@ -507,7 +507,7 @@ void __QuestBegin( int nPcId, int nNpcId, int nQuestId )
 #if __VER < 15 // __IMPROVE_QUEST_INTERFACE
 	__RemoveAllKey( nPcId );
 #endif // __IMPROVE_QUEST_INTERFACE
-	// ±âÅ¸ ´ëÈ­¸¦ À§ÇÑ Å°¸¦ Ãß°¡ÇÑ´Ù.
+	// ê¸°íƒ€ ëŒ€í™”ë¥¼ ìœ„í•œ í‚¤ë¥¼ ì¶”ê°€í•œë‹¤.
 	CMover* pMover = prj.GetMover( nNpcId );
 #if __VER < 15 // __IMPROVE_QUEST_INTERFACE
 	pMover->m_pNpcProperty->RunDialog( "#addKey", NULL, 0, nNpcId, nPcId, 0 );
@@ -521,7 +521,7 @@ void __QuestEnd( int nPcId, int nNpcId, int& nGlobal )
 #endif // __IMPROVE_QUEST_INTERFACE
 {
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
-	// ÇöÀç ÁøÇà ÁßÀÎ Äù½ºÆ® Áß¿¡¼­ ÇöÀç NPC°¡ Ã³¸®ÇØ¾ßµÉ Äù½ºÆ®¸¦ ½ÇÇà(ÀÚ½ÅÀÏ ¼öµµ ÀÖÀ½)
+	// í˜„ì¬ ì§„í–‰ ì¤‘ì¸ í€˜ìŠ¤íŠ¸ ì¤‘ì—ì„œ í˜„ì¬ NPCê°€ ì²˜ë¦¬í•´ì•¼ë  í€˜ìŠ¤íŠ¸ë¥¼ ì‹¤í–‰(ìì‹ ì¼ ìˆ˜ë„ ìˆìŒ)
 	CMover* pMover = prj.GetMover( nNpcId );
 	CUser* pUser = prj.GetUser( nPcId );
 
@@ -531,7 +531,7 @@ void __QuestEnd( int nPcId, int nNpcId, int& nGlobal )
 	__RemoveAllKey( nPcId );
 	pMover->m_pNpcProperty->RunDialog( "#addKey", NULL, 0, nNpcId, nPcId, 0 );
 	
-	// Äù½ºÆ® ¸®½ºÆ® send
+	// í€˜ìŠ¤íŠ¸ ë¦¬ìŠ¤íŠ¸ send
 	vector<int> vecNewQuest;
 	vector<int> vecNextQuest;
 	vector<int> vecEndQuest;
@@ -593,10 +593,10 @@ void __QuestEnd( int nPcId, int nNpcId, int& nGlobal )
 	{
 		lpQuest = pUser->GetQuest( nQuestId );
 		QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( nQuestId );
-		if( lpQuest && lpQuest->m_nState != QS_END && pQuestProp )	// ÁøÇàÁßÀÎ Äù½ºÆ® ¼±ÅÃ ½Ã
+		if( lpQuest && lpQuest->m_nState != QS_END && pQuestProp )	// ì§„í–‰ì¤‘ì¸ í€˜ìŠ¤íŠ¸ ì„ íƒ ì‹œ
 		{
 			bCompleteCheck = FALSE;
-			if( !bButtOK ) // Äù½ºÆ® ¸ñ·ÏÀ» ¼±ÅÃÇÏ°í µé¾î¿Â °æ¿ì
+			if( !bButtOK ) // í€˜ìŠ¤íŠ¸ ëª©ë¡ì„ ì„ íƒí•˜ê³  ë“¤ì–´ì˜¨ ê²½ìš°
 			{
 				if( strcmpi( pQuestProp->m_szEndCondCharacter, pMover->m_szCharacterKey ) == 0 && __IsEndQuestCondition( pUser, nQuestId ) )
 				{
@@ -617,7 +617,7 @@ void __QuestEnd( int nPcId, int nNpcId, int& nGlobal )
 		}
 	}
 	
-	// ¿Ï·á °¡´ÉÇÑ Äù½ºÆ®°¡ ÀÖ´ÂÁö °Ë»ç
+	// ì™„ë£Œ ê°€ëŠ¥í•œ í€˜ìŠ¤íŠ¸ê°€ ìˆëŠ”ì§€ ê²€ì‚¬
 	if( bCompleteCheck )
 	{
 		for( int i = 0; i < pUser->m_nQuestSize; ++i )
@@ -651,16 +651,16 @@ void __QuestEnd( int nPcId, int nNpcId, int& nGlobal )
 	{
 		if( bNewQuest )
 		{
-			if( vecNewQuest.size() == 1 && bCompleteCheck )	// ÁøÇà°¡´ÉÇÑ Äù½ºÆ®°¡ ÇÏ³ª¸é ¹Ù·Î Äù½ºÆ® ¼ö¶ôÃ¢ Ç¥½Ã
+			if( vecNewQuest.size() == 1 && bCompleteCheck )	// ì§„í–‰ê°€ëŠ¥í•œ í€˜ìŠ¤íŠ¸ê°€ í•˜ë‚˜ë©´ ë°”ë¡œ í€˜ìŠ¤íŠ¸ ìˆ˜ë½ì°½ í‘œì‹œ
 				__QuestBegin( nPcId, nNpcId, vecNewQuest[ 0 ] );
 			else
-				pMover->m_pNpcProperty->RunDialog( "#yesQuest", NULL, 0, nNpcId, nPcId, 0 ); // ÁØºñµÈ Äù½ºÆ®°¡ ÀÖÀ» ¶§ÀÇ ÀÎ»ç¸»
+				pMover->m_pNpcProperty->RunDialog( "#yesQuest", NULL, 0, nNpcId, nPcId, 0 ); // ì¤€ë¹„ëœ í€˜ìŠ¤íŠ¸ê°€ ìˆì„ ë•Œì˜ ì¸ì‚¬ë§
 		}
 		else
-			pMover->m_pNpcProperty->RunDialog( "#noQuest", NULL, 0, nNpcId, nPcId, 0 );	// ÁØºñµÈ Äù½ºÆ®°¡ ¾øÀ» ¶§ÀÇ ÀÎ»ç¸»
+			pMover->m_pNpcProperty->RunDialog( "#noQuest", NULL, 0, nNpcId, nPcId, 0 );	// ì¤€ë¹„ëœ í€˜ìŠ¤íŠ¸ê°€ ì—†ì„ ë•Œì˜ ì¸ì‚¬ë§
 	}
 #else // __IMPROVE_QUEST_INTERFACE
-	// ÇöÀç ÁøÇà ÁßÀÎ Äù½ºÆ® Áß¿¡¼­ ÇöÀç NPC°¡ Ã³¸®ÇØ¾ßµÉ Äù½ºÆ®¸¦ ½ÇÇà(ÀÚ½ÅÀÏ ¼öµµ ÀÖÀ½)
+	// í˜„ì¬ ì§„í–‰ ì¤‘ì¸ í€˜ìŠ¤íŠ¸ ì¤‘ì—ì„œ í˜„ì¬ NPCê°€ ì²˜ë¦¬í•´ì•¼ë  í€˜ìŠ¤íŠ¸ë¥¼ ì‹¤í–‰(ìì‹ ì¼ ìˆ˜ë„ ìˆìŒ)
 	int nResult = 0;
 
 	CMover* pMover = prj.GetMover( nNpcId );
@@ -680,7 +680,7 @@ void __QuestEnd( int nPcId, int nNpcId, int& nGlobal )
 			QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( nQuest );
 			if( pQuestProp )
 			{
-				// ´ëÈ­ÇÏ°í ÀÖ´Â Ä³¸¯ÅÍ¿Í ÇöÀç ½ÇÇà ÁßÀÎ Äù½ºÆ®°¡ °°À¸¸é ±×³ğÀÌ Á¾°á Á¶°ÇÀ» ÆÇÁ¤ÇÏ´Â ³ğÀÌ´Ù.
+				// ëŒ€í™”í•˜ê³  ìˆëŠ” ìºë¦­í„°ì™€ í˜„ì¬ ì‹¤í–‰ ì¤‘ì¸ í€˜ìŠ¤íŠ¸ê°€ ê°™ìœ¼ë©´ ê·¸ë†ˆì´ ì¢…ê²° ì¡°ê±´ì„ íŒì •í•˜ëŠ” ë†ˆì´ë‹¤.
 				if( strcmpi( pQuestProp->m_szEndCondCharacter, pMover->m_szCharacterKey ) == 0 )
 				{
 					if( lpQuest->m_nState != QS_END ) 
@@ -734,22 +734,22 @@ void __QuestEnd( int nPcId, int nNpcId, int& nGlobal )
 			}
 		}
 
-		// °¡´ÉÇÑ Äù½ºÆ®°¡ ÇÏ³ªÀÏ ¶§´Â ¹Ù·Î Äù½ºÆ® ½ÃÀÛ 
+		// ê°€ëŠ¥í•œ í€˜ìŠ¤íŠ¸ê°€ í•˜ë‚˜ì¼ ë•ŒëŠ” ë°”ë¡œ í€˜ìŠ¤íŠ¸ ì‹œì‘ 
 		if( nResult == 1 )
 			__QuestBegin( nPcId, nNpcId, anQuest[ 0 ] );
 		else
 		{
-			// ¿©·¯°³ÀÏ °æ¿ì´Â Å°¸¦ Ãß°¡ 
+			// ì—¬ëŸ¬ê°œì¼ ê²½ìš°ëŠ” í‚¤ë¥¼ ì¶”ê°€ 
 			for( i = 0; i < nResult; i++ )
 				__AddQuestKey( nPcId, anQuest[ i ], "QUEST_BEGIN" );
 
 			if ( nResult == 0 )  				
-				pMover->m_pNpcProperty->RunDialog( "#noQuest", &nResult, 0, nNpcId, nPcId, 0 );	// ÁØºñµÈ Äù½ºÆ®°¡ ¾øÀ» ¶§ÀÇ ÀÎ»ç¸» 
+				pMover->m_pNpcProperty->RunDialog( "#noQuest", &nResult, 0, nNpcId, nPcId, 0 );	// ì¤€ë¹„ëœ í€˜ìŠ¤íŠ¸ê°€ ì—†ì„ ë•Œì˜ ì¸ì‚¬ë§ 
 			else				
-				pMover->m_pNpcProperty->RunDialog( "#yesQuest", &nResult, 0, nNpcId, nPcId, 0 ); // ÁØºñµÈ Äù½ºÆ®°¡ ÀÖÀ» ¶§ÀÇ ÀÎ»ç¸» 
+				pMover->m_pNpcProperty->RunDialog( "#yesQuest", &nResult, 0, nNpcId, nPcId, 0 ); // ì¤€ë¹„ëœ í€˜ìŠ¤íŠ¸ê°€ ìˆì„ ë•Œì˜ ì¸ì‚¬ë§ 
 		}
 	}
-	// ±âÅ¸ ´ëÈ­¸¦ À§ÇÑ Å°¸¦ Ãß°¡ÇÑ´Ù.
+	// ê¸°íƒ€ ëŒ€í™”ë¥¼ ìœ„í•œ í‚¤ë¥¼ ì¶”ê°€í•œë‹¤.
 	pMover->m_pNpcProperty->RunDialog( "#addKey", NULL, 0, nNpcId, nPcId, 0 );
 #endif // __IMPROVE_QUEST_INTERFACE
 }
@@ -758,7 +758,7 @@ void __QuestBeginYes( int nPcId, int nNpcId, int nQuestId )
 	CUser* pUser	= prj.GetUser( nPcId );
 
 #ifdef __VTN_TIMELIMIT
-	//	mulcom	BEGIN100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+	//	mulcom	BEGIN100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 	if( ::GetLanguage() == LANG_VTN )
 	{
 		if( pUser->IsPlayer() == TRUE )
@@ -771,7 +771,7 @@ void __QuestBeginYes( int nPcId, int nNpcId, int nQuestId )
 			}
 		}
 	}
-	//	mulcom	END100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+	//	mulcom	END100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 #endif // __VTN_TIMELIMIT
 
 	LPQUEST lpQuest		= pUser->GetQuest( nQuestId );
@@ -786,7 +786,7 @@ void __QuestBeginYes( int nPcId, int nNpcId, int nQuestId )
 		__RemoveAllKey( nPcId );
 		pMover->m_pNpcProperty->RunDialog( "#addKey", NULL, 0, nNpcId, nPcId, 0 );
 		LPQUEST lpQuestList;
-		// Äù½ºÆ® ¸®½ºÆ® send
+		// í€˜ìŠ¤íŠ¸ ë¦¬ìŠ¤íŠ¸ send
 		vector<int> vecNewQuest;
 		vector<int> vecNextQuest;
 		vector<int> vecEndQuest;
@@ -854,7 +854,7 @@ void __QuestEndComplete( int nPcId, int nNpcId, int& nGlobal, int nVal, int nQue
 	LPQUEST lpQuest		= pUser->GetQuest( nQuestId );
 
 #ifdef __VTN_TIMELIMIT
-	//	mulcom	BEGIN100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+	//	mulcom	BEGIN100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 	if( ::GetLanguage() == LANG_VTN )
 	{
 		if( pUser->IsPlayer() == TRUE )
@@ -866,10 +866,10 @@ void __QuestEndComplete( int nPcId, int nNpcId, int& nGlobal, int nVal, int nQue
 			}
 		}
 	}
-	//	mulcom	END100315	º£Æ®³² ½Ã°£ Á¦ÇÑ
+	//	mulcom	END100315	ë² íŠ¸ë‚¨ ì‹œê°„ ì œí•œ
 #endif // __VTN_TIMELIMIT
 
-	// Äù½ºÆ®°¡ ÁøÇà ÁßÀÎ °æ¿ì 
+	// í€˜ìŠ¤íŠ¸ê°€ ì§„í–‰ ì¤‘ì¸ ê²½ìš° 
 	if( lpQuest && pUser->IsCompleteQuest( nQuestId ) == FALSE
 		&& __IsEndQuestCondition( pUser, nQuestId ) )
 	{

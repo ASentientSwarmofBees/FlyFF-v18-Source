@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  @(#) synthesis_filter.cc 1.14, last edit: 6/21/94 11:22:20
  *  @(#) Copyright (C) 1993, 1994 Tobias Bading (bading@cs.tu-berlin.de)
  *  @(#) Berlin University of Technology

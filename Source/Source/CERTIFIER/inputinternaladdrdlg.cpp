@@ -1,4 +1,4 @@
-// inputinternaladdrdlg.cpp : implementation file
+﻿// inputinternaladdrdlg.cpp : implementation file
 //
 
 #include "stdafx.h"

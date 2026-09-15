@@ -13,4 +13,4 @@ To start the servers, run:
 /Server/- Start All Servers.bat
 
 To start a client, run:
-/CLient/- 
+/Client/- Start Game.bat

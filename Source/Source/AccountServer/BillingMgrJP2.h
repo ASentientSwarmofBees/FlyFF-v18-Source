@@ -1,4 +1,4 @@
-#ifndef __BILLINGMGRJP2_H__
+﻿#ifndef __BILLINGMGRJP2_H__
 #define	__BILLINGMGRJP2_H__
 
 #include "BillingMgr.h"

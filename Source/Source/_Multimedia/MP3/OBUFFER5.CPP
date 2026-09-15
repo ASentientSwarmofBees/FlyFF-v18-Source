@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  @(#) obuffer.cc 1.15, last edit: 6/23/94 13:04:36
  *  @(#) Copyright (C) 1993, 1994 Tobias Bading (bading@cs.tu-berlin.de)
  *  @(#) Berlin University of Technology

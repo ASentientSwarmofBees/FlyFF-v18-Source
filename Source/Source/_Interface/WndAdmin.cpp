@@ -1,14 +1,14 @@
-// WndArcane.cpp: implementation of the CWndNeuz class.
+ï»¿// WndArcane.cpp: implementation of the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
 #include "defineText.h"
 
-#include "WndAdmin.h"        // ¿î¿µÀÚ ¸Å´º 
+#include "WndAdmin.h"        // ìš´ì˜ì ë§¤ë‰´ 
 
 /////////////////////////////////////////////////////////////////////////////////////
-// Ä¸Ãç À©µµ 
+// ìº¡ì¶° ìœˆë„ 
 /////////////////////////////////////////////////////////////////////////////////////
 
 CWndAdmin::CWndAdmin()
@@ -34,15 +34,15 @@ void CWndAdmin::OnInitialUpdate()
 	WTCITEM tabTabItem;
 
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_APP_CHARACTER_BASE);//"±âº»";
+	tabTabItem.pszText = prj.GetText(TID_APP_CHARACTER_BASE);//"ê¸°ë³¸";
 	tabTabItem.pWndBase = &m_wndStateBase;
 	m_wndTabCtrl.InsertItem( 0, &tabTabItem );
 
-	tabTabItem.pszText = prj.GetText(TID_APP_CHARACTER_DETAIL);//"ÀÚ¼¼È÷";
+	tabTabItem.pszText = prj.GetText(TID_APP_CHARACTER_DETAIL);//"ìì„¸íˆ";
 	tabTabItem.pWndBase = &m_wndStateDetail;
 	m_wndTabCtrl.InsertItem( 1, &tabTabItem );
 
-	tabTabItem.pszText = prj.GetText(TID_APP_CHARACTER_JOB);//"Á÷¾÷";
+	tabTabItem.pszText = prj.GetText(TID_APP_CHARACTER_JOB);//"ì§ì—…";
 	tabTabItem.pWndBase = &m_wndJob;
 	m_wndTabCtrl.InsertItem( 2, &tabTabItem );
 
@@ -133,7 +133,7 @@ BOOL CWndAdmin::Initialize(CWndBase* pWndParent,DWORD dwWndId)
 {
 //	CRect rect(0,0,280,190);
 	CRect rect(0,0,280,270);
-	SetTitle("µğ¹ö±× Á¤º¸");
+	SetTitle("ë””ë²„ê·¸ ì •ë³´");
 	return CWndNeuz::Create( WBS_MOVE|WBS_SOUND|WBS_CAPTION|WBS_EXTENSION, rect, &g_WndMng, dwWndId);
 }
 BOOL CWndAdmin::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)

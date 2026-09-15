@@ -1,4 +1,4 @@
-// AccountMgr.cpp: implementation of the CAccountMgr class.
+ï»¿// AccountMgr.cpp: implementation of the CAccountMgr class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -35,7 +35,7 @@ ACCOUNT_CHECK CAccountMgr::Check( DWORD dwIP )
 {
 	time_t	tmCur = time( NULL );
 
-	// Ä³½¬¿¡¼­ Ã£´Â´Ù.
+	// ìºì‰¬ì—ì„œ ì°¾ëŠ”ë‹¤.
 	list< ACCOUNT_CACHE* >::iterator it;
 	for( it = m_cache.begin(); it != m_cache.end(); ++it )
 	{
@@ -58,19 +58,19 @@ ACCOUNT_CHECK CAccountMgr::Check( DWORD dwIP )
 			}
 
 			m_cache.erase( it );
-			m_cache.push_front( pInfo );		// »ç¿ëµÈ °ÍÀº ¾ÕÀ¸·Î 
+			m_cache.push_front( pInfo );		// ì‚¬ìš©ëœ ê²ƒì€ ì•ìœ¼ë¡œ 
 			return result;
 		}
 	}
 	
-	// MAXº¸´Ù Å©¸é - LRU¸¦ Àç»ç¿ë 
-	//     or       - new·Î ³Ö´Â´Ù. 
+	// MAXë³´ë‹¤ í¬ë©´ - LRUë¥¼ ì¬ì‚¬ìš© 
+	//     or       - newë¡œ ë„£ëŠ”ë‹¤. 
 	ACCOUNT_CACHE* pInfo = NULL; 
 	if( m_cache.size() < 3 )
 		pInfo = new ACCOUNT_CACHE;
 	else
 	{
-		pInfo = m_cache.back();					// °¡Àå ´ú »ç¿ëµÈ °ÍÀº ¸Ç µÚ¿¡ ³²¾Æ ÀÖ´Ù.
+		pInfo = m_cache.back();					// ê°€ì¥ ëœ ì‚¬ìš©ëœ ê²ƒì€ ë§¨ ë’¤ì— ë‚¨ì•„ ìˆë‹¤.
 		m_cache.pop_back();
 	}
 

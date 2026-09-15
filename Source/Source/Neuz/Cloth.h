@@ -1,4 +1,4 @@
-// Cloth.h: interface for the CCloth class.
+﻿// Cloth.h: interface for the CCloth class.
 //
 //////////////////////////////////////////////////////////////////////
 #ifndef __CLOTH_H

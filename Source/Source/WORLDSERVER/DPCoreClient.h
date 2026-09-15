@@ -1,4 +1,4 @@
-#ifndef __DPCORECLIENT_H__
+ï»¿#ifndef __DPCORECLIENT_H__
 #define __DPCORECLIENT_H__
 
 #include "DPMng.h"
@@ -66,11 +66,11 @@ public:
 	void	SendShout( CUser* pUser, const CHAR* lpString );
 	void	SendPartyChat( CUser* pUser, const CHAR* lpString );
 
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	void	SendUserPartySkill( u_long uidPlayer, int nMode, DWORD dwSkillTime, int nRemovePoint , int nCachMode );
-#else	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	void	SendUserPartySkill( u_long uidPlayer, int nMode, DWORD dwSkillTime, int nRemovePoint );
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 	void	SendGMSay( u_long idPlayer, DWORD dwWorldID, const CHAR* lpString );
 	void	SendPlayMusic( DWORD dwWorldID, u_long idmusic );
@@ -99,11 +99,11 @@ public:
 #endif	// __SYS_PLAYER_DATA
 	void	SendPartyLevel( CUser* pUser, DWORD dwLevel, DWORD dwPoint, DWORD dwExp );
 	void	SendPartyMemberFlightLevel( CUser* pUser );
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	void	SendAddPartyExp( u_long uPartyId, int nMonLv, BOOL bSuperLeader , BOOL bLeaderSMExpUp );
-#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	void	SendAddPartyExp( u_long uPartyId, int nMonLv, BOOL bSuperLeader );
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 
 	void	SendRemovePartyPoint( u_long uPartyId, int nRemovePoint );
 	void	SendGameRate( FLOAT fRate, BYTE nFlag );

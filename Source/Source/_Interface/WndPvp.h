@@ -1,4 +1,4 @@
-#ifndef __WNDPVP__H
+﻿#ifndef __WNDPVP__H
 #define __WNDPVP__H
 
 class CWndPvp : public CWndNeuz 

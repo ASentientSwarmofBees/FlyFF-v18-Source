@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Shader.h"
 
 
@@ -20,7 +20,7 @@ void CShader::Init( void )
 
 void CShader::Destroy( void )
 {
-	// ÀÌ°÷¿¡ ÆÄ±« ÄÚµå¸¦ ³ÖÀ¸½Ã¿À.
+	// ì´ê³³ì— íŒŒê´´ ì½”ë“œë¥¼ ë„£ìœ¼ì‹œì˜¤.
 	DeleteDeviceObjects();
 	Init();
 }
@@ -43,14 +43,14 @@ HRESULT CShader::LoadEffect( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR szFileName )
 #ifdef _DEBUG
     if(FAILED(hr = D3DXCreateEffectFromFile( D3DDEVICE, szFileName, NULL, NULL, 0, NULL, &pEffect, NULL )))
 	{
-		Error( "CShader::LoadEffect : %s »ı¼º ½ÇÆĞ", szFileName );
+		Error( "CShader::LoadEffect : %s ìƒì„± ì‹¤íŒ¨", szFileName );
         return hr;
 	}
 #else
 
 	if(FAILED(hr = D3DXCreateEffectFromResource( D3DDEVICE, NULL, MAKEINTRESOURCE(IDR_DATA2), NULL, NULL, 0, NULL, &pEffect, NULL )))
 	{
-		Error( "CShader::LoadEffect : %s »ı¼º ½ÇÆĞ", szFileName );
+		Error( "CShader::LoadEffect : %s ìƒì„± ì‹¤íŒ¨", szFileName );
 		return hr;
 	}
 #endif

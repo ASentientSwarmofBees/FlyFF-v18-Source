@@ -1,4 +1,4 @@
-#ifndef __PARTYQUEST_H__
+﻿#ifndef __PARTYQUEST_H__
 #define	__PARTYQUEST_H__
 
 #pragma once

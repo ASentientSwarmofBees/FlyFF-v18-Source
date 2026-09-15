@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "resData.h"
 #include "WndInvenRemoveItem.h"
 #include "defineText.h"
@@ -7,10 +7,10 @@ extern	CDPClient	g_DPlay;
 
 
 /****************************************************
-  WndId : APP_INVEN_REMOVE_ITEM - ¾ÆÀÌÅÛ »èÁ¦ È®ÀÎ
-  CtrlId : WIDC_STATIC1 - ¾ÆÀÌÅÛÀ» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?
+  WndId : APP_INVEN_REMOVE_ITEM - ì•„ì´í…œ ì‚­ì œ í™•ì¸
+  CtrlId : WIDC_STATIC1 - ì•„ì´í…œì„ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?
   CtrlId : WIDC_CUSTOM1 - Custom
-  CtrlId : WIDC_STATIC2 - °³ ¼ö
+  CtrlId : WIDC_STATIC2 - ê°œ ìˆ˜
   CtrlId : WIDC_EDIT1 - Edit
   CtrlId : WIDC_OK - Button
   CtrlId : WIDC_CANCEL - Button
@@ -50,25 +50,25 @@ void CWndInvenRemoveItem::OnDraw( C2DRender* p2DRender )
 void CWndInvenRemoveItem::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	m_pWndItemCtrl = GetWndCtrl( WIDC_CUSTOM1 );
 	m_pWndEditNum = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndInvenRemoveItem::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_INVEN_REMOVE_ITEM, WBS_MODAL, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndInvenRemoveItem::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -143,7 +143,7 @@ BOOL CWndInvenRemoveItem::OnButtonOK( void )
 	LPCTSTR szNumber = m_pWndEditNum->GetString();
 	BOOL bOK = TRUE;
 
-	// ¼ıÀÚ °Ë»ç
+	// ìˆ«ì ê²€ì‚¬
 	int nlen = strlen(szNumber);
 	for( int i = 0 ; i < nlen ; i++ )
 	{
@@ -154,7 +154,7 @@ BOOL CWndInvenRemoveItem::OnButtonOK( void )
 		}
 	}
 	
-	// »èÁ¦ÇÒ¼ö °³¼ö ÀÎÁö °Ë»ç
+	// ì‚­ì œí• ìˆ˜ ê°œìˆ˜ ì¸ì§€ ê²€ì‚¬
 	if( bOK )
 	{
 		int nNum = atoi( m_pWndEditNum->GetString() );

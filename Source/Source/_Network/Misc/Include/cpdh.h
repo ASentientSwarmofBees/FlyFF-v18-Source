@@ -1,4 +1,4 @@
-#ifndef __CPDH_H__
+﻿#ifndef __CPDH_H__
 #define	__CPDH_H__
 
 #include <pdh.h>

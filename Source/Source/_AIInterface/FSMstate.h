@@ -1,11 +1,11 @@
-#ifndef __FSMSTATE_H__ 
+ï»¿#ifndef __FSMSTATE_H__ 
 #define __FSMSTATE_H__ 
 
 struct FSM_STATE
 {
 	int		nInput;
 	int		nOutput;
-	DWORD	dwExtra;						// ½ºÅ©¸³Æ®¿¡¼­ ÀĞÀº ¹ü¿ë µ¥ÀÌÅ¸
+	DWORD	dwExtra;						// ìŠ¤í¬ë¦½íŠ¸ì—ì„œ ì½ì€ ë²”ìš© ë°ì´íƒ€
 };
 
 class CFSMstate  
@@ -13,7 +13,7 @@ class CFSMstate
 private:
 	vector< FSM_STATE* >	m_array;
 	int						m_nStateID;						
-	int						m_nPolling;						// ÁÖ±âÀû °Ë»ç °¹¼ö 
+	int						m_nPolling;						// ì£¼ê¸°ì  ê²€ì‚¬ ê°¯ìˆ˜ 
 
 public:
 	CFSMstate( int nStateID );

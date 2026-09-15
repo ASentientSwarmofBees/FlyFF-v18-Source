@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "defineSound.h"
 
@@ -700,20 +700,20 @@ void CDPClient::OnSnapshot( CAr & ar )
 			case SNAPSHOTTYPE_GC1TO1_WARRESULT: OnGC1to1WarResult( ar ); break;
 #endif // __GUILD_COMBAT_1TO1
 	
-#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
 			case SNAPSHOTTYPE_GUILDLOG_VIEW: OnGuildBankLogList( ar ); break;
-#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 			case SNAPSHOTTYPE_SEALCHAR_REQ: OnSealChar( ar ); break;
 			case SNAPSHOTTYPE_SEALCHARGET_REQ: OnSealCharGet( ar ); break;
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 			case SNAPSHOTTYPE_REMOVESFXOBJ:		OnRemoveSfxObj( objid, ar );	break;
-#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 			case SNAPSHOTTYPE_HONOR_LIST_ACK: OnHonorListAck( ar ); break;
 			case SNAPSHOTTYPE_HONOR_CHANGE_ACK: OnHonorChangeAck( objid,ar ); break;
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 #ifdef __EVENTLUA_COUPON
 			case SNAPSHOTTYPE_EVENT_COUPON: OnEventCoupon( ar ); break;
 #endif // __EVENTLUA_COUPON
@@ -731,29 +731,29 @@ void CDPClient::OnSnapshot( CAr & ar )
 			case SNAPSHOTTYPE_TAX_SETTAXRATE_OPENWND : OnTaxSetTaxRateOpenWnd( ar ); break;
 #endif // __TAX
 #if __VER >= 12 // __LORD
-			// ±ºÁÖ ÀÔÂû °á°ú °»½Å
+			// êµ°ì£¼ ì…ì°° ê²°ê³¼ ê°±ì‹ 
 			case SNAPSHOTTYPE_ELECTION_ADD_DEPOSIT:	OnElectionAddDeposit( ar );		break;
-			// °ø¾à ¼³Á¤ °á°ú °»½Å
+			// ê³µì•½ ì„¤ì • ê²°ê³¼ ê°±ì‹ 
 			case SNAPSHOTTYPE_ELECTION_SET_PLEDGE:	OnElectionSetPledge( ar );	break;
-			// ÅõÇ¥ °á°ú °»½Å
+			// íˆ¬í‘œ ê²°ê³¼ ê°±ì‹ 
 			case SNAPSHOTTYPE_ELECTION_INC_VOTE:	OnElectionIncVote( ar );	break;
-			// ÀÔÈÄº¸ ½ÃÀÛ »óÅÂ·Î º¯°æ
+			// ì…í›„ë³´ ì‹œì‘ ìƒíƒœë¡œ ë³€ê²½
 			case SNAPSHOTTYPE_ELECTION_BEGIN_CANDIDACY:		OnElectionBeginCandidacy( ar );		break;
-			// ÅõÇ¥ ½ÃÀÛ »óÅÂ·Î º¯°æ
+			// íˆ¬í‘œ ì‹œì‘ ìƒíƒœë¡œ ë³€ê²½
 			case SNAPSHOTTYPE_ELECTION_BEGIN_VOTE:		OnElectionBeginVote( ar );		break;
-			// ÅõÇ¥ Á¾·á »óÅÂ·Î º¯°æ
+			// íˆ¬í‘œ ì¢…ë£Œ ìƒíƒœë¡œ ë³€ê²½
 			case SNAPSHOTTYPE_ELECTION_END_VOTE:	OnElectionEndVote( ar );	break;
-			// ±ºÁÖ ½Ã½ºÅÛ Á¤º¸¸¦ ¼ö½ÅÇÏ¿© º¹¿ø
+			// êµ°ì£¼ ì‹œìŠ¤í…œ ì •ë³´ë¥¼ ìˆ˜ì‹ í•˜ì—¬ ë³µì›
 			case SNAPSHOTTYPE_LORD:	OnLord( ar );	break;
-			// ±ºÁÖ ÀÌº¥Æ® ½ÃÀÛ Ã³¸®
+			// êµ°ì£¼ ì´ë²¤íŠ¸ ì‹œì‘ ì²˜ë¦¬
 			case SNAPSHOTTYPE_L_EVENT_CREATE:	OnLEventCreate( ar );	break;
-			// ±ºÁÖ ÀÌº¥Æ® ÃÊ±âÈ­ Ã³¸®
+			// êµ°ì£¼ ì´ë²¤íŠ¸ ì´ˆê¸°í™” ì²˜ë¦¬
 			case SNAPSHOTTYPE_L_EVENT_INITIALIZE:	OnLEventInitialize( ar );	break;
-			// ±ºÁÖ ½ºÅ³ Àç»ç¿ë ´ë±â ½Ã°£ Ã³¸®
+			// êµ°ì£¼ ìŠ¤í‚¬ ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ ì²˜ë¦¬
 			case SNAPSHOTTYPE_LORD_SKILL_TICK:	OnLordSkillTick( ar );	break;
-			// ±ºÁÖ ÀÌº¥Æ® Áö¼Ó ½Ã°£ Ã³¸®
+			// êµ°ì£¼ ì´ë²¤íŠ¸ ì§€ì† ì‹œê°„ ì²˜ë¦¬
 			case SNAPSHOTTYPE_L_EVENT_TICK:		OnLEventTick( ar );	break;
-			// ±ºÁÖ ½ºÅ³ »ç¿ë
+			// êµ°ì£¼ ìŠ¤í‚¬ ì‚¬ìš©
 			case SNAPSHOTTYPE_LORD_SKILL_USE:	OnLordSkillUse( objid, ar );	break;
 #endif	// __LORD
 #if __VER >= 12 // __MOD_TUTORIAL
@@ -792,9 +792,9 @@ void CDPClient::OnSnapshot( CAr & ar )
 #endif	// __COUPLE_1202
 #endif	// __COUPLE_1117
 
-#ifdef __SPEED_SYNC_0108		// ResetDestParam speed ¼öÁ¤
+#ifdef __SPEED_SYNC_0108		// ResetDestParam speed ìˆ˜ì •
 			case SNAPSHOTTYPE_RESETDESTPARAM_SYNC:	OnResetDestParamSync( objid,ar );	break;
-#endif // __SPEED_SYNC_0108		// ResetDestParam speed ¼öÁ¤
+#endif // __SPEED_SYNC_0108		// ResetDestParam speed ìˆ˜ì •
 #if __VER >= 14 // __PCBANG
 			case SNAPSHOTTYPE_PCBANG_INFO:	OnPCBangInfo( ar ); break;
 #endif // __PCBANG
@@ -883,7 +883,7 @@ void CDPClient::OnJoin( CAr & ar )
 {
 	CNetwork::GetInstance().OnEvent( CACHE_ACK_JOIN );
 	
-	// ata2k - (2)½Ã°£ ÇØÁ¦
+	// ata2k - (2)ì‹œê°„ í•´ì œ
 	g_Neuz.m_dwTimeOutDis = 0xffffffff;
 
 	CWndBase* pWndBase	= g_WndMng.GetWndBase( APP_SELECT_CHAR );
@@ -1023,7 +1023,7 @@ void CDPClient::OnError( CAr & ar )
 
 	switch( m_lError )
 	{
-	case ERROR_INVALID_CLOCK:	// ºñÁ¤»óÀûÀÎ Å¬·°ÀÌ °¨Áö
+	case ERROR_INVALID_CLOCK:	// ë¹„ì •ìƒì ì¸ í´ëŸ­ì´ ê°ì§€
 		{
 			g_dpLoginClient.Destroy( TRUE );
 			s_f		= TRUE;
@@ -1045,7 +1045,7 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 	dwObjType	= 0;
 	ar >> (BYTE &)dwObjType >> dwObjIndex;
 
-	//gmpbigsun(100421) test: dwObjIndex°¡ ¿ìÃ¼ÅëÀÌ¸é ÆĞÅ¶ SerializeÈÄ return!!!
+	//gmpbigsun(100421) test: dwObjIndexê°€ ìš°ì²´í†µì´ë©´ íŒ¨í‚· Serializeí›„ return!!!
 #ifdef __BS_NO_CREATION_POST
 	if( MI_POSTBOX == dwObjIndex  )
 	{
@@ -1264,12 +1264,12 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 #endif // __WING_ITEM
 				pPlayer->SetRide( pModel, pPlayer->GetRideItemIdx() );
 				
-				ItemProp *pItemProp = prj.GetItemProp( pPlayer->GetRideItemIdx() );	// ºøÀÚ·ç ÇÁ·ÎÆÛÆ¼.
+				ItemProp *pItemProp = prj.GetItemProp( pPlayer->GetRideItemIdx() );	// ë¹—ìë£¨ í”„ë¡œí¼í‹°.
 				if( pItemProp )
 				{
-					if( pPlayer->m_nFuel == -1 )		// ÃÊ±â°ªÀÌ¸é
-						pPlayer->m_nFuel = (int)(pItemProp->dwFFuelReMax * 0.2f);	// ºøÀÚ·ç ÃÖ´ë ¿¬·á·®À» ¼¼ÆÃ.
-					// -1ÀÏ¶§¸¸ ¼¼ÆÃÇØ¾ßÁö ¿¬·á¸¦ ¹İÂë ¾²´Ù°¡ ºøÀÚ·ç¸¦ ¹Ù²ãµµ »õ·Î ¼¼ÆÃ µÇÁö ¾Ê´Â´Ù.
+					if( pPlayer->m_nFuel == -1 )		// ì´ˆê¸°ê°’ì´ë©´
+						pPlayer->m_nFuel = (int)(pItemProp->dwFFuelReMax * 0.2f);	// ë¹—ìë£¨ ìµœëŒ€ ì—°ë£ŒëŸ‰ì„ ì„¸íŒ….
+					// -1ì¼ë•Œë§Œ ì„¸íŒ…í•´ì•¼ì§€ ì—°ë£Œë¥¼ ë°˜ì¯¤ ì“°ë‹¤ê°€ ë¹—ìë£¨ë¥¼ ë°”ê¿”ë„ ìƒˆë¡œ ì„¸íŒ… ë˜ì§€ ì•ŠëŠ”ë‹¤.
 				}
 			}
 			pPlayer->InitMotion( pPlayer->m_dwMotion );	
@@ -1301,7 +1301,7 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 		{
 			CtrlProp* pProp = ( CtrlProp* )pObj->GetProp( );
 
-			if( pProp && pProp->IsGuildHousingObj( ) )		//gmpbigsun : ±æµå ÇÏ¿ì½º ¿ÀºêÁ§Æ®´Â ¾Ö´Ï¸ŞÀÌ¼Ç µ¹¸² 
+			if( pProp && pProp->IsGuildHousingObj( ) )		//gmpbigsun : ê¸¸ë“œ í•˜ìš°ìŠ¤ ì˜¤ë¸Œì íŠ¸ëŠ” ì• ë‹ˆë©”ì´ì…˜ ëŒë¦¼ 
 			{
 				CModel* pModel = (CModel*)pObj->GetModel();
 				assert( pModel );
@@ -1348,7 +1348,7 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 				pMover->m_nDuel = 2;
 				pMover->m_idDuelParty = g_Party.m_uPartyId;
 			}
-#if __VER >= 8		// 8Â÷ µà¾ó
+#if __VER >= 8		// 8ì°¨ ë“€ì–¼
 			if( g_pPlayer->m_nDuel && g_pPlayer->m_nDuel &&	g_pPlayer->m_idDuelOther == pMover->GetId() )
 			{
 				pMover->RenderFlag( ENEMY_PVP );
@@ -1401,10 +1401,10 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 		{
 			CWorld *pWorld = g_WorldMng.Get();
 			D3DXVECTOR3 vPos = pObj->GetPos();
-			D3DXVECTOR3 vPosOrig = vPos;			// ¿À¸®Áö³¯ ÁÂÇ¥
-			// Ë¬ // 12-3: µå·ÓµÈ ¾ÆÀÌÅÛÀÌ ¿ÀºêÁ§Æ® ¹Ø¿¡ ¹¯È÷Áö ¾Êµµ·Ï ¼öÁ¤
+			D3DXVECTOR3 vPosOrig = vPos;			// ì˜¤ë¦¬ì§€ë‚  ì¢Œí‘œ
+			// åº· // 12-3: ë“œë¡­ëœ ì•„ì´í…œì´ ì˜¤ë¸Œì íŠ¸ ë°‘ì— ë¬»íˆì§€ ì•Šë„ë¡ ìˆ˜ì •
 //			vPos.y += 0.5f;
-//			FLOAT fGroundY = pWorld->GetUnderHeight( vPos );		// ¾ÆÀÌÅÛÀÌ »ı¼ºµÈ °÷ÀÇ ÁÂÇ¥ÀÇ ³ôÀÌ ±¸ÇÔ.
+//			FLOAT fGroundY = pWorld->GetUnderHeight( vPos );		// ì•„ì´í…œì´ ìƒì„±ëœ ê³³ì˜ ì¢Œí‘œì˜ ë†’ì´ êµ¬í•¨.
 			vPos.y	+= 1.5f;
 			FLOAT fGroundY = pWorld->GetItemHeight( vPos );
 
@@ -1422,8 +1422,8 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 
 			}
 			
-			// Áö¸éÀÇ ³ôÀÌ¿Í »ı¼ºµÈ ¾ÆÀÌÅÛÀÇ ³ôÀÌÂ÷°¡ 1¹ÌÅÍ ÀÌÇÏÀÏ¶§¸¸ ¶³¾îÁö´Â È¿°ú
-			// °øÁß¿¡¼­ »ı¼ºµÈ ¾ÆÀÌÅÛÀº ÇØ´ç¾ÈµÈ´Ù. ºñÇà¸÷ Á×¿´À»¶§ ³ª¿À´Â ¾ÆÀÌÅÛ °°Àº.
+			// ì§€ë©´ì˜ ë†’ì´ì™€ ìƒì„±ëœ ì•„ì´í…œì˜ ë†’ì´ì°¨ê°€ 1ë¯¸í„° ì´í•˜ì¼ë•Œë§Œ ë–¨ì–´ì§€ëŠ” íš¨ê³¼
+			// ê³µì¤‘ì—ì„œ ìƒì„±ëœ ì•„ì´í…œì€ í•´ë‹¹ì•ˆëœë‹¤. ë¹„í–‰ëª¹ ì£½ì˜€ì„ë•Œ ë‚˜ì˜¤ëŠ” ì•„ì´í…œ ê°™ì€.
 			if( fabs(fGroundY - vPosOrig.y) < 1.0f )	
 			{
 				pObj->SetPos( vPos );
@@ -1455,7 +1455,7 @@ void CDPClient::OnChat( OBJID objid, CAr & ar )
 				return;
 		}
 #endif // __YS_CHATTING_BLOCKING_SYSTEM
-		// ¸»ÇÏ´Â¾Ö°¡ ±æµåÄÄ¹î ¸Ê¿¡¼­ ÀÌ¾ß±â¸¦ Çß´Ù¸é...°Ë»çÇØ¼­...¹«½ÃÇÑ´Ù..-_-
+		// ë§í•˜ëŠ”ì• ê°€ ê¸¸ë“œì»´ë±ƒ ë§µì—ì„œ ì´ì•¼ê¸°ë¥¼ í–ˆë‹¤ë©´...ê²€ì‚¬í•´ì„œ...ë¬´ì‹œí•œë‹¤..-_-
 		if( IsValidObj( pMover ) && pMover->GetWorld() && pMover->GetWorld()->GetID() == WI_WORLD_GUILDWAR )
 		{
 			if( pMover->IsMode(GCWAR_RENDER_SKIP_MODE) )
@@ -1490,9 +1490,9 @@ void CDPClient::OnEventMessage( OBJID objid, CAr & ar )
 
 		switch( nFlag )
 		{
-		case 0: // ²Î ÀÌº¥Æ® »óÇ°±Ç
+		case 0: // ê½ ì´ë²¤íŠ¸ ìƒí’ˆê¶Œ
 			{
-				CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_FAIL, vPos);	// ÀÌº¥Æ® ²Î ÀÌÆåÆ®.
+				CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_FAIL, vPos);	// ì´ë²¤íŠ¸ ê½ ì´í™íŠ¸.
 				if( pSfx )
 					pSfx->SetScale( D3DXVECTOR3(1.0f, 1.0f, 1.0f) );
 			}
@@ -1503,28 +1503,28 @@ void CDPClient::OnEventMessage( OBJID objid, CAr & ar )
 				switch( dwItemID )
 				{
 				case II_SYS_SYS_EVE_0504M1NOTEBOOK:
-					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_NOTEBOOK, vPos );	// ÀÌº¥Æ® ÀÌÆåÆ®.
+					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_NOTEBOOK, vPos );	// ì´ë²¤íŠ¸ ì´í™íŠ¸.
 					break;
 				case II_SYS_SYS_EVE_0504M2DCAMARA:
-					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_DCAMARA, vPos );	// ÀÌº¥Æ® ÀÌÆåÆ®.
+					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_DCAMARA, vPos );	// ì´ë²¤íŠ¸ ì´í™íŠ¸.
 					break;
 				case II_SYS_SYS_EVE_0504M3AIRSHIP:
-					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_AIRSHIP, vPos );	// ÀÌº¥Æ® ÀÌÆåÆ®.
+					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_AIRSHIP, vPos );	// ì´ë²¤íŠ¸ ì´í™íŠ¸.
 					break;
 				case II_SYS_SYS_EVE_0504M4USBFANLIGHT:
-					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_USBFANLIGHT, vPos );	// ÀÌº¥Æ® ÀÌÆåÆ®.
+					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_USBFANLIGHT, vPos );	// ì´ë²¤íŠ¸ ì´í™íŠ¸.
 					break;
 				case II_SYS_SYS_EVE_0504M5BALLOON:
-					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_BALLOON, vPos );	// ÀÌº¥Æ® ÀÌÆåÆ®.
+					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_BALLOON, vPos );	// ì´ë²¤íŠ¸ ì´í™íŠ¸.
 					break;
 				case II_SYS_SYS_EVE_0504M6GIFTTICKET:
-					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_GIFTTICKET, vPos );	// ÀÌº¥Æ® ÀÌÆåÆ®.
+					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_GIFTTICKET, vPos );	// ì´ë²¤íŠ¸ ì´í™íŠ¸.
 					break;
 				case II_SYS_SYS_EVE_0504M7MOVIETICKET:
-					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_MOVIETICKET, vPos );	// ÀÌº¥Æ® ÀÌÆåÆ®.
+					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_MOVIETICKET, vPos );	// ì´ë²¤íŠ¸ ì´í™íŠ¸.
 					break;
 				case II_SYS_SYS_EVE_0504M8OST:
-					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_OST, vPos );	// ÀÌº¥Æ® ÀÌÆåÆ®.
+					pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_OST, vPos );	// ì´ë²¤íŠ¸ ì´í™íŠ¸.
 					break;
 				default:
 					break;
@@ -1537,18 +1537,18 @@ void CDPClient::OnEventMessage( OBJID objid, CAr & ar )
 					g_WndMng.PutString( strString, NULL, 0xff0000 );
 			}
 			break;
-		case 2:		// È¹µæ ÀÌº¥Æ® ¾ÆÀÌÅÛ
+		case 2:		// íšë“ ì´ë²¤íŠ¸ ì•„ì´í…œ
 			{
 				g_WndMng.PutString( strString, pMover, 0xffffffff );
 				if( g_pPlayer == pMover )
 				{
-					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_WIN, vPos);	// ÀÌº¥Æ® ²Î ÀÌÆåÆ®.
+					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, XI_EVE_EVENT_WIN, vPos);	// ì´ë²¤íŠ¸ ê½ ì´í™íŠ¸.
 					if( pSfx )
 						pSfx->SetScale( D3DXVECTOR3(1.0f, 1.0f, 1.0f) );
 				}
 			}
 			break;
-		case 3:		// ¾ÆÀÌµ© Ãß°¡½Ã ½ÇÆĞ
+		case 3:		// ì•„ì´ë€ ì¶”ê°€ì‹œ ì‹¤íŒ¨
 			{
 				if( g_pPlayer == pMover )
 					g_WndMng.PutString( prj.GetText( TID_GAME_LACKSPACE ), NULL, prj.GetTextColor( TID_GAME_LACKSPACE ) ); //0xff0000 );
@@ -1604,7 +1604,7 @@ void CDPClient::OnAllAction( CAr & ar )
 	{
 		if( bCharacter )
 		{
-			// Ä³¸¯ÅÍ ÀÌ¸§ º¯°æ
+			// ìºë¦­í„° ì´ë¦„ ë³€ê²½
 			if( !g_WndMng.m_pWndChangeName )
 			{
 				g_WndMng.m_pWndChangeName		= new CWndChangeName;
@@ -1687,7 +1687,7 @@ void CDPClient::OnRemoveObj( OBJID objid )
 			}
 		}
 		
-		if( pCtrl == g_pShip )	// ÀÌ ·çÆ¾Àº ¸øÅ»¼ö ÀÖ´Ù±¸ÇÔ - Çö¹Î¾¾°¡...
+		if( pCtrl == g_pShip )	// ì´ ë£¨í‹´ì€ ëª»íƒˆìˆ˜ ìˆë‹¤êµ¬í•¨ - í˜„ë¯¼ì”¨ê°€...
 		{
 			g_pShip	= NULL;
 		}
@@ -1729,14 +1729,14 @@ void CDPClient::OnShipActMsg( OBJID objid, CAr & ar )
 	CMover* pMover	= prj.GetMover( objid );
 	if( IsValidObj( pMover ) )
 	{
-		CShip *pShip = prj.GetShip( idShip );		// pMover°¡ Å¸°í ÀÖ´Â ¹è.
+		CShip *pShip = prj.GetShip( idShip );		// pMoverê°€ íƒ€ê³  ìˆëŠ” ë°°.
 		if( IsValidObj( pShip ) )
 		{
 			pShip->SendActMsg( (OBJMSG)dwMsg, nParam1, nParam2 );
 		}
 	}
 //		if( idShip != pShip->GetId() )
-//			Error( "OnShipActMsg : ¼­¹ö·ÎºÎÅÍ ¿Â ¹èÀÇ ¾ÆÀÌµğ(%d)¿Í Å¬¶óÀÇ ¾ÆÀÌµğ(%d)°¡ ´Ù¸£´Ù", idShip, pShip->GetId() );
+//			Error( "OnShipActMsg : ì„œë²„ë¡œë¶€í„° ì˜¨ ë°°ì˜ ì•„ì´ë””(%d)ì™€ í´ë¼ì˜ ì•„ì´ë””(%d)ê°€ ë‹¤ë¥´ë‹¤", idShip, pShip->GetId() );
 		
 }
 
@@ -1748,7 +1748,7 @@ void CDPClient::OnDamage( OBJID objid, CAr & ar )
 	DWORD dwAtkFlags;
 	ar >> dwAtkFlags;
 
-	CMover* pMover	= prj.GetMover( objid );	// µ¥¹ÌÁö ¹Ş´Â ´ë»ó.
+	CMover* pMover	= prj.GetMover( objid );	// ë°ë¯¸ì§€ ë°›ëŠ” ëŒ€ìƒ.
 	
 	D3DXVECTOR3 vPos;
 	FLOAT		fAngle;
@@ -1769,12 +1769,12 @@ void CDPClient::OnDamage( OBJID objid, CAr & ar )
 	{
 		pMover->IncHitPoint( (int)( (-1) * (int)( dwHit ) ) );
 //		pMover->SetHitPoint( -dwHit );
-		if( pMover->m_nHitPoint == 0 )		// hp°¡ ºñµ¿±â ³­°Å°°´Ù.  Á×¾úÀ»¶© ÀÌ¸®·Î ³¯¾Æ¿ÀÁö ¾Ê´Â´Ù ¿ø·¡.
-			pMover->m_nHitPoint = 1;		// ±×·¡¼­ ÀÏ´Ü 1·Î ÇØÁÜ.
-		if( pMover->m_pActMover->IsSit() )		// ¾É¾ÆÀÖ´Ù°¡ ¸ÂÀ¸¸é ¾É±âÇØÁ¦ ÇÑ´Ù.
+		if( pMover->m_nHitPoint == 0 )		// hpê°€ ë¹„ë™ê¸° ë‚œê±°ê°™ë‹¤.  ì£½ì—ˆì„ë• ì´ë¦¬ë¡œ ë‚ ì•„ì˜¤ì§€ ì•ŠëŠ”ë‹¤ ì›ë˜.
+			pMover->m_nHitPoint = 1;		// ê·¸ë˜ì„œ ì¼ë‹¨ 1ë¡œ í•´ì¤Œ.
+		if( pMover->m_pActMover->IsSit() )		// ì•‰ì•„ìˆë‹¤ê°€ ë§ìœ¼ë©´ ì•‰ê¸°í•´ì œ í•œë‹¤.
 			pMover->m_pActMover->ResetState( OBJSTA_MOVE_ALL );
 		
-		// ¸Â´Â³ğÀÌ ÇÃ·¹ÀÌ¾î°Å³ª / ¶§¸®´Â³ğÀÌ ÇÃ·¹ÀÌ¾îÀÏ¶§¸¸ µ¥¹ÌÁöÁ¤º¸¸¦ º¸¿©ÁÜ.
+		// ë§ëŠ”ë†ˆì´ í”Œë ˆì´ì–´ê±°ë‚˜ / ë•Œë¦¬ëŠ”ë†ˆì´ í”Œë ˆì´ì–´ì¼ë•Œë§Œ ë°ë¯¸ì§€ì •ë³´ë¥¼ ë³´ì—¬ì¤Œ.
 		CObj* pObj = g_pPlayer->GetWorld()->GetObjFocus();
 
 		if( pMover->IsActiveMover() )
@@ -1797,10 +1797,10 @@ void CDPClient::OnDamage( OBJID objid, CAr & ar )
 			goto g_PASS;
 //			return;
 		
-		// ¿É¼Ç¿¡¼­ ¸ğµçµ¥¹ÌÁö Ç¥½ÃÃ¼Å©°¡ µÇ¾ú´Ù¸é 
+		// ì˜µì…˜ì—ì„œ ëª¨ë“ ë°ë¯¸ì§€ í‘œì‹œì²´í¬ê°€ ë˜ì—ˆë‹¤ë©´ 
 		if( g_Option.m_bDamageRender )
 		{
-			// ¹İ°æ 30¹ÌÅÍ¾È¿¡ ÀÖ´Â ³Ñµé¸¸ Ç¥½Ã
+			// ë°˜ê²½ 30ë¯¸í„°ì•ˆì— ìˆëŠ” ë„˜ë“¤ë§Œ í‘œì‹œ
 			if( g_pPlayer->IsRangeObj( pMover->GetPos(), 30 ) )
 				goto g_PASS;
 		}
@@ -1818,14 +1818,14 @@ void CDPClient::OnDamage( OBJID objid, CAr & ar )
 		if( pMover->IsActiveMover() || ( pAttacker->GetType() == OT_MOVER && ((CMover *)pAttacker)->IsActiveMover() ) ) 
 		{
 g_PASS:
-			// ½ÃÀüÁßÀÌ¶ó¸é Äµ½½½ÃÅ´
+			// ì‹œì „ì¤‘ì´ë¼ë©´ ìº”ìŠ¬ì‹œí‚´
 			if( g_pPlayer->IsStateMode( STATE_BASEMOTION_MODE ) && ( pMover == g_pPlayer || pAttacker == g_pPlayer ) )
 			{
 				SendStateModeCancel( STATE_BASEMOTION_MODE, STATEMODE_BASEMOTION_CANCEL );
 			}
 		
 
-			if( dwAtkFlags & AF_BLOCKING )		// ºí·ÏÀÏ ¶§ 
+			if( dwAtkFlags & AF_BLOCKING )		// ë¸”ë¡ì¼ ë•Œ 
 			{
 				D3DXVECTOR3 vPos = pMover->GetPos();
 				vPos.y += 1.5f;
@@ -1868,7 +1868,7 @@ g_PASS:
 			}
 			else
 			{
-				if( dwAtkFlags & AF_CRITICAL )		// Å©¸®Æ¼ÄÃÀÏ¶§
+				if( dwAtkFlags & AF_CRITICAL )		// í¬ë¦¬í‹°ì»¬ì¼ë•Œ
 				{
 					D3DXVECTOR3 vPos = pMover->GetPos();
 					vPos.y += 1.5f;
@@ -1894,24 +1894,24 @@ g_PASS:
 				
 				if( dwAtkFlags & AF_FLYING )
 				{
-					if( (pMover->m_pActMover->GetState() != OBJSTA_STUN) )			//gmpbigsun: -_-ÀÇ¹Ì¾ø´Â ºñ±³´Ù. 0x01 ´ë±â»óÅÂ°¡ ÄÑÁ®ÀÖ´Â°ÍÀÌ ´ëºÎºĞÀÌ´Ù.
+					if( (pMover->m_pActMover->GetState() != OBJSTA_STUN) )			//gmpbigsun: -_-ì˜ë¯¸ì—†ëŠ” ë¹„êµë‹¤. 0x01 ëŒ€ê¸°ìƒíƒœê°€ ì¼œì ¸ìˆëŠ”ê²ƒì´ ëŒ€ë¶€ë¶„ì´ë‹¤.
 					{
 						pMover->m_pActMover->SetState( OBJSTA_DMG_ALL, OBJSTA_DMG_FLY );
 						pMover->SetMotion( MTI_DMGFLY, ANILOOP_CONT );
 						if( pAttacker )
 						{
-							((CMover *)pAttacker)->m_pActMover->SendActMsg( OBJMSG_STOP );		// ¾îÅÂÄ¿´Â ³¯·Áº¸³½ ÈÄ¿£ ÀÏ´Ü ¼­ÀÚ.
-							pMover->m_pActMover->DoDamageFly( pAttacker->GetAngle(), 145.0f, 0.18f );	// ¾îÅÂÄ¿°¡ º¸´ÂÂÊÀ¸·Î ³¯·Áº¸³¿.
+							((CMover *)pAttacker)->m_pActMover->SendActMsg( OBJMSG_STOP );		// ì–´íƒœì»¤ëŠ” ë‚ ë ¤ë³´ë‚¸ í›„ì—” ì¼ë‹¨ ì„œì.
+							pMover->m_pActMover->DoDamageFly( pAttacker->GetAngle(), 145.0f, 0.18f );	// ì–´íƒœì»¤ê°€ ë³´ëŠ”ìª½ìœ¼ë¡œ ë‚ ë ¤ë³´ëƒ„.
 						}
 					}
 				}
 			} else
-			// ¾îÅÂÄ¿°¡ À¯È¿ÇÏÁö ¾Ê´Ù°í ³ª¿À´Â °æ¿ì ¼­¹ö·Î ÀÌ»ç½ÇÀ» ¾Ë¸².
+			// ì–´íƒœì»¤ê°€ ìœ íš¨í•˜ì§€ ì•Šë‹¤ê³  ë‚˜ì˜¤ëŠ” ê²½ìš° ì„œë²„ë¡œ ì´ì‚¬ì‹¤ì„ ì•Œë¦¼.
 			{
 				if( pMover->IsActiveMover() )
 				{
 					SendError( FE_INVALIDATTACKER, (int)objidAttacker );
-					SendCorrReq( objidAttacker );		// ¾îÅÂÄ¿ÀÇ ÁÂÇ¥¸¦ º¸Á¤ÇÔ.
+					SendCorrReq( objidAttacker );		// ì–´íƒœì»¤ì˜ ì¢Œí‘œë¥¼ ë³´ì •í•¨.
 				}
 			}
 		}
@@ -1957,7 +1957,7 @@ void CDPClient::OnMoverDeath( OBJID objid, CAr & ar )
 		}
 		
 #if __VER >= 8 //__CSC_VER8_5
-		if(pMover->IsPlayer() && pMover->m_pAngelFlag) //»ç¸Á½Ã ¿£Á©°ü·Ã ÃÊ±âÈ­.
+		if(pMover->IsPlayer() && pMover->m_pAngelFlag) //ì‚¬ë§ì‹œ ì—”ì ¤ê´€ë ¨ ì´ˆê¸°í™”.
 		{
 			if(pMover->m_pAngel)
 				SAFE_DELETE(pMover->m_pAngel);
@@ -1978,14 +1978,14 @@ void CDPClient::OnMoverDeath( OBJID objid, CAr & ar )
 		}
 #endif //__CSC_VER11_2
 //		if( IsValidObj( (CObj*)pAttacker ) )
-		// pAttacker°¡ ¾øÀ»¼öµµÀÖ´Ù.
+		// pAttackerê°€ ì—†ì„ìˆ˜ë„ìˆë‹¤.
 		{
 			if( pAttacker )
 			{
 //				if( pMover->IsActiveMover() )
-					if( pAttacker->IsPlayer() )		// pMover¸¦ Á×ÀÎ³ğÀÌ À¯Àú¸é
+					if( pAttacker->IsPlayer() )		// pMoverë¥¼ ì£½ì¸ë†ˆì´ ìœ ì €ë©´
 					{
-						pMover->m_idMurderer = pAttacker->m_idPlayer;	// pMoverÀÇ ¸Ó´õ·¯¿¡ ±×³ğ ¾ÆÀÌµğ¸¦ ³ÖÀ½.
+						pMover->m_idMurderer = pAttacker->m_idPlayer;	// pMoverì˜ ë¨¸ë”ëŸ¬ì— ê·¸ë†ˆ ì•„ì´ë””ë¥¼ ë„£ìŒ.
 					}
 
 				if( pMover->IsActiveMover() || pAttacker->IsActiveMover() )
@@ -2011,7 +2011,7 @@ void CDPClient::OnMoverDeath( OBJID objid, CAr & ar )
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
 				else if( g_GuildCombat1to1Mng.IsPossibleMover( pMover ) )
 				{
-					// ¾Æ¹«Ã³¸® ¾ÈÇÔ
+					// ì•„ë¬´ì²˜ë¦¬ ì•ˆí•¨
 				}
 #endif // __GUILD_COMBAT_1TO1
 				else
@@ -2044,7 +2044,7 @@ void CDPClient::OnMoverDeath( OBJID objid, CAr & ar )
 				}
 				else
 				{
-					if( NULL == g_WndMng.m_pWndRevival )		// ºÎÈ°Ã¢ ¶ç¿ò
+					if( NULL == g_WndMng.m_pWndRevival )		// ë¶€í™œì°½ ë„ì›€
 					{
 						g_WndMng.m_pWndRevival	= new CWndRevival;
 						g_WndMng.m_pWndRevival->Initialize( &g_WndMng, 0 );
@@ -2062,7 +2062,7 @@ void CDPClient::OnMoverDeath( OBJID objid, CAr & ar )
 					pWndWorld->m_pWndGuideSystem->SendGuideMessage(APP_DEATH_FIELD);
 			#endif
 
-				((CWndWorld*)g_WndMng.m_pWndWorld)->m_bAutoAttack = FALSE;		// g_pPlayer°¡ Á×¾úÀ¸¸é ¿ÀÅä¾îÅÃ ÇØÁ¦½ÃÅ´
+				((CWndWorld*)g_WndMng.m_pWndWorld)->m_bAutoAttack = FALSE;		// g_pPlayerê°€ ì£½ì—ˆìœ¼ë©´ ì˜¤í† ì–´íƒ í•´ì œì‹œí‚´
 			}
 			CWndWorld* pWndWorld	= (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );
 			if( pWndWorld )
@@ -2077,7 +2077,7 @@ void CDPClient::OnMoverDeath( OBJID objid, CAr & ar )
 /*
 void CDPClient::UpdateQuestItemText( CMover* pMover, int nItemIdx, BOOL bRemove )
 {
-	// Äù½ºÆ® ¾ÆÀÌÅÛ°ú ÀÏÄ¡ÇÏ´Â°Ô µé¾î¿À¸é ¸Å½ÃÁö Ãâ·Â 
+	// í€˜ìŠ¤íŠ¸ ì•„ì´í…œê³¼ ì¼ì¹˜í•˜ëŠ”ê²Œ ë“¤ì–´ì˜¤ë©´ ë§¤ì‹œì§€ ì¶œë ¥ 
 	if( pMover->IsActiveMover() )
 	{
 		CString strTemp;
@@ -2086,7 +2086,7 @@ void CDPClient::UpdateQuestItemText( CMover* pMover, int nItemIdx, BOOL bRemove 
 		{
 			LPQUEST lpQuest = (LPQUEST) &pMover->m_aQuest[ i ];
 			QuestProp* pQuestProp = (QuestProp*)prj.m_aPropQuest.GetAt( lpQuest->m_wId );
-			// ¾ÆÀÌÅÛ °¹¼ö 
+			// ì•„ì´í…œ ê°¯ìˆ˜ 
 			for( int j = 0; j < 4; j++ )
 			{
 				if( pQuestProp->m_nEndCondItemIdx[ j ] == nItemIdx  )
@@ -2181,7 +2181,7 @@ void CDPClient::OnSetPos( OBJID objid, CAr & ar )
 
 		if( pCtrl->IsActiveObj() )
 		{
-#if __VER >= 9	// __PET_0410	// Ë¬
+#if __VER >= 9	// __PET_0410	// åº·
 			CMover* pMover	= (CMover*)pCtrl;
 			if( pMover->m_pet.GetObj() )
 			{
@@ -2203,10 +2203,10 @@ void CDPClient::OnSetPos( OBJID objid, CAr & ar )
 			{
 				pWorld->SetObjFocus( NULL );
 			}
-//			pWorld->ReadWorld( vPos, FALSE );		// Å¸ Ä³¸¯ÅÍ±îÁö ¸®µå ¿ùµå¸¦ ÇÏ´õ¶ó ÀÌ°Í¶«¿¡ ºí¸µÅ©À® ¾²¸é ¸ØÃß´Â Çö»ó»ı±è.
+//			pWorld->ReadWorld( vPos, FALSE );		// íƒ€ ìºë¦­í„°ê¹Œì§€ ë¦¬ë“œ ì›”ë“œë¥¼ í•˜ë”ë¼ ì´ê²ƒë•œì— ë¸”ë§í¬ìœ™ ì“°ë©´ ë©ˆì¶”ëŠ” í˜„ìƒìƒê¹€.
 			pCtrl->SetPos( vPos );
-			if( pCtrl->GetType() == OT_SHIP )		// ¹èÀÇ °æ¿ì 
-				pCtrl->UpdateLocalMatrix();			// ¸ÅÆ®¸¯½º °»½Å.
+			if( pCtrl->GetType() == OT_SHIP )		// ë°°ì˜ ê²½ìš° 
+				pCtrl->UpdateLocalMatrix();			// ë§¤íŠ¸ë¦­ìŠ¤ ê°±ì‹ .
 		}
 		if( pCtrl->GetType() == OT_MOVER )
 		{
@@ -2244,8 +2244,8 @@ void CDPClient::OnSetPosAngle( OBJID objid, CAr & ar )
 		{
 			pCtrl->SetPos( vPos );
 			pCtrl->SetAngle( fAngle );
-//			if( pCtrl->GetType() == OT_SHIP )		// ¹èÀÇ °æ¿ì 
-			pCtrl->UpdateLocalMatrix();			// ¸ÅÆ®¸¯½º °»½Å.
+//			if( pCtrl->GetType() == OT_SHIP )		// ë°°ì˜ ê²½ìš° 
+			pCtrl->UpdateLocalMatrix();			// ë§¤íŠ¸ë¦­ìŠ¤ ê°±ì‹ .
 		}
 	}
 }
@@ -2260,7 +2260,7 @@ void CDPClient::OnReplace( CAr & ar )
 	ar >> vPos;
 
 #ifdef __WINDOW_INTERFACE_BUG
-	g_WndMng.CloseBoundWindow(); // ¿ùµå°¡ ¹Ù²î¸é ¾ÆÀÌÅÛÀÌ °É·Á ÀÖ°Å³ª, ¾ÆÀÌÅÛÀ» Á¶ÀÛÇÒ °¡´É¼ºÀÌ ÀÖ´Â ¸ğµç Ã¢À» °­Á¦·Î ´İ´Â´Ù.
+	g_WndMng.CloseBoundWindow(); // ì›”ë“œê°€ ë°”ë€Œë©´ ì•„ì´í…œì´ ê±¸ë ¤ ìˆê±°ë‚˜, ì•„ì´í…œì„ ì¡°ì‘í•  ê°€ëŠ¥ì„±ì´ ìˆëŠ” ëª¨ë“  ì°½ì„ ê°•ì œë¡œ ë‹«ëŠ”ë‹¤.
 #endif // __WINDOW_INTERFACE_BUG
 
 #if __VER >= 13 // __HOUSING
@@ -2270,7 +2270,7 @@ void CDPClient::OnReplace( CAr & ar )
 	char* szMapFile[] = { "MapLoading1.tga", "MapLoading2.tga", "MapLoading3.tga", "MapLoading4.tga", "MapLoading5.tga", "MapLoading6.tga", "MapLoading7.tga" };
 
 	CString strPath = MakePath( DIR_THEME, szMapFile[xRandom( 0, 7 )] );
-	// ¸Ê(´øÀü) ·Îµù½Ã ÀÌ¹ÌÁö Ãâ·Â
+	// ë§µ(ë˜ì „) ë¡œë”©ì‹œ ì´ë¯¸ì§€ ì¶œë ¥
 	CWorld::m_nZoomLevel = 0;
 	CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );
 
@@ -2399,7 +2399,7 @@ void CDPClient::OnReplace( CAr & ar )
 	
 	if( dwWorldID == WI_WORLD_GUILDWAR )
 	{
-		// ±æµå´ëÀü ¸ÊÀÌ¸é ½Ã°£À» ÃÊÀú³áÀ¸·Î °­Á¦ ¼ÂÆÃÇÑ´Ù..(ºĞÀ§±â»ó) ^^
+		// ê¸¸ë“œëŒ€ì „ ë§µì´ë©´ ì‹œê°„ì„ ì´ˆì €ë…ìœ¼ë¡œ ê°•ì œ ì…‹íŒ…í•œë‹¤..(ë¶„ìœ„ê¸°ìƒ) ^^
 		g_GameTimer.SetFixed( TRUE );		
 		g_GameTimer.SetTime( 0, 19, 0, 0 );
 	}
@@ -2536,9 +2536,9 @@ void CDPClient::OnConfirmTrade( OBJID objid, CAr & ar )
 	CMover* pTrader	= prj.GetMover( objid );
 	if( pTrader != NULL )
 	{ 
-		// ½ÅÃ»ÇÏ´Â ÇüÅÂÀÇ ¸Å½ÃÁö ¹Ú½º´Â ¿©·¯°³°¡ ³¯¾Æ¿Ã ¼ö ÀÖ°í, ³» ÀÇÁö¿Í´Â °ü°è°¡ ¾ø´Ù.
-		// ÀÌ·± °æ¿ì CWndDuelConfirm::OnChildNotify¿¡¼­ À©µµ¸¦ ´İÀ» ¶§ Destroy( TRUE )·Î ÇØ¼­
-		// ¸Ş¸ğ¸®¿¡¼­ ¿ÏÀüÈ÷ ÆÄ±«ÇÏµµ·Ï ÇÑ´Ù. ¾ÈÇÏ¸é ¸®Å©·Î ³²´øÁö, ALT+ENTER, ALT+TABÇÒ ¶§ ´Ù¿îµÊ.
+		// ì‹ ì²­í•˜ëŠ” í˜•íƒœì˜ ë§¤ì‹œì§€ ë°•ìŠ¤ëŠ” ì—¬ëŸ¬ê°œê°€ ë‚ ì•„ì˜¬ ìˆ˜ ìˆê³ , ë‚´ ì˜ì§€ì™€ëŠ” ê´€ê³„ê°€ ì—†ë‹¤.
+		// ì´ëŸ° ê²½ìš° CWndDuelConfirm::OnChildNotifyì—ì„œ ìœˆë„ë¥¼ ë‹«ì„ ë•Œ Destroy( TRUE )ë¡œ í•´ì„œ
+		// ë©”ëª¨ë¦¬ì—ì„œ ì™„ì „íˆ íŒŒê´´í•˜ë„ë¡ í•œë‹¤. ì•ˆí•˜ë©´ ë¦¬í¬ë¡œ ë‚¨ë˜ì§€, ALT+ENTER, ALT+TABí•  ë•Œ ë‹¤ìš´ë¨.
 		//SAFE_DELETE( g_WndMng.m_pWndConfirmTrade );
 		if( g_Option.m_bTrade == FALSE )
 		{
@@ -2613,7 +2613,7 @@ void CDPClient::OnTradePut( OBJID objid, CAr & ar )
 void CDPClient::OnTradePutError( OBJID objid, CAr & ar )
 {
 	g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0054) ) );
-//	g_WndMng.OpenMessageBox( "È®ÀÎÀÌ µÇ¾úÀ¸¹Ç·Î ´õÀÌ»ó °Å·¡¸ñ·Ï¸¦ Ãß°¡³ª Á¦°ÅÇÒ¼ö°¡ ¾ø½À´Ï´Ù." );
+//	g_WndMng.OpenMessageBox( "í™•ì¸ì´ ë˜ì—ˆìœ¼ë¯€ë¡œ ë”ì´ìƒ ê±°ë˜ëª©ë¡ë¥¼ ì¶”ê°€ë‚˜ ì œê±°í• ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤." );
 }
 
 void CDPClient::OnTradePull( OBJID objid, CAr & ar )
@@ -2734,12 +2734,12 @@ void CDPClient::OnTradeCancel( OBJID objid, CAr & ar )
 	{
 		if( uidPlayer != g_pPlayer->m_idPlayer )
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0002) ) );
-//			g_WndMng.OpenMessageBox( "°Å·¡ °ÅÀı»óÅÂÀÔ´Ï´Ù." );
+//			g_WndMng.OpenMessageBox( "ê±°ë˜ ê±°ì ˆìƒíƒœì…ë‹ˆë‹¤." );
 	}
 	else
 	{
 		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0003) ) );
-//		g_WndMng.OpenMessageBox( "°Å·¡°¡ Ãë¼Ò µÇ¾ú½À´Ï´Ù." );
+//		g_WndMng.OpenMessageBox( "ê±°ë˜ê°€ ì·¨ì†Œ ë˜ì—ˆìŠµë‹ˆë‹¤." );
 		CWndTradeConfirm* pWndTradeConfirm = (CWndTradeConfirm*)g_WndMng.GetWndBase( APP_TRADE_CONFIRM );
 		if( pWndTradeConfirm )
 		{
@@ -2758,7 +2758,7 @@ void CDPClient::OnTradelastConfirmOk( OBJID objid, CAr & ar )
 		if( pWndTradeConfirm )
 		{
 			pWndTradeConfirm->bMsg = TRUE;
-			//CString str = "½ÂÀÎÀ» ÇÒµ¿¾È ±â´Ù·Á ÁÖ½Ê½Ã¿ä";
+			//CString str = "ìŠ¹ì¸ì„ í• ë™ì•ˆ ê¸°ë‹¤ë ¤ ì£¼ì‹­ì‹œìš”";
 			CString str = prj.GetText(TID_GAME_WAITCOMFIRM);
 			CWndStatic* pWndStatic = (CWndStatic*)pWndTradeConfirm->GetDlgItem( WIDC_STATIC1 );
 			pWndStatic->SetTitle( str );
@@ -2799,7 +2799,7 @@ void CDPClient::OnTradeOk( OBJID objid, CAr & ar )
 			{
 				CString str;
 				str.Format( prj.GetText( TID_GAME_TRADEACCPET ), g_pPlayer->m_vtInfo.GetOther()->GetName() );
-				g_WndMng.PutString( str, NULL, prj.GetTextColor( TID_GAME_TRADEACCPET ) );  // »ó´ë¹æÀÌ °Å·¡¸¦ È®ÀÎÇÏ¿´½À´Ï´Ù.
+				g_WndMng.PutString( str, NULL, prj.GetTextColor( TID_GAME_TRADEACCPET ) );  // ìƒëŒ€ë°©ì´ ê±°ë˜ë¥¼ í™•ì¸í•˜ì˜€ìŠµë‹ˆë‹¤.
 			}
 		}
 	}
@@ -2912,7 +2912,7 @@ void CDPClient::OnGetItemGuildBank( OBJID objid, CAr & ar )
 
 			if( cbCloak != 1 )
 			{
-				//¸ÁÅä¸¦ »çÁö ¾ÊÀº °æ¿ì °øÇåµµ¸¦ ÇÏ¶ô½ÃÅ²´Ù.
+				//ë§í† ë¥¼ ì‚¬ì§€ ì•Šì€ ê²½ìš° ê³µí—Œë„ë¥¼ í•˜ë½ì‹œí‚¨ë‹¤.
 				g_pPlayer->GetGuild()->DecrementMemberContribution( playerID, Gold, 0 );
 			}
 			UpdateGuildWnd();
@@ -2936,7 +2936,7 @@ void CDPClient::OnGetItemGuildBank( OBJID objid, CAr & ar )
 
 			if( cbCloak != 1 )
 			{
-				//¸ÁÅä¸¦ »çÁö ¾ÊÀº °æ¿ì °øÇåµµ¸¦ ÇÏ¶ô½ÃÅ²´Ù.
+				//ë§í† ë¥¼ ì‚¬ì§€ ì•Šì€ ê²½ìš° ê³µí—Œë„ë¥¼ í•˜ë½ì‹œí‚¨ë‹¤.
 				g_pPlayer->GetGuild()->DecrementMemberContribution( playerID, Gold, 0 );
 			}
 			UpdateGuildWnd();
@@ -3026,13 +3026,13 @@ void CDPClient::OnBankWindow( OBJID objid, CAr & ar )
 	SAFE_DELETE( g_WndMng.m_pWndBank );
 	SAFE_DELETE( g_WndMng.m_pWndConfirmBank );
 	SAFE_DELETE( g_WndMng.m_pWndBankPassword );
-	if( nMode ) // È®ÀÎÃ¢
+	if( nMode ) // í™•ì¸ì°½
 	{
 		g_WndMng.m_pWndConfirmBank = new CWndConfirmBank;
 		g_WndMng.m_pWndConfirmBank->SetItem( dwId, dwItemId );
 		g_WndMng.m_pWndConfirmBank->Initialize( NULL, APP_CONFIRM_BANK );
 	}
-	else // º¯°æÃ¢
+	else // ë³€ê²½ì°½
 	{
 		g_WndMng.m_pWndBankPassword = new CWndBankPassword;
 		g_WndMng.m_pWndBankPassword->SetItem( dwId, dwItemId );
@@ -3080,13 +3080,13 @@ void CDPClient::OnChangeBankPass( OBJID objid, CAr & ar )
 	SAFE_DELETE( g_WndMng.m_pWndBank );
 	SAFE_DELETE( g_WndMng.m_pWndConfirmBank );
 	SAFE_DELETE( g_WndMng.m_pWndBankPassword );
-	if( nMode ) // ÆĞ½º¿öµå°¡ ¹Ù²åÀ½..
+	if( nMode ) // íŒ¨ìŠ¤ì›Œë“œê°€ ë°”ê¿¨ìŒ..
 	{
 		g_WndMng.m_pWndConfirmBank = new CWndConfirmBank;
 		g_WndMng.m_pWndConfirmBank->SetItem( dwId, dwItemId );
 		g_WndMng.m_pWndConfirmBank->Initialize( NULL, APP_CONFIRM_BANK );
 	}
-	else	// ¾ÏÈ£°¡ Æ²·Á¼­ ¸ø ¹Ù²Ş
+	else	// ì•”í˜¸ê°€ í‹€ë ¤ì„œ ëª» ë°”ê¿ˆ
 	{
 		g_WndMng.m_pWndBankPassword = new CWndBankPassword;
 		g_WndMng.m_pWndBankPassword->SetItem( dwId, dwItemId );
@@ -3094,7 +3094,7 @@ void CDPClient::OnChangeBankPass( OBJID objid, CAr & ar )
 		g_WndMng.m_pWndBankPassword->Initialize( NULL, APP_BANK_PASSWORD );				
 
 		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0028) ) );
-//		g_WndMng.OpenMessageBox( "¾ÏÈ£°¡ Æ²·È½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" );
+//		g_WndMng.OpenMessageBox( "ì•”í˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”" );
 	}
 }
 
@@ -3108,13 +3108,13 @@ void CDPClient::OnConfirmBankPass( OBJID objid, CAr & ar )
 	SAFE_DELETE( g_WndMng.m_pWndBank );
 	SAFE_DELETE( g_WndMng.m_pWndConfirmBank );
 	SAFE_DELETE( g_WndMng.m_pWndBankPassword );
-	if( nMode ) // ÆĞ½º¿öµå È®ÀÎ ‰çÀ½.
+	if( nMode ) // íŒ¨ìŠ¤ì›Œë“œ í™•ì¸ ë¬ìŒ.
 	{
 		g_WndMng.CreateApplet( APP_INVENTORY );
 		g_WndMng.m_pWndBank = new CWndBank;
 		g_WndMng.m_pWndBank->Initialize( &g_WndMng, APP_COMMON_BANK );
 	}
-	else	// ¾ÏÈ£°¡ Æ²·Á¼­ ¸ø ¹Ù²Ş
+	else	// ì•”í˜¸ê°€ í‹€ë ¤ì„œ ëª» ë°”ê¿ˆ
 	{
 		g_WndMng.m_pWndConfirmBank = new CWndConfirmBank;
 		g_WndMng.m_pWndConfirmBank->SetItem( dwId, dwItemId );
@@ -3280,7 +3280,7 @@ void CDPClient::OnResetDestParam( OBJID objid, CAr & ar )
 	}
 }
 
-#ifdef __SPEED_SYNC_0108		// ResetDestParam speed ¼öÁ¤
+#ifdef __SPEED_SYNC_0108		// ResetDestParam speed ìˆ˜ì •
 void CDPClient::OnResetDestParamSync( OBJID objid, CAr & ar )
 {
 	int nDstParameter, nAdjParameterValue, nParameterValue;
@@ -3292,7 +3292,7 @@ void CDPClient::OnResetDestParamSync( OBJID objid, CAr & ar )
 		pMover->ResetDestParamSync( nDstParameter, nAdjParameterValue, nParameterValue, 0 );
 	}
 }
-#endif // __SPEED_SYNC_0108		// ResetDestParam speed ¼öÁ¤
+#endif // __SPEED_SYNC_0108		// ResetDestParam speed ìˆ˜ì •
 
 void CDPClient::OnSetPointParam( OBJID objid, CAr & ar )
 {
@@ -3306,16 +3306,16 @@ void CDPClient::OnSetPointParam( OBJID objid, CAr & ar )
 	}
 }
 
-// objid¸¦ ºÎÈ°½ÃÅ´.
+// objidë¥¼ ë¶€í™œì‹œí‚´.
 void CDPClient::OnResurrection( OBJID objid )
 {
 	CMover* pMover	= prj.GetMover( objid );
 	if( IsValidObj( pMover ) )
 	{
-		pMover->m_pActMover->SendActMsg( OBJMSG_RESURRECTION );	// ºÎÈ°¸ğµå·Î ÀüÈ¯.
-		if( g_WndMng.m_pWndRevival && pMover->IsActiveMover() )		// ÁÖÀÎ°ø Ä³¸¯ÀÏ°æ¿ì ºÎÈ°Ã¢ÀÌ ¶°ÀÖÀ¸¸é 
+		pMover->m_pActMover->SendActMsg( OBJMSG_RESURRECTION );	// ë¶€í™œëª¨ë“œë¡œ ì „í™˜.
+		if( g_WndMng.m_pWndRevival && pMover->IsActiveMover() )		// ì£¼ì¸ê³µ ìºë¦­ì¼ê²½ìš° ë¶€í™œì°½ì´ ë– ìˆìœ¼ë©´ 
 		{
-			g_WndMng.m_pWndRevival->Destroy();	// ¾ø¾Ø´Ù.
+			g_WndMng.m_pWndRevival->Destroy();	// ì—†ì•¤ë‹¤.
 		}
 	}
 }
@@ -3338,14 +3338,14 @@ void CDPClient::OnSetLevel( OBJID objid, CAr & ar )
 	CMover* pMover	= prj.GetMover( objid );
 	if( IsValidObj( (CObj*)pMover ) )
 	{
-		if( (int)wLevel > pMover->m_nLevel )	// ·¹º§¾÷ µÈ»óÈ²ÀÌ¸é 
+		if( (int)wLevel > pMover->m_nLevel )	// ë ˆë²¨ì—… ëœìƒí™©ì´ë©´ 
 		{
 			if( pMover->m_pActMover && ( pMover->m_pActMover->IsState( OBJSTA_STAND ) || pMover->m_pActMover->IsState( OBJSTA_STAND2 )) )
 				pMover->SetMotion( MTI_LEVELUP, ANILOOP_1PLAY, MOP_FIXED );
-			CreateSfx( g_Neuz.m_pd3dDevice, XI_GEN_LEVEL_UP01, pMover->GetPos(), pMover->GetId() );	// ·¹º§¾÷ ÀÌÆåÆ®.
+			CreateSfx( g_Neuz.m_pd3dDevice, XI_GEN_LEVEL_UP01, pMover->GetPos(), pMover->GetId() );	// ë ˆë²¨ì—… ì´í™íŠ¸.
 		}
 
-		//ÇöÀç Å¬¶ó¿Í µ¿±âÈ­°¡ ¾ÈµÈ »óÈ² - ±âº» Á¤º¸¸¸ ÀÏ´Ü ¼ÂÆÃ Æ½Ã³¸®ÇÏ´Â ºÎºĞÀÌ ¼öÁ¤µÇ¸é ÀÚµ¿À¸·Î Hp, Mp´Â µ¿±âÈ­°¡ µÉµí.
+		//í˜„ì¬ í´ë¼ì™€ ë™ê¸°í™”ê°€ ì•ˆëœ ìƒí™© - ê¸°ë³¸ ì •ë³´ë§Œ ì¼ë‹¨ ì…‹íŒ… í‹±ì²˜ë¦¬í•˜ëŠ” ë¶€ë¶„ì´ ìˆ˜ì •ë˜ë©´ ìë™ìœ¼ë¡œ Hp, MpëŠ” ë™ê¸°í™”ê°€ ë ë“¯.
 		pMover->m_nLevel	= (int)wLevel;
 		pMover->m_nHitPoint = pMover->GetMaxHitPoint();
 		pMover->m_nManaPoint = pMover->GetMaxManaPoint();
@@ -3360,8 +3360,8 @@ void CDPClient::OnSetFlightLevel( OBJID objid, CAr & ar )
 	CMover* pMover	= prj.GetMover( objid );
 	if( IsValidObj( (CObj*)pMover ) )
 	{
-		if( (int)wFlightLv > pMover->GetFlightLv() )	// ·¹º§¾÷ µÈ»óÈ²ÀÌ¸é 
-			CreateSfx( g_Neuz.m_pd3dDevice, XI_GEN_LEVEL_UP01, pMover->GetPos(), pMover->GetId() );	// ·¹º§¾÷ ÀÌÆåÆ®.
+		if( (int)wFlightLv > pMover->GetFlightLv() )	// ë ˆë²¨ì—… ëœìƒí™©ì´ë©´ 
+			CreateSfx( g_Neuz.m_pd3dDevice, XI_GEN_LEVEL_UP01, pMover->GetPos(), pMover->GetId() );	// ë ˆë²¨ì—… ì´í™íŠ¸.
 		pMover->SetFlightLv( wFlightLv );
 	}
 }
@@ -3527,7 +3527,7 @@ void CDPClient::OnSetGrowthLearningPoint( OBJID objid, CAr & ar )
 	long nRemainGP, nRemainLP;
 	ar >> nRemainGP >> nRemainLP;
 	
-	// nRemainLP »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+	// nRemainLP ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	CMover* pMover	= prj.GetMover( objid );
 	if( IsValidObj( (CObj*)pMover ) )
 	{
@@ -3608,13 +3608,13 @@ void CDPClient::OnSetChangeJob( OBJID objid, CAr & ar )
 #ifdef __3RD_LEGEND16
 		ar.Read( (void*)&pMover->m_aJobSkill[ 0 ], sizeof(SKILL) *  ( MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL + MAX_LEGEND_HERO_SKILL ) );
 #else // __3RD_LEGEND16
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		ar.Read( (void*)&pMover->m_aJobSkill[ 0 ], sizeof(SKILL) *  ( MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL ) );
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		ar.Read( (void*)&pMover->m_aJobSkill[ 0 ], sizeof(SKILL) *  ( MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL ) );
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #endif // __3RD_LEGEND16
-		DWORD dwJobLv[MAX_JOB];	// »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+		DWORD dwJobLv[MAX_JOB];	// ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		ar.Read( (void*)dwJobLv, sizeof(DWORD) * MAX_JOB );
 #ifdef __NEW_SKILL_TREE
 		CWndSkillTreeEx* pSkillTree = (CWndSkillTreeEx*)g_WndMng.GetWndBase( APP_SKILL4 );
@@ -3659,7 +3659,7 @@ void CDPClient::OnSetChangeJob( OBJID objid, CAr & ar )
 		TempMover.m_nJob = nJob;
 		if( TempMover.IsExpert() )
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_JOB_SKILL ], sizeof(SKILL) *  ( MAX_EXPERT_SKILL ) );
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #ifdef __3RD_LEGEND16
 		else if( TempMover.IsLegendHero() )
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL + MAX_LEGEND_HERO_SKILL ) );
@@ -3670,12 +3670,12 @@ void CDPClient::OnSetChangeJob( OBJID objid, CAr & ar )
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL + MAX_MASTER_SKILL ) );
 		else
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL ) );
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		else
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL ) );
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
-		DWORD dwJobLv[MAX_JOB];	// »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+		DWORD dwJobLv[MAX_JOB];	// ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		ar.Read( (void*)dwJobLv, sizeof(DWORD) * MAX_JOB );
 	}
 }
@@ -3691,7 +3691,7 @@ void CDPClient::OnSetNearChangeJob( OBJID objid, CAr & ar )
 
 		if( pMover->IsExpert() )
 			ar.Read( (void*)&pMover->m_aJobSkill[ MAX_JOB_SKILL ], sizeof(SKILL) *  ( MAX_EXPERT_SKILL ) );
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #ifdef __3RD_LEGEND16
 		else if( pMover->IsLegendHero() )
 			ar.Read( (void*)&pMover->m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL + MAX_LEGEND_HERO_SKILL ) );
@@ -3702,10 +3702,10 @@ void CDPClient::OnSetNearChangeJob( OBJID objid, CAr & ar )
 			ar.Read( (void*)&pMover->m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL + MAX_MASTER_SKILL ) );
 		else
 			ar.Read( (void*)&pMover->m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL ) );
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		else
 			ar.Read( (void*)&pMover->m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL ) );
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
 
 		CreateSfx(g_Neuz.m_pd3dDevice,XI_GEN_LEVEL_UP01,pMover->GetPos(),pMover->GetId());
@@ -3721,7 +3721,7 @@ void CDPClient::OnSetNearChangeJob( OBJID objid, CAr & ar )
 		TempMover.m_nJob = nJob;
 		if( TempMover.IsExpert() )
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_JOB_SKILL ], sizeof(SKILL) *  ( MAX_EXPERT_SKILL ) );
-#if __VER >= 10 // __LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 #ifdef __3RD_LEGEND16
 		else if( TempMover.IsLegendHero() )
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL + MAX_MASTER_SKILL + MAX_HERO_SKILL + MAX_LEGEND_HERO_SKILL ) );
@@ -3732,10 +3732,10 @@ void CDPClient::OnSetNearChangeJob( OBJID objid, CAr & ar )
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL + MAX_MASTER_SKILL ) );
 		else
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL ) );
-#else //__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#else //__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 		else
 			ar.Read( (void*)&TempMover.m_aJobSkill[ MAX_EXPERT_SKILL ], sizeof(SKILL) *  ( MAX_PRO_SKILL ) );
-#endif	//__LEGEND	//	10Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	10ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	}
 }
 
@@ -3765,7 +3765,7 @@ void CDPClient::OnSetDestPos( OBJID objid, CAr & ar )
 	if( IsValidObj( (CObj*)pMover ) )
 	{
 		pMover->m_pActMover->DefaultSet();
-		pMover->BehaviorActionForceSet();	// ¸í·ÉÀÌ Çàµ¿ ¸í·ÉÀÌ¸é °­Á¦ µ¿±âÇÏ°í, ¹«ºù ¸í·ÉÀÌ¸é ¹«½ÃÇÑ´Ù.
+		pMover->BehaviorActionForceSet();	// ëª…ë ¹ì´ í–‰ë™ ëª…ë ¹ì´ë©´ ê°•ì œ ë™ê¸°í•˜ê³ , ë¬´ë¹™ ëª…ë ¹ì´ë©´ ë¬´ì‹œí•œë‹¤.
 #ifdef __IAOBJ0622
 		if( pIAObj )
 			pMover->SetDestPos( pIAObj, vPos );
@@ -3805,7 +3805,7 @@ void CDPClient::OnSetMovePattern( OBJID objid, CAr & ar )
 		pMover->SetAngleX( fAngleX );
 #ifdef __XUZHU
 		DWORD dwColor = xRand();
-		g_WndMng.PutString( "ÀÌµ¿ÆĞÅÏ µµÂø", NULL, dwColor );
+		g_WndMng.PutString( "ì´ë™íŒ¨í„´ ë„ì°©", NULL, dwColor );
 #endif
 	}
 }
@@ -3871,7 +3871,7 @@ void CDPClient::OnRangeAttack( OBJID objid, CAr & ar )
 	DWORD dwItemID;
 
 	ar >> dwAtkMsg >> id >> nParam2 >> nPower >> idSfxHit;
-	dwItemID = nParam2;	// NULL_ID³ª 0ÀÌ ¿Ã¼ö ÀÖÀ½.
+	dwItemID = nParam2;	// NULL_IDë‚˜ 0ì´ ì˜¬ìˆ˜ ìˆìŒ.
 	CMover* pMover	= prj.GetMover( objid );
 	CMover* pTarget = prj.GetMover( id );
 
@@ -3893,7 +3893,7 @@ void CDPClient::OnAttackSP( OBJID objid, CAr & ar )
 	DWORD dwItemID;
 	
 	ar >> dwAtkMsg >> id >> nParam2 >> nParam3;
-	dwItemID = nParam2;	// NULL_ID³ª 0ÀÌ ¿Ã¼ö ÀÖÀ½.
+	dwItemID = nParam2;	// NULL_IDë‚˜ 0ì´ ì˜¬ìˆ˜ ìˆìŒ.
 	CMover* pMover	= prj.GetMover( objid );
 	CMover* pTarget = prj.GetMover( id );
 	if( IsValidObj( pMover ) ) 
@@ -3914,7 +3914,7 @@ void CDPClient::OnUseSkill( OBJID objid, CAr & ar )
 	CMover* pMover	= prj.GetMover( objid );
 	if( IsValidObj( (CObj*)pMover ) )
 	{
-		pMover->m_dwReqFlag &= (~REQ_USESKILL);	// ÀÀ´ä ¹Ş¾ÒÀ½.
+		pMover->m_dwReqFlag &= (~REQ_USESKILL);	// ì‘ë‹µ ë°›ì•˜ìŒ.
 #if __VER >= 8 //__S8_PK
 		BOOL bSuccess = pMover->DoUseSkill( 0, -1, id, (SKILLUSETYPE)nUseType, FALSE, nCastingTime, dwSkill, dwLevel );
 #else // __VER >= 8 __S8_PK
@@ -3922,14 +3922,14 @@ void CDPClient::OnUseSkill( OBJID objid, CAr & ar )
 #endif // __VER >= 8 __S8_PK
 		if( bSuccess )
 		{
-			TRACE( "OnUseSkill¼º°ø %d, ", dwSkill );
+			TRACE( "OnUseSkillì„±ê³µ %d, ", dwSkill );
 			
-			if( g_Option.m_bAutoAttack && pMover->IsActiveMover() )		// ¿©±â¾ß¿©±â - ÀÚµ¿°ø°İ ON
+			if( g_Option.m_bAutoAttack && pMover->IsActiveMover() )		// ì—¬ê¸°ì•¼ì—¬ê¸° - ìë™ê³µê²© ON
 			{
 				ItemProp *pItemProp = g_pPlayer->GetActiveHandItemProp();
 				if( pItemProp )
 				{   
-					// ¼Õ¿¡ µé°í ÀÖ´Â°Ô ½ºÅÂÇÁ³ª Ä¡¾î½ºÆ½ÀÌ ¾Æ´Ò¶§¸¸ ÀÚµ¿°ø°İ.
+					// ì†ì— ë“¤ê³  ìˆëŠ”ê²Œ ìŠ¤íƒœí”„ë‚˜ ì¹˜ì–´ìŠ¤í‹±ì´ ì•„ë‹ë•Œë§Œ ìë™ê³µê²©.
 #if __VER >= 11 // __CSC_VER11_2
 					if( pItemProp->dwItemKind3 != IK3_STAFF && pItemProp->dwItemKind3 != IK3_CHEERSTICK && pItemProp->dwItemKind3 != IK3_WAND )
 #else //__CSC_VER11_2
@@ -3938,16 +3938,16 @@ void CDPClient::OnUseSkill( OBJID objid, CAr & ar )
 					{
 						ItemProp* pSkillProp;
 						pSkillProp = prj.GetSkillProp( dwSkill );
-						//ÀÚ±â ÀÚ½Å¿¡°Ô ½ÃÀüÇÏ´Â ½ºÅ³ÀÏ °æ¿ì Å¸°ÙÀÌ ÀÖÀ¸¸é ÀÚµ¿°ø°İ ½ÃÀÛµÇ´Â ¹®Á¦ ¼öÁ¤.
+						//ìê¸° ìì‹ ì—ê²Œ ì‹œì „í•˜ëŠ” ìŠ¤í‚¬ì¼ ê²½ìš° íƒ€ê²Ÿì´ ìˆìœ¼ë©´ ìë™ê³µê²© ì‹œì‘ë˜ëŠ” ë¬¸ì œ ìˆ˜ì •.
 #if __VER >= 10 // __LEGEND
 						if( g_WndMng.m_pWndWorld && pSkillProp && pSkillProp->dwExeTarget != EXT_SELFCHGPARAMET && 
-							dwSkill != SI_KNT_HERO_DRAWING ) //¿µ¿õ ³ªÀÌÆ®ÀÇ ¸®Äİ ½ºÅ³Àº °ø°İ ½ºÅ³¾Æ´Ô.
-							//pSkillProp->dwUseChance == WUI_NOW && dwSkill != SI_KNT_HERO_DRAWING ) //¿µ¿õ ³ªÀÌÆ®ÀÇ ¸®Äİ ½ºÅ³Àº °ø°İ ½ºÅ³¾Æ´Ô.
+							dwSkill != SI_KNT_HERO_DRAWING ) //ì˜ì›… ë‚˜ì´íŠ¸ì˜ ë¦¬ì½œ ìŠ¤í‚¬ì€ ê³µê²© ìŠ¤í‚¬ì•„ë‹˜.
+							//pSkillProp->dwUseChance == WUI_NOW && dwSkill != SI_KNT_HERO_DRAWING ) //ì˜ì›… ë‚˜ì´íŠ¸ì˜ ë¦¬ì½œ ìŠ¤í‚¬ì€ ê³µê²© ìŠ¤í‚¬ì•„ë‹˜.
 #else //__LEGEND
 						if( g_WndMng.m_pWndWorld && pSkillProp && pSkillProp->dwExeTarget != EXT_SELFCHGPARAMET ) // && pSkillProp->dwUseChance == WUI_NOW )
 #endif //__LEGEND
 						{
-							g_WndMng.m_pWndWorld->m_bAutoAttack = TRUE;		// ½ºÅ³°ø°İ ½ÃÀÛµÇ¸é ÀÚµ¿°ø°İµµ ½ÃÀÛ.
+							g_WndMng.m_pWndWorld->m_bAutoAttack = TRUE;		// ìŠ¤í‚¬ê³µê²© ì‹œì‘ë˜ë©´ ìë™ê³µê²©ë„ ì‹œì‘.
 						}
 					}
 				}
@@ -3955,7 +3955,7 @@ void CDPClient::OnUseSkill( OBJID objid, CAr & ar )
 		} 
 		else
 		{
-			TRACE( "OnUseSkill½ÇÆĞ %d, ", dwSkill );
+			TRACE( "OnUseSkillì‹¤íŒ¨ %d, ", dwSkill );
 		}
 	}
 }
@@ -3965,11 +3965,11 @@ void CDPClient::OnClearUseSkill( OBJID objid )
 	CMover *pMover = prj.GetMover( objid );
 	if( IsInvalidObj(pMover) )	return;
 
-	pMover->m_dwReqFlag &= (~REQ_USESKILL);	// ÀÀ´ä ¹Ş¾ÒÀ½.
-	if( pMover->IsActiveMover() )		// g_pPlayerÀÏ°æ¿ì 
+	pMover->m_dwReqFlag &= (~REQ_USESKILL);	// ì‘ë‹µ ë°›ì•˜ìŒ.
+	if( pMover->IsActiveMover() )		// g_pPlayerì¼ê²½ìš° 
 	{
 		CWndTaskBar* pTaskBar = g_WndMng.m_pWndTaskBar;
-		pTaskBar->m_nExecute = 0;		// ½ÇÁ¦ ½ºÅ³¹Ù »ç¿ëÁßÀ¸·Î ÀüÈ¯.
+		pTaskBar->m_nExecute = 0;		// ì‹¤ì œ ìŠ¤í‚¬ë°” ì‚¬ìš©ì¤‘ìœ¼ë¡œ ì „í™˜.
 		g_WndMng.m_pWndWorld->SetNextSkill( NEXTSKILL_NONE );
 	}
 }
@@ -3995,7 +3995,7 @@ void CDPClient::OnSetSlaughterPoint( OBJID objid, CAr & ar )
 					g_WndMng.m_pWndShop->Destroy();
 				g_pPlayer->m_vtInfo.SetOther( NULL );
 				SendCloseShopWnd();
-				g_WndMng.PutString( prj.GetText( TID_PK_MARKETNOUSE ), NULL, prj.GetTextColor( TID_PK_MARKETNOUSE ) );	// »ç½ÅÀº »óÁ¡À» ÀÌ¿ëÇÒ¼ö ¾÷½À´Ï´Ù
+				g_WndMng.PutString( prj.GetText( TID_PK_MARKETNOUSE ), NULL, prj.GetTextColor( TID_PK_MARKETNOUSE ) );	// ì‚¬ì‹ ì€ ìƒì ì„ ì´ìš©í• ìˆ˜ ì—…ìŠµë‹ˆë‹¤
 			}
 		}
 
@@ -4038,7 +4038,7 @@ void CDPClient::OnSetFuel( OBJID objid, CAr & ar )
 	if( IsValidObj( (CObj*)pPlayer ) ) 
 	{
 		pPlayer->m_nFuel = nFuel;
-		if( nFuel == 0 )	// ¿¬·á°¡ ¾øÀ¸¸é Á¦ÀÚ¸®¿¡ ¸ØÃã
+		if( nFuel == 0 )	// ì—°ë£Œê°€ ì—†ìœ¼ë©´ ì œìë¦¬ì— ë©ˆì¶¤
 			pPlayer->SendActMsg( OBJMSG_ACC_STOP );	
 		pPlayer->m_tmAccFuel = tmAccFuel;
 	}
@@ -4050,39 +4050,39 @@ void CDPClient::OnCreateSfxObj( OBJID objid, CAr & ar )
 {
 	DWORD dwSfxObj;
 	float	x, y, z;
-	BOOL	bFlag;				// 0ÀÌ¸é °íÁ¤ 1ÀÌ¸é µû¶ó´Ù´Ï±â
+	BOOL	bFlag;				// 0ì´ë©´ ê³ ì • 1ì´ë©´ ë”°ë¼ë‹¤ë‹ˆê¸°
 	ar >> dwSfxObj >> x >> y >> z;
 	ar >> bFlag;
 
-	D3DXVECTOR3 vWorld( x, y, z );		// ÀÌ ÁÂÇ¥°¡ ÁöÁ¤µÇ¾î ÀÖ´Ù¸é ¿©±â´Ù sfx¸¦ »ı¼º.
+	D3DXVECTOR3 vWorld( x, y, z );		// ì´ ì¢Œí‘œê°€ ì§€ì •ë˜ì–´ ìˆë‹¤ë©´ ì—¬ê¸°ë‹¤ sfxë¥¼ ìƒì„±.
 	D3DXVECTOR3 vPos;
 
 	CCtrl* pObj	= prj.GetCtrl( objid );
 	if( IsValidObj( (CObj*)pObj ) ) 
 	{
 		OBJID idObj = pObj->GetId();
-		if( x || y || z )		// Àı´ëÁÂÇ¥°¡ ÀÖÀ¸¸é ±×°÷À» »ı¼º À§Ä¡·Î ÇÑ´Ù.
+		if( x || y || z )		// ì ˆëŒ€ì¢Œí‘œê°€ ìˆìœ¼ë©´ ê·¸ê³³ì„ ìƒì„± ìœ„ì¹˜ë¡œ í•œë‹¤.
 		{
 			idObj = NULL_ID;
 			vPos = vWorld;
 		}
 		else
-			vPos = pObj->GetPos();	// ¾øÀ¸¸é ¿ÀºêÁ§Æ® ÁÂÇ¥·Î ÇÑ´Ù.
+			vPos = pObj->GetPos();	// ì—†ìœ¼ë©´ ì˜¤ë¸Œì íŠ¸ ì¢Œí‘œë¡œ í•œë‹¤.
 		CreateSfx( g_Neuz.m_pd3dDevice, dwSfxObj, vPos, idObj, vPos, idObj );
 	}
 	else
 	{
-		if( x || y || z )		// Àı´ëÁÂÇ¥°¡ ÀÖÀ¸¸é ±×°÷À» »ı¼º À§Ä¡·Î ÇÑ´Ù.
+		if( x || y || z )		// ì ˆëŒ€ì¢Œí‘œê°€ ìˆìœ¼ë©´ ê·¸ê³³ì„ ìƒì„± ìœ„ì¹˜ë¡œ í•œë‹¤.
 			CreateSfx( g_Neuz.m_pd3dDevice, dwSfxObj, vWorld, NULL_ID, vWorld, NULL_ID );
 	}
 }
 
-#if __VER >= 11 // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+#if __VER >= 11 // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 void CDPClient::OnRemoveSfxObj( OBJID objid, CAr & ar )
 {
 	DWORD dwSfxObj;
 	float	x, y, z;
-	BOOL	bFlag;				// 0ÀÌ¸é °íÁ¤ 1ÀÌ¸é µû¶ó´Ù´Ï±â
+	BOOL	bFlag;				// 0ì´ë©´ ê³ ì • 1ì´ë©´ ë”°ë¼ë‹¤ë‹ˆê¸°
 	ar >> dwSfxObj >> x >> y >> z;
 	ar >> bFlag;
 
@@ -4095,7 +4095,7 @@ void CDPClient::OnRemoveSfxObj( OBJID objid, CAr & ar )
 		pObj->SetRemoveSfxObj( dwSfxObj );
 	}
 }
-#endif // __MA_VER11_06				// È®À²½ºÅ³ È¿°ú¼öÁ¤ world,neuz
+#endif // __MA_VER11_06				// í™•ìœ¨ìŠ¤í‚¬ íš¨ê³¼ìˆ˜ì • world,neuz
 void CDPClient::OnCreateSfxAllow( OBJID objid, CAr & ar )
 {
 	TRACE( "ON RANGE ATTACK\n" );
@@ -4108,15 +4108,15 @@ void CDPClient::OnCreateSfxAllow( OBJID objid, CAr & ar )
 	CCtrl* pObj	= prj.GetCtrl( objid );
 	if( IsValidObj( (CObj*)pObj ) ) 
 	{
-		CMover* pHit = prj.GetMover( idTarget );	// Å¸°ÙÀÇ Æ÷ÀÎÅÍ¸¦ ¾ò¾î³¿.
+		CMover* pHit = prj.GetMover( idTarget );	// íƒ€ê²Ÿì˜ í¬ì¸í„°ë¥¼ ì–»ì–´ëƒ„.
 		
 		if( IsInvalidObj(pHit) )	
 			return;						
 
 		CMover* pMover = (CMover*)pObj;
 
-		D3DXVECTOR3 vPosDest = pHit->GetPos() + D3DXVECTOR3( 0.0f, 1.0f, 0.0f ); // ¹ß»ç ÁöÁ¡À» ÀÓÀÇ·Î ¿Ã·ÁÁØ´Ù. ¶«»§ 
-		D3DXVECTOR3 vPosSrc  = pMover->GetPos() + D3DXVECTOR3( 0.0f, 1.0f, 0.0f ); // ¹ß»ç ÁöÁ¡À» ÀÓÀÇ·Î ¿Ã·ÁÁØ´Ù. ¶«»§ 
+		D3DXVECTOR3 vPosDest = pHit->GetPos() + D3DXVECTOR3( 0.0f, 1.0f, 0.0f ); // ë°œì‚¬ ì§€ì ì„ ì„ì˜ë¡œ ì˜¬ë ¤ì¤€ë‹¤. ë•œë¹µ 
+		D3DXVECTOR3 vPosSrc  = pMover->GetPos() + D3DXVECTOR3( 0.0f, 1.0f, 0.0f ); // ë°œì‚¬ ì§€ì ì„ ì„ì˜ë¡œ ì˜¬ë ¤ì¤€ë‹¤. ë•œë¹µ 
 
 		CSfx* pSfx = NULL;
 
@@ -4136,7 +4136,7 @@ void CDPClient::OnDefinedText( CAr & ar )
 
 	if( dwText == TID_GAME_REAPMONEY )
 	{
-		//¿¹¿ÜÃ³¸®: µ· ¹®ÀÚ¿­¿¡ ','°¡ µé¾î°¡¼­ CScanner·Î ÀÛ¾÷ÇÏ±â ¿øÇÒÄ¡ ¾Ê´Ù.
+		//ì˜ˆì™¸ì²˜ë¦¬: ëˆ ë¬¸ìì—´ì— ','ê°€ ë“¤ì–´ê°€ì„œ CScannerë¡œ ì‘ì—…í•˜ê¸° ì›í• ì¹˜ ì•Šë‹¤.
 		CString rString;
 		AfxExtractSubString( rString, lpString, 0, ' ' );
 		strcpy( argv[0], rString );
@@ -4204,7 +4204,7 @@ void CDPClient::OnChatText( CAr & ar )
 	
 	if( dwText == TID_GAME_REAPMONEY )
 	{
-		//¿¹¿ÜÃ³¸®: µ· ¹®ÀÚ¿­¿¡ ','°¡ µé¾î°¡¼­ CScanner·Î ÀÛ¾÷ÇÏ±â ¿øÇÒÄ¡ ¾Ê´Ù.
+		//ì˜ˆì™¸ì²˜ë¦¬: ëˆ ë¬¸ìì—´ì— ','ê°€ ë“¤ì–´ê°€ì„œ CScannerë¡œ ì‘ì—…í•˜ê¸° ì›í• ì¹˜ ì•Šë‹¤.
 		CString rString;
 		AfxExtractSubString( rString, lpString, 0, ' ' );
 		strcpy( argv[0], rString );
@@ -4303,7 +4303,7 @@ void CDPClient::OnErrorParty( CAr & ar )
 	case ERROR_NOLEADER:
 		{
 				g_WndMng.PutString( prj.GetText( TID_GAME_PARTYNOINVATE ), NULL, prj.GetTextColor( TID_GAME_PARTYNOINVATE ) );
-				//g_WndMng.PutString( "´ÜÀåÀÌ ¾Æ´Ï¶ó ±Ø´Ü¿¡ Ãß°¡ ÇÒ¼ö ¾ø½À´Ï´Ù.", NULL, 0xff99cc00 );
+				//g_WndMng.PutString( "ë‹¨ì¥ì´ ì•„ë‹ˆë¼ ê·¹ë‹¨ì— ì¶”ê°€ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.", NULL, 0xff99cc00 );
 		}
 		break;
 	case ERROR_FULLPARTY:
@@ -4311,21 +4311,21 @@ void CDPClient::OnErrorParty( CAr & ar )
 			CString szMessageBuf;
 			if( 1 <= g_Party.GetLevel() && g_Party.GetLevel() <= 5 )
 			{
-				// ÃÖ´ë 5¸í
+				// ìµœëŒ€ 5ëª…
 				szMessageBuf = prj.GetText(TID_GAME_FULLPARTY1);
-				//szMessageBuf = "±Ø´ÜÀÌ ²Ë Ã£½À´Ï´Ù ±Ø´Ü·¹º§ 5ÀÌÇÏ´Â 5¸í±îÁö ¸ğÁıÇÒ¼ö ÀÖ½À´Ï´Ù. ±Ø´Ü·¹º§À» ¿Ã·ÁÁÖ¼¼¿ä";						
+				//szMessageBuf = "ê·¹ë‹¨ì´ ê½‰ ì°¾ìŠµë‹ˆë‹¤ ê·¹ë‹¨ë ˆë²¨ 5ì´í•˜ëŠ” 5ëª…ê¹Œì§€ ëª¨ì§‘í• ìˆ˜ ìˆìŠµë‹ˆë‹¤. ê·¹ë‹¨ë ˆë²¨ì„ ì˜¬ë ¤ì£¼ì„¸ìš”";						
 				
 			}
 			else if( 6 <= g_Party.GetLevel() && g_Party.GetLevel() <= 9 )
 			{
-				// ÃÖ´ë 6¸í
+				// ìµœëŒ€ 6ëª…
 				szMessageBuf = prj.GetText(TID_GAME_FULLPARTY2);
-				//szMessageBuf = "±Ø´ÜÀÌ ²Ë Ã£½À´Ï´Ù ±Ø´Ü·¹º§ 9ÀÌÇÏ´Â 6¸í±îÁö ¸ğÁıÇÒ¼ö ÀÖ½À´Ï´Ù. ±Ø´Ü·¹º§À» ¿Ã·ÁÁÖ¼¼¿ä";						
+				//szMessageBuf = "ê·¹ë‹¨ì´ ê½‰ ì°¾ìŠµë‹ˆë‹¤ ê·¹ë‹¨ë ˆë²¨ 9ì´í•˜ëŠ” 6ëª…ê¹Œì§€ ëª¨ì§‘í• ìˆ˜ ìˆìŠµë‹ˆë‹¤. ê·¹ë‹¨ë ˆë²¨ì„ ì˜¬ë ¤ì£¼ì„¸ìš”";						
 			}
 			else
 			{
 				szMessageBuf = prj.GetText(TID_GAME_FULLPARTY3);
-				//szMessageBuf = "±Ø´ÜÀÌ ²Ë Ã£½À´Ï´Ù 8¸í±îÁö ±Ø´Ü¿øÀ» ¸ğÁıÇÒ¼ö ÀÖ½À´Ï´Ù.";
+				//szMessageBuf = "ê·¹ë‹¨ì´ ê½‰ ì°¾ìŠµë‹ˆë‹¤ 8ëª…ê¹Œì§€ ê·¹ë‹¨ì›ì„ ëª¨ì§‘í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.";
 			}
 
 			g_WndMng.PutString( szMessageBuf, NULL, 0xff99cc00 );
@@ -4334,13 +4334,13 @@ void CDPClient::OnErrorParty( CAr & ar )
 	case ERROR_NOPARTY:
 		{
 			g_WndMng.PutString( prj.GetText( TID_GAME_NOPARTY ), NULL, prj.GetTextColor( TID_GAME_NOPARTY ) );
-			//g_WndMng.PutString( "±Ø´ÜÀÌ ¾ø½À´Ï´Ù", NULL, 0xff99cc00 );
+			//g_WndMng.PutString( "ê·¹ë‹¨ì´ ì—†ìŠµë‹ˆë‹¤", NULL, 0xff99cc00 );
 		}
 		break;
 	case ERROR_DIFFRENTPARTY:
 		{
 			g_WndMng.PutString( prj.GetText( TID_GAME_DIFFRENTPARTY ), NULL, prj.GetTextColor( TID_GAME_DIFFRENTPARTY ) );
-			//g_WndMng.PutString( "±Ø´Ü¿¡ Æ÷ÇÔ½ÃÅ³¼ö ¾øÀ½.", NULL, 0xff99cc00 );
+			//g_WndMng.PutString( "ê·¹ë‹¨ì— í¬í•¨ì‹œí‚¬ìˆ˜ ì—†ìŒ.", NULL, 0xff99cc00 );
 		}
 		break;
 	case ERROR_DIFFERNTUSERNAME:
@@ -4353,19 +4353,19 @@ void CDPClient::OnErrorParty( CAr & ar )
 			g_WndMng.m_pWndPartyChangeName = new CWndPartyChangeName;
 			g_WndMng.m_pWndPartyChangeName->Initialize();
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0033) ) );
-//			g_WndMng.OpenMessageBox( _T( "ÀÌ¹Ì ´Ù¸¥»ç¶÷ÀÌ »ç¿ëÇÏ´Â ±Ø´Ü¸íÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" ) );
+//			g_WndMng.OpenMessageBox( _T( "ì´ë¯¸ ë‹¤ë¥¸ì‚¬ëŒì´ ì‚¬ìš©í•˜ëŠ” ê·¹ë‹¨ëª…ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”" ) );
 		}
 		break;
 	case ERROR_NOTPARTYPOINT:
 		{
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0046) ) );
-//			g_WndMng.OpenMessageBox( _T( "ÆÄÆ¼ Æ÷ÀÎÆ®°¡ ¸ğÀÚ¶ó »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù" ) );
+//			g_WndMng.OpenMessageBox( _T( "íŒŒí‹° í¬ì¸íŠ¸ê°€ ëª¨ìë¼ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤" ) );
 		}
 		break;
 	case ERROR_NOTPARTYSKILL:
 		{
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0019) ) );
-//			g_WndMng.OpenMessageBox( _T( "»ç¿ëÇÑ ½ºÅ³Àº ¹è¿ìÁö¸¦ ¸øÇß½À´Ï´Ù." ) );
+//			g_WndMng.OpenMessageBox( _T( "ì‚¬ìš©í•œ ìŠ¤í‚¬ì€ ë°°ìš°ì§€ë¥¼ ëª»í–ˆìŠµë‹ˆë‹¤." ) );
 		}
 		break;
 	case ERROR_NOTTARGET:
@@ -4384,14 +4384,14 @@ void CDPClient::OnErrorParty( CAr & ar )
 				 
 			}
 			g_WndMng.PutString( prj.GetText( TID_GAME_NOTTARGET ), NULL, prj.GetTextColor( TID_GAME_NOTTARGET ) );
-			//g_WndMng.PutString( "Å¸°ÙÀÌ ¾ÈÀâÇô ÀÖ°Å³ª ¸ó½ºÅÍ°¡ ¾Æ´Ï¾î¼­ »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù.", NULL, 0xffff0000 );
+			//g_WndMng.PutString( "íƒ€ê²Ÿì´ ì•ˆì¡í˜€ ìˆê±°ë‚˜ ëª¬ìŠ¤í„°ê°€ ì•„ë‹ˆì–´ì„œ ì‚¬ìš©í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.", NULL, 0xffff0000 );
 		}
 		break;
 	case ERROR_SAMLEADER:
-			g_WndMng.PutString( prj.GetText( TID_GAME_PARTY_ALREADYMASTER ), NULL, prj.GetTextColor( TID_GAME_PARTY_ALREADYMASTER ) ); // "ÀÌ¹Ì ´ÜÀåÀ» ÇÏ°í ÀÔ´Ï´Ù"
+			g_WndMng.PutString( prj.GetText( TID_GAME_PARTY_ALREADYMASTER ), NULL, prj.GetTextColor( TID_GAME_PARTY_ALREADYMASTER ) ); // "ì´ë¯¸ ë‹¨ì¥ì„ í•˜ê³  ì…ë‹ˆë‹¤"
 		break;
 	case ERROR_NOTMAMBER:
-			g_WndMng.PutString( prj.GetText( TID_GAME_PARTYNOTEXMEMBER ), NULL, prj.GetTextColor( TID_GAME_PARTYNOTEXMEMBER ) ); // "±Ø´Ü¿¡ ´Ü¿øÀÌ ¾ø½À´Ï´Ù"
+			g_WndMng.PutString( prj.GetText( TID_GAME_PARTYNOTEXMEMBER ), NULL, prj.GetTextColor( TID_GAME_PARTYNOTEXMEMBER ) ); // "ê·¹ë‹¨ì— ë‹¨ì›ì´ ì—†ìŠµë‹ˆë‹¤"
 		break;
 	default:
 		break;
@@ -4416,7 +4416,7 @@ void CDPClient::OnAddPartyMember( CAr & ar )
 	int nOldSize	= g_Party.GetSizeofMember();
 
 #if __VER < 11 // __SYS_PLAYER_DATA
-	if( nOldSize > nSizeofMember )	// Å»Åğ ÇßÀ»½Ã ÀÌ¸§°¡Á®¿À±â
+	if( nOldSize > nSizeofMember )	// íƒˆí‡´ í–ˆì„ì‹œ ì´ë¦„ê°€ì ¸ì˜¤ê¸°
 	{
 		int i	= g_Party.FindMember( uPlayerId );
 		if( i != -1 )
@@ -4428,7 +4428,7 @@ void CDPClient::OnAddPartyMember( CAr & ar )
 	{
 		g_Party.Serialize( ar );
 #if __VER < 11 // __SYS_PLAYER_DATA
-		if( nOldSize < nSizeofMember ) // Âü°¡ ÇßÀ»½Ã ÀÌ¸§°¡Á®¿À±â
+		if( nOldSize < nSizeofMember ) // ì°¸ê°€ í–ˆì„ì‹œ ì´ë¦„ê°€ì ¸ì˜¤ê¸°
 		{
 			int i	= g_Party.FindMember( uPlayerId );
 			if( i != -1 )
@@ -4456,7 +4456,7 @@ void CDPClient::OnAddPartyMember( CAr & ar )
 				sMessage.Format( prj.GetText(TID_GAME_PARTYJOIN2), g_Party.m_aMember[0].m_szName );
 #endif	// __SYS_PLAYER_DATA
 			}
-#if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// ÆÄÆ¼¸É¹öÁ¶ÀÎ½Ã,ÆÄÆ¼»ı¼º½Ã,ÆÄÆ¼½Â°İ½Ã ¾Ö´Ï »©±â
+#if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// íŒŒí‹°ë§´ë²„ì¡°ì¸ì‹œ,íŒŒí‹°ìƒì„±ì‹œ,íŒŒí‹°ìŠ¹ê²©ì‹œ ì• ë‹ˆ ë¹¼ê¸°
 			for( int i = 0 ; i < g_Party.GetSizeofMember()-1 ; i++ )
 			{
 				u_long idPlayer = g_Party.GetPlayerId( i );
@@ -4475,7 +4475,7 @@ void CDPClient::OnAddPartyMember( CAr & ar )
 					}
 				}
 			}
-#endif //__REMOVE_JOINPARTYMEMBER_ANI			// ÆÄÆ¼¸É¹öÁ¶ÀÎ½Ã,ÆÄÆ¼»ı¼º½Ã,ÆÄÆ¼½Â°İ½Ã ¾Ö´Ï »©±â
+#endif //__REMOVE_JOINPARTYMEMBER_ANI			// íŒŒí‹°ë§´ë²„ì¡°ì¸ì‹œ,íŒŒí‹°ìƒì„±ì‹œ,íŒŒí‹°ìŠ¹ê²©ì‹œ ì• ë‹ˆ ë¹¼ê¸°
 			PlayMusic( BGM_IN_FITUP );
 		}
 		else if( nOldSize < nSizeofMember )		// add
@@ -4485,7 +4485,7 @@ void CDPClient::OnAddPartyMember( CAr & ar )
 #else	// __SYS_PLAYER_DATA
 			sMessage.Format( prj.GetText(TID_GAME_PARTYJOIN1), lpszPlayer );
 #endif	// __SYS_PLAYER_DATA
-#if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// ÆÄÆ¼¸É¹öÁ¶ÀÎ½Ã ¾Ö´Ï »©±â
+#if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// íŒŒí‹°ë§´ë²„ì¡°ì¸ì‹œ ì• ë‹ˆ ë¹¼ê¸°
 			for( int i = 0 ; i < g_Party.GetSizeofMember()-1 ; i++ )
 			{
 				u_long idPlayer = g_Party.GetPlayerId( i );
@@ -4504,7 +4504,7 @@ void CDPClient::OnAddPartyMember( CAr & ar )
 					}
 				}
 			}
-#endif //__REMOVE_JOINPARTYMEMBER_ANI			// ÆÄÆ¼¸É¹öÁ¶ÀÎ½Ã ¾Ö´Ï »©±â
+#endif //__REMOVE_JOINPARTYMEMBER_ANI			// íŒŒí‹°ë§´ë²„ì¡°ì¸ì‹œ ì• ë‹ˆ ë¹¼ê¸°
 		}
 		else if( nOldSize > nSizeofMember )		// remove
 		{
@@ -4583,8 +4583,8 @@ void CDPClient::OnPartyRequest( CAr & ar )
 void CDPClient::OnPartyRequestCancel( CAr & ar )
 {
 	int nMode;
-	// 0 : Âü¿© °ÅºÎ
-	// 1 : ÀÌ¹Ì ´Ù¸¥±Ø´Ü¿¡ Æ÷ÇÔµÇ¾î ÀÖÀ½
+	// 0 : ì°¸ì—¬ ê±°ë¶€
+	// 1 : ì´ë¯¸ ë‹¤ë¥¸ê·¹ë‹¨ì— í¬í•¨ë˜ì–´ ìˆìŒ
 	u_long uLeader, uMember;
 	
 	ar >> uLeader >> uMember;
@@ -4598,7 +4598,7 @@ void CDPClient::OnPartyRequestCancel( CAr & ar )
 			if( IsValidObj( (CObj*)pMember ) )
 			{
 				//sMessage = pMember->GetName();
-				//sMessage += " ´ÔÀÌ ±Ø´Ü Âü¿©¸¦ °ÅºÎÇÏ¿´½À´Ï´Ù.";
+				//sMessage += " ë‹˜ì´ ê·¹ë‹¨ ì°¸ì—¬ë¥¼ ê±°ë¶€í•˜ì˜€ìŠµë‹ˆë‹¤.";
 				sMessage.Format( prj.GetText(TID_GAME_PARTYFAILINVATE), pMember->GetName() );
 			}
 			break;
@@ -4611,12 +4611,12 @@ void CDPClient::OnPartyRequestCancel( CAr & ar )
 				//sMessage = pMember->GetName();
 				if( g_Party.FindMember( uMember ) == -1 )
 				{
-					//sMessage += " ´ÔÀº ÀÌ¹Ì ´Ù¸¥±Ø´Ü¿¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù.";
+					//sMessage += " ë‹˜ì€ ì´ë¯¸ ë‹¤ë¥¸ê·¹ë‹¨ì— í¬í•¨ë˜ì–´ ìˆìŠµë‹ˆë‹¤.";
 					sMessage.Format( prj.GetText(TID_GAME_PARTYOTHER), pMember->GetName() );
 				}
 				else
 				{
-					//sMessage += " ´ÔÀº ÀÌ¹Ì ±Ø´Ü¿¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù.";
+					//sMessage += " ë‹˜ì€ ì´ë¯¸ ê·¹ë‹¨ì— í¬í•¨ë˜ì–´ ìˆìŠµë‹ˆë‹¤.";
 					sMessage.Format( prj.GetText(TID_GAME_PARTYEXISTCHR), pMember->GetName() );
 				}
 			}
@@ -4624,7 +4624,7 @@ void CDPClient::OnPartyRequestCancel( CAr & ar )
 		}
 	case 2:
 		{
-			sMessage = prj.GetText(TID_GAME_PARTYFAILENTER);//"±Ø´Ü Âü¿©¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.";
+			sMessage = prj.GetText(TID_GAME_PARTYFAILENTER);//"ê·¹ë‹¨ ì°¸ì—¬ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.";
 			break;
 		}
 	case 3:
@@ -4634,14 +4634,14 @@ void CDPClient::OnPartyRequestCancel( CAr & ar )
 			{
 				//pMember->GetName();
 				//sMessage = pMember->GetName();
-				//sMessage += " ´ÔÀº ±Ø´Ü Âü¿© °ÅºÎ»óÅÂÀÔ´Ï´Ù.";
+				//sMessage += " ë‹˜ì€ ê·¹ë‹¨ ì°¸ì—¬ ê±°ë¶€ìƒíƒœì…ë‹ˆë‹¤.";
 				sMessage.Format( prj.GetText(TID_GAME_PARTYDENY), pMember->GetName() );
 			}
 			break;
 		}
 	case 4:
 		{
-			sMessage = prj.GetText(TID_GAME_PARTYINVATEOTHERSVR);//"´Ù¸¥¼­¹ö¿¡ ÀÖ¾î¼­ Âü¿© ½ÃÅ³¼ö°¡ ¾ø½À´Ï´Ù";
+			sMessage = prj.GetText(TID_GAME_PARTYINVATEOTHERSVR);//"ë‹¤ë¥¸ì„œë²„ì— ìˆì–´ì„œ ì°¸ì—¬ ì‹œí‚¬ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤";
 			break;
 		}
 	default:
@@ -4657,22 +4657,22 @@ void CDPClient::OnPartyRequestCancel( CAr & ar )
 		{
 			if( g_Party.FindMember( uMember ) == -1 )
 			{
-				sMessage += " ´ÔÀº ÀÌ¹Ì ´Ù¸¥±Ø´Ü¿¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù.";
+				sMessage += " ë‹˜ì€ ì´ë¯¸ ë‹¤ë¥¸ê·¹ë‹¨ì— í¬í•¨ë˜ì–´ ìˆìŠµë‹ˆë‹¤.";
 			}
 			else
 			{
-				sMessage += " ´ÔÀº ÀÌ¹Ì ±Ø´Ü¿¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù.";
+				sMessage += " ë‹˜ì€ ì´ë¯¸ ê·¹ë‹¨ì— í¬í•¨ë˜ì–´ ìˆìŠµë‹ˆë‹¤.";
 			}
 			
 		}
 		else
 		{
-			sMessage += " ´ÔÀÌ ±Ø´Ü Âü¿©¸¦ °ÅºÎÇÏ¿´½À´Ï´Ù.";
+			sMessage += " ë‹˜ì´ ê·¹ë‹¨ ì°¸ì—¬ë¥¼ ê±°ë¶€í•˜ì˜€ìŠµë‹ˆë‹¤.";
 		}
 	}
 	else
 	{
-		sMessage = "±Ø´Ü Âü¿©¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.";
+		sMessage = "ê·¹ë‹¨ ì°¸ì—¬ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.";
 	}
 */
 	g_WndMng.PutString( sMessage, NULL, 0xff99cc00 );
@@ -4691,22 +4691,22 @@ void CDPClient::OnDuelRequest( CAr & ar )
 	u_long uidSrc, uidDst;
 	ar >> uidSrc >> uidDst;
 	
-	// ½ÅÃ»ÇÏ´Â ÇüÅÂÀÇ ¸Å½ÃÁö ¹Ú½º´Â ¿©·¯°³°¡ ³¯¾Æ¿Ã ¼ö ÀÖ°í, ³» ÀÇÁö¿Í´Â °ü°è°¡ ¾ø´Ù.
-	// ÀÌ·± °æ¿ì CWndDuelConfirm::OnChildNotify¿¡¼­ À©µµ¸¦ ´İÀ» ¶§ Destroy( TRUE )·Î ÇØ¼­
-	// ¸Ş¸ğ¸®¿¡¼­ ¿ÏÀüÈ÷ ÆÄ±«ÇÏµµ·Ï ÇÑ´Ù. ¾ÈÇÏ¸é ¸®Å©·Î ³²´øÁö, ALT+ENTER, ALT+TABÇÒ ¶§ ´Ù¿îµÊ.
-	CMover *pOffer = prj.GetUserByID( uidSrc );	// ½ÅÃ»ÀÚÀÇ Æ÷ÀÎÅÍ ¹Ş¾Æ¿È
+	// ì‹ ì²­í•˜ëŠ” í˜•íƒœì˜ ë§¤ì‹œì§€ ë°•ìŠ¤ëŠ” ì—¬ëŸ¬ê°œê°€ ë‚ ì•„ì˜¬ ìˆ˜ ìˆê³ , ë‚´ ì˜ì§€ì™€ëŠ” ê´€ê³„ê°€ ì—†ë‹¤.
+	// ì´ëŸ° ê²½ìš° CWndDuelConfirm::OnChildNotifyì—ì„œ ìœˆë„ë¥¼ ë‹«ì„ ë•Œ Destroy( TRUE )ë¡œ í•´ì„œ
+	// ë©”ëª¨ë¦¬ì—ì„œ ì™„ì „íˆ íŒŒê´´í•˜ë„ë¡ í•œë‹¤. ì•ˆí•˜ë©´ ë¦¬í¬ë¡œ ë‚¨ë˜ì§€, ALT+ENTER, ALT+TABí•  ë•Œ ë‹¤ìš´ë¨.
+	CMover *pOffer = prj.GetUserByID( uidSrc );	// ì‹ ì²­ìì˜ í¬ì¸í„° ë°›ì•„ì˜´
 	if( IsValidObj(pOffer) && pOffer->IsDie() == FALSE )
 	{
 		SAFE_DELETE( g_WndMng.m_pWndDuelConfirm );
 		g_WndMng.m_pWndDuelConfirm = new CWndDuelConfirm;
-		strcpy( g_WndMng.m_pWndDuelConfirm->m_szSrc, pOffer->GetName() );		// µà¾ó ½ÅÃ»ÀÚÀÇ ÀÌ¸§À» ³ÖÀ½.
-		g_WndMng.m_pWndDuelConfirm->m_idSrc = pOffer->GetId();				// µà¾ó ½ÅÃ»ÀÚÀÇ ¾ÆÀÌµğ¸¦ ³ÖÀ½.
+		strcpy( g_WndMng.m_pWndDuelConfirm->m_szSrc, pOffer->GetName() );		// ë“€ì–¼ ì‹ ì²­ìì˜ ì´ë¦„ì„ ë„£ìŒ.
+		g_WndMng.m_pWndDuelConfirm->m_idSrc = pOffer->GetId();				// ë“€ì–¼ ì‹ ì²­ìì˜ ì•„ì´ë””ë¥¼ ë„£ìŒ.
 		g_WndMng.m_pWndDuelConfirm->Initialize();
 	}
 //	pDuelConfirm->SetMember( uidSrc, uidDst );
 }
 
-// µà¾ó ½ÃÀÛ!
+// ë“€ì–¼ ì‹œì‘!
 void CDPClient::OnDuelStart( CAr & ar )
 {
 	int nFlag = 0;
@@ -4715,22 +4715,22 @@ void CDPClient::OnDuelStart( CAr & ar )
 	
 	ar >> nFlag;
 	
-#if __VER >= 8 // 8Â÷ µà¾ó 061226 ma
+#if __VER >= 8 // 8ì°¨ ë“€ì–¼ 061226 ma
 	SAFE_DELETE( g_WndMng.m_pWndPartyConfirm );
-#endif // __VER >= 8 // 8Â÷ µà¾ó 061226 ma
+#endif // __VER >= 8 // 8ì°¨ ë“€ì–¼ 061226 ma
 
 
 	CString str;
-	CMover *pTarget = prj.GetUserByID( uidTarget );		// µà¾ó ´ë»óÀÚÀÇ Æ÷ÀÎÅÍ
+	CMover *pTarget = prj.GetUserByID( uidTarget );		// ë“€ì–¼ ëŒ€ìƒìì˜ í¬ì¸í„°
 	if( IsValidObj(pTarget) )
 	{
 		switch( nFlag )
 		{
 		case 0:
 			{
-				g_pPlayer->m_nDuel = 1;		// µà¾ó½ÃÀÛÀ» Ç¥½Ã
-				g_pPlayer->m_idDuelOther = pTarget->GetId();	// µà¾ó »ó´ëÀÇ ¾ÆÀÌµğ ±â·ÏÇØµÒ.
-				pTarget->m_nDuel = 1;						// µà¾ó»ó´ë¹æ¿¡µµ Á¤º¸ ±â·ÏÇÔ.
+				g_pPlayer->m_nDuel = 1;		// ë“€ì–¼ì‹œì‘ì„ í‘œì‹œ
+				g_pPlayer->m_idDuelOther = pTarget->GetId();	// ë“€ì–¼ ìƒëŒ€ì˜ ì•„ì´ë”” ê¸°ë¡í•´ë‘ .
+				pTarget->m_nDuel = 1;						// ë“€ì–¼ìƒëŒ€ë°©ì—ë„ ì •ë³´ ê¸°ë¡í•¨.
 				pTarget->m_idDuelOther = g_pPlayer->GetId();
 				g_pPlayer->m_nDuelState = 104;
 				pTarget->RenderFlag( ENEMY_PVP );
@@ -4749,35 +4749,35 @@ void CDPClient::OnDuelStart( CAr & ar )
 				pTarget->ClearDuel();
 			}
 			break;
-#if __VER >= 8   // 8Â÷ µà¾óÁ¸¿¡ °ü°è¾øÀÌ PVP°¡´ÉÇÏ°ÔÇÔ   Neuz, World
+#if __VER >= 8   // 8ì°¨ ë“€ì–¼ì¡´ì— ê´€ê³„ì—†ì´ PVPê°€ëŠ¥í•˜ê²Œí•¨   Neuz, World
 		case 3:		//win
 			{
-				// ½ÅÃ»ÇÏ´Â ÇüÅÂÀÇ ¸Å½ÃÁö ¹Ú½º´Â ¿©·¯°³°¡ ³¯¾Æ¿Ã ¼ö ÀÖ°í, ³» ÀÇÁö¿Í´Â °ü°è°¡ ¾ø´Ù.
-				// ÀÌ·± °æ¿ì CWndDuelConfirm::OnChildNotify¿¡¼­ À©µµ¸¦ ´İÀ» ¶§ Destroy( TRUE )·Î ÇØ¼­
-				// ¸Ş¸ğ¸®¿¡¼­ ¿ÏÀüÈ÷ ÆÄ±«ÇÏµµ·Ï ÇÑ´Ù. ¾ÈÇÏ¸é ¸®Å©·Î ³²´øÁö, ALT+ENTER, ALT+TABÇÒ ¶§ ´Ù¿îµÊ.
+				// ì‹ ì²­í•˜ëŠ” í˜•íƒœì˜ ë§¤ì‹œì§€ ë°•ìŠ¤ëŠ” ì—¬ëŸ¬ê°œê°€ ë‚ ì•„ì˜¬ ìˆ˜ ìˆê³ , ë‚´ ì˜ì§€ì™€ëŠ” ê´€ê³„ê°€ ì—†ë‹¤.
+				// ì´ëŸ° ê²½ìš° CWndDuelConfirm::OnChildNotifyì—ì„œ ìœˆë„ë¥¼ ë‹«ì„ ë•Œ Destroy( TRUE )ë¡œ í•´ì„œ
+				// ë©”ëª¨ë¦¬ì—ì„œ ì™„ì „íˆ íŒŒê´´í•˜ë„ë¡ í•œë‹¤. ì•ˆí•˜ë©´ ë¦¬í¬ë¡œ ë‚¨ë˜ì§€, ALT+ENTER, ALT+TABí•  ë•Œ ë‹¤ìš´ë¨.
 				if( IsValidObj(pTarget) && pTarget->IsDie() == FALSE )
 				{
 					SAFE_DELETE( g_WndMng.m_pWndDuelConfirm );
 					g_WndMng.m_pWndDuelResult = new CWndDuelResult;
-					strcpy( g_WndMng.m_pWndDuelResult->m_szSrc, pTarget->GetName() );		// µà¾ó ½ÅÃ»ÀÚÀÇ ÀÌ¸§À» ³ÖÀ½.
-					g_WndMng.m_pWndDuelResult->m_idSrc = pTarget->GetId();				// µà¾ó ½ÅÃ»ÀÚÀÇ ¾ÆÀÌµğ¸¦ ³ÖÀ½.
-					g_WndMng.m_pWndDuelResult->m_bDuelWin = TRUE;	// Ã¢Àº °°Àº°É °øÀ¯ÇÑ´Ù.
+					strcpy( g_WndMng.m_pWndDuelResult->m_szSrc, pTarget->GetName() );		// ë“€ì–¼ ì‹ ì²­ìì˜ ì´ë¦„ì„ ë„£ìŒ.
+					g_WndMng.m_pWndDuelResult->m_idSrc = pTarget->GetId();				// ë“€ì–¼ ì‹ ì²­ìì˜ ì•„ì´ë””ë¥¼ ë„£ìŒ.
+					g_WndMng.m_pWndDuelResult->m_bDuelWin = TRUE;	// ì°½ì€ ê°™ì€ê±¸ ê³µìœ í•œë‹¤.
 					g_WndMng.m_pWndDuelResult->Initialize();
 				}
 			}
 			break;
 		case 4:		//lose
 			{
-				// ½ÅÃ»ÇÏ´Â ÇüÅÂÀÇ ¸Å½ÃÁö ¹Ú½º´Â ¿©·¯°³°¡ ³¯¾Æ¿Ã ¼ö ÀÖ°í, ³» ÀÇÁö¿Í´Â °ü°è°¡ ¾ø´Ù.
-				// ÀÌ·± °æ¿ì CWndDuelConfirm::OnChildNotify¿¡¼­ À©µµ¸¦ ´İÀ» ¶§ Destroy( TRUE )·Î ÇØ¼­
-				// ¸Ş¸ğ¸®¿¡¼­ ¿ÏÀüÈ÷ ÆÄ±«ÇÏµµ·Ï ÇÑ´Ù. ¾ÈÇÏ¸é ¸®Å©·Î ³²´øÁö, ALT+ENTER, ALT+TABÇÒ ¶§ ´Ù¿îµÊ.
+				// ì‹ ì²­í•˜ëŠ” í˜•íƒœì˜ ë§¤ì‹œì§€ ë°•ìŠ¤ëŠ” ì—¬ëŸ¬ê°œê°€ ë‚ ì•„ì˜¬ ìˆ˜ ìˆê³ , ë‚´ ì˜ì§€ì™€ëŠ” ê´€ê³„ê°€ ì—†ë‹¤.
+				// ì´ëŸ° ê²½ìš° CWndDuelConfirm::OnChildNotifyì—ì„œ ìœˆë„ë¥¼ ë‹«ì„ ë•Œ Destroy( TRUE )ë¡œ í•´ì„œ
+				// ë©”ëª¨ë¦¬ì—ì„œ ì™„ì „íˆ íŒŒê´´í•˜ë„ë¡ í•œë‹¤. ì•ˆí•˜ë©´ ë¦¬í¬ë¡œ ë‚¨ë˜ì§€, ALT+ENTER, ALT+TABí•  ë•Œ ë‹¤ìš´ë¨.
 				if( IsValidObj(pTarget) && pTarget->IsDie() == FALSE )
 				{
 					SAFE_DELETE( g_WndMng.m_pWndDuelConfirm );
 					g_WndMng.m_pWndDuelResult = new CWndDuelResult;
-					strcpy( g_WndMng.m_pWndDuelResult->m_szSrc, pTarget->GetName() );		// µà¾ó ½ÅÃ»ÀÚÀÇ ÀÌ¸§À» ³ÖÀ½.
-					g_WndMng.m_pWndDuelResult->m_idSrc = pTarget->GetId();				// µà¾ó ½ÅÃ»ÀÚÀÇ ¾ÆÀÌµğ¸¦ ³ÖÀ½.
-					g_WndMng.m_pWndDuelResult->m_bDuelWin = FALSE;	// Ã¢Àº °°Àº°É °øÀ¯ÇÑ´Ù.
+					strcpy( g_WndMng.m_pWndDuelResult->m_szSrc, pTarget->GetName() );		// ë“€ì–¼ ì‹ ì²­ìì˜ ì´ë¦„ì„ ë„£ìŒ.
+					g_WndMng.m_pWndDuelResult->m_idSrc = pTarget->GetId();				// ë“€ì–¼ ì‹ ì²­ìì˜ ì•„ì´ë””ë¥¼ ë„£ìŒ.
+					g_WndMng.m_pWndDuelResult->m_bDuelWin = FALSE;	// ì°½ì€ ê°™ì€ê±¸ ê³µìœ í•œë‹¤.
 					g_WndMng.m_pWndDuelResult->Initialize();
 				}
 			}
@@ -4787,18 +4787,18 @@ void CDPClient::OnDuelStart( CAr & ar )
 	}
 }
 
-// idTargetÀÌ µà¾óÀ» °ÅÀıÇßÀ½
+// idTargetì´ ë“€ì–¼ì„ ê±°ì ˆí–ˆìŒ
 void CDPClient::OnDuelNo( CAr & ar )
 {
 	OBJID	idTarget;
 	ar >> idTarget;
 	
-	CMover *pTarget = prj.GetMover( idTarget );		// µà¾ó ´ë»óÀÚÀÇ Æ÷ÀÎÅÍ
+	CMover *pTarget = prj.GetMover( idTarget );		// ë“€ì–¼ ëŒ€ìƒìì˜ í¬ì¸í„°
 	if( IsValidObj( pTarget ) )
 	{
 		CString str;
 		//str = pTarget->GetName();
-		//str += "´ÔÀÌ µà¾ó½ÅÃ»À» °ÅÀıÇß½À´Ï´Ù";
+		//str += "ë‹˜ì´ ë“€ì–¼ì‹ ì²­ì„ ê±°ì ˆí–ˆìŠµë‹ˆë‹¤";
 		//g_WndMng.PutString( str, NULL, 0xff99cc00 );
 
 		str.Format( prj.GetText( TID_GAME_DUELNO ), pTarget->GetName() );
@@ -4806,14 +4806,14 @@ void CDPClient::OnDuelNo( CAr & ar )
 	}
 }
 
-// µà¾óÁß Ãë¼Ò½ÃÅ´.
+// ë“€ì–¼ì¤‘ ì·¨ì†Œì‹œí‚´.
 void CDPClient::OnDuelCancel( CAr & ar )
 {
 	OBJID	idTarget;
 	ar >> idTarget;
 	
-	CMover *pMover1 = g_pPlayer;		// °áÅõÀÚ 1
-	CMover *pTarget = prj.GetMover( idTarget );		// °áÅõÀÚ 2
+	CMover *pMover1 = g_pPlayer;		// ê²°íˆ¬ì 1
+	CMover *pTarget = prj.GetMover( idTarget );		// ê²°íˆ¬ì 2
 	if( IsValidObj(pMover1) )
 	{
 		pMover1->ClearDuel();
@@ -4825,23 +4825,23 @@ void CDPClient::OnDuelCancel( CAr & ar )
 	g_WndMng.PutString( prj.GetText(TID_GAME_DUELCANCEL), NULL, prj.GetTextColor(TID_GAME_DUELCANCEL) );
 }
 
-// ÆÄÆ¼ µà¿­------------------------------------------------------------
+// íŒŒí‹° ë“€ì—´------------------------------------------------------------
 void CDPClient::OnDuelPartyRequest( CAr & ar )
 {
 	u_long uidSrc, uidDst;
 	ar >> uidSrc >> uidDst;
 	
-	// ½ÅÃ»ÇÏ´Â ÇüÅÂÀÇ ¸Å½ÃÁö ¹Ú½º´Â ¿©·¯°³°¡ ³¯¾Æ¿Ã ¼ö ÀÖ°í, ³» ÀÇÁö¿Í´Â °ü°è°¡ ¾ø´Ù.
-	// ÀÌ·± °æ¿ì CWndDuelConfirm::OnChildNotify¿¡¼­ À©µµ¸¦ ´İÀ» ¶§ Destroy( TRUE )·Î ÇØ¼­
-	// ¸Ş¸ğ¸®¿¡¼­ ¿ÏÀüÈ÷ ÆÄ±«ÇÏµµ·Ï ÇÑ´Ù. ¾ÈÇÏ¸é ¸®Å©·Î ³²´øÁö, ALT+ENTER, ALT+TABÇÒ ¶§ ´Ù¿îµÊ.
-	CMover *pOffer = prj.GetUserByID( uidSrc );	// ½ÅÃ»ÀÚÀÇ Æ÷ÀÎÅÍ ¹Ş¾Æ¿È
+	// ì‹ ì²­í•˜ëŠ” í˜•íƒœì˜ ë§¤ì‹œì§€ ë°•ìŠ¤ëŠ” ì—¬ëŸ¬ê°œê°€ ë‚ ì•„ì˜¬ ìˆ˜ ìˆê³ , ë‚´ ì˜ì§€ì™€ëŠ” ê´€ê³„ê°€ ì—†ë‹¤.
+	// ì´ëŸ° ê²½ìš° CWndDuelConfirm::OnChildNotifyì—ì„œ ìœˆë„ë¥¼ ë‹«ì„ ë•Œ Destroy( TRUE )ë¡œ í•´ì„œ
+	// ë©”ëª¨ë¦¬ì—ì„œ ì™„ì „íˆ íŒŒê´´í•˜ë„ë¡ í•œë‹¤. ì•ˆí•˜ë©´ ë¦¬í¬ë¡œ ë‚¨ë˜ì§€, ALT+ENTER, ALT+TABí•  ë•Œ ë‹¤ìš´ë¨.
+	CMover *pOffer = prj.GetUserByID( uidSrc );	// ì‹ ì²­ìì˜ í¬ì¸í„° ë°›ì•„ì˜´
 	if( IsValidObj(pOffer) && pOffer->IsDie() == FALSE )
 	{
 		SAFE_DELETE( g_WndMng.m_pWndDuelConfirm );
 		g_WndMng.m_pWndDuelConfirm = new CWndDuelConfirm;
-		strcpy( g_WndMng.m_pWndDuelConfirm->m_szSrc, pOffer->GetName() );		// µà¾ó ½ÅÃ»ÀÚÀÇ ÀÌ¸§À» ³ÖÀ½.
-		g_WndMng.m_pWndDuelConfirm->m_idSrc = pOffer->GetId();				// µà¾ó ½ÅÃ»ÀÚÀÇ ¾ÆÀÌµğ¸¦ ³ÖÀ½.
-		g_WndMng.m_pWndDuelConfirm->m_bDuelParty = TRUE;	// Ã¢Àº °°Àº°É °øÀ¯ÇÑ´Ù.
+		strcpy( g_WndMng.m_pWndDuelConfirm->m_szSrc, pOffer->GetName() );		// ë“€ì–¼ ì‹ ì²­ìì˜ ì´ë¦„ì„ ë„£ìŒ.
+		g_WndMng.m_pWndDuelConfirm->m_idSrc = pOffer->GetId();				// ë“€ì–¼ ì‹ ì²­ìì˜ ì•„ì´ë””ë¥¼ ë„£ìŒ.
+		g_WndMng.m_pWndDuelConfirm->m_bDuelParty = TRUE;	// ì°½ì€ ê°™ì€ê±¸ ê³µìœ í•œë‹¤.
 		g_WndMng.m_pWndDuelConfirm->Initialize();
 	}
 	
@@ -4849,7 +4849,7 @@ void CDPClient::OnDuelPartyRequest( CAr & ar )
 	//	pDuelConfirm->SetMember( uidSrc, uidDst );
 }
 
-// µà¾ó ½ÃÀÛ!
+// ë“€ì–¼ ì‹œì‘!
 void CDPClient::OnDuelPartyStart( CAr & ar )
 {
 //	u_long idDstParty;
@@ -4861,14 +4861,14 @@ void CDPClient::OnDuelPartyStart( CAr & ar )
 	memset( szPartyName, 0, sizeof(szPartyName) );
 	ar >> nMax;
 	ar >> idDstParty;
-	ar.ReadString( szPartyName, 64 );		// »ó´ë¹æ ÆÄÆ¼ ÀÌ¸§.
+	ar.ReadString( szPartyName, 64 );		// ìƒëŒ€ë°© íŒŒí‹° ì´ë¦„.
 	for( i = 0; i < nMax; i ++ )
 		ar >> pDstMembers[i];
 
 	int nFlag = 0;
 	ar >> nFlag;
 
-	// °áÅõ»ó´ë ÆÄÆ¼¸¦ ¹ŞÀ¸¸é ±× ¸â¹öµéÀÇ CMover¸¦ Á¶»çÇØ¼­ m_idparty¿¡ °ªÀ» ¼¼ÆÃÇØÁÖÀÚ.
+	// ê²°íˆ¬ìƒëŒ€ íŒŒí‹°ë¥¼ ë°›ìœ¼ë©´ ê·¸ ë©¤ë²„ë“¤ì˜ CMoverë¥¼ ì¡°ì‚¬í•´ì„œ m_idpartyì— ê°’ì„ ì„¸íŒ…í•´ì£¼ì.
 	CMover *pMember;
 	for( i = 0; i < nMax; i ++ )
 	{
@@ -4877,7 +4877,7 @@ void CDPClient::OnDuelPartyStart( CAr & ar )
 		{
 			pMember->m_idparty = idDstParty;
 			pMember->m_nDuel = 2;
-			pMember->m_idDuelParty = g_Party.m_uPartyId;		// ³» ÆÄÆ¼id¸¦ »ó´ë ÆÄÆ¼¿øµé¿¡°Ô ½É¾îÁÖ°í µà¾ó½ÃÀÛ ¾Ë¸².
+			pMember->m_idDuelParty = g_Party.m_uPartyId;		// ë‚´ íŒŒí‹°idë¥¼ ìƒëŒ€ íŒŒí‹°ì›ë“¤ì—ê²Œ ì‹¬ì–´ì£¼ê³  ë“€ì–¼ì‹œì‘ ì•Œë¦¼.
 
 			if( nFlag == 1 )
 			{
@@ -4885,17 +4885,17 @@ void CDPClient::OnDuelPartyStart( CAr & ar )
 			}
 			else if( nFlag == 0 )
 			{
-				// °áÅõ»ó´ë¶ó´Â sfx¸¦ ¸Ó¸®À§¿¡ ¶ç¿öÁÜ. - °°Àº ÄÚµå°¡ OnAddObj()¿¡µµ ÀÖ´Ù.
+				// ê²°íˆ¬ìƒëŒ€ë¼ëŠ” sfxë¥¼ ë¨¸ë¦¬ìœ„ì— ë„ì›Œì¤Œ. - ê°™ì€ ì½”ë“œê°€ OnAddObj()ì—ë„ ìˆë‹¤.
 				pMember->RenderFlag( ENEMY_PVP_PARTY );
 				pMember->m_nDuelState = 104;
 			}
 		}
 	}
 	g_pPlayer->m_idparty = g_Party.m_uPartyId;
-	g_pPlayer->m_nDuel = 2;						// g_pPlayerµµ µà¾ó ½ÃÀÛµÊÀ» ¼¼ÆÃ
+	g_pPlayer->m_nDuel = 2;						// g_pPlayerë„ ë“€ì–¼ ì‹œì‘ë¨ì„ ì„¸íŒ…
 	g_pPlayer->m_idDuelParty = idDstParty;
 	
-	g_Party.m_idDuelParty = idDstParty;			// g_pPlayerÀÇ ÆÄÆ¼¿¡µµ ¼¼ÆÃ.
+	g_Party.m_idDuelParty = idDstParty;			// g_pPlayerì˜ íŒŒí‹°ì—ë„ ì„¸íŒ….
 
 	if( nFlag == 1 )
 	{
@@ -4910,18 +4910,18 @@ void CDPClient::OnDuelPartyStart( CAr & ar )
 	}
 }
 
-// idTargetÀÌ µà¾óÀ» °ÅÀıÇßÀ½
+// idTargetì´ ë“€ì–¼ì„ ê±°ì ˆí–ˆìŒ
 void CDPClient::OnDuelPartyNo( CAr & ar )
 {
 	OBJID	idTarget;
 	ar >> idTarget;
 	
-	CMover *pTarget = prj.GetMover( idTarget );		// µà¾ó ´ë»óÀÚÀÇ Æ÷ÀÎÅÍ
+	CMover *pTarget = prj.GetMover( idTarget );		// ë“€ì–¼ ëŒ€ìƒìì˜ í¬ì¸í„°
 	if( IsValidObj( pTarget ) )
 	{
 		//CString str;
 		//str = pTarget->GetName();
-		//str += "´ÔÀÌ µà¾ó½ÅÃ»À» °ÅÀıÇß½À´Ï´Ù";
+		//str += "ë‹˜ì´ ë“€ì–¼ì‹ ì²­ì„ ê±°ì ˆí–ˆìŠµë‹ˆë‹¤";
 		//g_WndMng.PutString( str, NULL, 0xff99cc00 );
 		
 		CString str;
@@ -4930,20 +4930,20 @@ void CDPClient::OnDuelPartyNo( CAr & ar )
 	}
 }
 
-// µà¾óÁß Ãë¼Ò½ÃÅ´.
+// ë“€ì–¼ì¤‘ ì·¨ì†Œì‹œí‚´.
 void CDPClient::OnDuelPartyCancel( CAr & ar )
 {
 	int		i, nSize;
 	u_long	uPlayerID;
 	CMover	*pOtherMember;
-	ar >> nSize;		// »ó´ëÆÄÆ¼¿ø ¼ö
+	ar >> nSize;		// ìƒëŒ€íŒŒí‹°ì› ìˆ˜
 	for( i = 0; i < nSize; i ++ )
 	{
 		ar >> uPlayerID;
-		pOtherMember = prj.GetUserByID( uPlayerID );		// »ó´ëÆÄÆ¼¿ø À¯Àú¾ÆÀÌµğ·Î CMover¸¦ ²¨³¿
+		pOtherMember = prj.GetUserByID( uPlayerID );		// ìƒëŒ€íŒŒí‹°ì› ìœ ì €ì•„ì´ë””ë¡œ CMoverë¥¼ êº¼ëƒ„
 		if( IsValidObj( pOtherMember ) )
 		{
-			pOtherMember->ClearDuelParty();			// ¿©±â Å¬¶óÀÌ¾ğÆ®ÀÇ »ó´ëÆÄÆ¼¿ø CMover¿¡µµ °ªÀ» Å¬¸®¾î½ÃÅ´.
+			pOtherMember->ClearDuelParty();			// ì—¬ê¸° í´ë¼ì´ì–¸íŠ¸ì˜ ìƒëŒ€íŒŒí‹°ì› CMoverì—ë„ ê°’ì„ í´ë¦¬ì–´ì‹œí‚´.
 		}
 	}
 	g_pPlayer->ClearDuelParty();
@@ -4957,18 +4957,18 @@ void CDPClient::OnDuelPartyResult( CAr & ar )
 	BOOL	bWin;
 	ar >> bWin;
 
-	// Å¬¶ó¿¡µµ ÆÄÆ¼¿øµé°ú »ó´ëÆÄÆ¼¿øµé¿¡°Ô µà¾ó³¡³µ´Ù°í ¼¼ÆÃÇØ¾ßÇÑ´Ù.
+	// í´ë¼ì—ë„ íŒŒí‹°ì›ë“¤ê³¼ ìƒëŒ€íŒŒí‹°ì›ë“¤ì—ê²Œ ë“€ì–¼ëë‚¬ë‹¤ê³  ì„¸íŒ…í•´ì•¼í•œë‹¤.
 	int		i, nSize;
 	u_long	uPlayerID;
 	CMover	*pOtherMember;
-	ar >> nSize;		// »ó´ëÆÄÆ¼¿ø ¼ö
+	ar >> nSize;		// ìƒëŒ€íŒŒí‹°ì› ìˆ˜
 	for( i = 0; i < nSize; i ++ )
 	{
 		ar >> uPlayerID;
-		pOtherMember = prj.GetUserByID( uPlayerID );		// »ó´ëÆÄÆ¼¿ø À¯Àú¾ÆÀÌµğ·Î CMover¸¦ ²¨³¿
+		pOtherMember = prj.GetUserByID( uPlayerID );		// ìƒëŒ€íŒŒí‹°ì› ìœ ì €ì•„ì´ë””ë¡œ CMoverë¥¼ êº¼ëƒ„
 		if( IsValidObj( pOtherMember ) )
 		{
-			pOtherMember->ClearDuelParty();			// ¿©±â Å¬¶óÀÌ¾ğÆ®ÀÇ »ó´ëÆÄÆ¼¿ø CMover¿¡µµ °ªÀ» Å¬¸®¾î½ÃÅ´.
+			pOtherMember->ClearDuelParty();			// ì—¬ê¸° í´ë¼ì´ì–¸íŠ¸ì˜ ìƒëŒ€íŒŒí‹°ì› CMoverì—ë„ ê°’ì„ í´ë¦¬ì–´ì‹œí‚´.
 		}
 	}
 
@@ -4978,12 +4978,12 @@ void CDPClient::OnDuelPartyResult( CAr & ar )
 	CString str;
 	if( bWin )
 	{
-		//str = "±Ø´Üµà¾ó¿¡¼­ ½Â¸®Çß½À´Ï´Ù.";
+		//str = "ê·¹ë‹¨ë“€ì–¼ì—ì„œ ìŠ¹ë¦¬í–ˆìŠµë‹ˆë‹¤.";
 		g_WndMng.PutString( prj.GetText(TID_GAME_PDVICTORY), NULL, prj.GetTextColor(TID_GAME_PDVICTORY) );
 	} 
 	else
 	{
-		//str = "±Ø´Üµà¾ó¿¡¼­ ÆĞ¹èÇß½À´Ï´Ù.";
+		//str = "ê·¹ë‹¨ë“€ì–¼ì—ì„œ íŒ¨ë°°í–ˆìŠµë‹ˆë‹¤.";
 		g_WndMng.PutString( prj.GetText(TID_GAME_PDLOSE), NULL, prj.GetTextColor(TID_GAME_PDLOSE) );
 	}
 }
@@ -4998,7 +4998,7 @@ void CDPClient::OnPartyExpLevel( CAr & ar )
 		if( nLevel == MAX_PARTYLEVEL )
 			g_WndMng.PutString( prj.GetText(TID_GAME_TROUPEUP), NULL, prj.GetTextColor(TID_GAME_TROUPEUP) );
 		else
-			g_WndMng.PutString( prj.GetText(TID_GAME_PARTYLUP), NULL, prj.GetTextColor(TID_GAME_PARTYLUP) ); // "±Ø´ÜÀÇ ·¹º§ÀÌ ¿Ã¶ú½À´Ï´Ù."
+			g_WndMng.PutString( prj.GetText(TID_GAME_PARTYLUP), NULL, prj.GetTextColor(TID_GAME_PARTYLUP) ); // "ê·¹ë‹¨ì˜ ë ˆë²¨ì´ ì˜¬ëìŠµë‹ˆë‹¤."
 	}
 	g_Party.m_nLevel = nLevel;	
 }
@@ -5037,12 +5037,12 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 	 */
 	int nMode;
 	BOOL bOnOff;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	DWORD	dwSkillTime;
 	ar >> nMode >> dwSkillTime >> bOnOff;
-#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	ar >> nMode >> bOnOff;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 	if( bOnOff == TRUE )
 	{
 		ar >> g_Party.m_nPoint;
@@ -5063,7 +5063,7 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 				{
 					D3DXVECTOR3 v = g_pPlayer->GetPos();
 					
-					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, NULL_ID, D3DXVECTOR3(0,0,0), g_pPlayer->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, NULL_ID, D3DXVECTOR3(0,0,0), g_pPlayer->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 
 					if( pSfx )
 						pSfx->SetScale( D3DXVECTOR3(0.8f, 0.8f, 0.8f) );
@@ -5078,7 +5078,7 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 					
 					D3DXVECTOR3 v = pMover->GetPos();
 					
-					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pMover->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pMover->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 					
 					if( pSfx )
 						pSfx->SetScale( D3DXVECTOR3(0.8f, 0.8f, 0.8f) );
@@ -5100,7 +5100,7 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 				{
 					D3DXVECTOR3 v = g_pPlayer->GetPos();
 					
-					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, NULL_ID, D3DXVECTOR3(0,0,0), g_pPlayer->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, NULL_ID, D3DXVECTOR3(0,0,0), g_pPlayer->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 					
 					if( pSfx )
 						pSfx->SetScale( D3DXVECTOR3(0.7f, 0.7f, 0.7f) );
@@ -5115,7 +5115,7 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 					
 					D3DXVECTOR3 v = pMover->GetPos();
 					
-					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pMover->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pMover->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 					
 					if( pSfx )
 						pSfx->SetScale( D3DXVECTOR3(0.7f, 0.7f, 0.7f) );
@@ -5129,7 +5129,7 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 		{
 			pItemProp = prj.GetPartySkill( ST_STRETCHING );
 			
-			// ´Ü¿øµéÀÌ ¾É¾ÆÀÖ´Â »óÅÂÀÌ¸é SFX»ı¼º
+			// ë‹¨ì›ë“¤ì´ ì•‰ì•„ìˆëŠ” ìƒíƒœì´ë©´ SFXìƒì„±
 			for( int i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
 			{
 				u_long idPlayer = g_Party.GetPlayerId( i );
@@ -5142,25 +5142,25 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 				{
 					D3DXVECTOR3 v = pPlayerMover->GetPos();
 					
-					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pPlayerMover->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pPlayerMover->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 					
 					if( pSfx )
 						pSfx->SetScale( D3DXVECTOR3(1.0f, 1.0f, 1.0f) );
 				}
 			}
 			
-			// ¾É¾ÆÀÖ´Â »óÅÂ°¡ ¾Æ´Ï¸é ¾É±â ¸Ş¼¼Áö ³¯¸²
-			// CActionMover::ProcessState1 ¿¡¼­ »ı¼º½ÃÅ´
+			// ì•‰ì•„ìˆëŠ” ìƒíƒœê°€ ì•„ë‹ˆë©´ ì•‰ê¸° ë©”ì„¸ì§€ ë‚ ë¦¼
+			// CActionMover::ProcessState1 ì—ì„œ ìƒì„±ì‹œí‚´
 
 			csBufString = pItemProp->szName;
 
 			if( bOnOff )
 			{
-				// ÀÌ¸Ş¼¼Áö°¡ ¿À¸é ¾É°Ô ÇÏ¸é µÊ
+				// ì´ë©”ì„¸ì§€ê°€ ì˜¤ë©´ ì•‰ê²Œ í•˜ë©´ ë¨
 				if( g_pPlayer->m_pActMover->IsStateFlag( OBJSTAF_SIT ) ) 
-				{	// ¾É¾ÆÀÖ´Â »óÅÂÀÏ¶§
+				{	// ì•‰ì•„ìˆëŠ” ìƒíƒœì¼ë•Œ
 				}
-				else {														// ¾ÉÀº»óÅÂ°¡ ¾Æ´Ò¶©
+				else {														// ì•‰ì€ìƒíƒœê°€ ì•„ë‹ë•
 					if( FALSE == g_pPlayer->m_pActMover->IsActJump() &&
 						FALSE == g_pPlayer->m_pActMover->IsActAttack() && 
 						FALSE == g_pPlayer->m_pActMover->IsActDamage() &&
@@ -5184,7 +5184,7 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 				{
 					D3DXVECTOR3 v = g_pPlayer->GetPos();
 
-					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, g_pPlayer->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, g_pPlayer->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 					
 					if( pSfx )
 						pSfx->SetScale( D3DXVECTOR3(1.0f, 1.0f, 1.0f) );
@@ -5199,7 +5199,7 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 					
 					D3DXVECTOR3 v = pMover->GetPos();
 					
-					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pMover->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+					CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pMover->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 					
 					if( pSfx )
 						pSfx->SetScale( D3DXVECTOR3(1.0f, 1.0f, 1.0f) );
@@ -5220,15 +5220,15 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 		if( bOnOff )
 		{
 			CWndWorld *pWndWorld = (CWndWorld *)g_WndMng.m_pWndWorld;
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 		#ifdef __BUFF_1107
 			pWndWorld->m_buffs.AddBuff( BUFF_SKILL, (WORD)( pItemProp->dwID ), 1, dwSkillTime );
 		#else	// __BUFF_1107
 			pWndWorld->m_partySkillState.Set( BUFF_SKILL, (WORD)( pItemProp->dwID ), 1, dwSkillTime );
 		#endif	// __BUFF_1107
-#else // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#else // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 			pWndWorld->m_partySkillState.Set( BUFF_SKILL, pItemProp->dwID, 1, pItemProp->dwSkillTime );
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 			str.Format( prj.GetText( TID_GAME_TROUPESKILLUSE ), pItemProp->szName );
 			g_WndMng.PutString( (LPCTSTR)str, NULL, prj.GetTextColor( TID_GAME_TROUPESKILLUSE ) );
 		}
@@ -5290,7 +5290,7 @@ void CDPClient::OnPartyChangeName( CAr & ar )
 	
 
 	//char szMessage[256] = {0,};
-	//sprintf( szMessage, "±Ø´ÜÀÌ¸§ÀÌ %s·Î º¯°æµÇ¾ú½À´Ï´Ù.", g_Party.m_sParty );
+	//sprintf( szMessage, "ê·¹ë‹¨ì´ë¦„ì´ %së¡œ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.", g_Party.m_sParty );
 	//g_WndMng.PutString( szMessage, NULL, 0xff99cc00 );
 }
 
@@ -5301,8 +5301,8 @@ void CDPClient::OnPartyChangeTroup( CAr & ar )
 	ar.ReadString( sParty, 33 );
 
 	g_Party.m_nKindTroup = 1;
-	g_WndMng.PutString( prj.GetText(TID_GAME_PARTYCHANGE), NULL, prj.GetTextColor(TID_GAME_PARTYCHANGE)); //¼øÈ¸±Ø´ÜÀ¸·Î º¯°æµÇ¾ú½À´Ï´Ù.
-#if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// ÆÄÆ¼¸É¹öÁ¶ÀÎ½Ã,ÆÄÆ¼»ı¼º½Ã,ÆÄÆ¼½Â°İ½Ã ¾Ö´Ï »©±â
+	g_WndMng.PutString( prj.GetText(TID_GAME_PARTYCHANGE), NULL, prj.GetTextColor(TID_GAME_PARTYCHANGE)); //ìˆœíšŒê·¹ë‹¨ìœ¼ë¡œ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.
+#if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// íŒŒí‹°ë§´ë²„ì¡°ì¸ì‹œ,íŒŒí‹°ìƒì„±ì‹œ,íŒŒí‹°ìŠ¹ê²©ì‹œ ì• ë‹ˆ ë¹¼ê¸°
 	for( int i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
 	{
 		u_long idPlayer = g_Party.GetPlayerId( i );
@@ -5321,7 +5321,7 @@ void CDPClient::OnPartyChangeTroup( CAr & ar )
 			}
 		}
 	}
-#endif //__REMOVE_JOINPARTYMEMBER_ANI			// ÆÄÆ¼¸É¹öÁ¶ÀÎ½Ã,ÆÄÆ¼»ı¼º½Ã,ÆÄÆ¼½Â°İ½Ã ¾Ö´Ï »©±â
+#endif //__REMOVE_JOINPARTYMEMBER_ANI			// íŒŒí‹°ë§´ë²„ì¡°ì¸ì‹œ,íŒŒí‹°ìƒì„±ì‹œ,íŒŒí‹°ìŠ¹ê²©ì‹œ ì• ë‹ˆ ë¹¼ê¸°
 	PlayMusic( BGM_IN_FITUP );
 	
 	if( 0 != strlen( sParty ) )
@@ -5358,7 +5358,7 @@ void CDPClient::OnSetPartyMemberParam( CAr & ar )
 						{
 							fRemoveParty	= false;
 							g_Party.SwapPartyMember( 0, j );
-#if __VER >= 12 // __JHMA_VER12_1	//12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#if __VER >= 12 // __JHMA_VER12_1	//12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 							CWndWorld *pWndWorld = (CWndWorld *)g_WndMng.m_pWndWorld;
 						#ifdef __BUFF_1107
 							pWndWorld->m_buffs.Clear();
@@ -5367,7 +5367,7 @@ void CDPClient::OnSetPartyMemberParam( CAr & ar )
 						#endif	// __BUFF_1107
 							for( int i = 0 ; i < MAX_SKILL ; i++ )
 								g_WndMng.m_dwSkillTime[i] = 0;
-#endif // //12Â÷ ±Ø´ÜÀ¯·á¾ÆÀÌÅÛ
+#endif // //12ì°¨ ê·¹ë‹¨ìœ ë£Œì•„ì´í…œ
 							break;
 						}
 					}
@@ -5405,14 +5405,14 @@ void CDPClient::OnPartySkillCall( OBJID objid, CAr & ar )
 			#define ST_STRETCHING                      8
 			#define ST_GIFTBOX                         9
 		 */
-		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj2, v, objid );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj2, v, objid );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 	
 		if( pSfx )
 			pSfx->SetScale( D3DXVECTOR3(1.1f, 1.1f, 1.1f) );
 	}
 	else
 	{
-		// ´ÜÀå ¸Ó¸® Ç¥½ÃÇÏ±â
+		// ë‹¨ì¥ ë¨¸ë¦¬ í‘œì‹œí•˜ê¸°
 		u_long idPlayer      = g_Party.GetPlayerId( 0 );
 		CMover* pLeaderMover = prj.GetUserByID( idPlayer );
 		
@@ -5420,14 +5420,14 @@ void CDPClient::OnPartySkillCall( OBJID objid, CAr & ar )
 		{
 			D3DXVECTOR3 v = pLeaderMover->GetPos();
 			
-			CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj2, v, pLeaderMover->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+			CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj2, v, pLeaderMover->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 			
 			if( pSfx )
 				pSfx->SetScale( D3DXVECTOR3(1.1f, 1.1f, 1.1f) );
 		}
 		
-		// ´Ü¿ø Ç¥½ÃÇÏ±â
-		CSfx *pSfx2 = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, objid );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+		// ë‹¨ì› í‘œì‹œí•˜ê¸°
+		CSfx *pSfx2 = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, objid );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 		if( pSfx2 )
 		{
 			pSfx2->SetScale( D3DXVECTOR3(1.1f, 1.1f, 1.1f) );
@@ -5458,7 +5458,7 @@ void CDPClient::OnPartySkillBlitz( CAr & ar )
 
 	ItemProp* pItemProp = prj.GetPartySkill( ST_BLITZ );
 	
-	CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, NULL_ID, D3DXVECTOR3(0,0,0), tagetID );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+	CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, NULL_ID, D3DXVECTOR3(0,0,0), tagetID );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 
 	if( pSfx )
 		pSfx->SetScale( D3DXVECTOR3(1.0f, 1.0f, 1.0f) );
@@ -5482,14 +5482,14 @@ void CDPClient::OnPartySkillRetreat( OBJID objid )
 
 		D3DXVECTOR3 v = pPlayerMover->GetPos();
 		
-		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pPlayerMover->GetId() );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pPlayerMover->GetId() );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 
 		if( pSfx )
 			pSfx->SetScale( D3DXVECTOR3(1.0f, 1.0f, 1.0f) );
 	}
 }
 
-// 1È¸Å¸°İ¿¡ ÇÑÇØ¼­ Å©¸®Æ¼ÄÃ ¹ßµ¿È®·üÀ» ³ôÀÎ´Ù.
+// 1íšŒíƒ€ê²©ì— í•œí•´ì„œ í¬ë¦¬í‹°ì»¬ ë°œë™í™•ë¥ ì„ ë†’ì¸ë‹¤.
 void CDPClient::OnPartySkillSphereCircle( OBJID objid )
 {
 	CMover *pMover = CMover::GetActiveMover();
@@ -5508,7 +5508,7 @@ void CDPClient::OnPartySkillSphereCircle( OBJID objid )
 	CMover* pLeader	= g_Party.GetLeader();
 	if( IsValidObj( (CObj*)pLeader ) )
 	{
-		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pLeader->GetId(), D3DXVECTOR3(0,0,0) );	// ¸Ó¸®À§¿¡ sfx»ı¼º.
+		CSfx *pSfx = CreateSfx( g_Neuz.m_pd3dDevice, pItemProp->dwSfxObj, v, pLeader->GetId(), D3DXVECTOR3(0,0,0) );	// ë¨¸ë¦¬ìœ„ì— sfxìƒì„±.
 		
 		if( pSfx )
 			pSfx->SetScale( D3DXVECTOR3(1.0f, 1.0f, 1.0f) );
@@ -5691,7 +5691,7 @@ void CDPClient::OnEnvironment( CAr & ar )
 	if( g_pPlayer && g_pPlayer->GetWorld() && g_pPlayer->GetWorld()->m_bIsIndoor && g_pPlayer->GetWorld()->GetID() != WI_DUNGEON_KRRR )
 		return;
 
-	// ¿©±â¼­ È¯°æÀ» Á¶Á¤ÇÏ´Â ¼Ò½º°¡ µé¾î°¡¾ß ÇÑ´Ù.
+	// ì—¬ê¸°ì„œ í™˜ê²½ì„ ì¡°ì •í•˜ëŠ” ì†ŒìŠ¤ê°€ ë“¤ì–´ê°€ì•¼ í•œë‹¤.
 	CWorld::m_skyBox.SetWeather( WEATHER_SNOW, g_Environment.m_bSnow );
 	CWorld::m_skyBox.SetWeather( WEATHER_RAIN, g_Environment.m_bRain );
 }
@@ -5894,7 +5894,7 @@ void CDPClient::OnSMMode( CAr & ar )
 	{
 		LPCTSTR szErr = Error( "CDPClient::OnSMMode %d", nType );
 		ADDERRORMSG( szErr );
-		return;		// ÀÏ´Ü ¾ÈÆÃ±â°Ô ¸®ÅÏ
+		return;		// ì¼ë‹¨ ì•ˆíŒ…ê¸°ê²Œ ë¦¬í„´
 	}
 
 	if( g_pPlayer == NULL )
@@ -6209,49 +6209,49 @@ void CDPClient::OnFlyffEvent( CAr & ar )
 			{
 				case EVE_0401A:
 					{
-						g_WndMng.PutString( "'µå·Ó·ü 100% µ¶µµ¸¦ ÁöÄÑ¶ó' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffffff99 );
-						g_WndMng.PutString( "'µå·Ó·ü 100% µ¶µµ¸¦ ÁöÄÑ¶ó' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffccffcc );
+						g_WndMng.PutString( "'ë“œë¡­ë¥  100% ë…ë„ë¥¼ ì§€ì¼œë¼' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffffff99 );
+						g_WndMng.PutString( "'ë“œë¡­ë¥  100% ë…ë„ë¥¼ ì§€ì¼œë¼' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffccffcc );
 						break;
 					}
 				case EVE_SCHOOL_BATTLE:
 					{
-						g_WndMng.PutString( "'ÇĞ±³ ´ëÇ×Àü' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffffff99 );
-						g_WndMng.PutString( "'ÇĞ±³ ´ëÇ×Àü' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffccffcc );
+						g_WndMng.PutString( "'í•™êµ ëŒ€í•­ì „' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffffff99 );
+						g_WndMng.PutString( "'í•™êµ ëŒ€í•­ì „' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffccffcc );
 						break;
 					}
 #ifdef __EVENT0913
 				case EVE_EVENT0913:
 					{
-						g_WndMng.PutString( "'¾ÆÀÌÅÛ µå·Ó È®·ü µÎ¹è UP~!'ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffffff99 );
-						g_WndMng.PutString( "'¾ÆÀÌÅÛ µå·Ó È®·ü µÎ¹è UP~!' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffccffcc );
+						g_WndMng.PutString( "'ì•„ì´í…œ ë“œë¡­ í™•ë¥  ë‘ë°° UP~!'ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffffff99 );
+						g_WndMng.PutString( "'ì•„ì´í…œ ë“œë¡­ í™•ë¥  ë‘ë°° UP~!' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffccffcc );
 						break;
 					}
 #endif	// __EVENT0913
 #ifdef __EVENT1206
 				case EVE_EVENT1206:
 					{
-						g_WndMng.PutString( "'º¸»ó' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffffff99 );
-						g_WndMng.PutString( "'º¸»ó' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffccffcc );
+						g_WndMng.PutString( "'ë³´ìƒ' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffffff99 );
+						g_WndMng.PutString( "'ë³´ìƒ' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffccffcc );
 						break;
 					}
 #endif	// __EVENT0913
 
 				case EVE_EVENT1219:
 					{
-						g_WndMng.PutString( "'ÇØÇÇ Å©¸®½º¸¶½º~ Æ¯¸í!! ¾ç¸»À» Ã£¾Æ¶ó~!!' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffffff99 );
-						g_WndMng.PutString( "'ÇØÇÇ Å©¸®½º¸¶½º~ Æ¯¸í!! ¾ç¸»À» Ã£¾Æ¶ó~!!' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffccffcc );
+						g_WndMng.PutString( "'í•´í”¼ í¬ë¦¬ìŠ¤ë§ˆìŠ¤~ íŠ¹ëª…!! ì–‘ë§ì„ ì°¾ì•„ë¼~!!' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffffff99 );
+						g_WndMng.PutString( "'í•´í”¼ í¬ë¦¬ìŠ¤ë§ˆìŠ¤~ íŠ¹ëª…!! ì–‘ë§ì„ ì°¾ì•„ë¼~!!' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffccffcc );
 						break;
 					}
 				case EVE_EVENT0127:
 					{
-						g_WndMng.PutString( "'Áñ°Å¿î ¼³³¯. ¶±±¹µµ ¸Ô°í º¹ ÁÖ¸Ó´Ïµµ Å¸°¡¼¼¿ä' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffffff99 );
-						g_WndMng.PutString( "'Áñ°Å¿î ¼³³¯. ¶±±¹µµ ¸Ô°í º¹ ÁÖ¸Ó´Ïµµ Å¸°¡¼¼¿ä' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffccffcc );
+						g_WndMng.PutString( "'ì¦ê±°ìš´ ì„¤ë‚ . ë–¡êµ­ë„ ë¨¹ê³  ë³µ ì£¼ë¨¸ë‹ˆë„ íƒ€ê°€ì„¸ìš”' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffffff99 );
+						g_WndMng.PutString( "'ì¦ê±°ìš´ ì„¤ë‚ . ë–¡êµ­ë„ ë¨¹ê³  ë³µ ì£¼ë¨¸ë‹ˆë„ íƒ€ê°€ì„¸ìš”' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffccffcc );
 						break;
 					}
 				case EVE_EVENT0214:
 					{
-						g_WndMng.PutString( "'ÈÊ! ¿ì¸®´Â ¹«ÀûÀÇ ¼Ö·ÎºÎ´ë´Ù!' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffffff99 );
-						g_WndMng.PutString( "'ÈÊ! ¿ì¸®´Â ¹«ÀûÀÇ ¼Ö·ÎºÎ´ë´Ù!' ÀÌº¥Æ®°¡ ÁøÇàÁßÀÔ´Ï´Ù.", NULL, 0xffccffcc );
+						g_WndMng.PutString( "'í›—! ìš°ë¦¬ëŠ” ë¬´ì ì˜ ì†”ë¡œë¶€ëŒ€ë‹¤!' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffffff99 );
+						g_WndMng.PutString( "'í›—! ìš°ë¦¬ëŠ” ë¬´ì ì˜ ì†”ë¡œë¶€ëŒ€ë‹¤!' ì´ë²¤íŠ¸ê°€ ì§„í–‰ì¤‘ì…ë‹ˆë‹¤.", NULL, 0xffccffcc );
 						break;
 					}
 			}
@@ -6288,13 +6288,13 @@ void CDPClient::OnSetLocalEvent( CAr & ar )
 			{
 				if( nState == 0 )
 				{
-					g_WndMng.PutString( "'µå·Ó·ü 100% µ¶µµ¸¦ ÁöÄÑ¶ó' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'µå·Ó·ü 100% µ¶µµ¸¦ ÁöÄÑ¶ó' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'ë“œë¡­ë¥  100% ë…ë„ë¥¼ ì§€ì¼œë¼' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'ë“œë¡­ë¥  100% ë…ë„ë¥¼ ì§€ì¼œë¼' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				else
 				{
-					g_WndMng.PutString( "'µå·Ó·ü 100% µ¶µµ¸¦ ÁöÄÑ¶ó' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'µå·Ó·ü 100% µ¶µµ¸¦ ÁöÄÑ¶ó' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'ë“œë¡­ë¥  100% ë…ë„ë¥¼ ì§€ì¼œë¼' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'ë“œë¡­ë¥  100% ë…ë„ë¥¼ ì§€ì¼œë¼' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				break;
 			}
@@ -6303,13 +6303,13 @@ void CDPClient::OnSetLocalEvent( CAr & ar )
 			{
 				if( nState == 0 )
 				{
-					g_WndMng.PutString( "'¾ÆÀÌÅÛ µå·Ó È®·ü µÎ¹è UP~!' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'¾ÆÀÌÅÛ µå·Ó È®·ü µÎ¹è UP~!' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'ì•„ì´í…œ ë“œë¡­ í™•ë¥  ë‘ë°° UP~!' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'ì•„ì´í…œ ë“œë¡­ í™•ë¥  ë‘ë°° UP~!' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				else
 				{
-					g_WndMng.PutString( "'¾ÆÀÌÅÛ µå·Ó È®·ü µÎ¹è UP~!' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'¾ÆÀÌÅÛ µå·Ó È®·ü µÎ¹è UP~!' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'ì•„ì´í…œ ë“œë¡­ í™•ë¥  ë‘ë°° UP~!' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'ì•„ì´í…œ ë“œë¡­ í™•ë¥  ë‘ë°° UP~!' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				break;
 			}
@@ -6319,13 +6319,13 @@ void CDPClient::OnSetLocalEvent( CAr & ar )
 			{
 				if( nState == 0 )
 				{
-					g_WndMng.PutString( "'º¸»ó' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'º¸»ó' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'ë³´ìƒ' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'ë³´ìƒ' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				else
 				{
-					g_WndMng.PutString( "'º¸»ó' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'º¸»ó' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'ë³´ìƒ' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'ë³´ìƒ' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				break;
 			}
@@ -6334,13 +6334,13 @@ void CDPClient::OnSetLocalEvent( CAr & ar )
 			{
 				if( nState == 0 )
 				{
-					g_WndMng.PutString( "'ÇØÇÇ Å©¸®½º¸¶½º~ Æ¯¸í!! ¾ç¸»À» Ã£¾Æ¶ó~!!' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'ÇØÇÇ Å©¸®½º¸¶½º~ Æ¯¸í!! ¾ç¸»À» Ã£¾Æ¶ó~!!' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'í•´í”¼ í¬ë¦¬ìŠ¤ë§ˆìŠ¤~ íŠ¹ëª…!! ì–‘ë§ì„ ì°¾ì•„ë¼~!!' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'í•´í”¼ í¬ë¦¬ìŠ¤ë§ˆìŠ¤~ íŠ¹ëª…!! ì–‘ë§ì„ ì°¾ì•„ë¼~!!' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				else
 				{
-					g_WndMng.PutString( "'ÇØÇÇ Å©¸®½º¸¶½º~ Æ¯¸í!! ¾ç¸»À» Ã£¾Æ¶ó~!!' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'ÇØÇÇ Å©¸®½º¸¶½º~ Æ¯¸í!! ¾ç¸»À» Ã£¾Æ¶ó~!!' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'í•´í”¼ í¬ë¦¬ìŠ¤ë§ˆìŠ¤~ íŠ¹ëª…!! ì–‘ë§ì„ ì°¾ì•„ë¼~!!' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'í•´í”¼ í¬ë¦¬ìŠ¤ë§ˆìŠ¤~ íŠ¹ëª…!! ì–‘ë§ì„ ì°¾ì•„ë¼~!!' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				break;
 			}
@@ -6348,13 +6348,13 @@ void CDPClient::OnSetLocalEvent( CAr & ar )
 			{
 				if( nState == 0 )
 				{
-					g_WndMng.PutString( "'Áñ°Å¿î ¼³³¯. ¶±±¹µµ ¸Ô°í º¹ ÁÖ¸Ó´Ïµµ Å¸°¡¼¼¿ä' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'Áñ°Å¿î ¼³³¯. ¶±±¹µµ ¸Ô°í º¹ ÁÖ¸Ó´Ïµµ Å¸°¡¼¼¿ä' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'ì¦ê±°ìš´ ì„¤ë‚ . ë–¡êµ­ë„ ë¨¹ê³  ë³µ ì£¼ë¨¸ë‹ˆë„ íƒ€ê°€ì„¸ìš”' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'ì¦ê±°ìš´ ì„¤ë‚ . ë–¡êµ­ë„ ë¨¹ê³  ë³µ ì£¼ë¨¸ë‹ˆë„ íƒ€ê°€ì„¸ìš”' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				else
 				{
-					g_WndMng.PutString( "'Áñ°Å¿î ¼³³¯. ¶±±¹µµ ¸Ô°í º¹ ÁÖ¸Ó´Ïµµ Å¸°¡¼¼¿ä' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'Áñ°Å¿î ¼³³¯. ¶±±¹µµ ¸Ô°í º¹ ÁÖ¸Ó´Ïµµ Å¸°¡¼¼¿ä' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'ì¦ê±°ìš´ ì„¤ë‚ . ë–¡êµ­ë„ ë¨¹ê³  ë³µ ì£¼ë¨¸ë‹ˆë„ íƒ€ê°€ì„¸ìš”' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'ì¦ê±°ìš´ ì„¤ë‚ . ë–¡êµ­ë„ ë¨¹ê³  ë³µ ì£¼ë¨¸ë‹ˆë„ íƒ€ê°€ì„¸ìš”' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				break;
 			}
@@ -6362,13 +6362,13 @@ void CDPClient::OnSetLocalEvent( CAr & ar )
 			{
 				if( nState == 0 )
 				{
-					g_WndMng.PutString( "'ÈÊ! ¿ì¸®´Â ¹«ÀûÀÇ ¼Ö·ÎºÎ´ë´Ù!' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'ÈÊ! ¿ì¸®´Â ¹«ÀûÀÇ ¼Ö·ÎºÎ´ë´Ù!' ÀÌº¥Æ®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'í›—! ìš°ë¦¬ëŠ” ë¬´ì ì˜ ì†”ë¡œë¶€ëŒ€ë‹¤!' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'í›—! ìš°ë¦¬ëŠ” ë¬´ì ì˜ ì†”ë¡œë¶€ëŒ€ë‹¤!' ì´ë²¤íŠ¸ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				else
 				{
-					g_WndMng.PutString( "'ÈÊ! ¿ì¸®´Â ¹«ÀûÀÇ ¼Ö·ÎºÎ´ë´Ù!' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffffff99 );
-					g_WndMng.PutString( "'ÈÊ! ¿ì¸®´Â ¹«ÀûÀÇ ¼Ö·ÎºÎ´ë´Ù!' ÀÌº¥Æ®°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", NULL, 0xffccffcc );
+					g_WndMng.PutString( "'í›—! ìš°ë¦¬ëŠ” ë¬´ì ì˜ ì†”ë¡œë¶€ëŒ€ë‹¤!' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffffff99 );
+					g_WndMng.PutString( "'í›—! ìš°ë¦¬ëŠ” ë¬´ì ì˜ ì†”ë¡œë¶€ëŒ€ë‹¤!' ì´ë²¤íŠ¸ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", NULL, 0xffccffcc );
 				}
 				break;
 			}
@@ -6794,9 +6794,9 @@ void CDPClient::OnGuildCombat( CAr & ar )
 }
 void CDPClient::OnGCInWindow( CAr& ar )
 {
-	__int64 nPrizePenya;		// ÃÑ »ó±İ¾×
-	DWORD dwRequestPenya;	// ÀÚ½Å ±æµå »ó±İ¾×
-	DWORD dwMinPenya;		// ÃÖ¼Ò Æä³Ä
+	__int64 nPrizePenya;		// ì´ ìƒê¸ˆì•¡
+	DWORD dwRequestPenya;	// ìì‹  ê¸¸ë“œ ìƒê¸ˆì•¡
+	DWORD dwMinPenya;		// ìµœì†Œ í˜ëƒ
 	ar >> nPrizePenya >> dwRequestPenya >> dwMinPenya ;
 	
 	if( g_GuildCombatMng.m_nState != CGuildCombat::CLOSE_STATE )
@@ -6846,9 +6846,9 @@ void CDPClient::OnGCRequestStatus( CAr& ar )
 	int nSize;
 	char strGuildName[128];
 	vector<CString> vecRequestGuild;
-	time_t tNext;		// ´ÙÀ½¿¡ ±æµå´ëÀüÀÌ ½ÃÀÛÇÒ ½Ã°£.
+	time_t tNext;		// ë‹¤ìŒì— ê¸¸ë“œëŒ€ì „ì´ ì‹œì‘í•  ì‹œê°„.
 	ar >> tNext;
-	ar >> nPrizePenya;						// ÃÑ »ó±İ¾×
+	ar >> nPrizePenya;						// ì´ ìƒê¸ˆì•¡
 	ar >> nSize;
 	
 	SAFE_DELETE(g_WndMng.m_pWndGuildWarState);
@@ -6871,7 +6871,7 @@ void CDPClient::OnGCRequestStatus( CAr& ar )
 
 		for( int i = 0 ; i < nSize ; ++i )
 		{
-			ar.ReadString( strGuildName, 128 );		// ±æµå¸í
+			ar.ReadString( strGuildName, 128 );		// ê¸¸ë“œëª…
 			vecRequestGuild.push_back( strGuildName );
 
 			if( pGuild && nRate == -1 )
@@ -6888,7 +6888,7 @@ void CDPClient::OnGCRequestStatus( CAr& ar )
 		g_WndMng.m_pWndGuildWarState->SetRate( nRate );	
 	}
 
-	ar >> dwRequstPenya;					// My ±æµå°¡ ½ÅÃ»ÇÑ ±İ¾×
+	ar >> dwRequstPenya;					// My ê¸¸ë“œê°€ ì‹ ì²­í•œ ê¸ˆì•¡
 
 	if( g_WndMng.m_pWndGuildWarState )
 	{
@@ -6902,20 +6902,20 @@ void CDPClient::OnGCSelectPlayer( CAr& ar )
 	BOOL bRequestWar, bWindow;
 	u_long uidDefender, uidPlayer;
 	int nSize;
-	int nMaxJoinMember; // ´ëÀü¿¡ Âü°¡ÇÒ¼ö ÀÖ´Â ÃÖ´ë °³¼ö
-	int nMaxWarMember;	// ´ëÀü¿¡ ¼±¼ö·Î µé¾î°¨
+	int nMaxJoinMember; // ëŒ€ì „ì— ì°¸ê°€í• ìˆ˜ ìˆëŠ” ìµœëŒ€ ê°œìˆ˜
+	int nMaxWarMember;	// ëŒ€ì „ì— ì„ ìˆ˜ë¡œ ë“¤ì–´ê°
 	vector<u_long> vecSelectPlayer;
 	ar >> nMaxJoinMember;
 	ar >> nMaxWarMember;
 
-	ar >> bRequestWar;		// ÃâÀüÇÒ¼ö ÀÖ´Â ±æµåÀÎ°¡?
+	ar >> bRequestWar;		// ì¶œì „í• ìˆ˜ ìˆëŠ” ê¸¸ë“œì¸ê°€?
 	if( bRequestWar )
 	{
-		ar >> bWindow;			// À©µµ¿ì Ã¢¶ç¿î ¸Ş¼¼Áö ÀÎÁö?
+		ar >> bWindow;			// ìœˆë„ìš° ì°½ë„ìš´ ë©”ì„¸ì§€ ì¸ì§€?
 	
 		if( bWindow )
 		{
-			ar >> uidDefender;		// µğÆæ´õ
+			ar >> uidDefender;		// ë””íœë”
 			ar >> nSize;
 			SAFE_DELETE(g_WndMng.m_pWndGuildCombatSelection);
 			g_WndMng.m_pWndGuildCombatSelection = new CWndGuildCombatSelection;
@@ -6942,12 +6942,12 @@ void CDPClient::OnGCSelectPlayer( CAr& ar )
 		}
 		else
 		{
-			g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT_PLAYER_MAKEUP ) ); // "¼öÁ¤ÇØ¾ßÇÔ : ¼±¼ö ±¸¼ºÀÌ ¿Ï·á µÇ¾ú½À´Ï´Ù." );
+			g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_GUILDCOMBAT_PLAYER_MAKEUP ) ); // "ìˆ˜ì •í•´ì•¼í•¨ : ì„ ìˆ˜ êµ¬ì„±ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤." );
 		}
 	}
 	else
 	{
-		// ÃâÀüÇÒ¼ö ¾øÀ½.. ±×·¯¹Ç·Î ¼±ÅÃÇÒ¼ö ¾øÀ½.
+		// ì¶œì „í• ìˆ˜ ì—†ìŒ.. ê·¸ëŸ¬ë¯€ë¡œ ì„ íƒí• ìˆ˜ ì—†ìŒ.
 	}
 }
 void CDPClient::OnGCUserState( CAr & ar )
@@ -6962,7 +6962,7 @@ void CDPClient::OnGCUserState( CAr & ar )
 		pMover->m_nGuildCombatState = nGuildCombatState;
 	}
 }
-// ÀÚ½ÅÀÇ ±æµå »óÈ²
+// ìì‹ ì˜ ê¸¸ë“œ ìƒí™©
 void CDPClient::OnGCGuildStatus( CAr & ar )
 {
 	int nSize;
@@ -6989,11 +6989,11 @@ void CDPClient::OnGCGuildStatus( CAr & ar )
 		}
 	}
 
-	// ¼øÀ§ i
-	// Ä³¸¯¾ÆÀÌµğ uidPlayer
-	// Ä³¸¯ ³²Àº »ı¸í nLife
+	// ìˆœìœ„ i
+	// ìºë¦­ì•„ì´ë”” uidPlayer
+	// ìºë¦­ ë‚¨ì€ ìƒëª… nLife
 }
-// ±æµå ¼øÀ§
+// ê¸¸ë“œ ìˆœìœ„
 void CDPClient::OnGCGuildPrecedence( CAr & ar )
 {
 	int nSize;
@@ -7021,11 +7021,11 @@ void CDPClient::OnGCGuildPrecedence( CAr & ar )
 		}
 	}
 
-	// ¼øÀ§´Â ¹«ÀÛÀ§ ¼îÆ® ÇØ¾ßÇÔ
-	// ±æµå ÀÌ¸§ strGuildName
-	// ±æµå Æ÷ÀÎÆ® nGuildPoint
+	// ìˆœìœ„ëŠ” ë¬´ì‘ìœ„ ì‡¼íŠ¸ í•´ì•¼í•¨
+	// ê¸¸ë“œ ì´ë¦„ strGuildName
+	// ê¸¸ë“œ í¬ì¸íŠ¸ nGuildPoint
 }
-// °³ÀÎ ¼øÀ§
+// ê°œì¸ ìˆœìœ„
 void CDPClient::OnGCPlayerPrecedence( CAr & ar )
 {
 	int nGuildSize, nPlayerSize;
@@ -7052,19 +7052,19 @@ void CDPClient::OnGCPlayerPrecedence( CAr & ar )
 		}
 	}
 
-	// ¼øÀ§´Â ¹«ÀÛÀ§ ¼îÆ® ÇØ¾ßÇÔ
-	// Ä³¸¯ ¾ÆÀÌµğ uidPlayer
-	// Ä³¸¯ Æ÷ÀÎÆ® nPoint
+	// ìˆœìœ„ëŠ” ë¬´ì‘ìœ„ ì‡¼íŠ¸ í•´ì•¼í•¨
+	// ìºë¦­ ì•„ì´ë”” uidPlayer
+	// ìºë¦­ í¬ì¸íŠ¸ nPoint
 	
 }
 
 void CDPClient::OnGCJoinWarWindow( CAr & ar )
 {
-	// ´ëÀü Âü°¡ À©µµ¿ì Ã¢À» ¶ç¿ì±â
+	// ëŒ€ì „ ì°¸ê°€ ìœˆë„ìš° ì°½ì„ ë„ìš°ê¸°
 	int nMap;
 	int nJoinWarTime;
-	ar >> nMap;					// ±âÁ¸°ª , µğÆúÆ® °ª 99
-	ar >> nJoinWarTime;		// ´ëÀü¿¡ Âü°¡ÇÒ ½Ã°£
+	ar >> nMap;					// ê¸°ì¡´ê°’ , ë””í´íŠ¸ ê°’ 99
+	ar >> nJoinWarTime;		// ëŒ€ì „ì— ì°¸ê°€í•  ì‹œê°„
 
 	SAFE_DELETE(g_WndMng.m_pWndGuildCombatJoinSelection);
 	g_WndMng.m_pWndGuildCombatJoinSelection = new CWndGuildCombatJoinSelection;
@@ -7084,26 +7084,26 @@ void CDPClient::OnGCGetPenyaGuild( CAr & ar )
 	ar >> nGetPenya;
 	switch( nGetResult )
 	{
-	case 0:		// ¼º°ø( º¸»ó±İ )
+	case 0:		// ì„±ê³µ( ë³´ìƒê¸ˆ )
 		{
 			CString str;
 			str.Format( prj.GetText(TID_GAME_GUILDCOMBAT_JACKPOT), nGetPenya );
 			g_WndMng.OpenMessageBox( str );
 		}
 		break;
-	case 1:		// ¼º°ø( ½ÅÃ»±İ )
+	case 1:		// ì„±ê³µ( ì‹ ì²­ê¸ˆ )
 		{
 			CString str;
 			str.Format( prj.GetText(TID_GAME_GUILDCOMBAT_JACKPOT_CANCEL), nGetPenya );
 			g_WndMng.OpenMessageBox( str );
 		}
 		break;
-	case 2:		// ¾òÀ»°Ô ¾øÀ½
+	case 2:		// ì–»ì„ê²Œ ì—†ìŒ
 		{
-			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT_WINNER_NOT_GUILD) ); //±İÁÖ ±æµå´ëÀü¿¡¼­ ¿ì½ÂÇÑ ±æµå°¡ ¾Æ´Õ´Ï´Ù.	
+			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT_WINNER_NOT_GUILD) ); //ê¸ˆì£¼ ê¸¸ë“œëŒ€ì „ì—ì„œ ìš°ìŠ¹í•œ ê¸¸ë“œê°€ ì•„ë‹™ë‹ˆë‹¤.	
 		}
 		break;
-	case 3:		// ¾òÀ»°ÍÀº ÀÖÁö¸¸ ¿À¹öÇÃ·Î °¡´É ÇÏ¹Ç·Î µû·Î Ã³¸®
+	case 3:		// ì–»ì„ê²ƒì€ ìˆì§€ë§Œ ì˜¤ë²„í”Œë¡œ ê°€ëŠ¥ í•˜ë¯€ë¡œ ë”°ë¡œ ì²˜ë¦¬
 		{
 			__int64 nPenya = nGetPenya + (__int64)g_pPlayer->GetGold();
 
@@ -7129,19 +7129,19 @@ void CDPClient::OnGCGetPenyaPlayer( CAr & ar )
 	ar >> nGetPenya;
 	switch( nGetResult )
 	{
-	case 0:		// ¼º°ø( º¸»ó±İ )
+	case 0:		// ì„±ê³µ( ë³´ìƒê¸ˆ )
 		{
 			CString str;
-			str.Format( prj.GetText(TID_GAME_GUILDCOMBAT_MVP_PENYA), nGetPenya ); //MVP»ó±İ¿Ã %dÆä³Ä¸¦ Áö±Ş¹Ş¾Ò½À´Ï´Ù. ´Ù½ÃÇÑ¹ø ÃàÇÏµå¸³´Ï´Ù!
+			str.Format( prj.GetText(TID_GAME_GUILDCOMBAT_MVP_PENYA), nGetPenya ); //MVPìƒê¸ˆì˜¬ %dí˜ëƒë¥¼ ì§€ê¸‰ë°›ì•˜ìŠµë‹ˆë‹¤. ë‹¤ì‹œí•œë²ˆ ì¶•í•˜ë“œë¦½ë‹ˆë‹¤!
 			g_WndMng.OpenMessageBox( str );
 		}
 		break;
-	case 1:		// ¾òÀ»°Ô ¾øÀ½
+	case 1:		// ì–»ì„ê²Œ ì—†ìŒ
 		{
-			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_MVP) ); //´ç½ÅÀº ±İÁÖ ±æµå´ëÀüÀÇ MVP°¡ ¾Æ´Õ´Ï´Ù.
+			g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_GUILDCOMBAT_NOT_MVP) ); //ë‹¹ì‹ ì€ ê¸ˆì£¼ ê¸¸ë“œëŒ€ì „ì˜ MVPê°€ ì•„ë‹™ë‹ˆë‹¤.
 		}
 		break;
-	case 2:		// ¾òÀ»°ÍÀº ÀÖÁö¸¸ ¿À¹öÇÃ·Î °¡´É ÇÏ¹Ç·Î µû·Î Ã³¸®
+	case 2:		// ì–»ì„ê²ƒì€ ìˆì§€ë§Œ ì˜¤ë²„í”Œë¡œ ê°€ëŠ¥ í•˜ë¯€ë¡œ ë”°ë¡œ ì²˜ë¦¬
 		{
 			__int64 nPenya = nGetPenya + (__int64)g_pPlayer->GetGold();
 			
@@ -7205,13 +7205,13 @@ void CDPClient::OnGCWarPlayerList( CAr & ar )
 
 		for( int i = 0 ; i < nSizeGuild ; ++i )
 		{
-			ar >> uidDefender;		// µğÆæ´õ
+			ar >> uidDefender;		// ë””íœë”
 			ar >> nSizeMember;
 
 			for( int j = 0 ; j < nSizeMember ; ++j )
 			{
 				ar >> uidPlayer;
-				ar >> nStatus;		// ÀüÀï »óÅÂ == 1 ; ´ë±âÀÚ == 0
+				ar >> nStatus;		// ì „ìŸ ìƒíƒœ == 1 ; ëŒ€ê¸°ì == 0
 
 				pWndWorld->AddGCStatus( uidDefender, uidPlayer, nStatus );
 			}
@@ -7241,7 +7241,7 @@ void CDPClient::OnGCLog( CAr & ar )
 
 		CGuild *pPlayerGuild = g_pPlayer->GetGuild();
 
-		// ±æµå ¼øÀ§
+		// ê¸¸ë“œ ìˆœìœ„
 		multimap< int, CString > mmapGuildRate = pWndWorld->m_mmapGuildCombat_GuildPrecedence;
 
 		int nRate = 0;
@@ -7289,7 +7289,7 @@ void CDPClient::OnGCLog( CAr & ar )
 			nOldPoint = nPoint;
 		}
 
-		// °³ÀÎ¼øÀ§
+		// ê°œì¸ìˆœìœ„
 		nRate = 0;
 		nOldPoint = 0xffffffff;
 		u_long uiPlayer;
@@ -7344,22 +7344,22 @@ void CDPClient::OnGCLog( CAr & ar )
 		CString strAtk, strDef;
 		CString strGuild1, strGuild2;
 		CString strTemp2;
-		// ·Î±× Ç¥½Ã
+		// ë¡œê·¸ í‘œì‹œ
 		for( int k = 0 ; k < (int)( uSize ) ; ++k )
 		{
 			CGuildCombat::__GCGETPOINT GCGetPoint;
-			ar >>GCGetPoint.uidGuildAttack;			// °ø°İÇÑ ±æµå ¾ÆÀÌµğ
-			ar >>GCGetPoint.uidGuildDefence;		// Á×Àº ±æµå ¾ÆÀÌµğ
-			ar >>GCGetPoint.uidPlayerAttack;		// °ø°İÇÑ À¯Àú ¾ÆÀÌµğ
-			ar >>GCGetPoint.uidPlayerDefence;		// Á×Àº À¯Àú ¾ÆÀÌµğ
-			ar >>GCGetPoint.nPoint;					// ¾òÀº Æ÷ÀÎÆ®
-			ar >>GCGetPoint.bKillDiffernceGuild;	// Àü¿¡ Á×ÀÎ ±æµå¿Í ¿ä¹ø¿¡ Á×ÀÎ ±æµå°¡ ´Ù¸£¸é +1
-			ar >>GCGetPoint.bMaster;				// ¸¶½ºÅÍ ÀÌ¸é +1
-			ar >>GCGetPoint.bDefender;				// µğÆæÅÍ +1
-			ar >>GCGetPoint.bLastLife;				// ¸¶Áö¸· »ı¸íÀÏ¶§ +1
+			ar >>GCGetPoint.uidGuildAttack;			// ê³µê²©í•œ ê¸¸ë“œ ì•„ì´ë””
+			ar >>GCGetPoint.uidGuildDefence;		// ì£½ì€ ê¸¸ë“œ ì•„ì´ë””
+			ar >>GCGetPoint.uidPlayerAttack;		// ê³µê²©í•œ ìœ ì € ì•„ì´ë””
+			ar >>GCGetPoint.uidPlayerDefence;		// ì£½ì€ ìœ ì € ì•„ì´ë””
+			ar >>GCGetPoint.nPoint;					// ì–»ì€ í¬ì¸íŠ¸
+			ar >>GCGetPoint.bKillDiffernceGuild;	// ì „ì— ì£½ì¸ ê¸¸ë“œì™€ ìš”ë²ˆì— ì£½ì¸ ê¸¸ë“œê°€ ë‹¤ë¥´ë©´ +1
+			ar >>GCGetPoint.bMaster;				// ë§ˆìŠ¤í„° ì´ë©´ +1
+			ar >>GCGetPoint.bDefender;				// ë””íœí„° +1
+			ar >>GCGetPoint.bLastLife;				// ë§ˆì§€ë§‰ ìƒëª…ì¼ë•Œ +1
 			g_GuildCombatMng.m_vecGCGetPoint.push_back( GCGetPoint );
 
-			// ±æµå Á¤º¸
+			// ê¸¸ë“œ ì •ë³´
 			CGuild* pGuildAtk = g_GuildMng.GetGuild( GCGetPoint.uidGuildAttack );
 			CGuild* pGuildDef = g_GuildMng.GetGuild( GCGetPoint.uidGuildDefence );
 
@@ -7417,25 +7417,25 @@ void CDPClient::OnGCLog( CAr & ar )
 			
 			if( GCGetPoint.uidPlayerAttack == g_pPlayer->m_idPlayer )
 			{
-				strTemp.Format( "#cff009c00%s %s %s%s#nc %s ¡æ %s %s %s", 
+				strTemp.Format( "#cff009c00%s %s %s%s#nc %s â†’ %s %s %s", 
 					szTempGuild, strGuild1, strAtk, szTempPoint, szTempAttack, szTempGuildDef, strGuild2, strDef );
 			}
 			else
 			{
 				if( pPlayerGuild && pPlayerGuild->GetGuildId() == GCGetPoint.uidGuildAttack )
 				{
-					strTemp.Format( "#cff009c00%s %s %s%s#nc %s ¡æ %s %s %s", 
+					strTemp.Format( "#cff009c00%s %s %s%s#nc %s â†’ %s %s %s", 
 						szTempGuild, strGuild1, strAtk, szTempPoint, szTempAttack, szTempGuildDef, strGuild2, strDef );
 				}
 				else
 				if( pPlayerGuild && pPlayerGuild->GetGuildId() == GCGetPoint.uidGuildDefence )
 				{
-					strTemp.Format( "%s %s %s%s %s ¡æ #cff9c0000%s %s %s#nc", 
+					strTemp.Format( "%s %s %s%s %s â†’ #cff9c0000%s %s %s#nc", 
 						szTempGuild, strGuild1, strAtk, szTempPoint, szTempAttack, szTempGuildDef, strGuild2, strDef );
 				}
 				else
 				{
-					strTemp.Format( "%s %s %s%s %s ¡æ %s %s %s", 
+					strTemp.Format( "%s %s %s%s %s â†’ %s %s %s", 
 						szTempGuild, strGuild1, strAtk, szTempPoint, szTempAttack, szTempGuildDef, strGuild2, strDef );
 				}
 			}
@@ -7488,17 +7488,17 @@ void CDPClient::OnGCLogRealTime( CAr & ar )
 {
 	char szAttacker[MAX_NAME], szDefender[MAX_NAME];
 	CGuildCombat::__GCGETPOINT GCGetPoint;
-	ar >>GCGetPoint.uidGuildAttack;			// °ø°İÇÑ ±æµå ¾ÆÀÌµğ
-	ar >>GCGetPoint.uidGuildDefence;		// Á×Àº ±æµå ¾ÆÀÌµğ
+	ar >>GCGetPoint.uidGuildAttack;			// ê³µê²©í•œ ê¸¸ë“œ ì•„ì´ë””
+	ar >>GCGetPoint.uidGuildDefence;		// ì£½ì€ ê¸¸ë“œ ì•„ì´ë””
 	ar.ReadString( szAttacker, MAX_NAME );
 	ar.ReadString( szDefender, MAX_NAME );
-	ar >>GCGetPoint.uidPlayerAttack;		// °ø°İÇÑ À¯Àú ¾ÆÀÌµğ
-	ar >>GCGetPoint.uidPlayerDefence;		// Á×Àº À¯Àú ¾ÆÀÌµğ
-	ar >>GCGetPoint.nPoint;					// ¾òÀº Æ÷ÀÎÆ®
-	ar >>GCGetPoint.bKillDiffernceGuild;	// Àü¿¡ Á×ÀÎ ±æµå¿Í ¿ä¹ø¿¡ Á×ÀÎ ±æµå°¡ ´Ù¸£¸é +1
-	ar >>GCGetPoint.bMaster;				// ¸¶½ºÅÍ ÀÌ¸é +1
-	ar >>GCGetPoint.bDefender;				// µğÆæÅÍ +1
-	ar >>GCGetPoint.bLastLife;				// ¸¶Áö¸· »ı¸íÀÏ¶§ +1
+	ar >>GCGetPoint.uidPlayerAttack;		// ê³µê²©í•œ ìœ ì € ì•„ì´ë””
+	ar >>GCGetPoint.uidPlayerDefence;		// ì£½ì€ ìœ ì € ì•„ì´ë””
+	ar >>GCGetPoint.nPoint;					// ì–»ì€ í¬ì¸íŠ¸
+	ar >>GCGetPoint.bKillDiffernceGuild;	// ì „ì— ì£½ì¸ ê¸¸ë“œì™€ ìš”ë²ˆì— ì£½ì¸ ê¸¸ë“œê°€ ë‹¤ë¥´ë©´ +1
+	ar >>GCGetPoint.bMaster;				// ë§ˆìŠ¤í„° ì´ë©´ +1
+	ar >>GCGetPoint.bDefender;				// ë””íœí„° +1
+	ar >>GCGetPoint.bLastLife;				// ë§ˆì§€ë§‰ ìƒëª…ì¼ë•Œ +1
 	
 	CString strAtk, strDef;
 	CString strGuild1, strGuild2;
@@ -7551,7 +7551,7 @@ void CDPClient::OnGCLogRealTime( CAr & ar )
 	CString szTempAttack;
 	szTempAttack = prj.GetText(TID_GAME_ATTACK);
 
-	//[abc] ±æµå¸¶½ºÅÍ È«±æµ¿ ´ÔÀÌ [¿ï¶ö¶ó] ¾ûÅÍ¸® ´ÔÀ» ¾²·¯¶ß·Á 4Á¡ È¹µæ!!
+	//[abc] ê¸¸ë“œë§ˆìŠ¤í„° í™ê¸¸ë™ ë‹˜ì´ [ìš¸ë„ë¼] ì—‰í„°ë¦¬ ë‹˜ì„ ì“°ëŸ¬ëœ¨ë ¤ 4ì  íšë“!!
 #ifdef __NO_SUB_LANG
 	if( ::GetLanguage() == LANG_USA || ::GetLanguage() == LANG_VTN )	
 #else // __NO_SUB_LANG
@@ -7593,9 +7593,9 @@ void CDPClient::OnGCPlayerPoint( CAr & ar )
 		for( int i = 0 ; i < (int)( uSize ) ; ++i )
 		{
 			CGuildCombat::__GCPLAYERPOINT GCPlayerPoint;
-			ar >> GCPlayerPoint.uidPlayer;	// À¯Àú ¾ÆÀÌµğ
-			ar >> GCPlayerPoint.nJob;		// Á÷¾÷
-			ar >> GCPlayerPoint.nPoint;		// Æ÷ÀÎÆ®
+			ar >> GCPlayerPoint.uidPlayer;	// ìœ ì € ì•„ì´ë””
+			ar >> GCPlayerPoint.nJob;		// ì§ì—…
+			ar >> GCPlayerPoint.nPoint;		// í¬ì¸íŠ¸
 			g_GuildCombatMng.m_vecGCPlayerPoint.push_back( GCPlayerPoint );
 #if __VER >= 11 // __SYS_PLAYER_DATA
 			PDVer pdv( GCPlayerPoint.uidPlayer, CPlayerDataCenter::GetInstance()->GetPlayerData( GCPlayerPoint.uidPlayer, FALSE )->data.nVer );
@@ -7636,7 +7636,7 @@ void CDPClient::OnGuildCombatState( CAr & ar )
 		{
 			if( pGuild->IsMaster( g_pPlayer->m_idPlayer ) )
 			{
-				g_WndMng.PutString( prj.GetText(TID_GAME_GUILDCOMBAT_NOW_PLAYER_MAKEUP) ); //Áö±İ ºÎÅÍ ¸í´ÜÀÛ¼ºÀ» ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+				g_WndMng.PutString( prj.GetText(TID_GAME_GUILDCOMBAT_NOW_PLAYER_MAKEUP) ); //ì§€ê¸ˆ ë¶€í„° ëª…ë‹¨ì‘ì„±ì„ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 			}
 		}
 	}
@@ -7647,7 +7647,7 @@ void CDPClient::OnGuildCombatState( CAr & ar )
 
 	if( pWndWorld && pWorld && pWorld->GetID() == WI_WORLD_GUILDWAR )
 	{
-		// Á¤ºñ½ÃÀÛ
+		// ì •ë¹„ì‹œì‘
 		if( g_GuildCombatMng.m_nState == CGuildCombat::WAR_STATE &&
 			g_GuildCombatMng.m_nGCState == CGuildCombat::MAINTENANCE_STATE )
 		{
@@ -7657,7 +7657,7 @@ void CDPClient::OnGuildCombatState( CAr & ar )
 			g_Neuz.m_2DRender.SetFont( pOldFont );			
 		}
 			
-		// ÀüÅõ½ÃÀÛ
+		// ì „íˆ¬ì‹œì‘
 		if( g_GuildCombatMng.m_nState == CGuildCombat::WAR_STATE &&
 			g_GuildCombatMng.m_nGCState == CGuildCombat::WAR_WAR_STATE )
 		{
@@ -7665,7 +7665,7 @@ void CDPClient::OnGuildCombatState( CAr & ar )
 			g_Caption1.AddCaption( prj.GetText(TID_GAME_GUILDCOMBAT_WAR), pWndWorld->m_pFontAPITitle );			
 		}
 
-		// ÀüÅõÁ¾·á
+		// ì „íˆ¬ì¢…ë£Œ
 		if( g_GuildCombatMng.m_nState == CGuildCombat::COMPLET_CLOSE_STATE &&
 			g_GuildCombatMng.m_nGCState == CGuildCombat::WAR_CLOSE_STATE )
 		{
@@ -7673,20 +7673,20 @@ void CDPClient::OnGuildCombatState( CAr & ar )
 			//g_GuildCombatMng.m_bRequest = FALSE;
 		}
 
-		// ±æµå´ëÀü Á¾·á ´ë±â
+		// ê¸¸ë“œëŒ€ì „ ì¢…ë£Œ ëŒ€ê¸°
 		if( g_GuildCombatMng.m_nState == CGuildCombat::COMPLET_CLOSE_STATE &&
 			g_GuildCombatMng.m_nGCState == CGuildCombat::WAR_CLOSE_WAIT_STATE )
 		{
 			g_GuildCombatMng.m_bRequest = FALSE;
 		}
 		
-		// µ¹¾Æ°¡´Â½ÃÁ¡
+		// ëŒì•„ê°€ëŠ”ì‹œì 
 		if( g_GuildCombatMng.m_nState == CGuildCombat::CLOSE_STATE &&
 			g_GuildCombatMng.m_nGCState == CGuildCombat::WAR_TELEPORT_STATE )
 		{
 			pWndWorld->m_dwGuildCombatTime = 0xffffffff;
 
-			// ±æµå¿øµé ¿ŞÂÊ ¸®½ºÆ® »óÅÂ...
+			// ê¸¸ë“œì›ë“¤ ì™¼ìª½ ë¦¬ìŠ¤íŠ¸ ìƒíƒœ...
 			pWndWorld->m_mapGC_GuildStatus.clear();
 		}
 	}
@@ -7702,7 +7702,7 @@ void CDPClient::OnGuildCombatNextTimeState( CAr & ar )
 	
 	if( pWorld == NULL || pWndWorld == NULL )
 	{
-		Error( "CDPClient::OnGuildCombatNextTimeState()¿¡ World°¡ ¾ø´Ù" );
+		Error( "CDPClient::OnGuildCombatNextTimeState()ì— Worldê°€ ì—†ë‹¤" );
 		return;
 	}
 	
@@ -7752,7 +7752,7 @@ void CDPClient::OnGuildCombatNextTimeState( CAr & ar )
 						if( pGuildMemberl && (pGuildMemberl->m_nMemberLv == GUD_MASTER || pGuildMemberl->m_nMemberLv == GUD_KINGPIN) )
 						{
 							bTimeSet = TRUE;
-							sprintf( pWndWorld->m_szGuildCombatStr, prj.GetText(TID_GAME_GUILDCOMBAT_PLAYER_MAKEUP_FINISH) ); //±æµå´ëÀü ¸í´ÜÀÛ¼º ¹× ÁØºñ½Ã°£
+							sprintf( pWndWorld->m_szGuildCombatStr, prj.GetText(TID_GAME_GUILDCOMBAT_PLAYER_MAKEUP_FINISH) ); //ê¸¸ë“œëŒ€ì „ ëª…ë‹¨ì‘ì„± ë° ì¤€ë¹„ì‹œê°„
 						}
 					}
 				}
@@ -7894,9 +7894,9 @@ void CDPClient::OnAddFriendReqest( CAr & ar )
 	pFriendConfirm->Initialize();
 	pFriendConfirm->SetMember( uLeaderid, g_pPlayer->m_idPlayer, nLeaderSex );
 	*/
-	// ½ÅÃ»ÇÏ´Â ÇüÅÂÀÇ ¸Å½ÃÁö ¹Ú½º´Â ¿©·¯°³°¡ ³¯¾Æ¿Ã ¼ö ÀÖ°í, ³» ÀÇÁö¿Í´Â °ü°è°¡ ¾ø´Ù.
-	// ÀÌ·± °æ¿ì CWndDuelConfirm::OnChildNotify¿¡¼­ À©µµ¸¦ ´İÀ» ¶§ Destroy( TRUE )·Î ÇØ¼­
-	// ¸Ş¸ğ¸®¿¡¼­ ¿ÏÀüÈ÷ ÆÄ±«ÇÏµµ·Ï ÇÑ´Ù. ¾ÈÇÏ¸é ¸®Å©·Î ³²´øÁö, ALT+ENTER, ALT+TABÇÒ ¶§ ´Ù¿îµÊ.
+	// ì‹ ì²­í•˜ëŠ” í˜•íƒœì˜ ë§¤ì‹œì§€ ë°•ìŠ¤ëŠ” ì—¬ëŸ¬ê°œê°€ ë‚ ì•„ì˜¬ ìˆ˜ ìˆê³ , ë‚´ ì˜ì§€ì™€ëŠ” ê´€ê³„ê°€ ì—†ë‹¤.
+	// ì´ëŸ° ê²½ìš° CWndDuelConfirm::OnChildNotifyì—ì„œ ìœˆë„ë¥¼ ë‹«ì„ ë•Œ Destroy( TRUE )ë¡œ í•´ì„œ
+	// ë©”ëª¨ë¦¬ì—ì„œ ì™„ì „íˆ íŒŒê´´í•˜ë„ë¡ í•œë‹¤. ì•ˆí•˜ë©´ ë¦¬í¬ë¡œ ë‚¨ë˜ì§€, ALT+ENTER, ALT+TABí•  ë•Œ ë‹¤ìš´ë¨.
 	//SAFE_DELETE( g_WndMng.m_pWndFriendConfirm );
 
 	if( g_Option.m_bMessenger == FALSE )
@@ -7920,7 +7920,7 @@ void CDPClient::OnAddFriendReqest( CAr & ar )
 
 void CDPClient::OnAddFriendCancel( CAr & ar )
 {
-	//g_WndMng.PutString( "¸Ş½ÅÀú Ãß°¡¸¦ °ÅÀıÇÏ¿´½À´Ï´Ù.", NULL, 0xffffff00 );
+	//g_WndMng.PutString( "ë©”ì‹ ì € ì¶”ê°€ë¥¼ ê±°ì ˆí•˜ì˜€ìŠµë‹ˆë‹¤.", NULL, 0xffffff00 );
 	g_WndMng.PutString( prj.GetText(TID_GAME_MSGDENYINVATE), NULL, prj.GetTextColor(TID_GAME_MSGDENYINVATE));
 }
 
@@ -7932,9 +7932,9 @@ void CDPClient::OnAddFriendError( CAr & ar )
 	ar.ReadString( szName, 64 );
 	CString szMessage;
 	if( nError == 1 )
-		szMessage.Format( prj.GetText(TID_DIAG_0059), szName );// += "´ÔÀº ÀÌ¹Ì ¸Ş½ÅÀú¿¡ Ãß°¡ µÇ¾î ÀÖ½À´Ï´Ù";
+		szMessage.Format( prj.GetText(TID_DIAG_0059), szName );// += "ë‹˜ì€ ì´ë¯¸ ë©”ì‹ ì €ì— ì¶”ê°€ ë˜ì–´ ìˆìŠµë‹ˆë‹¤";
 	else if( nError == 2 )
-		szMessage.Format( prj.GetText(TID_DIAG_0060), szName );// += " ÀÌ¸§À» °¡Áö°í ÀÖ´Â »ç¿ëÀÚ°¡ ¾ø½À´Ï´Ù";
+		szMessage.Format( prj.GetText(TID_DIAG_0060), szName );// += " ì´ë¦„ì„ ê°€ì§€ê³  ìˆëŠ” ì‚¬ìš©ìê°€ ì—†ìŠµë‹ˆë‹¤";
 
 	g_WndMng.OpenMessageBox( szMessage );
 }
@@ -7945,7 +7945,7 @@ void CDPClient::OnAddFriendNotConnect( CAr & ar )
 	ar.ReadString( szName, 64 );
 	CString szMessage;
 	szMessage.Format( prj.GetText(TID_DIAG_0061), szName );
-//	szMessage += "´ÔÀº Á¢¼ÓµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù";
+//	szMessage += "ë‹˜ì€ ì ‘ì†ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤";
 	g_WndMng.OpenMessageBox( szMessage );
 }
 
@@ -7998,8 +7998,8 @@ void CDPClient::OnFriendJoin( CAr & ar )
 #endif //__CSC_VER11_4
 	}
 #else	// __RT_1025
-	// Ä£±¸µé Áß¿¡ ·Î±×ÀÎÀ» ÇÏ¿©¼­ ¾Ë·ÁÁÖ´Â °ÍÀÓ
-	// stat°ªÀ» ¹Ù²ãÁà¾ßÇÔ
+	// ì¹œêµ¬ë“¤ ì¤‘ì— ë¡œê·¸ì¸ì„ í•˜ì—¬ì„œ ì•Œë ¤ì£¼ëŠ” ê²ƒì„
+	// statê°’ì„ ë°”ê¿”ì¤˜ì•¼í•¨
 	u_long uidPlayer;
 	DWORD dwMessengerState;
 
@@ -8049,8 +8049,8 @@ void CDPClient::OnFriendLogOut( CAr & ar )
 #endif //__CSC_VER11_4
 	}
 #else	// __RT_1025
-	// Ä£±¸µé Áß¿¡ ·Î±×¾Æ¿ôÀ» ÇÏ¿©¼­ ¾Ë·ÁÁÖ´Â °ÍÀÓ
-	// stat°ªÀ» ¹Ù²ãÁà¾ßÇÔ
+	// ì¹œêµ¬ë“¤ ì¤‘ì— ë¡œê·¸ì•„ì›ƒì„ í•˜ì—¬ì„œ ì•Œë ¤ì£¼ëŠ” ê²ƒì„
+	// statê°’ì„ ë°”ê¿”ì¤˜ì•¼í•¨
 	u_long uidPlayer;
 	ar >> uidPlayer;
 	LPFRIEND pFriend = g_WndMng.m_Messenger.GetFriend( uidPlayer );
@@ -8121,7 +8121,7 @@ void CDPClient::OnFriendIntercept( CAr & ar )
 	{
 		if( g_pPlayer->m_idPlayer == uidPlayer )
 		{
-			// Â÷´ÜÇÑ³Ñ
+			// ì°¨ë‹¨í•œë„˜
 			LPFRIEND pFriend = g_WndMng.m_Messenger.GetFriend( uidFriend );
 			if( pFriend )
 			{
@@ -8137,7 +8137,7 @@ void CDPClient::OnFriendIntercept( CAr & ar )
 		}
 		else
 		{
-			// Â÷´Ü´çÇÑ³Ñ
+			// ì°¨ë‹¨ë‹¹í•œë„˜
 			LPFRIEND pFriend = g_WndMng.m_Messenger.GetFriend( uidPlayer );
 			if( pFriend )
 			{
@@ -8318,25 +8318,25 @@ void CDPClient::OnBlock( CAr & ar )
 	else
 	if( nGu == 5 )
 	{
-		// ÀÌ¹Ì °Å·¡ ½ÅÃ»
+		// ì´ë¯¸ ê±°ë˜ ì‹ ì²­
 		g_WndMng.PutString( prj.GetText( TID_GAME_YETTRADE ), NULL, prj.GetTextColor( TID_GAME_YETTRADE ) );		
 	}
 	else
 	if( nGu == 6 )
 	{
-		// ÀÌ¹Ì Ä£±¸ Âü°¡ ½ÅÃ»
+		// ì´ë¯¸ ì¹œêµ¬ ì°¸ê°€ ì‹ ì²­
 		g_WndMng.PutString( prj.GetText( TID_GAME_YETFRIEND ), NULL, prj.GetTextColor( TID_GAME_YETFRIEND ) );		
 	}
 	else
 	if( nGu == 7 )
 	{
-		// ÀÌ¹Ì ±Ø´Ü Âü°¡ ½ÅÃ»
+		// ì´ë¯¸ ê·¹ë‹¨ ì°¸ê°€ ì‹ ì²­
 		g_WndMng.PutString( prj.GetText( TID_GAME_YETPARTY ), NULL, prj.GetTextColor( TID_GAME_YETPARTY ) );		
 	}
 	else
 	if( nGu == 8 )
 	{
-		// ±æµåÃ¢°í ÀÌ¿ëÁß
+		// ê¸¸ë“œì°½ê³  ì´ìš©ì¤‘
 		g_WndMng.PutString( prj.GetText( TID_GAME_TRADELIMITPC ), NULL, prj.GetTextColor( TID_GAME_TRADELIMITPC ) );		
 	}
 }
@@ -8345,7 +8345,7 @@ void CDPClient::OnTagResult( CAr & ar )
 {
 	BYTE cbResult;
 	ar >> cbResult;
-	// °á°ú: 0 - ½ÇÆĞ(20°³ ÃÊ°úÀÇ °æ¿ì), 1 - ¼º°ø 
+	// ê²°ê³¼: 0 - ì‹¤íŒ¨(20ê°œ ì´ˆê³¼ì˜ ê²½ìš°), 1 - ì„±ê³µ 
 	if( cbResult == 0 )
 	{
 		g_WndMng.PutString( prj.GetText( TID_GAME_MESSFULLNOTE ), NULL, prj.GetTextColor( TID_GAME_MESSFULLNOTE ) );	
@@ -8412,10 +8412,10 @@ void CDPClient::OnSetQuest( OBJID objid, CAr & ar )
 
 		LPQUEST lpCurQuest = pMover->GetQuest( quest.m_wId );
 		QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( quest.m_wId );
-		// ±âÁ¸ ³»¿ë ¼öÁ¤ 
+		// ê¸°ì¡´ ë‚´ìš© ìˆ˜ì • 
 		if( lpCurQuest && quest.m_nState != QS_END )
 		{
-			// ½Ã°£ Ãâ·Â 
+			// ì‹œê°„ ì¶œë ¥ 
 			DWORD dwCurTime = lpCurQuest->m_wTime & 0x7fff;
 			DWORD dwTime = quest.m_wTime & 0x7fff;
 			if( dwCurTime != dwTime )
@@ -8436,13 +8436,13 @@ void CDPClient::OnSetQuest( OBJID objid, CAr & ar )
 					SendRemoveQuest( quest.m_wId );
 				}
 			}
-			// Á¤Âû Áö¿ª 
+			// ì •ì°° ì§€ì—­ 
 			if( lpCurQuest->m_bPatrol != quest.m_bPatrol )
 			{
 				strTemp.Format( GETTEXT( TID_QUEST_PATROL  ), pQuestProp->m_szPatrolZoneName );
 				g_WndMng.PutString( strTemp );
 			}
-			// »ç³É °¹¼ö 
+			// ì‚¬ëƒ¥ ê°¯ìˆ˜ 
 			for( int i = 0; i < MAX_QUEST_COND_KILL; i++ )
 			{
 				if( lpCurQuest->m_nKillNPCNum[ i ] != quest.m_nKillNPCNum[ i ] )
@@ -8452,7 +8452,7 @@ void CDPClient::OnSetQuest( OBJID objid, CAr & ar )
 					g_WndMng.PutString( strTemp );
 				}		
 			}
-			// ´ëÈ­ÇÏ±â 
+			// ëŒ€í™”í•˜ê¸° 
 			if( lpCurQuest->m_bDialog != quest.m_bDialog )
 			{
 				LPCHARACTER lpCharacter = prj.GetCharacter( pQuestProp->m_szEndCondDlgCharKey );
@@ -8472,7 +8472,7 @@ void CDPClient::OnSetQuest( OBJID objid, CAr & ar )
 				pWndQuest->UpdateText(); 
 #endif // __IMPROVE_QUEST_INTERFACE
 		}
-		// ½Å±Ô Ãß°¡ 
+		// ì‹ ê·œ ì¶”ê°€ 
 		else
 		{
 			pMover->SetQuest( &quest );
@@ -8982,7 +8982,7 @@ void CDPClient::OnGetPos( OBJID objid, CAr & ar )
 	}
 }
 
-// Çö»ó¹üÀÇ ¸®½ºÆ®¸¦ ¿äÃ»ÇÏ¸é ±× ÀÀ´äÀ¸·Î 
+// í˜„ìƒë²”ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ìš”ì²­í•˜ë©´ ê·¸ ì‘ë‹µìœ¼ë¡œ 
 void CDPClient::OnWantedName( CAr & ar )		
 {
 	char szName[64];
@@ -8997,15 +8997,15 @@ void CDPClient::OnWantedName( CAr & ar )
 	}
 	else
 	{
-//		g_WndMng.OpenMessageBox( "PK¸¦ ´çÇÑÀûÀÌ ¾ø°Å³ª, PK¸¦ ÇÑ ÇÃ·¹ÀÌ¾î°¡ »èÁ¦µÇ¾ú½À´Ï´Ù." );
+//		g_WndMng.OpenMessageBox( "PKë¥¼ ë‹¹í•œì ì´ ì—†ê±°ë‚˜, PKë¥¼ í•œ í”Œë ˆì´ì–´ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤." );
 		g_WndMng.OpenMessageBox( prj.GetText( TID_PK_REWARD_NO2 ) );
 	}
 }
 
-// Çö»ó¹üÀÇ ¸®½ºÆ®¸¦ ¿äÃ»ÇÏ¸é ±× ÀÀ´äÀ¸·Î 
+// í˜„ìƒë²”ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ìš”ì²­í•˜ë©´ ê·¸ ì‘ë‹µìœ¼ë¡œ 
 void CDPClient::OnWantedList( CAr & ar )		
 {
-	int nCount;						// ¸®½ºÆ®ÀÇ °¹¼ö 
+	int nCount;						// ë¦¬ìŠ¤íŠ¸ì˜ ê°¯ìˆ˜ 
 	long lTime;
 
 	WANTED_ENTRY	entry;
@@ -9089,14 +9089,14 @@ void CDPClient::SendChat( LPCSTR lpszChat )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ´ëÀüÃ¢ ¶ç¿ò
+// ëŒ€ì „ì°½ ë„ì›€
 void CDPClient::SendGuildCombatWindow( void )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_IN_GUILDCOMBAT, DPID_UNKNOWN );
 	ar << GC_IN_WINDOW;
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// ´ëÀü ½ÅÃ»
+// ëŒ€ì „ ì‹ ì²­
 void CDPClient::SendGuildCombatApp( DWORD dwPenya )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_IN_GUILDCOMBAT, DPID_UNKNOWN );
@@ -9104,26 +9104,26 @@ void CDPClient::SendGuildCombatApp( DWORD dwPenya )
 	ar << dwPenya;
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// ´ëÀü Ãë¼Ò
+// ëŒ€ì „ ì·¨ì†Œ
 void CDPClient::SendGuildCombatCancel( void )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_OUT_GUILDCOMBAT, DPID_UNKNOWN );
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// ´ëÀü ½ÅÃ» ÇöÈ²
+// ëŒ€ì „ ì‹ ì²­ í˜„í™©
 void CDPClient::SendGCRequestStatusWindow( void )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_REQUEST_STATUS, DPID_UNKNOWN );
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// ´ëÀü ¼±ÅÃ Ä³¸¯Ã¢ ¶ç¿ò
+// ëŒ€ì „ ì„ íƒ ìºë¦­ì°½ ë„ì›€
 void CDPClient::SendGCSelectPlayerWindow( void )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_SELECTPLAYER_GUILDCOMBAT, DPID_UNKNOWN );
 	ar << (BOOL)TRUE;		// bWindow
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// ´ëÀü ¼±ÅÃ Ä³¸¯ ½ÅÃ»
+// ëŒ€ì „ ì„ íƒ ìºë¦­ ì‹ ì²­
 void CDPClient::SendGCSelectPlayer( vector<u_long> vecSelectPlayer, u_long uidDefender )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_SELECTPLAYER_GUILDCOMBAT, DPID_UNKNOWN );
@@ -9137,33 +9137,33 @@ void CDPClient::SendGCSelectPlayer( vector<u_long> vecSelectPlayer, u_long uidDe
 	}
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// ´ëÀü ¸Ê ¼±ÅÃ
+// ëŒ€ì „ ë§µ ì„ íƒ
 void CDPClient::SendGCSelectMap( int nMap )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_SELECTMAP_GUILDCOMBAT, DPID_UNKNOWN );
 	ar << nMap;
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// ±æµå´ëÀü ÀÔÀå
+// ê¸¸ë“œëŒ€ì „ ì…ì¥
 void CDPClient::SendGCJoin( void )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_JOIN_GUILDCOMBAT, DPID_UNKNOWN );
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// ±æµå ½ÅÃ»±İ¾× ¹× º¸»ó¹Ş±â
+// ê¸¸ë“œ ì‹ ì²­ê¸ˆì•¡ ë° ë³´ìƒë°›ê¸°
 void CDPClient::SendGCGetPenyaGuild( void )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_GETPENYAGUILD_GUILDCOMBAT, DPID_UNKNOWN );
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
-// º£½ºÆ® ÇÃ·¹ÀÌ¾î º¸»ó ¹Ş±â
+// ë² ìŠ¤íŠ¸ í”Œë ˆì´ì–´ ë³´ìƒ ë°›ê¸°
 void CDPClient::SendGCGetPenyaPlayer( void )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_GETPENYAPLAYER_GUILDCOMBAT, DPID_UNKNOWN );
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 #if __VER < 8 // #ifndef __GUILDCOMBAT_85
-// ±æµå´ëÀü ¾ÆÀÌÅÛ º¸»ó
+// ê¸¸ë“œëŒ€ì „ ì•„ì´í…œ ë³´ìƒ
 void CDPClient::SendGCGetItem( void )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_GETITEM_GUILDCOMBAT, DPID_UNKNOWN );
@@ -9222,14 +9222,14 @@ void CDPClient::SendRemoveItem( CItemElem* pItemElem, int nNum )
 
 void CDPClient::SendDoEquip( CItemElem* pItemElem, int nPart, BOOL bResult )
 {
-	// nPart °¡ -1 ÀÌ¸é ÀÔÈ÷´Â °ÍÀÓ
+	// nPart ê°€ -1 ì´ë©´ ì…íˆëŠ” ê²ƒì„
 	if( bResult && 
 		( nPart == PARTS_LWEAPON || nPart == PARTS_RWEAPON || nPart == PARTS_UPPER_BODY ) )
 	{
 		CItemElem* pItemElemParts = g_pPlayer->m_Inventory.GetEquip( nPart );
 		if( pItemElemParts && pItemElemParts->m_nResistSMItemId != 0 )
 		{
-			// ¹°¾îºÁ¾ß ÇÔ
+			// ë¬¼ì–´ë´ì•¼ í•¨
 			SAFE_DELETE( g_WndMng.m_pRemoveElem );
 			g_WndMng.m_pRemoveElem = new CWndRemoveElem;
 			g_WndMng.m_pRemoveElem->Initialize( &g_WndMng, APP_REMOVE_ELEM );
@@ -9249,7 +9249,7 @@ void CDPClient::SendDoEquip( CItemElem* pItemElem, int nPart, BOOL bResult )
 	}
 
 #if __VER >= 8 //__CSC_VER8_4
-	// Çì¾î¼¥ / ¸ŞÀÌÅ©¾÷ »ç¿ë Áß¿¡´Â ¸Ó¸®¿¡ ¾²´Â ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø´Ù.
+	// í—¤ì–´ìƒµ / ë©”ì´í¬ì—… ì‚¬ìš© ì¤‘ì—ëŠ” ë¨¸ë¦¬ì— ì“°ëŠ” ì•„ì´í…œì„ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤.
 	if(pItemElem->GetProp()->dwParts == PARTS_HAT || pItemElem->GetProp()->dwParts == PARTS_CAP)
 	{
 		if( g_WndMng.GetWndBase( APP_BEAUTY_SHOP_EX ) || g_WndMng.GetWndBase( APP_BEAUTY_SHOP_SKIN ))
@@ -9263,9 +9263,9 @@ void CDPClient::SendDoEquip( CItemElem* pItemElem, int nPart, BOOL bResult )
 	if( pItemElem->GetProp()->dwParts == PARTS_RWEAPON )
 	{
 		CItemElem* pItemElemWepon = g_pPlayer->m_Inventory.GetEquip( PARTS_RWEAPON	);
-		if( pItemElemWepon && pItemElemWepon->GetProp()->dwItemKind3 == IK3_BOW ) // ÀåÂøµÇ¾îÀÖ´Â°ÍÀÌ È°ÀÌ¸é
+		if( pItemElemWepon && pItemElemWepon->GetProp()->dwItemKind3 == IK3_BOW ) // ì¥ì°©ë˜ì–´ìˆëŠ”ê²ƒì´ í™œì´ë©´
 		{
-			if( pItemElem->GetProp()->dwItemKind3 != IK3_BOW )	// ÀåÂøµÇ¾îÀÖ´Â°ÍÀÌ º¸¿ì¸é ¾È¹ş°ÜµÎ µÊ
+			if( pItemElem->GetProp()->dwItemKind3 != IK3_BOW )	// ì¥ì°©ë˜ì–´ìˆëŠ”ê²ƒì´ ë³´ìš°ë©´ ì•ˆë²—ê²¨ë‘ ë¨
 			{
 				CItemElem* pItemElemBullet = g_pPlayer->m_Inventory.GetEquip( PARTS_BULLET );	
 				if( pItemElemBullet && pItemElemBullet->GetProp()->dwItemKind3 == IK3_ARROW )
@@ -9279,9 +9279,9 @@ void CDPClient::SendDoEquip( CItemElem* pItemElem, int nPart, BOOL bResult )
 		}
 #ifdef __CROSSBOW
 		else
-		if( pItemElemWepon && pItemElemWepon->GetProp()->dwItemKind3 == IK3_CROSSBOW ) // ÀåÂøµÇ¾îÀÖ´Â°ÍÀÌ È°ÀÌ¸é
+		if( pItemElemWepon && pItemElemWepon->GetProp()->dwItemKind3 == IK3_CROSSBOW ) // ì¥ì°©ë˜ì–´ìˆëŠ”ê²ƒì´ í™œì´ë©´
 		{
-			if( pItemElem->GetProp()->dwItemKind3 != IK3_CROSSBOW )	// ÀåÂøµÇ¾îÀÖ´Â°ÍÀÌ º¸¿ì¸é ¾È¹ş°ÜµÎ µÊ
+			if( pItemElem->GetProp()->dwItemKind3 != IK3_CROSSBOW )	// ì¥ì°©ë˜ì–´ìˆëŠ”ê²ƒì´ ë³´ìš°ë©´ ì•ˆë²—ê²¨ë‘ ë¨
 			{
 				CItemElem* pItemElemBullet = g_pPlayer->m_Inventory.GetEquip( PARTS_BULLET );	
 				if( pItemElemBullet && pItemElemBullet->GetProp()->dwItemKind3 == IK3_CROSSARROW )
@@ -9333,12 +9333,12 @@ D3DXVECTOR3* D3DXVec3Normalize(
   CONST D3DXVECTOR3* pV
 ); 
 */
-//	D3DXVECTOR3 vOut, v	= vPos - vPlayerPos;	// ÀÌ°ÍÀº CWndWorld::OnDropIcon¿¡¼­ ¹Ì¸® °è»êÇØ¼­ ¿À°Ô Çß±â¿¡ »èÁ¦.
+//	D3DXVECTOR3 vOut, v	= vPos - vPlayerPos;	// ì´ê²ƒì€ CWndWorld::OnDropIconì—ì„œ ë¯¸ë¦¬ ê³„ì‚°í•´ì„œ ì˜¤ê²Œ í–ˆê¸°ì— ì‚­ì œ.
 //	D3DXVec3Normalize( &vOut, &v );
 //	v	= vPlayerPos + vOut;
 	if( g_WndMng.m_pWndDialog )
 	{
-		//g_WndMng.PutString( "´ëÈ­Áß¿¡´Â ¾ÆÀÌÅÛÀ» ¹ö¸±¼ö°¡ ¾ø¾î¿ä", NULL, 0xffffff00 );
+		//g_WndMng.PutString( "ëŒ€í™”ì¤‘ì—ëŠ” ì•„ì´í…œì„ ë²„ë¦´ìˆ˜ê°€ ì—†ì–´ìš”", NULL, 0xffffff00 );
 		g_WndMng.PutString( prj.GetText( TID_GAME_DIALOGNODROPITEM ), NULL, prj.GetTextColor( TID_GAME_DIALOGNODROPITEM ) );
 		return;
 	}
@@ -9517,8 +9517,8 @@ void CDPClient::SendPartyChangeLeader( u_long uLeaderId, u_long uChangerLeaderid
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// pSrc : µà¾ó ½ÅÃ»ÀÚ
-// pDst : µà¾ó Å¸°Ù
+// pSrc : ë“€ì–¼ ì‹ ì²­ì
+// pDst : ë“€ì–¼ íƒ€ê²Ÿ
 void CDPClient::SendDuelRequest( CMover* pSrc, CMover* pDst )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_DUELREQUEST, DPID_UNKNOWN );
@@ -9526,7 +9526,7 @@ void CDPClient::SendDuelRequest( CMover* pSrc, CMover* pDst )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// µà¾ó½ÃÀÛÀ» ¾Ë¸²
+// ë“€ì–¼ì‹œì‘ì„ ì•Œë¦¼
 void CDPClient::SendDuelYes( CMover* pSrc, CMover* pDst )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_DUELYES, DPID_UNKNOWN );
@@ -9534,7 +9534,7 @@ void CDPClient::SendDuelYes( CMover* pSrc, CMover* pDst )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ½ÅÃ»ÀÚ¿¡°Ô µà¾ó½ÅÃ»À» °ÅºÎÇÑ´Ù´Â°É ¾Ë¸².
+// ì‹ ì²­ìì—ê²Œ ë“€ì–¼ì‹ ì²­ì„ ê±°ë¶€í•œë‹¤ëŠ”ê±¸ ì•Œë¦¼.
 void CDPClient::SendDuelNo( CMover* pSrc )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_DUELNO, DPID_UNKNOWN );
@@ -9572,9 +9572,9 @@ void CDPClient::OnFocusObj( CAr & ar )
 	}
 }
 
-/// ÆÄÆ¼ µà¾ó.
-// pSrc : µà¾ó ½ÅÃ»ÀÚ
-// pDst : µà¾ó Å¸°Ù
+/// íŒŒí‹° ë“€ì–¼.
+// pSrc : ë“€ì–¼ ì‹ ì²­ì
+// pDst : ë“€ì–¼ íƒ€ê²Ÿ
 void CDPClient::SendDuelPartyRequest( CMover* pSrc, CMover* pDst )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_DUELPARTYREQUEST, DPID_UNKNOWN );
@@ -9582,7 +9582,7 @@ void CDPClient::SendDuelPartyRequest( CMover* pSrc, CMover* pDst )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// µà¾ó½ÃÀÛÀ» ¾Ë¸²
+// ë“€ì–¼ì‹œì‘ì„ ì•Œë¦¼
 void CDPClient::SendDuelPartyYes( CMover* pSrc, CMover* pDst )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_DUELPARTYYES, DPID_UNKNOWN );
@@ -9590,7 +9590,7 @@ void CDPClient::SendDuelPartyYes( CMover* pSrc, CMover* pDst )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ½ÅÃ»ÀÚ¿¡°Ô µà¾ó½ÅÃ»À» °ÅºÎÇÑ´Ù´Â°É ¾Ë¸².
+// ì‹ ì²­ìì—ê²Œ ë“€ì–¼ì‹ ì²­ì„ ê±°ë¶€í•œë‹¤ëŠ”ê±¸ ì•Œë¦¼.
 void CDPClient::SendDuelPartyNo( CMover* pSrc )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_DUELPARTYNO, DPID_UNKNOWN );
@@ -9843,7 +9843,7 @@ void CDPClient::SendSfxID( OBJID idTarget, int idSfxHit, DWORD dwType, DWORD dwS
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// idTaget¿¡°Ô g_pPlayer°¡ Å¸°ÙÀ» Àâ¾Ò´Ù´Â°ÍÀ» ¾Ë¸².
+// idTagetì—ê²Œ g_pPlayerê°€ íƒ€ê²Ÿì„ ì¡ì•˜ë‹¤ëŠ”ê²ƒì„ ì•Œë¦¼.
 void CDPClient::SendSetTarget( OBJID idTarget, BYTE bClear )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_SETTARGET, DPID_UNKNOWN );
@@ -9886,12 +9886,12 @@ void CDPClient::SendCorrReq( CObj *pObj )
 	if( pObj )
 	{
 		if( pObj->GetType() == OT_MOVER )
-			pMover = (CMover *)pObj;	// ¼±ÅÃÇÑ ¿ÀºêÁ§Æ®¸¦ ¿äÃ»ÇÑ´Ù.
+			pMover = (CMover *)pObj;	// ì„ íƒí•œ ì˜¤ë¸Œì íŠ¸ë¥¼ ìš”ì²­í•œë‹¤.
 		else
 			return;
 	} else
 	{
-		pMover = g_pPlayer;				// ¼±ÅÃµÇ¾î ÀÖÁö ¾Ê´Ù¸é ÇÃ·¹ÀÌ¾î¸¦ ¿äÃ»ÇÑ´Ù.
+		pMover = g_pPlayer;				// ì„ íƒë˜ì–´ ìˆì§€ ì•Šë‹¤ë©´ í”Œë ˆì´ì–´ë¥¼ ìš”ì²­í•œë‹¤.
 	}
 
 	BEFORESENDSOLE( ar, PACKETTYPE_CORR_REQ, DPID_UNKNOWN );
@@ -10174,7 +10174,7 @@ void CDPClient::SendPlayerAngle( void )
 }
 
 
-int		g_nItemDelay = 0;		// ¶«»§.
+int		g_nItemDelay = 0;		// ë•œë¹µ.
 
 #if __VER >= 11 // __SYS_IDENTIFY
 void CDPClient::SendRemoveItemLevelDown( DWORD dwId )
@@ -10235,7 +10235,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 	{	
 		if(g_WndMng.GetWndBase( APP_BEAUTY_SHOP_EX ) || g_WndMng.GetWndBase( APP_BEAUTY_SHOP_SKIN ))
 		{
-			//Çì¾î¼¥ ¹× ¸ŞÀÌÅ©¾÷ ÀÌ¿ë Áß ¸Ó¸®¿¡ ¾²´Â ¾ÆÀÌÅÛÀº »ç¿ë ºÒ°¡.
+			//í—¤ì–´ìƒµ ë° ë©”ì´í¬ì—… ì´ìš© ì¤‘ ë¨¸ë¦¬ì— ì“°ëŠ” ì•„ì´í…œì€ ì‚¬ìš© ë¶ˆê°€.
 			g_WndMng.PutString( prj.GetText(TID_GAME_DONOTUSE_SHOP), NULL, prj.GetTextColor(TID_GAME_DONOTUSE_SHOP) );
 			return;
 		}
@@ -10243,8 +10243,8 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 #endif	//__CSC_VER8_4
 
 #if __VER >= 9 //__ULTIMATE
-	//¾óÅÍ¸Ú ¿şÆù º¯È¯Ã¢¿¡¼­´Â ÃÖ»ó±Ş µÎ·ç¸¶¸® »ç¿ë°¡´É ±× ¿Ü ¾ÆÀÌÅÛ »ç¿ë ºÒ°¡
-	//À¯´ÏÅ© ¿şÆù º¯È¯Ã¢¿¡¼­´Â ¸ğµç ¾ÆÀÌÅÛ »ç¿ë ºÒ°¡
+	//ì–¼í„°ë©‹ ì›¨í° ë³€í™˜ì°½ì—ì„œëŠ” ìµœìƒê¸‰ ë‘ë£¨ë§ˆë¦¬ ì‚¬ìš©ê°€ëŠ¥ ê·¸ ì™¸ ì•„ì´í…œ ì‚¬ìš© ë¶ˆê°€
+	//ìœ ë‹ˆí¬ ì›¨í° ë³€í™˜ì°½ì—ì„œëŠ” ëª¨ë“  ì•„ì´í…œ ì‚¬ìš© ë¶ˆê°€
 	CWndChangeWeapon* pWndChangeWeapon = (CWndChangeWeapon*)g_WndMng.GetWndBase( APP_SMELT_CHANGEWEAPON );
 	if(pWndChangeWeapon != NULL)
 	{
@@ -10288,7 +10288,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 			g_WndMng.PutString( prj.GetText( TID_QUEST_DISQUISE_NOTFLY ), NULL, prj.GetTextColor( TID_QUEST_DISQUISE_NOTFLY ) );
 			return;
 		}
-		else if(pItemProp->dwID == II_CHR_MAG_TRI_ANGELWING || pItemProp->dwID == II_SYS_SYS_EVE_WINGS) //º¯½ÅÁß¿¡´Â ³¯°³ ¾ÆÀÌÅÛ »ç¿ë ºÒ°¡.
+		else if(pItemProp->dwID == II_CHR_MAG_TRI_ANGELWING || pItemProp->dwID == II_SYS_SYS_EVE_WINGS) //ë³€ì‹ ì¤‘ì—ëŠ” ë‚ ê°œ ì•„ì´í…œ ì‚¬ìš© ë¶ˆê°€.
 		{
 			g_WndMng.PutString( prj.GetText( TID_GAME_DISQUISE_DNT_WING ), NULL, prj.GetTextColor( TID_GAME_DISQUISE_DNT_WING ) );
 			return;
@@ -10315,7 +10315,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 				check = TRUE;
 		}
 
-		if(check) //µÎÁ¾ÀÇ ³¯°³ Áßº¹»ç¿ë ±İÁö.
+		if(check) //ë‘ì¢…ì˜ ë‚ ê°œ ì¤‘ë³µì‚¬ìš© ê¸ˆì§€.
 		{
 			g_WndMng.PutString( prj.GetText( TID_GAME_NOTUSESKILL_ITEMUSE ), NULL, prj.GetTextColor( TID_GAME_NOTUSESKILL_ITEMUSE ) );
 			return;
@@ -10334,7 +10334,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 		{
 			if( pItemElemOld->m_nResistSMItemId != 0 )
 			{
-				// ¹°¾îºÁ¾ß ÇÔ
+				// ë¬¼ì–´ë´ì•¼ í•¨
 				SAFE_DELETE( g_WndMng.m_pRemoveElem );
 				g_WndMng.m_pRemoveElem = new CWndRemoveElem;
 				g_WndMng.m_pRemoveElem->Initialize( &g_WndMng, APP_REMOVE_ELEM );
@@ -10368,7 +10368,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 	}
 #endif // __HOUSING
 
-	if( bResult && pItemProp->dwID == II_SYS_SYS_SCR_RETURN )		// ±ÍÈ¯ÀÇ µÎ·ç¸¶¸® (bResult - ´õºíÅ¬¸¯ÀÇ °æ¿ì)
+	if( bResult && pItemProp->dwID == II_SYS_SYS_SCR_RETURN )		// ê·€í™˜ì˜ ë‘ë£¨ë§ˆë¦¬ (bResult - ë”ë¸”í´ë¦­ì˜ ê²½ìš°)
 	{
 		if( g_pPlayer->HasBuff( BUFF_ITEM, II_SYS_SYS_SCR_RETURN ) )
 		{
@@ -10385,7 +10385,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 		return;
 	}
 
-	if( bResult && ( pItemProp->dwID == II_SYS_SYS_SCR_SMELPROT 		// º¸È£ÀÇ µÎ·ç¸¶¸®(ÇÏ±Ş)
+	if( bResult && ( pItemProp->dwID == II_SYS_SYS_SCR_SMELPROT 		// ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬(í•˜ê¸‰)
 #ifdef __SM_ITEM_2ND_EX		
 		|| pItemProp->dwID == II_SYS_SYS_SCR_SMELPROT2
 #endif	// __SM_ITEM_2ND_EX
@@ -10404,7 +10404,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 		return;
 	}
 
-	if( bResult && pItemProp->dwID == II_SYS_SYS_SCR_SMELTING )	// Á¦·ÃÀÇ µÎ·ç¸¶¸®
+	if( bResult && pItemProp->dwID == II_SYS_SYS_SCR_SMELTING )	// ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬
 	{
 		SAFE_DELETE( g_WndMng.m_pWndCommItemDlg );
 		g_WndMng.m_pWndCommItemDlg	= new CWndCommItemDlg;
@@ -10414,7 +10414,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 	}
 
 #if __VER >= 14 // __EXT_ATTRIBUTE
-	if( bResult && pItemProp->dwID == II_SYS_SYS_SCR_SMELTING2 )	// ¼Ó¼º Á¦·ÃÀÇ µÎ·ç¸¶¸®
+	if( bResult && pItemProp->dwID == II_SYS_SYS_SCR_SMELTING2 )	// ì†ì„± ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬
 	{
 		SAFE_DELETE( g_WndMng.m_pWndCommItemDlg );
 		g_WndMng.m_pWndCommItemDlg	= new CWndCommItemDlg;
@@ -10424,13 +10424,13 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 	}
 #endif // __EXT_ATTRIBUTE
 
-	if( pItemProp->dwID == II_SYS_SYS_SCR_PIEPROT )		// º¸È£ÀÇ µÎ·ç¸¶¸®(»ó±Ş)
+	if( pItemProp->dwID == II_SYS_SYS_SCR_PIEPROT )		// ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬(ìƒê¸‰)
 	{
 		g_WndMng.PutString( prj.GetText( TID_GAME_ONLYPIER_USE ), NULL, prj.GetTextColor( TID_GAME_ONLYPIER_USE ) );
 		return;
 	}
 
-	if( pItemProp->dwID == II_SYS_SYS_SCR_HAIRCHANGE )	// Çì¾î Ã¼ÀÎÁö ±³È¯±Ç
+	if( pItemProp->dwID == II_SYS_SYS_SCR_HAIRCHANGE )	// í—¤ì–´ ì²´ì¸ì§€ êµí™˜ê¶Œ
 	{
 		if(g_WndMng.m_pWndUseCouponConfirm == NULL)
 		{
@@ -10440,7 +10440,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 		}
 		return;
 	}
-	else if( pItemProp->dwID == II_SYS_SYS_SCR_FACEOFFFREE )	// ¸ŞÀÌÅ©¾÷ ¹«·á ÀÌ¿ë±Ç
+	else if( pItemProp->dwID == II_SYS_SYS_SCR_FACEOFFFREE )	// ë©”ì´í¬ì—… ë¬´ë£Œ ì´ìš©ê¶Œ
 	{
 		if(g_WndMng.m_pWndUseCouponConfirm == NULL)
 		{
@@ -10451,7 +10451,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 		return;
 	}
 
-	if( bResult && pItemProp->dwID == II_SYS_SYS_SCR_SUPERSMELTING )		// Á¦·ÃÀÇ µÎ·ç¸¶¸®
+	if( bResult && pItemProp->dwID == II_SYS_SYS_SCR_SUPERSMELTING )		// ì œë ¨ì˜ ë‘ë£¨ë§ˆë¦¬
 	{
 		SAFE_DELETE( g_WndMng.m_pWndCommItemDlg );
 		g_WndMng.m_pWndCommItemDlg	= new CWndCommItemDlg;
@@ -10489,7 +10489,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 		return;
 	}
 
-	if( pItemProp->dwItemKind1 == IK1_RIDE ) // Å» °ÍÀ» »ç¿ëÇÏ·Á¸é ¸Ş´ºÇ×¸ñÀ» ¾ø¾Ö°í »ç¿ë
+	if( pItemProp->dwItemKind1 == IK1_RIDE ) // íƒˆ ê²ƒì„ ì‚¬ìš©í•˜ë ¤ë©´ ë©”ë‰´í•­ëª©ì„ ì—†ì• ê³  ì‚¬ìš©
 	{
 		CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );
 		if( pWndWorld )
@@ -10508,7 +10508,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 #endif //__FUNNY_COIN
 	if( pItemProp->dwID == II_CHR_SYS_SCR_TRANSY && nPart == -1 )
 	{		
-		// ÀÌ ¾ÆÀÌÅÛÀº ¹æ¾î±¸°¡ ÀåÂøµÇ¾îÀÖÀ¸¸é ¾ÈµÈ´Ù~~~~
+		// ì´ ì•„ì´í…œì€ ë°©ì–´êµ¬ê°€ ì¥ì°©ë˜ì–´ìˆìœ¼ë©´ ì•ˆëœë‹¤~~~~
 		for( DWORD dwParts = 0; dwParts < MAX_HUMAN_PARTS; dwParts++ )
 		{
 			if( dwParts == PARTS_HEAD || dwParts == PARTS_HAIR || dwParts == PARTS_LWEAPON
@@ -10591,7 +10591,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 				return;	
 			case II_SYS_SYS_FEED_01:
 #if __VER >= 12 // __PET_0519
-				{	// º°µµÀÇ °³¼ö ÀÔ·Â ¾øÀÌ ÃÖ´ë »ç¿ë °¡´ÉÇÑ ¾çÀ» »ç¿ëÇÏµµ·Ï ¼öÁ¤
+				{	// ë³„ë„ì˜ ê°œìˆ˜ ì…ë ¥ ì—†ì´ ìµœëŒ€ ì‚¬ìš© ê°€ëŠ¥í•œ ì–‘ì„ ì‚¬ìš©í•˜ë„ë¡ ìˆ˜ì •
 					CItemElem* pItemElem	= static_cast<CItemElem*>( pItemBase );
 					SendUsePetFeed( dwId );
 					return;
@@ -10678,24 +10678,24 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 			}
 			else
 			{
-				// È®Àå ·¹ÀÌ¾î °³¼ö
+				// í™•ì¥ ë ˆì´ì–´ ê°œìˆ˜
 				int nExpand	= CTicketProperty::GetInstance()->GetExpanedLayer( pTicketProp->dwWorldId );
 				/*
-				1. °³¿ä
-					ÀÔÀå±Ç ¾ÆÀÌÅÛ¿¡ Á¤ÀÇµÈ ·¹ÀÌ¾î ¼±ÅÃ Ã¢À» Ãâ·ÂÇÑ´Ù.(CDPClient::SendDoUseItem¿¡¼­ __AZRIA_1023ÀÌ ÀÖ´Â °÷¿¡¼­)
-					»ç¿ëÀÚ°¡ ·¹ÀÌ¾î¸¦ ¼±ÅÃÇÏ¸é, CDPClient::SendDoUseItemInput( DWORD dwData, char* szInput )À»
-					È£ÃâÇÑ´Ù. dwData°ª¿¡´Â dwItemIdÀ» ³Ñ±â°í, szInputÀº ¼±ÅÃÇÑ ·¹ÀÌ¾îÀÇ Å°¸¦ ¹®ÀÚ¿­·Î º¯È¯ÇÏ¿©
-					³Ñ±ä´Ù(ÀÔ·Â°ªÀÌ ÀÖ´Â ¾ÆÀÌÅÛ »ç¿ëÀÇ ÀÏ¹İÈ­¸¦ À§ÇÔ)
-				2. ·¹ÀÌ¾î Å°
-					¸¸¾à À§ÀÇ nExpand°¡ 0ÀÌ¶ó¸é È®ÀåµÈ ·¹ÀÌ¾î°¡ ¾ø´Ù´Â ÀÇ¹ÌÀÌ°í,
-					¼±ÅÃ °¡´ÉÇÑ ·¹ÀÌ¾îÀÇ Å°´Â ±âº»·¹ÀÌ¾î Å° 0ÀÌ µÇ¸ç, szInput¿¡ "0" À» ³Ñ±ä´Ù.
-					¸¸¾à nExpand°¡ 1ÀÌ¶ó¸é(ÀÌ¹ø 13Â÷ ¾ÆÁî¸®¾Æ ¿¹) È®ÀåµÈ ·¹ÀÌ¾î°¡
-					ÇÏ³ª¶ó´Â ÀÇ¹ÌÀÌ°í, ÁøÀÔÇÒ ¼ö ÀÖ´Â ·¹ÀÌ¾î´Â ±âº»·¹ÀÌ¾î(·¹ÀÌ¾î Å° 0)
-					¿Í È®ÀåµÈ ·¹ÀÌ¾î(·¹ÀÌ¾îÅ°  -1)ÀÌ´Ù.
-					È®Àå ·¹ÀÌ¾îÀÇ Å°´Â -1 ºÎÅÍ 1¾¿ °¨¼ÒÇÑ´Ù. Áï nExpand°¡ 3ÀÌ¶ó¸é
-					µé¾î°¥ ¼ö ÀÖ´Â ·¹ÀÌ¾îÀÇ Å°´Â 0, -1, -2, -3
-					½Ã½ºÅÛÀÌ ¹Ì¸® Á¤ÀÇÇÏ´Â ·¹ÀÌ¾îÀÇ Å°´Â À½¼ö·Î È®ÀåµÇ°í, »ç¿ëÀÚ¿¡ ÀÇÇØ¼­
-					°¡º¯ÀûÀ¸·Î ¸¸µé¾îÁö´Â ·¹ÀÌ¾î(ÇÏ¿ìÂ¡, ÀÎ½ºÅÏ½º ´øÀü µî)Àº ¾ç¼ö·Î È®ÀåµÈ´Ù.
+				1. ê°œìš”
+					ì…ì¥ê¶Œ ì•„ì´í…œì— ì •ì˜ëœ ë ˆì´ì–´ ì„ íƒ ì°½ì„ ì¶œë ¥í•œë‹¤.(CDPClient::SendDoUseItemì—ì„œ __AZRIA_1023ì´ ìˆëŠ” ê³³ì—ì„œ)
+					ì‚¬ìš©ìê°€ ë ˆì´ì–´ë¥¼ ì„ íƒí•˜ë©´, CDPClient::SendDoUseItemInput( DWORD dwData, char* szInput )ì„
+					í˜¸ì¶œí•œë‹¤. dwDataê°’ì—ëŠ” dwItemIdì„ ë„˜ê¸°ê³ , szInputì€ ì„ íƒí•œ ë ˆì´ì–´ì˜ í‚¤ë¥¼ ë¬¸ìì—´ë¡œ ë³€í™˜í•˜ì—¬
+					ë„˜ê¸´ë‹¤(ì…ë ¥ê°’ì´ ìˆëŠ” ì•„ì´í…œ ì‚¬ìš©ì˜ ì¼ë°˜í™”ë¥¼ ìœ„í•¨)
+				2. ë ˆì´ì–´ í‚¤
+					ë§Œì•½ ìœ„ì˜ nExpandê°€ 0ì´ë¼ë©´ í™•ì¥ëœ ë ˆì´ì–´ê°€ ì—†ë‹¤ëŠ” ì˜ë¯¸ì´ê³ ,
+					ì„ íƒ ê°€ëŠ¥í•œ ë ˆì´ì–´ì˜ í‚¤ëŠ” ê¸°ë³¸ë ˆì´ì–´ í‚¤ 0ì´ ë˜ë©°, szInputì— "0" ì„ ë„˜ê¸´ë‹¤.
+					ë§Œì•½ nExpandê°€ 1ì´ë¼ë©´(ì´ë²ˆ 13ì°¨ ì•„ì¦ˆë¦¬ì•„ ì˜ˆ) í™•ì¥ëœ ë ˆì´ì–´ê°€
+					í•˜ë‚˜ë¼ëŠ” ì˜ë¯¸ì´ê³ , ì§„ì…í•  ìˆ˜ ìˆëŠ” ë ˆì´ì–´ëŠ” ê¸°ë³¸ë ˆì´ì–´(ë ˆì´ì–´ í‚¤ 0)
+					ì™€ í™•ì¥ëœ ë ˆì´ì–´(ë ˆì´ì–´í‚¤  -1)ì´ë‹¤.
+					í™•ì¥ ë ˆì´ì–´ì˜ í‚¤ëŠ” -1 ë¶€í„° 1ì”© ê°ì†Œí•œë‹¤. ì¦‰ nExpandê°€ 3ì´ë¼ë©´
+					ë“¤ì–´ê°ˆ ìˆ˜ ìˆëŠ” ë ˆì´ì–´ì˜ í‚¤ëŠ” 0, -1, -2, -3
+					ì‹œìŠ¤í…œì´ ë¯¸ë¦¬ ì •ì˜í•˜ëŠ” ë ˆì´ì–´ì˜ í‚¤ëŠ” ìŒìˆ˜ë¡œ í™•ì¥ë˜ê³ , ì‚¬ìš©ìì— ì˜í•´ì„œ
+					ê°€ë³€ì ìœ¼ë¡œ ë§Œë“¤ì–´ì§€ëŠ” ë ˆì´ì–´(í•˜ìš°ì§•, ì¸ìŠ¤í„´ìŠ¤ ë˜ì „ ë“±)ì€ ì–‘ìˆ˜ë¡œ í™•ì¥ëœë‹¤.
 				*/
 				SAFE_DELETE( g_WndMng.m_pWndSelectCh );
 				g_WndMng.m_pWndSelectCh = new CWndSelectCh( dwItemId, nExpand);
@@ -10763,9 +10763,9 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 	if( pItemBase->GetProp()->dwParts == PARTS_RWEAPON )
 	{
 		CItemElem* pItemElemWepon = g_pPlayer->m_Inventory.GetEquip( PARTS_RWEAPON	);
-		if( pItemElemWepon && pItemElemWepon->GetProp()->dwItemKind3 == IK3_BOW ) // ÀåÂøµÇ¾îÀÖ´Â°ÍÀÌ È°ÀÌ¸é
+		if( pItemElemWepon && pItemElemWepon->GetProp()->dwItemKind3 == IK3_BOW ) // ì¥ì°©ë˜ì–´ìˆëŠ”ê²ƒì´ í™œì´ë©´
 		{
-			if( pItemBase->GetProp()->dwItemKind3 != IK3_BOW )	// ÀåÂøµÇ¾îÀÖ´Â°ÍÀÌ º¸¿ì¸é ¾È¹ş°ÜµÎ µÊ
+			if( pItemBase->GetProp()->dwItemKind3 != IK3_BOW )	// ì¥ì°©ë˜ì–´ìˆëŠ”ê²ƒì´ ë³´ìš°ë©´ ì•ˆë²—ê²¨ë‘ ë¨
 			{
 				CItemElem* pItemElemBullet = g_pPlayer->m_Inventory.GetEquip( PARTS_BULLET );	
 				if( pItemElemBullet && pItemElemBullet->GetProp()->dwItemKind3 == IK3_ARROW )
@@ -10784,9 +10784,9 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 	if( pItemBase->GetProp()->dwParts == PARTS_RWEAPON )
 	{
 		CItemElem* pItemElemWepon = g_pPlayer->m_Inventory.GetEquip( PARTS_RWEAPON	);
-		if( pItemElemWepon && pItemElemWepon->GetProp()->dwItemKind3 == IK3_CROSSBOW ) // ÀåÂøµÇ¾îÀÖ´Â°ÍÀÌ È°ÀÌ¸é
+		if( pItemElemWepon && pItemElemWepon->GetProp()->dwItemKind3 == IK3_CROSSBOW ) // ì¥ì°©ë˜ì–´ìˆëŠ”ê²ƒì´ í™œì´ë©´
 		{
-			if( pItemBase->GetProp()->dwItemKind3 != IK3_CROSSBOW )	// ÀåÂøµÇ¾îÀÖ´Â°ÍÀÌ º¸¿ì¸é ¾È¹ş°ÜµÎ µÊ
+			if( pItemBase->GetProp()->dwItemKind3 != IK3_CROSSBOW )	// ì¥ì°©ë˜ì–´ìˆëŠ”ê²ƒì´ ë³´ìš°ë©´ ì•ˆë²—ê²¨ë‘ ë¨
 			{
 				CItemElem* pItemElemBullet = g_pPlayer->m_Inventory.GetEquip( PARTS_BULLET );	
 				if( pItemElemBullet && pItemElemBullet->GetProp()->dwItemKind3 == IK3_CROSSARROW )
@@ -10802,7 +10802,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 	}
 #endif // __CROSSBOW
 
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 	if( pItemProp->dwID == II_SYS_SYS_SCR_SEAL )
 	{
 		if( !g_WndMng.m_pWndSealChar )
@@ -10826,19 +10826,19 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 		ar << nPart;
 		SEND( ar, this, DPID_SERVERPLAYER );
 	
-		g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//¼­¹ö·ÎºÎÅÍ Á¢¼ÓÀÌ ÇØÁ¦µÇ¾ú½À´Ï´Ù.		  
+		g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//ì„œë²„ë¡œë¶€í„° ì ‘ì†ì´ í•´ì œë˜ì—ˆìŠµë‹ˆë‹¤.		  
 */
 		return;
 	}
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 
 #ifdef __PET_1024
 	if( pItemProp->dwID == II_SYS_SYS_SCR_PET_NAMING )
 	{
-		// Æê ÀÛ¸í ÀÔ·Â Ã¢À» È°¼ºÈ­ ½ÃÅ²´Ù.
-		// À§ Ã¢¿¡¼­ ÀÌ¸§À» ÀÔ·ÂÇÑ ÈÄ È®ÀÎ ¹öÆ°À» ´©¸£¸é
-		// CDPClient::SendDoUseItemInput( DWORD dwData, char* szInput )À»
-		// È£ÃâÇÑ´Ù. dwData°ª¿¡´Â dwItemIdÀ» ³Ñ±â°í, szInputÀº ÀÌ¸§ ¹®ÀÚ¿­À» ³Ñ±ä´Ù.
+		// í« ì‘ëª… ì…ë ¥ ì°½ì„ í™œì„±í™” ì‹œí‚¨ë‹¤.
+		// ìœ„ ì°½ì—ì„œ ì´ë¦„ì„ ì…ë ¥í•œ í›„ í™•ì¸ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´
+		// CDPClient::SendDoUseItemInput( DWORD dwData, char* szInput )ì„
+		// í˜¸ì¶œí•œë‹¤. dwDataê°’ì—ëŠ” dwItemIdì„ ë„˜ê¸°ê³ , szInputì€ ì´ë¦„ ë¬¸ìì—´ì„ ë„˜ê¸´ë‹¤.
 		SAFE_DELETE( g_WndMng.m_pWndChangePetName );
 		g_WndMng.m_pWndChangePetName = new CWndChangePetName;
 		g_WndMng.m_pWndChangePetName->Initialize(&g_WndMng);
@@ -10856,7 +10856,7 @@ void CDPClient::SendDoUseItem( DWORD dwItemId, OBJID objid, int nPart, BOOL bRes
 	SEND( ar, this, DPID_SERVERPLAYER );
 	g_nItemDelay = 60;
 
-	// ÄğÅ¸ÀÓ ¾ÆÀÌÅÛÀÌ¸é »ç¿ë½Ã°¢Àº ¼­¹ö¿¡¼­ ACK¹Ş°í ±â·ÏÇÑ´Ù.
+	// ì¿¨íƒ€ì„ ì•„ì´í…œì´ë©´ ì‚¬ìš©ì‹œê°ì€ ì„œë²„ì—ì„œ ACKë°›ê³  ê¸°ë¡í•œë‹¤.
 }
 
 void CDPClient::SendPlayerCorr( void )
@@ -11077,7 +11077,7 @@ void	CDPClient::SendMoveItem_Pocket( int nPocket1, int nItem, short nNum, int nP
 void CDPClient::SendGetFriendName()
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_GETFRIENDNAME, DPID_UNKNOWN );
-	// ¿©±â´Â Ä£±¸ÀÇ ÀÌ¸§À» °¡Áö°í ¿À´Â ·çÆ¾ÀÌ´Ù.
+	// ì—¬ê¸°ëŠ” ì¹œêµ¬ì˜ ì´ë¦„ì„ ê°€ì§€ê³  ì˜¤ëŠ” ë£¨í‹´ì´ë‹¤.
 	int nCount	= 0;
 	u_long uOffset	= ar.GetOffset();
 	ar << nCount;
@@ -11117,7 +11117,7 @@ void CDPClient::SendGetFriendState()
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-void CDPClient::SendSetState( int state ) // »óÅÂ ¹Ù²Ù±â
+void CDPClient::SendSetState( int state ) // ìƒíƒœ ë°”ê¾¸ê¸°
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_SETFRIENDSTATE, DPID_UNKNOWN );
 	
@@ -11126,7 +11126,7 @@ void CDPClient::SendSetState( int state ) // »óÅÂ ¹Ù²Ù±â
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-void CDPClient::SendFriendInterceptState( u_long uidPlayer )  // Â÷´Ü
+void CDPClient::SendFriendInterceptState( u_long uidPlayer )  // ì°¨ë‹¨
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_FRIENDINTERCEPTSTATE, DPID_UNKNOWN );
 	ar << g_pPlayer->m_idPlayer;
@@ -11440,7 +11440,7 @@ void CDPClient::OnReassemble_OpenWnd( CAr & ar )
 		vecItemId.push_back( dwItemId );
 	}
 
-	// vecItemId - ÆÛÁñ ¾ÆÀÌÅÛÀÇ ID°ª	
+	// vecItemId - í¼ì¦ ì•„ì´í…œì˜ IDê°’	
 	CWndPuzzleGame* pWndGame = (CWndPuzzleGame*)g_WndMng.GetWndBase( APP_MINIGAME_PUZZLE );
 	if(pWndGame != NULL)
 		pWndGame->SetPuzzle(vecItemId);
@@ -11459,7 +11459,7 @@ void CDPClient::OnReassemble_Result( CAr & ar )
 	CString strMessage;
 
 	ItemProp* ITem = prj.GetItemProp(dwItemId);
-	strMessage.Format( "¼º°ø %s %d", ITem->szName, nItemCount );
+	strMessage.Format( "ì„±ê³µ %s %d", ITem->szName, nItemCount );
 	g_WndMng.PutString( strMessage, NULL, prj.GetTextColor(TID_ADMIN_ANNOUNCE), CHATSTY_GAME_CHAT );
 
 	if(pWndGame != NULL)
@@ -11478,7 +11478,7 @@ void CDPClient::OnAlphabet_OpenWnd( CAr & ar )
 	ar >> chPublicChar;
 	ar.ReadString( szQuestion, 254 );
 
-	// Ã¢¶ç¿ò ¾ËÆÄºª °ÔÀÓ
+	// ì°½ë„ì›€ ì•ŒíŒŒë²³ ê²Œì„
 	CWndFindWordGame* pWndGame = (CWndFindWordGame*)g_WndMng.GetWndBase( APP_MINIGAME_WORD );
 	if(pWndGame != NULL)
 	{
@@ -11498,7 +11498,7 @@ void CDPClient::OnAlphabet_Result( CAr & ar )
 	
 	if(nResult != CMiniGame::ALPHABET_FAILED)
 	{
-		// ¼º°ø½Ã
+		// ì„±ê³µì‹œ
 		ar >> dwItemId;
 		ar >> nItemCount;
 	}
@@ -11535,15 +11535,15 @@ void CDPClient::OnFiveSystem_Result( CAr & ar )
 
 	if( nResult == CMiniGame::FIVESYSTEM_NOTENOUGH )
 	{
-		// ÀÔÂû±İ ºÎÁ·
+		// ì…ì°°ê¸ˆ ë¶€ì¡±
 	}
 	else if( nResult == CMiniGame::FIVESYSTEM_OVERMAX )
 	{
-		// ´çÃ·½Ã ÃÖ´ë ±İ¾× ÃÊ°ú
+		// ë‹¹ì²¨ì‹œ ìµœëŒ€ ê¸ˆì•¡ ì´ˆê³¼
 	}
 	else if( nResult == CMiniGame::FIVESYSTEM_FAILED )
 	{
-		// ½ÇÆĞ - ÀÔÂû ±İ¾×ÀÌ (-)ÀÌ°Å³ª ´çÃ·±İ Áö±Ş ½ÇÆĞ
+		// ì‹¤íŒ¨ - ì…ì°° ê¸ˆì•¡ì´ (-)ì´ê±°ë‚˜ ë‹¹ì²¨ê¸ˆ ì§€ê¸‰ ì‹¤íŒ¨
 	}
 	else if( nResult == CMiniGame::FIVESYSTEM_BETOK )
 	{
@@ -11555,8 +11555,8 @@ void CDPClient::OnFiveSystem_Result( CAr & ar )
 	}
 	else
 	{
-		ar >> nGetPenya; // Áö±Ş¾×
-		// °á°ú
+		ar >> nGetPenya; // ì§€ê¸‰ì•¡
+		// ê²°ê³¼
 		if(pWndGame != NULL)
 			pWndGame->ReceiveResult(nResult, nGetPenya);
 	}
@@ -11706,7 +11706,7 @@ CHAR	lpszPlayer[MAX_PLAYER], lpString[260];
 	}
 #endif // __YS_CHATTING_BLOCKING_SYSTEM
 
-	// ¸»ÇÏ´Â¾Ö°¡ ±æµåÄÄ¹î ¸Ê¿¡¼­ ÀÌ¾ß±â¸¦ Çß´Ù¸é...°Ë»çÇØ¼­...¹«½ÃÇÑ´Ù..-_-
+	// ë§í•˜ëŠ”ì• ê°€ ê¸¸ë“œì»´ë±ƒ ë§µì—ì„œ ì´ì•¼ê¸°ë¥¼ í–ˆë‹¤ë©´...ê²€ì‚¬í•´ì„œ...ë¬´ì‹œí•œë‹¤..-_-
 	if( IsValidObj( pMover ) && pMover->GetWorld() && pMover->GetWorld()->GetID() == WI_WORLD_GUILDWAR )
 	{
 		if( pMover->IsMode(GCWAR_RENDER_SKIP_MODE) )
@@ -11801,7 +11801,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 		if( bCheck )
 		{
 			CString szMessage;
-			szMessage.Format( prj.GetText( TID_GAME_MSGBLOCKCHR ), sPlayerTo );		//szMessage += "´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Ş¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
+			szMessage.Format( prj.GetText( TID_GAME_MSGBLOCKCHR ), sPlayerTo );		//szMessage += "ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
 			g_WndMng.PutString( szMessage, NULL, prj.GetTextColor( TID_GAME_NOTLOGIN ) );
 			CWndMessage* pWndMessage	=	g_WndMng.GetMessage( sPlayerTo );
 			if( pWndMessage )
@@ -11835,7 +11835,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 		if( bchack )
 		{
 			CString szMessage;
-			szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), sPlayerTo );  //szMessage += "´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Ş¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
+			szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), sPlayerTo );  //szMessage += "ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
 			g_WndMng.PutString( szMessage, NULL, prj.GetTextColor(TID_GAME_NOTLOGIN) );
 			CWndMessage* pWndMessage =	g_WndMng.GetMessage( sPlayerTo );
 			if( pWndMessage )
@@ -11854,7 +11854,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 #endif	// __RT_1025
 	if( nSearch )
 	{
-		//wsprintf( lpString, "Á¢¼ÓÁßÀÌ ¾Æ´Õ´Ï´Ù." );.
+		//wsprintf( lpString, "ì ‘ì†ì¤‘ì´ ì•„ë‹™ë‹ˆë‹¤." );.
 		//g_WndMng.PutString( lpString, NULL, 0xffffff00 );
 		g_WndMng.PutString( prj.GetText( TID_GAME_NOTLOGIN ), NULL, prj.GetTextColor( TID_GAME_NOTLOGIN ) );
 		return;
@@ -11864,7 +11864,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 
 	BOOL bWhisperOK = FALSE;
 	BOOL bMySend = FALSE;
-	// ¼Ó»èÀÓ
+	// ì†ì‚­ì„
 	CString str;
 	if( strcmp( g_pPlayer->GetName(), sPlayerFrom ) == 0 )
 	{
@@ -11931,7 +11931,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 			if( bCheck )
 			{
 				CString szMessage;
-				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), sPlayerTo );		//szMessage += "´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Ş¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
+				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), sPlayerTo );		//szMessage += "ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
 
 				g_WndMng.PutString( szMessage, NULL, prj.GetTextColor( TID_GAME_NOTLOGIN ) );
 				CWndMessage* pWndMessage	=	g_WndMng.GetMessage( sPlayerTo );
@@ -11969,11 +11969,11 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 			CString szMessage;
 			if( pFriend->dwState == FRS_BLOCK || pFriend->dwState == FRS_OFFLINEBLOCK )
 			{
-				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), sPlayerTo );  //szMessage += "´ÔÀº Â÷´ÜµÇ¾î ÀÖ¾î ¸Ş¼¼Áö¸¦ º¸³¾¼ö ¾ø½À´Ï´Ù";
+				szMessage.Format( prj.GetText(TID_GAME_MSGBLOCKCHR), sPlayerTo );  //szMessage += "ë‹˜ì€ ì°¨ë‹¨ë˜ì–´ ìˆì–´ ë©”ì„¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ì—†ìŠµë‹ˆë‹¤";
 			}
 			else
 			{
-				szMessage = prj.GetText(TID_GAME_NOTLOGIN);                               //szMessage += "´ÔÀº Á¢¼ÓµÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù";
+				szMessage = prj.GetText(TID_GAME_NOTLOGIN);                               //szMessage += "ë‹˜ì€ ì ‘ì†ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤";
 			}
 			g_WndMng.PutString( szMessage, NULL, prj.GetTextColor(TID_GAME_NOTLOGIN) );
 			CWndMessage* pWndMessage =	g_WndMng.GetMessage( sPlayerTo );
@@ -11994,7 +11994,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 
 	if( nSearch )
 	{
-		//wsprintf( lpString, "Á¢¼ÓÁßÀÌ ¾Æ´Õ´Ï´Ù." );.
+		//wsprintf( lpString, "ì ‘ì†ì¤‘ì´ ì•„ë‹™ë‹ˆë‹¤." );.
 		//g_WndMng.PutString( lpString, NULL, 0xffffff00 );
 
 		g_WndMng.PutString( prj.GetText( TID_GAME_NOTLOGIN ), NULL, prj.GetTextColor( TID_GAME_NOTLOGIN ) );
@@ -12006,7 +12006,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 
 	CString strFrom = sPlayerFrom;
 	CString strTo = sPlayerTo;
-	// ³»°¡ º¸³½ ¸Ş½ÃÁöÀÏ °æ¿ì 
+	// ë‚´ê°€ ë³´ë‚¸ ë©”ì‹œì§€ì¼ ê²½ìš° 
 	if( strcmp( sPlayerFrom, g_pPlayer->GetName() ) == 0 )
 	{
 		strFrom = sPlayerTo;
@@ -12020,7 +12020,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 			if( pWndMessage == NULL )
 			{
 				char szText[512];
-				sprintf( szText, "OnSay : pWndMessage°¡ NULL %s %s %s", strFrom, strTo, lpString );
+				sprintf( szText, "OnSay : pWndMessageê°€ NULL %s %s %s", strFrom, strTo, lpString );
 				ADDERRORMSG( szText );
 			}
 				
@@ -12053,7 +12053,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 		}
 		else
 		{
-			// ±Ó¼Ó¸» 
+			// ê·“ì†ë§ 
 			CString str;
 			str.Format( "[%s] %s", sPlayerFrom, lpString );
 			g_WndMng.PutString( str, NULL, 0xffffff00 );		
@@ -12071,7 +12071,7 @@ CHAR	sPlayerFrom[MAX_PLAYER], sPlayerTo[MAX_PLAYER], lpString[260];
 	ar.ReadString( lpString, 260 );
 
 	TRACE( "OnSay, %s - %s\n", sPlayerFrom, lpString );
-	// ±Ó¼Ó¸» 
+	// ê·“ì†ë§ 
 	CString str;
 	str.Format( "[%s] %s", sPlayerFrom, lpString );
 	g_WndMng.PutString( str, NULL, 0xffffff00 );
@@ -12098,12 +12098,12 @@ void CDPClient::OnGetPlayerCount( CAr & ar )
 	TRACE( "OnGetPlayerCount, %d\n", uCount );
 
 	CString str;
-	//str.Format( "[¿ùµåµ¿Á¢] %d", uCount);
+	//str.Format( "[ì›”ë“œë™ì ‘] %d", uCount);
 
 	str.Format( prj.GetText(TID_ADMIN_WORLDCOUNT), uCount );
 	g_WndMng.PutString( str, NULL, prj.GetTextColor(TID_ADMIN_WORLDCOUNT), CHATSTY_GENERAL );
 
-	// ¿ùµå µ¿Á¢ÀÚ 
+	// ì›”ë“œ ë™ì ‘ì 
 }
 
 void CDPClient::OnGetCorePlayer( CAr & ar )
@@ -12113,7 +12113,7 @@ CHAR	lpszPlayer[64];
 	u_long uCount;
 
 	ar >> uCount;
-	// ÀüÃ¼ 
+	// ì „ì²´ 
 	TRACE( "OnGetCorePlayer, %d\n", uCount );
 	TRACE( "--------------------------------------------------------------------------------\n" );
 	for( u_short i = 0; i < uCount; i++ )
@@ -12128,7 +12128,7 @@ CHAR	lpszPlayer[64];
 	TRACE( "--------------------------------------------------------------------------------\n" );
 }
 
-// ¿î¿µÀÚ ¾Ë¸² ¸Ş¼¼Áö 
+// ìš´ì˜ì ì•Œë¦¼ ë©”ì„¸ì§€ 
 void CDPClient::OnSystem( CAr & ar )
 {
 	CHAR	lpString[512];
@@ -12136,7 +12136,7 @@ void CDPClient::OnSystem( CAr & ar )
 	ar.ReadString( lpString, 512 );
 
 	CString str;
-	str.Format( prj.GetText(TID_ADMIN_ANNOUNCE), lpString );		// [¾Ë¸²] %s
+	str.Format( prj.GetText(TID_ADMIN_ANNOUNCE), lpString );		// [ì•Œë¦¼] %s
 	g_WndMng.PutString( str, NULL, prj.GetTextColor(TID_ADMIN_ANNOUNCE), CHATSTY_SYSTEM );
 	if( ::GetLanguage() != LANG_GER && ::GetLanguage() != LANG_FRE )
 	{
@@ -12214,7 +12214,7 @@ void CDPClient::OnDefinedCaption( CAr & ar )
 	
 	if( dwText == TID_GAME_REAPMONEY )
 	{
-		//¿¹¿ÜÃ³¸®: µ· ¹®ÀÚ¿­¿¡ ','°¡ µé¾î°¡¼­ CScanner·Î ÀÛ¾÷ÇÏ±â ¿øÇÒÄ¡ ¾Ê´Ù.
+		//ì˜ˆì™¸ì²˜ë¦¬: ëˆ ë¬¸ìì—´ì— ','ê°€ ë“¤ì–´ê°€ì„œ CScannerë¡œ ì‘ì—…í•˜ê¸° ì›í• ì¹˜ ì•Šë‹¤.
 		CString rString;
 		AfxExtractSubString( rString, lpString, 0, ' ' );
 		strcpy( argv[0], rString );
@@ -12271,57 +12271,57 @@ void CDPClient::OnModifyMode( OBJID objid, CAr & ar )
 	CMover* pPlayer	= prj.GetMover( objid );
 	if( IsValidObj( (CObj*)pPlayer ) ) {
 		pPlayer->m_dwMode	= dwMode;
-		if( pPlayer->IsActiveMover() && g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER ) ) // ¿©±â¼­ ³ª¸é Ãâ·Â
+		if( pPlayer->IsActiveMover() && g_pPlayer->IsAuthHigher( AUTH_GAMEMASTER ) ) // ì—¬ê¸°ì„œ ë‚˜ë©´ ì¶œë ¥
 		{
 			CString str;
 			if( pPlayer->m_dwMode & MATCHLESS_MODE )
 			{
-				str += prj.GetText(TID_ADMIN_IMMORTAL);//"¹«Àû ";
+				str += prj.GetText(TID_ADMIN_IMMORTAL);//"ë¬´ì  ";
 			}
 			if( pPlayer->m_dwMode & MATCHLESS2_MODE )
 			{
-				str += prj.GetText(TID_ADMIN_IMMORTALHALF);//"¹İ¹«Àû ";
+				str += prj.GetText(TID_ADMIN_IMMORTALHALF);//"ë°˜ë¬´ì  ";
 			}
 			if( pPlayer->IsMode( TRANSPARENT_MODE ) )
 			{
-				str += prj.GetText(TID_ADMIN_INVISIBLE);//"Åõ¸í ";
+				str += prj.GetText(TID_ADMIN_INVISIBLE);//"íˆ¬ëª… ";
 			}
 			if( pPlayer->IsMode( OBSERVE_MODE ) )
 			{
-				str += "°üÀü";
+				str += "ê´€ì „";
 			}
 			if( pPlayer->IsMode( ITEM_MODE ) )
 			{
-				str += "¾ÆÀÌÅÛ";
+				str += "ì•„ì´í…œ";
 			}
 			if( pPlayer->IsMode( NO_ATTACK_MODE ) )
 			{
-				str += "°ø°İ";
+				str += "ê³µê²©";
 			}
 			if( pPlayer->IsMode( COMMUNITY_MODE ) )
 			{
-				str += "Ä¿¹Â´ÏÆ¼";
+				str += "ì»¤ë®¤ë‹ˆí‹°";
 			}
 			if( pPlayer->m_dwMode & ONEKILL_MODE )
 			{
-				str += prj.GetText(TID_ADMIN_MIGHTY);//"ÃÊÇÊ ";
+				str += prj.GetText(TID_ADMIN_MIGHTY);//"ì´ˆí•„ ";
 			}
 
 			if( pPlayer->IsMode( SAYTALK_MODE ) )
 			{
-				str += "±Ó¼Ó¸»ÇÒ¼ö ¾ø´Â";
+				str += "ê·“ì†ë§í• ìˆ˜ ì—†ëŠ”";
 			}
 			if( pPlayer->IsMode( TALK_MODE ) )
 			{
-				str += "Ã¤ÆÃÇÒ¼ö ¾ø´Â";
+				str += "ì±„íŒ…í• ìˆ˜ ì—†ëŠ”";
 			}
 			if( pPlayer->IsMode( SHOUTTALK_MODE ) )
 			{
-				str += "¿ÜÄ¡±âÇÒ¼ö ¾ø´Â";
+				str += "ì™¸ì¹˜ê¸°í• ìˆ˜ ì—†ëŠ”";
 			}
 			if( pPlayer->m_dwMode & DONMOVE_MODE )
 			{
-				str += prj.GetText(TID_ADMIN_NOMOVING);//"¿òÁ÷ÀÏ¼ö ¾ø´Â ";
+				str += prj.GetText(TID_ADMIN_NOMOVING);//"ì›€ì§ì¼ìˆ˜ ì—†ëŠ” ";
 			}
 			if( pPlayer->IsMode( FREEPK_MODE ) )
 			{
@@ -12333,11 +12333,11 @@ void CDPClient::OnModifyMode( OBJID objid, CAr & ar )
 			}
 			if( pPlayer->m_dwMode != 0 )
 			{
-				str += prj.GetText(TID_ADMIN_STATE);//"»óÅÂ ";
+				str += prj.GetText(TID_ADMIN_STATE);//"ìƒíƒœ ";
 			}
 			else
 			{
-				str += prj.GetText(TID_ADMIN_NORMAL);//"Æò¹Î »óÅÂ";
+				str += prj.GetText(TID_ADMIN_NORMAL);//"í‰ë¯¼ ìƒíƒœ";
 			}
 
 			g_WndMng.PutString( str, NULL, prj.GetTextColor(TID_ADMIN_NORMAL) );
@@ -12354,7 +12354,7 @@ void CDPClient::OnModifyMode( OBJID objid, CAr & ar )
 				if( pWndInstantMsg )
 				{
 					pWndInstantMsg->AddPostMessage(prj.GetText(TID_MAIL_RECEIVE));
-					pWndInstantMsg->m_timer.Set( MIN(1) );		//chipi_080808 - ¿ìÆí ¸Ş¼¼Áö Ã¢ À¯Áö 1ºĞÀ¸·Î º¯°æ 
+					pWndInstantMsg->m_timer.Set( MIN(1) );		//chipi_080808 - ìš°í¸ ë©”ì„¸ì§€ ì°½ ìœ ì§€ 1ë¶„ìœ¼ë¡œ ë³€ê²½ 
 				}
 				
 				g_WndMng.PutString( str, NULL, prj.GetTextColor(TID_ADMIN_NORMAL) );
@@ -12393,9 +12393,9 @@ void CDPClient::OnStateMode( OBJID objid, CAr & ar )
 
 		dwOldStateMode = pPlayer->m_dwStateMode;
 		pPlayer->m_dwStateMode	= dwStateMode;
-		if( pPlayer->IsActiveMover() ) // ¿©±â¼­ ³ª¸é Ãâ·Â
+		if( pPlayer->IsActiveMover() ) // ì—¬ê¸°ì„œ ë‚˜ë©´ ì¶œë ¥
 		{
-			CString strMessage;	// ¸Ş¼¼Áö Ã³¸®
+			CString strMessage;	// ë©”ì„¸ì§€ ì²˜ë¦¬
 			switch( nFlag )
 			{
 			case STATEMODE_BASEMOTION_ON:
@@ -12438,18 +12438,18 @@ void CDPClient::OnReturnSay( OBJID objid, CAr & ar )
 	if( IsValidObj( (CObj*)pPlayer ) )
 	{
 		CString Str;
-		if( ReturnFlag == 1 )				// º¸³½µ¥ÀÌÅÍ
+		if( ReturnFlag == 1 )				// ë³´ë‚¸ë°ì´í„°
 		{
 			Str.Format( "[%s] %s", pPlayer->GetName(), lpString );
 		}
-		else if( ReturnFlag == 2 )			// ÀÚ±âÀÚ½Å
+		else if( ReturnFlag == 2 )			// ìê¸°ìì‹ 
 		{
-			//Str += "ÀÚ±âÀÚ½Å¿¡°Ô´Â º¸³¾¼ö°¡ ¾ø½À´Ï´Ù";
+			//Str += "ìê¸°ìì‹ ì—ê²ŒëŠ” ë³´ë‚¼ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤";
 			Str += prj.GetText(TID_GAME_MSGNOTTRANSELF);
 		}
-		else								// Ã£À»¼ö°¡ ¾øÀ½
+		else								// ì°¾ì„ìˆ˜ê°€ ì—†ìŒ
 		{
-			//Str.Format( "[%s]´ÔÀº Á¸ÀçÇÏÁö ¾Ê´Â IDÀÔ´Ï´Ù", lpString );
+			//Str.Format( "[%s]ë‹˜ì€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ” IDì…ë‹ˆë‹¤", lpString );
 			Str.Format( prj.GetText(TID_GAME_MSGNOTEXIST), lpString );
 		}
 		//g_WndMng.PutString( Str, NULL, 0xffffff00 );
@@ -13135,7 +13135,7 @@ void CDPClient::OnAllGuilds( CAr & ar )
 	g_GuildMng.Serialize( ar, TRUE );
 }
 
-// ±æµå ¸â¹ö È£Äª
+// ê¸¸ë“œ ë©¤ë²„ í˜¸ì¹­
 void CDPClient::SendGuildMemberLv( u_long idMaster, u_long idPlayer, int nMemberLv )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_GUILD_MEMBER_LEVEL, DPID_UNKNOWN );
@@ -13162,7 +13162,7 @@ void CDPClient::SendGuildNickName( u_long idPlayer, LPCTSTR strNickName )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ±æµå·Î°í¸¦ º¯°æÇÑ´Ù.
+// ê¸¸ë“œë¡œê³ ë¥¼ ë³€ê²½í•œë‹¤.
 void CDPClient::SendGuildLogo( DWORD dwLogo )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_NW_GUILDLOGO, DPID_UNKNOWN );
@@ -13170,10 +13170,10 @@ void CDPClient::SendGuildLogo( DWORD dwLogo )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ±æµå¿¡ PXP³ª Æä³Ä¸¦ °øÇåÇÑ´Ù.
-// PXP¸¦ °øÇåÇÏ´Â °æ¿ì - cbPxpCount = 1, nGold = 0
-// Æä³Ä¸¦ °øÇåÇÏ´Â °æ¿ì - cbPxpCount = 0, nGold = °øÇå·® 
-// ¾ÆÀÌÅÛÀ» °øÇåÇÏ´Â °æ¿ì - cbItemFlag = 1
+// ê¸¸ë“œì— PXPë‚˜ í˜ëƒë¥¼ ê³µí—Œí•œë‹¤.
+// PXPë¥¼ ê³µí—Œí•˜ëŠ” ê²½ìš° - cbPxpCount = 1, nGold = 0
+// í˜ëƒë¥¼ ê³µí—Œí•˜ëŠ” ê²½ìš° - cbPxpCount = 0, nGold = ê³µí—ŒëŸ‰ 
+// ì•„ì´í…œì„ ê³µí—Œí•˜ëŠ” ê²½ìš° - cbItemFlag = 1
 //void CDPClient::SendGuildContribution( BYTE cbPxpCount, int nGold, BYTE cbItemID, BYTE cbItemNum )
 void CDPClient::SendGuildContribution( BYTE cbPxpCount, int nGold, BYTE cbItemFlag )
 {
@@ -13187,7 +13187,7 @@ void CDPClient::SendGuildContribution( BYTE cbPxpCount, int nGold, BYTE cbItemFl
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ±æµå °øÁö»çÇ×À» º¯°æÇÑ´Ù.
+// ê¸¸ë“œ ê³µì§€ì‚¬í•­ì„ ë³€ê²½í•œë‹¤.
 void CDPClient::SendGuildNotice( const char* szNotice )
 {
 	ASSERT( szNotice );
@@ -13197,7 +13197,7 @@ void CDPClient::SendGuildNotice( const char* szNotice )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ±æµå ±ÇÇÑ¼³Á¤ º¯°æ
+// ê¸¸ë“œ ê¶Œí•œì„¤ì • ë³€ê²½
 void CDPClient::SendGuildAuthority( u_long uGuildId, DWORD dwAuthority[] )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_GUILD_AUTHORITY, DPID_UNKNOWN );
@@ -13238,7 +13238,7 @@ void CDPClient::SendChgMaster( DWORD idPlayer, u_long idPlayer2 )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// ±æµå·Î°í°¡ º¯°æµÈ °æ¿ì È£ÃâµÈ´Ù.
+// ê¸¸ë“œë¡œê³ ê°€ ë³€ê²½ëœ ê²½ìš° í˜¸ì¶œëœë‹¤.
 void CDPClient::OnGuildLogo( CAr & ar )
 {
 	DWORD dwLogo;
@@ -13262,7 +13262,7 @@ void CDPClient::UpdateGuildWnd()
 	}	 
 }
 
-// °øÇå¿¡ ÀÇÇØ¼­ °øÇåµµ¿Í ·¹º§ÀÌ º¯°æµÈ °æ¿ì È£ÃâµÈ´Ù.
+// ê³µí—Œì— ì˜í•´ì„œ ê³µí—Œë„ì™€ ë ˆë²¨ì´ ë³€ê²½ëœ ê²½ìš° í˜¸ì¶œëœë‹¤.
 void CDPClient::OnGuildContribution( CAr & ar )
 {
 	CONTRIBUTION_CHANGED_INFO info;
@@ -13275,14 +13275,14 @@ void CDPClient::OnGuildContribution( CAr & ar )
 	if( info.nGuildLevel > pGuild->m_nLevel )
 	{
 		g_WndMng.PutString( prj.GetText(TID_GAME_GUILDLEVELUP), NULL, prj.GetTextColor(TID_GAME_GUILDLEVELUP) );
-		//g_WndMng.PutString( "±æµåÀÇ ·¹º§ÀÌ ¿Ã¶ú½À´Ï´Ù.", NULL, 0xff99cc00 );
+		//g_WndMng.PutString( "ê¸¸ë“œì˜ ë ˆë²¨ì´ ì˜¬ëìŠµë‹ˆë‹¤.", NULL, 0xff99cc00 );
 	}
 	
 	pGuild->SetContribution( info );
 	UpdateGuildWnd();
 }
 
-// ÅõÇ¥Ãß°¡ ÀÀ´ä 
+// íˆ¬í‘œì¶”ê°€ ì‘ë‹µ 
 void CDPClient::OnGuildAddVote( CAr & ar )
 {
 	VOTE_INSERTED_INFO info;
@@ -13294,7 +13294,7 @@ void CDPClient::OnGuildAddVote( CAr & ar )
 	
 	if( info.idVote )
 	{
-		// ÅõÇ¥Ãß°¡ ¼º°ø 
+		// íˆ¬í‘œì¶”ê°€ ì„±ê³µ 
 		pGuild->AddVote( info );
 		
 		CWndGuildVote* pWndGuildVote = (CWndGuildVote*)g_WndMng.GetWndBase( APP_GUILD_VOTE );
@@ -13320,11 +13320,11 @@ void CDPClient::OnGuildAddVote( CAr & ar )
 	}
 	else
 	{
-		// ÅõÇ¥Ãß°¡ ¿¡·¯. ( ¸¶½ºÅÍ¸¸ ÀÌ ÀÀ´ä ÆĞÅ¶À» ¹Ş´Â´Ù. )
+		// íˆ¬í‘œì¶”ê°€ ì—ëŸ¬. ( ë§ˆìŠ¤í„°ë§Œ ì´ ì‘ë‹µ íŒ¨í‚·ì„ ë°›ëŠ”ë‹¤. )
 	}
 }
 
-// ÅõÇ¥»èÁ¦, Á¾·á, ÅõÇ¥ÇÏ±â ÀÀ´ä 
+// íˆ¬í‘œì‚­ì œ, ì¢…ë£Œ, íˆ¬í‘œí•˜ê¸° ì‘ë‹µ 
 void CDPClient::OnGuildModifyVote( CAr & ar )
 {
 	u_long idVote;
@@ -13352,7 +13352,7 @@ void CDPClient::OnGuildModifyVote( CAr & ar )
 	}
 }
 
-// °øÁö»çÇ×À» º¯°æÇÏ¸é È£ÃâµÈ´Ù.
+// ê³µì§€ì‚¬í•­ì„ ë³€ê²½í•˜ë©´ í˜¸ì¶œëœë‹¤.
 void CDPClient::OnGuildNotice( CAr & ar )
 {
 	u_long idGuild;
@@ -13366,7 +13366,7 @@ void CDPClient::OnGuildNotice( CAr & ar )
 
 	pGuild->SetNotice( szNotice );
 
-	// ±æµåÀÇ °øÁö»çÇ×ÀÌ ¾÷µ¥ÀÌÆ® µÇ¾ú½À´Ï´Ù. ±æµåÃ¢¿¡¼­ È®ÀÎÇØÁÖ¼¼¿ä.
+	// ê¸¸ë“œì˜ ê³µì§€ì‚¬í•­ì´ ì—…ë°ì´íŠ¸ ë˜ì—ˆìŠµë‹ˆë‹¤. ê¸¸ë“œì°½ì—ì„œ í™•ì¸í•´ì£¼ì„¸ìš”.
 	g_WndMng.PutString( prj.GetText( TID_GAME_GUILDNOTICEUPDATE ), NULL, prj.GetTextColor( TID_GAME_GUILDNOTICEUPDATE ) );
 
 	CWndGuild* pWndGuild = (CWndGuild*)g_WndMng.GetWndBase( APP_GUILD );
@@ -13509,10 +13509,10 @@ void CDPClient::SendQueryPlayerListString( BYTE nQuery, const vector<u_long>& ve
 
 void CDPClient::OnSetState( CAr & ar )
 {
-	LONG nRemainLP;		// »ç¿ëÇÏÁö ¾ÊÀ½ 
+	LONG nRemainLP;		// ì‚¬ìš©í•˜ì§€ ì•ŠìŒ 
 	ar >> g_pPlayer->m_nStr >> g_pPlayer->m_nSta >> g_pPlayer->m_nDex >> g_pPlayer->m_nInt;
 	ar >> nRemainLP >> g_pPlayer->m_nRemainGP;
-	// ¼­¹ö¿Í µ¿±âÈ­
+	// ì„œë²„ì™€ ë™ê¸°í™”
 	g_pPlayer->SetHitPoint( g_pPlayer->GetMaxHitPoint() );
 	g_pPlayer->SetManaPoint( g_pPlayer->GetMaxManaPoint() );
 	g_pPlayer->SetFatiguePoint( g_pPlayer->GetMaxFatiguePoint() );
@@ -13825,7 +13825,7 @@ void CDPClient::OnPVendorOpen( OBJID objid, CAr & ar )
 #else	// __FIX_WND_1109
 			pWnd->m_pwndVenderMessage->Initialize( );
 #endif	// __FIX_WND_1109
-			pWnd->SetFocus();   // °³ÀÎ»óÁ¡Ã¢ÀÌ Ã¤ÆÃÃ¢ º¸´Ù ¾Õ¿¡ ³ª¿À°Ô ÇÑ´Ù.(±âÈ¹»ó)
+			pWnd->SetFocus();   // ê°œì¸ìƒì ì°½ì´ ì±„íŒ…ì°½ ë³´ë‹¤ ì•ì— ë‚˜ì˜¤ê²Œ í•œë‹¤.(ê¸°íšìƒ)
 		}
 	}
 
@@ -13893,7 +13893,7 @@ void CDPClient::OnPVendorClose( OBJID objid, CAr & ar )
 			{
 				g_WndMng.CreateApplet( APP_VENDOR_REVISION );
 			#if __VER >= 11 //	__MOD_VENDOR
-				// ¼öÁ¤µÈ ¹öÁ¯¿¡¼­´Â °³ÀÎ»óÁ¡ ÃÊ±âÈ­½Ã ÀÏ°ıÀûÀ¸·Î Ã³¸®ÇØÁØ´Ù
+				// ìˆ˜ì •ëœ ë²„ì ¼ì—ì„œëŠ” ê°œì¸ìƒì  ì´ˆê¸°í™”ì‹œ ì¼ê´„ì ìœ¼ë¡œ ì²˜ë¦¬í•´ì¤€ë‹¤
 			#else
 				for( int i = 0; i < MAX_VENDITEM; i++ )
 				{
@@ -13907,7 +13907,7 @@ void CDPClient::OnPVendorClose( OBJID objid, CAr & ar )
 					CWndEdit* pWndEdit	= (CWndEdit*)pWndVendor->GetDlgItem( WIDC_EDIT1 );
 					if( pWndEdit )
 					{
-						// ÁÙ¹Ù²Ş ½ºÆäÀÌ½º Ç¥±â·Î ¹Ù²ãÁÖ±â
+						// ì¤„ë°”ê¿ˆ ìŠ¤í˜ì´ìŠ¤ í‘œê¸°ë¡œ ë°”ê¿”ì£¼ê¸°
 						for(int j=0; j<strVendorTitle.GetLength(); j++)
 						{
 							if(strVendorTitle.GetAt(j) == '\n')
@@ -13978,8 +13978,8 @@ void CDPClient::OnPVendorItemNum( OBJID objid, CAr & ar )
 				CString strItem		= pItemElem->GetName();
 				int nNum	= pItemElem->GetExtra() - nVend;
 				int nTotal	= nNum * pItemElem->m_nCost;
-				// sBuyer°¡ strItemÀ» nNum°³ »ò´Ù.
-				// nTotalÀ» ¹ú¾ú´Ù.
+				// sBuyerê°€ strItemì„ nNumê°œ ìƒ€ë‹¤.
+				// nTotalì„ ë²Œì—ˆë‹¤.
 				CWndVendor* pWndVendor = (CWndVendor*)g_WndMng.GetWndVendorBase();
 
 				if( pWndVendor->m_pwndVenderMessage )
@@ -14232,7 +14232,7 @@ void CDPClient::SendRepairItem( DWORD* pdwIdRepair )
 		}
 		else
 		{
-			//¼ö¸®ÇÒ°ÍÀÌ ¾ø½À´Ï´Ù.
+			//ìˆ˜ë¦¬í• ê²ƒì´ ì—†ìŠµë‹ˆë‹¤.
 			g_WndMng.PutString( prj.GetText( TID_GAME_REPAIR_NO ), NULL, prj.GetTextColor( TID_GAME_REPAIR_NO ) );
 		}
 	}
@@ -14512,10 +14512,10 @@ void CDPClient::FlushPlayerAngle( void )
 }
 
 
-// ±æµåÅõÇ¥¸¦ ÀÔ·ÂÇÑ´Ù.
-// szTitle: Á¦¸ñ 
-// szQuestion: Áú¹®³»¿ë 
-// szSelections: 4Áö¼±´ÙÀÇ ³»¿ë 
+// ê¸¸ë“œíˆ¬í‘œë¥¼ ì…ë ¥í•œë‹¤.
+// szTitle: ì œëª© 
+// szQuestion: ì§ˆë¬¸ë‚´ìš© 
+// szSelections: 4ì§€ì„ ë‹¤ì˜ ë‚´ìš© 
 void CDPClient::SendAddVote( const char* szTitle, const char* szQuestion, const char* szSelections[] )
 {
 	ASSERT( szTitle );
@@ -14536,7 +14536,7 @@ void CDPClient::SendAddVote( const char* szTitle, const char* szQuestion, const 
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// idVote - ÅõÇ¥¸¦ Ãë¼ÒÇÑ´Ù.
+// idVote - íˆ¬í‘œë¥¼ ì·¨ì†Œí•œë‹¤.
 void CDPClient::SendRemoveVote( u_long idVote )
 {
 	ASSERT( idVote );
@@ -14550,7 +14550,7 @@ void CDPClient::SendRemoveVote( u_long idVote )
 }
 
 
-// idVote - ÅõÇ¥¸¦ Á¾·á½ÃÅ²´Ù.
+// idVote - íˆ¬í‘œë¥¼ ì¢…ë£Œì‹œí‚¨ë‹¤.
 void CDPClient::SendCloseVote( u_long idVote )
 {
 	ASSERT( idVote );
@@ -14563,8 +14563,8 @@ void CDPClient::SendCloseVote( u_long idVote )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// idVote - ÅõÇ¥¸¦ÇÑ´Ù.
-// cbSelection - ÅõÇ¥ ¼±ÅÃ 
+// idVote - íˆ¬í‘œë¥¼í•œë‹¤.
+// cbSelection - íˆ¬í‘œ ì„ íƒ 
 void CDPClient::SendCastVote( u_long idVote, BYTE cbSelection )
 {
 	ASSERT( idVote );
@@ -14612,8 +14612,8 @@ void CDPClient::OnSchoolReport( CAr & ar )
 					if( school[i].nSurvivor )
 					{
 						/*
-						°æ±â ½ÃÀÛ ÈÄ ½Ã°£	ÇĞ±³ ÀÌ¸§	»ıÁ¸ÀÚ	»ç¸ÁÀÚ
-						°æ±â ½Ã°£ %d ºĞ °æ°ú ÇöÀç »óÈ²	%s	%d ¸í	%s ¸í
+						ê²½ê¸° ì‹œì‘ í›„ ì‹œê°„	í•™êµ ì´ë¦„	ìƒì¡´ì	ì‚¬ë§ì
+						ê²½ê¸° ì‹œê°„ %d ë¶„ ê²½ê³¼ í˜„ì¬ ìƒí™©	%s	%d ëª…	%s ëª…
 						Text ID	TID_SBEVE_SBREALTIME
 						*/
 						TRACE( "%d\t%s\t%d\t%d\n", nElapse, school[i].lpName, school[i].nSurvivor, school[i].nDead );
@@ -14699,7 +14699,7 @@ void CDPClient::OnInitSkillPoint( CAr & ar )
 		LPSKILL pSkill = (LPSKILL)&g_pPlayer->m_aJobSkill[ i ];
 		if( pSkill != NULL )
 		{
-	#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+	#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 			if(pSkill->dwLevel != 0)
 			{
 				ItemProp* pSkillProp = prj.GetSkillProp( pSkill->dwSkill );
@@ -14803,7 +14803,7 @@ void CDPClient::SendChangeAttribute( OBJID objTargetItem, OBJID objMaterialItem,
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 #endif // __EXT_ENCHANT
-// ÇÇ¾î½ÌÇÑ ¾ÆÅÛ¿¡ Àû¿ë
+// í”¼ì–´ì‹±í•œ ì•„í…œì— ì ìš©
 void CDPClient::SendPiercing( OBJID objid1, OBJID objid2 )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_PIERCING, DPID_UNKNOWN );
@@ -14821,7 +14821,7 @@ void CDPClient::SendPiercingRemove( OBJID objid )
 }
 #endif // __PIERCING_REMOVE
 
-// ÇÇ¾î½Ì(¶ÕÀ½)
+// í”¼ì–´ì‹±(ëš«ìŒ)
 void CDPClient::SendPiercingSize( OBJID objid1, OBJID objid2, OBJID objid3 )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_PIERCING_SIZE, DPID_UNKNOWN );
@@ -14856,14 +14856,14 @@ void CDPClient::SendCommercialElem( DWORD dwItemId, DWORD dwItemId1 )
 }
 
 /*
-// pObj¸¦ Ã¤ÁıÇÒ²¨¶ó°í ¼­¹ö·Î º¸³¿.
+// pObjë¥¼ ì±„ì§‘í• êº¼ë¼ê³  ì„œë²„ë¡œ ë³´ëƒ„.
 void	CDPClient::SendDoCollect( CObj *pObj )
 {
 	if( IsInvalidObj(pObj) )	return;
 	if( pObj->GetType() != OT_MOVER )	return;
 
 	CMover *pTarget = (CMover *)pObj;
-	if( pTarget->IsPlayer() || pTarget->IsLive() )		// ÇÃ·¹ÀÌ¾î¸¦ ´ë»óÀ¸·Î Çß°Å³ª »ì¾ÆÀÖ´Â³ğÀÌ¸é ½ÇÆĞ.
+	if( pTarget->IsPlayer() || pTarget->IsLive() )		// í”Œë ˆì´ì–´ë¥¼ ëŒ€ìƒìœ¼ë¡œ í–ˆê±°ë‚˜ ì‚´ì•„ìˆëŠ”ë†ˆì´ë©´ ì‹¤íŒ¨.
 		return;
 	
 	BEFORESENDSOLE( ar, PACKETTYPE_DO_COLLECT, DPID_UNKNOWN );
@@ -14872,7 +14872,7 @@ void	CDPClient::SendDoCollect( CObj *pObj )
 	
 }
 
-// objid°¡ Ã¤ÁıÀ» ½ÃÀÛÇÏ¶ó°í Å¬¶ó¿¡¼­ ¹ŞÀ½.
+// objidê°€ ì±„ì§‘ì„ ì‹œì‘í•˜ë¼ê³  í´ë¼ì—ì„œ ë°›ìŒ.
 void	CDPClient::OnDoCollect( OBJID objid, CAr & ar )
 {
 	OBJID idTarget;
@@ -14887,7 +14887,7 @@ void	CDPClient::OnDoCollect( OBJID objid, CAr & ar )
 	}
 }
 
-// objidÀÇ Ã¤ÁıÀÌ ³¡³².
+// objidì˜ ì±„ì§‘ì´ ëë‚¨.
 void	CDPClient::OnStopCollect( OBJID objid, CAr & ar )
 {
 	CMover *pPlayer = prj.GetMover( objid );
@@ -14895,27 +14895,27 @@ void	CDPClient::OnStopCollect( OBJID objid, CAr & ar )
 	{
 		pPlayer->m_pActMover->ResetState( OBJSTA_ACTION_ALL );
 #ifdef __XUZHU
-		g_WndMng.PutString( "Ã¤Áı ÁßÁö" );
+		g_WndMng.PutString( "ì±„ì§‘ ì¤‘ì§€" );
 #endif
 	}
 }
 */
 
-// ¾×Æ¼ºê ½ºÅ³ ¹ßµ¿.
+// ì•¡í‹°ë¸Œ ìŠ¤í‚¬ ë°œë™.
 void	CDPClient::OnCreateSkillEffect( OBJID objid, CAr & ar )
 {
 	OBJID idTarget;
 	DWORD dwSkill, dwLevel;
 	ar >> idTarget >> dwSkill >> dwLevel;
 	
-	CMover *pAttacker = prj.GetMover( objid );		// ¾×Æ¼ºê ½ºÅ³ ¹ßµ¿ÀÚ.
+	CMover *pAttacker = prj.GetMover( objid );		// ì•¡í‹°ë¸Œ ìŠ¤í‚¬ ë°œë™ì.
 	if( IsValidObj( pAttacker ) ) 
 	{
-		Error( "OnCreateSkillEffect : ´©°¡ ÀÌ°É ºÒ·¶À¸....%d %d", dwSkill, dwLevel );
+		Error( "OnCreateSkillEffect : ëˆ„ê°€ ì´ê±¸ ë¶ˆë €ìœ¼....%d %d", dwSkill, dwLevel );
 	}
 }
 
-// objid°¡ ½ºÅÏ¿¡ °É¸².
+// objidê°€ ìŠ¤í„´ì— ê±¸ë¦¼.
 void	CDPClient::OnSetStun( OBJID objid, CAr & ar )
 {
 	DWORD tmMaxTime;
@@ -14932,7 +14932,7 @@ void	CDPClient::OnSetStun( OBJID objid, CAr & ar )
 	}
 }
 
-// objidÀÇ SendActMsg¸¦ ¼öÇà
+// objidì˜ SendActMsgë¥¼ ìˆ˜í–‰
 void	CDPClient::OnSendActMsg( OBJID objid, CAr & ar )
 {
 	int nParam1, nParam2, nParam3;
@@ -15019,8 +15019,8 @@ void CDPClient::OnSetScale( OBJID objid, CAr & ar )
 	CMover* pMover	= prj.GetMover( objid );
 	if( TRUE == IsValidObj( pMover ) )
 	{
-		FLOAT fScale = pMover->m_pModel->m_pModelElem->m_fScale;		// mdlDyna¿¡ ÀÖ´ø scale°ªÀÌ 100%
-		fScale *= fScalePerscale;										// ÁÙ¾îµë.
+		FLOAT fScale = pMover->m_pModel->m_pModelElem->m_fScale;		// mdlDynaì— ìˆë˜ scaleê°’ì´ 100%
+		fScale *= fScalePerscale;										// ì¤„ì–´ë“¬.
 		pMover->m_fDestScale = fScale;
 		pMover->m_fDestScaleSlerp = 1.0f;
 	}
@@ -15143,7 +15143,7 @@ void CDPClient::OnChatting( OBJID objid, CAr & ar )
 				}
 				
 			}
-			// Ã¤ÆÃ 
+			// ì±„íŒ… 
 		}
 		break;
 	case CHATTING_CHATTINGROOMSTATE:
@@ -15187,7 +15187,7 @@ void CDPClient::OnCommonPlace( OBJID objid, CAr & ar )
 		{
 		case COMMONPLACE_ACTION:
 			pObj->SetActionPlay();
-//			g_WorldMng()->SetObjFocus( NULL ); //FocusµÈ CtrlÀ» ÇØÁ¦.
+//			g_WorldMng()->SetObjFocus( NULL ); //Focusëœ Ctrlì„ í•´ì œ.
 			break;
 		case COMMONPLACE_ALPHA:
 			pObj->m_bAlpha = TRUE;
@@ -15206,7 +15206,7 @@ void CDPClient::OnCommonPlace( OBJID objid, CAr & ar )
 			}
 			break;			
 //		case COMMONPLACE_ERROR:
-//			g_WorldMng()->SetObjFocus( NULL ); //FocusµÈ CtrlÀ» ÇØÁ¦.
+//			g_WorldMng()->SetObjFocus( NULL ); //Focusëœ Ctrlì„ í•´ì œ.
 //			break;
 		}
 	}
@@ -15285,7 +15285,7 @@ void	CDPClient::OnReloadProject( CAr & ar )
 }
 #endif // __S0114_RELOADPRO
 */
-// Mover¸¦ ¹Ğ°Ô ÇÏ´Ù.
+// Moverë¥¼ ë°€ê²Œ í•˜ë‹¤.
 void	CDPClient::OnPushPower( OBJID objid, CAr & ar )
 {
 	D3DXVECTOR3 vPos;
@@ -15297,13 +15297,13 @@ void	CDPClient::OnPushPower( OBJID objid, CAr & ar )
 	CMover *pMover = prj.GetMover( objid );		// 
 	if( IsValidObj( pMover ) ) 
 	{
-		//pMover->SetPos( vPos );			// µ¿±âÈ­¶«¿¡ ¼­¹ö¶û ÁÂÇ¥¸¦ ÀÏ´Ü ¸ÂÃã.
+		//pMover->SetPos( vPos );			// ë™ê¸°í™”ë•œì— ì„œë²„ë‘ ì¢Œí‘œë¥¼ ì¼ë‹¨ ë§ì¶¤.
 		pMover->SetAngle( fAngle );
-		AngleToVectorXZ( &pMover->m_pActMover->m_vDeltaE, fPushAngle, fPower );	// ¹Ğ¸®´Â Èû ¼³Á¤.
+		AngleToVectorXZ( &pMover->m_pActMover->m_vDeltaE, fPushAngle, fPower );	// ë°€ë¦¬ëŠ” í˜ ì„¤ì •.
 	}
 }
 
-// ¹öÇÁ½ºÅ³ ¸®¼Â
+// ë²„í”„ìŠ¤í‚¬ ë¦¬ì…‹
 void	CDPClient::OnResetBuffSkill( OBJID objid, CAr & ar )
 {
 	CMover *pPlayer = prj.GetMover( objid );
@@ -15311,7 +15311,7 @@ void	CDPClient::OnResetBuffSkill( OBJID objid, CAr & ar )
 		pPlayer->ClearBuffInst();
 }
 
-//	ÀÌ ½Ã°£Àº ³×ºñ°ÔÀÌÅÍ¿¡ ³²¾Æ ÀÖ´Â ½Ã°£À¸·Î µğÆÄÀÎÀÌ³ª ÆÄÀÏ·Î »¬¼öµµ ÀÖÀ»µíÇÏÁö¸¸ ¿ì¼± ÇÏµå ÄÚµùÀÌ´å
+//	ì´ ì‹œê°„ì€ ë„¤ë¹„ê²Œì´í„°ì— ë‚¨ì•„ ìˆëŠ” ì‹œê°„ìœ¼ë¡œ ë””íŒŒì¸ì´ë‚˜ íŒŒì¼ë¡œ ëº„ìˆ˜ë„ ìˆì„ë“¯í•˜ì§€ë§Œ ìš°ì„  í•˜ë“œ ì½”ë”©ì´ë‹·
 void CDPClient::OnSetNaviPoint( OBJID objid, CAr & ar )
 {
 	NaviPoint nv;
@@ -15348,9 +15348,9 @@ void CDPClient::SendSetNaviPoint( const D3DXVECTOR3 & Pos, OBJID objidTarget )
 
 
 // CreateSfx
-// idPlayer°¡ NULL_ID°¡ ¾Æ´Ï¸é Mover¿¡°Ô
-// bFlag :	FALSE : ±×ÀÚ¸®¿¡ ³ª¿À°Ô
-//			TRUE  : µû¶ó´Ù´Ï°Ô ÇÏ±â
+// idPlayerê°€ NULL_IDê°€ ì•„ë‹ˆë©´ Moverì—ê²Œ
+// bFlag :	FALSE : ê·¸ìë¦¬ì— ë‚˜ì˜¤ê²Œ
+//			TRUE  : ë”°ë¼ë‹¤ë‹ˆê²Œ í•˜ê¸°
 void CDPClient::SendCreateSfxObj( DWORD dwSfxId, u_long idPlayer, BOOL bFlag )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_CREATESFXOBJ, DPID_UNKNOWN );
@@ -15360,8 +15360,8 @@ void CDPClient::SendCreateSfxObj( DWORD dwSfxId, u_long idPlayer, BOOL bFlag )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// Çö»ó±İ °É±â ÆĞÅ¶ 
-// dwGold: °É Çö»ó±İ 
+// í˜„ìƒê¸ˆ ê±¸ê¸° íŒ¨í‚· 
+// dwGold: ê±¸ í˜„ìƒê¸ˆ 
 void CDPClient::SendWantedGold( int nGold, LPCTSTR szMsg )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_NW_WANTED_GOLD, DPID_UNKNOWN );
@@ -15370,19 +15370,19 @@ void CDPClient::SendWantedGold( int nGold, LPCTSTR szMsg )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// Çö»ó±İ ¸®½ºÆ® ¿äÃ» ÆĞÅ¶
+// í˜„ìƒê¸ˆ ë¦¬ìŠ¤íŠ¸ ìš”ì²­ íŒ¨í‚·
 void CDPClient::SendWantedList()
 {
 	SendHdr( PACKETTYPE_NW_WANTED_LIST );
 }
 
-// Çö»ó¹üÀÌ¸§ ¿äÃ» 
+// í˜„ìƒë²”ì´ë¦„ ìš”ì²­ 
 void CDPClient::SendWantedName()
 {
 	SendHdr( PACKETTYPE_NW_WANTED_NAME );
 }
 
-// Çö»ó¹ü ÀÚ¼¼ÇÑÁ¤º¸ ¿äÃ» ÆĞÅ¶ 
+// í˜„ìƒë²” ìì„¸í•œì •ë³´ ìš”ì²­ íŒ¨í‚· 
 void CDPClient::SendWantedInfo( LPCTSTR szPlayer )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_NW_WANTED_INFO, DPID_UNKNOWN );
@@ -15390,8 +15390,8 @@ void CDPClient::SendWantedInfo( LPCTSTR szPlayer )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-// Á¢¼Ó Á¾·á½Ãµµ¸¦ ¾Ë¸°´Ù. 
-// ( ÀÌ ÆĞÅ¶À» º¸³»¸é, ¼­¹ö¿¡¼­ 10ÃÊÈÄ¿¡ Á¢¼ÓÀ» ²÷´Â´Ù. )
+// ì ‘ì† ì¢…ë£Œì‹œë„ë¥¼ ì•Œë¦°ë‹¤. 
+// ( ì´ íŒ¨í‚·ì„ ë³´ë‚´ë©´, ì„œë²„ì—ì„œ 10ì´ˆí›„ì— ì ‘ì†ì„ ëŠëŠ”ë‹¤. )
 void CDPClient::SendReqLeave()
 {
 	SendHdr( PACKETTYPE_REQ_LEAVE );
@@ -15505,19 +15505,19 @@ void CDPClient::OnUpdatePlayerEnemy( OBJID objid, CAr & ar )
 	ar >> byType >> dwObjid;
 	if( byType == ADD_PLAYER_ENEMY )
 	{
-		// Àû Ãß°¡
+		// ì  ì¶”ê°€
 		DWORD dwLast = g_Neuz.m_NeuzEnemy.Add( dwObjid );
 		
 		CMover* pMover	= prj.GetMover( dwObjid );		
 		if( IsValidObj( pMover ) )
 		{
-			if( dwLast == 0 || (GetTickCount() - dwLast) > MIN(1) )		//Ã¹Å¸ or ¼¼¼ÇÀÌ 1ºĞÀ» Áö³µ´Â°¡?
+			if( dwLast == 0 || (GetTickCount() - dwLast) > MIN(1) )		//ì²«íƒ€ or ì„¸ì…˜ì´ 1ë¶„ì„ ì§€ë‚¬ëŠ”ê°€?
 				pMover->RenderFlag( ENEMY_PK );
 		}
 	}
 	else
 	{
-		// Àû ÇØÁ¦( ÀÖÀ¸¸é ÀÚµ¿À¸·Î Áö¿öÁü )
+		// ì  í•´ì œ( ìˆìœ¼ë©´ ìë™ìœ¼ë¡œ ì§€ì›Œì§ )
 		g_Neuz.m_NeuzEnemy.Remove( dwObjid );
 	}
 }
@@ -15525,10 +15525,10 @@ void CDPClient::OnUpdatePlayerEnemy( OBJID objid, CAr & ar )
 
 void CDPClient::OnWantedInfo( CAr & ar )
 {
-	D3DXVECTOR3 vPos;			// Çö»ó¹üÀÇ À§Ä¡ 
+	D3DXVECTOR3 vPos;			// í˜„ìƒë²”ì˜ ìœ„ì¹˜ 
 	BYTE		byOnline;		// if online = 1
-	DWORD		dwWorldID;		// ¿ùµå¹øÈ£ 
-	char		szWorld[32];	// ¿ùµå¼³¸í 
+	DWORD		dwWorldID;		// ì›”ë“œë²ˆí˜¸ 
+	char		szWorld[32];	// ì›”ë“œì„¤ëª… 
 
 	ar >> vPos;
 	ar >> byOnline;
@@ -15544,12 +15544,12 @@ void CDPClient::OnWantedInfo( CAr & ar )
 		if( pWorld && dwWorldID == pWorld->GetID() )
 		{
 			g_WndMng.m_pWndWorld->SetRenderArrowWanted( TRUE, vPos );
-//			sprintf( szBuffer, "Çö»ó¹üÀº ÇöÀç À§Ä¡(X=%.2f, Y=%.2f, Z=%.2f)¿¡ ÀÖ½À´Ï´Ù.\nÈ­»ìÇ¥´Â 1½Ã°£ µ¿¾È ÇØ´ç ÁÂÇ¥¸¦ °¡¸®Åµ´Ï´Ù.(Á¢¼Ó Á¾·á½Ã »ç¶óÁü)", vPos.x, vPos.y, vPos.z );
+//			sprintf( szBuffer, "í˜„ìƒë²”ì€ í˜„ì¬ ìœ„ì¹˜(X=%.2f, Y=%.2f, Z=%.2f)ì— ìˆìŠµë‹ˆë‹¤.\ní™”ì‚´í‘œëŠ” 1ì‹œê°„ ë™ì•ˆ í•´ë‹¹ ì¢Œí‘œë¥¼ ê°€ë¦¬í‚µë‹ˆë‹¤.(ì ‘ì† ì¢…ë£Œì‹œ ì‚¬ë¼ì§)", vPos.x, vPos.y, vPos.z );
 			sprintf( szBuffer, prj.GetText(TID_PK_POINT_SAME), vPos.x, vPos.y, vPos.z );
 		}
 		else
 		{
-//			sprintf( szBuffer, "Çö»ó¹üÀº ÇöÀç %sÀÇ À§Ä¡(X=%.2f, Y=%.2f, Z=%.2f)¿¡ ÀÖ½À´Ï´Ù.", szWorld, vPos.x, vPos.y, vPos.z );
+//			sprintf( szBuffer, "í˜„ìƒë²”ì€ í˜„ì¬ %sì˜ ìœ„ì¹˜(X=%.2f, Y=%.2f, Z=%.2f)ì— ìˆìŠµë‹ˆë‹¤.", szWorld, vPos.x, vPos.y, vPos.z );
 			sprintf( szBuffer, prj.GetText(TID_PK_POINT_DIFFER), szWorld, vPos.x, vPos.y, vPos.z );
 		}
 		g_WndMng.OpenMessageBoxUpper( szBuffer );		
@@ -15680,7 +15680,7 @@ void	CDPClient::SendDoEscape( void )
 	}
 }
 
-// ¼­¹ö¿¡¼­ Å»Ãâ¼º°øÆÇÁ¤ÈÄ Å¬¶ó¿¡¼­ Å¸ÀÓ½ºÅÆÇÁ °»½Å.
+// ì„œë²„ì—ì„œ íƒˆì¶œì„±ê³µíŒì •í›„ í´ë¼ì—ì„œ íƒ€ì„ìŠ¤íƒ¬í”„ ê°±ì‹ .
 void	CDPClient::OnEscape( OBJID objid, CAr & ar )
 {
 }
@@ -15774,10 +15774,10 @@ void CDPClient::SendReturnScroll( int nSelect )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-//±ÍÈ¯ÀÇ µÎ·ç¸¶¸® »ç¿ëACK
+//ê·€í™˜ì˜ ë‘ë£¨ë§ˆë¦¬ ì‚¬ìš©ACK
 void CDPClient::OnReturnScrollACK( CAr & ar )
 {
-	SendDoUseItem( m_dwReturnScroll, NULL_ID, -1, FALSE );	// FALSE - Ã¢À» ¶ç¿ìÁö ¾Ê´Â´Ù.
+	SendDoUseItem( m_dwReturnScroll, NULL_ID, -1, FALSE );	// FALSE - ì°½ì„ ë„ìš°ì§€ ì•ŠëŠ”ë‹¤.
 }
 
 void CDPClient::SendQuerySetGuildName( LPCSTR pszGuild, BYTE nId )
@@ -15794,21 +15794,21 @@ void CDPClient::OnEndSkillQueue( OBJID objid )
 	pTaskBar->OnCancelSkill();
 }
 
-// ¼­¹ö·ÎºÎÅÍ Å¬¶óÀÇ ¾×¼ÇÆ÷ÀÎÆ® °»½Å.
+// ì„œë²„ë¡œë¶€í„° í´ë¼ì˜ ì•¡ì…˜í¬ì¸íŠ¸ ê°±ì‹ .
 void	CDPClient::OnSetActionPoint( OBJID objid, CAr & ar )
 {
 	int nAP;
-	ar >> nAP;		// ¼­¹ö·ÎºÎÅÍ ÃÖ´ë ÄğÅ¸ÀÓ½Ã°£À» ¹ŞÀ½.
+	ar >> nAP;		// ì„œë²„ë¡œë¶€í„° ìµœëŒ€ ì¿¨íƒ€ì„ì‹œê°„ì„ ë°›ìŒ.
 	if( IsInvalidObj(g_pPlayer) )	return;
 	
 	g_WndMng.m_pWndTaskBar->m_nActionPoint = nAP;
 }
 
-// ¼­¹ö·ÎºÎÅÍ Å¬¶óÀÇ ObjFocus º¯°æ.
+// ì„œë²„ë¡œë¶€í„° í´ë¼ì˜ ObjFocus ë³€ê²½.
 void	CDPClient::OnSetTarget( OBJID objid, CAr & ar )
 {
 	OBJID idTarget;
-	ar >> idTarget;		// ¼­¹ö·ÎºÎÅÍ ÃÖ´ë ÄğÅ¸ÀÓ½Ã°£À» ¹ŞÀ½.
+	ar >> idTarget;		// ì„œë²„ë¡œë¶€í„° ìµœëŒ€ ì¿¨íƒ€ì„ì‹œê°„ì„ ë°›ìŒ.
 	if( IsInvalidObj(g_pPlayer) )	return;
 	
 	CMover *pMover = prj.GetMover( idTarget );
@@ -15997,7 +15997,7 @@ void CDPClient::OnMailBoxReq( CAr & ar )
 	if( bCheckTransMailBox )
 	{
 #ifdef __MAIL_REQUESTING_BOX
-		//¹ŞÀº°Å°í Áö±İºÎÅÍ 5ÃÊ¼¼°í ±×·¡µµ ¸ŞÀÏÀ» ¸ø¹ŞÀ¸¸é ¸ŞÀÏ ¿äÃ»ÇÔ.
+		//ë°›ì€ê±°ê³  ì§€ê¸ˆë¶€í„° 5ì´ˆì„¸ê³  ê·¸ë˜ë„ ë©”ì¼ì„ ëª»ë°›ìœ¼ë©´ ë©”ì¼ ìš”ì²­í•¨.
 		g_WndMng.m_bWaitRequestMail = TRUE;
 #endif // __MAIL_REQUESTING_BOX
 	}
@@ -16005,12 +16005,12 @@ void CDPClient::OnMailBoxReq( CAr & ar )
 	{
 		
 #ifdef __MAIL_REQUESTING_BOX
-		// ¿äÃ» window´Â ´İ¾ÆÁØ´Ù ¸ŞÀÏÀÌ ¾øÀ¸¹Ç·Î,,,
+		// ìš”ì²­ windowëŠ” ë‹«ì•„ì¤€ë‹¤ ë©”ì¼ì´ ì—†ìœ¼ë¯€ë¡œ,,,
 		CWndPost* pWndPost	= (CWndPost*)g_WndMng.GetWndBase( APP_POST );
 		if( pWndPost )
 		{
 			pWndPost->CloseMailRequestingBox();
-			pWndPost->EnableWindow( TRUE );			//¸ŞÀÏÀÌ ¾øÀ¸¸é È°¼ºÈ­ 
+			pWndPost->EnableWindow( TRUE );			//ë©”ì¼ì´ ì—†ìœ¼ë©´ í™œì„±í™” 
 		}
 
 		CMailBox* pMailBox = CMailBox::GetInstance();
@@ -16019,13 +16019,13 @@ void CDPClient::OnMailBoxReq( CAr & ar )
 			pMailBox->Clear();
 		}
 
-		// ¸ŞÀÏÀÌ ¾ø±â ¶§¹®¿¡ ¹ŞÀº ¸ñ·ÏÀ» ÃÊ±âÈ­
+		// ë©”ì¼ì´ ì—†ê¸° ë•Œë¬¸ì— ë°›ì€ ëª©ë¡ì„ ì´ˆê¸°í™”
 		if( pWndPost )
 		{
 			pWndPost->m_PostTabReceive.UpdateScroll();
 		}
 
-		// »ç¿ëÀÚÀÇ ¸¶Áö¸· ¸ŞÀÏ Á¤º¸ ÀúÀåÇØ ³õÀº ÆÄÀÏ »èÁ¦
+		// ì‚¬ìš©ìì˜ ë§ˆì§€ë§‰ ë©”ì¼ ì •ë³´ ì €ì¥í•´ ë†“ì€ íŒŒì¼ ì‚­ì œ
 		CString strFileName = _T( "" );
 		if( g_pPlayer == NULL )
 		{
@@ -16427,7 +16427,7 @@ void CDPClient::SendUsePetFeed( DWORD dwFeedId, short nNum )
 	BEFORESENDSOLE( ar, PACKETTYPE_USE_PET_FEED, DPID_UNKNOWN );
 	ar << dwFeedId;
 #if __VER < 12 // __PET_0519
-	ar << nNum;		// 12Â÷ - ÀÔ·Â °³¼ö°¡ ÇÊ¿ä ¾ø¾îÁ³À¸¹Ç·Î Àü¼Û¿¡¼­ Á¦¿Ü
+	ar << nNum;		// 12ì°¨ - ì…ë ¥ ê°œìˆ˜ê°€ í•„ìš” ì—†ì–´ì¡Œìœ¼ë¯€ë¡œ ì „ì†¡ì—ì„œ ì œì™¸
 #endif	// __PET_0519
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
@@ -16463,7 +16463,7 @@ void CDPClient::SendFeedPocketInactive( void )
 
 void CDPClient::OnPetLevelup( OBJID objid, CAr & ar )
 {
-	// öâ
+	// ä»–
 	DWORD dwPetId;
 	ar >> dwPetId;
 
@@ -16477,7 +16477,7 @@ void CDPClient::OnPetLevelup( OBJID objid, CAr & ar )
 
 void CDPClient::OnPetSetExp( OBJID objid, CAr & ar )
 {
-	// í»
+	// è‡ª
 	DWORD dwExp;
 	ar >> dwExp;
 	CMover* pMover	= prj.GetMover( objid );
@@ -16532,7 +16532,7 @@ void CDPClient::OnPet( OBJID objid, CAr & ar )
 
 void CDPClient::OnPetState( OBJID objid, CAr & ar )
 {
-	// í»
+	// è‡ª
 	DWORD dwPetId, dwExp;
 	WORD wLife, wEnergy;
 	ar >> dwPetId >> wLife >> wEnergy >> dwExp;
@@ -16550,11 +16550,11 @@ void CDPClient::OnPetState( OBJID objid, CAr & ar )
 
 			if( wOldLife > wLife )
 			{
-				// ½ÅÂù : Æê »ç¸Á È¿°ú
+				// ì‹ ì°¬ : í« ì‚¬ë§ íš¨ê³¼
 			}
 			else if( wOldLife < wLife )
 			{
-				// È¸º¹ : wLife - wOldLife
+				// íšŒë³µ : wLife - wOldLife
 				CString strTemp;
 				strTemp.Format( prj.GetText(TID_GAME_PET_LIFE), wLife - wOldLife );
 				g_WndMng.OpenMessageBox( strTemp );
@@ -16575,7 +16575,7 @@ void CDPClient::OnPetFeed( OBJID objid, CAr & ar )
 		if( pPet )
 		{
 			pPet->SetEnergy( wEnergy );
-			// È¿°ú Ãâ·Â
+			// íš¨ê³¼ ì¶œë ¥
 		}
 	}
 }
@@ -16648,7 +16648,7 @@ void CDPClient::OnStartCollecting( OBJID objid )
 		if( pMover->IsActiveMover() )
 		{
 			g_WndMng.PutString( prj.GetText( TID_GAME_START_COLLECTING ), NULL, prj.GetTextColor( TID_GAME_START_COLLECTING ) );
-			// Ã¤ÁıÃ¢ ¹öÆ°À» 'start'À¸·Î
+			// ì±„ì§‘ì°½ ë²„íŠ¼ì„ 'start'ìœ¼ë¡œ
 			g_WndMng.m_pWndCollecting->SetButtonCaption(true);
 		}
 	}
@@ -16667,7 +16667,7 @@ void CDPClient::OnRestartCollecting( OBJID objid, CAr & ar )
 			char lpText[200]	= { 0,};
 			sprintf( lpText, prj.GetText( TID_GAME_REAPITEM ), pItemProp->szName );
 			g_WndMng.PutString( lpText, NULL, prj.GetTextColor( TID_GAME_REAPITEM ) );
-			// ³²Àº Ã¤Áı ½Ã°£ ÃÊ±âÈ­
+			// ë‚¨ì€ ì±„ì§‘ ì‹œê°„ ì´ˆê¸°í™”
 			pMover->m_nCltTime = 0;
 		}
 	}
@@ -16681,7 +16681,7 @@ void CDPClient::OnStopCollecting( OBJID objid )
 		pMover->StopCollecting();
 		if( pMover->IsActiveMover() )
 		{
-			// Ã¤ÁıÃ¢ÀÌ ÀÖ´Ù¸é ¹öÆ°À» 'stop'À¸·Î
+			// ì±„ì§‘ì°½ì´ ìˆë‹¤ë©´ ë²„íŠ¼ì„ 'stop'ìœ¼ë¡œ
 			if(g_WndMng.m_pWndCollecting)
 				g_WndMng.m_pWndCollecting->SetButtonCaption(false);
 		}
@@ -16759,7 +16759,7 @@ void CDPClient::OnGC1to1TenderOpenWnd( CAr & ar )
 	if(g_WndMng.m_pWndGuildCombat1to1Offer)
 	{
 		g_WndMng.m_pWndGuildCombat1to1Offer->Initialize(NULL);
-		if( nPenya == 0 ) //ÇÑ¹øµµ ÀÔÂûÇÑ ±İ¾×ÀÌ ¾øÀ» °æ¿ì
+		if( nPenya == 0 ) //í•œë²ˆë„ ì…ì°°í•œ ê¸ˆì•¡ì´ ì—†ì„ ê²½ìš°
 		{
 			g_WndMng.m_pWndGuildCombat1to1Offer->SetReqGold( nPenya );
 			g_WndMng.m_pWndGuildCombat1to1Offer->SetBackupGold( g_GuildCombat1to1Mng.m_nJoinPenya );
@@ -16816,7 +16816,7 @@ void CDPClient::OnGC1to1NowState( CAr & ar )
 	
 	if( pWndWorld == NULL )
 	{
-		Error( "CDPClient::OnGuildCombatNextTimeState()¿¡ World°¡ ¾ø´Ù" );
+		Error( "CDPClient::OnGuildCombatNextTimeState()ì— Worldê°€ ì—†ë‹¤" );
 		return;
 	}
 	
@@ -16844,7 +16844,7 @@ void CDPClient::OnGC1to1NowState( CAr & ar )
 			break;
 		case CGuildCombat1to1Mng::GC1TO1_ENTRANCE:
 			{
-				// ÃÊ±âÈ­
+				// ì´ˆê¸°í™”
 				g_GuildCombat1to1Mng.m_nMyGuildCount = 0;
 				g_GuildCombat1to1Mng.m_nVsGuildCount = 0;
 				g_GuildCombat1to1Mng.m_nGuildCombat1to1Guild = 0;
@@ -16891,21 +16891,21 @@ void CDPClient::OnGC1to1NowState( CAr & ar )
 				nCount++;
 
 				strmsg.Format(prj.GetText(TID_GAME_GUILDCOMBAT_1TO1_WAIT_TIME), nCount);
-				sprintf( pWndWorld->m_szGuildCombatStr, strmsg );	// ÀüÅõ´ë±â
+				sprintf( pWndWorld->m_szGuildCombatStr, strmsg );	// ì „íˆ¬ëŒ€ê¸°
 				pWndWorld->m_bGuildCombat1to1Wait = TRUE;
 			}
 			break;
 		case CGuildCombat1to1Mng::GC1TO1WAR_WAR:
 			{
 				bTimeSet = TRUE;
-				sprintf( pWndWorld->m_szGuildCombatStr, prj.GetText(TID_GAME_GUILDCOMBAT_1TO1_WAR_TIME) );	// ÀüÅõ½ÃÀÛ - ÀüÅõÁ¾·á ½Ã°£ Ç¥½Ã
+				sprintf( pWndWorld->m_szGuildCombatStr, prj.GetText(TID_GAME_GUILDCOMBAT_1TO1_WAR_TIME) );	// ì „íˆ¬ì‹œì‘ - ì „íˆ¬ì¢…ë£Œ ì‹œê°„ í‘œì‹œ
 				pWndWorld->m_bGuildCombat1to1Wait = FALSE;
 			}
 			break;
 		case CGuildCombat1to1Mng::GC1TO1WAR_CLOSEWAIT:
 			{
 				bTimeSet = TRUE;
-				sprintf( pWndWorld->m_szGuildCombatStr, prj.GetText(TID_GAME_GUILDCOMBAT_1TO1_WAR_CLOSEWAIT) );	// 1:1 ±æµå´ëÀü Á¾·á ¾È³»
+				sprintf( pWndWorld->m_szGuildCombatStr, prj.GetText(TID_GAME_GUILDCOMBAT_1TO1_WAR_CLOSEWAIT) );	// 1:1 ê¸¸ë“œëŒ€ì „ ì¢…ë£Œ ì•ˆë‚´
 				pWndWorld->m_bGuildCombat1to1Wait = FALSE;
 			}
 			break;
@@ -17020,7 +17020,7 @@ void CDPClient::OnGuildChangeJobLevel( CAr & ar )
 }
 #endif	// __SYS_PLAYER_DATA
 
-#if __VER >= 11 // __MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
+#if __VER >= 11 // __MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
 void CDPClient::SendReqGuildBankLogList( BYTE byListType )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_GUILDLOG_VIEW, DPID_UNKNOWN );
@@ -17180,8 +17180,8 @@ void CDPClient::OnGuildBankLogList( CAr & ar )
 
 	pWndGuildBankLog->UpdateScroll();
 }
-#endif //__MA_VER11_04	// ±æµå Ã¢°í ·Î±× ±â´É world,database,neuz
-#if __VER >= 11 // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif //__MA_VER11_04	// ê¸¸ë“œ ì°½ê³  ë¡œê·¸ ê¸°ëŠ¥ world,database,neuz
+#if __VER >= 11 // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 void CDPClient::SendSealChar( )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_SEALCHAR_REQ, DPID_UNKNOWN );
@@ -17232,7 +17232,7 @@ void CDPClient::OnSealCharGet( CAr & ar )
 {
 	if( g_pPlayer )
 	{
-		g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//¼­¹ö·ÎºÎÅÍ Á¢¼ÓÀÌ ÇØÁ¦µÇ¾ú½À´Ï´Ù.		  
+		g_WndMng.OpenMessageBoxUpper( prj.GetText(TID_DIAG_0023), MB_OK, TRUE );	//ì„œë²„ë¡œë¶€í„° ì ‘ì†ì´ í•´ì œë˜ì—ˆìŠµë‹ˆë‹¤.		  
 	}
 }
 
@@ -17243,9 +17243,9 @@ void CDPClient::SendSealCharSet( DWORD dwData )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-#endif // __MA_VER11_05	// ÄÉ¸¯ÅÍ ºÀÀÎ °Å·¡ ±â´É world,database,neuz
+#endif // __MA_VER11_05	// ì¼€ë¦­í„° ë´‰ì¸ ê±°ë˜ ê¸°ëŠ¥ world,database,neuz
 
-#if __VER >= 13 // __HONORABLE_TITLE			// ´ŞÀÎ
+#if __VER >= 13 // __HONORABLE_TITLE			// ë‹¬ì¸
 void CDPClient::SendReqHonorList()
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_HONOR_LIST_REQ, DPID_UNKNOWN );
@@ -17272,7 +17272,7 @@ void CDPClient::OnHonorListAck( CAr & ar )
 			if(!CTitleManager::Instance()->IsEarned(i))
 			{
 				CTitleManager::Instance()->AddEarned(i);
-				// °øÁö³¯¸²
+				// ê³µì§€ë‚ ë¦¼
 				CString	strNotice;
 				strNotice.Format( prj.GetText( TID_GAME_GET_TITLE ), CTitleManager::Instance()->GetTitle(i));
 				g_WndMng.PutString( (LPCTSTR)strNotice, NULL, prj.GetTextColor( TID_GAME_GET_TITLE ) );	
@@ -17280,7 +17280,7 @@ void CDPClient::OnHonorListAck( CAr & ar )
 		}
 		else
 		{
-			// È¹µæµÈ Å¸ÀÌÆ²ÀÌÁö¸¸ ¿ä±¸»çÇ×À» ÃæÁ·¸øÇÏ°Ô µÉ¶§
+			// íšë“ëœ íƒ€ì´í‹€ì´ì§€ë§Œ ìš”êµ¬ì‚¬í•­ì„ ì¶©ì¡±ëª»í•˜ê²Œ ë ë•Œ
 			if(CTitleManager::Instance()->IsEarned(i))
 			{
 				CTitleManager::Instance()->RemoveEarned(i);
@@ -17309,7 +17309,7 @@ void CDPClient::OnHonorChangeAck( OBJID objid ,CAr & ar )
 	}
 }
 
-#endif	// __HONORABLE_TITLE			// ´ŞÀÎ
+#endif	// __HONORABLE_TITLE			// ë‹¬ì¸
 
 #if __VER >= 11 // __SYS_POCKET
 void CDPClient::OnPocketAttribute( CAr & ar )
@@ -17428,7 +17428,7 @@ void CDPClient::OnSecretRoomMngState( CAr & ar )
 
 	if( pWndWorld == NULL )
 	{
-		Error( "CDPClient::OnGuildCombatNextTimeState()¿¡ World°¡ ¾ø´Ù" );
+		Error( "CDPClient::OnGuildCombatNextTimeState()ì— Worldê°€ ì—†ë‹¤" );
 		return;
 	}
 
@@ -17453,12 +17453,12 @@ void CDPClient::OnSecretRoomMngState( CAr & ar )
 						}
 					}
 				}
-				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_SELECTION); //"Áö±İ ºÎÅÍ ""ºñ¹ĞÀÇ ¹æ Âü°¡ÀÚ ±¸¼º""À» ÇÒ ¼ö ÀÖ½À´Ï´Ù.";		
+				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_SELECTION); //"ì§€ê¸ˆ ë¶€í„° ""ë¹„ë°€ì˜ ë°© ì°¸ê°€ì êµ¬ì„±""ì„ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.";		
 			}
 			break;
 		case SRMNG_ENTRANCE :
 			{
-				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_ENTRANCE); //"Áö±İ ºÎÅÍ ºñ¹ĞÀÇ ¹æ¿¡ ÀÔÀåÇÒ ¼ö ÀÖ½À´Ï´Ù.";
+				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_ENTRANCE); //"ì§€ê¸ˆ ë¶€í„° ë¹„ë°€ì˜ ë°©ì— ì…ì¥í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.";
 
 				SAFE_DELETE( g_WndMng.m_pWndSecretRoomMsg );
 				g_WndMng.m_pWndSecretRoomMsg = new CWndSecretRoomInfoMsgBox();
@@ -17479,21 +17479,21 @@ void CDPClient::OnSecretRoomMngState( CAr & ar )
 				bTimeSet = TRUE;
 				sprintf( pWndWorld->m_szSecretRoomStr, prj.GetText(TID_GAME_SECRETROOM_START_TIME) );
 
-				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_WARWAIT); //"Àá½Ã ÈÄ ºñ¹ĞÀÇ ¹æÀÌ ½ÃÀÛµÉ ¿¹Á¤ÀÔ´Ï´Ù. ÀüÅõ¸¦ ÁØºñÇÏ¼¼¿ä.";
+				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_WARWAIT); //"ì ì‹œ í›„ ë¹„ë°€ì˜ ë°©ì´ ì‹œì‘ë  ì˜ˆì •ì…ë‹ˆë‹¤. ì „íˆ¬ë¥¼ ì¤€ë¹„í•˜ì„¸ìš”.";
 			}
 			break;
 		case SRCONT_WAR :
 			{
 				bTimeSet = TRUE;
 				sprintf( pWndWorld->m_szSecretRoomStr, prj.GetText(TID_GAME_SECRETROOM_WAR_TIME) );
-				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_START); //"ºñ¹ĞÀÇ ¹æ ÀüÅõ°¡ ½ÃÀÛµÇ¾ú½À´Ï´Ù!";				
+				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_START); //"ë¹„ë°€ì˜ ë°© ì „íˆ¬ê°€ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤!";				
 			}
 			break;
 		case SRCONT_CLOSEWAIT :
 			{
 				bTimeSet = TRUE;
 				sprintf( pWndWorld->m_szSecretRoomStr, prj.GetText(TID_GAME_SECRETROOM_CLOSE_TIME) );
-				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_END); //"ºñ¹ĞÀÇ ¹æ ÀüÅõ°¡ Á¾·áµÇ¾ú½À´Ï´Ù!";
+				strTemp = prj.GetText(TID_GAME_SECRETROOM_MSG_END); //"ë¹„ë°€ì˜ ë°© ì „íˆ¬ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤!";
 			}
 			break;
 		default:
@@ -17525,13 +17525,13 @@ void CDPClient::OnSecretRoomInfo( CAr & ar )
 
 	switch( nType )
 	{
-		// °°Àº ´ë·ú¿¡ Âü¿©ÇÑ ±æµå ¸ñ·ÏÀ» ¹Ş¾Æ¿Â´Ù.	
+		// ê°™ì€ ëŒ€ë¥™ì— ì°¸ì—¬í•œ ê¸¸ë“œ ëª©ë¡ì„ ë°›ì•„ì˜¨ë‹¤.	
 		case SECRETROOM_GUILDLIST :
 			{
 				if( pSRCont )
 				{
 					pSRCont->m_vecSecretRoomTender.clear();
-					CSecretRoomMng::GetInstance()->m_pSRCont = pSRCont;	// ³»°¡ ¼ÓÇÑ ´ë·úÀ» ¸â¹ö·Î ¼³Á¤ÇÑ´Ù.
+					CSecretRoomMng::GetInstance()->m_pSRCont = pSRCont;	// ë‚´ê°€ ì†í•œ ëŒ€ë¥™ì„ ë©¤ë²„ë¡œ ì„¤ì •í•œë‹¤.
 				}
 	
 				ar >> nSize;
@@ -17604,7 +17604,7 @@ void CDPClient::OnSecretRoomInfo( CAr & ar )
 						CGuild* pGuild = g_GuildMng.GetGuild( pSRCont->m_vecSecretRoomTender[nIndex].dwGuildId );
 						if( pGuild )
 							strTemp.Format( prj.GetText(TID_GAME_SECRETROOM_GUILD_FAILED), pGuild->m_szGuild );
-						//strTemp.Format( "%s ±æµå°¡ Å»¶ôÇß½À´Ï´Ù!", g_GuildMng.GetGuild( pSRCont->m_vecSecretRoomTender[nIndex].dwGuildId )->m_szGuild );
+						//strTemp.Format( "%s ê¸¸ë“œê°€ íƒˆë½í–ˆìŠµë‹ˆë‹¤!", g_GuildMng.GetGuild( pSRCont->m_vecSecretRoomTender[nIndex].dwGuildId )->m_szGuild );
 						break;
 				}		
 				
@@ -17612,7 +17612,7 @@ void CDPClient::OnSecretRoomInfo( CAr & ar )
 
 				if( pWndWorld == NULL )
 				{
-					Error( "CDPClient::OnGuildCombatNextTimeState()¿¡ World°¡ ¾ø´Ù" );
+					Error( "CDPClient::OnGuildCombatNextTimeState()ì— Worldê°€ ì—†ë‹¤" );
 					return;
 				}
 				
@@ -17647,7 +17647,7 @@ void CDPClient::OnSecretRoomTenderOpenWnd( CAr & ar )
 	if(g_WndMng.m_pWndSecretRoomOffer)
 		g_WndMng.m_pWndSecretRoomOffer->Initialize();
 
-	if( nTenderPenya == 0 ) //ÇÑ¹øµµ ÀÔÂûÇÑ ±İ¾×ÀÌ ¾øÀ» °æ¿ì
+	if( nTenderPenya == 0 ) //í•œë²ˆë„ ì…ì°°í•œ ê¸ˆì•¡ì´ ì—†ì„ ê²½ìš°
 	{
 		g_WndMng.m_pWndSecretRoomOffer->SetReqGold( nTenderPenya );
 		g_WndMng.m_pWndSecretRoomOffer->SetBackupGold( CSecretRoomMng::GetInstance()->m_nMinPenya );
@@ -17739,7 +17739,7 @@ void CDPClient::OnSecretRoomTenderView( CAr & ar )
 		for( int i=0; i<nSize; i++ )
 		{
 			ar >> dwGuildId;
-			// »èÁ¦µÈ ±æµå¸é Ãâ·Â¿¡¼­ Á¦¿Ü½ÃÅ²´Ù.	// Ë¬	// 2008-09-18
+			// ì‚­ì œëœ ê¸¸ë“œë©´ ì¶œë ¥ì—ì„œ ì œì™¸ì‹œí‚¨ë‹¤.	// åº·	// 2008-09-18
 			if( !g_GuildMng.GetGuild(dwGuildId) )
 				continue;
 			g_WndMng.m_pWndSecretRoomOfferState->InsertGuild(g_GuildMng.GetGuild(dwGuildId)->m_szGuild, "1", ++nRank );
@@ -17800,7 +17800,7 @@ void CDPClient::SendTeleportToHeavenTower( int nFloor )
 
 #if __VER >= 12 // __LORD
 void CDPClient::OnElectionAddDeposit( CAr & ar )
-{	// ±ºÁÖ ÀÔÂû °á°ú °»½Å
+{	// êµ°ì£¼ ì…ì°° ê²°ê³¼ ê°±ì‹ 
 	u_long idPlayer;
 	__int64 iDeposit;
 	time_t tCreate;
@@ -17811,7 +17811,7 @@ void CDPClient::OnElectionAddDeposit( CAr & ar )
 }
 
 void CDPClient::OnElectionSetPledge( CAr & ar )
-{	// °ø¾à ¼³Á¤ °á°ú °»½Å
+{	// ê³µì•½ ì„¤ì • ê²°ê³¼ ê°±ì‹ 
 	u_long idPlayer;
 	char szPledge[CCandidate::nMaxPledgeLen]	= {0, };
 	ar >> idPlayer;
@@ -17822,7 +17822,7 @@ void CDPClient::OnElectionSetPledge( CAr & ar )
 }
 
 void CDPClient::OnElectionIncVote( CAr & ar )
-{	// ÅõÇ¥ °á°ú °»½Å
+{	// íˆ¬í‘œ ê²°ê³¼ ê°±ì‹ 
 	u_long idPlayer, idElector;
 	ar >> idPlayer >> idElector;
 
@@ -17831,13 +17831,13 @@ void CDPClient::OnElectionIncVote( CAr & ar )
 }
 
 void CDPClient::OnElectionBeginCandidacy( CAr & ar )
-{	// ÀÔÈÄº¸ ½ÃÀÛ »óÅÂ·Î º¯°æ
+{	// ì…í›„ë³´ ì‹œì‘ ìƒíƒœë¡œ ë³€ê²½
 	IElection* pElection	= CCLord::Instance()->GetElection();
 	pElection->BeginCandidacy();
 }
 
 void CDPClient::OnElectionBeginVote( CAr & ar )
-{	// ÅõÇ¥ ½ÃÀÛ »óÅÂ·Î º¯°æ
+{	// íˆ¬í‘œ ì‹œì‘ ìƒíƒœë¡œ ë³€ê²½
 	int nRequirement;
 	ar >> nRequirement;
 
@@ -17846,7 +17846,7 @@ void CDPClient::OnElectionBeginVote( CAr & ar )
 }
 
 void CDPClient::OnElectionEndVote( CAr & ar )
-{	// ÅõÇ¥ Á¾·á »óÅÂ·Î º¯°æ
+{	// íˆ¬í‘œ ì¢…ë£Œ ìƒíƒœë¡œ ë³€ê²½
 	u_long idPlayer;
 	ar >> idPlayer;
 
@@ -17855,12 +17855,12 @@ void CDPClient::OnElectionEndVote( CAr & ar )
 }
 
 void CDPClient::OnLord( CAr & ar )
-{	// ±ºÁÖ ½Ã½ºÅÛ Á¤º¸¸¦ ¼ö½ÅÇÏ¿© º¹¿ø
+{	// êµ°ì£¼ ì‹œìŠ¤í…œ ì •ë³´ë¥¼ ìˆ˜ì‹ í•˜ì—¬ ë³µì›
 	CCLord::Instance()->Serialize( ar );
 }
 
 void CDPClient::OnLEventCreate( CAr & ar )
-{	// ±ºÁÖ ÀÌº¥Æ® ½ÃÀÛ Ã³¸®
+{	// êµ°ì£¼ ì´ë²¤íŠ¸ ì‹œì‘ ì²˜ë¦¬
 	CLEComponent* pComponent	= new CLEComponent;
 	pComponent->Serialize( ar );
 	ILordEvent* pEvent	= CCLord::Instance()->GetEvent();
@@ -17868,19 +17868,19 @@ void CDPClient::OnLEventCreate( CAr & ar )
 }
 
 void CDPClient::OnLEventInitialize( CAr & ar )
-{	// ±ºÁÖ ÀÌº¥Æ® ÃÊ±âÈ­ Ã³¸®
+{	// êµ°ì£¼ ì´ë²¤íŠ¸ ì´ˆê¸°í™” ì²˜ë¦¬
 	ILordEvent* pEvent	= CCLord::Instance()->GetEvent();
 	pEvent->Initialize();
 }
 
 void CDPClient::OnLordSkillTick( CAr & ar )
-{	// ±ºÁÖ ½ºÅ³ Àç»ç¿ë ´ë±â ½Ã°£ Ã³¸®
+{	// êµ°ì£¼ ìŠ¤í‚¬ ì¬ì‚¬ìš© ëŒ€ê¸° ì‹œê°„ ì²˜ë¦¬
 	CLordSkill* pSkills		= CCLord::Instance()->GetSkills();
 	pSkills->SerializeTick( ar );
 }
 
 void CDPClient::OnLEventTick( CAr & ar )
-{	// ±ºÁÖ ÀÌº¥Æ® Áö¼Ó ½Ã°£ Ã³¸®
+{	// êµ°ì£¼ ì´ë²¤íŠ¸ ì§€ì† ì‹œê°„ ì²˜ë¦¬
 	ILordEvent* pEvent		= CCLord::Instance()->GetEvent();
 	pEvent->SerializeTick( ar );
 	pEvent->EraseExpiredComponents();
@@ -17890,9 +17890,9 @@ void CDPClient::OnLordSkillUse( OBJID objid, CAr & ar )
 {
 	u_long idTarget;
 	int nSkill;
-	ar >> idTarget >> nSkill;	// ÀÚ±â ÀÚ½Å¿¡°Ô ¾²´Â ±ºÁÖ ½ºÅ³ÀÎ °æ¿ì
-												// idTargetÀº ±ºÁÖ ÀÚ½ÅÀÇ ½Äº°ÀÚÀÌ´Ù.
-													// ÀÌ·± °æ¿ì, pSkill->GetDstSfx()´Â Åë»ó NULL_IDÀÌ´Ù.
+	ar >> idTarget >> nSkill;	// ìê¸° ìì‹ ì—ê²Œ ì“°ëŠ” êµ°ì£¼ ìŠ¤í‚¬ì¸ ê²½ìš°
+												// idTargetì€ êµ°ì£¼ ìì‹ ì˜ ì‹ë³„ìì´ë‹¤.
+													// ì´ëŸ° ê²½ìš°, pSkill->GetDstSfx()ëŠ” í†µìƒ NULL_IDì´ë‹¤.
 	CLordSkillComponentExecutable* pSkill	= CCLord::Instance()->GetSkills()->GetSkill( nSkill );
 	if( !pSkill )
 		return;
@@ -17904,7 +17904,7 @@ void CDPClient::OnLordSkillUse( OBJID objid, CAr & ar )
 	
 	if( IsValidObj( pLord ) && pSkill->GetSrcSfx() != NULL_ID )
 	{
-		// pLord¿¡ pSkill->GetSrcSfx() È¿°ú ÁÖ±â
+		// pLordì— pSkill->GetSrcSfx() íš¨ê³¼ ì£¼ê¸°
 		if(pTarget)
 		{
 			g_pPlayer->SetAngle( GetDegree(pTarget->GetPos(), pLord->GetPos()) );
@@ -17914,41 +17914,41 @@ void CDPClient::OnLordSkillUse( OBJID objid, CAr & ar )
 	}
 	if( IsValidObj( pTarget ) && pSkill->GetDstSfx() != NULL_ID )
 	{
-		// pTarget¿¡ pSkill->GetDstSfx() È¿°ú ÁÖ±â
+		// pTargetì— pSkill->GetDstSfx() íš¨ê³¼ ì£¼ê¸°
 		CreateSfx(g_Neuz.m_pd3dDevice, (int)pSkill->GetDstSfx(), pTarget->GetPos(), pTarget->GetId());
 	}
 }
 
 void CDPClient::SendElectionAddDeposit( __int64 iDeposit )
-{	// ±ºÁÖ ÀÔÂû Ã³¸® ¿äÃ»
+{	// êµ°ì£¼ ì…ì°° ì²˜ë¦¬ ìš”ì²­
 	BEFORESENDSOLE( ar, PACKETTYPE_ELECTION_ADD_DEPOSIT, DPID_UNKNOWN );
 	ar << iDeposit;
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
 void CDPClient::SendElectionSetPledge( const char* szPledge )
-{	// °ø¾à ¼³Á¤ Ã³¸® ¿äÃ»
+{	// ê³µì•½ ì„¤ì • ì²˜ë¦¬ ìš”ì²­
 	BEFORESENDSOLE( ar, PACKETTYPE_ELECTION_SET_PLEDGE, DPID_UNKNOWN );
 	ar.WriteString( szPledge );
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
 void CDPClient::SendElectionIncVote( u_long idPlayer )
-{	// ÅõÇ¥ Ã³¸® ¿äÃ»
+{	// íˆ¬í‘œ ì²˜ë¦¬ ìš”ì²­
 	BEFORESENDSOLE( ar, PACKETTYPE_ELECTION_INC_VOTE, DPID_UNKNOWN );
 	ar << idPlayer;
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
 void CDPClient::SendLEventCreate( int iEEvent, int iIEvent )
-{	// ±ºÁÖ ÀÌº¥Æ® ½ÃÀÛ ¿äÃ»
+{	// êµ°ì£¼ ì´ë²¤íŠ¸ ì‹œì‘ ìš”ì²­
 	BEFORESENDSOLE( ar, PACKETTYPE_L_EVENT_CREATE, DPID_UNKNOWN );
 	ar << iEEvent << iIEvent;
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
 void CDPClient::SendLordSkillUse( int nSkill, const char* szTarget )
-{	// ±ºÁÖ ½ºÅ³ »ç¿ë ¿äÃ»
+{	// êµ°ì£¼ ìŠ¤í‚¬ ì‚¬ìš© ìš”ì²­
 	BEFORESENDSOLE( ar, PACKETTYPE_LORD_SKILL_USE, DPID_UNKNOWN );
 	ar << nSkill;
 	ar.WriteString( szTarget );
@@ -17958,8 +17958,8 @@ void CDPClient::SendLordSkillUse( int nSkill, const char* szTarget )
 
 #if __VER >= 12 // __PET_0519
 void CDPClient::SendTransformItem( CTransformStuff & stuff )
-{	// ¾Ëº¯È¯ ÇÁ·ÎÅäÄİ
-	// stuff´Â º¯È¯¿¡ ÇÊ¿äÇÑ ¾ÆÀÌÅÛ ¸ñ·Ï
+{	// ì•Œë³€í™˜ í”„ë¡œí† ì½œ
+	// stuffëŠ” ë³€í™˜ì— í•„ìš”í•œ ì•„ì´í…œ ëª©ë¡
 	BEFORESENDSOLE( ar, PACKETTYPE_TRANSFORM_ITEM, DPID_UNKNOWN );
 	stuff.Serialize( ar );
 	SEND( ar, this, DPID_SERVERPLAYER );
@@ -18418,9 +18418,9 @@ void CDPClient::OnSetPetName( OBJID objid, CAr & ar )
 		pPlayer->m_pet.SetName( szPetName );
 		if( IsValidObj( pPlayer->m_pet.GetObj() ) )
 		{
-			if( strlen( szPetName ) == 0 )	// Æê ÀÛ¸í Ãë¼Ò
+			if( strlen( szPetName ) == 0 )	// í« ì‘ëª… ì·¨ì†Œ
 				pPlayer->m_pet.GetObj()->SetName( pPlayer->m_pet.GetObj()->GetProp()->szName );
-			else	// Æê ÀÛ¸í
+			else	// í« ì‘ëª…
 				pPlayer->m_pet.GetObj()->SetName( szPetName );
 		}
 		if( pPlayer->IsActiveMover() )
@@ -18501,7 +18501,7 @@ void CDPClient::OnHousingPaperingInfo( CAr & ar )
 	ar >> bSetup;
 
 	
-	if( dwItemId == NULL_ID && !bSetup )	// º®Áö, ÀåÆÇ ÃÊ±âÈ­ Á¶°Ç...
+	if( dwItemId == NULL_ID && !bSetup )	// ë²½ì§€, ì¥íŒ ì´ˆê¸°í™” ì¡°ê±´...
 	{
 		CDeployManager::GetInstance()->ChangeWallTex();
 		CDeployManager::GetInstance()->ChangeTileTex();
@@ -18747,9 +18747,9 @@ void CDPClient::OnSmeltSafety( CAr & ar )
 
 	switch( nResult )
 	{
-	case 0:			//	¾ÈÀü Á¦·Ã: Àß¸øµÈ Àç·á¸¦ µî·ÏÇßÀ» ¶§
+	case 0:			//	ì•ˆì „ ì œë ¨: ì˜ëª»ëœ ì¬ë£Œë¥¼ ë“±ë¡í–ˆì„ ë•Œ
 		break;
-	case 1:			//	¾ÈÀü Á¦·Ã: Á¦·Ã ¼º°øÇßÀ» ¶§
+	case 1:			//	ì•ˆì „ ì œë ¨: ì œë ¨ ì„±ê³µí–ˆì„ ë•Œ
 		{
 			int nCurrentSmeltNumber(pWndSmeltSafety->GetCurrentSmeltNumber());
 			pWndSmeltSafety->SetResultStatic(true, nCurrentSmeltNumber);
@@ -18759,7 +18759,7 @@ void CDPClient::OnSmeltSafety( CAr & ar )
 			pWndSmeltSafety->SetResultSwitch(true);
 			break;
 		}
-	case 2:			//	¾ÈÀü Á¦·Ã: Á¦·Ã ½ÇÆĞÇßÀ» ¶§
+	case 2:			//	ì•ˆì „ ì œë ¨: ì œë ¨ ì‹¤íŒ¨í–ˆì„ ë•Œ
 		{
 			int nCurrentSmeltNumber(pWndSmeltSafety->GetCurrentSmeltNumber());
 			pWndSmeltSafety->SetResultStatic(false, nCurrentSmeltNumber);
@@ -18768,7 +18768,7 @@ void CDPClient::OnSmeltSafety( CAr & ar )
 			pWndSmeltSafety->SetResultSwitch(true);
 			break;
 		}
-	case 3:			//	¾ÈÀü Á¦·Ã: ÃÖ´ëÄ¡±îÁö Á¦·ÃµÇ¾î ´õ ÀÌ»ó Á¦·ÃÇÒ ¼ö ¾øÀ» ¶§
+	case 3:			//	ì•ˆì „ ì œë ¨: ìµœëŒ€ì¹˜ê¹Œì§€ ì œë ¨ë˜ì–´ ë” ì´ìƒ ì œë ¨í•  ìˆ˜ ì—†ì„ ë•Œ
 		break;
 	}
 }
@@ -18806,7 +18806,7 @@ void CDPClient::OnQuizSystemMessage( CAr & ar )
 	ar >> nDefinedTextId >> bAll >> nChannel >> nTime;
 	
 	CString strMessage;
-	//Ã¤³Î Á¤º¸
+	//ì±„ë„ ì •ë³´
 	if( nChannel )
 	{
 		CString strChannelName;
@@ -18827,7 +18827,7 @@ void CDPClient::OnQuizSystemMessage( CAr & ar )
 		strMessage.Format( prj.GetText( nDefinedTextId ) );
 
 	CString str;
-	str.Format( prj.GetText( TID_ADMIN_ANNOUNCE ), strMessage );		// [¾Ë¸²] %s
+	str.Format( prj.GetText( TID_ADMIN_ANNOUNCE ), strMessage );		// [ì•Œë¦¼] %s
 	g_WndMng.PutString( str, NULL, prj.GetTextColor( TID_ADMIN_ANNOUNCE ), CHATSTY_SYSTEM );
 	if( ::GetLanguage() != LANG_GER && ::GetLanguage() != LANG_FRE )
 	{
@@ -18867,7 +18867,7 @@ void CDPClient::OnQuizQuestion( CAr & ar )
 	ar.ReadString( szQuestion, 1024 );
 	CQuiz::GetInstance()->m_strQuestion = szQuestion;
 
-	// UIÃâ·Â
+	// UIì¶œë ¥
 	if( CQuiz::GetInstance()->GetType() == TYPE_OX )
 	{
 		if( g_WndMng.m_pWndQuizEventQuestionOX )
@@ -19003,7 +19003,7 @@ void CDPClient::OnActivateVisPet( CAr & ar )
 	BOOL bActivate = g_pPlayer->HasActivatedVisPet( );
 	if( bActivate )
 	{
-		//ºñ½ºÆê È°¼ºÈ­´ï
+		//ë¹„ìŠ¤í« í™œì„±í™”ëŒ
 		CWndBase* pBase = g_WndMng.GetWndBase( APP_BUFFPET_STATUS );
 		if( FALSE == g_WndMng.GetWndBase( APP_BUFFPET_STATUS ) )
 		{
@@ -19014,7 +19014,7 @@ void CDPClient::OnActivateVisPet( CAr & ar )
 
 	}else
 	{
-		//ºñ½ºÆê ºñÈ°¼ºÈ­ 
+		//ë¹„ìŠ¤í« ë¹„í™œì„±í™” 
 		SAFE_DELETE( g_WndMng.m_pWndBuffPetStatus );
 	}
 
@@ -19049,9 +19049,9 @@ void CDPClient::OnGuildHousePacket( CAr & ar )
 
 	CWndGuildHousing* pWnd = (CWndGuildHousing*)g_WndMng.GetApplet( APP_GH_FURNITURE_STORAGE );
 	if( pWnd )
-		pWnd->RefreshItemList( );			// À©µµÃ¢ÀÌ ¶°ÀÖÀ¸¸é Refresh
+		pWnd->RefreshItemList( );			// ìœˆë„ì°½ì´ ë– ìˆìœ¼ë©´ Refresh
 	else
-		GuildHouse->ApplyEFTexture( );		// À©µµÃ¢ÀÌ ¾È¶°ÀÖÀ¸¸é È¯°æ ÅØ½ºÃÄ¸¸ 
+		GuildHouse->ApplyEFTexture( );		// ìœˆë„ì°½ì´ ì•ˆë– ìˆìœ¼ë©´ í™˜ê²½ í…ìŠ¤ì³ë§Œ 
 }
 
 void CDPClient::OnGuildHouseAllInfo( CAr & ar )
@@ -19123,7 +19123,7 @@ void CDPClient::OnInviteCampusMember( CAr & ar )
 	char szRequest[MAX_PLAYER]	= {0, };
 	ar >> idRequest;
 	ar.ReadString( szRequest, MAX_PLAYER );
-	// ¼ö¶ô µ¿ÀÇ Ã¢ ¶ç¿ò
+	// ìˆ˜ë½ ë™ì˜ ì°½ ë„ì›€
 	PlayerData* pPlayerData = CPlayerDataCenter::GetInstance()->GetPlayerData( idRequest );
 	if( pPlayerData == NULL )
 		return;
@@ -19196,7 +19196,7 @@ void CDPClient::SendSelectedAwakeningValue( DWORD dwObjID, DWORD dwSerialNum, BY
 
 void CDPClient::OnSafeAwakening( CAr& ar )
 {
-	//°¢¼º Ãë¼Òº¸È£Áß °¢¼ºÀ» ½ÃµµÇß´Ù. ¿É¼Ç ¼±ÅÃÃ¢À» ¶ç¿î´Ù.
+	//ê°ì„± ì·¨ì†Œë³´í˜¸ì¤‘ ê°ì„±ì„ ì‹œë„í–ˆë‹¤. ì˜µì…˜ ì„ íƒì°½ì„ ë„ìš´ë‹¤.
 	BYTE byItemObjID = 0;
 	DWORD dwSerialNumber = 0;
 	__int64 n64NewRandomOption = 0;
@@ -19217,7 +19217,7 @@ void CDPClient::OnSafeAwakening( CAr& ar )
 void CDPClient::OnGuildHouseTenderMainWnd( CAr & ar )
 {
 	//setup window
-	//CWndGuildHouseBid À©µµ¿ì°¡ ÃÊ±âÈ­ÇÒ¶§ ¿äÃ»ÆĞÅ¶À» º¸³»°Ô µÇ´Âµ¥, ¸¸¾à »ı¼ºÀÌ µÇ¾îÀÖÁö ¾Ê¾Ò´Ù¸é Ã¢ÀÌ ¶ßÀÚ¸¶ÀÚ ¹Ù·Î ¾ø¾Ö¹ö¸°°æ¿ì?
+	//CWndGuildHouseBid ìœˆë„ìš°ê°€ ì´ˆê¸°í™”í• ë•Œ ìš”ì²­íŒ¨í‚·ì„ ë³´ë‚´ê²Œ ë˜ëŠ”ë°, ë§Œì•½ ìƒì„±ì´ ë˜ì–´ìˆì§€ ì•Šì•˜ë‹¤ë©´ ì°½ì´ ëœ¨ìë§ˆì ë°”ë¡œ ì—†ì• ë²„ë¦°ê²½ìš°?
 	if( !g_WndMng.m_pWndGHBid )
 	{
 		g_WndMng.m_pWndGHBid = new CWndGuildHouseBid;		
@@ -19242,10 +19242,10 @@ void CDPClient::OnGuildHouseTenderMainWnd( CAr & ar )
 
 void CDPClient::OnGuildHouseTenderInfoWnd( CAr & ar )
 {
-	// ¿äÃ»ÇÑ Ç×¸ñ(ÇÏ¿ìÂ¡¸®½ºÆ®)¿¡ ´ëÇÑ ¼¼ºÎÁ¤º¸
+	// ìš”ì²­í•œ í•­ëª©(í•˜ìš°ì§•ë¦¬ìŠ¤íŠ¸)ì— ëŒ€í•œ ì„¸ë¶€ì •ë³´
 	if( !g_WndMng.m_pWndGHBid )
 	{
-		//ÀÌ°æ¿ì´Â ÆĞÅ¶¹«½ÃÇÏ°í Ã³À½ºÎÅÍ ´Ù´Ù½Ã, ÀÌ°æ¿ì ¿ª½Ã ¸®½ºÆ®ÇÏ³ª¸¦ ¼±ÅÃÇÏ°í Ã¢À» °ğ¹Ù·Î ´İ¾Æ¹ö¸°°æ¿ì?
+		//ì´ê²½ìš°ëŠ” íŒ¨í‚·ë¬´ì‹œí•˜ê³  ì²˜ìŒë¶€í„° ë‹¤ë‹¤ì‹œ, ì´ê²½ìš° ì—­ì‹œ ë¦¬ìŠ¤íŠ¸í•˜ë‚˜ë¥¼ ì„ íƒí•˜ê³  ì°½ì„ ê³§ë°”ë¡œ ë‹«ì•„ë²„ë¦°ê²½ìš°?
 		g_WndMng.m_pWndGHBid = new CWndGuildHouseBid;
 		g_WndMng.m_pWndGHBid->Initialize( );
 		return;
@@ -19255,7 +19255,7 @@ void CDPClient::OnGuildHouseTenderInfoWnd( CAr & ar )
 
 	OBJID objGHId;
 	int nTenderMinPenya = 0, nSize = 0;
-	__int64 nTenderPenya = 0;		//±æµåÇ×¸ñÁß ³»±æµå°¡ ÀÖ´Ù¸é ÀÌ°ªÀÌ ³»±æµåÀÇ ÀÔÂû±İ
+	__int64 nTenderPenya = 0;		//ê¸¸ë“œí•­ëª©ì¤‘ ë‚´ê¸¸ë“œê°€ ìˆë‹¤ë©´ ì´ê°’ì´ ë‚´ê¸¸ë“œì˜ ì…ì°°ê¸ˆ
 	ar >> objGHId >> nTenderMinPenya >> nTenderPenya >> nSize;
 	for( int i = 0; i < nSize; ++i )
 	{
@@ -19278,13 +19278,13 @@ void CDPClient::OnGuildHouseTenderResult( CAr & ar )
 	BOOL bResult;
 	ar >> objGHId >> bResult;
 
-	//ÀÔÂû ¹öÆ° È°¼ºÈ­ 
+	//ì…ì°° ë²„íŠ¼ í™œì„±í™” 
 	g_WndMng.m_pWndGHBid->SetEnableWindow_Apply( TRUE );
 
-	//¸Ó´Ï ÀÔ·ÂÃ¢ ÃÊ±âÈ­
+	//ë¨¸ë‹ˆ ì…ë ¥ì°½ ì´ˆê¸°í™”
 	g_WndMng.m_pWndGHBid->ResetInputMoneyWindows( );
 
-	//ÇöÀç ¼±ÅÃµÈ ÇÏ¿ì½º¿¡´ëÇÑ ¼¼ºÎÁ¤º¸ ¿äÃ» 
+	//í˜„ì¬ ì„ íƒëœ í•˜ìš°ìŠ¤ì—ëŒ€í•œ ì„¸ë¶€ì •ë³´ ìš”ì²­ 
 	g_WndMng.m_pWndGHBid->RequestCurrHouseInfo( );
 }
 

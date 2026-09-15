@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "CreateMonster.h"
 #include "user.h"
 
@@ -116,14 +116,14 @@ BOOL CCreateMonster::IsAttackAble( CUser* pUser, CMover* pTarget, BOOL bTextOut 
 	if( !IsValidObj( pUser ) || !IsValidObj( pTarget ) )
 		return FALSE;
 	
-	// ¾ÆÀÌÅÛ¿¡ ÀÇÇØ ¼ÒÈ¯µÈ ¸ó½ºÅÍ°¡ ¾Æ´Ï¸é °ø°İ°¡´É
+	// ì•„ì´í…œì— ì˜í•´ ì†Œí™˜ëœ ëª¬ìŠ¤í„°ê°€ ì•„ë‹ˆë©´ ê³µê²©ê°€ëŠ¥
 	MAPINFO::iterator it = m_mapCreateMonsterInfo.find( pTarget->GetId() );
 	if( it == m_mapCreateMonsterInfo.end() )
 		return TRUE;
 
-	// ¼ÒÈ¯ ÁÖÃ¼°¡ Á¢¼ÓÁßÀÌ ¾Æ´Ï¸é ¾Æ¹«µµ °ø°İ¸øÇÑ´Ù.
+	// ì†Œí™˜ ì£¼ì²´ê°€ ì ‘ì†ì¤‘ì´ ì•„ë‹ˆë©´ ì•„ë¬´ë„ ê³µê²©ëª»í•œë‹¤.
 	CUser* pOwner = static_cast<CUser*>( prj.GetUserByID( it->second.dwOwnerId ) );
-	// °ø°İÀÚ°¡ ¼ÒÈ¯ ÁÖÃ¼ÀÌ°Å³ª °°Àº ÆÄÆ¼¿øÀÎ °æ¿ì¸¸ °ø°İ°¡´É...
+	// ê³µê²©ìê°€ ì†Œí™˜ ì£¼ì²´ì´ê±°ë‚˜ ê°™ì€ íŒŒí‹°ì›ì¸ ê²½ìš°ë§Œ ê³µê²©ê°€ëŠ¥...
 	if( IsValidObj( pOwner )
 		&& ( ( pOwner == pUser ) || ( pOwner->GetPartyId() && pOwner->GetPartyId() == pUser->GetPartyId() ) ) )
 		return TRUE;
@@ -160,20 +160,20 @@ void CCreateMonster::CreateMonster( CUser* pUser, DWORD dwObjId, D3DXVECTOR3 vPo
 	if( pWorld && pMoverProp && pMoverProp->dwID != 0 )
 	{
 		D3DXVECTOR3 vDist2 = pUser->GetPos() - vPos;
-		float fDist = D3DXVec3Length( &vDist2 );			// µÎÁÂÇ¥°£ÀÇ °Å¸®
+		float fDist = D3DXVec3Length( &vDist2 );			// ë‘ì¢Œí‘œê°„ì˜ ê±°ë¦¬
 		if( 15.f < fDist )
 		{
 			pUser->AddDefinedText( TID_GAME_CREATEMON_F_15 );
 			return;
 		}
 
-		int nAttr = pWorld->GetHeightAttribute( vPos.x, vPos.z );		// ÀÌµ¿ÇÒ À§Ä¡ÀÇ ¼Ó¼º ÀĞÀ½.
-		if( nAttr == HATTR_NOWALK || nAttr == HATTR_NOMOVE )		// ¸ø ¿òÁ÷ÀÌ´Â °÷ÀÌ¸é Pass
+		int nAttr = pWorld->GetHeightAttribute( vPos.x, vPos.z );		// ì´ë™í•  ìœ„ì¹˜ì˜ ì†ì„± ì½ìŒ.
+		if( nAttr == HATTR_NOWALK || nAttr == HATTR_NOMOVE )		// ëª» ì›€ì§ì´ëŠ” ê³³ì´ë©´ Pass
 		{
 			pUser->AddDefinedText( TID_GAME_CREATEMON_F_AREA );
 			return;
 		}
-		if( pUser->IsRegionAttr( RA_SAFETY ))		// ¾ÈÀüÁö¿ªÀÌ¸é Pass
+		if( pUser->IsRegionAttr( RA_SAFETY ))		// ì•ˆì „ì§€ì—­ì´ë©´ Pass
 		{
 			pUser->AddDefinedText( TID_GAME_CREATEMON_F_AREA );
 			return;

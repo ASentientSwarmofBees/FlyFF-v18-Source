@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  @(#) ibitstream.cc 1.8, last edit: 6/15/94 16:51:45
  *  @(#) Copyright (C) 1993, 1994 Tobias Bading (bading@cs.tu-berlin.de)
  *  @(#) Berlin University of Technology

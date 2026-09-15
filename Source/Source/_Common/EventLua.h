@@ -1,4 +1,4 @@
-// EventLua.h: interface for the CEventLua class.
+ï»¿// EventLua.h: interface for the CEventLua class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -216,18 +216,18 @@ private:
 
 	struct __SPAWNREGION
 	{
-		DWORD	dwWorldId;		// ¿ùµå ¹øÈ£
-		CRect	rect;	// ÂüÁ¶ ¿µ¿ª
+		DWORD	dwWorldId;		// ì›”ë“œ ë²ˆí˜¸
+		CRect	rect;	// ì°¸ì¡° ì˜ì—­
 		__SPAWNREGION( DWORD dwWI, CRect & r ) : dwWorldId( dwWI ), rect( r ) {}
 		D3DXVECTOR3 GetPos() { return D3DXVECTOR3( (float)( xRandom( rect.left, rect.right ) ), 0.0f, (float)( xRandom( rect.top, rect.bottom ) ) ); }
 	};
 
-	vector<__SPAWNREGION>	m_vecSpawnRegion;		// spawn ÀÌº¥Æ® ÁøÇà½Ã ¾ÆÀÌÅÛ ¹× ¸ó½ºÅÍÀÇ »ı¼ºÀ§Ä¡(¿ùµå ¹× ÁÂÇ¥) Á¤º¸
+	vector<__SPAWNREGION>	m_vecSpawnRegion;		// spawn ì´ë²¤íŠ¸ ì§„í–‰ì‹œ ì•„ì´í…œ ë° ëª¬ìŠ¤í„°ì˜ ìƒì„±ìœ„ì¹˜(ì›”ë“œ ë° ì¢Œí‘œ) ì •ë³´
 
-	map<BYTE, VECSPAWNINFO>	m_mapSpawnList;			// spawn ÀÌº¥Æ® ÁøÇà½Ã »ı¼ºµÉ ¾ÆÀÌÅÛ ¹× ¸ó½ºÅÍ Á¤º¸
-	map<DWORD, BYTE>		m_mapMonsterId;			// spawn ÀÌº¥Æ® ÁøÇà½Ã »ı¼ºµÈ ¸ó½ºÅÍ°¡ ÀÌº¥Æ®¿ë ÀÎÁö °Ë»çÇÏ±â À§ÇØ ÇÊ¿ä
-	map<OBJID, BYTE>		m_mapSpawnedMonster;	// spawn ÀÌº¥Æ® ÁøÇà½Ã ½ÇÁ¦·Î »ı¼ºµÈ ¸ó½ºÅÍµéÀÇ ¸ñ·Ï ÀúÀå(ÀÌº¥Æ® Á¾·á½Ã »èÁ¦ÇÏ±â À§ÇØ ÇÊ¿ä)
-	vector<BYTE>			m_vecEndSpawnEvent;			// Á¾·áµÈ ÀÌº¥Æ® ID ¸ñ·Ï( ³²¾ÆÀÖ´Â spawn ¸ó½ºÅÍ°¡ ÀÖÀ¸¸é ´Ù »èÁ¦ÇÑ ÈÄ ID¸¦ Á¦°ÅÇÑ´Ù
+	map<BYTE, VECSPAWNINFO>	m_mapSpawnList;			// spawn ì´ë²¤íŠ¸ ì§„í–‰ì‹œ ìƒì„±ë  ì•„ì´í…œ ë° ëª¬ìŠ¤í„° ì •ë³´
+	map<DWORD, BYTE>		m_mapMonsterId;			// spawn ì´ë²¤íŠ¸ ì§„í–‰ì‹œ ìƒì„±ëœ ëª¬ìŠ¤í„°ê°€ ì´ë²¤íŠ¸ìš© ì¸ì§€ ê²€ì‚¬í•˜ê¸° ìœ„í•´ í•„ìš”
+	map<OBJID, BYTE>		m_mapSpawnedMonster;	// spawn ì´ë²¤íŠ¸ ì§„í–‰ì‹œ ì‹¤ì œë¡œ ìƒì„±ëœ ëª¬ìŠ¤í„°ë“¤ì˜ ëª©ë¡ ì €ì¥(ì´ë²¤íŠ¸ ì¢…ë£Œì‹œ ì‚­ì œí•˜ê¸° ìœ„í•´ í•„ìš”)
+	vector<BYTE>			m_vecEndSpawnEvent;			// ì¢…ë£Œëœ ì´ë²¤íŠ¸ ID ëª©ë¡( ë‚¨ì•„ìˆëŠ” spawn ëª¬ìŠ¤í„°ê°€ ìˆìœ¼ë©´ ë‹¤ ì‚­ì œí•œ í›„ IDë¥¼ ì œê±°í•œë‹¤
 
 	void	SetSpawnEvent( BYTE nId, BOOL bState );
 	__SPAWNREGION GetSpawnRegion() { return m_vecSpawnRegion[xRandom( m_vecSpawnRegion.size() )]; }

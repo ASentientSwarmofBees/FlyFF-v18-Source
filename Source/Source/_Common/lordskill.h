@@ -1,4 +1,4 @@
-#ifndef __LORD_SKILL_H__
+﻿#ifndef __LORD_SKILL_H__
 #define	__LORD_SKILL_H__
 
 #include "ar.h"

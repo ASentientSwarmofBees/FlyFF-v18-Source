@@ -1,4 +1,4 @@
-#ifndef __WNDCOMMITEM__H
+ï»¿#ifndef __WNDCOMMITEM__H
 #define __WNDCOMMITEM__H
 
 class C2DRender;
@@ -28,7 +28,7 @@ public:
 
 
 	void	SetScrollBar();
-	int		GetMaxBuff();			// Ãâ·ÂÇØ¾ßÇÒ MAX°ª¾ò¾î¿À±â
+	int		GetMaxBuff();			// ì¶œë ¥í•´ì•¼í•  MAXê°’ì–»ì–´ì˜¤ê¸°
 	void	DrawSM( C2DRender* p2DRender, CPoint* pPoint, int x, int &nScroll );
 	void	DrawSkill( C2DRender* p2DRender, CPoint* pPoint, int x, int &nScroll );
 

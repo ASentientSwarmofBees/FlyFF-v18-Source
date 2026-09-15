@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "resData.h"
 #include "WndBlessingCancel.h"
 #include "DPClient.h"
@@ -10,7 +10,7 @@
 extern CDPClient g_DPlay;
 
 /****************************************************
-  WndId : APP_CALCEL_BLESSING - ¾ÆÀÌÅÛ °¢¼º
+  WndId : APP_CALCEL_BLESSING - ì•„ì´í…œ ê°ì„±
   CtrlId : WIDC_CHANGE - 
   CtrlId : WIDC_DESC - 
   CtrlId : WIDC_START - 
@@ -40,7 +40,7 @@ void CWndBlessingCancel::OnDraw( C2DRender* p2DRender )
 void CWndBlessingCancel::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndButton* pButton = (CWndButton*)GetDlgItem(WIDC_START);
 
 	if(::GetLanguage() == LANG_FRE)
@@ -51,21 +51,21 @@ void CWndBlessingCancel::OnInitialUpdate()
 
 	SetDescription();
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndBlessingCancel::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CANCEL_BLESSING, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndBlessingCancel::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -102,14 +102,14 @@ BOOL CWndBlessingCancel::OnChildNotify( UINT message, UINT nID, LRESULT* pLResul
 
 	if( nID == WIDC_START )
 	{
-		//¼­¹ö·Î ½ÃÀÛÀ» ¾Ë¸°´Ù.
+		//ì„œë²„ë¡œ ì‹œìž‘ì„ ì•Œë¦°ë‹¤.
 		if(m_pItemElem != NULL)
 		{
 			CWndButton* pButton;
 			pButton = (CWndButton*)GetDlgItem( WIDC_START );
 			pButton->EnableWindow(FALSE);
 
-			// ¼­¹ö¿¡ Ã³¸® ¿äÃ»ÇÏ´Â ÇÔ¼ö È£ÃâÇØ¾ßÇÔ
+			// ì„œë²„ì— ì²˜ë¦¬ ìš”ì²­í•˜ëŠ” í•¨ìˆ˜ í˜¸ì¶œí•´ì•¼í•¨
 			if(m_pItemElem)
 			{
 				g_DPlay.SendBlessednessCancel(m_pItemElem->m_dwObjId);
@@ -149,7 +149,7 @@ BOOL  CWndBlessingCancel::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
     if( g_xRandomOptionProperty->GetRandomOptionKind( pTempElem ) == CRandomOptionProperty::eBlessing
 		&& g_xRandomOptionProperty->GetRandomOptionSize( pTempElem->GetRandomOptItemId() ))
 	{
-		// ÇÏ¶ô »óÅÂ°¡ µÈ ¾ÆÀÌÅÛ¸¸ ¿Ã¸± ¼ö ÀÖ´Ù. 
+		// í•˜ë½ ìƒíƒœê°€ ëœ ì•„ì´í…œë§Œ ì˜¬ë¦´ ìˆ˜ ìžˆë‹¤. 
 		if(pTempElem != NULL)
 		{
 			if(m_pItemElem) m_pItemElem->SetExtra(0);

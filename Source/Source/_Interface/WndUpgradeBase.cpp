@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineitem.h"
 #include "defineText.h"
 #include "AppDefine.h"
@@ -155,7 +155,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 
 	CWndBase* pWndFrame =  pShortcut->m_pFromWnd->GetFrameWnd();
 
-	// ¾ÆÀÌÅÛÀÌ ÀÎº¥Åä¸®¿¡¼­ ¿Ô´Â°¡?
+	// ì•„ì´í…œì´ ì¸ë²¤í† ë¦¬ì—ì„œ ì™”ëŠ”ê°€?
 	if( pShortcut->m_dwShortcut == SHORTCUT_ITEM && pWndFrame->GetWndId() == APP_INVENTORY )
 	{
 		if( g_pPlayer->m_Inventory.IsEquip( pShortcut->m_dwId ) )
@@ -173,7 +173,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		if(pItemElem == NULL)
 			return FALSE;
 		
-		// ¾ÆÀÌÅÛ( ¹æ¾î±¸, ¹«±â±¸ )
+		// ì•„ì´í…œ( ë°©ì–´êµ¬, ë¬´ê¸°êµ¬ )
 		if( PtInRect(&m_Rect[0], point) )
 		{
 			if( m_pItemElem[0] )
@@ -185,13 +185,13 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 //				return FALSE;
 //			}
 			
-			if( pItemElem->m_nResistSMItemId != 0 ) // »ó¿ëÈ­ ¾ÆÀÌÅÛ Àû¿ëÁßÀÌ¸é ºÒ°¡´É
+			if( pItemElem->m_nResistSMItemId != 0 ) // ìƒìš©í™” ì•„ì´í…œ ì ìš©ì¤‘ì´ë©´ ë¶ˆê°€ëŠ¥
 			{
 				g_WndMng.OpenMessageBox( prj.GetText(TID_GAME_NOTUPGRADE), MB_OK, this );
 				return FALSE;
 			}
 		
-			// ¹æ¾î±¸³ª ¹«±â·ù°¡ ¾Æ´Ï¸é Á¦·ÃºÒ°¡´É
+			// ë°©ì–´êµ¬ë‚˜ ë¬´ê¸°ë¥˜ê°€ ì•„ë‹ˆë©´ ì œë ¨ë¶ˆê°€ëŠ¥
 			if( pItemElem->GetProp()->dwItemKind2 == IK2_ARMOR ||
 				pItemElem->GetProp()->dwItemKind2 == IK2_WEAPON_MAGIC ||
 				pItemElem->GetProp()->dwItemKind2 == IK2_WEAPON_DIRECT ||
@@ -202,20 +202,20 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			}
 		}
 		else
-		// ¾ÆÀÌÅÛ( Ä«µå, ÁÖ»çÀ§ )
+		// ì•„ì´í…œ( ì¹´ë“œ, ì£¼ì‚¬ìœ„ )
 		if( PtInRect(&m_Rect[1], point) )
 		{
 			if( m_pItemElem[1] )
 				return FALSE;
 
-			// Àç·ÃÇÒ ¾ÆÀÌÅÛÀÌ ¾ø´Â°æ¿ì ¸®ÅÏ
+			// ì¬ë ¨í•  ì•„ì´í…œì´ ì—†ëŠ”ê²½ìš° ë¦¬í„´
 			if( m_pItemElem[0] == NULL )
 			{
 				g_WndMng.OpenMessageBox( prj.GetText(TID_UPGRADE_ERROR_ITEMFIRST), MB_OK, this );
 				return FALSE;
 			}
 			
-			// Ä«µå, ÁÖ»çÀ§ ¾ÆÀÌÅÛÀÌ ¾Æ´Ï¸é ¸®ÅÏ
+			// ì¹´ë“œ, ì£¼ì‚¬ìœ„ ì•„ì´í…œì´ ì•„ë‹ˆë©´ ë¦¬í„´
 		#if __VER >= 8 //__Y_NEW_ENCHANT
 			if( pItemElem->GetProp()->dwItemKind3 != IK3_ELECARD && pItemElem->GetProp()->dwItemKind3 != IK3_ENCHANT )
 		#else //__Y_NEW_ENCHANT			
@@ -236,7 +236,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			}
 				
 	
-			// Ä«µåÀÌ°í, Á¦·ÃÇÒ ¾ÆÀÌÅÛÀÇ ¼Ó¼ºÀÌ Ä«µåÀÇ ¼Ó¼º°ú ´Ù¸¦°æ¿ì ¸®ÅÏ
+			// ì¹´ë“œì´ê³ , ì œë ¨í•  ì•„ì´í…œì˜ ì†ì„±ì´ ì¹´ë“œì˜ ì†ì„±ê³¼ ë‹¤ë¥¼ê²½ìš° ë¦¬í„´
 			if( pItemElem->GetProp()->dwItemKind3 == IK3_ELECARD && m_pItemElem[0]->m_bItemResist != SAI79::NO_PROP && m_pItemElem[0]->m_bItemResist != pItemElem->GetProp()->eItemType )
 			{
 				g_WndMng.OpenMessageBox( prj.GetText(TID_UPGRADE_ERROR_TWOELEMENT), MB_OK, this );
@@ -255,7 +255,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		#endif //__Y_NEW_ENCHANT
 			{
 				//*
-				// ¼Ó¼º·¹º§ÀÌ 10 ÀÌ»óÀÌ¸é Á¦·Ã ºÒ°¡´É
+				// ì†ì„±ë ˆë²¨ì´ 10 ì´ìƒì´ë©´ ì œë ¨ ë¶ˆê°€ëŠ¥
 				if( m_pItemElem[0]->GetAbilityOption() >= 10 )
 				{
 					CString str;
@@ -276,7 +276,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 				return FALSE;
 			}
 
-			// Á¦·Ã½Ã ÇÊ¿ä º¸Á¶¼® ¼³Á¤(Ä«µåÀÎ°æ¿ì¿Í ÁÖ»çÀ§ÀÎ°æ¿ì)
+			// ì œë ¨ì‹œ í•„ìš” ë³´ì¡°ì„ ì„¤ì •(ì¹´ë“œì¸ê²½ìš°ì™€ ì£¼ì‚¬ìœ„ì¸ê²½ìš°)
 			m_dwReqItem[0] = 0;
 			m_dwReqItem[1] = 0;
 			
@@ -316,7 +316,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			pItemElem->SetExtra( 1 );
 			m_pItemElem[1]	= pItemElem;
 			
-			//ÇÊ¿äÇÑ º¸Á¶¼® °¹¼ö Ç¥½Ã
+			//í•„ìš”í•œ ë³´ì¡°ì„ ê°¯ìˆ˜ í‘œì‹œ
 			CString str;
 			CWndStatic* pWndStatic;
 			pWndStatic = (CWndStatic*)GetDlgItem(WIDC_STATIC6);
@@ -327,7 +327,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			str.Format( prj.GetText(TID_UPGRADE_SUPPORTM), nNeedRes[0][*pAbilityOption] );
 			pWndStatic->SetTitle(str);
 
-			//ÇÊ¿äÇÑ º¸Á¶¼® ÀÌ¸§ Ç¥½Ã
+			//í•„ìš”í•œ ë³´ì¡°ì„ ì´ë¦„ í‘œì‹œ
 			pWndStatic = (CWndStatic*)GetDlgItem(WIDC_STATIC10);
 			str.Format( "%s", prj.GetItemProp(m_dwReqItem[0])->szName );
 			pWndStatic->SetTitle(str);
@@ -338,7 +338,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			
 
 
-			// ÇÊ¿ä ±İ¾× ¼³Á¤
+			// í•„ìš” ê¸ˆì•¡ ì„¤ì •
 			pWndStatic = (CWndStatic*)GetDlgItem(WIDC_STATIC5);
 			str.Format( prj.GetText(TID_UPGRADE_COST), nNeedRes[2][*pAbilityOption] );
 			pWndStatic->SetTitle(str);
@@ -348,7 +348,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 
 			m_nMaxCount = nNeedRes[0][*pAbilityOption];
 			
-			// ¼º°øÈ®·ü Ç¥½Ã
+			// ì„±ê³µí™•ë¥  í‘œì‹œ
 			/*
 			float fResult = fSucessPersent[m_pItemElem[1]->GetProp()->dwItemLV-1][m_pItemElem[0]->m_nAbilityOption];
 			pWndStatic = (CWndStatic*)GetDlgItem(WIDC_STATIC7);
@@ -357,7 +357,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 			*/
 		}
 		else
-		// º¸Á¶¼®
+		// ë³´ì¡°ì„
 		if( PtInRect(&m_Rect[2], point) )
 		{
 			if( m_pItemElem[1] == NULL )
@@ -371,7 +371,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 				if( m_dwReqItem[0] != pItemElem->m_dwItemId )
 				{
 					g_WndMng.OpenMessageBox( prj.GetText(TID_UPGRADE_ERROR_WRONGSUPITEM), MB_OK, this );
-					//g_WndMng.OpenMessageBox( "ÇÊ¿äÇÑ º¸Á¶¼®ÀÌ ¾Æ´Õ´Ï´Ù.", MB_OK, this );
+					//g_WndMng.OpenMessageBox( "í•„ìš”í•œ ë³´ì¡°ì„ì´ ì•„ë‹™ë‹ˆë‹¤.", MB_OK, this );
 					return FALSE;
 				}
 
@@ -412,7 +412,7 @@ BOOL CWndUpgradeBase::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 				if( m_dwReqItem[0] != pItemElem->m_dwItemId )
 				{
 					g_WndMng.OpenMessageBox( prj.GetText(TID_UPGRADE_ERROR_WRONGSUPITEM), MB_OK, this );
-					//g_WndMng.OpenMessageBox( "ÇÊ¿äÇÑ º¸Á¶¼®ÀÌ ¾Æ´Õ´Ï´Ù.", MB_OK, this );
+					//g_WndMng.OpenMessageBox( "í•„ìš”í•œ ë³´ì¡°ì„ì´ ì•„ë‹™ë‹ˆë‹¤.", MB_OK, this );
 					return FALSE;
 				}
 

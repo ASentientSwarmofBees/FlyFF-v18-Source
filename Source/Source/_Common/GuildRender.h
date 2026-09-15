@@ -1,26 +1,26 @@
-#ifndef __GUILDRENDER_H__
+ï»¿#ifndef __GUILDRENDER_H__
 #define __GUILDRENDER_H__
 
-#define MAX_GUILD_TEXTURE	256			// °¡´ÉÇÑ ÃÑ±æµå¼ö(256Àº °¡´ÉÇÑ ÃÖ´ë±æµå¼ö·Î ´ëÃ¼ÇÏÀÚ)
+#define MAX_GUILD_TEXTURE	256			// ê°€ëŠ¥í•œ ì´ê¸¸ë“œìˆ˜(256ì€ ê°€ëŠ¥í•œ ìµœëŒ€ê¸¸ë“œìˆ˜ë¡œ ëŒ€ì²´í•˜ìž)
 
-// 64k°¡ ³ÑÁö ¾Êµµ·Ï ÇÏÀÚ.
+// 64kê°€ ë„˜ì§€ ì•Šë„ë¡ í•˜ìž.
 struct GUILD_TEXTURE
 {
-	DWORD	idGuild;						// ±æµå ¾ÆÀÌµð
-	LPDIRECT3DTEXTURE9	lpCloakTexture;		// ¸ÁÅä ÅØ½ºÃÄ
-	//LPDIRECT3DTEXTURE9	lpIconTexture;	// ICON ÅØ½ºÃÄ
-	DWORD	tmLoad;							// ¸Þ¸ð¸®¿¡ ·ÎµùÇÑ ½Ã°£. ½Ã°£ÀÌ Áö³ª¸é »èÁ¦µÊ.
+	DWORD	idGuild;						// ê¸¸ë“œ ì•„ì´ë””
+	LPDIRECT3DTEXTURE9	lpCloakTexture;		// ë§í†  í…ìŠ¤ì³
+	//LPDIRECT3DTEXTURE9	lpIconTexture;	// ICON í…ìŠ¤ì³
+	DWORD	tmLoad;							// ë©”ëª¨ë¦¬ì— ë¡œë”©í•œ ì‹œê°„. ì‹œê°„ì´ ì§€ë‚˜ë©´ ì‚­ì œë¨.
 };
 
 class CGuildTexture
 {
 	int m_nMax;
-	GUILD_TEXTURE	m_Texture[ MAX_GUILD_TEXTURE ];		// ÅØ½ºÃÄ ¸Þ¸ð¸® Ç®.  ÆÛÆ÷¸Õ½º ¶³¾îÁö¸é ¸®½ºÆ® ±¸Á¶·Î ¹Ù²ÙÀÚ.
+	GUILD_TEXTURE	m_Texture[ MAX_GUILD_TEXTURE ];		// í…ìŠ¤ì³ ë©”ëª¨ë¦¬ í’€.  í¼í¬ë¨¼ìŠ¤ ë–¨ì–´ì§€ë©´ ë¦¬ìŠ¤íŠ¸ êµ¬ì¡°ë¡œ ë°”ê¾¸ìž.
 public:
 	CGuildTexture();
 	~CGuildTexture();
 	
-	// ±æµå¹øÈ£¸¦ ¹Þ¾Æ¼­ CT+±æµå¹øÈ£.JPGÆÄÀÏÀ» ·ÎµùÇÑ´Ù. ·ÎµùÇÑ ÅØ½ºÃ³Æ÷ÀÎÅÍ¸¦ ¸®ÅÏ.
+	// ê¸¸ë“œë²ˆí˜¸ë¥¼ ë°›ì•„ì„œ CT+ê¸¸ë“œë²ˆí˜¸.JPGíŒŒì¼ì„ ë¡œë”©í•œë‹¤. ë¡œë”©í•œ í…ìŠ¤ì²˜í¬ì¸í„°ë¥¼ ë¦¬í„´.
 	LPDIRECT3DTEXTURE9	LoadGuildTexture( DWORD idGuild );		
 };
 

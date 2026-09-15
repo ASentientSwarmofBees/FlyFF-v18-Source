@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #if __VER >= 12 // __EXT_PIERCING
 
 #if __VER >= 13 // __EXT_ENCHANT
@@ -97,7 +97,7 @@ public:
 	void	EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemElem* pItemMaterial );
 	int		GetAttributeEnchantProb( int nAbilityOption );
 	
-	DWORD	WhatEleCard( DWORD dwItemType );	// °ð »èÁ¦
+	DWORD	WhatEleCard( DWORD dwItemType );	// ê³§ ì‚­ì œ
 
 	map<int, int>	m_mapGeneralEnchant;
 	map<int, __ATTRIBUTE_ENCHANT> m_mapAttributeEnchant;

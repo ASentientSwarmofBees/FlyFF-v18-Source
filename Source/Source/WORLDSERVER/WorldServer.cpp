@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 #include "Resource.h"
 #include "GlobalTime.h"
 #include "DPSrvr.h"
@@ -173,7 +173,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 
 
-	//_CrtSetBreakAlloc( 628278 );	// memory leak Å½Áö
+	//_CrtSetBreakAlloc( 628278 );	// memory leak íƒì§€
 	// Initialize global strings
 	LoadString(hInstance, IDS_APP_TITLE, g_szTitle, MAX_LOADSTRING);
 	LoadString(hInstance, IDC_WORLDSERVER, g_szWindowClass, MAX_LOADSTRING);
@@ -336,7 +336,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
    return 0;
 }
 
-// float point ¿¡·¯°¡ exceptionÀ» ³»°Ô ÇÑ´Ù.
+// float point ì—ëŸ¬ê°€ exceptionì„ ë‚´ê²Œ í•œë‹¤.
 void EnableFloatException()
 {
 	int cw = _controlfp( 0, 0 );
@@ -390,7 +390,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	if( InitializeScriptLib() == FALSE )
 		return FALSE;
 
-	xSRand( timeGetTime()  );	// ¼Óµµ¸¦ ¿äÇÏ´Â ·£´ıÀº xRandom()À» ¾²µµ·Ï...
+	xSRand( timeGetTime()  );	// ì†ë„ë¥¼ ìš”í•˜ëŠ” ëœë¤ì€ xRandom()ì„ ì“°ë„ë¡...
 
 	if( Script( g_szINI ) == TRUE )
 	{
@@ -580,7 +580,7 @@ BOOL Script( LPCSTR lpszFileName )
 		}
 		else if( s.Token == "18" )
 		{
-			g_eLocal.SetState( EVE_18, 1 );		// 18¼¼ ¼­¹ö 
+			g_eLocal.SetState( EVE_18, 1 );		// 18ì„¸ ì„œë²„ 
 		}
 		else if( s.Token == "PK" )
 		{

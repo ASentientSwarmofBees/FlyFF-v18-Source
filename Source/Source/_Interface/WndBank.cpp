@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "AppDefine.h"
 #include "WndBank.h"
@@ -74,7 +74,7 @@ void CWndBank::OnInitialUpdate()
 	WTCITEM tabTabItem;
 	
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_GAME_ITEM);//"¾ÆÀÌÅÛ";
+	tabTabItem.pszText = prj.GetText(TID_GAME_ITEM);//"ì•„ì´í…œ";
 	tabTabItem.pWndBase = &m_wndItemCtrl[0];
 	pTabCtrl->InsertItem( 0, &tabTabItem );
 
@@ -149,10 +149,10 @@ void CWndBank::ReSetBank( )
 	}	
 }
 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndBank::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	if( g_pPlayer == NULL )
 		return FALSE;
 #if __VER >= 12 // __MOD_TUTORIAL
@@ -182,7 +182,7 @@ void CWndBank::OnLButtonDown( UINT nFlags, CPoint point )
 } 
 BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
 {
-	// ÀÎº¥Åä¸®¿¡¼­ Bank·Î ¾ÆÀÌÅÛÀÌ DropµÇ¾ú´Ù. ¾îµğ¼­ ¿Ô´ÂÁö È®ÀÎÇÑÈÄ ÀûÀıÈ÷ ´ëÀÀÇÏ¶ó.
+	// ì¸ë²¤í† ë¦¬ì—ì„œ Bankë¡œ ì•„ì´í…œì´ Dropë˜ì—ˆë‹¤. ì–´ë””ì„œ ì™”ëŠ”ì§€ í™•ì¸í•œí›„ ì ì ˆíˆ ëŒ€ì‘í•˜ë¼.
 	if( message == WIN_ITEMDROP )
 	{
 		LPSHORTCUT lpShortcut = (LPSHORTCUT)pLResult;
@@ -215,7 +215,7 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					UINT SelectCount = pWndItemCtrl->GetSelectedCount();
 					if( SelectCount != 1)
 					{
-						//g_WndMng.PutString( "ÀåÂø µÇ¾î ÀÖ´Â°ÍÀº ³ÖÀ»¼ö ¾ø½À´Ï´Ù", NULL, 0xffffff00 );
+						//g_WndMng.PutString( "ì¥ì°© ë˜ì–´ ìˆëŠ”ê²ƒì€ ë„£ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤", NULL, 0xffffff00 );
 						g_WndMng.PutString( prj.GetText(TID_GAME_EQUIPPUT), NULL, prj.GetTextColor( TID_GAME_EQUIPPUT ) );
 						
 					}
@@ -240,8 +240,8 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 							g_WndMng.m_pWndTradeGold->MoveParentCenter();
 							CWndStatic* pStatic	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_STATIC );
 							CWndStatic* pStaticCount	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_CONTROL1 );
-							CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"¸î°³¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
-							CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " °¹¼ö : ";
+							CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"ëª‡ê°œë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
+							CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " ê°¯ìˆ˜ : ";
 							pStatic->m_strTitle = strMain;
 							pStaticCount->m_strTitle = strCount;
 						}
@@ -254,7 +254,7 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 				else
 				{
-					// Æä³Ä (µ·)
+					// í˜ëƒ (ëˆ)
 					g_WndMng.m_pWndTradeGold = new CWndTradeGold;
 					memcpy( &g_WndMng.m_pWndTradeGold->m_Shortcut, pLResult, sizeof(SHORTCUT) );
 					g_WndMng.m_pWndTradeGold->m_dwGold = g_pPlayer->GetGold();
@@ -266,9 +266,9 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					g_WndMng.m_pWndTradeGold->MoveParentCenter();
 					CWndStatic* pStatic	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_STATIC );
 					CWndStatic* pStaticCount	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_CONTROL1 );
-					//CString strMain = "¾ó¸¶¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
+					//CString strMain = "ì–¼ë§ˆë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
 					//CString strCount = " SEED : ";
-					CString strMain = prj.GetText(TID_GAME_MOVEPENYA);//"¾ó¸¶¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
+					CString strMain = prj.GetText(TID_GAME_MOVEPENYA);//"ì–¼ë§ˆë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
 					CString strCount = prj.GetText(TID_GAME_PENYACOUNT );// " pennya : ";
 					pStatic->m_strTitle = strMain;
 					pStaticCount->m_strTitle = strCount;
@@ -298,7 +298,7 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					UINT SelectCount = pWndItemCtrl->GetSelectedCount();
 					if( SelectCount != 1)
 					{
-						//g_WndMng.PutString( "ÀåÂø µÇ¾î ÀÖ´Â°ÍÀº ³ÖÀ»¼ö ¾ø½À´Ï´Ù", NULL, 0xffffff00 );
+						//g_WndMng.PutString( "ì¥ì°© ë˜ì–´ ìˆëŠ”ê²ƒì€ ë„£ì„ìˆ˜ ì—†ìŠµë‹ˆë‹¤", NULL, 0xffffff00 );
 						g_WndMng.PutString( prj.GetText(TID_GAME_EQUIPPUT), NULL, prj.GetTextColor( TID_GAME_EQUIPPUT ) );
 						
 					}
@@ -324,8 +324,8 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 							g_WndMng.m_pWndTradeGold->MoveParentCenter();
 							CWndStatic* pStatic	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_STATIC );
 							CWndStatic* pStaticCount	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_CONTROL1 );
-							CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"¸î°³¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
-							CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " °¹¼ö : ";
+							CString strMain = prj.GetText(TID_GAME_MOVECOUNT);//"ëª‡ê°œë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
+							CString strCount = prj.GetText(TID_GAME_NUMCOUNT);// " ê°¯ìˆ˜ : ";
 							pStatic->m_strTitle = strMain;
 							pStaticCount->m_strTitle = strCount;
 						}
@@ -366,7 +366,7 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 						nPutSolt = 2;
 					}
 					
-					// Æä³Ä (µ·)
+					// í˜ëƒ (ëˆ)
 					g_WndMng.m_pWndTradeGold = new CWndTradeGold;
 					memcpy( &g_WndMng.m_pWndTradeGold->m_Shortcut, pLResult, sizeof(SHORTCUT) );
 					g_WndMng.m_pWndTradeGold->m_dwGold = g_pPlayer->m_dwGoldBank[nPutSolt];
@@ -379,9 +379,9 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					g_WndMng.m_pWndTradeGold->MoveParentCenter();
 					CWndStatic* pStatic	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_STATIC );
 					CWndStatic* pStaticCount	= (CWndStatic *)g_WndMng.m_pWndTradeGold->GetDlgItem( WIDC_CONTROL1 );
-					//CString strMain = "¾ó¸¶¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
+					//CString strMain = "ì–¼ë§ˆë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
 					//CString strCount = " SEED : ";
-					CString strMain = prj.GetText(TID_GAME_MOVEPENYA);//"¾ó¸¶¸¦ ÀÌµ¿ÇÏ½Ã°Ú½À´Ï±î?";
+					CString strMain = prj.GetText(TID_GAME_MOVEPENYA);//"ì–¼ë§ˆë¥¼ ì´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ?";
 					CString strCount = prj.GetText(TID_GAME_PENYACOUNT );// " pennya : ";
 					pStatic->m_strTitle = strMain;
 					pStaticCount->m_strTitle = strCount;
@@ -398,7 +398,7 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				break;
 			case WTBID_REPORT:
 				break;
-			case WTBID_CLOSE: // Á¾·á
+			case WTBID_CLOSE: // ì¢…ë£Œ
 				{
 //					g_DPlay.SendCloseBankWnd();
 				}
@@ -409,7 +409,7 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 } 
 
 //---------------------------------------------------------------------------------------------------------------------------
-// ÆĞ½º¿öµå È®ÀÎÃ¢
+// íŒ¨ìŠ¤ì›Œë“œ í™•ì¸ì°½
 //---------------------------------------------------------------------------------------------------------------------------
 CWndConfirmBank::CWndConfirmBank() 
 { 
@@ -425,7 +425,7 @@ void CWndConfirmBank::OnDraw( C2DRender* p2DRender )
 void CWndConfirmBank::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	
 	CWndEdit *m_pPass   = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	if( m_pPass )
@@ -433,21 +433,21 @@ void CWndConfirmBank::OnInitialUpdate()
 		m_pPass->AddWndStyle( EBS_PASSWORD );
 		m_pPass->SetFocus();
 	}
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndConfirmBank::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CONFIRM_BANK, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndConfirmBank::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -477,7 +477,7 @@ BOOL CWndConfirmBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		CWndEdit *m_pPass   = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 		if( m_pPass )
 		{
-			// ¿©±â¼­ °ø¹éÀÌ ÀÖ´ÂÁö È¤Àº ¼ıÀÚÀÌ¿ÜÀÇ °ÍÀÌ ¿À´ÂÁö È®ÀÎ
+			// ì—¬ê¸°ì„œ ê³µë°±ì´ ìˆëŠ”ì§€ í˜¹ì€ ìˆ«ìì´ì™¸ì˜ ê²ƒì´ ì˜¤ëŠ”ì§€ í™•ì¸
 			char szPass[10] ={0,};
 			strncpy( szPass, m_pPass->GetString(), 10 );
 			if( strlen( szPass ) == 4 )
@@ -499,14 +499,14 @@ BOOL CWndConfirmBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				{
 					m_pPass->SetString( "" );
 					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0025) ) );
-//					g_WndMng.OpenMessageBox( "¼ıÀÚ 4ÀÚ¸®·Î¸¸ ³Ö¾î¾ß ÇÕ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" );
+//					g_WndMng.OpenMessageBox( "ìˆ«ì 4ìë¦¬ë¡œë§Œ ë„£ì–´ì•¼ í•©ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”" );
 				}
 			}
 			else
 			{
 				m_pPass->SetString( "" );
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0025) ) );
-//				g_WndMng.OpenMessageBox( "¼ıÀÚ 4ÀÚ¸®·Î¸¸ ³Ö¾î¾ß ÇÕ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" );
+//				g_WndMng.OpenMessageBox( "ìˆ«ì 4ìë¦¬ë¡œë§Œ ë„£ì–´ì•¼ í•©ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”" );
 			}
 		}
 	}
@@ -528,7 +528,7 @@ BOOL CWndConfirmBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 
 //---------------------------------------------------------------------------------------------------------------------------
-// ÆĞ½º¿öµå º¯°æÃ¢
+// íŒ¨ìŠ¤ì›Œë“œ ë³€ê²½ì°½
 //---------------------------------------------------------------------------------------------------------------------------
 CWndBankPassword::CWndBankPassword() 
 { 
@@ -549,7 +549,7 @@ void CWndBankPassword::SetBankPassword( int nFlags )
 void CWndBankPassword::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndEdit *m_pLastPass   = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
 	CWndEdit *m_pNewPass = (CWndEdit*)GetDlgItem( WIDC_EDIT2 );
 	CWndEdit *m_pConfirmPass = (CWndEdit*)GetDlgItem( WIDC_EDIT3 );
@@ -571,21 +571,21 @@ void CWndBankPassword::OnInitialUpdate()
 		}
 	}
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºĞ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndBankPassword::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_BANK_PASSWORD, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndBankPassword::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -617,7 +617,7 @@ BOOL CWndBankPassword::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 		CWndEdit *m_pConfirmPass = (CWndEdit*)GetDlgItem( WIDC_EDIT3 );
 		if( m_pLastPass && m_pNewPass && m_pConfirmPass )
 		{
-			// ¿©±â¼­ °ø¹éÀÌ ÀÖ´ÂÁö È¤Àº ¼ıÀÚÀÌ¿ÜÀÇ °ÍÀÌ ¿À´ÂÁö È®ÀÎ
+			// ì—¬ê¸°ì„œ ê³µë°±ì´ ìˆëŠ”ì§€ í˜¹ì€ ìˆ«ìì´ì™¸ì˜ ê²ƒì´ ì˜¤ëŠ”ì§€ í™•ì¸
 			char szLastPass[10] ={0,};
 			char szNewPass[10] ={0,};
 			char szConfirmPass[10] ={0,};
@@ -658,7 +658,7 @@ BOOL CWndBankPassword::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 						m_pNewPass->SetString( "" );
 						m_pConfirmPass->SetString( "" );
 						g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0025) ) );
-//						g_WndMng.OpenMessageBox( "¼ıÀÚ 4ÀÚ¸®·Î¸¸ ³Ö¾î¾ß ÇÕ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" );
+//						g_WndMng.OpenMessageBox( "ìˆ«ì 4ìë¦¬ë¡œë§Œ ë„£ì–´ì•¼ í•©ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”" );
 					}					
 				}
 				else
@@ -666,7 +666,7 @@ BOOL CWndBankPassword::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 					m_pNewPass->SetString( "" );
 					m_pConfirmPass->SetString( "" );
 					g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0022) ) );
-//					g_WndMng.OpenMessageBox( "»õ¾ÏÈ£¿Í ¾ÏÈ£È®ÀÎÀÌ ´Ù¸§´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" );					
+//					g_WndMng.OpenMessageBox( "ìƒˆì•”í˜¸ì™€ ì•”í˜¸í™•ì¸ì´ ë‹¤ë¦„ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”" );					
 				}
 			}
 			else
@@ -682,7 +682,7 @@ BOOL CWndBankPassword::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 				m_pNewPass->SetString( "" );
 				m_pConfirmPass->SetString( "" );
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0025) ) );
-//				g_WndMng.OpenMessageBox( "¼ıÀÚ 4ÀÚ¸®·Î¸¸ ³Ö¾î¾ß ÇÕ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" );
+//				g_WndMng.OpenMessageBox( "ìˆ«ì 4ìë¦¬ë¡œë§Œ ë„£ì–´ì•¼ í•©ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”" );
 			}
 		}
 	}

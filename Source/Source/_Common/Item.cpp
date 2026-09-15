@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Item.h"
 #include "defineObj.h"
 #include "CreateObj.h"
@@ -23,7 +23,7 @@ BOOL IsUsableItem( CItemBase* pItem )
 	if( pItem->GetExtra() == 0 )
 		return TRUE;
 	else
-		return FALSE;	// °Å·¡ÁßÀÌ°Å³ª °³ÀÎ »óÁ¡¿¡ ¿Ã¸° ¾ÆÀÌÅÛÀº »ç¿ëÇÒ ¼ö ¾ø´Ù.
+		return FALSE;	// ê±°ë˜ì¤‘ì´ê±°ë‚˜ ê°œì¸ ìƒì ì— ì˜¬ë¦° ì•„ì´í…œì€ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤.
 }
 
 BOOL IsUsingItem( CItemBase* pItem )
@@ -118,8 +118,8 @@ void CItemBase::SetTexture()
 }
 
 //
-// ¾ÆÀÌÅÛ °¡°İÀ» °è»êÇØ¼­ ¸®ÅÏÇÑ´Ù.
-// -1À» ¸®ÅÏÇÏ¸é Ã³¸®ÇØ¼± ¾ÈµÈ´Ù.
+// ì•„ì´í…œ ê°€ê²©ì„ ê³„ì‚°í•´ì„œ ë¦¬í„´í•œë‹¤.
+// -1ì„ ë¦¬í„´í•˜ë©´ ì²˜ë¦¬í•´ì„  ì•ˆëœë‹¤.
 //
 int	CItemBase::GetCost( void )
 {
@@ -134,7 +134,7 @@ int	CItemBase::GetCost( void )
 	int nCost;
 	if( pItemElem->GetAbilityOption() )
 	{		
-		//INT((¾ÆÀÌÅÛ°¡°İ+¾ÆÀÌÅÛ°¡°İ*(0.1+(¾ÆÀÌÅÛ°­È­·¹º§*¾ÆÀÌÅÛ°­È­·¹º§)/18))
+		//INT((ì•„ì´í…œê°€ê²©+ì•„ì´í…œê°€ê²©*(0.1+(ì•„ì´í…œê°•í™”ë ˆë²¨*ì•„ì´í…œê°•í™”ë ˆë²¨)/18))
 		nCost = (int)( pProp->dwCost + pProp->dwCost * ( 0.1f + ( pItemElem->GetAbilityOption() * pItemElem->GetAbilityOption() ) / 18.0f ) );
 	}
 	else
@@ -158,7 +158,7 @@ DWORD CItemBase::GetChipCost()
 }
 #endif // __GUILDCOMBATCHIP
 
-// Äù½ºÆ® ¾ÆÀÌÅÛÀÎ°¡?
+// í€˜ìŠ¤íŠ¸ ì•„ì´í…œì¸ê°€?
 BOOL CItemBase::IsQuest()
 {
 	ItemProp* p = GetProp();
@@ -166,7 +166,7 @@ BOOL CItemBase::IsQuest()
 	{
 		if( ::GetLanguage() == LANG_JAP )
 		{
-			if( p->dwID == II_SYS_SYS_QUE_REDSOCKS )	// ¿¹¿Ü 
+			if( p->dwID == II_SYS_SYS_QUE_REDSOCKS )	// ì˜ˆì™¸ 
 				return FALSE;
 		}
 
@@ -177,13 +177,13 @@ BOOL CItemBase::IsQuest()
 }
 
 //////////////////////////////////////////////////////////////////////
-// CItemElem - ¾ÆÀÌÅÛ ÇÏ³ªÇÏ³ªÀÇ ¿ä¼Ò¸¦ ¸»ÇÑ´Ù.
+// CItemElem - ì•„ì´í…œ í•˜ë‚˜í•˜ë‚˜ì˜ ìš”ì†Œë¥¼ ë§í•œë‹¤.
 //////////////////////////////////////////////////////////////////////
 /*
 	1 ~ 99    
-	100 ~ À¯Àú ÁöÁ¤ ·Î°í
+	100 ~ ìœ ì € ì§€ì • ë¡œê³ 
 
-	¾ÆÀÌÅÛ¿¡ ·Î°í ¹øÈ£.
+	ì•„ì´í…œì— ë¡œê³  ë²ˆí˜¸.
 
 */
 
@@ -218,9 +218,9 @@ CItemElem::CItemElem()
 #endif	// __SYS_IDENTIFY
 
 
-	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 	m_n64NewRandomOption	= 0;
-	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 
 /*
@@ -263,11 +263,11 @@ void	CItemElem::Empty( void )
 	m_piercing.Clear();
 }
 
-// µ·ÀÇ ¾çÀ» ¾ò´Â´Ù. 
+// ëˆì˜ ì–‘ì„ ì–»ëŠ”ë‹¤. 
 int	CItemElem::GetGold()
 {
 	ASSERT( GetProp()->dwItemKind1 == IK1_GOLD );
-	return m_nHitPoint;		// intÇüÀ¸·Î µ·À» ¹ö¸®°Ô ÇÏ±â À§ÇØ¼­ ÀÌ º¯¼ö¸¦ »ç¿ë 
+	return m_nHitPoint;		// intí˜•ìœ¼ë¡œ ëˆì„ ë²„ë¦¬ê²Œ í•˜ê¸° ìœ„í•´ì„œ ì´ ë³€ìˆ˜ë¥¼ ì‚¬ìš© 
 }
 
 void CItemElem::UseItem()
@@ -301,9 +301,9 @@ CItemElem& CItemElem::operator =( CItemElem & ie )
 	m_nRandomOptItemId     = ie.m_nRandomOptItemId;
 #endif	// __SYS_IDENTIFY
 
-	//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 	m_n64NewRandomOption	= ie.GetNewRandomOption();
-	//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+	//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 #if __VER >= 9	// __PET_0410
 	SAFE_DELETE( m_pPet );
@@ -320,7 +320,7 @@ CItemElem& CItemElem::operator =( CItemElem & ie )
 	return *this;
 }
 
-// À¯·á¾ÆÀÌÅÛÀÎ°¡?
+// ìœ ë£Œì•„ì´í…œì¸ê°€?
 BOOL CItemElem::IsCharged()
 {
 	if( m_bCharged == 1 || m_nResistSMItemId != 0 )
@@ -356,7 +356,7 @@ void CItemElem::GetPiercingAvail( PPIERCINGAVAIL pPiercingAvail )
 	}
 }
 
-// ÁÖ»çÀ§·Î Á¦·Ã °¡´ÉÇÑ ¾ÆÀÌÅÛ Á¾·ù
+// ì£¼ì‚¬ìœ„ë¡œ ì œë ¨ ê°€ëŠ¥í•œ ì•„ì´í…œ ì¢…ë¥˜
 BOOL CItemElem::IsDiceRefineryAble( ItemProp* pProp )
 {
 	if( !pProp )
@@ -376,7 +376,7 @@ BOOL CItemElem::IsDiceRefineryAble( ItemProp* pProp )
 	return FALSE;
 }
 
-// Ä«µå·Î Á¦·Ã °¡´ÉÇÑ ¾ÆÀÌÅÛ Á¾·ù
+// ì¹´ë“œë¡œ ì œë ¨ ê°€ëŠ¥í•œ ì•„ì´í…œ ì¢…ë¥˜
 BOOL CItemElem::IsEleRefineryAble( ItemProp* pProp )
 {
 	if( !pProp )
@@ -465,7 +465,7 @@ BOOL CItemElem::IsLogable( void )
 #endif	// __VM_0820
 
 //////////////////////////////////////////////////////////////////////
-// CItem - ÀÌ°ÍÀº °ÔÀÓ ¿ùµå »ó¿¡ ½ÇÁ¦·Î µîÀåÇÏ´Â ¿ÀºêÁ§Æ® ¾ÆÀÌÅÛÀÌ´Ù. 
+// CItem - ì´ê²ƒì€ ê²Œì„ ì›”ë“œ ìƒì— ì‹¤ì œë¡œ ë“±ì¥í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ ì•„ì´í…œì´ë‹¤. 
 //////////////////////////////////////////////////////////////////////
 CItem::CItem()
 {
@@ -487,9 +487,9 @@ CItem::CItem()
 
 void CItem::SetOwner( OBJID id )
 {
-	m_idOwn = id;	// ÀÌ ¾ÆÀÌÅÛÀÇ ¼ÒÀ¯°¡ pAttacker(¾îÅÂÄ¿)²¨¶õ°É Ç¥½Ã.
-	m_dwDropTime = ::timeGetTime();	// µå¶ø ÇßÀ»´ç½ÃÀÇ ½Ã°£À» ±â·ÏÇÔ.
-	m_bDropMob = TRUE;		// ¸÷ÀÌ Á×¾î¼­ ¶³±º µ·Àº Ç¥½Ã¸¦ ÇØµÒ.
+	m_idOwn = id;	// ì´ ì•„ì´í…œì˜ ì†Œìœ ê°€ pAttacker(ì–´íƒœì»¤)êº¼ë€ê±¸ í‘œì‹œ.
+	m_dwDropTime = ::timeGetTime();	// ë“œë í–ˆì„ë‹¹ì‹œì˜ ì‹œê°„ì„ ê¸°ë¡í•¨.
+	m_bDropMob = TRUE;		// ëª¹ì´ ì£½ì–´ì„œ ë–¨êµ° ëˆì€ í‘œì‹œë¥¼ í•´ë‘ .
 }
 
 
@@ -515,7 +515,7 @@ BOOL CItem::Read( CFileIO* pFile )
 }
 
 #ifdef __CLIENT
-// ¾ÆÀÌÅÛÀ» »ı¼º½ÃÅ³¶© ÀÌ°ÍÀ» ºÒ·¯Áà¾ß Áß·Â¿¡ ÀÇÇØ ¶³¾îÁø´Ù.
+// ì•„ì´í…œì„ ìƒì„±ì‹œí‚¬ë• ì´ê²ƒì„ ë¶ˆëŸ¬ì¤˜ì•¼ ì¤‘ë ¥ì— ì˜í•´ ë–¨ì–´ì§„ë‹¤.
 void CItem::SetDelta( float fGroundY, D3DXVECTOR3 &vDelta )
 {
 	m_fGroundY = fGroundY;
@@ -530,29 +530,29 @@ void CItem::Process()
 	AddAngle( 0.5f );
 	D3DXVECTOR3 vPos = GetPos();
 
-	//--- ºñÇà¸÷¿¡°Ô ¶³¾îÁø ÁÂÇ¥´Â ÀÌÃ³¸®¸¦ ÇØ¼± ¾ÈµÈ´Ù. 
-	if( m_fGroundY )	// ÀÌ°Ô 0ÀÌ¸é Áß·ÂÃ³¸®¸¦ ÇØ¼± ¾ÈµÈ´Ù.
+	//--- ë¹„í–‰ëª¹ì—ê²Œ ë–¨ì–´ì§„ ì¢Œí‘œëŠ” ì´ì²˜ë¦¬ë¥¼ í•´ì„  ì•ˆëœë‹¤. 
+	if( m_fGroundY )	// ì´ê²Œ 0ì´ë©´ ì¤‘ë ¥ì²˜ë¦¬ë¥¼ í•´ì„  ì•ˆëœë‹¤.
 	{
-		if( vPos.y > m_fGroundY )		// °øÁß¿¡ ¶°ÀÖ´À³Ä?
+		if( vPos.y > m_fGroundY )		// ê³µì¤‘ì— ë– ìˆëŠëƒ?
 		{
-			m_vDelta.y -= 0.0075f;		// ÀÌµ¿º¤ÅÍ¿¡ Áß·Â º¤ÅÍ ´õÇÔ.
+			m_vDelta.y -= 0.0075f;		// ì´ë™ë²¡í„°ì— ì¤‘ë ¥ ë²¡í„° ë”í•¨.
 		} 
 		else
 		{
-			vPos.y = m_fGroundY;		// ¹Ù´Ú¿¡ ´êÀº »óÅÂ¸é Áö¸éÁÂÇ¥¿Í µ¿ÀÏÇÏ°Ô ¸ÂÃã.
-			m_vDelta.x = m_vDelta.y = m_vDelta.z = 0;	// ÀÌµ¿º¤ÅÍ´Â ¾ø¾îÁü. Æ¢±â°Ô ÇÏ·Á¸é ÀÌ·¸°Ô ÇÏ¸é ¾ÈµÈ´Ù.
-			SetPos( vPos );				// ÃÖÁ¾ ÁÂÇ¥ ¼¼ÆÃ.
+			vPos.y = m_fGroundY;		// ë°”ë‹¥ì— ë‹¿ì€ ìƒíƒœë©´ ì§€ë©´ì¢Œí‘œì™€ ë™ì¼í•˜ê²Œ ë§ì¶¤.
+			m_vDelta.x = m_vDelta.y = m_vDelta.z = 0;	// ì´ë™ë²¡í„°ëŠ” ì—†ì–´ì§. íŠ€ê¸°ê²Œ í•˜ë ¤ë©´ ì´ë ‡ê²Œ í•˜ë©´ ì•ˆëœë‹¤.
+			SetPos( vPos );				// ìµœì¢… ì¢Œí‘œ ì„¸íŒ….
 		}
 
-		// ÀÌµ¿º¤ÅÍ°¡ ¾øÀ¸¸é ´õÇØÁÙÇÊ¿ä ¾ø´Ù.
+		// ì´ë™ë²¡í„°ê°€ ì—†ìœ¼ë©´ ë”í•´ì¤„í•„ìš” ì—†ë‹¤.
 		if( m_vDelta.x == 0 && m_vDelta.y == 0 && m_vDelta.z == 0 )
 		{
-			// ÇöÀç ÁÂÇ¥°¡ º¯°æµÉ ÇÊ¿ä ¾ø´Ù.
+			// í˜„ì¬ ì¢Œí‘œê°€ ë³€ê²½ë  í•„ìš” ì—†ë‹¤.
 		} 
 		else
 		{
-			m_vDelta.x = m_vDelta.z = 0;		// ¿©±â¿¡ °ª ³ÖÁö¸»°Í.
-			vPos += m_vDelta;			// ÀÌµ¿ º¤ÅÍ¸¦ ´õÇÔ.
+			m_vDelta.x = m_vDelta.z = 0;		// ì—¬ê¸°ì— ê°’ ë„£ì§€ë§ê²ƒ.
+			vPos += m_vDelta;			// ì´ë™ ë²¡í„°ë¥¼ ë”í•¨.
 			SetPos( vPos );
 		}
 	}
@@ -572,7 +572,7 @@ void CItem::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	ItemProp *pItemProp = GetProp();
 	if( pItemProp && pItemProp->nReflect > 0 )
 	{
-		// ÁÖÀÇ!!! : m_pModelÀÌ CModelObject¶ó´Â°ÍÀ» °¡Á¤ÇÏ°í ÇÑ°ÍÀÌ´Ù. ¾Æ´Ï¶ó¸é ÀÌ·¸°Ô ¾²¸é ¾ÈµÈ´Ù.
+		// ì£¼ì˜!!! : m_pModelì´ CModelObjectë¼ëŠ”ê²ƒì„ ê°€ì •í•˜ê³  í•œê²ƒì´ë‹¤. ì•„ë‹ˆë¼ë©´ ì´ë ‡ê²Œ ì“°ë©´ ì•ˆëœë‹¤.
 		((CModelObject*)m_pModel)->SetEffect( 0, XE_REFLECT );	
 	}
 
@@ -585,7 +585,7 @@ void CItem::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 void CItem::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dwColor )
 {
 #ifndef __WORLDSERVER
-	// ¿ùµå ÁÂÇ¥¸¦ ½ºÅ©¸° ÁÂÇ¥·Î ÇÁ·ÎÁ§¼Ç ÇÑ´Ù.
+	// ì›”ë“œ ì¢Œí‘œë¥¼ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ í”„ë¡œì ì…˜ í•œë‹¤.
 	D3DXVECTOR3 vOut, vPos = GetPos(), vPosHeight;
     D3DVIEWPORT9 vp;
 	const BOUND_BOX* pBB = m_pModel->GetBBVector();
@@ -700,8 +700,8 @@ BOOL CItemElem::IsLimitLevel( CMover* pMover )
 
 
 #if __VER >= 12 // __EXT_PIERCING
-// bSize´Â ÇÇ¾î½Ì »çÀÌÁî¸¦ ´Ã¸± ¼ö ÀÖ´ÂÁö °Ë»çÇÒ ¶§ TRUE°ªÀ» setting ÇÑ´Ù.
-// bSize¸¦ TRUE·Î ÇÒ °æ¿ì dwTagetItemKind3´Â NULL_ID·Î ÇÑ´Ù.
+// bSizeëŠ” í”¼ì–´ì‹± ì‚¬ì´ì¦ˆë¥¼ ëŠ˜ë¦´ ìˆ˜ ìˆëŠ”ì§€ ê²€ì‚¬í•  ë•Œ TRUEê°’ì„ setting í•œë‹¤.
+// bSizeë¥¼ TRUEë¡œ í•  ê²½ìš° dwTagetItemKind3ëŠ” NULL_IDë¡œ í•œë‹¤.
 BOOL CItemElem::IsPierceAble( DWORD dwTargetItemKind3, BOOL bSize )
 {
 	if( !GetProp() )
@@ -713,7 +713,7 @@ BOOL CItemElem::IsPierceAble( DWORD dwTargetItemKind3, BOOL bSize )
 #endif // __NEW_ITEM_VARUNA
 
 	int nPiercedSize = GetPiercingSize();
-	if( bSize ) // ÇÇ¾î½Ì »çÀÌÁî¸¦ ´Ã¸®´Â °æ¿ì
+	if( bSize ) // í”¼ì–´ì‹± ì‚¬ì´ì¦ˆë¥¼ ëŠ˜ë¦¬ëŠ” ê²½ìš°
 		nPiercedSize++;
 	
 	if( GetProp()->dwItemKind3 == IK3_SUIT )
@@ -772,10 +772,10 @@ BOOL CItemElem::IsActiveTicket( DWORD dwItemId )
 }
 #endif	// __WORLDSERVER
 BOOL	IsNeedTarget( ItemProp* pProp )
-{	// ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ±â À§ÇØ ´õºí Å¬¸¯ ÇßÀ» ¶§
-	// Ä¿¼­°¡ ¹Ù²î¸é¼­ ÀÎº¥Åä¸® ³» ´Ù¸¥ ¾ÆÀÌÅÛ Å¬¸¯ÀÌ ÇÊ¿äÇÑ ¾ÆÀÌÅÛÀÎ°¡?
+{	// ì•„ì´í…œì„ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ë”ë¸” í´ë¦­ í–ˆì„ ë•Œ
+	// ì»¤ì„œê°€ ë°”ë€Œë©´ì„œ ì¸ë²¤í† ë¦¬ ë‚´ ë‹¤ë¥¸ ì•„ì´í…œ í´ë¦­ì´ í•„ìš”í•œ ì•„ì´í…œì¸ê°€?
 #if __VER >= 12 // __PET_0519
-	// ¾ÆÀÌÅÛ ½Äº°ÀÚ Ãß°¡°¡ ¹ø°Å·Î¿Í ¼Ó¼º È®ÀÎÀ¸·Î º¯°æ
+	// ì•„ì´í…œ ì‹ë³„ì ì¶”ê°€ê°€ ë²ˆê±°ë¡œì™€ ì†ì„± í™•ì¸ìœ¼ë¡œ ë³€ê²½
 	return( pProp->dwExeTarget == EXT_ITEM );
 #else	// __PET_0519
 	switch( pProp->dwID )
@@ -848,7 +848,7 @@ DWORD CItemElem::GetVisPetSfxId()
 
 
 
-//	mulcom	BEGIN100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	BEGIN100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 __int64		CItemElem::GetNewRandomOption()
 {
 	return m_n64NewRandomOption;
@@ -896,7 +896,7 @@ bool		CItemElem::SelectRandomOption( BYTE bySelectFlag )
 	return	bRetValue;
 }
 
-//	mulcom	END100405	°¢¼º º¸È£ÀÇ µÎ·ç¸¶¸®
+//	mulcom	END100405	ê°ì„± ë³´í˜¸ì˜ ë‘ë£¨ë§ˆë¦¬
 
 
 

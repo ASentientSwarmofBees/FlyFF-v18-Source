@@ -1,99 +1,99 @@
-#ifndef __DEFINE_H_BEAST_3D
+ï»¿#ifndef __DEFINE_H_BEAST_3D
 #define __DEFINE_H_BEAST_3D
 
 #define FALSE                0 
 #define TRUE                 1
 
-// ¾ÆÀÌÅÛ »ç¿ë ½Ã±â  (WhenUseItem)
+// ì•„ì´í…œ ì‚¬ìš© ì‹œê¸°  (WhenUseItem)
 
 #define WUI_NONE              0 // 
-#define WUI_NOW               1 // Áï½Ã»ç¿ë : Å¸°ÙÀ¸·Î ÁöÁ¤µÇ¾î ÀÖ´Â ´ë»ó¿¡°Ô »ç¿ëÇÑ´Ù.
-#define WUI_TARGETOBJ         2 // Å¸°ÙÁöÁ¤ : ÁöÁ¤Áï½Ã »ç¿ëÇÑ´Ù.(¸ð¼ÇÀÌ ÇÊ¿äÇÑ °ÍÀº ¸ð¼Ç ÈÄ¿¡ »ç¿ëµÈ´Ù.)
-#define WUI_TARGETOBJ2        3 // Å¸°ÙÁöÁ¤ : µÎ°³¸¦ ÁöÁ¤ÇÏ°í, µÎ¹øÂ° ÁöÁ¤Áï½Ã »ç¿ëÇÑ´Ù.(¸ð¼ÇÀÌ ÇÊ¿äÇÑ °ÍÀº ¸ð¼Ç ÈÄ¿¡ »ç¿ëµÈ´Ù.)
-#define WUI_TARGETINGOBJ      4 // ÁöÁ¤µÈ Å¸°Ù¿¡ ¹Ù·Î »ç¿ëÇÑ´Ù. Å¸°ÙÀÌ ¾øÀ»¶§ Å¸°Ù ¼±ÅÃ ¾ÆÀÌÄÜÀ¸·Î º¯°æµÈ´Ù.(¸ð¼ÇÀÌ ÇÊ¿äÇÑ °ÍÀº ¸ð¼Ç ÈÄ¿¡ »ç¿ëµÈ´Ù.)
-#define WUI_TARGETOBJPTZ      5 // Å¸°ÙÁöÁ¤ : µÎ°³¸¦ ÁöÁ¤ÀÎµ¥ Ã¹Â°´Â ¿ÀºêÁ§Æ®, µÑÂ°´Â ÁÂÇ¥´Ù.(¸ð¼ÇÀÌ ÇÊ¿äÇÑ °ÍÀº ¸ð¼Ç ÈÄ¿¡ »ç¿ëµÈ´Ù.)
-#define WUI_TARGETPTZ         6 // Å¸°ÙÁöÁ¤ : ÁöÁ¤Áï½Ã »ç¿ëÇÑ´Ù.(¸ð¼ÇÀÌ ÇÊ¿äÇÑ °ÍÀº ¸ð¼Ç ÈÄ¿¡ »ç¿ëµÈ´Ù.)
-#define WUI_TARGETMOVEOBJ     7 // Å¸°ÙÁöÁ¤ : ÁöÁ¤ÇÑ ¿ÀºêÁ§Æ®·Î ÀÌµ¿ÇÑ µÚ¿¡ »ç¿ëÇÑ´Ù.
-#define WUI_TARGETMOVEPTZ     8 // Å¸°ÙÁöÁ¤ : ÁöÁ¤ÇÑ ÁÂÇ¥·Î ÀÌµ¿ÇÑ µÚ¿¡ »ç¿ëÇÑ´Ù.
-#define WUI_MENU              9 // Áö½Ä »ç¿ë½Ãµµ½Ã °ü·Ã ¸Þ´º°¡ ¶ß´Â ¹æ½Ä
-#define	WUI_MENU_TOBJ        10 // ¸Þ´º ºÎ¸¥ÈÄ  Å¸°Ù¿ÀºêÁ§ »ç¿ëÇÏ´Â ¹æ½Ä
-#define WUI_TARGETPTZ_IB     11 // Å¸°ÙÁöÁ¤ : ÁÂÇ¥ÁöÁ¤, Ignore Blocking
-#define WUI_TARGETCURSORPTZ  12 // Å¸°ÙÁöÁ¤ : »ç¿ë½Ã¿¡ ¸¶¿ì½º Ä¿¼­°¡ ÀÖ´Â °÷ÀÇ ÁÂÇ¥¸¦ Áï½Ã »ç¿ëÇÑ´Ù.
+#define WUI_NOW               1 // ì¦‰ì‹œì‚¬ìš© : íƒ€ê²Ÿìœ¼ë¡œ ì§€ì •ë˜ì–´ ìžˆëŠ” ëŒ€ìƒì—ê²Œ ì‚¬ìš©í•œë‹¤.
+#define WUI_TARGETOBJ         2 // íƒ€ê²Ÿì§€ì • : ì§€ì •ì¦‰ì‹œ ì‚¬ìš©í•œë‹¤.(ëª¨ì…˜ì´ í•„ìš”í•œ ê²ƒì€ ëª¨ì…˜ í›„ì— ì‚¬ìš©ëœë‹¤.)
+#define WUI_TARGETOBJ2        3 // íƒ€ê²Ÿì§€ì • : ë‘ê°œë¥¼ ì§€ì •í•˜ê³ , ë‘ë²ˆì§¸ ì§€ì •ì¦‰ì‹œ ì‚¬ìš©í•œë‹¤.(ëª¨ì…˜ì´ í•„ìš”í•œ ê²ƒì€ ëª¨ì…˜ í›„ì— ì‚¬ìš©ëœë‹¤.)
+#define WUI_TARGETINGOBJ      4 // ì§€ì •ëœ íƒ€ê²Ÿì— ë°”ë¡œ ì‚¬ìš©í•œë‹¤. íƒ€ê²Ÿì´ ì—†ì„ë•Œ íƒ€ê²Ÿ ì„ íƒ ì•„ì´ì½˜ìœ¼ë¡œ ë³€ê²½ëœë‹¤.(ëª¨ì…˜ì´ í•„ìš”í•œ ê²ƒì€ ëª¨ì…˜ í›„ì— ì‚¬ìš©ëœë‹¤.)
+#define WUI_TARGETOBJPTZ      5 // íƒ€ê²Ÿì§€ì • : ë‘ê°œë¥¼ ì§€ì •ì¸ë° ì²«ì§¸ëŠ” ì˜¤ë¸Œì íŠ¸, ë‘˜ì§¸ëŠ” ì¢Œí‘œë‹¤.(ëª¨ì…˜ì´ í•„ìš”í•œ ê²ƒì€ ëª¨ì…˜ í›„ì— ì‚¬ìš©ëœë‹¤.)
+#define WUI_TARGETPTZ         6 // íƒ€ê²Ÿì§€ì • : ì§€ì •ì¦‰ì‹œ ì‚¬ìš©í•œë‹¤.(ëª¨ì…˜ì´ í•„ìš”í•œ ê²ƒì€ ëª¨ì…˜ í›„ì— ì‚¬ìš©ëœë‹¤.)
+#define WUI_TARGETMOVEOBJ     7 // íƒ€ê²Ÿì§€ì • : ì§€ì •í•œ ì˜¤ë¸Œì íŠ¸ë¡œ ì´ë™í•œ ë’¤ì— ì‚¬ìš©í•œë‹¤.
+#define WUI_TARGETMOVEPTZ     8 // íƒ€ê²Ÿì§€ì • : ì§€ì •í•œ ì¢Œí‘œë¡œ ì´ë™í•œ ë’¤ì— ì‚¬ìš©í•œë‹¤.
+#define WUI_MENU              9 // ì§€ì‹ ì‚¬ìš©ì‹œë„ì‹œ ê´€ë ¨ ë©”ë‰´ê°€ ëœ¨ëŠ” ë°©ì‹
+#define	WUI_MENU_TOBJ        10 // ë©”ë‰´ ë¶€ë¥¸í›„  íƒ€ê²Ÿì˜¤ë¸Œì  ì‚¬ìš©í•˜ëŠ” ë°©ì‹
+#define WUI_TARGETPTZ_IB     11 // íƒ€ê²Ÿì§€ì • : ì¢Œí‘œì§€ì •, Ignore Blocking
+#define WUI_TARGETCURSORPTZ  12 // íƒ€ê²Ÿì§€ì • : ì‚¬ìš©ì‹œì— ë§ˆìš°ìŠ¤ ì»¤ì„œê°€ ìžˆëŠ” ê³³ì˜ ì¢Œí‘œë¥¼ ì¦‰ì‹œ ì‚¬ìš©í•œë‹¤.
 
-// ¹ßµ¿ ½Ã±â        (WhenExcuTe)
+// ë°œë™ ì‹œê¸°        (WhenExcuTe)
 #define WET_NONE              0 // 
-#define WET_NOW               1 // ¹ßµ¿½Ã±â ÇÊ¿ä¾øÀÌ ¹Ù·Î
-#define WET_DEAD              2 // Á×À»¶§
-#define WET_ATK               3 // °ø°ÝÀ» ´çÇÒ ¶§
-#define WET_ATKOTHER          4 // ¼±ÅÃÇß´ø ´ë»óÀÌ °ø°Ý ´çÇÒ¶§ 
-#define WET_BODYSTATE         5 // ¸öÀÌ Æ¯Á¤ÇÑ »óÅÂÀÏ ¶§
-#define WET_PARRY             6 // ÇÇÇÏ±â ¼º°ø ÈÄ
-#define WET_ARROW             7 // È­»ì·Î °ø°Ý ´çÇÒ ¶§
-#define WET_BULLET            8 // ÃÑ¾Ë·Î °ø°Ý ´çÇÒ ¶§ 
-#define WET_RANGE             9 // È­»ì°ú ÃÑ¾Ë ¸ðµÎ·Î °ø°Ý ´çÇÒ ¶§
-#define WET_MAGIC            10 // Á÷Á¢ °ø°Ý ¸¶¹ýÀ¸·Î °ø°Ý ´çÇÒ ¶§
-#define WET_HIT              11 // ´ë»óÀÌ °ø°ÝÀ» ÇÒ¶§ 
+#define WET_NOW               1 // ë°œë™ì‹œê¸° í•„ìš”ì—†ì´ ë°”ë¡œ
+#define WET_DEAD              2 // ì£½ì„ë•Œ
+#define WET_ATK               3 // ê³µê²©ì„ ë‹¹í•  ë•Œ
+#define WET_ATKOTHER          4 // ì„ íƒí–ˆë˜ ëŒ€ìƒì´ ê³µê²© ë‹¹í• ë•Œ 
+#define WET_BODYSTATE         5 // ëª¸ì´ íŠ¹ì •í•œ ìƒíƒœì¼ ë•Œ
+#define WET_PARRY             6 // í”¼í•˜ê¸° ì„±ê³µ í›„
+#define WET_ARROW             7 // í™”ì‚´ë¡œ ê³µê²© ë‹¹í•  ë•Œ
+#define WET_BULLET            8 // ì´ì•Œë¡œ ê³µê²© ë‹¹í•  ë•Œ 
+#define WET_RANGE             9 // í™”ì‚´ê³¼ ì´ì•Œ ëª¨ë‘ë¡œ ê³µê²© ë‹¹í•  ë•Œ
+#define WET_MAGIC            10 // ì§ì ‘ ê³µê²© ë§ˆë²•ìœ¼ë¡œ ê³µê²© ë‹¹í•  ë•Œ
+#define WET_HIT              11 // ëŒ€ìƒì´ ê³µê²©ì„ í• ë•Œ 
 
-// ¹ßµ¿ ´ë»ó        (EXecuteTarget)
+// ë°œë™ ëŒ€ìƒ        (EXecuteTarget)
 #define EXT_NONE              0 // 
-#define EXT_SELFCHGPARAMET    1 // ÀÚ½ÅÀÇ ÆÄ¶ó¹ÌÅÍ¸¦ º¯°æ
-#define EXT_OBJCHGPARAMET     2 // Å¸ÀÎÀÇ ÆÄ¶ó¹ÌÅÍ¸¦ º¯°æ
-#define	EXT_MAGICSHOT		  3 // ¹ß»çÃ¼°¡ ³¯¾Æ°£ ÈÄ ¹ßµ¿µÇÁö¸¸ ¹ß»çÃ¼°¡ Á÷Á¢ µ¥¹ÌÁö¸¦ ÁÖÁø ¾ÊÀ½.
-#define EXT_MAGICATK          4 // ¸¶¹ý Á÷Á¢ °ø°Ý
-#define EXT_AMPLIFICATION     5 // ¸¶¹ýÀ» ÁõÆøÇÑ´Ù
-#define EXT_ATTACKER          6 // °ø°ÝÇÑ ´ë»ó¿¡°Ô Àû¿ë
-#define EXT_MAGIC             7 // ±âÅ¸ ÀÏ¹Ý ¸¶¹ý
-#define EXT_ANOTHER           8 // ´Ù¸¥ »ç¶÷¿¡°Ô¸¸ Àû¿ë(»ç¿ëÇÏÁö ¾ÊÀ½)
-#define EXT_ANOTHERWITH       9 // ´Ù¸¥ »ç¶÷ÀÌ³ª ÀÚ½Å¿¡°Ô Àû¿ë
-#define EXT_SUMMON           10 // »ý¸íÃ¼¸¦ ¼ÒÈ¯ÇÑ´Ù.
-#define EXT_AROUNDATK		 11 // ÁÖº¯ÀÇ ÀûµéÀ» °ø°ÝÇÑ´Ù.
-#define EXT_OTHER            12 // ±âÅ¸ ±×¿ÜÀÇ °Íµé
-#define EXT_TROUPE           13 // ±Ø´ÜÀ» ´ë»óÀ¸·Î ÇÔ
-#define EXT_MAGICATKSHOT     14 // ¸¶¹ý°ø°Ý°è ½ºÅ³Áß ¹ß»çÃ¼°¡ ÀÖ´Â ÇüÅÂ
-#define EXT_MENTALATK		 15 // Á¤½Å°ø°Ý 
-#define EXT_MELEEATKSHOT     16 // ¹°¸®°ø°Ý°è ½ºÅ³Áß ¹ß»çÃ¼°¡ ÀÖ´Â ÇüÅÂ
-#define EXT_MELEEATK	     17 // ±Ù°Å¸® ¹Ð¸® °ø°Ý
-#define EXT_RANGEATK	     18 // ¿ø°Å¸® ºñ ¸¶¹ý °ø°Ý
-#define EXT_PET					19 // ¿ø°Å¸® ºñ ¸¶¹ý °ø°Ý
-#define EXT_TROUPEWITH           20 // ±Ø´ÜÀÌ³ª ³ª¸¦  ´ë»óÀ¸·Î ÇÔ
+#define EXT_SELFCHGPARAMET    1 // ìžì‹ ì˜ íŒŒë¼ë¯¸í„°ë¥¼ ë³€ê²½
+#define EXT_OBJCHGPARAMET     2 // íƒ€ì¸ì˜ íŒŒë¼ë¯¸í„°ë¥¼ ë³€ê²½
+#define	EXT_MAGICSHOT		  3 // ë°œì‚¬ì²´ê°€ ë‚ ì•„ê°„ í›„ ë°œë™ë˜ì§€ë§Œ ë°œì‚¬ì²´ê°€ ì§ì ‘ ë°ë¯¸ì§€ë¥¼ ì£¼ì§„ ì•ŠìŒ.
+#define EXT_MAGICATK          4 // ë§ˆë²• ì§ì ‘ ê³µê²©
+#define EXT_AMPLIFICATION     5 // ë§ˆë²•ì„ ì¦í­í•œë‹¤
+#define EXT_ATTACKER          6 // ê³µê²©í•œ ëŒ€ìƒì—ê²Œ ì ìš©
+#define EXT_MAGIC             7 // ê¸°íƒ€ ì¼ë°˜ ë§ˆë²•
+#define EXT_ANOTHER           8 // ë‹¤ë¥¸ ì‚¬ëžŒì—ê²Œë§Œ ì ìš©(ì‚¬ìš©í•˜ì§€ ì•ŠìŒ)
+#define EXT_ANOTHERWITH       9 // ë‹¤ë¥¸ ì‚¬ëžŒì´ë‚˜ ìžì‹ ì—ê²Œ ì ìš©
+#define EXT_SUMMON           10 // ìƒëª…ì²´ë¥¼ ì†Œí™˜í•œë‹¤.
+#define EXT_AROUNDATK		 11 // ì£¼ë³€ì˜ ì ë“¤ì„ ê³µê²©í•œë‹¤.
+#define EXT_OTHER            12 // ê¸°íƒ€ ê·¸ì™¸ì˜ ê²ƒë“¤
+#define EXT_TROUPE           13 // ê·¹ë‹¨ì„ ëŒ€ìƒìœ¼ë¡œ í•¨
+#define EXT_MAGICATKSHOT     14 // ë§ˆë²•ê³µê²©ê³„ ìŠ¤í‚¬ì¤‘ ë°œì‚¬ì²´ê°€ ìžˆëŠ” í˜•íƒœ
+#define EXT_MENTALATK		 15 // ì •ì‹ ê³µê²© 
+#define EXT_MELEEATKSHOT     16 // ë¬¼ë¦¬ê³µê²©ê³„ ìŠ¤í‚¬ì¤‘ ë°œì‚¬ì²´ê°€ ìžˆëŠ” í˜•íƒœ
+#define EXT_MELEEATK	     17 // ê·¼ê±°ë¦¬ ë°€ë¦¬ ê³µê²©
+#define EXT_RANGEATK	     18 // ì›ê±°ë¦¬ ë¹„ ë§ˆë²• ê³µê²©
+#define EXT_PET					19 // ì›ê±°ë¦¬ ë¹„ ë§ˆë²• ê³µê²©
+#define EXT_TROUPEWITH           20 // ê·¹ë‹¨ì´ë‚˜ ë‚˜ë¥¼  ëŒ€ìƒìœ¼ë¡œ í•¨
 #define	EXT_ITEM	21
 
-// ½ºÅ©¸³Æ®¸¦ ´©°¡ ½ÇÇà½ÃÄ×³ª. (WhoExecuteScript)
+// ìŠ¤í¬ë¦½íŠ¸ë¥¼ ëˆ„ê°€ ì‹¤í–‰ì‹œì¼°ë‚˜. (WhoExecuteScript)
 
 #define WES_NONE             0 
-#define WES_WORLD            1 // ÇÊµå°¡ ½ÇÇØÀÌÄ×´Ù.
-#define WES_DEATH            2 // Á×¾úÀ» ¶§ ½ÇÇàµÈ´Ù.
-#define WES_DAMAGE           3 // µ¥¹ÌÁö¸¦ ÀÔ¾úÀ» ¶§ ½ÇÇàµÈ´Ù.
-#define WES_EXECUTE          4 // ExecuteÇÁ·Î½ÃÁ® ¾È¿¡¼­ ½ÇÇàµÈ´Ù.
-#define WES_DIALOG           5 // ´ëÈ­ µµÁß¿¡ ½ÇÇàµÈ´Ù.
-#define WES_EVENT            6 // ÀÌº¥Æ®¿¡¼­ ½ÇÇàµÈ´Ù.
-#define WES_SCHEDULE_BEGIN   7 // ½ºÄÉÁìÀÌ ÀÛµ¿ÇÒ ¶§ ½ÇÇàµÈ´Ù.
-#define WES_SCHEDULE_END     8 // ½ºÄÉÁìÀÌ ³¡³ª¸é ½ÇÇàµÈ´Ù.
+#define WES_WORLD            1 // í•„ë“œê°€ ì‹¤í•´ì´ì¼°ë‹¤.
+#define WES_DEATH            2 // ì£½ì—ˆì„ ë•Œ ì‹¤í–‰ëœë‹¤.
+#define WES_DAMAGE           3 // ë°ë¯¸ì§€ë¥¼ ìž…ì—ˆì„ ë•Œ ì‹¤í–‰ëœë‹¤.
+#define WES_EXECUTE          4 // Executeí”„ë¡œì‹œì ¸ ì•ˆì—ì„œ ì‹¤í–‰ëœë‹¤.
+#define WES_DIALOG           5 // ëŒ€í™” ë„ì¤‘ì— ì‹¤í–‰ëœë‹¤.
+#define WES_EVENT            6 // ì´ë²¤íŠ¸ì—ì„œ ì‹¤í–‰ëœë‹¤.
+#define WES_SCHEDULE_BEGIN   7 // ìŠ¤ì¼€ì¥´ì´ ìž‘ë™í•  ë•Œ ì‹¤í–‰ëœë‹¤.
+#define WES_SCHEDULE_END     8 // ìŠ¤ì¼€ì¥´ì´ ëë‚˜ë©´ ì‹¤í–‰ëœë‹¤.
 
-// ¼ºº° 
+// ì„±ë³„ 
 #define SEX_MALE             0
 #define SEX_FEMALE           1
 #define SEX_SEXLESS          2
 
 // Object Type
 
-#define OT_OBJ          0 // ¹è°æ °´Ã¼ 
-#define OT_ANI          1 // ¾Ö´Ï °´Ã¼ 
-#define OT_CTRL         2 // Æ¯¼ö ¹è°æ °´Ã¼   
-#define OT_SFX          3 // Æ¯¼öÈ¿°ú °´Ã¼ 
-#define OT_ITEM         4 // ¾ÆÀÌÅÛ 
-#define OT_MOVER        5 // ¿òÁ÷ÀÌ´Â °´Ã¼ 
-#define OT_REGION       6 // ¸®Àü(ÀÌº¥Æ®, ¼Ó¼º)
-#define OT_SHIP			7 // ºñ°øÁ¤
-#define OT_PATH			8 // ºñ°øÁ¤
+#define OT_OBJ          0 // ë°°ê²½ ê°ì²´ 
+#define OT_ANI          1 // ì• ë‹ˆ ê°ì²´ 
+#define OT_CTRL         2 // íŠ¹ìˆ˜ ë°°ê²½ ê°ì²´   
+#define OT_SFX          3 // íŠ¹ìˆ˜íš¨ê³¼ ê°ì²´ 
+#define OT_ITEM         4 // ì•„ì´í…œ 
+#define OT_MOVER        5 // ì›€ì§ì´ëŠ” ê°ì²´ 
+#define OT_REGION       6 // ë¦¬ì „(ì´ë²¤íŠ¸, ì†ì„±)
+#define OT_SHIP			7 // ë¹„ê³µì •
+#define OT_PATH			8 // ë¹„ê³µì •
 #define MAX_OBJTYPE     9
 
 // Object Filter (source)
 
-#define OF_OBJ          0x00000001 // ¹è°æ ¿ÀºêÁ§Æ® 
-#define OF_ANI          0x00000002 // ¾Ö´Ï ¹è°æ 
-#define OF_CTRL         0x00000004 // Æ¯¼ö ¹è°æ   
-#define OF_SFX          0x00000008 // Æ¯¼öÈ¿°ú ¿ÀºêÁ§Æ® 
+#define OF_OBJ          0x00000001 // ë°°ê²½ ì˜¤ë¸Œì íŠ¸ 
+#define OF_ANI          0x00000002 // ì• ë‹ˆ ë°°ê²½ 
+#define OF_CTRL         0x00000004 // íŠ¹ìˆ˜ ë°°ê²½   
+#define OF_SFX          0x00000008 // íŠ¹ìˆ˜íš¨ê³¼ ì˜¤ë¸Œì íŠ¸ 
 #define OF_ITEM         0x00000010
 #define OF_MOVER        0x00000020
 #define OF_REGION       0x00000040
@@ -106,25 +106,25 @@
 #define	MODELTYPE_ANIMATED_MESH		 2
 #define MODELTYPE_BILLBOARD          3 
 #define MODELTYPE_SFX                4 
-#define MODELTYPE_ASE				 5		// ASE¸ðµ¨
+#define MODELTYPE_ASE				 5		// ASEëª¨ë¸
 
 // Model Distant 
-#define MD_FAR  0 //- ¸Ö¸®¼­µµ º¸ÀÓ. Áý, ³ª¹«, °Å´ë ¿ÀºêÁ§Æ®
+#define MD_FAR  0 //- ë©€ë¦¬ì„œë„ ë³´ìž„. ì§‘, ë‚˜ë¬´, ê±°ëŒ€ ì˜¤ë¸Œì íŠ¸
 #define MD_MID  1 //- 
-#define MD_NEAR 2 //- ÇÁ¶ø 
-#define MD_FIX  3 //- °íÁ¤ ÇÁ¶ø, ¹«Á¶°Ç º¸ÀÎ´Ù.
+#define MD_NEAR 2 //- í”„ëž 
+#define MD_FIX  3 //- ê³ ì • í”„ëž, ë¬´ì¡°ê±´ ë³´ì¸ë‹¤.
 
 // Addition Texture
-#define ATEX_NONE	0 //- Ãß°¡¸ÅÇÎ »ç¿ëÇÏÁö ¾ÊÀ½
-#define ATEX_00		0	// ÅØ½ºÃÄ¼¼Æ® 00¹ø(µðÆúÆ®)
-#define ATEX_USE	1 //- Ãß°¡¸ÅÇÎ »ç¿ëÇÔ
-#define ATEX_01		1	// ÅØ½ºÃÄ¼¼Æ® 01¹ø
-#define ATEX_02		2	// ÅØ½ºÃÄ¼¼Æ® 02¹ø
-#define ATEX_03		3	// ÅØ½ºÃÄ¼¼Æ® 03¹ø
-#define ATEX_04		4	// ÅØ½ºÃÄ¼¼Æ® 04¹ø
-#define ATEX_05		5	// ÅØ½ºÃÄ¼¼Æ® 05¹ø
-#define ATEX_06		6	// ÅØ½ºÃÄ¼¼Æ® 06¹ø
-#define ATEX_07		7	// ÅØ½ºÃÄ¼¼Æ® 07¹ø
+#define ATEX_NONE	0 //- ì¶”ê°€ë§¤í•‘ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ
+#define ATEX_00		0	// í…ìŠ¤ì³ì„¸íŠ¸ 00ë²ˆ(ë””í´íŠ¸)
+#define ATEX_USE	1 //- ì¶”ê°€ë§¤í•‘ ì‚¬ìš©í•¨
+#define ATEX_01		1	// í…ìŠ¤ì³ì„¸íŠ¸ 01ë²ˆ
+#define ATEX_02		2	// í…ìŠ¤ì³ì„¸íŠ¸ 02ë²ˆ
+#define ATEX_03		3	// í…ìŠ¤ì³ì„¸íŠ¸ 03ë²ˆ
+#define ATEX_04		4	// í…ìŠ¤ì³ì„¸íŠ¸ 04ë²ˆ
+#define ATEX_05		5	// í…ìŠ¤ì³ì„¸íŠ¸ 05ë²ˆ
+#define ATEX_06		6	// í…ìŠ¤ì³ì„¸íŠ¸ 06ë²ˆ
+#define ATEX_07		7	// í…ìŠ¤ì³ì„¸íŠ¸ 07ë²ˆ
 // Item Type
 
 #define ITYPE_ITEM      0
@@ -231,7 +231,7 @@
 
 
 // AI
-#define		MAX_SUMMON		8		// ÃÖ´ë ¼ÒÈ¯ÇÒ¼ö ÀÖ´Â ºÎÇÏ ¼ö
+#define		MAX_SUMMON		8		// ìµœëŒ€ ì†Œí™˜í• ìˆ˜ ìžˆëŠ” ë¶€í•˜ ìˆ˜
 
 // Useing attribute
 #define UA_ITEM          0x00000001
@@ -243,9 +243,9 @@
 #define UA_QUEST_END     0x00000040
 #define UA_PLAYER_ID     0x00000080
 
-//Æ®·¦ ¹ßµ¿ Å¸ÀÔ
-#define TOT_RANDOM			0    // ·£´ý ¹ßµ¿
-#define TOT_NOENDU		1    // ³»±¸µµ°¡ 0ÀÌ¸é ¹ßµ¿
+//íŠ¸ëž© ë°œë™ íƒ€ìž…
+#define TOT_RANDOM			0    // ëžœë¤ ë°œë™
+#define TOT_NOENDU		1    // ë‚´êµ¬ë„ê°€ 0ì´ë©´ ë°œë™
 
 #define	PK_NPC		-1
 #define	PK_TIGER		0
@@ -258,7 +258,7 @@
 #define	PK_MAX		7
 
 
-// ¾Ë º¯È¯ °á°ú¿¡ ÀÇÇØ »ý¼ºµÇ´Â ¾ÆÀÌÅÛÀÇ Å¸ÀÔ
+// ì•Œ ë³€í™˜ ê²°ê³¼ì— ì˜í•´ ìƒì„±ë˜ëŠ” ì•„ì´í…œì˜ íƒ€ìž…
 #define	TI_GENERIC	0
 #define	TI_PET	1
 
@@ -276,9 +276,9 @@
 #define SEASON_MAX			5
 
 
-// ½ºÅ³ÀÌ ºÎ¿©µÈ ¾ÆÀÌÅÛ »ç¿ë ½Ã Àû¿ë ´ë»ó(Item Skill Target)
-#define IST_SELF			1	// ÀÚ±â ÀÚ½Å¿¡°Ô ¹ßµ¿
-#define IST_ANOTHER			2	// »ó´ë¹æ¿¡°Ô ¹ßµ¿
+// ìŠ¤í‚¬ì´ ë¶€ì—¬ëœ ì•„ì´í…œ ì‚¬ìš© ì‹œ ì ìš© ëŒ€ìƒ(Item Skill Target)
+#define IST_SELF			1	// ìžê¸° ìžì‹ ì—ê²Œ ë°œë™
+#define IST_ANOTHER			2	// ìƒëŒ€ë°©ì—ê²Œ ë°œë™
 
 
 #endif

@@ -1,4 +1,4 @@
-// String format:
+﻿// String format:
 //      UNICODE strings are always prefixed by 0xff, 0xfffe
 //      if < 0xff chars: len:BYTE, TCHAR chars
 //      if >= 0xff characters: 0xff, len:WORD, TCHAR chars

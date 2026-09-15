@@ -1,4 +1,4 @@
-// WndWebBox.cpp: implementation of the CWndWebBox class.
+﻿// WndWebBox.cpp: implementation of the CWndWebBox class.
 //
 //////////////////////////////////////////////////////////////////////
 

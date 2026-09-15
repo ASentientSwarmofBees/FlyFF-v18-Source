@@ -1,4 +1,4 @@
-// WndBase.h: interface for the CWndBase class.
+ï»¿// WndBase.h: interface for the CWndBase class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -29,10 +29,10 @@
 #define D3DCOLOR_TEMP(a,b,g,r) \
     ((D3DCOLOR)((((a)&0xff)<<24)|(((r)&0xff)<<16)|(((g)&0xff)<<8)|((b)&0xff))) 
 
-// Å¬¶óÀÌ¾ðÆ®ÀÇ ÁÂÇ¥ ¾ò±â 
+// í´ë¼ì´ì–¸íŠ¸ì˜ ì¢Œí‘œ ì–»ê¸° 
 #define GET_CLIENT_POINT( hwnd, pt ) CPoint pt; ::GetCursorPos( &pt ); ::ScreenToClient( hwnd, &pt );
 
-// ÁÂÇ¥¸¦ ¸ÂÃß±â À§ÇÑ ´ÙÀÌ¾ó·Î±× : »ç¿ëÇÏ¸é ¾ÆÁÖ À¯¿ëÇÔ 
+// ì¢Œí‘œë¥¼ ë§žì¶”ê¸° ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸ : ì‚¬ìš©í•˜ë©´ ì•„ì£¼ ìœ ìš©í•¨ 
 #define COORDI_DLG(c,x1,y1,x2,y2)	static CCoordiDlg c(x1,y1,x2,y2); if(c.m_hWnd == NULL) c.Create(CCoordiDlg::IDD);
 
 class C2DRender;
@@ -64,12 +64,12 @@ static CRect     m_rectOld;
 public:
 static CWndBase* m_pWndCapture;
 	//BOOL      m_bCapture;
-	bool      m_bPush; // Æ÷Ä¿½º À©µµ°¡ ´­·È³ª?
+	bool      m_bPush; // í¬ì»¤ìŠ¤ ìœˆë„ê°€ ëˆŒë ¸ë‚˜?
 	int       m_nResizeDir;
 
 //oid AddWnd(CWndBase* pWnd); 
 	//void RemoveWnd(CWndBase* pWnd);
-	void DestroyAllWnd(CWndBase* pWndRoot); // ¸ðµç À©µµ¸¦ °­Á¦ »èÁ¦ ; Á¾·áÇÒ¶§ È£Ãâ 
+	void DestroyAllWnd(CWndBase* pWndRoot); // ëª¨ë“  ìœˆë„ë¥¼ ê°•ì œ ì‚­ì œ ; ì¢…ë£Œí• ë•Œ í˜¸ì¶œ 
 	void SetChildFocus( CWndBase* pWndBase, POINT point );
 	CWndBase* GetChildFocus( CWndBase* pWndBase, POINT point );
 //protected:
@@ -94,9 +94,9 @@ static CMapStringToPtr m_strWndTileMap;
 	C2DRender*   m_p2DRender;
 	CRect     m_rectCurrentWindow;
 	CRect     m_rectCurrentClient;
-	CRect     m_rectWindow ; // Window ; ÆÐ¾î·±Æ®ºÎÅÍÀÇ ÁÂÇ¥ 
-	CRect     m_rectClient ; // Client ; ÆÐ¾î·±Æ®ºÎÅÍÀÇ ÁÂÇ¥ ( º¸Åë ¿¡Âî ¶§¹®¿¡ m_rectWindow º¸´Ù´Â Á¶±Ý ¾ÈÂÊ ÁÂÇ¥¸¦ °®´Â´Ù. )
-	CRect     m_rectLayout ; // Client ; ÆÐ¾î·±Æ®ºÎÅÍÀÇ ÁÂÇ¥ ( º¸Åë ¿¡Âî ¶§¹®¿¡ m_rectWindow º¸´Ù´Â Á¶±Ý ¾ÈÂÊ ÁÂÇ¥¸¦ °®´Â´Ù. )
+	CRect     m_rectWindow ; // Window ; íŒ¨ì–´ëŸ°íŠ¸ë¶€í„°ì˜ ì¢Œí‘œ 
+	CRect     m_rectClient ; // Client ; íŒ¨ì–´ëŸ°íŠ¸ë¶€í„°ì˜ ì¢Œí‘œ ( ë³´í†µ ì—ì°Œ ë•Œë¬¸ì— m_rectWindow ë³´ë‹¤ëŠ” ì¡°ê¸ˆ ì•ˆìª½ ì¢Œí‘œë¥¼ ê°–ëŠ”ë‹¤. )
+	CRect     m_rectLayout ; // Client ; íŒ¨ì–´ëŸ°íŠ¸ë¶€í„°ì˜ ì¢Œí‘œ ( ë³´í†µ ì—ì°Œ ë•Œë¬¸ì— m_rectWindow ë³´ë‹¤ëŠ” ì¡°ê¸ˆ ì•ˆìª½ ì¢Œí‘œë¥¼ ê°–ëŠ”ë‹¤. )
 	CPoint    m_ptMouse;
 	BOOL      m_bGroup;
 	CD3DFont* m_pFont;
@@ -121,8 +121,8 @@ static BOOL           m_bCling          ;
 static BOOL           m_bEdit           ;
 static BOOL           m_bFullWnd        ;
 static CWndBase*      m_pWndRoot        ;
-static CWndBase*      m_pWndFocus       ; // ´ÙÀÌ¾ó·Î±× À©µµ Æ÷Ä¿½º 
-static CWndBase*      m_pCurFocus       ; // ´ÙÀÌ¾ó·Î±×, Â÷ÀÏµå Áß ÃÖÁ¾ ÇöÀç Æ÷Ä¿½º 
+static CWndBase*      m_pWndFocus       ; // ë‹¤ì´ì–¼ë¡œê·¸ ìœˆë„ í¬ì»¤ìŠ¤ 
+static CWndBase*      m_pCurFocus       ; // ë‹¤ì´ì–¼ë¡œê·¸, ì°¨ì¼ë“œ ì¤‘ ìµœì¢… í˜„ìž¬ í¬ì»¤ìŠ¤ 
 
 #ifndef __VS2003
 static CPtrArray      m_wndOrder        ;
@@ -155,7 +155,7 @@ static CTheme         m_Theme;
 public:
 static CTextureMng    m_textureMng;
 static SHORTCUT       m_GlobalShortcut;
-	BOOL m_bPickup; // Æ÷Ä¿½º À©µµ¸¦ µé¾ú³ª?
+	BOOL m_bPickup; // í¬ì»¤ìŠ¤ ìœˆë„ë¥¼ ë“¤ì—ˆë‚˜?
 
 	void AddWnd(CWndBase* pWnd); 
 	void RemoveWnd(CWndBase* pWnd);
@@ -173,19 +173,19 @@ static void FreeTileTexture();
 	void SetTexture( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR lpKey, CTexture* m_pTexture );
 
 	void RemoveDestroyWnd();
-	void MoveParentCenter(); // À©µµ¸¦ ºÎ¸ð À©µµÀÇ Áß¾ÓÀ¸·Î ¿Å±ä´Ù.
-	void MoveRectCenter(CRect rect); // À©µµ¸¦ rectÀÇ Áß¾ÓÀ¸·Î ¿Å±ä´Ù.
-	void MovePointCenter(CPoint pt); // À©µµ¸¦ ptÀÇ Áß¾ÓÀ¸·Î ¿Å±ä´Ù.
-	void Move( CPoint pt ); // ¿ÞµµÀÇ left,topÀ» pt·Î 
-	void Move( int x, int y ) { Move( CPoint( x, y ) ); } // ¿ÞµµÀÇ left,topÀ» pt·Î 
-	BOOL IsVisible() { return m_bVisible; } // À©µµ°¡ º¸ÀÌ´Â »óÅÂÀÎ°¡.
-	void SetVisible(BOOL bVisible) { m_bVisible = ( bVisible != FALSE ); } // À©µµ¸¦ º¸ÀÌ°Å³ª °¨Ãá´Ù.
+	void MoveParentCenter(); // ìœˆë„ë¥¼ ë¶€ëª¨ ìœˆë„ì˜ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸´ë‹¤.
+	void MoveRectCenter(CRect rect); // ìœˆë„ë¥¼ rectì˜ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸´ë‹¤.
+	void MovePointCenter(CPoint pt); // ìœˆë„ë¥¼ ptì˜ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸´ë‹¤.
+	void Move( CPoint pt ); // ì™¼ë„ì˜ left,topì„ ptë¡œ 
+	void Move( int x, int y ) { Move( CPoint( x, y ) ); } // ì™¼ë„ì˜ left,topì„ ptë¡œ 
+	BOOL IsVisible() { return m_bVisible; } // ìœˆë„ê°€ ë³´ì´ëŠ” ìƒíƒœì¸ê°€.
+	void SetVisible(BOOL bVisible) { m_bVisible = ( bVisible != FALSE ); } // ìœˆë„ë¥¼ ë³´ì´ê±°ë‚˜ ê°ì¶˜ë‹¤.
 	void SetCapture();
 	void ReleaseCapture();
 	CRect  MakeCenterRect( int nWidth, int nHeight );
-	CPoint GetClientCenter(); // ClientÀÇ Áß¾Ó ÁÂÇ¥¸¦ µ¹·ÁÁØ´Ù.
-	CPoint GetStrCenter(C2DRender* p2DRender,LPCTSTR str); // È­¸é Áß½É¿¡¼­ ½ºÆ®¸µÀÇ Áß¾Ó¿¡ Ãâ·ÂÇÏ±â À§ÇÑ ÁÂÇ¥¸¦ µ¹·ÁÁØ´Ù.
-	CPoint GetStrRectCenter(C2DRender* p2DRender,CRect rect,LPCTSTR str); // rectÀÇ Áß½É¿¡¼­ ½ºÆ®¸µÀÇ Áß¾Ó¿¡ Ãâ·ÂÇÏ±â À§ÇÑ ÁÂÇ¥¸¦ µ¹·ÁÁØ´Ù.
+	CPoint GetClientCenter(); // Clientì˜ ì¤‘ì•™ ì¢Œí‘œë¥¼ ëŒë ¤ì¤€ë‹¤.
+	CPoint GetStrCenter(C2DRender* p2DRender,LPCTSTR str); // í™”ë©´ ì¤‘ì‹¬ì—ì„œ ìŠ¤íŠ¸ë§ì˜ ì¤‘ì•™ì— ì¶œë ¥í•˜ê¸° ìœ„í•œ ì¢Œí‘œë¥¼ ëŒë ¤ì¤€ë‹¤.
+	CPoint GetStrRectCenter(C2DRender* p2DRender,CRect rect,LPCTSTR str); // rectì˜ ì¤‘ì‹¬ì—ì„œ ìŠ¤íŠ¸ë§ì˜ ì¤‘ì•™ì— ì¶œë ¥í•˜ê¸° ìœ„í•œ ì¢Œí‘œë¥¼ ëŒë ¤ì¤€ë‹¤.
 	CString GetTitle() { return m_strTitle; } 
 	void SetTitle(CString strTitle) { m_strTitle = strTitle; }
 	DWORD GetStyle() { return m_dwStyle; }
@@ -195,7 +195,7 @@ static void FreeTileTexture();
 	CRect GetLayoutRect( BOOL bParent = FALSE );
 	CRect GetWndRect() { return m_rectWindow; }
 	BOOL IsWndRoot() { return this == m_pWndRoot; }
-	BOOL IsOnWndBase(CPoint pt);  // Æ÷ÀÎÆ®°¡ À©µµ À§¿¡ ÀÖ´Â°¡?
+	BOOL IsOnWndBase(CPoint pt);  // í¬ì¸íŠ¸ê°€ ìœˆë„ ìœ„ì— ìžˆëŠ”ê°€?
 #ifndef __VS2003
 	BOOL IsOpenAnywnd() { return m_wndOrder.GetSize() ? TRUE : FALSE; }
 #endif
@@ -273,7 +273,7 @@ static void ClipStrArray(C2DRender* p2DRender,CRect rect,int nLineSpace,
 virtual void AlighWindow( CRect rcOld, CRect rcNew );
  
 	BOOL IsDestroy();
-	void Destroy(BOOL bAutoFree = FALSE); // À©µµ¸¦ ÆÄ±«ÇÑ´Ù.
+	void Destroy(BOOL bAutoFree = FALSE); // ìœˆë„ë¥¼ íŒŒê´´í•œë‹¤.
 	void PaintChild(C2DRender* p2DRender);
 	void Paint(C2DRender* p2DRender, BOOL bPaintChild = TRUE );
 	void SetWndSize( int cx, int cy );

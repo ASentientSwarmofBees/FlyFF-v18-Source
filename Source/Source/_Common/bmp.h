@@ -1,4 +1,4 @@
-#ifndef __CBMP_H
+﻿#ifndef __CBMP_H
 #define __CBMP_H
 
 #include "..\library\graphic.h"

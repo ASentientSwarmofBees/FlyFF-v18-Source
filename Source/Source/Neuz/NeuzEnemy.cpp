@@ -1,4 +1,4 @@
-// NeuzEnemy.cpp: implementation of the CNeuzEnemy class.
+﻿// NeuzEnemy.cpp: implementation of the CNeuzEnemy class.
 //
 //////////////////////////////////////////////////////////////////////
 

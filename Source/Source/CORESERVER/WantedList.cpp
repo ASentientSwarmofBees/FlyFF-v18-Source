@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "WantedList.h"
 #include <algorithm>
 #include "dpdatabaseclient.h"
@@ -9,7 +9,7 @@ extern	CDPDatabaseClient	g_dpDatabaseClient;
 // file global
 //////////////////////////////////////////////////////////////////////
 
-// 30ÀÏÈÄÀÇ ³¯Â¥¸¦ ±¸ÇÑ´Ù. 
+// 30ì¼í›„ì˜ ë‚ ì§œë¥¼ êµ¬í•œë‹¤. 
 static long CalcEnd()
 {
 	CTime t = CTime::GetCurrentTime();
@@ -136,7 +136,7 @@ BOOL CWantedList::SetEntry( u_long idPlayer, LPCTSTR szPlayer, int nGold, LPCTST
 		pEntry->nEnd = nEnd;
 		
 		if( nGold >= (0.30f * pEntry->nGold) )	
-			strcpy( pEntry->szMsg, szMsg );		// ÃÑ ´©Àû ±Ý¾×ÀÇ 30%ÀÌ»óÀ» °Ç À¯ÀúÀÇ 10ÀÚÆòÀÌ ³²°Ô µÈ´Ù.
+			strcpy( pEntry->szMsg, szMsg );		// ì´ ëˆ„ì  ê¸ˆì•¡ì˜ 30%ì´ìƒì„ ê±´ ìœ ì €ì˜ 10ìží‰ì´ ë‚¨ê²Œ ëœë‹¤.
 			
 		pEntry->nGold += nGold;
 	}
@@ -152,7 +152,7 @@ BOOL CWantedList::SetEntry( u_long idPlayer, LPCTSTR szPlayer, int nGold, LPCTST
 		m_wantedList.insert( make_pair(idPlayer, pEntry) );
 	}
 	nResult = pEntry->nGold;
-	g_dpDatabaseClient.SendCTWanted( CT_WANTED_SET, idPlayer, nGold, nEnd, szMsg );	// DBÃ³¸® 
+	g_dpDatabaseClient.SendCTWanted( CT_WANTED_SET, idPlayer, nGold, nEnd, szMsg );	// DBì²˜ë¦¬ 
 
 	return IsUpdatable( nResult );
 }
@@ -168,7 +168,7 @@ __int64	CWantedList::GetReward( u_long idPlayer, LPTSTR lpszReward, BOOL& bUpdat
 	{
 		WANTED_ENTRY* pEntry = it->second; 
 		long lCurrent = time( NULL );
-		if( pEntry->nEnd > lCurrent )		// ¸¸·áµÇÁö ¾Ê¾ÒÀ¸¸é, ÇØ´ç »ó±ÝÀ» ¸®ÅÏ 
+		if( pEntry->nEnd > lCurrent )		// ë§Œë£Œë˜ì§€ ì•Šì•˜ìœ¼ë©´, í•´ë‹¹ ìƒê¸ˆì„ ë¦¬í„´ 
 		{
 			nGold = pEntry->nGold;
 			strcpy( lpszReward, pEntry->szPlayer );
@@ -177,7 +177,7 @@ __int64	CWantedList::GetReward( u_long idPlayer, LPTSTR lpszReward, BOOL& bUpdat
 		safe_delete( pEntry );
 		m_wantedList.erase( it );
 
-		g_dpDatabaseClient.SendCTWanted( CT_WANTED_SET, idPlayer, 0, 0, "" );			// DBÃ³¸®
+		g_dpDatabaseClient.SendCTWanted( CT_WANTED_SET, idPlayer, 0, 0, "" );			// DBì²˜ë¦¬
 	}
 
 	bUpdatable = IsUpdatable( nGold );

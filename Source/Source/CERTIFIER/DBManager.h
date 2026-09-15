@@ -1,4 +1,4 @@
-#ifndef __DBMANAGER_H__
+﻿#ifndef __DBMANAGER_H__
 #define	__DBMANAGER_H__
 
 #include "query.h"

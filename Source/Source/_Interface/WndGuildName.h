@@ -1,4 +1,4 @@
-#ifndef __WNDGUILDNAME__H
+﻿#ifndef __WNDGUILDNAME__H
 #define __WNDGUILDNAME__H
 
 class CWndGuildName : public CWndNeuz 

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "dpwldsrvr.h"
 #include "globalgiftbox.h"
 

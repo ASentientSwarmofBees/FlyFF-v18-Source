@@ -1,4 +1,4 @@
-/* huffman.cpp
+﻿/* huffman.cpp
 
     Huffman decoder for Layer III
 

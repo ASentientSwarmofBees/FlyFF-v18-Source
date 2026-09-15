@@ -1,4 +1,4 @@
-// LuaBase.cpp: implementation of the CLuaBase class.
+﻿// LuaBase.cpp: implementation of the CLuaBase class.
 //
 //////////////////////////////////////////////////////////////////////
 

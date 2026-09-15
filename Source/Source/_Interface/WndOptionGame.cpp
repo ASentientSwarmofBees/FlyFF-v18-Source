@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AppDefine.h"
 #include "WndOptionGame.h"
 #include "DPClient.h"
@@ -53,7 +53,7 @@ void CWndOptionGame::OnDraw( C2DRender* p2DRender )
 void CWndOptionGame::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	CWndButton* pWndButton[ 2 ];
 	
@@ -132,7 +132,7 @@ void CWndOptionGame::OnInitialUpdate()
 #if __VER >= 9 // __CSC_VER9_REMOVE_PKSETTING
 	CRect rect;
 	LPWNDCTRL lpWndCtrl;
-	// ÀÚµ¿ PK ¸ðµå ¿É¼Ç Á¦°Å
+	// ìžë™ PK ëª¨ë“œ ì˜µì…˜ ì œê±°
 	pWndButton[ 0 ] = (CWndButton*)GetDlgItem( WIDC_AUTOPK_ON );
 	pWndButton[ 1 ] = (CWndButton*)GetDlgItem( WIDC_AUTOPK_OFF );
 	pWndButton[ 0 ]->EnableWindow(FALSE);
@@ -143,7 +143,7 @@ void CWndOptionGame::OnInitialUpdate()
 	pStatic->EnableWindow(FALSE);
 	pStatic->SetVisible(FALSE);
 
-	// ¿É¼Ç À§Ä¡ Á¦Á¶Á¤
+	// ì˜µì…˜ ìœ„ì¹˜ ì œì¡°ì •
 	lpWndCtrl = GetWndCtrl( WIDC_STATIC8 );
 	rect = lpWndCtrl->rect;
 	pStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC9 );
@@ -191,21 +191,21 @@ void CWndOptionGame::OnInitialUpdate()
 	else
 		pWndButton[ 1 ]->SetCheck( TRUE );		
 	
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndOptionGame::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_OPTION_GAME, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndOptionGame::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -297,7 +297,7 @@ BOOL CWndOptionGame::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		g_Option.m_bParty = 0;
 		break;
 #if __VER >= 12 // __UPDATE_OPT
-	case WIDC_CHECK1: // ÃÊº¸ÀÚ µµ¿ò¸» ¿É¼Ç 
+	case WIDC_CHECK1: // ì´ˆë³´ìž ë„ì›€ë§ ì˜µì…˜ 
 		if( pWndHelp->GetCheck() )
 			g_Option.m_nInstantHelp = TRUE;
 		else
@@ -315,21 +315,21 @@ BOOL CWndOptionGame::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			*g_Option.m_pGuide = 2;
 		}
 		break;
-	case WIDC_CHECK3: // À©µµ ¹ÝÅõ¸í ¿É¼Ç 
+	case WIDC_CHECK3: // ìœˆë„ ë°˜íˆ¬ëª… ì˜µì…˜ 
 		if( pWndAlpha->GetCheck() )
 			CWndBase::m_nAlpha = g_Option.m_nWindowAlpha = 128;
 		else
 			CWndBase::m_nAlpha = g_Option.m_nWindowAlpha = 255;
 		break;
 #if __VER >= 15 // __IMPROVE_SYSTEM_VER15
-	case WIDC_CHECK_BATTLE_BGM: // ÀüÅõ À½¾Ç
+	case WIDC_CHECK_BATTLE_BGM: // ì „íˆ¬ ìŒì•…
 		{
 			g_Option.m_bBattleBGM = ( pWndCheckBattleBGM->GetCheck() == TRUE ) ? TRUE: FALSE;
 			break;
 		}
 #endif // __IMPROVE_SYSTEM_VER15
 #ifdef __GAME_GRADE_SYSTEM
-	case WIDC_CHECK_GAME_GRADE: // °ÔÀÓ¹° µî±Þ Ç¥½Ã
+	case WIDC_CHECK_GAME_GRADE: // ê²Œìž„ë¬¼ ë“±ê¸‰ í‘œì‹œ
 		{
 			BOOL bGameGradeChecked = pWndCheckGameGrade->GetCheck();
 			g_Option.m_bGameGradeRendering = ( bGameGradeChecked == TRUE ) ? TRUE: FALSE;

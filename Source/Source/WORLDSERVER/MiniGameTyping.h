@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include "minigamebase.h"
@@ -13,9 +13,9 @@ public:
 	virtual BOOL Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePacket );
 
 private:
-	void	MakeQuestion();	// ¹®Á¦¸¦ ¸¸µç´Ù.
+	void	MakeQuestion();	// ë¬¸ì œë¥¼ ë§Œë“ ë‹¤.
 
-	vector<string>	m_vecTyping;	// ¸¸µé¾îÁø ¹®Á¦¸¦ °¡Áú ¸â¹ö
+	vector<string>	m_vecTyping;	// ë§Œë“¤ì–´ì§„ ë¬¸ì œë¥¼ ê°€ì§ˆ ë©¤ë²„
 };
 
 #endif // __RAINBOW_RACE

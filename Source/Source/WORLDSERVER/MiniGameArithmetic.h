@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include "minigamebase.h"
@@ -14,14 +14,14 @@ public:
 
 private:
 	void	InitPrimeNumber();
-	int		GetDivisor( int nDivided );	// ³ª´°¼ÀÀÏ¶§ °á°ú°¡ Á¤¼ö·Î ¶³¾îÁö´Â ÇÇ¿¬»êÀÚ¸¦ ±¸ÇÑ´Ù.
+	int		GetDivisor( int nDivided );	// ë‚˜ëˆ—ì…ˆì¼ë•Œ ê²°ê³¼ê°€ ì •ìˆ˜ë¡œ ë–¨ì–´ì§€ëŠ” í”¼ì—°ì‚°ìë¥¼ êµ¬í•œë‹¤.
 	string	MakeQuestion();
 	int		Calculate( int n1, int& n2, int nOper );
 	char	GetOperatorCh( int nOper );
 
 	int m_nResult;
 	int m_nCorrectCount;
-	vector<int>	m_vecnPrimeNumber;		// operator°¡ ³ª´°¼À ÀÎ °æ¿ì ÇÇ¿¬»êÀÚ¸¦ Á¶ÇÕÇÒ ¼Ò¼ö ¸ñ·Ï
+	vector<int>	m_vecnPrimeNumber;		// operatorê°€ ë‚˜ëˆ—ì…ˆ ì¸ ê²½ìš° í”¼ì—°ì‚°ìë¥¼ ì¡°í•©í•  ì†Œìˆ˜ ëª©ë¡
 };
 
 #endif // __RAINBOW_RACE

@@ -1,4 +1,4 @@
-#ifndef __AI_MONSTER2_H
+ï»¿#ifndef __AI_MONSTER2_H
 #define __AI_MONSTER2_H
 
 #include "AIInterface.h"
@@ -25,15 +25,15 @@ private:
 	DWORD			m_dwTick;
 	D3DXVECTOR3		m_vPosBegin;
 
-	DWORD			m_idLastAttacker;		// ³ª¸¦ °ø°İÇÑ ÀÚ id 
-	OBJID			m_idTarget;				// °ø°İ ´ë»ó id 
-	D3DXVECTOR3		m_vTarget;				// °ø°İ ´ë»ó À§Ä¡ 
-	int				m_nAttackType;			// °ø°İ ¹æ½Ä
-	float			m_fAttackRange;			// °ø°İ ¹üÀ§ 
-	DWORD			m_dwReattack;			// Àç °ø°İ ½Ã°¢ 
+	DWORD			m_idLastAttacker;		// ë‚˜ë¥¼ ê³µê²©í•œ ì id 
+	OBJID			m_idTarget;				// ê³µê²© ëŒ€ìƒ id 
+	D3DXVECTOR3		m_vTarget;				// ê³µê²© ëŒ€ìƒ ìœ„ì¹˜ 
+	int				m_nAttackType;			// ê³µê²© ë°©ì‹
+	float			m_fAttackRange;			// ê³µê²© ë²”ìœ„ 
+	DWORD			m_dwReattack;			// ì¬ ê³µê²© ì‹œê° 
 
 	void	Init();
-	BOOL	Check( int nInput, DWORD dwCurTick, DWORD dwValue );		// ÁÖ±âÀû °Ë»ç( polling )
+	BOOL	Check( int nInput, DWORD dwCurTick, DWORD dwValue );		// ì£¼ê¸°ì  ê²€ì‚¬( polling )
 	BOOL	IsControllable();
 	void	ProcessAIMsg( int nInput, int nOutput, DWORD dwParam1, DWORD dwParam2 );
 	void	OnBeginState( int nInput, DWORD dwParam1, DWORD dwParam2 );

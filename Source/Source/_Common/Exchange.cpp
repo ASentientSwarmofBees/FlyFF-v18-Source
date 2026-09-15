@@ -1,4 +1,4 @@
-// Exchange.cpp: implementation of the CExchange class.
+ï»¿// Exchange.cpp: implementation of the CExchange class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -53,7 +53,7 @@ BOOL CExchange::Load_Script()
 			if( s.Token == _T( "DESCRIPTION" ) )
 			{
 				s.GetToken(); // {
-				s.GetToken(); // ¼³¸í TEXT ID
+				s.GetToken(); // ì„¤ëª… TEXT ID
 				while( *s.token != '}' )
 				{
 					create.vecDesciprtionId.push_back( CScript::GetDefineNum( s.Token ) );
@@ -76,7 +76,7 @@ BOOL CExchange::Load_Script()
 						s.GetToken();
 						while( *s.token != '}' )
 						{
-							Set.vecResultMsg.push_back( CScript::GetDefineNum( s.Token ) ); // Á¶°Ç ¾ÆÀÌÅÛ
+							Set.vecResultMsg.push_back( CScript::GetDefineNum( s.Token ) ); // ì¡°ê±´ ì•„ì´í…œ
 							s.GetToken();
 						} // while - RESULTMSG
 					}
@@ -90,8 +90,8 @@ BOOL CExchange::Load_Script()
 							if( s.Token == "PENYA" )
 								item.dwItemId = II_GOLD_SEED1;
 							else
-								item.dwItemId = CScript::GetDefineNum( s.Token ); // Á¶°Ç ¾ÆÀÌÅÛ
-							item.nItemNum = s.GetNumber(); // Á¶°Ç °¹¼ö
+								item.dwItemId = CScript::GetDefineNum( s.Token ); // ì¡°ê±´ ì•„ì´í…œ
+							item.nItemNum = s.GetNumber(); // ì¡°ê±´ ê°¯ìˆ˜
 							Set.vecCondItem.push_back( item ); 
 							s.GetToken();
 						} // while - CONDITION
@@ -106,8 +106,8 @@ BOOL CExchange::Load_Script()
 							if( s.Token == "PENYA" )
 								item.dwItemId = II_GOLD_SEED1;
 							else
-								item.dwItemId = CScript::GetDefineNum( s.Token ); // Á¶°Ç ¾ÆÀÌÅÛ
-							item.nItemNum = s.GetNumber(); // »èÁ¦ °¹¼ö
+								item.dwItemId = CScript::GetDefineNum( s.Token ); // ì¡°ê±´ ì•„ì´í…œ
+							item.nItemNum = s.GetNumber(); // ì‚­ì œ ê°¯ìˆ˜
 							Set.vecRemoveItem.push_back( item );
 							s.GetToken();
 						} // while - REMOVE
@@ -121,7 +121,7 @@ BOOL CExchange::Load_Script()
 						{
 							__POINT point;
 							point.nType = CScript::GetDefineNum( s.Token );
-							point.nPoint = s.GetNumber();	// Á¶°Ç Æ÷ÀÎÆ®
+							point.nPoint = s.GetNumber();	// ì¡°ê±´ í¬ì¸íŠ¸
 							if( point.nType > 0 )
 								Set.vecCondPoint.push_back( point );
 							else
@@ -137,7 +137,7 @@ BOOL CExchange::Load_Script()
 						{
 							__POINT point;
 							point.nType = CScript::GetDefineNum( s.Token );
-							point.nPoint = s.GetNumber();	// Â÷°¨ Æ÷ÀÎÆ®
+							point.nPoint = s.GetNumber();	// ì°¨ê° í¬ì¸íŠ¸
 							if( point.nType > 0 )
 								Set.vecRemovePoint.push_back( point );
 							else
@@ -148,18 +148,18 @@ BOOL CExchange::Load_Script()
 #endif // __CAMPUS
 					else if( s.Token == _T( "PAY" ) )
 					{
-						int nSumProb = 0;	// Áö±Ş È®·üÀÇ ÇÕÀÌ 1000000ÀÎÁö È®ÀÎÇÏ±â À§ÇØ
-						BOOL bProb = TRUE;	// Áö±Ş ¸®½ºÆ®¸¦ Ãß°¡ ÇÒ°ÍÀÎÁö °Ë»ç(1000000ÀÌ ³Ñ°í ¸®½ºÆ®°¡ ´õ ÀÖÀ» °æ¿ì)
+						int nSumProb = 0;	// ì§€ê¸‰ í™•ë¥ ì˜ í•©ì´ 1000000ì¸ì§€ í™•ì¸í•˜ê¸° ìœ„í•´
+						BOOL bProb = TRUE;	// ì§€ê¸‰ ë¦¬ìŠ¤íŠ¸ë¥¼ ì¶”ê°€ í• ê²ƒì¸ì§€ ê²€ì‚¬(1000000ì´ ë„˜ê³  ë¦¬ìŠ¤íŠ¸ê°€ ë” ìˆì„ ê²½ìš°)
 						
-						Set.nPayNum = s.GetNumber(); // Áö±ŞµÉ ¾ÆÀÌÅÛ Á¾·ù ¼ö
+						Set.nPayNum = s.GetNumber(); // ì§€ê¸‰ë  ì•„ì´í…œ ì¢…ë¥˜ ìˆ˜
 						s.GetToken(); // {
 						s.GetToken();
 						while( *s.token != '}' )
 						{
 							__ITEM item;
-							item.dwItemId = CScript::GetDefineNum( s.Token ); // Áö±Ş ¾ÆÀÌÅÛ
-							item.nItemNum = s.GetNumber(); // Áö±Ş °¹¼ö
-							item.nPayProb = s.GetNumber(); // Áö±Ş È®·ü
+							item.dwItemId = CScript::GetDefineNum( s.Token ); // ì§€ê¸‰ ì•„ì´í…œ
+							item.nItemNum = s.GetNumber(); // ì§€ê¸‰ ê°¯ìˆ˜
+							item.nPayProb = s.GetNumber(); // ì§€ê¸‰ í™•ë¥ 
 							s.SetMark();
 							s.GetToken();
 							s.GoMark();
@@ -167,15 +167,15 @@ BOOL CExchange::Load_Script()
 								item.byFalg = static_cast<BYTE>( s.GetNumber() );
 															
 							nSumProb += item.nPayProb;
-							if( nSumProb > 1000000 ) // ÃÑ È®·üÀÇ ÇÕÀÌ 1000000(100%)°¡ ³ÑÀ» °æ¿ì
+							if( nSumProb > 1000000 ) // ì´ í™•ë¥ ì˜ í•©ì´ 1000000(100%)ê°€ ë„˜ì„ ê²½ìš°
 							{
 								if( bProb )
 								{
-									item.nPayProb -= nSumProb - 1000000; // ¸¶Áö¸· ¸®½ºÆ®¿¡ ³Ñ´Â ¸¸Å­ »«´Ù.
+									item.nPayProb -= nSumProb - 1000000; // ë§ˆì§€ë§‰ ë¦¬ìŠ¤íŠ¸ì— ë„˜ëŠ” ë§Œí¼ ëº€ë‹¤.
 									Set.vecPayItem.push_back( item );
 									bProb = FALSE;
 								#ifdef __WORLDSERVER
-									Error( "Exchange_Script.txt -> PAY È®·ü ÇÕ°è°¡ 1000000 ÃÊ°ú : %s", strErrorMMIId );
+									Error( "Exchange_Script.txt -> PAY í™•ë¥  í•©ê³„ê°€ 1000000 ì´ˆê³¼ : %s", strErrorMMIId );
 								#endif // __WORLDSERVER
 								}
 							}
@@ -187,22 +187,22 @@ BOOL CExchange::Load_Script()
 							}
 							s.GetToken();
 						} // while - PAY
-						if( nSumProb < 1000000 ) // ÃÑ È®·üÀÇ ÇÕÀÌ 1000000 º¸´Ù ÀûÀ» °æ¿ì
+						if( nSumProb < 1000000 ) // ì´ í™•ë¥ ì˜ í•©ì´ 1000000 ë³´ë‹¤ ì ì„ ê²½ìš°
 						{
-							Set.vecPayItem[Set.vecPayItem.size()-1].nPayProb += 1000000 - nSumProb; // ¸ğÀÚ¶ó´Â ¸¸Å­ ´õÇÑ´Ù.
+							Set.vecPayItem[Set.vecPayItem.size()-1].nPayProb += 1000000 - nSumProb; // ëª¨ìë¼ëŠ” ë§Œí¼ ë”í•œë‹¤.
 						#ifdef __WORLDSERVER
-							Error( "Exchange_Script.txt -> PAY È®·ü ÇÕ°è°¡ 1000000 ¹Ì¸¸ : %s", strErrorMMIId );
+							Error( "Exchange_Script.txt -> PAY í™•ë¥  í•©ê³„ê°€ 1000000 ë¯¸ë§Œ : %s", strErrorMMIId );
 						#endif // __WORLDSERVER
 						}
 					#ifdef __WORLDSERVER
-						if( Set.nPayNum > (int)( Set.vecPayItem.size() ) ) // GetPayItemList()¿¡¼­ Ã³¸®
-							Error( "Exchange_Script.txt -> PAY (¸®½ºÆ® °¹¼ö < Áö±Ş °¹¼ö) : %s", strErrorMMIId );
+						if( Set.nPayNum > (int)( Set.vecPayItem.size() ) ) // GetPayItemList()ì—ì„œ ì²˜ë¦¬
+							Error( "Exchange_Script.txt -> PAY (ë¦¬ìŠ¤íŠ¸ ê°¯ìˆ˜ < ì§€ê¸‰ ê°¯ìˆ˜) : %s", strErrorMMIId );
 					#endif // __WORLDSERVER
 					}
 					s.GetToken();
 				} // while - SET
 				if( nCount <= 15 )
-					create.vecSet.push_back( Set ); // SetList¿¡ Ãß°¡(ÃÖ´ë 15°³)
+					create.vecSet.push_back( Set ); // SetListì— ì¶”ê°€(ìµœëŒ€ 15ê°œ)
 			}
 			s.GetToken();
 		} // while - MMI_ID
@@ -220,7 +220,7 @@ PSETLIST CExchange::FindExchange( int nMMIId )
 	return NULL;
 }
 		
-// ¸®½ºÆ®¿¡ µé¾î°¥ TEXT ID ¸ñ·ÏÀ» ¾ò¾î¿Â´Ù. vector<int>
+// ë¦¬ìŠ¤íŠ¸ì— ë“¤ì–´ê°ˆ TEXT ID ëª©ë¡ì„ ì–»ì–´ì˜¨ë‹¤. vector<int>
 vector<int> CExchange::GetListTextId( int nMMIId )
 {
 	vector<int> list;
@@ -233,7 +233,7 @@ vector<int> CExchange::GetListTextId( int nMMIId )
 	return list;
 }
 
-// ÀüÃ¼ ¼³¸í TEXT ID ¸ñ·ÏÀ» ¾ò¾î¿Â´Ù. vector<int>
+// ì „ì²´ ì„¤ëª… TEXT ID ëª©ë¡ì„ ì–»ì–´ì˜¨ë‹¤. vector<int>
 vector<int> CExchange::GetDescId( int nMMIId )
 {
 	PSETLIST pSetList = FindExchange( nMMIId );
@@ -255,7 +255,7 @@ vector<int> CExchange::GetResultMsg( int nMMIId, int nListNum )
 }
 
 #ifdef __WORLDSERVER
-// Á¶°ÇÀÌ ¸¸Á· ÇÏ´ÂÁö °Ë»ç
+// ì¡°ê±´ì´ ë§Œì¡± í•˜ëŠ”ì§€ ê²€ì‚¬
 BOOL CExchange::CheckCondition( CUser* pUser, int nMMIId, int nListNum )
 {
 	PSETLIST pSetList = FindExchange( nMMIId );
@@ -314,7 +314,7 @@ BOOL CExchange::CheckCondition( CUser* pUser, int nMMIId, int nListNum )
 	return bReturn;
 }
 
-// È®·ü¿¡ µû¶ó Á¤ÇØÁø °¹¼ö ¸¸Å­ Áö±ŞµÉ ¾ÆÀÌÅÛ ¸ñ·ÏÀ» ¸¸µç´Ù. vector<__ITEM>
+// í™•ë¥ ì— ë”°ë¼ ì •í•´ì§„ ê°¯ìˆ˜ ë§Œí¼ ì§€ê¸‰ë  ì•„ì´í…œ ëª©ë¡ì„ ë§Œë“ ë‹¤. vector<__ITEM>
 vector<CExchange::__ITEM>	CExchange::GetPayItemList( int nMMIId, int nListNum )
 {
 	vector<__ITEM> vecList;
@@ -336,14 +336,14 @@ vector<CExchange::__ITEM>	CExchange::GetPayItemList( int nMMIId, int nListNum )
 		nSumProb += i->nPayProb;
 		if( nRandom < nSumProb )
 		{
-			vecList.push_back(*i); // Áö±Ş ¸ñ·Ï¿¡ Ãß°¡
+			vecList.push_back(*i); // ì§€ê¸‰ ëª©ë¡ì— ì¶”ê°€
 			nCount++;
 			if( nCount == pSetList->vecSet[nListNum].nPayNum )
 				break;
 			nProb -= i->nPayProb;
-			if( nProb <= 0 ) // Áö±Ş °¹¼ö°¡ ¸®½ºÆ® ¼öº¸´Ù ¸¹Àº °æ¿ì
+			if( nProb <= 0 ) // ì§€ê¸‰ ê°¯ìˆ˜ê°€ ë¦¬ìŠ¤íŠ¸ ìˆ˜ë³´ë‹¤ ë§ì€ ê²½ìš°
 				break;
-			nRandom = xRandom( nProb ); // Áö±ŞµÈ ¾ÆÀÌÅÛÀ» Á¦¿ÜÇÑ ³ª¸ÓÁö·Î ¹İº¹
+			nRandom = xRandom( nProb ); // ì§€ê¸‰ëœ ì•„ì´í…œì„ ì œì™¸í•œ ë‚˜ë¨¸ì§€ë¡œ ë°˜ë³µ
 			nSumProb = 0;
 			payItem.erase(i);
 			i = payItem.begin();
@@ -354,7 +354,7 @@ vector<CExchange::__ITEM>	CExchange::GetPayItemList( int nMMIId, int nListNum )
 	return vecList;
 }
 
-// »èÁ¦µÉ ¾ÆÀÌÅÛ ¸ñ·ÏÀ» ¾ò¾î¿Â´Ù. map<OBJID, int>
+// ì‚­ì œë  ì•„ì´í…œ ëª©ë¡ì„ ì–»ì–´ì˜¨ë‹¤. map<OBJID, int>
 vector<CExchange::__ITEM> CExchange::GetRemoveItemList( int nMMIId, int nListNum )
 {
 	vector<__ITEM> vecList;
@@ -385,7 +385,7 @@ vector<CExchange::__POINT> CExchange::GetRemovePointList( int nMMIId, int nListN
 }
 #endif // __CAMPUS
 
-// ÀÎº¥Åä¸®¿¡ ¿©À¯°¡ ÀÖ´ÂÁö È®ÀÎ
+// ì¸ë²¤í† ë¦¬ì— ì—¬ìœ ê°€ ìˆëŠ”ì§€ í™•ì¸
 BOOL CExchange::IsFull( CUser* pUser, vector<__ITEM> vecRemoveItem, vector<__ITEM> vecPayItem )
 {
 	int nEmptyCount = pUser->m_Inventory.GetEmptyCount();
@@ -430,7 +430,7 @@ int CExchange::ResultExchange( CUser* pUser, int nMMIId, int nListNum )
 	if( nListNum > (int)( pSetList->vecSet.size()-1 ) || nListNum < 0 )
 		return EXCHANGE_FAILED;
 	
-	// Á¶°Ç ºñ±³
+	// ì¡°ê±´ ë¹„êµ
 	if( !CheckCondition( pUser, nMMIId, nListNum ) )
 		return EXCHANGE_CONDITION_FAILED;
 	
@@ -440,11 +440,11 @@ int CExchange::ResultExchange( CUser* pUser, int nMMIId, int nListNum )
 #endif // __CAMPUS
 	vector<__ITEM> vecPayItem = GetPayItemList( nMMIId, nListNum );
 	
-	// ÀÎº¥Åä¸® °ø°£ °Ë»ç
+	// ì¸ë²¤í† ë¦¬ ê³µê°„ ê²€ì‚¬
 	if( IsFull( pUser, vecRemoveItem, vecPayItem ) )
 		return EXCHANGE_INVENTORY_FAILED;
 
-	// ¾ÆÀÌÅÛ »èÁ¦
+	// ì•„ì´í…œ ì‚­ì œ
 	for( int i=0; i<(int)( vecRemoveItem.size() ); i++ )
 	{
 		if( vecRemoveItem[i].dwItemId == II_GOLD_SEED1 )
@@ -482,7 +482,7 @@ int CExchange::ResultExchange( CUser* pUser, int nMMIId, int nListNum )
 		}
 	}
 #if __VER >= 15 // __CAMPUS
-	// Æ÷ÀÎÆ® Â÷°¨
+	// í¬ì¸íŠ¸ ì°¨ê°
 	for( int i = 0; i < (int)( vecRemovePoint.size() ); ++i )
 	{
 		if( vecRemovePoint[i].nType == POINTTYPE_CAMPUS )
@@ -490,7 +490,7 @@ int CExchange::ResultExchange( CUser* pUser, int nMMIId, int nListNum )
 	}
 #endif // __CAMPUS
 	
-	// ¾ÆÀÌÅÛ Áö±Ş
+	// ì•„ì´í…œ ì§€ê¸‰
 	for( int i=0; i<(int)( vecPayItem.size() ); i++ )
 	{
 		CItemElem itemElem;
@@ -513,7 +513,7 @@ int CExchange::ResultExchange( CUser* pUser, int nMMIId, int nListNum )
 				pUser->AddDefinedText( TID_EXCHANGE_SUCCESS, "\"%s\" %d", itemElem.GetName(), itemElem.m_nItemNum );
 		}
 		else
-			Error( "CExchange::ResultExchange() ¾ÆÀÌÅÛ Áö±Ş ½ÇÆĞ - %s, %s, %d, %d", pUser->GetName(), itemElem.GetName(), itemElem.m_dwItemId, itemElem.m_nItemNum );
+			Error( "CExchange::ResultExchange() ì•„ì´í…œ ì§€ê¸‰ ì‹¤íŒ¨ - %s, %s, %d, %d", pUser->GetName(), itemElem.GetName(), itemElem.m_dwItemId, itemElem.m_nItemNum );
 	}
 	return EXCHANGE_SUCCESS;
 }

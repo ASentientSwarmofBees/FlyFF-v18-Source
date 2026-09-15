@@ -1,4 +1,4 @@
-#ifndef __RESMANAGER_H
+﻿#ifndef __RESMANAGER_H
 #define __RESMANAGER_H
 
 #include "data.h"

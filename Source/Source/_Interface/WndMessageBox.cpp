@@ -1,4 +1,4 @@
-// WndMessageBox.cpp: implementation of the CWndNeuz class.
+ï»¿// WndMessageBox.cpp: implementation of the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -12,7 +12,7 @@ extern	CDPLoginClient	g_dpLoginClient;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ¸Þ½ÃÁö ¹Ú½º ±âº» Å¬·¹½º 
+// ë©”ì‹œì§€ ë°•ìŠ¤ ê¸°ë³¸ í´ë ˆìŠ¤ 
 //
 //
 // IDABORT    The Abort CHILD was selected.
@@ -88,9 +88,9 @@ void CWndMessageBox::OnInitialUpdate()
 	switch(m_nType)
 	{
 		case MB_ABORTRETRYIGNORE:
-			m_wndButton1.Create( "Áß´Ü"  , 0, rect3_1, this, IDABORT );
-			m_wndButton2.Create( "Àç½Ãµµ", 0, rect3_1, this, IDRETRY );
-			m_wndButton3.Create( "¹«½Ã"  , 0, rect3_1, this, IDIGNORE);
+			m_wndButton1.Create( "ì¤‘ë‹¨"  , 0, rect3_1, this, IDABORT );
+			m_wndButton2.Create( "ìž¬ì‹œë„", 0, rect3_1, this, IDRETRY );
+			m_wndButton3.Create( "ë¬´ì‹œ"  , 0, rect3_1, this, IDIGNORE);
 			break;
 		case MB_OK:
 			m_wndButton1.Create("OK", 0, rect1_1, this, IDOK);
@@ -111,16 +111,16 @@ void CWndMessageBox::OnInitialUpdate()
 			m_wndButton2.FitTextureSize();
 			break;
 		case MB_RETRYCANCEL:
-			m_wndButton1.Create("Àç½Ãµµ", 0, rect2_1, this, IDRETRY );
+			m_wndButton1.Create("ìž¬ì‹œë„", 0, rect2_1, this, IDRETRY );
 			m_wndButton2.Create("CANCEL", 0, rect2_2, this, IDCANCEL);
 			break;
 		case MB_YESNO:
-			m_wndButton1.Create("¿¹"    ,0, rect2_1,this,IDYES);
-			m_wndButton2.Create("¾Æ´Ï¿À",0, rect2_2,this,IDNO );
+			m_wndButton1.Create("ì˜ˆ"    ,0, rect2_1,this,IDYES);
+			m_wndButton2.Create("ì•„ë‹ˆì˜¤",0, rect2_2,this,IDNO );
 			break;
 		case MB_YESNOCANCEL:
-			m_wndButton1.Create("¿¹"    ,0, rect3_1,this,IDYES);//   ,m_pSprPack,9);
-			m_wndButton2.Create("¾Æ´Ï¿À",0, rect3_2,this,IDNO);//    ,m_pSprPack,9);
+			m_wndButton1.Create("ì˜ˆ"    ,0, rect3_1,this,IDYES);//   ,m_pSprPack,9);
+			m_wndButton2.Create("ì•„ë‹ˆì˜¤",0, rect3_2,this,IDNO);//    ,m_pSprPack,9);
 			m_wndButton3.Create("CANCEL",0, rect3_3,this,IDCANCEL);//,m_pSprPack,9);
 			break;
 	}
@@ -189,7 +189,7 @@ BOOL CWndMessageBox::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 }
 BOOL CWndMessageBox::Initialize( LPCTSTR lpszMessage, CWndBase* pWndParent, DWORD nType )
 {
-	if( g_WndMng.m_pWndWorld && g_WndMng.m_pWndWorld->GetMouseMode() == 1 )	// FPS¸ðµåÀÏ¶§
+	if( g_WndMng.m_pWndWorld && g_WndMng.m_pWndWorld->GetMouseMode() == 1 )	// FPSëª¨ë“œì¼ë•Œ
 	{
 		g_WndMng.m_pWndWorld->SetMouseMode( 0 );
 	}
@@ -277,9 +277,9 @@ void CWndMessageBoxUpper::OnInitialUpdate()
 	switch(m_nType)
 	{
 		case MB_ABORTRETRYIGNORE:
-			m_wndButton1.Create( "Áß´Ü"  , 0, rect3_1, this, IDABORT );
-			m_wndButton2.Create( "Àç½Ãµµ", 0, rect3_1, this, IDRETRY );
-			m_wndButton3.Create( "¹«½Ã"  , 0, rect3_1, this, IDIGNORE);
+			m_wndButton1.Create( "ì¤‘ë‹¨"  , 0, rect3_1, this, IDABORT );
+			m_wndButton2.Create( "ìž¬ì‹œë„", 0, rect3_1, this, IDRETRY );
+			m_wndButton3.Create( "ë¬´ì‹œ"  , 0, rect3_1, this, IDIGNORE);
 			break;
 		case MB_OK:
 			m_wndButton1.Create("OK", 0, rect1_1, this, IDOK);
@@ -300,22 +300,22 @@ void CWndMessageBoxUpper::OnInitialUpdate()
 			m_wndButton2.FitTextureSize();
 			break;
 		case MB_RETRYCANCEL:
-			m_wndButton1.Create("Àç½Ãµµ", 0, rect2_1, this, IDRETRY );
+			m_wndButton1.Create("ìž¬ì‹œë„", 0, rect2_1, this, IDRETRY );
 			m_wndButton2.Create("CANCEL", 0, rect2_2, this, IDCANCEL);
 			break;
 		case MB_YESNO:
-			m_wndButton1.Create("¿¹"    ,0, rect2_1,this,IDYES);
-			m_wndButton2.Create("¾Æ´Ï¿À",0, rect2_2,this,IDNO );
+			m_wndButton1.Create("ì˜ˆ"    ,0, rect2_1,this,IDYES);
+			m_wndButton2.Create("ì•„ë‹ˆì˜¤",0, rect2_2,this,IDNO );
 			break;
 		case MB_YESNOCANCEL:
-			m_wndButton1.Create("¿¹"    ,0, rect3_1,this,IDYES);//   ,m_pSprPack,9);
-			m_wndButton2.Create("¾Æ´Ï¿À",0, rect3_2,this,IDNO);//    ,m_pSprPack,9);
+			m_wndButton1.Create("ì˜ˆ"    ,0, rect3_1,this,IDYES);//   ,m_pSprPack,9);
+			m_wndButton2.Create("ì•„ë‹ˆì˜¤",0, rect3_2,this,IDNO);//    ,m_pSprPack,9);
 			m_wndButton3.Create("CANCEL",0, rect3_3,this,IDCANCEL);//,m_pSprPack,9);
 			break;
 	}
 	m_wndButton1.SetDefault( TRUE );
 
-	// °ÔÀÌÁö À§ÂÊÀ¸·Î ³ª¿À°Ô ÇÏ±â
+	// ê²Œì´ì§€ ìœ„ìª½ìœ¼ë¡œ ë‚˜ì˜¤ê²Œ í•˜ê¸°
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( ( rectRoot.right - rectWindow.Width() ) / 2, 70 );
@@ -375,8 +375,8 @@ BOOL CWndMessageBoxUpper::Initialize( LPCTSTR lpszMessage, CWndBase* pWndParent,
 {
 	m_bPostLogoutMsg = bPostLogoutMsg;
 	CRect rect = m_pWndRoot->MakeCenterRect( 250, 130 );
-	//Create( _T( "¸Å½ÃÁö ¹Ú½º" ), nType, rect, APP_MESSAGEBOX );
-	if( g_WndMng.m_pWndWorld && g_WndMng.m_pWndWorld->GetMouseMode() == 1 )	// FPS¸ðµåÀÏ¶§
+	//Create( _T( "ë§¤ì‹œì§€ ë°•ìŠ¤" ), nType, rect, APP_MESSAGEBOX );
+	if( g_WndMng.m_pWndWorld && g_WndMng.m_pWndWorld->GetMouseMode() == 1 )	// FPSëª¨ë“œì¼ë•Œ
 	{
 		g_WndMng.m_pWndWorld->SetMouseMode( 0 );
 	}

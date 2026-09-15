@@ -1,4 +1,4 @@
-#ifndef __NETWORK_H__
+﻿#ifndef __NETWORK_H__
 #define	__NETWORK_H__
 
 enum NETWORK_EVENT

@@ -1,4 +1,4 @@
-// BetaPatchClientDlg.cpp : implementation file
+ï»¿// BetaPatchClientDlg.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -109,7 +109,7 @@ BOOL CBetaPatchClientDlg::OnInitDialog()
 
 #if __CURRENT_LANG == LANG_KOR
 #ifdef __LINK_PORTAL
-	//¹«ÀÎÀÚ ÀÏ °æ¿ì È¨ÆäÀÌÁö·Î ¿¬°á
+	//ë¬´ì¸ì ì¼ ê²½ìš° í™ˆí˜ì´ì§€ë¡œ ì—°ê²°
 /*	CString strCmdLine;
 	strCmdLine.Format("%s", AfxGetApp()->m_lpCmdLine);
 	if(strCmdLine.GetLength() == 0 || strCmdLine == "1")
@@ -175,7 +175,7 @@ void CBetaPatchClientDlg::OnPaint()
 	else
 	{
 #ifdef __LANG_JAP
-#if 0 //JAPAN ÆĞÄ¡ Å¬¶óÀÌ¾ğÆ® ÀÌ¹ÌÁö º¯°æ°ü·Ã »èÁ¦.
+#if 0 //JAPAN íŒ¨ì¹˜ í´ë¼ì´ì–¸íŠ¸ ì´ë¯¸ì§€ ë³€ê²½ê´€ë ¨ ì‚­ì œ.
 		CPaintDC dc(this); // device context for painting
 		CDC MemDC;
 		if( MemDC.CreateCompatibleDC(&dc) )
@@ -265,7 +265,7 @@ void CBetaPatchClientDlg::OnExit()
 
 LRESULT CBetaPatchClientDlg::OnNcHitTest(CPoint point)
 {
-	// Ä¸¼Ç¹Ù¸¦ ´©¸¥°Í Ã³·³ ÇØÁÖ´Â °ÍÀÌ´Ù.
+	// ìº¡ì…˜ë°”ë¥¼ ëˆ„ë¥¸ê²ƒ ì²˜ëŸ¼ í•´ì£¼ëŠ” ê²ƒì´ë‹¤.
 	return HTCAPTION;
 }
 
@@ -291,14 +291,14 @@ LRESULT CBetaPatchClientDlg::OnHttpDownloadThreadFinished( WPARAM wParam, LPARAM
 				break;
 				
 			case MAKEPATCHLIST_OK:
-				if( g_PatchManager.GetListCount() == 0 )				// ÆĞÄ¡ ÇÒ ÇÊ¿ä°¡ ¾ø´Ù¸é
+				if( g_PatchManager.GetListCount() == 0 )				// íŒ¨ì¹˜ í•  í•„ìš”ê°€ ì—†ë‹¤ë©´
 				{
 #if __CURRENT_LANG == LANG_FRA
-					m_Static_CurrentState.SetText( _S(IDS_STR_FRA_PATCHCOMP) );	// ÆĞÄ¡ ¿Ï·á
+					m_Static_CurrentState.SetText( _S(IDS_STR_FRA_PATCHCOMP) );	// íŒ¨ì¹˜ ì™„ë£Œ
 #elif __CURRENT_LANG == LANG_POR
-					m_Static_CurrentState.SetText( _S(IDS_STR_POR_PATCHCOMP) );	// ÆĞÄ¡ ¿Ï·á
+					m_Static_CurrentState.SetText( _S(IDS_STR_POR_PATCHCOMP) );	// íŒ¨ì¹˜ ì™„ë£Œ
 #else
-					m_Static_CurrentState.SetText( "Patch Completed" );	// ÆĞÄ¡ ¿Ï·á
+					m_Static_CurrentState.SetText( "Patch Completed" );	// íŒ¨ì¹˜ ì™„ë£Œ
 #endif
 					m_Button_Start.ShowWindow( SW_SHOW );
 					m_Button_Start.SetFocus();
@@ -308,9 +308,9 @@ LRESULT CBetaPatchClientDlg::OnHttpDownloadThreadFinished( WPARAM wParam, LPARAM
 				else
 				{
 #if __CURRENT_LANG == LANG_FRA
-					m_Static_CurrentState.SetText( _S(IDS_STR_FRA_RUN) );			// ÆĞÄ¡ÇÒ ÆÄÀÏµé ´Ù¿î·Îµå ½ÃÀÛ 
+					m_Static_CurrentState.SetText( _S(IDS_STR_FRA_RUN) );			// íŒ¨ì¹˜í•  íŒŒì¼ë“¤ ë‹¤ìš´ë¡œë“œ ì‹œì‘ 
 #else
-					m_Static_CurrentState.SetText( "Run..." );			// ÆĞÄ¡ÇÒ ÆÄÀÏµé ´Ù¿î·Îµå ½ÃÀÛ 
+					m_Static_CurrentState.SetText( "Run..." );			// íŒ¨ì¹˜í•  íŒŒì¼ë“¤ ë‹¤ìš´ë¡œë“œ ì‹œì‘ 
 #endif
 					m_nState = STATE_SELECTION;
 					m_pHttpDownload->BeginDownload( &g_PatchManager );
@@ -323,11 +323,11 @@ LRESULT CBetaPatchClientDlg::OnHttpDownloadThreadFinished( WPARAM wParam, LPARAM
 	case STATE_SELECTION:
 		m_nState = STATE_PATCH_END;
 #if __CURRENT_LANG == LANG_FRA
-		m_Static_CurrentState.SetText( _S(IDS_STR_FRA_PATCHCOMP) );	// ÆĞÄ¡ ¿Ï·á
+		m_Static_CurrentState.SetText( _S(IDS_STR_FRA_PATCHCOMP) );	// íŒ¨ì¹˜ ì™„ë£Œ
 #elif __CURRENT_LANG == LANG_POR
-		m_Static_CurrentState.SetText( _S(IDS_STR_POR_PATCHCOMP) );	// ÆĞÄ¡ ¿Ï·á
+		m_Static_CurrentState.SetText( _S(IDS_STR_POR_PATCHCOMP) );	// íŒ¨ì¹˜ ì™„ë£Œ
 #else
-		m_Static_CurrentState.SetText( "Patch Completed" );	// ÆĞÄ¡ ¿Ï·á
+		m_Static_CurrentState.SetText( "Patch Completed" );	// íŒ¨ì¹˜ ì™„ë£Œ
 #endif
 		m_Button_Start.ShowWindow( SW_SHOW );
 		m_Button_Start.SetFocus();
@@ -336,7 +336,7 @@ LRESULT CBetaPatchClientDlg::OnHttpDownloadThreadFinished( WPARAM wParam, LPARAM
 		break;
 
 	case STATE_OLD_PATCH:
-		NewPatchClient();	// ÆĞÄ¡ Å¬¶óÀÌ¾ğÆ®°¡ ´Ù¿î·Îµå µÇ¾úÀ¸´Ï updater·Î ¾÷µ«ÇÏÀÚ.
+		NewPatchClient();	// íŒ¨ì¹˜ í´ë¼ì´ì–¸íŠ¸ê°€ ë‹¤ìš´ë¡œë“œ ë˜ì—ˆìœ¼ë‹ˆ updaterë¡œ ì—…ëƒí•˜ì.
 		break;
 	}
 	return 0;
@@ -353,7 +353,7 @@ void CBetaPatchClientDlg::OnButtonStart()
 {
 #if __CURRENT_LANG == LANG_KOR
 #ifdef __LINK_PORTAL
-	//¹«ÀÎÀÚ ÀÏ °æ¿ì È¨ÆäÀÌÁö·Î ¿¬°á
+	//ë¬´ì¸ì ì¼ ê²½ìš° í™ˆí˜ì´ì§€ë¡œ ì—°ê²°
 /*	CString strCmdLine;
 	strCmdLine.Format("%s", AfxGetApp()->m_lpCmdLine);
 	if(strCmdLine.GetLength() == 0 || strCmdLine == "1")
@@ -416,7 +416,7 @@ BOOL CBetaPatchClientDlg::InitControls()
 	int nWeblinkGap = 0;
 
 #if defined(__LANG_JAP)
-#if 0 //JAPAN ÆĞÄ¡ Å¬¶óÀÌ¾ğÆ® ÀÌ¹ÌÁö º¯°æ°ü·Ã »èÁ¦.
+#if 0 //JAPAN íŒ¨ì¹˜ í´ë¼ì´ì–¸íŠ¸ ì´ë¯¸ì§€ ë³€ê²½ê´€ë ¨ ì‚­ì œ.
 	nInfoGap    = 5;
 	nWeblinkGap = 35;
 
@@ -472,7 +472,7 @@ BOOL CBetaPatchClientDlg::InitControls()
 	m_Button_Register.SetBtnCursor(IDC_CURSOR1);
 	m_Button_Register.ShowWindow(SW_SHOW);
 	// static
-//#if defined(__LANG_THAI) //Background Image ±³Ã¼·Î Font Color º¯°æ
+//#if defined(__LANG_THAI) //Background Image êµì²´ë¡œ Font Color ë³€ê²½
 	COLORREF cr = RGB( 0,0,0 );
 	m_Static_CurrentState.SetTextColor( cr );
 	m_Static_CurrentState.SetFontBold(true);
@@ -492,7 +492,7 @@ BOOL CBetaPatchClientDlg::InitControls()
 #endif
 #endif*/
 
-#ifdef	__HANGAME0307     // ÇÑ°ÔÀÓ ´ëÀÀ ¹öÁ¯ 
+#ifdef	__HANGAME0307     // í•œê²Œì„ ëŒ€ì‘ ë²„ì ¼ 
 	TCHAR* szText   = HOME_LINK;
 	TCHAR* szURL    = HOME_LINK;
 	TCHAR* szWebURL = WEB_FIRST_PAGE;
@@ -504,7 +504,7 @@ BOOL CBetaPatchClientDlg::InitControls()
 		szURL    = "http://www.hangame.co.jp/game.asp?fo";
 		szWebURL = "http://www.flyff.jp/in_client/info/list.asp?domain=hangame.co.jp";
 	}
-#else					// ÀÏ¹İ¹öÁ¯ 
+#else					// ì¼ë°˜ë²„ì ¼ 
 #ifdef __LANG_RUS
 	TCHAR* szText  = ( ePublisherVersion == PUBLISHER_VERSION_1 ) ? HOME_LINK : HOME_LINK_2;
 	TCHAR* szURL   = ( ePublisherVersion == PUBLISHER_VERSION_1 ) ? HOME_LINK : HOME_LINK_2;
@@ -518,7 +518,7 @@ BOOL CBetaPatchClientDlg::InitControls()
 
 #if __CURRENT_LANG == LANG_KOR
 #ifdef __LINK_PORTAL
-	// ÇÑ±¹ : ¿£Á©, ¹öµğ Æ÷Å» ¸µÅ© ¿¬°á
+	// í•œêµ­ : ì—”ì ¤, ë²„ë”” í¬íƒˆ ë§í¬ ì—°ê²°
 	TCHAR szArg1[64] = {0, }; 
 	TCHAR szArg2[64] = {0, }; 
 
@@ -548,7 +548,7 @@ BOOL CBetaPatchClientDlg::InitControls()
 #endif //__LINK_PORTAL
 #endif // LANG_KOR
 
-	// È¨ÆäÀÌÁö ¸µÅ©
+	// í™ˆí˜ì´ì§€ ë§í¬
 	m_Static_HomeLink.SetWindowText( szText );
 /*#if __CURRENT_CNTRY == CNTRY_HK
 	m_Static_HomeLink.SetWindowPos( NULL, 300, 22+nWeblinkGap, 0, 0, SWP_NOZORDER | SWP_NOSIZE | SWP_NOREDRAW );
@@ -575,11 +575,11 @@ BOOL CBetaPatchClientDlg::InitControls()
 	m_Static_HomeLink.SetUnderline( CHyperLink::ulAlways );
 
 #ifdef __LANG_JAP
-	//JAPAN ÆĞÄ¡ Å¬¶óÀÌ¾ğÆ® ÀÌ¹ÌÁö º¯°æ°ü·Ã »èÁ¦.	
+	//JAPAN íŒ¨ì¹˜ í´ë¼ì´ì–¸íŠ¸ ì´ë¯¸ì§€ ë³€ê²½ê´€ë ¨ ì‚­ì œ.	
 	m_Static_HomeLink.EnableWindow(FALSE);
 	m_Static_HomeLink.ShowWindow(FALSE);
 #endif //__LANG_JAP
-	//	Progress ÃÊ±âÈ­
+	//	Progress ì´ˆê¸°í™”
 	m_File_Progress.SetPos(0);
 	m_Total_Progress.SetPos(0);
 
@@ -607,7 +607,7 @@ void CBetaPatchClientDlg::NewPatchClient()
 
 	PROCESS_INFORMATION pi;
 	
-	// ÆĞÄ¡ Å¬¶óÀÌ¾ğÆ® Àç ½ÇÇà
+	// íŒ¨ì¹˜ í´ë¼ì´ì–¸íŠ¸ ì¬ ì‹¤í–‰
 #if __CURRENT_LANG == LANG_KOR
 #ifdef __LINK_PORTAL
 	CString strUpdater;
@@ -653,11 +653,11 @@ void CBetaPatchClientDlg::CreateWebControl( LPCTSTR szURL )
 {
 	// AFX_IDW_PANE_FIRST is a safe but arbitrary ID
 #ifdef __LANG_JAP
-	//JAPAN ÆĞÄ¡ Å¬¶óÀÌ¾ğÆ® ÀÌ¹ÌÁö º¯°æ°ü·Ã À¥ Å©±â Á¶Àı.	
+	//JAPAN íŒ¨ì¹˜ í´ë¼ì´ì–¸íŠ¸ ì´ë¯¸ì§€ ë³€ê²½ê´€ë ¨ ì›¹ í¬ê¸° ì¡°ì ˆ.	
 	if (!m_wndBrowser.CreateControl(CLSID_WebBrowser, "", WS_VISIBLE | WS_CHILD, CRect(14, 14, 466, 447), 
 		this, AFX_IDW_PANE_FIRST))		
 #else //__LANG_JAP
-#if __CURRENT_LANG == LANG_KOR //°øÁö»çÇ× Å©±â È®Àå °ü·Ã Á¶Á¤.
+#if __CURRENT_LANG == LANG_KOR //ê³µì§€ì‚¬í•­ í¬ê¸° í™•ì¥ ê´€ë ¨ ì¡°ì •.
 	if (!m_wndBrowser.CreateControl(CLSID_WebBrowser, 
 			"",	WS_VISIBLE | WS_CHILD, CRect(26, 190, 452, 447), this, AFX_IDW_PANE_FIRST))
 #else //LANG_KOR

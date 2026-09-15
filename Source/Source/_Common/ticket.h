@@ -1,4 +1,4 @@
-#ifndef __TICKET_H__
+﻿#ifndef __TICKET_H__
 #define	__TICKET_H__
 
 typedef	struct	_TicketProp

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #if __VER >= 13 // __RAINBOW_RACE
 #include ".\minigamearithmetic.h"
@@ -29,7 +29,7 @@ BOOL CMiniGameArithmetic::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePack
 	{
 		MP.nState = pMiniGamePacket->nState;
 		if( pMiniGamePacket->nState == MP_OPENWND )
-			m_nCorrectCount = 0;		// Ã¢À» »õ·Î ¿­¸é Á¤´ä¼ö ÃÊ±âÈ­..
+			m_nCorrectCount = 0;		// ì°½ì„ ìƒˆë¡œ ì—´ë©´ ì •ë‹µìˆ˜ ì´ˆê¸°í™”..
 		MP.nParam1 = m_nCorrectCount;
 		MP.vecszData.push_back( MakeQuestion() );
 		SendExtPacket( pUser, MP );
@@ -39,7 +39,7 @@ BOOL CMiniGameArithmetic::Excute( CUser* pUser, __MINIGAME_PACKET* pMiniGamePack
 	if( pMiniGamePacket->nParam1 == m_nResult )
 	{
 		m_nCorrectCount++;
-		if( m_nCorrectCount == 5 )		// 5¹®Á¦ Á¤´äÀ» ¿Ï·á!!
+		if( m_nCorrectCount == 5 )		// 5ë¬¸ì œ ì •ë‹µì„ ì™„ë£Œ!!
 		{
 			MP.nState = MP_FINISH;
 			bReturn = TRUE;
@@ -133,9 +133,9 @@ string CMiniGameArithmetic::MakeQuestion()
 	}
 
 	int nResult = 0;
-	if( nOper[2] > 1 )		// ¼ıÀÚ°¡ 3°³ÀÎ °æ¿ì´Ù. 
+	if( nOper[2] > 1 )		// ìˆ«ìê°€ 3ê°œì¸ ê²½ìš°ë‹¤. 
 	{
-		if( (nOper[0] < 2) && (nOper[1] > 1) ) // µÚÂÊ ¿¬»êÀÚ°¡ ¿ì¼±ÀÎ °æ¿ì( *, / )
+		if( (nOper[0] < 2) && (nOper[1] > 1) ) // ë’¤ìª½ ì—°ì‚°ìê°€ ìš°ì„ ì¸ ê²½ìš°( *, / )
 		{
 			nResult = Calculate( nNum[1], nNum[2], nOper[1] );
 			nResult = Calculate( nNum[0], nResult, nOper[0] );

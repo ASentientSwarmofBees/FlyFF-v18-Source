@@ -1,4 +1,4 @@
-#ifndef __ACTIONMOVER_H
+ï»¿#ifndef __ACTIONMOVER_H
 #define __ACTIONMOVER_H
 
 
@@ -30,20 +30,20 @@ extern CDamageNumMng g_DamageNumMng;
 #define	AF_MAGIC			(DWORD)0x00000008
 #define AF_MELEESKILL		(DWORD)0x00000010
 #define AF_MAGICSKILL		(DWORD)0x00000020
-#define AF_CRITICAL1		(DWORD)0x00000040	// 2.3¹è Å©¸®Æ¼ÄÃ
-#define AF_CRITICAL2		(DWORD)0x00000080	// 2.6¹è Å©¸®Æ¼ÄÃ
-#define AF_CRITICAL			(DWORD)0x000000c0	// À§¿¡ µÎ°³ ÇÕÇÑ°Å.
-#define AF_PUSH				(DWORD)0x00000100	// ¸ÂÀ¸¸é ¹Ğ¸².
-#define AF_PARRY			(DWORD)0x00000200	// È¸ÇÇ...
-#define AF_RESIST			(DWORD)0x00000400	// È¸ÇÇ...
-#define AF_STUN				(DWORD)0x00000800	// ½ºÅÏ - ±âÀı
-#define AF_BLOCKING			(DWORD)0x00001000	// ºí·ÏÅ· 
-#define AF_FORCE			(DWORD)0x00002000	// °è»êµÈ µ¥¹ÌÁö¸¦ ÁÙ °æ¿ì »ç¿ë (¿¹: ¹İ»çµ¥¹ÌÁö, »çÀÌÅ± ¿ù) 
-#define AF_RANGE			(DWORD)0x00004000	// Àå°Å¸® °ø°İ µ¥¹ÌÁö 
-#define AF_MONSTER_SP_CLIENT (DWORD)0x00008000	// gmpbigsun: ¸ó½ºÅÍ ½ºÆä¼È°ø°İÃ³¸®¿ë Å¬¶óÀü¿ë!! ¼­¹ö´Â AF_GENERICÀ¸·Î Ã³¸®ÇÔ CMover::OnAttackSP()
-#define AF_FLYING			(DWORD)0x10000000	// °­°ø°İÀ¸·Î ³¯¾Æ°¨.
+#define AF_CRITICAL1		(DWORD)0x00000040	// 2.3ë°° í¬ë¦¬í‹°ì»¬
+#define AF_CRITICAL2		(DWORD)0x00000080	// 2.6ë°° í¬ë¦¬í‹°ì»¬
+#define AF_CRITICAL			(DWORD)0x000000c0	// ìœ„ì— ë‘ê°œ í•©í•œê±°.
+#define AF_PUSH				(DWORD)0x00000100	// ë§ìœ¼ë©´ ë°€ë¦¼.
+#define AF_PARRY			(DWORD)0x00000200	// íšŒí”¼...
+#define AF_RESIST			(DWORD)0x00000400	// íšŒí”¼...
+#define AF_STUN				(DWORD)0x00000800	// ìŠ¤í„´ - ê¸°ì ˆ
+#define AF_BLOCKING			(DWORD)0x00001000	// ë¸”ë¡í‚¹ 
+#define AF_FORCE			(DWORD)0x00002000	// ê³„ì‚°ëœ ë°ë¯¸ì§€ë¥¼ ì¤„ ê²½ìš° ì‚¬ìš© (ì˜ˆ: ë°˜ì‚¬ë°ë¯¸ì§€, ì‚¬ì´í‚¥ ì›”) 
+#define AF_RANGE			(DWORD)0x00004000	// ì¥ê±°ë¦¬ ê³µê²© ë°ë¯¸ì§€ 
+#define AF_MONSTER_SP_CLIENT (DWORD)0x00008000	// gmpbigsun: ëª¬ìŠ¤í„° ìŠ¤í˜ì…œê³µê²©ì²˜ë¦¬ìš© í´ë¼ì „ìš©!! ì„œë²„ëŠ” AF_GENERICìœ¼ë¡œ ì²˜ë¦¬í•¨ CMover::OnAttackSP()
+#define AF_FLYING			(DWORD)0x10000000	// ê°•ê³µê²©ìœ¼ë¡œ ë‚ ì•„ê°.
 
-// ½ºÅ³·ùÀÎ°¡?
+// ìŠ¤í‚¬ë¥˜ì¸ê°€?
 inline BOOL IsSkillAttack( DWORD dwAtkFlags )
 {
 	return (dwAtkFlags & (AF_MELEESKILL|AF_MAGICSKILL) );
@@ -74,24 +74,24 @@ public:
 
 public:
 	int				m_nCount;
-	int				m_bGround;		// ¹Ù´Ú¿¡ ´ê¾ÆÀÖ´Ù.
-	float			m_fSpeed;		// ¶Ù±â ½ºÇÇµå
+	int				m_bGround;		// ë°”ë‹¥ì— ë‹¿ì•„ìˆë‹¤.
+	float			m_fSpeed;		// ë›°ê¸° ìŠ¤í”¼ë“œ
 
-	float			m_fAccPower;	// ¿ÀºêÁ§Æ®¿¡ °¡ÇØÁö´Â Èû
+	float			m_fAccPower;	// ì˜¤ë¸Œì íŠ¸ì— ê°€í•´ì§€ëŠ” í˜
 	D3DXVECTOR3		m_vDelta;
-	D3DXVECTOR3		m_vDeltaE;		// ¿ÜºÎ¿¡¼­ °¡ÇØÁö´Â Èû m_vDelta¿Í °°ÀÌ ¾²´Â°Ô Á¤¼®ÀÌÁö¸¸ ¿ì¸®½Ã½ºÅÛÀº °ÉÀ»¶§ ¸¶Âû·ÂÀÌ¶ó´Â °³³äÀÌ ¾ø¾î¼­ µû·Î ÁØºñÇß´Ù.
-	D3DXVECTOR3		m_vDeltaAccu;	// delta°ª ´©Àû
-	D3DXVECTOR3		m_vPosLast;		// ÀÌ¹ø ÁÂÇ¥°ª
-	float			m_fCurrentHeight;	// ÇöÀç ¼­ÀÖ´Â°÷ÀÇ HeightÁÂÇ¥
+	D3DXVECTOR3		m_vDeltaE;		// ì™¸ë¶€ì—ì„œ ê°€í•´ì§€ëŠ” í˜ m_vDeltaì™€ ê°™ì´ ì“°ëŠ”ê²Œ ì •ì„ì´ì§€ë§Œ ìš°ë¦¬ì‹œìŠ¤í…œì€ ê±¸ì„ë•Œ ë§ˆì°°ë ¥ì´ë¼ëŠ” ê°œë…ì´ ì—†ì–´ì„œ ë”°ë¡œ ì¤€ë¹„í–ˆë‹¤.
+	D3DXVECTOR3		m_vDeltaAccu;	// deltaê°’ ëˆ„ì 
+	D3DXVECTOR3		m_vPosLast;		// ì´ë²ˆ ì¢Œí‘œê°’
+	float			m_fCurrentHeight;	// í˜„ì¬ ì„œìˆëŠ”ê³³ì˜ Heightì¢Œí‘œ
 	FLOAT			m_fTurnAngle;
-	DWORD			m_idTarget;		// Å¸°ÙÀÇ ¾ÆÀÌµğ(´Ù¿ëµµ Å¸°Ù)
+	DWORD			m_idTarget;		// íƒ€ê²Ÿì˜ ì•„ì´ë””(ë‹¤ìš©ë„ íƒ€ê²Ÿ)
 	int				m_nMotionEx;		
 	float			m_fDistance;
 	DWORD			m_dwAtkFlags;
-	int				m_nShootCnt;	// ¹ß»çÃ¼ °³¼ö.  ??ÇÁ·¹ÀÓ¿¡ ÇÑ¹ø¾¿ ¹ß»çµÈ´Ù.
+	int				m_nShootCnt;	// ë°œì‚¬ì²´ ê°œìˆ˜.  ??í”„ë ˆì„ì— í•œë²ˆì”© ë°œì‚¬ëœë‹¤.
 	int				m_nMotionHitCount;	
 #ifdef __CLIENT
-	DWORD			m_dwCtrlMsg;	// ÄÁÆ®·Ñ ¸Ş½ÃÁö
+	DWORD			m_dwCtrlMsg;	// ì»¨íŠ¸ë¡¤ ë©”ì‹œì§€
 #endif
 #ifdef __WORLDSERVER
 	int				m_nDeadCnt;		
@@ -100,15 +100,15 @@ public:
 private:
 	OBJID			m_objidHit;
 	int				m_nCastingTime;
-#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	DWORD			m_dwCastingEndTick;
 	int				m_nCastingSKillID;
 	int				m_nCastingTick;
-#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
-	int				m_bMove;		// ÀÌ¹øÅÏ¿¡ ¿òÁ÷ÀÎÀû ÀÖ´Â°¡?
+#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
+	int				m_bMove;		// ì´ë²ˆí„´ì— ì›€ì§ì¸ì  ìˆëŠ”ê°€?
 
 #ifdef __CLIENT
-	CTailEffectBelt*	m_pTail;		// º¸µåÅÀÀ»¶§ ²¿¶ûÁö ÀÌÆåÆ®
+	CTailEffectBelt*	m_pTail;		// ë³´ë“œíƒ”ì„ë•Œ ê¼¬ë‘ì§€ ì´í™íŠ¸
 #endif
 
 public:
@@ -116,12 +116,12 @@ public:
 	virtual	void	ProcessState( DWORD dwState, float fSpeed );	
 
 
-#if __VER >= 10 // __LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#if __VER >= 10 // __LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 	int				GetCastingSKillID() { return m_nCastingSKillID;}
 	DWORD			GetCastingEndTick() { return m_dwCastingEndTick;}
 	void			SetCastingEndTick(DWORD dwCastingEnd) { m_dwCastingEndTick = dwCastingEnd;}
 	int				GetCastingTick() { return m_nCastingTick;}
-#endif	//__LEGEND	//	9Â÷ Àü½Â½Ã½ºÅÛ	Neuz, World, Trans
+#endif	//__LEGEND	//	9ì°¨ ì „ìŠ¹ì‹œìŠ¤í…œ	Neuz, World, Trans
 
 	void			ForcedSet( D3DXVECTOR3 &vDelta, DWORD dwState, DWORD dwStateFlag, int nMotionEx );
 	void			ForcedSet2( D3DXVECTOR3 &vDelta, float fAccPower, float fTurnAngle, DWORD dwState, DWORD dwStateFlag, int nMotionEx );
@@ -129,21 +129,21 @@ public:
 	void			HalfForcedSet( D3DXVECTOR3 & vd, float fAccPower, float fTurnAngle );
 
 	void			DoDamageFly( float fAngleXZ, float fAngleY, float fPower );		
-	void			SetExternalForce( const D3DXVECTOR3 &vForce ) { m_vDeltaE = vForce; }		// ¿ÜºÎ¿¡¼­ °¡ÇØÁö´Â Èû.
+	void			SetExternalForce( const D3DXVECTOR3 &vForce ) { m_vDeltaE = vForce; }		// ì™¸ë¶€ì—ì„œ ê°€í•´ì§€ëŠ” í˜.
 	int				MakeParamDamage( int nMagicPower, int nSkill, int nDmgCnt = 0 );
 	int				SendDamage( DWORD dwAtkFlags, OBJID idSender, int nParam = 0, BOOL bTarget = TRUE, int nReflect = 0 )	{	return SendActMsg( OBJMSG_DAMAGE, dwAtkFlags, idSender, nParam, bTarget, nReflect );	}
-	int				SendDamageForce( DWORD dwAtkFlags, OBJID idSender, int nParam = 0, BOOL bTarget = TRUE );// { return SendActMsg( OBJMSG_DAMAGE_FORCE, dwAtkFlags, idSender, nParam, bTarget ); }	// °­°ø°İ
+	int				SendDamageForce( DWORD dwAtkFlags, OBJID idSender, int nParam = 0, BOOL bTarget = TRUE );// { return SendActMsg( OBJMSG_DAMAGE_FORCE, dwAtkFlags, idSender, nParam, bTarget ); }	// ê°•ê³µê²©
 
-	// ¾ğ´õ¶óÀÎ(_) ºÙÀºÇÔ¼ö´Â XuZhuÀÌ¿Ü¿£ Á÷Á¢ CallÇÏÁö ¸»°Í
+	// ì–¸ë”ë¼ì¸(_) ë¶™ì€í•¨ìˆ˜ëŠ” XuZhuì´ì™¸ì—” ì§ì ‘ Callí•˜ì§€ ë§ê²ƒ
 	DWORD			_ProcessMsgDmg( DWORD dwMsg, CMover* pSender, DWORD dwAtkFlags, int nParam = 0, BOOL bTarget = TRUE, int nReflect = 0 );
-	void			_ProcessStateAttack( DWORD dwState, int nParam = 0 );	// °ø°İºÎºĞÀº ÄÚµå°¡ ±æ¾î¼­ µû·Î »©³¿
+	void			_ProcessStateAttack( DWORD dwState, int nParam = 0 );	// ê³µê²©ë¶€ë¶„ì€ ì½”ë“œê°€ ê¸¸ì–´ì„œ ë”°ë¡œ ë¹¼ëƒ„
 	void			_ProcessStateAttack2( DWORD dwState, int nParam = 0 );
 
 	void			ProcessStateAttackSP( DWORD dwState, int nParam = 0 );
-	void			ProcessStateAttackMagic( DWORD dwState, int nParam = 0 );		// ¿Ïµå°ø°İ
-	void			ProcessStateAttackRange( DWORD dwState, int nParam = 0 );		// ·¹ÀÎÁö°ø°İ
-	void			ProcessStateMeleeSkill( DWORD dwState, int nParam );	// ½ºÅ³µ¿ÀÛ Ã³¸®
-	void			ProcessStateMagicSkill( DWORD dwState, int nParam );	// ¸¶¹ı½ºÅ³µ¿ÀÛ Ã³¸®
+	void			ProcessStateAttackMagic( DWORD dwState, int nParam = 0 );		// ì™„ë“œê³µê²©
+	void			ProcessStateAttackRange( DWORD dwState, int nParam = 0 );		// ë ˆì¸ì§€ê³µê²©
+	void			ProcessStateMeleeSkill( DWORD dwState, int nParam );	// ìŠ¤í‚¬ë™ì‘ ì²˜ë¦¬
+	void			ProcessStateMagicSkill( DWORD dwState, int nParam );	// ë§ˆë²•ìŠ¤í‚¬ë™ì‘ ì²˜ë¦¬
 	void			ProcessStateMagicCasting( DWORD dwState, int nParam );
 	void			ProcessPreAction();
 	int				ProcessAction( const D3DXVECTOR3 *vPos );

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #ifdef __MEM_TRACE
 #include "memtrace.h"
 #include <new.h>

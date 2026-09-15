@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #if __VER >= 13 // __HOUSING
 #include "DbController.h"

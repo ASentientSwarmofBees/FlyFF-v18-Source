@@ -1,15 +1,15 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "User.h"
 #include "ScriptHelper.h"
 
 #if !defined(__REMOVE_SCIRPT_060712)
 
 
-// 1. Å¬¶óÀÌ¾ğÆ®°¡ ½ºÅ©¸³Æ®¸¦ ½ÇÇà¸¦ ¼­¹ö·Î ½ÇÇà ¸í·É¸¦ º¸³½´Ù
-// 2. ¼­¹ö´Â °¢ Å° ¸®½ºÆ®¿Í »óÅÂ °ªÀ» Å¬¶óÀÌ¾ğÆ®·Î º¸³½´Ù.
-// 3. Å¬¶óÀÌ¾ğÆ®´Â Å° ¸®½ºÆ®°¡ µµÂøÇÏ´Â Áï½Ã #init¸¦ Å°·Î ÇØ¼­ ¼­¹ö·Î #init¿¡ ´ëÇÑ ½ºÅ©¸³Æ®¸¦ ¿äÃ»ÇÑ´Ù.
-// 4. ¼­¹ö´Â #initÀÇ ½ºÅ©¸³Æ®¸¦ Å¬¶óÀÌ¾ğÆ®·Î º¸³½´Ù.
-// 5. Å¬¶óÀÌ¾ğÆ®¿¡¼­´Â #init ¶Ç´Â Æ¯Á¤ Å°ÀÇ ½ºÆ®¸³Æ®¸¦ ¹Ş¾Æ¼­ ÀÎÅÍÇÁ¸®Æ® ÇÑ´Ù.
+// 1. í´ë¼ì´ì–¸íŠ¸ê°€ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì‹¤í–‰ë¥¼ ì„œë²„ë¡œ ì‹¤í–‰ ëª…ë ¹ë¥¼ ë³´ë‚¸ë‹¤
+// 2. ì„œë²„ëŠ” ê° í‚¤ ë¦¬ìŠ¤íŠ¸ì™€ ìƒíƒœ ê°’ì„ í´ë¼ì´ì–¸íŠ¸ë¡œ ë³´ë‚¸ë‹¤.
+// 3. í´ë¼ì´ì–¸íŠ¸ëŠ” í‚¤ ë¦¬ìŠ¤íŠ¸ê°€ ë„ì°©í•˜ëŠ” ì¦‰ì‹œ #initë¥¼ í‚¤ë¡œ í•´ì„œ ì„œë²„ë¡œ #initì— ëŒ€í•œ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ìš”ì²­í•œë‹¤.
+// 4. ì„œë²„ëŠ” #initì˜ ìŠ¤í¬ë¦½íŠ¸ë¥¼ í´ë¼ì´ì–¸íŠ¸ë¡œ ë³´ë‚¸ë‹¤.
+// 5. í´ë¼ì´ì–¸íŠ¸ì—ì„œëŠ” #init ë˜ëŠ” íŠ¹ì • í‚¤ì˜ ìŠ¤íŠ¸ë¦½íŠ¸ë¥¼ ë°›ì•„ì„œ ì¸í„°í”„ë¦¬íŠ¸ í•œë‹¤.
 
 
 char	CScriptDialog::s_pszName[64];
@@ -55,7 +55,7 @@ BOOL CScriptDialog::InterpretScript( CScript& smc )
 			if( nTokenType != STRING )
 			{
 				CString string;
-				string.Format( "%s(%d) : CScriptDialog::InterpretScript¿¡¼­ ½ºÆ®¸µ ÇüÅÂ°¡ ¾Æ´Ñ Key(%s)°¡ ¹ß°ßµÇ¾ú½À´Ï´Ù.", smc.m_strFileName, smc.GetLineNum(), smc.token );
+				string.Format( "%s(%d) : CScriptDialog::InterpretScriptì—ì„œ ìŠ¤íŠ¸ë§ í˜•íƒœê°€ ì•„ë‹Œ Key(%s)ê°€ ë°œê²¬ë˜ì—ˆìŠµë‹ˆë‹¤.", smc.m_strFileName, smc.GetLineNum(), smc.token );
 				Error( string );
 			}
 			_tcscpy( szSubKey, smc.token );
@@ -103,7 +103,7 @@ BOOL CScriptDialog::InterpretScript( CScript& smc )
 			}
 			lpScript = new SCRIPT;
 			ZeroMemory( lpScript, sizeof( SCRIPT ) );
-			pScript = new CHAR[ nBlockCount + 10 ]; // 10Àº ±×³É ¿©ºĞ 
+			pScript = new CHAR[ nBlockCount + 10 ]; // 10ì€ ê·¸ëƒ¥ ì—¬ë¶„ 
 			lpScript->m_pScript = pScript;
 			_tcscpy( lpScript->m_szKey, szSubKey );
 			
@@ -137,7 +137,7 @@ BOOL CScriptDialog::LoadScript(LPCTSTR lpszFileName)
 	if( smc.Load( lpszFileName, TRUE, nProcess ) == TRUE )
 	{
 		strcpy( m_szFileName, lpszFileName );
-		// Ã¹ Å°°¡ ¹ß°ßµÉ ¶§±îÁö ½ºÅµÇÏ±â.
+		// ì²« í‚¤ê°€ ë°œê²¬ë  ë•Œê¹Œì§€ ìŠ¤í‚µí•˜ê¸°.
 		smc.SetErrorCheck( FALSE );
 		while( smc.tokenType != STRING ) 
 			smc.GetToken();

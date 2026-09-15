@@ -1,4 +1,4 @@
-/* huffman.h
+﻿/* huffman.h
 
 	Adapted from the ISO MPEG Audio Subgroup Software Simulation
    Group's public c source for its MPEG audio decoder. Miscellaneous

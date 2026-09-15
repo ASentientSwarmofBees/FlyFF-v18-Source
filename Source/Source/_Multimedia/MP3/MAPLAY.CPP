@@ -1,4 +1,4 @@
-/* Adapted to Win32 version by Jeff Tsay. Differences: This is a thread
+﻿/* Adapted to Win32 version by Jeff Tsay. Differences: This is a thread
 	of the the main program, which is the interface. Header, bitstream, and
 	CRC come from the main program. Minimal error checking.
 	CRC and range check violations ignored. Playtime not printed. Buffers

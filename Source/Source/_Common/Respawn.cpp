@@ -1,4 +1,4 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 #include "Respawn.h"
 
 #include "CommonCtrl.h"
@@ -249,7 +249,7 @@ int CRespawner::Add( CRespawnInfo & ri, int nType )
 		{
 			 if( ( * i ).m_nGMIndex == ri.m_nGMIndex )
 			 {
-				Error( "CRespawner::Add ∞∞¿∫ ID πﬂ∞ﬂ : %d, %d, %f, %f, %d\n", ri.m_dwIndex, ri.m_dwType, ri.m_vPos.x, ri.m_vPos.z, nType );
+				Error( "CRespawner::Add Í∞ôÏùÄ ID Î∞úÍ≤¨ : %d, %d, %f, %f, %d\n", ri.m_dwIndex, ri.m_dwType, ri.m_vPos.x, ri.m_vPos.z, nType );
 				return -1;
 			 }
 		}
@@ -258,7 +258,7 @@ int CRespawner::Add( CRespawnInfo & ri, int nType )
 	return m_vRespawnInfo[nType].size() - 1;
 }
 
-// Ω«¡¶ ªË¡¶ 
+// Ïã§Ï†ú ÏÇ≠Ï†ú 
 BOOL CRespawner::DoRemove( int nRespawnNo, int nType )
 {
 	if( nRespawnNo < 0 )	
@@ -266,7 +266,7 @@ BOOL CRespawner::DoRemove( int nRespawnNo, int nType )
 	BOOL bResult = FALSE;
 	if( nType == RESPAWNTYPE_REGION )
 	{
-		Error( "CRespawner::Removeø°º≠ RESPAWN_REGION ≈∏¿‘¿∫ ªË¡¶«“ ºˆ æ¯¿Ω : %d\n", nRespawnNo );
+		Error( "CRespawner::RemoveÏóêÏÑú RESPAWN_REGION ÌÉÄÏûÖÏùÄ ÏÇ≠Ï†úÌï† Ïàò ÏóÜÏùå : %d\n", nRespawnNo );
 		return FALSE;
 	}
 	else
@@ -289,14 +289,14 @@ BOOL CRespawner::DoRemove( int nRespawnNo, int nType )
 	}
 	return bResult;
 }
-// ø©±‚º≠¥¬ Remove ªÛ≈¬∏∏ ºº∆√ 
+// Ïó¨Í∏∞ÏÑúÎäî Remove ÏÉÅÌÉúÎßå ÏÑ∏ÌåÖ 
 BOOL CRespawner::Remove( int nRespawnNo, int nType )
 {
 	if( nRespawnNo < 0 )	
 		return NULL;
 	if( nType == RESPAWNTYPE_REGION )
 	{
-		Error( "CRespawner::Removeø°º≠ RESPAWN_REGION ≈∏¿‘¿∫ ªË¡¶«“ ºˆ æ¯¿Ω : %d\n", nRespawnNo );
+		Error( "CRespawner::RemoveÏóêÏÑú RESPAWN_REGION ÌÉÄÏûÖÏùÄ ÏÇ≠Ï†úÌï† Ïàò ÏóÜÏùå : %d\n", nRespawnNo );
 		return FALSE;
 	}
 	else
@@ -398,14 +398,14 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 	for( int nType = 0; nType < 3; nType++ )
 	{
 		int nSize	= m_vRespawnInfo[nType].size();
-		for( int i = 0; i < nSize; i++ )			// 04.10.11 - 480∞≥ ¡§µµ ¿Ã¥Ÿ.
+		for( int i = 0; i < nSize; i++ )			// 04.10.11 - 480Í∞ú Ï†ïÎèÑ Ïù¥Îã§.
 		{
 			pi	= &m_vRespawnInfo[nType][i];
 
 			if( pi->m_dwIndex == 0 )
 				continue;
 
-			// ªË¡¶ ∏Ì∑…¿Ã ≥ª∑¡¡≥∞Ì, ∏ÆΩ∫∆˘µ» ø¿∫Í¡ß∆Æ∞° æ¯¥Ÿ∏È?
+			// ÏÇ≠Ï†ú Î™ÖÎ†πÏù¥ ÎÇ¥Î†§Ï°åÍ≥†, Î¶¨Ïä§Ìè∞Îêú Ïò§Î∏åÏ†ùÌä∏Í∞Ä ÏóÜÎã§Î©¥?
 			if( pi->m_bRemove )
 			{
 				if( pi->m_cb == 0 )
@@ -443,36 +443,36 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 					continue;
 			}
 
-			pi->m_cbTime--;									// ∏ÆΩ∫∆˘ ≈∏¿Ã∏” Ω√∞£ ∞®º“ 
-			if( pi->m_cbTime < 0 )							// 0 ¿Ã∏È ∏ÆΩ∫∆˘ Ω√¿€
+			pi->m_cbTime--;									// Î¶¨Ïä§Ìè∞ ÌÉÄÏù¥Î®∏ ÏãúÍ∞Ñ Í∞êÏÜå 
+			if( pi->m_cbTime < 0 )							// 0 Ïù¥Î©¥ Î¶¨Ïä§Ìè∞ ÏãúÏûë
 			{
 				short nTime = (short)( ( pi->m_uTime * xRandom( 50, 150 ) ) / 100 );
 			#ifdef __S1108_BACK_END_SYSTEM
 				cb = 0;
 				if( pi->m_nGMIndex != 0 )
 				{
-					pi->m_cbTime = nTime;					// ≈∏¿Ã∏” reset	
+					pi->m_cbTime = nTime;					// ÌÉÄÏù¥Î®∏ reset	
 					if( pi->m_nMaxcb - pi->m_cb > 0 )
-						cb	= (short)( pi->m_nMaxcb - pi->m_cb );		// cb = ¡◊¿∫ ∞πºˆ
+						cb	= (short)( pi->m_nMaxcb - pi->m_cb );		// cb = Ï£ΩÏùÄ Í∞ØÏàò
 				}
 				else
 				{
 					if( pWorld->GetID() == WI_WORLD_MADRIGAL )
 					{
-						pi->m_cbTime = (short)(nTime * prj.m_fMonsterRebirthRate);			// ≈∏¿Ã∏” reset
+						pi->m_cbTime = (short)(nTime * prj.m_fMonsterRebirthRate);			// ÌÉÄÏù¥Î®∏ reset
 						if( (pi->m_nMaxcb * prj.m_fMonsterRespawnRate) - pi->m_cb > 0 )
-							cb	= (short)( (pi->m_nMaxcb * prj.m_fMonsterRespawnRate) - pi->m_cb );	// cb = ¡◊¿∫ ∞πºˆ
+							cb	= (short)( (pi->m_nMaxcb * prj.m_fMonsterRespawnRate) - pi->m_cb );	// cb = Ï£ΩÏùÄ Í∞ØÏàò
 					}
 					else
 					{
-						pi->m_cbTime = nTime;							// ≈∏¿Ã∏” reset
+						pi->m_cbTime = nTime;							// ÌÉÄÏù¥Î®∏ reset
 						if( pi->m_nMaxcb - pi->m_cb > 0 )
-							cb	= (short)( pi->m_nMaxcb - pi->m_cb );				// cb = ¡◊¿∫ ∞πºˆ
+							cb	= (short)( pi->m_nMaxcb - pi->m_cb );				// cb = Ï£ΩÏùÄ Í∞ØÏàò
 					}
 				}
 			#else // __S1108_BACK_END_SYSTEM
-				pi->m_cbTime = nTime;				// ≈∏¿Ã∏” reset
-				cb = pi->m_cb;						// cb = ¡◊¿∫ ∞πºˆ
+				pi->m_cbTime = nTime;				// ÌÉÄÏù¥Î®∏ reset
+				cb = pi->m_cb;						// cb = Ï£ΩÏùÄ Í∞ØÏàò
 			#endif // __S1108_BACK_END_SYSTEM
 				
 				if( pi->m_bHalf )
@@ -538,7 +538,7 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 					else
 					if( pi->m_dwType == OT_MOVER )
 					{
-						((CMover*)pObj)->SetGold(((CMover*)pObj)->GetLevel()*15);  // ∏ÛΩ∫≈Õ ª˝º∫Ω√ ±‚∫ª ∆‰≥ƒ∏¶ º≥¡§
+						((CMover*)pObj)->SetGold(((CMover*)pObj)->GetLevel()*15);  // Î™¨Ïä§ÌÑ∞ ÏÉùÏÑ±Ïãú Í∏∞Î≥∏ ÌéòÎÉêÎ•º ÏÑ§Ï†ï
 					}
 
 					if( !pObj )
@@ -556,7 +556,7 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 #else	// __RES0807
 					nRetry	= 0;
 lbl_retry:
-					pi->GetPos( v ); // vø° ∑£¥˝ ¡¬«•∏¶ æÚ¥¬¥Ÿ.
+					pi->GetPos( v ); // vÏóê ÎûúÎç§ Ï¢åÌëúÎ•º ÏñªÎäîÎã§.
 					nAttr	= pWorld->GetHeightAttribute( v.x, v.z );
 
 					if( nAttr == -1 || nAttr == HATTR_NOMOVE || nAttr == nCheckAttr ) 
@@ -596,7 +596,7 @@ lbl_retry:
 					}
 					else
 					{
-						v.y = pi->m_fY + 1.0f;	// æ‡∞£ ¥ı«ÿ¡÷¿⁄. æ»±◊∑Ø∏È ∂’∞Ì µÈæÓ∞• ºˆ ¿÷¿Ω 
+						v.y = pi->m_fY + 1.0f;	// ÏïΩÍ∞Ñ ÎçîÌï¥Ï£ºÏûê. ÏïàÍ∑∏Îü¨Î©¥ Îö´Í≥† Îì§Ïñ¥Í∞à Ïàò ÏûàÏùå 
 						v.y	= pWorld->GetUnderHeight( v );
 					}
 
@@ -604,13 +604,13 @@ lbl_retry:
 					( (CCtrl*)pObj )->SetRespawn( pi->m_nGMIndex, nType );
 					#ifdef __S1108_BACK_END_SYSTEM
 						int nMaxAttckNum = 0;
-						if( nType == RESPAWNTYPE_BACKEND )	// øÓøµ¿⁄∞° º≥¡§¿ª «ÿ≥ı¿∫∞Õ¿∫ ¿˚øÎ¿ª æ»Ω√≈¥(º±∞¯∞πºˆ∏¶ ¿˚øÎΩ√≈≥ºˆ æ¯¿Ω)
+						if( nType == RESPAWNTYPE_BACKEND )	// Ïö¥ÏòÅÏûêÍ∞Ä ÏÑ§Ï†ïÏùÑ Ìï¥ÎÜìÏùÄÍ≤ÉÏùÄ Ï†ÅÏö©ÏùÑ ÏïàÏãúÌÇ¥(ÏÑ†Í≥µÍ∞ØÏàòÎ•º Ï†ÅÏö©ÏãúÌÇ¨Ïàò ÏóÜÏùå)
 						{
 							nMaxAttckNum = int( float( pi->m_nMaxcb * prj.m_fMonsterRespawnRate ) * float((float)pi->m_nMaxAttackNum / 100.0f) );
 						}
 						else
 						{
-							if( pi->m_nMaxAttackNum == 1 && pi->m_nMaxcb == 1 ) // ∞≈¥Î ∏ÛΩ∫≈Õ? ∏ÛΩ∫≈Õ ∏∂∏Æºˆ∞° 1∏Ì¿Ã∞Ì º±∞¯ ∏ÛΩ∫≈ÕΩ√ π´¡∂∞« º±∞¯ ∏ÛΩ∫≈Õ ¿”
+							if( pi->m_nMaxAttackNum == 1 && pi->m_nMaxcb == 1 ) // Í±∞ÎåÄ Î™¨Ïä§ÌÑ∞? Î™¨Ïä§ÌÑ∞ ÎßàÎ¶¨ÏàòÍ∞Ä 1Î™ÖÏù¥Í≥† ÏÑ†Í≥µ Î™¨Ïä§ÌÑ∞Ïãú Î¨¥Ï°∞Í±¥ ÏÑ†Í≥µ Î™¨Ïä§ÌÑ∞ ÏûÑ
 							{
 								nMaxAttckNum = pi->m_nActiveAttackNum + 1;
 							}
@@ -630,14 +630,14 @@ lbl_retry:
 						if( pObj->GetType() == OT_MOVER && ( pi->m_nActiveAttackNum < nMaxAttckNum ) )
 						{
 							InterlockedIncrement( &pi->m_nActiveAttackNum );
-							if( pMoverProp->dwLevel >= 7 )	// ∑π∫ß¿Ã 7 ¿ÃªÛ¿Œ∞Õ∏∏ º±∞¯¿∏∑Œ ∏ÆΩ∫∆˘µ .
+							if( pMoverProp->dwLevel >= 7 )	// Î†àÎ≤®Ïù¥ 7 Ïù¥ÏÉÅÏù∏Í≤ÉÎßå ÏÑ†Í≥µÏúºÎ°ú Î¶¨Ïä§Ìè∞Îê®.
 								((CMover*)pObj)->m_bActiveAttack	= TRUE;
 						}
 					#else // __S1108_BACK_END_SYSTEM
 						if( pObj->GetType() == OT_MOVER && pi->m_nActiveAttackNum > 0 )
 						{
 							InterlockedDecrement( &pi->m_nActiveAttackNum );
-							if( pMoverProp->dwLevel >= 7 )	// ∑π∫ß¿Ã 7 ¿ÃªÛ¿Œ∞Õ∏∏ º±∞¯¿∏∑Œ ∏ÆΩ∫∆˘µ .
+							if( pMoverProp->dwLevel >= 7 )	// Î†àÎ≤®Ïù¥ 7 Ïù¥ÏÉÅÏù∏Í≤ÉÎßå ÏÑ†Í≥µÏúºÎ°ú Î¶¨Ïä§Ìè∞Îê®.
 								((CMover*)pObj)->m_bActiveAttack	= TRUE;
 						}
 					#endif // __S1108_BACK_END_SYSTEM

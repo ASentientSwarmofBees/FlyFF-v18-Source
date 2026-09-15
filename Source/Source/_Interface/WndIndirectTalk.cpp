@@ -1,9 +1,9 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AppDefine.h"
 #include "WndIndirectTalk.h"
 
 /****************************************************
-  WndId : APP_ADMIN_INDIRECT_TALK - °£Á¢ ´ëÈ­
+  WndId : APP_ADMIN_INDIRECT_TALK - ê°„ì ‘ ëŒ€í™”
   CtrlId : WIDC_EDIT1 - Edit
   CtrlId : WIDC_STATIC1 - Mover ID
   CtrlId : WIDC_EDIT2 - Edit
@@ -31,25 +31,25 @@ void CWndIndirectTalk::OnDraw( C2DRender* p2DRender )
 void CWndIndirectTalk::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT2);
 	pWndEdit->AddWndStyle( EBS_AUTOVSCROLL );
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
 	Move( point );
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndIndirectTalk::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADMIN_INDIRECT_TALK, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  Á÷Á¢ À©µµ¸¦ ¿­¶§ »ç¿ë 
+  ì§ì ‘ ìœˆë„ë¥¼ ì—´ë•Œ ì‚¬ìš© 
 BOOL CWndIndirectTalk::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -80,7 +80,7 @@ BOOL CWndIndirectTalk::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 	{
 		switch( nID )
 		{
-		case WIDC_EDIT2: // º»¹® 
+		case WIDC_EDIT2: // ë³¸ë¬¸ 
 			if( message != EN_RETURN )
 				break;
 		case WIDC_BUTTON1:

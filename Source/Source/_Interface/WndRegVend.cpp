@@ -1,4 +1,4 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 #include "definetext.h"
 #include "AppDefine.h"
 #include "WndVendor.h"
@@ -10,8 +10,8 @@ extern	CDPClient	g_DPlay;
 
 /*
 	WndId : APP_REGVEND
-	CtrlId : WIDC_EDIT1 - ∞≥ºˆ
-	CtrlId : WIDC_EDIT2 - ¥‹∞°
+	CtrlId : WIDC_EDIT1 - Í∞úÏàò
+	CtrlId : WIDC_EDIT2 - Îã®Í∞Ä
 	CtrlId : WIDC_OK
 	CtrlId : WIDC_BUTTON2
 */
@@ -276,14 +276,14 @@ BOOL CWndRegVend::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		int nNum	= 1;
 		nNum	= atoi( str );
 		CItemElem* pItemElem	= (CItemElem*)m_pItemBase;
-		if( nNum < 1 )	return TRUE;	// ∞≥ºˆ∞° ≥ π´ ¿€Ω¿¥œ¥Ÿ.
+		if( nNum < 1 )	return TRUE;	// Í∞úÏàòÍ∞Ä ÎÑàÎ¨¥ ÏûëÏäµÎãàÎã§.
 		if( nNum > pItemElem->m_nItemNum )	nNum	= pItemElem->m_nItemNum;
 
 		int nCost	= 0;
 		pWndStatic	= (CWndStatic*)GetDlgItem( WIDC_SELLPRI );
 		str		= pWndStatic->GetTitle();
 #if __VER < 8 // __S8_VENDOR_REVISION
-		if( strlen( str ) > 9 )	return TRUE;	// º˝¿⁄∞° ≥ π´ ≈Æ¥œ¥Ÿ.
+		if( strlen( str ) > 9 )	return TRUE;	// Ïà´ÏûêÍ∞Ä ÎÑàÎ¨¥ ÌÅΩÎãàÎã§.
 #endif // __VER < 8 // __S8_VENDOR_REVISION
 		//nCost	= atoi( str );
 
@@ -293,7 +293,7 @@ BOOL CWndRegVend::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			n64Cost = INT_MAX;
 		nCost = static_cast<int>( n64Cost );
 
-		if( nCost < 1 )	return TRUE;	// ∫Ò¡§ªÛ¿˚¿Œ ºˆƒ°∞° ¿‘∑¬µ«æ˙Ω¿¥œ¥Ÿ.
+		if( nCost < 1 )	return TRUE;	// ÎπÑÏ†ïÏÉÅÏ†ÅÏù∏ ÏàòÏπòÍ∞Ä ÏûÖÎ†•ÎêòÏóàÏäµÎãàÎã§.
 		
 		ItemProp* pItemProp	= m_pItemBase->GetProp();
 
@@ -336,7 +336,7 @@ BOOL CWndRegVend::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 //		}
 #endif // __VER >= 8 // __S8_VENDOR_REVISION
 		
-#if __VER < 8     //8¬˜∞‘¿”≥ªæ∆¿Ã≈€∆«∏≈∞°∞›¡¶«—«Æ±‚
+#if __VER < 8     //8Ï∞®Í≤åÏûÑÎÇ¥ÏïÑÏù¥ÌÖúÌåêÎß§Í∞ÄÍ≤©Ï†úÌïúÌíÄÍ∏∞
 		if( nCost > pItemProp->dwCost * 1000 )
 		{
 			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_GAME_LIMITSELL)), MB_OK, this );

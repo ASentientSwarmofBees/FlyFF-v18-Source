@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "dbcontroller.h"
 #include "post.h"
 #include "dptrans.h"
@@ -57,7 +57,7 @@ void CDbController::CloseDbHandler( void )
 BOOL CDbController::PostRequest( int nQuery, BYTE* lpBuf, int nBufSize, DWORD dwCompletionKey )
 {
 	LPDB_OVERLAPPED_PLUS pov	= new DB_OVERLAPPED_PLUS;
-//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ¸Þ¸ð¸® Ç® »ç¿ë.
+//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
 	if( lpBuf != NULL )
 	{
 		if( nBufSize < 0 || nBufSize > (1024*1024) )
@@ -75,7 +75,7 @@ BOOL CDbController::PostRequest( int nQuery, BYTE* lpBuf, int nBufSize, DWORD dw
 			pov->uBufSize	= nBufSize;
 		}
 	}
-	//	mulcom	END100415	DB_OVERLAPPED_PLUS ¸Þ¸ð¸® Ç® »ç¿ë.
+	//	mulcom	END100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
 
 	pov->nQueryMode		= nQuery;
 	return ::PostQueuedCompletionStatus( m_hIocp, 1, dwCompletionKey, &pov->Overlapped );
@@ -136,9 +136,9 @@ void CDbController::DbHandler( void )
 		
 		Handler( pov, dwCompletionKey );
 
-		//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ¸Þ¸ð¸® Ç® »ç¿ë.
+		//	mulcom	BEGIN100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
 		SAFE_DELETE_ARRAY( pov->lpBuf );
-		//	mulcom	END100415	DB_OVERLAPPED_PLUS ¸Þ¸ð¸® Ç® »ç¿ë.
+		//	mulcom	END100415	DB_OVERLAPPED_PLUS ë©”ëª¨ë¦¬ í’€ ì‚¬ìš©.
 		SAFE_DELETE( pov );
 	}
 }

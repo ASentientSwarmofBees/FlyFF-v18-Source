@@ -1,7 +1,7 @@
-#ifndef __DEFINEATTRIBUTE
+ï»¿#ifndef __DEFINEATTRIBUTE
 #define __DEFINEATTRIBUTE
 
-// °¡»ó ¾ÆÀÌÅÛ Å¸ÀÔ 
+// ê°€ìƒ ì•„ì´í…œ íƒ€ìž… 
 #define VT_ITEM                      1
 #define VT_SKILL                     2
 /*
@@ -13,149 +13,149 @@
 #define CT_FG        6
 */
 
-//µå¶ø·ü Áõ°¡ °ü·Ã ½ºÅ³ 2Â÷ ±×·ì¸í Á¤ÀÇ
+//ë“œëžë¥  ì¦ê°€ ê´€ë ¨ ìŠ¤í‚¬ 2ì°¨ ê·¸ë£¹ëª… ì •ì˜
 #define	SK2_DROPRATE_UP	1
 
-//µå¶ø·ü Áõ°¡ °ü·Ã ½ºÅ³ 3Â÷ ±×·ì¸í Á¤ÀÇ
+//ë“œëžë¥  ì¦ê°€ ê´€ë ¨ ìŠ¤í‚¬ 3ì°¨ ê·¸ë£¹ëª… ì •ì˜
 #define SK3_ITEM_ALL	1
 #define	SK3_ITEM_RARE	2
 
 
-#define CT_STEP      1 // ¿ø·¡ CT_START
+#define CT_STEP      1 // ì›ëž˜ CT_START
 #define CT_CIRCLE    2
 #define CT_FINISH    3
-#define CT_GENERAL   4 // ¿ø·¡ CT_FG
+#define CT_GENERAL   4 // ì›ëž˜ CT_FG
 
 
 // ItemSex
-//#define IS_MALE                      1 // ³²¼ºÀü¿ë»ç¿ë
-//#define IS_FEMALE                    2 // ¿©¼ºÀÜ¿ë»ç¿ë
+//#define IS_MALE                      1 // ë‚¨ì„±ì „ìš©ì‚¬ìš©
+//#define IS_FEMALE                    2 // ì—¬ì„±ìž”ìš©ì‚¬ìš©
 
 // Handed
-#define HD_ONE                       1 // ÇÑ¼ÕÀ¸·Î
-#define HD_TWO                       2 // ¾ç¼ÕÀ¸·Î 
+#define HD_ONE                       1 // í•œì†ìœ¼ë¡œ
+#define HD_TWO                       2 // ì–‘ì†ìœ¼ë¡œ 
 #define HD_DUAL                      3 // Two-Weapon
 
 // AtkType
-#define AT_SLASH                     1 // º£±â
-#define AT_BLOW                      2 // Ä¡±â
-#define AT_PIERCE                    3 // Âî¸£±â
+#define AT_SLASH                     1 // ë² ê¸°
+#define AT_BLOW                      2 // ì¹˜ê¸°
+#define AT_PIERCE                    3 // ì°Œë¥´ê¸°
 
 // AtkStyle
-#define AS_HORIZONTAL                0 // ¼öÆò ÈÖµÎ¸£±â
-#define AS_VERTICAL                  1 // ¼öÁ÷ ÈÖµÎ¸£±â
-#define AS_DIAGONAL                  2 // »ç¼± ÈÖµÎ¸£±â
-#define AS_THRUST                    3 // Âî¸£±â
-#define AS_HEAD                      4 // ¸Ó¸®(ÅëÁ¦ºÎºÐ)
-#define AS_CHEST                     5 // °¡½¿(¸öÅë)
-#define AS_ARM                       6 // ÆÈ(°ø°ÝºÎÀ§)
-#define AS_LEG                       7 // ´Ù¸®(ÀÌµ¿ºÎÀ§)
-#define AS_BACK                      8 // µÚ¿¡¼­ °ø°Ý
+#define AS_HORIZONTAL                0 // ìˆ˜í‰ íœ˜ë‘ë¥´ê¸°
+#define AS_VERTICAL                  1 // ìˆ˜ì§ íœ˜ë‘ë¥´ê¸°
+#define AS_DIAGONAL                  2 // ì‚¬ì„  íœ˜ë‘ë¥´ê¸°
+#define AS_THRUST                    3 // ì°Œë¥´ê¸°
+#define AS_HEAD                      4 // ë¨¸ë¦¬(í†µì œë¶€ë¶„)
+#define AS_CHEST                     5 // ê°€ìŠ´(ëª¸í†µ)
+#define AS_ARM                       6 // íŒ”(ê³µê²©ë¶€ìœ„)
+#define AS_LEG                       7 // ë‹¤ë¦¬(ì´ë™ë¶€ìœ„)
+#define AS_BACK                      8 // ë’¤ì—ì„œ ê³µê²©
 
 #define MAX_AS                       9 //
 
 // WeaponType
-#define WT_MELEE_SWD                 1 // Ä®À» »ç¿ëÇÑ ±âº» ÆÐÅÏ°ø°Ý¼ö½Ä
-#define WT_MELEE_AXE                 2 // µµ³¢À» »ç¿ëÇÑ ±âº» ÆÐÅÏ°ø°Ý¼ö½Ä
-#define WT_MELEE_STICK               3 // Ä¡¾î½ºÆ½À» »ç¿ëÇÑ ±âº» ÆÐÅÏ°ø°Ý¼ö½Ä
-#define WT_MELEE_KNUCKLE             4 // ³ÊÅ¬ÇØ¸Ó¸¦ »ç¿ëÇÑ ±âº» ÆÐÅÏ°ø°Ý¼ö½Ä
-#define WT_MELEE_STAFF               5 // ½ºÅÂÇÁ¸¦ »ç¿ëÇÑ ±âº» ÆÐÅÏ°ø°Ý¼ö½Ä
-#define WT_MAGIC_WAND                6 // ¿Ïµå¸¦ »ç¿ëÇÑ ±âº» ÆÐÅÏ°ø°Ý¼ö½Ä
+#define WT_MELEE_SWD                 1 // ì¹¼ì„ ì‚¬ìš©í•œ ê¸°ë³¸ íŒ¨í„´ê³µê²©ìˆ˜ì‹
+#define WT_MELEE_AXE                 2 // ë„ë¼ì„ ì‚¬ìš©í•œ ê¸°ë³¸ íŒ¨í„´ê³µê²©ìˆ˜ì‹
+#define WT_MELEE_STICK               3 // ì¹˜ì–´ìŠ¤í‹±ì„ ì‚¬ìš©í•œ ê¸°ë³¸ íŒ¨í„´ê³µê²©ìˆ˜ì‹
+#define WT_MELEE_KNUCKLE             4 // ë„ˆí´í•´ë¨¸ë¥¼ ì‚¬ìš©í•œ ê¸°ë³¸ íŒ¨í„´ê³µê²©ìˆ˜ì‹
+#define WT_MELEE_STAFF               5 // ìŠ¤íƒœí”„ë¥¼ ì‚¬ìš©í•œ ê¸°ë³¸ íŒ¨í„´ê³µê²©ìˆ˜ì‹
+#define WT_MAGIC_WAND                6 // ì™„ë“œë¥¼ ì‚¬ìš©í•œ ê¸°ë³¸ íŒ¨í„´ê³µê²©ìˆ˜ì‹
 
-/* 20050329 °¡¶óÃß°¡ */
-#define WT_MELEE_YOYO               20 // ¿ä¿ä¸¦ »ç¿ëÇÑ ±âº» ÆÐÅÏ°ø°Ý¼ö½Ä
-#define WT_RANGE_BOW                21 // È°¸¦ »ç¿ëÇÑ ±âº» ÆÐÅÏ°ø°Ý¼ö½Ä
+/* 20050329 ê°€ë¼ì¶”ê°€ */
+#define WT_MELEE_YOYO               20 // ìš”ìš”ë¥¼ ì‚¬ìš©í•œ ê¸°ë³¸ íŒ¨í„´ê³µê²©ìˆ˜ì‹
+#define WT_RANGE_BOW                21 // í™œë¥¼ ì‚¬ìš©í•œ ê¸°ë³¸ íŒ¨í„´ê³µê²©ìˆ˜ì‹
 
-#define WT_MELEE                     7 // ±âº» °ø°Ý Á÷Á¢°ø°Ý¿ë ¼ö½Ä(Str)
-#define WT_RANGE                     8 // ±âº» °ø°Ý Àå°Å¸®°ø°Ý¿ë ¼ö½Ä(Dex)
-#define WT_MAGIC                     9 // ±âº» °ø°Ý ¸¶¹ý°ø°Ý¿ë ¼ö½Ä(Int)
-#define WT_CHEER                    10 // ±âº» °ø°Ý Ä¡¾î½ºÆ½ °ø°Ý ¼ö½Ä(*Sta, Int)
-#define WT_GUN                      11 // ±âº» °ø°Ý ÃÑÀ» »ç¿ëÇÑ °ø°Ý¿ë ¼ö½Ä(Sta,*Dex)
-#define WT_DOLL                     12 // ±âº» °ø°Ý ÀÎÇü°ø°Ý¿ë ¼ö½Ä(*Sta,Dex)
-#define WT_EQUIP                    13 // ÀåÂøÇÑ Àåºñ¿¡ ÀÇÇØ¼­ ±â¼úÀÇ ¼ö½ÄÀû¿ë(±â¼ú)
-#define WT_PROPERTY                 14 // ¼Òµµ±¸ ±â¼ú »ç¿ë½Ã ¼ö½ÄÀû¿ë(±â¼ú, Dex)
-#define WT_ACROBAT                  15 // °î¿¹±â¼ú »ç¿ë½Ã ¼ö½ÄÀû¿ë(±â¼ú, Dex)
-#define WT_THROWITEM                16 // ±«·Â¿¡¼­ ¾ÆÀÌÅÛ ´øÁö±â ±â¼ú»ç¿ë½Ã ¼ö½ÄÀû¿ë(¾ÆÀÌÅÛ ¹«°Ô, Sta, Dex)
-#define WT_THROWING                 17 // ±«·Â¿¡¼­ ³ª¹«,µ¹ ´øÁö±â ±â¼ú»ç¿ë½Ã ¼ö½ÄÀû¿ë(±â¼ú, Sta, Dex)
-#define WT_SWING                    18 // ±«·Â¿¡¼­ ³ª¹«ÈÖµÎ¸£±â ±â¼ú»ç¿ë½Ã ¼ö½ÄÀû¿ë(±â¼ú, Sta, Dex)
-#define WT_KNUCKLE                  19 // ±«·Â¿¡¼­ ³ª¹«ÈÖµÎ¸£±â ±â¼ú»ç¿ë½Ã ¼ö½ÄÀû¿ë(±â¼ú, Sta, Dex)
+#define WT_MELEE                     7 // ê¸°ë³¸ ê³µê²© ì§ì ‘ê³µê²©ìš© ìˆ˜ì‹(Str)
+#define WT_RANGE                     8 // ê¸°ë³¸ ê³µê²© ìž¥ê±°ë¦¬ê³µê²©ìš© ìˆ˜ì‹(Dex)
+#define WT_MAGIC                     9 // ê¸°ë³¸ ê³µê²© ë§ˆë²•ê³µê²©ìš© ìˆ˜ì‹(Int)
+#define WT_CHEER                    10 // ê¸°ë³¸ ê³µê²© ì¹˜ì–´ìŠ¤í‹± ê³µê²© ìˆ˜ì‹(*Sta, Int)
+#define WT_GUN                      11 // ê¸°ë³¸ ê³µê²© ì´ì„ ì‚¬ìš©í•œ ê³µê²©ìš© ìˆ˜ì‹(Sta,*Dex)
+#define WT_DOLL                     12 // ê¸°ë³¸ ê³µê²© ì¸í˜•ê³µê²©ìš© ìˆ˜ì‹(*Sta,Dex)
+#define WT_EQUIP                    13 // ìž¥ì°©í•œ ìž¥ë¹„ì— ì˜í•´ì„œ ê¸°ìˆ ì˜ ìˆ˜ì‹ì ìš©(ê¸°ìˆ )
+#define WT_PROPERTY                 14 // ì†Œë„êµ¬ ê¸°ìˆ  ì‚¬ìš©ì‹œ ìˆ˜ì‹ì ìš©(ê¸°ìˆ , Dex)
+#define WT_ACROBAT                  15 // ê³¡ì˜ˆê¸°ìˆ  ì‚¬ìš©ì‹œ ìˆ˜ì‹ì ìš©(ê¸°ìˆ , Dex)
+#define WT_THROWITEM                16 // ê´´ë ¥ì—ì„œ ì•„ì´í…œ ë˜ì§€ê¸° ê¸°ìˆ ì‚¬ìš©ì‹œ ìˆ˜ì‹ì ìš©(ì•„ì´í…œ ë¬´ê²Œ, Sta, Dex)
+#define WT_THROWING                 17 // ê´´ë ¥ì—ì„œ ë‚˜ë¬´,ëŒ ë˜ì§€ê¸° ê¸°ìˆ ì‚¬ìš©ì‹œ ìˆ˜ì‹ì ìš©(ê¸°ìˆ , Sta, Dex)
+#define WT_SWING                    18 // ê´´ë ¥ì—ì„œ ë‚˜ë¬´íœ˜ë‘ë¥´ê¸° ê¸°ìˆ ì‚¬ìš©ì‹œ ìˆ˜ì‹ì ìš©(ê¸°ìˆ , Sta, Dex)
+#define WT_KNUCKLE                  19 // ê´´ë ¥ì—ì„œ ë‚˜ë¬´íœ˜ë‘ë¥´ê¸° ê¸°ìˆ ì‚¬ìš©ì‹œ ìˆ˜ì‹ì ìš©(ê¸°ìˆ , Sta, Dex)
 
-//¼Ó¼º Å¸ÀÔ
+//ì†ì„± íƒ€ìž…
 
-#define _NONE			0 //¹«¼Ó¼º
-#define _FIRE			1 //ºÒ¼Ó¼º
-#define _WATER			2 //¹°¼Ó¼º
-#define _ELECTRICITY	3 //Àü±â¼Ó¼º
-#define _WIND			4 //¹Ù¶÷¼Ó¼º
-#define _EARTH			5 //¶¥¼Ó¼º
+#define _NONE			0 //ë¬´ì†ì„±
+#define _FIRE			1 //ë¶ˆì†ì„±
+#define _WATER			2 //ë¬¼ì†ì„±
+#define _ELECTRICITY	3 //ì „ê¸°ì†ì„±
+#define _WIND			4 //ë°”ëžŒì†ì„±
+#define _EARTH			5 //ë•…ì†ì„±
 
 // AttackRange
-#define AR_SHORT                     1 // ÇÑ¼Õ¿ë ±ÙÁ¢Àü ¹«±â
-#define AR_LONG                      2 // ¾ç¼Õ¿ë ±ÙÀüÀü ¹«±â
-#define AR_FAR                       3 // Ã¤Âï, Ã¢°ú °°Àº ¹«±â
-#define AR_RANGE                     4 // ½î´Â ¹«±â
-#define AR_WAND                      5 // ¿Ïµå °Å¸®
-#define AR_HRANGE                    6 // ½î´Â ¹«±â
-#define AR_HWAND                     7 // ±ä¿Ïµå °Å¸®
+#define AR_SHORT                     1 // í•œì†ìš© ê·¼ì ‘ì „ ë¬´ê¸°
+#define AR_LONG                      2 // ì–‘ì†ìš© ê·¼ì „ì „ ë¬´ê¸°
+#define AR_FAR                       3 // ì±„ì°, ì°½ê³¼ ê°™ì€ ë¬´ê¸°
+#define AR_RANGE                     4 // ì˜ëŠ” ë¬´ê¸°
+#define AR_WAND                      5 // ì™„ë“œ ê±°ë¦¬
+#define AR_HRANGE                    6 // ì˜ëŠ” ë¬´ê¸°
+#define AR_HWAND                     7 // ê¸´ì™„ë“œ ê±°ë¦¬
 
 // SpellAttribute
-#define SA_DIRECTDMG                 1 // Á÷Á¢ µ¥¹ÌÁö
-#define SA_OBJCHGPARAMET             2 // ´ë»óÀÇ ÆÄ¶ó¹ÌÅÍ º¯°æ
-#define SA_SELFCHGPARAMET            3 // ÀÚ½ÅÀÇ ÆÄ¶ó¹ÌÅÍ º¯°æ
-#define SA_OTHERS                    4 // ±âÅ¸
+#define SA_DIRECTDMG                 1 // ì§ì ‘ ë°ë¯¸ì§€
+#define SA_OBJCHGPARAMET             2 // ëŒ€ìƒì˜ íŒŒë¼ë¯¸í„° ë³€ê²½
+#define SA_SELFCHGPARAMET            3 // ìžì‹ ì˜ íŒŒë¼ë¯¸í„° ë³€ê²½
+#define SA_OTHERS                    4 // ê¸°íƒ€
 
 //	SpellType
-#define ST_MAGIC                     1 // ÀÏ¹Ý ¸¶¹ý
-#define ST_MIND                      2 // Á¤½Å °è¿­
-#define ST_POISON                    3 // µ¶ °è¿­
-#define ST_ELECTRICITY               4 // Àü±â °è¿­
-#define ST_FIRE                      5 // ºÒ °è¿­
-#define ST_WIND                      6 // ¹Ù¶÷ °è¿­
-#define ST_WATER                     7 // ¹° °è¿­
-#define ST_EARTH                     8 // ¶¥ °è¿­
-#define ST_DARK                      9 // ¾îµÒ °è¿­
-#define ST_LIGHT                    10 // ºû °è¿­
-#define ST_FIREEARTH                11 // ºÒ/¶¥ °è¿­
-#define ST_ELECWIND                 12 // Àü±â/¹Ù¶÷ °è¿­
-#define ST_EARTHWIND                13 // ¶¥/¹Ù¶÷ °è¿­
-#define ST_EARTHWATER               14 // ¶¥/¹° °è¿­
+#define ST_MAGIC                     1 // ì¼ë°˜ ë§ˆë²•
+#define ST_MIND                      2 // ì •ì‹  ê³„ì—´
+#define ST_POISON                    3 // ë… ê³„ì—´
+#define ST_ELECTRICITY               4 // ì „ê¸° ê³„ì—´
+#define ST_FIRE                      5 // ë¶ˆ ê³„ì—´
+#define ST_WIND                      6 // ë°”ëžŒ ê³„ì—´
+#define ST_WATER                     7 // ë¬¼ ê³„ì—´
+#define ST_EARTH                     8 // ë•… ê³„ì—´
+#define ST_DARK                      9 // ì–´ë‘  ê³„ì—´
+#define ST_LIGHT                    10 // ë¹› ê³„ì—´
+#define ST_FIREEARTH                11 // ë¶ˆ/ë•… ê³„ì—´
+#define ST_ELECWIND                 12 // ì „ê¸°/ë°”ëžŒ ê³„ì—´
+#define ST_EARTHWIND                13 // ë•…/ë°”ëžŒ ê³„ì—´
+#define ST_EARTHWATER               14 // ë•…/ë¬¼ ê³„ì—´
 
-// Skill Ready ±â¼úÁØºñ½Ã°£
-#define SR_AFTER                     1 // ±â¼ú »ç¿ëÈÄ¿¡ ´ë±â½Ã°£ ¹ßµ¿
-#define SR_BEFORE                    2 // ±â¼ú »ç¿ëÀü¿¡ ´ë±â½Ã°£ ¹ßµ¿  
+// Skill Ready ê¸°ìˆ ì¤€ë¹„ì‹œê°„
+#define SR_AFTER                     1 // ê¸°ìˆ  ì‚¬ìš©í›„ì— ëŒ€ê¸°ì‹œê°„ ë°œë™
+#define SR_BEFORE                    2 // ê¸°ìˆ  ì‚¬ìš©ì „ì— ëŒ€ê¸°ì‹œê°„ ë°œë™  
 
 //	Spell Region
-#define SRO_DIRECT                   1 // ´ÜÀÏ ´ë»ó 100%
-#define SRO_REGION                   2 // ´ë»óÀ» Áß½É(´ë»ó 100%, ÁÖÀ§ 100%)
-#define SRO_EXTENT                   3 // ´ë»óÀ» Áß½É(´ë»ó 100%, ÁÖÀ§ ÃÖ¼Ò µ¥¹ÌÁö)
-#define SRO_SURROUND                 4 // ´ë»óÀ» Áß½É(´ë»ó ÃÖ¼Ò, ÁÖÀ§ 100%)
-#define SRO_DOUBLE                   5 // 100% ÀçÆÇÁ¤
-#define SRO_LINE                     6 // ´ë»ó°ú Á÷¼± °Å¸®¿¡ ÀÖ´Â Àûµé(´ë»ó 100%, ÁÖÀ§ 100%)
-#define SRO_AROUND                   7 // ´ë»óÀ» Áß½É(´ë»ó 0%, ÁÖÀ§ 100%)
-#define SRO_TROUPE					 8 // ÆÄÆ¼¿øµéÀÌ ´ë»ó.
+#define SRO_DIRECT                   1 // ë‹¨ì¼ ëŒ€ìƒ 100%
+#define SRO_REGION                   2 // ëŒ€ìƒì„ ì¤‘ì‹¬(ëŒ€ìƒ 100%, ì£¼ìœ„ 100%)
+#define SRO_EXTENT                   3 // ëŒ€ìƒì„ ì¤‘ì‹¬(ëŒ€ìƒ 100%, ì£¼ìœ„ ìµœì†Œ ë°ë¯¸ì§€)
+#define SRO_SURROUND                 4 // ëŒ€ìƒì„ ì¤‘ì‹¬(ëŒ€ìƒ ìµœì†Œ, ì£¼ìœ„ 100%)
+#define SRO_DOUBLE                   5 // 100% ìž¬íŒì •
+#define SRO_LINE                     6 // ëŒ€ìƒê³¼ ì§ì„  ê±°ë¦¬ì— ìžˆëŠ” ì ë“¤(ëŒ€ìƒ 100%, ì£¼ìœ„ 100%)
+#define SRO_AROUND                   7 // ëŒ€ìƒì„ ì¤‘ì‹¬(ëŒ€ìƒ 0%, ì£¼ìœ„ 100%)
+#define SRO_TROUPE					 8 // íŒŒí‹°ì›ë“¤ì´ ëŒ€ìƒ.
 
 //	Skill Type
 #define KT_MAGIC                     1 // 
 #define KT_SKILL                     2 // 
 
 // Buff Tick Type
-#define	BT_START					1	// Buff ½ÃÀÛ°ú µ¿½Ã¿¡ Àû¿ë(¸Å Æ½½Ã¿¡µµ Àû¿ë)
-#define	BT_TICK						2	// Buff Æ½¿¡¸¸ Àû¿ë
+#define	BT_START					1	// Buff ì‹œìž‘ê³¼ ë™ì‹œì— ì ìš©(ë§¤ í‹±ì‹œì—ë„ ì ìš©)
+#define	BT_TICK						2	// Buff í‹±ì—ë§Œ ì ìš©
 
 // CardType
-#define CT_TELEPORT                  1 // Æ¯Á¤ Áö¿ªÀ¸·Î ÀÌµ¿
-#define CT_SUMMON                    2 // Æ¯Á¤ ´ë»óÀ» ¼ÒÈ¯
+#define CT_TELEPORT                  1 // íŠ¹ì • ì§€ì—­ìœ¼ë¡œ ì´ë™
+#define CT_SUMMON                    2 // íŠ¹ì • ëŒ€ìƒì„ ì†Œí™˜
 
 // Race
-#define RACE_HUMAN                   1 // ÀÎ°£
-#define RACE_ANIMAL                  2 // µ¿¹°
-#define RACE_HUMANOID                3 // ÀÎ°£ µ¿·ù
-#define RACE_MONSTER                 4 // ÀÏ¹Ý ¸ó½ºÅÍ
-#define RACE_UNDEAD                  5 // ¾ðµ¥µå
-#define RACE_GHOST                   6 // À°Ã¼°¡ ¾ø´Â À¯·É
-#define RACE_INSECT                  7 // °ïÃæ
-#define RACE_MECHANIC                8 // ±â°è·Î ÀÛµ¿ÇÏ´Â »ý¸íÃ¼
-#define RACE_ELEMENTAL               9 // ¿ø¼Ò°è »ý¸íÃ¼
+#define RACE_HUMAN                   1 // ì¸ê°„
+#define RACE_ANIMAL                  2 // ë™ë¬¼
+#define RACE_HUMANOID                3 // ì¸ê°„ ë™ë¥˜
+#define RACE_MONSTER                 4 // ì¼ë°˜ ëª¬ìŠ¤í„°
+#define RACE_UNDEAD                  5 // ì–¸ë°ë“œ
+#define RACE_GHOST                   6 // ìœ¡ì²´ê°€ ì—†ëŠ” ìœ ë ¹
+#define RACE_INSECT                  7 // ê³¤ì¶©
+#define RACE_MECHANIC                8 // ê¸°ê³„ë¡œ ìž‘ë™í•˜ëŠ” ìƒëª…ì²´
+#define RACE_ELEMENTAL               9 // ì›ì†Œê³„ ìƒëª…ì²´
 
 
 // Size
@@ -172,73 +172,73 @@
 #define RANK_NORMAL                  2 //
 #define RANK_CAPTAIN                 3 //
 #define RANK_BOSS                    4 //
-#define RANK_MIDBOSS				 5 // ºò¸Ó½½,Å©¸£¸ª,¸Ó½¬¹«Æ® Áß°£º¸½ºµé
+#define RANK_MIDBOSS				 5 // ë¹…ë¨¸ìŠ¬,í¬ë¥´ë¦‰,ë¨¸ì‰¬ë¬´íŠ¸ ì¤‘ê°„ë³´ìŠ¤ë“¤
 #define RANK_MATERIAL                6 //
 #define RANK_SUPER                   7 //
 #define RANK_GUARD                   8 //
-#define RANK_MAX					 9 // ¸ó½ºÅÍ ·©Å©°¡ Ãß°¡ µÉ °æ¿ì Áõ°¡½ÃÅ²´Ù. propskill.csv ¿¡ ¸ó½ºÅÍ Àû¿ë µî±Þ °ªÀ» À§ÇÑ ÆÄ¶ó¹ÌÅÍ
+#define RANK_MAX					 9 // ëª¬ìŠ¤í„° ëž­í¬ê°€ ì¶”ê°€ ë  ê²½ìš° ì¦ê°€ì‹œí‚¨ë‹¤. propskill.csv ì— ëª¬ìŠ¤í„° ì ìš© ë“±ê¸‰ ê°’ì„ ìœ„í•œ íŒŒë¼ë¯¸í„°
 
 
-// Character State(Ä³¸¯ÅÍ »óÅÂº¯°æ)
-#define CHS_NORMAL				0			// ÀÏ¹Ý
-#define CHS_GUARDARROW			0x00000001	// È­»ìÀ» ¸·´Â »óÅÂ
-#define CHS_GUARDBULLET			0x00000002	// ÃÑ¾ËÀ» ¸·´Â »óÅÂ
-#define CHS_GROGGY				0x00000004	// Å¸°Ý¹ÞÀº »óÅÂ(¾ï!!)
-#define CHS_STUN				0x00000008	// ±âÀýÇÑ »óÅÂ - nProbability:È®·ü dwSkillTime:Áö¼Ó½Ã°£
-#define CHS_ANOMY				0x00000010	// Á¤½ÅÀû È¥¶õ»óÅÂ(¾ï!!)
-#define CHS_STARVE				0x00000020	// ±¾ÁÖ¸° »óÅÂ
-#define CHS_PLASYARM			0x00000040	// ¼Õ¶³¸²À¸·Î ÀÎÇÑ °ø°ÝºÒ´É»óÅÂ
-#define CHS_MISSING				0x00000080	// Æ¯Á¤ÇÑ »óÈ²¿¡ ÀÇÇØ Çê¼ÕÁúÇÑ »óÅÂ
-#define CHS_DARK				0x00000100	// ¸íÁß·ü ÀúÇÏ nProbability:È®·ü dwDestData2:¼öÁ¤µÉ ¸íÁßÄ¡.
-#define CHS_LITHOSKIN			0x00000200	// ¹æ¾îÇÏ´Â ·®À» ÇÇÇØ ÀÔ´Â´Ù. ¹æ¾î±¸¿¡ ½É°¢ÇÑ ÇÇÇØ¸¦ ÁØ´Ù.
-#define CHS_INVISIBILITY		0x00000400	// ¹æ¾îÇÏ´Â ·®À» ÇÇÇØ ÀÔ´Â´Ù. ¹æ¾î±¸¿¡ ½É°¢ÇÑ ÇÇÇØ¸¦ ÁØ´Ù.
-#define CHS_POISON				0x00000800	// µ¶°É¸° »óÅÂ. nProbability:È®·ü(CHANCE·Î »ç¿ëÇÑ°ÍÀÌ¸é =¸¦ÇÔ)  dwPainTime:¸îÃÊ¸¶´Ù?  nDestData1 : Æ½´çµ¥¹ÌÁö: dwSkilltime:Áö¼Ó½Ã°£
-#define CHS_SLOW				0x00001000	// ´À·ÁÁø »óÅÂ.
-#define CHS_DMGREFLECT			0x00002000	// µ¥¹ÌÁö ¹Ý»ç. ¸®ÇÃ·ºÈ÷Æ®´Â ÀÌ°É·Î ¾ÈÇÑ´Ù. ¹öÇÁÇüÅÂ°¡ ¾Æ´Ï±â ¶§¹®
-#define CHS_DOUBLE				0x00004000	// 2¹è µ¥¹ÌÁö .
-#define CHS_BLEEDING			0x00008000	// ÃâÇ÷ : »ç¿ë¹ýÀº µ¶°ú °°À½
-#define CHS_SILENT				0x00010000	// Ä§¹¬
-#define CHS_DMG_COUNTERATTACK	0x00020000	// ¹Ý°Ý ´ë±âÁß : °¡°Ý´çÇßÀ»¶§ ÁöÁ¤µÈÈ®·ü(destData1)·Î ÁöÁ¤µÈ½ºÅ³(destData2)ÀÌ ¹ßµ¿µÊ.
-#define CHS_ATK_COUNTERATTACK	0x00040000	// ¹Ý°Ý ´ë±âÁß : °ø°Ý´çÇßÀ»¶§ ÁöÁ¤µÈÈ®·ü(destData1)·Î ÁöÁ¤µÈ½ºÅ³(destData2)ÀÌ ¹ßµ¿µÊ.
-#define CHS_LOOT				0x00080000	// ÀÌµ¿ºÒ°¡ »óÅÂ.
+// Character State(ìºë¦­í„° ìƒíƒœë³€ê²½)
+#define CHS_NORMAL				0			// ì¼ë°˜
+#define CHS_GUARDARROW			0x00000001	// í™”ì‚´ì„ ë§‰ëŠ” ìƒíƒœ
+#define CHS_GUARDBULLET			0x00000002	// ì´ì•Œì„ ë§‰ëŠ” ìƒíƒœ
+#define CHS_GROGGY				0x00000004	// íƒ€ê²©ë°›ì€ ìƒíƒœ(ì–µ!!)
+#define CHS_STUN				0x00000008	// ê¸°ì ˆí•œ ìƒíƒœ - nProbability:í™•ë¥  dwSkillTime:ì§€ì†ì‹œê°„
+#define CHS_ANOMY				0x00000010	// ì •ì‹ ì  í˜¼ëž€ìƒíƒœ(ì–µ!!)
+#define CHS_STARVE				0x00000020	// êµ¶ì£¼ë¦° ìƒíƒœ
+#define CHS_PLASYARM			0x00000040	// ì†ë–¨ë¦¼ìœ¼ë¡œ ì¸í•œ ê³µê²©ë¶ˆëŠ¥ìƒíƒœ
+#define CHS_MISSING				0x00000080	// íŠ¹ì •í•œ ìƒí™©ì— ì˜í•´ í—›ì†ì§ˆí•œ ìƒíƒœ
+#define CHS_DARK				0x00000100	// ëª…ì¤‘ë¥  ì €í•˜ nProbability:í™•ë¥  dwDestData2:ìˆ˜ì •ë  ëª…ì¤‘ì¹˜.
+#define CHS_LITHOSKIN			0x00000200	// ë°©ì–´í•˜ëŠ” ëŸ‰ì„ í”¼í•´ ìž…ëŠ”ë‹¤. ë°©ì–´êµ¬ì— ì‹¬ê°í•œ í”¼í•´ë¥¼ ì¤€ë‹¤.
+#define CHS_INVISIBILITY		0x00000400	// ë°©ì–´í•˜ëŠ” ëŸ‰ì„ í”¼í•´ ìž…ëŠ”ë‹¤. ë°©ì–´êµ¬ì— ì‹¬ê°í•œ í”¼í•´ë¥¼ ì¤€ë‹¤.
+#define CHS_POISON				0x00000800	// ë…ê±¸ë¦° ìƒíƒœ. nProbability:í™•ë¥ (CHANCEë¡œ ì‚¬ìš©í•œê²ƒì´ë©´ =ë¥¼í•¨)  dwPainTime:ëª‡ì´ˆë§ˆë‹¤?  nDestData1 : í‹±ë‹¹ë°ë¯¸ì§€: dwSkilltime:ì§€ì†ì‹œê°„
+#define CHS_SLOW				0x00001000	// ëŠë ¤ì§„ ìƒíƒœ.
+#define CHS_DMGREFLECT			0x00002000	// ë°ë¯¸ì§€ ë°˜ì‚¬. ë¦¬í”Œë ‰ížˆíŠ¸ëŠ” ì´ê±¸ë¡œ ì•ˆí•œë‹¤. ë²„í”„í˜•íƒœê°€ ì•„ë‹ˆê¸° ë•Œë¬¸
+#define CHS_DOUBLE				0x00004000	// 2ë°° ë°ë¯¸ì§€ .
+#define CHS_BLEEDING			0x00008000	// ì¶œí˜ˆ : ì‚¬ìš©ë²•ì€ ë…ê³¼ ê°™ìŒ
+#define CHS_SILENT				0x00010000	// ì¹¨ë¬µ
+#define CHS_DMG_COUNTERATTACK	0x00020000	// ë°˜ê²© ëŒ€ê¸°ì¤‘ : ê°€ê²©ë‹¹í–ˆì„ë•Œ ì§€ì •ëœí™•ë¥ (destData1)ë¡œ ì§€ì •ëœìŠ¤í‚¬(destData2)ì´ ë°œë™ë¨.
+#define CHS_ATK_COUNTERATTACK	0x00040000	// ë°˜ê²© ëŒ€ê¸°ì¤‘ : ê³µê²©ë‹¹í–ˆì„ë•Œ ì§€ì •ëœí™•ë¥ (destData1)ë¡œ ì§€ì •ëœìŠ¤í‚¬(destData2)ì´ ë°œë™ë¨.
+#define CHS_LOOT				0x00080000	// ì´ë™ë¶ˆê°€ ìƒíƒœ.
 
-#define CHS_SETSTONE			0x00100000	// ¼®È­ »óÅÂ.
+#define CHS_SETSTONE			0x00100000	// ì„í™” ìƒíƒœ.
 
 
 #ifdef __3RD_LEGEND16
 
-#define CHS_SLEEPING			0x00200000	// ÀáÀÚ´Â »óÅÂ.
-#define CHS_DEBUFFALL			0x00400000	// ¸ðµç »óÅÂ¿µÇâ ÇØÁ¦.
+#define CHS_SLEEPING			0x00200000	// ìž ìžëŠ” ìƒíƒœ.
+#define CHS_DEBUFFALL			0x00400000	// ëª¨ë“  ìƒíƒœì˜í–¥ í•´ì œ.
 
 #else // __3RD_LEGEND16
 
-#define CHS_DEBUFFALL			0x00200000	// ¸ðµç »óÅÂ¿µÇâ ÇØÁ¦.
+#define CHS_DEBUFFALL			0x00200000	// ëª¨ë“  ìƒíƒœì˜í–¥ í•´ì œ.
 
 #endif // __3RD_LEGEND16
 
 
-// À§¿¡²¨ Á¶ÇÕÇÑ ÇüÅÂ...
-// À©µµ¿ì °è»ê±â hex ·Î ¼³Á¤ÇÏ°í ´õÇÔ.
-#define CHS_DARK_POISON								0x00000900	// µ¶°ú ¾ÏÈæ
-#define CHS_DARK_POISON_STUN						0x00000908	// µ¶°ú ¾ÏÈæ°ú ½ºÅÏ 
-#define CHS_LOOT_SLOW								0x00081000	// ÀÌµ¿Àå¾Ö»óÅÂ ÃÑÁýÇÕ(·í,½º³×¾î,½½·Î¿ìµî)
-#define	CHS_DARK_POISON_STUN_BLEEDING				0x00008908	// µ¶, ¾ÏÈæ, ½ºÅÏ, ÃâÇ÷
-#define CHS_DARK_POISON_STUN_BLEEDING_DEBUFFALL		0x0039D908	// µ¶, ¾ÏÈæ, ½ºÅÏ, ÃâÇ÷, Ä§¹¬, ¼®È­, 2¹è, °¨¼Ó, ½½¸®ÇÎ, ·çÆÃ   <----- ¸ðµç µð¹öÇÁ ÇØÁ¦ÇÏµµ·Ï º¯°æ 11.11.04 Á¤µµ¿µ
+// ìœ„ì—êº¼ ì¡°í•©í•œ í˜•íƒœ...
+// ìœˆë„ìš° ê³„ì‚°ê¸° hex ë¡œ ì„¤ì •í•˜ê³  ë”í•¨.
+#define CHS_DARK_POISON								0x00000900	// ë…ê³¼ ì•”í‘
+#define CHS_DARK_POISON_STUN						0x00000908	// ë…ê³¼ ì•”í‘ê³¼ ìŠ¤í„´ 
+#define CHS_LOOT_SLOW								0x00081000	// ì´ë™ìž¥ì• ìƒíƒœ ì´ì§‘í•©(ë£»,ìŠ¤ë„¤ì–´,ìŠ¬ë¡œìš°ë“±)
+#define	CHS_DARK_POISON_STUN_BLEEDING				0x00008908	// ë…, ì•”í‘, ìŠ¤í„´, ì¶œí˜ˆ
+#define CHS_DARK_POISON_STUN_BLEEDING_DEBUFFALL		0x0039D908	// ë…, ì•”í‘, ìŠ¤í„´, ì¶œí˜ˆ, ì¹¨ë¬µ, ì„í™”, 2ë°°, ê°ì†, ìŠ¬ë¦¬í•‘, ë£¨íŒ…   <----- ëª¨ë“  ë””ë²„í”„ í•´ì œí•˜ë„ë¡ ë³€ê²½ 11.11.04 ì •ë„ì˜
 
 // Belligerence
-#define BELLI_PEACEFUL                1 // ÆòÈ­ - °ø°Ý ¹Þ¾Æµµ ¹Ý°Ý ¾ÈÇÔ 
-#define BELLI_CAUTIOUSATTACK          2 // °ø°Ý ¹ÞÀ¸¸é ¹Ý°Ý
-#define BELLI_ACTIVEATTACK            3 // ¹«Á¶°Ç °ø°Ý 
+#define BELLI_PEACEFUL                1 // í‰í™” - ê³µê²© ë°›ì•„ë„ ë°˜ê²© ì•ˆí•¨ 
+#define BELLI_CAUTIOUSATTACK          2 // ê³µê²© ë°›ìœ¼ë©´ ë°˜ê²©
+#define BELLI_ACTIVEATTACK            3 // ë¬´ì¡°ê±´ ê³µê²© 
 #define BELLI_ALLIANCE                4
-#define BELLI_ACTIVEATTACK_MELEE2X    5 // ¹«Á¶°Ç °ø°ÝÇÏ´Â Á÷Á¢°ø°Ý¸¸ °¡Áø Ä³¸¯(Á÷Á¢¸¸ °¡Áü)
-#define BELLI_ACTIVEATTACK_MELEE      6 // ¹«Á¶°Ç °ø°ÝÇÏ´Â Á÷Á¢/ Àå°Å¸®À» °¡Áø Ä³¸¯(Á÷Á¢ Áß½É)
-#define BELLI_ACTIVEATTACK_RANGE      7 // ¹«Á¶°Ç °ø°ÝÇÏ´Â Àå°Å¸®/ Á÷Á¢À» °¡Áø Ä³¸¯(Àå°Å¸® Áß½É)
-#define BELLI_CAUTIOUSATTACK_MELEE2X  8 // °ø°Ý¹ÞÀ¸¸é ¹Ý°ÝÇÏ´Â Á÷Á¢°ø°Ý¸¸ °¡Áø Ä³¸¯(Á÷Á¢¸¸ °¡Áü)
-#define BELLI_CAUTIOUSATTACK_MELEE    9 // °ø°Ý¹ÞÀ¸¸é ¹Ý°ÝÇÏ´Â Á÷Á¢/ Àå°Å¸®À» °¡Áø Ä³¸¯(Á÷Á¢ Áß½É)
-#define BELLI_CAUTIOUSATTACK_RANGE   10 // °ø°Ý¹ÞÀ¸¸é ¹Ý°ÝÇÏ´Â Àå°Å¸®/ Á÷Á¢À» °¡Áø Ä³¸¯(Àå°Å¸® Áß½É)
-#define BELLI_MELEE2X                11 // ¹«Á¶°Ç °ø°ÝÇÏ´Â Á÷Á¢°ø°Ý¸¸ °¡Áø Ä³¸¯(Á÷Á¢¸¸ °¡Áü)
-#define BELLI_MELEE                  12 // ¹«Á¶°Ç °ø°ÝÇÏ´Â Á÷Á¢/ Àå°Å¸®À» °¡Áø Ä³¸¯(Á÷Á¢ Áß½É)
-#define BELLI_RANGE                  13 // ¹«Á¶°Ç °ø°ÝÇÏ´Â Àå°Å¸®/ Á÷Á¢À» °¡Áø Ä³¸¯(Àå°Å¸® Áß½É)
+#define BELLI_ACTIVEATTACK_MELEE2X    5 // ë¬´ì¡°ê±´ ê³µê²©í•˜ëŠ” ì§ì ‘ê³µê²©ë§Œ ê°€ì§„ ìºë¦­(ì§ì ‘ë§Œ ê°€ì§)
+#define BELLI_ACTIVEATTACK_MELEE      6 // ë¬´ì¡°ê±´ ê³µê²©í•˜ëŠ” ì§ì ‘/ ìž¥ê±°ë¦¬ì„ ê°€ì§„ ìºë¦­(ì§ì ‘ ì¤‘ì‹¬)
+#define BELLI_ACTIVEATTACK_RANGE      7 // ë¬´ì¡°ê±´ ê³µê²©í•˜ëŠ” ìž¥ê±°ë¦¬/ ì§ì ‘ì„ ê°€ì§„ ìºë¦­(ìž¥ê±°ë¦¬ ì¤‘ì‹¬)
+#define BELLI_CAUTIOUSATTACK_MELEE2X  8 // ê³µê²©ë°›ìœ¼ë©´ ë°˜ê²©í•˜ëŠ” ì§ì ‘ê³µê²©ë§Œ ê°€ì§„ ìºë¦­(ì§ì ‘ë§Œ ê°€ì§)
+#define BELLI_CAUTIOUSATTACK_MELEE    9 // ê³µê²©ë°›ìœ¼ë©´ ë°˜ê²©í•˜ëŠ” ì§ì ‘/ ìž¥ê±°ë¦¬ì„ ê°€ì§„ ìºë¦­(ì§ì ‘ ì¤‘ì‹¬)
+#define BELLI_CAUTIOUSATTACK_RANGE   10 // ê³µê²©ë°›ìœ¼ë©´ ë°˜ê²©í•˜ëŠ” ìž¥ê±°ë¦¬/ ì§ì ‘ì„ ê°€ì§„ ìºë¦­(ìž¥ê±°ë¦¬ ì¤‘ì‹¬)
+#define BELLI_MELEE2X                11 // ë¬´ì¡°ê±´ ê³µê²©í•˜ëŠ” ì§ì ‘ê³µê²©ë§Œ ê°€ì§„ ìºë¦­(ì§ì ‘ë§Œ ê°€ì§)
+#define BELLI_MELEE                  12 // ë¬´ì¡°ê±´ ê³µê²©í•˜ëŠ” ì§ì ‘/ ìž¥ê±°ë¦¬ì„ ê°€ì§„ ìºë¦­(ì§ì ‘ ì¤‘ì‹¬)
+#define BELLI_RANGE                  13 // ë¬´ì¡°ê±´ ê³µê²©í•˜ëŠ” ìž¥ê±°ë¦¬/ ì§ì ‘ì„ ê°€ì§„ ìºë¦­(ìž¥ê±°ë¦¬ ì¤‘ì‹¬)
 
 // BloodColor
 #define BLOOD_RED                    1
@@ -270,96 +270,96 @@
 #define RT_TIME                      2
 #define RT_HEAL                      3
 
-// DestParam1 Ãß°¡
-// Ä³¸¯ÅÍ °ü·Ã
+// DestParam1 ì¶”ê°€
+// ìºë¦­í„° ê´€ë ¨
 #define DST_NONE					0
-#define DST_STR                      1   // Str			<-»ç¿ëÁß
-#define DST_DEX                      2   // Dex			<-»ç¿ëÁß
-#define DST_INT                      3   // Int			<-»ç¿ëÁß
-#define DST_STA                      4   // Sta			<-»ç¿ëÁß
-#define DST_YOY_DMG		             5   // ¿ä¿ä µ¥¹ÌÁö
-#define DST_BOW_DMG		             6   // º¸¿ì µ¥¹ÌÁö
-#define DST_CHR_RANGE                7   // °ø°Ý ¹üÀ§
-#define DST_BLOCK_RANGE              8   // ºí·°À²»ó½Â(¿ø°Å¸®°ø°Ý¿¡ ´ëÇÑ)
+#define DST_STR                      1   // Str			<-ì‚¬ìš©ì¤‘
+#define DST_DEX                      2   // Dex			<-ì‚¬ìš©ì¤‘
+#define DST_INT                      3   // Int			<-ì‚¬ìš©ì¤‘
+#define DST_STA                      4   // Sta			<-ì‚¬ìš©ì¤‘
+#define DST_YOY_DMG		             5   // ìš”ìš” ë°ë¯¸ì§€
+#define DST_BOW_DMG		             6   // ë³´ìš° ë°ë¯¸ì§€
+#define DST_CHR_RANGE                7   // ê³µê²© ë²”ìœ„
+#define DST_BLOCK_RANGE              8   // ë¸”ëŸ­ìœ¨ìƒìŠ¹(ì›ê±°ë¦¬ê³µê²©ì— ëŒ€í•œ)
 #define DST_CHR_CHANCECRITICAL       9   // 
 #define DST_CHR_BLEEDING            10	//
-#define DST_SPEED                   11  // 		<-»ç¿ëÁß
+#define DST_SPEED                   11  // 		<-ì‚¬ìš©ì¤‘
 #define DST_ABILITY_MIN             12  // AbilityMin
 #define DST_ABILITY_MAX             13  // AbilityMax
-#define DST_BLOCK_MELEE             14  // ºí·°À²»ó½Â(±ÙÁ¢°ø°Ý¿¡ ´ëÇÑ)
+#define DST_BLOCK_MELEE             14  // ë¸”ëŸ­ìœ¨ìƒìŠ¹(ê·¼ì ‘ê³µê²©ì— ëŒ€í•œ)
 #define DST_MASTRY_EARTH            15  // 
-#define DST_STOP_MOVEMENT           16  // ´ë»ó ÀÌµ¿ ºÒ°¡(°ø°ÝÀº °¡´É)
+#define DST_STOP_MOVEMENT           16  // ëŒ€ìƒ ì´ë™ ë¶ˆê°€(ê³µê²©ì€ ê°€ëŠ¥)
 #define DST_MASTRY_FIRE             17  // 
 #define DST_MASTRY_WATER            18  // 
 #define DST_MASTRY_ELECTRICITY      19  // 
 #define DST_MASTRY_WIND             20  //
-#define DST_KNUCKLE_DMG             21  // ³ÊÅ¬ °ø°Ý·Â Áõ°¡
-#define DST_PVP_DMG_RATE			22	// PVP½Ã ¹ÞÀº ÃÖÁ¾ µ¥¹ÌÁö °¨¼Ò Rate //#define DST_ARM_RATE                22  // Diagonal Rate
+#define DST_KNUCKLE_DMG             21  // ë„ˆí´ ê³µê²©ë ¥ ì¦ê°€
+#define DST_PVP_DMG_RATE			22	// PVPì‹œ ë°›ì€ ìµœì¢… ë°ë¯¸ì§€ ê°ì†Œ Rate //#define DST_ARM_RATE                22  // Diagonal Rate
 //#define DST_LEG_RATE                23  // Thrust Rate
-#define DST_ATTACKSPEED             24  // Attack Speed		<-»ç¿ëÁß
-#define DST_SWD_DMG                 25  // Ãß°¡ µ¥¹ÌÁö			<-»ç¿ëÁß
-#define DST_ADJDEF                  26  // Adjestment Defense	<-»ç¿ëÁß
-#define DST_RESIST_MAGIC            27  // Resist Magic ¸¶¹ýÀÇ ÀüÃ¼ÀúÇ×¼öÄ¡
+#define DST_ATTACKSPEED             24  // Attack Speed		<-ì‚¬ìš©ì¤‘
+#define DST_SWD_DMG                 25  // ì¶”ê°€ ë°ë¯¸ì§€			<-ì‚¬ìš©ì¤‘
+#define DST_ADJDEF                  26  // Adjestment Defense	<-ì‚¬ìš©ì¤‘
+#define DST_RESIST_MAGIC            27  // Resist Magic ë§ˆë²•ì˜ ì „ì²´ì €í•­ìˆ˜ì¹˜
 #define DST_RESIST_ELECTRICITY      28  // Resist Electticity
-#define DST_REFLECT_DAMAGE          29  // °ø°ÝÀÚ¿¡°Ô µ¥¹ÌÁö ¹Ý»ç(%), nAdj µ¹·ÁÁÖ´Â µ¥¹ÌÁöÀÇ ºñÀ²(100%=100) dwDestData1 È®·ü(=´Â100%)
+#define DST_REFLECT_DAMAGE          29  // ê³µê²©ìžì—ê²Œ ë°ë¯¸ì§€ ë°˜ì‚¬(%), nAdj ëŒë ¤ì£¼ëŠ” ë°ë¯¸ì§€ì˜ ë¹„ìœ¨(100%=100) dwDestData1 í™•ë¥ (=ëŠ”100%)
 #define DST_RESIST_FIRE             30  // Resist Fire
 #define DST_RESIST_WIND             31  // Resist Wind
 #define DST_RESIST_WATER            32  // Resist Water
 #define DST_RESIST_EARTH            33  // Resist Earth
-#define DST_AXE_DMG                 34  // Ãß°¡ µ¥¹ÌÁö			<-»ç¿ëÁß									
-#define DST_HP_MAX                  35  // HP			<-»ç¿ëÁß
+#define DST_AXE_DMG                 34  // ì¶”ê°€ ë°ë¯¸ì§€			<-ì‚¬ìš©ì¤‘									
+#define DST_HP_MAX                  35  // HP			<-ì‚¬ìš©ì¤‘
 #define DST_MP_MAX                  36  // MP			
 #define DST_FP_MAX                  37  // FP
-#define DST_HP                      38  // HP			<-»ç¿ëÁß
-#define DST_MP                      39  // MP			<-»ç¿ëÁß
-#define DST_FP                      40  // FP			<-»ç¿ëÁß
+#define DST_HP                      38  // HP			<-ì‚¬ìš©ì¤‘
+#define DST_MP                      39  // MP			<-ì‚¬ìš©ì¤‘
+#define DST_FP                      40  // FP			<-ì‚¬ìš©ì¤‘
 #define DST_HP_RECOVERY             41  // HPRecovery
 #define DST_MP_RECOVERY             42  // MPRecovery
 #define DST_FP_RECOVERY             43  // FPRecovery
-#define DST_KILL_HP					44	// ÀûÀ» Á×¿´À»½Ã HP È¸º¹·®
-#define DST_KILL_MP					45	// ÀûÀ» Á×¿´À»½Ã MP È¸º¹·®
-#define DST_KILL_FP					46	// ÀûÀ» Á×¿´À»½Ã FP È¸º¹·®
-#define DST_ADJ_HITRATE             47  // AdjHitRate			<-»ç¿ëÁß
+#define DST_KILL_HP					44	// ì ì„ ì£½ì˜€ì„ì‹œ HP íšŒë³µëŸ‰
+#define DST_KILL_MP					45	// ì ì„ ì£½ì˜€ì„ì‹œ MP íšŒë³µëŸ‰
+#define DST_KILL_FP					46	// ì ì„ ì£½ì˜€ì„ì‹œ FP íšŒë³µëŸ‰
+#define DST_ADJ_HITRATE             47  // AdjHitRate			<-ì‚¬ìš©ì¤‘
 //#define DST_ADJ_SPELLRATE           48  // AdjSpellRate
-#define DST_CLEARBUFF				49  // ¹öÇÁ ÆÄ±«.
-#define DST_CHR_STEALHP_IMM         50  // ´ë»óÀ¸·ÎºÎÅÍ ÁöÁ¤µÈ ¾çÀÇ hp¸¦ Èí¼ö
-#define DST_ATTACKSPEED_RATE		51	// °ø°Ý¼Óµµ Áõ°¡À² //#define DST_ABRASION                51  // Abrasion
-#define DST_HP_MAX_RATE				52	// DST_HP_MAX ÆÛ¼¾Æ® ¹öÀü		//#define DST_ADJROLL                 52  // AdjRoll
-#define DST_MP_MAX_RATE				53	// µ¿ÀÏ							//#define DST_AP                      53  // ÃÖ´ëÄ¡±îÁö »ó½ÂÇÏ°Ô µÇ¸é °ø°ÝÀÌ ÀúÁöµÈ´Ù.(¿¬¼Ó°ø°ÝÀÌ ÀúÁöµÇ¸ç ReAttackDelay Àû¿ë)	<-»ç¿ëÁß
-#define DST_FP_MAX_RATE				54	// µ¿ÀÏ							//#define DST_GROGGY                  54  // ÇÇÇØµ¿ÀÛ ¹ß»ý¿¡ ÇÊ¿äÇÑ ¼öÄ¡(°ø°ÝÀÌ Á¤ÁöµÇ¸é¼­ ÇÇÇØµ¿ÀÛÀ» ÃëÇÏ°Ô µÈ´Ù. ReAttackDelay µ¿½Ã Àû¿ë)
-#define DST_CHR_WEAEATKCHANGE	    55	// ÄÉ¸¯ÅÍÀÇ ¼Ó¼º °ø°Ý·ÂÀ» ¿Ã·ÁÁÜ(¹«±â¿¡ ¼Ó¼º °ø°Ý·ÂÀÌ ¾ø°Å³ª ¹«±â¸¦ ¹Ù²Ü½Ã ÇØÁ¦µÊ)
-#define DST_CHR_STEALHP				56  // °¡°ÝÇÑ µ¥¹ÌÁöÀÇ ÀÏÁ¤ºñÀ²ÀÇHP¸¦ Èí¼ö(ÈíÇ÷)
-#define DST_CHR_CHANCESTUN			57  // È¿°ú°¡ Áö¼ÓµÇ´Âµ¿¾È °ø°Ý½Ã (ÀÏÁ¤È®·ü·ÎAdj) ÁöÁ¤µÈ ½ºÅ³(Chg) ¹ßµ¿.
-#define DST_AUTOHP					58  // ÄÉ¸¯ÅÍ°¡ ÀÏÁ¤¾ç ÀÌ»ó HP°¡ ÁÙ¾îµé¸é HP°¡ ÀÚµ¿À¸·Î È¸º¹µÊ Adj:³²Àº HPÀÇ ÆÛ¼¾Å×ÀÌÁö Chg:È¸º¹ HPÀÇ ÆÛ¼¾Å×ÀÌÁö
-#define DST_CHR_CHANCEDARK			59  // È¿°ú°¡ Áö¼ÓµÇ´Âµ¿¾È °ø°Ý½Ã (ÀÏÁ¤È®·ü·ÎAdj) ÁöÁ¤µÈ ½ºÅ³(Chg) ¹ßµ¿.
-//#define DST_CHR_CHANCESKILL	    60  // È¿°ú°¡ Áö¼ÓµÇ´Âµ¿¾È °ø°Ý½Ã (ÀÏÁ¤È®·ü·ÎAdj) ÁöÁ¤µÈ ½ºÅ³(Chg) ¹ßµ¿.
-#define DST_CHR_CHANCEPOISON	    60  // È¿°ú°¡ Áö¼ÓµÇ´Âµ¿¾È °ø°Ý½Ã (ÀÏÁ¤È®·ü·ÎAdj) ÁöÁ¤µÈ ½ºÅ³(Chg) ¹ßµ¿.
-#define DST_IMMUNITY	 			61  // ¸é¿ª
-#define DST_ADDMAGIC				62 	// ¸¶¹ý Ãß°¡
-#define DST_CHR_DMG                 63  // Ãß°¡ µ¥¹ÌÁö			<-»ç¿ëÁß
-#define DST_CHRSTATE                64  // Ä³¸¯ÅÍÀÇ »óÅÂ¸¦ º¯°æ		<-»ç¿ëÁß Adj:CHR_½Ã¸®Áî Chg:»ç¿ë±ÝÁö.  nProbability:È®·ü dwSkillTime:½Ã°£.
-#define DST_PARRY                   65  // ÇÇÇÒ È®·üÀ» Ãß°¡ÇÑ´Ù.	<-»ç¿ëÁß
-#define DST_ATKPOWER_RATE			66  // °ø°Ý·Â(%·Î »ç¿ë)
-#define DST_EXPERIENCE				67  // °æÇèÄ¡ //#define DST_REATTACKDELAY           67  // Àç°ø°Ý ¼Óµµ¸¦ º¯°æ
-#define DST_JUMPING                 68  // Ä³¸¯ÅÍÀÇ Á¡ÇÁ ³ôÀÌ º¯°æ
-#define DST_CHR_CHANCESTEALHP		69  // È¿°ú°¡ Áö¼ÓµÇ´Âµ¿¾È °ø°Ý½Ã (ÀÏÁ¤È®·ü·ÎAdj) ÁöÁ¤µÈ ½ºÅ³(Chg) ¹ßµ¿.
-#define DST_CHR_CHANCEBLEEDING      70  // È¿°ú°¡ Áö¼ÓµÇ´Âµ¿¾È °ø°Ý½Ã (ÀÏÁ¤È®·ü·ÎAdj) ÁöÁ¤µÈ ½ºÅ³(Chg) ¹ßµ¿.
-#define DST_RECOVERY_EXP            71  // Ä³¸¯ÅÍ »ç¸Á½Ã¿¡ ºÎÈ°À» ÅëÇØ¼­ »ì¾Æ³¯ °æ¿ì Exp ¼Õ½Ç ºÎºÐÀÇ È¸º¹ ÆÛ¼¾Æ®	<-»ç¿ëÁß
-#define DST_ADJDEF_RATE				72	// ADJDEF ÆÛ¼¾Æ®·Î ¾²´Â ¹öÀü.
+#define DST_CLEARBUFF				49  // ë²„í”„ íŒŒê´´.
+#define DST_CHR_STEALHP_IMM         50  // ëŒ€ìƒìœ¼ë¡œë¶€í„° ì§€ì •ëœ ì–‘ì˜ hpë¥¼ í¡ìˆ˜
+#define DST_ATTACKSPEED_RATE		51	// ê³µê²©ì†ë„ ì¦ê°€ìœ¨ //#define DST_ABRASION                51  // Abrasion
+#define DST_HP_MAX_RATE				52	// DST_HP_MAX í¼ì„¼íŠ¸ ë²„ì „		//#define DST_ADJROLL                 52  // AdjRoll
+#define DST_MP_MAX_RATE				53	// ë™ì¼							//#define DST_AP                      53  // ìµœëŒ€ì¹˜ê¹Œì§€ ìƒìŠ¹í•˜ê²Œ ë˜ë©´ ê³µê²©ì´ ì €ì§€ëœë‹¤.(ì—°ì†ê³µê²©ì´ ì €ì§€ë˜ë©° ReAttackDelay ì ìš©)	<-ì‚¬ìš©ì¤‘
+#define DST_FP_MAX_RATE				54	// ë™ì¼							//#define DST_GROGGY                  54  // í”¼í•´ë™ìž‘ ë°œìƒì— í•„ìš”í•œ ìˆ˜ì¹˜(ê³µê²©ì´ ì •ì§€ë˜ë©´ì„œ í”¼í•´ë™ìž‘ì„ ì·¨í•˜ê²Œ ëœë‹¤. ReAttackDelay ë™ì‹œ ì ìš©)
+#define DST_CHR_WEAEATKCHANGE	    55	// ì¼€ë¦­í„°ì˜ ì†ì„± ê³µê²©ë ¥ì„ ì˜¬ë ¤ì¤Œ(ë¬´ê¸°ì— ì†ì„± ê³µê²©ë ¥ì´ ì—†ê±°ë‚˜ ë¬´ê¸°ë¥¼ ë°”ê¿€ì‹œ í•´ì œë¨)
+#define DST_CHR_STEALHP				56  // ê°€ê²©í•œ ë°ë¯¸ì§€ì˜ ì¼ì •ë¹„ìœ¨ì˜HPë¥¼ í¡ìˆ˜(í¡í˜ˆ)
+#define DST_CHR_CHANCESTUN			57  // íš¨ê³¼ê°€ ì§€ì†ë˜ëŠ”ë™ì•ˆ ê³µê²©ì‹œ (ì¼ì •í™•ë¥ ë¡œAdj) ì§€ì •ëœ ìŠ¤í‚¬(Chg) ë°œë™.
+#define DST_AUTOHP					58  // ì¼€ë¦­í„°ê°€ ì¼ì •ì–‘ ì´ìƒ HPê°€ ì¤„ì–´ë“¤ë©´ HPê°€ ìžë™ìœ¼ë¡œ íšŒë³µë¨ Adj:ë‚¨ì€ HPì˜ í¼ì„¼í…Œì´ì§€ Chg:íšŒë³µ HPì˜ í¼ì„¼í…Œì´ì§€
+#define DST_CHR_CHANCEDARK			59  // íš¨ê³¼ê°€ ì§€ì†ë˜ëŠ”ë™ì•ˆ ê³µê²©ì‹œ (ì¼ì •í™•ë¥ ë¡œAdj) ì§€ì •ëœ ìŠ¤í‚¬(Chg) ë°œë™.
+//#define DST_CHR_CHANCESKILL	    60  // íš¨ê³¼ê°€ ì§€ì†ë˜ëŠ”ë™ì•ˆ ê³µê²©ì‹œ (ì¼ì •í™•ë¥ ë¡œAdj) ì§€ì •ëœ ìŠ¤í‚¬(Chg) ë°œë™.
+#define DST_CHR_CHANCEPOISON	    60  // íš¨ê³¼ê°€ ì§€ì†ë˜ëŠ”ë™ì•ˆ ê³µê²©ì‹œ (ì¼ì •í™•ë¥ ë¡œAdj) ì§€ì •ëœ ìŠ¤í‚¬(Chg) ë°œë™.
+#define DST_IMMUNITY	 			61  // ë©´ì—­
+#define DST_ADDMAGIC				62 	// ë§ˆë²• ì¶”ê°€
+#define DST_CHR_DMG                 63  // ì¶”ê°€ ë°ë¯¸ì§€			<-ì‚¬ìš©ì¤‘
+#define DST_CHRSTATE                64  // ìºë¦­í„°ì˜ ìƒíƒœë¥¼ ë³€ê²½		<-ì‚¬ìš©ì¤‘ Adj:CHR_ì‹œë¦¬ì¦ˆ Chg:ì‚¬ìš©ê¸ˆì§€.  nProbability:í™•ë¥  dwSkillTime:ì‹œê°„.
+#define DST_PARRY                   65  // í”¼í•  í™•ë¥ ì„ ì¶”ê°€í•œë‹¤.	<-ì‚¬ìš©ì¤‘
+#define DST_ATKPOWER_RATE			66  // ê³µê²©ë ¥(%ë¡œ ì‚¬ìš©)
+#define DST_EXPERIENCE				67  // ê²½í—˜ì¹˜ //#define DST_REATTACKDELAY           67  // ìž¬ê³µê²© ì†ë„ë¥¼ ë³€ê²½
+#define DST_JUMPING                 68  // ìºë¦­í„°ì˜ ì í”„ ë†’ì´ ë³€ê²½
+#define DST_CHR_CHANCESTEALHP		69  // íš¨ê³¼ê°€ ì§€ì†ë˜ëŠ”ë™ì•ˆ ê³µê²©ì‹œ (ì¼ì •í™•ë¥ ë¡œAdj) ì§€ì •ëœ ìŠ¤í‚¬(Chg) ë°œë™.
+#define DST_CHR_CHANCEBLEEDING      70  // íš¨ê³¼ê°€ ì§€ì†ë˜ëŠ”ë™ì•ˆ ê³µê²©ì‹œ (ì¼ì •í™•ë¥ ë¡œAdj) ì§€ì •ëœ ìŠ¤í‚¬(Chg) ë°œë™.
+#define DST_RECOVERY_EXP            71  // ìºë¦­í„° ì‚¬ë§ì‹œì— ë¶€í™œì„ í†µí•´ì„œ ì‚´ì•„ë‚  ê²½ìš° Exp ì†ì‹¤ ë¶€ë¶„ì˜ íšŒë³µ í¼ì„¼íŠ¸	<-ì‚¬ìš©ì¤‘
+#define DST_ADJDEF_RATE				72	// ADJDEF í¼ì„¼íŠ¸ë¡œ ì“°ëŠ” ë²„ì „.
 
-#define	DST_MP_DEC_RATE				73	// MP ¼Ò¸ð °¨¼ÒÀ²
-#define	DST_FP_DEC_RATE				74	// FP ¼Ò¸ð °¨¼ÒÀ²
-#define	DST_SPELL_RATE				75	// ½ºÆç ¼Óµµ Áõ°¡À²
-#define	DST_CAST_CRITICAL_RATE		76	// ÁÖ¹® ±Ø´ëÈ­ È®·ü Áõ°¡
-#define	DST_CRITICAL_BONUS			77	// Ä¡¸íÅ¸ ÀûÁß½Ã Ãß°¡ Å¸°Ý
-#define	DST_SKILL_LEVEL				78	// ½ºÅ³·¹º§ ¾÷
-#define DST_MONSTER_DMG				79	// ¸ó½ºÅÍ »ç³É½Ã µ¥¹ÌÁö Áõ°¡
-#define DST_PVP_DMG					80	// PVP½Ã µ¥¹ÌÁö Áõ°¡
-#define DST_MELEE_STEALHP			81	// ÆòÅ¸½Ã ÈíÇ÷
-#define	DST_HEAL					82	// ÀÚµ¿ Ä¡À¯
-#define DST_ATKPOWER				83	// °ø°Ý·Â
+#define	DST_MP_DEC_RATE				73	// MP ì†Œëª¨ ê°ì†Œìœ¨
+#define	DST_FP_DEC_RATE				74	// FP ì†Œëª¨ ê°ì†Œìœ¨
+#define	DST_SPELL_RATE				75	// ìŠ¤íŽ  ì†ë„ ì¦ê°€ìœ¨
+#define	DST_CAST_CRITICAL_RATE		76	// ì£¼ë¬¸ ê·¹ëŒ€í™” í™•ë¥  ì¦ê°€
+#define	DST_CRITICAL_BONUS			77	// ì¹˜ëª…íƒ€ ì ì¤‘ì‹œ ì¶”ê°€ íƒ€ê²©
+#define	DST_SKILL_LEVEL				78	// ìŠ¤í‚¬ë ˆë²¨ ì—…
+#define DST_MONSTER_DMG				79	// ëª¬ìŠ¤í„° ì‚¬ëƒ¥ì‹œ ë°ë¯¸ì§€ ì¦ê°€
+#define DST_PVP_DMG					80	// PVPì‹œ ë°ë¯¸ì§€ ì¦ê°€
+#define DST_MELEE_STEALHP			81	// í‰íƒ€ì‹œ í¡í˜ˆ
+#define	DST_HEAL					82	// ìžë™ ì¹˜ìœ 
+#define DST_ATKPOWER				83	// ê³µê²©ë ¥
 
-//	10Â÷ Àü½Â ¸¶½ºÅÍ ½ºÅ³ 
+//	10ì°¨ ì „ìŠ¹ ë§ˆìŠ¤í„° ìŠ¤í‚¬ 
 #define DST_ONEHANDMASTER_DMG       85	
 #define DST_TWOHANDMASTER_DMG       86
 #define DST_YOYOMASTER_DMG          87
@@ -369,20 +369,20 @@
 #define DST_RESIST_MAGIC_RATE       91
 #define DST_GIFTBOX					92
 
-#define	DST_RESTPOINT_RATE			93	// 15Â÷ ÈÞ½ÄÀÇ ±â¿î Áõ°¡À²(%)
+#define	DST_RESTPOINT_RATE			93	// 15ì°¨ íœ´ì‹ì˜ ê¸°ìš´ ì¦ê°€ìœ¨(%)
 
-#define DST_IGNORE_DMG_PVP			94	// PVP µ¥¹ÌÁö ¹«½Ã(Àý´ëÄ¡)
+#define DST_IGNORE_DMG_PVP			94	// PVP ë°ë¯¸ì§€ ë¬´ì‹œ(ì ˆëŒ€ì¹˜)
 
 #define MAX_ADJPARAMARY             95
 
-// ADJPARAMARRAY¿¡´Â Ãß°¡µÇÁö ¾Ê°í, ÇöÀç°ªÀÇ ¼³Á¤°ú ¹ÝÈ¯( GetPointParam, SetPointParam )¿¡ »ç¿ëÇÏ±â À§ÇÑ ½Äº°ÀÚ
+// ADJPARAMARRAYì—ëŠ” ì¶”ê°€ë˜ì§€ ì•Šê³ , í˜„ìž¬ê°’ì˜ ì„¤ì •ê³¼ ë°˜í™˜( GetPointParam, SetPointParam )ì— ì‚¬ìš©í•˜ê¸° ìœ„í•œ ì‹ë³„ìž
 #define	DST_GOLD				10000
 #define	DST_PXP					10001
-#define DST_RESIST_ALL			10002	// Resist ALL - (MAX_ADJPARAMARY + 3)°ú °°Àº ¹æ½ÄÀº ÇÁ·ÎÆÛÆ¼¿¡¼­ ÀÎ½ÄÇÏÁö ¸øÇÔ.
-#define DST_STAT_ALLUP			10003	//¸ðµç Status¸¦ +1¸¸Å­ ¿Ã·ÁÁØ´Ù.
+#define DST_RESIST_ALL			10002	// Resist ALL - (MAX_ADJPARAMARY + 3)ê³¼ ê°™ì€ ë°©ì‹ì€ í”„ë¡œí¼í‹°ì—ì„œ ì¸ì‹í•˜ì§€ ëª»í•¨.
+#define DST_STAT_ALLUP			10003	//ëª¨ë“  Statusë¥¼ +1ë§Œí¼ ì˜¬ë ¤ì¤€ë‹¤.
 #define DST_HPDMG_UP			10004
 #define DST_DEFHITRATE_DOWN		10005
-#define DST_CURECHR				10006		// DST_CHRSTATE »óÅÂ Á¦°Å
+#define DST_CURECHR				10006		// DST_CHRSTATE ìƒíƒœ ì œê±°
 #define DST_HP_RECOVERY_RATE	10007		// HPRecovery Rate
 #define DST_MP_RECOVERY_RATE	10008		// MPRecovery Rate
 #define DST_FP_RECOVERY_RATE	10009		// FPRecovery Rate
@@ -397,27 +397,27 @@
 #define DST_KILL_ALL_RATE		10018
 #define DST_ALL_DEC_RATE		10019
 
-#define	DST_FORCE_DAMAGE_MAX_HP_RATE		10020		// ÃÖ´ë HPÀÇ x%¸¸Å­ µ¥¹ÌÁö¸¦ ÀÔÈù´Ù. AdjParam ºñÀ²(ÃÖ´ë10000%)
-#define	DST_FORCE_DAMAGE_SAFE_HP_RATE		10021		// ÃÖ´ë HPÀÇ x%ÀÇ HP°¡ ³²°Ô µ¥¹ÌÁö¸¦ ÀÔÈù´Ù. AdjParam ºñÀ²(ÃÖ´ë10000%)
-#define	DST_FORCE_DAMAGE_VALUE				10022		// Àý´ëÄ¡ µ¥¹ÌÁö ÁÖ±â AdjParam(µ¥¹ÌÁö)
+#define	DST_FORCE_DAMAGE_MAX_HP_RATE		10020		// ìµœëŒ€ HPì˜ x%ë§Œí¼ ë°ë¯¸ì§€ë¥¼ ìž…ížŒë‹¤. AdjParam ë¹„ìœ¨(ìµœëŒ€10000%)
+#define	DST_FORCE_DAMAGE_SAFE_HP_RATE		10021		// ìµœëŒ€ HPì˜ x%ì˜ HPê°€ ë‚¨ê²Œ ë°ë¯¸ì§€ë¥¼ ìž…ížŒë‹¤. AdjParam ë¹„ìœ¨(ìµœëŒ€10000%)
+#define	DST_FORCE_DAMAGE_VALUE				10022		// ì ˆëŒ€ì¹˜ ë°ë¯¸ì§€ ì£¼ê¸° AdjParam(ë°ë¯¸ì§€)
 
-#define DST_HEAL_HP_RATE					10030		// HP ºñÀ² È¸º¹ AdjParam(ÃÖ´ë 10000%)
-#define DST_HEAL_MP_RATE					10031		// MP ºñÀ² È¸º¹ AdjParam(ÃÖ´ë 10000%)
-#define DST_HEAL_FP_RATE					10032		// FP ºñÀ² È¸º¹ AdjParam(ÃÖ´ë 10000%)
-#define DST_HEAL_HP_VALUE					10033		// HP Àý´ëÄ¡ È¸º¹ AdjParam
-#define DST_HEAL_MP_VALUE					10034		// MP Àý´ëÄ¡ È¸º¹ AdjParam
-#define DST_HEAL_FP_VALUE					10035		// FP Àý´ëÄ¡ È¸º¹ AdjParam
+#define DST_HEAL_HP_RATE					10030		// HP ë¹„ìœ¨ íšŒë³µ AdjParam(ìµœëŒ€ 10000%)
+#define DST_HEAL_MP_RATE					10031		// MP ë¹„ìœ¨ íšŒë³µ AdjParam(ìµœëŒ€ 10000%)
+#define DST_HEAL_FP_RATE					10032		// FP ë¹„ìœ¨ íšŒë³µ AdjParam(ìµœëŒ€ 10000%)
+#define DST_HEAL_HP_VALUE					10033		// HP ì ˆëŒ€ì¹˜ íšŒë³µ AdjParam
+#define DST_HEAL_MP_VALUE					10034		// MP ì ˆëŒ€ì¹˜ íšŒë³µ AdjParam
+#define DST_HEAL_FP_VALUE					10035		// FP ì ˆëŒ€ì¹˜ íšŒë³µ AdjParam
 
-//11.10.04 »ç¿ëµÈ ¹öÇÁ ½ºÅ³ À¯Áö Á¶°Ç ÄÃ·³¿ë ÆÄ¶ó¹ÌÅÍ Ãß°¡(ÇØ´ç »çÇ× ¾ø´Â ½ºÅ³Àº = ·Î Ç¥±â)
-#define	KEEP_EQUIP_YOYO					1				// Âø¿ëµÈ ¿ä¿ä¸¦ Âø¿ë ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
-#define	KEEP_EQUIP_BOW					2				// Âø¿ëµÈ º¸¿ì¸¦ Âø¿ë ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
-#define	KEEP_EQUIP_SWD					3				// Âø¿ëµÈ °ËÀ» Âø¿ë ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
-#define	KEEP_EQUIP_AXE					4				// Âø¿ëµÈ µµ³¢¸¦ Âø¿ë ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
-#define	KEEP_EQUIP_KNUCKLE				5				// Âø¿ëµÈ ³ÊÅ¬À» Âø¿ë ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
-#define	KEEP_EQUIP_SHILED				6				// Âø¿ëµÈ ¹æÆÐ¸¦ Âø¿ë ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
-#define	KEEP_EQUIP_DUALWEAPON			7				// Âø¿ëµÈ 2°³ÀÇ ¹«±â Áß 1°³¸¦ Âø¿ë ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
-#define	KEEP_EQUIP_TWOHANDEDWEAPON		8				// Âø¿ëµÈ ¾ç¼Õ ¹«±â¸¦ ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
-#define	KEEP_EQUIP_ELEMENTALWEAPON		9				// Âø¿ëµÈ ¼Ó¼º ¹«±â¸¦ ÇØÁ¦ÇÏ¸é Ç®¸®´Â ¹öÇÁ
+//11.10.04 ì‚¬ìš©ëœ ë²„í”„ ìŠ¤í‚¬ ìœ ì§€ ì¡°ê±´ ì»¬ëŸ¼ìš© íŒŒë¼ë¯¸í„° ì¶”ê°€(í•´ë‹¹ ì‚¬í•­ ì—†ëŠ” ìŠ¤í‚¬ì€ = ë¡œ í‘œê¸°)
+#define	KEEP_EQUIP_YOYO					1				// ì°©ìš©ëœ ìš”ìš”ë¥¼ ì°©ìš© í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
+#define	KEEP_EQUIP_BOW					2				// ì°©ìš©ëœ ë³´ìš°ë¥¼ ì°©ìš© í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
+#define	KEEP_EQUIP_SWD					3				// ì°©ìš©ëœ ê²€ì„ ì°©ìš© í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
+#define	KEEP_EQUIP_AXE					4				// ì°©ìš©ëœ ë„ë¼ë¥¼ ì°©ìš© í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
+#define	KEEP_EQUIP_KNUCKLE				5				// ì°©ìš©ëœ ë„ˆí´ì„ ì°©ìš© í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
+#define	KEEP_EQUIP_SHILED				6				// ì°©ìš©ëœ ë°©íŒ¨ë¥¼ ì°©ìš© í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
+#define	KEEP_EQUIP_DUALWEAPON			7				// ì°©ìš©ëœ 2ê°œì˜ ë¬´ê¸° ì¤‘ 1ê°œë¥¼ ì°©ìš© í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
+#define	KEEP_EQUIP_TWOHANDEDWEAPON		8				// ì°©ìš©ëœ ì–‘ì† ë¬´ê¸°ë¥¼ í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
+#define	KEEP_EQUIP_ELEMENTALWEAPON		9				// ì°©ìš©ëœ ì†ì„± ë¬´ê¸°ë¥¼ í•´ì œí•˜ë©´ í’€ë¦¬ëŠ” ë²„í”„
 
 
 #endif

@@ -1,4 +1,4 @@
-#if !defined(AFX_OBJ_H__2D16F42E_646A_4AEE_9046_504AB9747375__INCLUDED_22)
+ï»¿#if !defined(AFX_OBJ_H__2D16F42E_646A_4AEE_9046_504AB9747375__INCLUDED_22)
 #define AFX_OBJ_H__2D16F42E_646A_4AEE_9046_504AB9747375__INCLUDED_22
 
 #if _MSC_VER > 1000
@@ -22,12 +22,12 @@ const DWORD		OBJ_FLAG_VISIBLE_COLLISION = 0x00000020;
 #define		OBJID			DWORD					
 #define		MAX_LINKLEVEL	7		
 
-/// ¾Ö´Ï¸ŞÀÌ¼Ç ·çÇÎ¿¡ °üÇÑ define
-#define		ANILOOP_1PLAY	(0x00000001)			/// ÇÑ¹ø ÇÃ·¹ÀÌÈÄ ³¡.
-#define		ANILOOP_CONT	(0x00000002)			/// ÇÑ¹ø ÇÃ·¹ÀÌÈÄ ¸¶Áö¸· µ¿ÀÛÀ¸·Î Áö¼Ó
-#define		ANILOOP_LOOP	(0x00000004)			/// ¹İº¹
-#define		ANILOOP_RETURN	(0x00000008)			/// ¿Õº¹ - »ç¿ëµÇÁö ¾ÊÀ½.
-#define		ANILOOP_BACK	(0x00000010)			/// µÚ¿¡¼­ ºÎÅÍ. - »ç¿ëµÇÁö ¾ÊÀ½
+/// ì• ë‹ˆë©”ì´ì…˜ ë£¨í•‘ì— ê´€í•œ define
+#define		ANILOOP_1PLAY	(0x00000001)			/// í•œë²ˆ í”Œë ˆì´í›„ ë.
+#define		ANILOOP_CONT	(0x00000002)			/// í•œë²ˆ í”Œë ˆì´í›„ ë§ˆì§€ë§‰ ë™ì‘ìœ¼ë¡œ ì§€ì†
+#define		ANILOOP_LOOP	(0x00000004)			/// ë°˜ë³µ
+#define		ANILOOP_RETURN	(0x00000008)			/// ì™•ë³µ - ì‚¬ìš©ë˜ì§€ ì•ŠìŒ.
+#define		ANILOOP_BACK	(0x00000010)			/// ë’¤ì—ì„œ ë¶€í„°. - ì‚¬ìš©ë˜ì§€ ì•ŠìŒ
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // enum 
@@ -43,7 +43,7 @@ enum CULLSTATE
     CS_OUTSIDE_SLOW, // OBB is outside frustum, but it took extensive testing to determine this
 };
 
-/// CObjÀÇ m_nMethod enum
+/// CObjì˜ m_nMethod enum
 enum 
 {
 	METHOD_NONE, 
@@ -63,7 +63,7 @@ class		CModel;
 struct		ObjProp;
 class		CAr;
 
-/// ÁöÇü À§¿¡ µé¾î°¡´Â ¸ğµç °´Ã¼ÀÇ Base
+/// ì§€í˜• ìœ„ì— ë“¤ì–´ê°€ëŠ” ëª¨ë“  ê°ì²´ì˜ Base
 class CObj  
 { 
 	friend			CLandscape;
@@ -77,51 +77,51 @@ public:
 #else 
 private:
 #endif //__BS_SAFE_WORLD_DELETE
-	DWORD			m_dwFlags;				/// ÇÃ·¡±× ( m_bUpdateMatrix, m_bVisible, m_bDestroy À» Æ÷ÇÔ )
+	DWORD			m_dwFlags;				/// í”Œë˜ê·¸ ( m_bUpdateMatrix, m_bVisible, m_bDestroy ì„ í¬í•¨ )
 
 private:
-	DWORD			m_dwLinkLevel;			/// ¸µÅ©¸Ê¿¡ µé¾î°¥ ¿ÀºêÁ§Æ®ÀÇ Å©±â ´ÜÀ§  
-	D3DXVECTOR3		m_vScale;				/// ½ºÄÉÀÏ
-	FLOAT			m_fAngle;				/// YÃà °¢µµ 
-	float			m_fAngX;				/// XÃà °¢µµ
-	float			m_fAngZ;				/// ZÃà °¢µµ
+	DWORD			m_dwLinkLevel;			/// ë§í¬ë§µì— ë“¤ì–´ê°ˆ ì˜¤ë¸Œì íŠ¸ì˜ í¬ê¸° ë‹¨ìœ„  
+	D3DXVECTOR3		m_vScale;				/// ìŠ¤ì¼€ì¼
+	FLOAT			m_fAngle;				/// Yì¶• ê°ë„ 
+	float			m_fAngX;				/// Xì¶• ê°ë„
+	float			m_fAngZ;				/// Zì¶• ê°ë„
 
 protected:
-	D3DXMATRIX		m_matTrans;				/// ÁÂÇ¥ ¸ÅÆ®¸¯½º 
-	D3DXMATRIX		m_matScale;				/// ½ºÄÉÀÏ ¸ÅÆ®¸¯½º
-	D3DXMATRIX		m_matRotation;			/// È¸Àü ¸ÅÆ®¸¯½º 
-	D3DXMATRIX		m_matWorld;				/// ¸ğµç ¸ÅÆ®¸¯½º°¡ °öÇØÁø °á°ú 
+	D3DXMATRIX		m_matTrans;				/// ì¢Œí‘œ ë§¤íŠ¸ë¦­ìŠ¤ 
+	D3DXMATRIX		m_matScale;				/// ìŠ¤ì¼€ì¼ ë§¤íŠ¸ë¦­ìŠ¤
+	D3DXMATRIX		m_matRotation;			/// íšŒì „ ë§¤íŠ¸ë¦­ìŠ¤ 
+	D3DXMATRIX		m_matWorld;				/// ëª¨ë“  ë§¤íŠ¸ë¦­ìŠ¤ê°€ ê³±í•´ì§„ ê²°ê³¼ 
 
 public:
-	static int		m_nMethod;				/// Serialize¿Í °ü·ÃµÈ º¯¼ö 
-	static CObj*	m_pObjHighlight;		/// ÇÏÀÌ¶óÀÌÆ® µÈ ¿ÀºêÁ§Æ®(Å¬¶óÀÌ¾ğÆ®) 
-	static CObj*	m_pObjActive;			/// È°¼ºÈ­µÈ ¿ÀºêÁ§Æ® - ÀÏ¹İÀûÀ¸·Î ÇÃ·¹ÀÌ¾î¸¦ °¡¸®Å´(Å¬¶óÀÌ¾ğÆ®)  
-	static BOOL		m_bCollision;			/// ½Ã½ºÅÛÀÌ ¹è°æ°ú ¿ÀºêÁ§Æ®ÀÇ Ãæµ¹À» ÇÒ °ÍÀÎ°¡(Å¬¶óÀÌ¾ğÆ®)  
-	static BOOL		m_bAnimate;				/// ¿ÀºêÁ§¸¦ ¾Ö´Ï¸ŞÀÌ¼Ç ÇÒ °ÍÀÎÁö. µğ¹ö±× ¿É¼Ç(Å¬¶óÀÌ¾ğÆ®)  
+	static int		m_nMethod;				/// Serializeì™€ ê´€ë ¨ëœ ë³€ìˆ˜ 
+	static CObj*	m_pObjHighlight;		/// í•˜ì´ë¼ì´íŠ¸ ëœ ì˜¤ë¸Œì íŠ¸(í´ë¼ì´ì–¸íŠ¸) 
+	static CObj*	m_pObjActive;			/// í™œì„±í™”ëœ ì˜¤ë¸Œì íŠ¸ - ì¼ë°˜ì ìœ¼ë¡œ í”Œë ˆì´ì–´ë¥¼ ê°€ë¦¬í‚´(í´ë¼ì´ì–¸íŠ¸)  
+	static BOOL		m_bCollision;			/// ì‹œìŠ¤í…œì´ ë°°ê²½ê³¼ ì˜¤ë¸Œì íŠ¸ì˜ ì¶©ëŒì„ í•  ê²ƒì¸ê°€(í´ë¼ì´ì–¸íŠ¸)  
+	static BOOL		m_bAnimate;				/// ì˜¤ë¸Œì ë¥¼ ì• ë‹ˆë©”ì´ì…˜ í•  ê²ƒì¸ì§€. ë””ë²„ê·¸ ì˜µì…˜(í´ë¼ì´ì–¸íŠ¸)  
 
 
-	BBOX			m_OBB;					/// Ãæµ¹Ã³¸®½Ã ÇÊ¿äÇÑ °æ°è»óÀÚ 
+	BBOX			m_OBB;					/// ì¶©ëŒì²˜ë¦¬ì‹œ í•„ìš”í•œ ê²½ê³„ìƒì 
 
-	D3DXVECTOR3		m_vPos;					/// ÁÂÇ¥ 
-	CWorld*			m_pWorld;				/// ÀÚ½ÅÀÌ ¼ÓÇÑ ¿ùµåÀÇ Æ÷ÀÎÅÍ
-	DWORD			m_dwType;				/// obj Å¸ÀÔ 
-	DWORD			m_dwIndex;				/// »öÀÎ  
-	CModel*			m_pModel;				/// 3d °´Ã¼¿¡ ´ëÇÑ Æ÷ÀÎÅÍ 
-	CObj*			m_pPrev;				/// ¸µÅ©¸Ê ÀÌÀü ³ëµå 
-	CObj*			m_pNext;				/// ¸µÅ©¸Ê ´ÙÀ½ ³ëµå 
-	DWORD			m_dwObjAryIdx;			/// CWorldÀÇ AddObj·Î ÀÎÇØ ¹è¿­ ÀÎµ¦½º      
+	D3DXVECTOR3		m_vPos;					/// ì¢Œí‘œ 
+	CWorld*			m_pWorld;				/// ìì‹ ì´ ì†í•œ ì›”ë“œì˜ í¬ì¸í„°
+	DWORD			m_dwType;				/// obj íƒ€ì… 
+	DWORD			m_dwIndex;				/// ìƒ‰ì¸  
+	CModel*			m_pModel;				/// 3d ê°ì²´ì— ëŒ€í•œ í¬ì¸í„° 
+	CObj*			m_pPrev;				/// ë§í¬ë§µ ì´ì „ ë…¸ë“œ 
+	CObj*			m_pNext;				/// ë§í¬ë§µ ë‹¤ìŒ ë…¸ë“œ 
+	DWORD			m_dwObjAryIdx;			/// CWorldì˜ AddObjë¡œ ì¸í•´ ë°°ì—´ ì¸ë±ìŠ¤      
 
-	CAIInterface*	m_pAIInterface;			/// AI °´Ã¼ÀÇ Æ÷ÀÎÅÍ 
+	CAIInterface*	m_pAIInterface;			/// AI ê°ì²´ì˜ í¬ì¸í„° 
 	DWORD			m_dwAIInterface;		/// AI type	
 	DWORD			m_dwAIInterfaceState;	/// AI type sub
 
 #ifdef __WORLDSERVER
-		DWORD			m_dwPatrolIndex;		/// AI ¼øÂû(°æ·Î¿¡ ´ëÇÑ key )
-		int				m_nPatrolIndexCount;	/// °æ·Îº¤ÅÍÀÇ index 
-		BYTE            m_bPatrolCycle: 1;		/// ÀüÃ¼ ¼øÈ¯ÀÌ³Ä? ³¡->Ã³À½->³¡ ¹æÇâÀÌ³Ä
-		BYTE            m_bPatrolReverse: 1;	/// ÇöÀç ÁøÇà¹æÇâ
-	D3DXVECTOR3		m_vRemoval;				/// ¸µÅ©¸Ê¿¡¼­ Á¦°ÅÇÒ À§Ä¡ 
-	D3DXVECTOR3		m_vLink;				/// ¸µÅ©¸Ê¿¡¼­ÀÇ Çö À§Ä¡ 
+		DWORD			m_dwPatrolIndex;		/// AI ìˆœì°°(ê²½ë¡œì— ëŒ€í•œ key )
+		int				m_nPatrolIndexCount;	/// ê²½ë¡œë²¡í„°ì˜ index 
+		BYTE            m_bPatrolCycle: 1;		/// ì „ì²´ ìˆœí™˜ì´ëƒ? ë->ì²˜ìŒ->ë ë°©í–¥ì´ëƒ
+		BYTE            m_bPatrolReverse: 1;	/// í˜„ì¬ ì§„í–‰ë°©í–¥
+	D3DXVECTOR3		m_vRemoval;				/// ë§í¬ë§µì—ì„œ ì œê±°í•  ìœ„ì¹˜ 
+	D3DXVECTOR3		m_vLink;				/// ë§í¬ë§µì—ì„œì˜ í˜„ ìœ„ì¹˜ 
 #else	// __WORLDSERVER
 	CObj**			m_ppViewPtr;
     D3DXVECTOR3		m_vecBoundsLocal[8];	// bounding box coordinates (in local coord space)
@@ -130,11 +130,11 @@ public:
     CULLSTATE		m_cullstate;			// whether object is in the view frustum
 
 	WORD            m_wBlendFactor;
-	float			m_dy;					// ¶«»§
-	short			m_nEvent;				// ¶«»§ÄÚµå
+	float			m_dy;					// ë•œë¹µ
+	short			m_nEvent;				// ë•œë¹µì½”ë“œ
 	short			m_nCnt;		
 	CCamera*		m_pCamera;
-	float			m_fDistCamera;			// Ä«¸Ş¶ó·ÎºÎÅÍÀÇ °Å¸®.
+	float			m_fDistCamera;			// ì¹´ë©”ë¼ë¡œë¶€í„°ì˜ ê±°ë¦¬.
 	D3DXVECTOR3		m_vScrPos;
 	float			m_fScrAngle;
 	float			m_fScrAngleX;
@@ -189,7 +189,7 @@ public:
 	void			UpdateLocalMatrix();
 	void			UpdateMatrix();
 	BOOL			IsRangeObj( CObj *pSrc, float fRange );
-	BOOL			IsRangeObj( const D3DXVECTOR3 &vDest, float fRange );		// ÁÂÇ¥·Î ÇÏ´Â ¹öÀü. this°¡ SrcÃøÀÌ µÈ´Ù.
+	BOOL			IsRangeObj( const D3DXVECTOR3 &vDest, float fRange );		// ì¢Œí‘œë¡œ í•˜ëŠ” ë²„ì „. thisê°€ Srcì¸¡ì´ ëœë‹¤.
 	void			NullNode() { m_pPrev = m_pNext = NULL; }
 	CObj*			GetPrevNode() { return m_pPrev; }
 	CObj*			GetNextNode() { return m_pNext; }
@@ -225,14 +225,14 @@ public:
 		                  FLOAT* pfDist, BOOL bBoundBox = FALSE, BOOL bColl = FALSE );
 	BOOL			IsDynamicObj()			{ return m_dwType != OT_OBJ && m_dwType != OT_SFX; }
 
-	D3DXMATRIX		GetMatrixTrans() const		{ return m_matTrans; } // ÁÂÇ¥ ¸ÅÆ®¸¯½º 
-	D3DXMATRIX		GetMatrixScale() const		{ return m_matScale; } // ½ºÄÉÀÏ ¸ÅÆ®¸¯½º
-	D3DXMATRIX		GetMatrixRotation()	const	{ return m_matRotation; } // È¸Àü ¸ÅÆ®¸¯½º 
-	D3DXMATRIX		GetMatrixWorld() const		{ return m_matWorld; } // ¸ğµç ¸ÅÆ®¸¯½º°¡ °öÇØÁø °á°ú 
-	D3DXMATRIX*		GetMatrixWorldPtr()		    { return &m_matWorld; } // Æ÷ÀÎÅÍ ¸®ÅÏ ¹öÀü
+	D3DXMATRIX		GetMatrixTrans() const		{ return m_matTrans; } // ì¢Œí‘œ ë§¤íŠ¸ë¦­ìŠ¤ 
+	D3DXMATRIX		GetMatrixScale() const		{ return m_matScale; } // ìŠ¤ì¼€ì¼ ë§¤íŠ¸ë¦­ìŠ¤
+	D3DXMATRIX		GetMatrixRotation()	const	{ return m_matRotation; } // íšŒì „ ë§¤íŠ¸ë¦­ìŠ¤ 
+	D3DXMATRIX		GetMatrixWorld() const		{ return m_matWorld; } // ëª¨ë“  ë§¤íŠ¸ë¦­ìŠ¤ê°€ ê³±í•´ì§„ ê²°ê³¼ 
+	D3DXMATRIX*		GetMatrixWorldPtr()		    { return &m_matWorld; } // í¬ì¸í„° ë¦¬í„´ ë²„ì „
 
-	FLOAT			GetRadius();			// ¸ğµ¨ÀÇ X,Y,ZÆò±ÕÀÇ ¹İÁö¸§À» ±¸ÇÔ
-	FLOAT			GetRadiusXZ();			// ¸ğµ¨ÀÇ X,Z Æò¸éÀÇ ¹İÁö¸§À» ±¸ÇÔ.		
+	FLOAT			GetRadius();			// ëª¨ë¸ì˜ X,Y,Zí‰ê· ì˜ ë°˜ì§€ë¦„ì„ êµ¬í•¨
+	FLOAT			GetRadiusXZ();			// ëª¨ë¸ì˜ X,Z í‰ë©´ì˜ ë°˜ì§€ë¦„ì„ êµ¬í•¨.		
 
 #ifdef __WORLDSERVER
 	D3DXVECTOR3		GetLinkPos()							{	return m_vLink;	}
@@ -307,8 +307,8 @@ inline FLOAT GetDegreeX( const D3DXVECTOR3 &vDestPos, const D3DXVECTOR3 &vSrcPos
 {
 	D3DXVECTOR3 vXZ = vDestPos - vSrcPos;
 	float	yDist = vXZ.y;
-	vXZ.y = 0.0f;									// xzÆò¸é»ó¿¡¼­ÀÇ º¤ÅÍ¸¸ ÇÊ¿äÇÏ´Ù.
-	float	fLenXZ  = D3DXVec3Length( &vXZ );		// XZÆò¸é»ó¿¡¼­ÀÇ ±æÀÌ.
+	vXZ.y = 0.0f;									// xzí‰ë©´ìƒì—ì„œì˜ ë²¡í„°ë§Œ í•„ìš”í•˜ë‹¤.
+	float	fLenXZ  = D3DXVec3Length( &vXZ );		// XZí‰ë©´ìƒì—ì„œì˜ ê¸¸ì´.
 	float	zDist = fLenXZ;
 
 	float r = (float)atan2( yDist, -zDist );

@@ -1,4 +1,4 @@
-/* Layer III decoder object declarations. Rearrangement
+﻿/* Layer III decoder object declarations. Rearrangement
    of layer III routines as an object by Jeff Tsay.
 
    Last modified : 01/31/97 */

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "crashstatus.h"
 
 #ifdef __CRASH_0404

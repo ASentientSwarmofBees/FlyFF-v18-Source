@@ -1,4 +1,4 @@
-#ifndef __WNDGUILDMERIT__H
+ï»¿#ifndef __WNDGUILDMERIT__H
 #define __WNDGUILDMERIT__H
 
 
@@ -64,7 +64,7 @@ class CWndGuildMerit : public CWndNeuz
 	CWndGuildMeritCtrl	m_wndctrlMerit;
 
 	int		m_nItem;
-	int		m_nPenya;	// Æä³Ä °øÇå·®.
+	int		m_nPenya;	// í˜ëƒ ê³µí—ŒëŸ‰.
 public: 
 	CWndGuildMerit(); 
 	~CWndGuildMerit(); 

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AppDefine.h"
 #include "WndNotice.h"
 
@@ -6,7 +6,7 @@
 /****************************************************
   WndId : APP_INFO_NOTICE - Notice
   CtrlId : WIDC_TEXT1 - 
-  CtrlId : WIDC_CHECK1 - ´Ù½Ã ¿­Áö ¾ÊÀ½
+  CtrlId : WIDC_CHECK1 - ë‹¤ì‹œ ì—´ì§€ ì•ŠìŒ
 ****************************************************/
 
 CWndInfoNotice::CWndInfoNotice() 
@@ -25,7 +25,7 @@ void CWndInfoNotice::OnDraw( C2DRender* p2DRender )
 void CWndInfoNotice::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 
 	CWndButton* pWndCheck = (CWndButton*)GetDlgItem( WIDC_CHECK1 );
 	pWndCheck->SetCheck( !g_Option.m_bNotice );
@@ -100,7 +100,7 @@ void CWndInfoNotice::OnInitialUpdate()
 	}
 #endif //__YNOTICE_UNI1026
 
-	// À©µµ¸¦ Áß¾ÓÀ¸·Î ¿Å±â´Â ºÎºÐ.
+	// ìœˆë„ë¥¼ ì¤‘ì•™ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë¶€ë¶„.
 	CRect rectRoot = m_pWndRoot->GetLayoutRect();
 	CRect rectWindow = GetWindowRect();
 	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
@@ -133,7 +133,7 @@ void CWndInfoNotice::OnInitialUpdate()
 				
 				if( nCount <= 0 )
 				{
-					Error( "TexBannerList.incÀÇ °¹¼ö°¡ 0ÀÌ´Ù" );
+					Error( "TexBannerList.incì˜ ê°¯ìˆ˜ê°€ 0ì´ë‹¤" );
 					return;
 				}
 				
@@ -189,10 +189,10 @@ BOOL CWndInfoNotice::Process()
 	return TRUE;
 }
 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndInfoNotice::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_INFO_NOTICE, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndInfoNotice::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 

@@ -1,4 +1,4 @@
-#ifndef __MODEL_H
+ï»¿#ifndef __MODEL_H
 #define __MODEL_H
 
 #include "ModelMng.h"
@@ -12,10 +12,10 @@
 #define	MODELTYPE_ANIMATED_MESH		 2
 #define MODELTYPE_BILLBOARD          3 
 #define MODELTYPE_SFX                4		// ANIMATED_BILLBOARD 4 
-#define MODELTYPE_ASE				 5		// ASE¸ğµ¨
+#define MODELTYPE_ASE				 5		// ASEëª¨ë¸
 #endif
 
-// BoundBoxÀÇ Vertex¼ø¼­ 
+// BoundBoxì˜ Vertexìˆœì„œ 
 //     - z
 //   3 | 2
 // - --+-- + x
@@ -47,11 +47,11 @@ struct BOUND_BOX
 #define		COL_DARKGRAY	D3DCOLOR_ARGB(255,  96,  96,  96)
 #define		COL_LIGHTGRAY	D3DCOLOR_ARGB(255, 192, 192, 192)
 
-// »À´ë¸¦ VS¿¡ Àü¼ÛÇÏ´Â ¹æ½Ä¿¡ ´ëÇÑ Å¸ÀÔ(bone send)
+// ë¼ˆëŒ€ë¥¼ VSì— ì „ì†¡í•˜ëŠ” ë°©ì‹ì— ëŒ€í•œ íƒ€ì…(bone send)
 #define		BS_NONE			0
-#define		BS_MODEL		1		// ¸ğµ¨´ÜÀ§ ·»´õ¸µÀü¿¡ »À´ë¸¦ Àü¼ÛÇÏ´Â ¹æ½Ä 
-#define		BS_OBJECT		2		// GEOMOBJECT´ÜÀ§ ·»´õ¸µÀü¿¡ »À´ë¸¦ Àü¼ÛÇÏ´Â ¹æ½Ä
-#define		BS_MTRLBLK		3		// ¸ÅÅÍ¸®¾ó ºí·°´ÜÀ§ ·»´õ¸µÀü¿¡ »À´ë¸¦ Àü¼ÛÇÏ´Â ¹æ½Ä - ´À¸².
+#define		BS_MODEL		1		// ëª¨ë¸ë‹¨ìœ„ ë Œë”ë§ì „ì— ë¼ˆëŒ€ë¥¼ ì „ì†¡í•˜ëŠ” ë°©ì‹ 
+#define		BS_OBJECT		2		// GEOMOBJECTë‹¨ìœ„ ë Œë”ë§ì „ì— ë¼ˆëŒ€ë¥¼ ì „ì†¡í•˜ëŠ” ë°©ì‹
+#define		BS_MTRLBLK		3		// ë§¤í„°ë¦¬ì–¼ ë¸”ëŸ­ë‹¨ìœ„ ë Œë”ë§ì „ì— ë¼ˆëŒ€ë¥¼ ì „ì†¡í•˜ëŠ” ë°©ì‹ - ëŠë¦¼.
 
 class CObj;
 class Segment3;
@@ -83,17 +83,17 @@ public:
 	D3DXVECTOR3			m_vMin, m_vMax;
 	LPMODELELEM			m_pModelElem;
 
-	int					m_nPause;			// Pause´ë±â ½Ã°£.  0ÀÌ¸é Pause»óÅÂ ¾Æ´Ô 1ÀÌ»óÀÌ¸é Æ÷Áî»óÅÂ°í ¼ıÀÚ´Â ´ë±â½Ã°£
-	int					m_bSlow;			// ½½·Î¿ì ¸ğµå.
-	BOOL				m_bEndFrame;		// ¸¶Áö¸· ÇÁ·¹ÀÓ±îÁö ¿Ô´Â°¡?
+	int					m_nPause;			// PauseëŒ€ê¸° ì‹œê°„.  0ì´ë©´ Pauseìƒíƒœ ì•„ë‹˜ 1ì´ìƒì´ë©´ í¬ì¦ˆìƒíƒœê³  ìˆ«ìëŠ” ëŒ€ê¸°ì‹œê°„
+	int					m_bSlow;			// ìŠ¬ë¡œìš° ëª¨ë“œ.
+	BOOL				m_bEndFrame;		// ë§ˆì§€ë§‰ í”„ë ˆì„ê¹Œì§€ ì™”ëŠ”ê°€?
 	float				m_fFrameCurrent;
-	float				m_fFrameOld;		// ¹Ù·Î ÀÌÀüÀÇ m_fFrameCurrent
+	float				m_fFrameOld;		// ë°”ë¡œ ì´ì „ì˜ m_fFrameCurrent
 	int					m_nFrameMax;
-	float				m_fPerSlerp;		// ¾Ö´Ï¸ŞÀÌ¼Ç ÇÁ·¹ÀÓ Áõ°¡·®
-	float				m_fSlp;				// ÇÁ·¹ÀÓ»çÀÌÀÇ º¸°£·®
-	int					m_nLoop;			// ¾Ö´Ï¸ŞÀÌ¼Ç ·çÇÎ ¹æ¹ı
-	BOOL				m_bSkin;			// ½ºÅ°´× ¿ÀºêÁ§Æ®³Ä.
-	int					m_nNoEffect;		// ³»ºÎ¿¡¼­ ¾ËÆÄÈ¿°ú¿¡ °üÇÑ ¾î¶°ÇÑ ·»´õ½ºÅ×ÀÌÆ®µµ º¯È­½ÃÅ°Áö ¾Ê´Â´Ù.
+	float				m_fPerSlerp;		// ì• ë‹ˆë©”ì´ì…˜ í”„ë ˆì„ ì¦ê°€ëŸ‰
+	float				m_fSlp;				// í”„ë ˆì„ì‚¬ì´ì˜ ë³´ê°„ëŸ‰
+	int					m_nLoop;			// ì• ë‹ˆë©”ì´ì…˜ ë£¨í•‘ ë°©ë²•
+	BOOL				m_bSkin;			// ìŠ¤í‚¤ë‹ ì˜¤ë¸Œì íŠ¸ëƒ.
+	int					m_nNoEffect;		// ë‚´ë¶€ì—ì„œ ì•ŒíŒŒíš¨ê³¼ì— ê´€í•œ ì–´ë– í•œ ë Œë”ìŠ¤í…Œì´íŠ¸ë„ ë³€í™”ì‹œí‚¤ì§€ ì•ŠëŠ”ë‹¤.
 
 #ifdef __CLIENT
 	_SPARKINFO			m_SparkInfo;
@@ -131,7 +131,7 @@ public:
 		m_bEndFrame = FALSE;
 		m_nLoop = ANILOOP_LOOP;
 		m_fSlp = 0.0f;
-		m_fPerSlerp = 0.5f;						// ÇÁ·¹ÀÓ¼öÀÇ Á¤È®µµ¶«¿¡ 0.5·Î Çß´Ù
+		m_fPerSlerp = 0.5f;						// í”„ë ˆì„ìˆ˜ì˜ ì •í™•ë„ë•œì— 0.5ë¡œ í–ˆë‹¤
 		m_bSlow = FALSE;
 	}
 
@@ -144,8 +144,8 @@ public:
 	int		GetType() { return m_nModelType; }
 	void	SetModelType(int nModelType) { m_nModelType = nModelType; }
 	void	SetLoop( int nLoop ) { m_nLoop = nLoop; }
-	void	SetSpeed( float fPerSlerp ) { m_fPerSlerp = fPerSlerp; }	// ÀÏ¹İ 0.5
-	const BOUND_BOX*	GetBBVector( void ) { return &m_BB; } // ¹Ù¿îµù¹Ú½ºÀÇ 8±ÍÅüÀÌ ÁÂÇ¥¸¦ ¸®ÅÏ
+	void	SetSpeed( float fPerSlerp ) { m_fPerSlerp = fPerSlerp; }	// ì¼ë°˜ 0.5
+	const BOUND_BOX*	GetBBVector( void ) { return &m_BB; } // ë°”ìš´ë”©ë°•ìŠ¤ì˜ 8ê·€í‰ì´ ì¢Œí‘œë¥¼ ë¦¬í„´
 	float	GetRadius( void );
 
 	DWORD	GetRenderEffect() { return m_dwRenderEffect; }
@@ -154,12 +154,12 @@ public:
 
 	virtual int		LoadModel( LPCTSTR szFileName ) { return 1; }
 	virtual int		SaveModel( LPCTSTR szFileName ) { return 1; }
-	virtual void	ClearNormal( void ) {}		// ¸ğµç ³ë¸»À» ÃÊ±âÈ­½ÃÅ²´Ù.
+	virtual void	ClearNormal( void ) {}		// ëª¨ë“  ë…¸ë§ì„ ì´ˆê¸°í™”ì‹œí‚¨ë‹¤.
 
 	virtual void	AddFrame( FLOAT fAddFrame );
 	virtual void	SetFrame( FLOAT fFrame );
 
-	// Animation - ÀÏ´Ü¿©±â ³Ö¾ú´Âµ¥ ±õ±õÇÏ´Ù.....
+	// Animation - ì¼ë‹¨ì—¬ê¸° ë„£ì—ˆëŠ”ë° ê¹ê¹í•˜ë‹¤.....
 	virtual BOOL	IsLoadAttr( void ) { return FALSE; }
 	virtual MOTION_ATTR *GetMotionAttr( int nNumFrm ) { return NULL; }
 	virtual DWORD	GetAttr( int nNumFrm ) { return 0; }

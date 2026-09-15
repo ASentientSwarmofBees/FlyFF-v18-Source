@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "dpaccountclient.h"
 extern	CDPAccountClient	g_dpAccountClient;
 #include "dpcoresrvr.h"
@@ -249,7 +249,7 @@ void CDPCoreSrvr::OnCastVote( CAr & ar, LPBYTE lpBuf, u_long uBufSize )
 	PostQueuedCompletionStatus( g_DbManager.m_hIOCPGuild, 1, NULL, &lpDbOverlappedPlus->Overlapped );
 }
 
-// ��ǥ�Է��� ���
+// 투표입력의 결과
 void CDPCoreSrvr::SendAddVoteResult( VOTE_INSERTED_INFO & info )
 {
 	BEFORESEND( ar, PACKETTYPE_DC_ADDVOTERESULT );
@@ -380,7 +380,7 @@ void CDPCoreSrvr::SendBuyingInfo( PBUYING_INFO2 pbi2 )	// 3
 	SEND( ar, this, DPID_ALLPLAYERS );
 }
 
-// ����ݽý��� ���� ��ûó�� 
+// 현상금시스템 관련 요청처리 
 void CDPCoreSrvr::OnWanted( CAr & ar, LPBYTE lpBuf, u_long uBufSize )
 {
 	TRACE( "recv PACKETTYPE_CD_CASTVOTE\n" );

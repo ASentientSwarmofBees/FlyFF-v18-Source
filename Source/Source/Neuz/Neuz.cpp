@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #include "AppDefine.h"
 #include "Material.h" 
@@ -108,7 +108,7 @@ CNeuzApp::CNeuzApp()
 
 #ifdef __XUZHU
 	g_GameTimer.m_bFixed = TRUE;
-	g_GameTimer.m_nHour = 12;		// ¾ğÁ¦³ª ³·ÀÌ µÇµµ·Ï
+	g_GameTimer.m_nHour = 12;		// ì–¸ì œë‚˜ ë‚®ì´ ë˜ë„ë¡
 #endif
 #ifdef __TWN_LOGIN0816
 	m_szSessionPwd[0]	= '\0';
@@ -132,7 +132,7 @@ CNeuzApp::CNeuzApp()
 	m_dwShoutLimitSecond = 0;
 	m_nShoutLimitCount = 0;
 
-	m_szAccount   [ 0 ] = 0; // ¾îÄ«¿îÆ®
+	m_szAccount   [ 0 ] = 0; // ì–´ì¹´ìš´íŠ¸
 	m_szPassword  [ 0 ] = 0; // password
 #ifdef __GPAUTH_01
 	m_bGPotatoAuth	= FALSE;
@@ -210,7 +210,7 @@ BOOL CNeuzApp::LoadOption()
 	g_Option.LoadToolTip( "ToolTip.ini" );
 #endif // _DEBUG
 
-	// È­¸é »çÀÌÁî ¼¼ÆÃ 
+	// í™”ë©´ ì‚¬ì´ì¦ˆ ì„¸íŒ… 
 	FULLSCREEN_WIDTH	= g_Option.m_nResWidth;
 	FULLSCREEN_HEIGHT	= g_Option.m_nResHeight;
 
@@ -226,14 +226,14 @@ BOOL CNeuzApp::LoadOption()
 HRESULT CNeuzApp::ConfirmDevice( D3DCAPS9* pCaps, DWORD dwBehavior,
                                           D3DFORMAT adapterFormat, D3DFORMAT backBufferFormat )
 {
-	// ½ºÅ°´× ÄÚµå 
+	// ìŠ¤í‚¤ë‹ ì½”ë“œ 
     if( dwBehavior & D3DCREATE_PUREDEVICE )
         return E_FAIL; // GetTransform doesn't work on PUREDEVICE
 
-	if( pCaps->VertexShaderVersion < D3DVS_VERSION(1,1) )	// ¹öÅØ½º½¦ÀÌ´õ 1.1À» Áö¿ø ¸øÇÏ´Â°¡.
+	if( pCaps->VertexShaderVersion < D3DVS_VERSION(1,1) )	// ë²„í…ìŠ¤ì‰ì´ë” 1.1ì„ ì§€ì› ëª»í•˜ëŠ”ê°€.
 	{
-		g_bUsableVS = FALSE;		// ¹öÅØ½º½¦ÀÌ´õ »ç¿ë¾ÈµÊ.
-		if( dwBehavior & D3DCREATE_HARDWARE_VERTEXPROCESSING )	// hw vp´Â »ç¿ë¸øÇÔ
+		g_bUsableVS = FALSE;		// ë²„í…ìŠ¤ì‰ì´ë” ì‚¬ìš©ì•ˆë¨.
+		if( dwBehavior & D3DCREATE_HARDWARE_VERTEXPROCESSING )	// hw vpëŠ” ì‚¬ìš©ëª»í•¨
 			return E_FAIL;
 	}
     // Check that the device can blend vertices with at least two matrices
@@ -263,13 +263,13 @@ HRESULT CNeuzApp::ConfirmDevice( D3DCAPS9* pCaps, DWORD dwBehavior,
 
 
 //
-// µğ¹ÙÀÌ½º »ı¼ºÈÄ ´Ü ÇÑ¹ø ½ÇÇàÇÑ´Ù.
+// ë””ë°”ì´ìŠ¤ ìƒì„±í›„ ë‹¨ í•œë²ˆ ì‹¤í–‰í•œë‹¤.
 //
 HRESULT CNeuzApp::OneTimeSceneInit()
 {
 	CNetwork::GetInstance();
 
-	// »ç¿îµå ÃÊ±âÈ­
+	// ì‚¬ìš´ë“œ ì´ˆê¸°í™”
 	HRESULT hr = g_SoundMng.Initialize( GetSafeHwnd(), DSSCL_PRIORITY, 2, 22050, 16 );
 	InitCustomSound( FAILED(hr) ? FALSE : TRUE );
 
@@ -314,7 +314,7 @@ HRESULT CNeuzApp::RestoreDeviceObjects()
 	
 	if( FAILED( LoadTextureFromRes( m_pd3dDevice, MakePath( DIR_MODELTEX, "Env.dds" ), &m_pEnvTex ) ) )
 	{
-		Error( "Env.dds ÅØ½ºÃÄ ¸øÀĞÀ½" );
+		Error( "Env.dds í…ìŠ¤ì³ ëª»ì½ìŒ" );
 	}
 #endif //__YENV
 	
@@ -324,35 +324,35 @@ HRESULT CNeuzApp::RestoreDeviceObjects()
 		CreateSkinningVS( m_pd3dDevice, _T("skining2.vsh") );
     }
 	
-	if( m_d3dCaps.RasterCaps & D3DPRASTERCAPS_DEPTHBIAS )	// d3d9.0¿¡ »õ·Î Ãß°¡µÈ ±â´ÉÀÎµ¥ ÀÌ°É Áö¿ø¸øÇÏ´Â Ä«µå°¡ ÀÖ´Ù. ±×·¡¼­ ÀÌ·¸°Ô °Ë»çÇÑ´Ù.
+	if( m_d3dCaps.RasterCaps & D3DPRASTERCAPS_DEPTHBIAS )	// d3d9.0ì— ìƒˆë¡œ ì¶”ê°€ëœ ê¸°ëŠ¥ì¸ë° ì´ê±¸ ì§€ì›ëª»í•˜ëŠ” ì¹´ë“œê°€ ìˆë‹¤. ê·¸ë˜ì„œ ì´ë ‡ê²Œ ê²€ì‚¬í•œë‹¤.
 		g_ModelGlobal.m_bDepthBias = TRUE;
-	if( g_Option.m_nShadow < 2 && m_d3dCaps.MaxSimultaneousTextures <= 2 )		// ½Ç½Ã°£±×¸²ÀÚ¸¦ ¼¼ÆÃÇÏ°í ÇÏµå¿ş¾î°¡ µş¸®¸é
+	if( g_Option.m_nShadow < 2 && m_d3dCaps.MaxSimultaneousTextures <= 2 )		// ì‹¤ì‹œê°„ê·¸ë¦¼ìë¥¼ ì„¸íŒ…í•˜ê³  í•˜ë“œì›¨ì–´ê°€ ë”¸ë¦¬ë©´
 	{
-		g_Option.m_nShadow = 2;		// ½Ç½Ã°£ ±×¸²ÀÚ ±â´ÉÀ» ²ö´Ù.
+		g_Option.m_nShadow = 2;		// ì‹¤ì‹œê°„ ê·¸ë¦¼ì ê¸°ëŠ¥ì„ ëˆë‹¤.
 		MessageBox( GetSafeHwnd(), m_strArray.GetAt(13), m_strArray.GetAt(11), MB_OK );
-		//MessageBox( GetSafeHwnd(), "ÀÌ ±×·¡ÇÈÄ«µå¿¡¼± ±×¸²ÀÚ ±â´ÉÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù. ±×¸²ÀÚ ±â´ÉÀ» ³·À½À¸·Î ¹Ù²ß´Ï´Ù.", "¾È³»", MB_OK );
+		//MessageBox( GetSafeHwnd(), "ì´ ê·¸ë˜í”½ì¹´ë“œì—ì„  ê·¸ë¦¼ì ê¸°ëŠ¥ì„ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ê·¸ë¦¼ì ê¸°ëŠ¥ì„ ë‚®ìŒìœ¼ë¡œ ë°”ê¿‰ë‹ˆë‹¤.", "ì•ˆë‚´", MB_OK );
 	}
 	UINT nMem = m_pd3dDevice->GetAvailableTextureMem();
 	if( g_Option.m_nTextureQuality == 0 && nMem <= (1024 * 1024 * 64) )
 	{
-		g_Option.m_nTextureQuality = 1;		// 64¸Ş°¡ ÀÌÇÏÀÇ ÅØ½ºÃÄ¸Ş¸ğ¸®¿¡¼± ÅØ½ºÃÄÇ°ÁúÀ» ³·Ãá´Ù.
+		g_Option.m_nTextureQuality = 1;		// 64ë©”ê°€ ì´í•˜ì˜ í…ìŠ¤ì³ë©”ëª¨ë¦¬ì—ì„  í…ìŠ¤ì³í’ˆì§ˆì„ ë‚®ì¶˜ë‹¤.
 		MessageBox( GetSafeHwnd(), m_strArray.GetAt(15), m_strArray.GetAt(14), MB_OK );
-		//MessageBox( GetSafeHwnd(), "»ç¿ë°¡´ÉÇÑ ÅØ½ºÃÄ ¸Ş¸ğ¸®°¡ ºÎÁ·ÇØ¼­ ÅØ½ºÃÄ Ç°ÁúÀ» ³·Ãä´Ï´Ù.", "°æ°í", MB_OK );
+		//MessageBox( GetSafeHwnd(), "ì‚¬ìš©ê°€ëŠ¥í•œ í…ìŠ¤ì³ ë©”ëª¨ë¦¬ê°€ ë¶€ì¡±í•´ì„œ í…ìŠ¤ì³ í’ˆì§ˆì„ ë‚®ì¶¥ë‹ˆë‹¤.", "ê²½ê³ ", MB_OK );
 	}
 	if( g_Option.m_nShadow < 2 )
 	{
 		if( nMem <= (1024 * 1024 * 64) )
 		{
-			g_Option.m_nShadow = 2;		// 64¸Ş°¡ ÀÌÇÏÀÇ ÅØ½ºÃÄ¸Ş¸ğ¸®¿¡¼± ±×¸²ÀÚ±â´ÉÀ» »ç¿ëÇÏÁö ¸øÇÑ´Ù.
+			g_Option.m_nShadow = 2;		// 64ë©”ê°€ ì´í•˜ì˜ í…ìŠ¤ì³ë©”ëª¨ë¦¬ì—ì„  ê·¸ë¦¼ìê¸°ëŠ¥ì„ ì‚¬ìš©í•˜ì§€ ëª»í•œë‹¤.
 			MessageBox( GetSafeHwnd(), m_strArray.GetAt(16), m_strArray.GetAt(14), MB_OK );
-			//MessageBox( GetSafeHwnd(), "»ç¿ë°¡´ÉÇÑ ÅØ½ºÃÄ ¸Ş¸ğ¸®°¡ ºÎÁ·ÇØ¼­ ±×¸²ÀÚ ±â´ÉÀ» ÇØÁ¦ÇÕ´Ï´Ù.", "°æ°í", MB_OK  );
+			//MessageBox( GetSafeHwnd(), "ì‚¬ìš©ê°€ëŠ¥í•œ í…ìŠ¤ì³ ë©”ëª¨ë¦¬ê°€ ë¶€ì¡±í•´ì„œ ê·¸ë¦¼ì ê¸°ëŠ¥ì„ í•´ì œí•©ë‹ˆë‹¤.", "ê²½ê³ ", MB_OK  );
 		} else
 		{
 //			CreateShadowMap( m_pd3dDevice, m_d3dpp.BackBufferFormat );
 			BOOL bSuccess = CreateShadowMap( m_pd3dDevice, D3DFMT_R5G6B5 );
 			if( bSuccess == FALSE )
 			{	
-				// ½ÇÆĞÇÏ¸é ºñµÍ¸Ş¸ğ¸® ºÎÁ·ÀÌ¶ó ÆÇ´ÜÇÏ°í ¿É¼Ç °­Á¦·Î ³·Ãã.
+				// ì‹¤íŒ¨í•˜ë©´ ë¹„ë´ë©”ëª¨ë¦¬ ë¶€ì¡±ì´ë¼ íŒë‹¨í•˜ê³  ì˜µì…˜ ê°•ì œë¡œ ë‚®ì¶¤.
 				if( g_Option.m_nShadow < 2 )
 					g_Option.m_nShadow ++;
 				if( g_Option.m_nTextureQuality < 2 )
@@ -378,7 +378,7 @@ HRESULT CNeuzApp::RestoreDeviceObjects()
 	extern LPDIRECT3DTEXTURE9 g_pReflectMap;
 	if( FAILED( LoadTextureFromRes( m_pd3dDevice, MakePath( DIR_MODELTEX, "etc_reflect.tga" ), &g_pReflectMap ) ) )
 	{
-		Error( "etc_Reflect.tga ÅØ½ºÃÄ ¸øÀĞÀ½" );
+		Error( "etc_Reflect.tga í…ìŠ¤ì³ ëª»ì½ìŒ" );
 	}
 
 	g_ModelGlobal.RestoreDeviceObjects( m_pd3dDevice );
@@ -494,12 +494,12 @@ HRESULT CNeuzApp::DeleteDeviceObjects()
 
 	g_TextureMng.DeleteDeviceObjects();
  
-	SAFE_DELETE( g_pBipedMesh );		// g_Object3DMng°¡ ÆÄ±«µÇ±âÀü¿¡ ºÎ¸¦°Í
+	SAFE_DELETE( g_pBipedMesh );		// g_Object3DMngê°€ íŒŒê´´ë˜ê¸°ì „ì— ë¶€ë¥¼ê²ƒ
 	g_Shadow.DeleteDeviceObjects();
  
-	// ¿©±â¼­ ÀÌ°ÍÀ» µû·Î ºÒ·¯ÁØ ÀÌÀ¯´Â °ÔÀÓÁ¾·á½Ã¿¡ ReleaseµÇÁö ¾ÊÀº ¼ö¸¦ ÆÇÁ¤ÇÒ¶§ 
-	// g_Object3DMngÀÇ ÆÄ±«ÀÚ°¡ ´Ê°Ô ¹ßµ¿µÇ¾î ´©¶ôµÇ±â ¶§¹®ÀÌ´Ù.  ±×·¡¼­ ¿©±â¼­ ¸ÕÀú ÆÄ±«½ÃÄÑÁØ´Ù.  °á°ú´Â °°´Ù.
-	// Destroy¸¦ ´Ù¸¥µ¥¼­ È£ÃâÇÏÁö ¸»°Í!
+	// ì—¬ê¸°ì„œ ì´ê²ƒì„ ë”°ë¡œ ë¶ˆëŸ¬ì¤€ ì´ìœ ëŠ” ê²Œì„ì¢…ë£Œì‹œì— Releaseë˜ì§€ ì•Šì€ ìˆ˜ë¥¼ íŒì •í• ë•Œ 
+	// g_Object3DMngì˜ íŒŒê´´ìê°€ ëŠ¦ê²Œ ë°œë™ë˜ì–´ ëˆ„ë½ë˜ê¸° ë•Œë¬¸ì´ë‹¤.  ê·¸ë˜ì„œ ì—¬ê¸°ì„œ ë¨¼ì € íŒŒê´´ì‹œì¼œì¤€ë‹¤.  ê²°ê³¼ëŠ” ê°™ë‹¤.
+	// Destroyë¥¼ ë‹¤ë¥¸ë°ì„œ í˜¸ì¶œí•˜ì§€ ë§ê²ƒ!
 	 g_Object3DMng.DeleteDeviceObjects();
 #ifdef __PROF
 	g_Prof.Show( m_fFPS );
@@ -542,7 +542,7 @@ HRESULT CNeuzApp::DeleteDeviceObjects()
 	return S_OK;
 }
 // 
-// Á¾·áÇÏ±â Àü °´Ã¼¸¦ ÆÄ±«ÇÏ´Â °÷
+// ì¢…ë£Œí•˜ê¸° ì „ ê°ì²´ë¥¼ íŒŒê´´í•˜ëŠ” ê³³
 //
 HRESULT CNeuzApp::FinalCleanup()
 {
@@ -553,8 +553,8 @@ HRESULT CNeuzApp::FinalCleanup()
 	if( g_hMutex )
 		::CloseHandle( g_hMutex );
 	
-	// ´Ù½Ã ¾ËÆ®ÅÇ µÇ°Ô
-	::SystemParametersInfo (SPI_SCREENSAVERRUNNING, FALSE, NULL, 0);		// 95, 98, Me¸é API¸¦ ¾´´Ù.
+	// ë‹¤ì‹œ ì•ŒíŠ¸íƒ­ ë˜ê²Œ
+	::SystemParametersInfo (SPI_SCREENSAVERRUNNING, FALSE, NULL, 0);		// 95, 98, Meë©´ APIë¥¼ ì“´ë‹¤.
 
 #if __VER >= 8 //__Y_GAMMA_CONTROL_8
 	Drv_SetGamma(GetSafeHwnd(), 1.0f, 10, 1.0f);
@@ -590,7 +590,7 @@ HRESULT CNeuzApp::FinalCleanup()
 	SAFE_DELETE( CSfxGenRainCircle::m_pPool );
 
 #if __VER >= 12 // __LORD
-	// ±ºÁÖ Çù·Â °´Ã¼ÀÇ Á¦°Å
+	// êµ°ì£¼ í˜‘ë ¥ ê°ì²´ì˜ ì œê±°
 	CCLord::Instance()->DestroyColleagues();
 #endif	// __LORD
 
@@ -707,7 +707,7 @@ HRESULT CNeuzApp::CaptureBitmap()
 */
 
 // 
-// È­¸éÀ» ·£´õ¸µ ÇÑ´Ù. (Ãâ·Â)
+// í™”ë©´ì„ ëœë”ë§ í•œë‹¤. (ì¶œë ¥)
 //
 #ifdef __VCINEMASCOPE
 int m_nCinemaScopeCnt = -100;
@@ -724,14 +724,14 @@ HRESULT CNeuzApp::Render()
 	CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );
 	
 	if( pWndWorld )
-		pWndWorld ->ClearFlyTarget();		// ºñÇà¶§ °ø°İ°¡´ÉÇÑ Å¸°Ùµé ¸®½ºÆ® Áö¿öÁÜ.	
+		pWndWorld ->ClearFlyTarget();		// ë¹„í–‰ë•Œ ê³µê²©ê°€ëŠ¥í•œ íƒ€ê²Ÿë“¤ ë¦¬ìŠ¤íŠ¸ ì§€ì›Œì¤Œ.	
 
 	//pd3dDevice->Clear(0, NULL, D3DCLEAR_ZBUFFER | D3DCLEAR_TARGET, D3DCOLOR_ARGB( 255, 90, 146, 222 ), 1.0f, 0 ) ;
 	//m_pd3dDevice->Clear(0, NULL, D3DCLEAR_ZBUFFER | D3DCLEAR_TARGET, D3DCOLOR_ARGB( 255, 255, 255, 255 ), 1.0f, 0 ) ;
 	//m_pd3dDevice->Clear(0, NULL, D3DCLEAR_ZBUFFER | D3DCLEAR_TARGET, D3DCOLOR_ARGB( 255, 0, 0, 0 ), 1.0f, 0 ) ;
 	// Begin the scene
 	
-	if( g_Option.m_nShadow < 2 )		// ³ôÀ½/Áß°£ ¸¸ ½¦µµ¿ì ¸ÊÀ» ¸¸µç´Ù.
+	if( g_Option.m_nShadow < 2 )		// ë†’ìŒ/ì¤‘ê°„ ë§Œ ì‰ë„ìš° ë§µì„ ë§Œë“ ë‹¤.
 	{
 		_PROFILE("Make Shadow Map");
 		CHECK1();
@@ -744,7 +744,7 @@ HRESULT CNeuzApp::Render()
 #if __VER >= 13 // __HOUSING
 
 #if __VER >= 14 // __BS_FIX_SHADOW_ONOBJECT
-		if( pWorld->GetID() != WI_WORLD_MINIROOM ) // 7.28±âÈ¹¿äÃ» : ÇÏ¿ìÂ¡ ±×¸²ÀÚ Á¦°Å
+		if( pWorld->GetID() != WI_WORLD_MINIROOM ) // 7.28ê¸°íšìš”ì²­ : í•˜ìš°ì§• ê·¸ë¦¼ì ì œê±°
 			RenderShadowMap( m_pd3dDevice, pWorld->m_aobjCull, pWorld->m_nObjCullSize );
 #else 
 		if(pWorld->GetID() != WI_WORLD_MINIROOM && pWorld->GetID() != WI_INSTANCE_OMINOUS && pWorld->GetID() != WI_INSTANCE_OMINOUS_1)
@@ -759,7 +759,7 @@ HRESULT CNeuzApp::Render()
 		CHECK2( " Render ShadowMap" );
 	}
 
-	// »Ç»ş½Ã ¿É¼ÇÀÌ ÄÑÁ®ÀÖÀ¸¸é ·»´õÅ¸°Ù¿¡ °ÔÀÓÈ­¸éÀ» ·»´õÇÔ.
+	// ë½€ìƒ¤ì‹œ ì˜µì…˜ì´ ì¼œì ¸ìˆìœ¼ë©´ ë Œë”íƒ€ê²Ÿì— ê²Œì„í™”ë©´ì„ ë Œë”í•¨.
 	if( g_Option.m_nBloom )
 	{
 		_PROFILE("Make Bloom");
@@ -771,10 +771,10 @@ HRESULT CNeuzApp::Render()
 			g_Glare.m_Src.BeginScene();
 			DWORD dwColor = CWorld::GetDiffuseColor();
 			m_2DRender.m_pd3dDevice->Clear(0, NULL, D3DCLEAR_ZBUFFER | D3DCLEAR_TARGET, dwColor /*D3DCOLOR_ARGB( 255, 255, 255, 255 )*/, 1.0f, 0 ) ;
-			pWorld->RenderBase( m_pd3dDevice, g_WndMng.m_Theme.m_pFontWorld );		// ÁöÇü°ú ¿ÀºêÁ§Æ®¸¦ ¹Ì¸® ·»´õ¸µ ÇØµÒ.
+			pWorld->RenderBase( m_pd3dDevice, g_WndMng.m_Theme.m_pFontWorld );		// ì§€í˜•ê³¼ ì˜¤ë¸Œì íŠ¸ë¥¼ ë¯¸ë¦¬ ë Œë”ë§ í•´ë‘ .
 			g_Glare.m_Src.EndScene();
 
-			g_Glare.Blur( m_pd3dDevice );		// m_Src¸¦ m_Surface[0]¿¡ ºí·¯ÇÔ.		
+			g_Glare.Blur( m_pd3dDevice );		// m_Srcë¥¼ m_Surface[0]ì— ë¸”ëŸ¬í•¨.		
 		}
 	}
 
@@ -815,7 +815,7 @@ HRESULT CNeuzApp::Render()
 		if( g_WndMng.m_pWndWorld )
 			g_WndMng.m_pWndWorld->RenderFocusArrow( CPoint(0,0) );
 
-		// µå·¡±× ¾ÆÀÌÅÛ 
+		// ë“œë˜ê·¸ ì•„ì´í…œ 
 		if(	CWndBase::m_GlobalShortcut.IsEmpty() == FALSE )
 		{
 			GET_CLIENT_POINT( GetSafeHwnd(), point );
@@ -828,7 +828,7 @@ HRESULT CNeuzApp::Render()
 			}
 		}
 
-		// Åø¸³ °ü·Ã
+		// íˆ´ë¦½ ê´€ë ¨
 		g_toolTip.Paint(&m_2DRender);
 #if __VER >= 15 // __IMPROVE_SYSTEM_VER15
 		g_toolTipSub1.Paint( &m_2DRender );
@@ -844,7 +844,7 @@ HRESULT CNeuzApp::Render()
 //		CHECK2( "Prof Text" );
 #endif		
 
-		// ¸ÊÀÌµ¿°£¿¡ ÀÌ¹ÌÁö ·ÎµùÃâ·Â
+		// ë§µì´ë™ê°„ì— ì´ë¯¸ì§€ ë¡œë”©ì¶œë ¥
 		if( m_bTexLoad && m_bTexLoadAlpha )
 		{
 			m_nTexAlpha	= (int)( m_nTexAlpha - 6.0f );
@@ -917,7 +917,7 @@ HRESULT CNeuzApp::Render()
 	return S_OK;
 }
 
-// ÇÃ·¹ÀÌ °¡´É ½Ã°£ ¼¼ÆÃ 
+// í”Œë ˆì´ ê°€ëŠ¥ ì‹œê°„ ì„¸íŒ… 
 void CNeuzApp::SetLeftTime( long lTimeLeft )
 {
 	m_dwTimeLeft = lTimeLeft * 1000;
@@ -939,7 +939,7 @@ void CNeuzApp::NotifyLeftMinute( UINT type, int nMin )
 	}
 }
 
-// ÅÂ±¹ÀÇ °æ¿ì ÇÃ·¹ÀÌ °¡´É ½Ã°£À» Ç¥½ÃÇØ ÁØ´Ù.
+// íƒœêµ­ì˜ ê²½ìš° í”Œë ˆì´ ê°€ëŠ¥ ì‹œê°„ì„ í‘œì‹œí•´ ì¤€ë‹¤.
 void CNeuzApp::NotifyLeftTime()
 {
 	if( ::GetLanguage() != LANG_THA )
@@ -957,18 +957,18 @@ void CNeuzApp::NotifyLeftTime()
 			m_dwTimeLeft -= dw;
 		else
 		{
-			m_dwTimeLeft = 0;								// 0ÃÊ´Â Ç¥½ÃÇÏÁö ¾Ê´Â´Ù.
+			m_dwTimeLeft = 0;								// 0ì´ˆëŠ” í‘œì‹œí•˜ì§€ ì•ŠëŠ”ë‹¤.
 			return;
 		}
 
-		long lLeftTime = ( m_dwTimeLeft + 500 ) / 1000;		// + 500¹İ¿Ã¸² 
-		if( lLeftTime <= 10 )			// 10ÃÊ ÀÌÇÏ 
+		long lLeftTime = ( m_dwTimeLeft + 500 ) / 1000;		// + 500ë°˜ì˜¬ë¦¼ 
+		if( lLeftTime <= 10 )			// 10ì´ˆ ì´í•˜ 
 		{
 			char szBuffer[256];
 			sprintf( szBuffer, prj.GetText(TID_GAME_REMAINPLAYTIMESEC), lLeftTime );			
 			g_WndMng.PutString( szBuffer );
 		}
-		else if( lLeftTime <= 60 * 15 )	// 15ºĞ ÀÌÇÏ 
+		else if( lLeftTime <= 60 * 15 )	// 15ë¶„ ì´í•˜ 
 		{
 			switch( lLeftTime )
 			{
@@ -1001,7 +1001,7 @@ void CNeuzApp::NotifyLeftTime()
 extern int g_nOldVirtKey;
 
 //
-// FrameÀ» ¿òÁ÷ÀÎ´Ù. ±âÁ¸ÀÇ Process¿Í °°Àº ¿ªÇÒ 
+// Frameì„ ì›€ì§ì¸ë‹¤. ê¸°ì¡´ì˜ Processì™€ ê°™ì€ ì—­í•  
 //
 HRESULT CNeuzApp::FrameMove()
 {
@@ -1023,7 +1023,7 @@ HRESULT CNeuzApp::FrameMove()
 
 	_PROFILE("CNeuzApp::FrameMove()");
 
-	g_tmCurrent = timeGetTime();		// Àü¿ªÀ¸·Î »ç¿ëÇÒ ÇöÀç ½Ã°£.
+	g_tmCurrent = timeGetTime();		// ì „ì—­ìœ¼ë¡œ ì‚¬ìš©í•  í˜„ì¬ ì‹œê°„.
 	g_tCurrent	= time( NULL );
 	g_nProcessCnt ++;
 	if( g_GameTimer.m_nHour >= 21 || g_GameTimer.m_nHour <= 6 )
@@ -1064,10 +1064,10 @@ HRESULT CNeuzApp::FrameMove()
 	if( g_pBipedMesh )
 		g_pBipedMesh->FrameMove();
 
-	g_WndMng.Process(); // ½ÇÁ¦ÀûÀÎ ¿ùµå¿Í Ä³¸¯ÅÍ ÄÁÆ®·Ñ ÀÎÅÍÆäÀÌ½º´Â CWndWorld::Process°¡ Ã³¸®ÇÔ 
+	g_WndMng.Process(); // ì‹¤ì œì ì¸ ì›”ë“œì™€ ìºë¦­í„° ì»¨íŠ¸ë¡¤ ì¸í„°í˜ì´ìŠ¤ëŠ” CWndWorld::Processê°€ ì²˜ë¦¬í•¨ 
 	
-	// À§Ä¡ ¹Ù²ÙÁö ¸¶½Ã¿À!! ata3k
-	// Å°º¸µå ¾÷ÇßÀ»¶§ ¹İÀÀÇÏ±â À§ÇØ Å¬¸®¾î ½ÃÄÑÁØ´Ù....
+	// ìœ„ì¹˜ ë°”ê¾¸ì§€ ë§ˆì‹œì˜¤!! ata3k
+	// í‚¤ë³´ë“œ ì—…í–ˆì„ë•Œ ë°˜ì‘í•˜ê¸° ìœ„í•´ í´ë¦¬ì–´ ì‹œì¼œì¤€ë‹¤....
 	if( g_nOldVirtKey != 0 )
 		g_bKeyTable[ g_nOldVirtKey ] = FALSE;	
 
@@ -1153,10 +1153,10 @@ void CNeuzApp::HashMD5( char* szResult, LPCTSTR szPWD )
 	md5( szResult, szBuffer );
 }
 
-// Ä³¸¯ÅÍ »èÁ¦ Å°¸¦ ¾ò´Â´Ù. ( szNo´Â À¯Àú ÀÔ·Â °ª )
-//     ÀÏº» - ÆĞ½º¿öµå
-//     ¹Ì±¹ - ÆĞ½º¿öµå 
-//     ±×¿Ü - ÀÔ·Â°ª 
+// ìºë¦­í„° ì‚­ì œ í‚¤ë¥¼ ì–»ëŠ”ë‹¤. ( szNoëŠ” ìœ ì € ì…ë ¥ ê°’ )
+//     ì¼ë³¸ - íŒ¨ìŠ¤ì›Œë“œ
+//     ë¯¸êµ­ - íŒ¨ìŠ¤ì›Œë“œ 
+//     ê·¸ì™¸ - ì…ë ¥ê°’ 
 LPCTSTR CNeuzApp::GetDeleteKey( LPCTSTR szNo )
 {
 	static char szKey[512];
@@ -1171,7 +1171,7 @@ LPCTSTR CNeuzApp::GetDeleteKey( LPCTSTR szNo )
 #else	// __THROUGHPORTAL0810
 			if( m_bHanGame )
 #endif	// __THROUGHPORTAL0810
-				strcpy( szKey, szNo );	// ÇÑ°ÔÀÓÀº ÀÌ¹Ì ¾ÏÈ£È­ µÇ¾î ÀÖÀ½ 
+				strcpy( szKey, szNo );	// í•œê²Œì„ì€ ì´ë¯¸ ì•”í˜¸í™” ë˜ì–´ ìˆìŒ 
 			else
 				HashMD5( szKey, szNo );
 			break;
@@ -1184,7 +1184,7 @@ LPCTSTR CNeuzApp::GetDeleteKey( LPCTSTR szNo )
 		case LANG_SPA:
 		case LANG_POR:
 		case LANG_FRE:
-		//case LANG_VTN: //º£Æ®³²¾î´Â ÀÌ¹Ì ¾ÏÈ£È­ µÇ¾î ÀÖ´Ù.
+		//case LANG_VTN: //ë² íŠ¸ë‚¨ì–´ëŠ” ì´ë¯¸ ì•”í˜¸í™” ë˜ì–´ ìˆë‹¤.
 		case LANG_RUS:
 			HashMD5( szKey, szNo );
 			break;
@@ -1230,8 +1230,8 @@ void CNeuzApp::SetAccountInfo( LPCTSTR lpszAccount, LPCTSTR lpszpw )
 
 int g_nOldVirtKey = 0;
 
-// Æ¯Á¤Å°µéÀº ´­·¶À»¶§ ¹İÀÀÇÏµµ·Ï ÇÑ´Ù...
-// ³ª¸ÓÁö Å°µéÀº ¾÷ÇßÀ»¶§ ¹İÀÀ
+// íŠ¹ì •í‚¤ë“¤ì€ ëˆŒë €ì„ë•Œ ë°˜ì‘í•˜ë„ë¡ í•œë‹¤...
+// ë‚˜ë¨¸ì§€ í‚¤ë“¤ì€ ì—…í–ˆì„ë•Œ ë°˜ì‘
 static BOOL IsPushedKey( int nVirtKey )
 {
 	if( nVirtKey == g_Neuz.Key.chUp || nVirtKey == g_Neuz.Key.chLeft || nVirtKey == 'S' || nVirtKey == 'D' || nVirtKey == VK_SPACE ||
@@ -1269,7 +1269,7 @@ LRESULT CNeuzApp::MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 	}
 	else
 	{
-		if( msg >= WM_IME_SETCONTEXT && msg <= WM_IME_KEYUP ) // ¸ğµç IME ¸Å½ÃÁö´Â ½ºÅµ 
+		if( msg >= WM_IME_SETCONTEXT && msg <= WM_IME_KEYUP ) // ëª¨ë“  IME ë§¤ì‹œì§€ëŠ” ìŠ¤í‚µ 
 			return 0;
 
 		if( CWndEdit::m_hIMCBackup == NULL )
@@ -1353,7 +1353,7 @@ LRESULT CNeuzApp::MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 			pWndGuide = (CWndGuideSystem*)g_WndMng.GetWndBase( APP_GUIDE );
 			if(pWndGuide && pWndGuide->IsVisible()) pWndGuide->m_Condition.nInputKey = (UINT)wParam;
 		#endif
-			if( g_WndMng.m_pLogOutWaitting ) // Á¾·áÁßÀÌ¸é Å°º¸µå ÀÔ·Â ºÒ°¡
+			if( g_WndMng.m_pLogOutWaitting ) // ì¢…ë£Œì¤‘ì´ë©´ í‚¤ë³´ë“œ ì…ë ¥ ë¶ˆê°€
 				break;
 			
 			if( KillWindow( wParam ) )
@@ -1386,7 +1386,7 @@ LRESULT CNeuzApp::MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 				}
 
 #if __VER >= 15 // __GUILD_HOUSE
-				GuildHouse->m_dwSelectedObjID = NULL_ID;		//ÃÖ¿ì¼±¼øÀ§ÀÌ¹Ç·Î °Á NULL_ID·Î ..
+				GuildHouse->m_dwSelectedObjID = NULL_ID;		//ìµœìš°ì„ ìˆœìœ„ì´ë¯€ë¡œ ê± NULL_IDë¡œ ..
 #endif
 			}
 #endif // __HOUSING
@@ -1441,7 +1441,7 @@ LRESULT CNeuzApp::MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 			}
 #endif // __HOUSING
 #if __VER >= 8 //__CSC_VER8_1
-			if( g_bKeyTable[ VK_MULTIPLY ] ) //VK_MULTIPLY ÀÓ½Ã·Î....
+			if( g_bKeyTable[ VK_MULTIPLY ] ) //VK_MULTIPLY ì„ì‹œë¡œ....
 			{
 				if(!g_WndMng.m_clearFlag)
 					g_WndMng.ClearAllWnd();
@@ -1590,7 +1590,7 @@ void CNeuzApp::BeginLoadThread()
 }
 
 //
-// µğ¹ÙÀÌ½º¿Í ºñµ¶¸³ÀûÀÎ ¸Å½¬, Æú¸®°ï µîÀ» Ã³À½ ÃÊ±âÈ­ ÇÏ´Â °÷ 
+// ë””ë°”ì´ìŠ¤ì™€ ë¹„ë…ë¦½ì ì¸ ë§¤ì‰¬, í´ë¦¬ê³¤ ë“±ì„ ì²˜ìŒ ì´ˆê¸°í™” í•˜ëŠ” ê³³ 
 //
 HRESULT CNeuzApp::InitDeviceObjects()
 {
@@ -1619,7 +1619,7 @@ HRESULT CNeuzApp::InitDeviceObjects()
 		g_dwUsablePS_Level = 2;
 #endif //__YENV
 
-	if( m_d3dCaps.TextureCaps & D3DPTEXTURECAPS_SQUAREONLY )	// Á¤»ç°¢ÇüÀÇ ÅØ½ºÃÄ¸¸ Áö¿øÇÏ´Â Ä«µå³ª µå¶óÀÌ¹ö¶ó¸é ½ÇÇØ¸øÇÑ´Ù.
+	if( m_d3dCaps.TextureCaps & D3DPTEXTURECAPS_SQUAREONLY )	// ì •ì‚¬ê°í˜•ì˜ í…ìŠ¤ì³ë§Œ ì§€ì›í•˜ëŠ” ì¹´ë“œë‚˜ ë“œë¼ì´ë²„ë¼ë©´ ì‹¤í•´ëª»í•œë‹¤.
 	{
 		MessageBox( GetSafeHwnd(), m_strArray.GetAt(12), m_strArray.GetAt(11), MB_OK );
 		ADDERRORMSG( m_strArray.GetAt(12) );
@@ -1634,7 +1634,7 @@ HRESULT CNeuzApp::InitDeviceObjects()
 
 	CWorld::StaticInitDeviceObjects( m_pd3dDevice );
 	
-	g_DamageNumMng.LoadTexture( m_pd3dDevice );		// µ¥¹ÌÁö ÀÌÆåÆ® 
+	g_DamageNumMng.LoadTexture( m_pd3dDevice );		// ë°ë¯¸ì§€ ì´í™íŠ¸ 
 
 	g_SfxMng.InitDeviceObjects(m_pd3dDevice);
 	g_SfxMeshMng.InitDeviceObjects(m_pd3dDevice);
@@ -1643,7 +1643,7 @@ HRESULT CNeuzApp::InitDeviceObjects()
 	g_Shadow.LoadElement( "Shadow.o3d" );
 
 	g_ParticleMng.InitDeviceObjects( m_pd3dDevice );
-	if( g_Option.m_nTextureQuality == 2 )		// ÅØ½ºÃÄ Ä÷¸®Æ¼ ³·À½ÀÌ¸é ÆÄÆ¼Å¬ ½ÇÇà¾ÈµÊ.
+	if( g_Option.m_nTextureQuality == 2 )		// í…ìŠ¤ì³ í€„ë¦¬í‹° ë‚®ìŒì´ë©´ íŒŒí‹°í´ ì‹¤í–‰ì•ˆë¨.
 		g_ParticleMng.m_bActive = FALSE;
 
 	m_TextureGauge[0].LoadTexture( m_pd3dDevice, MakePath( DIR_THEME, "GauMagChargeBG.TGA" ), 0xffff00ff, TRUE );
@@ -1724,11 +1724,11 @@ HRESULT CNeuzApp::InitDeviceObjects()
 	m_pEnvTex = NULL;
 #endif //__YENV	
 
-	// Å×¸¶ ¼¼ÆÃ 
+	// í…Œë§ˆ ì„¸íŒ… 
 	CWndBase::m_Theme.LoadTheme( m_pd3dDevice, "Default.thm" );
 	CWndBase::m_Theme.InitDeviceObjects( m_pd3dDevice );
 
-	// CWndBase ¼¼ÆÃ 
+	// CWndBase ì„¸íŒ… 
 	g_WndMng.m_pApp = this;
 	g_WndMng.m_pTheme = &CWndBase::m_Theme;
 	g_WndMng.m_pFont = CWndBase::m_Theme.m_pFontText;
@@ -1737,10 +1737,10 @@ HRESULT CNeuzApp::InitDeviceObjects()
 	CWndBase::m_hWnd = GetSafeHwnd();
 	CWndBase::SetForbidTexture( m_pd3dDevice, MakePath( DIR_ICON, "icon_forbid.dds" ) );
 
-	// ´ÙÀÌ¾ó·Î±× ¸Ş½ÃÁö ¼¼ÆÃ 
+	// ë‹¤ì´ì–¼ë¡œê·¸ ë©”ì‹œì§€ ì„¸íŒ… 
 	g_DialogMsg.InitDeviceObjects( m_pd3dDevice );
 
-	// 2DRender ¼¼ÆÃ 
+	// 2DRender ì„¸íŒ… 
 	m_2DRender.InitDeviceObjects( m_pd3dDevice );
 	m_2DRender.m_pFont = CWndBase::m_Theme.m_pFontText;
 	g_WndMng.OpenTitle( TRUE );

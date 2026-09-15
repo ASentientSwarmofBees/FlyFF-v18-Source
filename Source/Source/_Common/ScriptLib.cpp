@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineText.h"
 #include "defineObj.h"
 #include "party.h"
@@ -28,7 +28,7 @@ extern	CUserMng			g_UserMng;
 
 Functions		g_functions;
 
-// npcÀÌ¸§°ú Å°¸¦ ÀÌ¿ëÇØ¼­ ÇÔ¼ö°¡ ÀÖ´ÂÁö Ã£´Â´Ù.
+// npcì´ë¦„ê³¼ í‚¤ë¥¼ ì´ìš©í•´ì„œ í•¨ìˆ˜ê°€ ìˆëŠ”ì§€ ì°¾ëŠ”ë‹¤.
 BOOL HasKey( NPCDIALOG_INFO* pInfo, LPCTSTR szKey )
 {	
 	return CWorldDialog::GetInstance().Find( pInfo->GetName(), szKey );
@@ -517,7 +517,7 @@ int APIENTRY  MonHuntStartParty( NPCDIALOG_INFO*  pInfo, int nQuest, int nState,
 					return 0;
 				}
 
-				// ±âÁ¸¿¡ µé¾îÀÖ´ø...ÆÄÆ¼°¡ ±úÁø ÇÃ·¹ÀÌ¾îµé... ¸¶À»·Î ¼ÒÈ¯½ÃÅ²´Ù...
+				// ê¸°ì¡´ì— ë“¤ì–´ìˆë˜...íŒŒí‹°ê°€ ê¹¨ì§„ í”Œë ˆì´ì–´ë“¤... ë§ˆì„ë¡œ ì†Œí™˜ì‹œí‚¨ë‹¤...
 //				g_UserMng.ReplaceWorldArea( pProp->dwWorldId, WI_WORLD_MADRIGAL, 6968.0f, 3328.8f, 0.5f, FALSE );				
 
 				BOOL bSuccess = FALSE;
@@ -1057,7 +1057,7 @@ int APIENTRY GetLang( NPCDIALOG_INFO* pInfo )
 	return ::GetLanguage();
 }
 
-// Ä³¸¯ÅÍ ¸í º¯°æ
+// ìºë¦­í„° ëª… ë³€ê²½
 int	APIENTRY QuerySetPlayerName( NPCDIALOG_INFO* pInfo )
 {
 	CUser* pUser = prj.GetUser( pInfo->GetPcId()  );
@@ -1109,7 +1109,7 @@ Functions* GetDialogFunctions()
 
 void InitDialogFunctions()
 {
-	InitPredefineKey();		// ¹Ì¸® Á¤ÀÇµÈ Å°µéÀ» À§ÇÑ tableÀ» ¸¸µç´Ù.
+	InitPredefineKey();		// ë¯¸ë¦¬ ì •ì˜ëœ í‚¤ë“¤ì„ ìœ„í•œ tableì„ ë§Œë“ ë‹¤.
 
 	g_functions.SayName = SayName;
 	g_functions.Speak = Speak;
@@ -1220,7 +1220,7 @@ LPSCRIPT GetScript( CScript* pScript, LPCTSTR szKey )
 }
 
 //
-// Func(1);¸¦ °¡Á¤ÇßÀ» ¶§ (¿Í 1°ú )À» ÀĞ´Â´Ù.
+// Func(1);ë¥¼ ê°€ì •í–ˆì„ ë•Œ (ì™€ 1ê³¼ )ì„ ì½ëŠ”ë‹¤.
 //
 int EvalExp( CScript *pScript )
 {
@@ -1244,14 +1244,14 @@ int EvalDefault(CScript *pScript,int nDefault)
 	return v2;
 }
 //
-// Func(1);¸¦ °¡Á¤ÇßÀ» ¶§ (¿Í 1À» ÀĞ´Â´Ù.
+// Func(1);ë¥¼ ê°€ì •í–ˆì„ ë•Œ (ì™€ 1ì„ ì½ëŠ”ë‹¤.
 //
 void Eval1(CScript *pScript,int &v1)
 {
 	GetToken(); Compute(&v1);
 }
 //
-// Func(1,2);¸¦ °¡Á¤ÇßÀ» ¶§ (¿Í 1,2À» ÀĞ´Â´Ù.
+// Func(1,2);ë¥¼ ê°€ì •í–ˆì„ ë•Œ (ì™€ 1,2ì„ ì½ëŠ”ë‹¤.
 //
 void Eval2(CScript *pScript,int &v1,int &v2)
 {
@@ -1305,7 +1305,7 @@ void Get2Tkn( CScript *pScript )
 }
 
 ////////////////////////////////
-// »ç¿ëÀÚ Á¤ÀÇ ÇÔ¼öµé 
+// ì‚¬ìš©ì ì •ì˜ í•¨ìˆ˜ë“¤ 
 ////////////////////////////////
 
 // SayName(int nId,int nNameId,LPCTSTR lpszStr,...);
@@ -1336,7 +1336,7 @@ int SayName( CScript *pScript )
 	}
 	return 1;
 }
-// ¼­¹ö¿¡¼­ Å¬¶óÀÌ¾ğÆ®·Î ´ëÈ­ ¸Ş½ÃÁö¸¦ º¸³¾ ¶§ 
+// ì„œë²„ì—ì„œ í´ë¼ì´ì–¸íŠ¸ë¡œ ëŒ€í™” ë©”ì‹œì§€ë¥¼ ë³´ë‚¼ ë•Œ 
 // Speak(int nId,LPCTSTR lpszStr,...);
 int Speak( CScript *pScript )
 {
@@ -1363,7 +1363,7 @@ int Speak( CScript *pScript )
 	return 1;
 }
 
-// ¼­¹ö¿¡¼­ Å¬¶óÀÌ¾ğÆ®·Î ´ëÈ­ ¸Ş½ÃÁö¸¦ º¸³¾ ¶§ 
+// ì„œë²„ì—ì„œ í´ë¼ì´ì–¸íŠ¸ë¡œ ëŒ€í™” ë©”ì‹œì§€ë¥¼ ë³´ë‚¼ ë•Œ 
 // SpeakName(int nId,int nNameId,LPCTSTR lpszStr,...);
 int SpeakName( CScript *pScript )
 {
@@ -1427,7 +1427,7 @@ int GetGValue_( CScript *pScript )
 	int v = EvalExp(pScript);
 	if( v < 0 || v > 15 )
 	{
-		Error( "GetGValue_¿¡¼­ %d(0~15) °ª ÀÌ»ó", v );
+		Error( "GetGValue_ì—ì„œ %d(0~15) ê°’ ì´ìƒ", v );
 		v = 0;
 	}
 	return pScript->m_panGlobalVal[ v ];
@@ -1439,7 +1439,7 @@ int SetGValue( CScript *pScript )
 	GetToken();
 	if( v1 < 0 || v1 > 15 )
 	{
-		Error( "SetGValue¿¡¼­ %d(0~15) °ª ÀÌ»ó", v1 );
+		Error( "SetGValueì—ì„œ %d(0~15) ê°’ ì´ìƒ", v1 );
 		v1 = 0;
 	}
 	pScript->m_panGlobalVal[ v1 ] = v2;
@@ -1452,7 +1452,7 @@ int AddGValue( CScript *pScript )
 	GetToken();
 	if( v1 < 0 || v1 > 15 )
 	{
-		Error( "AddGValue¿¡¼­ %d(0~15) °ª ÀÌ»ó", v1 );
+		Error( "AddGValueì—ì„œ %d(0~15) ê°’ ì´ìƒ", v1 );
 		v1 = 0;
 	}
 	pScript->m_panGlobalVal[ v1 ] += v2;
@@ -1592,7 +1592,7 @@ int GetParam( CScript* pScript )
 	if( v1 < 0 || v1 > 3 )
 	{
 		v1 = 0;
-		Error( "GetParam¿¡¼­ Idx °ª ¹üÀ§ ÃÊ°ú(0~3)" ); 
+		Error( "GetParamì—ì„œ Idx ê°’ ë²”ìœ„ ì´ˆê³¼(0~3)" ); 
 	}
 	QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( v2 );
 	if( pQuestProp )
@@ -1722,7 +1722,7 @@ int CreateMover( CScript* pScript )
 	DWORD dwData;
 	if( pWorld->m_mapCreateChar.Lookup( nMoverId, (void*&)dwData ) )
 	{
-		// µ¿ÀÏÇÑ Å°°¡ µé¾îÀÖ´Ù. Á¦°ÅµÇ±â Àü¿¡´Â ¾ÈµÊ.
+		// ë™ì¼í•œ í‚¤ê°€ ë“¤ì–´ìˆë‹¤. ì œê±°ë˜ê¸° ì „ì—ëŠ” ì•ˆë¨.
 		return FALSE;
 	}
 	MoverProp* pMoverProp = prj.GetMoverProp( nMoverIdx );
@@ -1767,7 +1767,7 @@ int CreateChar( CScript* pScript )
 	DWORD dwData;
 	if( pWorld->m_mapCreateChar.Lookup( nMoverId, (void*&)dwData ) )
 	{
-		// µ¿ÀÏÇÑ Å°°¡ µé¾îÀÖ´Ù. Á¦°ÅµÇ±â Àü¿¡´Â ¾ÈµÊ.
+		// ë™ì¼í•œ í‚¤ê°€ ë“¤ì–´ìˆë‹¤. ì œê±°ë˜ê¸° ì „ì—ëŠ” ì•ˆë¨.
 		return FALSE;
 	}
 	//CWorld* pWorld = g_WorldMng.GetWorld( globalArray[1] );
@@ -1841,7 +1841,7 @@ int SetTimer( CScript* pScript )
 	GetToken();
 	if( nTimerId >= MAX_SCRIPT_TIMER )
 	{
-		Error( "Script : SetTimer¿¡¼­ Å¸ÀÌ¸Ó ID Max ÃÊ°ú ( %d / %d )", nTimerId, MAX_SCRIPT_TIMER  );
+		Error( "Script : SetTimerì—ì„œ íƒ€ì´ë¨¸ ID Max ì´ˆê³¼ ( %d / %d )", nTimerId, MAX_SCRIPT_TIMER  );
 		nTimerId = 0 ;
 	}
 	pScript->m_paTimer[ nTimerId ].Set( SEC( nSec ) );
@@ -1852,7 +1852,7 @@ int IsTimeOut( CScript* pScript )
 	int nTimerId = EvalExp( pScript );
 	if( nTimerId >= MAX_SCRIPT_TIMER )
 	{
-		Error( "Script : IsTimeOut Å¸ÀÌ¸Ó ID Max ÃÊ°ú ( %d / %d )", nTimerId, MAX_SCRIPT_TIMER  );
+		Error( "Script : IsTimeOut íƒ€ì´ë¨¸ ID Max ì´ˆê³¼ ( %d / %d )", nTimerId, MAX_SCRIPT_TIMER  );
 		nTimerId = 0 ;
 	}
 	if( pScript->m_paTimer[ nTimerId ].IsTimeOut() )
@@ -1985,7 +1985,7 @@ int Say(CScript* pScript)
 int EndSay( CScript* pScript )
 {
 	Get2Tkn( pScript );
-	// »ç¿ë ¾ÈÇÔ 
+	// ì‚¬ìš© ì•ˆí•¨ 
 	return 1;
 }
 
@@ -2209,7 +2209,7 @@ int MonHuntStartParty( CScript* pScript )
 					return 0;
 				}
 
-				// ±âÁ¸¿¡ µé¾îÀÖ´ø...ÆÄÆ¼°¡ ±úÁø ÇÃ·¹ÀÌ¾îµé... ¸¶À»·Î ¼ÒÈ¯½ÃÅ²´Ù...
+				// ê¸°ì¡´ì— ë“¤ì–´ìˆë˜...íŒŒí‹°ê°€ ê¹¨ì§„ í”Œë ˆì´ì–´ë“¤... ë§ˆì„ë¡œ ì†Œí™˜ì‹œí‚¨ë‹¤...
 //				g_UserMng.ReplaceWorldArea( pProp->dwWorldId, WI_WORLD_MADRIGAL, 6968.0f, 3328.8f, 0.5f, FALSE );				
 
 				BOOL bSuccess = FALSE;
@@ -2810,7 +2810,7 @@ int GetLang( CScript* pScript )
 	return ::GetLanguage();
 }
 
-// Ä³¸¯ÅÍ ¸í º¯°æ
+// ìºë¦­í„° ëª… ë³€ê²½
 int	QuerySetPlayerName( CScript* pScript )
 {
 	Get2Tkn( pScript );
@@ -2869,7 +2869,7 @@ int AddGPPoint( CScript* pScript )
 
 
 //
-// ÇÔ¼ö Å×ÀÌºí
+// í•¨ìˆ˜ í…Œì´ë¸”
 //
 InterFuncType interFunc[] = 
 {
@@ -2891,19 +2891,19 @@ InterFuncType interFunc[] =
 	"Random"            ,	Random            ,
 	"Replace"			,	Replace           ,
 	"ReplaceKey"		,	ReplaceKey        ,
-	"GetPlayerLvl"        , GetPlayerLvl      ,//( Id ) Ä³¸¯ÅÍÀÇ ·¹º§À» ¾ò¾î¿Â´Ù.
-	"GetPlayerJob"        , GetPlayerJob      ,//( Id ) Ä³¸¯ÅÍÀÇ Á÷¾÷À» ¾ò¾î¿Â´Ù. defineJobÀÇ ³Ñ¹ö
-	"SetQuestState"       , SetQuestState     ,//( Id ) ÇØ´ç ÀÌº¥Æ®¸¦ ½ÇÇà½ÃÄÑÁØ´Ù.
-	"GetQuestState"       , GetQuestState     ,//( Id ) ÇØ´ç ÀÌº¥Æ®°¡ ½ÇÇàÁßÀÎÁö È®ÀÎÇÑ´Ù.
-	"IsSetQuest"          , IsSetQuest        ,//( Id ) ÇØ´ç ÀÌº¥Æ®°¡ ½ÇÇàÁßÀÎÁö È®ÀÎÇÑ´Ù.
-	"SetQuest"            , SetQuest          ,//( Id ) ÇØ´ç ÀÌº¥Æ®°¡ ½ÇÇàÁßÀÎÁö È®ÀÎÇÑ´Ù.
-	"RemoveQuest"         , RemoveQuest       ,//( Id ) ÇØ´ç ÀÌº¥Æ®°¡ ½ÇÇàÁßÀÎÁö È®ÀÎÇÑ´Ù.
-	"AddExp"              , AddExp            ,// °æÇèÄ¡ ¾÷ 
-	"CreateItem"          , CreateItem        ,//( Id ) ÇØ´ç ÀÌº¥Æ®°¡ ½ÇÇàÁßÀÎÁö È®ÀÎÇÑ´Ù.
-	"AddGold"         ,		AddGold           ,//( Id ) ÇØ´ç ÀÌº¥Æ®°¡ ½ÇÇàÁßÀÎÁö È®ÀÎÇÑ´Ù.
+	"GetPlayerLvl"        , GetPlayerLvl      ,//( Id ) ìºë¦­í„°ì˜ ë ˆë²¨ì„ ì–»ì–´ì˜¨ë‹¤.
+	"GetPlayerJob"        , GetPlayerJob      ,//( Id ) ìºë¦­í„°ì˜ ì§ì—…ì„ ì–»ì–´ì˜¨ë‹¤. defineJobì˜ ë„˜ë²„
+	"SetQuestState"       , SetQuestState     ,//( Id ) í•´ë‹¹ ì´ë²¤íŠ¸ë¥¼ ì‹¤í–‰ì‹œì¼œì¤€ë‹¤.
+	"GetQuestState"       , GetQuestState     ,//( Id ) í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ì¤‘ì¸ì§€ í™•ì¸í•œë‹¤.
+	"IsSetQuest"          , IsSetQuest        ,//( Id ) í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ì¤‘ì¸ì§€ í™•ì¸í•œë‹¤.
+	"SetQuest"            , SetQuest          ,//( Id ) í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ì¤‘ì¸ì§€ í™•ì¸í•œë‹¤.
+	"RemoveQuest"         , RemoveQuest       ,//( Id ) í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ì¤‘ì¸ì§€ í™•ì¸í•œë‹¤.
+	"AddExp"              , AddExp            ,// ê²½í—˜ì¹˜ ì—… 
+	"CreateItem"          , CreateItem        ,//( Id ) í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ì¤‘ì¸ì§€ í™•ì¸í•œë‹¤.
+	"AddGold"         ,		AddGold           ,//( Id ) í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ì¤‘ì¸ì§€ í™•ì¸í•œë‹¤.
 	"RemoveGold"	,		RemoveGold	      ,
 	"GetPlayerGold"		,	GetPlayerGold	  ,
-	"QuerySetPlayerName",	QuerySetPlayerName,// ÇÃ·¹ÀÌ¾î ¸í º¯°æ
+	"QuerySetPlayerName",	QuerySetPlayerName,// í”Œë ˆì´ì–´ ëª… ë³€ê²½
 	"IsGuildQuest"	,		IsGuildQuest	  ,
 	"GetGuildQuestState",	GetGuildQuestState,// ( nQuestId )
 	"IsWormonServer"	,	IsWormonServer    ,// ()
@@ -2912,19 +2912,19 @@ InterFuncType interFunc[] =
 	"DropQuestItem"	,		DropQuestItem	  ,// ( dwItemId, dwProbability )
 	"ExpQuestEffect"	,	ExpQuestEffect	  ,// ( dwSfx, bNPC )
 	"RemoveItem"	,		RemoveItem	      ,//( dwItemId, num )
-	"GetLocalEventState",	GetLocalEventState,//±æµå´ëÇ×Àü(µ¶µµÀÌº¥Æ®)°ü·Ã 
-	"InitStat",				InitStat          ,// ½ºÅÈ ÃÊ±âÈ­
-	"InitStr",				InitStr           ,// ½ºÅÈ Str ÃÊ±âÈ­
-	"InitSta",				InitSta           ,// ½ºÅÈ Sta ÃÊ±âÈ­
-	"InitDex",				InitDex           ,// ½ºÅÈ Dex ÃÊ±âÈ­
-	"InitInt",				InitInt           ,// ½ºÅÈ Int ÃÊ±âÈ­
-	"RandomIndex"         , RandomIndex       ,//( Id ) ÇØ´ç ÀÌº¥Æ®°¡ ½ÇÇàÁßÀÎÁö È®ÀÎÇÑ´Ù.
-	"GetItemNum"        ,	GetItemNum        ,//( Id, Item_ID ) ÇØ´ç À¯ÀúÀÇ ÇØ´ç ¾ÆÀÌÅÛÀ» ÀÎº¥Åä¸®¿¡ ¸î°³ °¡Áö°í ÀÖ´ÂÁö È®ÀÎÇÑ´Ù. ÀåºñÃ¢ Á¦¿Ü
-	"RemoveAllItem"     ,	RemoveAllItem     ,//( Id, Item_ID) ÇØ´ç À¯ÀúÀÇ ÇØ´ç ¾ÆÀÌÅÛÀ» ¸ğµÎ Á¦°Å ÇÑ´Ù.
-	"ChangeJob"         ,	ChangeJob         ,//( Id ) ÇØ´ç ³Ñ¹ö·Î Á÷¾÷À» º¯°æÇØÁØ´Ù. defineJobÀÇ ³Ñ¹ö
-	"GetPlayerSex"      ,	GetPlayerSex      ,// ( ID ) ÇØ´ç À¯ÀúÀÇ ¼ºÀÌ ¹«¾ùÀÎÁö È®ÀÎ defineAttribute.h¿¡ ¼³Á¤
-	"EquipItem"         ,	EquipItem         ,//( ID, Item_ID) ÇØ´ç À¯Àú¿¡°Ô ÇØ´ç ¾ÆÀÌÅÛÀ» ÀåÂøÇØÁÜ ´É·ÂÄ¡°¡ ¾ÈµÇ¸é ÀÎº¥Åä¸®¿¡ ³Ö¾îÁÖ¸ç ÀÎº¥Åä¸®°¡ ²ËÂ÷¸é ¾Æ¹«°Å³ª ¶¥¿¡ ¶³¾î¶ß¸² ÀåÂøÇÏ°í ¶³¾îÁö´Â ¾ÆÀÌÅÛµµ µ¿ÀÏÇÏ°Ô Ã³¸®
-	"IsPlayerSkillPoint",	IsPlayerSkillPoint,// ÇØ´ç À¯Àú°¡ m_dwSkillPoint°ªÀÌ ÀÖÀ¸¸é TRUE, 0ÀÌ¸é FALSE
+	"GetLocalEventState",	GetLocalEventState,//ê¸¸ë“œëŒ€í•­ì „(ë…ë„ì´ë²¤íŠ¸)ê´€ë ¨ 
+	"InitStat",				InitStat          ,// ìŠ¤íƒ¯ ì´ˆê¸°í™”
+	"InitStr",				InitStr           ,// ìŠ¤íƒ¯ Str ì´ˆê¸°í™”
+	"InitSta",				InitSta           ,// ìŠ¤íƒ¯ Sta ì´ˆê¸°í™”
+	"InitDex",				InitDex           ,// ìŠ¤íƒ¯ Dex ì´ˆê¸°í™”
+	"InitInt",				InitInt           ,// ìŠ¤íƒ¯ Int ì´ˆê¸°í™”
+	"RandomIndex"         , RandomIndex       ,//( Id ) í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ì¤‘ì¸ì§€ í™•ì¸í•œë‹¤.
+	"GetItemNum"        ,	GetItemNum        ,//( Id, Item_ID ) í•´ë‹¹ ìœ ì €ì˜ í•´ë‹¹ ì•„ì´í…œì„ ì¸ë²¤í† ë¦¬ì— ëª‡ê°œ ê°€ì§€ê³  ìˆëŠ”ì§€ í™•ì¸í•œë‹¤. ì¥ë¹„ì°½ ì œì™¸
+	"RemoveAllItem"     ,	RemoveAllItem     ,//( Id, Item_ID) í•´ë‹¹ ìœ ì €ì˜ í•´ë‹¹ ì•„ì´í…œì„ ëª¨ë‘ ì œê±° í•œë‹¤.
+	"ChangeJob"         ,	ChangeJob         ,//( Id ) í•´ë‹¹ ë„˜ë²„ë¡œ ì§ì—…ì„ ë³€ê²½í•´ì¤€ë‹¤. defineJobì˜ ë„˜ë²„
+	"GetPlayerSex"      ,	GetPlayerSex      ,// ( ID ) í•´ë‹¹ ìœ ì €ì˜ ì„±ì´ ë¬´ì—‡ì¸ì§€ í™•ì¸ defineAttribute.hì— ì„¤ì •
+	"EquipItem"         ,	EquipItem         ,//( ID, Item_ID) í•´ë‹¹ ìœ ì €ì—ê²Œ í•´ë‹¹ ì•„ì´í…œì„ ì¥ì°©í•´ì¤Œ ëŠ¥ë ¥ì¹˜ê°€ ì•ˆë˜ë©´ ì¸ë²¤í† ë¦¬ì— ë„£ì–´ì£¼ë©° ì¸ë²¤í† ë¦¬ê°€ ê½‰ì°¨ë©´ ì•„ë¬´ê±°ë‚˜ ë•…ì— ë–¨ì–´ëœ¨ë¦¼ ì¥ì°©í•˜ê³  ë–¨ì–´ì§€ëŠ” ì•„ì´í…œë„ ë™ì¼í•˜ê²Œ ì²˜ë¦¬
+	"IsPlayerSkillPoint",	IsPlayerSkillPoint,// í•´ë‹¹ ìœ ì €ê°€ m_dwSkillPointê°’ì´ ìˆìœ¼ë©´ TRUE, 0ì´ë©´ FALSE
 	"SetScriptTimer"    ,	SetScriptTimer    ,
 	"AddKey"           ,	AddKey            ,
 	"AddAnswer"          ,	AddAnswer         ,
@@ -2936,7 +2936,7 @@ InterFuncType interFunc[] =
 	"IsPartyMaster"  ,		IsPartyMaster     ,
 	"GetPartyNum"	,		GetPartyNum	      ,
 	"GetPartyLevel"	,		GetPartyLevel     ,
-	"IsPartyGuild"	,		IsPartyGuild	  ,	// ±æµå°á¼º½Ã Ã¼Å©Á¶Ç× 
+	"IsPartyGuild"	,		IsPartyGuild	  ,	// ê¸¸ë“œê²°ì„±ì‹œ ì²´í¬ì¡°í•­ 
 	"IsGuild"        ,		IsGuild           ,
 	"IsGuildMaster"  ,		IsGuildMaster     ,
 	"CreateGuild"    ,		CreateGuild       ,
@@ -2958,19 +2958,19 @@ InterFuncType interFunc[] =
 	"RemoveMover"       ,	RemoveMover       , 
 	"AddCondKey"        ,	AddCondKey        , 
 	"GetEmptyInventoryNum", GetEmptyInventoryNum,
-	"GetGValue"			,	GetGValue_		  , //Å×½ºÆ®¿ë 
-	"SetGValue"			,	SetGValue		  , //Å×½ºÆ®¿ë 
-	"AddGValue"			,	AddGValue		  , //Å×½ºÆ®¿ë 
-	"SysMessage"        ,	SysMessage        , //Å×½ºÆ®¿ë 
-	"CreateMover"       ,	CreateMover       , //Å×½ºÆ®¿ë  
-	"IsTimeOut"         ,	IsTimeOut         , //Å×½ºÆ®¿ë 
-	"LaunchQuest"       ,	LaunchQuest       , //Å×½ºÆ®¿ë 
-	"GetParam"          ,	GetParam          , //Å×½ºÆ®¿ë 
+	"GetGValue"			,	GetGValue_		  , //í…ŒìŠ¤íŠ¸ìš© 
+	"SetGValue"			,	SetGValue		  , //í…ŒìŠ¤íŠ¸ìš© 
+	"AddGValue"			,	AddGValue		  , //í…ŒìŠ¤íŠ¸ìš© 
+	"SysMessage"        ,	SysMessage        , //í…ŒìŠ¤íŠ¸ìš© 
+	"CreateMover"       ,	CreateMover       , //í…ŒìŠ¤íŠ¸ìš©  
+	"IsTimeOut"         ,	IsTimeOut         , //í…ŒìŠ¤íŠ¸ìš© 
+	"LaunchQuest"       ,	LaunchQuest       , //í…ŒìŠ¤íŠ¸ìš© 
+	"GetParam"          ,	GetParam          , //í…ŒìŠ¤íŠ¸ìš© 
 	"Trace"             ,	Trace             ,
 	"Exit"              ,	Exit              ,
-	"GetPlayerExpPercent"        , GetPlayerExpPercent      ,//( Id ) Ä³¸¯ÅÍÀÇ expÀ» %·Î ¾ò¾î¿Â´Ù. 10000
-	"SetLevel"        , SetLevel      ,						//ÄÉ¸¯ÅÍÀÇ ·¹º§À» ¸ÂÃá´Ù
-	"AddGPPoint"        , AddGPPoint      ,					//Ä³¸¯ÅÍ¿¡ GPPOINT¸¦ ´õÇØÁØ´Ù.
+	"GetPlayerExpPercent"        , GetPlayerExpPercent      ,//( Id ) ìºë¦­í„°ì˜ expì„ %ë¡œ ì–»ì–´ì˜¨ë‹¤. 10000
+	"SetLevel"        , SetLevel      ,						//ì¼€ë¦­í„°ì˜ ë ˆë²¨ì„ ë§ì¶˜ë‹¤
+	"AddGPPoint"        , AddGPPoint      ,					//ìºë¦­í„°ì— GPPOINTë¥¼ ë”í•´ì¤€ë‹¤.
 	0                   ,   0                      
 };
 #endif // #if !defined(__REMOVE_SCIRPT_060712)

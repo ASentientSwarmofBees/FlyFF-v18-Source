@@ -1,4 +1,4 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 #include "ModelMng.h"
 
 
@@ -40,9 +40,9 @@ LPMODELELEM CModelMng::GetModelElem( DWORD dwType, DWORD dwIndex )
 	LPMODELELEM pElem = m_aaModelElem[ dwType ].GetAt( dwIndex );
 	if( pElem == NULL )
 	{
-		if( dwType == OT_ITEM )	// æ∆¿Ã≈€¿Œ ∞ÊøÏ, µ∑ ∏µ®¿ª ªÁøÎ   
+		if( dwType == OT_ITEM )	// ÏïÑÏù¥ÌÖúÏù∏ Í≤ΩÏö∞, Îèà Î™®Îç∏ÏùÑ ÏÇ¨Ïö©   
 //			return m_aaModelElem[ OT_ITEM ].GetAt( II_GOLD_SEED1 );
-			return m_aaModelElem[ OT_ITEM ].GetAt( II_ARM_M_VAG_HELMET02 );	// ¿œπ› πÊæÓ±∏ ∏æÁ¿∏∑Œ ±≥√º
+			return m_aaModelElem[ OT_ITEM ].GetAt( II_ARM_M_VAG_HELMET02 );	// ÏùºÎ∞ò Î∞©Ïñ¥Íµ¨ Î™®ÏñëÏúºÎ°ú ÍµêÏ≤¥
 		else
 		{
 			LPCTSTR szErr = Error( "GetModelElem - out of range: type=%d, size=%d, index=%d", (int)dwType, m_aaModelElem[ dwType ].GetSize(), (int)dwIndex );
@@ -127,7 +127,7 @@ void CModelMng::MakeMotionName( TCHAR* pszMotionName, DWORD dwType, DWORD dwInde
 	if( lpModelElem == NULL )
 		Error( "MakeMotionName GetModelElem dwType:%d dwIndex:%d, dwMotion:%d", dwType, dwIndex, dwMotion );
 
-	// √ ∞˙µ∆¿ª ∞ÊøÏ MTI_STAND(¡§¡ˆªÛ≈¬)∑Œ ∞≠¡¶ ºº∆√ 
+	// Ï¥àÍ≥ºÎêêÏùÑ Í≤ΩÏö∞ MTI_STAND(Ï†ïÏßÄÏÉÅÌÉú)Î°ú Í∞ïÏ†ú ÏÑ∏ÌåÖ 
 	if( (int)( dwMotion ) >= lpModelElem->m_nMax || dwMotion == NULL_ID )
 	{
 		dwMotion = MTI_STAND;
@@ -143,7 +143,7 @@ void CModelMng::MakeMotionName( TCHAR* pszMotionName, DWORD dwType, DWORD dwInde
 		_tcscat( pszMotionName, "_" );
 	}
 
-	// ∞¯∂ı¿œ ∞ÊøÏ MTI_STAND(¡§¡ˆªÛ≈¬)∑Œ ∞≠¡¶ ºº∆√ 
+	// Í≥µÎûÄÏùº Í≤ΩÏö∞ MTI_STAND(Ï†ïÏßÄÏÉÅÌÉú)Î°ú Í∞ïÏ†ú ÏÑ∏ÌåÖ 
 	if( lpszMotion[0] == 0 )
 	{
 		dwMotion = MTI_STAND;
@@ -160,7 +160,7 @@ BOOL CModelMng::LoadMotion( CModel* pModel, DWORD dwType, DWORD dwIndex, DWORD d
 	TCHAR szMotionName[ MAX_PATH ];
 	MakeMotionName( szMotionName, dwType, dwIndex, dwMotion );
 
-	((CModelObject*)pModel)->LoadMotion( szMotionName );		// bone animation ¿–¿Ω
+	((CModelObject*)pModel)->LoadMotion( szMotionName );		// bone animation ÏùΩÏùå
 	return TRUE;
 }
 CModel* CModelMng::LoadModel( LPDIRECT3DDEVICE9 pd3dDevice, int nType, int nIndex, BOOL bParts )
@@ -168,7 +168,7 @@ CModel* CModelMng::LoadModel( LPDIRECT3DDEVICE9 pd3dDevice, int nType, int nInde
 	LPMODELELEM lpModelElem = GetModelElem( nType, nIndex );
 	if( lpModelElem == NULL ) 
 	{
-		Error( "CModelMng::loadModel mdlObj/mdlDyna ø° objtype=%d index=%d bpart=%d ¿« ¡§∫∏∞° æ¯±∫ø©.", nType, nIndex, bParts );
+		Error( "CModelMng::loadModel mdlObj/mdlDyna Ïóê objtype=%d index=%d bpart=%d Ïùò Ï†ïÎ≥¥Í∞Ä ÏóÜÍµ∞Ïó¨.", nType, nIndex, bParts );
 		return NULL;
 	}
 
@@ -188,7 +188,7 @@ CModel* CModelMng::LoadModel( LPDIRECT3DDEVICE9 pd3dDevice, TCHAR* lpszFileName,
 	switch( nModelType )
 	{
 		case MODELTYPE_SFX: 
-		#ifndef __WORLDSERVER		// ªıπˆ¿¸ø°º± ø˘µÂø°º≠ sfx∏¶ new«œ¡ˆ æ ¥¬¥Ÿ.
+		#ifndef __WORLDSERVER		// ÏÉàÎ≤ÑÏ†ÑÏóêÏÑ† ÏõîÎìúÏóêÏÑú sfxÎ•º newÌïòÏßÄ ÏïäÎäîÎã§.
 			pModel = new CSfxModel;		
 			pModel->SetModelType( nModelType );
 			((CSfxModel*)pModel)->SetSfx( lpszFileName );
@@ -223,7 +223,7 @@ CModel* CModelMng::LoadModel( LPDIRECT3DDEVICE9 pd3dDevice, TCHAR* lpszFileName,
 				hr = pModel->RestoreDeviceObjects();
 			#ifdef _DEBUG
 				if( ((CModelObject*)pModel)->GetObject3D()->m_nHavePhysique )
-					Error( "CModelMng::LoadModel : %s∞° µø¿˚ø¿∫Í¡ß∆Æ¿Œµ• ¡§¿˚ø¿∫Í¡ß∆Æ∑Œ º≥¡§µ«æÓ ¿÷¥Ÿ.", lpszFileName );
+					Error( "CModelMng::LoadModel : %sÍ∞Ä ÎèôÏ†ÅÏò§Î∏åÏ†ùÌä∏Ïù∏Îç∞ Ï†ïÏ†ÅÏò§Î∏åÏ†ùÌä∏Î°ú ÏÑ§Ï†ïÎêòÏñ¥ ÏûàÎã§.", lpszFileName );
 			#endif			
 				m_mapFileToMesh.insert( MapStrToPtrType( lpszFileName, pModel ) );
 				pModel->m_pModelElem->m_bUsed = TRUE;
@@ -239,11 +239,11 @@ CModel* CModelMng::LoadModel( LPDIRECT3DDEVICE9 pd3dDevice, TCHAR* lpszFileName,
 			pModel->m_pModelElem->m_bUsed = TRUE;
 #if __VER >= 14 // __WING_ITEM
 			memset( szFileName, 0, sizeof(szFileName) );
-			_tcsncpy( szFileName, lpszFileName, _tcslen( lpszFileName ) - 4 );	// .o3d∏¶ ∂º∞Ì ∆ƒ¿œ∏Ì∫Œ∫–∏∏ ƒ´««
+			_tcsncpy( szFileName, lpszFileName, _tcslen( lpszFileName ) - 4 );	// .o3dÎ•º ÎñºÍ≥† ÌååÏùºÎ™ÖÎ∂ÄÎ∂ÑÎßå Ïπ¥Ìîº
 			_tcscat( szFileName, _T(".chr") );
 			switch( nType )
 			{
-			case OT_ITEM:	// æ∆¿Ã≈€¿œ ∞ÊøÏ, ø‹¿Â∫ª(.chr)¿Ã ¿÷¥Ÿ∏È ∑Œµ˘«—¥Ÿ (øπ: ≥Ø∞≥)
+			case OT_ITEM:	// ÏïÑÏù¥ÌÖúÏùº Í≤ΩÏö∞, Ïô∏Ïû•Î≥∏(.chr)Ïù¥ ÏûàÎã§Î©¥ Î°úÎî©ÌïúÎã§ (Ïòà: ÎÇ†Í∞ú)
 				{
 					CResFile resFp;
 					BOOL bResult = resFp.Open( MakePath( DIR_MODEL, szFileName ), "rb" );
@@ -251,24 +251,24 @@ CModel* CModelMng::LoadModel( LPDIRECT3DDEVICE9 pd3dDevice, TCHAR* lpszFileName,
 						((CModelObject*)pModel)->LoadBone( szFileName );
 					break;
 				}
-			case OT_MOVER:	// π´πˆ¿œ ∞ÊøÏ ø‹¿Â∫ª(.chr)¿ª ∑Œµ˘«—¥Ÿ
+			case OT_MOVER:	// Î¨¥Î≤ÑÏùº Í≤ΩÏö∞ Ïô∏Ïû•Î≥∏(.chr)ÏùÑ Î°úÎî©ÌïúÎã§
 				{
 					((CModelObject*)pModel)->LoadBone( szFileName );
 					break;
 				}
 			}
 #else // __WING_ITEM
-			if( nType == OT_MOVER )	// π´πˆ¥¬ ø‹¿Â∫ª(.chr)¿ª ∏’¿˙∑Œµ˘«ÿæﬂ«—¥Ÿ.  ø©±‚¥Ÿ ≥÷æÓµµ µ«¥¬∞«¡ˆ ∏Ù∞⁄±∫ -_-;
+			if( nType == OT_MOVER )	// Î¨¥Î≤ÑÎäî Ïô∏Ïû•Î≥∏(.chr)ÏùÑ Î®ºÏ†ÄÎ°úÎî©Ìï¥ÏïºÌïúÎã§.  Ïó¨Í∏∞Îã§ ÎÑ£Ïñ¥ÎèÑ ÎêòÎäîÍ±¥ÏßÄ Î™∞Í≤†Íµ∞ -_-;
 			{
 				memset( szFileName, 0, sizeof(szFileName) );
-				_tcsncpy( szFileName, lpszFileName, _tcslen( lpszFileName ) - 4 );	// .o3d∏¶ ∂º∞Ì ∆ƒ¿œ∏Ì∫Œ∫–∏∏ ƒ´««
+				_tcsncpy( szFileName, lpszFileName, _tcslen( lpszFileName ) - 4 );	// .o3dÎ•º ÎñºÍ≥† ÌååÏùºÎ™ÖÎ∂ÄÎ∂ÑÎßå Ïπ¥Ìîº
 				_tcscat( szFileName, _T(".chr") );
 				((CModelObject*)pModel)->LoadBone( szFileName );
 			}
 #endif // __WING_ITEM
 			if( bParts == FALSE )
 			{
-				if( ((CModelObject*)pModel)->LoadModel( lpszFileName ) == SUCCESS )  // skin ¿–¿Ω
+				if( ((CModelObject*)pModel)->LoadModel( lpszFileName ) == SUCCESS )  // skin ÏùΩÏùå
 				{
 					((CModelObject*)pModel)->RestoreDeviceObjects();
 				}
@@ -331,7 +331,7 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 		script.GetToken(); // {
 		script.GetToken(); // object name or }
 		int nBrace = 1;
-		// ø©±‚∫Œ≈Õ ø¿∫Í¡ß∆Æ ¥‹¿ß obj, ctrl, item, sfx, mover
+		// Ïó¨Í∏∞Î∂ÄÌÑ∞ Ïò§Î∏åÏ†ùÌä∏ Îã®ÏúÑ obj, ctrl, item, sfx, mover
 		while( nBrace )
 		{
 			ZeroMemory( &modelElem, sizeof( modelElem ) );
@@ -348,13 +348,13 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 			}
 		#ifdef _DEBUG
 			if( sizeof(szObject) <= strlen(script.token) + 1 )
-				Error( "%s Ω∫∆Æ∏µ¿« ±Ê¿Ã∞° ≥ π´±Ê¥Ÿ. %d", lpszFileName, strlen(script.token) );
+				Error( "%s Ïä§Ìä∏ÎßÅÏùò Í∏∏Ïù¥Í∞Ä ÎÑàÎ¨¥Í∏∏Îã§. %d", lpszFileName, strlen(script.token) );
 		#endif
 
-			_tcscpy( szObject, script.token ); // folder ∂«¥¬ object name
+			_tcscpy( szObject, script.token ); // folder ÎòêÎäî object name
 
 			script.SetMark();
-			// Ω∫≈©∏≥∆Æ Ω«ºˆ ∞À√‚ ∑Á∆æ « ø‰. - xuzhu -
+			// Ïä§ÌÅ¨Î¶ΩÌä∏ Ïã§Ïàò Í≤ÄÏ∂ú Î£®Ìã¥ ÌïÑÏöî. - xuzhu -
 			script.GetToken(); // {
 			if( *script.token == '{' )
 			{
@@ -362,10 +362,10 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 				script.GetToken(); // object name or }
 			#ifdef _DEBUG
 				if( sizeof(szObject) <= strlen(script.token) + 1 )
-					Error( "%s Ω∫∆Æ∏µ¿« ±Ê¿Ã∞° ≥ π´±Ê¥Ÿ. %d", lpszFileName, strlen(script.token) );
+					Error( "%s Ïä§Ìä∏ÎßÅÏùò Í∏∏Ïù¥Í∞Ä ÎÑàÎ¨¥Í∏∏Îã§. %d", lpszFileName, strlen(script.token) );
 			#endif
 
-				_tcscpy( szObject, script.token ); // folder ∂«¥¬ object name
+				_tcscpy( szObject, script.token ); // folder ÎòêÎäî object name
 				continue;
 			}
 			else
@@ -374,21 +374,21 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 			if( iObject == 0 )
 			{
 				CString str;
-				str.Format( "CModelMng::LoadScript(%d) 0¿∏∑Œ ¡ˆ¡§µ» ∏º« æ∆¿Ãµ : %s, %s", script.GetLineNum(), szObject, script.token );
+				str.Format( "CModelMng::LoadScript(%d) 0ÏúºÎ°ú ÏßÄÏ†ïÎêú Î™®ÏÖò ÏïÑÏù¥Îîî : %s, %s", script.GetLineNum(), szObject, script.token );
 				AfxMessageBox( str );
 			}
 			modelElem.m_dwType = iType;
 			modelElem.m_dwIndex = iObject;
 		#ifdef _DEBUG
 			if( sizeof(modelElem.m_szName) <= strlen(szObject) + 1 )
-				Error( "%s Ω∫∆Æ∏µ¿« ±Ê¿Ã∞° ≥ π´±Ê¥Ÿ. %d", lpszFileName, strlen(szObject) );
+				Error( "%s Ïä§Ìä∏ÎßÅÏùò Í∏∏Ïù¥Í∞Ä ÎÑàÎ¨¥Í∏∏Îã§. %d", lpszFileName, strlen(szObject) );
 		#endif
 			_tcscpy( modelElem.m_szName, szObject );
 			modelElem.m_dwModelType = script.GetNumber();
 			script.GetToken();
 		#ifdef _DEBUG
 			if( sizeof(modelElem.m_szPart) <= strlen(script.token) + 1 )
-				Error( "%s Ω∫∆Æ∏µ¿« ±Ê¿Ã∞° ≥ π´±Ê¥Ÿ. %d", lpszFileName, strlen(script.token) );
+				Error( "%s Ïä§Ìä∏ÎßÅÏùò Í∏∏Ïù¥Í∞Ä ÎÑàÎ¨¥Í∏∏Îã§. %d", lpszFileName, strlen(script.token) );
 		#endif
 			_tcscpy( modelElem.m_szPart, script.Token );
 			modelElem.m_bFly = script.GetNumber();
@@ -402,18 +402,18 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 			modelElem.m_bRenderFlag = script.GetNumber();
 
 			script.GetToken(); // object name or { or }
-			// ø©±‚∫Œ≈Õ æ÷¥œ∏ﬁ¿Ãº« 
+			// Ïó¨Í∏∞Î∂ÄÌÑ∞ Ïï†ÎãàÎ©îÏù¥ÏÖò 
 			if( *script.token == '{' )
 			{
 				script.SetMark();
 				script.GetToken(); // motion name or }
 				int nMax = 0;
-				// ∏º« ∏ÆΩ∫∆Æ ƒ´øÓ∆Æ 
+				// Î™®ÏÖò Î¶¨Ïä§Ìä∏ Ïπ¥Ïö¥Ìä∏ 
 				while( *script.token != '}' )
 				{
 				#ifdef _DEBUG
 					if( sizeof(szMotion) <= strlen(script.token) + 1 )
-						Error( "%s Ω∫∆Æ∏µ¿« ±Ê¿Ã∞° ≥ π´±Ê¥Ÿ. %d", lpszFileName, strlen(script.token) );
+						Error( "%s Ïä§Ìä∏ÎßÅÏùò Í∏∏Ïù¥Í∞Ä ÎÑàÎ¨¥Í∏∏Îã§. %d", lpszFileName, strlen(script.token) );
 				#endif
 					_tcscpy( szMotion, script.token );
 					iMotion = script.GetNumber();
@@ -423,7 +423,7 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 				}
 				nMax++;
 				script.GoMark();
-				// Ω«¡¶ ∏º« ∏ÆΩ∫∆Æ ºº∆√ 
+				// Ïã§Ï†ú Î™®ÏÖò Î¶¨Ïä§Ìä∏ ÏÑ∏ÌåÖ 
 				script.GetToken(); // motion name or }
 				modelElem.m_apszMotion = new TCHAR[ nMax * 32 ];
 				modelElem.m_nMax = nMax;
@@ -433,7 +433,7 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 				{
 				#ifdef _DEBUG
 					if( sizeof(szMotion) <= strlen(script.token) + 1 )
-						Error( "%s Ω∫∆Æ∏µ¿« ±Ê¿Ã∞° ≥ π´±Ê¥Ÿ. %d", lpszFileName, strlen(script.token) );
+						Error( "%s Ïä§Ìä∏ÎßÅÏùò Í∏∏Ïù¥Í∞Ä ÎÑàÎ¨¥Í∏∏Îã§. %d", lpszFileName, strlen(script.token) );
 				#endif
 					_tcscpy( szMotion, script.token );
 					iMotion = script.GetNumber();
@@ -441,7 +441,7 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 					if( lpszMotion[0] )
 					{
 						CString str;
-						str.Format( "CModelMng::LoadScript(%d) %s∏º« ¡ﬂ∫π æ∆¿Ãµ : %s", script.GetLineNum(), lpszFileName, lpszMotion );
+						str.Format( "CModelMng::LoadScript(%d) %sÎ™®ÏÖò Ï§ëÎ≥µ ÏïÑÏù¥Îîî : %s", script.GetLineNum(), lpszFileName, lpszMotion );
 						AfxMessageBox( str );
 					}
 					_tcscpy( lpszMotion, szMotion );
@@ -452,7 +452,7 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 			if( apModelElem->GetAt( iObject ) )
 			{
 				CString str;
-				str.Format( "CModelMng::LoadScript(%d) %s¡ﬂ∫π æ∆¿Ãµ : type = %d, idx = %d, name = %s", script.GetLineNum(), lpszFileName, iType, iObject, modelElem.m_szName );
+				str.Format( "CModelMng::LoadScript(%d) %sÏ§ëÎ≥µ ÏïÑÏù¥Îîî : type = %d, idx = %d, name = %s", script.GetLineNum(), lpszFileName, iType, iObject, modelElem.m_szName );
 				AfxMessageBox( str );
 			}
 
@@ -515,7 +515,7 @@ BOOL CModelMng::LoadScript( LPCTSTR lpszFileName )
 //////////////////////////////////////////////////////////
 			
 		#ifdef __WORLDSERVER
-			if( iType != OT_SFX )	// sfx¥¬ º≠πˆø°º≠ skip
+			if( iType != OT_SFX )	// sfxÎäî ÏÑúÎ≤ÑÏóêÏÑú skip
 				apModelElem->SetAtGrow( iObject, &modelElem );
 		#else
 			apModelElem->SetAtGrow( iObject, &modelElem );

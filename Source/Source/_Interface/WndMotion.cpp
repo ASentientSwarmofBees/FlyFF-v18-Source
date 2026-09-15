@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "AppDefine.h"
 #include "WndMotion.h"
 #include "WndManager.h"
@@ -32,11 +32,11 @@ void CWndMotion::OnInitialUpdate()
 	WTCITEM tabTabItem;
 	
 	tabTabItem.mask = WTCIF_TEXT | WTCIF_PARAM;
-	tabTabItem.pszText = prj.GetText(TID_GAME_TOOLTIP_MOTION);//"±âº»";
+	tabTabItem.pszText = prj.GetText(TID_GAME_TOOLTIP_MOTION);//"ê¸°ë³¸";
 	tabTabItem.pWndBase = &m_wndMotion1;
 	lpTapCtrl->InsertItem( 0, &tabTabItem );
 	
-	tabTabItem.pszText = prj.GetText(TID_GAME_TOOLTIP_EMOTICON);//"ÀÚ¼¼È÷";
+	tabTabItem.pszText = prj.GetText(TID_GAME_TOOLTIP_EMOTICON);//"ìì„¸íˆ";
 	tabTabItem.pWndBase = &m_wndEmoticon;
 	lpTapCtrl->InsertItem( 1, &tabTabItem );
 	lpTapCtrl->SetCurSel( 0 );
@@ -50,10 +50,10 @@ void CWndMotion::OnInitialUpdate()
 	CRect rectWindow = GetWindowRect();
 	Move( point );
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndMotion::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_MOTION, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndMotion::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -240,7 +240,7 @@ BOOL CWndMotion1::Process( void )
 				
 				if( g_pPlayer->m_nCheerPoint < MAX_CHEERPOINT )
 				{
-					CTimeSpan ct( ((g_pPlayer->m_dwTickCheer - GetTickCount()) / 1000) );		// ³²Àº½Ã°£À» ÃÊ´ÜÀ§·Î º¯È¯ÇØ¼­ ³Ñ°ÜÁÜ
+					CTimeSpan ct( ((g_pPlayer->m_dwTickCheer - GetTickCount()) / 1000) );		// ë‚¨ì€ì‹œê°„ì„ ì´ˆë‹¨ìœ„ë¡œ ë³€í™˜í•´ì„œ ë„˜ê²¨ì¤Œ
 					
 					TCHAR szChar2[ 256 ] = { 0 };
 					if( ct.GetMinutes() <= 0 )

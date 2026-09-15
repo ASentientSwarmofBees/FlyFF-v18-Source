@@ -1,4 +1,4 @@
-#ifndef __AI_BIGMUSCLE_H
+ï»¿#ifndef __AI_BIGMUSCLE_H
 #define __AI_BIGMUSCLE_H
 
 #include "mempooler.h"
@@ -6,20 +6,20 @@
 class CAIBigMuscle : public CAIInterface
 {
 	BOOL	m_bEventFlag[5];
-	D3DXVECTOR3 m_vPosBegin;		// ÃÖÃÊ »ı¼ºµÈ ÁÂÇ¥.
-	int		m_nEvent;				// ÇöÀç ÆĞÅÏ »óÅÂ.
-	int		m_nAttackType;			// °ø°İ ¹æ½Ä.
-	DWORD	m_tmReattack;			// Àç°ø°İ Å¸ÀÌ¸Ó.
-	DWORD	m_tmAddReattack;		// Àç°ø°İ Å¸ÀÌ¸ÓÀÇ ·£´ıº¯À§°ª.(ÀÌ ·£´ı°ªÀ¸·Î ´õ »¡¸® ½î´Â °æ¿ìµµ »ı±è)
-	DWORD	m_tmTrace;				// ÃßÀû½Ã°£.
-	DWORD	m_tmTimeOver;			// ¿¹»óÄ¡ ¸øÇÑ »óÈ²À¸·Î ´õÀÌ»ó °ø°İÀ» ¾ÈÇÏ´ø°¡ ÇÏ´Â°æ¿ì¸¦ °¨º°
-	OBJID	m_idTarget;				// °ø°İ ´ë»ó
-	D3DXVECTOR3	m_vTarget;			// °ø°İ À§Ä¡.
-	int		m_nAppearCnt;			// µîÀå Ä«¿îÅÍ.
+	D3DXVECTOR3 m_vPosBegin;		// ìµœì´ˆ ìƒì„±ëœ ì¢Œí‘œ.
+	int		m_nEvent;				// í˜„ì¬ íŒ¨í„´ ìƒíƒœ.
+	int		m_nAttackType;			// ê³µê²© ë°©ì‹.
+	DWORD	m_tmReattack;			// ì¬ê³µê²© íƒ€ì´ë¨¸.
+	DWORD	m_tmAddReattack;		// ì¬ê³µê²© íƒ€ì´ë¨¸ì˜ ëœë¤ë³€ìœ„ê°’.(ì´ ëœë¤ê°’ìœ¼ë¡œ ë” ë¹¨ë¦¬ ì˜ëŠ” ê²½ìš°ë„ ìƒê¹€)
+	DWORD	m_tmTrace;				// ì¶”ì ì‹œê°„.
+	DWORD	m_tmTimeOver;			// ì˜ˆìƒì¹˜ ëª»í•œ ìƒí™©ìœ¼ë¡œ ë”ì´ìƒ ê³µê²©ì„ ì•ˆí•˜ë˜ê°€ í•˜ëŠ”ê²½ìš°ë¥¼ ê°ë³„
+	OBJID	m_idTarget;				// ê³µê²© ëŒ€ìƒ
+	D3DXVECTOR3	m_vTarget;			// ê³µê²© ìœ„ì¹˜.
+	int		m_nAppearCnt;			// ë“±ì¥ ì¹´ìš´í„°.
 	
-	OBJID	m_idLastAttacker;		// ³¯ ¸¶Áö¸·À¸·Î °ø°İÇÑ ½¦¸®.
+	OBJID	m_idLastAttacker;		// ë‚  ë§ˆì§€ë§‰ìœ¼ë¡œ ê³µê²©í•œ ì‰ë¦¬.
 
-	BOOL	m_bDefenseMode;			// ¹æ¾îÅÂ¼¼ ¸ğµå.
+	BOOL	m_bDefenseMode;			// ë°©ì–´íƒœì„¸ ëª¨ë“œ.
 
 	BOOL	MoveProcessIdle();
 	BOOL	MoveProcessRage();
@@ -27,7 +27,7 @@ class CAIBigMuscle : public CAIInterface
 	
 	BOOL	StopProcessIdle();
 
-	BOOL	SelectTarget( void );		// ¸®¾îÅÃ Å¸ÀÌ¹ÖÀÌ ‰çÀ»¶§ Å¸°ÙÀ» ¼±Á¤ÇÔ.
+	BOOL	SelectTarget( void );		// ë¦¬ì–´íƒ íƒ€ì´ë°ì´ ë¬ì„ë•Œ íƒ€ê²Ÿì„ ì„ ì •í•¨.
 		
 	void Init( void );
 	void Destroy( void );

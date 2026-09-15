@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "defineSound.h"
 #include "defineText.h"
 #include "defineObj.h"
@@ -112,7 +112,7 @@ void CWndConfirmSell::OnDraw( C2DRender* p2DRender )
 			char szNumberbuf[8] = {0, };
 			strncpy( szNumberbuf, szNumber, 8 );
 			
-			// 0 : °ø¹é, 48 : ¼ıÀÚ 0, 57 : ¼ıÀÚ 9
+			// 0 : ê³µë°±, 48 : ìˆ«ì 0, 57 : ìˆ«ì 9
 			if( 47 >= szNumberbuf[i] || szNumberbuf[i] >= 58 )
 			{
 				if( szNumberbuf[i] != 0 )
@@ -294,7 +294,7 @@ void CWndConfirmBuy::OnLButtonDown( UINT nFlags, CPoint point )
 { 
 } 
 
-// »ì·Á´Â ¼ö·®ÀÌ ¹Ù²î¸é, °¡°İÇ¥½Ãµµ º¯°æ½ÃÅ²´Ù.
+// ì‚´ë ¤ëŠ” ìˆ˜ëŸ‰ì´ ë°”ë€Œë©´, ê°€ê²©í‘œì‹œë„ ë³€ê²½ì‹œí‚¨ë‹¤.
 void CWndConfirmBuy::OnChangeBuyCount( DWORD dwBuy )
 {
 //	TCHAR szString[ 64 ];
@@ -404,7 +404,7 @@ BOOL CWndConfirmBuy::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 #endif //__CSC_VER11_3
 	if( dwCost == 0 )
 	{
-		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) ); // "´Ù¸¥ »ç¿ëÀÚ¿¡°Ô ÆÈ·È½À´Ï´Ù."
+		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) ); // "ë‹¤ë¥¸ ì‚¬ìš©ìì—ê²Œ íŒ”ë ¸ìŠµë‹ˆë‹¤."
 		Destroy();
 		return TRUE;
 	}
@@ -425,7 +425,7 @@ void CWndConfirmBuy::OnDraw( C2DRender* p2DRender )
 #endif // __TAX
 	if( dwCost == 0 )
 	{
-		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) );  // ´Ù¸¥ »ç¿ëÀÚ¿¡°Ô ÆÈ·È½À´Ï´Ù.
+		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) );  // ë‹¤ë¥¸ ì‚¬ìš©ìì—ê²Œ íŒ”ë ¸ìŠµë‹ˆë‹¤.
 		Destroy();
 		return;
 	}
@@ -445,7 +445,7 @@ BOOL CWndConfirmBuy::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		nBuyNum = atoi(m_pEdit->GetString());
 		++nBuyNum;
 
-#if __VER >= 13 // __MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#if __VER >= 13 // __MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 		if( m_pItemElem->GetProp()->dwItemKind3 == IK3_BCHARM ||
 			m_pItemElem->GetProp()->dwItemKind3 == IK3_RCHARM ||
 			m_pItemElem->GetProp()->dwItemKind3 == IK3_ARROW ||
@@ -456,13 +456,13 @@ BOOL CWndConfirmBuy::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			if ( nBuyNum > 9999 )
 				nBuyNum = 9999;
 		}
-#else	//	__MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#else	//	__MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 		if (m_pItemElem->GetProp()->dwItemKind3 == IK3_ARROW || m_pItemElem->GetProp()->dwItemKind3 == IK3_CROSSARROW)
 		{
 			if ( nBuyNum > 1000 )
 				nBuyNum = 1000;
 		}
-#endif // __MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#endif // __MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 		else
 		{
 			if ( nBuyNum > MAX_BUY_ITEMCOUNT )
@@ -483,7 +483,7 @@ BOOL CWndConfirmBuy::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	case WIDC_MAX:
 		{
 
-#if __VER >= 13 // __MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#if __VER >= 13 // __MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 			if( m_pItemElem->GetProp()->dwItemKind3 == IK3_BCHARM ||
 				m_pItemElem->GetProp()->dwItemKind3 == IK3_RCHARM ||
 				m_pItemElem->GetProp()->dwItemKind3 == IK3_ARROW ||
@@ -491,10 +491,10 @@ BOOL CWndConfirmBuy::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				m_pItemElem->GetProp()->dwID == II_CHP_RED
 				)
 				OnChangeBuyCount( 9999 );
-#else	//	__MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#else	//	__MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 		if (m_pItemElem->GetProp()->dwItemKind3 == IK3_ARROW || m_pItemElem->GetProp()->dwItemKind3 == IK3_CROSSARROW)
 				OnChangeBuyCount( 1000 );
-#endif // __MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#endif // __MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 #if __VER >= 11 // __MA_VER11_02
 			else if( m_pItemElem->m_dwItemId == II_SYS_SYS_SCR_PERIN )
 				OnChangeBuyCount( 21 );
@@ -521,7 +521,7 @@ BOOL CWndConfirmBuy::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 			nBuyNum = max( nBuyNum, 0 );
 			DWORD dwMAXCount = MAX_BUY_ITEMCOUNT;
-#if __VER >= 13 // __MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#if __VER >= 13 // __MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 			if( m_pItemElem->GetProp()->dwItemKind3 == IK3_BCHARM ||
 				m_pItemElem->GetProp()->dwItemKind3 == IK3_RCHARM ||
 				m_pItemElem->GetProp()->dwItemKind3 == IK3_ARROW ||
@@ -529,10 +529,10 @@ BOOL CWndConfirmBuy::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				m_pItemElem->GetProp()->dwID == II_CHP_RED
 				)
 				dwMAXCount = 9999;
-#else	//	__MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#else	//	__MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 			if (m_pItemElem->GetProp()->dwItemKind3 == IK3_ARROW || m_pItemElem->GetProp()->dwItemKind3 == IK3_CROSSARROW)
 				dwMAXCount = 1000;
-#endif // __MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#endif // __MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 #if __VER >= 11 // __MA_VER11_02
 			else if( m_pItemElem->m_dwItemId == II_SYS_SYS_SCR_PERIN )
 				dwMAXCount = 21;
@@ -559,7 +559,7 @@ BOOL CWndConfirmBuy::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 void CWndConfirmBuy::OnOK()
 {
 #if __VER >= 11 // __CSC_VER11_3
-	//¾Æ·¡ ¸Ş¼¼Áö Ã³¸® ÇÒ °Í
+	//ì•„ë˜ ë©”ì„¸ì§€ ì²˜ë¦¬ í•  ê²ƒ
 	DWORD dwCost;
 	int nBuy;
 
@@ -568,14 +568,14 @@ void CWndConfirmBuy::OnOK()
 		dwCost = m_pItemElem->GetChipCost();
 		if( m_pItemElem->m_nItemNum < 1 || dwCost == 0 )
 		{
-			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) );	// ´Ù¸¥ »ç¿ëÀÚ¿¡°Ô ÆÈ·È½À´Ï´Ù.
+			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) );	// ë‹¤ë¥¸ ì‚¬ìš©ìì—ê²Œ íŒ”ë ¸ìŠµë‹ˆë‹¤.
 			return;
 		}
 
 		nBuy = atoi( m_pEdit->GetString() );
 		if( (int)( (nBuy * dwCost) ) > g_pPlayer->m_Inventory.GetAtItemNum( II_CHP_RED ) )
 		{
-			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_GAME_CANNTBUY_REDCHIP) ) );	// Ä¨ÀÌ ºÎÁ·ÇÕ´Ï´Ù.	
+			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_GAME_CANNTBUY_REDCHIP) ) );	// ì¹©ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.	
 			return;
 		}
 	}
@@ -591,14 +591,14 @@ void CWndConfirmBuy::OnOK()
 #endif // __TAX
 		if( m_pItemElem->m_nItemNum < 1 || dwCost == 0 )
 		{
-			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) );	// ´Ù¸¥ »ç¿ëÀÚ¿¡°Ô ÆÈ·È½À´Ï´Ù.
+			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) );	// ë‹¤ë¥¸ ì‚¬ìš©ìì—ê²Œ íŒ”ë ¸ìŠµë‹ˆë‹¤.
 			return;
 		}
 
 		nBuy = atoi( m_pEdit->GetString() );
 		if( (int)( (nBuy * dwCost) ) > g_pPlayer->GetGold() )
 		{
-			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0009) ) );	// µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù.	
+			g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0009) ) );	// ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤.	
 			return;
 		}
 	}
@@ -606,20 +606,20 @@ void CWndConfirmBuy::OnOK()
 	DWORD dwCost = m_pItemElem->GetCost();
 	if( m_pItemElem->m_nItemNum < 1 || dwCost == 0 )
 	{
-		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) );	// ´Ù¸¥ »ç¿ëÀÚ¿¡°Ô ÆÈ·È½À´Ï´Ù.
+		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0006) ) );	// ë‹¤ë¥¸ ì‚¬ìš©ìì—ê²Œ íŒ”ë ¸ìŠµë‹ˆë‹¤.
 		return;
 	}
 
 	int nBuy = atoi( m_pEdit->GetString() );
 	if( (nBuy * dwCost) > g_pPlayer->GetGold() )
 	{
-		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0009) ) );	// µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù.	
+		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0009) ) );	// ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤.	
 		return;
 	}
 #endif //__CSC_VER11_3
 
 	DWORD dwMAXCount = MAX_BUY_ITEMCOUNT;
-#if __VER >= 13 // __MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#if __VER >= 13 // __MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 	if( m_pItemElem->GetProp()->dwItemKind3 == IK3_BCHARM ||
 		m_pItemElem->GetProp()->dwItemKind3 == IK3_RCHARM ||
 		m_pItemElem->GetProp()->dwItemKind3 == IK3_ARROW ||
@@ -627,19 +627,19 @@ void CWndConfirmBuy::OnOK()
 		m_pItemElem->GetProp()->dwID == II_CHP_RED
 		)
 		dwMAXCount = 9999;
-#else	//	__MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#else	//	__MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 	if( m_pItemElem->GetProp()->dwItemKind3 == IK3_ARROW || m_pItemElem->GetProp()->dwItemKind3 == IK3_CROSSARROW )
 		dwMAXCount = 1000;
-#endif // __MAX_BUY_ITEM9999			//  È­»ìÆ÷½ºÅÍ±¸ÀÔ°¹¼ö9999°³
+#endif // __MAX_BUY_ITEM9999			//  í™”ì‚´í¬ìŠ¤í„°êµ¬ì…ê°¯ìˆ˜9999ê°œ
 
 	if( nBuy < 1 || nBuy > (int)( dwMAXCount ) )
 	{
-		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0086) ) );	// »óÁ¡ °Å·¡ Áß ±¸ÀÔ / ÆÇ¸Å °³¼ö°¡ 1 ~ 99 »çÀÌ°¡ ¾Æ´Ñ ¼ö¸¦ ÀÔ·Â	
+		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0086) ) );	// ìƒì  ê±°ë˜ ì¤‘ êµ¬ì… / íŒë§¤ ê°œìˆ˜ê°€ 1 ~ 99 ì‚¬ì´ê°€ ì•„ë‹Œ ìˆ˜ë¥¼ ì…ë ¥	
 		return;
 	}
 	if( nBuy > m_pItemElem->m_nItemNum )
 	{
-		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0087) ) );	// °³ÀÎ »óÁ¡ °Å·¡ Áß ±¸ÀÔ ÇÏ·Á´Â °³¼ö°¡ »óÁ¡¿¡ ÆÇ¸ÅÇÏ´Â °³¼ö º¸´Ù ¸¹°Å³ª, ÀÌ¹Ì Ç°Àı	
+		g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0087) ) );	// ê°œì¸ ìƒì  ê±°ë˜ ì¤‘ êµ¬ì… í•˜ë ¤ëŠ” ê°œìˆ˜ê°€ ìƒì ì— íŒë§¤í•˜ëŠ” ê°œìˆ˜ ë³´ë‹¤ ë§ê±°ë‚˜, ì´ë¯¸ í’ˆì ˆ	
 		return;
 	}
 
@@ -878,7 +878,7 @@ BOOL CWndShop::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 						{
 							if( pItemElem->IsCharged() )
 							{
-								// 090527 ±èÃ¢¼· - À¯·áÁö¿ªÀÔÀå±Ç »ç¿ë ÈÄ »ç¿ë±â°£ÀÌ ³²¾ÆÀÖ´Â »óÅÂ¿¡¼­ NPC¸¦ ÅëÇØ »óÁ¡¿¡ ÆÈ °æ¿ì °æ°íÃ¢ÀÌ ¶ßÁö¾Ê´Â Çö»ó ¼öÁ¤
+								// 090527 ê¹€ì°½ì„­ - ìœ ë£Œì§€ì—­ì…ì¥ê¶Œ ì‚¬ìš© í›„ ì‚¬ìš©ê¸°ê°„ì´ ë‚¨ì•„ìˆëŠ” ìƒíƒœì—ì„œ NPCë¥¼ í†µí•´ ìƒì ì— íŒ” ê²½ìš° ê²½ê³ ì°½ì´ ëœ¨ì§€ì•ŠëŠ” í˜„ìƒ ìˆ˜ì •
 								//if( !pItemElem->m_dwKeepTime )
 								bWarning	= TRUE;
 							}
@@ -919,7 +919,7 @@ BOOL CWndShop::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					else
 					{
 						g_WndMng.PutString( prj.GetText(TID_GAME_EQUIPTRADE), NULL, prj.GetTextColor(TID_GAME_EQUIPTRADE) );
-//						 g_WndMng.PutString( "ÀåÂøµÈ¾ÆÀÌÅÛÀº ÆÈ¼ö ¾ø½À´Ï´Ù.", NULL, 0xffff0000 );
+//						 g_WndMng.PutString( "ì¥ì°©ëœì•„ì´í…œì€ íŒ”ìˆ˜ ì—†ìŠµë‹ˆë‹¤.", NULL, 0xffff0000 );
 					}
 				}
 			}
@@ -1095,16 +1095,16 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 	
 	CRect rect = GetClientRect();
 
-	// ºäÆ÷Æ® ¼¼ÆÃ 
+	// ë·°í¬íŠ¸ ì„¸íŒ… 
 	D3DVIEWPORT9 viewport;
 
-	// ¿ùµå 
+	// ì›”ë“œ 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matRot;
 	D3DXMATRIXA16 matTrans;
 
-	// Ä«¸Ş¶ó 
+	// ì¹´ë©”ë¼ 
 	D3DXMATRIX  matView;
 	D3DXVECTOR3 vecLookAt( 0.0f, 0.0f, 3.0f );
 	D3DXVECTOR3 vecPos(  0.0f, 0.7f, -3.5f );
@@ -1118,7 +1118,7 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 	SetLightVec( vDir );
 #endif //__YENV
 	
-	// ¿ŞÂÊ ¿øº» ¸ğµ¨ ·£´õ¸µ
+	// ì™¼ìª½ ì›ë³¸ ëª¨ë¸ ëœë”ë§
 	{
 		LPWNDCTRL lpFace = GetWndCtrl( WIDC_CUSTOM5 );
 
@@ -1160,7 +1160,7 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 		D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 		pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-		// ·£´õ¸µ 
+		// ëœë”ë§ 
 		pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 		pd3dDevice->SetRenderState( D3DRS_LIGHTING, FALSE );//m_bViewLight );
 		
@@ -1186,7 +1186,7 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 			g_pPlayer->OverCoatItemRenderCheck(m_pModel);
 
 #if __VER < 8 //__CSC_VER8_4
-		// Çï¸äÀÌ ¸Ó¸®Ä«¶ô ³¯·Á¾ßÇÏ´Â°ÍÀÌ³Ä?  // ÀÎº¥ÀÌ ÀÖ´Â °æ¿ì 
+		// í—¬ë©§ì´ ë¨¸ë¦¬ì¹´ë½ ë‚ ë ¤ì•¼í•˜ëŠ”ê²ƒì´ëƒ?  // ì¸ë²¤ì´ ìˆëŠ” ê²½ìš° 
 		CItemElem* pItemElem	= g_pPlayer->GetEquipItem( PARTS_CAP );
 		if( pItemElem )
 		{
@@ -1200,7 +1200,7 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 				//	pElement->m_nEffect |= XE_HIDE;
 			}
 
-			// ¿ÜÅõÀÇ»óÀ» ÀÔ¾úÀ»°æ¿ì ¸Ó¸®³¯¸±°ÍÀÎ°¡ÀÇ ±âÁØÀ» ¿ÜÅõ ¸ğÀÚ¸¦ ±âÁØÀ¸·Î ¹Ù²Û´Ù
+			// ì™¸íˆ¬ì˜ìƒì„ ì…ì—ˆì„ê²½ìš° ë¨¸ë¦¬ë‚ ë¦´ê²ƒì¸ê°€ì˜ ê¸°ì¤€ì„ ì™¸íˆ¬ ëª¨ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤
 			CItemElem* pItemElemOvercoat	= g_pPlayer->GetEquipItem( PARTS_HAT );
 			
 			if( pItemElemOvercoat )
@@ -1226,7 +1226,7 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 		}
 		else
 		{
-			// ¿ÜÅõÀÇ»óÀ» ÀÔ¾úÀ»°æ¿ì ¸Ó¸®³¯¸±°ÍÀÎ°¡ÀÇ ±âÁØÀ» ¿ÜÅõ ¸ğÀÚ¸¦ ±âÁØÀ¸·Î ¹Ù²Û´Ù
+			// ì™¸íˆ¬ì˜ìƒì„ ì…ì—ˆì„ê²½ìš° ë¨¸ë¦¬ë‚ ë¦´ê²ƒì¸ê°€ì˜ ê¸°ì¤€ì„ ì™¸íˆ¬ ëª¨ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¼ë‹¤
 			CItemElem* pItemElemOvercoat	= g_pPlayer->GetEquipItem( PARTS_HAT );
 			
 			if( pItemElemOvercoat )
@@ -1247,7 +1247,7 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 #endif //__CSC_VER8_4
 		m_pModel->Render( p2DRender->m_pd3dDevice, &matWorld );
 	}
-	// ¿À¸¥ÂÊ »öÀÔÈù ¸ğµ¨ ·£´õ¸µ
+	// ì˜¤ë¥¸ìª½ ìƒ‰ì…íŒ ëª¨ë¸ ëœë”ë§
 	{
 		LPWNDCTRL lpFace = GetWndCtrl( WIDC_CUSTOM6 );
 
@@ -1318,7 +1318,7 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 		::SetTransformProj( matProj );
 
 #if __VER < 8 //__CSC_VER8_4		
-		// Çï¸äÀÌ ¸Ó¸®Ä«¶ô ³¯·Á¾ßÇÏ´Â°ÍÀÌ³Ä?  // ÀÎº¥ÀÌ ÀÖ´Â °æ¿ì 
+		// í—¬ë©§ì´ ë¨¸ë¦¬ì¹´ë½ ë‚ ë ¤ì•¼í•˜ëŠ”ê²ƒì´ëƒ?  // ì¸ë²¤ì´ ìˆëŠ” ê²½ìš° 
 		CItemElem* pItemElem	= g_pPlayer->GetEquipItem( PARTS_CAP );
 		if( pItemElem )
 		{
@@ -1392,7 +1392,7 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 	pd3dDevice->SetRenderState( D3DRS_CULLMODE, D3DCULL_NONE );
 	pd3dDevice->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
 
-	// °¡°İ °è»ê
+	// ê°€ê²© ê³„ì‚°
 
 	BYTE nColorR = (BYTE)( (m_fColor[0] * 255) );
 	BYTE nColorG = (BYTE)( (m_fColor[1] * 255) );
@@ -1480,10 +1480,10 @@ void CWndBeautyShop::OnDraw( C2DRender* p2DRender )
 #if __VER >= 8 //__CSC_VER8_4
 void CWndBeautyShop::DrawHairKind(C2DRender* p2DRender, D3DXMATRIX matView)
 {
-	// ºäÆ÷Æ® ¼¼ÆÃ 
+	// ë·°í¬íŠ¸ ì„¸íŒ… 
 	D3DVIEWPORT9 viewport;
 	
-	// ¿ùµå 
+	// ì›”ë“œ 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matTrans;
@@ -1946,10 +1946,10 @@ void CWndBeautyShop::OnLButtonDown( UINT nFlags, CPoint point )
 		CRect DrawRect = lpWndCtrl->rect;
 		if(DrawRect.PtInRect( point ))
 		{
-			//Hair ¼±ÅÃ..
+			//Hair ì„ íƒ..
 			m_dwSelectHairMesh = m_nHairNum[i];
 			CMover::UpdateParts( g_pPlayer->GetSex(), g_pPlayer->m_dwSkinSet, g_pPlayer->m_dwFace, m_dwSelectHairMesh-1, g_pPlayer->m_dwHeadMesh,g_pPlayer->m_aEquipInfo, m_pApplyModel, &g_pPlayer->m_Inventory );
-			//¿ä±İ °è»ê..
+			//ìš”ê¸ˆ ê³„ì‚°..
 #ifdef __NEWYEARDAY_EVENT_COUPON
 			if( g_pPlayer->m_dwHairMesh != m_dwSelectHairMesh-1 && !m_bUseCoupon)
 #else //__NEWYEARDAY_EVENT_COUPON
@@ -2261,7 +2261,7 @@ void CWndUseCouponConfirm::OnDraw( C2DRender* p2DRender )
 void CWndUseCouponConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 /*	CWndStatic* pStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC1 );
 	pStatic->SetVisible(FALSE);
 	pStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC2 );
@@ -2292,10 +2292,10 @@ void CWndUseCouponConfirm::OnInitialUpdate()
 	
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndUseCouponConfirm::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_BEAUTY_SHOP_EX_CONFIRM, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndUseCouponConfirm::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -2384,7 +2384,7 @@ void CWndBeautyShopConfirm::OnDraw( C2DRender* p2DRender )
 void CWndBeautyShopConfirm::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	// ¿©±â¿¡ ÄÚµùÇÏ¼¼¿ä
+	// ì—¬ê¸°ì— ì½”ë”©í•˜ì„¸ìš”
 /*	char szNumberbuf[16] = {0, };
 	int TotalCost;
 	CWndStatic* pCostStatic = (CWndStatic*)GetDlgItem( WIDC_STATIC6 );
@@ -2437,10 +2437,10 @@ void CWndBeautyShopConfirm::OnInitialUpdate()
 
 	MoveParentCenter();
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndBeautyShopConfirm::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_BEAUTY_SHOP_EX_CONFIRM, 0, CPoint( 0, 0 ), pWndParent );
 } 
 BOOL CWndBeautyShopConfirm::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
@@ -2572,16 +2572,16 @@ void CWndFaceShop::OnDraw( C2DRender* p2DRender )
 	
 	CRect rect = GetClientRect();
 
-	// ºäÆ÷Æ® ¼¼ÆÃ 
+	// ë·°í¬íŠ¸ ì„¸íŒ… 
 	D3DVIEWPORT9 viewport;
 
-	// ¿ùµå 
+	// ì›”ë“œ 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matRot;
 	D3DXMATRIXA16 matTrans;
 
-	// Ä«¸Ş¶ó 
+	// ì¹´ë©”ë¼ 
 	D3DXMATRIX  matView;
 	D3DXVECTOR3 vecLookAt( 0.0f, 0.0f, 3.0f );
 	D3DXVECTOR3 vecPos(  0.0f, 0.7f, -3.5f );
@@ -2595,7 +2595,7 @@ void CWndFaceShop::OnDraw( C2DRender* p2DRender )
 	SetLightVec( vDir );
 #endif //__YENV
 	
-	// ¿ŞÂÊ ¿øº» ¸ğµ¨ ·£´õ¸µ
+	// ì™¼ìª½ ì›ë³¸ ëª¨ë¸ ëœë”ë§
 	{
 		LPWNDCTRL lpFace = GetWndCtrl( WIDC_CUSTOM5 );
 
@@ -2634,7 +2634,7 @@ void CWndFaceShop::OnDraw( C2DRender* p2DRender )
 		D3DXMatrixMultiply(&matWorld, &matWorld, &matTrans );
 		pd3dDevice->SetTransform( D3DTS_WORLD, &matWorld );
 
-		// ·£´õ¸µ 
+		// ëœë”ë§ 
 		pd3dDevice->SetRenderState( D3DRS_FOGENABLE, FALSE );
 		pd3dDevice->SetRenderState( D3DRS_LIGHTING, FALSE );
 		
@@ -2657,7 +2657,7 @@ void CWndFaceShop::OnDraw( C2DRender* p2DRender )
 		
 		m_pMainModel->Render( p2DRender->m_pd3dDevice, &matWorld );
 	}
-	// ¿À¸¥ÂÊ ¾ó±¼º¯°æ ¸ğµ¨ ·£´õ¸µ
+	// ì˜¤ë¥¸ìª½ ì–¼êµ´ë³€ê²½ ëª¨ë¸ ëœë”ë§
 	{
 		LPWNDCTRL lpFace = GetWndCtrl( WIDC_CUSTOM6 );
 
@@ -2732,10 +2732,10 @@ void CWndFaceShop::OnDraw( C2DRender* p2DRender )
 
 void CWndFaceShop::DrawFaces(int ChoiceFlag, C2DRender* p2DRender, D3DXMATRIX matView)
 {
-	// ºäÆ÷Æ® ¼¼ÆÃ 
+	// ë·°í¬íŠ¸ ì„¸íŒ… 
 	D3DVIEWPORT9 viewport;
 	
-	// ¿ùµå 
+	// ì›”ë“œ 
 	D3DXMATRIXA16 matWorld;
 	D3DXMATRIXA16 matScale;
 	D3DXMATRIXA16 matTrans;
@@ -2882,7 +2882,7 @@ void CWndFaceShop::OnInitialUpdate()
 
 	Move( ptMove );
 } 
-// Ã³À½ ÀÌ ÇÔ¼ö¸¦ ºÎ¸£¸é À©µµ°¡ ¿­¸°´Ù.
+// ì²˜ìŒ ì´ í•¨ìˆ˜ë¥¼ ë¶€ë¥´ë©´ ìœˆë„ê°€ ì—´ë¦°ë‹¤.
 BOOL CWndFaceShop::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
 	if( g_pPlayer == NULL )
@@ -2920,7 +2920,7 @@ BOOL CWndFaceShop::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ )
 	prj.m_modelMng.LoadMotion( m_pNewFace,  OT_MOVER, nMover, MTI_STAND2 );
 	CMover::UpdateParts( g_pPlayer->GetSex(), g_pPlayer->m_dwSkinSet, g_pPlayer->m_dwFace, g_pPlayer->m_dwHairMesh, g_pPlayer->m_dwHeadMesh,g_pPlayer->m_aEquipInfo, m_pNewFace, &g_pPlayer->m_Inventory );
 	m_pNewFace->InitDeviceObjects( g_Neuz.GetDevice() );
-	// Daisy¿¡¼­ ¼³Á¤ÇÑ ¸®¼Ò½º·Î À©µµ¸¦ ¿¬´Ù.
+	// Daisyì—ì„œ ì„¤ì •í•œ ë¦¬ì†ŒìŠ¤ë¡œ ìœˆë„ë¥¼ ì—°ë‹¤.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_BEAUTY_SHOP_SKIN, 0, CPoint( 0, 0 ), pWndParent );
 } 
 
@@ -2951,14 +2951,14 @@ void CWndFaceShop::OnLButtonDown( UINT nFlags, CPoint point )
 		CRect DrawRect = lpWndCtrl->rect;
 		if(DrawRect.PtInRect( point ))
 		{
-			//Face ¼±ÅÃ..
+			//Face ì„ íƒ..
 			if(i>=0 && i<4)
 				m_nSelectedFace = m_nFriendshipFaceNum[i];
 			else if(i>=4 && i<8)
 				m_nSelectedFace = m_nNewFaceNum[i-4];
 			
 			CMover::UpdateParts( g_pPlayer->GetSex(), g_pPlayer->m_dwSkinSet, g_pPlayer->m_dwFace, g_pPlayer->m_dwHairMesh, m_nSelectedFace-1, g_pPlayer->m_aEquipInfo, m_pApplyModel, &g_pPlayer->m_Inventory );
-			//¿ä±İ °è»ê..
+			//ìš”ê¸ˆ ê³„ì‚°..
 #ifdef __NEWYEARDAY_EVENT_COUPON
 			if( g_pPlayer->m_dwHeadMesh != m_nSelectedFace-1 && !m_bUseCoupon)
 #else //__NEWYEARDAY_EVENT_COUPON

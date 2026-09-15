@@ -1,4 +1,4 @@
-// WndArcane.cpp: implementation of the CWndNeuz class.
+Ôªø// WndArcane.cpp: implementation of the CWndNeuz class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -32,7 +32,7 @@ void CWndTotalOption::OnInitialUpdate()
 { 
 	CWndNeuz::OnInitialUpdate(); 
 
-	//	ø©±‚ø° ƒ⁄µ˘«œ∏È µÀ¥œ¥Ÿ
+	//	Ïó¨Í∏∞Ïóê ÏΩîÎî©ÌïòÎ©¥ Îê©ÎãàÎã§
 	CWndTabCtrl* pWndTabCtrl = (CWndTabCtrl*)GetDlgItem( WIDC_TABCTRL1 );
 	CRect rect = GetClientRect();
 	rect.left = 5;
@@ -87,7 +87,7 @@ void CWndTotalOption::OnInitialUpdate()
 #endif
 	MoveParentCenter();	
 } 
-// √≥¿Ω ¿Ã «‘ºˆ∏¶ ∫Œ∏£∏È ¿©µµ∞° ø≠∏∞¥Ÿ.
+// Ï≤òÏùå Ïù¥ Ìï®ÏàòÎ•º Î∂ÄÎ•¥Î©¥ ÏúàÎèÑÍ∞Ä Ïó¥Î¶∞Îã§.
 BOOL CWndTotalOption::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), dwWndId, 0, CPoint( 0, 0 ), pWndParent );
@@ -178,7 +178,7 @@ void CWndOption::OnInitialUpdate()
 	pWndButton[ 0 ]->SetGroup( TRUE );
 	pWndButton[ g_Option.m_nChatCommand ]->SetCheck( TRUE );
 
-	// ¿Œ≈Õ∆‰¿ÃΩ∫ πÊΩƒ(±∏πˆ¿¸¿Ã µ∆˙∆Æ)
+	// Ïù∏ÌÑ∞ÌéòÏù¥Ïä§ Î∞©Ïãù(Íµ¨Î≤ÑÏ†ÑÏù¥ ÎîîÌè¥Ìä∏)
 	pWndButton[ 0 ] = (CWndButton*)GetDlgItem( WIDC_RADIO7 );
 	pWndButton[ 1 ] = (CWndButton*)GetDlgItem( WIDC_RADIO8 );
 #ifdef __Y_INTERFACE_VER3
@@ -197,7 +197,7 @@ void CWndOption::OnInitialUpdate()
 	if(pWndButton[ 0 ])
 	pWndButton[ 0 ]->SetCheck( g_Option.m_bCameraLock );
 
-	// ∫Ò«‡Ω√ ∑—∏µ »ø∞˙.
+	// ÎπÑÌñâÏãú Î°§ÎßÅ Ìö®Í≥º.
 	CWndButton* pWndRoll = (CWndButton*)GetDlgItem( WIDC_CHECK3 );		
 	pWndRoll->SetCheck( g_Option.m_bRollEffect );
 
@@ -211,14 +211,14 @@ void CWndOption::OnInitialUpdate()
 	Move( point );
 	MoveParentCenter();
 } 
-// √≥¿Ω ¿Ã «‘ºˆ∏¶ ∫Œ∏£∏È ¿©µµ∞° ø≠∏∞¥Ÿ.
+// Ï≤òÏùå Ïù¥ Ìï®ÏàòÎ•º Î∂ÄÎ•¥Î©¥ ÏúàÎèÑÍ∞Ä Ïó¥Î¶∞Îã§.
 BOOL CWndOption::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyø°º≠ º≥¡§«— ∏Æº“Ω∫∑Œ ¿©µµ∏¶ ø¨¥Ÿ.
+	// DaisyÏóêÏÑú ÏÑ§Ï†ïÌïú Î¶¨ÏÜåÏä§Î°ú ÏúàÎèÑÎ•º Ïó∞Îã§.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_OPTION_ETC, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ¡˜¡¢ ¿©µµ∏¶ ø≠∂ß ªÁøÎ 
+  ÏßÅÏ†ë ÏúàÎèÑÎ•º Ïó¥Îïå ÏÇ¨Ïö© 
 BOOL CWndOption::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -253,19 +253,19 @@ BOOL CWndOption::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 	switch( nID )
 	{
-	case WIDC_CHECK1: // ¿©µµ π›≈ı∏Ì ø…º« 
+	case WIDC_CHECK1: // ÏúàÎèÑ Î∞òÌà¨Î™Ö ÏòµÏÖò 
 		if( pWndAlpha->GetCheck() )
 			CWndBase::m_nAlpha = g_Option.m_nWindowAlpha = 128;
 		else
 			CWndBase::m_nAlpha = g_Option.m_nWindowAlpha = 255;
 		break;
-	case WIDC_CHECK2: // √ ∫∏¿⁄ µµøÚ∏ª ø…º« 
+	case WIDC_CHECK2: // Ï¥àÎ≥¥Ïûê ÎèÑÏõÄÎßê ÏòµÏÖò 
 		if( pWndHelp->GetCheck() )
 			g_Option.m_nInstantHelp = TRUE;
 		else
 			g_Option.m_nInstantHelp = FALSE;
 		break;
-	case WIDC_CHECK3:	// ∫Ò«‡Ω√ ∑—∏µ »ø∞˙.
+	case WIDC_CHECK3:	// ÎπÑÌñâÏãú Î°§ÎßÅ Ìö®Í≥º.
 		if( pWndRoll->GetCheck() )
 			g_Option.m_bRollEffect = TRUE;
 		else
@@ -308,10 +308,10 @@ BOOL CWndOption::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	case WIDC_RADIO6:
 		g_Option.m_nChatCommand = 3;
 		break;
-	case WIDC_RADIO7:	// »Ÿ∑Œ ƒ´∏ﬁ∂Û / øÏ≈¨∏Ø Ω∫≈≥¿« ∞Ì¿¸πÊΩƒ
+	case WIDC_RADIO7:	// Ìú†Î°ú Ïπ¥Î©îÎùº / Ïö∞ÌÅ¥Î¶≠ Ïä§ÌÇ¨Ïùò Í≥†Ï†ÑÎ∞©Ïãù
 		g_Option.m_nInterface = 0;
 		break;
-	case WIDC_RADIO8:	// øÏ≈¨∏Ø ƒ´∏ﬁ∂Û / ¡¬≈¨∏Ø+X Ω∫≈≥¿« Ω≈πÊΩƒ.
+	case WIDC_RADIO8:	// Ïö∞ÌÅ¥Î¶≠ Ïπ¥Î©îÎùº / Ï¢åÌÅ¥Î¶≠+X Ïä§ÌÇ¨Ïùò Ïã†Î∞©Ïãù.
 		g_Option.m_nInterface = 1;
 		break;
 #ifdef __Y_INTERFACE_VER3
@@ -437,14 +437,14 @@ void CWndOptSound::OnInitialUpdate()
 	m_nStep[1] = (int)( g_Option.m_fBGMVolume * 10 );
 
 } 
-// √≥¿Ω ¿Ã «‘ºˆ∏¶ ∫Œ∏£∏È ¿©µµ∞° ø≠∏∞¥Ÿ.
+// Ï≤òÏùå Ïù¥ Ìï®ÏàòÎ•º Î∂ÄÎ•¥Î©¥ ÏúàÎèÑÍ∞Ä Ïó¥Î¶∞Îã§.
 BOOL CWndOptSound::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyø°º≠ º≥¡§«— ∏Æº“Ω∫∑Œ ¿©µµ∏¶ ø¨¥Ÿ.
+	// DaisyÏóêÏÑú ÏÑ§Ï†ïÌïú Î¶¨ÏÜåÏä§Î°ú ÏúàÎèÑÎ•º Ïó∞Îã§.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_OPTEX_SOUND, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ¡˜¡¢ ¿©µµ∏¶ ø≠∂ß ªÁøÎ 
+  ÏßÅÏ†ë ÏúàÎèÑÎ•º Ïó¥Îïå ÏÇ¨Ïö© 
 BOOL CWndOptSound::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -892,14 +892,14 @@ void CWndOptVideo::OnInitialUpdate()
 	m_nStep[4] = (int)( g_Option.m_fContrast * 5 );
 #endif //__Y_GAMMA_CONTROL_8
 } 
-// √≥¿Ω ¿Ã «‘ºˆ∏¶ ∫Œ∏£∏È ¿©µµ∞° ø≠∏∞¥Ÿ.
+// Ï≤òÏùå Ïù¥ Ìï®ÏàòÎ•º Î∂ÄÎ•¥Î©¥ ÏúàÎèÑÍ∞Ä Ïó¥Î¶∞Îã§.
 BOOL CWndOptVideo::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyø°º≠ º≥¡§«— ∏Æº“Ω∫∑Œ ¿©µµ∏¶ ø¨¥Ÿ.
+	// DaisyÏóêÏÑú ÏÑ§Ï†ïÌïú Î¶¨ÏÜåÏä§Î°ú ÏúàÎèÑÎ•º Ïó∞Îã§.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_OPTION_VIDEO, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ¡˜¡¢ ¿©µµ∏¶ ø≠∂ß ªÁøÎ 
+  ÏßÅÏ†ë ÏúàÎèÑÎ•º Ïó¥Îïå ÏÇ¨Ïö© 
 BOOL CWndOptVideo::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -1205,8 +1205,8 @@ BOOL CWndOptVideo::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 #endif
 #ifdef __YENV
 	case WIDC_SEPCBUMPCHECK:
-		// º≥¡§∞™¿ª πŸ∑Œ ¿˚øÎ«œ¥¬∞Õ¿Ã æ∆¥œ∂Û ¡æ∑·«“∂ß ¿˚øÎ«—¥Ÿ
-		// ø…º«¡ﬂ ¥ŸΩ√ Ω√¿€«ÿæﬂ ¿˚øÎµ«¥¬∞ÕµÈ¿ª ¿ß«— ∫Øºˆ..( π¸«¡∏ ... )
+		// ÏÑ§Ï†ïÍ∞íÏùÑ Î∞îÎ°ú Ï†ÅÏö©ÌïòÎäîÍ≤ÉÏù¥ ÏïÑÎãàÎùº Ï¢ÖÎ£åÌï†Îïå Ï†ÅÏö©ÌïúÎã§
+		// ÏòµÏÖòÏ§ë Îã§Ïãú ÏãúÏûëÌï¥Ïïº Ï†ÅÏö©ÎêòÎäîÍ≤ÉÎì§ÏùÑ ÏúÑÌïú Î≥ÄÏàò..( Î≤îÌîÑÎßµ... )
 		pWndButton = (CWndButton*)GetDlgItem( WIDC_SEPCBUMPCHECK );
 		if( pWndButton->GetCheck() != g_Option.m_bSpecBump )
 		{
@@ -1280,7 +1280,7 @@ BOOL CWndOptVideo::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			g_Option.m_bMusic = pButton->GetCheck();
 			pButton->SetCheck( g_Option.m_bMusic );
 
-			// ¿Ωæ« ≤Ù∞Ì ƒ—±‚
+			// ÏùåÏïÖ ÎÅÑÍ≥† ÏºúÍ∏∞
 			SetOn( g_Option.m_bMusic );
 		}
 		break;
@@ -1346,14 +1346,14 @@ void CWndOptWindow::OnInitialUpdate()
 	Move( point );
 	MoveParentCenter();
 } 
-// √≥¿Ω ¿Ã «‘ºˆ∏¶ ∫Œ∏£∏È ¿©µµ∞° ø≠∏∞¥Ÿ.
+// Ï≤òÏùå Ïù¥ Ìï®ÏàòÎ•º Î∂ÄÎ•¥Î©¥ ÏúàÎèÑÍ∞Ä Ïó¥Î¶∞Îã§.
 BOOL CWndOptWindow::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyø°º≠ º≥¡§«— ∏Æº“Ω∫∑Œ ¿©µµ∏¶ ø¨¥Ÿ.
+	// DaisyÏóêÏÑú ÏÑ§Ï†ïÌïú Î¶¨ÏÜåÏä§Î°ú ÏúàÎèÑÎ•º Ïó∞Îã§.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_OPTION_WINDOW, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ¡˜¡¢ ¿©µµ∏¶ ø≠∂ß ªÁøÎ 
+  ÏßÅÏ†ë ÏúàÎèÑÎ•º Ïó¥Îïå ÏÇ¨Ïö© 
 BOOL CWndOptWindow::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -1411,14 +1411,14 @@ void CWndOptMyInfo::OnInitialUpdate()
 	Move( point );
 	MoveParentCenter();
 } 
-// √≥¿Ω ¿Ã «‘ºˆ∏¶ ∫Œ∏£∏È ¿©µµ∞° ø≠∏∞¥Ÿ.
+// Ï≤òÏùå Ïù¥ Ìï®ÏàòÎ•º Î∂ÄÎ•¥Î©¥ ÏúàÎèÑÍ∞Ä Ïó¥Î¶∞Îã§.
 BOOL CWndOptMyInfo::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 { 
-	// Daisyø°º≠ º≥¡§«— ∏Æº“Ω∫∑Œ ¿©µµ∏¶ ø¨¥Ÿ.
+	// DaisyÏóêÏÑú ÏÑ§Ï†ïÌïú Î¶¨ÏÜåÏä§Î°ú ÏúàÎèÑÎ•º Ïó∞Îã§.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_OPTION_MYINFO, 0, CPoint( 0, 0 ), pWndParent );
 } 
 /*
-  ¡˜¡¢ ¿©µµ∏¶ ø≠∂ß ªÁøÎ 
+  ÏßÅÏ†ë ÏúàÎèÑÎ•º Ïó¥Îïå ÏÇ¨Ïö© 
 BOOL CWndOptMyInfo::Initialize( CWndBase* pWndParent, DWORD dwWndId ) 
 { 
 	CRect rectWindow = m_pWndRoot->GetWindowRect(); 
@@ -1451,42 +1451,42 @@ BOOL CWndOptMyInfo::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ≈◊∏∂
+// ÌÖåÎßà
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//EMPTY_WNDCLASSMEMBER( CWndOptVideo, _T( "∫Òµø¿ ø…º«" ) )
+//EMPTY_WNDCLASSMEMBER( CWndOptVideo, _T( "ÎπÑÎîîÏò§ ÏòµÏÖò" ) )
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ≈◊∏∂
+// ÌÖåÎßà
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//EMPTY_WNDCLASSMEMBER( CWndOptSound, _T( "ªÁøÓµÂ ø…º«" ) )
+//EMPTY_WNDCLASSMEMBER( CWndOptSound, _T( "ÏÇ¨Ïö¥Îìú ÏòµÏÖò" ) )
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ≈◊∏∂
+// ÌÖåÎßà
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//EMPTY_WNDCLASSMEMBER( CWndOptMusic, _T( "πË∞Ê¿Ωæ« ø…º«" ) )
+//EMPTY_WNDCLASSMEMBER( CWndOptMusic, _T( "Î∞∞Í≤ΩÏùåÏïÖ ÏòµÏÖò" ) )
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// ≈◊∏∂
+// ÌÖåÎßà
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//EMPTY_WNDCLASSMEMBER( CWndOptMouse, _T( "∏∂øÏΩ∫ ∞®µµ ¡∂¿˝" ) )
+//EMPTY_WNDCLASSMEMBER( CWndOptMouse, _T( "ÎßàÏö∞Ïä§ Í∞êÎèÑ Ï°∞Ï†à" ) )
 
 
 

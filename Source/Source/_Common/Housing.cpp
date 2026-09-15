@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "resData.h"
 #include "defineText.h"
 
@@ -40,7 +40,7 @@ m_dwMasterId( dwPlayerId )
 CHousing::~CHousing(void)
 {
 #ifdef __WORLDSERVER
-	// ¹æ¿¡ ÀÖ´Â ³ğµéÀ» ´Ù ÂÑ¾Æ³½ ÈÄ ·¹ÀÌ¾î¸¦ ÆÄ±«ÇÑ´Ù.
+	// ë°©ì— ìˆëŠ” ë†ˆë“¤ì„ ë‹¤ ì«“ì•„ë‚¸ í›„ ë ˆì´ì–´ë¥¼ íŒŒê´´í•œë‹¤.
 	CWorld* pWorld = g_WorldMng.GetWorld( WI_WORLD_MINIROOM );
 	if( pWorld )
 		pWorld->Invalidate( static_cast<int>( m_dwMasterId ) );
@@ -74,10 +74,10 @@ void CHousing::Serialize( CAr & ar )
 {
 	if( ar.IsStoring() )
 	{
-		ar << m_vecHousingInfo.size();	// ÇÏ¿ìÂ¡ °¡±¸ Á¤º¸..
+		ar << m_vecHousingInfo.size();	// í•˜ìš°ì§• ê°€êµ¬ ì •ë³´..
 		for( DWORD i=0; i<m_vecHousingInfo.size(); i++ )
 			m_vecHousingInfo[i].Serialize( ar );
-		ar << m_vecIdVisitAllow.size(); // ¹æ¹® Çã¿ë ¸ñ·Ï...
+		ar << m_vecIdVisitAllow.size(); // ë°©ë¬¸ í—ˆìš© ëª©ë¡...
 		for( DWORD i=0; i<m_vecIdVisitAllow.size(); i++ )
 			ar << m_vecIdVisitAllow[i];
 	}
@@ -128,7 +128,7 @@ int CHousing::GetIndexFromList( DWORD dwItemId )
 
 void CHousing::SetFurnitureList( HOUSINGINFO& housingInfo, BOOL bAdd )
 {
-	if( bAdd )	// ¸®½ºÆ®¿¡ Ãß°¡ÇÏ´Â °Å...
+	if( bAdd )	// ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•˜ëŠ” ê±°...
 		m_vecHousingInfo.push_back( housingInfo );
 	else
 		RemoveFurnitureList( housingInfo.dwItemId );
@@ -248,17 +248,17 @@ BOOL CHousing::IsSetupAble( CUser* pUser, HOUSINGINFO housingInfo )
 	if( m_bSetting )
 		return FALSE;
 
-	// ÇÃ·¹ÀÌ¾î°¡ ¹æ¿¡ ÀÖ¾î¾ß ÇÏ°í ÀÚ½ÅÀÇ ·¹ÀÌ¾î¿¡ µé¾î°¡ ÀÖ´Â °æ¿ì¸¸ °¡´É...
+	// í”Œë ˆì´ì–´ê°€ ë°©ì— ìˆì–´ì•¼ í•˜ê³  ìì‹ ì˜ ë ˆì´ì–´ì— ë“¤ì–´ê°€ ìˆëŠ” ê²½ìš°ë§Œ ê°€ëŠ¥...
 	CWorld* pWorld = pUser->GetWorld();
 	if( !pWorld || ( pWorld->GetID() != WI_WORLD_MINIROOM ) 
 		|| ( pUser->GetLayer() != static_cast<int>( pUser->m_idPlayer ) ) )
 		return FALSE;
 	
-	// ÇØ´ç °¡±¸°¡ ¸ñ·Ï¿¡ ÀÖ°í ÀÌ¹Ì ¼³Ä¡µÇ¾î ÀÖ´ÂÁö È®ÀÎ...
+	// í•´ë‹¹ ê°€êµ¬ê°€ ëª©ë¡ì— ìˆê³  ì´ë¯¸ ì„¤ì¹˜ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸...
 	int nIndex = GetIndexFromList( housingInfo.dwItemId );
 	if( nIndex == NULL_ID )
 		return FALSE;
-	// µ¿ÀÏÇÑ ¾ÆÀÌÅÛÀº ¼³Ä¡ÇÒ ¼ö ¾ø´Ù.( ÀÌ °æ¿ì´Â ¹ß»ıÇÏÁö ¾ÊÀ½.. )
+	// ë™ì¼í•œ ì•„ì´í…œì€ ì„¤ì¹˜í•  ìˆ˜ ì—†ë‹¤.( ì´ ê²½ìš°ëŠ” ë°œìƒí•˜ì§€ ì•ŠìŒ.. )
 	if( m_vecHousingInfo[nIndex].bSetup == housingInfo.bSetup )
 		return FALSE;
 	
@@ -266,7 +266,7 @@ BOOL CHousing::IsSetupAble( CUser* pUser, HOUSINGINFO housingInfo )
 	if( !pItemPropReq )
 		return FALSE;
 
-	// °°Àº Á¾·ùÀÇ °¡±¸°¡ ¸î°³ ¼³Ä¡µÇ¾î ÀÖ´ÂÁö È®ÀÎ...
+	// ê°™ì€ ì¢…ë¥˜ì˜ ê°€êµ¬ê°€ ëª‡ê°œ ì„¤ì¹˜ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸...
 	int nCount = 0;	
 	for( DWORD i=0; i<m_vecHousingInfo.size(); i++ )
 	{
@@ -278,17 +278,17 @@ BOOL CHousing::IsSetupAble( CUser* pUser, HOUSINGINFO housingInfo )
 		}
 	}
 	
-	// ÃÖ´ë ¸î°³ ¼³Ä¡ °¡´ÉÇÑ°¡?
+	// ìµœëŒ€ ëª‡ê°œ ì„¤ì¹˜ ê°€ëŠ¥í•œê°€?
 	switch( pItemPropReq->dwItemKind3 )
 	{
-		case IK3_PROPS :	// ¼ÒÇ°Àº ÃÖ´ë 2
+		case IK3_PROPS :	// ì†Œí’ˆì€ ìµœëŒ€ 2
 			if( nCount >= 2 )
 			{
 				pUser->AddDefinedText( TID_GAME_HOUSING_INSTALL_FAIL02 );
 				return FALSE;	
 			}
 
-		default :	// ±×¿Ü´Â 1°³¸¸ ¼³Ä¡ °¡´É
+		default :	// ê·¸ì™¸ëŠ” 1ê°œë§Œ ì„¤ì¹˜ ê°€ëŠ¥
 			if( nCount >= 1 )
 			{
 				pUser->AddDefinedText( TID_GAME_HOUSING_INSTALL_FAIL02 );
@@ -301,11 +301,11 @@ BOOL CHousing::IsSetupAble( CUser* pUser, HOUSINGINFO housingInfo )
 
 BOOL CHousing::IsAllowVisit( DWORD dwPlayerId )
 {
-	// ÀÚ±â ¹æÀÌ¸é ÀÔÀå °¡´É
+	// ìê¸° ë°©ì´ë©´ ì…ì¥ ê°€ëŠ¥
 	if( m_dwMasterId == dwPlayerId )
 		return TRUE;
 
-	// Çã¿ë ¸ñ·Ï¿¡ ÀÖÀ¸¸é ÀÔÀå °¡´É
+	// í—ˆìš© ëª©ë¡ì— ìˆìœ¼ë©´ ì…ì¥ ê°€ëŠ¥
 	for( DWORD i=0; i<m_vecIdVisitAllow.size(); i++ )
 	{
 		if( m_vecIdVisitAllow[i] == dwPlayerId )
@@ -322,10 +322,10 @@ BOOL CHousing::AddFurnitureControl( int nIndex )
 
 	if( pWorld && pItemProp )
 	{
-		// ·¹ÀÌ¾î°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÏ°í °¡±¸ ÄÁÆ®·Ñ »ı¼º...
+		// ë ˆì´ì–´ê°€ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸í•˜ê³  ê°€êµ¬ ì»¨íŠ¸ë¡¤ ìƒì„±...
 		if( pWorld->m_linkMap.GetLinkMap( static_cast<int>( m_dwMasterId ) ) )
 		{
-			if( pItemProp->dwItemKind2 == IK2_PAPERING )	// º®Áö, ÀåÆÇ(ÄÁÆ®·ÑÀ» »ı¼ºÇÏÁö ¾Ê°í Á¤º¸¸¦ Å¬¶ó¿¡ Àü´Ş)
+			if( pItemProp->dwItemKind2 == IK2_PAPERING )	// ë²½ì§€, ì¥íŒ(ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•˜ì§€ ì•Šê³  ì •ë³´ë¥¼ í´ë¼ì— ì „ë‹¬)
 			{
 				g_UserMng.AddHousingPaperingInfo( pItemProp->dwID, TRUE, m_dwMasterId );
 			}
@@ -362,7 +362,7 @@ void CHousing::RemoveFurnitureControl( int nIndex )
 	{
 		if( pWorld->m_linkMap.GetLinkMap( static_cast<int>( m_dwMasterId ) ) )
 		{
-			if( pItemProp->dwItemKind2 == IK2_PAPERING )	// º®Áö, ÀåÆÇ(ÄÁÆ®·ÑÀ» »ı¼ºÇÏÁö ¾Ê°í Á¤º¸¸¦ Å¬¶ó¿¡ Àü´Ş)
+			if( pItemProp->dwItemKind2 == IK2_PAPERING )	// ë²½ì§€, ì¥íŒ(ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•˜ì§€ ì•Šê³  ì •ë³´ë¥¼ í´ë¼ì— ì „ë‹¬)
 			{
 				g_UserMng.AddHousingPaperingInfo( pItemProp->dwID, FALSE, m_dwMasterId );
 			}
@@ -559,14 +559,14 @@ void CHousingMng::SetVisitRoom( CUser* pUser, DWORD dwPlayerId )
 	CHousing* pHousing = GetHousing( dwPlayerId );
 	if( IsValidObj( pUser ) && pHousing )
 	{
-		// GMÀÌ°Å³ª ¹æ¹® Çã¿ëµÈ »ç¶÷¸¸ ÀÔÀå °¡´É...
-		if( !pUser->IsAuthHigher( AUTH_GAMEMASTER ) )	// GMÀÌ ¾Æ´Ï¶ó¸é...
+		// GMì´ê±°ë‚˜ ë°©ë¬¸ í—ˆìš©ëœ ì‚¬ëŒë§Œ ì…ì¥ ê°€ëŠ¥...
+		if( !pUser->IsAuthHigher( AUTH_GAMEMASTER ) )	// GMì´ ì•„ë‹ˆë¼ë©´...
 		{
-			if( !pHousing->IsAllowVisit( pUser->m_idPlayer )	// ¹æ¹® Çã¿ë °Ë»ç...
-				|| !CNpcChecker::GetInstance()->IsCloseNpc( MMI_VISIT_FRIEND, pUser->GetWorld(), pUser->GetPos() ) ) // NPC ±ÙÃ³¿¡ ÀÖ´ÂÁö °Ë»ç..
+			if( !pHousing->IsAllowVisit( pUser->m_idPlayer )	// ë°©ë¬¸ í—ˆìš© ê²€ì‚¬...
+				|| !CNpcChecker::GetInstance()->IsCloseNpc( MMI_VISIT_FRIEND, pUser->GetWorld(), pUser->GetPos() ) ) // NPC ê·¼ì²˜ì— ìˆëŠ”ì§€ ê²€ì‚¬..
 				return;
 		}
-		// ·¹ÀÌ¾î°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÏ°í ÀÔÀå...
+		// ë ˆì´ì–´ê°€ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸í•˜ê³  ì…ì¥...
 		if( pWorld->m_linkMap.GetLinkMap( static_cast<int>( dwPlayerId ) ) )
 		{
 			if( pUser->REPLACE( g_uIdofMulti, WI_WORLD_MINIROOM, D3DXVECTOR3( 253.0f, 105.0f, 243.0f ), REPLACE_NORMAL, static_cast<int>( dwPlayerId ) ) )
@@ -684,7 +684,7 @@ void CHousingMng::ProcessRemoveExpiredFurniture()
 // CDeployManager
 CDeployManager::CDeployManager(void)
 {
-	if( g_Neuz.m_pd3dDevice )	//gmpbigsun(20100421) : »ç¿îµå ÃÊ±âÈ­µîÀÌ ½ÇÆĞµîÀ¸·Î ¸Ş½ÃÁö°¡ ¹ß»ıÇÒ¶§  CNeuzApp¿¡¼­ ÀÌ³ğÀÇ »ı¼ºÀÚ¸¦ È£ÃâÇÏ°íÀÖ´Ù. ¾ÆÁ÷ µğ¹ÙÀÌ½º´Â ³ë»ı¼º 
+	if( g_Neuz.m_pd3dDevice )	//gmpbigsun(20100421) : ì‚¬ìš´ë“œ ì´ˆê¸°í™”ë“±ì´ ì‹¤íŒ¨ë“±ìœ¼ë¡œ ë©”ì‹œì§€ê°€ ë°œìƒí• ë•Œ  CNeuzAppì—ì„œ ì´ë†ˆì˜ ìƒì„±ìë¥¼ í˜¸ì¶œí•˜ê³ ìˆë‹¤. ì•„ì§ ë””ë°”ì´ìŠ¤ëŠ” ë…¸ìƒì„± 
 	{
 		m_pRed		  = ((CTexture*)CWndBase::m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_MODELTEX, _T("red.tga")), 0xffff00ff ))->m_pTexture;
 		m_pOriginWall = ((CTexture*)CWndBase::m_textureMng.AddTexture( g_Neuz.m_pd3dDevice, MakePath( DIR_MODELTEX, _T("Obj_MiniWall01.dds")), 0xffff00ff ))->m_pTexture;
@@ -869,8 +869,8 @@ BOOL	CDeployManager::IsCollide()
 BOOL	CDeployManager::CheckCollision()
 {
 	 /*
-	 ÀÌ Ãæµ¹°ËÃâ¹æ½ÄÀº ¸¶ÀÌ·ëÀÇ Æ¯¼º¿¡ µû¶ó¼­ ÃÖ¼ÒÇÑÀÇ °è»ê¸¸ ÇÏµµ·Ï ÀÛ¼ºµÈ °ÍÀÌ¹Ç·Î
-	 ´Ù¸¥ ¿ÀºêÁ§Æ®¿¡´Â »ç¿ëÀÌ ºÎÀûÀıÇÏ´Ù
+	 ì´ ì¶©ëŒê²€ì¶œë°©ì‹ì€ ë§ˆì´ë£¸ì˜ íŠ¹ì„±ì— ë”°ë¼ì„œ ìµœì†Œí•œì˜ ê³„ì‚°ë§Œ í•˜ë„ë¡ ì‘ì„±ëœ ê²ƒì´ë¯€ë¡œ
+	 ë‹¤ë¥¸ ì˜¤ë¸Œì íŠ¸ì—ëŠ” ì‚¬ìš©ì´ ë¶€ì ì ˆí•˜ë‹¤
 	 */
 	if(m_pWallObj && m_pTargetObj)
 	{
@@ -886,10 +886,10 @@ BOOL	CDeployManager::ChangeWallTex(TCHAR* pTexName)
 	CWorld* pWorld	= g_WorldMng.Get();
 	CObj*	pObj	= NULL;
 
-	// ¹Ì´Ï·ë º®¿¡ ÇØ´çÇÏ´Â Æ¯Á¤ ¿ÀºêÁ§Æ®¸¦ ÀÌ¸§À¸·Î Ã£¾Æ¼­ ¹Ù²Ş
+	// ë¯¸ë‹ˆë£¸ ë²½ì— í•´ë‹¹í•˜ëŠ” íŠ¹ì • ì˜¤ë¸Œì íŠ¸ë¥¼ ì´ë¦„ìœ¼ë¡œ ì°¾ì•„ì„œ ë°”ê¿ˆ
 	if(pWorld)
 	{
-		pObj = pWorld->GetObjByName("obj_miniwall01.o3d"); //->> È®Á¤¿ÀºêÁ§Æ® ³ª¿À¸é ÀÌ¸§ ¹Ù²ã¼­ ³ÊÁà¾ß µÊ
+		pObj = pWorld->GetObjByName("obj_miniwall01.o3d"); //->> í™•ì •ì˜¤ë¸Œì íŠ¸ ë‚˜ì˜¤ë©´ ì´ë¦„ ë°”ê¿”ì„œ ë„ˆì¤˜ì•¼ ë¨
 
 		if(pObj)
 		{
@@ -907,7 +907,7 @@ BOOL	CDeployManager::ChangeWallTex(TCHAR* pTexName)
 
 BOOL	CDeployManager::ChangeTileTex(TCHAR* pTexName)
 {
-	// ÁÖÀÇ : ¸Ê³»ÀÇ ¸ğµçÁöÇü ÅØ½ºÃÄ°¡ ¿ä³ğÀ¸·Î ½Ï¹Ù²î´Ï ¸¶ÀÌ·ë¿¡¼­¸¸ È£ÃâÇÒ °Í!
+	// ì£¼ì˜ : ë§µë‚´ì˜ ëª¨ë“ ì§€í˜• í…ìŠ¤ì³ê°€ ìš”ë†ˆìœ¼ë¡œ ì‹¹ë°”ë€Œë‹ˆ ë§ˆì´ë£¸ì—ì„œë§Œ í˜¸ì¶œí•  ê²ƒ!
 	CWorld* pWorld	= g_WorldMng.Get();
 	
 	if(pWorld)
@@ -1156,15 +1156,15 @@ void	CGuildDeployManager::Process()
 
 BOOL	CGuildDeployManager::CheckCollision()
 {
-	//Àç¼³Ä¡ÀÇ °æ¿ì °°Àº ¾ÆÀÌµğÀÇ ¿ÀºêÁ§Æ®´Â Ãæµ¹°ËÃâ¿¡¼­ Á¦¿ÜÇÑ´Ù.
+	//ì¬ì„¤ì¹˜ì˜ ê²½ìš° ê°™ì€ ì•„ì´ë””ì˜ ì˜¤ë¸Œì íŠ¸ëŠ” ì¶©ëŒê²€ì¶œì—ì„œ ì œì™¸í•œë‹¤.
 	if(m_pWallObj && m_pTargetObj)
 	{
 		CWorld* pWorld	= g_WorldMng.Get();
 
-		// ¸ø°¡´Â Áö¿ª °Ë»ç 
-		// gmpbigsun : ÁßÇüÀÏ°æ¿ì ¼³Ä¡ÇÏ·Á´Â ¿ÀºêÁ§Æ®ÀÇ °¢ ¹Ù¿îµù ¹Ú½º ²ÀÁöÁ¡°Ë»ç±îÁö ÇØÁà¾ß ÇÑ´Ù.( ÅëÂ¥ÀÌ±â ¶§¹®¿¡ )
-		// if( ÁßÇüÀÌ¸é )
-		//   8°³ÀÇ ²ÀÁöÁ¡ °Ë»ç 
+		// ëª»ê°€ëŠ” ì§€ì—­ ê²€ì‚¬ 
+		// gmpbigsun : ì¤‘í˜•ì¼ê²½ìš° ì„¤ì¹˜í•˜ë ¤ëŠ” ì˜¤ë¸Œì íŠ¸ì˜ ê° ë°”ìš´ë”© ë°•ìŠ¤ ê¼­ì§€ì ê²€ì‚¬ê¹Œì§€ í•´ì¤˜ì•¼ í•œë‹¤.( í†µì§œì´ê¸° ë•Œë¬¸ì— )
+		// if( ì¤‘í˜•ì´ë©´ )
+		//   8ê°œì˜ ê¼­ì§€ì  ê²€ì‚¬ 
 		D3DXVECTOR3 vPos = m_pTargetObj->GetPos( );
 		int nAttr = pWorld->GetHeightAttribute( vPos.x, vPos.z );
 		if( HATTR_NOWALK == nAttr || HATTR_NOMOVE == nAttr || HATTR_NOFLY == nAttr )		
@@ -1189,11 +1189,11 @@ BOOL	CGuildDeployManager::ChangeWallTex(TCHAR* pTexName)
 		assert( m_pOriginWall );
 	}
 
-	// ¹Ì´Ï·ë º®¿¡ ÇØ´çÇÏ´Â Æ¯Á¤ ¿ÀºêÁ§Æ®¸¦ ÀÌ¸§À¸·Î Ã£¾Æ¼­ ¹Ù²Ş
+	// ë¯¸ë‹ˆë£¸ ë²½ì— í•´ë‹¹í•˜ëŠ” íŠ¹ì • ì˜¤ë¸Œì íŠ¸ë¥¼ ì´ë¦„ìœ¼ë¡œ ì°¾ì•„ì„œ ë°”ê¿ˆ
 	if(pWorld)
 	{
 		std::string strNameHouseObj = GetNameHouseObj( );
-		pObj = pWorld->GetObjByName( (TCHAR*)strNameHouseObj.c_str() ); //->> È®Á¤¿ÀºêÁ§Æ® ³ª¿À¸é ÀÌ¸§ ¹Ù²ã¼­ ³ÊÁà¾ß µÊ
+		pObj = pWorld->GetObjByName( (TCHAR*)strNameHouseObj.c_str() ); //->> í™•ì •ì˜¤ë¸Œì íŠ¸ ë‚˜ì˜¤ë©´ ì´ë¦„ ë°”ê¿”ì„œ ë„ˆì¤˜ì•¼ ë¨
 
 		if(pObj)
 		{
@@ -1296,7 +1296,7 @@ BOOL CGuildDeployManager::MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lP
 	{
 	case WM_KEYDOWN:
 		{
-			if( g_WndMng.m_pLogOutWaitting ) // Á¾·áÁßÀÌ¸é Å°º¸µå ÀÔ·Â ºÒ°¡
+			if( g_WndMng.m_pLogOutWaitting ) // ì¢…ë£Œì¤‘ì´ë©´ í‚¤ë³´ë“œ ì…ë ¥ ë¶ˆê°€
 				break;
 		
 			int nVirtKey = (int) wParam;    // virtual-key code

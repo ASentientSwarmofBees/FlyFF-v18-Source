@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "TailEffectMng.h"
 
 
@@ -47,7 +47,7 @@ void CTailEffectBelt::Init( void )
 	m_fFadeSpeed    = 0.0f;
 }
 
-// ÇÒ´çÇÑ ¸Ş¸ğ¸®µéÀº ±×´ë·Î µÎ°í ÃÊ±âÈ­
+// í• ë‹¹í•œ ë©”ëª¨ë¦¬ë“¤ì€ ê·¸ëŒ€ë¡œ ë‘ê³  ì´ˆê¸°í™”
 void CTailEffectBelt::Clear( void )
 {
 	m_bActive	= FALSE;
@@ -84,13 +84,13 @@ void CTailEffectBelt::Create( int nType, FLOAT fFadeSpeed )
 	m_fFadeSpeed     = fFadeSpeed;
 
 	if( m_pPool == NULL )
-		m_pPool = new TAIL[ MAX_TAIL ];		// MAX_TAIL / 60fps = ??;  ÃÖ´ë??ÃÊÁ¤µµ±æÀÌÀÇ ¶ì¸¦ ¸¸µé¼öÀÖ´Ù.
+		m_pPool = new TAIL[ MAX_TAIL ];		// MAX_TAIL / 60fps = ??;  ìµœëŒ€??ì´ˆì •ë„ê¸¸ì´ì˜ ë ë¥¼ ë§Œë“¤ìˆ˜ìˆë‹¤.
 	memset( m_pPool, 0, sizeof(TAIL) * MAX_TAIL );
 	
 }
 
 //
-// ²¿¸® ÇÏ³ª¸¦ »ı¼º½ÃÅ´.
+// ê¼¬ë¦¬ í•˜ë‚˜ë¥¼ ìƒì„±ì‹œí‚´.
 //
 int	CTailEffectBelt::CreateTail( const D3DXVECTOR3 &vPos1, const D3DXVECTOR3 &vPos2 )
 {
@@ -98,13 +98,13 @@ int	CTailEffectBelt::CreateTail( const D3DXVECTOR3 &vPos1, const D3DXVECTOR3 &vP
 	if( m_pTexture == NULL )	return 1;
 	TAIL *pTail;
 	
-	// ²¿¸® °¹¼ö°¡ ¸Æ½ºÄ¡¸¦ ³ÑÄ¡ ¾Ê°Ô.
+	// ê¼¬ë¦¬ ê°¯ìˆ˜ê°€ ë§¥ìŠ¤ì¹˜ë¥¼ ë„˜ì¹˜ ì•Šê²Œ.
 	if( m_nMaxTail >= MAX_TAIL )		return 0;
     
-    if( m_pTailsFree )		// ºñ¾îÀÖ´Â ÆÄÆ¼Å¬ Æ÷ÀÎÅÍ°¡ ÀÖ´Â°¡.
+    if( m_pTailsFree )		// ë¹„ì–´ìˆëŠ” íŒŒí‹°í´ í¬ì¸í„°ê°€ ìˆëŠ”ê°€.
     {
-        pTail = m_pTailsFree;		// »ı¼ºµÉ ÆÄÆ¼Å¬À» ºñ¾îÀÖ´Â Æ÷ÀÎÅÍ·Î ¼³Á¤.
-        m_pTailsFree = pTail->m_pNext;	// ÆÄÆ¼Å¬ ¸®½ºÆ®¿¡ Ãß°¡.
+        pTail = m_pTailsFree;		// ìƒì„±ë  íŒŒí‹°í´ì„ ë¹„ì–´ìˆëŠ” í¬ì¸í„°ë¡œ ì„¤ì •.
+        m_pTailsFree = pTail->m_pNext;	// íŒŒí‹°í´ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€.
     }
     else
     {
@@ -113,12 +113,12 @@ int	CTailEffectBelt::CreateTail( const D3DXVECTOR3 &vPos1, const D3DXVECTOR3 &vP
 			m_nPoolPtr = 0;
     }
 	
-    pTail->m_pNext = m_pTails;	// »õ·Î »ı¼ºµÈ ²¿¸®ÀÇ ´ÙÀ½³ëµå¿¡ ÇöÀç ²¿¸® ¼³Á¤.
-    m_pTails = pTail;			// »õ·Î »ı¼ºµÈ ²¿¸®À» ÇöÀç ³ëµå¿¡ ¼³Á¤.
-    m_nMaxTail++;				// ²¿¸® °³¼ö Áõ°¡.
+    pTail->m_pNext = m_pTails;	// ìƒˆë¡œ ìƒì„±ëœ ê¼¬ë¦¬ì˜ ë‹¤ìŒë…¸ë“œì— í˜„ì¬ ê¼¬ë¦¬ ì„¤ì •.
+    m_pTails = pTail;			// ìƒˆë¡œ ìƒì„±ëœ ê¼¬ë¦¬ì„ í˜„ì¬ ë…¸ë“œì— ì„¤ì •.
+    m_nMaxTail++;				// ê¼¬ë¦¬ ê°œìˆ˜ ì¦ê°€.
 	
 	
-    pTail->m_vPos1 = vPos1;		// ²¿¸®ÁÂÇ¥ 1
+    pTail->m_vPos1 = vPos1;		// ê¼¬ë¦¬ì¢Œí‘œ 1
     pTail->m_vPos2 = vPos2;		// 2
 	
 	pTail->m_clrDiffuse = D3DXCOLOR( 1.0f,   1.0f,   1.0f,   1.0f );
@@ -148,13 +148,13 @@ HRESULT CTailEffectBelt::FrameMove( void )
 //		pTail->m_fFade += 0.030f;
 		pTail->m_fFade += m_fFadeSpeed;
 		
-//		pTail->m_vPos;		// ²¿¸®´Â ÃÖÃÊÁÂÇ¥°¡ º¯ÇÏÁö¾ÊÀ½.
+//		pTail->m_vPos;		// ê¼¬ë¦¬ëŠ” ìµœì´ˆì¢Œí‘œê°€ ë³€í•˜ì§€ì•ŠìŒ.
 		
         if( pTail->m_fFade > 2.0f )
             pTail->m_fFade = 2.0F;
 		
         // Kill old Tails
-		// Èñ¹ÌÇØÁ® »ç¶óÁ³À»¶§´Â »èÁ¦µÊ.
+		// í¬ë¯¸í•´ì ¸ ì‚¬ë¼ì¡Œì„ë•ŒëŠ” ì‚­ì œë¨.
         if( pTail->m_fFade >= 2.0f )
         {
             // Kill Tail
@@ -192,7 +192,7 @@ HRESULT CTailEffectBelt::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice, LPCTST
 								D3DX_FILTER_TRIANGLE|D3DX_FILTER_MIRROR, 0, NULL, NULL, &m_pTexture );
 	if( hr == E_FAIL )
 	{
-		Error( "%s ÀĞ±â ½ÇÆĞ", MakePath( DIR_MODELTEX, szFileName ) );
+		Error( "%s ì½ê¸° ì‹¤íŒ¨", MakePath( DIR_MODELTEX, szFileName ) );
 		m_bActive = FALSE;
 	}
 	 
@@ -204,10 +204,10 @@ HRESULT CTailEffectBelt::RestoreDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 	if( m_bActive == FALSE )	return S_OK;
 	if( m_pTexture == NULL )	return S_OK;
 	if( m_pVB )					
-		return S_OK;		// ÀÌ¹Ì ÇÒ´çµÇ¾î ÀÖÀ¸¸é ´Ù½Ã ÇÒ´ç ¾ÈÇÔ.
+		return S_OK;		// ì´ë¯¸ í• ë‹¹ë˜ì–´ ìˆìœ¼ë©´ ë‹¤ì‹œ í• ë‹¹ ì•ˆí•¨.
     HRESULT hr;
 	
-    if(FAILED(hr = pd3dDevice->CreateVertexBuffer( (MAX_TAIL * 2) *		// ²¿¶ûÁö¸®½ºÆ® ÇÏ³ª´ç ¹öÅØ½º2°³±â¶«¿¡ * 2
+    if(FAILED(hr = pd3dDevice->CreateVertexBuffer( (MAX_TAIL * 2) *		// ê¼¬ë‘ì§€ë¦¬ìŠ¤íŠ¸ í•˜ë‚˜ë‹¹ ë²„í…ìŠ¤2ê°œê¸°ë•œì— * 2
 													sizeof(TAILVERTEX), D3DUSAGE_DYNAMIC | D3DUSAGE_WRITEONLY, 
 													TAILVERTEX::FVF, D3DPOOL_DEFAULT, &m_pVB, NULL )))
 	{
@@ -236,7 +236,7 @@ HRESULT CTailEffectBelt::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 {
 	if( m_bActive == FALSE )	return E_FAIL;
 	if( m_pTexture == NULL )	return E_FAIL;
-	if( m_nMaxTail < 2 )		return E_FAIL;		// ²¿¸®´Â ÃÖ¼Ò 2°³³ëµå(¹öÅØ½º4°³)°¡ ÀÖ¾î¾ß »ï°¢Çü½ºÆ®¸³ 2°³¸¦ ¸¸µé¾î ³¾¼ö ÀÖ´Ù.
+	if( m_nMaxTail < 2 )		return E_FAIL;		// ê¼¬ë¦¬ëŠ” ìµœì†Œ 2ê°œë…¸ë“œ(ë²„í…ìŠ¤4ê°œ)ê°€ ìˆì–´ì•¼ ì‚¼ê°í˜•ìŠ¤íŠ¸ë¦½ 2ê°œë¥¼ ë§Œë“¤ì–´ ë‚¼ìˆ˜ ìˆë‹¤.
 
 	D3DXMATRIX mWorld;
 	D3DXMatrixIdentity( &mWorld );
@@ -295,8 +295,8 @@ HRESULT CTailEffectBelt::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	
     while( pTail )
 	{
-        vPos1 = pTail->m_vPos1;		// ²¿¸®ÁÂÇ¥ 1
-		vPos2 = pTail->m_vPos2;		// ²¿¸®ÁÂÇ¥ 2
+        vPos1 = pTail->m_vPos1;		// ê¼¬ë¦¬ì¢Œí‘œ 1
+		vPos2 = pTail->m_vPos2;		// ê¼¬ë¦¬ì¢Œí‘œ 2
 
 		if( pTail->m_fFade > 1.0f )
 			fFade = 2.0f - pTail->m_fFade;
@@ -308,7 +308,7 @@ HRESULT CTailEffectBelt::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 		if( nCount & 1 )	fTy = 1.0f;
 		else				fTy = 0.0f;
 
-		// ¹öÅØ½º ¹öÆÛ·Î ¿Å±è.
+		// ë²„í…ìŠ¤ ë²„í¼ë¡œ ì˜®ê¹€.
 		pVertices->v     = vPos1;
 		pVertices->color = dwDiffuse;
 		pVertices->tx	= 0.0f;
@@ -350,13 +350,13 @@ HRESULT CTailEffectBelt::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 
 #ifdef _DEBUG
 	if( dwNumTailsToRender == 1 )
-		Error( "TailRender : ·»´õÇÒ ²¿¸®°³¼ö°¡ ³Ñ ÀÛÀº°æ¿ì ¹ß»ı. %d", dwNumTailsToRender );
+		Error( "TailRender : ë Œë”í•  ê¼¬ë¦¬ê°œìˆ˜ê°€ ë„˜ ì‘ì€ê²½ìš° ë°œìƒ. %d", dwNumTailsToRender );
 #endif
 
     // Render any remaining particles
-    if( dwNumTailsToRender )		// À§¿¡¼­ 512°³¾¿ Ãâ·ÂÇØÁÖ°í ³²Àº ¹öÅØ½ºµéÀ» ¿©±â¼­ ¸¶Àú ´Ù ±×·ÁÁÜ.
+    if( dwNumTailsToRender )		// ìœ„ì—ì„œ 512ê°œì”© ì¶œë ¥í•´ì£¼ê³  ë‚¨ì€ ë²„í…ìŠ¤ë“¤ì„ ì—¬ê¸°ì„œ ë§ˆì € ë‹¤ ê·¸ë ¤ì¤Œ.
     {
-		if(FAILED(hr = pd3dDevice->DrawPrimitive( D3DPT_TRIANGLESTRIP, m_dwBase, (dwNumTailsToRender * 2) - 2 )))	// Æ®¶óÀÌ¾Ş±Û ½ºÆ®¸³Àº ÇÁ¸®¹ÌÆ¼ºê °³¼ö°¡ ¹öÅØ½º°³¼ö - 2ÀÌ´Ù.
+		if(FAILED(hr = pd3dDevice->DrawPrimitive( D3DPT_TRIANGLESTRIP, m_dwBase, (dwNumTailsToRender * 2) - 2 )))	// íŠ¸ë¼ì´ì•µê¸€ ìŠ¤íŠ¸ë¦½ì€ í”„ë¦¬ë¯¸í‹°ë¸Œ ê°œìˆ˜ê°€ ë²„í…ìŠ¤ê°œìˆ˜ - 2ì´ë‹¤.
 			return hr;
     }
 	
@@ -390,7 +390,7 @@ void CTailEffectModel::Init( void )
 	m_nMaxTail   = 0;
 }
 
-// ÇÒ´çÇÑ ¸Ş¸ğ¸®µéÀº ±×´ë·Î µÎ°í ÃÊ±âÈ­
+// í• ë‹¹í•œ ë©”ëª¨ë¦¬ë“¤ì€ ê·¸ëŒ€ë¡œ ë‘ê³  ì´ˆê¸°í™”
 void CTailEffectModel::Clear( void )
 {
 	m_bActive	= FALSE;
@@ -418,13 +418,13 @@ void CTailEffectModel::Create( int nType, FLOAT fFadeSpeed )
 }
 
 //
-// ²¿¸® ÇÏ³ª¸¦ »ı¼º½ÃÅ´.
+// ê¼¬ë¦¬ í•˜ë‚˜ë¥¼ ìƒì„±ì‹œí‚´.
 //
 int	CTailEffectModel::CreateTail( D3DXMATRIX* mWorld )
 {
 	if( m_bActive == FALSE )	return 1;
 	
-	// ²¿¸® °¹¼ö°¡ ¸Æ½ºÄ¡¸¦ ³ÑÄ¡ ¾Ê°Ô.
+	// ê¼¬ë¦¬ ê°¯ìˆ˜ê°€ ë§¥ìŠ¤ì¹˜ë¥¼ ë„˜ì¹˜ ì•Šê²Œ.
 	if( m_vecTail.size() > MAX_TAIL )		return 0;
 
 	TAILMODEL Tail;
@@ -434,7 +434,7 @@ int	CTailEffectModel::CreateTail( D3DXMATRIX* mWorld )
 
 	m_vecTail.push_back( Tail );
 	
-    m_nMaxTail++;				// ²¿¸® °³¼ö Áõ°¡.
+    m_nMaxTail++;				// ê¼¬ë¦¬ ê°œìˆ˜ ì¦ê°€.
 
 	return 1;
 }
@@ -546,7 +546,7 @@ void CTailEffectMng::Init( void )
 
 void CTailEffectMng::Destroy( void )
 {
-	// ÀÌ°÷¿¡ ÆÄ±« ÄÚµå¸¦ ³ÖÀ¸¼À.
+	// ì´ê³³ì— íŒŒê´´ ì½”ë“œë¥¼ ë„£ìœ¼ì…ˆ.
 	
 	Init();
 }
@@ -576,7 +576,7 @@ HRESULT CTailEffectMng::InvalidateDeviceObjects( void )
 }
 
 //
-// ÆÄÆ¼Å¬ ÇÏ³ª »ı¼º.
+// íŒŒí‹°í´ í•˜ë‚˜ ìƒì„±.
 //
 CTailEffect *CTailEffectMng::AddEffect( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR szFileName, int nType, FLOAT fFadeSpeed )
 {
@@ -592,9 +592,9 @@ CTailEffect *CTailEffectMng::AddEffect( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR sz
 		
 		//if( m_TailEffects[ i ]->IsActive() == TRUE )	continue;
 
-		m_TailEffects[ i ]->Create( nType, fFadeSpeed );		// ²¿¸®¸Ş¸ğ¸® ÇÒ´çÇÏ°í
-		m_TailEffects[ i ]->InitDeviceObjects( pd3dDevice, szFileName );	// ÅØ½ºÃÄ ÀĞ°í
-		m_TailEffects[ i ]->RestoreDeviceObjects( pd3dDevice );	// ¹öÅØ½º ¹öÆÛ ÇÒ´çÇÏ°í.
+		m_TailEffects[ i ]->Create( nType, fFadeSpeed );		// ê¼¬ë¦¬ë©”ëª¨ë¦¬ í• ë‹¹í•˜ê³ 
+		m_TailEffects[ i ]->InitDeviceObjects( pd3dDevice, szFileName );	// í…ìŠ¤ì³ ì½ê³ 
+		m_TailEffects[ i ]->RestoreDeviceObjects( pd3dDevice );	// ë²„í…ìŠ¤ ë²„í¼ í• ë‹¹í•˜ê³ .
 		m_nMaxType ++;
 		return m_TailEffects[ i ];
 	}
@@ -602,7 +602,7 @@ CTailEffect *CTailEffectMng::AddEffect( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR sz
 	return NULL;
 }
 
-// pTailÀ» Ã£¾Æ¼­ Áö¿ò.
+// pTailì„ ì°¾ì•„ì„œ ì§€ì›€.
 int		CTailEffectMng::Delete( CTailEffect *pTail )
 {
 	int		i;
@@ -610,7 +610,7 @@ int		CTailEffectMng::Delete( CTailEffect *pTail )
 	{
 		if( m_TailEffects[i] == pTail )
 		{
-			m_TailEffects[i]->Destroy();		// ¸Ş¸ğ¸®´Â ÀçÇÒ´çÇÏÁö ¾Ê°í ÃÊ±âÈ­¸¸ ½ÃÅ²´Ù.
+			m_TailEffects[i]->Destroy();		// ë©”ëª¨ë¦¬ëŠ” ì¬í• ë‹¹í•˜ì§€ ì•Šê³  ì´ˆê¸°í™”ë§Œ ì‹œí‚¨ë‹¤.
 			SAFE_DELETE( m_TailEffects[i] );
 			m_nMaxType --;
 			return 1;
