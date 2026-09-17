@@ -1,5 +1,6 @@
 This repo contains the source code for FlyFF v18. It does not contain any of the other assets or files for the game; those can be found from the original v18 source .zip.  
 
+
 To build in VS:  
 Open /Source/Source/all/all.sln  
 Build all projects targetting Release, except for Neuz which is built targetting NoGameguard  
@@ -17,3 +18,8 @@ To start a client, run:
 
 To stop the servers, run:  
 /Server/- Stop All Servers.bat  
+
+
+To register new accounts, run register_account.py after changing the username and password fields in the last line.
+
+

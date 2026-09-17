@@ -46,4 +46,4 @@ foreach ($server in $servers) {
 Write-Host "`n===================================================" -ForegroundColor Green
 Write-Host "   [SUCCESS] All 7 server processes are running!    " -ForegroundColor Green
 Write-Host "===================================================" -ForegroundColor Green
-Read-Host "Press Enter to close this monitor window"
+Start-Sleep -Seconds 2

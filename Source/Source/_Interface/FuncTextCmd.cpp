@@ -3691,6 +3691,47 @@ BOOL TextCmd_System( CScanner & scanner )
 	return TRUE;
 }
 
+// This is a command I added to display a caption banner without a chat message.
+// Copied almost exactly from TextCmd_System, but uses SendCaption instead of SendSystem.
+BOOL TextCmd_GlobalCaption(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	CHAR szString[512] = "";
+
+	CUser* pUser = (CUser*)scanner.dwValue;
+
+	scanner.GetLastFull();
+	if (strlen(scanner.token) >= 512)
+		return TRUE;
+	strcpy(szString, scanner.token);
+	StringTrimRight(szString);
+
+	g_DPCoreClient.SendCaption(szString, pUser->GetWorld()->GetID(), false);
+#endif	// __WORLDSERVER
+	return TRUE;
+}
+
+// This is a command I added to display a chat message without a banner.
+// Copied almost exactly from TextCmd_System, but uses SendChat instead of SendSystem.
+BOOL TextCmd_GlobalChat(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	CHAR szString[512] = "";
+
+	CUser* pUser = (CUser*)scanner.dwValue;
+
+	scanner.GetLastFull();
+	if (strlen(scanner.token) >= 512)
+		return TRUE;
+	strcpy(szString, scanner.token);
+	StringTrimRight(szString);
+
+	g_DPCoreClient.SendShout(pUser, szString);
+#endif	// __WORLDSERVER
+	return TRUE;
+}
+
+
 BOOL TextCmd_LoadScript( CScanner & scanner )
 {
 #ifdef __WORLDSERVER
@@ -5209,6 +5250,8 @@ BEGINE_TEXTCMDFUNC_MAP
 	ON_TEXTCMDFUNC( TextCmd_FallRain,              "FallRain",           "frain",          "비와라",         "비와",    TCM_SERVER, AUTH_GAMEMASTER2   , "비 내리기 토글" )
 	ON_TEXTCMDFUNC( TextCmd_StopRain,              "StopRain",           "sr",             "비그만",         "비끝",    TCM_SERVER, AUTH_GAMEMASTER2   , "비 내리기 못하게 토글" )
 	ON_TEXTCMDFUNC( TextCmd_System,                "system",             "sys",            "알림",           "알",      TCM_SERVER, AUTH_GAMEMASTER2   , "시스템 메시지" )
+	ON_TEXTCMDFUNC( TextCmd_GlobalCaption,         "globalCaption",      "gcap",           "전체메시지1",      "전메1",    TCM_BOTH, AUTH_GAMEMASTER2   , "전체 메시지1" )
+	ON_TEXTCMDFUNC( TextCmd_GlobalChat,            "globalChat",		 "gchat",          "전체메시지2",      "전메2",    TCM_BOTH, AUTH_GAMEMASTER2   , "전체 메시지2" )
 
 	// GM_LEVEL_3
 	ON_TEXTCMDFUNC( TextCmd_PvpParam,              "PvpParam",           "p_Param",        "PVP설정",        "피설",    TCM_SERVER, AUTH_GAMEMASTER3, "PVP(카오)설정" )
