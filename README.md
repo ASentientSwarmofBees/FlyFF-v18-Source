@@ -12,6 +12,8 @@ After building in VS, run the helper scripts:
 
 To start the servers, run:  
 /Server/- Start All Servers.bat  
+Players can start their clients without the servers running, but they won't be able to connect until the World server is running (which takes about 30 seconds after it's launched).  
+(Occasionally one of the servers will fail. Close them all and run the script again in that case.)  
 
 To start a client, run:  
 /Client/- Start Game.bat  

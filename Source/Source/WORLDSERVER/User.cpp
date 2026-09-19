@@ -9105,5 +9105,3 @@ void CUser::SendItemLink( CItemElem* pItemElem )
 	pItemElem->Serialize( m_Snapshot.ar );
 }
 #endif
-
-

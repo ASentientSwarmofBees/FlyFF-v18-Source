@@ -537,6 +537,8 @@ public:
 	LONG			m_nLevel;					/// 레벨 
 	LONG			m_nDeathLevel;				/// 죽었을 때 레벨
 	EXPINTEGER		m_nExp1, m_nDeathExp;		/// m_nExp1 - 경험치, DeathExp - 죽었을 때 경험치
+	float			m_fFastExpFactor;			// custom modifiable exp factor for this mover, default is 1.0f
+
 
 private:
 #if __VER >= 12 // __MOD_TUTORIAL
@@ -1134,6 +1136,9 @@ public:
 	int				GetFxp() { return m_nFxp; }
 	int				GetTxp() { return m_nFxp; }
 	EXPINTEGER		GetExp1()	{	return m_nExp1;	}
+	float			GetFastExpFactor() { return m_fFastExpFactor; }
+	void			SetFastExpFactor(float fFastExpFactor) { m_fFastExpFactor = fFastExpFactor; }
+	void			IncrementFastExpFactor(float fFastExpFactor) { m_fFastExpFactor += fFastExpFactor; }
 	EXPINTEGER		GetMaxExp1()	{	return prj.m_aExpCharacter[m_nLevel+1].nExp1;	}
 	EXPINTEGER		GetMaxExp2()	{	return prj.m_aExpCharacter[m_nLevel].nExp2;	}
 	int				GetRemainGP(); // growth

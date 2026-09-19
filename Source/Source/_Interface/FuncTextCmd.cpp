@@ -844,6 +844,49 @@ BOOL TextCmd_Level( CScanner & scanner )
 	return TRUE;
 }
 
+// Prints the current fast exp factor of the user.
+BOOL TextCmd_GetFastExpFactor(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	CUser* pUser = (CUser*)scanner.dwValue;
+	float fFastExpFactor = pUser->GetFastExpFactor();
+	char chMessage[MAX_PATH] = { 0, };
+	sprintf(chMessage, "Current Fast Exp Factor: %.2f", fFastExpFactor);
+	pUser->AddText(chMessage);
+#endif // __WORLDSERVER
+	return TRUE;
+}
+
+// Sets the current fast exp factor of the user.
+BOOL TextCmd_SetFastExpFactor(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	CUser* pUser = (CUser*)scanner.dwValue;
+	FLOAT old_f = pUser->GetFastExpFactor();
+	FLOAT new_f = scanner.GetFloat();
+	pUser->SetFastExpFactor(new_f);
+	char chMessage[MAX_PATH] = { 0, };
+	sprintf(chMessage, "Fast Exp Factor changed from %.2f to %.2f", old_f, new_f);
+	pUser->AddText(chMessage);
+#endif // __WORLDSERVER
+	return TRUE;
+}
+
+// Increases the current fast exp factor of the user by a value.
+BOOL TextCmd_IncFastExpFactor(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	CUser* pUser = (CUser*)scanner.dwValue;
+	FLOAT old_f = pUser->GetFastExpFactor();
+	FLOAT new_f = scanner.GetFloat() + old_f;
+	pUser->SetFastExpFactor(new_f);
+	char chMessage[MAX_PATH] = { 0, };
+	sprintf(chMessage, "Fast Exp Factor increased from %.2f to %.2f", old_f, new_f);
+	pUser->AddText(chMessage);
+#endif // __WORLDSERVER
+	return TRUE;
+}
+
 #ifdef __SFX_OPT
 BOOL TextCmd_SfxLv( CScanner & scanner )
 {
@@ -3699,6 +3742,7 @@ BOOL TextCmd_GlobalCaption(CScanner& scanner)
 	CHAR szString[512] = "";
 
 	CUser* pUser = (CUser*)scanner.dwValue;
+	//CUser* pUser = CUserMng::GetInstance()->GetUser(dpid);
 
 	scanner.GetLastFull();
 	if (strlen(scanner.token) >= 512)
@@ -3731,6 +3775,19 @@ BOOL TextCmd_GlobalChat(CScanner& scanner)
 	return TRUE;
 }
 
+BOOL TextCmd_GetPlayerID(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	scanner.GetToken();
+
+	CUser* pUser = (CUser*)scanner.dwValue;
+	u_long idPlayer = CPlayerDataCenter::GetInstance()->GetPlayerId(scanner.token);
+	char chMessage[MAX_PATH] = { 0, };
+	sprintf(chMessage, "%s Player ID: %lu", scanner.token, idPlayer);
+	pUser->AddText(chMessage);
+#endif
+	return TRUE;
+}
 
 BOOL TextCmd_LoadScript( CScanner & scanner )
 {
@@ -5252,6 +5309,7 @@ BEGINE_TEXTCMDFUNC_MAP
 	ON_TEXTCMDFUNC( TextCmd_System,                "system",             "sys",            "알림",           "알",      TCM_SERVER, AUTH_GAMEMASTER2   , "시스템 메시지" )
 	ON_TEXTCMDFUNC( TextCmd_GlobalCaption,         "globalCaption",      "gcap",           "전체메시지1",      "전메1",    TCM_BOTH, AUTH_GAMEMASTER2   , "전체 메시지1" )
 	ON_TEXTCMDFUNC( TextCmd_GlobalChat,            "globalChat",		 "gchat",          "전체메시지2",      "전메2",    TCM_BOTH, AUTH_GAMEMASTER2   , "전체 메시지2" )
+	ON_TEXTCMDFUNC(TextCmd_GetPlayerID, "getPlayerID", "gpid", "내 플레이어 ID 얻기", "내ID", TCM_BOTH, AUTH_GAMEMASTER2, "내 플레이어 ID 얻기")
 
 	// GM_LEVEL_3
 	ON_TEXTCMDFUNC( TextCmd_PvpParam,              "PvpParam",           "p_Param",        "PVP설정",        "피설",    TCM_SERVER, AUTH_GAMEMASTER3, "PVP(카오)설정" )
@@ -5266,6 +5324,10 @@ BEGINE_TEXTCMDFUNC_MAP
 	ON_TEXTCMDFUNC( TextCmd_AroundKill,            "aroundkill",         "ak",             "원샷",           "원",      TCM_SERVER, AUTH_GAMEMASTER3   , "어라운드에 있는 몬스터 죽이기" )
 	ON_TEXTCMDFUNC( TextCmd_stat,                  "stat",               "stat",           "스탯",           "스탯",    TCM_SERVER, AUTH_GAMEMASTER3   , "스탯 설정 하기" )
 	ON_TEXTCMDFUNC( TextCmd_Level,                 "level",              "lv",             "레벨",           "렙",      TCM_SERVER, AUTH_GAMEMASTER3   , "레벨 설정 하기" )
+	ON_TEXTCMDFUNC(TextCmd_GetFastExpFactor, "getFastExpFactor", "gfxf", "빠른경험치", "빠른경", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 경험치 요소 설정" )
+	ON_TEXTCMDFUNC(TextCmd_SetFastExpFactor, "setFastExpFactor", "sfxf", "빠른경험치1", "빠른경1", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 경험치 요소 설정1")
+	ON_TEXTCMDFUNC(TextCmd_IncFastExpFactor, "incFastExpFactor", "ifxf", "빠른경험치2", "빠른경2", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 경험치 요소 설정2")
+	ON_TEXTCMDFUNC(TextCmd_Level, "level", "lv", "레벨", "렙", TCM_SERVER, AUTH_GAMEMASTER3, "레벨 설정 하기" )
 	ON_TEXTCMDFUNC( TextCmd_InitSkillExp,          "InitSkillExp",       "InitSE",         "스킬초기화",     "스초",    TCM_SERVER, AUTH_GAMEMASTER3, "스킬초기화" )
 	ON_TEXTCMDFUNC( TextCmd_SkillLevel,            "skilllevel",         "slv",            "스킬레벨",       "스렙",    TCM_BOTH  , AUTH_GAMEMASTER3   , "스킬레벨 설정 하기" )
 	ON_TEXTCMDFUNC( TextCmd_SkillLevelAll,         "skilllevelAll",      "slvAll",         "스킬레벨올",     "스렙올",  TCM_BOTH  , AUTH_GAMEMASTER3   , "스킬레벨 설정 하기" )
@@ -5658,6 +5720,17 @@ int ParsingCommand( LPCTSTR lpszString, CMover* pMover, BOOL bItem )
 #endif	//__CLIENT
 
 	return FALSE;
+}
+
+int SystemParseCommand(LPCSTR command)
+{
+#ifdef __WORLDSERVER
+	//this one hundred percent crashes the server.
+	CUser* pUser = g_UserMng.GetUserByPlayerID(1);
+	LPCSTR test = "player id 1 test.";
+	ParsingCommand(command, pUser);
+#endif	// __WORLDSERVER
+	return 0;
 }
 
 void RemoveCRLF( char* szString )

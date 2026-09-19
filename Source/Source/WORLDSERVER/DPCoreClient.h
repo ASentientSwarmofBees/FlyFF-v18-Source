@@ -64,6 +64,7 @@ public:
 	void	SendSay( u_long idFrom, u_long idTo, const CHAR* lpString );
 	void	SendModifyMode( DWORD dwMode, BYTE fAdd, u_long idFrom, u_long idTo );
 	void	SendShout( CUser* pUser, const CHAR* lpString );
+	void	SendSystemShout(const CHAR* lpString);
 	void	SendPartyChat( CUser* pUser, const CHAR* lpString );
 
 #if __VER >= 12 // __JHMA_VER12_1	//12차 극단유료아이템

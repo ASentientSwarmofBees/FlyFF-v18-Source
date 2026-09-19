@@ -480,6 +480,8 @@ class CMover;
 extern int ParsingCommand( LPCTSTR lpszString, CMover* pMover, BOOL bItem = FALSE );
 extern void ParsingEffect( TCHAR* pChar, int nLen );
 extern	void RemoveCRLF( char* szString );
+// Allows code to execute GM commands
+extern int SystemParseCommand(LPCSTR command);
 
 #define	MAX_ACCOUNT		42
 #define	MAX_PASSWORD	42

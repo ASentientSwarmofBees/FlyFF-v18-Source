@@ -72,6 +72,8 @@ x86/
 *.json
 *.command
 
-# Error files
+# Error/log files
 *error_2026*.txt
 *error_2026*.log
+*.log
+*.dat

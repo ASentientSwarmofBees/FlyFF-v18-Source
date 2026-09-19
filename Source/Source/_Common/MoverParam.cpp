@@ -1102,6 +1102,9 @@ BOOL CMover::IncIntLevel()
 
 BOOL CMover::AddExperience( EXPINTEGER nExp, BOOL bFirstCall, BOOL bMultiPly, BOOL bMonster )
 {
+	// Gain a minimum of 1 xp from all sources
+	if (nExp <= 0)
+		nExp = 1;
 #ifdef __VTN_TIMELIMIT
 	//	mulcom	BEGIN100315	베트남 시간 제한
 	if( ::GetLanguage() == LANG_VTN )
@@ -1356,6 +1359,12 @@ BOOL CMover::AddExperience( EXPINTEGER nExp, BOOL bFirstCall, BOOL bMultiPly, BO
 #endif // __CSC_VER8_5
 #endif // __ANGEL_EXPERIENCE
 
+	if (bFirstCall)
+	{
+		// Increase total XP gain by fast exp factor. Check bFirstCall so that if you level up,
+		// this doesn't exponentially increase the XP gain until you level cap/overflow.
+		nExp = (EXPINTEGER)(nExp * m_fFastExpFactor);
+	}
 	m_nExp1 += nExp;									// pxp와 관계없이 exp가 증가. 만쉐이!
 	
 	if( bFirstCall )
@@ -1937,7 +1946,7 @@ BOOL CMover::SetExperience( EXPINTEGER nExp1, int nLevel )
 				case 2:
 #if __VER >= 13 // __RENEW_CHARINFO
 					pWndWorld->m_pWndGuideSystem->SendGuideMessage(APP_CHARACTER3);
-#else if __VER >= 9 // __CSC_VER9_2
+#elif __VER >= 9 // __CSC_VER9_2
 					pWndWorld->m_pWndGuideSystem->SendGuideMessage(APP_CHARACTER2);
 #else //__CSC_VER9_2
 					pWndWorld->m_pWndGuideSystem->SendGuideMessage(APP_CHARACTER);
