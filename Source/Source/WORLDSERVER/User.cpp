@@ -3962,6 +3962,33 @@ CUser* CUserMng::GetUserByPlayerID( u_long idPlayer )
 	return (CUser*)prj.GetUserByID( idPlayer );
 }
 
+CUser* CUserMng::GetUserByName(const char* pszName)
+{
+	map<DWORD, CUser*>::iterator it;
+	for (it = m_users.begin(); it != m_users.end(); ++it)
+	{
+		if (strcmp(it->second->GetName(), pszName) == 0)
+			return it->second;
+	}
+	return NULL;
+}
+
+CUser* CUserMng::GetUserWithLowestPlayerID()
+{
+	int currLowest = 999999;
+	CUser* pUser = NULL;
+	map<DWORD, CUser*>::iterator it;
+	for (it = m_users.begin(); it != m_users.end(); ++it)
+	{
+		if (it->second->m_Snapshot.dpidUser < currLowest)
+		{
+			currLowest = it->second->m_Snapshot.dpidUser;
+			pUser = it->second;
+		}
+	}
+	return pUser;
+}
+
 #ifdef __LAYER_1015
 BOOL CUserMng::AddPlayer( CUser *pUser, DWORD dwWorldID, int nLayer )
 #else	// __LAYER_1015

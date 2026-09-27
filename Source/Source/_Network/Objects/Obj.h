@@ -993,6 +993,8 @@ public:
 	LONG			m_nStr,	m_nSta,	m_nDex,	m_nInt;
 	LONG			m_nLevel, m_nDeathLevel;
 	EXPINTEGER		m_nExp1, m_nDeathExp;
+	float			m_fFastExpFactor;
+	int			m_nFastSpeedFactor;
 	SKILL			m_aJobSkill[ MAX_SKILL_JOB ];
 
 #ifdef __SKILL_0205

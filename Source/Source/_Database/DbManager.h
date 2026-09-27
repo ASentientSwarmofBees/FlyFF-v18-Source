@@ -1069,6 +1069,7 @@ public:
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 		, char* m_aCheckedQuest = '\0'
 #endif // __IMPROVE_QUEST_INTERFACE
+		, float m_fFastExpFactor = 1.0, int m_nFastSpeedFactor = 0
 		);
 
 	void	DBQryLog( char* qryLog, char* Gu, u_long idPlayer, int nserverindex, EXPINTEGER nExp1 = 0, int nLevel = 0,

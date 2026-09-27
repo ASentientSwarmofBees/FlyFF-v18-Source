@@ -274,6 +274,10 @@ void CMover::Serialize( CAr & ar )
 				ar << m_idCampus;
 				ar << m_nCampusPoint;
 #endif // __CAMPUS
+				//Custom DB stuff
+				ar << m_fFastExpFactor;
+				ar << m_nFastSpeedFactor;
+				//WriteLog("<< exp %f, speed %d", m_fFastExpFactor, m_nFastSpeedFactor);
 			}
 			else if( CObj::GetMethod() == METHOD_EXCLUDE_ITEM )
 			{
@@ -637,6 +641,10 @@ void CMover::Serialize( CAr & ar )
 				ar >> m_idCampus;
 				ar >> m_nCampusPoint;
 #endif // __CAMPUS
+				//custom DB stuff
+				ar >> m_fFastExpFactor;
+				ar >> m_nFastSpeedFactor;
+				//WriteLog(">> exp %f, speed %d", m_fFastExpFactor, m_nFastSpeedFactor);
 			}
 			else if( CObj::GetMethod() == METHOD_EXCLUDE_ITEM )
 			{

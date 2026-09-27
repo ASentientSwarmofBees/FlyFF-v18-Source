@@ -887,6 +887,61 @@ BOOL TextCmd_IncFastExpFactor(CScanner& scanner)
 	return TRUE;
 }
 
+// Prints the current fast speed factor of the user.
+BOOL TextCmd_GetFastSpeedFactor(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	CUser* pUser = (CUser*)scanner.dwValue;
+	int fFastSpeedFactor = pUser->GetFastSpeedFactor();
+	char chMessage[MAX_PATH] = { 0, };
+	sprintf(chMessage, "Current Fast Speed Factor: %d", fFastSpeedFactor);
+	pUser->AddText(chMessage);
+#endif // __WORLDSERVER
+	return TRUE;
+}
+
+// Sets the current fast exp factor of the user.
+BOOL TextCmd_SetFastSpeedFactor(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	CUser* pUser = (CUser*)scanner.dwValue;
+	int old_f = pUser->GetFastSpeedFactor();
+	int new_f = scanner.GetNumber();
+	pUser->SetFastSpeedFactor(new_f);
+
+	// Make a SetDestParam call. SetDestParam is additive and ResetDestParam is subtractive.
+	// Subtract old modifier, then add new modifier.
+	pUser->ResetDestParam(DST_SPEED, old_f, TRUE);
+	pUser->SetDestParam(DST_SPEED, new_f, NULL_CHGPARAM, TRUE);
+
+	char chMessage[MAX_PATH] = { 0, };
+	sprintf(chMessage, "Fast Speed Factor changed from %d to %d", old_f, new_f);
+	pUser->AddText(chMessage);
+#endif // __WORLDSERVER
+	return TRUE;
+}
+
+// Increases the current fast exp factor of the user by a value.
+BOOL TextCmd_IncFastSpeedFactor(CScanner& scanner)
+{
+#ifdef __WORLDSERVER
+	CUser* pUser = (CUser*)scanner.dwValue;
+	int old_f = pUser->GetFastSpeedFactor();
+	int new_f = scanner.GetNumber() + old_f;
+	pUser->SetFastSpeedFactor(new_f);
+
+	// Make a SetDestParam call. SetDestParam is additive and ResetDestParam is subtractive.
+	// Subtract old modifier, then add new modifier.
+	pUser->ResetDestParam(DST_SPEED, old_f, TRUE);
+	pUser->SetDestParam(DST_SPEED, new_f, NULL_CHGPARAM, TRUE);
+
+	char chMessage[MAX_PATH] = { 0, };
+	sprintf(chMessage, "Fast Speed Factor increased from %d to %d", old_f, new_f);
+	pUser->AddText(chMessage);
+#endif // __WORLDSERVER
+	return TRUE;
+}
+
 #ifdef __SFX_OPT
 BOOL TextCmd_SfxLv( CScanner & scanner )
 {
@@ -3742,7 +3797,7 @@ BOOL TextCmd_GlobalCaption(CScanner& scanner)
 	CHAR szString[512] = "";
 
 	CUser* pUser = (CUser*)scanner.dwValue;
-	//CUser* pUser = CUserMng::GetInstance()->GetUser(dpid);
+	//CUser* pUser = g_userMng.GetUser(dpid);
 
 	scanner.GetLastFull();
 	if (strlen(scanner.token) >= 512)
@@ -5327,6 +5382,9 @@ BEGINE_TEXTCMDFUNC_MAP
 	ON_TEXTCMDFUNC(TextCmd_GetFastExpFactor, "getFastExpFactor", "gfxf", "빠른경험치", "빠른경", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 경험치 요소 설정" )
 	ON_TEXTCMDFUNC(TextCmd_SetFastExpFactor, "setFastExpFactor", "sfxf", "빠른경험치1", "빠른경1", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 경험치 요소 설정1")
 	ON_TEXTCMDFUNC(TextCmd_IncFastExpFactor, "incFastExpFactor", "ifxf", "빠른경험치2", "빠른경2", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 경험치 요소 설정2")
+	ON_TEXTCMDFUNC(TextCmd_GetFastSpeedFactor, "getFastSpeedFactor", "gfsf", "빠른속도", "빠른속", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 속도 요소 설정")
+	ON_TEXTCMDFUNC(TextCmd_SetFastSpeedFactor, "setFastSpeedFactor", "sfsf", "빠른속도1", "빠른속1", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 속도 요소 설정1")
+	ON_TEXTCMDFUNC(TextCmd_IncFastSpeedFactor, "incFastSpeedFactor", "ifsf", "빠른속도2", "빠른속2", TCM_SERVER, AUTH_GAMEMASTER3, "빠른 속도 요소 설정2")
 	ON_TEXTCMDFUNC(TextCmd_Level, "level", "lv", "레벨", "렙", TCM_SERVER, AUTH_GAMEMASTER3, "레벨 설정 하기" )
 	ON_TEXTCMDFUNC( TextCmd_InitSkillExp,          "InitSkillExp",       "InitSE",         "스킬초기화",     "스초",    TCM_SERVER, AUTH_GAMEMASTER3, "스킬초기화" )
 	ON_TEXTCMDFUNC( TextCmd_SkillLevel,            "skilllevel",         "slv",            "스킬레벨",       "스렙",    TCM_BOTH  , AUTH_GAMEMASTER3   , "스킬레벨 설정 하기" )
@@ -5725,8 +5783,7 @@ int ParsingCommand( LPCTSTR lpszString, CMover* pMover, BOOL bItem )
 int SystemParseCommand(LPCSTR command)
 {
 #ifdef __WORLDSERVER
-	//this one hundred percent crashes the server.
-	CUser* pUser = g_UserMng.GetUserByPlayerID(1);
+	CUser* pUser = g_UserMng.GetUserWithLowestPlayerID();
 	LPCSTR test = "player id 1 test.";
 	ParsingCommand(command, pUser);
 #endif	// __WORLDSERVER

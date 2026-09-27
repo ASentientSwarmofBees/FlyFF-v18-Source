@@ -838,6 +838,8 @@ public:
 	void			RemoveUser( DWORD dwSerial );
 	CUser*			GetUser( DPID dpidCache, DPID dpidUser );
 	CUser*			GetUserByPlayerID( u_long idPlayer );
+	CUser*			GetUserByName(const char* pszName);
+	CUser*			GetUserWithLowestPlayerID();
 //	void			Notify();
 #ifdef __LAYER_1015
 	BOOL			AddPlayer( CUser* pUser, DWORD dwWorldID, int nLayer );

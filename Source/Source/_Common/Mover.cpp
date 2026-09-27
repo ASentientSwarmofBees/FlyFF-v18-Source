@@ -265,6 +265,7 @@ void CMover::Init()
 	m_nLevel			= 1;
 	m_nExp1				= 0;
 	m_fFastExpFactor	= 1.0f;
+	m_nFastSpeedFactor  = 1;
 	m_nDeathExp			= 0;
 	m_nDeathLevel		= 0;
 	m_dwFace			= 0;

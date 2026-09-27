@@ -5404,6 +5404,8 @@ void CDbManager::DBQryCharacter( char* qryCharacter, char* Gu, u_long idPlaeyr, 
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 								, char* m_aCheckedQuest
 #endif // __IMPROVE_QUEST_INTERFACE
+	//My custom additions.
+								, float m_fFastExpFactor, int m_nFastSpeedFactor
 								)
 {
 	sprintf( qryCharacter, "CHARACTER_STR '%s'", Gu );
@@ -5519,6 +5521,12 @@ void CDbManager::DBQryCharacter( char* qryCharacter, char* Gu, u_long idPlaeyr, 
 	sprintf( strCharacter, ",@im_aCheckedQuest='%s'", m_aCheckedQuest );
 	strncat( qryCharacter, strCharacter, sizeof(strCharacter) );
 #endif // __IMPROVE_QUEST_INTERFACE
+
+	// My custom new DB columns!
+	sprintf(strCharacter, ",@im_fFastExpFactor=%f", m_fFastExpFactor);
+	strncat(qryCharacter, strCharacter, sizeof(strCharacter));
+	sprintf(strCharacter, ",@im_nFastSpeedFactor=%d", m_nFastSpeedFactor);
+	strncat(qryCharacter, strCharacter, sizeof(strCharacter));
 
 	if( strlen(qryCharacter) > 40960 )
 	{

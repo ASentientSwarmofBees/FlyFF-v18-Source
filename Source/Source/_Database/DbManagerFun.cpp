@@ -1072,6 +1072,13 @@ void CDbManager::GetBaseCharacter( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_
 	pMover->m_nDex	= (LONG)qry->GetInt( "m_nDex" );
 	pMover->m_nInt	= (LONG)qry->GetInt( "m_nInt" );
 	pMover->m_nLevel	= (LONG)qry->GetInt( "m_nLevel" );
+	pMover->m_fFastExpFactor = qry->GetFloat("m_fFastExpFactor");
+	pMover->m_nFastSpeedFactor = qry->GetInt("m_nFastSpeedFactor");
+	// FAST DEFAULTS IF NULL
+	if (pMover->m_fFastExpFactor == -100)
+		pMover->m_fFastExpFactor = 1.0;
+	if (pMover->m_nFastSpeedFactor == -100)
+		pMover->m_nFastSpeedFactor = 0;
 	pMover->m_nExp1		= qry->GetExpInteger( "m_nExp1" );
 	pMover->m_nFuel		= qry->GetInt( "m_nFuel" );
 	pMover->m_tmAccFuel	= qry->GetInt( "m_tmAccFuel" );

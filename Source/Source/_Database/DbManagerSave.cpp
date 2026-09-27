@@ -108,13 +108,18 @@ void CDbManager::SavePlayer( CQuery *qry, CQuery* pQueryLog, CMover* pMover, cha
 	sprintf( szQuery, "{call CHARACTER_STR('U1','%07d','%02d','',"
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 1
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 2
-					  "?,?,?,?,?,?,?,?,?,?,?,"		// 3
+					  "?,?,?,?,?,?,?,"				// 3
+					  // Custom DB stuff
+					  // For m_fFastExpFactor and m_nFastSpeedFactor
+					  "?,?,"
+					  "?,?,?,?,"					// 3 cont
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 4
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 5
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 6
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 7
 //					  "?,?,?,?,?,?,?,?,?,?,?,"		// 8
 					  "?,?,?,?,?,?,?,?,?,%7.0f,%7.0f,"		// 8
+		
 	#ifdef __EVENT_1101
 //					  "?,?,?,?,?,?"
 						"%7.0f,?,?,?,?,?"
@@ -146,7 +151,6 @@ void CDbManager::SavePlayer( CQuery *qry, CQuery* pQueryLog, CMover* pMover, cha
 #if __VER >= 15 // __CAMPUS
 					  ",?,?"
 #endif // __CAMPUS
-
 //					  ")}", pMover->m_idPlayer, g_appInfo.dwSys );		// +3
 					  ")}", pMover->m_idPlayer, g_appInfo.dwSys, pMover->m_vReturnPos.x, pMover->m_vReturnPos.y, pMover->m_vReturnPos.z );		// +3
 
@@ -165,6 +169,8 @@ void CDbManager::SavePlayer( CQuery *qry, CQuery* pQueryLog, CMover* pMover, cha
 
 //////////////////////////////////////////////////////////////////////////////////////
 int MAX_SAVEPARAM = 88;
+// Plus two for m_fFastExpFactor and m_nFastSpeedFactor
+MAX_SAVEPARAM += 2;
 	MAX_SAVEPARAM += 3;
 #ifdef __EVENT_1101
 		MAX_SAVEPARAM += 3;
@@ -251,6 +257,13 @@ int MAX_SAVEPARAM = 88;
 	bOK[++j] = qry->BindParameter( ++i, SQL_PARAM_INPUT, SQL_C_FLOAT, SQL_REAL,     0, 0, &pMover->m_vMarkingPos.z, 0, 0 );
 	bOK[++j] = qry->BindParameter( ++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER,   0, 0, &pMover->m_nRemainGP, 0, 0 );
 	bOK[++j] = qry->BindParameter( ++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER,   0, 0, &nRemainLP, 0, 0 );
+	// CUSTOM DB ENTRIES
+	// My own addition for fast exp and fast speed factors
+	// CUSTOM DB STUFF
+	//WriteLog("This is a check of fast exp (%.2f) and fast speed (%d).", fFastExpFactor, nFastSpeedFactor);
+	bOK[++j] = qry->BindParameter(++i, SQL_PARAM_INPUT, SQL_C_FLOAT, SQL_REAL, 0, 0, &pMover->m_fFastExpFactor, 0, 0);
+	bOK[++j] = qry->BindParameter(++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &pMover->m_nFastSpeedFactor, 0, 0);
+
 #if __VER >= 12 // __MOD_TUTORIAL
 	int nTutorialState	= pMover->GetTutorialState();
 	bOK[++j] = qry->BindParameter( ++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER,   0, 0, &nTutorialState, 0, 0 );
@@ -372,6 +385,7 @@ int MAX_SAVEPARAM = 88;
 	u_long idCampus		= pMover->GetCampusId();
 	bOK[++j]	= qry->BindParameter( ++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER,   0, 0, &idCampus, 0, 0 );
 #endif // __CAMPUS
+
 	for( i=0; i<j; ++i )
 	{
 		if( bOK[i] == FALSE )
@@ -397,7 +411,7 @@ int MAX_SAVEPARAM = 88;
 			return;
 		}
 	}
-
+	
 	if( qry->Exec( szQuery ) == FALSE )
 	{
 		WriteLog( "SavePlayer(%s) - Exec RETURN FALSE, ThreadID : %d", pMover->m_szName, ::GetCurrentThreadId() );
