@@ -260,9 +260,13 @@ MAX_SAVEPARAM += 2;
 	// CUSTOM DB ENTRIES
 	// My own addition for fast exp and fast speed factors
 	// CUSTOM DB STUFF
-	//WriteLog("This is a check of fast exp (%.2f) and fast speed (%d).", fFastExpFactor, nFastSpeedFactor);
+	DWORD nFastSpeedFactor = pMover->m_nFastSpeedFactor;
+	WriteLog("Saving fast exp (%.2f) and fast speed (%d).", pMover->m_fFastExpFactor, nFastSpeedFactor);
+	pMover->m_fFastExpFactor = 3;
+	nFastSpeedFactor = 5;
+	WriteLog("Updating fast exp (%.2f) and fast speed (%d).", pMover->m_fFastExpFactor, nFastSpeedFactor);
 	bOK[++j] = qry->BindParameter(++i, SQL_PARAM_INPUT, SQL_C_FLOAT, SQL_REAL, 0, 0, &pMover->m_fFastExpFactor, 0, 0);
-	bOK[++j] = qry->BindParameter(++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &pMover->m_nFastSpeedFactor, 0, 0);
+	bOK[++j] = qry->BindParameter(++i, SQL_PARAM_INPUT, SQL_C_LONG, SQL_INTEGER, 0, 0, &nFastSpeedFactor, 0, 0);
 
 #if __VER >= 12 // __MOD_TUTORIAL
 	int nTutorialState	= pMover->GetTutorialState();

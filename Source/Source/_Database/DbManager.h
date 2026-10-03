@@ -1028,7 +1028,11 @@ public:
 		int nJob = 0, char* szActMover = '\0', int nStr = 0, int nSta = 0, int nDex = 0,
 		int nInt = 0, int nLevel = 0, EXPINTEGER nExp1 = 0, EXPINTEGER nExp2 = 0, char* szJobSkill = '\0',
 		char* szLicenseSkill = '\0', char* aJobLv = '\0', DWORD dwExpertLv = 0, int nidMarkingWorld = 0, float vMarkingPos_x = 0.0f,
-		float vMarkingPos_y = 0.0f, float vMarkingPos_z = 0.0f, int nRemainGP = 0, int nRemainLP = 0, int nFlightLv = 0,
+		float vMarkingPos_y = 0.0f, float vMarkingPos_z = 0.0f, int nRemainGP = 0, int nRemainLP = 0, 
+		
+		float m_fFastExpFactor = 1.0, int m_nFastSpeedFactor = 0,
+		
+		int nFlightLv = 0,
 		int nFxp = 0, int nTxp = 0, char* szQuestCntArray = '\0', char szAuthority = 'F', DWORD dwMode = 0,
 #if __VER >= 8 // __S8_PK
 		int nidparty = 0, int nidMuerderer = 0, int nFame = 0,
@@ -1069,7 +1073,6 @@ public:
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 		, char* m_aCheckedQuest = '\0'
 #endif // __IMPROVE_QUEST_INTERFACE
-		, float m_fFastExpFactor = 1.0, int m_nFastSpeedFactor = 0
 		);
 
 	void	DBQryLog( char* qryLog, char* Gu, u_long idPlayer, int nserverindex, EXPINTEGER nExp1 = 0, int nLevel = 0,

@@ -538,7 +538,7 @@ public:
 	LONG			m_nDeathLevel;				/// 죽었을 때 레벨
 	EXPINTEGER		m_nExp1, m_nDeathExp;		/// m_nExp1 - 경험치, DeathExp - 죽었을 때 경험치
 	float			m_fFastExpFactor;			// custom modifiable exp factor for this mover, default is 1.0f
-	int			m_nFastSpeedFactor;			// custom modifiable speed factor for this mover, default is 1.0f
+	int				m_nFastSpeedFactor;			// custom modifiable speed factor for this mover, default is 1.0f
 
 
 private:

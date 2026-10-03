@@ -1,13 +1,4 @@
 @echo off
-title FlyFF Resource & Client Synchronizer
-
-:: Self-elevate if administrative rights are required for file copying
-net session >nul 2>&1
-if %errorLevel% neq 0 (
-    echo Requesting Administrative Privileges...
-    powershell -Command "Start-Process '%~f0' -Verb RunAs"
-    exit /b
-)
 
 :: %~dp0 points to the Client folder. %~dp0..\ targets the parent directory.
 set "DEST_DIR=%~dp0"

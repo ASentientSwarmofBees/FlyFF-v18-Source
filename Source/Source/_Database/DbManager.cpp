@@ -5363,7 +5363,11 @@ void CDbManager::DBQryCharacter( char* qryCharacter, char* Gu, u_long idPlaeyr, 
 								int nJob, char* szActMover, int nStr, int nSta, int nDex,
 								int nInt, int nLevel, EXPINTEGER nExp1, EXPINTEGER nExp2, char* szJobSkill,
 								char* szLicenseSkill, char* aJobLv, DWORD dwExpertLv, int nidMarkingWorld, float vMarkingPos_x,
-								float vMarkingPos_y, float vMarkingPos_z, int nRemainGP, int nRemainLP, int nFlightLv,
+								float vMarkingPos_y, float vMarkingPos_z, int nRemainGP, int nRemainLP, 
+								//Custom DB
+								float fFastExpFactor, int nFastSpeedFactor,
+	
+								int nFlightLv,
 								int nFxp, int nTxp, char* szQuestCntArray, char szAuthority, DWORD dwMode,
 #if __VER >= 8 // __S8_PK
 								int nidparty, int nidMuerderer, int nFame,
@@ -5404,8 +5408,6 @@ void CDbManager::DBQryCharacter( char* qryCharacter, char* Gu, u_long idPlaeyr, 
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 								, char* m_aCheckedQuest
 #endif // __IMPROVE_QUEST_INTERFACE
-	//My custom additions.
-								, float m_fFastExpFactor, int m_nFastSpeedFactor
 								)
 {
 	sprintf( qryCharacter, "CHARACTER_STR '%s'", Gu );
@@ -5434,8 +5436,9 @@ void CDbManager::DBQryCharacter( char* qryCharacter, char* Gu, u_long idPlaeyr, 
 		nInt, nLevel, nExp1, (EXPINTEGER)0, szJobSkill, szLicenseSkill, aJobLv, dwExpertLv, nidMarkingWorld, vMarkingPos_x );
 	strncat( qryCharacter, strCharacter, sizeof(strCharacter) );
 	
-	sprintf( strCharacter, ",@im_vMarkingPos_y=%f,@im_vMarkingPos_z=%f,@im_nRemainGP=%d,@im_nRemainLP=%d,@im_nFlightLv=%d,@im_nFxp=%d,@im_nTxp=%d,@im_lpQuestCntArray='%s',@im_chAuthority='%c',@im_dwMode=%d",
-		vMarkingPos_y, vMarkingPos_z, nRemainGP, nRemainLP,	nFlightLv, nFxp, nTxp, szQuestCntArray, szAuthority, dwMode );
+	//CUSTOM DB ENTRIES IN THE MIDDLE HERE
+	sprintf( strCharacter, ",@im_vMarkingPos_y=%f,@im_vMarkingPos_z=%f,@im_nRemainGP=%d,@im_nRemainLP=%d,@im_fFastExpFactor=%f,@im_nFastSpeedFactor=%d,@im_nFlightLv=%d,@im_nFxp=%d,@im_nTxp=%d,@im_lpQuestCntArray='%s',@im_chAuthority='%c',@im_dwMode=%d",
+		vMarkingPos_y, vMarkingPos_z, nRemainGP, nRemainLP,	fFastExpFactor, nFastSpeedFactor, nFlightLv, nFxp, nTxp, szQuestCntArray, szAuthority, dwMode );
 	strncat( qryCharacter, strCharacter, sizeof(strCharacter) );
 
 #if __VER >= 8 // __S8_PK
@@ -5521,12 +5524,6 @@ void CDbManager::DBQryCharacter( char* qryCharacter, char* Gu, u_long idPlaeyr, 
 	sprintf( strCharacter, ",@im_aCheckedQuest='%s'", m_aCheckedQuest );
 	strncat( qryCharacter, strCharacter, sizeof(strCharacter) );
 #endif // __IMPROVE_QUEST_INTERFACE
-
-	// My custom new DB columns!
-	sprintf(strCharacter, ",@im_fFastExpFactor=%f", m_fFastExpFactor);
-	strncat(qryCharacter, strCharacter, sizeof(strCharacter));
-	sprintf(strCharacter, ",@im_nFastSpeedFactor=%d", m_nFastSpeedFactor);
-	strncat(qryCharacter, strCharacter, sizeof(strCharacter));
 
 	if( strlen(qryCharacter) > 40960 )
 	{

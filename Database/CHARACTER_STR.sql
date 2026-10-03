@@ -62,8 +62,8 @@ ALTER proc [dbo].[CHARACTER_STR]
 	@im_nRemainLP			INT						=	0,
 	-- CUSTOM ENTRIES
 	-- Custom DB columns
-	@im_fFastExpFactor float = 1.0,
-	@im_nFastSpeedFactor int = 0,
+	@im_fFastExpFactor REAL = 1.0,
+	@im_nFastSpeedFactor INT = 0,
 
 	@im_nFlightLv				INT						=	0,
 	@im_nFxp						INT						=	0,
